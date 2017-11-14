@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e1bb3e9f09ca7f5463228da4079b06ad2e771def
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Použít koncové body služby virtuální sítě a pravidla pro databázi SQL Azure
 
@@ -141,6 +141,9 @@ Pro databázi SQL Azure funkci pravidla virtuální sítě má následující om
 - Každý server Azure SQL Database může mít maximálně 128 položky seznamů ACL pro jakékoli dané virtuální síti.
 
 - Pravidla virtuální sítě se vztahují pouze k virtuálním sítím Azure Resource Manager; a nikoli k [modelu nasazení classic] [ arm-deployment-model-568f] sítě.
+
+- Zapnutí ON koncové body služby virtuální sítě do Azure SQL Database umožňuje také koncové body pro službu MySQL a PostGres Azure. Však s ON koncové body, se nezdaří pokusy o připojení k vaší instance databáze MySQL nebo Postgres z koncových bodů.
+    - Základní důvodem je skutečnost, že MySQL a PostGres funkce ACLing v současné době nepodporují.
 
 - V bráně firewall rozsahy IP adres se vztahují k následujícím položkám sítě, ale nepodporují pravidla pro virtuální sítě:
     - [Site-to-Site (S2S) virtuální privátní sítě (VPN)][vpn-gateway-indexmd-608y]

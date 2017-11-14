@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 5da47bf2f48b0f5df5f7fa19f1f626fbdca2b8db
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurovat nastavení ověřování Azure Multi-Factor Authentication – ve verzi Public preview
 
@@ -29,7 +29,7 @@ Tento článek usnadňuje správu ověřování Azure Multi-Factor Authenticatio
 
 | Funkce | Popis | 
 |:--- |:--- |
-| [Zablokovat nebo odblokovat uživatele](#block/unblock-users) |Zablokovat nebo odblokovat uživatele můžete zabránit uživatelům v přijetí žádosti o ověření. |
+| [Blokovat nebo odblokovat uživatele](#block-and-unblock) |Zablokovat nebo odblokovat uživatele můžete zabránit uživatelům v přijetí žádosti o ověření. |
 | [Upozornění na podvod](#fraud-alert) |Upozornění na podvod můžete nakonfigurovat a nastavit tak, aby vaši uživatelé mohou zasílat zprávy podvodné pokouší získat přístup k jejich prostředky. |
 | [Jednorázové přihlášení](#one-time-bypass) |Jednorázové přihlášení umožňuje uživateli jednorázově ověřit pomocí "obcházení" služby Multi-Factor authentication. |
 | [Vlastní hlasové zprávy](#custom-voice-messages) |Vlastní hlasové zprávy umožňují použít vlastní záznamy nebo pozdrav pomocí služby Multi-Factor authentication. |
@@ -39,7 +39,7 @@ Tento článek usnadňuje správu ověřování Azure Multi-Factor Authenticatio
 | [Zapamatovat Vícefaktorové ověřování na zapamatovaných zařízeních a prohlížeče](#remember-multi-factor-authentication-for-devices-that-users-trust) |Umožňuje mějte na paměti, zařízení pro sadu počet dnů po uživatel se úspěšně přihlásil pomocí vícefaktorového ověřování. |
 | [Volitelný ověření metody](#selectable-verification-methods) |Umožňuje výběr metod ověřování, které jsou k dispozici pro uživatelům používat. |
 
-## <a name="blockunblock-users"></a>Zablokovat nebo odblokovat uživatele
+## <a name="block-and-unblock"></a>Blokovat nebo odblokovat
 Zablokovat nebo odblokovat uživatele umožňuje uživatelům zabránit v přijetí žádosti o ověření. Jakékoli pokusy o ověření pro blokované uživatele budou automaticky odepřeny. Blokovaným uživatelům zůstane blokované pro 90 dnů od doby, jsou zablokované.
 
 ### <a name="block-a-user"></a>Blokování uživatele
@@ -70,7 +70,7 @@ Upozornění na podvod můžete nakonfigurovat a nastavit tak, aby vaši uživat
 
 ### <a name="configuration-options"></a>Možnosti konfigurace
 
-- **Blokování uživatele při nahlášení podvodu** – Pokud uživatel sestavy podvod, svůj účet je blokován.
+- **Blokování uživatele při nahlášení podvodu** – Pokud uživatel sestavy podvod, svůj účet zablokován 90 dní, nebo dokud správce odblokuje svého účtu. Správce může zkontrolovat přihlášení pomocí sestavy přihlášení a proveďte příslušné akce, aby se zabránilo budoucí podvod. Správce pak může [Odblokovat](#unblock-a-user) uživatelského účtu.
 - **Kód pro nahlášení podvodu při úvodním pozdravu** – když uživatelé obdrží telefonní hovor provést dvoustupňové ověření, že normálně stisknutím klávesy # potvrzení jejich přihlášení. Pokud chcete ohlásit podvod, jejich zadat kód ještě před stisknutím klávesy #. Tento kód je **0** ve výchozím nastavení, ale můžete jej upravit.
 
 > [!NOTE]
@@ -294,8 +294,8 @@ Když uživatelé zaregistrují svoje účty pro MFA, vybírá jejich metoda up�
 
 | Metoda | Popis |
 |:--- |:--- |
-| Telefonní hovor |Umístí automatický hlasový hovor. Uživatel přijme hovor a stiskem tlačítka # na klávesnici telefonu provede ověření. Toto telefonní číslo není synchronizován do místní služby Active Directory. |
-| Textová zpráva na telefon |Odešle textovou zprávu s ověřovacím kódem. Uživatel je vyzván k odpovědi na textovou zprávu s ověřovacím kódem a zadejte ověřovací kód do rozhraní přihlášení. |
+| Volání na telefon |Umístí automatický hlasový hovor. Uživatel přijme hovor a stiskem tlačítka # na klávesnici telefonu provede ověření. Toto telefonní číslo není synchronizován do místní služby Active Directory. |
+| Textové zprávy na telefon |Odešle textovou zprávu s ověřovacím kódem. Uživatel je vyzván k odpovědi na textovou zprávu s ověřovacím kódem a zadejte ověřovací kód do rozhraní přihlášení. |
 | Oznámení pomocí mobilních aplikací |Odešle nabízených oznámení do telefonu nebo zaregistrovaného zařízení. Zobrazení oznámení a vybere uživatele **ověřte** k dokončení ověření. <br>Je k dispozici pro aplikaci Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), a [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | Ověřovací kód z mobilní aplikace |Aplikace Microsoft Authenticator generuje každých 30 sekund nový ověřovací kód OATH. Tento ověřovací kód, uživatel zadá do rozhraní přihlášení.<br>Je k dispozici pro aplikaci Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), a [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 

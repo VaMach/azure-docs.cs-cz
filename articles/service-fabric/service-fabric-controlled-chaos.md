@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: motanv
-ms.openlocfilehash: dad286aaf93dae49ef07a358c03b4bb13a3326ef
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c78d9e77d807f3ccf8c1f56d856abad8135989c2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Vyvolat řízené Chaos v prostředí clusterů Service Fabric
 Ve velkém měřítku distribuovaných systémů, jako jsou ze své podstaty nespolehlivé cloudových infrastruktur. Azure Service Fabric umožňuje vývojářům psát spolehlivé distribuované služby nespolehlivé infrastruktuře. Zápis robustní distribuované služby nespolehlivé infrastruktuře, vývojáři potřeba otestovat stability svých služeb, při odpovídající nespolehlivé infrastruktury prochází přes přechodů mezi stavy složité z důvodu chyb.
@@ -71,8 +71,8 @@ Získat chyb, které Chaos vyvolané, můžete použít rozhraní API GetChaosRe
 * **ClusterHealthPolicy**: zásady stavu clusteru se používá k ověření stavu clusteru mezi Chaos iterací. Pokud stav clusteru došlo k chybě nebo pokud se stane neočekávané výjimce během zpracování chyby, budou Chaos Počkejte 30 minut před další-kontrolou stavu - poskytnout chvíli recuperate clusteru.
 * **Kontext**: kolekce (řetězec, řetězec) zadejte páry klíč hodnota. Mapy slouží k zaznamenání informací o Chaos spustit. Nemůže být více než 100 tyto dvojice a každý řetězec (klíč nebo hodnota) může mít maximálně povolených 4095 znaků dlouhé. Tato mapa je nastavena podle starter zmatku spustit, aby se volitelně ukládat kontext o konkrétní spustit.
 * **ChaosTargetFilter**: Tento filtr lze použít k cílové Chaos chyb pouze na určité typy uzlů nebo pouze na určité instance aplikace. Pokud se nepoužívá ChaosTargetFilter, Chaos závady všechny entity clusteru. Pokud se používá ChaosTargetFilter Chaos závady jenom entity, které splňují specifikace ChaosTargetFilter. NodeTypeInclusionList a ApplicationInclusionList povolit pouze union sémantiku. Jinými slovy není možné zadat průnik NodeTypeInclusionList a ApplicationInclusionList. Například není možné zadat "poruch tuto aplikaci, pouze pokud je na daný typ uzlu." Jakmile entity je součástí NodeTypeInclusionList nebo ApplicationInclusionList, nelze dané entity vyloučit pomocí ChaosTargetFilter. I v případě, že applicationX se nezobrazí v ApplicationInclusionList, v některých Chaos iteraci applicationX může být došlo k chybě protože Odehrává se na uzlu nodeTypeY, který je součástí NodeTypeInclusionList. Pokud NodeTypeInclusionList i ApplicationInclusionList jsou null nebo prázdný, je vyvolána ArgumentException.
-    * **NodeTypeInclusionList**: seznam typy uzlů, které chcete zahrnout do Chaos chyb. Všechny typy chyb (restartovat uzel, restartujte codepackage, odeberte repliky, restartujte repliky, přesunutí primární a sekundární) jsou povolené pro uzly z těchto typů uzlu. Pokud nodetype (vyslovení NodeTypeX) nejsou uvedené v NodeTypeInclusionList, pak uzlu úrovni chyb (např. NodeRestart) budou nikdy povolené pro uzly NodeTypeX, ale kód balíčku a repliky chyb lze povolit stále pro NodeTypeX, pokud aplikace v Jsou umístěny na uzlu NodeTypeX ApplicationInclusionList se stane. V tomto seznamu, tento počet zvýšit mohou obsahovat maximálně 100 názvy typu uzlu, se vyžaduje ke konfiguraci MaxNumberOfNodeTypesInChaosEntityFilter konfigurace upgradu.
-    * **ApplicationInclusionList**: seznam aplikací identifikátory URI pro zahrnutí do Chaos chyb. Všechny repliky, které patří do služby tyto aplikace se přenášejí pomocí Chaos repliky chyb (restartování replika, replika odebrat, přesunutí primární a sekundární přesunutí). Chaos restartovat balíček kódu jenom v případě, že balíček kódu je hostitelem repliky jenom tyto aplikace. Pokud aplikace v tomto seznamu nezobrazí, ho můžete stále být došlo k chybě v některé Chaos iteraci Pokud ukončení aplikace v uzlu typu uzlu, který je incuded v NodeTypeInclusionList. Ale pokud applicationX je vázaný na nodeTypeY prostřednictvím omezení umístění a applicationX chybí z ApplicationInclusionList a nodeTypeY chybí z NodeTypeInclusionList, pak applicationX nikdy selže. Maximálně 1000 názvy aplikací mohou být součástí tohoto seznamu, tento počet zvýšit, se vyžaduje ke konfiguraci MaxNumberOfApplicationsInChaosEntityFilter konfigurace upgradu.
+    * **NodeTypeInclusionList**: seznam typy uzlů, které chcete zahrnout do Chaos chyb. Všechny typy chyb (restartovat uzel, restartujte codepackage, odeberte repliky, restartujte repliky, přesunutí primární a sekundární) jsou povolené pro uzly z těchto typů uzlu. Pokud nodetype (vyslovení NodeTypeX) nejsou uvedené v NodeTypeInclusionList, pak uzlu úrovni chyb (např. NodeRestart) budou nikdy povolené pro uzly NodeTypeX, ale kód balíčku a repliky chyb lze povolit stále pro NodeTypeX, pokud aplikace v Jsou umístěny na uzlu NodeTypeX ApplicationInclusionList se stane. V tomto seznamu, tento počet zvýšit mohou obsahovat maximálně 100 názvy typu uzlu, se vyžaduje ke konfiguraci MaxNumberOfNodeTypesInChaosTargetFilter konfigurace upgradu.
+    * **ApplicationInclusionList**: seznam aplikací identifikátory URI pro zahrnutí do Chaos chyb. Všechny repliky, které patří do služby tyto aplikace se přenášejí pomocí Chaos repliky chyb (restartování replika, replika odebrat, přesunutí primární a sekundární přesunutí). Chaos restartovat balíček kódu jenom v případě, že balíček kódu je hostitelem repliky jenom tyto aplikace. Pokud aplikace v tomto seznamu nezobrazí, ho můžete stále být došlo k chybě v některé Chaos iteraci Pokud ukončení aplikace v uzlu typu uzlu, který je incuded v NodeTypeInclusionList. Ale pokud applicationX je vázaný na nodeTypeY prostřednictvím omezení umístění a applicationX chybí z ApplicationInclusionList a nodeTypeY chybí z NodeTypeInclusionList, pak applicationX nikdy selže. Maximálně 1000 názvy aplikací mohou být součástí tohoto seznamu, tento počet zvýšit, se vyžaduje ke konfiguraci MaxNumberOfApplicationsInChaosTargetFilter konfigurace upgradu.
 
 ## <a name="how-to-run-chaos"></a>Jak spustit Chaos
 
@@ -141,7 +141,7 @@ class Program
             };
 
             // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-            // for nodes of types 'N0040Ref' and 'N0010Ref'
+            // for nodes of type 'FrontEndType'
             var nodetypeInclusionList = new List<string> { "FrontEndType"};
 
             // In addition to the faults included by nodetypeInclusionList, 
@@ -274,7 +274,7 @@ $chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.Cha
 $chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
 
 # All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-# for nodes of types 'N0040Ref' and 'N0010Ref'
+# for nodes of type 'FrontEndType'
 $chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
 $chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
 
@@ -320,3 +320,4 @@ while($true)
     Start-Sleep -Seconds 1
 }
 ```
+Git 

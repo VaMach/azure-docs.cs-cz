@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 7b1ee6afc3cb3d55e2abd1bcf742610e7dcc92ea
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ca5f8e43b6667aa1c2e3ac38e7ea00b5bd86b72f
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Kopírovat data do nebo z Azure Table pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -187,7 +187,7 @@ Pokud sloupec tabulky Azure je typu datum a čas:
 
 ### <a name="azure-table-as-sink"></a>Tabulky Azure jako jímku
 
-Ke zkopírování dat z Azure Table, nastavte typ zdroje v aktivitě kopírování do **AzureTableSink**. Následující vlastnosti jsou podporovány v aktivitě kopírování **podřízený** části:
+Ke zkopírování dat do Azure Table, nastavte typ jímky v aktivitě kopírování do **AzureTableSink**. Následující vlastnosti jsou podporovány v aktivitě kopírování **podřízený** části:
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalace aktualizací 5 zařízení StorSimple
 
@@ -29,6 +29,7 @@ Tento kurz vysvětluje, jak nainstalovat aktualizace 5 na zařízení StorSimple
 Aktualizace 5 zahrnuje zařízení software, Storport a Spaceport, aktualizacemi zabezpečení operačního systému a aktualizace operačního systému a aktualizace firmwaru disku.  Software zařízení, Spaceport, Storport, zabezpečení a jiné aktualizace operačního systému jsou omezovaly aktualizace. Prostřednictvím portálu Azure nebo prostřednictvím metody opravu hotfix lze použít omezovaly nebo pravidelné aktualizace. Aktualizace firmwaru disku rušivý aktualizace a se použijí, když je zařízení v režimu údržby prostřednictvím oprav hotfix metodu, pomocí rozhraní Windows PowerShell zařízení.
 
 > [!IMPORTANT]
+> * Aktualizace 5 je povinná aktualizace a by měly být nainstalovány okamžitě. Další informace najdete v tématu [poznámky k verzi Update 5](storsimple-update5-release-notes.md).
 > * Sadu ruční a Automatická předběžné kontroly se provádějí před instalací, který měl zjistit stav zařízení z hlediska hardwaru stavu a připojení k síti. Tyto předběžné kontroly se provádí pouze v případě, že použít aktualizace z portálu Azure.
 > * Důrazně doporučujeme při aktualizaci zařízení se systémem verze starší než Update 3 se nainstalovat aktualizace pomocí metody oprav hotfix. Pokud narazíte na potíže, [protokolu lístek podpory](storsimple-8000-contact-microsoft-support.md).
 > * Doporučujeme nainstalovat software a další pravidelné aktualizace prostřednictvím portálu Azure. Má jenom přejděte na rozhraní prostředí Windows PowerShell na zařízení (instalovat aktualizace) Pokud selže kontrola před aktualizací brány na portálu. V závislosti na verzi, ze kterého je aktualizován, instalace aktualizací může trvat 4 hodiny (nebo vyšší) k instalaci. Aktualizace režimu údržby musí být nainstalován prostřednictvím rozhraní Windows PowerShell zařízení. Jako rušivý aktualizace jsou aktualizace režimu údržby, tyto vést k výpadkům pro vaše zařízení.

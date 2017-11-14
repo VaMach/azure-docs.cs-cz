@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: bb0d996b950a31e3eaaaa9d90a6b96617b58192f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 875c8c87f62ecf0e7459dfcec22089854ad95594
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="templates-for-azure-policy"></a>Šablony pro Azure zásad
 
-Následující tabulka obsahuje odkazy na šablony json Azure zásady.
+Následující tabulka obsahuje odkazy na šablony json Azure zásady. Tyto ukázky jsou součástí [úložiště zásad Azure ukázky](https://github.com/Azure/azure-policy).
 
 | | |
 |---|---|
 |**Compute**||
 | [Schválené Image virtuálních počítačů](scripts/allowed-custom-images.md) | Vyžaduje, aby jen schválení vlastní Image jsou nasazené ve vašem prostředí. Můžete určit pole schválené Image ID. |
-| [Vytvoření virtuálního počítače pomocí spravované disku](scripts/create-vm-managed-disk.md) | Audity při vytváření virtuálního počítače, který nepoužívá spravované disky.|
+| [Audit, když virtuální počítač nepoužívá spravované disku](scripts/create-vm-managed-disk.md) | Audity při vytváření virtuálního počítače, který nepoužívá spravované disky.|
 | [Audit Pokud rozšíření neexistuje.](scripts/audit-ext-not-exist.md) | Audity Pokud rozšíření není nasazena s virtuálním počítačem. Určete rozšíření vydavatele a typ, který chcete zkontrolovat, zda byl nasazen. |
 | [Povolit vlastní image virtuálního počítače ze skupiny prostředků](scripts/allow-custom-vm-image.md) |  Vyžaduje se, že vlastní Image pocházejí z skupiny schválené prostředků. Zadáte název skupiny prostředků schválené. |
 | [Výhody použití hybridní Odepřít](scripts/deny-hybrid-use.md) | Zakáže použití služby Azure hybridní použití zvýhodnění (AHUB). Použijte, pokud nechcete povolit použití místního licencí. |
@@ -39,6 +39,11 @@ Následující tabulka obsahuje odkazy na šablony json Azure zásady.
 | [Vytvoření virtuálního počítače pomocí spravované disku](scripts/use-managed-disk-vm.md) | Vyžaduje, že virtuální počítače používat spravované disky.|
 |**Monitorování**||
 | [Nastavení diagnostiky auditu](scripts/audit-diag-setting.md) | Audity případného nastavení diagnostiky není povolen pro typy prostředků. Můžete určit pole typů prostředků, zkontrolujte, zda je povoleno nastavení pro diagnostiku. |
+|**Název a text konvence**||
+| [Povolit více vzory názvů](scripts/allow-multiple-name-patterns.md) | Povolit jednu z mnoha vzory názvů, který se má použít pro prostředky. |
+| [Vyžadovat jako vzor](scripts/enforce-like-pattern.md) | Zajistěte, aby názvy prostředků splňují například podmínku pro vzor. |
+| [Vyžadovat vzor pro shodu](scripts/enforce-match-pattern.md) | Zajistěte, aby názvy prostředků shodují se vzorem názvů. |
+| [Vyžadovat vzor pro shodu značky](scripts/enforce-tag-match-pattern.md) | Zkontrolujte, zda hodnota značky odpovídá vzorku textu. |
 |**Síť**||
 | [Povolená SKU brány aplikace](scripts/allowed-app-gate-sku.md) | Vyžaduje, aby používal application Gateway schválené SKU. Zadáte pole schválené SKU. |
 | [Audit Pokud sledovací proces sítě není povolena pro oblast](scripts/net-watch-not-enabled.md) | Audity, pokud není u zadané oblasti povolena sledovací proces sítě. Zadáte název oblasti, zkontrolujte, zda je povoleno sledovací proces sítě. |

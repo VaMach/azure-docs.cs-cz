@@ -4,7 +4,7 @@ description: "Ukázková Data v systému SQL Server v Azure"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgeonlun
 editor: cgronlun
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fbd83ad59a9db1daca4ba16402031e2c1c5b7991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="heading"></a>Ukázková data v systému SQL Server v Azure
-Tento dokument ukazuje, jak ukázková data uložená v systému SQL Server na platformě Azure pomocí SQL nebo programovací jazyk Python. Také ukazuje, jak přesunout jen Vzorkovaná data do Azure Machine Learning ukládání do souboru, odesílání do objektu blob Azure a pak ho čtení do Azure Machine Learning Studio.
+Tento článek ukazuje, jak ukázková data uložená v systému SQL Server na platformě Azure pomocí SQL nebo programovací jazyk Python. Také ukazuje, jak přesunout jen Vzorkovaná data do Azure Machine Learning ukládání do souboru, odesílání do objektu blob Azure a pak ho čtení do Azure Machine Learning Studio.
 
 Používá Python vzorkování [pyodbc](https://code.google.com/p/pyodbc/) ODBC – knihovna pro připojení k systému SQL Server na platformě Azure a [Pandas](http://pandas.pydata.org/) knihovnu, která má odběr vzorků.
 
 > [!NOTE]
-> Ukázkový kód SQL v tomto dokumentu se předpokládá, že data jsou v systému SQL Server na platformě Azure. Pokud není, získáte informace [přesun dat do systému SQL Server na platformě Azure](move-sql-server-virtual-machine.md) tématu pokyny o tom, jak přesunout data do systému SQL Server v Azure.
+> Ukázkový kód SQL v tomto dokumentu se předpokládá, že data jsou v systému SQL Server na platformě Azure. Pokud není, podívejte se na [přesun dat do systému SQL Server na platformě Azure](move-sql-server-virtual-machine.md) článku pokyny, jak pro přesun dat do systému SQL Server na platformě Azure.
 > 
 > 
 
-Následující **nabídky** odkazy na témata, které popisují, jak ukázková data z různých prostředích úložiště. 
+Následující **nabídky** odkazy na články, které popisují, jak ukázková data z různých prostředích úložiště. 
 
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
@@ -42,7 +42,7 @@ Tato úloha vzorkování je krok v [tým datové vědy procesu (TDSP)](https://a
 ## <a name="SQL"></a>Pomocí SQL
 Tato část popisuje několik způsobů použití SQL k provedení prostý náhodný výběr proti data v databázi. Vyberte metodu na základě vaší velikost dat a jeho distribuci.
 
-Následující dvě položky ukazují, jak provádět vzorkuje pomocí newid v systému SQL Server. Metoda zvolíte závisí na tom, jak náhodné chcete vzorku, který má být (pk_id v ukázkovém kódu níže se předpokládá, že se automaticky vygeneruje primární klíč).
+Následující dvě položky ukazují, jak používat `newid` v systému SQL Server k provedení vzorkuje. Metoda zvolíte závisí na tom, jak náhodné chcete vzorku, který má být (pk_id v následujícím ukázkovém kódu se předpokládá, že se automaticky vygeneruje primární klíč).
 
 1. Méně přísná náhodného vzorku
    
@@ -53,7 +53,7 @@ Následující dvě položky ukazují, jak provádět vzorkuje pomocí newid v s
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Klauzule Tablesample může být použit pro vzorkování, stejně jako ukázáno níže. To může být lepším řešením, pokud (za předpokladu, že data na různých stránkách není korelační) má velká velikost dat a pro dotaz na dokončení v přiměřené době.
+Klauzule Tablesample lze použít pro vzorkování dat také. To může být lepším řešením, pokud (za předpokladu, že data na různých stránkách není korelační) má velká velikost dat a pro dotaz na dokončení v přiměřené době.
 
     SELECT *
     FROM <table_name> 
@@ -65,7 +65,7 @@ Klauzule Tablesample může být použit pro vzorkování, stejně jako ukázán
 > 
 
 ### <a name="sql-aml"></a>Připojení k Azure Machine Learning
-Ukázkové dotazy výše můžete použít přímo v Azure Machine Learning [importovat Data] [ import-data] modulu nižší – ukázka data za chodu a tím, že ji do experimentu Azure Machine Learning. Snímek obrazovky pomocí modulu reader číst jen Vzorkovaná data je zobrazena níže:
+Ukázkové dotazy výše můžete použít přímo v Azure Machine Learning [importovat Data] [ import-data] modulu nižší – ukázka data za chodu a tím, že ji do experimentu Azure Machine Learning. Snímek obrazovky pomocí modulu reader číst jen Vzorkovaná data je znázorněno zde:
 
 ![Čtečka sql][1]
 
@@ -112,12 +112,12 @@ Následující vzorový kód slouží k uložení dat vzorkovat dolů do souboru
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Čtení dat z Azure blob pomocí Azure Machine Learning [importovat Data] [ import-data] modulu, jak je znázorněno v okamžitými výsledky obrazovky níže:
+3. Čtení dat z Azure blob pomocí Azure Machine Learning [importovat Data] [ import-data] modulu, jak je znázorněno v následujícím okamžitými výsledky obrazovky:
 
 ![Čtečka objektů blob][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Proces Team dat. vědecké účely v příkladu akce
-Příklad začátku do konce návod procesu vědecké účely Team dat pomocí veřejné datové sady, najdete v tématu [proces vědecké účely Team dat v akci: pomocí SQL serveru](sql-walkthrough.md).
+Návod Příklad procesu vědecké účely Team dat pomocí veřejné datové sady, najdete v článku [proces vědecké účely Team dat v akci: pomocí SQL serveru](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

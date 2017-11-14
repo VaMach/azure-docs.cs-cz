@@ -1,8 +1,10 @@
-Pravidelně se budou vydávat aktualizace agenta Azure File Sync, které budou přidávat nové funkce a řešit případné nalezené problémy. Doporučujeme na webu Microsoft Update povolit získávání všech vydaných aktualizací agenta Azure File Sync. Přesto rozumíme požadavkům některých organizací na striktní kontrolu a testování aktualizací. Pro nasazení používající starší verze agenta Azure File Sync:
+Aktualizace agenta synchronizace souboru Azure budou vydány v pravidelných intervalech přidat další nové funkce a chcete-li vyřešit potíže, které byly zjištěny. Doporučujeme nakonfigurovat Microsoft Update a načíst všechny aktualizace agenta synchronizace souboru Azure jako vydáváme nich. Chápeme, že některé organizace jako výhradně řídit a otestovat aktualizace. 
 
-- Služba synchronizace úložiště bude podporovat předchozí hlavní verzi po dobu tří měsíců od prvotního vydání nové hlavní verze. Například verze 1.\* bude podporovaná službou synchronizace úložiště po dobu tří měsíců od vydání verze 2.\*.
-- Po uplynutí tří měsíců začne služba synchronizace úložiště pomocí skupin synchronizace blokovat synchronizaci registrovaných serverů používajících verzi, jejíž platnost vypršela.
-- Během těchto tří měsíců se všechny opravy chyb v předchozí hlavní verzi dostanou pouze do aktuální hlavní verze.
+Pro nasazení, které používají starší verze agenta synchronizace souboru Azure:
+
+- Synchronizační služba úložiště ctí předchozí hlavní verzi dobu tří měsíců po počáteční vydání nové hlavní verze. Synchronizační služba úložiště by například podporovat verze 1. \* až tři měsíců po vydání verze 2. \*.
+- Až po uplynutí tří měsíců, služby Sync úložiště začne blokovat registrované servery, které používají vypršela platnost verze ze synchronizace s jejich synchronizace skupiny.
+- V rámci tři měsíce pro předchozí hlavní verzi přejděte všechny opravy chyb jenom na aktuální hlavní verze.
 
 > [!Note]  
 > Pokud budete používat verzi služby Azure File Sync, jejíž platnost během následujících tří měsíců vyprší, upozorníme vás na to informační zprávou na webu Azure Portal.

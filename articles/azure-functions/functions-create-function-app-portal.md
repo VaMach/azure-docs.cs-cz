@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3e4eef12c1d19be6e0f1051caaa5cf2e98626aef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f9882ebc86b8119e6e683c7442ee3448a8d111b
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Vytvoření funkce aplikace z portálu Azure
 
@@ -40,7 +40,7 @@ Po vytvoření aplikace funkce vytvořením jednotlivých funkcí na jeden nebo 
 
 Azure Functions nabízí dva druhy různých služeb: plánování využívání a plán služby App Service. Plánu spotřeby automaticky přiděluje výpočetní výkon, pokud kód je spuštěný, měřítka na více systémů v případě potřeby zpracování zátěže, pak měřítka in a pokud kód není spuštěna. Plán služby App Service poskytuje vaší funkce aplikace přístup k veškeré prostředky služby App Service. Když je vytvořena funkce aplikace a nelze ji změnit, musíte zvolit plán služby. Další informace najdete v tématu [zvolte Azure Functions hostování plán](functions-scale.md).
 
-Pokud plánujete spouštět funkce jazyka JavaScript na plán služby App Service, měli byste vybrat plán s menším počtem jader. Další informace najdete v tématu [referenční dokumentace technologie JavaScript pro funkce](functions-reference-node.md#choose-single-core-app-service-plans).
+Pokud plánujete spouštět funkce jazyka JavaScript na plán služby App Service, měli byste vybrat plán s menším počtem jader. Další informace najdete v tématu [referenční dokumentace technologie JavaScript pro funkce](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 

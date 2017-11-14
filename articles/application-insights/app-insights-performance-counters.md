@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 26837a72dd4539cd5b32e5b49a127a714f3a1426
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 40821d32c5bdfe51bb3cb205660d6f25b2c3fadc
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Čítače výkonu systému ve službě Application Insights
 Systém Windows nabízí širokou škálu [čítače výkonu](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) například obsazení procesoru, paměti, disku a využití sítě. Můžete také definovat vlastní. [Application Insights](app-insights-overview.md) můžete zobrazit tyto čítače výkonu, pokud vaše aplikace běží v rámci služby IIS na místního hostitele nebo virtuální počítač, ke kterému mají přístup pro správu. Grafy znamenat prostředky k dispozici pro vaše živé aplikace a může pomoct identifikovat nevyváženou zatížení mezi instancemi serveru.
@@ -83,7 +83,6 @@ Pokud chcete shromáždit čítače výkonu systému a jejich odeslání do slu�
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
-
 Nebo můžete provést totéž s vlastní metriky, které jste vytvořili:
 
 ``` C#
@@ -115,6 +114,9 @@ Jako další telemetrií **čítače výkonu** také má sloupec `cloud_RoleInst
 
 * *Míra výjimka* je čítače výkonu systému. Modul CLR spočítá všechny zpracovávaný a neošetřené výjimky, které jsou vyvolány a součet vydělí v intervalu vzorkování prahovou hodnotou délku intervalu. Application Insights SDK shromažďuje tento výsledek a odešle ji do portálu.
 * *Výjimky* je počet přijatých portálu v intervalu vzorkování grafu TrackException sestavy. Obsahuje pouze zpracovávaný výjimky, kde jste napsali TrackException zavolá do vašeho kódu a neobsahuje všechny [neošetřené výjimky](app-insights-asp-net-exceptions.md). 
+
+## <a name="performance-counters-in-aspnet-core-applications"></a>Čítače výkonu v aplikacích Asp.Net Core
+Čítače výkonu jsou podporovány pouze v případě, že aplikace je cílení úplné rozhraní .NET Framework. Neexistuje žádné schopnost shromažďovat čítače výkonu pro .net základní aplikace.
 
 ## <a name="alerts"></a>Výstrahy
 Jako další metriky můžete [nastavit upozornění](app-insights-alerts.md) varovat, pokud čítače výkonu přejde mimo omezení zadáte. Otevřete okno Výstrahy a klikněte na tlačítko Přidat výstrahy.

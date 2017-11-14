@@ -1,6 +1,6 @@
 ---
 title: "Jak číst nebo zapisovat na oddíly dat v Azure Data Factory | Microsoft Docs"
-description: "Zjistěte, jak číst nebo zapisovat oddílů dat Azure Data Factory verze 2."
+description: "Zjistěte, jak číst nebo zapisovat oddílů dat v Azure Data Factory verze 2."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: ee83fce3eeef4bde6dc8e0ea6f17b40396619412
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2066847feb3dcdf36ead8901a679d8cae7a6acde
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Jak číst nebo zapisovat data v Azure Data Factory verze 2 rozdělena na oddíly
 Azure Data Factory v verze 1, podporované čtení nebo zápis oddílů dat pomocí SliceStart/SliceEnd/WindowStart/WindowEnd systémové proměnné. Ve verzi 2 můžete dosáhnout toto chování pomocí parametru kanálu a čas nebo naplánovaný čas spuštění aktivační události jako hodnotu parametru. 
@@ -38,19 +38,19 @@ Další informace o vlastnosti partitonedBy najdete v tématu [konektor Azure Bl
 
 V verze 2 je způsob, jak dosáhnout toto chování provést následující akce: 
 
-1. Definování **kanálu parametr** typu řetězec. V následujícím příkladu je název parametru kanálu **ScheduledRunTime**. 
-2. Nastavit **folderPath** v definici datové sady na hodnotu parametru kanálu pro jak je znázorněno v příkladu. 
+1. Definování **kanálu parametr** typu řetězec. V následujícím příkladu je název parametru kanálu **scheduledRunTime**. 
+2. Nastavit **folderPath** v definici datové sady na hodnotu parametru kanálu. 
 3. Před spuštěním kanálu předáte pevně zakódované hodnotu pro parametr. Nebo předejte aktivační událost počáteční čas nebo naplánovaném čase dynamicky za běhu. 
 
 ```json
 "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.ScheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
 },
 ```
 
 ## <a name="pass-in-value-from-a-trigger"></a>Předejte hodnotu z aktivační události
-V následující definici aktivace naplánovaném čase aktivační události je předán jako hodnotu pro parametr ScheduledRunTime kanál: 
+V následující definici aktivace naplánovaném čase aktivační události je předán jako hodnotu **scheduledRunTime** kanálu parametr: 
 
 ```json
 {
@@ -64,7 +64,7 @@ V následující definici aktivace naplánovaném čase aktivační události je
                 "referenceName": "MyPipeline"
             },
             "parameters": {
-                "ScheduledRunTime": "@trigger().scheduledTime"
+                "scheduledRunTime": "@trigger().scheduledTime"
             }
         }
     }
@@ -80,7 +80,7 @@ Zde je ukázka definice datové sady (která používá parametr s názvem: `dat
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.date, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.date, '%M'), '/dayno=', formatDateTime(pipeline().parameters.date, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
     },
     "format": {
@@ -134,15 +134,15 @@ Definice kanál:
                         "type": "Expression"
                     },
                     "Year": {
-                        "value": "@formatDateTime(pipeline().parameters.date, 'yyyy')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
                         "type": "Expression"
                     },
                     "Month": {
-                        "value": "@formatDateTime(pipeline().parameters.date, '%M')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
                         "type": "Expression"
                     },
                     "Day": {
-                        "value": "@formatDateTime(pipeline().parameters.date, '%d')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
                         "type": "Expression"
                     }
                 }
@@ -154,7 +154,7 @@ Definice kanál:
             "name": "HivePartitionGameLogs"
         }],
         "parameters": {
-            "date": {
+            "scheduledRunTime": {
                 "type": "String"
             },
             "blobStorageAccount": {

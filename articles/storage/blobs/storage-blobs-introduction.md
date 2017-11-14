@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: 7fe3db3d31dc7212c47a0f8dd48c86c98fb498c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6059ce809e7a8b2115e391d9db5b5b0a8626109e
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="introduction-to-blob-storage"></a>Úvod do úložiště objektů Blob
 
@@ -54,3 +54,5 @@ Služba Blob service obsahuje následující součásti:
 
 * [Vytvoření účtu úložiště](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Začínáme s úložištěm Blob pomocí rozhraní .NET](storage-dotnet-how-to-use-blobs.md)
+* [Ukázek Azure Storage pomocí rozhraní .NET](../common/storage-samples-dotnet.md)
+* [Ukázek Azure Storage používá Java](../common/storage-samples-java.md)

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 11/13/2017
 ms.author: larryfr
-ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Porty používané služby Hadoop v HDInsight
 
@@ -169,8 +169,8 @@ Příklady:
 | Služba | Uzly | Port | Protocol (Protokol) | Cesta adresy URL | Popis |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift servery |hlavních uzlech |10002 |Thrift | &nbsp; | Služba pro připojení k Spark SQL (Thrift/JDBC) |
-| Livy server | hlavních uzlech | 8998 | HTTP | /batches | Služba pro příkazy, úlohy a aplikace |
+| Livy server | hlavních uzlech | 8998 | HTTP | &nbsp; | Služba pro příkazy, úlohy a aplikace |
 
 Příklady:
 
-* Livy: `curl "http://10.0.0.11:8998/batches"`. V tomto příkladu `10.0.0.11` je IP adresa headnode, který je hostitelem služby Livy.
+* Livy: `curl -u admin -G "http://10.0.0.11:8998/"`. V tomto příkladu `10.0.0.11` je IP adresa headnode, který je hostitelem služby Livy.

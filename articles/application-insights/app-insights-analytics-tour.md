@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Prohlídka Analytics ve službě Application Insights
 [Analýza](app-insights-analytics.md) je výkonný vyhledávání funkcí [Application Insights](app-insights-overview.md). Tyto stránek popisují dotazovací jazyk analýzy protokolů.
@@ -54,7 +54,7 @@ Rozbalením libovolné položky zobrazíte podrobností:
 ![Vyberte tabulky a použití konfigurace sloupců](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Klikněte na hlavičku sloupce Chcete-li změnit pořadí výsledky, které jsou dostupné ve webovém prohlížeči. Ale uvědomte si, že pro sadu výsledků velký počet řádků, které jsou staženy do prohlížeče je omezená. Řazení tímto způsobem není vždy zobrazí můžete skutečné nejvyšší nebo nejnižší položky. Chcete-li řadit položky spolehlivě, použijte `top` nebo `sort` operátor.
+> Klikněte na záhlaví sloupce, chcete-li změnit pořadí výsledky, které jsou dostupné ve webovém prohlížeči. Ale uvědomte si, že pro sadu výsledků velký počet řádků, které jsou staženy do prohlížeče je omezená. Řazení tímto způsobem jednoduše Seřadí sadu výsledků dotazu vrácená a není vždy zobrazí skutečné nejvyšší nebo nejnižší položky. Chcete-li řadit položky spolehlivě, použijte `top` nebo `sort` operátor.
 >
 >
 
@@ -92,7 +92,7 @@ Zobrazte první n řádky, seřazené podle konkrétního sloupce:
 
 Výsledkem bude stejná, ale bude spuštěná trochu pomaleji. (Můžete také napsat `order`, což je zástupce `sort`.)
 
-Záhlaví sloupců v tabulce zobrazení lze také seřadit výsledky na obrazovce. Ale samozřejmě platí, pokud jste použili `take` nebo `top` načíst jenom část tabulky, můžete budete pouze změnit pořadí záznamy jste načíst.
+Záhlaví sloupců v tabulce zobrazení lze také seřadit výsledky na obrazovce. Ale samozřejmě platí, pokud jste použili `take` nebo `top` načíst jenom součást tabulky, kliknutím na záhlaví sloupce bude pouze změnit pořadí záznamy jste načíst.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Kde](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtrování na podmínce
 
@@ -115,8 +115,9 @@ Podíváme se, jenom požadavků, které vrátil kód konkrétní výsledku:
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>Získávání správný typ.
-Vyhledá neúspěšné požadavky:
+### <a name="find-unsuccessful-requests"></a>Najít neúspěšných požadavků
+
+Řetězcovou hodnotu převést na celé číslo větší používat-než porovnání:
 
 ```AIQL
 
@@ -240,7 +241,7 @@ Nebo výsledek jsme může oddělení do požadavků odlišné názvy:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`shromažďuje datových bodů v datovém proudu do skupin, pro kterou `by` klauzule vyhodnotí stejně. Každá hodnota v `by` výrazu - každý je název operace v předchozím příkladu - výsledkem řádek v tabulce výsledků.
+`Summarize`shromažďuje datových bodů v datovém proudu do skupin, pro kterou `by` klauzule vyhodnotí stejně. Každá hodnota v `by` výrazu - každý je název jedinečný operace v předchozím příkladu - výsledkem řádek v tabulce výsledků.
 
 Nebo jsme může seskupení výsledků podle denní dobu:
 

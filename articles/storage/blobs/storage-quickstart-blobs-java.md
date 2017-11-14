@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: b096b9d79c049d8659a4171a0cbb42a99e245776
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2a825e59093b64ab56110f9a045b0325728b39b2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Objekty přenosu do nebo z Azure Blob storage pomocí Java
 
@@ -85,19 +85,23 @@ Jakmile ověříte soubory, stiskněte klávesu enter a dokončit ukázku odstra
 
 ## <a name="understand-the-sample-code"></a>Pochopení ukázkový kód
 
+V dalším kroku jsme provede ukázkový kód tak, aby vám pochopit, jak to funguje.
+
+### <a name="get-references-to-the-storage-objects"></a>Získat odkazy na objekty úložiště
+
 První věc udělat, je vytvořit odkazy na objekty používané pro přístup k a spravovat úložiště objektů Blob. Tyto objekty sestavení na sobě navzájem--používá každý další jeden v seznamu.
 
 * Vytvoření instance **CloudStorageAccount** odkazující na objekt [účet úložiště](/java/api/com.microsoft.azure.management.storage._storage_account).
 
-**CloudStorageAccount** objektu je reprezentace účtu úložiště a umožňuje vám nastavit a přístup k vlastnosti účtu úložiště prostřednictvím kódu programu. Pomocí **CloudStorageAccount** vytvoříte instanci objektu **CloudBlobClient**, který je nezbytný k přístupu ke službě blob.
+    **CloudStorageAccount** objektu je reprezentace účtu úložiště a umožňuje vám nastavit a přístup k vlastnosti účtu úložiště prostřednictvím kódu programu. Pomocí **CloudStorageAccount** vytvoříte instanci objektu **CloudBlobClient**, který je nezbytný k přístupu ke službě blob.
 
 * Vytvoření instance **CloudBlobClient** objekt, který odkazuje na [služba objektů Blob](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client) ve vašem účtu úložiště.
 
-**CloudBlobClient** poskytuje bod přístup ke službě blob, který vám umožní nastavit a přístup k vlastnostem úložiště objektů blob prostřednictvím kódu programu. Pomocí **CloudBlobClient** můžete vytvořit instanci **CloudBlobContainer** objekt, což je potřebné k vytvoření kontejnerů.
+    **CloudBlobClient** poskytuje bod přístup ke službě blob, který vám umožní nastavit a přístup k vlastnostem úložiště objektů blob prostřednictvím kódu programu. Pomocí **CloudBlobClient** můžete vytvořit instanci **CloudBlobContainer** objekt, což je potřebné k vytvoření kontejnerů.
 
 * Vytvoření instance **CloudBlobContainer** objekt, který reprezentuje [kontejneru](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) se připojujete. Kontejnery se používají k uspořádání objektů BLOB, jako jsou použít složek ve vašem počítači k uspořádání souborů.    
 
-Jakmile máte **CloudBlobContainer**, můžete vytvořit instanci **CloudBlockBlob** objekt, který odkazuje na konkrétní [objektů blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) v která vás zajímá, a Proveďte odesílání, stahování, kopírování a operace atd.
+    Jakmile máte **CloudBlobContainer**, můžete vytvořit instanci **CloudBlockBlob** objekt, který odkazuje na konkrétní [objektů blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) v která vás zajímá, a Proveďte odesílání, stahování, kopírování a operace atd.
 
 > [!IMPORTANT]
 > Názvy kontejnerů musí být malé. V tématu [pojmenování a odkazování na kontejnerů, objektů BLOB a metadat](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) Další informace o názvech kontejnerů a objektů blob.

@@ -1,5 +1,5 @@
 ---
-title: "Spravovat vypršení platnosti webového obsahu v Azure CDN | Microsoft Docs"
+title: "Spravovat vypršení platnosti webového obsahu v síti pro doručování obsahu Azure | Microsoft Docs"
 description: "Zjistěte, jak spravovat platnost obsahu Azure webové aplikace nebo cloudové služby, ASP.NET nebo služby IIS v Azure CDN."
 services: cdn
 documentationcenter: .NET
@@ -12,34 +12,33 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: c207d780857a61d4b1fc0f39e6185cae67abc955
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d58a245923242b3963b188ca869e8290d999c0a2
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Spravovat konec platnosti obsahu Azure webové aplikace nebo cloudové služby, ASP.NET nebo služby IIS v Azure CDN
+# <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Spravovat vypršení platnosti webového obsahu v síti pro doručování obsahu Azure
+ v Azure CDN
 > [!div class="op_single_selector"]
 > * [Službě Azure Web Apps nebo cloudové služby, ASP.NET nebo služby IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Služba Azure blob Storage](cdn-manage-expiration-of-blob-content.md)
-> 
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Soubory z jakékoli veřejně přístupné původu webového serveru můžete v Azure CDN do mezipaměti, dokud uplynutí jeho time to live (TTL).  Hodnota TTL je dáno [ *Cache-Control* záhlaví](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) v odpovědi HTTP ze zdrojového serveru.  Tento článek popisuje, jak nastavit `Cache-Control` hlavičky pro webové aplikace Azure, Azure Cloud Services, aplikace a Internetová informační služba lokalit, které jsou nakonfigurované podobně.
+Soubory z jakékoli veřejně přístupné počátek webový server může do mezipaměti v Azure Content Delivery Network (CDN), dokud uplynutí jejich time to live (TTL). Hodnota TTL je dáno [ `Cache-Control` záhlaví](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) v odpovědi HTTP ze zdrojového serveru. Tento článek popisuje, jak nastavit `Cache-Control` hlavičky pro funkci webové aplikace Microsoft Azure App Service, Azure Cloud Services, aplikace ASP.NET a Internetová informační služba lokalit, které jsou nakonfigurované podobně.
 
 > [!TIP]
-> Můžete nastavit žádné TTL na soubor.  V takovém případě Azure CDN automaticky použije výchozí hodnotu TTL sedm dní.
+> Můžete nastavit žádné TTL na soubor. V takovém případě Azure CDN automaticky použije výchozí hodnotu TTL sedm dní.
 > 
-> Další informace o tom, jak funguje Azure CDN pro urychlení přístupu k souborům a dalším prostředkům, najdete v článku [přehled CDN Azure](cdn-overview.md).
-> 
+> Další informace o tom, jak funguje Azure CDN pro urychlení přístupu k souborům a dalším prostředkům najdete v tématu [přehled Azure Content Delivery Network](cdn-overview.md).
 > 
 
-## <a name="setting-cache-control-headers-in-configuration"></a>Nastavení hlavičky Cache-Control v konfiguraci
-Statický obsah, jako jsou bitové kopie a stylů, můžete řídit četnosti aktualizace úpravou **applicationHost.config** nebo **web.config** soubory pro vaši webovou aplikaci.  **System.webServer\staticContent\clientCache** nastaví element v konfiguračním souboru `Cache-Control` hlavičky pro obsah. Pro **web.config**, nastavení konfigurace ovlivní všechno, co ve složce a všechny podsložky, není-li přepsat na úrovni podsložky.  Můžete například nastavit výchozí čas to-live v kořenovém adresáři mít všechny statický obsah do mezipaměti pro 3 dny, ale mají do podsložky, která má více proměnné obsah s nastavení mezipaměti na 6 hodin.  Pro **applicationHost.config**, bude mít vliv na všechny aplikace na webu, ale mohou být přepsána nastaveními v **web.config** soubory v aplikacích.
+## <a name="setting-cache-control-headers-in-configuration-files"></a>Hlavičky Cache-Control nastavení v konfiguračních souborech
+Statický obsah, jako jsou bitové kopie a stylů, můžete řídit četnosti aktualizace úpravou **applicationHost.config** nebo **web.config** soubory pro vaši webovou aplikaci. **System.webServer\staticContent\clientCache** element v souboru sady configuration `Cache-Control` hlavičky pro obsah. Pro **web.config** soubory, nastavení konfigurace ovlivnit všechno, co ve složce a jejích podsložkách přepsána na úrovni podsložky. Můžete například nastavit výchozí hodnotu TTL nastavení v kořenové složce pro ukládání do mezipaměti všechny statický obsah tři dny a nastavte podsložku s více proměnné obsah do mezipaměti jeho obsah jenom po dobu šesti hodin. I když **applicationHost.config** soubor nastavení ovlivní všechny aplikace v lokalitě, jsou nastavení jakékoli existující přepsána **web.config** soubory v aplikacích.
 
-Následující kód XML znázorňuje příklad nastavení **clientCache** zadat maximální stáří 3 dny:  
+Následující příklad XML ukazuje, jak nastavit **clientCache** zadat maximální stáří tří dnů:  
 
 ```xml
 <configuration>
@@ -51,14 +50,19 @@ Následující kód XML znázorňuje příklad nastavení **clientCache** zadat 
 </configuration>
 ```
 
-Určení **UseMaxAge** přidá `Cache-Control: max-age=<nnn>` hlavičky odpovědi na základě hodnoty zadané v **CacheControlMaxAge** atribut. Není ve formátu časový interval pro **cacheControlMaxAge** atribut je <days>.<hours>:<min>:<sec>. Další informace o **clientCache** uzlu, najdete v části [mezipaměti klienta <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Určení **UseMaxAge** způsobí, že `Cache-Control: max-age=<nnn>` záhlaví, který se má přidat do odpovědi na základě hodnoty zadané v **CacheControlMaxAge** atribut. Formát časový interval pro **cacheControlMaxAge** atribut je `<days>.<hours>:<min>:<sec>`. Další informace o **clientCache** uzlu, najdete v části [mezipaměti klienta <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-in-code"></a>Nastavení hlavičky Cache-Control v kódu
-Pro aplikace ASP.NET, můžete nastavit CDN chování ukládání do mezipaměti prostřednictvím kódu programu nastavením **HttpResponse.Cache** vlastnost. Další informace o **HttpResponse.Cache** vlastnost, najdete v části [HttpResponse.Cache vlastnost](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) a [HttpCachePolicy třída](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+Pro aplikace ASP.NET, můžete řídit chování ukládání do mezipaměti prostřednictvím kódu programu nastavením CDN **HttpResponse.Cache** vlastnost. Další informace o **HttpResponse.Cache** vlastnost, najdete v části [HttpResponse.Cache vlastnost](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) a [HttpCachePolicy třída](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
 
-Pokud chcete prostřednictvím kódu programu obsah mezipaměti aplikace technologie ASP.NET, ujistěte se, že obsah je označen jako Uložitelný nastavením HttpCacheability na *veřejné*. Také ověřte, zda validátor mezipaměti. Validátor mezipaměti může být poslední změny nastavit časové razítko nastavit, že zavoláte SetLastModified nebo hodnotu etag voláním SetETag. V případě potřeby můžete také nastavit dobu platnosti mezipaměti voláním SetExpires, nebo můžete spoléhat na výchozí mezipaměti heuristické metody popsané výše v tomto dokumentu.  
+Prostřednictvím kódu programu obsah do mezipaměti aplikace technologie ASP.NET postupujte takto:
+   1. Ověřte, že obsah je označen jako Uložitelný nastavením `HttpCacheability` k *veřejné*. 
+   2. Nastavte validátor mezipaměti voláním jednu z následujících metod:
+      - Volání `SetLastModified` nastavit časové razítko změněno.
+      - Volání `SetETag` nastavit `ETag` hodnotu.
+   3. Volitelně můžete nastavit dobu platnosti mezipaměti voláním `SetExpires`. Jinak platí výchozí mezipaměti heuristické metody popsané v tomto dokumentu.
 
-Například do mezipaměti obsah pro jednu hodinu, přidejte následující příkaz:  
+Například do mezipaměti obsah pro jednu hodinu, přidejte následující kód C#:  
 
 ```csharp
 // Set the caching parameters.

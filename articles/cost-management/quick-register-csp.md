@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 11/13/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Zaregistrovat se program pro partnery zprostředkovatele kryptografických služeb a náklady dat zobrazení
 
@@ -22,7 +22,13 @@ Jako partner zprostředkovatele kryptografických služeb můžete zaregistrovat
 
 
 >[!NOTE]
->K dokončení registrace, musí být správcem partnera program přístup k rozhraní API Center partnera. Konfigurace rozhraní API partnera Center je nutná pro ověřování a přístup k datům. Další informace najdete v tématu [připojit k rozhraní API Center partnera](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Kromě toho nepřímých CSP uživatelů lze použít pouze Cloudyn při jejich přímé prodejce CSP zaregistruje se Cloudyn pro poskytnutí přístupu k jejich zákazníků a předplatných.
+
+>Cloudyn registraci může dokončit jenom CSP přímé partnery a nepřímé poskytovatelé CSP.
+>
+>Konfigurace rozhraní API Center partnera je požadované pro ověřování a přístup k datům. Účet globálního správce partnera Center je potřeba k zajišťují přístup k rozhraní API.
+Další informace najdete v tématu [připojit k rozhraní API Center partnera](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+>Přístup k Cloudyn můžete přístupná nepřímých prodejce CSP po jejich nepřímých poskytovatele CSP zaregistruje se Cloudyn. Nepřímý prodejce CSP jim pak můžou Cloudyn přístup k Azure zákazníků a předplatných.
 
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 

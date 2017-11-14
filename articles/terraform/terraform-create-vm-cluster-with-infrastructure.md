@@ -7,13 +7,13 @@ manager: routlaw
 ms.service: virtual-machines-linux
 ms.custom: devops
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/13/2017
 ms.author: tarcher
-ms.openlocfilehash: 859c0a2f2cf315e9168ed9828061c03da6b8e0a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Vytvoření clusteru s podporou virtuálních počítačů s Terraform a kompatibilního hardwaru
 
@@ -35,7 +35,7 @@ V tomto kurzu jste:
 
 V této části můžete generovat služby Azure hlavní a dva soubory Terraform konfigurace obsahující pověření z objektu zabezpečení.
 
-1. [Nastavení služby Azure AD instanční objekt](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) umožňující Terraform zřídit prostředky do Azure. Při vytváření objektu zabezpečení, poznamenejte si hodnoty pro ID předplatného, ID klienta, displayName a heslo.
+1. [Nastavení služby Azure AD instanční objekt](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) umožňující Terraform zřídit prostředky do Azure. Při vytváření objektu zabezpečení, poznamenejte si hodnoty pro ID předplatného, klienty, appId a heslo.
 
 2. Otevřete příkazový řádek.
 
@@ -236,7 +236,7 @@ K chybě při inicializaci Terraform, spusťte následující příkaz:
 
 [Terraform plán příkaz](https://www.terraform.io/docs/commands/plan.html) se používá k vytvoření plánu provádění. Generovat plán spuštění, Terraform slučuje všechny `.tf` soubory v aktuálním adresáři. 
 
-Pokud pracujete v prostředí spolupráce, kde mohou změnit konfiguraci mezi časem vytvoříte plán spuštění a čas použít plán spuštění, měli byste použít [příkaz plán terraform-vnější parametr](https://www.terraform.io/docs/commands/plan.html#out-path)a výstupní plán spuštění do souboru. Jinak, pokud pracujete v prostředí s jednou osobou, můžete vynechat `-out` parametr.
+Pokud pracujete v prostředí spolupráce, kde mohou změnit konfiguraci mezi časem vytvoříte plán spuštění a čas použít plán spuštění, měli byste použít [příkaz plán terraform-vnější parametr](https://www.terraform.io/docs/commands/plan.html#out-path)plán spuštění uložit do souboru. Jinak, pokud pracujete v prostředí s jednou osobou, můžete vynechat `-out` parametr.
 
 Pokud není název souboru proměnné Terraform `terraform.tfvars` a nemá postupujte podle pokynů `*.auto.tfvars` vzor, je třeba zadat název souboru pomocí [parametr - var-souboru terraform plán příkaz](https://www.terraform.io/docs/commands/plan.html#var-file-foo) při spuštění `terraform plan`příkaz.
 

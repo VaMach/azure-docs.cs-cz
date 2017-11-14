@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 35dd3c6be2fb2fa5ec4d14eefce1c16005210364
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: b041244b28d76de4bac2822c115482e31d073a22
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurace programu Sledování výkonu sítě pro ExpressRoute (Preview)
 
@@ -39,21 +39,27 @@ Můžete:
 
 * Zobrazit stav systému ExpressRoute z předchozího bodu v čase
 
-**Jak to funguje?**
+## <a name="regions"></a>Podporované oblasti
+
+Okruhy ExpressRoute na celém světě můžete monitorovat pomocí pracovního prostoru, který je hostován v jednom z následujících oblastí:
+
+* Západní Evropa 
+* Východ USA 
+* Jihovýchodní Asie 
+
+## <a name="workflow"></a>Pracovní postup
 
 Monitorovací agenty jsou nainstalovány na více serverech, jak místně a v Azure. Agenti vzájemně komunikovat, ale neodesílají data, odesílání paketů TCP metody handshake. Komunikace mezi agenty umožňuje Azure k mapování síťové topologie a cestu, kterou může trvat provoz.
 
-**Pracovní postup**
-
-1. Vytvořte pracovní prostor služby NPM v oblasti západní centrální USA. Toto je aktuálně jenom oblasti, kde je tato verze Preview podporováno.
+1. Vytvořit pracovní prostor služby NPM do jedné z [podporované oblasti](#regions).
 2. Instalace a konfigurace agentů softwaru: 
     * Nainstalujte monitorování agenty na místní servery a virtuální počítače Azure.
     * Nakonfigurujte nastavení na serveru agenta monitorování umožňující monitorovací agenty ke komunikaci. (Otevřít porty brány firewall, atd.)
 3. Konfigurace skupiny (NSG) pravidla zabezpečení sítě umožňuje monitorování agent nainstalovaný na virtuálních počítačích Azure ke komunikaci s místní monitorování agentů.
-4. Požadavek na seznam povolených adres pracovního prostoru NPM
+4. Požadavek na seznam povolených adres pracovního prostoru NPM.
 5. Nastavení monitorování: automaticky zjistit a spravovat, které sítě jsou viditelné v NPM.
 
-Pokud už používáte nástroj Sledování výkonu sítě k monitorování jiných objektů nebo služeb a už máte pracovní prostor v – Západ střední USA, můžete přeskočit krok 1 a 2 krok a zahájit konfiguraci kroku 3.
+Pokud už používáte nástroj Sledování výkonu sítě k monitorování jiných objektů nebo služeb a už máte pracovní prostor v jednom z podporovaných oblastí, můžete přeskočit krok 1 a 2 krok a zahájit konfiguraci kroku 3.
 
 ## <a name="configure"></a>Krok 1: Vytvoření pracovního prostoru
 
@@ -66,7 +72,7 @@ Pokud už používáte nástroj Sledování výkonu sítě k monitorování jin�
   * Pracovní prostor OMS – zadejte název pracovního prostoru.
   * Předplatné – Pokud máte více předplatných, vyberte ten, který chcete přidružit nový pracovní prostor.
   * Skupiny prostředků – vytvořte skupinu prostředků, nebo použijte existující.
-  * Umístění – je nutné vybrat – Západ střední USA pro tuto verzi Preview
+  * Umístění –, je nutné vybrat [podporované oblasti](#regions).
   * Cenová úroveň - vyberte 'volné.
 
   ![Pracovní prostor](.\media\how-to-npm\4.png)<br><br>

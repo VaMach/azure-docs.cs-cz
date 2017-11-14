@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/11/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 0bb79929a431a81c1618e09ee76fcb8415480655
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory podmíněného přístupu technické reference
 
@@ -119,20 +119,19 @@ Pokud budete konfigurovat zásadu podmíněného přístupu, můžete [vyberte k
 Zásady podmíněného přístupu podporuje následující prohlížeče: 
 
 
-| Operační systém                     | Prohlížeče                    | Podpora     |
-| :--                    | :--                         | :-:         |
-| Windows 10             | Internet Explorer a okraje     | ![Zaškrtnout][1] |
-| Windows 10             | Chrome                      | ![Zaškrtnout][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome   | ![Zaškrtnout][1] |
-| Windows 7              | Internet Explorer, Chrome   | ![Zaškrtnout][1] |
-| iOS                    | Safari, Intune Managed Browser                      | ![Zaškrtnout][1] |
-| Android                | Chrome, Intune Managed Browser                      | ![Zaškrtnout][1] |
-| telefon se systémem Windows          | Internet Explorer a okraje     | ![Zaškrtnout][1] |
-| Windows Server 2016    | Internet Explorer a okraje     | ![Zaškrtnout][1] |
-| Windows Server 2016    | Chrome                      | Již brzy |
-| Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Zaškrtnout][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Zaškrtnout][1] |
-| macOS                  | Chrome, Safari              | ![Zaškrtnout][1] |
+| Operační systém                     | Prohlížeče                            | Podpora     |
+| :--                    | :--                                 | :-:         |
+| Windows 10             | Internet Explorer, okraji a pro Chrome     | ![Zaškrtnout][1] |
+| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Zaškrtnout][1] |
+| Windows 7              | Internet Explorer, Chrome           | ![Zaškrtnout][1] |
+| iOS                    | Safari, Intune Managed Browser      | ![Zaškrtnout][1] |
+| Android                | Chrome, Intune Managed Browser      | ![Zaškrtnout][1] |
+| telefon se systémem Windows          | Internet Explorer a okraje             | ![Zaškrtnout][1] |
+| Windows Server 2016    | Internet Explorer a okraje             | ![Zaškrtnout][1] |
+| Windows Server 2016    | Chrome                              | Již brzy |
+| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Zaškrtnout][1] |
+| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Zaškrtnout][1] |
+| macOS                  | Chrome, Safari                      | ![Zaškrtnout][1] |
 
 
 > [!NOTE]

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
-ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalace a konfigurace rozhraní příkazového řádku pro použití s Azure zásobníku
 
@@ -204,6 +204,15 @@ az group create \
 Pokud skupina prostředků je úspěšně vytvořil, předchozí příkaz výstupy následující vlastnosti nově vytvořeného prostředku:
 
 ![Vytvoření skupiny prostředků výstup](media/azure-stack-connect-cli/image1.png)
+
+## <a name="known-issues"></a>Známé problémy
+Existují některé známé problémy, které je potřeba vědět, když pomocí rozhraní příkazového řádku v zásobníku Azure:
+
+* Jednofaktorovému interaktivním režimu rozhraní příkazového řádku `az interactive` příkaz není dosud podporován v zásobníku Azure.
+* Seznam dostupných v zásobníku Azure bitové kopie virtuálních počítačů, použijte `az vm images list --all` příkaz místo `az vm image list` příkaz. Určení `--all` možnost zajišťuje, že odpovědi vrátí pouze obrázky, které jsou k dispozici ve vašem prostředí Azure zásobníku. 
+* Aliasy bitové kopie virtuálního počítače, které jsou k dispozici v Azure nemusí být k dispozici do protokolů Azure. Pokud pomocí bitové kopie virtuálních počítačů, je nutné použít parametr celý název URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) namísto alias bitové kopie. Tento název URN musí odpovídat specifikace bitové kopie, odvozené z `az vm images list` příkaz.
+* Ve výchozím nastavení používá rozhraní příkazového řádku 2.0 "Standard_DS1_v2" jako výchozí velikost bitové kopie virtuálního počítače. Ale ještě tato velikost není k dispozici v Azure zásobníku, takže budete muset zadat `--size` parametr explicitně při vytváření virtuálního počítače. Můžete získat seznam velikostí virtuálních počítačů, které jsou k dispozici v zásobníku Azure pomocí `az vm list-sizes --location <locationName>` příkaz.
+
 
 ## <a name="next-steps"></a>Další kroky
 

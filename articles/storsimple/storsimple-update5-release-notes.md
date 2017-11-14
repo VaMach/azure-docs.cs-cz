@@ -4,7 +4,7 @@ description: "Popisuje nové funkce, problémy a řešení pro zařízení StorS
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Poznámky k verzi zařízení StorSimple 8000 řady aktualizací 5
 
@@ -31,6 +31,7 @@ Aktualizace 5 můžete použít pro všechna zařízení StorSimple Update 0.1 s
 Zkontrolujte informace obsažené v poznámkách k verzi před nasazením aktualizace v řešení StorSimple.
 
 > [!IMPORTANT]
+> * Aktualizace 5 je povinná aktualizace a musí být nainstalován okamžitě. Další informace najdete v tématu Jak [použít aktualizaci 5](storsimple-8000-install-update-5.md).
 > * Aktualizace 5 má zařízení softwaru, firmwaru disku, zabezpečení operačního systému a další aktualizace operačního systému. Jak dlouho trvá přibližně 4 hodiny nainstalovat tuto aktualizaci. Aktualizace firmwaru disku je rušivý aktualizace a výsledkem výpadku pro vaše zařízení. Doporučujeme, abyste použili aktualizaci 5 k zachování aktualizovaného stavu zařízení.
 > * Pro nové verze, nemusí zobrazit aktualizace okamžitě, protože provedeme postupné zavádění aktualizací. Počkejte několik dní, a pak vyhledejte aktualizace znovu jako tyto aktualizace brzy bude dostupná.
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b91c75ec73a8b47a67241e3b69c2ed68d5f9b2a
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: Přihlaste se pomocí účtů služby Azure AD
 
@@ -52,6 +52,9 @@ Chcete-li povolit přihlášení pro uživatele z konkrétní organizace Azure A
 1. Zadejte název pro vaši aplikaci (například `Azure AD B2C App`).
 1. Vyberte **webovou aplikaci nebo API** pro typ aplikace.
 1. Pro **přihlašovací adresa URL**, zadejte následující adresu URL, kde `yourtenant` je nahrazena název vašeho klienta Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+
+    >[!NOTE]
+    >Hodnota pro "yourtenant" musí být psaný malými písmeny v **přihlašovací adresa URL**.
 
     ```
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp

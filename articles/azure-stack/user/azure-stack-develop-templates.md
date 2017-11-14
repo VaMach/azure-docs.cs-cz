@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: helaw
-ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Aspekty šablon Azure Resource Manager
 
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
 Když budete vyvíjet aplikace, je důležité zajistit šablony přenositelnost mezi Azure a Azure zásobníku.  Toto téma obsahuje důležité informace týkající se vývoje Azure Resource Manager [šablony](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), tak, aby se prototypu nasazení vaší aplikace a testování v Azure bez přístupu do prostředí Azure zásobníku.
+
+## <a name="resource-provider-availability"></a>Dostupnost zprostředkovatele prostředků
+Šablony, která máte v úmyslu nasadit musí používat službu Microsoft Azure, která je již k dispozici nebo ve verzi preview v zásobníku Azure.
 
 ## <a name="public-namespaces"></a>Veřejné obory názvů
 Protože zásobník Azure je hostované ve vašem datovém centru, má jinou službu, pro koncový bod obory názvů než veřejného cloudu Azure. V důsledku toho pevně zakódované veřejné koncové body v šablonách Resource Manageru selhání při pokusu o jejich nasazení do Azure zásobníku. Místo toho můžete použít *odkaz* a *řetězení* funkce, která se dynamicky sestavení koncový bod služby založené na hodnotách načíst od zprostředkovatele prostředků během nasazení. Například místo zadání *blob.core.windows.net* v šabloně, načíst [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dynamicky nastavit *osDisk.URI* koncový bod:
@@ -73,7 +76,6 @@ Během vytváření šablony, některé funkce nejsou k dispozici v Azure zásob
       }
     }
     ]
-
 
 ## <a name="next-steps"></a>Další kroky
 * [Nasazení šablon pomocí PowerShellu](azure-stack-deploy-template-powershell.md)

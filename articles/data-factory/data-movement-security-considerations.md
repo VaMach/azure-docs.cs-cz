@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
-ms.openlocfilehash: 61ccae3c77533037de1d8d8e3963d7beb3e07a65
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: bba2781d43aff9e462246cfe21961695e48196d8
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - důležité informace o zabezpečení pro přesun dat
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ Tento článek popisuje základní zabezpečení infrastrukturu, která pomocí 
 
 V řešení Data Factory vytváříte jeden nebo více datových [kanálů](concepts-pipelines-activities.md). Kanál je logické seskupení aktivit, které dohromady provádějí určitou úlohu. Tyto kanály nacházet v oblasti, kde byl vytvořen služby data factory. 
 
-I když objekt pro vytváření dat je k dispozici v pouze **východní USA** a **východní USA 2** oblast (preview verze 2), služba pro přesun dat je k dispozici [globálně v několika oblastech](concepts-integration-runtime.md#azure-ir). Pokud ještě není nasazený služba pro přesun dat do této oblasti, služba Data Factory zajistí data nesmí zůstat zeměpisná oblast nebo oblasti Pokud dáte pokyn explicitně službu na používání alternativního oblast. 
+I když objekt pro vytváření dat je k dispozici v pouze **východní USA**, **východní USA 2**, a **západní Evropa** oblasti (preview verze 2), služba pro přesun dat je k dispozici [globálně v několika oblastech](concepts-integration-runtime.md#azure-ir). Pokud ještě není nasazený služba pro přesun dat do této oblasti, služba Data Factory zajistí data nesmí zůstat zeměpisná oblast nebo oblasti Pokud dáte pokyn explicitně službu na používání alternativního oblast. 
 
 Azure Data Factory, samotné neukládá všechna data s výjimkou pověření propojené služby pro cloudové úložiště dat, které jsou zašifrované pomocí certifikátů. Umožňuje vytvářet pracovní postupy řízené daty k orchestraci přesouvání dat mezi [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats) a zpracování dat pomocí [výpočetních služeb](compute-linked-services.md) v jiných oblastech nebo v místním prostředí. Umožňuje také můžete monitorovat a spravovat pracovní postupy pomocí sady SDK a monitorování Azure.
 
