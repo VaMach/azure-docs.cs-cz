@@ -19,7 +19,7 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-## Registrace aplikace pomocí tenanta AD
+## <a name="register-your-application-with-your-ad-tenant"></a>Registrace aplikace pomocí tenanta AD
 Nejdřív si musíte zaregistrovat svoji aplikaci v tenantovi Azure Active Directory (Azure AD). Pro svou aplikaci tak získáte ID a umožníte jí přijímat tokeny.
 
 * Přihlaste se k [portálu Azure](https://portal.azure.com).

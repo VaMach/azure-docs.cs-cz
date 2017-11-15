@@ -20,12 +20,12 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# Azure hybridní připojení předávací protokol
+# <a name="azure-relay-hybrid-connections-protocol"></a>Azure hybridní připojení předávací protokol
 Předávání přes Azure je jedním z klíčů schopností pilíře na platformě Azure Service Bus. Nové *hybridní připojení* funkce předávání je zabezpečený, otevřete protokol evolution na základě protokolu HTTP a objekty WebSockets. Nahrazuje dřívějším, stejně s názvem *BizTalk Services* funkce, který byl postavený na vlastnickým protokolem foundation. Integrace hybridní připojení do Azure App Services budou nadále fungovat jako-je.
 
 Hybridní připojení umožňuje obousměrnou, binární datový proud komunikaci mezi dvěma síťových aplikací, během které může být buď nebo obou stran umístěn za zařízení NAT nebo brány firewall. Tento článek popisuje interakce na straně klienta s předávání hybridní připojení pro připojení klientů v naslouchací proces a odesílatele rolí a jak naslouchací procesy přijímat nová připojení.
 
-## Interakce modelu
+## <a name="interaction-model"></a>Interakce modelu
 Předávání hybridní připojení dvě strany připojí tím, že poskytuje bod potkávací v cloudu Azure, která obě strany můžete zjistit a připojte se k z hlediska vlastní síť. Tento bod potkávací se nazývá "Hybridní připojení" v tomto a dalších dokumentaci rozhraní API a také na portálu Azure. Koncový bod služby hybridní připojení se označuje jako "služba" pro zbývající část tohoto článku. Model interakce leans na klasifikace vymezenému mnoho jiná síťová rozhraní API.
 
 Je naslouchací proces, který nejprve znamená připravenosti pro zpracování příchozí připojení a následně je přijímá po doručení. Na druhé straně se připojujícího klienta, který se připojuje ke naslouchací proces, očekává se toto připojení pro navázání obousměrné komunikační cestu.
@@ -35,46 +35,46 @@ Všechny přenosu komunikační model má buď strany odchozí připojení ke ko
 
 Programy na obou stranách připojení se nazývají "klienty,", vzhledem k tomu, že jsou klienti ke službě. Klienta, která čeká na a přijímá připojení je "naslouchací proces", nebo je uvedená v "naslouchací proces role." Klienta, který iniciuje nové připojení směrem naslouchací proces prostřednictvím služby se označuje jako "sender", nebo je v "odesílatele role."
 
-### Naslouchací proces interakce
+### <a name="listener-interactions"></a>Naslouchací proces interakce
 Naslouchací proces má čtyři interakce s službu; všechny podrobnosti přenosová jsou popsané dále v tomto článku v části odkaz.
 
-#### Naslouchání
+#### <a name="listen"></a>Naslouchání
 K označení připravenosti služby, který naslouchací proces je připraven přijmout připojení, vytvoří odchozí připojení protokolu WebSocket. Metoda handshake připojení stejný název hybridní připojení nakonfigurovaná na obor názvů předávání a token zabezpečení, která uděluje "Naslouchání" přímo na tento název.
 Když protokol WebSocket je přijatá službou, registrace je dokončena a zavedených webového protokolu WebSocket se ukládají jako "řídicí kanál" pro povolení všechny následné interakce zachování připojení. Služba umožňuje až pro 25 souběžných moduly pro naslouchání na hybridní připojení. Pokud existují dvě nebo více active naslouchací procesy, jsou mezi nimi rozložit příchozí připojení v náhodném pořadí; správného distribuční není zaručena.
 
-#### Přijmout
+#### <a name="accept"></a>Přijmout
 Když odesílatele otevře nové připojení na službu, službu vybere a upozorní jednu aktivní naslouchacího procesu na hybridní připojení. Toto oznámení se odesílá do naslouchací proces kanálem otevřít řídicí jako zprávu JSON obsahující adresu URL koncového bodu protokolu WebSocket, který naslouchací proces musí připojit k pro přijetí připojení.
 
 Adresu URL můžete a musí používat přímo naslouchací proces bez další zátěže.
 Kódovaného informace je platná pouze na krátkou dobu běhu v podstatě po dobu, odesílatel je ochotná počkejte pro připojení k být navázáno začátku do konce, ale až do maximálního počtu 30 sekund. Adresu URL můžete použít pouze pro jeden úspěšného pokusu o připojení. Po vytvoření připojení protokolu WebSocket s adresou URL potkávací všechny další aktivity na tento protokol WebSocket je přes předávací službu z a do odesílatele, bez zásahu nebo interpretace službou.
 
-#### Obnovit
+#### <a name="renew"></a>Obnovit
 Token zabezpečení, která bude použita k registraci naslouchací proces a udržovat řídicí kanál může vyprší během naslouchací proces je aktivní. Vypršení platnosti tokenu nemá vliv na probíhající připojení, ale způsobit řídicí kanál přeruší službou v nebo krátce po v okamžiku vypršení platnosti. Operace "obnovit" je zprávu JSON, který naslouchací proces může odesílat nahradit token přidružené řídicí kanál, takže řídicí kanál je možné udržovat po delší dobu.
 
-#### Ping
+#### <a name="ping"></a>Ping
 Je-li řídicí kanál nečinnosti, po dlouhou dobu, prostředníci na cestě, jako je například zatížení vyrovnávání nebo zařízení NAT. může dojít k přerušení připojení TCP. Operace "ping", zabraňuje odesláním malé množství dat, na který upozorní všem uživatelům v síti trasy, která je určené připojení jako aktivní, a slouží také jako "živé" testu pro naslouchací proces kanálu. V případě selhání příkazu ping řídicí kanál by měl být považován za nepoužitelný a naslouchací proces by měl znovu připojit.
 
-### Odesílatel interakce
+### <a name="sender-interaction"></a>Odesílatel interakce
 Odesílatel má jenom jeden interakci se službou: připojení.
 
-#### Připojení
+#### <a name="connect"></a>Připojení
 Operace "připojit" otevře protokolu WebSocket ve službě, poskytnou jméno hybridní připojení a (volitelně, ale vyžaduje ve výchozím nastavení) token zabezpečení jejichž základě lze oprávnění "Odeslat" v řetězci dotazu. Služba potom komunikuje s naslouchací proces ve způsobu, jakým popsané a naslouchací proces vytvoří potkávací připojení, který je spojen s Tento protokolu WebSocket. Po přijetí protokol WebSocket, jsou všechny další interakce na tomto protokolu WebSocket připojené naslouchací proces.
 
-### Interakce souhrn
+### <a name="interaction-summary"></a>Interakce souhrn
 Výsledkem tohoto modelu interakce je, že klienta odesílatele pochází z metody handshake se "čistou" WebSocket, která je připojená k naslouchací proces a potřebného žádné další preambles nebo přípravy. Tento model umožňuje prakticky jakékoli existující implementace klienta protokolu WebSocket snadno využívat výhod hybridních připojení služby zadáním adresy URL správně vytvořená do jejich vrstvy klienta protokolu WebSocket.
 
 Potkávací připojení protokolu WebSocket, který získá naslouchací proces prostřednictvím přijmout interakce je taky čistou a můžete předat všechny existující server implementaci protokolu WebSocket pomocí některé minimální navíc abstrakce, která rozlišuje mezi operace hybridní připojení vzdálené "přijmout" a "přijmout" operace v místní síti jejich framework naslouchací procesy.
 
-## Referenční informace o protokolu
+## <a name="protocol-reference"></a>Referenční informace o protokolu
 
 Tato část popisuje podrobnosti protokolu interakce popsané.
 
 Všechna připojení protokolu WebSocket probíhají na portu 443 jako upgrade z verze 1.1 HTTPS, který je obvykle abstrahované některé protokolu WebSocket framework nebo rozhraní API. Popis tady je udržováno implementace neutrální, bez návrhy konkrétní rozhraní.
 
-### Naslouchací proces protokolu
+### <a name="listener-protocol"></a>Naslouchací proces protokolu
 Naslouchací proces protokolu se skládá z dvě připojení gesta a tři operace zpráv.
 
-#### Naslouchací proces připojení kanálu ovládací prvek
+#### <a name="listener-control-channel-connection"></a>Naslouchací proces připojení kanálu ovládací prvek
 Řídicí kanál je otevřené se vytvoření připojení protokolu WebSocket k:
 
 ```
@@ -109,7 +109,7 @@ Pokud připojení protokolu WebSocket záměrně ukončení služby po začátku
 | 1008 |Vypršela platnost tokenu zabezpečení, proto porušení zásad autorizace. |
 | 1011 |Došlo k chybě ve službě. |
 
-### Přijměte metody handshake
+### <a name="accept-handshake"></a>Přijměte metody handshake
 Oznámení "přijmout" posílá službou naslouchací proces prostřednictvím administrate řídicí kanál jako zprávy JSON v objektu WebSocket. Nepřijde žádná odpověď na tuto zprávu.
 
 Zpráva obsahuje objekt JSON s názvem "přijmout,", který definuje následující vlastnosti v tuto chvíli:
@@ -118,7 +118,7 @@ Zpráva obsahuje objekt JSON s názvem "přijmout,", který definuje následují
 * **ID** – jedinečný identifikátor pro toto připojení. Pokud byl klient odesílatele ID, jedná se o odesílateli zadat hodnotu, jinak bude generována hodnota.
 * **connectHeaders** – všechny hlavičky protokolu HTTP, zadaných ke koncovému bodu předávání odesílatelem, také zahrnující protokol WebSocket sekundu a hlavičky Sec. WebSocket rozšíření.
 
-#### Přijmout zprávu
+#### <a name="accept-message"></a>Přijmout zprávu
 
 ```json
 {                                                           
@@ -136,7 +136,7 @@ Zpráva obsahuje objekt JSON s názvem "přijmout,", který definuje následují
 
 Adresa URL zadaná ve zprávě JSON se používají ke zřízení protokolu WebSocket pro přijetí nebo odmítnutí soketu odesílatele naslouchací proces.
 
-#### Přijetí soket
+#### <a name="accepting-the-socket"></a>Přijetí soket
 Přijmout, vytvoří naslouchací proces připojení protokolu WebSocket na zadané adresy.
 
 Pokud zpráva "přijmout" představuje `Sec-WebSocket-Protocol` záhlaví, očekává se, že naslouchací proces lze použít pouze protokol WebSocket pokud ji podporuje tento protokol. Kromě toho nastaví hlavičku, jako je vytvoření objektu WebSocket.
@@ -173,7 +173,7 @@ Po navázání připojení k serveru protokol WebSocket vypne, jestliže odesíl
 | 1008 |Vypršela platnost tokenu zabezpečení, proto porušení zásad autorizace. |
 | 1011 |Došlo k chybě ve službě. |
 
-#### Odmítat soket
+#### <a name="rejecting-the-socket"></a>Odmítat soket
 Podobné metody handshake odmítat soketu po kontrole zpráva "přijmout" vyžaduje, aby stavový kód a popis stavu komunikace důvod zamítnutí můžete procházet zpět do odesílatele.
 
 Protokol zvolit tento návrh tady je použít ověření typu handshake protokolu WebSocket (která je určená končit definované chybový stav), aby implementacích klienta naslouchací proces můžete nadále závisí na protokolu WebSocket klienta a není nutné využívat navíc, úplné klienta HTTP.
@@ -194,12 +194,12 @@ Při dokončení správně, tato metoda handshake záměrně selže, s kódem ch
 | 403 |Je zakázané |Adresa URL není platný. |
 | 500 |Vnitřní chyba |Došlo k chybě ve službě. |
 
-### Naslouchací proces obnovení tokenu
+### <a name="listener-token-renewal"></a>Naslouchací proces obnovení tokenu
 Pokud token naslouchací proces vyprší, ho můžete nahradit odesláním textovou zprávu rámce ke službě prostřednictvím zavedených řídicí kanál. Zpráva obsahuje objekt JSON s názvem `renewToken`, která v tuto chvíli definuje následující vlastnost:
 
 * **token** – přístup k službě sběrnice sdílené token platný, kódovaná adresou URL pro obor názvů nebo hybridní připojení, která uděluje **naslouchání** správné.
 
-#### zpráva renewToken
+#### <a name="renewtoken-message"></a>zpráva renewToken
 
 ```json
 {                                                                                                                                                                        
@@ -215,7 +215,7 @@ Pokud se nezdaří ověření tokenu, byl odepřen přístup a cloudové služby
 | --- | --- |
 | 1008 |Vypršela platnost tokenu zabezpečení, proto porušení zásad autorizace. |
 
-## Odesílatel protokolu
+## <a name="sender-protocol"></a>Odesílatel protokolu
 Protokol odesílatele je prakticky shodné s způsob, jakým se vytvořit naslouchací proces.
 Cílem je maximální průhlednost pro začátku do konce protokolu WebSocket. Adresu pro připojení k je stejné jako naslouchací proces, ale liší "action" a token musí různých oprávnění:
 
@@ -262,7 +262,7 @@ Pokud připojení protokolu WebSocket záměrně ukončení služby po počáte�
 | 1008 |Vypršela platnost tokenu zabezpečení, proto porušení zásad autorizace. |
 | 1011 |Došlo k chybě ve službě. |
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 * [Přenos – nejčastější dotazy](relay-faq.md)
 * [Vytvoření oboru názvů](relay-create-namespace-portal.md)
 * [Začínáme s .NET](relay-hybrid-connections-dotnet-get-started.md)

@@ -20,10 +20,10 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/14/2017
 ---
-# Podpora dalších protokoly pro IoT Hub
+# <a name="support-additional-protocols-for-iot-hub"></a>Podpora dalších protokoly pro IoT Hub
 Azure IoT Hub nativně podporuje komunikaci přes protokoly MQTT, AMQP a HTTPS. V některých případech nemusí být zařízení nebo brány pole moct použít jednu z těchto standardních protokolů a vyžadovat protokol přizpůsobení. V takových případech můžete použít vlastní bránu. Vlastní brána umožňuje přizpůsobení a protokol pro koncové body centra IoT podle přemostění provoz do a ze služby IoT Hub. Můžete použít [brány protokolu Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) jako vlastní bránu povolit protokol přizpůsobení pro IoT Hub.
 
-## Brány protokolu Azure IoT
+## <a name="azure-iot-protocol-gateway"></a>Brány protokolu Azure IoT
 Brány protokolu Azure IoT je rozhraní pro protokol přizpůsobení, která je určená pro špičkové obousměrnou komunikaci zařízení službou IoT Hub. Brána protokolu je průchozí komponenty, která přijímá připojení zařízení přes určitý protokol. Přenosy do služby IoT Hub je přemosťuje prostřednictvím protokolu AMQP 1.0. 
 
 Vysoce škálovatelné způsobem můžete nasadit brány protokolu v Azure pomocí Azure Service Fabric, rolí pracovního procesu Azure Cloud Services nebo virtuální počítače s Windows. Kromě toho brány protokolu se dá nasadit v prostředích místní, například pole brány.
@@ -34,7 +34,7 @@ Adaptér MQTT také ukazuje programovací model pro vytváření adaptéry proto
 
 Pružnosti brány protokolu Azure IoT a MQTT implementace jsou uvedeny v projektu open-source softwaru. Můžete použít open-source projekt přidání podpory pro různé protokoly a verze protokolu nebo implementaci přizpůsobení pro váš scénář. 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Další informace o brány protokolu Azure IoT a jak používat a nasaďte ho jako součást řešení IoT najdete v tématu:
 
 * [Úložiště brány protokolu Azure IoT na Githubu](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)

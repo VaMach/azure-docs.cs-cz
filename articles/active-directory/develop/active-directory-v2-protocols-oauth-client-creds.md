@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory v2.0 a tok přihlašovacích údajů klienta OAuth 2.0
+# <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 a tok přihlašovacích údajů klienta OAuth 2.0
 Můžete použít [udělení pověření klienta OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), někdy volané *s rameny dva OAuth*, přístup k prostředkům hostované webové pomocí identity aplikace. Tento typ udělení běžně se používá pro interakce serveru na server, které musí spustit na pozadí bez okamžitou interakce s uživatelem. Tyto typy aplikací, často se označují jako *démoni* nebo *účtům služby*.
 
 > [!NOTE]
@@ -31,22 +31,22 @@ Můžete použít [udělení pověření klienta OAuth 2.0](http://tools.ietf.or
 
 Ve více standardních *s rameny tři OAuth*, klientská aplikace je uděleno oprávnění pro přístup k prostředkům jménem konkrétního uživatele. Oprávnění delegovaného od uživatele do aplikace, obvykle během [souhlas](active-directory-v2-scopes.md) procesu. Ale v tok přihlašovacích údajů klienta, jsou udělena oprávnění přímo do vlastní aplikace. Když uvede aplikace token pro prostředek, prostředek vynucuje, které aplikace má oprávnění k provedení akce a není, uživatel má autorizace.
 
-## Diagram protokolu
+## <a name="protocol-diagram"></a>Diagram protokolu
 Tok přihlašovacích údajů celý klienta vypadá podobně jako další diagramu. Kterou jsou popsané všechny kroky později v tomto článku.
 
 ![Tok přihlašovacích údajů klienta](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
-## Získat přímý autorizaci
+## <a name="get-direct-authorization"></a>Získat přímý autorizaci
 Aplikace obvykle obdrží přímá oprávnění pro přístup k prostředku v jednom ze dvou způsobů: prostřednictvím seznam řízení přístupu (ACL) na prostředek, nebo přiřazení oprávnění aplikace v Azure Active Directory (Azure AD). Tyto dvě metody jsou nejobvyklejší ve službě Azure AD, a doporučujeme je pro klienty a prostředky, které provádějí klienta tok přihlašovacích údajů. Autorizovat svým klientům jinými způsoby, ale můžete zvolit prostředku. Každý server prostředků můžete zvolit metodu, která je nejvhodnější pro jeho aplikaci.
 
-### Seznamy řízení přístupu
+### <a name="access-control-lists"></a>Seznamy řízení přístupu
 Zprostředkovatel prostředků může vynutit kontrolu autorizace na základě seznamu ID aplikace, který zná a uděluje přístup ke konkrétní úroveň. Pokud prostředek přijímá token z koncového bodu v2.0, může dekódovat token a extrahovat ID klienta aplikace z `appid` a `iss` deklarací identity. Pak porovná aplikace před ACL, který udržuje. Členitosti a metoda seznamu ACL může podstatně liší mezi prostředky.
 
 Běžné případ použití je použije seznam ACL ke spuštění testů pro webovou aplikaci nebo webové rozhraní API. Webové rozhraní API může udělit jenom podmnožinu úplná oprávnění pro konkrétního klienta. Ke spuštění testů začátku do konce na volání rozhraní API, vytvoření testovacího klienta, který získá tokeny z koncového bodu v2.0 a poté je odešle do rozhraní API. Rozhraní API pro ID aplikace testovacího klienta pro úplný přístup k rozhraní API celý funkce zkontroluje seznam řízení přístupu. Pokud použijete tento druh seznamu ACL, nezapomeňte ověřit nejen volajícího `appid` hodnotu. Také ověřte, zda `iss` hodnota tokenu je důvěryhodný.
 
 Tento typ ověřování je běžné démoni a účty služby, které potřebují přístup k datům ve vlastnictví uživatelé příjemce, kteří mají osobní účty Microsoft. Pro data vlastněná organizací doporučujeme, abyste měli nezbytné autorizace prostřednictvím oprávnění k aplikaci.
 
-### Oprávnění aplikací
+### <a name="application-permissions"></a>Oprávnění aplikací
 Místo použití seznamy ACL, můžete použít rozhraní API ke zveřejnění sadu oprávnění aplikací. Aplikace oprávnění k aplikaci udělují libovolný správce organizace a lze použít pouze pro přístup k datům vlastníkem dané organizace a její zaměstnanci. Například Microsoft Graph zpřístupňuje několik oprávnění aplikací provést následující akce:
 
 * Čtení pošty ve všech poštovních schránkách
@@ -58,17 +58,17 @@ Další informace o aplikaci oprávnění, přejděte na [Microsoft Graph](https
 
 Pomocí oprávnění aplikací ve vaší aplikaci, proveďte kroky, které se budeme zabývat v dalších částech.
 
-#### Žádostí o oprávnění v portálu pro registraci aplikace
+#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Žádostí o oprávnění v portálu pro registraci aplikace
 1. Přejděte do vaší aplikace v [portálu pro registraci aplikace](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), nebo [vytvořit aplikaci](active-directory-v2-app-registration.md), pokud jste tak ještě neučinili. Budete muset při vytváření aplikace použijte alespoň jeden tajný klíč aplikace.
 2. Vyhledejte **přímé oprávnění aplikací** části a poté přidejte oprávnění, která vaše aplikace vyžaduje.
 3. **Uložit** registrace aplikací.
 
-#### Doporučená: Uživatele přihlaste do aplikace
+#### <a name="recommended-sign-the-user-in-to-your-app"></a>Doporučená: Uživatele přihlaste do aplikace
 Obvykle když vytvoříte aplikaci, která používá oprávnění aplikací, aplikace vyžaduje stránku nebo zobrazení, na kterém správce schválí oprávnění aplikace. Tato stránka může být součástí aplikace přihlášení tok, součást aplikace nastavení, nebo může být vyhrazený "připojit" toku. V mnoha případech má smysl pro aplikaci Ukážeme vám to "připojit" Zobrazit pouze po je uživatel přihlášený pomocí pracovního nebo školního účtu Microsoft.
 
 Při přihlášení uživatele k aplikaci, můžete určit organizaci, do které uživatel patří před požádat uživatele ke schválení oprávnění aplikací. I když je to nezbytně nutné, ho můžete vytvořit více intuitivní prostředí pro uživatele. Při přihlášení uživatele ve, postupujte podle našich [v2.0 protokol kurzy](active-directory-v2-protocols.md).
 
-#### Požádat správce directory oprávnění
+#### <a name="request-the-permissions-from-a-directory-admin"></a>Požádat správce directory oprávnění
 Až budete připraveni s žádostí o oprávnění od správce organizace, můžete přesměruje uživatele na v2.0 *koncový bod admin souhlasu*.
 
 ```
@@ -97,7 +97,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 V tomto okamžiku Azure AD vynutí, že pouze správce klienta můžete přihlásit a dokončit žádost. Správce vyzve ke schválení všechna oprávnění přímé aplikace, které jste požadovali pro aplikaci v portálu pro registraci aplikace.
 
-##### Úspěšná odpověď
+##### <a name="successful-response"></a>Úspěšná odpověď
 Pokud správce schválí oprávnění pro vaši aplikaci, úspěšné odpovědi vypadá takto:
 
 ```
@@ -110,7 +110,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | state |Hodnota, která je součástí požadavek, který je také vrácený v odpovědi tokenu. Může být řetězec o délce veškerý obsah, který chcete. Stav se používá ke kódování informace o stavu uživatele v aplikaci, než k žádosti o ověření, například stránky nebo zobrazení, které byly na. |
 | admin_consent |Nastavte na **true**. |
 
-##### Chybové odpovědi
+##### <a name="error-response"></a>Chybové odpovědi
 Pokud správce nebude schvalovat oprávnění pro aplikace, se nezdařilo odpověď vypadá takto:
 
 ```
@@ -124,10 +124,10 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 Po přijetí úspěšná odpověď z koncového bodu pro zřizování aplikace je přímé aplikaci oprávnění, která je požadována z vaší aplikace. Nyní můžete požádat o token pro prostředek, který chcete.
 
-## Získání tokenu
+## <a name="get-a-token"></a>Získání tokenu
 Poté, co jste získali nezbytné autorizace pro aplikace, pokračujte získání přístupových tokenů pro rozhraní API. Chcete-li získat token pomocí klienta udělení pověření, odeslat požadavek POST do `/token` koncového bodu v2.0:
 
-### Nejprve případ: žádosti o token přístupu s sdílený tajný klíč
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Nejprve případ: žádosti o token přístupu s sdílený tajný klíč
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -148,7 +148,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | tajný klíč client_secret |Požaduje se |Tajný klíč aplikace generovaný pro aplikaci v portálu pro registraci aplikace. |
 | grant_type |Požaduje se |Musí být `client_credentials`. |
 
-### Druhé případ: tokenu žádosti o přístup pomocí certifikátu
+### <a name="second-case-access-token-request-with-a-certificate"></a>Druhé případ: tokenu žádosti o přístup pomocí certifikátu
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -168,7 +168,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-
 
 Všimněte si, že parametry jsou téměř stejné jako v případě požadavku pomocí sdílený tajný klíč, s tím rozdílem, že parametr tajný klíč client_secret je nahrazena dva parametry: client_assertion_type a client_assertion.
 
-### Úspěšná odpověď
+### <a name="successful-response"></a>Úspěšná odpověď
 Úspěšná odpověď vypadá takto:
 
 ```
@@ -185,7 +185,7 @@ Všimněte si, že parametry jsou téměř stejné jako v případě požadavku 
 | token_type |Určuje hodnotu typ tokenu. Pouze typ, který podporuje Azure AD je `bearer`. |
 | expires_in |Jak dlouho přístupový token je platný (v sekundách). |
 
-### Chybové odpovědi
+### <a name="error-response"></a>Chybové odpovědi
 Chybnou odpověď vypadá takto:
 
 ```
@@ -210,7 +210,7 @@ Chybnou odpověď vypadá takto:
 | trace_id |Jedinečný identifikátor pro požadavek, který vám můžou pomoct s diagnostiky. |
 | correlation_id |Jedinečný identifikátor pro požadavek, který může pomoct s diagnostikou mezi komponentami. |
 
-## Použít token
+## <a name="use-a-token"></a>Použít token
 Teď, když jste získali token, použití tokenu provést žádosti o připojení k prostředku. Když vyprší platnost tokenu, opakovat požadavek `/token` koncový bod získat nový přístupový token.
 
 ```
@@ -227,5 +227,5 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## Ukázka kódu
+## <a name="code-sample"></a>Ukázka kódu
 Příklad aplikace, implementuje udělení pověření klienta pomocí Správce souhlas koncový bod, naleznete v našem [ukázka kódu démon v2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
