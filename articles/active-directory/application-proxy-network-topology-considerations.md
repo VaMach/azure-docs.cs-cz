@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c392c6e94abaff7c28bc672cfe61c7551ede4d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Aspekty topologie sítě při použití aplikace Proxy Azure Active Directory
 
@@ -102,7 +102,7 @@ I když fokus tohoto článku je konektor umístění, můžete určit také um�
 
 Organizace stále, jsou přesunutí jejich sítě do hostovaného prostředí. Díky tomu budou moci umístíte své aplikace v hostovaném prostředí, která je také součástí své podnikové síti a přesto být v rámci domény. V takovém případě můžete použít vzory popsané v předchozí části do nového umístění aplikace. Pokud zvažujete tuto možnost, přečtěte si téma [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md).
 
-Kromě toho zvažte uspořádání vaší konektorů pomocí [konektor skupiny](active-directory-application-proxy-connectors.md) cílové aplikace, které jsou v různých umístěních a sítě. 
+Kromě toho zvažte uspořádání vaší konektorů pomocí [konektor skupiny](active-directory-application-proxy-connectors-azure-portal.md) cílové aplikace, které jsou v různých umístěních a sítě. 
 
 ## <a name="common-use-cases"></a>Běžné případy použití
 
@@ -174,5 +174,5 @@ Můžete také použít jeden další variant v této situaci. Pokud většina u
 
 - [Povolení Proxy aplikace](active-directory-application-proxy-enable.md)
 - [Povolení jednoduchého přihlášení](active-directory-application-proxy-sso-using-kcd.md)
-- [Povolení podmíněného přístupu](active-directory-application-proxy-conditional-access.md)
+- [Povolení podmíněného přístupu](application-proxy-enable-remote-access-sharepoint.md)
 - [Řešení problémů, které máte s pomocí Proxy aplikace](active-directory-application-proxy-troubleshoot.md)

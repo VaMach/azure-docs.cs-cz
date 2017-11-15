@@ -1,5 +1,5 @@
 ---
-title: "Přehled funkce trvanlivý – Azure"
+title: "Trvanlivý Přehled funkce – Azure (preview)"
 description: "Úvod do rozšíření trvanlivý funkce pro Azure Functions."
 services: functions
 author: cgillum
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="durable-functions-overview-azure-functions"></a>Trvanlivý přehled funkcí (Azure Functions)
+# <a name="durable-functions-overview-preview"></a>Trvanlivý přehled funkcí (preview)
 
 *Trvanlivý funkce* je rozšířením [Azure Functions](functions-overview.md) a [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) který umožňuje zapisovat stavová funkce v prostředí bez serveru. Rozšíření spravuje stav, kontrolní body a restartování za vás.
 
@@ -31,7 +31,7 @@ Rozšíření umožňuje definovat stavová pracovních postupů v nový typ vol
 * Budou automaticky kontrolní bod jejich probíhá vždy, když funkce čeká. Místní stavu dojde ke ztrátě nikdy, pokud proces recykluje nebo virtuální počítač se restartuje.
 
 > [!NOTE]
-> Trvanlivý funkce je rozšíření rozšířené pro Azure Functions a není vhodná pro všechny aplikace. Zbývající část tohoto článku předpokládá, že máte silné znalost [Azure Functions](functions-overview.md) koncepty a problémů součástí vývoj aplikací bez serveru.
+> Trvanlivý funkce je ve verzi preview a je rozšíření rozšířené pro funkce Azure, která není vhodná pro všechny aplikace. Zbývající část tohoto článku předpokládá, že máte silné znalost [Azure Functions](functions-overview.md) koncepty a problémů součástí vývoj aplikací bez serveru.
 
 Případem primárního použití pro funkce trvanlivý je zjednodušení spolupráce komplexní, stavová problémy s aplikacemi bez serveru. Následující části popisují některé vzory Typická aplikace, které můžete využít trvanlivý funkce.
 
@@ -261,7 +261,7 @@ Existuje mnoho užitečné strukturovaná data zabalit do `customDimensions` pol
 
 Z důvodu opětovného přehrání chování dispečera trvanlivý Framework úloh lze očekávat zobrazíte položky redundantní protokolu pro přehraná akce. To může být užitečné pochopit chování opětovného přehrání modulu jádra. [Diagnostiky](durable-functions-diagnostics.md) článek ukazuje ukázkové dotazy, které protokoly opětovného přehrání filtrovat, abyste viděli pouze "v reálném čase" protokoly.
 
-## <a name="storage-and-scalability"></a>Úložiště a škálovatelnosti
+## <a name="storage-and-scalability"></a>Úložiště a škálovatelnost
 
 Rozšíření trvanlivý funkce používá fronty Azure Storage, tabulky a objekty BLOB se zachovat provádění historie stavu a aktivační události funkce provádění. Můžete použít výchozí účet úložiště pro funkce aplikace, nebo můžete nakonfigurovat účet samostatného úložiště. Můžete chtít samostatný účet z důvodu omezení propustnosti úložiště. Orchestrator kód, který můžete psát nemusí (a neměli) komunikovat s entity v tyto účty úložiště. Entity, které jsou spravovány přímo trvanlivý Framework úloh jako podrobností implementace.
 

@@ -13,14 +13,14 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: d0b3f3b188bc5da91414efb763b5165377009191
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Nastavit synchronizaci dat SQL (Preview)
 V tomto kurzu zjistěte, jak nastavit synchronizaci dat SQL Azure tak, že vytvoříte skupinu hybridních synchronizace, která obsahuje instance Azure SQL Database a SQL Server. Do nové skupiny synchronizace plně konfigurována a synchronizuje podle plánu, který nastavíte.
@@ -192,6 +192,83 @@ Po nové členy skupiny synchronizace se vytváří a nasazují, krok 3 **skupin
     ![Vyberte pole pro synchronizaci](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
 4.  Nakonec vyberte **Uložit**.
+
+## <a name="faq-about-setup-and-configuration"></a>Nejčastější dotazy týkající se instalace a konfigurace
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Jak často můžete synchronizaci dat synchronizovat data? 
+Minimální frekvence se každých pět minut.
+
+### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>Synchronizaci dat SQL plně vytvořit a zřídit tabulky?
+
+Pokud schéma tabulky synchronizace nejsou už vytvořené v cílové databázi, vytvoří synchronizaci dat SQL (Preview) je s sloupce, které jste vybrali. Ale toto chování neměla za následek úplnou věrnosti schématu, z následujících důvodů:
+
+-   Pouze sloupce, které jste vybrali jsou vytvořeny v cílové tabulce. Pokud některé sloupce ve zdrojové tabulky není součástí skupiny sync, tyto sloupce nejsou zřízené v cílových tabulkách.
+
+-   Indexy jsou vytvářeny pouze pro vybrané sloupce. Pokud má index tabulky zdrojového sloupce, které nejsou součástí skupiny synchronizace, tyto indexy nejsou zřízené v cílových tabulkách.
+
+-   Indexy na sloupce typu XML nejsou zřízené.
+
+-   ZKONTROLUJTE, že omezení není zřízený.
+
+-   Existující aktivační události na zdrojové tabulky nejsou zřízené.
+
+-   Zobrazení a uložených procedur nejsou vytvořeny v cílové databázi.
+
+Z důvodu tato omezení doporučujeme následující akce:
+-   Pro produkční prostředí zřídit schéma úplné věrnosti sami.
+-   Pro vyzkoušení služby, funguje dobře funkci Automatické zřizování synchronizaci dat SQL (Preview).
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Proč se zobrazuje, tabulky, které I nevytvořila?  
+Synchronizaci dat vytváří straně tabulky v databázi pro sledování změn. Neodstraňujte ho nebo synchronizaci dat přestane fungovat.
+
+### <a name="is-my-data-convergent-after-a-sync"></a>Jsou má data témuž cíli po synchronizace?
+
+Ne nutně. V skupiny synchronizace s rozbočovačem a tři koncových (A, B a C) synchronizace jsou rozbočovače do A, rozbočovače b a rozbočovače na C. Pokud dojde ke změně do databáze A *po* rozbočovače k synchronizaci, který změnu není zapsána do databáze B nebo databáze C až další úlohy synchronizace.
+
+### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Jak získat změny schématu do skupiny synchronizace?
+
+Je nutné ručně provést změny schématu.
+
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Jak můžete exportovat a importovat databáze se synchronizací dat?
+Po exportu databáze jako `.bacpac` souboru a importovat soubor k vytvoření nové databáze, budete muset provést následující dva kroky můžete používat synchronizaci dat v databázi nové:
+1.  Vyčištění objektů synchronizaci dat a straně tabulek na **novou databázi** pomocí [tento skript](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Tento skript odstraní všechny požadované objekty synchronizaci dat z databáze.
+2.  Znovu vytvořte skupiny synchronizace s novou databází. Pokud původní skupiny synchronizace již nepotřebujete, odstraňte jej.
+
+## <a name="faq-about-the-client-agent"></a>Nejčastější dotazy o agenta klienta
+
+### <a name="why-do-i-need-a-client-agent"></a>Proč musím Klientský agent?
+
+Synchronizaci dat SQL (Preview) služba komunikuje s databází serveru SQL Server prostřednictvím agenta klienta. Tato funkce zabezpečení zabraňuje přímé komunikaci s databází za bránou firewall. Při synchronizaci dat SQL (Preview) služby komunikuje s agentem, ho nemá, takže pomocí šifrované připojení a jedinečný token nebo *klíč agenta*. Databáze systému SQL Server ověření agenta pomocí připojovací řetězec a agent klíče. Tento návrh poskytuje vysokou úroveň zabezpečení pro vaše data.
+
+### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Kolik instancí místní agent uživatelského rozhraní lze spustit?
+
+Lze spustit pouze jednu instanci uživatelského rozhraní.
+
+### <a name="how-can-i-change-my-service-account"></a>Jak můžete změnit Můj účet služby?
+
+Po instalaci agenta klienta, je jediným způsobem, jak změnit účet služby odinstalujte ji a instalaci nového agenta klienta pomocí nového účtu služby.
+
+### <a name="how-do-i-change-my-agent-key"></a>Změna Moje klíč agenta
+
+Klíčem agent může být agentem použit pouze jednou. Nemůže být znovu při odebrání pak znovu nainstalujte nového agenta, ani lze ji použít více agenty. Pokud potřebujete vytvořit nový klíč pro existujícího agenta, musí být jisti, že se stejným klíčem zaznamenává s klientským agentem a se službou synchronizaci dat SQL (Preview).
+
+### <a name="how-do-i-retire-a-client-agent"></a>Jak vyřazení z provozu Klientský agent?
+
+Okamžitě zneplatní nebo vyřazení agenta, obnovit svůj klíč na portálu, ale neodešlou v uživatelském rozhraní agenta. Znovu vygenerovat klíč by způsobila neplatnost předchozí klíč ohledu, pokud odpovídající agenta online nebo offline.
+
+### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Jak přesunout agenta klienta do jiného počítače
+
+Pokud chcete spustit místní agent z jiného počítače, než je aktuálně v, proveďte následující akce:
+
+1. Nainstalujte agenta na požadované počítače.
+
+2. Přihlaste se k portálu pro synchronizaci dat SQL (Preview) a znovu vygenerovat klíč pomocí agenta pro nového agenta.
+
+3. Použijte uživatelské rozhraní nového agenta odeslat nový klíč agenta.
+
+4. Počkejte, než agent klienta stáhne seznam místních databází, které byly dříve zaregistrovány.
+
+5. Zadejte přihlašovací údaje databáze pro všechny databáze, které zobrazují jako nedostupný. Tyto databáze musí být dosažitelný z nového počítače, ve kterém je nainstalován agent.
 
 ## <a name="next-steps"></a>Další kroky
 Blahopřejeme. Vytvořili jste skupinu synchronizace, která obsahuje instance databáze SQL a databáze SQL serveru.

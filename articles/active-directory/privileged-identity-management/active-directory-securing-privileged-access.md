@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Zabezpečení privilegovaného přístupu ve službě Azure AD
 Zabezpečení privilegovaného přístupu je důležitým prvním krokem k ochraně obchodní prostředky v moderní organizaci. Privilegované účty jsou účty, které správu a spravovat systémy IT. Internetový útočník cíle tyto účty pro přístup k datům a systémy organizace. K zabezpečení privilegovaného přístupu, měli izolovat účty a systémy ze riziko napadení se zlými úmysly.
@@ -66,7 +66,7 @@ Pomocí podmíněného řízení přístupu Azure Active Directory kontroluje ko
 * Povolit [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Povolit [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Povolit [ochrany identit Azure AD](../active-directory-identityprotection.md)
-* Povolit [řízení podmíněného přístupu](../active-directory-conditional-access.md)
+* Povolit [řízení podmíněného přístupu](../active-directory-conditional-access-azure-portal.md)
 
 Další informace o vytváření plán dokončení zabezpečení, najdete v části "odpovědnosti zákazníka a plán" z [Microsoft Cloud Security Enterprise architekty](http://aka.ms/securecustomer) dokumentu. Další informace o zapojení služby společnosti Microsoft, které pomáhají s žádným z těchto témat, obraťte se na zástupce společnosti Microsoft nebo navštivte naše [počítačové bezpečnosti řešení stránky](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 

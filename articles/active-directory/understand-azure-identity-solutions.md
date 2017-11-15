@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d4e15e1bada54ce06f38187e6a2ea1f8c749dc4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Princip řešení identit Azure
 Microsoft Azure Active Directory (Azure AD) je identit a přístupu cloudové řešení pro správu poskytující adresářových služeb, zásad správného řízení identity a správa přístupu aplikací. Azure AD rychle [umožňuje jednotné přihlašování (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) na hodnotu 1 000 je předem integrovaných aplikací komerční a vlastní v [galerii aplikací Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Mnoho z těchto aplikací, které pravděpodobně již používáte například Office 365, Salesforce.com, pole, ServiceNow a během pracovního dne.
@@ -110,12 +110,12 @@ Jsme spousta skvělé prostředky online můžete zjistit všechno o Azure AD. T
 * [Další zabezpečení pro někdy připojené world](../multi-factor-authentication/multi-factor-authentication.md)
 * [Automatizovat uživatele zajišťování a rušení zajištění pro aplikace SaaS ve službě Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Začínáme s generováním sestav Azure AD](active-directory-reporting-getting-started.md)
-* [Spravovat hesla k odkudkoli.](active-directory-passwords.md)
+* [Spravovat hesla k odkudkoli.](active-directory-passwords-update-your-own-password.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Automatizovat uživatele zajišťování a rušení zajištění pro aplikace SaaS ve službě Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Jak poskytnout zabezpečený vzdálený přístup k místním aplikacím](active-directory-application-proxy-get-started.md)
 * [Správa přístupu k prostředkům pomocí skupin služby Azure Active Directory](active-directory-manage-groups.md)
-* [Co je licencování služby Microsoft Azure Active Directory?](active-directory-licensing-what-is.md)
+* [Co je licencování služby Microsoft Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Jak může zjišťovat nedovolené cloudové aplikace, které se používají v rámci Moje organizace](active-directory-cloudappdiscovery-whatis.md)
 
 ## <a name="next-steps"></a>Další kroky

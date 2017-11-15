@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 28d97d65d2671f7af2cd3b29ea65ae053d5e8122
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – známé problémy a Průvodce odstraňováním potíží s 
 Tento článek vám pomůže najít a opravy chyb nebo selhání došlo jako součást pomocí aplikace Azure Machine Learning Workbench. 
@@ -84,8 +84,21 @@ Když pracujete v Azure ML Workbench, můžete také odeslat nám zamračeného 
 
 - Knihovna RevoScalePy je podporována pouze v systému Windows a Linux (v kontejnerech Docker). Není podporována v systému macOS.
 
-## <a name="delete-experimentation-account"></a>Odstranění účtu experimentování
-Rozhraní příkazového řádku můžete použít k odstranění účtu experimentování, ale je nutné odstranit nejprve podřízených pracovních prostorů a podřízené projekty v rámci těchto podřízených pracovních prostorů.
+## <a name="cant-update-workbench"></a>Nelze aktualizovat Workbench
+Když je k dispozici nové aktualizace, domovskou stránku aplikace Workbench zobrazí zprávu informující o nové aktualizace. Měli byste vidět aktualizaci oznámení "BADGE" zobrazovaných v levém dolním rohu aplikace na ikonu zvonku. Klikněte na oznámení "BADGE" a postupujte podle pokynů Průvodce instalační program pro instalaci aktualizace. Pokud se nezobrazí oznámení, pokuste se restartovat aplikaci. Pokud stále nevidíte oznámení o aktualizaci po restartování, může být několik příčin.
+
+### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Jsou spuštění Workbench z definovaného zástupce na hlavním panelu
+Možná jste již nainstalovali aktualizace. Ale vaše připnuté zástupce stále odkazuje na staré bitů na disku. Můžete to ověřit procházením `%localappdata%/AmlWorkbench` složku a zda máte nainstalovanou existuje nejnovější verzi a zkontrolujte vlastnost definovaného zástupce zobrazíte, kde bude ukazovat na. Pokud se ověřit, stačí odstranit staré zástupce, spusťte Workbench z nabídky Start a volitelně vytvořte nový definovaného zástupce odkazující na hlavním panelu úloh.
+
+### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Jste nainstalovali pomocí odkazu "instalace Azure ML Workbench" v systému Windows DSVM Workbench
+Bohužel neexistuje žádný snadný opravy na tomto. Je nutné provést následující kroky k odebrání nainstalovaná služba bits a stáhnout nejnovější verzi instalačního programu nástroje Workbench čerstvou – instalace: 
+   - Odeberte tuto složku`C:\Users\<Username>\AppData\Local\amlworkbench`
+   - odebrat skriptu`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - odebrat zástupce na ploše, který spouští skript výše
+   - stáhnout instalační program https://aka.ms/azureml-wb-msi a znovu nainstalujte.
+
+## <a name="cant-delete-experimentation-account"></a>Nelze odstranit účet experimentování
+Rozhraní příkazového řádku můžete použít k odstranění účtu experimentování, ale je nutné odstranit nejprve podřízených pracovních prostorů a podřízené projekty v rámci těchto podřízených pracovních prostorů. Jinak zobrazí chybu.
 
 ```azure-cli
 # delete a project
@@ -100,9 +113,11 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 Můžete také odstranit projekty a pracovní prostory v rámci aplikace Workbench.
 
+## <a name="cant-open-file-if-project-is-in-onedrive"></a>Nelze otevřít soubor, pokud je projekt ve Onedrivu
+Pokud máte Windows 10 patří Creators aktualizace a vytvoření projektu v místní složce namapované na OneDrive, můžete zjistit, že všechny soubor nelze otevřít v Workbench. Toto je z důvodu chyby zaváděné aktualizace Creators patří, která způsobuje selhání ve složce OneDrive kódu node.js. Chybě bude opraven brzy službou Windows update, ale do té doby, prosím nevytvářejte projekty ve složce OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>Název souboru příliš dlouho v systému Windows
-Pokud jste v systému Windows používá Workbench, můžete narazit na výchozí maximální souboru 260 znaků názvu limit délky, která by mohla surface jako poněkud oklamání chybu "systém nemůže najít zadanou cestu". Můžete upravit nastavení klíče registru a povolit mnohem delší cestu název souboru. Zkontrolujte [v tomto článku](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) další podrobnosti o tom, jak nastavit _hodnotou MAX_PATH_ klíč registru.
+Pokud používáte Workbench v systému Windows, můžete narazit na výchozí maximální souboru 260 znaků názvu limit délky, která by mohla surface jako chyba "systém nemůže najít zadanou cestu". Můžete upravit nastavení klíče registru a povolit mnohem delší cestu název souboru. Zkontrolujte [v tomto článku](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) další podrobnosti o tom, jak nastavit _hodnotou MAX_PATH_ klíč registru.
 
 ## <a name="docker-error-read-connection-refused"></a>Chyba docker "číst: odmítl připojení"
 Při provádění proti místní kontejner Docker, v některých případech může zobrazit chybová zpráva: 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac5c39eac34221992803f3b27db241263f828b36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Povolení zpětného zápisu zařízení
 > [!NOTE]
@@ -30,7 +30,7 @@ Následující dokumentace obsahuje informace o tom, jak povolit funkci zpětné
 
 * Povolení podmíněného přístupu podle zařízení do služby AD FS (2012 R2 nebo vyšší) chráněné aplikace (vztahy důvěryhodnosti předávající strany).
 
-To poskytuje dodatečné zabezpečení a záruku, že je udělen přístup k aplikacím jenom na důvěryhodné zařízení. Další informace o podmíněného přístupu najdete v tématu [řízením rizik pomocí podmíněného přístupu](../active-directory-conditional-access.md) a [nastavení místního podmíněného přístupu pomocí Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
+To poskytuje dodatečné zabezpečení a záruku, že je udělen přístup k aplikacím jenom na důvěryhodné zařízení. Další informace o podmíněného přístupu najdete v tématu [řízením rizik pomocí podmíněného přístupu](../active-directory-conditional-access-azure-portal.md) a [nastavení místního podmíněného přístupu pomocí Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 > [!IMPORTANT]
 > <li>Zařízení se musí nacházet ve stejné doménové struktuře jako uživatelé. Vzhledem k tomu, že zařízení je možné zpětně zapsat do jedné doménové struktury, tato funkce nepodporuje aktuálně nasazení s více doménovými strukturami uživatele.</li>
@@ -141,7 +141,7 @@ Ověření konfigurace ve službě Active Directory:
 ![Řešení potíží, ověřte oprávnění u konfigurace registrace zařízení](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
 ## <a name="additional-information"></a>Další informace
-* [Řízení rizik pomocí podmíněného přístupu](../active-directory-conditional-access.md)
+* [Řízení rizik pomocí podmíněného přístupu](../active-directory-conditional-access-azure-portal.md)
 * [Nastavení místního podmíněného přístupu pomocí Azure Active Directory Device Registration](../active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Další kroky

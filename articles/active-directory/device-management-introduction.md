@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1288fe2eeb9b31b912cd918be624e7a4703f0709
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Úvod do správy zařízení v Azure Active Directory
 
@@ -135,12 +135,31 @@ Správa zařízení ve službě Azure AD můžete:
 
 Jako pravidlo Flash měli byste použít:
 
-- Azure AD registrované zařízení pro osobní zařízení
+- Azure AD zaregistrovat zařízení:
 
-- Zařízení pro zařízení, které nejsou připojené k místní připojená k Azure AD AD 
+    - U osobních zařízení 
+
+    - Ručně zaregistrovat zařízení s Azure AD
+
+- Zařízení připojená k Azure AD: 
+
+    - Pro zařízení, které jsou vlastněny vaší organizace
+
+    - Pro zařízení, které jsou **není** připojené k místní AD
+
+    - Ručně zaregistrovat zařízení s Azure AD
+
+    - Chcete-li změnit stav místní zařízení.
 
 - Hybridní Azure AD připojené zařízení pro zařízení, které jsou připojeny k místní AD     
 
+    - Pro zařízení, které jsou vlastněny vaší organizace
+
+    - Pro zařízení, které jsou připojeny k místní AD
+
+    - Na automatickou registraci zařízení s Azure AD
+
+    - Chcete-li změnit stav místní zařízení.
 
 
 

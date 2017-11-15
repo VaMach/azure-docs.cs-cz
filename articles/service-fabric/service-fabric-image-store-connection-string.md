@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: alexwun
-ms.openlocfilehash: 49003c16c262180afcdba22c5557c91297cb2840
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 723cf7d98022e8bbb4f1e3c8c0836a4c53c6a078
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Pochopení parametr ImageStoreConnectionString nastavení
 
@@ -44,7 +44,7 @@ Hostování v systému služby v rámci samotného clusteru je úložiště Imag
 
 Zprostředkovatele systému souborů se používá místo službu úložiště bitové kopie pro místní clustery jeden pole během vývoje k navázání připojení clusteru mírně rychlejší. Rozdíl je obvykle malý, ale je užitečné optimalizace pro většinu zaměstnance během vývoje. Je možné nasadit místní cluster jeden pole s ostatních úložiště zprostředkovatele typů a, ale obvykle neexistuje žádný důvod k tomu, protože pracovního postupu pro vývoj/testování zůstává stejný bez ohledu na zprostředkovatele. Než toto použití zprostředkovatele systému souborů a Azure Storage pouze existovat podporuje starší verze.
 
-Proto při konfigurovat parametr ImageStoreConnectionString obecně právě používáte výchozí nastavení. Při publikování do služby Azure prostřednictvím [Visual Studio][12], parametr se nastaví automaticky, odpovídajícím způsobem. Programová nasazení do clusterů, které jsou hostované v Azure připojovací řetězec je vždy "fabric: úložiště bitových kopií". V případě, že pokud máte pochybnosti, jeho hodnota vždy ověřovány načítání manifestu clusteru podle [prostředí PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), nebo [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Místní testování a produkčních clusterů by měl být vždy nakonfigurovaný na použití i poskytovatele služby úložiště bitové kopie.
+Proto při konfigurovat parametr ImageStoreConnectionString obecně právě používáte výchozí nastavení. Při publikování do Azure pomocí sady Visual Studio, parametr je automaticky nastaven pro vás odpovídajícím způsobem. Programová nasazení do clusterů, které jsou hostované v Azure připojovací řetězec je vždy "fabric: úložiště bitových kopií". V případě, že pokud máte pochybnosti, jeho hodnota vždy ověřovány načítání manifestu clusteru podle [prostředí PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), nebo [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Místní testování a produkčních clusterů by měl být vždy nakonfigurovaný na použití i poskytovatele služby úložiště bitové kopie.
 
 ### <a name="next-steps"></a>Další kroky
 [Nasazení a odebírat aplikace pomocí prostředí PowerShell][10]
@@ -55,4 +55,4 @@ Proto při konfigurovat parametr ImageStoreConnectionString obecně právě pou�
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-[12]: service-fabric-publish-app-remote-cluster.md
+

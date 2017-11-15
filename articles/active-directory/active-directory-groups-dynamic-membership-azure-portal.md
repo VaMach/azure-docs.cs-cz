@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 5e101c4b92868181a6b627d060a9c8e72a7837c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Vytvořit pravidla založená na atributu pro dynamické členství ve skupině v Azure Active Directory
 V Azure Active Directory (Azure AD) můžete vytvořit rozšířených pravidel povolit komplexní založená na atributu dynamické členství skupiny. Tento článek podrobně atributy a syntaxe k vytvoření pravidla dynamické členství pro uživatele nebo zařízení.
@@ -296,7 +296,7 @@ Můžete také vytvořit pravidlo, které vybere objekty zařízení pro členst
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Změna dynamické členství na statické a naopak
 Je možné změnit, jak se spravuje členství ve skupině. To je užitečné, pokud chcete zachovat stejný název skupiny a ID v systému, takže všechny existující odkazy na skupiny musí být stále platné; Vytvoření nové skupiny by vyžadovaly aktualizace tyto odkazy.
 
-Probíhá aktualizace portál Azure pro tuto funkci podporují. Do té doby, můžete použít [portál Azure classic](https://manage.windowsazure.com) (postupujte podle pokynů [sem](active-directory-accessmanagement-groups-with-advanced-rules.md)) nebo pomocí rutin prostředí PowerShell, jak je uvedeno níže.
+Probíhá aktualizace portál Azure pro tuto funkci podporují. Do té doby, můžete použít [portál Azure classic](https://manage.windowsazure.com) (postupujte podle pokynů [sem](active-directory-groups-dynamic-membership-azure-portal.md)) nebo pomocí rutin prostředí PowerShell, jak je uvedeno níže.
 
 > [!WARNING]
 > Při změně existující statická skupina pro skupinu dynamické, všechny stávající členy se odeberou ze skupiny, a pak se zpracují pravidlo členství pro přidání nové členy. Pokud skupině se používá k řízení přístupu k aplikacím nebo prostředkům, původní členy může ztratit přístup, dokud plně zpracování pravidla členství se.

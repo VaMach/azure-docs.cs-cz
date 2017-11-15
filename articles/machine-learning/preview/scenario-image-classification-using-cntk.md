@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 336d3ffaee21040a95366e0317cecdb83977ce97
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Pomocí Azure Machine Learning Workbench klasifikace bitové kopie
 
@@ -52,9 +52,11 @@ Požadavky na spuštění v tomto příkladu jsou následující:
 4. Vyhrazené GPU není nutné provést školení SVM část 1, ale je potřeba pro upřesnění z DNN popsané v části 2. Chybí silné grafického procesoru, chcete cvičení na více grafickými procesory nebo nemají počítače s Windows, můžete použít Azure hloubkové Learning virtuální počítač s operačním systémem Windows. V tématu [sem](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) průvodce kliknutím 1 nasazení. Po nasazení připojit k virtuálnímu počítači prostřednictvím připojení ke vzdálené ploše, nainstalujte Workbench existuje a spouštění kódu místně z virtuálního počítače.
 5. Různé knihovny Python, jako je například OpenCV je potřeba nainstalovat. Klikněte na tlačítko *spusťte příkazový řádek* z *souboru* nabídky na Workbench a spusťte následující příkazy pro instalaci tyto závislosti:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl`Po stažení OpenCV wheel z http://www.lfd.uci.edu/~gohlke/pythonlibs/ (přesný název souboru a verze můžete změnit)
-    - `conda install matplotlib numpy pillow`
-    - `conda install -c conda-forge bqplot`
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`Po stažení OpenCV wheel z http://www.lfd.uci.edu/~gohlke/pythonlibs/ (přesný název souboru a verze můžete změnit)
+    - `conda install pillow`
+    - `pip install -U numpy`
+    - `pip install bqplot`
+    - `jupyter nbextension enable --py --sys-prefix bqplot`
 
 ### <a name="troubleshooting--known-bugs"></a>Řešení potíží / známé chyby
 - Grafického procesoru je potřeba pro část 2 a v opačném případě "Batch normalizaci školení na procesoru není dosud implementována" je vyvolána chyba při pokusu o Upřesnit DNN.
@@ -66,7 +68,7 @@ Požadavky na spuštění v tomto příkladu jsou následující:
 ## <a name="create-a-new-workbench-project"></a>Vytvoření nového projektu workbench
 
 Chcete-li vytvořit nový projekt v tomto příkladu jako šablona:
-1.  Otevřete Azure Machine Learning Workbench.
+1.  Otevřete aplikaci Azure Machine Learning Workbench.
 2.  Na **projekty** klikněte na tlačítko  **+**  přihlásit a vybrat **nový projekt**.
 3.  V **vytvořit nový projekt** podokně, vyplňte informace pro nový projekt.
 4.  V **šablony projektů vyhledávání** vyhledávacího pole zadejte "Image klasifikaci" a vyberte šablonu.

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
 ms.author: rickbyh
-ms.openlocfilehash: 2726f5a78920f0ce47ed9d034e6a597c11b92e98
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Pomocí ověřování Azure Active Directory k ověřování připojení k SQL Database nebo SQL Data Warehouse
 Ověřování Azure Active Directory je mechanismus připojit k Microsoft Azure SQL Database a [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) pomocí identit v Azure Active Directory (Azure AD). Při ověřování Azure AD můžete centrálně spravovat identity uživatelů, databáze a další služby Microsoftu v jednom centrálním místě. Centrální správa ID poskytuje jednotné místo pro správu uživatelů databáze a zjednodušuje správu oprávnění. Výhody patří:
@@ -73,7 +73,7 @@ Chcete-li vytvořit uživatele databáze s omezením v Azure SQL Database nebo S
 ## <a name="azure-ad-features-and-limitations"></a>Funkce Azure AD a omezení
 Následující členy Azure AD může být zřízen v Azure SQL server nebo SQL Data Warehouse:
 
-* Nativní členy: člen vytvořené ve službě Azure AD ve spravované doméně nebo v doméně zákazníka. Další informace najdete v tématu [přidat vlastní název domény do Azure AD](../active-directory/active-directory-add-domain.md).
+* Nativní členy: člen vytvořené ve službě Azure AD ve spravované doméně nebo v doméně zákazníka. Další informace najdete v tématu [přidat vlastní název domény do Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
 * Federované domény členy: člen vytvořené v Azure AD s federovanou doménu. Další informace najdete v tématu [Microsoft Azure teď podporuje federační službou Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 * Importované členy z jiných Azure AD, kteří jsou členy nativní nebo federované domény.
 * Active Directory skupiny vytvořené jako skupin zabezpečení.

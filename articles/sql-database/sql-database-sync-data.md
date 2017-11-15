@@ -13,14 +13,14 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: fe11926cb7f6b2a80913895b685acfcc433e9805
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL (Preview)
 
@@ -78,38 +78,11 @@ Synchronizaci dat není vhodná pro následující scénáře:
     -   Pokud vyberete *rozbočovače wins*, změny v centru vždy přepsat změny v člena.
     -   Pokud vyberete *člen wins*, změny v změn přepsání člena v centru. Pokud existuje více než jednoho člena, konečná hodnota závisí na člena, který synchronizuje nejdřív.
 
-## <a name="common-questions"></a>Nejčastější dotazy
-
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Jak často můžete synchronizaci dat synchronizovat data? 
-Minimální frekvence se každých pět minut.
-
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Můžete používat synchronizaci dat k synchronizaci mezi místní databáze systému SQL Server pouze? 
-Ne přímo. Pro synchronizaci mezi místní databáze systému SQL Server nepřímo, ale vytvoření centra databáze v Azure a následným přidáním do skupiny synchronizace místní databáze.
-   
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Lze používat synchronizaci dat na počáteční hodnoty data z provozní databáze pro prázdnou databázi a pak je synchronizovat zachovat? 
-Ano. Vytvoření schématu ručně v nové databáze pomocí skriptování z původní. Jakmile vytvoříte schéma, přidáte do skupiny synchronizace zkopírovat data a udržovat synchronizované tabulky.
-
-### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Proč se zobrazuje, tabulky, které I nevytvořila?  
-Synchronizaci dat vytváří straně tabulky v databázi pro sledování změn. Neodstraňujte ho nebo synchronizaci dat přestane fungovat.
-   
-### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>Chybová zpráva, která je uvedená "nelze vložit hodnoty NULL do sloupce \<sloupec\>. Sloupec nepovoluje hodnoty Null." Co to znamená, a jak můžete opravit chyby? 
-Tato chybová zpráva indikuje mezi dvěma následující problémy:
-1.  Může být tabulky bez primárního klíče. Chcete-li tento problém vyřešit, přidejte primární klíč pro všechny tabulky, které se synchronizuje.
-2.  Může být klauzule WHERE v příkazu CREATE INDEX. Synchronizace nezpracovává tuto podmínku. Chcete-li tento problém vyřešit, odeberte klauzuli WHERE nebo ručně změnit všechny databáze. 
- 
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Jak synchronizaci dat zpracovat. cyklické odkazy? To znamená, když stejná data je synchronizovaný v několika skupinách pro synchronizaci a udržuje v důsledku změny?
-Synchronizaci dat nemůže pracovat. cyklické odkazy. Ujistěte se, že je vyhnout. 
-
-### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Jak můžete exportovat a importovat databáze se synchronizací dat?
-Po exportu databáze jako `.bacpac` souboru a importovat soubor k vytvoření nové databáze, budete muset provést následující dva kroky můžete používat synchronizaci dat v databázi nové:
-1.  Vyčištění objektů synchronizaci dat a straně tabulek na **novou databázi** pomocí [tento skript](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Tento skript odstraní všechny požadované objekty synchronizaci dat z databáze.
-2.  Znovu vytvořte skupiny synchronizace s novou databází. Pokud původní skupiny synchronizace již nepotřebujete, odstraňte jej.
-
 ## <a name="sync-req-lim"></a>Požadavky a omezení
 
 ### <a name="general-requirements"></a>Obecné požadavky
 
--   Každá tabulka musí mít primární klíč. Neměnit hodnotu primární klíč v některém z řádků. Pokud máte k tomu, odstranit řádek a znovu ji vytvořte s novou hodnotu primárního klíče. 
+-   Každá tabulka musí mít primární klíč. Neměnit hodnotu primární klíč v některém z řádků. Pokud budete muset změnit hodnotu primárního klíče, odstranit řádek a znovu ji vytvořte s novou hodnotu primárního klíče. 
 
 -   Tabulka nemůže obsahovat sloupec identity, který není primární klíč.
 
@@ -150,6 +123,44 @@ Synchronizace dat se používají vložit, aktualizovat a odstranit aktivačníc
 | Velikost řádek dat v tabulce                                        | 24 mb                  |                             |
 | Interval minimální synchronizace                                           | 5 minut              |                             |
 |||
+
+## <a name="faq-about-sql-data-sync"></a>Nejčastější dotazy o synchronizaci dat SQL
+
+### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Kolik službu synchronizaci dat SQL (Preview) stojí?
+
+Ve verzi Preview není nijak zpoplatněn pro samotnou službu synchronizaci dat SQL (Preview).  Však stále naběhnou první poplatky za přenos dat pro přesun dat do aplikace a z vaší instance databáze SQL. Další informace najdete v tématu [SQL Database – ceny](https://azure.microsoft.com/pricing/details/sql-database/).
+
+### <a name="what-regions-support-data-sync"></a>Které oblasti podporují synchronizaci dat?
+
+Synchronizaci dat SQL (Preview) je k dispozici ve všech oblastech veřejného cloudu.
+
+### <a name="is-a-sql-database-account-required"></a>Je potřeba účet SQL Database? 
+
+Ano. Musíte mít účet databáze SQL pro hostování databáze rozbočovače.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Můžete používat synchronizaci dat k synchronizaci mezi místní databáze systému SQL Server pouze? 
+Ne přímo. Pro synchronizaci mezi místní databáze systému SQL Server nepřímo, ale vytvoření centra databáze v Azure a následným přidáním do skupiny synchronizace místní databáze.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Lze používat synchronizaci dat na počáteční hodnoty data z provozní databáze pro prázdnou databázi a pak je synchronizovat zachovat? 
+Ano. Vytvoření schématu ručně v nové databáze pomocí skriptování z původní. Jakmile vytvoříte schéma, přidáte do skupiny synchronizace zkopírovat data a udržovat synchronizované tabulky.
+
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Musí používat synchronizaci dat SQL k zálohování a obnovení databází.?
+
+Není doporučeno používat synchronizaci dat SQL (Preview) k vytvoření zálohy, vaše data. Nelze zálohování a obnovení k určitému bodu v čase, protože synchronizace synchronizaci dat SQL (Preview) nejsou verzí. Kromě toho synchronizaci dat SQL (Preview) nezálohuje další SQL objekty, například uložené procedury a rychle neprovádí ekvivalent operaci obnovení.
+
+Pro jeden doporučuje zálohování techniku, najdete v části [zkopírujte Azure SQL database](sql-database-copy.md).
+
+### <a name="is-collation-supported-in-sql-data-sync"></a>Jsou podporované kolace v synchronizaci dat SQL?
+
+Ano. Synchronizaci dat SQL podporuje kolaci v následujících scénářích:
+
+-   Pokud schéma tabulky vybrané synchronizace ještě nejsou v databázích máte rozbočovače nebo člen a pak při nasazení skupiny synchronizace, služba automaticky vytvoří odpovídající tabulky a sloupce s nastavení kolace vybraný v prázdné cílové databáze.
+
+-   Pokud tabulky, které chcete synchronizovat, již existuje v databázích rozbočovače a člen, synchronizaci dat SQL vyžaduje, aby sloupců primárního klíče měly stejnou kolaci mezi databázemi rozbočovače a člen pro úspěšné nasazení skupiny synchronizace. Neexistují žádná omezení kolace na sloupce mimo sloupců primárních klíčů.
+
+### <a name="is-federation-supported-in-sql-data-sync"></a>Je federation podporovaný v synchronizaci dat SQL?
+
+Kořenová databáze federace lze ve službě synchronizaci dat SQL (Preview) bez omezení. Koncový bod federované databázi nelze přidat do aktuální verze synchronizaci dat SQL (Preview).
 
 ## <a name="next-steps"></a>Další kroky
 

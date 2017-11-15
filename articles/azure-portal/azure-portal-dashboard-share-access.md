@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a965f9773524a36bedc3d040bf1a1ca391507f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Sdílet řídicí panely Azure pomocí řízení přístupu na základě Role
 Po dokončení konfigurace na řídicí panel, můžete ji publikovat a sdílet s jinými uživateli ve vaší organizaci. Můžete povolit zobrazení řídicího panelu pomocí služby Azure [řízení přístupu na základě Role](../active-directory/role-based-access-control-configure.md). Přiřadíte roli uživatele nebo skupinu uživatelů, a tato role definuje, zda uživatelům, můžete zobrazit nebo upravit publikované řídicího panelu. 
@@ -44,7 +44,7 @@ Tady je příklad.  Řekněme, že máte předplatné Azure a různé členy tý
 Ke skupině prostředků, který obsahuje několik řídicí panely, nebo na jednotlivé řídicí panel, ale může přiřadit také oprávnění. Například může rozhodnout, že skupina uživatelů by měl mají omezenou oprávnění napříč předplatné, ale vyšší úroveň přístupu konkrétním řídicího panelu. Tito uživatelé přiřadíte roli pro tento řídicí panel. 
 
 ## <a name="publish-dashboard"></a>publikovat řídicí panel
-Předpokládejme, že dokončení konfigurace řídicí panel, který chcete sdílet s skupinu uživatelů v rámci vašeho předplatného. Následující postup zobrazit v ní vlastní skupinu s názvem Správci úložiště, ale můžete název vaší skupiny ať chcete. Informace o vytváření skupiny služby Active Directory a přidání uživatelů k této skupině najdete v tématu [Správa skupin v Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Předpokládejme, že dokončení konfigurace řídicí panel, který chcete sdílet s skupinu uživatelů v rámci vašeho předplatného. Následující postup zobrazit v ní vlastní skupinu s názvem Správci úložiště, ale můžete název vaší skupiny ať chcete. Informace o vytváření skupiny služby Active Directory a přidání uživatelů k této skupině najdete v tématu [Správa skupin v Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 1. Na řídicím panelu, vyberte **sdílené složky**.
    

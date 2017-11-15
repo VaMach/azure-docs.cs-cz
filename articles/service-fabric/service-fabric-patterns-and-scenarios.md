@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: 8ac4a10b9030a4d56824d1a42ed2729ebb2d208e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7808493ca984277a939f04098799dbbd8287cc0c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Vzory Service Fabric a scénáře
 Pokud zvažujete sestavování rozsáhlých mikroslužeb pomocí Azure Service Fabric, přečtěte si od odborníků, kteří navržen a sestaven Tato platforma jako služba (PaaS). Začínáme s správnou architekturu a pak zjistěte, jak optimalizovat prostředky pro vaši aplikaci. [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) kurzu odpovídá na dotazy nejčastěji požaduje od zákazníků reálného o scénáře Service Fabric a v oblastech aplikace.
@@ -98,4 +98,4 @@ Získat odpověď na otázku "Proč kontejnery?" Další informace o verzi previ
 </table>
 
 ## <a name="next-steps"></a>Další kroky
-Teď, když jste se naučili o vzory Service Fabric a scénáře, přečtěte si více o tom, jak [vytváření a správě clusterů](service-fabric-deploy-anywhere.md), [migrace aplikací cloudové služby do Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [nastavení nastavené průběžné doručování](service-fabric-set-up-continuous-integration.md), a [nasazení kontejnerů](service-fabric-containers-overview.md).
+Teď, když jste se naučili o vzory Service Fabric a scénáře, přečtěte si více o tom, jak [vytváření a správě clusterů](service-fabric-deploy-anywhere.md), [migrace aplikací cloudové služby do Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [nastavení nastavené průběžné doručování](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), a [nasazení kontejnerů](service-fabric-containers-overview.md).

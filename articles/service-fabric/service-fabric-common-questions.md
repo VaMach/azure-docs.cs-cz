@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Často kladené otázky Service Fabric
 
@@ -79,7 +79,7 @@ Konfigurace třemi uzly clusteru je podporována pro vývojové a testovací vzh
 
 Obecně to možné není. Service Fabric ukládá stav na místní dočasné disků, což znamená, že pokud se virtuální počítač přesune do jiného hostitele, data nepřesouvá s ním. V běžném provozu, který se nejedná o problém nový uzel budou přeneseny aktuální jinými uzly. Pokud zastavíte všechny uzly a je restartovat později, existuje však významné možnost, že většina uzlů spustit na nového hostitele a zkontrolujte systém nemůže provést zotavení.
 
-Pokud chcete vytvořit clustery pro testování vašich aplikací před nasazením, doporučujeme dynamicky vytvořte tyto clustery jako součást vaší [nepřetržité integrace/průběžné kanálu nasazení](service-fabric-set-up-continuous-integration.md).
+Pokud chcete vytvořit clustery pro testování vašich aplikací před nasazením, doporučujeme dynamicky vytvořte tyto clustery jako součást vaší [nepřetržité integrace/průběžné kanálu nasazení](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>Jak mohu provést upgrade operačního systému (například ze systému Windows Server 2012 na Windows Server 2016)?

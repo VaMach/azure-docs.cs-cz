@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4a33df43ca218545d6c684103a64f2cd1460913b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure předávací ověřování služby Active Directory: Aktuální omezení
 
@@ -38,7 +38,7 @@ Plně podporuje následující scénáře:
 
 Následující scénáře jsou _není_ podporovány:
 
-- Přihlášení uživatele do starší verze aplikace klienta Office - Office 2010 a Office 2013 _bez_ moderní ověřování). Organizace doporučujeme přepnout na moderní ověřování, pokud je to možné. Moderní ověřování umožňuje podporu předávací ověřování, ale také pomáhá se zabezpečením vašich uživatelských účtů pomocí [podmíněného přístupu](../active-directory-conditional-access.md) funkce jako je například služba Multi-Factor Authentication (MFA).
+- Přihlášení uživatele do starší verze aplikace klienta Office - Office 2010 a Office 2013 _bez_ moderní ověřování). Organizace doporučujeme přepnout na moderní ověřování, pokud je to možné. Moderní ověřování umožňuje podporu předávací ověřování, ale také pomáhá se zabezpečením vašich uživatelských účtů pomocí [podmíněného přístupu](../active-directory-conditional-access-azure-portal.md) funkce jako je například služba Multi-Factor Authentication (MFA).
 - Uživatelská přihlášení do Skype pro firmy klientské aplikace, včetně Skype pro firmy 2016.
 - Přihlášení uživatele do prostředí PowerShell 1.0. Doporučuje se místo toho použít PowerShell v2.0.
 - Služba Azure AD Domain Services.

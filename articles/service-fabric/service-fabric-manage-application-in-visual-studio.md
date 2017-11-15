@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 3f6a47a15b74a7ceb6504b2834be62e76ab70bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Pomocí sady Visual Studio zjednodušují zápis a správu aplikací Service Fabric
 Můžete spravovat vaše aplikace Azure Service Fabric a služby pomocí sady Visual Studio. Jakmile jste [nastavení vývojového prostředí](service-fabric-get-started.md), Visual Studio můžete použít k vytvoření aplikací Service Fabric, přidání služby nebo balíček, registrace a nasazení aplikací v místní vývojový cluster.
@@ -32,7 +32,7 @@ Ve výchozím nastavení nasazení aplikace kombinuje následující kroky do je
 4. Odebrat všechny spuštěné instance aplikace
 5. Vytvoření instance aplikace
 
-Ve Visual Studiu stisknutím **F5** nasadí aplikaci a připojit ladicí program na všechny instance aplikace. Můžete použít **Ctrl + F5** k nasazení aplikace bez ladění, nebo můžete publikovat do místního nebo vzdáleného clusteru pomocí profilu publikování. Další informace najdete v tématu [publikování aplikace do vzdáleného clusteru pomocí sady Visual Studio](service-fabric-publish-app-remote-cluster.md).
+Ve Visual Studiu stisknutím **F5** nasadí aplikaci a připojit ladicí program na všechny instance aplikace. Můžete použít **Ctrl + F5** k nasazení aplikace bez ladění, nebo můžete publikovat do místního nebo vzdáleného clusteru pomocí profilu publikování. 
 
 ### <a name="application-debug-mode"></a>Režim ladění aplikací
 Visual Studio poskytují vlastnost s názvem **režim ladění aplikací**, který určuje, jakým způsobem chcete Visual Studia pro zpracování nasazení aplikace v rámci ladění.

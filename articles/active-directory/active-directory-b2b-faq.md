@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: bfedbbf8b26e1b129584a6a644e64a15635f5723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Spolupráce Azure Active Directory s B2B nejčastější dotazy
 
@@ -29,7 +29,7 @@ Tyto nejčastější dotazy (FAQ) o spolupráci Azure Active Directory (Azure AD
 Ne. Funkce spolupráce Azure AD s B2B jsou k dispozici pouze v [portál Azure](https://portal.azure.com) a v [přístupový Panel](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Jsme naše přihlašovací stránka přizpůsobit, tak, aby byl pro naše uživatele typu Host spolupráce B2B intuitivnější?
-Absolutně! V tématu naše [příspěvku na blogu o této funkci](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Další informace o tom, jak přizpůsobit přihlašovací stránku vaší organizace najdete v tématu [přidání firemního brandingu na přihlašovací a přístupového panelu](active-directory-add-company-branding.md).
+Absolutně! V tématu naše [příspěvku na blogu o této funkci](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Další informace o tom, jak přizpůsobit přihlašovací stránku vaší organizace najdete v tématu [přidání firemního brandingu na přihlašovací a přístupového panelu](customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Mohou uživatelé spolupráce B2B, získat přístup k SharePoint Online a OneDrive?
 Ano. Je však umožňuje vyhledat existující uživatele typu Host ve službě SharePoint Online pomocí nástroje pro výběr osob **vypnout** ve výchozím nastavení. Chcete-li zapnout možnost vyhledat existující uživatele typu Host, nastavte **ShowPeoplePickerSuggestionsForGuestUsers** k **na**. Toto nastavení můžete zapnout na buď na úrovni klienta nebo na úrovni kolekce webů. Toto nastavení můžete změnit pomocí rutiny Set-SPOTenant a Set-SPOSite. Pomocí těchto rutin můžete hledat členy v adresáři, všechny existující uživatele typu Host. Změny v oboru klienta nemají vliv na weby SharePoint Online, které již byly zřízeny.

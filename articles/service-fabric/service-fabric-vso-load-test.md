@@ -3,7 +3,7 @@ title: "Zatížení testování vaší aplikace pomocí sady Visual Studio Team 
 description: "Naučte se zátěžový test aplikace Azure Service Fabric pomocí Visual Studio Team Services."
 services: service-fabric
 documentationcenter: na
-author: cawams
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: fc743585-0d1b-483f-981d-493f4552ac07
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
-ms.author: cawa
-ms.openlocfilehash: e8e270ce865d4da3ee219958b308db2c1c89b11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ryanwi
+ms.openlocfilehash: 42cd4fc0f7a8d1efdc4afff9c51693e756a1d1e3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Zatížení testování vaší aplikace pomocí sady Visual Studio Team Services
 Tento článek ukazuje, jak zátěžový test pomocí sady Microsoft Visual Studio zatížení testovací funkcí aplikace. Používá Azure Service Fabric stavové služby back-end a bezstavové služby webového uživatelského rozhraní. Ukázková aplikace použít zde je simulátoru letadle umístění. Poskytnete ID letadle, čas odeslání a cíl. Back-end aplikace zpracovává požadavky a front-endu zobrazí na mapě letadle odpovídající kritériím.
@@ -32,7 +32,7 @@ Než začnete, musíte udělat následující:
 
 * Získáte účet Visual Studio Team Services. Můžete jej získat zdarma v [Visual Studio Team Services](https://www.visualstudio.com).
 * Získejte a nainstalujte Visual Studio 2013 nebo Visual Studio 2015. Tento článek používá edice Visual Studio 2015 Enterprise, ale Visual Studio 2013 a jiné edice by měly fungovat podobně.
-* Nasazení aplikace do pracovního prostředí. V tématu [nasazení aplikací do clusteru s podporou vzdálené pomocí sady Visual Studio](service-fabric-publish-app-remote-cluster.md) informace o této.
+* Nasazení aplikace do pracovního prostředí. V tématu [nasazení aplikací do clusteru s podporou vzdálené pomocí sady Visual Studio](service-fabric-manage-application-in-visual-studio.md) informace o této.
 * Pochopení vzor používání vaší aplikace. Tyto informace slouží k simulaci vzor zatížení.
 * Pochopení cílem pro zátěžové testování. To vám pomůže interpretovat a analýza výsledků zátěžových testů.
 

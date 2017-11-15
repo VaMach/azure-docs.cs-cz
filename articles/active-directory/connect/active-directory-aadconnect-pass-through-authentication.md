@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 96a33547329931903d264d5ec4ea8da76e36a0a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6987ad8f36de55ac49785b41bb193721aa78321b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Přihlášení uživatele pomocí ověřování Azure Active Directory průchozí
 
@@ -55,7 +55,7 @@ Zkombinováním předávacího ověřování s [bezproblémové jednotné přihl
 
 - Podporuje přihlášení uživatele do všech webových aplikací založené na prohlížeči a do klientské aplikace Microsoft Office, které používají [moderní ověřování](https://aka.ms/modernauthga).
 - Uživatelská jména přihlášení může být buď místní výchozí uživatelské jméno (`userPrincipalName`) nebo jiný atribut, které jsou nakonfigurované v Azure AD Connect (označované jako `Alternate ID`).
-- Funkci bezproblémově pracuje s [podmíněného přístupu](../active-directory-conditional-access.md) funkce jako je například aplikace Multi-Factor Authentication (MFA) pro zajištění vaši uživatelé.
+- Funkci bezproblémově pracuje s [podmíněného přístupu](../active-directory-conditional-access-azure-portal.md) funkce jako je například aplikace Multi-Factor Authentication (MFA) pro zajištění vaši uživatelé.
 - Integrovat cloudové [hesla pomocí samoobslužné služby správy](../active-directory-passwords-overview.md), včetně zpětný zápis hesla pro místní služby Active Directory a ochrana heslem pomocí zakazování nejčastěji používaných hesel.
 - Prostředí s více doménovými strukturami jsou podporovány, pokud existují vztahy důvěryhodnosti doménové struktury mezi doménovými strukturami vaší AD a v případě směrování přípon názvů je správně nakonfigurován.
 - Je bezplatné funkce a nepotřebujete žádné placené edice Azure AD pro použití.

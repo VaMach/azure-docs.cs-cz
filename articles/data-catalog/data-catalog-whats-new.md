@@ -13,16 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Co je nového v Azure Data Catalog
 Aktualizace **Azure Data Catalog** jsou vydávány pravidelně. Ne každý verze obsahuje nové funkce zobrazující se uživatelům, jako některých vydání se zaměřuje na funkce back endové službě. Tato stránka označuje nové funkce uživatelsky orientovaný přidán do služby Azure Data Catalog.
+
+## <a name="whats-new-for-november-2017"></a>Co je nového pro listopad 2017 
+Následující funkce jsou od listopadu 2017 přidané do Azure Data Catalog:
+
+* Podpora pro propojování přímo na konkrétní obchodní Glosář podmínky na portálu katalogu Data Catalog. Uživatele můžete zkopírovat odkazy z obchodní Glosář a vložit do dokumentů, e-mailů, sestavy nebo jiné umístění pro přímý odkaz na definici Glosář termínů.
+* Podpora pro objekty služby Azure Active Directory. Správci katalogu dat může autorizovat klientským aplikacím pomocí objekty služby přístup ke katalogu a můžete udělit tyto aplikace konkrétní oprávnění stejně jako se můžete udělit oprávnění pro uživatele a skupiny zabezpečení. Další informace najdete v článku [aplikace a služby hlavní objekty ve službě Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Podpora pro ověřování Azure Active Directory při připojování k databázi SQL Azure a Azure SQL Data Warehouse zdroje dat pomocí nástroj registrace zdroje dat katalogu Data Catalog. Další informace najdete v článku [použití Azure ověřování služby Active Directory k ověřování připojení k SQL Database nebo SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
+
 
 ## <a name="whats-new-for-september-2017"></a>Co je nového u září 2017 
 Od září 2017 následující funkce jsou přidané do Azure Data Catalog:

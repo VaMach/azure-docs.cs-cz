@@ -1,5 +1,5 @@
 ---
-title: "Povolit nebo zakázat HTTPS na vlastní domény služby Azure Content Delivery Network | Microsoft Docs"
+title: "Nakonfigurujte protokol HTTPS na vlastní domény služby Azure Content Delivery Network | Microsoft Docs"
 description: "Zjistěte, jak chcete povolit nebo zakázat HTTPS na koncový bod Azure CDN s vlastní doménu."
 services: cdn
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: casoper
-ms.openlocfilehash: 68a171ee6da58e6d84b466daf573577c909c7f5c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 82de79cde208cdce1ed7cbd600f1e804ff1d45ff
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>Povolit nebo zakázat HTTPS na vlastní domény služby Azure Content Delivery Network
+# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Nakonfigurujte protokol HTTPS na vlastní domény služby Azure Content Delivery Network
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Podpora protokolu HTTPS pro vlastní domény Microsoft Azure obsah Delivery Network (CDN) umožňuje doručovat bezpečné obsahu přes SSL pomocí vlastní název domény pro zlepšení zabezpečení dat v průběhu přenosu. V pracovním postupu začátku do konce povolit HTTPS pro vaše vlastní doména je zjednodušený prostřednictvím povolování jedním kliknutím, kompletní certifikát správy a všechny s bez dalších nákladů.
+Společnost Microsoft podporuje protokol HTTPS pro vlastní domény na Azure Content Delivery Network (CDN). S podporou protokolu HTTPS vlastní doménu abyste mohli zajistit bezpečné obsahu přes SSL pomocí vlastní název domény pro zlepšení zabezpečení dat v průběhu přenosu. V pracovním postupu povolit HTTPS pro vaše vlastní doména je zjednodušený prostřednictvím povolování jedním kliknutím a kompletní certifikát správy, všechny s bez dalších nákladů.
 
-Je důležité k zajištění ochrany osobních údajů a integritu dat všech s citlivými daty webové aplikace v průběhu přenosu. Pomocí protokolu HTTPS zajišťuje, aby citlivá data šifrovala při posílání přes internet. Poskytuje vztah důvěryhodnosti, ověřování a chrání vaše webové aplikace před útoky. Azure CDN podporuje protokol HTTPS na koncový bod CDN ve výchozím nastavení. Například pokud vytvoříte koncový bod CDN z Azure CDN (například `https://contoso.azureedge.net`), je automaticky povolen protokol HTTPS. Kromě toho s podporou protokolu HTTPS vlastní doménu, můžete povolit zabezpečené doručování pro vlastní doménu (například `https://www.contoso.com`) také. 
+Je důležité k zajištění ochrany osobních údajů a integritu dat webové aplikace citlivých dat při přenosu. Pomocí protokolu HTTPS, můžete zajistit, že citlivá data šifrování při posílání přes internet. Poskytuje vztah důvěryhodnosti, ověřování a chrání vaše webové aplikace před útoky. Ve výchozím nastavení Azure CDN podporuje protokol HTTPS na koncový bod CDN. Například pokud vytvoříte koncový bod CDN z Azure CDN (například `https://contoso.azureedge.net`), je automaticky povolen protokol HTTPS. Kromě toho s podporou protokolu HTTPS vlastní doménu, můžete také povolit zabezpečené doručování pro vlastní doménu (například `https://www.contoso.com`). 
 
 Mezi klíčové atributy HTTPS funkce patří:
 
@@ -41,7 +41,7 @@ Mezi klíčové atributy HTTPS funkce patří:
 
 ## <a name="enabling-https"></a>Povolení protokolu HTTPS
 
-Pokud chcete povolit protokol HTTPS, postupujte takto:
+Pokud chcete povolit protokol HTTPS na vlastní doménu, postupujte takto:
 
 ### <a name="step-1-enable-the-feature"></a>Krok 1: Povolení funkce 
 
@@ -66,7 +66,7 @@ Pokud chcete povolit protokol HTTPS, postupujte takto:
 Povolíte-li HTTPS na vaši vlastní doménu, DigiCert certifikační autoritu (CA) ověří vlastnictví domény jeho osob žádajících o registraci kontaktováním podle domény [WHOIS](http://whois.domaintools.com/) informace osob žádajících o registraci. Obraťte se provádí prostřednictvím e-mailovou adresu (ve výchozím nastavení) nebo telefonní číslo uvedené v registraci WHOIS. 
 
 >[!NOTE]
->Pokud máte u svého poskytovatele DNS záznam certifikátu autority autorizace (KÁ), musí obsahovat DigiCert jako platné certifikační Autority. Záznam KÁ umožňuje vlastníkům domény zadejte zprostředkovatelům jejich DNS, které certifikační autority jsou oprávnění k vydávání certifikátů pro svoji doménu. Pokud certifikační Autorita obdrží pořadí pro certifikát pro doménu, která má záznam KÁ a certifikační Autority není uvedena jako autorizovaný vystavitele, je zakázáno z vydávající certifikát do domény nebo subdomény.
+>Pokud máte u svého poskytovatele DNS záznam certifikátu autority autorizace (KÁ), musí obsahovat DigiCert jako platné certifikační Autority. Záznam KÁ umožňuje vlastníkům domény zadejte zprostředkovatelům jejich DNS, které certifikační autority jsou oprávnění k vydávání certifikátů pro svoji doménu. Pokud certifikační Autorita obdrží pořadí pro certifikát pro doménu, která má záznam KÁ a certifikační Autority není uvedena jako autorizovaný vystavitele, je zakázáno z vydávající certifikát do domény nebo subdomény. Informace o správě záznamů KÁ najdete v tématu [spravovat KÁ záznamy](https://support.dnsimple.com/articles/manage-caa-record/). Nástroj záznamu KÁ najdete v části [KÁ záznam pomocná](https://sslmate.com/caa/).
 
 ![Záznam WHOIS](./media/cdn-custom-ssl/whois-record.png)
 
@@ -128,7 +128,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="disabling-https"></a>Zakázání protokolu HTTPS
 
-Po povolení protokolu HTTPS, můžete ji později zakázat. Zakázat protokol HTTPS, postupujte takto:
+Po povolení HTTPS na vlastní doménu, můžete ji později zakázat. Zakázat protokol HTTPS, postupujte takto:
 
 ### <a name="step-1-disable-the-feature"></a>Krok 1: Zákaz funkce 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory doklad o koncept playbook: stavební bloky
 
@@ -99,10 +99,10 @@ Přibližná doba na dokončeno: 15 minut
 | Krok | Zdroje |
 | --- | --- |
 | Přejděte na portál pro správu Azure AD | [Portál pro správu Azure AD - firemního brandingu](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Nahrajte prostředků pro přihlašovací stránku (nejdůležitější logo, malé logo, popisky, atd.). Případně pokud máte služby AD FS, zarovnejte stejné prostředky s přihlašovací stránky služby AD FS | [Přidání firemního brandingu na vaše přihlášení a přístupový Panel stránky: přizpůsobitelné prvky](active-directory-add-company-branding.md) |
+| Nahrajte prostředků pro přihlašovací stránku (nejdůležitější logo, malé logo, popisky, atd.). Případně pokud máte služby AD FS, zarovnejte stejné prostředky s přihlašovací stránky služby AD FS | [Přidání firemního brandingu na vaše přihlášení a přístupový Panel stránky: přizpůsobitelné prvky](customize-branding.md) |
 | Počkejte několik minut, aby tato změna se plně projeví |  |
 | Přihlaste se pomocí přihlašovacích údajů uživatele POC k https://myapps.microsoft.com |  |
-| Potvrďte vzhledu a chování v prohlížeči | [Přidání firemního brandingu na vaše přihlášení a přístupový Panel stránky](active-directory-add-company-branding.md) |
+| Potvrďte vzhledu a chování v prohlížeči | [Přidání firemního brandingu na vaše přihlášení a přístupový Panel stránky](customize-branding.md) |
 | Volitelně můžete potvrďte vzhledu a chování v jiných zařízení |  |
 
 ### <a name="considerations"></a>Požadavky
@@ -379,7 +379,7 @@ Přibližná doba na dokončeno: 15 minut
 
 | Předpoklad | Zdroje |
 | --- | --- |
-| Povolte správu hesla pomocí samoobslužné služby ve vašem klientovi. | [Azure Active Directory resetování hesla pro správce IT](active-directory-passwords.md) |
+| Povolte správu hesla pomocí samoobslužné služby ve vašem klientovi. | [Azure Active Directory resetování hesla pro správce IT](active-directory-passwords-update-your-own-password.md) |
 | Povolte zpětný zápis hesla ke správě hesel z místní. Poznámka: to vyžaduje konkrétní Azure AD Connect verze | [Požadavky pro zpětný zápis hesla](active-directory-passwords-writeback.md) |
 | Identifikujte PoC uživatele, kteří tuto funkci používat a ujistěte se, že jsou členy skupiny zabezpečení. Uživatelé musí být bez oprávnění správce na plně prezentují funkce | [Přizpůsobení: Správa hesel Azure AD: omezení přístupu k resetování hesla](active-directory-passwords-writeback.md) |
 

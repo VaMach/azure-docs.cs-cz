@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: Časté otázky (FAQ)
 Tento článek obsahuje nejčastější dotazy týkající se Azure Site Recovery. Pokud po přečtení tohoto článku máte dotazy, odešlete je na [fóru Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -75,22 +75,7 @@ Pokud chcete ochránit virtuální počítače VMware, potřebujete hypervisor v
 Ano. Pokud používáte Site Recovery k orchestraci replikace a převzetí služeb při selhání ve firemních pobočkách, získáte jednotná orchestration a zobrazit všechny úlohy poboček v centrálním umístění. Z centrály můžete snadno provádět převzetí služeb při selhání a spravovat zotavení po havárii na všech pobočkách, aniž byste na nich museli být přítomni.
 
 ## <a name="pricing"></a>Ceny
-
-### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Jaké poplatky dojít při použití Azure Site Recovery?
-Pokud používáte Site Recovery, platit poplatky pro Site Recovery licence, úložiště Azure, transakce úložiště a odchozí přenosy dat. [Další informace](https://azure.microsoft.com/pricing/details/site-recovery).
-
-Site Recovery licence, které je na chráněný instanci, kde je instance virtuálního počítače nebo fyzického serveru.
-
-- Pokud disk virtuálního počítače se replikuje na standardní účet úložiště, je zdarma úložiště Azure pro spotřebu úložiště. Například pokud je velikost zdrojového disku se používá 1 TB a 400 GB, Site Recovery vytvoří 1 TB virtuální pevný disk v Azure, ale úložiště účtovat je 400 GB (plus množství prostoru úložiště pro protokoly replikace).
-- Pokud disk virtuálního počítače se replikuje na prémiový účet úložiště, je zdarma úložiště Azure pro velikost zřízeného úložiště, zaokrouhlí nejbližší možnost disk úložiště premium. Například pokud je velikost zdrojového disku 50 GB, Site Recovery vytvoří 50 GB disk v Azure a Azure to mapuje na nejbližší disk úložiště premium (P10).  Počítá náklady na P10 a ne na velikost disku 50 GB.  [Další informace](https://aka.ms/premium-storage-pricing).  Pokud používáte storage úrovně premium, účet standardního úložiště pro replikaci protokolování je také nutný a také se fakturuje množství místa standardní úložiště pro tyto protokoly.
-- Žádné disky jsou vytvořeny do testovací převzetí služeb nebo převzetí služeb při selhání. Ve stavu replikace úložiště poplatky v kategorii "Objekt blob stránky a disku" dle [cenové kalkulačky úložiště](https://azure.microsoft.com/en-in/pricing/calculator/) se vám neúčtují. Tyto poplatky jsou založené na úložiště typu premium a standardní a redundanci dat zadejte - LRS, GRS, RA-GRS atd.
-- Pokud je vybrána možnost používat spravovaných disků na převzetí služeb při selhání, [poplatky za spravované disky](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) použije po převzetí služeb při selhání nebo testovací převzetí služeb. Spravovat disky, které poplatky neuplatnění během replikace.
-- Pokud není vybraná možnost použít spravovaných disků na převzetí služeb při selhání, úložiště poplatky v kategorii "Objekt blob stránky a disku" dle [cenové kalkulačky úložiště](https://azure.microsoft.com/en-in/pricing/calculator/) se vám neúčtují po převzetí služeb při selhání. Tyto poplatky jsou založené na úložiště typu premium a standardní a redundanci dat zadejte - LRS, GRS, RA-GRS atd.
-- Transakce úložiště po selhání účtujeme během stabilního stavu replikace a pro standardních operací virtuálního počítače nebo testovací převzetí služeb při selhání. Ale tyto poplatky jsou nepatrné.
-
-Náklady jsou také vzniklých během testovacího převzetí služeb při selhání, kde bude použito transakce nákladů na virtuální počítač, úložiště, výstupní a úložiště.
-
-
+Ceny dotazy související s, naleznete v části Nejčastější dotazy na [cenách Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Zabezpečení
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Posílají se replikační data do služby Site Recovery?

@@ -1,6 +1,6 @@
 ---
-title: "SAP NetWeaver HA instalace v clusteru převzetí služeb při selhání se systémem Windows a sdílený Disk pro instanci SCS SAP (A) v Azure | Microsoft Docs"
-description: "SAP NetWeaver HA instalace v systému Windows převzetí služeb při selhání clusteru a sdíleného disku SCS Instance SAP (A)"
+title: "Nainstalujte SAP NetWeaver HA v clusteru převzetí služeb při selhání se systémem Windows a sdíleného disku pro instance SAP ASC nebo SCS v Azure | Microsoft Docs"
+description: "Naučte se instalovat SAP NetWeaver HA v clusteru převzetí služeb při selhání se systémem Windows a sdíleného disku pro SAP ASC nebo SCS instance."
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 938ab6be6b2ba9e1403919cb62f68c65f114c067
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 419bbdd57a391dbbf01c2110a1609cb3d0ded003
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="sap-netweaver-ha-installation-on-windows-failover-cluster-and-shared-disk-for-sap-ascs-instance-on-azure"></a>SAP NetWeaver HA instalace v systému Windows převzetí služeb při selhání clusteru a sdíleného disku SCS Instance SAP (A) v Azure
+# <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Nainstalujte SAP NetWeaver HA v clusteru převzetí služeb při selhání se systémem Windows a sdíleného disku pro instance SAP ASC nebo SCS v Azure
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -51,6 +51,8 @@ ms.lasthandoff: 10/16/2017
 [sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
+[sap-ha-guide-8.9]:high-availability-guide.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
+[sap-ha-guide-8.11]:high-availability-guide.md#661035b2-4d0f-4d31-86f8-dc0a50d78158
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
@@ -144,56 +146,56 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-Tento dokument je popisující, jak nainstalovat a nakonfigurovat vysokou dostupné systémové SAP v Azure, s **Windows Failover Cluster (WSFC)** a pomocí **sdíleného disku clusteru** pro clustering SCS SAP (A) instance.
+Tento článek popisuje postup instalace a konfigurace systému SAP vysoké dostupnosti v Azure pomocí clusteru převzetí služeb při selhání systému Windows Server a sdíleného disku clusteru pro clustering SAP ASC nebo SCS instance.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Ujistěte se, že jste si tyto dokumenty, než začnete s instalací:
+Před zahájením instalace, projděte si tyto dokumenty:
 
-* [Průvodce architekturou – Clustering SCS Instance SAP (A) v clusteru převzetí služeb při selhání systému Windows pomocí clusteru sdílený Disk][sap-high-availability-guide-wsfc-shared-disk]
+* [Průvodce architekturou: clusteru instance SAP ASC nebo SCS pomocí sdíleného disku clusteru v clusteru s podporou převzetí služeb při selhání systému Windows][sap-high-availability-guide-wsfc-shared-disk]
 
-* [Azure Příprava infrastruktury pro SAP HA používat pro SAP (A) SCS Instance clusteru převzetí služeb při selhání se systémem Windows a sdíleného disku][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Příprava infrastruktury Azure pro SAP HA pomocí clusteru převzetí služeb při selhání se systémem Windows a sdíleného disku pro instance SAP ASC nebo SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-Instalace databázového systému jsme popisují není nastavení lišit v závislosti na tom, které můžete použít systém databázového systému. Ale předpokládáme, že jsou aspekty vysoké dostupnosti s databázového systému řešit pomocí funkce, které různých výrobců databázového systému podpora pro Azure. Například Always On nebo zrcadlení databáze systému SQL Server a Oracle Data Guard pro databáze Oracle. Ve scénáři, které používáme v tomto článku jsme nebyla přidat další ochranu do databázového systému.
+Instalace databázového systému v tomto článku nepopisujeme, protože nastavení se liší v závislosti na tom, které můžete použít systém databázového systému. Předpokládáme, že jsou aspekty vysoké dostupnosti s databázového systému řešit pomocí funkce, které podporují různých výrobců databázového systému pro Azure. Příklady jsou AlwaysOn nebo zrcadlení databáze systému SQL Server a Oracle Data Guard pro databáze Oracle. Ve scénáři, které používáme v tomto článku jsme nepřidáte další ochranu databázového systému.
 
-Když různé služby databázového systému interakci s tímto typem Clusterované konfigurace SAP ASC nebo SCS v Azure neexistují žádné zvláštní požadavky.
+Pokud různé služby databázového systému práci s Clusterové ASC SAP nebo SCS konfigurace v Azure neexistují žádné zvláštní požadavky.
 
 > [!NOTE]
 > Postupy instalace systémů SAP NetWeaver ABAP, Java systémy a systémy ABAP + Java jsou téměř shodné. Nejdůležitější rozdíl je, že systému SAP ABAP má jednu instanci ASC. V systému SAP Java má jednu instanci SCS. V systému SAP ABAP + Java obsahuje jednu instanci ASC a jednu instanci SCS spuštěné ve stejné skupině clusteru převzetí služeb při selhání Microsoft. Případné rozdíly instalace pro každou SAP NetWeaver instalace zásobníku se výslovně uveden. Můžete předpokládat, že všechny ostatní části jsou stejné.  
 >
 >
 
-## <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Instalace s vysokou dostupností ASC nebo SCS Instance SAP
+## <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Instalace s vysokou dostupností ASC nebo SCS instance SAP
 
 > [!IMPORTANT]
-> Nezapomeňte toto stránkovacím souboru na svazcích DataKeeper zrcadlení. DataKeeper nepodporuje zrcadlové svazky. Můžete ponechat stránkovacím souboru na dočasné jednotce D Azure virtuálního počítače, který je výchozí. Pokud není již existuje, přesuňte stránkovací soubor Windows na jednotku D virtuálního počítače Azure.
+> Nezapomeňte toto stránkovacím souboru na svazcích s DataKeeper zrcadlení. DataKeeper nepodporuje zrcadlové svazky. Můžete ponechat stránkovacím souboru na dočasné jednotce D Azure virtuálního počítače, který je výchozí. Pokud není již existuje, přesuňte stránkovací soubor Windows na jednotku D virtuálního počítače Azure.
 >
 >
 
 Instalace s vysokou dostupností ASC nebo SCS instance SAP zahrnuje tyto úlohy:
 
-* Vytváření název virtuálního hostitele pro SAP ASC nebo SCS skupinu prostředků clusteru
-* Instalace prvního uzlu clusteru SAP
-* Úprava profilu SAP ASC nebo SCS instance
-* Přidání port testu
-* Otevřete port testu brány firewall systému Windows
+* Vytvořte název virtuálního hostitele pro SAP ASC nebo SCS skupinu prostředků clusteru.
+* Nainstalujte SAP prvním uzlu clusteru.
+* Upravte profil SAP ASC nebo SCS instance.
+* Přidejte port testu.
+* Otevřete port testu brány firewall systému Windows.
 
-### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Vytvořte název virtuálního hostitele pro instanci ASC nebo SCS Clusterové SAP
+### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Vytvořte název virtuálního hostitele pro SAP ASC nebo SCS skupinu prostředků clusteru
 
 1.  Ve Správci DNS systému Windows vytvořte záznam DNS pro název virtuálního hostitele ASC nebo SCS instance.
 
   > [!IMPORTANT]
-  > IP adresa, která přiřadíte název virtuálního hostitele ASC nebo SCS instance musí být stejná jako adresa IP, který jste přiřadili k vyrovnávání zatížení Azure (**<*SID*> - lb - ASC **).  
+  > IP adresa, která přiřadíte název virtuálního hostitele ASC nebo SCS instance musí být stejná jako adresa IP, který jste přiřadili k vyrovnávání zatížení Azure (\<SID\>- lb ASC).  
   >
   >
 
-  IP adresa virtuální název hostitele SAP ASC nebo SCS (**pr1. ASC sap**) je stejný jako IP adresu služby Vyrovnávání zatížení Azure (**pr1-lb Asc**).
+  IP adresa virtuální název hostitele SAP ASC nebo SCS (pr1 sap ASC) je stejný jako IP adresa služby Vyrovnávání zatížení Azure (pr1 ASC vyrovnáváním zatížení).
 
   ![Obrázek 1: Definování položky DNS pro virtuální název clusteru SAP ASC nebo SCS a adresa TCP/IP][sap-ha-guide-figure-3046]
 
   _**Obrázek 1:** definovat položku DNS pro virtuální název clusteru SAP ASC nebo SCS a adresa TCP/IP_
 
-2.  Chcete-li definovat přiřazené název virtuálního hostitele IP adresy, vyberte **Správce DNS** > **domény**.
+2.  Zadat IP adresu, která je přiřazena k názvu virtuální hostitele, vyberte **Správce DNS** > **domény**.
 
   ![Obrázek 2: Nový virtuální název a adresu TCP/IP pro konfiguraci clusteru SAP ASC nebo SCS][sap-ha-guide-figure-3047]
 
@@ -201,14 +203,14 @@ Instalace s vysokou dostupností ASC nebo SCS instance SAP zahrnuje tyto úlohy:
 
 ### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a>Instalace prvního uzlu clusteru SAP
 
-1.  Provést první možnost uzlu clusteru na uzlu clusteru A. Například **pr1-ASC-0** hostitele.
+1.  Provést první možnost uzlu clusteru na uzlu clusteru A. Například na 0 ASC pr1 * hostitele.
 2.  Ponechat výchozí porty pro vyrovnávání zatížení Azure interní, vyberte:
 
   * **Systém ABAP**: **Asc** instance číslo **00**
   * **Java systému**: **SCS** instance číslo **01**
   * **ABAP + Java systému**: **Asc** instance číslo **00** a **SCS** instance číslo **01**
 
-  Pro Java SCS použít instanci čísla než 00 pro instanci ABAP ASC a 01 instance, budete muset změnit pravidla, Vyrovnávání zatížení výchozí nástroje pro vyrovnávání zatížení Azure interní první popsaných v tématu [změnit Vyrovnávání zatížení ASC nebo SCS výchozí pravidla pro Azure Nástroj pro vyrovnávání zatížení interní] [sap-ha Průvodce-8.9].
+  Pokud chcete použít instanci čísla než 00 pro instanci ABAP ASC a 01 pro instanci Java SCS, nejprve změňte pravidla Vyrovnávání zatížení výchozí nástroje pro vyrovnávání zatížení Azure interní. Další informace najdete v tématu [změňte pravidla pro vyrovnávání zatížení Azure interní Vyrovnávání zatížení výchozí ASC nebo SCS][sap-ha-guide-8.9].
 
 Další několik úloh nejsou popsané v dokumentaci standardní instalace SAP.
 
@@ -219,7 +221,7 @@ Další několik úloh nejsou popsané v dokumentaci standardní instalace SAP.
 
 ### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>Upravit profil SAP ASC nebo SCS instance
 
-Je nutné přidat nový parametr profilu. Parametr profil zabrání připojení mezi SAP pracovní procesy a serverem zařazování zavření po nečinnosti příliš dlouho. Jsme uvedených scénář v [přidat položky registru na obou uzlů clusteru instance SAP ASC nebo SCS] [sap-ha Průvodce-8.11]. V této části zavedli jsme taky dvě změny některé základní parametry připojení TCP/IP. V druhém kroku, je nutné nastavit zařadit server k odeslání `keep_alive` signál, aby připojení není dosáhl nástroje pro vyrovnávání zatížení Azure vnitřní limit nečinnosti.
+Nejprve přidejte nový parametr profilu. Parametr profil zabrání připojení mezi SAP pracovní procesy a serverem zařazování zavření po nečinnosti příliš dlouho. Jsme zmínili scénář v [přidat položky registru na obou uzlů clusteru instance SAP ASC nebo SCS][sap-ha-guide-8.11]. V této části zavedeme také dvě změny některé základní parametry připojení TCP/IP. V druhém kroku, je nutné nastavit zařadit server k odeslání `keep_alive` signál, aby připojení není dosáhl nástroje pro vyrovnávání zatížení Azure vnitřní limit nečinnosti.
 
 Úprava profilu SAP instance ASC nebo SCS:
 
@@ -236,15 +238,17 @@ Je nutné přidat nový parametr profilu. Parametr profil zabrání připojení 
 
   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
 
-2.  Aby se změny projevily, restartujte instanci /SCS ASC SAP.
+2.  Aby se změny projevily, restartujte instanci SAP ASC nebo SCS.
 
-### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a>Přidat Port testu
+### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a>Přidat port testu
 
-Pomocí nástroje pro vyrovnávání zatížení interní test funkce usnadňují konfiguraci celý cluster pracovat s Vyrovnávání zatížení Azure. Nástroje pro vyrovnávání zatížení Azure interní obvykle distribuuje příchozí zatížení rovnoměrně mezi zúčastněných virtuálních počítačů. Ale tato funkce nebude pracovat v některé konfigurace clusteru vzhledem k tomu, že pouze jedna instance je aktivní. Druhá instance je pasivní a nemůže přijímat úlohy. Funkce kontroly pomáhá při nástroje pro vyrovnávání zatížení Azure interní přiřadí pracovní jenom na aktivní instance. Pomocí funkce testu nástroje pro vyrovnávání zatížení pro vnitřní může zjistit, které instancí jsou aktivní a pak cíle pouze instance se zatížením.
+Pomocí nástroje pro vyrovnávání zatížení interní test funkce usnadňují konfiguraci celý cluster pracovat s Vyrovnávání zatížení Azure. Nástroje pro vyrovnávání zatížení Azure interní obvykle distribuuje příchozí zatížení rovnoměrně mezi zúčastněných virtuálních počítačů.
+
+ Ale tato funkce nebude pracovat v některé konfigurace clusteru vzhledem k tomu, že pouze jedna instance je aktivní. Druhá instance je pasivní a nemůže přijímat úlohy. Funkce kontroly pomáhá při nástroje pro vyrovnávání zatížení Azure interní přiřadí pracovní jenom na aktivní instance. Pomocí funkce testu nástroje pro vyrovnávání zatížení pro vnitřní může zjistit, které instancí jsou aktivní a pak cíle pouze instance se zatížením.
 
 Chcete-li přidat port testu:
 
-1.  Zkontrolujte aktuální **ProbePort** nastavení spuštěním následujícího příkazu Powershellu:
+1.  Zkontrolujte aktuální **ProbePort** hodnotu spuštěním následujícího příkazu Powershellu:
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -253,9 +257,9 @@ Chcete-li přidat port testu:
   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
   ```
 
-   Spouštění ho do jedné z virtuálních počítačů v konfiguraci clusteru.
+   Spusťte příkaz z v rámci jednoho z virtuálních počítačů v konfiguraci clusteru.
 
-2.  Definujte port testu. Výchozí číslo portu testu je **0**. V našem příkladu používáme port testu **62000**.
+2.  Definujte port testu. Výchozí číslo portu testu je 0. V našem příkladu použijeme testu port číslo 62000.
 
   ![Obrázek 3: Port testu konfigurace clusteru je 0 ve výchozím nastavení][sap-ha-guide-figure-3048]
 
@@ -263,11 +267,11 @@ Chcete-li přidat port testu:
 
   Číslo portu je definována v šablonách SAP Azure Resource Manager. Můžete přiřadit číslo portu v prostředí PowerShell.
 
-  Chcete-li nastavit novou hodnotu ProbePort  **SAP <*SID*> IP ** prostředek clusteru, spusťte následující skript prostředí PowerShell pro aktualizaci proměnné prostředí PowerShell pro vaše prostředí:
+  Nastavte novou hodnotu ProbePort pro SAP \<SID\> IP prostředek clusteru, spusťte následující skript prostředí PowerShell pro aktualizaci proměnné prostředí PowerShell pro vaše prostředí:
 
   ```PowerShell
   $SAPSID = "PR1"      # SAP <SID>
-  $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
+  $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
   Clear-Host
   $SAPClusterRoleName = "SAP $SAPSID"
@@ -321,7 +325,7 @@ Chcete-li přidat port testu:
   }
   ```
 
-  Po přepnutí  **SAP <*SID*> ** clusteru role online, ověřte, že **ProbePort** nastavena na novou hodnotu.
+  Po přepnutí SAP \<SID\> clusteru role online, ověřte, že **ProbePort** nastavena na novou hodnotu.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -330,33 +334,33 @@ Chcete-li přidat port testu:
   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
 
   ```
-  Po spuštění skriptu budete vyzváni, restartujte skupina clusteru SAP k aktivaci změny.
+  Po spuštění skriptu, zobrazí se výzva k restartování skupina clusteru SAP k aktivaci změny.
 
   ![Obrázek 4: Probe port clusteru po nastavení nová hodnota][sap-ha-guide-figure-3049]
 
   _**Obrázek 4:** testu port clusteru po nastavení nová hodnota_
 
-### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a>Otevřete Port testu brány Firewall systému Windows
+### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a>Otevřete port testu brány firewall systému Windows
 
-Budete muset otevřít port testu brány firewall systému Windows na obou uzlů clusteru. Pomocí následujícího skriptu otevřít port testu brány firewall systému Windows. Aktualizujte proměnné prostředí PowerShell pro vaše prostředí.
+Otevřete port testu brány firewall systému Windows na obou uzlů clusteru. Pomocí následujícího skriptu otevřít port testu brány firewall systému Windows. Aktualizujte proměnné prostředí PowerShell pro vaše prostředí.
 
   ```PowerShell
-  $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
+  $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-**ProbePort** je nastaven na **62000**. Teď můžete přístup ke sdílené složce  **\\\ascsha-clsap\sapmnt** z jiných hostitelů, například jako z **ascsha dbas**.
+**ProbePort** je nastaven na **62000**. Teď, můžete přístup ke sdílené složce \\\ascsha-clsap\sapmnt z jiných hostitelů, například kvůli ascsha dbas.
 
 ## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Instalovat instanci databáze
 
-Chcete-li nainstalovat instanci databáze, postupujte podle procesu popsaného v dokumentaci k instalaci SAP.
+Chcete-li nainstalovat instanci databáze, postupujte podle procesu, která je popsána v dokumentaci k instalaci SAP.
 
 ## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a>Instalaci druhého uzlu clusteru
 
-K instalaci druhé clusteru, postupujte podle kroků v Průvodci instalací SAP.
+K instalaci druhé clusteru, postupujte podle kroků popsaných v Průvodci instalací SAP.
 
-## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a>Změnit typ spuštění služby instance SAP YBRAT Windows
+## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a>Změnit typ spuštění instance služby Windows YBRAT SAP
 
 Změnit typ spuštění služby Windows YBRAT SAP **automaticky (zpožděné spuštění)** na obou uzlů clusteru.
 
@@ -366,29 +370,29 @@ _**Obrázek 5:** změnit typ služby pro instance SAP YBRAT pro odložené autom
 
 ## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a>Instalace serveru primární aplikace SAP
 
-Nainstalovat instanci serveru primární aplikace (Pa) <*SID*> - di - 0 na virtuálním počítači, který jste určili pro hostování Pa ADRESAMI. Neexistují žádné závislosti na Azure nebo DataKeeper specifická nastavení.
+Nainstalovat instanci serveru primární aplikace (Pa) \<SID\>-di-0 na virtuálním počítači, který jste určili pro hostování Pa ADRESAMI. Neexistují žádné závislosti na platformě Azure. Neexistují žádné DataKeeper specifická nastavení.
 
 ## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Instalace serveru SAP další aplikace
 
-Nainstalujte SAP serveru pro další aplikace (AAS) na všechny virtuální počítače, které jste označili k hostování instance aplikačního serveru SAP. Například na <*SID*> - di - 1 pro <*SID*> - di -&lt;n&gt;.
+Nainstalujte SAP serveru pro další aplikace (AAS) na všechny virtuální počítače, které jste označili k hostování instance aplikačního serveru SAP. Například na \<SID\>-di-1 do \<SID\>- di -&lt;n&gt;.
 
 > [!NOTE]
 > To dokončí instalaci systému SAP NetWeaver vysokou dostupnost. Pokračujte dále testování převzetí služeb při selhání.
 >
 
 
-## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a>Testovací převzetí služeb při selhání SAP ASC nebo SCS Instance a SIOS replikace
+## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a>Testovací převzetí služeb při selhání SAP ASC nebo SCS instance a SIOS replikace
 Je snadné pro testování a monitorování SAP ASC nebo SCS instance převzetí služeb při selhání a replikaci disku SIOS pomocí nástroje Správce clusteru převzetí služeb při selhání a s DataKeeper správy a konfigurace.
 
-### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a>V uzlu clusteru A je spuštěna Instance ASC nebo SCS SAP
+### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a>V uzlu clusteru A je spuštěna instance SAP ASC nebo SCS
 
-**SAP PR1** skupina clusteru běží na uzlu clusteru A. Například na **pr1-ASC-0**. Přiřadit sdílené diskové jednotce S, která je součástí systému **SAP PR1** skupina clusteru a který instance ASC nebo SCS používá A. uzlu v clusteru
+Skupina clusteru SAP PR1 běží na uzlu clusteru A. Například na pr1-ASC-0. Přiřadit sdílené diskové jednotce S, který je součástí skupiny clusteru SAP PR1, uzel clusteru A. Instance ASC nebo SCS používá také diskovou jednotku S. 
 
-![Obrázek 6: Správce clusteru převzetí služeb při selhání: Skupina clusteru SAP < SID > běží na uzlu clusteru A][sap-ha-guide-figure-5000]
+![Obrázek 6: Správce clusteru převzetí služeb při selhání: SAP \<SID\> skupina clusteru běží na uzlu clusteru A][sap-ha-guide-figure-5000]
 
-_**Obrázek 6:** Správce clusteru převzetí služeb při selhání: SAP <*SID*> Skupina clusteru běží na uzlu clusteru A_
+_**Obrázek 6:** Správce clusteru převzetí služeb při selhání: SAP \<SID\> skupina clusteru běží na uzlu clusteru A_
 
-Nástroje pro správu s DataKeeper a konfiguraci uvidíte, že dat sdíleného disku je synchronně replikovat ze zdrojového svazku jednotky S na uzlu clusteru A jednotky cílový svazek S na uzlu clusteru B. Například se replikují z **pr1-ASC-0 [10.0.0.40]** k **pr1-ASC-1 [10.0.0.41]**.
+Nástroje pro správu s DataKeeper a konfiguraci uvidíte, že dat sdíleného disku je synchronně replikovat ze zdrojového svazku jednotky S na uzlu clusteru A jednotky cílový svazek S na uzlu clusteru B. Například se replikují z pr1-ASC-0 [10.0.0.40] pr1 1 ASC [10.0.0.41].
 
 ![Obrázek 7: V DataKeeper s replikovat místní svazek z uzlu clusteru A k uzlu clusteru B][sap-ha-guide-figure-5001]
 
@@ -396,9 +400,9 @@ _**Obrázek 7:** v DataKeeper s replikovat místní svazek z uzlu clusteru A k u
 
 ### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a>Převzetí služeb při selhání z uzlu A k uzlu B
 
-1.  Vyberte jednu z těchto možností k zahájení převzetí služeb při selhání SAP <*SID*> Skupina clusteru z uzlu clusteru A k uzlu clusteru B:
-  - Pomocí Správce clusteru převzetí služeb při selhání  
-  - Pomocí prostředí PowerShell pro Cluster převzetí služeb při selhání
+1.  Vyberte jednu z těchto možností k zahájení převzetí služeb při selhání SAP \<SID\> skupina clusteru z uzlu clusteru A k uzlu clusteru B:
+  - Správce clusteru převzetí služeb při selhání  
+  - Prostředí PowerShell pro Cluster převzetí služeb při selhání
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
@@ -407,17 +411,17 @@ _**Obrázek 7:** v DataKeeper s replikovat místní svazek z uzlu clusteru A k u
   Move-ClusterGroup -Name $SAPClusterGroup
 
   ```
-2.  Restartovat A uzlu clusteru v rámci hostovaného operačního systému Windows (tím se vyvolá automatické převzetí služeb při selhání z SAP <*SID*> Skupina clusteru z uzlu A k uzlu B).  
-3.  Restartovat uzel A cluster z portálu Azure (tím se vyvolá automatické převzetí služeb při selhání z SAP <*SID*> Skupina clusteru z uzlu A k uzlu B).  
-4.  Restartujte počítač A uzlu clusteru pomocí prostředí Azure PowerShell (tím se vyvolá automatické převzetí služeb při selhání z SAP <*SID*> Skupina clusteru z uzlu A k uzlu B).
+2.  Restartujte A uzlu clusteru v rámci hostovaného operačního systému Windows. Tím se vyvolá automatické převzetí služeb při selhání z SAP \<SID\> skupina clusteru z uzlu A k uzlu B.  
+3.  Restartujte uzel A cluster z portálu Azure. Tím se vyvolá automatické převzetí služeb při selhání z SAP \<SID\> skupina clusteru z uzlu A k uzlu B.  
+4.  Restartujte počítač A uzlu clusteru pomocí prostředí Azure PowerShell. Tím se vyvolá automatické převzetí služeb při selhání z SAP \<SID\> skupina clusteru z uzlu A k uzlu B.
 
-  Po převzetí služeb při selhání, SAP <*SID*> Skupina clusteru běží na uzlu clusteru B. Například je spuštěn na **pr1-ASC-1**.
+  Po převzetí služeb při selhání, SAP \<SID\> skupina clusteru běží na uzlu clusteru B. Například je spuštěn na pr1-ASC-1.
 
-  ![Obrázek 8: Ve Správci clusteru převzetí služeb při selhání skupiny clusteru SAP < SID > běží na uzlu clusteru B][sap-ha-guide-figure-5002]
+  ![Obrázek 8: V převzetí služeb při selhání modulu Správce clusteru SAP \<SID\> skupina clusteru běží na uzlu clusteru B][sap-ha-guide-figure-5002]
 
-  _**Obrázek 8**: ve Správci clusteru převzetí služeb při selhání, SAP <*SID*> Skupina clusteru běží na uzlu clusteru B_
+  _**Obrázek 8**: ve Správci clusteru převzetí služeb při selhání, SAP \<SID\> skupina clusteru běží na uzlu clusteru B_
 
-  Sdílený disk je teď připojené v clusteru uzlu B. s DataKeeper se replikuje data ze zdrojového svazku jednotky S na uzlu clusteru B na cílový svazek jednotky S na uzlu clusteru A. Například je replikace z **pr1-ASC-1 [10.0.0.41]** k **pr1-ASC-0 [10.0.0.40]**.
+  Sdílený disk je teď připojené v clusteru uzlu B. s DataKeeper se replikuje data ze zdrojového svazku jednotky S na uzlu clusteru B na cílový svazek jednotky S na uzlu clusteru A. Například je replikace z pr1-ASC-1 [10.0.0.41] pr1 0 ASC [10.0.0.40].
 
   ![Obrázek 9: SIOS DataKeeper z uzlu clusteru B A uzlu v clusteru se replikuje místního svazku][sap-ha-guide-figure-5003]
 
