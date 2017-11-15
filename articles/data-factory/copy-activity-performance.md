@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/13/2017
 ms.author: jingwang
-ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Zkopírujte aktivity výkonu a vyladění Průvodce
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -88,7 +88,7 @@ A **jednotky přesun dat cloudu (DMU)** je míra, která reprezentuje výkon (ko
 
 | Kopírování | Výchozí DMUs určit službou |
 |:--- |:--- |
-| Kopírování dat mezi úložišti na základě souborů | Mezi 4 a 16 v závislosti na počtu a velikosti souborů. |
+| Kopírování dat mezi úložišti na základě souborů | Mezi 4 a 32 v závislosti na počtu a velikosti souborů. |
 | Všechny ostatní kopie scénáře | 4 |
 
 Pokud chcete přepsat toto výchozí nastavení, zadejte hodnotu **cloudDataMovementUnits** vlastnost následujícím způsobem. **Povolené hodnoty** pro **cloudDataMovementUnits** vlastnost jsou 2, 4, 8, 16, 32. **Skutečný počet cloudu DMUs** že kopírování se používá v době běhu je rovna nebo menší než nakonfigurovaná hodnota, v závislosti na vaší vzorek dat. Informace o úrovni výkonnější se mohou objevit, když konfigurujete další jednotky pro konkrétní kopie zdroj a jímka najdete v tématu [referenční dokumentace výkonu](#performance-reference).
@@ -96,7 +96,7 @@ Pokud chcete přepsat toto výchozí nastavení, zadejte hodnotu **cloudDataMove
 Zobrazí se ve skutečnosti použít cloudové jednotky přesun dat pro každou kopii spustit v aktivitě kopírování výstup při spuštění aktivity monitorování. Další informace z podrobností o [kopírovat, pokud chcete monitorování aktivit](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Pokud potřebujete další cloudu DMUs pro vyšší propustnost, obraťte se na [podporu Azure](https://azure.microsoft.com/support/). Nastavení 8 a vyšší aktuálně funguje pouze tehdy, když jste **zkopírovat soubory z objektu Blob úložiště nebo Data Lake Store nebo Amazon S3 nebo cloudem FTP nebo cloudem SFTP žádné jiným úložištím dat cloudu.**.
+> Pokud potřebujete další cloudu DMUs pro vyšší propustnost, obraťte se na [podporu Azure](https://azure.microsoft.com/support/). Nastavení 8 a vyšší aktuálně funguje pouze tehdy, když jste **zkopírovat soubory z objektu Blob úložiště nebo Data Lake Store nebo Amazon S3 nebo cloudem FTP nebo cloudem SFTP žádné jiným úložištím dat cloudu**.
 >
 
 **Příklad:**
@@ -133,7 +133,7 @@ Objekt pro vytváření dat pro každou aktivitu kopírování, spuštění, ur�
 
 | Kopírování | Výchozí paralelní kopie počet určit službou |
 | --- | --- |
-| Kopírování dat mezi úložišti na základě souborů |Mezi 1 a 32. Závisí na velikosti souborů a počet cloudu jednotek přesun dat (DMUs) používat ke kopírování dat mezi dvěma cloudové úložiště dat nebo fyzické konfigurace počítače Self-hosted integrace Runtime. |
+| Kopírování dat mezi úložišti na základě souborů |Mezi 1 a 64. Závisí na velikosti souborů a počet cloudu jednotek přesun dat (DMUs) používat ke kopírování dat mezi dvěma cloudové úložiště dat nebo fyzické konfigurace počítače Self-hosted integrace Runtime. |
 | Kopírování dat z jakékoli zdrojového úložiště dat do úložiště Azure Table |4 |
 | Všechny ostatní kopie scénáře |1 |
 
