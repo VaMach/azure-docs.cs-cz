@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Správa záloh virtuálních počítačů Azure
 > [!div class="op_single_selector"]
@@ -32,10 +32,10 @@ Tento článek obsahuje pokyny týkající se správy zálohování virtuálníc
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Správa úložišť a chráněné virtuální počítače
 Na portálu Azure řídícím panelu trezoru služeb zotavení poskytuje přístup k informacím o trezoru, včetně:
 
-* poslední snímek zálohy, který je také nejnovější bod obnovení < br\>
-* zásady zálohování < br\>
-* Celková velikost všech snímků zálohy < br\>
-* počet virtuálních počítačů, které jsou chráněné službou trezoru < br\>
+* poslední snímek zálohy, který je také do nejnovějšího bodu obnovení
+* zásady zálohování
+* Celková velikost všech snímků zálohy
+* počet virtuálních počítačů, které jsou chráněné pomocí trezoru
 
 Mnoho úlohy správy počítačů s zálohování virtuálních počítačů začínat otevření v řídicím panelu trezoru. Ale protože trezory je možné použít k ochraně více položek (nebo víc virtuálních počítačů), chcete-li zobrazit podrobnosti o konkrétní virtuální počítač, otevřete položku panelu trezoru. Následující postup ukazuje, jak otevřít *panelu trezoru* a pak pokračujte *položky panelu trezoru*. V obou postupů, které ukazují na to, jak přidat trezoru a trezoru položky na řídicí panel Azure pomocí připnout na řídicí panel příkaz nejsou "tipy". Připnout na řídicí panel je způsob vytvoření zástupce trezoru nebo položky. Běžné příkazy můžete spustit také pomocí zástupce.
 
@@ -50,11 +50,11 @@ Mnoho úlohy správy počítačů s zálohování virtuálních počítačů za�
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 2. V nabídce centra klikněte na **Procházet** a v seznamu prostředků zadejte **Recovery Services**. Seznam se průběžně filtruje podle zadávaného textu. Klikněte na **Trezor Recovery Services**.
 
-    ![Vytvoření trezoru Služeb zotavení – krok 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![Vytvoření trezoru Služeb zotavení – krok 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
     Zobrazí se seznam trezorů Služeb zotavení.
 
-    ![Trezory seznam služeb zotavení ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![Trezory seznam služeb zotavení ](./media/backup-azure-manage-vms/list-o-vaults.png)
 
    > [!TIP]
    > Pokud připnete trezoru na řídicí panel Azure, je tento trezor okamžitě dostupné při otevření portálu Azure. Připnutí trezoru k řídicímu panelu, v seznamu trezoru, klikněte pravým tlačítkem na úložiště a vyberte **připnout na řídicí panel**.
@@ -89,13 +89,13 @@ V předchozím postupu otevřít řídícím panelu trezoru. Chcete-li spustit p
 
     Na řídicím panelu trezoru položky můžete provést celou řadu úloh správy klíčů, jako například:
 
-   * změnit zásady nebo vytvořte nové zásady zálohování < br\>
-   * Zobrazit body obnovení a zobrazí jejich stavu konzistence < br\>
-   * zálohování na vyžádání virtuálního počítače < br\>
-   * Zastavte ochranu virtuálních počítačů < br\>
-   * Obnovte ochranu virtuálního počítače < br\>
-   * odstranit záložní data (nebo bodu obnovení) < br\>
-   * [obnovit záložní disky](backup-azure-arm-restore-vms.md#restore-backed-up-disks) < br\>
+   * změnit zásady nebo vytvořte nové zásady zálohování
+   * Zobrazit body obnovení a zobrazí jejich konzistence stavu
+   * Zálohování na vyžádání virtuálního počítače
+   * Zastavte ochranu virtuálních počítačů
+   * Pokračovat v ochraně virtuálního počítače
+   * odstraníte záložní data (nebo bodu obnovení)
+   * [obnovit záložní disky](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
 
 Následující postupy je výchozí bod položky panelu trezoru.
 
@@ -110,7 +110,7 @@ Následující postupy je výchozí bod položky panelu trezoru.
     ![Okno zásady zálohování](./media/backup-azure-manage-vms/backup-policy-blade.png)
 3. Z **vyberte zásady zálohování** nabídky:
 
-   * Chcete-li změnit zásady, vyberte jinou zásadu a klikněte na **Uložit**. Nové zásady se okamžitě použijí na trezor. < br\>
+   * Chcete-li změnit zásady, vyberte jinou zásadu a klikněte na **Uložit**. Nové zásady se okamžitě použijí na trezor.
    * Chcete-li vytvořit zásadu, vyberte **vytvořit nový**.
 
      ![Záloha virtuálního počítače](./media/backup-azure-manage-vms/backup-policy-create-new.png)
@@ -148,7 +148,7 @@ Chcete-li spustit zálohování na vyžádání virtuálního počítače:
 Pokud si zvolíte zastavení ochrany virtuálního počítače, zobrazí se výzva, pokud chcete zachovat body obnovení. Existují dva způsoby, jak zastavit ochranu virtuálních počítačů:
 
 * Zastavit všechny budoucí úlohy zálohování a odstranění všech bodů obnovení, nebo
-* Zastavit všechny budoucí úlohy zálohování, ale ponechte bodů obnovení <br/>
+* Zastavit všechny budoucí úlohy zálohování, ale ponechte bodů obnovení
 
 Není k dispozici s náklady spojené s ponechat bodů obnovení v úložišti. Výhodou a bodů obnovení je však, že později, můžete obnovit virtuální počítač v případě potřeby. Informace o náklady a body obnovení, najdete v článku [podrobnosti o cenách](https://azure.microsoft.com/pricing/details/backup/). Pokud zvolíte možnost odstraní všechny body obnovení, nelze obnovit virtuální počítač.
 

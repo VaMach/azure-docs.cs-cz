@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/03/2017
+ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 7347301cd34979df9b3acc59f623ab346dbe41f6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Upgrade trezor Backup do trezoru služeb zotavení
 
@@ -120,7 +120,7 @@ Jakmile upgradujete do trezoru služeb zotavení, konfigurace sestav pro záloho
 Ne. Probíhající zálohování pokračovat bez přerušení během a po provedení upgradu.
 
 **Pokud nemáte plánem týkající se upgradu brzy, co se stane Moje trezory?**</br>
-Vzhledem k tomu, že všechny nové funkce platí pouze pro trezory služeb zotavení, doporučujeme vám, k upgradu vaší trezorů. Microsoft nakonec začne portálu classic. Od 1. září 2017 Microsoft zahájíte upgrade automaticky záloh na trezory služeb zotavení. 2017 30 listopadu bude Microsoft dokončete proces upgradu. Váš trezor lze automaticky upgradovat kdykoli mezi nimi. Společnost Microsoft doporučuje, že co nejdříve upgradovat svůj trezor.
+Vzhledem k tomu, že všechny nové funkce platí pouze pro trezory služeb zotavení, doporučujeme vám, k upgradu vaší trezorů. Microsoft nakonec začne portálu classic. Od 1. září 2017 Microsoft zahájíte upgrade automaticky záloh na trezory služeb zotavení. Po listopadu 30,2017, jste již nemohou vytvářet trezory Backup pomocí prostředí PowerShell. Váš trezor lze automaticky upgradovat kdykoli mezi nimi. Společnost Microsoft doporučuje, že co nejdříve upgradovat svůj trezor.
 
 **Jaké jsou znamená to upgradu pro moje existující nástrojů?**</br>
 Aktualizujte vaše nástrojů k modelu nasazení Resource Manager. Obnovení služby, které byly vytvořeny trezory pro použití v modelu nasazení Resource Manager. Plánování modelu nasazení Resource Manager a monitorování účtů pro rozdíl ve vašem trezory je důležité. 

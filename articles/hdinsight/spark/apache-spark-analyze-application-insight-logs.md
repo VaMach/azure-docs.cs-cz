@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 6ea3114a30b0ae313efb14495f5556e5484bef06
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d7e4e064a451831c7cf0753064522d0a0b4f5d63
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analýza protokolů telemetrie Application Insights pomocí Spark v HDInsight
 
@@ -61,7 +61,7 @@ Application Insights se dá nakonfigurovat nepřetržitě exportovat informace t
 
 * **Typ objektu BLOB**: HDInsight podporuje pouze objekty BLOB bloku. Aplikace výchozí Insights používá objekty BLOB bloku, proto by měly fungovat ve výchozím nastavení s HDInsight.
 
-Informace o přidání dalšího úložiště do existujícího clusteru HDInsight, najdete v článku [přidat další účty úložiště](../hdinsight-hadoop-add-storage.md) dokumentu.
+Informace o přidání úložiště k existujícímu clusteru najdete v tématu [přidat další účty úložiště](../hdinsight-hadoop-add-storage.md) dokumentu.
 
 ### <a name="data-schema"></a>Schéma dat
 
@@ -79,7 +79,7 @@ K přidání účtu úložiště Azure ve stávajícím clusteru, použijte info
 
 ## <a name="analyze-the-data-pyspark"></a>Analyzovat data: PySpark
 
-1. Z [portál Azure](https://portal.azure.com), vyberte vaše Spark v clusteru HDInsight. Z **rychlé odkazy** vyberte **řídicí panely clusteru**a potom vyberte **Poznámkový blok Jupyter** z okna clusteru Dashboard__.
+1. Z [portál Azure](https://portal.azure.com), vyberte vaše Spark v clusteru HDInsight. Z **rychlé odkazy** vyberte **řídicí panely clusteru**a potom vyberte **Poznámkový blok Jupyter** z části Dashboard__ clusteru.
 
     ![Řídicí panely clusteru](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 
@@ -222,7 +222,7 @@ K přidání účtu úložiště Azure ve stávajícím clusteru, použijte info
 
 ## <a name="analyze-the-data-scala"></a>Analyzovat data: Scala
 
-1. Z [portál Azure](https://portal.azure.com), vyberte vaše Spark v clusteru HDInsight. Z **rychlé odkazy** vyberte **řídicí panely clusteru**a potom vyberte **Poznámkový blok Jupyter** z okna clusteru Dashboard__.
+1. Z [portál Azure](https://portal.azure.com), vyberte vaše Spark v clusteru HDInsight. Z **rychlé odkazy** vyberte **řídicí panely clusteru**a potom vyberte **Poznámkový blok Jupyter** z části Dashboard__ clusteru.
 
     ![Řídicí panely clusteru](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 2. V pravém horním rohu stránky Jupyter vyberte **nový**a potom **Scala**. Zobrazí se na nové záložce prohlížeče obsahující na základě Scala poznámkového bloku Jupyter.

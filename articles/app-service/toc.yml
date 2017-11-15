@@ -143,6 +143,8 @@
           href: web-sites-enable-diagnostic-log.md
     - name: Správa aplikace
       items:
+        - name: Správa plánu hostování
+          href: app-service-plan-manage.md
         - name: Zálohování aplikace
           href: web-sites-backup.md
         - name: Obnovení zálohy

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 11/10/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limity kapacity SQL Data Warehouse
 Následující tabulky obsahují maximální hodnoty povolené pro různé komponenty služby Azure SQL Data Warehouse.
@@ -27,12 +27,12 @@ Následující tabulky obsahují maximální hodnoty povolené pro různé kompo
 ## <a name="workload-management"></a>Správa zatížení
 | Kategorie | Popis | Maximální počet |
 |:--- |:--- |:--- |
-| [Jednotky datového skladu (DWU)][Data Warehouse Units (DWU)] |Maximální počet DWU pro jeden datový sklad SQL |6000 |
-| [Jednotky datového skladu (DWU)][Data Warehouse Units (DWU)] |Maximální počet DWU pro jeden server SQL |6000 ve výchozím nastavení<br/><br/> Ve výchozím nastavení má každého serveru SQL server (například myserver.database.windows.net) kvóty DTU 45,000, což umožňuje až 6000 DWU. Tato kvóta je jednoduše bezpečnostní omezení. Můžete zvýšit kvótu podle [vytvoření lístku podpory] [ creating a support ticket] a výběrem *kvóty* jako typ požadavku.  K výpočtu vaší DTU potřebuje, celkový počet DWU potřeby vynásobit 7.5. Vaši aktuální spotřebu DTU z okna serveru SQL můžete zobrazit na portálu. Pozastavené i nepozastavené databáze se započítávají do kvóty DTU. |
-| Připojení k databázi |Souběžné otevřených relací |1024<br/><br/>Podporujeme maximálně 1 024 aktivní připojení, z nichž každá může odesílat žádosti k databázi SQL Data Warehouse ve stejnou dobu. Všimněte si, že existují omezení počtu dotazy, které ve skutečnosti můžete současně provést. Při překročení limitu souběžnosti, žádost přejde do vnitřní fronty, kde se čeká na zpracování. |
+| [Jednotky datového skladu (DWU)][Data Warehouse Units (DWU)] |Maximální počet DWU pro jeden datový sklad SQL | Optimalizovaná pro pružnost [úroveň výkonu](performance-tiers.md): DW6000<br></br>Optimalizovaná pro výpočet [úroveň výkonu](performance-tiers.md): DW30000c |
+| [Jednotky datového skladu (DWU)][Data Warehouse Units (DWU)] |Výchozí počet jednotek DTU na server |54,000<br></br>Ve výchozím nastavení má každého serveru SQL server (například myserver.database.windows.net) DTU kvótu 54 000, což umožňuje až DW6000c. Tato kvóta je jednoduše bezpečnostní omezení. Můžete zvýšit kvótu podle [vytvoření lístku podpory] [ creating a support ticket] a výběrem *kvóty* jako typ požadavku.  K výpočtu vaší DTU potřebuje, celkový počet DWU potřeby vynásobit 7.5 nebo 9.0 vynásobit celkový cDWU potřeby. Například:<br></br>DW6000 x 7.5 = 45,000 Dtu<br></br>DW600c x 9.0 = 54 000 Dtu.<br></br>Vaše aktuální spotřeba DTU z možnost SQL serveru můžete zobrazit na portálu. Databáze pozastavený a uvolněno započítávat kvóty DTU. |
+| Připojení k databázi |Souběžné otevřených relací |1024<br/><br/>Všechny aktivní relace 1024 mohou odesílat požadavky na databázi SQL Data Warehouse ve stejnou dobu. Všimněte si, existují omezení počtu dotazy, které mohou být prováděny současně. Při překročení limitu souběžnosti, žádost přejde do vnitřní fronty, kde se čeká na zpracování. |
 | Připojení k databázi |Maximální velikost paměti pro připravené příkazy |20 MB |
-| [Úlohy správy][Workload management] |Maximální počet souběžných dotazů |32<br/><br/> Ve výchozím nastavení můžete spustit SQL Data Warehouse maximálně 32 souběžných dotazů a fronty zbývající dotazy.<br/><br/>Uživatelé přiřazení k vyšší Třída prostředků, nebo když datový sklad SQL je nakonfigurovaná s nízkou DWU se mohou snížit úroveň souběžnosti. Některé dotazy, jako jsou dotazy DMV, je vždy povoleno spustit. |
-| [Databáze tempdb][Tempdb] |Maximální velikost databáze Tempdb |399 GB za od DW100. Proto v databázi Tempdb DWU1000 je velikost 3,99 TB |
+| [Úlohy správy][Workload management] |Maximální počet souběžných dotazů |32<br/><br/> Ve výchozím nastavení můžete spustit SQL Data Warehouse maximálně 32 souběžných dotazů a fronty zbývající dotazy.<br/><br/>Počet souběžných dotazů můžete descrease uživatelé přiřazení k vyšší třídy prostředku nebo když SQL Data Warehouse má nižší [služby úroveň](performance-tiers.md#service-levels). Některé dotazy, jako jsou dotazy DMV, je vždy povoleno spustit. |
+| [databáze tempdb][Tempdb] |Maximální GB |399 GB za od DW100. Proto je v DWU1000, 3,99 TB velikosti databáze tempdb |
 
 ## <a name="database-objects"></a>Objekty databáze.
 | Kategorie | Popis | Maximální počet |
@@ -42,7 +42,7 @@ Následující tabulky obsahují maximální hodnoty povolené pro různé kompo
 | Table |Tabulky na databázi |2 miliardy |
 | Table |Sloupců v tabulce |1024 sloupců |
 | Table |Počet bajtů za sloupce |Závislé na sloupci [datový typ][data type].  Limit je 8000 pro datové typy char, 4000 pro nvarchar, nebo 2 GB pro maximální počet datových typů. |
-| Table |Bajtů na řádek, definovaná velikost |8 060 bajtů<br/><br/>Počet bajtů na řádek je vypočítána stejným způsobem, jako je pro SQL Server s kompresí stránky. Podobně jako SQL Server, SQL Data Warehouse podporuje úložiště přetečení řádek, který umožňuje **proměnnou délkou** na poslat mimo řádek. Když proměnlivou délkou řádky odesílají mimo řádek, uloží se pouze 24 bajtů kořenové hlavní záznam. Další informace najdete v tématu [přetečení řádek dat překročení 8 KB] [ Row-Overflow Data Exceeding 8 KB] článku na webu MSDN. |
+| Table |Bajtů na řádek, definovaná velikost |8 060 bajtů<br/><br/>Počet bajtů na řádek je vypočítána stejným způsobem, jako je pro SQL Server s kompresí stránky. Podobně jako SQL Server, SQL Data Warehouse podporuje řádek přetečení úložiště, což umožňuje **proměnnou délkou** na poslat mimo řádek. Když proměnlivou délkou řádky odesílají mimo řádek, uloží se pouze 24 bajtů kořenové hlavní záznam. Další informace najdete v tématu [přetečení řádek dat překročení 8 KB][Row-Overflow Data Exceeding 8 KB]. |
 | Table |Oddíly na tabulky |15,000<br/><br/>Pro vysoký výkon, doporučujeme minimalizovat počet oddílů musí při zároveň podporovat vaše podnikové požadavky. S růstem počet oddílů režii pro operace jazyka DDL (Data Definition) a manipulace dat jazyk (DML) zvětšování a způsobí snížení výkonu. |
 | Table |Znaků na jednu hodnotu hranice oddílu. |4000 |
 | Index |Bez Clusterované indexy na jednu tabulku. |999<br/><br/>Platí pro pouze rowstore tabulky. |
@@ -58,7 +58,7 @@ Následující tabulky obsahují maximální hodnoty povolené pro různé kompo
 ## <a name="loads"></a>Načítání
 | Kategorie | Popis | Maximální počet |
 |:--- |:--- |:--- |
-| Polybase zatížení |MB na řádek |1<br/><br/>Polybase zatížení jsou omezeny na načítání řádky obou menší než 1MB a nelze načíst VARCHR(MAX), NVARCHAR(MAX) nebo VARBINARY(MAX).<br/><br/> |
+| Polybase zatížení |MB na řádek |1<br/><br/>Polybase načte jenom na řádky, které jsou menší než 1 MB a nelze načíst VARCHAR(MAX), NVARCHAR(MAX) nebo VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Dotazy
 | Kategorie | Popis | Maximální počet |

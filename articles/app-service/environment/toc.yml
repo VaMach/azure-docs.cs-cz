@@ -38,6 +38,8 @@
       href: integrate-with-application-gateway.md
     - name: Vytvoření ASE ze šablony
       href: create-from-template.md
+    - name: Konfigurace vynuceného tunelu
+      href: forced-tunnel-support.md
 - name: Referenční informace
   items:
     - name: Adresy pro správu

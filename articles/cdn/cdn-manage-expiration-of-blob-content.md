@@ -1,5 +1,5 @@
 ---
-title: "Spravovat konec platnosti objektů BLOB Azure Storage v Azure CDN | Microsoft Docs"
+title: "Spravovat konec platnosti úložiště objektů Azure Blob v Azure Content Delivery Network | Microsoft Docs"
 description: "Informace o možnostech řízení time to live pro objekty BLOB v Azure CDN ukládání do mezipaměti."
 services: cdn
 documentationcenter: 
@@ -12,31 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b8f9d439184b91f8105e6bd136e48525632a85
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Spravovat konec platnosti objektů BLOB Azure Storage v Azure CDN
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Spravovat konec platnosti úložiště objektů Azure Blob v Azure Content Delivery Network
 > [!div class="op_single_selector"]
 > * [Službě Azure Web Apps nebo cloudové služby, ASP.NET nebo služby IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Služba Azure blob Storage](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-[Služba objektů blob](../storage/common/storage-introduction.md#blob-storage) v [Azure Storage](../storage/common/storage-introduction.md) je jedním z několika Azure na základě původu integrované s Azure CDN.  Veškerý obsah, veřejně přístupná objektů blob můžete v Azure CDN do mezipaměti, dokud uplynutí jeho time to live (TTL).  Hodnota TTL je dáno [ *Cache-Control* záhlaví](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) v odpovědi HTTP z úložiště Azure.
+[Služba objektů blob](../storage/common/storage-introduction.md#blob-storage) v [Azure Storage](../storage/common/storage-introduction.md) je jedním z několika Azure na základě původu integrované s Azure Content Delivery Network (CDN). Veškerý obsah, veřejně přístupná objektů blob můžete v Azure CDN do mezipaměti, dokud uplynutí jeho time to live (TTL). Hodnota TTL je dáno [ `Cache-Control` záhlaví](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) v odpovědi HTTP z úložiště Azure.
 
 > [!TIP]
-> Můžete nastavit žádné TTL na objekt blob.  V takovém případě Azure CDN automaticky použije výchozí hodnotu TTL sedm dní.
+> Můžete nastavit žádné TTL pro objekt blob. V takovém případě Azure CDN automaticky použije výchozí hodnotu TTL sedm dní.
 > 
-> Další informace o tom, jak funguje Azure CDN pro urychlení přístupu k objektům BLOB a další soubory, najdete v článku [přehled CDN Azure](cdn-overview.md).
+> Další informace o tom, jak funguje Azure CDN pro urychlení přístupu k objektům BLOB a další soubory, najdete v části [přehled Azure Content Delivery Network](cdn-overview.md).
 > 
-> Další informace o objektu blob služby Azure Storage najdete v tématu [koncepty služby objektů Blob](https://msdn.microsoft.com/library/dd179376.aspx). 
-> 
-> 
+> Další informace o Azure Blob storage najdete v tématu [Úvod do úložiště objektů Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+ 
 
 Tento kurz představuje několik způsobů, které můžete nastavit hodnotu TTL u objektu blob ve službě Azure Storage.  
 
@@ -100,7 +99,7 @@ class Program
 ## <a name="other-methods"></a>Ostatní metody
 * [Rozhraní příkazového řádku Azure](../cli-install-nodejs.md)
   
-    Pokud chcete nahrát objekt blob, nastavit *cacheControl* pomocí vlastnosti `-p` přepínače.  Tento příklad nastaví hodnotu TTL na jednu hodinu (3600 sekund).
+    Pokud chcete nahrát objekt blob, nastavit *cacheControl* vlastnost pomocí `-p` přepínače. Tento příklad nastaví hodnotu TTL na jednu hodinu (3600 sekund).
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -112,10 +111,10 @@ class Program
   
     Některé nástroje pro správu Azure úložiště jiných výrobců povolit nastavení *CacheControl* vlastnost na objekty BLOB. 
 
-## <a name="testing-the-cache-control-header"></a>Testování *Cache-Control* záhlaví
-Snadno můžete ověřit hodnoty TTL objektů BLOB.  Pomocí prohlížeče [nástroje pro vývojáře](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test, který je včetně objektu blob služby *Cache-Control* hlavičky odpovědi.  Můžete použít také nástroje, jako je **wget**, [Postman](https://www.getpostman.com/), nebo [Fiddler](http://www.telerik.com/fiddler) a prověří hlavičky odpovědi.
+## <a name="testing-the-cache-control-header"></a>Testování hlavička Cache-Control
+Snadno můžete ověřit hodnoty TTL objektů BLOB.  Pomocí prohlížeče [nástroje pro vývojáře](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test, který zahrnuje objektu blob služby `Cache-Control` hlavičky odpovědi. Můžete také použít nástroj jako **wget**, [Postman](https://www.getpostman.com/), nebo [Fiddler](http://www.telerik.com/fiddler) a prověří hlavičky odpovědi.
 
 ## <a name="next-steps"></a>Další kroky
-* [Přečtěte si informace o *Cache-Control* záhlaví](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [Přečtěte si informace o `Cache-Control` záhlaví](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Zjistěte, jak spravovat platnost obsahu cloudové služby v Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 

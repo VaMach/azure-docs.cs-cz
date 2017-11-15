@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/03/2017
-ms.author: cristyg
+ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 8b744f6b33a04a707c56e6fc8a4638118170b668
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 217b9f2f0dfed5b095e1bac1c8146abf4753fadc
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-secure-cluster-in-azure-by-using-powershell"></a>Vytvoření clusteru s podporou zabezpečení v Azure pomocí prostředí PowerShell
 Tento článek je první ze série kurzů, které ukazují, jak přesunout aplikace .NET do cloudu pomocí Azure Service Fabric clustery a kontejnerů. V následujících krocích se dozvíte, jak vytvořit cluster Service Fabric (Windows nebo Linux), který běží v Azure. Jakmile budete hotovi, máte zabezpečené clusteru, který běží v cloudu, do které můžete nasazovat aplikace.

@@ -9,11 +9,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.custom: devops
 ms.author: routlaw
-ms.openlocfilehash: f5ab85c346119f52ce8c7ab7a8bda48c6672f35c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 23d79fa4a1794a6dea69e6ae24da714babf54e62
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Vytvoření clusteru s podporou virtuálních počítačů s Terraform pomocí klíče registru modulu
 
@@ -91,14 +91,14 @@ Spustit `terraform init` ve vašem adresáři konfigurace. Používáte verzi Te
 
 Spustit `terraform plan` náhled infrastrukturu virtuálních počítačů, které jsou vytvořené pomocí šablony.
 
-![Plán Terraform](media/terraformPlanVmsWithModules.png)
+![Plán Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 
 ## <a name="create-the-virtual-machines-with-apply"></a>Vytvoření virtuálních počítačů s použít
 
 Spustit `terraform apply` ke zřízení virtuálních počítačů v Azure.
 
-![Použít Terraform](media/terraformApplyVmsWithModules.png)
+![Použít Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Další kroky
 

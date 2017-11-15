@@ -15,39 +15,43 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 0c90b8a6d17fa293b6708d942afd35e1333623cb
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c6758e8e1a9d9595ae8efb0b8c5aba0b81b0dc38
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="common-prerequisites-for-openshift-in-azure"></a>Běžné požadavky pro OpenShift v Azure
+# <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Běžné požadavky pro nasazení OpenShift v Azure
 
-Při nasazování OpenShift v Azure, existuje několik běžných požadavky bez ohledu na to, jestli nasazujete OpenShift původ nebo OpenShift kontejneru platformy.
+Tento článek popisuje běžné požadavky pro nasazení OpenShift původ nebo OpenShift kontejneru platformy v Azure.
 
-Instalace OpenShift se provádí prostřednictvím Ansible playbooks. Ansible používá SSH k připojení ke všem hostitelům, které budou součástí clusteru, aby bylo možné dokončit kroky instalace.
-Při zahájení připojení SSH na vzdáleného hostitele, neexistuje žádný způsob, jak zadat přístupové heslo. Z tohoto důvodu privátní klíč nemůže mít přístupové heslo s ním spojená nebo nasazení se nezdaří.
-Vzhledem k tomu, že všechny virtuální počítače jsou nasazeny pomocí šablony Resource Manageru, stejný veřejný klíč se používá pro přístup ke všem virtuálním počítačům. Musíme vložit do virtuálního počítače, který provádí také všechny playbooks odpovídající soukromý klíč.
-Pokud to chcete provést bezpečně, použijeme k předání privátní klíč do virtuálního počítače Azure Key Vault.
+Instalace OpenShift používá Ansible playbooks. Ansible Secure Shell (SSH) používá k připojení na všech hostitelích clusteru k dokončení kroky instalace.
 
-Pokud je třeba pro trvalé úložiště pro kontejnery, jsou potřeba trvalé svazky (PV). Tyto systémy současné hodnoty musí být založenou na určitou formu trvalého úložiště. OpenShift podporuje Azure disky (VHD) pro tuto funkci, ale Azure musí být nejprve nakonfigurován jako zprostředkovatele cloudu. V tomto modelu bude OpenShift:
+Při zahájení připojení SSH na vzdáleného hostitele, nelze zadat heslo. Z tohoto důvodu privátní klíč nemůže mít heslo s ním spojená nebo nasazení se nezdaří.
 
-- Vytvoření virtuálního pevného disku objektu v účtu úložiště Azure
-- Připojit virtuální pevný disk k virtuálnímu počítači a formátování svazku
-- Připojte svazek k Pod
+Protože virtuální počítače (VM) nasadit prostřednictvím šablon Azure Resource Manageru, stejný veřejný klíč se používá pro přístup ke všem virtuálním počítačům. Je třeba vložit do virtuálních počítačů, které provádí také všechny playbooks odpovídajícího privátního klíče. K tomuto účelu bezpečně pomocí klíče trezoru služby Azure lze předat privátní klíč do virtuálního počítače.
 
-Pro tento postup musí OpenShift oprávnění k provedení předchozí úlohy v Azure. Jak toho docílit, je potřeba hlavní název služby. Služby hlavní (SP) je účet zabezpečení v Azure Active Directory, který má uděleno oprávnění k prostředkům.
-Objekt služby musí mít přístup k účtům úložiště a virtuálních počítačů, které tvoří clusteru. Pokud všechny prostředky clusteru OpenShift se nasadí do jedné skupiny prostředků, můžete SP udělit oprávnění k této skupině zdrojů.
+Pokud je třeba pro trvalé úložiště pro kontejnery, trvalé svazky jsou vyžadovány. OpenShift podporuje Azure virtuální pevné disky (VHD) pro tuto funkci, ale Azure musí být nejprve nakonfigurován jako zprostředkovatele cloudu. 
+
+V tomto modelu OpenShift:
+
+- Vytvoří objekt virtuálního pevného disku v účtu Azure Storage.
+- Připojí VHD do virtuálního počítače a naformátování svazku.
+- Připojí svazek pod.
+
+Tato konfigurace fungovat musí OpenShift oprávnění k provedení předchozí úlohy v Azure. Můžete dosáhnout s hlavní službou. Instanční objekt je účet zabezpečení v Azure Active Directory, který má uděleno oprávnění k prostředkům.
+
+Instanční objekt musí mít přístup k účtům úložiště a virtuálních počítačů, které tvoří clusteru. Pokud všechny prostředky clusteru OpenShift nasadíte do jedna skupina prostředků, můžete objekt služby udělit oprávnění k této skupině zdrojů.
 
 Tato příručka popisuje, jak vytvořit artefakty související s požadavky.
 
 > [!div class="checklist"]
-> * Vytvořte KeyVault ke správě klíčů SSH OpenShift clusteru.
-> * Vytvořte objekt služby pro použití poskytovatelem cloudu Azure.
+> * Vytvoření trezoru klíčů pro správu klíčů SSH OpenShift clusteru.
+> * Vytvořte objekt služby pro použití v Azure Cloud Solution Provider.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure. 
+## <a name="sign-in-to-azure"></a>Přihlášení k Azure 
 Přihlaste se k předplatnému Azure s [az přihlášení](/cli/azure/#login) příkazů a postupujte podle na obrazovce pokynů nebo klikněte na **vyzkoušet** používat cloudové prostředí.
 
 ```azurecli 
@@ -55,18 +59,18 @@ az login
 ```
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Doporučuje se, že skupinu vyhrazené prostředků se používá pro hostování Key Vault - odděleně od skupinu prostředků, prostředků clusteru OpenShift se nasadí do. 
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Použijte skupinu prostředků vyhrazené pro hostování trezoru klíčů. Tato skupina je oddělené od skupiny prostředků, do kterého prostředků clusteru OpenShift nasazení. 
 
-Následující příklad vytvoří skupinu prostředků s názvem *keyvaultrg* v *eastus* umístění.
+Následující příklad vytvoří skupinu prostředků s názvem *keyvaultrg* v *eastus* umístění:
 
 ```azurecli 
 az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Vytvořte trezor klíčů
-Vytvoření KeyVault pro ukládání klíčů SSH pro cluster s [vytvořit az keyvault](/cli/azure/keyvault#create) příkaz. Název trezoru klíč musí být globálně jedinečný.
+Vytvoření trezoru klíčů pro ukládání klíčů SSH pro cluster s [vytvořit az keyvault](/cli/azure/keyvault#create) příkaz. Název trezoru klíčů musí být globálně jedinečný.
 
-Následující příklad vytvoří keyvault, s názvem *keyvault* v *keyvaultrg* skupinu prostředků.
+Následující příklad vytvoří trezoru klíčů s názvem *keyvault* v *keyvaultrg* skupiny prostředků:
 
 ```azurecli 
 az keyvault create --resource-group keyvaultrg --name keyvault \
@@ -75,26 +79,26 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ```
 
 ## <a name="create-an-ssh-key"></a>Vytvoření klíče SSH 
-Klíč SSH je potřeba zabezpečit přístup k počátku OpenShift clusteru. Vytvoření dvojice klíč SSH pomocí `ssh-keygen` (v systému Linux nebo Mac.).
+Klíč SSH je potřeba zabezpečit přístup k počátku OpenShift clusteru. Vytvořte dvojici klíčů SSH pomocí `ssh-keygen` (v systému macOS nebo Linux):
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
 > [!NOTE]
-> Pár klíčů SSH, které vytvoříte nesmí mít přístupové heslo.
+> Heslo nemůže mít dvojici klíčů SSH.
 
-Další informace o klíče SSH v systému Windows [vytvoření SSH klíčů v systému Windows](/azure/virtual-machines/linux/ssh-from-windows).
+Další informace o klíče SSH v systému Windows najdete v tématu [vytvoření SSH klíčů v systému Windows](/azure/virtual-machines/linux/ssh-from-windows).
 
-## <a name="store-ssh-private-key-in-key-vault"></a>Uložit privátní klíč SSH v trezoru klíčů
-Nasazení OpenShift používá klíč SSH, které jste vytvořili pro zabezpečený přístup k hlavnímu serveru OpenShift. Pokud chcete povolit nasazení tak, aby bezpečně načítat klíč SSH, uložení klíče v Key Vault, pomocí následujícího příkazu:
+## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Uložit privátní klíč SSH v Azure Key Vault
+Nasazení OpenShift používá klíč SSH, které jste vytvořili pro zabezpečený přístup k hlavnímu serveru OpenShift. Pokud chcete povolit nasazení tak, aby bezpečně načítat klíč SSH, uložení klíče v Key Vault pomocí následujícího příkazu:
 
 ```azurecli
 az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift.rsa
 ```
 
 ## <a name="create-a-service-principal"></a>Vytvoření instančního objektu 
-OpenShift komunikuje se službou Azure pomocí uživatelského jména a hesla nebo hlavní název služby. Objektu zabezpečení služby Azure je identita zabezpečení, která můžete použít s aplikací, služeb a automatizace nástroje, například OpenShift. Můžete řídit a definovat oprávnění, jaké operace objektu služby můžete provádět v Azure. Pokud chcete zvýšit zabezpečení přes právě poskytnutí uživatelského jména a hesla, tento příklad vytvoří základní služby hlavní.
+OpenShift komunikuje s Azure pomocí uživatelského jména a hesla nebo hlavní název služby. Objektu zabezpečení služby Azure je identita zabezpečení, která můžete použít s aplikací, služeb a automatizace nástroje, například OpenShift. Můžete řídit a definovat oprávnění, které operace můžete provádět objektu služby v Azure. Pokud chcete zvýšit zabezpečení nad rámec právě poskytnutí uživatelského jména a hesla, tento příklad vytvoří základní služby hlavní.
 
 Vytvoření služby hlavní s [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#create-for-rbac) a přihlašovací údaje, které potřebuje OpenShift výstup.
 
@@ -106,7 +110,7 @@ az ad sp create-for-rbac --name openshiftsp \
           --scopes $(az group show --name myResourceGroup --query id)
 ```
 
-Poznamenejte si vlastnost appId vrácená z příkazu.
+Poznamenejte si vlastnost appId vrácená z tohoto příkazu:
 ```json
 {
   "appId": "11111111-abcd-1234-efgh-111111111111",            
@@ -117,18 +121,18 @@ Poznamenejte si vlastnost appId vrácená z příkazu.
 }
 ```
  > [!WARNING] 
- > Nevytvářejte nezabezpečené heslo.  Postupujte podle pokynů v tématu [Pravidla a omezení pro hesla Azure AD](/azure/active-directory/active-directory-passwords-policy).
+ > Ujistěte se, že vytvoření zabezpečeného hesla. Postupujte podle pokynů v tématu [Pravidla a omezení pro hesla Azure AD](/azure/active-directory/active-directory-passwords-policy).
 
-Další informace o objekty služby najdete v tématu [vytvořit objekt služby Azure pomocí Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
+Další informace o objekty služby najdete v tématu [vytvořit objekt služby Azure pomocí Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Další kroky
 
 Tento článek popsané v následujících tématech:
 > [!div class="checklist"]
-> * Vytvořte KeyVault ke správě klíčů SSH OpenShift clusteru.
-> * Vytvořte objekt služby pro použití poskytovatelem cloudu Azure.
+> * Vytvoření trezoru klíčů pro správu klíčů SSH OpenShift clusteru.
+> * Vytvořte objekt služby pro použití v Azure Cloud Solution Provider.
 
-Nyní přejděte nasazení clusteru OpenShift
+V dalším kroku nasazení clusteru OpenShift:
 
 - [Nasazení OpenShift původu](./openshift-origin.md)
 - [Nasazení OpenShift kontejneru platformy](./openshift-container-platform.md)

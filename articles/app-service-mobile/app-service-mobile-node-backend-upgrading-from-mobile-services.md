@@ -14,16 +14,16 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Upgrade existující Mobile Service Node.js Azure App Service
 Mobile App Service je nový způsob vytváření mobilních aplikací pomocí Microsoft Azure. Další informace najdete v tématu [co jsou Mobile Apps?].
 
-Toto téma popisuje postup upgradu existující aplikaci back-end Node.js z Azure Mobile Services na nové App Service Mobile Apps. Při provádění tohoto upgradu, aplikace pro Mobile Services můžete nadále fungovat.  Pokud je třeba upgradovat aplikace back-end Node.js, podívejte se na [upgradu vaší .NET Mobile Services](app-service-mobile-net-upgrading-from-mobile-services.md).
+Tento článek popisuje postup upgradu existující aplikaci back-end Node.js z Azure Mobile Services na nové App Service Mobile Apps. Při provádění tohoto upgradu, aplikace pro Mobile Services můžete nadále fungovat.  Pokud je třeba upgradovat aplikace back-end Node.js, podívejte se na [upgradu vaší .NET Mobile Services](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 Při upgradu mobilního back-endu do služby Azure App Service má přístup ke všem funkcím služby App Service a se účtují podle [služby App Service – ceny], není Mobile Services ceny.
 
@@ -36,7 +36,7 @@ Při upgradu mobilního back-endu do služby Azure App Service má přístup ke 
 >
 
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>Vylepšení v serveru mobilní aplikace Node.js SDK
-Upgrade na novou [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) poskytuje mnoho vylepšení, včetně:
+Upgrade na novou [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) obsahuje mnoho vylepšení, včetně:
 
 * Na základě [Express framework](http://expressjs.com/en/index.html), novou sadu SDK uzlu je šedé – a navržené tak, aby nové verze uzlu jako se. Můžete přizpůsobit chování aplikace s Express middleware.
 * Významné zlepšení výkonu ve srovnání s Mobile Services SDK.
@@ -44,7 +44,7 @@ Upgrade na novou [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-ap
 * Vytvořené pro vývoj pro různé platformy a místní, Mobile Apps SDK může být vyvinuté a spustit místně na platformách Windows, Linux a OSX. Nyní je snadno použitelný běžné technik vývoje uzlu, jako je spuštění [téměř jako](https://mochajs.org/) testy před jejich nasazením.
 
 ## <a name="overview"></a>Základní přehled upgradu
-Chcete-li pomoci při upgradování back-end Node.js, Azure App Service poskytl balíček kompatibility.  Po upgradu bude mít niew lokalitu, která se dá nasadit na nový Web App Service.
+Chcete-li pomoci při upgradování back-end Node.js, Azure App Service poskytl balíček kompatibility.  Po upgradu budete mít novou lokalitu, která se dá nasadit na nový Web App Service.
 
 Klientem Mobile Services SDK jsou **není** kompatibilní s novým serverem Mobile Apps SDK. Chcete-li zajistit kontinuitu služeb pro vaši aplikaci, by neměl publikovat změny v lokalitě aktuálně obsluhující publikované klientů. Místo toho by měla vytvoříte novou mobilní aplikaci, která slouží jako duplicitní. Tuto aplikaci můžete umístit na stejný plán služby App Service účtovány dodatečné finanční náklady.
 
@@ -56,7 +56,7 @@ Pak bude mít dvě verze této aplikace: ten, který zůstává stejný a slouž
 2. Převeďte projekt na mobilní aplikace Azure pomocí balíčku pro kompatibilitu.
 3. Opravte případné rozdíly (například nastavení ověřování).
 4. Nasazení projektu převedený mobilní aplikace Azure do nové služby App Service.
-5. Vydání nové verze klienta aplikace, který pomocí nové mobilní aplikace.
+5. Vydání nové verze klienta aplikace, který používá nové mobilní aplikace.
 6. (Volitelné) Odstraňte původní aplikace migrované mobilní služby.
 
 Odstranění může dojít, když nevidíte přenosy dat na původní migrované mobilní službě.
@@ -98,12 +98,12 @@ Během nasazení budete muset provést následující:
 3. V případě **skupiny prostředků** vyberte existující skupinu prostředků nebo vytvořte novou (použijte stejný název, jaký má aplikace).
 
     Můžete buď vybrat jiný plán služby App Service nebo vytvořit nový. Další informace o App Services plány a postup vytvoření nového plánu v různých cenových vrstvy a v požadovaném umístění najdete v části [podrobný přehled plánů služby Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. V případě **plánu služby App Service** je vybraný výchozí plán (na [úrovni Standard](https://azure.microsoft.com/pricing/details/app-service/)). Můžete také vybrat jiný plán nebo [vytvořit nový](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Nastavení plánu služby App Service určují [umístění, funkce a nákladové a výpočetní prostředky](https://azure.microsoft.com/pricing/details/app-service/) přidružené k vaší aplikaci.
+4. V případě **plánu služby App Service** je vybraný výchozí plán (na [úrovni Standard](https://azure.microsoft.com/pricing/details/app-service/)). Můžete také vybrat jiný plán nebo [vytvořte novou](../app-service/app-service-plan-manage.md#create-an-app-service-plan). Určit nastavení plánu služby App Service [umístění, funkce, náklady a výpočetní prostředky](https://azure.microsoft.com/pricing/details/app-service/) přidružené k vaší aplikaci.
 
     Až se rozhodnete pro konkrétní plán, klikněte na **Vytvořit**. Tím vytvoříte back-end mobilní aplikace.
 
 ### <a name="run-createviewssql"></a>Spustit CreateViews.SQL
-Vygenerované aplikaci, která obsahuje soubor s názvem `createViews.sql`.  Tento skript je třeba spustit v cílové databázi.  Nelze získat připojovací řetězec pro cílovou databázi z migrovaných mobilní služby z **nastavení** okno pod **připojovací řetězce**.  Je název `MS_TableConnectionString`.
+Vygenerované aplikaci, která obsahuje soubor s názvem `createViews.sql`.  Tento skript je třeba spustit v cílové databázi.  Nelze získat připojovací řetězec pro cílovou databázi z migrovaných mobilní služby z **nastavení** v části **připojovací řetězce**.  Je název `MS_TableConnectionString`.
 
 Můžete spustit tento skript v SQL Server Management Studio nebo Visual Studio.
 
@@ -116,12 +116,12 @@ Připojit existující databázi do vaší služby App Service:
 * V rozevíracím seznamu vyberte **databáze SQL**
 * V části **SQL Database**, vyberte existující databázi a pak klikněte na **vyberte**.
 * V části **připojovací řetězec**, zadejte uživatelské jméno a heslo pro databázi a potom klikněte na **OK**.
-* V **přidat datová připojení** okně klikněte na **OK**.
+* V **přidat datová připojení** klikněte na **OK**.
 
 Uživatelské jméno a heslo lze nalézt zobrazením připojovací řetězec pro cílovou databázi na migrované služby Mobile.
 
 ### <a name="set-up-authentication"></a>Nastavení ověřování
-Azure Mobile Apps můžete konfigurovat Azure Active Directory, Facebook, Google, Microsoft a Twitter, ověřování v rámci služby.  Vlastní ověřování bude muset být vyvinutá samostatně.  Odkazovat [konceptů ověřování] dokumentaci a [rychlý start ověřování] Další informace naleznete v dokumentaci.  
+Azure Mobile Apps můžete ke konfiguraci Azure Active Directory, Facebook, Google, Microsoft a ověřování v rámci služby Twitter.  Vlastní ověřování bude muset být vyvinutá samostatně.  Odkazovat [konceptů ověřování] dokumentaci a [rychlý start ověřování] Další informace naleznete v dokumentaci.  
 
 ## <a name="updating-clients"></a>Aktualizace mobilních klientů
 Až budete mít provozní back-end mobilní aplikace, můžete pracovat na novou verzi klientskou aplikaci, která se využívá. Mobilní aplikace také zahrnuje novou verzi klienta sady SDK a podobně jako u upgrade serveru výše, budete muset odebrat všechny odkazy na sady Mobile Services SDK před instalací verze mobilní aplikace.

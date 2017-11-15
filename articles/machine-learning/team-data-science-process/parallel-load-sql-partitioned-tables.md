@@ -4,7 +4,7 @@ description: "Paralelní hromadný import dat pomocí tabulek oddílů SQL"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
@@ -12,24 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Paralelní hromadný import dat pomocí tabulek oddílů SQL
 Tento dokument popisuje, jak sestavit dělené tabulky pro rychlé paralelní hromadný import dat do databáze systému SQL Server. Pro velké objemy dat načítání nebo přenos k databázi SQL, import dat do databáze SQL a následné dotazy lze zvýšit pomocí *rozdělena na oddíly tabulky a zobrazení*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Vytvořit novou databázi a sadu skupin souborů
 * [Vytvořit novou databázi](https://technet.microsoft.com/library/ms176061.aspx), pokud již neexistuje.
-* Přidejte skupiny souborů databáze k databázi, která bude obsahovat oddílů fyzické soubory. To lze provést pomocí [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) Pokud nové nebo [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) Pokud databáze již existuje.
+* Přidejte skupiny souborů databáze pro databázi, která obsahuje oddílů fyzické soubory. 
+* To lze provést pomocí [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) Pokud nové nebo [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) Pokud databáze již existuje.
 * Přidejte jeden nebo více souborů (podle potřeby) do každé skupině souborů databáze.
   
   > [!NOTE]
-  > Zadejte cílové skupiny souborů, který obsahuje data pro tento oddíl a názvy souborů fyzická databáze, kde bude uložena data skupiny souborů.
+  > Zadejte cílové skupiny souborů, který obsahuje data pro tento oddíl a názvy souborů fyzická databáze, které jsou uložená data souborů.
   > 
   > 
 
@@ -55,18 +56,19 @@ Následující příklad vytvoří novou databázi pomocí tří skupin souborů
     ')
 
 ## <a name="create-a-partitioned-table"></a>Vytvoření oddílů tabulky
-Vytvoření oddílů tabulky či tabulek podle schématu dat, mapované na skupiny souborů databáze, vytvořili v předchozím kroku. Když data hromadně importovat do oddílů tabulky či tabulek, záznamy rozdělena mezi skupin podle schéma oddílu, jak je popsáno níže.
+K vytvoření oddílů tabulky či tabulek podle schématu dat, mapované na skupiny souborů databáze, vytvořili v předchozím kroku, musíte nejprve vytvořit funkce oddílu a schématu. Když data hromadně importovat do oddílů tabulky či tabulek, záznamy jsou rozděleny do skupin podle schéma oddílu, jak je popsáno níže.
 
-**Chcete-li vytvořit tabulku oddílu, je potřeba:**
-
-* [Vytvořit funkci oddílu](https://msdn.microsoft.com/library/ms187802.aspx) určující rozsahu hodnot nebo hranic mají být zahrnuty v každé tabulce jednotlivých oddílu, například můžete omezit oddíly po měsících (některé\_data a času\_pole) roku 2013:
+### <a name="1-create-a-partition-function"></a>1. Vytvořit funkci oddílu
+[Vytvořit funkci oddílu](https://msdn.microsoft.com/library/ms187802.aspx) tuto funkci definuje rozsah hodnot nebo hranic mají být zahrnuty v každé tabulce jednotlivých oddílu, například můžete omezit oddíly po měsících (některé\_data a času\_pole) roku 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
             '20130201', '20130301', '20130401',
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
-* [Vytvořit schéma oddílu](https://msdn.microsoft.com/library/ms179854.aspx) které mapuje každý oddíl rozsah ve funkci oddílu fyzického souborů, například:
+
+### <a name="2-create-a-partition-scheme"></a>2. Vytvořit schéma oddílu
+[Vytvořit schéma oddílu](https://msdn.microsoft.com/library/ms179854.aspx). Toto schéma mapuje každý oddíl rozsah ve funkci oddílu fyzického souborů, například:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -83,7 +85,9 @@ Vytvoření oddílů tabulky či tabulek podle schématu dat, mapované na skupi
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
-* [Vytvoření oddílů tabulky](https://msdn.microsoft.com/library/ms174979.aspx)(s) podle vašeho schématu dat a zadejte oddílu schématu a omezení pole použité při vytváření oddílů v tabulce, například:
+
+### <a name="3-create-a-partition-table"></a>3. Vytvoří tabulku oddílů
+[Vytvoření oddílů tabulky](https://msdn.microsoft.com/library/ms174979.aspx)(s) podle vašeho schématu dat a zadejte oddílu schématu a omezení pole použité při vytváření oddílů v tabulce, například:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
@@ -91,6 +95,7 @@ Vytvoření oddílů tabulky či tabulek podle schématu dat, mapované na skupi
 Další informace najdete v tématu [vytvoření tabulky rozdělena na oddíly a indexy](https://msdn.microsoft.com/library/ms188730.aspx).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Hromadný import dat pro každou tabulku jednotlivých oddílu
+
 * Můžete použít BCP, BULK INSERT nebo jiné metody, jako [Průvodce migrací serveru SQL](http://sqlazuremw.codeplex.com/). Ukázkový používá metodu BCP.
 * [Provádění změn v databázi](https://msdn.microsoft.com/library/bb522682.aspx) ke změně schématu protokolování transakcí BULK_LOGGED k minimalizaci režie protokolování, například:
   
@@ -162,8 +167,8 @@ Následující skript prostředí PowerShell je příklad paralelní dat pomocí
 
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Vytvářejte indexy k optimalizaci spojení a výkon dotazů
-* Pokud bude extrahovat data pro modelování z více tabulek, vytvořte na klíče připojení ke zlepšení výkonu spojení indexy.
-* [Vytvářejte indexy](https://technet.microsoft.com/library/ms188783.aspx) (Clusterované či neclusterované) cílení na stejnou skupinu souborů pro každý oddíl pro např:
+* Pokud extrahování dat pro modelování z více tabulek, vytvořte na klíče připojení ke zlepšení výkonu spojení indexy.
+* [Vytvářejte indexy](https://technet.microsoft.com/library/ms188783.aspx) (Clusterované či neclusterované) cílení na stejnou skupinu souborů pro každý oddíl pro například:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
@@ -173,10 +178,10 @@ Následující skript prostředí PowerShell je příklad paralelní dat pomocí
         ON <TablePScheme>(<partition)field>)
   
   > [!NOTE]
-  > Můžete vytvořit indexy před hromadný import data. Vytvoření indexu před importem hromadné načítání dat zpomalí.
+  > Můžete vytvořit indexy před hromadný import data. Vytvoření indexu před hromadný import zpomaluje načítání dat.
   > 
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Proces pokročilou analýzu a technologie v příkladu akce
-Příklad začátku do konce návod pomocí procesu analýzy Cortana veřejné datové sady, naleznete v části [Cortana Analytics procesu v akci: pomocí SQL serveru](sql-walkthrough.md).
+Příklad začátku do konce návod, vědecké účely procesu Team dat pomocí veřejné datové sady, naleznete v části [proces vědecké účely Team dat v akci: pomocí SQL serveru](sql-walkthrough.md).
 

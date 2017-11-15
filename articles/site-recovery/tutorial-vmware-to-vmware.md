@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 503d7060437d08ed35681fca7f1b9306746b7f44
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Nastavit zotavení po havárii na lokální virtuální počítače VMware nebo fyzických serverů do sekundární lokality
 
@@ -45,7 +45,7 @@ Vyberte obsah k replikovat a kam jej chcete replikovat.
 2. Vyberte **k obnovení lokality** > **Ano, s hypervisoru VMware vSphere**. Pak klikněte na **OK**.
 3. V **Scout instalace**, stáhněte si software GA InMage Scout 8.0.1 a registrační klíč. Instalační soubory pro všechny součásti jsou zahrnuty v souboru ZIP staženého.
 
-## <a name="install-component-updates"></a>Instalace aktualizace součástí
+## <a name="download-and-install-component-updates"></a>Stáhnout a nainstalovat aktualizace součástí
 
  Přečtěte si a nainstalujte si nejnovější verzi [aktualizace](#updates). Aktualizace by měla být nainstalována na serverech v následujícím pořadí:
 
@@ -83,7 +83,7 @@ Stažení [aktualizace](https://aka.ms/asr-scout-update6) soubor .zip. Soubor ob
 ## <a name="enable-replication"></a>Povolení replikace
 
 1. Nastavení replikace mezi zdrojové a cílové lokality VMware.
-2. Pokyny použijte dokumentaci InMage Scout, který byl stažen s tímto produktem. Alternativně můžete přístupu k dokumentaci následujícím způsobem:
+2. Získáte další informace o instalaci, ochrany a obnovení následujících dokumentech:
 
    * [Poznámky k verzi](https://aka.ms/asr-scout-release-notes)
    * [Matice kompatibility](https://aka.ms/asr-scout-cm)
@@ -95,6 +95,8 @@ Stažení [aktualizace](https://aka.ms/asr-scout-update6) soubor .zip. Soubor ob
 
 ### <a name="site-recovery-scout-801-update-6"></a>Aktualizace Scout 8.0.1 obnovení lokality 6 
 Aktualizované: 12 říjen 2017
+
+Stáhněte si [Scout aktualizací 6](https://aka.ms/asr-scout-update6).
 
 Scout aktualizací 6 je kumulativní aktualizace. Obsahuje všechny opravy z Update 1 aktualizací 5 plus nové opravy a vylepšení, které jsou popsané dál. 
 

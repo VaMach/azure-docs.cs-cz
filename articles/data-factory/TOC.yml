@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: Návody
   items:
-    - name: Přesun dat
+    - name: Kopírování dat
       items:
-        - name: Přehled aktivit kopírování
+        - name: Kopírování dat z podporovaných zdrojů do cílů
           href: copy-activity-overview.md
+        - name: Čtení nebo zápis dělených dat
+          href: how-to-read-write-partitioned-data.md
         - name: Konektory
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+            - name: Azure Database for MySQL
+              href: connector-azure-database-for-mysql.md
             - name: Azure File Storage
               href: connector-azure-file-storage.md
             - name: Azure Search
@@ -168,6 +172,8 @@
       items:
         - name: Aktivita podmínky Když
           href: control-flow-if-condition-activity.md
+        - name: Aktivita Until
+          href: control-flow-until-activity.md
         - name: Aktivita webu
           href: control-flow-web-activity.md
         - name: Aktivita vyhledávání
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: Aktivita For Each
           href: control-flow-for-each-activity.md
+        - name: Aktivita Wait
+          href: control-flow-wait-activity.md
         - name: Jazyk výrazů
           href: control-flow-expression-language-functions.md
         - name: Systémové proměnné
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: Šifrování přihlašovacích údajů pro místní prostředí Integration Runtime
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: Identita služeb datové továrny
+          href: data-factory-service-identity.md
     - name: Monitorování a správa
       items:
         - name: Použití sad SDK

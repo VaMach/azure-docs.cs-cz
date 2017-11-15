@@ -3,7 +3,7 @@ title: "Vytvoření vlastním hostováním integrace runtime v Azure Data Factor
 description: "Naučte se vytvářet vlastním hostováním integrace runtime v Azure Data Factory, která umožňuje datové továrny pro přístup k úložišti dat v privátní síti."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.author: abnarain
+ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Jak vytvořit a nakonfigurovat Self-hosted integrace Runtime
 Integrační modul Runtime (IR) je na výpočetní infrastruktuře používá k zajištění funkce integrace dat různých prostředích sítě Azure Data Factory. Podrobnosti o IR najdete v tématu [Přehled integrace modulu Runtime](concepts-integration-runtime.md).
@@ -103,11 +103,11 @@ Modul runtime vlastním hostováním integrace může být instalován stahován
 
 
 ## <a name="high-availability-and-scalability"></a>Vysoké dostupnosti a škálovatelnosti
-Modul Runtime Self-hosted integrace může být associateed k více místní počítače. Tyto počítače se označují jako uzly. Může mít až čtyři uzly, které jsou přidružené k modulu Runtime Self-hosted integrace. Výhody s více uzly (místní počítače s nainstalovanou bránu) pro logické brány jsou:
+Modul Runtime Self-hosted integrace může být přidružena k několika místní počítače. Tyto počítače se označují jako uzly. Může mít až čtyři uzly, které jsou přidružené k modulu Runtime Self-hosted integrace. Výhody s více uzly (místní počítače s nainstalovanou bránu) pro logické brány jsou:
 1. Vyšší dostupnost Self-hosted integrace Runtime, aby byla již jediný bod selhání v svoji velkých objemů dat řešení nebo cloudových dat integraci s Azure Data Factory, zajištění kontinuity s maximálně 4 uzly.
 2. Vylepšený výkon a propustnost při přesouvání dat mezi místními a cloudovými datová úložiště. Další informace získáte [porovnání výkonu](copy-activity-performance.md).
 
-Jednoduše instalací softwaru Self-hosted integrace Runtime z můžete přidružit více uzlů [centra stahování softwaru společnosti](https://www.microsoft.com/download/details.aspx?id=39717) a její registrací a to buď obtainined ověřovací klíče z Nové AzureRmDataFactoryV2IntegrationRuntimeKey rutiny, jak je popsáno v [kurzu](tutorial-hybrid-copy-powershell.md)
+Jednoduše instalací softwaru Self-hosted integrace Runtime z můžete přidružit více uzlů [centra stahování softwaru společnosti](https://www.microsoft.com/download/details.aspx?id=39717) a její registrací a to buď ověřovací klíče získané z Nové AzureRmDataFactoryV2IntegrationRuntimeKey rutiny, jak je popsáno v [kurzu](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
 > Není nutné k vytvoření nových Self-hosted integrace Runtime pro přidružení každý uzel.

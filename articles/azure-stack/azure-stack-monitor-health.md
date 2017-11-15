@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Sledování stavu a výstrahy v Azure zásobníku
 
@@ -36,7 +36,7 @@ Azure Stack zahrnuje možnosti, které vám umožní zobrazit stav a výstrahy p
  
  Jako operátor zásobník Azure můžete zobrazit stav komponent na portálu pro správce a prostřednictvím REST API a prostředí PowerShell.
  
-Chcete-li zobrazit stav na portálu, klikněte na tlačítko oblast, kterou chcete zobrazit v **oblast správy** dlaždici. Můžete zobrazit stav infrastruktury rolí a zprostředkovatele prostředků. V této verzi poskytovatele výpočetních prostředků sestavu stavu.
+Chcete-li zobrazit stav na portálu, klikněte na tlačítko oblast, kterou chcete zobrazit v **oblast správy** dlaždici. Můžete zobrazit stav infrastruktury rolí a zprostředkovatele prostředků.
 
 ![Seznam rolí infrastruktury](media/azure-stack-monitor-health/image2.png)
 

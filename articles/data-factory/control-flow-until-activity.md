@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 25581fa1aa2086accabc9b480d936ebae0338dd3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Dokud aktivity v Azure Data Factory
 Dokud aktivity nabízí stejné funkce, která DNT – dokud opakování ve smyčce struktura poskytuje programovací jazyky. Provede sadu aktivity ve smyčce, dokud podmínky spojené s aktivity vyhodnotí jako true. Zadávat lze hodnotu časového limitu pro dokud aktivity ve službě Data Factory. 
@@ -60,7 +60,7 @@ Vlastnost | Popis | Povolené hodnoty | Požaduje se
 jméno | Název `Until` aktivity. | Řetězec | Ano
 type | Musí být nastavena na **dokud**. | Řetězec | Ano
 výraz | Výraz, který se musí vyhodnotit na hodnotu true nebo false | Výraz.  | Ano
-timeout | Do – dokud smyčky časový limit po zadané doby. | Řetězec. `d.hh:mm:ss`(nebo) `hh:mm:ss`. Výchozí hodnota je 7 dní. | Ne
+timeout | Do – dokud smyčky časový limit po zadané doby. | Řetězec. `d.hh:mm:ss`(nebo) `hh:mm:ss`. Výchozí hodnota je 7 dní. Maximální hodnota je: 90 dní. | Ne
 Aktivity | Sada aktivit, které jsou prováděny, dokud výraz vyhodnocen jako `true`. | Pole aktivit. |  Ano
 
 ## <a name="example-1"></a>Příklad 1

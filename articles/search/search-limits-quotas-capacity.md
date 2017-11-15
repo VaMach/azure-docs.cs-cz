@@ -13,23 +13,23 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/07/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Omezení služby ve službě Azure Search
 Maximální omezuje na úložiště, úlohy a počty indexů, dokumenty a další objekty závisí na tom, zda jste [zřízení Azure Search](search-create-service-portal.md) na **volné**, **základní**, nebo **Standardní** cenová úroveň.
 
-* **Volné** je víceklientské sdílené služby, která se dodává s předplatným Azure. Jedná se o možnost bez dalších nákladů pro existující odběratele, který umožňuje vyzkoušet službu před registrací vyhrazených prostředcích.
+* **Volné** je víceklientské sdílené služby, která se dodává s předplatným Azure. 
 * **Základní** poskytuje vyhrazený výpočetní prostředky pro úlohy v produkčním prostředí v menším měřítku.
 * **Standardní** běží na vyhrazené počítače s další kapacitou úložiště a zpracování na všech úrovních. Standard je rozdělena na čtyři úrovně: S1, S2, S3 a S3 (S3 HD) s vysokou hustotou.
 
 > [!NOTE]
-> Služba se zřídí v konkrétní úroveň. Pokud potřebujete přejít vrstev získat větší kapacitu, je třeba zřídit nové služby (neexistuje žádné místní upgrade). Další informace najdete v tématu [zvolte SKU nebo vrstvě](search-sku-tier.md). Další informace o úpravě kapacity v rámci služby jste už zřízené, najdete v části [škálovat prostředek úrovně pro dotaz a indexování úlohy](search-capacity-planning.md).
+> Služba se zřídí v konkrétní úroveň. Přechod k získání kapacity vrstvy zahrnuje zřizování (neexistuje žádné místní upgrade) nové služby. Další informace najdete v tématu [zvolte SKU nebo vrstvě](search-sku-tier.md). Další informace o úpravě kapacity v rámci služby jste už zřízené, najdete v části [škálovat prostředek úrovně pro dotaz a indexování úlohy](search-capacity-planning.md).
 >
 
 ## <a name="per-subscription-limits"></a>Za limity předplatného
@@ -66,16 +66,11 @@ Odkazuje na dokument maximální velikost při volání rozhraní API Index. Vel
 
 Snížení velikosti dokumentu, nezapomeňte vyloučit-dotazovatelný data z požadavku. Obrázky a další binární data nejsou přímo dotazovatelný a by neměly být uloženy v indexu. K integraci dat bez dotazovatelné výsledky hledání, definujte není prohledávatelné pole, které obsahuje adresu URL odkaz na prostředek.
 
-## <a name="workload-limits-queries-per-second"></a>Omezení zatížení (dotazy za sekundu)
-| Prostředek | Free | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| QPS |Není k dispozici |Přibližně 3 na repliku |Přibližně 15 na repliku |Přibližně 60 na repliku |Více než 60 na repliku |Více než 60 na repliku |
+## <a name="queries-per-second-qps"></a>Dotazy na za sekundu (QPS)
 
-Dotazy na za sekundu (QPS) je přibližný podle heuristiky, pomocí úloh simulované a skutečnou zákazníků odvození odhadované hodnoty. Určit přesnou propustnost QPS se liší v závislosti na vašich dat a povaha dotazu.
+Odhadne QPS musí být vyvinutá nezávisle každých zákazníkem. Index velikost a složitost, dotazu velikost a složitost a objem provozu, jsou primární faktory QPS. Neexistuje žádný způsob, jak nabízet smysluplný odhady při tyto faktory neznámé.
 
-I když jsou výše uvedeného hrubý odhady, skutečná rychlost je obtížné určit, zejména v bezplatné sdílené služby kde propustnost je založena na dostupnou šířku pásma a soutěž o systémové prostředky. V úrovni Free výpočetní a úložnou kapacitu jsou sdíleny více odběrateli, takže QPS pro vaše řešení bude vždy lišit v závislosti na tom, kolik dalších zatížení jsou spuštěné ve stejnou dobu.
-
-Na standardní úrovni můžete odhadnout QPS přesněji vzhledem k tomu, že budete mít kontrolu nad více parametrů. Najdete v tématu osvědčené postupy [spravovat řešení vyhledávání](search-manage.md) pokyny o tom, jak vypočítat QPS pro zatížení.
+Odhadne jsou předvídatelnější při počítaného na služby spuštěné na vyhrazených prostředcích (úrovně Basic a Standard). QPS další můžete podrobně odhadnout, protože budete mít kontrolu nad více parametrů. Pokyny o tom, jak odhad přístupu najdete v tématu [výkonu Azure Search a optimalizace](search-performance-optimization.md).
 
 ## <a name="api-request-limits"></a>Omezení žádostí o rozhraní API
 * Maximálně 16 MB každý požadavek <sup>1</sup>

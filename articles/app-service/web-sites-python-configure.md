@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 08b07053dd1507bcf0564f3071642f66f06b3559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Konfigurace Python s webovými aplikacemi Azure App Service
 Tento kurz popisuje možnosti pro vytváření obsahu a konfigurace základní aplikace kompatibilní s Python Webový Server brány rozhraní (WSGI) na [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -27,21 +27,21 @@ Tento kurz popisuje možnosti pro vytváření obsahu a konfigurace základní a
 Popisuje další funkce nasazení Git, například virtuální prostředí a instalaci balíčku pomocí souboru requirements.txt.
 
 ## <a name="bottle-django-or-flask"></a>Bottle, Django nebo Flask?
-Azure Marketplace obsahuje šablony pro rozhraní Bottle, rozhraní Django a Flask. Pokud vyvíjíte první webové aplikace v Azure App Service, můžete vytvořit jeden rychle z portálu Azure:
+Azure Marketplace obsahuje šablony pro rozhraní Bottle, Flask a Django. Pokud vyvíjíte první webové aplikace v Azure App Service, můžete vytvořit jeden rychle z portálu Azure:
 
 * [Vytvoření webové aplikace pomocí Bottle](https://portal.azure.com/#create/PTVS.Bottle)
 * [Vytvoření webové aplikace pomocí rozhraní Django](https://portal.azure.com/#create/PTVS.Django)
 * [Vytvoření webové aplikace pomocí Flask](https://portal.azure.com/#create/PTVS.Flask)
 
-## <a name="web-app-creation-on-azure-portal"></a>Vytvoření webové aplikace na portálu Azure
+## <a name="web-app-creation-on-azure-portal"></a>Vytvoření webové aplikace v portálu Azure
 Tento kurz předpokládá stávající předplatné Azure a přístup k portálu Azure.
 
-Pokud nemáte existující webovou aplikaci, můžete vytvořit jeden z [portálu Azure](https://portal.azure.com).  Klikněte na tlačítko Nový v levém horním rohu a pak klikněte na tlačítko **Web + mobilní** > **webové aplikace**.
+Pokud nemáte existující webovou aplikaci, můžete vytvořit jeden z [portál Azure](https://portal.azure.com).  Klikněte na tlačítko Nový v levém horním rohu a pak klikněte na tlačítko **Web + mobilní** > **webové aplikace**.
 
 ## <a name="git-publishing"></a>Publikování Git
-Pro nově vytvořenou webovou aplikaci nakonfigurujte publikování Git podle pokynů uvedených v tématu [Místní nasazení GIT ve službě Azure App Service](app-service-deploy-local-git.md). Tento kurz používá Git pro vytváření, správu a publikovat webovou aplikaci Python do služby Azure App Service.
+Pro nově vytvořenou webovou aplikaci nakonfigurujte publikování Git podle pokynů uvedených v tématu [Místní nasazení GIT ve službě Azure App Service](app-service-deploy-local-git.md). Tento kurz používá Git pro vytváření, správu a publikování webové aplikace Python do služby Azure App Service.
 
-Po publikování Git úložiště Git vytváření a přidružené k vaší webové aplikace. V úložišti URL se zobrazí a od nynějška umožňuje nabízet data z místního vývojového prostředí do cloudu. K publikování aplikací prostřednictvím Git, zkontrolujte, zda že je zároveň nainstalován klient Git a postupujte podle pokynů uvedených k webovému obsahu aplikace do služby Azure App Service.
+Po publikování Git úložiště Git se vytvoří a přidružené k vaší webové aplikace. V úložišti adresa URL se zobrazí a dá se nabízet data z místního vývojového prostředí do cloudu. K publikování aplikací prostřednictvím Git, zkontrolujte, zda že je zároveň nainstalován klient Git a postupujte podle pokynů uvedených k webovému obsahu aplikace do služby Azure App Service.
 
 ## <a name="application-overview"></a>Přehled aplikace
 V následujících částech jsou vytvořeny následující soubory. Musí být umístěny v kořenovém úložišti Git.
@@ -74,16 +74,16 @@ Tady je příklad `app.py` , který definuje vlastní obslužnou rutinu:
 Můžete spustit tuto aplikaci místně s `python app.py`, vyhledejte `http://localhost:5555` ve webovém prohlížeči.
 
 ## <a name="virtual-environment"></a>Virtuální prostředí
-I když výše uvedený příklad aplikace nevyžaduje žádné externí balíčky, je pravděpodobné, že aplikace bude vyžadovat některé.
+I když předchozí příklad aplikace nevyžaduje žádné externí balíčky, je pravděpodobné, že vaše aplikace vyžaduje některé.
 
 Ke správě závislosti externí balíčků nasazení Git v Azure podporuje vytváření virtuálních prostředí.
 
 Zjistí-li Azure soubor requirements.txt v kořenovém adresáři úložiště, automaticky vytvoří virtuální prostředí s názvem `env`. K tomu dochází pouze při prvním nasazení nebo během všechna nasazení po vybrané Python runtime změnila.
 
-Pravděpodobně budete chtít vytvořit virtuální prostředí pro vývoj místně, ale nemáte její zahrnutí do úložiště Git.
+Pravděpodobně chcete vytvořit virtuální prostředí pro vývoj místně, ale nemáte její zahrnutí do úložiště Git.
 
 ## <a name="package-management"></a>Správa balíčků
-Balíčky uvedené v souboru requirements.txt se budou instalovat automaticky ve virtuálním prostředí pomocí nástroje pip. K tomu dojde při každém nasazení, ale pip instalaci přeskočí, pokud balíček je již nainstalován.
+Ve virtuálním prostředí pomocí nástroje pip balíčky uvedené v souboru requirements.txt instalují automaticky. K tomu dojde při každém nasazení, ale pip instalaci přeskočí, pokud balíček je již nainstalován.
 
 Příklad `requirements.txt`:
 
@@ -101,7 +101,7 @@ Příklad `runtime.txt`:
 ## <a name="webconfig"></a>Soubor web.config
 Budete muset vytvořit soubor web.config k určení, jak má server pracovat s požadavky.
 
-Poznámka: Pokud máte soubor web.x.y.config souboru ve svém úložišti, kde x.y odpovídá vybraný modul Python runtime a pak Azure automaticky zkopíruje odpovídající soubor jako soubor web.config.
+Pokud máte soubor web.x.y.config souboru ve svém úložišti, kde x.y odpovídá vybraný modul runtime jazyka Python, pak Azure automaticky zkopíruje příslušný soubor jako soubor web.config.
 
 Následující příklady web.config spoléhají na skript virtuální prostředí proxy serveru, který je popsaný v následující části.  Pracují s obslužná rutina WSGI použitých v tomto příkladu `app.py` výše.
 
@@ -203,11 +203,11 @@ Příklad `web.config` pro jazyk Python 3.4:
     </configuration>
 
 
-Statické soubory budou zpracovány webovým serverem přímo, bez průchodu přes kód Python pro zlepšení výkonu.
+Statické soubory jsou zpracovávány pro webový server přímo, aniž by bylo nutné prostřednictvím kódu Pythonu pro zlepšení výkonu.
 
-V uvedených příkladech umístění statické soubory na disku by měl odpovídat umístění v adrese URL. To znamená, že žádost o `http://pythonapp.azurewebsites.net/static/site.css` bude sloužit k souboru na disku v `\static\site.css`.
+V předchozích ukázkách umístění statické soubory na disku by měl odpovídat umístění v adrese URL. To znamená, že žádost o `http://pythonapp.azurewebsites.net/static/site.css` bude sloužit k souboru na disku v `\static\site.css`.
 
-`WSGI_ALT_VIRTUALENV_HANDLER`je, kde můžete určit WSGI obslužná rutina. V uvedených příkladech má `app.wsgi_app` protože rutina je funkce s názvem `wsgi_app` v `app.py` v kořenové složce.
+`WSGI_ALT_VIRTUALENV_HANDLER`je, kde můžete určit WSGI obslužná rutina. V předchozích ukázkách má `app.wsgi_app` protože rutina je funkce s názvem `wsgi_app` v `app.py` v kořenové složce.
 
 `PYTHONPATH`můžete přizpůsobit, ale pokud nainstalujete všechny závislosti ve virtuálním prostředí zadáním v souboru requirements.txt, neměli byste potřebovat změnit.
 
@@ -356,7 +356,3 @@ Další informace naleznete ve [Středisku pro vývojáře Python](/develop/pyth
 > Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](https://azure.microsoft.com/try/app-service/), kde si můžete hned vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
 > 
 > 
-
-## <a name="whats-changed"></a>Co se změnilo
-* Průvodce změnou z webů na službu App Service naleznete v tématu: [Služba Azure App Service a její vliv na stávající služby Azure](http://go.microsoft.com/fwlink/?LinkId=529714)
-

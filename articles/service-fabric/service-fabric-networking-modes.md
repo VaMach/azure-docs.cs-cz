@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 1ecded3af6396f50e67dc5d2a9ef8337699046ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Režimy sítě kontejneru Service Fabric
 
-Je výchozí sítě režimu nenabízí cluster Service Fabric pro služby kontejneru `nat` sítě režimu. Pomocí `nat` sítě režimu s více než jedna služba kontejnery naslouchání stejný port výsledkem chyby nasazení. Spuštění několik služeb této naslouchání na stejném portu, Service Fabric podporuje `open` sítě režimu (verze 5.7 nebo vyšší). Pomocí `open` sítě režimu, každou službu kontejneru získá dynamicky přiřazenou IP adresu interně povolení více služeb tak, aby naslouchala na stejný port.   
+Je výchozí sítě režimu nenabízí cluster Service Fabric pro služby kontejneru `nat` sítě režimu. Pomocí `nat` sítě režimu s více než jedna služba kontejnery naslouchání stejný port výsledkem chyby nasazení. Spuštění několik služeb této naslouchání na stejném portu, Service Fabric podporuje `Open` sítě režimu (verze 5.7 nebo vyšší). Pomocí `Open` sítě režimu, každou službu kontejneru získá dynamicky přiřazenou IP adresu interně povolení více služeb tak, aby naslouchala na stejný port.   
 
-Proto s jednoho typu služby s koncový bod statické definované v service manifest, nové služby může vytvořit a odstraněn bez chyby nasazení pomocí `open` sítě režimu. Podobně stejné můžete použít jednu `docker-compose.yml` souboru s mapováním statický port pro vytváření více služeb.
+Proto s jednoho typu služby s koncový bod statické definované v service manifest, nové služby může vytvořit a odstraněn bez chyby nasazení pomocí `Open` sítě režimu. Podobně stejné můžete použít jednu `docker-compose.yml` souboru s mapováním statický port pro vytváření více služeb.
 
 Použít dynamicky přiřazené IP ke zjištění služby není vhodné od změny IP adresy při restartování služby nebo přesune do jiného uzlu. Použít pouze **Service Fabric Naming Service** nebo **služba DNS** pro zjišťování služby. 
 
 
 > [!WARNING]
-> Na virtuální sítě v Azure jsou povoleny pouze celkem 4096 IP adresy. Proto součet počet uzlů a počet instancí kontejneru služby (s `open` sítě) nesmí být delší než 4096 v rámci virtuální sítě. U scénářů s vysokou hustotou `nat` se doporučuje sítě režimu.
+> Na virtuální sítě v Azure jsou povoleny pouze celkem 4096 IP adresy. Proto součet počet uzlů a počet instancí kontejneru služby (s `Open` sítě) nesmí být delší než 4096 v rámci virtuální sítě. U scénářů s vysokou hustotou `nat` se doporučuje sítě režimu.
 >
 
 ## <a name="setting-up-open-networking-mode"></a>Nastavení sítě režim otevření
@@ -183,7 +183,7 @@ Použít dynamicky přiřazené IP ke zjištění služby není vhodné od změn
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Povolit  |
 
 
-4. Zadejte režim sítě v manifest aplikace pro každou službu `<NetworkConfig NetworkType="open">`.  Režim `open` výsledky v rámci služby získávání vyhrazenou IP adresu. Pokud není zadán režim, nastaví se jako výchozí základní `nat` režimu. Proto v následujícím příkladu manifestu `NodeContainerServicePackage1` a `NodeContainerServicePackage2` můžete každý naslouchání ke stejnému portu (obě služby jsou naslouchá na `Endpoint1`).
+4. Zadejte režim sítě v manifest aplikace pro každou službu `<NetworkConfig NetworkType="Open">`.  Režim `Open` výsledky v rámci služby získávání vyhrazenou IP adresu. Pokud není zadán režim, nastaví se jako výchozí základní `nat` režimu. Proto v následujícím příkladu manifestu `NodeContainerServicePackage1` a `NodeContainerServicePackage2` můžete každý naslouchání ke stejnému portu (obě služby jsou naslouchá na `Endpoint1`). Když `Open` sítě režim je sériových, `PortBinding` konfigurací nelze zadat.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -197,8 +197,7 @@ Použít dynamicky přiřazené IP ke zjištění služby není vhodné od změn
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
-           <NetworkConfig NetworkType="open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+           <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -206,14 +205,13 @@ Použít dynamicky přiřazené IP ke zjištění služby není vhodné od změn
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
-            <NetworkConfig NetworkType="open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+            <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Můžete kombinovat a párovat síťové různé režimy ve službách v rámci aplikace pro Windows cluster. Proto může mít některé služby `open` režimu a některé na `nat` sítě režimu. Když je nakonfigurované služby `nat`, naslouchá na portu musí být jedinečný. Kombinování sítě režimy pro různé služby se nepodporuje v clusterech Linux. 
+Můžete kombinovat a párovat síťové různé režimy ve službách v rámci aplikace pro Windows cluster. Proto může mít některé služby `Open` režimu a některé na `nat` sítě režimu. Když je nakonfigurované služby `nat`, naslouchá na portu musí být jedinečný. Kombinování sítě režimy pro různé služby se nepodporuje v clusterech Linux. 
 
 
 ## <a name="next-steps"></a>Další kroky

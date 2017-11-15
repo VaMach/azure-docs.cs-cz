@@ -118,6 +118,8 @@
           href: scenario-tdsp-biomedical-recognition.md
         - name: Klasifikace příjmů v USA – projekt TDSP
           href: scenario-tdsp-classifying-us-incomes.md
+        - name: Klasifikace obrázků s využitím CNTK
+          href: scenario-image-classification-using-cntk.md
 - name: Referenční informace
   items:
     - name: Příprava dat
@@ -162,6 +164,8 @@
       items:
         - name: Sprint 0 – říjen 2017
           href: release-notes-sprint-0.md
+        - name: Sprint 1 – listopad 2017
+          href: release-notes-sprint-1.md
 - name: Zdroje
   items:
     - name: Nejčastější dotazy

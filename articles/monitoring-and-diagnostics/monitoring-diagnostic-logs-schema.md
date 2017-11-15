@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Podporované služby, schémat a kategorie pro diagnostických protokolů Azure.
 
@@ -56,20 +56,36 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 ## <a name="supported-log-categories-per-resource-type"></a>Podporované kategorií protokolu na typ prostředku
 |Typ prostředku|Kategorie|Zobrazovaný název kategorie|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Modul|Modul|
+|Microsoft.AnalysisServices/servers|Služba|Služba|
 |Microsoft.ApiManagement/service|GatewayLogs|Protokoly související s ApiManagement brány|
 |Microsoft.Automation/automationAccounts|JobLogs|V protokolech úloh|
 |Microsoft.Automation/automationAccounts|JobStreams|Datové proudy úlohy|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Stav uzlu DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Protokoly služby|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Získá metriky koncového bodu, například šířky pásma, odchozí, atd.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|ActivityRuns|Kanál protokolu spuštění aktivit|
+|Microsoft.DataFactory/factories|PipelineRuns|Kanál spustí protokolu|
+|Microsoft.DataFactory/factories|TriggerRuns|Trigger spouští protokolu|
 |Microsoft.DataLakeAnalytics/accounts|Auditování|Protokoly auditu|
 |Microsoft.DataLakeAnalytics/accounts|Požadavky|Žádost o protokoly|
 |Microsoft.DataLakeStore/accounts|Auditování|Protokoly auditu|
 |Microsoft.DataLakeStore/accounts|Požadavky|Žádost o protokoly|
+|Microsoft.Devices/IotHubs|Připojení|Připojení|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|Zařízení Telemetrie|
+|Microsoft.Devices/IotHubs|C2DCommands|Příkazy C2D|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Operace Identity zařízení|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Operace nahrávání souborů|
+|Microsoft.Devices/IotHubs|Trasy|Trasy|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|Operace C2D Twin|
+|Microsoft.Devices/IotHubs|TwinQueries|Dotazy Twin|
+|Microsoft.Devices/IotHubs|JobsOperations|Operace úlohy|
+|Microsoft.Devices/IotHubs|DirectMethods|Přímé metody|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operace zařízení|
 |Microsoft.Devices/provisioningServices|Operací služeb|Operace služby|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Protokoly archivu|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operační protokoly|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Automatické škálování protokoly|
@@ -78,6 +94,7 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integrace účet sledovat události|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Událost skupiny zabezpečení sítě|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Čítač pravidel skupiny zabezpečení sítě|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Skupina zabezpečení sítě pravidla toku událostí|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Události výstrah služby Vyrovnávání zatížení|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Stavu kontroly stavu služby Vyrovnávání zatížení|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Oznámení ochrany DDoS|
@@ -85,6 +102,11 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Aplikace v protokolu přístupu brány|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Aplikace v protokolu výkonu brány|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|V protokolu aplikace brány Firewall|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Diagnostické protokoly brány|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Diagnostické protokoly tunelového propojení|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Diagnostické protokoly trasy|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Událost výsledky testu stavu Traffic Manageru|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabulka GWM čítačů|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Zálohování Azure Data pro vytváření sestav|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Úlohy Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery události|
@@ -93,7 +115,6 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Body obnovení pro obnovení lokality Azure|
 |Microsoft.Search/searchServices|OperationLogs|Protokoly operací|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operační protokoly|
-|Microsoft.Sql/servers/databases|QueryStore|Úložiště dotazů|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Úložiště dotazů statistiku modulu Runtime|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Úložiště dotazů čekání statistiky|
 |Microsoft.Sql/servers/databases|Chyby|Chyby|

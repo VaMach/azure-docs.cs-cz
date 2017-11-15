@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 9696a74ac02688f9004156f6f16b39b37756751d
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 70ddec1c7ba76ef7f42048896079e5c5fa2bf60c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-user-defined-route---powershell"></a>Vytvoření trasy definované uživatelem – prostředí PowerShell
 
@@ -340,6 +340,12 @@ Můžete nainstalovat a nakonfigurovat nejnovější verzi prostředí PowerShel
         - **Ubuntu**: spuštění `tracepath myvm-private` příkaz.
       Provoz prochází přes 10.0.2.4 (hodnocení chyb zabezpečení) dříve, než dorazila 10.0.1.4 (virtuální počítač v privátní podsítě). 
     - Dokončit předchozí kroky připojením k *Můjvp privátní* virtuální počítač a otestováním *Můjvp veřejné* virtuálního počítače. Trasování cesty ukazuje komunikace cestě prostřednictvím 10.0.2.4 dříve, než dorazila 10.0.0.4 (virtuálního počítače v podsíti veřejný).
+    
+      > [!NOTE]
+      > Předchozí kroky umožňují potvrďte směrování mezi Azure privátních IP adres. Pokud chcete předat dál nebo proxy server, provoz na veřejné IP adresy prostřednictvím sítě virtuálního zařízení:
+      > - Zařízení musí poskytovat překlad síťových adres nebo funkce proxy serveru. Pokud překlad síťových adres, zařízení musí překládat zdrojové IP adresy do svého vlastního a pak je odeslat tuto žádost o veřejnou IP adresu. Jestli má zařízení Síťová adresa přeložit zdrojovou adresu, nebo je připojení přes proxy server, Azure překládá virtuální zařízení sítě privátní IP adresu na veřejnou IP adresu. Další informace o různých metodách Azure používá překládali soukromé IP adresy na veřejné IP adresy najdete v tématu [pochopení odchozí připojení](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Další trasu ve směrovací tabulce, například předpona: 0.0.0.0/0, typ dalšího směrování VirtualAppliance a další směrování IP adres 10.0.2.4 (v předchozím příkladu skriptu).
+      >
     - **Volitelně**: použít funkci další směrování systému sledovací proces sítě Azure k ověření dalšího směrování mezi dvěma virtuálními počítači v rámci Azure. Před použitím sledovací proces sítě, musíte nejdřív [vytvoření instance sledovací proces sítě Azure](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pro oblast, kterou chcete použít v. V tomto kurzu se používá oblasti USA – východ. Po povolení instance sledovací proces sítě pro oblast, zadejte následující příkaz, který zobrazit další informace o směrování mezi virtuálními počítači v veřejné a privátní podsítě:
      
         ```azurecli-interactive

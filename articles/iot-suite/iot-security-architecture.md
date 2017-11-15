@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 925bada91216b98175fb725e7aba6a31f305839d
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="internet-of-things-security-architecture"></a>Architektura zabezpečení Internetu věcí
 Při návrhu systému, je důležité pochopit potenciální hrozby na daný systém a přidejte příslušné obrany podle toho, jak systém je navržená tak a navržen. Je zvlášť důležité při návrhu produktu od začátku s důrazem na bezpečnost, protože pochopení, jak může být útočník mohl ohrozit systém pomáhá, ujistěte se, zda odpovídající jejich zmírnění jsou zavedené od začátku. 
@@ -88,7 +88,7 @@ Chcete-li optimalizovat osvědčené postupy zabezpečení, se doporučuje, aby 
 * Cloudové brány, a
 * Služby.
 
-Zóny jsou široké způsob, jak segmentovat řešení; každou zónu často má vlastní požadavky na data a ověřování a autorizace. Zóny můžete také použít k izolaci poškození a omezit dopad nízkou důvěryhodnosti zóny na vyšší vztahu důvěryhodnosti zóny.
+Zóny jsou široké způsob, jak segmentovat řešení; každou zónu často má vlastní požadavky na data a ověřování a autorizace. Zóny mohou sloužit také k izolování poškození a omezit dopad nízkou důvěryhodnosti zóny na vyšší vztahu důvěryhodnosti zóny.
 
 Každé zóny je oddělené hranicí vztahu důvěryhodnosti, který je uvedený jako tečkovaná čára red v následujícím diagramu. Představuje přechod data nebo informace z jednoho zdroje do jiného. Během tento přechod může data nebo informace podléhat falšování, Nepovolená manipulace, Odvolatelnost, zpřístupnění informací, dostupnost služby a zvýšení oprávnění (STRIDE).
 

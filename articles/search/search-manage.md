@@ -13,13 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Služba správy pro službu Azure Search na portálu Azure
 > [!div class="op_single_selector"]
@@ -34,13 +34,10 @@ Služba Azure Search je plně spravovaná, cloudové vyhledávací služba použ
 * Změnou přidělení replik a oddíly upravte kapacitu služby.
 * Sledování využití prostředků relativně k maximální limit vaše vrstvy služby.
 
-**Není v oboru** 
+Všimněte si, že *upgrade* není uvedena jako správce úloh. Protože prostředky se přidělují při zřízení služby, při přechodu k jiné vrstvě potřeba novou službu. Podrobnosti najdete v tématu [vytvoření služby Azure Search](search-create-service-portal.md).
 
-*Správa obsahu* (nebo index management) odkazuje na operací, jako je analýza provozu vyhledávání pochopit dotaz svazku, zjistit, jaké podmínky pro a jak jsou výsledky hledání úspěšné v vedení zákazníkům na konkrétní dokumenty v hledání osob indexu. Nápovědu v této oblasti najdete v tématu [Analýza provozu vyhledávání pro službu Azure Search](search-traffic-analytics.md).
-
-*Dotazování výkonu* je také nad rámec tohoto článku. Další informace najdete v tématu [monitorování metriky využití a dotaz](search-monitor-usage.md) a [výkonu a optimalizace](search-performance-optimization.md).
-
-*Upgrade* není správce úloh. Protože prostředky se přidělují při zřízení služby, při přechodu k jiné vrstvě potřeba novou službu. Podrobnosti najdete v tématu [vytvoření služby Azure Search](search-create-service-portal.md).
+> [!Tip]
+> Hledání pomoci o tom, jak analyzovat výkon provoz nebo dotaz, hledání? Získat přehled o dotazu svazek, který lidé podmínky vyhledat, a jak úspěšné výsledky hledání jsou vedení zákazníkům na konkrétní dokumenty v indexu. Pokyny najdete v tématu [Analýza provozu vyhledávání pro službu Azure Search](search-traffic-analytics.md), [monitorování metriky využití a dotaz](search-monitor-usage.md), a [výkonu a optimalizace](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -113,15 +110,10 @@ Jiný způsob, jak zobrazit přístupová oprávnění je kliknout na **role** v
 ## <a name="monitor-resource-usage"></a>Sledování využití prostředků
 Řídicí panel sledování prostředků je omezené na informace zobrazené na řídicím panelu služby a několik metriky, které můžete získat pomocí dotazu na službu. Na řídicím panelu služby, v části využití můžete rychle určit, jestli jsou oddílu prostředků úrovně pro vaše aplikace.
 
-Pomocí rozhraní API služby Search, můžete získat počet dokumentů a indexy. Existují pevných limitů přidružené tyto počty podle cenové úrovně. Další informace najdete v tématu [omezení služby Search](search-limits-quotas-capacity.md). 
+Pomocí rozhraní API REST služby vyhledávání, můžete získat počet dokumentů a indexy prostřednictvím kódu programu: 
 
 * [Získat statistiku indexu](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Počet dokumentů](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> Ukládání do mezipaměti chování můžete dočasně overstate omezení. Například pokud používáte sdílené služby, můžete se setkat dokumentu počet přes pevný limit 10 000 dokumentů. Přehánění je dočasný a bude zjištěn na další kontroly vynucení omezení. 
-> 
-> 
 
 ## <a name="disaster-recovery-and-service-outages"></a>Po havárii výpadkům obnovení a služby
 

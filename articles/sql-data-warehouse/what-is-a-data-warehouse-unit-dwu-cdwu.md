@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 93f0d21c7214487ffa0c2c5e27bd6e468920418c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Jednotky datového skladu (Dwu) a výpočetní jednotky datového skladu (cDWUs)
 Popisuje, jednotky datového skladu (Dwu) a výpočetní jednotky datového skladu (cDWUS) pro Azure SQL Data Warehouse. Zahrnout doporučení pro výběr ideální počet jednotky datového skladu a jak chcete změnit číslo z nich. 
@@ -52,16 +52,8 @@ Počet Dwu a cDWUs podporovat škálování výpočetní nahoru nebo dolů a poz
 Jako zvýšíte jednotky datového skladu, jsou lineárně zvýšení výpočetních prostředků. Optimalizovaná pro výpočet úroveň výkonu poskytuje nejlepší výkon dotazů a nejvyšší škálování ale s vyšší cenu položky. Je určený pro firmy, které mají konstantní vyžádání výkonu. Tyto systémy zkontrolujte většina použití mezipaměti. 
 
 ### <a name="capacity-limits"></a>Omezení kapacity
-Ve výchozím nastavení má každý Server (například myserver.database.windows.net) kvótu, která omezuje velikosti a měřítka databáze v instanci. Server může hostovat databáze datového skladu SQL a SQL DB všechny z nich musí být přizpůsobena kvótu. Tato kvóta se měří v jednotkách DTU (Database Transaction) a ve výchozím nastavení je nastavená na 54 000 na až 6000 cDWU. Tato kvóta je jednoduše bezpečnostní omezení. Vytvoření lístku podpory a výběrem "Kvóty" jako typ požadavku můžete zvýšit vaší kvóty. 
+Má každý systém SQL server (například myserver.database.windows.net) [jednotka DTU (Database Transaction)](../sql-database/sql-database-what-is-a-dtu.md) kvótu, která umožňuje konkrétní počet jednotky datového skladu. Další informace najdete v tématu [limity kapacity úlohy správy](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-Vypočítat váš požadavek DTU, platí následující multiplikátory pro vaše DTU výpočet:
-
-| Úroveň výkonu | Jednotka měření | Násobitel DTU | Příklad                   |
-|:----------------:|----------------:|---------------:|--------------------------:|
-| Pružnost       |  DWU            | 7.5            | DW6000 x 7.5 = 45,000 DTU |
-| Compute          | cDWU            | 9              | DW6000 x 7.5 = 54 000 DTU |
-
-Vaše aktuální DTU spotřeby najdete v tématu vlastnosti na server SQL můžete zobrazit na portálu.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Kolik jednotky datového skladu potřebuji?
 Ideální počet jednotky datového skladu velmi mnohem závisí na velikosti pracovní zátěže a množství dat, které načetli jste do systému.

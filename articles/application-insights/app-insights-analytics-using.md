@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 50161c71443a3cc0192ab2db771bb258058e233c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Pomocí analýzy ve službě Application Insights
 [Analýza](app-insights-analytics.md) je výkonný vyhledávání funkcí [Application Insights](app-insights-overview.md). Tyto stránek popisují dotazovací jazyk analýzy protokolů.
@@ -38,7 +38,7 @@ Je [rozsáhlejší prohlídka zde](app-insights-analytics-tour.md).
 ### <a name="write-a-query"></a>Napsat dotaz
 ![Zobrazení schématu](./media/app-insights-analytics-using/150.png)
 
-Začněte s názvy uvedené na levé straně tabulky (nebo [rozsah](https://docs.loganalytics.io/queryLanguage/query_language_rangeoperator.html) nebo [sjednocení](https://docs.loganalytics.io/queryLanguage/query_language_unionoperator.html) operátory). Použití `|` vytvořit kanál z [operátory](https://docs.loganalytics.io/learn/cheatsheets/useful_operators.html). 
+Začněte s názvy uvedené na levé straně tabulky (nebo [rozsah](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/range-operator) nebo [sjednocení](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/union-operator) operátory). Použití `|` vytvořit kanál z [operátory](https://docs.loganalytics.io/docs/Learn/References/Useful-operators). 
 
 IntelliSense zobrazí výzvu s operátory a výraz prvky, které můžete použít. Klikněte na ikonu informace (nebo stiskněte klávesu CTRL + MEZERNÍK) získat delší popis a příklady, jak používat jednotlivé prvky.
 
@@ -49,7 +49,7 @@ Najdete v článku [Analytics jazyk prohlídka](app-insights-analytics-tour.md) 
 
 1. Jeden řádek zalomení můžete použít v dotazu.
 2. Umístěte kurzor uvnitř nebo na konci tohoto dotazu, který chcete spustit.
-3. Zkontrolujte časové rozmezí dotazu. (Můžete ho změnit nebo potlačit včetně vlastní [ `where...timestamp...` ](https://docs.loganalytics.io/concepts/concepts_datatypes_timespan.html) klauzule v dotazu.)
+3. Zkontrolujte časové rozmezí dotazu. (Můžete ho změnit nebo potlačit včetně vlastní [ `where...timestamp...` ](https://docs.loganalytics.io/docs/Learn/Tutorials/Date-and-time-operations) klauzule v dotazu.)
 3. Kliknutím na Přejít do spusťte dotaz.
 4. Nevkládejte prázdné řádky v dotazu. Několik oddělených dotazů můžete ponechat v jedné karty dotazu jejich oddělením prázdné řádky. Spustí se pouze na dotaz, který má kurzor.
 
@@ -71,7 +71,7 @@ Můžete řadit, filtrovat, stránkování a seskupení výsledků vrácená z d
 > [!NOTE]
 > Řazení, seskupování a filtrování v prohlížeči není spusťte znovu dotaz. Jejich pouze změna uspořádání výsledky, které byly vráceny poslední dotaz. 
 > 
-> K provedení těchto úloh na serveru, než budou vráceny výsledky, napsat dotaz s [řazení](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html), [shrnout](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) a [kde](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) operátory.
+> K provedení těchto úloh na serveru, než budou vráceny výsledky, napsat dotaz s [řazení](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator), [shrnout](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) a [kde](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) operátory.
 > 
 > 
 
@@ -99,7 +99,7 @@ Pokud se domníváte, že nevidíte všechny výsledky, které jste očekávali,
 
     Můžete však změnit časový rozsah filtr pomocí rozevírací nabídky.
 
-    Nebo můžete přepsat automatického rozsahu včetně vlastní [ `where  ... timestamp ...` klauzule](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) do dotazu. Například:
+    Nebo můžete přepsat automatického rozsahu včetně vlastní [ `where  ... timestamp ...` klauzule](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) do dotazu. Například:
 
     `requests | where timestamp > ago('2d')`
 
@@ -107,10 +107,10 @@ Pokud se domníváte, že nevidíte všechny výsledky, které jste očekávali,
 
     Je vhodné, aby se zabránilo nedosáhli limitu. Použijte filtr času rozsah, nebo použijte například operátory:
 
-  * [prvních 100 pomocí časového razítka](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
-  * [trvat 100](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
-  * [shrnutí](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
-  * [kde časové razítko > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
+  * [prvních 100 pomocí časového razítka](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
+  * [trvat 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
+  * [shrnutí](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [kde časové razítko > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (Má více než 10 TIS řádků? Zvažte použití [průběžné exportovat](app-insights-export-telemetry.md) místo. Analýza je určená pro analýzy, nikoli načítání nezpracovaná data.)
 
@@ -121,7 +121,7 @@ Vyberte typ diagramu, který chcete:
 
 Pokud máte několik sloupců správné typy, můžete x a osy y a sloupec dimenzí rozdělit výsledky podle.
 
-Ve výchozím nastavení výsledky se zpočátku zobrazují jako tabulku a vyberete diagramu ručně. Ale můžete použít [vykreslení – direktiva](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html) na konci tohoto dotazu a vyberte diagram.
+Ve výchozím nastavení výsledky se zpočátku zobrazují jako tabulku a vyberete diagramu ručně. Ale můžete použít [vykreslení – direktiva](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) na konci tohoto dotazu a vyberte diagram.
 
 ### <a name="analytics-diagnostics"></a>Analýza diagnostiky
 

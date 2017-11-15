@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
-ms.openlocfilehash: 7b6b551fa1009da744598715b09f13355ded2884
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f6c27fb651fc13877a889c26aa47903985625a0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Použití Apache Spark REST API vzdálené úlohy do clusteru HDInsight Spark
 
-Další informace o použití Livy, Apache Spark REST API, které se používá k odesílání vzdálené úloh do clusteru Azure HDInsight Spark. Podrobnou dokumentaci najdete v tématu [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Další informace o použití Livy, Apache Spark REST API, které se používá k odesílání vzdálené úloh do clusteru Azure HDInsight Spark. Podrobnou dokumentaci najdete v tématu [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
 
 Livy můžete použít ke spuštění interaktivních Spark nutný nebo odesílat dávkové úlohy můžou běžet na Spark. V tomto článku bude zmíněn pomocí Livy odesílat dávkové úlohy. Fragmenty kódu v tomto článku pomocí cURL provádět volání rozhraní REST API ke koncovému bodu Livy Spark.
 
@@ -189,6 +189,7 @@ Tady jsou některé problémy, které se mohou vyskytnout při pro vzdálené ú
 
 ## <a name="next-step"></a>Další krok
 
+* [Dokumentace k Livy REST API](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Správa prostředků v clusteru Apache Spark v Azure HDInsight](apache-spark-resource-manager.md)
 * [Sledování a ladění úloh spuštěných v clusteru Apache Spark v HDInsight](apache-spark-job-debugging.md)
 

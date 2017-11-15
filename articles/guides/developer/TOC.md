@@ -1,7 +1,7 @@
 # Přehled
 ## [Příručka pro vývojáře](azure-developer-guide.md) 
-## [Přehled služeb Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Přehled portálu](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Přehled služeb Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
+## [Přehled portálu](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Sady SDK a nástroje](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Rychlý start
@@ -106,7 +106,8 @@
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Fakturace](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
-# Zdroje a prostředky
+# Zdroje
+## [Omezení a kvóty Azure](../../azure-subscription-service-limits.md)
 ## [Oblasti Azure](https://azure.microsoft.com/regions/)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

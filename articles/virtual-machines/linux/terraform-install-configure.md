@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2810d13d40272269341751b19b3010a8b135139
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalace a konfigurace Terraform ke zřízení virtuálních počítačů a další infrastrukturou do Azure
  
 Terraform poskytuje snadný způsob, jak definovat, náhled a nasazení infrastruktury cloudu pomocí [jednoduché ukázka jazyk](https://www.terraform.io/docs/configuration/syntax.html). Tento článek popisuje potřebné kroky k Terraform přidělení prostředků v Azure. 
 
 > [!TIP]
-> Terraform je nainstalována ve výchozím nastavení [Bash v prostředí cloudu Azure možnosti](/azure/cloud-shell/quickstart). Je také předkonfigurované s přihlašovacími údaji a [moduly Azure Terraform](https://registry.terraform.io/modules/Azure). Pomocí cloudové prostředí, můžete přeskočit instalace nebo části tohoto dokumentu.
+Další informace o tom, jak používat Terraform se službou Azure, najdete [Terraform rozbočovače](/azure/terraform). Terraform je nainstalována ve výchozím nastavení [cloudové prostředí](/terraform/terraform-cloud-shell). Pomocí cloudové prostředí, můžete přeskočit instalace nebo části tohoto dokumentu.
 
 ## <a name="install-terraform"></a>Nainstalujte Terraform
 

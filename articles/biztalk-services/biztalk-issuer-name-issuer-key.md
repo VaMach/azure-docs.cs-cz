@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Název a klíč vystavitele
 
@@ -76,13 +76,9 @@ Více na [New-AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx
 Název vystavitele sběrnice služby a klíč vystavitele jsou používány adaptér služby BizTalk. V projektu služby BizTalk v sadě Visual Studio používáte adaptér služby BizTalk se připojit k-obchodní (LOB) v místním systému. Pokud chcete připojit, vytvořit obchodní předávání a zadejte podrobnosti o systémové vaše obchodní. Při této činnosti, můžete taky zadat název vystavitele sběrnice služby a klíč vystavitele.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Načíst název vystavitele sběrnice služby a klíč vystavitele
-1. Přihlaste se do [portál Azure Classic](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. V levém navigačním podokně, vyberte **Service Bus**.
-3. Zvolte svůj obor názvů. Na hlavním panelu vyberte **informace o připojení**. Zobrazí se **výchozí vystavitele** (název vystavitele) a **výchozí klíč** (Issuer Key). Jejich hodnoty lze zkopírovat.  
-
-Shrnutí:  
-Název vystavitele = výchozí vystavitele  
-Klíče vystavitele = výchozí klíč
+1. Přihlaste se k webu [Azure Portal](http://portal.azure.com).
+2. Vyhledejte **Service Bus**a zvolte svůj obor názvů. 
+3. Otevřete **zásady sdíleného přístupu** vlastnosti, vyberte zásadu a zobrazit **připojovací řetězec** pro název a hodnoty klíče.  
 
 ## <a name="next"></a>Další
 Další témata týkající se služby Azure BizTalk Services:
@@ -95,7 +91,7 @@ Další témata týkající se služby Azure BizTalk Services:
 ## <a name="see-also"></a>Viz také
 * [Postupy: Konfigurace identity služby pomocí služby správy služby ACS](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [BizTalk Services: Developer, Basic, Standard a Premium tabulka edic](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: Zřízení pomocí Azure portál classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: zřízení](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk Services: Tabulka stavů zřízení](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 * [BizTalk Services: Karty Řídicí panel, Sledování a Škálování](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk Services: Zálohování a obnovení](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

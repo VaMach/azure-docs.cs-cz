@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Objekty přenosu do nebo z Azure Blob storage pomocí Python
 V tento rychlý start a zjistěte, jak používat Python k odesílání, stahování a seznam objektů BLOB bloku v kontejneru v úložiště objektů Blob v Azure. 
@@ -73,7 +73,11 @@ Můžete také použít nástroj, jako [Azure Storage Explorer](http://storageex
 
 Jakmile ověříte soubory, stisknutí libovolné klávesy ukončíte ukázku a odstranit testovací soubory. Teď, když víte, jaké ukázku, otevřete soubor example.py podívejte se na kód. 
 
-## <a name="get-references-to-the-storage-objects"></a>Získat odkazy na objekty úložiště
+## <a name="understand-the-sample-code"></a>Pochopení ukázkový kód
+
+V dalším kroku jsme provede ukázkový kód tak, aby vám pochopit, jak to funguje.
+
+### <a name="get-references-to-the-storage-objects"></a>Získat odkazy na objekty úložiště
 První věc udělat, je vytvořit odkazy na objekty používané pro přístup k a spravovat úložiště objektů Blob. Tyto objekty sestavení na sobě navzájem, a každou používá následuje v seznamu.
 
 * Vytvoření instance **BlockBlobService** objekt, který odkazuje na službu objektů Blob v účtu úložiště. 
@@ -98,7 +102,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## <a name="upload-blobs-to-the-container"></a>Odešlete do kontejneru objektů BLOB
+### <a name="upload-blobs-to-the-container"></a>Odešlete do kontejneru objektů BLOB
 
 Úložiště objektů blob podporuje objekty blob bloku, doplňovací objekty blob a objekty blob stránky. Objekty BLOB bloku jsou nejčastěji používané a který se bude používat v tento rychlý start.  
 
@@ -128,7 +132,7 @@ Existuje několik metod nahrávání, které můžete použít pomocí úložiš
 
 Objekty BLOB bloku může být tak velké, jaká 4.7 TB a může být jakýkoli z tabulky aplikace Excel video velkých souborů. Objekty BLOB stránky se primárně používají pro soubory VHD použité pro zálohování virtuálních počítačů IaaS. Append – objekty BLOB jsou použitá pro protokolování, například když chcete zapsat do souboru a potom mít přidání další informace. Většina objekty uložené v úložišti objektů Blob jsou objekty BLOB bloku.
 
-## <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
+### <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
 
 Získat seznam souborů v kontejneru pomocí **list_blobs** metoda. Tato metoda vrátí generátor. Následující kód načte seznam objektů BLOB a potom je, prochází zobrazující názvy objektů BLOB nalezené v kontejneru.  
 
@@ -140,7 +144,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Stáhnout objekty BLOB
+### <a name="download-the-blobs"></a>Stáhnout objekty BLOB
 
 Stáhnout objekty BLOB na váš místní disk pomocí **získat\_objektů blob\_k\_cesta** metoda. Následující kód stáhne objekt blob nahráli v předchozí části. "_DOWNLOADED" se přidá jako příponu názvu objektu blob, abyste viděli oba soubory na místním disku. 
 
@@ -152,7 +156,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## <a name="clean-up-resources"></a>Vyčištění prostředků
+### <a name="clean-up-resources"></a>Vyčištění prostředků
 Pokud již nepotřebujete objekty BLOB nahrát tento rychlý start, můžete odstranit celou kontejneru pomocí **odstranit\_kontejneru**. Pokud již nejsou potřebné soubory vytvořené, můžete použít **odstranit\_blob** metoda odstranění souborů.
 
 ```python

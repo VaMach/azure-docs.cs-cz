@@ -14,27 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d3a357e1a3929153288a9d99e21f2379bcac891
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: Řešení problémů pomocí protokolů operací
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+
 ## <a name="what-are-the-operation-logs"></a>Jaké jsou protokoly operací
-Protokoly operací je funkce služby pro správu, k dispozici na portálu Azure classic, který vám umožní zobrazit historické protokoly operací týkajících se služeb Azure, včetně služby BizTalk Services. To umožňuje zobrazit historická data týkající se správy operací na své předplatné služby BizTalk až 180 dní.
+Protokoly operací je funkce služby správy, která vám umožní zobrazit historické protokoly operací týkajících se služeb Azure, včetně služby BizTalk Services. To umožňuje zobrazit historická data týkající se správy operací na své předplatné služby BizTalk až 180 dní.
 
 > [!NOTE]
-> Tato funkce zaznamená pouze protokoly pro operace správy v BizTalk Services, například při spuštění služby, založenou na aktivní, a tak dále. Tyto operace jsou sledovány bez ohledu na to, jestli se provedlo z portálu Azure classic nebo pomocí [rozhraní API REST služby BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Úplný seznam operací, které jsou sledovány pomocí služby správy najdete v tématu [Operations sledovaných pomocí služeb Azure Management](#bizops).<br/><br/>
+> Tato funkce zaznamená pouze protokoly pro operace správy v BizTalk Services, například při spuštění služby, založenou na aktivní, a tak dále. Tyto operace jsou sledovány pomocí [rozhraní API REST služby BizTalk](http://msdn.microsoft.com/library/azure/dn232347.aspx). Úplný seznam operací, které jsou sledovány pomocí služby správy najdete v tématu [Operations sledovaných pomocí služeb Azure Management](#bizops).<br/><br/>
 > Není to zachytit v protokolech činnosti týkající se služby BizTalk runtime (například zprávy zpracovává mostů atd.). Pokud chcete zobrazit tyto protokoly, použijte zobrazení sledování z portálu služby BizTalk Services. Další informace najdete v tématu [sledování zpráv](http://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
 ## <a name="view-biztalk-services-operation-logs"></a>Zobrazení, protokoly operací služby BizTalk Services
-1. Na portálu Azure classic, vyberte **Management Services**a pak vyberte **protokoly operací** kartě.
+1. Na portálu, vyberte **Management Services**a pak vyberte **protokoly operací** kartě.
 2. Můžete filtrovat na základě různých parametrů jako předplatné, rozsah kalendářních dat, typu služby (např. služby BizTalk), název služby nebo stav operace (úspěšné, neúspěšné) protokolů.
 3. Vyberte na značku zaškrtnutí zobrazíte filtrované seznamu. Následující obrázek znázorňuje aktivity související s testbiztalkservice: ![zobrazit protokoly operací][ViewLogs] 
 4. Chcete-li zobrazit více o konkrétní operaci, vyberte řádek a klikněte na **podrobnosti** na hlavním panelu v dolní části.
@@ -64,7 +66,7 @@ Následující tabulka uvádí operace, které jsou sledovány pomocí služby p
 * [Zálohování služby BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Služba BizTalk obnovit ze zálohy](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Developer, Basic, Standard a Premium tabulka edic](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: Zřízení pomocí Azure portál classic](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: zřízení](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: Tabulka stavů zřízení](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk Services: Karty Řídicí panel, Sledování a Škálování](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: Omezování](http://go.microsoft.com/fwlink/p/?LinkID=302282)

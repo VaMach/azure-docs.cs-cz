@@ -49,14 +49,16 @@
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks
-- name: Zdroje a prostředky
+- name: Zdroje
   items:
-    - name: Plány Azure do budoucna
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Ceny
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Dostupnost v oblastech
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Plán
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Poskytnutí zpětné vazby k produktu
+      href: 'https://github.com/Azure/AKS/issues'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Videa

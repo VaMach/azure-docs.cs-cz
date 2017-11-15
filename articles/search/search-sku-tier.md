@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Zvolte SKU nebo cenovou úroveň pro službu Azure Search.
 Ve službě Azure Search [je služba zřízena](search-create-service-portal.md) na konkrétní cenová úroveň nebo SKU. Mezi možnosti patří **volné**, **základní**, nebo **standardní**, kde **standardní** je k dispozici v několika konfigurace a kapacity.
@@ -43,9 +43,9 @@ Kapacita a nákladů na běžící služba přejděte ruční v dolním. Informa
 
 * Počet a velikost indexy, které chcete vytvořit
 * Počet a velikost dokumenty nahrát
-* Přehled o dotazu svazku, z hlediska dotazy na druhý (QPS)
+* Přehled o dotazu svazku, z hlediska dotazy na druhý (QPS). Pokyny najdete v tématu [výkonu Azure Search a optimalizace](search-performance-optimization.md).
 
-Počet a velikost jsou důležité, protože maximální limitu prostřednictvím pevný limit na počet indexů nebo dokumenty ve službě nebo na prostředky (úložiště nebo repliky), který používá služba. Skutečné limit služby je podle toho, co získá vyčerpáte první: prostředky nebo objekty.
+Počet a velikost jsou důležité, protože maximální limitu prostřednictvím pevný limit na počet indexů pro službu nebo na prostředky (úložiště nebo repliky), který používá služba. Skutečné limit služby je podle toho, co získá vyčerpáte první: prostředky nebo objekty.
 
 Odhady v dolním má následující kroky zjednodušit proces:
 
@@ -60,10 +60,10 @@ Následující tabulka obsahuje popis každého vrstvy.
 | --- | --- |
 | **Volné** |Sdílené služby, bez poplatků, používat pro vyhodnocení, šetření nebo malé úlohy. Vzhledem k tomu, že jsou sdílena s další odběratele, propustnost dotazu a indexování se liší podle uživatele, kteří je pomocí služby. Kapacita je malý (50 MB nebo 3 indexy s až 10 000 dokumentů. každý). |
 | **Basic** |Malé produkční úlohy na vyhrazeném hardwaru. Vysoce dostupný. Kapacita je až 3 repliky a 1 oddílu (2 GB). |
-| **S1** |Standardní 1 podporuje flexibilní kombinace oddíly (12) a repliky (12), použít pro střední produkční zatížení na vyhrazeném hardwaru. Přidělením replik v kombinacích nepodporuje maximální počet jednotek 36 fakturovatelný vyhledávání a oddíly. Na této úrovni oddíly jsou 25 GB a QPS je přibližně 15 dotazů za sekundu. |
-| **S2** |Spustí standardní 2 větší úlohy v produkčním prostředí pomocí stejné 36 vyhledávání jednotky jako S1, ale s větší velikostí oddílů a repliky. Na této úrovni oddíly jsou 100 GB a QPS je o 60 dotazů za sekundu. |
-| **S3** |Standardní 3 běží úměrně větší úlohy v produkčním prostředí na vyšší end systémy, v konfiguracích až 12 oddíly nebo 12 repliky jednotek v části 36 vyhledávání. Na této úrovni oddíly jsou 200 GB a QPS je více než 60 dotazů za sekundu. |
-| **S3 HD** |Standardní 3 hustotou je určená pro velký počet menší indexy. Může mít až 3 oddíly, na 200 GB. QPS je více než 60 dotazů za sekundu. |
+| **S1** |Standardní 1 podporuje flexibilní kombinace oddíly (12) a repliky (12), použít pro střední produkční zatížení na vyhrazeném hardwaru. Přidělením replik v kombinacích nepodporuje maximální počet jednotek 36 fakturovatelný vyhledávání a oddíly. Na této úrovni oddíly jsou 25 GB. |
+| **S2** |Spustí standardní 2 větší úlohy v produkčním prostředí pomocí stejné 36 vyhledávání jednotky jako S1, ale s větší velikostí oddílů a repliky. Na této úrovni oddíly jsou 100 GB. |
+| **S3** |Standardní 3 běží úměrně větší úlohy v produkčním prostředí na vyšší end systémy, v konfiguracích až 12 oddíly nebo 12 repliky jednotek v části 36 vyhledávání. Na této úrovni oddíly jsou 200 GB. |
+| **S3 HD** |Standardní 3 hustotou je určená pro velký počet menší indexy. Může mít až 3 oddíly, na 200 GB.|
 
 > [!NOTE]
 > Maximální hodnoty repliky a oddíl se účtují se jako vyhledávání jednotek (36 maximální pro službu), které ukládá nižší limit efektivní než maximální znamená v hodnotě řez. Například pokud chcete použít maximálně 12 repliky, může mít nejvýše 3 oddíly (12 * 3 = 36 jednotek). Podobně použít maximální oddíly, snížíte repliky 3. V tématu [škálovat prostředek úrovně pro dotaz a indexování úlohy ve službě Azure Search](search-capacity-planning.md) pro graf na povolené kombinace.
@@ -81,7 +81,6 @@ Následující graf je podmnožinou omezení z [omezení služby ve službě Azu
 | Maximální oddíly |Není k dispozici |1 |12 |12 |12 |3 <sup>2</sup> |
 | Velikost oddílu |Celkový počet 50 MB |2 GB pro službu |25 GB na oddíly |100 GB na oddíl (až do maximálního počtu 1.2 TB pro službu) |200 GB na oddíl (až do maximálního počtu 2.4 TB pro službu) |200 GB (až do maximálního počtu 600 GB pro službu) |
 | Maximální repliky |Není k dispozici |3 |12 |12 |12 |12 |
-| Dotazy na za sekundu |Není k dispozici |Přibližně 3 na repliku |Přibližně 15 na repliku |Přibližně 60 na repliku |Více než 60 na repliku |Více než 60 na repliku |
 
 <sup>1</sup> volné vrstvy a preview funkce není součástí smlouvy o úrovni služeb (SLA). Pro všechny fakturovatelné úrovně SLA projeví při zřizování dostatečná redundance pro vaši službu. Dvě nebo více replik jsou požadovány pro SLA dotazu (načíst). Tři nebo více replik jsou požadovány pro dotazy a indexování smlouvy o úrovni služeb (pro čtení a zápis). Počet oddílů není k posouzení SLA. 
 

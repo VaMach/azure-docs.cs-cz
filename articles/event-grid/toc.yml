@@ -46,6 +46,15 @@
       href: subscription-creation-schema.md
     - name: Schéma událostí
       href: event-schema.md
+      items:
+        - name: Předplatná Azure
+          href: event-schema-subscriptions.md
+        - name: Blob Storage
+          href: event-schema-blob-storage.md
+        - name: Event Hubs
+          href: event-schema-event-hubs.md
+        - name: Skupiny prostředků
+          href: event-schema-resource-groups.md
 - name: Zdroje
   items:
     - name: Plány Azure do budoucna

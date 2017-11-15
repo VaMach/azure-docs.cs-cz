@@ -15,22 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1a40c4cc064b32aced7e976f40f6ed6a57e62204
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Nasazení OpenShift původ v Azure
 
-K nasazení OpenShift původ v Azure několika způsoby. Můžete ručně nasadit všechny součásti potřebnou infrastrukturu Azure a pak postupujte podle počátek OpenShift [dokumentaci](https://docs.openshift.org/3.6/welcome/index.html).
-Můžete také použít existující šablonu Resource Manageru, která zjednodušuje nasazení clusteru OpenShift původu. Jakmile tyto šablony se nachází [zde](https://github.com/Microsoft/openshift-origin).
+Můžete použít jednu ze dvou způsobů nasazení OpenShift původ v Azure:
 
-## <a name="deploy-using-the-openshift-origin-template"></a>Nasazení pomocí šablony OpenShift původu
+- Můžete ručně nasadit všechny součásti potřebnou infrastrukturu Azure a postupujte podle počátek OpenShift [dokumentaci](https://docs.openshift.org/3.6/welcome/index.html).
+- Můžete také použít existující [šablony Resource Manageru](https://github.com/Microsoft/openshift-origin) , zjednodušuje nasazení clusteru OpenShift původu.
 
-Použití `appId` hodnotu z objektu služby, který jste dříve vytvořili pro `aadClientId` parametr.
+## <a name="deploy-by-using-the-openshift-origin-template"></a>Nasazení pomocí šablony OpenShift původu
 
-Následující příklad vytvoří soubor parametrů s názvem **azuredeploy.parameters.json** se všechny požadované vstupy.
+Použití `appId` hodnotu z objektu služby, kterou jste dříve vytvořili pro `aadClientId` parametr.
+
+Následující příklad vytvoří soubor parametrů s názvem azuredeploy.parameters.json se všechny požadované vstupy.
 
 ```json
 {
@@ -92,13 +94,13 @@ Následující příklad vytvoří soubor parametrů s názvem **azuredeploy.par
 }
 ```
 
-### <a name="deploy-using-azure-cli"></a>Nasazení pomocí rozhraní příkazového řádku Azure
+### <a name="deploy-by-using-azure-cli"></a>Nasazení pomocí rozhraní příkazového řádku Azure
 
 
 > [!NOTE] 
-> Tento příkaz vyžaduje rozhraní příkazového řádku Azure 2.0.8 nebo novější. Můžete ověřit az CLI verze se `az --version` příkaz. K aktualizaci verze rozhraní příkazového řádku, najdete v části [nainstalovat Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> Tento příkaz vyžaduje rozhraní příkazového řádku Azure 2.0.8 nebo novější. Verze rozhraní příkazového řádku s můžete ověřit `az --version` příkaz. K aktualizaci verze rozhraní příkazového řádku, najdete v části [nainstalovat Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Následující příklad nasadí do skupiny prostředků s názvem myResourceGroup s názvem nasazení myOpenShiftCluster OpenShift clusteru a všechny související prostředky. Šablona se odkazuje přímo z úložiště github a místní parametry soubor s názvem **azuredeploy.parameters.json** soubor je používán.
+Následující příklad nasadí do skupiny prostředků s názvem myResourceGroup, s názvem nasazení myOpenShiftCluster OpenShift clusteru a všechny související prostředky. Šablona se odkazuje přímo z úložiště GitHub pomocí místní parametry soubor s názvem azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -106,7 +108,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-Nasazení trvá alespoň 25 minut v závislosti na celkový počet uzlů, které jsou nasazeny. Adresa URL konzoly OpenShift a název DNS je hlavní server OpenShift vytiskne na terminálu po dokončení nasazení.
+Nasazení trvá alespoň 25 minut na dokončení, v závislosti na celkový počet uzlů, které jsou nasazeny. Adresa URL konzoly OpenShift a název DNS hlavní výtisků OpenShift na terminálu po dokončení nasazení.
 
 ```json
 {
@@ -117,7 +119,7 @@ Nasazení trvá alespoň 25 minut v závislosti na celkový počet uzlů, které
 
 ## <a name="connect-to-the-openshift-cluster"></a>Připojte se ke clusteru OpenShift
 
-Po dokončení nasazení připojit ke konzole OpenShift pomocí prohlížeče `OpenShift Console Uri`. Alternativně můžete připojit k hlavnímu OpenShift pomocí následujícího příkazu:
+Po dokončení nasazení připojit ke konzole OpenShift s prohlížeči pomocí `OpenShift Console Uri`. Můžete alternativně připojí k hlavní OpenShift pomocí následujícího příkazu:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -125,7 +127,7 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud již nepotřebujete, můžete použít [odstranění skupiny az](/cli/azure/group#delete) příkaz, který má-li odebrat skupinu prostředků, OpenShift clusteru a všechny související prostředky.
+Použití [odstranění skupiny az](/cli/azure/group#delete) příkaz, který má-li odebrat skupinu prostředků, OpenShift clusteru a všechny související prostředky, když jste už nepotřebují.
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -133,6 +135,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Úlohy nasazení POST](./openshift-post-deployment.md)
-- [Řešení potíží s nasazením OpenShift](./openshift-troubleshooting.md)
-- [Začínáme s OpenShift původu](https://docs.openshift.org/latest/getting_started/index.html)
+- [Úlohy po nasazení](./openshift-post-deployment.md)
+- [Řešení potíží s OpenShift nasazení](./openshift-troubleshooting.md)
+- [Začínáme s OpenShiftem Origin](https://docs.openshift.org/latest/getting_started/index.html)

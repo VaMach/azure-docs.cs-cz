@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Přesun dat z místního serveru SQL do SQL Azure s Azure Data Factory
 Toto téma ukazuje, jak pro přesun dat z databáze serveru SQL místní databázi SQL Azure přes Azure Blob Storage pomocí Azure Data Factory (ADF).
@@ -80,32 +80,14 @@ Brána pro správu dat serializuje a deserializuje zdroj a jímka data v počít
 Pokyny k instalaci a informace o Brána pro správu dat najdete v tématu [přesun dat mezi místní zdroje a cloudu s Brána pro správu dat](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>Vytvoření propojených služeb pro připojení ke zdrojům dat
-Propojená služba definuje informace potřebné pro vytváření dat Azure pro připojení k prostředku data. Podrobný postup pro vytvoření propojené služby je k dispozici v [vytvoření propojených služeb](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+Propojená služba definuje informace potřebné pro vytváření dat Azure pro připojení k prostředku data. Máme tři zdroje v tomto scénáři, pro které jsou potřeba propojené služby:
 
-Máme tři zdroje v tomto scénáři, pro které jsou potřeba propojené služby.
+1. Místní SQL Server
+2. Azure Blob Storage
+3. Databáze SQL Azure
 
-1. [Propojené služby pro místní systém SQL Server](#adf-linked-service-onprem-sql)
-2. [Propojené služby pro Azure Blob Storage](#adf-linked-service-blob-store)
-3. [Propojené služby pro databázi Azure SQL](#adf-linked-service-azure-sql)
+Podrobný postup pro vytvoření propojené služby je k dispozici v [vytvoření propojených služeb](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
-### <a name="adf-linked-service-onprem-sql"></a>Propojené služby pro místní databázi systému SQL Server
-Vytvoření propojené služby pro místní systém SQL Server:
-
-* klikněte **Data Store** v ADF cílová stránka na portálu Azure Classic
-* Vyberte **SQL** a zadejte *uživatelské jméno* a *heslo* přihlašovací údaje pro místní systém SQL Server. Musíte zadat název serveru jako **servername plně kvalifikovaný název instance zpětné lomítko (servername\instancename)**. Název propojené služby *adfonpremsql*.
-
-### <a name="adf-linked-service-blob-store"></a>Propojené služby pro objekt Blob
-Vytvoření propojené služby pro účet Azure Blob Storage:
-
-* klikněte **Data Store** v ADF cílová stránka na portálu Azure Classic
-* Vyberte **účet úložiště Azure**
-* Zadejte název klíče a kontejneru účtu úložiště objektů Blob Azure. Název propojené služby *adfds*.
-
-### <a name="adf-linked-service-azure-sql"></a>Propojené služby pro databázi Azure SQL
-Vytvoření propojené služby pro Azure SQL Database:
-
-* klikněte **Data Store** v ADF cílová stránka na portálu Azure Classic
-* Vyberte **Azure SQL** a zadejte *uživatelské jméno* a *heslo* přihlašovací údaje pro databázi SQL Azure. *Uživatelské jméno* musí být zadány jako  *user@servername* .   
 
 ## <a name="adf-tables"></a>Definovat a vytvářet tabulky určete, jak pro přístup k datové sady
 Vytváření tabulek, které určují strukturu, umístění a dostupnost datové sady pomocí následujících postupů založených na skriptech. Soubory JSON se používají k definování tabulky. Další informace o struktuře těchto souborů najdete v tématu [datové sady](../../data-factory/v1/data-factory-create-datasets.md).
@@ -311,9 +293,6 @@ Kopírování volat tuto definici JSON kanálu do souboru *pipelinedef.json* sou
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Zkontrolujte, jestli můžete kanálu na ADF na portálu Azure Classic zobrazí jako následující (klepnutím na diagram)
-
-![ADF kanálu](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Spuštění kanálu
 Kanál můžete spustit nyní pomocí následujícího příkazu:

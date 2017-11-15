@@ -246,6 +246,8 @@
           items:
             - name: Vývoj tabulek
               href: table-support.md
+            - name: Operace rozhraní Table API s využitím PowerShellu
+              href: table-powershell.md
             - name: Azure Table Storage
               items:
                 - name: Přehled služby Table Storage
@@ -254,7 +256,7 @@
                   href: table-storage-design-guide.md
                 - name: Rozhraní REST API služby Table Storage
                   href: /rest/api/storageservices/Table-Service-Concepts
-                - name: Postup
+                - name: Vývoj
                   items:
                     - name: .NET
                       href: table-storage-how-to-use-dotnet.md
@@ -274,6 +276,8 @@
                       href: table-storage-how-to-use-python.md
                     - name: Ruby
                       href: table-storage-how-to-use-ruby.md
+                    - name: PowerShell
+                      href: table-storage-how-to-use-powershell.md
         - name: Změna kanálu
           href: change-feed.md
         - name: Geoprostorové

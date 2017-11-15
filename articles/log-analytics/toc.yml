@@ -28,7 +28,13 @@
 - name: Koncepty
   items:
     - name: Upgrade pracovního prostoru
-      href: log-analytics-log-search-upgrade.md
+      items:
+        - name: Přehled upgradu
+          href: log-analytics-log-search-upgrade.md
+        - name: Souhrn změn
+          href: log-analytics-log-search-upgrade-changes.md
+        - name: Nejčastější dotazy týkající se upgradu
+          href: log-analytics-log-search-faq.md
     - name: Nejčastější dotazy k Log Analytics
       href: log-analytics-faq.md
     - name: Využití dat
@@ -41,8 +47,6 @@
       items:
         - name: Přehled prohledávání protokolů
           href: log-analytics-log-search-new.md
-        - name: Nejčastější dotazy k prohledávání protokolů
-          href: log-analytics-log-search-faq.md
         - name: Portály prohledávání protokolů
           href: log-analytics-log-search-portals.md
 - name: Návody

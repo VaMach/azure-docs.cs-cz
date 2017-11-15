@@ -3,22 +3,22 @@ title: "Zásobník úložiště Azure: Rozdíly a aspekty"
 description: "Porozumějte rozdílům mezi zásobník úložiště Azure a Azure Storage, společně s aspekty nasazení Azure zásobníku."
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: jeffgilb
+manager: femila
+ms.reviwer: xiaofmao
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/08/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 1dc099fa234e217b682c88f2214fe271c916eec2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Zásobník úložiště Azure: Rozdíly a aspekty
 
@@ -33,7 +33,7 @@ Tento článek shrnuje známé rozdíly zásobník úložiště Azure z úloži�
 | Funkce | Azure (globální) | Azure Stack |
 | --- | --- | --- |
 |File Storage|Cloudové sdílené složky SMB podporované|Není dosud podporován.
-|Data šifrování neaktivních dat|šifrování AES 256 bitů|Není dosud podporován.
+|Šifrování služby Azure Storage pro neaktivní uložená data|šifrování AES 256 bitů|Není dosud podporován.
 |Typ účtu úložiště|Účty úložiště Blob pro obecné účely a Azure|Pro obecné účely pouze
 |Možnosti replikace|Místně redundantní úložiště, geograficky redundantní úložiště, geograficky redundantní úložiště s přístupem pro čtení a zónově redundantní úložiště|Místně redundantní úložiště
 |Storage úrovně Premium|Plně podporovány.|Může být zřízen, ale žádné omezení výkonu nebo záruk

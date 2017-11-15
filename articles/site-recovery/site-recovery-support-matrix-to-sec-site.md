@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Podporu pro replikaci do sekundární lokality s Azure Site Recovery
 
@@ -28,7 +28,7 @@ Tento článek shrnuje, co je podporováno při použití [Azure Site Recovery](
 
 **Nasazení** | **Podrobnosti** 
 --- | ---
-**Z VMware do VMware** | Zotavení po havárii virtuálních počítačů VMware na místě sekundární lokality VMware.<br/><br/> Stažení [InMage Scout uživatelská příručka](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**Z VMware do VMware** | Zotavení po havárii virtuálních počítačů VMware na místě sekundární lokality VMware.<br/><br/> Stažení [InMage Scout uživatelská příručka](https://aka.ms/asr-scout-user-guide)
 **Z Hyper-V do Hyper-V** | Zotavení po havárii v místě virtuálních počítačů technologie Hyper-V v cloudech VMM do sekundární cloudu VMM.<br></br> Bez VMM není podporována.
 
 
@@ -39,7 +39,7 @@ Tento článek shrnuje, co je podporováno při použití [Azure Site Recovery](
 
 **Nasazení** | **Podpora**
 --- | ---
-**Virtuální počítač VMware nebo fyzický server** | vCenter 5.5 nebo 6.0 (podpora pro verzi 5.5 funkce)
+**Virtuální počítač VMware nebo fyzický server** | vCenter 5.5, 6.0 a verze 6.5 (podpora pro verzi 5.5 funkce)
 **Technologie Hyper-V s nástrojem VMM** | Windows Server 2016 a Windows Server 2012 R2 s nejnovější aktualizace.<br/><br/> Hostitelé systému Windows Server 2016 se mají spravovat nástrojem VMM 2016.<br/><br/> Cloudy VMM 2016 s směs systému Windows Server 2016 a 2012 R2 hostitelů nejsou aktuálně podporovány.<br/><br/> Nasazení, které zahrnují upgrade existující VMM 2012 R2 na System Center 2016 nejsou aktuálně podporovány.
 
 
@@ -49,7 +49,7 @@ Následující tabulka shrnuje podporu operačního systému pro počítače rep
 
 **VMware nebo fyzický server** | **Technologie Hyper-V (s nástrojem VMM)**
 --- | ---
-64bitová verze systému Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 s v minimálně SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos verze 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Linux Enterprise 6.4 nebo 6.5 systémem Red Hat kompatibilní jádra nebo nedělitelné Enterprise jádra verze 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Všechny hostované operační systém [podporovaná technologií Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64bitová verze systému Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 s v minimálně SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos verze 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 systémem Red Hat kompatibilní jádra nebo nedělitelné Enterprise jádra verze 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Všechny hostované operační systém [podporovaná technologií Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Úložiště počítače Linux
 
@@ -104,15 +104,15 @@ VHD/VHDX | Není k dispozici | Ano (až 16 disků)
 Fin 2 virtuálních počítačů | Není k dispozici | Ano
 Sdílený disk clusteru | Ano  | Ne
 Šifrované disku | Ne | Ne
-ROZHRANÍ UEFI| Ne | Není k dispozici
+ROZHRANÍ UEFI| Ano | Není k dispozici
 SYSTÉM SOUBORŮ NFS | Ne | Ne
 SMB 3.0 | Ne | Ne
 RDM | Ano | Není k dispozici
-Disk > 1 TB | Ne | Ano
+Disk > 1 TB | Ano | Ano
 Svazek s prokládané disku > 1 TB<br/><br/> LVM | Ano | Ano
 Prostory úložiště | Ne | Ano
-Přidat nebo odebrat aktivní disku | Ne | Ne
-Vyloučení disku | Ne | Ano
+Přidat nebo odebrat aktivní disku | Ano | Ne
+Vyloučení disku | Ano | Ano
 S více cestami (MPIO) | Není k dispozici | Ano
 
 ## <a name="vaults"></a>trezory

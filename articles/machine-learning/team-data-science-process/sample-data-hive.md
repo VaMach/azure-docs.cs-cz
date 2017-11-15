@@ -4,7 +4,7 @@ description: "Dolů vzorkování dat v Azure HDInsight (Hadopop) tabulek Hive"
 services: machine-learning,hdinsight
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: f31e8d01-0fd4-4a10-b1a7-35de3c327521
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: hangzh;bradsev
-ms.openlocfilehash: 357307a034b277e8c37e99bda1ed6a9a76e13f41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/13/2017
+ms.author: bradsev
+ms.openlocfilehash: d765c2adc8a3aa77d903490875c7f8ad622ef4d2
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Ukázková data v tabulkách Azure HDInsight Hive
-V tomto článku jsme popisují, jak nižší sample data uložená v Azure HDInsight Hive tabulky pomocí dotazů Hive. Nemůžeme popisuje tři metody vzorkování často se používá použít:
+Tento článek popisuje postup nižší sample data uložená v Azure HDInsight Hive tabulky pomocí dotazů Hive snížit velikost lepší správu bitlockeru pro analýzu. Nevztahuje na tři metody vzorkování často se používá použít:
 
 * Uniform náhodné vzorkování
 * Náhodné vzorkování podle skupin
@@ -32,15 +32,15 @@ Následující **nabídky** odkazy na témata, které popisují, jak ukázková 
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
 **Proč ukázková data?**
-Pokud je velké datové sady, které chcete analyzovat, je obvykle vhodné nižší ukázková data, která mají snížit velikost menší, ale reprezentativní a lepší správu bitlockeru. To usnadňuje pochopení dat, zkoumání a funkce inženýrství. Jeho role v procesu Team datové vědy je umožnit rychlé vytváření prototypů zpracování dat funkcí a modelů strojového učení.
+Pokud je velké datové sady, které chcete analyzovat, je obvykle vhodné nižší ukázková data, která mají snížit velikost menší, ale reprezentativní a lepší správu bitlockeru. Vzorkování nižší usnadňuje pochopení dat, zkoumání a funkce inženýrství. Jeho role v procesu Team datové vědy je umožnit rychlé vytváření prototypů zpracování dat funkcí a modelů strojového učení.
 
 Tato úloha vzorkování je krok v [tým datové vědy procesu (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Postup odesílání dotazů Hive
-Z konzoly Hadoop příkazový řádek z hlavního uzlu clusteru Hadoop lze odesílat dotazy Hive. K tomu, přihlaste se k hlavnímu uzlu clusteru Hadoop, otevřete konzolu nástroje příkazového řádku Hadoop a odesílání dotazů Hive z ní. Pokyny k odesílání dotazů Hive v konzole nástroje příkazového řádku Hadoop, najdete v části [postup odesílání dotazů Hive](move-hive-tables.md#submit).
+Z příkazového řádku konzoly Hadoop z hlavního uzlu clusteru Hadoop lze odesílat dotazy Hive. K tomu, přihlaste se k hlavnímu uzlu clusteru Hadoop, otevřete konzolu příkazového řádku pro Hadoop a odesílání dotazů Hive z ní. Pokyny k odesílání dotazů Hive v konzole příkazového řádku pro Hadoop, najdete v části [postup odesílání dotazů Hive](move-hive-tables.md#submit).
 
 ## <a name="uniform"></a>Uniform náhodné vzorkování
-Uniform náhodné vzorkování znamená, že každý řádek v sadě dat má stejnou šanci se vzorků. To lze provést přidáním další pole rand() se sada dat v informacích o vnitřní dotaz "Vyberte" a v vnější "Vyberte" dotaz tuto podmínku na tomto náhodných poli.
+Uniform náhodné vzorkování znamená, že každý řádek v sadě dat má stejnou šanci se vzorků. Se dá implementovat přidáním další pole rand() se sada dat v informacích o vnitřní dotaz "Vyberte" a v vnější "Vyberte" dotaz tuto podmínku na tomto náhodných poli.
 
 Tady je příklad dotazu:
 
@@ -58,8 +58,7 @@ Tady je příklad dotazu:
 Zde `<sample rate, 0-1>` Určuje poměr záznamy, které uživatelé má zkusit.
 
 ## <a name="group"></a>Náhodné vzorkování podle skupin
-Když vzorkování kategorizovaná data, můžete zahrnout nebo vyloučit všechny instance určité konkrétní hodnoty kategorií proměnné. Toto je pojmy "vzorkování skupinou".
-Například pokud máte kategorií proměnné "Stavu", která obsahuje hodnoty NY, MA, certifikační Autority, ni, PA atd, chcete záznamů stejného stavu, vždy se společně, jestli jsou vzorkovat nebo ne.
+Když vzorkování kategorizovaná data, můžete zahrnout nebo vyloučit všechny instance pro některá z hodnot kategorií proměnné. Tento druh vzorkování se nazývá "vzorkování skupinou". Například, pokud máte kategorií proměnné "*stavu*", který obsahuje hodnoty, například NY, MA, certifikační Autority, ni a PA, chcete, aby záznamy ze každý stav být společně, jestli jsou vzorkovat nebo ne.
 
 Tady je příklad dotazu této ukázky podle skupiny:
 
@@ -88,7 +87,7 @@ Tady je příklad dotazu této ukázky podle skupiny:
     on b.catfield=c.catfield
 
 ## <a name="stratified"></a>Vrstveného vzorkování
-Náhodné vzorkování je si s ohledem na proměnnou kategorií Pokud ukázky získat hodnoty, kategorií, jsou ve stejné poměr jako nadřazené naplnění, ze kterého byly získány ukázky. Pomocí příkladě jako výš, Předpokládejme, že data obsahují dílčí plnění státy, můžete ni má 100 připomínky, NY má 60 připomínky a WA má 300 připomínky. Pokud zadáte rychlost vrstveného vzorkování být 0,5, pak ukázka získat by měl mít přibližně 50, 30 a 150 připomínky ni, NY a WA v uvedeném pořadí.
+Náhodné vzorkování je si s ohledem na proměnnou kategorií, pokud získané vzorky kategorií hodnoty, které se nacházejí v poměr stejné jako byly v nadřazené naplnění. V daném příkladě jak je uvedeno výše, Předpokládejme data obsahují následující připomínky státy: ni má 100 připomínky, NY má 60 připomínky a WA má 300 připomínky. Pokud zadáte rychlost vrstveného vzorkování být 0,5, pak ukázka získat by měl mít přibližně 50, 30 a 150 připomínky ni, NY a WA v uvedeném pořadí.
 
 Tady je příklad dotazu:
 

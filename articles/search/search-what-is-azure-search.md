@@ -3,7 +3,7 @@ title: Co je Azure Search | Microsoft Docs
 description: "Služba Azure Search je plně spravovaná hostované cloudové vyhledávací službu. Další informace v přehledu této funkce."
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: 
 ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
@@ -11,18 +11,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: ashmaka
-ms.openlocfilehash: 9893be47ec0c2f58ca206ec7c1bce13734513390
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: heidist
+ms.openlocfilehash: 63c7bcc1bf4e650f913d31e5687c31257a85bfee
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="what-is-azure-search"></a>Co je Azure Search?
-Služba Azure Search je řešení vyhledávání jako služby cloud, které poskytuje vývojářům rozhraní API a nástroje pro přidání bohaté vyhledáváním přes data v aplikacích pro webové, mobilní a enterprise.
+Služba Azure Search je řešení vyhledávání jako služby cloud, které poskytuje vývojářům rozhraní API a nástroje pro přidání bohaté vyhledáváním přes obsah v aplikacích pro webové, mobilní a enterprise.
 
-Funkce je zveřejněna prostřednictvím jednoduchou [REST API](/rest/api/searchservice/) nebo [.NET SDK](search-howto-dotnet-sdk.md) který zakrývá složitost vyplývajících technologie vyhledávání. Kromě rozhraní API portál Azure poskytuje správu a podporu při vytváření prototypu. Microsoft spravuje infrastruktury a dostupnost.
+Funkce je zveřejněna prostřednictvím jednoduchou [REST API](/rest/api/searchservice/) nebo [.NET SDK](search-howto-dotnet-sdk.md) který zakrývá složitost vyplývajících načítání informací. Kromě rozhraní API portál Azure poskytuje podporu správy a správy obsahu, pomocí nástrojů pro vytváření prototypů a dotazování indexů. Protože služba běží v cloudu, infrastruktury a dostupnost spravováno společností Microsoft.
 
 <a name="feature-drilldown"></a>
 
@@ -70,7 +70,7 @@ Zákazníci často požádat, jak Azure Search porovná s jinými řešeními so
 
 | Ve srovnání s | Hlavní rozdíly |
 |--|--|
-|Bing | [Rozhraní API služby Bing webové Search](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) indexy v vyhledávače Bing.com hledá odpovídající podmínky odešlete. Indexy jsou vytvořeny z jazyka HTML, XML a dalších webového obsahu na veřejné weby. [Hledání vlastní Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) nabízí technologie prohledávacího modulu pro web typy obsahu, vymezeny do jednotlivých webů.<br/><br/>Služba Azure Search vyhledá indexu, které definujete, vyplní s daty a dokumenty, které vlastníte, často z různých zdrojů. Vyhledávání systému Azure má capabilies prohledávacího modulu pro některé zdroje dat prostřednictvím [indexery](search-indexer-overview.md), ale žádné dokument JSON, který vyhovuje na schéma indexu můžete vkládání do jediné, konsolidované s možností vyhledávání prostředků. |
+|Bing | [Rozhraní API služby Bing webové Search](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) indexy v vyhledávače Bing.com hledá odpovídající podmínky odešlete. Indexy jsou vytvořeny z jazyka HTML, XML a dalších webového obsahu na veřejné weby. [Hledání vlastní Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) nabízí technologie prohledávacího modulu pro web typy obsahu, vymezeny do jednotlivých webů.<br/><br/>Služba Azure Search vyhledá indexu, které definujete, vyplní s daty a dokumenty, které vlastníte, často z různých zdrojů. Vyhledávání systému Azure má možnosti prohledávacího modulu pro některé zdroje dat prostřednictvím [indexery](search-indexer-overview.md), ale žádné dokument JSON, který vyhovuje na schéma indexu můžete vkládání do jediné, konsolidované s možností vyhledávání prostředků. |
 |Hledání v databázi | [Fulltextové vyhledávání SQL serveru](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) je pro obsah interní databázového systému, v tabulkách SQL. <br/><br/>Služba Azure Search ukládá obsah z heterogenní zdrojů a nabízí specializované text zpracování funkce jako je například analýzy jazykové a vlastní. [Textu v plném znění vyhledávacího webu](search-lucene-query-architecture.md) ve službě Azure Search je založený na Apache Lucene oborový standard v načítání informací. <br/><br/>Využití prostředků je jiný bod důraz. Vyhledávání v přirozeném jazyce, je často výpočetně náročné. Přesměrovává vyhledávání vyhrazené řešení zachovává prostředky pro zpracování transakcí. Externího vyhledáváním můžete snadno upravit měřítko tak, aby odpovídaly dotazu svazku.|
 |Vyhrazené hledání řešení | Na pracovišti nebo v cloudu řešení služby jsou vyhrazené hledání řešení s funkcemi celé spektrum. Hledání technologie obvykle nabízejí kontrolu nad indexování a dotaz kanály, přístup k širší dotazu a filtrování syntaxe, řízení celého pořadí a relevance a funkcích pro řízené samotným a inteligentní vyhledávání. <br/><br/>Můžete najít vyhrazené hledání řešení nabídnut jako cloudová služba nebo jako samostatný server hostovaný místně nebo na virtuálním počítači. Cloudová služba je správnou volbou, pokud chcete [řešení na klíč s minimální režii a údržby a upravit škálování](#cloud-service-advantage). <br/><br/>V rámci cloudu zlepší několik poskytovatelů nabízejí funkce porovnatelný z hlediska směrný plán s fulltextové vyhledávání, hledání geograficky a schopnost zvládat určitá úroveň nejednoznačnosti v hledání vstupy. Obvykle má [specializované funkce](#feature-drilldown), nebo jednoduchosti a celkové jednoduchost rozhraní API, nástrojů a správy, který určuje nejlepší. |
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Osvědčené postupy pro Azure App Service
 Tento článek shrnuje doporučené postupy pro používání [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -40,7 +40,26 @@ Pokud jste Všimněte si, že aplikace využívá více procesorů než očekáv
 Další informace o "bezstavové" aplikace "statefull" vs můžete přehrát toto video: [plánování škálovatelné začátku do konce vícevrstvé aplikace na webové aplikace Microsoft Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Další informace o možnostech škálování a automatické škálování služby App Service najdete v tématu: [škálování webové aplikace v Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Když vyčerpání prostředků soketů
-Obvyklým důvodem vyčerpává odchozí připojení TCP je použití knihoven klienta, které nejsou implementované znovu použít připojení TCP nebo v případě protokolu vyšší úrovni jako je například – udržování připojení HTTP není využít. Přečtěte si dokumentaci pro každou z knihoven odkazuje aplikace, které váš plán služby App Service k zajištění jejich nakonfigurován nebo získat přístup v kódu pro efektivní opakované použití odchozí připojení. Také podle pokynů uvedených knihovna dokumentace pro správné vytvoření a vydání nebo čištění, aby se zabránilo úniku připojení. Tato vyšetřování knihovny klienta se může být zmírnit dopad průběh škálování na více instancí.  
+Obvyklým důvodem vyčerpává odchozí připojení TCP je použití knihoven klienta, které nejsou implementované znovu použít připojení TCP nebo v případě protokolu vyšší úrovni jako je například – udržování připojení HTTP není využít. Přečtěte si dokumentaci pro každou z knihoven odkazuje aplikace, které váš plán služby App Service k zajištění jejich nakonfigurován nebo získat přístup v kódu pro efektivní opakované použití odchozí připojení. Také podle pokynů uvedených knihovna dokumentace pro správné vytvoření a vydání nebo čištění, aby se zabránilo úniku připojení. Tato vyšetřování knihovny klienta se může být zmírnit dopad průběh škálování na více instancí.
+
+### <a name="nodejs-and-outgoing-http-requests"></a>Node.js a odchozí požadavky http
+Při práci s Node.js a mnoho odchozí požadavky http, který se zabývá udržování připojení HTTP - je opravdu důležité. Můžete použít [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` balíčku, aby bylo snazší v kódu.
+
+Vždy by měla řídit `http` odpověď, a to i v případě, že jste nedělat nic v obslužné rutině. Pokud nemáte zpracovat odpověď správně, aplikace se nakonec zablokuje a protože nejsou k dispozici žádné další sokety.
+
+Například při práci s `http` nebo `https` balíčku:
+
+```
+var request = https.request(options, function(response) {
+    response.on('data', function() { /* do nothing */ });
+});
+```
+
+Pokud v App Service v systému Linux běží na počítači s více jader, jiné osvědčeným postupem je použít PM2 ke spuštění více procesů Node.js spuštění vaší aplikace. To provedete tak, že zadáte příkaz spuštění do vašeho kontejneru.
+
+Chcete-li například spustit čtyři instancí:
+
+`pm2 start /home/site/wwwroot/app.js --no-daemon -i 4`
 
 ## <a name="appbackup"></a>Pokud vaše aplikace Zálohování spustí selhání
 Dva nejčastější příčiny, proč se nezdaří zálohování aplikace: úložiště nejsou platné nastavení a konfiguraci databáze je neplatný. Tyto chyby obvykle dojít, když jsou změny zdrojů úložiště nebo databáze nebo změny jak získat přístup k tyto prostředky (například pověření aktualizované vybraná v nastavení zálohování databáze). Zálohování obvykle spouštět podle plánu a vyžadují přístup k úložišti (pro výstup zálohované soubory) a databází (pro kopírování a načítání obsahu, které mají být zahrnuty do zálohování). Výsledek neúspěšně snaží o přístup buď tyto prostředky by chyby konzistentní zálohování. 

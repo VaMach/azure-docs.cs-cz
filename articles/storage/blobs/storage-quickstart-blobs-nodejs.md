@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2017
 ms.author: gwallace
-ms.openlocfilehash: 9ea7f77d3bbe45de49c798fe3d51151e1a5a6658
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Objekty přenosu do nebo z Azure Blob storage pomocí Node.js
 
@@ -103,7 +103,11 @@ Můžete také použít nástroj, jako [Azure Storage Explorer](http://storageex
 
 Jakmile ověříte soubory, stisknutí libovolné klávesy ukončíte ukázku a odstranit testovací soubory. Teď, když víte, jaké ukázku, otevřete soubor index.js podívejte se na kód. 
 
-## <a name="get-references-to-the-storage-objects"></a>Získat odkazy na objekty úložiště
+## <a name="understand-the-sample-code"></a>Pochopení ukázkový kód
+
+V dalším kroku jsme provede ukázkový kód tak, aby vám pochopit, jak to funguje.
+
+### <a name="get-references-to-the-storage-objects"></a>Získat odkazy na objekty úložiště
 
 Prvním krokem je vytvoření odkazu na `BlobService` umožňuje otvírat a spravovat úložiště objektů Blob. Tyto objekty sestavení na sobě navzájem--používá každý další jeden v seznamu.
 
@@ -120,7 +124,7 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
     if (error) return callback(error);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Odešlete do kontejneru objektů BLOB
+### <a name="upload-blobs-to-the-container"></a>Odešlete do kontejneru objektů BLOB
 
 Úložiště objektů blob podporuje objekty blob bloku, doplňovací objekty blob a objekty blob stránky. Objekty BLOB bloku se nejčastěji používají. Jsou ideální pro ukládání textu a binárních dat, což je z důvodu, které jsou použity v tento rychlý start.
 
@@ -141,7 +145,7 @@ console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BL
 
 Existuje několik metod nahrávání, které můžete použít pomocí úložiště objektů Blob. Například pokud máte datový proud paměti, můžete použít [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) metoda místo [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
-## <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
+### <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
 
 Další, aplikace získá seznam souborů v kontejneru pomocí [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Následující kód načte seznam objektů BLOB a potom je, prochází zobrazující identifikátory URI objektů BLOB nalezené. Můžete zkopírovat identifikátor URI z příkazové okno a vložte ho do prohlížeče a prohlédněte soubor.
 
@@ -158,7 +162,7 @@ blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
     console.log('\n');
 ```
 
-## <a name="download-blobs"></a>Stáhnout objekty blob
+### <a name="download-blobs"></a>Stáhnout objekty blob
 
 Stáhnout objekty BLOB do vašeho místního disku pomocí [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
 
@@ -171,7 +175,7 @@ handleError(error);
 console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 ```
 
-## <a name="clean-up-resources"></a>Vyčištění prostředků
+### <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Pokud již nepotřebujete objekty BLOB nahrát tento rychlý start, můžete odstranit celou kontejneru pomocí [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) a [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Také odstraňte soubory vytvoří, pokud už nejsou potřeba. To se stará v aplikaci po stisknutí klávesy enter aplikaci ukončíte.
 

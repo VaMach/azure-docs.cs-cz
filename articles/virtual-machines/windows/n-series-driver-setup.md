@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b480d10df777a2757c073ff77e1845d33d63163a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b16e57e06d5055fc0c2750385630a908e10bd217
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Nastavení GPU ovladače pro N-series virtuální počítače se systémem Windows Server
 Abyste mohli využívat možnosti GPU Azure N-series virtuální počítače se systémem Windows Server 2016 nebo Windows Server 2012 R2, nainstalujte podporované NVIDIA grafické ovladače. Tento článek obsahuje kroky instalace ovladačů po nasadit virtuální počítač s N-series. Informace o instalaci ovladačů je také k dispozici pro [virtuální počítače s Linuxem](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -50,7 +50,7 @@ K dotazování na stav zařízení GPU, spusťte [nvidia smi](https://developer.
 
 1. Otevřete příkazový řádek a změňte **C:\Program Files\NVIDIA Corporation\NVSMI** adresáře.
 
-2. Spustit **nvidia smi**. Pokud je nainstalován ovladač zobrazí se výstup podobný níže. Všimněte si, že **GPU Util** ukazuje **0 %** Pokud aktuálně používáte zatížení grafického procesoru na virtuálním počítači.
+2. Spusťte `nvidia-smi`. Pokud je nainstalován ovladač zobrazí se výstup podobný následujícímu. Všimněte si, že **GPU Util** ukazuje **0 %** Pokud aktuálně používáte zatížení grafického procesoru na virtuálním počítači. Verze ovladače a GPU podrobnosti se může lišit od těch vidět.
 
 ![Stav zařízení NVIDIA](./media/n-series-driver-setup/smi.png)  
 

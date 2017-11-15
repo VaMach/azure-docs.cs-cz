@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurace sestav Azure Backup
 V tomto článku bude zmíněn kroky konfigurace sestav pro Azure Backup pomocí trezoru služeb zotavení a chcete dostat k sestavám pomocí Power BI. Po provedení těchto kroků, můžete přímo přejít k Power BI. Chcete-li zobrazit všechny sestavy, přizpůsobení a vytváření sestav. 
@@ -29,6 +29,7 @@ V tomto článku bude zmíněn kroky konfigurace sestav pro Azure Backup pomocí
 2. V tuto chvíli nepodporuje sestav pro Azure SQL, aplikace DPM a serveru Azure Backup.
 3. Sestavy můžete zobrazit různé trezory a odběry, pokud stejný účet úložiště je nakonfigurovaný pro každou trezorů. Vybraný účet úložiště musí být ve stejné oblasti jako trezor služeb zotavení.
 4. Četnost plánované aktualizace pro sestavy je 24 hodin v Power BI. Můžete také provést aktualizaci ad-hoc sestavy v Power BI, ve kterém případu nejnovější data v účtu úložiště zákazníka slouží pro vykreslení sestavy. 
+5. Azure Backup sestavy nejsou aktuálně podporovány v národních cloudů.
 
 ## <a name="prerequisites"></a>Požadavky
 1. Vytvoření [účtu úložiště Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) ho nakonfigurovat pro sestavy. Tento účet úložiště se používá pro ukládání souvisejících dat sestavy.
@@ -50,19 +51,26 @@ Použijte následující postup ke konfiguraci účtu úložiště pro trezor sl
 2. Ze seznamu položek, která se zobrazí pod trezoru, klikněte na tlačítko **zálohování sestavy** části monitorování a sestavy ke konfiguraci účtu úložiště pro sestavy.
 
       ![Vyberte zálohu sestavy nabídky položky krok 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. V okně Zálohování sestavy klikněte na **konfigurace** tlačítko. Otevře se okno Azure Application Insights, která se používá k předání dat do účtu úložiště zákazníka.
+3. V okně Zálohování sestavy klikněte na **nastavení diagnostiky** odkaz. Otevře se nastavení diagnostiky uživatelského rozhraní, která se používá k předání dat do účtu úložiště zákazníka.
 
-      ![Konfigurace úložiště účet krok 3](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. Nastavit stav přepínací tlačítko na **na** a vyberte **archivu do účtu úložiště** políčko tak, aby vytváření sestav dat můžete spustit v toku k účtu úložiště.
+      ![Povolíte diagnostiku krok 3](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
+4. Klikněte na odkaz **zapněte diagnostiku**. Otevře se uživatelské rozhraní pro konfiguraci účtu úložiště. 
 
-      ![Povolíte diagnostiku krok 4](./media/backup-azure-configure-reports/set-status-on.png)
-5. Klikněte na výběr účtu úložiště a vyberte účet úložiště ze seznamu pro uložení sestavy dat a klikněte na tlačítko **OK**.
+      ![Zapněte diagnostiku krok 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
+5. Do pole zadejte název nastavení **název** a vyberte **archivu do účtu úložiště** políčko tak, aby vytváření sestav dat můžete spustit v toku k účtu úložiště.
 
-      ![Vyberte úložiště účet krok 5](./media/backup-azure-configure-reports/select-storage-account.png)
-6. Vyberte **AzureBackupReport** zaškrtněte políčko a také posuvník dobu uchování vyberte data pro vytváření sestav. Data v účtu úložiště pro vytváření sestav je udržováno dobu vybraných pomocí této posuvníku.
+      ![Povolíte diagnostiku krok 5](./media/backup-azure-configure-reports/select-setting-name.png)
+6. Klikněte na výběr účtu úložiště a vyberte odpovídající předplatné a úložiště účet ze seznamu pro uložení sestavy dat a klikněte na tlačítko **OK**.
 
-      ![Vyberte úložiště účet krok 6](./media/backup-azure-configure-reports/save-configuration.png)
-7. Zkontrolujte všechny změny a klikněte na **Uložit** tlačítko nahoře, jak je znázorněno na obrázku výše. Tato akce zajistí, aby se ukládají všechny změny a účet úložiště je nyní nakonfigurována pro ukládání dat, vytváření sestav.
+      ![Vyberte úložiště účet krok 6](./media/backup-azure-configure-reports/select-subscription-sa.png)
+7. Vyberte **AzureBackupReport** políčko části protokolu a přesuňte jezdec na dobu uchování vyberte data pro vytváření sestav. Data v účtu úložiště pro vytváření sestav je udržováno dobu vybraných pomocí této posuvníku.
+
+      ![Uložit úložiště účet krok 7](./media/backup-azure-configure-reports/save-diagnostic-settings.png)
+8. Zkontrolujte všechny změny a klikněte na **Uložit** tlačítko nahoře, jak je znázorněno na obrázku výše. Tato akce zajistí, aby se ukládají všechny změny a účet úložiště je nyní nakonfigurována pro ukládání dat, vytváření sestav.
+
+9. Nastavení diagnostiky tabulky by měl nyní zobrazit nové nastavení povolena pro trezor. Pokud se nezobrazuje, aktualizuje v tabulce najdete aktualizované nastavení.
+
+      ![Nastavení diagnostiky zobrazení kroku 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
 > Jakmile nakonfigurujete sestavy uložením účet úložiště, měli byste **počkejte 24 hodin** dokončit počáteční data nabízená instalace. Balíček obsahu Azure Backup v Power BI importujte pouze po uplynutí této doby. Odkazovat [v části Nejčastější dotazy](#frequently-asked-questions) další podrobnosti. 

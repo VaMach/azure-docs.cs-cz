@@ -3,33 +3,30 @@ title: "Azure rychlý start - objekty přenosu do nebo z Azure Blob storage pomo
 description: "Naučte se rychle převést objekty do a z Azure Blob storage pomocí rozhraní .NET"
 services: storage
 documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/01/2017
-ms.author: robinsh
-ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: tamram
+ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Objekty přenosu do nebo z Azure Blob storage pomocí rozhraní .NET
 
-V tento rychlý start zjistíte, jak používat C# .NET odesílání, stahování a seznamu objektů BLOB bloku v kontejneru v úložiště objektů Blob v Azure v systému Windows.
+V tento rychlý start zjistíte, jak používat klientské knihovny .NET pro Azure Storage k odesílání, stahování a seznam objektů BLOB bloku v kontejneru.
 
 ## <a name="prerequisites"></a>Požadavky
 
-K provedení kroků v tomto kurzu Rychlý start je potřeba:
-
-* Nainstalujte [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) s následující úlohy:
+Chcete-li dokončit tento rychlý start, nainstalovat [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) s následující úlohy:
+    
     - **Azure – vývoj**
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
@@ -86,7 +83,11 @@ Můžete také použít nástroj, jako [Azure Storage Explorer](http://storageex
 
 Jakmile ověříte soubory, stisknutí libovolné klávesy ukončíte ukázku a odstranit testovací soubory. Teď, když víte, jaké ukázku, otevřete soubor Program.cs a podívejte se na kód. 
 
-## <a name="get-references-to-the-storage-objects"></a>Získat odkazy na objekty úložiště
+## <a name="understand-the-sample-code"></a>Pochopení ukázkový kód
+
+V dalším kroku jsme provede ukázkový kód tak, aby vám pochopit, jak to funguje.
+
+### <a name="get-references-to-the-storage-objects"></a>Získat odkazy na objekty úložiště
 
 První věc udělat, je vytvořit odkazy na objekty používané pro přístup k a spravovat úložiště objektů Blob. Tyto objekty sestavení na sobě navzájem--používá každý další jeden v seznamu.
 
@@ -124,7 +125,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Odešlete do kontejneru objektů BLOB
+### <a name="upload-blobs-to-the-container"></a>Odešlete do kontejneru objektů BLOB
 
 Úložiště objektů blob podporuje objekty blob bloku, doplňovací objekty blob a objekty blob stránky. Objekty BLOB bloku se nejčastěji používají, a který se bude používat v tento rychlý start. 
 
@@ -148,7 +149,7 @@ Existuje několik metod nahrávání, které můžete použít pomocí úložiš
 
 Objekty BLOB bloku mohou být jakéhokoli typu textu nebo binárních souborů. Objekty BLOB stránky se primárně používají pro soubory VHD použité pro zálohování virtuálních počítačů IaaS. Append – objekty BLOB jsou použitá pro protokolování, například když chcete zapsat do souboru a potom mít přidání další informace. Většina objekty uložené v úložišti objektů Blob jsou objekty BLOB bloku.
 
-## <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
+### <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
 
 Můžete získat seznam souborů v kontejneru pomocí [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Následující kód načte seznam objektů BLOB a potom je, prochází zobrazující identifikátory URI objektů BLOB nalezené. Můžete zkopírovat identifikátor URI z příkazové okno a vložte ho do prohlížeče a prohlédněte soubor.
 
@@ -168,7 +169,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## <a name="download-blobs"></a>Stáhnout objekty blob
+### <a name="download-blobs"></a>Stáhnout objekty blob
 
 Stáhnout objekty BLOB do vašeho místního disku pomocí [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
@@ -184,7 +185,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## <a name="clean-up-resources"></a>Vyčištění prostředků
+### <a name="clean-up-resources"></a>Vyčištění prostředků
 
 Pokud již nepotřebujete objekty BLOB nahrát tento rychlý start, můžete odstranit celou kontejneru pomocí [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Také odstraňte soubory vytvoří, pokud už nejsou potřeba.
 
@@ -200,5 +201,7 @@ V tento rychlý start zjistili, jak pro přenos souborů mezi místní disk a Az
 
 > [!div class="nextstepaction"]
 > [Postupy operace úložiště objektů BLOB](storage-dotnet-how-to-use-blobs.md)
+
+Další ukázky kódu Azure Storage, které můžete stáhnout a spustit, naleznete v seznamu [ukázky Azure Storage pomocí rozhraní .NET](../common/storage-samples-dotnet.md).
 
 Další informace o Storage Explorer a objekty BLOB najdete v tématu [prostředků úložiště Azure Blob spravovat pomocí Storage Exploreru](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

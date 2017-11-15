@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 322cf2ebbe83d00fcebcec618e07141d26f4f255
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>Úvod do služby App Service Environment #
  
@@ -48,13 +48,13 @@ App Service Environment se skládá z front je ukončená a pracovních procesů
 
 Zaměstnanci jsou role, které jsou hostiteli aplikace zákazníka. Pracovníci jsou k dispozici tři pevné velikosti:
 
-* Jeden základní/3.5 GB paměti RAM
-* Dvě jádra/7 GB paměti RAM
-* Čtyři základní/14 GB paměti RAM
+* Jeden virtuální procesor/3.5 GB paměti RAM
+* Dva virtuální procesory/7 GB paměti RAM
+* Čtyři virtuální procesory/14 GB paměti RAM
 
 Zákazníci, není potřeba spravovat front-end a pracovních procesů. Všechny infrastruktury je automaticky přidán jako zákazníci škálování jejich plány služby App Service. Jak plány služby App Service jsou vytvořená nebo škálovat App Service Environment, požadované infrastrukturu je přidat nebo odebrat podle potřeby.
 
-Není nestrukturované měsíční rychlost, pro který platí za infrastruktury a nezmění s velikostí App Service Environment App Service Environment. Kromě toho je s náklady za jádra plán služby App Service. Všechny aplikace, které jsou hostované v App Service Environment jsou v izolované ceny SKU. Informace o cenách pro App Service Environment, najdete v článku [služby App Service – ceny] [ Pricing] stránky a projděte si dostupné možnosti pro ASEs.
+Není nestrukturované měsíční rychlost, pro který platí za infrastruktury a nezmění s velikostí App Service Environment App Service Environment. Kromě toho je cena za virtuální procesor plán služby App Service. Všechny aplikace, které jsou hostované v App Service Environment jsou v izolované ceny SKU. Informace o cenách pro App Service Environment, najdete v článku [služby App Service – ceny] [ Pricing] stránky a projděte si dostupné možnosti pro ASEs.
 
 ## <a name="virtual-network-support"></a>Podpora virtuální sítě ##
 
@@ -68,13 +68,15 @@ Aplikace také často potřebují přístup k podnikovým prostředkům, jako js
 
 Další informace o tom, jak ASEs práci s virtuálními sítěmi a místními sítěmi najdete v tématu [aspekty sítě služby App Service Environment][ASENetwork].
 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
+
 ## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
 
 Služba App Service Environment má dvě verze: ASEv1 a ASEv2. Uvedené informace se podle ASEv2. V této části jsou uvedeny rozdíly mezi ASEv1 a ASEv2. 
 
 V ASEv1 budete muset spravovat všechny prostředky ručně. Který obsahuje front-end, pracovníků a adres IP použitých pro založená na protokolu IP. Předtím, než můžete škálovat plán služby App Service, budete muset první horizontální navýšení kapacity fondu pracovních procesů, kam chcete ji hostovat.
 
-ASEv1 používá jiný model tvorby cen z ASEv2. V ASEv1 platí pro každý jádra přidělené. Používá pro front-end nebo pracovních procesů, které nejsou hostování jakékoliv zátěže jader, který zahrnuje. V ASEv1 je výchozí maximální měřítko velikostí App Service Environment 55 celkový počet hostitelů. Který zahrnuje pracovníků a front-end. Jedna z výhod ASEv1 je, že může být nasazena v klasické virtuální sítě a virtuální sítě Resource Manager. Další informace o ASEv1 najdete v tématu [App Service Environment v1 ÚVOD][ASEv1Intro].
+ASEv1 používá jiný model tvorby cen z ASEv2. V ASEv1 platí pro každý virtuální procesory přidělené. Vcpu používá pro front-end nebo pracovních procesů, které nejsou hostování jakékoli úlohy, který zahrnuje. V ASEv1 je výchozí maximální měřítko velikostí App Service Environment 55 celkový počet hostitelů. Který zahrnuje pracovníků a front-end. Jedna z výhod ASEv1 je, že může být nasazena v klasické virtuální sítě a virtuální sítě Resource Manager. Další informace o ASEv1 najdete v tématu [App Service Environment v1 ÚVOD][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

@@ -15,38 +15,39 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: c91b7232b2f87e0b4b5e659126b96a6ef8b4202c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Nasazení OpenShift kontejneru platformy v Azure
 
-K nasazení kontejneru platformy OpenShift v Azure několika způsoby. Můžete ručně nasadit všechny součásti potřebnou infrastrukturu Azure a pak postupujte podle platformy kontejneru OpenShift [dokumentaci](https://docs.openshift.com/container-platform/3.6/welcome/index.html).
-Můžete také použít existující šablonu Resource Manageru, která zjednodušuje nasazení clusteru OpenShift kontejneru platformy. Jakmile tyto šablony se nachází [zde](https://github.com/Microsoft/openshift-container-platform/).
+Můžete použít některou z několika metod k nasazení kontejneru platformy OpenShift v Azure:
 
-Další možností je použít [Azure Marketplace nabízí](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- Můžete ručně nasadit komponenty potřebnou infrastrukturu Azure a pak postupujte podle platformy kontejneru OpenShift [dokumentaci](https://docs.openshift.com/container-platform/3.6/welcome/index.html).
+- Můžete také použít existující [šablony Resource Manageru](https://github.com/Microsoft/openshift-container-platform/) , zjednodušuje nasazení clusteru OpenShift kontejneru platformy.
+- Další možností je použít [nabídka Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
-Pro obě možnosti vyžaduje Red Hat se předplatné. Během nasazení je RHEL instance zaregistrované předplatné Red Hat a připojené k ID fondu, který obsahuje oprávnění pro platformu OpenShift kontejneru.
-Zkontrolujte, zda že máte platný Red Hat odběr Manager uživatelské jméno, heslo a ID fondu (RHSM uživatelské jméno, heslo RHSM a ID fondu). Po přihlášení do https://access.redhat.com můžete ověřit informace.
+Pro všechny možnosti vyžaduje Red Hat se předplatné. Během nasazení instance Red Hat Enterprise Linux je zaregistrován k předplatnému Red Hat a připojené k ID fondu, který obsahuje oprávnění pro platformu OpenShift kontejneru.
+Ujistěte se, zda máte platné uživatelské jméno Red Hat odběr Manager (RHSM), heslo a ID fondu. Tyto informace můžete ověřit, po přihlášení k https://access.redhat.com.
 
-## <a name="deploy-using-the-openshift-container-platform-resource-manager-template"></a>Nasazení pomocí šablony OpenShift kontejneru platformy Resource Manageru
+## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>Nasazení pomocí šablony správce prostředků platformy OpenShift kontejneru
 
-Pokud chcete nasadit, pomocí šablony Resource Manageru, soubor parametrů slouží k zadání všech vstupních parametrů. Pokud chcete přizpůsobit kterékoli z položky nasazení, které nejsou zahrnuty pomocí vstupních parametrů rozvětvení úložiště github a změnit odpovídající položky.
+Nasazení pomocí šablony Resource Manageru, použijte soubor parametrů k poskytování vstupní parametry. Chcete-li přizpůsobit některou z položek nasazení, které nejsou zahrnuty pomocí vstupní parametry, rozvětvit úložiště GitHub a změňte odpovídající položky.
 
-Některé běžné možnosti přizpůsobení (ale bez omezení):
+Některé běžné možnosti přizpůsobení zahrnovat, ale nejsou omezeny na:
 
-- Virtuální síť CIDR [proměnné v azuredeploy.json]
-- Velikost virtuálního počítače bastionu [proměnné v azuredeploy.json]
-- Zásady vytváření názvů [proměnné v azuredeploy.json]
-- Specifika clusteru OpenShift - mění prostřednictvím souboru hostitelů [deployOpenShift.sh]
+- Virtuální síť CIDR (proměnné v azuredeploy.json)
+- Velikost virtuálního počítače bastionu (proměnné v azuredeploy.json)
+- Zásady vytváření názvů (proměnné v azuredeploy.json)
+- Specifika OpenShift clusteru, upravit pomocí souboru hosts (deployOpenShift.sh)
 
-### <a name="configure-parameters-file"></a>Konfigurace souboru parametrů
+### <a name="configure-the-parameters-file"></a>Konfigurace souboru parametrů
 
 Použití `appId` hodnotu z objektu služby, který jste dříve vytvořili pro `aadClientId` parametr. 
 
-Následující příklad vytvoří soubor parametrů s názvem **azuredeploy.parameters.json** se všechny požadované vstupy.
+Následující příklad vytvoří soubor parametrů s názvem azuredeploy.parameters.json se všechny požadované vstupy.
 
 ```json
 {
@@ -132,14 +133,14 @@ Následující příklad vytvoří soubor parametrů s názvem **azuredeploy.par
 }
 ```
 
-Nahraďte položky v {} s důležité informace.
+Nahraďte položky v závorkách s konkrétní informace.
 
-### <a name="deploy-using-azure-cli"></a>Nasazení pomocí rozhraní příkazového řádku Azure
+### <a name="deploy-by-using-azure-cli"></a>Nasazení pomocí rozhraní příkazového řádku Azure
 
 > [!NOTE] 
-> Tento příkaz vyžaduje rozhraní příkazového řádku Azure 2.0.8 nebo novější. Můžete ověřit az CLI verze se `az --version` příkaz. K aktualizaci verze rozhraní příkazového řádku, najdete v části [nainstalovat Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> Tento příkaz vyžaduje rozhraní příkazového řádku Azure 2.0.8 nebo novější. Verze rozhraní příkazového řádku s můžete ověřit `az --version` příkaz. K aktualizaci verze rozhraní příkazového řádku, najdete v části [nainstalovat Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
-Následující příklad nasadí do skupiny prostředků s názvem myResourceGroup s názvem nasazení myOpenShiftCluster OpenShift clusteru a všechny související prostředky. Šablona se odkazuje přímo z úložiště github a místní parametry soubor s názvem **azuredeploy.parameters.json** soubor je používán.
+Následující příklad nasadí do skupiny prostředků s názvem myResourceGroup, s názvem nasazení myOpenShiftCluster OpenShift clusteru a všechny související prostředky. Šablona se odkazuje přímo z úložiště GitHub a místní parametrů, které se používá soubor s názvem azuredeploy.parameters.json souboru.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -147,7 +148,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-Nasazení trvá nejméně 30 minut v závislosti na celkový počet uzlů, které jsou nasazeny. Adresa URL konzoly OpenShift a název DNS je hlavní server OpenShift vytiskne na terminálu po dokončení nasazení.
+Nasazení trvá nejméně 30 minut v závislosti na celkový počet uzlů, které jsou nasazeny. Adresa URL konzoly OpenShift a název DNS hlavní výtisků OpenShift na terminálu po dokončení nasazení.
 
 ```json
 {
@@ -156,21 +157,21 @@ Nasazení trvá nejméně 30 minut v závislosti na celkový počet uzlů, kter�
 }
 ```
 
-## <a name="deploy-using-openshift-container-platform-marketplace-offer"></a>Nasazení pomocí nabídky marketplace OpenShift kontejneru platformy
+## <a name="deploy-by-using-the-openshift-container-platform-azure-marketplace-offer"></a>Nasazení pomocí nabídku OpenShift kontejneru platformy Azure Marketplace
 
-Nejjednodušší způsob, jak nasadit OpenShift kontejneru platformy do Azure se má používat [Azure Marketplace nabízí](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+Nejjednodušší způsob, jak nasadit OpenShift kontejneru platformy do Azure se má používat [nabídka Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
-Tato možnost je nejjednodušší, ale také má omezené možnosti přizpůsobení. Nabídka zahrnuje tři možnosti konfigurace:
+Toto je nejjednodušší možnost, ale také má omezený schopnosti přizpůsobení. Nabídka zahrnuje tři možnosti konfigurace:
 
-- Malá: Nasadí bez-HA cluster s jeden hlavní uzel, jeden uzel infrastruktury, dva uzly aplikace a jeden uzel Bastionu. Všechny uzly jsou velikosti standardní DS2v2 virtuálních počítačů. Tento cluster vyžaduje 10 Celkový počet jader a je ideální pro testování v menším měřítku.
-- Střední: Nasadí cluster služby HA tři hlavní uzly, dva uzly infrastruktury, čtyři uzly aplikace a jeden uzel Bastionu. Všechny uzly s výjimkou Bastionu jsou velikosti standardní DS3v2 virtuálních počítačů. Uzel Bastionu je standardní DS2v2. Tento cluster vyžaduje 38 jader.
-- Velké: Nasadí HA clusteru služby s tři hlavní uzly, dva uzly infrastruktury, šesti uzlů aplikace a jeden uzel Bastionu. Hlavní a uzly infrastruktury jsou velikosti virtuálních počítačů standardní DS3v2, aplikace uzly jsou velikosti standardní DS4v2 virtuálních počítačů a uzel Bastionu je standardní DS2v2. Tento cluster vyžaduje 70 jader.
+- **Malé**: nasadí cluster bez vysoké dostupnosti (HA) s jeden hlavní uzel, uzel infrastruktury jeden, dva uzly aplikace a jeden bastionu uzel. Všechny uzly jsou standardní velikosti DS2v2 virtuálních počítačů. Tento cluster vyžaduje 10 Celkový počet jader a je ideální pro méně rozsáhlé otestování.
+- **Střední**: nasadí cluster služby HA s tři hlavní uzly, dva uzly infrastruktury, čtyři uzly aplikace a jeden bastionu uzlu. Všechny uzly s výjimkou uzlu bastionu jsou standardní velikosti DS3v2 virtuálních počítačů. Uzel bastionu je standardní DS2v2. Tento cluster vyžaduje 38 jader.
+- **Velké**: nasadí cluster služby HA s tři hlavní uzly, dva uzly infrastruktury, šesti uzlů aplikace a jeden bastionu uzlu. Hlavní server a infrastrukturou uzly jsou standardní velikosti DS3v2 virtuálních počítačů. Uzly aplikace jsou standardní velikosti virtuálních počítačů DS4v2 a uzel bastionu je standardní DS2v2. Tento cluster vyžaduje 70 jader.
 
-Konfigurace zprostředkovatele cloudu Azure je volitelné pro střední a velké velikosti clusteru. Malá velikost není poskytnuta možnost pro konfiguraci poskytovatele cloudových služeb Azure.
+Konfigurace Azure Cloud Solution Provider je volitelné pro střední a velké clusteru velikosti. Malá velikost není poskytnuta možnost pro konfiguraci Azure Cloud Solution Provider.
 
 ## <a name="connect-to-the-openshift-cluster"></a>Připojte se ke clusteru OpenShift
 
-Po dokončení nasazení připojit ke konzole OpenShift pomocí prohlížeče `OpenShift Console Uri`. Alternativně můžete připojit k hlavnímu OpenShift pomocí následujícího příkazu:
+Po dokončení nasazení připojit ke konzole OpenShift s prohlížeči pomocí `OpenShift Console Uri`. Můžete alternativně připojí k hlavní OpenShift pomocí následujícího příkazu:
 
 ```bash
 $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
@@ -178,7 +179,7 @@ $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud již nepotřebujete, můžete použít [odstranění skupiny az](/cli/azure/group#delete) příkaz, který má-li odebrat skupinu prostředků, OpenShift clusteru a všechny související prostředky.
+Použití [odstranění skupiny az](/cli/azure/group#delete) příkaz, který má-li odebrat skupinu prostředků, OpenShift clusteru a všechny související prostředky, když jste už nepotřebují.
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -186,6 +187,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Úlohy nasazení POST](./openshift-post-deployment.md)
-- [Řešení potíží s nasazením OpenShift](./openshift-troubleshooting.md)
+- [Úlohy po nasazení](./openshift-post-deployment.md)
+- [Řešení potíží s OpenShift nasazení v Azure](./openshift-troubleshooting.md)
 - [Začínáme s platformou OpenShift kontejneru](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)

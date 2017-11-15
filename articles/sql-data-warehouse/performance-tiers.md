@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: ffeaec73a38939783174c71641c3618f4f8a3c1b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Úrovně výkonu Azure SQL Data Warehouse (Preview)
 SQL Data Warehouse nabízí dvě úrovně výkonu, které jsou optimalizované pro analytické úlohy. Tento článek vysvětluje koncepty úrovně výkonu, které vám pomohou zvolit nejvhodnější úroveň výkonu pro úlohy. 
@@ -55,7 +55,7 @@ WITH
 ## <a name="memory-maximums"></a>Maximální hodnoty paměti
 Úrovně výkonu mají různé paměti profily, které překládá do různých množství paměti na jeden dotaz. Optimalizováno pro výpočetní výkon vrstvě poskytuje 2,5 x více paměti na jeden dotaz než optimalizovaný pro úroveň výkonu pružnost. Tuto paměť navíc pomáhá optimalizovaný pro výpočetní výkon vrstvy poskytovat jeho mimořádně vysoký výkon. Další paměť na jeden dotaz můžete také spouštět další dotazy souběžně, protože dotazy můžete použít nižší [třídy prostředků](resource-classes-for-workload-management.md). 
 
-### <a name="optimized-for-elasticity"></a>Optimalizovaná pro pružnost
+### <a name="optimized-for-elasticity"></a>Optimalizováno pro elasticitu
 
 Úrovně služeb pro optimalizovaný pro pružnost výkonu vrstvy v rozmezí od DW100 až DW6000. 
 
@@ -148,7 +148,7 @@ Následující tabulka uvádí maximální počet souběžných dotazů a soubě
 | DW15000c      | 32                         |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 32                         | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-### <a name="optimized-for-elasticity"></a>Optimalizovaná pro pružnost
+### <a name="optimized-for-elasticity"></a>Optimalizováno pro elasticitu
 Následující tabulka uvádí maximální počet souběžných dotazů a souběžnosti sloty pro každou [třída dynamické prostředků](resource-classes-for-workload-management.md).  Toto platí pro optimalizovaný pro úroveň výkonu pružnost.
 
 **Dynamické prostředků třídy**

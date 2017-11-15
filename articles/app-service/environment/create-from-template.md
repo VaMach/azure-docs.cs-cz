@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cdaf09d5558e0453b826b9a3e52500379ced5422
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Vytvořit App Service Environment pomocí šablony Azure Resource Manager
 
@@ -150,7 +150,7 @@ Služba App Service Environment má dvě verze: ASEv1 a ASEv2. Uvedené informac
 
 V ASEv1 můžete spravovat všechny prostředky ručně. Který obsahuje front-end, pracovníků a adres IP použitých pro založená na protokolu IP. Předtím, než můžete škálovat plán služby App Service, musí horizontální navýšení kapacity fondu pracovního procesu, který chcete hostovat ho.
 
-ASEv1 používá jiný model tvorby cen z ASEv2. V ASEv1 platí pro každý jádra přidělené. Počet jader, které jsou používány pro front-end nebo pracovních procesů, které nejsou hostování jakékoli úlohy, který zahrnuje. V ASEv1 je výchozí maximální měřítko velikostí App Service Environment 55 celkový počet hostitelů. Který zahrnuje pracovníků a front-end. Jedna z výhod ASEv1 je, že může být nasazena v klasické virtuální sítě a virtuální sítě Resource Manager. Další informace o ASEv1 najdete v tématu [App Service Environment v1 ÚVOD][ASEv1Intro].
+ASEv1 používá jiný model tvorby cen z ASEv2. V ASEv1 platí pro každý virtuální procesory přidělené. Vcpu, které se používají pro front-end nebo pracovních procesů, které nejsou hostování jakékoli úlohy, který zahrnuje. V ASEv1 je výchozí maximální měřítko velikostí App Service Environment 55 celkový počet hostitelů. Který zahrnuje pracovníků a front-end. Jedna z výhod ASEv1 je, že může být nasazena v klasické virtuální sítě a virtuální sítě Resource Manager. Další informace o ASEv1 najdete v tématu [App Service Environment v1 ÚVOD][ASEv1Intro].
 
 K vytvoření ASEv1 pomocí šablony Resource Manageru, najdete v části [vytvoření App Service Environment ILB v1 pomocí šablony Resource Manageru][ILBASEv1Template].
 

@@ -36,12 +36,19 @@
 ### [Azure Portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Azure CLI](how-to-routefilter-cli.md)
+## [Přechod od veřejného partnerského vztahu k partnerskému vztahu Microsoftu](how-to-move-peering.md)
 ## [Přesun okruhu z modelu nasazení Classic do Resource Manageru](expressroute-howto-move-arm.md)
 ## [Migrace přidružených virtuálních sítí z modelu nasazení Classic do Resource Manageru](expressroute-migration-classic-resource-manager.md)
 ## Konfigurace směrovače pro ExpressRoute
 ### [Konfigurace směrovače](expressroute-config-samples-routing.md)
 ### [Ukázky konfigurace směrovače pro překlad adres (NAT)](expressroute-config-samples-nat.md)
 ## [Konfigurace Network Performance Monitor pro ExpressRoute](how-to-npm.md)
+## Články věnované modelu nasazení Classic
+### [Úprava okruhu](expressroute-howto-circuit-classic.md)
+### [Vytvoření a změny konfigurace partnerského vztahu](expressroute-howto-routing-classic.md)
+### [Propojení virtuální sítě k okruhu ExpressRoute](expressroute-howto-linkvnet-classic.md)
+### [Konfigurace společně používaných připojení typu S2S a ExpressRoute](expressroute-howto-coexist-classic.md)
+### [Přidání brány do virtuální sítě](expressroute-howto-add-gateway-classic.md)
 
 ## Osvědčené postupy
 ### [Osvědčené postupy pro zabezpečení sítě a cloudové služby](../best-practices-network-security.md)

@@ -20,8 +20,6 @@
       items:
         - name: Možnosti úložiště
           href: r-server-storage.md
-        - name: Instalace sady R Studio
-          href: r-server-install-r-studio.md
         - name: Výpočetní kontext
           href: r-server-compute-contexts.md
         - name: ScaleR a SparkR

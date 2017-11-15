@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Databáze Azure Cosmos: Vytvoření aplikace Node.js využitím rozhraní Graph API
 
@@ -75,9 +75,23 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
         });
     ```
 
-  Všechny konfigurace jsou v aplikaci `config.js`, kterou budeme upravovat v následující části.
+  Konfigurace jsou v `config.js`, který jsme upravit v [následující části](#update-your-connection-string).
 
-* Pomocí metody `client.execute` se provede série kroků konzoly Gremlin.
+* Provádět různé operace Gremlin jsou definovány řadu funkcí. Toto je jeden z nich:
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* Provede jednotlivé funkce `client.execute` metoda s Gremlin parametr řetězce dotazu. Tady je příklad toho, jak `g.V().count()` se spustí:
 
     ```nodejs
     console.log('Running Count'); 
@@ -88,11 +102,28 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
     });
     ```
 
+* Na konci souboru, jsou všechny metody pak vyvolány pomocí `async.waterfall()` metoda. Tato funkce spustí je jeden za druhým:
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
 ## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
 1. Otevřete soubor config.js. 
 
-2. V souboru config.js vyplňte jako klíč config.endpoint hodnotu **Gremlin URI** ze stránky **Přehled** na webu Azure Portal. 
+2. V souboru config.js, vyplňte `config.endpoint` klíč s **Gremlin URI** z hodnoty **přehled** stránce portálu Azure. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 

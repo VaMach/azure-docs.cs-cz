@@ -71,9 +71,7 @@
 
 ## Nastavení zásad prostředků
 ### [Co jsou zásady prostředků?](resource-manager-policy.md)
-### Příklady
-#### [Značky](resource-manager-policy-tags.md)
-#### [Zásady vytváření názvů](resource-manager-policy-naming-convention.md)
+### [Zásady vytváření názvů](resource-manager-policy-naming-convention.md)
 
 ## Auditování
 ### [Zobrazení protokolů aktivit](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Chyby nasazení virtuálního počítače

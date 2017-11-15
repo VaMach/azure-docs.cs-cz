@@ -12,49 +12,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/11/2017
 ms.author: LADocs; klam
-ms.openlocfilehash: 63784c5e3af360b2f3f8cb330a9df8b27a85d859
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2a92e45b8a759d2d8193ac188efdcfc694a3e6d
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="logic-apps-pricing-model"></a>Cenový model Logic Apps
-Azure Logic Apps umožňuje škálovat a spouštět pracovní postupy integrace v cloudu.  Následují informace o fakturaci a cenách plány pro Logic Apps.
-## <a name="consumption-pricing"></a>Spotřeba – ceny
-Nově vytvořený Logic Apps použití plánu spotřeby. S Logic Apps spotřeba cenový model platíte jenom se používá.  Aplikace logiky nejsou omezeny při použití plánu spotřeby.
-Všechny akce provést při spuštění instance aplikace logiky jsou měření podle objemu.
+Můžete vytvořit a spouštění automatizovaných škálovatelnou integraci pracovních postupů v cloudu pomocí Azure Logic Apps. Zde jsou informace o fakturaci a cenách fungování Logic Apps.
+## <a name="consumption-pricing-model"></a>Cenový model spotřeby
+S nově vytvořený logic apps platíte jenom za můžete použít. Nové aplikace logiky používají spotřeba plánu a ceny model, což znamená, že všechny spuštěních provádí instanci aplikace logiky jsou měření podle objemu.
 ### <a name="what-are-action-executions"></a>Jaké jsou spuštěních akce?
-Každý krok v definici aplikace logiky je akce, která zahrnuje aktivačních událostí, tok řízení kroky jako podmínky, oborů, pro každý smyčky provést až smyčky, volání konektory a volání na nativní akce.
-Aktivační události jsou zvláštní akce, které slouží k vytváření instancí novou instanci aplikace logiky, když dojde k určité události.  Existuje několik různých chování pro aktivační události, které mohou ovlivnit jak monitorované aplikaci logiky.
-* **Aktivační událost dotazování** – této aktivační události průběžně dotazuje koncový bod, dokud neobdrží zprávu, která splňuje kritéria pro vytvoření instance aplikace logiky.  Interval dotazování se dá nakonfigurovat v aktivační události v Návrháři logiku aplikace.  Každý požadavek dotazování i v případě, že ji nebude vytvořit instanci aplikace logiky, počítá jako spuštění akce.
-* **Aktivační události Webhooku** – této aktivační události čeká klienta k odeslání požadavku na konkrétní koncový bod.  Každý požadavek odeslaný ke koncovému bodu webhooku se počítá jako spuštění akce. Žádost a aktivační události Webhooku protokolu HTTP jsou obě aktivační události webhooku.
-* **Aktivační událost opakování** – této aktivační události vytvoří instanci aplikace logiky na základě intervalu opakování nakonfigurované v aktivační události.  Opakování aktivační událost může být například nakonfigurován pro spouštění každé tři dny nebo i každou minutu.
+Každý krok v definici aplikace logiky je akce, která zahrnuje aktivačních událostí, řízení toku kroky, volání vestavěné akce a volání konektory.
+### <a name="triggers"></a>Triggery
+Aktivační události jsou zvláštní akce, které vytvořit instanci aplikace logiky, když se stane konkrétní události. Aktivační události mít několik různých chování, které ovlivňují, jak je monitorované aplikaci logiky.
+* **Aktivační událost dotazování** – této aktivační události neustále kontroluje koncový bod dokud získá zprávu která splňuje kritéria pro vytvoření instance aplikace logiky spustit pracovní postup. Můžete nastavit interval dotazování v aktivační události prostřednictvím návrháře logiku aplikace. Každý požadavek dotazování se počítá jako spuštění, i když je vytvořena žádná instance aplikace logiky.
+* **Aktivační události Webhooku** – této aktivační události čeká klienta k odeslání požadavku na konkrétní. Každý požadavek odeslaný ke koncovému bodu webhooku se počítá jako spuštění akce. Například aktivační událost požadavku a Webhooku protokolu HTTP jsou obě aktivační události webhooku.
+* **Aktivační událost opakování** – této aktivační události vytvoří instanci aplikace logiky na základě intervalu opakování, které jste nastavili v aktivační události. Můžete například nastavit nahoru opakování aktivační událost, která spouští každé tři dny nebo podle plánu složitější.
 
-Spuštění aktivační události se zobrazí v okně prostředků aplikace logiky v části historie aktivační události.
+Aktivační událost spuštěních můžete najít v podokně přehled aplikace logiky v části historie aktivační události.
 
-Všechny akce, které byly provedeny, jestli byly provedené úspěšně nebo neúspěšně se měří jako spuštění akce.  Akce, které byly přeskočeny z důvodu nebyla splněna podmínka nebo akce, které nebylo provést, protože aplikace logiky ukončeno před dokončením se počítá jako spuštění akce.
+### <a name="actions"></a>Akce
+Vestavěné akce, například akcí, které volání protokolu HTTP, Azure Functions nebo API Management, jakož i kroky toku řízení, se měří jako nativní akcí a jejich odpovídající typy. Akce, které volají [konektory](https://docs.microsoft.com/connectors) typ "ApiConnection". Konektory jsou klasifikovány jako standard nebo enterprise konektory a jsou v jejich odpovídajících měření podle objemu [ceny][pricing].
+Všechny úspěšně a neúspěšně spuštění akce se počítá nebo účtované jako spuštění akce. Akce, které jsou přeskočen, protože unmet podmínky nebo akce, které nelze spustit, protože aplikace logiky ukončeno před dokončením, není však počítají jako spuštění akce. Zakázané logiku aplikace nelze vytvořit instanci nové instance, tak jejich neúčtujeme při jsou zakázány.
 
-Akce provést v rámci smyčky, se počítají za iteraci smyčky.  Například jedna akce v pro každou smyčku iterace v rámci seznam 10 položek se počítají jako počet položek v seznamu (10) vynásobená počet akcí ve smyčce (1) a jeden pro zahájení smyčky, kterou v tomto příkladu by (10 * 1) + 1 = 11 spuštění akce.
-Zakázané Logic Apps nemohou mít nové instance vytvořené a proto při zakázáno, není účtován.  Mějte na paměti, že po zakázání aplikace logiky může trvat nějakou dobu pro instance k uvedení před úplně zakázaná.
+> [!NOTE]
+> Po zakázání aplikace logiky jeho aktuálně spuštěné instance může trvat nějakou dobu, než úplně zastavit.
+
+Akce, které běží v smyčky, se počítají na každý cyklus ve smyčce. Například jedna akce ve smyčce "pro každou", který zpracovává seznam 10 položek se počítá vynásobením počet položek seznamu (10) podle počtu akcí ve smyčce (1) a jeden pro spuštění smyčky. Ano, v tomto příkladu je výpočet (10 * 1) + 1, což vede k 11 spuštění akce.
+
 ### <a name="integration-account-usage"></a>Používání účtů integrace
-Součástí na základě spotřeby využití je [integrace účet](logic-apps-enterprise-integration-create-integration-account.md) pro zkoumání, vývoj a budete moci použít pro účely testování [B2B/EDI](logic-apps-enterprise-integration-b2b.md) a [zpracování kódu XML](logic-apps-enterprise-integration-xml.md) funkce Logic Apps bez dalších poplatků. Budete moci vytvořit maximálně jeden účet na oblast a úložiště až 10 smluv a 25 mapy. Schémata, certifikáty a partnery mít žádná omezení a můžete nahrát tolik, jako je třeba.
+Na základě spotřeby využití zahrnuje [integrace účet](logic-apps-enterprise-integration-create-integration-account.md) kde můžete prozkoumat, vývoj a testování [B2B/EDI](logic-apps-enterprise-integration-b2b.md) a [zpracování kódu XML](logic-apps-enterprise-integration-xml.md) funkce Logic Apps na Ne Další náklady. Můžete mít jednu z těchto účtů integrace na oblast a úložiště až 10 smluv a 25 mapy. Můžete mít a nahrajte neomezená partnery, schémata a certifikáty.
 
-Kromě zahrnutí účty pro integraci s spotřebou můžete také vytvořit účty pro standardní integraci bez těchto omezení a s naše smlouva SLA standardní logiku aplikace. Další informace najdete v tématu [Azure ceny](https://azure.microsoft.com/pricing/details/logic-apps).
+Služba Logic Apps nabízí také účty pro integraci úrovně basic a standard s podporované SLA aplikace logiky. Můžete použít účty základní integraci při buď chcete použít jenom zpracování zpráv nebo fungují jako partner malé firmy, která má vztah obchodním partnerem s větší obchodní entity. Účty pro integraci standardní podpora složitější vztahy B2B a zvýšit počet entit, které můžete spravovat. Další informace najdete v tématu [Azure ceny](https://azure.microsoft.com/pricing/details/logic-apps).
 
-## <a name="app-service-plans"></a>Plány služby App Service
-Aplikace logiky vytvořili odkazující plán služby App Service bude nadále chovat jako předtím. V závislosti na plánu vybrali jsou omezené po předepsaných denní spuštěních se překročí ale fakturují pomocí měření provádění akce.
-EA zákazníky, kteří mají plánu služby App Service v jejich odběr, který nemá být explicitně přidružená aplikace logiky, využívat výhody zahrnuté množství.  Například pokud máte v předplatného EA a aplikace logiky ve stejném předplatném standardní plán služby App Service pak vám není účtován 10 000 akce spuštěních za den (viz následující tabulka). 
-
-Plány služby App Service a jejich denní spuštěních povolené akce:
-|  | Uvolněte a sdílet nebo základní | Standard | Premium |
-| --- | --- | --- | --- |
-| Akce spuštěních za den |200 |10 000 |50,000 |
-### <a name="convert-from-app-service-plan-pricing-to-consumption"></a>Převod plánu služby App Service – ceny na spotřebu
-Chcete-li změnit aplikaci logiky, který má plán služby App Service přidružené k využívání modelu, odeberte odkaz na plán aplikační služby v definici aplikace logiky.  Tato změna se provádí pomocí volání rutiny prostředí PowerShell:`Set-AzureRmLogicApp -ResourceGroupName ‘rgname’ -Name ‘wfname’ –UseConsumptionModel -Force`
 ## <a name="pricing"></a>Ceny
-Podrobnosti o cenách najdete v části [ceny aplikace logiky](https://azure.microsoft.com/pricing/details/logic-apps).
+Další informace najdete v tématu [ceny aplikace logiky](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="next-steps"></a>Další kroky
 * [Přehled Logic Apps][whatis]

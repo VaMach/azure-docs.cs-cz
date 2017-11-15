@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 763248b1b7adf821d37f2308195a0934a0aee152
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Potřebujete pomoc, zapomenuté heslo Azure AD
+# <a name="reset-your-work-or-school-password"></a>Resetovat heslo pracovního nebo školního účtu
 
-Pokud jste zapomněli své heslo, nikdy jste ho od pracovníků IT neobdrželi, chcete ho změnit nebo vám byl zablokován účet, můžeme vám pomoct. Pokud znáte heslo a právě potřebovat změnit jeho pokračovat dolů k části [změnu hesla](#change-my-password) níže.
+Pokud jste heslo zapomněli, nikdy přijaté z podpory vaší společnosti, byl uzamčen z vašeho účtu, a chcete ho změnit, pomůžeme vám. Pokud znáte heslo a právě potřebovat změnit jeho pokračovat dolů k části [změnu hesla](#change-my-password) níže.
 
    > [!NOTE]
    > Pokud se pokoušíte získat zpátky váš osobní účet jako outlook.com, Xbox a hotmail.com zkuste [návrhy najít v tomto článku](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -64,7 +64,7 @@ Postupujte podle kroků, které následují pro přístup k resetování hesla p
    ![Ověření ověřovacích dat][Verification]
 
 4. Může se stát, že vaši pracovníci IT budou potřebovat další ověření – v takovém případě budete muset opakovat krok 3 a zvolit jinou možnost.
-5. Na stránce **Vyberte nové heslo** zadejte nové heslo, potvrďte ho a klikněte na **Dokončit**. Doporučujeme, abyste pro své heslo použili 8–16 znaků, mezi nimiž budou velká a malá písmena, číslice a speciální znaky.
+5. Na stránce **Vyberte nové heslo** zadejte nové heslo, potvrďte ho a klikněte na **Dokončit**. Pracovní nebo školní heslo může mít některé požadavky; Doporučujeme že heslo mít 8 až 16 znaků s velká a malá písmena, číslice a speciální znaky.
 6. Až se zobrazí zpráva **Vaše heslo bylo resetováno**, můžete se přihlásit pomocí nového hesla.
 
     ![Vaše heslo bylo resetováno][Complete]
@@ -103,7 +103,7 @@ Tuto metodu použijte, pokud obvykle přistupujete k aplikacím z portálu Azure
 | --- | --- | --- |
 | Zobrazí na stránce ", kontaktujte prosím správce" po zadání ID uživatele | Obraťte se na svého správce <br> <br> Zjistili jsme, že heslo vašeho uživatelského účtu nespravuje společnost Microsoft. Snažíme se v důsledku toho nelze automaticky resetovat heslo. <br> <br> Budete muset všechny další pomoc požádejte pracovníci IT. | Tato zpráva se zobrazuje, protože pracovníci oddělení IT spravuje heslo v místním prostředí a neumožňuje resetování hesla z nemůže získat přístup k odkaz na vaši účtu. <br> <br> Pokud chcete resetovat heslo, požádejte pracovníci IT přímo o pomoc a dát jim vědět, že chcete resetovat heslo, takže se můžete povolit tuto funkci můžete.|
 | Zobrazí chybu "váš účet není povolen pro resetování hesla" po zadání ID uživatele | Váš účet není povolen pro resetování hesla <br> <br> Je nám líto, ale pracovníci IT nenastavil váš účet pro použití s touto službou. <br> <br> Pokud chcete, můžeme kontaktovat správce ve vaší organizaci k resetování hesla. | Tato zpráva se zobrazuje, protože pracovníci IT nepovolil resetování hesla pro vaší organizace nemůže získat přístup k účtu odkaz na vaši nebo není licencovaná vám umožní používat funkci. <br> <br> Pokud chcete resetovat heslo, klikněte na tlačítko kontakt správce odkaz Odeslat e-mail pro vaši společnost je pracovníky IT a dát jim vědět, které chcete resetovat heslo, takže se můžete povolit tuto funkci můžete. |
-| Zobrazí chybu "jsme nemohl ověřit váš účet" po zadání ID uživatele | Nepodařilo se ověřit váš účet <br> <br> Pokud chcete, můžeme kontaktovat správce ve vaší organizaci k resetování hesla. | Tato zpráva se zobrazuje, protože jsou povolené pro resetování hesla, ale nejsou zaregistrované pro používání služby. Chcete-li zaregistrovat pro resetování hesla, přejděte na http://aka.ms/ssprsetup po jste znovu získali přístup ke svému účtu. <br> <br> Pokud chcete resetovat heslo, klikněte na tlačítko kontakt správce odkaz Odeslat e-mail pro vaši společnost zaměstnanců IT. |
+| Zobrazí chybu "jsme nemohl ověřit váš účet" po zadání ID uživatele | Nemohli jsme ověřit váš účet <br> <br> Pokud chcete, můžeme kontaktovat správce ve vaší organizaci k resetování hesla. | Tato zpráva se zobrazuje, protože jsou povolené pro resetování hesla, ale nejsou zaregistrované pro používání služby. Chcete-li zaregistrovat pro resetování hesla, přejděte na http://aka.ms/ssprsetup po jste znovu získali přístup ke svému účtu. <br> <br> Pokud chcete resetovat heslo, klikněte na tlačítko kontakt správce odkaz Odeslat e-mail pro vaši společnost zaměstnanců IT. |
 
 ## <a name="next-steps"></a>Další kroky
 

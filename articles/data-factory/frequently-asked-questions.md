@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory-faq"></a>Nejčastější dotazy k Azure Data Factory
 Tento článek se týká 2 verzi služby Azure Data Factory. Poskytuje odpovědi na nejčastější dotazy týkající se služby Data Factory.  
@@ -152,7 +152,7 @@ Další informace o konceptech služby Data Factory najdete v následujících �
 Podrobnosti o cenách Azure Data Factory, najdete v části [podrobnosti o cenách služby Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## <a name="what-regions-support-azure-data-factory-version-2"></a>Jaké oblasti podpory Azure Data Factory verze 2?
-V současné době můžete vytvořit datové továrny verze 2 ve východní USA a oblasti Východ USA 2. Však můžete objekt pro vytváření dat využití integrace modulu runtime v jiné oblasti pro přesun dat mezi úložišti dat, odesílání aktivit výpočetní služby nebo balíčky SSIS odesílání. Další informace najdete v tématu [umístění služby Data Factory](concepts-integration-runtime.md#integration-runtime-location).
+V současné době můžete vytvořit datové továrny verze 2 v oblasti Východ USA, Východ USA 2 a západní Evropa. Však můžete objekt pro vytváření dat využití integrace modulu runtime v jiné oblasti pro přesun dat mezi úložišti dat, odesílání aktivit výpočetní služby nebo balíčky SSIS odesílání. Další informace najdete v tématu [umístění služby Data Factory](concepts-integration-runtime.md#integration-runtime-location).
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Jak se může zůstat aktuální informace o objektu pro vytváření dat?
 Nejaktuálnější informace o Azure Data Factory přejděte na následující servery:

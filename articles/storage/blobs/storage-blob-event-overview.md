@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a56e6026ed0c2c873030625fa7a9b35b92faf930
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>Nereagují v rámci událostí Blob storage (preview)
 
@@ -80,7 +80,7 @@ Tady je příklad BlobCreated události:
 
 ```
 
-Další informace najdete v tématu [schématu události úložiště objektů Blob](../../event-grid/event-schema.md#azure-blob-storage).
+Další informace najdete v tématu [schématu události úložiště objektů Blob](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtrování událostí
 Je možné filtrovat závislosti na typu události a název kontejneru a název objektu blob objektu, který byl vytvořen nebo odstranit odběry událostí objektů BLOB.  Filtry subjektu pracovního událostí mřížky na základě "začíná písmenem" a "končí textem" odpovídá, tak, aby doručí události s odpovídající předmětem do odběratele.

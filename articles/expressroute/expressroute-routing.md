@@ -3,7 +3,7 @@ title: "Požadavky směrování pro Azure ExpressRoute | Dokumentace Microsoftu"
 description: "Tato stránka obsahuje podrobné požadavky pro konfiguraci a správu směrování pro okruhy ExpressRoute."
 documentationcenter: na
 services: expressroute
-author: osamazia
+author: ganesr
 manager: ganesr
 editor: 
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: osamam
-ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.date: 11/03/2017
+ms.author: ganesr
+ms.openlocfilehash: 088147060eeeba5c900cdcdc3fb38fc1d4ccfc58
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="expressroute-routing-requirements"></a>Požadavky na směrování služby ExpressRoute
 Pokud se chcete připojit ke cloudovým službám Microsoftu pomocí služby ExpressRoute, budete muset nastavit a spravovat směrování. Někteří poskytovatelé připojení nabízejí nastavení a správu směrování jako spravovanou službu. Zeptejte se svého poskytovatele připojení, jestli tuto službu nabízí. Pokud ne, je nutné splnit následující požadavky:
@@ -39,7 +39,7 @@ Ke konfiguraci partnerských vztahů můžete použít buď soukromé IP adresy,
 * Pro rozhraní směrování musíte rezervovat podsíť /29 nebo dvě podsítě /30.
 * Podsítě pro směrování mohou obsahovat buď soukromé IP adresy, nebo veřejné IP adresy.
 * Podsítě nesmí být v konfliktu s rozsahem vyhrazeným zákazníkem pro použití v cloudu Microsoftu.
-* Pokud se používá podsíť /29, rozdělí se na dvě podsítě /30. 
+* Pokud se použije podsíť /29, rozdělí se na dvě podsítě /30. 
   * První podsíť /30 se používá pro primární propojení a druhá podsíť /30 se používá pro sekundární propojení.
   * Pro každou z těchto podsítí /30 musíte ve směrovači použít první IP adresu podsítě /30. Microsoft používá druhou IP adresu podsítě /30 k nastavení relace protokolu BGP.
   * Musíte nastavit obě relace protokolu BGP, aby naše [smlouva SLA o dostupnosti](https://azure.microsoft.com/support/legal/sla/) byla platná.  
@@ -174,6 +174,8 @@ Můžete zakoupit víc než jeden okruh ExpressRoute na geopolitickou oblast. Po
 | Západní Evropa | 12076:51002 |
 | Spojené království – jih | 12076:51024 |
 | Spojené království – západ | 12076:51025 |
+| Francie – střed | 12076:51030 |
+| Francie – jih | 12076:51031 |
 | **Asie a Tichomoří** | |
 | Východní Asie | 12076:51010 |
 | Jihovýchodní Asie | 12076:51011 |

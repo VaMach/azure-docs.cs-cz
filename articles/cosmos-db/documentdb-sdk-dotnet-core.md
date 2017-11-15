@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 56a2aff21a728d5ac0355516fc6988512c062b4c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: Poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
@@ -57,6 +57,12 @@ Cosmos DB .NET SDK služby Azure základní má parity funkcí s nejnovější v
 > [!NOTE] 
 > Cosmos DB .NET SDK služby Azure jádra není kompatibilní s aplikací pro univerzální platformu Windows (UWP). Pokud vás zajímá .NET Core SDK, který podporuje aplikace UWP odeslat e-mailu [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+ 
+ * Změna z Azure DocumentDB k databázi Azure Cosmos v referenční dokumentace rozhraní API Branding dokumentaci, informace o metadatech v sestavení a balíček NuGet. 
+ * Vystavení diagnostické informace a latence z odpovědi požadavky odeslané s režimem přímé připojení. Názvy vlastností, které jsou RequestDiagnosticsString a RequestLatency u ResourceResponse třídy.
+ * Tato verze sady SDK vyžaduje nejnovější verze emulátoru DB Cosmos Azure k dispozici ke stažení https://aka.ms/cosmosdb-emulator.
+ 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
 * Přidat několik oprav spolehlivost a vylepšení.
@@ -144,6 +150,7 @@ Pokud máte otázky související s touto sadou SDK, odeslání na [StackOverflo
 
 | Verze | Datum vydání | Datum vyřazení |
 | --- | --- | --- |
+| [1.7.0](#1.7.0) |10 listopadu 2017 |--- |
 | [1.6.0](#1.6.0) |17 říjen 2017 |--- |
 | [1.5.1](#1.5.1) |02 říjen 2017 |--- |
 | [1.5.0](#1.5.0) |10. srpnu 2017 |--- | 

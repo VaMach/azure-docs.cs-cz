@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: a3eedacac5efb53f82e46a56285713dece56ffe8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric s Azure API Management – přehled
 
@@ -108,7 +108,7 @@ Každá instance služby je také rozdělen na oddíly pomocí schéma oddílu I
 
 ## <a name="next-steps"></a>Další kroky
 
-Postupujte podle [úvodní příručka](service-fabric-api-management-quick-start.md) nastavit první clusteru Service Fabric pomocí API Management a toku požadavky prostřednictvím rozhraní API správy k vašim službám.
+Postupujte podle [kurzu](service-fabric-tutorial-deploy-api-management.md) nastavit první clusteru Service Fabric pomocí API Management a toku požadavky prostřednictvím rozhraní API správy k vašim službám.
 
 <!-- links -->
 

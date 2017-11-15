@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 8f0207853097a3d31e06a722025f3964678414bf
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 085328a9bbe304004f25f46ba5c366e911ac3836
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - pravidla po pojmenování
 Následující tabulka obsahuje pravidla pojmenování artefaktů služby Data Factory.
 
 > [!NOTE]
-> Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verze 1 služby Data Factory, který je je všeobecně dostupná (GA), najdete v části [pojmenování pravidla v objektu pro vytváření dat version1](v1/data-factory-naming-rules.md).
+> Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [pojmenování pravidla v objektu pro vytváření dat version1](v1/data-factory-naming-rules.md).
 
 | Name (Název) | Jedinečnost názvu | Ověřovací kontroly |
 |:--- |:--- |:--- |
@@ -33,4 +33,4 @@ Následující tabulka obsahuje pravidla pojmenování artefaktů služby Data F
 | Skupina prostředků |Jedinečná napříč Microsoft Azure. Názvy jsou velká a malá písmena. |<ul><li>Maximální počet znaků: 1 000.</li><li>Název může obsahovat písmena, číslice a tyto znaky: "-", "_",","a"."</li></ul> |
 
 ## <a name="next-steps"></a>Další kroky
-Informace o vytvoření objektů pro vytváření dat pomocí následujících podrobné insturctions v [rychlý start: Vytvořte objekt pro vytváření dat](quickstart-create-data-factory-powershell.md) článku. 
+Naučte se vytvářet datové továrny dodržením podrobných pokynů v [rychlý start: Vytvořte objekt pro vytváření dat](quickstart-create-data-factory-powershell.md) článku. 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/11/2017
 ms.author: helaw
-ms.openlocfilehash: 3b40a657ee8eb391d14a38cb95acc0729a8dda21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a8e871a3a44cb14503832d2f3a096712f8112a7
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Řešení potíží s Microsoft Azure zásobníku
 
@@ -37,16 +37,6 @@ Pokud dojde k chybě během instalace, můžete použít možnost spustit znovu 
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Na konci nasazení relaci prostředí PowerShell je stále otevřen a nezobrazí žádný výstup
 Toto chování je pravděpodobně právě výsledek výchozí chování příkazové okno prostředí PowerShell, pokud byla vybrána. Nasazení development kit ve skutečnosti proběhla úspěšně, ale skript byla pozastavena při výběru okna. Můžete ověřit, že je tomu tak, že vyhledá slovo "Vyberte" v záhlaví příkazové okno.  Stisknutím klávesy ESC zrušte jeho výběr a po ní se má zobrazit zpráva dokončení.
-
-## <a name="templates"></a>Šablony
-### <a name="azure-template-wont-deploy-to-azure-stack"></a>Šablony Azure nenasadí do Azure zásobníku
-Ujistěte se, že:
-
-* Šablona musí používat službu Microsoft Azure, která je již k dispozici nebo ve verzi preview v zásobníku Azure.
-* Rozhraní API používaná pro konkrétní prostředek podporuje místní instanci Azure zásobníku a zda cílíte na platné umístění ("local" v zásobníku Azure development kit vs "East US" nebo "– jih, Indie" v Azure).
-* Prostudování [v tomto článku](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) o rutiny Test-AzureRmResourceGroupDeployment který catch malé rozdíly v syntaxi Azure Resource Manager.
-
-Můžete také již součástí šablony Azure zásobníku [úložiště GitHub](http://aka.ms/AzureStackGitHub/) můžete začít pracovat.
 
 ## <a name="virtual-machines"></a>Virtuální počítače
 ### <a name="default-image-and-gallery-item"></a>Výchozí image a Galerie položku
@@ -75,20 +65,6 @@ Další informace o konfiguraci uchování recyklaci prahovou hodnotu a na vyž�
 ## <a name="storage"></a>Úložiště
 ### <a name="storage-reclamation"></a>Recyklace úložiště
 Může trvat až 14 hodin regenerovaný kapacity objeví na portálu. Recyklace místa závisí na různých faktorech včetně procento využití interní kontejner souborů v úložišti objektů blob bloku. Proto v závislosti na tom, kolik dat je odstraněn, není zaručeno na množství místa, které může uvolnit, když běží systém uvolňování paměti.
-
-## <a name="powershell"></a>PowerShell
-### <a name="resource-providers-not-registered"></a>Zprostředkovatelé prostředků Neregistrovaný
-Při připojování k odběrům klienta pomocí prostředí PowerShell, si všimnete, že nejsou automaticky registrované poskytovatele prostředků. Použití [připojení modulu](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), nebo spuštěním následujícího příkazu z prostředí PowerShell (po jste [nainstalujte a připojte](azure-stack-connect-powershell.md) jako klient): 
-  
-       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
-
-## <a name="cli"></a>Rozhraní příkazového řádku
-
-* Jednofaktorovému interaktivním režimu rozhraní příkazového řádku `az interactive` příkaz není dosud podporován v zásobníku Azure.
-* Seznam dostupných v zásobníku Azure bitové kopie virtuálních počítačů, použijte `az vm images list --all` příkaz místo `az vm image list` příkaz. Určení `--all` možnost zajišťuje, že odpovědi vrátí pouze obrázky, které jsou k dispozici ve vašem prostředí Azure zásobníku. 
-* Aliasy bitové kopie virtuálního počítače, které jsou k dispozici v Azure nemusí být k dispozici do protokolů Azure. Pokud pomocí bitové kopie virtuálních počítačů, je nutné použít parametr celý název URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) namísto alias bitové kopie. A tento URNmust odpovídat specifikace image odvozené z `az vm images list` příkaz.
-* Ve výchozím nastavení používá rozhraní příkazového řádku 2.0 "Standard_DS1_v2" jako výchozí velikost bitové kopie virtuálního počítače. Ale ještě tato velikost není k dispozici v Azure zásobníku, takže budete muset zadat `--size` parametr explicitně při vytváření virtuálního počítače. Můžete získat seznam velikostí virtuálních počítačů, které jsou k dispozici v zásobníku Azure pomocí `az vm list-sizes --location <locationName>` příkaz.
-
 
 ## <a name="windows-azure-pack-connector"></a>Konektor služby Windows Azure Pack
 * Pokud změníte heslo účtu azurestackadmin poté, co nasadíte zásobník Azure development kit, můžete nakonfigurovat již více cloudu režimu. Proto nebude možné se připojit k Windows Azure Pack cílovém prostředí.
