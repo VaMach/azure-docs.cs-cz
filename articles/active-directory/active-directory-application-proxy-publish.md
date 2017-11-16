@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19f52181a2847ab52029adac4d58e402a76d5f30
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publikování aplikací pomocí proxy aplikace služby Azure AD
 
@@ -97,7 +97,7 @@ Pokud chcete aplikaci odstranit, vyberte ji ze seznamu a klikněte na **Odstrani
 ## <a name="next-steps"></a>Další kroky
 * [Publikování aplikací s použitím vlastního názvu domény](active-directory-application-proxy-custom-domains.md)
 * [Povolení jednoduchého přihlášení](active-directory-application-proxy-sso-using-kcd.md)
-* [Povolení podmíněného přístupu](active-directory-application-proxy-conditional-access.md)
+* [Povolení podmíněného přístupu](application-proxy-enable-remote-access-sharepoint.md)
 * [Práce s aplikacemi využívajícími deklarace](active-directory-application-proxy-claims-aware-apps.md)
 
 Nejnovější novinky a aktualizace naleznete na [blogu proxy aplikace](http://blogs.technet.com/b/applicationproxyblog/)

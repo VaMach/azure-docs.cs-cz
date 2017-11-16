@@ -90,6 +90,7 @@
 ## Referenční informace
 ### [Poznámky k verzi](active-directory-b2c-developer-notes-custom.md)
 ### [Zprostředkovatelé relace jednotného přihlašování](active-directory-b2c-reference-sso-custom.md)
+### [Vlastní nastavení jazyka](active-directory-b2c-language-customization-custom.md)
 ### [Definice architektury důvěryhodnosti](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # Referenční informace

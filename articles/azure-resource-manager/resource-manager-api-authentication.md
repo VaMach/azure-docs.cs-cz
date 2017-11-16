@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/27/2016
+ms.date: 11/15/2017
 ms.author: dugill;tomfitz
-ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Ověřování pomocí Správce prostředků rozhraní API pro odběry přístup
 ## <a name="introduction"></a>Úvod
-Pokud jste vývojář softwaru, který potřebuje vytvořit aplikaci, která spravuje prostředky Azure zákazníka, toto téma ukazuje, jak k ověření prostřednictvím rozhraní API Správce prostředků Azure a získat přístup k prostředkům v jiných předplatných.
+Pokud jste vývojář softwaru, který potřebuje vytvořit aplikaci, která spravuje prostředky Azure zákazníka, tento článek ukazuje, jak k ověření prostřednictvím rozhraní API Správce prostředků Azure a získat přístup k prostředkům v jiných předplatných.
 
 Aplikaci můžete získat přístup k rozhraní API Resource Manager v několika způsoby:
 
 1. **Uživatel + přístup k aplikaci**: pro aplikace, která přistupují k prostředkům jménem přihlášeného uživatele. Tento postup funguje pro aplikace, jako třeba webové aplikace a nástroje příkazového řádku, které pracují s pouze "interaktivní Správa" prostředků Azure.
 2. **Přístup jen aplikace**: pro aplikace, které běží démon služeb a naplánované úlohy. Identity aplikace jsou udělena přímý přístup k prostředkům. Tento postup funguje pro aplikace, které potřebují dlouhodobé bezobslužných (bezobslužná instalace) přístup k Azure.
 
-Toto téma obsahuje podrobné pokyny k vytvoření aplikace, která aktivuje obě tyto metody ověřování. Ukazuje, jak provádět každý krok REST API nebo C#. Kompletní aplikace ASP.NET MVC je k dispozici na [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+Tento článek obsahuje podrobné pokyny k vytvoření aplikace, která aktivuje obě tyto metody ověřování. Ukazuje, jak provádět každý krok REST API nebo C#. Kompletní aplikace ASP.NET MVC je k dispozici na [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
 ## <a name="what-the-web-app-does"></a>Jaké jsou webové aplikace
 Webové aplikace:
@@ -37,17 +37,17 @@ Webové aplikace:
 1. Přihlásí uživatele služby Azure.
 2. Požádá uživatele a udělit přístup k webové aplikaci do Resource Manager.
 3. Získá uživatele + přístupový token aplikace pro přístup k Resource Manager.
-4. Volání Resource Manager a přiřadit role v odběru, který poskytuje přístup k dlouhodobé aplikaci k předplatnému instanční objekt aplikace používá token (z kroku 3).
+4. Používá token (z kroku 3) k přiřazení objektu aplikace služby do role v rámci předplatného. Tento krok umožňuje dlouhodobé přístup aplikace k předplatnému.
 5. Získá jen aplikace přístupový token.
 6. Token (z kroku 5) se používá ke správě prostředků v předplatném prostřednictvím Resource Manager.
 
-Zde je postup začátku do konce webové aplikace.
+Zde je postup webové aplikace.
 
 ![Tok ověření správce prostředků](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
 
-Jako uživatel zadejte id odběru pro odběr, který chcete použít:
+Jako uživatel zadejte ID odběru pro odběr, který chcete použít:
 
-![Zadejte id předplatného](./media/resource-manager-api-authentication/sample-ux-1.png)
+![Zadejte ID předplatného](./media/resource-manager-api-authentication/sample-ux-1.png)
 
 Vyberte účet, který chcete použít pro přihlášení.
 
@@ -68,13 +68,13 @@ Správa odběrů připojené:
 ## <a name="register-application"></a>Registrace aplikace
 Než začnete, kódování, zaregistrujte vaší webové aplikace s Azure Active Directory (AD). Registrace aplikace vytvoří centrální identitu pro vaši aplikaci ve službě Azure AD. Že obsahuje základní informace o vaší aplikaci jako ID klienta OAuth, adresy URL odpovědí a přihlašovací údaje, které vaše aplikace používá k ověření a přístup k rozhraní API Správce Azure Resource Manager. Registrace aplikací taky zaznamenává různé delegovaných oprávnění, které aplikace potřebuje při přístupu k Microsoft APIs jménem uživatele.
 
-Vzhledem k tomu, že vaše aplikace přístup k jiné předplatné, musíte ho nakonfigurovat jako víceklientské aplikace. K provedení ověření, zadejte domény přidružené k vaší služby Azure Active Directory. Pokud chcete zobrazit domény přidružené k vaší služby Azure Active Directory, přihlaste se k [portálu classic](https://manage.windowsazure.com). Vyberte služby Azure Active Directory a pak vyberte **domény**.
+Vzhledem k tomu, že vaše aplikace přístup k jiné předplatné, musíte ho nakonfigurovat jako víceklientské aplikace. K provedení ověření, zadejte domény přidružené k vaší služby Azure Active Directory. Pokud chcete zobrazit domény přidružené k vaší služby Azure Active Directory, přihlaste se k portálu.
 
 Následující příklad ukazuje, jak zaregistrovat aplikaci pomocí Azure PowerShell. Musíte mít nejnovější verzi prostředí Azure PowerShell pro tento příkaz fungovat (srpna 2016).
 
     $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 
-Přihlásit se jako aplikace AD, musíte aplikaci id a hesla. Pokud chcete zobrazit id aplikace, která je vrácena z předchozí příkaz, použijte:
+Přihlásit se jako aplikace AD, musíte aplikaci ID a hesla. Pokud chcete zobrazit ID aplikace, která je vrácena z předchozí příkaz, použijte:
 
     $app.ApplicationId
 
@@ -89,24 +89,24 @@ Azure AD podporuje přihlašovací údaje certifikátu pro aplikace: vytvoření
 
 Informace o vytvoření aplikace AD pomocí certifikátu najdete v tématu [použití Azure PowerShell k vytvoření objektu služby pro přístup k prostředkům](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) nebo [použití Azure CLI pro vytvoření objektu služby pro přístup k prostředkům](resource-group-authenticate-service-principal-cli.md) .
 
-## <a name="get-tenant-id-from-subscription-id"></a>Získání id klienta z id předplatného
-K žádosti o token, který slouží k volání Resource Manager, aplikace musí znát ID klienta Azure AD klienta, který je hostitelem předplatné Azure. S největší pravděpodobností vaši uživatelé věděli, jejich ID předplatného, ale nemusí věděli, jejich klienta ID pro Azure Active Directory. Chcete-li získat id uživatele klienta, požádejte uživatele, pro id předplatného. Při odesílání žádosti o předplatném, zadejte toto id předplatného:
+## <a name="get-tenant-id-from-subscription-id"></a>Získání ID klienta z ID předplatného
+K žádosti o token, který slouží k volání Resource Manager, aplikace musí znát ID klienta Azure AD klienta, který je hostitelem předplatné Azure. S největší pravděpodobností vaši uživatelé věděli, jejich ID předplatného, ale nemusí věděli, jejich klienta ID pro Azure Active Directory. Chcete-li získat ID uživatele klienta, požádejte uživatele pro ID předplatného. Zadejte toto předplatné ID při odesílání žádosti o předplatném:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
-Žádost se nezdaří, protože uživatel nebyl ještě přihlášen, ale můžete načíst id klienta z odpovědi. V této výjimky načíst id klienta z hodnotu hlavičky odpovědi pro **WWW-Authenticate**. Zobrazí tuto implementaci v [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) metoda.
+Žádost se nezdaří, protože uživatel nebyl ještě přihlášen, ale můžete načíst ID klienta z odpovědi. V této výjimky načíst ID klienta z hodnotu hlavičky odpovědi pro **WWW-Authenticate**. Zobrazí tuto implementaci v [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) metoda.
 
 ## <a name="get-user--app-access-token"></a>Získat uživatele + přístupový token aplikace
 Vaše aplikace přesměruje uživatele do služby Azure AD s OAuth 2.0 autorizovat požadavek – k ověření přihlašovacích údajů uživatele a získat zpátky autorizační kód. Vaše aplikace používá autorizační kód se získat přístupový token pro Resource Manager. [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) metoda vytvoří žádost o ověření.
 
-Toto téma ukazuje požadavky REST API pro ověření uživatele. Pomocné knihovny můžete použít také k provedení ověření v kódu. Další informace o tyto knihovny najdete v tématu [knihovny Azure Active Directory Authentication](../active-directory/active-directory-authentication-libraries.md). Pokyny k integraci správy identit v aplikaci najdete v tématu [Příručka pro vývojáře Azure Active Directory](../active-directory/active-directory-developers-guide.md).
+Tento článek popisuje požadavky REST API pro ověření uživatele. Pomocné knihovny můžete použít také k provedení ověření v kódu. Další informace o tyto knihovny najdete v tématu [knihovny Azure Active Directory Authentication](../active-directory/active-directory-authentication-libraries.md). Pokyny k integraci správy identit v aplikaci najdete v tématu [Příručka pro vývojáře Azure Active Directory](../active-directory/active-directory-developers-guide.md).
 
 ### <a name="auth-request-oauth-20"></a>Žádost o ověření (OAuth 2.0)
 Vydejte Open ID Connect/OAuth2.0 autorizovat požadavku koncového bodu Azure AD Authorize:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-Jsou popsané v tématu parametrů řetězce dotazu, které jsou k dispozici pro tento požadavek [autorizační kód požadavku](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) tématu.
+Jsou popsané v tématu parametrů řetězce dotazu, které jsou k dispozici pro tento požadavek [autorizační kód požadavku](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) článku.
 
 Následující příklad ukazuje, jak požádat o OAuth2.0 autorizace:
 
@@ -119,7 +119,7 @@ Azure AD ověřuje uživatele a v případě potřeby požádá uživatele a ud�
 ### <a name="auth-request-open-id-connect"></a>Žádost o ověření (Open ID Connect)
 Pokud chcete nejen pro přístup k Azure Resource Manager jménem uživatele, ale také umožnit uživatelům přihlášení k aplikaci pomocí svého účtu Azure AD, vydejte Open ID připojení autorizaci požadavků. Aplikace s Open ID Connect také přijímá požadavku id_token z Azure AD, které aplikace můžete používat k přihlášení uživatele.
 
-Jsou popsané v tématu parametrů řetězce dotazu, které jsou k dispozici pro tento požadavek [odeslání žádosti o přihlášení](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) tématu.
+Jsou popsané v tématu parametrů řetězce dotazu, které jsou k dispozici pro tento požadavek [odeslání žádosti o přihlášení](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) článku.
 
 Jedná se o příklad Open ID Connect žádost:
 
@@ -136,7 +136,7 @@ Teď, když vaše aplikace přijal autorizační kód z Azure AD, je čas k zís
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Jsou popsané v tématu parametrů řetězce dotazu, které jsou k dispozici pro tento požadavek [použít autorizační kód](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) tématu.
+Jsou popsané v tématu parametrů řetězce dotazu, které jsou k dispozici pro tento požadavek [použít autorizační kód](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) článku.
 
 Následující příklad ukazuje žádost o token grant kód s pověřením heslo:
 
@@ -191,7 +191,7 @@ Pro každé předplatné pro připojení, volejte [seznamu oprávnění správce
 
 [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L44) metoda ukázkovou aplikaci ASP.NET MVC implementuje toto volání.
 
-Následující příklad ukazuje, jak požádat o oprávnění uživatele na předplatném. 83cfe939-2402-4581-b761-4f59b0a041e4 je id předplatného.
+Následující příklad ukazuje, jak požádat o oprávnění uživatele na předplatném. 83cfe939-2402-4581-b761-4f59b0a041e4 je ID předplatného.
 
     GET https://management.azure.com/subscriptions/83cfe939-2402-4581-b761-4f59b0a041e4/providers/microsoft.authorization/permissions?api-version=2015-07-01 HTTP/1.1
 
@@ -203,21 +203,21 @@ Příklad odpovědi a získejte oprávnění uživatele na základě předplatn�
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-Oprávnění rozhraní API vrátí více oprávnění. Každé oprávnění se skládá z povolených akcí (akce) a zakázané akce (notactions). Pokud je přítomen v seznamu povolených akcí všechna oprávnění a nejsou k dispozici v seznamu notactions tohoto oprávnění, má uživatel k provedení této akce. **Microsoft.Authorization/RoleAssignments/Write** je akce, který uděluje přístup práva pro správu. Aplikace musí analyzovat výsledek oprávnění pro hledání shody regex na tento řetězec akce v akce a notactions jednotlivých oprávnění.
+Oprávnění rozhraní API vrátí více oprávnění. Každé oprávnění se skládá z povolených akcí (**akce**) a zakázané akce (**notactions**). Pokud je přítomen v povolených akcí všechna oprávnění a nejsou k dispozici v nepovoleném akce tohoto oprávnění, má uživatel k provedení této akce. **Microsoft.Authorization/RoleAssignments/Write** je akce, který uděluje přístup práva pro správu. Aplikace musí analyzovat výsledek oprávnění pro hledání shody regex na tento řetězec akce v **akce** a **notactions** jednotlivých oprávnění.
 
 ## <a name="get-app-only-access-token"></a>Získání tokenu přístupu jen aplikace
 Teď víte, pokud uživatele lze přiřadit přístup k předplatnému Azure. Další kroky jsou:
 
 1. Přiřadíte příslušné role RBAC identity aplikace v předplatném.
 2. Ověření přiřazení přístupu pomocí dotazů na oprávnění aplikace v předplatném nebo přístupem k Resource Manager pomocí tokenu jen aplikace.
-3. Zaznamenejte připojení ve struktuře vaší aplikace "připojené odběry" data - uložením id předplatného.
+3. Zaznamenejte připojení ve struktuře vaší aplikace "připojené odběry" data - uložením ID předplatného.
 
 Podíváme blíže v prvním kroku. Pokud chcete přiřadit příslušné role RBAC identitu aplikace, je třeba určit:
 
-* Id objektu identity aplikace v uživatele Azure Active Directory
+* ID objektu identity aplikace v uživatele Azure Active Directory
 * Identifikátor role RBAC, který vaše aplikace vyžaduje na předplatné
 
-Když se aplikace ověřuje uživatele z Azure AD, vytvoří objekt služby zabezpečení pro vaši aplikaci v této službě Azure AD. Azure umožňuje role RBAC přiřazení objekty služby udělit přímý přístup k odpovídající aplikace na prostředky Azure. Tato akce je přesně co chceme provést. Dotaz rozhraní Azure AD Graph API k určení identifikátor objektu služby vaší aplikace v přihlášeného uživatele je Azure AD.
+Když se aplikace ověřuje uživatele z Azure AD, vytvoří objekt služby zabezpečení pro vaši aplikaci v této službě Azure AD. Azure umožňuje role RBAC přiřazení objekty služby udělit přímý přístup k odpovídající aplikace na prostředky Azure. Tato akce je přesně co chcete udělat. Dotaz rozhraní Azure AD Graph API k určení identifikátor objektu služby vaší aplikace v přihlášeného uživatele je Azure AD.
 
 Můžete mít pouze přístupový token pro Azure Resource Manager – budete potřebovat nový přístupový token pro volání rozhraní Azure AD Graph API. Každá aplikace ve službě Azure AD má oprávnění k dotazování vlastní objekt zabezpečení služby, stačí jen aplikace přístupový token.
 
@@ -228,7 +228,7 @@ K ověření vaší aplikace a získat token do Azure AD Graph API, vydávat OAu
 
 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) metoda ukázkové aplikace ASP.net MVC získá přístup jen aplikace tokenu pro rozhraní Graph API pomocí knihovny Active Directory Authentication Library pro .NET.
 
-Jsou popsané v tématu parametrů řetězce dotazu, které jsou k dispozici pro tento požadavek [žádosti o Token k přístupu](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) tématu.
+Jsou popsané v tématu parametrů řetězce dotazu, které jsou k dispozici pro tento požadavek [žádosti o Token k přístupu](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) článku.
 
 Požadavek příklad token udělení pověření klienta:
 
@@ -244,11 +244,11 @@ Odpověď příklad token udělení pověření klienta:
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
 ### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>Získejte ObjectId aplikace instanční objekt v uživatele Azure AD
-Nyní, použijte jen aplikace přístupového tokenu k dotazu [objekty služby Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) rozhraní API pro zjištění objektu Id aplikace instančního objektu v adresáři.
+Nyní, použijte jen aplikace přístupového tokenu k dotazu [objekty služby Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) rozhraní API pro zjištění objektu ID aplikace instančního objektu v adresáři.
 
 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) metoda ukázkové aplikace ASP.net MVC implementuje toto volání.
 
-Následující příklad ukazuje, jak požádat o aplikace instanční objekt. a0448380-c346-4f9f-b897-c18733de9394 je id klienta aplikace.
+Následující příklad ukazuje, jak požádat o aplikace instanční objekt. a0448380-c346-4f9f-b897-c18733de9394 je ID klienta aplikace.
 
     GET https://graph.windows.net/62e173e9-301e-423e-bcd4-29121ec1aa24/servicePrincipals?api-version=1.5&$filter=appId%20eq%20'a0448380-c346-4f9f-b897-c18733de9394' HTTP/1.1
 
@@ -276,7 +276,7 @@ Volání [definice role správce prostředků rozhraní API](https://docs.micros
 
 [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) metoda ukázkovou aplikaci ASP.net MVC implementuje toto volání.
 
-Následující příklad žádost ukazuje, jak získat identifikátor role Azure RBAC. 09cbd307-aa71-4aca-b346-5f253e6e3ebb je id předplatného.
+Následující příklad žádost ukazuje, jak získat identifikátor role Azure RBAC. 09cbd307-aa71-4aca-b346-5f253e6e3ebb je ID předplatného.
 
     GET https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01 HTTP/1.1
 
@@ -288,13 +288,13 @@ Odpověď je v následujícím formátu:
 
     {"value":[{"properties":{"roleName":"API Management Service Contributor","type":"BuiltInRole","description":"Lets you manage API Management services, but not access to them.","scope":"/","permissions":[{"actions":["Microsoft.ApiManagement/Services/*","Microsoft.Authorization/*/read","Microsoft.Resources/subscriptions/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/resources/read","Microsoft.Resources/subscriptions/resourceGroups/deployments/*","Microsoft.Insights/alertRules/*","Microsoft.Support/*"],"notActions":[]}]},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/312a565d-c81f-4fd8-895a-4e21e48d571c","type":"Microsoft.Authorization/roleDefinitions","name":"312a565d-c81f-4fd8-895a-4e21e48d571c"},{"properties":{"roleName":"Application Insights Component Contributor","type":"BuiltInRole","description":"Lets you manage Application Insights components, but not access to them.","scope":"/","permissions":[{"actions":["Microsoft.Insights/components/*","Microsoft.Insights/webtests/*","Microsoft.Authorization/*/read","Microsoft.Resources/subscriptions/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/resources/read","Microsoft.Resources/subscriptions/resourceGroups/deployments/*","Microsoft.Insights/alertRules/*","Microsoft.Support/*"],"notActions":[]}]},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/ae349356-3a1b-4a5e-921d-050484c6347e","type":"Microsoft.Authorization/roleDefinitions","name":"ae349356-3a1b-4a5e-921d-050484c6347e"}]}
 
-Není nutné volat toto rozhraní API průběžně. Jakmile jste zjistili, dobře známé GUID definice role, můžete vytvořit id definice role jako:
+Není nutné volat toto rozhraní API průběžně. Jakmile jste zjistili, dobře známé GUID definice role, můžete vytvořit ID definice role jako:
 
     /subscriptions/{subscription_id}/providers/Microsoft.Authorization/roleDefinitions/{well-known-role-guid}
 
-Toto jsou známé identifikátory GUID běžně používané předdefinovaných rolí:
+Zde jsou identifikátory běžně používané předdefinovaných rolí:
 
-| Role | Identifikátor GUID |
+| Role | IDENTIFIKÁTOR GUID |
 | --- | --- |
 | Čtenář |acdd72a7-3385-48EF-bd42-f606fba81ae7 |
 | Přispěvatel |b24988ac-6180-42A0-ab88-20f7382dd24c |
@@ -325,9 +325,9 @@ V požadavku budou použity následující hodnoty:
 
 | Identifikátor GUID | Popis |
 | --- | --- |
-| 09cbd307-aa71-4aca-b346-5f253e6e3ebb |id předplatného |
-| c3097b31-7309-4C59-b4e3-770f8406bad2 |id objektu objektu služby aplikace |
-| acdd72a7-3385-48EF-bd42-f606fba81ae7 |id role čtenáře |
+| 09cbd307-aa71-4aca-b346-5f253e6e3ebb |ID předplatného |
+| c3097b31-7309-4C59-b4e3-770f8406bad2 |ID objektu objektu služby aplikace |
+| acdd72a7-3385-48EF-bd42-f606fba81ae7 |ID role čtenáře |
 | 4f87261d-2816-465D-8311-70a27558df4c |nový identifikátor guid vytvořit nové přiřazení role |
 
 Odpověď je v následujícím formátu:
@@ -353,7 +353,7 @@ Pokud chcete zkontrolovat, že aplikace má požadovaný přístup na základě 
 ## <a name="manage-connected-subscriptions"></a>Správa připojené odběrů
 Pokud příslušné role RBAC je přiřazen k objektu v předplatném služby vaší aplikace, aplikace můžete zachovat monitorování nebo správa pomocí jen aplikace přístupových tokenů pro Azure Resource Manager.
 
-Pokud vlastník předplatného Odebere přiřazení role vaší aplikace pomocí portálu classic nebo nástroje příkazového řádku, vaše aplikace není nadále přístup k tomuto předplatnému. V takovém případě by měl upozornit uživatele, který připojení k předplatnému bylo porušeno z mimo aplikaci a jim poskytnout možnost "Opravit" připojení. "Opravit" by jednoduše znovu vytvořit přiřazení role, který byl odstraněn do offline režimu.
+Pokud vlastník předplatného Odebere přiřazení role vaší aplikace pomocí portálu nebo nástroje příkazového řádku, vaše aplikace není nadále přístup k tomuto předplatnému. V takovém případě by měl upozornit uživatele, který připojení k předplatnému bylo porušeno z mimo aplikaci a jim poskytnout možnost "Opravit" připojení. "Opravit" by znovu vytvořit přiřazení role, který byl odstraněn do offline režimu.
 
 Stejně jako jste povolili uživatelům připojit odběry do vaší aplikace, musíte povolit uživatelům příliš odpojit odběry. Z přístup správu hlediska odpojte znamená odebrání přiřazení role, který má aplikace instanční objekt na předplatné. Volitelně může být jakýkoli stav v aplikaci pro předplatné odstraněna příliš.
 Pouze uživatelé s oprávněním správy přístupu u předplatného je moct odpojit předplatné.
