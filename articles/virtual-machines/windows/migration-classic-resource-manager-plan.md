@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: db23eba9ff8debd5268cd02bc4f37c4e6501bfac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b77000c2cf46b59b65c27c78182193624fd62062
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Plánování migrace z klasického do Azure Resource Manageru prostředků IaaS
 Zatímco Azure Resource Manager nabízí mnoho funkcí úžasné, je důležité k naplánování vaší cesty migrace zkontrolujte, zda věcí bezproblémové. Výdaje čas na plánování zajistí nedochází chybám při provádění migrace aktivity.
@@ -204,7 +204,7 @@ Být záměrné na jaké služby, které teď chcete povolit ve službě Správc
 - [Šablony Azure Resource Manageru pro snazší a víc řízené nasazení](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Značky](../../azure-resource-manager/resource-group-using-tags.md).
 - [Ovládací prvek aktivity](../../azure-resource-manager/resource-group-audit.md)
-- [Zásady prostředků](../../azure-resource-manager/resource-manager-policy.md)
+- [Azure zásady](../../azure-policy/azure-policy-introduction.md)
 
 ### <a name="pitfalls-to-avoid"></a>Aby se zabránilo nástrahy
 

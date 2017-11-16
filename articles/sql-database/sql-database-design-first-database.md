@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: e4848eb366faea134a484c8a494fed6a83203116
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 329003c7c4abe89f4af04473ee3664605b2ea81f
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="design-your-first-azure-sql-database"></a>Návrh svoji první databázi Azure SQL
 
-Databáze SQL Azure je relační databáze jako a služba (DBaaS) v cloudu Microsoftu ("Azure"). V tomto kurzu zjistíte, jak pomocí portálu Azure a [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) na: 
+Databáze SQL Azure je relační databáze jako a služba (DBaaS) v Microsoft cloudu (Azure). V tomto kurzu zjistíte, jak pomocí portálu Azure a [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) na: 
 
 > [!div class="checklist"]
 > * Vytvoření databáze na portálu Azure
@@ -178,7 +178,7 @@ Vytvořte schéma databáze s čtyři tabulek, které model student systém spr�
 
 - Osoba
 - Kurz
-- Studenty
+- Student
 - Úvěrového tohoto modelu systém správy student pro vysoké školy
 
 Následující diagram znázorňuje, jak tyto tabulky jsou vzájemně souvisí. Některé z těchto tabulek odkazovat na sloupce v jiné tabulky. Například studenty tabulka odkazuje **PersonId** sloupec **osoba** tabulky. Studie diagramu na pochopit, jak jsou vzájemně propojeny v tabulkách v tomto kurzu. Podrobný rozbor toho, jak vytvořit efektivní databázové tabulky, najdete v části [vytvořit efektivní databázových tabulek](https://msdn.microsoft.com/library/cc505842.aspx). Informace o výběru datových typů najdete v tématu [datové typy](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).

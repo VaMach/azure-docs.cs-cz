@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: f11f7bf6ed94c5d19ad51b1e474ab45d20216351
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Správa svazku ceny a data ve službě Application Insights
 
@@ -110,7 +110,7 @@ Application Insights poplatky budou přidány do faktury Azure. Zobrazí podrobn
 Existují tři způsoby, ve kterých je omezená svazku odesílat data:
 
 * **Vzorkování:** lze použít tento mechanismus snížíte telemetrické zprávy odesílané z vašeho serveru a klienta aplikace s minimální narušení metrik. Toto je primárním nástrojem budete muset vyladit množství dat. Další informace o [vzorkování funkce](app-insights-sampling.md). 
-* **Denního limitu:** při vytváření prostředek Application Insights z portálu Azure, to je nastavena na 500 GB a den. Výchozí hodnota při vytváření prostředek Application Insights v sadě Visual Studio je malý (pouze 32,3 MB/den), který je určen pouze k testování faciliate. V takovém případě je určena, bude uživatel vyvolat denního limitu před nasazením aplikace do produkčního prostředí. Maximální hodnota je 500 GB a den, pokud požadujete vyšší maximum pro intenzivní provoz aplikace. Použít pozor při nastavování denního limitu podle vašich představ by měla být **nikdy k volání denního limitu**, protože se pak dojít ke ztrátě dat pro zbytek dne a nebude možné do monitorování vaší aplikace. Chcete ho změnit, použijte okno cap denní svazku odkazované z okna Správa objem dat (viz níže). Všimněte si, že některé typy předplatného mají kreditu, který nelze použít pro službu Application Insights. Pokud předplatné má limitu útraty a automaticky, bude se okně denního limitu mít pokyny jak ho odebrat a povolit denního limitu má být aktivována nad rámec 32,3 MB a den.  
+* **Denního limitu:** při vytváření prostředek Application Insights z portálu Azure, to je nastavena na 100 GB a den. Výchozí hodnota při vytváření prostředek Application Insights v sadě Visual Studio je malý (pouze 32,3 MB/den), který je určen pouze k testování faciliate. V takovém případě je určena, bude uživatel vyvolat denního limitu před nasazením aplikace do produkčního prostředí. Maximální hodnota je 1 000 GB a den, pokud požadujete vyšší maximum pro intenzivní provoz aplikace. Použít pozor při nastavování denního limitu podle vašich představ by měla být **nikdy k volání denního limitu**, protože se pak dojít ke ztrátě dat pro zbytek dne a nebude možné do monitorování vaší aplikace. Chcete ho změnit, použijte okno cap denní svazku odkazované z okna Správa objem dat (viz níže). Všimněte si, že některé typy předplatného mají kreditu, který nelze použít pro službu Application Insights. Pokud předplatné má limitu útraty a automaticky, bude se okně denního limitu mít pokyny jak ho odebrat a povolit denního limitu má být aktivována nad rámec 32,3 MB a den.  
 * **Omezení šířky pásma:** toto omezení rychlost přenosu dat do 32 kB událostí za sekundu, průměr více než 1 minuta. 
 
 

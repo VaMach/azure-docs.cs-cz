@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
-ms.reviewer: jsnow
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 01c5284a609a2246e32052985ad3a8c0475eafa5
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fb78d39b04868c9d8790bfd64147f47bdd4125c7
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrace infrastruktury Brána vzdálené plochy pomocí rozšíření serveru NPS (Network Policy Server) a Azure AD
 
@@ -76,7 +76,7 @@ Pokud chcete ručně vytvořit místní infrastruktury RDS rychle pro účely te
 **Další informace**: [nasazení vzdálené plochy s Azure rychlý start](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) a [nasazení infrastruktury základní RDS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
 ### <a name="azure-mfa-license"></a>Licence Azure MFA
-Vyžaduje se licenci pro Azure MFA, která je k dispozici prostřednictvím Azure AD Premium, Enterprise Mobility plus Security (EMS) nebo předplatné vícefaktorového ověřování. Další informace najdete v tématu [jak získat Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Pro účely testování můžete použít zkušební verzi předplatného.
+Vyžaduje se licenci pro Azure MFA, která je k dispozici prostřednictvím Azure AD Premium, Enterprise Mobility plus Security (EMS) nebo předplatné vícefaktorového ověřování. Na základě spotřeby licencí pro Azure MFA, například podle uživatele nebo na ověřování licence nejsou kompatibilní s příponou serveru NPS. Další informace najdete v tématu [jak získat Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Pro účely testování můžete použít zkušební verzi předplatného. 
 
 ### <a name="windows-server-software"></a>Software Windows serveru
 Rozšíření serveru NPS vyžaduje Windows Server 2008 R2 SP1 nebo novějším s nainstalovanou službou role NPS. Všechny kroky v této části se provádí pomocí systému Windows Server 2016.

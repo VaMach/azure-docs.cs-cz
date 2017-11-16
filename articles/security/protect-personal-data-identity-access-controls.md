@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory a služby Multi-Factor Authentication: ochrana osobních dat s ovládacími prvky identit a přístupu
 
@@ -121,23 +121,23 @@ Pokud chcete nasadit MFA v cloudu Azure, musíte nejprve povolte a potom zapnout
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>Povolení Azure a použít vícefaktorové ověřování?
 
-Pokud mají vaši uživatelé licencí, které zahrnují Azure Multi-Factor Authentication, není nic, které potřebujete udělat, aby zapnout Azure MFA. Pokud ne, musíte vytvořit poskytovatele vícefaktorového ověřování ve vašem adresáři. Postupujte přitom takto:
+Pokud mají vaši uživatelé licencí, které zahrnují Azure Multi-Factor Authentication, jednoduše muset nakonfigurovat Azure MFA na za jednotlivé uživatele nebo skupiny. 
 
-1. Vyberte **služby Active Directory** na portálu Azure classic (přihlášeni jako správce).
+![Uživatelé povolené ověřování MFA](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. Vyberte **poskytovatelé služby Multi-Factor Authentication.**
+Pokud aktuálně nemáte licencí, které budete muset projít procesem určení nejvhodnějšího typu nasazení pro váš scénář. Můžete spustit prohlížením článek s názvem [vybrat řešení pro Azure Multi-Factor Autehntication pro vás](../multi-factor-authentication/multi-factor-authentication-get-started.md). Pokud se rozhodnete, že je potřeba vytvořit aplikace Multi-Factor Authentication server. Můžete spustit pomocí následujících kroků:
 
-3. Vyberte **nový,** a potom v části **aplikační služby,** vyberte **zprostředkovatel vícefaktorového ověřování.**
+1. Vyberte **služby Active Directory** na portálu Azure (přihlášeni jako správce).
 
-4. Vyberte **rychle vytvořit.**
+2. Vyberte **MFA serveru**
 
-5. Vyplňte pole název a vyberte modelu využití (za ověření nebo za povoleného uživatele).
+3. Zadejte hodnotu časového limitu. 
 
-6. Určíte adresář, ke kterému je přiřazeno zprostředkovatele vícefaktorového ověřování.
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. Klikněte na tlačítko **Vytvořit**.
+4. Klikněte na tlačítko **uložit**
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+V tomto okně máte také možnost stažení serveru MFA. Můžete získat další podrobnosti o tom, jak upravit velikost a plánování nasazení najdete v článku [Začínáme s Azure Multi-Factor Authentication server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
 Další pokyny o tom, jak spravovat vaše zprostředkovatel vícefaktorového ověřování najdete v tématu [Začínáme s poskytovatele Azure Multi-Factor Auth.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 
@@ -158,7 +158,7 @@ Pokud chcete povolit MFA změnou stavu uživatele, postupujte takto:
 5. Zaškrtněte políčko vedle jména uživatele.
 6. Na pravé straně v části Rychlé kroky, zvolte **povolit**.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. Potvrďte výběr v místním okně, které se otevře.  Uživatelé, pro které bylo povoleno vícefaktorové ověřování vyzve k registraci při příštím přihlášení.
 

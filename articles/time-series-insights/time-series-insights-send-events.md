@@ -1,55 +1,63 @@
 ---
-title: "Odesílání událostí do prostředí Azure Time Series Insights | Dokumentace Microsoftu"
-description: "Tento kurz nabízí postup pro odesílání událostí do prostředí Time Series Insights."
-keywords: 
-services: tsi
-documentationcenter: 
+title: "Pro odeslání události do prostředí Azure časové řady Insights | Microsoft Docs"
+description: "Tento kurz vysvětluje, jak vytvořit a nakonfigurovat Centrum událostí a spustíte ukázkovou aplikaci nabízená události zobrazený v Azure časové řady přehledy."
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
-manager: jhubbard
-editor: 
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+manager: jhubbard
+editor: MarkMcGeeAtAquent
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Odesílání událostí do prostředí Time Series Insights pomocí centra událostí
-
-Tento kurz vysvětluje, jak vytvořit a nakonfigurovat centrum událostí a jak spustit ukázkovou aplikaci odesílající události. Pokud máte existující centrum událostí s událostmi ve formátu JSON, přeskočte tento kurz a zobrazte své prostředí v [Time Series Insights](https://insights.timeseries.azure.com).
+Tento článek vysvětluje, jak vytvořit a nakonfigurovat Centrum událostí a spusťte ukázkové aplikace nabízené události. Pokud máte existující centra událostí s událostmi ve formátu JSON, přeskočte tento kurz a zobrazit prostředí v [časové řady Insights](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Konfigurace centra událostí
-1. Pokud chcete vytvořit centrum událostí, postupujte podle pokynů uvedených v [dokumentaci](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) ke službě Event Hubs.
+1. Pokud chcete vytvořit centrum událostí, postupujte podle pokynů uvedených v [dokumentaci](../event-hubs/event-hubs-create.md) ke službě Event Hubs.
 
-2. Ujistěte se, že vytváříte skupinu příjemců, kterou používá výhradně váš zdroj událostí Time Series Insights.
+2. Vyhledejte **centra událostí** v panelu vyhledávání. Klikněte na tlačítko **Event Hubs** ve vráceném seznamu.
 
-  > [!IMPORTANT]
-  > Zajistěte, aby tuto skupinu příjemců nepoužívala žádná jiná služba (například úloha služby Stream Analytics nebo jiné prostředí Time Series Insights). Pokud skupinu příjemců používají další služby, bude negativně ovlivněna operace čtení pro toto prostředí i ostatní služby. Pokud jako skupinu příjemců používáte $Default, může potenciálně dojít k jejímu opakovanému použití jinými čtenáři.
+3. Vyberte Centrum událostí klepnutím na její název.
+
+4. V části **entity** v okně střední konfigurace klikněte na **Event Hubs** znovu.
+
+5. Vyberte název centra událostí, a nakonfigurovat ho.
 
   ![Výběr skupiny příjemců centra událostí](media/send-events/consumer-group.png)
 
-3. V centru událostí vytvořte zásadu MySendPolicy, která v ukázce csharp slouží k odesílání událostí.
+6. V části **entity**, vyberte **skupiny příjemců**.
+ 
+7. Ujistěte se, že vytváříte skupinu příjemců, kterou používá výhradně váš zdroj událostí Time Series Insights.
+
+   > [!IMPORTANT]
+   > Zajistěte, aby tuto skupinu příjemců nepoužívala žádná jiná služba (například úloha služby Stream Analytics nebo jiné prostředí Time Series Insights). Pokud se skupina uživatelů používají jiné služby, operace čtení negativně ovlivňovat pro toto prostředí a dalších služeb. Pokud jako skupinu příjemců používáte $Default, může potenciálně dojít k jejímu opakovanému použití jinými čtenáři.
+
+8. V části **nastavení** záhlaví, vyberte **zásady přístupu pro sdílenou složku**.
+
+9. V Centru událostí vytvořte **MySendPolicy** sloužící k odesílání událostí v ukázce csharp.
 
   ![Vyberte Zásady sdíleného přístupu a klikněte na tlačítko Přidat.](media/send-events/shared-access-policy.png)  
 
   ![Přidání nové zásady sdíleného přístupu](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Vytvoření zdroje událostí Time Series Insights
-1. Pokud jste ještě nevytvořili zdroj událostí, postupujte podle [těchto pokynů](time-series-insights-add-event-source.md) a vytvořte ho.
+1. Pokud jste ještě nevytvořili zdroj událostí, postupujte podle [těchto pokynů](time-series-insights-how-to-add-an-event-source-eventhub.md) a vytvořte ho.
 
-2. Zadejte „deviceTimestamp“ jako název vlastnosti časového razítka – tato vlastnost se v ukázce csharp používá jako časové razítko. V názvu vlastnosti časového razítka se rozlišují malá a velká písmena a při odesílání hodnot do centra událostí ve formátu JSON musí mít formát __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__. Pokud v události tato vlastnost chybí, použije se čas zařazení do fronty centra událostí.
+2. Zadejte **deviceTimestamp** jako název vlastnosti časové razítko – tato vlastnost se používá jako skutečný časové razítko v ukázce C#. V názvu vlastnosti časového razítka se rozlišují malá a velká písmena a při odesílání hodnot do centra událostí ve formátu JSON musí mít formát __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__. Pokud v události tato vlastnost chybí, použije se čas zařazení do fronty centra událostí.
 
   ![Vytvoření zdroje událostí](media/send-events/event-source-1.png)
 
 ## <a name="sample-code-to-push-events"></a>Vzorový kód pro odesílání událostí
-1. Přejděte do zásady centra událostí MySendPolicy a zkopírujte připojovací řetězec s klíčem zásady.
+1. Přejděte na zásady centra událostí s názvem **MySendPolicy**. Kopírování **připojovací řetězec** klíčem zásad.
 
   ![Zkopírování připojovacího řetězce zásady MySendPolicy](media/send-events/sample-code-connection-string.png)
 
@@ -163,6 +171,7 @@ Pole JSON se dvěma objekty JSON. Oba objekty JSON se převedou na událost.
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
+
 ### <a name="sample-3"></a>Ukázka 3
 
 #### <a name="input"></a>Vstup
@@ -235,5 +244,5 @@ Objekt JSON s vnořeným polem JSON, které obsahuje dva objekty JSON. Tento vst
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Další kroky
-
-* Zobrazení prostředí na [portálu Time Series Insights](https://insights.timeseries.azure.com)
+> [!div class="nextstepaction"]
+> [Zobrazit v Průzkumníku časové řady Statistika prostředí](https://insights.timeseries.azure.com).

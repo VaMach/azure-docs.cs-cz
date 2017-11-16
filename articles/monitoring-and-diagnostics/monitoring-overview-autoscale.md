@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 413828d79d79c181c662bc7cfb4114345de57f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Přehled automatického škálování ve virtuálních počítačích Microsoft Azure, cloudové služby a webové aplikace
 Tento článek popisuje, jaké škálování Microsoft Azure je, její výhody a jak začít používat.  
@@ -110,7 +110,7 @@ Můžete nastavit automatické škálování prostřednictvím
 | Služba | Schéma & dokumentace |
 | --- | --- |
 | Web Apps |[Škálování webové aplikace](insights-how-to-scale.md) |
-| Cloud Services |[Škálování cloudové služby](../cloud-services/cloud-services-how-to-scale.md) |
+| Cloud Services |[Škálování cloudové služby](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtuální počítače: Classic |[Škálování sady dostupnosti Classic virtuálního počítače](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtuálních počítačů: Sady škálování Windows |[Škálování virtuálního počítače nastaví v systému Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Virtuálních počítačů: Nastaví Linux škálování |[Škálování virtuálního počítače nastaví v systému Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |

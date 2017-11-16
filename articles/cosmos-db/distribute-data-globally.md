@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Jak se bude distribuovat dat globálně pomocí Azure Cosmos DB
 Azure je všudypřítomný – má globální nároků přes 30 + zeměpisné oblasti a průběžně zvětšuje. S jeho po celém světě přítomnosti jeden odlišné možnosti, které Azure nabízí pro jeho vývojáře je schopnost vytvářet, nasazovat a spravovat snadno globálně distribuované aplikace. 
@@ -40,10 +40,6 @@ Azure Cosmos DB poskytuje následující funkce, které vám umožní snadno psa
 
 ### <a id="RegionalPresence"></a>Všudypřítomná regionální přítomnosti 
 Azure je neustále rostoucí jeho zeměpisné přítomnosti tak, že převedou [nové oblasti](https://azure.microsoft.com/regions/) online. Azure Cosmos DB je k dispozici ve všech oblastech nové Azure ve výchozím nastavení. To umožňuje přidružit geografické oblasti databázový účet Azure Cosmos DB co nejrychleji Azure otevře novou oblast pro firmy.
-
-**Azure Cosmos DB je k dispozici ve všech oblastech Azure ve výchozím nastavení**
-
-![Azure DB Cosmos k dispozici na všechny oblasti Azure](./media/distribute-data-globally/azure-regions.png)
 
 ### <a id="UnlimitedRegionsPerAccount"></a>Přidružení neomezený počet oblasti s vaším účtem Azure Cosmos DB databáze
 Azure Cosmos DB umožňuje přidružit libovolný počet oblastí Azure databázový účet Azure Cosmos DB. Mimo omezení geografického vymezení (například Čína, Německo) neexistují žádná omezení počtu oblastí, které může být spojeno s vaším účtem databáze Azure Cosmos DB. Následující obrázek znázorňuje databázový účet nakonfigurován tak, aby přes 25 oblastech Azure.  
@@ -104,7 +100,7 @@ Jako služba globálně distribuovanou databázi, databázi Cosmos Azure nabíz�
 Hlavní výhoda globálně distribuované databáze služby jako databázi Cosmos Azure je na nabídku s nízkou latencí přístup k datům kdekoli v celém světě. Azure Cosmos DB nabízí zaručenou nízkou latencí v P99 pro různé operace databáze. Protokol replikace, který využívá Azure Cosmos DB zajistí, že databázové operace (v ideálním případě jak čte a zapisuje) jsou vždycky probíhá v oblasti místní pro tohoto klienta. Latence smlouvy SLA systému Azure Cosmos DB zahrnuje P99 pro čtení, zápisu (synchronně) indexované a dotazy pro různé velikosti požadavku a odpovědi. Záruky latence pro zápis zahrnují potvrzení trvanlivý většinu kvora v místním datacentru.
 
 ### <a id="LatencyAndConsistency"></a>Čekací doba na relaci s konzistence 
-Globálně distribuované služby nabízí silnou konzistenci v globálně distribuované instalační program, musí se replikovat synchronně zápisů nebo synchronní provádět mezi oblastmi čtení – rychlosti světla a spolehlivost sítě WAN stanovují, že silné konzistence má za následek vysoké latenci a nízkou dostupnost databázových operací. V rámci zaručenou nízkou latenci v P99 a 99.99 dostupnosti, proto nutné službu využívat asynchronní replikaci. Tato naopak vyžaduje službu musí také nabízí [dobře definovaný, volný konzistence choice(s)](consistency-levels.md) – slabší než silné (a nabídnout nízkou latenci a dostupnosti záruky) a v ideálním případě silnější než "případné" konzistence (do nabízí intuitivní programovací model).
+Globálně distribuované služby nabízí silnou konzistenci v globálně distribuované instalační program, musí se replikovat synchronně zápisů nebo synchronní provádět mezi oblastmi čtení – rychlosti světla a spolehlivost sítě WAN stanovují, že silné konzistence má za následek vyšší latence a databázové operace je omezená dostupnost. Proto aby nabízejí zaručit volný konzistence, nízkou latenci v P99 a 99,99 % dostupnost pro všechny účty jedné oblasti a všechny oblasti s více účty a 99.999 % číst dostupnosti pro všechny účty databáze více oblast, musí využívat službu asynchronní replikaci. Tato naopak vyžaduje službu musí také nabízí [dobře definovaný, volný konzistence choice(s)](consistency-levels.md) – slabší než silné (a nabídnout nízkou latenci a dostupnosti záruky) a v ideálním případě silnější než "případné" konzistence (do nabízí intuitivní programovací model).
 
 Azure Cosmos DB zajistí, že operace čtení není potřeba kontaktovat nad několika oblastmi k poskytování úrovně záruku konkrétní konzistence repliky. Podobně zajišťuje, že operace zápisu nejsou zablokování při data se replikuje přes všechny oblasti (tj. zápisy se asynchronně replikují přes oblasti). Pro účty databáze více oblasti jsou k dispozici více úrovních volný konzistence. 
 
@@ -117,7 +113,7 @@ K rozlišení vysokou latencí z nejsou dostupné, poskytuje Azure Cosmos DB abs
 Azure Cosmos DB neprovede můžete zvolit latence a propustnosti. Ho ctí SLA pro obě latence v P99 a poskytnout, když máte zřízenou propustnost. 
 
 ## <a id="ConsistencyGuarantees"></a>Záruky konzistence
-Když [silnou konzistenci modelu](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) je standard zlatý z programovatelnosti, přechodu na zvládnutí cenu vysokou latencí (v stabilního stavu) a ztrátu dostupnosti (při krátkodobém počet selhání). 
+Když [silnou konzistenci modelu](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) je standard zlatý z programovatelnosti, kompromisnímu zvládnutí cenu vyšší latence (v stabilního stavu) a nižší dostupnost (při krátkodobém počet selhání). 
 
 Azure Cosmos DB nabízí dobře definovaný programovací model pro vás důvod o konzistence replikovaná data. Pokud chcete povolit, můžete k vytváření aplikací s více adresami, modely konzistence vystavené Azure Cosmos DB slouží oblast na úlohách a není závislá na oblasti, ze které se zpracovávají čtení a zápisu. 
 
@@ -170,13 +166,13 @@ Azure Cosmos DB konzistence SLA zaručuje, že 100 % požadavků na čtení bude
 </table>
 
 ### <a id="ConsistencyAndAvailability"></a>Relace je konzistence s dostupností
-[Nemožností výsledek](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) z [věta CAP](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) prokáže, že je skutečně znemožňuje, aby systém zůstanou dostupné, a nabízet linearizable konzistence při krátkodobém selhání. Služba databáze musíte zvolit prohlášení CP nebo Asie a Tichomoří – CP systémy forgo dostupnosti považuje linearizable konzistence při systémy Asie forgo [linearizable konzistence](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) považuje dostupnosti. Azure Cosmos DB nikdy porušuje úroveň požadovaný konzistence, takže oficiálně je CP systému. Ale v praxi není konzistence všech nebo nic nabídky – jsou více modely dobře definovaný konzistence podél spektra konzistence mezi linearizable a případnou konzistence. V Azure DB Cosmos Pokusili jsme se identifikovat několik modelů volný konzistence s skutečných použitelnosti a intuitivní programovací model. Azure Cosmos DB přejde kompromisy konzistence dostupnosti prostřednictvím nabídky 99.99 dostupnost SLA spolu s [více zmírnit ještě dobře definované úrovně konzistence](consistency-levels.md). 
+[Nemožností výsledek](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) z [věta CAP](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) prokáže, že je skutečně znemožňuje, aby systém zůstanou dostupné, a nabízet linearizable konzistence při krátkodobém selhání. Služba databáze musíte zvolit prohlášení CP nebo Asie a Tichomoří – CP systémy forgo dostupnosti považuje linearizable konzistence při systémy Asie forgo [linearizable konzistence](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) považuje dostupnosti. Azure Cosmos DB nikdy porušuje úroveň požadovaný konzistence, takže oficiálně je CP systému. Ale v praxi není konzistence všech nebo nic nabídky – jsou více modely dobře definovaný konzistence podél spektra konzistence mezi linearizable a případnou konzistence. V Azure DB Cosmos Pokusili jsme se identifikovat několik modelů volný konzistence s skutečných použitelnosti a intuitivní programovací model. Azure Cosmos DB přejde kompromisy konzistence dostupnosti prostřednictvím nabídky [více zmírnit ještě dobře definované úrovně konzistence](consistency-levels.md) a 99,99 % dostupnost pro všechny účty jedné oblasti a všechny oblasti s více účty s zmírnit konzistence a 99.999 % číst dostupnosti pro všechny účty databáze více oblast. 
 
 ### <a id="ConsistencyAndAvailability"></a>Relace je konzistence s latencí
 Komplexnější varianta CAP byl navržený Prof. ADAM Abadi a se nazývá [PACELC](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf), který také účty pro latenci a konzistence kompromisy v stabilního stavu. Uvádí, že v stabilního stavu, musí databáze systému zvolte mezi konzistencí a latenci. S více modely volný konzistence (zálohován asynchronní replikaci a místní pro čtení, zápisu kvor) Azure Cosmos DB zajišťuje, že všechny čtení a zápisu jsou místní vzhledem k čtení a zápisu oblasti v uvedeném pořadí.  To umožňuje Cosmos databáze Azure nabízí nízkou latencí zaručuje v rámci oblasti pro úrovně konzistence.  
 
 ### <a id="ConsistencyAndThroughput"></a>Relace je konzistence s propustností
-Vzhledem k tomu, že implementace model konkrétní konzistence závisí na výběr [kvora typ](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), propustnost také se liší podle volba konzistence. Například v Azure Cosmos DB, propustnost s důrazně konzistentní čtení je přibližně polovinu na který nakonec byl konzistentní čtení. 
+Vzhledem k tomu, že implementace model konkrétní konzistence závisí na výběr [kvora typ](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), propustnost také se liší podle volba konzistence. Například v Azure Cosmos DB, je zdarma RU pro důrazně konzistentní čtení zhruba double, že z nakonec byl konzistentní čte. V takovém případě bude muset zřídit double RUs na kolekce k dosažení stejné propustnosti.
  
 **Vztah čtení kapacity pro konkrétní konzistence úrovně v Azure Cosmos DB**
 
@@ -207,7 +203,7 @@ Stejné jako [konzistence na vztah s propustností](#ConsistencyAndThroughput).
 Azure Cosmos DB i nadále udržovat jeho dostupnost při provedení změn propustnosti. Azure Cosmos DB transparentně spravuje oddíly (například rozdělení, sloučení, operace klonování) a zajistí, že operace není snížit výkon nebo dostupnost, zatímco pružně zvyšuje nebo snižuje propustnost aplikace. 
 
 ## <a id="AvailabilityGuarantees"></a>Záruky dostupnosti
-Azure Cosmos DB nabízí s dostupností 99,99 % dostupnost SLA pro každou z dat a řízení operací roviny. Jak je popsáno výše, zahrnují záruky dostupnosti Azure Cosmos DB absolutní horní mez na latenci pro každé operace roviny dat a řízení. Záruky dostupnosti jsou steadfast a nemění se číslo oblasti nebo zeměpisné vzdálenost mezi oblastmi. Záruky dostupnosti použít s ruční jak, automatické převzetí služeb při selhání. Azure Cosmos DB nabízí transparentní více funkci rozhraní API, která zajistěte, aby vaše aplikace umožňuje práci s logické koncových bodů a může transparentně směrovat požadavky pro novou oblast v případě převzetí služeb při selhání. Jinak PUT, vaše aplikace není nutné znovu nasadit na místní převzetí služeb při selhání a jsou zachována dostupnost SLA.
+Azure Cosmos DB nabízí 99,99 % dostupnost SLA pro všechny účty jedné oblasti a všechny oblasti s více účty s volný konzistence a 99.999 % číst dostupnosti pro všechny účty databáze více oblast. Jak je popsáno výše, zahrnují záruky dostupnosti Azure Cosmos DB absolutní horní mez na latenci pro každé operace roviny dat a řízení. Záruky dostupnosti jsou steadfast a nemění se číslo oblasti nebo zeměpisné vzdálenost mezi oblastmi. Záruky dostupnosti použít s ruční jak, automatické převzetí služeb při selhání. Azure Cosmos DB nabízí transparentní více funkci rozhraní API, která zajistěte, aby vaše aplikace umožňuje práci s logické koncových bodů a může transparentně směrovat požadavky pro novou oblast v případě převzetí služeb při selhání. Jinak PUT, vaše aplikace není nutné znovu nasadit na místní převzetí služeb při selhání a jsou zachována dostupnost SLA.
 
 ### <a id="AvailabilityAndConsistency"></a>Relace na dostupnosti s konzistence, latence a propustnosti
 Relace na dostupnosti s konzistence, latence a propustnosti je popsaná v [konzistence na vztah s dostupností](#ConsistencyAndAvailability), [na latenci vztah s dostupností](#LatencyAndAvailability) a [Propustnosti na vztah s dostupností](#ThroughputAndAvailability). 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a13a5777161ab18840501d7d7e1d52192c22315
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure SDK Cosmos DB Node.js: Poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
@@ -60,6 +60,14 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Poznámky k verzi
+
+### <a name="1.14.0"/>1.14.0</a>
+* Přidává podporu pro konzistence typu relace.
+* Tato verze sady SDK vyžaduje nejnovější verze emulátoru DB Cosmos Azure k dispozici ke stažení https://aka.ms/cosmosdb-emulator.
+
+### <a name="1.13.0"/>1.13.0</a>
+* Splitproofed různé dotazy oddílu.
+* Přidá podporuje pro prostředek odkaz s úvodní a koncové lomítka (a odpovídající testů).
 
 ### <a name="1.12.2"/>1.12.2</a>
 *   dokumentace npm pevné.
@@ -177,6 +185,8 @@ Každá žádost o pomocí Cosmos DB, že je vyřazeno SDK odmítnuta službou.
 
 | Verze | Datum vydání | Datum vyřazení |
 | --- | --- | --- |
+| [1.14.0](#1.14.0) |9 listopadu 2017 |--- |
+| [1.13.0](#1.13.0) |11 říjen 2017 |--- |
 | [1.12.2](#1.12.2) |10. srpnu 2017 |--- |
 | [1.12.1](#1.12.1) |10. srpnu 2017 |--- |
 | [1.12.0](#1.12.0) |10. května 2017 |--- |

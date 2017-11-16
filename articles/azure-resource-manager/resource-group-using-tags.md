@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: e695cb375492c163350bcd7bfcb1dbdbc3f3c48f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d18f5f9e75cd815b7f9622498f16624cf375d6bd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Používání značek k uspořádání prostředků Azure
 
@@ -149,7 +149,7 @@ Když si stáhnete použití sdíleného svazku clusteru pro služby, které pod
 
 ## <a name="next-steps"></a>Další kroky
 
-* Pomocí vlastních zásad, můžete použít omezení a pravidla týkající se vašeho předplatného. Zásady, které definujete může vyžadovat, že všechny prostředky obsahovat hodnotu pro konkrétní značku. Další informace najdete v tématu [použití zásad ke správě prostředků a řízení přístupu](resource-manager-policy.md).
+* Pomocí vlastních zásad, můžete použít omezení a pravidla týkající se vašeho předplatného. Zásady, které definujete může vyžadovat, že všechny prostředky obsahovat hodnotu pro konkrétní značku. Další informace najdete v tématu [co je Azure zásad?](../azure-policy/azure-policy-introduction.md).
 * Úvod do pomocí Azure PowerShell, pokud nasazujete prostředky, najdete v části [použití Azure Powershellu s Azure Resource Manager](powershell-azure-resource-manager.md).
 * Úvod do používání rozhraní příkazového řádku Azure, pokud nasazujete prostředky, najdete v části [pomocí rozhraní příkazového řádku Azure CLI pro Mac, Linux a Windows pomocí Azure Resource Manageru](xplat-cli-azure-resource-manager.md).
 * Úvod do portálu, najdete v části [použití portálu Azure ke správě prostředků Azure](resource-group-portal.md).  

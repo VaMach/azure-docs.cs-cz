@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Jak spravovat cloudové služby
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-manage-portal.md)
-> * [Portál Azure Classic](cloud-services-how-to-manage.md)
->
->
-
 V **cloudové služby (klasické)** oblasti Azure portálu, můžete aktualizovat roli služby nebo nasazení, zvýšení úrovně dvoufázového nasazení do produkčního prostředí, prostředky propojit cloudové služby, aby mohli zobrazit závislosti prostředků a škálování prostředky společně a odstraňte cloudovou službu nebo nasazení.
 
 Další informace o tom, jak škálování cloudové služby jsou k dispozici [zde](cloud-services-how-to-scale-portal.md).

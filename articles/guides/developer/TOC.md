@@ -107,7 +107,7 @@
 ## [Fakturace](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Zdroje
-## [Omezení a kvóty Azure](../../azure-subscription-service-limits.md)
+## [Omezení a kvóty Azure](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Oblasti Azure](https://azure.microsoft.com/regions/)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [ Cenová kalkulačka](https://azure.microsoft.com/pricing/calculator/)

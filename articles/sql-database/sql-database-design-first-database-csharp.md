@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: genemi
-ms.openlocfilehash: 7d6c1ca0f48974f8a7d839b23f71d43bfeb400ba
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1e13a9a89873b189e1ea05c0208e7c8646881655
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Návrh Azure SQL database a připojení s C & #x23; a ADO.NET
 
-Databáze SQL Azure je relační databáze jako a služba (DBaaS) v cloudu Microsoftu ("Azure"). V tomto kurzu můžete další informace o použití portálu Azure a ADO.NET pomocí sady Visual Studio: 
+Databáze SQL Azure je relační databáze jako a služba (DBaaS) v Microsoft cloudu (Azure). V tomto kurzu můžete další informace o použití portálu Azure a ADO.NET pomocí sady Visual Studio: 
 
 > [!div class="checklist"]
 > * Vytvoření databáze na portálu Azure

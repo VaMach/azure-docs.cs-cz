@@ -29,7 +29,7 @@ V Bash, existující sdílené složky zobrazí bitovou kopii 5 GB, abyste mohli
 ![Nastavení skupiny prostředků](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
 ### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Omezit vytvoření prostředku zásadami prostředků Azure.
-Účty úložiště, které vytvoříte v prostředí cloudu jsou označené `ms-resource-usage:azure-cloud-shell`. Pokud chcete zakázat uživatelům ve vytváření účtů úložiště v prostředí cloudu, vytvořte [zásad prostředků Azure pro značky](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) jsou aktivovány tato konkrétní značka.
+Účty úložiště, které vytvoříte v prostředí cloudu jsou označené `ms-resource-usage:azure-cloud-shell`. Pokud chcete zakázat uživatelům ve vytváření účtů úložiště v prostředí cloudu, vytvořte [zásad prostředků Azure pro značky](../articles/azure-policy/json-samples.md) jsou aktivovány tato konkrétní značka.
 
 ## <a name="supported-storage-regions"></a>Oblasti podporované úložiště
 Související úložiště Azure, které účty se musí nacházet ve stejné oblasti jako počítač cloudové prostředí, které jste jim připojení.

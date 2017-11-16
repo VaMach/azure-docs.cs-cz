@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Připojení k Kafka v HDInsight (preview) přes virtuální síť Azure
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Připojení k Kafka v HDInsight pomocí virtuální sítě Azure
 
 Zjistěte, jak k přímému připojení k Kafka v HDInsight prostřednictvím virtuální síti Azure. Tento dokument obsahuje informace o připojení k Kafka pomocí následující konfigurace:
 
@@ -32,7 +32,7 @@ Zjistěte, jak k přímému připojení k Kafka v HDInsight prostřednictvím vi
 
 HDInsight neumožňuje přímé připojení k Kafka prostřednictvím veřejného Internetu. Místo toho Kafka klientů (producenti a spotřebitelé) musí používat jednu z následujících metod připojení:
 
-* Spustíte klienta ve stejné virtuální síti jako Kafka v HDInsight. Tato konfigurace se používá v [začínat Apache Kafka (preview) na HDInsight](apache-kafka-get-started.md) dokumentu. Klient spouští přímo na uzlech clusteru HDInsight nebo na jiný virtuální počítač ve stejné síti.
+* Spustíte klienta ve stejné virtuální síti jako Kafka v HDInsight. Tato konfigurace se používá v [začínat Apache Kafka v HDInsight](apache-kafka-get-started.md) dokumentu. Klient spouští přímo na uzlech clusteru HDInsight nebo na jiný virtuální počítač ve stejné síti.
 
 * Privátní síti, například v místní síti připojte k virtuální síti. Tato konfigurace umožňuje klientům ve vaší místní síti pracovat přímo s Kafka. Chcete-li tuto konfiguraci, proveďte následující úlohy:
 
@@ -74,7 +74,7 @@ Pomocí těchto kroků vytvoříte následující konfiguraci:
 * Azure Virtual Network
 * Brána Site-to-site VPN
 * Účet služby Azure Storage (používá se v prostředí HDInsight)
-* Kafka v HDInsight
+* Kafka v HDInsightu
 
 Pokud chcete ověřit, že klient Kafka se může připojit ke clusteru z místního, použijte kroky v [příklad: klienta Python](#python-client) části.
 
@@ -85,7 +85,7 @@ Postupujte podle kroků v této části vytvořit následující konfiguraci:
 * Azure Virtual Network
 * Brána sítě VPN Point-to-site
 * Účet služby Azure Storage (používá se v prostředí HDInsight)
-* Kafka v HDInsight
+* Kafka v HDInsightu
 
 1. Postupujte podle kroků v [práce s certifikáty podepsané svým držitelem pro připojení Point-to-site](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) dokumentu. Tento dokument vytvoří certifikáty potřebné pro bránu.
 

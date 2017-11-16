@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ebf63cd6d0f9e62d1001d74ce06b4849e08c0de0
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopírování dat do indexu Azure Search pomocí Azure Data Factory
 
@@ -51,7 +51,7 @@ Pro službu Azure Search propojené jsou podporovány následující vlastnosti:
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 > [!IMPORTANT]
-> Při kopírování dat z cloudu jiného úložiště dat do indexu Azure Search, ve službě Azure Search propojená služba, budete muset odkazovat modul Runtime integrace Azure pomocí explicitní oblast v connactVia. Nastavte oblasti jako ten, který se nachází Azure Search. Další informace z [Runtime integrace Azure] (koncepty. integrace runtime.md #azure integrace runtime).
+> Při kopírování dat z cloudu jiného úložiště dat do indexu Azure Search, ve službě Azure Search propojená služba, budete muset odkazovat modul Runtime integrace Azure pomocí explicitní oblast v connactVia. Nastavte oblasti jako ten, který se nachází Azure Search. Další informace z [Runtime integrace Azure](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Příklad:**
 

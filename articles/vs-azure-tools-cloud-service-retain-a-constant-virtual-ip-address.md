@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.openlocfilehash: a76bcba5ab4ca8e1a4899e4aa28f734c09af2aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96c4ed88db5e24f439825aee5afe457a1e8c81d7
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Zachovat konstantní virtuální IP adresy pro cloudové služby Azure
-Při aktualizaci Cloudová služba, která je hostovaná v Azure, musíte může zajistit, že virtuální adresy IP (VIP) služby nemění. Mnoho služby domény pro použití v systému DNS (Domain Name) pro registraci názvů domén. DNS funguje pouze v případě, že virtuální IP adresa zůstala stejná. Můžete použít **Průvodci publikováním** v nástroje Azure k zajištění, že VIP cloudové služby nezmění. když ho aktualizujete. Další informace o tom, jak používat správu domény DNS pro cloudové služby najdete v tématu [konfigurace vlastního názvu domény pro cloudové služby Azure](cloud-services/cloud-services-custom-domain-name.md).
+Při aktualizaci Cloudová služba, která je hostovaná v Azure, musíte může zajistit, že virtuální adresy IP (VIP) služby nemění. Mnoho služby domény pro použití v systému DNS (Domain Name) pro registraci názvů domén. DNS funguje pouze v případě, že virtuální IP adresa zůstala stejná. Můžete použít **Průvodci publikováním** v nástroje Azure k zajištění, že VIP cloudové služby nezmění. když ho aktualizujete. Další informace o tom, jak používat správu domény DNS pro cloudové služby najdete v tématu [konfigurace vlastního názvu domény pro cloudové služby Azure](cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="publish-a-cloud-service-without-changing-its-vip"></a>Publikování Cloudová služba beze změny jeho VIP
 Virtuální IP adresu cloudové služby je přidělen při první jeho nasazení do Azure v konkrétní prostředí, například v provozním prostředí. Virtuální IP adresa změní jenom v případě explicitně odstranit nasazení nebo nasazení je implicitně odstraní proces nasazení aktualizace. Uchovat virtuální IP adresu, nesmí odstraňte nasazení, a ujistěte se, že Visual Studio automaticky neodstraní vaše nasazení. 

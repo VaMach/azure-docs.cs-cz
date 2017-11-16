@@ -14,11 +14,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 2023fa7b318f9f76ce1e1ea0a46110297be9a001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd703feb7bf5af765fc3a5448464499aa7b48d6a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Použít příkaz prostředí Azure PowerShell k vytvoření kontejner prázdný cloudové služby
 Tento článek vysvětluje, jak rychle vytvořit kontejner cloudové služby pomocí rutin prostředí Azure PowerShell. Postupujte podle následujících kroků:
@@ -50,5 +50,5 @@ Get-help New-AzureService
 ```
 
 ### <a name="next-steps"></a>Další kroky
-* Ke správě nasazení cloudové služby, naleznete [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx), a [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) příkazy. Můžete také použít odkaz na [postup konfigurace cloudové služby](cloud-services-how-to-configure.md) Další informace.
+* Ke správě nasazení cloudové služby, naleznete [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx), a [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) příkazy. Můžete také použít odkaz na [postup konfigurace cloudové služby](cloud-services-how-to-configure-portal.md) Další informace.
 * Publikovat projekt cloudové služby Azure, najdete v tématu **PublishCloudService.ps1** ukázka kódu z [nastavené průběžné doručování pro cloudové služby v Azure](cloud-services-dotnet-continuous-delivery.md).

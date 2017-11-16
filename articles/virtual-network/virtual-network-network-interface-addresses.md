@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c309c7c25a3ed75e96dec8046934530e24890f38
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Přidat, změnit nebo odebrat IP adresy pro rozhraní sítě Azure
 
@@ -52,7 +52,7 @@ Můžete přidat jako mnoho [privátní](#private) a [veřejné](#public) [IPv4]
     |---|---|---|
     |Name (Název)|Ano|Musí být jedinečný pro síťové rozhraní|
     |Typ|Ano|Vzhledem k tomu, že přidáváte konfiguraci IP adres do existujícího síťového rozhraní, a musí mít každé síťové rozhraní [primární](#primary) je jedinou možností konfigurace protokolu IP, **sekundární**.|
-    |Způsob přiřazení privátní IP adresy|Ano|[**Dynamické** ](#dynamic) adresy se mohou změnit, pokud restartování virtuálního počítače poté, co bylo v zastaveném stavu (deallocated). Azure přiřadí dostupnou adresu z adresního prostoru podsítě síťové rozhraní je připojený k. [**Statické** ](#static) adresy nejsou vydané až do odstranění síťové rozhraní. Zadejte IP adresu z rozsahu adres místo podsítě, který aktuálně není používán jinou konfiguraci protokolu IP.|
+    |Způsob přiřazení privátní IP adresy|Ano|[**Dynamické**](#dynamic): Azure přiřadí další dostupnou adresu pro síťové rozhraní je nasazena v rozsah adres podsítě. [**Statické**](#static): přiřaďte nepoužívané adresy pro síťové rozhraní je nasazena v rozsah adres podsítě.|
     |Veřejná IP adresa|Ne|**Zakázáno:** žádný prostředek veřejné IP adresy je aktuálně přidružené ke konfiguraci IP adresy. **Povoleno:** vyberte existující veřejnou IP adresu IPv4 adresu, nebo vytvořte novou. Naučte se vytvořit veřejnou IP adresu, přečtěte si téma [veřejné IP adresy](virtual-network-public-ip-address.md#create-a-public-ip-address) článku.|
 7. Ručně pomocí pokynů v přidat sekundární soukromé IP adresy do operačního systému virtuálního počítače [přiřadit více IP adres pro virtuální počítač operační systémy](virtual-network-multiple-ip-addresses-portal.md#os-config) článku. V tématu [privátní](#private) IP adresy pro zvláštní situace před ruční přidání IP adres do operačního systému virtuálního počítače. Všechny veřejné IP adresy, nepřidávejte do operačního systému virtuálního počítače.
 
@@ -133,7 +133,7 @@ Následující typy IP adresy, které můžete přiřadit [konfigurace protokolu
 
 Privátní [IPv4](#ipv4) adresy povolit virtuální počítač ke komunikaci s další prostředky ve virtuální síti nebo jiné připojených sítích. Virtuální počítač nelze oznamovat příchozí k ani může virtuální počítač komunikovat s privátního odchozí [IPv6](#ipv6) adresu s jednou výjimkou. Virtuální počítač může komunikovat s nástrojem pro vyrovnávání zatížení Azure pomocí adresy IPv6. Další informace najdete v tématu [podrobnosti a omezení pro protokol IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations). 
 
-Ve výchozím nastavení, servery Azure DHCP přiřadit privátní adresa IPv4 pro [primární konfiguraci IP adresy](#primary) síťového rozhraní na rozhraní sítě v rámci operačního systému virtuálního počítače. Pokud není nezbytné, měli byste nastavit nikdy ručně IP adresu síťového rozhraní v rámci operačního systému virtuálního počítače. 
+Ve výchozím nastavení, servery Azure DHCP přiřadit privátní adresa IPv4 pro [primární konfiguraci IP adresy](#primary) Azure síťového rozhraní na rozhraní sítě v rámci operačního systému virtuálního počítače. Pokud není nezbytné, měli byste nastavit nikdy ručně IP adresu síťového rozhraní v rámci operačního systému virtuálního počítače. 
 
 > [!WARNING]
 > Pokud adresu IPv4 nastavit jako primární IP adresa síťového rozhraní v rámci operačního systému virtuálního počítače je někdy liší od privátní adresa IPv4, které jsou přiřazené k primární konfiguraci IP primární síťové rozhraní připojen k virtuálnímu počítači v rámci Azure ztratíte připojení k virtuálnímu počítači.
@@ -143,33 +143,39 @@ Existují scénáře, kdy je nutné ručně nastavit IP adresu síťového rozhr
 1. Chcete-li zajistěte, aby byl že virtuální počítač je přijetí adresy ze serverů Azure DHCP, změnit přiřazení IP adresy zpět na serveru DHCP v operačním systému a restartování virtuálního počítače.
 2. Zastavit (zrušit přidělení) virtuálního počítače.
 3. Změna IP adresy pro konfiguraci protokolu IP v rámci Azure.
-4. Umožňuje spustit virtuální počítač.
+4. Spuštění virtuálního počítače.
 5. [Ruční konfigurace](virtual-network-multiple-ip-addresses-portal.md#os-config) sekundární IP adresy v rámci operačního systému (a také primární IP adresu v systému Windows) tak, aby odpovídaly nastavení v rámci Azure.
  
 Podle předchozího postupu, přiřazené k síťovému rozhraní v rámci Azure a v rámci operačního systému virtuálního počítače, privátní IP adresy zůstávají stejné. Ke sledování virtuálních počítačů v rámci vašeho předplatného, které jste nastavili ručně IP adresy v rámci operačního systému pro, zvažte přidání Azure [značky](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) k virtuálním počítačům. Můžete použít "přiřazení IP adresy: statické", např. Tímto způsobem, budete moci snadno najít virtuální počítače v rámci vašeho předplatného, které jste ručně nastavení IP adresy v operačním systému.
 
-Kromě povolení komunikovat s jiným prostředkům v rámci stejné, nebo připojené virtuální sítě virtuálního počítače, privátní IP adresu taky umožňuje virtuálnímu počítači komunikovat odchozí k Internetu. Odchozí připojení se zdrojovou adresu sítě přeložit v Azure nepředvídatelným veřejné IP adresy. Další informace o Azure odchozí připojení k Internetu, přečtěte si [Azure odchozí připojení k Internetu](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) článku. Nemůžete komunikovat příchozí privátní IP adresu virtuálního počítače z Internetu.
+Kromě povolení komunikovat s jiným prostředkům v rámci stejné, nebo připojené virtuální sítě virtuálního počítače, privátní IP adresu taky umožňuje virtuálnímu počítači komunikovat odchozí k Internetu. Odchozí připojení se zdrojovou adresu sítě přeložit v Azure nepředvídatelným veřejné IP adresy. Další informace o Azure odchozí připojení k Internetu, přečtěte si [Azure odchozí připojení k Internetu](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) článku. Nemůžete komunikovat příchozí privátní IP adresu virtuálního počítače z Internetu. Pokud váš odchozí připojení vyžadují předvídatelnou veřejnou IP adresu, přidružte prostředek veřejné IP adresy pro síťové rozhraní.
 
 ### <a name="public"></a>Veřejné
 
-Veřejné IP adresy povolit příchozí připojení k virtuálnímu počítači z Internetu. Odchozí připojení k Internetu používat předvídatelný IP adresu. V tématu [pochopení odchozí připojení v Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) podrobnosti. Může přiřadit konfiguraci IP adres veřejnou IP adresu, ale nejsou potřeba. Pokud nepřiřadíte veřejnou IP adresu pro virtuální počítač, může stále komunikovat odchozí k Internetu pomocí jeho privátní IP adresy. Další informace o veřejné IP adresy, přečtěte si [veřejnou IP adresu](virtual-network-public-ip-address.md) článku.
+Veřejné IP adresy přiřazené prostřednictvím prostředek veřejné IP adresy povolit příchozí připojení k virtuálnímu počítači z Internetu. Odchozí připojení k Internetu používat předvídatelný IP adresu. V tématu [pochopení odchozí připojení v Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) podrobnosti. Může přiřadit konfiguraci IP adres veřejnou IP adresu, ale nejsou potřeba. Pokud nepřiřadíte veřejnou IP adresu do virtuálního počítače tím, že přidružíte prostředek veřejné IP adresy, virtuálního počítače může komunikovat stále odchozí k Internetu. V takovém případě privátní IP adresa je adresa sítě zdroj přeložit v Azure nepředvídatelným veřejné IP adresy. Další informace o veřejné IP adresy prostředky, najdete v části [prostředek veřejné IP adresy](virtual-network-public-ip-address.md).
 
 Existují omezení počtu privátní a veřejné IP adresy, které můžete přiřadit k síťovému rozhraní. Informace najdete [Azure omezuje](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) článku.
 
 > [!NOTE]
-> Azure znamená, že virtuální počítač privátní IP adresu na veřejnou IP adresu. V důsledku toho je operační systém ne všechny veřejné IP adresy přiřazené, a proto není nutné někdy ručně přiřadit veřejnou IP adresu v operačním systému.
+> Azure znamená, že virtuální počítač privátní IP adresu na veřejnou IP adresu. V důsledku toho je operačního systému virtuálního počítače neví, všechny veřejné IP adresy přiřazené, a proto není nutné někdy ručně přiřadit veřejnou IP adresu v operačním systému.
 
 ## <a name="assignment-methods"></a>Přiřazení metody
 
-Veřejné a privátní IP adresy se přiřazují pomocí následujících metod přiřazení:
+Veřejné a privátní IP adresy se přiřazují pomocí jedné z následujících metod přiřazení:
 
 ### <a name="dynamic"></a>Dynamická
 
-Dynamické privátní IPv4 a IPv6 (volitelně) adresy přiřazené ve výchozím nastavení. Dynamické adresy se mohou změnit, pokud virtuální počítač je uvést do stavu ukončeno (deallocated) a pak spustit. Pokud nechcete, aby adresy IPv4, chcete-li změnit dobu životnosti virtuálního počítače, přiřaďte mu statickou metodou adresy. Lze přiřadit pouze s privátní adresou IPv6 pomocí metody dynamického přiřazení. Nelze přiřadit veřejnou adresu IPv6 pro konfiguraci IP adres pomocí obou těchto metod.
+Dynamické privátní IPv4 a IPv6 (volitelně) adresy přiřazené ve výchozím nastavení. 
+
+- **Pouze veřejné**: Azure přiřadí adresou z rozsahu jedinečný pro každé oblasti Azure. Další informace, které rozsahy jsou přiřazeny pro každou oblast, najdete v části [rozsahy IP Datacentra Azure Microsoft](https://www.microsoft.com/download/details.aspx?id=41653). Pokud je virtuální počítač zastaven (deallocated), pak spustit znovu, můžete změnit adresu. Pro konfiguraci IP adres pomocí metody přiřazení nelze přiřadit veřejnou adresu IPv6.
+- **Privátní pouze**: Azure si vyhrazuje první čtyři adres v každé rozsah adres podsítě a není přiřadit adresy. Azure přiřadí prostředek další dostupnou adresu z rozsahu adres podsítě. Například, pokud je rozsah adres podsítě 10.0.0.0/16 a 10.0.0.0.4-10.0.0.14 adresy jsou již přiřazena (.0.3 jsou vyhrazené), Azure přiřadí 10.0.0.15 k prostředku. Dynamické je výchozí metodou přidělení. Po přiřazení, dynamické IP adresy vydávají pouze pokud je odstranit síťové rozhraní, přiřazeny do jiné podsítě v rámci stejné virtuální síti, nebo metoda přidělení se změní na statické, a jinou IP adresu. Ve výchozím nastavení Azure přiřadí adresu předchozí dynamicky přiřadit jako statickou adresu když změníte metoda přidělení dynamické na statické. Lze přiřadit pouze s privátní adresou IPv6 pomocí metody dynamického přiřazení.
 
 ### <a name="static"></a>Statická
 
-Adresy přiřazené statické způsobem neměňte až do odstranění virtuálního počítače. Ručně přiřadit statickou privátní IPv4 adresu, na konfiguraci IP adres z adresního prostoru podsítě síťové rozhraní je v. Veřejné nebo soukromé statickou IPv4 adresu (volitelně) můžete přiřadit konfiguraci IP adres. Nelze přiřadit statická adresa IPv6 veřejných nebo privátních pro konfiguraci IP adres. Další informace o tom, jak Azure přiřadí statické veřejné adresy IPv4, najdete v článku [veřejnou IP adresu](virtual-network-public-ip-address.md) článku.
+Veřejné nebo soukromé statickou IPv4 adresu (volitelně) můžete přiřadit konfiguraci IP adres. Nelze přiřadit statická adresa IPv6 veřejných nebo privátních pro konfiguraci IP adres. Další informace o tom, jak Azure přiřadí statické veřejné adresy IPv4, najdete v článku [veřejnou IP adresu](virtual-network-public-ip-address.md) článku.
+
+- **Pouze veřejné**: Azure přiřadí adresou z rozsahu jedinečný pro každé oblasti Azure. Další informace, které rozsahy jsou přiřazeny pro každou oblast, najdete v části [rozsahy IP Datacentra Azure Microsoft](https://www.microsoft.com/download/details.aspx?id=41653). Adresu nemění příliš dlouho, dokud prostředek veřejné adresy IP, které je přiřazena k odstranění nebo metodu přiřazení se změní na dynamický. Pokud prostředek veřejné IP adresy je přidružena ke konfiguraci IP adres, musí být oddělit z konfigurace IP před změnou metoda jeho přiřazení.
+- **Privátní pouze**: vyberte a přiřadit adresu z rozsahu adres podsíti. Adresa, kterou přiřadíte může být libovolná adresa v rámci rozsah adres podsítě, který není jedním z první čtyři adresy v rozsahu adres podsítě a není aktuálně přiřazen jiný prostředek v podsíti. Statické adresy vydávají pouze pokud je odstranit síťové rozhraní. Pokud změníte metoda přidělení statický, Azure přiřadí dynamicky dříve přiřadit statickou IP adresu jako dynamické adresy, i v případě, že adresa není další dostupnou adresu v rozsahu adres podsíti. Adresu také změní, pokud síťové rozhraní je přiřazena k jiné podsíti v rámci stejné virtuální síti, ale pokud chcete přiřadit síťové rozhraní k jiné podsíti, musíte nejdřív změnit metodu přidělení ze statické na dynamický. Jakmile síťové rozhraní jste přiřazen k jiné podsíti, můžete změnit metoda přidělení zpět na statické a přiřadit IP adresu z rozsahu adres novou podsíť.
 
 ## <a name="ip-address-versions"></a>Verze IP adres
 

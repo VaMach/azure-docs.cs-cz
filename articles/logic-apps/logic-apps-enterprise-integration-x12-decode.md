@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9605fc3a1096d053bfeffb2544499935601b2c0f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Dekódovat X12 zprávy pro Azure Logic Apps s Enterprise integračního balíčku
 
@@ -65,6 +65,16 @@ Tady je položky, které budete potřebovat:
     Například:
 
     ![Vyberte X12 s plochou zpráva souboru pro dekódování](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+
+   > [!NOTE]
+   > Zpráva skutečný obsah nebo datové části pro pole zpráv dobrý nebo špatná, je zakódovaný pomocí base64. Ano je nutné zadat výraz, který zpracovává tento obsah.
+   > Tady je příklad, který zpracovává obsah ve formátu XML, které můžete zadat v zobrazení kódu nebo pomocí Tvůrce výrazů v návrháři.
+   > ``` json
+   > "content": "@xml(base64ToBinary(item()?['Payload']))"
+   > ```
+   > ![Příklad obsahu](media/logic-apps-enterprise-integration-x12-decode/content-example.png)
+   >
+
 
 ## <a name="x12-decode-details"></a>X12 dekódovat podrobnosti
 

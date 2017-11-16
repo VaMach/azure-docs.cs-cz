@@ -1,5 +1,5 @@
 ---
-title: "Kubernertes na kurz pro Azure – Příprava ACR | Microsoft Docs"
+title: "Kubernetes na kurz pro Azure – Příprava ACR | Microsoft Docs"
 description: "Kurz AKS – Příprava ACR"
 services: container-service
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fabfbe51f9486c69d795b04bd668b50971157820
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Nasazení a používání Azure kontejneru registru
 
@@ -32,13 +32,13 @@ Azure kontejneru registru (ACR) je založené na Azure, privátní registru, pro
 > * Označování bitovou kopii kontejner pro ACR
 > * Nahrávání bitovou kopii do ACR
 
-V následujících kurzech této instance ACR je integrovaná do clusteru s podporou Kubernetes v AKS. 
+V následujících kurzech této instance ACR je integrovaná do clusteru s podporou Kubernetes v AKS.
 
 ## <a name="before-you-begin"></a>Než začnete
 
 V [předchozí kurzu](./tutorial-kubernetes-prepare-app.md), bitovou kopii kontejner byl vytvořen pro jednoduchou aplikaci Azure hlasování. Pokud jste ještě nevytvořili obrázek aplikace Azure hlasování, vrátit [kurzu 1 – Vytvoření kontejneru image](./tutorial-kubernetes-prepare-app.md).
 
-Tento kurz vyžaduje, že používáte Azure CLI verze 2.0.20 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI]( /cli/azure/install-azure-cli). 
+Tento kurz vyžaduje, že používáte Azure CLI verze 2.0.21 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Nasadit kontejner Azure registru
 
@@ -117,7 +117,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Push bitové kopie do registru.
 
-Push `azure-vote-front` bitovou kopii do registru. 
+Push `azure-vote-front` bitovou kopii do registru.
 
 Pomocí následujícího příkladu, nahraďte název ACR loginServer loginServer ze svého prostředí.
 

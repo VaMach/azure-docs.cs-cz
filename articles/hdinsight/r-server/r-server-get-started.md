@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e584a9adb75510c92fc2a25b657f55df88372e6b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9a941ce5c6f0989749c5a6db4348757f898a46f1
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Začínáme používat R Server ve službě HDInsight
 
@@ -784,6 +784,5 @@ Pokud narazíte na problémy s vytvářením clusterů HDInsight, podívejte se 
 
 Nyní byste měli chápat, jak vytvořit nový cluster HDInsight obsahující R Server, a rozumět základům používání konzoly R z relace SSH. Následující témata popisují další způsoby správy a práce s R Serverem ve službě HDInsight:
 
-* [Přidání RStudio Serveru do služby HDInsight (pokud nebyl nainstalován během vytváření clusteru)](r-server-install-r-studio.md)
 * [Možnosti výpočetního kontextu pro R Server ve službě HDInsight](r-server-compute-contexts.md)
 * [Možnosti služby Azure Storage pro R Server ve službě HDInsight](r-server-storage.md)

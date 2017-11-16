@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 5783101e48fa31e3248f65eb5806ccde33a83d5e
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 652719a80133434ecb31c00738dcda261cfa0683
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Apache Spark streamování (DStream) příklad s Kafka (preview) v HDInsight
+# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark streamování (DStream) příklad s Kafka v HDInsight
 
 Další informace o použití Spark Apache Spark na datový proud dat do nebo z Apache Kafka v HDInsight pomocí DStreams. Tento příklad používá poznámkového bloku Jupyter, která běží na clusteru Spark.
 > [!NOTE]
@@ -43,9 +43,9 @@ Když vytvoříte virtuální síť Azure, Kafka, a clustery Spark ručně, je j
 
 1. Na následující tlačítko použijte pro přihlášení do Azure a otevřete šablonu na portálu Azure.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Šablona Azure Resource Manager je umístěna ve **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v2.1.json**.
+    Šablona Azure Resource Manager je umístěna ve **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**.
 
     > [!WARNING]
     > Pokud chcete zajistit dostupnost Kafka v HDInsightu, musí cluster obsahovat aspoň tři pracovní uzly. Tato šablona vytvoří cluster Kafka, který obsahuje tři uzly pracovního procesu.
@@ -60,7 +60,7 @@ Když vytvoříte virtuální síť Azure, Kafka, a clustery Spark ručně, je j
 
     * **Umístění**: Vyberte umístění geograficky blízko vás.
 
-    * **Základní název clusteru**: Tato hodnota se používá jako základní název pro Spark a Kafka clusterů. Například zadáním **hdi** vytvoří Spark clusteru s názvem spark hdi__ a Kafka clusteru s názvem **kafka hdi**.
+    * **Základní název clusteru**: Tato hodnota se používá jako základní název pro Spark a Kafka clusterů. Například zadáním **hdi** vytvoří cluster Spark s názvem __spark hdi__ a Kafka clusteru s názvem **kafka hdi**.
 
     * **Uživatelské jméno přihlášení clusteru**: uživatelské jméno správce pro clustery Spark a Kafka.
 

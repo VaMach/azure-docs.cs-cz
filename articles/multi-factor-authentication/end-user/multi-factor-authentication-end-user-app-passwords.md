@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 4f343b4d4b5cb3c8be9605e9ab43200072b193e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c10a636b81751074f219682fec79ffe9f648a2c8
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Co jsou hesla aplikací v Azure Multi-Factor Authentication?
 Některé neprohlížečové aplikace, jako je například klienta Apple nativní e-mailu, který používá protokolu Exchange Active Sync, aktuálně nepodporují službu Multi-Factor authentication. Služba Multi-Factor authentication je povoleno podle uživatelů. To znamená, že pokud uživatel povolen pro službu Multi-Factor authentication a že se pokoušíte použít neprohlížečové aplikace, nebude možné provést. Heslo aplikace umožňuje tuto funkci používat.

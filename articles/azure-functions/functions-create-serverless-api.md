@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Vytvoření bez serveru API pomocí Azure Functions
 
@@ -67,7 +67,7 @@ V dalším kroku funkci nevidíte práce s novou plochy rozhraní API otestujte.
 
 ## <a name="proxies-overview"></a>Přehled proxy
 
-V další části bude surface vaše rozhraní API prostřednictvím proxy serveru. Azure proxy funkce je funkce preview, která umožňuje předat požadavky na jiné prostředky. Můžete definovat koncový bod HTTP stejně jako s triggeru protokolu HTTP, ale místo psaní kódu pro spuštění, kdy se nazývá tohoto koncového bodu, zadejte adresu URL vzdálené implementaci. Umožňuje vytvořit více zdrojů rozhraní API do jednoho plochy rozhraní API, který je snadno klientům využívat. To je zvlášť užitečné, pokud chcete vytvořit rozhraní API jako mikroslužeb.
+V další části bude surface vaše rozhraní API prostřednictvím proxy serveru. Azure proxy funkce umožňuje předat požadavky na jiné prostředky. Můžete definovat koncový bod HTTP stejně jako s triggeru protokolu HTTP, ale místo psaní kódu pro spuštění, kdy se nazývá tohoto koncového bodu, zadejte adresu URL vzdálené implementaci. Umožňuje vytvořit více zdrojů rozhraní API do jednoho plochy rozhraní API, který je snadno klientům využívat. To je zvlášť užitečné, pokud chcete vytvořit rozhraní API jako mikroslužeb.
 
 Proxy server může ukazovat na jakémukoli prostředku, HTTP, jako například:
 - Funkce Azure 
@@ -75,7 +75,7 @@ Proxy server může ukazovat na jakémukoli prostředku, HTTP, jako například:
 - Kontejnery docker v [služby App Service v systému Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Další hostovaným rozhraním API
 
-Další informace o proxy najdete v tématu [práce s funkcí proxy Azure (preview)].
+Další informace o proxy najdete v tématu [práce s Azure funkce proxy].
 
 ## <a name="create-your-first-proxy"></a>Vytvoření vašeho prvního proxy
 
@@ -97,7 +97,7 @@ Opakováním kroků [vytvořit aplikaci function app](https://docs.microsoft.com
 ### <a name="creating-a-proxy-on-the-frontend"></a>Vytváření proxy server na front-endu
 
 1. Přejděte zpět do aplikace front-endu funkce na portálu.
-1. V levém navigačním panelu, klikněte na symbol plus '+' vedle "Proxy (preview)".
+1. V levém navigačním panelu, klikněte na symbol plus '+' vedle "Proxy".
     ![Vytváření proxy server](./media/functions-create-serverless-api/creating-proxy.png)
 1. Použijte nastavení proxy serveru specifikovaný v tabulce. 
 
@@ -187,9 +187,9 @@ V tomto kurzu jste zjistili, jak vytvářet a přizpůsobit rozhraní API na Azu
 Následující odkazy mohou být užitečné, když budete vyvíjet další rozhraní API:
 
 - [Azure funkce protokolu HTTP a webhooku vazby](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [práce s funkcí proxy Azure (preview)]
+- [práce s Azure funkce proxy]
 - [Dokumentace rozhraní API funkce Azure (preview)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[práce s funkcí proxy Azure (preview)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[práce s Azure funkce proxy]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

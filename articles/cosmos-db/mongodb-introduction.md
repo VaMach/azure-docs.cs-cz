@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: anhoh
-ms.openlocfilehash: 4dbf91a3c1d6a287d7337647f9e059566c7ddbe5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca720f365a00070afd2a657829f5b108ab91fb9
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Úvod do Azure Cosmos DB: rozhraní API pro MongoDB
 
@@ -27,24 +27,23 @@ ms.lasthandoff: 10/11/2017
 
 ![Azure Cosmos DB: MongoDB rozhraní API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
-Cosmos DB databází lze použít jako úložiště dat pro aplikace napsané pro [MongoDB](https://docs.mongodb.com/manual/introduction/). To znamená, že pomocí stávající [ovladače](https://docs.mongodb.org/ecosystem/drivers/), vaše aplikace napsané pro MongoDB teď můžete komunikovat s Cosmos DB a používat Cosmos DB databáze místo databáze MongoDB. V mnoha případech můžete přepínat pomocí MongoDB do databáze Cosmos jednoduše změnou připojovací řetězec. Pomocí této funkce lze snadno vytvářet a spouštět aplikace databázi MongoDB ve službě Azure cloud s globální distribuční databázi Cosmos Azure a [komplexní špičkové SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db), nadále používat známé dovednosti a nástroje pro MongoDB.
+Azure Cosmos DB databází lze použít jako úložiště dat pro aplikace napsané pro [MongoDB](https://docs.mongodb.com/manual/introduction/). Tato funkce znamená, že pomocí stávající [ovladače](https://docs.mongodb.org/ecosystem/drivers/), vaše aplikace napsané pro MongoDB teď můžete komunikovat s Azure Cosmos DB a používat Azure Cosmos DB databáze místo databáze MongoDB. V mnoha případech můžete přepínat pomocí MongoDB k databázi Azure Cosmos jednoduše změnou připojovací řetězec. Pomocí této funkce lze snadno vytvářet a spouštět aplikace databázi MongoDB ve službě Azure cloud s globální distribuční databázi Cosmos Azure a [komplexní SLA špičkový](https://azure.microsoft.com/support/legal/sla/cosmos-db), nadále používat známé dovednosti a nástroje pro MongoDB.
 
+**Kompatibilita MongoDB**: Azure Cosmos DB implementuje protokol přenosová MongoDB 3.4 (verze 5) a podporuje můžete použít existující MongoDB znalosti, kód aplikace a nástrojů [MongoDB agregace kanálu](mongodb-feature-support.md#aggregation-pipeline). Můžete vyvíjet aplikace, které používají MongoDB a nasadit je na produkčním prostředí pomocí plně spravovaná a globálně distribuované služby Azure Cosmos DB.
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Co je výhodou používání Azure Cosmos DB pro MongoDB aplikace?
 
-**Elasticky škálovatelná propustnost a úložiště:** snadno škálovat nahoru nebo dolů databázi MongoDB splňovala potřeby vaší aplikace. Data se ukládají na discích SSD (solid-state drive), které nabízí nízkou a předvídatelnou latenci. Cosmos DB podporuje MongoDB kolekce, které je možné škálovat na prakticky neomezené velikosti úložiště a zřízené propustnosti. Je možné Elasticky škálovat Cosmos DB s předvídatelným výkonem bezproblémově růstem vaší aplikace. 
+**Elasticky škálovatelná propustnost a úložiště:** splňují vaše aplikace potřebuje pomocí snadno škálování nahoru nebo dolů, databázi MongoDB. Data se ukládají na discích SSD (SSD) pro nízkou a předvídatelnou latenci. Azure Cosmos DB podporuje MongoDB kolekce, které je možné škálovat na prakticky neomezené velikosti úložiště a zřízené propustnosti. S růstem vaší aplikace je možné službu Azure Cosmos DB bezproblémově elasticky škálovat s předvídatelným výkonem. 
 
-**Replikace více oblast:** Cosmos DB transparentně replikuje data do všech oblastí, které jste spojené s vaším účtem MongoDB umožňuje vyvíjet aplikace, které vyžadují globální přístup k datům při současném poskytování kompromisy mezi konzistence, dostupnosti a výkonu, všechny s odpovídající záruky. Cosmos DB poskytuje transparentní regionální převzetí služeb při selhání s více funkci rozhraní API a možnost Elasticky škálovat propustnost a úložiště po celém světě. Další informace v [distribuci dat globálně](distribute-data-globally.md).
+**Replikace více oblast:** Azure Cosmos DB transparentně replikuje data do všech oblastí, které jste spojené s vaším účtem MongoDB umožňuje vyvíjet aplikace, které vyžadují globální přístup k datům při současném poskytování kompromisy mezi konzistence, dostupnosti a výkonu, všechny s odpovídající záruky. Azure Cosmos DB poskytuje transparentní regionální převzetí služeb při selhání se souběžnou instalací rozhraní API a schopností elastického škálování propustnosti a úložiště po celém světě. Další informace v [distribuci dat globálně](distribute-data-globally.md).
 
-**Kompatibilita MongoDB**: můžete použít existující MongoDB znalosti, kód aplikace a nástrojů. Můžete vyvíjet aplikace, které používají MongoDB a nasadit je do produkčního prostředí pomocí plně spravovaná globálně distribuované služby Cosmos DB.
+**Žádný server správy**: Nemáte ke správě a škálovat vaše databáze MongoDB. Azure Cosmos DB je plně spravovaná služba, což znamená, že nemusíte spravovat všechny infrastruktury nebo virtuální počítače sami. Je k dispozici v 30 + Azure Cosmos DB [oblasti Azure](https://azure.microsoft.com/regions/services/).
 
-**Žádný server správy**: Nemáte ke správě a škálovat vaše databáze MongoDB. Cosmos DB je plně spravovaná služba, což znamená, že nemusíte spravovat všechny infrastruktury nebo virtuální počítače sami. Je k dispozici v 30 + cosmos DB [oblasti Azure](https://azure.microsoft.com/regions/services/).
+**Přizpůsobitelné úrovně konzistence:** vyberte z pěti dobře definované úrovně konzistence pro dosažení optimálního poměru mezi konzistencí a výkonem. Pro dotazy a operace čtení nabízí služba Azure Cosmos DB pět různých úrovní konzistence: silná, omezená neaktuálnost, relace, konzistentní předpona a konečný výsledek. Tyto podrobné, dobře definované úrovně konzistence umožňují zvolit vhodný poměr mezi konzistencí, dostupností a latencí. Další informace najdete v tématu popisujícím [využití úrovní konzistence pro maximalizaci dostupnosti a výkonu](consistency-levels.md).
 
-**Přizpůsobitelné úrovně konzistence:** Pro dosažení optimálního poměru mezi konzistencí a výkonem si můžete vybrat z pěti jasně definovaných úrovní konzistence. Pro dotazy a operace čtení Cosmos DB nabízí pět úrovně konzistence: silnou, s ohraničenou odolností, založenou relace, konzistentní Předpona a případnou. Tyto podrobné, dobře definované úrovně konzistence umožňují zvolit vhodný poměr mezi konzistencí, dostupností a latencí. Další informace najdete v tématu popisujícím [využití úrovní konzistence pro maximalizaci dostupnosti a výkonu](consistency-levels.md).
+**Automatické indexování**: ve výchozím nastavení, Azure Cosmos DB automaticky indexuje všechny vlastnosti v rámci dokumenty ve vaší MongoDB databáze a nemá očekávat nebo nevyžaduje žádné schéma nebo vytváření sekundárních indexů. Kromě toho funkce jedinečný index umožňuje omezení jedinečnosti na všechna pole dokumentu, které už jsou indexované automaticky v Azure Cosmos DB.
 
-**Automatické indexování**: ve výchozím nastavení, Cosmos DB automaticky indexuje všechny vlastnosti v rámci dokumenty ve vaší MongoDB databáze a nemá očekávat nebo nevyžaduje žádné schéma nebo vytváření sekundárních indexů.
-
-**Podnikové úrovni** -Azure Cosmos DB podporuje více místní repliky k poskytování 99,99 % dostupnost a ochranu dat při krátkodobém místní a regionální selhání. Azure Cosmos DB má podnikové úrovni [dodržování předpisů certifikace](https://www.microsoft.com/trustcenter) a funkce zabezpečení. 
+**Podnikové úrovni**: Azure Cosmos DB podporuje více místní repliky k poskytování 99,99 % dostupnost a ochranu dat při krátkodobém místní a regionální selhání. Azure Cosmos DB má podnikové úrovni [dodržování předpisů certifikace](https://www.microsoft.com/trustcenter) a funkce zabezpečení. 
 
 Další informace v této Azure videa s Scott Hanselman a Azure Cosmos DB hlavní inženýrství manažer Kirill Gavrylyuk pátek.
 
@@ -53,7 +52,7 @@ Další informace v této Azure videa s Scott Hanselman a Azure Cosmos DB hlavn�
 
 ## <a name="how-to-get-started"></a>Jak začít
 
-Postupujte podle quickstarts MongoDB vytvořit účet Cosmos DB a migrovat stávající aplikace Mongo DB pomocí Cosmos DB nebo vytvořit nový:
+Postupujte podle quickstarts MongoDB k vytvoření účtu Azure Cosmos DB a migrovat stávající aplikace MongoDB pomocí Azure Cosmos DB nebo vytvořit nový:
 
 * [Migrovat stávající webovou aplikaci Node.js MongoDB](create-mongodb-nodejs.md).
 * [Vytvoření webové aplikace MongoDB API pomocí rozhraní .NET a portálu Azure](create-mongodb-dotnet.md)

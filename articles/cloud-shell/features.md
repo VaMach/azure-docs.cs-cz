@@ -1,5 +1,5 @@
 ---
-title: "Bash funkcí prostředí cloudu Azure (Preview) | Microsoft Docs"
+title: "Bash v prostředí cloudu Azure funkce | Microsoft Docs"
 description: "Přehled funkcí Bash v prostředí cloudu Azure"
 services: Azure
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 23faadc38fde75d4c83361465fdacc76d42d7523
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 79c3f376c2800e2ce9123c31af6e1aa2aacfcf00
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funkce a nástroje pro Bash v prostředí cloudu Azure
 
@@ -53,13 +53,13 @@ Soubory mimo `$Home` a stav počítače nejsou trvalé napříč relacemi.
 |Kategorie   |Name (Název)   |
 |---|---|
 |Nástroje pro Linux            |Bash<br> Zo<br> tmux<br> dig<br>               |
-|Nástroje Azure            |[Rozhraní příkazového řádku Azure 2.0](https://github.com/Azure/azure-cli) a [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br>    |
+|Nástroje Azure            |[Rozhraní příkazového řádku Azure 2.0](https://github.com/Azure/azure-cli) a [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
 |Textové editory           |VIM<br> nano<br> EMACS       |
 |Správa zdrojového kódu         |Git                    |
 |Nástroje sestavení            |Ujistěte se<br> maven<br> npm<br> PIP         |
 |Kontejnery             |[Rozhraní příkazového řádku dockeru](https://github.com/docker/cli)/[počítač Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [ROZHRANÍ PŘÍKAZOVÉHO ŘÁDKU DC/OS](https://github.com/dcos/dcos-cli)         |
 |Databáze              |MySQL klienta<br> PostgreSql klienta<br> [Nástroj SQLCMD](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [Tvůrce MSSQL skriptů](https://github.com/Microsoft/sql-xplat-cli) |
-|Ostatní                  |iPython klienta<br> [Cloud Foundry rozhraní příkazového řádku](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> |
+|Ostatní                  |iPython klienta<br> [Cloud Foundry rozhraní příkazového řádku](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)|
 
 ## <a name="language-support"></a>Podpora jazyků
 

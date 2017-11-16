@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 28d97d65d2671f7af2cd3b29ea65ae053d5e8122
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – známé problémy a Průvodce odstraňováním potíží s 
 Tento článek vám pomůže najít a opravy chyb nebo selhání došlo jako součást pomocí aplikace Azure Machine Learning Workbench. 
@@ -85,7 +85,11 @@ Když pracujete v Azure ML Workbench, můžete také odeslat nám zamračeného 
 - Knihovna RevoScalePy je podporována pouze v systému Windows a Linux (v kontejnerech Docker). Není podporována v systému macOS.
 
 ## <a name="cant-update-workbench"></a>Nelze aktualizovat Workbench
-Když je k dispozici nové aktualizace, domovskou stránku aplikace Workbench zobrazí zprávu informující o nové aktualizace. Měli byste vidět aktualizaci oznámení "BADGE" zobrazovaných v levém dolním rohu aplikace na ikonu zvonku. Klikněte na oznámení "BADGE" a postupujte podle pokynů Průvodce instalační program pro instalaci aktualizace. Pokud se nezobrazí oznámení, pokuste se restartovat aplikaci. Pokud stále nevidíte oznámení o aktualizaci po restartování, může být několik příčin.
+Když je k dispozici nové aktualizace, domovskou stránku aplikace Workbench zobrazí zprávu informující o nové aktualizace. Měli byste vidět aktualizaci oznámení "BADGE" zobrazovaných v levém dolním rohu aplikace na ikonu zvonku. Klikněte na oznámení "BADGE" a postupujte podle pokynů Průvodce instalační program pro instalaci aktualizace. 
+
+![aktualizace image](./media/known-issues-and-troubleshooting-guide/update.png)
+
+Pokud se nezobrazí oznámení, pokuste se restartovat aplikaci. Pokud stále nevidíte oznámení o aktualizaci po restartování, může být několik příčin.
 
 ### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Jsou spuštění Workbench z definovaného zástupce na hlavním panelu
 Možná jste již nainstalovali aktualizace. Ale vaše připnuté zástupce stále odkazuje na staré bitů na disku. Můžete to ověřit procházením `%localappdata%/AmlWorkbench` složku a zda máte nainstalovanou existuje nejnovější verzi a zkontrolujte vlastnost definovaného zástupce zobrazíte, kde bude ukazovat na. Pokud se ověřit, stačí odstranit staré zástupce, spusťte Workbench z nabídky Start a volitelně vytvořte nový definovaného zástupce odkazující na hlavním panelu úloh.

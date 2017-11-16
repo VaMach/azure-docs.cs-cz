@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3d58ba0985d7a5bb302028254be0951859b79dbb
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Vytvoření první aplikace Service Fabric typu kontejner v systému Windows
 > [!div class="op_single_selector"]
@@ -325,7 +325,7 @@ Aplikace je připravena, když je ve stavu ```Ready```: ![Připraveno][2]
 Otevřete prohlížeč a přejděte na adresu http://containercluster.westus2.cloudapp.azure.com:8081. V prohlížeči by se měl zobrazit nadpis „Hello World!“.
 
 ## <a name="clean-up"></a>Vyčištění
-Za spuštěný cluster se vám stále účtují poplatky, proto zvažte [odstranění clusteru](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party clustery](http://tryazureservicefabric.westus.cloudapp.azure.com/) se automaticky odstraní po několika hodinách.
+Za spuštěný cluster se vám stále účtují poplatky, proto zvažte [odstranění clusteru](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party clustery](https://try.servicefabric.azure.com/) se automaticky odstraní po několika hodinách.
 
 Po nahrání image do registru kontejneru můžete odstranit místní image z vývojového počítače:
 

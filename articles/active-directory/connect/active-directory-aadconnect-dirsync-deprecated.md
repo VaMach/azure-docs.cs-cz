@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3674670e10500d2992539ab60fbdb31b666fcf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 104c2f087a38b3fe006ede4c4d6d283336c3511c
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Upgrade systému Windows Azure Active Directory Sync a Azure Active Directory Sync.
-Azure AD Connect je nejlepší způsob, jak propojit místní adresář s Azure AD a Office 365. Teď je nejvhodnější doba pro upgrade na Azure AD Connect z Azure Active Directory Sync (DirSync) nebo Azure AD Sync pro Windows, protože tyto nástroje jsou už zastaralé a jejich podpora skončí 13. dubna 2017.
+Azure AD Connect je nejlepší způsob, jak propojit místní adresář s Azure AD a Office 365. Toto je nejvhodnější doba pro upgrade na Azure AD Connect z Windows Azure Active Directory Sync (DirSync) nebo Azure AD Sync, jak tyto nástroje jsou už zastaralé a již nejsou podporovány od 13. dubna 2017.
 
-Nástrojů pro synchronizaci dvě identity, které jsou zastaralé byly nabízeny pro zákazníky s jednou doménovou strukturou (DirSync) a pro více doménovými strukturami a další pokročilé zákazníků (Azure AD Sync). Tyto starší nástroje nahradil jeden řešení, které je k dispozici ve všech scénářích: Azure AD Connect. Nabízí nové funkce, nové funkce a vylepšení a podporu pro nové scénáře. Abyste mohli pokračovat v synchronizaci dat místní identity do služby Azure AD a Office 365, důrazně doporučujeme upgradovat na Azure AD Connect.
+Nástrojů pro synchronizaci dvě identity, které jsou zastaralé byly nabízeny pro zákazníky s jednou doménovou strukturou (DirSync) a pro více doménovými strukturami a další pokročilé zákazníků (Azure AD Sync). Tyto starší nástroje nahradil jeden řešení, které je k dispozici ve všech scénářích: Azure AD Connect. Nabízí nové funkce, nové funkce a vylepšení a podporu pro nové scénáře. Abyste mohli pokračovat v synchronizaci dat místní identity do služby Azure AD a Office 365, důrazně doporučujeme upgradovat na Azure AD Connect. Společnost Microsoft nezaručuje tyto starší verze fungovat po 31. prosince 2017.
 
 Poslední verzi nástroje DirSync byla vydána v červenec 2014 a poslední verzi Azure AD Sync byla vydaná v květnu 2015.
 

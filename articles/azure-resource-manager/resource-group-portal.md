@@ -12,26 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 7a94fd5065de93384460e851627a9813d439956b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-resources-through-portal"></a>Spravovat prostředky prostřednictvím portálu Azure
-> [!div class="op_single_selector"]
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
-> * [Azure Portal](resource-group-portal.md) 
-> * [REST API](resource-manager-rest-api.md)
-> 
-> 
 
-Toto téma ukazuje, jak používat [portál Azure](https://portal.azure.com) s [Azure Resource Manager](resource-group-overview.md) ke správě prostředků Azure. Další informace o nasazení prostředků prostřednictvím portálu najdete v tématu [nasazení prostředků pomocí šablony Resource Manageru a portálu Azure](resource-group-template-deploy-portal.md).
-
-Ne všechny služby v současné době podporuje portál nebo Resource Manager. Pro tyto služby, budete muset použít [portálu classic](https://manage.windowsazure.com). Stav jednotlivých služeb, naleznete v části [Azure portálu dostupnosti grafu](https://azure.microsoft.com/features/azure-portal/availability/).
+Tento článek ukazuje, jak používat [portál Azure](https://portal.azure.com) s [Azure Resource Manager](resource-group-overview.md) ke správě prostředků Azure. Další informace o nasazení prostředků prostřednictvím portálu najdete v tématu [nasazení prostředků pomocí šablony Resource Manageru a portálu Azure](resource-group-template-deploy-portal.md).
 
 ## <a name="manage-resource-groups"></a>Správa skupin prostředků
 
@@ -58,7 +49,7 @@ Skupina prostředků ukládá metadata o prostředcích. Při zadávání umíst
    
     ![Přidání sloupců](./media/resource-group-portal/add-columns.png)
 7. Další informace o nasazování prostředků do nové skupiny prostředků najdete v tématu [nasazení prostředků pomocí šablony Resource Manageru a portálu Azure](resource-group-template-deploy-portal.md).
-8. Pro rychlý přístup do skupiny prostředků můžete Připnout okno na řídicí panel.
+8. Pro rychlý přístup do skupiny prostředků budete moct připnout na řídicí panel skupině prostředků.
    
     ![Skupina prostředků PIN kódu](./media/resource-group-portal/pin-group.png)
 9. Řídicí panel zobrazuje skupina prostředků a její prostředky. Můžete vybrat buď skupiny prostředků, nebo kterýkoli z jeho prostředků a přejděte k položce.
@@ -71,12 +62,12 @@ Značky můžete použít pro skupiny prostředků a prostředky logicky uspoř�
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="monitor-resources"></a>Sledování prostředků
-Když vyberete prostředku, v okně prostředků uvede výchozí grafů a tabulek pro monitorování tohoto typu prostředku.
+Když vyberete prostředek, uvede portálu výchozí grafů a tabulek pro monitorování tohoto typu prostředku.
 
 1. Vyberte prostředek a upozornění **monitorování** části. Obsahuje grafy, které jsou relevantní pro typ prostředku. Následující obrázek znázorňuje výchozí sledování dat pro účet úložiště.
    
     ![zobrazení monitorování](./media/resource-group-portal/show-monitoring.png)
-2. Oddíl v okně můžete připnout na řídicí panel tak, že vyberete se třemi tečkami (...) výše v části. Můžete také přizpůsobit velikost oddílu v okně nebo ji úplně odebrat. Následující obrázek ukazuje, jak připnout, upravit nebo odebrat oddíl procesoru a paměti.
+2. Oddíl můžete připnout na řídicí panel tak, že vyberete se třemi tečkami (...) výše v části. Můžete také přizpůsobit velikost části nebo ji úplně odebrat. Následující obrázek ukazuje, jak připnout, upravit nebo odebrat oddíl procesoru a paměti.
    
     ![části kódu PIN](./media/resource-group-portal/pin-cpu-section.png)
 3. Po Připnutí části řídicího panelu, zobrazí se souhrn na řídicím panelu. A okamžitě ji vyberete přejdete na další informace o datech.
@@ -92,7 +83,7 @@ Když vyberete prostředku, v okně prostředků uvede výchozí grafů a tabule
      Další informace o práci s řídicích panelů najdete v tématu [sdílení řídicích panelů na portálu Azure a vytvoření](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="manage-resources"></a>Správa prostředků
-V okně prostředku najdete v části Možnosti pro správu prostředku. Na portálu uvede možnosti správy pro tuto konkrétní typ prostředku. Příkazy pro správu zobrazí v horní části okna prostředků a na levé straně.
+Při zobrazení prostředku na portálu, zobrazí se možnosti pro správu danému zdroji.
 
 ![Správa prostředků](./media/resource-group-portal/manage-resources.png)
 
@@ -111,7 +102,7 @@ Můžete zobrazit informace o předplatného a náklady na zahrnuté pro všechn
 
 ![předplatné](./media/resource-group-portal/select-subscription.png)
 
-V okně předplatného najdete v části pracovní tempo.
+Pracovní tempo zobrazí.
 
 ![rychlost zápisu](./media/resource-group-portal/burn-rate.png)
 
@@ -128,7 +119,7 @@ Po nastavení vaší skupiny prostředků, můžete zobrazit šablony Resource M
 Podrobné pokyny najdete v tématu [šablony exportovat Azure Resource Manageru ze stávajících prostředků](resource-manager-export-template.md).
 
 ## <a name="delete-resource-group-or-resources"></a>Odstranit skupinu prostředků nebo prostředky
-Odstranění skupiny prostředků se odstraní všechny prostředky, které jsou v něm obsažena. Můžete také odstranit jednotlivé prostředky ve skupině prostředků. Chcete postupujte opatrně při odstranění skupiny prostředků vzhledem k tomu může být prostředky další skupiny zdrojů, které jsou propojeny s ho. Správce prostředků nedojde k odstranění propojené prostředky, ale nemusí správně fungovat bez očekávané prostředků.
+Odstranění skupiny prostředků se odstraní všechny prostředky, které jsou v něm obsažena. Můžete také odstranit jednotlivé prostředky ve skupině prostředků. Buďte opatrní při odstranění skupiny prostředků. Této skupiny prostředků může obsahovat prostředky, které jsou závislé na prostředcích v jiné skupině prostředků.
 
 ![Odstranění skupiny](./media/resource-group-portal/delete-group.png)
 

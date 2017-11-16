@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sprint-1---november-2017"></a>1 - listopadu 2017 úbytek sprintu 
+# <a name="sprint-1---november-2017"></a>Sprint 1 – listopad 2017 
 
 **Číslo verze: 0.1.1710.31013**
 
@@ -122,7 +122,7 @@ Níže je seznam podrobné aktualizací v oblasti Azure Machine Learning v této
 
 ### <a name="operationalization"></a>Operationalization
 - Webové služby s "skóre" v jeho název už se nezdaří.
-- Uživatel nyní můžete vytvořit nasazení prostředí s jenom vlastník přístup do skupiny prostředků Azure. Vlastník přístup k celé předplatné již není potřeba.
+- Uživatel nyní můžete vytvořit prostředí nasazení právě Přispěvatel přístup k skupinu prostředků Azure nebo předplatné. Vlastník přístup k celé předplatné již není potřeba.
 - Operationalization CLI nyní požívá karta Automatické dokončování v systému Linux.
 - Služba vytváření bitové kopie teď podporuje vytváření bitové kopie pro služby nebo zařízení Azure IoT.
 

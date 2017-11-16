@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 763248b1b7adf821d37f2308195a0934a0aee152
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="reset-your-work-or-school-password"></a>Resetovat heslo pracovního nebo školního účtu
 
@@ -95,6 +95,27 @@ Tuto metodu použijte, pokud obvykle přistupujete k aplikacím z portálu Azure
 3. Klikněte na**Změnit heslo**.
 4. Zadejte staré heslo, nastavte a potvrďte nové heslo a klikněte na **Odeslat**.
 
+## <a name="reset-password-at-login"></a>Resetovat heslo při přihlášení
+
+Pokud správce povolil funkci může nyní zobrazí odkaz na **resetovat heslo** na přihlašovací obrazovka Windows 10 patří Creators Update.
+
+![LoginScreen][LoginScreen]
+
+Kliknutím **resetovat heslo** odkaz se otevře SSPR prostředí na přihlašovací obrazovku tak, aby mohli resetovat heslo bez nutnosti přihlásit k normální prostředí založené na webu.
+
+1. Potvrďte své ID uživatele a klikněte na **další**
+2. Zvolte a potvrďte kontaktní metodu pro ověření. Pracovníci IT může potřebovat další ověření a možná budete muset opakovat tento krok opakujte s jinou možnost.
+
+   ![ContactMethod][ContactMethod]
+
+3. Na **vytvořit nové heslo** stránky, zadejte nové heslo, potvrďte heslo a pak klikněte na tlačítko **Další**. Doporučujeme, abyste pro své heslo použili 8–16 znaků, mezi nimiž budou velká a malá písmena, číslice a speciální znaky.
+
+   ![ResetPassword][ResetPassword]
+
+4. Až se zobrazí **vaše heslo bylo resetováno**, klikněte na tlačítko **dokončit**
+
+Teď byste měli mít přístup ke svému účtu. Pokud ne, měli byste požádat o pomoc pracovníky IT vaší organizace.
+
 ## <a name="common-problems-and-their-solutions"></a>Běžné problémy a jejich řešení
 
  Zde jsou některé běžné případy chyba a jejich řešení:
@@ -116,3 +137,6 @@ Tuto metodu použijte, pokud obvykle přistupujete k aplikacím z portálu Azure
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Ověření ověřovacích dat"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Změna hesla"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Vaše heslo bylo resetováno"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 patří Creators Update přihlašovací obrazovky resetování hesla odkaz"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Ověření ověřovacích dat"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Změna hesla"

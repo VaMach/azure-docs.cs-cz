@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/15/2017
 ms.author: maroche
-ms.openlocfilehash: 1f637acffdbf31f6c69124282f50dc5830ad9f5b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Podporované zdroje dat v Azure Data Catalog
 
@@ -42,32 +42,32 @@ Metadata můžete publikovat pomocí veřejné rozhraní API nebo klikněte na-j
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Soubor Azure Data Lake Store</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Azure Blob Storage</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Adresář úložiště Azure</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulky Azure Storage</td>
@@ -75,10 +75,10 @@ Metadata můžete publikovat pomocí veřejné rozhraní API nebo klikněte na-j
       <td>✓</td>
       <td>✓</td>
       <td>
-        <font size="2"></font>
+        <font size="2">
       </td>
       <td>
-        <font size="2"></font>
+        <font size="2">
       </td>
     </tr>
     <tr>
@@ -86,364 +86,364 @@ Metadata můžete publikovat pomocí veřejné rozhraní API nebo klikněte na-j
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>HDFS souboru</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulku Hive</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Zobrazení Hive</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulka MySQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Aplikace Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Aplikace Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Zobrazení MySQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Aplikace Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Aplikace Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulka databáze Oracle</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Aplikace Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Aplikace Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Zobrazení databáze Oracle</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Aplikace Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Aplikace Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Jiné (Obecné asset)</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulky Azure SQL Data Warehouse</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Nástroje aplikace Excel, Power BI, SQL Server data tools</font></td>
-      <td><font size=2></font></td>
+      <td>Nástroje aplikace Excel, Power BI Desktop, SQL Server data tools</td>
+      <td></td>
     </tr>
     <tr>
       <td>Zobrazení SQL Data Warehouse</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Nástroje aplikace Excel, Power BI, SQL Server data tools</font></td>
-      <td><font size=2></font></td>
+      <td>Nástroje aplikace Excel, Power BI Desktop, SQL Server data tools</td>
+      <td></td>
     </tr>
     <tr>
       <td>Dimenze služby SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Aplikace Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Aplikace Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services klíčového ukazatele výkonu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Aplikace Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Aplikace Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Míra SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Aplikace Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Aplikace Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulky SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Aplikace Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Aplikace Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Sestavy služby SQL Server Reporting Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Prohlížeč</font></td>
-      <td><font size=2>Pouze servery v nativním režimu. Režim serveru SharePoint není podporována.</font></td>
+      <td>Prohlížeč</td>
+      <td>Pouze servery v nativním režimu. Režim serveru SharePoint není podporována.</td>
     </tr>
     <tr>
       <td>Tabulka systému SQL Server</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Nástroje aplikace Excel, Power BI, SQL Server data tools</font></td>
-      <td><font size=2></font></td>
+      <td>Nástroje aplikace Excel, Power BI Desktop, SQL Server data tools</td>
+      <td></td>
     </tr>
     <tr>
       <td>Zobrazení systému SQL Server</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Nástroje aplikace Excel, Power BI, SQL Server data tools</font></td>
-      <td><font size=2></font></td>
+      <td>Nástroje aplikace Excel, Power BI Desktop, SQL Server data tools</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulka Teradata</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Zobrazení Teradata</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Zobrazení SAP HANA</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulka DB2</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Zobrazení DB2</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Soubor systému souborů</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Adresář serveru FTP</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Soubor FTP</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Sestavy HTTP</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Koncový bod HTTP</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Soubor protokolu HTTP</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Sada entit OData</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Funkce OData</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulka PostgreSQL</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>PostgreSQL zobrazení</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Zobrazení SAP HANA</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td> Objekt služby Salesforce</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Seznam serveru SharePoint </td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Azure Cosmos DB kolekce</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Obecná tabulka rozhraní ODBC</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Obecná zobrazení rozhraní ODBC</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulka Cassandra</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2>Publikovat jako obecný asset rozhraní ODBC</font></td>
+      <td></td>
+      <td>Publikovat jako obecný asset rozhraní ODBC</td>
     </tr>
     <tr>
       <td>Cassandra zobrazení</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2>Publikovat jako obecný asset rozhraní ODBC</font></td>
+      <td></td>
+      <td>Publikovat jako obecný asset rozhraní ODBC</td>
     </tr>
     <tr>
       <td>Tabulka Sybase</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Zobrazení Sybase</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabulka MongoDB</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2>Publikovat jako obecný asset rozhraní ODBC</font></td>
+      <td></td>
+      <td>Publikovat jako obecný asset rozhraní ODBC</td>
     </tr>
     <tr>
       <td>Zobrazení MongoDB</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2>Publikovat jako obecný asset rozhraní ODBC</font></td>
+      <td></td>
+      <td>Publikovat jako obecný asset rozhraní ODBC</td>
     </tr>
 </table>
 
-Pokud potřebujete podporu pro další zdroje, podat žádost o funkci [fórum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Pokud chcete najdete v části konkrétní zdroj dat. podporována, ho navrhne (nebo hlasové podporu, pokud již byla navrhované) přechodem na [na fórech zpětnou vazbu o Azure Data Catalog](https://feedback.azure.com/forums/906052-data-catalog).
 
 
 ## <a name="data-source-reference-specification"></a>Specifikace odkaz na zdroj dat
@@ -462,39 +462,70 @@ Pokud potřebujete podporu pro další zdroje, podat žádost o funkci [fórum A
       <td>Kontejner</td>
       <td>Data Lake</td>
       <td>
-        <font size=2>Protokol: webhdfs <br>Ověřování: {základní, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Azure Data Lake Store</td>
       <td>Table</td>
-      <td>Adresář, soubor</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2>Protokol: webhdfs <br>Ověřování: {základní, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Azure Storage</td>
-      <td>Kontejner</td>
-      <td>Kontejner</td>
+      <td>Container</td>
+      <td>Container</td>
       <td>
-        <font size=2>Protokol:-objektů BLOB služby azure <br>Ověřování: {azure přístupový klíč} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domény <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;účet <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kontejner</font>
+        
+            Protocol: azure-blobs
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container
+        
       </td>
     </tr>
     <tr>
       <td>Azure Storage</td>
       <td>Table</td>
-      <td>Objekt BLOB, adresář</td>
+      <td>Blob, directory</td>
       <td>
-        <font size=2>Protokol:-objektů BLOB služby azure <br>Ověřování: {azure přístupový klíč} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domény <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;účet <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kontejner <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jméno</font>
+        
+            Protocol: azure-blobs
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
+        
       </td>
     </tr>
     <tr>
       <td>Azure Storage</td>
-      <td>Kontejner</td>
-      <td>Kontejner</td>
+      <td>Container</td>
+      <td>Container</td>
       <td>
-        <font size=2>Protokol: azure – tabulky <br>Ověřování: {azure přístupový klíč} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domény <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;účet</font>
+        
+            Protocol: azure-tables
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+        
       </td>
     </tr>
     <tr>
@@ -502,479 +533,877 @@ Pokud potřebujete podporu pro další zdroje, podat žádost o funkci [fórum A
       <td>Table</td>
       <td>Table</td>
       <td>
-        <font size=2>Protokol: azure – tabulky <br>Ověřování: {azure přístupový klíč} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domény <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;účet <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jméno</font>
+        
+            Protocol: azure-tables
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
+        
       </td>
     </tr>
     <tr>
       <td>Cosmos</td>
-      <td>Kontejner</td>
-      <td>Virtuální cluster</td>
+      <td>Container</td>
+      <td>Virtual cluster</td>
       <td>
-        <font size=2>Protokol: cosmos <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: cosmos
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Cosmos</td>
       <td>Table</td>
-      <td>Datový proud, sadu datového proudu, zobrazení</td>
+      <td>Stream, stream set, view</td>
       <td>
-        <font size=2>Protokol: cosmos <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: cosmos
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Datazen</td>
-      <td>Kontejner</td>
-      <td>Lokality</td>
+      <td>Container</td>
+      <td>Site</td>
       <td>
-        <font size=2>Protokol: http <br>Ověřování: {none, basic, windows, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Datazen</td>
-      <td>Sestava</td>
-      <td>Sestavy, řídicí panel</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2>Protokol: http <br>Ověřování: {none, basic, windows, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>DB2</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>Protokol: db2 <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze</font>
+        
+            Protocol: db2
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>DB2</td>
       <td>Table</td>
-      <td>Zobrazení tabulky</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: db2 <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma</font>
+        
+            Protocol: db2
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+        
       </td>
     </tr>
     <tr>
-      <td>Systém souborů</td>
+      <td>File system</td>
       <td>Table</td>
       <td>File</td>
       <td>
-        <font size=2>Protokol: soubor <br>Ověřování: {none, basic, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cesta</font>
+        
+            Protocol: file
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path
+        
       </td>
     </tr>
     <tr>
       <td>FTP</td>
       <td>Table</td>
-      <td>Adresář, soubor</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2>Protokol: ftp <br>Ověřování: {none, basic, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: ftp
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Hadoop Distributed File System</td>
-      <td>Kontejner</td>
+      <td>Container</td>
       <td>Cluster</td>
       <td>
-        <font size=2>Protokol: webhdfs <br>Ověřování: {základní, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Hadoop Distributed File System</td>
       <td>Table</td>
-      <td>Adresář, soubor</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2>Protokol: webhdfs <br>Ověřování: {základní, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Hive</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>Protokol: hive <br>Ověřování: {HDInsight, basic, uživatelské jméno, none} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serverProtocol: {hive2}</font>
+        
+            Protocol: hive
+            <br>Authentication: {HDInsight, basic, username, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>connectionProperties:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2}
+        
       </td>
     </tr>
     <tr>
       <td>Hive</td>
       <td>Table</td>
-      <td>Zobrazení tabulky</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: hive <br>Ověřování: {HDInsight, basic, uživatelské jméno, none} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serverProtocol: {hive2}</font>
+        
+            Protocol: hive
+            <br>Authentication: {HDInsight, basic, username, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>connectionProperties:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2}
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Kontejner</td>
-      <td>Lokality</td>
+      <td>Container</td>
+      <td>Site</td>
       <td>
-        <font size=2>Protokol: http <br>Ověřování: {none, basic, windows, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Sestava</td>
-      <td>Sestavy, řídicí panel</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2>Protokol: http <br>Ověřování: {none, basic, windows, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
       <td>Table</td>
-      <td>Koncový bod, soubor</td>
+      <td>Endpoint, file</td>
       <td>
-        <font size=2>Protokol: http <br>Ověřování: {none, basic, windows, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>MySQL</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>Protokol: mysql <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze</font>
+        
+            Protocol: mysql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>MySQL</td>
       <td>Table</td>
-      <td>Zobrazení tabulky</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: mysql <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: mysql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>OData</td>
-      <td>Kontejner</td>
-      <td>Kontejneru entit</td>
+      <td>Container</td>
+      <td>Entity container</td>
       <td>
-        <font size=2>Protokol: odata <br>Ověřování: {none, basic, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: odata
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>OData</td>
       <td>Table</td>
-      <td>Sady entit, – funkce</td>
+      <td>Entity set, function</td>
       <td>
-        <font size=2>Protokol: odata <br>Ověřování: {none, basic, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prostředek</font>
+        
+            Protocol: odata
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resource
+        
       </td>
     </tr>
     <tr>
       <td>Oracle Database</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>Protokol: oracle <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze</font>
+        
+            Protocol: oracle
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Oracle Database</td>
       <td>Table</td>
-      <td>Zobrazení tabulky</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: oracle <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: oracle
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>PostgreSQL</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>Protokol: postgresql <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze</font>
+        
+            Protocol: postgresql
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>PostgreSQL</td>
       <td>Table</td>
-      <td>Zobrazení tabulky</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: postgresql <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: postgresql
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Power BI</td>
-      <td>Kontejner</td>
-      <td>Lokality</td>
+      <td>Power BI Desktop</td>
+      <td>Container</td>
+      <td>Site</td>
       <td>
-        <font size=2>Protokol: http <br>Ověřování: {none, basic, windows, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Power BI</td>
-      <td>Sestava</td>
-      <td>Sestavy, řídicí panel</td>
+      <td>Power BI Desktop</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2>Protokol: http <br>Ověřování: {none, basic, windows, oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Power Query</td>
       <td>Table</td>
-      <td>Data hybridní webové aplikace</td>
+      <td>Data mashup</td>
       <td>
-        <font size=2>Protokol: power dotazu <br>Ověřování: {oauth} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: power-query
+            <br>Authentication: {oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Salesforce</td>
       <td>Table</td>
-      <td>Objekt</td>
+      <td>Object</td>
       <td>
-        <font size=2>Protokol: salesforce-com <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;– Třída <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Název položky</font>
+        
+            Protocol: salesforce-com
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName
+        
       </td>
     </tr>
     <tr>
       <td>SAP HANA</td>
-      <td>Kontejner</td>
+      <td>Container</td>
       <td>Server</td>
       <td>
-        <font size=2>Protokol: sap hana-sql <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server</font>
+        
+            Protocol: sap-hana-sql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+        
       </td>
     </tr>
     <tr>
       <td>SAP HANA</td>
       <td>Table</td>
-      <td>Zobrazení</td>
+      <td>View</td>
       <td>
-        <font size=2>Protokol: sap hana-sql <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: sap-hana-sql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SharePoint</td>
       <td>Table</td>
-      <td>Seznam</td>
+      <td>List</td>
       <td>
-        <font size=2>Protokolů: sharepoint – seznam <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL</font>
+        
+            Protocol: sharepoint-list
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
-      <td>Příkaz</td>
-      <td>Uložené procedury</td>
+      <td>Command</td>
+      <td>Stored procedure</td>
       <td>
-        <font size=2>Protokol: tds. <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
       <td>TableValuedFunction</td>
-      <td>Funkce vracející tabulku</td>
+      <td>Table-valued function</td>
       <td>
-        <font size=2>Protokol: tds. <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>Protokol: tds. <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze</font>
+        
+            Protocol: tds
+          <br>Authentication: {protocol, windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
       <td>Table</td>
-      <td>Zobrazení tabulky</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: tds. <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Příkaz</td>
-      <td>Uložené procedury</td>
+      <td>Command</td>
+      <td>Stored procedure</td>
       <td>
-        <font size=2>Protokol: tds. <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
       <td>TableValuedFunction</td>
-      <td>Funkce vracející tabulku</td>
+      <td>Table-valued function</td>
       <td>
-        <font size=2>Protokol: tds. <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>Protokol: tds. <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
       <td>Table</td>
-      <td>Zobrazení tabulky</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: tds. <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services multidimensional</td>
-      <td>Kontejner</td>
+      <td>Container</td>
       <td>Model</td>
       <td>
-        <font size=2>Protokolu: analýza služby <br>Ověřování: {windows, basic, anonymní, none} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services multidimensional</td>
-      <td>KLÍČOVÝ UKAZATEL VÝKONU</td>
-      <td>KLÍČOVÝ UKAZATEL VÝKONU</td>
+      <td>KPI</td>
+      <td>KPI</td>
       <td>
-        <font size=2>Protokolu: analýza služby <br>Ověřování: {windows, basic, anonymní, none} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {klíčový ukazatel výkonu}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI}
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services multidimensional</td>
-      <td>Míra</td>
-      <td>Míra</td>
+      <td>Measure</td>
+      <td>Measure</td>
       <td>
-        <font size=2>Protokolu: analýza služby <br>Ověřování: {windows, basic, anonymní, none} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {Measure}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure}
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services multidimensional</td>
       <td>Table</td>
-      <td>Dimenze</td>
+      <td>Dimension</td>
       <td>
-        <font size=2>Protokolu: analýza služby <br>Ověřování: {windows, basic, anonymní, none} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {{dimenze}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension}
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tabulkové</td>
-      <td>Kontejner</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>Container</td>
       <td>Model</td>
       <td>
-        <font size=2>Protokolu: analýza služby <br>Ověřování: {windows, basic, anonymní, none} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tabulkové</td>
-      <td>KLÍČOVÝ UKAZATEL VÝKONU</td>
-      <td>KLÍČOVÝ UKAZATEL VÝKONU</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>KPI</td>
+      <td>KPI</td>
       <td>
-        <font size=2>Protokolu: analýza služby <br>Ověřování: {windows, basic, anonymní, none} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {klíčový ukazatel výkonu}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI}
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tabulkové</td>
-      <td>Míra</td>
-      <td>Míra</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>Measure</td>
+      <td>Measure</td>
       <td>
-        <font size=2>Protokolu: analýza služby <br>Ověřování: {windows, basic, anonymní, none} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {Measure}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure}
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tabulkové</td>
+      <td>SQL Server Analysis Services tabular</td>
       <td>Table</td>
       <td>Table</td>
       <td>
-        <font size=2>Protokolu: analýza služby <br>Ověřování: {windows, basic, anonymní, none} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {Table}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table}
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services</td>
-      <td>Kontejner</td>
+      <td>Container</td>
       <td>Server</td>
       <td>
-        <font size=2>Protokol: reporting services <br>Ověřování: {windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verze: {ReportingService2010}</font>
+        
+            Protocol: reporting-services
+            <br>Authentication: {windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010}
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services</td>
-      <td>Sestava</td>
-      <td>Sestava</td>
+      <td>Report</td>
+      <td>Report</td>
       <td>
-        <font size=2>Protokol: reporting services <br>Ověřování: {windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cesta <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verze: {ReportingService2010}</font>
+        
+            Protocol: reporting-services
+            <br>Authentication: {windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010}
+        
       </td>
     </tr>
     <tr>
       <td>Teradata</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>Protokol: teradata <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze</font>
+        
+            Protocol: teradata
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Teradata</td>
       <td>Table</td>
-      <td>Zobrazení tabulky</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: teradata <br>Ověřování: {protokol, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            Protocol: teradata
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Master Data Services</td>
-      <td>Kontejner</td>
+      <td>Container</td>
       <td>Model</td>
       <td>
-        <font size="2">Protokol: mssql-mds <br>Ověřování: {windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verze</font>
+        <font size="2">
+          Protocol: mssql-mds
+          <br>Authentication: {windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Master Data Services</td>
       <td>Table</td>
-      <td>Entita</td>
+      <td>Entity</td>
       <td>
-        <font size="2">Protokol: mssql-mds <br>Ověřování: {windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entity</font>
+        <font size="2">
+          Protocol: mssql-mds
+          <br>Authentication: {windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity
+        
       </td>
     </tr>
     <tr>
       <td>Azure Cosmos DB</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>Protokol: dokument db <br>Ověřování: {azure přístupový klíč} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze</font>
+        
+            Protocol: document-db
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Azure Cosmos DB</td>
-      <td>Kolekce</td>
-      <td>Kolekce</td>
+      <td>Collection</td>
+      <td>Collection</td>
       <td>
-        <font size=2>Protokol: dokument db <br>Ověřování: {azure přístupový klíč} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adresa URL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kolekce</font>
+        
+            Protocol: document-db
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; collection
+        
       </td>
     </tr>
     <tr>
-      <td>Obecná rozhraní ODBC</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Generic ODBC</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>Protokol: rozhraní odbc <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Možnosti <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze</font>
+        
+            Protocol: odbc
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
-      <td>Obecná rozhraní ODBC</td>
+      <td>Generic ODBC</td>
       <td>Table</td>
-      <td>Zobrazení tabulky</td>
+      <td>Table, View</td>
       <td>
-        <font size=2>Protokol: rozhraní odbc <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Možnosti <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma</font>
+        
+            Protocol: odbc
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+        
       </td>
     </tr>
     <tr>
       <td>Sybase</td>
-      <td>Kontejner</td>
-      <td>Databáze</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2>protokol: sybase <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze</font>
+        
+            protocol: sybase
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Sybase</td>
       <td>Table</td>
-      <td>Zobrazení tabulky</td>
+      <td>Table, View</td>
       <td>
-        <font size=2>protokol: sybase <br>Ověřování: {základní, windows} <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;databáze <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schéma <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objekt</font>
+        
+            protocol: sybase
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Jiné (žádná z výše uvedených)</td>
+      <td>Other (none of the above)</td>
       <td>\*</td>
       <td>\*</td>
       <td>
-        <font size=2>Protokol: Obecné – prostředek <br>Adresa: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID</font>
+        
+            Protocol: generic-asset
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId
+        
       </td>
     </tr>
 </table>

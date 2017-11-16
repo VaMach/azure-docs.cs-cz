@@ -250,8 +250,6 @@
 ### [Ladění služby Java v Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Místní monitorování a diagnostika](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [Nasazení API Managementu a Service Fabric do Azure](service-fabric-api-management-quick-start.md)
-
 ## Migrace ze služby Cloud Services
 ### [Porovnání služby Cloud Services se Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrace do Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -265,7 +263,6 @@
 #### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [Rozhraní API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Upgrade aplikací
@@ -281,11 +278,8 @@
 ##### [Během úloh](service-fabric-testability-workload-tests.md)
 ##### [Pomocí testovacích scénářů](service-fabric-testability-scenarios.md)
 ##### [Pomocí rozhraní API pro přechod uzlů](service-fabric-node-transition-apis.md)
-#### [Zátěžový test aplikace](service-fabric-vso-load-test.md)
 
-### Nastavení průběžné integrace
-#### [Nastavení průběžné integrace pomocí VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Nasazení linuxové aplikace v Javě pomocí Jenkinse](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Nasazení linuxové aplikace v Javě pomocí Jenkinse](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Vytvoření a správa clusterů
 ### Clustery v Azure
@@ -319,21 +313,6 @@
 ### [Vizualizace clusteru](service-fabric-visualizing-your-cluster.md)
 ### [Připojení k zabezpečenému clusteru](service-fabric-connect-to-secure-cluster.md)
 ### [Oprava uzlů clusteru](service-fabric-patch-orchestration-application.md)
-
-### Správa a orchestrace prostředků clusteru
-#### [Přehled Cluster Resource Manageru](service-fabric-cluster-resource-manager-introduction.md)
-#### [Architektura Cluster Resource Manageru](service-fabric-cluster-resource-manager-architecture.md)
-#### [Popis clusteru](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Přehled skupin aplikací](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Konfigurace nastavení Cluster Resource Manageru](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Metriky spotřeby prostředků](service-fabric-cluster-resource-manager-metrics.md)
-#### [Použití spřažení služeb](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Zásady umístění služeb](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Správa clusteru](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Defragmentace clusteru](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [Vyvážení clusteru](service-fabric-cluster-resource-manager-balancing.md)
-#### [Omezování](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Přesun služeb](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Monitorování a diagnóza
 ### OMS

@@ -1,25 +1,21 @@
 ---
-title: "Zásady přístupu k datům v Azure Time Series Insights | Dokumentace Microsoftu"
-description: "V tomto kurzu se naučíte spravovat zásady přístupu k datům v Time Series Insights."
-keywords: 
+title: "Konfigurace zabezpečení pro přístup k a spravovat Azure časové řady Insights | Microsoft Docs"
+description: "Tento článek popisuje způsob konfigurace zabezpečení a oprávnění jako přístup pro správu zásad a přístupu k datům zásady zabezpečit Statistika Azure časové řady."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: op-ravi
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 22c8e4481f2ba4163a55cc1bbb6b33c10379a605
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Udělení přístupu k datům prostředí Time Series Insights pomocí webu Azure Portal
 
@@ -28,7 +24,7 @@ V prostředích Time Series Insights jsou dva nezávislé typy zásad přístupu
 * Zásady přístupu ke správě
 * Zásady přístupu k datům
 
-Oba typy zásad udělují objektům zabezpečení Azure Active Directory (uživatelům a aplikacím) různá oprávnění ke konkrétnímu prostředí. Objekty zabezpečení (uživatelé a aplikace) musí patřit ke stejné službě Active Directory (neboli tenant Azure) přidružené k předplatnému, které obsahuje prostředí.
+Oba typy zásad udělují objektům zabezpečení Azure Active Directory (uživatelům a aplikacím) různá oprávnění ke konkrétnímu prostředí. Objekty (uživatelé a aplikace) musí patřit do služby active directory (označuje se jako ke klientovi Azure) přidruženou k odběru, který obsahuje prostředí.
 
 Zásady přístupu ke správě udělují oprávnění související s konfigurací prostředí, jako je například
 *   vytvoření nebo odstranění prostředí, zdrojů událostí nebo referenčních datových sad a
@@ -36,41 +32,41 @@ Zásady přístupu ke správě udělují oprávnění související s konfigurac
 
 Zásady přístupu k datům udělují oprávnění k vydávání dotazů na data, zpracování referenčních dat v rámci prostředí a sdílení uložených dotazů a perspektiv přidruženým k danému prostředí.
 
-Tyto dva typy zásad umožňují jasné oddělení přístupu ke správě prostředí od přístupu k datům v prostředí. Například je možné nastavit prostředí tak, aby vlastník nebo tvůrce prostředí neměl přístup k datům. Stejně tak je možné neudělit přístup ke konfiguraci prostředí uživatelům a službám s oprávněním číst data z prostředí.
+Tyto dva typy zásad umožňují jasné oddělení přístupu ke správě prostředí od přístupu k datům v prostředí. Například je možné nastavit prostředí tak, aby vlastníka nebo autora prostředí se odebere z přístup k datům. Kromě toho uživatelů a služeb, které jsou povoleny číst data z prostředí udělit přístup ke konfiguraci prostředí.
 
 ## <a name="grant-data-access"></a>Udělení přístupu k datům
-Následující postup ukazuje, jak udělit přístup k datům objektu zabezpečení uživatele:
+Postupujte podle těchto kroků k udělení přístupu k datům pro objekt zabezpečení uživatele:
 
-1.  Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-2.  V okně hledání zadejte Time Series.
-3.  Klikněte na prostředí Time Series Insights.
-4.  Ze seznamu vyberte vaše prostředí Time Series Insights.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 
-  ![Správa zdroje Time Series Insights – prostředí](media/data-access/getstarted-grant-data-access1.png)
+2. Vyhledejte prostředí Statistika časové řady. Typ **časové řady** v **vyhledávání** pole. Vyberte **časové řady prostředí** ve výsledcích hledání. 
 
-4.  Vyberte Zásady přístupu k datům a pak klikněte na Přidat.
+3. Ze seznamu vyberte vaše prostředí Time Series Insights.
+   
+4. Vyberte **zásady přístupu k datům**, pak vyberte **+ přidat**.
+  ![Spravovat zdroji časové řady Insights - prostředí](media/data-access/getstarted-grant-data-access1.png)
 
-  ![Správa zdroje Time Series Insights – přidat](media/data-access/getstarted-grant-data-access2.png)
+5. Vyberte **vyberte uživatele**.  Vyhledejte uživatelského jména nebo e-mailové adresy k vyhledání uživatele, které chcete přidat. Klikněte na tlačítko **vyberte** potvrďte výběr. 
 
-5.  Klikněte na Vybrat uživatele.
-6.  Podle e-mailu vyhledejte a vyberte uživatele.
-7.  Klikněte na Vybrat v okně Vybrat uživatele.
+   ![Správa zdroje Time Series Insights – přidat](media/data-access/getstarted-grant-data-access2.png)
 
-  ![Správa zdroje Time Series Insights – vybrat uživatele](media/data-access/getstarted-grant-data-access3.png)
+6. Vyberte **vyberte role**. Zvolte odpovídající přístup roli pro uživatele:
+   - Vyberte **Přispěvatel** Pokud budete chtít povolit uživateli měnit referenční data a sdílené složky uložit dotazy a perspektivy s ostatními uživateli prostředí. 
+   - Jinak vyberte možnost **čtečky** povolit uživatele dotaz na data v prostředí a ukládejte dotazy za osobní (není sdílený) v prostředí.
 
-8.  Klikněte na Vybrat roli.
-9.  Vyberte možnost Přispěvatel, pokud chcete uživateli umožnit provádění změn referenčních dat a sdílení uložených dotazů a perspektiv s ostatními uživateli prostředí. Jinak vyberte možnost Čtenář, čímž uživateli umožníte dotazování na data v prostředí a ukládání osobních (ne sdílených) dotazů v prostředí.
-10. Klikněte na Ok v okně Vybrat roli.
+   Vyberte **Ok** potvrďte volbu role.
 
-  ![Správa zdroje Time Series Insights – vybrat roli](media/data-access/getstarted-grant-data-access4.png)
+   ![Správa zdroje Time Series Insights – vybrat uživatele](media/data-access/getstarted-grant-data-access3.png)
 
-11. Klikněte na Ok v okně Vybrat roli uživatele.
-12. Měli byste vidět tohle:
+8. Vyberte **Ok** v **vybrat roli uživatele** stránky.
 
-  ![Správa zdroje Time Series Insights – výsledky](media/data-access/getstarted-grant-data-access5.png)
+   ![Správa zdroje Time Series Insights – vybrat roli](media/data-access/getstarted-grant-data-access4.png)
+
+9. **Zásady přístupu k datům** stránka obsahuje seznam uživatelů a rolí pro každého uživatele.
+
+   ![Správa zdroje Time Series Insights – výsledky](media/data-access/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Další kroky
-
-* [Vytvoření zdroje událostí](time-series-insights-add-event-source.md)
-* [Odesílání událostí](time-series-insights-send-events.md) do zdroje událostí
-* Zobrazení prostředí na [portálu Time Series Insights](https://insights.timeseries.azure.com)
+* Další informace [přidání zdroje událostí centra událostí do prostředí Azure časové řady Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
+* [Odesílání událostí](time-series-insights-send-events.md) ke zdroji událostí.
+* Zobrazit prostředí v [explorer časové řady Insights](https://insights.timeseries.azure.com).

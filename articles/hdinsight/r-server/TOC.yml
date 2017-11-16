@@ -115,9 +115,6 @@
         - name: Autorizace uživatelů pro zobrazení Ambari
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-        - name: Správa uživatelských oprávnění na úrovních souborů a složek
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Spravovat
       items:
         - name: Vytvoření clusterů s Linuxem

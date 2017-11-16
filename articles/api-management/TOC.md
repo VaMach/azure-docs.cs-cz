@@ -53,7 +53,7 @@
 ### [Použití služby Managed Service Identity](api-management-howto-use-managed-service-identity.md)
 ### Integrace se Service Fabric
 #### [Přehled](../service-fabric/service-fabric-api-management-overview.md)
-#### [Rychlý start](../service-fabric/service-fabric-api-management-quick-start.md)
+#### [Kurz](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
 
 # Referenční informace
 ## [Azure PowerShell](/powershell/azure/overview)

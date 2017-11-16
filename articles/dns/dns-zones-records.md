@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Přehled zóny DNS a záznamů
 
@@ -54,6 +54,16 @@ V Azure DNS TTL se zadává pro sadu záznamů, ne pro jednotlivé záznamy, tak
 Azure DNS podporuje [záznamy se zástupným znakem](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Záznamy se zástupným znakem se vrátí v reakci na jakémkoli dotazu s odpovídajícím názvem (pokud nebude nalezena bližší shoda v sadě záznamů bez zástupných znaků). Azure DNS podporuje zástupné sad záznamů u všech typů záznamů s výjimkou NS a SOA.
 
 Chcete-li vytvořit sadu záznamů zástupný znak, použijte název sady záznamů "\*'. Alternativně můžete také použít název s '\*'jako jeho nejvíce vlevo štítek, například"\*.foo".
+
+### <a name="caa-records"></a>Zaznamenává KÁ
+
+Zaznamenává KÁ vlastníky domény k určení, které certifikačních autorit (CA) mají oprávnění k vydávání certifikátů pro svoji doménu. To umožňuje certifikačních autorit, aby se zabránilo nemá vystavování certifikátů v některých případech. Zaznamenává KÁ mít tři vlastnosti:
+* **Příznaky**: Toto je celé číslo mezi 0 a 255, používá k reprezentování kritické příznak, který má zvláštní význam za [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Značka**: řetězec ve formátu ASCII, což může být jeden z následujících:
+    * **problém**: použít, pokud chcete určit certifikačních autorit, které jsou povolené k vydávání certifikátů (všechny typy)
+    * **issuewild**: použít, pokud chcete určit certifikačních autorit, které jsou povolené k vydávání certifikátů (pouze certifikátů zástupný znak)
+    * **iodef**: Zadejte e-mailovou adresu nebo název hostitele, ke kterému může upozornit certifikační autority pro neoprávněné certifikátů problém žádostí
+* **Hodnota**: hodnota pro konkrétní značku vybrali
 
 ### <a name="cname-records"></a>Záznamy CNAME
 

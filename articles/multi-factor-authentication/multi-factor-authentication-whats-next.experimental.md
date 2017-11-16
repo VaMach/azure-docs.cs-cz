@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: joflore
-ms.openlocfilehash: 527bdd492561ab11784a0b23384d17e055cb3f5c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 31b32079de19c6c9822c388f60269b07a8c70198
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurovat nastavení ověřování Azure Multi-Factor Authentication
 Tento článek usnadňuje správu ověřování Azure Multi-Factor Authentication teď, když jsou spuštěná.  Vysvětluje různé témata, které umožňují využívat naplno Azure Multi-Factor Authentication.  Ne všechny tyto funkce jsou dostupné v každé verzi Azure Multi-Factor Authentication.
@@ -306,8 +306,8 @@ Když uživatelé zaregistrují svoje účty pro MFA, vybírá jejich metoda up�
 
 | Metoda | Popis |
 |:--- |:--- |
-| Telefonní hovor |Umístí automatický hlasový hovor. Uživatel přijme hovor a stiskem tlačítka # na klávesnici telefonu provede ověření. Toto telefonní číslo není synchronizován do místní služby Active Directory. |
-| Textová zpráva na telefon |Odešle textovou zprávu s ověřovacím kódem. Uživatel je vyzván k odpovědi na text, zprávu s ověřovacím kódem a zadejte ověřovací kód do rozhraní přihlášení. |
+| Volání na telefon |Umístí automatický hlasový hovor. Uživatel přijme hovor a stiskem tlačítka # na klávesnici telefonu provede ověření. Toto telefonní číslo není synchronizován do místní služby Active Directory. |
+| Textové zprávy na telefon |Odešle textovou zprávu s ověřovacím kódem. Uživatel je vyzván k odpovědi na text, zprávu s ověřovacím kódem a zadejte ověřovací kód do rozhraní přihlášení. |
 | Oznámení pomocí mobilních aplikací |Odešle nabízených oznámení do telefonu nebo zaregistrovaného zařízení. Zobrazení oznámení a vybere uživatele **ověřte** k dokončení ověření. <br>Je k dispozici pro aplikaci Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), a [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | Ověřovací kód z mobilní aplikace |Aplikace Microsoft Authenticator generuje každých 30 sekund nový ověřovací kód OATH. Tento ověřovací kód, uživatel zadá do rozhraní přihlášení.<br>Je k dispozici pro aplikaci Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), a [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 

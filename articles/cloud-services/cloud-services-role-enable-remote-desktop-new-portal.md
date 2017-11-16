@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9ae4442f57170746eb0de94849b09625be51264
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Povolit připojení ke vzdálené ploše pro roli v cloudové služby Azure
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Portál Azure Classic](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 Vzdálená plocha umožňuje přístup k ploše role, která běží v Azure. Připojení ke vzdálené ploše můžete odstraňovat a diagnostikovat problémy s aplikací, když je spuštěná.
 
@@ -47,7 +44,7 @@ Portál Azure používá vzdálené plochy rozšíření přístup, takže Vzdá
     ![Cloudové služby Vzdálená plocha](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > Všechny instance role se restartuje, při prvním povolení služby Vzdálená plocha a klikněte na tlačítko OK (zaškrtnutí). Abyste zabránili restartování, musí být nainstalovaný certifikát použitý k šifrování hesla v roli. Abyste zabránili restartování, [nahrát certifikát pro cloudové služby](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) a pak se vraťte do tohoto dialogového okna.
+   > Všechny instance role se restartuje, při prvním povolení služby Vzdálená plocha a klikněte na tlačítko OK (zaškrtnutí). Abyste zabránili restartování, musí být nainstalovaný certifikát použitý k šifrování hesla v roli. Abyste zabránili restartování, [nahrát certifikát pro cloudové služby](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) a pak se vraťte do tohoto dialogového okna.
    >
    >
 3. V **role**, vyberte roli, kterou chcete aktualizovat nebo vyberte **všechny** u všech rolí.
@@ -70,5 +67,5 @@ Jakmile povolíte vzdálené plochy na rolích, můžete zahájit připojení p�
 
 ## <a name="additional-resources"></a>Další zdroje
 
-[Postup konfigurace cloudové služby](cloud-services-how-to-configure.md)
+[Postup konfigurace cloudové služby](cloud-services-how-to-configure-portal.md)
 [cloudových služeb časté otázky – vzdálené plochy](cloud-services-faq.md)

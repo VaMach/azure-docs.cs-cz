@@ -1,51 +1,68 @@
 ---
-title: "Přehled služby Azure Time Series Insights | Dokumentace Microsoftu"
-description: "Seznámení s Azure Time Series Insights, novou službou pro analýzu dat časových řad a řešení IoT"
-keywords: 
-services: tsi
-documentationcenter: 
+title: "Co je Azure časové řady Insights? | Dokumentace Microsoftu"
+description: "Úvod do Azure časové řady Insights, novou službu k analýze dat řady čas a řešení IoT."
+services: time-series-insights
+ms.service: time-series-insights
 author: op-ravi
-manager: jhubbard
-editor: 
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/20/2017
 ms.author: omravi
-ms.openlocfilehash: 1814459e47280af62450a4093140ab6ab9b765fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+manager: jhubbard
+editor: MarkMcGeeAtAquent
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 95cb26ada6f8ea39bc1a437a755f80ee7ddb7698
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="what-is-azure-time-series-insights"></a>Co je Azure Time Series Insights
+# <a name="what-is-azure-time-series-insights"></a>Co je Azure časové řady Insights?
 
-Azure Time Series Insights je spravovaná cloudová služba, která díky komponentám pro úložiště, analýzu a vizualizaci zjednodušuje ingestování, ukládání, prozkoumávání a analýzu miliard událostí současně. Time Series Insights poskytuje globální přehled o datech a umožňuje rychle ověřit vaše řešení IoT a vyhnout se nákladným prostojům zařízení, protože pomáhá odhalovat skryté trendy a anomálie a provádět analýzy hlavních příčin téměř v reálném čase. Time Series Insights ingestuje data časových řad ze zprostředkovatelů událostí (např. služby IoT Hub nebo Event Hubs) a následně je indexuje a vyřazuje na základě konfigurovatelných zásad uchovávání informací. Uživatelé tato data využívají prostřednictvím intuitivního uživatelského rozhraní nebo rozhraní REST API pro dotazy.
+Statistika řady čas je vytvořené pro ukládání, vizualizace a dotazování velké objemy dat řady čas, jako je například generovaná zařízeními IoT.  Pokud chcete uložit, spravovat, dotaz nebo vizualizovat data řady čas v cloudu, je pravděpodobné, práva pro přehledy časové řady.  
 
-![Přehled služby Time Series Insights](media/overview/time-series-insights-overview-flow.png)
+Pokud vytváříte aplikace pro využívání interní nebo externí zákazníky, pokud chcete použít, časové řady Insights slouží jako back-end pro indexování, ukládání a agregování dat časové řady.  V horní části můžete vytvořit vlastní vizualizace a uživatelské prostředí.  Statistika časové řady zpřístupní REST API dotazu chcete povolit tento scénář.  
+
+Pokud si nejste jistí, pokud jsou vaše data časové řady, zde je co byste měli vědět.  Data řady čas představuje, jak prostředku nebo proces změny v čase.  Je jedinečný v, že má časovým razítkem a čas smysluplných jako osu.  Data řady čas obvykle dorazí v pořadí časů a obvykle považuje za typu vložení, nikoli aktualizaci vaší databáze.  Protože časové řady Statistika zaznamená a uloží každou novou událost jako řádek, změna se měří v čase, umožňuje hledat zpětné a předpovídat budoucí změny.  Ve velkých svazků může být náročné ukládání, indexování, dotazování, analýze a detekční data časové řady.  
 
 ## <a name="primary-scenarios"></a>Primární scénáře
 
-* Monitorování a ověření řešení IoT během několika minut.
-* Vizualizace a analýza dat IoT ve velkém měřítku.
-* Urychlení analýzy hlavních příčin a detekce anomálií.
-* Vytvoření globálního přehledu o více zařízeních, přístrojích a datech.
+- Ukládání časových řad dat škálovatelné způsobem.  
+  - Jádro aplikace má Statistika časové řady databáze navržené s daty časové řady pamatujte.  Protože je škálovatelná a plně spravovaná, časové řady Statistika zpracovává práci při ukládání a správě události.
 
-## <a name="capabilities-and-benefits"></a>Funkce a výhody
+- Téměř zkoumání dat v reálném čase.  
+  - Časové řady statistika poskytuje explorer, který vizualizuje všechna data streamování do prostředí.  Krátce po připojení zdroje událostí, data události lze zobrazit, prozkoumané a v rámci časové řady Statistika předmětem dotazu.  Data jsou užitečné pro ověření, jestli je zařízení generování dat dle očekávání a sledování prostředek IoT pro stav, produktivitu a účinnost.  
 
-* **Snadný začátek:** Služba Azure Time Series Insights nevyžaduje žádnou počáteční přípravu dat a je neuvěřitelně rychlá. Během několika minut se můžete připojit k miliardám událostí ve službě Azure IoT Hub nebo v centru událostí. Po připojení můžete za pár sekund vizualizovat data ze senzorů, pracovat s nimi a rychle tak prověřit řešení IoT. Služba Time Series Insights je snadno použitelná – s daty můžete pracovat, aniž byste museli psát jediný řádek kódu.  Nemusíte se učit žádný nový jazyk, protože Time Series Insights poskytuje plochu pro podrobné volnotextové dotazování pro pokročilé uživatele spolu s prozkoumáváním typu ukázat a kliknout pro všechny.
+- Zjišťování, analýzu a anomálií příčin.
+  - Čas řady Insights obsahuje nástroje, například vzory a zobrazení perspektivy a proveďte analýzu hlavní příčiny vícekrokový uložit.  Navíc časové řady Insights funguje ve spojení s výstrahy služby, jako je Azure Stream Analytics, tak výstrahy a zjištěném anomálií lze zobrazit v téměř v reálném čase v Průzkumníku Statistika časové řady.  
 
-* **Přehledy téměř v reálném čase:** Time Series Insights může ingestovat stovky milionů událostí senzorů za den s minutovou latencí, takže můžete rychle reagovat na změny. Time Series Insights pomáhá získat podrobný přehled o datech senzorů tím, že pomáhá rychle zjišťovat trendy a anomálie, provádět komplexní analýzy hlavních příčin a vyhnout se nákladným prostojům. Díky povolení křížové korelace mezi historickými daty a daty v reálném čase pomáhá Time Series Insights odhalit skryté trendy v datech.
+- Globální zobrazení data řady čas streamování z různorodých umístění pro porovnání asset více nebo webu.
+  - Více zdroje událostí může připojit k prostředí Statistika časové řady.  To znamená, že data vysílání datového proudu z několika umístěních různorodých lze zobrazit společně v téměř v reálném čase.  Uživatelé mohou využít výhod tento přehled sdílení dat s žebříčky obchodní a umožňující lepší spolupráci s odborníky domény, kteří můžete použít jejich odbornými znalostmi k řešení problémů, použít osvědčené postupy a sdílet learnings.
 
-* **Sestavování vlastních řešení:** Zahrňte data Azure Time Series Insights do svých stávajících aplikací nebo vytvořte nová vlastní řešení s využitím rozhraní Time Series Insights REST API. Můžete vytvářet přizpůsobená zobrazení a sdílet je s ostatními, aby i oni mohli prozkoumat, co jste se objevili.
+- Vytvoření aplikace zákazníka nad Statistika časové řady. 
+  - Statistika časové řady zpřístupňuje rozhraní API REST dotazu, umožňuje vytvářet aplikace, které používají data časové řady.
 
-* **Škálovatelnost:** Služba Time Series Insights je navržena tak, aby podporovala škálování IoT. Ve verzi Preview může ingestovat 1 až 100 milionů událostí za den při výchozím rozsahu uchování 31 dnů. Můžete vizualizovat a analyzovat živé datové proudy téměř v reálném čase spolu s obrovskými objemy historických dat. Míry uchovávání a příchozího přenosu dat se postupem času budou zvyšovat s ohledem na neustále se zvyšující velikost podniku.
+## <a name="capabilities"></a>Možnosti
 
-## <a name="time-series-insights-glossary"></a>Glosář Time Series Insights
+- **Rychlé zahájení:** Statistika řady čas Azure vyžaduje bez přípravy počáteční data. Připojte k miliony událostí ve službě Azure IoT Hub nebo Centrum událostí v minutách. Po připojení, vizualizovat a interagovat s daty senzor rychle ověření vašich vlastních IoT řešení. Můžete pracovat s daty bez nutnosti psaní kódu.
+Neexistuje žádný nový jazyk další; Časové řady statistika poskytuje podrobné, volné dotazu prostor pro pokročilé uživatele a bod a klikněte na zkoumání.
+- **V blízkosti přehledy v reálném čase:** Insights časové řady může přijímat miliony událostí senzor za den, s latencí jednu minutu. Statistika časové řady pomáhá získat přehled o svých datech senzor díky čemuž trendy a anomálií, provedení analýzy příčin a vyhnout nákladným odstávkám. Díky povolení křížové korelace mezi historickými daty a daty v reálném čase pomáhá Time Series Insights odhalit skryté trendy v datech.
+- **Vytvoření vlastních řešení:** vložení Statistika řady Azure čas data do existující aplikace, nebo vytvořte nová vlastní řešení s časové řady Statistika REST API. Vytvoření přizpůsobené zobrazení, že můžete sdílet pro ostatní prozkoumat přehledy.
+- **Škálovatelnost:** časové řady Insights je navržen pro podporu IoT ve velkém měřítku. Můžete ho příjem příchozích dat z 1 milionu na 100 miliónů událostí za den, s dobou uchování výchozí span 31 dní. Můžete vizualizovat a analyzovat data za provozu datových proudů téměř v reálném čase, spolu s historická data. Klouzavý dopředu, příjem příchozích dat a uchování sazby zvýší zohlednit celopodnikového rozsahu.
 
-* **Prostředí:** Prostředí je prostředek Azure s kapacitou úložiště a příchozího přenosu dat.  Zákazníci zřizují prostředí s požadovanou kapacitou přes Azure Portal.
-* **Zdroj událostí:** Zdroj událostí je odvozený od zprostředkovatele událostí, jako je například služba Azure Event Hubs.  Time Series Insights se připojuje přímo ke zdrojům událostí a ingestuje datový proud bez nutnosti psát kód. V současné době Time Series Insights podporuje Azure Event Hubs a Azure IoT Hubs.
-* **Referenční data:** Time Series Insights umožňuje spojit data časových řad s referenčními daty.  Referenčními daty můžou být metadata o zařízeních nebo jiná statická data, která se mění poměrně málo často. Time Series Insights spojí referenční data s datovými proudy a umožní tak vizualizaci a analýzu těchto dat téměř v reálném čase.
+## <a name="getting-started"></a>Začínáme
+Začínáme trvá méně než 5 minut. 
+
+1.  Chcete-li získat spustit, zřízení prostředí časové řady Insights na portálu Azure. 
+2.  Připojení zdroje událostí jako Azure IoT Hub nebo Centrum událostí.  
+3.  Nahrajte referenční data (Toto není další služby).
+4.  Zobrazit vaše data v minutách pomocí Průzkumníka Statistika časové řady.
+
+## <a name="time-series-insights-explorer"></a>Čas řady Insights explorer
+Tento diagram znázorňuje příklad časové řady datům přehledů zobrazit pomocí Průzkumník:! [Čas řady Statistika explorer] (media/time-series-insights-explorer/explorer4.png)
+
+
+## <a name="next-steps"></a>Další kroky
+ - [Prozkoumat pomocí Průzkumníka časové řady statistiky v ukázce prostředí](./time-series-quickstart.md)
+ - [Plánování prostředí Statistika časové řady](time-series-insights-environment-planning.md)
+

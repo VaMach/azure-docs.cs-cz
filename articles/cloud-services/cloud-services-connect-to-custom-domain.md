@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 17f6918371678ac849198bff4e3b3eea8678c660
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Připojení k řadiči domény AD hostované v Azure vlastní role služeb v cloudu Azure
 Nejprve nastavíme virtuální síť (VNet) v Azure. Potom přidáme Active Directory řadiče domény (hostované na virtuální počítač Azure) k virtuální síti. V dalším kroku jsme se přidat existující role cloudové služby na předem vytvořené virtuální síť a potom jejich připojení k řadiči domény.
@@ -128,7 +128,7 @@ Dále musíte přidat do nové sítě VNet nasazením cloudové služby. K tomut
 </ServiceConfiguration>
 ```
 
-V dalším sestavení projektu cloudové služby a nasazení do Azure. Chcete-li získat nápovědu k nasazení vašeho balíčku cloudové služby Azure, přečtěte si téma [postup vytvoření a nasazení cloudové služby](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
+V dalším sestavení projektu cloudové služby a nasazení do Azure. Chcete-li získat nápovědu k nasazení vašeho balíčku cloudové služby Azure, přečtěte si téma [postup vytvoření a nasazení cloudové služby](cloud-services-how-to-create-deploy-portal.md)
 
 ## <a name="connect-your-webworker-roles-to-the-domain"></a>Váš web/role pracovního procesu se připojte k doméně
 Jakmile se projekt cloudové služby je nasazen na Azure, připojte k vlastní doméně AD pomocí rozšíření domény AD instance role. Pokud chcete přidat rozšíření AD domény do existující nasazení cloudové služby a připojit se k vlastní doméně, spusťte následující příkazy v prostředí PowerShell:

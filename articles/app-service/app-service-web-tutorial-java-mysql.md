@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 31af39eef3889bebd18baa2be297c433cc733ed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58e0533db1bb907b0c9a09cdeb7aabbf120d506f
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Vytvořit webovou aplikaci Java a MySQL v Azure
 
@@ -397,7 +397,7 @@ Při aktualizaci aplikace, **čas vytvoření** sloupec je nyní viditelné. Kdy
 
 Při spuštění aplikace v jazyce Java v Azure App Service, můžete získat protokoly konzoly přesměruje přímo do terminálu. Tímto způsobem můžete získat stejné diagnostické zprávy pomoci při ladění chyb aplikace.
 
-Spusťte protokolu streamování pomocí [az webapp protokolu poškozené databáze za](/cli/azure/appservice/web/log#tail) příkazu v prostředí cloudu.
+Spusťte protokolu streamování pomocí [az webapp protokolu poškozené databáze za](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) příkazu v prostředí cloudu.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

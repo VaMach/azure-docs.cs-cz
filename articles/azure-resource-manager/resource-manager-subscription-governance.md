@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise vygenerované uživatelské rozhraní – zásady správného řízení doporučený předplatného
 Podniky jsou stále přijetí veřejného cloudu pro jeho její agilnost a flexibilitu. Budou se využívá v cloudu síly ke generování výnosy nebo optimalizovat prostředky pro firmy. Microsoft Azure poskytuje různé služby, aby podniky můžete sestavit jako stavební bloky k řešení široké škály úlohy a aplikace. 
@@ -89,7 +89,7 @@ První pilíře vygenerované uživatelské rozhraní je pojmenování standard�
 > Předchozí tipy vám pomůžou při implementaci konzistentní zásady vytváření názvů.
 
 ## <a name="policies-and-auditing"></a>Zásady a auditování
-Druhého pilíře vygenerované uživatelské rozhraní zahrnuje vytvoření [zásady Azure Resource Manager](resource-manager-policy.md) a [auditování protokolu činnosti](resource-group-audit.md). Správce prostředků zásady vám poskytují možnost spravovat rizika v Azure. Můžete definovat zásady, které zajišťují suverenity dat. omezení, vynucování nebo auditování určité akce. 
+Druhého pilíře vygenerované uživatelské rozhraní zahrnuje vytvoření [Azure zásady](../azure-policy/azure-policy-introduction.md) a [auditování protokolu činnosti](resource-group-audit.md). Správce prostředků zásady vám poskytují možnost spravovat rizika v Azure. Můžete definovat zásady, které zajišťují suverenity dat. omezení, vynucování nebo auditování určité akce. 
 
 * Zásady je výchozí **povolit** systému. Akce řídit definice a přiřazení zásad na prostředky, které odepřít nebo auditovat akce na prostředky.
 * Zásady jsou popsané podle definice zásady v jazyce definice zásady (Pokud potom podmínky).

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
-ms.author: sethm;hillaryc
-ms.openlocfilehash: 5a4e69ea7e13cb017f8fb432c524c6a8ce9228a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: sethm
+ms.openlocfilehash: beebfb496604b422e091cd3b4425933f3cea1283
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="partitioned-queues-and-topics"></a>Dělené fronty a témata
 Azure Service Bus používá více zpráv zprostředkovatelé ke zpracování zpráv a více úložiště pro zasílání zpráv pro ukládání zpráv. Konvenční fronta nebo téma zpracování zprostředkovatelem jedné zprávy a uloženy v úložišti jeden zasílání zpráv. Service Bus *oddíly* povolit front a témat, nebo *entity pro zasílání zpráv*, k rozdělení na oddíly na více zpráv zprostředkovatelé a úložiště pro zasílání zpráv. To znamená, že celkovou propustnost dělené entity je již omezena výkon zprostředkovatele jedné zprávy nebo úložišti pro přenos zpráv. Kromě toho dočasnému výpadku zasílání zpráv úložiště nevykresluje oddílů fronta nebo téma není k dispozici. Oddílů fronty a témata může obsahovat všechny pokročilé funkce služby Service Bus, například podporu transakce a relací.
@@ -39,7 +39,7 @@ Není k dispozici bez dalších nákladů při odesílání zprávy, která se n
 
 ## <a name="enable-partitioning"></a>Povolit vytváření oddílů
 
-Pokud chcete používat oddílů front a témat s Azure Service Bus, použít sadu Azure SDK verze 2.2 nebo vyšší, nebo zadat `api-version=2013-10` požadavků v protokolu HTTP.
+Pokud chcete používat oddílů front a témat s Azure Service Bus, použít sadu Azure SDK verze 2.2 nebo vyšší, nebo zadat `api-version=2013-10` nebo novější ve své žádosti HTTP.
 
 ### <a name="standard"></a>Standard
 
@@ -63,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Alternativně můžete vytvořit oddílů fronta nebo téma v [portál Azure] [ Azure portal] nebo v sadě Visual Studio. Když vytvoříte na portálu, fronta nebo téma **povolit vytváření oddílů** možnost v fronta nebo téma **vytvořit** okno je ve výchozím nastavení. Pouze můžete zakázat tuto možnost v entitě úrovně Standard; ve vrstvě | Premium dělení je vždy povolena. V sadě Visual Studio, klikněte **povolit vytváření oddílů** zaškrtnout políčko **novou frontu** nebo **nové téma** dialogové okno.
+Alternativně můžete vytvořit oddílů fronta nebo téma v [portál Azure] [ Azure portal] nebo v sadě Visual Studio. Když vytvoříte na portálu, fronta nebo téma **povolit vytváření oddílů** možnost v fronta nebo téma **vytvořit** ve výchozím nastavení je zaškrtnuté políčko dialogové okno. Pouze můžete zakázat tuto možnost v entitě úrovně Standard; ve vrstvě | Premium dělení je vždy povolena. V sadě Visual Studio, klikněte **povolit vytváření oddílů** zaškrtnout políčko **novou frontu** nebo **nové téma** dialogové okno.
 
 ## <a name="use-of-partition-keys"></a>Použití klíče oddílů
 Pokud zpráva zařazených do fronty do oddílů fronta nebo téma, Service Bus zkontroluje přítomnost klíč oddílu. V případě, že některou najde, vybere fragment na základě tohoto klíče. Pokud nenajde klíč oddílu, vybere fragment založený na interní algoritmu.
@@ -82,7 +82,7 @@ V závislosti na scénáři vlastnosti jiná zpráva slouží jako klíč oddíl
 ### <a name="not-using-a-partition-key"></a>Není použitím klíče oddílu
 Chybí klíč oddílu distribuuje sběrnice zpráv v kruhového dotazování na všechny fragmenty oddílů fronta nebo téma. Pokud vybraný fragment není k dispozici, Service Bus zprávu přiřadí různé fragment. Tímto způsobem operaci odeslání úspěšné i přes dočasné nedostupnosti úložišti pro přenos zpráv. Nebudou však dosáhnout zaručenou pořadí, které poskytuje klíč oddílu.
 
-Podrobné informace o kompromis mezi dostupnost (žádný klíč oddílu) a konzistence (s použitím klíč oddílu), najdete v části [v tomto článku](../event-hubs/event-hubs-availability-and-consistency.md). Tyto informace se vztahuje stejnou měrou dělené entity služby Service Bus a Event Hubs oddíly.
+Podrobné informace o kompromis mezi dostupnost (žádný klíč oddílu) a konzistence (s použitím klíč oddílu), najdete v části [v tomto článku](../event-hubs/event-hubs-availability-and-consistency.md). Tyto informace platí stejně pro dělené entity služby Service Bus.
 
 Umožnit Service Bus dost času zařadit do fronty zprávy do různých fragment, [MessagingFactorySettings.OperationTimeout] [ MessagingFactorySettings.OperationTimeout] hodnotu zadanou pomocí klienta, která odesílá zprávy musí být větší než 15 sekund. Doporučujeme, abyste nastavili [OperationTimeout] [ OperationTimeout] vlastnost, která má výchozí hodnotu 60 sekund.
 
@@ -127,14 +127,14 @@ Service Bus podporuje automatické zpráva předávání od, k nebo mezi dělen�
 
 ## <a name="considerations-and-guidelines"></a>Důležité informace a pokyny
 * **Funkce vysoké konzistence**: Pokud entity používá funkce, jako jsou relace, detekci duplikátů nebo explicitní kontrolu nad klíč rozdělení do oddílů, pak zasílání zpráv operace jsou vždy směrovány do konkrétní fragmenty. Pokud je některý z fragmentů intenzivní provoz nebo příslušné úložiště není v pořádku, tyto operace nezdaří a sníží dostupnosti. Obecně je stále mnohem vyšší než bez oddílů entity; konzistence pouze podmnožinu provozu dochází k problémům, a veškerý provoz. Další informace najdete v tématu to [diskuzi o dostupnosti a konzistence](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Správa**: operací, jako je vytvoření, aktualizace a odstranění je potřeba provést na všechny fragmenty entity. Pokud není v pořádku žádné fragment to může způsobit selhání pro tyto operace. Pro operaci Get informace, jako je počty zprávy musí být agregován z všechny fragmenty. Pokud žádné fragment není v pořádku, stav dostupnosti entity se hlásí jako omezené.
+* **Správa**: operací, jako je vytvoření, aktualizace a odstranění je potřeba provést na všechny fragmenty entity. Pokud žádné fragment není v pořádku, to může způsobit selhání pro tyto operace. Pro operaci Get informace, jako je počty zprávy musí být agregován z všechny fragmenty. Pokud žádné fragment není v pořádku, stav dostupnosti entity se hlásí jako omezené.
 * **Nízká svazku zpráva scénáře**: pro takové scénáře, zejména v případě, že pomocí protokolu HTTP, možná budete muset provést několika přijímat operace, aby bylo možné získat všechny zprávy. Pro přijetí žádosti front-endu provádí všechny fragmenty příjmu a ukládá do mezipaměti všechny přijaté odpovědi. Následné přijetí požadavku na stejné připojení by mít užitek z této ukládání do mezipaměti a přijímat bude nižší latenci. Ale pokud máte více připojení nebo prostřednictvím protokolu HTTP, který vytvoří nové připojení pro každý požadavek. Jako takový není zaručeno, že bude zobrazovat na stejném uzlu. Pokud jsou všechny existující zprávy uzamčen a uložené v mezipaměti v jiné front-endu, vrátí operace příjmu **null**. Zprávy nakonec vyprší a je můžete přijímat znovu. Doporučuje se udržování připojení HTTP.
-* **Procházet zprávy funkce Náhled**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) vždy nevrací počet zpráv zadaný v [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_MessageCount) vlastnost. Existují dvě běžné důvody. Jedním z důvodů je, že agregovaná velikost kolekci zpráv překračuje maximální velikost 256KB. Dalším důvodem je, že pokud má fronta nebo téma [enablepartitioning je vlastnost](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning) nastavena na **true**, oddíl nemusí mít dostatek zprávy a pokuste se provést požadovaný počet zpráv. Obecně platí, pokud aplikace chce dostávat konkrétní počet zpráv, ho by měly volat [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) opakovaně, dokud získá počet zpráv, nebo nejsou žádné další zprávy k prohlížení. Další informace, včetně ukázky kódu, najdete v části [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) nebo [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PeekBatch_System_Int32_).
+* **Procházet zprávy funkce Náhled**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) vždy nevrací počet zpráv zadaný v [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) vlastnost. Existují dvě běžné důvody. Jedním z důvodů je, že agregovaná velikost kolekci zpráv překračuje maximální velikost 256 KB. Dalším důvodem je, že pokud má fronta nebo téma [enablepartitioning je vlastnost](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) nastavena na **true**, oddíl nemusí mít dostatek zprávy a pokuste se provést požadovaný počet zpráv. Obecně platí, pokud aplikace chce dostávat konkrétní počet zpráv, ho by měly volat [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) opakovaně, dokud získá počet zpráv, nebo nejsou žádné další zprávy k prohlížení. Další informace, včetně ukázky kódu, najdete v článku [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) nebo [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) dokumentaci k rozhraní API.
 
 ## <a name="latest-added-features"></a>Nejnovější přidané funkce
 * Přidat nebo odebrat pravidlo se teď podporuje s dělené entity. Liší od bez oddílů entity, tyto operace nejsou podporovány v rámci transakce. 
 * AMQP se teď podporuje pro odesílání a přijímání zpráv do a z oddílů entity.
-* AMQP je nyní podporován pro následující operace: [odeslání dávky](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_BrokeredMessage__), [přijímat Batch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_ReceiveBatch_System_Int32_), [Receive podle pořadových čísel](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_Receive_System_Int64_), [prohlížet](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_Peek), [ Obnovení zámku](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_RenewMessageLock_System_Guid_), [naplánovat zpráva](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_ScheduleMessageAsync_Microsoft_ServiceBus_Messaging_BrokeredMessage_System_DateTimeOffset_), [zrušit naplánované zpráva](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_CancelScheduledMessageAsync_System_Int64_), [přidat pravidlo](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [odebrat pravidlo](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [Relace obnovení zámku](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_RenewLock), [stav relace sady](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_), [stav relace Get](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_GetState), a [výčet relací](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessionsAsync).
+* AMQP je nyní podporován pro následující operace: [odeslání dávky](/dotnet/api/microsoft.servicebus.messaging.queueclient.sendbatch), [přijímat Batch](/dotnet/api/microsoft.servicebus.messaging.queueclient.receivebatch), [Receive podle pořadových čísel](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive), [prohlížet](/dotnet/api/microsoft.servicebus.messaging.queueclient.peek), [ Obnovení zámku](/dotnet/api/microsoft.servicebus.messaging.queueclient.renewmessagelock), [naplánovat zpráva](/dotnet/api/microsoft.servicebus.messaging.queueclient.schedulemessageasync), [zrušit naplánované zpráva](/dotnet/api/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync), [přidat pravidlo](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [odebrat pravidlo](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [Relace obnovení zámku](/dotnet/api/microsoft.servicebus.messaging.messagesession.renewlock), [stav relace sady](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate), [stav relace Get](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate), a [výčet relací](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions).
 
 ## <a name="partitioned-entities-limitations"></a>Dělené entity omezení
 Aktuálně Service Bus sebou následující omezení na oddílů fronty a témata:
@@ -143,20 +143,20 @@ Aktuálně Service Bus sebou následující omezení na oddílů fronty a témat
 * Service Bus aktuálně umožňuje až 100 oddílů fronty nebo témata na obor názvů. Každý oddílů fronta nebo téma započítává kvótu 10 000 entit na obor názvů (nevztahuje na úrovni Premium).
 
 ## <a name="next-steps"></a>Další kroky
-Přečtěte si diskuzi o [podporu protokolu AMQP 1.0 pro Service Bus oddíly fronty a témata] [ AMQP 1.0 support for Service Bus partitioned queues and topics] Další informace o vytváření oddílů entit pro zasílání zpráv. 
+Přečtěte si informace o klíčových konceptech AMQP 1.0, specifikace v zasílání zpráv [Průvodce protokolu AMQP 1.0](service-bus-amqp-protocol-guide.md).
 
 [Service Bus architecture]: service-bus-architecture.md
 [Azure portal]: https://portal.azure.com
-[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
-[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnablePartitioning
-[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId
-[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
-[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId
-[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
-[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection
-[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
+[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
+[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
+[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
+[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
+[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
+[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection
+[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
+[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
+[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
+[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
+[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md

@@ -4,7 +4,7 @@ description: "Další informace o softwaru a síťové požadavky pro vaše pole
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: alkohli
-ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Požadavky systému virtuálních polí StorSimple
 ## <a name="overview"></a>Přehled
@@ -41,7 +41,10 @@ Požadavky na software zahrnují informace o podporované webové prohlížeče,
 | **Hypervisor** | **Verze** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 a novější |
-| VMware ESXi |5.5 a 6.0 |
+| VMware ESXi |5.0, 5.5 a 6.0 <br> (verze 6.5 není podporována.) |
+
+> [!IMPORTANT]
+> Neinstalujte nástroje VMware na pole virtuální zařízení StorSimple; Tato akce způsobí nepodporované konfigurace.
 
 ### <a name="virtual-device-requirements"></a>Požadavky na virtuální zařízení
 | **Komponenta** | **Požadavek** |
@@ -79,8 +82,8 @@ Následující softwarové požadavky jsou pro klienty SMB, kteří přistupují
 | SMB 3.02 |
 
 > [!IMPORTANT]
-> Zkopírujte nebo ukládat soubory chráněné pomocí Windows systém souborů (Encrypting File System) na souborovém serveru pole virtuální zařízení StorSimple; Tato akce způsobí nepodporované konfigurace. 
-> 
+> Zkopírujte nebo ukládat soubory chráněné pomocí Windows systém souborů (Encrypting File System) na souborovém serveru pole virtuální zařízení StorSimple; Tato akce způsobí nepodporované konfigurace.
+
 
 ### <a name="supported-storage-format"></a>Podporované formát úložiště
 Je podporován pouze Azure blokové úložiště objektů blob. Objekty BLOB stránky nejsou podporovány. Další informace [o objekty BLOB bloku a objekty BLOB stránky](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).

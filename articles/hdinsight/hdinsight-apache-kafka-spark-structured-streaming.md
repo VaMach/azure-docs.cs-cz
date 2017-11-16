@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Použít Spark strukturovaných streamování s Kafka (preview) v HDInsight
+# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Používejte Spark strukturovaná streamování s Kafka v HDInsight
 
 Naučte se používat Spark strukturovaných streamování číst data z Apache Kafka v Azure HDInsight.
 
@@ -52,7 +52,7 @@ Když vytvoříte virtuální síť Azure, Kafka, a clustery Spark ručně, je j
 
     Tato šablona vytváří v následujících zdrojích informací:
 
-    * Kafka v clusteru HDInsight 3.5.
+    * Kafka v clusteru HDInsight 3.6.
     * Spark v HDInsight 3.6 clusteru.
     * Virtuální síť Azure, který obsahuje clusterů HDInsight.
 

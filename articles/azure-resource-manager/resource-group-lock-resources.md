@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 44c87b00f4fc63dbfd45a07d9a8cddc5eaf1a65c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7b091f4a437781547610624007ac1d7f22fed61
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Zamknutí prostředků, aby se zabránilo neočekávané změny 
 Jako správce musíte k uzamčení předplatné, skupinu prostředků nebo prostředek zabránit ostatním uživatelům ve vaší organizaci neúmyslnému odstranění nebo úprava důležitých prostředků. Můžete nastavit zámek na úrovni **CanNotDelete** nebo **jen pro čtení**. 
@@ -168,6 +168,6 @@ V žádosti o zahrnují objekt JSON, který určuje vlastnosti pro zámek.
 * Další informace o práci s uzamčení prostředků najdete v tématu [zámku dolů vaše prostředky Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
 * Další informace o logicky organizování vašich prostředků najdete v tématu [pomocí značek k uspořádání prostředků](resource-group-using-tags.md)
 * Ke změně prostředku se nachází v prostředku skupiny, najdete v části [přesunutím prostředků do nové skupiny prostředků](resource-group-move-resources.md)
-* Můžete použít omezení a pravidla týkající se vašeho předplatného pomocí vlastních zásad. Další informace najdete v tématu [Použití zásad ke správě prostředků a řízení přístupu](resource-manager-policy.md).
+* Můžete použít omezení a pravidla týkající se vašeho předplatného pomocí vlastních zásad. Další informace najdete v tématu [co je Azure zásad?](../azure-policy/azure-policy-introduction.md).
 * Pokyny k tomu, jak můžou podniky používat Resource Manager k efektivní správě předplatných, najdete v části [Základní kostra Azure Enterprise – zásady správného řízení pro předplatná](resource-manager-subscription-governance.md).
 

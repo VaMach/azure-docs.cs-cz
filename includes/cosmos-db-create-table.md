@@ -1,14 +1,21 @@
-Teď můžete pomocí Průzkumníka dat vytvořit tabulku a přidat data do databáze. 
+Teď můžete použít nástroj Průzkumník dat v portálu Azure k vytvoření databáze a tabulky. 
 
-1. Na webu Azure Portal v navigační nabídce klikněte na **Průzkumník dat (Preview)**. 
-2. V okně Průzkumníka dat klikněte na **Nová tabulka** a potom stránku vyplňte pomocí následujících informací.
+1. Klikněte na tlačítko **Průzkumníku dat** > **novou tabulku**. 
+    
+    **Přidat tabulku** oblasti se zobrazí v pravém, budete muset přejděte přímo k jeho zobrazení.
 
     ![Průzkumník dat na webu Azure Portal](./media/cosmos-db-create-table/azure-cosmosdb-data-explorer.png)
+
+2. V **přidat tabulku** zadejte nastavení pro novou tabulku.
 
     Nastavení|Navrhovaná hodnota|Popis
     ---|---|---
     ID tabulky|sample-table|ID vaší nové tabulky. Názvy tabulek mají stejné požadavky na znaky jako ID databází. Názvy databází musí mít délku 1 až 255 znaků a nesmí obsahovat znaky `/ \ # ?` ani koncové mezery.
-    Kapacita úložiště| 10 GB|Nechte zadanou výchozí hodnotu. Tohle je kapacita úložiště databáze.
-    Propustnost|400 RU/s|Nechte zadanou výchozí hodnotu. [Propustnost](../articles/cosmos-db/request-units.md) můžete později navýšit, pokud budete chtít snížit latenci.
+    Kapacita úložiště| Pevná (10 GB)|Změňte hodnotu na **Fixed (10 GB)**. Tato hodnota je kapacita úložiště databáze.
+    Propustnost|400 RU/s|Změňte propustnosti na 400 jednotek žádosti za sekundu (RU/s). Pokud budete chtít snížit latenci, můžete propustnost později navýšit.
 
-3. Po vyplnění formuláře klikněte na **OK**.
+    Klikněte na **OK**.
+
+    Průzkumník dat zobrazí novou databázi a tabulku.
+
+    ![Portál Azure Průzkumníku dat znázorňující nové databáze a kolekce.](./media/cosmos-db-create-table/azure-cosmos-db-new-table.png)

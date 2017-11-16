@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 423eee65040a11695d9f6c18d64948e4c3d3aafe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions hostování plány porovnání
 
-## <a name="introduction"></a>Úvod
-
 Azure Functions můžete spustit ve dvou různých režimech: plánu spotřeby a plán služby Azure App Service. Plánu spotřeby automaticky přiděluje výpočetní výkon, když kód běží, horizontálně navýší kapacitu podle potřeby pro zpracování zatížení a potom škáluje, pokud kód není spuštěna. Ano nemusí platit pro nečinnosti virtuální počítače a nemusíte předem záložní kapacita. Tento článek se týká plánu spotřeby [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) modelu aplikace. Podrobnosti o tom, jak funguje plán služby App Service najdete v tématu [podrobný přehled plánů služby Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+>[!NOTE]  
+> Hostování Linux je momentálně dostupná jenom na plán služby App Service.
 
 Pokud se nevyznáte v Azure Functions, přečtěte si téma [přehled Azure Functions](functions-overview.md).
 
@@ -55,7 +56,7 @@ Spotřeba plán je výchozí plán hostování a nabízí následující výhody
 
 ## <a name="app-service-plan"></a>Plán služby App Service
 
-V plánu služby App Service vaše funkce aplikace běží na vyhrazených virtuálních počítačích na Basic, Standard, Premium a izolované SKU, podobně jako webové aplikace, rozhraní API Apps a Mobile Apps. Vyhrazených virtuálních počítačích jsou přiděleny aplikace služby App Service, což znamená, že na hostiteli funkce vždy běží.
+V plánu služby App Service vaše funkce aplikace běží na vyhrazených virtuálních počítačích na Basic, Standard, Premium a izolované SKU, podobně jako webové aplikace, rozhraní API Apps a Mobile Apps. Vyhrazených virtuálních počítačích jsou přiděleny aplikace služby App Service, což znamená, že na hostiteli funkce vždy běží. Plány služby App Service podporovat Linux.
 
 Vezměte v úvahu plán služby App Service v následujících případech:
 - Máte existující, nedostatečně virtuálních počítačů, které jsou již spuštěny jiné instance aplikace služby.
@@ -63,6 +64,7 @@ Vezměte v úvahu plán služby App Service v následujících případech:
 - Budete potřebovat další možnosti procesoru nebo paměti, než je zadán plánu spotřeby.
 - Budete muset spustit delší než maximální dobu spuštění povolena v plánu spotřeby (of 10 minut).
 - Vyžadujete, aby funkce, které jsou dostupné jenom na plán služby App Service, například podporu služby App Service Environment, připojení virtuální sítě nebo virtuální privátní sítě a větší velikosti virtuálních počítačů. 
+- Chcete spustit aplikaci funkce v systému Linux, nebo chcete poskytnout vlastní image, na které se mají spouštět funkce.
 
 Virtuální počítač oddělí ze počet spuštěních, čas spuštění a paměti. V důsledku toho nebude platit víc než náklady na instanci virtuálního počítače, které můžete přidělit. Podrobnosti o tom, jak funguje plán služby App Service najdete v tématu [podrobný přehled plánů služby Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 

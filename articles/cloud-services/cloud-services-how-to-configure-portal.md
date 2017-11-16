@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Postup konfigurace cloudové služby
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-configure-portal.md)
-> * [Portál Azure Classic](cloud-services-how-to-configure.md)
->
->
-
 Můžete nakonfigurovat nastavení nejčastěji používaných pro cloudové služby na portálu Azure. Pokud chcete místo toho aktualizovat konfigurační soubory přímo, stáhněte si příslušný konfigurační soubor služby a pak ho aktualizujte a nahrajte. Tím aktualizujete konfiguraci cloudové služby. V obou případech se aktualizovaná konfigurace projeví ve všech instancích rolí.
 
 Můžete také spravovat instance role cloudové služby nebo vzdálené plochy do nich.
@@ -77,9 +71,9 @@ Místo použití **nastavení** > **pravidla výstrah**, můžete kliknutím na 
 Tady můžete přizpůsobit graf použít s dlaždice nebo přidání pravidla výstrahy.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Restartování, obnovení z Image nebo vzdálené plochy
-V tuto chvíli nelze konfigurovat pomocí vzdálené plochy **portál Azure**. Však můžete nastavit ji prostřednictvím [portál Azure classic](cloud-services-role-enable-remote-desktop.md), [prostředí PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), nebo pomocí [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+Můžete nastavit vzdálené plochy prostřednictvím [portálu Azure (Instalační program vzdálené plochy)](cloud-services-role-enable-remote-desktop-new-portal.md), [prostředí PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), nebo pomocí [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-První klikněte na instanci služby cloudu.
+Restartování, obnovení z Image nebo vzdálené do cloudové služby, klikněte na instanci služby cloudu.
 
 ![Instance cloudové služby](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

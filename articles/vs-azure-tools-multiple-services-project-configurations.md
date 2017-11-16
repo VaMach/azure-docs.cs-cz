@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Konfigurace projektu Azure pomocí více konfigurace služby
 Projekt Azure cloud service zahrnuje dvě konfigurační soubory: ServiceDefinition.csdef a souboru ServiceConfiguration.cscfg. Tyto soubory jsou zabalit s aplikací Azure cloud service a nasazení do Azure.
@@ -30,7 +30,7 @@ Nástroje pro Azure pro sadu Microsoft Visual Studio poskytují stránky vlastno
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Informace o základní schémata pro definice služby a soubory konfigurace služby najdete v tématu [– odkaz schématu](https://msdn.microsoft.com/library/azure/dd179398.aspx). Další informace o konfiguraci služby najdete v tématu [postup konfigurace cloudové služby](cloud-services/cloud-services-how-to-configure.md).
+Informace o základní schémata pro definice služby a soubory konfigurace služby najdete v tématu [.csdef schématu XML](cloud-services/schema-csdef-file.md) a [.cscfg schématu XML](cloud-services/schema-cscfg-file.md) články. Další informace o konfiguraci služby najdete v tématu [postup konfigurace cloudové služby](cloud-services/cloud-services-how-to-configure-portal.md).
 
 ## <a name="configuring-role-properties"></a>Konfigurace vlastností role
 Stránky vlastností pro webovou roli a roli pracovního procesu jsou podobné, i když existuje několik rozdílů, na kterou v následujících částech.
@@ -88,7 +88,7 @@ Můžete použít **místní úložiště** stránka vlastností můžete vyhrad
 ## <a name="certificates-page"></a>Stránka certifikátů
 Na **certifikáty** stránky, certifikáty můžete přidružit vaši roli. Certifikáty, které přidáte lze nakonfigurovat na koncové body HTTPS **koncové body** stránku vlastností.
 
-**Certifikáty** stránka vlastností přidá informace o certifikáty konfigurace služby. Všimněte si, že certifikáty nejsou spojených s službou; musíte nahrát certifikáty samostatně do Azure pomocí [portál Azure classic](http://go.microsoft.com/fwlink/?LinkID=213885).
+**Certifikáty** stránka vlastností přidá informace o certifikáty konfigurace služby. Všimněte si, že certifikáty nejsou spojených s službou; musíte nahrát certifikáty samostatně do Azure pomocí [portál Azure](http://portal.azure.com).
 
 Pokud chcete přiřadit certifikát vaše role, zadejte název pro certifikát. Tento název je použít k odkazování na certifikátu, když konfigurujete na koncový bod HTTPS **koncové body** stránku vlastností. V dalším kroku určete, zda je úložiště certifikátů **místního počítače** nebo **aktuální uživatel** a název úložiště. Nakonec zadejte kryptografický otisk certifikátu. Pokud je certifikát v aktuální User\Personal (My) úložiště, můžete zadat kryptografický otisk certifikátu výběrem certifikátu z vyplněná seznamu. Pokud se nachází v jiném umístění, zadejte hodnotu kryptografického otisku ručně.
 

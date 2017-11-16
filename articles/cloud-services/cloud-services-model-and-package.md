@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 21fbdbc4c24440c6fbbd7487cfbb2e0a3140aa96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7210c944e2f99aacdc2f554409552007286c5da
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Co je Cloudová služba modelu a jak ho balíček?
 Cloudová služba je vytvořená z tří součástí definice služby *(.csdef)*, konfigurace služby *(.cscfg)*a balíček služby *(.cspkg)*. Obě **ServiceDefinition.csdef** a **ServiceConfig.cscfg** soubory formátu XML a popisují strukturu cloudové služby a jak jsou nakonfigurované; se nazývají modelu. **ServicePackage.cspkg** je soubor zip, který se generují z **ServiceDefinition.csdef** a mimo jiné obsahuje všechny požadované závislosti na základě binární. Azure vytvoří cloudové služby i **ServicePackage.cspkg** a **ServiceConfig.cscfg**.
@@ -290,7 +290,7 @@ Používám Visual Studio a chcete...
 * [Instalační program vzdálené plochy pro instanci cloudové služby][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
-[remotedesktop]: cloud-services-role-enable-remote-desktop.md
+[remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md

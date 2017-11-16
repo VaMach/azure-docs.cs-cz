@@ -16,6 +16,7 @@
 ### [Architektura MPP](massively-parallel-processing-mpp-architecture.md)
 ### [Úrovně výkonu](performance-tiers.md)
 ### [Jednotky datového skladu](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Omezení kapacity](sql-data-warehouse-service-capacity-limits.md)
 ### [Nejčastější dotazy](sql-data-warehouse-overview-faq.md)
 
 ## Zálohování a obnovení
@@ -147,7 +148,7 @@
 
 # Referenční informace
 
-## [Omezení kapacity](sql-data-warehouse-service-capacity-limits.md)
+
 ## T-SQL
 ### [Úplný přehled](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [Elementy jazyka SQL DW](sql-data-warehouse-reference-tsql-language-elements.md)
