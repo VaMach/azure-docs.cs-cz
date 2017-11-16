@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="sampling-in-application-insights"></a>Vzorkování ve službě Application Insights
 
@@ -38,9 +38,9 @@ Vzorkování snižuje náklady na provoz a data a umožňuje vyhnout se omezení
 ## <a name="types-of-sampling"></a>Typy vzorkování
 Existují tři metody vzorkování alternativní:
 
-* **Adaptivního vzorkování** automaticky přizpůsobí objem telemetrická data odesílaná ze sady SDK v aplikaci ASP.NET. Výchozí hodnota je ze sady SDK v 2.0.0-beta3. Aktuálně dostupné pro ASP.NET serverové pouze telemetrie. 
+* **Adaptivního vzorkování** automaticky přizpůsobí objem telemetrická data odesílaná ze sady SDK v aplikaci ASP.NET. Od verze sady SDK v 2.0.0-beta3 Toto je výchozí metoda vzorkování. Adaptivního vzorkování je aktuálně k dispozici pouze pro telemetrických dat na straně serveru technologie ASP.NET. 
 * **Míry vzorkování** snižuje objem telemetrická data odesílaná ze serveru ASP.NET a z prohlížečů uživatelů. Můžete nastavit rychlost. Klient a server bude synchronizovat jejich vzorkování tak, že v hledání, mohou procházet mezi zobrazení související stránky a požadavky.
-* **Přijímání vzorkování** funguje na portálu Azure. Zahodí některé telemetrická data přenášená z vaší aplikace, který nastavíte. Není omezit přenos telemetrie, ale umožňuje udržovat v rámci měsíční kvóta. Big výhod přijímání vzorkování je, že můžete ho nastavit bez opětovného nasazení aplikace a funguje jednotně pro všechny servery a klienty. 
+* **Přijímání vzorkování** funguje na portálu Azure. Zahodí některé telemetrická data přenášená z vaší aplikace na vzorkovací frekvenci, který nastavíte. Nedojde k omezení přenosy telemetrie z vaší aplikace, ale umožňuje udržovat v rámci měsíční kvóta. Hlavní výhodou přijímání vzorkování je, že nastavíte vzorkovací frekvenci bez opětovného nasazení aplikace a funguje jednotně pro všechny servery a klienty. 
 
 Pokud Adaptivní nebo pevné míry vzorkování v operaci, přijímání vzorkování je zakázána.
 
@@ -67,15 +67,19 @@ Přijímání vzorkování nepracuje při vzorkování Adaptivní nebo pevnou sa
 ## <a name="adaptive-sampling-at-your-web-server"></a>Adaptivního vzorkování na webovém serveru
 Adaptivního vzorkování je k dispozici pro Application Insights SDK pro aplikace ASP.NET v 2.0.0-beta3 nebo novější a je ve výchozím nastavení povolené. 
 
-Adaptivního vzorkování ovlivňuje objem telemetrická data odesílaná ze serveru webové aplikace ve službě Application Insights. Svazek je automaticky upravována nedovoluje zadaný maximální rychlost přenosu.
+Adaptivního vzorkování ovlivňuje objem telemetrická data odesílaná ze serveru webové aplikace do koncového bodu služby Application Insights. Svazek je automaticky upravována nedovoluje zadaný maximální rychlost přenosu.
 
 Ho nepracuje na nízkou svazky telemetrie, takže aplikace při ladění nebo nebude mít vliv na web s nízkou využití.
 
-K dosažení cílový svazek, některé telemetrii vygenerovanou se zahodí. Ale stejně jako jiné typy vzorkování algoritmus zachová související telemetrii položky. Například při jste kontrole telemetrii ve vyhledávání, budete moci najít žádosti související s konkrétní výjimka položku. 
+K dosažení cílový svazek, některé telemetrická generovaným se zahodí. Ale stejně jako jiné typy vzorkování algoritmus zachová související telemetrii položky. Například při jste kontrole telemetrii ve vyhledávání, budete moci najít žádosti související s konkrétní výjimka položku. 
 
 Metrika počítá jako je například rychlost požadavků a rychlost výjimka upraveny tak, aby kompenzovat vzorkovací frekvenci, aby zobrazovala přibližně správné hodnoty v Průzkumníku metrika.
 
-**Aktualizace vašeho projektu NuGet** balíčky na nejnovější *předběžné verze* verzi Application Insights: klikněte pravým tlačítkem na projekt v Průzkumníku řešení, zvolte spravovat balíčky NuGet, zkontrolujte **zahrnout předběžné verze** a vyhledejte Microsoft.ApplicationInsights.Web. 
+### <a name="update-nuget-packages"></a>Aktualizovat balíčky NuGet ###
+
+Aktualizace vašeho projektu balíčky NuGet na nejnovější *předběžné verze* verzi Application Insights. V sadě Visual Studio, klikněte pravým tlačítkem na projekt v Průzkumníku řešení, zvolte spravovat balíčky NuGet, zkontrolujte **zahrnout předběžné verze** a vyhledejte Microsoft.ApplicationInsights.Web. 
+
+### <a name="configuring-adaptive-sampling"></a>Konfigurace adaptivního vzorkování ###
 
 V [souboru ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), můžete upravit několik parametrů v `AdaptiveSamplingTelemetryProcessor` uzlu. Následující obrázky, zobrazí se výchozí hodnoty:
 
@@ -116,7 +120,7 @@ V [souboru ApplicationInsights.config](app-insights-configuration-with-applicati
 **Chcete-li vypnout** adaptivního vzorkování, odebrat uzel AdaptiveSamplingTelemetryProcessor z applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Alternativní: Konfigurace adaptivního vzorkování v kódu
-Místo úpravě vzorkování v souboru config, můžete použít kód. To umožňuje zadat funkce zpětného volání, která je volána vždy, když se znovu zhodnotí míry vzorkování. Můžete to, například použít a zjistěte, jaké míry vzorkování je používán.
+Místo v souboru config nastavení parametru vzorkování, můžete programově nastavit tyto hodnoty. To umožňuje zadat funkce zpětného volání, která je volána vždy, když se znovu zhodnotí míry vzorkování. Můžete to, například použít a zjistěte, jaké míry vzorkování je používán.
 
 Odeberte `AdaptiveSamplingTelemetryProcessor` uzlu ze souboru config.
 
@@ -168,7 +172,7 @@ Odeberte `AdaptiveSamplingTelemetryProcessor` uzlu ze souboru config.
 ## <a name="sampling-for-web-pages-with-javascript"></a>Vzorkování pro webové stránky v jazyce JavaScript
 Můžete nakonfigurovat webové stránky pro – míra vzorkování z jakéhokoli serveru. 
 
-Pokud jste [konfigurace webové stránky pro službu Application Insights](app-insights-javascript.md), fragment, kterou můžete získat z portálu služby Application Insights upravit. (V aplikacích ASP.NET fragmentu obvykle bude v _Layout.cshtml.)  Vložit řádek jako `samplingPercentage: 10,` před klíč instrumentace:
+Pokud jste [konfigurace webové stránky pro službu Application Insights](app-insights-javascript.md), upravit fragment kódu jazyka JavaScript, kterou můžete získat z portálu služby Application Insights. (V aplikacích ASP.NET fragmentu obvykle bude v _Layout.cshtml.)  Vložit řádek jako `samplingPercentage: 10,` před klíč instrumentace:
 
     <script>
     var appInsights= ... 
@@ -191,13 +195,15 @@ Procento vzorkování zvolte procentuální hodnotu, která je blízko 100/N, kd
 Pokud povolíte také – míra vzorkování na serveru, klienty a server bude synchronizovat tak, aby toto, v hledání mezi můžete procházet zobrazení související stránky a požadavky.
 
 ## <a name="fixed-rate-sampling-for-aspnet-web-sites"></a>Míry vzorkování pro weby technologie ASP.NET
-Pevné míry vzorkování omezuje provoz odesílaný z webového serveru a webových prohlížečů. Na rozdíl od adaptivního vzorkování, snižuje telemetrická data s pevnou sazbou, které jste se rozhodli. Také synchronizuje klient a server vzorkování tak, aby se zachovají související položky – například tak, aby se podíváte na zobrazení stránky ve vyhledávání, budete moci najít související požadavku.
+Pevné míry vzorkování omezuje provoz odesílaný z webového serveru a webových prohlížečů. Na rozdíl od adaptivního vzorkování, snižuje telemetrická data s pevnou sazbou, které jste se rozhodli. Také synchronizuje klient a server vzorkování tak, aby se zachovají související položky – například když se podíváte na zobrazení stránky ve vyhledávání, můžete vyhledat související požadavku.
 
-Algoritmus vzorkování zachová související položky. Pro každý požadavek HTTP událostí, ho a její související události jsou buď zrušených nebo přenosu. 
+Algoritmus vzorkování zachová související položky. Pro každý požadavek HTTP událostí, žádost a její související události jsou buď zrušených nebo přenášených společně. 
 
 V Průzkumníku metrik jsou sazby, jako je například požadavek a výjimky počty vynásobí faktorem kompenzovat vzorkovací frekvenci, aby byly přibližně správné.
 
-1. **Aktualizovat balíčky NuGet projektu na** na nejnovější *předběžné verze* verzi Application Insights. Klikněte pravým tlačítkem na projekt v Průzkumníku řešení, zvolte spravovat balíčky NuGet, zkontrolujte **zahrnout předběžné verze** a vyhledejte Microsoft.ApplicationInsights.Web. 
+### <a name="configuring-fixed-rate-sampling"></a>Konfigurace – míra vzorkování ###
+
+1. **Aktualizovat balíčky NuGet projektu na** na nejnovější *předběžné verze* verzi Application Insights. V sadě Visual Studio, klikněte pravým tlačítkem na projekt v Průzkumníku řešení, zvolte spravovat balíčky NuGet, zkontrolujte **zahrnout předběžné verze** a vyhledejte Microsoft.ApplicationInsights.Web. 
 2. **Zakázat adaptivního vzorkování**: V [souboru ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), odeberte, nebo komentář `AdaptiveSamplingTelemetryProcessor` uzlu.
    
     ```xml
@@ -233,7 +239,7 @@ V Průzkumníku metrik jsou sazby, jako je například požadavek a výjimky po�
 > 
 
 ### <a name="alternative-enable-fixed-rate-sampling-in-your-server-code"></a>Alternativní: Povolte-míry vzorkování v serverovém kódu
-Místo v souboru config nastavení parametru vzorkování, můžete použít kód. 
+Místo v souboru config nastavení parametru vzorkování, můžete programově nastavit tyto hodnoty. 
 
 *C#*
 
@@ -256,9 +262,9 @@ Místo v souboru config nastavení parametru vzorkování, můžete použít kó
 ([Další informace o telemetrie procesory](app-insights-api-filtering-sampling.md#filtering).)
 
 ## <a name="when-to-use-sampling"></a>Kdy použít vzorkování?
-Pokud používáte 2.0.0-beta3 verze sady SDK technologie ASP.NET je automaticky povolen adaptivního vzorkování nebo novější. Bez ohledu na to, jaké používáte verze sady SDK můžete přijímat vzorkování (v našem server).
+Pokud používáte 2.0.0-beta3 verze sady SDK technologie ASP.NET je automaticky povolen adaptivního vzorkování nebo novější. Bez ohledu na to, kterou verzi sady SDK můžete použít můžete povolit přijímání vzorkování umožňující Application Insights zkusit shromážděná data.
 
-Nepotřebujete vzorkování pro většinu aplikací malé a střední velikosti. Shromažďování dat pro všechny aktivity uživatele je nejvhodnější diagnostické informace a nejpřesnější statistiky jsou získat. 
+Obecně platí pro většinu aplikací malé a střední velikosti nepotřebujete vzorkování. Shromažďování dat pro všechny aktivity uživatele je nejvhodnější diagnostické informace a nejpřesnější statistiky jsou získat. 
 
 Hlavní výhody vzorkování jsou:
 
@@ -281,7 +287,7 @@ Hlavní výhody vzorkování jsou:
 
 **Použijte adaptivního vzorkování:**
 
-Jinak doporučujeme, abyste adaptivního vzorkování. Tato možnost je povolena ve výchozím nastavení v serveru technologie ASP.NET SDK verze 2.0.0-beta3 nebo novější. Nesnižuje provoz až na určité minimální míru, takže ho nebude mít vliv na použití nízké lokality.
+Pokud se nevztahují podmínky použití jiných forem vzorkování, doporučujeme adaptivního vzorkování. Tato možnost je povolena ve výchozím nastavení v serveru technologie ASP.NET SDK verze 2.0.0-beta3 nebo novější. Nebude omezit přenos, dokud nebude dosaženo určité minimální rychlost, proto nebude mít vliv nízká použití lokalit.
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>Jak zjistím, zda je vzorkování v operaci?
 Chcete-li zjistit skutečný vzorkovací frekvenci bez ohledu na to, kde byl použit, použijte [Analytics dotazu](app-insights-analytics.md) jako je tato:
@@ -330,7 +336,7 @@ Na straně klienta (JavaScript) sady SDK se účastní – míra vzorkování ve
 
 * Jedním ze způsobů je začínat adaptivního vzorkování, podívejte se, co ohodnotit vyrovná na (viz výše otázku) a potom přepnout na pevnou sazbou vzorkování pomocí tohoto kurzu. 
   
-    Máte tak snadno uhodnout. Analýza vašeho aktuálního využití telemetrie v AI, sledovat žádné omezení, která je a odhadnout objem shromážděných telemetrie. Tyto tři vstupy, společně s vybranou cenovou úroveň, navrhnout, kolik můžete chtít snížit objem shromážděných telemetrie. Však může zvýšit počet uživatelů nebo jiných posunutí ve svazku telemetrie neplatným odhad.
+    Máte tak snadno uhodnout. Analýza vašeho aktuálního využití telemetrie ve službě Application Insights, sledovat žádné omezení, která je a odhadnout objem shromážděných telemetrie. Tyto tři vstupy, společně s vybranou cenovou úroveň, navrhnout, kolik můžete chtít snížit objem shromážděných telemetrie. Však může zvýšit počet uživatelů nebo jiných posunutí ve svazku telemetrie neplatným odhad.
 
 *Co se stane, když je možné nakonfigurovat vzorkování procento příliš nízko?*
 

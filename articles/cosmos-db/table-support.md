@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1513fc53501f1cfec93134841fbef9a8552dd43c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0c8f1aee75c4ee5cc35758b71ef573637fd3edd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Vývoj s Azure Cosmos DB tabulky rozhraní API a Azure Table storage
 
@@ -25,11 +25,13 @@ Rozhraní API tabulky DB Cosmos Azure a Azure Table storage sdílet stejné tabu
 
 ## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Vývoj s Azure Cosmos DB tabulky API
 
-V tomto okamžiku [rozhraní API služby Azure Cosmos DB tabulky](table-introduction.md) má .NET SDK k dispozici, [tabulku úložiště Premium Windows Azure (preview)](https://aka.ms/premiumtablenuget). V této knihovně bylo stejné třídy a metody podpisy jako veřejnosti [sada SDK úložiště Windows Azure](https://www.nuget.org/packages/WindowsAzure.Storage), ale má také možnost pro připojení k databázi Azure Cosmos účty pomocí rozhraní API pro tabulku (preview). Pro rychlý start a kurz pomocí rozhraní API služby Azure DB Cosmos tabulky naleznete v následujících článcích:
-- Rychlý úvod: [Azure Cosmos DB: vytvoření aplikace .NET pomocí rozhraní API tabulky](create-table-dotnet.md)
-- Kurz: [Azure Cosmos DB: vývoj s tabulkou rozhraní API v rozhraní .NET](tutorial-develop-table-dotnet.md)
+V tomto okamžiku [rozhraní API služby Azure Cosmos DB tabulky](table-introduction.md) má čtyři sady SDK k dispozici pro vývoj: 
+- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) sady .NET SDK. V této knihovně bylo stejné třídy a metody podpisy jako veřejnosti [sada SDK úložiště Windows Azure](https://www.nuget.org/packages/WindowsAzure.Storage), ale také obsahuje schopnost připojit k účtům Azure Cosmos DB pomocí rozhraní API tabulky. 
+- [Python SDK](table-sdk-python.md). Nové DB Python SDK Cosmos Azure je pouze SDK, který podporuje Azure Table storage v Pythonu. Tato sada SDK se připojí pomocí Azure Table storage a rozhraní API služby Azure Cosmos DB tabulky.
+- [Java SDK](table-sdk-java.md). Tato sada SDK úložiště Azure má schopnost připojit k účtům Azure Cosmos DB pomocí rozhraní API tabulky.
+- [Node.js SDK](table-sdk-nodejs.md). Tato sada SDK úložiště Azure má schopnost připojit k účtům Azure Cosmos DB pomocí rozhraní API tabulky.
 
-Další informace o práci s rozhraním API pro tabulku jsou dostupné v [– nejčastější dotazy: vyvíjet s rozhraním API pro tabulku](faq.md#develop-with-the-table-api-preview) článku.
+Další informace o práci s rozhraním API pro tabulku jsou dostupné v [– nejčastější dotazy: vyvíjet s rozhraním API pro tabulku](faq.md#develop-with-the-table-api) článku.
 
 ## <a name="developing-with-the-azure-table-storage"></a>Vývoj s Azure Table storage
 

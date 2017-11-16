@@ -6,29 +6,28 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 7ae0ffa3-c8da-4151-bdcc-8f4f69290fb4
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2144e3527b44e3cf508d23fedf7abb4cda595bbf
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager oproti nasazení classic: pochopení modely nasazení a stav svých prostředků
-V tomto tématu se dozvíte o Azure Resource Manageru a model nasazení classic, stav svých prostředků, a proto vaše prostředky, které byly nasazeny s jedním nebo dalších. Resource Manager a modely nasazení classic představují dva různé způsoby nasazení a správě řešení Azure. Práce s nimi prostřednictvím dvě rozhraní API sady a nasazené prostředky může obsahovat důležitých rozdílů. Tyto dva modely nejsou navzájem zcela kompatibilní. Toto téma popisuje tyto rozdíly.
+V tomto článku se dozvíte o Azure Resource Manageru a model nasazení classic. Resource Manager a modely nasazení classic představují dva různé způsoby nasazení a správě řešení Azure. Práce s nimi prostřednictvím dvě rozhraní API sady a nasazené prostředky může obsahovat důležitých rozdílů. Dva modely nejsou vzájemně kompatibilní. Tento článek popisuje tyto rozdíly.
 
 Pro zjednodušení nasazení a správu prostředků, společnost Microsoft doporučuje použít Správce prostředků pro všechny nové prostředky. Pokud je to možné Microsoft doporučuje, znovu nasaďte existujících prostředků prostřednictvím Resource Manager.
 
 Pokud jste nový do Resource Manager, můžete chtít nejprve zkontrolovat přehled terminologie definované v [přehled Azure Resource Manageru](resource-group-overview.md).
 
 ## <a name="history-of-the-deployment-models"></a>Historie nasazení modelů
-Azure původně zadat pouze v modelu nasazení classic. V tomto modelu všechny prostředky existovaly nezávisle; došlo k dispozici žádný způsob, jak seskupit související prostředky. Místo toho musíte ručně sledovat prostředky, ke kterým skládá řešení nebo aplikace a nezapomeňte spravovat je v koordinovaný přístup. Nasazení řešení, jste měli k vytvoření jednotlivě prostřednictvím portálu classic každý prostředek, nebo vytvořit skript, který nasadit všechny prostředky ve správném pořadí. Pokud chcete odstranit řešení, jste museli odstranit jednotlivé prostředky. Není snadno můžete použít a aktualizovat zásady řízení přístupu pro související prostředky. Nakonec nelze aplikovat značek k prostředkům a označte je podmínky, které vám pomůžou sledovat vaše prostředky a spravovat fakturace.
+Azure původně zadat pouze v modelu nasazení classic. V tomto modelu všechny prostředky existovaly nezávisle; došlo k dispozici žádný způsob, jak seskupit související prostředky. Místo toho musíte ručně sledovat prostředky, ke kterým skládá řešení nebo aplikace a nezapomeňte spravovat je v koordinovaný přístup. Nasazení řešení, jste měli k vytvoření každého prostředku jednotlivě prostřednictvím portálu nebo vytvořit skript, který nasadit všechny prostředky ve správném pořadí. Pokud chcete odstranit řešení, jste museli odstranit jednotlivé prostředky. Není snadno můžete použít a aktualizovat zásady řízení přístupu pro související prostředky. Nakonec nelze aplikovat značek k prostředkům a označte je podmínky, které vám pomůžou sledovat vaše prostředky a spravovat fakturace.
 
 V roce 2014 si uvedla Azure Resource Manager, která přidá koncept skupinu prostředků. Skupina prostředků je kontejner pro prostředky, které sdílejí společné životního cyklu. Model nasazení Resource Manager poskytuje několik výhod:
 
@@ -39,20 +38,14 @@ V roce 2014 si uvedla Azure Resource Manager, která přidá koncept skupinu pro
 * JavaScript Object Notation (JSON) můžete použít k definování infrastrukturu pro vaše řešení. Soubor JSON se označuje jako šablony Resource Manageru.
 * Můžete definovat závislosti mezi prostředky, takže se nasadí ve správném pořadí.
 
-Pokud jste přidali Resource Manager, všechny prostředky byly zpětně přidány do výchozí skupiny prostředků. Pokud vytvoříte prostředek prostřednictvím teď nasazení classic, prostředku se automaticky vytvoří ve výchozí skupině prostředků pro tuto službu, i když jste nezadali příslušné skupině prostředků v nasazení. Ale že právě existující ve skupině prostředků neznamená, že prostředek byl převeden na modelu Resource Manager. Podíváme jak každá služba zpracovává modely dvě nasazení v další části. 
+Pokud jste přidali Resource Manager, všechny prostředky byly zpětně přidány do výchozí skupiny prostředků. Pokud vytvoříte prostředek prostřednictvím teď nasazení classic, prostředku se automaticky vytvoří ve výchozí skupině prostředků pro tuto službu, i když jste nezadali příslušné skupině prostředků v nasazení. Ale že právě existující ve skupině prostředků neznamená, že prostředek byl převeden na modelu Resource Manager.
 
 ## <a name="understand-support-for-the-models"></a>Pochopení podporu pro modely
-Při rozhodování, které model nasazení se má použít pro vaše prostředky, existují tři scénáře zajímat:
+Existují tři scénáře zajímat:
 
-1. Služba podporuje Resource Manager a obsahuje pouze jeden typ.
-2. Služba podporuje Resource Manager ale nabízí dva typy – jeden pro Resource Manager a jeden pro classic. Tento scénář se vztahuje pouze na virtuální počítače, účty úložiště a virtuální sítě.
-3. Služba nepodporuje Resource Manager.
-
-Chcete-li zjistit, jestli služba podporuje Resource Manager, přečtěte si téma [zprostředkovatelé prostředků a typy](resource-manager-supported-services.md).
-
-Nasazení classic musí používat službu, kterou chcete použít nepodporuje Resource Manager.
-
-Pokud služba podporuje Resource Manager a **není** virtuální počítač, účet úložiště nebo virtuální sítě Resource Manager můžete použít bez jakékoli komplikace.
+1. Cloudové služby nepodporuje modelu nasazení Resource Manager.
+2. Virtuální počítače, účty úložiště a virtuálních sítí podporují modelu nasazení classic i Resource Manager.
+3. Všechny ostatní služby Azure podporu správce prostředků.
 
 Pro virtuální počítače, účty úložiště a virtuální sítě Pokud prostředek se vytvořil prostřednictvím nasazení classic, je nutné nadále pracovat s nimi prostřednictvím klasické operace. Resource Manager operations musí používat virtuální počítač, účet úložiště nebo virtuální sítě vytvořený prostřednictvím nasazení Resource Manager. Pokud vaše předplatné obsahuje kombinaci prostředky vytvořené prostřednictvím Resource Manager a nasazení classic, můžete získat tento rozdíl matoucí. Tato kombinace prostředků můžete vytvořit neočekávané výsledky, protože prostředky nepodporují stejné operace.
 
@@ -81,66 +74,6 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 ```
 
 Pouze prostředky vytvořené pomocí značek podporu správce prostředků. Značky nemůže použít na klasické prostředky.
-
-## <a name="resource-manager-characteristics"></a>Vlastnosti Správce prostředků
-Vám pomůžou pochopit dva modely, pojďme si vlastností s typy Resource Manager:
-
-* Vytvořené pomocí [portál Azure](https://portal.azure.com/).
-  
-     ![portál Azure](./media/resource-manager-deployment-model/portal.png)
-  
-     Pro výpočty, úložiště a síťové prostředky máte možnost pomocí nasazení Resource Manager nebo Classic. Vyberte **správce prostředků**.
-  
-     ![Nasazení Resource Manager](./media/resource-manager-deployment-model/select-resource-manager.png)
-* Vytvořena pomocí rutin prostředí Azure PowerShell, verze správce prostředků. Tyto příkazy mají formát *příkaz AzureRmNoun*.
-
-  ```powershell
-  New-AzureRmResourceGroupDeployment
-  ```
-
-* Vytvořené pomocí [REST API služby Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) pro operace REST.
-* Vytvořené pomocí rozhraní příkazového řádku Azure spustit **arm** režimu.
-  
-  ```azurecli
-  azure config mode arm
-  azure group deployment create
-  ```
-
-* Typ prostředku nezahrnuje **(klasické)** v názvu. Následující obrázek ukazuje typ jako **účet úložiště**.
-  
-    ![web app](./media/resource-manager-deployment-model/resource-manager-type.png)
-
-## <a name="classic-deployment-characteristics"></a>Vlastnosti nasazení Classic
-Můžete také vědět modelu nasazení classic jako model správy služby.
-
-Prostředky, které jsou vytvořené v modelu nasazení classic sdílet následující vlastnosti:
-
-* Vytvořené pomocí [portál classic](https://manage.windowsazure.com)
-  
-     ![Portál Classic](./media/resource-manager-deployment-model/classic-portal.png)
-  
-     Nebo portálu Azure a zadáte **Classic** nasazení (pro výpočty, úložiště a sítě).
-  
-     ![Nasazení Classic](./media/resource-manager-deployment-model/select-classic.png)
-* Vytvořit prostřednictvím služby správy verzi rutin prostředí Azure PowerShell. Tyto příkazu názvy mají formát *příkaz AzureNoun*.
-
-  ```powershell
-  New-AzureVM
-  ```
-
-* Vytvořené pomocí [REST API pro správu služby](https://msdn.microsoft.com/library/azure/ee460799.aspx) pro operace REST.
-* Vytvořené pomocí rozhraní příkazového řádku Azure spustit **asm** režimu.
-
-  ```azurecli
-  azure config mode asm
-  azure vm create
-  ```
-   
-* Typ prostředku zahrnuje **(klasické)** v názvu. Následující obrázek ukazuje typ jako **účet úložiště (klasické)**.
-  
-    ![klasického typu](./media/resource-manager-deployment-model/classic-type.png)
-
-Na portálu Azure můžete použít ke správě prostředků, které byly vytvořeny prostřednictvím nasazení classic.
 
 ## <a name="changes-for-compute-network-and-storage"></a>Změny pro výpočty, síť a úložiště
 Následující obrázek zobrazuje výpočty, síť a úložiště prostředky nasazené prostřednictvím Resource Manager.
@@ -176,9 +109,9 @@ Následující tabulka popisuje změny v interakci poskytovatele prostředků v�
 | Skupiny dostupnosti |Dostupnost pro platformu byla označovaná konfigurací stejného parametru „AvailabilitySetName“ ve službě Virtual Machines. Maximální počet domén selhání byl 2. |Skupina dostupnosti je prostředek vystavený poskytovatelem Microsoft.Compute. Služby Virtual Machines, které vyžadují vysokou dostupnost, musejí být součástí skupiny dostupnosti. Maximální počet domén selhání je teď 3. |
 | Skupiny vztahů |Skupiny vztahů byly nezbytné k vytváření služeb Virtual Network. Se zavedením regionálních služeb Virtual Network přestaly být nutné. |Abychom to zjednodušili, koncept skupin vztahů neexistuje v rozhraních API, které se vystavují prostřednictvím správce Azure Resource Manager. |
 | Vyrovnávání zatížení |Vytvoření cloudové služby nabízí implicitní nástroj pro vyrovnávání zatížení nasazených služeb Virtual Machines. |Nástroj pro vyrovnávání zatížení je prostředek vystavený poskytovatelem Microsoft.Network. Primární síťové rozhraní služeb Virtual Machines, které potřebuje vyrovnávání zatížení, musí odkazovat na nástroj pro vyrovnávání zatížení. Nástroje pro vyrovnávání zatížení můžou být interní nebo externí. Na instanci služby Vyrovnávání zatížení odkazuje na fond back-end IP adresy, které zahrnují síťový adaptér virtuálního počítače (volitelné) a odkazuje adrese služby Vyrovnávání zatížení veřejných nebo privátních IP (volitelné). [Další informace.](../virtual-network/resource-groups-networking.md) |
-| Virtuální IP adresa |Cloudové služby získat výchozí VIP (virtuální IP adresy), když je virtuální počítač přidán do cloudové služby. Virtuální IP adresa je adresa přidružená k implicitnímu nástroji pro vyrovnávání zatížení. |Veřejná IP adresa je prostředek vystavený poskytovatelem Microsoft.Network. Veřejná IP adresa může být statická (vyhrazená) nebo dynamická. Dynamické veřejné IP adresy můžete přiřadit k nástroji pro vyrovnávání zatížení. Veřejné IP adresy můžete zabezpečit pomocí skupin zabezpečení. |
-| Vyhrazená IP adresa |IP adresu můžete v Azure vyhradit a přidružit ji ke cloudové službě, abyste zajistili, že IP adresa zůstane dynamická. |Veřejnou IP adresu můžete vytvořit v režimu „Statická“ a bude nabízet stejné funkce jako „vyhrazená IP adresa“. Statické veřejné IP adresy můžete k nástroji pro vyrovnávání zatížení přiřadit jenom teď. |
-| Veřejná IP adresa (PIP) na virtuální počítač |Veřejné IP adresy může být také přidružen k virtuálnímu počítači přímo. |Veřejná IP adresa je prostředek vystavený poskytovatelem Microsoft.Network. Veřejná IP adresa může být statická (vyhrazená) nebo dynamická. Abyste právě teď získali veřejnou IP adresu na virtuální počítač, můžete k síťovému rozhraní přiřadit jenom dynamické veřejné IP adresy. |
+| Virtuální IP adresa |Cloudové služby získá výchozí VIP (virtuální IP adresy), když je virtuální počítač přidán do cloudové služby. Virtuální IP adresa je adresa přidružená k implicitnímu nástroji pro vyrovnávání zatížení. |Veřejná IP adresa je prostředek vystavený poskytovatelem Microsoft.Network. Veřejná IP adresa může být statická (vyhrazená) nebo dynamická. Dynamické veřejné IP adresy lze přiřadit k nástroji pro vyrovnávání zatížení. Veřejné IP adresy můžete zabezpečit pomocí skupin zabezpečení. |
+| Vyhrazená IP adresa |IP adresu můžete v Azure vyhradit a přidružit ji ke cloudové službě, abyste zajistili, že IP adresa zůstane dynamická. |Veřejnou IP adresu můžete vytvořit v režimu statické a nabízí stejné funkce jako rezervovanou IP adresu. |
+| Veřejná IP adresa (PIP) na virtuální počítač |Veřejné IP adresy může být také přidružen k virtuálnímu počítači přímo. |Veřejná IP adresa je prostředek vystavený poskytovatelem Microsoft.Network. Veřejná IP adresa může být statická (vyhrazená) nebo dynamická. |
 | Koncové body |Vstupní koncové body je třeba konfigurovat na virtuálním počítači, aby se pro určité porty staly otevřeným připojením. Jeden z běžných režimů připojení k virtuálním počítačům se provádí nastavením vstupní koncových bodů. |Příchozí pravidla NAT můžete konfigurovat na nástrojích pro vyrovnávání zatížení, abyste dosáhli stejné možnosti povolování koncových bodů na konkrétních portech za účelem připojení k virtuálním počítačům. |
 | Název DNS |Cloudová služba by získala implicitní, globálně jedinečný název DNS. Například: `mycoffeeshop.cloudapp.net`. |Názvy DNS jsou volitelné parametry, které můžete nastavit na prostředku veřejné IP adresy. Plně kvalifikovaný název domény je ve formátu - `<domainlabel>.<region>.cloudapp.azure.com`. |
 | Síťová rozhraní |Primární a sekundární síťové rozhraní a jeho vlastnosti byly definované jako síťová konfigurace virtuálního počítače. |Síťové rozhraní je prostředek vystavený poskytovatelem Microsoft.Network. Životní cyklus síťového rozhraní není vázaný na virtuální počítač. Odkazuje na virtuální počítač přiřazenou IP adresu (povinné), podsíť virtuální sítě pro virtuální počítač (povinné) a skupinu zabezpečení sítě (volitelné). |
@@ -194,13 +127,13 @@ Pokud jste připravení migrovat prostředky z nasazení classic nasazení Resou
 4. [Migrovat prostředky infrastruktury z klasického do Azure Resource Manageru pomocí rozhraní příkazového řádku Azure](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
-**Můžete vytvořit pomocí Azure Resource Manager k nasazení ve virtuální síti vytvořené pomocí klasického nasazení virtuálního počítače?**
+**Můžete vytvořit virtuální počítač pomocí Správce prostředků pro nasazení ve virtuální síti vytvořené pomocí klasického nasazení?**
 
-To není podporováno. Azure Resource Manager nelze použít k nasazení virtuálního počítače do virtuální sítě, která byla vytvořena pomocí nasazení classic.
+Tato konfigurace není podporována. Správce prostředků nelze použít k nasazení virtuálního počítače do virtuální sítě, která byla vytvořena pomocí nasazení classic.
 
-**Můžete vytvořit virtuální počítač pomocí Azure Resource Manager z uživatelského image, která byla vytvořena pomocí rozhraní Azure Service Management API?**
+**Můžete vytvořit virtuální počítač pomocí Správce prostředků z uživatelského image, která byla vytvořena pomocí modelu nasazení classic?**
 
-To není podporováno. Však můžete zkopírovat soubory virtuálního pevného disku z účtu úložiště, který byl vytvořen pomocí rozhraní API pro správu služby a přidejte je do nový účet vytvořený prostřednictvím Správce Azure Resource Manager.
+Tato konfigurace není podporována. Však můžete zkopírovat soubory virtuálního pevného disku z účtu úložiště, která byla vytvořena pomocí modelu nasazení classic a přidejte je do nový účet vytvořený prostřednictvím Resource Manager.
 
 **Jaký bude dopad na kvótu pro Moje předplatné?**
 

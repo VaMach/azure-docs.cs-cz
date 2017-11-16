@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: e35bbd31f39722c2e95ce58772dc6bd5eaf839a0
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 307741d0792b34332d98bfa4f2d62c9fd1cf07a1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Pracovní aplikace v Azure
 Zabalené aplikace lze nasadit do fázovacího prostředí v Azure má být testována, před přesunutím do produkčního prostředí, ve kterém je aplikace přístupné z Internetu. Je pracovní prostředí je úplně stejně jako provozní prostředí, ale jenom přístup k dvoufázové instalace aplikace pomocí zkomolené adresy URL, který je generovaný Azure. Po ověření, že aplikace funguje správně, dá se nasadit do produkčního prostředí provedením prohození virtuální IP (VIP).
@@ -72,4 +72,4 @@ Po ověření upgradovanou verzi aplikace v testovacím prostředí, můžete ry
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Vzájemná záměna virtuální IP adresy v Azure nasazení upgradu služby do produkčního prostředí]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
+[Vzájemná záměna virtuální IP adresy v Azure nasazení upgradu služby do produkčního prostředí]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production

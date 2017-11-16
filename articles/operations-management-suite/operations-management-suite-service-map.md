@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Pomocí mapy služeb řešení v Operations Management Suite
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Pomocí mapy služeb, můžete zobrazit vaše servery ve způsobu, jakým se domníváte, že z nich: jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy, a vyžaduje porty mezi žádné připojení TCP architektura žádnou konfiguraci, jiné než instalaci agenta.
@@ -231,16 +231,16 @@ Na následujícím obrázku je podrobný přehled o ConfigurationChange událost
 Pokud chcete zobrazit data výkonu, budete muset [povolit příslušné čítače výkonu analýzy protokolů](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Čítače, které budete chtít povolit:
 
 Windows:
-- Procesor(*)\% času procesoru
-- Paměť\% využití potvrzených bajtů
-- Síťový adaptér (*) \Bytes odeslaných za sekundu
-- Síťový adaptér (*) \Bytes přijatých za sekundu
+- Procesor(*)\\% času procesoru
+- Paměť\\% využití potvrzených bajtů
+- Sítě Adapter(*)\\odeslané bajty/s
+- Sítě Adapter(*)\\přijaté bajty/s
 
 Linux:
-- Procesor(*)\% času procesoru
-- Memory(*)\% použité paměti
-- Síťový adaptér (*) \Bytes odeslaných za sekundu
-- Síťový adaptér (*) \Bytes přijatých za sekundu
+- Procesor(*)\\% času procesoru
+- Memory(*)\\% použité paměti
+- Sítě Adapter(*)\\odeslané bajty/s
+- Sítě Adapter(*)\\přijaté bajty/s
 
 Chcete-li získat data o výkonu sítě, musí taky povolíte řešení přenosu dat 2.0 v Operations Management Suite.
  

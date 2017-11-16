@@ -13,54 +13,53 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/08/2017
 ms.author: nitinme
-ms.openlocfilehash: dbd3d0ed4337d4fe86465c5c59bf20c0a50a87b4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 73c472140861a0d0d270021ab268e8c1113c23b5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Použití Azure Log Analytics k monitorování clusterů HDInsight (Preview)
+# <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Monitorování clusterů HDInsight pomocí Azure Log Analytics
 
-V tomto článku zjistěte, jak používat Azure Log Analytics k sledovat operace clustery HDInsight Hadoop.
+Naučte se používat Azure Log Analytics ke sledování operací clusteru Hadoop v HDInsight.
 
-Analýzy protokolů je služba v [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) , sleduje vaše cloudové a místní prostředí k udržování své dostupnosti a výkonu. Shromažďuje data generovaná prostředky ve vašem cloudovém a místním prostředí a také data z dalších nástrojů pro monitorování a poskytuje analýzy napříč zdroji. 
+[Analýza protokolu](../log-analytics/log-analytics-overview.md) je služba v [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) , sleduje vaše cloudové a místní prostředí k udržování své dostupnosti a výkonu. Shromažďuje data generovaná prostředky ve vašem cloudovém a místním prostředí a také data z dalších nástrojů pro monitorování a poskytuje analýzy napříč zdroji. 
 
 ## <a name="prerequisites"></a>Požadavky
 
 * **Předplatné Azure**. Než začnete tento kurz, musíte mít předplatné Azure. Přečtěte si téma [Bezplatné vytvoření účtu Microsoft Azure ještě dnes](https://azure.microsoft.com/free).
 
 * **Cluster Azure HDInsight**. V současné době můžete použít Azure OMS s těmito typy clusteru HDInsight:
+
     * Hadoop
-    * Spark
     * HBase
-    * Storm
+    * Interaktivní dotaz
     * Kafka
-    * Interaktivní Hive
+    * Spark
+    * Storm
 
     Pokyny k vytvoření clusteru HDInsight naleznete v tématu [Začínáme s Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-
 * **Pracovní prostor analýzy protokolů**. Tento pracovní prostor si můžete představit jako jedinečné prostředí analýzy protokolů s vlastní úložiště dat, zdroje dat a řešení. Musí mít jeden takový prostoru už vytvořený, můžete přidružit Azure HDInsight clustery. Pokyny najdete v tématu [vytvořit pracovní prostor analýzy protokolů](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
 
-## <a name="configure-hdinsight-cluster-to-use-azure-log-analytics"></a>Konfigurace clusteru HDInsight, aby používaly Azure Log Analytics
+## <a name="configure-hdinsight-cluster-to-use-log-analytics"></a>Konfigurace clusteru HDInsight, aby používaly analýzy protokolů
 
 V této části nakonfigurujete stávajícího clusteru HDInsight Hadoop použití k pracovnímu prostoru analýzy protokolů Azure k monitorování úlohy, protokoly ladění atd.
 
-1. Na portálu Azure, v levém podokně klikněte na tlačítko **clustery HDInsight**a potom klikněte na název clusteru, kterou chcete nakonfigurovat analýzy protokolů Azure.
-
-2. V okně clusteru v levém podokně klikněte na tlačítko **monitorování**.
-
-3. V pravém podokně klikněte na **povolit**a potom vyberte existující pracovní prostor analýzy protokolů. Klikněte na **Uložit**.
+1. Otevřete cluster služby HDInsight v portálu Azure.
+2. V levém podokně klikněte na **monitorování**.
+3. V pravém podokně klikněte na **povolit**, vyberte existující pracovní prostor analýzy protokolů a pak klikněte na tlačítko **Uložit**.
 
     ![Povolit monitorování pro clustery služby HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "povolit monitorování pro clustery služby HDInsight")
 
-4. Jakmile cluster je nakonfigurovaný na použití analýzy protokolů pro monitorování, zobrazí **otevřete řídicí panel OMS** možnost v horní části na kartě. Klikněte na tlačítko.
+    Jak dlouho trvá chvíli se uložit nastavení.  Až se to dokončí, zobrazí se **otevřete řídicí panel OMS** tlačítko nahoře. 
 
     ![Otevřete řídicí panel OMS](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "OMS otevřete řídicí panel")
 
-5. Pokud se zobrazí výzva, zadejte přihlašovací údaje Azure. Budete přesměrováni na řídicím panelu Microsoft OMS.
+5. Klikněte na tlačítko **řídicí panel otevřete OMS**.
+6. Pokud se zobrazí výzva, zadejte přihlašovací údaje Azure.
 
     ![Portál Operations Management Suite](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-oms-portal.png "portál Operations Management Suite")
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 689977491e6df37e48536f59234bf4ddba6a1575
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Přehled certifikáty pro cloudové služby Azure
 Certifikáty se používají v Azure pro cloudové služby ([služby certifikáty](#what-are-service-certificates)) a pro ověřování pomocí rozhraní API pro správu ([certifikáty pro správu](#what-are-management-certificates) při použití portálu Azure classic a ne portál ne klasický Azure). Toto téma obsahuje obecný přehled oba typy certifikátů, jak k [vytvořit](#create) a [nasazení](#deploy) je do Azure.
 
 Certifikáty používané v Azure jsou x.509 v3 certifikáty a může být podepsány jiný certifikát důvěryhodné nebo mohou být podepsaný svým držitelem. Certifikát podepsaný svým držitelem je podepsána vlastní creator, proto není důvěryhodný ve výchozím nastavení. Tento problém můžete ignorovat většina prohlížečů. Byste měli používat jenom certifikáty podepsané svým držitelem při vývoji a testování vaší cloudové služby. 
 
-Certifikáty používané Azure může obsahovat privátního nebo veřejného klíče. Certifikáty mít kryptografický otisk, která poskytuje prostředky k identifikaci je jednoznačným způsobem. Tímto kryptografickým otiskem slouží ve službě Azure [konfigurační soubor](cloud-services-configure-ssl-certificate.md) k identifikaci měli použít který certifikátu cloudové služby. 
+Certifikáty používané Azure může obsahovat privátního nebo veřejného klíče. Certifikáty mít kryptografický otisk, která poskytuje prostředky k identifikaci je jednoznačným způsobem. Tímto kryptografickým otiskem slouží ve službě Azure [konfigurační soubor](cloud-services-configure-ssl-certificate-portal.md) k identifikaci měli použít který certifikátu cloudové služby. 
 
 ## <a name="what-are-service-certificates"></a>Jaké jsou certifikáty služby?
 Certifikáty služby jsou připojené ke cloudové služby a zajištění zabezpečené komunikace do a ze služby. Pokud jste nasadili webovou roli, by například chcete zadat certifikát, který může ověřit zveřejněné koncový bod HTTPS. Certifikáty služby definované v definice služby, se automaticky nasadí do virtuálního počítače, který je spuštěna instance role. 
@@ -93,7 +93,7 @@ Existuje mnoho stránek na Internetu, které se týkají jak to provést pomocí
 [To](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) článek popisuje, jak umožnit vytváření certifikátů pomocí protokolu SSH.
 
 ## <a name="next-steps"></a>Další kroky
-[Nahrajte certifikát služby do portálu Azure classic](cloud-services-configure-ssl-certificate.md) (nebo [portál Azure](cloud-services-configure-ssl-certificate-portal.md)).
+[Nahrajte certifikát služby do portálu Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Nahrát [certifikát správy rozhraní API](../azure-api-management-certs.md) na portálu Azure classic. Portál Azure nepoužívá certifikáty pro správu pro ověřování.
 

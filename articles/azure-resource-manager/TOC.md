@@ -69,10 +69,6 @@
 ### [Ověřovací rozhraní API pro přístup k předplatným](resource-manager-api-authentication.md)
 ### [Uzamčení prostředků](resource-group-lock-resources.md)
 
-## Nastavení zásad prostředků
-### [Co jsou zásady prostředků?](resource-manager-policy.md)
-### [Zásady vytváření názvů](resource-manager-policy-naming-convention.md)
-
 ## Auditování
 ### [Zobrazení protokolů aktivit](resource-group-audit.md)
 ### [Zobrazení operací nasazení](resource-manager-deployment-operations.md)

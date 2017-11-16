@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: b041244b28d76de4bac2822c115482e31d073a22
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurace programu Sledování výkonu sítě pro ExpressRoute (Preview)
 
@@ -74,6 +74,11 @@ Pokud už používáte nástroj Sledování výkonu sítě k monitorování jin�
   * Skupiny prostředků – vytvořte skupinu prostředků, nebo použijte existující.
   * Umístění –, je nutné vybrat [podporované oblasti](#regions).
   * Cenová úroveň - vyberte 'volné.
+  
+  >[!NOTE]
+  >Okruh ExpressRoute může být kdekoliv na světě a nemusí být ve stejné oblasti jako pracovním prostoru.
+  >
+
 
   ![Pracovní prostor](.\media\how-to-npm\4.png)<br><br>
 4. Klikněte na tlačítko **OK** uložte a nasaďte nastavení šablonu. Jakmile ověří šablony, klikněte na možnost **vytvořit** k nasazení v pracovním prostoru.
@@ -174,7 +179,7 @@ Další informace o NSG najdete v tématu [skupin zabezpečení sítě](../virtu
 >
 >
 
-Než budete moct začít používat funkci sledování ExpressRoute NPM, musíte požádat o tak, aby měl váš pracovní prostor seznam povolených adres. [Kliknutím sem přejděte na stránku a vyplňte formulář žádosti o](https://go.microsoft.com/fwlink/?linkid=862263). (Nápovědu: můžete chtít otevřít tento odkaz v novém okně nebo záložce). Proces vytvoření seznamu povolených může trvat pracovního dne nebo déle. Po dokončení povolených obdržíte e-mailu.
+Než budete moct začít používat funkci sledování ExpressRoute NPM, musíte požádat o tak, aby měl váš pracovní prostor seznam povolených adres. [Kliknutím sem přejděte na stránku a vyplňte formulář žádosti o](https://aka.ms/npmcohort). (Nápovědu: můžete chtít otevřít tento odkaz v novém okně nebo záložce). Proces vytvoření seznamu povolených může trvat pracovního dne nebo déle. Po dokončení povolených obdržíte e-mailu.
 
 ## <a name="setupmonitor"></a>Krok 5: Konfigurace NPM pro monitorování ExpressRoute
 

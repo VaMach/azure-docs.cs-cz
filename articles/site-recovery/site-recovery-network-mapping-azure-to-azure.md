@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1df7e04fc9cec5722747bafce7e2e5519b76315d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Mapování sítě mezi dvěma oblastmi Azure
 
@@ -48,7 +48,7 @@ To samé vytvoření mapování sítě z jihovýchodní Asie k východní Asie.
 
 ## <a name="mapping-network-when-enabling-replication"></a>Mapování sítě při povolení replikace
 
-Pokud mapování sítě neuděláte, když se replikace virtuálního počítače pro první čas formuláře jedné oblasti Azure do jiného, můžete cílové sítě v rámci stejného procesu. Site Recovery vytvoří mapování sítě z oblasti zdrojové do cílové oblasti a cílová oblast zdroj oblasti založené na tomto výběru.   
+Pokud mapování sítě neuděláte, když se replikace virtuálního počítače první z jedné oblasti Azure do jiného, můžete cílové sítě v rámci stejného procesu. Site Recovery vytvoří mapování sítě z oblasti zdrojové do cílové oblasti a cílová oblast zdroj oblasti založené na tomto výběru.   
 
 ![Mapování sítě](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 

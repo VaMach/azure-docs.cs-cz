@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Funkce a nástroje pro prostředí PowerShell v prostředí cloudu Azure
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funkce a nástroje pro prostředí PowerShell v prostředí cloudu Azure (Preview)
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Funkce a nástroje pro [Bash](features.md) je také k dispozici.
 
-Prostředí PowerShell v prostředí cloudu běží na `Windows Server 2016`.
+Prostředí PowerShell v prostředí cloudu (Preview) běží na `Windows Server 2016`.
 
 ## <a name="features"></a>Funkce
 
 ### <a name="secure-automatic-authentication"></a>Zabezpečení automatické ověřování
 
-Prostředí PowerShell v prostředí cloudu bezpečně a automaticky ověřuje přístup k účtu pro prostředí Azure PowerShell.
+Prostředí PowerShell v prostředí cloudu (Preview) bezpečně a automaticky ověřuje přístup k účtu pro prostředí Azure PowerShell.
 
 ### <a name="files-persistence-across-sessions"></a>Soubory trvalost napříč relacemi
 
@@ -45,7 +45,7 @@ Vzhledem k tomu, že každý požadavek pro cloudové prostředí je přidělov�
 
 ### <a name="azure-drive-azure"></a>Disk Azure (Azure:)
 
-Prostředí PowerShell v prostředí cloudu spustí, můžete v Azure jednotce (`Azure:`).
+Prostředí PowerShell v prostředí cloudu (Preview) vám spuštění v Azure jednotce (`Azure:`).
 Azure jednotky umožňuje snadno našli a navigační prostředků Azure, jako jsou výpočty, sítě, úložiště atd podobná navigační systému souborů.
 Můžete nadále používat známé [rutin prostředí Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure) tyto zdroje spravovat.
 Všechny změny prostředků Azure, buď provedené přímo na portálu Azure nebo pomocí rutin prostředí Azure PowerShell, se okamžitě projeví v Azure jednotky.
@@ -109,6 +109,6 @@ Tyto příkazy jsou postavená na vzdálenou komunikaci prostředí PowerShell a
 
 ## <a name="next-steps"></a>Další kroky
 
-[Rychlé spuštění pomocí prostředí PowerShell v prostředí cloudu](quickstart-powershell.md)
+[Rychlé spuštění pomocí prostředí PowerShell v prostředí cloudu (Preview)](quickstart-powershell.md)
 
 [Další informace o prostředí Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

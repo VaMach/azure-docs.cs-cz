@@ -1,5 +1,5 @@
 ---
-title: "Virtuální počítače Azure vysoká dostupnost pro SAP NetWeaver | Microsoft Docs"
+title: "Azure vysoké dostupnosti virtuálních počítačů pro SAP NetWeaver | Microsoft Docs"
 description: "Průvodce vysokou dostupností pro SAP NetWeaver ve virtuálních počítačích Azure"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06d6b38537fbf413185e8d536865f7bc7a61369a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: cf60a053c832c6f201705301454ab7cdbe106087
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Virtuální počítače Azure vysoká dostupnost pro SAP NetWeaver
+# <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure vysoké dostupnosti virtuálních počítačů pro SAP NetWeaver
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -178,69 +178,54 @@ ms.lasthandoff: 10/16/2017
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
-Virtuální počítače Azure je řešení pro organizace, které potřebují výpočty, úložiště a síťové prostředky ve minimálního čas a bez zdlouhavé nákup cykly. Virtuální počítače Azure můžete použít k nasazení classic aplikací jako **na základě SAP NetWeaver ABAP**, **Java**a **ABAP + Java zásobníku**. Rozšiřte spolehlivosti a dostupnosti bez dalších místních prostředků. Virtuální počítače Azure podporuje připojení mezi různými místy, takže virtuální počítače Azure můžete integrovat do místní domény vaší organizace, privátních cloudů a šířku systému SAP.
+Virtuální počítače Azure je řešení pro organizace, které potřebují výpočty, úložiště a síťové prostředky ve minimálního čas a bez zdlouhavé nákup cykly. Virtuální počítače Azure můžete použít k nasazení classic aplikací, jako je například na základě SAP NetWeaver ABAP, Java a ABAP + Java zásobníku. Rozšiřte spolehlivosti a dostupnosti bez dalších místních prostředků. Virtuální počítače Azure podporuje připojení mezi různými místy, takže virtuální počítače Azure můžete integrovat do místní domény vaší organizace, privátních cloudů a šířku systému SAP.
 
-V níže uvedených článcích nabídneme:
+Tato řada obsahuje články:
 
-* Scénáře a architektura
+* Architektura a scénáře.
+* Příprava infrastruktury.
+* Kroky instalace SAP nasazení SAP systémů s vysokou dostupností v Azure pomocí modelu nasazení Azure Resource Manager.
 
-* Přípravy infrastruktury a
+    > [!IMPORTANT]
+    > Důrazně doporučujeme použít model nasazení Azure Resource Manageru pro SAP instalací. Nabízí spoustu výhod, které nejsou k dispozici v modelu nasazení classic. Další informace o Azure [modely nasazení][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
+    >
+* Vysoká dostupnost SAP na:
+  * ![Windows][Logo_Windows]**Windows**pomocí **Windows Server Failover Cluster (WSFC)** 
+  * ![Linux][Logo_Linux] **Linux**pomocí **Linux clusteru Framework**
 
-* Postup instalace SAP
+V těchto článcích zjistěte, jak k ochraně jediný bod selhání (SPOF) komponenty, například SAP centrální služeb (ASC nebo SCS) a databázové systémy (databázového systému). Můžete také informace o redundantní komponenty v Azure, jako je například SAP aplikačního serveru.
 
-aby se mohla stát nasazení SAP systémů s vysokou dostupností v Azure pomocí **Azure Resource Manager** modelu nasazení.
+## <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architektura vysoké dostupnosti a scénáře pro SAP NetWeaver
 
-> [!IMPORTANT]
-> Důrazně doporučujeme použít model nasazení Azure Resource Manageru pro SAP instalací. Nabízí spoustu výhod, které nejsou k dispozici v modelu nasazení classic. Další informace o Azure [modely nasazení][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
->
->
-
-
-Článek se zabývá SAP HA na:
-* ![Windows][Logo_Windows]**Windows** pomocí **Windows Failover Cluster (WSFC)** a  
-
-* ![Linux][Logo_Linux] **Linux** pomocí **Linux clusteru Framework**.
-
-Zjistíte, jak k ochraně **jeden bod z – selhání (SPOF)** komponenty, jako **SAP centrální služby (ASC)** / **SAP centrální služby (SCS)** a **databáze systémy správy (databázového systému)**, a **redundantní komponenty** jako **SAP aplikační Server**, v Azure.
-
-
-## <a name="high-availability-ha-architecture-and-scenarios-for-sap-netweaver"></a>Scénáře pro SAP NetWeaver a architektura vysoké dostupnosti (HA)
-
-**Souhrn:** v tomto dokumentu probereme HA architektura systému SAP v Azure. Probereme, jak jsme řešení HA systému SAP jeden bod z – selhání (SPOF) a redundantní komponenty, konkrétní HA infrastrukturu Azure a jak odrážejí součástí systému SAP. Je také popsáno specifika Windows a Linux. Na konci jsou popsané různé SAP HA scénáře také.
+**Souhrn:** v tomto článku probereme Architektura vysoké dostupnosti systému SAP v Azure. Pojednává o řešení vysoké dostupnosti SAP jediný bod selhání (SPOF) a redundantní komponenty a jaké jsou specifikace vysokou dostupnost infrastrukturu Azure. Také se týkají těchto součástí ve vztahu k součásti systému SAP. Kromě toho diskuse rozdělit na pro konkrétní systém Windows a Linux. Různé scénáře vysoké dostupnosti SAP jsou také zahrnuté.
 
 **Aktualizace:** říjen 2017
 
-Tato příručka naleznete zde:
+* [Scénáře pro SAP NetWeaver a Azure Architektura vysoké dostupnosti virtuálních počítačů][sap-high-availability-architecture-scenarios]
 
-* [Scénáře pro SAP NetWeaver a architektura vysoké dostupnosti virtuálních počítačů Azure][sap-high-availability-architecture-scenarios]
-
-Obě pokrývá ![Windows][Logo_Windows] **Windows** a ![Linux][Logo_Linux] **Linux**
+Článek popisuje, jak ![Windows][Logo_Windows] **Windows** a ![Linux][Logo_Linux] **Linux**.
 
 
-## <a name="azure-infrastructure-preparation-for-sap-netweaver-ha-deployment"></a>Příprava infrastruktury Azure pro SAP NetWeaver HA nasazení
+## <a name="azure-infrastructure-preparation-for-sap-netweaver-high-availability-deployment"></a>Příprava infrastruktury Azure pro nasazení SAP NetWeaver vysokou dostupnost
 
-**Souhrn:** v těchto dokumentů nabídneme postupy, které můžete provést nasazení infrastruktury Azure jako příprava pro instalaci SAP. Pro zjednodušení nasazení infrastrukturu Azure, šablony SAP Azure Resource Manager slouží k automatizaci celého procesu.
+**Souhrn:** v článcích zde uvedeny, nabídneme postupy, které můžete provést nasazení infrastruktury Azure při přípravě na instalaci SAP. Pro zjednodušení nasazení infrastrukturu Azure, šablony SAP Azure Resource Manager slouží k automatizaci celého procesu.
 
 **Aktualizace:** říjen 2017
 
-Tyto příručky naleznete zde:
+* ![Windows][Logo_Windows] [Azure Příprava infrastruktury pro SAP vysoké dostupnosti s využitím clusteru převzetí služeb při selhání se systémem Windows a **sdíleného disku** pro SAP ASC nebo SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [Azure Příprava infrastruktury pro používání SAP HA **clusteru převzetí služeb při selhání se systémem Windows** a **sdíleného disku** pro **SAP (A) SCS** Instance][sap-high-availability-infrastructure-wsfc-shared-disk]
+* ![Windows][Logo_Windows] [Azure Příprava infrastruktury pro SAP vysoké dostupnosti s využitím clusteru převzetí služeb při selhání se systémem Windows a **sdílené složky** pro SAP ASC nebo SCS instance][sap-high-availability-infrastructure-wsfc-file-share]
 
-* ![Windows][Logo_Windows] [Azure Příprava infrastruktury pro používání SAP HA **clusteru převzetí služeb při selhání se systémem Windows** a **sdílené složky** pro **SAP (A) SCS** Instance][sap-high-availability-infrastructure-wsfc-file-share]
+* ![Linux][Logo_Linux] [Azure Příprava infrastruktury pro SAP vysoké dostupnosti s využitím rozhraní clusteru SUSE Linux Enterprise Server pro SAP ASC nebo SCS instance][sap-suse-ascs-ha-setting-ha-nfs]
 
-* ![Linux][Logo_Linux] [Azure Příprava infrastruktury pro používání SAP HA **SUSE Linux Enterprise Server clusteru Framework** pro **SAP (A) SCS** Instance][sap-suse-ascs-ha-setting-ha-nfs]
+## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Instalace systému SAP NetWeaver vysoké dostupnosti v Azure
 
-## <a name="installation-of-an-sap-netweaver-ha-system-in-azure"></a>Instalace systému SAP NetWeaver HA v Azure
-
-**Souhrn:** v těchto dokumentů, podrobný příklad k instalaci a konfiguraci systému SAP vysoké dostupnosti v clusteru Windows Server Failover Clustering a Linux Framework clusteru v Azure.
+**Souhrn:** články tady přítomen podrobné příklady instalaci a konfiguraci systému SAP vysoké dostupnosti v clusteru Windows Server Failover Clustering a Linux framework clusteru v Azure.
 
 **Aktualizace:** říjen 2017
 
-Tyto příručky naleznete zde:
+* ![Windows][Logo_Windows] [nainstalovat SAP NetWeaver vysoké dostupnosti s využitím clusteru převzetí služeb při selhání se systémem Windows a **sdíleného disku** pro SAP ASC nebo SCS instance][sap-high-availability-installation-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [SAP NetWeaver HA instalace pomocí **clusteru převzetí služeb při selhání se systémem Windows** a **sdíleného disku** pro instanci SCS SAP (A)][sap-high-availability-installation-wsfc-shared-disk]
+* ![Windows][Logo_Windows] [nainstalovat SAP NetWeaver vysoké dostupnosti s využitím clusteru převzetí služeb při selhání se systémem Windows a **sdílené složky** pro SAP ASC nebo SCS instance][sap-high-availability-installation-wsfc-file-share]
 
-* ![Windows][Logo_Windows] [SAP NetWeaver HA instalace pomocí **clusteru převzetí služeb při selhání se systémem Windows** a **sdílené složky** pro instanci SCS SAP (A)][sap-high-availability-installation-wsfc-file-share]
-
-* ![Linux][Logo_Linux] [SAP NetWeaver HA instalace pomocí **SUSE Linux Enterprise Server clusteru Framework** pro **SAP (A) SCS** Instance][sap-suse-ascs-ha-sap-installation]
+* ![Linux][Logo_Linux] [nainstalovat SAP NetWeaver vysoké dostupnosti s využitím rozhraní clusteru SUSE Linux Enterprise Server pro SAP ASC nebo SCS instance][sap-suse-ascs-ha-sap-installation]

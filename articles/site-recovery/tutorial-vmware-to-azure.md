@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Nastavení pro virtuální počítače VMware místní zotavení po havárii do Azure
 
@@ -85,20 +85,14 @@ Konfigurace serveru virtuálního počítače by měla být vysoce dostupný vir
 Na konfiguračním serveru virtuálních počítačů Ujistěte se, jestli se systémové hodiny synchronizované se čas serveru.
 Čas musí být synchronizovány s během 15 minut. Pokud je časový rozdíl je větší než 15 minut, instalace se nezdaří.
 
-Zkontrolujte, zda že server konfigurace virtuálních počítačů přístup tyto adresy URL:
+Ujistěte se, že konfigurační server mají přístup k tyto adresy URL:
 
-- *. accesscontrol.windows.net. Používá se k řízení přístupu a správě identit.
-- *. backup.windowsazure.com. Používá se ke koordinaci a přenosu dat replikace.
-- *. blob.core.windows.net. Používá se pro přístup k účtu úložiště, který ukládá replikovaná data.
-- *. hypervrecoverymanager.windowsazure.com. Používá se pro koordinaci a operace správy replikací.
-- Time.nist.gov a time.windows.com. Používá se ke kontrole synchronizace mezi systémovým a globálním časem.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - Všechna pravidla brány firewall založená na adresu IP by měl povolit komunikaci s Azure.
 
-Adresy URL pro cloud Azure Government:
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- Povolte [Rozsahy IP adres datového centra Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) a port HTTPS (443).
+    - Povolte rozsahy IP adres pro oblast Azure svého předplatného a západní USA (používá se pro přístup k řízení a identity management).
 
 Všechna pravidla brány firewall založená na adresu IP by měl umožňují komunikaci s [rozsahy IP Datacentra Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)a porty 443 (HTTPS) a 9443 (replikaci dat). Ujistěte se, zda povolit rozsahy IP adres pro oblast Azure svého předplatného a západní USA (používá se pro správu Identity a řízení přístupu).
 

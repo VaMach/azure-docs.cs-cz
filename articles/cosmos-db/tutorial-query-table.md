@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB: Jak dotazovat data tabulky pomocí rozhraní API tabulky (preview)?
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: Jak dotazovat data tabulky pomocí rozhraní API tabulky
 
-Azure Cosmos DB [tabulky API](table-introduction.md) (preview) podporuje OData a [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) dotazy na data klíč hodnota (tabulky).  
+Azure Cosmos DB [tabulky API](table-introduction.md) podporuje OData a [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) dotazy na data klíč hodnota (tabulky).  
 
 Tento článek obsahuje následující úlohy: 
 
@@ -38,13 +38,13 @@ Dotazy v tomto článku použijte následující příklad `People` tabulky:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Protože Azure Cosmos DB není kompatibilní s rozhraním API Azure Table storage, najdete v části [dotazování tabulky a entity] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) podrobnosti o tom, jak dotaz podle následující tabulky ROZHRANÍ API. 
+V tématu [dotazování tabulky a entity] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) podrobnosti o tom, jak dotazu pomocí rozhraní API tabulky. 
 
-Další informace o možnosti premium, které nabízí Azure Cosmos DB najdete v tématu [Cosmos databázi Azure: Tabulka API](table-introduction.md) a [vývoj s rozhraním API pro tabulky v rozhraní .NET](tutorial-develop-table-dotnet.md). 
+Další informace o možnosti premium, které nabízí Azure Cosmos DB najdete v tématu [rozhraní API služby Azure Cosmos DB tabulky](table-introduction.md) a [vývoj s rozhraním API pro tabulky v rozhraní .NET](tutorial-develop-table-dotnet.md). 
 
 ## <a name="prerequisites"></a>Požadavky
 
-Pro tyto dotazy pro práci musí mít účet Azure Cosmos DB a mít data entity v kontejneru. Nemáte žádné těchto? Dokončení [rychlý start pětiminutovou](https://aka.ms/acdbtnetqs) nebo [vývojáře kurzu](https://aka.ms/acdbtabletut) k vytvoření účtu a naplnit databázi.
+Pro tyto dotazy pro práci musí mít účet Azure Cosmos DB a mít data entity v kontejneru. Nemáte žádné těchto? Dokončení [rychlý start pětiminutovou](create-table-dotnet.md) nebo [vývojáře kurzu](tutorial-develop-table-dotnet.md) k vytvoření účtu a naplnit databázi.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Dotaz na klíč oddílu a RowKey
 Protože vlastnosti PartitionKey a RowKey formuláři primární klíč entity, můžete k identifikaci entity speciální syntaxe: 
@@ -109,9 +109,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 V tomto kurzu jste provést následující:
 
 > [!div class="checklist"]
-> * Dozvěděli, jak dotazovat pomocí rozhraní API tabulky (preview) 
+> * Dozvěděli, jak dotazovat pomocí rozhraní API tabulky
 
 Nyní můžete přejít k dalším kurzu se dozvíte, jak se bude distribuovat globální data.
 
 > [!div class="nextstepaction"]
-> [Globálně distribuci dat](tutorial-global-distribution-documentdb.md)
+> [Globálně distribuci dat](tutorial-global-distribution-table.md)

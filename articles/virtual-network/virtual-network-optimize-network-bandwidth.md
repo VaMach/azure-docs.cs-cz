@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimalizovat propustnost sítě pro virtuální počítače Azure
 
-Azure virtuální počítače (VM) mají výchozí nastavení sítě, které lze dále optimalizovat pro propustnost sítě. Tento článek popisuje, jak optimalizovat propustnost sítě pro Microsoft Azure Windows a virtuální počítače s Linuxem, včetně hlavních distribuce například Ubuntu a CentOS Red Hat.
+Azure virtuální počítače (VM) mají výchozí nastavení sítě, které lze dále optimalizovat pro propustnost sítě. Tento článek popisuje, jak optimalizovat propustnost sítě pro Microsoft Azure Windows a virtuální počítače s Linuxem, včetně hlavních distribuce například Red Hat, Ubuntu a CentOS.
 
 ## <a name="windows-vm"></a>Virtuální počítač s Windows
 
@@ -33,7 +33,7 @@ Pokud vaše virtuální počítač s Windows je podporovaná s [Accelerated sít
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : False
+    Enabled                 : False
     ```
 2. Zadejte následující příkaz, který RSS povolte:
 
@@ -44,66 +44,79 @@ Pokud vaše virtuální počítač s Windows je podporovaná s [Accelerated sít
 3. Potvrďte, že byla povolená technologie RSS ve virtuálním počítači tak, že zadáte `Get-NetAdapterRss` příkaz znovu. V případě úspěchu se vrátí výstupu v následujícím příkladu:
 
     ```powershell
-    Name                    :Ethernet
+    Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled              : True
     ```
 
 ## <a name="linux-vm"></a>Virtuální počítač s Linuxem
 
-RSS je vždy povolena ve výchozím nastavení v systému Linux virtuálního počítače Azure. Linux jádra vydané od ledna 2017 zahrnují nové možnosti optimalizace sítě, které umožňují virtuálního počítače s Linuxem k dosažení vyšší propustnost sítě.
+RSS je vždy povolena ve výchozím nastavení v systému Linux virtuálního počítače Azure. Linux jádra vydané od října 2017 zahrnují nové možnosti optimalizace sítě, které umožňují virtuálního počítače s Linuxem k dosažení vyšší propustnost sítě.
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-for-new-deployments"></a>Ubuntu pro nová nasazení
 
-Chcete-li získat optimalizace, nejprve aktualizovat na nejnovější podporovanou verzi, od června 2017, což je:
+Jádra Ubuntu Azure poskytuje nejlepší výkon sítě v Azure a byla výchozí jádra od 21 září 2017. Chcete-li získat tuto jádra, nejprve nainstalujte nejnovější podporovanou verzi 16.04-LTS, jak je popsáno níže:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-Po dokončení aktualizace zadejte následující příkazy a získat nejnovější jádra:
+Po dokončení vytváření zadejte následující příkazy a získat nejnovější aktualizace. Tyto kroky také pro virtuální počítače aktuálně spuštěné jádra Ubuntu Azure fungovat.
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+Následující volitelný příkaz sada může být užitečné pro existující Ubuntu nasazení, které již mají Azure jádra, ale které se nepodařilo další aktualizace s chybami.
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-Volitelný příkaz:
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Ubuntu Azure jádra upgradu pro stávající virtuální počítače
 
-`apt-get -y dist-upgrade`
-#### <a name="ubuntu-azure-preview-kernel"></a>Ubuntu Azure Preview jádra
-> [!WARNING]
-> Tato jádra Azure Linux Preview nemusí mít stejnou úroveň dostupnost a spolehlivost jako obrázky Marketplace a verzí jádra, která jsou obecné dostupnosti. Funkce není podporována, může mít omezené možnosti a nemusí být stejně spolehlivá jako výchozí jádra. Nepoužívejte tuto jádra pro úlohy v produkčním prostředí.
-
-Nainstalováním navrhované jádra Azure Linux jde dosáhnout výrazné propustnost. Pokud chcete vyzkoušet tuto jádra, přidejte následující řádek na /etc/apt/sources.list
+Upgrade na Azure Linux jádra lze dosáhnout výrazné propustnost. Pokud chcete ověřit, zda je nutné tento jádra, zkontrolujte verzi jádra.
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
-Potom spuštěním těchto příkazů jako kořenového příkazu.
+Pokud virtuální počítač nemá Azure jádra, číslo verze obvykle začínat "4.4". V takových případech spusťte následující příkazy jako kořenového příkazu.
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### <a name="centos"></a>CentOS
 
-Chcete-li získat optimalizace, nejprve aktualizovat na nejnovější podporovanou verzi, od července 2017, což je:
+Chcete-li získat nejnovější optimalizace, je nejvhodnější pro vytvoření virtuálního počítače s nejnovější podporovanou verzi zadáním následujících parametrů:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
-Po dokončení aktualizace nainstalujte nejnovější Linux integrační služby (LIS).
-Optimalizace propustnosti se LIS, od 4.2.2-2. Zadejte následující příkazy pro instalaci LIS:
+Nové a stávající virtuální počítače využívat výhod instalaci nejnovější Linux integrační služby (LIS).
+Optimalizace propustnosti se LIS, od 4.2.2-2, i když novější verze obsahuje další vylepšení. Zadejte následující příkazy pro instalaci nejnovější LIS:
 
 ```bash
 sudo yum update
@@ -113,21 +126,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Chcete-li získat optimalizace, nejprve aktualizovat na nejnovější podporovanou verzi, od července 2017, což je:
+Chcete-li získat optimalizace, je nejvhodnější pro vytvoření virtuálního počítače s nejnovější podporovanou verzi zadáním následujících parametrů:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
-Po dokončení aktualizace nainstalujte nejnovější Linux integrační služby (LIS).
+Nové a stávající virtuální počítače využívat výhod instalaci nejnovější Linux integrační služby (LIS).
 Optimalizace propustnosti se LIS, od 4.2. Zadejte následující příkazy ke stažení a instalaci LIS:
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

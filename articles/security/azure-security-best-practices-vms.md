@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Doporučené postupy pro zabezpečení virtuálního počítače Azure
 
@@ -47,7 +47,7 @@ Pro každý osvědčený postup Tento článek vysvětluje:
 
 ## <a name="vm-authentication-and-access-control"></a>Virtuální počítač ověřování a řízení přístupu
 
-Prvním krokem při ochraně virtuálního počítače je zajistit, aby mohly jenom autorizovaným uživatelům nastavit nové virtuální počítače. Můžete použít [zásady Azure Resource Manager](../azure-resource-manager/resource-manager-policy.md) zavést konvence pro prostředky ve vaší organizaci, vytvářet vlastní zásady a použít tyto zásady k prostředkům, jako například [skupiny prostředků](../azure-resource-manager/resource-group-overview.md).
+Prvním krokem při ochraně virtuálního počítače je zajistit, aby mohly jenom autorizovaným uživatelům nastavit nové virtuální počítače. Můžete použít [Azure zásady](../azure-policy/azure-policy-introduction.md) zavést konvence pro prostředky ve vaší organizaci, vytvářet vlastní zásady a použít tyto zásady k prostředkům, jako například [skupiny prostředků](../azure-resource-manager/resource-group-overview.md).
 
 Virtuální počítače, které patří do skupiny prostředků přirozeně dědit jejími zásadami. Doporučujeme tuto metodu pro správu virtuálních počítačů, ale můžete taky řídit přístup ke jednotlivé zásady virtuálních počítačů pomocí [řízení přístupu na základě role (RBAC)](../active-directory/role-based-access-control-configure.md).
 

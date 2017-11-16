@@ -1,5 +1,5 @@
 ---
-title: Jak to funguje? Azure AD SSPR | Microsoft Docs
+title: Jak funguje Azure AD SSPR | Microsoft Docs
 description: "Podrobné informace pro vytvoření nového hesla samoobslužné služby Azure AD"
 services: active-directory
 keywords: 
@@ -16,48 +16,47 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobslužné služby v Azure AD podrobné informace pro vytvoření nového hesla
 
-Jak funguje SSPR? Co tato možnost znamená v rozhraní? Materiály pro další informace o hesla pomocí samoobslužné služby Azure AD resetovat.
+Jak resetování hesla pomocí samoobslužné služby pracovní (SSPR)? Co tato možnost znamená v rozhraní? Pokračujte ve čtení na další informace o SSPR Azure Active Directory (Azure AD).
 
-## <a name="how-does-the-password-reset-portal-work"></a>Jak resetování hesla portálu pracovní
+## <a name="how-does-the-password-reset-portal-work"></a>Jak resetování hesla portálu pracovní?
 
 Když uživatel přejde na portál resetovat heslo, pracovní postup je spuštěna Chcete-li zjistit:
 
    * Jak by měly být lokalizovány stránky?
    * Je platný uživatelský účet?
    * Jaké organizace uživatel nepatří do?
-   * Kde je spravované heslo uživatele?
+   * Kde je pro uživatele heslo spravované?
    * Je daný uživatel licenci pro použití funkce?
 
+Čtení následujícími kroky Další informace o logiku za heslo resetovat stránky:
 
-Čtení následujícími kroky Další informace o logiku za heslo resetovat stránky.
-
-1. Uživatel klikne na nelze přístup k vašemu účtu odkaz nebo přejde přímo na [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
-2. Založené na prohlížeči národní prostředí vykresluje v příslušné jazykové možnosti. Prostředí resetování hesla je lokalizované do stejné jazyky jako podporuje Office 365.
-3. Uživatel zadá ID uživatele a předá test captcha.
-4. Azure AD ověří, zda je uživatel moci pomocí této funkce pomocí tohoto postupu následující kontroly:
-   * Kontroluje, zda uživatel má povolení této funkce a přiřazenou licenci Azure AD.
-     * Pokud uživatel nemá povolení této funkce nebo přiřazenou licenci, je uživatel požádán o obrátit na správce svého resetovat heslo.
+1. Uživatel vybere **nelze získat přístup k účtu** odkaz nebo přejde přímo na [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
+   * Podle národního prostředí prohlížeče, možnosti je vykreslen v příslušný jazyk. Prostředí resetování hesla je lokalizované do stejné jazyky, které podporuje Office 365.
+2. Uživatel zadá ID uživatele a předá test captcha.
+3. Azure AD ověřuje, že je uživatel moci pomocí této funkce pomocí tohoto postupu následující kontroly:
+   * Kontroluje, zda uživatel má povolení této funkce a Azure AD má přiřazenou licenci.
+     * Pokud uživatel nemá povolení této funkce nebo mají přiřazené licence, je uživatel požádán o obrátit na správce svého resetovat heslo.
    * Kontroluje, zda má uživatel práva challenge dat definovaných na svůj účet v souladu se zásadami správce.
-     * Pokud zásady vyžaduje pouze jednu výzvu, pak je je zajistit, že uživatel má příslušná data definované pro minimálně jeden z problémů ve zásad správce povolené.
-       * Pokud uživatel není nakonfigurováno, pak uživatel by měl obrátit na správce svého resetovat heslo.
-     * Pokud zásady vyžaduje dva problémy, pak je je zajistit, že uživatel má příslušná data definované pro alespoň dvě z problémů ve zásad správce povolené.
-       * Pokud uživatel není nakonfigurován, je jsme uživatele doporučujeme na obrátit na správce svého resetovat heslo.
-   * Kontroluje, pokud je pro uživatele heslo spravovaný místně (federovaný nebo hodnoty hash hesla synchronizovat).
-     * Pokud je nasazený zpětný zápis a heslo uživatele je spravovaný místně, uživatel je moci pokračovat k ověření a obnovit své heslo.
-     * Pokud není nasazena zpětný zápis a heslo uživatele je spravovaný místně, je uživatel požádán o obrátit na správce svého resetovat heslo.
-5. Pokud je zjištěno, že je uživatel moct úspěšně obnovit své heslo, pak může uživatel v průvodci procesem resetování.
+     * Pokud zásady vyžaduje pouze jednu výzvu, pak zajišťuje, že uživatel má příslušná data definované pro minimálně jeden z problémů ve zásad správce povolené.
+       * Pokud není nakonfigurováno výzvy k zadání uživatelského, pak uživatel by měl obrátit na správce svého resetovat heslo.
+     * Pokud zásady vyžaduje dva problémy, pak zajišťuje, že uživatel má příslušná data definované pro alespoň dvě z problémů ve zásad správce povolené.
+       * Pokud není nakonfigurováno výzvy k zadání uživatelského, pak uživatel by měl obrátit na správce svého resetovat heslo.
+   * Kontroluje, zda je heslo uživatele spravovány místně (federovaný nebo hodnoty hash hesla synchronizovat).
+     * Pokud je nasazený zpětný zápis a heslo uživatele se spravovaná místně, uživatel je moci pokračovat k ověření a obnovit své heslo.
+     * Pokud není nasazena zpětný zápis a heslo uživatele je spravovaná místně, je uživatel požádán o obrátit na správce svého resetovat heslo.
+4. Pokud je zjištěno, že je uživatel moct úspěšně obnovit své heslo, pak může uživatel v průvodci procesem resetování.
 
 ## <a name="authentication-methods"></a>Metody ověřování
 
-Pokud je povolená funkce samoobslužného resetování hesla (SSPR), musíte vybrat alespoň jeden z následujících možností pro metody ověřování. Někdy může dojít v tyto možnosti se označuje jako brány. Důrazně doporučujeme vybrat alespoň dvě metody ověřování, tak, aby vaši uživatelé větší flexibilitu.
+Pokud je povoleno SSPR, musíte vybrat alespoň jeden z následujících možností pro metody ověřování. Někdy uslyšíte. Tyto možnosti se označuje jako "brány." Důrazně doporučujeme, abyste zvolili alespoň dvě metody ověřování, tak, aby vaši uživatelé větší flexibilitu.
 
 * E-mail
 * Mobilní telefon
@@ -66,32 +65,32 @@ Pokud je povolená funkce samoobslužného resetování hesla (SSPR), musíte vy
 
 ![Ověřování][Authentication]
 
-### <a name="what-fields-are-used-in-the-directory-for-authentication-data"></a>Jaké pole se používají v adresáři pro ověřování dat
+### <a name="what-fields-are-used-in-the-directory-for-the-authentication-data"></a>Jaké pole se používají v adresáři pro ověřování dat?
 
-* Telefon do kanceláře odpovídá telefonní číslo do kanceláře
-    * Uživatelé se nemohou tuto možnost nastavíte pole sami musí být definován správcem
-* Mobilní telefon odpovídá telefon pro ověření (nejsou viditelné veřejně) nebo mobilní telefon (veřejně viditelný)
-    * Služby nejprve hledá telefon pro ověření, pak spadne zpět na mobilní telefon není-li k dispozici
-* Alternativní e-mailová adresa odpovídá ověřování e-mailu (nejsou viditelné veřejně) nebo alternativní e-mailu
-    * Služby nejprve hledá ověřování e-mailu a pak dojde k navrácení alternativní e-mailu
+* **Telefon do kanceláře**: odpovídá Telefon do kanceláře.
+    * Uživatelé se nemohou nastavte pole. Musí být definovány správcem.
+* **Mobilní telefon**: odpovídá (nejsou viditelné veřejně) Telefon pro ověření nebo mobilního telefonu (veřejně viditelný).
+    * Služba vypadá nejdřív pro telefon pro ověření a poté vrátí zpět na mobilní telefon, pokud se telefon pro ověření není k dispozici.
+* **Alternativní e-mailovou adresu**: odpovídá (nejsou viditelné veřejně) ověřování e-mailu nebo alternativní e-mailu.
+    * Služba nejprve hledá e-mailu, ověřování a pak dojde k navrácení alternativní e-mailu.
 
-Ve výchozím nastavení jsou synchronizovány pouze cloudu atributy telefonní číslo do kanceláře a mobilní telefon do cloudového adresáře z vašeho místního adresáře pro data ověřování.
+Ve výchozím nastavení Telefon do kanceláře atributy cloudu a mobilních telefonních jsou synchronizovány do cloudového adresáře z místního adresáře pro data ověřování.
 
 Uživatelé mohou pouze obnovit své heslo, pokud mají data obsažená v metod ověřování, které správce povolil a vyžaduje.
 
-Pokud uživatelé nechcete, aby jejich číslo mobilního telefonu viditelné v adresáři, ale přesto chcete použít pro resetování hesla, Správci by neměl naplnit v adresáři a uživatel by měl naplnit jejich **telefon pro ověření** atribut prostřednictvím [portál pro registraci a resetování hesla](http://aka.ms/ssprsetup). Správci uvidí tyto informace v profilu uživatele, ale nebude publikován jinde.
+Pokud uživatelé nechtějí své mobilní telefonní číslo viditelné v adresáři, ale chtějí používat pro resetování hesla, Správci by neměl naplnit v adresáři. Uživatelé by pak naplnit jejich **telefon pro ověření** atribut prostřednictvím [portál pro registraci a resetování hesla](http://aka.ms/ssprsetup). Správci uvidí tyto informace v profilu uživatele, ale nebude publikován jinde.
 
-### <a name="number-of-authentication-methods-required"></a>Počet požadované metody ověřování
+### <a name="the-number-of-authentication-methods-required"></a>Počet požadované metody ověřování
 
-Tato možnost určuje minimální počet dostupné metody ověření nebo brány, uživatel musí projít resetovat nebo jejich heslo pro odemknutí a lze ho nastavit na hodnotu 1 nebo 2.
+Tato možnost určuje minimální počet dostupné metody ověření nebo brány, které uživatel musí projít resetovat nebo odemknutí své heslo. Je můžete nastavit na jeden nebo dva kusy.
 
-Uživatelé mohou k poskytování další metody ověřování, pokud jsou povolené správcem.
+Uživatelé mohou k poskytování další metody ověřování, pokud správce povolí tuto metodu ověřování.
 
-Pokud uživatel nemá minimální požadované metody zaregistrovaný, zobrazí se jim chybovou stránku, která přesměruje je, aby vyžadovala resetovat heslo správce.
+Pokud uživatel nemá minimální požadované metody zaregistrovaný, zobrazí se jim chybová stránka, která přesměruje je, aby vyžadovala, aby správce obnovit své heslo.
 
-#### <a name="changing-authentication-methods"></a>Změna metody ověřování
+#### <a name="change-authentication-methods"></a>Změna metody ověřování
 
-Pokud začnete se zásadu, která obsahuje pouze jednu metodu ověřování požadované pro resetovat nebo odemknout zaregistrován a změníte, že ke dvěma co se stane?
+Pokud spustíte zásadám, který má jenom jednu vyžaduje metodu ověřování pro resetovat nebo odemknout zaregistrován a změníte, na dvě metody, co se stane?
 
 | Počet metody zaregistrován | Počet metod požadovaných | výsledek |
 | :---: | :---: | :---: |
@@ -99,16 +98,16 @@ Pokud začnete se zásadu, která obsahuje pouze jednu metodu ověřování pož
 | 1 | 2 | **Nelze** resetovat nebo odemknutí |
 | 2 nebo více | 2 | **Možnost** resetovat nebo odemknutí |
 
-Pokud změníte typy metod ověřování, zda může uživatel používat můžete nechtěně přestat uživatelé nebudou moci používat SSPR, pokud nemají minimální množství dat, které jsou k dispozici.
+Pokud změníte typy metod ověřování, které může uživatel používat, může nechtěně přestat uživatelé nebudou moci používat SSPR, když nemají minimální množství dat, které jsou k dispozici.
 
 Příklad: 
-1. Původní zásady nakonfigurované s 2 metodami ověřování vyžaduje použití pouze office phone a bezpečnostní otázky. 
-2. Správce změní zásady tak, aby už použít bezpečnostní otázky, ale povolí používání mobilního telefonu a alternativní e-mailu.
+1. Původní zásad je nakonfigurovaná s vyžaduje dvě metody ověřování. Používá pouze office telefonní číslo a bezpečnostní otázky. 
+2. Správce změn zásad už pomocí bezpečnostních otázek, ale umožňuje použití mobilního telefonu a alternativní e-mailu.
 3. Uživatelé bez mobilní telefon a naplněno pole alternativní e-mailovou nelze resetovat jejich hesla.
 
-### <a name="how-secure-are-my-security-questions"></a>Do jaké míry jsou mé bezpečnostní otázky
+### <a name="how-secure-are-my-security-questions"></a>Do jaké míry jsou mé bezpečnostní otázky?
 
-Pokud chcete použít bezpečnostní otázky, doporučujeme, abyste je používán pomocí jiné metody, které se méně bezpečné než jiné metody vzhledem k tomu, že někteří uživatelé mohou znát odpovědi na otázky jiným uživatelem.
+Pokud chcete použít bezpečnostní otázky, doporučujeme, abyste je mohli používat společně s jinou metodu. Bezpečnostní otázky může být méně bezpečné než jiné metody, protože někteří uživatelé možné, že znáte odpovědi na otázky jiným uživatelem.
 
 > [!NOTE] 
 > Bezpečnostní otázky jsou uloženy a s lepším zabezpečením na objekt uživatele v adresáři a pouze může být odpovědi uživatele během registrace. Neexistuje žádný způsob pro správce pro čtení nebo upravit uživatele otázek a odpovědí.
@@ -116,134 +115,134 @@ Pokud chcete použít bezpečnostní otázky, doporučujeme, abyste je použív�
 
 ### <a name="security-question-localization"></a>Lokalizace bezpečnostní otázku
 
-Všechny předdefinované otázky, které následují lokalizace do úplnou sadu Office 365 jazyky podle národního prostředí prohlížeče uživatele.
+Předdefinované dotazy, které následují lokalizace do všech jazyků Office 365 a jsou založené na prohlížeči uživatele národního prostředí:
 
-* V jakém městě jste potkali svého manžela nebo manželku (partnera nebo partnerku)?
-* V jakém městě se potkali vaši rodiče?
+* V jakém městě jste potkali svého manžela manžela nebo partnerku?
+* V jakém městě potkali vaši rodiče?
 * V jakém městě žije váš nejbližší sourozenec?
 * V jakém městě se narodil váš otec?
 * V jakém městě jste měli první práci?
 * V jakém městě se narodila vaše matka?
-* V jakém městě jste byli na Nový rok 2000?
-* Jaké je příjmení vašeho oblíbeného učitele ze vysokou * školy?
+* V jakém městě byli na nový rok 2000?
+* Jaké je příjmení vašeho oblíbeného učitele ze střední školy?
 * Jaký je název univerzity, na kterou jste se hlásili, ale nechodili na ni?
-* Jak se jmenuje město, kde jste měli svatební hostinu?
-* Jaký je oblíbený sport vašeho otce?
-* Jaké je vaše oblíbené jídlo?
-* Jaké je jméno a příjmení vaší babičky z matčiny strany?
-* Jak se za svobodna jmenovala vaše matka?
+* Jak se jmenuje místo, kde jste měli první svatební hostinu?
+* Jaké je křestní jméno vašeho otce?
+* Co je vaše oblíbené jídlo?
+* Co je vaší babičky z jméno a příjmení?
+* Jaké je křestní jméno vaší matky?
 * Co je narozeninách měsíci a roce vašeho nejstaršího sourozence? (Příklad: listopad 1985)
 * Jaké je křestní jméno vašeho nejstaršího sourozence?
-* Jaké je jméno a příjmení vašeho dědečka z otcovy strany?
+* Co je vašeho dědečka z otcovy strany jméno a příjmení?
 * Jaké je křestní jméno vašeho nejmladšího sourozence?
 * Do jaké školy jste chodili v šesté třídě?
-* Jaké měl jméno a příjmení váš nejlepší přítel v dětství?
-* Jaké měl jméno a příjmení váš první partner nebo partnerka?
-* Jaké bylo příjmení vašeho oblíbeného učitele ze základní školy?
+* Jaký byl název jméno a příjmení váš nejlepší přítel v dětství?
+* Jaký byl název první a poslední váš první partner nebo partnerka?
+* Jaké bylo příjmení vašeho oblíbeného základní školy učitele?
 * Jaká byla značka a model vašeho prvního auta nebo motorky?
 * Jaký byl název první školy, do které jste chodili?
-* Jaký název měla nemocnice, ve které jste se narodili?
-* Jak se jmenovala ulice, kde jste v dětství bydleli?
-* Jak se jmenoval váš dětský idol?
+* Jaký byl název měla nemocnice, ve kterém jste se narodili?
+* Jak se jmenovala ulice, kde jste dětství bydleli?
+* Jak se jmenovala váš hrdina z dětství?
 * Jaké bylo jméno vašeho oblíbeného plyšáka?
-* Jak se jmenovalo vaše první domácí zvířátko?
+* Jak se jmenovala vaše první domácí zvířátko?
 * Jakou jste měli v dětství přezdívku?
 * Jaký byl váš oblíbený sport na střední škole?
 * Jaká byla vaše první práce?
-* Jaké byly poslední čtyři číslice vašeho telefonu v dětství?
-* Jaké bylo v dětství vaše vysněné povolání?
-* Jakou nejznámější osobnost jste kdy potkali?
+* Jaké byly poslední čtyři číslice vaše telefonní číslo měli v dětství?
+* Když jste byli malí, co mají být vysněné povolání?
+* Kdo je nejslavnější osoba, kterou jste se kdy setkali?
 
 ### <a name="custom-security-questions"></a>Vlastní bezpečnostní otázky
 
-Vlastní bezpečnostní otázky nejsou lokalizovány pro různá národní prostředí. Všechny vlastní otázky se zobrazují ve stejném jazyce, které jsou zapsány v rozhraní správce i v případě národního prostředí uživatele prohlížeče se liší. Pokud potřebujete lokalizovaná otázky, použijte prosím předdefinované dotazy.
+Vlastní bezpečnostní otázky nejsou lokalizovány pro různá národní prostředí. Všechny vlastní otázky se zobrazují ve stejném jazyce jako jsou zapsány v rozhraní správce i v případě národního prostředí uživatele prohlížeče se liší. Pokud potřebujete lokalizovaná otázky, měli byste použít předdefinované dotazy.
 
 Maximální délka vlastní bezpečnostní otázku je 200 znaků.
 
 ### <a name="security-question-requirements"></a>Požadavky na zabezpečení otázku
 
-* Minimální odpovědí limit pro počet znaků je 3 znaky
-* Odpověď maximální limit pro počet znaků je 40 znaků
-* Uživatelé nemusí odpovězte na stejné otázku více než jednou.
-* Uživatelé nemusí poskytovat stejné odpověď na otázku více než jeden
-* Všechny znakovou sadu může použít k definování otázky a odpovědi, včetně znaky kódování Unicode
-* Počet otázek definovaných musí být větší než nebo rovna počtu otázek vyžadovaných k registraci
+* Limit znak minimální odpovědí je tři znaky.
+* Odpověď maximální povolený počet znaků je 40 znaků.
+* Uživatele nelze odpovězte na stejné otázku více než jednou.
+* Uživatelé nemůže poskytovat stejné odpověď na otázku více než jeden.
+* Všechny znakovou sadu lze definovat otázky a odpovědi, včetně znaky znakové sady Unicode.
+* Počet otázek definovaných musí být větší než nebo rovna počtu otázek, které by bylo potřeba zaregistrovat.
 
 ## <a name="registration"></a>Registrace
 
-### <a name="require-users-to-register-when-signing-in"></a>Při přihlášení vyžadovat registraci uživatelů
+### <a name="require-users-to-register-when-they-sign-in"></a>Vyžadovat registraci při přihlášení uživatelů
 
-Povolením této možnosti vyžaduje, že uživatel, který je povolen pro resetování hesel k dokončení heslo resetovat registrace, pokud se přihlášení do aplikace pomocí služby Azure AD se přihlásit jako ty, které následují:
+Chcete-li tuto možnost, má uživatel, který je povolen pro resetování hesla dokončit registraci k resetování hesla, pokud přihlášení do aplikace pomocí Azure AD. To zahrnuje následující:
 
 * Office 365
 * portál Azure
 * Přístupový panel
 * Federovaným aplikacím
-* Vlastních aplikací pomocí služby Azure AD
+* Vlastní aplikace pomocí Azure AD
 
-Pokud je toto zakázáno uživatelé můžou pořád spustit ručně zaregistrovat své kontaktní informace navštivte stránky [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) nebo kliknutím **zaregistrovat pro resetování hesla** odkaz na kartě profil v přístupový panel.
+Při vyžadování registrace je zakázaná, uživatelé mohou registrovat pořád spustit ručně své kontaktní informace. Můžete buď návštěvu [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) nebo vyberte **registrace pro resetování hesla** v části **profil** karta na přístupovém panelu.
 
 > [!NOTE]
-> Uživatelé portálu pro registraci resetování hesla můžete zavřít kliknutím na tlačítko Storno nebo zavřením okna ale výzvy pokaždé, když se přihlásit, dokud nebude po dokončení registrace.
+> Uživatele můžete zavřít portálu registrace resetování hesel výběrem **zrušit** nebo ukončením okna. Ale se zobrazí výzva k registraci při každém přihlášení, dokud se jejich registraci dokončit.
 >
-> Pokud jsou již přihlášení tím nebude přerušení připojení uživatele.
+> Pokud už jsou podepsané tím není přerušení připojení uživatele.
 
-### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Počet dní před vyzváním uživatelů k potvrzení ověřovacích informací
+### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Nastavit počet dní, než jsou uživatelé vyzváni k potvrzení jejich informace o ověřování
 
-Tato možnost určuje dobu, po mezi nastavení a reconfirming informace o ověřování a je k dispozici, pokud povolíte pouze **vyžadovat, aby registraci při přihlašování uživatelé** možnost.
+Tato možnost určuje dobu, po mezi nastavení a reconfirming informace o ověřování a je k dispozici pouze v případě, že povolíte **vyžadovat, aby registraci při přihlašování uživatelé** možnost.
 
-Platné hodnoty jsou 0-730 dní s 0 znamená nikdy požádejte uživatele o potvrzení jejich informace o ověřování
+Platné hodnoty jsou 0 až 730 dní s "0", což znamená, že jsou uživatelé nikdy vyzváni k potvrzení jejich informace o ověřování.
 
 ## <a name="notifications"></a>Oznámení
 
 ### <a name="notify-users-on-password-resets"></a>Upozornit uživatele na resetování hesla
 
-Pokud tato možnost nastavená na Ano, uživatele, který je resetování hesla obdrží e-mail s upozorněním, že jejich heslo bylo změněno prostřednictvím portálu SSPR k jejich primární a alternativní e-mailové adresy na souboru ve službě Azure AD. Nikdo jiný po upozornění na resetování této události.
+Pokud je tato možnost nastavena na **Ano**, pak uživatel, který je resetování hesla obdrží e-mail s upozorněním, že jejich heslo bylo změněno. E-mail je odeslán prostřednictvím portálu SSPR k jejich primární a alternativní e-mailové adresy, které jsou v souboru ve službě Azure AD. Nikdo jiný po upozornění na resetování této události.
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Upozornit všechny správce, když jiní správci resetování hesel
 
-Pokud je tato možnost nastavená na hodnotu Ano, pak **všichni správci** obdrží e-mail na jeho primární e-mailovou adresu v souboru ve službě Azure AD, které jim, že jiný správce došlo ke změně hesla pomocí SSPR.
+Pokud je tato možnost nastavena na **Ano**, pak *všichni správci* obdrží e-mail na jeho primární e-mailovou adresu v souboru ve službě Azure AD. E-mailu je upozorní, že jiný správce má při použití SSPR změnit své heslo.
 
-Příklad: Existují čtyři správci v prostředí. Resetuje heslo pomocí SSPR správce "A". Správci B, C a D dostane e-mail výstrahy je této situaci.
+Příklad: Existují čtyři správci v prostředí. Správce A resetuje heslo pomocí SSPR. Správci B, C a D obdrží e-mail, který upozorní je resetování hesla.
 
 ## <a name="on-premises-integration"></a>Místní integrace
 
-Pokud jste nainstalovali, nakonfigurovat a povolili Azure AD Connect, máte následující další možnosti pro místní integrace. Pokud tyto možnosti jsou aktivní na více systémů a zpětný zápis nebyla nakonfigurována správně [konfigurace zpětný zápis hesla](active-directory-passwords-writeback.md#configuring-password-writeback) Další informace.
+Je-li instalovat, konfigurovat a povolit Azure AD Connect, máte následující další možnosti pro místní integrace. Pokud tyto možnosti jsou šedě, pak zpětný zápis nebyla nakonfigurována správně. Další informace najdete v tématu [konfigurace zpětný zápis hesla](active-directory-passwords-writeback.md#configuring-password-writeback).
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Zpětný zápis hesla do místního adresáře
 
-Řídí, zda je povolen zpětný zápis hesla pro tento adresář a pokud zpětného zápisu na, označuje stav zpětného zápisu služby místně. To je užitečné, pokud chcete dočasně zakázat zpětný zápis hesla bez nutnosti měnit Azure AD Connect.
+Tento ovládací prvek určuje, zda je pro tento adresář zapnutá zpětný zápis hesla. Pokud zpětného zápisu na, označuje stav zpětného zápisu služby místně. To je užitečné, pokud chcete dočasně zakázat zpětný zápis hesel, aniž by museli znovu konfigurovat Azure AD Connect.
 
-* Pokud přepínač je nastavena na hodnotu Ano, pak zpětný zápis povolen a federovaných a mohou uživatelé hash synchronizovat heslo resetovat jejich hesla.
-* Pokud je přepínač nastavený Ne, pak zpětný zápis je zakázána a federovaných a uživatelé hash synchronizovat hesla nejsou moct resetovat jejich hesla.
+* Pokud je přepínač nastavený na **Ano**, pak zpětný zápis povolen a federovaných a mohou uživatelé hash synchronizovat heslo resetovat jejich hesla.
+* Pokud je přepínač nastavený na **ne**, pak zpětný zápis je zakázána a federovaných a uživatelé hash synchronizovat hesla nejsou schopna resetovat jejich hesla.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Povolit uživatelům bez resetování hesla pro odemknutí účtů
 
-Označuje, zda uživatelé, kteří navštíví portálu pro resetování hesla by měla mít možnost k odemčení svých místních účtů služby Active Directory bez resetování hesla. Ve výchozím nastavení Azure AD odemkne účty při resetování hesla, toto nastavení umožňuje oddělit těchto dvou operací. 
+Tento ovládací prvek určuje, zda má být poskytnut uživatele, kteří navštěvují portál pro resetování hesel možnost Odemknout účet místní služby Active Directory, aniž by bylo nutné obnovit své heslo. Ve výchozím nastavení Azure AD odemkne účty, když provádí resetování hesla. Pomocí tohoto nastavení k oddělení těchto dvou operací. 
 
-* Pokud nastavíte hodnotu "Ano", bude nabídnuta možnost obnovit své heslo a odemknout účet, nebo k odemčení bez resetování hesla.
-* Pokud nastavena na hodnotu "Ne", pak jsou jen mít uživatelé provést kombinovaný heslo pro obnovení a operaci odemknutí účtu.
+* Pokud nastavena na **Ano**, pak mít možnost obnovit své heslo a odemknout účet a odemknout svůj účet bez nutnosti k resetování hesla uživatele.
+* Pokud nastavena na **ne**, pak jsou pouze mít uživatelé k provedení resetování kombinované hesla a odemknutí účtu v operaci.
 
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>Jak resetování hesla práce B2B uživatelů?
-Resetování hesla a změny jsou plně podporovány s všechny konfigurace B2B. V následujících třech případech jsou podporovány pro resetování hesla uživatele B2B.
+Resetování hesla a změny jsou plně podporuje všechny konfigurace business-to-business (B2B). Resetování hesla uživatele B2B je podporována v následujících třech případech:
 
-1. **Uživatelé z partner org s existujícího klienta Azure AD** – Pokud má organizace jsou partnerství se existujícího klienta Azure AD, jsme **respektují aktivují zásady resetování hesel jsou povolené v něm**. Pro heslo resetovat pro práci partnera jenom potřeb organizace a ujistěte se, Azure AD SSPR je povoleno, které je bez dalších poplatků pro zákazníky O365, a lze je povolit pomocí následujících kroků v našem [Začínáme se správou hesel](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords)průvodce.
-2. **Uživatelé, kteří zaregistrovali do služby pomocí [samoobslužné registrace](active-directory-self-service-signup.md)**  – Pokud organizace, která jsou partnerství se použité [samoobslužné registrace](active-directory-self-service-signup.md) funkci nahrát do klienta, jsme by jim umožnila resetován s e-mailu, budou registrována.
-3. **Uživatelé B2B** – všechny nové uživatele B2B vytvořené pomocí nové [funkce Azure AD s B2B](active-directory-b2b-what-is-azure-ad-b2b.md) bude také moct resetovat vlastní hesla s e-mailu, budou během procesu pozvání zaregistrovány.
+   * **Uživatelům v organizaci partnera pomocí existujícího klienta Azure AD**: Pokud má organizace se stanete existujícího klienta Azure AD, jsme *respektují jsou povolené ať zásady resetování hesel na tohoto tenanta*. Pro resetování hesel k práci abyste měli jistotu, že je povolena Azure AD SSPR právě musí partnerské organizace. Není k dispozici bez dalších poplatků zákazníků Office 365 a může být povoleno podle kroků v našem [Začínáme se správou hesel](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) průvodce.
+   * **Uživatelé, kteří si zaregistrovat prostřednictvím** samoobslužné registrace: Pokud organizace se stanete použité [samoobslužné registrace](active-directory-self-service-signup.md) funkci nahrát do klienta, můžeme dát jim resetování hesla s e-mailu se zaregistrovat.
+   * **Uživatelé B2B**: všechny nové uživatele B2B vytvořily s použitím nové [funkce Azure AD s B2B](active-directory-b2b-what-is-azure-ad-b2b.md) bude také moct resetovat vlastní hesla s e-mailu, budou během procesu pozvání zaregistrovány.
 
-Tento scénář otestovat, přejděte na http://passwordreset.microsoftonline.com s jedním z těchto uživatelů partnera. Tak dlouho, dokud budou mít alternativní e-mailu nebo e-mailové ověřování definované, resetování hesla funguje podle očekávání.
+Tento scénář otestovat, přejděte na http://passwordreset.microsoftonline.com s jedním z těchto uživatelů partnera. Pokud mají alternativní e-mailu nebo e-mailu ověřování definované, resetování hesla funguje podle očekávání.
 
 > [!NOTE]
-> Účty Microsoft, kterým byl udělen přístup hosta do služby Azure AD klienta jsou z Hotmail.com, Outlook.com, nebo jiné osobní e-mailové adresy nejsou moci používat Azure AD SSPR a bude nutné resetovat heslo pomocí informací v nalezen článek [při nemůžete se přihlásit ke svému účtu Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+> Účty Microsoft, kterým byl udělen přístup hosta pro vašeho klienta Azure AD, jako jsou ty z Hotmail.com, Outlook.com nebo jiné osobní e-mailové adresy, nejsou schopna použít Azure AD SSPR. Bude nutné resetovat heslo pomocí informací v nalezen [při nemůžete se přihlásit ke svému účtu Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) článku.
 
 ## <a name="next-steps"></a>Další kroky
 
-Na následujících odkazech najdete další informace o resetování hesla pomocí Azure AD
+Následující články poskytují další informace týkající se prostřednictvím služby Azure AD pro vytvoření nového hesla:
 
 * [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
 * [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
 * [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
-* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
+* [Máte licencování otázku?](active-directory-passwords-licensing.md)
 * [Jaká data používá SSPR a která data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
 * [Které metody ověřování jsou dostupné pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Jaké jsou možnosti zásad se SSPR?](active-directory-passwords-policy.md)

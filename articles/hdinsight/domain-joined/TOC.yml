@@ -24,9 +24,6 @@
   items:
     - name: Správa clusterů
       href: apache-domain-joined-manage.md
-    - name: Správa uživatelských oprávnění
-      href: ../hdinsight-add-acls-at-file-folder-levels.md
-      maintainContext: true
 - name: Referenční informace
   items:
     - name: Ukázky kódů

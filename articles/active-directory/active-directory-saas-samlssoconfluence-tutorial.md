@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17bd8294c957c0666ffe75d1ff06b863f1176048
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Kurz: Integrace Azure Active Directory pomocí jednotného přihlašování SAML pro soutoku podle řešení GmbH
 
@@ -169,26 +169,53 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
     
-16. Na **konfigurace modulu plug-in SingleSignOn SAML** klikněte na tlačítko **přidat další zprostředkovatele Identity** tlačítko ke konfiguraci nastavení zprostředkovatele Identity.
+16. Na **konfigurace modulu plug-in SingleSignOn SAML** klikněte na tlačítko **přidat nové rozšíření IdP** tlačítko ke konfiguraci nastavení zprostředkovatele Identity.
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
 
-17. Proveďte následující kroky na této stránce:
+17. Na **zvolte poskytovatele Identity SAML** proveďte následující kroky:
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon5.png)
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon5a.png)
  
-    a. Přidat **název** zprostředkovatele Identity (např. Azure AD).
+    a. Nastavit **Azure AD** jako typ deklarací identity.
     
-    b. Přidat **popis** zprostředkovatele Identity (např. Azure AD).
+    b. Přidat **název** zprostředkovatele Identity (např. Azure AD).
+    
+    c. Přidat **popis** zprostředkovatele Identity (např. Azure AD).
+    
+    d. Klikněte na **Další**.
+    
+18. Na **konfigurace zprostředkovatele Identity** klikněte na tlačítko **Další** tlačítko.
 
-    c. Klikněte na tlačítko **XML** a vyberte **Metadata** soubor, který jste si stáhli z portálu Azure.
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon5b.png)
 
-    d. Klikněte na tlačítko **zatížení** tlačítko.
+19. Na **importovat IdP Metadata SAML** proveďte následující kroky:
 
-    e. Přečte IdP metadata a naplní pole, jak je znázorněno na snímku obrazovky. 
-18. Klikněte na tlačítko **uložit nastavení** tlačítko pro uložení nastavení.
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon5c.png)
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
+    a. Klikněte na tlačítko **načíst soubor** tlačítko a vyberte soubor XML s metadaty souboru, které jste si stáhli v kroku 5.
+
+    b. Klikněte na tlačítko **Import** tlačítko.
+    
+    c. Počkejte, než stručně dokud úspěšně importovat.
+    
+    d. Klikněte na tlačítko **Další** tlačítko.
+    
+20. Na **atribut ID uživatele a transformace** klikněte na tlačítko **Další** tlačítko.
+
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon5d.png)
+    
+21. Na **vytvoření uživatele a aktualizace** klikněte na tlačítko **Uložit & Další** se uložit nastavení.   
+    
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon6a.png)
+    
+22. Na **Test nastavení** klikněte na tlačítko **přeskočit testovací & Ruční konfigurace** testovací uživatele pro tuto chvíli přeskočit. To se provede v další části a vyžaduje některá nastavení v portálu Azure. 
+    
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon6b.png)
+    
+23. V dialogu čtení apprearing **přeskočení znamená testovací...** , klikněte na tlačítko **OK**.
+    
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-samlssoconfluence-tutorial/addon6c.png)
 
 > [!TIP]
 > Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

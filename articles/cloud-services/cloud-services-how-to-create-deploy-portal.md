@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Postup vytvoření a nasazení cloudové služby
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-create-deploy-portal.md)
-> * [Portál Azure Classic](cloud-services-how-to-create-deploy.md)
->
->
-
 Portál Azure nabízí dva způsoby, můžete vytvořit a nasadit cloudové služby: *rychle vytvořit* a *vytvořit vlastní*.
 
 Tento článek vysvětluje, jak pomocí metody rychlého vytvoření vytvořit novou cloudovou službu a pak použít **nahrát** nahrání a nasazení balíčku cloudové služby v Azure. Pokud použijete tuto metodu, umožňuje portálu Azure k dispozici užitečné odkazy pro dokončení všechny požadavky rovnou. Pokud jste připravení nasadit cloudové služby, když ho vytvoříte, můžete to udělat i ve stejnou dobu pomocí vytvořit vlastní.

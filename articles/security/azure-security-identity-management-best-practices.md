@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Osvědčené postupy zabezpečení řízení Azure správu identit a přístupu
 Mnoho zvažte identity jako novou vrstvu hranice zabezpečení, převzetí této role z perspektivy tradiční zaměřené na síti. Tento vývoj primární pivot pro zabezpečení pozornost a investice do pocházet z skutečnost, že se staly stále porézní hranice sítě a že hraniční obrana nemůže být co nejúčinnější se jednou byly před rozbalení [BYOD](http://aka.ms/byodcg) zařízení a cloudových aplikací.
@@ -115,7 +115,7 @@ Využívání [Azure Resource Manager](../azure-resource-manager/resource-group-
 
 Organizace, které nejsou řízení vytváření prostředky budou náchylnější k uživatele, kteří mohou zneužití službu tak, že vytvoříte více prostředků, než potřebují. Posílení zabezpečení procesu vytváření prostředků je důležitým krokem při zabezpečené víceklientské scénář.
 
-Další informace o vytváření zásad s Azure Resource Manager přečíst v článku [použití zásad ke správě prostředků a řízení přístupu](../azure-resource-manager/resource-manager-policy.md).
+Další informace o vytváření zásad s Azure Resource Manager přečíst v článku [co je Azure zásad?](../azure-policy/azure-policy-introduction.md).
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>Příručka vývojáře využívat funkce identit pro aplikace SaaS
 Identita uživatele bude využity v řadě scénářů, při přístupu uživatelů k [aplikace SaaS](https://azure.microsoft.com/marketplace/active-directory/all/) , lze integrovat s místní nebo cloudové adresáře. Především, doporučujeme, aby vývojáři použít k vývoji těchto aplikací, jako například zabezpečené metodika [Microsoft životního cyklu SDL (Security Development)](https://www.microsoft.com/sdl/default.aspx). Azure AD zjednodušuje ověřování pro vývojáře a poskytovat identity jako služby, podpora pro standardní protokoly, jako [OAuth 2.0](http://oauth.net/2/) a [OpenID Connect](http://openid.net/connect/), stejně jako otevřete zdroje knihovny pro různé platformy.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: d44e43dd8ae01c93050de199f7d72c8ac92bcad9
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI používá Azure pro zvýšení jeho cyklu vývoje a ke zvýšení jeho zákaznické a výkonu
 ![Logo Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -93,5 +93,5 @@ Azure SQL Database není právě velké zvýšení SpectrumNG zákazníkům, kte
 * Další informace o aktivní geografickou replikaci, najdete v části [aktivní geografickou replikací](sql-database-geo-replication-overview.md).
 * Další informace o webových rolí a rolí pracovního procesu naleznete v tématu [rolí pracovního procesu](../fundamentals-introduction-to-azure.md#compute).    
 * Další informace o Azure Service Bus, najdete v části [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
-* Další informace o automatické škálování, najdete v části [škálování cloudové služby](../cloud-services/cloud-services-how-to-scale.md).
+* Další informace o automatické škálování, najdete v části [škálování cloudové služby](../cloud-services/cloud-services-how-to-scale-portal.md).
 

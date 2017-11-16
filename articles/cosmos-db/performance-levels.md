@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Vyřazení úrovní výkonu S1, S2 a S3
 
@@ -44,7 +44,7 @@ Tento článek obsahuje přehled úrovní výkonu S1, S2 a S3 a popisuje, jak ko
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Proč se výkonu S1, S2 a S3 úrovně postupně vyřazuje z provozu?
 
-Úrovně výkonu S1, S2 a S3 nenabízejí kolekce DocumentDB API nabízí flexibilitu. Kapacita propustnosti i úložiště s S1, S2, úrovně výkonu S3, byly předem nastavené a nenabízí pružnost. Azure Cosmos DB teď nabízí přizpůsobit propustnost a úložiště nabízí mnohem větší flexibilitu v schopnost škálovat podle potřeby.
+Úrovně výkonu S1, S2 a S3 nenabízejí flexibilitu této nabídky kolekce DocumentDB rozhraní API. Kapacita propustnosti i úložiště s S1, S2, úrovně výkonu S3, byly předem nastavené a nenabízí pružnost. Azure Cosmos DB teď nabízí přizpůsobit propustnost a úložiště nabízí mnohem větší flexibilitu v schopnost škálovat podle potřeby.
 
 <a name="compare"></a>
 
@@ -71,7 +71,7 @@ Nothing, Cosmos DB zpracovává migrace za vás. Pokud máte kolekci S1, S2 nebo
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>Jak se po dokončení migrace změní mé kolekce?
 
-Pokud máte kolekci S1, budou přeneseny do kolekce tvořené jedním oddílem s propustností 400 RU/s. 400 RU/s je k dispozici kolekce tvořené jedním oddílem nejnižší propustnost. Ale náklady pro 400 RU/s kolekce tvořené jedním oddílem je přibližně stejné jako byly platícího s S1 kolekce a 250. RU/s – tak nejsou platícího pro velmi 150 RU/s dostupné.
+Pokud máte kolekci S1, budou přeneseny do kolekce tvořené jedním oddílem s propustností 400 RU/s. 400 RU/s je k dispozici kolekce tvořené jedním oddílem nejnižší propustnost. Ale náklady pro 400 RU/s v kolekci jednoho oddílu je přibližně stejný, jako měla s S1 kolekce a 250. RU/s – platícího tak nejsou platícího pro velmi 150 RU/s dostupné.
 
 Pokud máte kolekci S2, budou přeneseny do kolekce tvořené jedním oddílem s 1 tis. RU/s. Zobrazí se žádná změna na vaší propustnost úroveň.
 
@@ -119,29 +119,29 @@ Můžete migrovat z úrovní výkonu S1, S2 a S3 kolekce tvořené jedním oddí
 
 1. V [ **portál Azure**](https://portal.azure.com), klikněte na tlačítko **Azure Cosmos DB**, pak vyberte účet Cosmos DB, který chcete upravit. 
  
-    Pokud **Azure Cosmos DB** není na panelu vlevo klikněte na tlačítko >, přejděte k položce **databáze**, vyberte **Azure Cosmos DB**a potom vyberte účet DocumentDB.  
+    Pokud **Azure Cosmos DB** není na panelu vlevo klikněte na tlačítko >, přejděte k položce **databáze**, vyberte **Azure Cosmos DB**a potom vyberte účet.  
 
-2. V nabídce prostředků v části **kontejnery**, klikněte na tlačítko **škálování**, vyberte kolekci, které chcete upravit v rozevíracím seznamu a pak klikněte na tlačítko **cenová úroveň**. Účty pomocí předem definovaných propustnost mít cenovou úroveň S1, S2 nebo S3.  V **zvolte cenovou úroveň** okně klikněte na tlačítko **standardní** změnit na uživatelem definované propustnost, a pak klikněte na **vyberte** uložte změny.
+2. V nabídce prostředků v části **kontejnery**, klikněte na tlačítko **škálování**, vyberte kolekci, které chcete upravit v rozevíracím seznamu a pak klikněte na tlačítko **cenová úroveň**. Účty pomocí předem definovaných propustnost mít cenovou úroveň S1, S2 nebo S3.  V **zvolte cenovou úroveň** klikněte na tlačítko **standardní** změnit na uživatelem definované propustnost, a pak klikněte na **vyberte** uložte změny.
 
-    ![Snímek obrazovky okna nastavení ukazující, kde chcete-li změnit hodnotu propustnosti](./media/performance-levels/change-performance-set-thoughput.png)
+    ![Snímek obrazovky ukazující, kde chcete-li změnit hodnotu propustnosti nastavení stránky](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. Zpět v **škálování** okně **cenová úroveň** se změní na **standardní** a **propustnost (RU/s)** pole se zobrazí se výchozí hodnota je 400. Nastavit propustnost mezi 400 a 10 000 [požadované jednotky](request-units.md)/second (RU/s). **Odhadované měsíčních nákladů** v dolní části stránky aktualizace automaticky zajistit odhad měsíční náklady. 
+3. Zpět v **škálování** stránky, **cenová úroveň** se změní na **standardní** a **propustnost (RU/s)** políčko se zobrazí výchozí hodnota je Hodnota 400. Nastavit propustnost mezi 400 a 10 000 [požadované jednotky](request-units.md)/second (RU/s). **Odhadované měsíčních nákladů** v dolní části stránky aktualizace automaticky zajistit odhad měsíční náklady. 
 
     >[!IMPORTANT] 
     > Po uložení změn a přesunout do cenová úroveň Standard, není možné vrátit zpět na úrovní výkonu S1, S2 nebo S3.
 
 4. Klikněte na tlačítko **Uložit** uložte provedené změny.
 
-    Pokud zjistíte, že potřebujete další propustnost (větší než 10 000 RU/s) nebo další úložiště (větší než 10GB) můžete vytvořit kolekci oddílů. K migraci kolekce tvořené jedním oddílem pro dělenou kolekci, najdete v části [migrace z jednoho oddílu do dělené kolekce](documentdb-partition-data.md#migrating-from-single-partition).
+    Pokud zjistíte, že potřebujete další propustnost (větší než 10 000 RU/s) nebo další úložiště (větší než 10 GB) můžete vytvořit kolekci oddílů. K migraci kolekce tvořené jedním oddílem pro dělenou kolekci, najdete v části [migrace z jednoho oddílu do dělené kolekce](documentdb-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
-    > Změna z S1, S2 nebo S3 standardního může trvat až 2 minut.
+    > Změna z S1, S2 nebo S3 standardního může trvat až dvě minuty.
     > 
     > 
 
 **Migrace do kolekce tvořené jedním oddílem pomocí sady .NET SDK**
 
-Další možností pro změnu úrovně výkonu vaší kolekce je pomocí naší sady SDK. Tato část se vztahuje pouze změna shromažďování výkonu úrovně pomocí našich [DocumentDB .NET API](documentdb-sdk-dotnet.md), ale proces je podobný pro naše dalších sadách SDK.
+Další možností pro změnu úrovně výkonu vaší kolekce je prostřednictvím sady SDK Azure Cosmos DB. Tato část se vztahuje pouze změna shromažďování výkonu úrovně pomocí [DocumentDB .NET API](documentdb-sdk-dotnet.md), ale proces je podobný pro naše dalších sadách SDK.
 
 Zde je fragment kódu pro změnu propustnost kolekce do 5 000 jednotek žádosti za sekundu:
     

@@ -13,13 +13,13 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 11/14/2017
 ms.author: billgib;genemi
-ms.openlocfilehash: e10a954ba57782f4f79131ab583b5a73edf4ba02
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>Vítá vás adresář Wingtip lístky ukázková SaaS Azure SQL Database klientů aplikace
 
@@ -37,9 +37,9 @@ Adresář Wingtip lístky aplikaci můžete nainstalovat v rámci vlastní před
 
 Kód aplikace a skripty správy, jsou všechny dostupné na Githubu:
 
-- **Samostatné aplikace** modelu: *(už v rámci dnů).*
-- **Databáze za klienta** modelu: [WingtipSaaS úložiště](https://github.com/Microsoft/WingtipSaaS/).
-- **Horizontálně dělené víceklientské** modelu *hybridní*: *(už v rámci dnů).*
+- **Samostatné aplikace** modelu: [WingtipTicketsSaaS StandaloneApp úložiště](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+- **Databáze za klienta** modelu: [WingtipTicketsSaaS DbPerTenant úložiště](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
+- **Horizontálně dělené víceklientské** modelu: [WingtipTicketsSaaS MultiTenantDB úložiště](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
 
 Stejný základní aplikace Wingtip lístky jeden kód se znovu použije pro všechny předchozí modely uvedené. Můžete spustit projekty SaaS kód z Githubu.
 
@@ -79,8 +79,6 @@ Tento model používá jedním klientské aplikace. Proto tento model musí pouz
 
 Tento model můžete použít při prodeji instance aplikace na mnoha různých klientů, každý klient spustit samostatně. Klient je pak jenom klient. Zatímco databáze ukládá data pouze jednoho klienta, databáze ukládá data pro mnoho zákazníků klienta.
 
-- *(Kurzy pro tento model bude publikována zde do několika dní. Odkaz bude v tomto poli.)*
-
 #### <a name="database-per-tenant"></a>Databáze za klienta
 
 ![Databáze za klienta modelu][database-per-tenant-model-35d]
@@ -99,8 +97,7 @@ Tento model má několik klientů v instanci aplikace. Tento model má také ví
 
 Schéma každé databáze obsahuje identifikátor klienta. Identifikátor klienta je i v tyto databáze, které ukládají pouze jednoho klienta.
 
-- *(Kurzy pro tento model bude publikována zde do několika dní. Odkaz bude v tomto poli.)*
-
+- [Úvod do příklad aplikace SaaS více klientů databáze SQL][saas-multitenantdb-get-started-deploy-89i]
 
 
 
@@ -149,4 +146,7 @@ Kurz články pro každý model zahrnovat následující scénáře správy:
 [saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
 
 [multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
+
+[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
+
 

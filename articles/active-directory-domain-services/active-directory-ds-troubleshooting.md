@@ -4,7 +4,7 @@ description: "Průvodce řešením potíží pro Azure AD Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – Průvodce odstraňováním potíží s
 Tento článek obsahuje pokyny k odstranění potíží pro problémy, se kterými se můžete setkat při nastavení nebo jejich správě Azure Active Directory (AD) Domain Services.
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Nejde povolit Azure AD Domain Services pro svůj adresář Azure AD
-Tato část vám pomůže vyřešit chyby při pokusu o povolení služby Azure AD Domain Services pro svůj adresář a selže nebo získá přepínat stav zpět na "Zakázáno".
+Tato část vám pomůže vyřešit chyby při pokusu o povolení služby Azure AD Domain Services pro svůj adresář.
 
 Vyberte kroky řešení potíží, které odpovídají v chybové zprávě, na které narazíte.
 
@@ -81,7 +81,7 @@ Pomocí následujícího skriptu prostředí PowerShell můžete najít aplikaci
 >
 >
 
-```
+```powershell
 $InformationPreference = "Continue"
 $WarningPreference = "Continue"
 
@@ -151,7 +151,7 @@ Pokud jeden nebo více uživatelů v klientovi služby Azure AD nejde se přihl�
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Uživatelé odebrána z vašeho klienta Azure AD nejsou odebrány z vaší spravované domény
 Azure AD vás chrání před náhodným odstraněním objektů uživatelů. Když odstraníte uživatelský účet z vašeho tenanta Azure AD, odpovídající objekt uživatele se přesune do složky Koš. Pokud tuto operace odstranění se synchronizuje s vaší spravované domény, budou odpovídající uživatelskému účtu označeno jako zakázané. Tato funkce vám pomůže obnovit nebo zrušení odstranění uživatelský účet později.
 
-Uživatelský účet zůstane v zakázaném stavu ve vaší spravované domény, i když je znovu vytvořit uživatelský účet s stejný hlavní název uživatele v adresáři služby Azure AD. Odebrat uživatelský účet z vaší spravované domény, budete muset vynutit, odstraňte jej z vašeho klienta Azure AD.
+Uživatelský účet zůstane v zakázaném stavu ve vaší spravované domény, i když je znovu vytvořit uživatelský účet s stejný hlavní název uživatele v adresáři služby Azure AD. Chcete-li odebrat uživatelský účet z vaší spravované domény, nuceně odstranit z vašeho klienta Azure AD.
 
 Chcete-li odebrat uživatelský účet plně z vaší spravované domény, trvale odstraňte uživatele z vašeho klienta Azure AD. Použijte rutinu PowerShellu Remove-MsolUser s možností -RemoveFromRecycleBin, jak to popisuje tento [článek MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 

@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Úvod do Azure Cosmos DB: Graph API
 
@@ -44,7 +44,7 @@ Poskytuje rozhraní API služby Azure DB Cosmos grafu:
 - Elastické škálování úložiště a propustnost s méně než 10 ms, přečtěte si latenci a méně než 15 ms v 99th percentil.
 - Automatické indexování s dostupností rychlých dotazu.
 - Přizpůsobitelné úrovně konzistence.
-- Komplexní SLA, včetně 99,99 % dostupnost.
+- Komplexní SLA, včetně 99,99 % dostupnost SLA pro všechny účty jedné oblasti a všechny oblasti s více účty s volný konzistence a 99.999 % přečíst dostupnosti pro všechny účty databáze více oblast.
 
 K dotazování databáze Cosmos Azure, můžete použít [Apache TinkerPop](http://tinkerpop.apache.org) graf traversal jazyk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), nebo jiné systémy TinkerPop kompatibilní grafu jako [Apache Spark GraphX](spark-connector-graph.md).
 

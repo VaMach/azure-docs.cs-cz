@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Vývoj pomocí Graph API v rozhraní .NET
 Azure Cosmos DB je globálně distribuované databáze více modelu služby společnosti Microsoft. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
@@ -53,7 +53,6 @@ Začněme vytvořením účtu Azure Cosmos DB na portálu Azure.
 
 > [!TIP]
 > * Již máte účet Azure Cosmos DB? Pokud ano, přeskočit na [nastavit řešení sady Visual Studio](#SetupVS)
-> * Měli jste účet Azure DocumentDB? Pokud ano, váš účet je teď účet Azure Cosmos DB a můžete přeskočit na [nastavit řešení sady Visual Studio](#SetupVS).  
 > * Pokud používáte emulátor DB Cosmos Azure, postupujte podle kroků v [emulátoru DB Cosmos Azure](local-emulator.md) nastavit emulátoru a přeskočit na [nastavení řešení v nástroji Visual Studio](#SetupVS). 
 >
 > 
@@ -86,7 +85,7 @@ Na portálu Azure přejděte ke svému účtu Azure Cosmos DB, klikněte na **kl
 
 Zkopírujte URI z portálu a vložte ji přes `Endpoint` ve výše uvedené vlastnosti koncového bodu. Poté zkopírujte primární klíč z portálu a vložte ji do `AuthKey` vlastnost výše. 
 
-! [Snímek obrazovky portálu Azure používá v kurzu k vytvoření aplikace v jazyce C#. Zobrazuje účet Azure DB Cosmos tlačítkem klíče v Azure Cosmos DB navigaci a hodnotami URI a primární klíč v okně klíče] [klíče] 
+![Snímek obrazovky portálu Azure používá v kurzu k vytvoření aplikace v jazyce C#. Ukazuje Azure DB Cosmos účtů tlačítkem klíče v Azure Cosmos DB navigaci a hodnotami URI a primární klíč v okně klíče](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>Vytvoření instance DocumentClient 
 Dál vytvořte novou instanci třídy **DocumentClient**.  

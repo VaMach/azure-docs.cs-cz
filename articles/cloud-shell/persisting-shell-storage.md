@@ -1,5 +1,5 @@
 ---
-title: "Zachovat soubory pro Bash v prostředí cloudu Azure (Preview) | Microsoft Docs"
+title: "Zachovat soubory pro Bash v prostředí cloudu Azure | Microsoft Docs"
 description: "Návod, jak Bash v prostředí cloudu Azure potrvají soubory."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8b8a82e1c1328d952a85ea5afd975a95f5a6e740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-storage-works"></a>Jak funguje prostředí cloudové úložiště 
-Cloudové prostředí potrvají soubory pomocí obě z následujících metod: 
+## <a name="how-bash-in-cloud-shell-storage-works"></a>Jak funguje Bash v prostředí cloudové úložiště 
+Bash v prostředí cloudu potrvají soubory pomocí obě z následujících metod: 
 * Vytvoření image disku vaší `$Home` adresáře se zachovat veškerý obsah v adresáři. Bitové kopie disku je uložen v zadané sdílené složky jako `acc_<User>.img` v `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, a je automaticky synchronizuje změny. 
 * Připojení zadané sdílené složky jako `clouddrive` ve vaší `$Home` adresář pro přímé sdílení souborů interakce. `/Home/<User>/clouddrive`se mapuje na `fileshare.storage.windows.net/fileshare`.
  
@@ -91,6 +91,6 @@ justin@Azure:~$
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Další kroky
-[Rychlý start cloudové prostředí](quickstart.md) <br>
-[Další informace o Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Bash v prostředí cloudu rychlý start](quickstart.md) <br>
+[Další informace o ukládání souborů aplikace Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Další informace o značkách úložiště](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

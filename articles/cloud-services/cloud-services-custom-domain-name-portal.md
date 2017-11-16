@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurace vlastního názvu domény pro cloudové služby Azure
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-custom-domain-name-portal.md)
-> * [Portál Azure Classic](cloud-services-custom-domain-name.md)
-> 
-> 
-
 Při vytváření cloudové služby Azure, přiřadí ji k subdoména **cloudapp.net**. Například pokud cloudové služby má název "contoso", uživatelé budou mít přístup k aplikaci na adresu URL podobnou http://contoso.cloudapp.net. Azure také přiřadí virtuální IP adresu.
 
 Ale můžete také vystavit vaší aplikace na svůj vlastní název domény, jako například **contoso.com**. Tento článek vysvětluje, jak chcete rezervovat nebo konfigurovat vlastní název domény pro cloudové služby webové role.
@@ -62,7 +56,7 @@ Mapuje záznam CNAME *konkrétní* domény, například **contoso.com** nebo **w
 > [!NOTE]
 > Vzhledem k tomu, že záznam A je namapovaná na statickou IP adresu, nedokáže automaticky vyřešit změny na IP adresu cloudové služby. IP adresu používanou službou cloudové služby je přidělen poprvé, kterého nasadíte do prázdné přihrádky (produkční nebo pracovní.) Pokud odstraníte nasazení pro přihrádky, IP adresa se neuvolní Azure a všechna budoucí nasazení do přihrádky udělit novou IP adresu.
 > 
-> Pohodlně IP adresu z daného nasazovací slot (produkční nebo pracovní) je nastavené jako trvalé při odkládací mezi pracovním a nasazení v produkčním prostředí nebo provedení místního upgradu existujícího nasazení. Další informace o provedení těchto akcí naleznete v tématu [Správa cloudových služeb](cloud-services-how-to-manage.md).
+> Pohodlně IP adresu z daného nasazovací slot (produkční nebo pracovní) je nastavené jako trvalé při odkládací mezi pracovním a nasazení v produkčním prostředí nebo provedení místního upgradu existujícího nasazení. Další informace o provedení těchto akcí naleznete v tématu [Správa cloudových služeb](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -139,7 +133,7 @@ Tento příklad ukazuje vytvoření záznamu A pro kořenovou doménu. Pokud chc
 > 
 
 ## <a name="next-steps"></a>Další kroky
-* [Jak spravovat Cloud Services](cloud-services-how-to-manage.md)
+* [Jak spravovat Cloud Services](cloud-services-how-to-manage-portal.md)
 * [Postup mapování obsahu CDN do vlastní domény](../cdn/cdn-map-content-to-custom-domain.md)
 * [Obecná konfigurace cloudové služby](cloud-services-how-to-configure-portal.md).
 * Zjistěte, jak [nasazení cloudové služby](cloud-services-how-to-create-deploy-portal.md).

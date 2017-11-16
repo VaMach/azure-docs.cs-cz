@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Příklady implementace Azure enterprise vygenerované uživatelské rozhraní
 Toto téma obsahuje příklady, jak organizace může implementovat doporučení pro [vygenerované uživatelské rozhraní Azure enterprise](resource-manager-subscription-governance.md). Pro ilustraci osvědčené postupy pro běžné scénáře používá fiktivní společnost s názvem Contoso.
@@ -68,7 +68,7 @@ Dave má tyto požadavky pro správu prostředků v předplatném:
 * Se zajímají náklady. Proto chce vlastníci aplikace zabránit ve vytváření zbytečně nákladné virtuálních počítačů.  
 * Protože tato aplikace obsluhuje vývojáři v mnoha obchodních jednotek, chce označení každého prostředku s majitel firmy jednotky a aplikace. Pomocí těchto značek můžete ETS účtovat příslušné týmy.
 
-Vytvoří následující [Resource Manager zásady](resource-manager-policy.md):
+Vytvoří následující [Azure zásady](../azure-policy/azure-policy-introduction.md):
 
 | Pole | Efekt | Popis |
 | --- | --- | --- |

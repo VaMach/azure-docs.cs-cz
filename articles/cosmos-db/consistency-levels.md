@@ -13,22 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Data přizpůsobitelné úrovně konzistence v Azure Cosmos DB
-Azure Cosmos DB slouží od základů až s globální distribuce v paměti pro každý datový model. Je navržen pro nabízejí předvídatelný s nízkou latencí záruky, dostupnost SLA 99,99 % a víc modely dobře definovaný volný konzistence. V současné době Azure Cosmos DB poskytuje pět úrovně konzistence: silnou, s ohraničenou odolností, založenou relace, konzistentní Předpona a případnou. 
+Azure Cosmos DB slouží od základů až s globální distribuce v paměti pro každý datový model. Je navržen pro nabízejí předvídatelný s nízkou latencí záruky a více dobře definovaný volný konzistence modelů. V současné době Azure Cosmos DB poskytuje pět úrovně konzistence: silnou, s ohraničenou odolností, založenou relace, konzistentní Předpona a případnou. Typu ohraničenou prošlostí, relace, konzistentní předponu a případné jsou označovány jako "volný konzistence modely", jako poskytují menší konzistence než silné, což je většina vysoce konzistentní modelu, který je k dispozici. 
 
-Kromě **silné** a **konzistence typu případné** modely běžně nabízí distribuovaných databází Azure Cosmos DB nabízí tři další modely pečlivě kódované a operationalized konzistence a ověřila jejich užitečnost proti skutečných případy použití. Jedná se o **ohraničenou typu prošlostí**, **relace**, a **konzistentní předponu** úrovně konzistence. Kolektivně tyto úrovně pět konzistence umožňují provést dobře odůvodněnou kompromis mezi konzistencí, dostupností a latencí. 
+Kromě **silné** a **konzistence typu případné** modely běžně nabízí distribuovaných databází Azure Cosmos DB nabízí tři další modely pečlivě kódované a operationalized konzistence:  **vázaný typu prošlostí**, **relace**, a **konzistentní předponu**. Užitečnost každé z těchto úrovní konzistence byl ověřen vůči skutečných případy použití. Kolektivně tyto úrovně pět konzistence umožňují provést dobře odůvodněnou kompromis mezi konzistencí, dostupností a latencí. 
 
 ## <a name="distributed-databases-and-consistency"></a>Distribuovaná databáze a konzistence
-Komerčně distribuované databáze spadají do dvou kategorií: databáze, které vůbec nenabízejí řádně definované osvědčené volby konzistence, a databáze, které nabízejí dvě extrémně programovatelné volby (silná vs. nahodilá konzistence). 
+Komerční distribuované databáze rozdělit do dvou kategorií: databáze, které nenabízejí volby dobře definovaný zaručenou konzistence na všech a databází, které nabízí dvě možnosti extrémně programovatelnosti (silné oproti konzistence typu případné). 
 
 Databáze uvedené jako první zatěžují vývojáře aplikací podrobnostmi protokolů replikace a očekávají od nich náročné kompromisy mezi konzistencí, dostupností, latencí a propustností. Druhá možnost klade tlak na volbu jednoho ze dvou extrémů. Navzdory spoustě průzkumů a návrhů více než 50 modelů konzistence nemohla komunita pro distribuované databáze komercionalizovat úrovně konzistence nad rámec silné a nahodilé konzistence. Cosmos DB umožňuje vývojářům si vybrat mezi pěti modely dobře definovaný konzistence podél spektra konzistence – nejsilnější, typu s ohraničenou prošlostí, [relace](http://dl.acm.org/citation.cfm?id=383631), konzistentní předponu a případnou. 
 
@@ -40,15 +40,19 @@ Následující tabulka uvádí konkrétní záruky, které poskytují jednotliv�
 
 | Úrovně konzistence | Záruky |
 | --- | --- |
-| Silné | Linearizovatelnost |
+| Silné | Linearizability. Čtení je zaručeno vrátit nejnovější verzi položky.|
 | Omezená neaktuálnost | Konzistentní předpona Prodleva čtení mezi zápisy podle předpon k nebo intervalu t |
 | Relace   | Konzistentní předpona Monotónní čtení, monotónní zápisy, čtení zápisů, zápisy po čtení |
 | Konzistentní předpona | Vrácené aktualizace jsou předponou všech aktualizací bez mezer |
 | Nahodilé  | Čtení mimo pořadí |
 
-Můžete nakonfigurovat výchozí úroveň konzistence účtu Cosmos DB (a později přepsat konzistenci v konkrétním požadavku pro čtení). Výchozí úroveň konzistence interně, se vztahuje na data v rámci sady oddílů, které může span oblasti. O 73 % naše tenanty použijte konzistence typu relace a 20 % raději typu s ohraničenou prošlostí. Jsme pozorovat, že přibližně 3 % naše zákazníky experimentovat s různé úrovně konzistence původně před spuštěním na konkrétní konzistence volba pro svou aplikaci. Také pozorovat, že pouze 2 % naše tenanty přepsat úrovně konzistence na základě žádosti. 
+Můžete nakonfigurovat výchozí úroveň konzistence účtu Cosmos DB (a později přepsat konzistenci v konkrétním požadavku pro čtení). Výchozí úroveň konzistence interně, se vztahuje na data v rámci sady oddílu, což může mít rozsah oblasti. O 73 % Azure Cosmos DB klienty pomocí relace konzistence a 20 % přednost typu s ohraničenou prošlostí. Přibližně 3 % Azure Cosmos DB zákazníků experimentovat s různé úrovně konzistence původně před spuštěním na konkrétní konzistence volba pro svou aplikaci. Pouze 2 % klienty Azure Cosmos DB přepsat úrovně konzistence na základě žádosti. 
 
-V databázi Cosmos čtení zpracovat v relaci konzistentní předponu a konzistence typu případné jsou dvakrát jako levných jako čtení s konzistence typu silné nebo ohraničenou prošlostí. Cosmos DB má špičkové komplexní SLA 99,99 %, včetně záruk konzistence společně s dostupnosti, propustnosti a latence. Můžeme využívat [linearizability kontrolu](http://dl.acm.org/citation.cfm?id=1806634), který nepřetržitě funguje přes naše služby telemetrie a zveřejněno sestavy veškerá porušení zásad konzistence pro vás. Pro typu s ohraničenou prošlostí jsme monitorování a hlášení žádné porušení tisíc a t hranice. Pro všechny pět úrovní volný konzistence jsme také sestavy [pravděpodobnosti typu s ohraničenou prošlostí metrika](http://dl.acm.org/citation.cfm?id=2212359) přímo pro vás.  
+V databázi Cosmos čtení zpracovat v relaci konzistentní předponu a konzistence typu případné jsou dvakrát jako levných jako čtení s konzistence typu silné nebo ohraničenou prošlostí. Cosmos DB má špičkové komplexní SLA, včetně záruk konzistence společně s dostupnosti, propustnosti a latence. Využívá Azure Cosmos DB [linearizability kontrolu](http://dl.acm.org/citation.cfm?id=1806634), který nepřetržitě funguje přes služby telemetrie a zveřejněno sestavy veškerá porušení zásad konzistence pro vás. Pro typu s ohraničenou prošlostí Azure Cosmos DB monitoruje a oznámí všechny porušení tisíc a t hranice. Pro všechny pět úrovní volný konzistence Azure Cosmos DB také sestavy [probabilistically ohraničenou typu prošlostí metrika](http://dl.acm.org/citation.cfm?id=2212359) přímo pro vás.  
+
+## <a name="service-level-agreements"></a>Smlouvy o úrovni služeb
+
+Azure Cosmos DB nabízí komplexní 99,99 % [SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) propustnost záruka, konzistence, dostupnost a latence pro Azure Cosmos DB databáze účtů rozsah k jedné oblasti Azure, které jsou nakonfigurované s žádným z pěti konzistence úrovně, nebo databáze účtů pokrývání uzlů několika oblastmi Azure nakonfigurovaný s žádným z čtyři úrovně konzistence volný. Kromě toho nezávislé Volba úrovně konzistence, Azure Cosmos DB nabízí 99.999 % SLA pro dostupnost pro čtení pro účty databáze pokrývání uzlů dvou nebo více oblastech Azure.
 
 ## <a name="scope-of-consistency"></a>Rozsah konzistence
 Členitost konzistence je vymezen na žádost o jednoho uživatele. Žádost o zápis může odpovídat insert, replace, upsert a odstraňovat transakce. Stejně jako u zápisy, má také transakce čtení nebo dotazu obor na žádost o jednoho uživatele. Uživatel může být nutné stránkování přes velkým sadu výsledků dotazu, pokrývání uzlů více oddílů, ale každý přečíst transakce je omezená na jednu stránku a zpracování z v rámci jednoho oddílu.
@@ -60,15 +64,15 @@ Výchozí úroveň konzistence můžete nakonfigurovat na vašem účtu databáz
 
 * Nabízí silnou konzistenci [linearizability](https://aphyr.com/posts/313-strong-consistency-models) zaručit s čtení zaručit vrátit nejnovější verzi položky. 
 * Silnou konzistenci zaručuje, že zápis se zobrazí po jeho je trvale potvrzený většinou kvora replik. Zápis je buď synchronně trvale potvrzený primárním serverem a kvora sekundárních databází nebo byl přerušen. Čtení vždy potvrdí se většinou číst kvora, klient nikdy uvidí zápisu nepotvrzené nebo jeho část a vždy záruku, přečtěte si nejnovější potvrzené zápisu. 
-* Azure Cosmos DB účty, které jsou nakonfigurovány pro použití silnou konzistenci nelze přiřadit více než jedné oblasti Azure pomocí svého účtu Azure Cosmos DB. 
+* Azure Cosmos DB účty, které jsou nakonfigurovány pro použití silnou konzistenci nelze přiřadit více než jedné oblasti Azure pomocí svého účtu Azure Cosmos DB.  
 * Náklady na operace čtení (z hlediska [požadované jednotky](request-units.md) spotřebované) se silnou konzistenci je vyšší než relaci a případnou, ale stejný jako typu s ohraničenou prošlostí.
 
 **Vázaný typu prošlostí**: 
 
 * Vázaný typu prošlostí konzistence záruky, které čtení může funkce lag za zápisy podle maximálně *tisíc* verze nebo předpony položky nebo *t* časovém intervalu. 
 * Proto pokud výběr ohraničenou typu prošlostí, typu "prošlostí" je možné nakonfigurovat dvěma způsoby: číslo verze *tisíc* položky, pomocí kterého čtení funkce lag za zápisů a časový interval *t* 
-* Vázaný typu prošlostí nabízí celkové globální pořadí s výjimkou "typu prošlostí oknu." Monotónní čtení záruky existuje v rámci oblasti uvnitř i mimo "typu prošlostí okna." 
-* Typu s ohraničenou prošlostí poskytuje silnější záruku konzistence než relace nebo konzistence typu případné. Globálně distribuované aplikace doporučujeme, že používáte typu s ohraničenou prošlostí pro scénáře, kde chcete mít silnou konzistenci, ale také chcete 99,99 % dostupnost a s nízkou latencí. 
+* Vázaný typu prošlostí nabízí celkové globální pořadí s výjimkou "typu prošlostí oknu." Monotónní čtení záruky existovat v rámci oblasti uvnitř i mimo "typu prošlostí okna." 
+* Typu s ohraničenou prošlostí poskytuje silnější záruku konzistence než relace, konzistentní předpony nebo konzistence typu případné. Globálně distribuované aplikace doporučujeme, že používáte typu s ohraničenou prošlostí pro scénáře, kde chcete mít silnou konzistenci, ale také chcete 99,99 % dostupnost a s nízkou latencí.   
 * Azure Cosmos DB účty, které jsou nakonfigurovány s konzistence typu s ohraničenou prošlostí můžete přidružit libovolný počet oblastí Azure pomocí svého účtu Azure Cosmos DB. 
 * Náklady na operace čtení (z hlediska RUs spotřebované) s typu s ohraničenou prošlostí je vyšší než relace a konzistence typu případné, ale stejný jako silnou konzistenci.
 
@@ -78,7 +82,7 @@ Výchozí úroveň konzistence můžete nakonfigurovat na vašem účtu databáz
 * Konzistence typu relace je ideální pro všechny scénáře, kde je zahrnuta relaci zařízení nebo uživatele, protože zaručuje monotónní čtení, monotónní zápisů a čtení zaručuje vlastní zápisy (RYW). 
 * Konzistence typu relace poskytuje předvídatelnou konzistenci pro relaci a maximální propustnost čtení při nabízí nejnižší latenci zápisů a čtení. 
 * Azure Cosmos DB účty, které jsou nakonfigurovány s konzistence typu relace můžete přidružit libovolný počet oblastí Azure pomocí svého účtu Azure Cosmos DB. 
-* Náklady na operace čtení (z hlediska RUs spotřebované) s úrovní konzistence relace je typu s méně než silné a ohraničenou prošlostí, ale více než případné konzistence
+* Náklady na operace čtení (z hlediska RUs spotřebované) s úrovní konzistence relace je typu s méně než silné a ohraničenou prošlostí, ale více než případné konzistence.
 
 <a id="consistent-prefix"></a>
 **Konzistentní předponu**: 
@@ -97,9 +101,9 @@ Výchozí úroveň konzistence můžete nakonfigurovat na vašem účtu databáz
 
 ## <a name="configuring-the-default-consistency-level"></a>Konfigurace výchozí úroveň konzistence
 1. V [portál Azure](https://portal.azure.com/), na panelu vlevo klikněte na tlačítko **Azure Cosmos DB**.
-2. V **Azure Cosmos DB** okně, vyberte databázi účet změnit.
-3. V okně účtu klikněte na **výchozí konzistence**.
-4. V **výchozí konzistence** okně, vyberte novou úroveň konzistence a klikněte na **Uložit**.
+2. V **Azure Cosmos DB** vyberte databázi účet, který chcete upravit.
+3. Na stránce účtu klikněte na tlačítko **výchozí konzistence**.
+4. V **výchozí konzistence** , vyberte novou úroveň konzistence a klikněte na tlačítko **Uložit**.
    
     ![Snímek obrazovky zvýraznění ikonu nastavení a vstupního výchozí konzistence](./media/consistency-levels/database-consistency-level-1.png)
 

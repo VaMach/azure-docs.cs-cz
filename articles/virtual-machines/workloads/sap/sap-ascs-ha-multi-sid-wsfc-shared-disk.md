@@ -1,6 +1,6 @@
 ---
-title: "Instance více SID vysoká dostupnost s Windows Server Failover Clustering SCS SAP (A) a sdílený Disk v Azure | Microsoft Docs"
-description: "Více SID vysokou dostupnost pro SAP (A) Instance SCS s Windows Server Failover Clustering a sdílený Disk v Azure"
+title: "SAP ASC nebo SCS instance více SID vysoká dostupnost s Windows Server Failover Clustering a sdíleného disku v Azure | Microsoft Docs"
+description: "Vysoká dostupnost více SID pro instance SAP ASC nebo SCS s Windows Server Failover Clustering a sdíleného disku na Azure"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31892e334d649c66e86b6c9812ffb18b069f718b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: c82cc943f983b3dedfc0f64f2eec5b4425a4bf81
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -203,20 +203,19 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-# <a name="sap-ascs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Instance více SID vysoká dostupnost s Windows Server Failover Clustering SCS SAP (A) a sdílený Disk v Azure
+# <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>SAP ASC nebo SCS instance více SID vysoká dostupnost s Windows Server Failover Clustering a sdíleného disku na Azure
 
 > ![Windows][Logo_Windows] Windows
 >
 
-V září 2016 společnost Microsoft vydala funkce, kde můžete spravovat víc virtuálních IP adres pomocí [pro vyrovnávání zatížení Azure interní][load-balancer-multivip-overview]. Tato funkce již existuje v Azure externím vyrovnáváním zatížení.
+V září 2016 společnost Microsoft vydala funkce, kde můžete spravovat víc virtuálních IP adres pomocí [pro vyrovnávání zatížení Azure interní][load-balancer-multivip-overview]. Tato funkce již existuje v Azure externím vyrovnáváním zatížení. 
 
-Pokud máte nasazení SAP, budete muset použít interní nástroj pro vytvoření konfigurace clusteru systému Windows pro SAP ASC nebo SCS.
+Pokud máte nasazení SAP, musíte použít interní nástroj pro vytvoření konfigurace clusteru systému Windows pro instance služby Centrální SAP (ASC nebo SCS).
 
-Tento článek se týká o tom, jak přesunout z jednoho instalačního ASC nebo SCS ke konfiguraci více SID SAP nainstalováním dalších SAP ASC nebo SCS cluster instance clusteru do existující Windows Server Failover Clustering (WSFC) s **sdílené disk**. Po dokončení tohoto procesu jste nakonfigurovali clusteru více SID služby SAP.
+Tento článek se zaměřuje na postup přesunutí z jedné instalace ASC nebo SCS ke konfiguraci více SID SAP nainstalováním další instance SAP ASC nebo SCS clusteru do existujícího clusteru Windows Server Failover Clustering (WSFC) s sdíleného disku. Po dokončení tohoto procesu jste nakonfigurovali clusteru více SID služby SAP.
 
 > [!NOTE]
->
-> Tato funkce je k dispozici pouze v **Azure Resource Manager** modelu nasazení.
+> Tato funkce je k dispozici pouze v modelu nasazení Azure Resource Manager.
 >
 >Existuje omezení počtu privátní front-end IP adresy pro každý nástroj pro vyrovnávání zatížení Azure interní.
 >
@@ -227,17 +226,17 @@ Další informace o omezeních pro vyrovnávání zatížení, najdete v části
 
 ## <a name="prerequisites"></a>Požadavky
 
-Jste již nakonfigurovali cluster služby WSFC, který se používá pro **jeden** pomocí instance SAP ASC nebo SCS **sdílené složky**, jak je ukázáno v tomto diagramu.
+Jste již nakonfigurovali cluster služby WSFC používat pro jednu instanci SAP ASC nebo SCS pomocí **sdílené složky**, jak je ukázáno v tomto diagramu.
 
 ![Instance SAP ASC nebo SCS vysokou dostupnost][sap-ha-guide-figure-6001]
 
 > [!IMPORTANT]
 > Nastavení musí splňovat následující podmínky:
 > * Instance SAP ASC nebo SCS musejí sdílet stejný cluster služby WSFC.
-> * Každý SID databázového systému musí mít svůj vlastní vyhrazený cluster služby WSFC.
+> * Každý systém správy databáze (databázového systému) SID musí mít svůj vlastní vyhrazený cluster služby WSFC.
 > * SAP aplikační servery, které patří do jednoho systému SAP SID musí mít vlastní vyhrazených virtuálních počítačích.
 
-## <a name="sap-ascs-multi-sid-architecture-with-shared-disk"></a>SAP (A) SCS více SID architektura s sdíleného disku
+## <a name="sap-ascsscs-multi-sid-architecture-with-shared-disk"></a>Architektura více SID SAP ASC nebo SCS s sdíleného disku
 
 Cílem je nainstalovat více ASC ABAP SAP nebo SAP Java SCS Clusterované instance ve stejném clusteru služby WSFC, jako ilustrované tady:
 
@@ -249,7 +248,7 @@ Dokončení na šířku s dvěma systémy SAP vysoké dostupnosti bude vypadat t
 
 ![Nastavení vysoké dostupnosti více SID SAP s dvě systému SAP identifikátorů SID][sap-ha-guide-figure-6003]
 
-## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>Příprava infrastruktury pro scénář více SID SAP
+## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>Příprava infrastruktury scénář více SID SAP
 
 Příprava infrastruktury, můžete nainstalovat další instance SAP ASC nebo SCS s následujícími parametry:
 
@@ -274,7 +273,7 @@ V existujícím clusteru služby WSFC s dvěma uzly můžete nainstalovat dalš�
 | Prvním uzlu clusteru pro instanci ASC nebo SCS |PR1-ASC-0 |10.0.0.10 |
 | Druhý uzel clusteru pro instanci ASC nebo SCS |PR1-ASC-1 |10.0.0.9 |
 
-### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance-on-the-dns-server"></a>Vytvořte název virtuálního hostitele pro instanci clusteru SAP ASC nebo SCS na serveru DNS
+### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance-on-the-dns-server"></a>Vytvořte název virtuálního hostitele pro skupinu prostředků clusteru SAP ASC nebo SCS na serveru DNS
 
 Položku DNS pro název virtuálního hostitele instance ASC nebo SCS můžete vytvořit pomocí následujících parametrů:
 
@@ -286,8 +285,6 @@ Novým názvem hostitele a IP adresa se zobrazí ve Správci DNS, jak je znázor
 
 ![Správce DNS seznamu zvýraznění definované položky DNS pro novou SAP ASC nebo SCS clusteru virtuální název a adresu TCP/IP][sap-ha-guide-figure-6004]
 
-Postup pro vytvoření položky DNS je také popsáno podrobně v hlavní [průvodci pro vysokou dostupnost SAP NetWeaver na virtuálních počítačích Windows] [sap-ha Průvodce-9.1.1].
-
 > [!NOTE]
 > Novou IP adresu, která přiřadíte název virtuálního hostitele další instance ASC nebo SCS musí být stejný jako novou IP adresu, který jste přiřadili ke službě Vyrovnávání zatížení SAP Azure.
 >
@@ -297,7 +294,7 @@ Postup pro vytvoření položky DNS je také popsáno podrobně v hlavní [prův
 
 Pokud chcete vytvořit více než jedna instance SAP ASC nebo SCS ve stejném clusteru služby WSFC, přidat existující Vyrovnávání zatížení Azure interní IP adresu pomocí prostředí PowerShell. Každou IP adresu vyžaduje vlastní pravidla Vyrovnávání zatížení, port testu, front-end fond IP adres a fond back-end.
 
-Následující skript přidá novou IP adresu do existující pro vyrovnávání zatížení. Aktualizujte proměnné prostředí PowerShell pro vaše prostředí. Tento skript vytvoří všechny potřebné pravidla Vyrovnávání zatížení pro všechny porty SAP ASC nebo SCS.
+Následující skript přidá novou IP adresu do existující pro vyrovnávání zatížení. Aktualizujte proměnné prostředí PowerShell pro vaše prostředí. Všechny požadované služby Vyrovnávání zatížení pravidla pro všechny porty SAP ASC nebo SCS vytvoří skript.
 
 ```powershell
 
@@ -318,30 +315,31 @@ $count = $ILB.FrontendIpConfigurations.Count + 1
 $FrontEndConfigurationName ="lbFrontendASCS$count"
 $LBProbeName = "lbProbeASCS$count"
 
-# Get the Azure VNet and subnet
+# Get the Azure virtual network and subnet
 $VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName
 $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName
 
-# Add second front-end and probe configuration
+# Add a second front-end and probe configuration
 Write-Host "Adding new front end IP Pool '$FrontEndConfigurationName' ..." -ForegroundColor Green
 $ILB | Add-AzureRmLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.Id
 $ILB | Add-AzureRmLoadBalancerProbeConfig -Name $LBProbeName  -Protocol Tcp -Port $Probeport -ProbeCount 2 -IntervalInSeconds 10  | Set-AzureRmLoadBalancer
 
-# Get new updated configuration
+# Get a new updated configuration
 $ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
-# Get new updated LP FrontendIP COnfig
+
+# Get an updated LP FrontendIpConfig
 $FEConfig = Get-AzureRmLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -LoadBalancer $ILB
 $HealthProbe  = Get-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -LoadBalancer $ILB
 
-# Add new back-end configuration into existing ILB
+# Add a back-end configuration into an existing ILB
 $BackEndConfigurationName  = "backendPoolASCS$count"
 Write-Host "Adding new backend Pool '$BackEndConfigurationName' ..." -ForegroundColor Green
 $BEConfig = Add-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB | Set-AzureRmLoadBalancer
 
-# Get new updated config
+# Get an updated config
 $ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
 
-# Assign VM NICs to backend pool
+# Assign VM NICs to the back-end pool
 $BEPool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB
 foreach($VMName in $VMNames){
         $VM = Get-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VMName
@@ -373,14 +371,14 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 Po spuštění skriptu, výsledky se zobrazí na portálu Azure, jak je znázorněno na následujícím snímku obrazovky:
 
 ![Nový fond IP front-endu na portálu Azure][sap-ha-guide-figure-6005]
 
-### <a name="add-disks-to-cluster-machines-and-configure-the-sios-cluster-share-disk"></a>Přidat disky do clusteru počítačů a konfiguraci disku SIOS clusteru sdílené složky
+### <a name="add-disks-to-cluster-machines-and-configure-the-sios-cluster-share-disk"></a>Přidat disky do clusteru počítačů a konfiguraci disku SIOS clusteru sdílených složek.
 
 Musíte přidat nový disk clusteru sdílené složky pro každou další instanci SAP ASC nebo SCS. Pro Windows Server 2012 R2 je disk sdílené složky clusteru služby WSFC aktuálně používán s DataKeeper softwarové řešení.
 
@@ -388,25 +386,25 @@ Udělejte toto:
 1. Přidat další disk nebo disky stejnou velikost (které je třeba rozkládají) na všech uzlech clusteru a jejich formátování.
 2. Nakonfigurujte s DataKeeper replikace úložiště.
 
-Tento postup předpokládá, že jste již nainstalovali s DataKeeper u počítačů clusteru služby WSFC. Pokud jste ho nainstalovali, musíte teď nakonfigurovat replikace mezi počítači. Proces je podrobně popsány v kapitole [nainstalovat s DataKeeper Cluster Edition pro sdílenou složku disk clusteru SAP ASC nebo SCS][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].  
+Tento postup předpokládá, že jste již nainstalovali s DataKeeper u počítačů clusteru služby WSFC. Pokud jste ho nainstalovali, musíte teď nakonfigurovat replikace mezi počítači. Proces je podrobně popsány v [nainstalovat s DataKeeper Cluster Edition pro sdílenou složku disk clusteru SAP ASC nebo SCS][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].  
 
 ![DataKeeper synchronní zrcadlení pro nové SAP ASC nebo SCS sdílet disk][sap-ha-guide-figure-6006]
 
-### <a name="deploy-vms-for-sap-application-servers-and-dbms-cluster"></a>Nasazení virtuálních počítačů pro SAP aplikační servery a Cluster databázového systému
+### <a name="deploy-vms-for-sap-application-servers-and-the-dbms-cluster"></a>Nasazení virtuálních počítačů pro SAP aplikační servery a cluster databázového systému
 
 K dokončení Příprava infrastruktury pro druhý systému SAP, postupujte takto:
 
-1. Nasazení vyhrazených virtuálních počítačích pro SAP aplikační servery a vložte je do své vlastní vyhrazené dostupnosti skupiny.
-2. Nasazení vyhrazených virtuálních počítačích pro cluster databázového systému a vložte je do své vlastní vyhrazené dostupnosti skupiny.
+1. Nasazení vyhrazených virtuálních počítačích pro aplikační servery SAP a umístí každý svůj vlastní vyhrazený dostupnosti skupiny.
+2. Nasazení vyhrazených virtuálních počítačích pro cluster databázového systému a umístí každý svůj vlastní vyhrazený dostupnosti skupiny.
 
-## <a name="sap-netweaver-multi-sid-installation"></a>SAP NetWeaver více SID instalace
+## <a name="install-an-sap-netweaver-multi-sid-system"></a>Instalaci více SID systému SAP NetWeaver
 
-Dokončení procesu instalace druhé systému SAP SID2 je popsaných v průvodci [SAP NetWeaver HA instalace v systému Windows převzetí služeb při selhání clusteru a sdíleného disku pro instanci SCS SAP (A)][sap-high-availability-installation-wsfc-shared-disk].
+Popis dokončení procesu instalace druhé systému SAP SID2 najdete v tématu [SAP NetWeaver HA instalace v systému Windows převzetí služeb při selhání clusteru a sdíleného disku pro instance SAP ASC nebo SCS][sap-high-availability-installation-wsfc-shared-disk].
 
 Podrobný postup je následující:
 
 1. [Instalace s vysokou dostupností ASC nebo SCS instance SAP][sap-high-availability-installation-wsfc-shared-disk-install-ascs].  
- V tomto kroku instalujete SAP s vysokou dostupností ASC nebo SCS instancí na **uzlu clusteru služby WSFC existující 1**.
+ V tomto kroku instalujete SAP s vysokou dostupností ASC nebo SCS instancí na stávající uzel clusteru služby WSFC 1.
 
 2. [Upravit profil SAP instance ASC nebo SCS][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
 
@@ -419,23 +417,18 @@ Podrobný postup je následující:
 5. Nainstalujte druhého uzlu clusteru.  
  V tomto kroku instalujete SAP s vysokou dostupností ASC nebo SCS instancí na stávající uzel clusteru služby WSFC 2. K instalaci druhé clusteru, postupujte podle kroků v Průvodci instalací SAP.
 
-6. Otevřete porty brány Firewall systému Windows pro SAP ASC nebo SCS Instance a ProbePort.  
+6. Otevřete porty brány Windows Firewall pro port SAP ASC nebo SCS instance a kontroly.  
+    Na obou uzlů clusteru, které se používají pro instance SAP ASC nebo SCS otevíráte všechny porty brány Windows Firewall, které SAP ASC nebo SCS. Tyto porty instance SAP ASC nebo SCS jsou uvedeny v kapitole [SAP ASC nebo SCS porty][sap-net-weaver-ports-ascs-scs-ports].
 
- Na obou uzlů clusteru, které se používají pro instance SAP ASC nebo SCS otevíráte všechny porty brány Windows Firewall, které SAP ASC nebo SCS. Tyto SAP ASC / SCS instance porty jsou uvedeny v kapitole [SAP ASC nebo SCS porty][sap-net-weaver-ports-ascs-scs-ports].
+    Seznam všech ostatních SAP portů najdete v tématu [porty TCP/IP všech produktů SAP][sap-net-weaver-ports].  
 
- Seznam všech dalších SAP portů jsou zde uvedeny: [porty TCP/IP všech produktů SAP][sap-net-weaver-ports].  
+    Také otevřete port testu nástroje pro vyrovnávání Azure interní služby load, což je 62350 v tomto scénáři. Je popsán [v tomto článku][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
 
- Také otevřít testu port nástroje pro vyrovnávání zatížení Azure interní, který 62350 v našem scénáři je, jak je popsáno [sem][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
+7. [Změnit typ spuštění služby instance SAP vyhodnotit přijetí vyrovnání (YBRAT) Windows][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
 
-7. [Změnit typ spuštění instance služby Windows YBRAT SAP][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
+8. Instalace serveru primární aplikace SAP na nové vyhrazený virtuální počítač, jak je popsáno v Průvodci instalací SAP.  
 
-8. Instalace serveru primární aplikace SAP
-
-   Instalace serveru primární aplikace SAP na nové vyhrazený virtuální počítač, jak je popsáno v Průvodci instalací SAP.  
-
-9. Instalace serveru SAP další aplikace
-
-   Nainstalujte server další aplikace SAP na nové vyhrazený virtuální počítač, jak je popsáno v Průvodci instalací SAP.
+9. Nainstalujte server další aplikace SAP na nové vyhrazený virtuální počítač, jak je popsáno v Průvodci instalací SAP.
 
 10. [Testovací převzetí služeb při selhání SAP ASC nebo SCS instance a replikace SIOS][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
 

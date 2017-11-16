@@ -8,7 +8,7 @@ Záznam *„vrcholu“* je záznam DNS v kořeni (nebo *„vrcholu“*) zóny DN
 
 Každý záznam DNS má název a typ. Záznamy jsou uspořádány do různých typů podle dat, která obsahují. Nejběžnějším typem je záznam „A“, který mapuje název na adresu IPv4. Dalším běžným typem záznamu je „MX“, který mapuje název na poštovní server.
 
-Azure DNS podporuje všechny běžné typy záznamů DNS: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV a TXT. [Záznamy SPF se vyjadřují pomocí záznamů TXT](../articles/dns/dns-zones-records.md#spf-records).
+Azure DNS podporuje všechny běžné typy záznamů DNS: A, AAAA, KÁ, CNAME, MX, NS, PTR, SOA, SRV a TXT. [Záznamy SPF se vyjadřují pomocí záznamů TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Sady záznamů
 

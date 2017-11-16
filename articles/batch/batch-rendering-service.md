@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Začínáme se službou Batch Rendering
 
@@ -91,7 +91,7 @@ Tady jsou konkrétní zadané verze licencí:
 
 ### <a name="custom-images"></a>Vlastní image
 
-Azure Batch umožňuje zadání vlastní image. Pomocí této možnosti můžete na virtuálním počítači nakonfigurovat konkrétní aplikace a verze, které požadujete. Další informace najdete v tématu popisujícím [použití vlastní image k vytvoření fondu virtuálních počítačů](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images). Poznámka: Společnosti Autodesk a Chaos Group nakonfigurovaly aplikace Arnold a V-Ray k ověření u naší vlastní licenční služby. Budete muset zajistit, že máte verze těchto aplikací s touto podporou, jinak licencování s platbami za použití nebude fungovat. U aplikací Maya a 3ds Max toto ověření licencí není nutné, protože aktuální publikované verze při bezobslužném spouštění (v dávkovém režimu nebo v režimu příkazového řádku) nevyžadují licenční server. Pokud si u této možnosti nejste jisti dalším postupem, kontaktujte podporu Azure.
+Azure Batch umožňuje zadání vlastní image. Pomocí této možnosti můžete na virtuálním počítači nakonfigurovat konkrétní aplikace a verze, které požadujete. Další informace najdete v tématu popisujícím [použití vlastní image k vytvoření fondu virtuálních počítačů](https://docs.microsoft.com/azure/batch/batch-custom-images). Poznámka: Společnosti Autodesk a Chaos Group nakonfigurovaly aplikace Arnold a V-Ray k ověření u naší vlastní licenční služby. Budete muset zajistit, že máte verze těchto aplikací s touto podporou, jinak licencování s platbami za použití nebude fungovat. U aplikací Maya a 3ds Max toto ověření licencí není nutné, protože aktuální publikované verze při bezobslužném spouštění (v dávkovém režimu nebo v režimu příkazového řádku) nevyžadují licenční server. Pokud si u této možnosti nejste jisti dalším postupem, kontaktujte podporu Azure.
 
 ## <a name="options-for-submitting-a-render-job"></a>Možnosti odeslání úlohy vykreslování
 
@@ -101,7 +101,7 @@ V závislosti na 3D aplikaci, kterou používáte, existují pro odeslání úlo
 
 V případě aplikace Maya můžete použít:
 
-- [Modul plug-in služby Batch pro Maya](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
+- [Modul plug-in služby Batch pro Maya](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
 - Desktopovou aplikaci [BatchLabs](https://azure.github.io/BatchLabs)
 - [Šablony rozhraní příkazového řádku služby Batch](batch-cli-templates.md)
 
@@ -114,7 +114,7 @@ V případě aplikace 3ds Max můžete použít:
 
 Šablony Batch Labs pro 3ds Max umožňují pomocí služby Azure Batch Rendering vykreslovat scény VRay a Arnold. Existují dvě varianty šablon pro VRay a Arnold, jedna pro standardní scény a jedna pro složitější scény, které vyžadují soubor cest 3ds Max k prostředkům a texturám (soubor .mxp). Další informace o šablonách BatchLabs pro 3ds Max najdete v úložišti [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) na GitHubu.
 
-Kromě toho můžete pomocí sady [Batch Python SDK](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial) integrovat službu vykreslování do svého existujícího kanálu.
+Kromě toho můžete pomocí sady [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial) integrovat službu vykreslování do svého existujícího kanálu.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Odeslání úlohy vykreslování pomocí modulu plug-in služby Batch pro aplikaci Maya

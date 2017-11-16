@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
 ms.author: andredm
-ms.openlocfilehash: cb6e5a398a1d7e20efbcc4a8900f9e8dea43ad2c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c1f49e2c7836a56f37aafcaad0cb74278213a720
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Zvýšení přístupu jako správce klienta s řízením přístupu na základě rolí
 
@@ -43,6 +43,30 @@ Tato funkce je důležitá, protože umožňuje Správce tenanta zobrazíte vše
 > Dojem je, že toto je globální vlastnost pro Azure Active Directory, ale funguje na jednotlivé uživatele pro aktuálně přihlášeného uživatele. Pokud máte práva globálního správce ve službě Azure Active Directory, můžete použít funkci elevateAccess pro uživatele, který jste právě přihlášení do centra pro správu Azure Active Directory.
 
 ![Globaladmin centra pro správu – vlastnosti – Azure AD Spravovat předplatné Azure – snímek obrazovky](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="view-role-assignments-at-the--scope-using-powershell"></a>Přiřazení role zobrazení v oboru "/" pomocí prostředí PowerShell
+Chcete-li zobrazit **správce přístupu uživatelů** přiřazení v  **/**  obor, použijte `Get-AzureRmRoleAssignment` rutiny prostředí PowerShell.
+    
+```
+Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
+```
+
+**Příklad výstupu**:
+
+RoleAssignmentId: /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
+Obor: /    
+DisplayName: uživatelské jméno    
+SignInName:username@somedomain.com    
+RoleDefinitionName: Správce přístupu uživatelů    
+Hodnoty vlastnosti RoleDefinitionId: 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
+ObjectId: d65fd0e9-c185-472c-8f26-1dafa01f72cc    
+ObjectType: uživatele    
+
+## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>Umožňuje odstranit přiřazení role v "/" obor pomocí prostředí Powershell:
+Odstraněním přiřazení pomocí následující rutiny prostředí PowerShell:
+```
+Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
+```
 
 ## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Použít elevateAccess klienta přístup pomocí rozhraní REST API
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: fd1d340bc0408eaeb0b7b18235df109224eae5f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Rychlý start pro prostředí PowerShell v prostředí cloudu Azure
+# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Rychlý start pro prostředí PowerShell v prostředí cloudu Azure (Preview)
 
 Tento dokument podrobně popisuje, jak pomocí prostředí PowerShell v prostředí cloudu v [portál Azure](https://aka.ms/PSCloudPreview).
 
@@ -227,7 +227,7 @@ Můžete také přejít na `virtualMachines` directory první a spusťte `Enter-
 
 ### <a name="discover-webapps"></a>Zjistit WebApps
 
-V rámci `WebApps` složky můžete snadno přejít vaše prostředky úložiště
+V rámci `WebApps` složky můžete snadno přejít prostředkům webových aplikací
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -243,15 +243,15 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 
 
-# You can use Azure cmdlets to Start/Stop your web apps for example,
+# You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
 mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
 
-# Refresh the current state with -force
-PS Azure:\MySubscriptionName\WebApps> dir -force
+# Refresh the current state with -Force
+PS Azure:\MySubscriptionName\WebApps> dir -Force
 
     Directory: Azure:\MySubscriptionName\WebApps
 
@@ -266,7 +266,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="list-available-commands"></a>Seznam dostupné příkazy
 
-V části `Azure` disk, zadejte `Get-AzureRmCommand` získat určité příkazy Azure kontextu.
+V části `Azure` disk, zadejte `Get-AzureRmCommand` Chcete-li získat konkrétní Azure příkazy.
 
 Alternativně můžete vždy použít `Get-Command *azurerm* -Module AzureRM.*` a zjistěte, dostupné příkazy pro Azure.
 
@@ -282,7 +282,7 @@ Typ `Get-Help` se získat informace o prostředí PowerShell v prostředí cloud
 PS Azure:\> Get-Help
 ```
 
-Pro konkrétní příkaz je stále možné následuje rutinu Get-Help například
+Pro konkrétní příkaz je stále možné následuje rutiny Get-Help.
 
 ``` Powershell
 PS Azure:\> Get-Help Get-AzureRmVM
@@ -290,7 +290,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-file-storage-to-store-your-data"></a>Používání Azure File Storage k ukládání dat
 
-Můžete vytvořit skript, například `helloworld.ps1`a uložte jej do vaší clouddrive používat napříč relacemi prostředí.
+Můžete vytvořit skript, například `helloworld.ps1`a uložte ho do vaší `CloudDrive` používat napříč relacemi prostředí.
 
 ``` Powershell
 cd C:\users\ContainerAdministrator\CloudDrive
@@ -310,13 +310,13 @@ Postup vytvoření profilu, použijte [o profily][profile].
 
 ## <a name="use-git"></a>Pomocí Git
 
-Klonovat úložiště git v CloudShell, musíte vytvořit [osobní přístupový token] [ githubtoken] a používejte ho jako uživatelské jméno. Jakmile je váš token, klonování úložiště následujícím způsobem:
+Chcete-li klonovat úložiště git v prostředí cloudu, je potřeba vytvořit [osobní přístupový token] [ githubtoken] a používejte ho jako uživatelské jméno. Jakmile je váš token, klonování úložiště následujícím způsobem:
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-Vzhledem k tomu, že pokud se odhlásíte nebo vypršení časového limitu relace se relací v CloudShell nezachovají, nebude existovat Git konfiguračním souboru při dalším přihlášení. Pokud chcete, aby vaše konfigurace Git zachovat, je nutné uložit vaše .gitconfig k vaší `CloudDrive` a zkopírujte jej, nebo vytvořte symlink při `CloudShell` získá spuštění. Následující fragment kódu v profile.ps1, použít k vytvoření symlink k `CloudDrive`.
+Vzhledem k tomu, že relací v prostředí cloudu se nezachovají, pokud se odhlásíte nebo vypršení časového limitu relace, nebude existovat konfiguračním souboru Git při dalším přihlášení. Pokud chcete, aby vaše konfigurace Git zachovat, je nutné uložit vaše .gitconfig k vaší `CloudDrive` a zkopírujte jej, nebo vytvořte symlink při získá spuštění prostředí cloudu. Následující fragment kódu v profile.ps1, použít k vytvoření symlink k `CloudDrive`.
 
  ``` PowerShell
  

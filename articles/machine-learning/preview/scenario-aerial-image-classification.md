@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: cfffe5145f8762558e6ee573f6f2bb69d32424ad
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="aerial-image-classification"></a>Klasifikace leteckou bitové kopie
 
@@ -133,6 +133,11 @@ Nyní vytvoříme účet úložiště, že hostitelé projektu souborů, které 
     Zaznamenejte hodnotu `key1` jako úložiště klíč v následujícím příkazu, spusťte příkaz pro uložení hodnota.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
+    ```
+1. Vytvoření sdílené složky s názvem `baitshare` ve vašem účtu úložiště pomocí následujícího příkazu:
+
+    ```
+    az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. Ve svém oblíbeném textovém editoru, načíst `settings.cfg` z projektu Azure Machine Learning Workbench "Kódu" podadresáři a vložte název účtu úložiště a klíč, které je uvedené. Uložte a zavřete `settings.cfg` souboru.
 1. Pokud jste tak již neučinili, stáhněte a nainstalujte [AzCopy](http://aka.ms/downloadazcopy) nástroj. Zkontrolujte, zda spustitelný soubor AzCopy v systémové cestě zadáním "AzCopy" a stisknutím klávesy Enter zobrazíte jeho dokumentace.

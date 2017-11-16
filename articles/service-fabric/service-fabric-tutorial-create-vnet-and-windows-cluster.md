@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: 31e35432ecc10b06c7a6400a1e0904e7bc2cd8c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b06d0196f1f911f2f6cf87242d70455ba22b1f88
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Nasazení clusteru služby Windows Fabric do virtuální sítě Azure
 V tomto kurzu je součástí, jednu z řady. Se dozvíte, jak nasadit cluster Windows Service Fabric do existující virtuální sítě Azure (VNET) a dílčí net pomocí prostředí PowerShell. Jakmile budete hotovi, máte cluster se systémem, kterou můžete nasadit aplikace do cloudu.  Pokud chcete vytvořit cluster Linux pomocí příkazového řádku Azure CLI, najdete v části [vytvoření clusteru s podporou zabezpečení Linux na platformě Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -36,6 +36,7 @@ V tomto kurzu se naučíte:
 V této série kurzu zjistíte, jak:
 > [!div class="checklist"]
 > * Vytvoření clusteru s podporou zabezpečení v Azure
+> * [Škálování clusteru příchozí nebo odchozí](/service-fabric-tutorial-scale-cluster.md)
 > * [Nasazení správy rozhraní API pomocí Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Požadavky

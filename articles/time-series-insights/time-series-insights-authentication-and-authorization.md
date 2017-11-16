@@ -1,29 +1,26 @@
 ---
-title: "Konfigurace ověřování a autorizace pro vlastní aplikaci, která volá rozhraní API služby Azure časové řady Insights | Microsoft Docs"
-description: "Tento kurz vysvětluje postup konfigurace ověřování a autorizace pro vlastní aplikaci, která volá rozhraní API služby Azure časové řady statistiky"
-keywords: 
+title: "Postup konfigurace ověřování a autorizace pro vlastní aplikaci pro volání rozhraní API služby Azure časové řady Insights | Microsoft Docs"
+description: "Tento článek popisuje postup konfigurace ověřování a autorizace pro vlastní aplikaci, která volá rozhraní API služby Azure časové řady statistiky."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Ověřování a autorizace pro rozhraní API pro Azure časové řady přehledy
 
-Tento článek vysvětluje, jak nakonfigurovat vlastní aplikaci, která volá rozhraní API služby Azure časové řady statistiky.
+Tento článek vysvětluje postup konfigurace ověřování a autorizace, které jsou používány vlastní aplikaci, která volá rozhraní API služby Azure časové řady statistiky.
 
 ## <a name="service-principal"></a>Instanční objekt
 
@@ -102,11 +99,9 @@ Tady jsou podrobné kroky:
     string accessToken = token.AccessToken;
     ```
 
+ID aplikace a klíč v aplikaci použijte k ověření pomocí Azure časové řady přehledy. 
+
 ## <a name="next-steps"></a>Další kroky
-
-Pomocí ID aplikace a klíč ve vaší aplikaci. Ukázkový kód, který volá rozhraní API pro přehledy časové řady, najdete v části [dotaz na data pomocí jazyka C#](time-series-insights-query-data-csharp.md).
-
-## <a name="see-also"></a>Viz také
-
-* [Dotaz na rozhraní API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) pro úplné referenční dokumentace rozhraní API dotazu
-* [Vytvoření instančního objektu na portálu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Ukázkový kód, který volá rozhraní API pro přehledy časové řady, najdete v části [dotaz na data pomocí jazyka C#](time-series-insights-query-data-csharp.md).
+- Rozhraní API referenční informace najdete v tématu [referenční dokumentace rozhraní API dotazu](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
+- [Vytvoření instančního objektu na portálu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)

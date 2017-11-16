@@ -1,26 +1,6 @@
----
-title: "Rozhraní příkazového řádku Azure vzorky – Azure Functions | Microsoft Docs"
-description: "Rozhraní příkazového řádku Azure vzorky – Azure Functions"
-services: functions
-documentationcenter: functions
-author: syntaxc4
-manager: cfowler
-editor: ggailey777
-tags: azure-service-management
-ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: functions
-ms.devlang: na
-ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: functions
-ms.date: 04/11/2017
-ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: f3c9fc67c082a759432f1db0b44b42513f2fb733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+--title: Azure CLI vzorky – Azure Functions | Popis Microsoft Docs: ukázek Azure CLI - služby Azure Functions: funkce documentationcenter: funkce Autor: syntaxc4 správce: cfowler editor: ggailey777 značky: Správa služby azure
+
+MS.AssetID: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0 ms.service: funkce ms.devlang: na ms.topic: Ukázka ms.tgt_pltfrm: na ms.workload: funkce ms.date: 04/11/2017 ms.author: glenga ms.custom: mvc
 ---
 # <a name="azure-cli-samples"></a>Ukázky rozhraní příkazového řádku Azure
 
@@ -29,8 +9,8 @@ Následující tabulka obsahuje odkazy na bash skripty pro funkce Azure, který 
 | | |
 |-|-|
 |**Vytvoření aplikace**||
-| [Vytvoření funkce aplikace bez serveru provedení](scripts/functions-cli-create-serverless.md) | Vytvoří funkce aplikace v plánu spotřeby.  |
-| [Vytvoření aplikace pro funkce v rámci plánu služby App Service](scripts/functions-cli-create-app-service-plan.md) | Vytvoření aplikace pro funkce v vyhrazené plán služby App Service. |
+| [Vytvoření funkce aplikace bez serveru provedení](scripts/functions-cli-create-serverless.md) | Vytvoří aplikaci funkce v plánu spotřeby.  |
+| [Vytvoření aplikace pro funkce v rámci plánu služby App Service](scripts/functions-cli-create-app-service-plan.md) | Vytvořte aplikaci pro funkce v vyhrazené plán služby App Service. |
 | | |
 |**Integrace**||
 | [Vytvoření aplikace pro funkce a připojte se k účtu úložiště](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Vytvoření aplikace pro funkce a připojte ho k účtu úložiště. |

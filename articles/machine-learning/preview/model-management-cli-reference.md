@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referenční informace o modelu správy rozhraní příkazového řádku
 
@@ -69,6 +69,8 @@ Místní argumenty:
                      the active MLC env.
 
 **Nastavení prostředí pro nasazení**
+
+Příkaz instalační program vyžaduje, abyste Přispěvatel přístup k předplatnému. Pokud nemáte, potřebujete minimálně Přispěvatel přístup ke skupině prostředků, který nasazujete do. Pokud chcete provést k tomu, je třeba zadat název skupiny prostředků jako součást instalace příkaz pomocí `-g` příznak. 
 
 Existují dvě možnosti pro nasazení: *místní* a *clusteru*. Nastavení `--cluster` (nebo `-c`) příznak umožňuje nasazení clusteru, který se zřídí clusteru služby ACS. Základní nastavení syntaxe vypadá takto:
 

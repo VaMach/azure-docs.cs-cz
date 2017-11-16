@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 93645aa5765d533b45fe2266f061ad61c0bf45d7
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 5bf687afa8f42292a3b21b19a572c76926fef1cd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Řízení síťového provozu webové aplikace Azure nástroje Azure Traffic Manager
 > [!NOTE]
@@ -49,7 +49,7 @@ Pokud používáte Azure Traffic Manageru službou Azure, mějte na paměti nás
 * Pro nasazení ve stejné oblasti, která používají webové aplikace ve spojení s jiné cloudové služby Azure můžete kombinovat oba typy koncových bodů povolit hybridní scénáře.
 * V profilu můžete určit pouze jeden koncový bod webové aplikace podle oblastí. Když vyberete jako koncový bod pro jednu oblast webové aplikace, zbývající webové aplikace v této oblasti k dispozici pro výběr pro tento profil.
 * Koncových bodů webové aplikace, které zadáte v profilu Azure Traffic Manager se zobrazí pod **názvy domén** části na stránce konfigurace pro webové aplikace do profilu, ale není konfigurovatelné.
-* Po přidání webové aplikace do profilu, **adresa URL webu** na řídicím panelu web portálu stránku aplikace zobrazí adresu URL vlastní domény webové aplikace, pokud jste nastavili jednu. Jinak, zobrazí adresu URL profilu Traffic Manageru (například `contoso.trafficmgr.com`). Název domény přímé webovou aplikaci a adresu URL Traffic Manager jsou viditelné na stránce konfigurace webové aplikace v rámci **názvy domén** části.
+* Po přidání webové aplikace do profilu, **adresa URL webu** na řídicím panelu web portálu stránku aplikace zobrazí adresu URL vlastní domény webové aplikace, pokud jste nastavili jednu. Jinak, zobrazí adresu URL profilu Traffic Manageru (například `contoso.trafficmanager.net`). Název domény přímé webovou aplikaci a adresu URL Traffic Manager jsou viditelné na stránce konfigurace webové aplikace v rámci **názvy domén** části.
 * Názvy vlastních domén fungovat podle očekávání, ale kromě jejich přidáním do webové aplikace, je nutné také nakonfigurovat mapu DNS a přejděte na adresu URL správce provozu. Informace o tom, jak nastavit vlastní doménu pro webové aplikace Azure najdete v tématu [konfigurace vlastního názvu domény pro webovou stránku Azure](app-service-web-tutorial-custom-domain.md).
 * Můžete přidat pouze webových aplikací, které jsou v režimu standard nebo premium do profilu Azure Traffic Manager.
 

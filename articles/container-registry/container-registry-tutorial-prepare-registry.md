@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 88feffc13690a3a33f757a43972c5ef1fe967b7f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 02bb792ddc017efd3be6e14d951eca1d5671f719
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Příprava registru geograficky replikované kontejner Azure
 
@@ -208,8 +208,8 @@ docker images
 Výstup:
 
 ```bash
-REPOSITORY                                     TAG                 IMAGE ID            CREATED              SIZE
-uniqueregistryname.azurecr.io/acr-helloworld   v1                  c9ca1763cfb1        About a minute ago   285MB
+REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
+uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a minute ago    284MB
 ...
 ```
 
@@ -227,14 +227,14 @@ Výstup:
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
-9716cfe18412: Pushed
-074867a942d5: Pushed
-a77666945b96: Pushed
-953ff32f2036: Pushed
-aa2e77726d3c: Pushed
-98b800c91d50: Pushed
+cd54739c444b: Pushed
+d6803756744a: Pushed
+b7b1f3a15779: Pushed
+a89567dff12d: Pushed
+59c7b561ff56: Pushed
+9a2f9413d9e4: Pushed
 a75caa09eb1f: Pushed
-v1: digest: sha256:c515bcebf249b591b558318e2d0ec21d1320340dbf335730eb32372ff7d34255 size: 1792
+v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543970 size: 1792
 ```
 
 ## <a name="next-steps"></a>Další kroky
@@ -247,10 +247,10 @@ V tomto kurzu jste vytvořili kontejner privátní, geograficky replikované reg
 > * Vytvořené bitové kopie kontejner Docker ze zdroje aplikace
 > * Nainstaluje bitovou kopii kontejneru do registru
 
-Přechodu na další kurzu se dozvíte o nasazení vaší kontejneru na více instancí služby Azure App Service pomocí geografická replikace k obsluze bitové kopie místně.
+Přechodu na další kurzu se dozvíte o nasazení více webových aplikací pro kontejnery instancí pomocí geografická replikace k obsluze místně bitové kopie vašeho kontejneru.
 
 > [!div class="nextstepaction"]
-> [Kontejnery můžete nasadit do Azure App Services](container-registry-tutorial-deploy-app.md)
+> [Nasazení webové aplikace z registru kontejner Azure](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

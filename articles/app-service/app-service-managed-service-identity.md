@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 28965ec8290c8ab22255f9001cc6c3905dda4b8b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Jak používat Azure spravované služby Identity (verze public preview) ve službě App Service a Azure Functions
 
@@ -103,7 +103,7 @@ Není protokolu REST pro získání tokenu v App Service a Azure Functions. Pro 
 
 ### <a name="asal"></a>Pomocí Microsoft.Azure.Services.AppAuthentication knihovna pro .NET
 
-Pro aplikace .NET a funkcí je nejjednodušší způsob, jak pracovat s identitou spravované služby prostřednictvím Microsoft.Azure.Services.AppAuthentication balíčku. Tato knihovna vám také umožní Otestujte svůj kód místně na vývojovém počítači, pomocí uživatelského účtu z [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) nebo integrované ověřování Active Directory. V této části se dozvíte, jak začít pracovat s knihovnou.
+Pro aplikace .NET a funkcí je nejjednodušší způsob, jak pracovat s identitou spravované služby prostřednictvím Microsoft.Azure.Services.AppAuthentication balíčku. Tato knihovna vám také umožní Otestujte svůj kód místně na vývojovém počítači, pomocí účtu uživatele ze sady Visual Studio [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), nebo integrované ověřování Active Directory. Další informace o možnostech lokální vývoj s této knihovny najdete v tématu [Microsoft.Azure.Services.AppAuthentication odkaz]. V této části se dozvíte, jak začít pracovat s knihovnou ve vašem kódu.
 
 1. Přidejte odkazy na [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) a [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) balíčků NuGet do vaší aplikace.
 
@@ -119,7 +119,7 @@ string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https:
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
 
-Další informace o Microsoft.Azure.Services.AppAuthentication a operacích zpřístupňuje najdete v tématu [služby App Service a KeyVault s ukázkou MSI .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Další informace o Microsoft.Azure.Services.AppAuthentication a operacích zpřístupňuje najdete v tématu [Microsoft.Azure.Services.AppAuthentication odkaz] a [služby App Service a KeyVault s MSI .NET Ukázka](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### <a name="using-the-rest-protocol"></a>Pomocí protokolu REST
 
@@ -208,3 +208,6 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+
+[Microsoft.Azure.Services.AppAuthentication odkaz]: https://go.microsoft.com/fwlink/p/?linkid=862452

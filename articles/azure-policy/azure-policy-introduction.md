@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>Co je Azure zásad?
 
@@ -51,7 +51,7 @@ V zásadách Azure nabízíme některé předdefinované zásady, které jsou k 
 
 Můžete přiřadit některé z těchto zásad prostřednictvím portálu Azure, PowerShell nebo rozhraní příkazového řádku Azure.
 
-Další informace o struktury definice zásady, podívejte se na tento článek - [struktury definice zásady](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+Další informace o struktury definice zásady, podívejte se na tento článek - [struktury definice zásady](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Přiřazení zásad
 
@@ -68,7 +68,7 @@ Parametry jsou definované nebo vytvořit při vytváření definice zásad. Pok
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Další informace o parametrech zásad najdete v tématu [přehled zásad prostředků - parametry](../azure-resource-manager/resource-manager-policy.md#parameters).
+Další informace o parametrech zásad najdete v tématu [přehled zásad prostředků - parametry](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Iniciativy definice
 Iniciativy definice je kolekce definice zásady, které jsou přizpůsobené k dosahování singulární zastřešující cíle. Iniciativy definice zjednodušit správu a přiřazení zásad definice. Jejich zjednodušit seskupením sady zásad jako jeden jednu položku. Můžete například vytvořit initiative s názvem **povolit monitorování v Azure Security Center**, s cílem monitorování všechna doporučení zabezpečení k dispozici ve vaší službě Azure Security Center.

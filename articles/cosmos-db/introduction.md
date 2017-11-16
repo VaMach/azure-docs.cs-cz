@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 804b20111ea99892201079657d6d3602ececdd28
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f34790ad670b488159e945be9bf4ba378cc5e94a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Vítá vás Azure Cosmos DB
 
@@ -44,6 +44,7 @@ Azure Cosmos DB jakožto globálně distribuovaná databázová služba poskytuj
         * [Rozhraní API MongoDB](mongodb-introduction.md): Služba databáze A MongoDB postavená na Cosmos DB. Kompatibilní s existující MongoDB knihovny, ovladače, nástrojů a aplikací.
         * [Tabulka rozhraní API](table-introduction.md): klíč hodnota databáze služby vytvořená tak, aby nabízí možnosti premium pro aplikace Azure Table storage.
         * [Graf rozhraní API (Gremlin)](graph-introduction.md): následující služby vytvořené databáze graf [Apache TinkerPop specifikace](http://tinkerpop.apache.org/).
+        * [Rozhraní API Cassandra](cassandra-introduction.md): založený na úložiště dvojic klíč/hodnota [Apache Cassandra](https://cassandra.apache.org/) implementace. 
         * Další datové modely brzo!
 
 * **Elastické škálování propustnosti a úložiště na vyžádání, celosvětově**
@@ -55,7 +56,7 @@ Azure Cosmos DB jakožto globálně distribuovaná databázová služba poskytuj
     * Pro typickou 1kB položku zaručuje Cosmos DB koncovou latenci čtení pod 10 ms a indexovaných zápisů pod 15 ms na 99. percentilu v rámci stejné oblasti Azure. Střední latence jsou výrazně nižší (pod 5 ms).
 
 * **Zajištění neustálé dostupnosti**
-    * 99,99% dostupnost v jedné oblasti.
+    * 99,99 % dostupnost SLA pro všechny účty jedné oblasti a všechny oblasti s více účty s volný konzistence a 99.999 % přečíst dostupnosti pro všechny účty databáze více oblast.
     * Nasaďte je do libovolného počtu [oblastí Azure](https://azure.microsoft.com/regions) pro zajištění vyšší dostupnosti.
     * [Simulujte selhání](regional-failover.md) jedné nebo více oblastí se zárukou nulových ztrát dat. 
 

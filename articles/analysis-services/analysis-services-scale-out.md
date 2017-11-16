@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Škálování Azure Analysis Services
 
@@ -32,7 +32,7 @@ Se Škálováním na více systémů můžete vytvořit fond dotazu s replikami 
 
 Bez ohledu na počet replik dotazu, který máte ve fondu dotazu nejsou úloh zpracování rozdělené mezi repliky dotazu. Jeden server slouží jako server zpracování. Dotaz repliky sloužit pouze na dotazy na modely synchronizovat mezi každou repliku ve fondu dotazu. 
 
-Po dokončení operace zpracování, je nutné provést synchronizaci mezi serverem zpracování a serverem repliky dotazu. Při automatizaci operace zpracování, je potřeba nakonfigurovat operaci synchronizace po úspěšném dokončení operace zpracování.
+Po dokončení operace zpracování, je nutné provést synchronizaci mezi serverem zpracování a serverem repliky dotazu. Při automatizaci operace zpracování, je potřeba nakonfigurovat operaci synchronizace po úspěšném dokončení operace zpracování. Synchronizace lze provést ručně na portálu nebo pomocí prostředí PowerShell nebo rozhraní REST API.
 
 > [!NOTE]
 > Škálováním na více systémů je k dispozici pro servery v cenová úroveň Standard. Každý dotaz repliky se fakturuje stejnou rychlostí jako váš server.
@@ -58,12 +58,10 @@ Po dokončení operace zpracování, je nutné provést synchronizaci mezi serve
 
 Tabulkové modely na primárním serveru jsou synchronizovány se serverem repliky. Po dokončení synchronizace fondu dotazu začne distribuci příchozích dotazů mezi servery repliky. 
 
-### <a name="powershell"></a>PowerShell
-Použití [Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) rutiny. Zadejte `-Capacity` parametr hodnotu > 1.
 
 ## <a name="synchronization"></a>Synchronizace 
 
-Při zřizování nové repliky dotazu Azure Analysis Services automaticky replikuje modely přes všechny repliky. Můžete také provést ruční synchronizaci. Když při zpracování vaší modely, je třeba provést synchronizaci tak aktualizace jsou synchronizovány mezi repliky dotazu.
+Při zřizování nové repliky dotazu Azure Analysis Services automaticky replikuje modely přes všechny repliky. Můžete také provést ruční synchronizaci pomocí portálu nebo REST API. Když při zpracování vaší modely, měli byste provést synchronizaci tak aktualizace jsou synchronizovány mezi repliky dotazu.
 
 ### <a name="in-azure-portal"></a>Na portálu Azure
 
@@ -72,12 +70,16 @@ V **přehled** > model > **synchronizovat model**.
 ![Posuvník Škálováním na více systémů](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST API
+Použití **synchronizace** operaci.
 
-Synchronizovat model   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>Synchronizovat model   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-Získat stav synchronizace modelu  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>Získat stav synchronizace  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+Aby bylo možné spustit synchronizaci z prostředí PowerShell, [aktualizovat na nejnovější](https://github.com/Azure/azure-powershell/releases) modulu AzureRM 5.01 nebo vyšší. Použití [synchronizace AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Připojení
 

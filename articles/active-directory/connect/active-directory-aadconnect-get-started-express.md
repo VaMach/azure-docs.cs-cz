@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3b634bc36e01f8586b6645515942c049701c30e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Začínáme se službou Azure AD Connect s použitím expresního nastavení
 **Expresní nastavení** Azure AD Connect se používá, pokud máte jednoduchou doménovou strukturu a [synchronizaci hesel](active-directory-aadconnectsync-implement-password-synchronization.md) pro ověřování. **Expresní nastavení** je výchozí možnost a používá se u scénáře, který je nasazován nejčastěji. Stačí jen několik kliknutí a budete moci svůj místní adresář rozšířit do cloudu.
@@ -39,7 +39,7 @@ Praktickou ukázku těchto kroků si můžete prohlédnout v sekci [videí](#vid
    ![Připojení ke službě Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Pokud se zobrazí chybová zpráva a máte problémy s připojením, přejděte na téma [Řešení problémů s připojením](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Na obrazovce Připojení ke službě AD DS zadejte uživatelské jméno a heslo pro účet správce podnikové sítě. Součást domény můžete zadat buď ve formátu NetBios, nebo jako plně kvalifikovaný název domény, tj. FABRIKAM\administrator nebo fabrikam.com\administrator. Klikněte na **Další**.  
    ![Připojení ke službě AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. Stránka [**Konfigurace přihlášení k Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) se zobrazí pouze pokud jste nedokončili [ověření svých domén](../active-directory-add-domain.md) v rámci [požadavků](active-directory-aadconnect-prerequisites.md).
+7. Stránka [**Konfigurace přihlášení k Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) se zobrazí pouze pokud jste nedokončili [ověření svých domén](../active-directory-domains-add-azure-portal.md) v rámci [požadavků](active-directory-aadconnect-prerequisites.md).
    ![Neověřené domény](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
    Pokud se vám zobrazí tato stránka, zkontrolujte všechny domény označené jako **Nepřidáno** a **Neověřeno**. Ujistěte se, že domény, které používáte, byly ověřeny v Azure AD. Po ověření domén klikněte na symbol obnovení.
 8. Na obrazovce Připraveno ke konfiguraci klikněte na **Instalovat**.

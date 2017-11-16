@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 4dfe9c755f3e7d5414ae04dd4027defd6cef2e4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ab36a16ca87ae7a3e7b26571fc6aadd108841c9
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Vytváření mobilních aplikací s Xamarin a Azure Cosmos DB
 Většina mobilních aplikací potřebovat k ukládání dat v cloudu a Azure Cosmos databáze je databáze cloudu pro mobilní aplikace. Obsahuje všechny objekty, které musí vývojář mobilní. Je plně spravovaná databáze jako služba, která je škálovatelná na vyžádání. Ho můžete Oživte svoje data do vaší aplikace transparentně, bez ohledu na umístění uživatele po celém světě. Pomocí [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md), můžete povolit mobilní aplikace Xamarin pracovat přímo s Azure Cosmos DB bez střední vrstvy.
@@ -31,7 +31,7 @@ Azure Cosmos DB poskytuje následující klíčové funkce pro vývojáře mobil
 ![Možnosti Azure Cosmos DB pro mobilní aplikace](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
 * Bohaté dotazy nad datovým. Azure Cosmos DB ukládá data jako schemaless dokumenty JSON v heterogenní kolekce. Nabízí [bohatý a rychlé dotazy](documentdb-sql-query.md) bez nutnosti starat o schémata nebo indexů.
-* Rychlé propustnost. Jak dlouho trvá jen několik milisekund číst a zapisovat dokumentů s Azure Cosmos DB. Vývojářům můžete určit, které potřebují propustnost a Azure Cosmos DB ctí ho s SLA 99,99 %.
+* Rychlé propustnost. Jak dlouho trvá jen několik milisekund číst a zapisovat dokumentů s Azure Cosmos DB. Vývojářům můžete určit, které potřebují, propustnosti a Azure Cosmos DB ho ctí s SLA 99,99 % dostupnost pro všechny účty jedné oblasti a všechny oblasti s více účty s volný konzistence a 99.999 % číst dostupnosti pro všechny účty databáze více oblast .
 * Neomezený škálování. Kolekce Azure Cosmos DB [růst s růstem aplikace](partition-data.md). Můžete spustit s malou velikost dat a propustnost stovky požadavků za sekundu. Kolekce můžou růst až po petabajty dat a libovolně velké propustnosti se stovkami miliony požadavků za sekundu.
 * Globálně distribuované. Uživatelé mobilních aplikací jsou na cestách, často po celém světě. Je Azure Cosmos DB [globálně distribuované databáze](distribute-data-globally.md). Klikněte na mapě tak, aby vaše data mají uživatelé přístup.
 * Předdefinované bohaté autorizace. S Azure Cosmos databáze, můžete snadno implementovat oblíbených vypadají podobně jako [uživatelská data](https://aka.ms/documentdb-xamarin-todouser) nebo s více uživateli sdílet data, bez komplexní vlastní autorizační kód.

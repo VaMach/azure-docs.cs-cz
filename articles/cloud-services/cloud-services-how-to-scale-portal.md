@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e9683d4c5779450fd67fa42ab13095c7f201b4cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708b35252429e30b44226030d3d83b928f2a9520
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Postup konfigurace automatického škálování pro cloudové služby na portálu
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-scale-portal.md)
-> * [Portál Azure Classic](cloud-services-how-to-scale.md)
 
 Podmínky lze nastavit pro roli pracovního procesu cloudové služby, které aktivovat škálování nebo výstupní operace. Podmínky pro roli může být založená na využití procesoru, disku nebo zatížení sítě role. Můžete také nastavit podmínku na základě fronty zpráv nebo metriku jiný Azure prostředek spojené s vaším předplatným.
 

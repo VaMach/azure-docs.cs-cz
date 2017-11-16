@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Běžné případy použití Azure Cosmos DB
 Tento článek obsahuje přehled několik běžné případy použití pro Azure Cosmos DB.  Doporučení v tomto článku sloužit jako výchozí bod, když budete vyvíjet aplikace s Cosmos DB.   
@@ -39,7 +39,7 @@ Azure Cosmos DB je globální databáze distribuované, více modelu, která se 
 
 Zde jsou některé atributy Azure Cosmos DB, které dobře hodí pro vysoce výkonné aplikace s globální ctižádost.
 
-* Azure Cosmos DB nativně oddíly data pro vysokou dostupnost a škálovatelnost. Azure Cosmos DB nabízí záruky 99,99 % dostupnost, propustnost, nízkou latenci a konzistence.
+* Azure Cosmos DB nativně oddíly data pro vysokou dostupnost a škálovatelnost. Azure Cosmos DB nabízí záruky 99,99 % dostupnost, propustnost, nízkou latencí a konzistence na všechny účty jedné oblasti a všechny oblasti s více účty s volný konzistence a 99.999 % číst dostupnosti pro všechny účty databáze více oblast.
 * Azure Cosmos DB má úložiště SSD zálohovaný s nízkou latencí pořadí milisekundu odezvy.
 * Azure Cosmos DB je podpora pro úrovně konzistence jako předpona případné a konzistentní, relace a typu ohraničenou prošlostí umožňuje úplnou flexibilitu a nízké náklady na výkon poměr. Žádná databáze služba nabízí tolik flexibilitu jako databázi Cosmos Azure v úrovně konzistence. 
 * Azure Cosmos DB má flexibilní cenový model dat popisný, který měřidla úložiště a propustnost nezávisle.

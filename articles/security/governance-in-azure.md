@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="governance-in-azure"></a>Zásady správného řízení v Azure
 
@@ -225,14 +225,14 @@ Prostředky se stejnou značkou nemusí být umístěné ve stejné skupině pro
 Zásady prostředků umožňují vytvořit standardní pravidla pro vaši organizaci. Můžete vytvořit zásady, které zajišťují, že prostředky jsou označené odpovídající hodnoty.
 
 > [!Note]
-> Další informace najdete v tématu [zásad prostředků pro značky](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags).
+> Další informace najdete v tématu [fakturace značky zásad initiative](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Označené prostředky můžete také zobrazit přes Azure Portal.
 
 [Sestava využití](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) pro vaše předplatné obsahuje názvy a hodnoty značek, což umožňuje rozdělit náklady podle značek.
 
 > [!Note]
-> Další informace o značkách najdete v tématu [Použití značek k uspořádání prostředků Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+> Další informace o značkách najdete v tématu [fakturace značky zásad initiative](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Na značky se vztahují následující omezení:
 
