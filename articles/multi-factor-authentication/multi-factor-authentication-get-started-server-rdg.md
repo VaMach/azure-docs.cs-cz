@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/27/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 653712aebd274349b030eae653a8ea670e438d93
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1d1a017e05ad10906cf3ea869caf220b344f71d5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Brána vzdálené plochy Azure Multi-Factor Authentication Server pomocí protokolu RADIUS
 Brána vzdálené plochy (RD) k ověřování uživatelů často používá server NPS (Network Policy Server). Tento článek popisuje směrování požadavků protokolu RADIUS ze služby Brána vzdálené plochy (prostřednictvím místního serveru NPS) na Multi-Factor Authentication Server. Kombinace Azure MFA a služby Brána VP znamená, že při provádění silného ověřování můžou uživatelé ke svým pracovním prostředím přistupovat odkudkoli. 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 4c8a3885f34942bbd85d34f26e26ff5d7a432189
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 241ad78abfa964c9f64e97cc8201933913f88e1e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Nejčastější dotazy ke službě Azure Active Directory
 Azure Active Directory (Azure AD) je komplexní řešení Identity jako služby (IDaaS), které pokrývá všechny prvky identity, řízení přístupu a zabezpečení.
@@ -56,7 +56,7 @@ Placené služby AD Azure, jako je Enterprise Mobility + Security, doplňují os
 Pokud se ostatní potřebují přihlašovat ke službám pomocí stejného předplatného, můžete je přidat jako spolusprávce. Tato role má stejná přístupová oprávnění jako správce služeb, ale nemůže změnit přidružení předplatných k adresářům Azure.  Další informace o správcích předplatného najdete v tématech [Postup přidání nebo změna role správce služby Azure](../billing-add-change-azure-subscription-administrator.md) a [Jak je předplatné Azure propojeno se službou Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD má ke správě adresáře a funkcím souvisejícím s identitou k dispozici jinou sadu rolí správců.  Tito správci mají přístup k různým funkcím na webu Azure Portal a na portálu Azure Classic. Role správce určuje, co může provádět – například vytvářet nebo upravovat uživatele, přiřazovat role správce ostatním uživatelům, resetovat hesla uživatelů, spravovat uživatelské licence nebo spravovat domény.  Další informace o správcích adresáře služby Azure AD a jejich rolích najdete v tématu [Přiřazení rolí správce ve službě Azure Active Directory](active-directory-assign-admin-roles.md).
+Azure AD má ke správě adresáře a funkcím souvisejícím s identitou k dispozici jinou sadu rolí správců.  Tito správci mají přístup k různým funkcím na webu Azure Portal a na portálu Azure Classic. Role správce určuje, co může provádět – například vytvářet nebo upravovat uživatele, přiřazovat role správce ostatním uživatelům, resetovat hesla uživatelů, spravovat uživatelské licence nebo spravovat domény.  Další informace o správcích adresáře služby Azure AD a jejich rolích najdete v tématu [Přiřazení rolí správce ve službě Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Kromě toho placené služby AD Azure, jako je Enterprise Mobility + Security, doplňují ostatní webové služby, např. Office 365 nebo Microsoft Azure o komplexní řešení správy a zabezpečení celého podniku.
 
@@ -132,7 +132,6 @@ Pro uživatele Office 365 může váš správce resetovat heslo pomocí postupu 
 Pro účty Azure AD můžou správci resetovat hesla pomocí jedné z následujících metod:
 
 - [Resetování účtů na webu Azure Portal](active-directory-users-reset-password-azure-portal.md)
-- [Resetování účtů na portálu Classic](active-directory-create-users-reset-password.md)
 - [Pomocí PowerShellu](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
@@ -199,7 +198,7 @@ Další informace najdete v tématu [Jak poskytnout zabezpečený vzdálený př
 
 **Odpověď:** Díky podmíněnému přístupu ke službě Azure AD můžete ke každé aplikaci přiřadit jedinečné zásady přístupu. V zásadách můžete požadovat vícefaktorové ověřování pokaždé, nebo když uživatelé nejsou připojeni k místní síti.  
 
-Další informace najdete v tématu [Zabezpečení přístupu k Office 365 a jiným aplikacím připojeným ke službě Azure Active Directory](active-directory-conditional-access.md).
+Další informace najdete v tématu [Zabezpečení přístupu k Office 365 a jiným aplikacím připojeným ke službě Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - - -
 **Otázka: Co je automatické zřizování uživatelů pro aplikace SaaS?**

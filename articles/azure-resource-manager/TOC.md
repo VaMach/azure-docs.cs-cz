@@ -9,14 +9,6 @@
 ## [Rozšíření VS Code pro šablony](resource-manager-vscode-extension.md)
 ## [Visual Studio s Resource Managerem](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Ukázky
-## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Nasazení šablony](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [Nasazení šablony](resource-manager-samples-cli-deploy.md)
-
 # Postup
 ## Vytváření šablon
 ### [Části šablon](resource-group-authoring-templates.md)
