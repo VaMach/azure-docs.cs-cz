@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f2b172208185e343c9c10d55036c20d60346778c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Přizpůsobení funkce služby Azure AD pro samoobslužného resetování hesel
 
@@ -40,7 +40,7 @@ Tento e-mail je odeslán následujícím příjemcům v následujícím pořadí
 
 Ve všech případech jsou maximálně 100 příjemce oznámení.
 
-Chcete-li získat další informace o různých správce rolí a jejich přiřazení naleznete v dokumentu [přiřazení rolí správce v Azure Active Directory](active-directory-assign-admin-roles.md)
+Chcete-li získat další informace o různých správce rolí a jejich přiřazení naleznete v dokumentu [přiřazení rolí správce v Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 ### <a name="disable-contact-your-administrator-emails"></a>Obraťte se na vaši e-mailů správce zakázat
 
@@ -85,7 +85,7 @@ Tato nastavení umožňují přidat text na přihlašovací stránku pro vaši o
 * **Pomocný parametr název uživatele** nahradí text příklad someone@example.com s něco vhodnější pro vaše uživatele, doporučuje ponechat výchozí při podpoře interních a externích uživatelů
 * **Text přihlašovací stránky** je maximálně 256 znaků. Tento text se zobrazí odkudkoli přihlašování uživatelů online a v prostředí Azure AD Join ve Windows 10. Použijte tento text pro podmínky použití, pokyny a tipy pro vaše uživatele. **Kdo, zobrazit stránku přihlášení, neposkytují žádné citlivé informace v tomto poli.**
 
-### <a name="keep-me-signed-in-disabled"></a>Možnost zůstat přihlášení je vypnutá.
+### <a name="keep-me-signed-in-disabled"></a>Zůstat přihlášeni zakázáno
 
 Možnost "Keep mi přihlášení zakázáno" umožňuje uživatelům zůstanou přihlášeného při jejich zavřete a znovu otevřete okno jejich prohlížeče. Tato možnost neměla vliv trvání relace. Toto nastavení je v části **Azure Active Directory > firemní branding > Upravit firemního brandingu**.
 
@@ -100,17 +100,17 @@ Můžete změnit atribut názvu pod **Azure Active Directory > vlastnosti** zobr
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Jak dokončení úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
-* [Resetovat nebo změnit heslo](active-directory-passwords-update-your-own-password.md).
-* [Registrace pro resetování hesla pomocí samoobslužné služby](active-directory-passwords-reset-register.md).
-* [Máte dotaz Licensing?](active-directory-passwords-licensing.md)
-* [Jaká data používá SSPR a jaká data by měla můžete naplnit pro vaše uživatele?](active-directory-passwords-data.md)
-* [Jaké metody ověřování jsou k dispozici pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jaké jsou možnosti zásad s SSPR?](active-directory-passwords-policy.md)
-* [Co je zpětný zápis hesla a proč je starat o něm?](active-directory-passwords-writeback.md)
-* [Jak sestavy na aktivitu v SSPR](active-directory-passwords-reporting.md)
-* [Co jsou všechny možnosti v SSPR a co znamená, že?](active-directory-passwords-how-it-works.md)
-* [Myslím, že něco je poškozená. Jak odstranit SSPR?](active-directory-passwords-troubleshoot.md)
-* [Je nutné zadat otázku, která nebyla někde zahrnutých, jinak](active-directory-passwords-faq.md)
+* [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
+* [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+* [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
+* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
+* [Jaká data používá SSPR a která data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
+* [Které metody ověřování jsou dostupné pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Jaké jsou možnosti zásad se SSPR?](active-directory-passwords-policy.md)
+* [Co je zpětný zápis hesla a proč byste se o něj měli starat?](active-directory-passwords-writeback.md)
+* [Jak hlásit aktivitu v SSPR?](active-directory-passwords-reporting.md)
+* [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
+* [Myslím, že je něco poškozené. Jak řešit problémy SSPR?](active-directory-passwords-troubleshoot.md)
+* [Mám otázku, která není zodpovězená jinde](active-directory-passwords-faq.md)
 
 [Contact]: ./media/active-directory-passwords-customize/sspr-contact-admin.png "Požádejte správce o pomoc resetovat vaše heslo e-mailu příklad"

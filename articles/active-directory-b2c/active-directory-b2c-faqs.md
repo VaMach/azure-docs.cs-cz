@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: bed51dc1216b40f6602fae6d32bc8bd7aa517605
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Nejčastější dotazy (FAQ) 
 Tato stránka odpovědi časté otázky o Azure Active Directory (Azure AD) B2C. Kontrolovat zpět aktualizací.
@@ -57,7 +57,7 @@ Ne, je možné hostovat aplikace kdekoli (v cloudu nebo místní). Všechny pot�
 Před otevřením v levé nabídce portálu Azure, Azure AD B2C', je nutné přepnout do adresáře, které chcete spravovat.  Přepněte adresáře kliknutím na vaši identitu v pravém horním rohu stránky na portálu Azure, a potom vyberte, že adresář v rozevíracím seznamu, který se zobrazí.  Krok za krokem s obrázky, naleznete v části [přejděte do nastavení Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Jak přizpůsobit ověřovacích e-mailů (obsah a "z:" pole) poslal Azure AD B2C?
-Můžete použít [firemního brandingu funkce](../active-directory/active-directory-add-company-branding.md) přizpůsobit obsah ověřovacích e-mailů. Konkrétně lze přizpůsobit tyto dva prvky e-mailu:
+Můžete použít [firemního brandingu funkce](../active-directory/customize-branding.md) přizpůsobit obsah ověřovacích e-mailů. Konkrétně lze přizpůsobit tyto dva prvky e-mailu:
 
 * **Banner s logem**: zobrazí vpravo dole.
 * **Barva pozadí**: zobrazeny nahoře.
@@ -98,9 +98,9 @@ Přečtěte si tento článek o [externí identity](../active-directory/active-d
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Jaké generování sestav a auditování funkce poskytuje Azure AD B2C? Budou stejné jako v Azure AD Premium?
 Ne, Azure AD B2C nepodporuje stejnou sadu sestavy jako Azure AD Premium. Ale existuje mnoho commonalities:
 
-* Přihlášení sestavy poskytují záznam každé přihlášení s omezenou podrobnosti.
-* Sestavy auditu jsou k dispozici na portálu Azure v rámci Azure Active Directory > protokoly auditu aktivity > vyberte B2C a použít filtry podle potřeby. Aktivita správce jak aktivity aplikací jsou popsané. 
-* Sestavy využití, pokrývajících počet uživatelů, počet přihlášení a objem MFA je k dispozici na [API pro vytváření sestav využití](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
+* **Přihlášení sestavy** jsou dostupné jenom v portálu Azure (Azure Active Directory > Aktivity > přihlášení) a nejsou k dispozici prostřednictvím rozhraní Graph API. Poskytují záznam každé přihlášení s omezenou podrobnosti.
+* **Audit sestavy** jsou dostupné jenom v portálu Azure (Azure Active Directory > Aktivity > protokoly auditu) a nejsou k dispozici prostřednictvím rozhraní Graph API. Patří mezi ně aktivita správce jak aktivity aplikace. 
+* **Sestavy využití** jsou k dispozici prostřednictvím pouze [API pro vytváření sestav využití](active-directory-b2c-reference-usage-reporting-api.md) a nejsou k dispozici prostřednictvím portálu Azure. Patří mezi ně počet uživatelů, počet přihlášení a objem vícefaktorového ověřování. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Možné lokalizovat uživatelského rozhraní stránky obsluhuje Azure AD B2C? Jaké jazyky jsou podporovány?
 Ano!  Přečtěte si informace o [jazyk přizpůsobení](active-directory-b2c-reference-language-customization.md), což je ve verzi public preview.  Poskytujeme překladů pro 36 jazyků a můžete přepsat libovolný řetězec tak, aby vyhovovala vašim potřebám.

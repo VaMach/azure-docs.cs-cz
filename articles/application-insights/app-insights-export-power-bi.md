@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Kanálu Power BI z Application Insights
 [Power BI](http://www.powerbi.com/) je sada nástrojů obchodní analýzy, které vám pomohou analyzovat data a sdílet uplatnitelné. Bohaté řídicí panely jsou k dispozici na každé zařízení. Můžete kombinovat data z mnoha zdrojů, včetně analytické dotazy z [Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/01/2017
 Existují tři doporučené metody export dat Application Insights do Power BI. Můžete je používat samostatně nebo společně.
 
 * [**Power BI adaptér** ](#power-pi-adapter) -nastavit kompletní řídicí panel telemetrie z vaší aplikace. Předdefinovaná sadu grafy, ale můžete přidat vlastní dotazy z jiných zdrojů.
-* [**Export analytické dotazy** ](#export-analytics-queries) -zápisu žádný dotaz chcete pomocí Analytics a exportovat je do Power BI. Tento dotaz můžete umístit na řídicím panelu společně s dalšími daty.
+* [**Export analytické dotazy** ](#export-analytics-queries) -zápisu žádný dotaz můžete určit pomocí analýzy nebo z nálevky využití a exportovat je do Power BI. Tento dotaz můžete umístit na řídicím panelu společně s dalšími daty.
 * [**Průběžné exportu a Stream Analytics** ](app-insights-export-stream-analytics.md) – to zahrnuje další práci nastavit. Je užitečné, pokud chcete zachovat data dlouhou dobu. Doporučuje se, jinak hodnota jiné metody.
 
 ## <a name="power-bi-adapter"></a>Adaptér Power BI
@@ -48,7 +48,7 @@ Můžete upravit řídicí panel, kombinace Application Insights grafy s u jiný
 Po počáteční importu nadále denně aktualizovat řídicí panel a sestavy. Můžete řídit plán aktualizace na datovou sadu.
 
 ## <a name="export-analytics-queries"></a>Export analytické dotazy
-Tato trasa umožňuje zapsat všechny Analytics dotaz, který chcete a export, na řídicí panel Power BI. (Můžete přidat na řídicí panel vytvořený adaptér.)
+Tato trasa umožňuje zápis jakýkoli Analytics dotaz jako nebo exportovat z nálevky využití a export, na řídicí panel Power BI. (Můžete přidat na řídicí panel vytvořený adaptér.)
 
 ### <a name="one-time-install-power-bi-desktop"></a>Jednou: Nainstalujte Power BI Desktop
 Chcete-li importovat dotaz Application Insights, použijete verze aplikace Power BI. Ale pak je můžete publikovat na webu nebo do pracovního prostoru cloudu Power BI. 
@@ -82,10 +82,32 @@ Nainstalujte [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Vyberte vizualizace](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Sestavu v intervalech aktualizovat ručně, nebo nastavit plánovaná aktualizace na stránce Možnosti.
 
+### <a name="export-a-funnel"></a>Export trychtýřového grafu
+1. [Ujistěte se, vaše trychtýřového grafu](usage-funnels.md)
+2. Klikněte na tlačítko Power BI 
+
+   ![Tlačítko PowerBI](./media/app-insights-export-power-bi/button.png)
+   
+3. V Power BI Desktop vyberte **načíst Data, prázdné dotazu** a poté v editoru dotazů v rámci **zobrazení** vyberte **Advanced Editor dotazů**.
+
+   ![Prázdné dotazu](./media/app-insights-export-power-bi/blankquery.png)
+
+   Vložte do editoru dotazů Advanced exportovaný skript jazyka M. 
+
+   ![Pokročilé Editor dotazů](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. Vyberte položky z dotazu a vyberte vizualizace trychtýřového grafu
+
+   ![Vyberte pořadí a trychtýřového grafu](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. Změňte název a nastavit jej jako smysluplný publikovat sestavy do pracovního prostoru cloudu Power BI. 
+
+   ![Změnit název](./media/app-insights-export-power-bi/changetitle.png)
+
 ## <a name="troubleshooting"></a>Řešení potíží
 
 ### <a name="401-or-403-unauthorized"></a>401 nebo 403 Neautorizováno 
-To může dojít, pokud zatím není aktualizovaná refesh tokenu. Opakujte tyto kroky, které zajišťují, že máte přístup. Pokud máte přístup a refershing přihlašovací údaje se nedají použít, otevřete prosím lístek podpory.
+To může dojít, pokud zatím není aktualizovaná obnovovací token. Opakujte tyto kroky, které zajišťují, že máte přístup. Pokud máte přístup a aktualizovat přihlašovací údaje se nedají použít, otevřete prosím lístek podpory.
 
 1. Přihlaste se k portálu Azure a ujistěte se, že má přístup k prostředku
 2. Zkuste aktualizovat přihlašovací údaje pro řídicí panel

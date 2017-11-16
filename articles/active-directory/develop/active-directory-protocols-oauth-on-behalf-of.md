@@ -21,10 +21,10 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# Služby volání služby s využitím delegované identity uživatele v tok On-Behalf-Of
+# <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Služby volání služby s využitím delegované identity uživatele v tok On-Behalf-Of
 On-Behalf-Of OAuth 2.0, které toku slouží případ použití, kde aplikace volá služby nebo webové rozhraní API, který se pak musí volat jiné služby nebo webové rozhraní API. Cílem je potřebný k šíření identity delegované uživatele a oprávnění pomocí řetězce požadavků. Pro službu střední vrstvy provést ověřené žádosti o připojení ke službě podřízené potřebuje přístupový token zabezpečení ze služby Azure Active Directory (Azure AD) jménem uživatele.
 
-## On-Behalf-Of vývojový diagram
+## <a name="on-behalf-of-flow-diagram"></a>On-Behalf-Of vývojový diagram
 Předpokládejme, že má uživatel ověřen na aplikace pomocí [tok poskytování autorizačních kódů OAuth 2.0](active-directory-protocols-oauth-code.md). Aplikace v tomto okamžiku má přístupový token (token A) s deklarací identity uživatele a souhlasu pro přístup k střední vrstvu webového rozhraní API (rozhraní API A). Rozhraní API A potřebuje teď, aby požadavek na ověřeného k podřízené webové rozhraní API (API B).
 
 Kroky, které následují tvoří tok On-Behalf-Of a jsou vysvětleny za pomoci následující diagram.
@@ -38,9 +38,9 @@ Kroky, které následují tvoří tok On-Behalf-Of a jsou vysvětleny za pomoci 
 4. Token B je nastaveny v hlavičce autorizace požadavku rozhraní API b.
 5. Vrátí data z zabezpečeným prostředkům rozhraní API B.
 
-## Registrace aplikace a služby ve službě Azure AD
+## <a name="register-the-application-and-service-in-azure-ad"></a>Registrace aplikace a služby ve službě Azure AD
 Klientská aplikace a služby střední vrstvy zaregistrujte ve službě Azure AD.
-### Registrace služby střední vrstvy
+### <a name="register-the-middle-tier-service"></a>Registrace služby střední vrstvy
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na tlačítko na vašem účtu a v části **Directory** vyberte klienta služby Active Directory, kam chcete registrace vaší aplikace.
 3. Klikněte na **více služeb** v navigaci vlevo a zvolte **Azure Active Directory**.
@@ -48,7 +48,7 @@ Klientská aplikace a služby střední vrstvy zaregistrujte ve službě Azure A
 5. Zadejte popisný název aplikace a vyberte typ aplikace. Založené na sadě typu aplikace přihlašovací adresa URL nebo přesměrovat adresu URL na základní adresu URL. Klikněte na **vytvořit** k vytvoření aplikace.
 6. Při stále na portálu Azure, vyberte aplikaci a klikněte na **nastavení**. Z nabídky nastavení zvolte **klíče** a přidejte klíč – vyberte dobu trvání klíče 1 rok nebo 2 roky. Při ukládání této stránky, hodnota klíče se zobrazí, zkopírujte a uložte do bezpečného umístění hodnota – budete potřebovat tento klíč později ke konfiguraci nastavení aplikace v implementaci - touto hodnotou klíče nebude znovu zobrazit, ani se dá načíst jiným způsobem , takže si poznamenejte hned, jak je vidět na portálu Azure.
 
-### Registrace aplikace klienta
+### <a name="register-the-client-application"></a>Registrace aplikace klienta
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Na horním panelu klikněte na tlačítko na vašem účtu a v části **Directory** vyberte klienta služby Active Directory, kam chcete registrace vaší aplikace.
 3. Klikněte na **více služeb** v navigaci vlevo a zvolte **Azure Active Directory**.
@@ -56,14 +56,14 @@ Klientská aplikace a služby střední vrstvy zaregistrujte ve službě Azure A
 5. Zadejte popisný název aplikace a vyberte typ aplikace. Založené na sadě typu aplikace přihlašovací adresa URL nebo přesměrovat adresu URL na základní adresu URL. Klikněte na **vytvořit** k vytvoření aplikace.
 6. Konfigurace oprávnění pro vaši aplikaci – v nabídce nastavení, vyberte **požadovaná oprávnění** části, klikněte na **přidat**, pak **vybrat rozhraní API**a zadejte název služby střední vrstvy do textového pole. Potom klikněte na **vyberte oprávnění** a vyberte možnost ' přístup *název služby*'.
 
-### Konfigurace známé klientské aplikace
+### <a name="configure-known-client-applications"></a>Konfigurace známé klientské aplikace
 V tomto scénáři má služby střední vrstvy získat souhlas uživatele pro přístup k rozhraní API pro příjem dat žádná interakce s uživatelem. Možnost udělit přístup k rozhraní API pro příjem dat proto musí být uveden předem, jako součást souhlasu krok během ověřování.
 Jak toho docílit, použijte následující postup pro explicitně vazbu klientskou aplikaci registrace ve službě Azure AD s registrací služby střední vrstvy, která sloučí souhlas potřebný klientem a střední vrstvy do jednoho dialogové okno.
 1. Přejděte na registraci střední vrstvy služby a klikněte na **Manifest** k otevření editoru manifestu.
 2. V manifestu, vyhledejte `knownClientApplications` pole vlastnosti, a přidejte ID klienta aplikace klienta jako element.
 3. Uložte kliknutím uložit manifest tlačítko.
 
-## Služba service žádosti o token přístupu
+## <a name="service-to-service-access-token-request"></a>Služba service žádosti o token přístupu
 Chcete-li požádat o token přístupu, provést HTTP POST konkrétního klienta koncového bodu Azure AD s následujícími parametry.
 
 ```
@@ -71,7 +71,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
 Jsou dva případy, v závislosti na tom, zda klientská aplikace rozhodne zabezpečeny sdílený tajný klíč nebo certifikát.
 
-### Nejprve případ: žádosti o token přístupu s sdílený tajný klíč
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Nejprve případ: žádosti o token přístupu s sdílený tajný klíč
 Pokud používáte sdílený tajný klíč, žádosti o token přístupu service-to-service obsahuje následující parametry:
 
 | Parametr |  | Popis |
@@ -84,7 +84,7 @@ Pokud používáte sdílený tajný klíč, žádosti o token přístupu service
 | requested_token_use |Požadované | Určuje, jak by měl být požadavek zpracovat. Hodnota tok On-Behalf-Of, musí být **on_behalf_of**. |
 | Obor |Požadované | Mezeru oddělený seznam obory pro požadavek tokenu. Pro OpenID Connect, oboru **openid** musí být zadán.|
 
-#### Příklad
+#### <a name="example"></a>Příklad
 V následujícím příspěvku HTTP požadavků přístupový token pro https://graph.windows.net webové rozhraní API. `client_id` Identifikuje služba, která požaduje přístupový token.
 
 ```
@@ -103,7 +103,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### Druhé případ: tokenu žádosti o přístup pomocí certifikátu
+### <a name="second-case-access-token-request-with-a-certificate"></a>Druhé případ: tokenu žádosti o přístup pomocí certifikátu
 Žádosti o token service-to-service přístup pomocí certifikátu obsahuje následující parametry:
 
 | Parametr |  | Popis |
@@ -119,7 +119,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Všimněte si, že parametry jsou téměř stejné jako v případě požadavku pomocí sdílený tajný klíč, s tím rozdílem, že parametr tajný klíč client_secret je nahrazena dva parametry: client_assertion_type a client_assertion.
 
-#### Příklad
+#### <a name="example"></a>Příklad
 V následujícím příspěvku HTTP požadavků přístupový token pro https://graph.windows.net webové rozhraní API s certifikátem. `client_id` Identifikuje služba, která požaduje přístupový token.
 
 ```
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## Služba odpovědi tokenu přístupu služby
+## <a name="service-to-service-access-token-response"></a>Služba odpovědi tokenu přístupu služby
 Úspěšná odpověď je odpověď JSON OAuth 2.0 s následujícími parametry.
 
 | Parametr | Popis |
@@ -153,7 +153,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | požadavku id_token |Požadovaný id token. Volání služby můžete použít k ověření identity uživatele a zahájit relaci s uživatelem. |
 | refresh_token |Token obnovení pro požadovaný přístupový token. Volání služby můžete tento token vyžádat dalšího přístupového tokenu po vypršení platnosti aktuální přístupový token. |
 
-### Příklad úspěšné odpovědi
+### <a name="success-response-example"></a>Příklad úspěšné odpovědi
 Následující příklad ukazuje úspěšná odpověď na žádost o token přístupu pro https://graph.windows.net webové rozhraní API.
 
 ```
@@ -171,7 +171,7 @@ Následující příklad ukazuje úspěšná odpověď na žádost o token pří
 }
 ```
 
-### Příklad chybové odpovědi
+### <a name="error-response-example"></a>Příklad chybové odpovědi
 Koncový bod tokenu Azure AD vrátí odpovědi na chybu při pokusu o získání přístupového tokenu pro rozhraní API pro příjem dat, pokud rozhraní API pro příjem dat má zásady podmíněného přístupu, jako je vícefaktorové ověřování u něho nastavený. Střední vrstvy služby by měl surface tato chyba do klientské aplikace, tak, aby klientská aplikace může poskytnout zásahu uživatele, aby pokryl zásady podmíněného přístupu.
 
 ```
@@ -186,17 +186,17 @@ Koncový bod tokenu Azure AD vrátí odpovědi na chybu při pokusu o získání
 }
 ```
 
-## Použití tokenu přístupu pro přístup k zabezpečeným prostředku
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>Použití tokenu přístupu pro přístup k zabezpečeným prostředku
 Nyní střední vrstvy služby pomocí tokenu získali výše provádět požadavky na ověření do podřízené webové rozhraní API, nastavením token v `Authorization` záhlaví.
 
-### Příklad
+### <a name="example"></a>Příklad
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Další informace o protokolu OAuth 2.0 a jiný způsob, jak provádět ověřování služeb pomocí pověření klienta.
 * [Služba ověřování služby pomocí udělení pověření klienta OAuth 2.0 ve službě Azure AD](active-directory-protocols-oauth-service-to-service.md)
 * [OAuth 2.0 ve službě Azure AD](active-directory-protocols-oauth-code.md)

@@ -4,7 +4,7 @@ description: "V tomto kurzu druhé pole virtuální zařízení StorSimple řady
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Nasazení zařízení StorSimple virtuální pole - zřídit ve službě VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Přehled
-Tento kurz popisuje, jak zřídit a připojte se k poli virtuální zařízení StorSimple v hostitelském systému, systémem VMware ESXi 5.5 a vyšší. Tento článek se týká nasazení pole virtuální zařízení StorSimple v portálu Azure a cloudu Microsoft Azure Government.
+Tento kurz popisuje, jak zřídit a připojte se k poli virtuální zařízení StorSimple v hostitelském systému, systémem VMware ESXi 5.0, 5.5 nebo 6.0. Tento článek se týká nasazení pole virtuální zařízení StorSimple v portálu Azure a cloudu Microsoft Azure Government.
 
 Potřebovat oprávnění správce k poskytování a připojte se k virtuálnímu zařízení. Zřizování a počáteční instalace může trvat přibližně 10 minut.
 
 ## <a name="provisioning-prerequisites"></a>Zřizování požadavky
-Požadavky pro zřízení virtuálního zařízení v hostitelském systému, systémem VMware ESXi 5.5 a vyšší, jsou následující.
+Požadavky pro zřízení virtuálního zařízení v systému hostitele, který používá 5.0 VMware ESXi 5.5 nebo 6.0, jsou následující.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Služba Správce zařízení StorSimple
 Než začnete, ujistěte se, že:
@@ -64,7 +64,7 @@ Pokud chcete zřídit a připojení k virtuálnímu zařízení, musíte provés
 ## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Krok 1: Ujistěte se, že hostitelský systém splňuje požadavky na minimální virtuálního zařízení
 Pokud chcete vytvořit virtuální zařízení, budete potřebovat:
 
-* Přístup k systému hostitele, který používá VMware ESXi Server 5.5 a vyšší.
+* Přístup k systému hostitele, který používá VMware ESXi Server 5.0, 5.5 nebo 6.0.
 * VMware vSphere klienta v systému pro správu hostitele ESXi.
 
   * Minimálně 4 jádra.
@@ -183,6 +183,9 @@ Proveďte následující kroky pro zřízení virtuálního zařízení ve vaš�
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 Virtuální počítač je nyní zajištěna. Dalším krokem je spotřeby na tomto počítači a získat IP adresu.
+
+> [!NOTE]
+> Doporučujeme vám, neinstalujte nástroje VMware na virtuální pole, (jak zřídit výše). Instalace nástroje VMware bude mít za následek nepodporované konfigurace.
 
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Krok 3: Spuštění virtuální zařízení a získat IP adresu
 Proveďte následující kroky ke spuštění virtuálního zařízení a k nim připojit.

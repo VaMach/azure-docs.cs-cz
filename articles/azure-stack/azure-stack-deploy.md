@@ -3,8 +3,8 @@ title: "Požadavky nasazení Azure zásobníku Development Kit | Microsoft Docs"
 description: "Zobrazte prostředí a hardwarové požadavky pro Azure zásobníku Development Kit (operátor cloudu)."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Požadavky nasazení Azure Stack
 
@@ -40,7 +40,7 @@ Před nasazením [Azure zásobníku Development Kit](azure-stack-poc.md), zajist
 
 \*Budete potřebovat větší, než to doporučeno kapacity, pokud chcete použít k přidání řadu [položky marketplace](azure-stack-download-azure-marketplace-item.md) z Azure.
 
-**Konfigurace datových disků:** Všechny datové jednotky musí být stejného typu (buď všechny SAS, nebo všechny SATA) a mít stejnou kapacitu. Pokud použijete disky SAS, musí být diskové jednotky připojené pomocí jedné cesty (žádné funkce MPIO, podpora více cest je zajištěna).
+**Konfigurace disku dat:** všechny datové jednotky musí být stejného typu (všechny SAS, všechny SATA nebo všechny NVMe) a výkonu. Pokud použijete disky SAS, musí být diskové jednotky připojené pomocí jedné cesty (žádné funkce MPIO, podpora více cest je zajištěna).
 
 **Možnosti konfigurace hostitelského adaptéru**
 
@@ -56,6 +56,7 @@ Před nasazením [Azure zásobníku Development Kit](azure-stack-poc.md), zajist
 * RAID SSD (pokud je typ média neurčeno/neznámé\*)
 * SATA SSD + pevný disk SATA
 * SAS SSD + pevný disk SAS
+* NVMe
 
 \*Řadičů RAID bez průchozí schopnosti nemůže rozpoznat typ média. Tyto řadiče označí pevný disk i SSD jako Neurčeno. V takovém případě se místo mezipaměťových zařízení použije SSD jako trvalé úložiště. Proto můžete nasadit development kit na těchto jednotkách SSD.
 

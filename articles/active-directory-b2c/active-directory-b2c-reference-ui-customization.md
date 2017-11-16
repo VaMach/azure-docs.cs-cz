@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 23a2996a5eaa41af5dc66558d2a70dd3e4a4fe3f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Přizpůsobení uživatelského rozhraní (UI) Azure AD B2C
 
 Činnost koncového uživatele je prvořadá v zákazníků, kterým čelí aplikace.  Růst zákazníkovi základní tím, že vytvoří koncových uživatelů s vzhledu a chování vaší značkou. Azure Active Directory B2C (Azure AD B2C) umožňuje přizpůsobit profil registrace, přihlášení, úpravy a resetování hesla stránky s ovládacím prvkem dokonalou pixelů.
 
 > [!NOTE]
-> Funkce přizpůsobení uživatelského rozhraní stránky popsané v tomto článku se nevztahuje pouze zásad přihlašování, jeho doprovodné stránku pro reset hesla a ověření e-mailů.  Tyto funkce používají [firemního brandingu funkce](../active-directory/active-directory-add-company-branding.md) místo.
+> Funkce přizpůsobení uživatelského rozhraní stránky popsané v tomto článku se nevztahuje pouze zásad přihlašování, jeho doprovodné stránku pro reset hesla a ověření e-mailů.  Tyto funkce používají [firemního brandingu funkce](../active-directory/customize-branding.md) místo.
 >
-> Podobně pokud uživatel intiates zásadu upravit profil *před* přihlášení, uživatel bude přesměrován na stránku, kterou lze přizpůsobit pomocí [firemního brandingu funkce](../active-directory/active-directory-add-company-branding.md).
+> Podobně pokud uživatel intiates zásadu upravit profil *před* přihlášení, uživatel bude přesměrován na stránku, kterou lze přizpůsobit pomocí [firemního brandingu funkce](../active-directory/customize-branding.md).
 
 Tento článek obsahuje následující témata:
 

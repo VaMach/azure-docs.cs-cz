@@ -21,19 +21,19 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# Autorizace přístupu k webovým aplikacím s použitím OAuth 2.0 a Azure Active Directory
+# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autorizace přístupu k webovým aplikacím s použitím OAuth 2.0 a Azure Active Directory
 Azure Active Directory (Azure AD) používá OAuth 2.0 umožnit autorizace přístupu k webové aplikace a webové rozhraní API v klientovi služby Azure AD. Tato příručka je závislý na jazyce a popisuje, jak odesílat a přijímat zprávy HTTP bez použití některé z našich knihovny open-source.
 
 Toku kódu autorizace OAuth 2.0 je popsaná v [části 4.1 specifikace OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). To se používá k provedení ověřování a autorizace ve většině typy aplikací, včetně webových aplikací a nativně nainstalované aplikace.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
-## Tok ověřování OAuth 2.0
+## <a name="oauth-20-authorization-flow"></a>Tok ověřování OAuth 2.0
 Na vysoké úrovni tok celý autorizace pro aplikaci trochu vypadat třeba takto:
 
 ![Ověřování kódu toku OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
-## Žádost o autorizační kód
+## <a name="request-an-authorization-code"></a>Žádost o autorizační kód
 Tok autorizačního kódu začíná klienta odkazovat uživatele `/authorize` koncový bod. V této žádosti o klient naznačuje oprávnění, které potřebuje získat od uživatele. Koncové body OAuth 2.0 ze stránky vaší aplikace na portálu Azure Classic, můžete získat v **zobrazit koncové body** tlačítka na panel dolní.
 
 ```
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 V tomto okamžiku je uživatel vyzván k zadání přihlašovacích údajů a souhlas oprávnění uvedené v `scope` parametr dotazu. Jakmile se uživatel ověří a uděluje souhlas, Azure AD odešle odpověď do vaší aplikace na `redirect_uri` adres ve vaší žádosti.
 
-### Úspěšná odpověď
+### <a name="successful-response"></a>Úspěšná odpověď
 Úspěšná odpověď může vypadat například takto:
 
 ```
@@ -83,7 +83,7 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | session_state |Jedinečná hodnota, která identifikuje aktuální uživatelskou relaci. Tato hodnota je identifikátor GUID, ale má být považována za neprůhledné hodnoty, které jsou předávány bez prozkoumání. |
 | state |Pokud parametr stavu je obsažena v žádosti o stejnou hodnotu by se měla objevit v odpovědi. Je vhodné pro aplikaci do ověřte, zda jsou hodnoty stavu v požadavku a odpovědi identické před použitím odpovědi. To pomůže zjistit [webů požadavku padělání (proti útokům CSRF) před útoky](https://tools.ietf.org/html/rfc6749#section-10.12) proti klienta. |
 
-### Chybové odpovědi
+### <a name="error-response"></a>Chybové odpovědi
 Chybové odpovědi se taky může odeslat do `redirect_uri` tak, aby aplikace můžete správně zpracovat.
 
 ```
@@ -98,7 +98,7 @@ error=access_denied
 | error_description |Podrobnější popis chyby. Tato zpráva neměla být popisný koncového uživatele. |
 | state |Hodnota stavu je náhodně generované hodnoty znovu použít, které se odesílají v požadavku a vrátí se v reakci na zabránit útokům (proti útokům CSRF) padělání požadavku posílaného mezi weby. |
 
-#### Kódy chyb pro chyb koncový bod autorizace
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Kódy chyb pro chyb koncový bod autorizace
 Následující tabulka popisuje různé kódy chyb, které mohou být vráceny v `error` parametr odpovědi na chybu.
 
 | Kód chyby | Popis | Akce klienta |
@@ -111,7 +111,7 @@ Následující tabulka popisuje různé kódy chyb, které mohou být vráceny v
 | temporarily_unavailable |Server je dočasně zaneprázdněn pro zpracování požadavku. |Opakujte žádost. Klientská aplikace mohou vysvětlit pro uživatele, že odpověď se zpožďuje kvůli dočasné podmínce. |
 | invalid_resource |Cílový prostředek je neplatný, protože neexistuje, Azure AD ji nemůže najít, nebo není správně nakonfigurována. |To znamená, že k prostředku, pokud existuje, není nakonfigurované v klientovi. Aplikace můžete vyzvat uživatele s pokyny pro instalaci aplikace a její přidání do Azure AD. |
 
-## Pomocí autorizační kód žádosti o token přístupu
+## <a name="use-the-authorization-code-to-request-an-access-token"></a>Pomocí autorizační kód žádosti o token přístupu
 Teď, když jste získali autorizační kód a bylo uděleno oprávnění uživatelem, můžete uplatnit kód pro token přístupu k požadovaného prostředku odesíláním požadavek POST do `/token` koncový bod:
 
 ```
@@ -142,7 +142,7 @@ grant_type=authorization_code
 
 Chcete-li najít identifikátor ID URI aplikace v portálu pro správu Azure, klikněte na tlačítko **služby Active Directory**, klikněte na adresář, klikněte na aplikaci a pak klikněte na tlačítko **konfigurace**.
 
-### Úspěšná odpověď
+### <a name="successful-response"></a>Úspěšná odpověď
 Azure AD vrátí přístupový token při úspěšné odpovědi. Chcete-li minimalizovat síťový volání z klientské aplikace a jejich přidružené latence, by měl klientská aplikace mezipaměti přístupové tokeny pro dobu životnosti tokenu, který je uveden v odpovědi OAuth 2.0. Chcete-li určit dobu životnosti tokenu, použijte buď `expires_in` nebo `expires_on` hodnoty parametrů.
 
 Webové rozhraní API prostředků vrátí-li `invalid_token` kódu chyby to může znamenat, že prostředek bylo zjištěno, že vypršela platnost tokenu. Pokud jsou časy hodiny klienta a prostředků různých (známé jako "zkosení čas"), zvažte prostředek token, který má být platnost předtím, než se vymaže tokenu z mezipaměti klienta. Pokud k tomu dojde, zrušte tokenu z mezipaměti, i když je stále v rámci počítané celé jeho životnosti.
@@ -174,7 +174,7 @@ Webové rozhraní API prostředků vrátí-li `invalid_token` kódu chyby to mů
 | refresh_token |Aktualizace tokenu OAuth 2.0. Aplikace můžete používat tento token získat další přístupové tokeny po vypršení platnosti aktuální přístupový token.  Aktualizujte je dlouhodobé tokeny a slouží k přístupu k prostředkům uchovávány dlouhou dobu. |
 | požadavku id_token |Nepodepsané JSON Web Token (JWT). Base64Url může aplikace dekódovat segmentů tento token pro vyžadování informací o uživateli, který přihlášení. Aplikace můžete hodnoty do mezipaměti a jejich zobrazení, ale na ně neměli spoléhat pro žádné hranice zabezpečení nebo autorizace. |
 
-### Deklarace tokenů JWT
+### <a name="jwt-token-claims"></a>Deklarace tokenů JWT
 Token JWT v hodnotě `id_token` parametr lze dekódovat do následující deklarací identity:
 
 ```
@@ -219,7 +219,7 @@ Další informace o webových tokenů JSON najdete v tématu [specifikaci JWT IE
 | hlavní název uživatele |Hlavní název uživatele uživatele. |
 | ver |Verze. Verze token JWT, obvykle 1.0. |
 
-### Chybové odpovědi
+### <a name="error-response"></a>Chybové odpovědi
 Koncový bod chyby vystavování tokenů jsou kódy chyb protokolu HTTP, protože klient zavolá koncový bod vystavování tokenů přímo. Kromě stavový kód protokolu HTTP na koncový bod Azure AD vystavování tokenů také vrátí hodnotu dokumentu JSON s objekty, které popisují chybu.
 
 Ukázková chyba odpověď může vypadat například takto:
@@ -246,7 +246,7 @@ Ukázková chyba odpověď může vypadat například takto:
 | trace_id |Jedinečný identifikátor pro požadavek, který vám můžou pomoct při diagnostiky. |
 | correlation_id |Jedinečný identifikátor pro požadavek, který vám můžou pomoct při diagnostiky mezi komponentami. |
 
-#### Stavové kódy HTTP
+#### <a name="http-status-codes"></a>Stavové kódy HTTP
 Následující tabulka uvádí stavové kódy HTTP, které vrací koncový bod vystavování tokenů. V některých případech kód chyby je dostačující k popisu odpovědi, ale pokud nejsou chyby, budete muset analyzovat doprovodné dokumentu JSON a zkontrolujte jeho kód chyby.
 
 | Kód HTTP | Popis |
@@ -256,7 +256,7 @@ Následující tabulka uvádí stavové kódy HTTP, které vrací koncový bod v
 | 403 |Ověření se nezdařilo. Například uživatel nemá oprávnění pro přístup k prostředku. |
 | 500 |Došlo k vnitřní chybě na službu. Opakujte žádost. |
 
-#### Kódy chyb pro koncový bod tokenu chyby
+#### <a name="error-codes-for-token-endpoint-errors"></a>Kódy chyb pro koncový bod tokenu chyby
 | Kód chyby | Popis | Akce klienta |
 | --- | --- | --- |
 | invalid_request |Chyba protokolu, například chybějící povinný parametr. |Opravte a odešlete požadavek znovu |
@@ -268,17 +268,17 @@ Následující tabulka uvádí stavové kódy HTTP, které vrací koncový bod v
 | interaction_required |Požadavek vyžaduje interakci uživatele. Na další ověřování krok je třeba požadovaný. | Místo neinteraktivní žádost opakujte akci s požadavek interaktivní autorizace pro stejný prostředek. |
 | temporarily_unavailable |Server je dočasně zaneprázdněn pro zpracování požadavku. |Opakujte žádost. Klientská aplikace mohou vysvětlit pro uživatele, že odpověď se zpožďuje kvůli dočasné podmínce. |
 
-## Použití tokenu přístupu pro přístup k prostředku
+## <a name="use-the-access-token-to-access-the-resource"></a>Použití tokenu přístupu pro přístup k prostředku
 Teď, když jste byla úspěšně načtena `access_token`, můžete token v žádostech o k webovým rozhraním API, včetně jeho `Authorization` záhlaví. [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specifikace vysvětluje, jak používat nosné tokeny v požadavcích HTTP pro přístup k chráněným prostředkům.
 
-### Ukázková žádost
+### <a name="sample-request"></a>Ukázková žádost
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ
 ```
 
-### Chybové odpovědi
+### <a name="error-response"></a>Chybové odpovědi
 Zabezpečené prostředky, které implementují stavové kódy HTTP problém RFC 6750. Pokud žádost neobsahuje pověření pro ověření nebo chybí token, odpověď obsahuje `WWW-Authenticate` záhlaví. Pokud se požadavek nezdaří, server prostředků odpoví stavový kód HTTP a chybový kód.
 
 Následuje příklad úspěšné odpovědi když žádost klienta nezahrnuje token nosiče:
@@ -288,7 +288,7 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
 ```
 
-#### Parametry chyby
+#### <a name="error-parameters"></a>Parametry chyby
 | Parametr | Popis |
 | --- | --- |
 | authorization_uri |Identifikátor URI (fyzické koncový bod) serveru ověřování. Tato hodnota se také používá jako klíč vyhledávání získat další informace o serveru z koncového bodu zjišťování. <p><p> Klient musíte ověřit, že server ověřování je důvěryhodný. Když prostředek je chráněný službou Azure AD, je dostačující k ověření, že adresa URL začíná https://login.microsoftonline.com nebo jiný název hostitele, který podporuje Azure AD. Prostředek konkrétního klienta by měl vrátit vždy identifikátor URI autorizace konkrétního klienta. |
@@ -296,7 +296,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | error_description |Podrobnější popis chyby. Tato zpráva neměla být popisný koncového uživatele. |
 | ID_prostředku |Vrací jedinečný identifikátor prostředku. Klientská aplikace můžete použít tento identifikátor jako hodnotu `resource` parametr při požadavku na token pro prostředek. <p><p> Je důležité pro klientskou aplikaci ověřit tuto hodnotu, jinak může být škodlivý služby moci vyvolat **zvýšení oprávnění** útoku <p><p> Pro zabránění útoku doporučujeme ověřit, jestli `resource_id` odpovídá základní webové adresy URL rozhraní API, která přistupuje. Pokud je přistupuje https://service.contoso.com/data, například `resource_id` může být htttps://service.contoso.com/. Klientská aplikace musí odmítnout `resource_id` , nemá na začátku základní adresu URL Pokud nejsou spolehlivé alternativní způsob, jak ověřit id. |
 
-#### Kódy chyb nosiče schéma
+#### <a name="bearer-scheme-error-codes"></a>Kódy chyb nosiče schéma
 Specifikace RFC 6750 definuje následující chyby pro prostředky, které používají hlavička WWW-Authenticate a schéma nosiče v odpovědi.
 
 | Kód stavu HTTP | Kód chyby | Popis | Akce klienta |
@@ -306,7 +306,7 @@ Specifikace RFC 6750 definuje následující chyby pro prostředky, které použ
 | 403 |insufficient_scope |Přístupový token neobsahuje zosobnění oprávnění požadovaná pro přístup k prostředku. |Poslat novou žádost o autorizaci koncového bodu autorizace. Pokud odpověď obsahuje parametr rozsahu, použijte hodnotu oboru v požadavku na prostředek. |
 | 403 |insufficient_access |Předmět tokenu nemá oprávnění, která jsou potřebná pro přístup k prostředku. |Dotázat se uživatele, použijte jiný účet nebo požádejte o oprávnění k zadaný prostředek. |
 
-## Aktualizace přístupových tokenů
+## <a name="refreshing-the-access-tokens"></a>Aktualizace přístupových tokenů
 Přístupové tokeny jsou krátkodobou a je třeba aktualizovat po vypršení jejich platnosti chcete-li pokračovat, přístup k prostředkům. Můžete obnovit `access_token` odesláním jiné `POST` žádost o `/token` koncový bod, ale tato poskytnutí času `refresh_token` místo `code`.
 
 Aktualizujte tokeny nemají zadaný životnosti. Doba života tokeny obnovení jsou obvykle poměrně dlouho. Ale v některých případech tokeny obnovení vyprší, byly odvolány nebo nemají dostatečná oprávnění pro požadovanou akci. Aplikace musí očekávat a zpracování chyby vrácené v koncovém bodě vystavování tokenů správně.
@@ -329,7 +329,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-### Úspěšná odpověď
+### <a name="successful-response"></a>Úspěšná odpověď
 Úspěšné odpovědi tokenu bude vypadat jako:
 
 ```
@@ -352,7 +352,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | access_token |Nový přístupový token, který byl vyžádán. |
 | refresh_token |Nový refresh_token OAuth 2.0, který slouží k vyžádání nové přístupové tokeny, když vyprší platnost v této odpovědi. |
 
-### Chybové odpovědi
+### <a name="error-response"></a>Chybové odpovědi
 Ukázková chyba odpověď může vypadat například takto:
 
 ```

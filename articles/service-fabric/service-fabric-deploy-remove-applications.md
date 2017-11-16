@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 6d0f85a839171c43d226741f54e0dc954b85601d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a1279ba9626ece30491c8fc899054873f6359e2
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Nasazení a odebírat aplikace pomocí prostředí PowerShell
 > [!div class="op_single_selector"]
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
-> * [Rozhraní API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 > * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
+> * [Rozhraní API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 <br/>
 
@@ -41,7 +41,7 @@ Jakmile je aplikace nasazená a je spuštěna instance v clusteru, můžete odst
 2. Zrušení registrace typu aplikace, pokud již nepotřebujete
 3. Odebrání balíčku aplikace z úložiště bitových kopií
 
-Pokud používáte [Visual Studio pro nasazování a ladění aplikací](service-fabric-publish-app-remote-cluster.md) na vaše místní vývojový cluster, jsou automaticky zpracovává všechny předchozí kroky pomocí skriptu prostředí PowerShell.  Tento skript se nachází v *skripty* složku projekt aplikace. Tento článek obsahuje pozadí na co skriptu je to proto, že můžete provádět stejné operace mimo Visual Studio. 
+Pokud používáte Visual Studio pro nasazování a ladění aplikací na místní vývojový cluster, všechny předchozí kroky jsou zpracovávány automaticky pomocí skriptu prostředí PowerShell.  Tento skript se nachází v *skripty* složku projekt aplikace. Tento článek obsahuje pozadí na co skriptu je to proto, že můžete provádět stejné operace mimo Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Připojení ke clusteru
 Než spustíte všechny příkazy prostředí PowerShell v tomto článku, vždy spustit pomocí [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) se připojit ke clusteru Service Fabric. Pro připojení k místní vývojový cluster, spusťte následující:

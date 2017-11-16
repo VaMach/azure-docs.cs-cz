@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrace se službou Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -67,7 +67,7 @@ Integrace s Azure AD se dodává s výhody, které nevyžadují napsat další k
 
 **Neobvyklé přihlašovací při zjišťování.**  Azure AD zpracovává více než miliardu přihlášení denně, při použití algoritmy strojového učení detekovat podezřelé aktivity a upozornit správci IT možných problémů.  Díky podpoře přihlášení k Azure AD, aplikace získá Výhodou této ochrany. Další informace o [zobrazení sestav Azure Active Directory přístup](../active-directory-view-access-usage-reports.md).
 
-**Podmíněný přístup.**  Kromě služby Multi-Factor authentication, můžou správci vyžadují konkrétních podmínek splnit, než uživatelé můžou přihlásit k vaší aplikaci.  Podmínky, které lze nastavit zahrnují rozsah IP adres klientských zařízení, členství v zadaných skupinách a stav zařízení používá pro přístup.  Další informace o [podmíněného přístupu Azure Active Directory](../active-directory-conditional-access.md).
+**Podmíněný přístup.**  Kromě služby Multi-Factor authentication, můžou správci vyžadují konkrétních podmínek splnit, než uživatelé můžou přihlásit k vaší aplikaci.  Podmínky, které lze nastavit zahrnují rozsah IP adres klientských zařízení, členství v zadaných skupinách a stav zařízení používá pro přístup.  Další informace o [podmíněného přístupu Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Snadný vývoj
 **Standardních protokolů.**  Společnost Microsoft se zavazuje podpora oborových standardů.  Azure AD podporuje SAML 2.0, OpenID Connect 1.0, OAuth 2.0 a WS-Federation 1.2 ověřovací protokoly.  Rozhraní Graph API je OData 4.0 kompatibilní.  Pokud už vaše aplikace podporuje protokoly SAML 2.0 nebo OpenID Connect 1.0 pro federované přihlašování, může být přehledné přidání podpory pro Azure AD.  Další informace o [podporované protokoly pro ověřování Azure AD](active-directory-authentication-protocols.md).

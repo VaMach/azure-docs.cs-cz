@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6ac076917092caa8b3c14ab179515c0693fc89bf
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Správa zařízení pomocí portálu Azure
 
@@ -36,7 +36,7 @@ V tomto tématu:
 
 ## <a name="configure-device-settings"></a>Konfigurace nastavení zařízení
 
-Vaše zařízení ke správě zařízení pomocí portálu Azure, musí být buď zaregistrované, nebo připojený k Azure AD. Jako správce můžete optimalizovat proces registrace a připojení zařízení tak, že nakonfigurujete nastavení zařízení. 
+Ke správě zařízení pomocí portálu Azure, zařízení musí být buď [zaregistrovaný nebo připojený k](device-management-introduction.md#getting-devices-under-the-control-of-azure-ad) do služby Azure AD. Jako správce můžete optimalizovat proces registrace a připojení zařízení tak, že nakonfigurujete nastavení zařízení. 
 
 ![Konfigurace nastavení zařízení](./media/device-management-azure-portal/22.png)
 
@@ -45,13 +45,13 @@ Stránka nastavení zařízení můžete konfigurovat:
 ![Spravovat zařízení s Intune](./media/device-management-azure-portal/21.png)
 
 
-- **Uživatelé mohou připojit zařízení ke službě Azure AD** – toto nastavení umožňuje vybrat uživatele, kteří mohou připojit zařízení ke službě Azure AD. Výchozí hodnota je **všechny**.
+- **Uživatelé mohou připojit zařízení ke službě Azure AD** – toto nastavení umožňuje vybrat uživatele, kteří mohou [připojit zařízení](device-management-introduction.md#azure-ad-joined-devices) do služby Azure AD. Výchozí hodnota je **všechny**.
 
 - **Zařízení připojená k další místní správci v Azure AD** – můžete vybrat uživatele, kteří jsou udělena práva místního správce v zařízení. Jsou přidáni uživatelé tady přidat *Správci zařízení* role ve službě Azure AD. Globální správci ve službě Azure AD a vlastníci zařízení jsou udělena práva místního správce ve výchozím nastavení. Tato možnost je k dispozici prostřednictvím produkty, jako je například Azure AD Premium nebo Enterprise Mobility Suite (EMS) funkce edice premium. 
 
-- **Uživatelé mohou registrovat svá zařízení s Azure AD** -je nutné nakonfigurovat tato nastavení mají zařízení zaregistrovat u služby Azure AD. Pokud vyberete **žádné**, zařízení není povoleno zaregistrovat, které nejsou připojené k Azure AD nebo hybridní připojený k Azure AD. Registrace s Microsoft Intune nebo správy mobilních zařízení (MDM) pro Office 365 vyžaduje registraci. Pokud jste nakonfigurovali některou z těchto služeb **všechny** je vybraná a **NONE** není k dispozici...
+- **Uživatelé mohou registrovat svá zařízení s Azure AD** -je nutné nakonfigurovat toto nastavení umožňuje zařízení, aby vyhovoval [zaregistrován](device-management-introduction.md#azure-ad-registered-devices) s Azure AD. Pokud vyberete **žádné**, zařízení není povoleno zaregistrovat, které nejsou připojené k Azure AD nebo hybridní připojený k Azure AD. Registrace s Microsoft Intune nebo správy mobilních zařízení (MDM) pro Office 365 vyžaduje registraci. Pokud jste nakonfigurovali některou z těchto služeb **všechny** je vybraná a **NONE** není k dispozici...
 
-- **Vyžadovat vícefaktorového ověřování pro připojení zařízení** – můžete zvolit, jestli uživatelé jsou nutné k zajištění druhý faktor ověřování pro připojení zařízení do služby Azure AD. Výchozí hodnota je **ne**. Doporučujeme, abyste při registraci zařízení, které vyžadují služby Multi-Factor authentication. Než povolíte službu Multi-Factor authentication pro tuto službu, je nutné zajistit, že aplikace Multi-Factor authentication je nakonfigurován pro uživatele, kteří registrovat svá zařízení. Další informace o službám různých Azure Multi-Factor authentication, naleznete v části [Začínáme s Azure Multi-Factor authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
+- **Vyžadovat vícefaktorového ověřování pro připojení zařízení** – můžete zvolit, jestli uživatelé musí poskytnout druhý ověřovací faktor k [spojení](device-management-introduction.md#azure-ad-joined-devices) své zařízení do služby Azure AD. Výchozí hodnota je **ne**. Doporučujeme, abyste při registraci zařízení, které vyžadují služby Multi-Factor authentication. Než povolíte službu Multi-Factor authentication pro tuto službu, je nutné zajistit, že aplikace Multi-Factor authentication je nakonfigurován pro uživatele, kteří registrovat svá zařízení. Další informace o službám různých Azure Multi-Factor authentication, naleznete v části [Začínáme s Azure Multi-Factor authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
 
 - **Maximální počet zařízení** – toto nastavení umožňuje vybrat maximální počet zařízení, které uživatel může mít ve službě Azure AD. Pokud uživatel dosáhne této kvóty, budou se moct přidávat další zařízení, dokud jeden nebo více existující zařízení se odeberou. Uvozovky zařízení se počítá pro všechna zařízení, které jsou připojené k Azure AD nebo dnes zaregistrovat Azure AD. Výchozí hodnota je **20**.
 
@@ -66,12 +66,12 @@ Tato možnost je k dispozici prostřednictvím produkty, jako je například Azu
 
 Máte dvě možnosti vyhledávání zaregistrovaná a připojené k zařízení:
 
-- **Všechna zařízení** v **spravovat** části **zařízení** okno  
+- **Všechna zařízení** v **spravovat** části **zařízení** stránky  
 
     ![Všechna zařízení](./media/device-management-azure-portal/41.png)
 
 
-- **Zařízení** v **spravovat** části **uživatele** okno
+- **Zařízení** v **spravovat** části **uživatele** stránky
  
     ![Všechna zařízení](./media/device-management-azure-portal/43.png)
 
@@ -170,15 +170,15 @@ Pokud jste správce, můžete zobrazit a zkopírujte tyto klíče nástroje BitL
 ## <a name="audit-logs"></a>Protokoly auditu
 
 
-Aktivity zařízení jsou dostupné přes protokoly aktivity. To zahrnuje aktivity aktivaci služby registrace zařízení nebo uživatele:
+Aktivity zařízení jsou dostupné přes protokoly aktivity. To zahrnuje aktivity spustí službu device registration service a uživatelé:
 
-- Vytváření zařízení a přidání vlastníků/uživatelů na zařízení
+- Vytváření zařízení a přidání vlastníky nebo uživatele v zařízení.
 
 - Změny nastavení zařízení
 
 - Operace zařízení například odstranění nebo aktualizaci zařízení
  
-Vašim vstupním bodem k datům auditování je **protokoly auditu** v **aktivity** části **zařízení* okno.
+Vašim vstupním bodem k datům auditování je **protokoly auditu** v **aktivity** části **zařízení** stránky.
 
 ![Protokoly auditu](./media/device-management-azure-portal/61.png)
 
@@ -202,7 +202,7 @@ Zobrazení seznamu můžete upravit kliknutím na **Sloupce** na panelu nástroj
 
 Abyste omezili zobrazovaná data na úroveň, která vám vyhovuje, můžete filtrovat data přihlašování s využitím následujících polí:
 
-- Catergory
+- Kategorie
 - Typ prostředku aktivity
 - Aktivita
 - Rozsah dat

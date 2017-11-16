@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Průvodce pro vývojáře pro podmíněný přístup k Azure Active Directory
 
@@ -28,7 +28,7 @@ Azure Active Directory (AD) nabízí několik způsobů, jak zabezpečit vaši a
 * Povolení jenom Intune zaregistrovaná zařízení pro přístup k určitým službám
 * Omezení umístění uživatele a IP rozsahy
 
-Další informace o všech možnostech podmíněného přístupu najdete v tématu [podmíněného přístupu na portálu Azure classic](../active-directory-conditional-access.md). 
+Další informace o všech možnostech podmíněného přístupu najdete v tématu [podmíněného přístupu na portálu Azure classic](../active-directory-conditional-access-azure-portal.md). 
 
 V tomto článku se zaměříme na jaké podmíněného přístupu znamená vývojářům vytvářet aplikace pro Azure AD.  Předpokládá znalost [jeden](active-directory-integrating-applications.md) a [víceklientské](active-directory-devhowto-multi-tenant-overview.md) aplikace a [běžných vzorů ověřování](active-directory-authentication-scenarios.md).
 
@@ -48,7 +48,7 @@ Následující scénáře konkrétně vyžadovat kód pro zpracování podmíně
 * Jednostránkové aplikace pomocí ADAL.js
 * Webové aplikace volání prostředku
 
-Podmíněný přístup zásady můžete použít k aplikaci, ale můžete také použít k webovému rozhraní API přistupuje k aplikaci. Další informace o tom, jak nakonfigurovat zásady podmíněného přístupu, najdete v tématu [Začínáme s Azure Active Directory podmíněného přístupu](../active-directory-conditional-access-azuread-connected-apps.md).
+Podmíněný přístup zásady můžete použít k aplikaci, ale můžete také použít k webovému rozhraní API přistupuje k aplikaci. Další informace o tom, jak nakonfigurovat zásady podmíněného přístupu, najdete v tématu [Začínáme s Azure Active Directory podmíněného přístupu](../active-directory-conditional-access-azure-portal-get-started.md).
 
 V závislosti na scénáři můžete použít podnikových zákazníků a kdykoli odebrat zásady podmíněného přístupu.  Pořadí pro vaši aplikaci, aby fungovaly i při použití nové zásady je nutné implementovat zpracování "výzvy". Následující příklady znázorňují výzvy zpracování. 
 
@@ -218,7 +218,7 @@ Můžete vyzkoušet na tento scénář, najdete v našich [ukázka kódu On-beha
 
 ## <a name="see-also"></a>Viz také
 
-* Další informace o možnostech najdete v tématu [podmíněného přístupu ve službě Azure AD](../active-directory-conditional-access.md).
+* Další informace o možnostech najdete v tématu [podmíněného přístupu ve službě Azure AD](../active-directory-conditional-access-azure-portal.md).
 * Ukázky kódu více Azure AD, najdete v části [úložiště Github ukázek kódu](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Další informace o ADAL SDK společnosti a přístup v referenční dokumentaci, najdete v části [příručku knihovny](active-directory-authentication-libraries.md).
 * Další informace o scénářích více klientů naleznete v tématu [jak se přihlásit uživatele pomocí vzoru víceklientské](active-directory-devhowto-multi-tenant-overview.md).

@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e561061cadd88e2c5670e27f2a66ef21002e30b0
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Oznámení vytváření sestav Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Jaké sestavy generovat e-mailových oznámení
@@ -47,5 +47,5 @@ Ano, chcete-li vypnout oznámení související s neobvyklých přihlášení v 
 ## <a name="whats-next"></a>Kam dál
 * Chcete zjistit, jaké sestavy zabezpečení, auditování a aktivity jsou k dispozici? Podívejte se na [zabezpečení Azure AD, auditování a protokolování aktivit](active-directory-view-access-usage-reports.md)
 * [Začínáme se službou Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu](active-directory-add-company-branding.md)
+* [Přidání firemního brandingu na přihlašovací stránku a na stránku přístupového panelu](customize-branding.md)
 

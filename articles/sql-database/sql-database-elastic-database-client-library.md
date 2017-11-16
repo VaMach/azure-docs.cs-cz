@@ -13,18 +13,18 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Vytváření škálovatelných cloudových databází
 Škálování databáze dá snadno dosáhnout pomocí funkcí a nástrojů pro škálovatelná pro databázi SQL Azure. Konkrétně můžete použít **klientské knihovny pro elastické databáze** k vytváření a správě databází Škálováním. Tato funkce vám umožní snadno vyvíjet horizontálně dělené aplikace, které používají stovky – nebo dokonce tisíce – databází Azure SQL. [Elastické úlohy](sql-database-elastic-jobs-powershell.md) lze použít ke snadné správy těchto databází.
 
-Chcete-li nainstalovat knihovny, přejděte na [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Chcete-li nainstalovat knihovny, přejděte na NuGet v [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## <a name="documentation"></a>Dokumentace
 1. [Začínáme s nástroji Elastic Database](sql-database-elastic-scale-get-started.md)
@@ -54,22 +54,32 @@ Chcete-li nainstalovat knihovny, přejděte na [Microsoft.Azure.SqlDatabase.Elas
 
 Obecně platí zákazníků týkající se použití nástroje elastické databáze můžete očekávat, že se při odesílání operace horizontálního oddílu místní oproti mezi horizontálních operace, které mají své vlastní sémantiku získat plnou funkčnost T-SQL.
 
+
+
 ## <a name="next-steps"></a>Další kroky
-Zkuste [ukázkovou aplikaci](sql-database-elastic-scale-get-started.md) která představuje funkce klienta. 
 
-Chcete-li nainstalovat knihovny, přejděte na [klientské knihovny pro elastické databáze](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- [Klientská knihovna pro elastické databáze](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) – na **nainstalovat** knihoven pomocí NuGet.
 
-Pokyny týkající se použití nástroje rozdělení sloučení, najdete v článku [nástroji pro sloučení rozdělení přehled](sql-database-elastic-scale-overview-split-and-merge.md).
+- [Začínáme s nástroje elastické databáze](sql-database-elastic-scale-get-started.md) – a zkuste to **ukázkovou aplikaci** který předvádí funkce klienta.
 
-[Klientská knihovna pro elastické databáze je nyní otevřete z domácích zdrojů!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- [Github, Azure nebo Elastická db nástroje](https://github.com/Azure/elastic-db-tools) -software s otevřeným zdrojem je knihovna.
+    - Klientská knihovna nástroje elastické databáze umožňuje ADO.NET vývojářům vytvářet aplikace, které implementaci a použití vzoru označovaného jako horizontálního dělení databáze ve službě Azure SQL Database.
 
-Použití [elastické dotazy](sql-database-elastic-query-overview.md).
+- [Klientská knihovna pro elastické databáze je nyní otevřete z domácích zdrojů!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - **příspěvku na blogu** o elastické databáze klientské knihovny, s datem 2015/09/09.
 
-Je k dispozici jako software s otevřeným zdrojem na knihovna [Githubu](https://github.com/Azure/elastic-db-tools). 
+- [Přehled služby Azure SQL Database elastické dotazu](sql-database-elastic-query-overview.md) – Pokud chcete používat elastické dotazy.
+
+- [Přesun dat mezi instancemi cloudu databázemi](sql-database-elastic-scale-overview-split-and-merge.md) – pokyny k používání **nástroji pro sloučení rozdělení**.
+
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 

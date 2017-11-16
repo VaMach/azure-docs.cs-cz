@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: c43d6bcd62690fe41599888b06ee9828c8e40fc0
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 12469573eb58d53a4f6a8632c23d716ef6716263
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Postup konfigurace hybridní Azure Active Directory připojené zařízení
 
@@ -298,7 +298,7 @@ Ve výše uvedené, deklarace identity
 
 
 
-Další informace o názvech ověřené domény najdete v tématu [přidání vlastního názvu domény do Azure Active Directory](active-directory-add-domain.md).  
+Další informace o názvech ověřené domény najdete v tématu [přidání vlastního názvu domény do Azure Active Directory](active-directory-domains-add-azure-portal.md).  
 Chcete-li získat seznam ověřených společnosti domény, můžete použít [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) rutiny. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)

@@ -21,14 +21,14 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# Jeden protokol přihlašování SAML
+# <a name="single-sign-on-saml-protocol"></a>Jeden protokol přihlašování SAML
 Tento článek popisuje požadavky na ověření SAML 2.0 a odpovědi, které podporuje Azure Active Directory (Azure AD) pro jednotné přihlašování.
 
 Následující diagram protokolu popisuje pořadí přihlášení. Cloudové služby (service provider) používá k předání vazbu přesměrování protokolu HTTP `AuthnRequest` – element (žádosti o ověření) do služby Azure AD (zprostředkovatele identity). Azure AD poté používá HTTP post vytvoření vazby na vystavení `Response` element ke cloudové službě.
 
 ![Jednotné přihlašování pracovního postupu](media/active-directory-single-sign-on-protocol-reference/active-directory-saml-single-sign-on-workflow.png)
 
-## AuthnRequest
+## <a name="authnrequest"></a>AuthnRequest
 Požádat o ověřování uživatelů, cloudových služeb odeslání `AuthnRequest` element do služby Azure AD. Ukázka SAML 2.0 `AuthnRequest` může vypadat například takto:
 
 ```
@@ -55,7 +55,7 @@ Všechny ostatní `AuthnRequest` atributy, jako jsou souhlasu, cílový, Asserti
 
 Azure AD také ignoruje `Conditions` element v `AuthnRequest`.
 
-### Vystavitel
+### <a name="issuer"></a>Vystavitel
 `Issuer` Element v `AuthnRequest` musí přesně shodovat s jedním z **ServicePrincipalNames** v rámci cloudové služby ve službě Azure AD. Je standardně nastavena **identifikátor ID URI aplikace** , který je určen při registraci aplikace.
 
 Ukázkový SAML výňatek ze, který obsahuje `Issuer` element vypadá takto:
@@ -64,7 +64,7 @@ Ukázkový SAML výňatek ze, který obsahuje `Issuer` element vypadá takto:
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
 ```
 
-### NameIDPolicy
+### <a name="nameidpolicy"></a>NameIDPolicy
 Tento element požadavky konkrétní název formátu ID v odpovědi a je v volitelné `AuthnRequest` elementy odeslaných do služby Azure AD.
 
 Ukázka `NameIdPolicy` element vypadá takto:
@@ -82,21 +82,21 @@ Pokud `NameIDPolicy` je zadáno, můžete zahrnout jeho volitelné `Format` atri
 
 Azure AD ignoruje `AllowCreate` atribut.
 
-### RequestAuthnContext
+### <a name="requestauthncontext"></a>RequestAuthnContext
 `RequestedAuthnContext` Element určuje metody požadované ověřování. Zadání je volitelné v `AuthnRequest` elementy odeslaných do služby Azure AD. Azure AD podporuje pouze jeden `AuthnContextClassRef` hodnota: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
-### Obor
+### <a name="scoping"></a>Obor
 `Scoping` Element, který obsahuje seznam zprostředkovatelů identity, je v volitelné `AuthnRequest` elementy odeslaných do služby Azure AD.
 
 Pokud je k dispozici, nezahrnujte `ProxyCount` atribut `IDPListOption` nebo `RequesterID` elementu, jako nejsou podporovány.
 
-### Podpis
+### <a name="signature"></a>Podpis
 Nezahrnovat `Signature` element v `AuthnRequest` elementy, protože Azure AD nepodporují podepsané žádosti o ověření.
 
-### Předmět
+### <a name="subject"></a>Předmět
 Azure AD ignoruje `Subject` element `AuthnRequest` elementy.
 
-## Odpověď
+## <a name="response"></a>Odpověď
 Pokud požadovaný přihlašování dokončí úspěšně, Azure AD odešle odpověď do cloudové služby. Ukázková odpověď pro úspěšný pokus přihlašování vypadá takto:
 
 ```
@@ -142,13 +142,13 @@ Pokud požadovaný přihlašování dokončí úspěšně, Azure AD odešle odpo
 </samlp:Response>
 ```
 
-### Odpověď
+### <a name="response"></a>Odpověď
 `Response` Element zahrnuje výsledek požadavek ověřování. Azure AD Nastaví `ID`, `Version` a `IssueInstant` hodnoty ve `Response` elementu. Nastaví také následující atributy:
 
 * `Destination`: Při přihlašování dokončí úspěšně, je nastavena `RedirectUri` poskytovatele služeb (Cloudová služba).
 * `InResponseTo`: Je nastavena `ID` atribut `AuthnRequest` element, který iniciuje odpovědi.
 
-### Vystavitel
+### <a name="issuer"></a>Vystavitel
 Azure AD Nastaví `Issuer` element `https://login.microsoftonline.com/<TenantIDGUID>/` kde <TenantIDGUID> je klientské ID klienta Azure AD.
 
 Ukázková odpověď s elementem vystavitele může například vypadat například takto:
@@ -157,7 +157,7 @@ Ukázková odpověď s elementem vystavitele může například vypadat napřík
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### Status
+### <a name="status"></a>Status
 `Status` Vyjadřuje prvek úspěšná nebo neúspěšná přihlášení. Obsahuje `StatusCode` element, který obsahuje kód nebo sadu vnořené kódy, které představují stav žádosti. Zahrnuje také `StatusMessage` element, který obsahuje vlastní chybové zprávy, které jsou generovány během procesu přihlášení.
 
 <!-- TODO: Add a authentication protocol error reference -->
@@ -177,17 +177,17 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
   </samlp:Status>
 ```
 
-### Kontrolní výraz
+### <a name="assertion"></a>Kontrolní výraz
 Kromě `ID`, `IssueInstant` a `Version`, Azure AD Nastaví následující prvky v `Assertion` element odpovědi.
 
-#### Vystavitel
+#### <a name="issuer"></a>Vystavitel
 To je nastaven na `https://sts.windows.net/<TenantIDGUID>/`kde <TenantIDGUID> je klientské ID klienta Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-#### Podpis
+#### <a name="signature"></a>Podpis
 Azure AD podepisuje assertion v reakci na úspěšné přihlašování. `Signature` Element obsahuje digitální podpis, cloudové služby můžete použít k ověření zdroji Ověřte integritu kontrolní výraz.
 
 Pokud chcete vygenerovat tento digitální podpis, Azure AD používá podpisový klíč v `IDPSSODescriptor` element jeho dokument metadat.
@@ -198,7 +198,7 @@ Pokud chcete vygenerovat tento digitální podpis, Azure AD používá podpisov�
     </ds:Signature>
 ```
 
-#### Předmět
+#### <a name="subject"></a>Předmět
 Toto nastavení určuje objekt, který je předmětem příkazy v kontrolní výraz. Obsahuje `NameID` element, který představuje ověřeného uživatele. `NameID` Hodnota je cílový identifikátor, který je směrované jenom na poskytovatele služeb, která je cílová skupina pro daný token. Je trvalé – se dají odvolávat, ale nikdy opětovně přiřazován. Je také neprůhledné, v, aby neodhalí nic o uživateli a nelze použít jako identifikátor pro dotazy atributů.
 
 `Method` Atribut `SubjectConfirmation` element je vždycky nastavený na `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
@@ -212,7 +212,7 @@ Toto nastavení určuje objekt, který je předmětem příkazy v kontrolní vý
 </Subject>
 ```
 
-#### Podmínky
+#### <a name="conditions"></a>Podmínky
 Tento element určuje podmínky, které definují podmínky použití kontrolních výrazů SAML.
 
 ```
@@ -228,7 +228,7 @@ Tento element určuje podmínky, které definují podmínky použití kontrolní
 * Hodnota `NotBefore` atribut je stejná na nebo mírně (méně než druhý) později než hodnota `IssueInstant` atribut `Assertion` elementu. Azure AD neanalyzuje žádné časový rozdíl mezi samostatně a cloudové služby (service provider) a tentokrát nepřidá všechny vyrovnávací paměti.
 * Hodnota `NotOnOrAfter` atribut je 70 minut později než hodnota `NotBefore` atribut.
 
-#### Cílová skupina
+#### <a name="audience"></a>Cílová skupina
 Tato položka obsahuje identifikátor URI identifikující cílová skupina. Azure AD Nastaví hodnotu tohoto elementu na hodnotu `Issuer` element `AuthnRequest` která inicializována přihlášení. K vyhodnocení `Audience` hodnoty, použijte hodnotu `App ID URI` zadaný během registrace aplikace.
 
 ```
@@ -239,7 +239,7 @@ Tato položka obsahuje identifikátor URI identifikující cílová skupina. Azu
 
 Podobně jako `Issuer` hodnota, `Audience` hodnota musí odpovídat přesně jeden z hlavních názvů služby, které představuje cloudové služby ve službě Azure AD. Ale pokud hodnotu `Issuer` element není hodnota identifikátoru URI, `Audience` je hodnota v odpovědi `Issuer` hodnotu s předponou `spn:`.
 
-#### AttributeStatement
+#### <a name="attributestatement"></a>AttributeStatement
 Tato položka obsahuje deklarace identity o předmět nebo uživatele. Následující výpis obsahuje ukázku `AttributeStatement` elementu. Se třemi tečkami označuje, že element může obsahovat více atributy a hodnoty atributů.
 
 ```
@@ -257,7 +257,7 @@ Tato položka obsahuje deklarace identity o předmět nebo uživatele. Následuj
 * **Název deklarace identity** : hodnota `Name` atribut (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`), jako je hlavní název uživatele ověřeného uživatele, `testuser@managedtenant.com`.
 * **Deklarace identity které** : hodnota `ObjectIdentifier` atribut (`http://schemas.microsoft.com/identity/claims/objectidentifier`) je `ObjectId` objektu adresáře, který představuje ověřeného uživatele ve službě Azure AD. `ObjectId`je nezměnitelná, globálně jedinečný a znovu používat bezpečné identifikátor ověřeného uživatele.
 
-#### AuthnStatement
+#### <a name="authnstatement"></a>AuthnStatement
 Tento element vyhodnotí, že subjektu assertion byla ověřena konkrétní prostředky v určitou dobu.
 
 * `AuthnInstant` Atribut určuje dobu, kdy uživatel ověřený službou Azure AD.

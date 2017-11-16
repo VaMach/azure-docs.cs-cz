@@ -20,14 +20,14 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# Azure AD B2C: Protokoly pro ověřování
+# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protokoly pro ověřování
 Azure Active Directory B2C (Azure AD B2C) poskytuje identitu jako služba pro aplikací díky podpoře dvou standardních protokolů: OpenID Connect a OAuth 2.0. Služba je kompatibilní se standardy, ale žádné dvě implementace těchto protokolů můžete mít jemně lišit. 
 
 Informace v této příručce je užitečné, pokud napíšete kód přímo odeslání a zpracování žádostí HTTP, nikoli pomocí knihovny otevřeným zdrojem. Doporučujeme, abyste si přečetli tuto stránku před podrobně podrobnosti o jednotlivých určitý protokol. Ale pokud jste již obeznámeni s Azure AD B2C, můžete přejít rovnou na [referenční příručky protokol](#protocols).
 
 <!-- TODO: Need link to libraries above -->
 
-## Základy
+## <a name="the-basics"></a>Základy
 Každá aplikace používající Azure AD B2C musí být zaregistrovaný ve svém adresáři B2C v [portál Azure](https://portal.azure.com). Proces registrace aplikace shromáždí a přiřadí vaší aplikaci několik hodnot:
 
 * **ID aplikace**, které jednoznačně identifikuje vaši aplikaci.
@@ -53,14 +53,14 @@ Téměř všechny toky OAuth a OpenID Connect čtyři strany podílejí na excha
 
 * **Server prostředků** je, kde se nachází prostředků nebo data. Důvěřovat serveru ověřování k bezpečně ověřování a autorizaci klienta OAuth. Používá také přístupových tokenů nosiče k zajištění, že lze udělit přístup k prostředku.
 
-## Zásady
+## <a name="policies"></a>Zásady
 Pravděpodobně Azure AD B2C zásady jsou nejdůležitější funkce služby. Azure AD B2C rozšiřuje standardní protokoly OAuth 2.0 a OpenID Connect zavedením zásad. Tyto rutiny umožňují Azure AD B2C provést mnohem víc než jednoduché ověřování a autorizace. 
 
 Zásady plně popisují činnosti identity uživatelů, včetně registrace, přihlášení a úpravy profilu. Zásady můžete být definován v správu uživatelského rozhraní. Mohou být provedeny s použitím parametru speciální dotazu v žádosti o ověření protokolu HTTP. 
 
 Zásady nejsou standardní funkce OAuth 2.0 a OpenID Connect, takže byste měli vzít je doba, která je pochopit. Další informace najdete v tématu [Azure AD B2C zásad referenční příručka](active-directory-b2c-reference-policies.md).
 
-## Tokeny
+## <a name="tokens"></a>Tokeny
 Azure AD B2C provádění OAuth 2.0 a OpenID Connect díky rozsáhlé používání tokenů nosiče, včetně nosné tokeny, které jsou reprezentovány jako webové tokeny JSON (Jwt). Je token nosiče tokenu lightweight zabezpečení, který uděluje přístup "nosiče" k chráněnému prostředku.
 
 Nosiče je jakékoli strany, který může být token. Azure AD musí je nejdřív ověřit a stranou předtím, než mohl přijímat token nosiče. Ale požadované kroky nebudou přijata zabezpečit token v přenosu a úložiště, můžete zachytit a použít nezamýšleným strana.
@@ -73,7 +73,7 @@ Důležité informace o dalších nosiče tokenu zabezpečení, najdete v část
 
 Další informace o různých typech tokenů, které se používají v Azure AD B2C jsou k dispozici v [odkaz tokenu Azure AD](active-directory-b2c-reference-tokens.md).
 
-## Protokoly
+## <a name="protocols"></a>Protokoly
 Až budete připraveni ke kontrole některých požadavků příklad, můžete spustit některý z následujících kurzů. Každý scénář konkrétní ověřování odpovídá. Pokud potřebujete pomoc při rozhodování, které tok je pro vás správný, podívejte se na [s typy aplikací můžete vytvořit pomocí Azure AD B2C](active-directory-b2c-apps.md).
 
 * [Vytvářet aplikace, mobilní a nativní pomocí standardu OAuth 2.0](active-directory-b2c-reference-oauth-code.md)

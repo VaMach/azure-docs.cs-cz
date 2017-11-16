@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c20aca4202319154b01d6398570f745636120f49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Různé role pro správu v Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -29,7 +29,7 @@ Můžete přiřadit uživatele ve vaší organizaci pro různé role pro správu
 > [!IMPORTANT]
 > Společnost Microsoft doporučuje při správě služby Azure AD používat [centrum pro správu Azure AD](https://aad.portal.azure.com) na webu Azure Portal namísto používání portálu Azure Classic, na který odkazuje tento článek.
 
-Můžete aktualizovat globální správce, které jsou uživatelé **trvale** přiřadit do rolí ve službě Azure AD, například pomocí rutin prostředí PowerShell `Add-MsolRoleMember` a `Remove-MsolRoleMember`, nebo prostřednictvím portálu classic, jak je popsáno v [přiřazení rolí správce v Azure Active Directory](active-directory-assign-admin-roles.md).
+Můžete aktualizovat globální správce, které jsou uživatelé **trvale** přiřadit do rolí ve službě Azure AD, například pomocí rutin prostředí PowerShell `Add-MsolRoleMember` a `Remove-MsolRoleMember`, nebo prostřednictvím portálu classic, jak je popsáno v [přiřazení rolí správce v Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) spravuje zásady pro privilegovaný přístup pro uživatele ve službě Azure AD. PIM přiřadí uživatelům jednu nebo více rolí ve službě Azure AD, a můžete přiřadit někoho, aby se trvale, v roli, ani vhodné k roli. Když uživatel trvale přiřazená k roli nebo aktivuje přiřazení vhodné role, pak můžou spravovat služby Azure Active Directory, Office 365 a dalších aplikací s oprávněními přiřazené k jejich rolí.
 
@@ -53,7 +53,7 @@ Privileged Identity Management umožňuje přiřadit uživatele k běžné role 
 * **Správce služby SharePoint** má přístup správce ke službě SharePoint Online přes do centra pro správu služby SharePoint Online a můžete provádět skoro všechny úlohy ve službě SharePoint Online.
 * **Skype pro firmy správce** má přístup správce ke Skypu pro firmy prostřednictvím Skype pro firmy centra pro správu a můžete provádět skoro všechny úlohy v Skype for Business Online.
 
-Přečtěte si tyto články další podrobnosti o [přiřazení rolí správce ve službě Azure AD](active-directory-assign-admin-roles.md) a [přiřazení rolí správců v Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Přečtěte si tyto články další podrobnosti o [přiřazení rolí správce ve službě Azure AD](active-directory-assign-admin-roles-azure-portal.md) a [přiřazení rolí správců v Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

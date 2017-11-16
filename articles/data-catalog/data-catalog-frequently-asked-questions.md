@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 7aa0f9b292a98c6137ecf4ae957b3cb86062f250
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d1fd6b0bd47188570553e0e3ad1de527a35e98f6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Nejčastější dotazy k Azure Data Catalog
 Tento článek obsahuje odpovědi na nejčastější dotazy týkající se služby Azure Data Catalog.
@@ -53,11 +53,13 @@ Bezplatná edice Data Catalog je omezený na 5000 registrovaných datových pros
 
 Na Data Catalog, Standard Edition podporuje až 100 000 registrované datové prostředky.
 
+Jakýkoli objekt zaregistrován v katalogu Data Catalog, například tabulek, zobrazení, soubory a sestavy, počty jako datový prostředek.
+
 ## <a name="what-are-its-supported-data-source-and-asset-types"></a>Jaké jsou jeho podporované datové typy zdroje a asset?
 Seznam aktuálně podporované zdroje dat, naleznete v části [DSR katalogu dat](data-catalog-dsr.md).
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Jak lze požádat o podporu pro jiný zdroj dat?
-Odeslání žádosti o funkce a další zpětnou vazbu, přejděte na [fórum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Odeslání žádosti o funkce a další zpětnou vazbu, přejděte na [na fórech zpětnou vazbu o Azure Data Catalog](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Jak můžu začít pracovat s katalogem Data Catalog?
 Nejlepší způsob, jak začít pracovat se přechodem na [Začínáme s katalogem Data Catalog](data-catalog-get-started.md). Tento článek je začátku do konce přehled funkcí ve službě.
@@ -65,7 +67,7 @@ Nejlepší způsob, jak začít pracovat se přechodem na [Začínáme s katalog
 ## <a name="how-do-i-register-my-data"></a>Jak se zaregistrovat svá data?
 Registrace vaše data v katalogu Data Catalog:
 1. Na portálu Azure Data Catalog v **publikovat** oblasti, spusťte nástroj pro registraci Azure Data Catalog. 
-2. V katalogu Data Catalog publikování aplikaci Přihlaste se pomocí stejných přihlašovacích údajů, které umožňují přístup k portálu katalogu Data Catalog.
+2. V nástroj registrace zdroje dat katalogu Data Catalog Přihlaste se pomocí stejných přihlašovacích údajů, které umožňují přístup k portálu katalogu Data Catalog.
 3. Vyberte zdroj dat a specifické prostředky, které chcete zaregistrovat.
 
 ## <a name="what-properties-does-it-extract-for-data-assets-that-are-registered"></a>Jaké vlastnosti ho extrahování datových prostředků, které jsou registrovány?
@@ -84,7 +86,7 @@ Konkrétní vlastnosti, které se liší od zdroj dat pro zdroj dat, ale obecně
 >
 
 > [!NOTE]
-> Zdroje dat, jako je například SQL Server Analysis Services, které mají první třídy **popis** vlastnost katalogu dat publikování aplikace extrahuje hodnota této vlastnosti. Pro relační databáze systému SQL Server, které nemají první třídy **popis** vlastnost katalogu dat publikování aplikace extrahuje hodnotu z **ms_description** rozšířené vlastnosti pro objekty a sloupců. Další informace najdete v tématu [pomocí rozšířené vlastnosti pro databázové objekty](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Zdroje dat, jako je například SQL Server Analysis Services, které mají první třídy **popis** vlastnost, nástroj registrace zdroje dat katalogu Data Catalog extrahuje hodnota této vlastnosti. Pro relační databáze systému SQL Server, které nemají první třídy **popis** vlastnost nástroj registrace zdroje dat katalogu Data Catalog extrahuje hodnotu z **ms_description** rozšířené vlastnosti pro objekty a sloupců. Další informace najdete v tématu [pomocí rozšířené vlastnosti pro databázové objekty](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 
@@ -94,7 +96,7 @@ Po registraci prostředky pomocí katalogu Data Catalog, může být po dobu 5 a
 ## <a name="how-do-i-annotate-and-enrich-the-metadata-for-my-registered-data-assets"></a>Jak opatřit poznámkami a zlepšit komunikaci metadata pro moje registrované datové prostředky?
 Nejjednodušší způsob, jak poskytnout metadata pro registrovaných aktiv je vyberte asset na portálu katalogu Data Catalog a pak zadejte hodnoty v okně Vlastnosti nebo schéma pro vybraný objekt.
 
-Některé metadata, například odborníky a značky, můžete zadat taky během procesu registrace. Hodnoty, které jsou uvedeny v publikování služby katalogu dat platí pro všechny prostředky registrované v daném čase. Chcete-li zobrazit objekty, nedávno registrovaný na portálu pro další poznámky, vyberte **zobrazit portál** tlačítko na poslední obrazovka katalog dat publikování aplikace.
+Některé metadata, například odborníky a značky, můžete zadat taky během procesu registrace. Hodnoty, které jsou uvedeny v publikování služby katalogu dat platí pro všechny prostředky registrované v daném čase. Chcete-li zobrazit objekty, nedávno registrovaný na portálu pro další poznámky, vyberte **zobrazit portál** tlačítko na poslední obrazovka nástroj registrace zdroje dat katalogu Data Catalog.
 
 ## <a name="how-do-i-delete-my-registered-data-objects"></a>Jak lze odstranit mé registrované datové objekty?
 Při odstraňování objektu z katalogu Data Catalog výběrem objektu v portálu a kliknutím **odstranit** tlačítko. Odebrání objektu odebere jeho metadata z katalogu Data Catalog, ale nemá vliv na podkladový zdroj dat.
@@ -106,7 +108,7 @@ Odborník je osoba, která má informovanému perspektivy o datový objekt. Obje
 Chcete odesílat zprávy o problémech, sdílet informace a ptají, přejděte na [fórum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Funguje s jiným zdrojem dat, která mám zájem katalogu?
-Aktivně pracujeme na přidání více zdrojů dat do datového katalogu. Pokud chcete najdete v části konkrétní zdroj dat. podporována, ho navrhne (nebo hlasové podporu, pokud již byla navrhované) přechodem na [fórum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Aktivně pracujeme na přidání více zdrojů dat do datového katalogu. Pokud chcete najdete v části konkrétní zdroj dat. podporována, ho navrhne (nebo hlasové podporu, pokud již byla navrhované) přechodem na [na fórech zpětnou vazbu o Azure Data Catalog](https://feedback.azure.com/forums/906052-data-catalog).
 
 ## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Azure Data Catalog vztah do katalogu dat Power BI pro Office 365?
 Azure Data Catalog si můžete představit jako vývojem katalogu Data v Power BI. Od verze pružiny 2017 Azure Data Catalog slouží k povolení sdílení a zjišťování dotazy v aplikaci Excel 2016 a Power Query pro Excel. Možnosti katalogu data Catalog v aplikaci Excel jsou k dispozici uživatelé s licencí pro Power BI Pro.
@@ -114,14 +116,18 @@ Azure Data Catalog si můžete představit jako vývojem katalogu Data v Power B
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Uvedete, jaká oprávnění je nutné zaregistrovat prostředky s katalogem Data Catalog?
 Chcete-li spustit nástroj registrace katalogu Data Catalog, potřebujete oprávnění ve zdroji dat, která umožňuje číst metadata ze zdroje. Zahrnout také náhled, musí mít oprávnění, které vám umožní pro čtení dat z objektů registrována.
 
+Data Catalog také umožňuje správcům katalogu omezit, kteří uživatelé a skupiny můžete přidat metadata do katalogu. Další informace najdete v tématu [jak zabezpečit přístup do katalogu data catalog a datových prostředků](data-catalog-how-to-secure-catalog.md).
+
 ## <a name="will-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>Data Catalog budou dostupné pro místní nasazení také?
 Data Catalog je Cloudová služba, které může fungovat pro cloudové a místní zdroje dat k poskytování řešení hybridní zdroj dat zjišťování. Aktuálně neexistují žádné plány pro verzi služby Data Catalog, která běží na místě.
 
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Můžete rozbalit další nebo bohatší metadat ze zdroje dat, které mohu zaregistrovat?
-Pracujeme aktivně rozšířit možnosti katalogu Data Catalog. Pokud chcete získat další metadata extrahovaná ze zdroje dat během registrace, navrhnout ho (nebo hlas pro něj, pokud již byla navrhované) v [fórum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). V budoucnu jsme vám umožní přidat nové typy zdrojů dat prostřednictvím rozhraní API rozšíření třetích stran.
+Pracujeme aktivně rozšířit možnosti katalogu Data Catalog. Pokud chcete získat další metadata extrahovaná ze zdroje dat během registrace, navrhnout ho (nebo hlas pro něj, pokud již byla navrhované) v [na fórech zpětnou vazbu o Azure Data Catalog](https://feedback.azure.com/forums/906052-data-catalog). 
+
+Pokud byste chtěli zahrnovat sloupce nebo schématu metadata, verze Preview nebo profily data pro zdroje dat, které není tato metadata extrahovali podle nástroj registrace zdroje dat, můžete přidat tato metadata rozhraní API katalogu Data Catalog. Další informace najdete v tématu [Azure Data Catalog REST API](https://docs.microsoft.com/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Jak se tak, aby je můžete zjišťovat pouze určitým uživatelům omezit viditelnost registrované datové prostředky?
-Vyberte datové prostředky v katalogu dat a klikněte **převzít vlastnictví** tlačítko. Vlastníci datových prostředcích v katalogu Data Catalog můžete změnit nastavení viditelnosti buď umožnit všem uživatelům zjišťovat prostředky ve vlastnictví nebo omezit viditelnost konkrétním uživatelům.
+Vyberte datové prostředky v katalogu dat a klikněte **převzít vlastnictví** tlačítko. Vlastníci datových prostředcích v katalogu Data Catalog můžete změnit nastavení viditelnosti buď umožnit všem uživatelům zjišťovat prostředky ve vlastnictví nebo omezit viditelnost konkrétním uživatelům. Další informace najdete v tématu [spravovat datové prostředky v Azure Data Catalog](data-catalog-how-to-manage.md).
 
 ## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Jak se tak, aby změny ve zdroji dat se projeví v katalogu aktualizovat registraci pro datový prostředek?
 Pokud chcete aktualizovat metadata pro datové prostředky, které jsou již zaregistrovány v katalogu, jednoduše znovu zaregistrujte zdroje dat, který obsahuje prostředky. Všechny změny ve zdroji dat, jako je sloupce přidávání nebo odebírání z tabulky a zobrazení, jsou aktualizovány v katalogu, ale žádné poznámky poskytované uživatele zachovány.

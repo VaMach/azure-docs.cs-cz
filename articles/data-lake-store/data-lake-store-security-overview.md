@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: e72dd7e84ce3961274cf312649cc679abc576aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b71c7e7f1ea58a273beb58717102522ad0f8c4a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Zabezpečení v Azure Data Lake Store
 Mnoho podniků jsou využívat výhod analýzy velkých objemů dat podnikových statistik pomáhá jim inteligentní rozhodnutí. Organizace může mít složitý a regulovaná prostředí s roste počet různých uživatelů. Je důležité pro organizace a ujistěte se, bezpečněji, uložení kritickými podnikovými daty s správné úrovně udělení přístupu k jednotlivým uživatelům. Azure Data Lake Store je navržená tak, abyste splňovat tyto požadavky na zabezpečení. V tomto článku se dozvíte o funkcích zabezpečení Data Lake Store, včetně:
@@ -65,7 +65,7 @@ Pokyny najdete v tématu [přiřadit uživatele nebo skupiny zabezpečení účt
 ### <a name="using-acls-for-operations-on-file-systems"></a>Pomocí seznamů řízení přístupu pro operace v systémech souborů.
 Data Lake Store je systém souborů hierarchické jako Hadoop Distributed File System (HDFS) a podporuje [seznamy ACL POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Ovládá pro čtení (r), zápis (w) a spouštět (oprávnění k prostředkům pro roli vlastníka pro vlastníky skupiny a pro ostatní uživatele a skupiny x). V Data Lake Store Public Preview (aktuální verze) jde seznamy řízení přístupu zapnout u kořenové složky, podsložek a jednotlivých souborů. Další informace o fungování seznamů řízení přístupu v souvislosti s Data Lake Storem najdete v tématu [Řízení přístupu v Data Lake Storu](data-lake-store-access-control.md).
 
-Doporučujeme, abyste definovat seznamy ACL pro více uživatelů pomocí [skupiny zabezpečení](../active-directory/active-directory-accessmanagement-manage-groups.md). Přidat uživatele do skupiny zabezpečení a pak mu přiřaďte seznamy ACL pro soubor nebo složku do této skupiny zabezpečení. To je užitečné, pokud chcete zadat vlastní přístup, protože jste omezeni na přidání maximálně devět položek pro vlastní přístup. Další informace o tom, jak lépe zabezpečit data uložená v Data Lake Store pomocí skupin zabezpečení služby Azure Active Directory najdete v tématu [přiřadit uživatele nebo skupiny zabezpečení jako seznamy řízení přístupu k systému souborů Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
+Doporučujeme, abyste definovat seznamy ACL pro více uživatelů pomocí [skupiny zabezpečení](../active-directory/active-directory-groups-create-azure-portal.md). Přidat uživatele do skupiny zabezpečení a pak mu přiřaďte seznamy ACL pro soubor nebo složku do této skupiny zabezpečení. To je užitečné, pokud chcete zadat vlastní přístup, protože jste omezeni na přidání maximálně devět položek pro vlastní přístup. Další informace o tom, jak lépe zabezpečit data uložená v Data Lake Store pomocí skupin zabezpečení služby Azure Active Directory najdete v tématu [přiřadit uživatele nebo skupiny zabezpečení jako seznamy řízení přístupu k systému souborů Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 
 ![Standardní a vlastní přístup](./media/data-lake-store-security-overview/adl.acl.2.png "standardní a vlastní přístup")
 

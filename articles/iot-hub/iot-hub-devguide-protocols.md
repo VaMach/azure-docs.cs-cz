@@ -20,7 +20,7 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# Reference – volba komunikační protokol
+# <a name="reference---choose-a-communication-protocol"></a>Reference – volba komunikační protokol
 
 IoT Hub umožňuje zařízení používat následující protokoly pro komunikaci straně zařízení:
 
@@ -51,7 +51,7 @@ Když zvolíte váš protokol pro komunikaci straně zařízení, zvažte násle
 > [!WARNING]
 > Při použití protokolu HTTPS, musí každé zařízení dotazování pro zprávy typu cloud zařízení, každých 25 minut nebo déle. Během vývoje, je přijatelné pro cyklické dotazování častěji, než každých 25 minut.
 
-## Čísla portů
+## <a name="port-numbers"></a>Čísla portů
 
 Zařízení může komunikovat s centrem IoT v Azure pomocí různých protokolů. Obvykle volba protokol vycházejí z konkrétní požadavky na řešení. Následující tabulka uvádí Odchozí porty, které musí být otevřené pro zařízení a mohli používat konkrétní protokolu:
 
@@ -66,7 +66,7 @@ Zařízení může komunikovat s centrem IoT v Azure pomocí různých protokol�
 Po vytvoření služby IoT hub v oblasti Azure IoT hub uchovává stejnou IP adresu po dobu jeho existence tohoto centra IoT. Ale pokud Microsoft přesune na jednotky škálování různých udržovat kvalitu služby IoT hub, bude mu přiřazen novou IP adresu.
 
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Další informace o tom, jak IoT Hub implementuje protokol MQTT najdete v tématu [komunikace službou IoT hub pomocí protokolu MQTT][lnk-mqtt-support].
 

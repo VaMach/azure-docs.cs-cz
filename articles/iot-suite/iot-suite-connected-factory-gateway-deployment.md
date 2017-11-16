@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e99a7bc34ac5ed060100e5f5032513bf4b18b2eb
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: f6a69ecbeb09dc042eff7c1f95ee518e701b0507
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Nasazení brány v systému Windows nebo Linux připojené objekt pro vytváření předkonfigurovaného řešení
 
@@ -44,7 +44,7 @@ Kroky v tomto článku ukazují, jak nasadit bránu pomocí Docker na buď [Wind
 ## <a name="windows-deployment"></a>Nasazení systému Windows
 
 > [!NOTE]
-> Pokud ještě nemáte zařízení brány, Microsoft doporučuje že zakoupit komerční brány na jednom z našich partnerů. Přejděte [katalogu zařízení Azure IoT] seznam zařízení brány, které jsou kompatibilní s řešením připojené objekt pro vytváření. Postupujte podle pokynů, které jsou součástí zařízení nastavit bránu. Alternativně použijte následující pokyny k ruční nastavení jedné z vašich bran existující.
+> Pokud ještě nemáte zařízení brány, Microsoft doporučuje že zakoupit komerční brány jednoho z jeho partnerů. Přejděte [katalogu zařízení Azure IoT] seznam zařízení brány, které jsou kompatibilní s řešením připojené objekt pro vytváření. Postupujte podle pokynů, které jsou součástí zařízení nastavit bránu. Alternativně použijte následující pokyny k ruční nastavení jedné z vašich bran existující.
 
 ### <a name="install-docker"></a>Nainstalujte Docker
 
@@ -103,7 +103,7 @@ Můžete také provést tento krok po instalaci dockerem **nastavení** nabídky
 ## <a name="linux-deployment"></a>Linux nasazení
 
 > [!NOTE]
-> Pokud ještě nemáte zařízení brány, Microsoft doporučuje že zakoupit komerční brány na jednom z našich partnerů. Přejděte [katalogu zařízení Azure IoT] seznam zařízení brány, které jsou kompatibilní s řešením připojené objekt pro vytváření. Postupujte podle pokynů, které jsou součástí zařízení nastavit bránu. Alternativně použijte následující pokyny k ruční nastavení jedné z vašich bran existující.
+> Pokud ještě nemáte zařízení brány, Microsoft doporučuje že zakoupit komerční brány jednoho z jeho partnerů. Přejděte [katalogu zařízení Azure IoT] seznam zařízení brány, které jsou kompatibilní s řešením připojené objekt pro vytváření. Postupujte podle pokynů, které jsou součástí zařízení nastavit bránu. Alternativně použijte následující pokyny k ruční nastavení jedné z vašich bran existující.
 
 [Nainstalujte Docker] na vaše zařízení brány Linux.
 

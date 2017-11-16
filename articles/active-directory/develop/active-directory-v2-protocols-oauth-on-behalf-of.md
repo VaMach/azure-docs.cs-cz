@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory v2.0 a toku OAuth 2.0 On-Behalf-Of
+# <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 a toku OAuth 2.0 On-Behalf-Of
 On-Behalf-Of OAuth 2.0, které toku slouží případ použití, kde aplikace volá služby nebo webové rozhraní API, který se pak musí volat jiné služby nebo webové rozhraní API. Cílem je potřebný k šíření identity delegované uživatele a oprávnění pomocí řetězce požadavků. Pro službu střední vrstvy provést ověřené žádosti o připojení ke službě podřízené potřebuje přístupový token zabezpečení ze služby Azure Active Directory (Azure AD) jménem uživatele.
 
 > [!NOTE]
@@ -29,7 +29,7 @@ On-Behalf-Of OAuth 2.0, které toku slouží případ použití, kde aplikace vo
 >
 >
 
-## Diagram protokolu
+## <a name="protocol-diagram"></a>Diagram protokolu
 Předpokládejme, že má uživatel ověřen na aplikace pomocí [tok poskytování autorizačních kódů OAuth 2.0](active-directory-v2-protocols-oauth-code.md). Aplikace v tomto okamžiku má přístupový token (token A) s deklarací identity uživatele a souhlasu pro přístup k střední vrstvu webového rozhraní API (rozhraní API A). Rozhraní API A potřebuje teď, aby požadavek na ověřeného k podřízené webové rozhraní API (API B).
 
 Kroky, které následují tvoří tok On-Behalf-Of a jsou vysvětleny za pomoci následující diagram.
@@ -47,7 +47,7 @@ Kroky, které následují tvoří tok On-Behalf-Of a jsou vysvětleny za pomoci 
 > V tomto scénáři má služby střední vrstvy získat souhlas uživatele pro přístup k rozhraní API pro příjem dat žádná interakce s uživatelem. Možnost udělit přístup k rozhraní API pro příjem dat, se proto zobrazí předem, jako součást souhlasu krok při ověřování.
 >
 
-## Služba service žádosti o token přístupu
+## <a name="service-to-service-access-token-request"></a>Služba service žádosti o token přístupu
 Chcete-li požádat o token přístupu, provést HTTP POST konkrétního klienta koncového bodu v2.0 Azure AD s následujícími parametry.
 
 ```
@@ -56,7 +56,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 Jsou dva případy, v závislosti na tom, zda klientská aplikace rozhodne zabezpečeny sdílený tajný klíč nebo certifikát.
 
-### Nejprve případ: žádosti o token přístupu s sdílený tajný klíč
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Nejprve případ: žádosti o token přístupu s sdílený tajný klíč
 Pokud používáte sdílený tajný klíč, žádosti o token přístupu service-to-service obsahuje následující parametry:
 
 | Parametr |  | Popis |
@@ -68,7 +68,7 @@ Pokud používáte sdílený tajný klíč, žádosti o token přístupu service
 | Obor |Požadované | Mezeru oddělený seznam obory pro požadavek tokenu. Další informace najdete v tématu [obory](active-directory-v2-scopes.md).|
 | requested_token_use |Požadované | Určuje, jak by měl být požadavek zpracovat. Hodnota tok On-Behalf-Of, musí být **on_behalf_of**. |
 
-#### Příklad
+#### <a name="example"></a>Příklad
 V následujícím příspěvku HTTP požadavků přístupový token s `user.read` obor pro https://graph.microsoft.com webové rozhraní API.
 
 ```
@@ -86,7 +86,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &requested_token_use=on_behalf_of
 ```
 
-### Druhé případ: tokenu žádosti o přístup pomocí certifikátu
+### <a name="second-case-access-token-request-with-a-certificate"></a>Druhé případ: tokenu žádosti o přístup pomocí certifikátu
 Žádosti o token service-to-service přístup pomocí certifikátu obsahuje následující parametry:
 
 | Parametr |  | Popis |
@@ -101,7 +101,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 Všimněte si, že parametry jsou téměř stejné jako v případě požadavku pomocí sdílený tajný klíč, s tím rozdílem, že parametr tajný klíč client_secret je nahrazena dva parametry: client_assertion_type a client_assertion.
 
-#### Příklad
+#### <a name="example"></a>Příklad
 V následujícím příspěvku HTTP požadavků přístupový token s `user.read` obor pro https://graph.microsoft.com webové rozhraní API s certifikátem.
 
 ```
@@ -120,7 +120,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read
 ```
 
-## Služba odpovědi tokenu přístupu služby
+## <a name="service-to-service-access-token-response"></a>Služba odpovědi tokenu přístupu služby
 Úspěšná odpověď je odpověď JSON OAuth 2.0 s následujícími parametry.
 
 | Parametr | Popis |
@@ -131,7 +131,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | access_token |Požadovaný přístupový token. Volání služby můžete použít tento token k ověření přijímající služby. |
 | refresh_token |Token obnovení pro požadovaný přístupový token. Volání služby můžete tento token vyžádat dalšího přístupového tokenu po vypršení platnosti aktuální přístupový token. |
 
-### Příklad úspěšné odpovědi
+### <a name="success-response-example"></a>Příklad úspěšné odpovědi
 Následující příklad ukazuje úspěšná odpověď na žádost o token přístupu pro https://graph.microsoft.com webové rozhraní API.
 
 ```
@@ -145,7 +145,7 @@ Následující příklad ukazuje úspěšná odpověď na žádost o token pří
 }
 ```
 
-### Příklad chybové odpovědi
+### <a name="error-response-example"></a>Příklad chybové odpovědi
 Koncový bod tokenu Azure AD vrátí odpovědi na chybu při pokusu o získání přístupového tokenu pro rozhraní API pro příjem dat, pokud rozhraní API pro příjem dat má zásady podmíněného přístupu, jako je vícefaktorové ověřování u něho nastavený. Střední vrstvy služby by měl surface tato chyba do klientské aplikace, tak, aby klientská aplikace může poskytnout zásahu uživatele, aby pokryl zásady podmíněného přístupu.
 
 ```
@@ -160,17 +160,17 @@ Koncový bod tokenu Azure AD vrátí odpovědi na chybu při pokusu o získání
 }
 ```
 
-## Použití tokenu přístupu pro přístup k zabezpečeným prostředku
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>Použití tokenu přístupu pro přístup k zabezpečeným prostředku
 Nyní střední vrstvy služby pomocí tokenu získali výše provádět požadavky na ověření do podřízené webové rozhraní API, nastavením token v `Authorization` záhlaví.
 
-### Příklad
+### <a name="example"></a>Příklad
 ```
 GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 Další informace o protokolu OAuth 2.0 a jiný způsob, jak provádět ověřování služeb pomocí pověření klienta.
 * [Udělení pověření klienta OAuth 2.0 v Azure AD v2.0](active-directory-v2-protocols-oauth-client-creds.md)
 * [OAuth 2.0 v Azure AD v2.0](active-directory-v2-protocols-oauth-code.md)

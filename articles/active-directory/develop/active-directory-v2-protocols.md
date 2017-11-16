@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# v2.0 protokoly - OAuth 2.0 & OpenID Connect
+# <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokoly - OAuth 2.0 & OpenID Connect
 Koncový bod v2.0, můžete použít Azure AD pro identity jako služba pomocí standardních protokolů, OpenID Connect a OAuth 2.0.  Služba je kompatibilní se standardy, může být drobné rozdíly mezi jakékoli dvě implementace těchto protokolů.  Zde uvedené informace budou užitečné, pokud zvolíte možnost zápisu kódu přímo zasláním & zpracování požadavků HTTP nebo použití 3. stran otevřete Knihovna zdrojů, nikoli pomocí jednoho z našich opensourcové knihovny.
 <!-- TODO: Need link to libraries above -->
 
@@ -30,7 +30,7 @@ Koncový bod v2.0, můžete použít Azure AD pro identity jako služba pomocí 
 >
 >
 
-## Základní informace
+## <a name="the-basics"></a>Základní informace
 V téměř všechny toky OAuth a OpenID Connect existují čtyři strany účastnící se exchange:
 
 ![Role OAuth 2.0](../../media/active-directory-v2-flows/protocols_roles.png)
@@ -40,7 +40,7 @@ V téměř všechny toky OAuth a OpenID Connect existují čtyři strany účast
 * **Klienta OAuth** je aplikaci identifikovanou pomocí jeho ID aplikace.  Je obvykle stranu, která koncový uživatel komunikuje se službou a požaduje tokeny ze serveru ověřování.  Klient musí udělit oprávnění pro přístup k prostředku vlastníka prostředku.
 * **Server prostředků** je, kde se nachází prostředků nebo data.  Vztahy důvěryhodnosti serveru ověřování k bezpečně ověřování a autorizaci klientů OAuth a používá access_tokens nosiče k zajištění, že lze udělit přístup k prostředku.
 
-## Registrace aplikací
+## <a name="app-registration"></a>Registrace aplikací
 Každá aplikace používající koncového bodu v2.0 potřeba registrovat u [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) předtím, než může komunikovat pomocí účtu OAuth nebo OpenID Connect.  Proces registrace aplikace bude shromažďovat & přiřadit aplikaci několik hodnot:
 
 * **Id aplikace** jednoznačně identifikuje vaši aplikaci
@@ -49,7 +49,7 @@ Každá aplikace používající koncového bodu v2.0 potřeba registrovat u [ap
 
 Pro další informace si přečtěte, jak [zaregistrovat aplikaci](active-directory-v2-app-registration.md).
 
-## Koncové body
+## <a name="endpoints"></a>Koncové body
 Po registraci aplikace komunikuje se službou Azure AD pomocí zasílání požadavků do koncového bodu v2.0:
 
 ```
@@ -68,12 +68,12 @@ Kde `{tenant}` může trvat jednu ze čtyř různých hodnot:
 
 Další informace o tom, jak pracovat s těmito koncovými body zvolte jeden z následujících typů konkrétní aplikace.
 
-## Tokeny
+## <a name="tokens"></a>Tokeny
 Implementace v2.0 OAuth 2.0 a OpenID Connect využívají rozsáhlé nosné tokeny, včetně nosné tokeny vyjádřené tokeny Jwt. Je token nosiče tokenu lightweight zabezpečení, který uděluje přístup "nosiče" k chráněnému prostředku. V tomto smyslu je "nosiče" libovolné strany, který může být token. I když může strana musí nejprve ověřit pomocí Azure AD pro příjem token nosiče, nebudou přijata požadované kroky k zabezpečení token v přenos a ukládání, může být zachyceny a použity nezamýšleným strana. I když některé tokeny zabezpečení má integrovanou mechanismus, který brání neoprávněným stranám jejich používání, nosné tokeny nemají tento mechanismus a musí být přenosu v zabezpečený kanál, jako je například transport layer security (HTTPS). Pokud token nosiče je přenesen v nešifrované podobě, man-in střední útok lze škodlivý stranou získat token a používat ho pro neoprávněný přístup k chráněnému prostředku. Při ukládání nebo ukládání do mezipaměti nosné tokeny pro pozdější použití platí stejné zásady zabezpečení. Vždy zajistěte, aby vaše aplikace odesílá a ukládá nosné tokeny zabezpečeným způsobem. Další aspekty zabezpečení na nosné tokeny, najdete v části [RFC 6750 část 5](http://tools.ietf.org/html/rfc6750).
 
 Další podrobnosti o různých typů tokeny, které jsou používány koncového bodu v2.0 je k dispozici v [odkaz tokenu koncový bod v2.0](active-directory-v2-tokens.md).
 
-## Protokoly
+## <a name="protocols"></a>Protokoly
 Pokud jste připraveni zobrazíte některých požadavků příklad, začít pracovat s jedním z následující kurzy.  Každé z nich odpovídá konkrétní ověřovacím scénáři.  Pokud potřebujete pomoc při rozhodování, což je správné toku za vás, podívejte se na [s typy aplikací můžete vytvořit pomocí v2.0](active-directory-v2-flows.md).
 
 * [Vytvoření mobilní a nativní aplikace s OAuth 2.0](active-directory-v2-protocols-oauth-code.md)

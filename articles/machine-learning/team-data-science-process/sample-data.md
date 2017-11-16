@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: e56c9e74c3413f8780295678273ea2ba06caad77
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 97d344fd31d711454f3e4aa251361b86351cc283
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="heading"></a>Ukázková data v kontejnerech objektů blob v Azure, SQL Server a tabulek Hive
-Tento dokument odkazy na témata, která vysvětluje postup ukázková data, která je uložená v jednom ze tří různých Azure umístění:
+Tento dokument obsahuje odkazy na články, které se týkají jak ukázková data, která je uložená v jednom ze tří různých Azure umístění:
 
 * **K datům kontejneru objektů blob v Azure** je vzorkovat stáhnout prostřednictvím kódu programu a potom ho vzorkování s ukázkový kód Python.
 * **Data systému SQL Server** je shromažďovat vzorky pomocí SQL a programovací jazyk Python. 

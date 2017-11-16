@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: e28ea6df24b9df144552739427427ee14e998584
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1238863265a227c18ebef8ac2aaeabd802f877d4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Nasazení správy rozhraní API pomocí Service Fabric
 V tomto kurzu je součástí série, tři.  Nasazení aplikace Azure API Management s Service Fabric je je pokročilý scénář užitečné, pokud je potřeba publikovat rozhraní API s bohatou sadu pravidel směrování k vašim službám Service Fabric back-end. V tomto kurzu se dozvíte, jak nastavit [Azure API Management](../api-management/api-management-key-concepts.md) s Service Fabric přesměrovat provoz na back-end služby v Service Fabric.  Jakmile budete hotovi, nasazené API Management k virtuální síti, nakonfigurované operace rozhraní API odesílat provoz do bezstavové služby back-end. Další informace o scénářích Azure API Management s Service Fabric najdete v tématu [přehled](service-fabric-api-management-overview.md) článku.
@@ -235,7 +235,7 @@ Spuštění sady Visual Studio jako správce a vytvoření služby ASP.NET Core:
 
     Toto je koncový bod, který vystavit přes správu rozhraní API v Azure.
 
- 7. Nakonec nasazení aplikace na cluster v Azure. [Pomocí sady Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), klikněte pravým tlačítkem na projekt aplikace a vyberte **publikovat**. Zadejte svůj koncový bod clusteru (například `mycluster.southcentralus.cloudapp.azure.com:19000`) k nasazení aplikace na cluster Service Fabric v Azure.
+ 7. Nakonec nasazení aplikace na cluster v Azure. V sadě Visual Studio, klikněte pravým tlačítkem na projekt aplikace a vyberte **publikovat**. Zadejte svůj koncový bod clusteru (například `mycluster.southcentralus.cloudapp.azure.com:19000`) k nasazení aplikace na cluster Service Fabric v Azure.
 
 Bezstavové služby ASP.NET Core s názvem `fabric:/ApiApplication/WebApiService` teď by měl být spuštěn v clusteru Service Fabric v Azure.
 

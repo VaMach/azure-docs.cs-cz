@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: e1bd58797124210f7c31e90fb20d728289a04ba2
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 821d70ec7236e165d4f60ed6217c49d10de1cfc3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory předávací ověřování: Nejčastější dotazy
 
@@ -36,7 +36,7 @@ Předávací ověřování je bezplatné funkce a nepotřebujete žádné placen
 
 Ne, předávací ověřování je k dispozici pouze v celém světě instanci Azure AD.
 
-## <a name="does-conditional-accessactive-directory-conditional-accessmd-work-with-pass-through-authentication"></a>Nemá [podmíněného přístupu](../active-directory-conditional-access.md) pracovní pomocí předávacího ověřování?
+## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>Nemá [podmíněného přístupu](../active-directory-conditional-access-azure-portal.md) pracovní pomocí předávacího ověřování?
 
 Ano, všechny funkce podmíněného přístupu, včetně ověřování Azure Multi-Factor Authentication, pracovat s předávací ověřování.
 

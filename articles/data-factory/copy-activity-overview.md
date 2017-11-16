@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: bb739d19be7aedf73f422faaa0f5f63a81633d07
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 36443ec86c15edce27bdc4f50cabcaf2e14936bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Aktivita kopírování v Azure Data Factory
 
@@ -65,6 +65,10 @@ Například můžete provést následující kopie aktivity:
 * Zkopírujte soubory ve formátu textu (CSV) z místní systém souborů a zápis do objektu Blob Azure ve formátu Avro.
 * Kopírování komprimované soubory ze systému souborů na místě a pak dekomprimovat krajině do Azure Data Lake Store.
 * Kopírování dat z Azure Blob ve formátu GZip komprimované textu (CSV) a zapsat do databáze SQL Azure.
+
+## <a name="supported-regions"></a>Podporované oblasti
+
+Službu, která pohání aktivity kopírování je k dispozici globálně v oblastech a zeměpisných uvedené v [Runtime integrace Azure umístění](concepts-integration-runtime.md#integration-runtime-location). Globálně dostupnou topologie zajišťuje přesun efektivní dat, která obvykle zabraňuje směrování mezi oblastmi. V tématu [služby podle oblasti](https://azure.microsoft.com/regions/#services) dostupnost služby Data Factory a přesun dat v oblasti.
 
 ## <a name="configuration"></a>Konfigurace
 

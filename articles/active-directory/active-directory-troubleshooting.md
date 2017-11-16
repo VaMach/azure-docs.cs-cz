@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b27363a38c1a5955e062d1e5c036b542341e16bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Řešení potíží: 'Služby Active Directory, je položka chybí nebo není k dispozici
 Řadu pokynů pro použití funkce Azure Active Directory a služby začínat řetězcem "přejděte na portálu pro správu Azure a klikněte na tlačítko **služby Active Directory**." Ale co můžete udělat, pokud položka rozšíření nebo nabídky služby Active Directory se nezobrazí nebo pokud je označen **není k dispozici**? Toto téma je navržená tak, abyste. Popisuje podmínky, pod kterým **služby Active Directory** se nezobrazí nebo není k dispozici a vysvětluje, jak pokračovat.
@@ -43,7 +43,7 @@ Pokud platí některá z následujících podmínek, zobrazí se v levém naviga
 
 Chcete-li vytvořit na obor názvů řízení přístupu nebo poskytovatele služby Multi-Factor Authentication, klikněte na tlačítko **+ nový** > **App Services** > **služby Active Directory**.
 
-Potřebujete práva správce k adresáři, požádejte správce, přiřadit role správce účtu. Podrobnosti najdete v tématu [přiřazení rolí správce](active-directory-assign-admin-roles.md).
+Potřebujete práva správce k adresáři, požádejte správce, přiřadit role správce účtu. Podrobnosti najdete v tématu [přiřazení rolí správce](active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="active-directory-is-not-available"></a>Služba Active Directory není k dispozici
 Když kliknete na tlačítko **+ nový** > **App Services**, **služby Active Directory** položka je zobrazena. Konkrétně položky služby Active Directory se zobrazí, když žádnou z funkcí služby Active Directory, jako je například adresář, řízení přístupu nebo zprostředkovatel vícefaktorového ověřování, jsou k dispozici pro aktuálního uživatele.

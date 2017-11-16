@@ -16,14 +16,14 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: aba231a91efafa48837e45435efd51769b12374b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6f43b722b0c9a31c8c7da4361e415673f3721b31
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Spravovat přístup k prostředkům pomocí skupin Azure Active Directory
-Azure Active Directory (Azure AD) je komplexní identit a přístupu řešení správy, poskytuje výkonnou sadu funkcí, které chcete spravovat přístup k místní a cloudové aplikace a prostředky, včetně služeb Microsoft online services třeba Office 365 a World aplikací Microsoft SaaS. Tento článek obsahuje přehled, ale pokud chcete spustit pomocí služby Azure AD seskupení právě teď, postupujte podle pokynů v [Správa skupin zabezpečení ve službě Azure AD](active-directory-accessmanagement-manage-groups.md). Pokud chcete zobrazit, jak můžete použít PowerShell ke správě skupin ve službě Azure Active directory si můžete přečíst více v [rutiny služby Azure Active Directory pro správu skupin](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Azure Active Directory (Azure AD) je komplexní identit a přístupu řešení správy, poskytuje výkonnou sadu funkcí, které chcete spravovat přístup k místní a cloudové aplikace a prostředky, včetně služeb Microsoft online services třeba Office 365 a World aplikací Microsoft SaaS. Tento článek obsahuje přehled, ale pokud chcete spustit pomocí služby Azure AD seskupení právě teď, postupujte podle pokynů v [Správa skupin zabezpečení ve službě Azure AD](active-directory-groups-create-azure-portal.md). Pokud chcete zobrazit, jak můžete použít PowerShell ke správě skupin ve službě Azure Active directory si můžete přečíst více v [rutiny služby Azure Active Directory pro správu skupin](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 > [!NOTE]
 > Chcete-li používat Azure Active Directory, potřebujete účet Azure. Pokud účet nemáte, můžete [si zaregistrovat bezplatný účet Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -66,7 +66,7 @@ Vlastník skupiny, můžete zpřístupnit této skupiny pro samoobslužné služ
 ## <a name="getting-started-with-access-management"></a>Začínáme se správou přístupu
 Jste připravení začít? Vyzkoušejte si základní úlohy, které můžete provést pomocí skupin Azure AD. Použijte tyto možnosti zajistit specializované přístup na různé skupiny uživatelů pro různé prostředky ve vaší organizaci. Seznam základní první kroky jsou uvedeny níže.
 
-* [Vytvoření jednoduché pravidlo konfigurace dynamické členství ve skupině](active-directory-accessmanagement-manage-groups.md)
+* [Vytvoření jednoduché pravidlo konfigurace dynamické členství ve skupině](active-directory-groups-create-azure-portal.md)
 * [Pomocí skupiny pro správu přístupu k aplikacím SaaS](active-directory-accessmanagement-group-saasapps.md)
 * [Zpřístupnění skupiny pro koncového uživatele samoobslužné služby](active-directory-accessmanagement-self-service-group-management.md)
 * [Synchronizuje se místní skupině do Azure pomocí Azure AD Connect](active-directory-aadconnect.md)
@@ -75,8 +75,8 @@ Jste připravení začít? Vyzkoušejte si základní úlohy, které můžete pr
 ## <a name="next-steps"></a>Další kroky
 Teď, když porozuměl základní informace o správu přístupu tady jsou některé další rozšířené možnosti dostupné v Azure Active Directory pro správu přístupu k aplikacím a prostředkům.
 
-* [Vytváření rozšířených pravidel pomocí atributů](active-directory-accessmanagement-groups-with-advanced-rules.md)
-* [Správa skupin zabezpečení ve službě Azure AD](active-directory-accessmanagement-manage-groups.md)
+* [Vytváření rozšířených pravidel pomocí atributů](active-directory-groups-dynamic-membership-azure-portal.md)
+* [Správa skupin zabezpečení ve službě Azure AD](active-directory-groups-create-azure-portal.md)
 * [Nastavení vyhrazené skupiny ve službě Azure AD](active-directory-accessmanagement-dedicated-groups.md)
 * [Referenční dokumentace rozhraní Graph API pro skupiny](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Rutiny služby Azure Active Directory pro konfiguraci nastavení skupiny](active-directory-accessmanagement-groups-settings-cmdlets.md)

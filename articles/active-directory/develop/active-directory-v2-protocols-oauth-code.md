@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/12/2017
 ---
-# Protokoly v2.0 - toku kódu autorizace OAuth 2.0
+# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protokoly v2.0 - toku kódu autorizace OAuth 2.0
 Udělení autorizačního kódu OAuth 2.0 lze použít v aplikacích, které jsou nainstalované na zařízení k získání přístupu k chráněným prostředkům, jako jsou webová rozhraní API.  Pomocí implementace v2.0 modelu aplikace OAuth 2.0, můžete přidat, přihlaste se a rozhraní API, přístup k mobilním a desktopovým aplikacím.  Tato příručka je nezávislé na jazyku a popisuje, jak odesílat a přijímat zprávy HTTP bez použití některé z našich knihovny open-source.
 
 > [!NOTE]
@@ -31,12 +31,12 @@ Udělení autorizačního kódu OAuth 2.0 lze použít v aplikacích, které jso
 
 Toku kódu autorizace OAuth 2.0 je popsáno v v [části 4.1 specifikace OAuth 2.0](http://tools.ietf.org/html/rfc6749).  Se používá k provedení ověřování a autorizace pro většinu typů aplikací, včetně [webové aplikace](active-directory-v2-flows.md#web-apps) a [nativně nainstalované aplikace](active-directory-v2-flows.md#mobile-and-native-apps).  Umožňuje aplikace bezpečně získat access_tokens, který můžete použít pro přístup k prostředkům, které jsou zabezpečené pomocí koncového bodu v2.0.  
 
-## Diagram protokolu
+## <a name="protocol-diagram"></a>Diagram protokolu
 Na vysoké úrovni tok celý proces ověřování pro nativní nebo mobilní aplikace trochu vypadat třeba takto:
 
 ![Ověřování kódu toku OAuth](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-## Žádost o autorizační kód
+## <a name="request-an-authorization-code"></a>Žádost o autorizační kód
 Tok autorizačního kódu začíná klienta odkazovat uživatele `/authorize` koncový bod.  V této žádosti o klient naznačuje oprávnění, které potřebuje získat od uživatele:
 
 ```
@@ -74,7 +74,7 @@ V tomto okamžiku uživatel se vyzve k zadání přihlašovacích údajů a doko
 
 Jakmile se uživatel ověří a uděluje souhlas, koncový bod v2.0 vrátí odpověď na aplikaci ve uvedené `redirect_uri`, pomocí metody popsané v `response_mode` parametr.
 
-#### Úspěšná odpověď
+#### <a name="successful-response"></a>Úspěšná odpověď
 Úspěšná odpověď pomocí `response_mode=query` vypadá jako:
 
 ```
@@ -88,7 +88,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | Kód |Authorization_code, který požadované aplikace. Aplikace můžete autorizační kód vyžádat token přístupu pro cílový prostředek.  Authorization_codes jsou velmi krátkodobé povahy, obvykle vyprší po přibližně 10 minut. |
 | state |Pokud parametr stavu je obsažena v žádosti o stejnou hodnotu by se měla objevit v odpovědi. Aplikace by měla ověřte, zda jsou identické hodnoty stavu v požadavku a odpovědi. |
 
-#### Chybové odpovědi
+#### <a name="error-response"></a>Chybové odpovědi
 Chybové odpovědi se taky může odeslat do `redirect_uri` tak aplikace můžete správně zpracovat:
 
 ```
@@ -102,7 +102,7 @@ error=access_denied
 | error |Řetězec kódu chyby, který můžete použít ke klasifikaci typů chyb, ke kterým došlo a slouží k reagovat na chyby. |
 | error_description |Konkrétní chybová zpráva, která může pomoci vývojář určit hlavní příčinu chyby ověřování. |
 
-#### Kódy chyb pro chyb koncový bod autorizace
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Kódy chyb pro chyb koncový bod autorizace
 Následující tabulka popisuje různé kódy chyb, které mohou být vráceny v `error` parametr odpovědi na chybu.
 
 | Kód chyby | Popis | Akce klienta |
@@ -115,7 +115,7 @@ Následující tabulka popisuje různé kódy chyb, které mohou být vráceny v
 | temporarily_unavailable |Server je dočasně zaneprázdněn pro zpracování požadavku. |Opakujte žádost. Klientská aplikace mohou vysvětlit pro uživatele, že odpověď je zpožděno kvůli dočasné podmínce. |
 | invalid_resource |Cílový prostředek je neplatný, protože neexistuje, Azure AD ji nemůže najít, nebo není správně nakonfigurována. |To znamená, že k prostředku, pokud existuje, není nakonfigurované v klientovi. Aplikace můžete vyzvat uživatele s pokyny pro instalaci aplikace a její přidání do Azure AD. |
 
-## Žádost o token přístupu
+## <a name="request-an-access-token"></a>Žádost o token přístupu
 Teď, když jste získali authorization_code a bylo uděleno oprávnění uživatelem, uplatnit `code` pro `access_token` k požadovaného prostředku odesíláním `POST` žádost o `/token` koncový bod:
 
 ```
@@ -148,7 +148,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Požadované |Stejné redirect_uri hodnota, která byla použita k získání authorization_code. |
 | tajný klíč client_secret |vyžaduje se pro webové aplikace |Tajný klíč aplikace vytvořené v portálu pro registraci aplikace pro vaši aplikaci.  Není vhodné jej použít v nativní aplikaci, protože client_secrets nelze uložit spolehlivě na zařízení.  Je vyžadována pro webové aplikace a webové rozhraní API, které můžete bezpečně uložit tajný klíč client_secret na straně serveru. |
 
-#### Úspěšná odpověď
+#### <a name="successful-response"></a>Úspěšná odpověď
 Úspěšné odpovědi tokenu bude vypadat jako:
 
 ```
@@ -169,7 +169,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Obor |Obory, které je platný pro access_token. |
 | refresh_token |Aktualizace tokenu OAuth 2.0. Aplikace můžete používat tento token získat další přístupové tokeny po vypršení platnosti aktuální přístupový token.  Refresh_tokens je dlouhodobé a slouží k přístupu k prostředkům uchovávány dlouhou dobu.  Další podrobnosti najdete v části [odkaz tokenu v2.0](active-directory-v2-tokens.md). <br> **Poznámka:** pouze zadaná Pokud `offline_access` požadoval oboru. |
 | požadavku id_token |Nepodepsané JSON Web Token (JWT). Base64Url může aplikace dekódovat segmentů tento token pro vyžadování informací o uživateli, který přihlášení. Aplikace můžete hodnoty do mezipaměti a jejich zobrazení, ale na ně neměli spoléhat pro žádné hranice zabezpečení nebo autorizace.  Další informace o id_tokens najdete v článku [odkaz tokenu koncový bod v2.0](active-directory-v2-tokens.md). <br> **Poznámka:** pouze zadaná Pokud `openid` požadoval oboru. |
-#### Chybové odpovědi
+#### <a name="error-response"></a>Chybové odpovědi
 Chybové odpovědi bude vypadat jako:
 
 ```
@@ -194,7 +194,7 @@ Chybové odpovědi bude vypadat jako:
 | trace_id |Jedinečný identifikátor pro požadavek, který vám můžou pomoct při diagnostiky. |
 | correlation_id |Jedinečný identifikátor pro požadavek, který vám můžou pomoct při diagnostiky mezi komponentami. |
 
-#### Kódy chyb pro koncový bod tokenu chyby
+#### <a name="error-codes-for-token-endpoint-errors"></a>Kódy chyb pro koncový bod tokenu chyby
 | Kód chyby | Popis | Akce klienta |
 | --- | --- | --- |
 | invalid_request |Chyba protokolu, například chybějící povinný parametr. |Opravte a odešlete požadavek znovu |
@@ -206,7 +206,7 @@ Chybové odpovědi bude vypadat jako:
 | interaction_required |Požadavek vyžaduje interakci uživatele. Na další ověřování krok je třeba požadovaný. |Opakujte požadavek s stejného zdroje. |
 | temporarily_unavailable |Server je dočasně zaneprázdněn pro zpracování požadavku. |Opakujte žádost. Klientská aplikace mohou vysvětlit pro uživatele, že odpověď je zpožděno kvůli dočasné podmínce. |
 
-## Použití tokenu přístupu
+## <a name="use-the-access-token"></a>Použití tokenu přístupu
 Teď, když jste byla úspěšně načtena `access_token`, můžete použít token v žádostech o k webovým rozhraním API zahrnutím v `Authorization` hlavičky:
 
 > [!TIP]
@@ -220,7 +220,7 @@ Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## Aktualizovat přístupový token
+## <a name="refresh-the-access-token"></a>Aktualizovat přístupový token
 Access_tokens jsou krátkou životnost a je nutné je aktualizovat po vypršení jejich platnosti chcete-li pokračovat, přístup k prostředkům.  Můžete to provést tak, že zadáte jiný `POST` žádost o `/token` koncový bod, v tuto chvíli Pokud `refresh_token` místo `code`:
 
 ```
@@ -253,7 +253,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Požadované |Stejné redirect_uri hodnota, která byla použita k získání authorization_code. |
 | tajný klíč client_secret |vyžaduje se pro webové aplikace |Tajný klíč aplikace vytvořené v portálu pro registraci aplikace pro vaši aplikaci.  Není vhodné jej použít v nativní aplikaci, protože client_secrets nelze uložit spolehlivě na zařízení.  Je vyžadována pro webové aplikace a webové rozhraní API, které můžete bezpečně uložit tajný klíč client_secret na straně serveru. |
 
-#### Úspěšná odpověď
+#### <a name="successful-response"></a>Úspěšná odpověď
 Úspěšné odpovědi tokenu bude vypadat jako:
 
 ```
@@ -275,7 +275,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | refresh_token |Nové obnovovací token OAuth 2.0. Staré tokenu obnovení musí nahraďte tento token nově získal aktualizace Ujistěte se, že jsou dál platné pro stejně dlouho obnovovacích tokenů. <br> **Poznámka:** pouze zadaná Pokud `offline_access` požadoval oboru. |
 | požadavku id_token |Nepodepsané JSON Web Token (JWT). Base64Url může aplikace dekódovat segmentů tento token pro vyžadování informací o uživateli, který přihlášení. Aplikace můžete hodnoty do mezipaměti a jejich zobrazení, ale na ně neměli spoléhat pro žádné hranice zabezpečení nebo autorizace.  Další informace o id_tokens najdete v článku [odkaz tokenu koncový bod v2.0](active-directory-v2-tokens.md). <br> **Poznámka:** pouze zadaná Pokud `openid` požadoval oboru. |
 
-#### Chybové odpovědi
+#### <a name="error-response"></a>Chybové odpovědi
 ```
 {
   "error": "invalid_scope",

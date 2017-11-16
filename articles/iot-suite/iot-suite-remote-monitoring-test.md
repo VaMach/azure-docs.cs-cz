@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 426b7ff6114fd0b79a6af71a78705f11b80862bf
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testování řešení pomocí simulovaných zařízení
 
@@ -39,6 +39,10 @@ Následující tabulka obsahuje data že ligthbulb sestav v cloudu jako datový 
 | Name (Název)   | Hodnoty      |
 | ------ | ----------- |
 | Status | "na" "off" |
+| online | Hodnota TRUE, false |
+
+> [!NOTE]
+> **Online** hodnota telemetrie je povinná pro všechny simulované typy.
 
 *Metody*
 
@@ -267,7 +271,11 @@ K testování **žárovek** typ zařízení, můžete nejdřív otestovat typu v
 
 K testování a ladění změny místně, najdete v části [zařízení simulace přehled](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
-Konfigurace projektu zkopírovat nové **žárovek** souborů zařízení do výstupního adresáře.
+Konfigurace projektu zkopírovat nové **žárovek** souborů zařízení do výstupního adresáře:
+
+* Pokud používáte Visual Studio, ujistěte se, přidejte tři nové soubory žárovek jste vytvořili v předchozím oddílu, který má **služby** projekt v řešení. Potom pomocí **Průzkumníku řešení** označit je zkopírovány do výstupního adresáře.
+
+* Pokud používáte Visual Studio Code, otevřete **Services.csproj** souboru a přidejte tři nové soubory žárovek jste vytvořili v předchozí části. Zobrazit existující položky souboru modelu zařízení v **Services.csproj** soubor jako příklady.
 
 K testování nového zařízení v nasazené řešení, najdete v jednom z:
 

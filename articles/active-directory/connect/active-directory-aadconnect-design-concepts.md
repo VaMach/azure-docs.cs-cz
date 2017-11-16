@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 53a0f766de9db7e6ee48b6659aad378620c0d727
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Koncepty návrhu
 Účelem tohoto tématu je k popisu oblastí, které musí považovat při návrhu implementace služby Azure AD Connect. Toto téma se podrobné informace o určité oblasti a tyto koncepty stručně jsou popsány v i další témata.
@@ -191,7 +191,7 @@ Jan je uživatel v doméně contoso.com. Chcete, aby Jan používat místní UPN
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Směrovatelný bez místní domény a UPN pro Azure AD
 Některé organizace mají směrovat domény, jako je contoso.local nebo jednoduchý přípony domény jako contoso. Nemůžete se nepodařilo ověřit směrovat domény ve službě Azure AD. Azure AD Connect pro synchronizaci můžete pouze ověřené domény ve službě Azure AD. Když vytvoříte adresář služby Azure AD, vytvoří se směrovatelné domény, který se stane výchozí doménu pro vaši službu Azure AD například contoso.onmicrosoft.com. Proto bude nutné v případě, že nechcete, aby pro synchronizaci výchozí domény onmicrosoft.com ověření všech ostatních směrovatelné domén v takové situaci.
 
-Čtení [přidání vlastního názvu domény do Azure Active Directory](../active-directory-add-domain.md) Další informace o přidání a ověření domény.
+Čtení [přidání vlastního názvu domény do Azure Active Directory](../active-directory-domains-add-azure-portal.md) Další informace o přidání a ověření domény.
 
 Azure AD Connect zjistí, pokud běží v prostředí domény směrovat a bude odpovídajícím způsobem upozornit z pokračovat Expresní nastavení. Pokud pracujete v směrovat doméně, je pravděpodobné, že jména UPN uživatelů mít příliš směrovat přípony. Například pokud používáte v contoso.local, Azure AD Connect navrhuje vám umožní používat vlastní nastavení místo použitím expresního nastavení. Pomocí vlastních nastavení, budete moci zadat atribut, který má být použit jako hlavní název uživatele pro přihlášení k Azure po uživatelů se synchronizují do Azure AD.
 

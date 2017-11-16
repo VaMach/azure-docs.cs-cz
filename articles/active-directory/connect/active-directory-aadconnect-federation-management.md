@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 0cab39bb3ce5c42fac543171baea498eb894c502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9ff22c7b4793112da5211162ed9cd58ac86d238
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Spravovat a přizpůsobit Active Directory Federation Services přes Azure AD Connect
 Tento článek popisuje, jak spravovat a přizpůsobit Active Directory Federation Services (AD FS) pomocí služby Azure Active Directory (Azure AD) připojit. Zahrnuje také dalších běžných úkolů služby AD FS, které možná budete muset udělat pro celou konfiguraci farmy služby AD FS.
@@ -170,7 +170,7 @@ Je snadné přidání domény na federovanou se službou Azure AD pomocí Azure 
 
    ![Azure AD domain](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    Když vyberete domény, Průvodce vám poskytne příslušné informace o další akce, které průvodce provede a dopad konfigurace. V některých případech Pokud vyberete domény, který ještě není ověřit ve službě Azure AD, Průvodce vám poskytne informace, které umožňují ověření domény. V tématu [přidání vlastního názvu domény do Azure Active Directory](../active-directory-add-domain.md) další podrobnosti.
+    Když vyberete domény, Průvodce vám poskytne příslušné informace o další akce, které průvodce provede a dopad konfigurace. V některých případech Pokud vyberete domény, který ještě není ověřit ve službě Azure AD, Průvodce vám poskytne informace, které umožňují ověření domény. V tématu [přidání vlastního názvu domény do Azure Active Directory](../active-directory-domains-add-azure-portal.md) další podrobnosti.
 
 5. Klikněte na **Další**. **Připraveno ke konfiguraci** stránka zobrazuje seznam akcí, které provádí Azure AD Connect. Klikněte na tlačítko **nainstalovat** na dokončení konfigurace.
 

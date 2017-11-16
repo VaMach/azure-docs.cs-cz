@@ -15,11 +15,11 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 031632aa9e01c66e836d607d588ededb7140589f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 239f3830a5e50f80ace15ff3f080653a5f402136
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Důležité informace o zabezpečení pro přístup k aplikacím vzdáleně pomocí proxy aplikace služby Azure AD
 
@@ -45,7 +45,7 @@ Pokud si zvolíte průchozí jako způsob předběžného ověření, neobdrží
 
 Použijete širší zásad řízení předtím, než se vytvoří připojení k síti.
 
-S [podmíněného přístupu](active-directory-conditional-access-azuread-connected-apps.md), můžete definovat omezení na jaký provoz je povolený přístup k aplikacím vaší back-end. Můžete vytvořit zásady, které omezují přihlášení v závislosti na umístění, sílu ověřování a riziko profilu uživatele.
+S [podmíněného přístupu](active-directory-conditional-access-azure-portal-get-started.md), můžete definovat omezení na jaký provoz je povolený přístup k aplikacím vaší back-end. Můžete vytvořit zásady, které omezují přihlášení v závislosti na umístění, sílu ověřování a riziko profilu uživatele.
 
 Můžete taky podmíněného přístupu můžete nakonfigurovat zásady služby Multi-Factor Authentication, přidání další úroveň zabezpečení do vaší ověřování uživatele. 
 

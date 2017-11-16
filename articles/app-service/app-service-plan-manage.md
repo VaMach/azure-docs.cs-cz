@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: b2305782fa4d8ca1bc90f239bc1f6ade0ff8fdc3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Spravovat plán služby App Service v Azure
 
@@ -56,7 +56,16 @@ V **nabídky**, vyhledejte **plán služby App Service** části.
 
 Vyberte **plán služby App Service změnu** ke spuštění procesu.
 
-**Plán služby App Service změnu** otevře **plán služby App Service** selektor. Vyberte, chcete-li přesunout tuto aplikaci do existujícího plánu. Zobrazí se pouze plány ve stejné skupině prostředků a oblast. Pokud jste právě vytvořili plán služby App Service ve stejné skupině prostředků a oblasti, ale nezobrazí se v seznamu, aktualizujte stránku prohlížeče.
+**Plán služby App Service změnu** otevře **plán služby App Service** selektor. Vyberte, chcete-li přesunout tuto aplikaci do existujícího plánu. 
+
+> [!IMPORTANT] 
+> **Plán aplikační služby vyberte** stránky se filtrují podle následujících kritérií: 
+> - Existuje ve stejné skupině prostředků 
+> - Existuje ve stejné zeměpisné oblasti 
+> - Existuje ve stejné webový prostor  
+> 
+> A _webový prostor_ je logická konstrukce ve službě App Service, která definuje seskupení prostředků serveru. Geografické oblasti (například západní USA) obsahuje mnoho webspaces aby bylo možné přidělit zákazníky používající službu aplikace. V současné době není možné přesunout mezi webspaces prostředky služby App Service. 
+> 
 
 ![Selektor plán služby App Service.][change]
 

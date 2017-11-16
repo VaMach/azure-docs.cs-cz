@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: cf32ef4c80fa0ee68ce3dc1289467a419aab39c9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7d4ed0cc06e8b218b2b63c1d899701ba2eafd648
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Požadavky na Azure Data Catalog
 
@@ -28,7 +28,7 @@ Budete muset postará o pár věcí, než můžete nastavit Azure Data Catalog. 
 ## <a name="azure-subscription"></a>Předplatné Azure
 Pokud chcete nastavit katalogu Data Catalog, musí být vlastníkem nebo spoluvlastník předplatného Azure.
 
-Předplatná Azure, která umožňují přístup k prostředkům cloudových služeb, například Data Catalog. Odběry také umožňují řídit způsob hlášené, účtují a zaplacení využití prostředků. Každý odběr může mít samostatné fakturace a platebních instalace, tak může mít odběry a plány, které se liší podle oddělení, projektů, místní office a tak dále. Každé cloudové služby přísluší k odběru a musíte mít předplatné před instalací katalogu Data Catalog. Více informací naleznete v tématu [Správa účtů, předplatných a správních rolí](../active-directory/active-directory-assign-admin-roles.md).
+Předplatná Azure, která umožňují přístup k prostředkům cloudových služeb, například Data Catalog. Odběry také umožňují řídit způsob hlášené, účtují a zaplacení využití prostředků. Každý odběr může mít samostatné fakturace a platebních instalace, tak může mít odběry a plány, které se liší podle oddělení, projektů, místní office a tak dále. Každé cloudové služby přísluší k odběru a musíte mít předplatné před instalací katalogu Data Catalog. Více informací naleznete v tématu [Správa účtů, předplatných a správních rolí](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 Pokud chcete nastavit katalogu Data Catalog, musí být podepsané pomocí uživatelského účtu Azure Active Directory (Azure AD).

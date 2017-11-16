@@ -4,7 +4,7 @@ description: "První kurz k nasazení pole virtuální zařízení StorSimple sp
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Nasazení pole virtuálního zařízení StorSimple – Příprava portálu Azure
 
@@ -42,7 +42,7 @@ Nasadit pole virtuální zařízení StorSimple, naleznete v následujících č
 | **#** | **V tomto kroku** | **To uděláte...** | **A použijte tyto dokumenty.** |
 | --- | --- | --- | --- |
 | 1. |**Nastavení portálu Azure** |Vytvoření a konfigurace služby StorSimple Manager zařízení před zřizování pole virtuální zařízení StorSimple. |[Příprava na portálu](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Zřizování virtuální pole** |Pro Hyper-V zřizování a připojte se k poli virtuální zařízení StorSimple v systému hostitele s technologií Hyper-V v systému Windows Server 2012 R2, Windows Server 2012 nebo Windows Server 2008 R2. <br></br> <br></br> Pro VMware zřizování a připojte se k poli virtuální zařízení StorSimple v hostitelském systému, systémem VMware ESXi 5.5 a vyšší.<br></br> |[Zřídit virtuální pole Hyper-v](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Zřídit virtuální pole v prostředí VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Zřizování virtuální pole** |Pro Hyper-V zřizování a připojte se k poli virtuální zařízení StorSimple v systému hostitele s technologií Hyper-V v systému Windows Server 2012 R2, Windows Server 2012 nebo Windows Server 2008 R2. <br></br> <br></br> Pro VMware zřizování a připojte se k poli virtuální zařízení StorSimple v hostitelském systému, systémem VMware ESXi 5.0, 5.5 nebo 6.0.<br></br> |[Zřídit virtuální pole Hyper-v](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Zřídit virtuální pole v prostředí VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Nastavit virtuální pole** |Pro souborový server provedení počáteční instalace, zaregistrujte zařízení StorSimple souborového serveru a dokončení instalace zařízení. Potom můžete zřídit sdílené složky protokolu SMB. <br></br> <br></br> Pro váš server iSCSI provedení počáteční instalace, zaregistrujte serveru iSCSI StorSimple a dokončení instalace zařízení. Potom můžete zřídit svazky iSCSI. |[Nastavit virtuální pole jako souborový server](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Nastavit virtuální pole jako iSCSI server](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Teď můžete začít nastavení portálu Azure.
@@ -70,7 +70,7 @@ Než začnete, ujistěte se, že:
 
 Před nasazením virtuální pole, ujistěte se, že:
 
-* Máte přístup k systému hostitele s technologií Hyper-V v systému Windows Server 2008 R2 nebo novější nebo VMware (ESXi 5.5 nebo novější), kterou lze použít k zřízení zařízení.
+* Máte přístup k systému hostitele s technologií Hyper-V v systému Windows Server 2008 R2 nebo novější nebo VMware (ESXi 5.0, 5.5 nebo 6.0), kterou lze použít k zřízení zařízení.
 * Systém hostitele je možné vyhradit následující prostředky pro zřízení virtuální pole:
   
   * Minimálně 4 jádra.
@@ -136,7 +136,7 @@ Proveďte následující kroky v [portál Azure](https://portal.azure.com/).
    
    * VHDX pro Hyper-V v systému Windows Server 2012 a novější
    * Virtuální pevný disk pro technologii Hyper-V v systému Windows Server 2008 R2 a novější
-   * VMDK pro VMWare ESXi 5.5 a novější
+   * VMDK pro VMWare ESXi 5.0, 5.5 nebo 6.0
 5. Stáhněte a rozbalte soubor na místní disk, což poznámku o kterém se nachází soubor rozbalené.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Volitelný krok: Konfigurace nového účtu úložiště pro službu

@@ -15,11 +15,11 @@ ms.date: 07/21/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 3ef74c8d5d5b75eb2bca4e6c994f4718b5226db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6534320d36653d296f254dfff129d4c5031f8ce8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Řešení potíží s Proxy aplikace problémy a chybové zprávy
 Pokud dojde k chybám při přístupu k publikované aplikaci nebo v publikování aplikací, zkontrolujte následující možnosti, zda je správně funguje proxy aplikace služby Microsoft Azure AD:
@@ -90,7 +90,7 @@ Pokud dojde k chybě nebo problém s Azure AD Application Proxy, který není uv
 * [Povolení Proxy aplikace služby Azure Active Directory](active-directory-application-proxy-enable.md)
 * [Publikování aplikací pomocí Proxy aplikace](active-directory-application-proxy-publish.md)
 * [Povolit jednotné přihlašování](active-directory-application-proxy-sso-using-kcd.md)
-* [Povolení podmíněného přístupu](active-directory-application-proxy-conditional-access.md)
+* [Povolení podmíněného přístupu](application-proxy-enable-remote-access-sharepoint.md)
 
 
 <!--Image references-->

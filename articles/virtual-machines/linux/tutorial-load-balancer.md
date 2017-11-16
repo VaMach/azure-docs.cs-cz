@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25e2538e220327a078a6527e667dfcd6cb838b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Jak načíst vyvážit virtuální počítače s Linuxem v Azure k vytvoření vysoce dostupné aplikace
 Vyrovnávání zatížení poskytuje vyšší úroveň dostupnosti rozloží příchozí žádosti napříč více virtuálních počítačů. V tomto kurzu informace o různé součásti nástroje pro vyrovnávání zatížení Azure, které distribuci přenosů a zajištění vysoké dostupnosti. Získáte informace o těchto tématech:
@@ -162,10 +162,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+Když se vytváří všechny tři virtuální síťové karty, pokračujte k dalšímu kroku
+
+
 ## <a name="create-virtual-machines"></a>Vytváření virtuálních počítačů
 
 ### <a name="create-cloud-init-config"></a>Vytvoření konfigurace cloudu init
-V předchozích kurz [postup přizpůsobení virtuální počítač s Linuxem na při prvním spuštění](tutorial-automate-vm-deployment.md), jste se dozvěděli, jak automatizovat přizpůsobení virtuálního počítače s inicializací cloudu. Konfiguračního souboru stejné cloudové init můžete použít k instalaci NGINX a spuštění jednoduchou aplikaci Node.js "Zdravím svět".
+V předchozích kurz [postup přizpůsobení virtuální počítač s Linuxem na při prvním spuštění](tutorial-automate-vm-deployment.md), jste se dozvěděli, jak automatizovat přizpůsobení virtuálního počítače s inicializací cloudu. Konfiguračního souboru stejné cloudové init můžete použít k instalaci NGINX a spuštění jednoduchý "zdravím svět" aplikace Node.js v dalším kroku. Chcete-li zobrazit nástroje pro vyrovnávání zatížení v akci na konci tohoto kurzu máte přístup k této jednoduchou aplikaci ve webovém prohlížeči.
 
 V aktuálním prostředí, vytvořte soubor s názvem *cloudu init.txt* a vložte následující konfigurace. Například vytvoření souboru v prostředí cloudu není na místním počítači. Zadejte `sensible-editor cloud-init.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
 
@@ -253,7 +256,7 @@ az network public-ip show \
     --output tsv
 ```
 
-Potom můžete zadat veřejnou IP adresu v do webového prohlížeče. Mějte na paměti,-trvá několik minut virtuálních počítačů bude připravená, před spuštěním nástroje pro vyrovnávání zatížení softwaru k distribuci přenosů na ně. Aplikace se zobrazí, včetně názvu hostitele virtuálního počítače, který nástroje pro vyrovnávání zatížení distribuován provoz jako v následujícím příkladu:
+Potom můžete zadat veřejnou IP adresu v do webového prohlížeče. Mějte na paměti, – trvá několik minut pro virtuální počítače bude připravená, před spuštěním nástroje pro vyrovnávání zatížení softwaru k distribuci přenosů na ně. Aplikace se zobrazí, včetně názvu hostitele virtuálního počítače, který nástroje pro vyrovnávání zatížení distribuován provoz jako v následujícím příkladu:
 
 ![Spuštěné aplikace Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -277,6 +280,24 @@ az network nic ip-config address-pool remove \
 
 Zobrazit nástroje pro vyrovnávání zatížení provoz distribuovat mezi zbývající dva virtuální počítače používající vaši aplikaci je můžete vynutit obnovení webového prohlížeče. Nyní můžete provést údržbu na virtuální počítač, jako je instalace aktualizací operačního systému nebo provádění restartování virtuálního počítače.
 
+Chcete-li zobrazit seznam virtuálních počítačů s virtuální síťové adaptéry připojené ke službě Vyrovnávání zatížení, použijte [az sítě lb fond adres zobrazit](/cli/azure/network/lb/address-pool#show). Dotazování a filtrovat podle ID virtuálního síťového adaptéru následujícím způsobem:
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+Výstup bude vypadat v následujícím příkladu, který ukazuje, že virtuální síťový adaptér pro virtuální počítač 2 je už součástí fondu adres back-end:
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>Přidat virtuální počítač ke službě Vyrovnávání zatížení
 Po provedení údržby virtuálních počítačů, nebo pokud potřebujete rozšířit kapacitu, můžete přidat virtuální počítač do fondu adres back-end s [az sítě síťový adaptér ip-config fond adres přidat](/cli/azure/network/nic/ip-config/address-pool#add). Následující příklad přidá virtuální síťovou kartu pro **Můjvp2** k *myLoadBalancer*:
 
@@ -288,6 +309,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+Chcete-li ověřit, že virtuální síťový adaptér je připojený k fondu adres back-end, použijte [az sítě lb fond adres zobrazit](/cli/azure/network/lb/address-pool#show) znovu z předchozího kroku.
 
 
 ## <a name="next-steps"></a>Další kroky

@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 875c8c87f62ecf0e7459dfcec22089854ad95594
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 4042c3606155d1d37947afccafd64652c9659894
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="templates-for-azure-policy"></a>Šablony pro Azure zásad
 
@@ -67,6 +67,7 @@ Následující tabulka obsahuje odkazy na šablony json Azure zásady. Tyto uká
 | [Nastavení detekce hrozeb úrovně DB kontroly](scripts/audit-db-threat-det-setting.md) | Audity výstrahy zásady zabezpečení databáze SQL, pokud tyto zásady nejsou nastaveny do zadaného stavu. Zadáte hodnotu, která určuje, zda je povoleno detekce hrozeb.  |
 | [Audit úroveň systému SQL Server Audit nastavení](scripts/audit-sql-ser-leve-audit-setting.md) | Nastavení serveru SQL server audit audity, pokud tato nastavení se neshodují zadané nastavení. Zadáte hodnotu, která určuje, zda nastavení auditu by měl být povoleno nebo zakázáno. |
 | [Audit nastavení detekce hrozeb úrovni serveru](scripts/audit-sql-ser-threat-det-setting.md) | Audity výstrahy zásady zabezpečení databáze SQL, pokud tyto zásady nejsou nastaveny do zadaného stavu. Zadáte hodnotu, která určuje, zda je povoleno detekce hrozeb.  |
+| [Audit žádný správce Azure Active Directory](scripts/audit-no-aad-admin.md) | Audit, když není žádný správce Azure Active Directory přiřazené k systému SQL server. |
 | [Povolená SKU SQL DB](scripts/allowed-sql-db-skus.md) | Vyžaduje databází SQL používat schválené SKU. Zadáte pole povolené identifikátory SKU nebo polí názvů SKU povolené. |
 |**Úložiště**||
 | [Povolená SKU pro účty úložiště a virtuální počítače](scripts/allowed-skus-storage.md) | Vyžaduje, že účty úložiště a virtuální počítače používat schválené SKU. Předdefinované zásady používá k zajištění schválené SKU. Určete pole schválené virtuálních počítačů SKU a pole účet schválené úložiště SKU. |

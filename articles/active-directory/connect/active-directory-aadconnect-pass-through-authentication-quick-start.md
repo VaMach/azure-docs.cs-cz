@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: e0b58142a2ed17d2cd4749b33e9e80ff1a01662a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure předávací ověřování služby Active Directory: Rychlý start
 
@@ -38,7 +38,7 @@ Ujistěte se, že jsou splněné následující požadavky:
 ### <a name="on-the-azure-active-directory-admin-center"></a>V Centru pro správu Azure Active Directory
 
 1. Vytvořte účet globálního správce jenom pro cloud v klientovi Azure AD. Tímto způsobem konfigurace vašeho klienta můžete spravovat, by měla místní služby nezdaří, nebo k dispozici. Další informace o [přidání účtu globálního správce jenom pro cloud](../active-directory-users-create-azure-portal.md). Provedením tohoto kroku je důležité zajistit, že nezůstanete z vašeho klienta.
-2. Přidejte jednu nebo více [názvy vlastních domén](../active-directory-add-domain.md) ke klientovi Azure AD. Uživatelům se přihlásit pomocí některého z těchto názvů domény.
+2. Přidejte jednu nebo více [názvy vlastních domén](../active-directory-domains-add-azure-portal.md) ke klientovi Azure AD. Uživatelům se přihlásit pomocí některého z těchto názvů domény.
 
 ### <a name="in-your-on-premises-environment"></a>V místním prostředí
 

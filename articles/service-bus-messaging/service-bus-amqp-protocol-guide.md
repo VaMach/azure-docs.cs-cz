@@ -20,13 +20,13 @@ ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/09/2017
 ---
-# V Průvodci Azure Service Bus a Event Hubs protokolu AMQP 1.0
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>V Průvodci Azure Service Bus a Event Hubs protokolu AMQP 1.0
 
 1.0 protokol Advanced služby Řízení front zpráv je standardizovaná rámcovacích a přenos protokol asynchronně, bezpečně a spolehlivě přenos zpráv mezi dvěma účastníky. Je protokol primární Azure zasílání zpráv Service Bus a Azure Event Hubs. Obě služby také podporují protokol HTTPS. Vlastnickým protokolem SBMP, která je také podporována je vyřazován považuje AMQP.
 
 AMQP 1.0 je výsledkem spolupráce široký odvětví, který shrnuta dodavatelé middleware, jako je Microsoft a Red Hat, s mnoha uživateli zasílání zpráv middleware, jako je například Chase Nováková JP představující oboru finančních služeb. Fórum technické standardizace pro protokol a rozšíření specifikace protokolu AMQP je OASIS a dosáhla formální schválení jako mezinárodní standard jako ISO/IEC 19494.
 
-## Cíle
+## <a name="goals"></a>Cíle
 
 Tento článek stručně shrnuje základní koncepty AMQP 1.0, zasílání zpráv specifikace společně s malou sadu koncept rozšíření specifikace, které se aktuálně dokončují v technický výbor OASIS AMQP a vysvětluje, jak Azure Service Bus implementuje a je založený na těchto specifikací.
 
@@ -38,7 +38,7 @@ V následující diskusi jsme předpokládají, že správa připojení AMQP, re
 
 Když hovoříte o pokročilých funkcí služby Azure Service Bus, jako je například procházení zpráva nebo správu relací, tyto funkce jsou vysvětlené v podmínkách AMQP, ale také jako vrstvený pseudo implementace nad tato abstrakce předpokládané rozhraní API.
 
-## Co je AMQP?
+## <a name="what-is-amqp"></a>Co je AMQP?
 
 AMQP je protokol rámcovacích a přenosu. Rámcovacích znamená, že poskytuje strukturu pro binární datové proudy, které toku v obou směrech připojení k síti. Struktura poskytuje vymezení pro odlišné bloky dat, volá *rámce*, aby se vyměňují mezi připojené stranami. Možnosti přenosu Ujistěte se, že obě strany komunikuje můžete vytvořit sdílené znalosti o při se přenáší rámce, i když přenosů musí být považováno za dokončené.
 
@@ -48,13 +48,13 @@ Protokol lze použít pro symetrické komunikaci peer-to-peer, pro interakci s z
 
 Protokol AMQP 1.0 je navržený jako extensible, povolení další specifikace ke zvýšení jeho možnosti. Znázornění specifikace tři rozšíření popisovaný v tomto dokumentu. Pro komunikaci přes existující infrastrukturu HTTPS/Websocket, kde konfigurace nativní porty TCP protokolu AMQP může být obtížné specifikace vazby definuje, jak vrstvy AMQP přes objekty WebSockets. Pro interakci s infrastrukturu zasílání zpráv způsobem požadavků a odpovědí pro účely správy nebo k poskytování pokročilé funkce, definuje specifikace správy AMQP vyžaduje základní interakce primitiv. Federované ověřování modelu integrace specifikace AMQP deklarace identity na základě zabezpečení definuje, jak přidružit a obnovení tokeny autorizace, které jsou spojené s odkazy.
 
-## Základní scénáře AMQP
+## <a name="basic-amqp-scenarios"></a>Základní scénáře AMQP
 
 Tato část popisuje základní použití protokolu AMQP 1.0 s Azure Service Bus, která zahrnuje vytváření připojení, relací a odkazy a přenosu zpráv v Service Bus entitami, jako je například fronty, témata a odběry.
 
 Další informace o tom, jak funguje AMQP nejvíce autoritativní zdroj je specifikace protokolu AMQP 1.0, ale specifikace byla zapsána do přesněji Průvodce implementace a ne do naučit protokol. Tato část se zaměřuje na představení tolik terminologie podle potřeby pro popisující, jak Service Bus používá protokolu AMQP 1.0. Pro komplexnější Úvod do AMQP, jakož i širší diskuzi o protokolu AMQP 1.0, můžete zkontrolovat [tento kurz video][this video course].
 
-### Připojení a relace
+### <a name="connections-and-sessions"></a>Připojení a relace
 
 AMQP volá komunikuje programy *kontejnery*; tyto obsahovat *uzly*, které jsou komunikuje entity, které v těchto kontejnerech. Fronta může být taková uzlu. AMQP umožňuje multiplexní, takže jednoho připojení lze použít pro mnoho cesty komunikaci mezi uzly. klientem aplikace může například současně přijímat z jedné fronty a odesílání do jiné fronty pomocí stejné síťové připojení.
 
@@ -81,7 +81,7 @@ Azure Service Bus aktuálně používá přesně jednu relaci pro každé připo
 
 Připojení, kanálů a relací jsou dočasné. Sbalí příslušné připojení, připojení, musí být obnovila tunelu TLS, SASL autorizační kontext a relací.
 
-### Odkazy
+### <a name="links"></a>Odkazy
 
 AMQP přenosu zpráv přes odkazy. Odkaz je cesta ke komunikaci vytvořených v relaci, která umožňuje přenášení zpráv v jednom směru; stav vyjednávání přenos je nad odkaz a obousměrné mezi připojené stranami.
 
@@ -97,7 +97,7 @@ V Service Bus je uzel přímo ekvivalentní frontu, téma, předplatného nebo d
 
 Připojujícího se klienta je taky potřeba použít název místního uzlu pro vytváření odkazů. Service Bus není doporučený o tyto názvy a nebude je interpretovat. Zásobníky klienta protokolu AMQP 1.0 obecně používají schéma, aby zajistil, které jsou v oboru klienta jedinečné názvy těchto dočasných uzlu.
 
-### Přenosy
+### <a name="transfers"></a>Přenosy
 
 Po vytvoření odkazu zprávy lze přenášet prostřednictvím tohoto připojení. V protokolu AMQP, je přenos provést s gesto explicitní protokolu ( *přenos* performative), přesune zprávu od odesílatele k příjemce přes propojení. Přenos je dokončena ho po "vyrovnání", což znamená, že mají obě strany navázat sdílené pochopení výsledek přenos.
 
@@ -117,7 +117,7 @@ Jako takový Service Bus a Event Hubs podporovat "alespoň jednou" přenosy kde 
 
 Chcete-li kompenzovat odešle možné duplicitní Service Bus podporuje detekce duplicitních jako volitelná funkce v fronty a témata. Detekce duplicitních zaznamenává identifikátory zpráv všech příchozích zpráv během uživatelem definované časového okna a potom bezobslužně poklesne všechny zprávy s stejné identifikátory zpráv této stejného časového období.
 
-### Řízení toku
+### <a name="flow-control"></a>Řízení toku
 
 Kromě model řízení toku na úrovni relace, který dřív popsané každý odkaz má svou vlastní model řízení toku. Řízení toku na úrovni relace chrání muset po řízení toku na úrovni propojení vloží aplikace stará o tom, kolik zpráv, které chce zpracovat pomocí odkazu a při zpracování příliš mnoho rámce v kontejneru.
 
@@ -141,49 +141,49 @@ V souhrnu následující části obsahují schéma přehled performative toku b�
 
 Šipky v následující tabulce se zobrazují směr performative toku.
 
-#### Vytvoření příjemce zprávu
+#### <a name="create-message-receiver"></a>Vytvoření příjemce zprávu
 
 | Klient | Service Bus |
 | --- | --- |
 | --> připojit ()<br/>název = {název odkazu}<br/>zpracování = {číselné popisovač}<br/>role =**příjemce**,<br/>Zdroj = {název entity}<br/>cíl = {id klienta odkaz}<br/>) |Klient připojí k entity jako příjemce |
 | Service Bus odpovědi připojení ukončení propojení |<--připojení ()<br/>název = {název odkazu}<br/>zpracování = {číselné popisovač}<br/>role =**odesílatele**,<br/>Zdroj = {název entity}<br/>cíl = {id klienta odkaz}<br/>) |
 
-#### Vytvoření odesílatele zprávy
+#### <a name="create-message-sender"></a>Vytvoření odesílatele zprávy
 
 | Klient | Service Bus |
 | --- | --- |
 | --> připojit ()<br/>název = {název odkazu}<br/>zpracování = {číselné popisovač}<br/>role =**odesílatele**,<br/>Zdroj = {id klienta odkaz},<br/>cíl = {název entity}<br/>) |Žádná akce |
 | Žádná akce |<--připojení ()<br/>název = {název odkazu}<br/>zpracování = {číselné popisovač}<br/>role =**příjemce**,<br/>Zdroj = {id klienta odkaz},<br/>cíl = {název entity}<br/>) |
 
-#### Vytvoření odesílatele zprávy (chyba)
+#### <a name="create-message-sender-error"></a>Vytvoření odesílatele zprávy (chyba)
 
 | Klient | Service Bus |
 | --- | --- |
 | --> připojit ()<br/>název = {název odkazu}<br/>zpracování = {číselné popisovač}<br/>role =**odesílatele**,<br/>Zdroj = {id klienta odkaz},<br/>cíl = {název entity}<br/>) |Žádná akce |
 | Žádná akce |<--připojení ()<br/>název = {název odkazu}<br/>zpracování = {číselné popisovač}<br/>role =**příjemce**,<br/>Zdroj = null,<br/>cíl = null<br/>)<br/><br/><--odpojit ()<br/>zpracování = {číselné popisovač}<br/>Uzavřený =**true**,<br/>chyba = {{chyba info}<br/>) |
 
-#### Příjemce nebo odesílatele zprávy zavřít
+#### <a name="close-message-receiversender"></a>Příjemce nebo odesílatele zprávy zavřít
 
 | Klient | Service Bus |
 | --- | --- |
 | --> odpojit ()<br/>zpracování = {číselné popisovač}<br/>Uzavřený =**true**<br/>) |Žádná akce |
 | Žádná akce |<--odpojit ()<br/>zpracování = {číselné popisovač}<br/>Uzavřený =**true**<br/>) |
 
-#### Odeslat (úspěch)
+#### <a name="send-success"></a>Odeslat (úspěch)
 
 | Klient | Service Bus |
 | --- | --- |
 | přenos (--><br/>doručení id = {číselné popisovač}<br/>doručení tag = {binární popisovač}<br/>Vyrovnané =**false**,, více =**false**,<br/>Stav =**null**,<br/>Obnovit =**false**<br/>) |Žádná akce |
 | Žádná akce |<--(dispozice<br/>role = příjemce,<br/>první = {doručení id},<br/>poslední = {doručení id},<br/>Vyrovnané =**true**,<br/>Stav =**přijato**<br/>) |
 
-#### Odeslat (chyba)
+#### <a name="send-error"></a>Odeslat (chyba)
 
 | Klient | Service Bus |
 | --- | --- |
 | přenos (--><br/>doručení id = {číselné popisovač}<br/>doručení tag = {binární popisovač}<br/>Vyrovnané =**false**,, více =**false**,<br/>Stav =**null**,<br/>Obnovit =**false**<br/>) |Žádná akce |
 | Žádná akce |<--(dispozice<br/>role = příjemce,<br/>první = {doručení id},<br/>poslední = {doručení id},<br/>Vyrovnané =**true**,<br/>Stav =**odmítl**()<br/>chyba = {{chyba info}<br/>)<br/>) |
 
-#### Přijmout
+#### <a name="receive"></a>Přijmout
 
 | Klient | Service Bus |
 | --- | --- |
@@ -191,7 +191,7 @@ V souhrnu následující části obsahují schéma přehled performative toku b�
 | Žádná akce |< přenosu ()<br/>doručení id = {číselné popisovač}<br/>doručení tag = {binární popisovač}<br/>Vyrovnané =**false**,<br/>více =**false**,<br/>Stav =**null**,<br/>Obnovit =**false**<br/>) |
 | dispozice (--><br/>role =**příjemce**,<br/>první = {doručení id},<br/>poslední = {doručení id},<br/>Vyrovnané =**true**,<br/>Stav =**přijato**<br/>) |Žádná akce |
 
-#### Více zpráva zobrazí
+#### <a name="multi-message-receive"></a>Více zpráva zobrazí
 
 | Klient | Service Bus |
 | --- | --- |
@@ -201,11 +201,11 @@ V souhrnu následující části obsahují schéma přehled performative toku b�
 | Žádná akce |< přenosu ()<br/>doručení id = {číselné popisovač + 2},<br/>doručení tag = {binární popisovač}<br/>Vyrovnané =**false**,<br/>více =**false**,<br/>Stav =**null**,<br/>Obnovit =**false**<br/>) |
 | dispozice (--><br/>role = příjemce,<br/>první = {doručení id},<br/>poslední = {id doručení + 2}<br/>Vyrovnané =**true**,<br/>Stav =**přijato**<br/>) |Žádná akce |
 
-### Zprávy
+### <a name="messages"></a>Zprávy
 
 Následující části popisují, které vlastnosti z standardní zprávy části AMQP se používají Service Bus a jak jsou mapovány na sadu rozhraní API služby Service Bus.
 
-#### záhlaví
+#### <a name="header"></a>záhlaví
 
 | Název pole | Využití | Název rozhraní API |
 | --- | --- | --- |
@@ -215,7 +215,7 @@ Následující části popisují, které vlastnosti z standardní zprávy část
 | první nabyvatel |- |- |
 | Počet doručení |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
-#### properties
+#### <a name="properties"></a>properties
 
 | Název pole | Využití | Název rozhraní API |
 | --- | --- | --- |
@@ -233,7 +233,7 @@ Následující části popisují, které vlastnosti z standardní zprávy část
 | skupiny pořadí |Čítač identifikace relativní pořadové číslo zprávy v relaci. Ignorovat služby Service Bus. |Není k dispozici prostřednictvím rozhraní API Service Bus. |
 | odpověď na skupiny id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
-## Pokročilé funkce služby Service Bus
+## <a name="advanced-service-bus-capabilities"></a>Pokročilé funkce služby Service Bus
 
 Tato část obsahuje rozšířené možnosti služby Azure Service Bus, které jsou založeny na koncept rozšíření AMQP, aktuálně vyvíjených v OASIS technický výbor pro AMQP. Service Bus implementuje nejnovější verze tyto koncepty a přijímá změny zavedené jako tyto koncepty dosáhne standardní stavu.
 
@@ -242,7 +242,7 @@ Tato část obsahuje rozšířené možnosti služby Azure Service Bus, které j
 > 
 > 
 
-### AMQP správy
+### <a name="amqp-management"></a>AMQP správy
 
 Specifikace protokolu AMQP správy je první rozšíření koncept popsané v tomto článku. Tato specifikace definuje sadu protokolů jako vrstva nad protokol AMQP, které umožňují správu interakce s infrastrukturu zasílání zpráv přes AMQP. Specifikace definuje obecná operací, jako *vytvořit*, *číst*, *aktualizace*, a *odstranit* pro správu entity uvnitř infrastrukturu zasílání zpráv a sadu operace dotazů.
 
@@ -263,7 +263,7 @@ Výměny zpráv použít pro protokol pro správu a všech ostatních protokolů
 
 Service Bus neimplementuje aktuálně některé z klíčových funkcí správy specifikace, ale vzoru požadavků a odpovědí definované specifikací správy je základní pro funkci deklarace identity na základě zabezpečení a téměř všechny rozšířené možnosti popsané v následujících částech.
 
-### Ověření na základě deklarace identity
+### <a name="claims-based-authorization"></a>Ověření na základě deklarace identity
 
 Koncept specifikace AMQP deklarace identity na základě autorizace (CBS) založený na vzoru správu specifikace požadavků a odpovědí a popisuje zobecněný model pro používání tokenů zabezpečení federované s AMQP.
 
@@ -316,7 +316,7 @@ Po vytvoření připojení a relace připojení na odkazy *$cbs* uzel a odesíl�
 
 Klient je následně zodpovědná pro udržování přehledu o vypršení platnosti tokenu. Když vyprší platnost tokenu, Service Bus neprodleně zahodí všechny odkazy na připojení k příslušné entity. Chcete-li tomu zabránit, klient může nahradit token pro uzel s novou kdykoli prostřednictvím virtuální *$cbs* uzlu správy se stejným *put token* gesty a bez získávání cestě datové části provoz, který probíhá na jiné odkazy.
 
-## Další kroky
+## <a name="next-steps"></a>Další kroky
 
 Další informace o protokolu AMQP, získáte pomocí následujících odkazů:
 

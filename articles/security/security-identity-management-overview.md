@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: terrylan
-ms.openlocfilehash: 8d00882caf5411240c5f0a3533c78c3dbe361ef2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e816f151ea1f71770f00d6d77b65395fe080da3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Přehled zabezpečení správy identit Azure
 Microsoft identit a přístupu řešení Nápověda pro správu IT chránit přístup k aplikacím a prostředkům v podnikovém datovém centru a cloudu, povolení další úrovně ověřování, jako je vícefaktorové ověřování a zásady podmíněného přístupu. Monitorování podezřelé aktivity přes pokročilé zabezpečení vytváření sestav a auditování, výstrahy, pomáhá zmírnit potenciální potíže se zabezpečením. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) poskytuje jednotné přihlašování k tisícům cloudové aplikace (SaaS) a přístup k webové aplikace můžete spustit místně.
@@ -57,7 +57,7 @@ Další informace:
 
 * [Přehled jednotného přihlašování](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
-* [Integrovat Azure Active Directory jednotné přihlašování s aplikacemi SaaS](../active-directory/active-directory-sso-integrate-saas-apps.md)
+* [Integrovat Azure Active Directory jednotné přihlašování s aplikacemi SaaS](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Reverzní proxy server
 Proxy aplikace služby Azure AD umožňuje publikovat místní aplikace, jako například [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) lokalit, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), a [IIS](http://www.iis.net/)-aplikací uvnitř vaší privátní sítě a zajišťuje zabezpečený přístup pro uživatele mimo vaši síť. Proxy aplikací poskytuje vzdálený přístup a jednotné přihlašování (SSO) pro mnoho typů místní webové aplikace s tisíci aplikace SaaS, které podporuje Azure AD. Zaměstnancům umožní přihlásit se k aplikacím z domácí na jejich vlastní zařízení a ověřování prostřednictvím této cloudové proxy.
@@ -67,7 +67,7 @@ Další informace:
 * [Povolení proxy aplikace služby Azure AD](../active-directory/active-directory-application-proxy-enable.md)
 * [Publikování aplikací pomocí proxy aplikace služby Azure AD](../active-directory/active-directory-application-proxy-publish.md)
 * [Jednotné přihlášení pomocí Proxy aplikace](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Práce s podmíněným přístupem](../active-directory/active-directory-application-proxy-conditional-access.md)
+* [Práce s podmíněným přístupem](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
 ## <a name="multi-factor-authentication"></a>Ověřování pomocí služby Multi-Factor Authentication
 Azure Multi-Factor authentication (MFA) je metoda ověřování, který vyžaduje použití víc než jednu metodu ověřování a přidá velmi důležitou druhou vrstvu zabezpečení uživatelská přihlášení a transakce. MFA pomáhá chránit přístup k datům a aplikacím při splnění požadavků uživatelů pro jednoduchý proces přihlášení. Zajišťuje silné ověřování přes celou řadu možností ověření – telefonní hovor, textová zpráva nebo mobilní aplikace oznámení nebo ověřovací kód a třetích stran tokeny OAuth.
