@@ -35,31 +35,20 @@
 
 ### Konfigurace vzdálené plochy
 #### [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [Portál Classic](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Nasazení
-### Vytvoření a nasazení cloudové služby na portálu
-#### [Azure Portal](cloud-services-how-to-create-deploy-portal.md)
-#### [Portál Classic](cloud-services-how-to-create-deploy.md)
+### [Vytvoření a nasazení cloudové služby na portálu](cloud-services-how-to-create-deploy-portal.md)
 ### [Vytvoření prázdného kontejneru cloudové služby v PowerShellu](cloud-services-powershell-create-cloud-container.md)
-### Konfigurace názvu vlastní domény
-#### [Azure Portal](cloud-services-custom-domain-name-portal.md)
-#### [Portál Classic](cloud-services-custom-domain-name.md)
+### [Konfigurace vlastního názvu domény](cloud-services-custom-domain-name-portal.md)
 ### [Příprava nasazení cloudové služby (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Připojení k vlastnímu řadiči domény](cloud-services-connect-to-custom-domain.md)
 
 ## Správa služby
-### Běžné úlohy správy
-#### [Azure Portal](cloud-services-how-to-manage-portal.md)
-#### [Portál Classic](cloud-services-how-to-manage.md)
-### Konfigurace cloudové služby
-#### [Azure Portal](cloud-services-how-to-configure-portal.md)
-#### [Portál Classic](cloud-services-how-to-configure.md)
+### [Běžné úlohy správy](cloud-services-how-to-manage-portal.md)
+### [Konfigurace cloudové služby](cloud-services-how-to-configure-portal.md)
 ### [Správa cloudové služby pomocí Azure Automation](automation-manage-cloud-services.md)
-### Konfigurace automatického škálování
-#### [Azure Portal](cloud-services-how-to-scale-portal.md)
-#### [Portál Classic](cloud-services-how-to-scale.md)
+### [Konfigurace automatického škálování](cloud-services-how-to-scale-portal.md)
 ### [Použití Pythonu ke správě prostředků Azure](cloud-services-python-how-to-use-service-management.md)
 
 ### [Opravy hostovaného operačního systému](cloud-services-guestos-msrc-releases.md)
@@ -71,9 +60,7 @@
 
 ## Správa certifikátů
 ### [Cloud Services a správa certifikátů](cloud-services-certs-create.md)
-### Konfigurace SSL 
-#### [Azure Portal](cloud-services-configure-ssl-certificate-portal.md)
-#### [Portál Classic](cloud-services-configure-ssl-certificate.md)
+### [Konfigurace SSL](cloud-services-configure-ssl-certificate-portal.md)
 
 ## Monitorování
 ### [Monitorování cloudové služby](cloud-services-how-to-monitor.md)

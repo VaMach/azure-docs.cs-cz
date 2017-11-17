@@ -14,6 +14,9 @@
 ### [Omezení služby](key-vault-service-limits.md)
 ### [Klíče chráněné pomocí HSM](key-vault-hsm-protected-keys.md)
 ### [Migrace na rozhraní .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [Uložení tajných kódů webové aplikace](vs-secure-secret-appsettings.md)
+### [Ověření služby pomocí .NET](service-to-service-authentication.md)
+
 ### Přehledy
 #### [Světy zabezpečení](key-vault-ovw-security-worlds.md)
 #### [Obnovitelné odstranění](key-vault-ovw-soft-delete.md)

@@ -15,7 +15,7 @@
   items:
     - name: Vytvoření clusteru virtuálních počítačů s využitím modulů Terraformu
       href: terraform-create-vm-cluster-module.md
-    - name: Vytvoření clusteru virtuálních počítačů s využitím služby Cloud Shell
+    - name: Vytvoření clusteru virtuálních počítačů pomocí Terraformu a HCL
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Zřízení škálovací sady virtuálních počítačů s infrastrukturou
       href: terraform-create-vm-scaleset-network-disks-hcl.md

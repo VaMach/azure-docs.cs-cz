@@ -3,7 +3,6 @@
 
 # Začínáme
 
-## [Volba SKU](search-sku-tier.md)
 ## [Vytvoření služby](search-create-service-portal.md)
 ## [Vytvoření indexu](search-what-is-an-index.md)
 ### [Azure Portal](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # Kurzy
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [Náhled synonym .NET](search-synonyms-tutorial-sdk.md)
-## [Azure Portal](search-get-started-portal.md)
+## [Vývoj v .NET](search-howto-dotnet-sdk.md)
+## [Náhled synonym v .NET](search-synonyms-tutorial-sdk.md)
+## [Indexer dat SQL v .NET](search-indexer-tutorial.md)
+## [Průvodce portálem](search-get-started-portal.md)
 ## [Prohledávání částečně strukturovaných dat](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [Zkoumání rozhraní REST API](search-fiddler.md)
 
 # Postup
 
 ## Plánování a návrh
+### [Volba SKU](search-sku-tier.md)
 ### [Omezení služby](search-limits-quotas-capacity.md)
 ### [Škálovatelnost služby](search-capacity-planning.md)
 ### [Způsoby návrhu pro architekturu s více tenanty](search-modeling-multitenant-saas-applications.md)
 ## Vývoj
 ### [Verze rozhraní API](search-api-versions.md)
+### [Vývoj v Node.js](search-get-started-nodejs.md)
+### [Vývoj v Javě](search-get-started-java.md)
 ### [Upgrade sady SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade rozhraní REST API](search-api-migration.md)
 ### [Modelování komplexních datových typů](search-howto-complex-data-types.md)

@@ -125,7 +125,7 @@
           href: ps-template.md
         - name: Připojení k virtuálnímu počítači
           href: connect-logon.md
-        - name: Použití licencování AHUB
+        - name: Použití licence programu Zvýhodněné hybridní využití Azure
           href: hybrid-use-benefit-licensing.md
         - name: Použití práv hostování více klientů pro Windows 10
           href: windows-desktop-multitenant-hosting-deployment.md
@@ -141,6 +141,17 @@
           href: policy.md
         - name: Vytvoření trezoru klíčů
           href: key-vault-setup.md
+    - name: Ochrana virtuálních počítačů
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      items:
+        - name: Zálohování jednoho virtuálního počítače
+          items:
+            - name: portál Azure
+              href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Azure PowerShell
+              href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Zálohování několika virtuálních počítačů
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Správa virtuálních počítačů
       items:
         - name: Běžné úlohy PowerShellu
@@ -167,6 +178,8 @@
           href: scheduled-events.md
         - name: Monitorování metadat
           href: instance-metadata-service.md
+        - name: Povolení vnořené virtualizace
+          href: nested-virtualization.md
     - name: Použití imagí
       items:
         - name: Vyhledání a použití imagí

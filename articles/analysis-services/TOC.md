@@ -20,7 +20,7 @@
 ## [Instalace a konfigurace místní brány dat](analysis-services-gateway-install.md)
 ## [Získání klientských knihoven](analysis-services-data-providers.md)
 ## [Zálohování a obnovení](analysis-services-backup.md)
-## [Konfigurace horizontálního navýšení kapacity replik dotazů](analysis-services-scale-out.md)
+## [Konfigurace škálování na více instancí](analysis-services-scale-out.md)
 ## [Propojení s Excelem](analysis-services-connect-excel.md)
 ## [Propojení s Power BI](analysis-services-connect-pbi.md)
 ## [Vytvoření souboru .odc](analysis-services-odc.md)

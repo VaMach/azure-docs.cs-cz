@@ -106,6 +106,7 @@
 
 ## [Živé streamování](media-services-manage-channels-overview.md)
 ### [Místní kodéry](media-services-live-streaming-with-onprem-encoders.md)
+#### [Doporučené místní kodéry](media-services-recommended-encoders.md)
 #### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Živé streamování s použitím cloudového kodéru](media-services-manage-live-encoder-enabled-channels.md)
@@ -118,6 +119,13 @@
 #### [Kodér Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Zpracování dlouhotrvajících operací](media-services-dotnet-long-operations.md)
 ### [Specifikace živého ingestování fragmentovaného MP4](media-services-fmp4-live-ingest-overview.md)
+
+## [Oříznutí obsahu](media-services-azure-media-clipper-overview.md)
+### [Začínáme s Azure Media Clipperem](media-services-azure-media-clipper-getting-started.md)
+### [Načtení prostředků do Azure Media Clipperu](media-services-azure-media-clipper-load-assets.md)
+### [Konfigurace vlastních klávesových zkratek](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Odesílání úloh oříznutí](media-services-azure-media-clipper-submit-job.md)
+### [Azure Portal](media-services-azure-media-clipper-portal.md)
 
 ## [Ochrana](media-services-content-protection-overview.md)
 ### [Konfigurace ochrany obsahu na webu Azure Portal](media-services-portal-protect-content.md)
@@ -218,7 +226,7 @@
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)  
 
-# Zdroje a prostředky
+# Zdroje
 ## [Komunita Azure Media Services](media-services-community.md)
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Ceny](https://azure.microsoft.com/pricing/details/media-services/)

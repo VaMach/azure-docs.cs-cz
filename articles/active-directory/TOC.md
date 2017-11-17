@@ -73,7 +73,6 @@
 ## [Správa skupin a členů](active-directory-manage-groups.md)
 ### Správa skupin
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Portál Classic](active-directory-accessmanagement-manage-groups.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Správa členů skupin](active-directory-groups-members-azure-portal.md)
 ### [Správa vlastníků skupin](active-directory-accessmanagement-managing-group-owners.md)
@@ -94,7 +93,6 @@
 #### [Rutiny](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Vytváření rozšířených pravidel
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Portál Classic](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [Vytvoření samoobslužných skupin](active-directory-accessmanagement-self-service-group-management.md)
 ### [Řešení problémů](active-directory-accessmanagement-troubleshooting.md)
 
@@ -135,6 +133,7 @@
 #### [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
 ### [Jak funguje SSPR](active-directory-passwords-how-it-works.md)
 ### [Průvodce nasazením SSPR](active-directory-passwords-best-practices.md)
+### [SSPR a Windows 10](active-directory-passwords-login.md)
 ### [Zásady SSPR](active-directory-passwords-policy.md)
 ### [Přizpůsobení SSPR](active-directory-passwords-customize.md)
 ### [Požadavky SSPR na data](active-directory-passwords-data.md)
@@ -209,8 +208,8 @@
 #### Použití portálu Classic
 ##### [Stažení konektorů](application-proxy-enable-classic-portal.md)
 ##### [Publikování aplikací](active-directory-application-proxy-publish.md)
-##### [Použití konektorů](active-directory-application-proxy-connectors.md)
-##### [Podmíněný přístup](active-directory-application-proxy-conditional-access.md)
+##### [Použití konektorů](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Podmíněný přístup](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Správa podnikových aplikací
 #### [Přiřazení uživatelů](active-directory-coreapps-assign-user-azure-portal.md)
@@ -222,6 +221,7 @@
 #### [Správa jednotného přihlašování pro podnikové aplikace](active-directory-enterprise-apps-manage-sso.md)
 #### [Pokročilé podepisování certifikátů pro aplikace SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Skrytí aplikace třetí strany před uživatelem](active-directory-coreapps-hide-third-party-app.md)
+### [Konfigurace automatického zrychlení přihlašování pomocí zásad HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)
 #### [Samoobslužný přístup](active-directory-self-service-application-access.md)
@@ -248,9 +248,8 @@
 ## Správa adresáře
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Vlastní názvy domén
-#### [Přehled](active-directory-add-domain-concepts.md)
+#### [Přehled](active-directory-domains-manage-azure-portal.md)
 #### [Správa názvů domén](active-directory-domains-manage-azure-portal.md)
-##### [Portál Classic](active-directory-add-manage-domain-names.md)
 ### [Správa adresáře](active-directory-administer.md)
 ### [Několik adresářů](active-directory-licensing-directory-independence.md)
 ### [Samoobslužné přihlášení](active-directory-self-service-signup.md)

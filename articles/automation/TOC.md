@@ -71,7 +71,7 @@
 ## Řešení
 ### [Správa aktualizací](../operations-management-suite/oms-solution-update-management.md)
 #### [Správa aktualizací pro několik virtuálních počítačů](manage-update-multi.md)
-#### [Integrace SCCMr s OMS Update Managementem](oms-solution-updatemgmt-sccmintegration.md)
+#### [Integrace SCCM s OMS Update Managementem](oms-solution-updatemgmt-sccmintegration.md)
 ### [Sledování změn](../log-analytics/log-analytics-change-tracking.md)
 ### [Sledování změn ve vašich virtuálních počítačích](automation-vm-change-tracking.md)
 ### [Správa virtuálního počítače se shromažďování dat pro inventarizaci](automation-vm-inventory.md)

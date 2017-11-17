@@ -37,6 +37,8 @@
       href: container-instances-mounting-azure-files-volume.md
     - name: Nasazení ze služby Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Spouštění kontejnerizovaných úloh
+      href: container-instances-restart-policy.md
     - name: Řešení potíží s nasazeními
       href: container-instances-troubleshooting.md
 - name: Referenční informace

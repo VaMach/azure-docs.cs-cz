@@ -17,6 +17,7 @@
 #### [Azure AD se službou Batch](batch-aad-auth.md)
 #### [Azure AD se službou Batch Management](batch-aad-auth-management.md)
 ### [Virtuální počítače náročné na výpočetní výkon](batch-pool-compute-intensive-sizes.md)
+### [Úlohy kontejneru](batch-docker-container-workloads.md)
 ### [Souběžné úlohy uzlu](batch-parallel-node-tasks.md)
 ### [Počet úloh podle stavu](batch-get-task-counts.md)
 ### [Vytvoření fondu s využitím vlastní image](batch-custom-images.md)

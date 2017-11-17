@@ -11,7 +11,7 @@
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Sdílení prostředků různého původu](cdn-cors.md)
 ### [Přidání vlastní domény do koncového bodu CDN](cdn-map-content-to-custom-domain.md)
-### [Povolení HTTPS pro vlastní doménu](cdn-custom-ssl.md)
+### [Konfigurace HTTPS pro vlastní doménu](cdn-custom-ssl.md)
 ## Optimalizace obsahu
 ### [Přehled optimalizace](cdn-optimization-overview.md)
 ####[Optimalizace velkých souborů](cdn-large-file-optimization.md)

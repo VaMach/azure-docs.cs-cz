@@ -14,6 +14,9 @@
 ## [Zachování úložiště v PowerShellu](persisting-shell-storage-powershell.md)
 ## [Použití okna](using-the-shell-window.md)
 
+# Příklady
+## [Nasazení prostředků Azure pomocí Terraformu v prostředí Bash](example-terraform-bash.md)
+
 # [Ceny](pricing.md)
 
 # [Řešení potíží](troubleshooting.md)

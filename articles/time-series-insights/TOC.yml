@@ -1,0 +1,76 @@
+- name: Azure Time Series Insights
+  href: index.yml
+- name: Přehled
+  items:
+    - name: Informace o službě Time Series Insights
+      href: time-series-insights-overview.md
+- name: Šablony Rychlý start
+  items:
+    - name: Prozkoumat službu Time Series Insights
+      href: time-series-quickstart.md
+- name: Koncepty
+  items:
+    - name: Plánování prostředí
+      href: time-series-insights-environment-planning.md
+    - name: Vizualizace dat v průzkumníku
+      href: time-series-insights-explorer.md
+    - name: Zmírnění omezování
+      href: time-series-insights-environment-mitigate-latency.md
+    - name: Diagnostika a řešení potíží
+      href: time-series-insights-diagnose-and-solve-problems.md
+    - name: Vývoj
+      items:
+        - name: Ověřování a autorizace
+          href: time-series-insights-authentication-and-authorization.md
+        - name: 'Dotazování dat pomocí jazyka C#'
+          href: time-series-insights-query-data-csharp.md
+        - name: 'Správa referenčních dat v jazyce C#'
+          href: time-series-insights-manage-reference-data-csharp.md
+        - name: Sdílení vlastního zobrazení
+          href: time-series-insights-parameterized-urls.md
+- name: Návody
+  items:
+    - name: Vytvoření prostředí
+      href: time-series-insights-get-started.md
+    - name: Udělení přístupu k datům
+      href: time-series-insights-data-access.md
+    - name: Připojení k centru událostí
+      href: time-series-insights-how-to-add-an-event-source-eventhub.md
+    - name: Připojení ke službě IoT Hub
+      href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Vytvoření referenční sady dat
+      href: time-series-insights-add-reference-data-set.md
+    - name: Odesílání událostí
+      href: time-series-insights-send-events.md
+    - name: Škálování prostředí
+      href: time-series-insights-how-to-scale-your-environment.md
+- name: Referenční informace
+  items:
+    - name: Rozhraní API pro dotazy
+      href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
+    - name: Syntaxe dotazů
+      href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+- name: Zdroje
+  items:
+    - name: Související služby
+      items:
+        - name: Azure IoT Suite
+          href: /azure/iot-suite/
+        - name: Azure Event Hubs
+          href: /azure/event-hubs/
+        - name: Azure Stream Analytics
+          href: /azure/stream-analytics/
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
+    - name: Cenová kalkulačka
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Dostupnost v oblastech
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Fórum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
+    - name: Možnosti podpory
+      href: 'https://azure.microsoft.com/support/options/'

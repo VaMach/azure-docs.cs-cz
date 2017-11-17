@@ -2,6 +2,7 @@
 ## [Co je služba Stream Analytics?](stream-analytics-introduction.md)
 ## [Porovnání Storm a Stream Analytics](stream-analytics-comparison-storm.md)
 
+
 # Začínáme
 ## [Zpracování streamovaných dat IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Zjišťování možných podvodů v reálném čase](stream-analytics-real-time-fraud-detection.md)
@@ -13,7 +14,9 @@
 ### [Sociální média](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Hodnocení v reálném čase s Machine Learningem](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Zpracování událostí v reálném čase](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Stream Analytics na hraničních zařízeních IoT (Preview)](stream-analytics-edge.md)
 ### [Detekce anomálií v příručce využití Azure (Preview)](stream-analytics-machine-learning-anomaly-detection.md)
+### [Simulace vysokofrekvenčního obchodování pomocí Stream Analytics](stream-analytics-high-frequency-trading.md)
 
 ## Vytváření úloh
 ### [Vytváření vstupů](stream-analytics-define-inputs.md)
