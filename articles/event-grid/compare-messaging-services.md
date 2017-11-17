@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9a9baa457729bdc4d70a8f9f45701dbdb875d3ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Zvolit služby Azure, které doručování zpráv
 
@@ -32,20 +32,16 @@ Je důležité rozdíl mezi služby přinášející událost a služby přiná�
 
 Událost je lightweight oznámení akce nebo změně stavu. Data události obsahuje informace o co se stalo, ale nemá data, která spustí událost. Například událost upozorní Odběratelé, kteří, že soubor byl vytvořen. Obecné informace o souboru může obsahovat, ale neobsahuje samotném souboru. Obecně platí události aktivovat obslužné rutiny událostí tak, aby fungoval v reálném čase.
 
-Mřížky událostí je služba zpracování událostí.
-
 ### <a name="message"></a>Zpráva
 
-Zpráva je nezpracovaných dat vytváří služba spotřebované nebo uložená na jiném místě. Zpráva obsahuje data, která aktivuje zpráva kanálu. Tato zpráva může být cokoli z pořadí elektronického obchodování na uživatele telemetrie. Na rozdíl od oznámení o události může očekávat vydavatele zprávu odpovědi. Například zpráva obsahuje nezpracovaná data, ale očekává další součástí systému od data vytvoření souboru. 
-
-Služba Event Hubs a Service Bus jsou služby zasílání zpráv.
+Zpráva je nezpracovaných dat vytváří služba spotřebované nebo uložená na jiném místě. Zpráva obsahuje data, která aktivuje zpráva kanálu. Tato zpráva může být cokoli z pořadí elektronického obchodování na uživatele telemetrie. Na rozdíl od oznámení o události může očekávat vydavatele zprávu odpovědi. Například zpráva obsahuje nezpracovaná data, ale očekává další součástí systému od data vytvoření souboru.
 
 ## <a name="comparison-of-services"></a>Porovnání služeb
 
 | Služba | Účel | Typ | Kdy je použít |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Přepnutí do reaktivního programování | Událost | Reagovat na změny stavu |
-| Event Hubs | Kanál velkých objemů dat | Zpráva | Telemetrická data a vysílání datového proudu distribuovaných datech |
+| Event Grid | Přepnutí do reaktivního programování | Distribuci událostí | Reagovat na změny stavu |
+| Event Hubs | Kanál velkých objemů dat | Událost streamování | Telemetrická data a vysílání datového proudu distribuovaných datech |
 | Service Bus | Citlivých podnikových způsobů zasílání zpráv | Zpráva | Pořadí zpracování a finanční transakce |
 
 ### <a name="event-grid"></a>Event Grid
@@ -62,7 +58,7 @@ Má následující vlastnosti:
 
 ### <a name="event-hubs"></a>Event Hubs
 
-Azure Event Hubs je velkých objemů dat kanálu. Zařídí zachycení, uchovávání a opětovného přehrání dat datový proud telemetrie a událostí. Data mohou pocházet z mnoha souběžných zdrojů. Služba Event Hubs umožňuje data telemetrie a událostí bylo k dispozici k různým službám infrastruktury a analýzy zpracování datového proudu. Je k dispozici buď jako datové proudy nebo připojené události dávek. Tato služba poskytuje jeden řešení, které umožňuje načtení rychlé data pro zpracování v reálném čase, jakož i opakované přehrání uložené nezpracovaná data.
+Azure Event Hubs je velkých objemů dat kanálu. Zařídí zachycení, uchovávání a opětovného přehrání dat datový proud telemetrie a událostí. Data mohou pocházet z mnoha souběžných zdrojů. Služba Event Hubs umožňuje data telemetrie a událostí bylo k dispozici k různým službám infrastruktury a analýzy zpracování datového proudu. Je k dispozici buď jako datové proudy nebo připojené události dávek. Tato služba poskytuje jeden řešení, které umožňuje načtení rychlé data pro zpracování v reálném čase, jakož i opakované přehrání uložené nezpracovaná data. Streamování dat ji můžete zaznamenat do souboru pro zpracování a analýzu.
 
 Má následující vlastnosti:
 
@@ -72,6 +68,8 @@ Má následující vlastnosti:
 ### <a name="service-bus"></a>Service Bus
 
 Service Bus je určený pro tradiční podnikové aplikace. Tyto aplikace enterprise vyžadují transakce, řazení, detekci duplikátů a okamžitou konzistence. Service Bus umožňuje aplikacím nativní cloudu a zajistit tak správu spolehlivé stavu přechodu pro podnikové procesy. Při zpracování zpráv vysoké hodnoty, které nemohou být ke ztrátě nebo duplicitní, použijte Azure Service Bus. Service Bus také usnadňuje vysoce zabezpečených komunikaci mezi hybridní cloudové řešení a stávajících místních systémů se může připojit k cloudové řešení.
+
+Service Bus je zprostředkované zasílání zpráv systému. Uloží zprávy do "zprostředkovatele" (například fronty), dokud spotřebitel nebude připravený přijímat zprávy.
 
 Má následující vlastnosti:
 

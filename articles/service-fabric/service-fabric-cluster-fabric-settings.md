@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Přizpůsobení nastavení clusteru Service Fabric a zásady upgradu prostředků infrastruktury
 Tento dokument vysvětluje, jak přizpůsobit různá nastavení prostředků infrastruktury a infrastruktury upgradovat zásady pro váš cluster Service Fabric. Přizpůsobit pomocí [portál Azure](https://portal.azure.com) nebo pomocí šablony Azure Resource Manager.
@@ -340,8 +340,8 @@ Následuje seznam infrastruktury nastavení, které můžete přizpůsobit, uspo
 ### <a name="section-name-faultanalysisservice"></a>Název oddílu: FaultAnalysisService
 | **Parametr** | **Povolené hodnoty** | **Zásady upgradu** | **Pokyny nebo krátký popis** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, výchozí hodnota je 0 |Není povoleno|NOT_PLATFORM_UNIX_START TargetReplicaSetSize pro FaultAnalysisService. |
-| MinReplicaSetSize |Int, výchozí hodnota je 0 |Není povoleno|MinReplicaSetSize pro FaultAnalysisService. |
+| TargetReplicaSetSize |Int, výchozí hodnota je 0 |Statická|NOT_PLATFORM_UNIX_START TargetReplicaSetSize pro FaultAnalysisService. |
+| MinReplicaSetSize |Int, výchozí hodnota je 0 |Statická|MinReplicaSetSize pro FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Čas v sekundách, výchozí hodnota je 60 minut|Statická|Zadejte časový interval v sekundách. ReplicaRestartWaitDuration pro FaultAnalysisService. |
 | QuorumLossWaitDuration | Čas v sekundách, výchozí hodnota je MaxValue |Statická|Zadejte časový interval v sekundách. QuorumLossWaitDuration pro FaultAnalysisService. |
 | StandByReplicaKeepDuration| Čas v sekundách, výchozí hodnota je (60*24*7) minut |Statická|Zadejte časový interval v sekundách. StandByReplicaKeepDuration pro FaultAnalysisService. |
@@ -390,8 +390,8 @@ Následuje seznam infrastruktury nastavení, které můžete přizpůsobit, uspo
 | **Parametr** | **Povolené hodnoty** | **Zásady upgradu** | **Pokyny nebo krátký popis** |
 | --- | --- | --- | --- |
 | Povoleno |BOOL, výchozí hodnota je false |Statická|Příznak povoleno ImageStoreService. Výchozí: false |
-| TargetReplicaSetSize | Int, výchozí hodnota je 7 |Není povoleno|TargetReplicaSetSize pro ImageStoreService. |
-| MinReplicaSetSize | Int, výchozí hodnota je 3 |Není povoleno|MinReplicaSetSize pro ImageStoreService. |
+| TargetReplicaSetSize | Int, výchozí hodnota je 7 |Statická|TargetReplicaSetSize pro ImageStoreService. |
+| MinReplicaSetSize | Int, výchozí hodnota je 3 |Statická|MinReplicaSetSize pro ImageStoreService. |
 | ReplicaRestartWaitDuration | Čas v sekundách, výchozí hodnota je 60.0 * 30 |Statická|Zadejte časový interval v sekundách. ReplicaRestartWaitDuration pro ImageStoreService. |
 | QuorumLossWaitDuration | Čas v sekundách, výchozí hodnota je MaxValue |Statická| Zadejte časový interval v sekundách. QuorumLossWaitDuration pro ImageStoreService. |
 | StandByReplicaKeepDuration | Čas v sekundách, výchozí hodnota je 3600.0 * 2 |Statická| Zadejte časový interval v sekundách. StandByReplicaKeepDuration pro ImageStoreService. |
@@ -414,8 +414,8 @@ Následuje seznam infrastruktury nastavení, které můžete přizpůsobit, uspo
 ### <a name="section-name-upgradeorchestrationservice"></a>Název oddílu: UpgradeOrchestrationService
 | **Parametr** | **Povolené hodnoty** | **Zásady upgradu** | **Pokyny nebo krátký popis** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, výchozí hodnota je 0 |Není povoleno|TargetReplicaSetSize pro UpgradeOrchestrationService. |
-| MinReplicaSetSize |Int, výchozí hodnota je 0 |Není povoleno|MinReplicaSetSize pro UpgradeOrchestrationService.
+| TargetReplicaSetSize |Int, výchozí hodnota je 0 |Statická |TargetReplicaSetSize pro UpgradeOrchestrationService. |
+| MinReplicaSetSize |Int, výchozí hodnota je 0 |Statická |MinReplicaSetSize pro UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Čas v sekundách, výchozí hodnota je 60 minut|Statická| Zadejte časový interval v sekundách. ReplicaRestartWaitDuration pro UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Čas v sekundách, výchozí hodnota je MaxValue |Statická| Zadejte časový interval v sekundách. QuorumLossWaitDuration pro UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Čas v sekundách, výchozí hodnota je 60*24*7 minut |Statická| Zadejte časový interval v sekundách. StandByReplicaKeepDuration pro UpgradeOrchestrationService. |

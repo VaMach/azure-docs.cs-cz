@@ -1,6 +1,6 @@
 ---
-title: "SAP NetWeaver HA instalace v clusteru převzetí služeb při selhání se systémem Windows a soubor sdílet pro SAP (A) SCS instanci v Azure | Microsoft Docs"
-description: "SAP NetWeaver HA instalace v systému Windows převzetí služeb při selhání clusteru a sdílené složky SCS Instance SAP (A)"
+title: "SAP NetWeaver instalaci vysoké dostupnosti na Windows převzetí služeb při selhání clusteru a sdílení souborů pro instance SAP ASC nebo SCS v Azure | Microsoft Docs"
+description: "SAP NetWeaver instalaci vysoké dostupnosti na Windows převzetí služeb při selhání clusteru a sdílení souborů pro SAP ASC nebo SCS instance"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec7888cfb9b0d288b5b25f580c852ee32306684c
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b7b403518c75c72b68957f94dcac750cd922f6bc
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sap-netweaver-ha-installation-on-windows-failover-cluster-and-file-share-for-sap-ascs-instance-on-azure"></a>SAP NetWeaver HA instalace v systému Windows převzetí služeb při selhání clusteru a sdílené složky SCS Instance SAP (A) v Azure
+# <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Nainstalujte SAP NetWeaver vysokou dostupnost systému Windows převzetí služeb při selhání clusteru a sdílení souborů pro SAP ASC nebo SCS instance na Azure
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -194,24 +194,23 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-Tento dokument je popisující, jak nainstalovat a nakonfigurovat vysokou dostupné systémové SAP v Azure, s **Windows Failover Cluster (WSFC)** a **sdílené složky se Škálováním** jako možnost pro clustering SAP (A) SCS instance.
+Tento článek popisuje postup instalace a konfigurace systému SAP vysoké dostupnosti v Azure s Windows Server Failover Cluster (WSFC) a souborového serveru Škálovaného na více systémů jako možnost pro clustering SAP ASC nebo SCS instancí.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Ujistěte se, že jste si tyto dokumenty, než začnete s instalací:
+Než začnete s instalací, projděte si v následujících článcích:
 
-* [Průvodce architekturou – Clustering SAP (A) SCS Instance na **clusteru převzetí služeb při selhání se systémem Windows** pomocí **sdílení souborů**][sap-high-availability-guide-wsfc-file-share]
+* [Průvodce architekturou: instance SAP ASC nebo SCS clusteru v clusteru převzetí služeb při selhání se systémem Windows pomocí sdílené složky][sap-high-availability-guide-wsfc-file-share]
 
-* [Azure Příprava infrastruktury pro používání SAP HA **clusteru převzetí služeb při selhání se systémem Windows** a **soubor sdílený** pro instanci SCS SAP (A)][sap-high-availability-infrastructure-wsfc-file-share]
+* [Připravit infrastrukturu Azure SAP vysoké dostupnosti pomocí systému Windows převzetí služeb při selhání clusteru a sdílení souborů pro SAP ASC nebo SCS instance][sap-high-availability-infrastructure-wsfc-file-share]
 
+Budete potřebovat následující spustitelné soubory a knihovny DLL z SAP:
+* SAP softwaru zřizování Manager (SWPM) verze nástroje instalace SPS21 nebo novější.
+* Stáhněte si nejnovější NTCLUST. Zvláštní správní oblast ČLR archivu s novou SAP clusteru knihovnu DLL prostředku. Nové knihovny DLL SAP clusteru podporují SAP ASC nebo SCS vysoká dostupnost s sdílenou složku na clusteru pro převzetí služeb při selhání systému Windows Server.
 
-Budete potřebovat následující spustitelné soubory nebo knihovny DLL z SAP:
-* SAP **správce zřizování softwaru** (**SWPM**) verze nástroje instalace **SPS21 (nebo vyšší)**.
-* Stažení **nejnovější NTCLUST. Zvláštní správní oblast ČLR** archivu s novou SAP DLL prostředků clusteru. Nové knihovny DLL SAP clusteru podporuje vysokou dostupnost SCS SAP (A) s sdílenou složku na clusteru pro převzetí služeb při selhání systému Windows Server.
+  Další informace o nové SAP prostředku clusteru knihovnu DLL, najdete v tomto blogu: [je k dispozici nové SAP prostředek clusteru knihovnu DLL!] [sap-blog-new-sap-cluster-resource-dll].
 
-  Další založení na nový SAP prostředek clusteru knihovnu DLL, vyhledejte v tomto blogu: [je k dispozici nové SAP prostředek clusteru knihovnu DLL!][sap-blog-new-sap-cluster-resource-dll]
-
-Instalace databázového systému jsme popisují není nastavení lišit v závislosti na tom, které můžete použít systém databázového systému. Ale předpokládáme, že jsou aspekty vysoké dostupnosti s databázového systému řešit pomocí funkce, které různých výrobců databázového systému podpora pro Azure. Například Always On nebo zrcadlení databáze systému SQL Server a Oracle Data Guard pro databáze Oracle. Ve scénáři, které používáme v tomto článku jsme nebyla přidat další ochranu do databázového systému.
+Instalační program systému správy databáze správu systému (databáze) jsme popisují není lišit v závislosti na databázového systému použijete nastavení. Ale předpokládáme, že jsou aspekty vysoké dostupnosti s databázového systému řešit pomocí funkce, které podporují různí dodavatelé databázového systému pro Azure. Tyto funkce patří AlwaysOn nebo zrcadlení databáze systému SQL Server a Oracle Data Guard pro databáze Oracle. Ve scénáři, které používáme v tomto článku jsme nebyla přidat další ochranu do databázového systému.
 
 Když různé služby databázového systému interakci s tímto typem Clusterované konfigurace SAP ASC nebo SCS v Azure neexistují žádné zvláštní požadavky.
 
@@ -220,34 +219,34 @@ Když různé služby databázového systému interakci s tímto typem Clusterov
 >
 >
 
-## <a name="install-ascs-instance-on-ascs-cluster"></a>Nainstalovat (A) SCS instanci v clusteru (A) SCS
+## <a name="install-an-ascsscs-instance-on-an-ascsscs-cluster"></a>Nainstalujte instanci ASC nebo SCS v clusteru ASC nebo SCS
 
 > [!IMPORTANT]
 >
->V současné době nepodporuje nastavení HA s konfigurací sdílené složky souboru SAP nástroj pro instalaci softwaru zřizování Manager (SWPM). Proto je nutné pro instalaci systému SAP, například, instalace a cluster instance SCS SAP (A) a konfigurace samostatné SAP GLOBALHOST některé ruční přijetí.  
+> V současné době nepodporuje nastavení vysoké dostupnosti s konfigurací sdílené složky souboru SAP SWPM nástroj pro instalaci. Některé ruční přijetí je proto nutné pro instalaci systému SAP (například k instalaci a cluster instance SAP ASC nebo SCS a konfigurace samostatné hostitele globální SAP).  
 >
->Neexistuje žádná změna v další kroky instalace a instalace (a cluster) instance databázového systému SAP aplikačních serverů.
+> Neexistuje žádná změna v další instalační kroky instalace (a cluster) databázového systému instance a SAP aplikační servery.
 >
 
-### <a name="install-ascs-instance-on-local-drive"></a>Instance SCS instalace (A) na místní jednotce
+### <a name="install-an-ascsscs-instance-on-your-local-drive"></a>Nainstalujte instanci ASC nebo SCS na místní disk.
 
-Instalace SAP (A) SCS instance na **i** uzly clusteru (A) SCS. Nainstalujte na **místní** jednotky. V našem příkladu jsme zvolili, je místní disk C:\\. Můžete použít jakékoli místní jednotce.  
+Nainstalujte instanci SAP ASC nebo SCS na *i* uzly clusteru ASC nebo SCS. Nainstalujte ji na místní disk. V našem příkladu je místní disk C:\\, ale můžete zvolit jakékoli místní jednotce.  
 
-Chcete-li nainstalovat přejděte v instalaci SAP nástroj SWPM na:
+Chcete-li nainstalovat instanci SAP SWPM nástroj pro instalaci, přejděte na:
 
-&lt;Produkt&gt; -> &lt;databázového systému&gt; -> instalace -> aplikace Server ABAP (nebo Java) -> distribuované systém -> (A) SCS Instance
+**\<Produkt >** > **\<databázového systému >** > **instalace** > **aplikační Server ABAP**(nebo **Java**) > **systému DFS** > **ASC nebo SCS instance**
 
 > [!IMPORTANT]
->V současné době scénář sdílené složky souboru ještě není podporovaný nástroj pro instalaci SAP SWPM **nelze použít** Instalační cesta:
+> Scénář sdílené složky v současné době nepodporuje nástroj pro instalaci SAP SWPM. Můžete *nelze použít* následující instalační cesta:
 >
->&lt;Produkt&gt; -> &lt;databázového systému&gt; -> instalace -> aplikace Server ABAP (nebo Java) -> vysokou dostupnost systém ->...
+> **\<Produkt >** > **\<databázového systému >** > **instalace** > **aplikační Server ABAP**(nebo **Java**) > **vysokou dostupnost systému** >...
 >
 
-### <a name="remove-sapmnt-and-create-saploc-file-share"></a>Odeberte SAPMNT a vytvoření SAPLOC sdílené složky
+### <a name="remove-sapmnt-and-create-an-saploc-file-share"></a>Odeberte SAPMNT a vytvoření sdílené složky SAPLOC
 
-SWMP vytvořit SAPMNT místní sdílené složky na jednotce C:\\usr\\sap složky.
+SWMP SAPMNT místní sdílené složky vytvořené v jednotce C:\\usr\\sap složky.
 
-Odebrat sdílenou složku souborů SAPMNT na **i** (A) SCS uzly clusteru:
+Odeberte sdílenou SAPMNT na *i* ASC nebo SCS uzly clusteru.
 
 Spusťte následující skript prostředí PowerShell:
 
@@ -255,7 +254,7 @@ Spusťte následující skript prostředí PowerShell:
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
-Pokud SAPLOC sdílená složka neexistuje, vytvořte ji v uzlech clusteru jak ASC.
+Pokud sdílená složka SAPLOC neexistuje, vytvořte ho na *i* ASC nebo SCS uzly clusteru.
 
 Spusťte následující skript prostředí PowerShell:
 
@@ -272,19 +271,19 @@ $SAPusrSapPath = "$SAPDisk\usr\sap"
 New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators", $SAPSIDGlobalAdminGroupName , $SAPLocalAdminGroupName  
  ```
 
-## <a name="prepare-sap-global-host-on-sofs-cluster"></a>Příprava SAP globální hostitele v clusteru serveru SOFS
+## <a name="prepare-an-sap-global-host-on-the-sofs-cluster"></a>Příprava SAP globální hostitele v clusteru serveru SOFS
 
-V tomto kroku vytvoření následující složky svazku a soubor, na serveru SOFS clusteru:
+Vytvořte následující svazku a soubor sdílenou složku na serveru SOFS clusteru:
 
-* Soubor SAP GLOBALHOST C:\ClusterStorage\Volume1\usr\sap\\&lt;SID&gt;\SYS\ strukturu na serveru SOFS clusteru sdílený svazek (CSV)
+* Soubor SAP GLOBALHOST C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ strukturu na serveru SOFS clusteru sdílený svazek (CSV)
 
-* Vytvoření sdílené složky SAPMNT
+* SAPMNT sdílené složky
 
 * Nastavení zabezpečení na SAPMNT sdílené složky a složky s úplným řízením pro:
-    * **&lt;DOMÉNY&gt;\SAP_&lt;SID&gt;_GlobalAdmin** skupiny uživatelů
-    * SAP (A) počítače uzly clusteru SCS **objekty &lt;domény&gt;\ClusterNode1$ a &lt;domény&gt;\ClusterNode2$**
+    * \<Domény > \SAP_\<SID > _GlobalAdmin skupiny uživatelů
+    * Objekty počítače uzlu clusteru SAP ASC nebo SCS \<domény > \ClusterNode1$ a \<domény > \ClusterNode2$
 
-K vytvoření Sdíleného svazku clusteru s zrcadlové svazky, jak jsou definovány v kapitole **SAP požadavky pro SOFS ve službě Azure - přidat odkaz**, provést následující rutiny prostředí PowerShell na jednom z uzlů clusteru SOFS:
+Pokud chcete vytvořit svazek CSV s zrcadlové svazky, spusťte následující rutiny prostředí PowerShell na jednom z uzlů clusteru SOFS:
 
 
 ```PowerShell
@@ -298,11 +297,11 @@ $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
 
-# SAP (A)SCS cluster nodes
+# SAP ASCS/SCS cluster nodes
 $ASCSClusterNode1 = "ascs-1"
 $ASCSClusterNode2 = "ascs-2"
 
-# Define SAP (A)SCS cluster node computer objects
+# Define SAP ASCS/SCS cluster node computer objects
 $ASCSClusterObjectNode1 = "$DomainName\$ASCSClusterNode1$"
 $ASCSClusterObjectNode2 = "$DomainName\$ASCSClusterNode2$"
 
@@ -312,83 +311,79 @@ New-Item -Path $SAPGlobalFOlder -ItemType Directory
 
 $UsrSAPFolder = "C:\ClusterStorage\Volume1\usr\sap\"
 
-# Create SAPMNT file share and set share security
+# Create a SAPMNT file share and set share security
 New-SmbShare -Name sapmnt -Path $UsrSAPFolder -FullAccess "BUILTIN\Administrators", $SAPSIDGlobalAdminGroupName, $ASCSClusterObjectNode1, $ASCSClusterObjectNode2 -ContinuouslyAvailable $false -CachingMode None -Verbose
 
 # Get SAPMNT file share security settings
 Get-SmbShareAccess sapmnt
 
-# Set files & folder security
+# Set file and folder security
 $Acl = Get-Acl $UsrSAPFolder
 
-# Add file security object of SAP_<sid>_GlobalAdmin group
+# Add a file security object of SAP_<sid>_GlobalAdmin group
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($SAPSIDGlobalAdminGroupName,"FullControl", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode1$ computer object
+# Add  a security object of the clusternode1$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode1,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode2$ computer object
+# Add a security object of the clusternode2$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode2,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
 # Set security
 Set-Acl $UsrSAPFolder $Acl -Verbose
  ```
-## <a name="stop-ascs-instances-and-sap-services"></a>Instance SCS zastavení (A) a služby SAP
+## <a name="stop-ascsscs-instances-and-sap-services"></a>Zastavovat ASC nebo SCS instancí a SAP služby
 
 Provést následující kroky:
-* Zastavit instancí SCS SAP (A) na obou (A) uzlů clusteru SCS
-* Zastavení služeb Windows SCS SAP (A) **SAP&lt;SID&gt;_&lt;InstanceNumber&gt;**  na obou uzlů clusteru
+1. V obou uzlů clusteru ASC nebo SCS zastavte SAP ASC nebo SCS instancí.
+2. Zastavení služeb Windows ASC nebo SCS SAP **SAP\<SID > _\<InstanceNumber >** na obou uzlů clusteru.
 
-## <a name="move-sys-folder-to-sofs-cluster"></a>Přesunout \SYS\.... Složka, v níž SOFS clusteru
+## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>Přesunout \SYS\... složky na serveru SOFS clusteru
 
 Provést následující kroky:
-* Kopírovat SYS složky (například C:\usr\sap\\&lt;SID&gt;\SYS) z jednoho z SCS (A) uzly clusteru na clusteru SOFS například C:\ClusterStorage\Volume1\usr\sap\\&lt;SID&gt;\SYS
-* Odstranit C:\usr\sap\\&lt;SID&gt;\SYS složky z obou uzlů clusteru (A) SCS
+1. Zkopírujte složku SYS (například C:\usr\sap\\<SID>\SYS) z jednoho z ASC nebo SCS uzly clusteru do clusteru SOFS (například k C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS).
+2. Odstranit C:\usr\sap\\<SID>\SYS složky z obou uzlů clusteru ASC nebo SCS.
 
-## <a name="update-cluster-security-setting-on-sap-ascs-cluster"></a>Aktualizovat nastavení zabezpečení clusteru v clusteru SCS SAP (A)
+## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>Aktualizace nastavení zabezpečení clusteru v clusteru SAP ASC nebo SCS
 
-Spusťte následující skript prostředí PowerShell na jednom z uzlů clusteru SCS SAP (A):
+Spusťte následující skript prostředí PowerShell na jednom z uzlů clusteru SAP ASC nebo SCS:
 
 ```PowerShell
-# Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to cluster
+# Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
 
-# Set full access for <DOMAIn>\SAP_<SID>_GlobalAdmin group
+# Set full access for the <DOMAIN>\SAP_<SID>_GlobalAdmin group
 Grant-ClusterAccess -User $SAPSIDGlobalAdminGroupName -Full
 
 #Check security settings
 Get-ClusterAccess
 ```
 
-## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascs-instance"></a>Vytvořte název virtuálního hostitele pro instanci SCS Clusterové SAP (A)
+## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Vytvořte název virtuálního hostitele pro SAP ASC nebo SCS skupinu prostředků clusteru
 
-Jak je popsáno v kapitole [vytvořte název virtuálního hostitele pro skupinu prostředků clusteru SAP ASC nebo SCS] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] , například vytvořit síťový název clusteru SCS SAP (A) **pr1-ASC [10.0.6.7]**
+Vytvoření názvu sítě clusteru SAP ASC nebo SCS (například **pr1-ASC [10.0.6.7]**), jak je popsáno v [vytvořte název virtuálního hostitele pro skupinu prostředků clusteru SAP ASC nebo SCS] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] . 
 
-## <a name="update-default-and-sap-ascs-instance-profile"></a>Aktualizujte výchozí a SAP (A) SCS Instance profilu
+## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>Aktualizovat profil instance SAP ASC nebo SCS a výchozí
 
-Výchozí hodnota je nutné aktualizovat a SAP (A) SCS instanci profil &lt;SID&gt;_(A) SCS<Nr>_  <Host> používat:
-
-* Nový název virtuálního hostitele SCS SAP (A)
-
-* Nový název hostitele globální SAP
+Pokud chcete používat nový název virtuálního hostitele SAP ASC nebo SCS a SAP název globální hostitele, je nutné aktualizovat výchozí a profil instance SAP ASC nebo SCS \<SID >_ASC nebo SCS\<Nr >_<Host>.
 
 
 | Původní hodnoty |  |
 | --- | --- |
-| Název hostitele (A) SCS SAP = globální hostitele SAP | ASC-1 |
-| Název profilu (A) SCS Instance SAP | PR1_ASCS00_ascs-1 |
+| Název hostitele SAP ASC nebo SCS = globální hostitele SAP | ASC-1 |
+| Název profilu instance SAP ASC nebo SCS | PR1_ASCS00_ascs-1 |
 
 | Nové hodnoty |  |
 | --- | --- |
-| Název hostitele (A) SCS SAP | **PR1 ASC** |
+| Název hostitele SAP ASC nebo SCS | **PR1 ASC** |
 | Globální hostitele SAP | **sapglobal** |
-| Název profilu (A) SCS Instance SAP | PR1\_ASCS00\_**pr1 ASC** |
+| Název profilu instance SAP ASC nebo SCS | PR1\_ASCS00\_**pr1 ASC** |
 
 ### <a name="update-sap-default-profile"></a>SAP výchozí profil aktualizovat.
 
@@ -399,12 +394,12 @@ Výchozí hodnota je nutné aktualizovat a SAP (A) SCS instanci profil &lt;SID&g
 | rdisp/mshost | **PR1 ASC** |
 | enque/serverhost | **PR1 ASC** |
 
-### <a name="update-sap-ascs-instance-profile"></a>Aktualizovat profil Instance SCS SAP (A)
+### <a name="update-the-sap-ascsscs-instance-profile"></a>Aktualizovat profil instance SAP ASC nebo SCS
 
 | Název parametru | Hodnota parametru |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
-| DIR_PROFILE | \\\\**sapglobal**\sapmnt\PR1\SYS\profile |
+| DIR_PROFILE | \\\sapglobal\sapmnt\PR1\SYS\profile |
 | _PF | $(DIR_PROFILE) \PR1\_ASCS00_ pr1-ASC |
 | Restart_Program_02 = local$(_MS) pf=$(_PF) | **Spustit**_Program_02 = local$(_MS) pf=$(_PF) |
 | SAPLOCALHOST | **PR1 ASC** |
@@ -414,12 +409,12 @@ Výchozí hodnota je nutné aktualizovat a SAP (A) SCS instanci profil &lt;SID&g
 | Služba nebo ha_check_node | **1** |
 
 > [!IMPORTANT]
->Můžete použít **aktualizace SAPASCSSCSProfile** rutiny prostředí PowerShell k automatizaci aktualizace profilu
+>Můžete použít **aktualizace SAPASCSSCSProfile** rutiny prostředí PowerShell k automatizaci aktualizaci profilu.
 >
->Rutiny prostředí PowerShell podporuje SAP ABAP ASC a SAP Java SCS instance.
+>Rutiny prostředí PowerShell podporuje SAP ABAP ASC i SAP Java SCS instancí.
 >
 
-Kopírování **SAPScripts.ps1** do místní jednotky C:\tmp a spusťte následující rutiny prostředí PowerShell:
+Kopírování **SAPScripts.ps1** na vašem místním jednotek C:\tmp a spusťte následující rutinu prostředí PowerShell:
 
 ```PowerShell
 Import-Module C:\tmp\SAPScripts.ps1
@@ -429,13 +424,13 @@ Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SY
 
 ![Obrázek 1: SAPScripts.ps1 výstup][sap-ha-guide-figure-8012]
 
-_**Obrázek 1:** SAPScripts.ps1 výstup_
+_**Obrázek 1**: SAPScripts.ps1 výstup_
 
-## <a name="update-ltsidgtadm-user-environment-variable"></a>Aktualizace &lt;sid&gt;adm proměnné prostředí uživatele
+## <a name="update-the-sidadm-user-environment-variable"></a>Aktualizace \<sid > adm uživatelské prostředí proměnné
 
-Aktualizace &lt;sid&gt;adm uživatelské prostředí nové GLOBALHOST cestu UNC na uzlech clusteru SCS oba (A).
-Přihlaste se jako &lt;sid&gt;adm uživatele a spusťte nástroj Regedit.exe.
-Přejděte na **HKEY_CURRENT_USER** -> **prostředí** a aktualizovat na novou hodnotu proměnné:
+1. Aktualizace \<sid > adm uživatelské prostředí nové GLOBALHOST cestu UNC na *i* ASC nebo SCS uzly clusteru.
+2. Přihlaste se jako \<sid > adm uživatele, a pak spusťte nástroj Regedit.exe.
+3. Přejděte na **HKEY_CURRENT_USER** > **prostředí**a potom aktualizovat na novou hodnotu proměnné:
 
 | Proměnná | Hodnota |
 | --- | --- |
@@ -445,31 +440,25 @@ Přejděte na **HKEY_CURRENT_USER** -> **prostředí** a aktualizovat na novou h
 | SAPLOCALHOST  | **PR1 ASC** |
 
 
-## <a name="install-new-saprcdll"></a>Nainstalujte nový SAPRC. KNIHOVNY DLL
+## <a name="install-a-new-saprcdll-file"></a>Nainstalujte nový soubor saprc.dll
 
-Musíte nainstalovat novou verzi SAP prostředek clusteru, který podporuje scénář sdílené složky souborů.
+1. Instalace nové verze SAP prostředku clusteru, který podporuje scénář sdílené složky.
 
-Stáhněte si nejnovější **NTCLUST. Zvláštní správní oblast ČLR** balíček z SAP služby Marketplace.
+2. Stáhněte si nejnovější NTCLUST. Zvláštní správní oblast ČLR balíček z Marketplace služby SAP.
 
-Rozbalte NTCLUS. Zvláštní správní oblast na jednom z SCS (A) uzly clusteru a spusťte následující příkaz z příkazového řádku pro instalaci nové saprc.dll:
+3. Rozbalte NTCLUS. Zvláštní správní oblast na jednom z ASC nebo SCS uzly clusteru a pak spusťte následující příkaz z příkazového řádku pro instalaci nové saprc.dll souboru:
 
 ```
 .\NTCLUST\insaprct.exe -yes -install
 ```
 
-Nové saprc.dll bude nainstalována na obou (A) SCS uzlů clusteru.
+Nový soubor saprc.dll je nainstalována na obou uzlů clusteru ASC nebo SCS.
 
-Další informace najdete v tématu [1596496 Poznámka SAP – jak se bude aktualizovat SAP prostředků typu knihovny DLL pro sledování prostředků clusteru][1596496].
+Další informace najdete v tématu [1596496 Poznámka SAP – jak se bude aktualizovat typ prostředku SAP knihovny DLL pro sledování prostředků clusteru][1596496].
 
-## <a name="create-sap-sid-cluster-group-network-name-and-ip"></a>Vytvoření SAP <SID> skupina clusteru, název sítě a IP
+## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>Vytvoření SAP <SID> skupiny, název sítě a IP clusteru
 
-Je třeba vytvořit:
-
-* SAP &lt;SID&gt; skupiny clusteru
-* < (a) SCSNetworkName >
-* a odpovídající IP adresy
-
-Spusťte následující rutiny prostředí PowerShell:
+Chcete-li vytvořit SAP \<SID > Skupina clusteru, ASC nebo SCS síťový název a IP adresu odpovídající spuštěním následující rutiny prostředí PowerShell:
 
 ```PowerShell
 # Create SAP Cluster Group
@@ -480,23 +469,23 @@ $SAPASCSNetworkName = "pr1-ascs"
 $SAPASCSIPAddress = "10.0.6.7"
 $SAPASCSSubnetMask = "255.255.255.0"
 
-# Create SAP ASCS instance Virtual IP cluster resource
+# Create an SAP ASCS instance virtual IP cluster resource
 Add-ClusterGroup -Name $SAPClusterGroupName -Verbose
 
-#Create SAP ASCS Virtual IP Address
+#Create an SAP ASCS virtual IP address
 $SAPIPClusterResource = Add-ClusterResource -Name $SAPIPClusterResourceName -ResourceType "IP Address" -Group $SAPClusterGroupName -Verbose
 
-# Set static IP Address
+# Set a static IP address
 $param1 = New-Object Microsoft.FailoverClusters.PowerShell.ClusterParameter $SAPIPClusterResource,Address,$SAPASCSIPAddress
 $param2 = New-Object Microsoft.FailoverClusters.PowerShell.ClusterParameter $SAPIPClusterResource,SubnetMask,$SAPASCSSubnetMask
 $params = $param1,$param2
 $params | Set-ClusterParameter
 
-# Create corresponding network name
+# Create a corresponding network name
 $SAPNetworkNameClusterResourceName = $SAPASCSNetworkName
 Add-ClusterResource -Name $SAPNetworkNameClusterResourceName -ResourceType "Network Name" -Group $SAPClusterGroupName -Verbose
 
-# Set Network DNS Name
+# Set a network DNS name
 $SAPNetworkNameClusterResource = Get-ClusterResource $SAPNetworkNameClusterResourceName
 $SAPNetworkNameClusterResource | Set-ClusterParameter -Name Name -Value $SAPASCSNetworkName
 
@@ -506,17 +495,17 @@ $SAPNetworkNameClusterResource | Get-ClusterParameter
 #Set resource dependencies
 Set-ClusterResourceDependency -Resource $SAPNetworkNameClusterResourceName -Dependency "[$SAPIPClusterResourceName]" -Verbose
 
-#Start SAP <SID> Cluster Group
+#Start an SAP <SID> cluster group
 Start-ClusterGroup -Name $SAPClusterGroupName -Verbose
 ```
 
-## <a name="register-sap-start-service-on-both-nodes"></a>Zaregistrovat SAP START Service v obou uzlech
+## <a name="register-the-sap-start-service-on-both-nodes"></a>Registrovat službu SAP start na obou uzlů
 
-Budete muset znovu zaregistrovat službu sapstart SAP (A) SCS pinta nový profil a cesta k profilu.
+Znovu zaregistrujte službu SAP ASC nebo SCS počáteční tak, aby odkazoval na nový profil a cesta k profilu.
 
-Je třeba spustit svůj na uzlech clusteru SCS oba (A).
+Opětovná registrace je třeba spustit na *i* ASC nebo SCS uzly clusteru.
 
-Spuštění formuláře zvýšenými oprávněními příkaz výzvy následující příkaz:
+Na příkazovém řádku se zvýšenými oprávněními spusťte následující příkaz:
 
 ```
 C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_pr1-ascs -s PR1 -n 00 -U SAPCLUSTER\SAPServicePR1 -P mypasswd12 -e SAPCLUSTER\pr1adm
@@ -524,20 +513,20 @@ C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profi
 
 ![Obrázek 2: Opětovná instalace služby SAP][sap-ha-guide-figure-8013]
 
-_**Obrázek 2:** přeinstalovat SAP služby_
+_**Obrázek 2**: Přeinstalujte SAP služby_
 
-Zajišťuje, že parametry jsou správné a zvolte **ruční** jako typ spuštění.
+Ujistěte se, jestli jsou správné parametry a potom vyberte **ruční** jako **typ spuštění**.
 
-## <a name="stop-ascs-service"></a>Zastavení (A) SCS služby
+## <a name="stop-the-ascsscs-service"></a>Zastavte službu ASC nebo SCS
 
-Zastavit službu SCS SAP (A) **SAP&lt;SID&gt;_ &lt;InstanceNumber&gt;**  na obou (A) SCS uzly clusteru.
+Zastavte službu SAP ASC nebo SCS SAP\<SID > _\<InstanceNumber > na obou ASC SCS uzly clusteru.
 
-## <a name="create-new-sap-service-and-sap-instance-resources"></a>Vytvořit novou službu SAP a SAP Instance prostředky
+## <a name="create-a-new-sap-service-and-sap-instance-resources"></a>Vytvořit novou službu SAP a prostředky instance SAP
 
-Teď musíte dokončit vytváření prostředků SAP SAP&lt;SID&gt; skupina clusteru, například je nutné vytvořit prostředky:
+Pro dokončení vytváření prostředků SAP SAP\<SID > clusteru skupiny, vytvořte v následujících zdrojích informací:
 
-* **SAP &lt;SID&gt; &lt;InstanceNumber&gt; služby** a
-* **SAP &lt;SID&gt; &lt;InstanceNumber&gt; Instance**
+* SAP \<SID > \<InstanceNumber > služby
+* SAP \<SID > \<InstanceNumber > instance
 
 Spuštěním následující rutiny prostředí PowerShell:
 
@@ -559,10 +548,10 @@ Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Depende
 
 $SAPInstanceClusterResourceName = "SAP $SAPSID $SAPInstanceNumber Instance"
 
-# Create SAP Instance cluster resource
+# Create SAP instance cluster resource
 $SAPASCSServiceClusterResource = Add-ClusterResource -Name $SAPInstanceClusterResourceName -Group $SAPClusterGroupName -ResourceType "SAP Resource" -SeparateMonitor -Verbose
 
-#Set SAP Instance cluster resource parameters
+#Set SAP instance cluster resource parameters
 $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystemName -Value $SAPSID -Verbose
 $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystem -Value $SAPInstanceNumber -Verbose
 
@@ -570,30 +559,29 @@ $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystem -Value $
 Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Dependency "[$SAPServiceClusterResourceName]" -Verbose
 ```
 
-## <a name="add-a-probe-port"></a>Přidat Port testu
+## <a name="add-a-probe-port"></a>Přidat port testu
 
-V tomto kroku nakonfigurujete prostředek clusteru SAP port testu SAP. SID IP pomocí prostředí PowerShell. Spustit tuto konfiguraci v jednom z uzlů clusteru SAP ASC nebo SCS, jak je popsáno [sem][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
+Prostředek clusteru SAP port testu SAP. SID IP, konfigurovat pomocí prostředí PowerShell. Spustit tuto konfiguraci v jednom z uzlů clusteru SAP ASC nebo SCS, jak je popsáno [v tomto článku][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
 
-## <a name="install-ers-instance-on-both-cluster-nodes"></a>Nainstalovat instanci YBRAT obou uzlů clusteru
+## <a name="install-an-ers-instance-on-both-cluster-nodes"></a>Nainstalujte instanci YBRAT na obou uzlů clusteru
 
-V dalším kroku, je třeba nainstalovat instanci YBRAT (zařadit replikace Server) na obou uzlech (A) SCS clusteru.
-Možnost instalace najdete v nabídce SWPM:
+Nainstalujte instanci zařazování replikace serveru (YBRAT) na *i* uzly clusteru ASC nebo SCS. V nabídce SWPM postupujte cesta této instalace:
 
-&lt;Produkt&gt; -> &lt;databázového systému&gt; -> instalace -> Další SAP systém -> instance **Instance serveru replikace zařazování**
+**\<Produkt >** > **\<databázového systému >** > **instalace** > **další systému SAP instancí**  >  **Instance serveru replikace zařazování**
 
-## <a name="install-dbms-instance-and-sap-application-servers"></a>Instalace databázového systému Instance a aplikační servery SAP
+## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalovat instanci databázového systému a aplikační servery SAP
 
 Dokončení instalace systému SAP nainstalováním:
-* Instance databázového systému
-* Primární server aplikace SAP
-* Další aplikačního serveru SAP
+* Instance databázového systému.
+* Primární server aplikace SAP.
+* Další SAP aplikační server.
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Instalace instance SCS (A) v clusteru s podporou převzetí služeb při selhání bez sdílené disky – oficiální SAP pokyny pro sdílenou složku HA][sap-official-ha-file-share-document]:
+* [Nainstalujte instanci ASC nebo SCS na clusteru s podporou převzetí služeb při selhání bez sdílených disků - oficiální SAP pokyny pro vysokou dostupnost sdílené složky][sap-official-ha-file-share-document]
 
 * [Prostory úložiště – přímé v systému Windows Server 2016][s2d-in-win-2016]
 
-* [Škálovaný souborový Server pro přehled dat aplikací][sofs-overview]
+* [Souborového serveru škálovaného na více systémů pro data aplikací – přehled][sofs-overview]
 
 * [Co je nového v úložiště v systému Windows Server 2016][new-in-win-2016-storage]

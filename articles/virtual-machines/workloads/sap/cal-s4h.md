@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Nasazení SAP S nebo 4HANA nebo BW/4HANA v Azure
 Tento článek popisuje, jak nasadit S nebo 4HANA v Azure pomocí knihovny zařízení cloudu SAP (SAP CAL) 3.0. Pokud chcete nasadit jiných řešení na základě SAP HANA, jako je například BW/4HANA, použijte stejný postup.
@@ -95,7 +95,7 @@ Následující posloupnosti snímky obrazovky ukazuje, jak nasadit S nebo 4HANA 
 Teď můžete začít S nebo 4HANA nasadit do předplatného uživatele v Azure.
 
 > [!NOTE]
-Než budete pokračovat, zjistit, zda máte Azure základní kvóty pro virtuální počítače Azure H-Series. V tuto chvíli používá SAP CAL H-Series virtuální počítače Azure k nasazení některé z řešení založená na SAP HANA. Vaše předplatné Azure nemusí mít žádné H-Series základní kvóty pro H-Series. Pokud ano, budete muset požádejte podporu Azure o získání kvótu alespoň 16 jader H-Series.
+Než budete pokračovat, určete, jestli máte Azure virtuální procesor kvóty pro virtuální počítače Azure H-Series. V tuto chvíli používá SAP CAL H-Series virtuální počítače Azure k nasazení některé z řešení založená na SAP HANA. Vaše předplatné Azure nemusí mít žádné kvóty virtuální procesor H-Series pro H-Series. Pokud ano, budete muset požádejte podporu Azure o získání kvótu alespoň 16 Vcpu H-Series.
 
 > [!NOTE]
 Když nasadíte řešení v Azure v SAP CAL, můžete zjistit, které můžete zvolit pouze jedna oblast Azure. Pokud chcete nasadit do Azure oblastí, než jeden navrhovaná službou SAP CAL, budete muset zakoupit předplatné CAL ze SAP. Můžete také chtít otevřít zprávu s SAP povolené pro doručení do Azure oblastí, než ty, které původně navržený CAL uživatelského účtu.

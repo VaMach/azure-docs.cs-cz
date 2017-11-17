@@ -1,5 +1,5 @@
 ---
-title: "Azure aktivaci časovačem funkce | Microsoft Docs"
+title: "Azure aktivaci časovačem funkce"
 description: "Pochopit, jak použít aktivační události časovače v Azure Functions."
 services: functions
 documentationcenter: na
@@ -17,42 +17,159 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure aktivaci časovačem funkce
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
-
-Tento článek vysvětluje postup konfigurace a aktivační události časovače kódu v Azure Functions. Azure Functions nabízí vazbu aktivační událost časovače, který vám umožní spustit funkce kódu podle definovaného plánu. 
-
-Aktivační událost časovače podporuje víc instancí Škálováním na více systémů. Ve všech instancích je spuštěna jedna instance funkce konkrétní časovače.
+Tento článek vysvětluje, jak pracovat s aktivační události časovače v Azure Functions. Aktivační událost časovače vám umožní spustit funkci podle plánu. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a id="trigger"></a>
+## <a name="example"></a>Příklad
 
-## <a name="timer-trigger"></a>Trigger časovače
-Aktivační událost časovače funkce používá následující objekt JSON v `bindings` pole function.json:
+Podívejte se na konkrétní jazyk příklad:
+
+* [Předkompilované C#](#trigger---c-example)
+* [Skript jazyka C#](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="c-example"></a>Příklad jazyka C#
+
+Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) používající každých pět minut:
+
+```cs
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+}
+```
+
+### <a name="c-script-example"></a>Příklad skriptu jazyka C#
+
+Následující příklad ukazuje, aktivační událost časovače vazby ve *function.json* souboru a [funkce skriptu jazyka C#](functions-reference-csharp.md) používající vazby. Funkce zapíše protokolu, která udává, zda toto volání funkce z důvodu zmeškaných plán výskyt.
+
+Zde je vazba dat v *function.json* souboru:
 
 ```json
 {
-    "schedule": "<CRON expression - see below>",
-    "name": "<Name of trigger parameter in function signature>",
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
     "type": "timerTrigger",
     "direction": "in"
 }
 ```
 
-Hodnota `schedule` je [výraz CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) obsahující tyto šest polí: 
+Tady je kód skriptu jazyka C#:
 
-    {second} {minute} {hour} {day} {month} {day-of-week}
-&nbsp;
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+### <a name="f-example"></a>Příklad F #
+
+Následující příklad ukazuje, aktivační událost časovače vazby ve *function.json* souboru a [F # skript funkce](functions-reference-fsharp.md) používající vazby. Funkce zapíše protokolu, která udává, zda toto volání funkce z důvodu zmeškaných plán výskyt.
+
+Zde je vazba dat v *function.json* souboru:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Tady je kód skriptu F #:
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+### <a name="javascript-example"></a>Příklad v jazyce JavaScript
+
+Následující příklad ukazuje, aktivační událost časovače vazby ve *function.json* souboru a [funkce JavaScript, která](functions-reference-node.md) používající vazby. Funkce zapíše protokolu, která udává, zda toto volání funkce z důvodu zmeškaných plán výskyt.
+
+Zde je vazba dat v *function.json* souboru:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Tady je kód skriptu F #:
+
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="attributes-for-precompiled-c"></a>Atributy pro předkompilované C#
+
+Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), definované v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+
+Konstruktoru atributu trvá výraz CRON, jak je znázorněno v následujícím příkladu:
+
+```csharp
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+ ```
+
+Můžete zadat `TimeSpan` místo výraz CRON, pokud vaše aplikace funkce běží na plán služby App Service (není plánu spotřeby).
+
+## <a name="configuration"></a>Konfigurace
+
+Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastavili v *function.json* souboru a `TimerTrigger` atribut.
+
+|Vlastnost Function.JSON | Vlastnost atributu |Popis|
+|---------|---------|----------------------|
+|**Typ** | neuvedeno | Musí být nastavena na "timerTrigger". Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
+|**směr** | neuvedeno | Musí být nastavena na "v". Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
+|**Jméno** | neuvedeno | Název proměnné, který představuje objekt časovače v kódu funkce. | 
+|**plán**|**ScheduleExpression**|Spotřeba plánu můžete definovat plány se výraz CRON. Pokud používáte plánu služby App Service, můžete také použít `TimeSpan` řetězec. Následující části popisují CRON výrazy. Můžete umístit výraz plán v nastavení aplikace a nastavte tuto vlastnost na hodnotu uzavřen do  **%**  znaky, jako v následujícím příkladě: "% NameOfAppSettingWithCRONExpression %". Pokud vyvíjíte místně, nastavení aplikace, přejděte do hodnoty [local.settings.json soubor](functions-run-local.md#local-settings-file).|
+
+### <a name="cron-format"></a>Formát procesu CRON 
+
+A [výraz CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) pro Azure Functions časovač aktivační události obsahuje tyto šesti pole: 
+
+```
+{second} {minute} {hour} {day} {month} {day-of-week}
+```
+
 >[!NOTE]   
->Řada výrazů cron zjistíte online vynechejte `{second}` pole. Pokud zkopírujete z jednoho z nich, bude nutné upravit pro nadbytečné `{second}` pole. Konkrétní příklady najdete v tématu [naplánovat příklady](#examples) níže.
+>Řada výrazů CRON zjistíte online vynechejte `{second}` pole. Pokud zkopírujete z jednoho z nich, přidejte chybějící `{second}` pole.
+
+### <a name="cron-time-zones"></a>Časová pásma procesu CRON
 
 Použít s výrazy CRON výchozí časové pásmo je koordinovaný světový čas (UTC). Pokud chcete, aby vaše výraz CRON založený na jiném časovém pásmu, vytvořte nové nastavení aplikace pro funkce aplikace s názvem `WEBSITE_TIME_ZONE`. Nastavte hodnotu na název požadované časové pásmo, jak je znázorněno [Microsoft časové pásmo Index](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
 
@@ -67,12 +184,9 @@ Alternativně můžete přidat nové nastavení aplikace pro funkce aplikace s n
 ```json
 "schedule": "0 0 10 * * *",
 ``` 
+### <a name="cron-examples"></a>Příklady procesu CRON
 
-
-<a name="examples"></a>
-
-## <a name="schedule-examples"></a>Příklady plán
-Tady jsou některé ukázky můžete použít pro výrazy CRON `schedule` vlastnost. 
+Zde jsou některé příklady CRON výrazy, které můžete použít pro aktivační událost časovače v Azure Functions. 
 
 K aktivaci každých pět minut:
 
@@ -110,9 +224,8 @@ Spouštět v 9:30:00 každý den v týdnu:
 "schedule": "0 30 9 * * 1-5",
 ```
 
-<a name="usage"></a>
+## <a name="usage"></a>Využití
 
-## <a name="trigger-usage"></a>Aktivační události využití
 Po vyvolání funkce aktivační událost časovače [časovače objekt](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) je předána do funkce. Následujícím kódu JSON je příklad reprezentací objekt časovače. 
 
 ```json
@@ -127,68 +240,14 @@ Po vyvolání funkce aktivační událost časovače [časovače objekt](https:/
 }
 ```
 
-<a name="sample"></a>
+## <a name="scale-out"></a>Škálování na víc systémů
 
-## <a name="trigger-sample"></a>Ukázka aktivační události
-Předpokládejme, že máte následující aktivační událost časovače `bindings` pole function.json:
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-Naleznete v ukázce pro specifický jazyk, který čte objekt časovače pro zjištění, zda je spuštěna pozdní.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Ukázka aktivační události v jazyce C# #
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    if(myTimer.IsPastDue)
-    {
-        log.Info("Timer is running late!");
-    }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
-}
-```
-
-<a name="triggerfsharp"></a>
-
-### <a name="trigger-sample-in-f"></a>Ukázka aktivační události v jazyce F # #
-```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
-    if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
-```
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-sample-in-nodejs"></a>Ukázka aktivační události v Node.js
-```JavaScript
-module.exports = function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if(myTimer.isPastDue)
-    {
-        context.log('Node.js is running late!');
-    }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
-
-    context.done();
-};
-```
+Aktivační událost časovače podporuje víc instancí Škálováním na více systémů. Ve všech instancích je spuštěna jedna instance funkce konkrétní časovače.
 
 ## <a name="next-steps"></a>Další kroky
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+> [!div class="nextstepaction"]
+> [Přejděte na rychlé spuštění, který používá aktivaci časovačem](functions-create-scheduled-function.md)
+
+> [!div class="nextstepaction"]
+> [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)

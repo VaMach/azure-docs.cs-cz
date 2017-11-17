@@ -1,0 +1,37 @@
+# <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Předem pro virtuální počítače s instancí vyhrazené virtuálních počítačů
+
+Předem pro virtuální počítače a ušetřit peníze s vyhrazenou instancí virtuálního počítače. Další informace najdete v tématu [vyhrazenou instancí virtuálního počítače nabídky](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+
+Vyhrazená instance virtuálních počítačů můžete zakoupit [portál Azure](https://portal.azure.com). Koupit vyhrazenou instanci virtuálního počítače:
+-   Musíte být roli vlastníka pro alespoň jeden Enterprise nebo předplatné s průběžnými platbami.
+-   U předplatného typu Enterprise, musí být povolená rezervace nákupy v [EA portál](https://ea.azure.com).
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>Kupte si Instance vyhrazený virtuální počítač
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
+2. Vyberte **další služby** > **rezervace**.
+3. Vyberte **přidat** přikoupení Nová rezervace.
+4. Vyplňte požadovaná pole. Spuštění virtuálního počítače instancí, které odpovídají vybrané atributy jsou způsobilé pro získání slevu rezervace. Skutečný počet instancím virtuálních počítačů získávající slevy závisí na oboru a množství vybranou.
+
+    | Pole      | Popis|
+    |:------------|:--------------|
+    |Name (Název)        |Název tuto rezervaci.| 
+    |Předplatné|Předplatné použít k platbě za rezervace. Způsob platby u předplatného je účtován předem náklady na rezervace. Typ odběru musí být smlouvu enterprise agreement (číslo nabídky: MS-AZR - 0017P) nebo průběžné platby (číslo nabídky: MS-AZR - 0003P). Předplatné enterprise jsou poplatků odečtené od vyrovnávání peněžních závazků zápisu nebo účtován jako Nadlimitní události úrovně. Pro předplatné s průběžnými platbami se účtují poplatky přijímáte platební kartu ani faktury způsobu platby u předplatného.|    
+    |Rozsah       |Rezervace pro obor může zahrnovat jeden odběr jeden nebo více odběrů (sdílené rozsah). Pokud zvolíte možnost: <ul><li>Jeden odběr - slevu rezervace se použije u virtuálních počítačů v tomto předplatném. </li><li>Sdílené - slevu rezervace se použije pro virtuální počítače spuštěné ve všech předplatných v rámci vaší fakturace kontextu. Pro podnikové zákazníky oboru sdílené registraci a zahrnuje všechny odběry (s výjimkou vývoje/testování odběry) v rámci registrace. Pro zákazníky průběžné platby sdílené rozsah je všechny odběry průběžné platby vytvořený účet správce.</li></ul>|
+    |Umístění    |Oblast Azure, která je předmětem rezervace.|    
+    |Velikost virtuálního počítače     |Velikost instance virtuálních počítačů.|
+    |Označení        |Jeden rok nebo tři roky.|
+    |Množství    |Počet instancí, které se v rámci rezervace zakoupili. Množství je počet spuštěných instancí virtuálních počítačů, které můžete získat fakturační slevy. Například pokud používáte 10 virtuálních počítačů Standard_D2 ve východní USA, pak zadáte množství jako 10 a maximalizovat pro všechny spuštěné počítače. |
+5. Když vyberete můžete zobrazit náklady rezervace **vypočítat náklady na**.
+
+    ![Snímek obrazovky před odesláním rezervace nákupu](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
+
+6. Vyberte **nákupu**.
+7. Vyberte **zobrazit tuto rezervaci** zobrazíte stav nákupu.
+
+    ![Snímek obrazovky před odesláním rezervace nákupu](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+
+## <a name="next-steps-after-buying-a-reservation"></a>Další kroky po nákupu rezervace
+Diskontní rezervace je automaticky použity počet spuštěných virtuálních počítačů, které odpovídají oboru rezervace a atributy. Můžete aktualizovat oboru rezervace prostřednictvím [portál Azure](https://portal.azure.com), prostředí PowerShell, rozhraní příkazového řádku nebo pomocí rozhraní API. 
+
+Další informace o správě rezervace naleznete v tématu [spravovat instancí Azure vyhrazené virtuální počítač](https://go.microsoft.com/fwlink/?linkid=861613).
+

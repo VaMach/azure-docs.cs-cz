@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7bb7bdba21d83817cf5579e779a6a4d509753c01
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Synchronizace Azure AD Connect: Principy uživatelů, skupin a kontaktů
 Existuje několik různých důvodů, proč by měla mít několik doménových struktur služby Active Directory a existuje několik různých nasazení topologie. Po fúze a akvizice zahrnovat běžné modely k nasazení účtu prostředků a GAL sync'ed doménových struktur. Ale i v případě, že jsou čistá modely, hybridní modely jsou společné také. Výchozí konfigurace v synchronizaci Azure AD Connect nepředpokládá žádné konkrétní modelu, ale v závislosti na tom, jak hledání shody uživatelů jste vybrali v instalační příručce, může být dodržen různé chování.
@@ -42,15 +42,15 @@ Důležité aspekty, které vzít na vědomí při synchronizaci skupin služby 
 
 * Chcete-li synchronizovat do Azure AD jako skupinu poštovní skupiny služby Active Directory:
 
-    * Pokud skupiny *proxyAddress* atributu je prázdný, jeho *e-mailu* atributu musí mít hodnotu, nebo 
+    * Pokud skupiny *proxyAddress* atributu je prázdný, jeho *e-mailu* atributu musí mít hodnotu
 
-    * Pokud skupiny *proxyAddress* atribut je prázdný, musí obsahovat také primární hodnotu adresu SMTP proxy serveru (který je určen velká **SMTP** předponu). Zde je několik příkladů:
+    * Pokud skupiny *proxyAddress* atribut je prázdný, musí obsahovat alespoň jednu hodnotu adresu proxy serveru SMTP. Zde je několik příkladů:
     
-      * Skupinu služby Active Directory, jehož atribut proxyAddress má hodnotu *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* nebude poštovní ve službě Azure AD. Primární adresa SMTP nemá.
-      
-      * Skupinu služby Active Directory, jehož atribut proxyAddress má hodnoty *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* nebude poštovní ve službě Azure AD. Má adresa smtp, ale není primární.
+      * Skupinu služby Active Directory, jehož atribut proxyAddress má hodnotu *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* nebude poštovní ve službě Azure AD. Adresa SMTP nemá.
       
       * Skupinu služby Active Directory, jehož atribut proxyAddress má hodnoty *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* bude Poštovní ve službě Azure AD.
+      
+      * Skupinu služby Active Directory, jehož atribut proxyAddress má hodnoty *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* bude také poštovní ve službě Azure AD.
 
 ## <a name="contacts"></a>Kontakty
 S kontakty představující uživatele v jiné doménové struktuře je běžné po fúze a akvizice kde je řešení GALSync přemostění dvou nebo více doménovými strukturami systému Exchange. Objekt kontaktu vždycky připojuje z prostoru konektoru do úložiště metaverse pomocí atributu e-mailu. Pokud již existuje objekt kontaktní nebo objektu uživatele se stejnou adresou e-mailu, objekty jsou propojeny. To je nakonfigurovaný v pravidle **v ze služby Active Directory – obraťte se na připojení**. Je také na pravidlo s názvem **v ze služby Active Directory – běžné kontaktujte** s tok atributů pro atribut úložiště metaverse **sourceObjectType** s konstanta **kontaktujte**. Toto pravidlo má velmi nízkou prioritu, pokud uživatelských objektů je připojený k stejného objektu úložiště metaverse, bude toto pravidlo **v ze služby Active Directory – běžné uživatele** přispějí hodnotu uživatele na tento atribut. S tímto pravidlem bude mít tento atribut hodnotu kontaktu, pokud žádný uživatel připojil a hodnota uživatele Pokud byl nalezen nejméně jeden uživatel.

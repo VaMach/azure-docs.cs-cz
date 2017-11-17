@@ -9,11 +9,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 47fb6f01eff8827179fbfa9e67ad3b901c8cdf94
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnostika a řešení problémů ve vašem prostředí Statistika časové řady
 
@@ -26,7 +26,7 @@ Statistiky Azure řady čas podporuje pouze data JSON. Ukázky JSON naleznete v 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>Klíč zdroj události B: možnou příčinou je chybějící požadované oprávnění
 * Pro Centrum IoT, budete muset zadat klíč, který má **služba připojit** oprávnění.
 
-   ![Povolení pro připojení služby IoT hub](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+   ![Povolení pro připojení služby IoT Hub](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    Jak je vidět na předchozím obrázku, buď zásady **iothubowner** a **služby** by pracovat, protože mají **služba připojit** oprávnění.
    
@@ -61,7 +61,7 @@ Do hloubky pochopili, jak vyrovnání logiku funguje, najdete v části [podporo
 Pokud chcete vyřešit je zpoždění, zvýšit kapacitu SKU vašeho prostředí. Další informace najdete v tématu [postup škálování prostředí časové řady Insights](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="possible-cause-b-initial-ingestion-of-historical-data-is-causing-slow-ingress"></a>Možná příčina B: počáteční přijímání historických dat způsobuje pomalé příjem příchozích dat
-Pokud se připojujete existujícího zdroje událostí, je pravděpodobné, že Centrum IoT nebo Centrum událostí už obsahuje data v ní. Prostředí spustí stahování dat od začátku dobu uchování zpráv zdroj události.
+Pokud se připojujete existujícího zdroje událostí, je pravděpodobné, že vaše Centrum IoT Hub nebo událost, již má data v ní. Prostředí spustí stahování dat od začátku dobu uchování zpráv zdroj události.
 
 Toto chování je výchozí chování a nelze přepsat. Můžete použít omezení, a že může trvat dobu aktualizovány na příjem historická data.
 

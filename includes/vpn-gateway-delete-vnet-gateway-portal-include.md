@@ -1,17 +1,17 @@
-### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Step 1: Navigate to the virtual network gateway
+### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Krok 1: Přejděte na bránu virtuální sítě
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **All resources**. 
-2. To open the virtual network gateway blade, navigate to the virtual network gateway that you want to delete and click it.
+1. V [portál Azure](https://portal.azure.com), přejděte na **všechny prostředky**. 
+2. Otevřete okno brány virtuální sítě, přejděte k bráně virtuální sítě, který chcete odstranit a klikněte na něj.
 
-### <a name="step-2-delete-connections"></a>Step 2: Delete connections
+### <a name="step-2-delete-connections"></a>Krok 2: Odstranění připojení
 
-1. On the blade for your virtual network gateway, click **Connections** to view all connections to the gateway.
-2. Click the **'...'** on the row of the name of the connection, then select **Delete** from the dropdown.
-3. Click **Yes** to confirm that you want to delete the connection. If you have multiple connections, delete each connection.
+1. V okně pro bránu virtuální sítě, klikněte na **připojení** zobrazíte všechna připojení k bráně.
+2. Klikněte na tlačítko **"..."** na řádku název připojení, potom vyberte **odstranit** z rozevíracího seznamu.
+3. Klikněte na tlačítko **Ano** potvrďte, že chcete odstranit připojení. Pokud máte více připojení, odstranění každé připojení.
 
-### <a name="step-3-delete-the-virtual-network-gateway"></a>Step 3: Delete the virtual network gateway
+### <a name="step-3-delete-the-virtual-network-gateway"></a>Krok 3: Odstranit bránu virtuální sítě
 
-Be aware that if you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.
+Upozorňujeme, že pokud máte kromě konfiguraci S2S P2S konfigurace do této virtuální sítě, odstraňuje se Brána virtuální sítě automaticky odpojí všichni klienti P2S bez upozornění.
 
-1. On the virtual network gateway blade, click **Overview**.
-2. On the **Overview** blade, click **Delete** to delete the gateway.
+1. V okně brány virtuální sítě klikněte na **přehled**.
+2. Na **přehled** okně klikněte na tlačítko **odstranit** odstranit bránu.

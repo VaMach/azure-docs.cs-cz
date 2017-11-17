@@ -1,6 +1,6 @@
 ---
 title: "Podporované připojení pomocí konektoru služby správy IT v Azure Log Analytics | Microsoft Docs"
-description: "Připojení ITSM produkty nebo služby s konektorem správy IT služby v Azure Log Analytics centrálně monitorovat a spravovat ITSM pracovní položky."
+description: "Tento článek obsahuje informace o tom, jak připojení ITSM produkty nebo služby s konektor pro správu služby IT (ITSMC) v OMS analýzy protokolů centrálně monitorovat a spravovat ITSM pracovní položky."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: e801d484ffb40a0d4aed517a741c45dc76b62b37
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Připojení ITSM produkty nebo služby s IT Service Management Connector (Preview)
-Tento článek obsahuje informace o tom, jak připojit k IT služby správy konektoru (ITSMC) v OMS ITSM produktům a službám a centrálně spravovat pracovní položky. Další informace o ITSMC najdete v tématu [ITSMC přehled](log-analytics-itsmc-overview.md).
+Tento článek obsahuje informace o tom, jak připojit k IT služby správy konektoru (ITSMC) v OMS ITSM produktům a službám a centrálně spravovat pracovní položky. Další informace o ITSMC najdete v tématu [přehled](log-analytics-itsmc-overview.md).
 
-Jsou podporovány tyto produkty nebo služby:
+Jsou podporovány následující ITSM produkty nebo služby. Vyberte produkt, chcete-li zobrazit podrobné informace o tom, jak připojit k ITSMC produktu.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
@@ -162,7 +162,7 @@ Hybridní připojení se úspěšně připojil.
 
 > Po hybridním vytvoření připojení, ověřte a otestovat připojení návštěvou nasazené aplikace webového portálu Service Manager. Ujistěte se, že je připojení úspěšné, než se pokusíte připojit k ITSMC v OMS.
 
-Následující obrázek zobrazuje podrobnosti o úspěšném připojení:
+Následující ukázkový obrázek zobrazuje podrobnosti o úspěšném připojení:
 
 ![Test hybridní připojení](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 

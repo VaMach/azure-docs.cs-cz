@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 06368cb5084dd49e24c1c25aa8100a7680aacefb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Spuštění kontejnerizované úlohy v Azure kontejner instancí
 
@@ -147,7 +147,7 @@ Při vytváření instance kontejneru přepsat zaručená do bitové kopie konte
 
 Například můžete mít kontejneru příklad analyzovat text jiným než *obce* zadáním jiné příkazového řádku. Skript Pythonu provedený kontejneru, *wordcount.py*, přijímá jako argument adresu URL a zpracuje této stránce obsahu místo výchozího.
 
-Chcete-li například zjistit slova pět písmenem první tři v *Valentýne a Juliet*:
+Chcete-li například zjistit slova pět písmeno 3 hlavních v *Valentýne a Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -172,6 +172,8 @@ Výstup:
 ```
 
 ## <a name="next-steps"></a>Další kroky
+
+### <a name="persist-task-output"></a>Zachovat výstup úlohy
 
 Podrobnosti o tom, jak zachovat výstup vaše kontejnery, které dokončit najdete v tématu [připojení sdílenou složku Azure s Azure kontejner instancí](container-instances-mounting-azure-files-volume.md).
 

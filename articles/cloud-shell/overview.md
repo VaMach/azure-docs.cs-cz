@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Přehled prostředí cloudu Azure
 Prostředí Azure Cloud je interaktivní, přístupných prohlížeče prostředí pro správu prostředků Azure.
@@ -82,12 +82,12 @@ Rozevírací seznamy jsou filtrovány přiřazené oblast prostředí cloudu a m
 [Další informace o prostředí cloudové úložiště, aktualizace sdílené složky a nahrávání nebo stahování souborů.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Koncepty
-* Cloudové prostředí běží na dočasné počítači k dispozici na každou relaci, jednotlivých uživatelů
+* Spuštění prostředí cloudu dočasné hostiteli k dispozici na každou relaci, jednotlivých uživatelů
 * Cloudové prostředí vyprší po 20 minutách bez interaktivní aktivity
-* Cloudové prostředí lze přistupovat pouze u sdílené složky připojit
-* Cloudová prostředí používá stejné sdílené složky pro Bash a prostředí PowerShell
+* Cloudové prostředí vyžaduje sdílení souborů pro připojit
+* Cloudové prostředí používá stejné sdílené složky pro Bash a prostředí PowerShell
 * Cloudové prostředí je přiřazený jeden počítač na uživatelský účet
-* Máte nastavená oprávnění jako běžný uživatel Linux (Bash)
+* Máte nastavená oprávnění jako běžný uživatel Linux v Bash
 
 Další informace o funkcích v [Bash v prostředí cloudu](features.md) a [prostředí PowerShell v prostředí cloudu (Preview)](features-powershell.md).
 
@@ -102,5 +102,5 @@ Vyzkoušejte tyto příklady v quickstarts pro [Bash v prostředí cloudu](quick
 Tento počítač hostování prostředí cloudu je bezplatná s předpoklad připojené sdílené složky Azure Files. Náklady na úložiště regulární použít.
 
 ## <a name="next-steps"></a>Další kroky
-[V prostředí cloudu quickstart bash](quickstart.md)
-[prostředí PowerShell v prostředí cloudu (Preview) rychlý start](quickstart-powershell.md)
+[Bash v prostředí cloudu rychlý start](quickstart.md) <br>
+[Prostředí PowerShell v prostředí cloudu (Preview) rychlý start](quickstart-powershell.md)

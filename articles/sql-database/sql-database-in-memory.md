@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 8930595821cc7662c4ff792b73eb357f1ba29307
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimalizace výkonu pomocí technologie v paměti v databázi SQL
 
@@ -118,8 +118,6 @@ Ale přechod na starší verzi cenové úrovně může mít negativní vliv na v
 
 *Přechod na starší verzi na Basic nebo Standard*: OLTP v paměti není podporována v databázích v úroveň Standard nebo Basic. Kromě toho není možné přesunout databáze, která obsahuje všechny objekty OLTP v paměti na úroveň Standard nebo Basic.
 
-Předtím, než jste starší verzi databáze, která se standardní a základní, odeberte všechny paměťově optimalizované tabulky a typů tabulek, jakož i všechny nativně Kompilované moduly T-SQL.
-
 Není programový způsob, jak pochopit, jestli na danou databázi podporuje OLTP v paměti. Můžete spustit následující dotaz jazyka Transact-SQL:
 
 ```
@@ -128,6 +126,13 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 Pokud dotaz vrátí **1**, OLTP v paměti je podporováno v této databázi.
 
+Předtím, než jste starší verzi databáze, která se standardní a základní, odeberte všechny paměťově optimalizované tabulky a typů tabulek, jakož i všechny nativně Kompilované moduly T-SQL. Následující dotazy Identifikujte všechny objekty, které je potřeba předtím, než databázi můžete snížit na standardní a základní odebrat:
+
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
 
 *Přechod na starší verzi nižší úrovně Premium*: Data v paměťově optimalizovaných tabulkách musí být přizpůsobena úložiště OLTP v paměti, které souvisí s cenová úroveň databáze nebo není k dispozici elastický fond. Pokud se pokusíte snížit cenovou úroveň, nebo přesunout databáze ve fondu, který nemá dostatek dostupné úložiště OLTP v paměti se operace nezdaří.
 

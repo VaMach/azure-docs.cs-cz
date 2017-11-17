@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ebda79442b8feb9f052c3ae455fa43aafb7b5a6a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 88dc0860b4455d19b05b4f4f1766210e3f3c704e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Nasazení služby Azure Stream Analytics jako modul IoT Edge – náhled
 
@@ -62,13 +62,16 @@ V této části můžete vytvořit úlohu služby Azure Stream Analytics využí
     ![Nový účet úložiště][1]
 
 3. Na portálu Azure přejděte na účet úložiště, kterou jste právě vytvořili. Klikněte na tlačítko **procházet objekty BLOB** pod **služby objektů Blob**. 
-1. Vytvořte nový kontejner pro modul ASA ukládat data. Nastavení přístupu na úrovni _kontejneru_. Klikněte na **OK**.
+4. Vytvořte nový kontejner pro modul ASA ukládat data. Nastavení přístupu na úrovni _kontejneru_. Klikněte na **OK**.
 
     ![Nastavení úložiště][10]
 
-1. Na portálu Azure přejděte do **vytvořit prostředek** > **Internet věcí** a vyberte **úlohy Stream Analytics**.
+5. Na portálu Azure přejděte do **vytvořit prostředek** > **Internet věcí** a vyberte **úlohy Stream Analytics**.
 
-1. Zadejte název, **zvolte "Edge" jako hostitelské prostředí** a použít zbývající výchozí hodnoty.  Klikněte na možnost **Vytvořit**.
+6. Zadejte název, vyberte **Edge** jako hostitelské prostředí a použít zbývající výchozí hodnoty.  Klikněte na možnost **Vytvořit**.
+
+    >[!NOTE]
+    >Momentálně nejsou omezený počet oblastí, které podporují úlohy ASA hranu IoT. Vyberte jednu z následujících jako umístění: střed USA – Západ střední USA, severní jihu USA, Východ USA, Východní Kanada, Japonsko – východ, východní Asie, Severní Evropa, Spojené království – Jih, Austrálie – východ, Brazílie – jih. 
 
     ![Vytvoření ASA][5]
 

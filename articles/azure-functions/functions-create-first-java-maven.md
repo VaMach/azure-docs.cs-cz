@@ -14,17 +14,20 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ebe9351641f3c4ddade0ea456e8784d59acf9332
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 3762a6e267540ef79577c3bf94ce27b648bd3534
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Vytvoření první funkce s Java a Maven (Preview)
 
+> [!NOTE] 
+> Java pro Azure Functions je aktuálně ve verzi preview.
+
 Tento rychlý start provede procesem vytvoření [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) funkce projektu s Maven, místní testování a nasazení do Azure Functions. Když jste hotovi, máte funkce aktivované protokolem HTTP aplikace spuštěná v Azure.
 
- ![Přístup k funkci Hello, World z příkazového řádku pomocí cURL](media/functions-create-java-maven/hello-azure.png)
+![Přístup k funkci Hello, World z příkazového řádku pomocí cURL](media/functions-create-java-maven/hello-azure.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

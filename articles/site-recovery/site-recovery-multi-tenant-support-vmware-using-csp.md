@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Podpora více klientů ve službě Azure Site Recovery pro replikaci virtuálních počítačů VMware do Azure pomocí zprostředkovatele kryptografických služeb
 
@@ -50,7 +50,7 @@ Jak je vidět na předchozím obrázku, každý zákazník má server pro správ
 Požadavek na data izolace vyžaduje, aby klientům zveřejněny všechny informace o citlivých infrastruktury (například přihlašovací údaje). Z tohoto důvodu doporučujeme, aby všechny součásti serveru pro správu nadále výhradní řídit partnera. Součásti serveru správy jsou:
 * Konfigurační server (CS)
 * Procesový server (PS)
-* Hlavní cílový server (MT) 
+* Hlavní cílový server (MT)
 
 PS Škálováním na více systémů je také pod kontrolou partnera.
 
@@ -82,7 +82,7 @@ Postup přístup účtu vCenter je následující:
 
     * **Úlohy**: vytvoření úlohy, úloha aktualizace
 
-    * **Virtuální počítač**: 
+    * **Virtuální počítač**:
         * Konfigurace > všechny
         * Interakce > odpovědět na otázku, připojení zařízení, nakonfigurovat CD média, konfigurovat disketová média, vypnutí napájení, instalaci nástroje VMware
         * Inventář > vytvořit z existujícího, vytvořit nový, registraci, zrušení registrace
@@ -138,8 +138,8 @@ Požadavky virtuálního počítače jsou stejné, jak je popsáno v [dokumentac
 
 ### <a name="step-1-create-a-tenant-account"></a>Krok 1: Vytvoření účtu klienta
 
-1. Prostřednictvím [Microsoft Partner Center](https://partnercenter.microsoft.com/), přihlaste se ke svému účtu CSP. 
- 
+1. Prostřednictvím [Microsoft Partner Center](https://partnercenter.microsoft.com/), přihlaste se ke svému účtu CSP.
+
 2. Na **řídicí panel** nabídce vyberte možnost **zákazníci**.
 
     ![Odkaz zákazníků Center partnera společnosti Microsoft](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -160,22 +160,22 @@ Požadavky virtuálního počítače jsou stejné, jak je popsáno v [dokumentac
 
     ![Kontrolní stránku](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    Po vytvoření účtu klienta, se zobrazí potvrzovací stránku, zobrazení podrobností o výchozí účet a heslo pro toto předplatné. 
+    Po vytvoření účtu klienta, se zobrazí potvrzovací stránku, zobrazení podrobností o výchozí účet a heslo pro toto předplatné.
 
 7. Uložte si informace a změnit heslo později podle potřeby prostřednictvím Azure přihlašovací stránky portálu.  
- 
+
     Tyto informace můžete sdílet s klientem, jako je, nebo můžete vytvořit a sdílet samostatný účet, v případě potřeby.
 
 ### <a name="step-2-access-the-tenant-account"></a>Krok 2: Přístup k účtu klienta
 
-Předplatné klienta můžete přistupovat prostřednictvím řídicím panelu Microsoft Partner Center, jak je popsáno v "krok 1: vytvoření účtu klienta." 
+Předplatné klienta můžete přistupovat prostřednictvím řídicím panelu Microsoft Partner Center, jak je popsáno v "krok 1: vytvoření účtu klienta."
 
 1. Přejděte na **zákazníci** stránky a pak klikněte na název účtu klienta.
 
 2. Na **odběry** stránky účtu klienta, můžete sledovat existující odběry účet a přidat další odběry, podle potřeby. Chcete-li spravovat operace zotavení po havárii klienta, vyberte **všechny prostředky (portál Azure)**.
 
     ![Odkaz všechny prostředky](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     Kliknutím na tlačítko **všechny prostředky** uděluje přístup k předplatným Azure klienta. Přístup můžete ověřit kliknutím na odkaz Azure Active Directory v horní pravé části portálu Azure.
 
     ![Azure Active Directory odkaz](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ Předplatné klienta můžete přistupovat prostřednictvím řídicím panelu M
 Teď můžete provádět všechny operace obnovení lokality pro klienta prostřednictvím portálu Azure a spravovat operace zotavení po havárii. Přístup k předplatnému klienta prostřednictvím zprostředkovatele kryptografických služeb pro zotavení po havárii spravované, postupujte podle procesu bylo popsáno dříve.
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>Krok 3: Nasaďte prostředky k předplatnému klienta
-1. Na portálu Azure vytvořte skupinu prostředků a pak nasadit trezoru služeb zotavení pro obvyklé procesy. 
- 
+1. Na portálu Azure vytvořte skupinu prostředků a pak nasadit trezoru služeb zotavení pro obvyklé procesy.
+
 2. Stáhnout registrační klíč trezoru
 
 3. Zaregistrujte CS pro klienta pomocí registračního klíče trezoru.

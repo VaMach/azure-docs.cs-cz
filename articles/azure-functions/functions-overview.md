@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 41f26a4b03a6431aaad21bda6336b8840d2d923f
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: d60c898225b944801504f38d536262134a31e021
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="an-introduction-to-azure-functions"></a>Seznámení s Azure Functions  
 Azure Functions je řešení umožňující snadno spouštět malé kódy (tzv. „funkce“) v cloudu. Můžete napsat přesně takový kód, jaký potřebujete pro aktuální problém, a nestarat se o infrastrukturu k jeho spuštění nebo aplikaci jako celek. Funkce provádět vývoj i zvýšit produktivitu a můžete použít svůj vývoj jazyk podle vlastní volby, například C#, F #, Node.js, Java nebo PHP. Plaťte pouze za čas, kdy kód běží, a potřebné škálování svěřte Azure. Azure Functions umožňuje vyvíjet [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) aplikací v Microsoft Azure.
@@ -31,7 +31,7 @@ Toto téma obsahuje obecný přehled Azure Functions. Pokud chcete rovnou začí
 ## <a name="features"></a>Funkce
 Zde jsou některé klíčové funkce funkcí:
 
-* **Volba jazyka** – pište funkce pomocí jazyka C#, F #, Node.js, Java, PHP, batch, bash nebo jakékoli spustitelný soubor.
+* **Volba jazyka** – pište funkce pomocí zvoleného C#, F # nebo Javascript. V tématu [podporované jazyky](supported-languages.md) pro další možnosti.
 * **Cenový model platba za použití** – Platíte jen za čas, kdy byl kód spuštěný. Viz možnost plánu hostování Consumption v [části týkající se cen](#pricing).  
 * **Přineste si vlastní závislosti** – Functions podporuje NuGet a NPM, takže můžete používat své oblíbené knihovny.  
 * **Integrované zabezpečení** – Chraňte funkce aktivované protokolem HTTP pomocí poskytovatelů OAuth, jako jsou Azure Active Directory, Facebook, Google, Twitter a účet Microsoft.  

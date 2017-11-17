@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e10b5dba6f91c97a5c6b71aee76eef062a8be82c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: e232b4cdb62b7bf212808bd380119482ee88b077
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Rychlý úvod: Nasazení první modul IoT Edge na portálu Azure do zařízení se systémem Windows – náhled
 
@@ -94,6 +94,8 @@ Zkontrolujte, zda IoT Edge agenta je spuštěn jako modul Docker.
 docker ps
 ```
 
+![V tématu edgeAgent v Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
+
 ## <a name="deploy-a-module"></a>Nasazení modulu
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -102,11 +104,21 @@ docker ps
 
 V tento rychlý start vytvořit nové zařízení IoT okraj a na něm nainstalován modul runtime IoT okraj. Potom použít portál Azure k modul IoT okraj ke spuštění na zařízení bez nutnosti měnit samotné zařízení. V takovém případě modul, který jste nabídnutých vytvoří prostředí data, která můžete použít pro kurzů k. 
 
-Zobrazení zpráv odesílány z modulu tempSensor:
+Otevřete příkazový řádek v počítači se systémem simulovaného zařízení znovu. Potvrďte, že modul nasazení z cloudu běží na vašem zařízení IoT hraniční. 
 
-```cmd/sh
+```cmd
+docker ps
+```
+
+![Zobrazit tři modulů ve vašem zařízení](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+Zobrazení zpráv odesílány z modulu tempSensor do cloudu. 
+
+```cmd
 docker logs -f tempSensor
 ```
+
+![Zobrazení dat z modulu](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 Můžete také zobrazit telemetrii zařízení odesílá pomocí [nástroji Průzkumník služby IoT Hub][lnk-iothub-explorer]. 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků

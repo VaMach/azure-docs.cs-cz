@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 6e94758581bd510e58a709a53e30c11a5c1f1b62
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT hranu (preview)
 
 > [!IMPORTANT]
 > Tato funkce je ve verzi preview. Nedoporučujeme použití v produkčním prostředí.
  
-Azure Stream Analytics (ASA) na IoT Edge umožňuje vývojářům nasazení téměř v reálném čase blíže analytical intelligence do zařízení IoT tak, aby se můžete odemknout úplné hodnota generovaná zařízení data. Navržený pro zákazníky, kteří vyžadují, nízkou latencí, odolnost proti chybám, efektivní využití šířky pásma a dodržování předpisů, podniky teď můžete nasadit řízení logiku blízko průmyslových operations a doplňují analýzy velkých objemů dat v cloudu.  
-Azure Stream Analytics IoT hranu běží v rámci [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework a nasazení a správu úlohy ASA lze provést po vytvoření úlohy v ASA používání služby IoT Hub.
+Azure Stream Analytics (ASA) na IoT Edge umožňuje vývojářům nasazení téměř v reálném čase blíže analytical intelligence do zařízení IoT tak, aby se můžete odemknout úplné hodnota generovaná zařízení data. Navržený pro s nízkou latencí, odolnost proti chybám, efektivní využití šířky pásma a dodržování předpisů, podniky teď můžete nasadit řízení logiku blízko průmyslových operace a doplňují analýzy velkých objemů dat v cloudu.  
+Azure Stream Analytics IoT hranu běží v rámci [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Jakmile je vytvořen v ASA, deploym úlohy a spravovat úlohy ASA používání služby IoT Hub.
 Tato funkce je ve verzi preview, pokud máte jakékoli otázku nebo připomínky můžete použít [tento průzkum](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) kontaktovat produktový tým. 
 
 ## <a name="scenarios"></a>Scénáře
-![Vysokoúrovňový diagram](media/stream-analytics-edge/ASAedge_highlevel.png) tady je několik typických scénářů, pro které je spuštěná ASA hranu zajímavé:
-* **Příkaz s nízkou latencí a řízení**: například výrobní zabezpečení systémů je potřeba reagovat na provozních dat s velmi nízkou latencí. S ASA hranu IoT můžete analyzovat data snímačů v téměř v reálném čase a příkazy problém při zjišťovat anomálie zastavit počítač nebo aktivační událost výstrahy.
+![Vysokoúrovňový diagram](media/stream-analytics-edge/ASAedge_highlevel.png)
+
+* **Příkaz s nízkou latencí a řízení**: například výrobní bezpečnostní systémy musí reagovat na provozních dat s velmi nízkou latencí. S ASA hranu IoT můžete analyzovat senzor, data v téměř v reálném čase a vydávat příkazy při zjišťovat anomálie počítače zastavit nebo výstrahy aktivovat.
 *   **Omezené připojení ke cloudu**: mise rozhodujících systémů, jako je vzdálené dolování vybavení, připojené plavidel nebo příbřežních procházení, třeba k analýze a reagovat na data i v případě, že se přerušované připojení cloudu. S ASA streamování logiky běží nezávisle na síťové připojení a můžete zvolit, co můžete odeslat do cloudu pro další zpracování nebo úložiště.
 * **Omezenou šířkou pásma**: objem dat vytvářených jet moduly nebo připojených aut může být tak velká, že data musí být filtrovaná nebo předem zpracovaných před odesláním do cloudu. ASA můžete filtrovat nebo agregovat data, která mají být odesílány do cloudu.
 * **Dodržování předpisů**: předpisů může vyžadovat některé data místně anonymní nebo agregovat před odesláním do cloudu. S ASA můžete 

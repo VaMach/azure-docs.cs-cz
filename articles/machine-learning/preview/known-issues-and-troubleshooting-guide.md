@@ -10,19 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – známé problémy a Průvodce odstraňováním potíží s 
 Tento článek vám pomůže najít a opravy chyb nebo selhání došlo jako součást pomocí aplikace Azure Machine Learning Workbench. 
 
-> [!IMPORTANT]
-> Při komunikaci s tým podpory, je důležité mít číslo sestavení. Můžete získat kliknutím na číslo sestavení aplikace **pomoci** nabídky. Kliknutím na číslo sestavení zkopíruje do schránky. Můžete ho vložte do e-mailů nebo fóra vám pomůže sestavy problémy podpory.
-
-![Zkontrolujte číslo verze](media/known-issues-and-troubleshooting-guide/buildno.png)
+## <a name="find-the-workbench-build-number"></a>Najít Workbench číslo sestavení
+Při komunikaci s tým podpory, je důležité zahrnout číslo sestavení aplikace Workbench. V systému Windows, můžete zjistit číslo sestavení kliknutím na **pomoci** nabídky a zvolte **o Azure ML Workbench**. V systému macOS, můžete kliknutím na **Azure ML Workbench** nabídky a zvolte **o Azure ML Workbench**.
 
 ## <a name="machine-learning-msdn-forum"></a>Strojového učení fórum MSDN
 Máme fóru MSDN, že můžete účtovat otázky. Produktový tým aktivně sleduje na fóru. Fórum je adresa URL [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
@@ -75,10 +73,13 @@ Když pracujete v Azure ML Workbench, můžete také odeslat nám zamračeného 
     >Toto omezení se nevztahuje na `.git`, `docs` a `outputs` složek. Názvy těchto složek rozlišují velká a malá písmena. Pokud pracujete s velkými soubory, podívejte se na [uložením změn a pozornosti s velkými soubory](how-to-read-write-files.md).
 
 - Maximální povolená doba spuštění experimentu: sedm dní
+
 - Maximální velikost souboru sledovaných v `outputs` složka po spuštění: 512 MB
   - To znamená, že pokud váš skript vytvoří soubor větší než 512 MB ve složce výstupy, pokud nejsou zjištěny existuje. Pokud pracujete s velkými soubory, podívejte se na [uložením změn a pozornosti s velkými soubory](how-to-read-write-files.md).
 
 - Klíče SSH nejsou podporovány při připojování ke vzdálenému počítači nebo clusteru Spark přes protokol SSH. Aktuálně je podporována pouze uživatelské jméno a heslo režimu.
+
+- Při použití clusteru HDInsight jako výpočetní cíl, musí používat Azure blob jako primárního úložiště. Použití Azure Data Lake Storage není podporováno.
 
 - Text, který clustering transformací nejsou podporovány na macu.
 

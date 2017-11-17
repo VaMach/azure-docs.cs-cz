@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 5903c8ac7a16a87b93ea6e105d82bbfdfa26bf8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5dae5ef260d975e00d3bdaa9aff73fd5807bb839
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Stávající infrastruktury serveru NPS integrovat Azure Multi-Factor Authentication
 
@@ -81,7 +81,7 @@ Před instalací NPS rozšíření, které chcete připravit můžete prostřed�
 
 ### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>Povolení role NPS na server připojený k doméně
 
-NPS server se připojuje k Azure Active Directory a ověřuje požadavky vícefaktorového ověřování. Vyberte jeden server pro tuto roli. Doporučujeme vybrat server, který nemůže pracovat s požadavky z jiných služeb, protože server NPS rozšíření vyvolá chyby pro všechny žádosti, které nejsou protokolu RADIUS.
+NPS server se připojuje k Azure Active Directory a ověřuje požadavky vícefaktorového ověřování. Vyberte jeden server pro tuto roli. Doporučujeme vybrat server, který nemůže pracovat s požadavky z jiných služeb, protože server NPS rozšíření vyvolá chyby pro všechny žádosti, které nejsou protokolu RADIUS. NPS server musí být nastavený jako ověřování primární a sekundární server pro vaše prostředí; ji nelze požadavky proxy protokolu RADIUS na jiný server.
 
 1. Na serveru, otevřete **Průvodce přidáním rolí a funkcí** v nabídce rychlý start správce serveru.
 2. Zvolte **instalace na základě rolí nebo na základě funkcí** pro váš typ instalace.
@@ -193,7 +193,7 @@ Pokud máte uživatele, která nejsou zaregistrovaná pro MFA, můžete určit, 
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | HODNOTU TRUE NEBO FALSE | Není nastavena (ekvivalentní na hodnotu TRUE) |
 
-Účelem tohoto nastavení je určit, co dělat, když uživatel není zaregistrovaný pro MFA. Pokud klíč neexistuje, není nastavena nebo je nastaven na hodnotu TRUE a uživatel není registrovaný, potom rozšíření selže ověřovací test MFA. Když klíč nastaven na hodnotu FALSE a uživatel není registrovaný, ověření pokračuje bez vícefaktorového ověřování.
+Účelem tohoto nastavení je určit, co dělat, když uživatel není zaregistrovaný pro MFA. Pokud klíč neexistuje, není nastavena nebo je nastaven na hodnotu TRUE a uživatel není registrovaný, potom rozšíření selže ověřovací test MFA. Když klíč nastaven na hodnotu FALSE a uživatel není registrovaný, ověření pokračuje bez vícefaktorového ověřování. Pokud uživatel je zaregistrovaný v MFA, musí ověřit pomocí vícefaktorového ověřování i v případě, že REQUIRE_USER_MATCH nastaven na hodnotu FALSE.
 
 Můžete vytvořit tento klíč a nastavte ji na hodnotu FALSE, zatímco jsou vaši uživatelé registrace, a ne všechny možné registrovat pro Azure MFA ještě. Ale vzhledem k tomu, že nastavení klíče umožňuje uživatelům, která nejsou zaregistrovaná pro vícefaktorové ověřování pro přihlášení, byste měli odebrat tento klíč před přechodem do produkčního prostředí.
 

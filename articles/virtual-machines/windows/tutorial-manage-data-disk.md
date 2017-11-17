@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1d5a4c02209fb811f5dd33c26f9936a43372bc4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b994cfd09156ae8e1662f4947241aa1a4672df98
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Správa Azure disky pomocí prostředí PowerShell
 
@@ -58,7 +58,7 @@ Vytvoření virtuálního počítače Azure má dva disky jsou automaticky přip
 
 ## <a name="azure-data-disks"></a>Azure datových disků
 
-Pro instalaci aplikací a ukládání dat přidáním dalších datových disků. Datové disky by měl použít v každé situaci, kde je žádoucí, odolné a dobře reagovaly datové úložiště. Každý datový disk má maximální kapacita 1 terabajt. Velikost virtuálního počítače určuje, kolik datových disků lze připojit k virtuálnímu počítači. Pro každý základní virtuální počítač se dá připojit dvěma datovými disky. 
+Pro instalaci aplikací a ukládání dat přidáním dalších datových disků. Datové disky by měl použít v každé situaci, kde je žádoucí, odolné a dobře reagovaly datové úložiště. Každý datový disk má maximální kapacita 1 terabajt. Velikost virtuálního počítače určuje, kolik datových disků lze připojit k virtuálnímu počítači. Pro každý virtuální procesory virtuálních počítačů lze připojit dvěma datovými disky. 
 
 ### <a name="max-data-disks-per-vm"></a>Maximální počet datových disků na virtuální počítač
 

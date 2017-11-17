@@ -3,7 +3,7 @@ title: "Prozkoumejte dat pomocí Průzkumníka Statistika řady čas Azure | Mic
 description: "Tento článek popisuje použití Průzkumníka Azure časové řady Insights ve webovém prohlížeči globální zobrazení velkých objemů dat se krátce zobrazit a ověřit prostředí IoT."
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Průzkumník Azure Statistika časové řady
 Tento článek popisuje různé funkce a možnosti dostupné v rámci webové aplikace explorer Statistika časové řady. Pomocí Průzkumníka časové řady Insights ve webovém prohlížeči vytvořit vizualizacemi vašich dat.
@@ -50,10 +50,10 @@ V rámci připojení vaší zdroj události pro vaše prostředí časové řady
       - **Rozdělení podle**: Tento rozevíracího seznamu zobrazuje kategorií sloupce (řetězce)
       - Můžete povolit krok interpolace, zobrazí minimální a maximální a upravit osu y z ovládacích panelů vedle k měření.  Kromě toho můžete upravit, zda data zobrazená je počet, průměr nebo součet data.
       - Můžete přidat až pět podmínky zobrazíte na stejné osy x.  Použití **kopie rozbalovací** tlačítko Přidat další termín nebo kliknutím na tlačítko **přidat** tlačítko přidáte nový termín.
+     
+        ![Editor panelu podmínky](media/time-series-insights-explorer/explorer2.png)
 
-      ![Editor panelu podmínky](media/time-series-insights-explorer/explorer2.png)
-
-      - **Predikát**: Predikát umožňuje rychle vyfiltrovat události pomocí sady operandy, které jsou uvedeny níže. Pokud zadání vyhledávání vyberete kliknutím predikátem bude automaticky aktualizace na základě toto hledání.  Operand podporované typy patří:
+      - **Predikát**: Predikát umožňuje rychle vyfiltrovat události pomocí sady operandy, které jsou uvedeny níže. Pokud zadání vyhledávání vyberete kliknutím predikátem bude automaticky aktualizace na základě toto hledání.      Operand podporované typy patří:
 
          |Operace  |Podporované typy  |Poznámky  |
          |---------|---------|---------|
@@ -107,4 +107,5 @@ V rámci připojení vaší zdroj události pro vaše prostředí časové řady
 Nyní jste viděli různé funkce a možnosti dostupné v rámci webové aplikace explorer Statistika časové řady. 
 
 ## <a name="next-steps"></a>Další kroky
-[Diagnostika a řešení problémů ve vašem prostředí Statistika časové řady](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Diagnostika a řešení problémů ve vašem prostředí Statistika časové řady](time-series-insights-diagnose-and-solve-problems.md)

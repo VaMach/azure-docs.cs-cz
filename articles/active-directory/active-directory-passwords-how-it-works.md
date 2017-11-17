@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 19518ad8dc2d697f1716750adc3f0ad7d7f8a875
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobslužné služby v Azure AD podrobné informace pro vytvoření nového hesla
 
@@ -183,7 +183,7 @@ Chcete-li tuto možnost, má uživatel, který je povolen pro resetování hesla
 Při vyžadování registrace je zakázaná, uživatelé mohou registrovat pořád spustit ručně své kontaktní informace. Můžete buď návštěvu [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) nebo vyberte **registrace pro resetování hesla** v části **profil** karta na přístupovém panelu.
 
 > [!NOTE]
-> Uživatele můžete zavřít portálu registrace resetování hesel výběrem **zrušit** nebo ukončením okna. Ale se zobrazí výzva k registraci při každém přihlášení, dokud se jejich registraci dokončit.
+> Uživatele můžete zavřít portálu registrace resetování hesel výběrem **zrušit** nebo ukončením okna. Ale bude vyzván k registraci při každém přihlášení, dokud se jejich registraci dokončit.
 >
 > Pokud už jsou podepsané tím není přerušení připojení uživatele.
 
@@ -209,6 +209,17 @@ Příklad: Existují čtyři správci v prostředí. Správce A resetuje heslo p
 
 Je-li instalovat, konfigurovat a povolit Azure AD Connect, máte následující další možnosti pro místní integrace. Pokud tyto možnosti jsou šedě, pak zpětný zápis nebyla nakonfigurována správně. Další informace najdete v tématu [konfigurace zpětný zápis hesla](active-directory-passwords-writeback.md#configuring-password-writeback).
 
+![Zpětný zápis][Writeback]
+
+Tato stránka obsahuje rychlý stav klienta pro zpětný zápis místní jednu z následujících zpráv se zobrazí, na základě aktuální konfigurace:
+
+* Váš klient místní zpětný zápis je spuštěná.
+* Azure AD je online a připojený k vašeho klienta místní zpětný zápis. Ale vypadá nainstalovaná verze služby Azure AD Connect je zastaralý. Vezměte v úvahu [upgrade Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) zajistit, že máte nejnovější funkce možností připojení a důležitých oprav chyb.
+* Bohužel jsme nemůže zjistit stav klienta místní zpětný zápis, protože je zastaralý. nainstalovaná verze služby Azure AD Connect. [Upgrade Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) moct Kontrola stavu připojení.
+* Bohužel vypadá nemůžeme připojit k vaší místní zpětného zápisu klienta hned teď. [Řešení potíží s Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) k obnovení připojení.
+* Bohužel nelze připojit do klienta zpětný zápis místní protože zpětný zápis hesla není správně nakonfigurován. [Nakonfigurovat zpětný zápis hesla](active-directory-passwords-writeback.md#configuring-password-writeback) k obnovení připojení.
+* Bohužel vypadá nemůžeme připojit k vaší místní zpětného zápisu klienta hned teď. Může to být způsobeno dočasnou problémy na naší straně. Pokud potíže potrvají, [řešení potíží s Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) k obnovení připojení.
+
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Zpětný zápis hesla do místního adresáře
 
 Tento ovládací prvek určuje, zda je pro tento adresář zapnutá zpětný zápis hesla. Pokud zpětného zápisu na, označuje stav zpětného zápisu služby místně. To je užitečné, pokud chcete dočasně zakázat zpětný zápis hesel, aniž by museli znovu konfigurovat Azure AD Connect.
@@ -233,7 +244,7 @@ Resetování hesla a změny jsou plně podporuje všechny konfigurace business-t
 Tento scénář otestovat, přejděte na http://passwordreset.microsoftonline.com s jedním z těchto uživatelů partnera. Pokud mají alternativní e-mailu nebo e-mailu ověřování definované, resetování hesla funguje podle očekávání.
 
 > [!NOTE]
-> Účty Microsoft, kterým byl udělen přístup hosta pro vašeho klienta Azure AD, jako jsou ty z Hotmail.com, Outlook.com nebo jiné osobní e-mailové adresy, nejsou schopna použít Azure AD SSPR. Bude nutné resetovat heslo pomocí informací v nalezen [při nemůžete se přihlásit ke svému účtu Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) článku.
+> Účty Microsoft, kterým byl udělen přístup hosta pro vašeho klienta Azure AD, jako jsou ty z Hotmail.com, Outlook.com nebo jiné osobní e-mailové adresy, nejsou schopna použít Azure AD SSPR. Potřebují resetovat heslo pomocí informací v nalezen [při nemůžete se přihlásit ke svému účtu Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) článku.
 
 ## <a name="next-steps"></a>Další kroky
 
@@ -253,3 +264,4 @@ Následující články poskytují další informace týkající se prostřednic
 * [Mám otázku, která není zodpovězená jinde](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Dostupné metody ověřování Azure AD a požadované množství"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "Místní konfiguraci zpětný zápis hesla integrace a informace o odstraňování potíží"

@@ -1,10 +1,10 @@
 ---
-title: "Vytvoření virtuální sítě - 2.0 rozhraní příkazového řádku Azure | Microsoft Docs"
-description: "Naučte se vytvořit virtuální síť pomocí Azure CLI 2.0."
+title: "Vytvoření virtuální sítě - rozhraní příkazového řádku Azure | Microsoft Docs"
+description: "Naučte se vytvořit virtuální síť pomocí rozhraní příkazového řádku Azure."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -16,25 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Vytvoření virtuální sítě pomocí Azure CLI 2.0
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>Vytvoření virtuální sítě pomocí rozhraní příkazového řádku Azure
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure nabízí dva modely nasazení: Azure Resource Manager a Classic. Microsoft doporučuje vytváření prostředků prostřednictvím modelu nasazení Resource Manager. Další informace o rozdílech mezi těmito dvěma modely najdete v článku [Vysvětlení modelů nasazení Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="cli-versions-to-complete-the-task"></a>Verze rozhraní příkazového řádku pro dokončení úlohy
-K dokončení úlohy můžete využít jednu z následujících verzí rozhraní příkazového řádku:
-
-- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) – naše rozhraní příkazového řádku pro klasické modely nasazení a modely nasazení správy prostředků
-- [Azure CLI 2.0](#create-a-virtual-network) -naší nové generace rozhraní příkazového řádku pro správu model nasazení prostředku (v tomto článku).
- 
-    Virtuální síť můžete vytvořit také prostřednictvím modelu nasazení Resource Manager pomocí jiných nástrojů nebo prostřednictvím modelu nasazení Classic. Pokud to chcete provést, vyberte odpovídající možnost z následujícího seznamu:
+Můžete také vytvořit virtuální síť pomocí Resource Manager pomocí jiných nástrojů nebo vytvoření virtuální sítě pomocí modelu nasazení classic, vyberte jinou možnost z následujícího seznamu:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-networks-create-vnet-arm-pportal.md)
@@ -47,10 +41,9 @@ K dokončení úlohy můžete využít jednu z následujících verzí rozhraní
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-
 ## <a name="create-a-virtual-network"></a>Vytvoření virtuální sítě
 
-Pokud chcete vytvořit virtuální síť pomocí Azure CLI 2.0, proveďte následující kroky:
+Pokud chcete vytvořit virtuální síť pomocí rozhraní příkazového řádku Azure, proveďte následující kroky:
 
 1. Instalace a konfigurace nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#login).
 

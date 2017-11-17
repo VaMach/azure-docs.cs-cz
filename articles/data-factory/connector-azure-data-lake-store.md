@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: daba616debcf445e092697575465311f39e9466f
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 3b2fbab10836b138792efad7ea30f4f0d15905c3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopírovat data do nebo z Azure Data Lake Store pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,10 +55,10 @@ Následující vlastnosti jsou podporovány pro Azure Data Lake Store propojené
 | Název skupiny prostředků | Název skupiny prostředků Azure, ke kterému patří účet Data Lake Store. | Vyžaduje se pro sink |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
-Naleznete v oddílech pod na další vlastnosti a ukázky JSON pro typy různá ověřovací v uvedeném pořadí:
+Najdete v následujících částech další vlastnosti a ukázky JSON pro typy různá ověřovací v uvedeném pořadí:
 
 - [Pomocí objektu zabezpečení ověřování služby](#using-service-principal-authentication)
-- [Pomocí ověřování identitiy spravované služby](#using-managed-service-identitiy-authentication)
+- [Pomocí ověření identity spravované služby](#using-managed-service-identitiy-authentication)
 
 ### <a name="using-service-principal-authentication"></a>Pomocí objektu zabezpečení ověřování služby
 
@@ -71,7 +71,7 @@ Pokud chcete použít ověřování hlavní služby, zaregistrujte entitu aplika
 >[!TIP]
 > Ujistěte se, že udělíte hlavní správné oprávnění služby v Azure Data Lake Store:
 >- Jako zdroj, udělte alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu (IAM).
->- Jako jímku, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure Reakcí na základě kterých kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud se chcete vyhnout této role IAM explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístění Data Lake Store a přidružení v Data Lake Store propojená služba jako v následujícím příkladu.
+>- Jako jímku, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure IR ke kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud se chcete vyhnout této role IAM explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístění Data Lake Store a přidružení v Data Lake Store propojená služba jako v následujícím příkladu:
 
 Podporovány jsou následující vlastnosti:
 
@@ -106,19 +106,19 @@ Podporovány jsou následující vlastnosti:
 }
 ```
 
-### <a name="using-managed-service-identitiy-authentication"></a>Pomocí ověřování identitiy spravované služby
+### <a name="using-managed-service-identity-authentication"></a>Pomocí ověření identity spravované služby
 
-Objekt pro vytváření dat může být přidružen [identita spravované služby](data-factory-service-identity.md), který představuje tuto konkrétní data factory. Tato identita služby můžete použít přímo pro Data Lake Store ověřování podobný používání vlastních princial služeb. To umožňuje toto určené pro vytváření pro přístup a kopírování dat z/do Data Lake Store.
+Objekt pro vytváření dat může být přidružen [identita spravované služby](data-factory-service-identity.md), který představuje tuto konkrétní data factory. Tato identita služby můžete použít přímo pro Data Lake Store ověřování podobný používání vlastního instanční objekt. To umožňuje toto určené pro vytváření pro přístup a kopírování dat z/do Data Lake Store.
 
-Použití ověřování identitiy (MSI) spravované služby:
+Použití ověřování identity (MSI) spravované služby:
 
 1. [Načtení identita služby data factory](data-factory-service-identity.md#retrieve-service-identity) hodnotu "Služba IDENTITY ID aplikace" generované společně s vaší objekt pro vytváření.
 2. Udělení přístupu identity služby do Data Lake Store stejným způsobem jako u objektu služby. Podrobné pokyny najdete v tématu [ověřování Service-to-service - aplikaci přiřadit Azure AD do Azure Data Lake Store účtu soubor nebo složku](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
 
 >[!TIP]
-> Ujistěte se, že udělíte správné identitiy data factory služby, oprávnění v Azure Data Lake Store:
+> Ujistěte se, že udělíte správné identity data factory služby, oprávnění v Azure Data Lake Store:
 >- Jako zdroj, udělte alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu (IAM).
->- Jako jímku, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure Reakcí na základě kterých kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud se chcete vyhnout této role IAM explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístění Data Lake Store a přidružení v Data Lake Store propojená služba jako v následujícím příkladu.
+>- Jako jímku, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure IR ke kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud se chcete vyhnout této role IAM explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístění Data Lake Store a přidružení v Data Lake Store propojená služba jako v následujícím příkladu:
 
 V Azure Data Factory nemusíte určovat žádné vlastnosti kromě obecné informace o Data Lake Store v propojené službě.
 

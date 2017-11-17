@@ -1,5 +1,7 @@
 <!-- F-series, Fs-series* -->
 
+Výpočetní optimalizované velikosti virtuálních počítačů mají vysoký poměr procesoru k paměti a jsou vhodné pro střední provoz webových serverů, síťových zařízení, procesů batch a aplikační servery. Tento článek obsahuje informace o počtu Vcpu, datové disky a síťové adaptéry, jakož i úložiště propustnost a šířku pásma sítě pro každou velikost v této skupině.
+
 Fsv2-series je založena na procesor Intel® Xeon® platinové 8168 poskytuje funkci základní základní četností 2.7 GHz a maximální turbo jednojádrový četností 3.7 GHz. Intel® AVX-512 pokyny, které jsou nové na škálovatelných procesory Intel, poskytne až 2 X zvýšení výkonu vektoru zpracování úloh na jednoduché i dvojité přesnosti operací s pohyblivou čárkou. Jinými slovy jsou skutečně rychlé pro všechny výpočetní úlohy. 
 
 Za nižší cenu za hodinu seznamu Fsv2-series je hodnota nejlepší v ceníku výkon v Azure portfolií založené na Azure výpočetní jednotky (ACU) na jeden virtuální procesor. 
@@ -14,7 +16,7 @@ Virtuální počítače řady F-series jsou skvělou volbou pro úlohy, které p
 
 ACU: 195-210
 
-| Velikost             | pro virtuální procesory | Paměť: GiB | Místní SSD: GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Max. počet síťových karet / Očekávaný výkon sítě (Mb/s) |
+| Velikost             | pro virtuální procesory | Paměť: GiB | Místní SSD: GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Střední                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Střední                                       |
@@ -29,7 +31,7 @@ ACU: 195-210
 
 ACU: 210–250
 
-| Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální propustnost disku bez mezipaměti: IOPS / MB/s | Max. počet síťových karet / Očekávaný výkon sítě (Mb/s) |
+| Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální propustnost disku bez mezipaměti: IOPS / MB/s | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4 000 / 32 (12) |3 200 / 48 |2 / 750 |
 | Standard_F2s |2 |4 |8 |8 |8 000 / 64 (24) |6 400 / 96 |2 / 1 500 |
@@ -48,7 +50,7 @@ MB/s = 10^6 bajtů za sekundu a GiB = 1024^3 bajtů.
 
 ACU: 210–250
 
-| Velikost         | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Maximální propustnost dočasného úložiště: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Max. počet síťových karet / Očekávaný výkon sítě (Mb/s) |
+| Velikost         | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Maximální propustnost dočasného úložiště: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4 / 4×500                         | 2 / 750                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8×500                         | 2 / 1 500                     |

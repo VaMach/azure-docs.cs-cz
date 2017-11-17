@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee66bf554e8e623ebfaa82bc888fc541da322d2f
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Příklad infrastruktury Azure návod pro virtuální počítače Windows
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 Tento článek vás provede vytváření infrastruktury příklad aplikace. Jsme podrobnosti navrhování infrastruktury pro jednoduché online obchodu, která spojuje všechny pokyny a rozhodnutí, která kolem názvů, skupiny dostupnosti, virtuální sítě a nástroje pro vyrovnávání zatížení a ve skutečnosti nasazení virtuálních počítačů (VM).
 
 ## <a name="example-workload"></a>Příklad úloh
-Společnosti Adventure Works Cycles chce sestavit aplikaci online úložiště v Azure, který se skládá z:
+Společnosti Adventure Works Cycles chce sestavit aplikaci v Azure, který se skládá z online obchodu:
 
 * Dva servery služby IIS se spuštěnou front-endu do vrstvy webového klienta
 * Zpracování dat a objednávky v aplikační vrstvě dva servery služby IIS
@@ -41,7 +41,7 @@ Společnosti Adventure Works Cycles chce sestavit aplikaci online úložiště v
 
 ![Diagram různých vrstev pro infrastrukturu aplikace](./media/infrastructure-example/example-tiers.png)
 
-Zabezpečené příchozí webové přenosy musí být vyrovnávání zatížení mezi webovými servery jako zákazníci procházet online úložiště. Pořadí zpracování přenosů dat ve formátu HTTP požadavků z webových serverů musí být rozložena mezi servery aplikací. Kromě toho musí být navrženy infrastruktury pro vysokou dostupnost.
+Zabezpečené příchozí webové přenosy musí být vyrovnávání zatížení mezi webovými servery jako zákazníci procházet online obchodu. Pořadí zpracování přenosů dat ve formátu HTTP požadavků z webových serverů musí být rozložena mezi servery aplikací. Kromě toho musí být navrženy infrastruktury pro vysokou dostupnost.
 
 Výsledný návrhu musí obsahovat:
 
@@ -55,7 +55,7 @@ Výsledný návrhu musí obsahovat:
 Všechny výše použijte tyto zásady vytváření názvů:
 
 * Adventure Works Cycles používá **[IT zatížení]-[umístění] – [prostředků Azure]** jako předponu
-  * V tomto příkladu "**azos**" (online úložiště Azure) je název úlohy IT a "**použít**" (východní USA 2) je umístění
+  * V tomto příkladu "**azos**" (Online úložiště Azure) je název úlohy IT a "**použít**" (východní USA 2) je umístění
 * Virtuální sítě pomocí AZOS. POUŽIJTE VN**[číslo]**
 * Pomocí sad dostupnosti azos-použít-jako-**[role]**
 * Názvy virtuálních počítačů pomocí azos-použít-vm -**[vmname]**

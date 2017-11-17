@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 7068d6e83d196d95b4625d1b1a496be5a22c88a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d0b4ff1959465ade5f57c045d2a005e828638eb2
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Připojení a komunikovat se službami v Service Fabric
 V Service Fabric běží služba někde v clusteru Service Fabric, obvykle se distribuují napříč více virtuálními počítači. Ho může být z jednoho místa na jiný přesunout, pomocí vlastníka služby, nebo automaticky pomocí Service Fabric. Služby nejsou staticky vázaný na konkrétní počítač nebo na adresu.
@@ -63,7 +63,7 @@ Jak je znázorněno v následujícím diagramu, služba DNS spuštěných v clus
 Pro další podrobnosti o tom, jak použít DNS služby najdete v tématu [služba DNS v Azure Service Fabric](service-fabric-dnsservice.md) článku.
 
 ### <a name="reverse-proxy-service"></a>Reverzní proxy server služby
-Reverzní proxy server adresy služeb v clusteru, který zveřejňuje koncové body HTTP včetně HTTPS. Výrazně zjednodušuje volání jiných služeb a jejich metody tak, že konkrétní formát identifikátoru URI a zpracovává překlad reverzní proxy server, připojení, opakujte kroky potřebné k jedné službě komunikovat pomocí služby názvy. Jinými slovy skryje služby DNS od vás při volání metody jiných služeb tím, že to stejně jednoduché jako volání adresu URL.
+Reverzní proxy server adresy služeb v clusteru, který zveřejňuje koncové body HTTP včetně HTTPS. Výrazně zjednodušuje volání jiných služeb a jejich metody tak, že konkrétní formát identifikátoru URI a zpracovává překlad reverzní proxy server, připojení, opakujte kroky potřebné k jedné službě komunikovat pomocí služby DNS. Jinými slovy skryje služby DNS od vás při volání metody jiných služeb tím, že to stejně jednoduché jako volání adresu URL.
 
 ![Koncové body služby][10]
 

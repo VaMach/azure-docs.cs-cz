@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/17/2017
+ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: 405ec2b27b488b570c4a5c86e4950ff98233360e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69c07cb31b1dc3ec3685448d8187ef3a57bd3821
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Průvodce programováním pro službu Event Hubs
 
@@ -28,7 +28,7 @@ Tento článek popisuje některé běžné scénáře v psaní kódu pomocí slu
 
 Můžete odesílat události do centra událostí buď pomocí HTTP POST nebo prostřednictvím připojení protokolu AMQP 1.0. Možnost, která používat a kdy závisí na konkrétním adresovaném scénáři. Připojení protokolu AMQP 1.0 se měří jako zprostředkovaná připojení ve službě Service Bus. Díky tomu, že poskytují trvalý kanál pro zasílání zpráv, jsou vhodnější ve scénářích, kde se počítá s častými vysokými objemy zpráv a vyžaduje se nižší latence.
 
-Centra událostí Event Hubs se vytváří a spravují pomocí třídy [NamespaceManager][]. Pokud používáte rozhraní API spravované pomocí .NET, budou primárními konstrukcemi pro publikování dat ve službě Event Hubs třídy [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) a [EventData][]. [EventHubClient][] poskytuje komunikační kanál AMQP, přes který se události posílají do centra událostí. [EventData][] třída představuje událost a slouží k publikování zpráv do centra událostí. Tato třída obsahuje tělo, některá metadata a záhlaví s informacemi o události. Ostatní vlastnosti jsou přidány do [EventData][] objektu při průchodu centra událostí.
+Můžete vytvořit a spravovat pomocí služby Event Hubs [NamespaceManager][] třídy. Pokud používáte rozhraní API spravované pomocí .NET, budou primárními konstrukcemi pro publikování dat ve službě Event Hubs třídy [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) a [EventData][]. [EventHubClient][] poskytuje komunikační kanál AMQP, přes který se události posílají do centra událostí. [EventData][] třída představuje událost a slouží k publikování zpráv do centra událostí. Tato třída obsahuje tělo, některá metadata a záhlaví s informacemi o události. Ostatní vlastnosti jsou přidány do [EventData][] objektu při průchodu centra událostí.
 
 ## <a name="get-started"></a>Začínáme
 
@@ -57,7 +57,7 @@ Všechny operace vytváření pro službu Event Hubs, včetně [CreateEventHubIf
 [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) třída obsahuje podrobnosti o Centru událostí, včetně pravidla autorizace, intervalu uchování zpráv, ID oddílu, stav a cestu. Tuto třídu můžete použít k aktualizaci metadat centra událostí.
 
 ## <a name="create-an-event-hubs-client"></a>Vytvoření klienta pro centra událostí (Event Hubs)
-Primární třídou pro interakci s centry událostí je [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Tato třída poskytuje možnosti jak pro odesílatele, tak pro příjemce. Instanci této třídy můžete vytvořit pomocí metody [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) (Vytvořit), jak je znázorněno v následujícím příkladu.
+Primární třídou pro interakci s centry událostí je [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Tato třída poskytuje možnosti jak pro odesílatele, tak pro příjemce. Můžete vytvořit instanci této třídy pomocí [vytvořit](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) metoda, jak je znázorněno v následujícím příkladu:
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -77,14 +77,14 @@ Připojovací řetězec bude mít stejný formát jako v souboru App.config u p�
 Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
 ```
 
-Nakonec jde taky vytvořit objekt [EventHubClient][] z instance [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory), jak je znázorněno v následujícím příkladu.
+Nakonec je také možné vytvořit [EventHubClient][] objektu z [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) instance, jak je znázorněno v následujícím příkladu:
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString("your_connection_string");
 var client = factory.CreateEventHubClient("MyEventHub");
 ```
 
-Pozor, všimněte si, že další objekty [EventHubClient][] vytvořené z instance MessagingFactory znova používají stejné základní připojení protokolu TCP. Tyto objekty tudíž mají omezení propustnosti na straně klienta. Metoda [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) opětovně používá jedinou instanci MessagingFactory. Pokud u jednoho odesílatele potřebujete vysokou propustnost, tak můžete vytvořit více instancí MessagingFactory a jeden objekt [EventHubClient][] z každé z nich.
+Je důležité si všimněte si, že další [EventHubClient][] objekty vytvořené z zasílání zpráv instance objektu factory znovu použít stejné základní připojení protokolu TCP. Tyto objekty tudíž mají omezení propustnosti na straně klienta. Metoda [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) opětovně používá jedinou instanci MessagingFactory. Pokud u jednoho odesílatele potřebujete vysokou propustnost, tak můžete vytvořit více instancí MessagingFactory a jeden objekt [EventHubClient][] z každé z nich.
 
 ## <a name="send-events-to-an-event-hub"></a>Odesílání událostí do centra událostí
 Odesílání událostí do centra událostí tak, že vytvoříte [EventData][] instance a odešlete pomocí [odeslat](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) metoda. Tato metoda přebírá jediný [EventData][] parametr instance a synchronně ho odesílá do centra událostí.
@@ -97,9 +97,9 @@ Třída [EventData][] má vlastnost [PartitionKey][] (Klíč oddílu), která um
 
 ### <a name="availability-considerations"></a>Aspekty dostupnosti
 
-Použitím klíče oddílu je volitelný a měli byste pečlivě zvážit zda se má použít. V mnoha případech použitím klíče oddílu je vhodný, pokud řazení událostí je důležité. Pokud použijete klíč oddílu, tyto oddíly vyžadují dostupnosti v jednom uzlu, a můžete výpadků časem; například se při výpočetní uzly restartování a opravy. Jako takový Pokud nastavíte ID oddílu a oddílu z nějakého důvodu nedostupný, se nezdaří pokus o přístup k datům v tomto oddílu. Pokud je nejdůležitější vysokou dostupnost, nezadávejte klíč oddílu; v takovém případě události odešle do oddílů pomocí modelu kruhového dotazování popsané. V tomto scénáři provádíte explicitní volbu mezi dostupnosti (žádné ID oddílu) a konzistence (Připnutí události pro ID oddílu).
+Použitím klíče oddílu je volitelný a měli byste pečlivě zvážit zda se má použít. V mnoha případech použitím klíče oddílu je vhodný, pokud řazení událostí je důležité. Pokud použijete klíč oddílu, tyto oddíly vyžadují dostupnosti v jednom uzlu, a můžete výpadků časem; například se při výpočetní uzly restartování a opravy. Jako takový Pokud nastavíte ID oddílu a oddílu z nějakého důvodu nedostupný, se nezdaří pokus o přístup k datům v tomto oddílu. Pokud je nejdůležitější vysokou dostupnost, nezadávejte klíč oddílu; v takovém případě se události posílají do oddílů pomocí modelu kruhového dotazování popsané. V tomto scénáři provádíte explicitní volbu mezi dostupnosti (žádné ID oddílu) a konzistence (Připnutí události pro ID oddílu).
 
-Potřeba vzít v úvahu zpracovává zpoždění při zpracování události. V některých případech může být lepší vyřazení dat a zkuste to znovu než zkuste a přečtěte si o zpracování, které může potenciálně způsobit zpoždění další podřízené zpracování. Například s běžícími je lepší čekání na dokončení aktuální data, ale v živé konverzace nebo VOIP scénář spíše byste měli data rychle, i když není úplný.
+Potřeba vzít v úvahu zpracovává zpoždění při zpracování události. V některých případech může být lepší vyřazení dat a zkuste to znovu než se pokoušet udržovat tempo s zpracování, které mohou způsobit další zpracování příjmu dat zpoždění. Například s běžícími je lepší čekání na dokončení aktuální data, ale v živé konverzace nebo VOIP scénář spíše byste měli data rychle, i když není úplný.
 
 Zadané těchto aspektů dostupnosti v těchto scénářích můžete vybrat jednu z následujících chybových strategie zpracování:
 
@@ -111,13 +111,13 @@ Zadané těchto aspektů dostupnosti v těchto scénářích můžete vybrat jed
 Další informace a diskuzi o kompromis mezi dostupnosti a konzistence najdete v tématu [dostupnosti a konzistence v Event Hubs](event-hubs-availability-and-consistency.md). 
 
 ## <a name="batch-event-send-operations"></a>Dávkové operace odesílání událostí
-Odesílání událostí v dávkách (batch) může výrazně zvýšit propustnost. [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) metoda trvá **rozhraní IEnumerable** parametr typu [EventData][] a odesílá celý batch jako atomickou operaci do centra událostí.
+Odesílání událostí v dávkách může pomoci zvýšit propustnost. [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) metoda trvá **rozhraní IEnumerable** parametr typu [EventData][] a odesílá celý batch jako atomickou operaci do centra událostí.
 
 ```csharp
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Všimněte si, že jeden batch nesmí překročit velikost 256 KB, tedy standardní omezení pro událost. Kromě toho každá zpráva v batchi používá stejnou identitu zdroje. Dodržení maximálního limitu velikosti události u batche musí zajistit odesílatel. V případě překročení se u klienta vygeneruje chyba odeslání (**Send**).
+Všimněte si, že jeden batch nesmí překročit 256 KB omezení pro událost. Kromě toho každá zpráva v batchi používá stejnou identitu zdroje. Dodržení maximálního limitu velikosti události u batche musí zajistit odesílatel. V případě překročení se u klienta vygeneruje chyba odeslání (**Send**).
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Asynchronní odesílání a škálované odesílání
 Můžete také odeslat události do centra událostí asynchronně. Asynchronní odesílání může zvýšit frekvenci, s jakou je klient schopný odesílat události. Metody [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) i [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) jsou k dispozici v asynchronních verzích, které vrací objekt [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). I když tato technika může zvýšit propustnost, taky může způsobit, že klient bude odesílat události i po omezení ze strany služby Event Hubs, což může v případě nesprávné implementace vést k selhání klienta nebo ztrátě zpráv. K ovládání možností opětovných pokusů klienta můžete navíc u klienta použít vlastnost [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy).
@@ -132,10 +132,10 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 [CreatePartitionedSender](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_CreatePartitionedSender_System_String_) vrátí [EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) objekt, můžete použít k publikování událostí do oddílu centra konkrétní události.
 
 ## <a name="event-consumers"></a>Příjemci událostí
-Služba Event Hubs má dva primární modely příjmu událostí: přímé příjemce a abstrakce vyšší úrovně, jako je například [EventProcessorHost][]. Přímí příjemci si za koordinaci přístupu k oddílům v rámci skupiny příjemců zodpovídají sami.
+Služba Event Hubs má dva primární modely příjmu událostí: přímé příjemce a abstrakce vyšší úrovně, jako je například [EventProcessorHost][]. Přímé příjemců zodpovídají za vlastní koordinaci přístupu k oddílům v rámci *skupiny příjemců*. Skupina uživatelů je zobrazení (stav, pozice nebo offset) do centra událostí oddílů.
 
 ### <a name="direct-consumer"></a>Přímý příjemce
-Nejpřímějším způsobem, jak číst z oddílu v rámci skupiny příjemců, je použít třídu [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver). Pokud chcete vytvořit instanci této třídy, musíte použít instanci třídy [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup). V následujícím příkladu musí být při vytváření příjemce pro skupinu příjemců určeno ID oddílu.
+Nejpřímějším způsobem, jak číst z oddílu je použití [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) třídy. Pokud chcete vytvořit instanci této třídy, musíte použít instanci třídy [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup). V následujícím příkladu ID oddílu musí být zadány při vytváření příjemce pro skupinu příjemců:
 
 ```csharp
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
@@ -158,7 +158,7 @@ while(receive)
 
 Zprávy jsou s ohledem na konkrétní oddíl přijímány v pořadí, ve které byly odeslány do centra událostí. Posun je token v podobě řetězce, který se používá k identifikaci zprávy v oddílu.
 
-Všimněte si, že oddíl v rámci skupiny příjemců neumožňuje v žádné chvíli připojení více než pěti souběžných čtenářů. S tím, jak se příjemci různě připojují a odpojují, mohou jejich relace zůstat ještě několik minut aktivní, než služba rozpozná, že se odpojili. Během této doby může pokus o opětovné připojení k oddílu selhat. Kompletní příklad, jak napsat přímého příjemce pro službu Event Hubs, najdete v článku [přímí příjemci centra událostí](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) ukázka.
+Všimněte si, že jedním oddílem a nemůže mít víc než 5 souběžných čtenářů v žádné chvíli připojení. S tím, jak se příjemci různě připojují a odpojují, mohou jejich relace zůstat ještě několik minut aktivní, než služba rozpozná, že se odpojili. Během této doby může pokus o opětovné připojení k oddílu selhat. Kompletní příklad, jak napsat přímého příjemce pro službu Event Hubs, najdete v článku [přímí příjemci centra událostí](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) ukázka.
 
 ### <a name="event-processor-host"></a>EventProcessorHost
 Třída [EventProcessorHost][] zpracovává data z center událostí (Event Hubs). Tuto implementaci byste měli používat při vytváření čtenářů událostí na platformě .NET. Třída [EventProcessorHost][] poskytuje pro implementace zpracovatelů událostí bezpečné prostředí runtime, které umožňuje bezpečné použití vláken a více procesů. Taky poskytuje možnost vytváření kontrolních bodů a správy „půjčování“ oddílu.
@@ -169,16 +169,16 @@ K použití třídy [EventProcessorHost][] může být potřeba implementovat ro
 * [CloseAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_CloseAsync_Microsoft_ServiceBus_Messaging_PartitionContext_Microsoft_ServiceBus_Messaging_CloseReason_)
 * [ProcessEventsAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_ProcessEventsAsync_Microsoft_ServiceBus_Messaging_PartitionContext_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__)
 
-Pokud chcete zahájit zpracování událostí, vytvořte instanci [EventProcessorHost][], poskytnutím příslušných parametrů pro vaše Centrum událostí. Potom zavolejte [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1), čímž registrujete svou implementaci [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) s modulem runtime. V tomto okamžiku hostitel pokusí "zapůjčit" každý oddíl v Centru událostí s použitím "chamtivého" algoritmu. Tato zapůjčení vydrží po stanovenou dobu a následně musí být obnovena. V tomto případě se instance pracovních procesů připojí jako nové uzly a umístí své rezervace zapůjčení. Každý uzel se snaží získat další zapůjčení, a tak se v průběhu času zatížení posune.
+Pokud chcete zahájit zpracování událostí, vytvořte instanci [EventProcessorHost][], poskytnutím příslušných parametrů pro vaše Centrum událostí. Potom zavolejte [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1), čímž registrujete svou implementaci [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) s modulem runtime. V tomto okamžiku hostitel pokusí "zapůjčit" každý oddíl v Centru událostí s použitím "chamtivého" algoritmu. Tato zapůjčení poslední po stanovenou dobu a následně musí být obnovena. V tomto případě se instance pracovních procesů připojí jako nové uzly a umístí své rezervace zapůjčení. Každý uzel se snaží získat další zapůjčení, a tak se v průběhu času zatížení posune.
 
 ![Event Processor Host](./media/event-hubs-programming-guide/IC759863.png)
 
-Postupem času se dosáhne rovnováhy. Tato dynamická funkce umožňuje použití automatického škálování na bázi procesoru u příjemců jak pro vertikální navýšení, tak pro vertikální snížení kapacity. Vzhledem k tomu, že služba Event Hubs nedisponuje přímým konceptem počítání zpráv, bývá průměrné využití procesoru často nejlepším mechanismem, jak měřit back end nebo škálování příjemců. Když začnou zdroje publikovat více událostí, než mohou příjemci zpracovat, může být zvýšená aktivita procesoru využita k automatickému škálování počtu instancí pracovních procesů.
+Postupem času se dosáhne rovnováhy. Tato dynamická funkce umožňuje použití automatického škálování na bázi procesoru u příjemců jak pro vertikální navýšení, tak pro vertikální snížení kapacity. Protože Event Hubs nemá přímým konceptem počítání zpráv, průměrné využití procesoru je často nejlepším mechanismem, jak měřit back end nebo škálování příjemců. Když začnou zdroje publikovat více událostí, než mohou příjemci zpracovat, může být zvýšená aktivita procesoru využita k automatickému škálování počtu instancí pracovních procesů.
 
 Třída [EventProcessorHost][] taky implementuje mechanismus vytváření kontrolních bodů Azure na bázi úložiště. Tento mechanismus ukládá posun na bázi oddílu, každý příjemce tedy může určit poslední kontrolní bod předchozího příjemce. Vzhledem k tomu, že oddíly prostřednictvím zapůjčení přechází mezi uzly, usnadňuje tento synchronizační mechanismus přesun zátěže.
 
 ## <a name="publisher-revocation"></a>Odvolání zdroje
-Kromě pokročilých funkcí běhové [EventProcessorHost][], umožňuje Služba Event Hubs odvolání zdroje aby bylo možné blokovat konkrétním zdrojům možnost odesílat události do centra událostí. Tyto funkce jsou zvláště užitečné, pokud jsou pochybnosti ohledně pravosti tokenu zdroje nebo se zdroj v důsledku aktualizace softwaru začne chovat nevhodně. V těchto situacích může být pro identitu zdroje, která je součástí jeho tokenu SAS, zablokováno publikování událostí.
+Kromě pokročilých funkcí běhové [EventProcessorHost][], umožňuje Služba Event Hubs odvolání zdroje aby bylo možné blokovat konkrétním zdrojům možnost odesílat události do centra událostí. Tyto funkce jsou užitečné, pokud došlo k ohrožení zabezpečení tokenu zdroje nebo aktualizace softwaru je příčinou chovat nevhodně. V těchto situacích může být pro identitu zdroje, která je součástí jeho tokenu SAS, zablokováno publikování událostí.
 
 Další informace o odvolání zdroje a o tom, jak jako zdroj odesílat do centra událostí, najdete v ukázce [zabezpečeného publikování ve velkém rozsahu u služby Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 10/13/2017
 ms.author: carlrab
-ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cb9b1296ced73c123faa0c682e9ef55d4b46ac11
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Obnovit pomocí zálohy automatizované databáze Azure SQL database
 SQL Database nabízí tyto možnosti pro databázi pomocí obnovení [automatizované zálohování databáze](sql-database-automated-backups.md) a [záloh v dlouhodobé uchovávání](sql-database-long-term-retention.md). Můžete obnovit ze zálohy databáze pro:
@@ -54,7 +54,14 @@ Doba obnovení obnovte databázi pomocí databáze automatizované zálohování
 * Počet souběžných obnovení požadavků zpracovaných v cílové oblasti. 
   
   Pro velmi velká nebo aktivní databázi obnovení může trvat několik hodin. Pokud je v oblasti provozu v případě delších výpadků, je možné, že jsou velký počet požadavků geografické obnovení, které jsou právě zpracovávány jiných oblastí. Pokud nejsou k dispozici mnoho požadavků, může zvýšit čas obnovení pro databáze v této oblasti. Většina databáze obnoví dokončení do 12 hodin.
-  
+
+Pro v rámci jednoho předplatného, že některá omezení na počet souběžných obnovení požadavků (včetně bodu v době obnovení, geografické obnovení a obnovení ze zálohy dlouhodobé uchovávání), které je odeslána a pokračovalo:
+|  | **Max. počet zpracovávaných souběžných požadavků** | **Maximální počet souběžných požadavků odesílána.** |
+| :--- | --: | --: |
+|Izolované databáze (na jedno předplatné)|10|60|
+|Elastický fond (na každý fond)|4|200|
+||||
+
 Neexistuje žádné integrované funkce, chcete-li hromadně obnovení. [Azure SQL Database: úplné obnovení serveru](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) skript představuje příklad jednoho způsobu provádění této úlohy.
 
 > [!IMPORTANT]
