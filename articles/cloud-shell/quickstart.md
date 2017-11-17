@@ -1,5 +1,5 @@
 ---
-title: "Bash v cloudu Azure Quickstart prostředí (Preview) | Microsoft Docs"
+title: "V cloudu Azure Quickstart prostředí bash | Microsoft Docs"
 description: "Rychlý start pro Bash v prostředí cloudu"
 services: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Rychlý start pro Bash v prostředí cloudu Azure
 
@@ -30,7 +30,7 @@ Tento dokument podrobně popisuje postup použití Bash v prostředí cloudu Azu
 ## <a name="start-cloud-shell"></a>Spusťte prostředí cloudu
 1. Spusťte **cloudové prostředí** z horním navigačním panelu portálu Azure <br>
 ![](media/quickstart/shell-icon.png)
-2. Vyberte předplatné, chcete-li vytvořit účet úložiště a sdílenou složku Azure
+2. Vybrat odběr, který chcete vytvořit účet úložiště a sdílet soubory aplikace Microsoft Azure
 3. Vyberte "Vytvoření úložiště"
 
 > [!TIP]
@@ -59,7 +59,7 @@ Vytvoření virtuálního počítače s Ubuntu v nové skupiny prostředků. Azu
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Veřejné a soukromé klíče používá k ověření svého virtuálního počítače jsou umístěny v `/User/.ssh/id_rsa` a `/User/.ssh/id_rsa.pub` pomocí Azure CLI 2.0 ve výchozím nastavení. Vaše složky .ssh je trvalé připojené Azure sdílené složky na obrázku 5 GB.
+> Veřejné a soukromé klíče používá k ověření svého virtuálního počítače jsou umístěny v `/User/.ssh/id_rsa` a `/User/.ssh/id_rsa.pub` pomocí Azure CLI 2.0 ve výchozím nastavení. Je vaší složky .ssh uchovávané v obrázku 5 GB vaší připojené soubory Azure sdílené složky.
 
 Vaše uživatelské jméno pro tento virtuální počítač bude vaše uživatelské jméno použité v prostředí cloudu ($User@Azure:).
 
@@ -79,4 +79,4 @@ Spusťte `az group delete -n MyRG`.
 ## <a name="next-steps"></a>Další kroky
 [Další informace o zachování souborů pro Bash v prostředí cloudu](persisting-shell-storage.md) <br>
 [Další informace o rozhraní příkazového řádku Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Další informace o Azure File storage](../storage/files/storage-files-introduction.md) <br>
+[Další informace o Azure Files storage](../storage/files/storage-files-introduction.md) <br>

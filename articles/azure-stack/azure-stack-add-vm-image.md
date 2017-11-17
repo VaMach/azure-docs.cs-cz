@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 520e4dfaadf1d476447a600ef2b3d092b6955a89
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Zpřístupnit image vlastní virtuálního počítače v Azure zásobníku
 
@@ -100,7 +100,7 @@ Chcete-li přidat bitovou kopii do Azure Marketplace zásobníku, proveďte nás
           -EnableAdfsAuthentication:$true
 
         $TenantID = Get-AzsDirectoryTenantId `
-          -ADFS 
+          -ADFS `
           -EnvironmentName AzureStackAdmin 
 
         Login-AzureRmAccount `
@@ -150,7 +150,7 @@ Remove-AzsVMImage `
 | **vydavatele** |Segment název vydavatele bitové kopie virtuálního počítače, který uživatelé používají, když nasadí bitovou kopii. Příkladem je **Microsoft**. V tomto poli nezahrnují mezery nebo speciální znaky. |
 | **nabídka** |Segment nabídka název bitové kopie virtuálního počítače, který uživatelé používají, když nasadí bitovou kopii virtuálního počítače. Příkladem je **Windows Server**. V tomto poli nezahrnují mezery nebo speciální znaky. |
 | **SKU** |Segment SKU název bitové kopie virtuálního počítače, který uživatelé používají, když nasadí bitovou kopii virtuálního počítače. Příkladem je **Datacenter2016**. V tomto poli nezahrnují mezery nebo speciální znaky. |
-| **verze** |Verze bitové kopie virtuálního počítače, který uživatelé používají, když nasadí bitovou kopii virtuálního počítače. Tato verze je ve formátu *\#.\#.\#*. Příkladem je **1.0.0**. V tomto poli nezahrnují mezery nebo speciální znaky. |
+| **verze** |Verze bitové kopie virtuálního počítače, který uživatelé používají, když nasadí bitovou kopii virtuálního počítače. Tato verze je ve formátu  *\#.\#. \#*. Příkladem je **1.0.0**. V tomto poli nezahrnují mezery nebo speciální znaky. |
 | **osType** |OsType bitové kopie musí být buď **Windows** nebo **Linux**. |
 | **osDiskLocalPath** |Místní cesta k disku operačního systému virtuálního pevného disku, který odesíláte jako image virtuálního počítače do protokolů Azure. |
 | **dataDiskLocalPaths** |Volitelné pole místní cesty pro datové disky, které mohou být nahrány jako součást image virtuálního počítače. |

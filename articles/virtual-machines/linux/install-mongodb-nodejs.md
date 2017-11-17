@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff9e23de41245ea21ba6e9c3efe13ca13b0b0ae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Postup instalace a konfigurace MongoDB na virtuální počítač s Linuxem pomocí Azure CLI 1.0
 [MongoDB](http://www.mongodb.org) je Oblíbené databáze NoSQL open source a vysoce výkonné. Tento článek ukazuje, jak nainstalovat a nakonfigurovat MongoDB na virtuální počítač s Linuxem v Azure pomocí modelu nasazení Resource Manager. Příklady jsou uvedeny této podrobnosti o tom, jak na:
@@ -163,7 +163,7 @@ Můžete vytvořit komplexní MongoDB horizontálně dělené clusteru pomocí n
 * [MongoDB horizontálního dělení clusteru na CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> Nasazení tohoto komplexní horizontálně dělené clusteru MongoDB vyžaduje víc než 20 jádra, což obvykle představuje výchozí počet jader na oblast pro předplatné. Otevřete zvýšení počtu vaše základní požadavek podporu Azure.
+> Tento komplexní cluster horizontálně dělené MongoDB nasazení vyžaduje víc než 20 Vcpu, což obvykle představuje výchozí počet virtuálních procesorů na oblast pro předplatné. Otevřete požadavek podporu Azure zvýšení počtu vaše virtuální procesory.
 
 Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *eastus* oblast. Zadejte vlastní hodnoty následujícím způsobem:
 

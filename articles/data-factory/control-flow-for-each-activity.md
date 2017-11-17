@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: 10c0dd2156e850b421d80901b6f0b40c7d384cef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 183880d2225c1dcc628349733c4fcaa8ddefe6eb
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Foreach – aktivita v Azure Data Factory
 Aktivita ForEach definuje opakovaných tok řízení v vašeho kanálu. Tato aktivita se používá k opakování v kolekci a spouští zadané aktivity ve smyčce. Implementace smyčky této aktivity se podobá struktuře smyčky Foreach v programovacích jazycích.
@@ -34,7 +34,10 @@ Vlastnosti jsou popsány dále v tomto článku. Vlastnost položky je kolekce a
    "type":"ForEach",
    "typeProperties":{  
       "isSequential":"true",
-      "items":"@pipeline().parameters.mySinkDatasetFolderPathCollection",
+        "items": {
+            "value": "@pipeline().parameters.mySinkDatasetFolderPathCollection",
+            "type": "Expression"
+        },
       "activities":[  
          {  
             "name":"MyCopyActivity",
@@ -98,7 +101,10 @@ V příkazu ForEach aktivity, poskytují pole na být vstupní přes pro vlastno
                 "type": "ForEach",
                 "typeProperties": {
                     "isSequential": "true",
-                    "items": "@pipeline().parameters.mySinkDatasetFolderPath",
+                    "items": {
+                        "value": "@pipeline().parameters.mySinkDatasetFolderPath",
+                        "type": "Expression"
+                    },
                     "activities": [
                         {
                             "name": "MyCopyActivity",

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 786cba7402d8a7e7ecf4667d30c4c393c8d6de5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08663916214cf2d34704ef2a355464bc6df9b138
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronizace Azure AD Connect: atributy se synchronizují do Azure Active Directory
 Toto téma obsahuje seznam atributy, které jsou synchronizovány pomocí synchronizace Azure AD Connect.  
@@ -87,7 +87,7 @@ V takovém případě začínat v seznamu atributů v tomto tématu a identifiku
 | l |X |X | | |
 | LegacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| mangedBy | | |X | |
+| Spravované | | |X | |
 | Správce |X |X | | |
 | Člen | | |X | |
 | mobilní |X |X | | |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 2b5431cefd26d27f6c72dbe72c4b90554b2511b6
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery matici podpory pro replikaci z Azure do Azure
 
@@ -166,7 +166,7 @@ ZRS | Nepodporuje se |
 Aktivní a studeného úložiště | Nepodporuje se | Disky virtuálního počítače nejsou podporovány na studených a aktivní úložiště
 
 >[!IMPORTANT]
-> Ujistěte se, že [pokynů pro virtualizované úložiště](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) pro váš zdroj Azure virtuální počítače, aby se zabránilo problémům s výkonem. Pokud budete postupovat podle výchozího nastavení, bude Site Recovery vytvořte účty požadované úložiště na základě konfigurace zdroje. Pokud jste přizpůsobit a vyberte vlastní nastavení, ujistěte se, budete postupovat podle (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) jako zdrojové virtuální počítače.
+> Ujistěte se, že zjistíte virtuální počítač disku škálovatelnosti a cílech výkonnosti pro [Linux](../virtual-machines/linux/disk-scalability-targets.md) nebo [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuální počítače, aby se zabránilo problémům s výkonem. Pokud budete postupovat podle výchozího nastavení, Site Recovery vytvořte požadované disky a účty úložiště na základě konfigurace zdroje. Pokud vlastní nastavení a vyberte vlastní nastavení, ujistěte se, postupujte podle cílů disků škálovatelnost a výkon, a to pro zdrojové virtuální počítače.
 
 ## <a name="support-for-network-configuration"></a>Podpora pro konfiguraci sítě
 **Konfigurace** | **Podporované/nepodporované** | **Poznámky**

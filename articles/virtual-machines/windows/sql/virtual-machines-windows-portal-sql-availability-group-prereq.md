@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Splnit požadavky pro vytváření skupin dostupnosti Always On na virtuálních počítačích Azure
 
@@ -368,7 +368,7 @@ Dále vytvořte tři virtuální počítače – dva virtuální počítače ser
 | --- | --- | --- | --- |
 | Vyberte položky odpovídající Galerie |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise na systém Windows Server 2016** |**SQL Server 2016 SP1 Enterprise na systém Windows Server 2016** |
 | Konfigurace virtuálního počítače **základy** |**Název** = fsw clusteru<br/>**Uživatelské jméno** = DomainAdmin<br/>**Heslo** = Contoso! 0000<br/>**Předplatné** = vaše předplatné<br/>**Skupina prostředků** = SQL-HA-RG<br/>**Umístění** = vaše umístění azure |**Název** sqlserver-0 =<br/>**Uživatelské jméno** = DomainAdmin<br/>**Heslo** = Contoso! 0000<br/>**Předplatné** = vaše předplatné<br/>**Skupina prostředků** = SQL-HA-RG<br/>**Umístění** = vaše umístění azure |**Název** = sqlserver-1<br/>**Uživatelské jméno** = DomainAdmin<br/>**Heslo** = Contoso! 0000<br/>**Předplatné** = vaše předplatné<br/>**Skupina prostředků** = SQL-HA-RG<br/>**Umístění** = vaše umístění azure |
-| Konfigurace virtuálního počítače **velikost** |**VELIKOST** = DS1\_V2 (1 jádro, 3.5 GB) |**VELIKOST** = DS2\_V2 (2 jádra, 7 GB)</br>Velikost musí podporovat úložiště SSD (podpora disku Premium. )) |**VELIKOST** = DS2\_V2 (2 jádra, 7 GB) |
+| Konfigurace virtuálního počítače **velikost** |**VELIKOST** = DS1\_V2 (1 virtuální procesor, 3.5 GB) |**VELIKOST** = DS2\_V2 (2 Vcpu, 7 GB)</br>Velikost musí podporovat úložiště SSD (podpora disku Premium. )) |**VELIKOST** = DS2\_V2 (2 Vcpu, 7 GB) |
 | Konfigurace virtuálního počítače **nastavení** |**Úložiště**: použijte spravované disky.<br/>**Virtuální síť** = autoHAVNET<br/>**Podsíť** = sqlsubnet(10.1.1.0/24)<br/>**Veřejná IP adresa** automaticky generovaný.<br/>**Skupina zabezpečení sítě** = None<br/>**Monitorování diagnostiky** = povoleno<br/>**Účet úložiště diagnostiky** = použít účet úložiště automaticky generované<br/>**Skupina dostupnosti** = sqlAvailabilitySet<br/> |**Úložiště**: použijte spravované disky.<br/>**Virtuální síť** = autoHAVNET<br/>**Podsíť** = sqlsubnet(10.1.1.0/24)<br/>**Veřejná IP adresa** automaticky generovaný.<br/>**Skupina zabezpečení sítě** = None<br/>**Monitorování diagnostiky** = povoleno<br/>**Účet úložiště diagnostiky** = použít účet úložiště automaticky generované<br/>**Skupina dostupnosti** = sqlAvailabilitySet<br/> |**Úložiště**: použijte spravované disky.<br/>**Virtuální síť** = autoHAVNET<br/>**Podsíť** = sqlsubnet(10.1.1.0/24)<br/>**Veřejná IP adresa** automaticky generovaný.<br/>**Skupina zabezpečení sítě** = None<br/>**Monitorování diagnostiky** = povoleno<br/>**Účet úložiště diagnostiky** = použít účet úložiště automaticky generované<br/>**Skupina dostupnosti** = sqlAvailabilitySet<br/> |
 | Konfigurace virtuálního počítače **nastavení systému SQL Server** |Neuvedeno |**Připojení k SQL** = privátní (uvnitř virtuální sítě)<br/>**Port** = 1433<br/>**Ověřování SQL** = zakázat<br/>**Konfigurace úložiště** = obecné<br/>**Automatizované opravy** = neděle na 2:00<br/>**Automatizované zálohování** = zakázáno</br>**Integrace se službou Azure Key Vault** = zakázáno |**Připojení k SQL** = privátní (uvnitř virtuální sítě)<br/>**Port** = 1433<br/>**Ověřování SQL** = zakázat<br/>**Konfigurace úložiště** = obecné<br/>**Automatizované opravy** = neděle na 2:00<br/>**Automatizované zálohování** = zakázáno</br>**Integrace se službou Azure Key Vault** = zakázáno |
 

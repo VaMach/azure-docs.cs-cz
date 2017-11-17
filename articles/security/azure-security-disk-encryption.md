@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: b35595d3dd91932888a26edc92dae81dd71682d8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 15ed35ab3a082db3376890992be3a29b6e042a2f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption pro systém Windows a virtuálních počítačů Linux IaaS
 Microsoft Azure se důrazně zaměřuje na zajištění ochrany osobních údajů, suverenity data a umožňuje vám řízení vaší Azure hostované data prostřednictvím řadu pokročilých technologiích k šifrování, řídit a spravovat šifrovací klíče, řízení a audit přístupu k datům. To poskytuje Azure zákazníkům flexibilitu zvolit si řešení, které nejlépe vyhovuje potřebám své firmy. V tomto dokumentu jsme vás seznámí s nové řešení technologie "Azure Disk Encryption pro systém Windows a Linux IaaS virtuálního počítače je" k ochraně a ochranu dat, aby splňovaly vaše organizace zabezpečení a dodržování předpisů závazky. Dokumentu poskytuje podrobné pokyny k použití funkcí Azure disk encryption, včetně Podporované scénáře a uživatel dojde.
@@ -149,6 +149,7 @@ Než povolíte Azure Disk Encryption na virtuálních počítačích Azure IaaS 
 | Ubuntu | 14.04.5-DAILY-LTS | Disk operačního systému a dat |
 | Ubuntu | 12.10 | Datový disk |
 | Ubuntu | 12.04 | Datový disk |
+| RHEL | 7.4 | Disk operačního systému a dat |
 | RHEL | 7.3 | Disk operačního systému a dat |
 | RHEL | LVM 7.3 | Disk operačního systému a dat |
 | RHEL | 7.2 | Disk operačního systému a dat |

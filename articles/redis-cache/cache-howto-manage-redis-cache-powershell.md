@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
-ms.openlocfilehash: 0a5c95eab3fd01f611fc049e80c5c506857e0b81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Spravovat mezipaměť Redis systému Azure pomocí Azure Powershellu
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Toto téma ukazuje, jak provádět běžné úkoly, jako vytvořit, aktualizujet
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Další informace o modelu nasazení classic najdete v tématu [Azure Resource Manager oproti nasazení classic: pochopení modely nasazení a stav svých prostředků](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics).
+Další informace o modelu nasazení classic najdete v tématu [Azure Resource Manager oproti nasazení classic: pochopení modely nasazení a stav svých prostředků](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="prerequisites"></a>Požadavky
 Pokud jste již Azure PowerShell nainstalovali, musíte mít prostředí Azure PowerShell verze 1.0.0 nebo později. Můžete zkontrolovat verzi prostředí Azure PowerShell, který jste nainstalovali pomocí tohoto příkazu na příkazovém řádku prostředí Azure PowerShell.

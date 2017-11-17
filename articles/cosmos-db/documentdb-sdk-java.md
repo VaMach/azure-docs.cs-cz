@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7de7c5e366d1f7da73eabfa889a3b43fb0403438
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 38737c8a296e27a4256e19b8c45cab17fc71b81a
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: DocumentDB Java SDK poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
@@ -51,6 +51,13 @@ ms.lasthandoff: 10/24/2017
 </table></br>
 
 ## <a name="release-notes"></a>Poznámky k verzi
+
+### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
+* Lepší výkon serializace Json.
+* Tato verze sady SDK vyžaduje nejnovější verze emulátoru DB Cosmos Azure k dispozici ke stažení https://aka.ms/cosmosdb-emulator.
+
+### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
+* Interní změny pro knihovny Microsoft přátel.
 
 ### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
 * Byl opraven problém při čtení jednoho oddílu rozsahy klíčů.
@@ -174,6 +181,8 @@ Každá žádost o DB Cosmos pomocí vyřazeno sady SDK budou odmítnuty službo
 
 | Verze | Datum vydání | Datum vyřazení |
 | --- | --- | --- |
+| [1.15.0](#1.15.0) |14 listopadu 2017 |--- |
+| [1.14.0](#1.14.0) |28 OCT 2017 |--- |
 | [1.13.0](#1.13.0) |25 srpen 2017 |--- |
 | [1.12.0](#1.12.0) |11 července 2017 |--- |
 | [1.11.0](#1.11.0) |10. května 2017 |--- |

@@ -1,10 +1,10 @@
 ---
-title: "Správa skupin zabezpečení sítě - 2.0 rozhraní příkazového řádku Azure | Microsoft Docs"
-description: "Naučte se spravovat skupiny zabezpečení sítě pomocí rozhraní příkazového řádku Azure (CLI) 2.0."
+title: "Správa skupin zabezpečení sítě - rozhraní příkazového řádku Azure | Microsoft Docs"
+description: "Naučte se spravovat skupiny zabezpečení sítě pomocí rozhraní příkazového řádku Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Správa skupin zabezpečení sítě pomocí Azure CLI 2.0
+# <a name="manage-network-security-groups-using-the-azure-cli"></a>Správa skupin zabezpečení sítě pomocí rozhraní příkazového řádku Azure
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>Verze rozhraní příkazového řádku pro dokončení úlohy 
-
-K dokončení úlohy můžete využít jednu z následujících verzí rozhraní příkazového řádku: 
-
-- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md) – naše rozhraní příkazového řádku pro klasické modely nasazení a modely nasazení správy prostředků 
-- [Azure CLI 2.0](#View-existing-NSGs) -naší nové generace rozhraní příkazového řádku pro správu model nasazení prostředku (v tomto článku)
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -44,7 +36,6 @@ K dokončení úlohy můžete využít jednu z následujících verzí rozhraní
 
 ## <a name="prerequisite"></a>Požadavek
 Pokud nebyly dosud, nainstalovat a nakonfigurovat nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#login). 
-
 
 ## <a name="view-existing-nsgs"></a>Zobrazit existující skupiny Nsg
 Chcete-li zobrazit seznam skupin Nsg v určité skupiny zdrojů, spusťte [seznam nsg sítě az](/cli/azure/network/nsg#list) s `-o table` výstupní formát:
@@ -89,13 +80,13 @@ Očekávaný výstup:
 
 ## <a name="view-nsg-associations"></a>Zobrazit přidružení skupiny NSG
 
-Chcete-li zobrazit prostředky **NSG front-endu** NSG je spojený s spustit `az network nsg show` příkaz, jak je uvedeno níže. 
+Chcete-li zobrazit prostředky **NSG front-endu** NSG je spojený s spustit `az network nsg show` příkaz: 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
-Vyhledejte **networkInterfaces** a **podsítě** vlastnosti, jak je uvedeno níže:
+Vyhledejte **networkInterfaces** a **podsítě** vlastnosti, jak ukazuje následující příklad výstupu:
 
 ```json
 [
@@ -160,7 +151,7 @@ Očekávaný výstup:
 ```
 
 ## <a name="change-a-rule"></a>Změna pravidla
-Chcete-li změnit pravidlo vytvořili výše, které pokud chcete povolit příchozí přenosy z **Internet** pouze, spusťte [aktualizace pravidla nsg sítě az](/cli/azure/network/nsg/rule#update) příkaz:
+Změnit pravidlo předtím vytvořili, a povolit příchozí přenosy z **Internet** pouze, spusťte [aktualizace pravidla nsg sítě az](/cli/azure/network/nsg/rule#update) příkaz:
 
 ```azurecli
 az network nsg rule update \
@@ -339,7 +330,7 @@ Ve výstupu `networkSecurityGroup` klíč má podobný pro hodnotu:
   ```
 
 ## <a name="delete-an-nsg"></a>Odstranit skupinu NSG
-Skupinu NSG můžete odstranit, pouze pokud má není přidružen k žádnému prostředku. Pokud chcete odstranit skupinu NSG, postupujte podle následujících kroků.
+Skupinu NSG můžete odstranit, pouze pokud má není přidružen k žádnému prostředku. Pokud chcete odstranit skupinu NSG, proveďte následující kroky:
 
 1. Chcete-li zkontrolovat prostředky přidružené k skupinu NSG, spusťte `azure network nsg show` jak je znázorněno v [přidružení skupiny Nsg zobrazení](#View-NSGs-associations).
 2. Pokud skupina NSG je přidružen k žádné síťové adaptéry, spusťte `azure network nic set` jak je znázorněno v [zrušit přidružení skupiny NSG z síťový adaptér](#Dissociate-an-NSG-from-a-NIC) pro každý síťový adaptér. 

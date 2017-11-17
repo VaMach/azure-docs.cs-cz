@@ -1,6 +1,6 @@
 ---
 title: "Virtuální počítač Azure s Linuxem velikostí - obecné účely | Microsoft Docs"
-description: "Uvádí různé obecné účely velikosti k dispozici pro virtuální počítače s Linuxem v Azure."
+description: "Uvádí různé obecné účely velikosti k dispozici pro virtuální počítače s Linuxem v Azure. Uvádí informace o počtu Vcpu, datové disky a síťové adaptéry, jakož i úložiště propustnost a šířku pásma sítě pro velikosti této série."
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 6a79e7e091151bbd3b0a92381edd0d3bda603732
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: a426efebb3b68f419498839d0cfb1ce796abc9e0
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Obecné účely velikostí virtuálních počítačů
 

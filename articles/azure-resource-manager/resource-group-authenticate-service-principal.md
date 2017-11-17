@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: df5d705a4451950110c11b7d468bf7d59e5474d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57eec4277e584c3c2828e0fe029b9db10428934e
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Vytvoření instančního objektu pro přístup k prostředkům pomocí prostředí Azure PowerShell
 
@@ -56,7 +56,8 @@ Chcete-li vytvořit objekt služby k roli Přispěvatel pro vaše předplatné, 
 
 ```powershell
 Login-AzureRmAccount
-$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password "{provide-password}"
+$password = convertto-securestring {provide-password} -asplaintext -force
+$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password $password
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```

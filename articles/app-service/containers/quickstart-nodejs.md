@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a40dc540884454fed9c374ba1365fdf7b85e4531
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: d797b83e2ab7f1b567588ca8e884aed97b49cf45
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Vytvoření webové aplikace Node.js ve službě Azure App Service v systému Linux
 
@@ -78,11 +78,11 @@ V okně terminálu ukončete webový server stisknutím **Ctrl + C**.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Vytvořit webovou aplikaci s integrovanou bitové kopie
+## <a name="create-a-web-app"></a>Vytvoření webové aplikace
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Vyhledejte nově vytvořenou webovou aplikaci. Nahraďte  _&lt;název aplikace >_ s jedinečným názvem aplikace.
+Vyhledejte nově vytvořenou webovou aplikaci. Nahraďte  _&lt;název aplikace >_ s názvem vaší webové aplikace.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -142,7 +142,7 @@ Ukázkový kód Node.js běží ve webové aplikaci s integrovanou bitové kopie
 
 ## <a name="update-and-redeploy-the-code"></a>Aktualizace a opětovné nasazení kódu
 
-V textovém editoru otevřete soubor `index.js`, který je součástí aplikace Node.js, a proveďte malou změnu textu u volání `response.end`:
+V místním adresáři, otevřete `index.js` souboru v aplikaci Node.js a změňte malá text ve volání `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

@@ -1,6 +1,6 @@
 ---
 title: "IT služby konektoru Management v Azure Log Analytics | Microsoft Docs"
-description: "Pomocí konektoru služby správy IT centrálně monitorovat a spravovat ITSM pracovní položky v Azure Log Analytics a rychle vyřešit všechny problémy."
+description: "Tento článek obsahuje přehled IT služby správy konektoru (ITSMC) a informace o tom, jak používat toto řešení centrálně monitorovat a spravovat ITSM pracovních položek v OMS analýzy protokolů a rychle vyřešit všechny problémy."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centrálně spravovat ITSM pracovních položek pomocí IT Service Management Connector (Preview)
 
 ![Symbol konektoru služby správy IT](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-Konektor pro správu služby IT (ITSMC) poskytuje obousměrnou integraci mezi podporované IT služby správy (ITSM) produktům a službám a analýzy protokolů.  Prostřednictvím tohoto připojení můžete vytvořit incidenty, výstrahy nebo události v produktu ITSM na základě analýzy protokolů výstrahy nebo záznamy protokolu. Konektor importuje také data, jako jsou incidenty a žádostí o změny z produktu ITSM do OMS Log Analytics.
+Konektor pro správu služby IT (ITSMC) poskytuje obousměrnou integraci mezi podporované IT služby správy (ITSM) produktům a službám a analýzy protokolů.  Prostřednictvím tohoto připojení můžete vytvořit incidenty, výstrahy nebo události v produktu ITSM na základě analýzy protokolů výstrahy, záznamy protokolu nebo Azure výstrahy. Konektor importuje také data, jako jsou incidenty a žádostí o změny z produktu ITSM do OMS Log Analytics.
 
 ITSMC můžete:
 
@@ -56,11 +56,11 @@ Po úspěšném přidání, zobrazí se konektoru Management Service IT v rámci
  ![Aktualizace ITSMC](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>Konfigurace připojení se softwarem společnosti ITSM
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>Konfigurace připojení ITSMC s ITSM produkty nebo služby
 
 ITSMC podporuje připojení k **System Center Service Manager**, **ServiceNow**, **Provance**, a **Cherwell**.
 
-Podle potřeby můžete pomocí následujících postupů:
+Pomocí následujících postupů podle vhodnosti pro vás:
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
@@ -258,6 +258,7 @@ Můžete také vytvořit pracovní položky v připojených zdrojů ITSM přímo
 4. Zadejte odpovídající hodnoty v **typu Kontakt**, **dopad**, **naléhavost**, **kategorie**, a **dílčí kategorie** textová pole a pak klikněte na tlačítko **vytvořit**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Vytváření pracovních položek ITSM z Azure výstrah
+
 ITSMC je integrovaná do skupiny akcí.
 
 [Akce skupiny](../monitoring-and-diagnostics/monitoring-action-groups.md) poskytují modulární a opakovaně použitelné způsob spouštění akcí pro upozornění Azure. Pomocí akce ITSM ve skupinách akce, můžete vytvořit pracovní položky v ITSM produktu, který má stávající připojení k ITSM konektor řešení.
@@ -286,7 +287,7 @@ Při vytváření nebo úpravách Azure pravidla výstrahy, použijte skupinu ak
 
 >[!NOTE]
 
-> Pouze aktivity protokolu výstrahy v současné době podporují ITSM akce. ITSM akce není podporována pro jiné Azure výstrahy.
+> V současné době pouze aktivity protokolu výstrahy podporují akci ITSM, ostatní Azure výstrahy nepodporují.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Řešení potíží s ITSM připojení v OMS

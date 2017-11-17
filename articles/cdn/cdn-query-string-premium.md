@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: ba9c28f0e6df25b101b45edf836d0b95056cbc6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2021b5b7602605a7c264e9cd575399077691da34
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings---premium"></a>Ovládací prvek Azure Content Delivery Network ukládání do mezipaměti chování řetězce dotazu - Premium
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/11/2017
 > 
 
 ## <a name="overview"></a>Přehled
-S Azure Content Delivery Network (CDN), můžete řídit, jak jsou soubory uložené v mezipaměti pro webový požadavek, který obsahuje řetězec dotazu. V žádosti o webovou se řetězec dotazu, řetězec dotazu je část požadavku, který se nachází za `?` znak. Řetězec dotazu může obsahovat jeden nebo více parametrů, které jsou odděleny `&` znak. Například, `http://www.domain.com/content.mov?data1=true&data2=false`. Pokud v požadavku existuje více než jeden parametr řetězce dotazu, nezáleží pořadí parametrů. 
+S Azure Content Delivery Network (CDN), můžete řídit, jak jsou soubory uložené v mezipaměti pro webový požadavek, který obsahuje řetězec dotazu. Řetězec dotazu v žádosti o webovou se řetězec dotazu je část požadavku, který se nachází za otazník (?). Řetězec dotazu může obsahovat jeden nebo více páry klíč hodnota, ve kterých pole názvu a hodnoty jsou odděleny znak rovná se (=). Jednotlivé páry klíč hodnota je oddělených ampersandem (&). Například `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Pokud řetězec dotazu požadavku existuje více než jednu dvojici klíč / hodnota, jejich pořadí není důležité. 
 
 > [!IMPORTANT]
 > Produktů CDN standard a premium poskytují stejné funkce mezipaměti řetězec dotazu, ale uživatelské rozhraní se liší.  Tento článek popisuje rozhraní pro **Azure CDN Premium od společnosti Verizon**. Pro dotaz řetězec ukládání do mezipaměti s **Azure CDN Standard od společnosti Akamai** a **Azure CDN Standard od společnosti Verizon**, najdete v části [řízení chování ukládání do mezipaměti CDN požadavky s řetězci dotazů](cdn-query-string.md).

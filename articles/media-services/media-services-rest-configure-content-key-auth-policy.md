@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: 33507d76839567c830c9e8152eeac70d5c0f2b7b
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5b8f2d750c3330fb05f5529c3e3549d8e06e5e4e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Dynamické šifrování: Konfigurace zásad autorizace klíče obsahu
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -184,9 +184,6 @@ Odpověď:
 Tato část popisuje, jak vytvořit zásady autorizace klíče obsahu a přidružte ji k klíč obsahu. Zásady autorizace popisuje, jaké autorizace musí být splněny k určení, pokud je uživatel oprávněn přijímat klíč (například nemá seznam "ověřovací klíč" obsahovat klíč, který byl podepsaný token).
 
 Pokud chcete konfigurovat omezení s tokenem možnost, budete muset použít XML k popisu tokenu autorizace požadavky. Konfigurace omezení s tokenem XML musí odpovídat následujícím schématu XML.
-
-> [!NOTE]
-> Omezení s tokenem autorizace klíče obsahu zásady dosud nejsou k dispozici ve službě.
 
 
 #### <a id="schema"></a>Omezení s tokenem schématu
@@ -428,9 +425,14 @@ Přidejte AuthorizationPolicy ContentKey, jak je znázorněno [zde](#AddAuthoriz
     public enum ContentKeyRestrictionType
     {
         Open = 0,
-        TokenRestricted = 1, // Not supported, reserved for future
-        IPRestricted = 2,
+        TokenRestricted = 1, 
+        IPRestricted = 2, // IP restriction on content key is not currently supported, reserved for future.
     }
+
+
+> [!NOTE]
+> Omezení IP adres na zásady autorizace klíče obsahu dosud nejsou k dispozici ve službě.
+
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType

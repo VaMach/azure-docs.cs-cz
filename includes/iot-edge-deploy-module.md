@@ -7,6 +7,9 @@ Mezi klíčové funkce Azure IoT okraj je schopnost nasadit modulů na vaše za�
 1. V **název** zadejte `tempSensor`. 
 1. V **Image URI** zadejte `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`. 
 1. Další nastavení nezměníte a vyberte **Uložit**.
+
+   ![Modul IoT Edge uložit po zadání názvu a identifikátoru URI bitové kopie](./media/iot-edge-deploy-module/name-image.png)
+
 1. Zpět v **přidat moduly** krok, vyberte **Další**.
 1. V **určit trasy** krok, vyberte **Další**.
 1. V **šablona kontrolní** krok, vyberte **odeslání**.

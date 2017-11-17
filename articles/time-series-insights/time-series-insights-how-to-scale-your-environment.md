@@ -12,17 +12,17 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Postup škálování prostředí Statistika časové řady
 
-Tento článek popisuje, jak změnit kapacitu prostředí prostředí časové řady statistika pomocí portálu Azure. Kapacita je násobitel použita pro příchozí míra, kapacity úložiště a náklady spojené s vaší vybrané Sku. 
+Tento článek popisuje, jak změnit kapacitu prostředí prostředí časové řady statistika pomocí portálu Azure. Kapacita je násobitel použita pro příchozí míra, kapacity úložiště a náklady spojené s vaší vybrané SKU. 
 
-Na portálu Azure můžete zvýšit nebo snížit kapacitu v rámci dané cenovou Sku. 
+Na portálu Azure můžete zvýšit nebo snížit kapacitu v rámci dané cenovou SKU. 
 
 Ale při změně cenové úrovně není povolená SKU. Například v prostředí s S1 ceny SKU nelze převést do S2 nebo naopak. 
 
@@ -46,7 +46,7 @@ Kapacity lineárně, takže S1 SKU s kapacitou 2 podporuje 2 GB (2 miliony) udá
 ## <a name="change-the-capacity-of-your-environment"></a>Změna kapacity prostředí
 1. Na portálu Azure vyhledejte a vyberte prostředí Statistika časové řady. 
 
-2. V části **nastavení** záhlaví, vyberte **konfigurace**.
+2. V nabídce pro vaše prostředí časové řady Insighs vyberte **konfigurace**.
 
    ![Configure.PNG](media/scale-your-environment/configure.png)
 

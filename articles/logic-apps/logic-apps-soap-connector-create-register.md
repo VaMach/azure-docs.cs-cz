@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Vytvořit a registrovat SOAP konektory v Azure Logic Apps
 
@@ -149,6 +149,12 @@ Registrovaná, ale necertifikované vlastní konektory fungovat jako konektorů 
 Sdílet vaše konektor s externími uživateli mimo tyto hranice, například se všemi uživateli Logic Apps, [odeslání vašeho konektoru pro certifikaci Microsoft](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="faq"></a>Nejčastější dotazy
+
+**Otázka:** je SOAP konektor všeobecně dostupná (GA)? </br>
+**Odpověď:** SOAP connector je v **Preview**, a služba GA ještě není.
+
+**Otázka:** existují žádné omezení a známé problémy pro konektor SOAP? </br>
+**Odpověď:** Ano, najdete v části [omezení konektor protokolu SOAP a známé problémy](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **Otázka:** je nějak omezený pro vlastní konektory? </br>
 **Odpověď:** Ano najdete v tématu [vlastní konektor omezuje zde](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e1337ddf5ed84a06a62e2faa198f3e8fb49bc3bd
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: c9f71a7e95ea8c1b2cbd9b74ef20f9b0342d00f8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-an-iot-edge-gateway-device-to-process-data-from-other-iot-devices---preview"></a>Vytvořit IoT hraniční zařízení brány pro zpracování dat z jiných zařízení IoT – náhled
 
@@ -46,7 +46,7 @@ Hraniční rozbočovače, které jsou nainstalovány ve všech IoT hraniční za
 >[!NOTE]
 >Podřízené zařízení jsou v současné době není moci používat nahrávání souborů při připojení prostřednictvím IoT vstupní brána.
 
-Při připojení zařízení k IoT hraniční bránu pomocí zařízení Azure IoT SDK, budete muset:
+Při připojení zařízení k IoT vstupní brána pomocí zařízení Azure IoT SDK, budete muset:
 
 * Nastavit podřízené zařízení s připojovacím řetězcem odkazující na název hostitele brány zařízení; a
 * Ujistěte se, že podřízené zařízení důvěřuje certifikátu použít tak, aby přijímal připojení pomocí zařízení brány.
@@ -68,7 +68,9 @@ Tato akce způsobí řešení, které umožňuje všem zařízením používat z
 
 Můžete použít ukázkové prostředí Powershell a skriptů Bash popsané v [Správa ukázka certifikát certifikační Autority] [ lnk-ca-scripts] vygenerovat certifikát podepsaný svým držitelem **IoT hub vlastníka certifikační Autority** a certifikáty zařízení podepsané s ním.
 
-1. Postupujte podle kroku 1 postupu [Správa ukázka certifikát certifikační Autority] [ lnk-ca-scripts] k instalaci skripty.
+1. Postupujte podle kroku 1 postupu [Správa ukázka certifikát certifikační Autority] [ lnk-ca-scripts] k instalaci skripty. Klonujte z `modules-preview` větev:
+                
+                git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
 2. Postupujte podle kroku 2, pokud chcete generovat **IoT hub vlastníka certifikační Autority**, tento soubor se použije podřízené zařízení k ověření připojení.
 
 Postupujte podle následujících pokynů pro vytvoření certifikátu pro vaše zařízení brány.
@@ -77,7 +79,7 @@ Postupujte podle následujících pokynů pro vytvoření certifikátu pro vaše
 
 * Spustit `./certGen.sh create_edge_device_certificate myGateway` k vytvoření nového certifikátu zařízení.  
   Tím se vytvoří.\certs\new-edge-device.* soubory obsahující veřejný klíč a PFX a.\private\new-edge-device.key.pem obsahující privátní klíč zařízení.  
-* `cat new-edge-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-edge-device-full-chain.cert.pem`Chcete-li získat veřejný klíč.
+* V `certs` directory spustit `cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem` získat úplný řetěz veřejného klíče zařízení.
 * `./private/new-edge-device.cert.pem`obsahuje privátní klíč zařízení.
 
 #### <a name="powershell"></a>PowerShell
@@ -135,7 +137,7 @@ Podřízené zařízení může být z jakékoliv aplikace pomocí [zařízení 
 
 První, má aplikace podřízené zařízení tak, aby důvěřoval **IoT hub vlastníka certifikační Autority** certifikát k ověřování TLS připojení k zařízení brány. Tento krok můžete obvykle provést dvěma způsoby: na úrovni operačního systému, nebo (pro určité jazyky) na úrovni aplikace.
 
-Například pro aplikace .NET, můžete přidat následující fragment kódu důvěřovat certifikátu ve formátu PEM uložené v cestě `certPath`.
+Například pro aplikace .NET, můžete přidat následující fragment kódu důvěřovat certifikátu ve formátu PEM uložené v cestě `certPath`. Pokud používáte skript výše, cesta bude odkazovat `certs/azure-iot-test-only.root.ca.cert.pem` (Bash), nebo `RootCA.pem` (Powershell).
 
         using System.Security.Cryptography.X509Certificates;
         
@@ -145,8 +147,6 @@ Například pro aplikace .NET, můžete přidat následující fragment kódu d�
         store.Open(OpenFlags.ReadWrite);
         store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
         store.Close();
-
-Všimněte si, že výše uvedené ukázkové skripty generuje veřejný klíč v souboru `certs/azure-iot-test-only.root.ca.cert.pem` (Bash), nebo `RootCA.pem` (Powershell).
 
 Provedením tohoto kroku na úrovni operačního systému se liší mezi Windows a mezi distribucí Linux.
 
@@ -176,6 +176,8 @@ Při implementaci neprůhledného brány, používá modul překlad protokolu mo
 
 Při implementaci bránu transparentní, modul vytvoří několik instancí klienta zařízení IoT Hub pomocí připojovací řetězce pro příjem dat zařízení.
 
+[Azure IoT Edge Modbus modulu] [ lnk-modbus-module] je otevřené implementace modulu protokolu adaptéru neprůhledného brány.
+
 ## <a name="next-steps"></a>Další kroky
 
 - [Pochopení požadavků a nástrojů pro vývoj modulů IoT Edge][lnk-module-dev].
@@ -191,4 +193,5 @@ Při implementaci bránu transparentní, modul vytvoří několik instancí klie
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 [lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/CACertToolEdge/tools/CACertificates/CACertificateOverview.md
+[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/modules-preview/tools/CACertificates/CACertificateOverview.md
+[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus

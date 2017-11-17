@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 5635ef890537a2f37d9d6e9066d0258fc0cb346e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurace služby experimenty Azure Machine Learning
 
@@ -220,6 +220,8 @@ _**Přehled virtuálních počítačů vzdálené spuštění skript v jazyce Py
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Spuštění skriptu v clusteru HDInsight
 HDInsight je Oblíbené platforma pro analýzu velkých objemů dat podpora Apache Spark. Workbench umožňuje experimentování velkých objemů dat pomocí clusterů HDInsight Spark. 
+
+>! [POZNÁMKA] HDInsight cluster musí používat jako primární úložiště objektů Blob v Azure. Pomocí Azure Data Lake storage se zatím nepodporuje.
 
 Můžete vytvořit cíl výpočetní a spustit konfigurace clusteru služby HDInsight Spark pomocí následujícího příkazu:
 

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: b3e5976a84e0ec91a41d683a426b58635fd5abd6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 63e63f69cb6463adcca480eccf1cc485574d9eff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON odkazu pro Azure Functions
 
@@ -139,21 +139,7 @@ Ovládací prvky [vzorkování funkce ve službě Application Insights](function
 
 Nastavení konfigurace pro [centra událostí triggerů a vazeb](functions-bindings-event-hubs.md).
 
-```json
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    }
-}
-```
-
-|Vlastnost  |Výchozí | Popis |
-|---------|---------|---------| 
-|maxBatchSize|64|Maximální velikost události počet přijatých za receive smyčky.|
-|prefetchCount|neuvedeno|Výchozí hodnota PrefetchCount, který se použije základní knihovny EventProcessorHost.| 
-|batchCheckpointFrequency|1|Počet událostí zpracovávaných dávek před vytvořením kontrolního bodu Centrum EventHub kurzoru.| 
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="functions"></a>Funkce
 
@@ -184,7 +170,7 @@ Nastavení konfigurace pro [http triggerů a vazeb](functions-bindings-http-webh
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 10,
+        "maxConcurrentRequests": 
         "dynamicThrottlesEnabled": false
     }
 }
@@ -260,21 +246,7 @@ Nastavení konfigurace pro [úložiště fronty triggerů a vazeb](functions-bin
 
 Nastavení konfigurace pro [Service Bus triggerů a vazeb](functions-bindings-service-bus.md).
 
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    }
-}
-```
-
-|Vlastnost  |Výchozí | Popis |
-|---------|---------|---------| 
-|maxConcurrentCalls|16|Maximální počet souběžných volání zpětné volání, které by měla iniciovat message pump. | 
-|prefetchCount|neuvedeno|Výchozí hodnota PrefetchCount, který se použije základní MessageReceiver.| 
-|autoRenewTimeout|00:05:00|Maximální doba, ve kterém bude automaticky obnoveno zámek zprávy.| 
+[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
 ## <a name="singleton"></a>singleton
 

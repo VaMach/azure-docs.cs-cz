@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: fe0446b986ff73cce66a961c1c8aa1b01ef493a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d6f2d8319dde63434041885dcf5ff1a1cde3bcc
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrovat prostředky infrastruktury z klasického do Azure Resource Manageru pomocí rozhraní příkazového řádku Azure
 Tyto kroky ukazují, jak používat příkazy rozhraní příkazového řádku Azure (CLI) k migraci infrastruktury jako služby (IaaS) prostředky z modelu nasazení classic do modelu nasazení Azure Resource Manager. Článek vyžaduje [Azure CLI 1.0](../../cli-install-nodejs.md). Vzhledem k tomu, že Azure CLI 2.0 je k dispozici jenom pro prostředky Azure Resource Manager, nelze použít pro migraci.
@@ -77,14 +77,14 @@ Nyní přepínat rozhraní příkazového řádku pro `asm` režimu.
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Krok 3: Zkontrolujte, zda že máte dostatečný počet jader virtuálního počítače Azure Resource Manager v oblasti Azure vaše aktuální nasazení nebo virtuální sítě
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Krok 3: Zkontrolujte, zda že máte dostatek virtuálního počítače Azure Resource Manager Vcpu v oblasti Azure vaše aktuální nasazení nebo virtuální sítě
 V tomto kroku budete potřebovat přepnout do `arm` režimu. To lze proveďte pomocí následujícího příkazu.
 
 ```
 azure config mode arm
 ```
 
-Následující příkaz rozhraní příkazového řádku můžete zkontrolovat aktuální množství jader, které máte ve službě Správce prostředků Azure. Další informace o základní kvóty, najdete v části [omezení a Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+Následující příkaz rozhraní příkazového řádku můžete zkontrolovat aktuální počet Vcpu, které máte ve službě Správce prostředků Azure. Další informace o virtuálních procesorů kvóty, najdete v části [omezení a Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

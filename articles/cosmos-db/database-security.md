@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-database-security"></a>Zabezpečení databáze Azure Cosmos DB
 
@@ -71,7 +71,7 @@ Pojďme proniknout do každé z nich podrobně.
 |Integrace služby Active directory (RBAC)| Může také poskytnout přístup k účtu databáze pomocí řízení přístupu (IAM) na portálu Azure, jak je znázorněno na snímku obrazovky pod touto tabulkou. IAM poskytuje řízení přístupu na základě rolí a integruje se službou Active Directory. Můžete použít integrované role nebo vlastní role pro jednotlivce a skupiny, jak je znázorněno na následujícím obrázku.|
 |Globální replikace|Azure Cosmos DB nabízí to globální distribuce, které umožňuje provádět replikaci dat do některého datových center Azure na celém světě s klepnutím na tlačítko. Globální replikace umožňuje globálně škálovat a poskytovat přístup s nízkou latencí k datům po celém světě.<br><br>V kontextu zabezpečení globální replikace tomu se budou data ochrany proti selhání místní.<br><br>Další informace v [distribuci dat globálně](distribute-data-globally.md).|
 |Místní převzetí služeb při selhání|Pokud mají replikovat data do více než jednoho datového centra, Azure Cosmos DB automatické navyšování vaše operace by měla místního datového centra přechodu do offline režimu. Můžete vytvořit seznam oblastí převzetí služeb při selhání pomocí oblasti, ve kterých vaše data se replikují seřazený podle priority. <br><br>Další informace v [regionální převzetí služeb při selhání v Azure Cosmos DB](regional-failover.md).|
-|Místní replikaci|I v rámci jednoho datového centra Azure Cosmos DB automaticky replikuje data pro zajištění vysoké dostupnosti, která poskytuje možnost [úrovně konzistence](consistency-levels.md). Zaručí se tím [99,99 % dostupnost smlouva SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) a dodává se s finanční jistotu - něco může poskytnout žádnou jinou službu databáze.|
+|Místní replikaci|I v rámci jednoho datového centra Azure Cosmos DB automaticky replikuje data pro zajištění vysoké dostupnosti, která poskytuje možnost [úrovně konzistence](consistency-levels.md). Zaručí se tím 99,99 % [smlouva SLA o dostupnosti](https://azure.microsoft.com/support/legal/sla/cosmos-db) pro všechny účty jedné oblasti a všechny oblasti s více účty s zmírnit konzistence a 99.999 % čtení dostupnosti pro všechny účty databáze více oblast.|
 |Automatizované zálohování online|Azure Cosmos DB databáze jsou pravidelně zálohovány a uloženy v úložišti georedundant. <br><br>Další informace v [automatické online zálohování a obnovení Azure Cosmos DB](online-backup-and-restore.md).|
 |Obnovení odstraněných dat|Automatizované zálohování online lze použít k obnovení dat, které jste omylem odstranili až ~ 30 dnů po události. <br><br>Další informace v [automatické online zálohování a obnovení databáze Cosmos Azure](online-backup-and-restore.md)|
 |Chránit a izolovat citlivá data|Všechna data v oblasti uvedené v [co je nového?](#whats-new) je nyní v zašifrované podobě.<br><br>PII a jiné důvěrné údaje lze izolovat konkrétní kolekce a čtení a zápis, nebo jen pro čtení může být omezen na konkrétní uživatele.|

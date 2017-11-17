@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 05af1ccc9702891980e60a1c1db4c527ffbed0fa
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0d2e7e6f17fecb9809ac76fbfa0db860b7948a7e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurace zabezpečeného LDAP (LDAPS) pro spravované doméně služby Azure AD Domain Services
 Tento článek ukazuje, jak můžete povolit zabezpečené Lightweight Directory přístup protokolu (LDAPS) vaší spravované domény služby Azure AD Domain Services. Zabezpečený LDAP se také označuje jako "přístup protokolu LDAP (Lightweight Directory) přes vrstvy SSL (Secure Sockets) nebo zabezpečení TLS (Transport Layer)'.
@@ -79,9 +79,12 @@ Pokud neočekáváte používat certifikát od veřejné certifikační autority
 **Vytvořit certifikát podepsaný svým držitelem pomocí prostředí PowerShell**
 
 Na počítači s Windows, otevřete nové okno prostředí PowerShell jako **správce** a zadejte následující příkazy, chcete-li vytvořit nový certifikát podepsaný svým držitelem.
-```
+
+```powershell
 $lifetime=Get-Date
-New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
+New-SelfSignedCertificate -Subject *.contoso100.com `
+  -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
+  -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
 V předchozím příkladu nahraďte '*. contoso100.com "s název domény DNS vaší spravované domény. For example, pokud jste vytvořili spravované doméně nazvané 'contoso100.onmicrosoft.com', nahraďte '*. contoso100.com "v předchozím skriptu s ' *. contoso100.onmicrosoft.com').

@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Použití rozšíření diagnostiky Linux ke sledování metrik a protokoly
 
@@ -319,7 +319,7 @@ displayName | Popisek (v jazyce určeném nastavením přidružené národní pr
 
 CounterSpecifier je libovolný identifikátor. Příjemci metrik, Azure portálu grafů, jako a výstrahy funkce, použijte counterSpecifier jako "klíč", který identifikuje metriky nebo instanci metriky. Pro `builtin` metriky, doporučujeme použít counterSpecifier hodnoty, které začínají `/builtin/`. Pokud shromažďujete konkrétní instanci metriky, doporučujeme, abyste že na hodnotu counterSpecifier připojíte identifikátor instance. Několik příkladů:
 
-* `/builtin/Processor/PercentIdleTime`-Doba nečinnosti, po průměrem všech jader
+* `/builtin/Processor/PercentIdleTime`-Doba nečinnosti, po průměrem všech Vcpu
 * `/builtin/Disk/FreeSpace(/mnt)`-Volného místa pro systém souborů /mnt
 * `/builtin/Disk/FreeSpace`-Volného místa průměrem všech připojené systémy
 
@@ -424,7 +424,7 @@ Zprostředkovatel metriky builtin je zdroj metriky nejvíce zajímavé pro širo
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>předdefinované metriky pro procesor – třída
 
-Třída procesoru metrik poskytuje informace o využití procesoru ve virtuálním počítači. Při agregování procenta, výsledkem je průměr mezi všechny procesory. V dva základní virtuální počítač Pokud jednoho jádra bylo 100 % zaneprázdněn a dalších 100 % nečinnosti, bude hlášené PercentIdleTime 50. Pokud každý jádra byla 50 % zaneprázdněn stejnou dobu, by také hlášené výsledek 50. V čtyři základní virtuální počítač, pomocí jednoho jádra 100 % zaneprázdněn a ostatní nečinnosti bude hlášené PercentIdleTime 75.
+Třída procesoru metrik poskytuje informace o využití procesoru ve virtuálním počítači. Při agregování procenta, výsledkem je průměr mezi všechny procesory. Do virtuálního počítače, dva-virtuální procesory Pokud jeden virtuální procesor bylo 100 % zaneprázdněn a dalších 100 % nečinnosti, bude hlášené PercentIdleTime 50. Pokud každý virtuální procesor byl 50 % zaneprázdněn stejnou dobu, by také hlášené výsledek 50. Ve virtuálním počítači virtuální čtyřmi procesory s jeden 100 virtuálních procesorů % zaneprázdněn a ostatní nečinnosti bude hlášené PercentIdleTime 75.
 
 Čítač | Význam
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | Jiných než nečinných času stráveného procento v p
 
 První čtyři čítače by měl součet, kterou se 100 %. Poslední tři čítače také součet na 100 %; jejich rozdělit součet PercentProcessorTime, PercentIOWaitTime a PercentInterruptTime.
 
-Chcete-li získat jeden metrika agregovat do všech procesorů, nastavte `"condition": "IsAggregate=TRUE"`. Chcete-li získat metriky pro specifické procesory, jako je druhý logický procesor čtyři základní virtuální počítač, nastavte `"condition": "Name=\\"1\\""`. Logický procesor čísla jsou v rozsahu `[0..n-1]`.
+Chcete-li získat jeden metrika agregovat do všech procesorů, nastavte `"condition": "IsAggregate=TRUE"`. Chcete-li získat metriky pro specifické procesory, jako je například druhý logický procesor virtuálního počítače virtuální čtyřmi procesory, nastavte `"condition": "Name=\\"1\\""`. Logický procesor čísla jsou v rozsahu `[0..n-1]`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>předdefinované metriky pro třídu paměti
 

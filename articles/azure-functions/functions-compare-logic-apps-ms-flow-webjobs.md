@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ab0aa377f9803d74d8a7a94bdb4c7b780e3ae41d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Výběr mezi službami Flow, Logic Apps, Functions a WebJobs
 Tento článek obsahuje porovnání a tyto služby v cloudu Microsoft, které můžete všechny řešení problémů integraci a automatizaci obchodních procesů se liší od:
@@ -81,12 +81,12 @@ Následující tabulka shrnuje rozdíly mezi funkcemi a webové úlohy:
 | Škálování |Configurationless škálování |škálování se plán služby App Service |
 | Ceny |Platím za použití nebo její část plánu služby App Service |Část plánu služby App Service |
 | Spustit – typ |aktivována, naplánované (podle aktivační událost časovače) |spouštěná, průběžné, naplánované |
-| Aktivační události |[Časovač](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/Webhooku (Githubu, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [úložiště Azure](functions-bindings-storage-blob.md) |[Úložiště Azure](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
+| Aktivační události |[Časovač](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/Webhooku (Githubu, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [fronty Azure Storage a objekty BLOB](functions-bindings-storage-blob.md), [témata a fronty Azure Service Bus](functions-bindings-service-bus.md) |[Azure Storage fronty a objekty BLOB](functions-bindings-storage-blob.md), [témata a fronty Azure Service Bus](functions-bindings-service-bus.md) |
 | Vývoj v prohlížeči |Podporuje se |Nepodporuje se |
 | C# |Podporuje se |Podporuje se |
 | F# |Podporuje se |Nepodporuje se |
 | JavaScript |Podporuje se |Podporuje se |
-| Java |Podporuje se | Nepodporuje se |
+| Java |Preview | Nepodporuje se |
 | Bash |experimentální |Podporuje se |
 | Skriptování systému Windows (.cmd, .bat) |experimentální |Podporuje se |
 | PowerShell |experimentální |Podporuje se |

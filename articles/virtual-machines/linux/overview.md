@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: ae4b8f423489bf417f1086368db9b1043cd7f396
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: cef9abddf980c695040e99995eb325eeb182fad4
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-and-linux"></a>Azure a Linux
 Microsoft Azure je rostoucí kolekce integrovaných veřejné cloudové služby, včetně analýzy, virtuálních počítačů, databází, mobilní a sítě, úložiště a webové&mdash;ideální pro hostování vašeho řešení.  Microsoft Azure poskytuje škálovatelnou výpočetní platformu, s kterou můžete platit jenom za to, co používáte a když to potřebujete – nemusíte tak investovat do hardwaru místně ve své firmě.  Platforma Azure dokáže flexibilně reagovat na vaše potřeby. Můžete tak libovolně škálovat kapacitu (vertikálně i horizontálně) pro svá řešení podle požadavků svých klientů.
@@ -53,7 +53,7 @@ Při nasazení virtuálního počítače v Azure, kterou budete vybrat velikost 
 Tady jsou některé základní pokyny pro výběr velikost virtuálního počítače z jednoho z našich řady (A, D, DS, G a GS).
 * Virtuální počítače, A-series jsou naše hodnotu za cenu vstupní úrovně virtuálních počítačů pro lehké úlohy a scénáře vývoje/testování. Jsou k dispozici ve všech oblastech a můžou se připojit a používat všechny standardní prostředky, které jsou k dispozici pro virtuální počítače.
 * A-series velikosti (A8 - A11) jsou speciální výpočetní náročné konfigurace vhodná pro vysoce výkonné aplikace, výpočetní cluster.
-* Virtuální počítače D-series slouží ke spouštění aplikací, které potřebují vyšší výpočetní výkon a krátkodobý vysoký diskový výkon. Virtuální počítače D-series mají rychlejší procesory, vyšší poměr paměti na jádro a jednotky SSD pro dočasný disk.
+* Virtuální počítače D-series slouží ke spouštění aplikací, které potřebují vyšší výpočetní výkon a krátkodobý vysoký diskový výkon. Virtuální počítače řady D-series mají rychlejší procesory, vyšší poměr paměti na virtuální procesor a jednotky SSD (solid-state-drive) pro dočasný disk.
 * Dv2-series, je nejnovější verzi naše D-series, funkce výkonnější procesor. Procesor v Dv2-series je asi o 35 % rychlejší než procesor v D-series. Je založena na nejnovější generace 2.4 v3® GHz Intel Xeon E5-2673 procesoru (Haskell) a s 2.0 technologie Intel Turbo nárůst, můžete přejít až 3,2 GHz. Řada Dv2-series má stejnou konfiguraci paměti a disku jako řada D.
 * Virtuální počítače G-series nabízejí nejvíce paměti a spouštějí se na hostitelích s procesory Intel Xeon E5 V3.
 

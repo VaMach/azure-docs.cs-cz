@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Spravovat plán služby App Service v Azure
 
@@ -58,7 +58,7 @@ Vyberte **plán služby App Service změnu** ke spuštění procesu.
 
 **Plán služby App Service změnu** otevře **plán služby App Service** selektor. Vyberte, chcete-li přesunout tuto aplikaci do existujícího plánu. 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > **Plán aplikační služby vyberte** stránky se filtrují podle následujících kritérií: 
 > - Existuje ve stejné skupině prostředků 
 > - Existuje ve stejné zeměpisné oblasti 
@@ -82,7 +82,7 @@ Můžete najít **klonování aplikace** v **nástroje pro vývoj** části nab�
 
 ## <a name="scale-an-app-service-plan"></a>Škálovat plán služby App Service
 
-Pokud chcete vertikálně navýšit ah plán služby App Service je cenová úroveň najdete v tématu [škálování aplikace v Azure](web-sites-scale.md).
+Škálování App Service je plán cenová úroveň najdete v tématu [škálování aplikace v Azure](web-sites-scale.md).
 
 Chcete-li škálovat počet instancí aplikace, přečtěte si téma [ruční nebo automatické škálování počtu instancí](../monitoring-and-diagnostics/insights-how-to-scale.md).
 

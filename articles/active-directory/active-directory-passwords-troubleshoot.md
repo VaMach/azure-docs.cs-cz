@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2eeb49cb6ab39c78612e0f1b3e08130ba88cf356
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5c4942dbeccbd97c6bfc0f2c086e8d6091f6ed64
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Řešení potíží s samoobslužné resetování hesla
 
@@ -59,7 +59,7 @@ Pokud máte problémy s samoobslužné resetování hesla, položky, které nás
 
 | **Chyba** | Řešení |
 | --- | --- |
-| Adresář není povolen pro resetování hesla **správce vám nepovolil se pomocí této funkce** | Přepínač **samoobslužném resetování hesla služby povolena** příznak, který **skupinu** nebo **každý uživatel** a klikněte na tlačítko **uložit** |
+| Adresář není povolen pro resetování hesla **správce vám nepovolil se pomocí této funkce** | Přepínač **samoobslužném resetování hesla služby povolena** příznak, který **vybrané** nebo **všechny** a klikněte na tlačítko **uložit** |
 | Uživatel nemá Azure AD Premium nebo Basic přiřazenou licenci **správce vám nepovolil se pomocí této funkce** | To může nastat, když máte Azure AD Premium nebo základní licenci přiřazené správci provádění této operace. <br> To lze vyřešit přiřazení licence k účtu správce v dotyčných pomocí článek [přiřadit zkontrolujte a vyřešte problémy s licencí](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Chyba při zpracování žádosti | To může být způsobeno řadu problémů, ale obecně tato chyba je způsobená buď problém se službou výpadku nebo konfigurace. Pokud se zobrazí tato chyba a jeho je ovlivňující vaši firmu, kontaktujte podporu Microsoftu o další pomoc. |
 
@@ -67,7 +67,7 @@ Pokud máte problémy s samoobslužné resetování hesla, položky, které nás
 
 | **Chyba** | Řešení |
 | --- | --- |
-| Adresář není povolen pro resetování hesla. | Přepínač **samoobslužném resetování hesla služby povolena** příznak, který **skupinu** nebo **každý uživatel** a klikněte na tlačítko **uložit** |
+| Adresář není povolen pro resetování hesla. | Přepínač **samoobslužném resetování hesla služby povolena** příznak, který **vybrané** nebo **všechny** a klikněte na tlačítko **uložit** |
 | Uživatel nemá Azure AD Premium nebo Basic přiřazenou licenci | To může nastat, když máte Azure AD Premium nebo základní licenci přiřazené správci provádění této operace. <br> To lze vyřešit přiřazení licence k účtu správce v dotyčných pomocí článek [přiřadit zkontrolujte a vyřešte problémy s licencí](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Adresář je povolen pro resetování hesla, ale uživatel má chybí nebo je vytvořen špatný informace o ověřování | Zajistěte, aby že tento uživatel má ve správném formátu kontaktní údaje na soubor v adresáři, než budete pokračovat. Další informace o tomto tématu najdete v článku [dat používá Azure AD funkce samoobslužného resetování hesla](active-directory-passwords-data.md). |
 | Adresář je povolen pro resetování hesla, ale uživatel má pouze jeden prvek kontaktní dat v souboru v případě zásada nastavená tak, aby vyžadovala dva kroky pro ověření | Ujistěte se, tento uživatel má alespoň dva způsoby kontaktování správně nakonfigurované (Příklad: mobilní telefon **a** Telefon do kanceláře) než budete pokračovat. |
@@ -270,14 +270,14 @@ Správně, jsme položte zadejte množství podrobností nejdříve při otevír
 
 Na následujících odkazech najdete další informace o resetování hesla pomocí Azure AD
 
-* [Jak dokončení úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
-* [Resetovat nebo změnit heslo](active-directory-passwords-update-your-own-password.md).
-* [Registrace pro resetování hesla pomocí samoobslužné služby](active-directory-passwords-reset-register.md).
-* [Máte dotaz Licensing?](active-directory-passwords-licensing.md)
-* [Jaká data používá SSPR a jaká data by měla můžete naplnit pro vaše uživatele?](active-directory-passwords-data.md)
-* [Jaké metody ověřování jsou k dispozici pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Jaké jsou možnosti zásad s SSPR?](active-directory-passwords-policy.md)
-* [Co je zpětný zápis hesla a proč je starat o něm?](active-directory-passwords-writeback.md)
-* [Jak sestavy na aktivitu v SSPR](active-directory-passwords-reporting.md)
-* [Co jsou všechny možnosti v SSPR a co znamená, že?](active-directory-passwords-how-it-works.md)
-* [Je nutné zadat otázku, která nebyla někde zahrnutých, jinak](active-directory-passwords-faq.md)
+* [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
+* [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
+* [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
+* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
+* [Jaká data používá SSPR a která data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
+* [Které metody ověřování jsou dostupné pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Jaké jsou možnosti zásad se SSPR?](active-directory-passwords-policy.md)
+* [Co je zpětný zápis hesla a proč byste se o něj měli starat?](active-directory-passwords-writeback.md)
+* [Jak hlásit aktivitu v SSPR?](active-directory-passwords-reporting.md)
+* [Jaké jsou všechny možnosti v SSPR a co znamenají?](active-directory-passwords-how-it-works.md)
+* [Mám otázku, která není zodpovězená jinde](active-directory-passwords-faq.md)
