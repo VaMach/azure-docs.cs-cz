@@ -3,41 +3,76 @@ title: "Řada SKU není k dispozici | Microsoft Docs"
 description: "Některé řada SKU nejsou k dispozici pro vybrané předplatné pro tuto oblast."
 services: Azure Supportability
 documentationcenter: 
-author: ganganarayanan
-manager: scotthit
+author: stevendotwang
+manager: rajatk
 editor: 
-ms.assetid: 5496728b-8da4-4c99-8557-a196be14c42d
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: gangan
-ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: xingwan
+ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sku-series-unavailable"></a>Řada SKU není k dispozici
-V některých oblastech nejsou některé SKU automaticky k dispozici v nové odběry.  K tomu může dojít při [výkonnější SKU byly zavedeny v oblasti](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) a v době Oblíbené starší verze SKU odmítne.
-Zpráva "*některá SKU řady nejsou k dispozici pro vybrané předplatné pro tuto oblast*" se zobrazí při vytváření žádosti o podporu o navýšení kvóty výpočetní jádra.
+# <a name="region-or-sku-unavailable"></a>Oblast nebo SKU, které jsou k dispozici
+Tento článek popisuje, jak k vyřešení problému předplatné Azure, které nemají přístup k oblasti nebo SKU virtuálních počítačů.
 
-Můžete si prostudovat SKU dostupnosti na [služby Azure podle oblasti](https://azure.microsoft.com/regions/#services) stránky. 
+## <a name="symptoms"></a>Příznaky
 
-Požádat o přístup k SKU, který byl omezen ze svého předplatného, vytvořte žádost o podporu "Správa předplatného".
+### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>Při nasazení virtuálního počítače, se zobrazí některá z následujících chybových zpráv:
+```
+Code: SkuNotAvailable
+Message: The requested size for resource '<resource>' is currently not available in location 
+'<location>' zones '<zone>' for subscription '<subscriptionID>'. Please try another size or 
+deploy to a different location or zones. See https://aka.ms/azureskunotavailable for details.
+```
 
-* Na stránce základy vyberte typ problému jako "Správa předplatného" a klikněte na tlačítko Další.
+```
+Message: Your subscription doesn’t support virtual machine creation in <location>. Choose a 
+different location. Supported locations are <list of locations>
+```
+
+```
+Code: NotAvailableForSubscription
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>Při zakoupení vyhrazenou instancí virtuálního počítače, se zobrazí některá z následujících chybových zpráv:
+
+```
+Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
+different location. Supported locations are: <list of locations>  
+```
+
+```
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>Při vytváření žádosti o podporu o navýšení kvóty základní výpočetní, oblasti nebo řadu SKU není k dispozici pro výběr.
+
+## <a name="solution"></a>Řešení
+Doporučujeme nejprve uvažujete alternativní oblasti nebo skladová položka, která vyhovuje vašim obchodním potřebám. Pokud nemůžete najít vhodný oblasti nebo SKU, vytvořte "Správa předplatného" [žádost o podporu](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) následujících kroků:
+
+
+- Na stránce základy vyberte typ problému jako "Správa předplatného", vyberte odběr a klikněte na tlačítko Další.
 
 ![Okno Základy](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* Na stránce problém vyberte typ problému jako "Další obecné otázky" a zadejte přesnou oblast a nevidíte SKU.
-  To pomůže urychlit proces podpory.
+
+-   Na stránce problém vyberte typ problému jako "Ostatní obecné otázky".
+- V části Podrobnosti:
+  - Označte prosím, pokud se díváte nasazení virtuálních počítačů nebo nákupu vyhrazenou instancí virtuálního počítače
+  - Zadejte oblast, SKU a počet instancí virtuálního počítače, které chcete nasadit k vyzkoušení nebo nákupu
+
 
 ![Problém](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-* Na stránce kontaktní údaje zadejte svoje kontaktní údaje a klikněte na tlačítko "Vytvořit".
+-   Zadejte svoje kontaktní údaje a klikněte na tlačítko "Vytvořit".
 
 ![Kontaktní informace](./media/SKU-series-unavailable/ContactInformation.png)
 

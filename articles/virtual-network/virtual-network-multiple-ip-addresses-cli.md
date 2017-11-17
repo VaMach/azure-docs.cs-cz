@@ -1,10 +1,10 @@
 ---
-title: "Virtuální počítač s více IP adres pomocí Azure CLI 2.0 | Microsoft Docs"
-description: "Zjistěte, jak přiřadit více IP adres virtuálního počítače pomocí Azure CLI 2.0 | Správce prostředků."
+title: "Virtuální počítač s více IP adres pomocí rozhraní příkazového řádku Azure | Microsoft Docs"
+description: "Zjistěte, jak přiřadit více IP adres k virtuálnímu počítači pomocí rozhraní příkazového řádku Azure (CLI)."
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: jimdial
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,24 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: annahar
-ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jimdial
+ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Přiřadit více IP adres virtuálních počítačů pomocí Azure CLI 2.0
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Přiřadit více IP adres virtuálních počítačů pomocí rozhraní příkazového řádku Azure
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Tento článek vysvětluje, jak vytvořit virtuální počítač (VM) pomocí modelu nasazení Azure Resource Manager pomocí Azure CLI 2.0. Nelze přiřadit více IP adres k prostředkům, které jsou vytvořené pomocí modelu nasazení classic. Další informace o modelech nasazení Azure, najdete [pochopit modely nasazení](../resource-manager-deployment-model.md) článku.
+Tento článek vysvětluje, jak vytvořit virtuální počítač (VM) pomocí modelu nasazení Azure Resource Manager pomocí rozhraní příkazového řádku Azure. Nelze přiřadit více IP adres k prostředkům, které jsou vytvořené pomocí modelu nasazení classic. Další informace o modelech nasazení Azure, najdete [pochopit modely nasazení](../resource-manager-deployment-model.md) článku.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Vytvoření virtuálního počítače s více IP adres
 
-Vám může tuto úlohu dokončit pomocí Azure CLI 2.0 (v tomto článku) nebo [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md). Změňte hodnoty, jako je vhodné pro vaše prostředí. Kroky, které následují vysvětlují, jak vytvořit příklad virtuálních počítačů s více IP adres, jak je popsáno v tomto scénáři. Měnit hodnoty proměnných v "" a typy IP adres podle potřeby týkající se vaší implementace. 
+Kroky, které následují vysvětlují, jak vytvářet příklad virtuální počítač s více IP adres, jak je popsáno v tomto scénáři. Měnit hodnoty proměnných v "" a typy IP adresu, podle potřeby týkající se vaší implementace. 
 
 1. Nainstalujte [Azure CLI 2.0](/cli/azure/install-az-cli2) Pokud ještě nemáte nainstalováno.
 2. Vytvoření SSH pár veřejného a privátního klíče pro virtuální počítače s Linuxem pomocí kroků v [vytvoření SSH pár veřejného a privátního klíče pro virtuální počítače s Linuxem](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

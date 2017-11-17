@@ -1,10 +1,10 @@
 ---
-title: "Vytvoření virtuálního počítače se statickou veřejnou IP adresu - 2.0 rozhraní příkazového řádku Azure | Microsoft Docs"
-description: "Naučte se vytvořit virtuální počítač se statickou veřejnou IP adresu pomocí rozhraní příkazového řádku Azure (CLI) 2.0."
+title: "Vytvoření virtuálního počítače se statickou veřejnou IP adresu - rozhraní příkazového řádku Azure | Microsoft Docs"
+description: "Naučte se vytvořit virtuální počítač se statickou veřejnou IP adresu pomocí rozhraní příkazového řádku Azure (CLI)."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c32694949880037f01bb2b6b9779d2cbb9809c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>Vytvoření virtuálního počítače se statickou veřejnou IP adresu pomocí Azure CLI 2.0
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Vytvoření virtuálního počítače se statickou veřejnou IP adresu pomocí rozhraní příkazového řádku Azure
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Šablona](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
@@ -40,7 +39,7 @@ Azure má dva různé modely nasazení pro vytváření a práci s prostředky: 
 
 ## <a name = "create"></a>Vytvoření virtuálního počítače
 
-Vám může tuto úlohu dokončit pomocí Azure CLI 2.0 (v tomto článku) nebo [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). Hodnoty v "" pro proměnné v krocích, které následují vytvořit prostředky s nastaveními z scénáře. Změňte hodnoty, jako je vhodné pro vaše prostředí.
+Hodnoty v "" pro proměnné v krocích, které následují vytvořit prostředky s nastaveními z scénáře. Změňte hodnoty, jako je vhodné pro vaše prostředí.
 
 1. Nainstalujte [Azure CLI 2.0](/cli/azure/install-az-cli2) Pokud ještě nemáte nainstalováno.
 2. Vytvoření SSH pár veřejného a privátního klíče pro virtuální počítače s Linuxem pomocí kroků v [vytvoření SSH pár veřejného a privátního klíče pro virtuální počítače s Linuxem](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
