@@ -63,6 +63,7 @@
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Virtuální počítače
+#### [Propustnost sítě virtuálních počítačů](virtual-machine-network-throughput.md)
 #### Vytvoření virtuálního počítače se statickou veřejnou IP adresou
 ##### [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)

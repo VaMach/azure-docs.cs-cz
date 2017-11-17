@@ -65,6 +65,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Prostředky Azure
               href: log-analytics-azure-storage.md
+            - name: Prostředky Azure PaaS
+              href: log-analytics-collect-azurepass-posh.md
             - name: Diagnostika nebo protokolování dat z úložiště Azure
               href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager

@@ -1,61 +1,61 @@
-- name: Dokumentace ke službě Azure IoT Hub Device Provisioning
+- name: Dokumentace k Azure IoT Edge
   href: index.yml
 - name: Přehled
   items:
-    - name: Informace o službě IoT Device Provisioning
-      href: about-iot-dps.md
+    - name: Informace o Azure IoT Edge
+      href: how-iot-edge-works.md
 - name: Šablony Rychlý start
-  expanded: true
   items:
-    - name: Nastavení automatického zřizování
-      href: quick-setup-auto-provision.md
-    - name: Vytvoření simulovaného zařízení
-      items:
-        - name: TPM
-          href: quick-create-simulated-device.md
-        - name: X.509
-          href: quick-create-simulated-device-x509.md
+    - name: Nasazení do hraničních zařízení – Windows
+      href: quickstart.md
+    - name: Nasazení do hraničních zařízení – Linux
+      href: quickstart-linux.md
 - name: Kurzy
   items:
-    - name: 1. Nastavení cloudových prostředků
-      href: tutorial-set-up-cloud.md
-    - name: 2. Nastavení zařízení
-      href: tutorial-set-up-device.md
-    - name: 3. Zřízení zařízení v IoT Hubu
-      href: tutorial-provision-device-to-hub.md
-    - name: 4. Zřízení zařízení v několika centrech
-      href: tutorial-provision-multiple-hubs.md
-- name: Koncepty
-  items:
-    - name: Koncepty zařízení
-      href: concepts-device.md
-    - name: Koncepty služby
-      href: concepts-service.md
-    - name: Koncepty zabezpečení
-      href: concepts-security.md
+    - name: Simulace hraničního zařízení – Windows
+      href: tutorial-simulate-device-windows.md
+    - name: Simulace hraničního zařízení – Linux
+      href: tutorial-simulate-device-linux.md
+    - name: 'Vývoj modulu jazyka C#'
+      href: tutorial-csharp-module.md
+    - name: Nasazení služby Azure Stream Analytics
+      href: tutorial-deploy-stream-analytics.md
+    - name: Nasazení služby Azure Machine Learning
+      href: tutorial-deploy-machine-learning.md
+    - name: Nasazení služby Azure Functions
+      href: tutorial-deploy-function.md
 - name: Návody
   items:
-    - name: Správa registrací zařízení
-      href: how-to-manage-enrollments.md
-    - name: Použití HSM s SDK
-      href: use-hsm-with-sdk.md
-    - name: Řízení přístupu ke službě zřizování
-      href: how-to-control-access.md
-- name: Referenční informace
+    - name: Vytvoření zařízení brány
+      href: how-to-create-gateway-device.md
+    - name: Škálované nasazení a monitorování
+      href: how-to-deploy-monitor.md
+    - name: Zřízení zařízení IoT Core
+      href: how-to-install-iot-core.md
+- name: Koncepty
   items:
-    - name: REST
-      href: /rest/api/iot-dps
+    - name: Moduly IoT Edge
+      href: iot-edge-modules.md
+      items:
+        - name: Vývoj
+          href: module-development.md
+        - name: Složení
+          href: module-composition.md
+    - name: Modul runtime IoT Edge
+      href: iot-edge-runtime.md
+    - name: Nasazení
+      href: module-deployment-monitoring.md
+    - name: Zabezpečení
+      href: security.md
 - name: Zdroje
   items:
-    - name: Azure IoT Hub
-      href: 'https://azure.microsoft.com/services/iot-hub/'
     - name: Katalog zařízení Azure Certified for IoT
       href: 'https://catalog.azureiotsuite.com/'
     - name: Centrum pro vývojáře Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
-    - name: Nástroj Device Explorer
+    - name: Nástroj DeviceExplorer
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: Nástroj iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'

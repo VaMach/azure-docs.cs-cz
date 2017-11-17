@@ -67,6 +67,18 @@
       href: site-recovery-faq.md
 - name: Návody
   items:
+    - name: Sítě
+      items:
+        - name: Nastavení sítě pro zotavení po havárii virtuálního počítače Azure (Preview)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Nastavení mapování sítě pro zotavení po havárii virtuálního počítače Azure (Preview)
+          href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Příprava mapování sítí pro replikaci virtuálních počítačů Hyper-V do Azure
+          href: site-recovery-network-mapping.md
+        - name: Nastavení přidělování IP adres pro přístup k Azure po převzetí služeb při selhání
+          href: concepts-on-premises-to-azure-networking.md
+        - name: Nastavení přidělování IP adres pro přístup k sekundární lokalitě po převzetí služeb při selhání
+          href: concepts-on-premises-to-on-premises-networking.md
     - name: Zotavení po havárii
       items:
         - name: Virtuální počítače Hyper-V do Azure
@@ -81,14 +93,43 @@
           href: tutorial-dr-drill-azure.md
         - name: Spuštění postupu zotavení po havárii do sekundární lokality
           href: tutorial-dr-drill-secondary.md
+        - name: Virtuální počítače VMware s podporou více tenantů do Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+    - name: Převzetí služeb při selhání a navrácení služeb po obnovení
+      items:
+        - name: Nastavení plánů obnovení
+          href: site-recovery-create-recovery-plans.md
+          items:
+            - name: Přidání runbooků Azure do plánů obnovení
+              href: site-recovery-runbook-automation.md
+        - name: Spuštění testovacího převzetí služeb při selhání
+          items:
+            - name: Spuštění testovacího převzetí služeb při selhání do Azure
+              href: site-recovery-test-failover-to-azure.md
+            - name: Spuštění testovacího převzetí služeb při selhání mezi cloudy VMM
+              href: site-recovery-test-failover-vmm-to-vmm.md
+        - name: Převzetí služeb při selhání u chráněných počítačů
+          href: site-recovery-failover.md
         - name: Spuštění převzetí služeb při selhání a navrácení služeb po obnovení pro fyzické servery
           href: tutorial-vmware-to-azure-failover-failback.md
         - name: Spuštění převzetí služeb při selhání a navrácení služeb po obnovení pro virtuální počítače Hyper-V
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Spuštění převzetí služeb při selhání a navrácení služeb po obnovení mezi místními lokalitami
           href: tutorial-vmm-to-vmm-failover-failback.md
-        - name: Virtuální počítače VMware s podporou více tenantů do Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+        - name: Zpětná replikace počítačů po převzetí služeb při selhání
+          items:
+            - name: Zpětná replikace ze sekundární do primární oblasti Azure
+              href: site-recovery-how-to-reprotect-azure-to-azure.md
+            - name: Zpětná replikace z Azure do místního prostředí
+              href: site-recovery-how-to-reprotect.md
+        - name: Navrácení služeb po obnovení z Azure
+          items:
+            - name: Navrácení služeb po obnovení z Azure na VMware
+              href: site-recovery-how-to-failback-azure-to-vmware.md
+            - name: Navrácení služeb po obnovení z Azure na Hyper-V
+              href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: Nastavení hlavního linuxového cílového serveru pro navrácení služeb po obnovení
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: Kapacita a škálování
       items:
         - name: Plánování kapacity pro replikaci VMware do Azure
@@ -105,16 +146,6 @@
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Konfigurace
       items:
-        - name: Nastavení sítě pro zotavení po havárii virtuálního počítače Azure (Preview)
-          href: site-recovery-azure-to-azure-networking-guidance.md
-        - name: Nastavení IP adresy pro přístup po převzetí služeb při selhání do Azure
-          href: concepts-on-premises-to-azure-networking.md
-        - name: Nastavení IP adresy pro přístup po převzetí služeb při selhání do sekundární lokality
-          href: concepts-on-premises-to-on-premises-networking.md
-        - name: Nastavení mapování sítě pro zotavení po havárii virtuálního počítače Azure (Preview)
-          href: site-recovery-network-mapping-azure-to-azure.md
-        - name: Příprava mapování sítí pro replikaci virtuálních počítačů Hyper-V do Azure
-          href: site-recovery-network-mapping.md
         - name: Nastavení zdrojového prostředí
           items:
             - name: Zdrojové prostředí pro replikaci z VMware do Azure
@@ -127,7 +158,7 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: Cílové prostředí pro replikaci z fyzických prostředků do Azure
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: Konfigurace nastavení replikace
+        - name: Konfigurace nastavení replikace z VMware do Azure
           href: site-recovery-setup-replication-settings-vmware.md
         - name: Vyloučení disků z replikace
           href: site-recovery-exclude-disk.md
@@ -144,35 +175,6 @@
               href: site-recovery-replicate-azure-to-azure.md
             - name: Povolení replikace z VMware do Azure
               href: site-recovery-replicate-vmware-to-azure.md
-    - name: Převzetí služeb při selhání a navrácení služeb po obnovení
-      items:
-        - name: Nastavení plánů obnovení
-          href: site-recovery-create-recovery-plans.md
-          items:
-            - name: Přidání runbooků Azure do plánů obnovení
-              href: site-recovery-runbook-automation.md
-        - name: Spuštění testovacího převzetí služeb při selhání
-          items:
-            - name: Spuštění testovacího převzetí služeb při selhání do Azure
-              href: site-recovery-test-failover-to-azure.md
-            - name: Spuštění testovacího převzetí služeb při selhání mezi cloudy VMM
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Převzetí služeb při selhání u chráněných počítačů
-          href: site-recovery-failover.md
-        - name: Zpětná replikace počítačů po převzetí služeb při selhání
-          items:
-            - name: Zpětná replikace ze sekundární do primární oblasti Azure
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
-            - name: Zpětná replikace z Azure do místního prostředí
-              href: site-recovery-how-to-reprotect.md
-        - name: Navrácení služeb po obnovení z Azure
-          items:
-            - name: Navrácení služeb po obnovení z Azure na VMware
-              href: site-recovery-how-to-failback-azure-to-vmware.md
-            - name: Navrácení služeb po obnovení z Azure na Hyper-V
-              href: site-recovery-failback-from-azure-to-hyper-v.md
-        - name: Nastavení hlavního linuxového cílového serveru pro navrácení služeb po obnovení
-          href: site-recovery-how-to-install-linux-master-target.md
     - name: Automatizace
       items:
         - name: Nastavení replikace Hyper-V do Azure (bez VMM) s využitím PowerShellu
@@ -213,7 +215,7 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Spravovat
       items:
-        - name: Upgrade trezoru Site Recovery na trezor služby Recovery Services
+        - name: Upgrade na trezor služby Recovery Services
           href: upgrade-site-recovery-vaults.md
         - name: Správa procesových serverů v Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
@@ -223,7 +225,7 @@
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Odebrání serverů a zakázání ochrany
           href: site-recovery-manage-registration-and-protection.md
-        - name: Odstranění trezoru služby Recovery Services
+        - name: Odstranění trezoru
           href: delete-vault.md
     - name: Řešení potíží
       items:
@@ -231,7 +233,7 @@
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
         - name: Potíže s replikací z místního prostředí do Azure
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
-        - name: Potíže s instalací služby Mobility
+        - name: Problémy se službou Mobility
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Potíže s převzetím služeb při selhání do Azure
           href: site-recovery-failover-to-azure-troubleshoot.md

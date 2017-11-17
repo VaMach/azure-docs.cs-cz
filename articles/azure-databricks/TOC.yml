@@ -1,0 +1,27 @@
+- name: Dokumentace k Azure Databricks
+  href: index.yml
+- name: Přehled
+  items:
+    - name: Co je Azure Databricks?
+      href: what-is-azure-databricks.md
+- name: Šablony Rychlý start
+  expanded: true
+  items:
+    - name: Vytvoření pracovního prostoru Databricks
+      href: quickstart-create-databricks-workspace-portal.md
+- name: Zdroje
+  items:
+    - name: Časté dotazy
+      href: frequently-asked-questions-databricks.md
+    - name: Dokumentace k Databricks
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: Dostupnost v oblastech
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Možnosti podpory
+      href: 'https://azure.microsoft.com/support/options/'

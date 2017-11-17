@@ -16,6 +16,7 @@
 ## [Úloha 5: Povolení synchronizace hesel](active-directory-ds-getting-started-password-sync.md)
 
 # Postup
+## [Povolení služby Azure AD Domain Services pomocí PowerShellu](active-directory-ds-enable-using-powershell.md)
 ## Připojení ke spravované doméně
 ### [Virtuální počítač s Windows Serverem](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Virtuální počítač s Windows Serverem ze šablony](active-directory-ds-join-windows-vm-template.md)
