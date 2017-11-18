@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: dc76b30197d54c3c131ffdeb965f0cb82a3fa3cd
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 80f65e8e7fe562030c1e39787b910e2564969882
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Odesílání zpráv typu cloud zařízení službou IoT Hub (uzel)
-
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub je plně spravovaná služba, která pomáhá povolit spolehlivou a zabezpečenou obousměrnou komunikaci mezi miliony zařízení a back-end řešení. [Začínáme se službou IoT Hub] kurzu se dozvíte postup:
-
-* Vytvoření služby IoT hub.
-* Zřídit identitu zařízení IoT hub.
-* Kód aplikaci ze simulovaného zařízení, která odesílá zprávy typu zařízení cloud.
+## <a name="introduction"></a>Úvod
+Azure IoT Hub je plně spravovaná služba, která pomáhá povolit spolehlivou a zabezpečenou obousměrnou komunikaci mezi miliony zařízení a back-end řešení. [Začínáme se službou IoT Hub] kurz ukazuje, jak k vytvoření služby IoT hub, zřídit identitu zařízení v ní a kódu aplikaci ze simulovaného zařízení, která odesílá zprávy typu zařízení cloud.
 
 V tomto kurzu vychází [Začínáme se službou IoT Hub]. Jak ukazuje na:
 
@@ -40,11 +36,13 @@ Můžete najít další informace o zprávy typu cloud zařízení v [Příručk
 
 Na konci tohoto kurzu můžete spustit dvě aplikace konzoly Node.js:
 
-* `simulateddevice`, upravenou verzi aplikace vytvořená v [Začínáme se službou IoT Hub], který se připojuje ke službě IoT hub a přijímá zprávy typu cloud zařízení.
-* `sendcloudtodevicemessage`, který odešle zprávu cloud zařízení na aplikaci simulovaného zařízení prostřednictvím služby IoT Hub a pak obdrží jeho potvrzení o doručení.
+* **SimulatedDevice**, upravenou verzi aplikace vytvořená v [Začínáme se službou IoT Hub], který se připojuje ke službě IoT hub a přijímá zprávy typu cloud zařízení.
+* **SendCloudToDeviceMessage**, který odešle zprávu cloud zařízení na aplikaci simulovaného zařízení prostřednictvím služby IoT Hub a pak obdrží jeho potvrzení o doručení.
 
 > [!NOTE]
 > IoT Hub je podpora v sadě SDK pro mnoho zařízení platformy a jazyky (například C, Javy a JavaScriptu) prostřednictvím SDK pro zařízení Azure IoT. Podrobné pokyny o tom, jak připojit zařízení ke kódu v tomto kurzu a obecně do služby Azure IoT Hub, najdete v článku [Azure střediska pro vývojáře IoT].
+> 
+> 
 
 Pro absolvování tohoto kurzu potřebujete:
 
@@ -52,12 +50,11 @@ Pro absolvování tohoto kurzu potřebujete:
 * Aktivní účet Azure. (Pokud účet nemáte, můžete si během několika minut vytvořit [bezplatný účet][lnk-free-trial].)
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Příjem zpráv v aplikaci simulovaného zařízení
-
 V této části upravíte aplikaci simulovaného zařízení, kterou jste vytvořili v [Začínáme se službou IoT Hub] pro příjem zpráv typu cloud zařízení ze služby IoT hub.
 
 1. Pomocí textového editoru otevřete soubor SimulatedDevice.js.
 2. Změnit **connectCallback** funkce pro zpracování zprávy odeslané ze služby IoT Hub. V tomto příkladu zařízení vždy vyvolá **dokončení** funkce IoT Hub oznámit, že zpracovala zprávy. Vaše nové verze **connectCallback** funkce vypadá jako následující fragment kódu:
-
+   
     ```javascript
     var connectCallback = function (err) {
       if (err) {
@@ -81,48 +78,44 @@ V této části upravíte aplikaci simulovaného zařízení, kterou jste vytvo�
       }
     };
     ```
-
+   
    > [!NOTE]
    > Pokud použijete protokol HTTPS místo MQTT nebo AMQP jako přenos, **DeviceClient** instance vyhledává zprávy ze služby IoT Hub zřídka (méně než každých 25 minut). Další informace o rozdílech mezi podpora MQTT, AMQP a HTTPS a omezení služby IoT Hub, najdete v článku [Příručka vývojáře pro službu IoT Hub][IoT Hub developer guide - C2D].
+   > 
+   > 
 
 ## <a name="send-a-cloud-to-device-message"></a>Odeslání zprávy typu cloud zařízení
-
 V této části vytvoříte konzolovou aplikaci softwaru Node.js, která posílání zpráv typu cloud zařízení do aplikaci simulovaného zařízení. Je třeba ID zařízení v zařízení, které jste přidali v [Začínáme se službou IoT Hub] kurzu. Připojovací řetězec služby IoT Hub pro vaše centrum, které můžete najít v musíte taky [portál Azure].
 
-1. Vytvořte prázdnou složku s názvem `sendcloudtodevicemessage`. Ve složce `sendcloudtodevicemessage` vytvořte soubor package.json pomocí následujícího příkazu na příkazovém řádku. Přijměte všechny výchozí hodnoty:
-
-    ```cmd/sh
+1. Vytvořit prázdnou složku s názvem **sendcloudtodevicemessage**. V **sendcloudtodevicemessage** složky, vytvořte soubor package.json pomocí následujícího příkazu na příkazovém řádku. Přijměte všechny výchozí hodnoty:
+   
+    ```shell
     npm init
     ```
-
-1. Na příkazovém řádku v `sendcloudtodevicemessage` složky, spusťte následující příkaz k instalaci **azure-iothub** balíčku:
-
-    ```cmd/sh
+2. Na příkazovém řádku v **sendcloudtodevicemessage** složky, spusťte následující příkaz k instalaci **azure-iothub** balíčku:
+   
+    ```shell
     npm install azure-iothub --save
     ```
-
-1. Pomocí textového editoru, vytvořte **SendCloudToDeviceMessage.js** v soubor `sendcloudtodevicemessage` složky.
-
-1. Přidejte následující `require` příkazy na začátku **SendCloudToDeviceMessage.js** souboru:
-
+3. Pomocí textového editoru, vytvořte **SendCloudToDeviceMessage.js** v soubor **sendcloudtodevicemessage** složky.
+4. Přidejte následující `require` příkazy na začátku **SendCloudToDeviceMessage.js** souboru:
+   
     ```javascript
     'use strict';
    
     var Client = require('azure-iothub').Client;
     var Message = require('azure-iot-common').Message;
     ```
-
-1. Přidejte následující kód, který **SendCloudToDeviceMessage.js** souboru. Nahraďte `{iot hub connection string}` hodnotu zástupného symbolu připojovacím řetězcem IoT Hub pro rozbočovač, kterou jste vytvořili v [Začínáme se službou IoT Hub] kurzu. Nahraďte `{device id}` zástupný symbol ID zařízení v zařízení, které jste přidali v [Začínáme se službou IoT Hub] kurzu:
-
+5. Přidejte následující kód, který **SendCloudToDeviceMessage.js** souboru. Nahraďte hodnotu zástupného symbolu "{iot hub připojovací řetězec}" připojovací řetězec služby IoT Hub pro rozbočovače, který jste vytvořili v [Začínáme se službou IoT Hub] kurzu. Nahraďte zástupný symbol "{zařízení id} s ID zařízení v zařízení, které jste přidali v [Začínáme se službou IoT Hub] kurzu:
+   
     ```javascript
     var connectionString = '{iot hub connection string}';
     var targetDevice = '{device id}';
    
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
-
-1. Přidejte následující funkci k tisku výsledky operace do konzoly:
-
+6. Přidejte následující funkci k tisku výsledky operace do konzoly:
+   
     ```javascript
     function printResultFor(op) {
       return function printResult(err, res) {
@@ -131,9 +124,8 @@ V této části vytvoříte konzolovou aplikaci softwaru Node.js, která posíl�
       };
     }
     ```
-
-1. Přidejte následující funkci k tisku doručení zpětnou vazbu zpráv do konzoly:
-
+7. Přidejte následující funkci k tisku doručení zpětnou vazbu zpráv do konzoly:
+   
     ```javascript
     function receiveFeedback(err, receiver){
       receiver.on('message', function (msg) {
@@ -142,9 +134,8 @@ V této části vytvoříte konzolovou aplikaci softwaru Node.js, která posíl�
       });
     }
     ```
-
-1. Přidejte následující kód k odeslání zprávy do zařízení a zpracování zpráv zpětnou vazbu, je-li zařízení uznává zpráv typu cloud zařízení:
-
+8. Přidejte následující kód k odeslání zprávy do zařízení a zpracování zpráv zpětnou vazbu, je-li zařízení uznává zpráv typu cloud zařízení:
+   
     ```javascript
     serviceClient.open(function (err) {
       if (err) {
@@ -160,35 +151,33 @@ V této části vytvoříte konzolovou aplikaci softwaru Node.js, která posíl�
       }
     });
     ```
-
-1. Uložte a zavřete **SendCloudToDeviceMessage.js** souboru.
+9. Uložte a zavřete **SendCloudToDeviceMessage.js** souboru.
 
 ## <a name="run-the-applications"></a>Spuštění aplikací
-
 Nyní můžete spustit aplikace.
 
-1. Na příkazovém řádku v `simulateddevice` složky, spusťte následující příkaz k odeslání telemetrie do služby IoT Hub a přijímat zprávy typu cloud zařízení:
-
-    ```cmd/sh
-    node SimulatedDevice.js
+1. Na příkazovém řádku v **simulateddevice** složky, spusťte následující příkaz k odeslání telemetrie do služby IoT Hub a přijímat zprávy typu cloud zařízení:
+   
+    ```shell
+    node SimulatedDevice.js 
     ```
-
+   
     ![Spusťte aplikaci simulovaného zařízení][img-simulated-device]
-
-1. Na příkazovém řádku v `sendcloudtodevicemessage` složky, spusťte následující příkaz k odeslání zprávy typu cloud zařízení a počkat na zpětnou vazbu potvrzení:
-
-    ```cmd/sh
-    node SendCloudToDeviceMessage.js
+2. Na příkazovém řádku v **sendcloudtodevicemessage** složky, spusťte následující příkaz k odeslání zprávy typu cloud zařízení a počkat na zpětnou vazbu potvrzení:
+   
+    ```shell
+    node SendCloudToDeviceMessage.js 
     ```
-
-    ![Chcete-li odeslat příkaz cloud zařízení, spusťte aplikaci][img-send-command]
-
+   
+    ![Spusťte aplikaci odesílat příkaz cloud zařízení][img-send-command]
+   
    > [!NOTE]
    > Pro saké na jednoduchost tento kurz neimplementuje žádné zásady opakování. V produkčním kódu, měli byste implementovat zásady opakování (například exponenciálního omezení rychlosti), dle pokynů v článku na webu MSDN [přechodných chyb].
+   > 
+   > 
 
 ## <a name="next-steps"></a>Další kroky
-
-V tomto kurzu jste zjistili, jak odesílat a přijímat zprávy typu cloud zařízení.
+V tomto kurzu jste zjistili, jak odesílat a přijímat zprávy typu cloud zařízení. 
 
 Příklady dokončení začátku do konce řešení, které pomocí služby IoT Hub, najdete v sekci [Azure IoT Suite].
 
