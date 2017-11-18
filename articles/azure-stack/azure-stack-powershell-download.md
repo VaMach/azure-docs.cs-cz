@@ -14,32 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: c0a4f337c055f4b62d986e2a3c3ce7b962aceae9
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 661f24e1271b3f16fddc6426c94464dd8b388f18
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Stažení nástroje Azure zásobníku z Githubu
 
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-**Nástroje AzureStack** je úložiště GitHub, který je hostitelem moduly Powershellu pro správu a nasazení prostředků do protokolů Azure. Pokud máte v úmyslu navázat připojení VPN, můžete tyto moduly Powershellu stáhnout Development Kit zásobník Azure nebo na externí klienta se systémem Windows. Pokud chcete získat tyto nástroje, naklonujte úložiště GitHub nebo stáhnout **AzureStack nástroje** složky. 
-
-Klonovat úložiště, stáhněte si [Git pro Windows](https://git-scm.com/download/win), otevřete příkazový řádek a spusťte následující skript:
-
-```PowerShell
-# Change directory to the root directory. 
-cd \
-
-# Clone the repository.
-git clone https://github.com/Azure/AzureStack-Tools.git --recursive
-
-# Change to the tools directory.
-cd AzureStack-Tools
-```
-
-Pokud chcete stáhnout nástroje pro složku, spusťte následující skript:
+**Nástroje AzureStack** je úložiště GitHub, který je hostitelem moduly Powershellu pro správu a nasazení prostředků do protokolů Azure. Pokud máte v úmyslu navázat připojení VPN, můžete tyto moduly Powershellu stáhnout Development Kit zásobník Azure nebo na externí klienta se systémem Windows. K získání těchto nástrojů, naklonujte úložiště GitHub nebo stáhnout **AzureStack nástroje** složky tak, že spustíte následující skript:
 
 ```PowerShell
 # Change directory to the root directory. 

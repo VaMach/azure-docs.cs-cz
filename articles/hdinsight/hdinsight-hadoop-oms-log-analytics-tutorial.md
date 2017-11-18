@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: 73c472140861a0d0d270021ab268e8c1113c23b5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6677b0b3ed047ce011bfbb72c25e45195859830a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Monitorování clusterů HDInsight pomocí Azure Log Analytics
 
@@ -31,7 +31,7 @@ Naučte se používat Azure Log Analytics ke sledování operací clusteru Hadoo
 
 * **Předplatné Azure**. Než začnete tento kurz, musíte mít předplatné Azure. Přečtěte si téma [Bezplatné vytvoření účtu Microsoft Azure ještě dnes](https://azure.microsoft.com/free).
 
-* **Cluster Azure HDInsight**. V současné době můžete použít Azure OMS s těmito typy clusteru HDInsight:
+* **Cluster Azure HDInsight**. V současné době můžete použít Azure Operations Management Suite s těmito typy clusteru HDInsight:
 
     * Hadoop
     * HBase
@@ -56,7 +56,7 @@ V této části nakonfigurujete stávajícího clusteru HDInsight Hadoop použit
 
     Jak dlouho trvá chvíli se uložit nastavení.  Až se to dokončí, zobrazí se **otevřete řídicí panel OMS** tlačítko nahoře. 
 
-    ![Otevřete řídicí panel OMS](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "OMS otevřete řídicí panel")
+    ![Otevřete řídicí panel služby Operations Management Suite](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "OMS otevřete řídicí panel")
 
 5. Klikněte na tlačítko **řídicí panel otevřete OMS**.
 6. Pokud se zobrazí výzva, zadejte přihlašovací údaje Azure.

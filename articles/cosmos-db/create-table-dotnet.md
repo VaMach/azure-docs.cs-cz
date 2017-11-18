@@ -3,7 +3,7 @@ title: "Rychlý úvod: Tabulky rozhraní API pomocí rozhraní .NET - Azure Cosm
 description: "Tento rychlý start ukazuje, jak používat rozhraní API služby Azure DB Cosmos tabulky k vytvoření aplikace pomocí portálu Azure a rozhraní .NET"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 11/16/2017
+ms.author: mimig
+ms.openlocfilehash: 4e59c333e14e5e21a02c3160cf6311d1182e5a5e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API pomocí rozhraní .NET a Azure Cosmos DB 
 
@@ -84,15 +84,16 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 2. V sadě Visual Studio otevřete soubor App.config. 
 
-3. Jako tento kurz nepoužívá emulátor úložiště, zrušte komentář u StorageConnectionString na řádek 8 a Odkomentujte StorageConnectionString na řádku 7. 
-
-3. Vložte hodnotu primární PŘIPOJOVACÍ řetězec na hodnotu StorageConnectionString na řádku 8. 
+3. Jako tento kurz nepoužívá emulátor úložiště, zrušte komentář u StorageConnectionString na řádek 8 a Odkomentujte StorageConnectionString na řádku 7. Řádek 7 a 8 by měl nyní vypadat takto:
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-    Řádek 8 by teď měl vypadat podobně jako
+4. PRIMÁRNÍ PŘIPOJOVACÍ řetězec z portálu vložte do StorageConnectionString hodnotu na řádek 8. Vložte řetězec uvnitř uvozovky. Pokud váš koncový bod používá documents.azure.com, změňte na table.cosmosdb.azure.com část. 
+
+    Řádek 8 by teď měl vypadat podobně jako:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -110,13 +111,27 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 
 3. Ve výsledcích nainstalovat **Microsoft.Azure.CosmosDB.Table** knihovny. Tím se nainstaluje balíček rozhraní API služby Azure Cosmos DB tabulky a také všechny závislosti.
 
-4. Spusťte aplikaci stisknutím CTRL+F5.
+4. Otevřete BasicSamples.cs a přidejte zarážku 30 a řádek 52.
 
-    V okně konzoly zobrazí data tabulky, který se přidává do nové tabulky databáze v Azure Cosmos DB.
+5. Spusťte aplikaci stisknutím CTRL+F5.
 
-    Teď se můžete vrátit do Průzkumníku dat a zobrazit dotaz nebo provést úpravy a pracovat s těmito novými daty.
+    V okně konzoly zobrazí data tabulky, který se přidává do nové tabulky databáze v Azure Cosmos DB. 
+    
+    Pokud dojde k chybě, informace o závislostech najdete v části [Poradce při potížích s](table-sdk-dotnet.md#troubleshooting).
 
-## <a name="review-slas-in-the-azure-portal"></a>Ověření podmínek SLA na portálu Azure Portal
+    Při kliknutí na první zarážky, přejděte zpět na Průzkumníku dat na portálu Azure a rozšířit tabulka ukázku * a klikněte na tlačítko **entity**. **Entity** karty na pravé straně zobrazí nová entita, která byla přidána, poznamenejte si toto telefonní číslo uživatele je 425-555-0101.
+    
+6. Zavřete kartu entity v Průzkumníku dat.
+    
+7. Pokračujte a spusťte aplikaci na další zarážku.
+
+    Při kliknutí na zarážce, přepněte zpět na portálu, klikněte na entity znovu a otevřete kartu entity a Všimněte si, že telefonní číslo je aktualizovaná tak, aby 425-555-0105.
+
+8. Zpět v okně konzoly stiskněte kombinaci kláves CTRL + C pro ukončení spuštění aplikace. 
+
+    Teď můžete přejít zpět do Průzkumníku dat a přidat nebo upravit odeberte a zadávat dotazy na data.
+
+## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronizaci dat mezi několika databází cloudu a místně s synchronizaci dat SQL (Preview)
 
@@ -80,16 +80,6 @@ Synchronizaci dat není vhodná pro následující scénáře:
 
 ## <a name="sync-req-lim"></a>Požadavky a omezení
 
-### <a name="general-requirements"></a>Obecné požadavky
-
--   Každá tabulka musí mít primární klíč. Neměnit hodnotu primární klíč v některém z řádků. Pokud budete muset změnit hodnotu primárního klíče, odstranit řádek a znovu ji vytvořte s novou hodnotu primárního klíče. 
-
--   Tabulka nemůže obsahovat sloupec identity, který není primární klíč.
-
--   Názvy objektů (databáze, tabulek a sloupců) nesmí obsahovat tisknutelná znaků tečkou (.), zbývající hranaté závorky ([), nebo právo hranatá závorka (]).
-
--   Musí být povolena izolace snímku. Další informace najdete v tématu [izolaci snímku v systému SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
 ### <a name="general-considerations"></a>Obecné aspekty
 
 #### <a name="eventual-consistency"></a>Konzistence typu případné
@@ -98,7 +88,19 @@ Vzhledem k tomu, že synchronizace dat je na základě aktivační události, ne
 #### <a name="performance-impact"></a>Vliv na výkon
 Synchronizace dat se používají vložit, aktualizovat a odstranit aktivačních událostí ke sledování změn. Vytvoří straně tabulky v databázi uživatelů pro sledování změn. Tyto aktivity sledování změn mají vliv na vaše zatížení databáze. Vyhodnocení vašeho vrstvy služeb a upgradujte v případě potřeby.
 
+### <a name="general-requirements"></a>Obecné požadavky
+
+-   Každá tabulka musí mít primární klíč. Neměnit hodnotu primární klíč v některém z řádků. Pokud budete muset změnit hodnotu primárního klíče, odstranit řádek a znovu ji vytvořte s novou hodnotu primárního klíče. 
+
+-   Musí být povolena izolace snímku. Další informace najdete v tématu [izolaci snímku v systému SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
 ### <a name="general-limitations"></a>Obecná omezení
+
+-   Tabulka nemůže obsahovat sloupec identity, který není primární klíč.
+
+-   Názvy objektů (databáze, tabulek a sloupců) nesmí obsahovat tisknutelná znaků tečkou (.), zbývající hranaté závorky ([), nebo právo hranatá závorka (]).
+
+-   Ověřování Azure Active Directory není podporována.
 
 #### <a name="unsupported-data-types"></a>Nepodporované datové typy
 

@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 95d58c600bc43059025e739a8cdb062287f4ffb5
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a2347fe9578b35c95d240c5c4dd2bf062077ece
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení aplikace Cassandra s Python a Azure Cosmos DB
 
@@ -29,13 +29,14 @@ Azure Cosmos DB je globálně distribuované databáze více modelu služby spol
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Než budete moct tuto ukázku spustit, je potřeba splnit následující požadavky:
-    * [Python](https://www.python.org/downloads/) v2.7.14 verze
-    * [Git](http://git-scm.com/)
-    * [Ovladač Python pro Apache Cassandra](https://github.com/datastax/python-driver)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Alternativně můžete [zkuste Azure Cosmos DB zdarma](https://azure.microsoft.com/try/cosmosdb/) bez předplatného Azure, bez poplatků a závazky.
 
+Přístup k rozhraní API služby Azure Cosmos DB Cassandra programu preview. Pokud jste ještě nenainstalovali pro přístup k ještě [nyní](cassandra-introduction.md#sign-up-now).
+
+Navíc platí:
+* [Python](https://www.python.org/downloads/) v2.7.14 verze
+* [Git](http://git-scm.com/)
+* [Ovladač Python pro Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 457857f44ad3081087b5843f156860c901562468
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Převzít kontrolu nad adresář nespravované jako správce v Azure Active Directory
 Tento článek popisuje dva způsoby, jak převzít kontrolu nad název domény DNS do adresář nespravované v Azure Active Directory (Azure AD). Když samoobslužný uživatel zaregistruje cloudovou službu, která používá Azure AD, jsou přidány do nespravovaných Azure AD directory založené na jejich e-mailovou doménu. Další informace o samoobslužné nebo "virální" registrace pro služby najdete v tématu [co je samoobslužné registrace pro Azure Active Directory?]()
@@ -67,7 +67,7 @@ Po dokončení předchozích kroků jste nyní globální správce klienta spole
   
 6. Přihlaste se k [centra pro správu Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) pomocí účtu, který má oprávnění globálního správce pro tenanta Azure AD.
   
-7. Vyberte **názvy domén**, poté přidejte název domény. Budete muset zadat záznamů DNS TXT ověřit vlastnictví názvu domény. 
+7. Vyberte **vlastní názvy domén**, poté přidejte název domény. Budete muset zadat záznamů DNS TXT ověřit vlastnictví názvu domény. 
   
   ![domény, které jsou přidány do služby Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   

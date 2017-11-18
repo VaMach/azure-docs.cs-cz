@@ -1,6 +1,6 @@
 ---
-title: "O disky a virtuální pevné disky pro virtuální počítače Microsoft Azure Linux | Microsoft Docs"
-description: "Seznamte se se základy disky a virtuální pevné disky pro virtuální počítače s Linuxem v Azure."
+title: "O ukládání na disk pro virtuální počítače Microsoft Azure Linux | Microsoft Docs"
+description: "Další informace o základní informace o úložišti disků a virtuální pevné disky pro virtuální počítače s Linuxem v Azure."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: be5f09af275142590ec6ade02562e914d5726e08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad55898806024a9f0562b32e7bdd990fd7dfd8d2
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-linux-vms"></a>O disky a virtuální pevné disky pro virtuální počítače Azure s Linuxem
+# <a name="about-disk-storage-for-azure-linux-vms"></a>O ukládání na disk pro virtuální počítače Linux Azure
 Stejně jako všechny ostatní počítače virtuálních počítačů v Azure používat disky jako místo pro uložení operačního systému, aplikace a data. Všechny virtuální počítače Azure mít aspoň dva disky – disk operačního systému Linux a dočasný disk. Vytváření disku operačního systému z bitové kopie a disku operačního systému a image jsou ve skutečnosti virtuální pevné disky (VHD) uložené v účtu úložiště Azure. Virtuální počítače také může mít jeden nebo více datových disků, které jsou také uloženy jako virtuální pevné disky. 
 
 V tomto článku jsme se v souvislosti se jiný používá pro disky a potom popisují různé typy disků můžete vytvořit a použít. Tento článek je také k dispozici pro [virtuální počítače s Windows](../windows/about-disks-and-vhds.md).
@@ -59,6 +59,6 @@ Můžete přidat datových disků pro virtuální počítač v každém okamžik
 
 ## <a name="next-steps"></a>Další kroky
 * [Připojit disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) přidat další úložiště pro virtuální počítač.
-* [Konfigurace softwaru diskového pole RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) redundanci.
-* [Zachytit virtuální počítač s Linuxem](./classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) , můžete rychle nasadit další virtuální počítače.
+* [Vytvoření snímku](snapshot-copy-managed-disk.md).
+* [Převést na spravované disky](convert-unmanaged-to-managed-disks.md).
 

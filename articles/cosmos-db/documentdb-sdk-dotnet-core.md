@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56a2aff21a728d5ac0355516fc6988512c062b4c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 835956f185b4ecdcbfa0b486223dd9bc2d0377cb
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: Poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
@@ -56,6 +56,11 @@ Cosmos DB .NET SDK služby Azure základní má parity funkcí s nejnovější v
 
 > [!NOTE] 
 > Cosmos DB .NET SDK služby Azure jádra není kompatibilní s aplikací pro univerzální platformu Windows (UWP). Pokud vás zajímá .NET Core SDK, který podporuje aplikace UWP odeslat e-mailu [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
+ 
+ * Přidá možnost zadat jedinečný indexů pro dokumenty pomocí vlastnosti UniqueKeyPolicy na DocumentCollection.
+ * Opravit chyby, ve kterém nebyly se dodržení vlastní nastavení serializátor JsonSerializer pro některé dotazy a spuštění uložené procedury.
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
  
@@ -150,6 +155,7 @@ Pokud máte otázky související s touto sadou SDK, odeslání na [StackOverflo
 
 | Verze | Datum vydání | Datum vyřazení |
 | --- | --- | --- |
+| [1.7.1](#1.7.1) |16 listopadu 2017 |--- |
 | [1.7.0](#1.7.0) |10 listopadu 2017 |--- |
 | [1.6.0](#1.6.0) |17 říjen 2017 |--- |
 | [1.5.1](#1.5.1) |02 říjen 2017 |--- |

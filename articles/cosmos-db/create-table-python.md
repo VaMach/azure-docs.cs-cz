@@ -12,13 +12,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 0900ec1931cc622339133393b72b558076a42710
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5bf995cba884ff9910ce000195c8fa0e3da2d332
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API s Python a Azure Cosmos DB
 
@@ -84,7 +84,13 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
     ![Zobrazení a zkopírujte PŘIPOJOVACÍ řetězec v podokně připojovací řetězec](./media/create-table-python/connection-string.png)
 
-2. Otevřete soubor config.py a zkopírujte požadované připojovací řetězec vlastnosti do konfiguračního souboru.
+2. Zkopírujte název účtu, pomocí tlačítka na pravé straně.
+
+3. Otevřete soubor config.py a vložte název účtu z portálu do STORAGE_ACCOUNT_NAME hodnotu na řádek 19.
+
+4. Přejděte zpět na portál a zkopírujte primární klíč.
+
+5. Vložte do STORAGE_ACCOUNT_KEY hodnotu na řádek 20 primární klíč z portálu.
 
 3. Uložte soubor config.py.
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: a44faec6c21c338dfc6b1507af6f716e089c7038
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co je nového ve službě Azure Active Directory?
 
@@ -49,7 +49,7 @@ Pokroku prosím tuto stránku pravidelně aktualizujeme ho měsíčně.
 
 <a name="acs-retirement"></a>
 
-Microsoft Azure Active Directory řízení přístupu (také označované jako služby Řízení přístupu nebo služby ACS) se postupně vyřazuje z provozu v pozdní 2018.  Další informace, včetně prováděcí plán & vysoké úrovně migrace pokyny, budou uvedené v další trvá několik týdnů. Do té doby, nechejte prosím komentáře na této stránce s dotazy týkající se služby ACS a bude členem náš tým oslovení pomohou odpovědí.
+Microsoft Azure Active Directory řízení přístupu (také označované jako služby Řízení přístupu nebo služby ACS) se postupně vyřazuje z provozu v listopadu 2018.  Další informace, včetně prováděcí plán & vysoké úrovně migrace pokyny najdete [na této stránce](./develop/active-directory-acs-migration.md).
 
 ---
 

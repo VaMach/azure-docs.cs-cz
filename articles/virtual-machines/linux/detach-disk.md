@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: de0222d897ed2cf94be98501c39385ac88f866fc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c589dd8c9d597145fd87a00d9a2ba040988cd8ec
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Postup odpojit datový disk z virtuálního počítače systému Linux
 
@@ -35,28 +35,25 @@ Pokud znovu chcete použít stávající data na disku, můžete ho znovu připo
 ## <a name="detach-a-data-disk-using-cli-20"></a>Odpojit datový disk pomocí rozhraní příkazového řádku 2.0
 
 ```azurecli
-az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
+az vm disk detach \
+    -g myResourceGroup \
+    --vm-name myVm \
+    -n myDataDisk
 ```
 
 Disk zůstává v úložišti, ale už není připojený k virtuálnímu počítači.
 
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Odpojení datového disku pomocí portálu
-1. V centru portálu vyberte **virtuální počítače**.
+1. V nabídce vlevo vyberte **virtuální počítače**.
 2. Vyberte virtuální počítač, který má datový disk, kterou chcete odpojit a klikněte na tlačítko **Zastavit** se zrušit přidělení virtuálního počítače.
-3. V okně virtuálního počítače vyberte **disky**.
-4. V horní části **disky** vyberte **upravit**.
-5. V **disky** okno na pravé straně datový disk, který chcete odpojit, klikněte na tlačítko ![obrázek tlačítka odpojení](./media/detach-disk/detach.png) odpojit tlačítko.
-5. Po odebrání disku nahoře v okně klikněte na tlačítko Uložit.
-6. V okně virtuálního počítače klikněte na **přehled** a klikněte **spustit** tlačítka v horní části okna restartujte virtuální počítač.
+3. V podokně virtuální počítač vyberte **disky**.
+4. V horní části **disky** podokně, vyberte **upravit**.
+5. V **disky** podokně na pravé straně datový disk, který chcete odpojit, klikněte na tlačítko ![obrázek tlačítka odpojení](./media/detach-disk/detach.png) odpojit tlačítko.
+5. Po odebrání disku nahoře v podokně klikněte na tlačítko Uložit.
+6. V podokně virtuální počítač, klikněte na tlačítko **přehled** a pak klikněte na tlačítko **spustit** tlačítka v horní části podokna restartování virtuálního počítače.
 
 Disk zůstává v úložišti, ale už není připojený k virtuálnímu počítači.
-
-
-
-
-
-
 
 
 ## <a name="next-steps"></a>Další kroky

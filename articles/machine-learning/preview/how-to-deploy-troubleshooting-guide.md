@@ -10,21 +10,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2017
-ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/16/2017
+ms.openlocfilehash: 8eafb16abeb939a16b1ddb024853300c453bcd9a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Nasazení služby a nastavení prostředí pro řešení potíží
 Následující informace vám mohou pomoci určit příčinu chyby při nastavování prostředí správy modelu.
 
 ## <a name="model-management-environment"></a>Model správy prostředí
-### <a name="owner-permission-required"></a>Potřebná oprávnění vlastníka
-U předplatného Azure k registraci, Machine Learning výpočetní musí mít oprávnění vlastníka.
-
-Budete také potřebovat oprávnění vlastníka nastavení clusteru s podporou pro nasazení webových služeb.
+### <a name="contributor-permission-required"></a>Potřebná oprávnění přispěvatele
+Je nutné použít Přispěvatel pro předplatné nebo skupinu prostředků nastavit cluster pro nasazení webových služeb.
 
 ### <a name="resource-availability"></a>Dostupnost prostředků
 Musíte mít k dispozici ve vašem předplatném dostatek prostředků, můžete zřídit prostředky prostředí.
@@ -89,6 +87,7 @@ Příklad Python:
 ```
 
 ## <a name="other-common-problems"></a>Další běžné problémy
+- Pokud pip instalace rozhraní příkazového řádku. azure ml selže s chybou `cannot find the path specified` na počítači s Windows, musíte povolit podporu dlouhé cesty. Viz https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
 - Pokud `env setup` příkaz selže s `LocationNotAvailableForResourceType`, pravděpodobně používáte nesprávný umístěním (oblastí) strojového učení prostředky. Zajistěte, aby vaše umístění určeném pomocí `-l` parametr `eastus2`, `westcentralus`, nebo `australiaeast`.
 - Pokud `env setup` příkaz selže s `Resource quota limit exceeded`, ujistěte se, máte dostatek jader ve vašem předplatném dostupná a že vaše prostředky nejsou používány až v jiné procesy.
 - Pokud `env setup` příkaz selže s `Invalid environment name. Name must only contain lowercase alphanumeric characters`, ujistěte se, velká písmena, symboly nebo podtržítko (_) neobsahuje název služby (jako v *my_environment*).

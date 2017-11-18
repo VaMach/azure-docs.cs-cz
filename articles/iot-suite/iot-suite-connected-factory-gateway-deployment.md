@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: f6a69ecbeb09dc042eff7c1f95ee518e701b0507
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 32a62be9578ac802ee8fff1b0aa48e2d39362e63
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Nasazení brány v systému Windows nebo Linux připojené objekt pro vytváření předkonfigurovaného řešení
 
@@ -65,9 +65,9 @@ Můžete také provést tento krok po instalaci dockerem **nastavení** nabídky
 
 1. Konfigurace brány pro službu IoT Hub spuštěním moduly dvě brány **po** z příkazového řádku pomocí:
 
-    `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
+    `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
 
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
+    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;**  je název vaší OPC UA vydavatele ve formátu **vydavatele.&lt; váš plně kvalifikovaný název domény&gt;**. Například, pokud objekt pro vytváření sítě se nazývá **myfactorynetwork.com**, **ApplicationName** hodnota je **publisher.myfactorynetwork.com**.
     * **&lt;IoTHubOwnerConnectionString&gt;**  je **iothubowner** připojovacího řetězce, které jste zkopírovali v předchozím kroku. Tento připojovací řetězec se používá pouze v tomto kroku, nebudete ho potřebovat v následujících krocích:
@@ -78,9 +78,9 @@ Můžete také provést tento krok po instalaci dockerem **nastavení** nabídky
 
 1. Restartujte bránu pomocí následujících příkazů:
 
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
 
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
+    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
 
 1. Z bezpečnostních důvodů dva certifikáty X.509 uchovávané v D:\\docker složka obsahovat privátní klíč. Omezit přístup do této složky na přihlašovací údaje (obvykle **správci**) můžete použít ke spuštění kontejner Docker. Klikněte pravým tlačítkem myši D:\\docker složky, vyberte **vlastnosti**, pak **zabezpečení**a potom **upravit**. Poskytnout **správci** úplné řízení a odeberte všechny ostatní:
 
@@ -117,9 +117,9 @@ Můžete také provést tento krok po instalaci dockerem **nastavení** nabídky
 
 1. Konfigurace brány pro službu IoT Hub spuštěním moduly dvě brány **po** z prostředí s:
 
-    `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
+    `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
 
-    `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
+    `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;**  je název brány vytvoří ve formátu aplikace OPC UA **vydavatele.&lt; váš plně kvalifikovaný název domény&gt;**. Například **publisher.microsoft.com**.
     * **&lt;IoTHubOwnerConnectionString&gt;**  je **iothubowner** připojovacího řetězce, které jste zkopírovali v předchozím kroku. Tento připojovací řetězec se používá pouze v tomto kroku, nebudete ho potřebovat v následujících krocích:
@@ -130,9 +130,9 @@ Můžete také provést tento krok po instalaci dockerem **nastavení** nabídky
 
 1. Restartujte bránu pomocí následujících příkazů:
 
-    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 --rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 --rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
 
-    `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
+    `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
 
 1. Z bezpečnostních důvodů dva certifikáty X.509 uchovávané v **/ sdílené** složka obsahovat privátní klíč. Omezte přístup do této složky na přihlašovacích údajů, které používáte ke spouštění kontejner Docker. Nastavení oprávnění pro **kořenové** výhradně `chmod` prostředí shell příkaz na složku.
 

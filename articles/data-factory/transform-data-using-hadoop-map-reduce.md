@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: shengc
-ms.openlocfilehash: b473ba03b8b700b3123f82343e59a1ed897c4189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c022d1c091fdd1b1e4d16270467c7191fc24ae3
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformace dat pomocí činnost MapReduce s Hadoop v Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,6 @@ V tématu [Pig](transform-data-using-hadoop-pig.md) a [Hive](transform-data-usin
             "type": "LinkedServiceReference"
         },
         "jarFilePath": "MyAzureStorage/jars/sample.jar",
-        "jarlibs": "MyAzureStorage/jars/jar1",
         "getDebugInfo": "Failure",
         "arguments": [
           "-SampleHadoopJobArgument1"
@@ -76,7 +75,7 @@ V tématu [Pig](transform-data-using-hadoop-pig.md) a [Hive](transform-data-usin
 | Název třídy         | Název třídy, které by šlo spustit         | Ano      |
 | jarLinkedService  | Odkaz na propojenou službu úložiště Azure používají k ukládání souborů Jar. Pokud tato propojená služba nezadáte, použije se propojené služby Azure Storage definované v propojené službě HDInsight. | Ne       |
 | jarFilePath       | Zadejte cestu k souborům Jar uložené ve službě Azure Storage, na které odkazuje jarLinkedService. Název souboru je malá a velká písmena. | Ano      |
-| jarlibs           | Zadejte cestu k souborům knihovny Jar odkazuje uložené ve službě Azure Storage, na které odkazuje jarLinkedService úlohy. Název souboru je malá a velká písmena. | Ne       |
+| jarlibs           | Pole cesty k souborům knihovny Jar odkazuje úlohu ve službě Azure Storage definované v jarLinkedService řetězec. Název souboru je malá a velká písmena. | Ne       |
 | getdebuginfo –      | Určuje, kdy soubory protokolu se zkopírují do úložiště Azure používaný v clusteru HDInsight (a) zadaný ve jarLinkedService. Povolené hodnoty: None, vždy nebo selhání. Výchozí hodnota: žádné. | Ne       |
 | Argumenty         | Určuje pole argumentů pro úlohy Hadoop. Argumenty, které jsou předány jako argumenty příkazového řádku pro každý úkol. | Ne       |
 | definuje           | Zadejte parametry pro odkazování v rámci skriptu Hive jako páry klíč/hodnota. | Ne       |

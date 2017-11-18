@@ -11,27 +11,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/16/2017
 ms.author: bradsev;
-ms.openlocfilehash: 8c318f87243d0c98b6a42bebcdffb433f9cc456e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1015a9f24ca2c175ff367b1748f05bb3e464457f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="execution-of-data-science-projects"></a>Provádění datové vědy projekty
 
-Tento dokument popisuje, jak může vědecký pracovník dat spustit projekt vědecké účely data v systematické, verze řízené a spolupráce způsob, jak v rámci projektový tým pomocí [proces vědecké účely dat Team](overview.md) (TDSP). TDSP je architektura vyvinuté společností Microsoft, která poskytuje strukturovaných posloupnost aktivit k úspěšnému provedení řešení založená na cloudu, prediktivní analýzy. Přehled role pracovníky a jejich přidružených úloh, které zpracovávají datové vědy team standardizace na tento proces, najdete v části [proces vědecké účely dat Team rolí a úloh](roles-tasks.md). 
+Tento dokument popisuje, jak můžete vývojáři spustit projekt vědecké účely data v systematické, verze řízené a spolupráce způsob, jak v rámci projektový tým pomocí [proces vědecké účely dat Team](overview.md) (TDSP). TDSP je architektura vyvinuté společností Microsoft, která poskytuje strukturovaných posloupnost aktivit k úspěšnému provedení řešení založená na cloudu, prediktivní analýzy. Přehled role pracovníky a jejich přidružených úloh, které zpracovávají datové vědy team standardizace na tento proces, najdete v části [proces vědecké účely dat Team rolí a úloh](roles-tasks.md). 
 
-Toto téma obsahuje pokyny pro: 
+Tento článek obsahuje pokyny o tom, jak: 
 
-1. proveďte **plánování sprintu** pro pracovní položky spojených s projektem.<br> Pokud jste obeznámeni s plánování sprintu, najdete níže uvedené podrobnosti a obecné informace [sem](https://en.wikipedia.org/wiki/Sprint_(software_development) "zde"). 
+1. proveďte **plánování sprintu** pro pracovní položky spojených s projektem.<br> Pokud jste obeznámeni s plánování sprintu, můžete najít podrobnosti a obecné informace [sem](https://en.wikipedia.org/wiki/Sprint_(software_development) "zde"). 
 2. **Přidání pracovních položek** k sprintů.
 3. **propojení pracovních položek pomocí kódování aktivity** sledován pomocí git.
 4. proveďte **code zkontrolujte**. 
 
-
->[AZURE.NOTE] Jsme popisují kroky potřebné k nastavení prostředí team TDSP pomocí Visual Studio Team Services (VSTS) v následující sadu pokynů. Určíme jak provést tyto úlohy s služby VSTS, protože se jedná, jak jsme implementovat TDSP ve společnosti Microsoft. Položky (3) a (4) v předchozím seznamu jsou výhody, které jste získali přirozeně, pokud se rozhodnete použít služby VSTS. Pokud jiný kód hostování platformy slouží pro vaši skupinu, úlohy, které je potřeba dokončit vedoucí týmu obecně se nezmění. Ale způsob k dokončení těchto úloh se bude lišit. Například na položku v části půl, **propojit pracovní položky pomocí git větev**, nemusí být stejně snadná jako na služby VSTS.
+> [!NOTE]
+> Kroky potřebné k nastavení prostředí team TDSP pomocí Visual Studio Team Services (VSTS) jsou uvedeny v následující sadu pokynů. Určí, jak provést tyto úlohy s služby VSTS, protože se jedná o tom, jak implementovat TDSP v Microsoft.  Pokud si zvolíte používání služby VSTS, položky (3) a (4) v předchozím seznamu jsou výhody, které jste získali přirozeně. Pokud jiný kód hostování platformy slouží pro vaši skupinu, úlohy, které je potřeba dokončit vedoucí týmu obecně se nezmění. Ale způsob k dokončení těchto úloh se bude lišit. Například na položku v části půl, **propojit pracovní položky pomocí git větev**, nemusí být stejně snadná jako na služby VSTS.
+>
+>
 
 Následující obrázek ukazuje typické sprintu plánování, kódování a pracovní postup správy zdrojového kódu, které jsou součástí implementace projektu vědecké účely dat:
 
@@ -53,9 +55,15 @@ V TDSP úbytek sprintu plánování framework, existují čtyři často použív
 - **Úloha**: úlohy jsou přiřadit kód nebo dokumentu pracovní položky nebo jiných aktivit, které je potřeba k dokončení konkrétní scénáře. Například úloh v článku *získávání dat* může být:
     -  Získání pověření systému SQL Server 
     -  Nahrávání dat do SQL Data Warehouse. 
-- **Chyby**: chyby jsou obvykle odkazovat na opravy, které jsou potřebné pro existující kód nebo dokumentu, které se provádějí při dokončení úlohy. Můžete ho eskalovat stal scénáře nebo úlohy, pokud chybě je způsobená chybějícím fázích nebo úlohy v uvedeném pořadí. 
+- **Chyby**: chyby jsou obvykle odkazovat na opravy, které jsou potřebné pro existující kód nebo dokumentu, které se provádějí při dokončení úlohy. Pokud chyb je způsobená chybějícím fázích nebo úlohy v uvedeném pořadí, můžete eskalovat pro scénáře nebo úlohu. 
 
->[AZURE.NOTE] Jsme jsou úvěrové koncepty funkcí, scénářů, úlohy a chyby ze softwaru kód správy (SCM), který se má použít v vědecké zpracování dat. Se může mírně lišit od jejich konvenční SCM definice.
+> [!NOTE]
+> Funkce, scénářů, úlohy a chyby ze softwaru kód správy (SCM), který se má použít v vědecké zpracování dat vždy pouze vypůjčí koncepty. Se může mírně lišit od jejich konvenční SCM definice.
+>
+>
+
+Datových vědců může mít více možnost pomocí agilní šablony, která konkrétně zarovnaná s fáze životního cyklu TDSP. Si uvědomit byl vytvořen sprintu odvozené agilní plánování šablony, kde Epics atd. scénářů jsou nahrazovány fáze životního cyklu TDSP nebo substages. Můžete najít dokumentaci o tom, jak vytvořit agilní šablona [zde](https://msdata.visualstudio.com/AlgorithmsAndDataScience/TDSP/_git/TDSP?path=%2FDocs%2Fteam-data-science-process-agile-template.md&version=GBxibingao&_a=preview).
+
 
 ##  2. <a name='SprintPlanning-2'></a>Plánování sprintu 
 
@@ -74,7 +82,7 @@ Chcete-li zahrnout funkce nevyřízené položky, klikněte na tlačítko **nevy
 
 ![3](./media/project-execution/project-execution-3-sprint-team-add-work.png)
 
-Dvakrát klikněte na funkce, kterou jste právě vytvořili. Zadejte popis, přiřadit členové týmu pro tuto funkci a nastavení plánování parametry pro tuto funkci. 
+Dvakrát klikněte na funkce, kterou jste vytvořili. Zadejte popis, přiřadit členové týmu pro tuto funkci a nastavení plánování parametry pro tuto funkci. 
 
 Tuto funkci můžete také propojit úložiště projektu. Klikněte na tlačítko **odkaz Přidat** pod **vývoj** části. Po dokončení úprav funkci, klikněte na tlačítko **uložit a zavřít** ukončíte.
 
@@ -196,7 +204,7 @@ Můžete taky následující příkazy Gitu sloučení pracovní větev do jeho 
 
 ##  10. <a name='DataQualityReportUtility-10'></a>Interaktivní zkoumání dat, analýzu a vytváření sestav nástroje (IDEAR)
 
-Tento nástroj na základě markdownu R poskytuje flexibilní a interaktivní nástroj k vyhodnocení a prozkoumejte datových sad. Uživatele můžete rychle vytvořit sestavy z datové sady s minimální kódování. Uživatelé mohou tlačítek zkoumání výsledky, které se mu zobrazí v interaktivní nástroj pro poslední zprávu, která lze doručit do klientů nebo použít rozhodnout o které proměnné, které mají být zahrnuty v kroku následné modelování exportovat.
+Tento nástroj na základě markdownu R poskytuje flexibilní a interaktivní nástroj k vyhodnocení a prozkoumejte datových sad. Uživatele můžete rychle vytvořit sestavy z datové sady s minimální kódování. Uživatelé mohou klepnutím na tlačítko Exportovat výsledky zkoumání v nástroji pro interaktivní do konečné zprávu, která lze doručit do klientů nebo použít rozhodnout o které proměnné, které mají být zahrnuty v kroku následné modelování.
 
 V tomto okamžiku nástroj funguje pouze v datových rámců v paměti. Soubor .yaml je potřeba zadat parametry sadu dat má být zkoumána. Další informace najdete v tématu [IDEAR v TDSP datové vědy nástroje](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
@@ -229,7 +237,7 @@ Data vědecké účely skupiny správců, týmů a potřeba zájemců projektu s
 
 Naučte se vytvářet řídicí panely Power BI a sestavy ke sledování aktivit úložiště Git a pracovní položky po data služby VSTS je připojená k Power BI, najdete v tématu [Power BI vytvořit řídicí panely a sestavy](https://www.visualstudio.com/en-us/docs/report/powerbi/report-on-vso-with-power-bi-vs). 
 
-Tady jsou dvě jednoduchý příklad řídicí panely, které jsme od sestavení k sledování Git aktivity a pracovní položky. Na řídicím panelu prvního příkladu aktivity závazků git jsou uvedené různými uživateli na různá data a na různých úložišť. Můžete snadno vyfiltrování a rozčlenění vyfiltrujete ty, které vás zajímají.
+Tady jsou dvě jednoduchý příklad řídicí panely, které jsou vytvořené a sledování činností Git pracovní položky. Na řídicím panelu prvního příkladu aktivity závazků git jsou uvedené různými uživateli na různá data a na různých úložišť. Můžete snadno vyfiltrování a rozčlenění vyfiltrujete ty, které vás zajímají.
 
 ![23](./media/project-execution/project-execution-23-powerbi-git.png)
 
@@ -240,6 +248,6 @@ Na řídicím panelu druhý příklad uvádíme pracovních položek (scénáře
  
 ## <a name="next-steps"></a>Další kroky
 
-Úplné návody začátku do konce, které ukazují všechny kroky v procesu pro **konkrétních scénářů** jsou také uvedeny. Jsou uvedena v seznamu a propojené s miniatur popisy v [příklad návody](walkthroughs.md) tématu. Se ukazují, jak kombinovat cloud, místní nástroje a služby do pracovního postupu nebo kanálu vytvoření inteligentního aplikace. 
+Úplné návody začátku do konce, které ukazují všechny kroky v procesu pro **konkrétních scénářů** jsou také uvedeny. Jsou uvedena v seznamu a propojené s miniatur popisy v [příklad návody](walkthroughs.md) článku. Se ukazují, jak kombinovat cloud, místní nástroje a služby do pracovního postupu nebo kanálu vytvoření inteligentního aplikace. 
 
 Příklady provedením kroků v procesu Team dat. vědecké účely, které používají Azure Machine Learning Studio najdete v tématu [s Azure ML](http://aka.ms/datascienceprocess) kurzů.

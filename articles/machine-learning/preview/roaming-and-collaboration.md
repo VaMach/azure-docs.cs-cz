@@ -2,19 +2,19 @@
 title: "Roaming a spolupráce v Azure strojového učení Workbench | Microsoft Docs"
 description: "Příručka k řešení a seznam známých problémů"
 services: machine-learning
-author: svankam
-ms.author: svankam
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017
-ms.openlocfilehash: 156dd1b7f928df22b3feb9e7a13396d3b53a91d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.openlocfilehash: 856348c07a198a8c53c6661441d5c49196ef3af5
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming a spolupráce v Azure Machine Learning Workbench
 Tento dokument vás provede jak Azure Machine Learning Workbench vám mohou pomoci přenášet projekty mezi počítače, jakož i povolení spolupráce s ostatními členy týmu. 
@@ -90,23 +90,16 @@ Alice klikne na **soubor** nabídky a vybere **příkazového řádku** položky
 # Find ARM ID of the experimnetation account
 az ml account experimentation show --query "id"
 
-# Add Bob to the Experimentation Account as a Reader.
-# Bob now has read access to all workspaces and projects under the Account by inheritance.
-az role assignment create --assignee bob@contoso.com --role Reader --scope <experimentation account ARM ID>
+# Add Bob to the Experimentation Account as a Contributor.
+# Bob now has read/write access to all workspaces and projects under the Account by inheritance.
+az role assignment create --assignee bob@contoso.com --role Contributor --scope <experimentation account ARM ID>
 
 # Find ARM ID of the workspace
 az ml workspace show --query "id"
 
-# Add Bob to the workspace as a Contributor.
-# Bob now has read/write access to all projects under the Workspace by inheritance.
-az role assignment create --assignee bob@contoso.com --role Contributor --scope <workspace ARM ID>
-
-# find ARM ID of the project 
-az ml project show --query "id"
-
-# Add Bob to the Project as an Owner.
-# Bob now has read/write access to the Project, and can add others too.
-az role assignment create --assignee bob@contoso.com --role Owner --scope <project ARM ID>
+# Add Bob to the workspace as an Owner.
+# Bob now has read/write access to all projects under the Workspace by inheritance. And he can invite or remove others.
+az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace ARM ID>
 ```
 
 Po přiřazení role přímo nebo prostřednictvím dědičnosti, Bob vidí na projekt v seznamu Workbench projektu. Aplikace může být nutné restartování, chcete-li zobrazit projektu. Bob pak můžete stáhnout projektu, jak je popsáno v [Roaming části](#roaming) a spolupracovat s Alice. 
@@ -124,3 +117,81 @@ Najít prostředek, který Pokud chcete přidat uživatele zobrazíte ze všech 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
+## <a name="sample-collaboration-workflow"></a>Ukázkový pracovní postup spolupráce
+Pro ilustraci toku spolupráce, projděme příklad. Zaměstnanci contoso Alice a Bob chcete spolupracovat na projektu vědecké účely dat pomocí Azure ML Workbench. Svou identitu patřit do stejné klientovi Contoso Azure AD.
+
+1. Alice nejprve vytvoří prázdný úložiště Git v projektu služby VSTS. Tento projekt služby VSTS by měl za provozu v předplatné Azure vytvořili v rámci klienta Contoso AAD. 
+
+2. Alice pak vytvoří účet Azure ML experimentování, pracovní prostor a projektu Azure ML Workbench na svém počítači. Jana poskytuje adresu URL úložiště Git, při vytváření projektu.
+
+3. Alice začne pracovat na projektu. Vytvoří některé skripty a provede několik spustí. Při každém spuštění se automaticky snímek složce celý projekt posune do historie spouštění větev z úložiště služby VSTS Git, vytvořené Workbench jako potvrzení.
+
+4. Alice je nyní radostí s probíhající práce. Chce jeho změnu místní potvrdit _hlavní_ větev a doručí jej do úložiště Git služby VSTS _hlavní_ firemní pobočky. Uděláte to tak, že s projektem otevřeným se spustí v okně příkazového řádku Azure ML Workbench a vydá následující příkazy:
+    
+    ```sh
+    # verify the Git remote is pointing to the VSTS Git repo
+    $ git remote -v
+
+    # verify that the current branch is master
+    $ git branch
+
+    # stage all changes
+    $ git add -A
+
+    # commit changes with a comment
+    $ git commit -m "this is a good milestone"
+
+    # push the commit to the master branch of the remote Git repo in VSTS
+    $ git push
+    ```
+
+5. Alice pak přidá Roberta do pracovního prostoru jako Přispěvatel. Bude moct provést z portálu Azure nebo pomocí `az role assignment` příkaz ilustrují výše. Jana také uděluje Bob přístup pro čtení nebo zápis do úložiště Git služby VSTS.
+
+6. Bob teď nástroje Azure ML Workbench přihlásí na svém počítači. Si můžete zobrazit Alice prostoru sdílet s ním a projekt uvedené v části tohoto pracovního prostoru. 
+
+7. Robert klikne na název projektu a projekt se stáhne do svého počítače.
+    
+    a. Spustí zaznamenané v historii spouštění klony snímku nejnovější jsou soubory staženého projektu. Nejsou poslední potvrzení na hlavní větve.
+    
+    b. Složka místní projektu je nastavena na _hlavní_ firemní pobočky s unstaged změny.
+
+8. Bob teď můžete procházet spustí provedený Alice a obnovení snímku všech předchozích spuštění.
+
+9. Bob chce získání nejnovějších změn nabídnutých podle Alice a začít pracovat na jinou firemní pobočky. Tak, aby mohl otevře okno příkazového řádku z Azure ML Workbench a spouští následující příkazy:
+
+    ```sh
+    # verify the Git remote is pointing to the VSTS Git repo
+    $ git remote -v
+
+    # verify that the current branch is master
+    $ git branch
+
+    # get the latest commit in VSTS Git master branch and overwrite current files
+    $ git pull --force
+
+    # create a new local branch named "bob" so Bob's work is done on the "bob" branch
+    $ git checkout -b bob
+    ```
+
+10. Bob teď upraví projektu a odeslání nové spuštění. Změny se provádějí v _bob_ firemní pobočky. A také budou zobrazeny Alici Boba spustí.
+
+11. Robert je nyní připraven k nabízení své změny do vzdáleného úložiště Git. Aby se zabránilo konfliktu s _hlavní_ firemní pobočky, kde Alice pracuje, rozhodne se push svou práci do nové vzdálené větve také s názvem _bob_.
+
+    ```sh
+    # verify that the current branch is "bob" and it has unstaged changes
+    $ git status
+    
+    # stage all changes
+    $ git add -A
+
+    # commit them with a comment
+    $ git commit -m "I found a cool new trick."
+
+    # create a new branch on the remote VSTS Git repo, and push changes
+    $ git push origin bob
+    ```
+
+12. Bob můžete v jeho kód, pak říct Alice o nové nástrojů efektu a vytvoří žádost o přijetí změn na vzdálené úložiště Git z _bob_ větvení do _hlavní_ firemní pobočky. A Alice můžete pak je sloučit žádost o přijetí změn do _hlavní_ firemní pobočky.
+
+## <a name="next-steps"></a>Další kroky
+Další informace o Azure ML Workbench pomocí Git: [úložiště Git pomocí služby Azure Machine Learning Workbench projektu](using-git-ml-project.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: 44dc7b18d46d1e75e8b55b6e32a346272a06bda9
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b515e05d16dda83c7d865113d5d3578c44be084f
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Porovnání Azure IoT Hub a Azure Event Hubs
 Jedním z případů se využívá pro IoT Hub je ke shromažďování telemetrických dat ze zařízení. Z tohoto důvodu IoT Hub je často ve srovnání s [Azure Event Hubs][Azure Event Hubs]. Jako IoT Hub Event Hubs je služba, která umožňuje příchozího událostí a telemetrie do cloudu v masivním měřítku, s nízkou latencí a vysokou spolehlivostí zpracování událostí.
@@ -47,7 +47,7 @@ Další informace o plánování nasazení služby IoT Hub, najdete v části [�
 Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 
 * [Příručka vývojáře pro službu IoT Hub][lnk-devguide]
-* [Simulaci zařízení s hranou IoT][lnk-iotedge]
+* [Nasazení AI do hraniční zařízení s Azure IoT Edge][lnk-iotedge]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
@@ -63,5 +63,5 @@ Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

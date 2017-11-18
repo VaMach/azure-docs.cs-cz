@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: raiye
-ms.openlocfilehash: ad23a38800a282b81d95eb5b15b218d86d3c0bc9
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/17/2017
@@ -88,7 +88,7 @@ Nainstalované rozhraní .NET framework: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6
 
 | Konfigurační řetězec | Datum vydání | Zakázat datum | Vypršela platnost datum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-01 |8 listopadu 2017 |POST 5.14 |Bude doplněno |
+| WA-GUEST-OS-5.12_201710-02 |8 listopadu 2017 |POST 5.14 |Bude doplněno |
 | WA-GUEST-OS-5.11_201709-01 |6 říjen 2017 |POST 5.13 |Bude doplněno |
 | WA-GUEST-OS-5.10_201708-01 |24 srpen 2017 |POST 5.12 |Bude doplněno |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3. srpna 2017 |8 listopadu 2017 |Bude doplněno |
@@ -134,7 +134,7 @@ Nainstalované rozhraní .NET framework: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Konfigurační řetězec | Datum vydání | Zakázat datum | Vypršela platnost datum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-01 |8 listopadu 2017 |POST 3.56 |Bude doplněno |
+| WA-GUEST-OS-3.54_201710-02 |8 listopadu 2017 |POST 3.56 |Bude doplněno |
 | WA-GUEST-OS-3.53_201709-01 |6 říjen 2017 |POST 3.55 |Bude doplněno |
 | WA-GUEST-OS-3.52_201708-01 |24 srpen 2017 |POST 3.54 |Bude doplněno |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3. srpna 2017 |8 listopadu 2017 |Bude doplněno |
@@ -157,7 +157,7 @@ Nainstalované rozhraní .NET framework: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Konfigurační řetězec | Datum vydání | Zakázat datum | Vypršela platnost datum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-01 |8 listopadu 2017 |POST 2.69 |Bude doplněno |
+| WA-GUEST-OS-2.67_201710-02 |8 listopadu 2017 |POST 2.69 |Bude doplněno |
 | WA-GUEST-OS-2.66_201709-01 |6 říjen 2017 |POST 2.68 |Bude doplněno |
 | WA-GUEST-OS-2.65_201708-01 |24 srpen 2017 |POST 2.67 |Bude doplněno |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3. srpna 2017 |8 listopadu 2017 |Bude doplněno |

@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: arramac
-ms.openlocfilehash: 99f3ddb165fa548ca1d65676bb1f945632c72dd3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1dcc2178b3c7017338e0097773fbf0d04c8b6a20
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API pomocí Node.js a Azure Cosmos DB
 
@@ -74,8 +74,6 @@ Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-3. Potom otevřete soubor řešení v sadě Visual Studio. 
-
 ## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
 Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. To umožňuje aplikaci ke komunikaci s vaší hostované databází. 
@@ -84,7 +82,9 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
     ![Zobrazení a zkopírujte řetězec informace o požadované připojení z v podokně připojovací řetězec](./media/create-table-nodejs/connection-string.png)
 
-2. Otevřete soubor app.config a zkopírujte požadované připojovací řetězec vlastnosti do konfiguračního souboru.
+2. Zkopírujte primární PŘIPOJOVACÍ řetězec pomocí tlačítko Kopírovat na pravé straně.
+
+3. Otevřete soubor app.config a vložte hodnotu do připojovacího řetězce na řádku tři. Pokud koncový bod část připojovací řetězec používá documents.azure.com, opravte část table.cosmosdb.azure.com místo toho chcete použít.
 
 3. Uložte soubor app.config.
 
@@ -94,14 +94,19 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 
 1. V okně terminálu git `cd` ke složce úložiště tabulky java-getting-started.
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Okno terminálu, spusťte následující příkazy ke spuštění v gitu spustit aplikaci Java.
+2. Spusťte následující příkaz k instalaci [azure], [uzlu uuid], [nconf] a [asynchronní] moduly místně i tak, aby pro ně v souboru package.json uložte položku
 
-    ```git
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. Okno terminálu, spusťte následující příkazy ke spuštění v gitu spustit aplikaci uzlu.
+
+    ```
     node ./tableSample.js 
     ```
 

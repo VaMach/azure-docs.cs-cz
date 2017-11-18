@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e87a37b7aafd774fb0176b74968ad0bba0f5cf3b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Spravovat základní zásady pro testovací prostředí v Azure DevTest Labs
 
-Azure DevTest Labs umožňuje řídit náklady a minimalizovat odpady ve vaší laboratoře podle Správa zásad (nastavení) pro každý testovací prostředí. V tomto článku jste Začínáme se zásadami naučit, jak nastavit dva nejdůležitější zásad – omezení počtu virtuálních počítačů (VM), které můžou vytvořit nebo jeden jeden uživatel a konfigurací automaticky vypnutí. Chcete-li zobrazit tom, jak nastavit zásady každých testovacího prostředí, najdete v článku [definovat zásady testovacího prostředí v Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
+Azure DevTest Labs umožňuje řídit náklady a minimalizovat odpady ve vaší laboratoře podle Správa zásad (nastavení) pro každý testovací prostředí. V tomto článku jste Začínáme se zásadami naučit, jak nastavit dva nejdůležitější zásad – omezení počtu virtuálních počítačů (VM), které můžou vytvořit nebo jeden jeden uživatel a konfigurací automaticky vypnutí. Jak nastavit každé zásadě testovacího prostředí najdete v tématu [definovat zásady testovacího prostředí v Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
 ## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Přístup k zásady testovacího prostředí v Azure DevTest Labs
 Následující postup vás provede nastavením zásad pro testovací prostředí v Azure DevTest Labs:
@@ -37,9 +37,9 @@ K zobrazení (a změna) zásady pro testovacím prostředí, postupujte takto:
 
 1. Vyberte **konfiguraci a zásady**.
 
-    ![Okna nastavení zásad](./media/devtest-lab-set-lab-policy/policies-menu.png)
+    ![Podokno nastavení zásad](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. **Konfiguraci a zásady** okno obsahuje nabídky nastavení, které můžete zadat. Tento článek se týká jenom nastavení pro **virtuálních počítačů na uživatele** a **Auto-shutdown**. Další informace o zbývající nastavení najdete v tématu [Správa všech zásad pro testovací prostředí v Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
+1. **Konfiguraci a zásady** podokně obsahuje nabídky nastavení, které můžete zadat. Tento článek se týká jenom nastavení pro **virtuálních počítačů na uživatele**, **Auto-shutdown**, a **automatického spuštění**. Další informace o zbývající nastavení najdete v tématu [Správa všech zásad pro testovací prostředí v Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
    
 ## <a name="set-virtual-machines-per-user"></a>Sada virtuálních počítačů na uživatele
 Zásady pro **virtuálních počítačů na uživatele** umožňuje určit maximální počet virtuálních počítačů, které je možné vytvářet podle jednotlivých uživatelů. Pokud se uživatel pokusí o vytvoření nebo deklarací identity virtuálního počítače, když byla splněna limit počtu uživatelů, chybová zpráva označuje, že virtuální počítač nelze vytvořit vyžádaná. 
@@ -57,7 +57,7 @@ Zásady pro **virtuálních počítačů na uživatele** umožňuje určit maxim
 ## <a name="set-auto-shutdown"></a>Sada auto vypnutí
 Vypnutí automatického zásada pomáhá minimalizovat odpady testovacího prostředí tím, že se vám zadejte dobu, kterou vypnout virtuální počítače v tomto testovacím prostředí.
 
-1. V tomto prostředí **konfiguraci a zásady** vyberte **Auto-shutdown**.
+1. V tomto prostředí **konfiguraci a zásady** podokně, vyberte **Auto-shutdown**.
    
     ![Vypnutí automatického](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -65,16 +65,18 @@ Vypnutí automatického zásada pomáhá minimalizovat odpady testovacího prost
 
 1. Pokud povolíte tuto zásadu, zadejte dobu (a časového pásma) a ukončí se všechny virtuální počítače v aktuálním prostředí.
 
-1. Zadejte **Ano** nebo **ne** pro možnost Odeslat oznámení 15 minut před časem zadaný auto vypnutí. Pokud zadáte **Ano**, zadejte koncový bod adresy URL webhooku pro příjem oznámení. Další informace o webhooky najdete v tématu [vytvoření webhooku nebo funkce rozhraní API Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Zadejte **Ano** nebo **ne** pro možnost Odeslat oznámení 15 minut před časem zadaný auto vypnutí. Pokud se rozhodnete **Ano**, zadejte koncový bod adresy URL webhooku nebo e-mailová adresa určující, kde se má oznámení odesílat nebo odeslat. Uživatel obdrží oznámení a je zadána možnost zpoždění ukončení.
+
+   Další informace o webhooky najdete v tématu [vytvoření webhooku nebo funkce rozhraní API Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Vyberte **Uložit**.
 
-    Ve výchozím nastavení, jakmile bude povoleno, tato zásada platí pro všechny virtuální počítače v aktuálním prostředí. Chcete-li toto nastavení odebrat z konkrétní virtuální počítač, otevřete okno Virtuálního počítače a změňte jeho **Auto-shutdown** nastavení 
+Ve výchozím nastavení, jakmile bude povoleno, tato zásada platí pro všechny virtuální počítače v aktuálním prostředí. Chcete-li toto nastavení odebrat z konkrétní virtuální počítač, otevřete podokno Správa Virtuálního počítače a změňte jeho **Auto-shutdown** nastavení.
 
 ## <a name="set-auto-start"></a>Sada automatického – spuštění
 Automaticky spouštěná zásady umožňuje zadat při virtuálních počítačů v aktuálním prostředí by měl být spuštěn.  
 
-1. V tomto prostředí **konfiguraci a zásady** vyberte **automatického spuštění**.
+1. V tomto prostředí **konfiguraci a zásady** podokně, vyberte **automatického spuštění**.
    
     ![Automatické spuštění](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -84,8 +86,8 @@ Automaticky spouštěná zásady umožňuje zadat při virtuálních počítač�
 
 4. Vyberte **Uložit**.
 
-    Jakmile bude povoleno, není tato zásada použitá automaticky všechny virtuální počítače v aktuálním prostředí. Chcete-li použít tato nastavení pro konkrétní virtuální počítač, otevřete okno Virtuálního počítače a změňte jeho **automatického spuštění** nastavení 
+Jakmile bude povoleno, není tato zásada použitá automaticky všechny virtuální počítače v aktuálním prostředí. Chcete-li použít tato nastavení pro existující virtuální počítač, otevřete podokno Správa Virtuálního počítače a změňte jeho **automatického spuštění** nastavení.
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Definovat zásady testovacího prostředí v Azure DevTest Labs](devtest-lab-set-lab-policy.md) – zjistěte, jak upravit jiných zásad testovacího prostředí 
+- [Definovat zásady testovacího prostředí v Azure DevTest Labs](devtest-lab-set-lab-policy.md) – zjistěte, jak upravit jiných zásad testovacího prostředí.

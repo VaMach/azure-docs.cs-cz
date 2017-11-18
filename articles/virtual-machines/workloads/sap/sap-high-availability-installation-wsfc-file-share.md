@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7b403518c75c72b68957f94dcac750cd922f6bc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: fc957ece0250d233db9cec4f1fdd8b063c13a136
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Nainstalujte SAP NetWeaver vysokou dostupnost systému Windows převzetí služeb při selhání clusteru a sdílení souborů pro SAP ASC nebo SCS instance na Azure
 
@@ -33,6 +33,8 @@ ms.lasthandoff: 11/16/2017
 [1596496]:https://launchpad.support.sap.com/#/notes/1596496
 
 [sap-installation-guides]:http://service.sap.com/instguides
+
+[sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -367,7 +369,7 @@ Get-ClusterAccess
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Vytvořte název virtuálního hostitele pro SAP ASC nebo SCS skupinu prostředků clusteru
 
-Vytvoření názvu sítě clusteru SAP ASC nebo SCS (například **pr1-ASC [10.0.6.7]**), jak je popsáno v [vytvořte název virtuálního hostitele pro skupinu prostředků clusteru SAP ASC nebo SCS] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] . 
+Vytvoření názvu sítě clusteru SAP ASC nebo SCS (například **pr1-ASC [10.0.6.7]**), jak je popsáno v [vytvořte název virtuálního hostitele pro skupinu prostředků clusteru SAP ASC nebo SCS] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
 
 ## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>Aktualizovat profil instance SAP ASC nebo SCS a výchozí
 
@@ -414,17 +416,17 @@ Pokud chcete používat nový název virtuálního hostitele SAP ASC nebo SCS a 
 >Rutiny prostředí PowerShell podporuje SAP ABAP ASC i SAP Java SCS instancí.
 >
 
-Kopírování **SAPScripts.ps1** na vašem místním jednotek C:\tmp a spusťte následující rutinu prostředí PowerShell:
+Kopírování [ **SAPScripts.psm1** ] [ sap-powershell-scrips] na vašem místním jednotek C:\tmp a spusťte následující rutinu prostředí PowerShell:
 
 ```PowerShell
-Import-Module C:\tmp\SAPScripts.ps1
+Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Obrázek 1: SAPScripts.ps1 výstup][sap-ha-guide-figure-8012]
+![Obrázek 1: SAPScripts.psm1 výstup][sap-ha-guide-figure-8012]
 
-_**Obrázek 1**: SAPScripts.ps1 výstup_
+_**Obrázek 1**: SAPScripts.psm1 výstup_
 
 ## <a name="update-the-sidadm-user-environment-variable"></a>Aktualizace \<sid > adm uživatelské prostředí proměnné
 

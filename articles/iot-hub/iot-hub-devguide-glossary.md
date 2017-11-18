@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosář termínů služby IoT Hub
 V tomto článku jsou uvedeny některé z běžných termínů používaných v článcích IoT Hub.
@@ -37,7 +37,7 @@ V tomto článku jsou uvedeny některé z běžných termínů používaných v 
 Existují _sady SDK pro zařízení_ k dispozici více jazyků, které vám umožní vytvořit [aplikací pro zařízení](#device-app) které komunikují s služby IoT hub. IoT Hub kurzy vám ukážou, jak používat tyto sady SDK zařízení. Zdrojový kód a další informace o zařízení sady SDK můžete najít v této Githubu [úložiště](https://github.com/Azure/azure-iot-sdks).
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
-Okraj IoT umožňuje psát aplikace, které umožňují připojení brány zařízením komunikovat s [IoT Hub](#iot-hub). Kurzy IoT Edge ukazují, jak tuto službu využívat. Zdrojový kód a další informace o Azure IoT Edge můžete najít v této Githubu [úložiště](https://github.com/Azure/iot-edge).
+Azure IoT hraniční přesune cloudu analýzy a vlastní obchodní logiku do zařízení, tak, aby vaší organizace můžete soustředit na obchodní údaje namísto dat správy. Povolte řešení skutečně škálování konfiguraci vašeho softwaru IoT, jeho nasazení na zařízení prostřednictvím standardní kontejnery a monitorování všech z cloudu. Začínáme s kurz, který ukazuje, jak nainstalovat a používat Azure IoT Edge na [Linux](../iot-edge/tutorial-simulate-device-linux.md) nebo [Windows](../iot-edge/tutorial-simulate-device-windows.md) zařízení.
 
 ## <a name="azure-iot-service-sdks"></a>Služby sady SDK služby Azure IoT
 Existují _služby sady SDK_ k dispozici více jazyků, které vám umožní vytvořit [back-end aplikace](#back-end-app) které komunikují s služby IoT hub. IoT Hub kurzy vám ukážou, jak používat tyto služby SDK. Zdrojový kód a další informace o sadách SDK služby můžete najít v této Githubu [úložiště](https://github.com/Azure/azure-iot-sdks).
@@ -189,7 +189,7 @@ Můžete použít váš back-end řešení [úlohy](iot-hub-devguide-jobs.md) k 
 [Úloh REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) umožňuje spravovat [úlohy](#job) spuštěná ve službě IoT hub.
 
 ## <a name="module"></a>Modul
-V [Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md), [modulu](iot-hub-linux-iot-edge-get-started.md) je komponenta, která provádí konkrétní úlohu. Úlohy mohou zahrnovat příjem zpráv ze zařízení, transformace zprávu nebo odesílání zprávy do služby IoT hub. Zprostředkovatel je zodpovědná za předávání zpráv mezi moduly. Azure IoT Edge zahrnuje sadu ukázka modulů. Můžete také vytvořit vlastní moduly.
+V [Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md), [modulu](../iot-edge/iot-edge-modules.md) je komponenta, která provádí konkrétní úlohu. Úlohy mohou zahrnovat příjem zpráv ze zařízení, transformace zprávu nebo odesílání zprávy do služby IoT hub. Zprostředkovatel je zodpovědná za předávání zpráv mezi moduly. Azure IoT Edge zahrnuje sadu ukázka modulů. Můžete také vytvořit vlastní moduly.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) je jedním z zasílání zpráv protokoly, které [IoT Hub](#iot-hub) podporuje pro komunikaci se zařízeními. Další informace o zasílání zpráv protokolů, které podporuje Centrum IoT najdete v tématu [odesílat a přijímat zprávy službou IoT Hub](iot-hub-devguide-messaging.md).

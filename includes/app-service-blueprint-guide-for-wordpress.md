@@ -1,7 +1,7 @@
 ## <a name="wordpress-and-azure-app-service"></a>WordPress a službou Azure App Service
 * [Co je WordPress?](https://wordpress.org/)
-* [Tom, jak zakoupit MySQL cleardb – sdílené hostování pro aplikace WordPress](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
-* [Jak k nákupu ClearDB vyhrazené MySQL clusteru pro aplikace WordPress](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
+* [Vytvořit web WordPress na portálu Azure](https://portal.azure.com/#create/WordPress.WordPress)s
+* [Ruční vytvoření databáze MySQL v Azure](../articles/mysql/quickstart-create-mysql-server-database-using-azure-portal.md)
 * [Nasazení webové aplikace WordPress zálohovaný s replikace cluster MySQL.](/documentation/templates/wordpress-mysql-replication/)
 * [Sestavení vlastní MySQL Cluster hlavní-Master pomocí clusteru Percona](/documentation/templates/mysql-ha-pxc/) a [Další informace o tom, jak spravovat cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 * [Nasazení WordPress založenou na MySQL replikace cluster s konfigurací hlavní podřízený](/documentation/templates/mysql-replication/)
@@ -11,9 +11,9 @@
 * [Řešení potíží s aplikace WordPress](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [Shromážděte telemetrii využití pomocí služby Azure Application Insights](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
 * [Spouštění vaší webové aplikace na diagnostikovat problémy a výkonu Zend Zray profileru](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
-* [Pomocí portálu Kudu podporu diagnostikovat a zmírnit problémy v reálném čase](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
-* [Pomocí různých auto retušovat pravidla k automatizaci řešení incidentů v reálném čase.](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
-* [Postup zálohování webové aplikace](../articles/app-service/web-sites-backup.md) a [obnovení webové aplikace](../articles/app-service/web-sites-restore.md)
+* [Pomocí portálu Kudu podporu diagnostikovat a zmírnit problémy](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
+* [Použití různých auto retušovat pravidla automaticky řešení incidentů](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
+* [Jak zálohovat vaší webové aplikace](../articles/app-service/web-sites-backup.md) a [obnovení webové aplikace](../articles/app-service/web-sites-restore.md)
 
 ## <a name="performance"></a>Výkon
 * [Jak urychlit webové aplikace WordPress](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)

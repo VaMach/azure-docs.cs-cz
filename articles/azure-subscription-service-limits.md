@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: 823ae2dbb2f0cbff9d9b6db21fadbbbc1d2afe36
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity, kvóty a omezení předplatného a služeb Azure
 Tento dokument uvádí některé z nejběžnějších omezení Microsoft Azure, což se taky někdy označují jako kvóty. Tento dokument nepokrývá aktuálně všech služeb Azure. V čase v seznamu rozbalit a aktualizovat tak, aby pokrývalo více platformou.
@@ -64,6 +64,7 @@ V níže uvedené limity se přidal nové tabulky, aby odrážela případné ro
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
+* [Služba migrace databáze](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
@@ -126,20 +127,6 @@ V následující tabulce jsou funkcí a omezení Basic, Standard a Premium [úro
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-### <a name="virtual-machine-disk-limits"></a>Omezení disku virtuálního počítače 
-[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
-
-#### <a name="managed-virtual-machine-disks"></a>Disky spravovaných virtuálních počítačů
-
-[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
-
-#### <a name="unmanaged-virtual-machine-disks"></a>Disky nespravované virtuálního počítače
-
-[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
-
 ### <a name="networking-limits"></a>Síťová omezení
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
@@ -182,6 +169,22 @@ Další informace o omezení Azure soubory v [Azure Files škálovatelnosti a c�
 
 #### <a name="azure-table-storage-limits"></a>Limity úložiště Azure Table
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
+
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+#### <a name="virtual-machine-disk-limits"></a>Omezení disku virtuálního počítače
+[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
+
+V tématu [velikostí virtuálních počítačů](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) další podrobnosti.
+
+#### <a name="managed-virtual-machine-disks"></a>Disky spravovaných virtuálních počítačů
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### <a name="unmanaged-virtual-machine-disks"></a>Disky nespravované virtuálního počítače
+
+[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
+
+[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
 ### <a name="cloud-services-limits"></a>Omezení cloudové služby
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
@@ -260,6 +263,9 @@ Další informace o omezeních na podrobnější úrovni, jako je například ve
 
 ### <a name="data-lake-store-limits"></a>Omezení data Lake Store
 [!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
+
+### <a name="database-migration-service-limits"></a>Omezení služby migrace databáze
+[!INCLUDE [database-migration-service-limits](../includes/database-migration-service-limits.md)]
 
 ### <a name="stream-analytics-limits"></a>Omezuje služby Stream Analytics
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]

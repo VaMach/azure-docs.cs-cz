@@ -9,11 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Nejčastější dotazy k Azure Machine Learning
 
@@ -165,7 +165,6 @@ Nástroje pro přípravu dat v Workbench aktuálně podporují přijímání z n
 Pro verzi public preview podporuje Workbench přijímání dat od: 
 - Místní pevný disk nebo namapované síťové umístění úložiště
 - Azure BLOB nebo Azure Storage (vyžaduje předplatné služby Azure)
-- Azure Data Lake nebo Azure Data Lake Storage (vyžaduje předplatné služby Azure)
 - Server Azure SQL
 - Microsoft SQL Server
 

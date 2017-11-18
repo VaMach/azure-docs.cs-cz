@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0aafdade2cbf293cf70f09721102ae8ceaef6303
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2097aa1c158f88a06ab93123f4e374b4245430d6
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Rychlý úvod: Vytváření Cassandra aplikace Java a Azure Cosmos DB
 
@@ -28,9 +28,9 @@ Azure Cosmos DB je globálně distribuované databáze více modelu služby spol
 
 ## <a name="prerequisites"></a>Požadavky
 
-Přístup k rozhraní API služby Azure Cosmos DB Cassandra programu preview. Pokud jste ještě nenainstalovali pro přístup k ještě [nyní](https://aka.ms/cosmosdb-cassandra-signup).
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Alternativně můžete [zkuste Azure Cosmos DB zdarma](https://azure.microsoft.com/try/cosmosdb/) bez předplatného Azure, bez poplatků a závazky.
+
+Přístup k rozhraní API služby Azure Cosmos DB Cassandra programu preview. Pokud jste ještě nenainstalovali pro přístup k ještě [nyní](cassandra-introduction.md#sign-up-now).
 
 Navíc platí: 
 
@@ -41,6 +41,8 @@ Navíc platí:
     * Na Ubuntu můžete Maven nainstalovat spuštěním příkazu `apt-get install maven`.
 * [Git](https://www.git-scm.com/)
     * Na Ubuntu můžete Git nainstalovat spuštěním příkazu `sudo apt-get install git`.
+
+
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 

@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: be2a80645d23e709d6c5cfb3978498bbe85eca34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a78efef6bc82a837782c462bc3558a9582a8da7c
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Nainstalovat modul runtime IoT Edge na jádro IoT Windows – náhled
 
@@ -25,8 +25,22 @@ Modulu Runtime Azure IoT Edge můžete spustit i na malá velikost počítače j
 1. Nainstalujte [řídicího panelu Windows 10 IoT Core] [ lnk-core] v hostitelském systému.
 1. Postupujte podle kroků v [nastavit vaše zařízení] [ lnk-board] ke konfiguraci vaší karty MinnowBoard kambala velká nebo maximální sestavení 16299 Image. 
 1. Zařízení, povolit pak [přihlášení vzdáleně pomocí prostředí PowerShell][lnk-powershell].
-1. V konzole PowerShell [nainstalovat binární soubory Docker][lnk-docker-install].
-1. V konzole PowerShell k instalaci modulu runtime IoT okraj a ověřte konfiguraci spusťte následující příkaz:
+1. V konzole PowerShell instalaci modulu runtime kontejneru: 
+
+   ```powershell
+   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-17.06.0-dev.zip -o temp.zip
+   Expand-Archive .\temp.zip $env:ProgramFiles -f
+   Remove-Item .\temp.zip
+   $env:Path += ";$env:programfiles\docker"
+   SETX /M PATH "$env:Path"
+   dockerd --register-service
+   start-service docker
+   ```
+
+   >[!NOTE]
+   >Tento skript prostředí PowerShell je ze serveru sestavení projektu Moby a je určená jenom pro účely hodnocení. Ho má není otestovat, schválené nebo nepodporuje Docker.
+
+1. Nainstalovat modul runtime IoT okraj a ověřte konfiguraci:
 
    ```powershell
    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)

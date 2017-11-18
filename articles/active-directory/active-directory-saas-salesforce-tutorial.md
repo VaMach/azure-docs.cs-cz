@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 7471a6999ac4dcd15f5162e69cb0100cc1e3b14f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9aecd7310ad44eb585c1326a3c705ed822735b9a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Kurz: Azure Active Directory integrace s Salesforce
 
@@ -25,9 +26,9 @@ V tomto kurzu zjistěte, jak integrovat Salesforce s Azure Active Directory (Azu
 
 Integrace služby Salesforce s Azure AD poskytuje následující výhody:
 
-- Můžete řídit ve službě Azure AD, který má přístup do služby Salesforce
-- Můžete povolit uživatelům, aby automaticky získat přihlášení k Salesforce (jednotné přihlášení) s jejich účty Azure AD
-- Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure
+- Můžete ovládat ve službě Azure AD, který má přístup do služby Salesforce.
+- Můžete povolit uživatelům, aby automaticky získat přihlášení k Salesforce (jednotné přihlášení) s jejich účty Azure AD.
+- Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure.
 
 Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, najdete v části [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -36,7 +37,7 @@ Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, n
 Ke konfiguraci integrace služby Azure AD pomocí služby Salesforce, potřebujete následující položky:
 
 - Předplatné služby Azure AD
-- Služby Salesforce jednotného přihlašování povolené předplatné
+- Služby Salesforce jednotné přihlašování povolené předplatné
 
 > [!NOTE]
 > K testování kroky v tomto kurzu, nedoporučujeme používání provozním prostředí.
@@ -44,7 +45,7 @@ Ke konfiguraci integrace služby Azure AD pomocí služby Salesforce, potřebuje
 Chcete-li otestovat kroky v tomto kurzu, postupujte podle těchto doporučení:
 
 - Nepoužívejte provozním prostředí, pokud to není nutné.
-- Pokud nemáte prostředí zkušební verze Azure AD, můžete získat zkušební verze jeden měsíc [zde](https://azure.microsoft.com/pricing/free-trial/).
+- Pokud nemáte prostředí zkušební verze Azure AD, můžete [získat zkušební verzi jeden měsíc](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Popis scénáře
 V tomto kurzu můžete otestovat Azure AD jednotné přihlašování v testovacím prostředí. Scénáři uvedeném v tomto kurzu se skládá ze dvou hlavních stavebních bloků:
@@ -59,40 +60,37 @@ Při konfiguraci integrace služby Salesforce do služby Azure AD potřebujete p
 
 1. V  **[portál Azure](https://portal.azure.com)**, v levém navigačním panelu klikněte na tlačítko **Azure Active Directory** ikonu. 
 
-    ![Active Directory][1]
+    ![Tlačítko Azure Active Directory][1]
 
 2. Přejděte na **podnikové aplikace, které**. Pak přejděte na **všechny aplikace**.
 
-    ![Aplikace][2]
+    ![V okně podnikové aplikace][2]
     
-3. Klikněte na tlačítko **novou aplikaci** tlačítko horní dialogové okno.
+3. Chcete-li přidat novou aplikaci, klikněte na tlačítko **novou aplikaci** tlačítko horní dialogové okno.
 
-    ![Aplikace][3]
+    ![Tlačítko nové aplikace][3]
 
-4. Do vyhledávacího pole zadejte **Salesforce**.
+4. Do vyhledávacího pole zadejte **Salesforce**, vyberte **Salesforce** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_search.png)
+    ![Salesforce v seznamu výsledků](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_addfromgallery.png)
 
-5. Na panelu výsledků vyberte **Salesforce**a potom klikněte na **přidat** tlačítko Přidat aplikaci.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurace a otestování Azure AD jednotné přihlašování
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurace a testování Azure AD jednotného přihlašování
-V této části můžete nakonfigurovat a otestovat Azure AD jednotné přihlašování s Salesforce podle testovacího uživatele názvem "Britta Simon."
+V této části konfiguraci a testování Azure AD jednotné přihlašování pomocí služby Salesforce podle testovacího uživatele názvem "Britta Simon".
 
 Azure AD pro jednotné přihlašování pro práci, musí vědět, co uživatel protějškem v Salesforce je pro uživatele ve službě Azure AD. Jinými slovy odkaz vztah mezi uživatele Azure AD a související uživatelské v Salesforce musí navázat.
 
-Tento vztah propojení se navazuje se hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** v Salesforce.
+V Salesforce, přiřadit hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** k navázání vztahu odkazu.
 
 Nakonfigurovat a otestovat Azure AD jednotné přihlašování pomocí služby Salesforce, je třeba dokončit následující stavební bloky:
 
-1. **[Konfigurace Azure AD jednotné přihlašování](#configuring-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
-2. **[Vytváření testovacího uživatele Azure AD](#creating-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
-3. **[Vytvoření zkušebního uživatele Salesforce](#creating-a-salesforce-test-user)**  – Pokud chcete mít protějšek Britta Simon v Salesforce, propojené služby Azure AD reprezentace daného uživatele.
-4. **[Přiřazení testovacího uživatele Azure AD](#assigning-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
-5. **[Testování jednotné přihlašování](#testing-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
+1. **[Konfigurovat Azure AD jednotné přihlašování](#configure-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
+2. **[Vytvořit testovací uživatele Azure AD](#create-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
+3. **[Vytvoření zkušebního uživatele Salesforce](#create-a-salesforce-test-user)**  – Pokud chcete mít protějšek Britta Simon v Salesforce, propojené služby Azure AD reprezentace daného uživatele.
+4. **[Přiřadit testovacího uživatele Azure AD](#assign-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
+5. **[Test jednotného přihlašování](#test-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurace Azure AD jednotné přihlašování
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurovat Azure AD jednotné přihlašování
 
 V této části můžete povolit Azure AD jednotného přihlašování na portálu Azure a nakonfigurovat jednotné přihlašování v aplikaci Salesforce.
 
@@ -100,137 +98,159 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
 1. Na portálu Azure na **Salesforce** stránky integrace aplikací, klikněte na tlačítko **jednotného přihlašování**.
 
-    ![Konfigurovat jednotné přihlašování][4]
+    ![Konfigurace propojení přihlášení][4]
 
 2. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **na základě SAML přihlašování** umožňující jednotného přihlašování.
  
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_samlbase.png)
+    ![Jediné přihlášení dialogové okno](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. Na **Salesforce domény a adresy URL** část, proveďte následující kroky:
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_url.png)
+    ![Doména služby Salesforce a adresy URL jednotné přihlašování informace](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_url.png)
+    
+    a. V **přihlašovací adresa URL** textovému poli, zadejte hodnotu pomocí následujícího vzorce:
+    
+    Účet organizace:`https://<subdomain>.my.salesforce.com`
 
-    V **přihlašovací adresa URL** textovému poli, zadejte hodnotu pomocí následujícího vzorce: 
-   * Účet organizace:`https://<subdomain>.my.salesforce.com`
-   * Vývojářský účet:`https://<subdomain>-dev-ed.my.salesforce.com`
+    Vývojářský účet:`https://<subdomain>-dev-ed.my.salesforce.com`
+    
+    b. V **identifikátor** textovému poli, zadejte hodnotu pomocí následujícího vzorce:
+    
+    Účet organizace:`https://<subdomain>.my.salesforce.com`
 
+    Vývojářský účet:`https://<subdomain>-dev-ed.my.salesforce.com`
+    
     > [!NOTE] 
-    > Tyto hodnoty nejsou reálné. Tyto hodnoty aktualizujte s skutečná adresa URL přihlašování. Obraťte se na [tým podpory služby Salesforce klienta](https://help.salesforce.com/support) k získání těchto hodnot. 
- 
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [tým podpory služby Salesforce klienta](https://help.salesforce.com/support) k získání těchto hodnot.
+
 4. Na **SAML podpisový certifikát** klikněte na tlačítko **certifikát** a potom uložte soubor certifikátu v počítači.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
+    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-5. Klikněte na tlačítko **Uložit** tlačítko ![nakonfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+5. Klikněte na tlačítko **Uložit** tlačítko.
 
-6. Na **Salesforce konfigurace** klikněte na tlačítko **konfigurace Salesforce** otevřete **konfigurovat přihlášení** okno. Kopírování **SAML Entity ID a SAML jeden přihlašování adresu URL služby** z **Stručná referenční příručka části.** 
+    ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_configure.png) 
-<CS>
-7.  V prohlížeči a přihlaste se ke svému účtu Salesforce správce otevřete novou kartu.
+6. Na **Salesforce konfigurace** klikněte na tlačítko **konfigurace Salesforce** otevřete **konfigurovat přihlášení** okno. Kopírování **SAML Entity ID a SAML jeden přihlašování adresu URL služby** z **Stručná referenční příručka části.**
 
-8.  V části **správce** navigačním podokně klikněte na tlačítko **ovládacích prvků zabezpečení** rozbalte související část. Pak klikněte na tlačítko **nastavení jednotného přihlašování**.
+    ![Konfigurace služby Salesforce](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_configure.png) 
+
+7. V prohlížeči a přihlaste se ke svému účtu Salesforce správce otevřete novou kartu.
+
+8. Klikněte na **instalační program** pod **ikonu nastavení** v pravém horním rohu stránky.
+
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/configure1.png)
+
+9. Přejděte dolů k položce **nastavení** v navigačním podokně klikněte na tlačítko **Identity** rozbalte související část. Pak klikněte na tlačítko **nastavení jednotného přihlašování**.
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png)
 
-9.  Na **nastavení jednotného přihlašování** klikněte na tlačítko **upravit** tlačítko.
+10. Na **nastavení jednotného přihlašování** klikněte na tlačítko **upravit** tlačítko.
+
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png)
+    
+    > [!NOTE]
+    > Pokud nelze povolit nastavení jednotného přihlašování pro váš účet Salesforce, budete možná muset kontaktovat [tým podpory služby Salesforce klienta](https://help.salesforce.com/support). 
 
-      > [!NOTE]
-      > Pokud nelze povolit nastavení jednotného přihlašování pro váš účet Salesforce, budete možná muset kontaktovat [tým podpory služby Salesforce klienta](https://help.salesforce.com/support). 
-
-10. Vyberte **povoleno SAML**a potom klikněte na **Uložit**.
+11. Vyberte **povoleno SAML**a potom klikněte na **Uložit**.
 
       ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png)
-11. Chcete-li nakonfigurovat SAML jeden přihlašování nastavení, klikněte na tlačítko **nový**.
+12. Chcete-li nakonfigurovat SAML jeden přihlašování nastavení, klikněte na tlačítko **nový**.
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-new.png)
 
-12. Na **SAML jeden přihlašování nastavení upravit** stránky, proveďte následující konfigurace:
+13. Na **SAML jeden přihlašování nastavení upravit** stránky, proveďte následující konfigurace:
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/sf-saml-config.png)
 
     a. Pro **název** pole, zadejte popisný název pro tuto konfiguraci. Poskytuje hodnotu pro **název** automaticky vyplnit **název rozhraní API** textové pole.
 
-    b. Vložení **SAML Entity ID** hodnoty do **vystavitele** pole v Salesforce.
+    b. V **vystavitele** pole, vložte hodnotu **SAML Entity ID**, který jste zkopírovali z portálu Azure.
 
     c. V **textové pole Entity Id**, zadejte název domény vaší služby Salesforce pomocí následujícího vzorce:
       
       * Účet organizace:`https://<subdomain>.my.salesforce.com`
       * Vývojářský účet:`https://<subdomain>-dev-ed.my.salesforce.com`
       
-    d. Klikněte na tlačítko **Procházet** nebo **zvolit soubor** otevřete **vybrat soubor k odeslání** dialogovém okně, vyberte svůj certifikát Salesforce a pak klikněte na tlačítko **otevřete** na kterou odešlete certifikát.
+    d. Nahrát **certifikát zprostředkovatele Identity**, klikněte na tlačítko **zvolit soubor** a procházet a vyberte soubor certifikátu, který jste si stáhli z portálu Azure.
 
-    e. Pro **typ Identity SAML**, vyberte **kontrolní výraz obsahuje uživatelské jméno uživatele salesforce.com**.
-
-    f. Pro **umístění Identity SAML**, vyberte **identita je v elementu NameIdentifier příkaz subjektu**
-
-    g. Vložení **jeden přihlašování adresa URL služby** do **adresu URL pro přihlášení zprostředkovatele Identity** pole v Salesforce.
+    e. Jako **typ Identity SAML**, vyberte jednu z následujících možností:
     
-    h. Pro **zprostředkovatele iniciované žádosti vazby služby**, vyberte **přesměrování protokolu HTTP**.
+      * Vyberte **kontrolní výraz obsahuje uživatelské jméno Salesforce**, pokud uživatelské jméno uživatele Salesforce je předávána v kontrolního výrazu SAML
+
+      * Vyberte **kontrolní výraz obsahuje ID federace z objektu uživatele**, pokud je předávána federace z objektu uživatele v kontrolního výrazu SAML
+
+      * Vyberte **kontrolní výraz obsahuje ID použití z objektu uživatele**, pokud ID uživatele z objektu uživatele je předávána v kontrolního výrazu SAML
+
+    f. Pro **umístění Identity SAML**, vyberte **identita je v elementu NameIdentifier příkaz subjektu**.
+
+    g. Pro **zprostředkovatele iniciované žádosti vazby služby**, vyberte **přesměrování protokolu HTTP**.
+
+    h. V **adresu URL pro přihlášení zprostředkovatele Identity** textovému poli, vložte hodnotu **jeden přihlašování adresa URL služby**, který jste zkopírovali z portálu Azure
     
     i. Nakonec klikněte na **Uložit** použít SAML jeden přihlašování nastavení.
 
-13. V levém navigačním podokně v Salesforce, klikněte na tlačítko **Správa domén** rozbalte související část, a potom klikněte na **Moje domény**.
+14. V levém navigačním podokně v Salesforce, klikněte na tlačítko **nastavení společnosti** rozbalte související část, a potom klikněte na **Moje domény**.
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png)
 
-14. Přejděte dolů k položce **konfiguraci ověřování** části a klikněte na tlačítko **upravit** tlačítko.
+15. Přejděte dolů k položce **konfiguraci ověřování** části a klikněte na tlačítko **upravit** tlačítko.
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png)
 
-15. V **ověřovací služby** část, vyberte popisný název konfigurace jednotného přihlašování SAML a pak klikněte na tlačítko **Uložit**.
+16. V **konfiguraci ověřování** část, zkontrolujte **přihlašovací stránku** jako **službu v ověřování** Konfigurace jednotného přihlašování SAML, a pak klikněte na tlačítko  **Uložit**.
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png)
 
     > [!NOTE]
     > Pokud je vybrána více než jedna služba ověřování, jsou uživatelé vyzváni k vyberte služby ověřování, která se má při inicializaci jednotné přihlašování pro vaše prostředí Salesforce přihlásit. Pokud nechcete, aby mohla nastat, pak byste měli **nechte nezaškrtnuté všechny ostatní služby ověřování**.
-<CE>    
+
 > [!TIP]
-> Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na tlačítko **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
+### <a name="create-an-azure-ad-test-user"></a>Vytvořit testovací uživatele Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Vytváření testovacího uživatele Azure AD
 Cílem této části je vytvoření zkušebního uživatele na portálu Azure, názvem Britta Simon.
 
-![Vytvořit uživatele Azure AD][100]
+   ![Vytvořit testovací uživatele Azure AD][100]
 
 **Vytvoření zkušebního uživatele ve službě Azure AD, proveďte následující kroky:**
 
-1. V levém navigačním podokně v **portál Azure**, klikněte na tlačítko **Azure Active Directory** ikonu.
+1. Na portálu Azure, v levém podokně klikněte **Azure Active Directory** tlačítko.
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-salesforce-tutorial/create_aaduser_01.png) 
+    ![Tlačítko Azure Active Directory](./media/active-directory-saas-salesforce-tutorial/create_aaduser_01.png)
 
-2. Chcete-li zobrazit seznam uživatelů, přejděte na **uživatelů a skupin** a klikněte na tlačítko **všichni uživatelé**.
-    
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-salesforce-tutorial/create_aaduser_02.png) 
+2. Chcete-li zobrazit seznam uživatelů, přejděte na **uživatelů a skupin**a potom klikněte na **všichni uživatelé**.
 
-3. V horní části okna klikněte na položku **přidat** otevřete **uživatele** dialogové okno.
- 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-salesforce-tutorial/create_aaduser_03.png) 
+    !["Uživatelé a skupiny" a "Všichni uživatelé" odkazy](./media/active-directory-saas-salesforce-tutorial/create_aaduser_02.png)
 
-4. Na **uživatele** dialogové okno stránky, proveďte následující kroky:
- 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-salesforce-tutorial/create_aaduser_04.png) 
+3. Chcete-li otevřít **uživatele** dialogové okno, klikněte na tlačítko **přidat** v horní části **všichni uživatelé** dialogové okno.
 
-    a. V **název** textovému poli, typ **BrittaSimon**.
+    ![Tlačítko Přidat](./media/active-directory-saas-salesforce-tutorial/create_aaduser_03.png)
 
-    b. V **uživatelské jméno** textovému poli, typ **e-mailová adresa** z BrittaSimon.
+4. V **uživatele** dialogové okno pole, proveďte následující kroky:
 
-    c. Vyberte **zobrazit hesla** a poznamenejte si hodnotu **heslo**.
+    ![Dialogové okno uživatele](./media/active-directory-saas-salesforce-tutorial/create_aaduser_04.png)
+
+    a. V **název** zadejte **BrittaSimon**.
+
+    b. V **uživatelské jméno** zadejte e-mailovou adresu uživatele Britta Simon.
+
+    c. Vyberte **zobrazit hesla** zaškrtněte políčko a zapište si ji hodnotu, která se zobrazí v **heslo** pole.
 
     d. Klikněte na možnost **Vytvořit**.
  
-### <a name="creating-a-salesforce-test-user"></a>Vytvoření zkušebního uživatele Salesforce
+### <a name="create-a-salesforce-test-user"></a>Vytvoření zkušebního uživatele Salesforce
 
 V této části se uživatel volá Britta Simon vytvoří v Salesforce. Salesforce podporuje za běhu zřizování, který je ve výchozím nastavení povolené.
 Neexistuje žádná položka akce pro vás v této části. Pokud uživatel v Salesforce ještě neexistuje, vytvoří se nový při pokusu o přístup k Salesforce.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Přiřazení testovacího uživatele Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 
 V této části povolíte Britta Simon používat Azure jednotné přihlašování tak, že udělíte přístup do služby Salesforce.
 
-![Přiřadit uživatele][200] 
+![Přiřadit role uživatele][200] 
 
 **Pokud chcete přiřadit Britta Simon Salesforce, proveďte následující kroky:**
 
@@ -240,15 +260,15 @@ V této části povolíte Britta Simon používat Azure jednotné přihlašován
 
 2. V seznamu aplikací vyberte **Salesforce**.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_app.png) 
+    ![V seznamu aplikací na odkaz Salesforce](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_app.png)  
 
 3. V nabídce na levé straně klikněte na tlačítko **uživatelů a skupin**.
 
-    ![Přiřadit uživatele][202] 
+    ![Odkaz "Uživatelé a skupiny"][202]
 
 4. Klikněte na tlačítko **přidat** tlačítko. Potom vyberte **uživatelů a skupin** na **přidat přiřazení** dialogové okno.
 
-    ![Přiřadit uživatele][203]
+    ![V podokně Přidat přiřazení][203]
 
 5. Na **uživatelů a skupin** dialogovém okně, vyberte **Britta Simon** v seznamu uživatelů.
 
@@ -256,15 +276,19 @@ V této části povolíte Britta Simon používat Azure jednotné přihlašován
 
 7. Klikněte na tlačítko **přiřadit** tlačítko **přidat přiřazení** dialogové okno.
     
-### <a name="testing-single-sign-on"></a>Testování jednotné přihlašování
+### <a name="test-single-sign-on"></a>Test jednotného přihlašování
 
-K testování vaše nastavení jednotného přihlašování, otevřete Panel přístupu na [https://myapps.microsoft.com](https://myapps.microsoft.com/), pak se přihlaste do testovací účet a klikněte na tlačítko **Salesforce**.
+V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci pomocí přístupového panelu.
+
+Když kliknete na dlaždici služby Salesforce na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci Salesforce.
+Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Další zdroje
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Konfiguraci zřizování uživatelů](active-directory-saas-salesforce-provisioning-tutorial.md)
+
+
 
 <!--Image references-->
 

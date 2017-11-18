@@ -14,17 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 31142fa2ab06b7479aa93f9ece14f4dd51fa28ef
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kód a testovat místně na Azure Functions
 
 Když [portál Azure] poskytuje úplnou sadu nástrojů pro vývoj a testování Azure Functions se celá řada vývojářů raději místní vývojové prostředí. Azure Functions umožňuje snadno použít editor Oblíbené kódu a místní vývojové nástroje pro vývoj a testování funkcí v místním počítači. Funkce můžete aktivovat pro události v Azure a při ladění vašich C# a funkce jazyka JavaScript v místním počítači. 
 
 Pokud jste Azure Functions Visual Studio C# vývojář, také [se integruje s Visual Studio 2017](functions-develop-vs.md).
+
+>[!IMPORTANT]  
+> Nemíchat místní vývoj pomocí portálu vývoj v aplikaci stejné funkce. Při vytváření a publikování funkce z místní projektu, by neměl pokusíte udržovat nebo upravit kód projektu na portálu.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalace nástroje Azure Functions jádra
 

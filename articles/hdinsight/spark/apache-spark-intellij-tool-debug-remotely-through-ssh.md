@@ -15,26 +15,25 @@ ms.workload: big-data
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 08/24/2017
+ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: cebbe2a0e28d49c93d0ebf12cc04b3d201dcec97
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6f9259ae5e8f382c6714d468004624c2cbcbbc33
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="debug-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Ladění aplikací Spark v clusteru s Azure nástrojů HDInsight pro IntelliJ prostřednictvím SSH
+# <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Ladění aplikací Spark místně nebo vzdáleně v clusteru s Azure nástrojů HDInsight pro IntelliJ prostřednictvím SSH
 
 Tento článek obsahuje podrobné pokyny o tom, jak používat nástroje HDInsight v Azure nástrojů pro IntelliJ k ladění aplikací vzdáleně v clusteru HDInsight. K ladění projektu, můžete také zobrazit [HDInsight Spark ladění aplikace s Azure Toolkit pro IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) videa.
 
 **Požadavky**
+* **Nástroje HDInsight v Azure nástrojů pro IntelliJ**. Tento nástroj je součástí sady nástrojů Azure pro IntelliJ. Další informace najdete v tématu [instalaci nástrojů Azure pro IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). A **Azure nástrojů pro IntelliJ**. Tato sada nástrojů použijte k vytvoření aplikací Spark pro cluster služby HDInsight. Další informace, postupujte podle pokynů v [pomocí nástrojů Azure pro IntelliJ k vytvoření aplikací Spark pro cluster služby HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
 
-* **Nástroje HDInsight v Azure nástrojů pro IntelliJ**. Tento nástroj je součástí sady nástrojů Azure pro IntelliJ. Další informace najdete v tématu [instalaci nástrojů Azure pro IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
-* **Azure nástrojů pro IntelliJ**. Tato sada nástrojů použijte k vytvoření aplikací Spark pro cluster služby HDInsight. Další informace, postupujte podle pokynů v [pomocí nástrojů Azure pro IntelliJ k vytvoření aplikací Spark pro cluster služby HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
 * **HDInsight SSH služby pomocí uživatelského jména a hesla správu**. Další informace najdete v tématu [připojení k HDInsight (Hadoop) pomocí protokolu SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) a [použití SSH tunelového propojení pro přístup k Ambari webové uživatelské rozhraní, JobHistory, NameNode, Oozie a jiné webové uživatelská](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
-
-## <a name="create-a-spark-scala-application-and-configure-it-for-remote-debugging"></a>Vytvoření aplikací Spark Scala a nakonfigurovat ji pro vzdálené ladění
+## <a name="learn-how-to-perform-local-run-and-debugging"></a>Zjistěte, jak provádět místní spuštění a ladění
+### <a name="scenario-1-create-a-spark-scala-application"></a>Scénář 1: Vytvoření aplikací Spark Scala 
 
 1. Spusťte IntelliJ IDEA a pak vytvořte projekt. V **nový projekt** dialogové okno pole, postupujte takto:
 
@@ -46,9 +45,9 @@ Tento článek obsahuje podrobné pokyny o tom, jak používat nástroje HDInsig
 
       - **Spark v HDInsight (Java)**
 
-      - **Spark v clusteru HDInsight spuštění ukázkové (Scala)**
+      - **Spark v HDInsight ukázkové (Scala)**
 
-      Tento příklad používá **Spark v HDInsight clusteru spustit ukázkový (Scala)** šablony.
+      Tento příklad používá **Spark v HDInsight ukázkové (Scala)** šablony.
 
    c. V **nástroj pro sestavení** vyberte některý z následujících akcí podle potřeby vašeho:
 
@@ -60,7 +59,7 @@ Tento článek obsahuje podrobné pokyny o tom, jak používat nástroje HDInsig
 
    d. Vyberte **Další**.     
  
-3. V dalším **nový projekt** okno, postupujte takto:
+2. V dalším **nový projekt** okno, postupujte takto:
 
    ![Vyberte Spark SDK](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-new-project.png)
 
@@ -72,145 +71,93 @@ Tento článek obsahuje podrobné pokyny o tom, jak používat nástroje HDInsig
 
    d. Vyberte **Finish** (Dokončit).
 
-4. Vyberte **src** > **hlavní** > **scala** otevřete kódu v projektu. Tento příklad používá **SparkCore_wasbloTest** skriptu.
+3. Vyberte **src** > **hlavní** > **scala** otevřete kódu v projektu. Tento příklad používá **SparkCore_wasbloTest** skriptu.
 
-5. Pro přístup k **upravit konfigurace** nabídce vyberte ikonu v pravém horním rohu. Z této nabídky můžete vytvořit nebo upravit konfiguraci pro vzdálené ladění.
+### <a name="prerequisite-for-windows"></a>Předpokladem pro windows
+Když používáte místní aplikací Spark Scala na počítači se systémem Windows, může získat výjimku, jak je popsáno v [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356). Výjimka nastává, protože WinUtils.exe chybí v systému Windows. 
+
+Chcete tuto chybu vyřešit [stáhnout spustitelný soubor](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) do umístění, jako **C:\WinUtils\bin**. Pak přidejte proměnnou prostředí **HADOOP_HOME**a nastavte hodnotu proměnné na **C:\WinUtils**.
+
+### <a name="scenario-2-perform-local-run"></a>Scénář 2: Provedení místním spuštění
+1. Otevřete **SparkCore_wasbloTest** skriptu, klikněte pravým tlačítkem na editor skriptů a potom vyberte možnost **spustit '[úlohy Spark] XXX'** provést místní spuštění.
+2. Spustit jednou místní dokončit, zobrazí se výstupní soubor uložte do vaší aktuální project Exploreru **data** > **__výchozí__**.
+
+    ![Místní spuštění výsledku](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
+3. Našich nástrojích nastavili výchozí místní spuštění konfigurace automaticky, když provádíte místní spuštění a místní ladění. Otevřete konfiguraci **XXX [úlohy Spark]** v pravém horním rohu, uvidíte **[úlohy Spark] XXX** již vytvořil v rámci **úlohu Azure HDInsight Spark**. Přepnout na **místně spustit** kartě.
+
+    ![Místní spuštění konfigurace](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
+    - [Proměnné prostředí](#prerequisite-for-windows): Pokud jste již nastavili proměnnou prostředí systému **HADOOP_HOME** k **C:\WinUtils**, může automaticky zjistit, který není potřeba ručně přidat.
+    - [Umístění WinUtils.exe](#prerequisite-for-windows): Pokud jste nenastavili proměnné prostředí systému, můžete nějakého najít umístění klepnutím na její tlačítko.
+    - Právě vyberte buď ze dvou možností, a nejsou potřebné v systému MacOS a Linux.
+4. Můžete také nastavit konfiguraci ručně před provedením místní spuštění a místní ladění. Na předchozím snímku obrazovky vyberte znaménko plus (**+**). Vyberte **úlohu Azure HDInsight Spark** možnost. Zadejte informace pro **název**, **hlavní název třídy** uložit, pak klikněte na tlačítko místní spuštění.
+
+### <a name="scenario-3-perform-local-debugging"></a>Scénář 3: Provedení místní ladění
+1. Otevřete **SparkCore_wasbloTest** skriptu, nastavit zarážky.
+2. Klikněte pravým tlačítkem na editor skriptů a potom vyberte možnost **ladění '[úlohy Spark] XXX'** provést místní ladění.   
+
+
+
+## <a name="learn-how-to-perform-remote-run-and-debugging"></a>Zjistěte, jak provést vzdálené spuštění a ladění
+### <a name="scenario-1-perform-remote-run"></a>Scénář 1: Provést vzdálené spuštění
+
+1. Pro přístup k **upravit konfigurace** nabídce vyberte ikonu v pravém horním rohu. Z této nabídky můžete vytvořit nebo upravit konfiguraci pro vzdálené ladění.
 
    ![Úprava konfigurací](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-6. V **konfigurace spustit/Debug** dialogovém okně vyberte znaménko plus (**+**). Vyberte **odeslat úlohu Spark** možnost.
+2. V **konfigurace spustit/Debug** dialogovém okně vyberte znaménko plus (**+**). Vyberte **úlohu Azure HDInsight Spark** možnost.
 
    ![Přidat novou konfiguraci](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-7. Zadejte informace pro **název**, **clusteru Spark**, a **hlavní název třídy**. Potom vyberte **pokročilou konfiguraci**. 
+3. Přepnout na **vzdáleně spouštět v clusteru** kartě. Zadejte informace pro **název**, **clusteru Spark**, a **hlavní název třídy**. Potom vyberte **pokročilou konfiguraci**. Podpora ladění pomocí našich nástrojích **vykonavatelů**. **NumExectors**, výchozí hodnota je 5. Lépe není nastavíte vyšší než 3.
 
    ![Spuštění konfigurace ladění](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-8. V **Spark odeslání Upřesnit konfiguraci** dialogové okno, vyberte **Spark povolení vzdáleného ladění**. Zadejte uživatelské jméno SSH a pak zadejte heslo nebo použít soubor privátního klíče. Chcete-li uložit konfiguraci, vyberte **OK**.
+4. V **Spark odeslání Upřesnit konfiguraci** dialogové okno, vyberte **Spark povolení vzdáleného ladění**. Zadejte uživatelské jméno SSH a pak zadejte heslo nebo použít soubor privátního klíče. Chcete-li uložit konfiguraci, vyberte **OK**. Pokud chcete provést vzdáleného ladění, budete muset nastavit. Není potřeba pro ni nastavit, pokud chcete použít vzdálené spuštění.
 
    ![Povolení vzdáleného ladění Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
-9. Konfigurace je nyní uložit s názvem, který jste zadali. Chcete-li zobrazit podrobnosti o konfiguraci, vyberte název konfigurace. Chcete-li provést změny, vyberte **upravit konfigurace**. 
+5. Konfigurace je nyní uložit s názvem, který jste zadali. Chcete-li zobrazit podrobnosti o konfiguraci, vyberte název konfigurace. Chcete-li provést změny, vyberte **upravit konfigurace**. 
 
-10. Po dokončení nastavení konfigurace, můžete spustit projekt na vzdálený cluster nebo provést vzdálené ladění.
+6. Po dokončení nastavení konfigurace, můžete spustit projekt na vzdálený cluster nebo provést vzdálené ladění.
+   
+   ![Vzdálené spuštění tlačítko](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-## <a name="learn-how-to-perform-remote-debugging"></a>Zjistěte, jak provést vzdálené ladění
-### <a name="scenario-1-perform-remote-run"></a>Scénář 1: Provést vzdálené spuštění
+7. Pokud nechcete naleznete v protokolu spuštěné v pravém panelu, můžete kliknout na **odpojení** tlačítko. Ale je stále spuštěn na back-end a výsledek se zobrazí v levém panelu.
 
-V této části Ukážeme vám ladění ovladače a vykonavatelů.
-
-    import org.apache.spark.{SparkConf, SparkContext}
-
-    object LogQuery {
-      val exampleApacheLogs = List(
-        """10.10.10.10 - "FRED" [18/Jan/2013:17:56:07 +1100] "GET http://images.com/2013/Generic.jpg
-          | HTTP/1.1" 304 315 "http://referall.com/" "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1;
-          | GTB7.4; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; .NET CLR
-          | 3.5.21022; .NET CLR 3.0.4506.2152; .NET CLR 1.0.3705; .NET CLR 1.1.4322; .NET CLR
-          | 3.5.30729; Release=ARP)" "UD-1" - "image/jpeg" "whatever" 0.350 "-" - "" 265 923 934 ""
-          | 62.24.11.25 images.com 1358492167 - Whatup""".stripMargin.lines.mkString,
-        """10.10.10.10 - "FRED" [18/Jan/2013:18:02:37 +1100] "GET http://images.com/2013/Generic.jpg
-          | HTTP/1.1" 304 306 "http:/referall.com" "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1;
-          | GTB7.4; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; .NET CLR
-          | 3.5.21022; .NET CLR 3.0.4506.2152; .NET CLR 1.0.3705; .NET CLR 1.1.4322; .NET CLR
-          | 3.5.30729; Release=ARP)" "UD-1" - "image/jpeg" "whatever" 0.352 "-" - "" 256 977 988 ""
-          | 0 73.23.2.15 images.com 1358492557 - Whatup""".stripMargin.lines.mkString
-      )
-      def main(args: Array[String]) {
-        val sparkconf = new SparkConf().setAppName("Log Query")
-        val sc = new SparkContext(sparkconf)
-        val dataSet = sc.parallelize(exampleApacheLogs)
-        // scalastyle:off
-        val apacheLogRegex =
-          """^([\d.]+) (\S+) (\S+) \[([\w\d:/]+\s[+\-]\d{4})\] "(.+?)" (\d{3}) ([\d\-]+) "([^"]+)" "([^"]+)".*""".r
-        // scalastyle:on
-        /** Tracks the total query count and number of aggregate bytes for a particular group. */
-        class Stats(val count: Int, val numBytes: Int) extends Serializable {
-          def merge(other: Stats): Stats = new Stats(count + other.count, numBytes + other.numBytes)
-          override def toString: String = "bytes=%s\tn=%s".format(numBytes, count)
-        }
-        def extractKey(line: String): (String, String, String) = {
-          apacheLogRegex.findFirstIn(line) match {
-            case Some(apacheLogRegex(ip, _, user, dateTime, query, status, bytes, referer, ua)) =>
-              if (user != "\"-\"") (ip, user, query)
-              else (null, null, null)
-            case _ => (null, null, null)
-          }
-        }
-        def extractStats(line: String): Stats = {
-          apacheLogRegex.findFirstIn(line) match {
-            case Some(apacheLogRegex(ip, _, user, dateTime, query, status, bytes, referer, ua)) =>
-              new Stats(1, bytes.toInt)
-            case _ => new Stats(1, 0)
-          }
-        }
-        
-        dataSet.map(line => (extractKey(line), extractStats(line)))
-          .reduceByKey((a, b) => a.merge(b))
-          .collect().foreach{
-          case (user, query) => println("%s\t%s".format(user, query))}
-
-        sc.stop()
-      }
-    }
+   ![Vzdálené spuštění tlačítko](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 
 
-1. Nastavit body ukončování řádků a pak vyberte **ladění** ikonu.
+
+### <a name="scenario-2-perform-remote-debugging"></a>Scénář 2: Provést vzdálené ladění
+1. Nastavit body ukončování řádků a klikněte **vzdáleného ladění** ikonu. Rozdíl oproti vzdálené odesílání je které SSH uživatelské jméno nebo heslo je potřeba nakonfigurovat.
 
    ![Vyberte ikonu pro ladění](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png)
 
-2. Při spuštění programu dosáhne bodem ukončování řádků, uvidíte **ovladač** kartě a dvě **vykonavatele** karty v **ladicí program** podokně. Vyberte **obnovit Program** ikonu dál spuštěný kód, který pak dosáhne další zarážek a se zaměřuje na odpovídající **vykonavatele** kartě. Můžete zkontrolovat protokoly spouštění na odpovídající **konzoly** kartě.
+2. Při spuštění programu dosáhne bodem ukončování řádků, uvidíte **ovladač** kartě a dvě **vykonavatele** karty v **ladicí program** podokně. Vyberte **obnovit Program** ikonu dál spuštěný kód, který pak dosáhne další zarážky. Je nutné přepnout na správnou **vykonavatele** karta najít cílový vykonavatele k ladění. Můžete zobrazit protokoly spouštění na odpovídající **konzoly** kartě.
 
    ![Karta ladění](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png)
 
-### <a name="scenario-2-perform-remote-debugging-and-bug-fixing"></a>Scénář 2: Proveďte vzdálené ladění a opravy chyb
-V této části jsme ukazují, jak pomocí možnosti ladění IntelliJ pro jednoduché opravu dynamicky aktualizovat hodnotu proměnné. V následujícím příkladu kódu je vyvolána výjimka, protože cílový soubor již existuje.
-  
-        import org.apache.spark.SparkConf
-        import org.apache.spark.SparkContext
-
-        object SparkCore_WasbIOTest {
-          def main(arg: Array[String]): Unit = {
-            val conf = new SparkConf().setAppName("SparkCore_WasbIOTest")
-            val sc = new SparkContext(conf)
-            val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
-            // Find the rows that have only one digit in the sixth column.
-            val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
-
-            try {
-              var target = "wasb:///HVACout2_testdebug1";
-              rdd1.saveAsTextFile(target);
-            } catch {
-              case ex: Exception => {
-                throw ex;
-              }
-            }
-          }
-        }
-
-
-#### <a name="to-perform-remote-debugging-and-bug-fixing"></a>K provedení vzdálené ladění a opravy chyb
+### <a name="scenario-3-perform-remote-debugging-and-bug-fixing"></a>Scénář 3: Provedení vzdálené ladění a opravy chyb
 1. Nastavit dva body ukončování řádků a pak vyberte **ladění** ikonu pro spuštění vzdáleného ladění procesu.
 
 2. Kód zastaví v prvním bodu ukončování řádků, a parametr a informace o proměnných jsou uvedeny v **proměnné** podokně. 
 
 3. Vyberte **obnovit Program** ikonu pokračovat. Kód zastaví v druhém bodu. Výjimka je zachycena podle očekávání.
 
-  ![Throw – chyba](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png) 
+   ![Throw – chyba](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-throw-error.png) 
 
 4. Vyberte **obnovit Program** ikonu znovu. **HDInsight Spark odeslání** okně se zobrazí chyba "Úloha spuštění se nepovedlo".
 
-  ![Chyba odeslání](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png) 
+   ![Chyba odeslání](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-error-submission.png) 
 
 5. Chcete-li dynamicky aktualizovat hodnotu proměnné pomocí IntelliJ ladění funkce, vyberte **ladění** znovu. **Proměnné** podokně se zobrazí znovu. 
 
 6. Klikněte pravým tlačítkem na cíl na **ladění** a pak vyberte **nastavit hodnotu**. Potom zadejte novou hodnotu proměnné. Potom vyberte **Enter** uložte hodnotu. 
 
-  ![Nastavte hodnotu](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![Nastavte hodnotu](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
 
 7. Vyberte **obnovit Program** ikonu pokračujte ke spuštění programu. Tentokrát je žádná výjimka zachycena. Uvidíte, že projekt úspěšně běží bez jakékoli výjimky.
 
-  ![Ladění bez výjimky](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
+   ![Ladění bez výjimky](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 
 ## <a name="seealso"></a>Další kroky
 * [Přehled: Apache Spark v Azure HDInsight](apache-spark-overview.md)

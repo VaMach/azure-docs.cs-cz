@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ef5ec3d8f4b96d4a318e01b449d3baad8a6324a
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Přehled SAP HANA (velké instance) a architektura v Azure
 
@@ -291,7 +291,10 @@ Tento seznam sestaví požadavky na spuštění SAP HANA v Azure (větší insta
 - Red Hat odběr Manager nasazené v Azure na virtuální počítač Azure. Správce předplatného Red Hat poskytuje možnost pro SAP HANA v Azure (velké instance) pro zápis a v uvedeném pořadí aktualizován Red Hat (jako je žádný přímý přístup k Internetu z v rámci klienta nasazené na značce velké instanci Azure).
 - SAP vyžaduje, abyste měli podporu smlouvy s poskytovatelem Linux. Tento požadavek není vymazat řešení pro velké instancí HANA nebo fakt, na který vaší spuštění Linux v Azure. Na rozdíl od pomocí některé z Galerie obrázků Linux Azure, poplatek služby není součástí řešení nabídky velkých instancí HANA. Je na vás jako zákazník splnit požadavky SAP o smlouvách, podporu s distributorem Linux.   
    - Pro systémy SUSE Linux vyhledat požadavky na podporu kontraktu v [SAP Poznámka #1984787 - SUSE LINUX Enterprise Server 12: poznámky k instalaci](https://launchpad.support.sap.com/#/notes/1984787) a [&#1056161; Poznámka SAP - SUSE Priority podporu pro aplikace SAP](https://launchpad.support.sap.com/#/notes/1056161).
-   - Red Hat Linux je potřeba mít úrovně správné předplatné, které zahrnují podporu a služby (aktualizace pro operační systémy velkých instancí HANA. Red Hat doporučuje získávání předplatné "RHEL pro SAP obchodních aplikací". Týkající se podpory a služeb, zkontrolujte [SAP Poznámka #2002167 - Red Hat Enterprise Linux 7.x: instalace a Upgrade](https://launchpad.support.sap.com/#/notes/2002167) a [SAP Poznámka #1496410 - Red Hat Enterprise Linux 6.x: instalace a Upgrade](https://launchpad.support.sap.com/#/notes/1496410) podrobnosti.
+   - Red Hat Linux je potřeba mít úrovně správné předplatné, které zahrnují podporu a služby (aktualizace pro operační systémy velkých instancí HANA. Red Hat doporučuje získávání "RHEL pro [SAP řešení](https://access.redhat.com/solutions/3082481)" předplatného. 
+
+Pro různé verze SAP HANA s různými verzemi Linux na matici podpory, zkontrolujte [&#2235581; Poznámka SAP](https://launchpad.support.sap.com/#/notes/2235581).
+
 
 **Databáze:**
 

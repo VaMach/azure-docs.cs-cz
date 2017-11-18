@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/13/2017
+ms.date: 11/17/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db04f8c6ab61d33df80cd442abc5636867e5809a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: d6682bf5e4b0b64d5309f939379906efff6e017d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Pomocí rutin AzureRM.RecoveryServices.Backup zálohování virtuálních počítačů
 > [!div class="op_single_selector"]
@@ -266,7 +266,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## <a name="restore-an-azure-vm"></a>Obnovení virtuálního počítače Azure
-Je klíčové rozdíl mezi obnovení virtuálního počítače pomocí portálu Azure a obnovení virtuálního počítače pomocí prostředí PowerShell. V prostředí PowerShell je dokončena operace obnovení, jakmile disky a informace o konfiguraci z bodu obnovení se vytvoří.
+Je klíčové rozdíl mezi obnovení virtuálního počítače pomocí portálu Azure a obnovení virtuálního počítače pomocí prostředí PowerShell. V prostředí PowerShell je dokončena operace obnovení, jakmile disky a informace o konfiguraci z bodu obnovení se vytvoří. Pokud chcete obnovit nebo obnovit několik soubory ze zálohy virtuálního počítače Azure, podívejte se na [souboru části Obnovení](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
 
 > [!NOTE]
 > Operace obnovení nevytvoří virtuálního počítače.
@@ -507,6 +507,76 @@ Po obnovení disky, tyto kroky použijte k vytvoření a konfiguraci virtuální
     ```    
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
+
+## <a name="restore-files-from-an-azure-vm-backup"></a>Obnovit soubory ze zálohy virtuálního počítače Azure
+
+Kromě obnovování disků, můžete také obnovit jednotlivé soubory ze zálohy virtuálního počítače Azure. Funkce obnovení souborů poskytuje přístup ke všem souborům v bodu obnovení a je můžete spravovat pomocí Průzkumníka souborů a jako byste to udělali pro normální soubory.
+
+Toto jsou základní kroky obnovit soubor ze zálohy virtuálního počítače Azure:
+
+* Vyberte virtuální počítač
+* Vyberte bod obnovení
+* Připojit disky bodu obnovení
+* Zkopírujte požadované soubory
+* Odpojení disku
+
+
+### <a name="select-the-vm"></a>Vyberte virtuální počítač
+GET pro objekt prostředí PowerShell, který označuje správné záložní položku, spusťte z kontejneru v trezoru a směrem dolů hierarchie objektů. Pokud chcete vybrat kontejner, který představuje virtuální počítač, použijte  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  rutiny a prostřednictvím kanálu, který chcete  **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  rutiny.
+
+```
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+```
+
+### <a name="choose-a-recovery-point"></a>Vyberte bod obnovení
+Použití  **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)**  rutiny seznam všech bodů obnovení pro položku zálohování. Zvolte bod obnovení pro obnovení. Pokud si nejste jisti, který bod obnovení používat, je dobrým zvykem zvolte nejnovější RecoveryPointType = AppConsistent bodu v seznamu.
+
+V následující skript, proměnné **$rp**, je pole bodů obnovení pro vybranou položku zálohování, v posledních sedmi dnech. Toto pole je seřazen v obráceném pořadí času s indexem 0 nejnovější bod obnovení. Použijte standardní prostředí PowerShell pole indexování a vyberte bod obnovení. V příkladu $rp [0] vybere nejnovější bod obnovení.
+
+```
+PS C:\> $startDate = (Get-Date).AddDays(-7)
+PS C:\> $endDate = Get-Date
+PS C:\> $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+PS C:\> $rp[0]
+RecoveryPointAdditionalInfo :
+SourceVMStorageType         : NormalStorage
+Name                        : 15260861925810
+ItemName                    : VM;iaasvmcontainer;RGName1;V2VM
+RecoveryPointId             : /subscriptions/XX/resourceGroups/ RGName1/providers/Microsoft.RecoveryServices/vaults/testvault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainer;RGName1;V2VM/protectedItems/VM;iaasvmcontainer; RGName1;V2VM/recoveryPoints/15260861925810
+RecoveryPointType           : AppConsistent
+RecoveryPointTime           : 4/23/2016 5:02:04 PM
+WorkloadType                : AzureVM
+ContainerName               : IaasVMContainer;iaasvmcontainer; RGName1;V2VM
+ContainerType               : AzureVM
+BackupManagementType        : AzureVM
+```
+
+### <a name="mount-the-disks-of-recovery-point"></a>Připojit disky bodu obnovení
+
+Použití  **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)**  rutiny skript, který chcete připojit všechny disky bodu obnovení.
+
+> [!NOTE]
+> Disky jsou připojené jako disky připojené přes iSCSI na počítači, kde se spouští skript. Proto je téměř okamžitou a nedojde všech poplatků
+>
+>
+
+```
+PS C:\> Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+
+OsType  Password        Filename
+------  --------        --------
+Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
+```
+Spusťte skript na počítači, ve které chcete obnovit soubory. Budete muset zadat heslo uvedené výše se spustit skript. Poté, co jsou disky připojené, pomocí Průzkumníka Windows souboru procházet nové svazky a soubory. Další informace najdete v části [souboru obnovení dokumentace](backup-azure-restore-files-from-vm.md)
+
+### <a name="unmount-the-disks"></a>Odpojení disky
+Po zkopírování požadované soubory odpojit disky pomocí  **[zakázat AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)**  rutiny. Se důrazně doporučuje jako zajišťuje, že k souborům bod obnovení je odebrání přístupu k
+
+```
+PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+```
+
 
 ## <a name="next-steps"></a>Další kroky
 Pokud dáváte přednost zapojit vašich prostředků Azure pomocí prostředí PowerShell, najdete v článku prostředí PowerShell [nasadit a spravovat zálohy pro Windows Server](backup-client-automation.md). Pokud budete spravovat zálohy aplikace DPM, najdete v článku [nasadit a spravovat zálohy pro DPM](backup-dpm-automation.md). Mají obě z těchto článků verze pro nasazení Resource Manager a nasazení Classic.  

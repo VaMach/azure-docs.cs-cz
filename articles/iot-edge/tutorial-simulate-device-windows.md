@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: da0446a62c5d254aa92e6673de034852044bc052
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c9bf2df078bfebb23ad549c7053f12b62fab59b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Nasazení v simulovaném zařízení v systému Windows Azure IoT Edge – náhled
 
@@ -106,7 +106,7 @@ Spravujte vaše zařízení Azure IoT Edge z cloudu do nasazení modul, který b
 
 ## <a name="view-generated-data"></a>Vygeneruje zobrazení dat
 
-V tento rychlý start vytvořit nové zařízení IoT okraj a na něm nainstalován modul runtime IoT okraj. Potom použít portál Azure k modul IoT okraj ke spuštění na zařízení bez nutnosti měnit samotné zařízení. V takovém případě modul, který jste nabídnutých vytvoří prostředí data, která můžete použít pro kurzů k. 
+V tomto kurzu jste vytvořili nový IoT hraniční zařízení a na něm nainstalován modul runtime IoT okraj. Potom použít portál Azure k modul IoT okraj ke spuštění na zařízení bez nutnosti měnit samotné zařízení. V takovém případě modul, který jste nabídnutých vytvoří prostředí data, která můžete použít pro kurzů k. 
 
 Otevřete příkazový řádek v počítači se systémem simulovaného zařízení znovu. Potvrďte, že modul nasazení z cloudu běží na vašem zařízení IoT hraniční. 
 

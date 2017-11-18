@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: spelluru
-ms.openlocfilehash: 30173f8eea2ccbbcd44018596cf34b3769a64b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d498705ef7f714b4f15b8d2722053bf3081b5045
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Aktivita vyhledávání v Azure Data Factory
 Aktivita vyhledávání slouží ke čtení nebo vyhledání záznamu / názvu tabulky / hodnoty z jakéhokoli externího zdroje. Na tento výstup mohou dále odkazovat následující aktivity. 
@@ -53,6 +53,9 @@ Tento kanál obsahuje dvě aktivity: **vyhledat** a **kopie**.
                 "name": "LookupActivity",
                 "type": "Lookup",
                 "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
                     "dataset": { 
                         "referenceName": "LookupDataset", 
                         "type": "DatasetReference" 
@@ -232,7 +235,7 @@ Tato databáze Azure SQL obsahuje data, která mají být zkopírovány do úlo�
 ## <a name="type-properties"></a>Vlastnosti typu
 Name (Název) | Popis | Typ | Požaduje se
 ---- | ----------- | ---- | --------
-Datové sady | Atribut datové sady je poskytnout odkaz na datovou sadu pro vyhledávání. V současné době jsou typy podporované datové sady:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | dvojice klíč/hodnota | Ano
+Datové sady | Atribut datové sady je poskytnout odkaz na datovou sadu pro vyhledávání. V současné době jsou typy podporované datové sady:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | Dvojice klíč/hodnota | Ano
 Zdroj | Vlastnosti specifické pro datové sady zdroje, stejně jako zdroj kopie aktivity | Dvojice klíč/hodnota | Ne
 firstRowOnly | Vrátí první řádek nebo všechny řádky. | Logická hodnota | Ne
 

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: rclaus
 ms.custom: 
-ms.openlocfilehash: 1bfc95977634a41a23fc8bcfee22c44849a9cf04
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 865fa54c908481b3f4c211f12293538c617b6129
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Certifikace SAP a konfigurace systémem Microsoft Azure
 
@@ -64,3 +64,4 @@ Odkazy:
 | SAP BITŮ NA KANÁL 10.01 MS SP08 | Windows | | Všechny typy NetWeaver certifikované virtuálních počítačů<br /> Poznámka SAP #2451795 |
 | SAP Business objekty BI platformy | Windows | | Poznámka SAP #2145537 |
 | Datové služby SAP 4.2 | | | Poznámka SAP #2288344 |
+| SAP Hybris Commerce Platform 5.x a 6.x | Windows | Systém SQL Server, Oracle | Všechny NetWeaver certifikované typy virtuálních počítačů<br /> [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |

@@ -1,12 +1,12 @@
 ---
 title: "Začínáme s Azure Active Directory | Microsoft Docs"
-description: 
+description: "Získání licence, přidejte název domény, vytvořte vlastní přihlašovací stránku a přidejte hesla pomocí samoobslužné služby resetovat v adresáři Azure Active Directory"
 keywords: 
-author: jeffgilb
-manager: femila
-ms.author: jeffgilb
+author: curtand
+manager: michael.tillman
+ms.author: curtand
 ms.reviewer: jsnow
-ms.date: 10/04/2017
+ms.date: 11/14/2017
 ms.topic: article
 ms.prod: 
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.technology: 
 ms.assetid: 
 services: active-directory
-custom: it-pro
-ms.openlocfilehash: 714f90155dbf53c5728e27995cee95f132fa452b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.custom: it-pro
+ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Začínáme s Azure AD
 Moderní identity managementu vyžaduje proporcionálních a konzistentní reliablity k zajištění dostupnosti probíhá aplikací a služeb pouze ověřené uživatele. Pro potřeby správy identity uživatelů, musí oddělení IT dostat adekvátní podporu způsob, jak poskytnout přístup k schválené, veřejné software jako služba (SaaS) aplikace, způsob, jak hostitele řádku interní obchodní aplikace a i prostředky pro zlepšení místní vývoj aplikací a využití. Všechny tyto požadavky nasměrujte potřeba řešení pro správu cloudových identit.      
@@ -41,8 +41,8 @@ Active Directory Premium si můžete registrovat několika způsoby:
 - Použitím licenčního plánu Enterprise Mobility + Security.
 - Použitím plánu multilicenčního programu společnosti Microsoft.
 
-> ### <a name="verification-step"></a>Krok ověření
-> Po aktivaci předplatného, ujistěte se, že vám umožní se přihlásit ke službě.
+### <a name="verification-step"></a>Krok ověření
+Po aktivaci předplatného, ujistěte se, že vám umožní se přihlásit ke službě.
 
 ## <a name="add-a-custom-domain-name"></a>Přidání vlastního názvu domény
 Každý adresář Azure AD se dodává s počáteční název domény ve formě *domainname*. onmicrosoft.com. Název domény nelze změnit ani odstranit, ale můžete také [přidat název vaší firemní domény do Azure AD](add-custom-domain.md). Například vaše organizace nemá pravděpodobně jiné názvy domén, umožňuje udělat firmy a uživatele, kteří se přihlašují pomocí firemního názvu domény. Přidání vlastních názvů domén do Azure AD umožňuje přiřazovat uživatelská jména v adresáři, které jsou pro uživatele, jako například 'alice@contoso.com. " místo 'alice@.onmicrosoft.com'. Proces je jednoduchý:
@@ -51,22 +51,22 @@ Každý adresář Azure AD se dodává s počáteční název domény ve formě 
 2. Přidání položky DNS pro název domény u registrátora názvu domény
 3. Ověření vlastního názvu domény v Azure AD
 
-> ### <a name="verification-step"></a>Krok ověření
-> Po přidání vlastní doménu, zkontrolujte, zda má **ověřeno** stav se zobrazí na **názvy domén** okno portálu Azure AD.
+### <a name="verification-step"></a>Krok ověření
+Po přidání vlastní doménu, zkontrolujte, zda má **ověřeno** stav se zobrazí na **vlastní názvy domén** okno portálu Azure AD.
 
 ## <a name="add-company-branding-to-your-sign-in-page"></a>Přidání firemního brandingu na přihlašovací stránce 
 Mnoho společností chce předcházet zmatení uživatele a upřednostňuje jednotný vzhled všech webů a služeb, které spravují. Azure Active Directory (Azure AD) tuto možnost nabízí a umožňuje [přizpůsobení vzhledu stránku přihlášení s svoje firemní logo a vlastní barevná schémata](customize-branding.md). Přihlašovací stránka je stránka, která se zobrazí při přihlášení k Office 365 nebo jiné webové aplikace, které používají Azure AD jako jejich zprostředkovatele identity. Budete používat tuto stránku k zadání pověření.
 
-> ### <a name="verification-step"></a>Krok ověření
-> Přihlaste se k portálu Azure a zkontrolujte, jestli vaše upravené stránky pro přihlášení a další jazyková nastavení správně nakonfigurovaný. 
+### <a name="verification-step"></a>Krok ověření
+Přihlaste se k portálu Azure a zkontrolujte, jestli vaše upravené stránky pro přihlášení a další jazyková nastavení správně nakonfigurovaný. 
 
-## <a name="add-new-users"></a>Přidat nové uživatele
+## <a name="add-new-users"></a>Přidání nových uživatelů
 Můžete [přidání nových uživatelů do vaší organizace Azure AD](add-users-azure-active-directory.md) jednoho současně pomocí portálu Azure nebo synchronizací dat prostředků systému Windows Server AD místně. Můžete přidat cloudových uživatelů přímo z portálu Azure AD nebo synchronizovat informace o uživateli na místě.
 
 Pokud chcete povolit místní synchronizaci identit s Azure AD, je nutné na serveru ve vaší organizaci nainstalovat a nakonfigurovat službu [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). Tato aplikace se stará o synchronizaci uživatelů a skupin mezi vaším existujícím zdrojem identit a vaším tenantem Azure AD.
 
-> ### <a name="verification-step"></a>Krok ověření
-> Po vytvoření nebo synchronizaci nových uživatelů, ujistěte se, že jsou viditelné ve službě Azure AD.
+### <a name="verification-step"></a>Krok ověření
+Po vytvoření nebo synchronizaci nových uživatelů, ujistěte se, že jsou viditelné ve službě Azure AD.
 
 ## <a name="assign-licenses"></a>Přiřazení licencí
 I když získání předplatného je vše, budete muset nakonfigurovat placené funkce, je nutné stále [přiřadit uživatelské licence](license-users-groups.md) placené funkce Azure AD Premium. Každý uživatel, který mají mít přístup k nebo který je spravován prostřednictvím Azure AD placené funkce musí být přiřazena licence. Přiřazení licence je mapování mezi uživateli a zakoupené služby, jako je například Azure AD Premium, Basic nebo Enterprise Mobility + Security.
@@ -77,17 +77,17 @@ Přiřazení na základě skupiny licencí můžete použít k nastavení pravid
 - Všichni uživatelé s názvem příslušné úlohy využít licenci
 - Rozhodnutí ohledně jiným správcům v organizaci můžete delegovat (pomocí samoobslužných skupin)
 
-> ### <a name="verification-step"></a>Krok ověření
-> Zkontrolujte přiřazené a dostupných licencí v rámci **Azure Active Directory** > **licence** > **všechny produkty**.
+### <a name="verification-step"></a>Krok ověření
+Zkontrolujte přiřazené a dostupných licencí v rámci **Azure Active Directory** > **licence** > **všechny produkty**.
 
 ## <a name="configure-self-service-password-reset"></a>Konfigurace samoobslužné resetování hesla
 [Samoobslužného obnovení hesla (SSPR)](active-directory-passwords-getting-started.md) nabízí jednoduchý znamená pro správce IT, aby mohli uživatelé resetovat nebo odemknout jejich hesla nebo účty. Tento systém zahrnuje vytváření podrobných sestav, pomocí kterých můžete sledovat, kdy uživatelé systém používají, spolu s oznámeními, která upozorňují na zneužití.
 
-> ### <a name="verification-step"></a>Krok ověření
-> Zkontrolujte povolené vlastnosti SSPR pod **Azure Active Directory** > **resetování hesla** zajistit správné uživatele a skupiny přiřazení byly provedeny. 
+### <a name="verification-step"></a>Krok ověření
+Zkontrolujte povolené vlastnosti SSPR pod **Azure Active Directory** > **resetování hesla** zajistit správné uživatele a skupiny přiřazení byly provedeny. 
 
 
-### <a name="learn-more"></a>Další informace
+## <a name="next-steps"></a>Další kroky
 [Stránku produktů Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory informace o stránce s cenami.](https://azure.microsoft.com/pricing/details/active-directory/)

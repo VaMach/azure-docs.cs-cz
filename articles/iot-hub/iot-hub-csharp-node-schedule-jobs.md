@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: 1f335b8b04821e1c0ab26af3df20c3318e9c26cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6795f09e275f9fcd38000d48710560244abc11d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Úlohy plán a všesměrového vysílání (.NET/Node.js)
 
@@ -257,7 +257,7 @@ V tomto kurzu jste použili úlohu při plánování přímá metoda zařízení
 
 Chcete-li pokračovat, Začínáme se službou IoT Hub a vzory správy zařízení, jako je vzdálené přes aktualizaci firmwaru letecké, přečtěte si [kurz: jak to provést aktualizaci firmwaru][lnk-fwupdate].
 
-Chcete-li pokračovat, Začínáme se službou IoT Hub, najdete v části [Začínáme se službou IoT Edge][lnk-iot-edge].
+Další informace o nasazení AI do hraniční zařízení s Azure IoT hranou najdete v tématu [Začínáme se službou IoT Edge][lnk-iot-edge].
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png
@@ -269,7 +269,7 @@ Chcete-li pokračovat, Začínáme se službou IoT Hub, najdete v části [Zač�
 [lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

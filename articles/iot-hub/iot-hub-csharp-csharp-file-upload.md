@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: f0be85d661807f36890fc79090c3f820ae8c376d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acc599c1fbe13b2739fc5480d6204f90e59b0242
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Odeslání souborů ze zařízení do cloudu službou IoT Hub pomocí rozhraní .NET
 
@@ -180,7 +180,7 @@ V tomto kurzu jste zjistili, jak používat funkce nahrávání souboru služby 
 
 Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 
-* [Simulaci zařízení s hranou IoT][lnk-iotedge]
+* [Nasazení AI do hraniční zařízení s Azure IoT Edge][lnk-iotedge]
 
 <!-- Images. -->
 
@@ -202,4 +202,4 @@ Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-windows-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

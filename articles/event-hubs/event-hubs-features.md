@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 11/17/2017
 ms.author: sethm
-ms.openlocfilehash: a74d767d57eb5ce2b3a716f9ba908a451f25f538
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa9fc3b03e24d0b4d1a7ecd9a945b67d8d182492
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="event-hubs-features-overview"></a>Přehled funkcí služby Event Hubs
 
 Azure Event Hubs je škálovatelnou událostí zpracování služba, která ingestuje a zpracovává velké objemy události a data, s nízkou latencí a vysokou spolehlivostí. V tématu [co je Služba Event Hubs?](event-hubs-what-is-event-hubs.md) souhrnné informace služby.
 
-Tento článek vychází informace v [přehled](event-hubs-what-is-event-hubs.md)a poskytuje implementace a technické podrobnosti o Event Hubs komponenty a funkce.
+Tento článek vychází informace v [článek s přehledem](event-hubs-what-is-event-hubs.md)a poskytuje implementace a technické podrobnosti o Event Hubs komponenty a funkce.
 
 ## <a name="event-publishers"></a>Zdroje událostí
 

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: a573a7ef79e28c50ae0923849a88f88af40f21be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ba33399c9ea0f093de6c85328d6ec2b280da4a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Kurz: Konfigurace služby Salesforce pro zřizování automatické uživatelů
 
@@ -35,9 +35,7 @@ Scénář uvedených v tomto kurzu se předpokládá, že už máte následujíc
 
 Azure Active Directory používá koncept označované jako "úlohy" k určení uživatelů, kteří obdrželi přístup k vybrané aplikace. V kontextu uživatele automatické zřizování účtu se synchronizují pouze uživatelé a skupiny, které byly "přiřazeny" aplikace ve službě Azure AD.
 
-Před konfigurací a povolení zřizování služby, musíte rozhodnout, jaké uživatelů nebo skupin ve službě Azure AD představují uživatele, kteří potřebují přístup k vaší aplikaci Salesforce. Jakmile se rozhodli, můžete přiřadit těmto uživatelům aplikace Salesforce podle pokynů tady:
-
-[Přiřazení uživatele nebo skupiny do aplikace enterprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Před konfigurací a povolení zřizování služby, musíte rozhodnout, které uživatele nebo skupiny ve službě Azure AD potřebují přístup k aplikaci Salesforce. Po provedení tohoto rozhodnutí, můžete přiřadit tyto uživatele k aplikaci Salesforce podle pokynů v [přiřadit uživatele nebo skupinu enterprise aplikace](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-salesforce"></a>Důležité tipy pro přiřazování uživatelů do služby Salesforce
 
@@ -48,14 +46,14 @@ Před konfigurací a povolení zřizování služby, musíte rozhodnout, jaké u
     > [!NOTE]
     > Tato aplikace importuje vlastní role ze služby Salesforce jako součást procesu zřizování, který může zákazník vyberte při přiřazování uživatelů
 
-## <a name="enable-automated-user-provisioning"></a>Povolit automatické zřizování uživatelů
+## <a name="enable-automated-user-provisioning"></a>Povolit zřizování automatizované uživatelů
 
 Tato část vás provede připojení k Salesforce na uživatelský účet zřizování rozhraní API služby Azure AD a konfiguraci zřizování službu, kterou chcete vytvořit, aktualizovat a zakažte přiřazené uživatelské účty v Salesforce podle přiřazení uživatelů a skupin ve službě Azure AD.
 
 >[!Tip]
 >Můžete také pro Salesforce povoleno na základě SAML jednotné přihlašování, postupujte podle pokynů uvedených v [portál Azure](https://portal.azure.com). Jednotné přihlašování se dá nakonfigurovat nezávisle na automatické zřizování, i když tyto dvě funkce doplnění navzájem.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Konfigurace automatického uživatele zřizování účtu:
+### <a name="configure-automatic-user-account-provisioning"></a>Konfigurace automatického uživatele zřizování účtu
 
 Cílem této části se popisují postup povolení zřizování uživatelů služby Active Directory uživatelských účtů do služby Salesforce.
 
@@ -65,8 +63,9 @@ Cílem této části se popisují postup povolení zřizování uživatelů slu�
 
 3. Vyberte instanci služby Salesforce a pak vyberte **zřizování** kartě.
 
-4. Nastavte **režimu zřizování** k **automatické**. 
-![Zřizování](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+4. Nastavte **režimu zřizování** k **automatické**.
+
+    ![Zřizování](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
 5. V části **přihlašovací údaje správce** části, zadejte následující nastavení konfigurace:
    
@@ -74,17 +73,21 @@ Cílem této části se popisují postup povolení zřizování uživatelů slu�
    
     b. V **heslo správce** textovému poli, zadejte heslo pro tento účet.
 
-6. Chcete-li získat token zabezpečení služby Salesforce, otevřete novou kartu a přihlaste na stejný účet správce služby Salesforce. V pravém horním rohu stránky klikněte na své jméno a potom klikněte **Moje nastavení**.
+6. Chcete-li získat token zabezpečení služby Salesforce, otevřete novou kartu a přihlaste na stejný účet správce služby Salesforce. V pravém horním rohu stránky klikněte na své jméno a potom klikněte **nastavení**.
 
      ![Povolit automatické uživatele zajišťování](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-my-settings.png "povolit zřizování automatické uživatelů")
-7. V levém navigačním podokně klikněte na tlačítko **osobní** rozbalte související část, a potom klikněte na **resetovat Moje zabezpečení tokenu**.
+
+7. V levém navigačním podokně klikněte na tlačítko **Moje osobní údaje** rozbalte související část, a potom klikněte na **resetovat Moje zabezpečení tokenu**.
   
     ![Povolit automatické uživatele zajišťování](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-personal-reset.png "povolit zřizování automatické uživatelů")
-8. Na **resetovat Moje zabezpečení tokenu** klikněte na tlačítko **resetovat tokenu zabezpečení** tlačítko.
+
+8. Na **resetovat tokenu zabezpečení** klikněte na tlačítko **resetovat tokenu zabezpečení** tlačítko.
 
     ![Povolit automatické uživatele zajišťování](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-reset-token.png "povolit zřizování automatické uživatelů")
+
 9. Zkontrolujte e-mailovou schránku spojené s tímto účtem správce. Vyhledejte e-mailu z Salesforce.com, který obsahuje nový token zabezpečení.
-10. Zkopírujte token, přejděte do okna vaší služby Azure AD a vložte ji do **soketu tokenu** pole.
+
+10. Zkopírujte token, přejděte do okna vaší služby Azure AD a vložte ji do **tajný klíč tokenu** pole.
 
 11. Na portálu Azure klikněte na tlačítko **Test připojení** zajistit Azure AD může připojit k aplikaci Salesforce.
 
@@ -108,4 +111,4 @@ Nyní můžete vytvořit testovací účet. Chcete-li ověřit, že účet umís
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Konfigurovat jednotné přihlašování](active-directory-saas-salesforce-tutorial.md)
+* [Konfigurovat jednotné přihlašování](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

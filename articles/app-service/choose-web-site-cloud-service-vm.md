@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Porovnání Azure App Service, virtuální počítače, Service Fabric a cloudové služby
 ## <a name="overview"></a>Přehled
@@ -48,7 +48,7 @@ Následující tabulka porovnává funkce služby App Service, cloudové služby
 | Přístup ke službám, jako je Service Bus, úložiště, databáze SQL |X |X |X |X | |
 | Hostitele web nebo webovou vrstvu služby vícevrstvé architektury |X |X |X |X | |
 | Střední vrstvy hostitele vícevrstvé architektury |X |X |X |X |Webové aplikace aplikační služby můžou snadno hostovat rozhraní REST API střední vrstvy a [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) funkce může hostovat úloh zpracování na pozadí. Webové úlohy můžete spustit na vyhrazené webové stránce k dosažení nezávislé škálovatelnost pro vrstvu. |
-| Integrovaná podpora MySQL jako služby |X |X |X | |Cloudové služby můžete integrovat MySQL jako službu prostřednictvím nabídky na ClearDB, ale ne jako součást pracovního postupu portálu Azure. |
+| Integrovaná podpora MySQL jako služby |X |X | | | |
 | Podpora pro technologii ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric podporuje vytvoření front-endu webové pomocí [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) nebo jakéhokoli typu aplikace (Node.js, Java atd.) můžete nasadit jako [spustitelný soubor hosta](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Škálování na více instancí bez znovu ho zaveďte |X |X |X |X |Virtuální počítače lze škálovat na více instancí, ale se služby spuštěné na nich musí být napsané pro zpracování této Škálováním na více systémů. Budete muset nakonfigurovat Vyrovnávání zatížení směrování žádostí mezi počítači a vytvořit skupinu vztahů, aby se zabránilo souběžných restartování všech instancí z důvodu údržby nebo k selhání hardwaru. |
 | Podpora pro protokol SSL |X |X |X |X |Pro webové aplikace služby App Service SSL u vlastních názvů domén je podporována pouze pro režim Basic a Standard. Informace o použití protokolu SSL s webovými aplikacemi najdete v tématu [konfigurace certifikát protokolu SSL pro web Azure](app-service-web-tutorial-custom-ssl.md). |
@@ -97,7 +97,7 @@ Azure App Service je vynikající řešení pro hostování podnikové weby. Umo
 * Integrace s Active Directory
 
 ### <a id="iis6"></a>Je nutné aplikaci služby IIS 6 v systému Windows Server 2003.
-Aplikační služba Azure je snadné se vyhnout infrastruktury nákladů spojených se migrace starší aplikací služby IIS 6. Společnost Microsoft vytvořila [nástrojů pro migraci snadno použitelný a migrace podrobné pokyny](https://www.movemetowebsites.net/) které umožňují zkontrolovat kompatibilitu a identifikovat změny, které je potřeba provést. Integrace s Visual Studio, sady TFS a běžné nástroje pro systém CMS umožňuje snadno nasadit IIS6 aplikace přímo do cloudu. Po nasazení portálu Azure poskytuje robustní správu nástrojů, které vám umožní snižovat náklady na správu a až splňují potřebují podle potřeby. Nástroj pro migraci můžete:
+Aplikační služba Azure je snadné se vyhnout infrastruktury nákladů spojených se migrace starší aplikací služby IIS 6. Společnost Microsoft vytvořila [nástrojů pro migraci snadno použitelný a migrace podrobné pokyny](https://www.migratetoazure.net/) které umožňují zkontrolovat kompatibilitu a identifikovat změny, které je potřeba provést. Integrace s Visual Studio, sady TFS a běžné nástroje pro systém CMS umožňuje snadno nasadit IIS6 aplikace přímo do cloudu. Po nasazení portálu Azure poskytuje robustní správu nástrojů, které vám umožní snižovat náklady na správu a až splňují potřebují podle potřeby. Nástroj pro migraci můžete:
 
 * Snadno a rychle migrujte starší verze systému Windows Server 2003 webové aplikace do cloudu.
 * OPT nechte připojené SQL databáze místní vytvořit hybridní aplikace.
@@ -174,7 +174,6 @@ Chcete-li začít se vybrané možnosti pro vaši aplikaci, najdete v následuj�
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps

@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 2879e72636ffc7603e29fe8f8233a065fe6f897c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 60b55acaf687dae76e054b428b8d6584d8eb09f8
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="restore-an-app-in-azure"></a>Obnovení aplikace v Azure
 Tento článek ukazuje, jak obnovit aplikace v [Azure App Service](../app-service/app-service-web-overview.md) který jste dříve zálohovali (viz [zálohování aplikace v Azure](web-sites-backup.md)). Můžete obnovit do předchozího stavu vaší aplikace pomocí jeho propojené databází na vyžádání nebo vytvořit novou aplikaci na základě jedné z původní aplikace zálohy. Aplikační služba Azure podporuje následující databáze pro zálohování a obnovení:
 - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
 - [Azure databáze pro databázi MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
 - [Azure databázi PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
-- [Databáze MySQL cleardb –](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
 - [MySQL v aplikaci](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Obnovení ze zálohy je k dispozici pro aplikace běžící **standardní** a **Premium** vrstvy. Informace o vertikálním navýšení kapacity aplikace naleznete v tématu [škálování aplikace v Azure](web-sites-scale.md). **Premium** úroveň umožňuje větší počet denní zálohování než **standardní** vrstvy.

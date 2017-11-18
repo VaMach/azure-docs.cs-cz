@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Vytvoření aplikace Azure Active Directory a objektu služby, které mají přístup k prostředkům pomocí portálu
 
@@ -27,11 +27,11 @@ Když máte aplikaci, která potřebuje přístup k nebo úpravám prostředků,
 * Nemáte ke změně pověření aplikace, pokud vaše odpovědnosti změnit. 
 * Certifikát můžete použít k automatizaci ověřování při provádění bezobslužného skriptu.
 
-Toto téma ukazuje, jak provádět tyto kroky prostřednictvím portálu. Zaměřuje se na jednoho klienta aplikace, kde je záměrem spustit v rámci organizace jenom jedna aplikace. Obvykle používají aplikace jednoho klienta pro-obchodní aplikace, které běží v rámci vaší organizace.
+Tento článek ukazuje, jak provádět tyto kroky prostřednictvím portálu. Zaměřuje se na jednoho klienta aplikace, kde je záměrem spustit v rámci organizace jenom jedna aplikace. Obvykle používají aplikace jednoho klienta pro-obchodní aplikace, které běží v rámci vaší organizace.
 
 ## <a name="required-permissions"></a>Požadovaná oprávnění
 
-K dokončení tohoto tématu, musíte mít dostatečná oprávnění k registraci aplikace ve službě klientovi Azure AD a přiřazení aplikace k roli ve vašem předplatném Azure. Ujistíme se, že máte správná oprávnění k provedení těchto kroků.
+K dokončení tohoto článku, musíte mít dostatečná oprávnění k registraci aplikace ve službě klientovi Azure AD a přiřazení aplikace k roli ve vašem předplatném Azure. Ujistíme se, že máte správná oprávnění k provedení těchto kroků.
 
 ### <a name="check-azure-active-directory-permissions"></a>Zkontrolujte oprávnění služby Azure Active Directory
 
@@ -104,7 +104,7 @@ Zkontrolujte oprávnění svého předplatného:
 
    ![Přidat aplikaci](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Zadejte název a adresu URL pro aplikaci. Vyberte buď **webovou aplikaci nebo API** nebo **nativní** pro typ aplikace, kterou chcete vytvořit. Po nastavení hodnoty, vyberte **vytvořit**.
+1. Zadejte název a adresu URL pro aplikaci. Vyberte **webovou aplikaci nebo API** pro typ aplikace, kterou chcete vytvořit. Nelze vytvořit přihlašovací údaje pro **nativní** aplikace; proto tento typ nelze použít pro automatické aplikaci. Po nastavení hodnoty, vyberte **vytvořit**.
 
    ![název aplikace](./media/resource-group-create-service-principal-portal/create-app.png)
 

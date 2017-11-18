@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
 ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="internet-of-things-security-architecture"></a>Architektura zabezpečení Internetu věcí
 Při návrhu systému, je důležité pochopit potenciální hrozby na daný systém a přidejte příslušné obrany podle toho, jak systém je navržená tak a navržen. Je zvlášť důležité při návrhu produktu od začátku s důrazem na bezpečnost, protože pochopení, jak může být útočník mohl ohrozit systém pomáhá, ujistěte se, zda odpovídající jejich zmírnění jsou zavedené od začátku. 

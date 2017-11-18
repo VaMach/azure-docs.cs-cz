@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: ab97feac7dd92cdc64343e215f6c623a6de9ef60
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Ušetřit peníze u virtuálních počítačů s vyhrazenou instancí virtuálního počítače 
 Vyhrazená instance virtuálních počítačů umožňují předem platí za jeden rok nebo tři roky výpočetní kapacitu a získat tak slevu na virtuálních počítačích, které používáte. Významně snižuje náklady na virtuální počítač – až 72 procent na průběžnými platbami ceny – s odběru splácených jeden rok nebo tři roky. Vyhrazená instance virtuálních počítačů je fakturační slevu a nemá vliv na stav modulu runtime virtuálních počítačů.
@@ -46,7 +46,7 @@ Po zakoupení vyhrazenou instanci virtuálního počítače, můžete změnit ro
 
 Rezervace slevu platí jenom pro virtuální počítače v rámci předplatných s enterprise nebo nabídku průběžných plateb typy. Virtuální počítače běžící na předplatné s jinými typy nabídka neobdrží slevu rezervace. Pro podnikové registrace předplatného typu enterprise vývoje/testování nejsou vhodné pro vyhrazenou instanci výhody.
 
-Jak ovlivňuje rezervace fakturace virtuálního počítače je vysvětleno v [pochopení aplikace rezervace fakturace benefit](https://go.microsoft.com/fwlink/?linkid=861721).
+Jak ovlivňuje rezervace fakturace virtuálního počítače je vysvětleno v [pochopení aplikace rezervace fakturace benefit](https://go.microsoft.com/fwlink/?linkid=863405).
 
 ## <a name="what-happens-when-the-reservation-term-expires"></a>Co se stane, když vyprší platnost termín rezervaci?
 Na konci období rezervace fakturační slevu vyprší a infrastruktury virtuálního počítače se fakturuje za platím jako jste přejděte cenu. Rezervace není automatického obnovení. Chcete-li pokračovat, získávání fakturační slevu, je nutné zakoupit novou vyhrazenou instanci virtuálního počítače. 

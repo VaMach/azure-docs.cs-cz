@@ -12,20 +12,22 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 77bdeda57a23d77e7f00cfea1f9b8d362cfa4979
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 140789122dcc66e01b05ad81791bc3ca54e4f42c
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Spravovat referenčních dat pro prostředí Statistika řady čas Azure pomocí jazyka C#
 
-Tento článek popisuje ukázkový kód C# můžete zkompilovat ke správě referenčních dat pro prostředí Statistika Azure časové řady.
+Toto téma popisuje ukázkový kód C# můžete zkompilovat ke správě referenčních dat pro prostředí Statistika Azure časové řady.
 
-Zajistěte, aby že před kompilaci a spuštění ukázkového kódu jsou provedeny následující kroky:
-1. Byl vytvořen referenční datové sady pomocí [v tomto článku](time-series-insights-add-reference-data-set.md).
+Před zkompilování a spuštění ukázkového kódu, proveďte následující kroky:
+1. [Vytvořit odkaz na sadu dat](time-series-insights-add-reference-data-set.md).
 
-2. Nakonfigurujte přístupový token, který se má použít v aplikaci k autorizaci s. Ujistěte se, že je token získané prostřednictvím rozhraní API Azure Active Directory. Tento token musí být předán `Authorization` záhlaví každého požadavku rozhraní API dotazu. Nastavení neinteraktivní aplikace, najdete v článku [ověřování a autorizace](time-series-insights-authentication-and-authorization.md) článku.
+2. Konfigurujte autorizační token přístupu pro aplikaci. Ujistěte se, že je token získané prostřednictvím rozhraní API Azure Active Directory. To by měla předávat v tokenu `Authorization` záhlaví každého požadavku rozhraní API dotazu. 
+ 
+   Informace o tom, jak nastavit neinteraktivní aplikace najdete v tématu [ověřování a autorizace](time-series-insights-authentication-and-authorization.md).
 
 3. Upravte ukázkový kód nahradit příklad konstanty, určené v **DUMMY #**, v blízkosti začátek kódu. 
 
@@ -232,5 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Další kroky
-> [!div class="nextstepaction"]
-> Odkaz na dokončení REST API, najdete v části [dat referenční dokumentace rozhraní API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+[Referenční data rozhraní API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)
