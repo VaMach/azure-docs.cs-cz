@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e850370faf2d271b4adad1af48c1ead7b316fa67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cafe5009b8e96b147b5bbed1957024f6d96feb58
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="understand-iot-hub-metrics"></a>Pochopení metriky služby IoT Hub
 IoT Hub metriky získáte lepší data týkající se stavu služby Azure IoT prostředky ve vašem předplatném Azure. IoT Hub metriky umožňují posouzení celkového stavu služby IoT Hub a zařízení k němu připojená. Uživatelsky orientovaný statistiky jsou důležité, protože umožňují můžete zjistit, co se děje s vaší problémy IoT hub a nápovědy příčin bez nutnosti požádejte podporu Azure.
@@ -100,7 +100,7 @@ Teď, když jste se seznámili přehled metriky služby IoT Hub, použijte tento
 Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 
 * [Příručka vývojáře pro službu IoT Hub][lnk-devguide]
-* [Simulaci zařízení s Azure IoT Edge][lnk-iotedge]
+* [Nasazení AI do hraniční zařízení s Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -114,4 +114,4 @@ Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

@@ -13,67 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2017
+ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 11457e6556e6400d8f58f71c71ab1e790bcef8f1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: bae60e7f78934deacac173767ca3013ce93cf9ad
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Soubory Azure pomocí Kubernetes
 
-Aplikace typu kontejner na základě často potřebují přístup a uchovávat data v svazku externí data. Soubory Azure můžete použít jako tohle úložiště dat externí. Tento článek údaje pomocí Azure souborů jako svazek Kubernetes v Azure Container Service.
+Aplikace založené na kontejneru často potřebují přístup a uchovávat data v svazku externí data. Soubory Azure můžete použít jako tohle úložiště dat externí. Tento článek údaje pomocí Azure souborů jako svazek Kubernetes v Azure Container Service.
 
 Další informace o svazcích Kubernetes najdete v tématu [Kubernetes svazky][kubernetes-volumes].
 
-## <a name="creating-a-file-share"></a>Vytvoření sdílené složky
+## <a name="create-an-azure-file-share"></a>Vytvořte sdílenou složku Azure
 
-S Azure Container Service můžete použít existující sdílenou složku Azure File. Pokud potřebujete vytvořit, použijte následující sadu příkazů.
-
-Vytvořte skupinu prostředků pro použití sdílené složky Azure File [vytvořit skupinu az] [ az-group-create] příkaz. Skupiny prostředků účtu úložiště a Kubernetes cluster se musí nacházet ve stejné oblasti.
+Před použitím sdílení souborů Azure jako svazek Kubernetes, je nutné vytvořit účet úložiště Azure a sdílené složky. K dokončení těchto úloh můžete použít následující skript. Všimněte si nebo aktualizujte hodnoty parametru, některé z nich je třeba při vytváření svazku Kubernetes.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-```
+# Change these four parameters
+AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
+AKS_PERS_RESOURCE_GROUP=myAKSShare
+AKS_PERS_LOCATION=eastus
+AKS_PERS_SHARE_NAME=aksshare
 
-Použití [vytvořit účet úložiště az] [ az-storage-create] příkaz pro vytvoření účtu úložiště Azure. Název účtu úložiště musí být jedinečný. Aktualizujte hodnotu `--name` argument jedinečnou hodnotu.
+# Create the Resource Group
+az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-```azurecli-interactive
-az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
-```
+# Create the storage account
+az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
-Použití [seznam klíčů účtu úložiště az ] [ az-storage-key-list] příkaz vrátí klíč úložiště. Aktualizujte hodnotu `--account-name` argument s názvem účtu úložiště jedinečný.
+# Export the connection string as an environment variable, this is used when creating the Azure file share
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
 
-Všimněte si z jedné z hodnot klíče, to se používá v postupných krocích.
+# Create the file share
+az storage share create -n $AKS_PERS_SHARE_NAME
 
-```azurecli-interactive
-az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
-```
-
-Použití [vytvořit sdílenou složku úložiště az] [ az-storage-share-create] příkazu vytvořte sdílenou složku Azure File. Aktualizace `--account-key` hodnotu s hodnotou shromážděné v posledním kroku.
-
-```azurecli-interactive
-az storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
+# Get storage account key
+STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
 ```
 
 ## <a name="create-kubernetes-secret"></a>Vytvoření tajného klíče Kubernetes
 
-Kubernetes potřebuje přihlašovací údaje pro přístup ke sdílené složce. Místo uložení název účtu úložiště Azure a klíč s každou pod, uloží se jednou [tajný klíč Kubernetes] [ kubernetes-secret] a odkazuje na každý svazek Azure Files. 
+Kubernetes potřebuje přihlašovací údaje pro přístup ke sdílené složce. Tyto přihlašovací údaje jsou uložené v [tajný klíč Kubernetes][kubernetes-secret], který se odkazuje při vytváření Kubernetes pod.
 
-Hodnoty v manifestu tajný Kubernetes musí mít kódování base64. Použijte následující příkazy pro vrácení kódovaného hodnot.
+Při vytváření Kubernetes tajný, tajný hodnoty musí být kódováním base64.
 
-Nejprve kódování názvu účtu úložiště. Nahraďte `storage-account` s názvem účtu úložiště Azure.
+Nejprve kódování názvu účtu úložiště. V případě potřeby nahradit `$AKS_PERS_STORAGE_ACCOUNT_NAME` s názvem účtu úložiště Azure.
 
 ```azurecli-interactive
-echo -n <storage-account> | base64
+echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 ```
 
-Dále je potřeba přístupový klíč účtu úložiště. Spusťte následující příkaz, který vrátí kódovaného klíč. Nahraďte `storage-key` klíčem shromážděny v jednom z předchozích kroků
+V dalším kroku kódování klíč účtu úložiště. V případě potřeby nahradit `$STORAGE_KEY` s názvem klíč účtu úložiště Azure.
 
 ```azurecli-interactive
-echo -n <storage-key> | base64
+echo -n $STORAGE_KEY | base64
 ```
 
 Vytvořte soubor s názvem `azure-secret.yml` a zkopírujte následující YAML. Aktualizace `azurestorageaccountname` a `azurestorageaccountkey` kódováním base64, pomocí hodnoty hodnoty získané v předchozím kroku.
@@ -89,15 +86,15 @@ data:
   azurestorageaccountkey: <base64_encoded_storage_account_key>
 ```
 
-Použití [kubectl použít] [ kubectl-apply] příkaz pro vytvoření tajný klíč.
+Použití [kubectl vytvořit] [ kubectl-create] příkaz pro vytvoření tajný klíč.
 
 ```azurecli-interactive
-kubectl apply -f azure-secret.yml
+kubectl create -f azure-secret.yml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Připojení sdílené složky jako svazek
 
-Do sdílené složky souborů Azure můžete připojit do vaší pod nakonfigurováním svazek v jeho specifikace. Vytvořte nový soubor s názvem `azure-files-pod.yml` s tímto obsahem. Aktualizace `share-name` s názvem uvedeným k Azure Files sdílet.
+Do sdílené složky souborů Azure můžete připojit do vaší pod nakonfigurováním svazek v jeho specifikace. Vytvořte nový soubor s názvem `azure-files-pod.yml` s tímto obsahem. Aktualizace `aksshare` s názvem uvedeným k Azure Files sdílet.
 
 ```yaml
 apiVersion: v1
@@ -115,7 +112,7 @@ spec:
   - name: azure
     azureFile:
       secretName: azure-secret
-      shareName: <share-name>
+      shareName: aksshare
       readOnly: false
 ```
 
@@ -139,6 +136,6 @@ Další informace o Kubernetes svazky s využitím Azure Files.
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-apply]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#apply
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [az-group-create]: /cli/azure/group#az_group_create

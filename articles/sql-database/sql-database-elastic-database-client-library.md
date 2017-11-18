@@ -15,22 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Vytváření škálovatelných cloudových databází
 Škálování databáze dá snadno dosáhnout pomocí funkcí a nástrojů pro škálovatelná pro databázi SQL Azure. Konkrétně můžete použít **klientské knihovny pro elastické databáze** k vytváření a správě databází Škálováním. Tato funkce vám umožní snadno vyvíjet horizontálně dělené aplikace, které používají stovky – nebo dokonce tisíce – databází Azure SQL. [Elastické úlohy](sql-database-elastic-jobs-powershell.md) lze použít ke snadné správy těchto databází.
 
-Chcete-li nainstalovat knihovny, přejděte na NuGet v [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Stažení:
+* verze rozhraní .NET knihovny, najdete v části [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* Java verzi knihovny, najdete v části [Maven centrálním úložišti](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 
 ## <a name="documentation"></a>Dokumentace
 1. [Začínáme s nástroji Elastic Database](sql-database-elastic-scale-get-started.md)
 2. [Funkce elastické databáze](sql-database-elastic-scale-introduction.md)
 3. [Správa mapování horizontálních oddílů](sql-database-elastic-scale-shard-map-management.md)
-4. [Migrace existujících databází pro horizontální navýšení kapacity](sql-database-elastic-convert-to-use-elastic-tools.md)
+4. [Migrovat existující databáze chcete škálovat.](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Směrování závislé na datech](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Víc horizontálních dotazy](sql-database-elastic-scale-multishard-querying.md)
 7. [Přidání horizontálního oddílu pomocí nástroje elastické databáze](sql-database-elastic-scale-add-a-shard.md)
@@ -58,15 +60,11 @@ Obecně platí zákazníků týkající se použití nástroje elastické datab�
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Klientská knihovna pro elastické databáze](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) – na **nainstalovat** knihoven pomocí NuGet.
+- Klientská knihovna pro elastické databáze ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) – na **Stáhnout** knihovny.
 
 - [Začínáme s nástroje elastické databáze](sql-database-elastic-scale-get-started.md) – a zkuste to **ukázkovou aplikaci** který předvádí funkce klienta.
 
-- [Github, Azure nebo Elastická db nástroje](https://github.com/Azure/elastic-db-tools) -software s otevřeným zdrojem je knihovna.
-    - Klientská knihovna nástroje elastické databáze umožňuje ADO.NET vývojářům vytvářet aplikace, které implementaci a použití vzoru označovaného jako horizontálního dělení databáze ve službě Azure SQL Database.
-
-- [Klientská knihovna pro elastické databáze je nyní otevřete z domácích zdrojů!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - **příspěvku na blogu** o elastické databáze klientské knihovny, s datem 2015/09/09.
-
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) – přispívat ke kódu.
 - [Přehled služby Azure SQL Database elastické dotazu](sql-database-elastic-query-overview.md) – Pokud chcete používat elastické dotazy.
 
 - [Přesun dat mezi instancemi cloudu databázemi](sql-database-elastic-scale-overview-split-and-merge.md) – pokyny k používání **nástroji pro sloučení rozdělení**.

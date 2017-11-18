@@ -1,6 +1,6 @@
 ---
-title: "O disky a virtuální pevné disky pro virtuální počítače Windows Microsoft Azure | Microsoft Docs"
-description: "Další informace o základní informace o disky a virtuální počítače virtuální pevné disky pro Windows v Azure."
+title: "O ukládání na disk pro virtuální počítače Windows Microsoft Azure | Microsoft Docs"
+description: "Další informace o základní informace o ukládání disky a virtuální pevné disky pro Windows virtuální počítače v Azure."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: b1beecf2e4268e358285c1101edcb13f6d592948
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 588f18da6056641f3c9e42286b70d1f18b424d76
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-windows-vms"></a>O disky a virtuální pevné disky pro virtuální počítače Windows Azure
+# <a name="about-disk-storage-for-azure-windows-vms"></a>O ukládání na disk pro virtuální počítače Windows Azure
 Stejně jako všechny ostatní počítače virtuálních počítačů v Azure používat disky jako místo pro uložení operačního systému, aplikace a data. Všechny virtuální počítače Azure mít aspoň dva disky – disk operačního systému Windows a dočasný disk. Vytváření disku operačního systému z bitové kopie a disku operačního systému a image jsou virtuální pevné disky (VHD) uložené v účtu úložiště Azure. Virtuální počítače také může mít jeden nebo více datových disků, které jsou také uloženy jako virtuální pevné disky. 
 
 V tomto článku jsme se v souvislosti se jiný používá pro disky a potom popisují různé typy disků můžete vytvořit a použít. Tento článek je také k dispozici pro [virtuální počítače s Linuxem](../linux/about-disks-and-vhds.md).
@@ -79,6 +79,8 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Další kroky
-* [Připojit disk](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) přidat další úložiště pro virtuální počítač.
-* [Změňte písmeno jednotky dočasné disk systému Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) tak vaše aplikace můžete používat jednotku D: pro data.
+* [Připojit disk](attach-disk-portal.md) přidat další úložiště pro virtuální počítač.
+* [Vytvoření snímku](snapshot-copy-managed-disk.md).
+* [Převést na spravované disky](convert-unmanaged-to-managed-disks.md).
+
 

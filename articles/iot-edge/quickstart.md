@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e232b4cdb62b7bf212808bd380119482ee88b077
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Rychlý úvod: Nasazení první modul IoT Edge na portálu Azure do zařízení se systémem Windows – náhled
 
@@ -42,7 +42,7 @@ Tento kurz předpokládá, že používáte počítač nebo virtuální počíta
 >    * Windows Server. 1709 (sestavení 16299), nebo
 >    * Jádro IoT Windows (sestavení 16299) na zařízení na x64
 >
-> Jádro IoT Windows, postupujte podle pokynů v [instalace modulu runtime IoT Edge na jádro IoT Windows] [lnk-install-iotcore]. Jinak jednoduše [konfigurace Docker používat Windows kontejnery][lnk-docker-containers]a volitelně ověřit vaše požadavky pomocí následujícího příkazu prostředí powershell:
+> Jádro IoT Windows, postupujte podle pokynů v [instalaci modulu runtime IoT Edge na jádro IoT Windows][lnk-install-iotcore]. Jinak jednoduše [konfigurace Docker používat Windows kontejnery][lnk-docker-containers]a volitelně ověřit vaše požadavky pomocí následujícího příkazu prostředí powershell:
 >    ```
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
@@ -134,7 +134,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 Jste zjistili, jak nasadit modul IoT okraj do IoT hraniční zařízení. Nyní zkuste nasazení různých typů služeb Azure jako modulů, takže je můžete analyzovat data na hranici. 
 
 * [Nasazení funkce Azure jako modul](tutorial-deploy-function.md)
-* [Nasazení služby Azure Stream Analytics jako modul](tutorial-deploy-stream-analytics.md)
+* [Nasazení služby Azure Stream Analytics jako modulu](tutorial-deploy-stream-analytics.md)
 * [Nasadit vlastní kód jako modul](tutorial-csharp-module.md)
 
 
@@ -150,6 +150,7 @@ Jste zjistili, jak nasadit modul IoT okraj do IoT hraniční zařízení. Nyní 
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-install-iotcore]: how-to-install-iot-core.md
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

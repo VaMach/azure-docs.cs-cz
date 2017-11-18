@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/05/2017
+ms.date: 10/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 041919fd729880d429e08d8942f8d1ee087ccf61
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 11353ef93455a47f9f1c252fc5e192c111d87dd7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Nasazení Azure IoT Edge v simulovaném zařízení v systému Linux – náhled
 
@@ -52,33 +52,29 @@ Zaregistrujte IoT hraniční zařízení se nově vytvořená IoT Hub.
 Instalace a spuštění modulu runtime Azure IoT Edge ve vašem zařízení. 
 ![Registrovat zařízení][5]
 
-Modul runtime IoT okraj je nasadit na všechna zařízení IoT okraj. Obsahuje dva moduly. Nejprve agenta IoT Edge usnadňuje nasazení a monitorování modulů na IoT hraniční zařízení. Druhý centra IoT Edge spravuje komunikaci mezi modulů na IoT hraniční zařízení a mezi zařízením a IoT Hub. 
+Modul runtime IoT okraj je nasadit na všechna zařízení IoT okraj. Obsahuje dva moduly. **IoT Edge agenta** usnadňuje nasazení a monitorování modulů na IoT hraniční zařízení. **IoT Edge hub** spravuje komunikaci mezi modulů na IoT hraniční zařízení a mezi zařízením a IoT Hub. Pokud nakonfigurujete modul runtime na nové zařízení, pouze IoT Edge agenta se spustí na první. Centra IoT okraj dodává později při nasazení modul. 
 
-Použijte následující postup k instalaci a spuštění modulu runtime hraniční IoT:
+Na počítači, kde je potřeba spustit IoT hraniční zařízení Stáhněte skript řízení hraniční IoT:
+```cmd
+sudo pip install -U azure-iot-edge-runtime-ctl
+```
 
-1. Na počítači, kde je potřeba spustit IoT hraniční zařízení Stáhněte skript řízení IoT okraj.
+Konfigurace modulu runtime připojovacím řetězcem IoT hraniční zařízení z předchozí části:
+```cmd
+sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-   ```
-   sudo pip install -U azure-iot-edge-runtime-ctl
-   ```
+Spusťte modul runtime:
+```cmd
+sudo iotedgectl start
+```
 
-1. Konfigurace modulu runtime připojovacím řetězcem IoT hraniční zařízení z předchozí části.
+Zkontrolujte Docker, zda je jako modul spuštěn agent IoT Edge:
+```cmd
+sudo docker ps
+```
 
-   ```
-   sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
-
-1. Spusťte modul runtime.
-
-   ```
-   sudo iotedgectl start
-   ```
-
-1. Zkontrolujte, zda IoT Edge agenta je spuštěn jako modul Docker.
-
-   ```
-   sudo docker ps
-   ```
+![V tématu edgeAgent v Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Nasazení modulu
 
@@ -89,13 +85,23 @@ Spravujte vaše zařízení Azure IoT Edge z cloudu do nasazení modul, který b
 
 ## <a name="view-generated-data"></a>Vygeneruje zobrazení dat
 
-V tento rychlý start vytvořit nové zařízení IoT okraj a na něm nainstalován modul runtime IoT okraj. Potom použít portál Azure k modul IoT okraj ke spuštění na zařízení bez nutnosti měnit samotné zařízení. V takovém případě modul, který jste nabídnutých vytvoří prostředí data, která můžete použít pro kurzů k. 
+V tomto kurzu jste vytvořili nový IoT hraniční zařízení a na něm nainstalován modul runtime IoT okraj. Potom použít portál Azure k modul IoT okraj ke spuštění na zařízení bez nutnosti měnit samotné zařízení. V takovém případě modul, který jste nabídnutých vytvoří prostředí data, která můžete použít pro kurzů k. 
 
-Zobrazení zpráv odesílány z modulu tempSensor:
+Otevřete příkazový řádek v počítači se systémem simulovaného zařízení znovu. Ověřte, že modul nasazení z cloudu běží na IoT hraniční zařízení:
 
-```cmd/sh
-docker logs -f tempSensor
+```cmd
+sudo docker ps
 ```
+
+![Zobrazit tři modulů ve vašem zařízení](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+Zobrazení zpráv odesílány z modulu tempSensor do cloudu:
+
+```cmd
+sudo docker logs -f tempSensor
+```
+
+![Zobrazení dat z modulu](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 Můžete také zobrazit telemetrii zařízení odesílá pomocí [nástroji Průzkumník služby IoT Hub][lnk-iothub-explorer]. 
 

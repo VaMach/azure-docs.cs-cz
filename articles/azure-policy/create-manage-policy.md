@@ -3,17 +3,17 @@ title: "Pomocí zásad Azure můžete vytvořit a spravovat zásady vynutit orga
 description: "Pomocí zásad Azure vynutit standardy, splňovat zákonné požadavky na dodržování předpisů a auditování, řídit náklady, zachování konzistence zabezpečení a výkonu a použít zásady široké designu enterprise."
 services: azure-policy
 keywords: 
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 11/01/2017
+author: bandersmsft
+ms.author: banders
+ms.date: 11/17/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 63e8e4d3dbbc2e50b55f7e293d324ceed0484bb7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Vytvořit a spravovat zásady na vynucování dodržování shody
 
@@ -386,7 +386,7 @@ Iniciativy definicí můžete seskupit několik definice zásady pro dosažení 
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Vyřešte nevyhovující nebo odepření prostředek
 
-V následujícím příkladu výše, po přiřazení definice zásady tak, aby vyžadovala SQL server verze 12.0 by získat odepřena vytvořen v jiné verzi systému SQL server. V této části jsme se s návodem řešení odepření pokusu vytvořit jiné verzi systému SQL server.
+V následujícím příkladu výše, po přiřazení definice zásady tak, aby vyžadovala SQL server verze 12.0 by získat odepřena vytvořen v jiné verzi systému SQL server. V této části jsme se s návodem řešení odepření pokus o vytvoření jiné verzi systému SQL server tím, že požádá vyloučení.
 
 1. Vyberte **přiřazení** v levém podokně.
 2. Procházet všechna přiřazení zásad a spusťte *vyžadují SQL Server verze 12.0* přiřazení.

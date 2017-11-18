@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 82019392edc99f0adccb26b483e77b7c576822fb
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Nasazení funkce Azure jako modul IoT Edge – náhled
 Azure Functions můžete použít k nasazení kód, který implementuje obchodní logiku přímo do zařízení IoT okraj. Tento kurz vás provede vytvoření a nasazení funkce Azure, který filtruje data snímačů na simulované zařízení IoT okraj, který jste vytvořili v nasazení Azure IoT Edge na simulované zařízení na [Windows] [ lnk-tutorial1-win]nebo [Linux] [ lnk-tutorial1-lin] kurzy. V tomto kurzu se naučíte:     
@@ -141,7 +141,7 @@ Následující kroky ukazují, jak vytvořit funkce IoT Edge pomocí kódu v jaz
 1. Vytvořte bitovou kopii Docker.
     1. V Průzkumníku VS Code, klikněte na **Docker** složku ji otevřete. Potom vyberte složku pro vaši platformu kontejneru buď **linux x64** nebo **windows nano**. 
     2. Klikněte pravým tlačítkem myši **soubor Docker** souboru a klikněte na tlačítko **sestavení IoT Edge modulu Docker image**. 
-    3. V **vyberte složku** pole, přejděte **Docker nebo linux-x64** složky a klikněte na **vyberte složku jako EXE_DIR**. 
+    3. V **vyberte složku** pole, přejděte do složky, do projektu, **FilterFunction**a klikněte na tlačítko **vyberte složku jako EXE_DIR**. 
     4. Automaticky otevírané okno textového pole v horní části okna VS Code zadejte název bitové kopie. Například `<docker registry address>/filterfunction:latest`, kde *docker registru adresu* je vaše ID Docker, pokud používáte úložiště Docker Hub nebo je podobná `<your registry name>.azurecr.io`, pokud používáte Azure kontejneru registru.
  
 4. Přihlaste se k Docker. V integrovaném terminálu zadejte následující příkaz: 

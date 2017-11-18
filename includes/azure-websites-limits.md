@@ -18,7 +18,7 @@
 | Vlastní domény [podpora protokolu SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Neomezený počet připojení SNI SSL |Neomezená SNI SSL a 1 připojení IP SSL zahrnuté |Neomezená SNI SSL a 1 připojení IP SSL zahrnuté |
 | Integrovaný nástroj Load Balancer | |X |X |X |X |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Naplánovaných záloh](../articles/app-service/web-sites-backup.md) | | | |Jednou za den |Každých 5 minut<sup>8</sup> |
+| [Naplánovaných záloh](../articles/app-service/web-sites-backup.md) | | | |12 za den |Každých 5 minut<sup>8</sup> |
 | [Automatické škálování](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) podporu | |X |X |X |X |

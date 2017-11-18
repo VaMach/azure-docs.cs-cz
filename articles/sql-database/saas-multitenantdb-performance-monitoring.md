@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 9961a39f8e422d72301958ef467e4267f2c6c498
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Sledování a správa výkonu horizontálně dělené víceklientské Azure SQL database v aplikaci SaaS více klientů
 
@@ -35,7 +35,7 @@ V tomto kurzu se naučíte:
 > * Simulovat využití na databázi horizontálně dělené víceklientské spuštěním generátor zadaný zatížení
 > * Monitorování databáze jako odpoví na zvýšení zatížení
 > * Škálování databáze v reakci na zatížení vyšší databáze
-> * Zřízení nového klienta ve vlastní databázi
+> * Přidělení klienta do jednoho klienta databáze
 
 Předpokladem dokončení tohoto kurzu je splnění následujících požadavků:
 
@@ -51,11 +51,11 @@ Správa výkonu databáze sestává z kompilování a analýz dat výkonu a nás
 * Abyste se vyhnuli nutnosti ručně sledovat výkon, je nejúčinnější k **nastavit výstrahy, které aktivují, když databáze Stray Zbloudilá mimo normální rozsahy**.
 * Reakce na krátkodobé kolísání úroveň výkonu databáze, **DTU úrovně můžete škálovat nahoru nebo dolů**. Pokud dojde k této kolísání na základě pravidelných nebo předvídatelný **škálování databáze může být naplánováno automaticky**. Pokud například víte, že je úloha malého rozsahu, třeba přes noc nebo o víkendech, můžete vertikálně snížit kapacitu.
 * Reagovat dlouhodobější kolísání nebo změny v klientech, **jednotlivých klientů můžete přesunout do jiné databáze**.
-* Reakce na krátkodobou nárůstu *jednotlivých* zatížení klienta **jednotlivých klientů můžete převzaté z databáze a přiřadit na úroveň výkonu jednotlivých**. Jakmile se snižuje zatížení, klient může vracet pak do databáze více klientů. Když je znám předem, klienty můžete přesunout pre-emptively, zajistěte, aby byl vždy prostředky, které potřebuje databázi a vyhnout se ovlivnění jiných klientů v databázi více klientů. Pokud je tento požadavek předvídatelný, například v místě, kde se předpokládá navýšení prodeje lístků na oblíbenou akci, je možné toto chování správy začlenit do aplikace.
+* Reakce na krátkodobé zvyšování *jednotlivých* zatížení klienta **jednotlivých klientů můžete převzaté z databáze a přiřadit na úroveň výkonu jednotlivých**. Jakmile se snižuje zatížení, klient může vracet pak do databáze více klientů. Když je znám předem, klienty můžete přesunout pre-emptively, zajistěte, aby byl vždy prostředky, které potřebuje databázi a vyhnout se ovlivnění jiných klientů v databázi více klientů. Pokud je tento požadavek předvídatelný, například v místě, kde se předpokládá navýšení prodeje lístků na oblíbenou akci, je možné toto chování správy začlenit do aplikace.
 
-[Azure Portal](https://portal.azure.com) poskytuje integrované monitorování a upozorňování pro většinu prostředků. Pro databázi SQL je k dispozici v databázích monitorování a výstrahy. Toto integrované monitorování a výstrah je konkrétní prostředky, takže je možné použít pro malý počet prostředků, ale není možnost je užitečná při práci s množství prostředků.
+[Azure Portal](https://portal.azure.com) poskytuje integrované monitorování a upozorňování pro většinu prostředků. Pro databázi SQL je k dispozici v databázích monitorování a výstrahy. Toto integrované monitorování a výstrah je konkrétní prostředky, takže je možné použít pro malý počet prostředků, ale není vhodné při práci s mnoha prostředky.
 
-Pro rozsáhlé scénáře, kde pracujete s mnoha prostředky [analýzy protokolů (OMS)](https://azure.microsoft.com/services/log-analytics/) lze použít. Toto je samostatný služba Azure, která nabízí v porovnání s emitovaného diagnostické protokoly a telemetrie získané v pracovním prostoru analýzy protokolů analýzy. Analýzy protokolů můžete shromažďovat telemetrická data z mnoha služeb a použije k dotazování a nastavit výstrahy.
+Vysoký počet scénářů, při kterém pracujete s mnoha prostředky, [analýzy protokolů (OMS)](https://azure.microsoft.com/services/log-analytics/) lze použít. Toto je samostatný služba Azure, která nabízí v porovnání s emitovaného diagnostické protokoly a telemetrie získané v pracovním prostoru analýzy protokolů analýzy. Analýzy protokolů můžete shromažďovat telemetrická data z mnoha služeb a použije k dotazování a nastavit výstrahy.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Zdrojový kód Wingtip lístky SaaS víceklientské databáze aplikace a skripty
 
@@ -95,7 +95,7 @@ Generátor zatížení použije *syntetické* zatížení jenom pro CPU na každ
 Adresář Wingtip lístky SaaS víceklientské databáze je aplikace SaaS a reálného zatížení aplikace SaaS je obvykle ojediněle a nepředvídatelným. Abychom takovýto scénář nasimulovali, vytváří generátor zatížení náhodné zatížení rozdělené mezi všechny tenanty. Několik minut, je potřeba pro vzor zatížení objeví, takže spuštění generátor zatížení po dobu 3 až 5 minut před pokusem o monitorování zatížení v následujících částech.
 
 > [!IMPORTANT]
-> Generátor zatížení běží jako řadu úloh v jste nové okno prostředí PowerShell. Pokud zavřete relaci, generátor zatížení se zastaví. Generátor zatížení zůstává ve *vyvolání úlohy* stavu, kde vygeneruje zatížení žádné nové klienty, které jsou zřízené po spuštění generátor. Použití *Ctrl-C* zastavení vyvolání nové úlohy a ukončení skript. Generátor zatížení bude nadále spouštět, ale jenom na stávající klienty.
+> Generátor zatížení běží jako řadu úloh v novém okně prostředí PowerShell. Pokud zavřete relaci, generátor zatížení se zastaví. Generátor zatížení zůstává ve *vyvolání úlohy* stavu, kde vygeneruje zatížení žádné nové klienty, které jsou zřízené po spuštění generátor. Použití *Ctrl-C* zastavení vyvolání nové úlohy a ukončení skript. Generátor zatížení bude nadále spouštět, ale jenom na stávající klienty.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Sledování využití prostředků pomocí portálu Azure
 
@@ -120,9 +120,9 @@ Nastavit výstrahy na databázi, která aktivuje na \>75 % využití následují
 1. Zadejte název, například **High DTU**,
 1. Nastavte následující hodnoty:
    * **Metrika = procento DTU**
-   * **Podmínka = je větší než**.
+   * **Podmínka = větší než**
    * **Prahová hodnota = 75**.
-   * **Období = více než posledních 30 minut**.
+   * **Období = za posledních 30 minut**
 1. Přidání e-mailovou adresu k *další správce email(s)* pole a klikněte na tlačítko **OK**.
 
    ![nastavení upozornění](media/saas-multitenantdb-performance-monitoring/set-alert.png)
@@ -153,7 +153,7 @@ Databáze je v průběhu procesu online a plně dostupná. Kód aplikace budou z
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Zřízení nového klienta ve vlastní databázi 
 
-Horizontálně dělené víceklientského modelu můžete zvolit, jestli ke zřízení nového klienta v databázi víceklientské souběžně s jinými klienty nebo pro zřízení klienta na databázi. Služba klienta v svou vlastní databázi, výhody z izolace vyplývajících z samostatné databáze, abyste mohli spravovat výkon tohoto klienta nezávisle na ostatních, obnovení tohoto klienta nezávisle na ostatních, atd. Můžete například zvolit chápat jednotlivé databáze bez zkušební verze nebo běžné zákazníků v databázi více klientů a zákazníky premium.  Pokud jsou vytvořeny izolované databáze jednoho klienta se můžete dál spravovat souhrnně v elastickém fondu za účelem optimalizace prostředků náklady.
+Horizontálně dělené víceklientského modelu můžete zvolit, jestli ke zřízení nového klienta v databázi víceklientské souběžně s jinými klienty nebo pro zřízení klienta na databázi. Služba klienta v svou vlastní databázi, výhody z izolace vyplývajících z samostatné databáze, abyste mohli spravovat výkon tohoto klienta nezávisle na ostatních, obnovení tohoto klienta nezávisle na ostatních, atd. Můžete například zvolit chápat jednotlivé databáze bez zkušební verze nebo běžné zákazníků v databázi více klientů a zákazníky premium.  Pokud jsou vytvořeny izolované databáze jednoho klienta, se můžete dál spravovat souhrnně v elastickém fondu za účelem optimalizace prostředků náklady.
 
 Pokud už zřízené v svou vlastní databázi nového klienta, přeskočte několika dalších krocích.
 
@@ -195,7 +195,7 @@ V tomto kurzu se naučíte:
 > * Simulovat využití na databázi horizontálně dělené víceklientské spuštěním generátor zadaný zatížení
 > * Monitorování databáze jako odpoví na zvýšení zatížení
 > * Škálování databáze v reakci na zatížení vyšší databáze
-> * Zřízení nového klienta ve vlastní databázi
+> * Přidělení klienta do jednoho klienta databáze
 
 ## <a name="additional-resources"></a>Další zdroje
 

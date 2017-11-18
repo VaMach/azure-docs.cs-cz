@@ -12,35 +12,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5d55207784390a68a3b4d87f7a3d4773491d08b8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 0396c59d9d95ab71f0af04029d87afbb6e47dc35
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Zjistit, jak zákazníci používají aplikace s nálevky statistiky aplikace
 
 Principy zkušeností zákazníků je nesmírně důležité k vaší firmě. Pokud vaše aplikace zahrnuje několik fází, musíte vědět, pokud se většina zákazníků pokročíte prostřednictvím celý proces, nebo pokud jsou jejich ukončení procesu v určitém okamžiku. Průběh prostřednictvím sérii kroků ve webové aplikaci se označuje jako "trychtýřového grafu". Můžete nálevky Statistika aplikaci a získáte přehled o vašich uživatelů a monitorování podrobné převod sazby. 
 
-## <a name="get-started-with-the-funnels-blade"></a>Začínáme s nálevky okna
-Nejjednodušší způsob, jak získat informace o nálevky je provedeme příklad. Následující ilustrace ukazují vlastníci kroky elektronické obchodování bude trvat, než se dozvíte, jak zákazníkům komunikovat s touto webovou aplikací.  
-
-### <a name="create-your-funnel"></a>Vytvoření vaší trychtýřového grafu
-Než vytvoříte vaší trychtýřového grafu, musíte rozhodnout na otázku, kterou chcete odpovědět. Například můžete chtít vědět, jak mnoho zákazníků zobrazení vaší domovské stránce kliknutím na oznámení o inzerovaném programu. V tomto příkladu vlastníci společnosti Fabrikam Fiber zajímat, do jaké procento zákazníci, kteří nákup po přidání položky do jejich nákupní košík během poslední měsíc.
+## <a name="create-your-funnel"></a>Vytvoření vaší trychtýřového grafu
+Než vytvoříte vaší trychtýřového grafu, musíte rozhodnout na otázku, kterou chcete odpovědět. Například můžete chtít vědět, kolik uživatelů prohlížíte domovské stránce zobrazení profil zákazníka a vytvoření lístku. V tomto příkladu vlastníci společnosti Fabrikam Fiber zajímat, do jaké procento zákazníci, kteří úspěšně vytvořit lístek zákazníka.
 
 Tady jsou kroky, které budou chtít vytvořit jejich trychtýřového grafu.
 
-1. Klikněte na tlačítko Nový v okně nálevky.
-1. Vyberte časové rozmezí "Poslední měsíc" z **časový rozsah** rozevíracího seznamu. 
-1. Vyberte **stránky produktu** událost z **kroku 1** rozevíracího seznamu. 
-1. Vyberte **přidat nákupního košíku** událost z **kroku 2** rozevíracího seznamu.
-1. Vyberte **kliknutím na nákup** událost z **krok 3** rozevíracího seznamu.
+1. Klikněte na tlačítko Nový na nástroj nálevky.
+1. Vyberte časové rozmezí "Posledních 90 dnů" z **časový rozsah** rozevíracího seznamu. Vyberte buď "Nálevky" nebo "Sdílené nálevky"
+1. Vyberte **Index** událost z **kroku 1** rozevíracího seznamu. 
+1. Vyberte **zákazníka** událost z **kroku 2** rozevíracího seznamu.
+1. Vyberte **vytvořit** událost z **krok 3** rozevíracího seznamu.
 1. Přidat název do trychtýřového grafu a klikněte na tlačítko **Uložit**.
 
-Následující obrázek ukazuje, že data v okně nálevky generuje. Tady Fabrikam můžete zobrazit vlastníky během posledního týdne dokončit 22.7 % zákazníků, kteří přidat položku do jejich nákupní košík nákupu. Můžete také zobrazit, 1 % zákazníkům před hostujících stránky produktu a 20 % zákazníkům odhlášení po dokončení jejich nákup kliknutí na oznámení o inzerovaném programu.
+Následující obrázek ukazuje, že data nálevky Nástroj generuje. Zde Fabrikam vlastníky najdete v během posledních 90 dnů, 54.3 % zákazníků, kteří navštívili domovské stránce vytvořený lístek zákazníka. Můžete také zobrazit, 2.7 tisíc zákazníků přišel do indexu z domovské stránky, může to znamenat problém s aktualizací zobrazení.
 
 
-![Okno nálevky s daty](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Nástroj nálevky s daty](./media/app-insights-understand-usage-patterns/funnel1.png)
+
+### <a name="funnel-features"></a>Trychtýřový funkce
+1. Pokud vaše aplikace je vzorků, zobrazí se banner vzorkování. Klepnutím na informační zprávě otevřete podokno kontextu instruující vypnutí vzorkování. 
+2. Můžete exportovat vaší trychtýřového grafu do [Power BI](app-insights-export-power-bi.md).
+3. Klikněte na krok a získejte detailnější přehledy na pravé straně. 
+4. Historické převod ukazuje převod za posledních 90 dnů. 
+5. Vaši uživatelé lepší pochopení přechodem na nástroje Uživatelé z nálevky. Každý krok získáte filtry uživatelé vám kurátorované. 
 
 ## <a name="next-steps"></a>Další kroky
   * [Přehled využití](app-insights-usage-overview.md)

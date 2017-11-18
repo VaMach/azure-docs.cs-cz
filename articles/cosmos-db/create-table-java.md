@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: arramac
-ms.openlocfilehash: 5eade2b85737f9c381f6292a78fc5407398e2b9c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: ce5c1c25a73bdc02d7e66768752c6942144de517
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API Java a Azure Cosmos DB
 
@@ -87,9 +87,20 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
    ![Zobrazení a zkopírujte řetězec informace o požadované připojení z v podokně připojovací řetězec](./media/create-table-java/connection-string.png)
 
-2. Otevřete soubor config.properties a zkopírujte požadované připojovací řetězec vlastnosti do konfiguračního souboru.
+2. Zkopírujte primární PŘIPOJOVACÍ řetězec pomocí tlačítko Kopírovat na pravé straně.
 
-3. Uložte soubor config.properties.
+3. Config.properties otevřete ve složce C:\git-samples\storage-table-java-getting-started\src\main\resources. 
+
+5. Okomentovat řádek jednu a zrušte komentář u řádku dva. První dva řádky by teď měl vypadat takto.
+
+    ```
+    #StorageConnectionString = UseDevelopmentStorage=true
+    StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
+    ```
+
+6. PRIMÁRNÍ PŘIPOJOVACÍ řetězec z portálu vložte do StorageConnectionString hodnoty v řádku 2. Pokud koncový bod část připojovací řetězec používá documents.azure.com, opravte část table.cosmosdb.azure.com místo toho chcete použít.
+
+7. Uložte soubor config.properties.
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
 

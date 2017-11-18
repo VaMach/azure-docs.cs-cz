@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 944149746b05108040cd0cc340e882b39713f06e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Kurz: Azure Active Directory integrace s popředí
 
@@ -104,66 +104,60 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
  
     ![Jediné přihlášení dialogové okno](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. Na **Front domény a adresy URL** část, pokud chcete nakonfigurovat aplikace **IDP** iniciované režimu:
+3. Na **Front domény a adresy URL** část, proveďte následující kroky:
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
     a. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<companyname>.frontapp.com`
 
     b. V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<companyname>.frontapp.com/sso/saml/callback`
-
-4. Zkontrolujte **zobrazit upřesňující nastavení adresy URL**, pokud chcete nakonfigurovat aplikace **SP** iniciované režimu:
-
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
-
-    V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<companyname>.frontapp.com`
      
     > [!NOTE] 
-    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizovat s skutečné identifikátor, adresa URL odpovědi a přihlašovací adresa URL, které jsou vysvětleny později v kurzu nebo kontaktujte [tým podpory Front klienta](mailto:support@frontapp.com) k získání těchto hodnot. 
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizovat se skutečným identifikátorem a adresa URL odpovědi který je popsán později v kurzu nebo kontaktujte [tým podpory Front klienta](mailto:support@frontapp.com) k získání těchto hodnot. 
 
-5. Na **SAML podpisový certifikát** klikněte na tlačítko **Certificate(Base64)** a potom uložte soubor certifikátu v počítači.
+4. Na **SAML podpisový certifikát** klikněte na tlačítko **Certificate(Base64)** a potom uložte soubor certifikátu v počítači.
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
-6. Klikněte na tlačítko **Uložit** tlačítko.
+5. Klikněte na tlačítko **Uložit** tlačítko.
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-7. Na **Front konfigurace** klikněte na tlačítko **nakonfigurovat Front** otevřete **konfigurovat přihlášení** okno. Kopírování **Sign-Out adresu URL, SAML Entity ID a SAML jeden přihlašování adresa URL služby** z **Stručná referenční příručka části.**
+6. Na **Front konfigurace** klikněte na tlačítko **nakonfigurovat Front** otevřete **konfigurovat přihlášení** okno. Kopírování **Sign-Out adresu URL, SAML Entity ID a SAML jeden přihlašování adresa URL služby** z **Stručná referenční příručka části.**
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Přihlášení ke klientovi přední jako správce.
+7. Přihlášení ke klientovi přední jako správce.
 
-9. Přejděte na **nastavení (ozubené kolo ikona v dolní části na levém bočním panelu) > Předvolby**.
+8. Přejděte na **nastavení (ozubené kolo ikona v dolní části na levém bočním panelu) > Předvolby**.
    
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
-10. Klikněte na tlačítko **jednotné přihlašování** odkaz.
+9. Klikněte na tlačítko **jednotné přihlašování** odkaz.
    
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Vyberte **SAML** v rozevíracím seznamu **jednotné přihlašování**.
+10. Vyberte **SAML** v rozevíracím seznamu **jednotné přihlašování**.
    
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. V **vstupní bod** textbox vložte hodnotu **jeden přihlašování adresa URL služby** z Průvodce konfigurací aplikace Azure AD.
+11. V **vstupní bod** textbox vložte hodnotu **jeden přihlašování adresa URL služby** z Průvodce konfigurací aplikace Azure AD.
     
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. Otevřete váš stažené **Certificate(Base64)** souboru v programu Poznámkový blok, zkopírujte obsah ho do schránky a vložte jej do **podpisového certifikátu** textové pole.
+12. Otevřete váš stažené **Certificate(Base64)** souboru v programu Poznámkový blok, zkopírujte obsah ho do schránky a vložte jej do **podpisového certifikátu** textové pole.
     
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. Na **nastavení poskytovatele služby** část, proveďte následující kroky:
+13. Na **nastavení poskytovatele služby** část, proveďte následující kroky:
 
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
     a. Zkopírujte hodnotu **Entity ID** a vložte ji do **identifikátor** textového pole v **Front domény a adresy URL** části na portálu Azure.
 
-    b. Zkopírujte hodnotu **adresa URL služby ACS** a vložte ji do **přihlašovací adresa URL** textového pole v **Front domény a adresy URL** části na portálu Azure.
+    b. Zkopírujte hodnotu **adresa URL služby ACS** a vložte ji do **adresa URL odpovědi** textového pole v **Front domény a adresy URL** části na portálu Azure.
     
-15. Klikněte na tlačítko **Uložit** tlačítko.
+14. Klikněte na tlačítko **Uložit** tlačítko.
 
 > [!TIP]
 > Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

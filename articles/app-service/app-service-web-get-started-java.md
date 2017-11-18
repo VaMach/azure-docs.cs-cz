@@ -4,7 +4,7 @@ description: "Nasazením základní Java aplikace se naučíte, jak spouštět w
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 6/7/2017
+ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ac8ef479be5a93b2c4baa76279c8d3e53389409a
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 3d9a4d72d348b4fe631f075debb6198462f24c56
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Vytvoření první webové Java aplikace ve službě Azure
 
 Azure [webové aplikace](app-service-web-overview.md) nabízí vysoce škálovatelnou a automatických oprav webové hostitelské služby. Tento kurz Rychlý start ukazuje, jak nasadit webovou Java aplikaci do služby App Service pomocí [integrovaného vývojového prostředí Eclipse pro vývojáře na platformě Java EE](http://www.eclipse.org/).
+
+Pokud jste dokončili tento rychlý start, vaše aplikace bude vypadat podobně jako na následujícím obrázku, při zobrazení ve webovém prohlížeči:
 
 ![Hello Azure! Ukázková webová aplikace](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -32,7 +34,7 @@ Azure [webové aplikace](app-service-web-overview.md) nabízí vysoce škálovat
 K provedení kroků v tomto kurzu Rychlý start je potřeba nainstalovat:
 
 * Bezplatné [integrované vývojové prostředí Eclipse pro vývojáře na platformě Java EE](http://www.eclipse.org/downloads/). Tento kurz Rychlý start používá Eclipse Neon.
-* [Sadu nástrojů Azure pro Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* [Sadu nástrojů Azure pro Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -167,9 +169,9 @@ V prohlížeči Project Explorer klikněte pravým tlačítkem na projekt a poto
 
 Zobrazí se dialogové okno **Deploy Web App** (Nasazení webové aplikace), ve kterém se zobrazí aplikační služba, kterou jste předtím vytvořili. 
 
-> [!NOTE]
-> Při každém publikování vyberte **Deploy to root** (Nasadit do kořene).
->
+> [!NOTE] 
+> Při každém publikování vyberte **Deploy to root** (Nasadit do kořene). 
+> 
 
 Vyberte webovou aplikaci a pak vyberte **Deploy** (Nasadit). Tím změny publikujete.
 

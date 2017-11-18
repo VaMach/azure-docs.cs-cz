@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Nejčastější dotazy k Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Základy Azure Cosmos DB
@@ -431,7 +431,7 @@ Azure Cosmos DB nastaví výchozí propustnost pro váš kontejner podle kde vyt
 Koncept propustnost je podrobně popsaný [jednotky žádosti v Azure Cosmos DB](request-units.md) článku. Propustnost pro tabulku je rovnoměrně rozdělené mezi základní fyzické oddíly.  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>Co je výchozí RU/s tabulky při vytvoření prostřednictvím CQL? Co když je nutné ho změnit?
-Azure Cosmos DB jako měny používá jednotek žádosti za sekundu (RU/s) pro zajištění propustnost. Tabulky, které jsou vytvořené pomocí CQL mít 400 RU. Můžete změnit RU z portálu na 10 000 RU. Pokud potřebujete více než 10 000 RU v privátní Preview verzi – můžete ho vytvořit nejprve z portálu. Nebo pokud chcete, aby tato funkce pro CQL - prosím kontaktujte nás na [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure Cosmos DB jako měny používá jednotek žádosti za sekundu (RU/s) pro zajištění propustnost. Tabulky, které jsou vytvořené pomocí CQL mít 400 RU. Z portálu, můžete změnit RU. 
 
 CQL
 ```

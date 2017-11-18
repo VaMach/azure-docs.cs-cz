@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e5fc1933efcaa9c6eaa7ab0021c3362e0714a3d5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfigurace a správy nejčastější dotazy pro webové aplikace v Azure
 
@@ -319,4 +319,4 @@ Také můžete zadat konkrétní dynamických a statických typy MIME, který ch
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Jak se migraci z místního prostředí do služby App Service?
 
-Pokud chcete migrovat lokality z webových serverů Windows a Linux do služby App Service, můžete použít Azure App Service migrace pomocníka. Nástroj pro migraci vytvoří webové aplikace a databáze v Azure podle potřeby a následně publikuje obsah. Další informace najdete v tématu [Azure App Service migrace pomocníka](https://www.movemetothecloud.net/).
+Pokud chcete migrovat lokality z webových serverů Windows a Linux do služby App Service, můžete použít Azure App Service migrace pomocníka. Nástroj pro migraci vytvoří webové aplikace a databáze v Azure podle potřeby a následně publikuje obsah. Další informace najdete v tématu [Azure App Service migrace pomocníka](https://www.migratetoazure.net/).

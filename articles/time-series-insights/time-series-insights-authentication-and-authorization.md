@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a1d364b0dcb70998b390d0d96bcd1e439617e493
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Ověřování a autorizace pro rozhraní API pro Azure časové řady přehledy
 
@@ -24,15 +24,15 @@ Tento článek vysvětluje postup konfigurace ověřování a autorizace, které
 
 ## <a name="service-principal"></a>Instanční objekt
 
-Tato část vysvětluje postup konfigurace aplikace pro přístup k rozhraní API pro přehledy časové řady jménem aplikace. Aplikace můžete potom dotaz na data nebo publikování referenční data v prostředí časové řady Statistika s přihlašovací údaje aplikací a není pověření uživatele.
+Tato část vysvětluje postup konfigurace aplikace pro přístup k rozhraní API pro přehledy časové řady jménem aplikace. Aplikace můžete potom dotaz na data nebo publikování referenční data v prostředí časové řady Statistika aplikace pověření než pověření uživatele.
 
-Až budete mít aplikaci, která potřebuje přístup čas řady Insights, musíte nastavit aplikaci Azure Active Directory a přiřadit zásady přístupu k datům v prostředí Statistika časové řady. Tento postup je vhodnější spuštění aplikace vlastní oprávnění, protože:
+Až budete mít aplikaci, která musí doba přístupu k řady Insights, musíte nastavit aplikaci Azure Active Directory a přiřadit zásady přístupu k datům v prostředí Statistika časové řady. Tento postup je vhodnější spuštění aplikace vlastní oprávnění, protože:
 
-* Můžete přiřadit oprávnění k identitě aplikace, která se liší od vlastní oprávnění. Tato oprávnění jsou obvykle omezené na přesně co aplikaci je třeba provést. Můžete například povolit aplikaci pouze číst data v prostředí s konkrétní Statistika časové řady.
+* Můžete přiřadit oprávnění k identitě aplikace, která se liší od vlastní oprávnění. Tato oprávnění jsou obvykle omezené na vyžaduje pouze, co aplikace. Můžete například povolit aplikaci pouze číst data v prostředí s konkrétní Statistika časové řady.
 * Nemáte ke změně pověření aplikace, pokud vaše odpovědnosti změnit.
 * Certifikát nebo klíč aplikace můžete použít k automatizaci ověřování, když používáte bezobslužného skriptu.
 
-Tento článek ukazuje, jak provádět tyto kroky prostřednictvím portálu Azure. Zaměřuje se na jednoho klienta aplikace, kde je záměrem aplikaci spustit v pouze jedné organizaci. Jednoho klienta aplikace se obvykle používají pro-obchodní aplikace, které běží ve vaší organizaci.
+Toto téma ukazuje, jak provést tyto kroky prostřednictvím portálu Azure. Zaměřuje se na jednoho klienta aplikace, kde je záměrem aplikaci spustit v pouze jedné organizaci. Jednoho klienta aplikace se obvykle používají pro-obchodní aplikace, které běží ve vaší organizaci.
 
 Nastavení toku se skládá z tři hlavní kroky:
 
@@ -103,5 +103,7 @@ ID aplikace a klíč v aplikaci použijte k ověření pomocí Azure časové ř
 
 ## <a name="next-steps"></a>Další kroky
 - Ukázkový kód, který volá rozhraní API pro přehledy časové řady, najdete v části [dotaz na data pomocí jazyka C#](time-series-insights-query-data-csharp.md).
-- Rozhraní API referenční informace najdete v tématu [referenční dokumentace rozhraní API dotazu](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-- [Vytvoření instančního objektu na portálu Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Rozhraní API referenční informace najdete v tématu [referenční dokumentace rozhraní API dotazu](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+
+> [!div class="nextstepaction"]
+> [Vytvoření instančního objektu služby](../azure-resource-manager/resource-group-create-service-principal-portal.md)

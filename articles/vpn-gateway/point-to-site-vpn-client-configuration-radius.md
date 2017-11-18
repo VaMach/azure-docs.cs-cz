@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 11/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: d7d2dbff4bcd0d76b56c6f142afae4ce8359bb37
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Vytvoření a instalace souborů konfigurace klienta VPN pro ověřování pomocí protokolu RADIUS P2S (Preview)
 
@@ -27,16 +27,17 @@ Soubory konfigurace klienta VPN jsou obsaženy v souboru zip. Konfigurační sou
 
 ### <a name="workflow"></a>Pracovní postup
 
-  1. Nastaví bránu Azure VPN pro připojení P2S.
-  2. Nastavení serveru RADIUS pro ověřování. 
-  3. Získání konfigurace klienta VPN pro možnost ověřování podle svého výběru a použít ho k nastavení klienta VPN na zařízení se systémem Windows. To vám umožní připojit se k virtuálním sítím Azure prostřednictvím připojení P2S.
+  1. [Nastaví bránu Azure VPN pro připojení P2S](point-to-site-how-to-radius-ps.md).
+  2. [Nastavit server RADIUS pro ověřování](point-to-site-how-to-radius-ps.md#radius). 
+  3. (Tento článek) - získat konfiguraci sítě VPN klienta pro možnost ověřování podle svého výběru a použít ho k nastavení klienta VPN na zařízení se systémem Windows. To vám umožní připojit se k virtuálním sítím Azure prostřednictvím připojení P2S.
+  4. [Dokončete konfiguraci P2S a připojte](point-to-site-how-to-radius-ps.md).
 
 >[!IMPORTANT]
 >Je-li vygenerovat profil konfigurace klienta VPN, jako je například protokol typ sítě VPN nebo typ ověřování, se změny v konfiguraci Point-to-Site VPN musí vygenerovat a nainstalujte nové konfigurace klienta VPN v zařízeních uživatele.
 >
 >
 
-## <a name="adeap"></a>Ověřování uživatelského jména a hesla
+## <a name="adeap"></a>O ověřování uživatelského jména a hesla
 
 * **Ověřování AD:** oblíbených scénář je ověřování v doméně AD. V tomto scénáři uživatelé používat přihlašovací údaje domény pro připojení k virtuálním sítím Azure. Můžete vytvořit soubory konfigurace klienta VPN pro ověřování pomocí protokolu RADIUS AD.
 
@@ -44,29 +45,31 @@ Soubory konfigurace klienta VPN jsou obsaženy v souboru zip. Konfigurační sou
 
 Ujistěte se, že všichni uživatelé připojující mít přihlašovací údaje uživatelského jména a hesla, které lze ověřit pomocí protokolu RADIUS. Můžete vytvořit pouze konfiguraci pro ověřovací protokol EAP-MSCHAPv2 uživatelského jména a hesla. ' – AuthenticationMethod' je zadán jako 'EapMSChapv2'.
 
-### <a name="usernamefiles"></a>Generování souborů konfigurace klienta VPN
+## <a name="usernamefiles"></a> 1. Generování souborů konfigurace klienta VPN
 
-Vytvoření konfigurace klienta VPN pomocí následujícího příkazu:
+Generování souborů konfigurace klienta VPN pro použití s ověřováním uživatelského jména a hesla. Můžete vygenerovat soubory konfigurace klienta VPN pomocí následujícího příkazu:
 
 ```powershell 
 New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
-Po spuštění příkazu, vrátí odkaz. Zkopírujte a vložte odkaz do webového prohlížeče ke stažení komprimované souboru s názvem 'VpnClientConfiguration.zip'. Rozbalte soubor zobrazíte následující složky: 
+Spuštěním příkazu vrátí odkaz. Zkopírujte a vložte odkaz do webového prohlížeče ke stažení, VpnClientConfiguration.zip'. Rozbalte soubor zobrazíte následující složky: 
  
-* Složky s názvem 'WindowsAmd64' a 'WindowsX86'. Tyto složky obsahují balíčky Instalační služby systému Windows 64bitové a 32bitové v uvedeném pořadí. 
-* Složku s názvem 'GenericDevice'. Tato složka obsahuje obecné informace použít k vytvoření vlastní konfigurace klienta VPN. Ignorujte tuto složku.
-* Pokud bylo nakonfigurované IKEv2, když vytvoříte bránu virtuální sítě, zobrazí složka s názvem "Mac, která obsahuje soubor s názvem 'mobileconfig'. Tento soubor se používá ke konfiguraci klienti se systémem Mac.
+* **WindowsAmd64** a **WindowsX86** -tyto složky obsahují balíčky Instalační služby systému Windows 64bitové a 32bitové v uvedeném pořadí. 
+* **GenericDevice** – tato složka obsahuje obecné informace použít k vytvoření vlastní konfigurace klienta VPN. Tato složka není vyžadován pro ověření konfigurace uživatelského jména a hesla.
+* **Mac** -IKEv2 Pokud byla nakonfigurována, když vytvoříte bránu virtuální sítě, najdete v části složku s názvem "Mac, který obsahuje **mobileconfig** souboru. Tento soubor se používá ke konfiguraci klienti se systémem Mac.
 
-Můžete načíst konfigurační soubory klienta, které jste už vytvořili. 'Get-AzureRmVpnClientConfiguration, rutina vrátí adresu URL (odkaz) ze kterých si můžete stáhnout soubor VpnClientConfiguration.zip. Pokud provedete konfiguraci P2S VPN, jako je například protokol VPN typ nebo typ ověřování, všechny změny konfigurace automaticky neaktualizuje. Musíte spustit rutinu 'New-AzureRmVpnClientConfiguration' Chcete-li obnovit konfiguraci.
+Pokud jste již vytvořili klienta konfigurační soubory, můžete je načíst pomocí rutiny 'Get-AzureRmVpnClientConfiguration'. Ale pokud provedete změny konfiguraci P2S VPN, jako je například protokol VPN typ nebo typ ověřování, konfigurace nebude aktualizovat automaticky. Musíte spustit rutinu, New-AzureRmVpnClientConfiguration' Chcete-li vytvořit nové konfigurace stahování.
 
 Pokud chcete načíst dříve generovaného klienta konfigurační soubory, použijte následující příkaz:
 
 ```powershell
 Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
+
+## <a name="setupusername"></a> 2. Konfigurace klientů Windows a Mac VPN
  
-### <a name="adwincli"></a>Nastavení klienta VPN ve Windows
+### <a name="adwincli"></a>Instalace klienta VPN ve Windows
 
 Na každém klientském počítači s Windows, můžete použít stejný balíček konfigurace klienta VPN, tak dlouho, dokud verze odpovídá architektuře pro klienta. Seznam klientské operační systémy, které jsou podporované, najdete v části Point-to-Site [– nejčastější dotazy](vpn-gateway-vpn-faq.md#P2S).
 
@@ -76,7 +79,7 @@ Pomocí následujícího postupu můžete nakonfigurovat Nativní klient VPN ve 
 2. Dvakrát klikněte na balíček k její instalaci. Pokud se zobrazí automaticky otevírané okno filtru SmartScreen, klikněte na **Další informace** a potom na **Přesto spustit**.
 3. Na klientském počítači přejděte do části **Nastavení sítě** a klikněte na možnost **Síť VPN**. Připojení k síti VPN zobrazuje název virtuální sítě, ke které se připojuje. 
 
-### <a name="admaccli"></a>Nastavení klienta Mac (OSX) VPN
+### <a name="admaccli"></a>Instalace klienta VPN MAC (OSX)
 
 1. Vyberte **VpnClientSetup mobileconfig** souboru a jeho odeslání jednotlivých uživatelů. K tomu můžete použít e-mailu nebo jiným způsobem.
 
@@ -97,7 +100,7 @@ Pomocí následujícího postupu můžete nakonfigurovat Nativní klient VPN ve 
   ![uživatelské jméno a heslo](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
 7. Po instalaci profilu se zobrazí na **profily** dialogové okno. Tento dialog můžete také otevřít později z **předvolbách systému**.
 
-  ! [předvolbách systému]] (. / media/point-to-site-vpn-client-configuration-radius/adsystempref.png)
+  ![předvolbách systému](./media/point-to-site-vpn-client-configuration-radius/adsystempref.png)
 8. Chcete-li získat přístup k připojení k síti VPN, otevřete **sítě** dialogové okno z **předvolbách systému**.
 
   ![Sítě](./media/point-to-site-vpn-client-configuration-radius/adnetwork.png)
@@ -109,7 +112,7 @@ Pomocí následujícího postupu můžete nakonfigurovat Nativní klient VPN ve 
   ![ověření](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 11. Klikněte na tlačítko **použít** a uložte změny. Chcete-li iniciovat připojení, klikněte na tlačítko **Connect**.
 
-## <a name="certeap"></a>Ověřování pomocí certifikátu
+## <a name="certeap"></a>O ověření certifikátu
  
 Klient VPN můžete vytvořit konfigurační soubory pro ověřování protokolu RADIUS certifikát, který používá protokol EAP-TLS. Certifikát vydaný Enterprise se obvykle používá k ověření uživatele pro síť VPN. Ujistěte se, zda všichni uživatelé připojující certifikát nainstalovaný na zařízení uživatelů, a že může být ověřen certifikát serveru RADIUS.
  
@@ -117,20 +120,20 @@ Klient VPN můžete vytvořit konfigurační soubory pro ověřování protokolu
 * Při ověřování certifikátu klienta ověří RADIUS server ověřením svůj certifikát. -RadiusRootCert je soubor .cer obsahující kořenový certifikát, který se používá k ověření serveru RADIUS.  
 * V některých případech zařízení se systémem Windows má více klientských certifikátů. Při ověřování to může způsobit v automaticky otevřeném okně. dialog výpis všech certifikátů. Uživatel pak musí vybrat certifikát, který chcete použít. Správný certifikát můžete odfiltrovat zadáním kořenový certifikát, ke které by měly být zřetězené klientského certifikátu. '-ClientRootCert, je soubor .cer, který obsahuje kořenový certifikát. Je volitelný parametr. Pokud zařízení, ze kterého se chcete připojit má jen jeden klientský certifikát, pak tento parametr není nutné zadávat.
 
-### <a name="certfiles"></a>Generování souborů konfigurace klienta VPN
+## <a name="certfiles"></a>1. Generování souborů konfigurace klienta VPN
 
-Vytvoření konfigurace klienta VPN pomocí následujícího příkazu:
+Generování souborů konfigurace klienta VPN pro použití s ověřováním pomocí certifikátu. Můžete vygenerovat soubory konfigurace klienta VPN pomocí následujícího příkazu:
  
 ```powershell
 New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
 ```
 
-Výsledek rutina vrátí odkaz. Zkopírujte a vložte odkaz do webového prohlížeče ke stažení komprimované souboru s názvem 'VpnClientConfiguration.zip'. Rozbalte soubor zobrazíte následující složky:
+Spuštěním příkazu vrátí odkaz. Zkopírujte a vložte odkaz do webového prohlížeče ke stažení, VpnClientConfiguration.zip'. Rozbalte soubor zobrazíte následující složky:
 
-* Složky s názvem 'WindowsAmd64' a 'WindowsX86'. Tyto složky obsahují balíčky Instalační služby systému Windows 64bitové a 32bitové v uvedeném pořadí. 
-* Složku s názvem 'GenericDevice'. Tato složka obsahuje obecné informace použít k vytvoření vlastní konfigurace klienta VPN.
+* **WindowsAmd64** a **WindowsX86** -tyto složky obsahují balíčky Instalační služby systému Windows 64bitové a 32bitové v uvedeném pořadí. 
+* **GenericDevice** – tato složka obsahuje obecné informace použít k vytvoření vlastní konfigurace klienta VPN.
 
-Můžete načíst konfigurační soubory klienta, které jste už vytvořili. 'Get-AzureRmVpnClientConfiguration, rutina vrátí adresu URL (odkaz) ze kterých si můžete stáhnout soubor VpnClientConfiguration.zip. Pokud provedete konfiguraci P2S VPN, jako je například protokol VPN typ nebo typ ověřování, všechny změny konfigurace automaticky neaktualizuje. Musíte spustit rutinu 'New-AzureRmVpnClientConfiguration' Chcete-li obnovit konfiguraci.
+Pokud jste již vytvořili klienta konfigurační soubory, můžete je načíst pomocí rutiny 'Get-AzureRmVpnClientConfiguration'. Ale pokud provedete změny konfiguraci P2S VPN, jako je například protokol VPN typ nebo typ ověřování, konfigurace nebude aktualizovat automaticky. Musíte spustit rutinu, New-AzureRmVpnClientConfiguration' Chcete-li vytvořit nové konfigurace stahování.
 
 Pokud chcete načíst dříve generovaného klienta konfigurační soubory, použijte následující příkaz:
 
@@ -138,12 +141,14 @@ Pokud chcete načíst dříve generovaného klienta konfigurační soubory, pou�
 Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
-### <a name="certwincli"></a>Nastavení klienta VPN systému Windows
+## <a name="setupusername"></a> 2. Konfigurace klientů Windows a Mac VPN
+
+### <a name="certwincli"></a>Instalace klienta VPN ve Windows
 
 1. Vyberte konfigurační balíček a nainstalujte ho v klientském zařízení. Pro 64bitový procesor architekturu vyberte balíček Instalační služby 'VpnClientSetupAmd64'. Pro architekturu procesoru 32-bit vyberte balíček Instalační služby 'VpnClientSetupX86'. Pokud se zobrazí automaticky otevírané okno filtru SmartScreen, klikněte na **Další informace** a potom na **Přesto spustit**. Můžete také balíček uložit k instalaci na další klientské počítače.
 2. Na klientském počítači přejděte do části **Nastavení sítě** a klikněte na možnost **Síť VPN**. Připojení k síti VPN zobrazuje název virtuální sítě, ke které se připojuje.
 
-### <a name="certmaccli"></a>Nastavení klienta MAC VPN
+### <a name="certmaccli"></a>Instalace klienta VPN MAC (OSX)
 
 Pro každé zařízení Mac, která se připojuje k službě Azure VNet musí vytvořit samostatný profil. Je to proto, že tato zařízení vyžadují uživatelský certifikát pro ověřování, aby se zadaná v profilu. **Obecné** složka obsahuje všechny informace potřebné k vytvoření profilu.
 
@@ -185,7 +190,7 @@ Klikněte na tlačítko **přidat** k importu.
   ![Použít](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
 8. Na **sítě** dialogové okno, klikněte na tlačítko **použít** uložit všechny změny. Potom klikněte na **Connect** spustit připojení P2S do virtuální sítě Azure.
 
-## <a name="otherauth"></a>Další typy ověřování nebo protokoly
+## <a name="otherauth"></a>Práce s jinými typy ověřování nebo protokoly
 
 Chcete používat různá ověřovací typu (například OTP) a ne uživatelského jména a hesla nebo certifikáty, nebo používají různá ověřovací protokol (například protokol PEAP-MSCHAPv2 místo EAP-MSCHAPv2), musíte vytvořit vlastní profil konfigurace klienta VPN. Chcete-li vytvořit profil, musíte informace, jako je IP adresa brány virtuální sítě, Typ tunelového propojení a děleného tunelového propojení směrování. Tyto informace můžete získat pomocí následujících kroků:
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 23909c65499697be66fc2d2f43c6d0bd8a02b614
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5ca9b8ed40a1e58a0aea4de87995caf5f9a9212b
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Úvod do Apache Cassandra rozhraní API pro Azure Cosmos DB
 
@@ -36,7 +36,10 @@ Azure Cosmos DB lze použít jako úložiště dat pro aplikace napsané pro [Ap
 
 ![Rozhraní Cassandra API pro Azure Cosmos DB](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-Rozhraní API Cassandra umožňuje pracovat s daty uloženými v databázi Cosmos Azure pomocí nástrojů Query Language Cassandra na základě (např. CQLSH) a ovladače klienta Cassandra jste již obeznámeni s.
+Rozhraní API Cassandra umožňuje pracovat s daty uloženými v databázi Cosmos Azure pomocí nástrojů Query Language Cassandra na základě (např. CQLSH) a ovladače klienta Cassandra jste již obeznámeni s. Další informace o ho v tomto videu Microsoft Mechanics s Kirill Gavrylyuk hlavní manažer inženýrství.
+
+> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
+>
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Jaké jsou výhody používání Apache Cassandra rozhraní API pro Azure Cosmos DB?
 
@@ -56,17 +59,34 @@ Rozhraní API Cassandra umožňuje pracovat s daty uloženými v databázi Cosmo
 
 **Podnikové úrovni**: zabezpečení a dodržování ve výchozím nastavení – Azure cosmos DB poskytuje [dodržování předpisů certifikace](https://www.microsoft.com/trustcenter) uživatelé mohli používat platformu, aniž byste museli řešit problémy s dodržováním předpisů. Azure Cosmos DB také poskytuje šifrování v klidovém stavu a v provozu, IP brány firewall a protokoly auditu a aktivity rovině řízení.  
 
+<a id="sign-up-now"></a>
+## <a name="sign-up-now"></a>Zaregistrujte se 
+
+Pokud již máte předplatné Azure, můžete si zaregistrovat připojit se k programu Cassandra rozhraní API (preview) [portál Azure](https://aka.ms/cosmosdb-cassandra-signup).  Pokud jste Azure ještě nepoužívali, zaregistrujte si [bezplatnou zkušební verzi](https://azure.microsoft.com/free) kde získat dobu 12 měsíců volného přístupu k databázi Azure Cosmos. Proveďte následující kroky s požadavkem o přístup k programu Cassandra rozhraní API (preview).
+
+1. V [portál Azure](https://portal.azure.com), klikněte na tlačítko **nový** > **databáze** > **Azure Cosmos DB**. 
+
+2. Na stránce nový účet, vyberte **Cassandra** v poli rozhraní API. 
+
+3. V **předplatné** vyberte předplatné Azure, kterou chcete použít pro tento účet.
+
+4. Klikněte na tlačítko **zaregistrujte si verzi Preview ještě dnes**.
+
+    ![Rozhraní Cassandra API pro Azure Cosmos DB](./media/cassandra-introduction/cassandra-sign-up.png)
+
+3. V registrace informací o dnešku podokně náhledu, klikněte na **OK**. 
+
+    Po odeslání žádosti se stav změní na **čekající na schválení** v podokně nový účet. 
+
+Po odeslání vaši žádost o počkejte e-mailové oznámení, že vaše žádost byla schválena. Není nutné vytvořit lístek podpory pro dokončení požadavku. V pořadí, ve kterém bylo přijato projde kontrolou požadavků. 
+
 ## <a name="how-to-get-started"></a>Jak začít
-Postupujte podle quickstarts Cassandra rozhraní API pro vytvoření účtu Azure Cosmos DB Cassandra rozhraní API a vytvoření Cassandra aplikace:
+Po připojení programu preview, postupujte podle rozhraní API Cassandra quickstarts k vytvoření aplikace pomocí rozhraní API Cassandra:
 
 * [Rychlý úvod: Sestavení Cassandra webové aplikace s Node.js a Azure Cosmos DB](create-cassandra-nodejs.md)
 * [Rychlý úvod: Sestavení Cassandra webovou aplikaci Java a Azure Cosmos DB](create-cassandra-java.md)
 * [Rychlý úvod: Sestavení Cassandra webové aplikace pomocí rozhraní .NET a Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Rychlý úvod: Sestavení Cassandra webové aplikace Python a Azure Cosmos DB](create-cassandra-python.md)
-
-## <a name="sign-up-now"></a>Zaregistrujte se 
-
-Pokud již máte předplatné Azure, můžete přihlásit pro rozhraní API Cassandra (preview) [portál Azure](https://aka.ms/cosmosdb-cassandra-signup). Pokud jste Azure ještě nepoužívali, registrujete [bezplatnou zkušební verzi](https://azure.microsoft.com/free) kde získat dobu 12 měsíců volného přístupu k databázi Azure Cosmos.
 
 ## <a name="next-steps"></a>Další kroky
 

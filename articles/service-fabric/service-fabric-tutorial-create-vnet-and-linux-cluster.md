@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 84b219d31635af6fbdb6bd618e3a9bb4e4848809
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 47e023e7240cfae3553b220ebc44c95ec96d62a7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Nasazení clusteru Service Fabric Linux do virtuální sítě Azure
 V tomto kurzu je součástí, jednu z řady. Se dozvíte, jak nasadit cluster Linux Service Fabric do existující virtuální sítě Azure (VNET) a dílčí net pomocí rozhraní příkazového řádku Azure. Jakmile budete hotovi, máte cluster se systémem, kterou můžete nasadit aplikace do cloudu. Vytvoření clusteru se systémem Windows pomocí prostředí PowerShell naleznete v tématu [vytvoření clusteru s podporou zabezpečení systému Windows na Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -45,6 +45,22 @@ Před zahájením tohoto kurzu:
 - Nainstalujte [rozhraní příkazového řádku Azure 2.0](/cli/azure/install-azure-cli)
 
 Následujících postupů vytvořte cluster s pěti uzly Service Fabric. Chcete-li vypočítat náklady způsobené spuštění clusteru Service Fabric v Azure pomocí [cenové kalkulačce pro Azure](https://azure.microsoft.com/pricing/calculator/).
+
+## <a name="introduction"></a>Úvod
+V tomto kurzu nasadí cluster pěti uzlů v jednom uzlu typu do virtuální sítě v Azure.
+
+[Cluster Service Fabric](service-fabric-deploy-anywhere.md) je síťově propojená sada virtuálních nebo fyzických počítačů, ve které se nasazují a spravují mikroslužby. Clustery můžete škálovat tisíce počítačů. Počítač nebo virtuální počítač, který je součástí clusteru, se nazývá uzel. Každý uzel je přiřazen název uzlu (řetězec). Uzly mají charakteristiky jako vlastnosti umístění.
+
+Typ uzlu definuje velikost, počet a vlastnosti pro sadu virtuálních počítačů v clusteru. Každý typ definované uzlu je nastavený jako [škálovací sadu virtuálních počítačů](/azure/virtual-machine-scale-sets/), Azure výpočetní prostředky, které použijete k nasazení a správě kolekci jako sada virtuálních počítačů. Každý typ uzlu je možné škálovat pak nebo dolů nezávisle, mají různé sady otevřené porty a může mít různé kapacity metriky. Typy uzlů se používá k definování rolí pro sadu uzlů clusteru, například "front-end" nebo "back-end".  Cluster může mít více než jeden typ uzlu, ale typ primární uzel musí mít aspoň pět virtuálních počítačů pro produkční clusterů (nebo minimálně tři virtuální počítače pro testovacích clusterů).  [Service Fabric systémových služeb](service-fabric-technical-overview.md#system-services) umísťují na uzly typu primárního uzlu.
+
+## <a name="cluster-capacity-planning"></a>Plánování kapacity clusteru
+V tomto kurzu nasadí cluster pěti uzlů v jednom uzlu typu.  Jakékoli nasazení clusteru výroby plánování kapacity je důležitý krok. Tady jsou některé věci vzít v úvahu v rámci tohoto procesu.
+
+- Počet uzlu typy váš cluster potřebuje 
+- Vlastnosti každého typu uzlu (například velikost, primární, internetové a počet virtuálních počítačů)
+- Spolehlivost a odolnost vlastnosti clusteru
+
+Další informace najdete v tématu [informace o plánování kapacity clusteru](service-fabric-cluster-capacity.md).
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Přihlaste se do Azure a vybrat své předplatné
 Tento průvodce pomocí rozhraní příkazového řádku Azure. Když spustíte novou relaci, přihlaste se k účtu Azure a vybrat své předplatné před spuštěním příkazů Azure.

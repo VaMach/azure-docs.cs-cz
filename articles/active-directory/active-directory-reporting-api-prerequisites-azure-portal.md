@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Požadavky na přístup k Azure AD reporting rozhraní API
 
@@ -55,7 +55,7 @@ Ke konfiguraci adresáře pro přístup k Azure AD reporting rozhraní API, mus�
 
 **Zaregistrovat aplikaci Azure Active Directory:**
 
-1. V [portál Azure](https://portal.azure.com), v levém navigačním podokně klikněte na tlačítko **služby Active Directory**.
+1. V [portál Azure](https://portal.azure.com), v levém navigačním podokně klikněte na tlačítko **Azure Active Directory**.
    
     ![Registrace aplikace](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -129,11 +129,11 @@ Je nutné tyto hodnoty při konfiguraci volání do rozhraní API pro generován
 
 **Pokud chcete získat název domény:**
 
-1. V [portál Azure](https://portal.azure.com), v levém navigačním podokně klikněte na tlačítko **služby Active Directory**.
+1. V [portál Azure](https://portal.azure.com), v levém navigačním podokně klikněte na tlačítko **Azure Active Directory**.
    
     ![Registrace aplikace](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Na **Azure Active Directory** okno, klikněte na **názvy domén**.
+2. Na **Azure Active Directory** okně klikněte na tlačítko **vlastní názvy domén**.
 
     ![Registrace aplikace](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ Je nutné tyto hodnoty při konfiguraci volání do rozhraní API pro generován
 
 **Pokud chcete získat ID klienta aplikace:**
 
-1. V [portál Azure](https://portal.azure.com), v levém navigačním podokně klikněte na tlačítko **služby Active Directory**.
+1. V [portál Azure](https://portal.azure.com), v levém navigačním podokně klikněte na tlačítko **Azure Active Directory**.
    
     ![Registrace aplikace](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ Získat sdílený tajný klíč klienta aplikace, musíte vytvořit nový klíč
 
 **Pokud chcete získat sdílený tajný klíč klienta aplikace:**
 
-1. V [portál Azure](https://portal.azure.com), v levém navigačním podokně klikněte na tlačítko **služby Active Directory**.
+1. V [portál Azure](https://portal.azure.com), v levém navigačním podokně klikněte na tlačítko **Azure Active Directory**.
    
     ![Registrace aplikace](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

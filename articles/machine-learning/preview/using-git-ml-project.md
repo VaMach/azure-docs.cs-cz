@@ -2,19 +2,19 @@
 title: "Úložiště Git pomocí Azure Machine Learning Workbench projekt | Microsoft Docs"
 description: "Tento článek vysvětlují, jak používat úložiště Git ve spojení s projektu Azure Machine Learning Workbench."
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: hning86
+author: hning86
+ms.author: haining
+manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 59b07c9834904e01256b75344ba2e6892e56438c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.openlocfilehash: c91eadd69eaf16b2496f4d7247e5b0121904e172
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Pomocí projektu Azure Machine Learning Workbench úložiště Git
 Tento dokument obsahuje informace o tom, jak Azure Machine Learning Workbench používá Git zajistit reprodukovatelnosti v experimentu vědecké účely data. K dispozici jsou také pokyny o tom, jak přidružit projektu cloudové úložiště Git.
@@ -66,27 +66,29 @@ Přejděte přímo na týmový projekt právě vytvořili, adresa URL je `https:
 > Azure Machine Learning v současné době podporuje pouze prázdné úložiště Git se žádné hlavní větve. Z rozhraní příkazového řádku, můžete použít argument--force nejprve odstranit hlavní větve. 
 
 ## <a name="step-3-create-a-new-azure-ml-project-with-a-remote-git-repo"></a>Krok 3. Vytvořte nový projekt Azure ML s vzdáleného úložiště Git
-Spusťte Azure ML Workbench a vytvoření nového projektu. Vyplnění textového pole úložiště Git s adresou URL úložiště Git služby VSTS, kterou můžete získat z kroku 2. Obvykle vypadá takto: http://<vsts_account_name>.visualstudio.com/_git/<project_name>
+Spusťte Azure ML Workbench a vytvoření nového projektu. Vyplnění textového pole úložiště Git s adresou URL úložiště Git služby VSTS, kterou můžete získat z kroku 2. Obvykle vypadá takto:`http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
 
 ![Vytvoření projektu Azure ML s úložiště Git](media/using-git-ml-project/create_project_with_git_rep.png)
 
 Teď se vytvoří nový projekt Azure ML s integrací služby Vzdálené úložiště Git, povolené a jste připraveni.... Složce projektu je vždy inicializován pro Git jako místní úložiště Git. A Gitu _vzdáleného_ je nastavené na vzdálené úložiště Git služby VSTS, takže potvrzení možné převést do vzdáleného úložiště Git.
 
-## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Krok 3.a přidružení existujícího projektu Azure ML s úložišti Git služby VSTS
+## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Krok 3a. Přidružit úložiště Git služby VSTS existujícího projektu Azure ML
 Volitelně můžete také vytvoření projektu Azure ML bez úložiště Git služby VSTS a právě spoléhají na místní úložiště Git pro snímky historie spouštění. A je možné přidružit úložiště Git služby VSTS později tento existující projekt Azure ML pomocí následujícího příkazu:
 
 ```azurecli
 # make sure you are in the project path so CLI has context of your current project
-az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name
+$ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
 ```
 
 ## <a name="step-4-capture-project-snapshot-in-git-repo"></a>Krok 4. Zachycení snímku projektu v úložiště Git
-Teď můžete spustit několik běží v projektu, zkontrolujte některé změny nevede je spuštěn. Můžete to udělat buď z plochy aplikace, nebo pomocí rozhraní příkazového řádku `az ml experiment submit` příkaz. Další podrobnosti, můžete postupovat podle [klasifikace Iris kurzu](tutorial-classifying-iris-part-1.md). Při každém spuštění, je-li všechny změny provedené v všechny soubory ve složce projektu snímek složce celý projekt je potvrzené a vložena do vzdáleného úložiště Git. Větve a potvrzení můžete zobrazit tak, že přejde na adresu URL úložiště Git služby VSTS.
+Teď můžete spustit několik běží v projektu, zkontrolujte některé změny nevede je spuštěn. Můžete to udělat buď z plochy aplikace, nebo pomocí rozhraní příkazového řádku `az ml experiment submit` příkaz. Další podrobnosti, můžete postupovat podle [klasifikace Iris kurzu](tutorial-classifying-iris-part-1.md). Při každém spuštění, je-li všechny změny provedené v všechny soubory ve složce projektu snímek složce celý projekt je potvrzené a vložena do vzdáleného úložiště Git v části s názvem větev `AzureMLHistory/<Project_GUID>`. Můžete zobrazit tak, že přejde na adresu URL úložiště Git služby VSTS větve a potvrzení a najít tuto větev. 
 
 ![Historie spouštění větve](media/using-git-ml-project/run_history_branch.png)
 
+Všimněte si, že je lepší nefunguje v pobočce historie sami. Díky tomu může zřeteli historie spouštění. Použít hlavní větve nebo místo toho vytvořte ostatní větve zůstanou pro operace Git.
+
 ## <a name="step-5-restore-a-previous-project-snapshot"></a>Krok 5. Obnovit předchozí snímek projektu 
-K obnovení složce celý projekt do stavu předchozího historie spouštění projektu snímku stavu, z AML Workbench.
+Chcete-li obnovit složce celý projekt do stavu předchozího historie spouštění projektu snímku stavu, z Azure ML Workbench:
 1. Klikněte na **spustí** v aktivitě panelu (ikona pohotovostní hodinu).
 2. Z **seznamu spustit** zobrazení, klikněte na spustit, kterou chcete obnovit.
 3. Z **spustit podrobností** zobrazení, klikněte na **obnovení**.
@@ -97,29 +99,29 @@ Alternativně můžete použít následující příkaz z okna příkazového ř
 
 ```azurecli
 # discover the run I want to restore snapshot from:
-az ml history list -o table
+$ az ml history list -o table
 
 # restore the snapshot from a particular run
-az ml project restore --run-id <run_id>
+$ az ml project restore --run-id <run_id>
 ```
 
-Spuštěním tohoto příkazu jsme bude snímek pořízený v případě, že konkrétní spustit byla spuštěna přepište složce celý projekt. To znamená, že se **, ztratíte všechny změny** v aktuální složce projektu. Proto prosím buďte velmi opatrní při spuštění tohoto příkazu.
+Spuštěním tohoto příkazu jsme bude snímek pořízený v případě, že konkrétní spustit byla spuštěna přepište složce celý projekt. Ale váš projekt probíhal v aktuální větve. To znamená, že se **, ztratíte všechny změny** v aktuální složce projektu. Proto prosím buďte velmi opatrní při spuštění tohoto příkazu.
 
 ## <a name="step-6-use-the-master-branch"></a>Krok 6. Použít hlavní větve
-Jedním ze způsobů, abyste se vyhnuli ztrátě omylem aktuální stav projektu, je potvrzení projektu do hlavní větve úložiště Git. Git můžete použít přímo z příkazového řádku (nebo vaše dalších oblíbených Git klienta nástroje) k provozu na hlavní větve. Například:
+Jeden způsob, jak zabránit omylem došlo ke ztrátě aktuálního stavu projektu, je potvrzení projektu do hlavní větve (nebo všechny větve, které jste sami vytvořili) úložiště Git. Git můžete použít přímo z příkazového řádku (nebo vaše dalších oblíbených Git klienta nástroje) k provozu na hlavní větve. Například:
 
 ```
-# make sure you are on the master branch
-git checkout master
+# make sure you are on the master branch (or branch of your choice)
+$ git checkout master
 
 # stage all changes
-git add -A
+$ git add -A
 
 # commit all changes locally on the master branch
-git commit -m 'this is my updates so far'
+$ git commit -m 'this is my updates so far'
 
 # push changes into the remote VSTS Git repo master branch.
-git push origin master
+$ git push origin master
 ```
 
 Nyní můžete bezpečně obnovit projekt starší snímku následující krok 5, a zároveň budete vědět, že vždy se můžete vrátit zpět k potvrzení jste právě probíhají hlavní větve.

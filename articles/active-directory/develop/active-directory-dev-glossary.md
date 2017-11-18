@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glosář vývojáře Azure Active Directory
 Tento článek obsahuje definice pro některé základní koncepty vývojáře Azure Active Directory (AD), což je užitečné při získávání informací o vývoj aplikací pro Azure AD.
@@ -33,6 +33,9 @@ Přístupové tokeny jsou někdy označovány jako "Uživatele + aplikace" nebo 
 * [Udělení autorizace "Pověření klienta"](#authorization-grant), klient poskytuje jedinou ověřování, funguje bez vlastníka prostředku ověřování nebo autorizaci, takže token může být někdy označuje jako tokenu "Jen aplikace".
 
 V tématu [odkaz tokenu Azure AD] [ AAD-Tokens-Claims] další podrobnosti.
+
+## <a name="application-id-client-id"></a>id aplikace (id klienta)
+Jedinečný identifikátor Azure AD problémy k registraci aplikace, který identifikuje konkrétní aplikace a související konfigurace.  Toto id aplikace ([id klienta](https://tools.ietf.org/html/rfc6749#page-15)) se používá při provádění ověřování požadavků a je uvedené do knihoven ověřování v okamžiku vývoje. Id aplikace (id klienta) není tajný klíč. 
 
 ## <a name="application-manifest"></a>Manifest aplikace
 Funkce poskytované [portál Azure][AZURE-portal], který vytvoří reprezentaci JSON konfigurace identity aplikace, používá jako mechanismus pro aktualizaci přidružené [ Aplikace] [ AAD-Graph-App-Entity] a [ServicePrincipal] [ AAD-Graph-Sp-Entity] entity. V tématu [pochopení manifest aplikace Azure Active Directory] [ AAD-App-Manifest] další podrobnosti.
@@ -174,7 +177,7 @@ Podobně jako objekt zabezpečení služby se používá k reprezentaci instanci
 Typ [klientská aplikace](#client-application) , která se spouští všechny kódu na webovém serveru a může fungovat jako "důvěrné informace" klienta bezpečně uloží pověření uživatele na serveru. V tématu [OAuth2 klienta typy a profily] [ OAuth2-Client-Types] další podrobnosti.
 
 ## <a name="next-steps"></a>Další kroky
-[Příručka vývojáře pro Azure AD] [ AAD-Dev-Guide] je na portálu pro použití při vývoji všechny Azure AD související témata, včetně přehledu [integraci aplikací] [ AAD-How-To-Integrate] a základní informace o [ověřování Azure AD a scénáře podporované ověřování][AAD-Auth-Scenarios].
+[Příručka vývojáře pro Azure AD] [ AAD-Dev-Guide] je cílová stránka pro použití při vývoji všechny Azure AD související témata, včetně přehledu [integraci aplikací] [ AAD-How-To-Integrate] a základní informace o [ověřování Azure AD a scénáře podporované ověřování][AAD-Auth-Scenarios].  Taky můžete najít ukázky kódu & kurzy o tom, jak získat rychle vytvořit a spustit na [Githubu](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Použijte následující sekci komentáře k poskytnutí zpětné vazby a Pomozte nám vylepšit a utvářejí náš obsah, včetně žádostí pro nové definice nebo aktualizuje existující!
 

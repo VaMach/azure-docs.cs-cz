@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.author: jomolesk
-ms.openlocfilehash: bbf58215a4d236c70bf988cbfa1c8491055b5183
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 0be18e2c2354ea8f766eb48db793c906e565a201
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Přehled National zásady zabezpečení Kybernetického zabezpečení Centre cloudu
 
 
 > [!NOTE]
-> Tyto zásady zabezpečení jsou definovány National Kybernetického zabezpečení Centre (NCSC). Naleznete v dokumentaci k nástroji NCSC informace o testování postupy a pokyny pro každou zásadu zabezpečení.
+> Tyto zásady zabezpečení jsou definovány pomocí Spojené království National Kybernetického zabezpečení Centre (NCSC). Naleznete [NCSC dokumentace](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) informace o testování postupy a pokyny pro každou zásadu zabezpečení.
 
 
 
@@ -435,3 +435,12 @@ S IaaS a PaaS nabídky jste zodpovědní za důležité aspekty zabezpečení va
 |---|---|
 | **Zákazníka** | Šablony Azure Resource Manager a doprovodné prostředky, které tvoří tento plán, podle kterého Azure podle obrany zabezpečení přístupu k zabezpečení. Chcete-li být v souladu s touto zásadou, není nutná další konfigurace zákazníkem pro použití v produkčním prostředí (například databáze software pro správu, nasazení webových aplikací). |
 | **Zprostředkovatel&nbsp;(Microsoft&nbsp;Azure)** | Netýká se |
+
+## <a name="disclaimer"></a>Právní omezení
+
+ - Tento dokument je pouze informativní charakter. MICROSOFT NEPOSKYTUJE ŽÁDNÉ ZÁRUKY, VÝSLOVNÉ, PŘEDPOKLÁDANÉ NEBO STATUTÁRNÍ INFORMACE V TOMTO DOKUMENTU. Tento dokument je poskytován "jako-je." Informace a názory vyjádřené v tomto dokumentu včetně adres URL a dalších odkazů na internetové weby mohou změnit bez předchozího upozornění. Zákazníci čtení tohoto dokumentu na sebe rizika spojená s jejím používáním.
+ - Tento dokument neposkytuje žádná zákonná práva týkající se všech produktů společnosti Microsoft nebo řešení duševního vlastnictví zákazníkům.
+ - Zákazníci mohou kopírovat a používat tento dokument pro interní referenční účely.
+ - Některá doporučení v tomto dokumentu může mít za následek vyšší data, síťové nebo využití výpočetních prostředků v Azure a může zvýšit náklady Azure licence nebo předplatné zákazníka.
+ - Tato architektura má sloužit jako základ pro zákazníky, chcete-li upravit na jejich specifické požadavky a by se neměla používat jako-je v produkčním prostředí.
+ - Tento dokument vyvinutý jako odkaz a nesmí se použít k definování všechny prostředky, které může zákazník splňovat požadavky na konkrétní dodržování předpisů a nařízení. Zákazníci se měli obrátit právní podpory z jejich organizace na implementace schválené zákazníka.

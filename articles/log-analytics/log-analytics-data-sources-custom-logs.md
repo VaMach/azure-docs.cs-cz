@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 11/17/2017
 ms.author: bwren
-ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Vlastní protokoly v analýzy protokolů
 Zdroj dat vlastní protokoly ve analýzy protokolů umožňuje shromažďování událostí z textových souborů v počítačích Windows a Linux. Mnoho aplikací protokolování informací k textovým souborům místo standardní protokolování služby, jako je například protokol událostí systému Windows nebo Syslog.  Jakmile se shromažďují, můžete analyzovat každý záznam v protokolu v jednotlivých polí pomocí [vlastní pole](log-analytics-custom-fields.md) funkce analýzy protokolů.
@@ -56,10 +56,6 @@ Můžete začít odesílání vzorku vlastního protokolu.  Průvodce analyzovat
 
 Pokud se používá oddělovač časové razítko, bude vlastnost TimeGenerated každý záznam uložený v OMS vyplňovat datum a čas zadaný pro tuto položku v souboru protokolu.  Pokud se používá nový řádek oddělovač, pak TimeGenerated naplněný datum a čas, analýzy protokolů shromážděných položku.
 
-> [!NOTE]
-> Analýzy protokolů aktuálně zpracovává data a času shromážděných z protokolu pomocí časového razítka oddělovač ve formátu UTC.  To bude brzy změnit použít časové pásmo na agentovi.
->
->
 
 1. Klikněte na tlačítko **Procházet** a přejděte do ukázkový soubor.  Všimněte si, že to může tlačítko může být označeno jako **zvolit soubor** v některé prohlížeče.
 2. Klikněte na **Další**.

@@ -4,7 +4,7 @@ description: "Koncepty správy a postupy pro správu název domény v Azure Acti
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Správa vlastních názvů domén v Azure Active Directory
 Název domény, je důležitou součástí identifikátoru pro mnoho prostředků adresáře: je součástí uživatelského jména nebo e-mailové adresy pro uživatele, část adresy pro skupinu a můžou být součástí identifikátor ID URI aplikace pro aplikaci. Prostředek v Azure Active Directory (Azure AD) může zahrnovat název domény, který už je ověřený jako vlastníkem adresáře, která obsahuje daný prostředek. Globální správce můžete provádět úlohy správy domény ve službě Azure AD.
@@ -29,18 +29,18 @@ Při vytváření adresáře, název domény, jako je například 'contoso.onmic
 
 1. Přihlaste se k [portál Azure](https://portal.azure.com) pomocí účtu, který je globální správce adresáře.
 2. Vyberte **Azure Active Directory**.
-   
-   ![Správa uživatelů otevírání](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Vyberte **názvy domén**.
-4. Vyberte název domény, který chcete nastavit jako primární doménu.
+3. Vyberte **vlastní názvy domén**.
+     
+   ![Správa uživatelů otevírání](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)
+4. Vyberte název domény, který chcete být primární domény.
 5. Vyberte **nastavit jako primární** příkaz. Potvrďte volbu po zobrazení výzvy.
    
-   ![Zkontrolujte název domény, primární](./media/active-directory-domains-manage-azure-portal/make-primary.png)
+   ![Zkontrolujte název domény, primární](./media/active-directory-domains-manage-azure-portal/make-primary-domain.png)
 
 Můžete změnit název primární domény pro váš adresář na všechny ověřené vlastní doménu, která není federovaný. Změna primární domény pro váš adresář nedojde ke změně uživatelská jména pro všechny stávající uživatele.
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>Přidat vlastní názvy domén do služby Azure AD
-> Můžete přidat na maximálně 900 názvů spravované domény. Pokud chcete konfigurovat všechny domén pro federaci s místní služby Active Directory, můžete přidat k maximální 450 názvů domén v každý adresář. Další informace najdete v tématu [federovaný a názvy spravované domény](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
+## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Přidat vlastní názvy domén pro vašeho klienta Azure AD
+Můžete přidat na maximálně 900 názvů spravované domény. Pokud konfigurujete vašich domén pro federaci s místní služby Active Directory, můžete přidat na maximálně 450 názvů domén v každý adresář. Další informace najdete v tématu [federovaný a názvy spravované domény](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Přidat subdomény vlastní domény
 Pokud chcete přidat název domény třetí úrovně například 'europe.contoso.com' do vašeho adresáře, měli byste nejprve přidat a ověřit domény druhé úrovně, například contoso.com. Subdoméně bude automaticky ověřit pomocí služby Azure AD. Pokud chcete zjistit, zda byla ověřena subdomény, kterou jste právě přidali, aktualizujte stránku v prohlížeči, který obsahuje seznam domén.

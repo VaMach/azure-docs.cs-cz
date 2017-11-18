@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Spravovat a analyzovat protokoly toku skupiny sítě zabezpečení v Azure pomocí sledovací proces sítě a Graylog
 
@@ -148,9 +148,9 @@ Logstash se používá k vyrovnání protokoly toku formátu JSON na úroveň to
     ```
 Zadaný soubor konfigurace Logstash se skládá ze tří částí: vstupní, výstupní a filtr. Části vstupní označí vstupního zdroje protokolů, které bude zpracovávat Logstash – v tomto případě jsme budete používat Azure blog vstupní modulu plug-in (nainstalovanou v dalších krocích), který umožňuje přístup k tok skupiny zabezpečení sítě protokolu soubory JSON uložené v úložišti objektů blob.
 
-    The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
+Část Filtr pak sloučí každý soubor protokolu toku tak, aby každá řazená kolekce členů jednotlivých toku a jeho přidružené vlastnosti stalo samostatná událost Logstash.
 
-    Finally, the output section forwards each Logstash event to the Graylog server. To suit your specific needs, modify the Logstash config file, as required.
+Nakonec části výstup předává všechny události Logstash Graylog server. Tak, aby vyhovovala konkrétní potřebuje, upravte konfigurační soubor Logstash, podle potřeby.
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
