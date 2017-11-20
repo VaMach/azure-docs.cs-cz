@@ -61,6 +61,7 @@
 ### [Začínáme s WebApi](vs-active-directory-webapi-getting-started.md)
 ### [Co se stalo s mým projektem webového rozhraní API](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
+## [Migrace ACS](active-directory-acs-migration.md)
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Knihovny ověřování (ADAL)](active-directory-authentication-libraries.md)

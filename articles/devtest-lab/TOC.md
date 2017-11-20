@@ -55,6 +55,9 @@
 ### [Konfigurace virtuálních sítí](devtest-lab-configure-vnet.md)
 ### [Výběr možnosti konfigurace IP](devtest-lab-shared-ip.md)
 
+## Správa datových disků
+### [Připojení a odpojení datových disků](devtest-lab-attach-detach-data-disk.md)
+
 ## [Škálování testovacího prostředí](devtest-lab-scale-lab.md)
 
 # Referenční informace

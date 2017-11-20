@@ -6,6 +6,7 @@
 ## [Registrace s použitím účtu Office 365](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Registrace Office 365 pomocí účtu Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Uspořádání prostředků s využitím skupin pro správu](billing-enterprise-mgmt-group-overview.md)
+## [Úspory s využitím rezervovaných instancí virtuálních počítačů](billing-save-compute-costs-reservations.md)
 ## [Omezení a kvóty](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # Postup
@@ -17,9 +18,13 @@
 ### [Vysvětlení podmínek vašeho použití](billing-understand-your-usage.md)
 ### [Principy poplatků za externí služby](billing-understand-your-azure-marketplace-charges.md)
 ### [Principy mapování měřičů bezplatných služeb](billing-understand-free-service-meter-mapping.md)
+### [Náklady na rezervované instance virtuálních počítačů s Windows](billing-reserved-instance-windows-software-costs.md)
+### [Vysvětlení využití slev za vyhrazené instance virtuálních počítačů](billing-understand-vm-reservation-charges.md)
 ### [Vysvětlení limitu útraty](billing-spending-limit.md)
 ### [Nastavení upozornění fakturace](billing-set-up-alerts.md)
 ### [Řešení zůstatku po splatnosti](billing-azure-subscription-past-due-balance.md)
+### [Vysvětlení využití rezervovaných instancí pro průběžné platby](billing-understand-reserved-instance-usage.md)
+### [Vysvětlení využití rezervovaných instancí pro podniky](billing-understand-reserved-instance-usage-ea.md)
 
 ## Správa předplatných
 ### [Správa rolí správce](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [Aktualizace platebních informací](billing-how-to-change-credit-card.md)
 ### [Propojení tenanta Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Úhrada předplatných pomocí faktury](billing-how-to-pay-by-invoice.md)
+## [Správa rezervovaných instancí virtuálních počítačů](billing-manage-reserved-vm-instance.md)
 ## Řešení potíží
 ### [Problémy s registrací](https://support.microsoft.com/en-us/help/4042959)
 ### [Odmítnutá karta](https://support.microsoft.com/en-us/help/4042960)

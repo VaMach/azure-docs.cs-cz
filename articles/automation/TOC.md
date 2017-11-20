@@ -32,6 +32,7 @@
 ### [Vstupní parametry runbooku](automation-runbook-input-parameters.md)
 ### [Zpracování chyb v grafických runbookách](automation-runbook-graphical-error-handling.md)
 ### [Sledování úlohy runbooku](automation-runbook-execution.md)
+### [Vytvoření úlohy sledovacího procesu](automation-watchers-tutorial.md)
 ### [Nastavení runbooku](automation-runbook-settings.md)
 ### [Správa dat Azure Automation](automation-managing-data.md)
 ### [Volání runbooku Azure Automation z upozornění Log Analytics](automation-invoke-runbook-from-omsla-alert.md)

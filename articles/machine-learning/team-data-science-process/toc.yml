@@ -29,8 +29,14 @@
       href: project-ic-tasks.md
 - name: Struktura projektu
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Spuštění projektu
-  href: project-execution.md
+- name: Plánování a spuštění projektu
+  items:
+    - name: Plánování projektu
+      href: team-data-science-process-project-templates.md
+    - name: Spuštění projektu
+      items:
+        - name: Projekty datových věd
+          href: project-execution.md
 - name: Příklady
   href: walkthroughs.md
   items:

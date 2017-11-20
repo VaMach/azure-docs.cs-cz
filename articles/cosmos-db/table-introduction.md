@@ -2,7 +2,7 @@
 title: "Úvod do rozhraní API tabulky Azure Cosmos DB | Dokumentace Microsoftu"
 description: "Zjistěte, jak můžete používat Azure Cosmos DB k ukládání a dotazování velkých objemů dat s klíčovými hodnotami s nízkou latencí pomocí oblíbených rozhraní API OSS MongoDB."
 services: cosmos-db
-author: bhanupr
+author: mimig
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2017
-ms.author: arramac
-ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 11/15/2017
+ms.author: mimig1
+ms.openlocfilehash: 8e8a5d89080df54da1a951d94fac12592de29c50
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Úvod do Azure Cosmos DB: API tabulka
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Úvod do rozhraní API tabulky Azure Cosmos DB
 
-[Azure Cosmos DB](introduction.md) poskytuje rozhraní API tabulky (Preview) pro aplikace napsané pro službu Azure Table Storage, které vyžadují prémiové funkce, jako například:
+[Azure Cosmos DB](introduction.md) poskytuje rozhraní API tabulky pro aplikace napsané pro službu Azure Table Storage, které vyžadují prémiové funkce, jako například:
 
 * [Globální distribuce na klíč](distribute-data-globally.md).
 * [Vyhrazená propustnost](partition-data.md) po celém světě.
@@ -39,9 +39,9 @@ Doporučujeme vám zhlédnout následující video, ve kterém Aravind Ramachand
 > 
 
 ## <a name="table-offerings"></a>Nabídky Table
-Pokud aktuálně používáte službu Azure Table Storage, získáte přechodem na rozhraní Azure Cosmos DB Table API následující výhody:
+Pokud aktuálně používáte službu Azure Table Storage, získáte přechodem na rozhraní API tabulky Azure Cosmos DB následující výhody:
 
-| | Azure Table Storage | Azure Cosmos DB Table API (Preview) |
+| | Azure Table Storage | Rozhraní API tabulky Azure Cosmos DB |
 | --- | --- | --- |
 | Latence | Rychlá, bez horních omezení latence. | Latence pro čtení a zápis v řádu milisekund, podložená latencí pro čtení menší než 10 ms a latencí pro zápis menší než 15 ms na 99. percentilu, při libovolném škálování, kdekoli na světě. |
 | Propustnost | Model variabilní propustnosti. Tabulky mají omezení škálovatelnosti 20 000 operací za sekundu. | Vysoká škálovatelnost s [vyhrazenou rezervovanou propustností na tabulku](request-units.md), podložená smlouvami SLA. Účty nemají žádné horní omezení propustnosti a podporují více než 10 milionů operací za sekundu na tabulku. |
@@ -50,7 +50,7 @@ Pokud aktuálně používáte službu Azure Table Storage, získáte přechodem 
 | Dotaz | Při provádění dotazu se používá index pro primární klíč, jinak dochází k prohledávání. | Dotazy mohou ke zrychlení použít výhod automatického indexování vlastností. Databázový stroje Azure Cosmos DB je schopný zajistit podporu agregací, geoprostorového indexování a řazení. |
 | Konzistence | Silná v rámci primární oblasti. Nahodilá v rámci sekundární oblasti. | [Pět jasně definovaných úrovní konzistence](consistency-levels.md) pro využití dostupnosti, latence, propustnosti a konzistence na základě potřeb vašich aplikací. |
 | Ceny | Optimalizované úložiště. | Optimalizovaná propustnost. |
-| Smlouvy SLA | 99,99 % dostupnost. | 99,99% dostupnost v rámci jedné oblasti a možnost přidávat další oblasti pro vyšší dostupnost. [Nejlepší komplexní smlouvy SLA v oboru](https://azure.microsoft.com/support/legal/sla/cosmos-db/) týkající se obecné dostupnosti. |
+| Smlouvy SLA | 99,99 % dostupnost. | Smlouva SLA o 99,99% dostupnosti pro všechny účty v jedné oblasti a všechny účty ve více oblastech s mírnější konzistencí a [Nejlepší komplexní smlouvy SLA v oboru](https://azure.microsoft.com/support/legal/sla/cosmos-db/) týkající se obecné dostupnosti zajišťující 99,999% dostupnost čtení pro všechny účty databáze ve více oblastech. |
 
 ## <a name="get-started"></a>Začínáme
 
@@ -64,5 +64,7 @@ Tady jsou odkazy na informace, které vám pomůžou začít:
 * [Dotazování tabulkových dat pomocí rozhraní API tabulky](tutorial-query-table.md)
 * [Informace o nastavení globální distribuce služby Azure Cosmos DB pomocí rozhraní API tabulky](tutorial-global-distribution-table.md)
 * [Rozhraní .NET API tabulky Azure Cosmos DB](table-sdk-dotnet.md)
-
+* [Rozhraní Java API tabulky Azure Cosmos DB](table-sdk-java.md)
+* [Rozhraní Node.js API tabulky Azure Cosmos DB](table-sdk-nodejs.md)
+* [Sada SDK tabulky Azure Cosmos DB pro Python](table-sdk-python.md)
 

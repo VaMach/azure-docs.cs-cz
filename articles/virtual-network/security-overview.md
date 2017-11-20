@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: d4a216b612274ff1de499bd4892ff7422c66b4d0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="network-security"></a>Zabezpečení sítě
 
@@ -55,13 +55,6 @@ Skupina zabezpečení sítě nemusí obsahovat žádná pravidla nebo může pod
 |Směr| Určuje, jestli se pravidlo vztahuje na příchozí nebo odchozí provoz.|
 |Rozsah portů     |Můžete zadat určitý port nebo rozsah portů. Můžete zadat například 80 nebo 10000-10005. Zadání rozsahů umožňuje vytvářet méně pravidel zabezpečení. Možnost zadat v pravidlu několik jednotlivých portů a rozsahů portů je ve verzi Preview a označuje se jako rozšířená pravidla zabezpečení. Než začnete používat rozšířená pravidla zabezpečení, přečtěte si důležité informace v části [Funkce verze Preview](#preview-features). Rozšířená pravidla zabezpečení je možné vytvářet pouze ve skupinách zabezpečení sítě vytvořených prostřednictvím modelu nasazení Resource Manager. Ve skupinách zabezpečení sítě vytvořených prostřednictvím modelu nasazení Classic není možné zadat několik portů ani rozsahů portů ve stejném pravidlu zabezpečení.   |
 |Akce     | Povolení nebo odepření.        |
-
-**Důležité informace**
-
-- **Virtuální IP adresa uzlu hostitele:** Základní služby infrastruktury, například DHCP, DNS a sledování stavu, jsou poskytované prostřednictvím virtualizovaných IP adres hostitele 168.63.129.16 a 169.254.169.254. Tyto veřejné IP adresy patří společnosti Microsoft a jsou to jediné virtualizované IP adresy používané pro tento účel ve všech oblastech. Adresy se mapují na fyzickou IP adresu počítače serveru (uzel hostitele) hostujícího virtuální počítač. Uzel hostitele funguje jako přenos DHCP, rekurzivní překladač DNS a zdroj testů pro test stavu a zdroj testu pro test stavu nástroje pro vyrovnávání zatížení a test stavu počítače. Komunikace směřující na tyto IP adresy nepředstavuje útok. Pokud zablokujete provoz směřující na tyto IP adresy nebo z nich, virtuální počítač možná nebude fungovat správně.
-- **Licencování (Služba správy klíčů):** Image Windows spuštěné na virtuálních počítačích musí být licencované. Aby se zajistilo licencování, odesílají se žádosti o licenci na hostitelské servery Služby správy klíčů, které takové dotazy zpracovávají. Požadavek odchází přes port 1688.
-- **Virtuální počítače ve fondech s vyrovnáváním zatížení:** Použitý zdrojový port a rozsah adres odpovídá zdrojovému počítači, a nikoli nástroji pro vyrovnávání zatížení. Cílový port a rozsah adres odpovídá cílovému počítači, a nikoli nástroji pro vyrovnávání zatížení.
-- **Instance služeb Azure:** V podsítích virtuální sítě jsou nasazené instance několika služeb Azure, například HDInsight, prostředí aplikačních služeb a škálovací sady virtuálních počítačů. Před použitím skupiny zabezpečení sítě na podsíť, ve které je nasazený prostředek, se ujistěte, že znáte požadavky jednotlivých služeb na porty. Pokud odepřete porty, které služba vyžaduje, nebude správně fungovat. 
 
 Pravidla zabezpečení jsou stavová. Pokud zadáte odchozí pravidlo zabezpečení pro všechny adresy například přes port 80, není potřeba zadávat příchozí pravidlo zabezpečení pro reakci na odchozí provoz. Příchozí pravidlo zabezpečení je potřeba zadat pouze v případě, že se komunikace zahajuje externě. Opačně to platí také. Pokud je přes port povolený příchozí provoz, není potřeba zadávat odchozí pravidlo zabezpečení pro reakci na provoz přes tento port. Informace o omezeních při vytváření pravidel zabezpečení najdete v článku o [omezeních Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -157,6 +150,24 @@ Skupiny zabezpečení aplikací jsou dostupné ve verzi Preview. Před použití
 - Pokud zadáte skupiny zabezpečení aplikací jako zdroj a cíl v pravidle zabezpečení, síťová rozhraní v obou skupinách zabezpečení aplikací musí existovat ve stejné virtuální síti. Kdyby například skupina ASG1 obsahovala síťová rozhraní z virtuální sítě VNet1 a skupina ASG2 obsahovala síťová rozhraní z virtuální sítě VNet2, nemohli byste v pravidle přiřadit skupinu ASG1 jako zdroj a skupinu ASG2 jako cíl, ale všechna síťová rozhraní by musela existovat ve virtuální síti VNet1. 
 
 Funkce ve verzi Preview nedosahují stejné úrovně dostupnosti a spolehlivosti jako služby v obecné verzi. Abyste mohli začít používat skupiny zabezpečení aplikací, musíte se nejprve zaregistrovat k jejich použití. Funkce jsou aktuálně dostupné pouze v následujících oblastech: Západní střed USA.
+
+
+## <a name="azure-platform-considerations"></a>Důležité informace o platformě Azure
+
+- **Virtuální IP adresa uzlu hostitele:** Základní služby infrastruktury, například DHCP, DNS a sledování stavu, jsou poskytované prostřednictvím virtualizovaných IP adres hostitele 168.63.129.16 a 169.254.169.254. Tyto veřejné IP adresy patří společnosti Microsoft a jsou to jediné virtualizované IP adresy používané pro tento účel ve všech oblastech. Adresy se mapují na fyzickou IP adresu počítače serveru (uzel hostitele) hostujícího virtuální počítač. Uzel hostitele funguje jako přenos DHCP, rekurzivní překladač DNS a zdroj testů pro test stavu a zdroj testu pro test stavu nástroje pro vyrovnávání zatížení a test stavu počítače. Komunikace směřující na tyto IP adresy nepředstavuje útok. Pokud zablokujete provoz směřující na tyto IP adresy nebo z nich, virtuální počítač možná nebude fungovat správně.
+- **Licencování (Služba správy klíčů):** Image Windows spuštěné na virtuálních počítačích musí být licencované. Aby se zajistilo licencování, odesílají se žádosti o licenci na hostitelské servery Služby správy klíčů, které takové dotazy zpracovávají. Požadavek odchází přes port 1688.
+- **Virtuální počítače ve fondech s vyrovnáváním zatížení:** Použitý zdrojový port a rozsah adres odpovídá zdrojovému počítači, a nikoli nástroji pro vyrovnávání zatížení. Cílový port a rozsah adres odpovídá cílovému počítači, a nikoli nástroji pro vyrovnávání zatížení.
+- **Instance služeb Azure:** V podsítích virtuální sítě jsou nasazené instance několika služeb Azure, například HDInsight, prostředí aplikačních služeb a škálovací sady virtuálních počítačů. Úplný seznam služeb, které můžete nasadit do virtuální sítě, najdete v tématu [Virtuální síť pro služby Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Před použitím skupiny zabezpečení sítě na podsíť, ve které je nasazený prostředek, se ujistěte, že znáte požadavky jednotlivých služeb na porty. Pokud odepřete porty, které služba vyžaduje, nebude správně fungovat.
+- **Odesílání odchozích e-mailů:** Microsoft doporučuje k odesílání e-mailů ze služby Azure Virtual Machines využívat služby pro přenos přes ověřený protokol SMTP (obvykle připojené přes port TCP 587, ale často i jiný). Služby pro přenos přes protokol SMTP se specializují na reputaci odesílatele, aby se minimalizovala možnost odmítnutí zpráv poskytovateli e-mailu třetích stran. Mezi takové služby pro přenos přes protokol SMTP patří mimo jiné Exchange Online Protection a SendGrid. Používání služeb pro přenos přes protokol SMTP v Azure není nijak omezeno, a to bez ohledu na typ předplatného. 
+
+  Pokud jste své předplatné Azure vytvořili před 15. listopadem 2017, kromě možnosti používat služby pro přenos přes protokol SMTP můžete e-maily odesílat také přímo přes port TCP 25. Pokud jste své předplatné vytvořili po 15. listopadu 2017, možná nebudete moci odesílat e-maily přímo přes port 25. Chování odchozí komunikace přes port 25 závisí na typu vašeho předplatného, a to následujícím způsobem:
+
+     - **Smlouva Enterprise:** Odchozí komunikace přes port 25 je povolená. Odchozí emaily můžete odesílat z virtuálních počítačů přímo externím poskytovatelům e-mailu bez jakýchkoli omezení platformy Azure. 
+     - **Průběžné platby:** Odchozí komunikace přes port 25 ze všech prostředků je blokovaná. Pokud potřebujete odesílat e-maily z virtuálního počítače přímo externím poskytovatelům e-mailu (bez použití přenosu přes zabezpečený protokol SMTP), můžete vytvořit žádost o odebrání tohoto omezení. Žádosti se posuzují a schvalují na základě vlastního uvážení Microsoftu a vyhoví se jim pouze po provedení kontrol v souvislosti s možnými podvody. Pokud chcete vytvořit žádost, otevřete případ podpory s typem problému *Technický*, *Možnosti připojení k virtuální síti*, *Nelze odesílat e-maily (SMTP/port 25)*. Do případu podpory zahrňte podrobnosti o tom, proč vaše předplatné potřebuje odesílat e-maily přímo poskytovatelům e-mailu místo používání přenosu přes ověřený protokol SMTP. Pokud má vaše předplatné výjimku, odchozí komunikace přes port 25 jsou schopné pouze virtuální počítače vytvořené po datu udělení výjimky.
+     - **MSDN, Azure Pass, Azure v rámci licenčního programu Open License, Azure ve vzdělávání, BizSpark a bezplatná zkušební verze:** Odchozí komunikace přes port 25 ze všech prostředků je blokovaná. Není možné vytvořit žádost o odebrání omezení, protože takovým žádostem se nevyhovuje. Pokud z virtuálního počítače musíte odesílat e-maily, musíte k tomu použít službu pro přenos přes protokol SMTP.
+
+  Pokud vám Azure povolí odesílat e-maily přes port 25, Microsoft nemůže zaručit přijetí příchozích e-mailů z vašeho virtuálního počítače poskytovateli e-mailu. Pokud konkrétní poskytovatel odmítá e-maily z vašeho virtuálního počítače, musíte spolupracovat přímo s daným poskytovatelem a vyřešit případné problémy s doručováním zpráv nebo filtrováním nevyžádané pošty, nebo použít službu pro přenos přes ověřený protokol SMTP. 
+
 
 ## <a name="next-steps"></a>Další kroky
 

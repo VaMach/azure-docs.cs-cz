@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Úvod do Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -172,11 +172,11 @@ Další informace o konceptech služby Data Factory najdete v následujících �
 
 ## <a name="supported-regions"></a>Podporované oblasti
 
-V současné době můžete vytvářet datové továrny v oblastech Východní USA a Východní USA 2. Objekt služby Data Factory nicméně může přistupovat k úložištím dat a výpočetním službám v jiných oblastech Azure za účelem přesouvání dat mezi úložišti dat nebo zpracování dat pomocí výpočetních služeb.
+V současné době můžete vytvářet datové továrny v oblastech Východní USA, Východní USA 2 a Západní Evropa. Objekt služby Data Factory nicméně může přistupovat k úložištím dat a výpočetním službám v jiných oblastech Azure za účelem přesouvání dat mezi úložišti dat nebo zpracování dat pomocí výpočetních služeb.
 
 Samotná služba Azure Data Factory žádná data neuchovává. Umožňuje vytvářet pracovní postupy řízené daty k orchestraci přesouvání dat mezi podporovanými úložišti dat a zpracování dat pomocí výpočetních služeb v jiných oblastech nebo v místním prostředí. Také vám umožňuje monitorovat a spravovat pracovní postupy pomocí uživatelského prostředí nebo prostřednictvím kódu programu.
 
-Přestože je služba Data Factory dostupná jenom v oblastech Východní USA a Východní USA 2, služba pohánějící přesouvání dat ve službě Data Factory je dostupná globálně v několika oblastech. Pokud je úložiště dat za bránou firewall, o přesun dat se postará Systém sledování a správy dat nainstalovaný ve vašem místním prostředí.
+Přestože je služba Data Factory dostupná jenom v oblastech Východní USA, Východní USA 2 a Západní Evropa, služba pohánějící přesouvání dat ve službě Data Factory je dostupná globálně v několika oblastech. Pokud je úložiště dat za bránou firewall, o přesun dat se postará Systém sledování a správy dat nainstalovaný ve vašem místním prostředí.
 
 Předpokládejme například, že vaše výpočetní prostředí, jako je cluster Azure HDInsight nebo služba Azure Machine Learning, běží v oblasti Západní Evropa. Můžete vytvořit instanci služby Azure Data Factory v oblasti Severní Evropa a použít ji k plánování úloh na výpočetních prostředích v oblasti Západní Evropa. Trvá několik milisekund, než Data Factory aktivuje úlohu ve výpočetním prostředí, ale čas potřebný pro vykonání úlohy ve výpočetním prostředí se nemění.
 
