@@ -24,15 +24,13 @@
 ## Nasazení
 ### [Virtuální sítě](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI 2.0](virtual-networks-create-vnet-arm-cli.md)
-#### [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md)
+#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Šablona](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Skupiny zabezpečení sítě
 #### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI 2.0](virtual-networks-create-nsg-arm-cli.md)
-#### [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md)
+#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Šablona](virtual-networks-create-nsg-arm-template.md)
 #### [Skupiny zabezpečení aplikací](create-network-security-group-preview.md)
 #### Classic
@@ -42,8 +40,7 @@
 ### Trasy definované uživatelem
 #### [Azure Portal](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md)
-#### [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
+#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
 #### [Šablona](virtual-network-create-udr-arm-template.md)
 #### Classic
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
@@ -67,8 +64,7 @@
 #### Vytvoření virtuálního počítače se statickou veřejnou IP adresou
 ##### [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-##### [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Šablona](virtual-network-deploy-static-pip-arm-template.md)
 ##### Classic
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
@@ -84,8 +80,7 @@
 
 #### Vytvoření virtuálního počítače s několika síťovými rozhraními
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI 2.0](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI 1.0](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Šablona](virtual-network-deploy-multinic-arm-template.md)
 
 ##### Classic
@@ -137,7 +132,7 @@
 #### Classic
 ##### Statické IP adresy
 ###### [PowerShell](virtual-networks-reserved-private-ip.md)
-###### [Rozhraní příkazového řádku](virtual-networks-static-private-ip-cli-nodejs.md)
+###### [Rozhraní příkazového řádku](virtual-networks-static-private-ip-classic-cli.md)
 ##### [Veřejná IP adresa na úrovni instance](virtual-networks-instance-level-public-ip.md)
 
 ### Classic
@@ -155,8 +150,7 @@
 ### Skupiny zabezpečení sítě
 #### [Azure Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [Azure CLI 2.0](virtual-network-manage-nsg-arm-cli.md)
-#### [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md)
+#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Protokoly](virtual-network-nsg-manage-log.md)
 ### Síťová rozhraní (NIC)

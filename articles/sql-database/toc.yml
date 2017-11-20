@@ -370,6 +370,8 @@
           items:
             - name: Nasazení ukázkové aplikace
               href: saas-multitenantdb-get-started-deploy.md
+            - name: Zřizování tenantů
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: Monitorování výkonu databáze
               href: saas-multitenantdb-performance-monitoring.md
             - name: Spouštění dotazů ad-hoc

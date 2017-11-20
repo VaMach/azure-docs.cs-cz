@@ -25,11 +25,8 @@
 ###### [Simulovaná data](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Použití reálných senzorů](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implementace aktualizací firmwaru](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Připojení brány Intel NUC
-##### [Simulovaná data](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Použití reálných senzorů](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### Postup
+### Návody
 #### Připojení simulovaného zařízení
 ##### [C ve Windows](iot-suite-v1-connecting-devices.md)
 ##### [C v Linuxu](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [Přehled řešení propojené továrny](iot-suite-connected-factory-overview.md)
 ### [Názorný postup řešení propojené továrny](iot-suite-connected-factory-sample-walkthrough.md)
 
-# Postup
+# Návody
 ## Vzdálené monitorování
 ### [Realizace pokročilého monitorování](iot-suite-remote-monitoring-monitor.md)
 ### [Použití pravidel k detekci problémů](iot-suite-remote-monitoring-automate.md)
