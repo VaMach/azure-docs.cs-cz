@@ -3,7 +3,7 @@ documentType: LandingData
 title: Dokumentace k Azure Databricks ve verzi Preview
 metadata:
   title: Dokumentace k Azure Databricks – Kurzy | Dokumentace Microsoftu
-  description: 'Zjistěte, jak používat Databricks v Microsoft Azure.'
+  description: 'Zjistěte, jak používat Azure Databricks, pomocí zde uvedeného Rychlého startu a dalších odkazů. Azure Databricks je analytická platforma založená na Apache Spark a optimalizovaná pro platformu cloudových služeb Microsoft Azure.'
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/15/2017
   ms.author: nitinme
 abstract:
-  description: 'Azure Databricks je analytická platforma založená na Apache Spark a optimalizovaná pro platformu cloudových služeb Microsoft Azure. Platforma Databricks je navržená ve spolupráci se zakladateli Apache Spark a díky integraci s Azure poskytuje nastavení jedním kliknutím, zjednodušené pracovní postupy a interaktivní pracovní prostor, který umožňuje spolupráci mezi datovými vědci, odborníky přes data a obchodními analytiky. Zjistěte, jak používat Azure Databricks, pomocí zde uvedeného Rychlého startu a dalších odkazů.'
+  description: 'Zjistěte, jak používat Azure Databricks, pomocí zde uvedeného Rychlého startu a dalších odkazů. Azure Databricks je analytická platforma založená na Apache Spark a optimalizovaná pro platformu cloudových služeb Microsoft Azure. Platforma Databricks je navržená ve spolupráci se zakladateli Apache Spark a díky integraci s Azure poskytuje nastavení jedním kliknutím, zjednodušené pracovní postupy a interaktivní pracovní prostor, který umožňuje spolupráci mezi datovými vědci, odborníky přes data a obchodními analytiky.'
 sections:
   - title: Zprovoznění během 5 minut
     items:

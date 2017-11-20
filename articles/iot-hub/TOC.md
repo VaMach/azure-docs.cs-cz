@@ -28,12 +28,6 @@
 #### [Sparkfun ESP8266 Thing Dev s rozhraním Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Adafruit Feather M0 s rozhraním Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
-#### Použití sady IoT Gateway Starter Kit
-##### [Nastavení Intel NUC jako brány](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Připojení brány ke službě IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Použití brány pro převod dat](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-##### [Řešení potíží](iot-hub-gateway-kit-c-troubleshooting.md)
-
 ## Rozšířené scénáře IoT
 ### [Správa zasílání zpráv cloudových zařízení pomocí iothub-exploreru](iot-hub-explorer-cloud-device-messaging.md)
 ### [Uložení zpráv IoT Hub do úložiště dat Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -43,7 +37,7 @@
 ### [Správa zařízení s využitím iothub-exploreru](iot-hub-device-management-iothub-explorer.md)
 ### [Vzdálené monitorování a oznámení s využitím Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-# Postup
+# Návody
 ## Plánování
 ### [Porovnání IoT Hub a Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Škálování vlastního řešení](iot-hub-scaling.md)
@@ -147,30 +141,6 @@
 ##### [Koncepty zabezpečení pomocí certifikátu webu X.509](iot-hub-x509ca-concept.md)
 #### [Začínáme se zabezpečením pomocí certifikátu webu X.509](iot-hub-security-x509-get-started.md)
 ##### [Vytvoření certifikátů – PowerShell](iot-hub-security-x509-create-certificates.md)
-
-## Azure IoT Edge
-### [Přehled](iot-hub-iot-edge-overview.md)
-### Začínáme
-#### [Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Windows](iot-hub-windows-iot-edge-get-started.md)
-### Simulace zařízení
-#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
-#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
-### [Použití skutečného zařízení](iot-hub-iot-edge-physical-device.md)
-### Vytvoření modulu
-#### [Java](iot-hub-iot-edge-create-module-java.md)
-#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
-#### [.NET Standard](iot-hub-iot-edge-create-module-dotnet-core.md)
-#### [Node.js](iot-hub-iot-edge-create-module-js.md)
-### Sestavení
-#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
-#### [Modul .NET Core](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
-#### [Spravovaná brána .NET Core](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
-#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
-#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
-#### [Dynamické přidání modulu](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
-#### [Mimoprocesový modul proxy serveru](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
-#### [Hostitel nativního modulu](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)

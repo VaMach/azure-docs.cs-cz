@@ -2,6 +2,7 @@
 
 ## Přehled
 ### [Informace o řešení](storsimple-ova-overview.md)
+### [Dostupnost v oblastech](storsimple-regions.md)
 
 ## Začínáme
 ### Plánování
@@ -59,6 +60,7 @@
 ### [Informace o řešení](storsimple-overview.md)
 ### [Mapa kurzů StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Aspekty zabezpečení](storsimple-8000-security.md)
+### [Dostupnost v oblastech](storsimple-regions.md)
 ### [Nejčastější dotazy: Přesun na web Azure Portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Začínáme
