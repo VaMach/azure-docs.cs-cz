@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Typy IP adres a metody přidělování v Azure
 
@@ -145,29 +145,22 @@ Privátní IP adresy se vytvářejí s IPv4 nebo IPv6 adresou. Privátní IPv6 a
 
 ### <a name="allocation-method"></a>Metoda přidělování
 
-Privátní IP adresa se přiděluje z rozsahu adres v podsíti, ke které je prostředek připojen. Rozsah adres samotné podsítě je součástí rozsahu adres virtuální sítě.
+Privátní IP adresa se přiděluje z rozsahu adres podsítě virtuální sítě, ve které je prostředek nasazený. Existují dvě metody přidělování privátní IP adresy:
 
-Existují dvě metody přidělení privátní IP adresy: *dynamická* a *statická*. Výchozí metodou je *dynamické* přidělení, kdy se IP adresa automaticky přiděluje z podsítě prostředku (pomocí protokolu DHCP). Tuto IP adresa se může při zastavení a spuštění prostředku změnit.
-
-Pokud chcete zajistit, aby IP adresa zůstávala stejná, můžete nastavit *statickou* metodu přidělení. Pokud určíte *statickou* metodu, zadáte platnou IP adresu, která je součástí podsítě prostředku.
-
-Statické privátní IP adresy se obvykle používají pro:
-
-* Virtuální počítače, které slouží jako řadiče domény nebo servery DNS.
-* Prostředky, které vyžadují pravidla brány firewall s využitím IP adres.
-* Prostředky, ke kterým se přistupuje z jiných aplikací nebo prostředků prostřednictvím IP adresy.
+- **Dynamická:** Azure si v rozsahu adres každé podsítě vyhrazuje první čtyři adresy a tyto adresy nepřiřazuje. Azure přiřadí prostředku další dostupnou adresu z rozsahu adres podsítě. Pokud je například rozsah adres podsítě 10.0.0.0/16 a adresy 10.0.0.0.4–10.0.0.14 už jsou přiřazené (.0–.3 jsou vyhrazené), Azure prostředku přiřadí adresu 10.0.0.15. Dynamická metoda přidělování je výchozí metoda. Jakmile jsou dynamické IP adresy přiřazené, uvolní se pouze v případě odstranění síťového rozhraní, jeho přiřazení k jiné podsíti ve stejné virtuální síti nebo změně metody přidělování na statickou a zadání jiné IP adresy. Když změníte metodu přidělování z dynamické na statickou, Azure ve výchozím nastavení jako statickou IP adresu přiřadí dříve dynamicky přiřazenou adresu.
+- **Statická:** Adresu vyberete a přiřadíte z rozsahu adres podsítě. Adresa, kterou přiřadíte, může být jakákoli adresa v rozsahu adres podsítě kromě prvních čtyř adres, která aktuálně není přiřazená k žádnému jinému prostředku v této podsíti. Statické adresy se uvolní pouze v případě odstranění síťového rozhraní. Pokud změníte metodu přidělování na statickou, Azure jako dynamickou adresu dynamicky přiřadí dříve přiřazenou statickou IP adresu, a to i v případě, že tato adresa není další dostupnou adresou v rozsahu adres podsítě. Adresa se změní také v případě přiřazení síťového rozhraní k jiné podsíti ve stejné virtuální síti. Pokud však chcete síťové rozhraní přiřadit k jiné podsíti, musíte nejprve změnit metodu přidělování ze statické na dynamickou. Jakmile přiřadíte síťové rozhraní k jiné podsíti, můžete metodu přidělování změnit zpět na statickou a přiřadit IP adresu z rozsahu adres nové podsítě.
 
 ### <a name="virtual-machines"></a>Virtuální počítače
 
-Privátní IP adresa se přiřazuje **síťovému rozhraní** virtuálního počítače s [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nebo [Linuxem](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pokud má virtuální počítač několik síťových rozhraní, privátní IP adresa se přiřadí každému síťovému rozhraní. Pro síťové rozhraní můžete určit dynamickou nebo statickou metodu přidělení.
+Jedna nebo několik privátních IP adres se přiřazuje k jednomu nebo několika **síťovým rozhraním** virtuálního počítače s [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nebo [Linuxem](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pro každou privátní IP adresu můžete určit dynamickou nebo statickou metodu přidělování.
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>Interní překlad názvů hostitelů DNS (pro virtuální počítače)
 
 Všechny virtuální počítače Azure jsou ve výchozím nastavení nakonfigurované se [servery DNS spravovanými Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) (pokud explicitně nenakonfigurujete vlastní servery DNS). Tyto servery DNS poskytují interní překlad IP adres pro virtuální počítače umístěné ve stejné virtuální síti.
 
-Když vytvoříte virtuální počítač, do serverů DNS spravovaných Azure se přidá mapování názvu hostitele na jeho privátní IP adresu. Pokud má virtuální počítač několik síťových rozhraní, název hostitele se mapuje na privátní IP adresu primárního síťového rozhraní.
+Když vytvoříte virtuální počítač, do serverů DNS spravovaných Azure se přidá mapování názvu hostitele na jeho privátní IP adresu. Pokud má virtuální počítač několik síťových rozhraní nebo několik konfigurací IP pro síťové rozhraní, název hostitele se mapuje na privátní IP adresu primární konfigurace IP primárního síťového rozhraní.
 
-Virtuální počítače nakonfigurované se servery DNS spravovanými Azure můžou překládat názvy hostitelů všech virtuálních počítačů v rámci stejné virtuální sítě na jejich privátní IP adresy.
+Virtuální počítače nakonfigurované se servery DNS spravovanými Azure můžou překládat názvy hostitelů všech virtuálních počítačů v rámci stejné virtuální sítě na jejich privátní IP adresy. K překladu názvů hostitelů virtuálních počítačů v propojených virtuálních sítích musíte použít vlastní server DNS.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Interní nástroje pro vyrovnávání a Application Gateway
 

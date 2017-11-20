@@ -248,12 +248,12 @@
 ## Správa adresáře
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Vlastní názvy domén
-#### [Přehled](active-directory-domains-manage-azure-portal.md)
-#### [Správa názvů domén](active-directory-domains-manage-azure-portal.md)
+#### [Rychlý start](add-custom-domain.md)
+#### [Přidání vlastních názvů domén](active-directory-domains-manage-azure-portal.md)
 ### [Správa adresáře](active-directory-administer.md)
 ### [Několik adresářů](active-directory-licensing-directory-independence.md)
 ### [Samoobslužné přihlášení](active-directory-self-service-signup.md)
-#### [Převzetí kontroly nad nespravovaným adresářem](domains-admin-takeover.md)
+### [Převzetí kontroly nad nespravovaným adresářem](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Povolení](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Nastavení zásad skupiny](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

@@ -1,5 +1,5 @@
 ---
-title: "Kurz: Vytvoření prvního indexu služby Azure Search na portálu | Dokumentace Microsoftu"
+title: "Indexování, dotazování a filtrování na stránkách portálu Azure Search | Dokumentace Microsoftu"
 description: "K vytvoření indexu na webu Azure Portal použijte předdefinovaná ukázková data. Prozkoumejte fulltextové vyhledávání, filtry, omezující vlastnosti, vyhledávání přibližných shod, geografické vyhledávání a další funkce."
 services: search
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: heidist
-ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Kurz: Vytvoření prvního indexu služby Azure Search na portálu
+# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Vytvoření, dotazování a filtrování indexu Azure Search na portálu
 
 Na webu Azure Portal začněte s předdefinovanou ukázkovou datovou sadou a rychle vytvořte index pomocí průvodce **importem dat**. Prozkoumejte fulltextové vyhledávání, filtry, omezující vlastnosti, vyhledávání přibližných shod a geografické vyhledávání pomocí **průzkumníka služby Search**.  
 
-Tento úvod bez kódu vám pomůže začít s předdefinovanými daty, abyste mohli hned začít psát zajímavé dotazy. Nástroje portálu nejsou náhradou za kód, ale jsou užitečné pro tyto úlohy:
+Tento úvod bez kódu vám pomůže začít s předdefinovanými daty, abyste mohli hned začít psát zajímavé dotazy. Nástroje portálu nejsou náhradou za kód, ale můžou být užitečné pro tyto úlohy:
 
 + Praktická výuka s minimálním zdržením
 + Vytvoření prototypu indexu před vlastním psaním kódu s využitím **importu dat**
@@ -128,7 +128,7 @@ Nyní máte index vyhledávání, který je připraven k dotazování. **Průzku
 
 **`search=seattle`**
 
-+ Parametr `search` se používá k zadání klíčového slova pro fulltextové vyhledávání. V tomto případě vrátí výpisy v King County ve státě Washington, které v libovolném prohledávatelném poli dokumentu obsahují text *Seattle*. 
++ Parametr **search** se používá k zadání klíčového slova pro fulltextové vyhledávání. V tomto případě vrátí výpisy v King County ve státě Washington, které v libovolném prohledávatelném poli dokumentu obsahují text *Seattle*. 
 
 + **Průzkumník služby Search** vrátí výsledky ve formátu JSON, který je podrobný a těžko čitelný, pokud mají dokumenty kompaktní strukturu. V závislosti na vašich dokumentech bude možná nutné napsat kód, který výsledky hledání zpracuje a extrahuje z nich důležité elementy. 
 
@@ -136,35 +136,48 @@ Nyní máte index vyhledávání, který je připraven k dotazování. **Průzku
 
 **`search=seattle&$count=true&$top=100`**
 
-+ Symbol `&` slouží k připojení parametrů vyhledávání, které lze zadat v libovolném pořadí. 
++ Symbol **&** slouží k připojení parametrů vyhledávání, které lze zadat v libovolném pořadí. 
 
-+  Parametr `$count=true` vrací počet všech vrácených dokumentů. Monitorováním změn hlášených parametrem `$count=true` můžete ověřovat filtrovací dotazy. 
++  Parametr **$count=true** vrací počet všech vrácených dokumentů. Monitorováním změn hlášených parametrem **$count=true** můžete ověřovat filtrovací dotazy. 
 
-+ Parametr `$top=100` vrací 100 dokumentů s nejvyšším hodnocením. Ve výchozím nastavení vrací služba Azure Search prvních 50 nejlepších shod. Pomocí parametru `$top` můžete tento počet navýšit nebo snížit.
++ Parametr **$top=100** vrací 100 dokumentů s nejvyšším hodnocením. Ve výchozím nastavení vrací služba Azure Search prvních 50 nejlepších shod. Pomocí parametru **$top** můžete tento počet navýšit nebo snížit.
 
-**`search=*&facet=city&$top=2`**
 
-+ Parametr `search=*` znamená prázdné vyhledávání. Prázdné vyhledávání prohledává všechno. Jedním z důvodů odeslání prázdného dotazu je použití filtru nebo omezující vlastnosti na kompletní sadu dokumentů. Chcete například, aby se fasetová navigační struktura skládala ze všech měst v indexu.
+## <a name="filter-query"></a>Filtrování dotazu
 
-+  Parametr `facet` vrací navigační strukturu, kterou můžete předat ovládacímu prvku uživatelského rozhraní. Vrací kategorie a počet. V tomto případě kategorie závisí na počtu měst. Ve službě Azure Search neexistuje agregace, ale můžete ji odhadnout pomocí parametru `facet`, který vrací počet dokumentů v každé kategorii.
-
-+ Parametr `$top=2` vrací dva dokumenty a ilustruje, že parametr `top` můžete použít ke snížení i navýšení počtu výsledků.
-
-**`search=seattle&facet=beds`**
-
-+ Tento dotaz je omezující vlastností na postele v textovém vyhledávání výrazu *Seattle*. Pole `"beds"` je možné použít jako omezující vlastnost, protože je v indexu označené jako Retrievable, Filterable a Facetable (zobrazitelné, filtrovatelné a kategorizovatelné) a hodnoty, které obsahuje (číselné, od 1 do 5), jsou vhodné pro zařazení výpisů do skupin (výpisy se 3 ložnicemi nebo se 4 ložnicemi). 
-
-+ Kategorizovat je možné pouze filtrovatelná pole. Ve výsledcích je možné vrátit pouze zobrazitelná pole.
+Filtry se do požadavků hledání zahrnou po připojení parametru **$filter**. 
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ Parametr `filter` vrací výsledky odpovídající kritériím, která jste zadali. V tomto případě víc než 3 ložnice. 
++ Parametr **$filter** vrací výsledky odpovídající kritériím, která jste zadali. V tomto případě víc než 3 ložnice. 
 
 + Syntaxe parametru Filter je založená na konstruktech jazyka OData. Další informace najdete v tématu věnovaném [syntaxi jazyka OData pro filtry](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
+## <a name="facet-query"></a>Omezení vlastností dotazu
+
+Součástí požadavků hledání jsou filtry omezující vlastnost. Pomocí parametru facet můžete vrátit celkový počet dokumentů odpovídajících hodnotě omezující vlastnosti, kterou zadáte. 
+
+**`search=*&facet=city&$top=2`**
+
++ Parametr **search=*** znamená prázdné vyhledávání. Prázdné vyhledávání prohledává všechno. Jedním z důvodů odeslání prázdného dotazu je použití filtru nebo omezující vlastnosti na kompletní sadu dokumentů. Chcete například, aby se fasetová navigační struktura skládala ze všech měst v indexu.
+
++  Parametr **facet** vrací navigační strukturu, kterou můžete předat ovládacímu prvku uživatelského rozhraní. Vrací kategorie a počet. V tomto případě kategorie závisí na počtu měst. Ve službě Azure Search neexistuje agregace, ale můžete ji odhadnout pomocí parametru `facet`, který vrací počet dokumentů v každé kategorii.
+
++ Parametr **$top=2** vrací dva dokumenty a ilustruje, že parametr `top` můžete použít ke snížení i navýšení počtu výsledků.
+
+**`search=seattle&facet=beds`**
+
++ Tento dotaz je omezující vlastností na postele v textovém vyhledávání výrazu *Seattle*. Termín *beds* je možné použít jako omezující vlastnost, protože toto pole je v indexu označené jako Retrievable, Filterable a Facetable (zobrazitelné, filtrovatelné a kategorizovatelné) a hodnoty, které obsahuje (číselné, od 1 do 5), jsou vhodné pro zařazení výpisů do skupin (výpisy se 3 ložnicemi nebo se 4 ložnicemi). 
+
++ Kategorizovat je možné pouze filtrovatelná pole. Ve výsledcích je možné vrátit pouze zobrazitelná pole.
+
+## <a name="highlight-query"></a>Přidání zvýrazňování
+
+Zvýrazňování shod označuje formátování textu odpovídajícího klíčovému slovu (za předpokladu, že se v konkrétním poli našly shody). Pokud je hledaný termín schovaný v popisu, můžete pomocí zvýrazňování shod usnadnit jeho nalezení. 
+
 **`search=granite countertops&highlight=description`**
 
-+ Zvýrazňování shod označuje formátování textu odpovídajícího klíčovému slovu (za předpokladu, že se v konkrétním poli našly shody). Pokud je hledaný termín schovaný v popisu, můžete pomocí zvýrazňování shod usnadnit jeho nalezení. V tomto případě je formátovaná fráze `"granite countertops"` v poli popisu lépe viditelná.
++ V tomto příkladu je formátovaná fráze *granite countertops* v poli popisu lépe viditelná.
 
 **`search=mice&highlight=description`**
 
@@ -172,23 +185,29 @@ Nyní máte index vyhledávání, který je připraven k dotazování. **Průzku
 
 + Azure Search podporuje 56 analyzátorů od společností Lucene a Microsoft. Jako výchozí se pro Azure Search používá standardní analyzátor Lucene. 
 
+## <a name="fuzzy-search"></a>Použití vyhledávání přibližných shod
+
+Chybně napsaná slova, například *samamish* místo Samammish v okolí Seattlu, při typickém hledání obvykle nevrátí shodu. Ke zpracování chybně napsaných slov můžete využít vyhledávání přibližných shod, které je popsaném v dalším příkladu.
+
 **`search=samamish`**
 
-+ Chybně napsaná slova, třeba Samamish místo Samammish v okolí Seattlu, při typickém hledání obvykle nevrátí shodu. Ke zpracování chybně napsaných slov můžete využít vyhledávání přibližných shod, které je popsaném v dalším příkladu.
++ V tomto příkladu je chybně napsaný název sousedství v okolí Seattlu.
 
 **`search=samamish~&queryType=full`**
 
-+ Vyhledávání přibližných shod se povolí, pokud zadáte symbol `~` a použijete kompletní analyzátor dotazů, který syntaxi `~` interpretuje a správně parsuje. 
++ Vyhledávání přibližných shod se povolí, pokud zadáte symbol **~** a použijete kompletní analyzátor dotazů, který syntaxi **~** správně interpretuje a parsuje. 
 
-+ Vyhledávání přibližných shod bude dostupné, když vyjádříte výslovný souhlas s použitím kompletního analyzátoru dotazů nastavením parametru `queryType=full`. Další informace o scénářích, které umožňuje použít kompletní analyzátor dotazů, najdete v tématu věnovaném [syntaxi dotazů Lucene ve službě Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++ Vyhledávání přibližných shod bude dostupné, když vyjádříte výslovný souhlas s použitím kompletního analyzátoru dotazů nastavením parametru **queryType=full**. Další informace o scénářích, které umožňuje použít kompletní analyzátor dotazů, najdete v tématu věnovaném [syntaxi dotazů Lucene ve službě Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-+ Když parametr `queryType` není zadaný, použije se výchozí jednoduchý analyzátor dotazů. Jednoduchý analyzátor dotazů je rychlejší, ale pokud vyžadujete vyhledávání přibližných shod, regulární výrazy, vyhledávání blízkých výrazů nebo jiné pokročilé typy dotazů, budete potřebovat celou syntaxi. 
++ Pokud parametr **queryType** není zadaný, použije se výchozí jednoduchý analyzátor dotazů. Jednoduchý analyzátor dotazů je rychlejší, ale pokud vyžadujete vyhledávání přibližných shod, regulární výrazy, vyhledávání blízkých výrazů nebo jiné pokročilé typy dotazů, budete potřebovat celou syntaxi. 
+
+## <a name="geo-search"></a>Vyzkoušení geoprostorového hledání
+
+Geoprostorové hledání je podporované prostřednictvím [datového typu edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) v polích, které obsahují souřadnice. Geoprostorové hledání je typ filtru určený v [syntaxi jazyka OData pro filtry](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ Geoprostorové hledání je podporované prostřednictvím [datového typu edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) v polích, které obsahují souřadnice. Geoprostorové hledání je typ filtru určený v [syntaxi jazyka OData pro filtry](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
-
-+ Tento vzorový dotaz vyfiltruje všechny výsledky pro poziční data, kde jsou výsledky od daného bodu (zadaného pomocí zeměpisné šířky a délky) vzdálené méně než 5 kilometrů. Přidáním parametru `$count` můžete zobrazit, kolik výsledků se vrátí, když změníte vzdálenost nebo souřadnice. 
++ Tento vzorový dotaz vyfiltruje všechny výsledky pro poziční data, kde jsou výsledky od daného bodu (zadaného pomocí zeměpisné šířky a délky) vzdálené méně než 5 kilometrů. Přidáním parametru **$count** můžete zobrazit, kolik výsledků se vrátí, když změníte vzdálenost nebo souřadnice. 
 
 + Geoprostorové hledání je užitečné, pokud vaše vyhledávací aplikace obsahuje funkci typu „najít poblíž“ nebo používá navigaci podle map. Není to ale fulltextové vyhledávání. Pokud chcete, aby uživatelé mohli hledat město nebo okres podle názvu, přidejte kromě souřadnic také pole, která budou obsahovat názvy města nebo okresu.
 

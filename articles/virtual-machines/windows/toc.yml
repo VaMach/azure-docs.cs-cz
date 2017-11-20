@@ -80,15 +80,21 @@
           href: sizes-general.md
     - name: Údržba a aktualizace
       href: maintenance-and-updates.md
-    - name: Úložiště
+    - name: Diskové úložiště
       href: about-disks-and-vhds.md
       items:
+        - name: Managed Disks
+          href: managed-disks-overview.md
         - name: Storage úrovně Premium
           href: premium-storage.md
         - name: Výkon Storage úrovně Premium
           href: premium-storage-performance.md
         - name: Storage úrovně Standard
           href: standard-storage.md
+        - name: Cíle škálovatelnosti pro disky
+          href: disk-scalability-targets.md
+        - name: Zálohování a zotavení po havárii pro disky
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Sítě
       href: network-overview.md
     - name: Automatické škálování aplikací
@@ -113,6 +119,8 @@
       items:
         - name: 'Použití jazyka C#'
           href: csharp.md
+        - name: Použití specializovaného disku
+          href: create-vm-specialized.md
         - name: 'Použití šablony s jazykem C#'
           href: csharp-template.md
         - name: Vytvoření virtuálního počítače pomocí Chefu
@@ -154,6 +162,8 @@
           href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Správa virtuálních počítačů
       items:
+        - name: Platba za virtuální počítače předem – rezervované instance
+          href: prepay-reserved-vm-instances.md
         - name: Běžné úlohy PowerShellu
           href: ps-common-ref.md
         - name: Přesun virtuálního počítače
@@ -186,12 +196,10 @@
           href: cli-ps-findimage.md
         - name: Příprava virtuálního počítače pro nahrání
           href: prepare-for-upload-vhd-image.md
-        - name: Použití generalizované image
-          href: create-vm-generalized-managed.md
-        - name: Použití specializovaného disku
-          href: create-vm-specialized.md
         - name: Zachycení virtuálního počítače v imagi
           href: capture-image-resource.md
+        - name: Použití generalizované image
+          href: create-vm-generalized-managed.md
         - name: Sestavení image pomocí Packeru
           href: build-image-with-packer.md
         - name: Použití imagí klienta Windows
@@ -241,8 +249,6 @@
               href: excel-cluster-hpcpack.md
     - name: Správa úložiště
       items:
-        - name: Další informace o službě Managed Disks
-          href: managed-disks-overview.md
         - name: Nejčastější dotazy k diskům
           href: faq-for-disks.md
         - name: Přidání disku
@@ -255,8 +261,6 @@
           href: detach-disk.md
         - name: Změna velikosti disku
           href: expand-os-disk.md
-        - name: Zálohování a zotavení po havárii pro disky
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Pořízení snímku disku
           href: snapshot-copy-managed-disk.md
         - name: Zálohování nespravovaných disků

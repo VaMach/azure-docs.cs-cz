@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 07d06e4de95fcc562bcc76ac5cc4f5cd3483ba6d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Vytvoření účtů služby Azure Machine Learning verze Preview a instalace aplikace Azure Machine Learning Workbench
 Azure Machine Learning je integrované, komplexní řešení datové vědy a pokročilé analýzy. Pomáhá profesionálním datovým vědcům připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
@@ -93,33 +93,20 @@ Aplikaci Azure Machine Learning Workbench můžete nainstalovat do počítače s
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## <a name="install-azure-machine-learning-workbench-on-macos"></a>Instalace aplikace Azure Machine Learning Workbench v systému macOS
-Aplikaci Azure Machine Learning Workbench můžete nainstalovat do počítače se systémem macOS Sierra.
+Nainstalujte aplikaci Azure Machine Learning Workbench na svém počítači se systémem macOS Sierra nebo novějším.
 
-1. Pomocí nástroje [Homebrew](http://brew.sh) nainstalujte knihovnu openssl. Další informace najdete v tématu [Požadavky rozhraní .NET Core v počítačích Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites).
-   ```
-   # install Homebrew first if you don't have it already
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-   # install latest openssl needed for .NET Core 1.x
-   brew update
-   brew install openssl
-   mkdir -p /usr/local/lib
-   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-   ```
-
-2. Stáhněte si nejnovější verzi instalačního programu aplikace Azure Machine Learning Workbench [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
+1. Stáhněte si nejnovější verzi instalačního programu aplikace Azure Machine Learning Workbench [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
 
    >[!IMPORTANT]
    >Stáhněte celý instalační program na disk a spusťte jej. Nespouštějte jej přímo z widgetu stahování v prohlížeči.
 
-3. V aplikaci Finder dvakrát klikněte na stažený instalační program **AmlWorkbench.dmg**.
+2. V aplikaci Finder dvakrát klikněte na stažený instalační program **AmlWorkbench.dmg**.
 
-4. Dokončete instalaci podle pokynů na obrazovce.
+3. Dokončete instalaci podle pokynů na obrazovce.
 
    Instalační program stáhne všechny potřebné závislé komponenty, jako je Python, Miniconda a další související knihovny. Instalace všech komponent může trvat přibližně půl hodiny. 
 
-5. Aplikace Azure Machine Learning Workbench je teď nainstalovaná v tomto adresáři: 
+4. Aplikace Azure Machine Learning Workbench je teď nainstalovaná v tomto adresáři: 
 
    `/Applications/AmlWorkbench.app`
 

@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření indexu Azure Search | Microsoft Azure | Hostovaná cloudová vyhledávací služba"
-description: "Co je index ve službě Azure Search a jak se používá?"
+title: "Indexy ve službě Azure Search | Dokumentace Microsoftu"
+description: "Seznamte se s koncepty a použitím indexů ve službě Azure Search."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -10,15 +10,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 11/08/2017
 ms.author: ashmaka
-ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87f1121594d8577b5dacac4026aa7d86b2921d10
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="create-an-azure-search-index"></a>Vytvoření indexu Azure Search
+# <a name="indexes-in-azure-search"></a>Indexy ve službě Azure Search
 > [!div class="op_single_selector"]
 > * [Přehled](search-what-is-an-index.md)
 > * [Azure Portal](search-create-index-portal.md)
@@ -27,8 +27,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="what-is-an-index"></a>Co je index?
-*Index* je trvalé úložiště *dokumentů* a jiných objektů, které používá služba Azure Search. Dokument je jednou jednotkou prohledávatelných dat v indexu. Například internetový prodejce může mít dokument pro každou prodanou položku, zatímco tisková agentura může mít dokument pro každý článek atd. Mapování těchto položek do známějších databázových ekvivalentů: *indexů* se koncepčně podobá *tabulce*, kdy *dokumenty* přibližně odpovídají *řádkům* tabulky.
+Ve službě Azure Search je *Index* trvalé úložiště *dokumentů* a jiných objektů, které používá služba Azure Search. Dokument je jednou jednotkou prohledávatelných dat v indexu. Například internetový prodejce může mít dokument pro každou prodanou položku, zatímco tisková agentura může mít dokument pro každý článek atd. Mapování těchto položek do známějších databázových ekvivalentů: *indexů* se koncepčně podobá *tabulce*, kdy *dokumenty* přibližně odpovídají *řádkům* tabulky.
 
 Když přidáváte nebo nahráváte dokumenty a odesíláte vyhledávací dotazy do služby Azure Search, svoje požadavky odesíláte do konkrétního indexu ve vyhledávací službě.
 

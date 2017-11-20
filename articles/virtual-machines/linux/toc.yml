@@ -88,15 +88,21 @@
       href: endorsed-distros.md
     - name: Údržba a aktualizace
       href: maintenance-and-updates.md
-    - name: Úložiště
-      href: azure-vm-storage-overview.md
+    - name: Diskové úložiště
+      href: about-disks-and-vhds.md
       items:
+        - name: Managed Disks
+          href: managed-disks-overview.md
         - name: Storage úrovně Premium
           href: premium-storage.md
         - name: Výkon Storage úrovně Premium
           href: premium-storage-performance.md
         - name: Storage úrovně Standard
           href: standard-storage.md
+        - name: Cíle škálovatelnosti pro disky
+          href: disk-scalability-targets.md
+        - name: Zálohování a zotavení po havárii pro disky
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Sítě
       href: network-overview.md
     - name: Automatické škálování aplikací
@@ -156,6 +162,8 @@
           href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Správa virtuálních počítačů
       items:
+        - name: Platba za virtuální počítače předem – rezervované instance
+          href: prepay-reserved-vm-instances.md
         - name: Běžné úlohy rozhraní příkazového řádku
           href: cli-manage.md
         - name: Přesun virtuálního počítače
@@ -312,8 +320,6 @@
               href: n-series-driver-setup.md
     - name: Správa úložiště
       items:
-        - name: Další informace o službě Managed Disks
-          href: managed-disks-overview.md
         - name: Nejčastější dotazy k diskům
           href: faq-for-disks.md
         - name: Přidání disku
@@ -328,8 +334,6 @@
           href: expand-disks.md
         - name: Pořízení snímku disku
           href: snapshot-copy-managed-disk.md
-        - name: Zálohování a zotavení po havárii pro disky
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Zálohování nespravovaných disků
           href: incremental-snapshots.md
         - name: Převod na Managed Disks

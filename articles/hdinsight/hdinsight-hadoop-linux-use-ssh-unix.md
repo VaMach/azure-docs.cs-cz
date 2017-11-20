@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 11/10/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8961576d1a7de268bab2f4adf01d89dde1fc8776
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 23621c418663ee5b4ed83ab989663a882e7000bd
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Připojení k HDInsightu (Hadoop) pomocí protokolu SSH
 
@@ -48,26 +48,24 @@ HDInsight může pro uzly v clusteru Hadoop jako operační systém využívat L
 > [!TIP]
 > Když se poprvé připojíte ke službě HDInsight, ve vašem klientovi SSH se může zobrazit upozornění na nemožnost potvrzení pravosti hostitele. Po zobrazení výzvy vyberte yes (ano) a hostitel se přidá na seznam důvěryhodných serverů vašeho klienta SSH.
 >
-> Pokud jste se dříve připojili k serveru se stejným názvem, může se zobrazit upozornění na neshodu uloženého klíče hostitele s klíčem hostitele serveru. Pokud k tomu dojde, klient SSH může odmítnout připojení ke clusteru. Postup pro odebrání existující položky pro název serveru najdete v dokumentaci k vašemu klientovi SSH.
+> Pokud jste se dříve připojili k serveru se stejným názvem, může se zobrazit upozornění na neshodu uloženého klíče hostitele s klíčem hostitele serveru. Postup pro odebrání existující položky pro název serveru najdete v dokumentaci k vašemu klientovi SSH.
 
 ## <a name="ssh-clients"></a>Klienti SSH
 
 Systémy Linux, Unix a macOS nabízí příkazy `ssh` a `scp`. Klient `ssh` se v systému založeném na Linuxu nebo Unixu běžně používá k vytvoření vzdálené relace příkazového řádku. Klient `scp` slouží k bezpečnému kopírování souborů mezi vaším klientem a vzdáleným systémem.
 
-Microsoft Windows ve výchozím nastavení neposkytuje žádné klienty SSH. Klienti `ssh` a `scp` jsou ve Windows k dispozici prostřednictvím následujících balíčků:
+Microsoft Windows ve výchozím nastavení neinstaluje žádné klienty SSH. Klienti `ssh` a `scp` jsou ve Windows k dispozici prostřednictvím následujících balíčků:
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): Balíček Cloud Shell přináší prostředí Bashe v prohlížeči a nabízí `ssh`, `scp` a další běžné linuxové příkazy.
+* Klient OpenSSH (Beta verze): Ve Windows 10 Fall Creators Update přejděte do __Nastavení__ > __Aplikace a funkce__ > __Spravovat volitelné funkce__ > __Přidat funkci__ a vyberte __Klient OpenSSH__. 
+
+    > [!NOTE]
+    > Pokud po povolení této funkce nejsou v PowerShellu dostupné příkazy `ssh` a `scp`, odhlaste se a znovu se přihlaste.
 
 * [Bash na Ubuntu ve Windows 10:](https://msdn.microsoft.com/commandline/wsl/about) Příkazy `ssh` a `scp` jsou dostupné prostřednictvím Bashe na příkazovém řádku Windows.
 
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): Balíček Cloud Shell přináší prostředí Bashe v prohlížeči a nabízí `ssh`, `scp` a další běžné linuxové příkazy.
+
 * [Git (https://git-scm.com/)](https://git-scm.com/): Příkazy `ssh` a `scp` jsou k dispozici prostřednictvím příkazového řádku GitBash.
-
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/) Příkazy `ssh` a `scp` jsou k dispozici prostřednictvím příkazového řádku GitHub Shell. GitHub Desktop se dá nakonfigurovat tak, aby jako příkazový řádek pro Git Shell používal Bash, příkazový řádek Windows nebo PowerShell.
-
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH):](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH) Tým PowerShell portuje OpenSSH do Windows a poskytuje testovací verze.
-
-    > [!WARNING]
-    > Balíček OpenSSH zahrnuje serverovou komponentu SSH, `sshd`. Tato komponenta spustí ve vašem systému server SSH a umožní ostatním, aby se k němu připojili. Pokud nechcete ve vašem systému hostovat server SSH, nekonfigurujte tuto komponentu a neotevírejte port 22. Ke komunikaci s HDInsightem není potřeba.
 
 Existuje také několik grafických klientů SSH, jako je [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) a [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). I když je možné tyto klienty použít pro připojení k HDInsightu, proces připojení se od použití nástroje `ssh` liší. Další informace najdete v dokumentaci ke grafickému klientu, který používáte.
 
@@ -116,7 +114,7 @@ Během procesu vytváření klíčů se zobrazí výzva k zadání informací, t
 Účty SSH je možné zabezpečit pomocí hesla. Když se připojíte k HDInsightu pomocí SSH, zobrazí se výzva k zadání hesla.
 
 > [!WARNING]
-> Ověřování heslem pro SSH nedoporučujeme. Hesla se dají uhádnout a můžou se stát terčem útoku hrubou silou. Místo toho doporučujeme využívat [klíče SSH k ověřování](#sshkey).
+> Microsoft nedoporučuje pro SSH používat ověřování heslem. Hesla se dají uhádnout a můžou se stát terčem útoku hrubou silou. Místo toho doporučujeme využívat [klíče SSH k ověřování](#sshkey).
 
 ### <a name="create-hdinsight-using-a-password"></a>Vytvoření HDInsight s využitím hesla
 
@@ -160,7 +158,7 @@ Hlavní uzly a hraniční uzel (pokud existuje) jsou přístupné přes internet
     ```
 
 > [!IMPORTANT]
-> V předchozích příkladech se předpokládá, že používáte ověřování heslem nebo že ověřování certifikátů probíhá automaticky. Pokud k ověřování používáte pár klíč-hodnota SSH a certifikát se nepoužívá automaticky, použijte parametr `-i` k zadání privátního klíče. Například, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+> V předchozích příkladech se předpokládá, že používáte ověřování heslem nebo že automaticky probíhá ověřování certifikátů. Pokud k ověřování používáte pár klíč-hodnota SSH a certifikát se nepoužívá automaticky, použijte parametr `-i` k zadání privátního klíče. Například, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
 Jakmile budete připojeni, příkazový řádek se změní a zobrazí uživatelské jméno SSH a uzel, ke kterému jste připojeni. Například po připojení k primárnímu hlavnímu uzlu jako `sshuser` se na příkazovém řádku zobrazí `sshuser@hn0-clustername:~$`.
 
@@ -176,7 +174,7 @@ Pracovní uzly a uzly Zookeeper nejsou přístupné přímo z internetu. Lze se 
 
         ssh sshuser@wn0-myhdi
 
-    Pokud chcete načíst seznam doménových názvů uzlů v clusteru, přečtěte si dokument [Správa HDInsight pomocí rozhraní Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+    Pokud chcete načíst seznam názvů uzlů, přečtěte si dokument [Správa HDInsight pomocí rozhraní Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 Pokud je účet SSH zabezpečený __heslem__, zadejte toto heslo při připojování.
 

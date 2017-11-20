@@ -1,6 +1,6 @@
 ---
 title: "Možnosti Microsoft Azure IoT | Dokumentace Microsoftu"
-description: "Zvolte, jak implementovat řešení Azure IoT pomocí služeb IoT Suite, IoT Central nebo IoT Hub."
+description: "Zvolte, jak implementovat řešení IoT pomocí služeb Azure IoT Suite, Microsoft IoT Central nebo Azure IoT Hub."
 services: 
 suite: iot-suite
 author: dominicbetts
@@ -8,14 +8,14 @@ manager: timlt
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.topic: get-started-article
-ms.date: 09/21/2017
+ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd98d42ab391d471d2302066dc2baf2c64f56f55
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e00dd828ef24b9bc97665f0f5fe8d7e14f4e4630
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="compare-azure-iot-options"></a>Porovnání možností Azure IoT
 
@@ -33,18 +33,18 @@ Azure IoT pro implementaci této architektury nabízí několik možností, kter
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 
-Azure IoT Hub je základem platformy Azure jako služby a využívá ho IoT Central i IoT Suite. IoT Hub umožňuje spolehlivou a zabezpečenou obousměrnou komunikaci mezi miliony zařízení IoT a cloudovým řešením. IoT Hub pomáhá plnit náročné úkoly implementace problémy, jako jsou:
+Služba Azure IoT Hub představuje základní platformu Azure jako službu a využívá ji Microsoft IoT Central i Azure IoT Suite. IoT Hub umožňuje spolehlivou a zabezpečenou obousměrnou komunikaci mezi miliony zařízení IoT a cloudovým řešením. IoT Hub pomáhá plnit náročné úkoly implementace problémy, jako jsou:
 
 * Správa a připojení zařízení velkého rozsahu
 * Ingestování telemetrie velkého rozsahu
 * Příkazy a ovládání zařízení
 * Vynucení zabezpečení zařízení
 
-## <a name="compare-iot-suite-and-iot-central"></a>Porovnání IoT Suite a IoT Central
+## <a name="compare-azure-iot-suite-and-microsoft-iot-central"></a>Porovnání Azure IoT Suite a Microsoft IoT Central
 
-Volba produktu Azure IoT je důležitou součástí plánování řešení IoT. IoT Hub je individuální služba Azure, která sama o sobě neposkytuje kompletní řešení IoT. IoT Hub můžete použít jako výchozí bod pro jakékoli řešení IoT a k jeho využití nepotřebujete Azure IoT Suite ani Microsoft IoT Central. IoT Suite i IoT Central využívají IoT Hub společně s dalšími službami Azure. Následující tabulka shrnuje hlavní rozdíly mezi IoT Suite a IoT Central a pomůže vám při výběru vhodné varianty pro vaše požadavky:
+Volba produktu Azure IoT je důležitou součástí plánování řešení IoT. IoT Hub je individuální služba Azure, která sama o sobě neposkytuje kompletní řešení IoT. IoT Hub můžete použít jako výchozí bod pro jakékoli řešení IoT a k jeho využití nepotřebujete Azure IoT Suite ani Microsoft IoT Central. Azure IoT Suite i Microsoft IoT Central využívají IoT Hub společně s dalšími službami Azure. Následující tabulka shrnuje hlavní rozdíly mezi Azure IoT Suite a Microsoft IoT Central a pomůže vám při výběru vhodné varianty pro vaše požadavky:
 
-|                        | IoT Suite | IoT Central |
+|                        | Azure IoT Suite | Microsoft IoT Central |
 | ---------------------- | --------- | ----------- |
 | Primární využití | Ke zrychlení vývoje vlastního řešení IoT, které vyžaduje maximální flexibilitu | Ke zkrácení doby uvedení na trh pro jednoduchá řešení IoT, která nevyžadují rozsáhlá přizpůsobení služeb |
 | Přístup k podkladovým službám PaaS          | Máte přístup k podkladovým službám Azure a můžete je spravovat nebo podle potřeby vyměnit. | SaaS. Plně spravovaná řešení, podkladové služby nejsou zveřejněné. |
@@ -63,6 +63,6 @@ Rozhodnutí, který produkt využít k sestavení vašeho řešení IoT, určuj�
 
 Na základě zvoleného produktu a přístupu jsou navrhujeme tyto další kroky:
 
-* **IoT Suite:** [Co jsou předkonfigurovaná řešení Azure IoT Suite?](iot-suite-what-are-preconfigured-solutions.md)
-* **IoT Central:** [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
+* **Azure IoT Suite:** [Co jsou předkonfigurovaná řešení Azure IoT?](iot-suite-what-are-preconfigured-solutions.md)
+* **Microsoft IoT Central:** [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **IoT Hub:** [Přehled služby Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md).

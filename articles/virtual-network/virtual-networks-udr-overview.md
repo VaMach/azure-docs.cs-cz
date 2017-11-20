@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: ab8689defed59bef362b1f22f78d41923087841d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Směrování provozu virtuální sítě
 
@@ -84,7 +84,7 @@ Při vytváření trasy definované uživatelem můžete zadat následující ty
 
 - **Virtuální zařízení:** Virtuální zařízení je virtuální počítač, na kterém je obvykle spuštěná síťová aplikace, jako je například brána firewall. Další informace o různých předkonfigurovaných virtuálních síťových zařízeních, která můžete nasadit ve virtuální síti, najdete na webu [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Při vytváření trasy s typem segmentu směrování **Virtuální zařízení** zadáváte také IP adresu dalšího segmentu směrování. Tato IP adresa může být:
 
-    - [Privátní IP adresa](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) síťového rozhraní připojeného k virtuálnímu počítači. Pro každé síťové rozhraní připojené k virtuálnímu počítači, který předává provoz na jinou adresu než svou vlastní, musí být povolená možnost Azure *Povolit předávání IP*. Toto nastavení pro síťové rozhraní zakáže kontrolu zdroje a cíle, kterou provádí Azure. Další informace o [povolení předávání IP pro síťové rozhraní](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Přestože je možnost *Povolit předávání IP* nastavením Azure, možná bude nutné povolit předávání IP také v operačním systému virtuálního počítače, aby virtuální počítač předával provoz mezi síťovými rozhraními. Informace o určení požadovaných nastavení v rámci virtuálního počítače najdete v dokumentaci k vašemu operačnímu systému nebo síťové aplikaci.
+    - [Privátní IP adresa](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) síťového rozhraní připojeného k virtuálnímu počítači. Pro každé síťové rozhraní připojené k virtuálnímu počítači, který předává provoz na jinou adresu než svou vlastní, musí být povolená možnost Azure *Povolit předávání IP*. Toto nastavení pro síťové rozhraní zakáže kontrolu zdroje a cíle, kterou provádí Azure. Další informace o [povolení předávání IP pro síťové rozhraní](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Přestože je možnost *Povolit předávání IP* nastavením Azure, možná bude nutné povolit předávání IP také v operačním systému virtuálního počítače, aby zařízení předávalo provoz mezi privátními IP adresami přiřazenými k síťovým rozhraním Azure. Pokud zařízení musí směrovat provoz na veřejnou IP adresu, musí buď předávat provoz přes proxy, nebo přeložit privátní IP adresu zdroje na vlastní privátní IP adresu, kterou pak Azure před odesláním provozu do internetu přeloží na veřejnou IP adresu. Informace o určení požadovaných nastavení v rámci virtuálního počítače najdete v dokumentaci k vašemu operačnímu systému nebo síťové aplikaci. Vysvětlení odchozích připojení v Azure najdete v tématu [Principy odchozích připojení](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     > [!NOTE]
     > Virtuální zařízení nasaďte do jiné podsítě, než ve které jsou nasazené prostředky, které se přes toto virtuální zařízení směrují. Nasazení virtuálního zařízení do stejné podsítě a následné použití směrovací tabulky na podsíť, která směruje provoz přes toto virtuální zařízení, může mít za následek smyčky směrování, kdy provoz nikdy neopustí podsíť.
