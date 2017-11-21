@@ -63,6 +63,8 @@
           href: azure-stack-integrate-identity.md
         - name: Publikování koncových bodů
           href: azure-stack-integrate-endpoints.md
+        - name: Externí monitorování
+          href: azure-stack-integrate-monitor.md
         - name: Zabezpečení
           href: azure-stack-integrate-security.md
     - name: Spravovat
