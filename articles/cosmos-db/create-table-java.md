@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: ce5c1c25a73bdc02d7e66768752c6942144de517
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API Java a Azure Cosmos DB
 
@@ -43,6 +43,10 @@ Navíc platí:
     * Na Ubuntu můžete Git nainstalovat spuštěním příkazu `sudo apt-get install git`.
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
+
+> [!IMPORTANT] 
+> Budete muset vytvořit nový účet tabulky rozhraní API pro práci s všeobecně dostupná SDK API tabulky. Tabulka rozhraní API účtů vytvořených během preview nepodporuje všeobecně dostupná sady SDK.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -98,7 +102,11 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```
 
-6. PRIMÁRNÍ PŘIPOJOVACÍ řetězec z portálu vložte do StorageConnectionString hodnoty v řádku 2. Pokud koncový bod část připojovací řetězec používá documents.azure.com, opravte část table.cosmosdb.azure.com místo toho chcete použít.
+6. PRIMÁRNÍ PŘIPOJOVACÍ řetězec z portálu vložte do StorageConnectionString hodnoty v řádku 2. 
+
+    > [!IMPORTANT]
+    > Pokud váš koncový bod používá documents.azure.com, která znamená, máte účet preview, a je nutné vytvořit [nový účet rozhraní API tabulky](#create-a-database-account) pro práci s všeobecně dostupná sadu SDK API tabulky.
+    >
 
 7. Uložte soubor config.properties.
 

@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření datové továrny Azure pomocí PowerShellu | Dokumentace Microsoftu"
-description: "Vytvořte datovou továrnu Azure ke zkopírování dat z jednoho umístění ve službě Azure Blob Storage do jiného umístění v stejné službě."
+title: "Kopírování dat v Blob Storage pomocí Azure Data Factory | Dokumentace Microsoftu"
+description: "Vytvořte datovou továrnu Azure ke zkopírování dat z jedné složky ve službě Azure Blob Storage do jiné složky ve stejné službě."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,18 +13,18 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 63e4c654409651f6655da1bed6ab2f544cf024dd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8ee2f48db009da4660a03f91194c4e99f6ecac4a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="create-an-azure-data-factory-and-pipeline-using-powershell"></a>Vytvoření datové továrny Azure a kanálu pomocí PowerShellu
+# <a name="create-an-azure-data-factory-using-powershell"></a>Vytvoření datové továrny Azure pomocí PowerShellu 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Verze 1 – GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Verze 2 – Preview](quickstart-create-data-factory-powershell.md)
 
-Tento rychlý start popisuje použití PowerShellu k vytvoření datové továrny Azure. Kanál, který v této datové továrně vytvoříte, kopíruje data z jednoho umístění do jiného umístění v úložišti objektů blob v Azure. Kurz předvádějící způsoby transformace dat pomocí Azure Data Factory najdete v tématu [Kurz: Transformace dat pomocí Sparku](transform-data-using-spark.md). 
+Tento rychlý start popisuje použití PowerShellu k vytvoření datové továrny Azure. Kanál, který vytvoříte v této datové továrně, kopíruje data z jedné složky do jiné složky v úložišti objektů blob Azure. Kurz předvádějící způsoby transformace dat pomocí Azure Data Factory najdete v tématu [Kurz: Transformace dat pomocí Sparku](transform-data-using-spark.md). 
 
 Tento článek neposkytuje podrobný úvod do služby Data Factory. Úvod do služby Azure Data Factory najdete v tématu [Úvod do Azure Data Factory](introduction.md).
 

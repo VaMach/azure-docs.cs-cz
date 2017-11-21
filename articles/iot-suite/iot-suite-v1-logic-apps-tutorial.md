@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: f4457b44c97fadc58406430fc0f31b3e0bac6682
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Kurz: Připojení k Azure IoT Suite vzdálené monitorování předkonfigurované řešení aplikace logiky
 [Microsoft Azure IoT Suite] [ lnk-internetofthings] předkonfigurovanému řešení vzdáleného monitorování je skvělým způsobem, jak rychle začít používat sadu začátku do konce funkce, která exemplifies řešení IoT. Tento kurz vás provede procesem přidání aplikace logiky do vaší Microsoft Azure IoT Suite předkonfigurovanému řešení vzdáleného monitorování. Tyto kroky ukazují, jak může trvat i další řešení IoT připojením k obchodní proces.
@@ -33,7 +33,7 @@ Než začnete tento kurz, proveďte následující kroky:
 
 K dokončení tohoto kurzu, musíte Visual Studio 2015 nebo Visual Studio 2017 chtěli změnit nastavení akcí v back-end předkonfigurovaných řešení.
 
-Za předpokladu, že jste už zřízené vzdáleného monitorování předkonfigurované řešení, přejděte do skupiny prostředků pro toto řešení v [portál Azure][lnk-azureportal]. Skupina prostředků má stejný název jako název řešení jste si zvolili při zřízení řešení vzdáleného monitorování. Ve skupině prostředků uvidíte všechny zřízené prostředky Azure pro vaše řešení s výjimkou aplikace Azure Active Directory, které můžete najít na portálu Azure Classic. Následující snímek obrazovky ukazuje příklad **skupiny prostředků** okno pro vzdálené monitorování předkonfigurované řešení:
+Za předpokladu, že jste už zřízené vzdáleného monitorování předkonfigurované řešení, přejděte do skupiny prostředků pro toto řešení v [portál Azure][lnk-azureportal]. Skupina prostředků má stejný název jako název řešení jste si zvolili při zřízení řešení vzdáleného monitorování. Ve skupině prostředků uvidíte všechny zřízené prostředky Azure pro vaše řešení. Následující snímek obrazovky ukazuje příklad **skupiny prostředků** okno pro vzdálené monitorování předkonfigurované řešení:
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 

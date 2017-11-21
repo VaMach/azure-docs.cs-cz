@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosář Microsoft Azure: slovník terminologie cloudu na platformě Azure
 
@@ -87,7 +87,7 @@ Ceny, kredity a související podmínky týkající se předplatné Azure.
 Najdete v článku [stránce s podrobnostmi o nabídka Azure](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portál
-Zabezpečený webový portál používat k nasazení a Správa služby Azure.  Existují dva portály: [portál Azure](http://portal.azure.com/) a [portálu classic](http://manage.windowsazure.com/). Některé služby jsou k dispozici v obou portálů, zatímco jiné jsou dostupné jenom jeden z nich. [Azure portálu dostupnosti grafu](https://azure.microsoft.com/features/azure-portal/availability/) seznamy služby, které jsou k dispozici v které portálu.
+Zabezpečený webový portál používat k nasazení a Správa služby Azure.
 
 ## <a name="region"></a>Oblast
 Oblasti v rámci geograficky, která nemá křížové national ohraničení a obsahuje jeden nebo více datových centrech. Ceny, místní služby a nabídka typy jsou zveřejněné na úrovni oblasti. Oblast je obvykle spárován s jinou oblast, což může být až několik set miles rychle. Místní páry slouží jako mechanismus pro zotavení po havárii a scénáře s vysokou dostupností. Také označuje jako *umístění*.  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Nasazení aplikace .NET v kontejneru systému Windows do Azure Service Fabric
 
@@ -39,11 +39,14 @@ V tomto kurzu se naučíte:
 4. Nainstalujte [prostředí Azure PowerShell][link-azure-powershell-install]
 5. Nainstalujte [rozšíření průběžné doručování nástrojů pro Visual Studio 2017][link-visualstudio-cd-extension]
 6. Vytvoření [předplatného Azure] [ link-azure-subscription] a [účet Visual Studio Team Services][link-vsts-account]. 
-7. [Vytvoření clusteru s podporou v Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
+7. [Vytvoření clusteru s podporou v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+
+## <a name="create-a-cluster-on-azure"></a>Vytvoření clusteru v Azure
+Aplikace Service Fabric spustit na cluster s podporou sadu virtuálních nebo fyzických počítačích připojených k síti. [Nastavení clusteru Service Fabric běžící v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) než vytvářet a nasazovat aplikace. Při vytváření clusteru, zvolte SKU, který podporuje spuštěné kontejnery (například Windows Server 2016 Datacenter s kontejnery).
 
 ## <a name="containerize-the-application"></a>Containerize aplikace
 
-Teď, když máte [cluster Service Fabric běží v Azure](service-fabric-tutorial-create-cluster-azure-ps.md) budete chtít vytvořit a nasadit kontejnerizované aplikaci. Spustit aplikaci v kontejneru, je potřeba přidat **Docker podporu** na projekt v sadě Visual Studio. Když přidáte **Docker podporu** do aplikace, dvě věci dojít. První, _soubor Docker_ se přidá do projektu. Tento nový soubor popisuje, jak bitovou kopii kontejneru má být sestaven. Potom druhé, nový _docker compose_ projekt je přidán do řešení. Nový projekt obsahuje několik docker compose soubory. Docker compose soubory můžete použít k popisu, jak spouštět kontejneru.
+Teď, když máte cluster Service Fabric běžící v Azure budete chtít vytvořit a nasadit kontejnerizované aplikaci. Spustit aplikaci v kontejneru, je potřeba přidat **Docker podporu** na projekt v sadě Visual Studio. Když přidáte **Docker podporu** do aplikace, dvě věci dojít. První, _soubor Docker_ se přidá do projektu. Tento nový soubor popisuje, jak bitovou kopii kontejneru má být sestaven. Potom druhé, nový _docker compose_ projekt je přidán do řešení. Nový projekt obsahuje několik docker compose soubory. Docker compose soubory můžete použít k popisu, jak spouštět kontejneru.
 
 Další informace o práci s [kontejner nástroje sady Visual Studio][link-visualstudio-container-tools].
 

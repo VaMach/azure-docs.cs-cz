@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 943e0849b03debaa47022b5cb6d0df43d82ac230
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabulky .NET API: Stažení a poznámky k verzi
 > [!div class="op_single_selector"]
@@ -34,6 +34,10 @@ ms.lasthandoff: 11/18/2017
 |**Rychlý start**|[Azure Cosmos DB: Sestavení aplikace pomocí rozhraní .NET a Table API](create-table-dotnet.md)|
 |**Kurz**|[Azure Cosmos DB: Vývoj s tabulkou rozhraní API v rozhraní .NET](tutorial-develop-table-dotnet.md)|
 |**Aktuální podporovaných prostředí**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+
+> [!IMPORTANT]
+> Pokud jste vytvořili účet tabulky rozhraní API ve verzi Preview, vytvořte [nový účet rozhraní API tabulky](create-table-dotnet.md#create-a-database-account) pro práci s všeobecně dostupná SDK API tabulky.
+>
 
 ## <a name="release-notes"></a>Poznámky k verzi
 
@@ -64,6 +68,7 @@ Pokud dojde k chybě
 Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 
 'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`
 ```
+
 Při pokusu o použití balíčku Microsoft.Azure.CosmosDB.Table NuGet, máte dvě možnosti vyřešit problém:
 
 * Pomocí konzoly Správa balíček nainstalovat Microsoft.Azure.CosmosDB.Table balíček a jeho závislé součásti. Chcete-li to provést, zadejte následující příkaz v konzole Správce balíčků pro vaše řešení. 
@@ -74,6 +79,7 @@ Při pokusu o použití balíčku Microsoft.Azure.CosmosDB.Table NuGet, máte dv
 * Nainstalujte balíček Microsoft.Azure.Storage.Common Nuget před instalací Microsoft.Azure.CosmosDB.Table se pomocí vaší upřednostňované nástroj pro správu balíček Nuget.
 
 ## <a name="faq"></a>Nejčastější dotazy
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Viz také

@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 4e59c333e14e5e21a02c3160cf6311d1182e5a5e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API pomocí rozhraní .NET a Azure Cosmos DB 
 
@@ -34,6 +34,10 @@ Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
+
+> [!IMPORTANT] 
+> Budete muset vytvořit nový účet tabulky rozhraní API pro práci s všeobecně dostupná SDK API tabulky. Tabulka rozhraní API účtů vytvořených během preview nepodporuje všeobecně dostupná sady SDK.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -91,7 +95,11 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. PRIMÁRNÍ PŘIPOJOVACÍ řetězec z portálu vložte do StorageConnectionString hodnotu na řádek 8. Vložte řetězec uvnitř uvozovky. Pokud váš koncový bod používá documents.azure.com, změňte na table.cosmosdb.azure.com část. 
+4. PRIMÁRNÍ PŘIPOJOVACÍ řetězec z portálu vložte do StorageConnectionString hodnotu na řádek 8. Vložte řetězec uvnitř uvozovky. 
+
+    > [!IMPORTANT]
+    > Pokud váš koncový bod používá documents.azure.com, která znamená, máte účet preview, a je nutné vytvořit [nový účet rozhraní API tabulky](#create-a-database-account) pro práci s všeobecně dostupná sadu SDK API tabulky. 
+    > 
 
     Řádek 8 by teď měl vypadat podobně jako:
 
@@ -99,7 +107,7 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-4. Uložte soubor App.config.
+5. Uložte soubor App.config.
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
 

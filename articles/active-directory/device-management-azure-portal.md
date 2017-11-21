@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Správa zařízení pomocí portálu Azure
 
@@ -32,7 +32,30 @@ V tomto tématu:
 
 - Poskytuje informace o správě zařízení pomocí portálu Azure
 
+## <a name="manage-devices"></a>Správa zařízení 
 
+Portál Azure poskytuje centrální místo ke správě svých zařízení. Můžete získat na toto místo buď pomocí [přímý odkaz](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) nebo pomocí následujících kroků ruční:
+
+1. SING-in a [portál Azure](https://portal.azure.com) jako správce.
+
+2. V levém navigační panel, klikněte na tlačítko **služby Active Directory**.
+
+    ![Konfigurace nastavení zařízení](./media/device-management-azure-portal/01.png)
+
+3. V **spravovat** klikněte na tlačítko **zařízení**.
+
+    ![Konfigurace nastavení zařízení](./media/device-management-azure-portal/11.png)
+ 
+**Zařízení** stránka vám umožňuje:
+
+- Konfigurovat nastavení správy zařízení
+
+- Vyhledávání zařízení
+
+- Provádění úloh správy zařízení
+
+- Zkontrolujte správy zařízení, související protokoly auditu  
+  
 
 ## <a name="configure-device-settings"></a>Konfigurace nastavení zařízení
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 52645f7d7934c9b9cf628fec1c0edc763ce98796
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>Přizpůsobení předkonfigurovaného řešení
 
@@ -228,55 +228,6 @@ Výchozí hodnota je 200. Můžete změnit toto číslo v [TelemetryApiControlle
 
 Výchozí hodnota je 10 minut. Můžete změnit tuto hodnotu v [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
-## <a name="manually-set-up-application-roles"></a>Ručně nastavit aplikační role
-
-Následující postup popisuje, jak přidat **správce** a **jen pro čtení** aplikační role pro předkonfigurované řešení. Všimněte si, že zahrnují předkonfigurovaných řešení, které jsou už zřízené z webu azureiotsuite.com **správce** a **jen pro čtení** role.
-
-Členové **jen pro čtení** role můžete zobrazit řídicí panel a v seznamu zařízení, ale nejsou povoleny zařízení přidat, změnit atributy zařízení nebo odesílat příkazy.  Členové **správce** role mají plný přístup ke všem funkcím v řešení.
-
-1. Přejděte na [portál Azure classic][lnk-classic-portal].
-2. Vyberte **služby Active Directory**.
-3. Klikněte na název klienta AAD, které jste použili při zřizování řešení.
-4. Klikněte na tlačítko **aplikace**.
-5. Klikněte na název aplikace, která odpovídá názvu vašeho předkonfigurované řešení. Pokud nevidíte aplikaci v seznamu, vyberte **aplikace Moje společnost vlastní** v **zobrazit** rozevíracího seznamu a klikněte na označit kontroly.
-6. V dolní části stránky klikněte na tlačítko **spravovat Manifest** a potom **stáhnout Manifest**.
-7. Tento postup stáhne soubor .json do místního počítače. Umožňuje otevřete tento soubor pro úpravy v textovém editoru podle svého výběru.
-8. Na třetí řádek soubor .json se zobrazí:
-
-   ```json
-   "appRoles" : [],
-   ```
-   Nahraďte tento řádek následujícím kódem:
-
-   ```json
-   "appRoles": [
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Administrator access to the application",
-   "displayName": "Admin",
-   "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
-   "isEnabled": true,
-   "value": "Admin"
-   },
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Read only access to device information",
-   "displayName": "Read Only",
-   "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
-   "isEnabled": true,
-   "value": "ReadOnly"
-   } ],
-   ```
-
-9. Uložte soubor aktualizované .json (můžete přepsat existující soubor).
-10. V portálu Azure classic, v dolní části stránky, vyberte **spravovat Manifest** pak **nahrát Manifest** nahrát soubor .json, který jste uložili v předchozím kroku.
-11. Nyní jste přidali **správce** a **jen pro čtení** rolí do vaší aplikace.
-12. Přiřadit jedna z těchto rolí uživatele ve vašem adresáři, najdete v části [oprávnění na webu azureiotsuite.com][lnk-permissions].
-
 ## <a name="feedback"></a>Váš názor
 
 Máte přizpůsobení chcete najdete v části zahrnuté v tomto dokumentu? Přidání funkce návrhy na [User Voice](https://feedback.azure.com/forums/321918-azure-iot), nebo komentář k tomuto článku. 
@@ -300,6 +251,5 @@ Další informace o možnostech přizpůsobení předkonfigurovaných řešení 
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-cf-customize]: iot-suite-connected-factory-customize.md

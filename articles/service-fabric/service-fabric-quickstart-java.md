@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c8e598159d2139397952a5c11eac54dc38939f47
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b58d6be3d6412b5357aa405269aac4563a7a33a9
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-java-application"></a>Vytvořit aplikaci Java
 Azure Service Fabric je platforma distribuovaných systémů pro nasazení a správa mikroslužeb a kontejnery. 
@@ -83,7 +83,7 @@ K nasazení aplikací do clusteru s podporou v Azure, vytvořte vlastní cluster
 
 Party Clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure. Spuštění tým Service Fabric, kde každý, kdo můžete nasadit aplikace a další informace o platformě. Pokud chcete získat přístup k Party Clusteru, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
 
-Informace o vytvoření vlastního clusteru najdete v tématu [Vytvoření vašeho prvního clusteru Service Fabric v Azure](service-fabric-get-started-azure-cluster.md).
+Informace o vytváření vlastního clusteru najdete v tématu [vytvořit cluster Service Fabric na platformě Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
 > Front-endu webové služby je nakonfigurován pro naslouchání na portu 8080 pro příchozí provoz. Ujistěte se, že je ve vašem clusteru tento port otevřený. Pokud používáte Cluster strany, tento port je otevřený.

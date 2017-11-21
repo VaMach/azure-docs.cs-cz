@@ -1,6 +1,6 @@
 ---
-title: "O ukládání na disk pro virtuální počítače Windows Microsoft Azure | Microsoft Docs"
-description: "Další informace o základní informace o ukládání disky a virtuální pevné disky pro Windows virtuální počítače v Azure."
+title: "O nespravované (objekty BLOB stránky) a spravovaných disky úložiště pro virtuální počítače Windows Microsoft Azure | Microsoft Docs"
+description: "Další informace o základní informace o nespravovaných (objekty BLOB stránky) a spravovaných disky úložiště pro virtuální počítače s Windows v Azure."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 588f18da6056641f3c9e42286b70d1f18b424d76
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 1a8dc028e2e872820a209bcdde5cca57853dd419
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="about-disk-storage-for-azure-windows-vms"></a>O ukládání na disk pro virtuální počítače Windows Azure
+# <a name="about-disks-storage-for-azure-windows-vms"></a>O disky úložiště pro virtuální počítače Windows Azure
 Stejně jako všechny ostatní počítače virtuálních počítačů v Azure používat disky jako místo pro uložení operačního systému, aplikace a data. Všechny virtuální počítače Azure mít aspoň dva disky – disk operačního systému Windows a dočasný disk. Vytváření disku operačního systému z bitové kopie a disku operačního systému a image jsou virtuální pevné disky (VHD) uložené v účtu úložiště Azure. Virtuální počítače také může mít jeden nebo více datových disků, které jsou také uloženy jako virtuální pevné disky. 
 
 V tomto článku jsme se v souvislosti se jiný používá pro disky a potom popisují různé typy disků můžete vytvořit a použít. Tento článek je také k dispozici pro [virtuální počítače s Linuxem](../linux/about-disks-and-vhds.md).

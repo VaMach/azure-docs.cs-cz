@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>Přidání ověřování do aplikace pro Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -33,7 +33,7 @@ V tomto kurzu jste přidání ověřování do seznamu úkolů projektu pro rych
 
 Zabezpečené ověřování vyžaduje, můžete definovat nové schéma adresy URL pro vaši aplikaci. To umožňuje ověřování systému přesměrovat zpět do aplikace po dokončení procesu ověřování. V tomto kurzu používáme schématu adresy URL _appname_ v průběhu. Můžete však použít žádné schéma adresy URL, které zvolíte. Musí být jedinečné pro mobilní aplikace. Chcete povolit přesměrování na straně serveru:
 
-1. V [portál Azure] vyberte App Service.
+1. V [portál Azure], vyberte svoji službu aplikace.
 
 2. Klikněte **ověřování / autorizace** možnost nabídky.
 
@@ -50,7 +50,7 @@ Zabezpečené ověřování vyžaduje, můžete definovat nové schéma adresy U
 
      Tato výjimka se stane, protože se aplikace pokusí o přístup k back-end jako neověřený uživatel, ale *TodoItem* tabulka nyní vyžaduje ověření.
 
-Potom aktualizujte aplikace k ověření uživatelů před vyžádáním prostředky z back-end mobilní aplikace. 
+Potom aktualizujte aplikace k ověření uživatelů před vyžádáním prostředky z back-end mobilní aplikace.
 
 ## <a name="add-authentication-to-the-app"></a>Přidání ověřování do aplikace
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -79,3 +79,4 @@ Teď, když jste dokončili kurz základní ověřování, vezměte v úvahu pok
 
 <!-- URLs. -->
 [Začínáme s Mobile Apps]: app-service-mobile-android-get-started.md
+[portál Azure]: https://portal.azure.com/

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/03/2017
+ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 29da65c5629c08635b4df1aa78386675152bb0cb
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: a73df89d5f97d2d6aa295d7efdd46abc15f81de7
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Zabezpečení prostředků Azure Content Delivery Network pomocí tokenu ověřování
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/18/2017
 
 ## <a name="overview"></a>Přehled
 
-Ověření pomocí tokenu je mechanismus, který umožňuje zabránit obsluhující prostředky neoprávněným klientům Azure Content Delivery Network (CDN). Aby se zabránilo "hotlinking" obsahu, ve kterém používá jiný web, často zpráva Tabule, vaše prostředky bez oprávnění se obvykle provádí ověření tokenu. Hotlinking může mít vliv na vaše náklady na doručování obsahu. Povolením ověřování tokenem na CDN jsou požadavky ověřována edge CDN POP před CDN nabízí obsah. 
+Ověření pomocí tokenu je mechanismus, který umožňuje zabránit obsluhující prostředky neoprávněným klientům Azure Content Delivery Network (CDN). Aby se zabránilo "hotlinking" obsahu, ve kterém používá jiný web, jako je například Tabule, vaše prostředky bez oprávnění se obvykle provádí ověření tokenu. Hotlinking může mít vliv na vaše náklady na doručování obsahu. Povolením ověřování tokenem na CDN jsou požadavky ověřována CDN hraniční server před CDN nabízí obsah. 
 
 ## <a name="how-it-works"></a>Jak to funguje
 
@@ -60,7 +60,7 @@ Následující vývojový diagram popisuje, jak Azure CDN ověří požadavek kl
 
     ![Tlačítko Spravovat profil CDN](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Pozastavte ukazatel myši nad **HTTP velké**a potom klikněte na **tokenu ověřování** v plovoucím panelem. Pak můžete nastavit šifrovací klíč a parametry šifrování následujícím způsobem:
+2. Pozastavte ukazatel myši nad **HTTP velké**, pak klikněte na tlačítko **tokenu ověřování** v plovoucím panelem. Pak můžete nastavit šifrovací klíč a parametry šifrování následujícím způsobem:
 
     1. Vytvořte jeden nebo více šifrovací klíče. Šifrovací klíč je malá a velká písmena a může obsahovat libovolnou kombinaci alfanumerických znaků. U jiných typů znaků včetně mezer, nejsou povoleny. Maximální délka je 250 znaků. Chcete, aby šifrovací klíče jsou náhodné, doporučujeme vám vytvořit pomocí [OpenSSL nástroj](https://www.openssl.org/). 
 
@@ -115,26 +115,28 @@ Následující vývojový diagram popisuje, jak Azure CDN ověří požadavek kl
        >    </ul>
        > </tr>
        > <tr>
+       >    <td><b>ec_country_allow</b></td> 
+       >    <td>Umožňuje použití jenom požadavky, které pocházejí z jedné nebo více zadaný zemí. Požadavky, které pocházejí z jiných zemí odmítnuty. Použití [kódy zemí](https://msdn.microsoft.com/library/mt761717.aspx) a oddělte každé z nich oddělujte čárkami. Například pokud chcete povolit přístup z USA a Francie, zadejte `US,FR`.</td>
+       > </tr>
+       > <tr>
        >    <td><b>ec_country_deny</b></td> 
-       >    <td>Odmítne požadavky, které pocházejí z jedné nebo více zadaný zemí. Jsou povoleny požadavky, které pocházejí z dalších zemích. Kódy zemí a jednotlivé každé z nich oddělujte čárkami. Například pokud chcete odepřít přístup z USA a Francie, zadejte `US, FR`.</td>
+       >    <td>Odmítne požadavky, které pocházejí z jedné nebo více zadaný zemí. Jsou povoleny požadavky, které pocházejí z dalších zemích. Kódy zemí a jednotlivé každé z nich oddělujte čárkami. Například pokud chcete odepřít přístup z USA a Francie, zadejte `US,FR`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_ref_allow</b></td>
-       >    <td>Umožňuje pouze požadavky z odkazující zadaný server. Odkazující server identifikuje adresu URL webové stránky, která je propojený s požadovaný prostředek. Odkazující server parametr hodnoty nebudou obsahovat protokol.>    
-       >    Pro hodnotu parametru jsou povoleny následující typy vstup:
+       >    <td>Umožňuje pouze požadavky z odkazující zadaný server. Odkazující server identifikuje adresu URL webové stránky, která je propojený s požadovaný prostředek. Parametr hodnoty nebudou obsahovat protokol.>    
+       >    Jsou povoleny následující typy vstup:
        >    <ul>
        >       <li>Název hostitele nebo název hostitele a cestu.</li>
        >       <li>Chcete-li odkazující více servery. Chcete-li přidat více odkazujících serverů, oddělte čárkou odkazující na každý server. Pokud zadáte hodnotu odkazující server, ale odkazující server informace nebudou odeslány v požadavek z důvodu konfigurace prohlížeče, požadavek se odmítne ve výchozím nastavení.</li> 
        >       <li>Požadavky s chybějícími informacemi o odkazující server. Povolit tyto typy požadavků, zadejte text "chybí" nebo zadejte prázdnou hodnotu.</li> 
-       >       <li>Subdomény. Chcete-li povolit subdomény, zadejte hvězdičku (\*). Chcete-li například povolit všechny subdomény z `consoto.com`, zadejte `*.consoto.com`.</li>
+       >       <li>Subdomény. Chcete-li povolit subdomény, zadejte hvězdičku (\*). Chcete-li například povolit všechny subdomény z `contoso.com`, zadejte `*.contoso.com`.</li>
        >    </ul> 
-       >    Následující příklad ukazuje vstup povolit přístup pro žádosti od `www.consoto.com`, všem dílčím doménám `consoto2.com`a požadavky s prázdné nebo chybějící odkazující servery: 
-       > 
-       >    ![Příklad ec_ref_allow CDN](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)</td>
+       >    Chcete-li například povolit přístup pro žádosti od `www.contoso.com`, všem dílčím doménám `contoso2.com`, a požadavky s prázdné nebo chybějící odkazující servery, zadejte `www.contoso.com,*.contoso.com,missing`.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_ref_deny</b></td>
-       >    <td>Odmítne požadavky z odkazující zadaný server. Implementace je stejný jako parametr ec_ref_allow.</td>
+       >    <td>Odmítne požadavky z odkazující zadaný server. Implementace je stejný jako <b>ec_ref_allow</b> parametr.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_proto_allow</b></td> 
@@ -146,21 +148,23 @@ Následující vývojový diagram popisuje, jak Azure CDN ověří požadavek kl
        > </tr>
        > <tr>
        >    <td><b>ec_clientip</b></td>
-       >    <td>Omezuje přístup k zadané žadatele IP adresu. Jsou podporovány adresy IPV4 a IPV6. Můžete zadat na jednu žádost IP adresu nebo podsíť protokolu IP. Například `11.22.33.0/22`.</td>
+       >    <td>Omezuje přístup k zadané žadatele IP adresu. Jsou podporovány adresy IPV4 a IPV6. Můžete zadat na jednu žádost IP adresu nebo podsíť protokolu IP. Například, `11.22.33.0/22`.</td>
        > </tr>
        > </table>
 
     5. Po dokončení zadání hodnot parametrů šifrování, vyberte klíč k šifrování (Pokud jste vytvořili primární a záložní klíč) z **klíč k šifrování** seznamu.
     
-    6. Vyberte verzi šifrování z **šifrování verze** seznamu: **V2** verze 2 nebo **V3** pro verze 3 (doporučeno). Potom klikněte na **šifrovat** k vygenerování tokenu.
+    6. Vyberte verzi šifrování z **šifrování verze** seznamu: **V2** verze 2 nebo **V3** pro verze 3 (doporučeno). 
+
+    7. Klikněte na tlačítko **šifrovat** k vygenerování tokenu.
 
     Po vygenerování tokenu se zobrazí v **vygenerovat Token** pole. Chcete-li použít token, připojte ji jako řetězec dotazu na konec souboru v cestě adresy URL. Například, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    7. Volitelně můžete Otestujte váš token pomocí nástroje dešifrování. Vložte hodnotu tokenu ve **tokenu k dešifrování** pole. Vyberte šifrovací klíč, který chcete použít z **klíč pro dešifrování** seznamu a pak klikněte na **dešifrovat**.
+    8. Volitelně můžete Otestujte váš token pomocí nástroje dešifrování. Vložte hodnotu tokenu ve **tokenu k dešifrování** pole. Vyberte šifrovací klíč, který chcete použít z **klíč pro dešifrování** seznamu a pak klikněte na **dešifrovat**.
 
     Po token se dešifruje, jeho parametry se zobrazí v **původní parametry** pole.
 
-    8. Volitelně můžete přizpůsobte typ kód odpovědi, která je vrácena, pokud požadavek je odepřen. Vyberte **povoleno**, vyberte kód odpovědi **kód odpovědi** seznamu a klikněte na tlačítko **Uložit**. Pro některé kódy odpovědí, musíte taky zadat adresu URL chybovou stránku v **hodnota hlavičky** pole. **403** kód odpovědi (zakázáno) je standardně vybraná. 
+    9. Volitelně můžete přizpůsobte typ kód odpovědi, která je vrácena, pokud požadavek je odepřen. Vyberte **povoleno**a vyberte kód odpovědi **kód odpovědi** seznamu. Potom klikněte na **Uložit**. Pro některé kódy odpovědí, musíte taky zadat adresu URL chybovou stránku v **hodnota hlavičky** pole. **403** kód odpovědi (zakázáno) je standardně vybraná. 
 
 3. V části **HTTP velké**, klikněte na tlačítko **stroj pravidel**. Stroj pravidel používáte k definování cesty použít funkci, povolte funkci ověření pomocí tokenu a povolit další token funkce souvisejících s ověřováním. Další informace najdete v tématu [pravidla modul odkaz](cdn-rules-engine-reference.md).
 

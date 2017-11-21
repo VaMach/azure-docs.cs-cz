@@ -1,23 +1,23 @@
 ---
 title: Cluster HPC Pack s Azure Active Directory | Microsoft Docs
-description: "Zjistěte, jak integrovat clusteru služby HPC Pack 2016 v Azure s Azure Active Directory"
+description: "Zjistěte, jak integrovat Microsoft HPC Pack 2016 clusteru v Azure s Azure Active Directory"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.assetid: 9edf9559-db02-438b-8268-a6cba7b5c8b7
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 11/16/2017
 ms.author: danlep
-ms.openlocfilehash: c5a06a9c810349b1bcce01c7f73563941a5af0ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb0e878c4e987d111a535603cede25c639087ca7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>Spravovat cluster služby HPC Pack v Azure pomocí Azure Active Directory
 [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) podporuje integraci se službou [Azure Active Directory](../../active-directory/index.md) (Azure AD) pro správce, kteří nasazení clusteru HPC Pack v Azure.
@@ -59,69 +59,66 @@ Integrace clusteru HPC Pack s Azure AD můžete dosáhnout sledovat tyto cíle:
 
 
 ## <a name="step-1-register-the-hpc-cluster-server-with-your-azure-ad-tenant"></a>Krok 1: Zaregistrujte server clusteru HPC s klientovi Azure AD
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Klikněte na tlačítko **služby Active Directory** v levé nabídce a pak klikněte na požadovaný adresář ve vašem předplatném. Musíte mít oprávnění k přístupu k prostředkům v adresáři.
-3. Klikněte na tlačítko **uživatelé**a ověřte, zda uživatelských účtů již vytvořené nebo nakonfigurovaná.
-4. Klikněte na tlačítko **aplikace** > **přidat**a potom klikněte na **přidat aplikaci, kterou vyvíjí Moje organizace**. V průvodci zadejte následující informace:
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Pokud váš účet umožňuje přístup k více než jednoho klienta Azure AD, klikněte na váš účet v pravém horním rohu. Nastavte požadované klienta portálu relace. Musíte mít oprávnění k přístupu k prostředkům v adresáři. 
+3. Klikněte na tlačítko **Azure Active Directory** v levém navigačním podokně služby, klikněte na tlačítko **uživatelů a skupin**a ověřte, zda uživatelských účtů již vytvořené nebo nakonfigurovaná.
+4. V **Azure Active Directory**, klikněte na tlačítko **registrace aplikace** > **nové registrace aplikace**. Zadejte následující informace:
     * **Název** -HPCPackClusterServer
-    * **Typ** – vyberte **webové aplikace nebo webové rozhraní API**
+    * **Typ aplikace** – vyberte **webovou aplikaci nebo rozhraní API**
     * **Adresa URL přihlašování**– základní adresu URL pro vzorku, který je ve výchozím nastavení`https://hpcserver`
-    * **Identifikátor ID URI aplikace** - `https://<Directory_name>/<application_name>`. Nahraďte `<Directory_name`> s úplným názvem klientovi Azure AD, například `hpclocal.onmicrosoft.com`a nahraďte `<application_name>` s názvem, který jste vybrali dříve.
+    * Klikněte na možnost **Vytvořit**.
+5. Po přidání aplikace, vyberte ho **registrace aplikace** seznamu. Pak klikněte na tlačítko **nastavení** > **vlastnosti**. Zadejte následující informace:
+    * Vyberte **Ano** pro **nevyužívá dělené tabulky více**.
+    * Změna **identifikátor ID URI aplikace** k `https://<Directory_name>/<application_name>`. Nahraďte `<Directory_name`> s úplným názvem klientovi Azure AD, například `hpclocal.onmicrosoft.com`a nahraďte `<application_name>` s názvem, který jste vybrali dříve.
+6. Klikněte na **Uložit**. Po dokončení ukládání, na stránce aplikace klikněte na tlačítko **Manifest**. Upravte manifest tím, že se `appRoles` nastavení a přidání následující role aplikace a pak klikněte na tlačítko **Uložit**:
 
-5. Po přidání aplikace, klikněte na tlačítko **konfigurace**. Nakonfigurujte následující vlastnosti:
-    * Vyberte **Ano** pro **aplikace je více klientů**
-    * Vyberte **Ano** pro **přiřazení uživatelských požadovaná pro přístup k aplikaci**.
-
-6. Klikněte na **Uložit**. Po dokončení ukládání, klikněte na tlačítko **spravovat Manifest**. Tato akce stáhne vaší aplikace manifestu JavaScript object notation (JSON) souboru. Upravit stažené manifest tím, že se `appRoles` nastavení a přidání roli následující aplikace:
-    ```json
-    "appRoles": [
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "displayName": "HpcAdminMirror",
-        "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "description": "HpcAdminMirror",
-        "value": "HpcAdminMirror"
-        },
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "description": "HpcUsers",
-        "displayName": "HpcUsers",
-        "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "value": "HpcUsers"
-        }
-    ],
-    ```
-7. Uložte soubor. Na portálu, klikněte na tlačítko **spravovat Manifest** > **nahrát Manifest**. Potom můžete nahrát upravená manifestu.
-8. Klikněte na tlačítko **uživatelé**, vyberte uživatele a pak klikněte na tlačítko **přiřadit**. Přiřadíte jeden z dostupných rolí (HpcUsers nebo HpcAdminMirror) pro uživatele. Opakujte tento krok s dalším uživatelům v adresáři. Základní informace o uživatelích, clusteru, najdete v části [Správa uživatelů clusteru](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
-
-   > [!NOTE] 
-   > Pokud chcete spravovat uživatele, doporučujeme použít okno preview služby Azure Active Directory v [portál Azure](https://portal.azure.com).
-   >
+  ```json
+  "appRoles": [
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "displayName": "HpcAdminMirror",
+     "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "description": "HpcAdminMirror",
+     "value": "HpcAdminMirror"
+     },
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "description": "HpcUsers",
+     "displayName": "HpcUsers",
+     "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "value": "HpcUsers"
+     }
+  ],
+  ```
+7. V **Azure Active Directory**, klikněte na tlačítko **podnikové aplikace, které** > **všechny aplikace**. Vyberte **HPCPackClusterServer** ze seznamu.
+8. Klikněte na tlačítko **vlastnosti**a změňte **přiřazení uživatelských požadované** k **Ano**. Klikněte na **Uložit**.
+9. Klikněte na tlačítko **uživatelů a skupin** > **přidat uživatele**. Vyberte uživatele, vyberte roli a potom klikněte **přiřadit**. Přiřadíte jeden z dostupných rolí (HpcUsers nebo HpcAdminMirror) pro uživatele. Opakujte tento krok s dalším uživatelům v adresáři. Základní informace o uživatelích, clusteru, najdete v části [Správa uživatelů clusteru](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
 
 
 ## <a name="step-2-register-the-hpc-cluster-client-with-your-azure-ad-tenant"></a>Krok 2: Registrace klienta clusteru HPC s klientovi Azure AD
 
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Klikněte na tlačítko **služby Active Directory** v levé nabídce a pak klikněte na požadovaný adresář ve vašem předplatném. Musíte mít oprávnění k přístupu k prostředkům v adresáři.
-3. Klikněte na tlačítko **aplikace** > **přidat**a potom klikněte na **přidat aplikaci, kterou vyvíjí Moje organizace**. V průvodci zadejte následující informace:
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Pokud váš účet umožňuje přístup k více než jednoho klienta Azure AD, klikněte na váš účet v pravém horním rohu. Nastavte požadované klienta portálu relace. Musíte mít oprávnění k přístupu k prostředkům v adresáři. 
+3. V **Azure Active Directory**, klikněte na tlačítko **registrace aplikace** > **nové registrace aplikace**. Zadejte následující informace:
 
-    * **Název** -HPCPackClusterClient
-    * **Typ** – vyberte **nativní klientskou aplikaci**
+    * **Název** -HPCPackClusterClient    
+    * **Typ aplikace** – vyberte **nativní**
     * **Identifikátor URI pro přesměrování** - `http://hpcclient`
+    * Klikněte na **Vytvořit**
 
-4. Po přidání aplikace, klikněte na tlačítko **konfigurace**. Kopírování **ID klienta** hodnotu a uložte ho. Budete potřebovat později při konfiguraci aplikace.
+4. Po přidání aplikace, vyberte ho **registrace aplikace** seznamu. Kopírování **ID aplikace** hodnotu a uložte ho. Budete potřebovat později při konfiguraci aplikace.
 
-5. V **oprávnění k ostatním aplikacím**, klikněte na tlačítko **přidat aplikaci**. Vyhledat a přidat aplikaci HpcPackClusterServer (vytvořený v kroku 1).
+5. Klikněte na tlačítko **nastavení** > **požadovaná oprávnění** > **přidat** > **vybrat rozhraní API**. Hledání a vyberte aplikaci HpcPackClusterServer (vytvořený v kroku 1).
 
-6. V **delegovaná oprávnění** rozevíracího seznamu vyberte **přístup HpcClusterServer**. Potom klikněte na **Uložit**.
+6. V **povolit přístup** vyberte **přístup HpcClusterServer**. Potom klikněte na **Done** (Hotovo).
 
 
 ## <a name="step-3-configure-the-hpc-cluster"></a>Krok 3: Konfigurace clusteru HPC
@@ -134,21 +131,23 @@ Integrace clusteru HPC Pack s Azure AD můžete dosáhnout sledovat tyto cíle:
 
     ```powershell
 
-    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
+    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcPackClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
     ```
     kde
 
     * `AADTenant`Určuje název klienta Azure AD, jako například`hpclocal.onmicrosoft.com`
-    * `AADClientAppId`Určuje ID klienta pro aplikaci vytvořili v kroku 2.
+    * `AADClientAppId`Určuje ID aplikace pro aplikaci vytvořili v kroku 2.
 
-4. Restartujte službu HpcSchedulerStateful.
+4. Proveďte jednu z následujících, v závislosti na konfiguraci hlavního uzlu:
 
-    V clusteru s více hlavních uzlech můžete spustit následující příkazy prostředí PowerShell z hlavního uzlu přepnout primární repliky pro službu HpcSchedulerStateful:
+    * V clusteru HPC Pack jeden hlavní uzel restartujte službu HpcScheduler.
+
+    * Na clusteru HPC Pack s více hlavních uzlech spusťte z hlavního uzlu se restartovat službu HpcSchedulerStateful následující příkazy prostředí PowerShell:
 
     ```powershell
     Connect-ServiceFabricCluster
 
-    Move-ServiceFabricPrimaryReplica –ServiceName “fabric:/HpcApplication/SchedulerStatefulService”
+    Move-ServiceFabricPrimaryReplica –ServiceName "fabric:/HpcApplication/SchedulerStatefulService"
 
     ```
 
@@ -161,7 +160,7 @@ Příprava klientského počítače, nainstalujte certifikát použitý během [
 Nyní můžete spustit příkazy HPC Pack nebo pomocí Správce úloh HPC Pack grafickým uživatelským rozhraním odesílat a spravovat úlohy clusteru pomocí účtu Azure AD. Možnosti pro odeslání úlohy najdete v tématu [clusteru HPC odeslání úlohy HPC Pack v Azure](hpcpack-cluster-submit-jobs.md#step-3-run-test-jobs-on-the-cluster).
 
 > [!NOTE]
-> Při pokusu o připojení ke clusteru HPC Pack v Azure poprvé, zobrazí se místní windows. Zadejte přihlašovací údaje Azure AD k přihlášení. Token se pak uloží do mezipaměti. Novější připojení do clusteru v Azure používat token v mezipaměti, pokud není zaškrtnuté změny v ověřování, nebo v mezipaměti.
+> Při pokusu o připojení ke clusteru HPC Pack v Azure poprvé, zobrazí se místní windows. Zadejte přihlašovací údaje Azure AD k přihlášení. Token se pak uloží do mezipaměti. Novější připojení do clusteru v Azure používat token v mezipaměti, pokud není zaškrtnuté změny ověřování nebo do mezipaměti.
 >
   
 Například po dokončení předchozích kroků se můžete dotazovat pro úlohy z lokálního klienta následujícím způsobem:
@@ -174,7 +173,7 @@ Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Own
 
 ### <a name="manage-the-local-token-cache"></a>Spravovat místní mezipaměti tokenu
 
-HPC Pack 2016 poskytuje dvě nové rutiny prostředí HPC PowerShell ke správě místního mezipamětí tokenů. Tyto rutiny jsou užitečné pro odesílání úloh interaktivně. Podívejte se na následující příklad:
+HPC Pack 2016 poskytuje následující rutiny prostředí HPC PowerShell ke správě místního mezipamětí tokenů. Tyto rutiny jsou užitečné pro odesílání úloh interaktivně. Podívejte se na následující příklad:
 
 ```powershell
 Remove-HpcTokenCache
@@ -191,9 +190,9 @@ V některých případech můžete chtít spustit úlohu uživatele clusteru pro
 1. Pomocí následujících příkazů nastavit přihlašovací údaje:
 
     ```powershell
-    $localUser = “<username>”
+    $localUser = "<username>"
 
-    $localUserPassword=”<password>”
+    $localUserPassword="<password>"
 
     $secpasswd = ConvertTo-SecureString $localUserPassword -AsPlainText -Force
 
