@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 0e77ecc591173ae29311c2a1508e5a8a907816ac
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08e59fda2ea439b2272121cf8bfee76fe4f96fc3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Vývoj s tabulkou rozhraní API v rozhraní .NET
 
@@ -88,7 +88,7 @@ Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a
 2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. Potom otevřete soubor řešení v sadě Visual Studio. 
@@ -99,24 +99,32 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 1. V [portál Azure](http://portal.azure.com/), klikněte na tlačítko **připojovací řetězec**. 
 
-    Pomocí tlačítka Kopírovat na pravé straně obrazovky zkopírujte PŘIPOJOVACÍ řetězec.
+    Pomocí tlačítka Kopírovat na pravé straně obrazovky zkopírujte primární PŘIPOJOVACÍ řetězec.
 
     ![Zobrazení a zkopírujte PŘIPOJOVACÍ řetězec v podokně připojovací řetězec](./media/create-table-dotnet/connection-string.png)
 
 2. V sadě Visual Studio otevřete soubor app.config. 
 
-3. Jako hodnotu CosmosDBStorageConnectionString vložte hodnotu PŘIPOJOVACÍ řetězec do souboru app.config. 
+3. Jako tento kurz nepoužívá emulátor úložiště, zrušte komentář u StorageConnectionString na řádek 8 a Odkomentujte StorageConnectionString na řádku 7. Řádek 7 a 8 by měl nyní vypadat takto:
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+    ```
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+    ```
 
-    > [!NOTE]
-    > Chcete-li používat tuto aplikaci s Azure Table storage, je potřeba změnit připojovací řetězec v `app.config file`. Název účtu použijte jako název tabulky účtu a klíč jako Azure úložiště primární klíč. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
+4. PRIMÁRNÍ PŘIPOJOVACÍ řetězec z portálu vložte do StorageConnectionString hodnotu na řádek 8. Vložte řetězec uvnitř uvozovky.
+   
+    > [!IMPORTANT]
+    > Pokud váš koncový bod používá documents.azure.com, která znamená, máte účet preview, a je nutné vytvořit [nový účet rozhraní API tabulky](#create-a-database-account) pro práci s všeobecně dostupná sadu SDK API tabulky. 
     >
 
-4. Uložte soubor app.config.
+    Řádek 8 by teď měl vypadat podobně jako:
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
+
+5. Uložte soubor app.config.
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
 
@@ -316,12 +324,9 @@ CloudTable table = tableClient.GetTableReference("people");
 table.DeleteIfExists();
 ```
 
-## <a name="clean-up-resources"></a>Vyčištění prostředků 
+## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud nebudete tuto aplikaci nadále používat, pomocí následujícího postupu odstraňte všechny prostředky vytvořené tímto rychlým startem na webu Azure Portal.   
-
-1. V nabídce vlevo na portálu Azure Portal klikněte na **Skupiny prostředků** a pak klikněte na název vytvořeného prostředku.  
-2. Na stránce skupiny prostředků klikněte na **Odstranit**, do textového pole zadejte prostředek, který chcete odstranit, a pak klikněte na **Odstranit**. 
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Další kroky
 

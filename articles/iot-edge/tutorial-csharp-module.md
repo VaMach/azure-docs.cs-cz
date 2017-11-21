@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c778c412bf6d65c5b6ee92d603aac7acfa6139eb
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: f93cfcdffd79b4cccdbd5f7c67ec42499bf7628c
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Vývoj a nasazení modul IoT Edge C# na simulovaného zařízení – náhled
 
@@ -123,7 +123,7 @@ Následující kroky zobrazení můžete jak vytvořit modul IoT Edge založené
             Console.WriteLine("Desired property change:");
             Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
 
-            if (desiredProperties["TemperatureThreshold"].exists())
+            if (desiredProperties["TemperatureThreshold"]!=null)
                 temperatureThreshold = desiredProperties["TemperatureThreshold"];
 
         }
@@ -226,7 +226,7 @@ Následující kroky zobrazení můžete jak vytvořit modul IoT Edge založené
         
         Uživatelské jméno, heslo a přihlášení serveru pro použití v tomto příkazu najdete na [portál Azure] (https://portal.azure.com). Z **všechny prostředky**, klikněte na dlaždici pro váš kontejner Azure registru otevřete jeho vlastnosti a pak klikněte na **přístupové klíče**. Zkopírujte hodnoty v **uživatelské jméno**, **heslo**, a **přihlášení na server** pole. Sould server přihlášení být ve formátu: `<your registry name>.azurecr.io`.
 
-3. Do úložiště Docker push bitovou kopii. Použití **zobrazení | Příkaz palety... | Okraj: Nabízené IoT Edge modulu Docker image** nabídky příkaz a zadejte název bitové kopie do místní textového pole v horní části okna VS Code. Použijte stejný název bitové kopie jste použili v kroku 1.c.
+3. Do úložiště Docker push bitovou kopii. Použití **zobrazení | Příkaz palety... | Okraj: Nabízené IoT Edge modulu Docker image** nabídky příkaz a zadejte název bitové kopie do místní textového pole v horní části okna VS Code. Použijte stejný název bitové kopie jste použili v kroku 1.d.
 
 ## <a name="add-registry-credentials-to-edge-runtime-on-your-edge-device"></a>Přidejte pověření registru do hraniční runtime v hraniční zařízení
 Přidáte přihlašovací údaje pro vaše registru do hraniční runtime v počítači, na kterém je spuštěn hraniční zařízení. To dává runtime přístup ke kontejneru pro vyžádání obsahu. 

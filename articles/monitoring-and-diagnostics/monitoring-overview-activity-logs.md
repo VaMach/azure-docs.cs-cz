@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: d36cc43889c190544b9a2735ce00e718c11fd216
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 4a796920d5ff76d4ff4d41afe2ec14aa89ae2265
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Sledování aktivity předplatné s protokol činnosti Azure
 **Protokol činnosti Azure** je protokol odběru, který poskytuje přehled o události na úrovni předplatného, k nimž došlo v Azure. To zahrnuje celou řadu dat z provozních dat Azure Resource Manager aktualizací na události stavu služby. Protokol aktivit se dřív označovala jako "Protokoly auditu" nebo "Provozní protokoly," od události administrativní kategorie sestavy rovině řízení pro vaše předplatné. Pomocí protokolu činnosti, můžete určit ', kdo a kdy se pro všechny zápisu operace (PUT, POST, DELETE) na prostředky v rámci vašeho předplatného. Můžete také chápou stav operace a další relevantní vlastnosti. Protokol aktivit nezahrnuje operace čtení (GET) nebo operace pro prostředky, které používají Classic nebo model "RDFE".
@@ -49,7 +49,8 @@ Protokol aktivit obsahuje několik kategorií data. Úplné podrobnosti o schém
 * **Výstrahy** – Tato kategorie obsahuje záznam všech aktivací Azure výstrah. Je například typ události, které se zobrazí se v této kategorii "% využití procesoru na Můjvp je už více než 80 za posledních 5 minut." Výstrahy koncept mají různé systémy Azure – můžete definovat pravidla nějaká a přijímat oznámení v případě podmínky odpovídají daného pravidla. Pokaždé, když podporovaných Azure typu výstrahy, aktivuje,' nebo ke splnění podmínek pro generování oznámení, záznam aktivace také vložena do této kategorie protokolu činnosti.
 * **Škálování** – Tato kategorie obsahuje záznam všechny události související s operací škálování stroje podle nastavení automatického škálování, který jste definovali ve vašem předplatném. Je například typ události, které se zobrazí se v této kategorii "Škálování rozšiřování škálování využívajících akce se nezdařila." Použití automatického škálování, můžete automaticky škálovat nebo škálovat počet instancí v typu prostředku podporované na základě času, den nebo zatížení (metriky) dat, na které se používá nastavení automatického škálování. Pokud jsou splněny podmínky škálování nahoru nebo dolů, spuštění a úspěšné nebo neúspěšné události se zaznamenávají v této kategorii.
 * **Doporučení** – Tato kategorie obsahuje doporučení události z určité typy prostředků, jako jsou webové servery a servery SQL Server. Tyto události nabízet doporučení, jak lépe využívat zdroje. Pokud máte prostředky, které emitování doporučení pouze zobrazí události tohoto typu.
-* **Zásady zabezpečení a stav prostředků** -tyto kategorie neobsahují žádné události; jsou vyhrazené pro budoucí použití.
+* **Zabezpečení** – Tato kategorie obsahuje záznam všech výstrah generovaných Azure Security Center. Je například typ události, které se zobrazí se v této kategorii "soubor podezřelé dvojité rozšíření spustit."
+* **Zásady a stav prostředků** -tyto kategorie neobsahují žádné události; jsou vyhrazené pro budoucí použití.
 
 ## <a name="event-schema-per-category"></a>Schématu události podle kategorie
 [V tématu Tento článek vám pomůže porozumět schématu aktivity protokolu události podle kategorie.](monitoring-activity-log-schema.md)

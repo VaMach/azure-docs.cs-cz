@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: ebf07218a6b356d71af51383ac85933ec63b543b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 78c4f5c2f48393dfd76621847063918c10b9ff52
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Kurz: Azure Active Directory integrace s Zendesk
 
@@ -25,9 +26,9 @@ V tomto kurzu zjistěte, jak integrovat Zendesk s Azure Active Directory (Azure 
 
 Integrace služby Zendesk s Azure AD poskytuje následující výhody:
 
-- Můžete řídit ve službě Azure AD, který má přístup k této služby
-- Můžete povolit uživatelům, aby automaticky získat přihlášení k Zendesk (jednotné přihlášení) s jejich účty Azure AD
-- Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure
+- Můžete ovládat ve službě Azure AD, který má přístup k této služby.
+- Můžete povolit uživatelům, aby automaticky získat přihlášení k Zendesk (jednotné přihlášení) s jejich účty Azure AD.
+- Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure.
 
 Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, najdete v části [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -38,16 +39,13 @@ Konfigurace integrace Azure AD s Zendesk, potřebujete následující položky:
 - Předplatné služby Azure AD
 - Této služby jednotného přihlašování povolené předplatné
 
-
 > [!NOTE]
 > K testování kroky v tomto kurzu, nedoporučujeme používání provozním prostředí.
-
 
 Chcete-li otestovat kroky v tomto kurzu, postupujte podle těchto doporučení:
 
 - Nepoužívejte provozním prostředí, pokud to není nutné.
-- Pokud nemáte prostředí zkušební verze Azure AD, můžete získat zkušební verze jeden měsíc [zde](https://azure.microsoft.com/pricing/free-trial/).
-
+- Pokud nemáte prostředí zkušební verze Azure AD, můžete [získat zkušební verzi jeden měsíc](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Popis scénáře
 V tomto kurzu můžete otestovat Azure AD jednotné přihlašování v testovacím prostředí. Scénáři uvedeném v tomto kurzu se skládá ze dvou hlavních stavebních bloků:
@@ -55,48 +53,44 @@ V tomto kurzu můžete otestovat Azure AD jednotné přihlašování v testovac�
 1. Přidání Zendesk z Galerie
 2. Konfigurace a testování Azure AD jednotného přihlašování
 
-
 ## <a name="adding-zendesk-from-the-gallery"></a>Přidání Zendesk z Galerie
 Při konfiguraci integrace služby Zendesk do služby Azure AD musíte přidat do seznamu spravovaných aplikací SaaS Zendesk z galerie.
 
 **Pokud chcete přidat Zendesk z galerie, proveďte následující kroky:**
 
-1. V  **[portálu Azure](https://portal.azure.com)**, v levém navigačním panelu klikněte na tlačítko **Azure Active Directory** ikonu. 
+1. V  **[portál Azure](https://portal.azure.com)**, v levém navigačním panelu klikněte na tlačítko **Azure Active Directory** ikonu. 
 
-    ![Active Directory][1]
+    ![Tlačítko Azure Active Directory][1]
 
 2. Přejděte na **podnikové aplikace, které**. Pak přejděte na **všechny aplikace**.
 
-    ![Aplikace][2]
+    ![V okně podnikové aplikace][2]
     
-3. Klikněte na tlačítko **novou aplikaci** tlačítko horní dialogové okno.
+3. Chcete-li přidat novou aplikaci, klikněte na tlačítko **novou aplikaci** tlačítko horní dialogové okno.
 
-    ![Aplikace][3]
+    ![Tlačítko nové aplikace][3]
 
-4. Do vyhledávacího pole zadejte **Zendesk**.
+4. Do vyhledávacího pole zadejte **Zendesk**, vyberte **Zendesk** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_search.png)
+    ![Zendesk v seznamu výsledků](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_addfromgallery.png)
 
-5. Na panelu výsledků vyberte **Zendesk**a potom klikněte na **přidat** tlačítko Přidat aplikaci.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurace a otestování Azure AD jednotné přihlašování
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurace a testování Azure AD jednotného přihlašování
 V této části konfiguraci a testování Azure AD jednotné přihlašování pomocí služby Zendesk podle testovacího uživatele názvem "Britta Simon".
 
 Azure AD pro jednotné přihlašování pro práci, musí vědět, co příslušného uživatele v této služby je pro uživatele ve službě Azure AD. Jinými slovy odkaz vztah mezi uživatele Azure AD a související uživatele v této služby je nutné stanovit.
 
-Tento vztah propojení se navazuje se hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** v této služby.
+V této služby, přiřadit hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** k navázání vztahu odkazu.
 
 Nakonfigurovat a otestovat Azure AD jednotné přihlašování s Zendesk, je třeba dokončit následující stavební bloky:
 
-1. **[Konfigurace Azure AD jednotné přihlašování](#configuring-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
-2. **[Vytváření testovacího uživatele Azure AD](#creating-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
-3. **[Vytvoření zkušebního uživatele Zendesk](#creating-a-zendesk-test-user)**  – Pokud chcete mít protějšek Britta Simon v Zendesku propojeném s Azure AD reprezentace daného uživatele.
-4. **[Přiřazení testovacího uživatele Azure AD](#assigning-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
-5. **[Testování jednotné přihlašování](#testing-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
+1. **[Konfigurovat Azure AD jednotné přihlašování](#configure-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
+2. **[Vytvořit testovací uživatele Azure AD](#create-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
+3. **[Vytvoření zkušebního uživatele Zendesk](#create-a-zendesk-test-user)**  – Pokud chcete mít protějšek Britta Simon v Zendesku propojeném s Azure AD reprezentace daného uživatele.
+4. **[Přiřadit testovacího uživatele Azure AD](#assign-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
+5. **[Test jednotného přihlašování](#test-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurace Azure AD jednotné přihlašování
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurovat Azure AD jednotné přihlašování
 
 V této části můžete povolit Azure AD jednotného přihlašování na portálu Azure a nakonfigurovat jednotné přihlašování v aplikaci služby Zendesk.
 
@@ -104,59 +98,61 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
 1. Na portálu Azure na **Zendesk** stránky integrace aplikací, klikněte na tlačítko **jednotného přihlašování**.
 
-    ![Konfigurovat jednotné přihlašování][4]
+    ![Konfigurace propojení přihlášení][4]
 
 2. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **na základě SAML přihlašování** umožňující jednotného přihlašování.
  
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_samlbase.png)
+    ![Jediné přihlášení dialogové okno](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_samlbase.png)
 
 3. Na **Zendesk domény a adresy URL** část, proveďte následující kroky:
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_url.png)
+    ![Zendesk domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_url.png)
 
-    a. V **přihlašovací adresa URL** textovému poli, zadejte hodnotu pomocí následujícího vzorce:`https://<subdomain>.zendesk.com`
+    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<subdomain>.zendesk.com`
 
     b. V **identifikátor** textovému poli, zadejte hodnotu pomocí následujícího vzorce:`<subdomain>.zendesk.com`
 
     > [!NOTE] 
-    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátoru adresy URL. Obraťte se na [tým podpory služby Zendesk](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) k získání těchto hodnot. 
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [tým podpory služby Zendesk klienta](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) k získání těchto hodnot. 
+ 
+4. Na **SAML podpisový certifikát** část, zkopírujte **kryptografický OTISK** hodnota certifikátu.
 
-4. Zendesk očekává SAML kontrolní výrazy ve specifickém formátu. Neexistují žádné povinné atributy SAML, ale můžete volitelně přidat atribut z **uživatelské atributy** části podle následujících kroků: 
+    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_certificate.png)
+
+5. Zendesk očekává SAML kontrolní výrazy ve specifickém formátu. Neexistují žádné povinné atributy SAML, ale můžete volitelně přidat atribut z **uživatelské atributy** části podle následujících kroků: 
 
      ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_attributes1.png)
 
-    a. Klikněte na tlačítko **zobrazit a upravit všechny ostatní atributy** zaškrtávací políčko.
-     
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_attributes2.png)
-   
-    b. Klikněte **přidat atribut** otevřete **přidat atribut** dialogové okno.
-    
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-zendesk-tutorial/tutorial_attribute_05.png)
+    a. Klikněte na tlačítko **přidat atribut** otevřete **přidat atribut** dialogové okno.
 
-    c. V **název** textovému poli, zadejte název atributu (například **emailaddress**).
+    ![Konfigurovat jednotné přihlašování přidat](./media/active-directory-saas-zendesk-tutorial/tutorial_attribute_04.png)
+
+    ![Konfigurovat jednotné přihlašování addattb](./media/active-directory-saas-zendesk-tutorial/tutorial_attribute_05.png)
+
+    b. V **název** textovému poli, zadejte název atributu, který je uvedený na příslušném řádku.
+
+    c. Z **hodnotu** seznamu, zadejte hodnotu atributu, který je uvedený na příslušném řádku.
     
-    d. Z **hodnotu** vyberte hodnotu atributu (jako **user.mail**).
-    
-    e. Klikněte na tlačítko **Ok**
+    d. Klikněte na tlačítko **OK**.
  
     > [!NOTE] 
-    > Atributy rozšíření je použít k přidání atributů, které nejsou ve službě Azure AD ve výchozím nastavení. Klikněte na tlačítko [atributy uživatele, které lze nastavit v SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) získat úplný seznam SAML atributy, které **Zendesk** přijímá. 
+    > Atributy rozšíření je použít k přidání atributů, které nejsou ve službě Azure AD ve výchozím nastavení. Klikněte na tlačítko [atributy uživatele, které lze nastavit v SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) získat úplný seznam SAML atributy, které **Zendesk** přijímá.  
 
-5. Na **SAML podpisový certifikát** část, zkopírujte **kryptografický OTISK** hodnota certifikátu.
+6. Klikněte na tlačítko **Uložit** tlačítko.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_certificate.png) 
+    ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-zendesk-tutorial/tutorial_general_400.png)
 
-6. Na **Zendesk konfigurace** klikněte na tlačítko **konfigurace Zendesk** otevřete **konfigurovat přihlášení** okno. Kopírování **Sign-Out adresu URL a SAML jeden přihlašování služby URL** z **Stručná referenční příručka části.**
+7. Na **Zendesk konfigurace** klikněte na tlačítko **konfigurace Zendesk** otevřete **konfigurovat přihlášení** okno. Kopírování **Sign-Out adresu URL a SAML jeden přihlašování služby URL** z **Stručná referenční příručka části.**
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_configure.png) 
+    ![Konfigurace služby Zendesk](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_configure.png) 
 
-7. V okně prohlížeče jiný web Přihlaste se jako správce k serveru vaší společnosti Zendesk.
+8. V okně prohlížeče jiný web Přihlaste se jako správce k serveru vaší společnosti Zendesk.
 
-8. Klikněte na tlačítko **správce**.
+9. Klikněte na tlačítko **správce**.
 
-9. V levém navigačním podokně klikněte na tlačítko **nastavení**a potom klikněte na **zabezpečení**.
+10. V levém navigačním podokně klikněte na tlačítko **nastavení**a potom klikněte na **zabezpečení**.
 
-10. Na **zabezpečení** proveďte následující kroky: 
+11. Na **zabezpečení** proveďte následující kroky: 
    
      ![Zabezpečení](./media/active-directory-saas-zendesk-tutorial/ic773089.png "zabezpečení")
 
@@ -174,38 +170,43 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
      
      f. Klikněte na **Uložit**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Vytváření testovacího uživatele Azure AD
+> [!TIP]
+> Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Vytvořit testovací uživatele Azure AD
+
 Cílem této části je vytvoření zkušebního uživatele na portálu Azure, názvem Britta Simon.
 
-![Vytvořit uživatele Azure AD][100]
+   ![Vytvořit testovací uživatele Azure AD][100]
 
 **Vytvoření zkušebního uživatele ve službě Azure AD, proveďte následující kroky:**
 
-1. V **portál Azure**, v levém navigačním podokně klikněte na tlačítko **Azure Active Directory** ikonu.
+1. Na portálu Azure, v levém podokně klikněte **Azure Active Directory** tlačítko.
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-zendesk-tutorial/create_aaduser_01.png) 
+    ![Tlačítko Azure Active Directory](./media/active-directory-saas-zendesk-tutorial/create_aaduser_01.png)
 
-2. Chcete-li zobrazit seznam uživatelů, přejděte na **uživatelů a skupin** a klikněte na tlačítko **všichni uživatelé**.
-    
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-zendesk-tutorial/create_aaduser_02.png) 
+2. Chcete-li zobrazit seznam uživatelů, přejděte na **uživatelů a skupin**a potom klikněte na **všichni uživatelé**.
 
-3. V horní části okna klikněte na položku **přidat** otevřete **uživatele** dialogové okno.
+    !["Uživatelé a skupiny" a "Všichni uživatelé" odkazy](./media/active-directory-saas-zendesk-tutorial/create_aaduser_02.png)
+
+3. Chcete-li otevřít **uživatele** dialogové okno, klikněte na tlačítko **přidat** v horní části **všichni uživatelé** dialogové okno.
+
+    ![Tlačítko Přidat](./media/active-directory-saas-zendesk-tutorial/create_aaduser_03.png)
+
+4. V **uživatele** dialogové okno pole, proveďte následující kroky:
+
+    ![Dialogové okno uživatele](./media/active-directory-saas-zendesk-tutorial/create_aaduser_04.png)
+
+    a. V **název** zadejte **BrittaSimon**.
+
+    b. V **uživatelské jméno** zadejte e-mailovou adresu uživatele Britta Simon.
+
+    c. Vyberte **zobrazit hesla** zaškrtněte políčko a zapište si ji hodnotu, která se zobrazí v **heslo** pole.
+
+    d. Klikněte na možnost **Vytvořit**.
  
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-zendesk-tutorial/create_aaduser_03.png) 
-
-4. Na **uživatele** dialogové okno stránky, proveďte následující kroky:
- 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-zendesk-tutorial/create_aaduser_04.png) 
-
-    a. V **název** textovému poli, typ **BrittaSimon**.
-
-    b. V **uživatelské jméno** textovému poli, typ **e-mailová adresa** z BrittaSimon.
-
-    c. Vyberte **zobrazit hesla** a poznamenejte si hodnotu **heslo**.
-
-    d. Klikněte na možnost **Vytvořit**. 
-
-### <a name="creating-a-zendesk-test-user"></a>Vytvoření zkušebního uživatele Zendesk
+### <a name="create-a-zendesk-test-user"></a>Vytvoření zkušebního uživatele Zendesk
 
 Povolit uživatelům přihlášení do Azure AD **Zendesk**, musí být zřízená do **Zendesk**.  
 V závislosti na role přiřazené v aplikace je očekávané chování:
@@ -222,19 +223,18 @@ V závislosti na role přiřazené v aplikace je očekávané chování:
 3. Vyberte **uživatele** a klikněte na **přidat**.
    
     ![Přidat uživatele](./media/active-directory-saas-zendesk-tutorial/ic773632.png "přidat uživatele")
-4. Zadejte e-mailovou adresu stávajícího účtu Azure AD určené ke zřízení a potom klikněte na **Uložit**.
+4. Typ **název** a **e-mailu** stávajícího účtu Azure AD určené ke zřízení a potom klikněte na **Uložit**.
    
     ![Nový uživatel](./media/active-directory-saas-zendesk-tutorial/ic773633.png "nového uživatele")
 
 > [!NOTE]
 > Můžete použít všechny ostatní Zendesk uživatele účtu nástroje pro tvorbu nebo rozhraní API poskytované Zendesk zřídit AAD uživatelské účty.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Přiřazení testovacího uživatele Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 
 V této části povolíte Britta Simon používat Azure jednotné přihlašování pomocí udělení přístupu k této služby.
 
-![Přiřadit uživatele][200] 
+![Přiřadit role uživatele][200] 
 
 **Pokud chcete přiřadit Britta Simon Zendesk, proveďte následující kroky:**
 
@@ -244,15 +244,15 @@ V této části povolíte Britta Simon používat Azure jednotné přihlašován
 
 2. V seznamu aplikací vyberte **Zendesk**.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png) 
+    ![V seznamu aplikací na Zendesk odkaz](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png)  
 
 3. V nabídce na levé straně klikněte na tlačítko **uživatelů a skupin**.
 
-    ![Přiřadit uživatele][202] 
+    ![Odkaz "Uživatelé a skupiny"][202]
 
 4. Klikněte na tlačítko **přidat** tlačítko. Potom vyberte **uživatelů a skupin** na **přidat přiřazení** dialogové okno.
 
-    ![Přiřadit uživatele][203]
+    ![V podokně Přidat přiřazení][203]
 
 5. Na **uživatelů a skupin** dialogovém okně, vyberte **Britta Simon** v seznamu uživatelů.
 
@@ -260,12 +260,12 @@ V této části povolíte Britta Simon používat Azure jednotné přihlašován
 
 7. Klikněte na tlačítko **přiřadit** tlačítko **přidat přiřazení** dialogové okno.
     
-### <a name="testing-single-sign-on"></a>Testování jednotné přihlašování
+### <a name="test-single-sign-on"></a>Test jednotného přihlašování
 
 V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci pomocí přístupového panelu.
 
 Když kliknete na dlaždici služby Zendesk na přístupovém panelu, můžete by měl získat automaticky přihlášení k aplikaci služby Zendesk.
-Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).
+Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Další zdroje
 
@@ -287,3 +287,4 @@ Další informace o na přístupovém panelu najdete v tématu [Úvod k přístu
 [201]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_203.png
+

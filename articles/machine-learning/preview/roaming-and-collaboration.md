@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 856348c07a198a8c53c6661441d5c49196ef3af5
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming a spolupráce v Azure Machine Learning Workbench
 Tento dokument vás provede jak Azure Machine Learning Workbench vám mohou pomoci přenášet projekty mezi počítače, jakož i povolení spolupráce s ostatními členy týmu. 
@@ -28,10 +28,14 @@ Druhý, přístup k [Visual Studio Team System](https://www.visualstudio.com) a 
 
 ## <a name="create-a-new-azure-machine-learning-project"></a>Vytvořte nový projekt Azure Machine Learning
 Spusťte Azure Machine Learning Workbench a vytvoření nového projektu (například _iris_). Vyplnění **adresu URL úložiště GIT Visualstudio.com** textové pole s platnou adresu URL úložiště Git služby VSTS. 
->[!IMPORTANT]
->Vytvoření projektu se nezdaří, pokud nemáte přístup pro čtení a zápis na úložiště Git a úložiště Git není prázdná, tj. už je hlavní větve.
+
+> [!IMPORTANT]
+> Pokud si zvolíte Šablona prázdného projektu, je OK Pokud úložiště Git zvolíte už má _hlavní_ firemní pobočky. Jednoduše provede klonování Azure ML _hlavní_ větev místně a přidejte `aml_config` složky a další metadata soubory do složky místní projektu projektu. Ale pokud si zvolíte jiné šablony projektu, nesmí mít již vašeho úložiště Git _hlavní_ větve, nebo se zobrazí chyba. Alternativou je použít `az ml project create` nástroj pro příkazový řádek pro vytvoření projektu a poskytnete `--force` přepínače. To odstraní soubory na původní hlavní větve a nahradíte je nové soubory v šabloně, který zvolíte.
 
 Po vytvoření projektu se odešlete několik běží na všech skriptů v projektu. Tato akce provede stavu projektu do vzdáleného úložiště Git historie spouštění větev. 
+
+> [!NOTE] 
+> Pouze skript se spustí aktivační událost potvrzení do historie spouštění větve. Data připravená data provádění nebo poznámkového bloku běží nemáte aktivovat projektu snímků historie spouštění větev.
 
 Pokud máte instalaci Git ověřování, můžete také explicitně fungovat v hlavní větve, nebo vytvořte novou větev. 
 
@@ -71,7 +75,8 @@ V systému macOS je tady:`/home/<username>/Documents/AzureML`
 
 V budoucí verzi plánujeme vylepšují funkce a umožní vám vybrat cílovou složku. 
 
->Poznámka: Pokud jste dojít na požadovanou složku v adresáři Azure ML, který má přesně stejný název jako projektu, se nezdaří stahování. V současné době budete muset přejmenovat existující složku Chcete-li tento problém obejít.
+> [!NOTE]
+> Pokud jste mají náhodou složky v adresáři Azure ML, který má přesně stejný název jako projekt, stahování se nezdaří. V současné době budete muset přejmenovat existující složku Chcete-li tento problém obejít.
 
 
 ### <a name="work-on-the-downloaded-project"></a>Práce na staženého projektu 

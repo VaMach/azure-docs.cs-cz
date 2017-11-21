@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 11/20/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 5de53266e1dbadecb9fabb1649615fa9f4ba8b5f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 3ae8eb53843e31ec66af52be9b04fbb626093f5b
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Vytvoření kontejneru pro nasazení do služby Azure Container Instances
 
@@ -36,7 +36,7 @@ V následujících kurzech odeslání image do registru kontejneru služby Azure
 
 ## <a name="before-you-begin"></a>Než začnete
 
-Tento kurz vyžaduje, že používáte Azure CLI verze 2.0.20 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli).
+Tento kurz vyžaduje, že používáte Azure CLI verze 2.0.21 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 Tento kurz předpokládá základní znalosti o základní koncepty Docker jako kontejnery, kontejner bitové kopie a basic `docker` příkazy. V případě potřeby najdete základní informace o kontejnerech v článku [Get started with Docker]( https://docs.docker.com/get-started/) (Začínáme s Dockerem).
 

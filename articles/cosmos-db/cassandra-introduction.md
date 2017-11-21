@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 5ca9b8ed40a1e58a0aea4de87995caf5f9a9212b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Úvod do Apache Cassandra rozhraní API pro Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Pokud již máte předplatné Azure, můžete si zaregistrovat připojit se k pr
 
     Po odeslání žádosti se stav změní na **čekající na schválení** v podokně nový účet. 
 
-Po odeslání vaši žádost o počkejte e-mailové oznámení, že vaše žádost byla schválena. Není nutné vytvořit lístek podpory pro dokončení požadavku. V pořadí, ve kterém bylo přijato projde kontrolou požadavků. 
+Po odeslání vaši žádost o počkejte e-mailové oznámení, že vaše žádost byla schválena. Kvůli velkému počtu požadavků měli byste obdržet oznámení do jednoho týdne. Není nutné vytvořit lístek podpory pro dokončení požadavku. V pořadí, ve kterém bylo přijato projde kontrolou požadavků. 
 
 ## <a name="how-to-get-started"></a>Jak začít
 Po připojení programu preview, postupujte podle rozhraní API Cassandra quickstarts k vytvoření aplikace pomocí rozhraní API Cassandra:

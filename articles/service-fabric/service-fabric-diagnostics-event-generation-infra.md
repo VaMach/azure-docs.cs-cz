@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Úroveň události a protokolu generování platformy
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 Je důležité ke sledování na úrovni platformy k určení, zda hardware a cluster chovají podle očekávání. Když Service Fabric můžete ponechat aplikací, které běží při selhání hardwaru, ale potřebujete diagnostikovat, zda k chybě dochází v aplikaci nebo v odpovídající infrastruktury. Také měli byste sledovat clusterů lépe plánovat kapacitu, pomoc při rozhodování o o přidání nebo odebrání hardwaru.
 
-Service Fabric nabízí pět různých protokolových kanály out-of-the-box, generovat následující události:
-
-* Provozní kanál: vysoké úrovně operací prováděných Service Fabric a cluster, včetně událostí pro uzel objevuje, novou aplikaci nasazuje, nebo SF upgrade vrácení zpět, atd.
+Service Fabric nabízí následující protokolu kanály out-of-the-box:
+* Provozní kanál: vysoké úrovně operací prováděných Service Fabric a cluster, včetně události pro uzel objevuje, nové nasazení aplikace nebo upgradu vrácení zpět, atd.
 * Provozní kanál - podrobné: sestavy o stavu a rozhodnutí o vyrovnávání zatížení
-* Zasílání zpráv & datový kanál: kritické protokoly a události vygenerované v našem zpráv (aktuálně pouze ReverseProxy) a cesta k datům (spolehlivé služby modelů)
+* Zasílání zpráv & datový kanál: kritické protokoly a události vygenerované v zasílání zpráv (aktuálně pouze ReverseProxy) a cesta k datům (spolehlivé služby modelů)
 * Zasílání zpráv & datový kanál - podrobné: podrobné kanálu, který obsahuje všechny nekritické protokoly z dat a zasílání zpráv v clusteru (v tomto kanálu má velmi velký objem událostí)   
+
+Kromě toho existují dvě strukturovaných EventSource kanály, které poskytuje, jakož i protokoly, které shromažďujeme pro účely podpory.
 * [Spolehlivé služby události](service-fabric-reliable-services-diagnostics.md): programovací model určité události
 * [Spolehlivé aktéři události](service-fabric-reliable-actors-diagnostics.md): programovací model konkrétní události a čítače výkonu
 * Podporovat protokoly: protokoly systému vygenerované Service Fabric jenom na které nás použije při poskytování podpory

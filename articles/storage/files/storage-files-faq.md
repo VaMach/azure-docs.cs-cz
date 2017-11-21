@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: renash
-ms.openlocfilehash: 871fc85d0b406d2de35a79eb2906ff2d6ada9570
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Časté otázky k Azure Files
 [Soubory Azure](storage-files-introduction.md) nabízí plně spravované sdílené složky v cloudu, které jsou přístupné přes oborových standardů [zpráva bloku protokol Server (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (také označovaný jako systém souborů běžné Internet nebo CIFS). Sdílené složky Azure můžete ke cloudu nebo na místní nasazení systému Windows, Linux a systému macOS připojit současně. Také můžete mezipaměti Azure sdílené složky na počítačích systému Windows Server pomocí synchronizace souboru Azure (preview) pro rychlý přístup blízko kde data se používají.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/07/2017
 Tento článek obsahuje odpovědi na časté otázky týkající se Azure soubory funkcí a funkčnosti, včetně použití synchronizace souborů Azure s Azure Files. Pokud nevidíte odpověď na svoji otázku, kontaktujte nás prostřednictvím následující kanály (v narůstajícím pořadí):
 
 1. Komentáře části tohoto článku.
-2. [Fórum pro Azure Storage](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Fórum pro Azure Storage](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
 3. [Soubory Azure UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Podporu společnosti Microsoft. K vytvoření nové žádosti o podporu, na portálu Azure na **pomoci** vyberte **Nápověda a podpora** tlačítko a potom vyberte **nová žádost o podporu**.
 

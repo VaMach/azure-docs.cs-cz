@@ -13,140 +13,84 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: billgib;genemi
-ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.author: billgib
+ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>Vítá vás adresář Wingtip lístky ukázková SaaS Azure SQL Database klientů aplikace
+# <a name="the-wingtip-tickets-saas-application"></a>Adresář Wingtip lístky SaaS aplikace
 
-Vítá vás adresář Wingtip lístky ukázkové SaaS Azure SQL Database klientů aplikace a její kurzy. Databáze klientů odkazuje na režimu izolace data, která vaše aplikace poskytuje klientům, kteří platí pro hostování v aplikaci. Přes zjednodušit momentálně, buď každý klient má celé databáze na sebe, nebo sdílí databázi s jiným klientem.
+Stejné *Wingtip lístky* aplikace je implementována ve všech tří vzorků. Tato aplikace je jednoduchá událost výpis a lístků pro aplikace SaaS cílení na malé místa - divadla, kluby atd. Každý místo je klient aplikace a má svá vlastní data: místo podrobnosti, seznam událostí, zákazníky, objednávky lístek, atd.  Aplikace, společně s kurzy a správu skripty umožňující prezentovat scénářem SaaS začátku do konce. To zahrnuje zřizování klientů, monitorování a správu výkonu, Správa schématu a mezi klienta vytváření sestav a analýzy.
 
-## <a name="wingtip-tickets-app"></a>Adresář Wingtip lístky aplikace
+## <a name="three-saas-application-patterns"></a>Tří vzorů aplikace SaaS
 
-Ukázkovou aplikaci Wingtip lístky znázorňuje důsledky jiné databázi klientů modely na návrh a správu víceklientské aplikace SaaS. Doprovodné kurzy přímo popisují tyto stejné účinky. Adresář Wingtip lístky je založený na Azure SQL Database.
+Tři verze aplikace, které jsou k dispozici. Každý prozkoumá vzor klientů jiné databázi v databázi SQL Azure.  První používá aplikace jednoho klienta s databázi izolované jednoho klienta. Druhá používá aplikace na více klientů s databází na každého klienta. Třetí Ukázka používá víceklientské aplikace s horizontálně dělené víceklientské databáze.
 
-Adresář Wingtip lístky je určený k řešení různé scénáře návrhu a správu, které používají klienti skutečné SaaS. Vzory použití, který vyplývá jsou zahrnuté v Wingtip lístků.
+![Tří vzorů klientů][image-three-tenancy-patterns]
 
-Adresář Wingtip lístky aplikaci můžete nainstalovat v rámci vlastní předplatného Azure za pět minut. Instalace zahrnuje vložení ukázková data pro několik klientů. Bezpečně můžete nainstalovat aplikace a skripty správy pro všechny modely, protože instalace portálu komunikovat nebo komunikaci.
+ Každá ukázka zahrnuje správu skripty a návodů, které prozkoumat rozsah návrhu a správu vzorů, které můžete použít ve své aplikaci.  Každá ukázka nasadí v menší této pět minut.  Všechny tři může být nasazený-souběžného, můžete porovnat rozdíly v návrhu a správu.
 
-#### <a name="code-in-github"></a>Kód v Githubu
+## <a name="standalone-application-pattern"></a>Vzor samostatné aplikace
 
-Kód aplikace a skripty správy, jsou všechny dostupné na Githubu:
+Vzor samostatné aplikace pomocí jednoho klienta aplikace s databází jednoho klienta pro každého klienta. Každý klient aplikace je nasazená do skupiny prostředků samostatné Azure. To může být v předplatné poskytovatele služeb nebo předplatné klienta a spravovaný poskytovatelem jménem klienta. Tento vzor poskytuje největší izolaci klientů, ale je obvykle nejvíce náročná, protože není příležitost ke sdílení prostředků mezi několik klientů.
 
-- **Samostatné aplikace** modelu: [WingtipTicketsSaaS StandaloneApp úložiště](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-- **Databáze za klienta** modelu: [WingtipTicketsSaaS DbPerTenant úložiště](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
-- **Horizontálně dělené víceklientské** modelu: [WingtipTicketsSaaS MultiTenantDB úložiště](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
+Podívejte se [kurzy] [ docs-tutorials-for-wingtip-sa] a kód na Githubu [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
-Stejný základní aplikace Wingtip lístky jeden kód se znovu použije pro všechny předchozí modely uvedené. Můžete spustit projekty SaaS kód z Githubu.
+## <a name="database-per-tenant-pattern"></a>Databáze za klienta vzor
 
+Databáze pro každý vzor klienta je platná pro poskytovatele služeb, které se týká izolaci mezi klienty a chcete spustit centralizovaná služba, která umožňuje cenově efektivní používání sdílených prostředků. Databáze se vytvoří pro každou místo nebo klienta, a všechny databáze jsou centrálně spravovány. Databáze může být hostovaný v elastické fondy k poskytování nákladově efektivní a snadno výkonu správu, který využívá vzory nepředvídatelným úlohy klienty. Databáze katalogu obsahuje mapování mezi klienty a jejich databáze. Toto mapování je spravovat pomocí horizontálního oddílu mapy funkcím pro správu [klientské knihovny pro elastické databáze](sql-database-elastic-database-client-library.md), která nabízí správu efektivní připojení k aplikaci.
 
+Podívejte se [kurzy] [ docs-tutorials-for-wingtip-dpt] a kód na Githubu [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
-## <a name="major-database-tenancy-models"></a>Hlavní databáze klientů modely
+## <a name="sharded-multi-tenant-database-pattern"></a>Vzor horizontálně dělené víceklientské databáze
 
-Adresář Wingtip lístky je událost výpis a lístků pro aplikace SaaS. Adresář Wingtip poskytuje služby, které jsou vyžadovány místa. Všechny následující položky se vztahují na každý místo:
+Víceklientské databáze jsou platné pro poskytovatele služeb hledá nižší náklady na klienta a nevadí izolace Snížené klienta. Tento vzor umožňuje balení velkého počtu klientů do jedné databáze, poklesne náklady za klienta. Je možné podle horizontálního dělení NEAR nekonečné škálování klientů napříč více databáze.  Databáze katalogu znovu mapuje klienty k databázím.  
 
-- Platí, můžete pro hostování v aplikaci.
-- Je *klienta* v Wingtip.
-- Události hostitele. Se podílejí následující události:
-    - Ceny lístku.
-    - Prodej lístků.
-    - Zákazníci, kteří si lístků.
+Tento vzor také umožňuje hybridního modelu, ve kterém můžete optimalizovat náklady s více klienty v databázi nebo optimalizovat pro izolaci s jednoho klienta ve vlastní databázi. Výběr můžete provést na základě klienta klienta, buď když klient je zřízená nebo novější, bez dopadu na aplikace.
 
-Aplikace, společně s kurzy a správu skripty umožňující prezentovat úplného scénáře SaaS. Tento scénář zahrnuje tyto činnosti:
-
-- Zřizování klientů.
-- Monitorování a správa výkonu.
-- Správa schématu.
-- Mezi klienta, sestav a analýzy.
-
-Všechny tyto aktivity jsou uvedené v jakémkoli škálování je potřeba.
-
-
-
-## <a name="code-samples-for-each-tenancy-model"></a>Ukázky kódu pro každý model klientů
-
-Se zdůrazňují sadu modely aplikace. Jiných implementacích však může kombinovat elementy dva nebo víc modelů.
-
-#### <a name="standalone-app-model"></a>Samostatné aplikace modelu
-
-![Samostatné aplikace modelu][standalone-app-model-62s]
-
-Tento model používá jedním klientské aplikace. Proto tento model musí pouze jednu databázi a ukládá data pro pouze jednoho klienta. Klient má úplné izolaci od ostatních klientů v databázi.
-
-Tento model můžete použít při prodeji instance aplikace na mnoha různých klientů, každý klient spustit samostatně. Klient je pak jenom klient. Zatímco databáze ukládá data pouze jednoho klienta, databáze ukládá data pro mnoho zákazníků klienta.
-
-#### <a name="database-per-tenant"></a>Databáze za klienta
-
-![Databáze za klienta modelu][database-per-tenant-model-35d]
-
-Tento model má několik klientů v instanci aplikace. Ještě pro každého nového klienta, jiná databáze je přidělena pro použití pouze k novému klientovi.
-
-Tento model zajišťuje izolaci úplné databáze pro každého klienta. Služba Azure SQL Database má vyspělosti, aby tento model vyhovující.
-
-- [Úvod do příklad databáze SQL SaaS víceklientské aplikace] [ saas-dbpertenant-wingtip-app-overview-15d] -Další informace o tomto modelu.
-
-#### <a name="sharded-multi-tenant-databases-the-hybrid"></a>Horizontálně dělené víceklientské databází, hybridním
-
-![Model horizontálně dělené víceklientské databáze, hybridním][sharded-multitenantdb-model-hybrid-79m]
-
-Tento model má několik klientů v instanci aplikace. Tento model má také více klientů v některé nebo všechny její databáze. Tento model je vhodný pro nabídky různých úrovních služby tak, aby klienti mohou platit více Pokud hodnota úplné izolace databáze.
-
-Schéma každé databáze obsahuje identifikátor klienta. Identifikátor klienta je i v tyto databáze, které ukládají pouze jednoho klienta.
-
-- [Úvod do příklad aplikace SaaS více klientů databáze SQL][saas-multitenantdb-get-started-deploy-89i]
-
-
-
-## <a name="tutorials-for-each-tenancy-model"></a>Kurzy pro každý model klientů
-
-Každý model klientů je popsána následující:
-
-- Sada kurz články.
-- Zdrojový kód uložené v úložišti Github, který je vyhrazen pro model:
-    - Kód pro aplikaci Wingtip lístků.
-    - Kód skriptu pro scénáře správy.
-
-#### <a name="tutorials-for-management-scenarios"></a>Podrobné pokyny pro scénáře správy
-
-Kurz články pro každý model zahrnovat následující scénáře správy:
-
-- Zřizování klienta.
-- Sledování výkonu a správy.
-- Správa schématu.
-- Mezi klienta, sestav a analýzy.
-- Obnovení jedné klienta do dřívějšího bodu v čase.
-- Zotavení po havárii.
-
-
+Podívejte se [kurzy] [ docs-tutorials-for-wingtip-mt] a kód na Githubu [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Úvod do příklad databáze SQL SaaS víceklientské aplikace] [ saas-dbpertenant-wingtip-app-overview-15d] -Další informace o tomto modelu.
+#### <a name="conceptual-descriptions"></a>Koncepční popisy
 
-- [Víceklientské SaaS databáze klientů vzory][multi-tenant-saas-database-tenancy-patterns-60p]
+- Podrobnější vysvětlení vzoru klientů aplikace je k dispozici na [víceklientské SaaS databáze vzory klientů][saas-tenancy-app-design-patterns-md]
+
+#### <a name="tutorials-and-code"></a>Kurzy a kódu
+
+- Samostatné aplikace:
+    - [Kurzy pro samostatné aplikace][docs-tutorials-for-wingtip-sa].
+    - [Kód pro samostatnou na Githubu][github-code-for-wingtip-sa].
+
+- Databáze každého klienta:
+    - [Kurzy pro každého klienta databázi][docs-tutorials-for-wingtip-dpt].
+    - [Kód pro databázi každého klienta, na Githubu][github-code-for-wingtip-dpt].
+
+- Horizontálně dělené více klientů:
+    - [Kurzy pro horizontálně dělenou víceklientské][docs-tutorials-for-wingtip-mt].
+    - [Kód pro horizontálně dělenou víceklientské na Githubu][github-code-for-wingtip-mt].
 
 
 
 <!-- Image references. -->
 
-[standalone-app-model-62s]: media/saas-tenancy-welcome-wingtip-tickets-app/model-standalone-app.png "Samostatné aplikace modelu"
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Tří vzorů klientů."
 
-[database-per-tenant-model-35d]: media/saas-tenancy-welcome-wingtip-tickets-app/model-database-per-tenant.png "Databáze za klienta modelu"
+<!-- Docs.ms.com references. -->
 
-[sharded-multitenantdb-model-hybrid-79m]: media/saas-tenancy-welcome-wingtip-tickets-app/model-sharded-multitenantdb-hybrid.png "Model horizontálně dělené víceklientské databáze, hybridním"
+[saas-tenancy-app-design-patterns-md]: saas-tenancy-app-design-patterns.md
 
+<!-- WWWeb http references. -->
 
+[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
 
-<!-- Article references. -->
+[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
 
-[saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
-
-[multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
-
-[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
-
+[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
 

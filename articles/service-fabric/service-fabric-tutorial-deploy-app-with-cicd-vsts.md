@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d0f67b1a63c36e878ed5f7c9aa1c45267e5b156c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Nasazení aplikace s CI nebo CD pro cluster Service Fabric
 V tomto kurzu je součástí tři řady a popisuje, jak nastavit průběžnou integraci a nasazení pro aplikaci Azure Service Fabric pomocí Visual Studio Team Services.  Je potřeba stávající aplikace Service Fabric, aplikace vytvořené v [sestavení aplikace .NET](service-fabric-tutorial-create-dotnet-app.md) slouží jako příklad.
@@ -45,7 +45,7 @@ Před zahájením tohoto kurzu:
 - [Nainstalovat Visual Studio 2017](https://www.visualstudio.com/) a nainstalujte **Azure development** a **ASP.NET a webové vývoj** úlohy.
 - [Instalace Service Fabric SDK](service-fabric-get-started.md)
 - Vytvoření aplikace Service Fabric, například pomocí [projdete tímto kurzem](service-fabric-tutorial-create-dotnet-app.md). 
-- Vytvoření clusteru s podporou Windows Service Fabric v Azure, například pomocí [projdete tímto kurzem](service-fabric-tutorial-create-cluster-azure-ps.md)
+- Vytvoření clusteru s podporou Windows Service Fabric v Azure, například pomocí [projdete tímto kurzem](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - Vytvoření [účtu Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
 ## <a name="download-the-voting-sample-application"></a>Stažení ukázkové aplikace Voting

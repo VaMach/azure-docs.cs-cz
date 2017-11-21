@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 1dcc2178b3c7017338e0097773fbf0d04c8b6a20
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API pomocí Node.js a Azure Cosmos DB
 
@@ -38,6 +38,10 @@ Navíc platí:
 * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
+
+> [!IMPORTANT] 
+> Budete muset vytvořit nový účet tabulky rozhraní API pro práci s všeobecně dostupná SDK API tabulky. Tabulka rozhraní API účtů vytvořených během preview nepodporuje všeobecně dostupná sady SDK.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -84,7 +88,11 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 2. Zkopírujte primární PŘIPOJOVACÍ řetězec pomocí tlačítko Kopírovat na pravé straně.
 
-3. Otevřete soubor app.config a vložte hodnotu do připojovacího řetězce na řádku tři. Pokud koncový bod část připojovací řetězec používá documents.azure.com, opravte část table.cosmosdb.azure.com místo toho chcete použít.
+3. Otevřete soubor app.config a vložte hodnotu do připojovacího řetězce na řádku tři. 
+
+    > [!IMPORTANT]
+    > Pokud váš koncový bod používá documents.azure.com, která znamená, máte účet preview, a je nutné vytvořit [nový účet rozhraní API tabulky](#create-a-database-account) pro práci s všeobecně dostupná sadu SDK API tabulky.
+    >
 
 3. Uložte soubor app.config.
 

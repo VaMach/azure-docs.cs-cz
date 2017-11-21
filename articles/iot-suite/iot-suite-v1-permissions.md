@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 4c4916037ad762dbb9dee803dfd45ec2fd89272b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 17d9e496aedfdf98423e821e7f379dc481ffa0a5
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Oprávnění na webu azureiotsuite.com
 
@@ -105,11 +105,7 @@ Musí být globální správce AAD změnit role uživatele:
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Správce služby a v chcete změnit adresář mapování mezi Moje předplatné a konkrétní klienta AAD. Jak tento úkol provést?
 
-1. Přejděte na [portál Azure classic][lnk-classic-portal], klikněte na tlačítko **nastavení** v seznamu služeb na levé straně.
-2. Vyberte předplatné, které byste chtěli změnit mapování adresáře na.
-3. Klikněte na tlačítko **upravit adresář**.
-4. Vyberte **Directory** chcete použít v rozevírací nabídce. Klikněte na tlačítko vpřed.
-5. Potvrďte mapování adresáře a spolusprávci vliv. Pokud přecházíte z jiného adresáře, budou odebrány všechny spolusprávci z původní adresáře.
+V tématu [přidat odběr do adresáře Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Jsem uživatele nebo členem domény na klienta AAD a vytvořili jste předkonfigurované řešení. Jak I přiřazovány roli své aplikaci?
 
@@ -151,7 +147,6 @@ Pokračujte ve čtení o IoT Suite, najdete v tématu jak můžete [přizpůsobe
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
-[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md

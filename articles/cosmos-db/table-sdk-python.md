@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: mimig1
 ms.custom: 
-ms.openlocfilehash: a68b24fe91d3acb0f18d3d06d6252317bd671be4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 70315d93b7211351c19a17553db88962f25d8acb
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB tabulky rozhraní API sady SDK pro jazyk Python: poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
@@ -37,6 +37,9 @@ ms.lasthandoff: 11/15/2017
 |**Můžete přispět k sadě SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Aktuální podporované platformy**|[Python 2.7](https://www.python.org/downloads/) nebo [Python 3.3 3,4, 3.5 nebo 3.6] (https://www.python.org/downloads/)|
 
+> [!IMPORTANT]
+> Pokud jste vytvořili účet tabulky rozhraní API ve verzi Preview, vytvořte [nový účet rozhraní API tabulky](create-table-dotnet.md#create-a-database-account) pro práci s všeobecně dostupná SDK API tabulky.
+>
 
 ## <a name="release-notes"></a>Poznámky k verzi
 

@@ -1,96 +1,105 @@
-1. Ve vašem **aplikace** projektu, otevřete soubor `AndroidManifest.xml`. V kódu v následujících dvou krocích, nahraďte  *`**my_app_package**`*  s názvem balíčku aplikace pro váš projekt. Toto je hodnota `package` atribut `manifest` značky.
-2. Přidejte následující nová oprávnění po existující `uses-permission` element:
+1. Ve vašem **aplikace** projektu, otevřete soubor `AndroidManifest.xml`. Přidejte následující kód po `application` počáteční značce:
 
-        <permission android:name="**my_app_package**.permission.C2D_MESSAGE"
-            android:protectionLevel="signature" />
-        <uses-permission android:name="**my_app_package**.permission.C2D_MESSAGE" />
-        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-        <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-        <uses-permission android:name="android.permission.WAKE_LOCK" />
-3. Přidejte následující kód po `application` počáteční značce:
+    ```xml
+    <service android:name=".ToDoMessagingService">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+    </service>
+    <service android:name=".ToDoInstanceIdService">
+        <intent-filter>
+            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+    </service>
+    ```
 
-        <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
-                                         android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="**my_app_package**" />
-            </intent-filter>
-        </receiver>
-4. Otevřete soubor *ToDoActivity.java*a přidejte následující příkaz importu:
+2. Otevřete soubor `ToDoActivity.java`a proveďte následující změny:
 
-        import com.microsoft.windowsazure.notifications.NotificationsManager;
-5. Přidejte následující soukromé proměnné do třídy. Nahraďte  *`<PROJECT_NUMBER>`*  číslem projektu Google přiřazené vaší aplikaci v předchozím postupu.
+    - Přidejte příkaz importu:
 
-        public static final String SENDER_ID = "<PROJECT_NUMBER>";
-6. Změnit definici *MobileServiceClient* z **privátní** k **veřejné statické**, takže ho teď vypadá takto:
+        ```java
+        import com.google.firebase.iid.FirebaseInstanceId;
+        ```
 
-        public static MobileServiceClient mClient;
-7. Přidání nové třídy pro zpracování oznámení. Otevřete v prohlížeči projektu klikněte **src** > **hlavní** > **java** uzly a klikněte pravým tlačítkem na název uzlu balíčku. Klikněte na tlačítko **nový**a potom klikněte na **třída jazyka Java**.
-8. V **název**, typ `MyHandler`a potom klikněte na **OK**.
+    - Změnit definici `MobileServiceClient` z **privátní** k **privátní statickou**, takže ho teď vypadá takto:
 
-    ![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
+        ```java
+        private static MobileServiceClient mClient;
+        ```
 
-9. V souboru MyHandler nahraďte deklarace třídy se:
+    - Přidat `registerPush` metoda:
 
-        public class MyHandler extends NotificationsHandler {
-10. Přidejte následující příkazy pro import `MyHandler` třídy:
+        ```java
+        public static void registerPush() {
+            final String token = FirebaseInstanceId.getInstance().getToken();
+            if (token != null) {
+                new AsyncTask<Void, Void, Void>() {
+                    protected Void doInBackground(Void... params) {
+                        mClient.getPush().register(token);
+                        return null;
+                    }
+                }.execute();
+            }
+        }
+        ```
 
-        import com.microsoft.windowsazure.notifications.NotificationsHandler;
-        import android.app.NotificationManager;
-        import android.app.PendingIntent;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.os.AsyncTask;
-        import android.os.Bundle;
-        import android.support.v4.app.NotificationCompat;
-11. Dále přidejte tohoto člena `MyHandler` třídy:
+    - Aktualizace **onCreate** metodu `ToDoActivity` třídy. Nezapomeňte přidat tento kód po `MobileServiceClient` je vytvořena instance.
 
-        public static final int NOTIFICATION_ID = 1;
-12. V `MyHandler` třídy, přidejte následující kód k přepsání **onRegistered** metodu, která registruje zařízení s centrem oznámení mobilní služby.
+        ```java
+        registerPush();
+        ```
 
-        @Override
-        public void onRegistered(Context context,  final String gcmRegistrationId) {
-           super.onRegistered(context, gcmRegistrationId);
+3. Přidání nové třídy pro zpracování oznámení. Otevřete v prohlížeči projektu klikněte **aplikace** > **java** > **vašeho projektu názvů** uzly a klikněte pravým tlačítkem na název uzlu balíčku. Klikněte na tlačítko **nový**a potom klikněte na **třída jazyka Java**. Zadejte název, `ToDoMessagingService`a pak klikněte na tlačítko OK. Potom nahraďte deklarace třídy se:
 
-           new AsyncTask<Void, Void, Void>() {
+    ```java
+    import android.app.Notification;
+    import android.app.NotificationManager;
+    import android.app.PendingIntent;
+    import android.content.Context;
+    import android.content.Intent;
 
-               protected Void doInBackground(Void... params) {
-                   try {
-                       ToDoActivity.mClient.getPush().register(gcmRegistrationId);
-                       return null;
-                   }
-                   catch(Exception e) {
-                       // handle error                
-                   }
-                   return null;              
-               }
-           }.execute();
-       }
-13. V `MyHandler` třídy, přidejte následující kód k přepsání **události onReceive** metoda, což způsobí, že zobrazíte při obdržení oznámení.
+    import com.google.firebase.messaging.FirebaseMessagingService;
+    import com.google.firebase.messaging.RemoteMessage;
+
+    public class ToDoMessagingService extends FirebaseMessagingService {
+
+        private static final int NOTIFICATION_ID = 1;
 
         @Override
-        public void onReceive(Context context, Bundle bundle) {
-               String msg = bundle.getString("message");
+        public void onMessageReceived(RemoteMessage remoteMessage) {
+            String message = remoteMessage.getData().get("message");
+            if (message != null) {
+                sendNotification("Notification Hub Demo", message);
+            }
+        }
 
-               PendingIntent contentIntent = PendingIntent.getActivity(context,
-                       0, // requestCode
-                       new Intent(context, ToDoActivity.class),
-                       0); // flags
+        private void sendNotification(String title, String messageBody) {
+            PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, ToDoActivity.class), 0);
+            Notification.Builder notificationBuilder = new Notification.Builder(this)
+                    .setSmallIcon(R.drawable.ic_launcher)
+                    .setContentTitle(title)
+                    .setContentText(messageBody)
+                    .setContentIntent(contentIntent);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            if (notificationManager != null) {
+                notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
+            }
+        }
+    }
+    ```
 
-               Notification notification = new NotificationCompat.Builder(context)
-                       .setSmallIcon(R.drawable.ic_launcher)
-                       .setContentTitle("Notification Hub Demo")
-                       .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-                       .setContentText(msg)
-                       .setContentIntent(contentIntent)
-                       .build();
+4. Přidejte jinou třídu pro zpracování tokenu aktualizací. Vytvoření `ToDoInstanceIdService` java třídy a nahraďte deklarace třídy se:
 
-               NotificationManager notificationManager = (NotificationManager)
-                       context.getSystemService(Context.NOTIFICATION_SERVICE);
-               notificationManager.notify(NOTIFICATION_ID, notification);
-       }
-14. Zpět v souboru TodoActivity.java aktualizace **onCreate** metodu *ToDoActivity* třída registrovat třídu obslužné rutiny oznámení. Nezapomeňte přidat tento kód po *MobileServiceClient* je vytvořena instance.
+    ```java
+    import com.google.firebase.iid.FirebaseInstanceIdService;
 
-        NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
+    public class ToDoInstanceIdService extends FirebaseInstanceIdService {
 
-    Aplikace je nyní aktualizovat o podporu nabízených oznámení.
+        @Override
+        public void onTokenRefresh() {
+            ToDoActivity.registerPush();
+        }
+    }
+    ```
+
+Aplikace je nyní aktualizovat o podporu nabízených oznámení.

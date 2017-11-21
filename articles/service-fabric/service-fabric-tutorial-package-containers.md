@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Zabalení a nasazení kontejnerů jako aplikace Service Fabric
 
@@ -218,7 +218,7 @@ Pokud chcete nasadit aplikaci do clusteru v Azure, použijte vlastní cluster ne
 
 Party Clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure. Je zachována tým Service Fabric, kde každý, kdo můžete nasadit aplikace a další informace o platformě. Pokud chcete získat přístup k Party Clusteru, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
 
-Informace o vytvoření vlastního clusteru najdete v tématu [Vytvoření vašeho prvního clusteru Service Fabric v Azure](service-fabric-get-started-azure-cluster.md).
+Informace o vytváření vlastního clusteru najdete v tématu [vytvořit cluster Service Fabric na platformě Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Sestavení a nasazení aplikací do clusteru
 Můžete nasadit aplikaci Azure clusteru pomocí rozhraní příkazového řádku služby prostředků infrastruktury. Pokud služba Fabric rozhraní příkazového řádku není nainstalovaný na počítači, postupujte podle pokynů [sem](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) k její instalaci. 

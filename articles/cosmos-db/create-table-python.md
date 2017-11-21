@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 5bf995cba884ff9910ce000195c8fa0e3da2d332
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 1c64401a7d0ccfa12232b04cfd57e6beaa1dbca8
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API s Python a Azure Cosmos DB
 
@@ -38,6 +38,10 @@ Navíc platí:
 * Python 2.7 z webu [python.org](https://www.python.org/downloads/release/python-2712/)
 
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
+
+> [!IMPORTANT] 
+> Budete muset vytvořit nový účet tabulky rozhraní API pro práci s všeobecně dostupná SDK API tabulky. Tabulka rozhraní API účtů vytvořených během preview nepodporuje všeobecně dostupná sady SDK.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 

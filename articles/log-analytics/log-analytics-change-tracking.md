@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Sledování změn softwaru ve vašem prostředí do řešení pro sledování změn
 
@@ -44,7 +44,7 @@ Pomocí následujícího postupu můžete nakonfigurovat soubory pro sledování
 4. Klikněte na **Uložit**.  
 
 > [!NOTE]
-> Soubor Linux sledování obsahuje další možnosti, včetně directory sledování recrusion prostřednictvím adresářů a sledování zástupný znak.
+> Soubor Linux sledování obsahuje další možnosti, včetně directory sledování rekurze prostřednictvím adresářů a sledování zástupný znak.
 
 ### <a name="configure-windows-files-to-track"></a>Konfigurovat soubory systému Windows ke sledování
 Pomocí následujícího postupu můžete nakonfigurovat soubory sledovat na počítače se systémem Windows.
@@ -69,7 +69,7 @@ Pomocí následujících kroků konfigurace klíče registru sledování v poč�
    * **Soubor** (sestavu metadata souboru - velikost, datum změny, hodnota hash, atd.)
    * **Adresář** (sestava metadat adresáře - velikost, datum změny, atd.)
 2. **Odkazy** (zpracování Linux symlink odkazy na další soubory nebo adresáře)
-   * **Ignorovat** (ignorovat během recurions tak, aby neobsahoval soubory nebo adresáře odkazuje symbolických odkazů)
+   * **Ignorovat** (ignorovat během rekurze tak, aby neobsahoval soubory nebo adresáře odkazuje symbolických odkazů)
    * **Postupujte podle** (podle během rekurze zahrnout také soubory nebo adresáře odkazuje symbolických odkazů)
    * **Spravovat** (podle symbolických odkazů a změnit způsob zpracování vrácená obsahu)
 
@@ -96,14 +96,18 @@ Jiná omezení:
 * Když síťový provoz vysoké, záznamy změn může trvat maximálně šest hodin k zobrazení.
 * Pokud upravíte konfiguraci, zatímco počítač je vypnutý, můžete umístit počítač změny souborů, které byly součástí předchozí konfiguraci.
 
+### <a name="known-issues"></a>Známé problémy
+Řešení sledování změn je aktuálně má následující problémy:
+* Aktualizace hotfix nejsou shromážděny v pro Windows 10 Creators Update a Windows Server 2016 základní RS3 počítače.
+
 ## <a name="change-tracking-data-collection-details"></a>Změňte podrobnosti pro kolekce dat sledování
 Sledování změn shromažďuje inventář softwaru a metadata služby systému Windows pomocí agentů, které jste povolili.
 
 Následující tabulka uvádí metody shromažďování dat a další podrobnosti o tom, jak se data shromažďují pro sledování změn.
 
-| Platforma | Přímé agenta | Agent nástroje Operations Manager | Agenta systému Linux | Azure Storage | Nástroj Operations Manager vyžaduje? | Dat agenta nástroje Operations Manager odeslána prostřednictvím skupiny pro správu | Frekvence kolekce |
+| Platforma | Přímé agenta | Agent nástroje Operations Manager | Agenta systému Linux | Azure Storage | Nástroj Operations Manager vyžaduje? | Dat agenta nástroje Operations Manager odeslána prostřednictvím skupiny pro správu | Četnost shromažďování dat |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Systém Windows a Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minut až 50 minut v závislosti na daný typ změny. Další informace najdete v následující tabulce. |
+| Systém Windows a Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minut až 50 minut v závislosti na daný typ změny. Další informace naleznete v následující tabulce. |
 
 
 Následující tabulka uvádí četnost shromažďování dat pro typy změn.

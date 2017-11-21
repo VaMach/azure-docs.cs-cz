@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/17/2017
 ms.author: glenga
-ms.openlocfilehash: b89e9af55342d5d7473d848956996f846250b4b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6882a7b1864d511e70495e1d1d782aa0f03beca3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Přidání nabízených oznámení do vaší aplikace pro Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -56,12 +56,12 @@ V této části že aktualizujete aplikaci Android klienta ke zpracování nabí
 ### <a name="verify-android-sdk-version"></a>Ověřit verzi sady SDK pro Android
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Dalším krokem je instalace služby Google Play. Google Cloud Messaging má několik minimální rozhraní API úrovně požadavků pro vývoj a testování, která **minSdkVersion** musí odpovídat vlastnosti v manifestu.
+Dalším krokem je instalace služby Google Play. Zasílání zpráv cloudu firebase má několik minimální rozhraní API úrovně požadavků pro vývoj a testování, která **minSdkVersion** musí odpovídat vlastnosti v manifestu.
 
-Pokud testujete s starší zařízením, projděte si [nastavit až Google Play Services SDK] určit, jak nedostatek můžete nastavit hodnotu a správně nastavené.
+Pokud testujete s starší zařízením, projděte si [přidat Firebase vašeho projektu Android] určit, jak nedostatek můžete nastavit hodnotu a správně nastavené.
 
-### <a name="add-google-play-services-to-the-project"></a>Přidejte do projektu služby Google Play
-[!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
+### <a name="add-firebase-cloud-messaging-to-the-project"></a>Do projektu přidejte Firebase Cloud Messaging
+[!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### <a name="add-code"></a>Přidání kódu
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
@@ -79,5 +79,4 @@ Teď, když jste dokončili tento kurz, vezměte v úvahu pokračovat na jednu z
 
 <!-- URLs -->
 [Android úvodní]: app-service-mobile-android-get-started.md
-
-[nastavit až Google Play Services SDK]:https://developers.google.com/android/guides/setup
+[přidat Firebase vašeho projektu Android]:https://firebase.google.com/docs/android/setup
