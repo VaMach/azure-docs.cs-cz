@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Úvod do Microsoft Azure
 Microsoft Azure je platforma aplikace společnosti Microsoft pro veřejný cloud.  Cílem tohoto článku je poskytují základ pro pochopení základy Azure, i v případě, že bez znalosti o cloud computing.
@@ -77,7 +77,7 @@ Mezi nejběžnější činností, které uživatelé provádějí v cloudu běž
 
 Toto je přesně co nabízí webové aplikace. Tento model výpočetní nabízí prostředí spravované webové pomocí portálu pro správu Azure, jakož i rozhraní API. Existující aplikaci Web můžete přesunout do webové aplikace beze změny, nebo můžete vytvořit novou přímo v cloudu. Jakmile je spuštěn web, můžete přidat nebo odebrat instancí dynamicky, spoléhat na Azure Web Apps načíst vyrovnávat požadavky mezi nimi. Aplikace Azure nabízí sdílené možnost, kde webu běží ve virtuálním počítači s jinými weby, a standardní možnost, která umožňuje serveru pro spuštění ve vlastním virtuálním počítači. Standardní možnost také umožňuje zvýšit velikost vaše instance (computing power) v případě potřeby.
 
-Pro vývoj webové aplikace podporuje rozhraní .NET, PHP, Node.js, Java a Python spolu s SQL Database a MySQL (z ClearDB, partnera společnosti Microsoft) pro relační úložiště. Také poskytuje integrovanou podporu pro několik oblíbených aplikací, včetně WordPress, Joomla nebo Drupal. Cílem je zajistit nízkonákladové, škálovatelné a široce užitečné platforma pro vytváření webů a webových aplikací ve veřejném cloudu.
+Pro vývoj webové aplikace podporuje rozhraní .NET, PHP, Node.js, Java a Python spolu s SQL Database a Azure Database pro databázi MySQL pro relační úložiště. Také poskytuje integrovanou podporu pro několik oblíbených aplikací, včetně WordPress, Joomla nebo Drupal. Cílem je zajistit nízkonákladové, škálovatelné a široce užitečné platforma pro vytváření webů a webových aplikací ve veřejném cloudu.
 
 **Scénáře webové aplikace**
 
