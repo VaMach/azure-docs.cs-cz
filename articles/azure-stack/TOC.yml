@@ -157,10 +157,10 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: Nasazení poskytovatele prostředků SQL
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Vytvoření databáze SQL
-              href: azure-stack-sql-resource-provider-databases.md
             - name: Přidat hostitelskými servery
               href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: Vytvoření databáze SQL
+              href: azure-stack-sql-resource-provider-databases.md
         - name: Nabídka App Service jako PaaS
           items:
             - name: Přehled App Service v Azure Stacku
@@ -183,11 +183,11 @@
               href: azure-stack-marketplace.md
             - name: Stažení položek z Marketplace
               href: azure-stack-download-azure-marketplace-item.md
-            - name: Položky Azure Marketplace pro Azure Stack
+            - name: Azure Marketplace položek pro Azure zásobníku
               href: azure-stack-marketplace-azure-items.md
             - name: Vytvoření a publikování položky Marketplace
               href: azure-stack-create-and-publish-marketplace-item.md
-            - name: Použití nástroje pro publikování na Marketplace
+            - name: Použijte nástroj publikování webu marketplace
               href: azure-stack-marketplace-publisher.md
             - name: Přidání vlastní image virtuálního počítače
               href: azure-stack-add-vm-image.md
