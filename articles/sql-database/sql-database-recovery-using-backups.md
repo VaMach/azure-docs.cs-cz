@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 10/13/2017
+ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: cb9b1296ced73c123faa0c682e9ef55d4b46ac11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ea762816cf0aa4c5fcafd2010bfc06eb580219fa
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Obnovit pomocí zálohy automatizované databáze Azure SQL database
 SQL Database nabízí tyto možnosti pro databázi pomocí obnovení [automatizované zálohování databáze](sql-database-automated-backups.md) a [záloh v dlouhodobé uchovávání](sql-database-long-term-retention.md). Můžete obnovit ze zálohy databáze pro:
@@ -80,7 +80,7 @@ Databázi můžete obnovit, úroveň výkonu a vrstvy jakékoli služby a jako j
 
 Obecně obnovení databáze do dřívějšího bodu pro účely obnovení. Když to uděláte, můžete k nahrazení původní databáze zacházet s obnovenou databázi nebo ji použít k načtení dat z a aktualizujte původní databázi. 
 
-* ***Databáze nahrazení:*** Pokud obnovené databáze je určena k nahrazení původní databáze, byste měli ověřit úroveň výkonu a vrstvu služby jsou vhodné a škálovat databázi, v případě potřeby. Můžete přejmenovat původní databáze a pak umožnit obnovené databáze na původní název pomocí příkazu ALTER DATABASE v T-SQL. 
+* ***Databáze nahrazení:*** Pokud obnovené databáze je určena k nahrazení původní databáze, byste měli ověřit úroveň výkonu a vrstvu služby jsou vhodné a škálovat databázi, v případě potřeby. Můžete přejmenovat původní databáze a pak umožnit obnovené databáze na původní název pomocí [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) v T-SQL. 
 * ***Obnovení dat:*** Pokud budete chtít načíst data z obnovené databáze pro obnovení po chybě uživatele nebo aplikace, budete muset zapisovat a spouštět skripty obnovení potřebná data extrahovat data z obnovené databáze do původní databáze. Přestože operace obnovení může být časově náročná, obnovení databáze je zobrazená v seznamu databáze v průběhu procesu obnovení. Odstranění databáze během obnovení zrušeny operace obnovení a vám není účtován databázi, která se nedokončila obnovení. 
 
 ### <a name="azure-portal"></a>portál Azure

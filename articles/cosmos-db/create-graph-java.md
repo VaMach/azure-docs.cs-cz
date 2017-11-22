@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/20/2017
+ms.date: 11/20/2017
 ms.author: denlee
-ms.openlocfilehash: 4470b5adb52debce1492b084ce71100da77da046
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 84a9ae4a48e7e71d70214550dd203a0468a31de6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Vytvoření databáze grafu pomocí Javy a webu Azure Portal
 
@@ -72,13 +72,19 @@ Teď můžete pomocí nástroje Průzkumník dat na webu Azure Portal vytvořit 
 
 Teď přejděme k práci s kódem. Pojďme klonovat rozhraní Graph API aplikace z Githubu, nastavení připojovacího řetězce a potom ho spusťte. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu.  
 
-1. Otevřete okno terminálu git, jako je například git bash a použít `cd` příkaz Přejít do složky pro instalaci ukázkové aplikace.  
+1. Otevřete příkazový řádek, vytvořte novou složku s názvem ukázky git a pak zavřete příkazový řádek.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Otevřete okno terminálu git, jako je například git bash a použít `cd` příkaz Přejít do složky pro instalaci ukázkové aplikace.  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači. 
+3. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -86,7 +92,7 @@ Teď přejděme k práci s kódem. Pojďme klonovat rozhraní Graph API aplikace
 
 ## <a name="review-the-code"></a>Kontrola kódu
 
-Tento krok je volitelný. Pokud vás zajímá učení vytváření databázových prostředků v kódu, můžete zkontrolovat následující fragmenty kódu. Fragmenty kódu jsou převzaty z `Program.java` soubor ve složce C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. Jinak, můžete přeskočit na [aktualizovat připojovací řetězec](#update-your-connection-string). 
+Tento krok je volitelný. Pokud vás zajímá učení vytváření databázových prostředků v kódu, můžete zkontrolovat následující fragmenty kódu. Fragmenty kódu jsou převzaty z `Program.java` soubor ve složce C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. Jinak, můžete přeskočit na [aktualizovat připojovací řetězec](#update-your-connection-information). 
 
 * Inicializuje se konzola Gremlin `Client` z konfigurace v nástroji `src/remote.yaml`.
 
@@ -148,11 +154,23 @@ Nyní přejděte zpět na portálu Azure, pokud chcete získat informace o přip
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. V okně terminálu Git zadejte `mvn package`, aby se nainstalovaly požadované balíčky Java.
+2. V okně terminálu git použijte následující příkaz k instalaci požadovaných balíčků Java.
 
-3. V okně terminálu git spustit `mvn exec:java -D exec.mainClass=GetStarted.Program` spuštění aplikace v jazyce Java.
+   ```
+   mvn package
+   ```
 
-    V okně terminálu se zobrazí vrcholy, které se přidávají do grafu. Jakmile program zastaví, přepněte zpět na portálu Azure v internetovém prohlížeči. 
+3. V okně terminálu git použijte následující příkaz a spusťte aplikaci Java.
+    
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    V okně terminálu se zobrazí vrcholy, které se přidávají do grafu. 
+    
+    Pokud dochází k chybám vypršení časového limitu, zkontrolujte, že jste aktualizovali informace o připojení, která je správně v [aktualizovat informace o připojení](#update-your-connection-information)a také poslední příkaz znovu. 
+    
+    Jakmile program zastaví, stiskněte klávesu Enter, pak přejděte zpátky do portálu Azure v internetovém prohlížeči. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Kontrola a přidání ukázkových dat
@@ -200,11 +218,11 @@ Teď můžete přejít zpět do Průzkumníku dat a zobrazit vrcholy přidané d
 
 10. Klikněte na **OK**. 
 
-11. Klikněte na tlačítko **použít filtr** s výchozím `g.V()` filtr pro zobrazení všech hodnot v grafu. Teď se v seznamu **Výsledky** zobrazí všichni uživatelé. 
+11. Klikněte **použít filtr** tlačítko s výchozím `g.V()` filtr pro zobrazení všech hodnot v grafu. Teď se v seznamu **Výsledky** zobrazí všichni uživatelé. 
 
     S přidáváním dalších dat můžete pomocí filtrů omezit výsledky. Ve výchozím Průzkumníku dat používá `g.V()` načíst všechny vrcholy grafu. Můžete ji změnit na jiný [grafu dotazu](tutorial-query-graph.md), jako například `g.V().count()`, která vrátí počet všechny vrcholy v grafu ve formátu JSON. Pokud jste změnili filtr, změna filtru zpět do `g.V()` a klikněte na tlačítko **použít filtr** znovu zobrazit všechny výsledky.
 
-12. Teď můžeme propojit uživatele rakesh a ashley. Ujistěte se, že v seznamu **Výsledky** je vybraný uživatel **ashley**, a potom klikněte na tlačítko Upravit vedle položky **Cíle** vpravo dole. Možná budete muset rozšířit okno, aby se zobrazila oblast **Vlastnosti**.
+12. Teď můžeme propojit uživatele rakesh a ashley. Ujistěte se, **pracovník Novák** vybrán **výsledky** seznamu a pak klikněte na tlačítko Upravit vedle **cíle** na pravé straně nižší. Možná budete muset rozšířit okno, aby se zobrazila oblast **Vlastnosti**.
 
    ![Změna cíle vrcholu v grafu](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 

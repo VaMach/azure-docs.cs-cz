@@ -9,12 +9,15 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/27/2017
-ms.openlocfilehash: 4df0dcc7d0f2bde24c1a7e12eea6fa142612a0e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1042f7919b8761bdbc23ae19871703c53dff28f0
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/21/2017
 ---
+# <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Ovladače MySQL a nástroje pro správu kompatibilní s Azure Database pro databázi MySQL
+Tento článek popisuje ovladače a nástroje pro správu, které jsou kompatibilní s Azure Database pro databázi MySQL.
+
 ## <a name="mysql-drivers"></a>Ovladače MySQL
 Azure databáze pro databázi MySQL používá na světě nejoblíbenější edice community databáze MySQL. Proto je kompatibilní s širokou škálu programovací jazyky a ovladače. Cílem je podpora tři nejnovější verze ovladače MySQL a pokračovat ve snaze s autory open source Community o neustále zlepšovat funkce a použitelnost ovladače MySQL. Seznam ovladačů, které byly testovány a zjistí, že je kompatibilní s Azure databáze MySQL 5.6 a 5.7 je uvedený v následující tabulce:
 

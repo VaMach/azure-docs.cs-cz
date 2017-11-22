@@ -10,17 +10,22 @@ ms.reviewer: elioda
 ms.date: 10/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 11353ef93455a47f9f1c252fc5e192c111d87dd7
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Nasazení Azure IoT Edge v simulovaném zařízení v systému Linux – náhled
 
 Azure IoT Edge umožňuje provádět analýzy a zpracování dat v zařízeních, aniž by museli push všechna data do cloudu. Kurzy IoT Edge ukazují, jak nasadit různé typy modulů, ze služby Azure nebo vlastní kód, ale nejdřív je potřeba zařízení, které chcete otestovat. 
 
-Tento kurz vás provede procesem vytvoření simulovaného zařízení IoT Edge, pak nasazení modul, který generuje data snímačů. Získáte informace o těchto tématech:
+V tomto kurzu se naučíte:
+
+1. Vytvoření služby IoT Hub
+2. Zaregistrovat IoT hraniční zařízení
+3. Spusťte modul runtime IoT Edge
+4. Nasazení modulu
 
 ![Kurz architektura][2]
 

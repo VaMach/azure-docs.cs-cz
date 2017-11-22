@@ -50,22 +50,6 @@ Při navazování připojení TLS zabezpečené službou IoT Hub, ověřuje zař
 ## <a name="securing-the-connection"></a>Zabezpečení připojení
 Připojení k Internetu mezi zařízení IoT a IoT Hub, je zabezpečena pomocí standardní zabezpečení TLS (Transport Layer). Azure IoT podporuje [TLS 1.2][lnk-tls12], TLS 1.1 a TLS 1.0, v tomto pořadí. Podpora pro protokol TLS 1.0 je k dispozici pouze z důvodů zpětné kompatibility. Doporučujeme použít protokol TLS 1.2, protože poskytuje nejvyšší zabezpečení.
 
-Azure IoT Suite podporuje následující šifrovací sady, v tomto pořadí.
-
-| Šifrovací sada | Délka |
-| --- | --- |
-| Protokol TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 secp384r1 ECDH (0xc028) (ekvalizéru FS 7680 bits RSA) |256 |
-| Protokol TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (ekvalizéru FS 3072 bits RSA) |128 |
-| Protokol TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (ekvalizéru FS 7680 bits RSA) |256 |
-| Protokol TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (ekvalizéru FS 3072 bits RSA) |128 |
-| Protokol TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (0x9d) |256 |
-| Protokol TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256 (0x9c) |128 |
-| Protokol TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256 (0x3d) |256 |
-| Protokol TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0x3c) |128 |
-| Protokol TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA (0x35) |256 |
-| Protokol TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f) |128 |
-| Protokol TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
-
 ## <a name="securing-the-cloud"></a>Zabezpečení cloudu
 Azure IoT Hub umožňuje definice [zásad řízení přístupu] [ lnk-protocols] pro každý klíč zabezpečení. Následující sadu oprávnění, používá k udělení přístupu k všechny koncové body centra IoT. Oprávnění omezit přístup do služby IoT Hub, v závislosti na funkcích.
 

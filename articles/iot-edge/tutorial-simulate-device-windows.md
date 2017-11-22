@@ -10,15 +10,22 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9c9bf2df078bfebb23ad549c7053f12b62fab59b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Nasazení v simulovaném zařízení v systému Windows Azure IoT Edge – náhled
 
-Azure IoT Edge přesune power cloudu do zařízení Internet věcí (IoT). Tento kurz vás provede procesem vytvoření simulované zařízení IoT okraj, který generuje data snímačů. Získáte informace o těchto tématech:
+Azure IoT Edge umožňuje provádět analýzy a zpracování dat v zařízeních, aniž by museli push všechna data do cloudu. Kurzy IoT Edge ukazují, jak nasadit různé typy modulů, ze služby Azure nebo vlastní kód, ale nejdřív je potřeba zařízení, které chcete otestovat. 
+
+V tomto kurzu se naučíte:
+
+1. Vytvoření služby IoT Hub
+2. Zaregistrovat IoT hraniční zařízení
+3. Spusťte modul runtime IoT Edge
+4. Nasazení modulu
 
 ![Kurz architektura][2]
 
