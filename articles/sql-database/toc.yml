@@ -378,6 +378,8 @@
               href: saas-multitenantdb-adhoc-reporting.md
             - name: Správa schémat tenantů
               href: saas-multitenantdb-schema-management.md
+            - name: ETL pro analýzu
+              href: saas-multitenantdb-tenant-analytics.md
     - name: Vývoj aplikací
       items:
         - name: C a C ++
