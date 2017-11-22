@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 93e6c87a9d445ca448509a256247fb5e4749ec1c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: cd321531c99f14e93d8cab2acb7844ae79be2158
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Principy odchozích připojení v Azure
 
@@ -72,18 +72,21 @@ Je nutné zajistit, že virtuální počítač může přijímat žádosti o kon
 
 ## <a name="snatexhaust"></a>Správa překládat pomocí SNAT vyčerpání
 
-Dočasné porty používané pro překládat pomocí SNAT jsou vyčerpatelným prostředků, jak je popsáno v [samostatný virtuální počítač s žádné Instance úroveň veřejnou IP adresu](#standalone-vm-with-no-instance-level-public-ip-address) a [Vyrovnávání zatížení sítě virtuálních počítačů s žádné Instance úroveň veřejnou IP adresu](#standalone-vm-with-no-instance-level-public-ip-address).  
+Dočasné porty používané pro překládat pomocí SNAT jsou vyčerpatelným prostředků, jak je popsáno v [samostatný virtuální počítač s žádné Instance úroveň veřejnou IP adresu](#standalone-vm-with-no-instance-level-public-ip-address) a [Vyrovnávání zatížení sítě virtuálních počítačů s žádné Instance úroveň veřejnou IP adresu](#standalone-vm-with-no-instance-level-public-ip-address).
 
-Pokud znáte bude inicializaci mnoho odchozí připojení se stejným cílem, selhání odchozí připojení, nebo sledovat doporučujeme pomocí podpory jsou vyčerpává překládat pomocí SNAT porty, máte několik možností obecné zmírnění dopadů.  Zkontrolujte tyto možnosti a rozhodnout, jaká je nejvhodnější pro váš scénář.  Je možné jeden nebo více může pomoct spravovat tento scénář.
+Pokud znáte bude inicializaci mnoho odchozí připojení k stejnou cílovou IP adresu a port, selhání odchozí připojení, nebo sledovat doporučujeme pomocí podpory jsou vyčerpává překládat pomocí SNAT porty, máte několik možností obecné zmírnění dopadů.  Zkontrolujte tyto možnosti a rozhodnout, jaká je nejvhodnější pro váš scénář.  Je možné jeden nebo více může pomoct spravovat tento scénář.
 
-### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Přiřadit veřejná IP adresa úrovni Instance pro každý virtuální počítač
-Tato operace změní váš scénář [úrovni Instance veřejnou IP adresu pro virtuální počítač](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Všechny dočasné porty veřejné IP adresy použít pro jednotlivé virtuální počítače jsou k dispozici pro virtuální počítač (na rozdíl od scénáře, kde dočasné porty veřejnou IP adresu jsou sdíleny s všechny Virtuálního počítače přidružené fondu příslušných back-end).
+### <a name="modify-application-to-reuse-connections"></a>Upravit aplikaci znovu použít připojení 
+Můžete snížit vyžádání pro dočasné porty používané pro překládat pomocí SNAT opakovaného použití připojení v aplikaci.  Toto je obzvláště vhodný pro protokoly jako HTTP/1.1, kde je explicitně podporované.  A pak využívat jiné protokoly, pomocí protokolu HTTP jako způsob přepravy (tj. REST).  Opakované použití je vždy lepší, než jednotlivé, atomic připojení TCP pro každou žádost.
 
 ### <a name="modify-application-to-use-connection-pooling"></a>Upravit aplikaci, aby používala sdružování připojení
-Můžete snížit vyžádání pro dočasné porty používané pro překládat pomocí SNAT sdružování připojení ve vaší aplikaci.  Další toků se stejným cílem spotřebuje další porty.  Pokud jste znovu použít stejný postup pro víc požadavků, bude využívat více požadavků jediný port.
+Můžete použít připojení sdružování schéma ve vaší aplikaci, kde jsou požadavky interně distribuovány na pevnou sadu připojení (každý opakovaného použití kde je to možné).  Pokud jste znovu použít stejný postup pro víc požadavků, bude využívat více požadavků jediný port místo další toků se stejným cílem náročné na další porty a úvodní vyčerpat podmínky.
 
 ### <a name="modify-application-to-use-less-aggressive-retry-logic"></a>Upravit aplikaci, aby používala méně agresivní logika opakovaných pokusů
 Vyžádání pro dočasné porty můžete omezit použitím méně agresivní logika opakovaných pokusů.  Když dočasné porty používané pro překládat pomocí SNAT vyčerpání, agresivní nebo hrubou silou opakuje bez decay a omezení rychlosti vyčerpání příčina logiku k uchování.  Dočasné porty mít 4 minut nečinnosti, po vypršení časového limitu (není možné nastavit) a pokud jsou moc agresivní opakované pokusy, má k vyčerpání nebyla příležitost vymazány svoje vlastní.
+
+### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Přiřadit veřejná IP adresa úrovni Instance pro každý virtuální počítač
+Tato operace změní váš scénář [úrovni Instance veřejnou IP adresu pro virtuální počítač](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Všechny dočasné porty veřejné IP adresy použít pro jednotlivé virtuální počítače jsou k dispozici pro virtuální počítač (na rozdíl od scénáře, kde dočasné porty veřejnou IP adresu jsou sdíleny s všechny Virtuálního počítače přidružené fondu příslušných back-end).  Existují kompromisy vzít v úvahu, například další náklady na IP adresy a potenciální dopad vytvoření seznamu povolených velký počet jednotlivé IP adresy.
 
 ## <a name="limitations"></a>Omezení
 
@@ -93,4 +96,4 @@ Azure používá nepodporovaný algoritmus můžete určit počet dostupných po
 
 Odchozí připojení mít časový limit nečinnosti 4 minuty.  Toto není upravit.
 
-Je důležité rememember, který počet dostupných portů překládat pomocí SNAT nepřekládá přímo k počtu připojení. Podrobnosti viz výše pro konkrétní na kdy a jak jsou přiděleny překládat pomocí SNAT porty a jak spravovat tento vyčerpatelným prostředek.
+Je důležité si pamatovat, že počet dostupných portů překládat pomocí SNAT nepřekládá přímo k počtu připojení. Podrobnosti viz výše pro konkrétní na kdy a jak jsou přiděleny překládat pomocí SNAT porty a jak spravovat tento vyčerpatelným prostředek.

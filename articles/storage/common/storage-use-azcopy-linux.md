@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
-ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Přenos dat pomocí nástroje AzCopy v systému Linux
 V systému Linux AzCopy je nástroj příkazového řádku pro kopírování dat do a z úložiště objektů Blob v Microsoft Azure a soubor pomocí jednoduchých příkazů optimální výkon. Data můžete zkopírovat z jednoho objektu do druhého v rámci účtu úložiště nebo mezi účty úložiště.
@@ -559,7 +559,7 @@ azcopy \
     --recursive
 ```
 
-Všimněte si, že AzCopy aktuálně podporuje jenom [SAS účtu](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+Všimněte si, že AzCopy aktuálně podporuje jenom [SAS účtu](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Složky pro soubor deníku
 Pokaždé, když příkaz azcopy, zkontroluje existenci souboru deníku ve výchozí složce, nebo jestli existuje ve složce, kterou jste zadali pomocí této možnosti. Pokud soubor deníku neexistuje ani na jednom místě, AzCopy zpracovává operaci jako nové a generuje nový soubor deníku.
@@ -673,7 +673,7 @@ Další informace o Azure Storage a AzCopy najdete v následujících zdrojích 
 ### <a name="azure-storage-documentation"></a>Dokumentace k Azure Storage:
 * [Úvod do Azure Storage](../storage-introduction.md)
 * [Vytvoření účtu úložiště](../storage-create-storage-account.md)
-* [Spravovat objekty BLOB pomocí Průzkumníka úložiště](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
+* [Spravovat objekty BLOB pomocí Průzkumníka úložiště](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Použití Azure CLI 2.0 s Azure Storage](../storage-azure-cli.md)
 * [Používání úložiště Blob z jazyka C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Používání úložiště Blob z Javy](../blobs/storage-java-how-to-use-blob-storage.md)

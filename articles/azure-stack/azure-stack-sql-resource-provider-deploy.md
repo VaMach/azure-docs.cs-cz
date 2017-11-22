@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Databáze SQL pro použití v zásobníku Microsoft Azure
 
@@ -30,7 +30,7 @@ Používat adaptér zprostředkovatele prostředků systému SQL Server jako slu
 
 Zprostředkovatel prostředků nepodporuje všechny možnosti správy databáze z [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Například fondů elastické databáze a schopnost automaticky vytočit výkonu databáze nahoru či dolů nejsou k dispozici. Však nepodporuje Podpora zprostředkovatele prostředků podobné vytvářet, číst, aktualizovat a odstranit operace. Rozhraní API není kompatibilní s databázi SQL.
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>Architektura adaptér zprostředkovatele prostředků SQL serveru
+## <a name="sql-resource-provider-adapter-architecture"></a>Architektura adaptér zprostředkovatele prostředků SQL
 Zprostředkovatel prostředků se skládá ze tří součástí:
 
 - **Adaptér pro poskytovatele prostředků SQL virtuálních počítačů**, což je virtuální počítač s Windows běží služby poskytovatele.
@@ -50,6 +50,9 @@ Musíte vytvořit jeden (nebo více) serverů SQL nebo poskytovat přístup k ex
     b. V systémech s více uzly hostitele musí být systém, kterým může přistupovat privilegované koncový bod.
 
 3. [Stáhněte si soubor binární soubory zprostředkovatele prostředků SQL](https://aka.ms/azurestacksqlrp) a provedení Self-Extractor extrahujte obsah do dočasného adresáře.
+
+    > [!NOTE]
+    > Pokud je spuštěn v zásobníku Azure sestavení 20170928.3 nebo dřívější, [tuto verzi stáhnout](https://aka.ms/azurestacksqlrp1709).
 
 4. Kořenový certifikát zásobník Azure se načtou z privilegovaných koncový bod. Pro ASDK se vytvoří certifikát podepsaný svým držitelem v rámci tohoto procesu. Pro více uzly je nutné zadat příslušný certifikát.
 
@@ -85,8 +88,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -108,7 +115,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>Parametry DeploySqlProvider.ps1
@@ -141,27 +153,25 @@ Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechce
       ![Ověření nasazení SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>Odebrání poskytovatele prostředků adaptér SQL
+## <a name="remove-the-sql-resource-provider-adapter"></a>Odeberte adaptér zprostředkovatele prostředků SQL
 
 Chcete-li odebrat poskytovatele prostředků, je nutné nejprve odebrat všechny závislosti.
 
-1. Zkontrolujte, zda že máte původní balíček nasazení, který jste stáhli pro tuto verzi zprostředkovatele prostředků.
+1. Zkontrolujte, zda že máte původní balíček nasazení, který jste stáhli pro tuto verzi adaptér zprostředkovatele prostředků SQL.
 
 2. Od zprostředkovatele prostředků (to neodstraní data), je třeba odstranit všechny uživatelské databáze. To by měli provádět sami uživatelé.
 
-3. Správce musí odstranit hostitelskými servery z adaptéru SQL
+3. Správce musí odstranit hostitelskými servery z adaptéru zprostředkovatele prostředků SQL
 
-4. Správce musí odstranit všechny plány, které odkazují na adaptér SQL.
+4. Správce musí odstranit všechny plány, které odkazují na adaptéru zprostředkovatele prostředků SQL.
 
-5. Správce musí odstranit všechny identifikátory SKU a kvóty, které jsou přidružené k adaptéru SQL.
+5. Správce musí odstranit všechny identifikátory SKU a kvóty, které jsou přidružené k adaptéru zprostředkovatele prostředků SQL.
 
 6. Spusťte znovu skript nasazení s-odinstalovat parametr, koncové body Azure Resource Manager, DirectoryTenantID a pověření pro účet správce služby.
 
 
 ## <a name="next-steps"></a>Další kroky
 
+[Přidat servery, který je hostitelem](azure-stack-sql-resource-provider-hosting-servers.md) a [vytváření databází](azure-stack-sql-resource-provider-databases.md).
 
 Zkuste jiné [PaaS služby](azure-stack-tools-paas-services.md) jako [poskytovatele prostředků serveru MySQL](azure-stack-mysql-resource-provider-deploy.md) a [poskytovatele prostředků App Services](azure-stack-app-service-overview.md).

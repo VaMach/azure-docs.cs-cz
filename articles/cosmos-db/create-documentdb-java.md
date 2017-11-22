@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 5a793abdc24387ae2b758d29b9dfb25f134097d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b36de6bce597569b4e1eaa615860acdf28dfa798
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Vytvoření databáze dokumentů pomocí Javy a webu Azure Portal
 
@@ -97,13 +97,19 @@ Tím končí naše práci v Průzkumníku dat. Před můžeme přesunout k prác
 
 Teď přejděme k práci s kódem. Naklonujeme aplikaci s rozhraním API DocumentDB z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
-1. Otevřete okno terminálu git, jako je například git bash a použít `cd` příkaz Přejít do složky pro instalaci ukázkové aplikace. 
+1. Otevřete příkazový řádek, vytvořte novou složku s názvem ukázky git a pak zavřete příkazový řádek.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Otevřete okno terminálu git, jako je například git bash a použít `cd` příkazu změníte do nové složky pro instalaci ukázkové aplikace. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači.
+3. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -209,13 +215,25 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
     cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
     ```
 
-2. V okně terminálu Git zadejte `mvn package`, aby se nainstalovaly požadované balíčky Java.
+2. V okně terminálu git použijte následující příkaz k instalaci požadovaných balíčků Java.
 
-3. V okně terminálu git spustit `mvn exec:java -D exec.mainClass=GetStarted.Program` -li spustit aplikaci Java.
+    ```
+    mvn package
+    ```
 
-    Okno terminálu zobrazí oznámení, že FamilyDB databáze byla vytvořena. Stisknutím klávesy k vytvoření této kolekce, pak přejděte do Průzkumníku dat a uvidíte, že teď obsahuje FamilyDB databáze.
+3. V okně terminálu git použijte následující příkaz a spusťte aplikaci Java.
+
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    Okno terminálu zobrazí oznámení, že FamilyDB databáze byla vytvořena. 
     
-    Pokračujte stisknutím kláves vytvářet dokumenty a potom spustit dotaz.
+4. Stiskněte klávesu k vytvoření této kolekce. 
+
+5. Přepněte zpět na Průzkumníku dat a uvidíte, že teď obsahuje FamilyDB databáze.
+    
+6. Pokračujte stisknutím kláves v okně konzoly do mají kód vytvářet dokumenty a provést dotaz na.
     
     Na konci tohoto programu se odstraní všechny prostředky v této aplikaci z vašeho účtu tak, aby vám zbytečně nenabíhaly žádné poplatky. 
 

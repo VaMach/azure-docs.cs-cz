@@ -3,8 +3,8 @@ title: "Pomocí Azure DNS pro privátní domény | Microsoft Docs"
 description: "Přehled privátní DNS, který je hostitelem služby v Microsoft Azure."
 services: dns
 documentationcenter: na
-author: garbrad
-manager: 
+author: KumudD
+manager: jennoc
 editor: 
 ms.assetid: 
 ms.service: dns
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2017
-ms.author: garbrad
-ms.openlocfilehash: ed47a9d850995aaf9e78bfde8b6a5fd80dc36918
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/20/2017
+ms.author: kumud
+ms.openlocfilehash: 95cf8ab2bd34e698e12452e062687219bad49eb6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Pomocí Azure DNS pro privátní domény
 Systému názvů domény nebo DNS, zodpovídá za překladu (nebo vyřešení) název služby na jeho IP adresu. Azure DNS je hostitelská služba domén DNS poskytnutí překladu názvů pomocí infrastruktury Microsoft Azure.  Kromě internetových domén DNS Azure DNS teď také podporuje privátní DNS domény jako funkce preview.  
@@ -35,18 +35,18 @@ Azure DNS poskytuje spolehlivé, zabezpečené služby DNS pro správu a překl�
 
 * **Použijte všechny běžné typy záznamů DNS.**  Azure DNS podporuje záznamy A, AAAA, CNAME, MX, NS, PTR, SOA, SRV a TXT.
 
-* **Správa záznamů automatické název hostitele.** Společně s hostování svoje vlastní záznamy DNS, bude Azure automaticky udržovat záznamy název hostitele pro virtuální počítače v zadané virtuální sítě.  To umožňuje optimalizovat názvy domén, které můžete použít bez nutnosti vytvářet vlastní řešení DNS nebo upravit aplikaci.
+* **Správa záznamů automatické název hostitele.** Společně s hostování svoje vlastní záznamy DNS, Azure automaticky udržuje záznamy název hostitele pro virtuální počítače v zadané virtuální sítě.  To umožňuje optimalizovat názvy domén, které můžete použít bez nutnosti vytvářet vlastní řešení DNS nebo upravit aplikaci.
 
-* **Rozlišení názvu hostitele mezi virtuálními sítěmi.** Na rozdíl od Azure názvy hostitelů privátních zóny DNS lze sdílet mezi virtuálními sítěmi.  Tato funkce zjednodušuje scénáře napříč sítí a službu zjišťování například partnerský vztah virtuální sítě.
+* **Rozlišení názvu hostitele mezi virtuálními sítěmi.** Na rozdíl od názvů hostitelů Azure může být privátní zóny DNS sdílena mezi virtuálními sítěmi.  Tato funkce zjednodušuje scénáře napříč sítí a službu zjišťování například partnerský vztah virtuální sítě.
 
-* **Známých nástrojů a činnost koncového uživatele.** K redukovat křivku, používá tato nová nabídka již zavedené nástroje Azure DNS (PowerShell, šablony Resource Manageru, REST API) a podporu budou přidány do rozhraní příkazového řádku a portál co nejdříve.
+* **Známých nástrojů a činnost koncového uživatele.** K redukovat křivku, používá tato nová nabídka již zavedené nástroje Azure DNS (PowerShell, šablony Resource Manageru, REST API).
 
 * **Rozdělení horizon DNS podporují.** Azure DNS vám umožní vytvořit zóny se stejným názvem, který odkazující na různých odpovědi z virtuální sítě a z veřejného Internetu.  Typický scénář v nástroji rozdělení horizon DNS je poskytnout vyhrazené verzi služby pro použití ve virtuální síti.
 
 
 ## <a name="pricing"></a>Ceny
 
-Zóny DNS privátní bude zdarma spravované verzi Preview. Na oznámení obecné dostupnosti tato funkce bude používat na základě využití cenové model podobná existující Azure DNS nabídky. 
+Zóny DNS privátní je zdarma spravované verzi Preview. Při obecné dostupnosti si tato funkce bude používat na základě využití cenové model podobná existující Azure DNS nabídky. 
 
 
 ## <a name="next-steps"></a>Další kroky

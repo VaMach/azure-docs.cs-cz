@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Používání databází MySQL v zásobníku Microsoft Azure
 
@@ -40,7 +40,8 @@ Tato verze už vytvoří instanci databáze MySQL. Musíte je vytvořit a poskyt
 - Vytvoření serveru MySQL pro vás
 - stáhnout a nasadit MySQL Server z Marketplace.
 
-! [POZNÁMKA] Hostitelské servery, které jsou nainstalované v zásobníku Azure několika uzly musí být vytvořeny z předplatného klienta. Nemohou být vytvářeny ze předplatného výchozí zprostředkovatel. Jinými slovy musí se vytvořit z portálu klienta nebo z relace prostředí PowerShell s odpovídající přihlášení. Všechny hostitelské servery jsou fakturovatelné virtuální počítače a musí mít příslušnou licenci. Správce služby můžete být vlastníkem daného předplatného.
+> [!NOTE]
+> Hostitelské servery, které jsou nainstalované v zásobníku Azure několika uzly musí být vytvořeny z předplatného klienta. Nemohou být vytvářeny ze předplatného výchozí zprostředkovatel. Jinými slovy musí se vytvořit z portálu klienta nebo z relace prostředí PowerShell s odpovídající přihlášení. Všechny hostitelské servery jsou fakturovatelné virtuální počítače a musí mít příslušnou licenci. Správce služby můžete být vlastníkem daného předplatného.
 
 ### <a name="required-privileges"></a>Požadovaná oprávnění
 Systémový účet musí mít následující oprávnění:
@@ -60,6 +61,9 @@ Systémový účet musí mít následující oprávnění:
     b. V systémech s více uzly hostitele musí být systém, kterým může přistupovat privilegované koncový bod.
 
 3. [Stáhněte si soubor binární soubory zprostředkovatele prostředků MySQL](https://aka.ms/azurestackmysqlrp) a provedení Self-Extractor extrahujte obsah do dočasného adresáře.
+
+    > [!NOTE]
+    > Pokud je spuštěn v zásobníku Azure sestavení 20170928.3 nebo dřívější, [tuto verzi stáhnout](https://aka.ms/azurestackmysqlrp1709).
 
 4.  Kořenový certifikát zásobník Azure se načtou z privilegovaných koncový bod. Pro ASDK se vytvoří certifikát podepsaný svým držitelem v rámci tohoto procesu. Pro více uzly je nutné zadat příslušný certifikát.
 
@@ -98,8 +102,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = 'AzureStack'
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\MYSQLRP'
 
@@ -122,17 +130,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
 
  ```
 
-### <a name="deploymysqlproviderps1-parameters"></a>Parametry DeployMySqlProvider.ps1
 
+### <a name="deploysqlproviderps1-parameters"></a>Parametry DeploySqlProvider.ps1
 Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechcete, nebo jakékoli parametr ověření nezdaří, zobrazí se výzva k poskytování požadované těm, které jsou.
 
 | Název parametru | Popis | Komentář nebo výchozí hodnotu |
@@ -153,7 +162,7 @@ Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechce
 V závislosti na výkonu a stahování rychlosti systému instalace může trvat jako málo jako 20 minut, nebo jako dlouho jako několik hodin. Pokud v okně MySQLAdapter není k dispozici, aktualizujte portál pro správu.
 
 > [!NOTE]
-> Pokud instalace používá víc než 90 minut, může dojít k selhání a zobrazí se chybová zpráva o na obrazovce a v souboru protokolu. Z selhávající krok tím se pokus o nasazení. Systémy, které nesplňuje doporučené specifikace paměti a virtuální procesor nemusí být možné instalovat MySQL RP.
+> Pokud instalace používá víc než 90 minut, může dojít k selhání a zobrazí se chybová zpráva o na obrazovce a v souboru protokolu. Z selhávající krok tím se pokus o nasazení. Systémy, které nesplňuje doporučené specifikace paměti a základní nemusí být možné instalovat MySQL RP.
 
 
 
@@ -189,14 +198,15 @@ V závislosti na výkonu a stahování rychlosti systému instalace může trvat
     - kapacita databáze
     - Automatické zálohování
     - Rezervovat vysoce výkonné servery pro jednotlivá oddělení
-    - a tak dále.
-    Název SKU by měla odpovídat vlastnosti tak, aby klienti můžete umístit své databáze správně. Všechny hostitelské servery v SKU musí mít stejné funkce.
+ 
 
-    ![Vytvoření databáze MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+Název SKU by měla odpovídat vlastnosti tak, aby klienti můžete umístit své databáze správně. Všechny hostitelské servery v SKU musí mít stejné funkce.
+
+![Vytvoření databáze MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-SKU může trvat až jednu hodinu, mají být zobrazeny v portálu. Databázi nelze vytvořit, dokud nebude vytvořen verze SKU.
+> SKU může trvat až jednu hodinu, mají být zobrazeny v portálu. Databázi nelze vytvořit, dokud nebude vytvořen verze SKU.
 
 
 ## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>Chcete nasazení otestovat, vytvořte svoji první databázi MySQL
@@ -231,17 +241,17 @@ SKU může trvat až jednu hodinu, mají být zobrazeny v portálu. Databázi ne
 Přidejte kapacity přidáním dalších serverů MySQL na portálu Azure zásobníku. Další servery, které lze přidat do nové nebo existující SKU. Ujistěte se, že vlastnosti serveru jsou stejné.
 
 
-## <a name="making-mysql-databases-available-to-tenants"></a>Zpřístupnění databází MySQL klientům
+## <a name="make-mysql-databases-available-to-tenants"></a>Databáze MySQL zpřístupnit klientům
 Vytvořte plány a nabízí databází MySQL zpřístupnit pro klienty. Přidání Microsoft.MySqlAdapter služby, přidejte kvóty atd.
 
 ![Vytvoření plánu a nabídky zahrnout databáze](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## <a name="updating-the-administrative-password"></a>Aktualizace hesla pro správu
+## <a name="update-the-administrative-password"></a>Aktualizace hesla pro správu
 Heslo můžete upravit tak, že první změníte na instanci serveru MySQL. Přejděte do **prostředky pro správu** &gt; **MySQL hostování servery** &gt; a klikněte na hostitelském serveru. V panelu nastavení klikněte na heslo.
 
 ![Aktualizovat heslo správce](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="removing-the-mysql-adapter-resource-provider"></a>Odebrání poskytovatele prostředků adaptér MySQL
+## <a name="remove-the-mysql-resource-provider-adapter"></a>Odeberte adaptér zprostředkovatele prostředků MySQL
 
 Odebrat zprostředkovatele prostředků, je nutné nejprve odebrat všechny závislosti.
 
@@ -263,6 +273,5 @@ Odebrat zprostředkovatele prostředků, je nutné nejprve odebrat všechny záv
 
 
 ## <a name="next-steps"></a>Další kroky
-
 
 Zkuste jiné [PaaS služby](azure-stack-tools-paas-services.md) jako [poskytovatele prostředků SQL serveru](azure-stack-sql-resource-provider-deploy.md) a [poskytovatele prostředků App Services](azure-stack-app-service-overview.md).

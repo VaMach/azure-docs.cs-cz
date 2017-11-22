@@ -1,6 +1,6 @@
 ---
-title: "K dispozici pro Azure zásobníku položky Azure marketplace | Microsoft Docs"
-description: "Tyto položky Azure marektplace lze v zásobníku Azure."
+title: "Azure k dispozici pro Azure zásobníku položky Marketplace. | Microsoft Docs"
+description: "Tyto položky Azure Marketplace můžete použít v zásobníku Azure."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: erikje
-ms.openlocfilehash: 09177c3d036c38c366253f9291d0096994cc123b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: d04a96e061c4f25e10b1582736012a3ada6f6a6b
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/21/2017
 ---
-# <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure marketplace položky, které jsou k dispozici pro Azure zásobníku
+# <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure k dispozici pro Azure zásobníku položky Marketplace.
 
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-Zásobník Microsoft Azure podporuje následující položky Azure marketplace:
+Zásobník Microsoft Azure podporuje následující položky Azure Marketplace:
 
 |  | Název položky | Popis | Vydavatel |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Docker rozšíření pro virtuální počítače s Linuxem. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [R Server pouze SQL Server 2016 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.RServerOnlySQLServer2016Enterprise?tab=Overview) | R Server pouze SQL Server 2016 Enterprise. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.2.1 v systému Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft Machine Learning serveru 9.2.1 v systému Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 na Ubuntu 16.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft Machine Learning Server 9.2.1 na Ubuntu 16.04. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.2.1 v systému CentOS Linux 7.2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft Machine Learning serveru 9.2.1 v systému CentOS Linux 7.2. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Nasazení služby Vzdálená plocha (RDS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/rds.remote-desktop-services-basic-deployment?tab=Overview) | Vytvořte základní nasazení služby Vzdálená plocha (RDS). | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verzi serveru SharePoint Server 2013](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SharePointServer2013Trial?tab=Overview) | Microsoft SharePoint Server 2013 zkušební verze na Windows Server 2012 Datacenter a Visual Studio 2017 edice community. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Zkušební verzi serveru SharePoint Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SharePointServer2016Trial?tab=Overview) | Microsoft SharePoint Server 2016 zkušební verze na Windows Server 2016 Datacenter. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 v systému Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2?tab=Overview) | SQL Server 2014 Service Pack 2. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 v systému Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databáze platforma pro inteligentní, zvláště důležité aplikace. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 vývojáře v systému Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016?tab=Overview) | Verze SQL Server 2016 SP1 vývojáře pro transakční, data sklady, business intelligence a analýzy úloh. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Systém SQL Server 2016 SP1 Express v systému Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | Expresní verze SQL Server 2016 SP1 | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise na systém Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databáze platforma pro inteligentní, zvláště důležité aplikace. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 v systému Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2?tab=Overview) | SQL Server 2014 Service Pack 2.  **Stažení požadované:** IaaS rozšíření systému SQL. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 v systému Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databáze platforma pro inteligentní, zvláště důležité aplikace. **Stažení požadované:** IaaS rozšíření systému SQL. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 vývojáře v systému Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016?tab=Overview) | Verze SQL Server 2016 SP1 vývojáře pro transakční, data sklady, business intelligence a analýzy úloh.  **Stažení požadované:** IaaS rozšíření systému SQL. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Systém SQL Server 2016 SP1 Express v systému Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | Verze SQL Server 2016 SP1 Express. **Stažení požadované:** IaaS rozšíření systému SQL. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise na systém Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databáze platforma pro inteligentní, zvláště důležité aplikace.  **Stažení požadované:** IaaS rozšíření systému SQL. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) | Podnikové řešení, které jsou jednoduché nasadit nákladově efektivní, zaměřené na aplikace a zaměřenou na uživatele. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.abantecart?tab=Overview) | Otevřete elektronické obchodování zdroj nákupní košík. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.activemq?tab=Overview) | Otevřete zprostředkovatele zpráv zdroje v jazyce Java. | Bitnami |
@@ -154,18 +156,22 @@ Zásobník Microsoft Azure podporuje následující položky Azure marketplace:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine prodeje CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compact marketingu, prodej a zákazníků aplikace služby. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS a webový portál programu, který vytvoří dynamické weby.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Otevřete systému CRM zdroj: mobilní, sociální a Gamified. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Kontrolní bod vSEC Správa zabezpečení](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Kontrolní bod vSEC nabízí pokročilé, víceúrovňová threat prevence k ochraně před malwarem a sofistikované hrozbami zákazníka prostředky v Azure. | Check Point |
 | ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatizovat Chef](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Vytvoření, nasazení a správě s Chef automatizovat, průběžné platformu automatizace. | Software Chef, Inc |
-| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Klára" s backports jádra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview) | Debian GNU/Linux je jednou z nejčastěji používané distribucích systému Linux. | credativ |
+| ![](media/azure-stack-marketplace-azure-items/coreos.png) | [Kontejner Linux podle CoreOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Kontejner Linux je distribuce Linux moderní a minimální poskytuje snadný způsob, jak spouštět kontejnery, Správa clusterů a bezproblémově aktualizovat vaše servery – výpočetní všechny součásti, které umožňují skladu škálování. | CoreOS |
+| ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server je nejoblíbenější Linux na světě pro cloudové prostředí. | Canonical |
+| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Klára"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux je jednou z nejčastěji používané distribucích systému Linux. | credativ |
+| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Stretch"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian9?tab=Overview) | Debian GNU/Linux je jednou z nejčastěji používané distribucích systému Linux. | credativ |
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [Přepínač ADC obsahu nástroje pro vyrovnávání zatížení loadMaster](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kemptech.vlm-azure?tab=Overview) | Vyrovnávání zatížení vrstvy 4 7 aplikace doručení řadiče (ADC), přepínače obsahu a Traffic Manageru. | KEMP Technologies, Inc. |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [Na základě centOS 6.9](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased69?tab=Overview) | Této distribuce systému Linux je založena na CentOS a poskytuje neautorizovaný Wave softwaru. | Podvodný Wave softwaru (dříve OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [Na základě centOS 7.3](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased73?tab=Overview) | Této distribuce systému Linux je založena na CentOS a poskytuje neautorizovaný Wave softwaru. | Podvodný Wave softwaru (dříve OpenLogic) |
+| ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [Na základě centOS 7.4](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased74?tab=Overview) | Této distribuce systému Linux je založena na CentOS a poskytuje neautorizovaný Wave softwaru. | Podvodný Wave softwaru (dříve OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription?tab=Overview) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription?tab=Overview) | Třídy nejvhodnější otevřete správu infrastruktury zdroje. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Hloubkové zabezpečení agenta pro Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Trend Micro hluboké Security rozšíření pro Linux. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agent hloubkové zabezpečení pro Windows](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Trend Micro hluboké Security rozšíření pro Windows. | Trend Micro |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Nástroj ZeroDown softwaru](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | Nástroj v7.1 ZeroDown softwaru - migrovat + HA. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Nástroj ZeroDown softwaru](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | Nástroj v7.1 ZeroDown softwaru - migrovat + HA. | ZeroDown softwaru |
 
 
 ### <a name="next-steps"></a>Další kroky
-[Stažení položku marketplace.](azure-stack-download-azure-marketplace-item.md)
-
+[Stažení položku Marketplace.](azure-stack-download-azure-marketplace-item.md)
