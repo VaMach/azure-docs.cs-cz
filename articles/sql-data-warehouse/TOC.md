@@ -5,7 +5,7 @@
 
 # Začínáme
 
-## [Kurz pro začátečníky](sql-data-warehouse-get-started-tutorial.md)
+## [Kurz k načítání dat](load-data-from-azure-blob-storage-using-polybase.md)
 ## [Kurz k elastickým dotazům](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Osvědčené postupy](sql-data-warehouse-best-practices.md)
 ## [Správa](sql-data-warehouse-overview-manage.md)
