@@ -16,9 +16,8 @@
 ### [4. Monitorování a diagnostika](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Kontejnerizace existující aplikace v .NET
-### [1. Vytvoření zabezpečeného clusteru v Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2. Nasazení aplikace .NET pomocí Docker Compose](service-fabric-host-app-in-a-container.md)
-### [3. Monitorování kontejneru](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1. Nasazení aplikace .NET pomocí Docker Compose](service-fabric-host-app-in-a-container.md)
+### [2. Monitorování kontejneru](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Vytvoření aplikace typu kontejner pro Linux
 ### [1. Vytvoření imagí kontejneru](service-fabric-tutorial-create-container-images.md)
@@ -284,7 +283,6 @@
 ## Vytvoření a správa clusterů
 ### Clustery v Azure
 #### Vytvořit
-##### [Vytvoření vašeho prvního clusteru v Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Měřítko
