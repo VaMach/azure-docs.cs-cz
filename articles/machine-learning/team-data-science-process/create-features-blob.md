@@ -4,7 +4,7 @@ description: "Postup vytvoření funkce pro data, která je uložená v kontejne
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Vytvoření funkcí pro data služby Azure Blob Storage pomocí knihovny Pandas
 Tento dokument ukazuje, jak vytvořit funkcí pro data, která je uložená v pomocí kontejneru objektů blob v Azure [Pandas](http://pandas.pydata.org/) balíček Python. Po osnovy jak načíst data do rámečku data Panda, ukazuje, jak vygenerovat kategorií funkce pomocí skriptů Python s hodnotami indikátoru a přihrádkování funkce.
@@ -31,9 +31,9 @@ To **nabídky** odkazy na témata, které popisují, jak vytvořit funkce pro da
 Tento článek předpokládá, že jste vytvořili účet úložiště objektů blob v Azure a jsou uloženy vaše data existuje. Pokud budete potřebovat pokyny k nastavení účtu, najdete v části [vytvoření účtu úložiště Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Načíst data do rámečku Pandas dat
-Abyste mohli prozkoumat a upravit datovou sadu, se musí stáhnout ze zdroje blob do místního souboru, který lze načíst v rámci Pandas data. Tady jsou kroky provést tento postup:
+Chcete-li prozkoumat a pracovat s datovou sadu, stáhnou se ze zdroje blob do místního souboru. Pak můžete načtěte do rámečku Pandas data. Tady jsou kroky provést tento postup:
 
-1. Stahování dat z Azure blob s následujícím kódem ukázkové Python pomocí služby objektů blob. Nahraďte konkrétní hodnoty proměnné v kódu níže:
+1. Stahování dat z Azure blob s následujícím kódem ukázkové Python pomocí služby objektů blob. Nahraďte konkrétní hodnoty proměnné v následujícím kódem:
    
         from azure.storage.blob import BlobService
         import tables
@@ -60,7 +60,7 @@ Nyní jste připraveni k data prozkoumat a generování funkce pro tuto datovou 
 ## <a name="blob-featuregen"></a>Funkce generování
 V následujících dvou částech ukazují, jak vygenerovat kategorií funkce s hodnotami indikátoru a přihrádkování funkcí pomocí skriptů Python.
 
-### <a name="blob-countfeature"></a>Hodnota ukazatele na základě funkce generování
+### <a name="blob-countfeature"></a>Generování funkce na základě hodnota indikátoru
 Kategorií funkce lze vytvořit následujícím způsobem:
 
 1. Zkontrolujte distribuci sloupci kategorií:
@@ -80,7 +80,7 @@ Kategorií funkce lze vytvořit následujícím způsobem:
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
 ### <a name="blob-binningfeature"></a>Přihrádkování funkce generování
-Pro generování binned funkce, budeme postupovat takto:
+Pro generování binned funkce, postupujte takto:
 
 1. Přidat posloupnost sloupce, které chcete bin je číselný sloupec
    
@@ -93,8 +93,8 @@ Pro generování binned funkce, budeme postupovat takto:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="sql-featuregen"></a>Zápis dat zpět do objektu blob Azure a využívají v Azure Machine Learning
-Poté, co jste prozkoumali data a vytvořili nezbytné funkce, můžete nahrát data (vzorkovat nebo featurized) do Azure blob a využívat v Azure Machine Learning pomocí následujících kroků: Další funkce můžete vytvářet v Azure Machine Learning Studio také.
+## <a name="sql-featuregen"></a>Zápis dat zpět do objektu blob Azure využívat v Azure Machine Learning
+Tato data v Azure Machine Learning, že jste využili, vzorků nebo featurized, nahrát data do Azure blob. Další funkce lze vytvořit v Azure Machine Learning Studio také. Následující kroky ukazují, jak chcete nahrát data:
 
 1. Zápis dat rámečku k místnímu souboru.
    
@@ -120,7 +120,7 @@ Poté, co jste prozkoumali data a vytvořili nezbytné funkce, můžete nahrát 
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Nyní lze číst data z objektu blob pomocí Azure Machine Learning [importovat Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) modulu, jak je znázorněno na obrazovce níže:
+3. Nyní lze číst data z objektu blob pomocí Azure Machine Learning [importovat Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) modulu, jak je znázorněno na následujícím snímku obrazovky:
 
 ![Čtečka objektů blob](./media/data-blob/reader_blob.png)
 

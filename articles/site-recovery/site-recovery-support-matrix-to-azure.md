@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery matici podpory pro replikaci z místního do Azure
 
@@ -145,6 +145,7 @@ Více síťovými Kartami | Ano | Ano
 Rezervovaná IP adresa | Ano | Ano
 IPv4 | Ano | Ano
 Zachovat zdrojové IP adresy | Ano | Ano
+Virtuální síť koncové body služby (brány firewall úložiště Azure a virtuální sítě) | Ne | Ne
 
 
 ## <a name="support-for-storage"></a>Podpora pro úložiště
@@ -188,9 +189,11 @@ GRS | Ano | Ano
 RA-GRS | Ano | Ano
 Studeného úložiště | Ne | Ne
 Horkého úložiště| Ne | Ne
+Objekty blob bloku | Ne | Ne
 Šifrování v rest(SSE)| Ano | Ano
 Storage úrovně Premium | Ano | Ano
 Import a export služby | Ne | Ne
+Virtuální síť koncové body služby (brány firewall úložiště Azure a virtuální sítě) nakonfigurované na úložiště v cíli účet nebo účet úložiště používá k ukládání replikaci dat do mezipaměti | Ne | Ne
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Podpora pro Azure výpočetní konfigurace

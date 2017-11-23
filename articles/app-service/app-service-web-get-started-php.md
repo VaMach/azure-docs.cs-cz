@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 929c8e3bd8e180148897c4a7808a90f5ca614c4e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 2f5c295468e5bb54d14b81d52b9ad4b41fcafa81
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Vytvoření webové aplikace v PHP v Azure
 
@@ -33,8 +33,8 @@ Následující postup můžete použít v případě počítačů Mac, Windows n
 
 K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
-* [Nainstalovat Git](https://git-scm.com/).
-* [Nainstalovat PHP](https://php.net).
+* <a href="https://git-scm.com/" target="_blank">Nainstalovat Git</a>.
+* <a href="https://php.net" target="_blank">Nainstalovat PHP</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

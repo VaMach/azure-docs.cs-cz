@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 19518ad8dc2d697f1716750adc3f0ad7d7f8a875
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobslužné služby v Azure AD podrobné informace pro vytvoření nového hesla
 
@@ -207,7 +207,7 @@ Příklad: Existují čtyři správci v prostředí. Správce A resetuje heslo p
 
 ## <a name="on-premises-integration"></a>Místní integrace
 
-Je-li instalovat, konfigurovat a povolit Azure AD Connect, máte následující další možnosti pro místní integrace. Pokud tyto možnosti jsou šedě, pak zpětný zápis nebyla nakonfigurována správně. Další informace najdete v tématu [konfigurace zpětný zápis hesla](active-directory-passwords-writeback.md#configuring-password-writeback).
+Je-li instalovat, konfigurovat a povolit Azure AD Connect, máte následující další možnosti pro místní integrace. Pokud tyto možnosti jsou šedě, pak zpětný zápis nebyla nakonfigurována správně. Další informace najdete v tématu [konfigurace zpětný zápis hesla](active-directory-passwords-writeback.md#configure-password-writeback).
 
 ![Zpětný zápis][Writeback]
 
@@ -217,7 +217,7 @@ Tato stránka obsahuje rychlý stav klienta pro zpětný zápis místní jednu z
 * Azure AD je online a připojený k vašeho klienta místní zpětný zápis. Ale vypadá nainstalovaná verze služby Azure AD Connect je zastaralý. Vezměte v úvahu [upgrade Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) zajistit, že máte nejnovější funkce možností připojení a důležitých oprav chyb.
 * Bohužel jsme nemůže zjistit stav klienta místní zpětný zápis, protože je zastaralý. nainstalovaná verze služby Azure AD Connect. [Upgrade Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) moct Kontrola stavu připojení.
 * Bohužel vypadá nemůžeme připojit k vaší místní zpětného zápisu klienta hned teď. [Řešení potíží s Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) k obnovení připojení.
-* Bohužel nelze připojit do klienta zpětný zápis místní protože zpětný zápis hesla není správně nakonfigurován. [Nakonfigurovat zpětný zápis hesla](active-directory-passwords-writeback.md#configuring-password-writeback) k obnovení připojení.
+* Bohužel nelze připojit do klienta zpětný zápis místní protože zpětný zápis hesla není správně nakonfigurován. [Nakonfigurovat zpětný zápis hesla](active-directory-passwords-writeback.md#configure-password-writeback) k obnovení připojení.
 * Bohužel vypadá nemůžeme připojit k vaší místní zpětného zápisu klienta hned teď. Může to být způsobeno dočasnou problémy na naší straně. Pokud potíže potrvají, [řešení potíží s Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) k obnovení připojení.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Zpětný zápis hesla do místního adresáře
@@ -248,12 +248,12 @@ Tento scénář otestovat, přejděte na http://passwordreset.microsoftonline.co
 
 ## <a name="next-steps"></a>Další kroky
 
-Následující články poskytují další informace týkající se prostřednictvím služby Azure AD pro vytvoření nového hesla:
+V následujících článcích najdete další informace o resetování hesla prostřednictvím Azure AD:
 
 * [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
 * [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
 * [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
-* [Máte licencování otázku?](active-directory-passwords-licensing.md)
+* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
 * [Jaká data používá SSPR a která data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
 * [Které metody ověřování jsou dostupné pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Jaké jsou možnosti zásad se SSPR?](active-directory-passwords-policy.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/15/2017
 ms.author: eamono
-ms.openlocfilehash: 7cd6bebcaa1ed263b9854f7307cf22fba006748e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0ddd31f7ce2217c1136eccd391bb30bd4461c3e5
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-watcher-tasks-enable-you-to-respond-to-events-happening-in-your-local-datacenter"></a>Úlohy sledovacího procesu služby Azure Automation umožňují reakce na události děje ve vašem místním datovém centru
 
@@ -64,7 +64,7 @@ K dokončení tohoto kurzu, je potřeba splnit následující nástroje.
 ## <a name="create-a-watcher-task-that-selects-the-watcher-runbook-and-action-runbook"></a>Vytvoření úlohy sledovacího procesu, která vybere sadu runbook sledovacích procesů a runbook akce
 1.  Otevřete stránku úlohy sledovacího procesu a klikněte na tlačítko "Přidat úloha sledovacích procesů".
 ![Seznam sledovacích procesů z uživatelského rozhraní](media/automation-watchers-tutorial/WatchersList.png)
-2.  Zadejte "Sledovat nové soubory" jako název.
+2.  Jako název zadejte "WatchMyFolder".
 3.  Vyberte "Konfigurace sledovacích procesů" a vyberte sadu runbook "Sledovat-NewFile".
 ![Konfigurace sledovacích procesů z uživatelského rozhraní](media/automation-watchers-tutorial/ConfigureWatcher.png)
 4.  Zadejte následující hodnoty pro parametry:
@@ -86,7 +86,7 @@ K dokončení tohoto kurzu, je potřeba splnit následující nástroje.
 2.  Přidáte nový textový soubor do složky, která je monitorována úlohou sledovacích procesů.
 
 ## <a name="inspect-the-output-from-the-action-runbook-that-shows-information-on-the-new-file"></a>Zkontrolujte výstup z runbooku akce, které se zobrazují informace o nový soubor
-1.  Klikněte na úlohu sledovacích procesů "Sledovat nové soubory"
+1.  Klikněte na úlohu sledovacích procesů pro "WatchMyFolder"
 2.  Klikněte na "zobrazení sledovacího procesu datové proudy" zda sledovacích procesů nalezen nový soubor a spuštění runbooku akce.
 3.  Klikněte na "Zobrazit sledovacích procesů akce úlohy" zobrazíte akce úlohy runbooku.
 ![Akce úlohy sledovacího procesu z uživatelského rozhraní](media/automation-watchers-tutorial/WatcherActionJobs.png)

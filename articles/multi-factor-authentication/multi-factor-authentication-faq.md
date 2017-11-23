@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Časté otázky k Azure Multi-Factor Authentication
 Tyto nejčastější dotazy odpovídá na běžné otázky o Azure Multi-Factor Authentication a pomocí služby Multi-Factor Authentication. Ho je rozdělena do otázky týkající se služby obecně fakturace modely, koncových uživatelů a řešení potíží.
@@ -95,7 +95,7 @@ Pokud má adresáře *za ověřování* poskytovatele ověřování Azure Multi-
 
 **Otázka: Moje organizace má používat a synchronizace identit, které pomocí ověřování Azure Multi-Factor Authentication?**
 
-Pokud vaše organizace používá model fakturace na základě spotřeby, Azure Active Directory je volitelné, ale nejsou vyžadována. Pokud váš poskytovatel MFA není propojený s klient služby Azure AD, lze nasadit pouze Server Azure Multi-Factor Authentication nebo SDK Azure Multi-Factor Authentication na místě.
+Pokud vaše organizace používá model fakturace na základě spotřeby, Azure Active Directory je volitelné, ale nejsou vyžadována. Pokud váš poskytovatel MFA není propojený s klient služby Azure AD, lze nasadit pouze Server Azure Multi-Factor Authentication na místě.
 
 Azure Active Directory není nutná pro model licence licence jsou přidány do klienta Azure AD při nákupu a přiřaďte je pro uživatele v adresáři.
 

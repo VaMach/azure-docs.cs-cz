@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b035c232bb58d653960190d4974cc3789d55a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Vyprázdnění koncového bodu Azure CDN
 ## <a name="overview"></a>Přehled
@@ -68,7 +68,7 @@ Tento kurz vás provede vyprazdňování prostředky ze všech uzlů edge koncov
     ![Vyprázdnění tlačítko](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Žádosti o vymazání trvat přibližně 2 – 3 minut zpracovat **Azure CDN společnosti Verizon** (Standard a Premium) a přibližně 7 minut s **Azure CDN společnosti Akamai**.  Limit souběžných 50 mazání požadavky v daném okamžiku je Azure CDN. 
+> Žádosti o vymazání trvat přibližně 2 – 3 minut zpracovat **Azure CDN společnosti Verizon** (Standard a Premium) a přibližně 7 minut s **Azure CDN společnosti Akamai**.  Limit souběžných 50 mazání požadavky v daném okamžiku na úrovni profilu je Azure CDN. 
 > 
 > 
 

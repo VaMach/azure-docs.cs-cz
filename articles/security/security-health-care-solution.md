@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 34ded89eb7fe005be2341f96e5b883ec73d9e0a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e91a55f3fc5923545b6855a31514afb4a62bc361
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Praktické příručka k návrhu bezpečné zdravotní péče řešení v Azure
 Startupy stavu odvětví, systémových integrátorech (si), nezávislí dodavatelé softwaru (ISV) a zdravotnická zvažování přesunu do Azure hledáte pokyny, které pomáhá je začlenit ovládacích prvků zabezpečení ke splnění svých povinností dodržování předpisů.

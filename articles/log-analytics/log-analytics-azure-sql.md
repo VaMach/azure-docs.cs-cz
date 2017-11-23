@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorování databáze Azure SQL pomocí analýzy SQL Azure (Preview) v analýzy protokolů
 
@@ -29,6 +29,11 @@ ms.lasthandoff: 11/07/2017
 Toto řešení preview v současné době podporuje až 150 000 databází SQL Azure a 5 000 SQL elastické fondy podle pracovního prostoru.
 
 Řešení Azure SQL Analytics, jako je k dispozici pro analýzy protokolů, ostatní pomáhá sledovat a přijímání oznámení o stavu vašich prostředků Azure – v tomto případě Azure SQL Database. Microsoft Azure SQL Database je služba škálovatelné relační databáze, který nabízí známé jako SQL Server – funkce pro aplikace běžící v cloudu Azure. Analýzy protokolů umožňuje shromažďovat, korelaci a vizualizovat strukturovaná i nestrukturovaná data.
+
+Praktické přehled o používání řešení analýzy SQL Azure a příklady typických scénářů použití naleznete v tématu vložené video:
+          
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
 
 ## <a name="connected-sources"></a>Připojené zdroje
 
@@ -115,7 +120,7 @@ Každý perspektivy obsahuje souhrny předplatné, server, elastický fond a úr
 
 ### <a name="intelligent-insights-report"></a>Inteligentní Statistika sestavy
 
-Všechny inteligentního Statistika shromážděných můžete vizualizována a přístupné prostřednictvím perspektivy statistiky. 
+Azure SQL Database [inteligentního Statistika](../sql-database/sql-database-intelligent-insights.md) umožňuje víte co se děje s výkon databáze. Všechny inteligentního Statistika shromážděných můžete vizualizována a přístupné prostřednictvím perspektivy statistiky.
 
 ![Přehled analýzy Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 

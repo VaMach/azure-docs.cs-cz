@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: f97a1e7977e28765985991ba9e38ed4618e00bda
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 884935074dd19304f72fc761c89fc7ae8fd5b3a3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Co je služba Azure SQL Database? 
 
@@ -133,7 +133,7 @@ Služba SQL Database je jediný databázový systém, který nabízí ochranu ci
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integrace s Azure Active Directory a vícefaktorové ověřování
 
-SQL Database umožňuje centrálně spravovat identity uživatele databáze a dalších služeb Microsoft pomocí [integrace s Azure Active Directory](sql-database-aad-authentication.md). Tato možnost zjednodušuje správu oprávnění a zvyšuje zabezpečení. Azure Active Directory podporuje [vícefaktorové ověřování (MFA)](sql-database-ssms-mfa-authentication.md) pro zvýšení zabezpečení dat a aplikací při současné podpoře jednotného přihlašování.
+SQL Database umožňuje centrálně spravovat identity uživatele databáze a dalších služeb Microsoft pomocí [integrace s Azure Active Directory](sql-database-aad-authentication.md). Tato možnost zjednodušuje správu oprávnění a zvyšuje zabezpečení. Azure Active Directory podporuje [služby Multi-Factor authentication](sql-database-ssms-mfa-authentication.md) (MFA) a zvýšit zabezpečení dat a aplikací při podpora jeden proces přihlášení.
 
 ### <a name="compliance-certification"></a>Certifikace dodržování předpisů
 

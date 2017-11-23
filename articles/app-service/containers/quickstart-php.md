@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 34da73e5feca1782f3e107fd30d268df4f9883d8
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Vytvoření webové aplikace PHP ve službě App Service v systému Linux
 
@@ -33,8 +33,8 @@ Následující postup můžete použít v případě počítačů Mac, Windows n
 
 K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
-* [Nainstalovat Git](https://git-scm.com/).
-* [Nainstalovat PHP](https://php.net).
+* <a href="https://git-scm.com/" target="_blank">Nainstalovat Git</a>.
+* <a href="https://php.net" target="_blank">Nainstalovat PHP</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

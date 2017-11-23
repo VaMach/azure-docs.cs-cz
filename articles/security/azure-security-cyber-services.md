@@ -4,7 +4,7 @@ description: "Článek poskytuje základní informace o službách společnosti 
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 925ba3c6-fe35-413a-98ea-e1a1461f3022
 ms.service: security
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 058cda5dd2e7e8026410a14d08d5714ce92822cd
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Služby společnosti Microsoft v počítačové bezpečnosti
-Microsoft Services poskytuje komplexní přístup k zabezpečení, identity a počítačové bezpečnosti. Microsoft Services poskytuje pole, zabezpečení a Identity služby napříč strategie, plánování, implementaci a probíhající podpory, který pomůže zákazníkům Enterprise implementovat řešení pro komplexní zabezpečení, které zarovnané s svých strategických cílů.
+Microsoft Services poskytuje komplexní přístup k zabezpečení, identity a počítačové bezpečnosti. Microsoft Services poskytuje řadu zabezpečení a identita služby v rámci strategie, plánování, implementaci a probíhající podpory. Tyto služby může pomoci podnikoví zákazníci implementovat řešení pro komplexní zabezpečení, které jsou zarovnané s svých strategických cílů.
 
 S přímým přístupem k produktu vývojové týmy můžeme vytvářet řešení, které se integrují a zlepšit nejnovější zabezpečení a identity funkce našich produktů a pomáhá chránit obchodní a implementovat inovace našeho zákazníka.
 

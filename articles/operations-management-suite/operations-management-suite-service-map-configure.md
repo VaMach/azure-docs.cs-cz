@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c56a59a648b90c59e6e1a5e0fb6a26cd1dba4dfc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurace mapy služeb v Operations Management Suite
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Můžete ji zobrazit vaše servery co možná z nich – jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy a porty mezi všechny architektura připojení TCP se žádná konfigurace vyžaduje, než instalace agenta.
@@ -228,14 +228,14 @@ Správce můžete odinstalovat závislostí agenta pro Windows pomocí ovládac�
 Správce můžete také spouštět %Programfiles%\Microsoft závislostí Agent\Uninstall.exe odinstalace agenta závislostí.
 
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Odinstalujte agenta závislostí v systému Linux
-Úplně odinstalujte agenta závislostí ze systému Linux, je nutné odebrat vlastní agent a konektor, který je automaticky nainstalován s agentem. Můžete odinstalovat i pomocí následujících jeden příkaz.
+Pomocí následujícího příkazu můžete odinstalovat agenta závislostí ze systému Linux.
 <br>RHEL, CentOs nebo Oracle:
 ```
-sudo rpm -e dependency-agent dependency-agent-connector
+sudo rpm -e dependency-agent
 ```
 Ubuntu:
 ```
-sudo dpkg --purge dependency-agent dependency-agent-connector
+sudo dpkg --purge dependency-agent
 ```
 ## <a name="troubleshooting"></a>Řešení potíží
 Pokud máte potíže s instalaci nebo spuštění mapy služeb, v této části vám může pomoct. Pokud stále nemůžete vyřešit problém, kontaktujte prosím Microsoft Support.

@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: fb4b2bc0ad24c5c697f1fd5d4cc77585d52baa33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ace6a78fe08d1dbabeb435d76e686ba9c61aac99
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="personnel-security-ps"></a>Zabezpečení pracovníků (PS)
+
 > [!NOTE]
 > Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
-    
-    
-
-# <a name="personnel-security-ps"></a>Zabezpečení pracovníků (PS)
 
 ## <a name="nist-800-53-control-ps-1"></a>Ovládací prvek NIST 800-53 PS-1
 

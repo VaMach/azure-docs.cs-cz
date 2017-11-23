@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: fe2a302a32f1b9ec474416704c6cb613cd384a0e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 0cd447a52964578dd2348a786dd57a45ea87516e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Pomocí projektu Azure Machine Learning Workbench úložiště Git
 Tento dokument obsahuje informace o tom, jak Azure Machine Learning Workbench používá Git k poskytování správy verzí a zkontrolujte reprodukovatelnosti v experimentu vědecké účely data. K dispozici jsou také pokyny o tom, jak přidružit projektu cloudové úložiště Git.
@@ -121,7 +121,7 @@ Spuštěním tohoto příkazu jsme bude snímek pořízený v případě, že ko
 ## <a name="step-6-use-the-master-branch"></a>Krok 6. Použít hlavní větve
 Jeden způsob, jak zabránit omylem došlo ke ztrátě aktuálního stavu projektu, je potvrzení projektu do hlavní větve (nebo všechny větve, které jste sami vytvořili) úložiště Git. Git můžete použít přímo z příkazového řádku (nebo vaše dalších oblíbených Git klienta nástroje) k provozu na hlavní větve. Například:
 
-```
+```sh
 # check status to make sure you are on the master branch (or branch of your choice)
 $ git status
 

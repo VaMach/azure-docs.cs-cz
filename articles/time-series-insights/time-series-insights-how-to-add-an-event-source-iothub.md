@@ -1,5 +1,5 @@
 ---
-title: "Postup přidání zdroje událostí služby IoT Hub do prostředí Azure časové řady Insights | Microsoft Docs"
+title: "Postup přidání zdroje událostí služby IoT Hub ke statistice řady čas Azure | Microsoft Docs"
 description: "Tento článek popisuje postup přidání připojeném do služby IoT Hub pro vaše prostředí časové řady Statistika zdroje událostí"
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 29b617422810480f5f8cbcd5b78ebe8605734bbf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 11/21/2017
+ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Postup přidání zdroje událostí služby IoT Hub časové řady Přehled prostředí
 Tento článek popisuje, jak pomocí portálu Azure přidejte zdroje událostí, který čte data ze služby IoT Hub do vašeho prostředí Statistika časové řady.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>Pokročilé zásady API Management
 Toto téma obsahuje odkaz pro následující zásady služby API Management. Informace o přidávání a konfiguraci zásad najdete v tématu [zásady ve službě API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -268,26 +268,26 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 -   **Zásady obory:** všechny obory  
   
 ##  <a name="LimitConcurrency"></a>Limit souběžnosti  
- `limit-concurrency` Zásady zabrání závorkách zásady provádění více než určitý počet požadavků v daném okamžiku. Při překračující prahovou hodnotu, se přidají nové žádosti o do fronty, dokud nedosáhnete délka maximální fronty. Po vyčerpání fronty nové požadavky selže okamžitě.
+ `limit-concurrency` Zásady zabrání závorkách zásady provádění více než určitý počet požadavků v daném okamžiku. Při překročení toto číslo, selže nové žádosti o okamžitě s kódem stavu 429 – příliš mnoho požadavků.
   
 ###  <a name="LimitConcurrencyStatement"></a>Prohlášení o zásadách  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>Příklady  
   
-####  <a name="ChooseExample"></a>Příklad  
+#### <a name="example"></a>Příklad  
  Následující příklad ukazuje, jak omezit počet požadavků, které jsou předávány back-end na základě hodnoty proměnné kontextu.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -307,10 +307,8 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 |---------------|-----------------|--------------|--------------|  
 |key|Řetězec. Výraz povoleny. Určuje obor souběžnosti. Může být sdílen více zásad.|Ano|Není k dispozici|  
 |maximální počet|Celé číslo. Určuje maximální počet požadavků, které jsou k zadání zásad.|Ano|Není k dispozici|  
-|timeout|Celé číslo. Výraz povoleny. Určuje počet sekund žádost měli počkat, zadejte obor než selže s "429 příliš mnoho požadavků"|Ne|Infinity|  
-|Maximální délka fronty|Celé číslo. Výraz povoleny. Určuje maximální fronty. Příchozí žádosti o pokusu zadejte tuto zásadu bude ukončena s "429 příliš mnoho požadavků" okamžitě po vyčerpání fronty.|Ne|Infinity|  
   
-###  <a name="ChooseUsage"></a>Využití  
+### <a name="usage"></a>Využití  
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** vstupní, výstupní a back-end, při chybě  

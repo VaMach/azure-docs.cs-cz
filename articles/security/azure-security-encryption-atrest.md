@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Šifrování na Rest Azure dat
-Existuje několik nástrojů v rámci Microsoft Azure k ochraně dat podle potřeb zabezpečení a dodržování předpisů vaší společnosti. Tento dokument se zaměřuje na tom, jak dat je chráněn v klidovém stavu uložených v Microsoft Azure, popisuje různé součásti, kteří se k implementaci ochrany dat a zkontroluje výhody a nevýhody ochrany přístupy různých správy klíčů. 
+Existuje několik nástrojů v rámci Microsoft Azure k ochraně dat podle potřeb zabezpečení a dodržování předpisů vaší společnosti. Tento dokument se zaměřuje na:
+- Jak ochranu dat v klidovém stavu uložených v Microsoft Azure
+- Popisuje různé součásti, kteří se k implementaci ochrany dat,
+- Zkontroluje výhody a nevýhody ochrany přístupy různých správy klíčů. 
 
 Šifrování v klidovém stavu je běžné požadavek na zabezpečení. Výhodou Microsoft Azure je, že organizace můžete dosáhnout šifrování v klidovém stavu bez nutnosti náklady na implementaci a správu a riziko řešení pro správu vlastní klíče. Organizace mají možnost umožníte Azure, úplně spravovat šifrování v klidovém stavu. Kromě toho organizace mají různé možnosti, jak podrobně spravovat šifrování nebo šifrovací klíče.
 
@@ -40,7 +43,7 @@ Výše popisuje běžné základní prvky šifrování v klidovém stavu. V prax
 
 Šifrování v klidovém stavu slouží k útočník zabránit v přístupu k nešifrovaná data zajištěním data se šifrují, pokud na disku. Pokud by útočník získat pevný disk s takovým zašifrovaná data a žádný přístup k šifrovacím klíčům, útočník by ohrožení dat bez velké problémy. V takové situaci by musel pokus útoky na šifrovaná data, která jsou mnohem složitější a využívání prostředků než přístup k bez šifrování dat na pevném disku. Z tohoto důvodu šifrování v klidovém stavu se důrazně doporučuje a je vyžadováno pro mnoho společností s vysokou prioritou. 
 
-V některých případech šifrování v klidovém stavu vyžaduje i organizace potřebu úsilí data vedení a dodržování předpisů. Předpisy odvětví a government, jako je HIPAA, PCI a FedRAMP a mezinárodní zákonné požadavky, rozvrhněte konkrétní bezpečnostní opatření prostřednictvím zásady týkající se požadavků na ochranu a šifrování dat a procesy. Pro mnoho těchto nařízení šifrování v klidovém stavu je povinné míra vyžadované pro správu dat odpovídající a ochrany. 
+V některých případech šifrování v klidovém stavu vyžaduje i organizace potřebu úsilí data vedení a dodržování předpisů. Předpisy odvětví a government, jako je HIPAA, PCI a FedRAMP, rozvrhněte konkrétní bezpečnostní opatření týkající se požadavků na ochranu a šifrování dat. Pro mnoho těchto nařízení šifrování v klidovém stavu je povinné míra vyžadované pro správu dat odpovídající a ochrany. 
 
 Kromě dodržování předpisů a zákonné požadavky by měl být šifrování v klidovém stavu považována za schopností obrany do hloubky platformy. I když společnost Microsoft poskytuje kompatibilní platformu pro služby, aplikace a data, komplexní zařízením a fyzického zabezpečení dat řízení přístupu a auditování, je důležité zajistit další bezpečnostní opatření "překrývající se" v případě, jedním z zabezpečení měří selže. Šifrování v klidovém stavu poskytuje tyto další mechanismus obrany.
 
@@ -62,7 +65,7 @@ Oprávnění k použití klíče uložené v Azure Key Vault, Správa nebo k nim
 
 ### <a name="key-hierarchy"></a>Klíče hierarchie
 
-Obvykle více než jeden šifrovací klíč se používá v šifrování v implementaci rest. Asymetrické šifrování je užitečné pro navázání vztahu důvěryhodnosti a ověřování, které jsou potřebné pro přístup ke klíčům a správu. Symetrické šifrování je efektivnější pro hromadné šifrování a dešifrování, povolení pro silnější šifrování a lepší výkon. Kromě toho omezené použití jediný šifrovací klíč snižuje riziko ohrožení zabezpečení klíč a náklady na znova šifrovat při klíč se musí nahradit. Pokud chcete využít výhod asymetrické a symetrického šifrování a omezení použití a ohrožení jeden klíč, použijte Azure šifrování v rest modely klíče hierarchie skládá z následujících typů klíčů:
+Více než jeden šifrovací klíč se používá v šifrování v implementaci rest. Asymetrické šifrování je užitečné pro navázání vztahu důvěryhodnosti a ověřování, které jsou potřebné pro přístup ke klíčům a správu. Symetrické šifrování je efektivnější pro hromadné šifrování a dešifrování, povolení pro silnější šifrování a lepší výkon. Kromě toho omezené použití jediný šifrovací klíč snižuje riziko ohrožení zabezpečení klíč a náklady na znova šifrovat při klíč se musí nahradit. Pokud chcete využít výhod asymetrické a symetrického šifrování a omezení použití a ohrožení jeden klíč, použijte na modely rest Azure šifrování klíče hierarchie skládá z následujících typů klíčů:
 
 - **Datový šifrovací klíč (DEK)** – symetrického klíče AES256 použitý k šifrování oddílu nebo datového bloku.  Jediný zdroj, může mít mnoho oddíly a mnoho šifrovací klíče dat. Šifrování každého bloku dat pomocí jiného klíče umožňuje analysis kryptografických útoků obtížnější. Přístup k DEKs je potřeba prostředků instanci zprostředkovatele nebo aplikace, která je šifrování a dešifrování konkrétní blok. Při klíč DEK se nahradí nový klíč pouze data v jeho přidružené bloku musí být znovu zašifrovat pomocí nového klíče.
 - **Šifrovací klíč klíčů (KEK)** – asymetrické šifrovací klíč použitý k šifrování dat šifrovací klíče. Použití klíče šifrovací klíč umožňuje šifrovací klíče dat, se šifrovat a řídí. Typ entity, která má přístup k klíče KEK může být jiný než typ entity, která vyžaduje klíč DEK. To umožňuje entity k zprostředkovatel přístup k klíč DEK za účelem zajištění omezený přístup každý klíč DEK na konkrétní oddíl. Vzhledem k tomu, že se klíč KEK je potřeba k dešifrování DEKs, je jediný bod, podle kterého DEKs můžete efektivně odstranit, odstranění klíče kek efektivně klíče KEK.
@@ -85,9 +88,9 @@ Existují tři scénáře pro šifrování na straně serveru:
     - Zákazník ovládací prvky klíče přes Azure Key Vault
     - Funkce úplné cloudu
 
-- Šifrování na straně serveru pomocí klíče spravovaného zákazníkem na řídí hardwaru
+- Šifrování na straně serveru pomocí klíče spravovaného zákazníkem na řízenou zákazníka hardwaru
     - Azure zprostředkovatelé prostředků provádět operace šifrování a dešifrování
-    - Ovládací prvky klíče zákazníků na zákazníka řídí hardwaru
+    - Zákazník ovládací prvky klíče na řízenou zákazníka hardwaru
     - Funkce úplné cloudu
 
 Pro šifrování na straně klienta zvažte následující:
@@ -100,7 +103,7 @@ Modely šifrování podporovaných v Azure rozdělit do dvou hlavních skupin: "
 
 ### <a name="client-encryption-model"></a>Model klientského šifrování
 
-Modelu šifrování klienta odkazuje na šifrování, které se provádí mimo poskytovatele prostředků nebo Azure pomocí služby nebo volající aplikace. Šifrování lze provést podle aplikace služby v Azure nebo podle aplikace běžící v datovém centru zákazníka. V obou případech, při využití tohoto modelu šifrování poskytovatel prostředků Azure obdrží zašifrovaný objekt blob dat bez možnost dešifrování dat, jakýmkoli způsobem nebo mít přístup k šifrovacím klíčům. V tomto modelu správy klíčů se provádí volání aplikace nebo služby a je zcela neprůhledný ve službě Azure.
+Modelu šifrování klienta odkazuje na šifrování, které se provádí mimo poskytovatele prostředků nebo Azure pomocí služby nebo volající aplikace. Šifrování lze provést podle aplikace služby v Azure nebo podle aplikace běžící v datovém centru zákazníka. V obou případech, při využití tohoto modelu šifrování poskytovatel prostředků Azure obdrží zašifrovaný objekt blob dat bez možnost dešifrování dat, jakýmkoli způsobem nebo mít přístup k šifrovacím klíčům. V tomto modelu správy klíčů se provádí volání aplikace nebo služby a je plné krytí ve službě Azure.
 
 ![Klient](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
@@ -114,15 +117,15 @@ Modely šifrování na straně serveru naleznete šifrování, které se provád
 
 Každý z šifrování na straně serveru v rest modely znamená odlišné charakteristiky správy klíčů. To zahrnuje kde a jak šifrovací klíče jsou vytvořeny a uloženy a také přístup modely a postupy střídání klíče. 
 
-#### <a name="server-side-encryption-using-service-managed-keys"></a>Šifrování na straně serveru pomocí služby spravovat klíče
+#### <a name="server-side-encryption-using-service-managed-keys"></a>Šifrování na straně serveru pomocí klíče spravované služby
 
 Pro mnoho zákazníků základní požadavek je potřeba zajistit, že data se šifrují vždy, když je v klidovém stavu. Šifrování na straně serveru pomocí klíče spravované služby tento model umožňuje umožňující zákazníkům označit konkrétní prostředek (účet úložiště, databáze SQL atd.) pro šifrování a ponechat všechny aspekty správy klíčů, jako je například klíče vystavování, otáčení a zálohování společnosti Microsoft. Většina služeb Azure, která podporují šifrování v klidovém stavu obvykle podporují tento model zpracování úloh správy šifrovací klíče do Azure. Poskytovatel prostředků Azure vytvoří klíče, umístí je do zabezpečeného úložiště a načte je podle potřeby. To znamená, že služba má úplný přístup k klíče a služba má plnou kontrolu nad Správa životního cyklu přihlašovacích údajů.
 
 ![Spravované](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
-Šifrování na straně serveru pomocí služby spravovat klíče proto rychle řeší nutné, abyste měli šifrování v klidovém stavu s nízkou režii zákazníka. Pokud je k dispozici zákazník obvykle otevře portál Azure pro cílové předplatné a zprostředkovatele prostředků a zkontroluje pole, která určuje, že mu data chcete šifrovat. V některých šifrování na straně serveru správci prostředků službou je ve výchozím nastavení spravovaných klíčů. 
+Šifrování na straně serveru pomocí služby spravovat klíče proto rychle řeší nutné, abyste měli šifrování v klidovém stavu s nízkou režii zákazníka. Pokud je k dispozici zákazník obvykle otevře portál Azure pro cílové předplatné a zprostředkovatele prostředků a zkontroluje pole, která určuje, že mu data chcete šifrovat. V některých správci prostředků je ve výchozím nastavení šifrování na straně serveru s klíči spravované služby. 
 
-Šifrování na straně serveru s klíči spravovaný Microsoftem implikují služba má úplný přístup k ukládání a spravuje klíče. Když někteří zákazníci chtít spravovat klíče, protože jejich pocit, že se můžete zajistit vyšší úroveň zabezpečení, náklady a riziko spojené s řešením vlastní úložiště klíčů měli byste zvážit při vyhodnocování tohoto modelu. V mnoha případech může organizace určit omezení prostředků nebo rizika v případě místních řešení může větší než riziko správu cloudu šifrování na rest klíče.  Tento model ale nemusí být dostatečné pro organizace, které mají požadavky k řízení životního cyklu šifrovacích klíčů na vytvoření nebo mít různé pracovníky správu šifrovacích klíčů služby než ty, které Správa služby (tj, odloučení správu klíčů z celkové modelu správy pro službu).
+Služba má úplný přístup k ukládání a spravuje klíče položku seznamu šifrování na straně serveru s klíči spravovaný společností Microsoft. Když někteří zákazníci chtít spravovat klíče, protože jejich pocit, že se můžete zajistit vyšší úroveň zabezpečení, náklady a riziko spojené s řešením vlastní úložiště klíčů měli byste zvážit při vyhodnocování tohoto modelu. V mnoha případech může organizace určit omezení prostředků nebo rizika v případě místních řešení může větší než riziko správu cloudu šifrování na rest klíče.  Tento model ale nemusí být dostatečné pro organizace, které mají požadavky k řízení životního cyklu šifrovacích klíčů na vytvoření nebo mít různé pracovníky správu šifrovacích klíčů služby než ty, které Správa služby (tj, odloučení správu klíčů z celkové modelu správy pro službu).
 
 ##### <a name="key-access"></a>Přístup ke klíčům
 
@@ -145,7 +148,7 @@ Pro scénáře, kde je požadavek na šifrování dat na rest a řízení zákaz
 
 ##### <a name="key-access"></a>Přístup ke klíčům
 
-Model šifrování na straně serveru s zákazníka spravované klíče v Azure Key Vault zahrnuje službu přístup ke klíčům k šifrování a dešifrování podle potřeby. Šifrování klíče rest dalo přistupovat ke službě přes zásadu řízení přístupu k udělení přístupu identitu této služby pro příjem klíč. Služba Azure systémem jménem přidružené předplatné se dá nakonfigurovat s identitou pro služby v rámci tohoto předplatného. Služba umožňuje provádět ověřování Azure Active Directory a přijímat ověřovací token identifikace sám sebe jako funguje jménem předplatné služby. Tento token mohou být poskytovány do Key Vault získat klíč, který byl udělen přístup.
+Model šifrování na straně serveru s zákazníka spravované klíče v Azure Key Vault zahrnuje službu přístup ke klíčům k šifrování a dešifrování podle potřeby. Šifrování klíče rest dalo přistupovat ke službě přes zásadu řízení přístupu. Tato zásada uděluje přístup identity služby pro příjem klíč. Služba Azure systémem jménem přidružené předplatné se dá nakonfigurovat s identitou v tomto předplatném. Služba umožňuje provádět ověřování Azure Active Directory a přijímat ověřovací token identifikace sám sebe jako funguje jménem předplatné služby. Tento token mohou být poskytovány do Key Vault získat klíč, který byl udělen přístup.
 
 Pro operace pomocí šifrovacích klíčů, identity služby je možné udělit přístup k některému z následujících operací: dešifrovat, šifrování, unwrapKey, wrapKey, ověřte, přihlášení, získání, seznam, aktualizace, vytvořit, importovat, odstranit, zálohování a obnovení.
 
@@ -201,7 +204,7 @@ Cloudové služby společnosti Microsoft se používají v všechny tři cloudu 
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Šifrování v klidovém stavu pro zákazníky SaaS
 
-Software jako služba (SaaS) Zákazníci obvykle třeba šifrování v klidovém stavu povolený nebo k dispozici v jednotlivých služeb. Služby Office 365 obsahuje celou řadu možností pro zákazníky a ověřte nebo povolit šifrování v klidovém stavu. Informace o službách Office 365 najdete v části technologií pro šifrování dat pro Office 365.
+Software jako služba (SaaS) Zákazníci obvykle třeba šifrování v klidovém stavu povolený nebo k dispozici v jednotlivých služeb. Office 365 obsahuje celou řadu možností pro zákazníky a ověřte nebo povolit šifrování v klidovém stavu. Informace o službách Office 365 najdete v části technologií pro šifrování dat pro Office 365.
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Šifrování v klidovém stavu pro zákazníky PaaS
 

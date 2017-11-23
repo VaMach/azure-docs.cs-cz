@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 86011610885ff913bfd70aa46389e4e39989d0a3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="intelligent-insights"></a>Užitečné přehledy
 
@@ -49,8 +49,6 @@ Po problémem snížení výkonu je zjišťován z více zjištěnou metriky pom
 
 Metriky lze měřit a zjistit problémy s výkonem databáze jsou založené na dotazu trvání, časový limit žádosti, dobu čekání nadměrné a chybných požadavků. Další informace o metrikách najdete v tématu [detekce metriky](sql-database-intelligent-insights.md#detection-metrics) část tohoto dokumentu.
 
-## <a name="degradations-detected"></a>Degradations zjistil
-
 Identifikovat SQL Database degradations výkonu se zaznamenávají v protokolu diagnostiky s inteligentního položky, které se skládají z následujících vlastností:
 
 | Vlastnost             | Podrobnosti              |
@@ -64,36 +62,49 @@ Identifikovat SQL Database degradations výkonu se zaznamenávají v protokolu d
 | Analýza hlavní příčiny | Příčina analýzu problém uvedený v čitelném formátu. Některé insights může obsahovat doporučení zlepšování výkonu, kde je to možné. |
 |||
 
-## <a name="issues-state-lifecycle-active-verifying-and-complete"></a>Problémy stavu životního cyklu: "Aktivní", "Ověření" a "Dokončeno"
-
 Problémy s výkonem, které se zaznamenávají v protokolu diagnostiky jsou označeny s jedním ze tří stavů životního cyklu k problému: "Aktivní", "Ověření" a "Dokončeno". Po výkonu se zjistí problém, a jak dlouho má považovala přítomný pomocí vestavěné inteligentní SQL Database, problém je označené jako "Aktivní". Pokud problém považuje za zmírnit, je ověřen a problém stav se změní na "Ověření". Po vestavěné inteligentní SQL Database za tento problém vyřešit, je stav problém označení "Dokončeno".
 
 ## <a name="use-intelligent-insights"></a>Použití inteligentního statistiky
 
-Můžete odeslat protokolu diagnostiky inteligentního Insights k analýze protokolů Azure, Azure Event Hubs a Azure Storage. Další informace najdete v tématu [Azure SQL Database metrik a protokolování diagnostiky](sql-database-metrics-diag-logging.md). Po odeslání protokolu na jednu z těchto cílů, protokol slouží pro vlastní zobrazení výstrah a monitorování vývoj pomocí společnosti Microsoft nebo nástroje třetích stran. 
+Inteligentní Insights je inteligentní výkonu protokolu diagnostiky. Lze ji integrovat s dalšími produkty pro používání a konkrétní aplikace takové jsou analýzy protokolů Azure, Azure Event Hubs a Azure storage nebo třetích stran produkty. 
 
-Další informace o řešení potíží s pomocí inteligentního Statistika výkonu databáze SQL najdete v tématu [problémy s výkonem řešení potíží s Azure SQL Database pomocí služby inteligentního Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Inteligentní Statistika společně s Azure Log Analytics se obvykle používá k zobrazení statistiky prostřednictvím webového prohlížeče a možná jedním z nejjednodušších způsobů, jak získat vypnout základů s použitím produktu. Inteligentní Statistika společně s Azure Event Hubs se obvykle používá ke konfiguraci vlastního monitorování a výstrah scénáře. Inteligentní Statistika společně s Azure storage se obvykle používá pro vývoj vlastních aplikací, například je například vytváření vlastních sestav, nebo možná data archivace a načtení.
 
-## <a name="built-in-intelligent-insights-analytics-with-log-analytics"></a>Předdefinované analytics inteligentního Statistika s analýzy protokolů 
+Integrace inteligentního Statistika s jinými produkty Azure Log Analytics centra událostí Azure, Azure storage nebo produkty třetích stran pro používání se provádí prostřednictvím první povolení inteligentního Statistika protokolu (SQLInsights) a potom nakonfigurovat Inteligentní Statistika protokolovat data tok dat do jednoho z těchto produktů. Další informace o povolení protokolování inteligentního přehledy a konfigurace dat protokolu odesílání náročné produktu najdete v tématu [Azure SQL Database metrik a protokolování diagnostiky](sql-database-metrics-diag-logging.md). 
 
-Analýzy protokolů řešení poskytuje sestavy a výstrahy možnosti nad diagnostiky inteligentního Statistika protokolovat data. Následující příklad ukazuje zprávu o inteligentního statistiky v Azure SQL Analytics:
+Praktické informace o použití inteligentního Statistika s Azure Log Analytics a příklady typických scénářů použití naleznete v tématu vložené video:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
+
+Inteligentní Statistika září v zjišťování a řešení potíží s výkonem databáze SQL. Abyste mohli používat inteligentní Insights řešení potíží s výkonem databáze SQL, najdete v části [problémy s výkonem řešení potíží s Azure SQL Database pomocí služby inteligentního Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## <a name="set-up-intelligent-insights-with-log-analytics"></a>Nastavení inteligentního Statistika s analýzy protokolů 
+
+Přihlaste se analýza řešení poskytuje sestavy a výstrahy možnosti nad inteligentního Statistika protokolu diagnostiky data.
+
+Pro použití inteligentního Statistika s analýzy protokolů, konfigurace dat protokolu inteligentního Statistika Streamovat k analýze protokolů, najdete v článku [Azure SQL Database metrik a protokolování diagnostiky](sql-database-metrics-diag-logging.md). 
+
+Následující příklad ukazuje zprávu o inteligentního statistiky v Azure SQL Analytics:
 
 ![Inteligentní Statistika sestavy](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 Protokol diagnostiky inteligentního Statistika konfigurován tak, aby datový proud data analýzy SQL, můžete [monitorovat SQL database pomocí SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="custom-integrations-of-intelligent-insights-log"></a>Vlastní integrace inteligentního Statistika protokolu
-
-Další informace o vlastní zobrazení výstrah a monitorování vývoj pomocí Microsoft nebo jiných nástrojů, najdete v části [použití protokolu diagnostiky výkonu databáze inteligentního Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-
 ## <a name="set-up-intelligent-insights-with-event-hubs"></a>Nastavení inteligentního Statistika službou Event Hubs
 
-- Konfigurace inteligentního Insights k vysílání datového proudu protokolu událostí do centra událostí najdete v tématu [protokolů diagnostiky Azure datový proud do centra událostí](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
-- Pro vlastní monitorování a generování výstrah pomocí služby Event Hubs naleznete v části [co dělat s metriky a Diagnostika přihlásí Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
+Použití inteligentního Statistika službou Event Hubs, konfigurace dat protokolu inteligentního Statistika tok dat do centra událostí, najdete v článku [protokolů diagnostiky Azure datový proud do centra událostí](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+
+Nastavit vlastní monitorování a generování výstrah pomocí služby Event Hubs naleznete v části [co dělat s metriky a Diagnostika přihlásí Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
 
 ## <a name="set-up-intelligent-insights-with-storage"></a>Nastavení inteligentního Statistika s úložištěm
 
-- Nastavení inteligentního Statistika ukládaly s úložiště naleznete v tématu [datový proud do Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+Použití inteligentního Statistika s Storage, konfigurace dat protokolu inteligentního Statistika tok dat do úložiště, najdete v článku [datový proud do Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+
+## <a name="custom-integrations-of-intelligent-insights-log"></a>Vlastní integrace inteligentního Statistika protokolu
+
+Použití inteligentního Statistika s nástroji třetích stran nebo pro vlastní zobrazení výstrah a monitorování vývoj naleznete v části [použití protokolu diagnostiky výkonu databáze inteligentního Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="detection-metrics"></a>Detekce metriky
 

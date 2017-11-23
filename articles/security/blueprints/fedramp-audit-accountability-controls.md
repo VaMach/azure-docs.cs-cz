@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 9d377f7cd66a29233f36640e5ee3be5f33cc87da
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 83ef9cbb7652bf128d7758237a8e6fbeed6c6565
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="audit-and-accountability-au"></a>Audit a odpovědnosti za (AU)
+
 > [!NOTE]
 > Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
-    
-    
-
-# <a name="audit-and-accountability-au"></a>Audit a odpovědnosti za (AU)
 
 ## <a name="nist-800-53-control-au-1"></a>Ovládací prvek NIST 800-53 AU-1
 

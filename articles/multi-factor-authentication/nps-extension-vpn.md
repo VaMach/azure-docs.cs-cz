@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: bf83952b29759ff601685513ace31828404c7b1a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrovat Azure MFA infrastrukturu sítě VPN pomocí rozšíření Network Policy Server pro Azure.
 
@@ -108,7 +108,7 @@ Informace o instalaci role Síťové zásady a přístup ke službě služby Win
 
 ### <a name="azure-mfa-license"></a>Licence Azure MFA
 
-Licence je vyžadována pro Azure Multi-Factor Authentication, a je k dispozici prostřednictvím Azure AD Premium, Enterprise Mobility + zabezpečení nebo předplatné služby Multi-Factor Authentication. Na základě spotřeby licencí Azure MFA jako ověřování licencí vázaných na uživatele nebo nejsou kompatibilní s příponou serveru NPS. Další informace najdete v tématu [jak získat Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Pro účely testování můžete použít zkušební verzi předplatného.
+Licence je vyžadována pro Azure Multi-Factor Authentication, a je k dispozici prostřednictvím Azure AD Premium, Enterprise Mobility + Security nebo samostatné licence služby Multi-Factor Authentication. Na základě spotřeby licencí Azure MFA jako ověřování licencí vázaných na uživatele nebo nejsou kompatibilní s příponou serveru NPS. Další informace najdete v tématu [jak získat Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). Pro účely testování můžete použít zkušební verzi předplatného.
 
 ### <a name="windows-server-software"></a>Software Windows serveru
 

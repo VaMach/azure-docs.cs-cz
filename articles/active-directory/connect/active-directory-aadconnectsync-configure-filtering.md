@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1adf5935e7fc01a24db6ada3c4cfe4ac0a4d55
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronizace Azure AD Connect: Konfigurace filtrování
 Pomocí filtrování můžete řídit objektů, které se zobrazí v Azure Active Directory (Azure AD) z vašeho místního adresáře. Výchozí konfigurace trvá všechny objekty ve všech doménách v doménové struktuře nakonfigurované. Obecně platí to je doporučená konfigurace. Uživatele, kteří používají úlohami Office 365, jako je Exchange Online a Skype pro firmy, těžit z úplný seznam globální adresy tak, aby jejich odeslání e-mailu a volání everyone. U výchozí konfigurace že by měla mít stejné prostředí, které se mají s implementace místní Exchange nebo Lync.
@@ -296,7 +296,14 @@ Nyní je čas Plánovač znovu zapnout.
 ## <a name="group-based-filtering"></a>Filtrování podle skupiny
 Můžete nakonfigurovat na základě skupiny poprvé nainstalujte Azure AD Connect pomocí filtrování [vlastní instalaci](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Je určený pro pilotní nasazení místo, kam chcete jenom malé sadu objektů, které chcete synchronizovat. Pokud zakážete filtrování podle skupiny, nelze znovu povolena. Má *nepodporuje* pro použití na základě skupiny filtrování ve vlastní konfiguraci. Je podporován pouze pro tuto funkci konfigurovat pomocí Průvodce instalací. Když jste dokončili vašeho pilotního nasazení, použijte jednu z dalších možností filtrování v tomto tématu. Pokud používáte založené na organizační jednotku filtrování ve spojení s filtrování podle skupiny, musí být zahrnut OU(s), kde se nachází skupiny a její členy.
 
-Při synchronizaci více doménových struktur služby AD, můžete nakonfigurovat filtrování podle skupiny zadáním jiné skupiny pro každý konektor AD. Nechcete-li synchronizovat uživatele ve službě AD jednu doménovou strukturu a stejného uživatele obsahuje jednu nebo více odpovídající FSP (cizí objekt zabezpečení) objekty v jiných doménových strukturách AD, ujistěte se, že objekt uživatele a všechny jeho odpovídající objekty FSP jsou v rámci filtrování podle skupiny rozsah. Pokud jeden nebo více objektů FSP jsou vyloučená, a to na základě skupiny filtrování, objekt uživatele nebudou synchronizovány do Azure AD.
+Při synchronizaci více doménových struktur služby AD, můžete nakonfigurovat filtrování podle skupiny zadáním jiné skupiny pro každý konektor AD. Nechcete-li synchronizovat uživatele ve službě AD jeden doménové struktury a stejného uživatele obsahuje jednu nebo více odpovídající objekty v jiných doménových strukturách AD, musíte zajistit, že objekt uživatele a všechny jeho odpovídající objekty jsou v rámci na základě skupiny filtrování oboru. Příklady:
+
+* Máte uživatel v jedné doménové struktuře, která má odpovídající objekt FSP (cizí objekt zabezpečení) v jiné doménové struktuře. Oba objekty musí být v rámci na základě skupiny filtrování oboru. Uživatel, jinak nebudou synchronizovány do Azure AD.
+
+* Máte uživatel v jedné doménové struktuře, která má odpovídající účet prostředků (například propojená poštovní schránka) v jiné doménové struktuře. Navíc jste nakonfigurovali Azure AD Connect propojení uživatele s účtem prostředků. Oba objekty musí být v rámci na základě skupiny filtrování oboru. Uživatel, jinak nebudou synchronizovány do Azure AD.
+
+* Máte-li uživatel v jedné doménové struktuře, která má odpovídající e-mailu kontaktujte v jiné doménové struktuře. Navíc jste nakonfigurovali Azure AD Connect propojení uživatele s e-mailu kontakt. Oba objekty musí být v rámci na základě skupiny filtrování oboru. Uživatel, jinak nebudou synchronizovány do Azure AD.
+
 
 ## <a name="next-steps"></a>Další kroky
 - Další informace o [synchronizace Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfigurace.

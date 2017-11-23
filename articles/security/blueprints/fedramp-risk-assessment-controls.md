@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 3f435efc54a007723c07e1e9a51c90785f683e2e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="risk-assessment-ra"></a>Vyhodnocení rizik (RA)
+
 > [!NOTE]
 > Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
-    
-    
-
-# <a name="risk-assessment-ra"></a>Vyhodnocení rizik (RA)
 
 ## <a name="nist-800-53-control-ra-1"></a>Ovládací prvek NIST 800-53 RA-1
 

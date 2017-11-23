@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 2a6517ed6d25b11dc9082a6fc1fbfeb41fad576a
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="configuration-management-cm"></a>Správa konfigurací (CM)
+
 > [!NOTE]
 > Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
-
-# <a name="configuration-management-cm"></a>Správa konfigurací (CM)
 
 ## <a name="nist-800-53-control-cm-1"></a>Ovládací prvek NIST 800-53 CM-1
 
