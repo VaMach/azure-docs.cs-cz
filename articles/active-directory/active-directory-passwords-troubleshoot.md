@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c4942dbeccbd97c6bfc0f2c086e8d6091f6ed64
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 2ee92359056abec660ac45acbeb72016554e89bf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Řešení potíží s samoobslužné resetování hesla
 
@@ -31,7 +31,7 @@ Pokud máte problémy s samoobslužné resetování hesla, položky, které nás
 | Chyba | Podrobnosti | Technické podrobnosti |
 | --- | --- | --- |
 | TenantSSPRFlagDisabled = 9 | Je nám líto <br> V tuto chvíli nelze obnovit heslo, protože váš správce zakázal resetování hesla pro vaši organizaci. Neexistuje žádná další akce, které můžete provést k vyřešení této situaci. Obraťte se na správce a požádejte jej o povolení této funkce. Další informace, přečtěte si [nápovědy, zapomenuté heslo Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: Zjistili jsme, že nebylo správce povoleno vytvoření nového hesla. Obraťte se na správce a požádejte jej o povolení obnovení hesla pro vaši organizaci. |
-| WritebackNotEnabled = 10 |Je nám líto <br> V tuto chvíli nelze obnovit heslo, protože správce nepovolil nezbytné služby pro vaši organizaci. Neexistuje žádná další akce, které můžete provést k vyřešení této situaci. Obraťte se na správce a požádejte je o Zkontrolujte konfiguraci vaší organizace. Další informace o této potřebné služby, přečtěte si [konfigurace zpětný zápis hesla](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-writeback#configuring-password-writeback). | SSPR_0010: Zjistili jsme, že nebylo povoleno zpětný zápis hesla. Obraťte se na správce a požádejte jej o povolení zpětného zápisu hesla. |
+| WritebackNotEnabled = 10 |Je nám líto <br> V tuto chvíli nelze obnovit heslo, protože správce nepovolil nezbytné služby pro vaši organizaci. Neexistuje žádná další akce, které můžete provést k vyřešení této situaci. Obraťte se na správce a požádejte je o Zkontrolujte konfiguraci vaší organizace. Další informace o této potřebné služby, přečtěte si [konfigurace zpětný zápis hesla](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-writeback#configure-password-writeback). | SSPR_0010: Zjistili jsme, že nebylo povoleno zpětný zápis hesla. Obraťte se na správce a požádejte jej o povolení zpětného zápisu hesla. |
 | SsprNotEnabledInUserPolicy = 11 | Je nám líto  <br> V tuto chvíli nelze obnovit heslo, protože váš správce nenakonfiguroval resetování hesla pro vaši organizaci. Neexistuje žádná další akce, které můžete provést k vyřešení této situaci. Obraťte se na správce a požádejte je, aby konfigurace resetování hesla. Další informace o heslo resetování konfigurace najdete v článku [rychlý start: resetování hesla pomocí samoobslužné služby Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started). | SSPR_0011: Vaše organizace nedefinoval zásady resetování hesel. Obraťte se na správce a požádejte je o definovat zásady resetování hesel. |
 | UserNotLicensed = 12 | Je nám líto <br> V tuto chvíli nelze obnovit heslo, protože požadované licence chybí z vaší organizace. Neexistuje žádná další akce, které můžete provést k vyřešení této situaci. Obraťte se na správce a požádejte je o zkontrolujte přiřazení licence. Další informace o licencování najdete v článku [resetovat Licensing požadavky pro hesla pomocí samoobslužné služby Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-licensing). | SSPR_0012: Vaše organizace nemá požadované licence nezbytným k provedení resetování hesla. Obraťte se na správce a požádejte je o kontrolu přiřazením licencí. |
 | UserNotMemberOfScopedAccessGroup = 13 | Je nám líto <br> V tuto chvíli nelze obnovit heslo, protože váš správce nenakonfiguroval váš účet se má použít resetování hesla. Neexistuje žádná další akce, které můžete provést k vyřešení této situaci. Obraťte se na správce a požádejte je o konfiguraci vašeho účtu pro resetování hesla. Další informace o konfiguraci účtu pro resetování hesla najdete v článku [resetování hesla pro uživatele zavádět](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-best-practices). | SSPR_0012: Nejste členem skupiny povolen pro resetování hesla. Obraťte se na správce a požadavek, který se má přidat do skupiny. |

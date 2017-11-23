@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: e752e18f6d579633c0cf553224ae7617b774ad0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 697ea4aedb025f4bff4b88df3370ed7c12e7b0d7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Vytvoření aplikace MongoDB s Angular a službou Azure Cosmos DB – Část 5: Připojení ke službě Azure Cosmos DB pomocí Mongoose
 
@@ -73,7 +73,7 @@ Před zahájením této části kurzu se ujistěte, že jste dokončili kroky v 
     const env = require('./env/environment');
 
     // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
+    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
     function connect() {
      mongoose.set('debug', true);
@@ -91,26 +91,24 @@ Před zahájením této části kurzu se ujistěte, že jste dokončili kroky v 
 5. Ze souboru mongo.js víme, že potřebujeme zahrnout `dbName`, `key` a `cosmosPort`, proto do souboru **environment.js** zkopírujte následující kód.
 
     ```javascript
-    const cosmosPort = 1234; // replace with your port
-    const dbName = 'your-cosmos-db-name-goes-here';
-    const key = 'your-key-goes-here';
-
+    // TODO: replace if yours are different
     module.exports = {
-      dbName,
-      key,
-      cosmosPort
+      accountName: 'your-cosmosdb-account-name-goes-here',
+      databaseName: 'admin', 
+      key: 'your-key-goes-here',
+      port: 10255
     };
     ```
 
 ## <a name="get-the-connection-string-information"></a>Získání informací o připojovacím řetězci
 
-1. V souboru **environment.js** změňte hodnotu `cosmosPort` na 10255. (Port služby Cosmos DB najdete na webu Azure Portal.)
+1. V souboru **environment.js** změňte hodnotu `port` na 10255. (Port služby Cosmos DB najdete na webu Azure Portal.)
 
     ```javascript
-    const cosmosPort = 10255;
+    const port = 10255;
     ```
 
-2. V souboru **environment.js** změňte hodnotu `dbName` na název účtu služby Azure Cosmos DB, který jste vytvořili v [kroku 4](tutorial-develop-mongodb-nodejs-part4.md). 
+2. V souboru **environment.js** změňte hodnotu `accountName` na název účtu služby Azure Cosmos DB, který jste vytvořili v [kroku 4](tutorial-develop-mongodb-nodejs-part4.md). 
 
 3. Načtěte primární klíč pro účet služby Azure Cosmos DB pomocí následujícího příkazu rozhraní příkazového řádku v okně terminálu: 
 
@@ -216,7 +214,7 @@ Před zahájením této části kurzu se ujistěte, že jste dokončili kroky v 
     function getHeroes(req, res) {
     ```
 
-    Pojďme si krátce projít a zkontrolovat řetěz volání, který tu máme. Nejprve přejdeme do souboru `index.js`, který nastaví server Node a upozornění, které nastaví a definuje naše trasy. Náš soubor routes.js pak sdělí službě hero, že má získat naše funkce, jako je getHeroes, a předá požadavek a odpověď. Soubor hero.service.js teď vezme model a připojí se k Mongo a pak při zavolání provede funkci getHeroes a vrátí odpověď 200. Ta pak projde řetězem zpět. 
+    Pojďme si krátce projít a zkontrolovat řetěz volání, který tu máme. Nejprve přejdeme do souboru `index.js`, který nastaví server Node a upozornění, které nastaví a definuje naše trasy. Náš soubor routes.js pak sdělí službě hero, že má načíst naše funkce, jako je getHeroes, a předat žádost a odpověď. Soubor hero.service.js teď vezme model a připojí se k Mongo a pak při zavolání provede funkci getHeroes a vrátí odpověď 200. Ta pak projde řetězem zpět. 
 
 ## <a name="run-the-app"></a>Spuštění aplikace
 

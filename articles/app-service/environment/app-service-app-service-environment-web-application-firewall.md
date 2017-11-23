@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: naziml
-ms.openlocfilehash: 4c0e2d649f71d7797efbfe2c8e93ea0c844152df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c218a6fe3857c216bc185c5d3630025f332147b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurace brány Firewall webových aplikací (firewall webových aplikací) pro služby App Service Environment
 ## <a name="overview"></a>Přehled
@@ -27,64 +27,67 @@ Brány firewall webových aplikací, jako [Barracuda firewall webových aplikac�
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>Nastavení
-Pro tento dokument, který bude nakonfigurujeme naše App Service Environment za několik zatížení vyvážit instancí Barracuda firewall webových aplikací, aby pouze provoz z firewall webových aplikací dosáhnout App Service Environment a nebude dostupný z hraniční síti. Azure Traffic Manager jsme bude mít i před naše instancí Barracuda firewall webových aplikací na Vyrovnávání zatížení v rámci datových center Azure a oblastech. Nejvyšší úrovni diagram instalace bude vypadat co jsou uvedeny níže.
+K tomuto dokumentu jsme nakonfigurovat App Service Environment za několik instancí skupinu s vyrovnáváním zatížení Barracuda firewall webových aplikací, aby jenom přenosy z firewall webových aplikací dosáhnout App Service Environment a není přístupný z hraniční síti. Máme také Azure Traffic Manager před instancí Barracuda firewall webových aplikací na Vyrovnávání zatížení v rámci datových center Azure a oblastech. Vysokoúrovňový diagram instalace by vypadat podobně jako na následujícím obrázku:
 
 ![Architektura][Architecture] 
 
-> Poznámka: se zavedením [ILB podporu pro App Service Environment](app-service-environment-with-internal-load-balancer.md), můžete nakonfigurovat App Service Environment pro nepřístupný od DMZ a být k dispozici pro privátní sítě. 
+> [!NOTE]
+> Se zavedením [ILB podporu pro App Service Environment](app-service-environment-with-internal-load-balancer.md), můžete nakonfigurovat App Service Environment pro nepřístupný od DMZ a být k dispozici pro privátní sítě. 
 > 
 > 
 
 ## <a name="configuring-your-app-service-environment"></a>Konfigurace prostředí služby App Service
-Konfigurace služby App Service Environment najdete v tématu [naší dokumentaci](app-service-web-how-to-create-an-app-service-environment.md) na předmět. Jakmile máte vytvoření služby App Service Environment, můžete vytvořit webové aplikace, aplikace API a [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md) v tomto prostředí, které budou všechny chráněné za firewall webových aplikací nakonfigurujeme v další části.
+Konfigurace služby App Service Environment, najdete v tématu [naší dokumentaci](app-service-web-how-to-create-an-app-service-environment.md) na předmět. Jakmile máte vytvoření služby App Service Environment, můžete vytvořit webové aplikace, aplikace API, a [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md) v tomto prostředí, které budou všechny chráněné za firewall webových aplikací nakonfigurujeme v další části.
 
 ## <a name="configuring-your-barracuda-waf-cloud-service"></a>Konfigurace Barracuda firewall webových aplikací cloudové služby
-Barracuda má [podrobné článku](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) na nasazení jeho firewall webových aplikací na virtuálním počítači v Azure. Ale vzhledem k tomu, že nám chcete redundance a není způsobit jediný bod selhání, které chcete nasadit alespoň 2 virtuální počítače instance firewall webových aplikací do stejné cloudové služby při těchto pokynů.
+Barracuda má [podrobné článku](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) na nasazení jeho firewall webových aplikací na virtuálním počítači v Azure. Ale vzhledem k tomu, že nám chcete redundance a není způsobit jediný bod selhání, které chcete nasadit alespoň dva virtuální počítače instance firewall webových aplikací do stejné cloudové služby při těchto pokynů.
 
 ### <a name="adding-endpoints-to-cloud-service"></a>Přidání koncové body pro cloudové služby
-Jakmile máte 2 nebo více virtuálních počítačů firewall webových aplikací instancí v rámci cloudové služby můžete použít [portál Azure](https://portal.azure.com/) přidat HTTP a HTTPS koncové body, které se používají v aplikaci, jak je znázorněno na obrázku níže.
+Jakmile máte 2 nebo více virtuálních počítačů firewall webových aplikací instancí v rámci cloudové služby, můžete použít [portál Azure](https://portal.azure.com/) přidat HTTP a HTTPS koncové body, které se používají v aplikaci, jak je znázorněno na následujícím obrázku:
 
 ![Konfigurace koncového bodu][ConfigureEndpoint]
 
-Pokud vaše aplikace používat ostatní koncové body, ujistěte se, že jste přidejte je do tohoto seznamu také. 
+Pokud vaše aplikace používat ostatní koncové body, ujistěte se, že jste je přidejte do tohoto seznamu také. 
 
 ### <a name="configuring-barracuda-waf-through-its-management-portal"></a>Konfigurace Barracuda firewall webových aplikací prostřednictvím portálu pro správu
-Barracuda firewall webových aplikací používá TCP Port 8000 pro konfiguraci prostřednictvím portálu pro správu. Vzhledem k tomu, že máme několik instancí virtuálních počítačů firewall webových aplikací, budete muset sem kroky zopakujte pro každou instanci virtuálního počítače. 
+Barracuda firewall webových aplikací používá TCP Port 8000 pro konfiguraci prostřednictvím portálu pro správu. Pokud máte více instancí virtuálních počítačů firewall webových aplikací, budete muset sem kroky zopakujte pro každou instanci virtuálního počítače. 
 
-> Poznámka: Po dokončení konfigurace firewall webových aplikací odeberte koncový bod TCP/8000 ze všech firewall webových aplikací virtuálních počítačů k lepšímu zabezpečení vašeho firewall webových aplikací.
+> [!NOTE]
+> Jakmile jste hotovi s konfigurací firewall webových aplikací, odeberte ze všech firewall webových aplikací virtuálních počítačů k lepšímu zabezpečení vašeho firewall webových aplikací koncový bod TCP/8000.
 > 
 > 
 
-Přidáte koncový bod správy, jak je znázorněno na obrázku níže ke konfiguraci vaší Barracuda firewall webových aplikací.
+Přidáte koncový bod správy, jak je znázorněno na následujícím obrázku ke konfiguraci vaší Barracuda firewall webových aplikací.
 
 ![Přidání koncového bodu správy][AddManagementEndpoint]
 
-Použijte prohlížeč a přejděte ke koncovému bodu správy v cloudové službě. Pokud cloudové služby je volána test.cloudapp.net, by procházením http://test.cloudapp.net:8000 přístup k tomuto koncovému bodu. Měli byste vidět přihlašovací stránky, jako níže, můžete se přihlásit pomocí přihlašovacích údajů zadaných ve fázi instalace virtuálních počítačů firewall webových aplikací.
+Použijte prohlížeč a přejděte ke koncovému bodu správy v cloudové službě. Pokud cloudové služby je volána test.cloudapp.net, by procházením http://test.cloudapp.net:8000 přístup k tomuto koncovému bodu. Měli byste vidět přihlašovací stránky jako na následujícím obrázku, který vám umožní přihlásit pomocí přihlašovacích údajů, které jste zadali ve fázi instalace virtuálních počítačů firewall webových aplikací.
 
 ![Správa přihlašovací stránky][ManagementLoginPage]
 
-Po přihlášení byste měli vidět řídicí panel jako ten, který nabídne základní statistické údaje o ochranu firewall webových aplikací na obrázku níže.
+Jakmile se přihlásíte, měli byste vidět řídicí panel jako na následujícím obrázku, který představuje základní statistické údaje o ochranu firewall webových aplikací.
 
 ![Řídicí panel správy][ManagementDashboard]
 
-Kliknutím na kartu služby vám umožní nakonfigurovat vaše firewall webových aplikací pro služby, které chrání. Další informace o konfiguraci vašeho Barracuda firewall webových aplikací lze najít [jejich dokumentaci](https://techlib.barracuda.com/waf/getstarted1). V příkladu níže webové aplikace Azure byla nakonfigurována s provozem na protokolu HTTP a HTTPS.
+Kliknutím na **služby** karta vám umožní nakonfigurovat vaše firewall webových aplikací pro služby, které chrání. Další podrobnosti o konfiguraci vašeho Barracuda firewall webových aplikací najdete v tématu [jejich dokumentaci](https://techlib.barracuda.com/waf/getstarted1). V následujícím příkladu má nakonfigurované s provozem na protokolu HTTP a HTTPS webové aplikace Azure.
 
 ![Přidání služeb správy][ManagementAddServices]
 
-> Poznámka: V závislosti na tom, jak jsou nakonfigurované vašich aplikací a jaké funkce jsou používány ve službě App Service Environment, je nutné pro přenos dat pro TCP jiné porty než 80 a 443, například pokud máte instalaci IP SSL pro webovou aplikaci. Seznam síťové porty používané v prostředí App Service naleznete v [řídící příchozí provoz dokumentaci](app-service-app-service-environment-control-inbound-traffic.md) části síťové porty.
+> [!NOTE]
+> V závislosti na tom, jak jsou nakonfigurované vašich aplikací a jaké funkce jsou používány ve službě App Service Environment budete muset dál provoz pro TCP jiné porty než 80 a 443, například pokud máte instalaci IP SSL pro webovou aplikaci. Seznam síťové porty používané v prostředí App Service najdete v tématu [řídící příchozí provoz dokumentaci](app-service-app-service-environment-control-inbound-traffic.md) části síťové porty.
 > 
 > 
 
 ## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Konfigurace Microsoft Azure Traffic Manageru (volitelné)
-Pokud vaše aplikace je k dispozici v několika oblastech, pak budete chtít načíst vyvážit je za [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). K tomu můžete přidat koncový bod v [portál Azure classic](https://manage.azure.com) pomocí název cloudové služby pro vaše firewall webových aplikací v profil služby Traffic Manager, jak je znázorněno na obrázku níže. 
+Pokud vaše aplikace je k dispozici v několika oblastech, pak budete chtít načíst vyvážit je za [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Uděláte to tak, můžete přidat koncový bod v [portál Azure](https://portal.azure.com) pomocí název cloudové služby pro vaše firewall webových aplikací v profil služby Traffic Manager, jak je znázorněno na následujícím obrázku. 
 
 ![Koncový bod Traffic Manager][TrafficManagerEndpoint]
 
-Pokud vaše aplikace vyžaduje ověřování, zajistěte, že abyste měli některé prostředků, která nevyžaduje žádné ověřování pro správce provozu na příkaz ping dostupnosti vaší aplikace. Adresu URL v části konfigurace můžete nakonfigurovat na [portál Azure classic](https://manage.azure.com) jak je uvedeno níže.
+Pokud vaše aplikace vyžaduje ověřování, zajistěte, že abyste měli některé prostředků, která nevyžaduje žádné ověřování pro správce provozu na příkaz ping dostupnosti vaší aplikace. Můžete nakonfigurovat na adresu URL **konfigurace** stránky v [portál Azure](https://portal.azure.com) jak je znázorněno na následujícím obrázku:
 
 ![Konfigurace Traffic Manageru][ConfigureTrafficManager]
 
-Předávání příkazy ping Traffic Manager z vašeho firewall webových aplikací do vaší aplikace, musíte instalační program překlady webu na vaší Barracuda firewall webových aplikací pro přenos dat do vaší aplikace, jak je znázorněno v následujícím příkladu.
+Předávání příkazy ping Traffic Manager z vašeho firewall webových aplikací do vaší aplikace, musíte nastavit překlady webu na vaší Barracuda firewall webových aplikací pro přenos dat do vaší aplikace, jak je znázorněno v následujícím příkladu:
 
 ![Překlady webu][WebsiteTranslations]
 
@@ -95,7 +98,8 @@ Postupujte podle [řídící příchozí provoz dokumentaci](app-service-app-ser
 
 Nahraďte virtuální IP adresa (VIP) vaší firewall webových aplikací cloudové služby SourceAddressPrefix.
 
-> Poznámka: VIP cloudové služby se změní při odstranit a znovu vytvořit Cloudovou službu. Ujistěte se, až to uděláte tak, aktualizujte IP adresu ve skupině prostředků sítě. 
+> [!NOTE]
+> VIP cloudové služby se změní při odstranit a znovu vytvořit Cloudovou službu. Ujistěte se, až to uděláte tak, aktualizujte IP adresu ve skupině prostředků sítě. 
 > 
 > 
 

@@ -4,7 +4,7 @@ description: "Příklady dotazů Hive, které generují funkce v dat uložených
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Vytvoření funkcí pro data v clusteru Hadoop pomocí dotazů Hivu
-Tento dokument ukazuje, jak vytvořit funkcí pro data uložená v clusteru Azure HDInsight Hadoop pomocí dotazů Hive. Tyto dotazy Hive pomocí vložených Hive uživatelsky definovaných funkcí (UDF), skripty, pro které jsou k dispozici.
+# <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Vytvoření funkce pro data v clusteru Hadoop pomocí dotazů Hive
+Tento dokument ukazuje, jak vytvořit funkcí pro data uložená v clusteru Azure HDInsight Hadoop pomocí dotazů Hive. Tyto dotazy Hive pomocí vložených Hive User-Defined funkcí (UDF), skripty, pro které jsou k dispozici.
 
 Operace, které jsou nutné k vytvoření funkce může být náročná na paměť. Výkon dotazů Hive se stane více důležitých v takových případech a lze vylepšit optimalizace určitých parametrů. Ladění z těchto parametrů je popsané v poslední části.
 
@@ -63,7 +63,7 @@ V této části jsou popsány několik příkladů, způsoby, ve kterém může 
 
 
 ### <a name="hive-riskfeature"></a>Rizika kategorií proměnných v binární klasifikace
-V binární klasifikaci je potřeba převést jiné než číselné kategorií proměnné číselnou funkce při modely používá pouze číselné funkce. To se provádí nahrazením každou úroveň jiné než číselné číselné riziko. Tato část uvádí některé obecné dotazy Hive, které výpočet hodnot riziko (pravděpodobnost protokolu) kategorií proměnné.
+V binární klasifikace musí být kategorií proměnné jiné než číselné převedena na číselné funkce při modely používá pouze číselné funkce. Tento převod je potřeba nahraďte každou úroveň jiné než číselné číselné riziko. Tato část uvádí některé obecné dotazy Hive, které výpočet hodnot riziko (pravděpodobnost protokolu) kategorií proměnné.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -134,34 +134,44 @@ Pole, které se používají v tomto dotazu jsou souřadnice GPS vyzvednutí a d
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Matematické vzorce, které vypočítat vzdálenost mezi dvě souřadnice GPS naleznete na <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type skripty</a> lokality, autorem Petr Lapisu. V jeho Javascript, funkce `toRad()` je právě *lat_or_lon*pí/180 *, která převede radiánech stupňů. Zde *lat_or_lon* zeměpisné šířky nebo délky. Vzhledem k tomu, že Hive neposkytuje funkce `atan2`, ale poskytuje funkce `atan`, `atan2` funkce je implementováno modulem `atan` funkce ve výše uvedeném dotazu Hive pomocí definice součástí <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Matematické vzorce, které vypočítat vzdálenost mezi dvě souřadnice GPS naleznete na <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type skripty</a> lokality, autorem Petr Lapisu. V této Javascript, funkce `toRad()` je právě *lat_or_lon*pí/180 *, která převede radiánech stupňů. Zde *lat_or_lon* zeměpisné šířky nebo délky. Vzhledem k tomu, že Hive neposkytuje funkce `atan2`, ale poskytuje funkce `atan`, `atan2` funkce je implementováno modulem `atan` funkce ve výše uvedeném dotazu Hive pomocí definice součástí <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Vytvořit pracovní prostor](./media/create-features-hive/atan2new.png)
 
 Úplný seznam Hive embedded těchto funkcích naleznete v **integrované funkce** části na <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Rozšířené témata: optimalizace počítače parametry zvýšit rychlost dotazu Hive
-Výchozí nastavení parametrů clusteru Hive nemusí být vhodný pro dotazy Hive a data, která jsou zpracování dotazů. V této části probereme některé parametry, které uživatelé mohli vyladit které zlepšit výkon dotazů Hive. Uživatelé musí přidat parametr ladění dotazy před dotazy zpracování data.
+## <a name="tuning"></a>Rozšířené témata: parametry Tune Hive ke zlepšení rychlost dotazu
+Výchozí nastavení parametrů clusteru Hive nemusí být vhodný pro dotazy Hive a data, která jsou zpracování dotazů. Tato část popisuje některé parametry, které uživatelé mohli vyladit ke zlepšení výkonu dotazů Hive. Uživatelé musí přidat parametr ladění dotazy před dotazy zpracování data.
 
-1. **Místo haldy Java**: pro dotazy týkající se propojení rozsáhlých datových sad, nebo zpracování dlouho záznamů, **volné místo haldy** je jednou z běžných chyb. To lze ladit nastavením parametry *mapreduce.map.java.opts* a *mapreduce.task.io.sort.mb* požadované hodnoty. Zde naleznete příklad:
+1. **Místo haldy Java**: pro dotazy týkající se propojení rozsáhlých datových sad, nebo zpracování dlouho záznamů, **volné místo haldy** je jednou z běžných chyb. Tato chyba se vyhnout nastavením parametry *mapreduce.map.java.opts* a *mapreduce.task.io.sort.mb* požadované hodnoty. Zde naleznete příklad:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Tento parametr přiděluje 4GB paměti do prostoru haldy Java a také umožňuje řazení zefektivnit přidělením více paměti pro ni. Je vhodné můžete experimentovat s tyto přidělení, pokud jsou všechny úlohy chyby související s haldy místa.
 
-1. **Velikost bloku systému souborů DFS**: Tento parametr nastaví nejmenší jednotka data, která ukládá systému souborů. Jako příklad Pokud velikost bloku systému souborů DFS je 128MB, pak žádná data o velikosti menší a než je 128MB uložen v jeden blok, při data, která je větší než 128MB je vymezena navíc bloky. Volba velikosti velmi malé bloku způsobí, že velké režie v Hadoop vzhledem k tomu, že název uzlu má zpracovat mnoho více žádostí o najít relevantní bloku, která se týkají do souboru. Doporučená nastavení, když zabývají gigabajtů (nebo vyšší) data:
-   
+1. **Velikost bloku systému souborů DFS**: Tento parametr nastaví nejmenší jednotka data, která ukládá systému souborů. Jako příklad Pokud velikost bloku systému souborů DFS je 128 MB, pak žádná data o velikosti menší a až do 128 MB uložený v jeden blok. Data, která je větší než 128 MB je vymezena navíc bloky. 
+2. Volba velikosti malé bloku způsobí, že velké režie v Hadoop vzhledem k tomu, že název uzlu má zpracovat mnoho více žádostí o najít relevantní bloku, která se týkají do souboru. Doporučená nastavení, když zabývají gigabajtů (nebo vyšší) data:
+
         set dfs.block.size=128m;
+
 2. **Optimalizace operace spojení v podregistru**: během operace spojení v rámci mapy nebo snižte obvykle provést ve fázi snižte se v některých případech lze dosáhnout značné zvýšení plánování spojení ve fázi mapy (také nazývané "mapjoins"). Chcete-li přímé Hive k tomu, kdykoli je to možné, nastavte hodnotu:
    
-        set hive.auto.convert.join=true;
-3. **Určující počet mappers k Hive**: při Hadoop umožňuje uživatelům nastavit počet přechodky, počet mappers obvykle nesmí být nastavený uživatelem. Základem, který umožňuje určitý stupeň řízení na toto číslo je volba proměnné Hadoop, *mapred.min.split.size* a *mapred.max.split.size* jako velikost každé mapy je dáno úloh:
+       set hive.auto.convert.join=true;
+
+3. **Určující počet mappers k Hive**: při Hadoop umožňuje uživatelům nastavit počet přechodky, počet mappers obvykle nesmí být nastavený uživatelem. Základem, který umožňuje určitý stupeň řízení na toto číslo je volba proměnné Hadoop *mapred.min.split.size* a *mapred.max.split.size* jako velikost každé mapy je dáno úloh:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
-    Obvykle se výchozí hodnota *mapred.min.split.size* 0, s *mapred.max.split.size* je **Long.MAX** a *dfs.block.size* 64 MB. Jak jsme můžete vidět, danou velikost dat ladění tyto parametry "nastavení" je umožňuje optimalizovat počet mappers použít.
-4. Několik dalších dalších **rozšířené možnosti** pro optimalizaci Hive výkonu jsou uvedená níže. Ty vám umožní nastavit je paměť přidělená pro mapování a snížit úlohy a mohou být užitečné při postupně je upravujte výkonu. Prosím mějte na paměti, *mapreduce.reduce.memory.mb* nemůže být větší než velikost fyzické paměti každý pracovní uzel v clusteru Hadoop.
+    Obvykle se výchozí hodnota:
+    
+    - *mapred.min.Split.size* 0, s
+    - *mapred.Max.Split.size* je **Long.MAX** a 
+    - *DFS.Block.size* 64 MB.
+
+    Jak jsme můžete vidět, danou velikost dat ladění tyto parametry "nastavení" je umožňuje optimalizovat počet mappers použít.
+
+4. Tady je několik dalších dalších **rozšířené možnosti** pro optimalizaci výkonu Hive. Ty vám umožní nastavit je paměť přidělená pro mapování a snížit úlohy a mohou být užitečné při postupně je upravujte výkonu. Mějte na paměti, že *mapreduce.reduce.memory.mb* nemůže být větší než velikost fyzické paměti každý pracovní uzel v clusteru Hadoop.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

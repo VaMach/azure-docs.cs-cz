@@ -5,19 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2017
+ms.date: 11/21/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a01d8d1ed0f5234f4950d448b54087767353c8ef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Nejčastější dotazy pro Azure náklady na správu
-
 
 Tento článek se zaměřuje na některé běžné dotazy týkající se Azure náklady na správu (také označované jako Cloudyn). Pokud máte dotazy týkající se náklady na správu, můžete je v požádat [časté otázky k Azure náklady na správu Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
@@ -125,3 +124,15 @@ Pokud dojde ke zpoždění odesílání dat z Azure do Cloudyn, data se stále z
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Jak můžete přímé CSP konfigurace Cloudyn přístupu pro nepřímou CSP zákazníky nebo partnery?
 
 Pokyny najdete v tématu [nakonfigurujte nepřímý přístup CSP ve Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
+
+## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>Co způsobí, že položky nabídky Optimalizátor zobrazí?
+
+Po přidání přístupu Azure Resource Manager a data se shromažďují, měli byste vidět **Optimalizátor** možnost. Pokud chcete aktivovat přístup správce Azure Resource Manager, najdete v části [jak aktivovat neaktivovaných účtů s přihlašovacími údaji Azure?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
+
+## <a name="is-cost-managementcloudyn-agent-based"></a>Je na základě náklady na správu nebo Cloudyn agenta?
+
+Ne. Agenti nejsou používány. Shromáždění dat metriky virtuálního počítače Azure pro virtuální počítače z rozhraní API pro přehledy společnosti Microsoft. Pokud chcete shromažďovat metriky data z virtuálních počítačů Azure, potřebují mít povolené nastavení diagnostiky.
+
+## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn sestavy zobrazit více než jeden klient AD na sestavu?
+
+Ano. Můžete [vytvořit odpovídající entita účet cloudu](tutorial-user-access.md#create-entities) pro každého klienta AD, které máte. Potom můžete zobrazit všechny vaše data klienta Azure AD a jiných poskytovatelů cloudu platformy, včetně Amazon Web Services a Google Cloud Platform.

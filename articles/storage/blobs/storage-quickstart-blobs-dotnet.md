@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: ca4cb2dea9cdd2e46c3aef042e525acdfc09de8e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Objekty přenosu do nebo z Azure Blob storage pomocí rozhraní .NET
 
@@ -26,8 +26,8 @@ V tento rychlý start zjistíte, jak používat klientské knihovny .NET pro Azu
 ## <a name="prerequisites"></a>Požadavky
 
 Chcete-li dokončit tento rychlý start, nainstalovat [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) s následující úlohy:
-    
-    - **Azure – vývoj**
+
+- **Azure – vývoj**
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 

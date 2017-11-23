@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integrace mapy služeb s nástrojem System Center Operations Manager
   > [!NOTE]
@@ -30,7 +30,7 @@ Mapy Operations Management Suite služby automaticky vyhledá součásti aplikac
 Díky této integraci mezi mapy služeb a System Center Operations Manager můžete automaticky vytvořit diagramy distribuované aplikace v nástroji Operations Manager, které jsou založeny na map dynamické závislostí v mapy služeb.
 
 ## <a name="prerequisites"></a>Požadavky
-* Skupinu správy nástroje Operations Manager, který je Správa u sady serverů.
+* Skupinu pro správu nástroje Operations Manager (2012 R2 nebo novější), je Správa u sady serverů.
 * Prostoru Operations Management Suite s řešením mapy služby povolena.
 * Sada serverů (alespoň jeden), které spravuje nástroj Operations Manager a odesílání dat do mapy služeb. Servery se systémy Windows a Linux jsou podporovány.
 * Objekt služby s přístupem k předplatnému Azure, která je přidružena k pracovnímu prostoru služby Operations Management Suite. Další informace, přejděte na [vytvoření instančního objektu](#creating-a-service-principal).

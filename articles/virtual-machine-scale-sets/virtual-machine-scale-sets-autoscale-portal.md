@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 266e9674a422dffb7f78a4aa3dd0adfa3c8bab3b
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatické škálování škálování virtuálních počítačů, nastavte na portálu Azure
 Když vytvoříte sadu škálování, definujete se počet instancí virtuálního počítače, které chcete spustit. Podle požadavků vaší aplikaci změní, můžete automaticky zvýšit nebo snížit počet instancí virtuálního počítače. Schopnost škálování umožňuje udržovat tempo s poptávku zákazníků nebo odpověď na změny výkonu aplikace v průběhu cyklu vaší aplikace.
@@ -34,7 +34,7 @@ K vytvoření pravidla automatického škálování, budete potřebovat existuj�
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Vytvořit pravidlo, které automaticky škálovat
 Pokud vaše aplikace vyžádání zvyšuje, nastavit zatížení instancím virtuálních počítačů ve vaší škálování zvyšuje. Pokud je tato zvýšená zátěž konzistentní, ne jenom stručný vyžádání, můžete nakonfigurovat pravidla škálování zvýšit počet instancí virtuálního počítače ve škálovací sadě. Při vytváření těchto instancí virtuálního počítače a aplikace nasadí, byly sadou škálování začne distribuovat provoz prostřednictvím nástroje pro vyrovnávání zatížení. Můžete určit, jaké metriky, které chcete monitorovat, jako je například procesoru nebo disk, jak dlouho zatížení aplikace musí splňovat danou prahovou hodnotu a kolik instancí virtuálních počítačů pro přidání do měřítka nastavit.
 
-1. Otevřete Azure portálu a vyberte možnost **skupiny prostředků** z nabídky na levé straně velikosti řídicího panelu.
+1. Otevřete Azure portálu a vyberte možnost **skupiny prostředků** z nabídky na levé straně řídicího panelu.
 2. Vyberte skupinu prostředků, která obsahuje škálovací sadu, a potom vyberte vaše sad škálování ze seznamu prostředků.
 3. Zvolte **škálování** z nabídky na levé straně měřítka nastavit okno. Kliknutím na tlačítko **povolit škálování**:
 

@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.openlocfilehash: 653166235a2fec79945a8e54aafdb8e697e8b634
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9be948a7328b0f535d8683e6cdc695a01654a94
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Vytváření služby Multi-Factor Authentication do vlastní aplikace (SDK)
+
+> [!IMPORTANT]
+> Má se oznámí vyřazení z Azure Multi-Factor Authentication Software Development Kit (SDK). Tato funkce bude už podporována pro nové zákazníky. Aktuální zákazníků můžete pokračovat, dokud 14 listopadu 2018 pomocí sady SDK. Po jeho uplynutí volání sady SDK, se nezdaří. 
 
 Azure Multi-Factor Authentication Software Development Kit (SDK) umožňují vytvářet dvoustupňové ověření přímo do procesy přihlášení nebo transakci aplikací v klientovi služby Azure AD.
 
@@ -35,30 +38,7 @@ Protože rozhraní API nemají přístup k uživatelům zaregistrovat ve služb�
 
 
 ## <a name="download-the-sdk"></a>Stažení sady SDK
-Stažení sady SDK Azure Multi-Factor vyžaduje [zprostředkovatel vícefaktorového ověřování Azure](multi-factor-authentication-get-started-auth-provider.md).  To vyžaduje úplné předplatné, i když jsou ve vlastnictví licence Azure MFA, Azure AD Premium nebo Enterprise Mobility Suite.  Chcete-li stáhnout sadu SDK, přejděte na portálu pro správu Multi-Factor. Můžete dostat na portál, pomocí správy poskytovatele služby Multi-Factor Auth přímo, nebo kliknutím **"Přejděte na portál"** odkaz na stránce nastavení služby MFA.
-
-### <a name="download-from-the-azure-classic-portal"></a>Stáhnout z portálu Azure classic
-1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com).
-2. Vlevo vyberte možnost **Active Directory**.
-3. Na stránce služby Active Directory, v nejvyšší vyberte **zprostředkovatelé vícefaktorového ověřování**
-4. V dolní části vyberte **spravovat**. Otevře se nová stránka.
-5. Na levé straně, v dolní části, klikněte na tlačítko **SDK**.
-   <center>![Stahování](./media/multi-factor-authentication-sdk/download.png)</center>
-6. Vyberte jazyk a klikněte na jednu odkazů přidružené ke stažení.
-7. Uložte stažený soubor.
-
-### <a name="download-from-the-service-settings"></a>Stáhnout z nastavení služby
-1. Přihlaste se jako správce do [portálu Azure Classic](https://manage.windowsazure.com).
-2. Vlevo vyberte možnost **Active Directory**.
-3. Dvakrát klikněte na svoji instanci služby Azure AD.
-4. Nahoře klikněte na **Konfigurovat**.
-5. V části ověřování Multi-Factor authentication, vyberte **spravovat nastavení služby**
-   ![stáhnout](./media/multi-factor-authentication-sdk/download2.png)
-6. Dole na stránce s nastavením služby klikněte na **Přejít na portál**. Otevře se nová stránka.
-   ![Stáhnout](./media/multi-factor-authentication-sdk/download3a.png)
-7. Na levé straně, v dolní části, klikněte na tlačítko **SDK**.
-8. Vyberte jazyk a klikněte na jednu odkazů přidružené ke stažení.
-9. Uložte stažený soubor.
+Stažení sady SDK Azure Multi-Factor vyžaduje [zprostředkovatel vícefaktorového ověřování Azure](multi-factor-authentication-get-started-auth-provider.md).  To vyžaduje úplné předplatné, i když jsou ve vlastnictví licence Azure MFA, Azure AD Premium nebo Enterprise Mobility Suite. Veřejné metody stahování sady SDK někdo vyřazeno z provozu sady SDK je zastaralá. Pokud budete muset stáhnout sady SDK, by měl otevřete případu podpory se společností Microsoft.
 
 ## <a name="whats-in-the-sdk"></a>Co je v sadě SDK
 Sada SDK zahrnuje následující položky:

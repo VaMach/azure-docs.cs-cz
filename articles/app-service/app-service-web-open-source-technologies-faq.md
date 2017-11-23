@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: c0872619a4897b0ac40629df00053f3e49768f64
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Technologie Open source nejčastější dotazy pro webové aplikace v Azure
 
@@ -32,14 +32,6 @@ Tento článek obsahuje odpovědi na nejčastější dotazy (FAQ) o problémech 
 Databáze s problémy, kontaktujte [ClearDB podporu](https://www.cleardb.com/developers/help/support). 
 
 Odpovědi na časté otázky o ClearDB, naleznete v části [cleardb – nejčastější dotazy k](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
-## <a name="why-isnt-my-cleardb-database-listed-in-the-portal"></a>Proč není uvedená Moje databázi ClearDB portálu?
-
-Pokud vytvoříte databázi ClearDB v [portál Azure](http://portal.azure.com/), funkci se nezobrazí v databázi [portál Azure classic](http://manage.windowsazure.com/). Chcete-li tento problém obejít, můžete ručně propojit databáze do webové aplikace.
-
-Podobně pokud vytvoříte databázi ClearDB v [portál Azure classic](http://manage.windowsazure.com/), se nezobrazí v databázi [portál Azure](http://portal.azure.com/). V takovém případě je k dispozici žádné alternativní řešení. 
-
-Další informace najdete v tématu [nejčastější dotazy pro databáze ClearDB MySQL službou Azure App Service](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>Proč nebyl migrován databázi ClearDB během migrace Moje předplatné?
 

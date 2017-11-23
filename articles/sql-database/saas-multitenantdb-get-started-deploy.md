@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: bc96221abf62677b53df43daa44a925ac5792043
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Nasazení a prozkoumejte horizontálně dělené víceklientské aplikace, která používá Azure SQL Database
 
@@ -120,7 +120,7 @@ Aplikace prezentuje místa, například koncertní sály, jazzové kluby a sport
 Centrálního **události rozbočovače** obsahuje seznam odkazů na klienty v určitém nasazení.
 
 1. Otevřete *události rozbočovače* ve webovém prohlížeči:
-    - http://events.Wingtip. &lt;Uživatele&gt;. trafficmanager.net &nbsp; *(Nahraďte hodnotu uživatelského vaše nasazení.)*
+    - http://events.Wingtip-mt.&lt;uživatele&gt;. trafficmanager.net &nbsp; *(Nahraďte hodnotu uživatelského vaše nasazení.)*
 
     ![centrum akcí](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ Centrálního **události rozbočovače** obsahuje seznam odkazů na klienty v u
 
 K řízení distribuce příchozí požadavky a používá aplikace [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Na stránkách události, které jsou specifické pro klienta, zahrnují název klienta v adrese URL. Adresy URL také obsahovat vaše konkrétní hodnotu uživatele a mít tento formát:
 
-- http://events.Wingtip. &lt;Uživatele&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.Wingtip-mt.&lt;uživatele&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 Analyzuje název klienta z adresy URL a rozdělí vytvoření klíče pro přístup k katalogu pomocí aplikace události [horizontálního oddílu mapy správu](sql-database-elastic-scale-shard-map-management.md). Katalog mapuje klíč klienta umístění databáze. **Události rozbočovače** obsahuje seznam všech klientů, které jsou zaregistrovány v katalogu. **Události rozbočovače** používá rozšířené metadata v katalogu načíst název klienta, které jsou spojené s každou mapování k vytvoření adresy URL.
 
@@ -156,7 +156,7 @@ Můžete chtít restartovat relace generátor zatížení použít jiné hodnoty
 
 Počáteční nasazení obsahuje tři ukázkové klienty v *Tenants1* databáze. Vytvoříme jiného klienta, pokud chcete zobrazit, jak to ovlivní nasazené aplikace. V tomto kroku rychle vytvořit nového klienta.
 
-1. Otevřete... \\Učení Modules\Provision a katalog\\*ukázku ProvisionTenants.ps1* v *prostředí PowerShell ISE*.
+1. Otevřete... \\Učení Modules\ProvisionTenants\\*ukázku ProvisionTenants.ps1* v *prostředí PowerShell ISE*.
 2. Stiskněte klávesu **F5** pro spuštění skriptu (ponechte výchozí hodnoty pro nyní).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ Horizontálně dělené víceklientského modelu můžete zvolit, jestli ke zř�
 
 Nyní jsme zřídit jiného klienta, tentokrát ve vlastní databázi.
 
-1. V... \\Learning moduly\\zřídit a katalog\*Demo-ProvisionTenants.ps1* upravit *$TenantName* k **Salix Salsa**, *$VenueType*  k **tance** a *$Scenario* k **2**.
+1. V... \\Learning moduly\\ProvisionTenants\\*ukázku ProvisionTenants.ps1*, upravte *$TenantName* k **Salix Salsa**,  *$VenueType* k **tance** a *$Scenario* k **2**.
 
 2. Stiskněte klávesu **F5** pro spuštění skriptu znovu.
     - Tato stisknutím klávesy F5 zřídí k novému klientovi v samostatné databáze. Databáze a klienta jsou zaregistrovány v katalogu. Potom prohlížeči se otevře na stránku událostí klienta.
@@ -239,7 +239,7 @@ V tomto kurzu jste se dozvěděli:
 > - Jak zobrazit využití fondu k monitorování aktivity tenanta
 > - Jak odstranit ukázkové prostředky k zastavení souvisejícího účtování
 
-Nyní zkuste [kurzu zřizování a katalog](sql-database-saas-tutorial-provision-and-catalog.md).
+Nyní zkuste [kurzu zřizování klientů](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 
