@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Typy runbooků služby Azure Automation
 Služby Azure Automation podporuje několik typů sad runbook, které jsou popsány v následující tabulce.  V níže uvedených částech poskytují další informace o jednotlivých typech včetně důležité informace týkající se použití každé.
@@ -30,7 +30,6 @@ Služby Azure Automation podporuje několik typů sad runbook, které jsou pops�
 | [PowerShell](#powershell-runbooks) |Text runbook založené na skriptu prostředí Windows PowerShell. |
 | [Pracovní postup PowerShellu](#powershell-workflow-runbooks) |Text runbook podle pracovního postupu prostředí Windows PowerShell. |
 | [Python](#python-runbooks) |Text runbook podle Python. |
-| [Bash](#bash-runbooks) |Text runbook podle Bash. |
 
 ## <a name="graphical-runbooks"></a>Grafické runbooky
 [Grafické](automation-runbook-types.md#graphical-runbooks) a runbooky pracovních postupů grafické prostředí PowerShell jsou vytvořeny a upravit pomocí grafického editoru na portálu Azure.  Můžete je exportovat do souboru a pak je importovat do jiného účtu automation, ale nelze vytvořit nebo upravit je jiný nástroj.  Grafické runbooky generování kódu prostředí PowerShell, ale nemůžou přímo zobrazovat nebo upravovat kód. Grafické runbooky nelze převést na jednu z [textových formátů](automation-runbook-types.md), ani lze sadu runbook text převést na grafické formátu. Grafické runbooky lze převést na runbooky pracovních postupů grafické prostředí PowerShell během importu a naopak.
@@ -64,7 +63,7 @@ Powershellové runbooky jsou založené na prostředí Windows PowerShell.  Př�
 ### <a name="known-issues"></a>Známé problémy
 Toto jsou aktuální známé problémy s Powershellovými runbooky.
 
-* Powershellové runbooky nejde nelze načíst nezašifrované [variabilní prostředek](automation-variables.md) s hodnotou null.
+* Powershellové runbooky nelze načíst nezašifrované [variabilní prostředek](automation-variables.md) s hodnotou null.
 * Nelze načíst Powershellové runbooky [variabilní prostředek](automation-variables.md) s  *~*  v názvu.
 * Get-Process ve smyčce v prostředí PowerShell runbook může dojít k chybě po přibližně 80 iterací. 
 * Powershellový runbook může selhat, pokud se pokusí o velmi velké množství dat najednou zapisovat do výstupního datového proudu.   Tento problém můžete vyřešit obvykle podle výstupu pouze informace, které je třeba při práci s rozsáhlé objekty.  Například místo výstup podobný vytvořeného *Get-Process*, výstup můžete právě povinná pole s *Get-Process | Vyberte název_procesu procesoru*.
@@ -76,7 +75,7 @@ Runbooky pracovních postupů Powershellu jsou text sad runbook na základě [pr
 * Implementujte všechny komplexní logiku s kódem pracovního postupu Powershellu.
 * Použití [kontrolní body](automation-powershell-workflow.md#checkpoints) runbook v případě chyby pokračovat.
 * Použití [paralelní zpracování](automation-powershell-workflow.md#parallel-processing) k provedení několika akcí paralelně.
-* Může obsahovat jiné grafické runbooky a runbooky pracovních postupů Powershellu jako podřízené sady runbook k vytváření pracovních postupů vysoké úrovně.
+* Jako podřízené sady runbook pro vytvoření základní pracovní postupy mohou zahrnovat jiné grafické runbooky a runbooky pracovních postupů Powershellu.
 
 ### <a name="limitations"></a>Omezení
 * Autor musí být obeznámeni s pracovním postupem prostředí PowerShell.

@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 9fa06a1b7e80a2d50553512a10f4425dc06ef692
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5ceac04f3f5c58ac5810dda6c99b40ebc8ad736f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
-> [!NOTE]
-> Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
-    
-    
-
 # <a name="identification-and-authentication-ia"></a>Identifikace a ověření (IA)
 
 ## <a name="nist-800-53-control-ia-1"></a>NIST 800-53 řízení IA-1
+
+> [!NOTE]
+> Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
 
 #### <a name="identification-and-authentication-policy-and-procedures"></a>Identifikace a ověřování zásady a postupy
 

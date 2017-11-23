@@ -1,5 +1,5 @@
 ---
-title: "Postup sledování výkonu, snižte omezení a zabránit latence v Azure časové řady přehledy | Microsoft Docs"
+title: "Postup monitorování a snižování omezení šířky pásma, aby se zabránilo latence v Azure časové řady přehledy | Microsoft Docs"
 description: "Tento článek popisuje, jak monitorovat, diagnostikovat a zmírnit problémy s výkonem, které způsobí latenci a omezení v Azure časové řady přehledy."
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 5af5589922ded802703b9ba8f3b0aa8c5524bbad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9d53cd0ee8e15d47ac1daa122331b3145f936adb
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
-# <a name="improve-performance-reduce-latency-and-mitigate-throttling-in-azure-time-series-insights"></a>Zlepšení výkonu, snížit latenci a zmírnit omezení v Azure časové řady přehledy
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorování a zmírnit omezení ke snížení latence v Azure časové řady přehledy
 Při konfiguraci vašeho prostředí překračuje příchozích dat, může zaznamenat latenci nebo omezení v Azure časové řady přehledy.
 
 Latence a omezování tak, že správně nakonfigurujete prostředí pro množství dat, který chcete analyzovat se můžete vyhnout.

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/14/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aeb3820667f264e4a26860913e3f7b0e22e4c4a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Zkopírujte aktivity výkonu a vyladění Průvodce
 > [!NOTE]
@@ -49,6 +49,8 @@ Jako odkaz níže uvedená tabulka zobrazuje číslo kopie propustnost v MB/s pr
 
 ![Matice výkonu](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
+>[!IMPORTANT]
+>V Azure Data Factory verze 1 je minimální cloudu jednotky přesun dat pro cloud cloudové kopírování dva. Pokud není zadaný, najdete v části jednotky přesun dat výchozí použitá v [jednotky přesun dat v cloudu](#cloud-data-movement-units).
 
 **Všimněte si body:**
 * Propustnost je vypočítána pomocí následujícího vzorce: [velikost dat číst ze zdroje] / [spustit doba trvání aktivity kopírování].
@@ -90,9 +92,16 @@ A tak dále.
 V tomto příkladu při **souběžnosti** hodnota nastavena na 2, **aktivita běžet 1** a **aktivita běžet 2** kopírování dat z okna dvě aktivity **souběžně** ke zlepšení výkonu přesun dat. Ale pokud více souborů jsou spojené s aktivity při spuštění 1, služba pro přesun dat zkopíruje soubory ze zdroje cílový jeden soubor současně.
 
 ### <a name="cloud-data-movement-units"></a>Jednotky přesun dat cloudu
-A **jednotky přesun dat cloudu (DMU)** je míra, která reprezentuje výkon (kombinaci procesoru, paměti a přidělení prostředků sítě) v objektu pro vytváření dat na jednu jednotku. DMU se dají používat v operace kopírování cloudu do cloudu, ale není v hybridní kopírování.
+A **jednotky přesun dat cloudu (DMU)** je míra, která reprezentuje výkon (kombinaci procesoru, paměti a přidělení prostředků sítě) v objektu pro vytváření dat na jednu jednotku. DMU lze použít pro operace kopírování cloudu do cloudu, ale není v hybridní kopírování.
 
-Ve výchozím nastavení používá pro vytváření dat jeden cloud DMU provést spuštění jediné aktivity kopírování. Pokud chcete přepsat toto výchozí nastavení, zadejte hodnotu **cloudDataMovementUnits** vlastnost následujícím způsobem. Informace o úrovni výkonnější se mohou objevit, když konfigurujete další jednotky pro konkrétní kopie zdroj a jímka najdete v tématu [referenční dokumentace výkonu](#performance-reference).
+**Jednotky přesun dat minimální cloudu na základě kterých kopie aktivity při spuštění je dva.** Pokud není zadaný, následující tabulka uvádí výchozí DMUs, používá ve scénářích různé kopie:
+
+| Kopírování | Výchozí DMUs určit službou |
+|:--- |:--- |
+| Kopírování dat mezi úložišti na základě souborů | Mezi 2 a 16 v závislosti na počtu a velikosti souborů. |
+| Všechny ostatní kopie scénáře | 2 |
+
+Pokud chcete přepsat toto výchozí nastavení, zadejte hodnotu **cloudDataMovementUnits** vlastnost následujícím způsobem. **Povolené hodnoty** pro **cloudDataMovementUnits** vlastnost jsou 2, 4, 8, 16, 32. **Skutečný počet cloudu DMUs** že kopírování se používá v době běhu je rovna nebo menší než nakonfigurovaná hodnota, v závislosti na vaší vzorek dat. Informace o úrovni výkonnější se mohou objevit, když konfigurujete další jednotky pro konkrétní kopie zdroj a jímka najdete v tématu [referenční dokumentace výkonu](#performance-reference).
 
 ```json
 "activities":[  
@@ -114,7 +123,6 @@ Ve výchozím nastavení používá pro vytváření dat jeden cloud DMU provés
     }
 ]
 ```
-**Povolené hodnoty** pro **cloudDataMovementUnits** vlastnost jsou 1 (výchozí), 2, 4, 8, 16, 32. **Skutečný počet cloudu DMUs** že kopírování se používá v době běhu je rovna nebo menší než nakonfigurovaná hodnota, v závislosti na vaší vzorek dat.
 
 > [!NOTE]
 > Pokud potřebujete další cloudu DMUs pro vyšší propustnost, obraťte se na [podporu Azure](https://azure.microsoft.com/support/). Nastavení 8 a vyšší aktuálně funguje pouze tehdy, když jste **zkopírovat soubory z objektu Blob úložiště nebo Data Lake Store nebo Amazon S3 nebo cloudem FTP nebo cloudem SFTP do objektu Blob úložiště nebo Data Lake Store nebo Azure SQL Database**.

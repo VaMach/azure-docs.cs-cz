@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Zpracování chyb a výjimek v Azure Logic Apps
 
@@ -26,38 +26,74 @@ Azure Logic Apps nabízí bohaté nástroje a vzory pro vám pomůže zajistit, 
 
 ## <a name="retry-policies"></a>Opakujte zásady
 
-Zásady opakování je nejzákladnější typ výjimky a zpracování chyb. Pokud počáteční požadavek vypršel časový limit nebo se nezdařilo (každá žádost, jejímž výsledkem 429 nebo 5xx odpověď), tato zásada určuje, zda akci opakujte. Ve výchozím nastavení opakujte všechny akce 4 další časy intervalech 20 sekund. Ano, pokud přijme první požadavek `500 Internal Server Error` odpovědi, modul pracovních postupů pozastaví 20 sekund a znovu se pokusí žádosti. Pokud po všech opakovaných pokusů, odpověď stále výjimku nebo selhání, pracovní postup bude pokračovat a označí stav akce jako `Failed`.
+Zásady opakování je nejzákladnější typ výjimky a zpracování chyb. Pokud počáteční požadavek vypršel časový limit nebo se nezdařilo (každá žádost, jejímž výsledkem 429 nebo 5xx odpověď), tato zásada určuje, zda a jak opakujte akci. Existují tři typy zásady opakování `exponential`, `fixed`, a `none`. Pokud zásady opakovaných pokusů není k dispozici v definici pracovního postupu, použije se výchozí zásady. Můžete nakonfigurovat zásady opakování v **vstupy** pro konkrétní akci nebo aktivovat, pokud je opakovatelné. Podobně v opakovaném logiku aplikace Návrhář zásady lze konfigurovat (pokud existuje) v části **nastavení** pro daný blok.
 
-Můžete nakonfigurovat zásady opakování v **vstupy** pro určitou akci. Můžete například nakonfigurovat zásady opakování pokusit až 4 x 1 hodinu intervalech. Úplné podrobnosti o vlastnosti vstupu najdete v tématu [akce pracovního postupu a aktivační události][retryPolicyMSDN].
+Informace o omezení zásady opakování najdete v tématu [Logic Apps omezení a konfigurace](../logic-apps/logic-apps-limits-and-config.md) a další informace o podporovaných syntaxi najdete v tématu [části zásady opakování akce pracovního postupu a aktivační události][retryPolicyMSDN].
+
+### <a name="exponential-interval"></a>Exponenciální intervalu
+`exponential` Typ zásad se po náhodném časovém intervalu z exponenciálnímu rostoucí rozsahu opakujte chybné žádosti. Jednotlivé pokusy o opakování záruku, že se k odeslání v náhodném intervalu, který je větší než **minimumInterval** a menší než **maximumInterval**. Jednoznačnou náhodnou proměnnou v pod oblastí vygeneruje pro každý opakování včetně **počet**:
+<table>
+<tr><th> Náhodné proměnné rozsahu </th></tr>
+<tr><td>
+
+| Opakujte číslo | Minimální Interval | Maximální Interval |
+| ------------ |  ------------ |  ------------ |
+| 1 | Maximální počet (0, **minimumInterval**) | Min (interval, **maximumInterval**) |
+| 2 | Maximální počet (interval, **minimumInterval**) | Min (2 * interval **maximumInterval**) |
+| 3 | Maximální počet (2 * interval **minimumInterval**) | Min (4 * interval **maximumInterval**) |
+| 4 | Maximální počet (4 * interval **minimumInterval**) | Min (8 * interval **maximumInterval**) |
+| Tlačítka ... |
+
+</td></tr></table>
+
+Pro `exponential` zadejte zásady, **počet** a **interval** jsou požadovány při **minimumInterval** a **maximumInterval** může být Volitelně můžete zadat přepsat výchozí hodnoty PT5S a PT1D v uvedeném pořadí.
+
+| Název elementu | Požaduje se | Typ | Popis |
+| ------------ | -------- | ---- | ----------- |
+| type | Ano | Řetězec | `exponential` |
+| Počet | Ano | Integer | počet pokusy o opakování, musí být mezi 1 a 90  |
+| interval | Ano | Řetězec | interval v opakování [formátu ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), musí být mezi PT5S a PT1D |
+| minimumInterval | Ne| Řetězec | minimální interval v opakování [formátu ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), musí být v rozmezí PT5S a **intervalu** |
+| maximumInterval | Ne| Řetězec | minimální interval v opakování [formátu ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), musí být v rozmezí **interval** a PT1D |
+
+### <a name="fixed-interval"></a>Pevně zadaném intervalu
+
+`fixed` Typ zásad se tím, že zadaný interval času před odesláním další požadavek opakujte chybné žádosti.
+
+| Název elementu | Požaduje se | Typ | Popis |
+| ------------ | -------- | ---- | ----------- |
+| type | Ano | Řetězec | `fixed`|
+| Počet | Ano | Integer | počet pokusy o opakování, musí být mezi 1 a 90 |
+| interval | Ano | Řetězec | interval v opakování [formátu ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), musí být mezi PT5S a PT1D |
+
+### <a name="none"></a>Žádný
+`none` Typ zásad nebude akci opakovat chybné žádosti.
+
+| Název elementu | Požaduje se | Typ | Popis |
+| ------------ | -------- | ---- | ----------- |
+| type | Ano | Řetězec | `none`|
+
+### <a name="default"></a>Výchozí
+Pokud je zadán žádné zásady opakovaných pokusů, se používá výchozí zásady. Výchozí zásada je zásadu exponenciální interval, který bude odesílat až 4 opakovaných pokusů, které v exponenciálnímu zvýšení intervaly škálovat podle 7.5 sekund a omezená od 5 do 45 sekund. Tato výchozí zásada (použít, když **retryPolicy** není definován) je ekvivalentní zásad v tomto příkladu HTTP definice pracovního postupu:
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-Pokud byste chtěli akci HTTP a opakujte 4 časy vyčkejte 10 minut mezi jednotlivými pokusy o, měli byste použít následující definice:
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-Další informace o podporovaných syntaxi najdete v tématu [části zásady opakování akce pracovního postupu a aktivační události][retryPolicyMSDN].
 
 ## <a name="catch-failures-with-the-runafter-property"></a>Catch – selhání s vlastností RunAfter
 

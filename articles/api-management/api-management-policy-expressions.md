@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-policy-expressions"></a>Výrazy zásad API Management
 Syntaxe výrazy zásad je C# 6.0. Každý výraz má přístup k implicitně poskytnutého [kontextu](api-management-policy-expressions.md#ContextVariables) proměnné a povolení [podmnožina](api-management-policy-expressions.md#CLRTypes) typů rozhraní .NET Framework.  
@@ -174,7 +174,7 @@ Syntaxe výrazy zásad je C# 6.0. Každý výraz má přístup k implicitně pos
 |----------------------|-------------------------------------------------------|  
 |Kontext|Rozhraní API: IApi<br /><br /> Nasazení<br /><br /> Poslední chyba<br /><br /> Operace<br /><br /> Produkt<br /><br /> Žádost<br /><br /> ID žádosti: Identifikátor Guid<br /><br /> Odpověď<br /><br /> Předplatné<br /><br /> Trasování: bool<br /><br /> Uživatel<br /><br /> Proměnné: IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|  
 |kontext. Rozhraní API|ID: řetězec<br /><br /> Název: řetězec<br /><br /> Cesta: řetězec<br /><br /> ServiceUrl: IUrl|  
-|kontext. Nasazení|Oblast: řetězec<br /><br /> ServiceName: řetězec|  
+|kontext. Nasazení|Oblast: řetězec<br /><br /> ServiceName: řetězec<br /><br /> Certifikáty: IReadOnlyDictionary < řetězec, X509Certificate2 >|  
 |kontext. Poslední chyba|Zdroj: řetězec<br /><br /> Důvod: řetězec<br /><br /> Zpráva: řetězec<br /><br /> Obor: řetězec<br /><br /> Část: řetězec<br /><br /> Cesta: řetězec<br /><br /> PolicyId: řetězec<br /><br /> Další informace o kontextu. Poslední chyba, najdete v části [zpracování chyb](api-management-error-handling-policies.md).|  
 |kontext. Operace|ID: řetězec<br /><br /> Metoda: řetězec<br /><br /> Název: řetězec<br /><br /> UrlTemplate: řetězec|  
 |kontext. Produktu|Rozhraní API: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Skupiny: Rozhraní IEnumerable < IGroup\><br /><br /> ID: řetězec<br /><br /> Název: řetězec<br /><br /> Stav: výčtu ProductState {NotPublished, publikováno}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
@@ -199,6 +199,12 @@ Syntaxe výrazy zásad je C# 6.0. Každý výraz má přístup k implicitně pos
 |BOOL TryParseJwt (vstup: Tento řetězec, výsledek: out Jwt)|vstupní: řetězec<br /><br /> výsledek: out Jwt<br /><br /> Pokud vstupní parametr obsahuje platnou hodnotu tokenu JWT, vrátí metoda `true` a parametr výsledek obsahuje hodnotu typu `Jwt`; v opačném případě vrátí metodu `false`.|  
 |Token Jwt|Algoritmus: řetězec<br /><br /> Cílová skupina: IEnumerable < řetězec\><br /><br /> Deklarace identity: IReadOnlyDictionary < řetězec, řetězec [] ><br /><br /> ExpirationTime: data a času?<br /><br /> ID: řetězec<br /><br /> Vystavitel: řetězec<br /><br /> Neplatí před: data a času?<br /><br /> Předmět: řetězec<br /><br /> Typ: řetězec|  
 |řetězec Jwt.Claims.GetValueOrDefault (claimName: string, výchozí hodnota: string)|claimName: řetězec<br /><br /> Výchozí hodnota: string<br /><br /> Vrátí deklarace identity hodnot oddělených čárkou nebo `defaultValue` Pokud hlavička nebyla nalezena.|
+|Byte [] šifrování (vstupní: Tento byte [], alg: řetězec, klíč: byte [], iv:byte[])|(vstup) – ve formátu prostého textu k zašifrování<br /><br />alg - název algoritmu symetrického šifrování<br /><br />klíč – šifrovací klíč<br /><br />IV - inicializační vektor<br /><br />Vrátí zašifrovaný prostý text.|
+|Byte [] šifrování (vstupní: Tento byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|(vstup) – ve formátu prostého textu k zašifrování<br /><br />alg - šifrovacího algoritmu.<br /><br />Vrátí zašifrovaný prostý text.|
+|Byte [] šifrování (vstupní: Tento byte [], alg: System.Security.Cryptography.SymmetricAlgorithm klíč: byte [], iv:byte[])|(vstup) – ve formátu prostého textu k zašifrování<br /><br />alg - šifrovacího algoritmu.<br /><br />klíč – šifrovací klíč<br /><br />IV - inicializační vektor<br /><br />Vrátí zašifrovaný prostý text.|
+|Byte [] dešifrování (vstupní: Tento byte [], alg: řetězec, klíč: byte [], iv:byte[])|vstup - cyphertext k dešifrování<br /><br />alg - název algoritmu symetrického šifrování<br /><br />klíč – šifrovací klíč<br /><br />IV - inicializační vektor<br /><br />Vrátí hodnotu ve formátu prostého textu.|
+|Byte [] dešifrování (vstupní: Tento byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|vstup - cyphertext k dešifrování<br /><br />alg - šifrovacího algoritmu.<br /><br />Vrátí hodnotu ve formátu prostého textu.|
+|Byte [] dešifrování (vstupní: Tento byte [], alg: System.Security.Cryptography.SymmetricAlgorithm klíč: byte [], iv:byte[])|vstupní - vstupní - cyphertext k dešifrování<br /><br />alg - šifrovacího algoritmu.<br /><br />klíč – šifrovací klíč<br /><br />IV - inicializační vektor<br /><br />Vrátí hodnotu ve formátu prostého textu.|
 
 ## <a name="next-steps"></a>Další kroky
 Práce se zásadami pro další informace najdete v tématu [zásady ve službě API Management](api-management-howto-policies.md).  

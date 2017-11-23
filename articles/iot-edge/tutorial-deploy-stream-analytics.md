@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 88dc0860b4455d19b05b4f4f1766210e3f3c704e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 0d19d1142cf15221f84692f7e613edd6b46b4083
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Nasazení služby Azure Stream Analytics jako modul IoT Edge – náhled
 
@@ -68,10 +68,10 @@ V této části můžete vytvořit úlohu služby Azure Stream Analytics využí
 
 5. Na portálu Azure přejděte do **vytvořit prostředek** > **Internet věcí** a vyberte **úlohy Stream Analytics**.
 
-6. Zadejte název, vyberte **Edge** jako hostitelské prostředí a použít zbývající výchozí hodnoty.  Klikněte na možnost **Vytvořit**.
+2. Zadejte název, vyberte **Edge** jako hostitelské prostředí a použít zbývající výchozí hodnoty.  Klikněte na možnost **Vytvořit**.
 
     >[!NOTE]
-    >Momentálně nejsou omezený počet oblastí, které podporují úlohy ASA hranu IoT. Vyberte jednu z následujících jako umístění: střed USA – Západ střední USA, severní jihu USA, Východ USA, Východní Kanada, Japonsko – východ, východní Asie, Severní Evropa, Spojené království – Jih, Austrálie – východ, Brazílie – jih. 
+    >Úlohy ASA IoT hranu nejsou aktuálně podporované v oblasti USA – západ 2. Vyberte prosím jiné umístění.
 
     ![Vytvoření ASA][5]
 

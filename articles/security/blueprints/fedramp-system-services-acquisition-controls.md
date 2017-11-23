@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: fcb8b6a0a88e70419a1f87ccd1ed9bd524dec57c
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="system-and-services-acquisition-sa"></a>Systém a získávání služby (SA)
+
 > [!NOTE]
 > Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
-    
-    
-
-# <a name="system-and-services-acquisition-sa"></a>Systém a získávání služby (SA)
 
 ## <a name="nist-800-53-control-sa-1"></a>Ovládací prvek NIST 800-53 SA-1
 

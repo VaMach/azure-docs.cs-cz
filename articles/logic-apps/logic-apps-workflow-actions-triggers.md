@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 7e0266cdc477715a5d2f9067c6dcea73da9ba763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Triggery a akce pro pracovní postupy aplikace logiky
 
@@ -115,7 +115,7 @@ Zde je definice této aktivační události:
 | ------------ | -------- | ---- | ----------- | 
 | frequency | Ano | Řetězec | Jednotka času pro jak často se aktivuje aktivační událost. Použít pouze jednu z těchto hodnot: "druhý", "minutu", "hodina", "dne", "týden" nebo "měsíc" | 
 | interval | Ano | Integer | Kladné celé číslo, které popisuje, jak často pracovní postup bude spuštěn na základě četnosti. <p>Toto jsou minimální a maximální hodnotou: <p>-Měsíc: 1-16 měsíců </br>-Den: 1-500 dnů </br>-Hodina: 1-12 000 hodin </br>-Minutu: 1-72,000 minut </br>-Druhý: 1-9,999,999 sekund<p>Například pokud je interval 6 a frekvenci "měsíc", pak opakování je každých 6 měsíců. | 
-| Časové pásmo | Ne | Řetězec | Platí, pouze pokud zadáte počáteční čas protože této aktivační události není přijmout [časový posun](https://en.wikipedia.org/wiki/UTC_offset). Zadejte časové pásmo, které chcete použít. | 
+| timeZone | Ne | Řetězec | Platí, pouze pokud zadáte počáteční čas protože této aktivační události není přijmout [časový posun](https://en.wikipedia.org/wiki/UTC_offset). Zadejte časové pásmo, které chcete použít. | 
 | startTime | Ne | Řetězec | Zadejte počáteční datum a čas v tomto formátu: <p>RRRR-MM-ddTHH Pokud zadáte časové pásmo <p>-nebo- <p>RRRR-MM-ddTHH Pokud nezadáte časové pásmo <p>Tak například, pokud chcete 18 září 2017 na 2:00 PM, zadejte "2017-09-18T14:00:00" a zadejte časové pásmo, jako je například "Tichomoří (běžný čas). Nebo zadejte "2017-09-18T14:00:00Z" bez časového pásma. <p>**Poznámka:** tento čas zahájení musí následovat [ISO 8601 datum čas specifikace](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) v [formát času UTC datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [časový posun](https://en.wikipedia.org/wiki/UTC_offset). Pokud nezadáte časové pásmo, musíte přidat písmeno "Z" bez žádné mezery na konci. Tento "Z" odkazuje na ekvivalent [námořních čas](https://en.wikipedia.org/wiki/Nautical_time). <p>Pro jednoduché plány, čas spuštění je první výskyt, zatímco pro komplexní plány, aktivační událost není fire všechny dřív, než čas spuštění. Další informace o počáteční data a časy, najdete v tématu [vytvořit a plán pravidelně spuštěné úkoly](../connectors/connectors-native-recurrence.md). | 
 | weekDays | Ne | Řetězec nebo pole řetězců | Pokud zadáte "Týden" pro `frequency`, můžete zadat jeden nebo více dní, oddělených čárkami, pokud chcete spustit pracovní postup: "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota" a "Neděle" | 
 | hours | Ne | Celé číslo nebo číslo pole | Pokud zadáte "Dne" nebo "Týden" pro `frequency`, můžete určit jeden nebo více celá čísla od 0 do 23, oddělených čárkami, jako hodin dne, kdy chcete spustit pracovní postup. <p>Například pokud zadáte "10", "12" a "14", získáte 10 AM, 12 PM a 14: 00 jako značky hodinu. | 
@@ -196,19 +196,9 @@ Aktivace protokolu HTTP dotazování zadaný koncový bod a zkontrolujte odpově
 | Dotazy | Ne | Objekt | Představuje všechny parametry dotazu, které chcete zahrnout do adresy URL. <p>Například `"queries": { "api-version": "2015-02-01" }` přidá `?api-version=2015-02-01` na adresu URL. | 
 | Záhlaví | Ne | Objekt | Představuje každá hlavička odeslaný v požadavku. <p>Chcete-li například nastavení jazyka a typu na vyžádání: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | Text | Ne | Objekt | Představuje datovou část, která je odeslána koncovému bodu. | 
-| retryPolicy | Ne | Objekt | Tento objekt použijte k přizpůsobení chování opakování 4xx nebo 5xx chyby. | 
+| retryPolicy | Ne | Objekt | Tento objekt použijte k přizpůsobení chování opakování 4xx nebo 5xx chyby. Další informace najdete v tématu [opakujte zásady](../logic-apps/logic-apps-exception-handling.md). | 
 | Ověřování | Ne | Objekt | Představuje metodu, která požadavek by měl používat pro ověřování. Další informace najdete v tématu [odchozí ověření Scheduleru](../scheduler/scheduler-outbound-authentication.md). <p>Nad Scheduler, existuje více podporované jednu vlastnost: `authority`. Ve výchozím nastavení, tato hodnota je `https://login.windows.net` není-li zadána, ale můžete použít jinou hodnotu, jako například`https://login.windows\-ppe.net`. | 
 ||||| 
-
-A *zásady opakování* platí pro náhodnými poruchami, vyznačují jako stavové kódy HTTP 408 429 a 5xx kromě všechny výjimky připojení. Můžete definovat tyto zásady se `retryPolicy` objektu, jak je vidět tady:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
  
 Chcete-li funkce fungují dobře u aplikace logiky, triggeru protokolu HTTP vyžaduje rozhraní API HTTP tak, aby odpovídala pomocí specifického vzoru. Aktivační událost rozpoznává tyto vlastnosti:  
   
@@ -269,7 +259,7 @@ Aktivační událost připojení rozhraní API je podobná triggeru protokolu HT
 | Dotazy | Ne | Objekt | Představuje všechny parametry dotazu, které chcete zahrnout do adresy URL. <p>Například `"queries": { "api-version": "2015-02-01" }` přidá `?api-version=2015-02-01` na adresu URL. | 
 | Záhlaví | Ne | Objekt | Představuje každá hlavička odeslaný v požadavku. <p>Chcete-li například nastavení jazyka a typu na vyžádání: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | Text | Ne | Objekt | Představuje datovou část, která je odeslána koncovému bodu. | 
-| retryPolicy | Ne | Objekt | Tento objekt použijte k přizpůsobení chování opakování 4xx nebo 5xx chyby. | 
+| retryPolicy | Ne | Objekt | Tento objekt použijte k přizpůsobení chování opakování 4xx nebo 5xx chyby. Další informace najdete v tématu [opakujte zásady](../logic-apps/logic-apps-exception-handling.md). | 
 | Ověřování | Ne | Objekt | Představuje metodu, která požadavek by měl používat pro ověřování. Další informace najdete v tématu [odchozí ověření Scheduleru](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
@@ -280,16 +270,6 @@ Pro `host` objektu, tady jsou vlastnosti:
 | rozhraní API runtimeUrl | Ano | Koncový bod pro spravované rozhraní API | 
 | Název připojení |  | Název připojení spravované rozhraní API, které používá pracovní postup. Parametr s názvem musí odkazovat na `$connection`. |
 |||| 
-
-A *zásady opakování* platí pro náhodnými poruchami, vyznačují jako stavové kódy HTTP 408 429 a 5xx kromě všechny výjimky připojení. Můžete definovat tyto zásady se `retryPolicy` objektu, jak je vidět tady:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 Zde jsou výstupy pro aktivační procedury pro připojení k rozhraní API:
   
@@ -529,20 +509,11 @@ Zde `inputs` objekt trvá těchto parametrů požadovaných pro tvorbu volání 
 | Dotazy | Ne | Objekt | Představuje všechny parametry dotazu, které chcete zahrnout do adresy URL. <p>Například `"queries": { "api-version": "2015-02-01" }` přidá `?api-version=2015-02-01` na adresu URL. | 
 | Záhlaví | Ne | Objekt | Představuje každá hlavička odeslaný v požadavku. <p>Chcete-li například nastavení jazyka a typu na vyžádání: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | Text | Ne | Objekt | Představuje datovou část, která je odeslána koncovému bodu. | 
-| retryPolicy | Ne | Objekt | Tento objekt použijte k přizpůsobení chování opakování 4xx nebo 5xx chyby. | 
+| retryPolicy | Ne | Objekt | Tento objekt použijte k přizpůsobení chování opakování 4xx nebo 5xx chyby. Další informace najdete v tématu [opakujte zásady](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Ne | Řetězec | Definuje sadu zvláštní chování potlačit. | 
 | Ověřování | Ne | Objekt | Představuje metodu, která požadavek by měl používat pro ověřování. Další informace najdete v tématu [odchozí ověření Scheduleru](../scheduler/scheduler-outbound-authentication.md). <p>Nad Scheduler, existuje více podporované jednu vlastnost: `authority`. Ve výchozím nastavení, tato hodnota je `https://login.windows.net` není-li zadána, ale můžete použít jinou hodnotu, jako například`https://login.windows\-ppe.net`. | 
 ||||| 
 
-Akce HTTP a APIConnection akce, které podporují *opakujte zásady*. Zásady opakování platí pro náhodnými poruchami, vyznačují jako stavové kódy HTTP 408 429 a 5xx kromě všechny výjimky připojení. Můžete definovat tyto zásady se `retryPolicy` objektu, jak je vidět tady:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 Tento příklad akce HTTP opakovat, pokud existují občasné chyby celkem tři spuštěních a 30 sekund zpoždění mezi jednotlivými pokusy o načítání dvakrát nejnovější informace:
   
 ```json
@@ -631,20 +602,10 @@ Tady je příklad akce APIConnection:
 | Dotazy | Ne | Objekt | Představuje všechny parametry dotazu, které chcete zahrnout do adresy URL. <p>Například `"queries": { "api-version": "2015-02-01" }` přidá `?api-version=2015-02-01` na adresu URL. | 
 | Záhlaví | Ne | Objekt | Představuje každá hlavička odeslaný v požadavku. <p>Chcete-li například nastavení jazyka a typu na vyžádání: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | Text | Ne | Objekt | Představuje datovou část, která je odeslána koncovému bodu. | 
-| retryPolicy | Ne | Objekt | Tento objekt použijte k přizpůsobení chování opakování 4xx nebo 5xx chyby. | 
+| retryPolicy | Ne | Objekt | Tento objekt použijte k přizpůsobení chování opakování 4xx nebo 5xx chyby. Další informace najdete v tématu [opakujte zásady](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Ne | Řetězec | Definuje sadu zvláštní chování potlačit. | 
 | Ověřování | Ne | Objekt | Představuje metodu, která požadavek by měl používat pro ověřování. Další informace najdete v tématu [odchozí ověření Scheduleru](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
-
-Zásady opakování platí pro náhodnými poruchami, vyznačují jako stavové kódy HTTP 408 429 a 5xx kromě všechny výjimky připojení. Můžete definovat tyto zásady se `retryPolicy` objektu, jak je vidět tady:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 ## <a name="apiconnection-webhook-action"></a>Akce webhooku APIConnection
 
@@ -684,7 +645,7 @@ Akce APIConnectionWebhook odkazuje konektor spravovaný společností Microsoft.
 | Dotazy | Ne | Objekt | Představuje všechny parametry dotazu, které chcete zahrnout do adresy URL. <p>Například `"queries": { "api-version": "2015-02-01" }` přidá `?api-version=2015-02-01` na adresu URL. | 
 | Záhlaví | Ne | Objekt | Představuje každá hlavička odeslaný v požadavku. <p>Chcete-li například nastavení jazyka a typu na vyžádání: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | Text | Ne | Objekt | Představuje datovou část, která je odeslána koncovému bodu. | 
-| retryPolicy | Ne | Objekt | Tento objekt použijte k přizpůsobení chování opakování 4xx nebo 5xx chyby. | 
+| retryPolicy | Ne | Objekt | Tento objekt použijte k přizpůsobení chování opakování 4xx nebo 5xx chyby. Další informace najdete v tématu [opakujte zásady](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Ne | Řetězec | Definuje sadu zvláštní chování potlačit. | 
 | Ověřování | Ne | Objekt | Představuje metodu, která požadavek by měl používat pro ověřování. Další informace najdete v tématu [odchozí ověření Scheduleru](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 

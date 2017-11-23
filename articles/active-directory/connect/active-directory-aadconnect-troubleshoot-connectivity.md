@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Řešení potíží s připojením službou Azure AD Connect
 Tento článek vysvětluje, jak funguje připojení mezi Azure AD Connect a službou Azure AD a jak vyřešit problémy s připojením. Tyto problémy budou pravděpodobně se zobrazí v prostředí s proxy serverem.
@@ -95,6 +95,9 @@ Pokud proxy server není nakonfigurovaná správně, dojde k chybě: ![proxy200]
 | 403 |Je zakázané |Proxy server nebyl otevřen pro požadovanou adresu URL. Pokroku konfiguraci proxy serveru a zajistěte, aby [adresy URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) jsou otevřené. |
 | 407 |Vyžadováno ověření proxy serveru |Proxy server vyžaduje přihlášení a nebyl poskytnut žádný. Pokud proxy server vyžaduje ověřování, ujistěte se, že jste nemá toto nastavení nakonfigurované v souboru machine.config. Také zkontrolujte, zda že používáte doménové účty pro uživatele spuštěním průvodce a pro účet služby. |
 
+### <a name="proxy-idle-timeout-setting"></a>Časový limit nečinnosti nastavení proxy serveru
+Pokud Azure AD Connect odešle žádost o export do služby Azure AD, Azure AD může trvat až 5 minut pro zpracování požadavku před vygenerováním odpověď. To může dojít, zejména v případě, že existuje několik objektů skupiny s velké členství ve skupinách zahrnuté ve stejném požadavku export. Zajistěte, aby že časový limit nečinnosti proxy server nakonfigurovaný tak, aby byl větší než 5 minut. Problém s občasným připojením s Azure AD, jinak hodnota může být dodržen na server Azure AD Connect.
+
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Vzor komunikace mezi Azure AD Connect a službou Azure AD
 Pokud jste provedli všechny předchozí kroky a pořád nemůžete připojit, může v tuto chvíli spustit vyhledávání v síťových protokolech. Tato část je dokumentace se vzorem normálního a úspěšné připojení. Je také je výpis běžné red herrings, které můžete ignorovat při čtení protokoly sítě.
 
@@ -145,7 +148,7 @@ Tady je výpis z protokolu skutečné proxy serveru a na stránku průvodce inst
 Tato část obsahuje chyby, které mohou být vráceny z ADAL (knihovnu ověřování používá Azure AD Connect) a prostředí PowerShell. Chyba vysvětlené by vám pomůže v pochopit další kroky.
 
 ### <a name="invalid-grant"></a>Neplatný Grant
-Neplatné uživatelské jméno nebo heslo Další informace najdete v tématu [nelze ověřit heslo](#the-password-cannot-be-verified).
+Neplatné uživatelské jméno nebo heslo. Další informace najdete v tématu [nelze ověřit heslo](#the-password-cannot-be-verified).
 
 ### <a name="unknown-user-type"></a>Typ Neznámý uživatele
 Adresář Azure AD nelze nalézt nebo přeložit. Možná zkuste se přihlásit s uživatelským jménem v neověřené domény?

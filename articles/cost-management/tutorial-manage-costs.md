@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 83ddc0cb4227235069b0027a24a52f4d8e818126
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Řízení nákladů pomocí Azure náklady na správu
 
@@ -72,7 +72,7 @@ Kategorie Manager je nástroj Vyčištění dat, který umožňuje sloučit víc
 
 V portálu Cloudyn, klikněte na symbol ozubené kolečko v horním pravém rohu a vyberte **správce kategorie**. Chcete-li vytvořit novou kategorii, vyberte plus symbol (**+**). Zadejte název pro kategorii a pak v části **klíče**, zadejte kategorie klíčů, které chcete zahrnout do nové kategorie.
 
-Když definujete pravidlo, můžete přidat více hodnot s podmínkou nebo. Můžete také provést některé základní operace s řetězci. V obou případech kliknutím na symbol tří teček (**... **) napravo od **pravidlo**.
+Když definujete pravidlo, můžete přidat více hodnot s podmínkou nebo. Můžete také provést některé základní operace s řetězci. V obou případech kliknutím na symbol tří teček (**...** ) napravo od **pravidlo**.
 
 Chcete-li definovat nové pravidlo v **pravidla** oblasti, vytvořit nové pravidlo. Zadejte například **dev** pod **pravidla** a pak zadejte **R&amp;D** pod **akce**. Když jste hotovi, uložte novou kategorii.
 
@@ -80,6 +80,23 @@ Následující obrázek ukazuje příklad pravidel vytvořených pro novou kateg
 
 ![Příklad kategorie](./media/tutorial-manage-costs/category01.png)
 
+### <a name="tag-sources-and-reports"></a>Značka zdroje a sestavy
+
+Data značek, která se zobrazí v sestavách Cloudyn pochází na třech místech:
+
+- Cloudové prostředky poskytovatele rozhraní API
+- Fakturace rozhraní API poskytovatele cloudu
+- Ruční vytvoření značky, z následujících zdrojů:
+    - Značky entity Cloudyn - uživatelem definované datové meta u Cloudyn entity
+    - Kategorie Správce – dat čisticí nástroj, který vytvoří nové značky na základě pravidel, které se použijí pro existující značky
+
+Chcete-li zobrazit značky zprostředkovatele cloudu v sestavách Cloudyn náklady na musí vytvořit model přidělení vlastní náklady pomocí 360 přidělení náklady. Chcete-li to provést, přejděte na **náklady** > **náklady na správu** > **náklady přidělení 360**, vyberte požadované značky a pak definovat pravidla pro zpracování vyžadující náklady. Pak vytvořte nový model náklady. Potom můžete zobrazit sestavy v analýza nákladů na přidělení k zobrazení, filtrů a řazení na značek prostředků Azure.
+
+Značky prostředku Azure jsou zobrazeny pouze ve **náklady přidělení Analysis** sestavy.
+
+Cloud poskytovatele fakturace značky se zobrazí v všechny sestavy náklady.
+
+Značky entity Cloudyn a značky, které ručně vytvoříte zobrazí všechny sestavy náklady.
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>Vytvoření sestavy kompletní přehled nákladů a vrácení peněz

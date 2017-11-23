@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: d4f1816e19b7cc145d3c7c983b8ead906e10d151
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="contingency-planning-cp"></a>Pohotovostní plánování (CP)
+
 > [!NOTE]
 > Tyto ovládací prvky jsou definovány NIST a USA Ministerstvo obchodu jako součást speciální publikace NIST 800-53 revize 4. Naleznete NIST 800-53 Rev. 4 informace o testování postupy a pokyny pro každý ovládací prvek.
-
-# <a name="contingency-planning-cp"></a>Pohotovostní plánování (CP)
 
 ## <a name="nist-800-53-control-cp-1"></a>Ovládací prvek NIST 800-53 CP-1
 

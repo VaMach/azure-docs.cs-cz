@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dee3411dadbca5e88951dec2ed1836d440423c4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Osvědčené postupy zabezpečení sítě Azure
-Microsoft Azure umožňuje připojit virtuální počítače a zařízení k další síťová zařízení tím, že je na virtuálních sítí Azure. Virtuální síť Azure je konstrukce virtuální sítě, která umožňuje připojit virtuální síťové karty k virtuální síti a povolit založené na protokolu TCP komunikaci mezi síťových zařízení. Virtuální počítače Azure připojené k virtuální síti Azure se mohou připojit k zařízení na stejné Azure virtuální síti, jinou virtuální sítí Azure, na Internetu nebo dokonce na vlastní místní sítě.
+Microsoft Azure umožňuje připojit virtuální počítače a zařízení k další síťová zařízení tím, že je na virtuálních sítí Azure. Virtuální síť Azure je konstrukce, která umožňuje připojit virtuální síťové karty k virtuální síti a povolit založené na protokolu TCP komunikaci mezi síťových zařízení. Virtuální počítače Azure připojené k virtuální síti Azure se mohou připojit k zařízení na stejné Azure virtuální síti, jinou virtuální sítí Azure, na Internetu nebo dokonce na vlastní místní sítě.
 
 V tomto článku se budeme zabývat kolekce osvědčené postupy zabezpečení sítě Azure. Tyto doporučené postupy jsou odvozeny od našich zkušeností s prací v síti Azure a prostředí zákazníků, jako sami.
 
@@ -50,9 +50,9 @@ Azure sítě osvědčené postupy zabezpečení popsané v tomto článku patř�
 * Rozšíření vašeho datového centra do Azure
 
 ## <a name="logically-segment-subnets"></a>Logicky segment podsítě
-[Virtuální sítě Azure](https://azure.microsoft.com/documentation/services/virtual-network/) jsou podobné k místní síti ve vaší místní síti. Cílem virtuální síť Azure je vytvoření jedné privátní IP adresy na základě místa sítě ve kterém můžete umístit všechny vaše [virtuální počítače Azure](https://azure.microsoft.com/services/virtual-machines/). Privátní adresní prostory IP adres k dispozici jsou v třídy A (10.0.0.0/8), třídy B (172.16.0.0/12) a třídy C rozsahy (192.168.0.0/16).
+[Virtuální sítě Azure](https://azure.microsoft.com/documentation/services/virtual-network/) jsou podobné k místní síti ve vaší místní síti. Cílem virtuální síť Azure je vytvoření jedné privátní IP adresy na základě místa sítě ve kterém můžete umístit všechny vaše [virtuální počítače Azure](https://azure.microsoft.com/services/virtual-machines/). Privátní adresní prostory IP adres k dispozici jsou ve A třídy (10.0.0.0/8), třídy B (172.16.0.0/12), a rozsahy adres třídy C (192.168.0.0/16).
 
-Podobně jako do místní, budete chtít segmentovat do podsítí větší adresní prostor. Můžete použít [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) na základě zásady podsítí k vytvoření podsítě.
+Podobně jako do místní, větší adresní prostor by měl segmentovat do podsítí. Můžete použít [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) na základě zásady podsítí k vytvoření podsítě.
 
 Směrování mezi podsítěmi dojde automaticky a není nutné konfigurovat ručně směrovacích tabulek. Výchozí nastavení je ale, že neexistují žádná opatření přístup k síti mezi podsítěmi, které vytvoříte ve virtuální síti Azure. Chcete-li vytvořit ovládací prvky pro přístup k síti mezi podsítěmi, budete muset uvést něco mezi podsítěmi.
 
@@ -74,7 +74,7 @@ Výchozí systémové trasy, které jsou užitečné pro mnoho scénářů nasaz
 Doporučujeme, abyste při nasazení virtuální síťové zařízení zabezpečení, který budeme mluvit o v novější doporučujeme konfigurovat trasy definované uživatelem.
 
 > [!NOTE]
-> Trasy definované uživatelem nejsou nutné a výchozí systémové trasy, které budou fungovat ve většině případů.
+> Trasy definované uživatelem nejsou vyžadovány, a ve většině případů lze použít výchozí systémové trasy.
 >
 >
 
@@ -82,7 +82,7 @@ Další informace o trasy definované uživatelem a způsob jejich konfigurace p
 
 ## <a name="enable-forced-tunneling"></a>Povolení vynuceného tunelování
 Abyste lépe pochopili, vynucené tunelování, je vhodné pochopit, jaké "rozdělení tunelování" je.
-Nejběžnější příkladu dělené tunelové propojení se seznámili s připojeními VPN typu. Představte si vytvořit připojení VPN z vaší místnosti hotelů k podnikové síti. Toto připojení umožní vám umožní připojit se k prostředkům v podnikové síti a veškerá komunikace se k prostředkům v podnikové síti přejděte prostřednictvím tunelu VPN.
+Nejběžnější příkladu dělené tunelové propojení se seznámili s připojeními VPN typu. Představte si vytvořit připojení VPN z vaší místnosti hotelů k podnikové síti. Toto připojení umožní, že vám přístup k podnikovým prostředkům a veškerá komunikace se k podnikové síti přejděte prostřednictvím tunelu VPN.
 
 Co se stane, když se chcete připojit k prostředkům na Internetu? Pokud je povoleno dělené tunelové propojení, tato připojení přejděte přímo k Internetu a ne prostřednictvím tunelového připojení sítě VPN. Některé odborníky zabezpečení zvažte to představuje potenciální riziko a proto doporučujeme, aby dělené tunelové propojení zakázané a všechna připojení, jsou určené pro Internet a ty určené pro podnikové prostředky, přejděte prostřednictvím tunelu VPN. Výhodou to je, že připojení k Internetu jsou pak vynutit prostřednictvím zabezpečovací zařízení podnikové sítě, které by být v případě, pokud klient VPN není připojený k Internetu mimo tunelového připojení sítě VPN.
 
@@ -144,10 +144,9 @@ Utajení, integrita a dostupnost (c oddílu) tvoří chaloupka dnešní nejvíce
 Dostupnost můžete představit jako o provozu a výkonu. Pokud služba je vypnutý, není přístupná informace. Pokud je tak nízký, nepoužitelnost data výkonu, můžete považujeme za data, která mají být nedostupné. Proto z hlediska zabezpečení budeme muset udělat ať můžeme zajistěte, aby našich služeb optimální dostupnost a výkon.
 Ke zvýšení dostupnosti a výkonu použít metodu oblíbených a efektivní je použití služby Vyrovnávání zatížení. Vyrovnávání zatížení je metoda distribucí síťový provoz mezi servery, které jsou součástí služby. Například pokud máte front-end webové servery jako součást služby, můžete Vyrovnávání zatížení pro distribuci provoz napříč více front-endu webových serverů.
 
-Této distribuce přenosů zvýšíte dostupnost, protože jeden z webových serverů přestane být dostupný, nástroje pro vyrovnávání zatížení zastaví odesílání provozu k danému serveru a přesměrování provozu na servery, které jsou stále online. Vyrovnávání zatížení taky pomáhá výkonu, protože procesor, sítě a paměti, že nároků na obsluhovat požadavky je distribuován do všech zatížení vyrovnáváním servery.
+Této distribuce přenosů zvýšíte dostupnost, protože jeden z webových serverů přestane být dostupný, nástroje pro vyrovnávání zatížení zastaví odesílání provozu k danému serveru a přesměruje na servery, které jsou stále online. Vyrovnávání zatížení taky pomáhá výkonu, protože procesor, sítě a paměti, že nároků na obsluhovat požadavky je distribuován do všech zatížení vyrovnáváním servery.
 
-Doporučujeme vám, že nepoužijete Vyrovnávání zatížení, kdykoli je to možné a podle potřeby pro vaše služby. Jsme budete adres vhodnost v následujících částech.
-Na úrovni virtuální síť Azure Azure poskytuje že k tři primární možnostech Vyrovnávání zatížení:
+Doporučujeme vám, že nepoužijete Vyrovnávání zatížení, kdykoli je to možné a podle potřeby pro vaše služby. Budete nevyřešíme vhodnost v následujících částech: na úrovni virtuální síť Azure, Azure poskytuje k tři primární možnostech Vyrovnávání zatížení:
 
 * Vyrovnávání zatížení založené na protokolu HTTP
 * Externí Vyrovnávání zatížení
@@ -176,7 +175,7 @@ Další informace o tom, jak funguje Azure externí nástroj pro vyrovnávání 
 ## <a name="internal-load-balancing"></a>Interní Vyrovnávání zatížení
 Vyrovnávání zatížení interní je podobná externí zátěže a používá stejný mechanismus načíst vyrovnávání připojení k serverům za ně. Jediným rozdílem je, že nástroj pro vyrovnávání zatížení v tomto případě přijímá připojení z virtuálních počítačů, které nejsou na Internetu. Ve většině případů připojení, která jsou podmínky přijaty ve Vyrovnávání zatížení zahájili zařízení v Azure Virtual Network.
 
-Doporučujeme vám, že používáte interní Vyrovnávání zatížení pro scénáře, které budou využívat výhody tato funkce, například když potřebujete načíst vyrovnávání připojení k SQL serverům nebo interní webové servery.
+Doporučujeme vám, že používáte interní Vyrovnávání zatížení pro scénáře využívající tato funkce, například když potřebujete načíst vyrovnávání připojení k SQL serverům nebo interní webové servery.
 
 Další informace o tom, jak funguje Azure interní Vyrovnávání zatížení a jak ji nasadit, najdete v článku [začínáte s vytvářením interní pro vyrovnávání zatížení pomocí prostředí PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer).
 

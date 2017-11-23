@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurace programu Sledování výkonu sítě pro ExpressRoute (Preview)
 
@@ -96,7 +96,7 @@ Pokud už používáte nástroj Sledování výkonu sítě k monitorování jin�
 1. Na **konfigurace pro monitorování výkonu ze sítě – stránka Instalace TCP** prostředku, v **instalovat agenty OMS** klikněte na možnost agent, který odpovídá jeho procesoru a stažení Instalační soubor.
 
   >[!NOTE]
-  >Pro ExpressRoute aktuálně nepodporuje Linux agenta monitorování.
+  >Agent musí být nainstalován na serveru systému Windows (2008 SP1 nebo novější). Monitorování okruhy ExpressRoute pomocí operačního systému Windows Desktop a operační systém Linux není podporováno. 
   >
   >
 2. Zkopírujte **ID pracovního prostoru** a **primární klíč** do poznámkového bloku.
@@ -105,6 +105,8 @@ Pokud už používáte nástroj Sledování výkonu sítě k monitorování jin�
   ![Skript PowerShellu](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: nainstalujte agenta monitorování na každém serveru monitorování
+
+Doporučujeme nainstalovat aspoň dva agenty na každé straně připojení ExpressRoute (tj, místní, virtuálních sítí Azure) pro redundanci. Použijte následující postup k instalaci agentů:
 
 1. Spustit **instalace** instalace agenta na každém serveru, který chcete použít pro sledování ExpressRoute. Server, který použijete pro monitorování může být virtuální počítač nebo místní a musí mít přístup k Internetu. Musíte nainstalovat alespoň jeden místního agenta a jednoho agenta v každém segmentu sítě, který chcete monitorovat v Azure.
 2. Na **úvodní** klikněte na tlačítko **Další**.

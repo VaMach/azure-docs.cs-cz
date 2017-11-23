@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e27ec57543daed35811fff347f457b0dd2cd5c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Zvýšení výkonu komprimací souborů v Azure CDN
 Komprese je jednoduchá ale účinná metoda a zvýšit rychlost přenosu souborů zvyšuje zatížení stránky omezení velikosti souboru před odesláním ze serveru. Umožňuje snížit náklady na šířku pásma a poskytuje rychlejší reakce prostředí pro uživatele.
@@ -100,7 +100,7 @@ Tyto tabulky popisují chování Azure CDN komprese pro každý scénář.
 > * Být větší než 128 bajtů.
 > * Být menší než 1 MB.
 > 
-> Tyto profily podporovat **gzip** (GNU zip), **deflate**, **bzip2**, nebo **Brazílie** kódování (Brotli). Pro Brotli kódování, komprese provádí pouze na hranici. V klientském prohlížeči musíte odeslat žádost o Brotli kódování a komprimované asset musí mít komprimované na straně původu nejdřív. 
+> Tyto profily podporovat **gzip** (GNU zip), **deflate**, **bzip2**, nebo **Brazílie** kódování (Brotli). Komprese pro Brotli kódování, je třeba provést v původu. V klientském prohlížeči musíte odeslat žádost o Brotli kódování a komprimované asset musí mít komprimované na straně původu nejdřív. 
 
 > [!IMPORTANT]
 > Pro **Azure CDN společnosti Akamai** profily, všechny soubory jsou způsobilé pro kompresi. Pokud ale soubor musí být typ MIME, který byl [nakonfigurované pro kompresi](#enabling-compression).

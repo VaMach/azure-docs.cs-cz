@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/21/2017
 ms.author: jingwang
-ms.openlocfilehash: f2675a0af82640925b837ae80e751fcab5972321
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Podporované formáty souborů a komprese kodeky v Azure Data Factory
 
@@ -29,6 +29,9 @@ Pokud chcete **zkopírujte soubory jako-je** mezi souborové úložiště (biná
 
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [podporované formáty souborů a komprese v objektu pro vytváření dat version1](v1//data-factory-supported-file-and-compression-formats.md).
+
+> [!TIP]
+> Zjistěte, jak aktivity kopírování mapuje zdroje dat, aby se jímky z [schéma mapování v aktivitě kopírování](copy-activity-schema-and-type-mapping.md), včetně toho, jak metadat je určené na základě svého nastavení formátu souboru a tipů. když chcete zadat [datovou sadu `structure` ](concepts-datasets-linked-services.md#dataset-structure) části.
 
 ## <a name="text-format"></a>Textovém formátu
 

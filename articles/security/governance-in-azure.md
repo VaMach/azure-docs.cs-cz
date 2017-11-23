@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 03e86448a1b0a13addab789bf2aea62e5d84149b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="governance-in-azure"></a>Zásady správného řízení v Azure
 
 Víme, že je zabezpečení úlohy, jeden v cloudu a jak důležité je, že zjistíte přesné a aktuální informace o zabezpečení Azure. Jedním z nejlepší důvodů, proč používat Azure pro vaše aplikace a služby je využívat jeho širokou škálu zabezpečení nástroje a možnosti. Tyto nástroje a možnosti pomáhat ji možné vytvořit zabezpečený řešení na zabezpečené platformy Azure.
 
-Vám pomůžou lépe pochopit pole zásad správného řízení je zapsán ovládací prvky implementované v rámci Microsoft Azure z odběratele a Microsoft operations perspektivy, v tomto článku "Zásad správného řízení v Azure", která poskytuje komplexní pohled na zásad správného řízení funkce dostupné v Microsoft Azure.
+Vám pomůžou lépe pochopit pole zásad správného řízení je zapsán ovládací prvky implementované v rámci Microsoft Azure z odběratele a Microsoft operations perspektivy, v tomto článku "Zásad správného řízení v Azure", k poskytování komplexní pohled na zásad správného řízení Funkce dostupné v Microsoft Azure.
 
 ## <a name="azure-platform"></a>Platforma Azure
 

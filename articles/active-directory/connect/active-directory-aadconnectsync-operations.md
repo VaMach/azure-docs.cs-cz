@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Synchronizace Azure AD Connect: provozní úlohy a zvážení
 Cílem tohoto tématu je k popisu provozní úlohy pro synchronizaci Azure AD Connect.
@@ -33,6 +33,11 @@ Pracovní režim lze použít pro několik scénářů, včetně:
 S server v pracovní režimu můžete provést změny v konfiguraci a zobrazit náhled změn, před provedením server aktivní. Také umožňuje spustit úplný import a úplnou synchronizaci za účelem ověření, že všechny změny budou před provedením změn do vašeho provozního prostředí.
 
 Během instalace, můžete vybrat serveru, aby se v **pracovním režimu**. Tato akce aktivuje serveru pro import a synchronizaci, ale nespustí žádné export. Server v pracovní režimu není spuštěna synchronizace hesel nebo zpětný zápis hesla, i v případě, že jste vybrali tyto funkce během instalace. Při zakázání pracovní režim serveru spustí, export, umožňuje synchronizaci hesel a umožňuje zpětný zápis hesla.
+
+> [!NOTE]
+> Předpokládejme, že máte Azure AD Connect s povolenou funkcí synchronizaci hodnoty Hash hesla. Když povolíte pracovní režim, zastaví serveru, který synchronizace hesel se změní z místní AD. Pokud zakážete pracovní režim, server obnoví synchronizaci hesla změny od poslední místa. Pokud server zůstane v pracovním režimu pro delší dobu, může trvat nějakou dobu serveru synchronizovat všechny změny hesla, které měl došlo k chybě během časového období.
+>
+>
 
 Můžete vynutit exportu pomocí synchronization service manager.
 

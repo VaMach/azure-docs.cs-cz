@@ -1,8 +1,6 @@
 Ve službě Cloud Shell pomocí příkazu [az webapp create](/cli/azure/webapp#create) vytvořte [webovou aplikaci](../articles/app-service/app-service-web-overview.md) v plánu služby App Service `myAppServicePlan`. 
 
-Tato webová aplikace poskytuje prostor pro hostování vašeho kódu a adresu URL, na které si můžete nasazenou aplikaci zobrazit.
-
-V následujícím příkazu nahraďte *\<app_name >* jedinečným názvem (platné znaky jsou `a-z`, `0-9` a `-`). Pokud název `<app_name>` není jedinečný, zobrazí se chybová zpráva „Web se zadaným názvem <název_aplikace> již existuje“. Výchozí adresa URL webové aplikace je `https://<app_name>.azurewebsites.net`. 
+V následujícím příkladu nahraďte  *\<app_name >* s globálně jedinečným názvem aplikace (platnými znaky jsou `a-z`, `0-9`, a `-`). 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -32,7 +30,7 @@ Nasazení git povoleno jste vytvořili prázdný webové aplikace.
 > Adresa URL Git vzdáleného jsou uvedené v `deploymentLocalGitUrl` vlastnost ve formátu `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Tato adresa URL uložte, protože ho budete potřebovat později.
 >
 
-Přejděte na web a zobrazte nově vytvořenou webovou aplikaci.
+Vyhledejte nově vytvořenou webovou aplikaci.
 
 ```bash
 http://<app_name>.azurewebsites.net
