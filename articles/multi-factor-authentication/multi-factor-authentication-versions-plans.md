@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: 23fa083ef8dc67767db68fd6e783203419b2becd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c5c93c8e8d108a9a5a29477a532d682659c9d512
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Jak získat Azure Multi-Factor Authentication
 
@@ -65,7 +65,7 @@ Následující tabulka obsahuje seznam funkcí, které jsou k dispozici v různ�
 | ID vlastní volajícího pro telefonní hovory | | |● |
 | Důvěryhodné IP adresy | | |● |
 | Zapamatovat MFA pro důvěryhodná zařízení |● |● |● |
-| MFA SDK | | |● (poskytovatele vyžaduje vícefaktorového ověřování a úplné předplatné) |
+| MFA SDK | | |● (zastaralé) | 
 | MFA pro místní aplikace | | |● |
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Jak získat Azure Multi-Factor Authentication

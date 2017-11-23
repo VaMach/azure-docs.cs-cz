@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: a3bc07623505371b4f3c230ebadeb577a70fdb5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Knihovny tříd rozhraní .NET pomocí Azure Functions
 
@@ -37,7 +37,7 @@ Tento článek má následující požadavky:
 
 Ze sady Visual Studio vytvořte nový projekt Azure Functions. Nová šablona projektu vytvoří soubory *host.json* a *local.settings.json*. Můžete [přizpůsobit nastavení modulu runtime Azure Functions v host.json](functions-host-json.md). 
 
-Soubor *local.settings.json* ukládá nastavení aplikace, řetězce připojení a nastavení nástroje základní funkce Azure. Další informace o jeho strukturu, najdete v části [kód a testovat místně na Azure functions](functions-run-local.md#local-settings).
+Soubor *local.settings.json* ukládá nastavení aplikace, řetězce připojení a nastavení nástroje základní funkce Azure. Další informace o jeho strukturu, najdete v části [kód a testovat místně na Azure functions](functions-run-local.md#local-settings-file).
 
 ### <a name="functionname-attribute"></a>Atribut %{FunctionName/
 

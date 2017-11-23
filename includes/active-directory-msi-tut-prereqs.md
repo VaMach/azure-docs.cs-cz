@@ -1,0 +1,1 @@
+Váš účet musí být dané "vlastník" oprávnění v příslušné oboru (vaše předplatné nebo skupinu prostředků), k provedení požadovaný prostředek vytváření a správu role. V tématu [Use Role-Based řízení přístupu ke správě přístupu k prostředkům předplatného Azure](../articles/active-directory/role-based-access-control-configure.md) Pokud potřebujete pomoc s přiřazení role.

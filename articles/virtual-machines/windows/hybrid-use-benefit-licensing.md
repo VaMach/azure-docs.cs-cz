@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pro Windows Server
 Pro zákazníky s programu Software Assurance umožňuje Azure hybridní výhody pro Windows Server používat své místní licence systému Windows Server a spustit virtuální počítače s Windows v Azure s malými náklady. Azure hybridní výhody pro Windows Server můžete použít k nasazení nových virtuálních počítačů z libovolného Azure podporovaný image platformy systému Windows Server nebo vlastních bitových kopií systému Windows. Tento článek přejde přes kroky na tom, jak nasadit nové virtuální počítače s Azure hybridní výhody pro Windows Server a jak můžete aktualizovat existující spuštěných virtuálních počítačů. Další informace o Azure hybridní výhody pro Windows Server najdete v části úspory licencování a náklady [licencování stránky Azure hybridní výhody pro Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -28,7 +28,7 @@ Pro zákazníky s programu Software Assurance umožňuje Azure hybridní výhody
 >
 
 > [!NOTE]
-> Pomocí Azure hybridní výhody pro Windows Server virtuálních počítačů, které budou účtovat další software, jako je například SQL Server ani v žádné z bitové kopie třetích stran marketplace je se nasazuje. Pokud se například zobrazí 409 Chyba: při změně hodnoty vlastnosti není povolena, LicenseType'; pak se pokoušíte převést nebo nasadit nové virtuální počítače Windows serveru, který má další náklady, software, který nemusí být podporována v této oblasti.
+> Pomocí Azure hybridní výhody pro Windows Server virtuálních počítačů, které budou účtovat další software, jako je například SQL Server ani v žádné z bitové kopie třetích stran marketplace je se nasazuje. Pokud se například zobrazí 409 Chyba: při změně hodnoty vlastnosti není povolena, LicenseType'; pak se pokoušíte převést nebo nasadit nové virtuální počítače Windows serveru, který má další náklady, software, který nemusí být podporována v této oblasti. Stejné, pokud se pokusíte vypadat pro konfigurace portálu možnost provést převod a neuvidí ho pro tento virtuální počítač.
 >
 
 
@@ -82,6 +82,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### <a name="portal"></a>Portál
 Z portálu okno virtuálních počítačů můžete aktualizovat virtuální počítač používat Azure hybridní těžit výběrem možnosti "Konfigurace" a přepněte možnost "Azure hybridní těžit"
+
+> [!NOTE]
+> Pokud nevidíte možnost přepnout "Azure hybridní benefit" v části "Konfigurace", je to způsobeno převod zatím nepodporuje pro vybraný typ virtuálního počítače (třeba virtuální počítač vytvořen z vlastní image nebo obrázek, který obsahuje další placené software, jako je SQL Server nebo Azure Marketplace software třetích stran).
+>
 
 ## <a name="upload-a-windows-server-vhd"></a>Nahrání virtuálního pevného disku serveru systému Windows
 Pokud chcete nasadit virtuální počítač Windows serveru v Azure, musíte nejprve vytvořit virtuální pevný disk, který obsahuje vaše základní build Windows. Tento virtuální pevný disk musí být správně připravena pomocí nástroje Sysprep, před nahráním do Azure. Můžete [Další informace o požadavcích virtuálního pevného disku a procesu Sysprep](upload-generalized-managed.md) a [podpora nástroje Sysprep pro role serveru](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Zálohování virtuálního počítače před spuštěním nástroje Sysprep. 
@@ -180,12 +184,14 @@ V rámci virtuálního počítače sady škálování šablony Resource Manageru
 Můžete také [vytvořit a nasadit škálovací sadu virtuálních počítačů](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) a nastavte vlastnost LicenseType
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o [jak ušetřit peníze s využitím Azure hybridní](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Další informace o [jak ušetřit peníze s výhodou hybridní Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Další informace o [Azure hybridní výhody pro Windows Server licencování podrobné pokyny](http://go.microsoft.com/fwlink/?LinkId=859786)
+Další informace o [Azure hybridní výhody pro Windows Server licencování podrobné pokyny](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
 
-Další informace o [pomocí šablony Resource Manageru](../../azure-resource-manager/resource-group-overview.md).
+Další informace o [šablon pomocí Resource Manageru](../../azure-resource-manager/resource-group-overview.md)
 
-Další informace o [Azure hybridní výhody pro Windows Server a Azure Site Recovery zkontrolujte migrace aplikací do Azure i více nákladově efektivní](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+Další informace o [Azure hybridní výhody pro Windows Server a Azure Site Recovery zkontrolujte migrace aplikací do Azure i více nákladově efektivní](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
+
+Další informace o [Windows 10 v Azure s víceklientské hostování vpravo](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Další informace o [nejčastější dotazy](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

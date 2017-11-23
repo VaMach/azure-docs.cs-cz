@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 168b2ab3676d3f3e2830966f850e14adbe579f85
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>Jak používat Azure virtuálního počítače spravované služby Identity (MSI) pro pořízení přihlášení a tokenu 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Poté, co jste povolili MSI ve virtuálním počítači Azure, můžete použít soubor MSI pro přihlášení a požádat o token přístupu. Tento článek popisuje různé způsoby použití souboru MSI [instanční objekt](develop/active-directory-dev-glossary.md#service-principal-object) pro přihlášení a získat [jen aplikace přístupový token](develop/active-directory-dev-glossary.md#access-token) přistupovat k dalším prostředkům, včetně:
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/17/2017
 
 ## <a name="prerequisites"></a>Požadavky
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Pokud budete chtít použít příklady prostředí PowerShell v tomto článku, je nutné nainstalovat [prostředí Azure PowerShell verze 4.3.1](https://www.powershellgallery.com/packages/AzureRM) nebo vyšší. Pokud máte v plánu používat rozhraní příkazového řádku Azure příklady v tomto článku, máte tři možnosti:
 - Použití [prostředí cloudu Azure](../cloud-shell/overview.md) z portálu Azure.

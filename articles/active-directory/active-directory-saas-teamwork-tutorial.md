@@ -1,207 +1,191 @@
 ---
-title: "Kurz: Azure Active Directory integrace s týmovou spolupráci | Microsoft Docs"
-description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a týmovou spolupráci."
+title: 'Kurz: Azure Active Directory integrace s Teamwork.com | Microsoft Docs'
+description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a Teamwork.com."
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: 03760032-3d76-4b47-ab84-241f72fbd561
+ms.reviewer: joflore
+ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: edd2f9446515531f1147a8abf99295b618b89b25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamwork"></a>Kurz: Azure Active Directory integrace s týmovou spolupráci
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Kurz: Azure Active Directory integrace s Teamwork.com
 
-V tomto kurzu zjistěte, jak integrovat týmovou spolupráci se službou Azure Active Directory (Azure AD).
+V tomto kurzu zjistěte, jak integrovat Teamwork.com s Azure Active Directory (Azure AD).
 
-Integrace týmovou spolupráci s Azure AD poskytuje následující výhody:
+Integrace Teamwork.com s Azure AD poskytuje následující výhody:
 
-- Můžete řídit ve službě Azure AD, který má přístup k týmovou spolupráci
-- Můžete povolit uživatelům, aby automaticky získat přihlášení k týmovou spolupráci (jednotné přihlášení) s jejich účty Azure AD
-- Můžete spravovat vaše účty v jednom centrálním místě - portálu pro správu Azure
+- Můžete ovládat ve službě Azure AD, který má přístup k Teamwork.com.
+- Můžete povolit uživatelům, aby automaticky získat přihlášení k Teamwork.com (jednotné přihlášení) s jejich účty Azure AD.
+- Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure.
 
 Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, najdete v části [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
-Konfigurace integrace Azure AD s týmovou spolupráci, potřebujete následující položky:
+Konfigurace integrace Azure AD s Teamwork.com, potřebujete následující položky:
 
 - Předplatné služby Azure AD
-- Týmovou spolupráci jednotného přihlašování povolené předplatné
-
+- Teamwork.com jednotné přihlašování povolené předplatné
 
 > [!NOTE]
 > K testování kroky v tomto kurzu, nedoporučujeme používání provozním prostředí.
 
-
 Chcete-li otestovat kroky v tomto kurzu, postupujte podle těchto doporučení:
 
-- Provozním prostředí byste neměli používat, pokud je to nutné.
-- Pokud nemáte prostředí zkušební verze Azure AD, můžete získat zkušební jeden měsíc [zde](https://azure.microsoft.com/pricing/free-trial/).
-
+- Nepoužívejte provozním prostředí, pokud to není nutné.
+- Pokud nemáte prostředí zkušební verze Azure AD, můžete [získat zkušební verzi jeden měsíc](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Popis scénáře
 V tomto kurzu můžete otestovat Azure AD jednotné přihlašování v testovacím prostředí. Scénáři uvedeném v tomto kurzu se skládá ze dvou hlavních stavebních bloků:
 
-1. Přidání týmovou spolupráci z Galerie
+1. Přidání Teamwork.com z Galerie
 2. Konfigurace a testování Azure AD jednotného přihlašování
 
+## <a name="adding-teamworkcom-from-the-gallery"></a>Přidání Teamwork.com z Galerie
+Při konfiguraci integrace Teamwork.com do služby Azure AD musíte přidat do seznamu spravovaných aplikací SaaS Teamwork.com z galerie.
 
-## <a name="adding-teamwork-from-the-gallery"></a>Přidání týmovou spolupráci z Galerie
-Při konfiguraci integrace týmovou spolupráci do služby Azure AD potřebujete přidat týmovou spolupráci z Galerie si na seznam spravovaných aplikací SaaS.
+**Pokud chcete přidat Teamwork.com z galerie, proveďte následující kroky:**
 
-**Pokud chcete přidat týmovou spolupráci z galerie, proveďte následující kroky:**
+1. V  **[portál Azure](https://portal.azure.com)**, v levém navigačním panelu klikněte na tlačítko **Azure Active Directory** ikonu. 
 
-1. V  **[portálu pro správu Azure](https://portal.azure.com)**, v levém navigačním panelu klikněte na tlačítko **Azure Active Directory** ikonu. 
-
-    ![Active Directory][1]
+    ![Tlačítko Azure Active Directory][1]
 
 2. Přejděte na **podnikové aplikace, které**. Pak přejděte na **všechny aplikace**.
 
-    ![Aplikace][2]
+    ![V okně podnikové aplikace][2]
     
-3. Klikněte na tlačítko **přidat** tlačítko horní dialogové okno.
+3. Chcete-li přidat novou aplikaci, klikněte na tlačítko **novou aplikaci** tlačítko horní dialogové okno.
 
-    ![Aplikace][3]
+    ![Tlačítko nové aplikace][3]
 
-4. Do vyhledávacího pole zadejte **týmovou spolupráci**.
+4. Do vyhledávacího pole zadejte **Teamwork.com**, vyberte **Teamwork.com** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_001.png)
+    ![Teamwork.com v seznamu výsledků](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_addfromgallery.png)
 
-5. Na panelu výsledků vyberte **týmovou spolupráci**a potom klikněte na **přidat** tlačítko Přidat aplikaci.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurace a otestování Azure AD jednotné přihlašování
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_0001.png)
+V této části nakonfigurovat a otestovat Azure AD jednotné přihlašování s Teamwork.com podle testovacího uživatele názvem "Britta Simon".
 
+Azure AD pro jednotné přihlašování pro práci, musí vědět, co uživatel protějškem v Teamwork.com je pro uživatele ve službě Azure AD. Jinými slovy odkaz vztah mezi uživatele Azure AD a související uživatelské v Teamwork.com musí navázat.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurace a testování Azure AD jednotného přihlašování
-V této části nakonfigurovat a otestovat Azure AD jednotné přihlašování s týmovou spolupráci podle testovacího uživatele názvem "Britta Simon".
+V Teamwork.com, přiřadit hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** k navázání vztahu odkazu.
 
-Azure AD pro jednotné přihlašování pro práci, musí vědět, co uživatel protějškem v týmovou spolupráci je pro uživatele ve službě Azure AD. Jinými slovy musí navázat vztah propojení mezi uživatele Azure AD a související uživatelské v týmovou spolupráci.
+Nakonfigurovat a otestovat Azure AD jednotné přihlašování s Teamwork.com, je třeba dokončit následující stavební bloky:
 
-Tento vztah propojení se navazuje se hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** v týmovou spolupráci.
+1. **[Konfigurovat Azure AD jednotné přihlašování](#configure-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
+2. **[Vytvořit testovací uživatele Azure AD](#create-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
+3. **[Vytvoření zkušebního uživatele Teamwork.com](#create-a-teamworkcom-test-user)**  – Pokud chcete mít protějšek Britta Simon v Teamwork.com propojeném s Azure AD reprezentace daného uživatele.
+4. **[Přiřadit testovacího uživatele Azure AD](#assign-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
+5. **[Test jednotného přihlašování](#test-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
 
-Nakonfigurovat a otestovat Azure AD jednotné přihlašování s týmovou spolupráci, je třeba dokončit následující stavební bloky:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurovat Azure AD jednotné přihlašování
 
-1. **[Konfigurace Azure AD jednotné přihlašování](#configuring-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
-2. **[Vytváření testovacího uživatele Azure AD](#creating-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
-3. **[Vytvoření zkušebního uživatele týmovou spolupráci](#creating-a-teamwork-test-user)**  – Pokud chcete mít protějšek Britta Simon v týmovou spolupráci, propojené služby Azure AD reprezentace jí.
-4. **[Přiřazení testovacího uživatele Azure AD](#assigning-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
-5. **[Testování jednotné přihlašování](#testing-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
+V této části můžete povolit Azure AD jednotného přihlašování na portálu Azure a nakonfigurovat jednotné přihlašování v aplikaci Teamwork.com.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurace Azure AD jednotné přihlašování
+**Ke konfiguraci Azure AD jednotné přihlašování s Teamwork.com, proveďte následující kroky:**
 
-V této části můžete povolit Azure AD jednotné přihlašování v portálu pro správu Azure a nakonfigurovat jednotné přihlašování v aplikaci týmovou spolupráci.
+1. Na portálu Azure na **Teamwork.com** stránky integrace aplikací, klikněte na tlačítko **jednotného přihlašování**.
 
-**Ke konfiguraci Azure AD jednotné přihlašování s týmovou spolupráci, proveďte následující kroky:**
+    ![Konfigurace propojení přihlášení][4]
 
-1. Na portálu Azure Management portal na **týmovou spolupráci** stránky integrace aplikací, klikněte na tlačítko **jednotného přihlašování**.
-
-    ![Konfigurovat jednotné přihlašování][4]
-
-2. Na **jednotného přihlašování** dialogové okno, jako **režimu** vyberte **na základě SAML přihlašování** umožňující jednotného přihlašování na.
+2. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **na základě SAML přihlašování** umožňující jednotného přihlašování.
  
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_01.png)
+    ![Jediné přihlášení dialogové okno](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_samlbase.png)
 
-3. Na **týmovou spolupráci domény a adresy URL** v části **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<company name>.teamwork.com`
+3. Na **Teamwork.com domény a adresy URL** část, proveďte následující kroky:
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_02.png)
+    ![Teamwork.com domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
+
+    V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<company name>.teamwork.com`
 
     > [!NOTE] 
-    > Upozorňujeme, že se nejedná skutečné hodnoty. Budete muset aktualizovat tuto hodnotu s skutečné přihlašovací na adresy URL. Obraťte se na [tým podpory týmovou spolupráci](mailto:support@teamwork.com) získat tuto hodnotu. 
+    > Tato hodnota není skutečné. Aktualizujte tuto hodnotu s skutečná adresa URL přihlašování. Obraťte se na [tým podpory Teamwork.com](mailto:support@teamwork.com) získat tuto hodnotu. 
 
-4. Na **SAML podpisový certifikát** klikněte na tlačítko **vytvořit nový certifikát**.
+4. Na **SAML podpisový certifikát** klikněte na tlačítko **soubor XML s metadaty** a potom uložte soubor metadat ve vašem počítači.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)   
+    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_certificate.png) 
 
-5. Na **vytvořit nový certifikát** dialogové okno, klikněte na ikonu kalendáři a vyberte **datum vypršení platnosti**. Pak klikněte na tlačítko **Uložit** tlačítko.
+5. Klikněte na tlačítko **Uložit** tlačítko.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-teamwork-tutorial/tutorial_general_300.png)
+    ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
-6. Na **SAML podpisový certifikát** vyberte **aktivujte nový certifikát** a klikněte na tlačítko **Uložit** tlačítko.
+6. Konfigurace jednotného přihlašování na **Teamwork.com** straně, budete muset odeslat stažené **soubor XML s metadaty** k [tým podpory Teamwork.com](mailto:support@teamwork.com). Nastavují toto nastavení tak, aby měl jednotné přihlašování SAML připojení správně nastavena na obou stranách.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_04.png)
+> [!TIP]
+> Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-7. V místní nabídce **certifikát výměny** okně klikněte na tlačítko **OK**.
+### <a name="create-an-azure-ad-test-user"></a>Vytvořit testovací uživatele Azure AD
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
+Cílem této části je vytvoření zkušebního uživatele na portálu Azure, názvem Britta Simon.
 
-8. Na **SAML podpisový certifikát** klikněte na tlačítko **soubor XML s metadaty** a potom uložte soubor metadat ve vašem počítači.
-
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_05.png) 
-
-9. Pokud chcete získat jednotné přihlašování, které jsou nakonfigurované pro vaše aplikace, obraťte se na [tým podpory týmovou spolupráci](mailto:support@teamwork.com) a jim poskytnout stažený **metadata**.
-  
-
-### <a name="creating-an-azure-ad-test-user"></a>Vytváření testovacího uživatele Azure AD
-Cílem této části je vytvoření zkušebního uživatele na portálu správy Azure, názvem Britta Simon.
-
-![Vytvořit uživatele Azure AD][100]
+   ![Vytvořit testovací uživatele Azure AD][100]
 
 **Vytvoření zkušebního uživatele ve službě Azure AD, proveďte následující kroky:**
 
-1. V **portálu pro správu Azure**, v levém navigačním podokně klikněte na tlačítko **Azure Active Directory** ikonu.
+1. Na portálu Azure, v levém podokně klikněte **Azure Active Directory** tlačítko.
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png) 
+    ![Tlačítko Azure Active Directory](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png)
 
-2. Přejděte na **uživatelů a skupin** a klikněte na tlačítko **všichni uživatelé** zobrazíte seznam uživatelů.
-    
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png) 
+2. Chcete-li zobrazit seznam uživatelů, přejděte na **uživatelů a skupin**a potom klikněte na **všichni uživatelé**.
 
-3. V horní části okna klikněte na tlačítko **přidat** otevřete **uživatele** dialogové okno.
+    !["Uživatelé a skupiny" a "Všichni uživatelé" odkazy](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png)
+
+3. Chcete-li otevřít **uživatele** dialogové okno, klikněte na tlačítko **přidat** v horní části **všichni uživatelé** dialogové okno.
+
+    ![Tlačítko Přidat](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png)
+
+4. V **uživatele** dialogové okno pole, proveďte následující kroky:
+
+    ![Dialogové okno uživatele](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png)
+
+    a. V **název** zadejte **BrittaSimon**.
+
+    b. V **uživatelské jméno** zadejte e-mailovou adresu uživatele Britta Simon.
+
+    c. Vyberte **zobrazit hesla** zaškrtněte políčko a zapište si ji hodnotu, která se zobrazí v **heslo** pole.
+
+    d. Klikněte na možnost **Vytvořit**.
  
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png) 
+### <a name="create-a-teamworkcom-test-user"></a>Vytvoření zkušebního uživatele Teamwork.com
 
-4. Na **uživatele** dialogové okno stránky, proveďte následující kroky:
- 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png) 
+V této části vytvoříte volal Britta Simon v Teamwork.com uživatele. Práce s [tým podpory Teamwork.com](mailto:support@teamwork.com) přidat uživatele do Teamwork.com platformy. Uživatelé musí být vytvořen a aktivovat dříve, než použijete jednotné přihlašování.
 
-    a. V **název** textovému poli, typ **BrittaSimon**.
+### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 
-    b. V **uživatelské jméno** textovému poli, typ **e-mailová adresa** z BrittaSimon.
+V této části povolíte Britta Simon používat Azure jednotné přihlašování pomocí udělení přístupu Teamwork.com.
 
-    c. Vyberte **zobrazit hesla** a poznamenejte si hodnotu **heslo**.
+![Přiřadit role uživatele][200] 
 
-    d. Klikněte na možnost **Vytvořit**. 
+**Pokud chcete přiřadit Britta Simon Teamwork.com, proveďte následující kroky:**
 
-
-
-### <a name="creating-a-teamwork-test-user"></a>Vytvoření zkušebního uživatele týmovou spolupráci
-
-V této části vytvoříte uživatele volal Britta Simon v týmovou spolupráci. Spojte se s [tým podpory týmovou spolupráci](mailto:support@teamwork.com) přidat uživatele do platformy týmovou spolupráci.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Přiřazení testovacího uživatele Azure AD
-
-V této části povolíte Britta Simon používat tak, že udělíte přístup k týmovou spolupráci Azure jednotné přihlašování.
-
-![Přiřadit uživatele][200] 
-
-**Pokud chcete přiřadit Britta Simon týmovou spolupráci, proveďte následující kroky:**
-
-1. V portálu pro správu Azure, otevřete zobrazení aplikací a pak přejděte do zobrazení adresáře a přejděte na **podnikové aplikace, které** klikněte **všechny aplikace**.
+1. Na portálu Azure otevřete zobrazení aplikací a pak přejděte do zobrazení adresáře a přejděte na **podnikové aplikace, které** klikněte **všechny aplikace**.
 
     ![Přiřadit uživatele][201] 
 
-2. V seznamu aplikací vyberte **týmovou spolupráci**.
+2. V seznamu aplikací vyberte **Teamwork.com**.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_50.png) 
+    ![V seznamu aplikací na Teamwork.com odkaz](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_app.png)  
 
 3. V nabídce na levé straně klikněte na tlačítko **uživatelů a skupin**.
 
-    ![Přiřadit uživatele][202] 
+    ![Odkaz "Uživatelé a skupiny"][202]
 
 4. Klikněte na tlačítko **přidat** tlačítko. Potom vyberte **uživatelů a skupin** na **přidat přiřazení** dialogové okno.
 
-    ![Přiřadit uživatele][203]
+    ![V podokně Přidat přiřazení][203]
 
 5. Na **uživatelů a skupin** dialogovém okně, vyberte **Britta Simon** v seznamu uživatelů.
 
@@ -209,14 +193,12 @@ V této části povolíte Britta Simon používat tak, že udělíte přístup k
 
 7. Klikněte na tlačítko **přiřadit** tlačítko **přidat přiřazení** dialogové okno.
     
-
-
-### <a name="testing-single-sign-on"></a>Testování jednotné přihlašování
+### <a name="test-single-sign-on"></a>Test jednotného přihlašování
 
 V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci pomocí přístupového panelu.
 
-Když kliknete na dlaždici týmovou spolupráci na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci týmovou spolupráci.
-
+Když kliknete na dlaždici Teamwork.com na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci Teamwork.com.
+Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Další zdroje
 
@@ -238,3 +220,4 @@ Když kliknete na dlaždici týmovou spolupráci na přístupovém panelu, jste 
 [201]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_203.png
+

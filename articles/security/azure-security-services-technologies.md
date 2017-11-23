@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ea707d3d149734dad2d5c76d853ddd667cbf73b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Zabezpečení Azure službách a technologiích
 V našem diskuze s aktuálním a budoucím Azure zákazníků jsme se často dotaz "máte seznam všech zabezpečení souvisejících službách a technologiích, které Azure nabízí?"
 
-Jsme uvědomit, že když vyhodnocujete technické možnosti poskytovatele cloudové služby, je vhodné mít tento seznam k dispozici, můžete proniknout dolů hlubší Pokud je pro vás správný čas.
+Při vyhodnocování možnosti poskytovatele cloudové služby, je vhodné mít tyto informace.
 
 Toto je naše počáteční úsilí na poskytování seznamu. Tento seznam bude v průběhu času změnit a růst, stejně jako Azure. V seznamu je zařazený do kategorie a seznamu kategorií se taky zvýší v čase. Ujistěte se, že zkontrolujte tuto stránku v pravidelných intervalech zůstane aktuální na našem související se zabezpečením službách a technologiích.
 
