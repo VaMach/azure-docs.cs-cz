@@ -1,6 +1,6 @@
 ---
-title: "Zpřístupnit webové, mobilní a aplikace API Azure zásobníku uživatelům | Microsoft Docs"
-description: "Kurz k instalaci zprostředkovatele prostředků služby App Service a vytvoření nabízí možnost vytvářet webové, mobilní a aplikace API, zásobník Azure uživatelům zadat."
+title: "Zpřístupnit web a aplikace API Azure zásobníku uživatelům | Microsoft Docs"
+description: "Kurz k instalaci zprostředkovatele prostředků služby App Service a vytvoření nabízí, zásobník Azure uživatelům zadat možnost vytvářet webové aplikace nebo aplikace API."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Zpřístupnit webové, mobilní a aplikace API Azure zásobníku uživatelům
+# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Zpřístupnit web a aplikace API Azure zásobníku uživatelům
 
-Jako správce cloudu Azure zásobníku, můžete vytvořit nabídky, které uživatelům (klienty) vytvářet aplikace Azure Functions a webové, mobilní a rozhraní API. Tím, že uživatelům poskytuje přístup k těmto aplikacím na vyžádání, založené na cloudu, můžete je uložit čas a prostředky. Pokud chcete nastavit tuto možnost, bude takto:
+Jako správce cloudu Azure zásobníku, můžete vytvořit nabídky, které uživatelům (klienty) vytvořit Azure Functions a rozhraní API a webové aplikace. Tím, že uživatelům poskytuje přístup k těmto aplikacím na vyžádání, založené na cloudu, můžete je uložit čas a prostředky. Pokud chcete nastavit tuto možnost, bude takto:
 
 > [!div class="checklist"]
 > * Nasazení zprostředkovatele prostředků služby App Service

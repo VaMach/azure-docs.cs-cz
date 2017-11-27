@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/23/2017
 ms.author: anwestg
-ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Přidání poskytovatele prostředků služby App Service pro odpojené prostředí Azure zásobníku zabezpečeným službou AD FS
 
@@ -75,7 +75,7 @@ Abyste mohli nasadit služby App Service v odpojeném prostředí, musíte nejd�
         - Pokud používáte služby Active Directory Federation Services (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte své heslo a klikněte na tlačítko **přihlásit**.
     2. V **předplatných Azure zásobníku** pole, vyberte své předplatné.
     3. V **umístění zásobník Azure** , vyberte umístění, které odpovídá oblast, že nasazujete. Vyberte například **místní** Pokud vaše nasazení do Azure zásobníku Development Kit.
-    4. Zadejte **název skupiny prostředků** pro vaše nasazení služby App Service. Ve výchozím nastavení je nastavena na **APPSERVICE\<MOBILE\>**.
+    4. Zadejte **název skupiny prostředků** pro vaše nasazení služby App Service. Ve výchozím nastavení je nastavena na **místní služby App Service**.
     5. Zadejte **název účtu úložiště** má služby App Service k vytvoření jako součást instalace. Ve výchozím nastavení je nastavena na **appsvclocalstor**.
     6. Klikněte na **Další**.
 

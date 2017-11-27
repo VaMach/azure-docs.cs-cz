@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/21/2017
 ms.author: erikje
-ms.openlocfilehash: 977630741b8424c4c6bd5f5d492e33b9981b9cb5
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6ce8f86592ece59e338578be86c2cb673c35dbc1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Registrace Azure zásobníku u vašeho předplatného Azure
 
@@ -42,22 +42,6 @@ Před registrací zásobník Azure s Azure, musíte mít:
 Pokud nemáte předplatné Azure, který splňuje tyto požadavky, můžete [vytvořit bezplatný účet Azure zde](https://azure.microsoft.com/en-us/free/?b=17.06). Registrace Azure zásobníku způsobuje bez nákladů na vaše předplatné Azure.
 
 
-
-## <a name="register-azure-stack-resource-provider-in-azure"></a>Registrace poskytovatele prostředků Azure zásobníku v Azure
-> [!NOTE] 
-> Tento krok by se měly dokončit pouze jednou v prostředí Azure zásobníku.
->
-
-1. Spusťte relaci prostředí Powershell jako správce.
-2. Přihlaste se k účtu Azure, který je vlastníkem předplatného Azure (můžete použít rutinu Login-AzureRmAccount se přihlaste a při přihlášení, nezapomeňte nastavit pomocí parametru - EnvironmentName "AzureCloud").
-3. Registrace zprostředkovatele prostředků Azure "Microsoft.AzureStack."
-
-**Příklad:** 
-```Powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
-```
-
 ## <a name="register-azure-stack-with-azure"></a>Zaregistrovat Azure zásobník Azure
 
 > [!NOTE]
@@ -66,7 +50,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
 1. Otevřete konzolu prostředí PowerShell jako správce a [nainstalujte prostředí PowerShell pro Azure zásobníku](azure-stack-powershell-install.md).  
 
-2. Přidáte účet Azure, který použijete k registraci Azure zásobníku. Chcete-li to provést, spusťte `Add-AzureRmAccount` rutiny bez parametrů. Zobrazí se výzva k zadání přihlašovacích údajů účtu Azure a možná budete muset použít 2 ověřování na základě konfigurace vašeho účtu.  
+2. Přidáte účet Azure, který použijete k registraci Azure zásobníku. Chcete-li to provést, spusťte `Add-AzureRmAccount` rutiny s parametrem EnvironmentName nastavena na "AzureCloud". Zobrazí se výzva k zadání přihlašovacích údajů účtu Azure a možná budete muset použít 2 ověřování na základě konfigurace vašeho účtu. 
+
+   ```Powershell
+   Add-AzureRmAccount -EnvironmentName "AzureCloud"
+   ```
 
 3. Pokud máte více předplatných, spusťte následující příkaz a vyberte ten, že který chcete použít:  
 
@@ -74,22 +62,28 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. Odstranit všechny existující verze moduly Powershellu, které odpovídají registrace a [stáhněte nejnovější verzi z webu GitHub](azure-stack-powershell-download.md).  
+4. Zaregistrujte zprostředkovatele prostředků AzureStack ve vašem předplatném Azure. Chcete-li to provést, spusťte následující příkaz:
 
-5. Z adresáře "AzureStack-nástroje master", který je vytvořen v předchozím kroku přejděte do složky "Registrace" a naimportujte modul ".\RegisterWithAzure.psm1":  
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. Odstranit všechny existující verze moduly Powershellu, které odpovídají registrace a [stáhněte nejnovější verzi z webu GitHub](azure-stack-powershell-download.md).  
+
+6. Z adresáře "AzureStack-nástroje master", který je vytvořen v předchozím kroku přejděte do složky "Registrace" a naimportujte modul ".\RegisterWithAzure.psm1":  
 
    ```powershell 
    Import-Module .\RegisterWithAzure.psm1 
    ```
 
-6. Ve stejné relaci prostředí PowerShell spusťte následující skript. Po zobrazení výzvy k zadání pověření zadejte `azurestack\cloudadmin` jako uživatel a heslo je stejné jako to, co můžete používat pro místní správce během nasazení.  
+7. Ve stejné relaci prostředí PowerShell spusťte následující skript. Po zobrazení výzvy k zadání pověření zadejte `azurestack\cloudadmin` jako uživatel a heslo je stejné jako to, co můžete používat pro místní správce během nasazení.  
 
    ```powershell
    $AzureContext = Get-AzureRmContext
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
    Add-AzsRegistration `
        -CloudAdminCredential $CloudAdminCred `
-       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureSubscriptionId $AzureContext.Subscription.SubscriptionId `
        -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
        -PrivilegedEndpoint AzS-ERCS01 `
        -BillingModel Development 
@@ -103,7 +97,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    | PrivilegedEndpoint | Předem nakonfigurovaná vzdáleného prostředí PowerShell konzoly, která poskytuje funkce jako je shromažďování protokolů a jiné post úlohy nasazení. Pro development kit privilegované koncový bod je hostován na virtuálním počítači "AzS-ERCS01". Pokud používáte integrovaný systém, obraťte se na vaše zásobník Azure operátor získat tuto hodnotu. Další informace naleznete [pomocí privilegované koncový bod](azure-stack-privileged-endpoint.md) tématu.|
    | BillingModel | Fakturační model, který používá vaše předplatné. Povolené hodnoty pro tento parametr jsou – "Kapacity", "PayAsYouUse" a "Vývoj". Pro development kit tato hodnota nastavena na "Vývoj". Pokud používáte integrovaný systém, obraťte se na vaše zásobník Azure operátor získat tuto hodnotu. |
 
-7. Po dokončení skriptu, zobrazí se zpráva "aktivace Azure zásobníku (Tento krok může trvat až 10 minut)." 
+8. Po dokončení skriptu, zobrazí se zpráva "aktivace Azure zásobníku (Tento krok může trvat až 10 minut)." 
 
 ## <a name="verify-the-registration"></a>Ověření registrace
 
