@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: 725a7224872cfb820bfdfa26c35c26569cff5a10
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bd1b36af82a01909b12404ef54de32beb2f31c0b
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Nasazení aplikace Service Fabric typu kontejner pro Windows v Azure
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu škálovatelných a spolehlivých mikroslužeb a kontejnerů. 
@@ -82,7 +82,7 @@ Pokud chcete nasadit aplikaci do clusteru v Azure, můžete vytvořit vlastní c
 
 Party clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure a provozované týmem Service Fabric, na kterých může kdokoli nasazovat aplikace a seznamovat se s platformou. Pokud chcete získat přístup k party clusteru, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric).  
 
-Informace o vytvoření vlastního clusteru najdete v tématu [Vytvoření vašeho prvního clusteru Service Fabric v Azure](service-fabric-get-started-azure-cluster.md).
+Informace o vytvoření vlastního clusteru najdete v tématu věnovaném [vytvoření clusteru Service Fabric v Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 Poznamenejte si koncový bod připojení, který použijete v následujícím kroku.  
 

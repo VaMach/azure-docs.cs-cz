@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Vytvoření první aplikace Service Fabric typu kontejner v systému Windows
 > [!div class="op_single_selector"]
@@ -294,8 +294,7 @@ Systém Windows podporuje pro kontejnery dva režimy izolace: procesy a Hyper-V.
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > Režim izolace hyperv je k dispozici ve skladových položkách Azure Ev3 a Dv3 s podporou vnořené virtualizace. 
-   >
+   > Režim izolace hyperv je k dispozici ve skladových položkách Azure Ev3 a Dv3 s podporou vnořené virtualizace. Zkontrolujte, že je na hostitelích nainstalovaná role hyperv. Ověřte to připojením k hostitelům.
    >
 
 ## <a name="configure-resource-governance"></a>Konfigurace zásad správného řízení prostředků
@@ -325,7 +324,7 @@ Aplikace je připravena, když je ve stavu ```Ready```: ![Připraveno][2]
 Otevřete prohlížeč a přejděte na adresu http://containercluster.westus2.cloudapp.azure.com:8081. V prohlížeči by se měl zobrazit nadpis „Hello World!“.
 
 ## <a name="clean-up"></a>Vyčištění
-Za spuštěný cluster se vám stále účtují poplatky, proto zvažte [odstranění clusteru](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party clustery](https://try.servicefabric.azure.com/) se automaticky odstraní po několika hodinách.
+Za spuštěný cluster se vám stále účtují poplatky, proto zvažte [odstranění clusteru](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  [Party clustery](https://try.servicefabric.azure.com/) se automaticky odstraní po několika hodinách.
 
 Po nahrání image do registru kontejneru můžete odstranit místní image z vývojového počítače:
 

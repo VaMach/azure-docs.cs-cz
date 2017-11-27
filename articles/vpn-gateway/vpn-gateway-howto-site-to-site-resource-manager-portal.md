@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 41279502c16d0b23c91739dcb62e8f94f3b8bd67
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4f5e249238020429b6c6e0d39c580c83bc43969e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Vytvoření připojení typu Site-to-Site na webu Azure Portal
 
@@ -50,15 +50,13 @@ Před zahájením konfigurace ověřte, že splňujete následující kritéria:
 V příkladech v tomto článku se používají následující hodnoty. Tyto hodnoty můžete použít k vytvoření testovacího prostředí nebo můžou sloužit k lepšímu pochopení příkladů v tomto článku. Další celkové informace o nastavení VPN Gateway najdete v tématu [Informace o nastavení služby VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **Název virtuální sítě:** TestVNet1
-* **Adresní prostor:** 
-  * 10.11.0.0/16
-  * 10.12.0.0/16 (volitelné pro toto cvičení)
-* **Podsítě:**
-  * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (volitelné pro toto cvičení)
-* **Podsíť brány:** 10.11.255.0/27
+* **Adresní prostor:** 10.11.0.0/16 a 10.12.0.0/16 (volitelné pro toto cvičení)
+* **Předplatné:** Vyberte předplatné, které chcete použít.
 * **Skupina prostředků:** TestRG1
 * **Umístění:** Východní USA
+* **Podsíť:** Front-end: 10.11.0.0/24, Back-end: 10.12.0.0/24 (volitelné pro toto cvičení)
+* **Název podsítě brány:** GatewaySubnet (na portálu se sám vyplní)
+* **Rozsah adres podsítě brány:** 10.11.255.0/27
 * **Server DNS:** Volitelné. IP adresa vašeho serveru DNS
 * **Název brány virtuální sítě:** VNet1GW
 * **Veřejná IP adresa:** VNet1GWIP
@@ -67,6 +65,7 @@ V příkladech v tomto článku se používají následující hodnoty. Tyto hod
 * **Typ brány:** Síť VPN
 * **Název brány místní sítě:** Site2
 * **Název připojení:** VNet1toSite2
+* **Sdílený klíč:** V tomto příkladu použijeme abc123. Můžete ale použít cokoli, co je kompatibilní s hardwarem sítě VPN. Důležité je, že si tyto hodnoty odpovídají na obou stranách připojení.
 
 ## <a name="CreatVNet"></a>1. Vytvoření virtuální sítě
 
@@ -125,10 +124,21 @@ Resetování brány Azure VPN je užitečné v případě ztráty připojení VP
 
 Postup pro změnu skladové položky brány najdete v tématu popisujícím [Skladové položky brány](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
+## <a name="addconnect"></a>Postup přidání dalšího připojení k bráně VPN
+
+Další připojení můžete přidat za předpokladu, že se žádné z adresních prostorů mezi připojeními nepřekrývají.
+
+1. Pokud chcete přidat další připojení, přejděte k bráně VPN a potom kliknutím na **Připojení** otevřete stránku Připojení.
+2. Kliknutím na **+Přidat** přidáte vaše připojení. Upravit typ připojení tak, aby odpovídal typu VNet-to-VNet (pokud se připojujete k jiné bráně VNet), nebo Site-to-Site.
+3. Pokud se připojujete pomocí typu Site-to-Site a ještě jste nevytvořili bránu místní sítě pro lokalitu, ke které se chcete připojit, můžete vytvořit novou.
+4. Zadejte sdílený klíč, který chcete použít, a potom kliknutím na **OK** vytvořte připojení.
+
 ## <a name="next-steps"></a>Další kroky
 
 * Informace o protokolu BGP najdete v tématech [Přehled protokolu BGP](vpn-gateway-bgp-overview.md) a [Postup při konfiguraci protokolu BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Informace o vynuceném tunelování najdete v tématu [Informace o vynuceném tunelování](vpn-gateway-forced-tunneling-rm.md).
 * Informace o vysoce dostupných připojeních typu aktivní-aktivní najdete v tématu [Připojení s vysokou dostupností mezi jednotlivými místy a VNet-to-VNet](vpn-gateway-highlyavailable.md).
+* Informace o postupu při omezení síťového provozu směřujícího do prostředků ve virtuální síti najdete v tématu [Zabezpečení sítě](../virtual-network/security-overview.md).
+* Informace o tom, jak Azure směruje provoz mezi Azure, místním prostředím a internetovými prostředky, najdete v tématu [Směrování provozu virtuální sítě](../virtual-network/virtual-networks-udr-overview.md).
 * Informace o vytvoření připojení VPN typu Site-to-Site pomocí šablony Azure Resource Manageru najdete v tématu [Vytvoření připojení VPN typu Site-to-Site](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
 * Informace o vytvoření připojení VPN typu VNet-to-VNet pomocí šablony Azure Resource Manageru najdete v tématu [Nasazení geografické replikace HBase](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

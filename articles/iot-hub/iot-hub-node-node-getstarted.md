@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3398e38cf7d3d28d9ca4edef5a9bca96aeaf2ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b360d5a08abed7d65d8c39f7a957412656f7825
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Připojení simulovaného zařízení k IoT Hubu pomocí Node
 
@@ -297,7 +297,7 @@ Chcete-li pokračovat v seznamování se službou IoT Hub a prozkoumat další s
 
 * [Připojení zařízení][lnk-connect-device]
 * [Začínáme se správou zařízení][lnk-device-management]
-* [Začínáme se službou Azure IoT Edge][lnk-iot-edge]
+* [Nasazení AI do hraničních zařízení s použitím Azure IoT Edge][lnk-iot-edge]
 
 Další informace o tom, jak rozšířit vaše řešení internetu věcí a zpracovávat škálované zprávy typu zařízení-cloud, najdete v kurzu [Zpracování zpráv typu zařízení-cloud][lnk-process-d2c-tutorial].
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
@@ -322,5 +322,5 @@ Další informace o tom, jak rozšířit vaše řešení internetu věcí a zpra
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
-ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d647206b882059e0651223dc84f2ad2a314f8a87
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Vytvoření a nasazení skupiny prostředků Azure pomocí sady Visual Studio
 Pomocí sady Visual Studio a [Azure SDK](https://azure.microsoft.com/downloads/) můžete vytvořit projekt, který nasadí vaši infrastrukturu a kód do Azure. Můžete například definovat webového hostitele, webový server a databázi pro vaši aplikaci a nasadit tuto infrastrukturu spolu s kódem. Nebo můžete definovat virtuální počítač, virtuální síť a účet úložiště a nasadit tuto infrastrukturu spolu se skriptem, který se spouští na virtuálním počítači. Projekt nasazení **skupiny prostředků Azure** umožňuje nasadit všechny potřebné prostředky v rámci jedné opakovatelné operace. Další informace o nasazení a správě prostředků najdete v tématu [Přehled Azure Resource Manageru](resource-group-overview.md).
@@ -32,7 +32,7 @@ Tento článek ukazuje Visual Studio 2017. Pokud používáte Visual Studio 2015
 ## <a name="create-azure-resource-group-project"></a>Vytvoření projektu skupiny prostředků Azure
 V tomto postupu vytvoříte projekt skupiny prostředků Azure pomocí šablony **Web app + SQL** (Webová aplikace a SQL).
 
-1. V sadě Visual Studio zvolte **Soubor**, **Nový projekt** a potom zvolte **C#** nebo **Visual Basic**. Potom vyberte **Cloud** a projekt **Azure Resource Group** (Skupina prostředků Azure).
+1. V sadě Visual Studio zvolte **Soubor**, **Nový projekt** a potom vyberte **C#** nebo **Visual Basic** (To, který jazyk zvolíte, nemá žádný vliv na pozdější fáze, protože tyto projekty obsahují jenom obsah JSON a PowerShell). Potom vyberte **Cloud** a projekt **Azure Resource Group** (Skupina prostředků Azure).
    
     ![Projekt nasazení v cloudu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 2. Zvolte šablonu, kterou chcete nasadit do Azure Resource Manageru. Všimněte si, že máte spoustu různých možností v závislosti na typu projektu, který chcete nasadit. Pro tento článek si vyberte šablonu **Web app + SQL** (Webová aplikace a SQL).

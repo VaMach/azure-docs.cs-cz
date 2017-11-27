@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9f7fdb97fd121eecf9e7b2f4edc1b568c8114869
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0a3fca0c7d36122a09c825a3ed8edf11cc362b8b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Resetování hesla Azure AD z přihlašovací obrazovky
 
 Už jste nasadili samoobslužné resetování hesla Azure AD, ale vaši uživatelé stále volají na helpdesk, když zapomenou své heslo. Volají na helpdesk, protože nemají přístup k webovému prohlížeči, aby se dostali k samoobslužnému resetování hesla.
 
-V nové aktualizaci Windows 10 Fall Creators Update se uživatelům se zařízeními připojenými k Azure AD zobrazí na přihlašovací obrazovce odkaz na resetování hesla. Když na tento odkaz kliknou, přesměrují se na stejné prostředí samoobslužného resetování hesla, které už znají. 
+V nové aktualizaci Windows 10 Fall Creators Update se uživatelům se zařízeními připojenými k Azure AD zobrazí na přihlašovací obrazovce odkaz na resetování hesla. Když na tento odkaz kliknou, přesměrují se na stejné prostředí samoobslužného resetování hesla, které už znají.
 
 Pokud chcete uživatelům povolit resetování hesla Azure AD z přihlašovací obrazovky Windows 10, je nutné splnit následující požadavky:
 
-* Klient připojený k doméně Azure AD musí používat Windows 10 verze 1709 nebo novější.
+* Klient Windows 10 verze 1709 nebo novější [připojený k Azure AD](device-management-azure-portal.md).
 * Samoobslužné resetování hesla Azure AD musí být povolené.
 * Některou z následujících metod nakonfigurujte a nasaďte nastavení, které povolí odkaz na resetování hesla:
    * [Profil konfigurace zařízení Intune](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
@@ -90,7 +90,7 @@ Právě jste vytvořili a přiřadili zásady konfigurace zařízení a povolili
 
 Tuto metodu doporučujeme použít pouze k testování změny nastavení.
 
-1. Přihlaste se k zařízení připojenému k doméně Azure AD s použitím přihlašovacích údajů pro správu.
+1. Přihlaste se k zařízení připojenému k Azure AD s použitím přihlašovacích údajů pro správu.
 2. Spusťte program **regedit** jako správce.
 3. Nastavte následující klíč registru:
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -104,7 +104,7 @@ Co se po konfiguraci a přiřazení zásad změnilo pro uživatele? Jak se dozv�
 
 Při pokusu o přihlášení se teď uživatelům na přihlašovací obrazovce zobrazí odkaz Resetovat heslo, který otevře prostředí samoobslužného resetování hesla. Tato funkce umožňuje uživatelům resetovat své heslo, aniž by museli použít jiné zařízení pro přístup k webovému prohlížeči.
 
-Vaši uživatelé najdou pokyny k použití této funkce v tématu popisujícím [resetování hesla k pracovnímu nebo školnímu účtu](active-directory-passwords-update-your-own-password.md#reset-password-at-login).
+Vaši uživatelé najdou pokyny k použití této funkce v tématu popisujícím [resetování hesla k pracovnímu nebo školnímu účtu](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in).
 
 ## <a name="common-issues"></a>Běžné problémy
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: mimig1
-ms.openlocfilehash: 8e8a5d89080df54da1a951d94fac12592de29c50
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: da3576c7c2e4609c9d3fac64a3b10794164551e0
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Úvod do rozhraní API tabulky Azure Cosmos DB
 
@@ -55,6 +55,10 @@ Pokud aktuálně používáte službu Azure Table Storage, získáte přechodem 
 ## <a name="get-started"></a>Začínáme
 
 Vytvořte si účet služby Azure Cosmos DB na webu [Azure Portal](https://portal.azure.com). Pak začněte pomocí našeho [Rychlého startu pro rozhraní API tabulky pomocí rozhraní .NET](create-table-dotnet.md). 
+
+> [!IMPORTANT]
+> Pokud jste vytvořili účet Table API během období Preview, vytvořte [nový účet Table API](create-table-dotnet.md#create-a-database-account) pro práci s obecně dostupnými sadami Table API SDK.
+>
 
 ## <a name="next-steps"></a>Další kroky
 

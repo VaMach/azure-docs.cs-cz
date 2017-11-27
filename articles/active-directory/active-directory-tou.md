@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funkce Azure Active Directory Terms of Use (Preview)
 Azure AD Terms of Use poskytuje organizacím jednoduchý způsob předkládání informací koncovým uživatelům.  Zajistí, že se uživatelům zobrazí příslušná právní omezení pro zákonné požadavky nebo požadavky dodržování předpisů.
@@ -43,7 +43,8 @@ Při konfiguraci funkce Azure AD Terms of Use použijte následující kroky:
 2. Zkontrolujte, že tento adresář má předplatné Azure AD Premium P1, P2, EMS E3 nebo EMS E5.  Pokud ne, [získejte předplatné služby Azure AD Premium](active-directory-get-started-premium.md) nebo [začněte se zkušební verzí](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. Zobrazte si řídicí panel funkce Azure AD Terms of Use na [https://aka.ms/catou](https://aka.ms/catou).
 
-
+>[!IMPORTANT]
+>Zásady podmíněného přístupu (včetně podmínek použití) nepodporují vynucení u účtů služeb.  Doporučujeme, abyste ze zásad podmíněného přístupu všechny účty služeb vyloučili.
 
 ## <a name="add-company-terms-of-use"></a>Přidání firemních podmínek použití
 Jakmile dokončíte vaše podmínky použití, přidejte je pomocí následujícího postupu.
@@ -92,7 +93,6 @@ Příslušným uživatelům se po vytvoření a vynucení podmínek použití zo
 
 ## <a name="additional-information"></a>Další informace
 Následující informace byste měli znát. Mohou vám být při používání podmínek použití užitečné.
-
 
 Příslušní uživatelé se musí odhlásit a znovu přihlásit, aby vyhověli novým zásadám:
  - pokud jsou u podmínek použití povolené zásady podmíněného přístupu

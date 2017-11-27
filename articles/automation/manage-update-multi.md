@@ -14,22 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: f97b28d1588e959728163f7ab16d2550a79f610e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Správa aktualizací pro několik počítačů
 
-Správa aktualizací umožňuje spravovat aktualizace a opravy pro počítače s Windows nebo Linuxem.
-Ze svého účtu [Azure Automation](automation-offering-get-started.md) můžete rychle připojit počítače, posoudit stav dostupných aktualizací, naplánovat instalaci požadovaných aktualizací a zkontrolovat výsledky nasazení, abyste ověřili, že se aktualizace úspěšně nainstalovaly na všech virtuálních počítačích s povolenou správou aktualizací.
+Správa aktualizací umožňuje spravovat aktualizace a opravy pro počítače s Windows nebo Linuxem. Z účtu [Azure Automation](automation-offering-get-started.md) můžete:
+
+- Připojit virtuální počítače
+- Vyhodnotit stav dostupných aktualizací
+- Naplánovat instalaci požadovaných aktualizací
+- Zkontrolovat výsledky nasazení a ověřit, jestli se aktualizace úspěšně použily pro všechny virtuální počítače, pro které je povolená správa aktualizací.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Chcete-li použít správu aktualizací, budete potřebovat:
+Pokud chcete použít správu aktualizací, budete potřebovat:
 
-* Účet Azure Automation. Pokyny k vytvoření účtu Azure Automation Spustit jako najdete v tématu [Začínáme s Azure Automation](automation-offering-get-started.md).
+* Účet Azure Automation Spustit jako Pokyny pro jeho vytvoření najdete v tématu [Začínáme s Azure Automation](automation-offering-get-started.md).
 
 * Virtuální počítač nebo počítač s nainstalovaným jedním z podporovaných operačních systémů.
 
@@ -39,11 +43,10 @@ Správa aktualizací je podporována v následujících operačních systémech.
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2008 nebo vyšší a nasazení aktualizací na Windows Server 2008 R2 SP1 a vyšší.  Možnosti instalace Server Core a Nano Server nejsou podporované.
+* Windows Server 2008 nebo novější a nasazení aktualizací do Windows Serveru 2008 R2 SP1 a novějšího Možnosti instalace Server Core a Nano Server nejsou podporované.
 
-    > [!NOTE]
-    > Podpora pro nasazování aktualizací do Windows Serveru 2008 R2 SP1 vyžaduje .NET Framework 4.5 a WMF 5.0 nebo novější.
-    > 
+  Podpora pro nasazování aktualizací do Windows Serveru 2008 R2 SP1 vyžaduje .NET Framework 4.5 a Windows Management Framework 5.0 nebo novější.
+
 * Klientské operační systémy Windows nejsou podporované.
 
 Agenti Windows musí být buď nakonfigurovaní na komunikaci se službou Windows Server Update Services (WSUS), nebo musí mít přístup ke službě Microsoft Update.
@@ -57,27 +60,25 @@ Agenti Windows musí být buď nakonfigurovaní na komunikaci se službou Window
 * CentOS 6 (x86/x64) a 7 (x64)  
 * Red Hat Enterprise 6 (x86/x64) a 7 (x64)  
 * SUSE Linux Enterprise Server 11 (x86/x64) a 12 (x64)  
-* Ubuntu 12.04 LTS a novější x86/x64   
+* Ubuntu 12.04 LTS a novější (x86/x64)   
 
 > [!NOTE]  
-> Pokud se chcete vyhnout tomu, aby se aktualizace používaly mimo časové období údržby v Ubuntu, změňte konfiguraci Unattended-Upgrade tak, aby automatické aktualizace byly zakázány. Informace o postupu této konfigurace najdete v tématu [Téma Automatické aktualizace v příručce k Ubuntu Serveru](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+> Pokud se chcete zabránit tomu, aby se aktualizace používaly mimo časové období údržby v Ubuntu, změňte konfiguraci balíčku Unattended-Upgrade tak, aby automatické aktualizace byly zakázány. Další informace najdete v [tématu věnovaném automatickým aktualizacím v příručce k Ubuntu Serveru](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Agenty Linux musí mít přístup k úložišti aktualizací.
 
-> [!NOTE]
-> Agent OMS pro Linux nakonfigurovaný k ukládání dat do více pracovních prostorů OMS se v tomto řešení nepodporuje.  
->
+Toto řešení nepodporuje Agenta sady OMS pro Linux, který je nakonfigurovaný tak, aby předával data do několika pracovních prostorů sady Operations Management Suite.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Povolení správy aktualizací pro virtuální počítače Azure
 
 1. Na webu Azure Portal otevřete účet Automation.
-2. Na levé straně obrazovky vyberte **Správa aktualizací**.
-3. V horní části obrazovky klikněte na **Přidat virtuální počítač Azure**.
-    ![Připojení virtuálních počítačů](./media/manage-update-multi/update-onboard-vm.png)
-4. Vyberte virtuální počítač, který chcete připojit. Zobrazí se obrazovka **Povolit řešení Update Management**.
-5. Klikněte na **Povolit**.
+2. V levém podokně vyberte **Správa aktualizací**.
+3. V horní části okna vyberte **Přidat virtuální počítač Azure**.
+   ![Karta Přidat virtuální počítač Azure](./media/manage-update-multi/update-onboard-vm.png)
+4. Vyberte virtuální počítač, který chcete připojit. Zobrazí se dialogové okno **Povolit správu aktualizací**.
+5. Vyberte **Povolit**.
 
-   ![Povolení správy aktualizací](./media/manage-update-multi/update-enable.png)
+   ![Dialogové okno Povolit správu aktualizací](./media/manage-update-multi/update-enable.png)
 
 Správa aktualizací pro váš virtuální počítač je povolena.
 
@@ -85,19 +86,19 @@ Správa aktualizací pro váš virtuální počítač je povolena.
 
 Pokyny k povolení správy aktualizací pro počítače a virtuální počítače s Windows jiné než Azure najdete v popisu [připojení počítačů s Windows ke službě Log Analytics v Azure](../log-analytics/log-analytics-windows-agents.md).
 
-Pokyny k povolení správy aktualizací pro počítače a virtuální počítače s Linuxem jiné než Azure najdete v popisu [připojení počítačů s Linuxem k sadě OMS (Operations Management Suite)](../log-analytics/log-analytics-agent-linux.md).
+Pokyny k povolení správy aktualizací pro počítače a virtuální počítače s Linuxem jiné než Azure najdete v tématu věnovaném [připojení počítačů s Linuxem k Log Analytics](../log-analytics/log-analytics-agent-linux.md).
 
-## <a name="view-update-assessment"></a>Zobrazení posouzení aktualizací
+## <a name="view-an-update-assessment"></a>Zobrazení posouzení aktualizací
 
-Po povolení **správy aktualizací** se zobrazí obrazovka **Správa aktualizací**. Na kartě **Chybějící aktualizace** můžete zobrazit seznam chybějících aktualizací.
+Po povolení správy aktualizací se zobrazí dialogové okno **Správa aktualizací**. Na kartě **Chybějící aktualizace** můžete zobrazit seznam chybějících aktualizací.
 
-## <a name="data-collection"></a>Shromažďování dat
+## <a name="collect-data"></a>Shromažďování dat
 
 Agenti nainstalovaní na virtuálních počítačích a počítačích shromažďují data o aktualizacích a odesílají je do správy aktualizací Azure.
 
 ### <a name="supported-agents"></a>Podporovaní agenti
 
-Následující tabulka popisuje připojené zdroje, které toto řešení podporuje.
+Následující tabulka popisuje připojené zdroje, které toto řešení podporuje:
 
 | Připojený zdroj | Podporuje se | Popis |
 | --- | --- | --- |
@@ -108,7 +109,7 @@ Následující tabulka popisuje připojené zdroje, které toto řešení podpor
 
 ### <a name="collection-frequency"></a>Četnost shromažďování dat
 
-Pro každý spravovaný počítač s Windows se kontrola provádí dvakrát denně. Každých 15 minut se volá rozhraní Windows API pro zadání dotazu na čas poslední aktualizace, podle kterého zjistí, jestli se změnil stav, a pokud ano, zahájí se kontrola kompatibility.  Pro každý spravovaný počítač s Linuxem se kontrola provádí každé tři hodiny.
+Pro každý spravovaný počítač s Windows se kontrola provádí dvakrát denně. Každých 15 minut se volá rozhraní Windows API pro zadání dotazu na čas poslední aktualizace, podle kterého se zjistí, jestli se změnil stav. Pokud ano, zahájí se kontrola kompatibility. Pro každý spravovaný počítač s Linuxem se kontrola provádí každé tři hodiny.
 
 Může trvat 30 minut až 6 hodin, než se na řídicím panelu zobrazí aktualizovaná data ze spravovaných počítačů.
 
@@ -117,15 +118,15 @@ Může trvat 30 minut až 6 hodin, než se na řídicím panelu zobrazí aktuali
 Pokud chcete nainstalovat aktualizace, naplánujte nasazení odpovídající vašemu plánu vydávání a časovému intervalu pro správu a údržbu.
 Můžete zvolit typy aktualizací, které budou součástí nasazení. Můžete například zahrnout důležité aktualizace nebo aktualizace zabezpečení a vyloučit kumulativní aktualizace.
 
-Naplánujte nové nasazení aktualizací pro jeden nebo více virtuálních počítačů kliknutím na **Naplánovat nasazení aktualizací** v horní části obrazovky **Správa aktualizací**. Na obrazovce **Nové nasazení aktualizací** zadejte následující:
+Naplánujte nové nasazení aktualizací pro jeden nebo více virtuálních počítačů výběrem **Naplánovat nasazení aktualizací** v horní části dialogového okna **Správa aktualizací**. V podokně **Nové nasazení aktualizace** zadejte následující údaje:
 
-* **Název** – Zadejte jedinečný název pro identifikaci nasazení aktualizací.
-* **Typ operačního systému** – Vyberte Windows nebo Linux.
-* **Počítače k aktualizaci** – Vyberte virtuální počítače, které chcete aktualizovat.
+* **Název:** Zadejte jedinečný název pro identifikaci nasazení aktualizace.
+* **Typ operačního systému:** Vyberte Windows nebo Linux.
+* **Počítače k aktualizaci:** Vyberte virtuální počítače, které chcete aktualizovat.
 
-  ![Výběr virtuálních počítačů k aktualizaci](./media/manage-update-multi/update-select-computers.png)
+  ![Podokno Nové nasazení aktualizace](./media/manage-update-multi/update-select-computers.png)
 
-* **Klasifikace aktualizací** – Vyberte typy softwaru, které se zahrnou do nasazení aktualizací. Typy klasifikace jsou:
+* **Klasifikace aktualizací:** Vyberte typy softwaru, které bude nasazení aktualizace zahrnovat. Typy klasifikace jsou:
   * Důležité aktualizace
   * Aktualizace zabezpečení
   * Kumulativní aktualizace
@@ -134,44 +135,42 @@ Naplánujte nové nasazení aktualizací pro jeden nebo více virtuálních poč
   * Aktualizace definic
   * Nástroje
   * Aktualizace
-* **Nastavení plánu** – Můžete přijmout výchozí datum a čas, což je 30 minut od aktuálního času, nebo zadat jiný čas.
-   Můžete také určit, jestli nasazení proběhne jednou, nebo nastavit plán opakování. Pokud chcete nastavit plán opakování, klikněte na možnost Opakovat v části Opakování.
+* **Nastavení plánu:** Můžete přijmout výchozí datum a čas, což je 30 minut od aktuálního času. Můžete ale zadat i jiný čas.
+   Můžete také určit, jestli nasazení proběhne jednou nebo opakovaně. Pokud chcete nastavit plán opakování, klikněte na možnost **Opakuje se** v části **Opakování**.
 
-   ![Obrazovka nastavení plánu aktualizací](./media/manage-update-multi/update-set-schedule.png)
+   ![Dialogové okno Nastavení plánu](./media/manage-update-multi/update-set-schedule.png)
 
-* **Časové období údržby (minuty)** – Zadejte časové období, ve kterém má dojít k nasazení aktualizací.  Pomůžete tím zajistit, že se změny provedou v rámci vašich definovaných časových intervalů pro správu a údržbu.
+* **Časové období údržby (minuty):** Zadejte časové období, ve kterém má dojít k nasazení aktualizace. Toto nastavení pomůže zajistit, že se změny provedou v rámci definovaných časových intervalů pro správu a údržbu.
 
-Jakmile dokončíte konfiguraci plánu, klikněte na tlačítko **Vytvořit** a vrátíte se na řídicí panel stavu.
-Všimněte si, že v tabulce **Naplánováno** se zobrazí plán nasazení, který jste právě vytvořili.
+Jakmile dokončíte konfiguraci plánu, klikněte na tlačítko **Vytvořit**. Vrátíte se na řídicí panel stavu. V tabulce **Naplánováno** se zobrazí plán nasazení, který jste právě vytvořili.
 
 > [!WARNING]
 > V případě aktualizací, které vyžadují restartování, proběhne restartování virtuálního počítače automaticky.
 
 ## <a name="view-results-of-an-update-deployment"></a>Zobrazení výsledků nasazení aktualizací
 
-Po spuštění naplánovaného nasazení se stav tohoto nasazení zobrazí na kartě **Nasazení aktualizací** na obrazovce **Správa aktualizací**.
-Pokud je nasazení aktuálně spuštěno, jeho stav je **Probíhající**. Po úspěšném dokončení se změní na **Úspěch**.
-Pokud u jedné nebo více aktualizací v nasazení dojde k chybě, stav je **Částečné selhání**.
+Po spuštění naplánovaného nasazení se stav tohoto nasazení zobrazí na kartě **Nasazení aktualizace** v dialogovém okně **Správa aktualizací**.
+Pokud je nasazení aktuálně spuštěné, jeho stav je **Probíhá**. Po úspěšném dokončení nasazení se stav změní na **Úspěch**.
+Pokud u jedné nebo více aktualizací v nasazení dojde k chybě, stav je **Částečně neúspěšné**.
 
-![Stav nasazení aktualizací ](./media/manage-update-multi/update-view-results.png)
+![Stav nasazení aktualizace](./media/manage-update-multi/update-view-results.png)
 
-Kliknutím na dokončené nasazení aktualizací zobrazíte řídicí panel pro toto nasazení aktualizací.
+Pokud chcete zobrazit řídicí panel pro nasazení aktualizace, vyberte dokončené nasazení.
 
-Na dlaždici **Výsledky aktualizací** je souhrn celkového počtu aktualizací a výsledků nasazení na virtuálním počítači.
-V tabulce vpravo je podrobný rozpis všech aktualizací a výsledků instalace, které můžou mít jednu z následujících hodnot:
+V podokně **Aktualizovat výsledky** se zobrazí celkový počet aktualizací a výsledky nasazení na virtuálním počítači.
+V tabulce vpravo je podrobný rozpis všech aktualizací a výsledků instalace. Výsledkem instalace může být jedna z následujících hodnot:
 
-* Nebyl proveden pokus – aktualizace se nenainstalovala, protože podle definovaného trvání časového období údržby nebylo k dispozici dostatek času.
-* Úspěch – aktualizace byla úspěšná.
-* Neúspěch – aktualizace se nezdařila.
+* Nebyl provedený pokus: Aktualizace se nenainstalovala, protože na základě definovaného časového období údržby nebyl k dispozici dostatek času.
+* Úspěch: Aktualizace byla úspěšná.
+* Neúspěch: Aktualizace se nezdařila.
 
-Kliknutím na **Všechny protokoly** zobrazíte všechny položky protokolu, které toto nasazení vytvořilo.
+Výběrem možnosti **Všechny protokoly** zobrazíte všechny položky protokolu, které toto nasazení vytvořilo.
 
-Kliknutím na **Výstup** zobrazíte datový proud úlohy runbooku zodpovědného za správu nasazení aktualizací na cílovém virtuálním počítači.
+Pokud chcete zobrazit datový proud úlohy runbooku, který spravuje nasazení aktualizací na cílovém virtuálním počítači, vyberte dlaždici **Výstup**.
 
-Kliknutím na **Chyby** zobrazíte podrobné informace o případných chybách nasazení.
-
-Podrobné informace o protokolech, výstupu a informace o chybách najdete v tématu [Update Management](../operations-management-suite/oms-solution-update-management.md).
+Kliknutím na **Chyby** zobrazíte podrobné informace o případných chybách tohoto nasazení.
 
 ## <a name="next-steps"></a>Další kroky
 
-* Další informace o správě aktualizací najdete v tématu věnovaném řešení [Update Management](../operations-management-suite/oms-solution-update-management.md).
+* Další informace o správě aktualizací, včetně protokolů, výstupu a chyb, najdete v tématu věnovaném [řešení Update Management v OMS](../operations-management-suite/oms-solution-update-management.md).
+

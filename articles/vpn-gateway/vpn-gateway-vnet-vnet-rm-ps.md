@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurace připojení brány VPN typu VNet-to-VNet pomocí PowerShellu
 
@@ -59,13 +59,17 @@ Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější
 
 ## <a name="which-set-of-steps-should-i-use"></a>Kterou posloupnost kroků provést?
 
-V tomto článku uvidíte dvě různé sady kroků. Jedna sada kroků pro [virtuální sítě spadající do stejného předplatného](#samesub) a druhá sada kroků pro [virtuální sítě v různých předplatných](#difsub). Hlavní rozdíl mezi oběma postupy spočívá v tom, jestli je možné vytvářet a konfigurovat všechny prostředky virtuální sítě a brány v téže relaci prostředí PowerShell.
-
-Kroky v tomto článku používají proměnné, které jsou deklarované na začátku každé části. Pokud již pracujete s existujícími virtuálními sítěmi, upravte proměnné tak, aby odrážely nastavení vašeho prostředí. Pokud chcete překlad IP adres pro virtuální sítě, přečtěte si téma [Překlad IP adres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-## <a name="samesub"></a>Postup při propojování virtuálních sítí patřících ke stejnému předplatnému
+V tomto článku uvidíte dvě různé sady kroků. Jednu sadu kroků pro [virtuální sítě patřící do stejného předplatného](#samesub). Kroky pro tuto konfiguraci využívají TestVNet1 a TestVNet4.
 
 ![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+[Virtuálním sítím patřícím do různých předplatných](#difsub) je věnovaný samostatný článek. Kroky pro tuto konfiguraci využívají TestVNet1 a TestVNet5.
+
+![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+Hlavní rozdíl mezi oběma postupy spočívá v tom, jestli je možné vytvářet a konfigurovat všechny prostředky virtuální sítě a brány v téže relaci prostředí PowerShell. Pokud konfigurujete připojení pro virtuální sítě, které patří do různých předplatných, musíte použít samostatné relace PowerShellu. Konfigurace můžete podle potřeby kombinovat nebo prostě vybrat tu, se kterou chcete pracovat.
+
+## <a name="samesub"></a>Postup při propojování virtuálních sítí patřících ke stejnému předplatnému
 
 ### <a name="before-you-begin"></a>Než začnete
 
@@ -90,7 +94,7 @@ V příkladech používáme následující hodnoty:
 * Veřejná IP adresa: VNet1GWIP
 * Typ sítě VPN: RouteBased
 * Připojení (1 ke 4): VNet1toVNet4
-* Připojení (1 k 5): VNet1toVNet5
+* Připojení (1 k 5): VNet1toVNet5 (pro virtuální sítě v různých předplatných)
 * Typ připojení: VNet2VNet
 
 **Hodnoty pro virtuální síť TestVNet4:**
@@ -279,8 +283,6 @@ Po konfiguraci virtuální sítě TestVNet1 vytvořte virtuální síť TestVNet
 4. Ověřte své propojení. Viz část [Ověření připojení](#verify).
 
 ## <a name="difsub"></a>Postup při propojování virtuálních sítí patřících k různým předplatným
-
-![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 V tomto scénáři propojíme sítě TestVNet1 a TestVNet5. Virtuální sítě TestVNet1 a TestVNet5 patří do různých předplatných. Předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. Rozdíl mezi těmito kroky a předchozí sadou spočívá v tom, že část kroků konfigurace je třeba provést v samostatné relaci PowerShellu v kontextu druhého předplatného. To je zvláště podstatné, když druhé předplatné patří jiné organizaci.
 

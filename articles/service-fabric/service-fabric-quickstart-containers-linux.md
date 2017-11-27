@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 7623c5ac5cbc52e9fc77b1f944908b07ff43fbaf
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 0a0ab748dcf722358633c7be350c6addcd61352d
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Nasazení aplikace Azure Service Fabric typu kontejner pro Linux v Azure
 Azure Service Fabric je platforma distribuovaných systémů pro nasazování a správu škálovatelných a spolehlivých mikroslužeb a kontejnerů. 
@@ -59,7 +59,7 @@ Pokud chcete nasadit aplikaci do clusteru v Azure, použijte vlastní cluster ne
 
 Party Clustery jsou bezplatné, časově omezené clustery Service Fabric hostované v Azure. Jsou udržované týmem Service Fabric a kdokoli na nich může nasazovat aplikace a seznamovat se s platformou. Pokud chcete získat přístup k clusteru Party, [postupujte podle těchto pokynů](http://aka.ms/tryservicefabric). 
 
-Informace o vytvoření vlastního clusteru najdete v tématu [Vytvoření vašeho prvního clusteru Service Fabric v Azure](service-fabric-get-started-azure-cluster.md).
+Informace o vytvoření vlastního clusteru najdete v tématu věnovaném [vytvoření clusteru Service Fabric v Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
 > Webová front-end služba je nakonfigurovaná k naslouchání příchozímu provozu na portu 80. Ujistěte se, že je ve vašem clusteru tento port otevřený. Pokud používáte cluster Party, je tento port otevřený.

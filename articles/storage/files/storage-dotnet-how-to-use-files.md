@@ -12,24 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 51180530790fc0077cea4d8aea7088f1f871681b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 66a68a1ca048b50b8e2ba4ac1bb86d367b8a5bb9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="develop-for-azure-files-with-net"></a>Vývoj pro Soubory Azure pomocí .NET 
-> [!NOTE]
-> Tento článek ukazuje, jak spravovat Soubory Azure pomocí kódu .NET. Další informace o službě Soubory Azure najdete v tématu [Úvod do služby Soubory Azure](storage-files-introduction.md).
->
+# <a name="develop-for-azure-files-with-net-and-windowsazurestorage"></a>Vývoj pro Soubory Azure pomocí .NET a WindowsAzure.Storage
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
-
-Tento kurz vám ukáže základy používání technologie .NET k vývoji aplikací a služeb, které používají Soubory Azure k ukládání dat souborů. V tomto kurzu vytvoříme jednoduchou konzolovou aplikaci a ukážeme si, jak provádět základní akce s technologií .NET a službou Soubory Azure:
+Tento kurz ukazuje základy používání .NET a `WindowsAzure.Storage` API k vývoji aplikací a služeb, které používají [Soubory Azure](storage-files-introduction.md) k ukládání dat souborů. Tento kurz vytvoří jednoduchou konzolovou aplikaci pro provádění základních akcí s technologií .NET a službou Soubory Azure:
 
 * Získání obsahu souboru
 * Nastavte kvótu (maximální velikost) pro sdílenou složku.
@@ -38,9 +33,21 @@ Tento kurz vám ukáže základy používání technologie .NET k vývoji aplika
 * Zkopírujte soubor do objektu blob ve stejném účtu úložiště.
 * Použijte Azure Storage Metrics pro řešení potíží.
 
-> [!Note]  
-> Protože je služba Soubory Azure přístupná přes protokol SMB, je možné psát jednoduché aplikace, které přistupují ke sdílené složce Azure pomocí standardních tříd System.IO pro vstupně-výstupní operace se soubory. Tento článek popisuje, jak psát aplikace, které používají sadu .NET SDK pro Azure Storage, která se Soubory Azure komunikuje pomocí [souborového rozhraní REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api). 
+Další informace o službě Soubory Azure najdete v tématu [Seznámení se Soubory Azure](storage-files-introduction.md).
 
+[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
+
+## <a name="understanding-the-net-apis"></a>Vysvětlení rozhraní API .NET
+
+Soubory Azure poskytuje dva přístupy ke klientským aplikacím: protokol SMB (Server Message Block) a REST. V rámci .NET se tyto přístupy abstrahují prostřednictvím rozhraní `System.IO` a `WindowsAzure.Storage` API.
+
+Rozhraní API | Kdy je použít | Poznámky
+----|-------------|------
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Vaše aplikace: <ul><li>Potřebuje číst/zapisovat soubory prostřednictvím SMB.</li><li>Je spuštěná v zařízení, které má prostřednictvím portu 445 přístup k vašemu účtu služby Soubory Azure.</li><li>Nemusí spravovat žádná nastavení pro správu sdílené složky.</li></ul> | Kódování vstupně-výstupních operací pro Soubory Azure přes SMB je obvykle stejné jako kódování vstupně-výstupních operací u libovolné síťové sdílené složky nebo místního úložné zařízení. Úvod k celé řadě funkcí v .NET, včetně vstupně-výstupních operací se soubory, najdete v [tomto kurzu](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter).
+[WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | Vaše aplikace: <ul><li>Nemá přístup ke službě Soubory Azure přes SMB na portu 445 kvůli bráně firewall nebo omezením poskytovatele internetových služeb.</li><li>Vyžaduje funkce pro správu, jako je například možnost nastavit kvótu sdílené složky nebo vytvořit sdílený přístupový podpis.</li></ul> | Tento článek ukazuje použití `WindowsAzure.Storage` pro vstupně-výstupní operace se soubory s využitím REST (místo SMB) a správy sdílené složky.
+
+> [!TIP]
+> V závislosti na požadavcích aplikace může být pro úložiště vhodnější volbou služba Azure Blobs. Další informace o volbě služby Soubory Azure nebo Azure Blobs najdete v tématu věnovaném [rozhodování, jestli použít Azure Blobs, Soubory Azure nebo Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Vytvoření konzolové aplikace a získání sestavení
 V sadě Visual Studio vytvořte novou konzolovou aplikaci pro Windows. Následující kroky ukazují, jak vytvořit konzolovou aplikaci v sadě Visual Studio 2017, ale kroky v jiných verzích sady Visual Studio se podobají.

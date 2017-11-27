@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurace připojení brány VPN typu VNet-to-VNet pomocí Azure CLI
 
@@ -59,11 +59,17 @@ Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější
 
 ### <a name="which-set-of-steps-should-i-use"></a>Kterou posloupnost kroků provést?
 
-V tomto článku uvidíte dvě různé sady kroků. Jedna sada kroků pro [virtuální sítě spadající do stejného předplatného](#samesub) a druhá sada kroků pro [virtuální sítě v různých předplatných](#difsub).
-
-## <a name="samesub"></a>Propojení virtuálních sítí patřících ke stejnému předplatnému
+V tomto článku uvidíte dvě různé sady kroků. Jednu sadu kroků pro [virtuální sítě patřící do stejného předplatného](#samesub). Kroky pro tuto konfiguraci využívají TestVNet1 a TestVNet4.
 
 ![Diagram v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+[Virtuálním sítím patřícím do různých předplatných](#difsub) je věnovaný samostatný článek. Kroky pro tuto konfiguraci využívají TestVNet1 a TestVNet5.
+
+![Diagram v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+Konfigurace můžete podle potřeby kombinovat nebo prostě vybrat tu, se kterou chcete pracovat.
+
+## <a name="samesub"></a>Propojení virtuálních sítí patřících ke stejnému předplatnému
 
 ### <a name="before-you-begin"></a>Než začnete
 
@@ -88,7 +94,7 @@ V příkladech používáme následující hodnoty:
 * Veřejná IP adresa: VNet1GWIP
 * Typ sítě VPN: RouteBased
 * Připojení (1 ke 4): VNet1toVNet4
-* Připojení (1 k 5): VNet1toVNet5
+* Připojení (1 k 5): VNet1toVNet5 (pro virtuální sítě v různých předplatných)
 * Typ připojení: VNet2VNet
 
 **Hodnoty pro virtuální síť TestVNet4:**
@@ -255,8 +261,6 @@ Nyní máte dvě virtuální sítě s bránami VPN. Dalším krokem je vytvořen
 
 ## <a name="difsub"></a>Propojení virtuálních sítí patřících k různým předplatným
 
-![Diagram v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 V tomto scénáři propojíme sítě TestVNet1 a TestVNet5. Virtuální sítě patří k různým předplatným. Předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. Tento postup přidá nové propojení VNet-to-VNet pro připojení virtuální sítě TestVNet1 k virtuální síti TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Krok 5: Vytvoření a konfigurace virtuální sítě TestVNet1
@@ -362,7 +366,7 @@ Jelikož brány patří do různých předplatných, rozdělíme tento krok do d
 ## <a name="verify"></a>Ověření stavu připojení
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Nejčastější dotazy týkající se propojení VNet-to-VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

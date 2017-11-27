@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: marsma
-ms.openlocfilehash: c37fc0b701b668ab6bb9213a487ec8baa33fe663
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e99793d45b90411a068dd44a981cf24aa67d43
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Provádění operací s úložištěm objektů blob pomocí rozhraní příkazového řádku Azure
 
@@ -161,6 +161,18 @@ K odstranění objektu blob z kontejneru použijte příkaz [az storage blob del
 az storage blob delete \
     --container-name mystoragecontainer \
     --name blobName
+```
+
+## <a name="set-the-content-type"></a>Nastavení typu obsahu
+
+Typ obsahu, který se označuje také jako typ MIME, identifikuje formát dat v objektu blob. Prohlížeče a další software používají typ obsahu k určení způsobu zpracování dat. Následující příklad nastaví typ obsahu na `image/png`.
+
+```azurecli-interactive
+# Set the content type
+az storage blob update
+    --container-name mystoragecontainer 
+    --name blobName 
+    --content-type image/png
 ```
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>Zobrazení a úprava metadat a vlastností objektu blob

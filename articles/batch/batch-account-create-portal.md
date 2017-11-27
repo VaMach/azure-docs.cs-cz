@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2017
+ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7629e496f2d73798b94acdc611014a8b3afead7
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: ebda2f11f93b04a5592d18f8e15c8fc3b560aac3
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Vytvoření účtu Batch pomocí webu Azure Portal
 
@@ -37,7 +37,8 @@ Informace o scénářích a účtech Batch najdete v [přehledu funkcí](batch-a
 
 ## <a name="create-a-batch-account"></a>Vytvoření účtu Batch
 
-
+> [!NOTE]
+> Obecně byste při vytváření účtu Batch měli zvolit výchozí režim **Služba Batch**, kdy se fondy přidělují na pozadí v předplatných, která spravuje Azure. V alternativním režimu **Předplatné uživatele**, který už se pro většinu scénářů nedoporučuje, se virtuální počítače a další prostředky služby Batch vytvářejí přímo ve vašem předplatném při vytvoření fondu. Pokud chcete vytvořit účet Batch v režimu předplatného uživatele, musíte také zaregistrovat předplatné ve službě Azure Batch a k účtu přidružit službu Azure Key Vault.
 
 1. Přihlaste se na web [Azure Portal][azure_portal].
 2. Klikněte na **Nový** a na Marketplace vyhledejte **Služba Batch**.
@@ -66,7 +67,7 @@ Informace o scénářích a účtech Batch najdete v [přehledu funkcí](batch-a
 ## <a name="view-batch-account-properties"></a>Zobrazení vlastností účtu Batch
 Po vytvoření účtu na něj klikněte pro přístup k jeho nastavením a vlastnostem. Všechna nastavení a vlastnosti účtu jsou přístupná pomocí nabídky vlevo.
 
-![Okno účtu Batch na webu Azure Portal][account_blade]
+![Stránka účtu Batch na webu Azure Portal][account_blade]
 
 * **Adresa URL účtu Batch:** Při vývoji aplikace pomocí [rozhraní API služby Batch](batch-apis-tools.md#azure-accounts-for-batch-development) potřebujete pro přístup k prostředkům Batch adresu URL účtu. Adresa URL účtu Batch má následující formát:
 
@@ -91,11 +92,45 @@ Doporučujeme vytvořit nový účet úložiště pro výhradní použití vaš�
 ![Vytvoření účtu úložiště pro obecné účely][storage_account]
 
 > [!NOTE]
-> Při obnovování přístupových klíčů v propojeném účtu úložiště buďte velmi opatrní. Obnovte vždy jen jeden klíč účtu úložiště a v okně propojeného účtu úložiště klikněte na možnost **Synchronizovat klíče**. Počkejte 5 minut, aby se klíče rozšířily do výpočetních uzlů ve fondech, a potom v případě potřeby znovu vygenerujte a synchronizujte další klíč. Pokud byste obnovili (znovu vygenerovali) oba klíče najednou, výpočetní uzly by nedokázaly synchronizovat ani jeden klíč a vy byste ztratili přístup k účtu úložiště.
+> Při obnovování přístupových klíčů v propojeném účtu úložiště buďte velmi opatrní. Obnovte vždycky jenom jeden klíč účtu úložiště a na stránce propojeného účtu úložiště klikněte na **Synchronizovat klíče**. Počkejte 5 minut, aby se klíče rozšířily do výpočetních uzlů ve fondech, a potom v případě potřeby znovu vygenerujte a synchronizujte další klíč. Pokud byste obnovili (znovu vygenerovali) oba klíče najednou, výpočetní uzly by nedokázaly synchronizovat ani jeden klíč a vy byste ztratili přístup k účtu úložiště.
 >
 >
 
 ![Obnovování klíčů účtu úložiště][4]
+
+## <a name="additional-configuration-for-user-subscription-mode"></a>Další konfigurace pro režim předplatného uživatele
+
+Pokud zvolíte možnost vytvořit účet Batch v režimu předplatného uživatele, proveďte před vytvořením tohoto účtu následující kroky.
+
+### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Povolení přístupu k předplatnému pro Azure Batch (jednorázová operace)
+Při vytváření prvního účtu Batch v režimu předplatného uživatele musíte zaregistrovat předplatné ve službě Batch. (Pokud jste tento postup již provedli, přejděte k další části.)
+
+1. Přihlaste se na web [Azure Portal][azure_portal].
+
+2. Klikněte na **Další služby** > **Předplatné** a klikněte na předplatné, které chcete pro účet Batch použít.
+
+3. Na stránce **Předplatné** klikněte na **Řízení přístupu (IAM)** > **Přidat**.
+
+    ![Řízení přístupu pro předplatné][subscription_access]
+
+4. Na stránce **Přidejte oprávnění** vyberte roli **Přispěvatel** a vyhledejte rozhraní API služby Batch. Hledejte každý z těchto řetězců, dokud nenajdete rozhraní API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Novější tenanti služby Azure AD mohou používat tento název.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** je ID rozhraní API služby Batch. 
+
+5. Jakmile najdete rozhraní API služby Batch, vyberte ho a klikněte na **Uložit**.
+
+    ![Přidání oprávnění pro službu Batch][add_permission]
+
+### <a name="create-a-key-vault"></a>Vytvořte trezor klíčů
+V režimu předplatného uživatele je vyžadován trezor klíčů Azure, který patří do stejné skupiny prostředků jako účet Batch, který se má vytvořit. Ověřte, že se skupina prostředků nachází v oblasti, kde je služba Batch [k dispozici](https://azure.microsoft.com/regions/services/) a která podporuje vaše předplatné.
+
+1. Na webu [Azure Portal][azure_portal] klikněte na **Nový** > **Zabezpečení + identita** > **Trezor klíčů**.
+
+2. Na stránce **Vytvořit trezor klíčů** zadejte název pro trezor klíčů a vytvořte skupinu prostředků v oblasti, kterou chcete použít pro účet Batch. Pro zbývající nastavení ponechejte výchozí hodnoty a pak klikněte na **Vytvořit**.
+
+
+
 
 ## <a name="batch-service-quotas-and-limits"></a>Kvóty a omezení služby Batch
 Podobně jako pro předplatné a další služby Azure, i pro účty Batch platí určité [kvóty a omezení](batch-quota-limit.md). Aktuální kvóty pro účet Batch se zobrazí v části **Kvóty**.
@@ -133,4 +168,4 @@ Kromě webu Azure Portal můžete účty Batch vytvářet a spravovat následuj�
 [quotas]: ./media/batch-account-create-portal/quotas.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
-[account_portal_byos]: ./media/batch-account-create-portal/batch_acct_portal_byos.png
+

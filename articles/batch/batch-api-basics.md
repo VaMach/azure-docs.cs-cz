@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 10/12/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Vývoj rozsáhlých paralelních výpočetních řešení pomocí služby Batch
 
@@ -75,7 +75,7 @@ Některé z následujících prostředků – účty, výpočetní uzly, fondy, 
 Můžete spustit několik dávkových úloh služby Batch v jednom účtu Batch najednou, nebo můžete úlohy rozložit mezi více účtů Batch, které jsou v jednom předplatném, ale v různých oblastech Azure.
 
 > [!NOTE]
-> Obecně byste při vytváření účtu Batch měli zvolit výchozí režim **Služba Batch**, kdy se fondy přidělují na pozadí v předplatných, která spravuje Azure. V alternativním režimu **Předplatné uživatele**, který už se nedoporučuje, se virtuální počítače a další prostředky služby Batch vytvářejí přímo ve vašem předplatném při vytvoření fondu. Pokud chcete vytvořit účet Batch v režimu předplatného uživatele, musíte k účtu také přidružit službu Azure Key Vault.
+> Obecně byste při vytváření účtu Batch měli zvolit výchozí režim **Služba Batch**, kdy se fondy přidělují na pozadí v předplatných, která spravuje Azure. V alternativním režimu **Předplatné uživatele**, který už se pro většinu scénářů nedoporučuje, se virtuální počítače a další prostředky služby Batch vytvářejí přímo ve vašem předplatném při vytvoření fondu. Pokud chcete vytvořit účet Batch v režimu předplatného uživatele, musíte také zaregistrovat předplatné ve službě Azure Batch a k účtu přidružit službu Azure Key Vault.
 >
 
 
@@ -150,7 +150,9 @@ Podrobné požadavky a kroky najdete v tématu popisujícím [použití vlastní
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Podpora kontejnerů ve fondech virtuálních počítačů
 
-Při vytváření fondu konfigurace virtuálních počítačů pomocí rozhraní API služby Batch můžete ve fondu nastavit spouštění úloh v kontejnerech Dockeru. V současné době musíte fond vytvořit pomocí Windows Serveru 2016 Datacenter s použitím image kontejnerů z webu Azure Marketplace nebo zadat vlastní image virtuálního počítače, která obsahuje Docker Community Edition a všechny požadované ovladače. Nastavení fondu musí obsahovat [konfiguraci kontejneru](/rest/api/batchservice/pool/add#definitions_containerconfiguration), která při vytvoření fondu zkopíruje image kontejneru do virtuálních počítačů. Úlohy spouštěné ve fondu pak můžou odkazovat na image kontejneru a možnosti spuštění kontejneru.
+Při vytváření fondu konfigurace virtuálních počítačů pomocí rozhraní API služby Batch můžete ve fondu nastavit spouštění úloh v kontejnerech Dockeru. V současné době musíte fond vytvořit pomocí image, která podporuje kontejnery Dockeru. Použijte Windows Server 2016 Datacenter s použitím image kontejnerů z webu Azure Marketplace nebo zadejte vlastní image virtuálního počítače, která zahrnuje Docker Community Edition nebo Enterprise Edition a všechny požadované ovladače. Nastavení fondu musí obsahovat [konfiguraci kontejneru](/rest/api/batchservice/pool/add#definitions_containerconfiguration), která při vytvoření fondu zkopíruje image kontejneru do virtuálních počítačů. Úlohy spouštěné ve fondu pak můžou odkazovat na image kontejneru a možnosti spuštění kontejneru.
+
+Další informace najdete v tématu věnovaném [spuštění kontejnerových aplikací Dockeru ve službě Azure Batch](batch-docker-container-workloads.md).
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>Typ výpočetního uzlu a cílový počet uzlů
 

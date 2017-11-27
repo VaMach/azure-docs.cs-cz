@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 18d5cd8f3904a0c6ea89df440d917785510409cb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b05cc76f8d8b2d14ac87fa3c55479bf0cf2377b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Výběr vhodného řešení Azure Multi-Factor Authentication
 Vzhledem k tomu, že existuje několik typů Azure Multi-Factor Authentication (MFA), musíme odpovědět na několik otázek, aby bylo možné zjistit, která verze je pro vás nejlepší.  Jsou to tyto otázky:
@@ -60,7 +60,7 @@ Následující tabulka porovnává funkce, které jsou dostupné se službou Mul
 | Kód ověření mobilní aplikace jako druhý faktor | ● | ● |
 | Telefonní hovor jako druhý faktor | ● | ● |
 | Jednosměrné služby SMS jako druhý faktor | ● | ● |
-| Obousměrné služby SMS jako druhý faktor | | ● |
+| Obousměrné služby SMS jako druhý faktor | | ● (zastaralé)| 
 | Tokeny hardwaru jako druhý faktor | | ● |
 | Hesla aplikací pro klienty Office 365, kteří nepodporují MFA | ● | |
 | Kontrola správce nad metodami ověřování | ● | ● |

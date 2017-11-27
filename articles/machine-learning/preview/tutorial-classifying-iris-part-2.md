@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Klasifikace Iris – část 2: Sestavení modelu
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -291,7 +291,7 @@ Pomocí služby Machine Learning můžete snadno konfigurovat další spouštěc
    Když se skript `run.py` dokončí, uvidíte v zobrazení seznamu historie spuštění v aplikaci Workbench graf.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Spuštění v kontejneru Docker ve vzdáleném počítači
-Pokud chcete skript spustit v kontejneru Docker ve vzdáleném počítači s Linuxem, potřebujete přístup SSH (uživatelské jméno a heslo) do tohoto vzdáleného počítače. Kromě toho musí být na vzdáleném počítači nainstalovaný a spuštěný modul Docker. Nejjednodušší způsob, jak takový počítač s Linuxem získat, spočívá ve vytvoření [virtuálního počítače pro datové vědy se systémem Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) v Azure. 
+Pokud chcete skript spustit v kontejneru Docker ve vzdáleném počítači s Linuxem, potřebujete přístup SSH (uživatelské jméno a heslo) do tohoto vzdáleného počítače. Kromě toho musí být na vzdáleném počítači nainstalovaný a spuštěný modul Docker. Nejjednodušší způsob, jak takový počítač s Linuxem získat, spočívá ve vytvoření virtuálního počítače pro datové vědy se systémem Ubuntu v Azure. Přečtěte si víc o [postupu vytvoření virtuálního počítače pro datové vědy se systémem Ubuntu pro použití v aplikaci Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >Virtuální počítače pro datové vědy se systémem CentOS se *nepodporují*.
@@ -343,7 +343,9 @@ Pokud chcete skript spustit v kontejneru Docker ve vzdáleném počítači s Lin
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Spuštění skriptu v clusteru služby HDInsight
-Tento skript můžete také spustit ve skutečném clusteru Spark. 
+Tento skript můžete také spustit v clusteru HDInsight Spark. Seznamte se s [postupem vytvoření clusteru HDInsight Spark pro použití v aplikaci Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
+
+>![POZNÁMKA] Cluster HDInsight musí jako primární úložiště používat Azure Blob. Použití úložiště Azure Data Lake se ještě nepodporuje.
 
 1. Pokud máte přístup ke clusteru Spark pro Azure HDInsight, vygenerujte příkaz pro spuštění konfigurace služby HDInsight podle uvedeného příkladu. Jako parametry zadejte název clusteru HDInsight, vaše uživatelské jméno HDInsight a heslo. Použijte následující příkaz:
 

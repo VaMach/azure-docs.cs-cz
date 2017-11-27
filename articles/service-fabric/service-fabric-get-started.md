@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 1aabcf6e469eb550a9af3dc5f85b9933ba892a39
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 27acacacb4a5af77b0218a30b8ae0163aaa5b5d9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Příprava vývojového prostředí ve Windows
 > [!div class="op_single_selector"]
@@ -82,6 +82,7 @@ Teď, když jste dokončili nastavení vývojového prostředí, můžete začí
 
 * [Vytvořte první aplikaci Service Fabric v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 * [Naučte se nasadit a spravovat aplikace v místním clusteru](service-fabric-get-started-with-a-local-cluster.md)
+* [Příprava linuxového vývojového prostředí ve Windows](service-fabric-local-linux-cluster-windows.md)
 * [Seznamte se s programovacími modely: Reliable Services a Reliable Actors](service-fabric-choose-framework.md)
 * [Prohlédněte si ukázky kódu Service Fabric na GitHubu](https://aka.ms/servicefabricsamples)
 * [Vizualizujte cluster pomocí Service Fabric Exploreru](service-fabric-visualizing-your-cluster.md)

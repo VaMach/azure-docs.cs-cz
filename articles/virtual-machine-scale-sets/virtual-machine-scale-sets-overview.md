@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 5a786e9baa275e029343571bdb9a6480334f5cf3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co jsou škálovací sady virtuálních počítačů v Azure?
 Škálovací sady virtuálních počítačů jsou výpočetním prostředkem Azure, který můžete použít k nasazení a správě sady identických virtuálních počítačů. Protože jsou všechny virtuální počítače ve škálovací sadě nakonfigurované stejně, podporují tyto sady skutečné automatické škálování – virtuální počítače není třeba zřizovat předem. Je proto snadné vytvářet rozsáhlé služby zaměřené na vysoký výpočetní výkon, velké objemy dat a kontejnerizované úlohy.
@@ -124,7 +124,7 @@ Tato část uvádí některé typické scénáře použití škálovacích sad. 
 * Škálovací sada podporuje až 1 000 virtuálních počítačů. Pokud vytváříte a nahráváte vlastní image virtuálních počítačů, platí omezení na 300 virtuálních počítačů. Důležité informace o používání velkých škálovacích sad najdete v tématu [Práce s velkými škálovacími sadami virtuálních počítačů](virtual-machine-scale-sets-placement-groups.md).
 * K používání škálovacích sad není potřeba předem vytvářet účty úložiště Azure. Škálovací sady podporují službu Azure Managed Disks, díky které nemusíte mít starosti o výkon, pokud jde o počet disků v účtu úložiště. Další informace najdete v tématu [Škálovací sady virtuálních počítačů Azure a spravované disky](virtual-machine-scale-sets-managed-disks.md).
 * Zvažte použití služby Azure Storage úrovně Premium namísto úrovně Standard pro rychlejší a předvídatelnější zřizování virtuálních počítačů a vylepšení výkonu vstupně-výstupních operací.
-* Počet virtuálních počítačů, které můžete vytvořit, je omezen kvótou pro počet jader v oblasti, ve které nasazení provádíte. Možná budete muset požádat zákaznickou podporu o navýšení vaší kvóty pro výpočetní prostředky, i když už dnes máte vysoký limit pro jádra, který platí pro cloudové služby Azure. Dotaz na kvótu spustíte pomocí následujícího příkazu Azure CLI: `azure vm list-usage`. Nebo pomocí následujícího příkazu PowerShellu: `Get-AzureRmVMUsage`.
+* Počet virtuálních počítačů, které můžete vytvořit, je omezený kvótou pro počet virtuálních procesorů v oblasti, ve které nasazení provádíte. Možná budete muset požádat zákaznickou podporu o navýšení vaší kvóty pro výpočetní prostředky, i když už v současnosti máte vysoký limit pro virtuální procesory, který platí pro cloudové služby Azure. Dotaz na kvótu spustíte pomocí následujícího příkazu Azure CLI: `azure vm list-usage`. Nebo pomocí následujícího příkazu PowerShellu: `Get-AzureRmVMUsage`.
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Nejčastější dotazy ke škálovacím sadám
 **Otázka:** Kolik virtuálních počítačů může obsahovat škálovací sada?

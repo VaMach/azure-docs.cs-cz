@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: tarcher
-ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c2c6cbff31f5d4992163d3fb46e4f1e13a58024
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Vytvoření testovacího prostředí v Azure DevTest Labs
 Testovací prostředí ve službě Azure DevTest Labs je infrastruktura, která zahrnuje skupinu prostředků, třeba službu Virtual Machines, která vám umožní lépe spravovat tyto prostředky zadáním omezení a kvót. Tento článek vás provede procesem vytvoření testovacího prostředí pomocí webu Azure Portal.
@@ -63,5 +63,5 @@ Po vytvoření testovacího prostředí je zde několik kroků, které je vhodn�
 * [Nastavení zásad testovacího prostředí](devtest-lab-set-lab-policy.md)
 * [Vytvoření šablony testovacího prostředí](devtest-lab-create-template.md)
 * [Vytvoření vlastních artefaktů pro virtuální počítače](devtest-lab-artifact-author.md)
-* [Přidání virtuálního počítače s artefakty do testovacího prostředí](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/)
+* [Přidání virtuálního počítače do testovacího prostředí](devtest-lab-add-vm.md)
 
