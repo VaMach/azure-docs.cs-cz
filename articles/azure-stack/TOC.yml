@@ -46,7 +46,7 @@
         - name: Nasazení
           href: azure-stack-run-powershell-script.md
         - name: Instalace PowerShellu
-          href: azure-stack-powershell-configure-quickstart.md
+          href: azure-stack-powershell-install.md
         - name: Registrace
           href: azure-stack-register.md
         - name: Připojení ke službě Azure Stack

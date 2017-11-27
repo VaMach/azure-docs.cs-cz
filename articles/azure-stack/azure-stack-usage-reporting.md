@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.openlocfilehash: 5abc325a6e7c019dc3cb84f7f6ff63c3eb2ff76c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a4ca742e232a19cd890552bec08f4d11cca52020
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Generování sestav Azure zásobníku využití dat do Azure 
 
@@ -53,7 +53,7 @@ Abyste mohli nastavit generování sestav dat využití, musíte [registraci va�
 
 ## <a name="view-usage---csp-subscriptions"></a>Zobrazení využití - odběry zprostředkovatele kryptografických služeb
 
-Pokud jste zaregistrovali do sady Azure pomocí předplatného poskytovatele CSP, můžete zobrazit využití a poplatky stejným způsobem, na které můžete zobrazit využití platformy Azure. Použití Azure zásobníku budou zahrnuty v faktury a soubor odsouhlasení, k dispozici prostřednictvím [Partnerské centrum](https://partnercenter.microsoft.com/en-us/partner/home). Soubor odsouhlasení se aktualizuje jednou měsíčně. Pokud potřebujete pro přístup k nejnovější informace o využití zásobník Azure, můžete použít rozhraní API Center partnera.
+Pokud jste zaregistrovali do sady Azure pomocí předplatného poskytovatele CSP, můžete zobrazit využití a poplatky stejným způsobem, na které můžete zobrazit využití platformy Azure. Použití Azure zásobníku budou zahrnuty v faktury a soubor odsouhlasení, k dispozici prostřednictvím [Partnerské centrum](https://partnercenter.microsoft.com/partner/home). Soubor odsouhlasení se aktualizuje jednou měsíčně. Pokud potřebujete pro přístup k nejnovější informace o využití zásobník Azure, můžete použít rozhraní API Center partnera.
 
    ![Partnerské centrum](media/azure-stack-usage-reporting/partner-center.png)
 
@@ -82,7 +82,7 @@ Uživatelům se účtují poplatky pro virtuální počítače, které běží p
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Mám licenci systému Windows Server, který chcete použít v zásobníku Azure, jak se provádí?
 
-Použití existující licence zabraňuje generování využití měřidla. Licence pro existující Server systému Windows lze použít v zásobníku Azure, jak je popsáno v části "Použití existující software s Azure zásobníku" [průvodci licencování Azure zásobníku](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Zákazníci potřebujete nasadit své virtuální počítače Windows serveru, jak je popsáno v [hybridní výhody pro Windows Server licenci](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) tématu, aby bylo možné používat své existující licence.
+Použití existující licence zabraňuje generování využití měřidla. Licence pro existující Server systému Windows lze použít v zásobníku Azure, jak je popsáno v části "Použití existující software s Azure zásobníku" [průvodci licencování Azure zásobníku](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Zákazníci potřebujete nasadit své virtuální počítače Windows serveru, jak je popsáno v [hybridní výhody pro Windows Server licenci](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) tématu, aby bylo možné používat své existující licence.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Jaké předplatné je účtovat poplatek za prostředky spotřebované?
 Odběr, který je k dispozici při [registrace zásobník Azure s Azure](azure-stack-register.md) je účtován.
@@ -97,7 +97,7 @@ V sadě Azure zásobníku Development Kit generování sestav dat využití vyž
 
 ## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Jak poznáte uživatelé zásobník Azure data o využití na portálu Azure fakturace?
 
-Uživatelé mohou vidět data o využití Azure zásobníku v souboru podrobnosti o využití. Potřebujete vědět o tom, jak získat soubor podrobnosti o využití, naleznete [stáhnout soubor využití z centra účtů Azure článku](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Podrobnosti o využití souboru obsahuje měřidla zásobník Azure, které identifikují Azure zásobníku úložiště a virtuálních počítačů. Všechny prostředky používané v zásobníku Azure jsou v části oblasti s názvem "Azure zásobníku."
+Uživatelé mohou vidět data o využití Azure zásobníku v souboru podrobnosti o využití. Potřebujete vědět o tom, jak získat soubor podrobnosti o využití, naleznete [stáhnout soubor využití z centra účtů Azure článku](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Podrobnosti o využití souboru obsahuje měřidla zásobník Azure, které identifikují Azure zásobníku úložiště a virtuálních počítačů. Všechny prostředky používané v zásobníku Azure jsou v části oblasti s názvem "Azure zásobníku."
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Proč se využití ohlášena v zásobníku Azure neshoduje se sestava vygenerována z centra účtů Azure?
 
