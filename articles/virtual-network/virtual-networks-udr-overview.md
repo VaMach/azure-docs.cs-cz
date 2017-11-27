@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Směrování provozu virtuální sítě
 
@@ -118,7 +118,7 @@ Zobrazené a odkazované názvy typů dalších segmentů směrování se liší
 
 Místní síťová brána si může vyměňovat trasy s bránou virtuální sítě Azure pomocí protokolu BGP (Border Gateway Protocol). Použití protokolu BGP s bránou virtuální sítě Azure závisí na typu, který jste vybrali při vytváření brány. Pokud jste vybrali typ:
 
-- **ExpressRoute:** Musíte použít protokol BGP k inzerování tras do hraničního směrovače Microsoftu. Pokud jste bránu virtuální sítě nasadili s typem ExpressRoute, nemůžete vytvářet trasy definované uživatelem.
+- **ExpressRoute:** Musíte použít protokol BGP k inzerování místních tras do hraničního směrovače Microsoftu. Pokud jste bránu virtuální sítě nasadili s typem ExpressRoute, nemůžete vytvářet trasy definované uživatelem pro vynucení provozu do brány virtuální sítě ExpressRoute. Pro vynucení provozu z ExpressRoute třeba do virtuálního síťového zařízení můžete použít trasy definované uživatelem. 
 - **VPN:** Volitelně můžete použít protokol BGP. Podrobnosti najdete v tématu [Protokol BGP s připojeními VPN typu Site-to-Site](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Pokud vyměňujete trasy s Azure pomocí protokolu BGP, do směrovací tabulky všech podsítí ve virtuální síti se přidá samostatná trasa pro každou inzerovanou předponu. Trasa se přidá s uvedeným zdrojem a typem dalšího segmentu směrování *Brána virtuální sítě*. 

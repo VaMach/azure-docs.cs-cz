@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Vytvoření účtů služby Azure Machine Learning verze Preview a instalace aplikace Azure Machine Learning Workbench
-Azure Machine Learning je integrované, komplexní řešení datové vědy a pokročilé analýzy. Pomáhá profesionálním datovým vědcům připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
+Služby Azure Machine Learning (Preview) představují komplexní integrované řešení pro datové vědy a pokročilé analýzy. Pomáhá profesionálním datovým vědcům připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
 
 V tomto kurzu Rychlý start se dozvíte, jak ve službě Azure Machine Learning verze Preview vytvořit účty služeb Experimentování a Správa modelů. Také se dozvíte, jak nainstalovat desktopovou aplikaci Azure Machine Learning Workbench a nástroje příkazového řádku. Potom přejdete na stručný přehled funkcí služby Azure Machine Learning verze Preview, ve kterém pomocí nadčasové [datové sady Iris](https://en.wikipedia.org/wiki/iris_flower_data_set) vytvoříte model pro předpověď typu dat Iris na základě některých fyzických charakteristik.  
 
@@ -108,7 +108,7 @@ Nainstalujte aplikaci Azure Machine Learning Workbench na svém počítači se s
 
 4. Aplikace Azure Machine Learning Workbench je teď nainstalovaná v tomto adresáři: 
 
-   `/Applications/AmlWorkbench.app`
+   `/Applications/Azure ML Workbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-sign-in-for-the-first-time"></a>Spuštění aplikace Azure Machine Learning Workbench a první přihlášení
 1. Po dokončení procesu instalace vyberte na poslední obrazovce instalačního programu tlačítko pro **spuštění aplikace Workbench**. Pokud jste instalační program zavřeli, na ploše nebo v nabídce **Start** najdete zástupce aplikace Machine Learning Workbench s názvem **Azure Machine Learning Workbench**, pomocí kterého můžete aplikaci spustit.

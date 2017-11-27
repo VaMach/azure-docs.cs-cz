@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrace řešení zabezpečení v Azure Security Center
 Tento dokument vám pomůže se správou řešení zabezpečení již propojených s Azure Security Center a s přidáním nových řešení.
@@ -44,7 +44,7 @@ Prostředí integrace ochrany koncových bodů se může lišit v závislosti na
 | Windows Defender (antimalware Microsoftu)                  | Windows Server 2016                   | Ne, součást operačního systému           | Ano                       |
 | Ochrana koncových bodů System Center (antimalware Microsoftu) | Windows Server 2012 R2, 2012, 2008 R2 | Prostřednictvím rozšíření                | Ano                       |
 | Trend Micro – všechny verze         | Řada Windows Serverů                 | Prostřednictvím rozšíření                | Ano                       |
-| Symantec v12+                     | Řada Windows Serverů                 | Ne                           | Ano                        |
+| Symantec v12.1.1100+                     | Řada Windows Serverů                 | Ne                           | Ano                        |
 | MacAfee                           | Řada Windows Serverů                 | Ne                           | Ne                        |
 | Kaspersky                         | Řada Windows Serverů                 | Ne                           | Ne                        |
 | Sophos                            | Řada Windows Serverů                 | Ne                           | Ne                        |

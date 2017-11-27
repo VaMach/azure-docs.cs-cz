@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Koncové body služby virtuální sítě (Preview)
 
@@ -28,7 +28,7 @@ Koncové body služby virtuální sítě rozšiřují privátní adresní prosto
 Tato funkce je dostupná ve verzi Preview pro následující služby a oblasti Azure:
 
 - **Azure Storage:** Všechny oblasti ve veřejném cloudu Azure.
-- **Azure SQL Database:** WestCentralUS, WestUS2 a EastUS
+- **Azure SQL:** Všechny oblasti ve veřejném cloudu Azure.
 
 Nejaktuálnější oznámení pro verzi Preview najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -122,4 +122,5 @@ Pro prostředky služeb Azure (například účet služby Azure Storage) můžou
 - Naučte se [svázat účet služby Azure Storage s virtuální sítí](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Naučte se [svázat účet služby Azure SQL Database s virtuální sítí](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Přečtěte si o [integraci služeb Azure ve virtuálních sítích](virtual-network-for-azure-services.md).
+-  Rychlý start: [Šablony Azure Resource Manageru](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) pro nastavení koncového bodu služby v podsíti virtuální sítě a zabezpečení účtu služby Azure Storage pro tuto podsíť
 

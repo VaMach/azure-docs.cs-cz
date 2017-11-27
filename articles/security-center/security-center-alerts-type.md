@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
-ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Principy výstrah zabezpečení ve službě Azure Security Center
 Tento článek vám pomůže porozumět různým typům výstrah zabezpečení a souvisejícím přehledům, které jsou dostupné ve službě Azure Security Center. Další informace o správě těchto výstrah a incidentů najdete v tématu [Správa a zpracování výstrah zabezpečení ve službě Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -53,6 +53,45 @@ Následující pole jsou společná pro příklady výstrah na stav systému, kt
 * DUMPFILE: Název souboru s výpisem stavu systému.
 * PROCESSNAME: Název procesu, ve kterém došlo k chybě.
 * PROCESSVERSION: Verze procesu, ve kterém došlo k chybě.
+
+### <a name="code-injection-discovered"></a>Zjištěna injektáž kódu
+Injektáž kódu představuje vložení spustitelných modulů do spuštěných procesů nebo vláken.  Tato technika je používána malwarem pro přístup k datům, ukrytí malwaru nebo zabránění jeho odstranění. Tato výstraha znamená, že ve výpisu je injektovaný modul. Vývojáři legitimního softwaru někdy provádějí injektáž kódu bez zlých úmyslů, například kvůli úpravě nebo rozšiřování stávající aplikace nebo součásti operačního systému.  Security Center rozlišuje škodlivé injektované moduly a moduly bez zlých úmyslů na základě profilů podezřelého chování. Výsledek kontroly je u výstrahy uveden v poli SIGNATURE a určuje závažnost výstrahy, popis výstrahy a nápravné kroky. 
+
+Tato výstraha navíc obsahuje následující pole:
+
+- ADDRESS: Umístění injektovaného modulu v paměti
+- IMAGENAME: Název injektovaného modulu. Pokud není v imagi uveden název image, může být toto pole prázdné.
+- SIGNATURE: Udává, jestli injektovaný modul odpovídá profilu podezřelého chování. 
+
+Následující tabulka uvádí příklady výsledků a jejich popis:
+
+| Hodnota podpisu                      | Popis                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Podezřelé zneužití zavaděče Reflective Loader | Toto podezřelé chování často souvisí s načítáním injektovaného kódu nezávisle na zavaděči operačního systému |
+| Podezřelé zneužití vkládání kódu          | Podezřelé chování, které často souvisí s injektáží kódu do paměti                                       |
+| Podezřelé zneužití vloženého kódu         | Podezřelé chování, které často souvisí s použitím kódu injektovaného do paměti                                   |
+| Podezřelé zneužití injektáže ladicího programu | Podezřelé chování, které často souvisí s nalezením nebo obcházením ladicího programu                         |
+| Podezřelé zneužití vzdáleného vkládání kódu   | Podezřelé chování, které často souvisí se spuštěním kódu a převzetím řízení počítače (tzv. scénář Command and control, C2)                                 |
+
+Tady je příklad tohoto typu výstrahy:
+
+![Výstraha injektáže kódu](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### <a name="suspicious-code-segment"></a>Podezřelý segment kódu
+Podezřelý segment kódu indikuje, že k přidělení segmentů kódu se použily nestandardní metody, například používané reflektivní injektáží a hloubením procesů.  Tato výstraha navíc zpracovává další charakteristiky segmentu kódu a poskytuje kontext v souvislosti s jeho možnostmi a chováním.
+
+Tato výstraha navíc obsahuje následující pole:
+
+- ADDRESS: Umístění injektovaného modulu v paměti
+- SIZE: Velikost podezřelého segmentu kódu
+- STRINGSIGNATURES: Toto pole obsahuje seznam možností rozhraní API, jejichž názvy funkcí jsou obsažené v příslušném segmentu kódu. Tyto možnosti mohou například zahrnovat:
+    - deskriptory sekce imagí, dynamické provádění kódu pro x64, přidělování paměti a funkce zavaděče, funkce vzdálené injektáže kódu, funkce řízení napadení, čtení proměnných prostředí, čtení paměti libovolného procesu, oprávnění úpravy tokenu a dotazů, síťová komunikace HTTP/HTTPS a komunikace pomocí síťových soketů.
+- IMAGEDETECTED: Toto pole indikuje, jestli byla image PE injektovaná do procesu, ve kterém byl detekovaný podezřelý segment kódu, a na jaké adrese injektovaný modul začíná.
+- SHELLCODE: Toto pole indikuje přítomnost chování obvykle využívaného škodlivou činností virů k získání přístupu k dalším funkcím operačního systému citlivým na zabezpečení. 
+
+Tady je příklad tohoto typu výstrahy:
+
+![Výstraha podezřelého segmentu kódu](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### <a name="shellcode-discovered"></a>Zjištěn skrytý spustitelný kód
 Skrytý spustitelný kód je datová část, která se spouští potom, co malware zneužije chybu zabezpečení softwaru. Tato výstraha znamená, že při analýze výpisu stavu systému byl nalezen spustitelný kód, který vykazuje chování typické pro škodlivý software. Někdy se může takovým způsobem chovat i software bez zlých úmyslů, pro běžný vývoj softwaru ale toto chování není typické.

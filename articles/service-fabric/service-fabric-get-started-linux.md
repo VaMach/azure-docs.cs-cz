@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/19/2017
 ms.author: subramar
-ms.openlocfilehash: da9aff17c16e179be200677bfbfd1287fff269e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77e357d56fc246de4e0e9af697e770c876d1d78
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Příprava vývojového prostředí v Linuxu
 > [!div class="op_single_selector"]
@@ -135,7 +135,7 @@ Pokud chcete nainstalovat rozhraní příkazového řádku, postupujte podle pok
 
 
 ## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>Nastavení generátorů Yeoman pro kontejnery a spustitelné soubory hosta
-Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomůžou vytvářet aplikace Service Fabric z terminálu pomocí generátorů šablon Yeoman. Podle těchto pokynů nastavte generátory šablon Service Fabric Yeoman:
+Service Fabric nabízí nástroje pro generování uživatelského rozhraní, které vám pomohou vytvářet aplikace Service Fabric z terminálu s využitím generátorů šablon Yeoman. Podle těchto pokynů nastavte generátory šablon Service Fabric Yeoman:
 
 1. Instalace nodejs a NPM na počítači
 
@@ -221,6 +221,7 @@ sudo apt-get install -f
 * [Vytvoření a nasazení první aplikace Service Fabric v Javě v Linuxu pomocí modulu plug-in Service Fabric pro Eclipse](service-fabric-get-started-eclipse.md)
 * [Vytvoření první aplikace v CSharp v Linuxu](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Příprava vývojového prostředí v OSX](service-fabric-get-started-mac.md)
+* [Příprava linuxového vývojového prostředí ve Windows](service-fabric-local-linux-cluster-windows.md)
 * [Správa aplikací pomocí Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Rozdíly Service Fabric pro Windows a Linux](service-fabric-linux-windows-differences.md)
 * [Začínáme s rozhraním příkazového řádku Service Fabric](service-fabric-cli.md)
