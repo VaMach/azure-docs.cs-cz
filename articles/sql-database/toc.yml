@@ -337,8 +337,10 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Víceklientský software jako služba (SaaS)
       items:
-        - name: Vítá vás Wingtips
+        - name: Ukázka lístků Wingtip
           href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: Obecné pokyny
+          href: saas-tenancy-wingtip-app-guidance-tips.md
         - name: Samostatná aplikace
           items:
             - name: Nasazení ukázkové aplikace
