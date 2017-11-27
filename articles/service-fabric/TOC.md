@@ -243,6 +243,7 @@
 ### [Ladění služby .NET ve VS](service-fabric-debugging-your-application.md)
 ### [Běžné chyby a výjimky](service-fabric-errors-and-exceptions.md)
 ### [Místní monitorování a diagnostika](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Nastavení linuxového clusteru ve Windows](service-fabric-local-linux-cluster-windows.md)
 
 ## Práce v linuxovém vývojovém prostředí
 ### [Začínáme s modulem plug-in Eclipse pro Java Development](service-fabric-get-started-eclipse.md)
@@ -278,7 +279,9 @@
 ##### [Pomocí testovacích scénářů](service-fabric-testability-scenarios.md)
 ##### [Pomocí rozhraní API pro přechod uzlů](service-fabric-node-transition-apis.md)
 
-### [Nasazení linuxové aplikace v Javě pomocí Jenkinse](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### Nastavení průběžné integrace
+#### [Nastavení průběžné integrace pomocí VSTS](service-fabric-set-up-continuous-integration.md)
+#### [Nasazení linuxové aplikace pomocí Jenkinse](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## Vytvoření a správa clusterů
 ### Clustery v Azure

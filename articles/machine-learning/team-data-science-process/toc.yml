@@ -68,9 +68,9 @@
       href: walkthroughs-sql-data-warehouse.md
 - name: Školení
   items:
-    - name: TDSP pro odborníky na data
+    - name: Pro odborníky na data
       href: team-data-science-process-for-data-scientists.md
-    - name: TDSP pro DevOps
+    - name: Pro DevOps
       href: team-data-science-process-for-devops.md
 - name: Postup
   items:
