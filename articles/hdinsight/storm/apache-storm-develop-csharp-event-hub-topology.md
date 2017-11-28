@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 6b48b98e87d5317c7e673977b87417210a595d6b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Zpracování událostí z Azure Event Hubs se Storm v HDInsight (C#)
 
@@ -36,6 +36,9 @@ Kroky v tomto dokumentu používají SCP.NET balíčku NuGet, který usnadňuje 
 > Pokud kroky v tomto dokumentu se spoléhají na vývojového prostředí systému Windows pomocí sady Visual Studio, zkompilovaný projekt lze odeslat do Storm v clusteru HDInsight, který používá Linux. Clustery se systémem Linux vytvořené po 28 říjnu 2016 se podporují jenom SCP.NET topologie.
 
 HDInsight 3.4 a větší použití Mono spouštění topologií C#. V příkladu v tomto dokumentu pracuje s HDInsight 3.6. Pokud máte v plánu na vytváření řešení .NET pro HDInsight, podívejte se [Mono kompatibility](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentu potenciální nekompatibility.
+
+> [!WARNING]
+> Pokud narazíte na problémy sestavení projektů, které používají verzi SCP.NET 1.0.0.x, požádejte o pomoc podporu společnosti Microsoft.
 
 ### <a name="cluster-versioning"></a>Správa verzí clusteru
 

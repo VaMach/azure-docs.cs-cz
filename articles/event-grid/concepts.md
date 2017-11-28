@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Koncepty v mřížce Azure událostí
 
@@ -20,7 +20,7 @@ Hlavní koncepty v mřížce událostí Azure jsou:
 
 ## <a name="events"></a>Události
 
-Událost je nejmenší množství informací, která plně popisuje něco, kterým došlo v systému.  Každý událost má běžné informace, jako jsou: Zdroj události, čas události trvalo místní a jedinečný identifikátor.  Každé události má také konkrétní informace, které jsou pouze relevantní pro konkrétní události. Například událost o nový soubor vytváří ve službě Azure Storage obsahuje podrobnosti o souboru, jako je hodnota lastTimeModified. Nebo událost o virtuální počítač restartování obsahuje název virtuálního počítače a důvody, proč restartování. Každá událost je omezená na 64 KB dat.
+Událost je nejmenší množství informací, která plně popisuje něco, kterým došlo v systému.  Každý událost má běžné informace, jako jsou: Zdroj události, čas události trvalo místní a jedinečný identifikátor.  Každé události má také konkrétní informace, které jsou pouze relevantní pro konkrétní typ události. Například událost o nový soubor vytváří ve službě Azure Storage obsahuje podrobnosti o souboru, jako `lastTimeModified` hodnotu. Nebo událost o virtuální počítač restartování obsahuje název virtuálního počítače a důvody, proč restartování. Každá událost je omezená na 64 KB dat.
 
 ## <a name="event-sourcespublishers"></a>Zdroje nebo zdroje událostí
 
@@ -46,7 +46,7 @@ Když se přihlásíte k odběru téma, můžete filtrovat události, které se 
 
 ## <a name="security"></a>Zabezpečení
 
-Událost poskytuje zabezpečení registrace k tématům a publikování témata. Při přihlášení k odběru, musí mít odpovídající oprávnění na prostředek nebo téma. Při publikování, musíte mít tokenu SAS nebo ověření pomocí klíče pro téma. Další informace najdete v tématu [mřížky událostí zabezpečení a ověřování](security-authentication.md).
+Událost mřížky zajišťuje zabezpečení registrace k tématům a publikování témata. Při přihlášení k odběru, musí mít odpovídající oprávnění na prostředek nebo téma. Při publikování, musíte mít tokenu SAS nebo ověření pomocí klíče pro téma. Další informace najdete v tématu [mřížky událostí zabezpečení a ověřování](security-authentication.md).
 
 ## <a name="failed-delivery"></a>Neúspěšné doručení
 

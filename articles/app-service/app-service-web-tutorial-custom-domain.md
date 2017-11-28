@@ -1,6 +1,7 @@
 ---
 title: "Mapovat existující vlastní název DNS pro službu Azure Web Apps | Microsoft Docs"
 description: "Naučte se přidávat existující vlastní název domény DNS (jednoduché doména) pro webovou aplikaci, back-end mobilní aplikace nebo aplikace API v Azure App Service."
+keywords: "služby App service, služby azure app service, mapování domény, název domény, existující domény, název hostitele"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapovat existující vlastní název DNS pro službu Azure Web Apps
 
@@ -269,6 +270,27 @@ Vyberte  **+**  ikonu Přidat jiné název hostitele, který odpovídá zástupn
 Přejděte na názvy DNS, který jste nakonfigurovali dříve (například `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, a `sub2.contoso.com`).
 
 ![Portál navigace do aplikace Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+## <a name="resolve-404-error-web-site-not-found"></a>Vyřešte chybu 404 "Webový server nebyl nalezen"
+
+Pokud se zobrazí chyba HTTP 404 (není nalezena) při procházení na adresu URL vaši vlastní doménu, ověřte, že doménu přeloží na vaše aplikace IP adresu pomocí <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Pokud ne, může být způsobeno jedním z následujících důvodů:
+
+- Vlastní domény nakonfigurované chybí záznam A nebo záznam CNAME.
+- V mezipaměti klienta prohlížeče starou IP adresu vaší domény. Vymažte mezipaměť a testování překlad DNS znovu. Na počítači s Windows, vymažte mezipaměť s `ipconfig /flushdns`.
+
+<a name="virtualdir"></a>
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Přímé výchozí adresy URL do vlastní adresáře
+
+Ve výchozím nastavení bude směrovat webové požadavky na kořenovém adresáři kódu aplikace služby App Service. Ale některé webové rozhraní nespouštějte v kořenovém adresáři. Například [Laravel](https://laravel.com/) se spustí v `public` podadresáři. Chcete-li pokračovat `contoso.com` například DNS by takové aplikace přístupná na `http://contoso.com/public`, ale by Opravdu chcete přímé `http://contoso.com` k `public` directory místo toho. Tento krok nebude zahrnovat překlad názvů DNS, ale přizpůsobení virtuální adresář.
+
+Chcete-li to provést, vyberte **nastavení aplikace** v levém navigačním panelu webové stránky aplikace. 
+
+V dolní části stránky virtuální kořenový adresář `/` odkazuje na `site\wwwroot` ve výchozím nastavení, která je kořenový adresář kódu aplikace. Změňte jej tak, aby odkazoval `site\wwwroot\public` místo, například a uložte změny. 
+
+![Přizpůsobení virtuálního adresáře](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+
+Po dokončení operace, aplikace by měl vrátit na stránce vpravo na kořenovou cestu (například http://contoso.com).
 
 ## <a name="automate-with-scripts"></a>Automatizovat pomocí skriptů
 

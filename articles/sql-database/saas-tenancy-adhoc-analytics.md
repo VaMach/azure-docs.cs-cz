@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: articles
 ms.date: 11/13/2017
 ms.author: billgib; sstein; AyoOlubeko
-ms.openlocfilehash: db8a079c76f38bbf7b90f8d914ce1bbf192343d7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ddad47ccac57ddbb9387709ababbc5be6bad3462
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Spuštění dotazů ad hoc analytics napříč více databází Azure SQL
 
-V tomto kurzu spustíte distribuované dotazy napříč celou sadu klienta databáze a umožnit tak vykazování ad hoc interaktivní. Tyto dotazy můžete extrahovat Statistika schovaný v každodenní provozních dat aplikace SaaS Wingtip lístků. K tomuto účelu bude nasazení další analýze databáze na server katalogu a můžete povolit distribuované dotazy pomocí elastické dotazu.
+V tomto kurzu spustíte distribuované dotazy napříč celou sadu klienta databáze a umožnit tak vykazování ad hoc interaktivní. Tyto dotazy můžete extrahovat Statistika schovaný v každodenní provozních dat aplikace SaaS Wingtip lístků. K tomuto účelu nasazení další analýze databáze na server katalogu a můžete povolit distribuované dotazy pomocí elastické dotazu.
 
 
 V tomto kurzu se dozvíte:
@@ -57,7 +57,7 @@ Elastické dotazu distribucí dotazy mezi databázemi klienta, poskytuje okamži
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Získat aplikační skripty Wingtip lístky SaaS databáze za klienta
 
-Skripty Wingtip lístky SaaS databáze za klienta a zdrojový kód aplikace, které jsou k dispozici v [úložiště github WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/). Odblokování Ujistěte se, že postupujte podle kroků uvedených v souboru readme.
+Adresář Wingtip lístky SaaS víceklientské databázové skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty Wingtip lístky SaaS.
 
 ## <a name="create-ticket-sales-data"></a>Vytvořit data prodeje lístků
 
@@ -71,9 +71,9 @@ Ke spouštění dotazů na zajímavějšího datové sady, vytvořte spuštění
 
 V aplikaci Wingtip lístky SaaS databáze za klienta každý klient je zadána databáze. Proto data obsažená v tabulkách databáze je vymezen na perspektivu jednoho klienta. Ale při dotazování mezi všechny databáze, je důležité, aby elastické dotazu lze považovat data, pokud je součástí jedné logické databáze horizontálně dělené klientem. 
 
-K simulaci tento vzor, sadu 'globální' zobrazení se přidají do databáze klienta daného projektu id klienta do každé z tabulek, které jsou předmětem dotazování globálně. Například *VenueEvents* zobrazení přidá počítaný *VenueId* na sloupce ze k projekci *události* tabulky. Podobně *VenueTicketPurchases* a *VenueTickets* zobrazení přidat počítaný *VenueId* sloupec projektovat z jejich odpovídajících tabulek. Tato zobrazení jsou používány elastické dotazu učinit paralelní dotazy a nabízená dolů odpovídající vzdáleného klienta je při zpracování databáze *VenueId* sloupec je k dispozici. Tím se výrazně snižuje množství dat, která je vrácena a výsledkem podstatné zvýšení výkonu pro mnoho dotazů. Tato globální zobrazení byly předem vytvořené v všechny databáze klienta.
+K simulaci tento vzor, jsou sadu 'globální' zobrazení přidat do databáze klienta daného projektu ID klienta do každé z tabulek, které jsou předmětem dotazování globálně. Například *VenueEvents* zobrazení přidá počítaný *VenueId* na sloupce ze k projekci *události* tabulky. Podobně *VenueTicketPurchases* a *VenueTickets* zobrazení přidat počítaný *VenueId* sloupec projektovat z jejich odpovídajících tabulek. Tato zobrazení jsou používány elastické dotazu učinit paralelní dotazy a nabízená dolů odpovídající vzdáleného klienta je při zpracování databáze *VenueId* sloupec je k dispozici. Tím se výrazně snižuje množství dat, která je vrácena a výsledkem podstatné zvýšení výkonu pro mnoho dotazů. Tato globální zobrazení byly předem vytvořené v všechny databáze klienta.
 
-1. Otevřete aplikaci SSMS a [připojit k tenants1 -&lt;uživatele&gt; server](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Otevřete aplikaci SSMS a [připojit k tenants1 -&lt;uživatele&gt; server](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Rozbalte položku **databáze**, klikněte pravým tlačítkem na **contosoconcerthall**a vyberte **nový dotaz**.
 3. Spusťte následující dotazy a prozkoumejte rozdíl mezi tabulkami jednoho klienta a globální zobrazení:
 
@@ -95,7 +95,7 @@ V těchto zobrazeních *VenueId* se vypočítá jako hodnota hash místo názvu,
 
 K prozkoumání definice *místa* zobrazení:
 
-1. V **Průzkumník objektů**, rozbalte položku **contosoconcethall** > **zobrazení**:
+1. V **Průzkumník objektů**, rozbalte položku **contosoconcerthall** > **zobrazení**:
 
    ![zobrazení](media/saas-tenancy-adhoc-analytics/views.png)
 
@@ -121,13 +121,13 @@ Tento postup přidá schématu (externí zdroj dat a externí tabulky definice) 
 
 1. Otevřete SQL Server Management Studio a připojte k databázi vykazování ad hoc, kterou jste vytvořili v předchozím kroku. Název databáze je *adhocreporting*.
 2. Otevřete ...\Learning Modules\Operational Analytics\Adhoc Reporting\ *inicializovat AdhocReportingDB.sql* v aplikaci SSMS.
-3. Zkontrolujte skript SQL a vezměte na vědomí následující:
+3. Zkontrolujte skript SQL a Poznámka:
 
    Elastické dotazu pomocí přihlašovacích údajů platných pro databázi přístup ke každé databáze klienta. Tato pověření musí být k dispozici ve všech databází a by měl obvykle být uděleno minimální práva potřebná k povolení těchto ad hoc dotazy.
 
     ![Vytvoření pověření](media/saas-tenancy-adhoc-analytics/create-credential.png)
 
-   Zdroj externích dat, která je definována pomocí mapování horizontálních klienta v databázi katalogu. Prostřednictvím tohoto jako zdroj externích dat jsou dotazy distribuovány do všech databází, které jsou zaregistrovány v katalogu při spuštění dotazu. Vzhledem k tomu, že názvy serverů se liší pro každé nasazení, získá tento skript inicializace umístění databáze katalogu načtením aktuální server (@@servername) němž se skript spustí.
+   Pomocí databáze katalogu jako zdroj externích dat jsou dotazy distribuován do všech databází, které jsou zaregistrovány v katalogu při spuštění dotazu. Vzhledem k tomu, že názvy serverů se liší pro každé nasazení, získá tento skript inicializace umístění databáze katalogu načtením aktuální server (@@servername) němž se skript spustí.
 
     ![Vytvoření externího zdroje dat](media/saas-tenancy-adhoc-analytics/create-external-data-source.png)
 
@@ -151,7 +151,7 @@ Teď, když *adhocreporting* databáze je nastavit, aby ihned začít a spustit 
 
 Při kontrole plán spuštění, pozastavte ukazatel myši nad ikony plán podrobnosti. 
 
-Je důležité si uvědomit, že nastavení **distribuční = SHARDED(VenueId)** když jsme definovali externí zdroj dat, zlepšuje výkon pro mnoho scénářů. Protože každý *VenueId* mapuje jedné databáze, filtrování je snadno provést vzdáleně, vrací pouze data, potřebujeme.
+Je důležité si uvědomit, že nastavení **distribuční = SHARDED(VenueId)** zvyšuje výkon pro mnoho scénářů, kdy externí zdroj dat je definován. Protože každému *VenueId* mapuje jedné databáze, filtrování je snadno provést vzdáleně, vrací pouze data potřebná.
 
 1. Otevřete... \\Učení moduly\\provozní Analytics\\vykazování ad hoc\\*ukázku AdhocReportingQueries.sql* v aplikaci SSMS.
 2. Zkontrolujte připojení k **adhocreporting** databáze.
@@ -160,7 +160,7 @@ Je důležité si uvědomit, že nastavení **distribuční = SHARDED(VenueId)**
 
    Dotaz vrátí seznamu celý místo ilustrující způsob rychlé a snadné je k dotazování mezi všechny klienty a vrátit data z každého klienta.
 
-   Zkontrolujte plán a zjistíte, že náklady je vzdálený dotaz, protože jsme jednoduše přejdete na každou databázi klienta a výběrem informace místo.
+   Zkontrolujte plán a zjistíte, že náklady je vzdálený dotaz, protože každá databáze klienta zpracovává vlastní dotaz a vrátí informace o jeho místo.
 
    ![Vybrat * z dbo. Místa](media/saas-tenancy-adhoc-analytics/query1-plan.png)
 
@@ -168,13 +168,13 @@ Je důležité si uvědomit, že nastavení **distribuční = SHARDED(VenueId)**
 
    Tento dotaz připojí data z databáze klienta a místní *VenueTypes* tabulky (místní počítač, protože je tabulka *adhocreporting* databáze).
 
-   Zkontrolujte plán a zjistíte, že většina náklady je vzdálený dotaz, protože jsme dotaz na informace místo každého klienta (dbo. Místa), a poté proveďte rychlé místní spojení s místní *VenueTypes* tabulka, která se zobrazí popisný název.
+   Zkontrolujte plán a zjistíte, že většina náklady na vzdálený dotaz. Vrátí informace o jeho místo každou databázi klienta a provede místní spojení s místní *VenueTypes* tabulka, která se zobrazí popisný název.
 
    ![Připojení k vzdálené a místní data](media/saas-tenancy-adhoc-analytics/query2-plan.png)
 
 6. Nyní vybrat *den, kdy byly nejvíce lístků prodaných?* dotazu a stiskněte klávesu **F5**.
 
-   Tento dotaz nemá trochu složitější spojování a agregaci. Co je důležité si uvědomit, je, že se vzdáleně provádí většinu zpracování a ještě jednou budeme navrácení pouze řádky, které potřebujeme, vrácení pouze jeden řádek pro každý místo agregační lístku prodej počet za den.
+   Tento dotaz nemá trochu složitější spojování a agregaci. Co je důležité si uvědomit, je, že se vzdáleně provádí většinu zpracování a ještě jednou, vrátí jenom na řádky potřeby jeden řádek pro každý místo agregační lístku prodej počet za den.
 
    ![query](media/saas-tenancy-adhoc-analytics/query3-plan.png)
 
@@ -189,7 +189,7 @@ V tomto kurzu jste se naučili:
 > * Nasazení databáze služby ad hoc generování sestav a přidejte do jeho spuštění distribuované dotazy schématu.
 
 
-Nyní zkuste [klienta Analytics kurzu](saas-tenancy-tenant-analytics.md) prozkoumat extrakce dat k databázi samostatné analytics pro zpracování složitějších analýzy...
+Nyní zkuste [klienta Analytics kurzu](saas-tenancy-tenant-analytics.md) prozkoumat extrakce dat k databázi samostatné analytics pro zpracování složitějších analýzy.
 
 ## <a name="additional-resources"></a>Další zdroje
 

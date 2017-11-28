@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Adresář Wingtip lístky SaaS aplikace
 
@@ -27,7 +27,7 @@ Stejné *Wingtip lístky* aplikace je implementována ve všech tří vzorků. T
 
 ## <a name="three-saas-application-patterns"></a>Tří vzorů aplikace SaaS
 
-Tři verze aplikace, které jsou k dispozici. Každý prozkoumá vzor klientů jiné databázi v databázi SQL Azure.  První používá aplikace jednoho klienta s databázi izolované jednoho klienta. Druhá používá aplikace na více klientů s databází na každého klienta. Třetí Ukázka používá víceklientské aplikace s horizontálně dělené víceklientské databáze.
+Tři verze aplikace jsou k dispozici. Každý prozkoumá vzor klientů jiné databázi v databázi SQL Azure.  První používá aplikace jednoho klienta s databázi izolované jednoho klienta. Druhá používá aplikace na více klientů s databází na každého klienta. Třetí Ukázka používá víceklientské aplikace s horizontálně dělené víceklientské databáze.
 
 ![Tří vzorů klientů][image-three-tenancy-patterns]
 

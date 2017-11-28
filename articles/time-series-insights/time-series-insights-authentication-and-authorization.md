@@ -1,5 +1,5 @@
 ---
-title: "Postup konfigurace ověřování a autorizace API v Azure časové řady přehledy"
+title: "Jak k ověřování a autorizaci rozhraním API v Azure časové řady přehledy"
 description: "Tento článek popisuje postup konfigurace ověřování a autorizace pro vlastní aplikaci, která volá rozhraní API služby Azure časové řady statistiky."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Ověřování a autorizace pro rozhraní API pro Azure časové řady přehledy
 
@@ -32,7 +32,7 @@ Až budete mít aplikaci, která musí doba přístupu k řady Insights, musíte
 * Nemáte ke změně pověření aplikace, pokud vaše odpovědnosti změnit.
 * Certifikát nebo klíč aplikace můžete použít k automatizaci ověřování, když používáte bezobslužného skriptu.
 
-Toto téma ukazuje, jak provést tyto kroky prostřednictvím portálu Azure. Zaměřuje se na jednoho klienta aplikace, kde je záměrem aplikaci spustit v pouze jedné organizaci. Jednoho klienta aplikace se obvykle používají pro-obchodní aplikace, které běží ve vaší organizaci.
+Tento článek ukazuje, jak provést tyto kroky prostřednictvím portálu Azure. Zaměřuje se na jednoho klienta aplikace, kde je záměrem aplikaci spustit v pouze jedné organizaci. Jednoho klienta aplikace se obvykle používají pro-obchodní aplikace, které běží ve vaší organizaci.
 
 Nastavení toku se skládá z tři hlavní kroky:
 

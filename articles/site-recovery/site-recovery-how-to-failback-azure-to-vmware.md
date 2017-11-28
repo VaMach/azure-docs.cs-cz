@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad424818f41e6b48e754dd0d39771248a1cd04fb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Selhání zpět z Azure do místního serveru
 
@@ -135,3 +135,17 @@ Po dokončení úloh opětovné ochrany zpět do Azure se replikuje virtuální 
 
 ## <a name="common-issues"></a>Běžné problémy
 Ujistěte se, že se vCenter je v připojeném stavu před provedením navrácení služeb po obnovení. Odpojení disky a znovu je připojit zpět k virtuálnímu počítači, jinak nebude úspěšná.
+
+### <a name="common-error-codes"></a>Běžné kódy chyb
+
+#### <a name="error-code-8038"></a>Kód chyby 8038
+
+*Nepovedlo se zprovoznit místní virtuální počítač z důvodu chyby*
+
+To se stane, když 
+1. Místní virtuální počítač je zapínají na hostitele, který nemá dostatek paměti zřízený.
+
+Chcete-li vyřešit tento problém
+1. Můžete zřídit další paměť na hostiteli ESXi.
+2. řešení vMotion virtuálního počítače na jiného hostitele ESXi, který má dostatek paměti ke spuštění virtuálního počítače.
+

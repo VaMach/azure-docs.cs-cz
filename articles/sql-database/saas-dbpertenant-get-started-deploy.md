@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: sstein
-ms.openlocfilehash: 9b1ae219eb1278b818e3e1d4237d04fe54c980ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Nasazení a prozkoumejte aplikace SaaS více klientů, která používá databázi za vzor klienta s Azure SQL Database
 
@@ -173,11 +173,11 @@ Teď, když jste spuštění, spuštění zátěžového proti kolekci klientů,
 
 Pokud generátor zatížení běžel několik minut, mělo by být k dispozici dostatek dat, abyste mohli začít sledovat některé možnosti monitorování vestavěné do fondů a databází.
 
-1. Přejděte na server **tenants1-dpt -&lt;uživatele&gt;**a klikněte na tlačítko **Pool1** zobrazení využití prostředků pro fond (generátor zatížení spustili jednu hodinu v následující grafy):
+Přejděte na server **tenants1-dpt -&lt;uživatele&gt;**a klikněte na tlačítko **Pool1** zobrazení využití prostředků pro fond (generátor zatížení spustili jednu hodinu v následující grafy):
 
    ![monitorování fondu](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
-Horní graf zobrazuje využití eDTU fondu, zatímco dolní graf zobrazuje eDTU utiization top 5 databází ve fondu.  Na těchto dvou grafech je krásně vidět, jak dobře se elastické fondy a databáze SQL hodí pro úlohy SaaS aplikací. Čtyři databáze, všechny s nárazovým zatížením až 40 eDTU, snadno zvládá fond s 50 eDTU. Pokud byly zřízení jako samostatné databáze jejich by každý musí být S2 (50 DTU) pro podporu shluky. Náklady na 4 samostatné S2 databází by téměř 3krát cena fondu a fondu má stále dostatek prostoru pro mnoho více databází. V situacích, reálného databáze SQL zákazníků aktuálně používá až 500 databází ve fondech 200 eDTU. Další informace najdete v [kurzu monitorování výkonu](saas-dbpertenant-performance-monitoring.md).
+Horní graf zobrazuje využití eDTU fondu, zatímco dolní graf zobrazuje využití eDTU top 5 databází ve fondu.  Na těchto dvou grafech je krásně vidět, jak dobře se elastické fondy a databáze SQL hodí pro úlohy SaaS aplikací. Čtyři databáze, všechny s nárazovým zatížením až 40 eDTU, snadno zvládá fond s 50 eDTU. Pokud byly zřízení jako samostatné databáze jejich by každý musí být S2 (50 DTU) pro podporu shluky. Náklady na 4 samostatné S2 databází by téměř 3krát cena fondu a fondu má stále dostatek prostoru pro mnoho více databází. V situacích, reálného databáze SQL zákazníků aktuálně používá až 500 databází ve fondech 200 eDTU. Další informace najdete v [kurzu monitorování výkonu](saas-dbpertenant-performance-monitoring.md).
 
 
 ## <a name="next-steps"></a>Další kroky

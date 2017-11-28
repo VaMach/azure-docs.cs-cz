@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: 6da89b7b63231fe5886c82e84e06abc2ee7b3e38
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f53234ddd8362e74c421c18c8d500308f5a232a7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Použijte interaktivní dotazu s HDInsight
 Interaktivní dotazu (také nazývané Hive LLAP nebo [Live dlouhé a proces](https://cwiki.apache.org/confluence/display/Hive/LLAP)) je Azure HDInsight [clusteru typu](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interaktivní Query podporuje ukládání do mezipaměti v paměti, takže dotazů Hive rychlejší a víc interaktivní. 
@@ -49,7 +49,7 @@ Spuštění dotazů Hive, máte následující možnosti:
 
 * Použití Visual Studia
 
-    V tématu [připojení k Azure HDInsight a spouštět dotazy Hive pomocí nástrojů Data Lake pro Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
+    V tématu [připojení k Azure HDInsight a spouštět dotazy Hive pomocí nástrojů Data Lake pro Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
 
 * Pomocí kódu v sadě Visual Studio
 
@@ -79,7 +79,7 @@ Najít připojovací řetězec připojení k databázi v jazyce Java (JDBC):
 * Zjistěte, jak [vytvářet interaktivní dotazu clusterů v HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Zjistěte, jak [vizualizovat velké objemy dat s Power BI v Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
 * Zjistěte, jak [použití Zeppelin ke spouštění dotazů Hive v Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).
-* Zjistěte, jak [spouštění dotazů Hive pomocí nástrojů Data Lake pro Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-a-hive-query).
+* Zjistěte, jak [spouštění dotazů Hive pomocí nástrojů Data Lake pro Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries).
 * Zjistěte, jak [používat nástroje HDInsight pro Visual Studio Code](../hdinsight-for-vscode.md).
 * Zjistěte, jak [pomocí zobrazení Hive Hadoop v HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md)
 * Zjistěte, jak [Beeline používat k odesílání dotazů Hive v HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md).

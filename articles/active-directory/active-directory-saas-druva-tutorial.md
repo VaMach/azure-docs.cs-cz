@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b23e73c47b9a00893e036b67826e4b7ead819a1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52212c44c925598b2c19df1b20eb4e8123f974ba
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Kurz: Azure Active Directory integrace s Druva
 
@@ -104,21 +104,27 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
  
     ![Jediné přihlášení dialogové okno](./media/active-directory-saas-druva-tutorial/tutorial_druva_samlbase.png)
 
-3. Na **Druva domény a adresy URL** část, proveďte následující kroky:
+3. Na **Druva domény a adresy URL** část, pokud chcete nakonfigurovat aplikace **IDP** iniciované režimu:
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
+    V **identifikátor** textovému poli, zadejte hodnotu řetězce:`druva-cloud`
+    
+4. Zkontrolujte **zobrazit upřesňující nastavení adresy URL**. Pokud chcete nakonfigurovat aplikace **SP** iniciované režimu:
+
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+    
     V **přihlašovací adresa URL** textovému poli, zadejte adresu URL:`https://cloud.druva.com/home`
 
-4. Na **SAML podpisový certifikát** klikněte na tlačítko **Certificate(Base64)** a potom uložte soubor certifikátu v počítači.
+5. Na **SAML podpisový certifikát** klikněte na tlačítko **Certificate(Base64)** a potom uložte soubor certifikátu v počítači.
 
     ![Odkaz ke stažení certifikátu](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
 
-5. Aplikace Druva očekává SAML kontrolní výrazy ve specifickém formátu, který můžete přidat mapování vlastní atribut vyžaduje vaše **atributy tokenu SAML** konfigurace. 
+6. Aplikace Druva očekává SAML kontrolní výrazy ve specifickém formátu, který můžete přidat mapování vlastní atribut vyžaduje vaše **atributy tokenu SAML** konfigurace. 
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
-6. V **uživatelské atributy** části na **jednotného přihlašování** dialogové okno, nakonfigurujte atribut tokenu SAML, jak je vidět na předchozím obrázku a proveďte následující kroky:
+7. V **uživatelské atributy** části na **jednotného přihlašování** dialogové okno, nakonfigurujte atribut tokenu SAML, jak je vidět na předchozím obrázku a proveďte následující kroky:
 
     | Název atributu      | Hodnota atributu      |
     | ------------------- | -------------------- |
@@ -136,47 +142,47 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     
     d. Klikněte na tlačítko **OK**.    
 
-7. Klikněte na tlačítko **Uložit** tlačítko.
+8. Klikněte na tlačítko **Uložit** tlačítko.
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
-8. Na **Druva konfigurace** klikněte na tlačítko **konfigurace Druva** otevřete **konfigurovat přihlášení** okno. Kopírování **Sign-Out adresu URL a SAML jeden přihlašování služby URL** z **Stručná referenční příručka části.**
+9. Na **Druva konfigurace** klikněte na tlačítko **konfigurace Druva** otevřete **konfigurovat přihlášení** okno. Kopírování **Sign-Out adresu URL a SAML jeden přihlašování služby URL** z **Stručná referenční příručka části.**
 
     ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
-9. V okně prohlížeče jiný web Přihlaste se k serveru vaší společnosti Druva jako správce.
+10. V okně prohlížeče jiný web Přihlaste se k serveru vaší společnosti Druva jako správce.
 
-10. Přejděte na **spravovat \> nastavení**.
+11. Přejděte na **spravovat \> nastavení**.
 
     ![Nastavení](./media/active-directory-saas-druva-tutorial/ic795091.png "nastavení")
 
-11. V dialogovém okně Nastavení jednotného přihlašování proveďte následující kroky:
+12. V dialogovém okně Nastavení jednotného přihlašování proveďte následující kroky:
 
     ![Jednotné přihlašování v nastavení](./media/active-directory-saas-druva-tutorial/ic795092.png "jednotné přihlašování v nastavení")
     
-    a. Vložení **SAML jeden přihlašování adresa URL služby** hodnotu, kterou jste zkopírovali z portálu Azure do **ID zprostředkovatele přihlašovací adresa URL** textové pole.
-    
-    b. Vložení **Sign-Out URL** hodnotu, kterou jste zkopírovali z portálu Azure do **adresy URL odhlašovací ID zprostředkovatele** textové pole.
-    
-     c. V poznámkovém bloku otevřete váš kódování base-64 kódovaného certifikátu, zkopírujte obsah ho do schránky a vložte jej do **certifikát poskytovatele ID** textbox
+    a. V **ID zprostředkovatele přihlašovací adresa URL** textovému poli, vložte hodnotu **jeden přihlašování adresa URL služby**, který jste zkopírovali z portálu Azure.
+        
+    b. V **adresy URL odhlašovací ID zprostředkovatele** textovému poli, vložte hodnotu **Sign-Out URL**, který jste zkopírovali z portálu Azure
+        
+    c. V poznámkovém bloku otevřete váš kódování base-64 kódovaného certifikátu, zkopírujte obsah ho do schránky a vložte jej do **certifikát poskytovatele ID** textbox
      
-     d. Chcete-li otevřít **nastavení** klikněte na tlačítko **Uložit**.
+    d. Chcete-li otevřít **nastavení** klikněte na tlačítko **Uložit**.
 
-12. Na **nastavení** klikněte na tlačítko **vygenerovat Token jednotného přihlašování k**.
+13. Na **nastavení** klikněte na tlačítko **vygenerovat Token jednotného přihlašování k**.
 
     ![Nastavení](./media/active-directory-saas-druva-tutorial/ic795093.png "nastavení")
 
-13. Na **jeden přihlašování ověřování tokenu** dialogové okno, proveďte následující kroky:
+14. Na **jeden přihlašování ověřování tokenu** dialogové okno, proveďte následující kroky:
 
     ![Token jednotného přihlašování k](./media/active-directory-saas-druva-tutorial/ic795094.png "tokenu jednotného přihlašování")
     
-    a. Klikněte na tlačítko **kopie**, vkládání zkopírovat hodnotu v **hodnotu** textového pole v **přidat atribut** části.
+    a. Klikněte na tlačítko **kopie**, vložte zkopírovat hodnotu v **hodnotu** textového pole v **přidat atribut** části portálu Azure.
     
     b. Klikněte na **Zavřít**.
 
 > [!TIP]
 > Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>Vytvořit testovací uživatele Azure AD
 
@@ -280,8 +286,6 @@ Další informace o na přístupovém panelu najdete v tématu [Úvod k přístu
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

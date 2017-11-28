@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 4e1f2f7d63666315f363caa8fec272ec2b6f18fc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8fcce0e3fea8f0789e198d19754f93dcdf0c84f9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Použití volaných sestavení a nasazení aplikací systému Linux
 Jenkins je oblíbený nástroj pro průběžnou integraci a nasazování aplikací. Tady je postup, kterým můžete sestavit a nasadit aplikaci Azure Service Fabric s využitím Jenkinse.
@@ -42,24 +42,24 @@ Jenkinse můžete nastavit uvnitř clusteru Service Fabric nebo mimo něj. Násl
    > [!NOTE]
    > Zajistěte, aby byl 8081 port jako vlastní koncový bod v clusteru.
    >
-2. Klonování aplikace, pomocí následujících kroků:
 
+2. Klonování aplikace, pomocí následujících kroků:
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-cd service-fabric-java-getting-started/Services/JenkinsDocker/
-```
+  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  ```
 
 3. Zachování stavu kontejneru volaných ve sdílené složce:
   * Vytvoření účtu úložiště Azure v **stejné oblasti** jako cluster s názvem, jako ``sfjenkinsstorage1``.
   * Vytvoření **sdílené složky** v části úložiště účet s názvem, jako ``sfjenkins``.
   * Klikněte na **připojit** pro sdílené složky a Poznámka hodnoty zobrazuje v části **připojení z Linux**, hodnota by měla vypadat podobná té následující:
-```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
-```
+  ```sh
+  sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+  ```
 
-> [!NOTE]
-> Pro sdílené složky cifs připojení musíte mít cifs utils balíček nainstalován v uzlu clusteru.         
->
+  > [!NOTE]
+  > Pro sdílené složky cifs připojení musíte mít cifs utils balíček nainstalován v uzlu clusteru.       
+  >
 
 4. Aktualizujte zástupný symbol hodnoty v ```setupentrypoint.sh``` skriptu s podrobnostmi úložiště azure od kroku 3.
 ```sh
@@ -68,16 +68,33 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
   * Nahraďte ``[REMOTE_FILE_SHARE_LOCATION]`` s hodnotou ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` z výstupu connect v kroku 3 výše.
   * Nahraďte ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` s hodnotou ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` z kroku 3 výše.
 
-5. Připojte se ke clusteru a nainstalujte aplikaci kontejneru.
-```sh
-sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
-bash Scripts/install.sh
-```
-Tím se do clusteru nainstaluje kontejner s Jenkinsem, který můžete monitorovat pomocí Service Fabric Exploreru.
+5. **Zabezpečení clusteru pouze:** Chcete-li nakonfigurovat nasazení aplikací na zabezpečené clusteru z volaných, musí být přístupné v kontejneru volaných certifikát. Na clusterech Linux certificates(PEM) jednoduše selhání se zkopírují z obchodu určeného X509StoreName do kontejneru. V ApplicationManifest pod ContainerHostPolicies přidat odkaz na tento certifikát a aktualizujte hodnotu kryptografický otisk. Kryptografický otisk hodnota musí být, že z k certifikátu umístěné na uzlu.
+  ```xml
+  <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
+  ```
+  > [!NOTE]
+  > Kryptografický otisk hodnota musí být stejný jako certifikát, který se používá k připojení do zabezpečené clusteru. 
+  >
 
-   > [!NOTE]
-   > Může trvat několik minut pro bitovou kopii volaných ke stažení v clusteru.
-   >
+6. Připojte se ke clusteru a nainstalujte aplikaci kontejneru.
+
+  **Zabezpečení clusteru**
+  ```sh
+  sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  **Nezabezpečená clusteru**
+  ```sh
+  sfctl cluster select --endpoint http://PublicIPorFQDN:19080 # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  Tím se do clusteru nainstaluje kontejner s Jenkinsem, který můžete monitorovat pomocí Service Fabric Exploreru.
+
+    > [!NOTE]
+    > Může trvat několik minut pro bitovou kopii volaných ke stažení v clusteru.
+    >
 
 ### <a name="steps"></a>Kroky
 1. V prohlížeči přejděte na ``http://PublicIPorFQDN:8081``. Najdete tam cestu k počátečnímu heslu správce vyžadovanému k přihlášení. 
@@ -176,13 +193,19 @@ Tady můžete nahrát modul plug-in. Vyberte **zvolte soubor**a pak vyberte **se
 
     ![Akce sestavení v Jenkinsu pro Service Fabric][build-step-dotnet]
   
-   h. V rozevírací nabídce **Post-Build Actions** (Akce po sestavení) vyberte **Deploy Service Fabric Project** (Nasazení projektu Service Fabric). V této části je potřeba zadat podrobnosti o clusteru, ve kterém se bude nasazovat aplikace Service Fabric zkompilovaná Jenkinsem. Můžete také zadat další podrobnosti o aplikaci, které se používají k jejímu nasazení. Příklad toho, jak by to mělo vypadat, najdete na následujícím snímku:
+   h. V rozevírací nabídce **Post-Build Actions** (Akce po sestavení) vyberte **Deploy Service Fabric Project** (Nasazení projektu Service Fabric). V této části je potřeba zadat podrobnosti o clusteru, ve kterém se bude nasazovat aplikace Service Fabric zkompilovaná Jenkinsem. Cesta k certifikátu naleznete ve zobrazování hodnotu echo Certificates_JenkinsOnSF_Code_MyCert_PEM proměnnou prostředí z kontejneru uvnitř tohoto kontejneru. Tuto cestu můžete použít pro klíč klienta a pole klientského certifikátu.
+
+      ```sh
+      echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
+      ```
+   
+    Můžete také zadat další podrobnosti o aplikaci, které se používají k jejímu nasazení. Příklad toho, jak by to mělo vypadat, najdete na následujícím snímku:
 
     ![Akce sestavení v Jenkinsu pro Service Fabric][post-build-step]
 
-    > [!NOTE]
-    > Zde uvedený cluster může být stejný jako cluster, který hostuje aplikaci Jenkins typu kontejner, pokud k nasazení image kontejneru Jenkins používáte Service Fabric.
-    >
+      > [!NOTE]
+      > Zde uvedený cluster může být stejný jako cluster, který hostuje aplikaci Jenkins typu kontejner, pokud k nasazení image kontejneru Jenkins používáte Service Fabric.
+      >
 
 ## <a name="next-steps"></a>Další kroky
 GitHub a Jenkins jsou teď nakonfigurované. Můžete provést nějaké ukázkové změny v projektu například v úložišti ``MyActor``https://github.com/sayantancs/SFJenkins. Metodou Push změny vložte do vzdálené větve ``master`` (nebo jakékoli jiné větve, kterou jste si pro práci nakonfigurovali). Tím se aktivuje nakonfigurovaná úloha Jenkinse ``MyJob``. Tato úloha načte změny z GitHubu a použije je k sestavení aplikace, kterou nasadí do koncového bodu clusteru, který jste zadali v akcích po sestavení.  

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurace vlastního názvu domény pro cloudové služby Azure
 Při vytváření cloudové služby Azure, přiřadí ji k subdoména **cloudapp.net**. Například pokud cloudové služby má název "contoso", uživatelé budou mít přístup k aplikaci na adresu URL podobnou http://contoso.cloudapp.net. Azure také přiřadí virtuální IP adresu.
@@ -28,7 +28,7 @@ Ale můžete také vystavit vaší aplikace na svůj vlastní název domény, ja
 Již rozumíte co CNAME záznamy a A jsou? [Přechod za vysvětlení](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Postupy v této úloze platí pro Azure Cloud Services. Aplikační služby, najdete v části [to](../app-service/app-service-web-tutorial-custom-domain.md). Účty úložiště, najdete v části [to](../storage/blobs/storage-custom-domain-name.md).
+> Postupy v této úloze platí pro Azure Cloud Services. Aplikační služby, najdete v části [mapovat existující vlastní název DNS pro službu Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md). Účty úložiště, najdete v části [konfigurace vlastního názvu doménu pro koncový bod služby objektů Blob v Azure storage](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

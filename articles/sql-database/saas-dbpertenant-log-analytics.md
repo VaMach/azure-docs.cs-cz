@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: c036901bde5fff0d63ee2494de87e49410662099
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 48e8eb91a5febcc1109bee3404bb534bd0391f88
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="setup-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Nastavit a používat analýzy protokolů (OMS) víceklientské aplikace SaaS databáze SQL Azure
+# <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Nastavení a použití analýzy protokolů (OMS) víceklientské aplikace SaaS databáze SQL Azure
 
 V tomto kurzu, nastavení a použití *analýzy protokolů ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* pro monitorování elastické fondy a databází. V tomto kurzu vychází [sledování výkonu a správy kurzu](saas-dbpertenant-performance-monitoring.md). Ukazuje, jak používat *analýzy protokolů* k posílení monitorování a generování výstrah v portálu Azure. Analýzy protokolů je vhodná pro monitorování a výstrahy ve velkém měřítku, protože podporuje stovky fondy a stovky tisíc databáze. Poskytuje také jedno řešení pro monitorování, které může integrovat monitorování různých aplikací a služeb Azure napříč několika předplatnými Azure.
 
@@ -59,7 +59,7 @@ Pracovní prostory a analytická řešení Log Analytics se dají otevírat z po
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Získat aplikační skripty Wingtip lístky SaaS databáze za klienta
 
-Skripty Wingtip lístky SaaS databáze za klienta a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště github. Soubory se skripty jsou ve [složce Learning Modules](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/tree/master/Learning%20Modules). Stáhněte si složku **Learning Modules** do svého místního počítače. Dejte pozor, abyste zachovali strukturu složky.
+Adresář Wingtip lístky SaaS víceklientské databázové skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty Wingtip lístky SaaS.
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalace a konfigurace Log Analytics a řešení Azure SQL Analytics
 
@@ -85,7 +85,8 @@ V tomto cvičení otevřete analýzy protokolů a podívejte se na telemetrie sh
 1. Vyberte **Přehled** k otevření řešení Log Analytics na portálu Azure Portal.
    ![overview-link](media/saas-dbpertenant-log-analytics/click-overview.png)
 
-    **DŮLEŽITÉ**: Může to několik minut trvat, než začne být řešení aktivní. Buďte prosím trpěliví.
+    > [!IMPORTANT]
+    > Může trvat několik minut, než je aktivní řešení. Buďte prosím trpěliví.
 
 1. Kliknutím otevřete dlaždici Azure SQL Analytics.
 

@@ -1,7 +1,7 @@
 ---
 title: "Nástrojů Azure Data Lake: U-SQL místní spuštění a místní ladění s Visual Studio Code | Microsoft Docs"
 description: "Další informace o použití nástroje Azure Data Lake pro Visual Studio Code místní spuštění a místní ladění."
-Keywords: "VScode, nástroje Azure Data Lake, místní spuštění souboru úložiště místní ladění, místní ladění preview, odešlete do cestu k úložišti"
+Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview storage file,upload to storage path
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -16,11 +16,11 @@ ms.tgt_pltfrm:
 ms.workload: big-data
 ms.date: 07/14/2017
 ms.author: jejiang
-ms.openlocfilehash: 78a5efb19f73192dcc95103abc70c14a3ce2e29a
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: d109e4d57f4ad5ab2be73805ba41bf9ed362cccb
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="u-sql-local-run-and-local-debug-for-windows-with-visual-studio-code"></a>U-SQL místní spuštění a místní ladění pro systém Windows s kódem jazyka Visual Studio
 V tomto dokumentu zjistěte, jak spustit úlohy U-SQL na místním vývojovém počítači pro urychlení časná kódování fáze nebo pokud chcete ladit kód místně v kódu Visual Studio. Pokyny nástroj Azure Data Lake pro Visual Studio Code, najdete v části [nástrojů pomocí Azure Data Lake pro Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md). 
@@ -33,9 +33,9 @@ V tomto dokumentu zjistěte, jak spustit úlohy U-SQL na místním vývojovém p
    ![Stáhnout balíčky ADL LocalRun závislostí](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/DownloadLocalRun.png)
 
 2. Vyhledejte závislosti balíčků z cesty uvedené v **výstup** podokně a pak nainstalujte BuildTools a Win10SDK 10240. Tady je příklad cesty:  
-`C:\Users\xxx\.vscode\extensions\usqlextpublisher.usql-vscode-ext-x.x.x\LocalRunDependency
-`  
-  ![Vyhledejte závislosti balíčků](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
+`C:\Users\xxx\AppData\Roaming\LocalRunDependency` 
+
+   ![Vyhledejte závislosti balíčků](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
 
    2.1 k instalaci **BuildTools**, klikněte na tlačítko visualcppbuildtools_full.exe ve složce LocalRunDependency a pak postupujte podle pokynů průvodce.   
 
@@ -46,11 +46,8 @@ V tomto dokumentu zjistěte, jak spustit úlohy U-SQL na místním vývojovém p
     ![Nainstalujte Win10SDK 10240](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallWin10SDK.png)
 
 3. Nastavte proměnnou prostředí. Nastavte **SCOPE_CPP_SDK** proměnnou prostředí:  
-`C:\Users\xxx\.vscode\extensions\usqlextpublisher.usql-vscode-ext-x.x.x\LocalRunDependency\CppSDK_3rdparty
-`  
-4. Restartujte operačního systému a ujistěte se, že nastavení proměnné prostředí se projeví.  
+`C:\Users\XXX\AppData\Roaming\LocalRunDependency\CppSDK_3rdparty`  
 
-   ![Zkontrolujte, jestli že je nainstalované SCOPE_CPP_SDK proměnné prostředí](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/ConfigScopeCppSDk.png)
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>Spusťte službu místní spuštění a odeslání úlohy U-SQL pro místní účet 
 U prvního uživatele, použijte **ADL: stažení závislostí místní spuštění** stáhnout místní spuštění balíčky, pokud máte není [nastavení prostředí pro místní spuštění U-SQL](#set-up-the-u-sql-local-run-environment).
@@ -92,7 +89,10 @@ Postupujte podle následujících kroků a provést místní ladění:
 
 
 ## <a name="next-steps"></a>Další kroky
-- Pomocí nástrojů Azure Data Lake pro Visual Studio Code, najdete v části [nástrojů pomocí Azure Data Lake pro Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
-- Získávání Začínáme informací o Data Lake Analytics, najdete v části [kurz: Začínáme s Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
-- Informace o nástrojů Data Lake pro Visual Studio najdete v tématu [kurz: vývoj U-SQL skriptů pomocí nástrojů Data Lake pro Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Informace týkající se vývoje sestavení najdete v tématu [sestavení vyvíjet U-SQL pro úlohy Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
+* [Použití nástrojů Azure Data Lake pro Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+* [Vývoj U-SQL s Python, R a CSharp pro Azure Data Lake Analytics v VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+* [Vývoj sestavení U-SQL pro úlohy Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md)
+* [Začínáme s Data Lake Analytics pomocí prostředí PowerShell](data-lake-analytics-get-started-powershell.md)
+* [Začínáme s Data Lake Analytics pomocí portálu Azure](data-lake-analytics-get-started-portal.md)
+* [Pomocí nástrojů Data Lake pro Visual Studio pro vývoj aplikací U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
+* [Použití Data Lake Analytics(U-SQL) katalogu](data-lake-analytics-use-u-sql-catalog.md)

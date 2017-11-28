@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Vytvořit pravidla založená na atributu pro dynamické členství ve skupině v Azure Active Directory
 V Azure Active Directory (Azure AD) můžete vytvořit rozšířených pravidel povolit komplexní založená na atributu dynamické členství skupiny. Tento článek podrobně atributy a syntaxe k vytvoření pravidla dynamické členství pro uživatele nebo zařízení.
@@ -163,6 +163,7 @@ Povolené operátory
 | NázevSpolečnosti | Žádné hodnota typu řetězec nebo *hodnotu null.* | (user.companyName - eq "value") |
 | Oddělení |Žádné hodnota typu řetězec nebo *hodnotu null.* |(user.department - eq "value") |
 | displayName |Libovolnou hodnotu řetězce |(user.displayName - eq "value") |
+| číslo zaměstnance |Libovolnou hodnotu řetězce |(user.employeeId - eq "value")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Žádné hodnota typu řetězec nebo *hodnotu null.* |(user.facsimileTelephoneNumber - eq "value") |
 | givenName |Žádné hodnota typu řetězec nebo *hodnotu null.* |(user.givenName - eq "value") |
 | pracovní funkce |Žádné hodnota typu řetězec nebo *hodnotu null.* |(user.jobTitle - eq "value") |

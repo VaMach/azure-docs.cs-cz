@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Koupit vlastní název domény pro Azure Web Apps
 
@@ -31,6 +31,7 @@ Tento článek je pro službu Azure App Service (webové aplikace, aplikace API,
 Pro absolvování tohoto kurzu potřebujete:
 
 * [Vytvořit aplikaci služby App Service](/azure/app-service/), nebo použijte aplikaci, kterou jste vytvořili pro jiné kurzu.
+* [Odeberte limit útraty vaše předplatné](../billing/billing-spending-limit.md#remove). Služby App Service domén s kredity bezplatné předplatné nejde koupit.
 
 ## <a name="prepare-the-app"></a>Příprava aplikace
 
@@ -86,11 +87,21 @@ V **vlastní domény** klikněte na tlačítko **koupit domény**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> Pokud nevidíte **doménami aplikací služby** části, je třeba odebrat limit útraty na účtu Azure (v tématu [požadavky](#prerequisites)).
+>
+>
+
 ### <a name="configure-the-domain-purchase"></a>Konfigurace domény nákupu
 
-V **aplikace služby domény** stránky v **hledat domény** pole, zadejte název domény, které chcete koupit a zadejte `Enter`. Navržené domény k dispozici se zobrazí pod textové pole. Vyberte jednu nebo více domén, které chcete koupit. 
+V **aplikace služby domény** stránky v **hledat domény** pole, zadejte název domény, které chcete koupit a zadejte `Enter`. Navržené domény k dispozici se zobrazí pod textové pole. Vyberte jednu nebo více domén, které chcete koupit.
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+> [!NOTE]
+> Následující [domény nejvyšší úrovně](https://wikipedia.org/wiki/Top-level_domain) jsou podporovány doménami služby App Service: _com_, _net_, _co.uk_, _org_, _nl_, _v_, _biz_, _org.uk_, a _co.in_.
+>
+>
 
 Klikněte **kontaktní údaje** a vyplňte formulář domény kontaktní informace. Po dokončení klikněte na tlačítko **OK** vrátit na stránku služby domény aplikace.
    
@@ -100,8 +111,7 @@ Potom vyberte požadované možnosti pro vaši doménu. V následující tabulce
 
 | Nastavení | Navrhovaná hodnota | Popis |
 |-|-|-|
-|Automatické obnovení | **Povolení** | Obnovuje doménu služby aplikace automaticky každý rok. Platební karty je účtován za stejnou cenu nákupu v době obnovení. |
-|Ochrana osobních údajů | Povolení | Vyjádřit výslovný souhlas pro "Ochrany osobních údajů", který je součástí kupní ceny _zdarma_ (s výjimkou domény nejvyšší úrovně, jejichž registru nepodporují ochrany osobních údajů, jako například _. co.in_, _. co.uk_ a tak dále). |
+|Ochrana osobních údajů | Povolení | Vyjádřit výslovný souhlas pro "Ochrany osobních údajů", který je součástí kupní ceny _zdarma_. Některé domény nejvyšší úrovně spravuje registrátorů, které nepodporují ochrany osobních údajů a jsou uvedeny na **ochrany osobních údajů** stránky. |
 | Přiřadit výchozí názvy hostitelů | **Webová** a**@** | Vazby požadovaným názvem hostitele, vyberte v případě potřeby. Po dokončení nákupu operace domény vaší webové aplikace jsou přístupné na vybrané názvy hostitelů. Pokud webová aplikace je za [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), nevidíte možnost k přidělení kořenové domény (@), protože nemá podporu záznamů A Traffic Manager. Vám po dokončení nákupu domény provádět změny přiřazení názvu hostitele. |
 
 ### <a name="accept-terms-and-purchase"></a>Přijmout podmínky a nákupu
@@ -125,7 +135,7 @@ Pokud jste přiřadili výchozí názvy hostitelů do vaší webové aplikace, j
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Zobrazí vybraný názvy hostitelů v **vlastní domény** stránky v **názvy hostitelů** části. 
+Zobrazí vybraný názvy hostitelů v **vlastní domény** stránky v **vlastní názvy hostitelů** části. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -182,7 +192,25 @@ Teď byste měli vidět nově přiřazené hostname(s) ve vaší aplikaci **vlas
 
 Přejděte do seznamu názvy hostitelů v prohlížeči. V příkladu v předchozí snímek obrazovky, zkuste přejdete na _abc.kontoso.net_.
 
-<a name="custom" />
+## <a name="renew-the-domain"></a>Obnovit
+
+Doména služby aplikace, které jste si zakoupili je platný jeden rok od nákupu. Ve výchozím nastavení doména nenakonfiguruje na Obnovit automaticky tak, že váš způsob platby poplatků za do následujícího roku. Pokud chcete vypnout automatické obnovení, nebo pokud chcete ručně obnovit vaší domény, postupujte podle kroků v tomto poli.
+
+V **webové aplikace** , klikněte na název vaší webové aplikaci, vyberte **nastavení**a potom vyberte **vlastní domény**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+V **doménami aplikací služby** část, vyberte doménu, kterou chcete konfigurovat.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+V levém navigačním domény, vyberte **obnovení domény**. Chcete-li zastavit automaticky obnovují doménu, vyberte **vypnout**a potom **Uložit**. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+
+Chcete-li ručně obnovit doménu, vyberte **obnovení domény**. Ale toto tlačítko není aktivní až 90 dní před vypršením platnosti domény.
+
+<a name="custom"></a>
 
 ## <a name="manage-custom-dns-records"></a>Spravovat vlastní záznamy DNS
 
@@ -236,6 +264,14 @@ Pokud nebyl uplynutí období zrušení na zakoupené doménu, vyberte **zrušit
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-Vyberte **OK** k potvrzení operace. Pokud nechcete, aby bylo možné pokračovat, klikněte kamkoli mimo dialogové okno pro potvrzení.
+Pokud chcete potvrdit operaci, vyberte **Ano**.
 
 Po dokončení operace doména je vydaná ze svého předplatného a k dispozici pro každý, kdo k nákupu znovu. 
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Přímé výchozí adresy URL do vlastní adresáře
+
+Ve výchozím nastavení bude směrovat webové požadavky na kořenovém adresáři kódu aplikace služby App Service. Pro přesměrování je na podadresáři, jako například `public`, najdete v části [přímé výchozí adresy URL do vlastní adresáře](app-service-web-tutorial-custom-domain.md#virtualdir).
+
+## <a name="more-resources"></a>Další zdroje informací
+
+[– Nejčastější dotazy: Doména aplikace služby (preview) a vlastní domény](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

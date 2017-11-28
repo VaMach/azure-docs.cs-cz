@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 2348db8f19391292f79608092a3c2482216493c6
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Spravovat škálování virtuálních počítačů, nastavit pomocí Azure CLI 2.0
 V průběhu cyklu škálovací sadu virtuálních počítačů můžete spustit jeden nebo více úloh správy. Kromě toho můžete vytvořit skripty, které automatizují různé úlohy životního cyklu. Tento článek podrobně popisuje některé běžné příkazy Azure CLI 2.0, které umožňují provádět tyto úlohy.
@@ -36,7 +36,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Zobrazení virtuální počítače ve škálovací sadě
-Chcete-li zobrazit seznam instance virtuálního počítače ve škálovací sadě, použijte [az vmss seznamu instance](/cli/azure/vmss#list-instances). Následující příklad zobrazí seznam všech instancí virtuálních počítačů v pojmenované sad škálování *myScaleSet* a v *myResourceGroup* skupinu prostředků. Zadejte vlastní hodnoty pro tyto názvy:
+Chcete-li zobrazit seznam instance virtuálního počítače ve škálovací sadě, použijte [az vmss seznamu instance](/cli/azure/vmss#list-instances). Následující příklad zobrazí seznam všech instancí virtuálních počítačů v pojmenované sad škálování *myScaleSet* v *myResourceGroup* skupinu prostředků. Zadejte vlastní hodnoty pro tyto názvy:
 
 ```azurecli
 az vmss list-instances \

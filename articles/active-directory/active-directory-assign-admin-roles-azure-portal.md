@@ -16,11 +16,11 @@ ms.date: 10/26/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 260462e57c53d2d41bb2bfd8381a1c184303eea1
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Přiřazení rolí správce v Azure Active Directory
 
@@ -30,7 +30,7 @@ Následující role správce jsou k dispozici:
 
 * **Správce fakturace**: může dělat nákupy, spravovat předplatná, spravovat lístky žádostí o podporu a sledovat stav služeb.
 
-* **Správce dodržování předpisů**: uživatelé s touto rolí mají oprávnění pro správu v rámci v Office 365 zabezpečení & centru dodržování předpisů a Centrum pro správu Exchange. Další informace "[o rolích správce Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)."
+* **Správce dodržování předpisů**: uživatelé s touto rolí mají oprávnění pro správu v rámci v Office 365 zabezpečení & centru dodržování předpisů a Centrum pro správu Exchange. Další informace "[o rolích správce Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)."
 
 * **Správce podmíněného přístupu**: uživatelé s touto rolí mají možnost spravovat nastavení podmíněného přístupu k Azure Active Directory.
   > [!NOTE]
@@ -55,7 +55,7 @@ Následující role správce jsou k dispozici:
   >
   >
 
-* **Pozvání hosta odeslal**: uživatelům v této roli můžete spravovat pozvánek uživatele Azure Active Directory s B2B hosta uživatelské nastavení "Členy můžete pozvat" je nastavena na Ne. Další informace o spolupráci B2B v [spolupráce o Azure AD s B2B ve verzi preview](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Neobsahuje žádné další oprávnění.
+* **Pozvání hosta odeslal**: uživatelům v této roli můžete spravovat pozvánek uživatele Azure Active Directory s B2B hosta uživatelské nastavení "Členy můžete pozvat" je nastavena na Ne. Další informace o spolupráci B2B v [spolupráce o Azure AD s B2B ve verzi preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Neobsahuje žádné další oprávnění.
 
 * **Správce služby Intune**: uživatelé s touto rolí mají globální oprávnění v rámci Microsoft Intune Online, když se služba nachází. Kromě toho tato role zahrnuje schopnost spravovat uživatele a zařízení, aby bylo možné přidružit zásady, a také vytvářet a spravovat skupiny.
 
@@ -72,13 +72,13 @@ Následující role správce jsou k dispozici:
   >
   >
   
-* **Správce služby Power BI**: uživatelé s touto rolí mají globální oprávnění v rámci Microsoft Power BI, když se služba nachází, a také možnost spravovat lístky žádostí o podporu a sledovat stav služeb. Další informace v [role Správce služeb Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
+* **Správce služby Power BI**: uživatelé s touto rolí mají globální oprávnění v rámci Microsoft Power BI, když se služba nachází, a také možnost spravovat lístky žádostí o podporu a sledovat stav služeb. Další informace v [role Správce služeb Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Privilegované Role správce**: uživatelé s touto rolí můžete spravovat přiřazení rolí v Azure Active Directory, a také v rámci Azure AD Privileged Identity Management. Kromě toho tato role umožňuje správu všech aspektů Privileged Identity Management.
 
-* **Správce zabezpečení**: uživatelé s touto rolí mají všechna oprávnění jen pro čtení čtečky role zabezpečení a možnosti správy konfigurace pro služby související se zabezpečením: Azure Active Directory Identity Protection, Privileged Identity Management a zabezpečení Office 365 a centru dodržování předpisů. Další informace o oprávněních Office 365 je k dispozici na [oprávnění v Office 365 zabezpečení a dodržování předpisů Center](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Správce zabezpečení**: uživatelé s touto rolí mají všechna oprávnění jen pro čtení čtečky role zabezpečení a možnosti správy konfigurace pro služby související se zabezpečením: Azure Active Directory Identity Protection, Privileged Identity Management a zabezpečení Office 365 a centru dodržování předpisů. Další informace o oprávněních Office 365 je k dispozici na [oprávnění v Office 365 zabezpečení a dodržování předpisů Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-* **Zabezpečení čtečky**: uživatelé s touto rolí mají globální přístup jen pro čtení, včetně všech informací v Azure Active Directory, ochrany identit, Privileged Identity Management, a také možnost číst Azure Active Directory přihlášení sestavy a protokoly auditu. Role uděluje také oprávnění jen pro čtení v centru dodržování předpisů a zabezpečení Office 365. Další informace o oprávněních Office 365 je k dispozici na [oprávnění v Office 365 zabezpečení a dodržování předpisů Center](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Zabezpečení čtečky**: uživatelé s touto rolí mají globální přístup jen pro čtení, včetně všech informací v Azure Active Directory, ochrany identit, Privileged Identity Management, a také možnost číst Azure Active Directory přihlášení sestavy a protokoly auditu. Role uděluje také oprávnění jen pro čtení v centru dodržování předpisů a zabezpečení Office 365. Další informace o oprávněních Office 365 je k dispozici na [oprávnění v Office 365 zabezpečení a dodržování předpisů Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Správce podpory služeb**: uživatelé s touto rolí můžete otevřít žádosti o podporu se společností Microsoft pro služby Azure a Office 365 a zobrazení řídicího panelu služby a zpráva center na portálu Azure a portálu pro správu Office 365. Další informace v [role Správce služeb Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 08/11/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 029e1b51c52e440666238f6177d15aea0a5e07a7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalovat hlavní cílový server Linux
 Po selhání virtuálních počítačů, můžete můžete navrácení služeb po obnovení virtuálních počítačů k místní lokalitě. Chcete-li navrácení služeb po obnovení, je potřeba znovu nastavte ochranu virtuálního počítače z Azure do místní lokality. Pro tento proces budete potřebovat místní hlavní cílový server příjem provozu. 

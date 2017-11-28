@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: df9ba6367b2d2ce1b2c281ce483e63b0baa9feb6
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Kopírování dat z a do databáze Oracle pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,11 +35,11 @@ Můžete zkopírovat data z databáze Oracle do úložiště dat žádné podpor
 
 Konkrétně tento konektor Oracle podporuje následující verze databáze Oracle a podporuje ověřování Basic nebo OID.
 
-    - R1 Oracle 12c (12.1)
-    - R1 Oracle 11g nebo R2 (11.1, 11.2)
-    - R1 Oracle 10g, R2 (10,1, 10.2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+- R1 Oracle 12c (12.1)
+- R1 Oracle 11g nebo R2 (11.1, 11.2)
+- R1 Oracle 10g, R2 (10,1, 10.2)
+- Oracle 9i R1, R2 (9.0.1, 9.2)
+- Oracle 8i R3 (8.1.7)
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -207,7 +207,7 @@ Při kopírování dat z/do databáze Oracle, se používají následující map
 | Oracle datový typ | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |
 | BFILE |Byte] |
-| OBJEKT BLOB |Byte] |
+| OBJEKT BLOB |Byte]<br/>(podporováno pouze Oracle 10g a vyšší) |
 | CHAR – |Řetězec |
 | DATOVÝ TYP CLOB |Řetězec |
 | DATUM |Data a času |
