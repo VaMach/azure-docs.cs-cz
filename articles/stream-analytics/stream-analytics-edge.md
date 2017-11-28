@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT hranu (preview)
 
@@ -61,6 +61,11 @@ Můžete postupovat podle [Tento podrobný kurz](https://docs.microsoft.com/azur
 
 #### <a name="create-an-asa-edge-job"></a>Umožňuje vytvořit úlohu služby ASA Edge
 1. Z portálu Azure vytvořte novou "úloha Stream Analytics". [Přímý odkaz na vytvoření zde nové úlohy ASA](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+
+> [!Note]
+> Ve všech oblastech podporovaných ASA, můžete vytvořit úlohy Edge **kromě oblast "Západní USA 2"**.
+> Toto omezení se odeberou za chvíli.
+
 2. V dialogovém okně vytvoření vyberte **Edge** jako **hostování prostředí** (viz následující obrázek) ![vytvoření úlohy](media/stream-analytics-edge/ASAEdge_create.png)
 3. Definice úlohy
     1. **Definování vstupní Stream(s)**. Zadejte jednu nebo několik vstupní datové proudy pro úlohu.

@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: 866b5eec6e9c7e8bf98547143c0393bfb6f97b14
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Obnovení databáze Azure SQL jeden klienty v aplikaci SaaS více klientů
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Obnovení databáze Azure SQL jednoho klienta v aplikaci SaaS více klientů
 
-Aplikace Wingtip SaaS vytvořená s využitím modelu databáze za klienta, kde každý klient má své vlastní databázi. Jednou z výhod tohoto modelu je, že je snadno obnovit data jednoho klienta v izolaci bez dopadu na ostatních klientů.
+Aplikace SaaS lístky Wingtip vytvořená s využitím modelu databáze za klienta, kde každý klient má své vlastní databázi. Jednou z výhod tohoto modelu je, že je snadno obnovit data jednoho klienta v izolaci bez dopadu na ostatních klientů.
 
 V tomto kurzu zjistíte, dva vzory obnovení dat:
 
@@ -53,9 +53,9 @@ V prvním vzoru data obnovena do nové databáze. Klient pak je poskytnut přís
 
 V druhém vzorku, který se předpokládá, že klient má vyskytla ztráty nebo poškození dat, klienta produkční databázi obnovit do předchozího bodu v čase. V obnovení v místě vzoru klienta do režimu offline po krátkou dobu při databáze je obnovit a znovu online. Původní databáze je odstranit, ale můžete pořád obnovit z Pokud potřebujete přejít zpět do i dřívějšího bodu v čase. Varianta tohoto vzoru přejmenovat databázi místo odstranění, i když přejmenování databáze nabízí žádné další výhody z hlediska zabezpečení dat.
 
-## <a name="get-the-wingtip-application-scripts"></a>Získání skriptů aplikace Wingtip
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Získat aplikační skripty Wingtip lístky SaaS databáze za klienta
 
-Adresář Wingtip SaaS skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) úložiště github. [Postup stažení skripty Wingtip SaaS](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Adresář Wingtip lístky SaaS víceklientské databázové skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty Wingtip lístky SaaS.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simulovat klienta omylem odstraňování dat
 
@@ -146,6 +146,6 @@ V tomto kurzu jste se naučili:
 
 ## <a name="additional-resources"></a>Další zdroje
 
-* Další [návodů, které stavět na adresář Wingtip SaaS aplikace](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Další kurzy, které stavět na adresář Wingtip SaaS aplikace](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Přehled kontinuity podnikových procesů s Azure SQL Database](sql-database-business-continuity.md)
 * [Další informace o zálohování databáze SQL](sql-database-automated-backups.md)

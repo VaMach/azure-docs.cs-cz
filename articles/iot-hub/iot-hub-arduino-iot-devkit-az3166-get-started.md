@@ -12,13 +12,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 0b8ae318fab2eaa186dca050ce2710b1ff232783
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: deb362796966524ec2db5808623d2f92a1bf44e1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>IoT DevKit AZ3166 se připojit ke službě Azure IoT Hub v cloudu
 
@@ -197,42 +197,45 @@ Soubor ZIP obsahuje následující nástroje a balíčků. Pokud již máte něk
 
 V nástroji hledání vyhledejte ZIP a rozbalte ho:
 
+![Vyhledávací systému macOS](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-finder.png)
+
 Spusťte aplikaci terminálu, vyhledejte složku extrahujte soubor .zip a spusťte:
 
 ```bash
 ./install.sh
 ```
 
+![instalace systému macOS](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-install-sh.png)
+
 > [!NOTE] 
 > Pokud splňujete Homebrew chybu oprávnění, spusťte `brew doctor` získat ji opravil. Zkontrolujte [– nejčastější dotazy](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos) další podrobnosti.
 
 Nyní máte všechny potřebné nástroje a balíčky pro systému macOS nainstalována.
 
-## <a name="open-the-project-folder"></a>Otevřete složku projektu
 
-Můžete začít vytvářet Azure IoT Hub, připojení DevKit a shromažďování dat teploty a vlhkosti ze senzorů a posílat data do služby IoT hub.
+## <a name="open-the-project-folder"></a>Otevřete složku projektu
 
 ### <a name="start-vs-code"></a>Kód pro spuštění VS
 
 Ujistěte se, že vaše DevKit není připojený. Nejprve spusťte VS Code a připojte DevKit do vašeho počítače. VS Code automaticky vyhledá DevKit a otevře úvodní stránka:
 
-![Úvodní stránka](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
+![Úvodní stránka](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 > [!NOTE] 
-> V některých případech při spuštění VS Code, zobrazí se výzva s chybou, který nemůže najít Arduino IDE nebo balíček Příbuzná panelu. Zavřít VS Code, znovu spusťte Arduino IDE a VS Code by měl vyhledejte Arduino IDE cestu správně.
+> Občas stát když spustíte VS Code, se zobrazí výzva s chybou nebyla nalezena Arduino IDE nebo balíček Příbuzná panelu. Zavřete VS Code a restartujte Arduino IDE. VS kód by pak vyhledejte cestu Arduino IDE správně.
 
 
 ### <a name="open-the-arduino-examples-folder"></a>Otevřete složku Arduino příklady
 
-Rozbalte levé straně **ARDUINO příklady** vyhledejte **příklady MXCHIP AZ3166 > AzureIoT**a vyberte **GetStarted**. Otevře se nové okno VS Code s složce projektu v ní.
+Na **Arduino příklady** kartě, přejděte na **příklady MXCHIP AZ3166** > **AzureIoT**a vyberte **GetStarted**.
 
-![Příklady Arduino karta](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
+![Příklady Arduino karta](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 Pokud jste dojít zavřete podokno, můžete ho znovu otevřít. Použití `Ctrl+Shift+P` (systému macOS: `Cmd+Shift+P`) Chcete-li spustit příkaz palety, zadejte **Arduino**a potom najděte a vyberte **Arduino: Příklady**.
 
 ## <a name="provision-azure-services"></a>Zřídit služby Azure
 
-V okně řešení spuštění úkolu prostřednictvím `Ctrl+P` (systému macOS: `Cmd+P`) tak, že zadáte `task cloud-provision`:
+V okně řešení spuštění úkolu prostřednictvím `Ctrl+P` (systému macOS: `Cmd+P`) tak, že zadáte `task cloud-provision`.
 
 V terminálu VS Code interaktivního příkazového řádku vás provede zřizování požadované služby Azure:
 
@@ -240,25 +243,23 @@ V terminálu VS Code interaktivního příkazového řádku vás provede zřizov
 
 ## <a name="build-and-upload-the-arduino-sketch"></a>Vytvoření a nahrání nákresu Arduino
 
-### <a name="install-the-required-library"></a>Nainstalujte požadované knihovny
+### <a name="windows"></a>Windows
 
-1. Stiskněte klávesu `F1` nebo `Ctrl+Shift+P` (systému macOS: `Cmd+Shift+P`) Chcete-li spustit příkaz palety, zadejte **Arduino**a potom najděte a vyberte **Arduino: Správce knihovny**.
-
-2. Vyhledejte **ArduinoJson** knihovny a vyberte **nainstalovat**: ![nainstalovat Arduino knihovny](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png)
-
-### <a name="build-and-upload-the-device-code-windows"></a>Vytvořit a odeslat kód zařízení (Windows)
 1. Použití `Ctrl+P` ke spuštění `task device-upload`.
 2. Terminálu zobrazí výzvu k zadání režim konfigurace. Uděláte to tak, podržte tlačítko A pak push a verzí na tlačítko Obnovit. Na obrazovce zobrazí DevKit id a "Konfigurace".
 
 To je nastavit připojovací řetězec, který načte z `task cloud-provision` krok.
 
-Pak spustí terminálu ověření a odeslání nákresu Arduino:
+Pak spustí VS Code ověření a odeslání nákresu Arduino:
 
 ![Ověření a odeslání nákresu Arduino](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
 
 DevKit restartuje a spuštění kódu.
 
-### <a name="build-and-upload-the-device-code-mac"></a>Vytvořit a odeslat kód zařízení (Mac)
+> [!NOTE] 
+> V některých případech se zobrazí chyba "Chyba: AZ3166: Neznámý balíček". Je to z důvodu panel indexu balíčků neobnoví. Zaškrtněte toto políčko [– nejčastější dotazy kroky](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) jeho řešení.
+
+### <a name="macos"></a>macOS
 
 1. Přepnout do režimu konfigurace, DevKit: podržte tlačítko A pak nabízené a verze na tlačítko Obnovit. Na obrazovce zobrazí "Konfigurace".
 2. Použití `Cmd+P` ke spuštění `task device-upload`.
@@ -271,13 +272,17 @@ Pak spustí VS Code ověření a odeslání nákresu Arduino:
 
 DevKit restartuje a spuštění kódu.
 
+> [!NOTE] 
+> V některých případech se zobrazí chyba "Chyba: AZ3166: Neznámý balíček". Je to z důvodu panel indexu balíčků neobnoví. Zaškrtněte toto políčko [– nejčastější dotazy kroky](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) jeho řešení.
+
+
 ## <a name="test-the-project"></a>Testování projektu
 
 V produktu VS Code, si otevřete a nastavit sériové monitorování těchto kroků:
 
 1. Klikněte `COM[X]` word na stavovém řádku nastavit pravý port COM s `STMicroelectronics`: ![com port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
 
-2. Klikněte na tlačítko power moduly ikonu na stavovém řádku otevřete sériové monitorování: ![sériové monitorování](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png)
+2. Klikněte na tlačítko power moduly ikonu na stavovém řádku otevřete sériové monitorování: ![sériové monitorování](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution//connect-iothub/serial-monitor.png)
 
 3. Na stavovém řádku, klikněte na číslo, které představuje přenosová rychlost a nastavte `115200`: ![přenosová rychlost](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)
 

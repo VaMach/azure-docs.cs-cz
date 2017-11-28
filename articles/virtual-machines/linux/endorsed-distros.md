@@ -13,24 +13,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 39cb2464eb593a29c4436afb5c14419b704ebff4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 811769443e322af3a2981c58979040a1e33b06e9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux na distribuce schválené pro Azure
 Partneři poskytovat Linux bitové kopie v Azure Marketplace. Pracujeme s různé komunit Linux přidat i více typů schválené distribučního seznamu. Do té doby pro distribuce, které nejsou k dispozici z Marketplace, můžete vždy zahrnout vlastní Linux podle pokynů v tématu [vytváření a odesílání virtuální pevný disk, který obsahuje operační systém Linux](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="supported-distributions-and-versions"></a>Podporované distribuce a verze
-Následující tabulka uvádí Linuxových distribucích a verzích, které jsou podporovány v Azure. Odkazovat na [podporu pro Linux Image v nástroji Microsoft Azure](https://support.microsoft.com/en-us/kb/2941892) podrobnější informace.
+Následující tabulka uvádí Linuxových distribucích a verzích, které jsou podporovány v Azure. Odkazovat na [podporu pro Linux bitové kopie v Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) podrobné informace o podpoře pro systémy Linux a technologií s otevřeným zdrojem v Azure.
 
 Linux integrační služby (LIS) ovladače pro Hyper-V a Azure jsou moduly jádra, které Microsoft přispívá přímo do nadřazeného jádra systému Linux.  Některé ovladače LIS jsou součástí distribuční jádra ve výchozím nastavení. Starší distribuce, které jsou založeny na Red Hat Enterprise (RHEL) / CentOS jsou k dispozici jako samostatný soubor ke stažení na [Linux Integration Services verze 4.1 pro Hyper-V](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). V tématu [Linux jádra požadavky](create-upload-generic.md#linux-kernel-requirements) Další informace o ovladačích LIS.
 
 Azure Linux Agent je již předem nainstalován pro Azure Marketplace Image a je obvykle dostupná z úložiště balíčků pro distribuci. Zdrojový kód najdete na [Githubu](https://github.com/azure/walinuxagent).
 
+  
 | Distribuce | Verze | Ovladače | Agent |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [LIS stáhnout](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: V jádra |Balíček: V [úložišti](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) v části "WALinuxAgent" <br/>Zdrojový kód: [Githubu](https://github.com/Azure/WALinuxAgent) |
@@ -39,8 +40,11 @@ Azure Linux Agent je již předem nainstalován pro Azure Marketplace Image a je
 | Oracle Linux |6.4+, 7.0+ |Jádra systému |Balíček: V úložišti v části "WALinuxAgent" <br/>Zdrojový kód: [Githubu](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7 +, 7.1 + |Jádra systému |Balíček: V úložišti v části "WALinuxAgent" <br/>Zdrojový kód: [Githubu](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES pro SAP<br>11 SP4<br>12 SP1 +|Jádra systému |Balíček:<p> pro 11 v [cloudu: nástroje](https://build.opensuse.org/project/show/Cloud:Tools) úložišti<br>pro 12 součástí modulu "Veřejného cloudu" v části "python agenta azure"<br/>Zdrojový kód: [Githubu](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE přestupného 42.1 + |Jádra systému |Balíček: V [cloudu: nástroje](https://build.opensuse.org/project/show/Cloud:Tools) úložišti v části "python agenta azure" <br/>Zdrojový kód: [Githubu](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04, 14.04, 16.10 a 16.04 |Jádra systému |Balíček: V úložišti v části "walinuxagent" <br/>Zdrojový kód: [Githubu](https://github.com/Azure/WALinuxAgent) |
+| openSUSE |openSUSE přestupného 42.2 + |Jádra systému |Balíček: V [cloudu: nástroje](https://build.opensuse.org/project/show/Cloud:Tools) úložišti v části "python agenta azure" <br/>Zdrojový kód: [Githubu](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04 +  **<sup>1</sup>** |Jádra systému |Balíček: V úložišti v části "walinuxagent" <br/>Zdrojový kód: [Githubu](https://github.com/Azure/WALinuxAgent) |
+
+  - **<sup>1</sup>**  Ubuntu 12.04 podpory v Azure naleznete [EOL oznámení](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
+
 
 ## <a name="partners"></a>Partneři
 
@@ -59,7 +63,7 @@ Credativ je nezávislé poradě a služby společnosti, který se specializuje n
 ### <a name="oracle"></a>Oracle
 [http://www.Oracle.com/technetwork/topics/cloud/FAQ-1963009.HTML](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
 
-Strategie pro Oracle je nabízí široké portfolio řešení pro veřejné a privátní cloudy. Strategie poskytuje zákazníkům možnost volby a flexibilitu v tom, jak nasadit software Oracle v cloudech Oracle a ostatních cloudů. Oracle pro spolupráci se společností Microsoft umožňuje zákazníkům nasadit software Oracle v Microsoft veřejných a privátních cloudů s jistotou certifikaci a podporovat z databáze Oracle.  Oracle na závazků a investice do řešení Oracle veřejného a privátního cloudu se nezmění.
+Strategie pro Oracle je nabízí široké portfolio řešení pro veřejné a privátní cloudy. Strategie poskytuje zákazníkům možnost volby a flexibilitu v tom, jak nasadit software Oracle v cloudech Oracle a ostatních cloudů. Partnerství Oraclu s Microsoftem umožňuje zákazníkům nasadit software Oracle ve veřejných a privátních cloudech Microsoftu s jistotou certifikace a podpory od Oraclu.  Oracle na závazků a investice do řešení Oracle veřejného a privátního cloudu se nezmění.
 
 ### <a name="red-hat"></a>Red Hat
 [http://www.RedHat.com/en/partners/strategic-Alliance/Microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)

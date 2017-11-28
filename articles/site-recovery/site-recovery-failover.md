@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failover-in-site-recovery"></a>Převzetí služeb při selhání v Site Recovery
 Tento článek popisuje, jak k převzetí služeb při selhání virtuálního počítače a fyzické servery, které se chránit pomocí Site Recovery.
@@ -70,7 +70,7 @@ Tento postup popisuje, jak spustit převzetí služeb při selhání pro [plán 
 1. Jakmile budete spokojeni s neúspěšný přes virtuální počítač, můžete **potvrdit** převzetí služeb při selhání. Potvrzení odstraní všechny body obnovení k dispozici ve službě a **změnit bod obnovení** možnost nadále již nebudou dostupné.
 
 ## <a name="planned-failover"></a>Plánované převzetí služeb při selhání
-Virtuální počítače/fyzické servery, které jsou chráněné pomocí Site Recovery také podpora **plánované převzetí služeb při selhání**. Plánované převzetí služeb při selhání je nulové data ztrátě převzetí služeb při selhání možnost. Když se aktivuje plánované převzetí služeb při selhání, nejprve vypnout zdrojový virtuální počítač, synchronizaci dat ještě k synchronizaci a pak se aktivuje převzetí služeb při selhání.
+Virtuální počítače/fyzické servery, které jsou chráněné pomocí Site Recovery také podpora **plánované převzetí služeb při selhání**. Plánované převzetí služeb při selhání je nulové data ztrátě převzetí služeb při selhání možnost. Když se aktivuje plánované převzetí služeb při selhání, nejprve vypnout zdrojový virtuální počítač, nejnovější data se synchronizují a pak se aktivuje převzetí služeb při selhání.
 
 > [!NOTE]
 > Pokud jste převzetí služeb při selhání technologie Hyper-v virtuální počítače z jednoho místní lokality do jiné lokality v místě, vraťte zpět na primární místního serveru máte první **zpětně replikovat** virtuální počítač zpět do primární lokality a potom aktivovat převzetí služeb při selhání. Pokud se primární virtuální počítač není k dispozici, pak před spuštěním na **zpětně replikovat** máte virtuální počítač obnovit ze zálohy.   

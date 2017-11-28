@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Spuštění dotazů ad hoc analytics napříč více databází Azure SQL
 
@@ -52,12 +52,11 @@ V jedné databázi s více tenanty je přístup k těmto datům jednoduchý, ale
 
 Elastické dotazu distribucí dotazy mezi databázemi klienta, poskytuje okamžitý přehled o provozu provozními daty. Však jako elastické dotaz získává data ze potenciálně velký počet databází, latence dotazu může někdy být vyšší než pro odeslání do jedné databáze víceklientské ekvivalentní dotazy. Nezapomeňte návrhu dotazů minimalizovat objem dat, která je vrácena. Elastické dotazu je často nejvhodnější pro dotazy malých objemů dat v reálném čase a sestavování často používané nebo komplexní analytické dotazy nebo sestavy. Pokud dotazy neprovádět dobře, podívejte se na [plán spuštění](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) zobrazíte, jaká část dotazu bylo posunuto do vzdálené databáze. A vyhodnocení, kolik dat se vrací. Dotazy, které vyžadují komplexní analytického zpracování může být lepší obsluhuje ukládání dat extrahovaných klienta do databáze, která je optimalizovaná pro analytické dotazy. SQL Database a SQL Data Warehouse může hostovat takové databázi analýzy.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+Tento vzor pro analýzu je podrobně popsaný [kurzu analýza klienta](saas-multitenantdb-tenant-analytics.md).
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Získat adresář Wingtip lístky SaaS víceklientské databázové skripty aplikace
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Zdrojový kód Wingtip lístky SaaS víceklientské databáze aplikace a skripty
 
-Adresář Wingtip lístky SaaS víceklientské databázové skripty a zdrojový kód aplikace, které jsou k dispozici v [úložiště github WingtipTicketsSaaS MultitenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Ujistěte se, že odblokovat kroků uvedených v souboru readme.
+Adresář Wingtip lístky SaaS víceklientské databázové skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) úložiště GitHub. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty Wingtip lístky SaaS.
 
 ## <a name="create-ticket-sales-data"></a>Vytvořit data prodeje lístků
 
@@ -96,7 +95,7 @@ Tento postup přidá schématu (externí zdroj dat a definice externí tabulky) 
 
     ![Vytvoření pověření](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   Zdroj externích dat, která je definována pomocí mapování horizontálních klienta v databázi katalogu. Prostřednictvím tohoto jako zdroj externích dat jsou dotazy distribuovány do všech databází, které jsou zaregistrovány v katalogu při spuštění dotazu. Vzhledem k tomu, že názvy serverů se liší pro každé nasazení, získá tento skript inicializace umístění databáze katalogu načtením aktuální server (@@servername) němž se skript spustí.
+   Pomocí databáze katalogu jako zdroj externích dat jsou dotazy distribuován do všech databází, které jsou zaregistrovány v katalogu při spuštění dotazu. Vzhledem k tomu, že názvy serverů se liší pro každé nasazení, získá tento skript inicializace umístění databáze katalogu načtením aktuální server (@@servername) němž se skript spustí.
 
     ![Vytvoření externího zdroje dat](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ Teď, když *adhocreporting* databáze je nastavit, aby ihned začít a spustit 
 
 Při kontrole plán spuštění, pozastavte ukazatel myši nad ikony plán podrobnosti. 
 
-1. Otevřete... \\Učení moduly\\provozní Analytics\\vykazování ad hoc\\*ukázku AdhocReportingQueries.sql* v aplikaci SSMS.
+1. V *SSMS*, otevřete... \\Učení moduly\\provozní Analytics\\vykazování ad hoc\\*ukázku AdhocReportingQueries.sql*.
 2. Zkontrolujte připojení k **adhocreporting** databáze.
 3. Vyberte **dotazu** nabídky a klikněte na tlačítko **zahrnují skutečné naplánovat spuštění**
 4. Zvýrazněte *místa, které jsou aktuálně registrované?* dotazu a stiskněte klávesu **F5**.
@@ -155,9 +154,7 @@ V tomto kurzu jste se naučili:
 > * Spouštění distribuovaných dotazů ve všech tenantských databázích
 > * Nasazení databáze služby ad hoc generování sestav a přidejte do jeho spuštění distribuované dotazy schématu.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+Nyní zkuste [klienta Analytics kurzu](saas-multitenantdb-tenant-analytics.md) prozkoumat extrakce dat k databázi samostatné analytics pro zpracování složitějších analýzy.
 
 ## <a name="additional-resources"></a>Další zdroje
 

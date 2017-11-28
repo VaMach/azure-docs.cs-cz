@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Zjistěte, jak zřídit nové klienty a zaregistrujte je v katalogu
 
@@ -68,9 +68,9 @@ Zřizování přístupů, které používáte musí comprehended součástí str
 Databázi Wingtip lístky SaaS jednu aplikaci klienta zřídí nové klienty pomocí kopírování šablony databáze s názvem _basetenantdb_, nasazené na serveru katalogu.  Zřizování může být integrovaná do aplikace jako součást registrace prostředí a podporované v režimu offline pomocí skriptů. V tomto kurzu jsou zde popsány zřizování pomocí prostředí PowerShell. Zřizování skripty zkopírujte databázi basetenantdb vytvořit novou databázi klienta v elastickém fondu, pak provést jeho inicializaci s informacemi o konkrétního klienta a její registrace v mapě horizontálního oddílu katalogu.  V Wingtip lístky SaaS databáze na aplikaci klienta klienta databází mají názvy na základě názvu klienta, ale nejedná se o důležitou součástí vzoru – použití katalogu umožňuje libovolný název přiřazení klienta databází. + 
 
 
-## <a name="get-the-wingtip-application-scripts"></a>Získání skriptů aplikace Wingtip
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Získat aplikační skripty Wingtip lístky SaaS databáze za klienta
 
-Adresář Wingtip SaaS skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. [Postup stažení skripty Wingtip lístky SaaS](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Adresář Wingtip lístky SaaS víceklientské databázové skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty Wingtip lístky SaaS.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Podrobný postup zřizování a přidání tenantů do katalogu

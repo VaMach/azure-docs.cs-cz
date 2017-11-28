@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: cf44d749ecbfcffb3d5a6e5e12aa49e66f7cde2e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Kurz: Azure Active Directory integrace s Cezanne HR softwaru
 
@@ -108,11 +108,14 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Cezanne HR softwaru domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL:`https://w3.cezanneondemand.com/CezanneOnDemand/-/optyma`
+    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL:`https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
     b. V **identifikátor** textovému poli, zadejte adresu URL:`https://w3.cezanneondemand.com/CezanneOnDemand/`
 
-    c. V **adresa URL odpovědi** textovému poli, zadejte adresu URL:`https://w3.cezanneondemand.com:443/cezanneondemand/-/optyma/Saml/samlp`
+    c. V **adresa URL odpovědi** textovému poli, zadejte adresu URL:`https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
+    
+    > [!NOTE]
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečná adresa URL přihlašování a adresa URL odpovědi. Obraťte se na [tým podpory klientský Software HR Cezanne](https://cezannehr.com/services/support/) k získání těchto hodnot.
 
 4. Na **SAML podpisový certifikát** klikněte na tlačítko **Certificate(Base64)** a potom uložte soubor certifikátu v počítači.
 

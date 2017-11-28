@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
 ms.workload: Inactive
-ms.openlocfilehash: c45f0ae655c544f51c8983c234591eef3da9dc6b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 16bd403fecbd24d7cea774bba8535f102501861f
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Podmíněný přístup (MFA) s Azure SQL Database a datového skladu  
 
@@ -25,7 +25,7 @@ SQL Database a SQL Data Warehouse podporují podmíněný přístup společnosti
 - Pokud je povoleno ověřování Multi-Factor authentication, je nutné připojit s v podporovaných nástroji, jako nejnovější aplikace SSMS. Další informace najdete v tématu [nakonfigurovat databázi SQL Azure Multi-Factor authentication pro SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>Konfigurace certifikační Autority pro Azure SQL DB nebo datového skladu  
-1.  Přihlaste se k portálu, vyberte **Azure Active Directory**a potom vyberte **podmíněného přístupu**. Další informace najdete v tématu [technické informace o Azure Active Directory podmíněného přístupu](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference).  
+1.  Přihlaste se k portálu, vyberte **Azure Active Directory**a potom vyberte **podmíněného přístupu**. Další informace najdete v tématu [technické informace o Azure Active Directory podmíněného přístupu](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
   ![okno podmíněného přístupu](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
 2.  V **zásady podmíněného přístupu** okně klikněte na tlačítko **nové zásady**, zadejte název a potom klikněte na **konfigurovat pravidla**.  

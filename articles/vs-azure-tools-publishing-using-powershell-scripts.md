@@ -14,39 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: 92753860ec820172e46f483831eb0c1cf1acb038
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e9409aac836a60e7ea01261840c084ff09e954e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Použití skriptů Windows PowerShellu k publikování do vývojových a testovacích prostředí
+
 Když vytvoříte webovou aplikaci v sadě Visual Studio, můžete vygenerovat skript prostředí Windows PowerShell, který můžete později použít k automatizaci publikování webu do Azure jako webové aplikace ve službě Azure App Service nebo virtuální počítač. Můžete upravit a rozšířit skript prostředí Windows PowerShell v editoru Visual Studio podle svých potřeb nebo skript integrovat existující sestavení, testování a publikování skripty.
 
-Pomocí těchto skriptů, můžete zřídit vlastní verze webu pro dočasné použití (také označované jako vývojářů a testovací prostředí). Může například nastavit na konkrétní verzi vašeho webu na virtuálním počítači Azure nebo na přípravný slot na web, který chcete spustit testovací sadu, reprodukujte chyby, testovací oprava chyb, zkušební verze navrhované změny nebo nastavit vlastní prostředí pro ukázku nebo prezentace. Po vytvoření skriptu, který publikuje projektu, můžete znovu vytvořit stejná prostředí tak, že znovu spustíte skript podle potřeby nebo spusťte skript s vlastní sestavení webové aplikace k vytvoření vlastního prostředí pro testování.
+Pomocí těchto skriptů, můžete zřídit vlastní verze webu pro dočasné použití (také označované jako vývojářů a testovací prostředí). Může například nastavit na konkrétní verzi vašeho webu na virtuálním počítači Azure nebo na přípravný slot na web, který chcete spustit testovací sadu, reprodukujte chyby, testovací oprava chyb, zkušební verze navrhované změny nebo nastavit vlastní prostředí pro ukázku nebo prezentace. Po vytvoření skriptu, který publikuje projektu, můžete znovu spustit skript podle potřeby znovu vytvořte identické prostředí nebo spusťte skript s vlastní sestavení webové aplikace k vytvoření vlastního prostředí pro testování.
 
-## <a name="what-you-need"></a>Co potřebujete
-* Azure SDK 2.3 nebo novější. V tématu [Visual Studio stáhne](http://go.microsoft.com/fwlink/?LinkID=624384) Další informace.
+## <a name="prerequisites"></a>Požadavky
 
-Není nutné sadu Azure SDK ke generování skriptů pro webové projekty. Tato funkce je pro webové projekty, není webové role v cloudové služby.
-
-* Prostředí Azure PowerShell 0.7.4 nebo novější. V tématu [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview) Další informace.
+* Azure SDK 2.3 nebo novější. V tématu [soubory ke stažení sady Visual Studio](http://go.microsoft.com/fwlink/?LinkID=624384). (Není potřeba sadu Azure SDK ke generování skriptů pro webové projekty. Tato funkce je pro webové projekty, není webové role v cloudové služby.)
+* Prostředí Azure PowerShell 0.7.4 nebo novější. Viz téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
 * [Prostředí Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) nebo novější.
 
 ## <a name="additional-tools"></a>Další nástroje
+
 Další nástroje a zdroje pro práci s prostředím PowerShell v sadě Visual Studio pro vývoj pro Azure jsou k dispozici. V tématu [prostředí PowerShell nástroje pro sadu Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Generování skriptů publikování
+
 Můžete vygenerovat skripty publikování pro virtuální počítač, který je hostitelem vašeho webu, když vytvoříte nový projekt pomocí následujících [tyto pokyny](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Můžete také [generovat publikovat skripty pro webové aplikace v Azure App Service](app-service/app-service-web-get-started-dotnet.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Skripty, které generuje Visual Studio
+
 Visual Studio vytvoří řešení úrovni složku s názvem **PublishScripts** obsahující dva soubory prostředí Windows PowerShell, skript publikování pro virtuální počítač nebo webu a modul, který obsahuje funkce, které můžete použít v skripty. Visual Studio také vygeneruje soubor ve formátu JSON, který určuje podrobnosti projektu, který nasazujete.
 
 ### <a name="windows-powershell-publish-script"></a>Publikování skriptu prostředí Windows PowerShell
+
 Skript publikování obsahuje konkrétní publikovat kroky pro nasazení na webu nebo virtuální počítač. Visual Studio poskytuje pro prostředí Windows PowerShell vývoj zvýrazňování syntaxe. Nápověda pro funkce je k dispozici, a můžete volně upravit funkce ve skriptu podle svých potřeb změny.
 
 ### <a name="windows-powershell-module"></a>Modul prostředí Windows PowerShell
-Modul Windows PowerShell, který generuje Visual Studio obsahuje funkce, které používá skript publikovat. Tyto jsou funkce Azure PowerShell a nejsou určeny má být změněn. V tématu [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview) Další informace.
+
+Modul Windows PowerShell, který generuje Visual Studio obsahuje funkce, které používá skript publikovat. Tyto funkce Azure PowerShell nejsou určeny k upravit. Viz téma [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="json-configuration-file"></a>Konfigurační soubor JSON
 Vytvoření souboru JSON v **konfigurace** složky a obsahuje konfigurační data, která určuje přesně prostředky, ke kterým chcete nasadit do Azure. Název souboru, který generuje Visual Studio je projekt název WAWS-dev.json Pokud jste vytvořili na webu nebo projektu název VM-dev.json, pokud jste vytvořili virtuální počítač. Tady je příklad konfiguračního souboru JSON, který se vygeneruje při vytvoření webu. Většina hodnot je není potřeba vysvětlovat. Název webu je generován Azure, takže se nemusí odpovídat název projektu.
@@ -72,7 +76,8 @@ Vytvoření souboru JSON v **konfigurace** složky a obsahuje konfigurační dat
     }
 }
 ```
-Když vytvoříte virtuální počítač, bude vypadat podobně jako následující konfigurační soubor JSON. Všimněte si, že Cloudová služba je vytvořen jako kontejner pro virtuální počítač. Virtuální počítač obsahuje obvyklé koncové body pro webový přístup prostřednictvím protokolu HTTP a HTTPS, jakož i koncové body pro nasazení webu, která umožňuje publikovat na web z vašeho místního počítače, vzdálené plochy a prostředí Windows PowerShell.
+
+Když vytvoříte virtuální počítač, bude vypadat podobně jako následující konfigurační soubor JSON. Cloudové služby se vytvoří jako kontejner pro virtuální počítač. Virtuální počítač obsahuje obvyklé koncové body pro webový přístup prostřednictvím protokolu HTTP a HTTPS, jakož i koncové body pro nasazení webu, která umožňuje publikovat na web z vašeho místního počítače, vzdálené plochy a prostředí Windows PowerShell.
 
 ```json
 {
@@ -138,22 +143,24 @@ Když vytvoříte virtuální počítač, bude vypadat podobně jako následují
 }
 ```
 
-Můžete upravit JSON konfiguraci chcete změnit, co se stane, když spustíte skripty publikování. `cloudService` a `virtualMachine` oddíly jsou povinné, ale můžete odstranit `databases` části Pokud tomu tak není. Vlastnosti, které jsou prázdné v výchozí konfigurační soubor, který generuje Visual Studio jsou volitelné. ty, které mají v konfiguračním souboru na výchozí hodnoty jsou povinné.
+Můžete upravit JSON konfiguraci chcete změnit, co se stane, když spustíte skripty publikování. `cloudService` a `virtualMachine` oddíly jsou povinné, ale můžete odstranit `databases` části Pokud tomu tak není. Vlastnosti, které jsou prázdné v výchozí konfigurační soubor, který generuje Visual Studio jsou volitelné. Tyto vlastnosti, které mají v konfiguračním souboru na výchozí hodnoty jsou požadovány.
 
-Pokud máte web, který má několik prostředí nasazení (označované jako sloty) místo jednoho pracoviště v Azure, můžete zahrnout název slotu názvu webu v konfiguračním souboru JSON. Například, pokud máte web s názvem **server** a slotu pro něj s názvem **testování** pak server test.cloudapp.net je identifikátor URI, ale mysite(test) je správný název pro použití v konfiguračním souboru. Můžete provést jenom Pokud tento web a sloty, které již existují v rámci vašeho předplatného. Pokud ještě neexistují, vytvořit web tak, že spustíte skript bez zadání přihrádky, pak vytvořte slot v [portál Azure classic](http://go.microsoft.com/fwlink/?LinkID=213885), a poté spusťte skript s názvem upravené webové stránky. Další informace o nasazovací sloty pro webové aplikace najdete v tématu [nastavení přípravných prostředí pro webové aplikace v Azure App Service](app-service/web-sites-staged-publishing.md).
+Pokud máte web, který má několik prostředí nasazení (označované jako sloty) místo jednoho pracoviště v Azure, můžete zahrnout název slotu názvu webu v konfiguračním souboru JSON. Například, pokud máte web s názvem **server** a slotu pro něj s názvem **testování** je identifikátor URI `mysite-test.cloudapp.net`, ale mysite(test) je správný název pro použití v konfiguračním souboru. Můžete provést jenom Pokud tento web a sloty, které již existují v rámci vašeho předplatného. Pokud ještě neexistují, vytvořit web tak, že spustíte skript bez zadání přihrádky, pak vytvořte slot v [portál Azure](https://portal.azure.com/), a poté spusťte skript s názvem upravené webové stránky. Další informace o nasazovací sloty pro webové aplikace najdete v tématu [nastavení přípravných prostředí pro webové aplikace v Azure App Service](app-service/web-sites-staged-publishing.md).
 
 ## <a name="how-to-run-the-publish-scripts"></a>Jak spustit skripty publikování
-Pokud jste spustili nikdy skript prostředí Windows PowerShell před, musíte nejprve nastavit zásady spouštění umožňující spouštění skriptů. Toto je funkce zabezpečení, chcete-li zabránit uživatelům ve spouštění skriptů prostředí Windows PowerShell, pokud jsou snadno napadnutelný malwaru nebo viry, které zahrnují spouštění skriptů.
+
+Pokud jste spustili nikdy skript prostředí Windows PowerShell před, musíte nejprve nastavit zásady spouštění umožňující spouštění skriptů. Zásady je funkce zabezpečení, chcete-li zabránit uživatelům ve spouštění skriptů prostředí Windows PowerShell, pokud jsou snadno napadnutelný malwaru nebo viry, které zahrnují spouštění skriptů.
 
 ### <a name="run-the-script"></a>Spusťte skript
+
 1. Vytvořte balíček nasazení webu pro váš projekt. Balíček nasazení webu je komprimovaný archiv (soubor .zip), které obsahují soubory, které chcete zkopírovat do svého webu nebo virtuálního počítače. Balíčky webového nasazení v sadě Visual Studio můžete vytvořit pro všechny webové aplikace.
 
 ![Vytváření webového nasazení balíčku](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
 
-Další informace najdete v tématu [postupy: vytvoření balíčku pro nasazení webu v sadě Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). Můžete také automatizovat vytvoření vašeho balíčku nástroje nasazení webu, jak je popsáno v části **přizpůsobení a rozšíření skripty publikování** dál v tomto tématu.
+Další informace najdete v tématu [postupy: vytvoření balíčku pro nasazení webu v sadě Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). Můžete také automatizovat vytvoření vašeho balíčku nástroje nasazení webu, jak je popsáno v [přizpůsobení a rozšíření scripts[(#customizing-and-extending-publish-scripts) publikovat]
 
 1. V **Průzkumníku řešení**, otevřete v místní nabídce pro skript a potom zvolte **otevřete pomocí prostředí PowerShell ISE**.
-2. Pokud je to poprvé, kterou jste spustili skriptů prostředí Windows PowerShell na tomto počítači, otevřete okno příkazového řádku s oprávněními správce a zadejte následující příkaz:
+2. Pokud se spouštění skriptů prostředí Windows PowerShell na tomto počítači poprvé, otevřete okno příkazového řádku s oprávněními správce a zadejte následující příkaz:
 
     ```powershell
     Set-ExecutionPolicy RemoteSigned
@@ -167,7 +174,7 @@ Další informace najdete v tématu [postupy: vytvoření balíčku pro nasazen�
 
     Po zobrazení výzvy zadejte své uživatelské jméno a heslo.
 
-    Všimněte si, že při automatizaci skript, tato metoda poskytnout přihlašovací údaje Azure nebude fungovat. Místo toho používejte soubor .publishsettings k zadání přihlašovacích údajů. Jednou, můžete použít příkaz **Get-AzurePublishSettingsFile** ke stažení souboru z Azure a následně použít **Import AzurePublishSettingsFile** se soubor naimportovat. Podrobné pokyny najdete v tématu [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
+    Všimněte si, že při automatizaci skript tuto metodu, jak poskytnout přihlašovací údaje Azure nefunguje. Místo toho používejte `.publishsettings` souboru k zadání přihlašovacích údajů. Jednou, můžete použít příkaz **Get-AzurePublishSettingsFile** ke stažení souboru z Azure a následně použít **Import AzurePublishSettingsFile** se soubor naimportovat. Podrobné pokyny najdete v tématu [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview).
 
 4. (Volitelné) Pokud chcete vytvořit prostředky Azure, jako je například virtuální počítač, databáze a webu bez publikování webové aplikace, použijte **publikovat WebApplication.ps1** s **-konfigurace**argument nastaven na hodnotu konfiguračního souboru JSON. Tento příkaz používá k určení, které prostředky pro vytvoření konfiguračního souboru JSON. Protože používá výchozí nastavení pro další argumenty příkazového řádku, vytvoří prostředky, ale nepodporuje publikování webové aplikace. -Verbose – možnost získáte další informace o co se děje.
 
@@ -236,7 +243,7 @@ K automatizaci vytváření projektu, přidat kód, který volá MSBuild `New-We
     }
     ```
 
-3. Nahraďte `New-WebDeployPackage` s následující kód a nahraďte zástupné symboly v řádku vytváření `$msbuildCmd`. Tento kód je pro Visual Studio 2015. Pokud používáte Visual Studio 2013, změňte **VisualStudioVersion** vlastnost níže na `12.0`.
+3. Nahraďte `New-WebDeployPackage` s následující kód a nahraďte zástupné symboly v řádku vytváření `$msbuildCmd`. Tento kód je pro Visual Studio 2017. Pokud používáte Visual Studio 2015, změňte **VisualStudioVersion** vlastnost `14.0` (`12.0` pro Visual Studio 2013).
 
     ```powershell
     function New-WebDeployPackage
@@ -249,7 +256,7 @@ K automatizaci vytváření projektu, přidat kód, který volá MSBuild `New-We
     ```powershell
     Write-VerboseWithTime 'Build-WebDeployPackage: Start'
 
-    $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=14.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
+    $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=15.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
 
     Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
     ```
@@ -287,7 +294,7 @@ return $WebDeployPackage
     }
     ```
 
-2. Vyvolání vlastní skript z příkazového řádku pomocí předávání `$Project` argument, stejně jako na příkazovém řádku následující příklad.
+2. Vyvolání vlastní skript z příkazového řádku pomocí předávání `$Project` argument, jako v následujícím příkladu:
 
     ```powershell
     .\Publish-WebApplicationVM.ps1 -Configuration .\Configurations\WebApplication5-VM-dev.json `
@@ -300,7 +307,7 @@ return $WebDeployPackage
     Pro automatizaci testování vaší aplikace, přidejte kód, který `Test-WebApplication`. Nezapomeňte zrušte komentář u řádků v **publikovat WebApplication.ps1** kde jsou tyto funkce volána. Pokud nezadáte implementace, můžete ručně vytvořit projekt pomocí sady Visual Studio a pak spusťte skript publikování, který chcete publikovat do Azure.
 
 ## <a name="publishing-function-summary"></a>Publikování souhrn funkcí
-Chcete-li získat nápovědu pro funkce, které můžete použít na příkazovém řádku prostředí Windows PowerShell, použijte příkaz `Get-Help function-name`. V nápovědě zahrnuje parametr nápovědy a příklady. Stejný text nápovědy je také ve zdrojových souborech skriptu **AzureWebAppPublishModule.psm1** a **publikovat WebApplication.ps1**. V jazyce Visual Studio jsou lokalizované skriptu a Nápověda.
+Chcete-li získat nápovědu pro funkce, které můžete použít na příkazovém řádku prostředí Windows PowerShell, použijte příkaz `Get-Help function-name`. V nápovědě zahrnuje parametr nápovědy a příklady. Aby se stejný text nápovědy je také ve zdrojových souborech skriptu **AzureWebAppPublishModule.psm1** a **publikovat WebApplication.ps1**. V jazyce Visual Studio jsou lokalizované skriptu a Nápověda.
 
 **AzureWebAppPublishModule**
 
@@ -310,13 +317,13 @@ Chcete-li získat nápovědu pro funkce, které můžete použít na příkazov�
 | Přidat AzureSQLDatabases |Vytvoří databáze Azure SQL z hodnot v konfiguračním souboru JSON, který generuje Visual Studio. |
 | Přidat AzureVM |Vytvoří virtuální počítač Azure a vrátí adresu URL nasazené virtuálního počítače. Funkce nastaví požadavky a pak zavolá **New-AzureVM** – funkce (Azure modul) k vytvoření nového virtuálního počítače. |
 | Přidat AzureVMEndpoints |Přidá nový vstupní koncové body k virtuálnímu počítači a vrátí virtuální počítač s nový koncový bod. |
-| Přidat AzureVMStorage |Vytvoří nový účet úložiště Azure v aktuálním předplatném. Název účtu začíná řetězcem "devtest", za nímž následuje jedinečný alfanumerický řetězec. Vrátí název nového účtu úložiště. Musíte zadat umístění nebo skupina vztahů pro nový účet úložiště. |
+| Přidat AzureVMStorage |Vytvoří nový účet úložiště Azure v aktuálním předplatném. Název účtu začíná řetězcem "devtest", za nímž následuje jedinečný alfanumerický řetězec. Vrátí název nového účtu úložiště. Zadejte umístění nebo skupina vztahů pro nový účet úložiště. |
 | Přidat AzureWebsite |Vytvoří web se zadaným názvem a umístěním. Tato funkce volá **New-AzureWebsite** funkce v modulu Azure. Pokud předplatné už neobsahuje web se zadaným názvem, tato funkce vytvoří web a vrátí objekt webu. Funkce `$null`. |
 | Zálohování předplatného |Uloží aktuální předplatné Azure v `$Script:originalSubscription` proměnné v oboru skriptu. Tato funkce uloží aktuální předplatné Azure (jak získat `Get-AzureSubscription -Current`) a jeho účet úložiště a předplatné, které mění tímto skriptem (uložené v proměnné `$UserSpecifiedSubscription`) a jeho účet úložiště, v oboru skriptu. Ukládání hodnot, můžete pomocí funkce, jako například `Restore-Subscription`, pokud chcete obnovit původní aktuální předplatné a účet úložiště pro aktuální stav, pokud došlo ke změně aktuálního stavu. |
 | Najít AzureVM |Získá zadaný virtuální počítač Azure. |
 | Formát DevTestMessageWithTime |Přidá k datu a času na zprávy. Tato funkce je určená pro zpráv zapsaných do datové proudy chyba a podrobná. |
 | Get-AzureSQLDatabaseConnectionString |Sestaví připojovacího řetězce pro připojení k databázi Azure SQL. |
-| Get-AzureVMStorage |Vrací název první účet úložiště se stejným názvem vzor "devtest*" (malá a velká písmena) v zadaném umístění nebo skupina vztahů. Pokud "devtest*" účet úložiště neodpovídá umístění nebo skupina vztahů, funkce se přeskočí. Musíte zadat umístění nebo skupině vztahů. |
+| Get-AzureVMStorage |Vrací název první účet úložiště se stejným názvem vzor "devtest*" (malá a velká písmena) v zadaném umístění nebo skupina vztahů. Pokud "devtest*" účet úložiště neodpovídá umístění nebo skupina vztahů, funkce se přeskočí. Zadejte umístění nebo skupině vztahů. |
 | Get-MSDeployCmd |Vrátí příkaz ke spuštění nástroje MsDeploy.exe. |
 | Nové AzureVMEnvironment |Vyhledá nebo vytvoří virtuální počítač v rámci předplatného, které se shodují s hodnotami v konfiguračním souboru JSON. |
 | Publikování WebPackage |Používá MsDeploy.exe a webové publikování balíčku. Soubor ZIP k nasazení prostředků na webu. Tato funkce negeneruje žádný výstup. Pokud volání MSDeploy.exe selže, funkce vyvolá výjimku. Chcete-li získat podrobnější výstup, použijte **-Verbose** možnost. |

@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: d9816f53e1d0e09f938452a022c75a3d20a43da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrace aplikací s Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -178,7 +178,7 @@ Následující části se dozvíte, jak vystavit oborů přístupu změnou manif
   }
   ```
   > [!NOTE]
-  > Hodnota "id" musí být generována pomocí nástroj pro vytváření identifikátor GUID, například [Guidgen –]] (https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) nebo prostřednictvím kódu programu. Jedinečný identifikátor pro obor, představuje jako vystavené webové rozhraní API. Jakmile klient je správně nakonfigurovaný s oprávněními k přístupu k vašemu webovému rozhraní API, jeho vydání OAuth2.0 přístupový token služby Azure AD. Při volání klienta webového rozhraní API představuje přístupový token, který má obor (scp) deklarace identity nastavit oprávnění požadované v jeho registraci aplikace.
+  > Hodnota "id" musí být generována pomocí nástroj pro vytváření identifikátor GUID, jako [Guidgen –](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) nebo prostřednictvím kódu programu. Jedinečný identifikátor pro obor, představuje jako vystavené webové rozhraní API. Jakmile klient je správně nakonfigurovaný s oprávněními pro přístup k vašemu webovému rozhraní API, jeho vydání OAuth2.0 přístupový token služby Azure AD. Při volání klienta webového rozhraní API představuje přístupový token, který má obor (scp) deklarace identity nastavit oprávnění požadované v jeho registraci aplikace.
   >
   > Další obory později podle potřeby můžete vystavit. Zvažte, zda webového rozhraní API mohou být vystaveny víc oborů, které jsou spojené s celou řadu různých funkcí. Prostředek můžete řídit přístup k webovému rozhraní API v době běhu vyhodnocením oboru (`scp`) deklarace identity v přijatý přístupový token OAuth 2.0.
   > 

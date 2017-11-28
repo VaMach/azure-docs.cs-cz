@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Nastavení místního podmíněného přístupu pomocí registrace zařízení služby Azure Active Directory
 Pokud požadujete uživatelům připojení k pracovní ploše svých osobních zařízení pro službu Azure Active Directory (Azure AD) device registration service, můžete svoje zařízení označit jako známé pro vaši organizaci. Toto je podrobný návod k povolení podmíněného přístupu k místním aplikacím pomocí služby Active Directory Federation Services (AD FS) v systému Windows Server 2012 R2.
@@ -166,9 +166,9 @@ Adresu URL uživatelům sdělit mnoha různými způsoby. Například jedna meto
 4. Pokud budete vyzváni, přihlaste se pomocí přihlašovacích údajů. Zařízení je teď připojené.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Připojení zařízení s Windows 7 pomocí registrace zařízení služby Azure Active Directory
-Pokud chcete zaregistrovat zařízení připojených k doméně systému Windows 7, budete muset nasadit balíček softwaru registrace zařízení. Balíček softwaru, se nazývá síti na pracovišti připojit k systému Windows pro systém Windows 7 a jeho k dispozici ke stažení na [webu Microsoft Connect](https://connect.microsoft.com/site1164). 
+Chcete-li zaregistrovat zařízení připojených k doméně systému Windows 7, je potřeba nasadit [balíček softwaru registrace zařízení](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Pokyny o tom, jak použít balíček jsou k dispozici v [postup konfigurace automatické registrace zařízení se systémem Windows připojených k doméně se službou Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+Pokyny o tom, jak pomocí balíčku najdete v tématu [balíčky Instalační služby systému Windows pro počítače s Windows 10](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Ověřte, že registrovaná zařízení, zapíšou se zpět do služby Active Directory
 Můžete zobrazit a ověřit, že objektů vašeho zařízení byly zapsány zpět do služby Active Directory pomocí nástroje LDP.exe nebo ADSI Edit. Obě možnosti jsou dostupné pomocí nástroje pro správu služby Active Directory.

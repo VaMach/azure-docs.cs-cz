@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: ba824ed1bad49c71f8de9f2da8249945d9430222
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 1efdda867703613e4f85e6994004df32e70ccb3d
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Urychlit analýzy velkých objemů dat v reálném čase s Spark pro konektor Azure Cosmos DB
 
@@ -79,7 +79,7 @@ Komunikace mezi Spark a Azure Cosmos DB je omezený na hlavní uzel Spark a uzly
 ### <a name="install-pydocumentdb"></a>Nainstalujte pydocumentdb v tuto
 Pydocumentdb v tuto vašeho uzlu ovladačů můžete nainstalovat pomocí **pip**, například:
 
-```
+```bash
 pip install pyDocumentDB
 ```
 
@@ -89,7 +89,7 @@ Jednoduchost přenosu komunikace provede spuštění dotazu z Spark Azure Cosmos
 
 Následující fragment kódu ukazuje, jak používat pydocumentdb v tuto v kontextu Spark.
 
-```
+```python
 # Import Necessary Libraries
 import pydocumentdb
 from pydocumentdb import document_client
@@ -117,7 +117,7 @@ Jak jsme uvedli v fragment kódu:
 ### <a name="execute-spark-queries-via-pydocumentdb"></a>Spuštění dotazů Spark prostřednictvím pydocumentdb v tuto
 Následující příklady použití Azure Cosmos DB instanci, která byla vytvořena v předchozím fragmentu kódu pomocí zadaného klíče jen pro čtení. Následující fragment kódu se připojuje k **airports.codes** kolekce v účtu DoctorWho jako dříve zadaný a spustí dotaz k extrakci města letiště ve státě Washington.
 
-```
+```python
 # Configure Database and Collections
 databaseId = 'airports'
 collectionId = 'codes'
@@ -141,7 +141,7 @@ elements = list(query)
 
 Po provedení dotazu prostřednictvím **dotazu**, výsledkem je, **query_iterable. QueryIterable** , jsou převedeny na seznam Python. Seznam Python lze snadno převést na Spark DataFrame pomocí následujícího kódu:
 
-```
+```python
 # Create `df` Spark DataFrame from `elements` Python list
 df = spark.createDataFrame(elements)
 ```
@@ -183,7 +183,7 @@ spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3-jar-wi
 
 Pokud chcete provést JAR bez závislostí, použijte následující kód:
 
-```
+```bash
 spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
 ```
 

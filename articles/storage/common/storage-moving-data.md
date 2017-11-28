@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Přesunutí dat z Azure Storage a do Azure Storage
 Pokud chcete přesunout místní data do služby Azure Storage (nebo naopak), existuje mnoho různých způsobů, jak to udělat. Přístup, který nejlépe vyhovuje bude záviset na váš scénář. Tento článek vám poskytne rychlý přehled o různých scénářů a příslušné nabídky pro každé z nich.
@@ -76,4 +76,4 @@ Pokud máte místní úlohy a aplikace, budete potřebovat řešení, které umo
 V tématu [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) Další informace.
 ### <a name="moving-data-faq"></a>Přesun dat – nejčastější dotazy:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>Můžete migrovat virtuální pevné disky z jedné oblasti do druhého bez kopírování?
-Jediný způsob, jak zkopírovat virtuální pevné disky mezi oblast je kopírovat data mezi účty úložiště na každou oblast. To můžete pomocí nástroje AZCopy. V části přenosu dat pomocí nástroje příkazového řádku Azcopy Další informace. Pro velmi velké objemy dat můžete také Azure Import/Export. V tématu [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) Další informace.
+Jediný způsob, jak zkopírovat virtuální pevné disky mezi oblast je kopírovat data mezi účty úložiště na každou oblast. To můžete pomocí nástroje AZCopy. V části přenosu dat pomocí nástroje příkazového řádku Azcopy Další informace. Pro velmi velké objemy dat můžete také Azure Import/Export. V tématu [Azure Import/Export](https://docs.microsoft.com/azure/storage/storage-import-export-service) Další informace.

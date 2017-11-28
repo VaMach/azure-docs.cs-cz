@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: ce24e445177b7e2e499309f016478030efa6bfe8
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB: Dokumentace DocumentDB rozhraní API
 
@@ -36,7 +36,7 @@ Jedná se o musí přečíst témata a prostředků ke spuštění informací o 
 
 ## <a name="quickstarts"></a>Šablony Rychlý start
 
-Rychlý start témata jsou nejrychlejší způsob, jak vytvářet aplikace práce s Azure Cosmos DB. V každé rychlý start a zjistěte, jak používat portál Azure na základě uživatelského rozhraní a své oblíbené kódování jazyka k vytvoření databáze řešení s Azure Cosmos DB. Klonovatelné webové aplikace z Githubu oblasti, které jsou k dispozici pro každý rychlý start. 
+Rychlý start témata jsou nejrychlejší způsob, jak vytvářet aplikace práce s Azure Cosmos DB. V každé rychlý start a zjistěte, jak používat portál Azure na základě uživatelského rozhraní a své oblíbené kódování jazyka k vytvoření databáze řešení s Azure Cosmos DB. Klonovatelné webové aplikace z Githubu jsou dostupné pro každý rychlý start. 
 
 - [Rozhraní .NET + portál azure + webové aplikace](create-documentdb-dotnet.md)
 - [Java + portál Azure + webové aplikace](create-documentdb-java.md)

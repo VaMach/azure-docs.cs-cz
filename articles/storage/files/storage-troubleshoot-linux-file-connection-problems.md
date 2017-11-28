@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6eb37ef4e836bd33a77180ef5aa8589ca5139af
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Poradce při potížích Azure soubory v systému Linux
 
@@ -154,6 +154,21 @@ Obvyklé příčiny tohoto problému patří:
 ### <a name="solution"></a>Řešení
 
 Chcete-li problém vyřešit, použijte [nástroj řešení potíží pro soubory Azure připojení chyby v systému Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Tento nástroj umožňuje ověření klienta se systémem prostředí, zjišťovat konfigurace nekompatibilní klienta, což by způsobilo selhání přístupu pro soubory Azure, poskytuje doporučený postup na samoobslužné opravit a shromažďuje diagnostické trasování.
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: nemůže získat přístup k '&lt;cesta&gt;": chyby vstupu a výstupu
+
+Při pokusu o zobrazení seznamu souborů v sdílenou složku Azure pomocí příkazu ls, zobrazí se následující chyba:
+
+**ls: nemůže získat přístup k '&lt;cesta&gt;": chyby vstupu a výstupu**
+
+
+### <a name="solution"></a>Řešení
+Upgrade jádra systému Linux následující verze, které mají opravu tohoto problému:
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- Všechny verze, která je větší nebo rovna hodnotě 4.13
 
 ## <a name="need-help-contact-support"></a>Potřebujete pomoct? Obraťte se na podporu.
 

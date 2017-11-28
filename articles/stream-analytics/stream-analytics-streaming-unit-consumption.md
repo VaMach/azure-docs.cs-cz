@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 14f73322701dffea283432bf2a25b5e6cd3e9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Rady pro pochopení a upravit jednotek streamování
 
@@ -59,7 +59,6 @@ Další informace o volbě správného počtu služby SUs, zobrazí tato stránk
 
 > [!Note]
 > Výběr kolik služby SUs jsou požadovány pro konkrétní úlohy závisí na konfiguraci oddílů pro vstupy a na dotaz definovaný pro úlohu. Můžete vybrat až vaší kvóty v služby SUs pro úlohu. Ve výchozím nastavení má každé předplatné Azure kvótu až 200 služby SUs pro všechny úlohy analýzy v určité oblasti. Chcete-li zvýšit služby SUs pro vaše předplatné nad rámec této kvóty, obraťte se na [Microsoft Support](http://support.microsoft.com). Platné hodnoty pro služby SUs na úlohu jsou 1, 3, 6 a až v přírůstcích po 6.
-> Všimněte si, že pomocí 1 SU se nedoporučuje pro produkční úlohy. Jsme obvykle Rady, jak používat jenom 1. SU úlohy při vytváření prototypu a testování úlohy.
 
 
 

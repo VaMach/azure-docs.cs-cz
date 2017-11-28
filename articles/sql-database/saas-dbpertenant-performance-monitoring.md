@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 450a5fc578948db044d9e0bb9db09508b2512aca
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Sledování a správa výkonu databáze Azure SQL a fondy v aplikaci SaaS více klientů
 
@@ -62,9 +62,9 @@ Fondy a databází ve fondech, je potřeba sledovat zajistit, že zůstanou v r�
 
 Vysoký počet scénářů, při kterém pracujete s mnoha prostředky, [analýzy protokolů (OMS)](saas-dbpertenant-log-analytics.md) lze použít. Toto je samostatný služba Azure, která nabízí v porovnání s emitovaného diagnostické protokoly a telemetrie získané v pracovním prostoru analýzy protokolů analýzy. Analýzy protokolů můžete shromažďovat telemetrická data z mnoha služeb a použije k dotazování a nastavit výstrahy.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Zdrojový kód Wingtip lístky SaaS databáze za klienta aplikace a skripty
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Získat aplikační skripty Wingtip lístky SaaS databáze za klienta
 
-Skripty Wingtip lístky SaaS databáze za klienta a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště github. [Postup stažení skripty Wingtip lístky SaaS databáze za klienta](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Adresář Wingtip lístky SaaS víceklientské databázové skripty a zdrojový kód aplikace, které jsou k dispozici v [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty Wingtip lístky SaaS.
 
 ## <a name="provision-additional-tenants"></a>Zřízení dalších tenantů
 
@@ -220,7 +220,7 @@ Toto cvičení simuluje vliv vysokého zatížení při prodeji lístků na popu
 
 Jakmile vysokého zatížení v databázi contosoconcerthall subvence by měl neprodleně vrátí do fondu na snížení nákladů na jeho. Pokud je při tom nejasné po který se stane, můžete nastavit upozornění na databázi, se aktivuje při jeho využití v jednotkách DTU klesne pod jednotlivé databáze maximální ve fondu. Přesunutí databáze do fondu je popsáno v cvičení 5.
 
-## <a name="other-performance-management-patterns"></a>Další vzorce správy výkonu
+## <a name="other-performance-management-patterns"></a>Dalšími vzory správy výkonu
 
 **Preemptivní škálování** v cvičení výše kde jste prozkoumali postup škálování izolované databáze, budete vědět, databázi, kterou chcete vyhledat. Pokud správu Contoso vzájemné součinnosti Hall měl informován Wingtips brzké prodeje lístků, databázi přesunuta mimo fondu pre-emptively. Jinak by to vyžadovalo výstrahu ve fondu nebo v databázi s cílem zjistit, co se stalo. Pravděpodobně byste to nechtěli zjistit proto, že by si ostatní tenanti ve fondu stěžovali na snížený výkon. A kdyby mohli tenanti předvídat, na jak dlouho by potřebovali další prostředky, můžete nastavit runbook Azure Automation na přesunutí databáze mimo fond a potom zpět podle předem definovaného plánu.
 

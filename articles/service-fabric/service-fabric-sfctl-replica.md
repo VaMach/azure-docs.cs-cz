@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 50d185294131e42aaf8b541ab17495fcb40c89dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="sfctl-replica"></a>sfctl repliky
 Spravujte repliky, které patří do oddílů služby.
@@ -29,8 +29,7 @@ Spravujte repliky, které patří do oddílů služby.
 | --- | --- |
 |    Nasazení  | Získá podrobnosti repliky nasazené na uzlu Service Fabric.|
 |    nasazení seznamu| Získá seznam replik, které jsou nasazeny na uzlu Service Fabric.|
-|    Stav    | Získá stav repliky stavové služby Service Fabric nebo bezstavové služby
-                   instance.|
+|    Stav    | Získá stav repliky stavové služby Service Fabric nebo instance bezstavové služby.|
 |    Informace o      | Získá informace o repliku oddílu Service Fabric.|
 |    seznam      | Získá informace o replikách oddílu služby Service Fabric.|
 |    Odebrat    | Odebere repliku služby spuštěné v uzlu.|

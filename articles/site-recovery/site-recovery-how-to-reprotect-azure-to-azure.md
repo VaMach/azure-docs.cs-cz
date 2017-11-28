@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5822ed90f3ab13bdaf1afef62cf32978101c6609
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>Opětovné ochrany z převzal oblast Azure zpět na primární oblasti
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>Přehled
 Pokud jste [převzetí služeb při selhání](site-recovery-failover.md) virtuálních počítačů z jedné oblasti Azure do druhého, virtuální počítače jsou v nechráněném stavu. Pokud chcete, aby byly zpět na primární oblasti, je třeba nejprve chránit virtuální počítače a převzetí služeb při selhání znovu. Není žádný rozdíl mezi postupy můžete převzetí služeb při selhání v jednom směru nebo jiné. Podobně konečná povolení ochrany virtuálních počítačů, není žádný rozdíl mezi opětovné ochrany post převzetí služeb při selhání a navrácení služeb po obnovení post.
-Vysvětlení, pracovní postupy opětovné ochrany a chcete předejít nejasnostem, použijeme jako oblast východní Asie a lokalitě pro obnovení počítačů primární lokality chráněných počítačů jako oblast jihovýchodní Asie. Během převzetí služeb při selhání převzetí služeb při selhání budete virtuální počítače do oblasti jihovýchodní Asie. Než budete navrácení služeb po obnovení budete muset znovu nastavte ochranu virtuálních počítačů z jihovýchodní Asie zpět do východní Asie. Tento článek popisuje kroky, o tom, jak znovu nastavte ochranu.
+Vysvětlení, pracovní postupy opětovné ochrany a chcete předejít nejasnostem, naleznete v primární lokalitě chráněných počítačů jako oblast východní Asie, a lokalitě pro obnovení počítačů jako oblast jihovýchodní Asie. Během převzetí služeb při selhání virtuální počítače se spustí v oblasti jihovýchodní Asie. Než budete navrácení služeb po obnovení budete muset znovu nastavte ochranu virtuálních počítačů z jihovýchodní Asie zpět do východní Asie. Tento článek popisuje kroky, o tom, jak znovu nastavte ochranu.
 
 > [!WARNING]
-> Pokud máte [dokončit migraci](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), přesunout virtuální počítač do jiné skupiny prostředků nebo odstranit virtuální počítač Azure, nemůžete poté navrácení služeb po obnovení.
+> Pokud máte [dokončit migraci](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), přesunout virtuální počítač do jiné skupiny prostředků nebo odstranit virtuální počítač Azure nelze znovu nastavte ochranu nebo navrácení služeb po obnovení virtuálního počítače.
 
 Po dokončení opětovné ochrany a jsou replikace chráněných virtuálních počítačů, můžete spustit převzetí služeb při selhání u virtuálních počítačů a vrátit je zpátky do oblast východní Asie.
 
@@ -56,7 +56,7 @@ Dále je uveden postup k nastavení opětné virtuálního počítače pomocí v
 
 ![Znovu nastavte ochranu okno](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
 
-3. Zkontrolujte **prostředků skupiny, sítě, úložiště a dostupnost sady** informace a klikněte na tlačítko OK. Pokud jsou všechny prostředky označené (Nový), budou vytvořeny jako součást opětovné ochrany.
+3. Zkontrolujte **skupinu prostředků, sítě, úložiště a dostupnost sady** informace a klikněte na tlačítko OK. Pokud jsou všechny prostředky označené (Nový), budou vytvořeny jako součást opětovné ochrany.
 
 To bude aktivační události úlohy, znovu aktivujte ochranu úlohu, která se nejdřív počáteční hodnoty cílové lokalitě (v tomto případě SEA) s nejnovější data, a který dokončí, replikují se tak rozdílů před převzetím služeb je zpět do jihovýchodní Asie.
 
@@ -72,7 +72,7 @@ Následující vlastnosti he cílového virtuálního počítače můžete přiz
 |Vlastnost |Poznámky  |
 |---------|---------|
 |Cílová skupina prostředků     | Můžete změnit cílová skupina prostředků, ve kterém se vytvoří tý virtuálního počítače. V rámci opětovné ochrany budou odstraněny cílového virtuálního počítače, proto můžete novou skupinu prostředků, ve kterém můžete vytvořit virtuální počítač post převzetí služeb při selhání         |
-|Cílová virtuální síť     | Sítě, nelze změnit během opětovné ochrany. Chcete-li změnit síť, znovu proveďte mapování sítě.         |
+|Cílová virtuální síť     | Sítě, nelze změnit během opětovné ochrany jb. Chcete-li změnit síť, znovu proveďte mapování sítě.         |
 |Cílové úložiště     | Můžete změnit účet úložiště, do kterého bude virtuální počítač vytvořen post převzetí služeb při selhání.         |
 |Úložiště mezipaměti     | Můžete zadat účet úložiště mezipaměti, který se použije během replikace. Pokud přejdete výchozí hodnoty, nový účet úložiště mezipaměti se mají vytvořit, pokud ještě neexistuje.         |
 |Skupina dostupnosti     |Pokud virtuální počítač ve východní Asie je součástí skupiny dostupnosti, můžete vybrat sadu dostupnosti pro cílový virtuální počítač v jihovýchodní Asie. Výchozí nastavení vyhledá stávající sadu dostupnosti SEA a pokuste se ho používat. Během přizpůsobení můžete určit úplně novou sadu AV.         |
@@ -80,7 +80,7 @@ Následující vlastnosti he cílového virtuálního počítače můžete přiz
 
 ### <a name="what-happens-during-reprotect"></a>Co se stane při opětovné ochrany?
 
-Po první povolit ochranu, podobně jako následující jsou rušivé vlivy, které vytvářeny Pokud použijete výchozí hodnoty.
+Po první povolit ochranu, podobně jako následující jsou artefakty vytvořené získat Pokud použijete výchozí hodnoty.
 1. V oblasti východní Asie získá vytvořit účet úložiště mezipaměti.
 2. Pokud cílový účet úložiště (původní účet úložiště virtuálního počítače jihovýchodní Asie) neexistuje, vytvoří se nový. Název je na konci "Automatické obnovení systému" účet úložiště virtuálního počítače východní Asie.
 3. Pokud sadu cíl AV neexistuje a výchozí hodnoty zjistit, který je potřeba vytvořit novou sadu AV, pak bude vytvořen jako součást úlohy opětovné ochrany. Pokud jste upravili opětovné ochrany, budou vybrané sady AV použít.
@@ -88,7 +88,7 @@ Po první povolit ochranu, podobně jako následující jsou rušivé vlivy, kte
 
 Následuje seznam kroků, které dojít v případě, že spustíte úlohu opětovné ochrany. Toto je v případě, kdy cílový straně virtuální počítač existuje.
 
-1. Požadované rušivé vlivy jsou vytvořené jako součást opětovné ochrany. Pokud již existují, pak jsou opakovaně využívány.
+1. Požadované artefakty jsou vytvořené jako součást opětovné ochrany. Pokud již existují, pak jsou opakovaně využívány.
 2. Cílový straně (jihovýchodní Asie) virtuální počítač nejdřív vypnutý, pokud je spuštěn.
 3. Azure Site Recovery zkopírován disku cílového straně virtuálního počítače do kontejneru jako objekt blob počáteční hodnoty.
 4. Cílový straně virtuální počítač se odstraní.
@@ -99,7 +99,7 @@ Následuje seznam kroků, které dojít v případě, že spustíte úlohu opět
 > [!NOTE]
 > Nelze chránit na úrovni plánu obnovení. Můžete pouze nastavte znovu v úrovni virtuálního počítače.
 
-Po úspěšné opětovné ochrany, bude virtuální počítač zadejte chráněném stavu.
+Po úspěšné opětovné ochrany úlohy, bude virtuální počítač zadejte chráněném stavu.
 
 ## <a name="next-steps"></a>Další kroky
 

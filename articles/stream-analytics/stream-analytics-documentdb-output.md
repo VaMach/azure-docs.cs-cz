@@ -4,7 +4,7 @@ description: "Zjistěte, jak Stream Analytics můžete cílit na Azure Cosmos DB
 keywords: "Výstup JSON"
 documentationcenter: 
 services: stream-analytics,documentdb
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
@@ -14,19 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Cíl Azure Cosmos DB pro výstup JSON ze služby Stream Analytics
 Stream Analytics můžete cílit na [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) pro výstup JSON, povolení archivace a nízkou latencí dotazy dat na nestrukturovaných dat JSON. Tento dokument popisuje některé osvědčené postupy při implementaci této konfigurace.
 
 Pro ty, kteří jsou obeznámeni s Cosmos DB, podívejte se na [studijní postup Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) začít pracovat. 
 
-Poznámka: Rozhraní API DB Mongo na základě Cosmos DB kolekce není aktuálně podporována. 
+> [!Note]
+> V tomto okamžiku Azure Stream Analytics podporuje jenom připojení pomocí CosmosDB **DocumentDB (SQL) rozhraní API**.
+> Jiná rozhraní API Azure Cosmos DB ještě nejsou podporovány. Pokud bod Azure Stream Analytics k účtům Azure Cosmos DB vytvořené pomocí jiných rozhraní API, data nemusí být uložen správně. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Základní informace o DB Cosmos jako cíl výstupu
 Výstup Azure Cosmos DB v Stream Analytics, který umožňuje zapisovat zpracování výsledků jako výstup JSON do vaší kolekcí Cosmos DB datového proudu. Stream Analytics nevytváří kolekcí do databáze, místo toho by bylo potřeba vytvořit předem. Toto je tak, aby fakturace nákladů na Cosmos DB kolekce jsou transparentní pro vás, a tak, aby mohli vyladit výkon, konzistence a kapacitu vaší kolekce přímo pomocí [rozhraní API DB Cosmos](https://msdn.microsoft.com/library/azure/dn781481.aspx). Doporučujeme používat jednu databázi na DB Cosmos jednu úlohu streamování logicky jednotlivé kolekce pro úlohu streamování.
@@ -67,5 +69,5 @@ Dělené kolekce | Více kolekcí "Jednoho oddílu"
 * **Vzor názvu** – název kolekce nebo jejich vzor pro kolekce, který se má použít. Formát názvu kolekce se dá vytvořit pomocí tokenu volitelná {partition}, na kterém oddíly začínají od 0. Ukázka platné vstupní hodnoty jsou následující:  
   1\) kolekce – jednu kolekci s názvem "Kolekce" musí existovat.  
   2\) kolekce {partition} – takových kolekcí, musí existovat – "MyCollection0", "MyCollection1", "MyCollection2" a tak dále.  
-* **Klíč oddílu** – volitelné. To je potřeba jenom Pokud používáte token {vytvoření oddílu} ve vzoru názvu vaší kolekce. Název pole ve výstupních událostech používaný k určení klíče pro rozdělení výstupu do kolekcí Pro výstup jedinou kolekci všechny libovolný výstupního sloupce lze použít například ID oddílu.  
+* **Klíč oddílu** – volitelné. To je potřeba jenom Pokud používáte tokenu {partition} ve vzoru názvu vaší kolekce. Název pole ve výstupních událostech používaný k určení klíče pro rozdělení výstupu do kolekcí. Pro výstup jedinou kolekci všechny libovolný výstupního sloupce lze použít například ID oddílu.  
 * **ID dokumentu** – volitelné. Název pole ve výstupních událostech používaný k určení primárního klíče, na které insert nebo update jsou založené operace.  

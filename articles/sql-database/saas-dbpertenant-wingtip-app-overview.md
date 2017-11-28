@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: ddd51c23c7e7d01e38b02c79c27d1951eea61e70
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Úvod do příklad aplikace SaaS více klientů databáze SQL
 
 *Wingtip SaaS* aplikace je víceklientské ukázkovou aplikaci, která demonstruje jedinečných výhod databáze SQL. Aplikace používá vzorec SaaS aplikace databází na tenanta k poskytování služeb více tenantům. Tato aplikace je určená k prezentují funkce databáze SQL Azure, které umožňují SaaS scénáře, včetně několika vzory návrhu a správu SaaS. Pro rychlé zprovoznění, nasadí aplikaci Wingtip SaaS za méně než pět minut!
 
-Jsou k dispozici v aplikaci zdrojový kód a správu skriptů [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) úložiště github. Ke spouštění skriptů, [Learning moduly složka pro stahování](#download-and-unblock-the-wingtip-saas-scripts) do místního počítače.
+Jsou k dispozici v aplikaci zdrojový kód a správu skriptů [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) úložiště GitHub. Podívejte se [obecné pokyny](saas-tenancy-wingtip-app-guidance-tips.md) kroky, jak stáhnout a odblokování skripty Wingtip lístky SaaS.
 
 ## <a name="application-architecture"></a>Architektura aplikace
 
-Aplikace Wingtip SaaS používá model databáze za klienta a elastické fondy SQL Pokud chcete maximalizovat efektivitu. Pro zřizování a mapování klientům svá data se používá databázi katalogu. Základní aplikace Wingtip SaaS používá fond s tři klienty ukázka plus databáze katalogu. Dokončení řadu SaaS Wingtip kurzy za následek doplňky vyhledá nasazení se zavedením analytické databáze mezidatabázové Správa schématu, atd.
+Aplikace Wingtip SaaS používá model databáze za klienta a elastické fondy SQL Pokud chcete maximalizovat efektivitu. Pro zřizování a mapování klientům svá data se používá databázi katalogu. Základní aplikace Wingtip SaaS používá fond s tři klienty ukázka plus databáze katalogu. Dokončení řadu SaaS Wingtip kurzy způsobit doplňky pro počáteční nasazení se zavedením analytické databáze mezidatabázové Správa schématu, atd.
 
 
 ![Architektura Wingtip SaaS](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)
@@ -42,7 +42,7 @@ Po nasazení aplikace, prozkoumejte následující kurzy, které sestavení po p
 
 | Kurz | Popis |
 |:--|:--|
-| [Pokyny a tipů, například aplikace SaaS víceklientské Azure SQL Database](saas-dbpertenant-wingtip-app-guidance-tips.md) | **ZAČNĚTE ZDE!** Stažení a spuštění skriptů prostředí PowerShell pro přípravu částí aplikace. |
+| [Pokyny a tipů, například aplikace SaaS víceklientské Azure SQL Database](saas-tenancy-wingtip-app-guidance-tips.md) | **ZAČNĚTE ZDE!** Stažení a spuštění skriptů prostředí PowerShell pro přípravu částí aplikace. |
 |[Nasazení a prozkoumejte Wingtip SaaS aplikace](saas-dbpertenant-get-started-deploy.md)|  Nasazení a prozkoumejte aplikace Wingtip SaaS k předplatnému Azure. |
 |[Zřizování a katalog klientů](saas-dbpertenant-provision-and-catalog.md)| Zjistěte, jak se aplikace připojí klientům pomocí databáze katalogu a jak katalogu mapuje klienty na svá data. |
 |[Sledování a správa výkonu](saas-dbpertenant-performance-monitoring.md)| Zjistěte, jak používat monitorování funkcí služby SQL Database a jak nastavit upozornění při překročení prahové hodnoty výkonu. |
@@ -55,6 +55,6 @@ Po nasazení aplikace, prozkoumejte následující kurzy, které sestavení po p
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Pokyny a tipů, například aplikace SaaS víceklientské Azure SQL Database](saas-dbpertenant-wingtip-app-guidance-tips.md)
+- [Pokyny a tipů, například aplikace SaaS víceklientské Azure SQL Database](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Nasazení aplikace Wingtip SaaS](saas-dbpertenant-get-started-deploy.md)

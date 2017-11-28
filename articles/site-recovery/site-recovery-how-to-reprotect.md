@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba68df3df33a357db4d97ff65c9cc5995cd51caa
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Znovu nastavte ochranu z Azure do místního serveru
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 Tento článek popisuje, jak k nastavení opětné Azure virtuálních počítačů z Azure do místního webu. Postupujte podle pokynů v tomto článku, až budete připraveni k selhání zpět vaše virtuální počítače VMware nebo Windows nebo Linuxem fyzických serverů po jste při selhání z místní lokality do Azure (jak je popsáno v [VMware replikaci virtuálních počítačů a fyzických serverů do Azure s Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> Až budete mít buď není možné navrácení služeb po obnovení [dokončit migraci](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), přesunout virtuální počítač do jiné skupiny prostředků nebo odstranit virtuální počítač Azure. Pokud zakážete ochrany virtuálního počítače, nemůžete navrácení služeb po obnovení.
+> Až budete mít buď není možné navrácení služeb po obnovení [dokončit migraci](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), přesunout virtuální počítač do jiné skupiny prostředků nebo odstranit virtuální počítač Azure. Pokud zakážete ochrany virtuálního počítače, nemůžete navrácení služeb po obnovení. Pokud je virtuální počítač vytvořený nejprve v Azure (narodili v cloudu) pak můžete nelze nastavte ji znovu zpět na místní. Tento počítač by měl mít byla původně chráněném místní a převzetí služeb při selhání do Azure před opětovné ochrany.
 
 
 Po dokončení vytvoření a jsou replikace chráněných virtuálních počítačů, můžete zahájit navrácení služeb po obnovení ve virtuálních počítačích, aby byly k místní lokalitě.
@@ -63,7 +63,10 @@ Při přípravě k nastavení opětné virtuálních počítačů trvat nebo vz�
     * [Virtuální počítač s Linuxem musí hlavní cílový server Linux](site-recovery-how-to-install-linux-master-target.md).
     * Virtuální počítač Windows musí hlavní cílový server systému Windows. Místní proces server a hlavní cílových počítačů můžete použít znovu.
 
-    Hlavní cíl má jiné požadavky, které jsou uvedeny v [běžné co je potřeba zkontrolovat na hlavním cíli před opětovné ochrany](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+> [!NOTE]
+> Všechny virtuální počítače skupiny replikace by měla být stejný typ operačního systému (všechny verze Windows nebo Linux všechny). Replikační skupina s smíšený operačních systémů se aktuálně nepodporuje pro opětovné ochrany a navrácení služeb po obnovení místně. Je to proto, že se hlavní cíl by měl být stejný operační systém jako virtuální počítač a všechny virtuální počítače replikační skupiny musí mít stejný hlavní cíl. 
+
+    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 * Konfigurační server je místní, když jste navrácení služeb po obnovení. Virtuální počítač musí během navrácení služeb po obnovení, neexistuje v databázi konfigurací serveru. Jinak navrácení služeb po obnovení neúspěšné. 
 
@@ -170,6 +173,8 @@ V současné době podporuje Azure Site Recovery selhání zpět jenom na systé
 * Hlavní cílový server nemůže mít snímky na discích. Pokud existují snímky, vytvoření a navrácení služeb po obnovení nezdaří.
 
 * Na hlavním cíli nemůže mít řadič Paravirtual SCSI. Kontroler může být pouze řadič LSI Logic. Bez řadič LSI Logic nové provedení ochrany se nezdaří.
+
+* V dané instanci může mít hlavního cíle atmst 60 disky připojené k němu. Pokud počet virtuálních počítačů se znovu k hlavnímu cíli místní součet celkový počet víc než 60 disky a pak reprotects k hlavnímu cíli začne selhání. Ujistěte se, že máte dostatek hlavní cíl sloty disku nebo nasadit další hlavních cílových serverů.
 
 <!--
 ### Failback policy

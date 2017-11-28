@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Postup povolení vnořené virtualizaci ve virtuálním počítači Azure
 
@@ -140,7 +140,7 @@ Postupujte podle následujících kroků a konfigurace DHCP na hostiteli virtuá
   
 2. V průvodci klikněte na tlačítko **Další** dokud stránce role serveru.
   
-3. Kliknutím vyberte **DHCP Server** zaškrtávací políčko, klikněte na tlačítko **přidat funkce**a potom klikněte na**Další** až do dokončení průvodce.
+3. Kliknutím vyberte **DHCP Server** zaškrtávací políčko, klikněte na tlačítko **přidat funkce**a potom klikněte na **Další** až do dokončení průvodce.
   
 4. Klikněte na **Nainstalovat**.
 
@@ -159,7 +159,7 @@ Postupujte podle následujících kroků a konfigurace DHCP na hostiteli virtuá
 6. Klikněte na tlačítko **Další** až po dokončení průvodce, a všechny výchozí hodnoty, pak klikněte na tlačítko **Dokončit**.
     
 ### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Možnost 2: Ručně nastavte statickou IP adresu ve virtuálním počítači hosta
-Pokud jste nenakonfigurovali DHCP k dynamickému přidělení toe IP adresa hostovaného virtuálního počítače, postupujte podle těchto kroků můžete nastavte statickou IP adresu.
+Pokud jste nenakonfigurovali DHCP k dynamickému přidělení IP adresy na virtuálním počítači hosta, postupujte podle těchto kroků můžete nastavte statickou IP adresu.
 
 1. Ve virtuálním počítači Azure otevřete PowerShell jako správce.
 

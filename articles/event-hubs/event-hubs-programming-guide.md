@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: 69c07cb31b1dc3ec3685448d8187ef3a57bd3821
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: d6cc4d95adb52b5b0bfc4b674ade878af764a3e7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Průvodce programováním pro službu Event Hubs
 
@@ -117,10 +117,10 @@ Odesílání událostí v dávkách může pomoci zvýšit propustnost. [SendBat
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Všimněte si, že jeden batch nesmí překročit 256 KB omezení pro událost. Kromě toho každá zpráva v batchi používá stejnou identitu zdroje. Dodržení maximálního limitu velikosti události u batche musí zajistit odesílatel. V případě překročení se u klienta vygeneruje chyba odeslání (**Send**).
+Všimněte si, že jeden batch nesmí překročit velikost 256 KB, tedy standardní omezení pro událost. Kromě toho každá zpráva v batchi používá stejnou identitu zdroje. Dodržení maximálního limitu velikosti události u batche musí zajistit odesílatel. V případě překročení se u klienta vygeneruje chyba odeslání (**Send**). Můžete použít pomocná třída [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) zajistit, že dávka není delší než 256 KB. Získáte prázdnou [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) z [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) rozhraní API a pak použít [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) přidání události k vytvoření dávky. Nakonec použijte [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) získat základní události, které mají být předány [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) rozhraní API.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Asynchronní odesílání a škálované odesílání
-Můžete také odeslat události do centra událostí asynchronně. Asynchronní odesílání může zvýšit frekvenci, s jakou je klient schopný odesílat události. Metody [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) i [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) jsou k dispozici v asynchronních verzích, které vrací objekt [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). I když tato technika může zvýšit propustnost, taky může způsobit, že klient bude odesílat události i po omezení ze strany služby Event Hubs, což může v případě nesprávné implementace vést k selhání klienta nebo ztrátě zpráv. K ovládání možností opětovných pokusů klienta můžete navíc u klienta použít vlastnost [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy).
+Můžete také odeslat události do centra událostí asynchronně. Asynchronní odesílání může zvýšit frekvenci, s jakou je klient schopný odesílat události. Metody [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) i [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) jsou k dispozici v asynchronních verzích, které vrací objekt [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). I když tato technika může zvýšit propustnost, taky může způsobit, že klient bude odesílat události i po omezení ze strany služby Event Hubs, což může v případě nesprávné implementace vést k selhání klienta nebo ztrátě zpráv. K ovládání možností opětovných pokusů klienta můžete navíc u klienta použít vlastnost [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy).
 
 ## <a name="create-a-partition-sender"></a>Vytvoření odesílatele na oddíl
 Přestože je nejčastěji odesílají události do centra událostí bez klíče oddílu, v některých případech můžete chtít odesílat události přímo na konkrétní oddíl. Například:
