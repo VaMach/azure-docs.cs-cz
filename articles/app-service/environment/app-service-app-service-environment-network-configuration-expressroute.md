@@ -74,7 +74,7 @@ Informace o vytváření a konfigurace trasy definované uživatelem je k dispoz
 ## <a name="example-udr-configuration-for-an-app-service-environment"></a>Ukázková konfigurace UDR služby App Service Environment
 **Předpoklady**
 
-1. Nainstalovat Azure Powershell z [Azure stáhne stránky] [ AzureDownloads] (s datem červen 2015 nebo novější).  V části "Nástroje příkazového řádku" existuje propojení "Instalace" v části "Windows Powershell", který bude instalovat nejnovější rutiny prostředí Powershell.
+1. Nainstalovat Azure Powershell z [Azure stáhne stránky][AzureDownloads] (s datem červen 2015 nebo novější).  V části "Nástroje příkazového řádku" existuje propojení "Instalace" v části "Windows Powershell", který bude instalovat nejnovější rutiny prostředí Powershell.
 2. Doporučuje se, že jedinečnou podsíť je vytvořený pro výhradní použití služby App Service Environment.  To zaručuje, že udr použije na podsíť pouze otevřít odchozí přenosy App Service Environment.
 3. **Důležité**: nenasazujte App Service Environment, dokud **po** dodržíte následující kroky konfigurace.  To zajišťuje, že odchozí síťové připojení k dispozici před pokusem o nasazení služby App Service Environment.
 

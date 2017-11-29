@@ -2,7 +2,7 @@
 
 Klientská knihovna serializéru služby IoT Hub používá model k určení formátu zpráv, které si zařízení vyměňuje se službou IoT Hub.
 
-1. Přidejte následující deklarace proměnných za příkazy `#include`. Nahraďte zástupný symbol hodnoty [ID zařízení] a [klíč zařízení] s hodnotami, které jste si poznamenali pro vaše zařízení v řídicím panelu řešení vzdáleného monitorování. K nahrazení hodnoty [IoTHub Name] (Název služby IoT Hub) použijte název hostitele služby IoT Hub z řídicího panelu řešení. Pokud je například název hostitele vaší služby IoT Hub **contoso.azure-devices.net**, nahraďte hodnotu [IoTHub Name] za **contoso**:
+1. Přidejte následující deklarace proměnných za příkazy `#include`. Nahraďte zástupný symbol hodnoty [ID zařízení] a [klíč zařízení] s hodnotami, které jste si poznamenali pro vaše zařízení v řídicím panelu řešení vzdáleného monitorování. K nahrazení hodnoty [IoTHub Name] použijte název hostitele služby IoT Hub z řídicího panelu řešení. Pokud je například název hostitele vaší služby IoT Hub **contoso.azure-devices.net**, nahraďte hodnotu [IoTHub Name] za **contoso**:
    
     ```c
     static const char* deviceId = "[Device Id]";

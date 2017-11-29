@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Ověření řešení pro správu Batch se službou Active Directory
 
-Aplikace, které volají služby Azure Batch Management ověření pomocí [Azure Active Directory] [ aad_about] (Azure AD). Azure AD je víceklientské cloudový adresář společnosti Microsoft a služba identity management. Azure samotné používá Azure AD pro ověření jeho zákazníků, správci služeb a organizační uživatele.
+Aplikace, které volají služby Azure Batch Management ověření pomocí [Azure Active Directory][aad_about] (Azure AD). Azure AD je víceklientské cloudový adresář společnosti Microsoft a služba identity management. Azure samotné používá Azure AD pro ověření jeho zákazníků, správci služeb a organizační uživatele.
 
 Knihovna rozhraní Batch Management .NET poskytuje typy pro práci s účty Batch, klíče účtu, aplikace a balíčky aplikací. Knihovně rozhraní Batch Management .NET je klient poskytovatel prostředků Azure a je použít v kombinaci s [Azure Resource Manager] [ resman_overview] tyto zdroje spravovat prostřednictvím kódu programu. Azure AD je vyžadovaný k ověření požadavky prostřednictvím všechny klienty poskytovatele prostředků Azure, včetně knihovny Batch Management .NET a prostřednictvím [Azure Resource Manager][resman_overview].
 
@@ -33,7 +33,7 @@ Další informace o používání knihovny Batch Management .NET a ukázkové Ac
 
 ## <a name="register-your-application-with-azure-ad"></a>Registrace vaší aplikace s Azure AD
 
-Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) poskytuje programovací rozhraní do služby Azure AD pro použití v rámci vaší aplikace. Pro volání ADAL z aplikace, je nutné zaregistrovat aplikaci v klientovi služby Azure AD. Při registraci vaší aplikace, je třeba zadat Azure AD s informacemi o aplikaci, včetně názvu pro něj v rámci klienta Azure AD. Potom Azure AD poskytuje ID aplikace, které použijete k aplikaci přidružit Azure AD v době běhu. Další informace o ID aplikace, najdete v části [aplikace a služby hlavní objekty ve službě Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+Azure [Active Directory Authentication Library][aad_adal] (ADAL) poskytuje programovací rozhraní do služby Azure AD pro použití v rámci vaší aplikace. Pro volání ADAL z aplikace, je nutné zaregistrovat aplikaci v klientovi služby Azure AD. Při registraci vaší aplikace, je třeba zadat Azure AD s informacemi o aplikaci, včetně názvu pro něj v rámci klienta Azure AD. Potom Azure AD poskytuje ID aplikace, které použijete k aplikaci přidružit Azure AD v době běhu. Další informace o ID aplikace, najdete v části [aplikace a služby hlavní objekty ve službě Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
 
 Pokud chcete zaregistrovat AccountManagement ukázkovou aplikaci, postupujte podle kroků v [přidání aplikace](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) kapitoly [integrace aplikací s Azure Active Directory][aad_integrate]. Zadejte **nativní klientská aplikace** pro typ aplikace. Odvětví standardní OAuth 2.0 identifikátor URI **identifikátor URI pro přesměrování** je `urn:ietf:wg:oauth:2.0:oob`. Ale můžete zadat libovolný platný identifikátor URI (například `http://myaccountmanagementsample`) pro **identifikátor URI pro přesměrování**, protože nemusí být skutečné koncový bod:
 

@@ -50,7 +50,7 @@ Ujistěte se, že verze Node.js 0.11.5 nebo novější je nainstalován na vývo
     var Message = require('azure-iot-device').Message;
     ```
 
-1. Přidejte následující deklarace proměnných za příkazy `require`. Nahraďte zástupné hodnoty [Device Id] (ID zařízení) a [Device Key] (Klíč zařízení) hodnotami, které jste si pro své zařízení poznamenali na řídicím panelu řešení vzdáleného monitorování. K nahrazení hodnoty [IoTHub Name] (Název služby IoT Hub) použijte název hostitele služby IoT Hub z řídicího panelu řešení. Pokud je například název hostitele vaší služby IoT Hub **contoso.azure-devices.net**, nahraďte hodnotu [IoTHub Name] za **contoso**:
+1. Přidejte následující deklarace proměnných za příkazy `require`. Nahraďte zástupné hodnoty [Device Id] a [Device Key] hodnotami, které jste si pro své zařízení poznamenali na řídicím panelu řešení vzdáleného monitorování. K nahrazení hodnoty [IoTHub Name] použijte název hostitele služby IoT Hub z řídicího panelu řešení. Pokud je například název hostitele vaší služby IoT Hub **contoso.azure-devices.net**, nahraďte hodnotu [IoTHub Name] za **contoso**:
 
     ```nodejs
     var connectionString = 'HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]';

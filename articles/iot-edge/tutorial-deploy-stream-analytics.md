@@ -19,7 +19,7 @@ ms.lasthandoff: 11/23/2017
 
 Zařízení IoT může vytvářet velké objemy dat. Tato data v některých případech může být analyzován nebo zpracovaných před dosažením cloudu ke snížení velikosti odeslaná data nebo omezit čekací doba přenosu řešitelné přehledu.
 
-[Azure Stream Analytics] [ azure-stream] (ASA) poskytuje syntaxe bohatě strukturovaných dotazů pro analýzu dat v cloudu i na IoT hraniční zařízení. Další informace o ASA hranu IoT najdete v tématu [ASA dokumentaci](../stream-analytics/stream-analytics-edge.md).
+[Azure Stream Analytics][azure-stream] (ASA) poskytuje syntaxe bohatě strukturovaných dotazů pro analýzu dat v cloudu i na IoT hraniční zařízení. Další informace o ASA hranu IoT najdete v tématu [ASA dokumentaci](../stream-analytics/stream-analytics-edge.md).
 
 Tento kurz vás provede procesem vytvoření úlohu služby Azure Stream Analytics a jeho nasazení na IoT hraniční zařízení pro zpracování datového proudu místní telemetrie přímo na zařízení a generování výstrah pro jednotku okamžitý zásah na zařízení.  Zahrnutých v tomto kurzu jsou dva moduly. Modul simulované teplotní snímač (tempSensor), který generuje teploty data z 20 do 120 stupňů, zvýší o 1 každých 5 sekund a modul ASA, který odfiltruje z teploty větší než 100 stupňů. Modul ASA také obnoví tempSensor, když průměru 30 sekund dosáhne 100.
 

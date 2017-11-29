@@ -35,7 +35,7 @@ Jednou z výhod používání Azure Machine Learning Studio pro vytváření mod
 
 V experimentu, který jsme se vývojem v tomto návodu jsme vytvoříte dva různé typy modely a potom porovnejte jejich vyhodnocování výsledky se rozhodnout, který algoritmus chceme používat v našem konečný experiment.  
 
-Existují různé modely, které jsme může vybírat. Chcete-li zobrazit dostupné modely, rozbalte **Machine Learning** uzlu paletě modulů a potom rozbalte **inicializovat Model** a uzly pod ní. Pro účely tohoto experimentu, jsme vyberete [Two-Class Support Vector Machine] [ two-class-support-vector-machine] (SVM) a [Two-Class Boosted Decision Tree] [ two-class-boosted-decision-tree] moduly.    
+Existují různé modely, které jsme může vybírat. Chcete-li zobrazit dostupné modely, rozbalte **Machine Learning** uzlu paletě modulů a potom rozbalte **inicializovat Model** a uzly pod ní. Pro účely tohoto experimentu, jsme vyberete [Two-Class Support Vector Machine][two-class-support-vector-machine] (SVM) a [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] moduly.    
 
 > [!TIP]
 > Potřebujete pomoc při rozhodování o tom, který algoritmus Machine Learning nejlepší vyhovuje konkrétní problém se snažíte vyřešit, najdete v části [jak zvolit algoritmy pro Microsoft Azure Machine Learning](algorithm-choice.md).
@@ -56,7 +56,7 @@ Nejprve nastavíme modelu vylepšené rozhodovací strom.
    
    [Two-Class Boosted Decision Tree] [ two-class-boosted-decision-tree] modulu inicializuje obecné modelu a [trénování modelu] [ train-model] používá Cvičná data pro učení model. 
 
-3. Připojit levém výstup doleva [spustit skript jazyka R] [ execute-r-script] modulu vpravo vstupní port [Train Model] [ train-model] (jsme se rozhodli v modulu [Krok 3](walkthrough-3-create-new-experiment.md) tohoto průvodce používat dat pocházejících z levé strany modulu rozdělení dat pro školení).
+3. Připojit levém výstup doleva [spustit skript jazyka R][execute-r-script] modulu vpravo vstupní port [Train Model][train-model] \(jsme se rozhodli v modulu [Krok 3](walkthrough-3-create-new-experiment.md) tohoto průvodce používat dat pocházejících z levé strany modulu rozdělení dat pro školení).
    
    > [!TIP]
    > Společnost Microsoft nepotřebuje dvou vstupních hodnot a jeden z výstupů [spustit skript jazyka R] [ execute-r-script] modul pro tento experiment, takže jsme můžete je nechat odpojit. 

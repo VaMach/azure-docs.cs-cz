@@ -465,7 +465,7 @@ Situace došlo v Azure nasazení, které by upřednostnit pomocí softwaru disko
 > 
 > K vytvoření softwaru diskového pole RAID v systému Linux jsou podporovány pouze MDADM a LVM (Správce logických svazek). Další informace najdete v následujících článcích:
 > 
-> * [Konfigurace softwaru diskového pole RAID v systému Linux] [ virtual-machines-linux-configure-raid] (pro MDADM)
+> * [Konfigurace softwaru diskového pole RAID v systému Linux][virtual-machines-linux-configure-raid] (pro MDADM)
 > * [Konfigurace LVM na virtuální počítač s Linuxem v Azure][virtual-machines-linux-configure-lvm]
 > 
 > 

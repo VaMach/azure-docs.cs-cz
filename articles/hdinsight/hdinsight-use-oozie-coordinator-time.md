@@ -220,7 +220,7 @@ Akce Hive v pracovním postupu volá soubor skriptu HiveQL. Tento soubor skriptu
     <tr><td>${hiveOutputFolder}</td><td>Výstupní složky pro příkaz Hive vložit PŘEPSAT. Toto je stejné složce, Sqoop export (export-dir).</td></tr>
     </table>
 
-    Další informace o pracovním postupu Oozie a pomocí akce pracovního postupu najdete v tématu [dokumentaci Apache Oozie 4.0] [ apache-oozie-400] (u clusteru HDInsight verze 3.0) nebo [dokumentaci Apache Oozie 3.3.2] [ apache-oozie-332] (u clusteru HDInsight verze 2.1).
+    Další informace o pracovním postupu Oozie a pomocí akce pracovního postupu najdete v tématu [dokumentaci Apache Oozie 4.0][apache-oozie-400] (u clusteru HDInsight verze 3.0) nebo [dokumentaci Apache Oozie 3.3.2][apache-oozie-332] (u clusteru HDInsight verze 2.1).
 
 1. Uložte soubor jako **C:\Tutorials\UseOozie\workflow.xml** pomocí kódování ANSI (ASCII). (Použijte Poznámkový blok, pokud textového editoru neposkytuje tuto možnost.)
 
@@ -394,7 +394,7 @@ Další informace najdete v tématu [HDInsight: Hive interní a externí tabulky
     ![Kurz přípravy výstup][img-preparation-output]
 
 ## <a name="run-the-oozie-project"></a>Spusťte projekt Oozie
-Prostředí Azure PowerShell aktuálně neposkytuje žádné rutiny pro definování Oozie úloh. Můžete použít **Invoke-RestMethod** rutiny k vyvolání Oozie webové služby. Oozie webového rozhraní API služby je JSON rozhraní HTTP REST API. Další informace o rozhraní API Oozie webových služeb najdete v tématu [dokumentaci Apache Oozie 4.0] [ apache-oozie-400] (u clusteru HDInsight verze 3.0) nebo [dokumentaci Apache Oozie 3.3.2] [ apache-oozie-332] (u clusteru HDInsight verze 2.1).
+Prostředí Azure PowerShell aktuálně neposkytuje žádné rutiny pro definování Oozie úloh. Můžete použít **Invoke-RestMethod** rutiny k vyvolání Oozie webové služby. Oozie webového rozhraní API služby je JSON rozhraní HTTP REST API. Další informace o rozhraní API Oozie webových služeb najdete v tématu [dokumentaci Apache Oozie 4.0][apache-oozie-400] (u clusteru HDInsight verze 3.0) nebo [dokumentaci Apache Oozie 3.3.2][apache-oozie-332] (u clusteru HDInsight verze 2.1).
 
 **Odeslat úlohu Oozie**
 

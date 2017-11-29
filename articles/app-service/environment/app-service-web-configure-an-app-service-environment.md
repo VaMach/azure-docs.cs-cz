@@ -135,7 +135,7 @@ V okně App Service Environment není **nastavení** oddíl, který obsahuje ně
 
 ![Okno nastavení a vlastností][4]
 
-**Nastavení** > **IP adresy**: Když vytvoříte aplikaci IP Secure Sockets Layer (SSL) ve vašem App Service Environment, potřebujete adresu IP SSL. Chcete-li získat jeden, musí vaše App Service Environment adres IP protokolu SSL, které vlastní, které mohou být přiděleny. Když je vytvořen App Service Environment, má jednu IP SSL adresu pro tento účel, ale můžete přidat další. Není zpoplatněny pro další SSL IP adresy, jak je znázorněno v [služby App Service – ceny] [ AppServicePricing] (v oddílu na připojení SSL). Další cena je cena IP SSL.
+**Nastavení** > **IP adresy**: Když vytvoříte aplikaci IP Secure Sockets Layer (SSL) ve vašem App Service Environment, potřebujete adresu IP SSL. Chcete-li získat jeden, musí vaše App Service Environment adres IP protokolu SSL, které vlastní, které mohou být přiděleny. Když je vytvořen App Service Environment, má jednu IP SSL adresu pro tento účel, ale můžete přidat další. Není zpoplatněny pro další SSL IP adresy, jak je znázorněno v [služby App Service – ceny][AppServicePricing] (v oddílu na připojení SSL). Další cena je cena IP SSL.
 
 **Nastavení** > **Front End fondu** / **fondy pracovních procesů**: každý z těchto oknech fondu prostředků nabízí možnost zobrazit informace pouze na tento fond zdrojů v Přidání poskytovat ovládací prvky plně škálování tento fond zdrojů.  
 

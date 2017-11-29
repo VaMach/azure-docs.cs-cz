@@ -48,7 +48,7 @@ Obvyklé konfigurace systému SQL Server má koncový bod naslouchání na portu
 
 Existují dva přístupy pro provoz směřující do tohoto koncového bodu:
 
-* [Sítě seznamy řízení přístupu] [ NetworkAccessControlLists] (sítě ACL)
+* [Sítě seznamy řízení přístupu][NetworkAccessControlLists] (sítě ACL)
 * [Skupiny zabezpečení sítě][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Omezení přístupu k síti seznamu ACL

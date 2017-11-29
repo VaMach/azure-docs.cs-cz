@@ -47,7 +47,7 @@ Tento kurz vás provede těmito základními kroky ke zprovoznění nabízených
 Konfigurace služby GCM a Azure Notification Hubs je totožná s konfigurací pro Android, protože [služba GCM (Google Cloud Messaging) pro Chrome] je zastaralá a tatáž služba GCM nyní podporuje jak zařízení Android, tak instance Chromu.
 
 ## <a id="register"></a>Povolení služby GCM (Google Cloud Messaging)
-1. Přejděte na web [Google Cloud Console] (Cloudová konzola Google), přihlaste se přihlašovacími údaji ke svému účtu Google a klikněte na tlačítko **Create Project** (Vytvořit projekt). Do pole **Project Name** (Název projektu) zadejte odpovídající název a klikněte na tlačítko **Create** (Vytvořit).
+1. Přejděte na web [Google Cloud Console], přihlaste se přihlašovacími údaji ke svému účtu Google a klikněte na tlačítko **Create Project** (Vytvořit projekt). Do pole **Project Name** (Název projektu) zadejte odpovídající název a klikněte na tlačítko **Create** (Vytvořit).
    
        ![Google Cloud Console - Create Project][1]
 2. Na stránce **Projects** (Projekty) si poznamenejte číslo **Project Number** (Číslo projektu) pro projekt, který jste právě vytvořili. Použijete jej v aplikaci pro Chrome jako **ID odesílatele GCM** k registraci do služby GCM.

@@ -49,7 +49,7 @@ Chcete-li získat CPython několika způsoby:
 Pokud máte konkrétní potřebu, doporučujeme první dvě možnosti.
 
 ## <a name="sdk-installation-on-windows-linux-and-macos-client-libraries-only"></a>Instalace sady SDK v systému Windows, Linux a systému MacOS (pouze klientské knihovny)
-Pokud je již nainstalován jazyk Python, můžete k instalaci sady všechny knihovny klienta ve vaší stávající Python 2.7 nebo prostředí Python 3.3 + pip. Tato akce stáhne balíčky ze [indexu balíčků Pythonu] [ Python Package Index] (úložiště PyPI).
+Pokud je již nainstalován jazyk Python, můžete k instalaci sady všechny knihovny klienta ve vaší stávající Python 2.7 nebo prostředí Python 3.3 + pip. Tato akce stáhne balíčky ze [indexu balíčků Pythonu][Python Package Index] (úložiště PyPI).
 
 Budete pravděpodobně potřebovat oprávnění správce:
 
@@ -88,7 +88,7 @@ nebo přímo
 ```
 
 ## <a name="getting-more-packages"></a>Získávání další balíčky
-[Indexu balíčků Pythonu] [ Python Package Index] (úložiště PyPI) má bohaté výběr Python knihovny.  Pokud jste vybrali k instalaci Distro, budete již mít většinu zajímavé bitů pro různé scénáře vývoje webů na technické projekty.
+[Indexu balíčků Pythonu][Python Package Index] (úložiště PyPI) má bohaté výběr Python knihovny.  Pokud jste vybrali k instalaci Distro, budete již mít většinu zajímavé bitů pro různé scénáře vývoje webů na technické projekty.
 
 ## <a name="python-tools-for-visual-studio"></a>Python Tools for Visual Studio
 [Python Tools pro Visual Studio][Python Tools pro Visual Studio] (PTVS) je plug-in bez/OSS od společnosti Microsoft, která převede VS do plnohodnotný IDE Python:

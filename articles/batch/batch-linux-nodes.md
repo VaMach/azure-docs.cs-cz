@@ -206,7 +206,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>Seznam bitové kopie virtuálních počítačů
-Následující tabulka uvádí Marketplace Image virtuálních počítačů, které jsou kompatibilní s dostupných agentů uzlu Batch při poslední aktualizace v tomto článku. Je důležité si uvědomit, že tento seznam není spolehlivý, protože bitové kopie a agenty uzlu může přidat nebo odebrat kdykoli. Doporučujeme vaší aplikací a služeb Batch vždy použít [list_node_agent_skus] [ py_list_skus] (Python) a [ListNodeAgentSkus] [ net_list_skus] (Batch .NET), abyste zjistili a vyberte z aktuálně dostupné edice.
+Následující tabulka uvádí Marketplace Image virtuálních počítačů, které jsou kompatibilní s dostupných agentů uzlu Batch při poslední aktualizace v tomto článku. Je důležité si uvědomit, že tento seznam není spolehlivý, protože bitové kopie a agenty uzlu může přidat nebo odebrat kdykoli. Doporučujeme vaší aplikací a služeb Batch vždy použít [list_node_agent_skus][py_list_skus] (Python) a [ListNodeAgentSkus][net_list_skus] (Batch .NET), abyste zjistili a vyberte z aktuálně dostupné edice.
 
 > [!WARNING]
 > V následujícím seznamu může kdykoli změnit. Vždy nutné použít **agent uzlu seznamu SKU** metody, které jsou k dispozici v rozhraní API služby Batch k zobrazení seznamu kompatibilní virtuální počítač a uzlu agenta SKU při spuštění úlohy Batch.

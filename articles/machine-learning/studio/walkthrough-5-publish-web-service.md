@@ -51,8 +51,8 @@ Je potřeba odstranit následující moduly:
 
 * [Two-Class Support Vector Machine][two-class-support-vector-machine]
 * [Cvičení modelu] [ train-model] a [Score Model] [ score-model] moduly, které byly připojené k němu
-* [Normalizuje Data] [ normalize-data] (obou z nich)
-* [Vyhodnocení modelu] [ evaluate-model] (protože jsme hotovi, vyhodnocení modelů)
+* [Normalizuje Data][normalize-data] (obou z nich)
+* [Vyhodnocení modelu][evaluate-model] (protože jsme hotovi, vyhodnocení modelů)
 
 Vyberte každý modul a stiskněte klávesu Delete, nebo klikněte pravým tlačítkem na modul a vyberte **odstranit**. 
 

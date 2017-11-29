@@ -26,7 +26,7 @@ Aplikace služby ověřování / autorizace je funkce, která poskytuje způsob,
 
 Služby App Service používá federovaných identit, ve kterém poskytovatel identity jiného výrobce uchovává účty a ověřuje uživatele. Aplikace spoléhá na informace o identitě poskytovatele tak, aby aplikace bude obsahovat tyto informace sám sebe. App Service podporuje pět poskytovatelů identit ihned: Azure Active Directory, Facebook, Google, Microsoft Account a Twitter. Aplikace můžete použít libovolný počet těchto poskytovatelů identit zajistit uživatelům s možnostmi pro jak přihlášení. Rozšířit integrovanou podporu, můžete integrovat jiného poskytovatele identity nebo [řešení vlastní identitu][custom-auth].
 
-Pokud chcete začít hned, najdete v jednom z následujících kurzů [přidání ověřování do vaší aplikace pro iOS] [ iOS] (nebo [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], nebo [Cordova]).
+Pokud chcete začít hned, najdete v jednom z následujících kurzů [přidání ověřování do vaší aplikace pro iOS][iOS] (nebo [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], nebo [Cordova]).
 
 ## <a name="how-authentication-works-in-app-service"></a>Princip ověřování ve službě App Service
 Aby bylo možné ověřit pomocí jednoho z poskytovatelů identity, musíte nejprve konfigurovat zprostředkovatel identity vědět o vaší aplikaci. Poskytovatel identity bude potom zadejte ID a tajné klíče, které zadáte do služby App Service. Tím se dokončí vztahu důvěryhodnosti, aby služby App Service můžete ověřit kontrolní výrazy uživatele, jako je například ověřování tokenů, od zprostředkovatele identity.
