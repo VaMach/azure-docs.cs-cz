@@ -57,16 +57,16 @@ Můžete zobrazit prvních 100 řádků dat a některé statistické informace p
 
 Protože datový soubor nebyl dodán záhlaví sloupců, Studio poskytl obecné záhlaví (Sloupec1, Sloupec2, *atd*). Dobrý záhlaví nejsou nezbytně nutné, aby vytvoření modelu, ale jejich usnadnili práci s daty v rámci experimentu. Navíc pokud jsme nakonec publikovat tento model ve webové službě, záhlaví pomoci při identifikaci sloupce, které chcete uživatele služby.  
 
-Přidáme záhlaví sloupců pomocí [upravit Metadata] [ edit-metadata] modulu.
-Můžete použít [upravit Metadata] [ edit-metadata] modulu změnit metadata spojená s datovou sadu. V takovém případě jsme můžete zadat další popisné názvy záhlaví sloupců. 
+Přidáme záhlaví sloupců pomocí [upravit Metadata][edit-metadata] modulu.
+Můžete použít [upravit Metadata][edit-metadata] modulu změnit metadata spojená s datovou sadu. V takovém případě jsme můžete zadat další popisné názvy záhlaví sloupců. 
 
 Chcete-li použít [upravit Metadata][edit-metadata], nejprve zadejte sloupce, které chcete upravit (v tomto případě všechny z nich.) Potom zadejte akci prováděnou na tyto sloupce (v tomto případě změna záhlaví sloupců.)
 
 1. Paletě modulů, zadejte "metadata" **vyhledávání** pole. [Upravit Metadata] [ edit-metadata] se zobrazí v seznamu modulů.
 
-2. Klikněte na tlačítko a přetáhněte ji [upravit Metadata] [ edit-metadata] modulu na plátno a umístěte jej pod datovou sadu jsme přidali dříve.
+2. Klikněte na tlačítko a přetáhněte ji [upravit Metadata][edit-metadata] modulu na plátno a umístěte jej pod datovou sadu jsme přidali dříve.
 
-3. Připojit datovou sadu, která [upravit Metadata][edit-metadata]: klikněte na výstupní port datové sady (přeškrtnutým kroužkem v dolní části datové sady), přetáhněte do vstupní port [upravit Metadata] [ edit-metadata] (přeškrtnutým kroužkem v horní části modulu), pak uvolnění tlačítka myši. Datovou sadu a modul zůstanou připojená, i když přesouváte buď na plátně.
+3. Připojit datovou sadu, která [upravit Metadata][edit-metadata]: klikněte na výstupní port datové sady (přeškrtnutým kroužkem v dolní části datové sady), přetáhněte do vstupní port [upravit Metadata][edit-metadata] (přeškrtnutým kroužkem v horní části modulu), pak uvolnění tlačítka myši. Datovou sadu a modul zůstanou připojená, i když přesouváte buď na plátně.
    
    Experiment by teď měl vypadat přibližně takto:  
    
@@ -97,7 +97,7 @@ Chcete-li použít [upravit Metadata][edit-metadata], nejprve zadejte sloupce, k
    ![Vlastnosti pro úpravy metadat][3]
 
 > [!TIP]
-> Pokud chcete ověřit záhlaví sloupců, spustit experiment (klikněte na tlačítko **spustit** níže na plátno experimentu). Po jeho dokončení spuštění (zelená značka zaškrtnutí se zobrazí na [upravit Metadata][edit-metadata]), klikněte na výstupní port modulu [upravit Metadata] [ edit-metadata] modulu a vyberte **vizualizovat**. Zobrazí se výstup libovolný modul stejným způsobem, chcete-li zobrazit průběh dat přes experimentu.
+> Pokud chcete ověřit záhlaví sloupců, spustit experiment (klikněte na tlačítko **spustit** níže na plátno experimentu). Po jeho dokončení spuštění (zelená značka zaškrtnutí se zobrazí na [upravit Metadata][edit-metadata]), klikněte na výstupní port modulu [upravit Metadata][edit-metadata] modulu a vyberte **vizualizovat**. Zobrazí se výstup libovolný modul stejným způsobem, chcete-li zobrazit průběh dat přes experimentu.
 > 
 > 
 
@@ -105,9 +105,9 @@ Chcete-li použít [upravit Metadata][edit-metadata], nejprve zadejte sloupce, k
 Potřebujeme některá data pro trénování modelu a některé to vyzkoušíte.
 Proto v dalším kroku experiment, jsme datovou sadu rozdělit na dvě samostatné datové sady: jeden pro cvičení našeho modelu a jeden pro testování ho.
 
-K tomuto účelu používáme [rozdělení dat] [ split] modulu.  
+K tomuto účelu používáme [rozdělení dat][split] modulu.  
 
-1. Najít [rozdělení dat] [ split] modulu, přetáhněte na plátno a propojte jej s [upravit Metadata] [ edit-metadata] modulu.
+1. Najít [rozdělení dat][split] modulu, přetáhněte na plátno a propojte jej s [upravit Metadata][edit-metadata] modulu.
 
 2. Výchozí hodnota je 0,5 poměr rozdělení a **Randomized rozdělení** parametr je nastaven. Znamená, že náhodných polovina dat je výstup prostřednictvím jednoho portu [rozdělení dat] [ split] modulu a polovina prostřednictvím dalších. Můžete upravit tyto parametry společně s **náhodná počáteční hodnota** parametr, chcete-li změnit rozdělení mezi trénování a testování data. V tomto příkladu jsme je jako ponechte-je.
    

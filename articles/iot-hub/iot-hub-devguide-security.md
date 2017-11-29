@@ -348,7 +348,7 @@ Zařízení může použít certifikát X.509 nebo token zabezpečení pro ově�
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registrovat certifikát X.509 pro zařízení.
 
-[Sady SDK služby Azure IoT pro jazyk C#] [ lnk-service-sdk] (verze 1.0.8+) podporuje registraci zařízení, které používá certifikátu X.509. certifikát pro ověřování. Jiná rozhraní API, jako je například importu a exportu zařízení také podporují certifikáty X.509.
+[Sady SDK služby Azure IoT pro jazyk C#][lnk-service-sdk] (verze 1.0.8+) podporuje registraci zařízení, které používá certifikátu X.509. certifikát pro ověřování. Jiná rozhraní API, jako je například importu a exportu zařízení také podporují certifikáty X.509.
 
 ### <a name="c-support"></a>C\# podpory
 
@@ -376,7 +376,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### <a name="use-an-x509-certificate-during-run-time-operations"></a>Použít certifikát X.509 během spuštění operací
 
-[Zařízení Azure IoT SDK pro .NET] [ lnk-client-sdk] (verze 1.0.11+) podporuje použití certifikátů X.509.
+[Zařízení Azure IoT SDK pro .NET][lnk-client-sdk] (verze 1.0.11+) podporuje použití certifikátů X.509.
 
 ### <a name="c-support"></a>C\# podpory
 

@@ -28,7 +28,7 @@ Tento průvodce vám ukáže, jak používat klienta Android SDK pro Mobile Apps
 * Zpracování chyb.
 * Vlastní nastavení klienta.
 
-Tato příručka se zaměřuje na straně klienta SDK pro Android.  Další informace o serverové sady SDK pro Mobile Apps naleznete v tématu [pracovat s .NET back-end SDK] [ 10] nebo [použití back-end Node.js SDK][11].
+Tato příručka se zaměřuje na straně klienta SDK pro Android.  Další informace o serverové sady SDK pro Mobile Apps naleznete v tématu [pracovat s .NET back-end SDK][10] nebo [použití back-end Node.js SDK][11].
 
 ## <a name="reference-documentation"></a>Referenční dokumentace
 
@@ -188,7 +188,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Další postup vytvoření dalších tabulek v váš back-end Mobile Apps naleznete v tématu [postupy: definování řadič tabulky] [ 15] (.NET back-end) nebo [definovat tabulky pomocí dynamické schématu] [ 16] (back-end Node.js).
+Další postup vytvoření dalších tabulek v váš back-end Mobile Apps naleznete v tématu [postupy: definování řadič tabulky][15] (.NET back-end) nebo [definovat tabulky pomocí dynamické schématu][16] (back-end Node.js).
 
 Tabulce back-end Azure Mobile Apps definuje pět speciální pole, čtyři, které jsou dostupné klientům:
 

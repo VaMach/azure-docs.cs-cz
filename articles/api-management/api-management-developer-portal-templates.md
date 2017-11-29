@@ -26,7 +26,7 @@ Existují tři základní způsoby, kterými jde přizpůsobit portál pro vývo
 
 * [Úprava obsahu statických stránek a elementů rozložení stránek][modify-content-layout]
 * [Aktualizace stylů použitých pro elementy stránek napříč portálem pro vývojáře][customize-styles]
-* [Úprava šablony použité pro stránky vytvořený portál] [ portal-templates] (popsáno v této příručce)
+* [Úprava šablony použité pro stránky vytvořený portál][portal-templates] (popsáno v této příručce)
 
 Šablony slouží k přizpůsobení obsah stránky portálu generována developer (např. dokumentace rozhraní API, produktů, ověřování uživatelů atd.). Pomocí [DotLiquid](http://dotliquidmarkup.org/) syntaxe a zadané sadu prostředků lokalizovaný řetězec, ikony a ovládací prvky stránky, máte flexibilitu při konfiguraci obsahu stránek, podle potřeby.
 

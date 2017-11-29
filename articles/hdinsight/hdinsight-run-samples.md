@@ -129,7 +129,7 @@ Hadoop poskytuje streamování rozhraní API pro MapReduce, který umožňuje za
 > [!NOTE]
 > Kroky v tomto kurzu platí pouze pro clustery HDInsight se systémem Windows. Příklad streamování pro clustery HDInsight se systémem Linux naleznete v části [vyvíjet Python streamování programy pro HDInsight](hadoop/apache-hadoop-streaming-python.md).
 
-V příkladu mapper a reduktorem jsou spustitelné soubory, které číst vstupu z [stdin –] [ stdin-stdout-stderr] (řádek po řádku) a výstup do [stdout] [ stdin-stdout-stderr]. Program spočítá všechna slova v textu.
+V příkladu mapper a reduktorem jsou spustitelné soubory, které číst vstupu z [stdin –][stdin-stdout-stderr] (řádek po řádku) a výstup do [stdout][stdin-stdout-stderr]. Program spočítá všechna slova v textu.
 
 Pokud je zadán parametr spustitelný soubor pro **mappers**, každý úkol mapper spustitelný soubor spouští jako samostatný proces při inicializaci mapper. Jako spuštěna úloha mapper, převede vstupní řádky a kanály řádky, které se [stdin –] [ stdin-stdout-stderr] procesu.
 

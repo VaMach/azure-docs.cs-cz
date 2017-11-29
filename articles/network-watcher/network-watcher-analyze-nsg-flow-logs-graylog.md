@@ -31,7 +31,7 @@ Můžete mít víc skupin zabezpečení sítě ve vaší síti s protokolování
 
 Protokoly toku skupiny zabezpečení sítě jsou povolené pomocí sledovací proces sítě. Tok protokoly tok v do Azure blob storage. Modul plug-in Logstash slouží k připojení a zpracovávat toku protokolů z úložiště objektů blob a posílat je Graylog. Po toku protokoly jsou uloženy v Graylog, může být analyzován a vizualizována do přizpůsobené řídicí panely.
 
-! [Graylog pracovní postup]] (. / media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
+![Graylog pracovní postup]](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
 ## <a name="installation-steps"></a>Postup instalace
 

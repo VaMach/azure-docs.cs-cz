@@ -150,7 +150,7 @@ RunHiveScript má několik proměnné. Při odesílání úlohy Oozie z pracovn�
 <tr><td>${hiveOutputFolder}</td><td>Určuje výstupní složky pro příkaz Hive vložit PŘEPSAT. Toto je stejné složce, Sqoop export (export-dir).</td></tr>
 </table>
 
-Další informace o pracovním postupu Oozie a pomocí akce pracovního postupu najdete v tématu [dokumentaci Apache Oozie 4.0] [ apache-oozie-400] (pro HDInsight verze 3.0) nebo [dokumentaci Apache Oozie 3.3.2] [ apache-oozie-332] (pro HDInsight verze 2.1).
+Další informace o pracovním postupu Oozie a pomocí akce pracovního postupu najdete v tématu [dokumentaci Apache Oozie 4.0][apache-oozie-400] (pro HDInsight verze 3.0) nebo [dokumentaci Apache Oozie 3.3.2][apache-oozie-332] (pro HDInsight verze 2.1).
 
 Akce Hive v pracovním postupu volá soubor skriptu HiveQL. Tento soubor skriptu obsahuje tři příkazy HiveQL:
 
@@ -173,7 +173,7 @@ Soubor definice pracovního postupu (workflow.xml v tomto kurzu) předává tyto
 Soubor pracovního postupu a soubor HiveQL jsou uloženy v kontejneru objektů blob.  Powershellový skript, který použijete později v tomto kurzu zkopíruje oba soubory na výchozí účet úložiště. 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>Odesílání úloh Oozie pomocí prostředí PowerShell
-Prostředí Azure PowerShell aktuálně neposkytuje žádné rutiny pro definování Oozie úloh. Můžete použít **Invoke-RestMethod** rutiny k vyvolání Oozie webové služby. Oozie webového rozhraní API služby je JSON rozhraní HTTP REST API. Další informace o rozhraní API Oozie webových služeb najdete v tématu [dokumentaci Apache Oozie 4.0] [ apache-oozie-400] (pro HDInsight verze 3.0) nebo [dokumentaci Apache Oozie 3.3.2] [ apache-oozie-332] (pro HDInsight verze 2.1).
+Prostředí Azure PowerShell aktuálně neposkytuje žádné rutiny pro definování Oozie úloh. Můžete použít **Invoke-RestMethod** rutiny k vyvolání Oozie webové služby. Oozie webového rozhraní API služby je JSON rozhraní HTTP REST API. Další informace o rozhraní API Oozie webových služeb najdete v tématu [dokumentaci Apache Oozie 4.0][apache-oozie-400] (pro HDInsight verze 3.0) nebo [dokumentaci Apache Oozie 3.3.2][apache-oozie-332] (pro HDInsight verze 2.1).
 
 Skript prostředí PowerShell v této části provede následující kroky:
 

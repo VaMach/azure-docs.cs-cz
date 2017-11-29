@@ -45,7 +45,7 @@ Můžete použít celou řadu nástrojů pro správu databází v SQL Data Wareh
 Chcete-li začít používat portál Azure, přečtěte si téma [vytvoření SQL Data Warehouse (portál Azure)][Create a SQL Data Warehouse (Azure portal)].
 
 ### <a name="sql-server-data-tools-in-visual-studio"></a>Nástroje SQL Server Data Tools v sadě Visual Studio
-[SQL Server Data Tools] [ SQL Server Data Tools] (SSDT) v sadě Visual Studio umožňuje připojit, spravovat a vývoji vaší databáze. Pokud jste vývojář aplikací obeznámeni s Visual Studio nebo jiné integrované vývojové prostředí (integrovaného vývojového prostředí), zkuste použít rozšíření SSDT v sadě Visual Studio.
+[SQL Server Data Tools][SQL Server Data Tools] (SSDT) v sadě Visual Studio umožňuje připojit, spravovat a vývoji vaší databáze. Pokud jste vývojář aplikací obeznámeni s Visual Studio nebo jiné integrované vývojové prostředí (integrovaného vývojového prostředí), zkuste použít rozšíření SSDT v sadě Visual Studio.
 
 Rozšíření SSDT zahrnuje Průzkumník objektů SQL serveru, která umožňuje vizualizovat, připojit a spouštět skripty pro databáze SQL Data Warehouse. Chcete-li rychle se připojit k SQL Data Warehouse, můžete jednoduše klikněte na tlačítko **otevřete v sadě Visual Studio** tlačítko v příkazu panelu při zobrazení databáze podrobnosti v portálu Azure Classic.  
 

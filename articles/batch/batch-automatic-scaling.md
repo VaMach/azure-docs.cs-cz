@@ -385,8 +385,8 @@ Kromě Batch .NET, můžete použít některý z dalších [SDK služby Batch](b
 ### <a name="automatic-scaling-interval"></a>Interval automatického škálování
 Ve výchozím nastavení služba Batch upraví velikost fondu podle jeho vzorec škálování každých 15 minut. Tento interval je možné konfigurovat pomocí následujících vlastností fondu:
 
-* [CloudPool.AutoScaleEvaluationInterval] [ net_cloudpool_autoscaleevalinterval] (Batch .NET)
-* [autoScaleEvaluationInterval] [ rest_autoscaleinterval] (REST API)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [autoScaleEvaluationInterval][rest_autoscaleinterval] (REST API)
 
 Minimální interval je pět minut a maximální hodnota je 168 hodin. Pokud je zadán interval mimo tento rozsah, služba Batch vrátí chybu chybný požadavek (400).
 
@@ -399,8 +399,8 @@ Minimální interval je pět minut a maximální hodnota je 168 hodin. Pokud je 
 
 Každý Batch SDK poskytuje způsob, jak povolit automatické škálování. Například:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync] [ net_enableautoscaleasync] (Batch .NET)
-* [Povolit automatické škálování ve fondu] [ rest_enableautoscale] (REST API)
+* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
+* [Povolit automatické škálování ve fondu][rest_enableautoscale] (REST API)
 
 Když povolíte automatické škálování na existující fond, mějte na paměti následující body:
 

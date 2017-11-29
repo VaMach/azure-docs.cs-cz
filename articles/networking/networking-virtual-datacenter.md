@@ -246,7 +246,7 @@ Azure nabízí různé typy protokolování a monitorování služeb ke sledová
 
 Existují dva hlavní typy protokolů v Azure:
 
--   [**Protokoly aktivity** ] [ ActLog] (označované také jako "Operační protokol") umožní získat přehled o operace, které byly provedeny na prostředky v rámci předplatného Azure. Tyto protokoly sestavy události rovině řízení pro vaše předplatné. Každý prostředek Azure vytvoří protokoly auditu.
+-   [**Protokoly aktivity**][ActLog] (označované také jako "Operační protokol") umožní získat přehled o operace, které byly provedeny na prostředky v rámci předplatného Azure. Tyto protokoly sestavy události rovině řízení pro vaše předplatné. Každý prostředek Azure vytvoří protokoly auditu.
 
 -   [**Azure diagnostické protokoly** ] [ DiagLog] protokoly generované prostředku, které poskytují bohatou a často data o operaci prostředku. Obsah tyto protokoly se liší podle typu prostředku.
 

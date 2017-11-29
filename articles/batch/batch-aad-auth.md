@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Ověření řešení služby Batch se službou Active Directory
 
-Azure Batch podporuje ověřování s [Azure Active Directory] [ aad_about] (Azure AD). Azure AD je víceklientské cloudový adresář společnosti Microsoft a služba identity management. Azure samotné používá Azure AD ověřit jeho zákazníků, správci služeb a organizační uživatele.
+Azure Batch podporuje ověřování s [Azure Active Directory][aad_about] (Azure AD). Azure AD je víceklientské cloudový adresář společnosti Microsoft a služba identity management. Azure samotné používá Azure AD ověřit jeho zákazníků, správci služeb a organizační uživatele.
 
 Pokud používáte ověřování Azure AD pomocí služby Azure Batch, můžete ověřovat v jednom ze dvou způsobů:
 
@@ -63,7 +63,7 @@ Použití **koncový bod prostředků Azure Batch** získat token pro ověřová
 
 ## <a name="register-your-application-with-a-tenant"></a>Registrace aplikace pomocí klienta
 
-Prvním krokem při používání služby Azure AD k ověření je registrace vaší aplikace v klient služby Azure AD. Registrace aplikace umožňuje volat Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) z vašeho kódu. Knihovnu ADAL poskytuje rozhraní API pro ověřování s Azure AD z vaší aplikace. Registrace aplikace je vyžadován plánujete použít integrované ověřování nebo hlavní název služby.
+Prvním krokem při používání služby Azure AD k ověření je registrace vaší aplikace v klient služby Azure AD. Registrace aplikace umožňuje volat Azure [Active Directory Authentication Library][aad_adal] (ADAL) z vašeho kódu. Knihovnu ADAL poskytuje rozhraní API pro ověřování s Azure AD z vaší aplikace. Registrace aplikace je vyžadován plánujete použít integrované ověřování nebo hlavní název služby.
 
 Při registraci vaší aplikace, můžete zadat informace o vaší aplikaci do služby Azure AD. Potom Azure AD poskytuje ID aplikace, které použijete k aplikaci přidružit Azure AD v době běhu. Další informace o ID aplikace, najdete v části [aplikace a služby hlavní objekty ve službě Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
 
