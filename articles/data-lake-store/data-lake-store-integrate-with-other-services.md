@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d43459b900232612d83506438e6a70daa893eb80
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrace Data Lake Store s ostatními službami Azure
 Azure Data Lake Store můžete použít ve spojení s jinými službami Azure umožňuje širší škálu scénářů. V následujícím článku jsou uvedené služby, které se dá integrovat Data Lake Store.

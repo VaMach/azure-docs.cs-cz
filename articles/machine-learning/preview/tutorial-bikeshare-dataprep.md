@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: acd61e9980b143ebbb81d2d144bdac9134e20a11
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Kurz kolo share: Advanced Příprava dat pomocí Azure Machine Learning Workbench
 Služby Azure Machine Learning (preview) je vědecké zpracování dat integrované, klient server a pokročilou analýzu řešení pro odborníky v oblasti datových vědců připravit data, vývoji experimenty a nasazení modely v cloudovém měřítku.
@@ -261,10 +261,7 @@ Data v předpovědi použít pro dvě hodiny čas bloky, je nutné vypočítat p
 
    > [!NOTE]
    > Azure ML Workbench syntetizuje program na základě příkladů zadaný a použije stejný program na zbývající řádky. Všechny ostatní řádky se vyplní automaticky založena na příkladu, které jste zadali. Workbench také analyzuje data a pokusí k identifikaci případů okraj. 
-
-   > [!IMPORTANT]
-   > Identifikace edge případech nemusí fungovat v systému Mac v aktuální verzi nástroje Workbench. Přeskočit __krok 3__ a __krok 4__ níže na macu. Místo toho stiskněte __OK__ po všechny řádky obsazeny odvozené hodnotami.
-   
+  
 3. Text **analyzování dat** výše mřížky označuje, že Workbench se pokouší zjistit případech okraj. Až budete hotoví, stav se změní na **zkontrolujte další návrhy řádek** nebo **žádné návrhy**. V tomto příkladu **zkontrolujte další návrhy řádek** je vrácen.
 
 4. Chcete-li zkontrolovat navrhované změny, vyberte **zkontrolujte další návrhy řádek**. Na zobrazení je zvýrazněna buňku, která zkontrolujte a opravte (v případě potřeby).
@@ -294,11 +291,6 @@ Data v předpovědi použít pro dvě hodiny čas bloky, je nutné vypočítat p
 
    ![Obrázek příkladu, 01 ledna 2015 12: 00 – 2: 00](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
-   > [!IMPORTANT]
-   > V systému Mac, postupujte podle následujících kroku místo __krok 8__ níže.
-   >
-   > * Přejděte na první buňky, který obsahuje `Feb 01, 2015 12AM-2AM`. Měla by být __řádek 15__. Opravte hodnotu k `Jan 02, 2015 12AM-2AM`a stiskněte klávesu __Enter__. 
-   
 
 8. Počkejte na změní ze stavu **analyzování dat** k **zkontrolujte další návrhy řádek**. To může trvat několik sekund. Vyberte stav odkazu přejděte na navrhované řádek. 
 
@@ -513,12 +505,7 @@ To Shrneme kolo vyžádání období 2 hodin, použijte odvozených sloupců.
     > Můžete udělit příklad proti některé řádky. V tomto příkladu hodnota `Jan 01, 2017 12AM-2AM` je platný pro první řádek dat.
 
     ![Obrázek příkladu data](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-
-   > [!IMPORTANT]
-   > V systému Mac, postupujte podle následujících kroku místo __krok 3__ níže.
-   >
-   > * Přejděte na první buňky, který obsahuje `Jan 01, 2017 1AM-2AM`. Měla by být __řádek 14__. Opravte hodnotu k `Jan 01, 2017 12AM-2AM`a stiskněte klávesu __Enter__. 
-
+   
 3. Počkejte, až aplikace vypočítá hodnoty pro všechny řádky. To může trvat několik sekund. Po dokončení analýzy používat __zkontrolujte další návrhy řádek__ odkaz na zkontrolujte data.
 
    ![Obrázek dokončené analýzy s Zkontrolujte propojení](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)

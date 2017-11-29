@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 59aec1cb6433e90caf683b4bce98c92e9f79fd18
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Řešení potíží s prostředí cloudu Azure
 
@@ -64,8 +64,9 @@ ms.lasthandoff: 11/15/2017
 
 ### <a name="gui-applications-are-not-supported"></a>Grafické uživatelské rozhraní aplikací není podporované.
 
-- **Podrobnosti o**: Pokud uživatel spustí aplikaci pomocí grafického uživatelského rozhraní, nevrátí řádku. Například když uživatel provede klonování privátní úložiště GitHub, který je dvoufaktorové ověřování povoleno, se zobrazí dialogové okno pro dokončení dvoufaktorové ověřování.
-- **Řešení**: `Ctrl+C` ukončíte příkaz.
+- **Podrobnosti o**: Pokud uživatel spustí aplikaci pomocí grafického uživatelského rozhraní, nevrátí řádku. Například když uživatel provede klonování privátní úložiště GitHub, který je dvoufaktorové ověřování povoleno, se zobrazí dialogové okno pro dokončení dvoufaktorové ověřování.  
+- **Řešení**: zavřením a otevřením okna.
+
 
 ### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - online nelze otevřít stránku nápovědy
 

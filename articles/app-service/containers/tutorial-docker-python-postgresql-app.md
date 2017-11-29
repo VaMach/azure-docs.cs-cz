@@ -5,25 +5,22 @@ services: app-service\web
 documentationcenter: python
 author: berndverst
 manager: erikre
-editor: 
-ms.assetid: 2bada123-ef18-44e5-be71-e16323b20466
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: fa3aa3a73338970fde2d0b0230e7b2e6ca687dc9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 55d6f1d10ff08fd8f0ea4aba775a96549192cef2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Vytvoření webové aplikace Docker Python a PostgreSQL v Azure
 
-Webové aplikace pro kontejnery nabízí vysoce škálovatelnou a automatických oprav webové hostitelské služby. Tento kurz ukazuje, jak vytvořit základní webovou aplikaci Docker Python v Azure. Tuto aplikaci budete připojit k databázi PostgreSQL. Když jste hotovi, budete mít k aplikaci Python Flask systémem v rámci kontejner Docker [služby App Service v systému Linux](app-service-linux-intro.md).
+Webové aplikace pro kontejnery nabízí vysoce škálovatelnou a automatických oprav webové hostitelské služby. Tento kurz ukazuje, jak vytvořit základní webovou aplikaci Docker Python v Azure. Tuto aplikaci připojit k databázi PostgreSQL. Až skončíte, máte aplikaci Python Flask systémem v rámci kontejner Docker [služby App Service v systému Linux](app-service-linux-intro.md).
 
 ![Docker Python Flask aplikace v App Service v systému Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -120,7 +117,7 @@ Kdykoli zastavit Flask server kdykoli, zadejte Ctrl + C v terminálu.
 
 ## <a name="create-a-production-postgresql-database"></a>Vytvořit databázi PostgreSQL výroby
 
-V tomto kroku vytvoříte databázi PostgreSQL v Azure. Při nasazení aplikace do Azure, použije tuto databázi cloudu.
+V tomto kroku vytvoříte databázi PostgreSQL v Azure. Po nasazení aplikace do Azure se používá tato databáze cloudu.
 
 ### <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 
@@ -146,7 +143,7 @@ Použití [az služby App Service seznamu umístění](/cli/azure/appservice#lis
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Vytvoření serveru Azure Database for PostgreSQL
 
-Vytvoření serveru PostgreSQL s [az postgres server vytvořit](/cli/azure/documentdb#create) příkaz.
+Vytvoření serveru PostgreSQL s [az postgres server vytvořit](/cli/azure/postgres/server#az_postgres_server_create) příkaz.
 
 V následujícím příkazu nahraďte název jedinečný serveru  *\<postgresql_name >* zástupný symbol a uživatel název  *\<admin_username >* zástupný symbol. Název serveru slouží jako součást váš koncový bod PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), takže název musí být jedinečný v rámci všech serverech v Azure. Uživatelské jméno je pro uživatelský účet správce počáteční databáze. Zobrazí se výzva k vyberte heslo pro tohoto uživatele.
 
@@ -207,7 +204,7 @@ V tomto kroku připojíte vaši ukázkovou aplikaci Python Flask pro Azure datab
 
 ### <a name="create-an-empty-database-and-set-up-a-new-database-application-user"></a>Vytvořit prázdnou databázi a nastavení nového uživatele databáze aplikace
 
-Vytvořte uživatele databáze s přístupem k jedné databáze. Tyto přihlašovací údaje použijete k neudělujte aplikace úplný přístup k serveru.
+Vytvořte uživatele databáze s přístupem k jedné databáze. Použít tyto přihlašovací údaje k neudělujte aplikace úplný přístup k serveru.
 
 Připojení k databázi (se zobrazí výzva k zadání hesla správce).
 
@@ -293,7 +290,7 @@ Databáze již obsahuje registrace, kterou jste vytvořili dříve.
 
 ## <a name="upload-the-docker-container-to-a-container-registry"></a>Odešlete do kontejneru registru kontejner Docker
 
-V tomto kroku nahrajte kontejner Docker do registru kontejneru. Budete používat Azure kontejneru registru, ale můžete také použít další oblíbených těch, jako je například Docker Hub.
+V tomto kroku nahrajte kontejner Docker do registru kontejneru. Použití Azure kontejneru registru, ale můžete také použít další oblíbených těch, jako je například Docker Hub.
 
 ### <a name="create-an-azure-container-registry"></a>Vytvoření služby Azure Container Registry
 

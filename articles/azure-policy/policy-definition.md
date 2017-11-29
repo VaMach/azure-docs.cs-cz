@@ -9,13 +9,13 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 8ff85f842356eff3f12ccd04e337d71c52d0efcd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-policy-definition-structure"></a>Azure definice strukturu zásad.
+# <a name="azure-policy-definition-structure"></a>Struktura definic Azure Policy
 
 Definice zásad prostředků používané zásad Azure umožňuje vytvořit konvence pro prostředky ve vaší organizaci prostřednictvím popisu, když je tato zásada vynucená a jaká opatření se mají provést. Definováním konvence můžete řídit náklady a snadněji spravovat vaše prostředky. Například můžete zadat, že jsou povoleny pouze určité typy virtuálních počítačů. Nebo můžete vyžadovat, aby všechny prostředky měli konkrétní značku. Zásady jsou zdědí všechny podřízené prostředky. Ano Pokud je zásada pro skupinu prostředků, se vztahuje na všechny prostředky v příslušné skupině prostředků.
 
@@ -88,13 +88,21 @@ Můžete třeba definovat zásady pro vlastnosti prostředku, který omezit umí
     "type": "array",
     "metadata": {
       "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations"
+      "displayName": "Allowed locations",
+      "strongType": "location"
     }
   }
 }
 ```
 
 Typ parametru může být řetězec nebo pole. Vlastnost metadat slouží k nástroje, například na portálu Azure a zobrazte uživatelské informace.
+
+V rámci vlastnost metadat můžete použít **strongType** zajistit vybrat víc seznam možností v rámci portálu Azure.  Povolené hodnoty pro **strongType** aktuálně patří:
+
+* `"location"`
+* `"resourceTypes"`
+* `"storageSkus"`
+* `"vmSKUs"`
 
 V pravidle zásady můžete odkazovat na parametry s následující syntaxí:
 

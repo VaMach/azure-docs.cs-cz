@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 87d60ae51aaa33b709d272605419fd85eeb5d93d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Nainstalujte LEMP webový server na virtuálním počítači Azure
 Tento článek vás provede procesem nasazení webového serveru NGINX, MySQL a PHP (LEMP stack) na virtuálního počítače s Ubuntu v Azure. LEMP zásobník představuje alternativu k oblíbených [svítilna zásobníku](tutorial-lamp-stack.md), které si můžete také nainstalovat v Azure. Informace o serveru LEMP v akci, můžete volitelně nainstalovat a nakonfigurovat web WordPress. V tomto kurzu se naučíte:
@@ -31,6 +31,8 @@ Tento článek vás provede procesem nasazení webového serveru NGINX, MySQL a 
 > * Ověření instalace a konfigurace
 > * Instalace aplikace WordPress na serveru LEMP
 
+
+Tento instalační program pro rychlé testů nebo testování konceptu.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -73,15 +75,16 @@ Kontrola verze databáze MySQL pomocí následujícího příkazu (Poznámka: ve
 mysql -V
 ```
 
-Doporučujeme spustit následující skript pro pomoc se zabezpečením instalaci MySQL:
+Chcete-li pomoc se zabezpečením instalaci MySQL, spusťte `mysql_secure_installation` skriptu. Pokud jsou pouze nastavení dočasný server, můžete tento krok přeskočit. 
 
 ```bash
 mysql_secure_installation
 ```
 
-Zadejte heslo kořenové MySQL a nakonfigurovat nastavení zabezpečení pro vaše prostředí.
+Zadejte kořenové heslo pro databázi MySQL a nakonfigurovat nastavení zabezpečení pro vaše prostředí.
 
-Pokud chcete k vytvoření databáze MySQL, přidat uživatele nebo změnit nastavení konfigurace, přihlášení k MySQL:
+Pokud budete chtít zkusit MySQL funkce (vytvoření databáze MySQL, přidat uživatele nebo změnit nastavení konfigurace), přihlášení k MySQL. Tento krok není nutný k dokončení tohoto kurzu. 
+
 
 ```bash
 mysql -u root -p

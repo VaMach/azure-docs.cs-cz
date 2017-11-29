@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: billgib
-ms.openlocfilehash: 93a2f8aa8890f40a8ef9b88fe172efa24aac7811
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e7de7bb545e0ce04dc1b3dd398cc920213d09bae
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/28/2017
@@ -86,10 +86,10 @@ Adresář Wingtip lístky SaaS víceklientské databázové skripty a zdrojový 
 
 Abyste pochopili, jak aplikace Wingtip lístky implementuje zřizování ve sdílené databázi nového klienta, přidejte zarážek a krok v pracovním postupu:
 
-1. V _prostředí PowerShell ISE_, otevřete... \\Learning moduly\\ProvisionAndCatalog\\_ukázku ProvisionAndCatalog.ps1_ a nastavit následující parametry:
+1. V _prostředí PowerShell ISE_, otevřete... \\Learning moduly\\ProvisionTenants\\_ukázku ProvisionTenants.ps1_ a nastavit následující parametry:
    * **$TenantName** = **Bushwillow modré**, název nové místo.
-   * **$VenueType** = **modré**, jeden z typů předdefinovaného místo: *modré*, classicalmusic, tance, jazz, judo, motorracing víceúčelových, opera, rockmusic, fotbalový ( malá písmena, bez mezer).
-   * **$Scenario** = **1**do *zřídit klienta v databázi sdílené s jinými klienty*.
+   * **$VenueType** = **modré**, jeden z typů předdefinovaného místo: modré, classicalmusic, tance, jazz, judo, motorracing víceúčelových, opera, rockmusic, fotbalový (malá písmena, bez mezer).
+   * **$DemoScenario** = **1**do *zřídit klienta v databázi sdílené s jinými klienty*.
 
 1. Přidejte zarážku umístěním kurzoru kdekoli v řádku 38, řádek, která uvádí, že: *nového klienta,*a stiskněte klávesu **F9**.
 
@@ -120,10 +120,10 @@ Toto jsou klíčové prvky zřizování pracovního postupu, které v průběhu:
 
 Nyní návod proces, při vytváření klienta ve vlastní databázi:
 
-1. Pořád ještě v... \\Learning moduly\\ProvisionAndCatalog\\_ukázku ProvisionAndCatalog.ps1_ nastavit následující parametry:
+1. Pořád ještě v... \\Learning moduly\\ProvisionTenants\\_ukázku ProvisionTenants.ps1_ nastavit následující parametry:
    * **$TenantName** = **sequoia fotbalový**, název nové místo.
-   * **$VenueType** = **fotbalový**, jeden z typů předdefinovaného místo: modré, classicalmusic, tance, jazz, judo, motorracing víceúčelových, opera, rockmusic, *fotbalový* () malá písmena, bez mezer).
-   * **$Scenario** = **2**do *zřídit klienta v databázi sdílené s jinými klienty*.
+   * **$VenueType** = **fotbalový**, jeden z typů předdefinovaného místo: modré, classicalmusic, tance, jazz, judo, motorracing víceúčelových, opera, rockmusic, fotbalový (malá písmena, bez mezer).
+   * **$DemoScenario** = **2**do *zřídit klienta do své vlastní databáze*.
 
 1. Přidejte novou zarážku umístěním kurzoru kdekoli v řádku 57, řádek, která uvádí, že:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '*a stiskněte klávesu **F9**.
 
@@ -151,30 +151,31 @@ Toto jsou klíčové prvky, které jednotlivé kroky při trasování skriptu pr
 
 Toto cvičení zřídí dávky 17 klientů. Doporučuje se, že zřídit tuto dávku klienty před zahájením dalších kurzech Wingtip lístků, proto nejsou další databáze pro práci s.
 
-1. V *prostředí PowerShell ISE*, otevřete... \\Learning moduly\\ProvisionAndCatalog\\*ukázku ProvisionAndCatalog.ps1* a změňte *$Scenario* parametru 3:
-   * **$Scenario** = **3**do *zřídit dávky klienty do sdílené databáze*.
+
+1. V *prostředí PowerShell ISE*, otevřete... \\Learning moduly\\ProvisionTenants\\*ukázku ProvisionTenants.ps1* a změňte *$DemoScenario* parametr 4:
+   * **$DemoScenario** = **4**do *zřídit dávky klienty do sdílené databáze*.
 1. Stiskněte **F5** a spusťte skript.
 
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>Ověřte sadu nasazených klientů 
-V této fázi mít směs klienty nasazený do sdílenou databázi a klienty nasazený do vlastní databáze. Portál Azure slouží ke kontrole databáze vytvořené:  
-
-* V [portál Azure](https://portal.azure.com), otevřete **tenants1-mt -\<uživatele\>**  procházením seznamu serverů SQL server.  **Databází SQL** seznamu by měla obsahovat sdílený **tenants1** databáze a databáze pro klienty, kteří jsou v jejich vlastní databázi:
+V této fázi mít směs klienty nasadit do sdílené databáze a klienty nasazený do vlastní databáze. Portál Azure slouží ke kontrole databáze vytvořené. V [portál Azure](https://portal.azure.com), otevřete **tenants1-mt -\<uživatele\>**  procházením seznamu serverů SQL server.  **Databází SQL** seznamu by měla obsahovat sdílený **tenants1** databáze a databáze pro klienty, kteří jsou v jejich vlastní databázi:
 
    ![seznam databází](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
 A portálu Azure se zobrazí klienta databáze, neumožňuje najdete v části klienty *uvnitř* sdílenou databázi. Úplný seznam klientů, lze je zobrazit na stránce centra událostí Wingtip lístků a procházením katalogu:   
 
-1. Otevřete Centrum událostí stránku v prohlížeči (http:events.wingtip-mt.\<uživatele\>. trafficmanager.net)  
+**Pomocí stránky centra událostí Wingtip lístky** <br>
+Otevřete Centrum událostí stránku v prohlížeči (http:events.wingtip-mt.\<uživatele\>. trafficmanager.net)  
 
-   Úplný seznam klientů a jejich odpovídající databáze je k dispozici v katalogu. Zobrazení SQL najdete v databázi tenantcatalog, které připojí název klienta, které jsou uložené v tabulce klienty k názvu databáze v tabulkách správu horizontálního oddílu. Toto zobrazení ukazuje vhodně hodnotu rozšíření metadat uložené v katalogu.
+**Pomocí katalogu databáze** <br>
+Úplný seznam klientů a jejich odpovídající databáze je k dispozici v katalogu. Zobrazení SQL najdete v databázi tenantcatalog, které připojí název klienta, které jsou uložené v tabulce klienty k názvu databáze v tabulkách správu horizontálního oddílu. Toto zobrazení ukazuje vhodně hodnotu rozšíření metadat uložené v katalogu.
 
-2. V *SQL Server Management Studio (SSMS)*, připojení k serveru klienty na **tenants1 strojový překladů.\<uživatele\>. database.windows.net**, s přihlášením: **vývojáře** , Heslo:**P@ssword1**
+1. V *SQL Server Management Studio (SSMS)* připojit k serveru klienty na **katalogu strojový překladů.\<uživatele\>. database.windows.net**, s přihlášením: **vývojáře**, Heslo:**P@ssword1**
 
     ![Dialogové okno připojení aplikace SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. V *Průzkumník objektů*, přejděte do zobrazení *tenantcatalog* databáze.
-2. Klikněte pravým tlačítkem na zobrazení *TenantsExtended* a zvolte **vyberte Top 1000 řádky**. Poznamenejte si mapování mezi název klienta a databáze pro jiné klienty.
+1. V *Průzkumník objektů*, přejděte do zobrazení *tenantcatalog* databáze.
+1. Klikněte pravým tlačítkem na zobrazení *TenantsExtended* a zvolte **vyberte Top 1000 řádky**. Poznamenejte si mapování mezi název klienta a databáze pro jiné klienty.
 
     ![Zobrazení ExtendedTenants v aplikaci SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       

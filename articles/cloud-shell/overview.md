@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Přehled prostředí cloudu Azure
 Prostředí Azure Cloud je interaktivní, přístupných prohlížeče prostředí pro správu prostředků Azure.
@@ -55,9 +55,9 @@ Kromě cloudové prostředí, je k dispozici na portálu Azure je také přístu
 * [Mobilní aplikace Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Rozšíření sady Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-azure-files-storage"></a>Připojení úložiště Azure Files
+### <a name="connect-your-microsoft-azure-files-storage"></a>Připojení úložiště Microsoft Azure Files
 Cloudové prostředí počítače jsou dočasné a v důsledku vyžadují připojit jako soubory Azure sdílenou složku `clouddrive` udržení adresáře $Home.
-Při prvním spuštění prostředí cloudu vás vyzve k vytvoření prostředku skupiny, účet úložiště a sdílených složek vaším jménem. To je jednorázový krok a bude automaticky připojen pro všechny relace. Sdílení souborů lze mapovat a použije Bash a prostředí PowerShell v prostředí cloudu (Preview).
+Při prvním spuštění prostředí cloudu vás vyzve k vytvoření skupiny prostředků účet úložiště a soubor Azure sdílet vaším jménem. To je jednorázový krok a bude automaticky připojen pro všechny relace. Jednu sdílenou složku Azure lze mapovat a použije Bash a prostředí PowerShell v prostředí cloudu (Preview).
 
 #### <a name="create-new-storage"></a>Vytvoření nového úložiště
 ![](media/overview/basic-storage.png)
@@ -70,7 +70,7 @@ Vaším jménem vytvoří tři zdroje:
 3. Sdílené složky s názvem:`cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> Bash v prostředí cloudu vytvoří také výchozí obrázek 5 GB disk k uchování `$Home`. Všechny soubory v adresáři $Home například klíče SSH zůstávají v bitové kopii disku uživatele uložený ve sdílené složce vaší připojeného souboru. Použít osvědčené postupy při ukládání souborů v adresáři $Home a připojené sdílené složky.
+> Bash v prostředí cloudu vytvoří také výchozí obrázek 5 GB disk k uchování `$Home`. Všechny soubory v adresáři $Home například klíče SSH zůstávají v bitové kopii disku uživatele uložený ve sdílené složce vaší připojeného souboru Azure. Při ukládání souborů v adresáři $Home a připojené sdílenou složku Azure, použít osvědčené postupy.
 
 #### <a name="use-existing-resources"></a>Používat existující prostředky
 ![](media/overview/advanced-storage.png)
@@ -79,13 +79,13 @@ Upřesňující možnost je určen k přidružení stávající prostředky pro 
 Do příkazového řádku instalace úložiště klikněte na tlačítko "Zobrazit upřesňující nastavení" zobrazte další možnosti.
 Rozevírací seznamy jsou filtrovány přiřazené oblast prostředí cloudu a místně nebo globálně redundantní úložiště účtů.
 
-[Další informace o prostředí cloudové úložiště, aktualizace sdílené složky a nahrávání nebo stahování souborů.](persisting-shell-storage.md)
+[Další informace o prostředí cloudové úložiště, aktualizace sdílené složky Azure a nahrávání nebo stahování souborů.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Koncepty
 * Spuštění prostředí cloudu dočasné hostiteli k dispozici na každou relaci, jednotlivých uživatelů
 * Cloudové prostředí vyprší po 20 minutách bez interaktivní aktivity
-* Cloudové prostředí vyžaduje sdílení souborů pro připojit
-* Cloudové prostředí používá stejné sdílené složky pro Bash a prostředí PowerShell
+* Cloudové prostředí vyžaduje sdílenou složku Azure chcete připojit
+* Cloudové prostředí používá stejnou sdílenou složkou Azure pro Bash a prostředí PowerShell
 * Cloudové prostředí je přiřazený jeden počítač na uživatelský účet
 * Máte nastavená oprávnění jako běžný uživatel Linux v Bash
 

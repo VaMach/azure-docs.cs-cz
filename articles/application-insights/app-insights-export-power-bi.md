@@ -1,5 +1,5 @@
 ---
-title: "Export do služby Power BI ze služby Application Insights | Microsoft Docs"
+title: "Export do služby Power BI ze služby Azure Application Insights | Microsoft Docs"
 description: "Analytické dotazy lze zobrazit v Power BI."
 services: application-insights
 documentationcenter: 
@@ -13,115 +13,117 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Kanálu Power BI z Application Insights
-[Power BI](http://www.powerbi.com/) je sada nástrojů obchodní analýzy, které vám pomohou analyzovat data a sdílet uplatnitelné. Bohaté řídicí panely jsou k dispozici na každé zařízení. Můžete kombinovat data z mnoha zdrojů, včetně analytické dotazy z [Azure Application Insights](app-insights-overview.md).
+[Power BI](http://www.powerbi.com/) je sada nástrojů, firmy, která pomáhá analyzovat data a sdílet uplatnitelné. Bohaté řídicí panely jsou k dispozici na každé zařízení. Můžete kombinovat data z mnoha zdrojů, včetně analytické dotazy z [Azure Application Insights](app-insights-overview.md).
 
 Existují tři doporučené metody export dat Application Insights do Power BI. Můžete je používat samostatně nebo společně.
 
-* [**Power BI adaptér** ](#power-pi-adapter) -nastavit kompletní řídicí panel telemetrie z vaší aplikace. Předdefinovaná sadu grafy, ale můžete přidat vlastní dotazy z jiných zdrojů.
-* [**Export analytické dotazy** ](#export-analytics-queries) -zápisu žádný dotaz můžete určit pomocí analýzy nebo z nálevky využití a exportovat je do Power BI. Tento dotaz můžete umístit na řídicím panelu společně s dalšími daty.
-* [**Průběžné exportu a Stream Analytics** ](app-insights-export-stream-analytics.md) – to zahrnuje další práci nastavit. Je užitečné, pokud chcete zachovat data dlouhou dobu. Doporučuje se, jinak hodnota jiné metody.
+* [**Power BI adaptér**](#power-pi-adapter). Nastavte kompletní řídicí panel telemetrie z vaší aplikace. Předdefinovaná sadu grafy, ale můžete přidat vlastní dotazy z jiných zdrojů.
+* [**Export analytické dotazy**](#export-analytics-queries). Zapsat všechny dotazu má a exportovat je do Power BI. Můžete napsat dotaz pomocí analýzy, nebo můžete zapsat je z nálevky využití. Tento dotaz můžete umístit na řídicím panelu, společně s dalšími daty.
+* [**Průběžné exportu a Azure Stream Analytics**](app-insights-export-stream-analytics.md). Tato metoda je užitečná, pokud chcete zachovat data dlouhou dobu. Pokud to neuděláte, použijte jednu z jiné metody, protože tato zahrnuje další práci nastavit.
 
 ## <a name="power-bi-adapter"></a>Adaptér Power BI
-Tato metoda vytvoří kompletní řídicí panel telemetrie. Předdefinovaná počáteční datovou sadu, ale do něj může přidat další data.
+Tato metoda vytvoří kompletní řídicí panel telemetrie. Předdefinovaná počátečních datových sad, ale do něj může přidat další data.
 
 ### <a name="get-the-adapter"></a>Získat adaptéru
 1. Přihlaste se k [Power BI](https://app.powerbi.com/).
-2. Otevřete **získat Data**, **služby**, **Application Insights**
+2. Otevřete **získat Data**, **služby**a potom **Application Insights**.
    
-    ![Získat ze zdroje dat Application Insights](./media/app-insights-export-power-bi/power-bi-adapter.png)
+    ![Snímky obrazovky získat ze zdroje dat Application Insights](./media/app-insights-export-power-bi/power-bi-adapter.png)
 3. Zadejte podrobnosti o prostředku Application Insights.
    
-    ![Získat ze zdroje dat Application Insights](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
+    ![Snímek obrazovky získat ze zdroje dat Application Insights](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
 4. Počkejte, než minutu nebo dvě pro data, která bude importována.
    
-    ![Adaptér Power BI](./media/app-insights-export-power-bi/010.png)
+    ![Snímek obrazovky Power BI adaptéru](./media/app-insights-export-power-bi/010.png)
 
-Můžete upravit řídicí panel, kombinace Application Insights grafy s u jiných zdrojů a se analytické dotazy. Je Galerie vizualizace můžete získat více grafů, kde každý graf obsahuje parametry, které můžete zadat.
+Můžete upravit řídicí panel, kombinace Application Insights grafy s u jiných zdrojů a se analytické dotazy. Můžete získat další grafy v galerii vizualizace a každý graf obsahuje parametry, které můžete nastavit.
 
 Po počáteční importu nadále denně aktualizovat řídicí panel a sestavy. Můžete řídit plán aktualizace na datovou sadu.
 
 ## <a name="export-analytics-queries"></a>Export analytické dotazy
-Tato trasa umožňuje zápis jakýkoli Analytics dotaz jako nebo exportovat z nálevky využití a export, na řídicí panel Power BI. (Můžete přidat na řídicí panel vytvořený adaptér.)
+Tato trasa umožňuje zápis jakýkoli dotaz analýzy nebo exportovat z nálevky využití a export, na řídicí panel Power BI. (Můžete přidat na řídicí panel vytvořený adaptér.)
 
 ### <a name="one-time-install-power-bi-desktop"></a>Jednou: Nainstalujte Power BI Desktop
-Chcete-li importovat dotaz Application Insights, použijete verze aplikace Power BI. Ale pak je můžete publikovat na webu nebo do pracovního prostoru cloudu Power BI. 
+Chcete-li importovat dotaz Application Insights, použijete verze aplikace Power BI. Můžete jej pak publikovat na web nebo do pracovního prostoru cloudu Power BI. 
 
 Nainstalujte [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Export dotaz Analytics
 1. [Otevřete analýzy a napsat dotaz](app-insights-analytics-tour.md).
-2. Testování a upřesnění dotazu, až budete s výsledky spokojeni.
-
-   **Ujistěte se, že dotaz běží správně v Analytics předtím, než ho exportovat.**
+2. Testování a upřesnění dotazu, až budete s výsledky spokojeni. Ujistěte se, že dotaz běží správně v Analytics předtím, než ho exportovat.
 3. Na **exportovat** nabídce zvolte **Power BI (M)**. Uložte tento textový soubor.
    
-    ![Export dotazu Power BI](./media/app-insights-export-power-bi/analytics-export-power-bi.png)
-4. V Power BI Desktop vyberte **načíst Data, prázdné dotazu** a poté v editoru dotazů v rámci **zobrazení** vyberte **Advanced Editor dotazů**.
+    ![Snímek obrazovky z Analytics se zvýrazněnou nabídky Export](./media/app-insights-export-power-bi/analytics-export-power-bi.png)
+4. V Power BI Desktop, vyberte **načíst Data** > **prázdné dotazu**. Potom v editoru dotazů v rámci **zobrazení**, vyberte **Upřesnit**.
 
-    Vložte do editoru dotazů Advanced exportovaný skript jazyka M.
+    Vložte do editoru Advanced exportovaný skript jazyka M.
 
-    ![Rozšířený dotaz editoru](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
+    ![Snímek obrazovky z Power BI Desktop s Advanced Editor zvýrazněná](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. Možná budete muset zadat přihlašovací údaje, aby se mohl Power BI přístup k Azure. Použít 'účet organizace, a přihlaste se pomocí účtu Microsoft.
+1. Aby se mohl Power BI pro přístup k Azure, možná muset zadat přihlašovací údaje. Použití **účet organizace** se přihlásit pomocí účtu Microsoft.
    
-    ![Zadejte přihlašovací údaje Azure umožňující Power BI ke spuštění dotazu Application Insights](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
+    ![Dialogové okno snímek obrazovky z Power BI dotazu nastavení](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
-    (Pokud potřebujete k ověření přihlašovacích údajů, použijte příkaz nabídky nastavení zdroje dat v editoru dotazů. Vezměte v potaz a zadejte přihlašovací údaje, které používáte pro Azure, což může být liší od přihlašovacích údajů pro Power BI.)
+    Pokud potřebujete ověření přihlašovacích údajů, použijte **nastavení zdroje dat** příkazu nabídky v editoru dotazů. Nezapomeňte zadat přihlašovací údaje, které používáte pro Azure, což může být liší od přihlašovacích údajů pro Power BI.
 2. Zvolte vizualizaci dotazu a vyberte pole pro osy x, y a segmentace dimenze.
    
-    ![Vyberte vizualizace](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
+    ![Snímek obrazovky Power BI Desktop vizualization možnosti](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
 3. Publikujte sestavy do pracovního prostoru cloudu Power BI. Odtud můžete synchronizované verze vložit do jiných webových stránek.
    
-    ![Vyberte vizualizace](./media/app-insights-export-power-bi/publish-power-bi.png)
+    ![Snímek obrazovky z Power BI Desktop s tlačítkem publikování](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Sestavu v intervalech aktualizovat ručně, nebo nastavit plánovaná aktualizace na stránce Možnosti.
 
 ### <a name="export-a-funnel"></a>Export trychtýřového grafu
-1. [Ujistěte se, vaše trychtýřového grafu](usage-funnels.md)
-2. Klikněte na tlačítko Power BI 
+1. [Ujistěte se, vaše trychtýřového grafu](usage-funnels.md).
+2. Vyberte **Power BI**. 
 
-   ![Tlačítko PowerBI](./media/app-insights-export-power-bi/button.png)
+   ![Tlačítko – snímek obrazovky Power BI](./media/app-insights-export-power-bi/button.png)
    
-3. V Power BI Desktop vyberte **načíst Data, prázdné dotazu** a poté v editoru dotazů v rámci **zobrazení** vyberte **Advanced Editor dotazů**.
+3. V Power BI Desktop, vyberte **načíst Data** > **prázdné dotazu**. Potom v editoru dotazů v rámci **zobrazení**, vyberte **Upřesnit**.
 
-   ![Prázdné dotazu](./media/app-insights-export-power-bi/blankquery.png)
+   ![Snímek obrazovky z Power BI Desktop s tlačítkem prázdné dotazu](./media/app-insights-export-power-bi/blankquery.png)
 
-   Vložte do editoru dotazů Advanced exportovaný skript jazyka M. 
+   Vložte do editoru Advanced exportovaný skript jazyka M. 
 
-   ![Pokročilé Editor dotazů](./media/app-insights-export-power-bi/advancedquery.png)
+   ![Snímek obrazovky z Power BI Desktop s Advanced Editor zvýrazněná](./media/app-insights-export-power-bi/advancedquery.png)
 
-4. Vyberte položky z dotazu a vyberte vizualizace trychtýřového grafu
+4. Vyberte položky z dotazu a vyberte vizualizace trychtýřového grafu.
 
-   ![Vyberte pořadí a trychtýřového grafu](./media/app-insights-export-power-bi/selectsequence.png)
+   ![Snímek obrazovky Power BI Desktop vizualization možnosti](./media/app-insights-export-power-bi/selectsequence.png)
 
-5. Změňte název a nastavit jej jako smysluplný publikovat sestavy do pracovního prostoru cloudu Power BI. 
+5. Změňte název, aby byl smysluplný a publikovat sestavy do pracovního prostoru cloudu Power BI. 
 
-   ![Změnit název](./media/app-insights-export-power-bi/changetitle.png)
+   ![Snímek obrazovky z Power BI Desktop se zvýrazněnou změnu názvu](./media/app-insights-export-power-bi/changetitle.png)
 
 ## <a name="troubleshooting"></a>Řešení potíží
 
-### <a name="401-or-403-unauthorized"></a>401 nebo 403 Neautorizováno 
-To může dojít, pokud zatím není aktualizovaná obnovovací token. Opakujte tyto kroky, které zajišťují, že máte přístup. Pokud máte přístup a aktualizovat přihlašovací údaje se nedají použít, otevřete prosím lístek podpory.
+Můžete se setkat chyby týkající se přihlašovací údaje nebo velikost datové sady. Tady jsou některé informace o tom, jak se o tyto chyby.
 
-1. Přihlaste se k portálu Azure a ujistěte se, že má přístup k prostředku
-2. Zkuste aktualizovat přihlašovací údaje pro řídicí panel
+### <a name="unauthorized-401-or-403"></a>Neoprávněné (401 nebo 403)
+To může dojít, pokud zatím není aktualizovaná obnovovací token. Opakujte tyto kroky, které zajišťují, že máte pořád přístup:
 
-### <a name="502-bad-gateway"></a>502 Chybná brána
-To je obvykle způsobeno dotazu analýzy, který vrátí příliš mnoho dat. Měli zkuste použít menší časový rozsah nebo pomocí [před](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) nebo [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) funguje pouze [projektu](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) pole, je nutné.
+1. Přihlaste se k portálu Azure a ujistěte se, že má přístup k prostředku.
+2. Pokuste se aktualizovat přihlašovací údaje pro řídicí panel.
 
-Pokud snižuje datovou sadu pocházejících z dotazu Analytics není splňují vaše požadavky měli byste zvážit použití [rozhraní API](https://dev.applicationinsights.io/documentation/overview) vyžádat větší datové sady. Tady jsou pokyny, jak převést export M dotazu použít rozhraní API.
+ Pokud máte přístup a aktualizovat přihlašovací údaje se nedají použít, otevřete prosím lístek podpory.
 
-1. Vytvoření [klíč rozhraní API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)
-2. Aktualizovat Power BI M skript, který jste exportovali z Analytics nahrazením adresu URL ARM AI rozhraní API (viz následující příklad)
+### <a name="bad-gateway-502"></a>Chybná brána (502)
+To je obvykle způsobeno dotazu analýzy, který vrátí příliš mnoho dat. Zkuste použít menší časový interval pro dotaz. 
+
+Pokud snižuje datovou sadu pocházejících z dotazu Analytics nesplňuje vaše požadavky, zvažte použití [rozhraní API](https://dev.applicationinsights.io/documentation/overview) vyžádat větší datové sady. Zde je postup převedení export M dotazu použít rozhraní API.
+
+1. Vytvoření [klíč rozhraní API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+2. Aktualizujte Power BI M skript, který jste exportovali z Analytics nahrazením adresu URL správce prostředků Azure Application Insights API.
    * Nahraďte **https://management.azure.com/subscriptions/...**
    * s **https://api.applicationinsights.io/beta/apps/...**
-3. Nakonec aktualizujte přihlašovací údaje k základní a používání vašeho klíče rozhraní API
+3. Nakonec aktualizujte přihlašovací údaje k základní a používání vašeho klíče rozhraní API.
   
 
 **Existující skriptu**
@@ -134,7 +136,7 @@ Pokud snižuje datovou sadu pocházejících z dotazu Analytics není splňují 
  ```
 
 ## <a name="about-sampling"></a>O vzorkování
-Pokud vaše aplikace odešle velké množství dat, může funkce adaptivního vzorkování pracovat a odesílat pouze procento vaší telemetrie. Totéž platí, pokud jste ručně nastavili vzorkování buď v sadě SDK, nebo na přijímání. [Přečtěte si další informace o vzorkování.](app-insights-sampling.md)
+Pokud vaše aplikace odešle velké množství dat, můžete použít funkci adaptivního vzorkování, která odesílá pouze procento vaší telemetrie. Totéž platí, pokud jste ručně nastavili vzorkování buď v sadě SDK, nebo na přijímání. [Další informace o vzorkování](app-insights-sampling.md).
 
 
 ## <a name="next-steps"></a>Další kroky

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: chrande
-ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76be085aa114b571f40603b4f182b13b9354b8b8
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Příručka pro vývojáře Azure funkce
 V Azure Functions se konkrétní funkce sdílet několik klíčových technických konceptech a součásti, bez ohledu na jazyk nebo vazby, které používáte. Před přechodem do učení podrobnosti, které jsou specifické pro daný jazyk nebo vazby, nezapomeňte si přečíst tento přehled, který se vztahuje na všechny z nich.
@@ -81,11 +81,8 @@ Editor funkce integrovaná v portálu Azure vám umožní aktualizovat *function
 Funkce aplikace jsou postaveny na služby App Service, takže všechny [možnosti nasazení standardní webových aplikací](../app-service/app-service-deploy-local-git.md) jsou také k dispozici pro funkce aplikace. Tady jsou některé metody, které můžete nahrát, nebo můžete aktualizovat soubory funkce aplikace. 
 
 #### <a name="to-use-app-service-editor"></a>Použití editoru služby aplikace
-1. Na portálu Azure Functions, klikněte na tlačítko **funkce nastavení aplikace**.
-2. V **Upřesnit nastavení** klikněte na tlačítko **přejděte na nastavení služby aplikace**.
-3. Klikněte na tlačítko **aplikace služby Editor** v nabídce aplikace navigaci v části **nástroje pro vývoj**.
-4. Klikněte na tlačítko **přejděte**.
-   
+1. Na portálu Azure Functions, klikněte na tlačítko **funkce**.
+2. V **nástroje pro vývoj** klikněte na tlačítko **App Service Editor**.   
    Po načtení Editor služby aplikace se zobrazí *host.json* složek souborů a funkce v části *wwwroot*. 
 5. Otevřít soubory, upravit nebo přetáhnout z vývojovém počítači k nahrání souborů.
 

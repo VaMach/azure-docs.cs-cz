@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b994cfd09156ae8e1662f4947241aa1a4672df98
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Správa Azure disky pomocí prostředí PowerShell
 
@@ -41,7 +41,7 @@ Pokud se rozhodnete nainstalovat a používat PowerShell místně, musíte použ
 
 Vytvoření virtuálního počítače Azure má dva disky jsou automaticky připojena k virtuálnímu počítači. 
 
-**Disk s operačním systémem** -provoz systémových disků může mít velikost až 1 terabajt a hostuje virtuální počítače operačního systému.  Disk operačního systému je přiřazeno písmeno jednotky *c:* ve výchozím nastavení. Disk ukládání do mezipaměti konfigurace disku operačního systému je optimalizovaná pro výkon operačního systému. Disk operačního systému **neměli** hostitelem aplikace nebo data. Pro aplikace a data použijte datový disk, který je podrobně popsán později v tomto článku.
+**Disk s operačním systémem** -provoz systémových disků může mít velikost až 4 terabajt a hostuje virtuální počítače operačního systému.  Disk operačního systému je přiřazeno písmeno jednotky *c:* ve výchozím nastavení. Disk ukládání do mezipaměti konfigurace disku operačního systému je optimalizovaná pro výkon operačního systému. Disk operačního systému **neměli** hostitelem aplikace nebo data. Pro aplikace a data použijte datový disk, který je podrobně popsán později v tomto článku.
 
 **Dočasným diskovým** -dočasné disky používají jednotkou SSD, který je umístěný na stejném hostiteli Azure jako virtuální počítač. Dočasné disky jsou vysoce původce a mohou být použity pro operací, jako je dočasná data zpracování. Pokud se virtuální počítač přesune do nového hostitele, je odebrat všechna data uložená na dočasném disku. Velikost dočasné disku je určen podle velikosti virtuálního počítače. Dočasné disky přiřazené písmeno jednotky *d:* ve výchozím nastavení.
 
@@ -81,7 +81,7 @@ Služba Storage úrovně Standard je založená na jednotkách HDD a poskytuje n
 
 ### <a name="premium-disk"></a>Premium disku
 
-Pro prémiové disky jsou zajišťované založená na SSD vysoce výkonné, nízkou latencí disku. Ideální pro virtuální počítače se systémem produkční zatížení. Premium Storage podporuje DS-series, DSv2-series, GS-series a virtuálních počítačů služby FS-series. Pro prémiové disky se musí uvést ve třech typech (P10 P20, P30), velikost disku určuje typ disku. Když vyberete, je velikost disku hodnota zaokrouhlený nahoru na další typ. Například pokud je velikost je menší než 128 GB typ disku bude P10, mezi 129 a 512 P20 a více než 512 P30. 
+Pro prémiové disky jsou zajišťované založená na SSD vysoce výkonné, nízkou latencí disku. Ideální pro virtuální počítače se systémem produkční zatížení. Premium Storage podporuje DS-series, DSv2-series, GS-series a virtuálních počítačů služby FS-series. Pro prémiové disky se musí uvést ve třech typech (P10, P20, P30, P40, P50), velikost disku určuje typ disku. Když vyberete, je velikost disku hodnota zaokrouhlený nahoru na další typ. Například pokud je velikost je menší než 128 GB typ disku bude P10, 129 až 512 P20 512 P30, P40 2TB a P50 4TB. 
 
 ### <a name="premium-disk-performance"></a>Výkon disku Premium
 

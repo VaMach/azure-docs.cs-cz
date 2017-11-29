@@ -3,7 +3,7 @@ title: "Jak nainstalovat Linux hlavní cílový server pro převzetí služeb p�
 description: "Před opětovnou ochranu virtuální počítač s Linuxem, potřebujete hlavní cílový server Linux. Zjistěte, jak k jeho instalaci."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: 029e1b51c52e440666238f6177d15aea0a5e07a7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/28/2017
@@ -206,7 +206,7 @@ Chcete-li tento parametr, proveďte následující kroky:
 
 #### <a name="disable-kernel-upgrades"></a>Zakázat upgrady jádra
 
-Azure Site Recovery hlavní cílový server vyžaduje velmi konkrétní verzi Ubuntu, zkontrolujte, zda jsou pro virtuální počítač vypnutá upgrady jádra.
+Azure Site Recovery hlavní cílový server vyžaduje konkrétní verzi Ubuntu, zkontrolujte, zda jsou pro virtuální počítač vypnutá upgrady jádra.
 
 Pokud upgrady jádra jsou povolené, jakékoli regulární upgrady způsobit hlavní cílový server fungovat správně.
 
@@ -369,12 +369,12 @@ Po dokončení instalace zaregistrujte konfigurační server pomocí příkazov�
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-   Počkejte na dokončení skriptu. Pokud se hlavní cíl je úspěšně registrovaná, se hlavní cíl je uvedený na **infrastruktura Site Recovery** na portálu.
+   Počkejte na dokončení skriptu. Pokud se hlavní cíl se úspěšně registrována v instalaci, se hlavní cíl je uvedený na **infrastruktura Site Recovery** na portálu.
 
 
 ### <a name="upgrade-the-master-target"></a>Upgrade na hlavním cíli
 
-Spusťte instalační program. Automaticky zjišťuje, zda je agent nainstalovaný na hlavním cíli. Pokud chcete upgradovat, vyberte **Y**.  Po dokončení instalace, zkontrolujte verzi hlavního cíle nainstalován pomocí následujícího příkazu.
+Spusťte instalační program. Automaticky zjišťuje, zda je agent nainstalovaný na hlavním cíli. Pokud chcete upgradovat, vyberte **Y**.  Po dokončení instalace, zkontrolujte verzi hlavního cíle nainstalován pomocí následujícího příkazu:
 
     ```
     cat /usr/local/.vx_version
@@ -387,7 +387,7 @@ Uvidíte, že **verze** pole obsahuje číslo verze se hlavní cíl.
 Musíte nainstalovat nástroje VMware na hlavním cíli, aby ho můžete zjistit datová úložiště. Pokud nejsou nainstalovány nástroje, není v úložištích dat, uvedené na obrazovce opětovné ochrany. Po instalaci nástroje VMware je potřeba restartovat.
 
 ## <a name="next-steps"></a>Další kroky
-Po instalaci a registraci hlavního cíle má finsihed, zobrazí se zobrazí na hlavním cíli **hlavního cíle** kapitoly **infrastruktura Site Recovery**, v části Přehled konfigurace serveru.
+Po dokončení instalace a registrace hlavního cíle, zobrazí se hlavní cíl se zobrazují v **hlavního cíle** kapitoly **infrastruktura Site Recovery**, v části Konfigurace Přehled serveru.
 
 Teď můžete pokračovat s [vytvoření](site-recovery-how-to-reprotect.md), za nímž následují navrácení služeb po obnovení.
 

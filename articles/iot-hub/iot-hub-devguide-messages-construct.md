@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: 793a2cdd55c4e9213e5097f4e318c0790960a64d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 1a20b9c6981125895ecd6952135ec4f365bb8d45
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Vytvoření a čtení zpráv služby IoT Hub
 
@@ -28,7 +28,7 @@ Pro podporu bezproblémové vzájemná funkční spolupráce mezi protokoly, def
 * Sadu *vlastnosti aplikace*. Slovník vlastnosti řetězce, které aplikace můžete definovat a přístup, aniž by museli deserializaci textu zprávy. IoT Hub nikdy upravuje tyto vlastnosti.
 * Neprůhledné binární text.
 
-Názvy a hodnoty vlastností mohou obsahovat pouze alfanumerické znaky ASCII, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` při můžete:
+Názvy a hodnoty vlastností mohou obsahovat pouze alfanumerické znaky ASCII, plus ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` při můžete:
 
 * Odesílání zpráv typu zařízení cloud pomocí protokolu HTTPS.
 * Odesílání zpráv typu cloud zařízení.

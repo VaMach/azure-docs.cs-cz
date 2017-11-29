@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: d633f140635ba184642a2af999efcde845f3ec31
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 730111411a080a3134ad69fee8bfceead4d27fa4
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>Migrujte počítače po vyhodnocení
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 11/27/2017
 
 Tento článek popisuje, jak získat návrhy pro nástroj pro migraci po spuštění migrace hodnocení.
 
-## <a name="migration-methods"></a>Metody migrace
+## <a name="migration-tool-suggestion"></a>Návrh nástroj pro migraci
 
-Po vyhodnocení pomocí Azure migrovat zde je, co doporučujeme:
+Chcete-li získat návrhy týkající se nástrojů pro migraci, musíte nainstalovat agenty na místní počítače.  
 
-1. Vytvoření projektu Azure migrovat, zjistit místní počítače a spustit migraci hodnocení. [Další informace](tutorial-assessment-vmware.md).
+1. Vytvoření projektu Azure migrovat, zjistit místní počítače a vytvořte assessment migrace. [Další informace](tutorial-assessment-vmware.md).
 2. Stáhněte a nainstalujte agenty Azure migrovat na každém počítači v místě, pro který chcete zobrazit doporučené migrace metoda. [Pomocí následujícího postupu](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) k instalaci agentů.
 2. Identifikujte vaše místní počítače, které jsou vhodné pro migraci navýšení a shift. Toto jsou virtuální počítače, které nevyžadují žádné změny aplikace běžící na ně a můžete migrovat, protože je.
 3. Pro migraci navýšení a shift doporučujeme pomocí Azure Site Recovery. [Další informace](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternativně můžete použít 3. stran nástroje, které podporují migraci na Azure.

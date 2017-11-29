@@ -3,7 +3,7 @@ title: "Postup opětovné ochrany z převzetí služeb při selhání virtuáln�
 description: "Po převzetí služeb při selhání virtuálních počítačů z jedné oblasti Azure do jiného můžete použít Azure Site Recovery k ochraně počítačů v opačném směru. Zjistěte, jaké kroky postup opětovné ochrany před převzetí služeb při selhání znovu."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5822ed90f3ab13bdaf1afef62cf32978101c6609
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 3e614b6c3c8358585f3b502f301cc659d2088e2f
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/28/2017
@@ -58,7 +58,7 @@ Dále je uveden postup k nastavení opětné virtuálního počítače pomocí v
 
 3. Zkontrolujte **skupinu prostředků, sítě, úložiště a dostupnost sady** informace a klikněte na tlačítko OK. Pokud jsou všechny prostředky označené (Nový), budou vytvořeny jako součást opětovné ochrany.
 
-To bude aktivační události úlohy, znovu aktivujte ochranu úlohu, která se nejdřív počáteční hodnoty cílové lokalitě (v tomto případě SEA) s nejnovější data, a který dokončí, replikují se tak rozdílů před převzetím služeb je zpět do jihovýchodní Asie.
+Úloha opětovné ochrany bude nejprve počáteční hodnoty cílové lokalitě (v tomto případě SEA) s nejnovější data a po jejich dokončení bude replikovat rozdílů před můžete převzetí služeb při selhání zpátky do jihovýchodní Asie.
 
 ### <a name="reprotect-customization"></a>Znovu nastavte ochranu přizpůsobení
 Pokud chcete zvolit účet úložiště extrakce nebo síti během opětovné ochrany, použijte možnost přizpůsobit zadané v okně opětovné ochrany.

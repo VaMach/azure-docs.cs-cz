@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8afde912ca48297ae60eb7d05aa624a1d72c1637
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure zásobníku diagnostické nástroje
 
@@ -29,43 +29,11 @@ Naše diagnostické nástroje pomoci, ujistěte se, že kolekce mechanismu proto
  
 ## <a name="trace-collector"></a>Kolekce trasování
  
-Kolekce trasování je ve výchozím nastavení povolena. Ho nepřetržitě běží na pozadí a shromažďuje všechny protokoly trasování událostí pro Windows (ETW) ze služby komponent v zásobníku Azure a ukládá je v běžné místní sdílenou složkou. 
+Kolektor trasování je ve výchozím nastavení povolené a nepřetržitě běží na pozadí shromažďovat všechny protokoly trasování událostí pro Windows (ETW) ze služby komponent Azure zásobníku. Protokoly trasování událostí pro Windows jsou uloženy v běžné místní sdílené složky s maximální stáří pět den. Po dosažení tohoto limitu jsou nejstarší soubory odstranit, protože se vytvářejí nové. Výchozí maximální velikost povolenou pro každý soubor je 200MB. Zkontrolujte velikost dochází pravidelně (každých 2 minut) a pokud je aktuální soubor > = 200 MB, uloží a je generována nový soubor. Je také omezení 8GB na celkové velikosti generovaný podle relace události. 
 
-Tady jsou důležité věci vědět o trasování kolekce:
- 
-* Kolekce trasování běží nepřetržitě se výchozí omezení velikosti. Je výchozí maximální velikost povolená pro každý soubor (200 MB) **není** konečného velikost. Zkontrolujte velikost dochází pravidelně (aktuálně každé dvě minuty) a pokud je aktuální soubor > = 200 MB, bude uložený a se generuje nový soubor. Je také 8 GB (Konfigurovat) omezení na celkové velikosti generovaný podle relace události. Po dosažení tohoto limitu jsou nejstarší soubory odstranit, protože se vytvářejí nové.
-* Je na protokoly maximální stáří 5 dní. Tento limit je také možné konfigurovat. 
-* Jednotlivé komponenty definuje vlastnosti konfigurace trasování pomocí souboru JSON. Soubory JSON jsou uloženy v **C:\TraceCollector\Configuration**. V případě potřeby tyto soubory lze upravit změnit limity stáří a velikost shromažďovat protokoly. Změny na tyto soubory vyžadovat restartování *kolekce trasování zásobníku Microsoft Azure* služby, aby se změny projevily.
-
-V následujícím příkladu je soubor JSON Konfigurace trasování pro operace FabricRingServices z XRP virtuálního počítače: 
-
-```json
-{
-    "LogFile": 
-    {
-        "SessionName": "FabricRingServicesOperationsLogSession",
-        "FileName": "\\\\SU1FileServer\\SU1_ManagementLibrary_1\\Diagnostics\\FabricRingServices\\Operations\\AzureStack.Common.Infrastructure.Operations.etl",
-        "RollTimeStamp": "00:00:00",
-        "MaxDaysOfFiles": "5",
-        "MaxSizeInMB": "200",
-        "TotalSizeInMB": "5120"
-    },
-    "EventSources":
-    [
-        {"Name": "Microsoft-AzureStack-Common-Infrastructure-ResourceManager" },
-        {"Name": "Microsoft-OperationManager-EventSource" },
-        {"Name": "Microsoft-Operation-EventSource" }
-    ]
-}
-```
-
-* **MaxDaysOfFiles**. Tento parametr řídí stáří souborů, které chcete zachovat. Starší soubory protokolu se odstraní.
-* **Hodnota parametru MaxSizeInMB**. Tento parametr řídí velikost prahovou hodnotu pro jeden soubor. Když je dosaženo velikost, se vytvoří nový soubor ETL.
-* **TotalSizeInMB**. Tento parametr řídí celková velikost souborů .etl vygenerovat z relace události. Pokud celkové velikosti je větší než hodnota tohoto parametru, starší soubory se odstraní.
-  
 ## <a name="log-collection-tool"></a>Nástroj pro shromažďování protokolů
  
-Příkaz prostředí PowerShell **Get-AzureStackLog** slouží k shromažďování protokolů ze všech komponent v prostředí Azure zásobníku. Ukládá je do zip soubory v umístění definovaný uživatelem. Pokud náš tým technické podpory potřebuje vaše protokoly, které pomůžou vyřešit nějaký problém, se může požádat o spuštění tohoto nástroje.
+Rutiny prostředí PowerShell **Get-AzureStackLog** slouží k shromažďování protokolů ze všech komponent v prostředí Azure zásobníku. Ukládá je do zip soubory v umístění definovaný uživatelem. Pokud náš tým technické podpory potřebuje vaše protokoly, které pomůžou vyřešit nějaký problém, se může požádat o spuštění tohoto nástroje.
 
 > [!CAUTION]
 > Tyto soubory protokolu může obsahovat identifikovatelné osobní údaje (PII). Vzít v úvahu před veřejně post všechny soubory protokolů.
@@ -78,38 +46,38 @@ Následuje několik příkladů typů protokolu, které byly shromážděny:
 *   **Diagnostické protokoly úložiště**
 *   **Protokoly trasování událostí pro Windows**
 
-Tyto soubory jsou shromážděných trasování kolekce a uložených ve sdílené složce, odkud **Get-AzureStackLog** je obnovuje.
+Tyto soubory jsou shromážděny a uloženy ve sdílené složce kolekce trasování. **Get-AzureStackLog** rutiny prostředí PowerShell pak umožňuje shromažďovat je, pokud je to nezbytné.
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Ke spuštění Get-AzureStackLog v systému Azure zásobníku Development Kit (ASDK)
 1. Přihlaste se jako **AzureStack\CloudAdmin** na hostiteli.
 2. Otevřete okno prostředí PowerShell jako správce.
 3. Spustit **Get-AzureStackLog** rutiny prostředí PowerShell.
 
-   **Příklady**
+**Příklady:**
 
-    Shromážděte všechny protokoly pro všechny role:
+  Shromážděte všechny protokoly pro všechny role:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  ```
 
-    Shromažďování protokolů z virtuálních počítačů a BareMetal rolí:
+  Shromažďování protokolů z virtuálních počítačů a BareMetal rolí:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  ```
 
-    Shromažďování protokolů z role virtuálních počítačů a BareMetal s datem filtrování za posledních 8 hodin pro soubory protokolů:
+  Shromažďování protokolů z role virtuálních počítačů a BareMetal s datem filtrování za posledních 8 hodin pro soubory protokolů:
     
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
-    Shromažďování protokolů z role virtuálních počítačů a BareMetal filtrování pro soubory protokolu pro toto časové období před 8 hodin až 2 hodiny před datem:
+  Shromažďování protokolů z role virtuálních počítačů a BareMetal filtrování pro soubory protokolu pro toto časové období před 8 hodin až 2 hodiny před datem:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Ke spuštění Get-AzureStackLog v zásobníku Azure integrované systému
 
@@ -158,7 +126,7 @@ if($s)
    | Domény                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | brána                 | HealthMonitoring       | HRP                |   
-   | B-ISDN                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | B-ISDN                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
@@ -166,6 +134,13 @@ if($s)
    | URP                     | UsageBridge            | virtuálních počítačů    |  
    | BYL                     | WASPUBLIC              | SLUŽBA WDS                |
 
+
+### <a name="collect-logs-using-a-graphical-user-interface"></a>Shromažďování protokolů pomocí grafického uživatelského rozhraní
+Místo poskytuje požadované parametry pro rutinu Get-AzureStackLog získat protokoly zásobník Azure, můžete využít i nástroje zásobník Azure k dispozici s otevřeným zdrojem, který je umístěný v úložišti GitHub nástroje hlavní zásobník Azure v http://aka.ms/AzureStackTools.
+
+**ERCS_AzureStackLogs.ps1** skript prostředí PowerShell je uložen v úložišti GitHub nástroje a se aktualizuje v pravidelných intervalech. Skript spustit z relace prostředí PowerShell pro správu, připojí k privilegované koncového bodu a spustí Get-AzureStackLog pomocí zadaných parametrů. Pokud jsou zadány žádné parametry, skript bude použita výchozí výzvy pro parametry přes grafické uživatelské rozhraní.
+
+Další informace o prostředí PowerShell ERCS_AzureStackLogs.ps1 skript jste mohli sledovat [krátké video](https://www.youtube.com/watch?v=Utt7pLsXEBc) nebo zobrazit tento skript [souboru readme](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) umístěný v úložišti GitHub nástroje Azure zásobníku. 
 
 ### <a name="additional-considerations"></a>Další aspekty
 

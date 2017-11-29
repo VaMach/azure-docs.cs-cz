@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 913bd917ae7c2b44df097ead9c3e35841338905c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Rychlý start pro prostředí PowerShell v prostředí cloudu Azure (Preview)
 
@@ -135,7 +135,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 
 ```
 
-Připojovací řetězec můžete pomocí následujícího příkazu připojit sdílenou složku Azure File.
+Připojovacím řetězcem můžete použít následující příkaz připojit sdílenou složku Azure Files.
         
 ``` PowerShell
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
@@ -143,9 +143,9 @@ net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<My
 
 ```
 
-Podrobnosti najdete v tématu [připojit Azure sdílené složky a přístupu ke sdílené složce v systému Windows][azmount].
+Podrobnosti najdete v tématu [připojení Azure Files složky a přístupu ke sdílené složce v systému Windows][azmount].
 
-Můžete také přejít adresáře sdílenou složku Azure File následujícím způsobem:
+Můžete také přejít adresáře sdílenou složku Azure Files následujícím způsobem:
 
             
 ``` PowerShell
@@ -288,7 +288,7 @@ Pro konkrétní příkaz je stále možné následuje rutiny Get-Help.
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
-## <a name="use-azure-file-storage-to-store-your-data"></a>Používání Azure File Storage k ukládání dat
+## <a name="use-azure-files-to-store-your-data"></a>Použití Azure souborů k ukládání dat
 
 Můžete vytvořit skript, například `helloworld.ps1`a uložte ho do vaší `CloudDrive` používat napříč relacemi prostředí.
 
@@ -300,7 +300,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Při použití prostředí PowerShell v prostředí cloudu, při příštím `helloworld.ps1` soubor bude existovat v rámci `CloudDrive` složky, která připojí vaše sdílenou složku Azure File.
+Při použití prostředí PowerShell v prostředí cloudu, při příštím `helloworld.ps1` soubor bude existovat v rámci `CloudDrive` složky, která připojí vaše soubory Azure sdílenou složku.
 
 ## <a name="use-custom-profile"></a>Použít vlastní profil
 

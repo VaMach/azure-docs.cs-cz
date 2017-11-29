@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: nitinme
-ms.openlocfilehash: 6677b0b3ed047ce011bfbb72c25e45195859830a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ca2cf642cfff2961dcb0dd18f0e712f61d6915c2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Monitorování clusterů HDInsight pomocí Azure Log Analytics
 
@@ -44,7 +44,7 @@ Naučte se používat Azure Log Analytics ke sledování operací clusteru Hadoo
 
 * **Pracovní prostor analýzy protokolů**. Tento pracovní prostor si můžete představit jako jedinečné prostředí analýzy protokolů s vlastní úložiště dat, zdroje dat a řešení. Musí mít jeden takový prostoru už vytvořený, můžete přidružit Azure HDInsight clustery. Pokyny najdete v tématu [vytvořit pracovní prostor analýzy protokolů](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
 
-## <a name="configure-hdinsight-cluster-to-use-log-analytics"></a>Konfigurace clusteru HDInsight, aby používaly analýzy protokolů
+## <a name="enable-log-analytics-by-using-the-portal"></a>Povolit pomocí portálu analýzy protokolů
 
 V této části nakonfigurujete stávajícího clusteru HDInsight Hadoop použití k pracovnímu prostoru analýzy protokolů Azure k monitorování úlohy, protokoly ladění atd.
 
@@ -62,6 +62,25 @@ V této části nakonfigurujete stávajícího clusteru HDInsight Hadoop použit
 6. Pokud se zobrazí výzva, zadejte přihlašovací údaje Azure.
 
     ![Portál Operations Management Suite](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-oms-portal.png "portál Operations Management Suite")
+
+## <a name="enable-log-analytics-by-using-azure-powershell"></a>Povolení analýzy protokolů pomocí Azure PowerShell
+
+Můžete povolit analýzy protokolů pomocí Azure PowerShell. Rutina je:
+
+```powershell
+Enable-AzureRmHDInsightOperationsManagementSuite
+```
+
+V tématu [povolit AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/Enable-AzureRmHDInsightOperationsManagementSuite?view=azurermps-5.0.0).
+
+Pokud chcete zakázat, je rutina 
+
+```powershell
+Disable-AzureRmHDInsightOperationsManagementSuite
+```
+
+V tématu [zakázat AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/disable-azurermhdinsightoperationsmanagementsuite?view=azurermps-5.0.0).
+
 
 ## <a name="next-steps"></a>Další kroky
 * [Přidat řešení pro správu clusteru HDInsight k analýze protokolů](hdinsight-hadoop-oms-log-analytics-management-solutions.md)

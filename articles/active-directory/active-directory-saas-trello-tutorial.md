@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Kurz: Azure Active Directory integrace s Trello
 
@@ -96,6 +96,10 @@ Nakonfigurovat a otestovat Azure AD jednotné přihlašování s Trello, je tře
 
 V této části můžete povolit Azure AD jednotného přihlašování na portálu Azure a nakonfigurovat jednotné přihlašování v aplikaci Trello.
 
+>[!NOTE]
+    >Měli byste obdržet  **\<enterprise\>**  zkráceného názvu stránky z Trello. Pokud nemáte hodnotu zkráceného názvu stránky, obraťte se na [tým podpory Trello](mailto:support@trello.com) získat zkráceného názvu stránky rozlehlé sítě.
+    > 
+
 **Ke konfiguraci Azure AD jednotné přihlašování s Trello, proveďte následující kroky:**
 
 1. Na portálu Azure na **Trello** stránky integrace aplikací, klikněte na tlačítko **jednotného přihlašování**.
@@ -112,17 +116,15 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://trello.com/auth/saml/consume/<enterprise>`
 
-4. Na **Trello domény a adresy URL** část, pokud chcete nakonfigurovat aplikace **SP iniciované režimu**, proveďte následující kroky:
-    
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. Pokud chcete nakonfigurovat aplikace **SP iniciované režimu**, proveďte následující kroky:
+
+  ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
     a. Klikněte na **zobrazit upřesňující nastavení adresy URL**.
 
-    b. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://trello.com/auth/saml/consume/<enterprise>`
+    b. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://trello.com/auth/saml/login/<enterprise>`
 
-    >[!NOTE]
-    >Měli byste obdržet  **\<enterprise\>**  zkráceného názvu stránky z Trello. Pokud nemáte hodnotu zkráceného názvu stránky, obraťte se na [tým podpory Trello](mailto:support@trello.com) získat zkráceného názvu stránky pro vás enterprise.
-    > 
+  c. V **identifikátor** textovému poli, zadejte následující adresu URL:`https://trello.com/auth/saml/metadata`
 
 5. Aplikace Trello očekává kontrolní výrazy SAML tak, aby obsahovala určité atributy. Nakonfigurujte následující atributy pro tuto aplikaci. Můžete spravovat hodnoty těchto atributů z **"Atributy uživatele"** aplikace. Následující snímek obrazovky ukazuje příklad pro tento.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak používat Azure API Management s virtuálními sítěmi
 Virtuální sítě Azure (virtuální sítě) umožňují některé z vašich prostředků Azure umístění v síti routeable Internetu jiných výrobců, která můžete řídit přístup ke. Tyto sítě můžete pak připojené k vaší místní sítě pomocí různých technologií sítě VPN. Další informace o virtuálních sítí Azure začínat zde uvedené informace: [Přehled virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md).
@@ -45,7 +45,7 @@ K provedení kroků popsaných v tomto článku, musíte mít:
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Povolit připojení virtuální sítě pomocí portálu Azure
 
 1. Přejděte k vaší instanci APIM v [portál Azure](https://portal.azure.com/).
-2. Vyberte **vlastní domény a SSL**.
+2. Vyberte **virtuální sítě**.
 3. Nakonfigurujte instanci služby API Management k nasazení uvnitř virtuální sítě.
 
     ![Virtuální síť nabídky služby API Management][api-management-using-vnet-menu]
@@ -116,6 +116,7 @@ Pokud je instance služby API Management je hostováno ve virtuální síti, se 
 | * / 14000 - 14999 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|**Přístup k Azure SQL verze 12** |Externí & interní |
 | * / 5671 |Odchozí |AMQP |VIRTUAL_NETWORK NEBO INTERNET|Závislosti pro protokol do centra událostí zásadu a agent monitorování |Externí & interní |
 | * / 445 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Závislost na sdílenou složku Azure pro GIT |Externí & interní |
+| * / 25028 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Připojení k předávání SMTP pro odesílání e-mailů |Externí & interní |
 | * / 6381 - 6383 |Příchozí a odchozí |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Instance služby Redis Cache přístupu mezi RoleInstances |Externí & interní |
 | * / * | Příchozí |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Nástroj pro vyrovnávání zatížení infrastruktury Azure |Externí & interní |
 

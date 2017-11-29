@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Vyřešte chyby pro kvótou prostředků
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>Řešení 3
 
-Pokud je potřeba zvýšit limit kvóty, přejděte na portál a souborů podpory problém ke zvýšení vaší kvóty pro oblast, do které chcete nasadit.
+Požádat o zvýšení kvóty, přejděte na portál a souborů podpory problém. V problém podporu požádejte o zvýšení v rámci svojí kvóty pro oblast, do které chcete nasadit.
 
 > [!NOTE]
 > Nezapomeňte, že pro skupiny prostředků, se kvóty pro každou oblast jednotlivých, ne pro celé předplatné. Pokud potřebujete nasadit 30 jader v západní USA, budete muset požádat o 30 Resource Manager jader v západní USA. Pokud potřebujete nasadit 30 jader v některém z oblasti, ke které máte přístup, je třeba požádat o 30 jader Resource Manager ve všech oblastech.
 >
 >
+
+1. Vyberte **odběry**.
+
+   ![Předplatná](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Vyberte odběr, který potřebuje vyšší kvóty.
+
+   ![Výběr předplatného](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Vyberte **využití + kvóty**
+
+   ![Vybrat využití a kvóty](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. V pravém horním rohu vyberte **požádat o zvýšení**.
+
+   ![Žádost o zvýšení](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Vyplňte formuláře pro typ kvóty, které je potřeba zvýšit.
+
+   ![Vyplňte formulář](./media/resource-manager-quota-errors/forms.png)

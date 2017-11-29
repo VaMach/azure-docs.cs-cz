@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/03/2017
-ms.openlocfilehash: 17f045f516792e50f7349805ec9f7a01e3f9d5b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: d3de3fdf28997b63321bf23443472db43ebb5c52
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Koncepty serveru ve službě Azure Database pro databázi MySQL
-Toto téma obsahuje důležité informace a pokyny pro práci s databází Azure pro servery, MySQL.
+Tento článek obsahuje důležité informace a pokyny pro práci s databází Azure pro servery, MySQL.
 
 ## <a name="what-is-an-azure-database-for-mysql-server"></a>Co je Azure databáze MySQL serveru?
 
@@ -38,15 +38,13 @@ V rámci serveru Azure Database for MySQL můžete vytvořit jednu nebo několik
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Jak připojit a ověření do Azure databáze MySQL serveru?
 
 Tyto prvky pomoct zajistit bezpečný přístup k vaší databázi.
-
 |||
 | :-- | :-- |
 | **Ověřování a autorizace** | Databáze MySQL serveru Azure podporuje nativní MySQL ověřování. Můžete se připojit a ověřit na serveru s přihlašovací jméno správce serveru. |
 | **Protokol** | Služba podporuje protokol na základě zpráv používané MySQL. |
 | **TCP/IP** | Protokol je podporován přes TCP/IP a přes sockets Unix domény. |
-| **Brána firewall** | K ochraně dat, pravidlo brány firewall brání veškerý přístup k databázovému serveru, a její databáze, dokud nezadáte, které počítače mají oprávnění. V tématu [databáze Azure pro pravidla brány firewall serveru MySQL](./concepts-firewall-rules.md). |
+| **Brána firewall** | K ochraně dat, pravidlo brány firewall brání veškerý přístup k databázovému serveru, dokud nezadáte, které počítače mají oprávnění. V tématu [databáze Azure pro pravidla brány firewall serveru MySQL](./concepts-firewall-rules.md). |
 | **PROTOKOL SSL** | Služba podporuje vynucení připojení SSL mezi aplikací a databázový server.  Podívejte se na téma [Konfigurace připojení SSL v aplikaci pro zabezpečené připojení k Azure Database for MySQL](./howto-configure-ssl.md). |
-|||
 
 ## <a name="how-do-i-manage-a-server"></a>Jak lze spravovat server?
 Databáze Azure pro servery, MySQL můžete spravovat pomocí portálu Azure nebo Azure CLI.

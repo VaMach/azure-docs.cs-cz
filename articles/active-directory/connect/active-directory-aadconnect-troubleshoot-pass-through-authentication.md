@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Řešení potíží s předávací ověřování Azure Active Directory
 
@@ -67,7 +67,7 @@ Přejděte na **Azure Active Directory** -> **přihlášení** na [centra pro sp
 | 80005 | Ověřovací agent: Došlo k chybě. | Došlo k přechodné chybě. Zkuste to znovu později.
 | 80007 | Ověřovací agent se nemohl připojit k Active Directory. | Zkontrolujte, jestli je dosažitelný z agenta ověřování služby Active Directory.
 | 80010 | Ověřovací agent nebyl schopen dešifrovat heslo. | Pokud problém konzistentně reprodukovatelnou, nainstalujte a zaregistrujte novou ověření agenta. A odinstalovat stávající. 
-| 80011 | Agent ověřování nelze načíst dešifrovací klíč. | Pokud problém konzistentně reprodukovatelnou, nainstalujte a zaregistrujte novou ověření agenta. A odinstalovat stávající.
+| 80011 | Ověřovací agent nebyl schopen získat dešifrovací klíč. | Pokud problém konzistentně reprodukovatelnou, nainstalujte a zaregistrujte novou ověření agenta. A odinstalovat stávající.
 
 ## <a name="authentication-agent-installation-issues"></a>Problémy instalace agenta ověřování
 
@@ -79,7 +79,7 @@ Přejděte na **Azure Active Directory** -> **přihlášení** na [centra pro sp
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>Registrace ověření agenta se nezdařila z důvodu blokované porty
 
-Zkontrolujte, jestli server, na kterém byl nainstalován Agent pro ověřování může komunikovat v naší službě uvedené adresy URL a portů [zde](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Zkontrolujte, jestli server, na kterém byl nainstalován Agent pro ověřování může komunikovat v naší službě uvedené adresy URL a portů [zde](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>Registrace ověření agenta se nezdařila z důvodu chyb autorizační token nebo účtu
 
@@ -105,7 +105,7 @@ Musíte mít alespoň jeden aktivní Agent ověřování povolení předávací 
 
 ### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>Povolením této funkce se nezdařilo z důvodu blokované porty
 
-Zkontrolujte, jestli server, na kterém je nainstalován Azure AD Connect může komunikovat v naší službě uvedené adresy URL a portů [zde](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Zkontrolujte, jestli server, na kterém je nainstalován Azure AD Connect může komunikovat v naší službě uvedené adresy URL a portů [zde](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Povolením této funkce se nezdařilo z důvodu chyb autorizační token nebo účtu
 

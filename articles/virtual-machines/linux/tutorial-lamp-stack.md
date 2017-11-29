@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fcf411db844e227e0c4db0e690a1832f98b42f1
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Nainstalujte svítilna webový server na virtuální počítač Azure
 Tento článek vás provede procesem nasazení webového serveru Apache, MySQL a PHP (svítilna stack) na virtuálního počítače s Ubuntu v Azure. Pokud dáváte přednost NGINX webový server, najdete v článku [LEMP zásobníku](tutorial-lemp-stack.md) kurzu. Informace o serveru svítilna v akci, můžete volitelně nainstalovat a nakonfigurovat web WordPress. V tomto kurzu se naučíte:
@@ -32,7 +32,7 @@ Tento článek vás provede procesem nasazení webového serveru Apache, MySQL a
 > * Instalace aplikace WordPress na serveru svítilna
 
 
-Další informace v zásobníku svítilna, včetně doporučení pro produkční prostředí, najdete [Ubuntu dokumentaci](https://help.ubuntu.com/community/ApacheMySQLPHP).
+Tento instalační program pro rychlé testů nebo testování konceptu. Další informace v zásobníku svítilna, včetně doporučení pro produkční prostředí, najdete [Ubuntu dokumentaci](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,13 +42,12 @@ Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místn�
 
 ## <a name="install-apache-mysql-and-php"></a>Instalace Apache, MySQL a PHP
 
-Spusťte následující příkaz k aktualizaci zdroje balíčků Ubuntu a instalace Apache, MySQL a PHP. Poznámka: šipka nahoru (^) na konci příkazu.
+Spusťte následující příkaz k aktualizaci zdroje balíčků Ubuntu a instalace Apache, MySQL a PHP. Všimněte si šipka nahoru (^) na konci příkazu, který je součástí služby `lamp-server^` název balíčku. 
 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
-
 
 
 Zobrazí se výzva k instalaci balíčků a další závislosti. Po zobrazení výzvy, nastavte kořenové heslo pro databázi MySQL a potom [Enter] pokračovat. Postupujte podle zbývajících pokynů. Tento proces nainstaluje minimální požadované rozšíření PHP potřeba k použití PHP s MySQL. 
@@ -78,15 +77,15 @@ Kontrola verze databáze MySQL pomocí následujícího příkazu (Poznámka: ve
 mysql -V
 ```
 
-Doporučujeme spustit následující skript pro pomoc se zabezpečením instalaci MySQL:
+Chcete-li pomoc se zabezpečením instalaci MySQL, spusťte `mysql_secure_installation` skriptu. Pokud jsou pouze nastavení dočasný server, můžete tento krok přeskočit.
 
 ```bash
 mysql_secure_installation
 ```
 
-Zadejte heslo kořenové MySQL a nakonfigurovat nastavení zabezpečení pro vaše prostředí.
+Zadejte kořenové heslo pro databázi MySQL a nakonfigurovat nastavení zabezpečení pro vaše prostředí.
 
-Pokud chcete k vytvoření databáze MySQL, přidat uživatele nebo změnit nastavení konfigurace, přihlášení k MySQL:
+Pokud budete chtít zkusit MySQL funkce (vytvoření databáze MySQL, přidat uživatele nebo změnit nastavení konfigurace), přihlášení k MySQL. Tento krok není nutný k dokončení tohoto kurzu.
 
 ```bash
 mysql -u root -p

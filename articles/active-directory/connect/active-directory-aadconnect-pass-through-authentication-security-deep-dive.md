@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5d2c581b25d34ea1b83f54292b5b65b2286e5a9d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 4428f3da5dd9423aa60daa697e4ea15c99f92188
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory předávací ověřování zabezpečení podrobné informace
 
@@ -39,7 +39,7 @@ Tyto aspekty zabezpečení klíčů této funkce jsou:
 - Pro odchozí komunikaci od agentů ověřování do služby Azure AD se používají pouze standardní porty (80 a 443). Nemusíte otevřete příchozí porty v bráně firewall. 
   - Port 443 se používá pro všechny ověřené odchozí komunikaci.
   - Port 80 se používá pouze pro stahování seznamy odvolaných certifikátů (CRL) pro zajištění, že žádný z certifikátů používat tuto funkci byl odvolán.
-  - Úplný seznam požadavků sítě najdete v tématu [ověřování Azure Active Directory průchozí: rychlý start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+  - Úplný seznam požadavků sítě najdete v tématu [ověřování Azure Active Directory průchozí: rychlý start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Hesla, které uživatelé zadali při přihlašování se šifrují v cloudu, než místní ověřování agentů nepřijmete pro ověření na základě služby Active Directory.
 - Kanál HTTPS mezi službou Azure AD a místní ověřování agenta je zabezpečená pomocí vzájemného ověřování.
 - Tato funkce se bezproblémově integruje s funkce Ochrana cloudu Azure AD, například zásady podmíněného přístupu (včetně ověřování Azure Multi-Factor Authentication), ochrany identit a inteligentní uzamčení.

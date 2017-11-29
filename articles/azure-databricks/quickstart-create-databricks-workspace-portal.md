@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: b5f80427234549b13a1aca94cd04e4f7e6f94ccf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cffc78c06de6be252704c2a116d7ded2c7e8567f
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Rychlý úvod: Spustit úlohu Spark v Azure Databricks pomocí portálu Azure
 
@@ -97,7 +97,7 @@ Proveďte následující kroky pro vytvoření poznámkového bloku v Databricks
     Pokyny o tom, jak načíst klíč účtu úložiště najdete v tématu [Správa přístupových klíčů k úložišti](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
 
     > [!NOTE]
-    > Můžete také použít Azure Data Lake Store s clusterem Spark v Azure Databricks. Pokyny najdete v tématu [použití Data Lake Store s Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
+    > Můžete také použít Azure Data Lake Store s clusterem Spark v Azure Databricks. Pokyny najdete v tématu [použití Data Lake Store s Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
 
 4. Spuštění příkazu jazyka SQL a vytvořte dočasnou tabulku pomocí dat z ukázkový soubor dat JSON **small_radio_json.json**. V následující fragment kódu nahraďte zástupné hodnoty název kontejneru a název účtu úložiště. Vložte fragment v buňce kódu v poznámkovém bloku a stiskněte klávesu SHIFT + ENTER. V tomto fragmentu kódu `path` označuje umístění souboru JSON vzorku, který jste nahráli do účtu úložiště Azure.
 
@@ -159,4 +159,4 @@ Pokud jste nezaškrtli políčko, musí ručně ukončit clusteru. Chcete-li uč
 V tomto článku vytvořit Spark cluster v Azure Databricks a spustil úlohu Spark pomocí dat v úložišti Azure. Můžete také prohlédnout [Spark zdroje dat](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) se dozvíte, jak k importu dat z jiných zdrojů dat do Azure Databricks. Přechodu na další článku se dozvíte, jak používat Azure Data Lake Store s Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Použití Data Lake Store s Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store)
+>[Použití Data Lake Store s Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)

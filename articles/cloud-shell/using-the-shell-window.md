@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: 5d376ea0bce1088206aa369decf92b1b7523918a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4eb5680c618d78e0722e1eb4a0f551f26b4dc902
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Používání okna prostředí cloudu Azure
 
@@ -32,7 +32,7 @@ Pomocí modulu pro výběr prostředí na panelu nástrojů v prostředí cloudu
 ## <a name="restart-cloud-shell"></a>Restartujte cloudové prostředí
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
-> Restartování prostředí cloudu obnoví stav počítače a všechny soubory ve vašem souboru není trvalý sdílené složky budou ztraceny.
+> Restartování prostředí cloudu obnoví stav počítače a všechny soubory ve vašem Azure není trvalý sdílené složky budou ztraceny.
 
 * Klikněte na ikonu restartování na panelu nástrojů cloudové prostředí. Chcete-li obnovit stav počítače.
 

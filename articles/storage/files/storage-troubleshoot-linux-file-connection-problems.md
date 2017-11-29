@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: b6eb37ef4e836bd33a77180ef5aa8589ca5139af
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 8fd09c748786f0bfe070c3f41201eddc3d272116
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Poradce při potížích Azure soubory v systému Linux
 
@@ -157,7 +157,7 @@ Chcete-li problém vyřešit, použijte [nástroj řešení potíží pro soubor
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: nemůže získat přístup k '&lt;cesta&gt;": chyby vstupu a výstupu
 
-Při pokusu o zobrazení seznamu souborů v sdílenou složku Azure pomocí příkazu ls, zobrazí se následující chyba:
+Při pokusu seznam souborů v Azure file sdílet pomocí příkazu ls ls, který příkaz přestane reagovat, když seznam souborů, které jste dojít k následující chybě:
 
 **ls: nemůže získat přístup k '&lt;cesta&gt;": chyby vstupu a výstupu**
 

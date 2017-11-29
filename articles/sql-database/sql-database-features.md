@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/25/2017
 ms.author: carlrab
-ms.openlocfilehash: 1505b85a8828cd64045a982ece48e49d85ea3314
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: dd78b1a8703f2e6aaa7854a7b3cb774d014e7270
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-features"></a>Funkce služby Azure SQL Database
 
@@ -109,7 +109,7 @@ V následující tabulce jsou uvedeny hlavní funkce systému SQL Server a posky
 | [Agent SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Ne – najdete v části [elastické úlohy](sql-database-elastic-jobs-getting-started.md) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | V tématu [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Auditování SQL serveru](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Ne – najdete v části [auditování databáze SQL](sql-database-auditing.md) |
-| [SQL Server Integration Services (služby SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | V tématu [pro vytváření dat Azure](https://azure.microsoft.com/services/data-factory/) |
+| [SQL Server Integration Services (služby SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ano – najdete v části [navýšení a shift SQL Server Integration Services zatížení do cloudu.](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview) |
 | [Prostředí PowerShell pro Server SQL](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ano |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Ne – najdete v části [rozšířené události](sql-database-xevent-db-diff-from-svr.md) |
 | [Replikace SQL serveru](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Jenom předplatitelé transakční replikace a replikace snímků](sql-database-cloud-migrate.md) |

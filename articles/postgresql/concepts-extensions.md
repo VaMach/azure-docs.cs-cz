@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: a80b27dc8f1a15bf2e62c9992be8bfa02cacb2f6
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/28/2017
+ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Rozšíření PostgreSQL v databázi Azure pro PostgreSQL
 PostgreSQL poskytuje možnost rozšířit funkce vaší databáze pomocí rozšíření. Rozšíření umožňují pro sdružování více souvisejících objektů SQL společně v jednom balíčku, který může načíst nebo odebrat z databáze pomocí jednoho příkazu. Po načtení v databázi můžete rozšíření fungovat stejně jako integrované funkce. Další informace o rozšíření PostgreSQL najdete v tématu [balení související objekty do rozšíření](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -94,7 +94,7 @@ V následujících tabulkách najdete standardní PostgreSQL rozšíření, kter
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topologie, postgis\_tiger\_geocoder, postgis\_sfcgal | Prostorová a geografické objekty pro PostgreSQL. |
 | Adresa\_standardizer, adresa\_standardizer\_data\_nám | Použít k analýze adresu do základní elementy. Použít pro podporu určování zeměpisných souřadnic adresu normalizaci krok. |
-| [grouting](http://pgrouting.org/) | Rozšiřuje PostGIS / PostgreSQL geoprostorové databázi, aby zajistil geoprostorové směrování funkce. |
+| [pgrouting](http://pgrouting.org/) | Rozšiřuje PostGIS / PostgreSQL geoprostorové databázi, aby zajistil geoprostorové směrování funkce. |
 
 ## <a name="next-steps"></a>Další kroky
 Pokud nevidíte rozšíření, které chcete použít, dejte nám vědět. Hlasovat pro existující požadavky nebo vytvořit nový zpětnou vazbu a požadavky v našem [fóru pro zpětnou vazbu zákazníka](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

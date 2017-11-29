@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: ae92f7bb7b471c54b33e8714c5775c04c9db04e8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da6ea4bff5a45125f11776f161fef38e39a74cdd
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Dotaz Hive prostřednictvím ovladač JDBC v HDInsight
 
@@ -197,7 +197,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 Teď, když jste se naučili použití JDBC pro práci s Hive, pomocí následujících odkazů a prozkoumejte další způsoby, jak pracovat s Azure HDInsight.
 
 * [Vizualizovat data Hive s Microsoft Power BI v Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
-* [Použití Zeppelin ke spouštění dotazů Hive v Azure HDInsight ](./../hdinsight-connect-hive-zeppelin.md).
+* [Použití Zeppelin ke spouštění dotazů Hive v Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Připojení aplikace Excel do HDInsight pomocí ovladače ODBC Microsoft Hive](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Připojení aplikace Excel k systému Hadoop pomocí Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Připojení k Azure HDInsight a spouštět dotazy Hive pomocí nástrojů Data Lake pro Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

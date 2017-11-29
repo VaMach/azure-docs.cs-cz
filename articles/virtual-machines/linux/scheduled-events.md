@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 75e509a7e39f5b268ce550d0c4dea2261d4fe56f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8e943db5a48f8fbbcd63a448abe34b66f5f987a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Služba Azure Metadata: Naplánované události (Preview) pro virtuální počítače s Linuxem
 
@@ -27,31 +27,38 @@ ms.lasthandoff: 10/11/2017
 > Verze Preview jsou k dispozici pro vás, za předpokladu, že souhlasíte s podmínkami použití. Další informace najdete v [dodatečných podmínkách použití systémů Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Naplánované události je jedním z subservices v rámci služby Azure metadat. Zodpovídá za zpřístupnění informací o nadcházející události (například restartování) tak, aby vaše aplikace můžete připravit pro ně a omezit přerušení. Je k dispozici pro všechny typy virtuálního počítače Azure, včetně PaaS a IaaS. Naplánované události dává času váš virtuální počítač k provádění preventivní úloh, aby se minimalizoval vliv událost. 
+Naplánované události je služba Azure Metadata, která dává vaší aplikace času Příprava pro virtuální počítač údržby. Poskytuje informace o události nadcházející údržby (například restartování) tak, aby vaše aplikace můžete připravit pro ně a omezit přerušení. Je k dispozici pro všechny typy virtuálního počítače Azure, včetně PaaS a IaaS v systému Windows a Linux. 
 
-Naplánované události je k dispozici pro systém Windows a virtuální počítače s Linuxem. Informace o naplánované události v systému Windows najdete v tématu [naplánované události pro virtuální počítače Windows](../windows/scheduled-events.md).
+Informace o naplánované události v systému Windows najdete v tématu [naplánované události pro virtuální počítače Windows](../windows/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>Proč naplánované události?
 
-S naplánované události může trvat kroky pro omezení dopad platformy intiated údržby nebo akce zahájená uživatelem na vaši službu. 
+Mnoho aplikací můžete těžit z času na přípravu údržby virtuálního počítače. Čas slouží k provádění specifických úloh aplikace, které zlepšení dostupnosti, spolehlivosti a použitelnost včetně: 
 
-S více instancemi úloh, které použít techniky replikace pro uchování stavu, může být zranitelný vůči výpadků děje ve více instancích. Například výpadky může vést k nákladné úlohy (například rekonstrukci indexy) nebo i ke ztrátě replik. 
+- Kontrolní bod a obnovení
+- Připojení vyprazdňování
+- Převzetí služeb při selhání primární repliky 
+- Odebrání z fondu vyrovnávání zatížení
+- Protokolování událostí
+- Řádné vypnutí 
 
-V mnoha jiných případech celkovým dostupnost služeb může zlepšit provedením řádné vypnutí pořadí dokončuje (nebo ruší) během letu transakce, přeřazení úlohy na ostatních virtuálních počítačů v clusteru (ruční převzetí služeb při selhání), nebo odebrání virtuální Počítač z fondu vyrovnávání zatížení sítě. 
+Pomocí naplánované události aplikace může zjistit, kdy bude údržby dojít a aktivuje úlohy omezit její vliv.  
 
-Existují případy, kdy se žádat o pomoc správce o nadcházející události nebo protokolování takové události pomoci, vylepšení použitelnost aplikací hostovaných v cloudu.
-
-Služba Azure metadat poskytuje naplánované události v následujících případech použití:
--   Platforma iniciované údržby (například zavádění hostitelským operačním systémem)
--   Uživatel spustil volání (například restartování uživatele nebo opětovně nasadí virtuální počítač)
-
+Naplánované události poskytuje události v následujících případech použití:
+- Platforma iniciované údržby (např. hostitele operačního systému aktualizace)
+- Uživatel spustil údržby (například uživatele restartuje nebo opětovně nasadí virtuální počítač)
 
 ## <a name="the-basics"></a>Základy  
 
 Služba Azure Metadata zpřístupní informace o spouštění virtuálních počítačů pomocí koncový bod REST, která je přístupná z virtuálního počítače. Informace k dispozici prostřednictvím směrovat IP, takže není nezveřejní virtuálního počítače.
 
 ### <a name="scope"></a>Rozsah
-Naplánované události jsou prezentované pro všechny virtuální počítače v cloudové službě nebo pro všechny virtuální počítače ve skupině dostupnosti. V důsledku toho byste měli zkontrolovat `Resources` pole v události zjistit, jaké virtuální počítače budou mít vliv. 
+Naplánované události budou doručeny do:
+- Všechny virtuální počítače v cloudové službě
+- Všechny virtuální počítače v nastavení dostupnosti
+- Všechny virtuální počítače ve skupině umístění sady škálování. 
+
+V důsledku toho byste měli zkontrolovat `Resources` pole v události zjistit, jaké virtuální počítače budou mít vliv.
 
 ### <a name="discovering-the-endpoint"></a>Koncový bod zjišťování
 V případě, kde se má vytvořit virtuální počítač v rámci virtuální sítě (VNet), je k dispozici ze statické IP adresy směrovat, služba metadat `169.254.169.254`.
@@ -73,9 +80,6 @@ Při prvním může požádat o naplánované události Azure implicitně povol�
 Uživatel spustil údržby virtuálního počítače prostřednictvím portálu Azure, rozhraní API, rozhraní příkazového řádku, nebo prostředí PowerShell, které jsou výsledkem plánovaná událost. To umožňuje otestovat logiku přípravy údržby v aplikaci a umožňuje aplikaci připravit pro údržbu inicializované uživatelem.
 
 Restartování virtuálního počítače plány událost s typem `Reboot`. Opětovné nasazení virtuálního počítače plány událost s typem `Redeploy`.
-
-> [!NOTE] 
-> Aktuálně může být současně naplánována maximálně 10 operací údržby inicializované uživatelem. Tento limit bude zmírnit před naplánované události obecné dostupnosti.
 
 > [!NOTE] 
 > Údržby iniciované uživatelem, což vede k naplánované události se momentálně nedá konfigurovat. Možnosti konfigurace: je plánovaná pro budoucí použití.

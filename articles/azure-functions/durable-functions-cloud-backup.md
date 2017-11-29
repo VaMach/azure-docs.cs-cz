@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>FAN odesílacího/fan v scénář v trvanlivý funkce – příklad zálohování cloudu
 
@@ -67,13 +67,13 @@ Tato funkce orchestrator v podstatě provede následující akce:
 4. Čeká se na všechny nahrávání k dokončení.
 5. Vrátí součet celkový počet bajtů, které byly odeslány do úložiště objektů Blob Azure.
 
-Upozornění `await Task.WhenAll(tasks);` řádku. Všechna volání do `E2_CopyFileToBlob` funkce byly *není* očekáváno. To je úmyslné umožnit, aby se spouštěly paralelně. Když jsme předat tuto řadu úloh, které se `Task.WhenAll`, se nám získat zpět úlohu, která se nedokončí *dokud byly dokončeny všechny operace kopírování*. Pokud jste obeznámeni s Task Parallel Library (TPL) v rozhraní .NET, není to pro vás nový. Rozdíl je, že tyto úlohy mohou běžet na víc virtuálních počítačů současně, a rozšíření zajišťuje, že provádění začátku do konce odolné vůči recyklace procesu.
+Upozornění `await Task.WhenAll(tasks);` řádku. Všechna volání do `E2_CopyFileToBlob` funkce byly *není* očekáváno. To je úmyslné umožnit, aby se spouštěly paralelně. Když jsme předat tuto řadu úloh, které se `Task.WhenAll`, se nám získat zpět úlohu, která se nedokončí *dokud byly dokončeny všechny operace kopírování*. Pokud jste obeznámeni s Task Parallel Library (TPL) v rozhraní .NET, není to pro vás nový. Rozdíl je, že tyto úlohy mohou běžet na víc virtuálních počítačů současně, a rozšíření trvanlivý funkce zajišťuje, že provádění začátku do konce odolné vůči recyklace procesu.
 
 Po čeká na z `Task.WhenAll`, víme, že všechna volání funkce dokončili a aby vrátil hodnoty zpět do us. Každé volání `E2_CopyFileToBlob` vrátí počet bajtů nahráli, takže výpočet počet bajtů celkový součet je řádu přidání všechny ty společně návratové hodnoty.
 
 ## <a name="helper-activity-functions"></a>Podpůrné funkce aktivity
 
-Podpůrné funkce aktivitu, stejně jako u jiných ukázky jsou právě běžné funkce, které používají `activityTrigger` aktivovat vazby. Například *function.json* souboru `E2_GetFileList` vypadá podobně jako následující:
+Podpůrné funkce aktivitu, stejně jako u jiných ukázky, jsou právě běžné funkce, které používají `activityTrigger` aktivovat vazby. Například *function.json* souboru `E2_GetFileList` vypadá podobně jako následující:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 
@@ -92,7 +92,7 @@ Implementace je také poměrně jednoduché. Se stane, používat některé pokr
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-Implementace načte soubor z disku a asynchronně datové proudy obsah do objektu blob se stejným názvem. Vrácená hodnota je počet bajtů, které jsou zkopírovány do úložiště, pak používány orchestrator funkce pro výpočet agregační součet.
+Implementace načte soubor z disku a asynchronně datové proudy obsah do objektu blob se stejným názvem v kontejneru "zálohování". Vrácená hodnota je počet bajtů, které jsou zkopírovány do úložiště, pak používány orchestrator funkce pro výpočet agregační součet.
 
 > [!NOTE]
 > To je ideální příklad přesunu vstupně-výstupních operací do `activityTrigger` funkce. Pouze mohou práce být distribuovány na mnoha různých virtuálních počítačů, ale můžete také získat výhody vytváření kontrolních bodů průběhu. Pokud hostitelský proces získá ukončeno z jakéhokoli důvodu, víte, které nahrávání už byl dokončený.

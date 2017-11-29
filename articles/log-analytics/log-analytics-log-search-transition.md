@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Přechod na nový dotaz jazyk Azure Log Analytics
 Analýzy protokolů nedávno implementována o nový jazyk dotazu.  Tento článek obsahuje pomoc na přechod tento jazyk pro analýzu protokolu, pokud jste již obeznámeni s starší verze jazyka a potřebujete ještě další pomoc.
+
+## <a name="resources"></a>Zdroje
+
 
 ## <a name="language-converter"></a>Převaděč jazyk
 
 Pokud jste obeznámeni s starší verze analýzy protokolů dotazovací jazyk, je nejjednodušší způsob, jak vytvořit stejný dotaz v požadovaném jazyce pomocí převaděče jazyk, který je nainstalován na portálu hledání protokolů při převodu pracovního prostoru.  Pomocí převaděč je jednoduché, zadáním v starší verze dotaz top textového pole a pak levým na **převést**.  Můžete buď klikněte na tlačítko Hledat spustit dotaz nebo kopírovat a vložit jej používat někde jinde.
 
 ![Převaděč jazyk](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>Zdroje
+[Web dokumentace pro dotazovacího jazyka pro analýzu protokolu](https://docs.loganalytics.io) má všechny prostředky, budete muset pocházet urychlit v požadovaném jazyce.  To zahrnuje kurzy, příklady a odkazem na dokončení jazyk.
 
 
 ## <a name="cheat-sheet"></a>Tahák

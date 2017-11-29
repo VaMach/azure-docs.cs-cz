@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Omezení prostředí cloudu Azure
 
@@ -28,10 +28,10 @@ Prostředí Azure Cloud má tato známá omezení:
 
 ### <a name="system-state-and-persistence"></a>Stav systému a trvalost
 
-Na počítač, který obsahuje vaše cloudové prostředí relace je dočasný a bude recyklována po vaše relace je neaktivní po dobu 20 minut. Cloudové prostředí vyžaduje sdílení souborů pro připojit. Vaše předplatné v důsledku toho musí být schopni nastavit prostředků úložiště pro přístup k prostředí cloudu. Mezi další aspekty patří:
+Na počítač, který obsahuje vaše cloudové prostředí relace je dočasný a bude recyklována po vaše relace je neaktivní po dobu 20 minut. Cloudové prostředí vyžaduje sdílenou složku Azure chcete připojit. Vaše předplatné v důsledku toho musí být schopni nastavit prostředků úložiště pro přístup k prostředí cloudu. Mezi další aspekty patří:
 
 * S použitím připojené úložiště, pouze změny v rámci `clouddrive` adresáře jsou nastavené jako trvalé. V Bash vaše `$Home` adresáře je také jako trvalý.
-* Sdílené složky může být připojen pouze z uvnitř vaší [přiřazené oblast](persisting-shell-storage.md#mount-a-new-clouddrive).
+* Sdílené složky Azure může být připojen pouze z uvnitř vaší [přiřazené oblast](persisting-shell-storage.md#mount-a-new-clouddrive).
   * V Bash, spusťte `env` najít vaší oblasti nastavit jako `ACC_LOCATION`.
 * Soubory Azure podporuje pouze místně redundantního úložiště a účty geograficky redundantní úložiště.
 
@@ -77,10 +77,15 @@ Prostředí PowerShell v prostředí cloudu Azure (Preview) může trvat až 60 
 Data zapsaná do `$Home` všechny aplikace (například: git, vim a dalších) není zachována mezi relace prostředí PowerShell. Alternativní řešení [zde](troubleshooting.md#powershell-resolutions).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Výchozí umístění souboru při vytvoření z disku Azure:
+
 Pomocí rutin prostředí PowerShell, uživatelé nemůžou vytvářet soubory v Azure jednotce. Pokud uživatelé vytvářejí nové soubory pomocí jiných nástrojů, jako je například vim nebo nano, soubory se uloží do složky C:\Users ve výchozím nastavení. 
+
+### <a name="gui-applications-are-not-supported"></a>Grafické uživatelské rozhraní aplikací není podporované.
+
+Pokud uživatel spustí příkaz, který by vytvořit dialogové okno Windows, jako například `Connect-AzureAD` nebo `Login-AzureRMAccount`, například jeden zobrazí chybovou zprávu: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## <a name="next-steps"></a>Další kroky
 
 [Řešení potíží s cloudové prostředí](troubleshooting.md) <br>
 [Rychlý start pro Bash](quickstart.md) <br>
-[Rychlý start pro prostředí PowerShell](quickstart-powershell.md)
+[Rychlý start pro PowerShell](quickstart-powershell.md)

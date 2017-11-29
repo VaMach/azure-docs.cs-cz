@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 6a0f8cb76684a6efcc5e2d4be05493f18d5d4c76
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Jak vyžadovat dvoustupňové ověřování pro uživatele nebo skupinu
 
@@ -40,11 +40,11 @@ Obě tyto možnosti vyzvat uživatele k registraci pro Azure Multi-Factor Authen
 
 Uživatelské účty v Azure Multi-Factor Authentication mají následující tři jedinečné stavy:
 
-| Status | Popis | Neprohlížečové aplikace vliv |
-|:---:|:---:|:---:|
-| Zakázáno |Výchozího stavu pro nového uživatele, která nejsou zaregistrovaná Azure Multi-Factor Authentication (MFA). |Ne |
-| Povoleno |Uživatel byl zaregistrován ke službě Azure MFA, ale není registrován. Se zobrazí výzva k registraci při příštím přihlášení. |Ne.  Budou nadále fungovat až do dokončení procesu registrace. |
-| Vynuceno |Uživatel byl zaregistrován a dokončil proces registrace pro Azure MFA. |Ano.  Aplikace potřebujete hesla aplikace. |
+| Status | Popis | Neprohlížečové aplikace vliv | Aplikace prohlížeče a moderním ověřováním vliv |
+|:---:|:---:|:---:|:--:|
+| Zakázáno |Výchozího stavu pro nového uživatele, která nejsou zaregistrovaná Azure Multi-Factor Authentication (MFA). |Ne |Ne |
+| Povoleno |Uživatel byl zaregistrován ke službě Azure MFA, ale není registrován. Se zobrazí výzva k registraci při příštím přihlášení. |Ne.  Budou nadále fungovat až do dokončení procesu registrace. | Ano. Po vypršení platnosti tokenu obnovení pro relaci, se bude vyžadovat registrace MFA.|
+| Vynuceno |Uživatel byl zaregistrován a dokončil proces registrace pro Azure MFA. |Ano.  Aplikace potřebujete hesla aplikace. |Ano. MFA vyžaduje na přihlášení. |
 
 Stav uživatele, odráží jestli správce zapsal je v Azure MFA, a zda jejich dokončit proces registrace.
 
