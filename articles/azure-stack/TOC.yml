@@ -29,6 +29,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Poznámky k verzi integrované systémy
           items:
+            - name: aktualizace 1711
+              href: azure-stack-update-1711.md
             - name: aktualizace 1710
               href: azure-stack-update-1710.md
     - name: Klíčové funkce a koncepty
