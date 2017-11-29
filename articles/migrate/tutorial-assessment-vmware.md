@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: fd9513cda899a7ac2a51c4e1ab03a80ce0adf2fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/28/2017
@@ -76,12 +76,20 @@ Zkontrolujte, zda. Soubor vajíčka se zabezpečení, před nasazením.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Příklad použití:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Toto nastavení by měl odpovídat generované hodnoty hash.
-
+    
+    Pro verzi vajíčka 1.0.8.38
     **Algoritmus** | **Hodnota hash**
     --- | ---
     ALGORITMUS MD5 | dd27dd6ace28f9195a2b5d52a4003067 
     SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
     SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+
+    Pro verzi vajíčka 1.0.8.40
+    **Algoritmus** | **Hodnota hash**
+    --- | ---
+    ALGORITMUS MD5 | afbae5a2e7142829659c21fd8a9def3f
+    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
+    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
 ## <a name="create-the-collector-vm"></a>Vytvoření kolekce virtuálních počítačů
 
@@ -98,7 +106,6 @@ Stažený soubor importujte do serveru vCenter server.
 8. V **formát disku**, zadejte typ disku a velikost.
 9. V **mapování sítě**, zadejte síť, ke kterému se připojí kolekce virtuálních počítačů. Síť musí připojení k Internetu, k odeslání metadata do Azure. 
 10. Zkontrolujte a potvrďte nastavení a pak klikněte na **Dokončit**.
-
 
 ## <a name="run-the-collector-to-discover-vms"></a>Spustit kolekce k vyhledání virtuálních počítačů
 
@@ -118,6 +125,9 @@ Stažený soubor importujte do serveru vCenter server.
     - V **značky kategorii pro seskupení**, vyberte **žádné**.
 1. V **vyberte projekt**, zadejte ID projektu Azure migrovat a klíče, že jste zkopírovali z portálu. Pokud nebylo je zkopírovat, otevřete portál Azure z kolekce virtuálních počítačů. V projektu **přehled** klikněte na tlačítko **zjišťovat počítače**a zkopírujte hodnoty.  
 2. V **dokončení zjišťování**, monitorování zjišťování a zkontrolujte, že metadata shromážděných z virtuálních počítačů jsou v oboru. Kolekce poskytuje čas přibližnou zjišťování.
+
+> [!NOTE]
+> Kolekce podporuje pouze "Angličtina (Spojené státy)" jako jazyk operačního systému a collector jazyk rozhraní. Podpora více jazyků bude brzo.
 
 
 ### <a name="verify-vms-in-the-portal"></a>Ověření virtuálních počítačů na portálu

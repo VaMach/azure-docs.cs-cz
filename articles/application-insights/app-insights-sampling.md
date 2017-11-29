@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3ae7df7939431e3bd13c070d65876145706e06b5
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sampling-in-application-insights"></a>Vzorkování ve službě Application Insights
 
@@ -309,7 +309,9 @@ Během zpět na zobrazení telemetrie, upraví službu Application Insights metr
 
 Přesnost sblížení do značné míry závisí na nakonfigurovaných vzorkování procento. Navíc zvyšuje přesnost pro aplikace, které zpracovávají velké množství obecně podobné požadavky od velký počet uživatelů. Pro aplikace, které nefungují s výrazném zatížení, není na druhé straně vzorkování potřeba, protože tyto aplikace mohou zasílat obvykle jejich telemetrických dat při zachování v rámci kvóty, aniž by došlo ke ztrátě dat z omezení. 
 
-Všimněte si, že Application Insights pro tyto typy není ukázkové metriky a relací typy telemetrických dat, protože snížení přesnost může být vysoce nežádoucí. 
+> [!WARNING]
+> Application Insights není ukázkové metriky a relací typy telemetrie. Snížení přesnost může nežádoucího vysoce pro tyto typy telemetrie.
+> 
 
 ### <a name="adaptive-sampling"></a>Adaptivního vzorkování
 Adaptivního vzorkování přidá komponenty, která monitoruje aktuální rychlost přenosu ze sady SDK a upraví procento vzorkování pokusí zůstat v cílové maximální rychlost přenosu. Úpravou jsou přepočítána v pravidelných intervalech a vychází z o pohyblivý průměr odchozí rychlost přenosu.

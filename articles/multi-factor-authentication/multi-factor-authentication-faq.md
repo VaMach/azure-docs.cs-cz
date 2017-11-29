@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Časté otázky k Azure Multi-Factor Authentication
 Tyto nejčastější dotazy odpovídá na běžné otázky o Azure Multi-Factor Authentication a pomocí služby Multi-Factor Authentication. Ho je rozdělena do otázky týkající se služby obecně fakturace modely, koncových uživatelů a řešení potíží.
@@ -45,6 +45,22 @@ Pokud požadavky na ověření pošlou do cloudové služby, data se shromažďu
 Volitelná pole lze konfigurovat v aplikaci Multi-Factor Authentication Server.
 
 Výsledek ověření (úspěch nebo odmítnutí) a z důvodu, pokud mu byl odepřen, se uloží spolu data ověřování. Tato data jsou k dispozici na ověřování a v sestavách využití.
+
+**Otázka: jaký SMS krátké kódy se používají pro odesílání zpráv serveru SMS na můj uživatele?**
+
+Ve Spojených státech amerických Microsoft používá následující kódy krátké SMS:
+
+   * 97671
+   * 69829
+   * 51789
+   * 99399
+
+V Kanadě na společnost Microsoft používá následující kódy krátké SMS:
+
+   * 759731 
+   * 673801
+
+Společnost Microsoft nezaručuje konzistentní SMS nebo na základě hlasové služby Multi-Factor Authentication výzva doručení o stejné číslo. V zájmu naši uživatelé Microsoft může přidat nebo odebrat krátké kódy kdykoli, jak můžeme provádět úpravy trasy ke zlepšení SMS deliverability. Microsoft nepodporuje krátké kódy zemí kromě USA a Kanada
 
 ## <a name="billing"></a>Fakturace
 Většina máte dotazy k fakturaci může odpovědět odkazující na buď [stránce s cenami vícefaktorového ověřování](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) nebo v dokumentaci o [jak získat Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitorování Azure Functions
 
@@ -50,7 +50,7 @@ Povolit Application Insights na aplikaci funkce **vytvořit** stránky:
 
 ### <a name="existing-function-app"></a>Stávající aplikace – funkce
 
-Získat kód instrumentace a uložit ho v aplikaci funkce:
+Získat klíč instrumentace a uložit ho v aplikaci funkce:
 
 1. Vytvoření instance služby Application Insights. Nastavte typ aplikace na **Obecné**.
 
@@ -60,7 +60,7 @@ Získat kód instrumentace a uložit ho v aplikaci funkce:
 
    ![Zkopírovat klíč instrumentace Application Insights](media/functions-monitoring/copy-ai-key.png)
 
-1. V aplikaci funkce **nastavení aplikace** stránky, [přidat nastavení aplikace](functions-how-to-use-azure-function-app-settings.md#settings) s názvem APPINSIGHTS_INSTRUMENTATIONKEY a vložte klíč instrumentace.
+1. V aplikaci funkce **nastavení aplikace** stránky, [přidat nastavení aplikace](functions-how-to-use-azure-function-app-settings.md#settings) kliknutím **přidejte nové nastavení**. Název nové nastavení APPINSIGHTS_INSTRUMENTATIONKEY a vložte klíč zkopírovaný instrumentace.
 
    ![Přidejte klíč instrumentace nastavení aplikace](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Získat kód instrumentace a uložit ho v aplikaci funkce:
 
 ## <a name="view-telemetry-data"></a>Telemetrická data zobrazení
 
-Přejděte do služby Application Insights z funkce aplikace na portálu, vyberte **Application Insights** odkaz na aplikaci funkce **přehled** stránky.
+Přejděte na připojenou instanci Application Insights z funkce aplikace na portálu, vyberte **Application Insights** odkaz na aplikaci funkce **přehled** stránky.
 
 Informace o tom, jak použít Application Insights, najdete v článku [Application Insights dokumentaci](https://docs.microsoft.com/azure/application-insights/). Tato část uvádí některé příklady, jak chcete zobrazit data ve službě Application Insights. Pokud jste již obeznámeni s Application Insights, můžete přejít přímo na [části o konfiguraci a přizpůsobení telemetrická data](#configure-categories-and-log-levels).
 
@@ -84,7 +84,7 @@ Na [výkonu](../application-insights/app-insights-performance-counters.md) kart�
 
 ![Výkon](media/functions-monitoring/performance.png)
 
-**Servery** kartě se zobrazují využití prostředků a propustnosti na server. Tato data mohou být užitečné pro ladění scénáře, kde jsou funkce bogging dolů příslušných prostředků. Servery jsou označovány jako *cloudu instance rolí*. 
+**Servery** kartě se zobrazují využití prostředků a propustnosti na server. Tato data mohou být užitečné pro ladění scénáře, kde jsou funkce bogging dolů příslušných prostředků. Servery jsou označovány jako **cloudu instance rolí**.
 
 ![Servery](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ Na [výkonu](../application-insights/app-insights-performance-counters.md) kart�
 
 ## <a name="query-telemetry-data"></a>Dotaz na data telemetrie
 
-[Analýza aplikace Statistika](../application-insights/app-insights-analytics.md) dává vám přístup ke všem telemetrická data ve formě tabulky v databázi. Analytics obsahuje dotazovací jazyk pro extrahování a manipulaci s daty.
+[Analýza aplikace Statistika](../application-insights/app-insights-analytics.md) dává vám přístup ke všem telemetrická data ve formě tabulky v databázi. Analytics obsahuje dotazovací jazyk pro extrahování, manipulace a vizualizaci dat.
 
 ![Vyberte Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -131,7 +131,7 @@ Modul runtime poskytuje `customDimensions.LogLevel` a `customDimensions.Category
 
 ## <a name="configure-categories-and-log-levels"></a>Konfigurace kategorií a úrovně protokolování
 
-Application Insights můžete použít bez jakékoli vlastní konfigurace, ale může způsobit vysoké objemy dat. výchozí konfiguraci. Pokud používáte Visual Studio Azure předplatné, může dosáhl limitu vaše data přehledů aplikace. Zbývající část tohoto článku ukazuje, jak nakonfigurovat a upravit data, která funkcí odesílání Application Insights.
+Application Insights můžete použít bez jakékoli vlastní konfigurace, ale může způsobit vysoké objemy dat. výchozí konfiguraci. Pokud používáte Visual Studio Azure předplatné, může dosáhl limitu vaše data pro službu Application Insights. Zbývající část tohoto článku ukazuje, jak nakonfigurovat a upravit data, která funkcí odesílání Application Insights.
 
 ### <a name="categories"></a>Kategorie
 
@@ -178,7 +178,7 @@ Také zahrnuje protokolovacího nástroje Azure functions *úrovně protokolová
 
 Tento příklad nastaví následující pravidla:
 
-1. Pro protokoly s kategorie "Host.Results" nebo "Funkce" odeslat pouze `Error` úroveň a vyšší Application insights. V protokolech `Information` úrovni a níže se ignorují.
+1. Pro protokoly s kategorie "Host.Results" nebo "Funkce" odeslat pouze `Error` úroveň a vyšší Application insights. V protokolech `Warning` úrovni a níže se ignorují.
 2. Protokoly s kategorie hostitele. Agregátoru, odeslání pouze `Information` úroveň a vyšší Application insights. V protokolech `Debug` úrovni a níže se ignorují.
 3. Pro všechny ostatní protokoly odeslat pouze `Information` úroveň a vyšší Application insights.
 
@@ -217,7 +217,7 @@ Všechny tyto protokoly jsou zapsány v `Information` úroveň, takže pokud fil
 
 Tyto protokoly poskytují počty a průměry volání funkce přes [konfigurovat](#configure-the-aggregator) období času. Výchozí doba je 30 sekund nebo 1 000 výsledky, nastane dříve. 
 
-Protokoly se zobrazí jako "customMetrics" ve službě Application Insights. Příklady jsou číslo spustí, míra úspěšnosti a doba trvání.
+Protokoly jsou k dispozici v **customMetrics** tabulky ve službě Application Insights. Příklady jsou číslo spustí, míra úspěšnosti a doba trvání.
 
 ![customMetrics dotazu](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Všechny tyto protokoly jsou zapsány v `Information` úroveň, takže pokud fil
 
 ### <a name="other-categories"></a>Ostatních kategorií
 
-Všechny protokoly pro kategorií než ty, které již uveden zobrazit jako "trasování" ve službě Application Insights.
+Všechny protokoly pro kategorií než těm, které jsou už jsou k dispozici v **trasování** tabulky ve službě Application Insights.
 
 ![trasování dotazů](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ Pokud zachovat stejné řetězec zprávy a pořadí parametrů, výsledná text 
 
 Zástupné symboly jsou zpracovávány tímto způsobem, takže můžete provést strukturovaných protokolování. Application Insights ukládá dvojice název hodnota parametru kromě řetězec zprávy. Výsledek, že je zpráva argumenty pole, které můžete zadat dotaz na.
 
-Například pokud vaše volání metody protokolovacího nástroje vypadá jako předchozí příklad, můžete dotazovat pole `customDimensions.prop__rowKey`. Předpona, která se přidá k zajištění, že neexistují žádné kolize mezi pole, která přidá modul runtime a pole, která se přidá funkce kódu.
+Například pokud vaše volání metody protokolovacího nástroje vypadá jako předchozí příklad, můžete dotazovat pole `customDimensions.prop__rowKey`. `prop__` Předpona se přidá k zajištění, že neexistují žádné kolize mezi poli modulu runtime přidá a polí kódu funkce přidá.
 
 Můžete taky zadat dotaz na původní řetězec zprávy pod položkou pole `customDimensions.prop__{OriginalFormat}`.  
 
@@ -454,7 +454,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>Závislosti
 
-Závislosti Nezobrazovat automaticky, ale můžete psát vlastní kód, a zobrazit závislosti. Ukázkový kód v [C# vlastní telemetrii části](#custom-telemetry-in-c-functions) ukazuje, jak. Ukázkový kód vede *aplikace mapy* ve službě Application Insights, vypadá podobně jako tento:
+Závislosti, které funkce má k jiným službám Nezobrazovat automaticky, ale můžete napsat vlastní kód, který pro závislosti. Ukázkový kód v [C# vlastní telemetrii části](#custom-telemetry-in-c-functions) ukazuje, jak. Ukázkový kód vede *aplikace mapy* ve službě Application Insights, vypadá podobně jako tento:
 
 ![Mapa aplikace](media/functions-monitoring/app-map.png)
 
@@ -473,10 +473,10 @@ Vyberte **monitorování** kartu pro funkci a získejte seznam spuštěních fun
 
 ### <a name="real-time-monitoring"></a>Sledování v reálném čase
 
-Sledování v reálném čase je k dispozici kliknutím **živé události datového proudu** na funkci **monitorování** kartě. Datový proud živé události se zobrazí v grafu na nové záložce v prohlížeči
+Sledování v reálném čase je k dispozici kliknutím **živý datový proud událostí** na funkci **monitorování** kartě. Datový proud živé události se zobrazí v grafu na nové záložce prohlížeče.
 
 > [!NOTE]
-> Je známý problém, který může způsobit, že dat, aby se nepodařilo načíst. Budete muset zavřete kartu prohlížeče obsahující datový proud živé události a pak klikněte na tlačítko **živé události datového proudu** znovu tak, aby ji správně naplnění dat událostí datového proudu. 
+> Je známý problém, který může způsobit, že dat, aby se nepodařilo načíst. Budete muset zavřete kartu prohlížeče obsahující datový proud živé události a pak klikněte na tlačítko **živý datový proud událostí** znovu tak, aby ji správně naplnění dat událostí datového proudu. 
 
 Tyto statistické údaje jsou v reálném čase, ale skutečný vytváření grafů data provádění pravděpodobně přibližně 10 sekund latence.
 

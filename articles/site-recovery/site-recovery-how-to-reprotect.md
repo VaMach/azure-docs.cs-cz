@@ -3,7 +3,7 @@ title: "Znovu nastavte ochranu z Azure na místní web | Microsoft Docs"
 description: "Po převzetí služeb při selhání virtuálních počítačů do Azure můžete zahájit navrácení služeb po obnovení a dovést tak virtuální počítače zpět do místní. Naučte se znovu nastavte ochranu před navrácení služeb po obnovení."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: ba68df3df33a357db4d97ff65c9cc5995cd51caa
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 06/05/2017
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/28/2017
@@ -62,16 +62,20 @@ Při přípravě k nastavení opětné virtuálních počítačů trvat nebo vz�
   * **Hlavní cílový server**: hlavní cílový server přijímá data navrácení služeb po obnovení. Hlavní cílový server nainstalované ve výchozím nastavení má server pro správu místní, kterou jste vytvořili. V závislosti na objem provozu zpět se nezdařilo, však může potřebovat vytvořit samostatné hlavní cílový server navrácení služeb po obnovení.
     * [Virtuální počítač s Linuxem musí hlavní cílový server Linux](site-recovery-how-to-install-linux-master-target.md).
     * Virtuální počítač Windows musí hlavní cílový server systému Windows. Místní proces server a hlavní cílových počítačů můžete použít znovu.
+    * Hlavní cíl má jiné požadavky, které jsou uvedeny v [běžné co je potřeba zkontrolovat na hlavním cíli před opětovné ochrany](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 > [!NOTE]
 > Všechny virtuální počítače skupiny replikace by měla být stejný typ operačního systému (všechny verze Windows nebo Linux všechny). Replikační skupina s smíšený operačních systémů se aktuálně nepodporuje pro opětovné ochrany a navrácení služeb po obnovení místně. Je to proto, že se hlavní cíl by měl být stejný operační systém jako virtuální počítač a všechny virtuální počítače replikační skupiny musí mít stejný hlavní cíl. 
 
-    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+    
 
 * Konfigurační server je místní, když jste navrácení služeb po obnovení. Virtuální počítač musí během navrácení služeb po obnovení, neexistuje v databázi konfigurací serveru. Jinak navrácení služeb po obnovení neúspěšné. 
 
 > [!IMPORTANT]
 > Zajistěte, aby podniknout pravidelně naplánovaných záloh konfigurace serveru. Pokud dojde k havárii, obnovení tak, aby funguje navrácení služeb po obnovení serveru se stejnou IP adresu.
+
+> [!WARNING]
+> Replikační skupinu by měla mít pouze virtuální počítače Windows nebo virtuální počítače s Linuxem a není kombinaci obou vzhledem k tomu, že všechny virtuální počítače ve skupině replictaion používá stejnou hlavní cílový server a virtuální počítač s Linuxem vyžaduje server hlavního cíle Linuxu a, jako jsou vhodné pro virtuální počítač s Windows.
 
 * Nastavte `disk.EnableUUID=true` nastavení v konfigurační parametry hlavního cílového virtuálního počítače v prostředí VMware. Pokud tento řádek neexistuje, přidejte ji. Toto nastavení je nutné k zajištění konzistentní UUID disku virtuálního počítače (VMDK) tak, aby ji připojí správně.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 681a9d1636d547492f6f827461c6b2494b918778
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1398e9b0a10efcd694e46d6322d5d7b9e7a843
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Dostupnost a konzistence v Event Hubs
 
@@ -36,7 +36,7 @@ Na Brewer věta definuje konzistence a dostupnost následujícím způsobem:
 Služba Event Hubs je postavená na oddílů datový model. Počet oddílů v Centru událostí můžete nakonfigurovat během instalace, ale tuto hodnotu nelze změnit později. Vzhledem k tomu, že oddíly musí používat službou Event Hubs, máte k provedení rozhodnutí o dostupnosti a konzistence pro vaši aplikaci.
 
 ## <a name="availability"></a>Dostupnost
-Nejjednodušší způsob, jak začít pracovat s Event Hubs je použije výchozí chování. Pokud vytvoříte novou `EventHubClient` objektu a použít `Send` metody událostí je automaticky distribuovaná mezi oddílů v Centru událostí. Toto chování umožňuje největší množství provoz.
+Nejjednodušší způsob, jak začít pracovat s Event Hubs je použije výchozí chování. Pokud vytvoříte novou  **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)**  objektu a použít  **[odeslat](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)**  metody událostí je automaticky distribuovaná mezi oddíly v Centru událostí. Toto chování umožňuje největší množství provoz.
 
 Tento model pro případy použití, které vyžadují maximální doba provozu, je upřednostňovaný.
 

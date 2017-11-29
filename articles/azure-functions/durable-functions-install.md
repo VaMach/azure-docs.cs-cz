@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Nainstalujte rozšíření trvanlivý funkce a ukázky (Azure Functions)
 
@@ -33,7 +33,7 @@ Visual Studio teď poskytuje dosažení co nejlepších výsledků pro vývoj ap
 
 ### <a name="prerequisites"></a>Požadavky
 
-* Nainstalujte [nejnovější verze sady Visual Studio](https://www.visualstudio.com/downloads/) (verze 15.3 nebo novější). V možnostech instalace zahrnují nástroje Azure.
+* Nainstalujte [nejnovější verze sady Visual Studio](https://www.visualstudio.com/downloads/) (verze 15.3 nebo novější). Zahrnout **Azure development** zatížení v možnostech instalace.
 
 ### <a name="start-with-sample-functions"></a>Začněte s ukázkových funkcích
 
@@ -61,7 +61,7 @@ Pokud dáváte přednost, můžete portál Azure pro vývoj trvanlivý funkce.
 
 1. Vytvořit novou aplikaci funkce v [functions.azure.com](https://functions.azure.com/signin).
 2. Konfigurace funkce aplikaci [použít verzi 2.0 runtime](functions-versions.md).
-3. Vytvořte novou funkci a vyberte **trvanlivý Orchestrator funkce – C#** šablony.
+3. Vytvořte novou funkci, tak, že zvolíte "C" pro jazyk a "Vše" pro scénář. Vyberte **trvanlivý Orchestrator funkce – C#** šablony.
 4. V části **není nainstalovaná rozšíření**, klikněte na tlačítko **nainstalovat** ke stažení rozšíření od NuGet.org.
 
 ### <a name="copy-sample-code-to-the-function-app"></a>Zkopírujte ukázkový kód do aplikaci funkce

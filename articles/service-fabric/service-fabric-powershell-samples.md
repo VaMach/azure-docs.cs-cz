@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e255382b1263c162bfc80cf41f9e8d362be55a8e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: ae132dbb650e08c3a25a9366563e70c6d56e089d
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-powershell-samples"></a>Ukázky Azure PowerShellu
 
@@ -32,8 +32,10 @@ Následující tabulka obsahuje odkazy na ukázky skripty prostředí PowerShell
 |-|-|
 | **Vytvoření clusteru** ||
 | [Vytvoření clusteru s podporou (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Vytvoří cluster služby Azure Service Fabric. |
-| **Správě clusteru** ||
+| **Spravovat cluster a uzly** ||
 | [Přidat certifikátu aplikace](./scripts/service-fabric-powershell-add-application-certificate.md)| Přidá certifikát X.509 aplikace na všech uzlech v clusteru. |
+|[Změnit rozsah portu RDP na uzlu clusteru virtuálních počítačů](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Změní rozsahu portu RDP na uzlu clusteru virtuálních počítačů v clusteru s podporou nasazené.|
+| [Aktualizace uživatel s oprávněními správce a heslo pro uzel clusteru virtuálních počítačů](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | Aktualizuje uživatelské jméno správce a heslo pro uzel clusteru virtuálních počítačů. |
 | **Správa aplikací** ||
 | [Nasazení aplikace](./scripts/service-fabric-powershell-deploy-application.md)| Nasazení aplikace do clusteru.|
 | [Upgrade aplikace](./scripts/service-fabric-powershell-upgrade-application.md)| Upgrade aplikace |

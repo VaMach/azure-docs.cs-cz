@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: c5c93c8e8d108a9a5a29477a532d682659c9d512
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ddac8feedc8ded73e0f436c1e5dd6391016943a9
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Jak získat Azure Multi-Factor Authentication
 
@@ -56,7 +56,7 @@ Následující tabulka obsahuje seznam funkcí, které jsou k dispozici v různ�
 | Služby SMS jako druhý faktor |● |● |● |
 | Hesla aplikací pro klienty, kteří nepodporují MFA |● |● |● |
 | Správce kontrolu nad metody ověření |● |● |● |
-| Chránit bez oprávnění správce. účty s MFA | | |● |
+| Chránit bez oprávnění správce. účty s MFA |● (pouze pro aplikace Office 365) | |● |
 | Režim kódu PIN | | |● |
 | Výstraha podvodů | | |● |
 | Sestavy MFA | | |● |

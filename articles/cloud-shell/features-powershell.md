@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: damaerte
-ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c2eeef9c20f25d2af97e6c754f005b698222385
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funkce a nástroje pro prostředí PowerShell v prostředí cloudu Azure (Preview)
 
@@ -37,7 +37,7 @@ Prostředí PowerShell v prostředí cloudu (Preview) bezpečně a automaticky o
 
 ### <a name="files-persistence-across-sessions"></a>Soubory trvalost napříč relacemi
 
-Pro soubory zachová napříč relacemi, cloudové prostředí vás provede procesem připojení sdílenou složku Azure při prvním spuštění.
+Pro soubory zachová napříč relacemi, cloudové prostředí vás provede procesem připojení sdílené složky souborů aplikace Microsoft Azure při prvním spuštění.
 Po dokončení cloudové prostředí automaticky připojí úložiště (připojit jako `$home\clouddrive`) pro všechny budoucí relace.
 Vzhledem k tomu, že každý požadavek pro cloudové prostředí je přidělování dočasného počítače souborů mimo vaši `$home\clouddrive` a stav počítače nejsou trvalé napříč relacemi.
 

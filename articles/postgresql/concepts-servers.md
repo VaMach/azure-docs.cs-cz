@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/08/2017
-ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/27/2017
+ms.openlocfilehash: a1008936c053316630360403be688e4eedc8b2c0
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Databáze Azure pro servery PostgreSQL
 Tento článek obsahuje důležité informace a pokyny pro práci s databází Azure pro servery PostgreSQL.
@@ -38,13 +38,7 @@ V rámci Azure Database pro PostgreSQL server můžete vytvořit jeden nebo víc
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Jak připojit a ověřit k databázi Azure pro PostgreSQL server?
 Tyto prvky pomoct zajistit bezpečný přístup k vaší databázi.
 
-|||
-| :-- | :-- |
-| **Ověřování a autorizace** | Azure databázi PostgreSQL serveru podporuje nativní PostgreSQL ověřování. Můžete se připojit a ověření serveru s přihlašovací jméno správce serveru. |
-| **Protokol** | Služba podporuje protokol na základě zpráv používá PostgreSQL. |
-| **TCP/IP** | Protokol je podporována přes TCP/IP a přes sockets Unix domény. |
-| **Brána firewall** | Chrání vaše data, pravidlo brány firewall zabrání veškerý přístup k serveru a k jeho databázím, dokud nezadáte, které počítače mají oprávnění. V tématu [databáze Azure pro pravidla brány firewall serveru PostgreSQL](concepts-firewall-rules.md). |
-|||
+| :-- | :-- | | **Ověřování a autorizace** | Azure databázi PostgreSQL serveru podporuje nativní PostgreSQL ověřování. Můžete se připojit a ověření serveru s přihlašovací jméno správce serveru. | | **Protokol** | Služba podporuje protokol na základě zpráv používá PostgreSQL. | | **TCP/IP** | Protokol je podporována přes TCP/IP a přes sockets Unix domény. | | **Brány firewall** | Chrání vaše data, pravidlo brány firewall zabrání veškerý přístup k serveru a k jeho databázím, dokud nezadáte, které počítače mají oprávnění. V tématu [databáze Azure pro pravidla brány firewall serveru PostgreSQL](concepts-firewall-rules.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Jak lze spravovat server?
 Databáze Azure pro servery PostgreSQL můžete spravovat pomocí [portál Azure](https://portal.azure.com) nebo [rozhraní příkazového řádku Azure](/cli/azure/postgres).

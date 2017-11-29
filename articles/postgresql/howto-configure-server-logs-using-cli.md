@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 5e10ddd8c850d457b4ad77cd5ea4d92edc07017e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: d18ec44ecede44829b488ac9864bbfae2c62883a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Konfigurace a přístup k protokolům serveru pomocí rozhraní příkazového řádku Azure
 Můžete si stáhnout PostgreSQL protokoly chyb serveru pomocí rozhraní příkazového řádku (Azure CLI). Přístup k protokoly transakcí však není podporován. 
@@ -33,14 +33,14 @@ Můžete nastavit server pro přístup k dotazu protokoly a protokoly chyb. Prot
 Další informace najdete v tématu [přizpůsobení parametry konfigurace serveru](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Seznam protokolů pro databázi Azure pro PostgreSQL server
-Chcete-li zobrazit seznam souborů k dispozici protokolu pro váš server, spusťte [az postgres protokoly serveru seznamu](/cli/azure/postgres/server-logs#list) příkaz.
+Chcete-li zobrazit seznam souborů k dispozici protokolu pro váš server, spusťte [az postgres protokoly serveru seznamu](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) příkaz.
 
 Můžete seznam souborů protokolu pro server **mypgserver 20170401.postgres.database.azure.com** ve skupině prostředků **myresourcegroup**a přesměrování na textový soubor s názvem **protokolu\_soubory\_seznam.txt.**
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mypgserver-20170401 > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>Stažení protokolů místně ze serveru
-[Az postgres – protokoly serveru stáhnout](/cli/azure/postgres/server-logs#download) příkazu lze stáhnout jednotlivých protokolových souborů pro váš server. 
+[Az postgres – protokoly serveru stáhnout](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) příkazu lze stáhnout jednotlivých protokolových souborů pro váš server. 
 
 Tento příklad stáhne konkrétním souboru protokolu pro server **mypgserver 20170401.postgres.database.azure.com** ve skupině prostředků **myresourcegroup** na vašem místním prostředí.
 ```azurecli-interactive

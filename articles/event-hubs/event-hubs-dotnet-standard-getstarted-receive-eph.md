@@ -1,5 +1,5 @@
 ---
-title: "Přijímat události z Azure Event Hubs pomocí rozhraní .NET Standard | Microsoft Docs"
+title: "Přijímat události z Azure Event Hubs pomocí rozhraní .NET standardní knihovny | Microsoft Docs"
 description: "Začínáme příjem zpráv pomocí knihovny EventProcessorHost ve standardní rozhraní .NET"
 services: event-hubs
 documentationcenter: na
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: cc62792dad0284f9514664795fdfb32e94a85943
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Začínáme v rozhraní .NET standardní přijímání zpráv pomocí třídy Eventprocessorhost
 
 > [!NOTE]
 > Tato ukázka je dostupná na [Githubu](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-Tento kurz ukazuje, jak psát aplikace konzoly .NET Core, která přijímá zprávy z centra událostí pomocí **EventProcessorHost**. Můžete spustit [Githubu](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) řešení jako-se, řetězce nahrazení hodnoty události rozbočovače a úložiště účtu. Nebo můžete provést kroky v tomto kurzu k vytvoření vlastní.
+Tento kurz ukazuje, jak psát aplikace konzoly .NET Core, která přijímá zprávy z centra událostí pomocí **Event Processor Host** knihovny. Můžete spustit [Githubu](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) řešení jako-se, řetězce nahrazení hodnoty události rozbočovače a úložiště účtu. Nebo můžete provést kroky v tomto kurzu k vytvoření vlastní.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -37,9 +37,9 @@ Tento kurz ukazuje, jak psát aplikace konzoly .NET Core, která přijímá zpr�
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Vytvoření oboru názvů Event Hubs a centra událostí  
 
-Prvním krokem je použití [portál Azure](https://portal.azure.com) vytvořit obor názvů pro daný typ služby Event Hubs a získat přihlašovací údaje správy, které aplikace potřebuje komunikovat s centrem událostí. Pokud chcete vytvořit obor názvů a event hub, postupujte podle pokynů v [v tomto článku](event-hubs-create.md)a poté pokračujte podle následujících pokynů.  
+Prvním krokem je použití [portál Azure](https://portal.azure.com) vytvořit obor názvů pro daný typ služby Event Hubs a získat přihlašovací údaje správy, které aplikace potřebuje komunikovat s centrem událostí. Pokud chcete vytvořit obor názvů a event hub, postupujte podle pokynů v [v tomto článku](event-hubs-create.md)a poté pokračovat v tomto kurzu.  
 
-## <a name="create-an-azure-storage-account"></a>Vytvoření účtu úložiště Azure  
+## <a name="create-an-azure-storage-account"></a>Vytvoření účtu služby Azure Storage  
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).  
 2. V levém navigačním podokně portálu klikněte na **nový**, klikněte na tlačítko **úložiště**a potom klikněte na **účet úložiště**.  
@@ -47,7 +47,7 @@ Prvním krokem je použití [portál Azure](https://portal.azure.com) vytvořit 
 
     ![Vytvořit účet úložiště][1]
 
-4. Jakmile se zobrazí **úspěšné nasazení** zprávy, klikněte na název nového účtu úložiště. V **Essentials** okně klikněte na tlačítko **objekty BLOB**. Když **služba objektů Blob** okno otevře, klikněte na tlačítko **+ kontejner** v horní části. Zadejte název kontejneru a pak zavřete **služba objektů Blob** okno.  
+4. Jakmile se zobrazí **úspěšné nasazení** zprávy, klikněte na název nového účtu úložiště. V **Essentials** okně klikněte na tlačítko **objekty BLOB**. Když **služba objektů Blob** otevře se dialogové okno, klikněte na tlačítko **+ kontejner** v horní části. Zadejte název kontejneru a pak zavřete **služba objektů Blob**.  
 5. Klikněte na tlačítko **přístupové klíče** v levém okně a zkopírujte název kontejneru úložiště, účet úložiště a hodnota **key1**. Uložte tyto hodnoty do programu Poznámkový blok nebo některé dočasné umístění.  
 
 ## <a name="create-a-console-application"></a>Vytvoření konzolové aplikace
@@ -58,10 +58,10 @@ Spusťte Visual Studio. V nabídce **Soubor** klikněte na položku **Nový** a 
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Přidejte balíček NuGet centra událostí
 
-Přidat [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) a [ `Microsoft.Azure.EventHubs.Processor` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET standardní knihovna NuGet balíčky do projektu pomocí následujících kroků: 
+Přidat [ **Microsoft.Azure.EventHubs** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) a [ **Microsoft.Azure.EventHubs.Processor** ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET standardní knihovna NuGet balíčky do projekt pomocí těchto kroků: 
 
 1. Klikněte pravým tlačítkem na nově vytvořený projekt a vyberte možnost **Spravovat balíčky NuGet**.
-2. Klikněte na tlačítko **Procházet** kartu a potom vyhledejte "Microsoft.Azure.EventHubs" a vyberte **Microsoft.Azure.EventHubs** balíčku. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
+2. Klikněte **Procházet** kartě, vyhledejte **Microsoft.Azure.EventHubs**a potom vyberte **Microsoft.Azure.EventHubs** balíčku. Klikněte na **Instalovat** a dokončete instalaci, pak zavřete dialogové okno.
 3. Opakujte kroky 1 a 2 a nainstalujte **Microsoft.Azure.EventHubs.Processor** balíčku.
 
 ## <a name="implement-the-ieventprocessor-interface"></a>Implementace rozhraní IEventProcessor

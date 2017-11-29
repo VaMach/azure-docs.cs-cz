@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: e787cd6746b53c28fc1495b9a3ac62f2aa08f639
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: a8a8cee327dac8adfb0ae53d101c382ef20599d2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="dependency-visualization"></a>Vizualizace závislostí
 
@@ -43,7 +43,7 @@ Pokud chcete použít závislost vizualizace, musíte stáhnout a nainstalovat a
 
 ## <a name="do-i-need-to-pay-for-it"></a>Je potřeba věnovat pro ni?
 
-Ano. Ve výchozím nastavení se vytvoří pracovní prostor analýzy protokolů, ale nepoužívá, pokud nechcete použít vizualizace závislostí v Azure migrovat. Pokud používáte závislostí vizualizace (nebo pomocí pracovního prostoru mimo Azure migraci), budou se vám účtovat pro použití pracovního prostoru.  [Další informace](https://www.microsoft.com/cloud-platform/operations-management-suite) o cenách řešení mapy služeb. 
+Ano. Ve výchozím nastavení se vytvoří pracovní prostor analýzy protokolů, ale nepoužívá, pokud nechcete použít vizualizace závislostí v Azure migrovat. Pokud používáte závislostí vizualizace (nebo pomocí pracovního prostoru mimo Azure migraci), budou se vám účtovat pro použití pracovního prostoru.  [Další informace](https://azure.microsoft.com/pricing/details/insight-analytics/) o cenách řešení mapy služeb. 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Jak lze spravovat pracovního prostoru?
 

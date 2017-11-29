@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-concepts"></a>Koncepty Azure Media Services
 Toto téma poskytuje přehled konceptů nejdůležitější Media Services.
@@ -83,7 +83,7 @@ Služba Media Services podporuje dva typy lokátorů: ondemandorigin, používan
 Veškerý přístup do služby Azure Storage se provádí prostřednictvím účtu úložiště. Účet Media Service můžete přidružit jeden nebo více účtů úložiště. Účet může obsahovat neomezený počet kontejnerů, tak dlouho, dokud jejich celková velikost je v části 500TB na účet úložiště.  Služba Media Services poskytuje SDK úrovně nástrojů a umožní vám ke správě více účtů úložiště a distribuci vaše prostředky během nahrávání do těchto účtů na základě metriky nebo náhodné distribuční Vyrovnávání zatížení. Další informace najdete v tématu práci s [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>Úlohy a úkoly
-A [úlohy](https://https://docs.microsoft.com/rest/api/media/operations/job) se obvykle používá k procesu (například index nebo kódování) jeden prezentace zvuku a videa. Při zpracování více videa, vytvořte úlohu pro každý video kódovaný.
+A [úlohy](https://docs.microsoft.com/en-us/rest/api/media/operations/job) se obvykle používá k procesu (například index nebo kódování) jeden prezentace zvuku a videa. Při zpracování více videa, vytvořte úlohu pro každý video kódovaný.
 
 Úloha obsahuje metadata týkající se zpracování provést. Každá úloha obsahuje jeden nebo více [úloh](https://docs.microsoft.com/rest/api/media/operations/task)s určeným atomic zpracování úloh, jeho vstupní prostředky výstupní prostředky, procesor médií a jeho přidružené nastavení. Úlohy v rámci úlohy dají se propojit, kde je zadána výstupní asset úkolů jako vstupní asset dalšího kroku. Tímto způsobem může obsahovat jednu úlohu všechny potřebné pro prezentaci média zpracování.
 

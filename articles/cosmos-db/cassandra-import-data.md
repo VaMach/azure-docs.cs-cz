@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: bbfcbadcb0010d50e572b335d4cac78b33e974c8
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 21168d0862cfdaaaced60fa80a2dc04859f49550
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Data importovat Cassandra
 
@@ -49,7 +49,7 @@ Tento kurz obsahuje následující úlohy:
 
 ## <a name="use-cqlsh-copy"></a>Použití cqlsh kopie
 
-K importu dat do Cassandra data do Azure Cosmos DB pro použití s rozhraním API Cassandra, použijte následující pokyny:
+K importu dat Cassandra do Azure Cosmos DB pro použití s rozhraním API Cassandra, použijte následující pokyny:
 
 1. Přihlaste se k cqhsh pomocí informací o připojení z portálu.
 2. Použití [příkaz CQL COPY](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) zkopírovat místní data na koncový bod rozhraní API Cassandra Apache. Ujistěte se, zdroje a cíle jsou ve stejném datovém centru. Chcete-li minimalizovat problémy s latencí.

@@ -6,21 +6,21 @@ keywords: "Správa hesel služby Active directory, správou hesel Azure AD samoo
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ea2d910611f1935cadd8eaaf5760460f480f0c6c
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="password-writeback-overview"></a>Přehled zpětný zápis hesla
 
@@ -108,8 +108,8 @@ Pokud si nejste jisti, co účet popsané účet odkazuje na otevřete konfigura
 
 Pokud jste nastavili tato oprávnění, můžete účtu služby MA pro každou doménovou strukturu spravovat hesla v zastoupení uživatelských účtů v dané doménové struktuře. 
 
->[!IMPORTANT]
->Pokud toto přiřazení oprávnění neprovedete, pak i když má být konfigurována správně, zobrazí se zpětný zápis uživatelů dojde k chybě při pokusu o svých místních hesel můžete spravovat z cloudu.
+> [!IMPORTANT]
+> Pokud toto přiřazení oprávnění neprovedete, pak i když má být konfigurována správně, zobrazí se zpětný zápis uživatelů dojde k chybě při pokusu o svých místních hesel můžete spravovat z cloudu.
 >
 
 > [!NOTE]
@@ -125,7 +125,6 @@ Pokud chcete nastavit příslušná oprávnění pro zpětný zápis hesla hesla
 5. Vyberte účet, který oprávnění se používají pro (z instalace Azure AD Connect).
 6. V **se vztahuje na** rozevíracího seznamu vyberte **podřízené uživatelské** objekty.
 7. V části **oprávnění**, zaškrtněte políčka pro následující:
-    * **Trvale platné heslo**
     * **Resetování hesla**
     * **Změnit heslo**
     * **Zápis lockoutTime**

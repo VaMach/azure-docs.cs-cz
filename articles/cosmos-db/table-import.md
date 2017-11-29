@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd0454252080679fa880eecb677d609ea0734f09
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 5163d20aece01addddeae93cb07355bde928a440
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Umožňuje importovat data pro použití s rozhraní API služby Azure DB Cosmos tabulky
 
@@ -32,11 +32,11 @@ Tento kurz obsahuje následující úlohy:
 
 ## <a name="data-migration-tool"></a>Nástroj pro migraci dat
 
-Nástroj příkazového řádku Azure Cosmos DB Data migrace (dt.exe) lze použít k importu existujících dat úložiště Azure Table API tabulky GA účtu nebo migrovat data z účtu tabulky rozhraní API (preview) do tabulky API GA účtu. Další zdroje nejsou aktuálně podporovány.
+Nástroj příkazového řádku Azure Cosmos DB Data migrace (dt.exe) lze použít k importu existujících dat úložiště Azure Table API tabulky GA účtu nebo migrovat data z účtu tabulky rozhraní API (preview) do tabulky API GA účtu. Další zdroje nejsou aktuálně podporovány. Uživatelské rozhraní na základě migrace dat nástroj (dtui.exe) se aktuálně nepodporuje pro tabulku API účty. 
 
 Chcete-li provést migraci dat v tabulce, proveďte následující úlohy:
 
-1. Stáhněte si nástroj pro migraci z [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) nebo z [Githubu](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Stáhněte si nástroj pro migraci z [Githubu](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Spustit `dt.exe` pomocí argumenty příkazového řádku pro váš scénář.
 
 DT.exe trvá příkaz v následujícím formátu:

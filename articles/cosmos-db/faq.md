@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Nejčastější dotazy k Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Základy Azure Cosmos DB
@@ -194,9 +194,11 @@ Existují určité rozdíly chování, které uživatelé pocházejících z Azu
 * Azure Cosmos DB tabulky API používá model rezervované kapacity za účelem zajištění zaručenou výkon, ale to znamená, že jeden platí za kapacitu při vytvoření tabulky, i v případě, že se nepoužívají kapacitu. S Azure Table storage jeden pouze platí za kapacitu, který se používá ve skutečnosti. Tento pomůže vysvětlit, proč tabulky API nabízejí že 10 ms číst a 15 ms Azure Table storage nabízí 10 druhý SLA zapisovat SLA na 99th percentil. Ale v důsledku toho s tabulkami tabulky rozhraní API, i prázdný tabulky bez všechny žádosti, náklady na peníze, aby se zajistilo, že je k dispozici pro zpracovat žádné požadavky na ně ve smlouvě SLA kapacitu nabízené sítěmi Azure Cosmos DB.
 * Výsledky dotazu vrácený rozhraní API tabulky nejsou seřazeny ve klíče pořadí oddílu klíč či řádku, jako jsou ve službě Azure Table storage.
 * Řádek klíčů může být pouze až 255 bajtů
+* Dávky může obsahovat pouze až 2 MB
 * Omezení správy, který stálý a oddělené od dalších operací tabulky, které jsou předmětem RUs jsou omezené CreateIfNotExists volání. To znamená, že ty, což velkého počtu CreateIfNotExists získat omezeny a nebude možné ji nic dělat, protože limit není pocházejících z jejich RUs.
 * CORS není aktuálně podporováno.
 * Názvy tabulek ve službě Azure Table storage nejsou malá a velká písmena, ale jsou v rozhraní API služby Azure Cosmos DB tabulky
+* Některé z Azure Cosmos DB interní formátů kódování informace, například binární pole nejsou aktuálně efektivní, jako jeden mohly líbit. Proto to může způsobit neočekávané omezení na velikost dat. Například jeden nelze používají úplné 1 MB tabulka entity k uložení binární data, protože kódování zvyšuje velikost data.
 
 Z hlediska rozhraní REST API existuje několik možností koncových bodů nebo dotazu, které nepodporuje rozhraní API služby Azure Cosmos DB tabulky:
 | Metodu nebo metody REST | Možnost koncový bod/dotazu REST | Adresy URL dokumentu | Vysvětlení |

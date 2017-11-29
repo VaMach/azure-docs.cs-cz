@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Škálování clusteru Service Fabric v nebo pomocí pravidel automatického škálování
 Sady škálování virtuálního počítače se Azure výpočtový prostředek, který můžete použít k nasazení a správě kolekci jako sada virtuálních počítačů. Každý typ uzlu, který je definován v clusteru Service Fabric je nastavený jako samostatnou sadu škálování virtuálního počítače. Každý typ uzlu můžete škálovat v nebo na nezávisle, mají různé sady otevřené porty a může mít různé kapacity metriky. Další informace o jeho [nodetypes Service Fabric](service-fabric-cluster-nodetypes.md) dokumentu. Vzhledem k tomu, že Service Fabric typy uzlů v clusteru jsou tvořeny sady škálování virtuálního počítače v back-end, budete muset nastavit pravidla pro automatické škálování pro každý uzel typu nebo virtuální počítač škálovací sadu.
@@ -72,8 +72,8 @@ Ukázka nebo podle pokynů [Galerie šablon úvodní](https://github.com/Azure/a
 
 Je třeba provést následující kroky jeden virtuální počítač instance současně. To umožňuje korektně vypnout instanci virtuálního počítače, kterou chcete odebrat a nové repliky vytvořené na jiných uzlech systémových služeb (a vaše stavové služby).
 
-1. Spustit [zakázat ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) se záměrem 'RemoveNode' Chcete-li zakázat uzlu se chystáte odebrat (nejvyšší instance typu uzlu).
-2. Spustit [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) a ujistěte se, že uzel přešla skutečně na zakázáno. Pokud ne, počkejte, až uzel je zakázána. Tento krok nelze hurry.
+1. Spustit [zakázat ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) se záměrem 'RemoveNode' Chcete-li zakázat uzlu se chystáte odebrat (nejvyšší instance typu uzlu).
+2. Spustit [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) a ujistěte se, že uzel přešla skutečně na zakázáno. Pokud ne, počkejte, až uzel je zakázána. Tento krok nelze hurry.
 3. Ukázka nebo podle pokynů [Galerie šablon úvodní](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) Chcete-li změnit počet virtuálních počítačů pomocí jedné v tomto uzlu. Instance odebrat je nejvyšší instance virtuálního počítače. 
 4. Opakujte kroky 1 až 3 podle potřeby, ale nikdy snižovat počet instancí v primárním uzlu typy menší než co zaručuje úroveň spolehlivosti. Odkazovat na [informace o spolehlivosti vrstev zde](service-fabric-cluster-capacity.md). 
 
@@ -85,8 +85,8 @@ Je třeba provést následující kroky jeden virtuální počítač instance so
 
 Musíte provést následující kroky jeden virtuální počítač instance současně. To umožňuje, aby korektně vypnout na instanci virtuálního počítače, kterou chcete odebrat systémových služeb (a vaše stavové služby) a vytvořit nové repliky else where.
 
-1. Spustit [zakázat ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) se záměrem 'RemoveNode' Chcete-li zakázat uzlu se chystáte odebrat (nejvyšší instance typu uzlu).
-2. Spustit [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) a ujistěte se, že uzel přešla skutečně na zakázáno. V opačném případě počkejte na uzlu je zakázána. Tento krok nelze hurry.
+1. Spustit [zakázat ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) se záměrem 'RemoveNode' Chcete-li zakázat uzlu se chystáte odebrat (nejvyšší instance typu uzlu).
+2. Spustit [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) a ujistěte se, že uzel přešla skutečně na zakázáno. V opačném případě počkejte na uzlu je zakázána. Tento krok nelze hurry.
 3. Ukázka nebo podle pokynů [Galerie šablon úvodní](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) Chcete-li změnit počet virtuálních počítačů pomocí jedné v tomto uzlu. Tato akce odebere teď nejvyšší instance virtuálního počítače. 
 4. Opakujte kroky 1 až 3 podle potřeby, ale nikdy snižovat počet instancí v primárním uzlu typy menší než co zaručuje úroveň spolehlivosti. Odkazovat na [informace o spolehlivosti vrstev zde](service-fabric-cluster-capacity.md).
 

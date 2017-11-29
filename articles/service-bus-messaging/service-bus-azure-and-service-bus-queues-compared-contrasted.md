@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Fronty úložiště a fronty Service Bus - porovnání a na rozdíl od aktualizovaného
 Tento článek analyzuje rozdíly a podobnosti mezi těmito dvěma typy front, které nabízí Microsoft Azure ještě dnes: fronty úložiště a fronty Service Bus. Tyto informace můžete použít ke srovnání příslušných technologií a pomůžou vám kvalifikovaněji se rozhodnout, které řešení nejlíp vyhovuje vašim potřebám.
@@ -30,12 +30,12 @@ Azure podporuje dva typy mechanismů fronty: **fronty úložiště** a **fronty 
 
 **Fronty služby Service Bus** jsou součástí širší [zasílání zpráv Azure](https://azure.microsoft.com/services/service-bus/) infrastruktury, který podporuje služby Řízení front a také publikování a přihlášení k odběru a další pokročilé integrace vzory. Další informace o Service Bus fronty nebo témata nebo předplatných najdete v tématu [Přehled služby Service Bus](service-bus-messaging-overview.md).
 
-Přestože obě služby Řízení front technologie existují současně, fronty úložiště zavedených Zaprvé, jako mechanismus vyhrazené fronty úložiště postavená na služby úložiště Azure. Fronty služby Service Bus jsou postavená na širší "zasílání zpráv" infrastruktuře navržený tak, aby integraci aplikací nebo součástí aplikace, které může span více komunikační protokoly, kontrakty dat, vztah důvěryhodnosti domén nebo prostředí sítě.
+Přestože obě služby Řízení front technologie existují současně, fronty úložiště zavedených Zaprvé, jako mechanismus vyhrazené fronty úložiště postavená na služby úložiště Azure. Fronty služby Service Bus jsou postavená na širší infrastrukturu zasílání zpráv určené k integraci aplikací nebo součástí aplikace, které může span více komunikační protokoly, kontrakty dat, vztah důvěryhodnosti domén nebo prostředí sítě.
 
 ## <a name="technology-selection-considerations"></a>Důležité informace o výběru technologie
 Fronty úložiště a fronty Service Bus jsou implementace zprávy služby Řízení front služba aktuálně nabízená Microsoft Azure. Každý má sadu mírně odlišné funkce, což znamená, můžete zvolit jeden z nich nebo obě, podle potřeb vaší konkrétní řešení nebo obchodní nebo technické problému, který se řešení použít.
 
-Při určování, které front technologie vyhovuje účelu daného řešení, řešení architekty a vývojáře zvažte následující doporučení. Další podrobnosti najdete v další části.
+Při určování, které front technologie vyhovuje účelu daného řešení, zvažte tato doporučení řešení architekty a vývojáře. Další podrobnosti najdete v další části.
 
 Jako řešení architekt nebo vývojáře **měli byste zvážit použití fronty úložiště** při:
 
@@ -75,8 +75,8 @@ Tato část porovná některé základní funkce služby Řízení front poskyto
 | Rozhraní API nabízené stylu |**Ne** |**Ano**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) a **OnMessage** relací .NET API. |
 | Zobrazí režim |**Funkce Náhled & zapůjčení** |**Funkce Náhled & uzamčení**<br/><br/>**Přijímat & Odstranit** |
 | Režim výhradní přístup |**Na základě zapůjčení** |**Na základě zámku** |
-| Doba trvání zapůjčení/zámku |**30 sekund (výchozí)**<br/><br/>**7 dní (maximum)** (můžete obnovit nebo verzi zapůjčení zprávu pomocí [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) rozhraní API.) |**60 sekund (výchozí)**<br/><br/>Můžete obnovit pomocí zámek zprávy [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) rozhraní API. |
-| Zapůjčení/uzamčení přesnost |**Úroveň zprávy**<br/><br/>(každá zpráva může mít hodnotu jinou vypršení časového limitu, která může aktualizovat podle potřeby při zpracování zprávy, pomocí [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) rozhraní API) |**Úroveň fronty**<br/><br/>(každá fronta má zámek přesností použít na všechny jeho zprávy, ale můžete obnovit pomocí zámku [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) rozhraní API.) |
+| Doba trvání zapůjčení/zámku |**30 sekund (výchozí)**<br/><br/>**7 dní (maximum)** (můžete obnovit nebo verzi zapůjčení zprávu pomocí [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) rozhraní API.) |**60 sekund (výchozí)**<br/><br/>Můžete obnovit pomocí zámek zprávy [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) rozhraní API. |
+| Zapůjčení/uzamčení přesnost |**Úroveň zprávy**<br/><br/>(každá zpráva může mít hodnotu jinou vypršení časového limitu, která může aktualizovat podle potřeby při zpracování zprávy, pomocí [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) rozhraní API) |**Úroveň fronty**<br/><br/>(každá fronta má zámek přesností použít na všechny jeho zprávy, ale můžete obnovit pomocí zámku [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) rozhraní API.) |
 | Zpracovat v dávce přijímat |**Ano**<br/><br/>(explicitně určit počet zpráv při načítání zpráv, maximálně 32 zprávy) |**Ano**<br/><br/>(implicitně povolení vlastnost před načtením nebo explicitně použitím transakcí) |
 | Dávkové odeslání |**Ne** |**Ano**<br/><br/>(prostřednictvím transakcí nebo dávkování na straně klienta) |
 
@@ -89,7 +89,7 @@ Tato část porovná některé základní funkce služby Řízení front poskyto
 * Fronty služby Service Bus poskytuje podporu pro místní transakce v rámci jedné frontě.
 * **Přijetí a odstranění** režim podporovaný Service Bus poskytuje schopnost snížit počet zasílání zpráv operací (a související náklady) za zajištění snížený doručení.
 * Fronty úložiště poskytují možnost rozšířit zapůjčení pro zprávy zapůjčení. To umožňuje pracovníkům udržovat krátké zapůjčení na zprávy. Proto pokud dojde k chybě pracovní, můžete se rychle zpracovat zprávu znovu jinému pracovnímu procesu. Kromě toho pracovní můžete rozšířit zapůjčení na zprávu, pokud je třeba zpracovat delší než aktuální čas zapůjčení.
-* Fronty úložiště nabízejí viditelnost vypršení časového limitu, můžete nastavit při zařazování nebo vyřazení zprávy. Kromě toho můžete aktualizovat zprávu s hodnotami různých zapůjčení za běhu a aktualizovat různé hodnoty mezi zprávy ve frontě stejné. Překročení časového limitu zámku Service Bus jsou definované v metadatech fronty; lze však obnovit zámek voláním [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) metoda.
+* Fronty úložiště nabízejí viditelnost vypršení časového limitu, můžete nastavit při enqueuing nebo vyřazení zprávy. Kromě toho můžete aktualizovat zprávu s hodnotami různých zapůjčení za běhu a aktualizovat různé hodnoty mezi zprávy ve frontě stejné. Překročení časového limitu zámku Service Bus jsou definované v metadatech fronty; lze však obnovit zámek voláním [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) metoda.
 * Maximální časový limit pro blokování přijímat operace v fronty Service Bus je 24 dní. Na základě REST vypršení časových limitů však mít maximální hodnotu 55 sekund.
 * Dávkování na straně klienta poskytované služby Service Bus umožňuje klientovi fronty pro dávkové více zpráv do jednoho odeslání operace. Dávkování je k dispozici pouze pro operace asynchronní odesílání.
 * Funkce jako je například 200 TB horní meze front úložiště (více při virtualizaci účty) a neomezená fronty vám ideální platformu pro poskytovatele SaaS.
@@ -132,9 +132,9 @@ Tato část porovná fronty úložiště a fronty Service Bus z perspektivy [kap
 | Kritérií porovnání | Fronty úložiště | Fronty služby Service Bus |
 | --- | --- | --- |
 | Maximální velikost fronty |**500 TB**<br/><br/>(omezený na [jednotné kapacitě účtu úložiště](../storage/common/storage-introduction.md#queue-storage)) |**1 GB až 80 GB**<br/><br/>(definován při vytvoření fronty a [povolení dělení](service-bus-partitioning.md) – najdete v části "Další informace") |
-| Maximální velikost zprávy |**64 KB**<br/><br/>(48 KB při použití **Base64** kódování)<br/><br/>Azure podporuje velké zprávy fronty a objekty BLOB – v tomto okamžiku je možné zařadit kombinují až 200GB pro jednu položku. |**256 KB** nebo **1 MB**<br/><br/>(včetně záhlaví a text, velikost maximální záhlaví: 64 KB).<br/><br/>Závisí na [vrstvy služby](service-bus-premium-messaging.md). |
+| Maximální velikost zprávy |**64 KB**<br/><br/>(48 KB při použití **Base64** kódování)<br/><br/>Azure podporuje velké zprávy fronty a objekty BLOB – v tomto okamžiku je možné zařadit kombinují až 200 GB pro jednu položku. |**256 KB** nebo **1 MB**<br/><br/>(včetně záhlaví a text, velikost maximální záhlaví: 64 KB).<br/><br/>Závisí na [vrstvy služby](service-bus-premium-messaging.md). |
 | Maximální hodnota TTL zprávy |**7 dní** |**TimeSpan.Max** |
-| Maximální počet front |**Unlimited** |**10,000**<br/><br/>(na obor názvů služby, může být zvýšena) |
+| Maximální počet front |**Unlimited** |**10,000**<br/><br/>(podle oboru názvů služby) |
 | Maximální počet souběžných klientů |**Unlimited** |**Unlimited**<br/><br/>(100 limitu souběžných připojení se vztahuje pouze na komunikace na základě protokolu TCP) |
 
 ### <a name="additional-information"></a>Další informace

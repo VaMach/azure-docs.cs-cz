@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Zásahem ze strany v trvanlivý funkce – Ukázka ověření telefonu
 
@@ -33,7 +33,7 @@ Tato ukázka implementuje služby SMS na telefonu ověřovacího systému. Tyto 
 
 ## <a name="scenario-overview"></a>Přehled scénáře
 
-Ověření telefonu je použité k ověření, že koncovým uživatelům vaší aplikace nejsou odesílatelé nevyžádané pošty a že jsou kdo říká se, že jsou. Službu Multi-Factor authentication je běžně používá pro ochranu před hackery uživatelské účty. Problém s implementace vlastního ověření telefonu je, že vyžaduje **stavová interakce** s člověka. Koncový uživatel se většinou poskytuje určitý kód (například číslo 4 číslice) a musí odpovídat **v přiměřené době**.
+Ověření telefonu se používá k ověření, že koncovým uživatelům vaší aplikace nejsou odesílatelé nevyžádané pošty a že jsou kdo říká se, že jsou. Službu Multi-Factor authentication je běžně používá pro ochranu před hackery uživatelské účty. Problém s implementace vlastního ověření telefonu je, že vyžaduje **stavová interakce** s člověka. Koncový uživatel se většinou poskytuje určitý kód (například číslo 4 číslice) a musí odpovídat **v přiměřené době**.
 
 Obyčejnou Azure Functions jsou bezstavové (jako jsou mnoho dalších cloudu koncových bodů na jiných platformách), takže tyto typy interakce bude zahrnovat explicitně správě externě do databáze nebo některých jiných trvalé úložiště stavu. Kromě toho interakce musí rozdělit do více funkcí, které lze koordinovat společně. Například musíte alespoň jednu funkci pro rozhodnutí týkající se kódu, jeho uložením někde a odesílání do telefonu uživatele. Kromě toho musíte mít alespoň jeden další funkce, obdrží odpověď od uživatele a namapovat je nějakým způsobem zpět na původní volání funkce, aby bylo možné provést ověření kódu. Vypršení časového limitu je také důležité aspekt zajistit zabezpečení. To můžete získat poměrně složitá poměrně rychle.
 
@@ -43,7 +43,7 @@ Při použití trvanlivý funkcí, se výrazně snižuje složitost tohoto scén
 
 Tato ukázka zahrnuje použití [Twilio](https://www.twilio.com/) službu pro odeslání zpráv serveru SMS na mobilní telefon. Azure Functions již podporu pro Twilio prostřednictvím [Twilio vazby](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), a ukázku pomocí této funkce.
 
-První thing jste je nutné je účet Twilio. Můžete vytvořit jeden volné na https://www.twilio.com/try-twilio. Jakmile máte účet, přidejte následující tři **nastavení aplikace** do projektu.
+První věcí, kterou je třeba je účet Twilio. Můžete vytvořit jeden volné na https://www.twilio.com/try-twilio. Jakmile máte účet, přidejte následující tři **nastavení aplikace** do funkce aplikace.
 
 | Název nastavení aplikace | Hodnota Popis |
 | - | - |
