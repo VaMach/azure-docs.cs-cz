@@ -83,7 +83,7 @@
         - name: Vysokovýkonné výpočetní prostředí
           href: sizes-hpc.md
         - name: Výpočetní jednotky Azure (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Schválené distribuce
       href: endorsed-distros.md
     - name: Údržba a aktualizace
