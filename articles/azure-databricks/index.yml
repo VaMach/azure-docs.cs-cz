@@ -35,8 +35,8 @@ sections:
         style: ordered
         items:
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Začínáme s Azure Databricks</a>'
-          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-blob-storage" target="_blank">Import dat ze služby Azure Storage</a>'
-          - hmtl: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store" target="_blank">Import data from Azure Data Lake Store</a>'
+          - html: '<a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Import dat ze služby Azure Storage</a>'
+          - hmtl: '<a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>'
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Práce s poznámkovými bloky</a>'
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Spouštění úloh Spark</a>'
           - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Použití zdrojů dat Spark</a>'

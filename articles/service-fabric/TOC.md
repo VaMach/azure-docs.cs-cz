@@ -185,19 +185,10 @@
 #### [Síťové režimy kontejneru](service-fabric-networking-modes.md)
 
 ### Sestavení služby s modelem Reliable Services
-#### [Přehled](service-fabric-reliable-services-introduction.md)
-#### Koncepty
-##### [Životní cyklus Reliable Services – C#](service-fabric-reliable-services-lifecycle.md)
-##### [Životní cyklus Reliable Services – Java](service-fabric-reliable-services-lifecycle-java.md)
-
 #### Reliable Collections
-##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-##### [Pokyny a doporučení k Reliable Collection](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Práce s Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Transakce a zámky](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 ##### [Spolehlivá souběžná fronta](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Spolehlivá serializace kolekcí](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Interní informace Reliable State Manager a Reliable Collection](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Začínáme
 ##### [C# v systému Windows](service-fabric-reliable-services-quick-start.md)

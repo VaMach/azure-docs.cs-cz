@@ -77,7 +77,7 @@
         - name: Vysokovýkonné výpočetní prostředí
           href: sizes-hpc.md
         - name: Výpočetní jednotky Azure (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Údržba a aktualizace
       href: maintenance-and-updates.md
     - name: Diskové úložiště
