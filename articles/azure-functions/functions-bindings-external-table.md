@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Externí tabulky funkcí vazby Azure (Preview)
 Tento článek ukazuje, jak k manipulaci s tabulková data v poskytovatelů SaaS (například služby Sharepoint, Dynamics) v rámci funkce s integrovanou vazby. Azure Functions podporuje vstupní a výstupní vazby pro externí tabulky.
@@ -198,4 +198,6 @@ V Google dokumentace, vytvořit tabulku s názvem list `Contact`. Zobrazovaný n
 dataSetName je "default".
 
 ## <a name="next-steps"></a>Další kroky
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)

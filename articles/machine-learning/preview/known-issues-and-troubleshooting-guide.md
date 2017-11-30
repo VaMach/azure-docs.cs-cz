@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – známé problémy a Průvodce odstraňováním potíží s 
 Tento článek vám pomůže najít a opravy chyb nebo selhání došlo jako součást pomocí aplikace Azure Machine Learning Workbench. 
@@ -39,6 +39,17 @@ Pokud narazíte na problém během instalace, instalační soubory protokolu jso
 /tmp/amlinstaller/logs/*
 ```
 Můžete si obsah tyto adresáře zip a odeslat do us pro diagnostiku.
+
+### <a name="app-update"></a>Aktualizace aplikace 
+#### <a name="no-update-notification-on-windows-desktop"></a>Žádná aktualizace oznámení na ploše systému Windows 
+Tento problém bude vyřešen v aktualizaci nadcházející. Řešením je do té doby, aby se zabránilo spouštění aplikace pomocí zástupce připnuté na hlavním panelu. Místo toho spusťte aplikaci pomocí nabídky Start nebo vyhledávání řádek Start nebo zástupce na ploše (pokud nějaký máte). 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Žádná aktualizace oznámení na Ubuntu Data Sciece virtuálního počítače (DSVM)
+Proveďte následující kroky, chcete-li stáhnout nejnovější aplikace:   
+   - odebrat \Users\AppData\Local\amlworkbench složky
+   - odebrat skriptu`c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - odebrat zástupce na ploše, který spouští skript výše
+   - Instalace ještě jednou s [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
 
 ### <a name="workbench-desktop-app"></a>Aplikace na ploše Workbench
 Pokud máte potíže s přihlášením nebo pokud dojde k chybě plochy Workbench, najdete tady soubory protokolu:

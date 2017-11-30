@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Nastavit filtry směrování pro partnerský vztah Microsoftu: prostředí PowerShell
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ Abyste mohli úspěšně připojit ke službám prostřednictvím partnerského 
 
 Před zahájením konfigurace, ujistěte se, že splňují následující kritéria:
 
- - Nainstalujte nejnovější verzi rutin PowerShellu pro Azure Resource Manager. Další informace najdete v tématu [nainstalovat a nakonfigurovat Azure PowerShelll](/powershell/azure/install-azurerm-ps).
+ - Nainstalujte nejnovější verzi rutin PowerShellu pro Azure Resource Manager. Další informace najdete v článku [Instalace a konfigurace Azure PowerShellu](/powershell/azure/install-azurerm-ps).
 
   > [!NOTE]
   > Stáhněte nejnovější verzi z Galerie prostředí PowerShell, nikoli pomocí Instalační služby. Instalační program aktuálně nepodporuje požadovaných rutin.

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: d572fe3ad01d75b76ac87b441a5397d1c1841547
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 52d6fe0757043a0a298c3fdee0478fb364074537
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Proces vědecké účely Team dat pro datových vědců
 
@@ -30,6 +30,8 @@ Tento článek obsahuje pokyny pro sadu cílů, které jsou obvykle používány
 - základů přenos dat a úložiště
 - poskytnutí dokumentace zdroje dat
 - pomocí nástrojů pro zpracování analýzy
+
+Tyto školicí materiály souvisí s tým datové vědy procesu (TDSP) a Microsoft a open-source softwaru a sad nástrojů, které jsou užitečné při plánování, provádění a podávající řešení vědecké účely data.
 
 ## <a name="lesson-path"></a>Lekce cesta
 Položky v následující tabulce slouží k Průvodci vlastní self-study. Pro čtení *popis* sloupec postupujte podle cesty, a potom klikněte na *tématu* odkazy pro prostudovali odkazy a zkontrolujte svoje dovednosti pomocí *zkontrolujte znalostní báze* sloupec.

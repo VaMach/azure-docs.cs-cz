@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: glenga
-ms.openlocfilehash: 10943769e46adf05642e19d6be297820171bb9f6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 5e1259e3e2c9e8d445ed8b02d6907d2e2705e882
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Azure funkcí jazyka C# skript referenční informace pro vývojáře
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -375,7 +375,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 
 `BindingTypeAttribute`je atribut rozhraní .NET, který definuje váš vazby a `T` je vstupní nebo výstupní typ, který podporuje tento typ vazby. `T`také nelze `out` typ parametru (například `out JObject`). Například v tabulce Mobile Apps výstupu vazba podporuje [šest výstup typy](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ale můžete použít pouze [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) nebo [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)pro `T`.
 
-Následující příklad kódu vytvoří [objektu blob Storage výstup vazby](functions-bindings-storage-blob.md#blob-storage-input--output-bindings) s objektem blob cestu, která je definována v době běhu, pak zapíše řetězec do objektu blob.
+Následující příklad kódu vytvoří [objektu blob Storage výstup vazby](functions-bindings-storage-blob.md#input--output) s objektem blob cestu, která je definována v době běhu, pak zapíše řetězec do objektu blob.
 
 ```cs
 using Microsoft.Azure.WebJobs;

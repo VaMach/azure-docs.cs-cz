@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 86b43b312bf7ce52ab75855424cc5db473245159
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Správa účtu Azure Cosmos DB
 Zjistěte, jak nastavit globální konzistence, práce s klíči a odstranit účet Azure Cosmos DB na portálu Azure.
@@ -33,10 +33,10 @@ Výběr správné konzistence úroveň závisí na sémantiku vaší aplikace. S
 3. V **výchozí konzistence** , vyberte novou úroveň konzistence a klikněte na tlačítko **Uložit**.
     ![Výchozí konzistence relace][5]
 
-## <a id="keys"></a>Zobrazení, kopírování a opětovné vytváření přístupových klíčů
-Když vytvoříte účet Azure Cosmos DB, generuje tato služba dva hlavní přístupové klíče, které lze použít pro ověření při přístupu k účtu Azure Cosmos DB. Poskytnutím dvou přístupových klíčů Azure Cosmos DB umožňuje znovu vygenerovat klíče bez přerušení ke svému účtu Azure Cosmos DB. 
+## <a id="keys"></a>Zobrazení, kopírování a opětovné vytváření přístupových klíčů a hesel
+Když vytvoříte účet Azure Cosmos DB, generuje tato služba dva hlavní přístupové klíče (nebo dvou hesel pro účty MongoDB rozhraní API), lze použít pro ověření při přístupu k účtu Azure Cosmos DB. Poskytnutím dvou přístupových klíčů Azure Cosmos DB umožňuje znovu vygenerovat klíče bez přerušení ke svému účtu Azure Cosmos DB. 
 
-V [portál Azure](https://portal.azure.com/), přístup **klíče** na stránce v nabídce prostředků **účet Azure Cosmos DB** stránky zobrazení, kopírování a opětovné vygenerování přístupových klíčů, které se používají pro přístup k účtu Azure Cosmos DB.
+V [portál Azure](https://portal.azure.com/), přístup **klíče** na stránce v nabídce prostředků **účet Azure Cosmos DB** stránky zobrazení, kopírování a opětovné vygenerování přístupových klíčů, které se používají pro přístup k účtu Azure Cosmos DB. Pro účty MongoDB rozhraní API, přístup **připojovací řetězec** stránce v nabídce prostředků můžete zobrazit, kopírovat a opět vytvořit hesla, které se používají pro přístup k účtu.
 
 ![Snímek obrazovky pro portálu Azure, stránka klíče](./media/manage-account/keys.png)
 
@@ -47,25 +47,25 @@ V [portál Azure](https://portal.azure.com/), přístup **klíče** na stránce 
 
 Klíče jen pro čtení jsou také k dispozici na této stránce. Čtení a dotazy jsou jen pro čtení operace, než vytvoří, odstranění, a nahradí nejsou.
 
-### <a name="copy-an-access-key-in-the-azure-portal"></a>Zkopírovat přístupový klíč na portálu Azure
-Na **klíče** klikněte na tlačítko **kopie** tlačítku klíče, které chcete kopírovat.
+### <a name="copy-an-access-key-or-password-in-the-azure-portal"></a>Zkopírování přístupového klíče nebo hesla na portálu Azure
+Na **klíče** stránky (nebo **připojovací řetězec** stránku pro účty MongoDB rozhraní API), klikněte na tlačítko **kopie** tlačítko napravo od klíče nebo hesla, které chcete kopírovat.
 
 ![Zobrazení a zkopírování přístupového klíče v Azure stránky portálu, klíče](./media/manage-account/copykeys.png)
 
-### <a name="regenerate-access-keys"></a>Opětovné vygenerování přístupových klíčů
-Měli byste změnit přístupové klíče k účtu Azure Cosmos DB pravidelně pro zvýšení zabezpečení připojení. Abyste mohli udržovat připojení k účtu Azure Cosmos DB používat jeden přístupový klíč, zatímco si znovu vygenerujete druhý přístupový klíč jsou přiřazeny dva přístupové klíče.
+### <a name="regenerate-access-keys-and-passwords"></a>Opětovné vytváření přístupových klíčů a hesel
+Měli byste změnit přístupové klávesy (a hesla pro účty MongoDB rozhraní API) ke svému účtu Azure Cosmos DB pravidelně zvýšení zabezpečení připojení. Dva přístup klíče a hesla jsou přiřazeny k vám umožní zachovat připojení k účtu Azure Cosmos DB používat jeden přístupový klíč, zatímco si znovu vygenerujete druhý přístupový klíč.
 
 > [!WARNING]
 > Opětovné generování přístupových klíčů ovlivní všechny aplikace, které jsou závislé na aktuální klíč. Všichni klienti, kteří používají přístupový klíč pro přístup k účtu Azure Cosmos DB musí být aktualizovány na používání nového klíče.
 > 
 > 
 
-Pokud máte aplikace nebo cloudové služby, pomocí účtu Azure Cosmos DB, ztratíte připojení Pokud obnovit klíče, klíče nezaregistrujete. Následující kroky popisují proces účastní vrácení klíče.
+Pokud máte aplikace nebo cloudové služby, pomocí účtu Azure Cosmos DB, ztratíte připojení Pokud obnovit klíče, klíče nezaregistrujete. Následující kroky popisují proces účastní vrácení klíče a hesla.
 
 1. Aktualizujte přístupový klíč v kódu aplikace tak, aby odkazovaly sekundární přístupový klíč účtu Azure Cosmos DB.
 2. Znovu vygenerujte primární přístupový klíč pro účet Azure Cosmos DB. V [portál Azure](https://portal.azure.com/), přístup k účtu Azure Cosmos DB.
-3. V **Azure Cosmos DB účet** klikněte na tlačítko **klíče**.
-4. Na **klíče** stránky, klikněte na tlačítko znovu generovat a pak klikněte na tlačítko **Ok** potvrďte, že chcete vygenerovat nový klíč.
+3. V **Azure Cosmos DB účet** klikněte na tlačítko **klíče** (nebo **připojovací řetězec** pro MongoDB účty **).
+4. Na **klíče**/**připojovací řetězec** stránky, klikněte na tlačítko znovu generovat a pak klikněte na tlačítko **Ok** potvrďte, že chcete vygenerovat nový klíč.
     ![Opětovné vygenerování přístupových klíčů](./media/manage-account/regenerate-keys.png)
 5. Jakmile si ověříte, že nový klíč je k dispozici pro použití (přibližně pět minut po opětovné generování), aktualizujte přístupový klíč v kódu aplikace tak, aby odkazovaly nový primární přístupový klíč.
 6. Stejným způsobem pak opětovně vygenerujte sekundární přístupový klíč.
@@ -77,11 +77,11 @@ Pokud máte aplikace nebo cloudové služby, pomocí účtu Azure Cosmos DB, ztr
 > 
 > 
 
-## <a name="get-the--connection-string"></a>Získat připojovací řetězec
+## <a name="get-the-connection-string"></a>Získat připojovací řetězec
 Pokud chcete načíst připojovací řetězec, postupujte takto: 
 
 1. V [portál Azure](https://portal.azure.com), přístup k účtu Azure Cosmos DB.
-2. V nabídce prostředků, klikněte na tlačítko **klíče**.
+2. V nabídce prostředků, klikněte na tlačítko **klíče** (nebo **připojovací řetězec** pro MongoDB API účty).
 3. Klikněte **kopie** vedle položky **primární připojovací řetězec** nebo **sekundární připojovací řetězec** pole. 
 
 Pokud používáte připojovací řetězec [nástroj pro migraci databáze Azure Cosmos DB](import-data.md), připojte na konec připojovací řetězec název databáze. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2100b2b8710207ddb5d1848f11f4d6133f1dfd91
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Připojit virtuální sítě z různé modely nasazení pomocí portálu
 
@@ -49,7 +49,9 @@ Tyto hodnoty můžete použít k vytvoření testovacího prostředí nebo můž
 
 Název virtuální sítě = ClassicVNet <br>
 Adresní prostor = 10.0.0.0/24 <br>
-Podsíť 1 = 10.0.0.0/27 <br>
+Název podsítě Subnet-1 = <br>
+Rozsah adres podsítě = 10.0.0.0/27 <br>
+Předplatné = předplatné, které chcete použít <br>
 Skupina prostředků = ClassicRG <br>
 Umístění = západní USA <br>
 GatewaySubnet = 10.0.0.32/28 <br>
@@ -59,18 +61,20 @@ Místní lokalita = RMVNetLocal <br>
 
 Název virtuální sítě = RMVNet <br>
 Adresní prostor = 192.168.0.0/16 <br>
-Podsíť 1 = 192.168.1.0/24 <br>
-GatewaySubnet = 192.168.0.0/26 <br>
 Skupina prostředků = RG1 <br>
 Umístění = východní USA <br>
+Název podsítě Subnet-1 = <br>
+Rozsah adres = 192.168.1.0/24 <br>
+GatewaySubnet = 192.168.0.0/26 <br>
 Název brány virtuální sítě = RMGateway <br>
 Typ brány sítě VPN = <br>
 Typ sítě VPN = trasové <br>
-Název veřejné IP adresy brány = rmgwpip <br>
-Brána místní sítě = ClassicVNetLocal <br>
+Skladová položka = VpnGw1 <br>
+Umístění = východní USA <br>
+Virtuální sítě = RMVNet <br> (přidružte bránu VPN do této virtuální sítě) První konfigurace protokolu IP = rmgwpip <br> (veřejná IP adresa brány) Brána místní sítě = ClassicVNetLocal <br>
 Název připojení = RMtoClassic
 
-### <a name="connection-overview"></a>Připojení – přehled
+### <a name="connectoverview"></a>Připojení – přehled
 
 Pro tuto konfiguraci vytvořit připojení k bráně VPN přes tunelové propojení protokolu IPsec/IKE VPN mezi virtuálními sítěmi. Ujistěte se, že žádný z vaší virtuální sítě rozsahů nepřekrývá mezi sebou, nebo s žádným z místní sítě, které se připojují k.
 
@@ -83,82 +87,104 @@ Následující tabulka uvádí příklad, jak jsou definovány příklad virtuá
 
 ## <a name="classicvnet"></a>Oddíl 1 – konfigurace classic nastavení sítě VNet
 
-V této části vytvoříte místní síť (místní lokality) a Brána virtuální sítě pro vaše klasické virtuální sítě. Pokud nemáte klasické virtuální síti a jsou spuštěné tyto kroky jako cvičení, můžete vytvořit virtuální síť pomocí [v tomto článku](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) a [příklad](#values) hodnoty nastavení z výše.
+V této části vytvoříte klasické virtuální síti, místní sítě (místní lokality) a Brána virtuální sítě. Snímky obrazovek slouží jen jako příklady. Nezapomeňte nahradit hodnoty vlastními a použijte [příklad](#values) hodnoty.
 
-Při použití portálu k vytvoření klasické virtuální sítě, je nutné přejít na stránku virtuální sítě pomocí následujících kroků, jinak se nezobrazí možnost vytvoření klasické virtuální sítě:
+### 1. <a name="classicvnet"></a>Vytvoření klasické virtuální sítě
 
-1. Klikněte '+' otevřít stránku 'New'.
-2. V poli "vyhledávání na webu marketplace, zadejte"Virtuální sítě". Pokud místo toho vyberte sítě -> virtuální sítě, nebude získáte možnost vytvoření klasické virtuální sítě.
-3. Vyhledejte "virtuální sítě, ze seznamu vrácených a klikněte na něj chcete otevřít stránku virtuální sítě. 
-4. Na stránce virtuální sítě vyberte možnost "Klasickém" k vytvoření klasické virtuální sítě. 
+Pokud nemáte klasické virtuální síti a jsou spuštěné tyto kroky jako cvičení, můžete vytvořit virtuální síť pomocí [v tomto článku](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) a [příklad](#values) hodnoty nastavení z výše.
 
-Pokud již máte virtuální síť, brána sítě VPN, ověřte, zda brána dynamické. Pokud je statická, je nutné nejprve odstranit bránu sítě VPN a potom pokračovat.
+Pokud již máte virtuální síť, brána sítě VPN, ověřte, zda brána dynamické. Pokud je statická, musíte nejprve odstranit bránu VPN dřív než přejdete k [nakonfigurovat místní lokality](#local).
 
-Snímky obrazovek slouží jen jako příklady. Nezapomeňte nahradit hodnoty vlastními a použijte [příklad](#values) hodnoty.
+1. Otevřete [portál Azure](https://ms.portal.azure.com) a přihlaste se pomocí účtu Azure.
+2. Klikněte na tlačítko **+ vytvořit prostředek** chcete otevřít stránku 'New'.
+3. V poli "vyhledávání na webu marketplace, zadejte"Virtuální sítě". Pokud místo toho vyberte sítě -> virtuální sítě, nebude získáte možnost vytvoření klasické virtuální sítě.
+4. Vyhledejte "virtuální sítě, ze seznamu vrácených a klikněte na něj chcete otevřít stránku virtuální sítě. 
+5. Na stránce virtuální sítě vyberte možnost "Klasickém" k vytvoření klasické virtuální sítě. Pokud pořídíte výchozí nastavení, můžete se dostal s virtuální sítě Resource Manager místo.
 
-### 1. <a name="local"></a>Nakonfigurujte místní lokalitě.
-
-Otevřete [portál Azure](https://ms.portal.azure.com) a přihlaste se pomocí účtu Azure.
+### 2. <a name="local"></a>Nakonfigurujte místní lokalitě.
 
 1. Přejděte na **všechny prostředky** a najděte **ClassicVNet** v seznamu.
-2. Na **přehled** stránky v **připojení k síti VPN** klikněte na položku **brány** grafiku ke vytvořit bránu.
-
-    ![Konfigurovat bránu VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "konfigurovat bránu VPN")
+2. Na **přehled** stránky v **připojení k síti VPN** klikněte na tlačítko **brány** k vytvoření brány.
+  ![Konfigurovat bránu VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "konfigurovat bránu VPN")
 3. Na **nové připojení VPN** stránky, pro **typ připojení**, vyberte **Site-to-site**.
 4. Pro **místní lokality**, klikněte na tlačítko **konfigurovat požadované nastavení**. Tím se otevře **místní lokality** stránky.
 5. Na **místní lokality** stránky, vytvořte název, který bude odkazovat na virtuální sítě Resource Manageru. Například 'RMVNetLocal'.
 6. Pokud brána VPN pro virtuální sítě Resource Manageru již má veřejnou IP adresu, použijte hodnotu pro **IP adresa brány VPN** pole. Pokud jsou to tyto kroky jako cvičení, nebo nemáte ještě bránu virtuální sítě pro virtuální sítě Resource Manager, můžete nastavit až na zástupný symbol IP adresu. Ujistěte se, že IP adresa zástupný symbol používá platný formát. Později nahraďte zástupný symbol IP adresu s veřejnou IP adresu brány virtuální sítě Resource Manager.
-7. Pro **klienta adresní prostor**, použijte hodnoty pro adresní prostory IP adres virtuální sítě pro virtuální sítě Resource Manageru. Toto nastavení slouží k určení adresní prostory směrovat do virtuální sítě Resource Manager.
+7. Pro **klienta adresní prostor**, použijte [hodnoty](#connectoverview) pro IP adresu virtuální sítě adresní prostory pro virtuální sítě Resource Manageru. Toto nastavení slouží k určení adresní prostory směrovat do virtuální sítě Resource Manager. V příkladu používáme 192.168.0.0/16, rozsah adres pro RMVNet.
 8. Klikněte na tlačítko **OK** uložit hodnoty a vrátíte se do **nové připojení VPN** stránky.
 
-### <a name="classicgw"></a>2. Vytvoření brány virtuální sítě
+### <a name="classicgw"></a>3. Vytvoření brány virtuální sítě
 
-1. Na **nové připojení VPN** vyberte **vytvořit bránu hned** zaškrtávací políčko a klikněte na tlačítko **konfigurace volitelné brány** otevřete **brány konfigurace** stránky. 
+1. Na **nové připojení VPN** vyberte **vytvořit bránu hned** zaškrtávací políčko.
+2. Kliknutím na **Volitelná konfigurace brány** otevřete stránku **Konfigurace brány**.
 
-    ![Stránka Konfigurace otevřít bránu](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "stránku konfigurace otevřete brány")
-2. Klikněte na tlačítko **podsíť – nakonfigurujte požadovaná nastavení** otevřete **přidat podsíť** stránky. **Název** již nastavena požadovaná hodnota **GatewaySubnet**.
-3. **Rozsahu adres** odkazuje na oblast pro podsíť brány. I když můžete vytvořit podsíť brány s/29 adres rozsah (3 adresy), doporučujeme vytvořit podsíť brány, který obsahuje víc IP adres. To je dostatečná pro budoucí konfigurace, které mohou vyžadovat další dostupné IP adresy. Pokud je to možné použijte/27 nebo velikosti/28. Pokud používáte tyto kroky jako cvičení, můžete se podívat do [příklad](#values) hodnoty. Klikněte na tlačítko **OK** vytvořit podsíť brány.
-4. Na **konfigurace brány** stránky, **velikost** odkazuje na SKU brány. Vyberte skladová položka brány pro bránu sítě VPN.
-5. Ověřte **typ směrování** je **dynamické**, pak klikněte na tlačítko **OK** se vraťte do **nové připojení VPN** stránky.
-6. Na **nové připojení VPN** klikněte na tlačítko **OK** zahájíte vytváření brány VPN. Vytvoření brány VPN může trvat až 45 minut na dokončení.
+  ![Stránka Konfigurace otevřít bránu](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "stránku konfigurace otevřete brány")
+3. Klikněte na tlačítko **podsíť – nakonfigurujte požadovaná nastavení** otevřete **přidat podsíť** stránky. **Název** již nastavena požadovaná hodnota: **GatewaySubnet**.
+4. **Rozsahu adres** odkazuje na oblast pro podsíť brány. I když můžete vytvořit podsíť brány s/29 adres rozsah (3 adresy), doporučujeme vytvořit podsíť brány, který obsahuje víc IP adres. To je dostatečná pro budoucí konfigurace, které mohou vyžadovat další dostupné IP adresy. Pokud je to možné použijte/27 nebo velikosti/28. Pokud používáte tyto kroky jako cvičení, můžete se podívat do [ukázkové hodnoty](#values). V tomto příkladu používáme '10.0.0.32/28'. Klikněte na tlačítko **OK** vytvořit podsíť brány.
+5. Na **konfigurace brány** stránky, **velikost** odkazuje na SKU brány. Vyberte skladová položka brány pro bránu sítě VPN.
+6. Ověřte **typ směrování** je **dynamické**, pak klikněte na tlačítko **OK** se vraťte do **nové připojení VPN** stránky.
+7. Na **nové připojení VPN** klikněte na tlačítko **OK** zahájíte vytváření brány VPN. Vytvoření brány VPN může trvat až 45 minut na dokončení.
 
-### <a name="ip"></a>3. Zkopírujte veřejnou IP adresu brány virtuální sítě
+### <a name="ip"></a>4. Zkopírujte veřejnou IP adresu brány virtuální sítě
 
 Po vytvoření brány virtuální sítě, můžete zobrazit IP adresu brány. 
 
 1. Přejděte na klasické virtuální síti a klikněte na tlačítko **přehled**.
-2. Klikněte na tlačítko **připojení k síti VPN** otevře se stránka připojení VPN. Na stránce připojení sítě VPN můžete zobrazit veřejnou IP adresu. Toto je veřejnou IP adresu přiřadit k bráně virtuální sítě. 
-3. Zapište nebo zkopírujte adresu IP. Použijete jej v dalších krocích při práci s nastavení konfigurace brány místní sítě Resource Manager. Můžete také zobrazit stav připojení brány. Všimněte si, že na místní síťový web, který jste vytvořili je uveden jako "Připojení". Stav se změní po vytvoření připojení.
-4. Zavřete stránku po kopírování IP adresu brány.
+2. Klikněte na tlačítko **připojení k síti VPN** otevře se stránka připojení VPN. Na stránce připojení sítě VPN můžete zobrazit veřejnou IP adresu. Toto je veřejnou IP adresu přiřadit k bráně virtuální sítě. Poznamenejte si IP adresy. Použijete jej v dalších krocích při práci s nastavení konfigurace brány místní sítě Resource Manager. 
+3. Můžete zobrazit stav připojení brány. Všimněte si, že na místní síťový web, který jste vytvořili je uveden jako "Připojení". Stav se změní po vytvoření připojení. Tuto stránku můžete zavřít, když jste hotovi, zobrazení stavu.
 
 ## <a name="rmvnet"></a>Oddíl 2 – nakonfigurujte nastavení virtuální sítě Resource Manageru
 
-V této části vytvoříte bránu virtuální sítě a brány místní sítě pro virtuální sítě Resource Manager. Pokud nemáte virtuální sítě Resource Manageru a běží tyto kroky jako cvičení, můžete vytvořit virtuální síť pomocí [v tomto článku](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) a [příklad](#values) hodnoty nastavení z výše.
+V této části vytvoříte bránu virtuální sítě a brány místní sítě pro virtuální sítě Resource Manager. Snímky obrazovek slouží jen jako příklady. Nezapomeňte nahradit hodnoty vlastními a použijte [příklad](#values) hodnoty.
 
-Snímky obrazovek slouží jen jako příklady. Nezapomeňte nahradit hodnoty vlastními a použijte [příklad](#values) hodnoty.
+### <a name="1-create-a-virtual-network"></a>1. Vytvoření virtuální sítě
 
-### <a name="1-create-a-gateway-subnet"></a>1. Vytvoření podsítě brány
+**Ukázkové hodnoty:**
 
-Před vytvořením brány virtuální sítě, musíte nejprve vytvořit podsíť brány. Vytvořte podsíť brány s počtem CIDR/28 nebo větší. (/ 27, / 26, atd.)
+* Název virtuální sítě = RMVNet <br>
+* Adresní prostor = 192.168.0.0/16 <br>
+* Skupina prostředků = RG1 <br>
+* Umístění = východní USA <br>
+* Název podsítě Subnet-1 = <br>
+* Rozsah adres = 192.168.1.0/24 <br>
+
+
+Pokud nemáte virtuální sítě Resource Manageru a běží tyto kroky jako cvičení, můžete vytvořit virtuální síť pomocí [v tomto článku](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) a ukázkové hodnoty.
+
+### <a name="2-create-a-gateway-subnet"></a>2. Vytvoření podsítě brány
+
+**Příklad hodnoty:** GatewaySubnet = 192.168.0.0/26
+
+Před vytvořením brány virtuální sítě, musíte nejprve vytvořit podsíť brány. Vytvořit podsíť brány s počtem CIDR/28 nebo větší (/ 27, / 26, atd.). Pokud vytváříte jako součást cvičení, můžete použít ukázkové hodnoty.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-### <a name="creategw"></a>2. Vytvoření brány virtuální sítě
+### <a name="creategw"></a>3. Vytvoření brány virtuální sítě
+
+**Ukázkové hodnoty:**
+
+* Název brány virtuální sítě = RMGateway <br>
+* Typ brány sítě VPN = <br>
+* Typ sítě VPN = trasové <br>
+* Skladová položka = VpnGw1 <br>
+* Umístění = východní USA <br>
+* Virtuální sítě = RMVNet <br>
+* První konfigurace protokolu IP = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>3. Vytvoření brány místní sítě
+### <a name="createlng"></a>4. Vytvoření brány místní sítě
 
-Místní síťová brána určuje rozsah adres a veřejné IP adresy přidružené k vaší klasické virtuální sítě a jeho brány virtuální sítě.
-
-Pokud byste tyto kroky jako cvičení, podívejte se na tato nastavení:
+**Ukázkové hodnoty:** brány místní sítě = ClassicVNetLocal
 
 | Virtual Network | Adresní prostor | Oblast | Připojí se k místnímu síťovému webu |Veřejná IP adresa brány|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Západní USA | RMVNetLocal (192.168.0.0/16) |Veřejnou IP adresu, která je přiřazena k bráně ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Východ USA |ClassicVNetLocal (10.0.0.0/24) |Veřejnou IP adresu, která je přiřazena k bráně RMVNet.|
+
+Místní síťová brána určuje rozsah adres a veřejné IP adresy přidružené k vaší klasické virtuální sítě a jeho brány virtuální sítě. Pokud byste tyto kroky jako cvičení, podívejte se na ukázkové hodnoty.
 
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 

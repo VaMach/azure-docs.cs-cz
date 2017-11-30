@@ -6,19 +6,19 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
-ms.assetid: f39f0ddd-b504-4562-971f-77b88d1e75fb
+ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1f16865a3adb55fc63c09c1dbdc9720b02f9c33
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Kurz: Azure Active Directory integrace s FileCloud
 
@@ -108,12 +108,12 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![FileCloud domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_url.png)
 
-    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<subdomain>.filecloudhosted.com`
+    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<subdomain>.filecloudonline.com`
 
-    b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+    b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<subdomain>.filecloudonline.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE] 
-    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [tým podpory FileCloud klienta](mailto:support@codelathe.com) k získání těchto hodnot.
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [tým podpory FileCloud klienta](mailto:support@codelathe.com) k získání těchto hodnot. 
 
 4. Na **SAML podpisový certifikát** klikněte na tlačítko **soubor XML s metadaty** a potom uložte soubor metadat ve vašem počítači.
 
@@ -131,23 +131,23 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
 8. V levém navigačním podokně klikněte na tlačítko **nastavení**. 
    
-    ![Nastavení oddílu aplikace na straně](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. Klikněte na tlačítko **jednotného přihlašování k** karty v části nastavení. 
    
-    ![Jeden straně přihlašování karta na aplikace](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. Vyberte **SAML** jako **výchozí typ jednotného přihlašování k** na **jednotné přihlašování na (SSO) nastavení** panelu.
    
-    ![Jeden straně přihlašování nastavení panely na aplikace](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-11. Vložení **SAML Entity ID**, který jste zkopírovali z portálu Azure do **adresa URL koncového bodu IdP** textové pole.
+11. V **adresa URL koncového bodu IdP** textovému poli, vložte hodnotu **SAML Entity ID** který jste zkopírovali z portálu Azure.
 
-    ![Adresa URL bodu IDP End textové pole](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. V poznámkovém bloku otevřete váš soubor stažený metadata, zkopírujte obsah ho do schránky a vložte jej do **IdP metadata** textové pole na **SAML nastavení** panelu.
 
-    ![Část dat Meta IDP na straně aplikace](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+    ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. Klikněte na tlačítko **Uložit** tlačítko.
 
@@ -192,7 +192,7 @@ Cílem této části je vytvoření zkušebního uživatele na portálu Azure, n
 Cílem této části je vytvoření uživatele v FileCloud nazývá Britta Simon. FileCloud podporuje za běhu zřizování, který je ve výchozím nastavení povolené. Neexistuje žádná položka akce pro vás v této části. Nový uživatel se vytvoří během pokusu o přístup k FileCloud, pokud ještě neexistuje.
 
 >[!NOTE]
->Pokud potřebujete ručně vytvořit uživatele, budete muset kontaktovat [tým podpory FileCloud klienta](mailto:support@codelathe.com). 
+>Pokud potřebujete ručně vytvořit uživatele, budete muset kontaktovat [tým podpory FileCloud klienta](mailto:support@codelathe.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 
@@ -226,9 +226,10 @@ V této části povolíte Britta Simon používat Azure jednotné přihlašován
     
 ### <a name="test-single-sign-on"></a>Test jednotného přihlašování
 
-Cílem této části je testování konfigurace Azure AD jednotného přihlašování k použití na přístupovém panelu.
+V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci pomocí přístupového panelu.
 
 Když kliknete na dlaždici FileCloud na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci FileCloud.
+Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Další zdroje
 

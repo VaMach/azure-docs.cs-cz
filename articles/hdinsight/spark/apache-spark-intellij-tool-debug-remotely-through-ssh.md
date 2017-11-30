@@ -17,11 +17,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 6f9259ae5e8f382c6714d468004624c2cbcbbc33
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 87cda776195dc93a35c6e978b18e823bf54c9ffb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Ladění aplikací Spark místně nebo vzdáleně v clusteru s Azure nástrojů HDInsight pro IntelliJ prostřednictvím SSH
 
@@ -121,7 +121,7 @@ Chcete tuto chybu vyřešit [stáhnout spustitelný soubor](http://public-repo-1
    
    ![Vzdálené spuštění tlačítko](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-7. Pokud nechcete naleznete v protokolu spuštěné v pravém panelu, můžete kliknout na **odpojení** tlačítko. Ale je stále spuštěn na back-end a výsledek se zobrazí v levém panelu.
+7. Klikněte **odpojení** tlačítko, které odeslání protokolů, které nejsou uvedené v levém panelu. Ale je stále spuštěna na back-end.
 
    ![Vzdálené spuštění tlačítko](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 

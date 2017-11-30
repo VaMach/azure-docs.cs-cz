@@ -1,5 +1,5 @@
 ---
-title: Azure vazby funkce Mobile Apps | Microsoft Docs
+title: Vazby Mobile Apps pro Azure Functions
 description: "Pochopit, jak používat Azure Mobile Apps vazby v Azure Functions."
 services: functions
 documentationcenter: na
@@ -8,75 +8,44 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "Funkce Azure, funkce zpracování událostí, dynamické výpočetní architektura bez serveru"
-ms.assetid: faad1263-0fa5-41a9-964f-aecbc0be706a
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d2c0e4e233761584bad2df05a8e702e4fc77e84f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="azure-functions-mobile-apps-bindings"></a>Azure Mobile Apps funkce vazby
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="mobile-apps-bindings-for-azure-functions"></a>Vazby Mobile Apps pro Azure Functions 
 
-Tento článek vysvětluje, jak nakonfigurovat a kódu [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) vazeb v Azure Functions. Azure Functions podporuje vstup a výstup vazby pro Mobile Apps.
+Tento článek vysvětluje, jak pracovat s [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) vazeb v Azure Functions. Azure Functions podporuje vstup a výstup vazby pro Mobile Apps.
 
-Mobile Apps vstup a výstup vazby umožňují [číst a zapisovat do datových tabulek](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) v mobilní aplikaci.
+Vazby mobilní aplikace vám umožní číst a aktualizovat tabulky dat v mobilních aplikacích.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="input"></a>
+## <a name="input"></a>Vstup
 
-## <a name="mobile-apps-input-binding"></a>Vstupní vazba Mobile Apps
 Vstupní vazba Mobile Apps načte záznam z koncového bodu mobilní tabulky a předá ji do funkce. C# a F # funkce všechny změny provedené v záznamu se automaticky odešlou zpět k tabulce při ukončení funkce úspěšně.
 
-Mobile Apps vstup do funkce používá následující objekt JSON v `bindings` pole function.json:
+## <a name="input---example"></a>Vstup – příklad
 
-```json
-{
-    "name": "<Name of input parameter in function signature>",
-    "type": "mobileTable",
-    "tableName": "<Name of your mobile app's data table>",
-    "id" : "<Id of the record to retrieve - see below>",
-    "connection": "<Name of app setting that has your mobile app's URL - see below>",
-    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
-    "direction": "in"
-}
-```
+Podívejte se na konkrétní jazyk příklad:
 
-Je třeba počítat s následujícím:
+<!-- * [Precompiled C#](#input---c-example)-->
+* [Skript jazyka C#](#input---c-script-example)
+* [JavaScript](#input---javascript-example)
 
-* `id`může být statické nebo může být založen na aktivační událost, která volá funkci. Například, pokud používáte [aktivační událost fronty]() pro funkce, pak `"id": "{queueTrigger}"` používá s řetězcovou hodnotou obsahující zprávy ve frontě jako ID záznamu pro načtení.
-* `connection`by mělo obsahovat název nastavení aplikace v aplikaci funkce, která obsahuje adresu URL této mobilní aplikace. Funkce používá tuto adresu URL k vytvoření požadované operace REST pro mobilní aplikace. Můžete [vytvoření nastavení aplikace v aplikaci funkce]() obsahující adresu URL mobilních aplikací (který vypadá podobně jako `http://<appname>.azurewebsites.net`), pak zadejte název nastavení aplikace v `connection` vlastnost Vstupní vazba. 
-* Je třeba zadat `apiKey` Pokud jste [implementovat klíč rozhraní API vašeho back-end mobilní aplikace Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), nebo [implementovat klíč rozhraní API vašeho back-end mobilní aplikace .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). K tomu, můžete [vytvoření nastavení aplikace v aplikaci funkce]() obsahující klíč rozhraní API, přidejte `apiKey` vlastnost vaše Vstupní vazba s názvem nastavení aplikace. 
-  
-  > [!IMPORTANT]
-  > Tento klíč rozhraní API nesmí sdílet s klienty mobilní aplikace. Je měli jenom zajistit jeho distribuci bezpečně klientům straně služby, jako je Azure Functions. 
-  > 
-  > [!NOTE]
-  > Azure Functions ukládá informace o připojení a klíče rozhraní API jako nastavení aplikace, tak, aby se změnami do vašeho úložiště správy zdrojového kódu. To chrání vaše citlivé informace.
-  > 
-  > 
+### <a name="input---c-script-example"></a>(Vstup) – příklad skriptu jazyka C#
 
-<a name="inputusage"></a>
+Následující příklad ukazuje vstupní vazbu Mobile Apps v *function.json* souboru a [funkce skriptu jazyka C#](functions-reference-csharp.md) používající vazby. Funkce se aktivuje zprávu fronty, která má identifikátor záznamu. Funkce přečte zadaný záznam a změní jeho `Text` vlastnost.
 
-## <a name="input-usage"></a>Vstupní využití
-V této části se dozvíte, jak používat vaše mobilní aplikace vstupní vazby v kódu funkce. 
-
-Když se najde záznam se zadané tabulky a ID záznamu, je předaná do pojmenované [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parametr (nebo v Node.js, je předaná do `context.bindings.<name>` objekt). Při záznamu není nalezen, je parametr `null`. 
-
-Funkcí jazyka C# a F #, provedené změny do vstupní záznamu (vstupní parametr) je automaticky odeslán zpět k tabulce mobilní aplikace při ukončení funkce úspěšně. Ve funkcích Node.js, použijte `context.bindings.<name>` pro přístup k vstupního záznamu. Nelze upravit záznam v Node.js.
-
-<a name="inputsample"></a>
-
-## <a name="input-sample"></a>Vstupní ukázka
-Předpokládejme, že máte následující function.json, který načte záznam tabulky mobilní aplikace s id zprávy ve frontě aktivační události:
+Zde je vazba dat v *function.json* souboru:
 
 ```json
 {
@@ -101,15 +70,9 @@ Předpokládejme, že máte následující function.json, který načte záznam 
 "disabled": false
 }
 ```
+[Konfigurace](#input---configuration) část vysvětluje tyto vlastnosti.
 
-V tématu vzorku pro specifický jazyk, který používá vstupního záznamu z vazby. Ukázky jazyka C# a F # také upravit na záznam `text` vlastnost.
-
-* [C#](#inputcsharp)
-* [Node.js](#inputnodejs)
-
-<a name="inputcsharp"></a>
-
-### <a name="input-sample-in-c"></a>Vstupní ukázka v jazyce C# #
+Tady je kód skriptu jazyka C#:
 
 ```cs
 #r "Newtonsoft.Json"    
@@ -124,21 +87,38 @@ public static void Run(string myQueueItem, JObject record)
 }
 ```
 
-<!--
-<a name="inputfsharp"></a>
-### Input sample in F# ## 
+### <a name="input---javascript"></a>Vstup - JavaScript
 
-```fsharp
-#r "Newtonsoft.Json"    
-open Newtonsoft.Json.Linq
-let Run(myQueueItem: string, record: JObject) =
-  inputDocument?text <- "This has changed."
+Následující příklad ukazuje vstupní vazbu Mobile Apps v *function.json* souboru a [funkce JavaScript, která](functions-reference-node.md) používající vazby. Funkce se aktivuje zprávu fronty, která má identifikátor záznamu. Funkce přečte zadaný záznam a změní jeho `Text` vlastnost.
+
+Zde je vazba dat v *function.json* souboru:
+
+```json
+{
+"bindings": [
+    {
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "id" : "{queueTrigger}",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "in"
+    }
+],
+"disabled": false
+}
 ```
--->
+[Konfigurace](#input---configuration) část vysvětluje tyto vlastnosti.
 
-<a name="inputnodejs"></a>
-
-### <a name="input-sample-in-nodejs"></a>Vstupní ukázka v Node.js
+Tady je kód jazyka JavaScript:
 
 ```javascript
 module.exports = function (context, myQueueItem) {    
@@ -147,48 +127,71 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## <a name="input---attributes"></a>(Vstup) – atributy
 
-## <a name="mobile-apps-output-binding"></a>Mobile Apps výstup vazby
-Použijte výstup Mobile Apps vazby k zápisu nového záznamu do tabulky koncový bod mobilní aplikace.  
+Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
-Mobile Apps výstup funkce používá následující objekt JSON v `bindings` pole function.json:
+Informace o vlastnostech atributů, které můžete konfigurovat, najdete v tématu [následující konfigurační oddíl](#input---configuration).
 
-```json
+## <a name="input---configuration"></a>Vstup - konfigurace
+
+Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastavili v *function.json* souboru a `MobileTable` atribut.
+
+|Vlastnost Function.JSON | Vlastnost atributu |Popis|
+|---------|---------|----------------------|
+| **Typ**|| Musí být nastavena na "mobileTable"|
+| **směr**||Musí být nastavena na "v"|
+| **Jméno**|| Název vstupního parametru v podpis funkce.|
+|**Název tabulky** |**Název tabulky**|Název tabulky dat mobilní aplikace|
+| **ID**| **ID** | Identifikátor záznamu pro načtení. Můžou být statické nebo podle aktivační událost, která volá funkci. Pokud pak použít aktivační procedury fronty pro funkce, například `"id": "{queueTrigger}"` používá s řetězcovou hodnotou obsahující zprávy ve frontě jako ID záznamu pro načtení.|
+|**připojení**|**Připojení**|Název nastavení aplikace, který obsahuje adresu URL do mobilní aplikace. Funkce používá tuto adresu URL k vytvoření požadované operace REST pro mobilní aplikace. Vytvoření nastavení aplikace v aplikaci funkce, který obsahuje adresu URL do mobilní aplikace a potom zadejte název nastavení aplikace v `connection` vlastnost Vstupní vazba. Vypadá adresa URL `http://<appname>.azurewebsites.net`.
+|**apiKey**|**ApiKey**|Název nastavení aplikace, který má klíč rozhraní API mobilní aplikaci. Zadejte Pokud klíče rozhraní API můžete [implementovat klíč rozhraní API v mobilní aplikaci Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), nebo [implementovat klíč rozhraní API v mobilní aplikaci .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Chcete-li zadat klíč, vytvoření nastavení aplikace v aplikaci funkce, který obsahuje klíč rozhraní API a pak přidejte `apiKey` vlastnost vaše Vstupní vazba s názvem nastavení aplikace. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Nesdílejte klíč rozhraní API s klienty mobilní aplikace. Je měli jenom zajistit jeho distribuci bezpečně klientům straně služby, jako je Azure Functions. Azure Functions ukládá informace o připojení a klíče rozhraní API jako nastavení aplikace, tak, aby se změnami do vašeho úložiště správy zdrojového kódu. To chrání vaše citlivé informace.
+
+## <a name="input---usage"></a>(Vstup) – použití
+
+V jazyce C# funkce, když se najde záznam se zadaným ID je předán do pojmenované [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parametr. Při záznamu není nalezen, je hodnota parametru `null`. 
+
+V funkce jazyka JavaScript je záznam předána do `context.bindings.<name>` objektu. Při záznamu není nalezen, je hodnota parametru `null`. 
+
+Funkcí jazyka C# a F #, provedené změny do vstupní záznamu (vstupní parametr) automaticky odešlou zpět k tabulce při ukončení funkce úspěšně. Nelze upravit záznam v funkce jazyka JavaScript.
+
+## <a name="output"></a>Výstup
+
+Použijte výstup Mobile Apps vazby k zápisu nového záznamu do tabulky mobilní aplikace.  
+
+## <a name="output---example"></a>Výstup – příklad
+
+Podívejte se na konkrétní jazyk příklad:
+
+* [Předkompilované C#](#output---c-example)
+* [Skript jazyka C#](#output---c-script-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Výstup – příklad jazyka C#
+
+Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) které se aktivuje zprávu fronty a vytvoří záznam v tabulce mobilní aplikace.
+
+```csharp
+[FunctionName("MobileAppsOutput")]        
+[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
+public static object Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    TraceWriter log)
 {
-    "name": "<Name of output parameter in function signature>",
-    "type": "mobileTable",
-    "tableName": "<Name of your mobile app's data table>",
-    "connection": "<Name of app setting that has your mobile app's URL - see below>",
-    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
-    "direction": "out"
+    return new { Text = $"I'm running in a C# function! {myQueueItem}" };
 }
 ```
 
-Je třeba počítat s následujícím:
+### <a name="output---c-script-example"></a>Výstup – příklad skriptu jazyka C#
 
-* `connection`by mělo obsahovat název nastavení aplikace v aplikaci funkce, která obsahuje adresu URL této mobilní aplikace. Funkce používá tuto adresu URL k vytvoření požadované operace REST pro mobilní aplikace. Můžete [vytvoření nastavení aplikace v aplikaci funkce]() obsahující adresu URL mobilních aplikací (který vypadá podobně jako `http://<appname>.azurewebsites.net`), pak zadejte název nastavení aplikace v `connection` vlastnost Vstupní vazba. 
-* Je třeba zadat `apiKey` Pokud jste [implementovat klíč rozhraní API vašeho back-end mobilní aplikace Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), nebo [implementovat klíč rozhraní API vašeho back-end mobilní aplikace .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). K tomu, můžete [vytvoření nastavení aplikace v aplikaci funkce]() obsahující klíč rozhraní API, přidejte `apiKey` vlastnost vaše Vstupní vazba s názvem nastavení aplikace. 
-  
-  > [!IMPORTANT]
-  > Tento klíč rozhraní API nesmí sdílet s klienty mobilní aplikace. Je měli jenom zajistit jeho distribuci bezpečně klientům straně služby, jako je Azure Functions. 
-  > 
-  > [!NOTE]
-  > Azure Functions ukládá informace o připojení a klíče rozhraní API jako nastavení aplikace, tak, aby se změnami do vašeho úložiště správy zdrojového kódu. To chrání vaše citlivé informace.
-  > 
-  > 
+Následující příklad ukazuje výstup Mobile Apps vazby ve *function.json* souboru a [funkce skriptu jazyka C#](functions-reference-csharp.md) používající vazby. Funkce se aktivuje zprávu fronty a vytvoří nový záznam s pevně zakódovaným hodnotou `Text` vlastnost.
 
-<a name="outputusage"></a>
-
-## <a name="output-usage"></a>Využití výstupní
-V této části se dozvíte, jak používat Mobile Apps výstupu vazby v kódu funkce. 
-
-V C# funkce, použijte parametr s názvem výstup typu `out object` pro přístup k výstupu záznamu. Ve funkcích Node.js, použijte `context.bindings.<name>` pro přístup k výstupu záznamu.
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Ukázkový výstup
-Předpokládejme, že máte následující function.json, která definuje aktivační procedury fronty a výstup mobilní aplikace:
+Zde je vazba dat v *function.json* souboru:
 
 ```json
 {
@@ -213,14 +216,9 @@ Předpokládejme, že máte následující function.json, která definuje aktiva
 }
 ```
 
-Naleznete v ukázce pro specifický jazyk, který vytvoří záznam v koncovém bodě Mobile Apps tabulku s obsahem zprávy ve frontě.
+[Konfigurace](#output---configuration) část vysvětluje tyto vlastnosti.
 
-* [C#](#outcsharp)
-* [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Ukázka výstupu v jazyce C# #
+Tady je kód skriptu jazyka C#:
 
 ```cs
 public static void Run(string myQueueItem, out object record)
@@ -231,16 +229,38 @@ public static void Run(string myQueueItem, out object record)
 }
 ```
 
-<!--
-<a name="outfsharp"></a>
-### Output sample in F# ## 
-```fsharp
+### <a name="output---javascript-example"></a>Výstup – příklad v jazyce JavaScript
 
+Následující příklad ukazuje výstup Mobile Apps vazby ve *function.json* souboru a [funkce JavaScript, která](functions-reference-node.md) používající vazby. Funkce se aktivuje zprávu fronty a vytvoří nový záznam s pevně zakódovaným hodnotou `Text` vlastnost.
+
+Zde je vazba dat v *function.json* souboru:
+
+```json
+{
+"bindings": [
+    {
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+    "name": "record",
+    "type": "mobileTable",
+    "tableName": "MyTable",
+    "connection": "My_MobileApp_Url",
+    "apiKey": "My_MobileApp_Key",
+    "direction": "out"
+    }
+],
+"disabled": false
+}
 ```
--->
-<a name="outnodejs"></a>
 
-### <a name="output-sample-in-nodejs"></a>Ukázka výstupu v Node.js
+[Konfigurace](#output---configuration) část vysvětluje tyto vlastnosti.
+
+Tady je kód jazyka JavaScript:
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -253,6 +273,54 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="next-steps"></a>Další kroky
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+## <a name="output---attributes"></a>Výstup – atributy
 
+Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+
+Informace o vlastnostech atributů, které můžete konfigurovat, najdete v tématu [výstup - konfigurace](#output---configuration). Tady je `MobileTable` atribut příkladu podpis metody:
+
+```csharp
+[FunctionName("MobileAppsOutput")]        
+[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
+public static object Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    TraceWriter log)
+{
+    ...
+}
+```
+
+Úplný příklad najdete v tématu [výstup - předkompilovaných C# příklad](#output---c-example).
+
+## <a name="output---configuration"></a>Výstup – konfigurace
+
+Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastavili v *function.json* souboru a `MobileTable` atribut.
+
+|Vlastnost Function.JSON | Vlastnost atributu |Popis|
+|---------|---------|----------------------|
+| **Typ**|| Musí být nastavena na "mobileTable"|
+| **směr**||Musí být nastavena na "out"|
+| **Jméno**|| Název výstupního parametru v podpis funkce.|
+|**Název tabulky** |**Název tabulky**|Název tabulky dat mobilní aplikace|
+|**připojení**|**MobileAppUriSetting**|Název nastavení aplikace, který obsahuje adresu URL do mobilní aplikace. Funkce používá tuto adresu URL k vytvoření požadované operace REST pro mobilní aplikace. Vytvoření nastavení aplikace v aplikaci funkce, který obsahuje adresu URL do mobilní aplikace a potom zadejte název nastavení aplikace v `connection` vlastnost Vstupní vazba. Vypadá adresa URL `http://<appname>.azurewebsites.net`.
+|**apiKey**|**ApiKeySetting**|Název nastavení aplikace, který má klíč rozhraní API mobilní aplikaci. Zadejte Pokud klíče rozhraní API můžete [implementovat klíč rozhraní API vašeho back-end mobilní aplikace Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), nebo [implementovat klíč rozhraní API vašeho back-end mobilní aplikace .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Chcete-li zadat klíč, vytvoření nastavení aplikace v aplikaci funkce, který obsahuje klíč rozhraní API a pak přidejte `apiKey` vlastnost vaše Vstupní vazba s názvem nastavení aplikace. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Nesdílejte klíč rozhraní API s klienty mobilní aplikace. Je měli jenom zajistit jeho distribuci bezpečně klientům straně služby, jako je Azure Functions. Azure Functions ukládá informace o připojení a klíče rozhraní API jako nastavení aplikace, tak, aby se změnami do vašeho úložiště správy zdrojového kódu. To chrání vaše citlivé informace.
+
+## <a name="output---usage"></a>Výstup – použití
+
+V C# skript funkce, použijte parametr s názvem výstup typu `out object` pro přístup k výstupu záznamu. Předkompilované C# funkcí `MobileTable` atribut lze použít s žádným z následujících typů:
+
+* `ICollector<T>`nebo `IAsyncCollector<T>`, kde `T` je buď `JObject` nebo jakýkoli typ s `public string Id` vlastnost.
+* `out JObject`
+* `out T`nebo `out T[]`, kde `T` je všech typů `public string Id` vlastnost.
+
+Ve funkcích Node.js, použijte `context.bindings.<name>` pro přístup k výstupu záznamu.
+
+## <a name="next-steps"></a>Další kroky
+
+> [!div class="nextstepaction"]
+> [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)

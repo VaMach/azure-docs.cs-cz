@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs funkce vazby
+title: Azure Event Hubs vazby pro Azure Functions
 description: "Pochopit, jak používat Azure Event Hubs vazby v Azure Functions."
 services: functions
 documentationcenter: na
@@ -16,19 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: c2660a3ca8ee7569d49a6998d0dfd5a98a97d294
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-event-hubs-bindings"></a>Azure Event Hubs funkce vazby
+# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs vazby pro Azure Functions
 
 Tento článek vysvětluje, jak pracovat s [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) vazby pro Azure Functions. Azure Functions podporuje aktivaci a výstupní vazeb pro služby Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="event-hubs-trigger"></a>Aktivaci služby Event Hubs
+## <a name="trigger"></a>Trigger
 
 Použijte aktivační událost Event Hubs reagovat na událost odeslaná datového proudu událostí centra událostí. Musíte mít přístup pro čtení do centra událostí vytvořit aktivační událost.
 
@@ -176,7 +176,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Aktivační událost - předkompilovaných atributy pro C#
+## <a name="trigger---attributes"></a>Aktivační událost – atributy
 
 Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -185,7 +185,12 @@ Konstruktoru atributu přebírá název centra událostí, název skupiny uživa
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
 public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+{
+    ...
+}
 ```
+
+Úplný příklad najdete v tématu [aktivační událost - předkompilovaných C# příklad](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Aktivační událost - konfigurace
 
@@ -198,7 +203,9 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |**Jméno** | neuvedeno | Název proměnné, která představuje položku událostí v kódu funkce. | 
 |**Cesta** |**EventHubName** | Název centra událostí. | 
 |**možnost consumerGroup** |**Možnost ConsumerGroup** | Volitelná vlastnost, která nastavuje [skupiny příjemců](../event-hubs/event-hubs-features.md#event-consumers) používá přihlásit k odběru událostí v centru. Pokud tento parametr vynechán, `$Default` skupina uživatelů slouží. | 
-|**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec k Centru událostí oboru názvů. Zkopírujte tento připojovací řetězec kliknutím **informace o připojení** tlačítko pro *obor názvů*, ne samotný centra událostí. Tento připojovací řetězec musí mít alespoň oprávnění ke čtení pro aktivační událost.<br/>Pokud vyvíjíte místně, nastavení aplikace, přejděte do hodnoty [local.settings.json soubor](functions-run-local.md#local-settings-file).|
+|**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec k Centru událostí oboru názvů. Zkopírujte tento připojovací řetězec kliknutím **informace o připojení** tlačítko pro *obor názvů*, ne samotný centra událostí. Tento připojovací řetězec musí mít alespoň oprávnění ke čtení pro aktivační událost.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---hostjson-properties"></a>Aktivační událost - host.json vlastnosti
 
@@ -206,7 +213,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="event-hubs-output-binding"></a>Služba Event Hubs výstup vazby
+## <a name="output"></a>Výstup
 
 Použijte službu Event Hubs výstup vytvoření vazby na zapsat události do datového proudu událostí. Musíte mít oprávnění odesílat do centra událostí zapsat události do ní.
 
@@ -341,7 +348,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Výstup – atributy pro předkompilované C#
+## <a name="output---attributes"></a>Výstup – atributy
 
 Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -351,7 +358,12 @@ Konstruktoru atributu přebírá název centra událostí a název nastavení ap
 [FunctionName("EventHubOutput")]
 [return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+{
+    ...
+}
 ```
+
+Úplný příklad najdete v tématu [výstup - předkompilovaných C# příklad](#output---c-example).
 
 ## <a name="output---configuration"></a>Výstup – konfigurace
 
@@ -363,7 +375,9 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |**směr** | neuvedeno | Musí být nastavena na "out". Tento parametr je nastaven automaticky při vytvoření vazby na portálu Azure. |
 |**Jméno** | neuvedeno | Název proměnné používá v kódu funkce, která představuje událost. | 
 |**Cesta** |**EventHubName** | Název centra událostí. | 
-|**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec k Centru událostí oboru názvů. Zkopírujte tento připojovací řetězec kliknutím **informace o připojení** tlačítko pro *obor názvů*, ne samotný centra událostí. Tento připojovací řetězec musí mít oprávnění pro odesílání k odeslání zprávy do datového proudu událostí.<br/>Pokud vyvíjíte místně, nastavení aplikace, přejděte do hodnoty [local.settings.json soubor](functions-run-local.md#local-settings-file).|
+|**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec k Centru událostí oboru názvů. Zkopírujte tento připojovací řetězec kliknutím **informace o připojení** tlačítko pro *obor názvů*, ne samotný centra událostí. Tento připojovací řetězec musí mít oprávnění pro odesílání k odeslání zprávy do datového proudu událostí.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Výstup – použití
 

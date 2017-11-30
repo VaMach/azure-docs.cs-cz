@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2de8349c9e727dca48ab8ca3e04851a5ee57d30b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Úvodní příručka pro vývojáře v Azure
 
@@ -299,7 +299,7 @@ Když povolíte přístup k prostředkům Azure, vždycky je osvědčeným postu
 
 -   **Hlavní objekty služeb**: Kromě zajištění přístupu k objekty uživatele a skupiny, můžete udělit stejný přístup k objektu služby.
 
-    > **Kdy použít**: když je prostřednictvím kódu programu správu prostředků Azure, nebo zda udělení přístupu pro aplikace. Další informace najdete v tématu [supplication vytvoření služby Active Directory a objektu zabezpečení](../../resource-group-create-service-principal-portal.md).
+    > **Kdy použít**: když je prostřednictvím kódu programu správu prostředků Azure, nebo zda udělení přístupu pro aplikace. Další informace najdete v tématu [vytvoření aplikace Active Directory a objektu zabezpečení](../../resource-group-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Značky
 

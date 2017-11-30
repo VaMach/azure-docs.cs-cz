@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 3000acf91a66af3ec512af52362f7f1e2ba0019b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Poznámky k verzi Azure Media Services
 Tyto poznámky k verzi shrnout změny z předchozích verzí a známé problémy.
@@ -81,7 +81,7 @@ Informace o historii verze Media Services REST API najdete v tématu [Azure Medi
 Služba Media Services nyní podporuje [Azure Active Directory (Azure AD)-ověřování na základě](media-services-use-aad-auth-to-access-ams-api.md).
 
 > [!IMPORTANT]
-> V současné době Media Services podporuje model řízení přístupu Azure služby ověřování. Řízení přístupu autorizace však bude na 1. června 2018 zastaralá. Doporučujeme, abyste přenést do Azure AD authentication modelu co nejdříve.
+> V současné době Media Services podporuje model řízení přístupu Azure služby ověřování. Řízení přístupu autorizace však bude na 1. června 2018 zastaralá. Doporučujeme, abyste na model ověřování Azure AD migrovali co nejdříve.
 
 ## <a name="march-2017-release"></a>2017 března verze
 
@@ -411,7 +411,7 @@ Byly provedeny následující změny v 3.0.0.3:
 
 Nejnovější verzi sady Media Services SDK je nyní 3.0.0.0. Můžete stáhnout nejnovější balíček z Nuget nebo získat službu bits z [Githubu].
 
-Od verze sady Media Services SDK verze 3.0.0.0, můžete opakovaně použít [Active Directory řízení přístupu Azure Service (ACS)] tokeny. Další informace najdete v části "Opětovné použití tokeny přístupu ke řízení služby" v [připojení ke službám Media Services pomocí sady Media Services SDK pro .NET] článku.
+Od verze sady Media Services SDK verze 3.0.0.0, můžete znovu použít tokeny Active Directory řízení přístupu Azure Service (ACS). 
 
 ### <a name="dec_13_donnet_ext_changes"></a>Rozšíření sady SDK pro .NET 2.0.0.0 služby Azure Media Services
 Rozšíření Azure Media Services .NET SDK je sada metod rozšíření a pomocných funkcí, které se zjednoduší kódování a usnadňují vývoj pomocí Azure Media Services. Můžete získat nejnovější bits z [rozšíření Azure Media Services .NET SDK].
@@ -580,8 +580,8 @@ Následující funkce se nové v listopadu verzi sady SDK.
 [vytváření překryvy]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [ve hřbetu segmenty Video]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [uvolní Azure Media Services .NET SDK 3.0.0.1 a 3.0.0.2]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Active Directory řízení přístupu Azure Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[připojení ke službám Media Services pomocí sady Media Services SDK pro .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
+[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [rozšíření Azure Media Services .NET SDK]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [nástroje azure sdk]: https://github.com/Azure/azure-sdk-tools
 [Githubu]: https://github.com/Azure/azure-sdk-for-media-services

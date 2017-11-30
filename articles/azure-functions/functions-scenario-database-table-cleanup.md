@@ -15,14 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Používat Azure Functions k připojení k databázi SQL Azure
-Toto téma ukazuje, jak používat Azure Functions vytvořit naplánovanou úlohu, která vyčistí řádky v tabulce v Azure SQL Database. Nové funkce jazyka C# se vytvoří na základě šablony aktivační událost časovače předem definovaných na portálu Azure. Pro podporu tohoto scénáře, musíte taky nastavit připojovací řetězec databáze jako nastavení v aplikaci funkce. Tento scénář používá hromadné operace v databázi. Pokud chcete, aby funkce zpracovat jednotlivé operace CRUD v tabulce Mobile Apps, měli byste místo toho použít [Mobile Apps vazby](functions-bindings-mobile-apps.md).
+Toto téma ukazuje, jak používat Azure Functions vytvořit naplánovanou úlohu, která vyčistí řádky v tabulce v Azure SQL Database. Nové funkce jazyka C# se vytvoří na základě šablony aktivační událost časovače předem definovaných na portálu Azure. Pro podporu tohoto scénáře, musíte taky nastavit připojovací řetězec databáze jako nastavení aplikace v aplikaci funkce. Tento scénář používá hromadné operace v databázi. 
+
+Mít jednotlivé funkce proces vytváření, čtení, aktualizaci a operace odstranění (CRUD) v tabulce Mobile Apps, měli byste místo toho použít [Mobile Apps vazby](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -59,7 +61,7 @@ Provádění funkcí v Azure je hostováno v aplikaci funkce. Je osvědčeným p
     | Nastavení       | Navrhovaná hodnota | Popis             | 
     | ------------ | ------------------ | --------------------- | 
     | **Název**  |  sqldb_connection  | Slouží k přístupu uložené připojovací řetězec v kódu funkce.    |
-    | **Hodnota** | Řetězec zkopírovaný  | Po připojovací řetězec jste zkopírovali v předchozím oddílu. |
+    | **Hodnota** | Řetězec zkopírovaný  | Vložte připojovací řetězec, který jste zkopírovali v předchozí části a nahraďte `{your_username}` a `{your_password}` zástupné symboly skutečné hodnoty. |
     | **Typ** | SQL Database | Použijte výchozí připojení k databázi SQL. |   
 
 3. Klikněte na **Uložit**.
@@ -84,7 +86,7 @@ Teď můžete přidat funkce kódu C#, která se připojuje k vaší databázi S
     using System.Threading.Tasks;
     ```
 
-4. Nahradit existující **spustit** funkce následujícím kódem:
+4. Nahradit existující `Run` funkce následujícím kódem:
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -105,7 +107,7 @@ Teď můžete přidat funkce kódu C#, která se připojuje k vaší databázi S
     }
     ```
 
-    Tento ukázkový příkaz aktualizuje **stav** sloupec založen na datum expedice. 32 řádků dat je by měl aktualizovat.
+    Tento ukázkový příkaz aktualizuje `Status` sloupec založen na datum expedice. 32 řádků dat je by měl aktualizovat.
 
 5. Klikněte na tlačítko **Uložit**, sledovat **protokoly** windows pro další funkce spuštění a pak Poznámka: počet řádků v aktualizován **SalesOrderHeader** tabulky.
 

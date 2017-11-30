@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Vytvoření služby Application Gateway pomocí šablony Azure Resource Manageru
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 Služba Azure Application Gateway je nástroj pro vyrovnávání zatížení vrstvy 7. Poskytuje převzetí služeb při selhání a směrování výkonu požadavků HTTP mezi různými servery, ať už jsou místní nebo v cloudu. Application Gateway poskytuje mnoho funkcí kontroleru doručování aplikací (ADC), včetně vyrovnávání zatížení protokolu HTTP, spřažení relace na základě souborů cookie, přesměrování zpracování SSL (Secure Sockets Layer), vlastních sond stavu, podpory více webů a mnoha dalších. Úplný seznam podporovaných funkcích naleznete [přehled Application Gateway](application-gateway-introduction.md)
 
-Tento článek vás provede stahování a úprava existující šablony Azure Resource Manageru z webu GitHub a nasazení šablony z Githubu, prostředí PowerShell a rozhraní příkazového řádku Azure.
+Tento článek vás provede stahování a úprava existující [šablony Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md) z Githubu a nasazení šablony z Githubu, prostředí PowerShell a rozhraní příkazového řádku Azure.
 
-Pokud šablonu Azure Resource Manageru jednoduše nasazujete přímo z GitHubu beze změn, přejděte k části o nasazení šablony z GitHubu.
+Pokud nasazujete jednoduše šabloně přímo z Githubu beze změn, přejděte k nasazení šablony z Githubu.
 
 ## <a name="scenario"></a>Scénář
 
@@ -75,9 +75,6 @@ Z webu GitHub si můžete stáhnout existující šablonu Azure Resource Manager
    * **type**. Typ prostředku vytvořeného šablonou. V takovém případě je typ `Microsoft.Network/applicationGateways`, který představuje službu application gateway.
    * **name**. Název prostředku. Všimněte si použití `[parameters('applicationGatewayName')]`, což znamená, že název je poskytován jako vstup vámi nebo ze souboru parametrů během nasazování.
    * **properties**. Seznam vlastností prostředku. Tato šablona používá při vytváření služby Application Gateway virtuální síť a veřejnou IP adresu.
-
-   > [!NOTE]
-   > Další informace o šablonách najdete v článku: [referenční informace k šablonám Resource Manager](/templates/)
 
 1. Přejděte zpět na [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Klikněte na tlačítko **azuredeploy-Parameters.JSON tímto kódem**a potom klikněte na **RAW**.

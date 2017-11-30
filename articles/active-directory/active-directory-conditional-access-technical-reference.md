@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 243c42b8637b7887047c85a60e5dfedfd7f6904a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory podmíněného přístupu technické reference
 
-Můžete použít [podmíněného přístupu Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) a systém doladit jak oprávněným uživatelům můžete přístup k prostředkům.  
+Můžete použít [podmíněného přístupu Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) a systém doladit jak oprávněným uživatelům můžete přístup k prostředkům.   
 
-Toto téma obsahuje informace o podporu pro následující možnosti konfigurace pro zásady podmíněného přístupu: 
+Tento článek obsahuje informace o podporu pro následující možnosti konfigurace pro zásady podmíněného přístupu: 
 
 - Přiřazení cloudové aplikace
 
@@ -38,7 +38,7 @@ Toto téma obsahuje informace o podporu pro následující možnosti konfigurace
 
 ## <a name="cloud-apps-assignments"></a>Přiřazení cloudové aplikace
 
-Až budete konfigurovat zásadu podmíněného přístupu, budete muset [vyberte cloudové aplikace, které používají zásady](active-directory-conditional-access-azure-portal.md#who). 
+Pomocí zásady podmíněného přístupu můžete řídit přístup uživatelům vaší [cloudových aplikací](active-directory-conditional-access-azure-portal.md#who). Pokud budete konfigurovat zásadu podmíněného přístupu, je nutné vybrat alespoň jeden cloudové aplikace. 
 
 ![Vyberte zásady pro cloudové aplikace](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -48,6 +48,7 @@ Až budete konfigurovat zásadu podmíněného přístupu, budete muset [vyberte
 Zásady podmíněného přístupu můžete přiřadit následující cloudových aplikací od společnosti Microsoft:
 
 - Azure Information Protection – [Další informace](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -103,7 +104,7 @@ V zásadách podmíněného přístupu můžete nakonfigurovat podmínky platfor
 
 ## <a name="client-apps-condition"></a>Stav aplikace klienta 
 
-Pokud budete konfigurovat zásadu podmíněného přístupu, můžete [vyberte klientské aplikace](active-directory-conditional-access-azure-portal.md#client-apps) pro podmínku klientské aplikace. Nastavení klienta aplikace podmínku, která má udělit nebo blokovat přístup, když je proveden pokus o přístup z následujících typů klientských aplikací:
+V zásadách podmíněného přístupu můžete nakonfigurovat [klientské aplikace](active-directory-conditional-access-azure-portal.md#client-apps) podmínku ke svázání zásady tak, aby klientskou aplikaci, která iniciovala pokus o přístup. Nastavení klienta aplikace podmínku, která má udělit nebo blokovat přístup, když je proveden pokus o přístup z následujících typů klientských aplikací:
 
 - Prohlížeč
 - Mobilní aplikace a aplikace klasické pracovní plochy
@@ -112,11 +113,11 @@ Pokud budete konfigurovat zásadu podmíněného přístupu, můžete [vyberte k
 
 ### <a name="supported-browsers"></a>Podporované prohlížeče 
 
-Řídit přístup z prohlížeče pomocí **prohlížeče** možnost v požadované zásady podmíněného přístupu. Udělí přístup pouze při pokusu o přístup pomocí podporovaného prohlížeče. Když je proveden pokus o přístup pomocí nepodporovaný prohlížeč, je blokována pokus.
+V zásadách podmíněného přístupu můžete vybrat **prohlížeče** jako klientskou aplikaci.
 
 ![Řízení přístupu pro podporované prohlížeče](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Zásady podmíněného přístupu podporuje následující prohlížeče: 
+Toto nastavení má vliv na pokusů o přístup provedených z následujících prohlížečů: 
 
 
 | Operační systém                     | Prohlížeče                            | Podpora     |
@@ -140,11 +141,13 @@ Zásady podmíněného přístupu podporuje následující prohlížeče:
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Podporovaná mobilní aplikace a klienti vzdálené plochy
 
-Řízení přístupu aplikace a klienta pomocí **mobilní aplikace a klienti vzdálené plochy** možnost v požadované zásady podmíněného přístupu. Udělí přístup pouze při pokusu o přístup pomocí podporovaných mobilní aplikace nebo plochy klienta. Když je proveden pokus o přístup pomocí nepodporované aplikace nebo klienta, je blokována pokus.
+V zásadách podmíněného přístupu můžete vybrat **mobilní aplikace a klienti vzdálené plochy** jako klientskou aplikaci.
+
 
 ![Řízení přístupu pro podporovaných mobilních aplikací nebo klienti vzdálené plochy](./media/active-directory-conditional-access-technical-reference/06.png)
 
-Následující mobilní aplikace a klienti vzdálené plochy podporují podmíněný přístup pro Office 365 a další služby Azure AD připojené aplikace:
+
+Toto nastavení má vliv na pokusů o přístup provedených z následující mobilní aplikace a klienti vzdálené plochy: 
 
 
 |Klientské aplikace|Cílová služba|Platforma|
@@ -170,11 +173,11 @@ Následující mobilní aplikace a klienti vzdálené plochy podporují podmín�
 
 ## <a name="approved-client-app-requirement"></a>Požadavek schválené klientské aplikace 
 
-Řízení připojení klienta pomocí **vyžadují schválené klientskou aplikaci** možnost v požadované zásady podmíněného přístupu. Udělí přístup pouze při pokusu o připojení klienta schválených aplikací.
+V zásadách podmíněného přístupu můžete vyžadovat, aby přístup pokusí vybrané cloudové aplikace musí být vytvořen ze schválených klienta aplikace. 
 
 ![Řízení přístupu pro schválené klientské aplikace](./media/active-directory-conditional-access-technical-reference/21.png)
 
-Následující aplikace klienta lze použít s požadavků aplikace schválené klienta:
+Toto nastavení platí pro následující aplikace klienta:
 
 
 - Microsoft Azure Information Protection

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 283428c603cc73d23f0afa94670a23dbb45068d5
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Postupy: monitorování aplikací v Azure App Service
 [Služby App Service](http://go.microsoft.com/fwlink/?LinkId=529714) poskytuje integrované monitorování funkce v [portál Azure](https://portal.azure.com).
-To zahrnuje možnost zkontrolovat **kvóty** a **metriky** pro aplikace, jakož i plán služby App Service, nastavení **výstrahy** a i **škálování**automaticky v závislosti na tyto metriky.
+Portál Azure obsahuje schopnost zkontrolujte **kvóty** a **metriky** pro aplikace, jakož i plán služby App Service, nastavení **výstrahy** a i **škálování**  automaticky v závislosti na tyto metriky.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -37,7 +37,7 @@ Pokud je aplikace hostovaná v **základní**, **standardní** nebo **Premium** 
 **Kvóty** pro **volné** nebo **sdílené** aplikace jsou:
 
 * **CPU(Short)**
-  * Nároky na výkon procesoru, které jsou povoleny pro tuto aplikaci v intervalu 5 minut. Tato kvóta resetuje každých 5 minut.
+  * Nároky na výkon procesoru, které jsou povoleny pro tuto aplikaci v intervalu 5 minut. Tato kvóta resetuje každých pět minut.
 * **CPU(Day)**
   * Celkový počet nároky na výkon procesoru, které jsou povoleny pro tuto aplikaci za den. Tato kvóta resetuje každých 24 hodin půlnoci času UTC.
 * **Paměť**
@@ -48,12 +48,12 @@ Pokud je aplikace hostovaná v **základní**, **standardní** nebo **Premium** 
 * **Systém souborů**
   * Celková velikost úložiště, které jsou povoleny.
 
-Pouze kvótu pro aplikace hostované na **základní**, **standardní** a **Premium** plány je **Filesystem**.
+Pouze kvótu pro aplikace hostované na **základní**, **standardní**, a **Premium** plány je **Filesystem**.
 
 Další informace o konkrétní kvót, omezení a funkce, které jsou k dispozici pro jiné služby SKU aplikace naleznete zde: [omezení předplatné služby Azure](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Vynucení kvót
-Pokud aplikace v jeho využití překročí **procesoru (krátký)**, **procesoru (den)**, nebo **šířky pásma** kvóty pak aplikace je zastavena, dokud se kvóta resetuje. Během této doby výsledkem všechny příchozí požadavky **HTTP 403**.
+Aplikace, překročí-li **procesoru (krátký)**, **procesoru (den)**, nebo **šířky pásma** kvóty pak aplikace je zastavena, dokud se kvóta resetuje. Během této doby výsledkem všechny příchozí požadavky **HTTP 403**.
 ![][http403]
 
 Pokud aplikace **paměti** dojde k překročení kvóty a potom se aplikace restartuje.
@@ -125,14 +125,14 @@ Existují dvě metriky, které odráží využití procesoru. **Čas procesoru**
 
 **Čas procesoru** je užitečné pro aplikace hostované v **volné** nebo **sdílené** plány, protože jeden z jejich kvóty je definována v minutách procesoru používané aplikace.
 
-**Procento využití procesoru** je užitečné pro aplikace hostované v **základní**, **standardní** a **premium** plány, protože může být škálovat na více systémů a tato metrika je dobrá indikace toho celkové využití serveru ve všech instancích.
+**Procento využití procesoru** je užitečné pro aplikace hostované v **základní**, **standardní**, a **premium** plány vzhledem k tomu může být škálovat na více systémů. Procento využití procesoru je dobrá indikace toho celkové využití serveru ve všech instancích.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Metriky Členitosti a zásady uchovávání informací
 Metriky pro aplikace a plán služby app service se protokolují a agregovat služba s následující členitostí a zásady uchovávání informací:
 
-* **Minutu** členitosti metriky se zachovají pro **48 hodin**
+* **Minutu** členitosti metriky se zachovají pro **30 hodin**
 * **Hodina** členitosti metriky se zachovají pro **30 dnů**
-* **Den** členitosti metriky se zachovají pro **90 dnů**
+* **Den** členitosti metriky se zachovají pro **30 dnů**
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitorování kvóty a metriky na portálu Azure.
 Můžete zkontrolovat stav různých **kvóty** a **metriky** ovlivnění aplikace [portál Azure](https://portal.azure.com).
@@ -149,7 +149,7 @@ Další informace o metrikách zde: [monitorovat metriky služby](../monitoring-
 ## <a name="alerts-and-autoscale"></a>Výstrahy a škálování
 Metriky pro plán aplikace nebo služby App Service může být připojených k výstrahy. Další informace o tom najdete v tématu [dostávat oznámení o výstrahách](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Aplikace služby App Service hostované v basic, standard nebo premium podporu plány služby App Service **škálování**. To umožňuje můžete nakonfigurovat pravidla monitorování metriky plánu služby App Service a můžete zvýšit nebo snížit počet instancí, že poskytuje další zdroje informací, podle potřeby nebo ukládání peníze, když je aplikace přečerpání zřizování. Další informace o automatické škálování zde: [postup škálování](../monitoring-and-diagnostics/insights-how-to-scale.md) a zde [osvědčené postupy pro automatické škálování Azure monitorování](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+Aplikace služby App Service hostované v basic, standard nebo premium podporu plány služby App Service **škálování**. Škálování umožňuje konfigurovat pravidla, která monitorování metriky plánu služby App Service. Pravidla můžete zvýšit nebo snížit počet instancí, že poskytuje další zdroje informací, podle potřeby. Pravidla také můžete ušetřit peníze při přepsání je zřizování aplikace. Další informace o automatické škálování zde: [postup škálování](../monitoring-and-diagnostics/insights-how-to-scale.md) a zde [osvědčené postupy pro automatické škálování Azure monitorování](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
 > Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](https://azure.microsoft.com/try/app-service/), kde si můžete hned vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.

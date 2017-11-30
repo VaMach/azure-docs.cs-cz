@@ -9,11 +9,11 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 02d5fac8cf9067ec544668f306fe49b805b3d164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd66991375a9f063345cda20c69f6a41c512ed2
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Služba Azure Search – nejčastější dotazy (FAQ)
  
@@ -30,7 +30,7 @@ Služba Azure Search podporuje více zdrojů dat, [lingvistické analýzy pro mn
 Při porovnávání technologie vyhledávání, zákazníci často požádejte pro konkrétní na tom, jak Azure Search porovná s Elasticsearch. Zákazníci, kteří zvolte Azure Search přes Elasticsearch pro jejich vyhledávání projekty aplikací obvykle provést, protože jsme provedli úlohu klíčů snazší nebo potřebují integraci s jinými technologiemi společnosti Microsoft:
 
 + Služba Azure Search je plně spravovaná Cloudová služba se 99,9 % Smlouvy o úrovni služeb (SLA) při zřizování s dostatečnou redundance (2 repliky pro čtení, 3 repliky pro čtení i zápis).
-+ Společnosti Microsoft [přirozeného jazyka procesory](https://docs.microsoft.com/rest/api/searchservice/language-support) nabízejí analysis inguistic hrany.  
++ Společnosti Microsoft [přirozeného jazyka procesory](https://docs.microsoft.com/rest/api/searchservice/language-support) nabízejí lingvistické analysis hrany.  
 + [Azure Search indexery](search-indexer-overview.md) může procházet celou řadu zdrojů dat Azure pro počáteční a přírůstkové indexování.
 + Pokud budete potřebovat rychlou odezvu na kolísání dotaz nebo indexování svazky, můžete použít [ovládací prvky posuvníku](search-manage.md#scale-up-or-down) ve službě Azure portálu nebo spuštění [skript prostředí PowerShell](search-manage-powershell.md), obcházení horizontálního oddílu správu přímo.  
 + [Vyhodnocování a ladění funkcí](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) poskytují způsob pro ovlivňující vyhledávání rank skóre nad rámec co může poskytnout samostatně na vyhledávací web. 
@@ -73,7 +73,7 @@ Ve výchozím nastavení, jsou hodnoceny na základě výsledků vyhledávání 
 
 Předpokládejme například, že vytváří odpovídá na "prohlídka", "tourettes" a "tourmaline" vstup "prohlídka *" v hledání pomocí zástupných znaků. Vzhledem k povaze těchto výsledků, neexistuje žádný způsob, jak to bude přiměřeně infer – které podmínky jsou cenné více než jiné. Z tohoto důvodu jsme ignorovat termín frekvence, při vyhodnocování výsledky v dotazech typy zástupný znak, předpony a regulární výraz. Výsledky hledání podle částečné vstup, se získají skóre konstantní předejdete odchylka směrem potenciálně neočekávané odpovídá.
 
-## <a name="design-patterns"></a>Vzory návrhu
+## <a name="design-patterns"></a>Způsoby návrhu
 
 ### <a name="what-is-the-best-approach-for-implementing-localized-search"></a>Co je nejlepší metodou pro implementaci lokalizované hledání?
 

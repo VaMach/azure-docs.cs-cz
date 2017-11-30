@@ -1,5 +1,5 @@
 ---
-title: "Vazby úložiště Azure Blob funkce"
+title: Azure Blob storage vazby pro Azure Functions
 description: "Pochopit, jak používat Azure Blob storage triggerů a vazeb v Azure Functions."
 services: functions
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-blob-storage-bindings"></a>Vazby úložiště Azure Blob funkce
+# <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage vazby pro Azure Functions
 
 Tento článek vysvětluje, jak pro práci s vazbami úložiště objektů Azure Blob v Azure Functions. Azure Functions podporuje aktivaci, vstup a výstup vazby pro objekty BLOB.
 
@@ -30,7 +30,7 @@ Tento článek vysvětluje, jak pro práci s vazbami úložiště objektů Azure
 > [!NOTE]
 > [Účty úložiště BLOB jen](../storage/common/storage-create-storage-account.md#blob-storage-accounts) nejsou podporovány. Objekt BLOB úložiště triggerů a vazeb se vyžaduje účet úložiště pro obecné účely. 
 
-## <a name="blob-storage-trigger"></a>Aktivační událost úložiště objektů BLOB
+## <a name="trigger"></a>Trigger
 
 Spusťte funkci při zjištění do nové nebo aktualizované objektu blob pomocí aktivační událost úložiště objektů Blob. Obsahu objektu blob jsou uvedeny jako vstup do funkce.
 
@@ -59,7 +59,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Další informace o `BlobTrigger` atributů najdete v tématu [aktivační událost – atributy pro předkompilované C#](#trigger---attributes-for-precompiled-c).
+Další informace o `BlobTrigger` atributů najdete v tématu [aktivační událost – atributy](#trigger---attributes-for-precompiled-c).
 
 ### <a name="trigger---c-script-example"></a>Aktivační událost – příklad skriptu jazyka C#
 
@@ -138,7 +138,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Aktivační událost - předkompilovaných atributy pro C#
+## <a name="trigger---attributes"></a>Aktivační událost – atributy
 
 Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje konfigurovat aktivační události objektu blob následující atributy:
 
@@ -151,6 +151,9 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
   public static void Run(
       [BlobTrigger("sample-images/{name}")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
 
   Můžete nastavit `Connection` vlastnosti a určit účet úložiště, který chcete použít, jak je znázorněno v následujícím příkladu:
@@ -160,7 +163,12 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
   public static void Run(
       [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
+
+  Úplný příklad najdete v tématu [aktivační událost - předkompilovaných C# příklad](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definované v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -173,6 +181,9 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
       [FunctionName("BlobTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ....
+  }
   ```
 
 Účet úložiště, který chcete použít, je určen v následujícím pořadí:
@@ -193,7 +204,9 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |**směr** | neuvedeno | musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. Výjimky jsou uvedeny v [využití](#trigger---usage) části. |
 |**Jméno** | neuvedeno | Název proměnné, která představuje objektů blob v kódu funkce. | 
 |**Cesta** | **BlobPath** |Kontejner pro monitorování.  Může být [vzor názvu objektu blob](#trigger-blob-name-patterns). | 
-|**připojení** | **Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Pokud vyvíjíte místně, nastavení aplikace, přejděte do hodnoty [local.settings.json soubor](functions-run-local.md#local-settings-file).|
+|**připojení** | **Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Aktivační událost - využití
 
@@ -295,7 +308,7 @@ Pokud selžou všechny 5 pokusů, Azure Functions přidá zprávu do fronty úlo
 
 Pokud kontejner objektů blob, který je monitorován obsahuje více než 10 000 objektů BLOB, přihlaste se kontroly runtime funkce soubory, které chcete sledovat pro nové nebo změněné objekty BLOB. Tento proces může způsobit zpoždění. Funkce nemusí získat aktivuje až několik minut nebo déle po vytvoření objektu blob. Kromě toho [protokol úložiště jsou vytvořené na "best effort"](/rest/api/storageservices/About-Storage-Analytics-Logging) intervalech. Není zaručeno, že jsou zachyceny všechny události. Za určitých podmínek může být načteni protokoly. Pokud budete potřebovat rychlejší a spolehlivější blob zpracování, zvažte vytvoření [zprávu fronty](../storage/queues/storage-dotnet-how-to-use-queues.md) při vytváření objektu blob. Potom pomocí [aktivační událost fronty](functions-bindings-storage-queue.md) místo aktivační událost objektu blob ke zpracování objektu blob. Další možností je použít událost mřížky; Zobrazit kurz [automatické změně velikosti nahrán obrázky pomocí mřížky událostí](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## <a name="blob-storage-input--output-bindings"></a>Úložiště objektů BLOB vstup a výstup vazby
+## <a name="input--output"></a>Vstup a výstup
 
 Použití objektů Blob storage vstup a výstup vazby ke čtení a zápisu objektů BLOB.
 
@@ -434,7 +447,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="input--output---attributes-for-precompiled-c"></a>Vstup a výstup - atributy pro předkompilované C#
+## <a name="input--output---attributes"></a>Vstup a výstup – atributy
 
 Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -445,6 +458,9 @@ Konstruktoru atributu má cestu k objektu blob a `FileAccess` parametr určujíc
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+{
+    ...
+}
 ```
 
 Můžete nastavit `Connection` vlastnosti a určit účet úložiště, který chcete použít, jak je znázorněno v následujícím příkladu:
@@ -454,9 +470,14 @@ Můžete nastavit `Connection` vlastnosti a určit účet úložiště, který c
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
+{
+    ...
+}
 ```
 
-Můžete použít `StorageAccount` atribut určete účet úložiště na úrovni třídy, metoda nebo parametr. Další informace najdete v tématu [aktivační událost – atributy pro předkompilované C#](#trigger---attributes-for-precompiled-c).
+Úplný příklad najdete v tématu [vstup a výstup - předkompilovaných příklad jazyka C#](#input--output---c-example).
+
+Můžete použít `StorageAccount` atribut určete účet úložiště na úrovni třídy, metoda nebo parametr. Další informace najdete v tématu [aktivační událost – atributy](#trigger---attributes-for-precompiled-c).
 
 ## <a name="input--output---configuration"></a>Vstup a výstup - konfigurace
 
@@ -468,8 +489,10 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |**směr** | neuvedeno | Musí být nastavena na `in` pro vazbu vstupní nebo na více systémů pro vazbu výstup. Výjimky jsou uvedeny v [využití](#input--output---usage) části. |
 |**Jméno** | neuvedeno | Název proměnné, která představuje objektů blob v kódu funkce.  Nastavte na `$return` Chcete-li funkce návratovou hodnotu.|
 |**Cesta** |**BlobPath** | Cesta k objektu blob. | 
-|**připojení** |**Připojení**| Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Pokud vyvíjíte místně, nastavení aplikace, přejděte do hodnoty [local.settings.json soubor](functions-run-local.md#local-settings-file).|
+|**připojení** |**Připojení**| Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |neuvedeno | **Přístup** | Určuje, zda jste se čtení nebo zápis. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input--output---usage"></a>Vstup a výstup - využití
 

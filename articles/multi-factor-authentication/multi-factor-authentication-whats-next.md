@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurovat nastavení ověřování Azure Multi-Factor Authentication – ve verzi Public preview
 
@@ -170,21 +170,40 @@ Pokud je povoleno důvěryhodné IP adresy, dvoustupňové ověření je *není*
 
 Zda důvěryhodné IP adresy je povolena, nebo Ne, dvoustupňové ověření je vyžadována pro toky prohlížeče a hesla aplikací jsou požadovány pro starší aplikace plně funkčního klienta. 
 
-### <a name="to-enable-trusted-ips"></a>Chcete-li povolit důvěryhodné IP adresy
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Vlevo vyberte možnost **Active Directory**.
-3. Vyberte adresář, který chcete spravovat. 
-4. Vyberte **konfigurace**
-5. V části ověřování Multi-Factor Authentication, vyberte **spravovat nastavení služby**.
-6. Na stránce nastavení služby v rámci důvěryhodných adres IP máte dvě možnosti:
+### <a name="enable-named-locations-using-conditional-access"></a>Povolit s názvem umístění pomocí podmíněného přístupu
+
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Na levé straně vyberte **Azure Active Directory** > **podmíněného přístupu** > **s názvem umístění**
+3. Vyberte **nové umístění**
+4. Zadejte název pro umístění
+5. Vyberte **označit jako důvěryhodné umístění**
+6. Zadejte rozsah IP adres v notaci CIDR (například 192.168.1.1/24)
+7. Vyberte **vytvořit**
+
+### <a name="enable-trusted-ips-using-conditional-access"></a>Povolit důvěryhodné IP adresy pomocí podmíněného přístupu
+
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Na levé straně vyberte **Azure Active Directory** > **podmíněného přístupu** > **s názvem umístění**
+3. Vyberte **MFA konfigurovat důvěryhodné IP adresy**
+4. Na stránce nastavení služby v rámci důvěryhodných adres IP máte dvě možnosti:
    
    * **Pro žádosti od federovaných uživatelů pocházející z mém intranetu** – zaškrtněte políčko. Všechny federovaní uživatelé, kteří se přihlašují z podnikové sítě bude nepoužívat dvoustupňové ověření pomocí deklarace identity vystavené službou AD FS. Zajistěte, aby služba AD FS na pravidlo můžete přidat intranetu deklarace identity odpovídající provoz. Pokud pravidlo neexistuje, vytvořte následující pravidlo ve službě AD FS: "c: [typ =="http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] = > issue(claim = c);"
 
+   * **Pro žádosti od určitého rozsahu veřejné IP adresy** – v textovém poli zadat pomocí notace CIDR zadejte IP adresy. Příklad: xxx.xxx.xxx.0/24 pro IP adresy v rozsahu xxx.xxx.xxx.1 – xxx.xxx.xxx.254 nebo xxx.xxx.xxx.xxx/32 pro jednu IP adresu. Můžete zadat až 50 rozsahy IP adres. Uživatelé, kteří se přihlašují z těchto IP adres nepoužívat dvoustupňové ověřování.
+5. Vyberte **Uložit**.
 
+### <a name="enable-trusted-ips-using-service-settings"></a>Povolit důvěryhodné IP adresy pomocí nastavení služby
+
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Na levé straně vyberte **Azure Active Directory** > **uživatelů a skupin** > **všichni uživatelé**
+3. Vyberte **Multi-Factor Authentication**.
+4. V části ověřování Multi-Factor Authentication, vyberte **nastavení služby**.
+5. Na stránce nastavení služby v rámci důvěryhodných adres IP máte dvě možnosti:
+   
+   * **Pro žádosti od federovaných uživatelů pocházející z mém intranetu** – zaškrtněte políčko. Všechny federovaní uživatelé, kteří se přihlašují z podnikové sítě bude nepoužívat dvoustupňové ověření pomocí deklarace identity vystavené službou AD FS. Zajistěte, aby služba AD FS na pravidlo můžete přidat intranetu deklarace identity odpovídající provoz. Pokud pravidlo neexistuje, vytvořte následující pravidlo ve službě AD FS: "c: [typ =="http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] = > issue(claim = c);"
 
    * **Pro žádosti od určitého rozsahu veřejné IP adresy** – v textovém poli zadat pomocí notace CIDR zadejte IP adresy. Příklad: xxx.xxx.xxx.0/24 pro IP adresy v rozsahu xxx.xxx.xxx.1 – xxx.xxx.xxx.254 nebo xxx.xxx.xxx.xxx/32 pro jednu IP adresu. Můžete zadat až 50 rozsahy IP adres. Uživatelé, kteří se přihlašují z těchto IP adres nepoužívat dvoustupňové ověřování.
-7. Klikněte na **Uložit**.
-8. Jakmile se aktualizace se aplikovaly, klikněte na **Zavřít**.
+6. Vyberte **Uložit**.
 
 ![Důvěryhodné IP adresy](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
@@ -239,11 +258,10 @@ Azure AD podporuje federation (jednotné přihlášení) s místními systému W
 ### <a name="allow-app-password-creation"></a>Povolit vytváření heslo aplikace
 Ve výchozím nastavení uživatelé nemůžou vytvářet hesla aplikací. Tato funkce musí být povolená. Povolit uživatelům možnost vytvářet hesla aplikací, použijte následující postup:
 
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Vlevo vyberte možnost **Active Directory**.
-3. Vyberte adresář, který chcete spravovat. 
-4. Vyberte **konfigurace**
-5. V části ověřování Multi-Factor Authentication, vyberte **spravovat nastavení služby**.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Na levé straně vyberte **Azure Active Directory** > **uživatelů a skupin** > **všichni uživatelé**
+3. Vyberte **Multi-Factor Authentication**.
+4. V části ověřování Multi-Factor Authentication, vyberte **nastavení služby**.
 6. Klepněte na přepínač vedle **povolit uživatelům vytvářet hesla aplikací pro přihlášení do neprohlížečových aplikací**.
 
 ![Vytvoření hesel aplikací](./media/multi-factor-authentication-whats-next/trustedips3.png)
@@ -270,16 +288,16 @@ Proto nezapomeňte vícefaktorového ověřování na důvěryhodných zařízen
 >Tato funkce není kompatibilní s "Zůstat přihlášeni" funkce služby AD FS, když uživatelé provádět dvoustupňové ověřování pro službu AD FS pomocí Azure MFA serveru nebo řešení třetí strany vícefaktorového ověřování. Pokud uživatelé ve službě AD FS vyberte možnost "Zůstat přihlášeni" a také označit jako důvěryhodné zařízení pro MFA, by nebylo možné ověřit po vypršení platnosti "Zapamatovat MFA" počet dnů. Azure AD požadavky čerstvé dvoustupňové ověření, ale služby AD FS vrátí token s původní vícefaktorového ověřování deklarací identity a datum namísto provádění dvoustupňové ověření znovu. Toto nastaví mimo smyčku ověření mezi Azure AD a služby AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Povolit zapamatovat vícefaktorové ověřování
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Vlevo vyberte možnost **Active Directory**.
-3. Vyberte adresář, který chcete spravovat. 
-4. Vyberte **konfigurace**
-5. V části ověřování Multi-Factor Authentication, vyberte **spravovat nastavení služby**.
-6. Na stránce nastavení služby ve správě uživatelských nastavení zařízení, zkontrolujte **povolit uživatelům zapamatovat vícefaktorové ověřování u zařízení, které důvěřují** pole.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Na levé straně vyberte **Azure Active Directory** > **uživatelů a skupin** > **všichni uživatelé**
+3. Vyberte **Multi-Factor Authentication**.
+4. V části ověřování Multi-Factor Authentication, vyberte **nastavení služby**.
+5. Na stránce nastavení služby v rámci **spravovat zapamatovat vícefaktorové ověřování**, zkontrolujte **povolit uživatelům zapamatovat vícefaktorové ověřování u zařízení, které důvěřují** pole.
+
    ![Mějte na paměti, zařízení](./media/multi-factor-authentication-whats-next/remember.png)
-7. Nastavte počet dní, které chcete povolit důvěryhodná zařízení obejít dvoustupňové ověření. Výchozí hodnota je 14 dnů.
-8. Klikněte na **Uložit**.
-9. Klikněte na **Zavřít**.
+
+6. Nastavte počet dní, které chcete povolit důvěryhodná zařízení obejít dvoustupňové ověření. Výchozí hodnota je 14 dnů.
+7. Vyberte **Uložit**.
 
 ### <a name="mark-a-device-as-trusted"></a>Označit jako důvěryhodné zařízení
 
@@ -300,13 +318,12 @@ Když uživatelé zaregistrují svoje účty pro MFA, vybírá jejich metoda up�
 | Ověřovací kód z mobilní aplikace |Aplikace Microsoft Authenticator generuje každých 30 sekund nový ověřovací kód OATH. Tento ověřovací kód, uživatel zadá do rozhraní přihlášení.<br>Je k dispozici pro aplikaci Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), a [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Povolení nebo zakázání metody ověřování
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Vlevo vyberte možnost **Active Directory**.
-3. Vyberte adresář, který chcete spravovat. 
-4. Vyberte **konfigurace**
-5. V části ověřování Multi-Factor Authentication, vyberte **spravovat nastavení služby**.
-6. Na stránce nastavení služby v rámci možnosti ověření výběrem nebo zrušením výběru možnosti, které chcete použít.
-   ![Požadované možnosti ověření](./media/multi-factor-authentication-whats-next/authmethods.png)
-7. Klikněte na **Uložit**.
-8. Klikněte na **Zavřít**.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Na levé straně vyberte **Azure Active Directory** > **uživatelů a skupin** > **všichni uživatelé**
+3. Vyberte **Multi-Factor Authentication**.
+4. V části ověřování Multi-Factor Authentication, vyberte **nastavení služby**.
+5. Na stránce nastavení služby v rámci **možnosti ověření**, výběrem nebo zrušením výběru možnosti, které chcete použít.
 
+   ![Požadované možnosti ověření](./media/multi-factor-authentication-whats-next/authmethods.png)
+
+6. Klikněte na **Uložit**.

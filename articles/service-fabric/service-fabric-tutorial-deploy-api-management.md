@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: 97bcf312621ec0fed28e26179d4c4aa101a8a92d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b3bf91a7ae5ed70456352ecdba9c0324f20f3555
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Nasazení správy rozhraní API pomocí Service Fabric
 V tomto kurzu je součástí série, tři.  Nasazení aplikace Azure API Management s Service Fabric je pokročilý scénář.  API Management je užitečné, když je potřeba publikovat rozhraní API s bohatou sadu pravidla směrování pro váš back endové služby Service Fabric. Cloudové aplikace obvykle nutné front-endu brány zajistit jediný bod příjem příchozích dat pro uživatele, zařízení nebo jiné aplikace. V Service Fabric brány může být jakékoli bezstavové služby určený pro příchozí provoz například APP.NET základní aplikace, služby Event Hubs, IoT Hub nebo Azure API Management. 
@@ -326,7 +326,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="conclusion"></a>Závěr
+## <a name="next-steps"></a>Další kroky
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
@@ -335,6 +335,10 @@ V tomto kurzu jste se naučili:
 > * Vytvoření operace rozhraní API
 > * Nakonfigurujte zásady back-end
 > * Přidání rozhraní API do produktu
+
+V dalším kroku přechodu na následující kurzu se dozvíte, jak upgradovat runtime clusteru.
+> [!div class="nextstepaction"]
+> [Upgrade clusteru runtime Azure Service Fabric](service-fabric-tutorial-upgrade-cluster.md)
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

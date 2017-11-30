@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 9983ea9b847f44ed18a6169a4bdb224b63626a64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a421327ab8794315005327833b873dc5ebd57e9e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Vytvořit vlastní image ze souboru virtuálního pevného disku
 
@@ -75,4 +75,4 @@ Následující postup vás provede procesem vytvoření vlastní image ze soubor
 
 ##<a name="next-steps"></a>Další kroky
 
-- [Přidejte virtuální počítač do testovacího prostředí](./devtest-lab-add-vm-with-artifacts.md)
+- [Přidejte virtuální počítač do testovacího prostředí](./devtest-lab-add-vm.md)

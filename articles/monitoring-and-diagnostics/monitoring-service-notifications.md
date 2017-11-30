@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-health-notifications"></a>Oznámení o stavu služby
 ## <a name="overview"></a>Přehled
 
 Tento článek ukazuje, jak zobrazit oznámení o stavu služby pomocí portálu Azure.
 
-Oznámení o stavu služby umožňují zobrazit zprávy o stavu služby, které zveřejnil tým Azure, které mohou ovlivňovat prostředky v rámci svého předplatného. Tato oznámení jsou podtřídou třídy aktivity protokolu události a naleznete také v okně protokolu aktivit. Oznámení o stavu služby může být informační nebo níž lze provést akci v závislosti na třídě.
+Oznámení o stavu služby umožňují zobrazit zprávy o stavu služby, které zveřejnil tým Azure, které mohou ovlivňovat prostředky v rámci svého předplatného. Tato oznámení jsou podtřídou třídy aktivity protokolu události a možné také najít v protokolu aktivit. Oznámení o stavu služby může být informační nebo níž lze provést akci v závislosti na třídě.
 
 Existují pět třídy oznámení o stavu služby:  
 
-- **Je vyžadována akce:** čas od času budeme může dojít k nějakou neobvyklou akci na vašem účtu. Potřebujeme může spolupracovat s vámi, chcete-li to opravit. Pošleme vám oznámení buď s podrobnostmi o akce, které budete muset provést nebo s podrobnostmi o tom, jak vám poskytne Azure inženýrství nebo podporu.  
-- **Odbornou obnovení:** došlo k události a techniky potvrdili, že se stále setkáváte dopad. Technici bude potřeba spolupracovat s vámi přímo k poskytování služeb na obnovení.  
+- **Je vyžadována akce:** z času na čas Azure může dojít k nějakou neobvyklou akci na vašem účtu. Azure pravděpodobně nutné spolupracovat s vámi, chcete-li to opravit. Azure vám pošleme oznámení buď s podrobnostmi o akce je nutné vzít nebo s podrobnostmi o tom, jak vám poskytne Azure inženýrství nebo podporu.  
+- **Odbornou obnovení:** došlo k události a techniky potvrdili, že se stále setkáváte dopad. Azure inženýrství musí spolupracovat s vámi přímo k obnovení úplné stavu vašich služeb.  
 - **Incident:** služby ovlivňující událostí aktuálně ovlivňuje jednu nebo více prostředků ve vašem předplatném.  
 - **Údržba:** Toto je oznámení, která vás informuje o plánované údržbě aktivity, která může mít vliv na jeden nebo více prostředků v rámci svého předplatného.  
-- **Informace o:** z času na čas, může vám můžeme poslat oznámení, komunikace pro vás o potenciálních optimalizace, které mohou pomoci zlepšovat vaše využití prostředků.  
+- **Informace o:** od času Azure zasílat oznámení, které vás informují o potenciální optimalizace, které mohou pomoci zlepšovat vaše využití prostředků.  
 - **Zabezpečení:** naléhavé zabezpečení související informace týkající se vaší solution(s) spuštěné v Azure.
 
-Každý oznámení o stavu služby bude provádění informace o oboru a vliv na vaše prostředky. Podrobnosti o bude zahrnovat:
+Každý oznámení o stavu služby obsahuje informace o oboru a vliv na vaše prostředky. Podrobnosti o patří:
 
 Název vlastnosti | Popis
 -------- | -----------
@@ -54,7 +54,7 @@ subscriptionId | Předplatné Azure, ve kterém se tato událost byla zaznamená
 status | Řetězec popisující stav operace. Některé běžné hodnoty jsou: spuštění v průběhu, bylo úspěšné, neúspěšné, aktivní, vyřešeno.
 operationName | Název operace.
 category | "ServiceHealth"
-resourceId | Id prostředku ovlivněné prostředku.
+resourceId | ID prostředku ovlivněné prostředku.
 Properties.Title | Lokalizovaný název pro tuto komunikaci. Výchozím jazykem je angličtina.
 Properties.Communication | Lokalizované podrobnosti o komunikaci se službou značka jazyka HTML. Výchozí hodnota je angličtina.
 Properties.incidentType | Možné hodnoty: AssistedRecovery, ActionRequired, informace, incidentů, údržby, zabezpečení
@@ -70,14 +70,12 @@ Properties.communicationId | Komunikace Tato událost souvisí.
 1.  V [portál](https://portal.azure.com), přejděte na **monitorování** služby
 
     ![Monitorování](./media/monitoring-service-notifications/home-monitor.png)
-2.  Klikněte **monitorování** možnost otevře okno monitorování. V tomto okně jsou uvedená veškerá vaše nastavení monitorování a data v jednom konsolidovaném zobrazení. Nejprve se otevře část **Protokol aktivit**.
+2.  Klikněte **monitorování** možnost otevře prostředí monitorování. Azure monitorování spojuje veškeré monitorování nastavení a data do jednoho konsolidované zobrazení. Nejprve se otevře část **Protokol aktivit**.
 
-3.  Nyní klikněte na **oznámení o službách** části
+3.  Nyní klikněte na **výstrahy** části
 
     ![Monitorování](./media/monitoring-service-notifications/service-health-summary.png)
-4.  Klikněte na některou z položek řádku zobrazíte další podrobnosti.
-
-5. Klikněte na **+ přidat aktivitu protokolu výstrahy** operace pro příjem oznámení zajistit upozornění se zobrazí oznámení budoucí služby tohoto typu. Další informace o konfiguraci výstrah na oznámení o službách [, klikněte sem](monitoring-activity-log-alerts-on-service-notifications.md)
+4. Klikněte na **+ přidat výstraha aktivity protokolu** a nakonfigurovat výstrahu zajistit upozornění pro budoucí služby oznámení. Další informace o konfiguraci výstrah na oznámení o službách [naleznete na stránce aktivity protokolu výstrahy a oznámení o službách](monitoring-activity-log-alerts-on-service-notifications.md).
 
 ## <a name="next-steps"></a>Další kroky:
 Přijímat [výstrahy oznámení pokaždé, když oznámení o stavu služby](monitoring-activity-log-alerts-on-service-notifications.md) odeslání  

@@ -1,9 +1,9 @@
 ---
-title: "Vazby úložiště Azure Table funkce"
+title: "Azure Table úložiště vazby pro Azure Functions"
 description: "Pochopit, jak používat Azure Table storage vazby v Azure Functions."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -14,20 +14,20 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: chrande
-ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: tdykstra
+ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-table-storage-bindings"></a>Vazby úložiště Azure Table funkce
+# <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table úložiště vazby pro Azure Functions
 
 Tento článek vysvětluje, jak pracovat s Azure Table storage vazeb v Azure Functions. Azure Functions podporuje vstup a výstup vazby pro Azure Table storage.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="table-storage-input-binding"></a>Vazba vstupní tabulky úložiště
+## <a name="input"></a>Vstup
 
 Čtení tabulky v účtu Azure Storage pomocí Vstupní vazba úložiště Azure Table.
 
@@ -284,7 +284,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="input---attributes-for-precompiled-c"></a>(Vstup) – atributy pro předkompilované C#
+## <a name="input---attributes"></a>(Vstup) – atributy
  
 Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje konfigurovat vstupní vazbu tabulky následující atributy:
 
@@ -298,6 +298,9 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   Můžete nastavit `Connection` vlastnosti a určit účet úložiště, který chcete použít, jak je znázorněno v následujícím příkladu:
@@ -308,7 +311,12 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  Úplný příklad najdete v tématu [(vstup) – příklad předkompilovaných jazyka C#](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definované v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -321,6 +329,9 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
       [FunctionName("TableInput")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 Účet úložiště, který chcete použít, je určen v následujícím pořadí:
@@ -345,7 +356,9 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |**rowKey** |**RowKey** | Volitelné. Klíč řádku entity tabulky ke čtení. Najdete v článku [využití](#input---usage) části Pokyny o tom, jak tuto vlastnost použít.| 
 |**proveďte** |**Proveďte** | Volitelné. Maximální počet entit ke čtení v jazyce JavaScript. Najdete v článku [využití](#input---usage) části Pokyny o tom, jak tuto vlastnost použít.| 
 |**Filtr** |**Filtr** | Volitelné. Výraz filtru OData pro tabulku, vstupní v jazyce JavaScript. Najdete v článku [využití](#input---usage) části Pokyny o tom, jak tuto vlastnost použít.| 
-|**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br/>Pokud vyvíjíte místně, nastavení aplikace, přejděte do hodnoty [local.settings.json soubor](functions-run-local.md#local-settings-file).|
+|**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>(Vstup) – použití
 
@@ -368,7 +381,7 @@ Vstupní vazbu tabulky úložiště podporuje následující scénáře:
 
   Nastavte `filter` a `take` vlastnosti. Není nastavený `partitionKey` nebo `rowKey`. Přístup k vstupní tabulka entity (nebo entity) pomocí `context.bindings.<name>`. Deserializovaná objekty mají `RowKey` a `PartitionKey` vlastnosti.
 
-## <a name="table-storage-output-binding"></a>Úložiště Table výstup vazby
+## <a name="output"></a>Výstup
 
 Pomocí Azure Table storage výstup vazby k zápisu entity do tabulky v účtu Azure Storage.
 
@@ -554,9 +567,9 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Výstup – atributy pro předkompilované C#
+## <a name="output---attributes"></a>Výstup – atributy
 
- Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Konstruktoru atributu přebírá název tabulky. Je možné použít s `out` parametr nebo na základě návratové hodnoty funkce, jak je znázorněno v následujícím příkladu:
 
@@ -566,6 +579,9 @@ Konstruktoru atributu přebírá název tabulky. Je možné použít s `out` par
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
 Můžete nastavit `Connection` vlastnosti a určit účet úložiště, který chcete použít, jak je znázorněno v následujícím příkladu:
@@ -576,9 +592,14 @@ Můžete nastavit `Connection` vlastnosti a určit účet úložiště, který c
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
-Můžete použít `StorageAccount` atribut určete účet úložiště na úrovni třídy, metoda nebo parametr. Další informace najdete v tématu [vstup - předkompilovaných atributy pro C#](#input---attributes-for-precompiled-c).
+Úplný příklad najdete v tématu [výstup - předkompilovaných C# příklad](#output---c-example).
+
+Můžete použít `StorageAccount` atribut určete účet úložiště na úrovni třídy, metoda nebo parametr. Další informace najdete v tématu [(vstup) – atributy](#input---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>Výstup – konfigurace
 
@@ -592,7 +613,9 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |**Název tabulky** |**Název tabulky** | Název tabulky.| 
 |**klíč oddílu** |**Klíč oddílu** | Klíč oddílu tabulka entity k zápisu. Najdete v článku [oddíl využití](#output---usage) pokyny o tom, jak tuto vlastnost použít.| 
 |**rowKey** |**RowKey** | Klíč řádku entity tabulky pro zápis. Najdete v článku [oddíl využití](#output---usage) pokyny o tom, jak tuto vlastnost použít.| 
-|**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br/>Pokud vyvíjíte místně, nastavení aplikace, přejděte do hodnoty [local.settings.json soubor](functions-run-local.md#local-settings-file).|
+|**připojení** |**Připojení** | Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Výstup – použití
 

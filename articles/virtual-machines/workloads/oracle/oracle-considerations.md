@@ -10,18 +10,18 @@ ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 011/28/2017
 ms.author: rclaus
-ms.openlocfilehash: 9174f7c8d16ff311312980fbe4d35996ec7ac832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e903495e08001069fc33ddff5a343864fb7f7084
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Řešení Oracle a jejich nasazení v Microsoft Azure
-Tento článek obsahuje informace požadované pro úspěšně nasadit různá řešení Oracle na Microsoft Azure. Tato řešení jsou založené na bitové kopie virtuálních počítačů, které zveřejnil Oracle v Azure Marketplace. Chcete-li získat seznam aktuálně dostupných imagí, spusťte následující příkaz:
+Tento článek se zabývá požadované informace o úspěšně nasadit různá řešení Oracle na Microsoft Azure. Tato řešení jsou založené na bitové kopie virtuálních počítačů, které zveřejnil Oracle v Azure Marketplace. Chcete-li získat seznam aktuálně dostupných imagí, spusťte následující příkaz:
 ```azurecli-interactive
 az vm image list --publisher oracle -o table --all
 ```
@@ -43,33 +43,33 @@ Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLo
 
 Tyto Image jsou považovány za "Přineste vlastní licence" a jako takový vám bude jenom účtována pro výpočty, úložiště a náklady na sítě způsobené s virtuálním počítačem.  Předpokládá se, zda že jsou správně licenci k používání softwaru Oracle a zda máte aktuální smlouvu o podpoře na místě s Oracle. Oracle má zaručit mobilita licencí z místního do Azure. V tématu publikovaná [Oracle a Microsoft](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) Poznámka podrobnosti o mobilita licencí. 
 
-Jednotlivce můžete taky rozhodnout základní svá řešení na vlastních bitových kopií se vytvořit nový v Azure nebo nahrát vlastní Image z jejich v místním prostředí.
+Jednotlivce můžete taky rozhodnout základní svá řešení na vlastní image se vytvořit nový v Azure nebo nahrát vlastní image z jejich v místním prostředí.
 
 ## <a name="support-for-jd-edwards"></a>Podpora pro JD Edwards
-Podle Oracle podporu Poznámka [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4) , JD Edwards EnterpriseOne verions 9.2 a vyšší jsou podporovány v **všechny veřejné Cloudová nabídka** , která splňuje jejich konkrétní `Minimum Technical Requirements` (MTR).  Musíte vytvořit vlastní Image, které splňují jejich MTR specifikace kompatibility aplikace operačního systému a softwaru. 
+Podle Oracle podporu Poznámka [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4) , JD Edwards EnterpriseOne verze 9.2 a vyšší jsou podporovány v **všechny veřejné Cloudová nabídka** , která splňuje jejich konkrétní `Minimum Technical Requirements` (MTR).  Budete muset vytvořit vlastní Image, které splňují jejich MTR specifikace pro kompatibilitu aplikací operačního systému a softwaru. 
 
 ## <a name="oracle-database-virtual-machine-images"></a>Bitové kopie virtuálních počítačů pro databázi Oracle
 Oracle podporuje spuštěné verze Oracle DB 12.1 Standard a Enterprise v Azure na Image virtuálního počítače založené na Oracle Linux.  Nejlepšího výkonu dosáhnete pro produkční zatížení databáze Oracle na platformě Azure nezapomeňte správně velikost bitové kopie virtuálních počítačů a používat spravované disky, které jsou zajišťované Storage úrovně Premium. Pokyny o tom, jak rychle zprovoznění Oracle DB v Azure pomocí Oracle publikovaného image virtuálního počítače, [zkuste návod rychlý start databáze Oracle](oracle-database-quick-create.md).
 
 ### <a name="attached-disk-configuration-options"></a>Možnosti konfigurace připojený disk
 
-Připojené disky spoléhají na službu úložiště objektů Blob v Azure. Každý – standardní disk je schopen teoretické maximálně přibližně 500 vstupně výstupních operací za sekundu (IOPS). Naše nabídky disku premium je upřednostňováno pro výkonově náročné úlohy databáze a můžete dosáhnout až 5000 IOps na disku. Když jediný disk můžete použít, pokud, která vyhovuje vašim požadavkům na výkon – můžete zvýšit efektivní výkon IOPS, pokud používáte více připojených disků, data databáze rozloženy je a pak pomocí Oracle automatické úložiště Management (ASM). V tématu [Oracle automatické úložiště – přehled](http://www.oracle.com/technetwork/database/index-100339.html) Oracle ASM konkrétní informace. Příklad toho, jak nainstalovat a nakonfigurovat Oracle ASM na virtuálním počítači Azure Linux – můžete zkusit [instalace a konfigurace Oracle automatizované úložiště správy](configure-oracle-asm.md) kurzu.
+Připojené disky spoléhají na službu úložiště objektů Blob v Azure. Každý – standardní disk je schopen teoretické maximálně přibližně 500 vstupně výstupních operací za sekundu (IOPS). Naše nabídka disku premium upřednostňuje databáze vysoce výkonné úlohy a můžete dosáhnout až 5000 IOps na disku. Když jediný disk můžete použít, pokud, která vyhovuje vašim požadavkům na výkon – můžete zvýšit efektivní výkon IOPS, pokud používáte více připojených disků, data databáze rozloženy je a pak pomocí Oracle automatické úložiště Management (ASM). V tématu [Oracle automatické úložiště – přehled](http://www.oracle.com/technetwork/database/index-100339.html) Oracle ASM konkrétní informace. Příklad toho, jak nainstalovat a nakonfigurovat Oracle ASM na virtuálním počítači Azure Linux – můžete zkusit [instalace a konfigurace Oracle automatizované úložiště správy](configure-oracle-asm.md) kurzu.
 
-### <a name="oracle-realtime-application-cluster-rac"></a>Oracle v reálném čase aplikace clusteru (RAC)
-Oracle RAC slouží ke zmírnění selhání jednoho uzlu v místní konfiguraci clusteru s několika uzly.  Přitom spoléhá na dva místní technologie, které nejsou součástí velkého rozsahu veřejných cloudových prostředích: vícesměrovým vysíláním sítě a sdíleného disku. Existují řešení třetích stran vytvořený společností [například FlashGrid](https://www.flashgrid.io/oracle-rac-in-azure/) napodobují tyto technologie Pokud potřebujete nasadit Oracle RAC v Azure. 
+## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle reálné aplikaci clusteru (Oracle RAC)
+Oracle RAC slouží ke zmírnění selhání jednoho uzlu v místní konfiguraci clusteru s několika uzly. Přitom spoléhá na dva místní technologie, které nejsou součástí velkého rozsahu veřejných cloudových prostředích: vícesměrovým vysíláním sítě a sdíleného disku. Pokud vaše řešení databáze vyžaduje Oracle RAC v Azure, je třeba 3. softwarem a umožňuje tyto technologie.  A **Microsoft Azure certifikované** nabídky názvem [FlashGrid uzel pro Oracle RAC](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-racnode?tab=Overview) je k dispozici v Azure Marketplace, které zveřejnil FlashGrid Inc. Další informace o tomto řešení a jak to funguje v Azure, najdete v tématu [FlashGrid řešení stránky](https://www.flashgrid.io/oracle-rac-in-azure/).
 
-### <a name="high-availability-and-disaster-recovery-considerations"></a>Aspekty vysoké dostupnosti a po havárii obnovení
+## <a name="high-availability-and-disaster-recovery-considerations"></a>Aspekty vysoké dostupnosti a po havárii obnovení
 Při použití Oracle – databáze v Azure, jste zodpovědní za implementaci vysoké dostupnosti a po havárii řešení obnovení žádné výpadky. 
 
-Vysoká dostupnost a zotavení po havárii pro Oracle Database Enterprise Edition (bez RAC) v Azure lze dosáhnout pomocí [Data Guard, aktivní Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), nebo [Oracle Golden brány](http://www.oracle.com/technetwork/middleware/goldengate), s dvě databáze v dva samostatné virtuální počítače. Virtuální počítače by měla být ve stejné [virtuální sítě](https://azure.microsoft.com/documentation/services/virtual-network/) zajistit získají přístup k sobě navzájem přes trvalé privátní IP adresu.  Kromě toho doporučujeme umístit virtuální počítače ve stejné dostupnosti nastavit, aby umožňovala Azure a umístěte je do domén samostatné selhání a upgradu domény.  Budete chtít mít geografická redundance – může mít tyto dvě databáze replikují mezi dvěma různých oblastech a připojení dvě instance s bránou sítě VPN.
+Jde dosáhnout vysoké dostupnosti a zotavení po havárii pro Oracle Database Enterprise Edition (bez spoléhání na Oracle RAC) na Azure pomocí [Data Guard, aktivní Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), nebo [Oracle Golden brány](http://www.oracle.com/technetwork/middleware/goldengate), s dvě databáze na dva samostatné virtuální počítače. Virtuální počítače by měla být ve stejné [virtuální sítě](https://azure.microsoft.com/documentation/services/virtual-network/) zajistit získají přístup k sobě navzájem přes trvalé privátní IP adresu.  Kromě toho doporučujeme umístit virtuální počítače ve stejné dostupnosti nastavit, aby umožňovala Azure a umístěte je do domén samostatné selhání a upgradu domény.  Budete chtít mít geografická redundance – může mít tyto dvě databáze replikují mezi dvěma různých oblastech a připojení dvě instance s bránou sítě VPN.
 
-Máme kurzu "[DataGuard Oracle implementace v Azure](configure-oracle-dataguard.md)" který vás provede postup základní nastavení pro zkušební verzi to v Azure.  
+Máme kurzu "[DataGuard Oracle implementace v Azure](configure-oracle-dataguard.md)", který vás provede postup základní nastavení pro zkušební verzi to v Azure.  
 
 S Oracle Data Guard jde dosáhnout vysoké dostupnosti s primární databází v jeden virtuální počítač, sekundární databáze (pohotovostní) v jiném virtuálním počítači a nastavení mezi nimi jednosměrný replikace. Výsledkem je přístup pro čtení k kopii databáze. S GoldenGate Oracle můžete nakonfigurovat obousměrnou replikaci mezi těmito dvěma databázemi. Zjistěte, jak nastavit řešení vysoké dostupnosti pro své databáze pomocí těchto nástrojů, najdete v tématu [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) a [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) dokumentaci na webu Oracle. Pokud budete potřebovat pro čtení a zápis přístup na kopii databáze, můžete použít [Oracle aktivní Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
-Máme kurzu "[GoldenGate Oracle implementace v Azure](configure-oracle-golden-gate.md)" který vás provede seup základní postup pro zkušební verzi to v Azure.
+Máme kurzu "[GoldenGate Oracle implementace v Azure](configure-oracle-golden-gate.md)", který vás provede postup základní nastavení pro zkušební verzi to v Azure.
 
-Navzdory s řešení s vysokou DOSTUPNOSTÍ a zotavení po Havárii navržen v Azure, můžete zajistit, že máte strategii zálohování v místě k obnovení databáze.  Máme kurz [zálohování a obnovení databáze Oracle](oracle-backup-recovery.md) který vás provede procesem základní postup pro vytvoření zálohy consistant.
+Navzdory s řešení s vysokou DOSTUPNOSTÍ a zotavení po Havárii navržen v Azure, budete chtít Ujistěte se, že máte zavedenou k obnovení databáze strategie zálohování.  Máme kurz [zálohování a obnovení databáze Oracle](oracle-backup-recovery.md) který vás provede procesem základní postup pro vytvoření konzistentního zálohování.
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Bitové kopie virtuálního počítače Oracle WebLogic Server
 * **Clustering je podporována v edici Enterprise jenom.** Máte licenci na použití WebLogic clustering jenom při použití Enterprise Edition WebLogic Server. Nepoužívejte clustering s WebLogic Server Standard Edition.
@@ -80,7 +80,7 @@ Navzdory s řešení s vysokou DOSTUPNOSTÍ a zotavení po Havárii navržen v A
 
        Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-   To je proto pro všechny vzdálený přístup T3 WebLogic Server očekává portu služby Vyrovnávání zatížení a port serveru WebLogic spravované být stejné. V případě výše klient přistupuje k portu 7006 (port služby Vyrovnávání zatížení) a spravovaný server naslouchá na 7008 (privátní port). Toto omezení se vztahuje pouze pro přístup k T3, ne protokolu HTTP.
+   To je proto pro všechny vzdálený přístup T3 WebLogic Server očekává portu služby Vyrovnávání zatížení a port serveru WebLogic spravované být stejné. V předchozím případě klient přistupuje k portu 7006 (port služby Vyrovnávání zatížení) a spravovaný server naslouchá na 7008 (privátní port). Toto omezení se vztahuje pouze pro přístup k T3, ne protokolu HTTP.
 
    K tomuto problému vyhnout, použijte jednu z následujících náhradních postupů:
 
@@ -91,9 +91,9 @@ Navzdory s řešení s vysokou DOSTUPNOSTÍ a zotavení po Havárii navržen v A
 
 Související informace najdete v článku **860340.1** v <http://support.oracle.com>.
 
-* **Dynamické clustering a vyrovnávání zatížení omezení.** Předpokládejme, že chcete používat cluster s podporou dynamického v WebLogic Server a zpřístupnit ji prostřednictvím jednoho, veřejné Vyrovnávání zatížení sítě koncový bod v Azure. To lze provést, dokud, použijte pevný port číslo pro každou ze spravovaných serverů (přiřazen není dynamicky z rozsahu) a nespouštět více spravovaných serverů, než je počet počítačů ke sledování správce (to znamená, více než jeden spravovaný server na virtuální m achine). Pokud vaše konfigurace výsledkem další servery WebLogic spuštění než virtuální počítače (to znamená, kde více instancí serveru WebLogic sdílet stejný virtuální počítač), pak není možné pro více než jeden z těchto instancí WebLogic Server servery pro vazbu dané číslo portu – jiné na tomto virtuálním počítači se nezdaří.
+* **Dynamické clustering a vyrovnávání zatížení omezení.** Předpokládejme, že chcete používat cluster s podporou dynamického v WebLogic Server a zpřístupnit ji prostřednictvím jednoho, veřejné Vyrovnávání zatížení sítě koncový bod v Azure. To lze provést, dokud, použijte pevný port číslo pro každou ze spravovaných serverů (přiřazen není dynamicky z rozsahu) a nespouštět více spravovaných serverů, než je počet počítačů ke sledování správce (to znamená, více než jeden spravovaný server na virtuální m achine). Pokud vaše konfigurace výsledkem další servery WebLogic spuštění než virtuální počítače (to znamená, kde více instancí serveru WebLogic sdílet stejný virtuální počítač), pak není možné pro více než jeden z těchto instancí serverů WebLogic Chcete-li vytvořit vazbu k dané číslo portu – jiné na tomto virtuálním počítači nezdaří.
 
-   Na druhé straně při konfiguraci serveru pro správu automaticky přiřadit jedinečná čísla portů na jeho spravované servery, pak Vyrovnávání zatížení není možné protože Azure nepodporuje mapování z jedné veřejný port na více privátní porty, jako by bylo zapotřebí pro tuto konfiguraci.
+   Při konfiguraci serveru pro správu automaticky přiřadit jedinečná čísla portů na jeho spravované servery, pak Vyrovnávání zatížení není možné protože Azure nepodporuje mapování z jedné veřejný port na více privátní porty, jako by byla zapotřebí pro to konfigurace.
 * **Více instancí systému Weblogic Server na virtuálním počítači.** V závislosti na požadavcích vaší nasazení můžete zvážit možnost spuštěním několika instancí WebLogic Server na stejném virtuálním počítači, pokud je dostatečně velký virtuální počítač. Na virtuálním počítači střední velikosti, která obsahuje dvě jádra, například může zvolit spustit dvě instance WebLogic serveru. Doporučujeme ale stále vyhnout Úvod do vaší architektury, který by byl tento případ, pokud se používá jenom jeden virtuální počítač, který je spuštěno více instancí serveru WebLogic jediný bod selhání systému. Pomocí aspoň dva virtuální počítače může být lepším řešením a každý z těchto virtuálních počítačů pak může spustit víc instancí WebLogic Server. Každý z těchto instancí WebLogic Server stále může být součástí stejného clusteru. Poznámka: je však aktuálně není možné použít Azure k vyrovnávání zatížení koncových bodů, které jsou vystavené takovýchto nasazeních WebLogic Server v rámci stejného virtuálního počítače, protože pro vyrovnávání zatížení Azure vyžaduje serverů Vyrovnávání zatížení sítě se musí distribuovat mezi jedinečný virtuální počítače.
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Bitové kopie virtuálních počítačů JDK Oracle
@@ -103,5 +103,5 @@ Související informace najdete v článku **860340.1** v <http://support.oracle
 * **64bitová verze JDK.** Oracle WebLogic Server Image virtuálních počítačů a bitové kopie virtuálních počítačů Oracle JDK poskytovaný platformou Azure obsahují 64bitové verze systému Windows Server a sadu JDK.
 
 ## <a name="next-steps"></a>Další kroky
-Teď máte přehled o aktuální řešení Oracle na Microsoft Azure. Dalším krokem je přejděte a nasadit první databáze Oracle na platformě Azure.
+Teď máte přehled o aktuální řešení Oracle na Microsoft Azure. Dalším krokem je nasazení první databáze Oracle na platformě Azure.
 - Zkuste [vytvořit databázi Oracle na platformě Azure](oracle-database-quick-create.md) kurz a začněte.

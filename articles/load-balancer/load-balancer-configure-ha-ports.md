@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Postup konfigurace portů pro vysokou dostupnost pro interní nástroj pro vyrovnávání zatížení
 
@@ -41,13 +41,10 @@ Obrázek 1 – síťových virtuálních zařízení nasazený za interní Vyrov
 
 ## <a name="preview-sign-up"></a>Náhled registrace
 
-K účasti ve verzi Preview funkci HA porty ve standardní nástroje pro vyrovnávání zatížení, zaregistrujte předplatné pro získání přístupu pomocí Azure CLI 2.0 nebo prostředí PowerShell.  Zaregistrujte si předplatné pro
-
-1. [Náhled standardní nástroje pro vyrovnávání zatížení](https://aka.ms/lbpreview#preview-sign-up) a 
-2. [Náhled technologie HA porty](https://aka.ms/haports#preview-sign-up).
+K účasti ve verzi Preview funkci HA porty ve standardní nástroje pro vyrovnávání zatížení, zaregistrujte předplatné pro získání přístupu pomocí Azure CLI 2.0 nebo prostředí PowerShell. Registrace předplatného pro [standardní nástroje pro vyrovnávání zatížení preview](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Abyste tuto funkci používat, musíte také registrace Nástroje pro vyrovnávání zatížení [standardní Preview](https://aka.ms/lbpreview#preview-sign-up) kromě HA porty. Registrace náhledy HA porty nebo standardní nástroje pro vyrovnávání zatížení může trvat až jednu hodinu.
+>Registrace standardní nástroje pro vyrovnávání zatížení verze Preview může trvat až jednu hodinu.
 
 ## <a name="configuring-ha-ports"></a>Konfigurace portů HA
 

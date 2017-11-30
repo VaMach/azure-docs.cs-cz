@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Vyřazení úrovní výkonu S1, S2 a S3
 
@@ -93,7 +93,7 @@ Za předpokladu, že budete mít 10 S1 kolekcí, 1 GB úložiště pro každou, 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Co když je potřeba víc než 10 GB úložiště?
 
-Jestli máte kolekci s úrovní výkonu S1, S2 nebo S3, nebo mít jeden oddíl kolekce, které mají všechny 10 GB úložiště, které jsou k dispozici, můžete migrovat data do oddílů kolekce s prakticky neomezené úložiště nástroj pro migraci dat DB Cosmos. Informace o výhodách dělenou kolekci najdete v tématu [dělení a škálování v Azure Cosmos DB](documentdb-partition-data.md). Informace o tom, jak migrovat S1, S2, S3 nebo kolekce jednoho oddílu do dělené kolekce najdete v tématu [migrace z jednoho oddílu do dělené kolekce](documentdb-partition-data.md#migrating-from-single-partition). 
+Jestli máte kolekci s úrovní výkonu S1, S2 nebo S3, nebo mít jeden oddíl kolekce, které mají všechny 10 GB úložiště, které jsou k dispozici, můžete migrovat data do oddílů kolekce s prakticky neomezené úložiště nástroj pro migraci dat DB Cosmos. Informace o výhodách dělenou kolekci najdete v tématu [dělení a škálování v Azure Cosmos DB](documentdb-partition-data.md). 
 
 <a name="change-before"></a>
 

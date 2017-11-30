@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/12/2017
-ms.openlocfilehash: 3b811376e4c5445ee74124553c6bce247e4f8faf
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.date: 11/28/2017
+ms.openlocfilehash: 6a0d218a9b9cb41a87264cfd5f653bb631b0bce9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Přizpůsobit parametry konfigurace serveru pomocí rozhraní příkazového řádku Azure
 Seznam, zobrazit a aktualizovat parametry konfigurace pro databázi Azure pro MySQL server pomocí rozhraní příkazového řádku Azure, nástroj příkazového řádku Azure. Část konfigurace modulu je vystaven na úrovni serveru a nelze jej změnit. 
@@ -25,7 +25,7 @@ Chcete-li krok tímto průvodcem postupy, je třeba:
 - [Azure CLI 2.0](/cli/azure/install-azure-cli) nástroj příkazového řádku nebo pomocí prostředí cloudové služby Azure v prohlížeči.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Seznam parametrů konfigurace serveru pro databázi Azure pro server databáze MySQL
-Chcete-li zobrazit seznam všech změn parametrů v serveru a jejich hodnoty, spusťte [seznamu konfigurací serveru mysql az](/cli/azure/mysql/server/configuration#list) příkaz.
+Chcete-li zobrazit seznam všech změn parametrů v serveru a jejich hodnoty, spusťte [seznamu konfigurací serveru mysql az](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) příkaz.
 
 Můžete vytvořit seznam parametrů konfigurace serveru pro server **myserver4demo.mysql.database.azure.com** ve skupině prostředků **myresourcegroup**.
 ```azurecli-interactive
@@ -41,7 +41,7 @@ Tento příklad zobrazuje podrobnosti o **pomalé\_dotazu\_protokolu** parametr 
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server myserver4demo
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>Změnit hodnotu parametru konfigurace serveru
-Můžete také upravit hodnotu parametru určité serveru konfigurace, která aktualizuje základní hodnotu konfigurace pro modul MySQL serveru. Chcete-li aktualizovat konfiguraci, použijte [az mysql serveru konfigurační sady](/cli/azure/mysql/server/configuration#set) příkaz. 
+Můžete také upravit hodnotu parametru určité serveru konfigurace, která aktualizuje základní hodnotu konfigurace pro modul MySQL serveru. Chcete-li aktualizovat konfiguraci, použijte [az mysql serveru konfigurační sady](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) příkaz. 
 
 Aktualizace **pomalé\_dotazu\_protokolu** parametr konfigurace serveru serveru **myserver4demo.mysql.database.azure.com** ve skupině prostředků  **myresourcegroup.**
 ```azurecli-interactive
