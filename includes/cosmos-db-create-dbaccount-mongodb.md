@@ -16,7 +16,7 @@
     Nastavení|Navrhovaná hodnota|Popis
     ---|---|---
     ID|*Jedinečná hodnota*|Jedinečný název, pomocí kterého chcete identifikovat účet databáze Azure Cosmos. K zadanému ID se připojí řetězec *documents.azure.com*, čímž vznikne váš identifikátor URI, takže zadejte jedinečné, ale snadno rozpoznatelné ID. ID smí obsahovat jenom malá písmena, číslice a znak spojovníku a musí se skládat ze 3 až 50 znaků.
-    Rozhraní API|MongoDB|Dál v tomto článku budeme programovat za použití [rozhraní API MongoDB](../articles/cosmos-db/mongodb-introduction.md).|
+    Rozhraní API|MongoDB|Rozhraní API Určuje typ účtu chcete-li vytvořit. Poskytuje Azure Cosmos DB pět rozhraní API pro vyhovuje potřebám vaší aplikace: SQL (databáze dokumentu), Gremlin (grafu databáze), MongoDB (databáze dokumentu), Azure Table a Cassandra, každý, které aktuálně vyžadují samostatný účet. <br><br>Vyberte **MongoDB** vzhledem k tomu, že v tento rychlý start vytváříte dokumentu databázi, která je dotazovatelný pomocí MongoDB.<br><br>[Další informace o rozhraní API MongoDB](../articles/cosmos-db/mongodb-introduction.md)|
     Předplatné|*Vaše předplatné*|Předplatné Azure, se kterým chcete účet databáze Azure Cosmos používat. 
     Skupina prostředků|*Stejná hodnota jako ID*|Nový název skupiny prostředků pro váš účet. V zájmu jednoduchosti můžete použít název, který se shoduje s vaším ID. 
     Umístění|*Oblast nejbližší vašim uživatelům*|Zeměpisné umístění, ve kterém chcete účet databáze Azure Cosmos hostovat. Vyberte umístění, které má nejblíž k vašim uživatelům, abyste jim zajistili nejrychlejší přístup k datům.
