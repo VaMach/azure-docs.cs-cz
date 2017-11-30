@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: Dělení
       href: partition-data.md
+    - name: Jedinečné klíče
+      href: unique-keys.md
     - name: Konzistence
       href: consistency-levels.md
     - name: Propustnost

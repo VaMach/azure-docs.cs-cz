@@ -152,6 +152,8 @@
               href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Java
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Použití rozhraní REST API pro službu Azure Storage
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Spravovat
       items:
         - name: PowerShell pro Azure Blobs
@@ -277,6 +279,8 @@
               href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Diagnostika a zotavení z chyb pro úlohy Import/export
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Nejčastější dotazy k migraci úložiště
+          href: ../common/storage-migration-faq.md
 - name: Referenční informace
   items:
     - name: PowerShell

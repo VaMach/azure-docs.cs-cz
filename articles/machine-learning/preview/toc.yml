@@ -39,10 +39,12 @@
           href: how-to-use-tdsp-in-azure-ml.md
         - name: Roaming a spolupráce
           href: roaming-and-collaboration.md
-    - name: Použití sady Visual Studio Code Tools pro AI
-      href: quickstart-visual-studio-tools.md
-    - name: Použití sady AI Toolkit pro Azure IoT Edge
-      href: use-azure-iot-edge-ai-toolkit.md
+    - name: Rozšíření IDE
+      items:
+        - name: Použití Visual Studio Tools pro AI
+          href: quickstart-visual-studio-tools.md
+        - name: Použití sady Visual Studio Code Tools pro AI
+          href: quickstart-visual-studio-code-tools.md
     - name: Konfigurace výpočetního prostředí
       items:
         - name: Konfigurace experimentování
@@ -90,8 +92,6 @@
           href: how-to-scale-clusters.md
         - name: Nasazení webové služby
           href: model-management-service-deploy.md
-        - name: Nasazení do zařízení IoT Edge
-          href: deploy-to-iot-edge-device.md
         - name: Využívání webové služby
           href: model-management-consumption.md
         - name: Shromažďování dat modelů
@@ -156,6 +156,8 @@
           href: experimentation-service-configuration-reference.md
         - name: Protokolování rozhraní API
           href: reference-logging-api.md
+        - name: Šablona služby Experimentování
+          href: experimentation-service-template.md
     - name: Správa modelů
       items:
         - name: Rozhraní API pro správu modelů

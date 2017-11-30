@@ -64,6 +64,8 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Konfigurace připojovacích řetězců
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Použití rozhraní REST API pro službu Azure Storage
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Spravovat
       items:
         - name: PowerShell for Soubory Azure
