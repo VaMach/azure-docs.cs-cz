@@ -16,8 +16,8 @@ ms.workload: service-fabric
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: ae132dbb650e08c3a25a9366563e70c6d56e089d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 738677def8b0eb70cfcab46e6fe57f9a344867a5
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/29/2017
@@ -32,12 +32,13 @@ Následující tabulka obsahuje odkazy na ukázky skripty prostředí PowerShell
 |-|-|
 | **Vytvoření clusteru** ||
 | [Vytvoření clusteru s podporou (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Vytvoří cluster služby Azure Service Fabric. |
-| **Spravovat cluster a uzly** ||
+| **Spravovat cluster, uzly a infrastruktury** ||
 | [Přidat certifikátu aplikace](./scripts/service-fabric-powershell-add-application-certificate.md)| Přidá certifikát X.509 aplikace na všech uzlech v clusteru. |
-|[Změnit rozsah portu RDP na uzlu clusteru virtuálních počítačů](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Změní rozsahu portu RDP na uzlu clusteru virtuálních počítačů v clusteru s podporou nasazené.|
+| [Aktualizovat rozsah portů RDP v clusteru virtuálních počítačů](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Změní rozsahu portu RDP na uzlu clusteru virtuálních počítačů v clusteru s podporou nasazené.|
 | [Aktualizace uživatel s oprávněními správce a heslo pro uzel clusteru virtuálních počítačů](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | Aktualizuje uživatelské jméno správce a heslo pro uzel clusteru virtuálních počítačů. |
+| [Otevření portu v nástroji pro vyrovnávání zatížení](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Otevřete port aplikace nástroji pro vyrovnávání zatížení Azure chcete povolit příchozí přenosy na určitém portu. |
+| [Vytvoření skupiny pravidla zabezpečení příchozích síťových](./scripts/service-fabric-powershell-add-nsg-rule.md) | Vytvoření skupiny pravidla zabezpečení příchozích síťových chcete povolit příchozí přenosy do clusteru na určitém portu. |
 | **Správa aplikací** ||
 | [Nasazení aplikace](./scripts/service-fabric-powershell-deploy-application.md)| Nasazení aplikace do clusteru.|
-| [Upgrade aplikace](./scripts/service-fabric-powershell-upgrade-application.md)| Upgrade aplikace |
+| [Upgrade aplikace](./scripts/service-fabric-powershell-upgrade-application.md)| Upgrade aplikace.|
 | [Odebrání aplikace](./scripts/service-fabric-powershell-remove-application.md)| Odebrání aplikace z clusteru.|
-| [Otevření portu v nástroji pro vyrovnávání zatížení](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Otevřete port aplikace nástroji pro vyrovnávání zatížení Azure. |

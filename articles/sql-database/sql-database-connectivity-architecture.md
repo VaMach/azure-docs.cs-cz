@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architektura připojení k databázi Azure SQL 
 
-Tento článek popisuje architekturu připojení k databázi SQL Azure a vysvětluje, jak různé součásti funkci, aby se směrovat provoz na instanci databáze SQL Azure. Tyto Azure SQL Database připojení funkce komponent směrovat síťový provoz do databáze Azure s klienty připojení v rámci Azure a klienti připojení z mimo Azure. Tento článek také obsahuje skript ukázky změnit, jak dojde k připojení a důležité informace související s změny výchozího nastavení připojení. Pokud po přečtení tohoto článku existují nějaké dotazy, obraťte se na Dhruv v dmalik@microsoft.com. 
+Tento článek popisuje architekturu připojení k databázi SQL Azure a vysvětluje, jak různé součásti funkci, aby se směrovat provoz na instanci databáze SQL Azure. Tyto Azure SQL Database připojení funkce komponent směrovat síťový provoz do databáze Azure s klienty připojení v rámci Azure a klienti připojení z mimo Azure. Tento článek také obsahuje skript ukázky změnit, jak dojde k připojení a důležité informace související s změny výchozího nastavení připojení. 
 
 ## <a name="connectivity-architecture"></a>Architektura připojení
 
-Následující diagram představuje podrobný přehled architektury připojení k databázi SQL Azure. 
+Následující diagram představuje podrobný přehled architektury připojení k databázi SQL Azure.
 
 ![Přehled architektury](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ Následující tabulka uvádí primární a sekundární IP adresy brány Azure 
 | --- | --- |--- |
 | Austrálie – východ | 191.238.66.109 | 13.75.149.87 |
 | Austrálie – jihovýchod | 191.239.192.109 | 13.73.109.251 |
-| Brazílie – jih | 104.41.11.5 | |    
-| Střední Kanada | 40.85.224.249 | |    
+| Brazílie – jih | 104.41.11.5 | |
+| Střední Kanada | 40.85.224.249 | |
 | Východní Kanada | 40.86.226.166 | |
 | Střed USA | 23.99.160.139 | 13.67.215.62 |
 | Východní Asie | 191.234.2.139 | 52.175.33.150 |
 | Východní USA 1 | 191.238.6.43 | 40.121.158.30 |
 | Východní USA 2 | 191.239.224.107 | 40.79.84.180 |
-| Indie – střed | 104.211.96.159  | |   
+| Indie – střed | 104.211.96.159  | |
 | Indie – jih | 104.211.224.146  | |
 | Indie – západ | 104.211.160.80 | |
 | Japonsko – východ | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ Následující tabulka uvádí primární a sekundární IP adresy brány Azure 
 | Střed USA – jih | 23.98.162.75 | 13.66.62.124 |
 | Jihovýchodní Asie | 23.100.117.95 | 104.43.15.0 |
 | Spojené království – sever | 13.87.97.210 | |
-| Spojené království – jih 1 | 51.140.184.11 | |    
+| Spojené království – jih 1 | 51.140.184.11 | |
 | Spojené království – jih 2 | 13.87.34.7 | |
 | Spojené království – západ | 51.141.8.11  | |
 | Západní střed USA | 13.78.145.25 | |
@@ -95,12 +95,12 @@ Následující tabulka uvádí primární a sekundární IP adresy brány Azure 
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Změnit zásady připojení databáze SQL Azure
 
-Můžete změnit zásady připojení databáze SQL Azure pro server Azure SQL Database [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+Můžete změnit zásady připojení databáze SQL Azure pro server Azure SQL Database [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 
-- Pokud vaše zásady připojení je nastavený na **Proxy**, všechny síťové pakety toku prostřednictvím brány Azure SQL Database. U tohoto nastavení musíte povolit odchozí pouze IP brány Azure SQL Database. Pomocí nastavení **Proxy** má více latenci než nastavení **přesměrování**. 
-- Pokud je nastavení zásady vaší připojení **přesměrování**, všechny síťové pakety toku přímo k proxy serveru middleware. U tohoto nastavení musíte povolit odchozí do víc IP adres. 
+- Pokud vaše zásady připojení je nastavený na **Proxy**, všechny síťové pakety toku prostřednictvím brány Azure SQL Database. U tohoto nastavení musíte povolit odchozí pouze IP brány Azure SQL Database. Pomocí nastavení **Proxy** má více latenci než nastavení **přesměrování**.
+- Pokud je nastavení zásady vaší připojení **přesměrování**, všechny síťové pakety toku přímo k proxy serveru middleware. U tohoto nastavení musíte povolit odchozí do víc IP adres.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>Skript, chcete-li změnit nastavení připojení pomocí prostředí PowerShell 
+## <a name="script-to-change-connection-settings-via-powershell"></a>Skript, chcete-li změnit nastavení připojení pomocí prostředí PowerShell
 
 > [!IMPORTANT]
 > Tento skript vyžaduje [modul Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Chcete-li změnit nastavení připojení prostřednictvím Azure CLI 2.0 skriptu 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Chcete-li změnit nastavení připojení prostřednictvím Azure CLI 2.0 skriptu
 
 > [!IMPORTANT]
 > Tento skript vyžaduje [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 Následující skript rozhraní příkazového řádku ukazuje, jak změnit zásady připojení.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 

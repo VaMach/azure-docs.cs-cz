@@ -5,7 +5,7 @@ Pokud nemáte připojení brány a chcete přidat nebo odebrat předpony IP adre
 Při každé změně je nutné zadat celý seznam předpon, ne jenom předpony, které chcete změnit. Zadejte pouze předpony, které chcete ponechat. V tomto případě 10.0.0.0/24 a 20.0.0.0/24.
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --connection-name TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
 ### <a name="withconnection"></a>Úprava předpon IP adres místní síťové brány – existující připojení brány
@@ -15,5 +15,5 @@ Pokud máte připojení brány a chcete přidat nebo odebrat předpony IP adres,
 Při každé změně je nutné zadat celý seznam předpon, ne jenom předpony, které chcete změnit. V tomto příkladu jsou již přítomny předpony 10.0.0.0/24 a 20.0.0.0/24. Přidáme předpony 30.0.0.0/24 a 40.0.0.0/24 a při aktualizaci zadáme všechny 4 předpony.
 
 ```azurecli
-az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 --connection-name TestRG1
+az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 -g TestRG1
 ```

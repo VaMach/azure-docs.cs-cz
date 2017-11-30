@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Začínáme s Reliable Actors
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ Vytvořte jednoduché konzolové aplikace pro volání služby objektu actor.
     ![Přidat dialogové okno Nový projekt][6]    
     
     > [!NOTE]
-    > Konzolové aplikace není typu aplikace, které se obvykle používají jako klient v Service Fabric, ale umožňuje vhodné například pro ladění a testování pomocí emulátoru místního Service Fabric.
+    > Konzolové aplikace není typu aplikace, které se obvykle používají jako klient v Service Fabric, ale umožňuje vhodné například pro ladění a testování pomocí místní cluster Service Fabric.
 
 3. Konzolové aplikace musí být 64bitové aplikaci k zachování kompatibility s rozhraní projektu a další závislosti.  V Průzkumníku řešení klikněte pravým tlačítkem myši **ActorClient** projektu a pak klikněte na **vlastnosti**.  Na **sestavení** nastavte **Cílová platforma** k **x64**.
     

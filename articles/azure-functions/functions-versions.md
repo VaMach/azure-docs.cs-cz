@@ -1,6 +1,6 @@
 ---
 title: "Jak mít verze modulu runtime Azure Functions"
-description: "Azure Functions podporuje více verzí modulu runtime. Zjistěte, jak určit verzi modulu runtime Azure hostované funkce aplikace."
+description: "Azure Functions podporuje více verzí modulu runtime. Zjistěte, jak určit verzi modulu runtime funkce aplikace hostované v Azure."
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -10,13 +10,13 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 063232e40b30d03b0ee8b087a602fed0fee3be0a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Jak mít verze modulu runtime Azure Functions
 
@@ -44,9 +44,11 @@ Další informace najdete v tématu [podporované jazyky](supported-languages.md
 
 ### <a name="bindings"></a>Vazby 
 
-Experimentální vazby, že nejsou k dispozici v 2.x runtime 1.x podporuje. Informace o podpoře vazby a dalších funkční mezery v 2.x najdete v tématu [Runtime 2.0 známé problémy](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
-
 Modul runtime 2.x se dá vytvořit vlastní [vazby rozšíření](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Předdefinované vazby, které používají tento model rozšiřitelnosti jsou dostupné jenom v 2.x; mezi první z nich je [Microsoft Graph vazby](functions-bindings-microsoft-graph.md).
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+Další informace o podpoře vazby a dalších funkční mezery v 2.x najdete v tématu [Runtime 2.0 známé problémy](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
 ### <a name="cross-platform-development"></a>Vývoj pro různé platformy
 

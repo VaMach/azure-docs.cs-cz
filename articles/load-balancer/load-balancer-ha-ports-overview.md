@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="high-availability-ports-overview"></a>Přehled porty vysokou dostupnost
 
@@ -65,69 +65,10 @@ Funkce porty HA je dostupná [stejné oblasti jako standardní nástroje pro vyr
 
 ## <a name="preview-sign-up"></a>Náhled registrace
 
-K účasti ve verzi preview funkci HA porty ve standardní nástroje pro vyrovnávání zatížení, zaregistrujte předplatné pro získání přístupu. Můžete použít Azure CLI 2.0 nebo prostředí PowerShell.
+K účasti ve verzi preview funkci HA porty ve standardní nástroje pro vyrovnávání zatížení, registrace předplatného pro nástroj pro vyrovnávání zatížení [standardní preview](https://aka.ms/lbpreview#preview-sign-up). Můžete zaregistrovat pomocí Azure CLI 2.0 nebo prostředí PowerShell.
 
 >[!NOTE]
->Chcete-li tuto funkci používat, musí také zaregistrujete nástroje pro vyrovnávání zatížení [standardní preview](https://aka.ms/lbpreview#preview-sign-up), kromě funkci porty HA. Registrace může trvat až jednu hodinu.
-
-### <a name="sign-up-by-using-azure-cli-20"></a>Přihlásit pomocí Azure CLI 2.0
-
-1. Zaregistrujte funkci zprostředkovatele:
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-2. Předchozí operace může trvat až 10 minut. Můžete zkontrolovat stav operace pomocí následujícího příkazu:
-
-    ```cli
-    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-    Operace je úspěšné, když se vrátí stav registrace funkce **registrovaná**, jak je vidět tady:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowILBAllPortsRule",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-3. Proveďte registraci ve verzi preview opakováním registrace předplatného s poskytovatelem prostředků:
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-### <a name="sign-up-by-using-powershell"></a>Zaregistrujte si pomocí prostředí PowerShell
-
-1. Zaregistrujte funkci zprostředkovatele:
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    
-2. Předchozí operace může trvat až 10 minut. Můžete zkontrolovat stav operace pomocí následujícího příkazu:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    Operace je úspěšné, když se vrátí stav registrace funkce **registrovaná**, jak je vidět tady:
-   
-    ```
-    FeatureName          ProviderName      RegistrationState
-    -----------          ------------      -----------------
-    AllowILBAllPortsRule Microsoft.Network Registered
-    ```
-    
-3. Proveďte registraci ve verzi preview opakováním registrace předplatného s poskytovatelem prostředků:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-
+>Registrace může trvat až jednu hodinu.
 
 ## <a name="limitations"></a>Omezení
 

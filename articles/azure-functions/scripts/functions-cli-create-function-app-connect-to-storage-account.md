@@ -3,7 +3,7 @@ title: "Vytvoření funkce Azure, která se připojuje k Azure Storage | Microso
 description: "Azure CLI skriptu ukázkové – vytvoření funkce Azure, která se připojuje k Azure Storage"
 services: functions
 documentationcenter: functions
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: functions
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
-ms.author: rachelap
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: af90702601d1bd05836dbf2b20cd3e318832b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 363a3fd1c80538495658720274840b921baa8675
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="integrate-function-app-into-azure-storage-account"></a>Integrace funkce aplikace do účtu úložiště Azure
 
@@ -30,7 +30,7 @@ Tento ukázkový skript vytvoří aplikaci funkce a účet úložiště.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud používáte rozhraní příkazového řádku místně, ujistěte se, že používáte Azure CLI verze 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Ukázkový skript
 
@@ -41,7 +41,7 @@ Tato ukázka vytvoří aplikaci funkce Azure a přidá připojovací řetězec �
 
 ## <a name="clean-up-deployment"></a>Vyčištění nasazení
 
-Po spuštění ukázka skriptu, následující příkaz lze použít k odebrání skupiny prostředků, aplikační služby a všechny související prostředky:
+Po spuštění ukázka skriptu, spusťte následující příkaz k odebrání skupiny prostředků a všechny související prostředky:
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -51,7 +51,7 @@ Tento skript používá následující příkazy. Každý příkaz v tabulce odk
 
 | Příkaz | Poznámky |
 |---|---|
-| [AZ přihlášení](https://docs.microsoft.com/cli/azure/#login) | Přihlášení k Azure. |
+| [AZ přihlášení](https://docs.microsoft.com/cli/azure/#login) | Přihlaste se k Azure. |
 | [Vytvoření skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvořte skupinu prostředků s umístěním |
 | [Vytvořit účet úložiště az](https://docs.microsoft.com/cli/azure/storage/account) | vytvořit účet úložiště |
 | [Vytvoření az functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Vytvořit novou aplikaci funkce |

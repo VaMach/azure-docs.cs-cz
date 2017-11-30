@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: bdf83fac9bd0ac6790062f802748a18045c7a171
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Připojení knihoven a architektur pro Microsoft SQL Server
 
@@ -47,12 +47,25 @@ Následující tabulka uvádí několik příkladů architektury relační mapov
 | Node.js | Systému Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
 | Python | Systému Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Systému Windows, Linux, macOS | [Ruby, na které](http://rubyonrails.org/) |
+||||
 
 ## <a name="related-links"></a>Související odkazy
 - [SQL Server ovladače](http://msdn.microsoft.com/library/mt654049.aspx) pro připojení z klientské aplikace
-- [Připojení k SQL Database s použitím rozhraní .NET (C#)](sql-database-connect-query-dotnet.md)
-- [Připojení k SQL Database s použitím jazyka PHP](sql-database-connect-query-php.md)
-- [Připojení k SQL Database s použitím prostředí Node.js](sql-database-connect-query-nodejs.md)
-- [Připojení k SQL Database s použitím jazyka Java](sql-database-connect-query-java.md)
-- [Připojení k SQL Database s použitím jazyka Python](sql-database-connect-query-python.md)
-- [Připojení k SQL Database s použitím prostředí Ruby](sql-database-connect-query-ruby.md)
+- Připojení k databázi SQL:
+    - [Připojení k SQL Database s použitím rozhraní .NET (C#)](sql-database-connect-query-dotnet.md)
+    - [Připojení k SQL Database s použitím jazyka PHP](sql-database-connect-query-php.md)
+    - [Připojení k SQL Database s použitím prostředí Node.js](sql-database-connect-query-nodejs.md)
+    - [Připojení k SQL Database s použitím jazyka Java](sql-database-connect-query-java.md)
+    - [Připojení k SQL Database s použitím jazyka Python](sql-database-connect-query-python.md)
+    - [Připojení k SQL Database s použitím prostředí Ruby](sql-database-connect-query-ruby.md)
+- Příklady kódu pro logiku opakování:
+    - [Pružným způsobem připojení k serveru SQL s ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+    - [Pružným způsobem připojení k serveru SQL s PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

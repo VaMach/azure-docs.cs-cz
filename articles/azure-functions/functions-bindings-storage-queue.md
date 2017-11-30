@@ -1,5 +1,5 @@
 ---
-title: "Azure funkce fronty úložiště vazby"
+title: "Azure vazby fronty úložiště pro Azure Functions"
 description: "Pochopit, jak použít aktivační událost Azure Queue storage a výstupní vazby v Azure Functions."
 services: functions
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 9cf506d571c8d67a1e48ce34860db3dbc3445509
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-queue-storage-bindings"></a>Azure funkce fronty úložiště vazby
+# <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure vazby fronty úložiště pro Azure Functions
 
 Tento článek vysvětluje, jak pracovat s Azure Queue storage vazeb v Azure Functions. Azure Functions podporuje aktivaci a výstupní vazby pro fronty.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="queue-storage-trigger"></a>Aktivace fronty úložiště
+## <a name="trigger"></a>Trigger
 
 Použijte aktivační událost fronty ke spuštění funkce při přijetí nové položky ve frontě. Zprávy ve frontě je k dispozici jako vstup do funkce.
 
@@ -151,7 +151,7 @@ module.exports = function (context) {
 
 [Využití](#trigger---usage) část vysvětluje `myQueueItem`, která má název podle `name` vlastnost function.json.  [Zprávy oddílem metadat](#trigger---message-metadata) vysvětluje všechny ostatní proměnné vidět.
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Aktivační událost - předkompilovaných atributy pro C#
+## <a name="trigger---attributes"></a>Aktivační událost – atributy
  
 Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje konfigurovat aktivační procedury fronty následující atributy:
 
@@ -164,6 +164,9 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
   public static void Run(
       [QueueTrigger("myqueue-items")] string myQueueItem, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   Můžete nastavit `Connection` vlastnosti a určit účet úložiště, který chcete použít, jak je znázorněno v následujícím příkladu:
@@ -173,8 +176,13 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
   public static void Run(
       [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
       TraceWriter log)
+  {
+      ....
+  }
   ```
  
+  Úplný příklad najdete v tématu [aktivační událost - předkompilovaných C# příklad](#trigger---c-example).
+
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definované v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
   Poskytuje další možnost zadejte účet úložiště, který chcete použít. Konstruktor přebírá název nastavení aplikace, který obsahuje připojovací řetězec úložiště. Atribut lze použít na parametr, metoda nebo na úrovni třídy. Následující příklad ukazuje úroveň třídy a metody:
@@ -186,6 +194,9 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
       [FunctionName("QueueTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 Účet úložiště, který chcete použít, je určen v následujícím pořadí:
@@ -206,7 +217,9 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |**směr**| neuvedeno | V *function.json* pouze souboru. musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
 |**Jméno** | neuvedeno |Název proměnné, která představuje ve frontě v kód funkce.  | 
 |**queueName** | **QueueName**| Název fronty pro cyklické dotazování. | 
-|**připojení** | **Připojení** |Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br/>Pokud vyvíjíte místně, nastavení aplikace, přejděte do hodnoty [local.settings.json soubor](functions-run-local.md#local-settings-file).|
+|**připojení** | **Připojení** |Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Aktivační událost - využití
  
@@ -245,7 +258,7 @@ Pro zpracování poškozených zpráv ručně, zkontrolujte [dequeueCount](#trig
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## <a name="queue-storage-output-binding"></a>Vazba výstupní fronty úložiště
+## <a name="output"></a>Výstup
 
 Pomocí Azure Queue storage výstup vazby pro zápis zpráv do fronty.
 
@@ -386,7 +399,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Výstup – atributy pro předkompilované C#
+## <a name="output---attributes"></a>Výstup – atributy
  
 Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -396,6 +409,9 @@ Atribut se vztahuje na `out` parametr nebo vrací hodnotu funkce. Konstruktoru a
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
 Můžete nastavit `Connection` vlastnosti a určit účet úložiště, který chcete použít, jak je znázorněno v následujícím příkladu:
@@ -404,9 +420,14 @@ Můžete nastavit `Connection` vlastnosti a určit účet úložiště, který c
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
-Můžete použít `StorageAccount` atribut určete účet úložiště na úrovni třídy, metoda nebo parametr. Další informace najdete v tématu [aktivační událost – atributy pro předkompilované C#](#trigger---attributes-for-precompiled-c).
+Úplný příklad najdete v tématu [výstup - předkompilovaných C# příklad](#output---c-example).
+
+Můžete použít `StorageAccount` atribut určete účet úložiště na úrovni třídy, metoda nebo parametr. Další informace najdete v tématu [aktivační událost – atributy](#trigger---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>Výstup – konfigurace
 
@@ -417,8 +438,10 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |**Typ** | neuvedeno | musí být nastavena na `queue`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
 |**směr** | neuvedeno | musí být nastavena na `out`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
 |**Jméno** | neuvedeno | Název proměnné, která představuje ve frontě v kód funkce. Nastavte na `$return` Chcete-li funkce návratovou hodnotu.| 
-|**queueName** |**QueueName** | Název fronty | 
-|**připojení** | **Připojení** |Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br>Pokud vyvíjíte místně, nastavení aplikace, přejděte do hodnoty [local.settings.json soubor](functions-run-local.md#local-settings-file).|
+|**queueName** |**QueueName** | Název fronty. | 
+|**připojení** | **Připojení** |Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Výstup – použití
  

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Kurz: Konfigurace DocuSign pro zřizování uživatelů
 
@@ -41,9 +41,12 @@ Před konfigurací a povolení zřizování služby, musíte rozhodnout, jaké u
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>Důležité tipy pro přiřazování uživatelů do DocuSign
 
-*   Dále je doporučeno jednoho uživatele Azure AD se přiřadí ke DocuSign a otestovat konfiguraci zřizování. Další uživatele nebo skupiny může být přiřazen později.
+*   Dále je doporučeno jednoho uživatele Azure AD se přiřadí ke DocuSign a otestovat konfiguraci zřizování. Další uživatelé mohou přiřadit později.
 
 *   Při přiřazování DocuSign uživatele, musíte vybrat platné uživatelské role. Roli "Výchozí přístup" nefunguje pro zřizování.
+
+> [!NOTE]
+> Azure AD nepodporuje skupiny zřizování s Docusign aplikace, může být zřízen jenom uživatelé.
 
 ## <a name="enable-user-provisioning"></a>Povolit zřizování uživatelů
 
@@ -86,7 +89,7 @@ Cílem této části se popisují postup povolení zřizování uživatelů z u�
 
 12. Klikněte na tlačítko **uložit.**
 
-Spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené k DocuSign v části Uživatelé a skupiny. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci DocuSign.
+Spustí počáteční synchronizaci všech uživatelů přidružených k DocuSign v části Uživatelé a skupiny. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci DocuSign.
 
 Nyní můžete vytvořit testovací účet. Chcete-li ověřit, že účet byly synchronizovány DocuSign Počkejte až 20 minut.
 

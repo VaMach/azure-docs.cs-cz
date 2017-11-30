@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 03f0b07e9f4994c616a39692f7a5ba52a154aa0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cecf0b3e38e8f2241f3589b9548c93730c7783
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Připojení virtuálního počítače Red Hat Enterprise Linux 7 ke spravované doméně
 Tento článek ukazuje, jak připojit virtuální počítač Red Hat Enterprise Linux (RHEL) 7 k spravované doméně služby Azure AD Domain Services.
@@ -82,12 +82,12 @@ Teď, když požadované balíčky jsou nainstalovány na virtuální počítač
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **Řešení potíží:** Pokud *zjišťování sféry* se nepodařilo najít vaší spravované domény:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+     > [!NOTE] 
+     > **Řešení potíží:** Pokud *zjišťování sféry* se nepodařilo najít vaší spravované domény:
+     * Ujistěte se, že doména je dostupný z virtuálního počítače (zkuste ping).
+     * Zkontrolujte, že virtuální počítač skutečně byla nasazena do stejné virtuální síti, ve kterém je k dispozici spravované domény.
+     * Zkontrolujte, zda jste aktualizovali nastavení serveru DNS virtuální sítě tak, aby odkazoval na řadičích domény, spravované domény.
+     >
 
 2. Inicializace protokolu Kerberos. V terminálu SSH zadejte následující příkaz: 
 

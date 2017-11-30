@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b8475dcc51fb24fadd1faa4a2008b25a4464080
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: e061e599f365bf3d343cb59b8dc6a61e06627517
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Nasazení Azure Machine Learning jako modul IoT Edge – náhled
 
@@ -49,7 +49,7 @@ Pokud chcete vytvořit kontejner vaší Azure ML, postupujte podle pokynů v [AI
 1. Klikněte na **Uložit**.
 1. Zpět v **přidat moduly** krok, klikněte na tlačítko **Další**.
 1. Aktualizace tras pro modul:
-1. V **zadejte trasy** kroku, zkopírujte do textového pole JSON níže. Moduly publikovat všechny zprávy do hraniční runtime. Deklarativní pravidel v modulu runtime definovat, kde se tyto zprávy toku. V tomto kurzu musíte dvě trasy. První trasa je určena k přenosu zprávy teplotní snímač machine learning module prostřednictvím koncového bodu "mlInput", což je koncový bod, který použít všechny moduly Azure Machine Learning. Druhá trasa je určena k přenosu zpráv z modulu learning počítač do služby IoT Hub. V této trase '' mlOutput'' je endput používaných pro výstup dat. všechny moduly Azure Machine Learning a "nadřazeného" je speciální cílového umístění, které informuje Edge rozbočovače k odesílání zpráv do služby IoT Hub. 
+1. V **zadejte trasy** kroku, zkopírujte do textového pole JSON níže. Moduly publikovat všechny zprávy do hraniční runtime. Deklarativní pravidel v modulu runtime definovat, kde se tyto zprávy toku. V tomto kurzu musíte dvě trasy. První trasa je určena k přenosu zprávy teplotní snímač machine learning module prostřednictvím koncového bodu "amlInput", což je koncový bod, který použít všechny moduly Azure Machine Learning. Druhá trasa je určena k přenosu zpráv z modulu learning počítač do služby IoT Hub. V této trase '' amlOutput'' je koncový bod, který všechny moduly Azure Machine Learning pomocí výstupní data a '' proti proudu$ "je speciální cílového umístění, které informuje Edge rozbočovače k odesílání zpráv do služby IoT Hub. 
 
     ```json
     {

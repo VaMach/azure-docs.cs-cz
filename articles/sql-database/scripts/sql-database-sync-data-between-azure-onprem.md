@@ -17,17 +17,17 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 8d021538b34c96c1d486c9508df9d4ee91404337
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 524193835bd5d350d6ac312fcc997f6c135abea1
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Synchronizace mezi SQL Database a místní databáze SQL serveru pomocí prostředí PowerShell
 
 Tento příklad PowerShell konfiguruje synchronizaci dat pro synchronizaci mezi databáze SQL Azure a místní databázi systému SQL Server. 
 
-Tato ukázka vyžaduje prostředí Azure PowerShell verze modulu 4.2 nebo novější. Spustit `Get-Module -ListAvailable AzureRM` najít nainstalovanou verzi. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps).
+Tato ukázka vyžaduje prostředí Azure PowerShell verze modulu 4.2 nebo novější. Spustit `Get-Module -ListAvailable AzureRM` najít nainstalovanou verzi. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace modulu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
 Spustit `Login-AzureRmAccount` vytvořit připojení s Azure.
 

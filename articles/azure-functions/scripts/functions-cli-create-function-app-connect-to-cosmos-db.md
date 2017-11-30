@@ -3,7 +3,7 @@ title: "Vytvoření funkce Azure, která se připojuje k databázi Azure Cosmos 
 description: "Azure CLI skriptu ukázkové – vytvoření funkce Azure, která se připojuje k databázi Cosmos Azure"
 services: functions
 documentationcenter: functions
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: functions
@@ -14,10 +14,10 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
-ms.author: rachelap
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ce48f8dd71d5b9e48dcd506df976e07d385f34c5
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e9ccd26e7c066189576903c39be63a421d1da23
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/29/2017
@@ -30,7 +30,7 @@ Tento ukázkový skript vytvoří aplikace funkce Azure, připojí se k databáz
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud používáte rozhraní příkazového řádku místně, ujistěte se, že používáte Azure CLI verze 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Ukázkový skript
 
@@ -46,13 +46,13 @@ Po spuštění ukázka skriptu, použijte příkaz lze použít k odebrání sku
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy. Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
+Tento skript používá následující příkazy: každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
 
 | Příkaz | Poznámky |
 |---|---|
-| [AZ přihlášení](https://docs.microsoft.com/cli/azure/#login) | Přihlášení k Azure. |
+| [AZ přihlášení](https://docs.microsoft.com/cli/azure/#login) | Přihlaste se k Azure. |
 | [Vytvoření skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvořte skupinu prostředků s umístěním |
-| [Vytvořit účet úložiště az](https://docs.microsoft.com/cli/azure/storage/account) | vytvořit účet úložiště |
+| [Vytvoření účtů úložiště az](https://docs.microsoft.com/cli/azure/storage/account) | vytvořit účet úložiště |
 | [Vytvoření az functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Vytvořit novou aplikaci funkce |
 | [Vytvoření az cosmosdb](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Vytvoření databáze cosmosdb |
 | [Odstranění skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Vyčištění |

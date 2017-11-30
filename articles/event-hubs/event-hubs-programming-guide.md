@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: d6cc4d95adb52b5b0bfc4b674ade878af764a3e7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7d5f14d5a65253cf0aad1811ace419bf2f39f7db
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Průvodce programováním pro službu Event Hubs
 
@@ -117,7 +117,7 @@ Odesílání událostí v dávkách může pomoci zvýšit propustnost. [SendBat
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Všimněte si, že jeden batch nesmí překročit velikost 256 KB, tedy standardní omezení pro událost. Kromě toho každá zpráva v batchi používá stejnou identitu zdroje. Dodržení maximálního limitu velikosti události u batche musí zajistit odesílatel. V případě překročení se u klienta vygeneruje chyba odeslání (**Send**). Můžete použít pomocná třída [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) zajistit, že dávka není delší než 256 KB. Získáte prázdnou [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) z [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) rozhraní API a pak použít [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) přidání události k vytvoření dávky. Nakonec použijte [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) získat základní události, které mají být předány [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) rozhraní API.
+Všimněte si, že jeden batch nesmí překročit velikost 256 KB, tedy standardní omezení pro událost. Kromě toho každá zpráva v batchi používá stejnou identitu zdroje. Dodržení maximálního limitu velikosti události u batche musí zajistit odesílatel. V případě překročení se u klienta vygeneruje chyba odeslání (**Send**). Můžete použít metodu helper [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) zajistit, že dávka není delší než 256 KB. Získáte prázdnou [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) z [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) rozhraní API a pak použít [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) přidání události k vytvoření dávky. Nakonec použijte [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) získat základní události, které mají být předány [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) rozhraní API.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Asynchronní odesílání a škálované odesílání
 Můžete také odeslat události do centra událostí asynchronně. Asynchronní odesílání může zvýšit frekvenci, s jakou je klient schopný odesílat události. Metody [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) i [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) jsou k dispozici v asynchronních verzích, které vrací objekt [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). I když tato technika může zvýšit propustnost, taky může způsobit, že klient bude odesílat události i po omezení ze strany služby Event Hubs, což může v případě nesprávné implementace vést k selhání klienta nebo ztrátě zpráv. K ovládání možností opětovných pokusů klienta můžete navíc u klienta použít vlastnost [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy).

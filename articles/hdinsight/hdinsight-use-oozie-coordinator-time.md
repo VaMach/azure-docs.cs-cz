@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e61c99028a2b67bd9188c239bc95dba0625b638
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0fa8e3630610913d909a75bf76236d120c8f1a2b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Pomocí nástroje Oozie coordinator založené na čase s Hadoop v HDInsight můžete definovat pracovní postupy a koordinovat úlohy
 V tomto článku se dozvíte, jak definovat pracovní postupy a koordinátoři a spouštění koordinátor úlohy, na základě času. Je užitečné projít [Oozie použití s HDInsight] [ hdinsight-use-oozie] před přečtěte si tento článek. Kromě Oozie můžete také naplánovat úlohy pomocí Azure Data Factory. Další služby Azure Data Factory najdete v tématu [použijte Pig a Hive pomocí služby Data Factory](../data-factory/transform-data.md).
@@ -82,7 +82,8 @@ Je nutné, abyste před zahájením tohoto kurzu měli tyto položky:
     <tr><td>Název účtu úložiště Azure</td><td>$storageAccountName</td><td></td><td>Účet služby Azure Storage k dispozici ke clusteru HDInsight. V tomto kurzu použijte výchozí účet úložiště, který jste zadali během procesu zřizování clusteru.</td></tr>
     <tr><td>Název kontejneru Azure Blob</td><td>$containerName</td><td></td><td>V tomto příkladu použijte kontejner úložiště objektů Blob v Azure, který se používá pro výchozí systém souborů clusteru HDInsight. Ve výchozím nastavení má stejný název jako HDInsight cluster.</td></tr>
     </table>
-* **Azure SQL database**. Je nutné nakonfigurovat pravidlo brány firewall pro server databáze SQL pro povolení přístupu z pracovní stanice. Pokyny týkající se vytváření databáze Azure SQL a konfiguraci brány firewall najdete v tématu [začít používat Azure SQL database] [databáze_sql get-started]. Tento článek obsahuje skript prostředí Windows PowerShell pro vytvoření tabulky databáze Azure SQL, které potřebujete pro účely tohoto kurzu.
+
+* **Azure SQL database**. Je nutné nakonfigurovat pravidlo brány firewall pro server databáze SQL pro povolení přístupu z pracovní stanice. Pokyny týkající se vytváření databáze Azure SQL a konfiguraci brány firewall najdete v tématu [začít používat Azure SQL database][sqldatabase-get-started]. Tento článek obsahuje skript prostředí Windows PowerShell pro vytvoření tabulky databáze Azure SQL, které potřebujete pro účely tohoto kurzu.
 
     <table border = "1">
     <tr><th>Vlastnost databáze SQL</th><th>Název proměnné prostředí Windows PowerShell</th><th>Hodnota</th><th>Popis</th></tr>

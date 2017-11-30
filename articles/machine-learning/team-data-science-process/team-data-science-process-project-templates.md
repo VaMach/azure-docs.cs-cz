@@ -1,6 +1,6 @@
 ---
 title: "Tým datové vědy proces projektu plánování - Azure | Microsoft Docs"
-description: "Bude doplněno"
+description: "Microsoft Project a Excel šablony, které vám pomůžou naplánovat a řízení projektů vědecké účely data."
 documentationcenter: 
 author: bradsev
 manager: cgronlun
@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: bradsev;
-ms.openlocfilehash: 554e653a1f1b060743a2f461327c58e9a60a56b1
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 7f99b0bc36a08f52148f032567771f21c56ce42e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-project-planning"></a>Tým datové vědy proces plánování projektu
 
-Proces pro vědecké účely Data Team (TDSP) poskytuje životního cyklu do struktury vývoj projekty vědecké účely data. Životní cyklus popisuje hlavní fází, které projekty obvykle provést, často interaktivně:
+Proces pro vědecké účely Data Team (TDSP) poskytuje životního cyklu do struktury vývoj projekty vědecké účely data. Tento článek obsahuje odkazy na Microsoft Project a Excel šablony, které vám pomůžou naplánovat a spravovat tyto fáze projektu.
+
+Životní cyklus popisuje hlavní fází, které projekty obvykle provést, často interaktivně:
 
 - Obchodní vysvětlení
 - Získávání dat a principy
@@ -31,8 +33,7 @@ Proces pro vědecké účely Data Team (TDSP) poskytuje životního cyklu do str
 
 Popis každého z těchto fázích najdete v tématu [životního cyklu Team datové vědy proces](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle).
 
-Tento článek obsahuje odkazy na Microsoft Project a Excel šablony, které vám pomůžou naplánovat a spravovat tyto fáze projektu. 
-
+ 
 ## <a name="microsoft-project-template"></a>Šablony aplikace Microsoft Project
 
 Šablona Microsoft Project pro proces tým datové vědy je k dispozici zde: [šablony aplikace Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
@@ -54,7 +55,7 @@ Pomocí těchto šablon na vlastní nebezpečí. [Obvyklé omezení](https://www
 
 ## <a name="next-steps"></a>Další kroky
 
-[Provádění datové vědy projekty](project-execution.md) tento dokument popisuje spuštění projektu vědecké účely data v systematické, verze řízené a spolupráce způsob, jak v rámci projektový tým pomocí procesu Team dat vědecké účely.
+[Agilní vývoj datové vědy projekty](agile-development.md) tento dokument popisuje spuštění projektu vědecké účely data v systematické, verze řízené a spolupráce způsob, jak v rámci projektový tým pomocí procesu Team dat vědecké účely.
 
 Návody, které ukazují všechny kroky v procesu pro **konkrétních scénářů** jsou také uvedeny. Jsou uvedena v seznamu a propojené s miniatur popisy v [příklad návody](walkthroughs.md) tématu. Se ukazují, jak kombinovat cloud, místní nástroje a služby do pracovního postupu nebo kanálu vytvoření inteligentního aplikace. 
 

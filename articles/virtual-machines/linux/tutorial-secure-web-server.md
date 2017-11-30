@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e3ad8a5c08b739d8b2c6e224db0c8f88c1893ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2d6a0b00704e1d97be9a4c5bd00ba37374419e5
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Zabezpečení webového serveru pomocí certifikátů SSL na virtuální počítač s Linuxem v Azure
 Pro zabezpečení webové servery, certifikát později SSL (Secure Sockets) slouží k šifrování webový provoz. Tyto certifikáty SSL můžou být uložená v Azure Key Vault a povolit zabezpečená nasazení certifikátů na virtuálních počítačích (VM) s Linuxem v Azure. V tomto kurzu se naučíte:
@@ -60,7 +60,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Vygenerování certifikátu a uložit v Key Vault
-Pro použití v provozním prostředí, měli byste importovat platný certifikát podepsaný službou důvěryhodného zprostředkovatele s [import certifikátu keyvault az](/cli/azure/certificate#import). V tomto kurzu následující příklad ukazuje, jak můžete vygenerovat certifikát podepsaný svým držitelem s [vytvoření certifikátu keyvault az](/cli/azure/certificate#create) používající výchozí zásady certifikátu:
+Pro použití v provozním prostředí, měli byste importovat platný certifikát podepsaný službou důvěryhodného zprostředkovatele s [import certifikátu keyvault az](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). V tomto kurzu následující příklad ukazuje, jak můžete vygenerovat certifikát podepsaný svým držitelem s [vytvoření certifikátu keyvault az](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) používající výchozí zásady certifikátu:
 
 ```azurecli-interactive 
 az keyvault certificate create \

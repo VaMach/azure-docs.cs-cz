@@ -1,5 +1,5 @@
 ---
-title: "Azure ukázkový skript prostředí PowerShell - změnit rozsah portů protokolu RDP. | Dokumentace Microsoftu"
+title: "Azure ukázkový skript prostředí PowerShell - změnit rozsah portů RDP | Microsoft Docs"
 description: "Ukázkový skript prostředí PowerShell Azure - změní rozsah portů RDP nasazené clusteru."
 services: service-fabric
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: sample
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: ca24c1afb9a29db7c5ff36d23a10da84ca2f45c3
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 9089d071c69830323a94140a5ebb4e9e865499c6
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/29/2017

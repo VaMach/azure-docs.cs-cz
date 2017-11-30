@@ -1,5 +1,5 @@
 ---
-title: "Práce s triggerů a vazeb v Azure Functions | Microsoft Docs"
+title: "Práce s triggerů a vazeb v Azure Functions"
 description: "Další informace o použití triggerů a vazeb v Azure Functions k připojení vašeho provádění kódu k online události a cloudové služby."
 services: functions
 documentationcenter: na
@@ -8,26 +8,25 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "funkce azure, funkce, zpracování událostí, webhook, dynamické výpočty, architektura bez serverů"
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkce triggerů a vazeb koncepty
 Azure Functions umožňuje psaní kódu v reakci na události v Azure a dalším službám prostřednictvím *aktivační události* a *vazby*. Tento článek obsahuje přehled služby aktivačních událostí a vazby pro všechny podporované programovací jazyky. Tady jsou popsané funkce, které jsou společné pro všechny vazby.
 
 ## <a name="overview"></a>Přehled
 
-Triggerů a vazeb jsou deklarativní způsob, jak definovat, jak je volána funkce a co data funguje s. A *aktivační událost* definuje způsob volání funkce. Funkce musí mít přesně jeden aktivační události. Aktivační události mají související data, která je obvykle datové části, která aktivuje funkce. 
+Triggerů a vazeb jsou deklarativní způsob, jak definovat, jak je volána funkce a co data funguje s. A *aktivační událost* definuje způsob volání funkce. Funkce musí mít přesně jeden aktivační události. Aktivační události mají související data, která je obvykle datové části, která aktivuje funkce.
 
 Vstup a výstup *vazby* poskytnout deklarativní způsob, jak se připojit k datům z vašeho kódu. Podobně jako u aktivačních událostí, je zadat připojovací řetězce a další vlastnosti v konfiguraci funkce. Vazby jsou volitelné a funkci můžete mít více vstup a výstup vazby. 
 
@@ -35,11 +34,13 @@ Pomocí triggerů a vazeb, můžete napsat kód, který je instalace a další o
 
 Můžete nakonfigurovat triggerů a vazeb v **integrací** na portálu Azure Functions. V pozadí, uživatelské rozhraní upraví soubor s názvem *function.json* soubor v adresáři funkce. Tento soubor můžete upravit změnou na **pokročilé editor**.
 
-V následující tabulce jsou uvedeny triggerů a vazeb, které jsou podporovány Azure Functions. 
+## <a name="supported-bindings"></a>Podporované vazby
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>Příklad: Aktivace fronty a tabulky Výstupní vazby
+Informace o tom, které jsou ve verzi preview vazby, nebo jsou schváleny pro použití v provozním prostředí najdete v tématu [podporované jazyky](supported-languages.md).
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>Příklad: Aktivace fronty a tabulky Výstupní vazby
 
 Předpokládejme, že chcete k zápisu nového řádku do Azure Table Storage, vždy, když v Azure Queue Storage se objeví nová zpráva. Tento scénář může být implementovaná pomocí Azure Queue aktivační události a Azure Table Storage výstupní vazby. 
 
@@ -126,9 +127,9 @@ K zobrazení a úprava obsahu *function.json* na portálu Azure klikněte na tla
 
 Další příklady kódu a informace o integraci s Azure Storage najdete v tématu [Azure Functions triggerů a vazeb pro Azure Storage](functions-bindings-storage.md).
 
-### <a name="binding-direction"></a>Směr vazby
+## <a name="binding-direction"></a>Směr vazby
 
-Mají všechny triggerů a vazeb `direction` vlastnost:
+Mají všechny triggerů a vazeb `direction` vlastnost *function.json* souboru:
 
 - Pro aktivační události směr je vždy`in`
 - Vstupní a výstupní vazby používat `in` a`out`
@@ -243,7 +244,7 @@ Například aktivační procedury fronty Azure Storage podporuje následující 
 
 Podrobnosti o vlastnosti metadat pro jednotlivé aktivační události jsou popsané v odpovídajícího tématu. Je také dostupná v dokumentaci **integrací** karta portálu v **dokumentace** části níže oblast konfigurace vazby.  
 
-Například vzhledem k tomu, že aktivační události objektu blob mají některé zpoždění, můžete použít aktivační procedury fronty ke spuštění funkce (viz [aktivační událost úložiště objektů Blob](functions-bindings-storage-blob.md#blob-storage-trigger)). Zprávy ve frontě by obsahovat název souboru objektů blob k aktivaci na. Pomocí `queueTrigger` vlastnost metadat, toto chování můžete zadat všechny v konfiguraci, nikoli kódu.
+Například vzhledem k tomu, že aktivační události objektu blob mají některé zpoždění, můžete použít aktivační procedury fronty ke spuštění funkce (viz [aktivační událost úložiště objektů Blob](functions-bindings-storage-blob.md#trigger)). Zprávy ve frontě by obsahovat název souboru objektů blob k aktivaci na. Pomocí `queueTrigger` vlastnost metadat, toto chování můžete zadat všechny v konfiguraci, nikoli kódu.
 
 ```json
   "bindings": [

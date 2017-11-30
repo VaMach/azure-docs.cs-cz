@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 01016294c3ef6fd904a7582e4f9c16ef19330a20
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Vazby pro odolná funkce (Azure Functions)
 
@@ -55,7 +55,7 @@ Interně tato vazba aktivační událost dotazuje řadu fronty ve výchozí úč
 Zde jsou některé poznámky k aktivační události orchestration:
 
 * **Dělení na vlákna jedním** -vlákno dispečera jeden se používá pro všechny funkce provádění orchestrator na jednom hostiteli instanci. Z tohoto důvodu je důležité zajistit, že kód funkce orchestrator je efektivní a nebude provádět žádné vstupně-výstupních operací. Je také důležité zajistit, že tohoto podprocesu neprovádí žádné asynchronní práce s výjimkou při čeká na na typech úloh trvanlivý specifické funkce.
-* **Zpracování zpráv poising** – neexistuje žádná podpora nezpracovatelná zpráva v aktivační události orchestration.
+* **Zpracování zpráv Poison** – neexistuje žádná podpora nezpracovatelná zpráva v aktivační události orchestration.
 * **Zpráva viditelnost** -vyjmutou a uchovávat neviditelná po dobu konfigurovat Orchestration aktivační událost zpráv. Zda se tyto zprávy se obnovuje automaticky, pokud je funkce aplikace běží a je v pořádku.
 * **Návratové hodnoty** -vrátit hodnoty jsou serializovat na JSON a trvalé v tabulce historie orchestration Azure Table storage. Tyto návratové hodnoty můžete položit dotaz na klientem orchestration vazby, popsané dál.
 

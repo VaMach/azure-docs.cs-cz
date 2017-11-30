@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: e043de0aa4ed861139f50291a98c3300574e6078
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2ab36da70e2c08b770973f4c4d33eddfdebed9e1
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Proces vědecké účely Team dat pro vývojáře operace
 
-Tento článek popisuje operace Developer (DevOps) funkce, které jsou specifické pro implementaci řešení pokročilé analýzy a kognitivní služby. Odkazuje na témata, které se týkají pochopení proces datové vědy a platformy, DevOps procesy a DevOps nástrojů, které jsou specifické pro vědecké zpracování dat a AI projekty a řešení.
+Tento článek popisuje operace Developer (DevOps) funkce, které jsou specifické pro implementaci řešení pokročilé analýzy a kognitivní služby. Tyto školicí materiály souvisí s tým datové vědy procesu (TDSP) a Microsoft a open-source softwaru a sad nástrojů, které jsou užitečné při plánování, provádění a podávající řešení vědecké účely data. Odkazuje na témata, které se týkají DevOps nástrojů, které jsou specifické pro vědecké zpracování dat a AI projekty a řešení.
 
 ## <a name="lesson-path"></a>Lekce cesta
 Následující tabulka uvádí pokyny k dokončení DevOps cílů, které jsou potřebné k implementaci řešení vědecké účely dat s technologiemi Azure na úrovni zadané.

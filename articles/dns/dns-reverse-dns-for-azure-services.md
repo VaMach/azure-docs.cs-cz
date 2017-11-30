@@ -3,7 +3,7 @@ title: "Reverse DNS pro služby Azure | Microsoft Docs"
 description: "Naučte se konfigurovat zpětné vyhledávání DNS pro služby hostované v Azure"
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurace zpětné DNS pro služby hostované v Azure
 
@@ -28,9 +28,8 @@ Tento scénář Nezaměňovat s schopnost [hostitele zpětné vyhledávání zó
 
 Před přečtení tohoto článku, měli byste se seznámit s tím [přehled zpětné DNS a podpory v Azure](dns-reverse-dns-overview.md).
 
-Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../azure-resource-manager/resource-manager-deployment-model.md).
-* V modelu nasazení Resource Manager výpočetní prostředky (třeba virtuální počítače sady škálování virtuálního počítače nebo clusterů Service Fabric) jsou zveřejňovány prostřednictvím PublicIpAddress prostředků. Zpětné vyhledávání DNS se konfiguruje pomocí vlastnosti 'ReverseFqdn' PublicIpAddress.
-* V modelu nasazení Classic se zveřejňují výpočetní prostředky, cloudové služby. Zpětné vyhledávání DNS jsou nakonfigurovány pomocí vlastnosti 'ReverseDnsFqdn' cloudové služby.
+V Azure DNS výpočetní prostředky (třeba virtuální počítače sady škálování virtuálního počítače nebo clusterů Service Fabric) jsou zveřejňovány prostřednictvím PublicIpAddress prostředků. Zpětné vyhledávání DNS se konfiguruje pomocí vlastnosti 'ReverseFqdn' PublicIpAddress.
+
 
 Zpětné DNS není aktuálně podporován pro službu Azure App Service.
 

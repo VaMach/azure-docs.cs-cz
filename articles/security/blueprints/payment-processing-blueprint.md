@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/29/2017
 ms.author: frasim
-ms.openlocfilehash: f6131d7f177c3ca02cf8dfe5d140df5e6d8a7ffa
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="payment-processing-blueprint-for-pci-dss-compliant-environments"></a>Platebních zpracování plán, podle kterého pro kompatibilní se standardem PCI DSS prostředí
+# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Služby Azure Automation plán, podle kterého: Zpracování v prostředích, kompatibilní se standardem PCI DSS plateb
 
-Plán zpracování platebních pro PCI DSS kompatibilní prostředí obsahuje pokyny pro nasazení prostředí kompatibilní s rozhraním PCI DSS platformy jako služba (PaaS) vhodný pro zpracování dat citlivé platební karty. To umožňující prezentovat běžné referenční architektura a je navržená tak, aby se zjednodušila přijetí ve službě Microsoft Azure. Tato základní architektura ukazuje začátku do konce řešení ke splnění potřeb organizace, které hledají cloudové přístup ke snížení zatížení a náklady na nasazení.
+## <a name="overview"></a>Přehled
 
-Tato základní architektura splňuje požadavky na přísné Payment Card Industry Data Security Standards (PCI DSS 3.2) pro shromažďování, ukládání a načítání o platební karty. Ukazuje správné zpracování dat platební karty (včetně karet číslo, vypršení platnosti a ověření dat) v prostředí vícevrstvé zabezpečené, kompatibilní nasazené jako koncoví na end řešení založené na Azure. Další informace o požadavcích PCI DSS 3.2 a řešení najdete v tématu [PCI DSS – požadavky na vysoké úrovni přehled](pci-dss-requirements-overview.md).
+Zpracování platebních PCI DSS kompatibilní prostředí obsahuje pokyny pro nasazení prostředí kompatibilní s rozhraním PCI DSS platformy jako služba (PaaS) vhodný pro zpracování dat citlivé platební karty. To umožňující prezentovat běžné referenční architektura a je navržená tak, aby se zjednodušila přijetí ve službě Microsoft Azure. Tento plán, podle kterého je znázorněný začátku do konce řešení ke splnění potřeb organizace, které hledají cloudové přístup ke snížení zatížení a náklady na nasazení.
 
-Tato architektura má sloužit jako základ pro zákazníky, chcete-li upravit na jejich specifické požadavky a by se neměla používat jako-je v produkčním prostředí. Nasazení aplikace do tohoto prostředí bez úprav není dostatečná úplně splnění kompatibilní se standardem PCI DSS řešení. Je třeba počítat s následujícím:
-- Tato základní architektura poskytuje směrný plán pro zákazníky, které jsou kompatibilní se standardem PCI DSS způsobem použít Microsoft Azure.
+Tento plán, podle kterého je určená ke splnění požadavků přísné Payment Card Industry Data Security Standards (PCI DSS 3.2) pro shromažďování, ukládání a načítání o platební karty. V zabezpečené kompatibilní s několika vrstvami prostředí a nasadit jako koncoví na end řešení Azure založené PaaS ukazuje správné zpracování dat platební karty (včetně karet číslo, vypršení platnosti a ověření dat). Další informace o požadavcích PCI DSS 3.2 a řešení najdete v tématu [PCI DSS – požadavky na vysoké úrovni přehled](pci-dss-requirements-overview.md).
+
+Tento plán, podle kterého má sloužit jako základ pro zákazníky, abyste lépe pochopili konkrétní požadavky a by se neměla používat jako-je v produkčním prostředí. Nasazení aplikace do tohoto prostředí bez úprav není dostatečná pro úplně splnění požadavků kompatibilní se standardem PCI DSS řešení pro vlastní řešení. Je třeba počítat s následujícím:
+- Tento plán, podle kterého poskytuje směrný plán pro zákazníky, které jsou kompatibilní se standardem PCI DSS způsobem použít Microsoft Azure.
 - Dosažení PCI DSS nedodržování předpisů vyžaduje, že akreditované posuzovatel pro kvalifikované zabezpečení (QSA) certifikovat produkční řešení zákazníků.
 - Zákazníci jsou provádějící příslušné zabezpečení a dodržování předpisů recenze řešení vytvořená s využitím této základní architektury, protože požadavky se mohou lišit podle specifických vlastností implementace každého zákazníka a geography.  
 
@@ -41,7 +43,7 @@ Základní architektura se skládá z následujících součástí:
 - **Nasazení šablony**. V tomto nasazení [šablon Azure Resource Manageru](/azure/azure-resource-manager/resource-group-overview#template-deployment) se používají k automaticky nasazení komponent architektury do Microsoft Azure tak, že zadáte parametry konfigurace během instalace.
 - **Automatizované skripty nasazení**. Tyto skripty pomoct nasadit řešení začátku do konce. Skripty se zabývají:
     - Instalace modulu a [globálního správce](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) instalační skript se používá k instalaci a ověřte, zda jsou správně nakonfigurovány požadované moduly prostředí PowerShell a rolí globálního správce.
-    - Instalace skriptu prostředí PowerShell slouží k nasazení řešení začátku do konce, poskytnuto prostřednictvím soubor .zip a souboru .bacpac, které obsahují předdefinovaných ukázkovou webovou aplikaci s obsahem ukázkové databáze SQL. Zdrojový kód pro toto řešení je k dispozici ke kontrole [zde](https://github.com/Microsoft/azure-sql-security-sample).
+    - Instalace skriptu prostředí PowerShell slouží k nasazení řešení začátku do konce, poskytnuto prostřednictvím soubor .zip a souboru .bacpac, které obsahují předdefinovaných ukázkovou webovou aplikaci s [ukázkové databáze SQL](https://github.com/Microsoft/azure-sql-security-sample). obsah. Zdrojový kód pro toto řešení je k dispozici ke kontrole [úložiště kódu platebních zpracování plán, podle kterého][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Diagram architektury
 
@@ -49,9 +51,9 @@ Základní architektura se skládá z následujících součástí:
 
 ## <a name="user-scenario"></a>Uživatelský scénář
 
-Základní architektura řeší případ použití níže.
+Plán, podle kterého řeší případ použití níže.
 
-> Tento scénář ukazuje, jak přesunout fiktivní webstore jejich platební karty zpracování tak, aby řešení s využitím Azure. Řešení zpracovává kolekce základní uživatelské informace včetně platebních údajů. Řešení nezpracovává plateb s těmito daty držitele karty; Jakmile data jsou shromažďována, je odpovědný za zahájení a dokončení transakce s procesorem platebních zákazníků. Další informace naleznete v dokumentu "Kontrola a pokyny pro implementaci" na [důvěřovat portálu služby Microsoft](http://aka.ms/stp).
+> Tento scénář ukazuje, jak přesunout fiktivní webstore jejich platební karty zpracování s využitím Azure PaaS řešením. Řešení zpracovává kolekce základní uživatelské informace včetně platebních údajů. Řešení nezpracovává plateb s těmito daty držitele karty; Jakmile data jsou shromažďována, je odpovědný za zahájení a dokončení transakce s procesorem platebních zákazníků. Další informace najdete v tématu ["Kontrola a pokyny pro implementaci"](https://aka.ms/pciblueprintprocessingoverview).
 
 ### <a name="use-case"></a>Případ použití
 Malé webstore názvem *Contoso Webstore* je připraven k přesunout do cloudu a jejich platebních systému. Vybral Microsoft Azure k hostování proces k nákupu a umožnit fulltextu shromažďovat platební karty platby od zákazníků.
@@ -76,9 +78,9 @@ Rolí uživatelů používaných pro ilustraci případ použití a získat pře
 | Název: |`Global Admin Azure PCI Samples`|
 |Typ uživatele:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
-* Účet správce nelze přečíst informace o kreditní kartě odmaskováno. Všechny akce jsou protokolovány.
-* Účet správce nelze spravovat nebo Přihlaste se k databázi SQL.
-* Účet správce můžete spravovat služby Active Directory a předplatné.
+- Účet správce nelze přečíst informace o kreditní kartě odmaskováno. Všechny akce jsou protokolovány.
+- Účet správce nelze spravovat nebo Přihlaste se k databázi SQL.
+- Účet správce můžete spravovat služby Active Directory a předplatné.
 
 #### <a name="role-sql-administrator"></a>Role: Správce SQL
 
@@ -90,8 +92,8 @@ Rolí uživatelů používaných pro ilustraci případ použití a získat pře
 |Příjmení: |`PCI Samples`|
 |Typ uživatele:| `Administrator`|
 
-* Účet sqladmin nelze zobrazit informace o nefiltrované platební karty. Všechny akce jsou protokolovány.
-* Účet sqladmin umožňuje spravovat databáze SQL.
+- Účet sqladmin nelze zobrazit informace o nefiltrované platební karty. Všechny akce jsou protokolovány.
+- Účet sqladmin umožňuje spravovat databáze SQL.
 
 #### <a name="role-clerk"></a>Role: Fulltextu
 
@@ -113,13 +115,13 @@ Edna Benson je např. recepční a obchodní manager. Je zodpovědná za zajišt
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - odhadované ceny
 
-Tato základní architektura a příklad webové aplikace mají měsíční poplatek struktura a využití cena za jednu hodinu, které je potřeba zvážit při dimenzování řešení. Tyto náklady se dá odhadnout pomocí [Azure cenou kalkulačky](https://azure.microsoft.com/pricing/calculator/). Od září 2017 odhadované měsíční náklady pro toto řešení je ~ $900. Tyto poplatky budou lišit v závislosti na velikosti využití a se mohou změnit. Je úlohou zákazníka k výpočtu jejich odhadované náklady na měsíční v době nasazení pro přesnější odhad. 
+Tato základní architektura a příklad webové aplikace mají měsíční poplatek struktura a využití cena za jednu hodinu, které je potřeba zvážit při dimenzování řešení. Tyto náklady se dá odhadnout pomocí [Azure cenou kalkulačky](https://azure.microsoft.com/pricing/calculator/). Od září 2017 odhadované měsíční náklady pro toto řešení je ~ $ 2 500 to zahrnuje využití poplatek 1 000 USD/měsíc v2 App Service Environment. Tyto poplatky budou lišit v závislosti na velikosti využití a se mohou změnit. Je úlohou zákazníka k výpočtu jejich odhadované náklady na měsíční v době nasazení pro přesnější odhad. 
 
 Toto řešení používá následující služby Azure. Podrobnosti o architektuře nasazení jsou umístěné v [architektura nasazení služby](#deployment-architecture) části.
 
 >- Application Gateway
 >- Azure Active Directory
->- App Service Environment
+>- V2 prostředí služby App Service
 >- OMS analýzy protokolů
 >- Azure Key Vault
 >- Network Security Groups (Skupiny zabezpečení sítě)
@@ -205,8 +207,8 @@ Instance databáze SQL Azure používá následující bezpečnostní opatření
 
 [Operations Management Suite (OMS)](/azure/operations-management-suite/) můžete poskytnout Contoso Webstore rozsáhlé protokolování veškerou aktivitu systému a uživatele, zahrnují protokolování dat držitele karty. Změny můžete zkontrolovat a ověřit přesnost. 
 
-- **Protokoly aktivity:**[protokoly aktivity](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) získat přehled o činnosti, které byly provedeny v prostředky ve vašem předplatném.  
-- **Diagnostické protokoly:**[diagnostické protokoly](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) jsou všechny protokoly vygenerované každých prostředkem.   Tyto protokoly patří protokoly událostí systému Windows, úložiště objektů Azure Blob, tabulek a protokoly fronty.
+- **Protokoly aktivity:**[protokoly aktivity](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) získat přehled o činnosti, které byly provedeny v prostředky ve vašem předplatném.
+- **Diagnostické protokoly:**[diagnostické protokoly](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) jsou všechny protokoly vygenerované každých prostředkem. Tyto protokoly patří protokoly událostí systému Windows, úložiště objektů Azure Blob, tabulek a protokoly fronty.
 - **Protokoly brány firewall:** služby Application Gateway poskytuje úplné diagnostiky a přístup k protokolům. Brány firewall protokoly jsou k dispozici pro aplikační bránu prostředky, které mají povolen firewall webových aplikací.
 - **Archivaci protokolu:** všechny diagnostické protokoly jsou nakonfigurovány k zápisu do účtu úložiště Azure centralizovaný a šifrované pro archivaci s dobou uchování definované (2 dny). Protokoly jsou připojena k analýze protokolů Azure pro zpracování, ukládání a dashboarding. [Analýza protokolu](https://azure.microsoft.com/services/log-analytics) je OMS služba, která pomáhá shromažďovat a analyzovat data generována prostředky ve vašem cloudu a místní prostředí.
 
@@ -234,7 +236,7 @@ Další informace o používání funkcí zabezpečení databáze SQL Azure, naj
 
 [Aplikační služba Azure](/azure/app-service/) je spravovaná služba pro nasazení webových aplikací. Nasazení aplikace Contoso Webstore jako [webové aplikace App Service](/azure/app-service-web/app-service-web-overview).
 
-[Azure App Service prostředí řízení,](/azure/app-service/app-service-environment/intro) je funkce služby App Service, která poskytuje plně izolovaném a vyhrazeném prostředí pro zabezpečené spouštění aplikací App Service ve velkém rozsahu. je plán služeb Premium používá tuto základní architekturu umožňující PCI DSS dodržování předpisů.
+[Azure App Service Environment (App Service Environment v2)](/azure/app-service/app-service-environment/intro) je funkce služby App Service, která poskytuje plně izolovaném a vyhrazeném prostředí pro zabezpečené spouštění aplikací App Service ve velkém rozsahu. je plán služeb Premium používá tuto základní architekturu umožňující PCI DSS dodržování předpisů.
 
 ASEs izolují spouštění jenom jednoho zákazníka aplikací a vždy nasazených do virtuální sítě. Zákazníci mají jemně odstupňovanou kontrolu nad obě aplikace příchozí a odchozí síťový provoz a aplikace může vytvořit vysokorychlostní zabezpečené připojení přes virtuální sítě k firemním prostředkům místně.
 
@@ -282,7 +284,7 @@ Použití [Application Insights](https://azure.microsoft.com/services/applicatio
 
 #### <a name="oms-solutions"></a>Řešení OMS
 
-Následující řešení OMS jsou předem nainstalován jako součást základní architektury:
+Tyto další řešení OMS by měl být a konfigurovány:
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Analýza sítí Azure](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,7 +340,7 @@ Důrazně doporučujeme, aby čistou instalaci prostředí PowerShell použít k
     
     Podrobné informace o použití pokyny najdete v tématu [pokyny skriptu – nasazení a konfigurace prostředků Azure](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. OMS protokolování a monitorování. Po nasazení řešení [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) lze otevřít pracovní prostor a ukázkové šablony součástí řešení úložiště může sloužit k objasnění, jak může být monitorování řídicí panel nakonfigurovat. Ukázkové OMS šablony naleznete [omsDashboards složky](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+3. OMS protokolování a monitorování. Po nasazení řešení [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) lze otevřít pracovní prostor a ukázkové šablony součástí řešení úložiště může sloužit k objasnění, jak může být monitorování řídicí panel nakonfigurovat. Ukázkové OMS šablony naleznete [omsDashboards složky](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Všimněte si, že data se shromažďují ve OMS pro šablony nasazení správně. To může trvat až hodinu nebo déle v závislosti na aktivitě lokality.
  
     Při nastavování vaší OMS protokolování, zvažte, včetně těchto prostředků:
  
@@ -355,11 +357,11 @@ Důrazně doporučujeme, aby čistou instalaci prostředí PowerShell použít k
     
 ## <a name="threat-model"></a>Model hrozeb
 
-Diagram toku dat (diagramu toku dat) a ukázkový model hrozeb pro Contoso Webstore jsou k dispozici v části Dokumenty [úložiště kódu][code-repo].
+Diagram toku dat (diagramu toku dat) a ukázkový model hrozeb pro Contoso Webstore [Model hrozeb zpracování plán, podle kterého platebních](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
-Další informace najdete v tématu [Model hrozeb plán, podle kterého PCI](https://aka.ms/pciblueprintthreatmodel).
+
 
 ## <a name="customer-responsibility-matrix"></a>Matice odpovědnosti zákazníka
 
@@ -376,7 +378,10 @@ Je zodpovědností ponechá kopii zákazníků [matice souhrn odpovědnost](http
 - Tento dokument je pouze informativní charakter. MICROSOFT A AVYAN PROVÉST ŽÁDNÉ ZÁRUKY, AŤ UŽ VÝSLOVNĚ UVEDENÉ, PŘEDPOKLÁDANÉ NEBO STATUTÁRNÍ INFORMACE V TOMTO DOKUMENTU. Tento dokument je poskytován "jako-je." Informace a názory vyjádřené v tomto dokumentu včetně adres URL a dalších odkazů na internetové weby mohou změnit bez předchozího upozornění. Zákazníci čtení tohoto dokumentu na sebe rizika spojená s jejím používáním.  
 - Tento dokument neposkytuje zákazníkům žádná zákonná práva týkající se jakékoli produkty společnosti Microsoft nebo Avyan nebo řešení duševního vlastnictví.  
 - Zákazníci mohou kopírovat a používat tento dokument pro interní referenční účely.  
-- Některá doporučení v tomto dokumentu může mít za následek vyšší data, síťové nebo využití výpočetních prostředků v Azure a může zvýšit náklady Azure licence nebo předplatné zákazníka.  
+
+  > [!NOTE]
+  > Některá doporučení v tomto dokumentu může mít za následek vyšší data, síťové nebo využití výpočetních prostředků v Azure a může zvýšit náklady Azure licence nebo předplatné zákazníka.  
+
 - Řešení v tomto dokumentu slouží jako základní architektura a nesmí se používat jako-je pro produkční účely. Dosažení soulad s normami PCI vyžaduje, aby zákazníci poraďte se s jejich kvalifikovaný posuzovatel zabezpečení.  
 - Všechny názvy zákazníků, záznamy transakce a všechna související data na této stránce jsou smyšlené, vytvoří pro účely této základní architektury a jenom ilustrativní. Je určen žádný skutečný vztah nebo připojení a žádné vyvozovat.  
 - Toto řešení společně vyvinula společnost Microsoft a konzultace ohledně Avyan a je k dispozici v části [licencí MIT](https://opensource.org/licenses/MIT).
@@ -384,8 +389,8 @@ Je zodpovědností ponechá kopii zákazníků [matice souhrn odpovědnost](http
 
 ### <a name="document-authors"></a>Autoři dokumentu
 
-* *František Simorjay (Microsoft)*  
-* *Gururaj Pandurangi (Avyan poradě)*
+- *František Simorjay (Microsoft)*  
+- *Gururaj Pandurangi (Avyan poradě)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Úložiště kódu"

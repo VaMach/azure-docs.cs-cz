@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c609f3af1b97b16fca3aabc5d7ce568ff8c660f2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ede1a974b32227edf44464ed56ae85a1ea7ee97b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Vytvoření aplikací Spark pro cluster služby HDInsight pomocí nástrojů Azure pro Eclipse
 
@@ -86,10 +86,7 @@ Otevřete prostředí Eclipse, HDInsight nástroj automaticky zjišťuje, zda js
    * V **Spark knihovny** oblasti, můžete zvolit **Maven použijte ke konfiguraci Spark SDK** možnost.  Naše nástroj integruje správnou verzi Spark SDK a Scala SDK. Můžete také **ručně přidat Spark SDK** možnost, stáhněte a přidat sadu SDK Spark pomocí ručně.
 
    ![Dialogové okno Nový projekt HDInsight Scala](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. Kvůli známému problému potřebovat ověřit verzi scala znovu po kliknutí na **Další**. Zkontrolujte, zda že je verze scala blízko výběr v kroku 4.
-
-   ![comfirm scala knihovny.](./media/apache-spark-eclipse-tool-plugin/comfirm-scala-library-container.png)
-6. V dialogovém okně Další vyberte **Dokončit**. 
+5. V dialogovém okně Další vyberte **Dokončit**. 
    
   
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>Vytvořit aplikaci pro cluster služby HDInsight Spark Scala

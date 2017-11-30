@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Oprava a diagnostika chyb připojení SQL a přechodných chyb služby SQL Database a jejich předcházení
 Tento článek popisuje, jak zabránit, odstraňování, diagnostikovat a opravit chyby připojení a přechodné chyby, které klientské aplikace, zaznamená při komunikuje se službou Azure SQL Database. Zjistěte, jak nakonfigurovat logika opakovaných pokusů, sestavení připojovacího řetězce a další nastavení připojení.
@@ -40,16 +40,17 @@ Budete pokus o připojení SQL nebo znovu vytvořit v závislosti na následují
 * **Při pokusu o připojení dojde k přechodné chybě**: připojení je třeba opakovat po zpozdit pro několik sekund.
 * **Příkaz dotazu SQL došlo k přechodné chybě**: příkaz nesmí opakovat okamžitě. Místo toho po prodlevě, připojení by se mělo čerstvě vytvořit. Příkaz pak můžete opakovat.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>Logika opakování pro přechodné chyby
+## <a name="retry-logic-for-transient-errors"></a>Logika opakování pro přechodné chyby
 Klient programy, které někdy dojde k přechodné chybě jsou robustnější při obsahují logiku opakovaných pokusů.
 
 Pokud váš program komunikuje s Azure SQL Database pomocí 3. stran middleware, Dotázat se s dodavatelem zda middleware obsahuje logiku opakovaných pokusů pro přechodné chyby.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>Zásady pro opakování
+### <a name="principles-for-retry"></a>Zásady pro opakování
 * Pokud je chyba přechodný je třeba opakovat pokus o otevření připojení.
 * Příkaz SELECT, který selže s přechodná chyba by neměl přímo opakovat.
   
@@ -58,30 +59,31 @@ Pokud váš program komunikuje s Azure SQL Database pomocí 3. stran middleware,
   
   * Logika opakovaných pokusů musí zajistit, že buď celé databáze transakce byla dokončena, nebo že celá transakce bude vrácena zpět.
 
-#### <a name="other-considerations-for-retry"></a>Další důležité informace pro opakování
+### <a name="other-considerations-for-retry"></a>Další důležité informace pro opakování
 * Batch program, který se automaticky spustí po pracovní době, a před ráno, která dokončí si může dovolit velmi pacienta s dlouho časových intervalů mezi jeho počet pokusů o opakování.
 * Program uživatelského rozhraní by měl účet pro lidské tendence, že uvolňovat po příliš dlouho čekání.
   
   * Však řešení nesmí být opakovat každých několik sekund, protože tyto zásady můžete vyplnění systému s žádostí.
 
-#### <a name="interval-increase-between-retries"></a>Zvyšte interval mezi opakovanými pokusy
+### <a name="interval-increase-between-retries"></a>Zvyšte interval mezi opakovanými pokusy
 Doporučujeme, abyste zpoždění pro 5 sekund před první opakování. Opakování po prodlevě kratší než 5 sekund rizika zahltí cloudové služby. Pro každý další pokusy exponenciálnímu, růst zpoždění až do maximálního počtu 60 sekund.
 
 Popis *blokování období* pro klienty, kteří používají ADO.NET je k dispozici v [SQL sdružování připojení serveru (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Také můžete chtít nastavit maximální počet opakovaných pokusů, než program samoobslužné ukončí.
 
-#### <a name="code-samples-with-retry-logic"></a>Ukázky kódu s logika opakovaných pokusů
-Ukázky kódu s logikou opakování v různých programovacích jazyků, jsou k dispozici na:
+### <a name="code-samples-with-retry-logic"></a>Ukázky kódu s logika opakovaných pokusů
+Příklady kódu s logikou opakování užitečnou jsou k dispozici na:
 
-* [Knihovny připojení k databázi SQL a SQL Server](sql-database-libraries.md)
+- [Pružným způsobem připojení k serveru SQL s ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Pružným způsobem připojení k serveru SQL s PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>Testování logika opakovaných pokusů
+### <a name="test-your-retry-logic"></a>Testování logika opakovaných pokusů
 K testování logika opakovaných pokusů, musíte simulovat nebo způsobit chybu, než může být vyřešen při běhu programu.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>Test odpojení od sítě
+#### <a name="test-by-disconnecting-from-the-network"></a>Test odpojení od sítě
 Jedním ze způsobů, které můžete testovat logika opakovaných pokusů je klientský počítač odpojit od sítě, když je aplikace spuštěna. Chyba bude:
 
 * **SqlException.Number** = 11001
@@ -98,7 +100,7 @@ Chcete-li to praktické, můžete odpojit počítači ze sítě, než aplikace. 
    * Další pozastavit provádění pomocí **Console.ReadLine** metoda nebo dialogovém okně tlačítko OK. Uživatel stisknutím klávesy Enter po počítače připojené k síti.
 5. Pokusí znovu připojit, byla očekávána úspěch.
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Test Chyba v pravopisu název databáze při připojování
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Test Chyba v pravopisu název databáze při připojování
 Váš program můžete účelově chybně uživatelské jméno před první pokus o připojení. Chyba bude:
 
 * **SqlException.Number** = 18456
@@ -114,15 +116,15 @@ Chcete-li to praktické, může váš program rozpoznat běhu parametr, který v
 4. Odeberte 'WRONG_' uživatelského jména.
 5. Pokusí znovu připojit, byla očekávána úspěch.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametry objektu SqlConnection .NET pro opakování připojení
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametry objektu SqlConnection .NET pro opakování připojení
 Pokud váš klientský program připojí k databázi SQL Azure s použitím třídy rozhraní .NET Framework **System.Data.SqlClient.SqlConnection**, měli byste použít .NET 4.6.1 nebo novější (nebo .NET Core), můžete použít funkci opakování jeho připojení. Podrobnosti o funkce jsou [zde](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 Při vytváření [připojovací řetězec](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) pro vaše **SqlConnection** objektu, by měly koordinovat hodnoty mezi následujícími parametry:
 
@@ -138,7 +140,7 @@ Například pokud je počet = 3 a interval = 10 sekund, vypršení časového li
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>Připojení a příkaz
+## <a name="connection-versus-command"></a>Připojení a příkaz
 **ConnectRetryCount** a **ConnectRetryInterval** parametry umožní vaše **SqlConnection** objekt opakujte operaci připojení bez informuje nebo bothering programu, například vrácení řízení vašeho programu. Opakované pokusy se může objevit v následujících situacích:
 
 * volání metody mySqlConnection.Open
@@ -146,8 +148,9 @@ Například pokud je počet = 3 a interval = 10 sekund, vypršení časového li
 
 Není k dispozici subtlety. Pokud dojde k přechodné chybě. při vaší *dotazu* je spouštěna, vaše **SqlConnection** objekt neopakuje operace připojení a jeho určitě neopakuje dotazu. Ale **SqlConnection** velmi rychle zkontroluje připojení před odesláním dotazu pro provedení. Pokud Rychlá kontrola zjistí problému s připojením **SqlConnection** opakování operace připojení. Pokud opakovaném úspěšné, odešle dotaz je pro provedení.
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Měli ConnectRetryCount nelze kombinovat s logika opakovaných pokusů aplikace?
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Měli ConnectRetryCount nelze kombinovat s logika opakovaných pokusů aplikace?
 Předpokládejme, že aplikace má robustní vlastní opakování logiku. Může opakujte operaci připojení 4 časy. Pokud přidáte **ConnectRetryInterval** a **ConnectRetryCount** = 3 pro připojovací řetězec, zvýšíte počet opakování do 4 * 3 = 12 opakování. Hodláte nemusí takové velký počet opakování.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -373,9 +376,7 @@ Podrobnosti najdete v tématu: [5 – jako snadno jako návratem vypnout protoko
 ### <a name="entlib60-istransient-method-source-code"></a>EntLib60 IsTransient metoda zdrojového kódu
 Další z **SqlDatabaseTransientErrorDetectionStrategy** třídy, je C# zdrojový kód **IsTransient** metoda. Zdrojový kód vysvětluje, které chyby se považuje za přechodný a worthy z opakování od dubna 2013.
 
-Řada **//comment** řádky byly odebrány z této kopie zdůraznit čitelnost.
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Další kroky
 * Řešení potíží s další běžné problémy s připojením databáze SQL Azure, najdete v článku [řešení problémů s připojením k databázi SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
-* [Připojení k serveru SQL sdružování (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [Knihovny připojení k databázi SQL a SQL Server](sql-database-libraries.md)
+* [Připojení k serveru SQL sdružování (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Opakováním* je Apache 2.0 licenci pro obecné účely, opakování knihovny, které jsou napsané v **Python**, aby se zjednodušila úkolu přidávání opakování chování pro jakoukoli.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

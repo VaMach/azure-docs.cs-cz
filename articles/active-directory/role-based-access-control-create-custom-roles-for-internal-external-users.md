@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: bb9b89d087cfb62efe63cf0ff600d7faa58a7b8b
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/30/2017
 ---
-## <a name="intro-on-role-based-access-control"></a>Úvod na řízení přístupu na základě rolí
+# <a name="intro-on-role-based-access-control"></a>Úvod na řízení přístupu na základě rolí
 
 Řízení přístupu na základě role je Azure portálu pouze funkce povolení vlastníky předplatného přiřadit granulární role jiným uživatelům, kteří mohou spravovat konkrétní prostředek obory ve svém prostředí.
 
@@ -32,11 +32,10 @@ Používání RBAC v prostředí Azure vyžaduje:
 * Nutnosti samostatné předplatné přiřazeny uživateli jako vlastník (předplatné role)
 * Mít roli vlastníka předplatného Azure
 * K dispozici [portálu Azure](https://portal.azure.com)
-* Zajistěte si následující zprostředkovatelé prostředků zaregistrovat pro předplatné uživatele: **Microsoft.Authorization**. Další informace o postupu při registraci zprostředkovatele prostředků najdete v tématu [zprostředkovatelé Resource Manager, oblastí, verzí rozhraní API a schémat](/azure-resource-manager/resource-manager-supported-services.md).
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
+* Zajistěte si následující zprostředkovatelé prostředků zaregistrovat pro předplatné uživatele: **Microsoft.Authorization**. Další informace o postupu při registraci zprostředkovatele prostředků najdete v tématu [zprostředkovatelé Resource Manager, oblastí, verzí rozhraní API a schémat](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Předplatná Office 365 nebo Azure Active Directory licence (například: přístup k Azure Active Directory) zajištěného z O365 portálu není kvality pomocí RBAC.
+> Předplatná Office 365 nebo Azure Active Directory licence (například: přístup k Azure Active Directory) zajištěného z O365 portál nemáte kvalifikaci pro pomocí RBAC.
 
 ## <a name="how-can-rbac-be-used"></a>RBAC použití
 RBAC lze použít na tři různé rozsahy v Azure. Z oboru nejvyšší nejnižší tomu, že jsou následující:
@@ -76,8 +75,7 @@ Po výběru předplatného, musíte kliknout na uživatel s oprávněními sprá
 
 ![Přidání nového uživatele v IAM funkce řízení přístupu na portálu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-Dalším krokem je vybrat role, kterou chcete přiřadit a uživatel, kterému se přiřadí RBAC role. V **Role** rozevírací nabídce Uživatel s oprávněními správce vidí jenom integrovanou RBAC role, které jsou k dispozici v Azure. Podrobné vysvětlení jednotlivých rolí a jejich přiřaditelnými obory, najdete v části [předdefinované role pro řízení přístupu](/active-directory/role-based-access-built-in-roles.md).
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
+Dalším krokem je vybrat role, kterou chcete přiřadit a uživatel, kterému se přiřadí RBAC role. V **Role** rozevírací nabídce Uživatel s oprávněními správce vidí jenom integrovanou RBAC role, které jsou k dispozici v Azure. Podrobné vysvětlení jednotlivých rolí a jejich přiřaditelnými obory, najdete v části [předdefinované role pro řízení přístupu](role-based-access-built-in-roles.md).
 
 Pak musí přidat e-mailovou adresu externího uživatele, uživatel s oprávněními správce. Očekávané chování je externí uživatel není zobrazena v existujícího klienta. Po pozval externí uživatel zadá budou viditelné v rámci **odběry > řízení přístupu (IAM)** s aktuální uživateli, které jsou přiřazeny role RBAC v obor předplatného.
 
@@ -123,8 +121,7 @@ V **uživatelé** zobrazení v obou portálů rozpoznal externí uživatele:
 * Typ vlastní ikonu na portálu Azure
 * Jiné zdrojové bod v portálu classic
 
-Ale udělení **vlastníka** nebo **Přispěvatel** přístup k externím uživatelem v **předplatné** obor, neumožňuje přístup k adresáři uživatele správce, pokud **Globálního správce** to umožňuje. Ve vlastnosti uživatele **typ uživatele** jehož dvě společné parametry, **člen** a **hosta** lze identifikovat. Člen je uživatel, která je registrována v adresáři, zatímco hosta je uživatel vyzván k adresáři z externího zdroje. Další informace najdete v tématu [jak správci Azure Active Directory přidat uživatele spolupráce B2B](/active-directory/active-directory-b2b-admin-add-users).
-<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
+Ale udělení **vlastníka** nebo **Přispěvatel** přístup k externím uživatelem v **předplatné** obor, neumožňuje přístup k adresáři uživatele správce, pokud **Globálního správce** to umožňuje. Ve vlastnosti uživatele **typ uživatele** jehož dvě společné parametry, **člen** a **hosta** lze identifikovat. Člen je uživatel, která je registrována v adresáři, zatímco hosta je uživatel vyzván k adresáři z externího zdroje. Další informace najdete v tématu [jak správci Azure Active Directory přidat uživatele spolupráce B2B](active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
 > Ujistěte se, že po zadání přihlašovacích údajů na portálu, externí uživatel vybere správný adresář, který má přihlášení k. Stejný uživatel můžete mít přístup k více adresářů a můžete vybrat některý z nich kliknutím uživatelské jméno v vpravo nahoře na portálu Azure a potom z rozevíracího seznamu vyberte příslušného adresáře.
@@ -165,7 +162,7 @@ Normální chování pro tento externí uživatele s tato předdefinovaná role 
 
 
 
-![Přehled role Přispěvatel virtuálních počítačů na portálu azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
+![Přehled role Přispěvatel virtuálních počítačů na portálu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Udělení přístupu na úrovni předplatného pro uživatele ve stejném adresáři
 Tok procesu je stejný jako při přidávání externího uživatele, z pohledu správce udělení RBAC role, jakož i uživatele i udělení přístupu k roli. Rozdíl je, že pozvané uživatele neobdrží žádné pozvánek e-mailu jako všechny obory prostředků v rámci předplatného. bude k dispozici v řídicím panelu po přihlášení.
@@ -348,4 +345,4 @@ Od verze nejnovější 2017 sestavení je všeobecně dostupná prostředí clou
 
 
 
-![Prostředí cloudu Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)
+![Azure Cloud Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)

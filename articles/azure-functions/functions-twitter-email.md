@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 910077645b521d4cd303d39f543cf155161a31c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d4915cf12690c98275b1fe327dd2574a6343e9e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Vytvoří funkci, která se integruje se službou Azure Logic Apps
 
@@ -33,7 +33,7 @@ V tomto kurzu se dozvíte, jak použít funkce s Logic Apps a kognitivní služe
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvoření účtu kognitivní Services.
+> * Vytvořte prostředek kognitivní služeb rozhraní API.
 > * Vytvoří funkci, která rozděluje tweet postojích.
 > * Vytvoření aplikace logiky, která se připojuje ke službě Twitter.
 > * Detekce postojích přidáte do aplikace logiky. 
@@ -47,29 +47,28 @@ V tomto kurzu se naučíte:
 + Toto téma používá jako výchozí bod prostředky, které jste vytvořili v kroku [Vytvoření první funkce na portálu Azure Portal](functions-create-first-azure-function.md).  
 Pokud jste tak již neučinili, dokončete tyto kroky teď k vytvoření aplikace funkce.
 
-## <a name="create-a-cognitive-services-account"></a>Vytvoření účtu kognitivní Services
+## <a name="create-a-cognitive-services-resource"></a>Vytvořte prostředek kognitivní služby
 
-Účet kognitivní Services je požadovaná pro zjištění myšlenkou tweetů monitorovány.
+Kognitivní rozhraní API služby jsou dostupné v Azure jako jednotlivé prostředky. Rozhraní API Analytics Text použijte k detekci myšlenkou tweetů monitorovány.
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
 2. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
 
-3. Klikněte na tlačítko **Data + analýzy** > **kognitivní služby**. Pak používat nastavení zadané v tabulce, přijměte podmínky a zkontrolujte **připnout na řídicí panel**.
+3. Klikněte na tlačítko **AI + analýzy** > **Analýza textu rozhraní API**. Pak používat nastavení zadané v tabulce, přijměte podmínky a zkontrolujte **připnout na řídicí panel**.
 
-    ![Vytvoření stránky kognitivní účtu](media/functions-twitter-email/cog_svcs_account.png)
+    ![Vytvoření stránky kognitivní prostředků](media/functions-twitter-email/cog_svcs_resource.png)
 
     | Nastavení      |  Navrhovaná hodnota   | Popis                                        |
     | --- | --- | --- |
     | **Název** | MyCognitiveServicesAccnt | Zvolte název jedinečný účet. |
-    | **Typ rozhraní API** | Rozhraní Text Analytics API | Rozhraní API použít k analýze textu.  |
-    | **Umístění** | Západní USA | V současné době pouze **západní USA** je k dispozici pro Analýza textu. |
+    | **Umístění** | Západní USA | Umístění nejbližší můžete použijte. |
     | **Cenová úroveň** | F0 | Začněte s nejnižší úroveň. Pokud spustíte z volání, škálovat na vyšší úroveň.|
     | **Skupina prostředků** | myResourceGroup | Používejte stejnou skupinu prostředků pro všechny služby v tomto kurzu.|
 
-4. Klikněte na tlačítko **vytvořit** k vytvoření účtu. Po vytvoření účtu klikněte na tlačítko vaší nové kognitivní služby účet připnuli k řídicímu panelu. 
+4. Klikněte na tlačítko **vytvořit** k vytvoření prostředku. Po vytvoření, vyberte nového prostředku kognitivní služby připnuli k řídicímu panelu. 
 
-5. V rámci účtu, klikněte na **klíče**a poté zkopírujte hodnotu **klíč 1** a uložte ho. Tento klíč použijete pro připojení k účtu služby kognitivní aplikaci logiky. 
+5. Ve sloupci levém navigačním panelu klikněte na tlačítko **klíče**a poté zkopírujte hodnotu **klíč 1** a uložte ho. Tento klíč použijete k připojení aplikace logiky k vašemu kognitivní rozhraní API služby. 
  
     ![Klíče](media/functions-twitter-email/keys.png)
 
@@ -77,13 +76,26 @@ Pokud jste tak již neučinili, dokončete tyto kroky teď k vytvoření aplikac
 
 Funkce nabízí skvělý způsob, jak přesměrování zpracování úloh zpracování v pracovním postupu logiku aplikace. Tento kurz používá funkce protokolu HTTP aktivované ke zpracování tweet postojích skóre z kognitivní služeb a vrátit hodnotu kategorie.  
 
-1. Rozbalte funkce aplikace, klikněte na tlačítko  **+**  vedle položky **funkce**, klikněte na tlačítko **HTTPTrigger** šablony. Typ `CategorizeSentiment` pro funkci **název** a klikněte na tlačítko **vytvořit**.
+1. Klikněte **nový** tlačítko a vyberte **výpočetní** > **aplikaci funkce**. Pak použijte nastavení zadané v následující tabulce. Přijměte podmínky a pak vyberte **připnout na řídicí panel**.
+
+    ![Vytvoření aplikace Azure – funkce](media/functions-twitter-email/create_fun.png)
+
+    | Nastavení      |  Navrhovaná hodnota   | Popis       |
+    | --- | --- | --- |
+    | **Název** | MyFunctionApp | Zvolte název jedinečný účet. |
+    | **Skupina prostředků** | myResourceGroup | Používejte stejnou skupinu prostředků pro všechny služby v tomto kurzu.|
+    | **Hostování plán** | Plán spotřeba | Definuje vaše náklady a využití přidělení.
+    | **Umístění** | Západní USA | Umístění nejbližší můžete použijte. |
+    | **Úložiště** | Vytvořit nový | Automaticky vytvoří nový účet úložiště.|
+    | **Cenová úroveň** | F0 | Začněte s nejnižší úroveň. Pokud spustíte z volání, škálovat na vyšší úroveň.|
+
+2. Vyberte svou aplikaci funkce z řídicího panelu a rozšířit funkce, klikněte  **+**  vedle položky **funkce**, klikněte **Webhook + API**,  **CSharp**, pak **vytvořit tuto funkci**. Tím se vytvoří funkci pomocí šablony HTTPTrigger C#. Zobrazí se v novém okně jako váš kód`run.csx`
 
     ![Okno aplikace funkce, funkce +](media/functions-twitter-email/add_fun.png)
 
-2. Nahraďte obsah souboru run.csx následující kód a potom klikněte na **Uložit**:
+3. Nahraďte obsah `run.csx` soubor s následujícím kódem a pak klikněte na **Uložit**:
 
-    ```c#
+    ```csharp
     using System.Net;
     
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
@@ -110,11 +122,11 @@ Funkce nabízí skvělý způsob, jak přesměrování zpracování úloh zpraco
     ```
     Tento kód funkce vrátí barevné kategorie podle skóre postojích přijaté v požadavku. 
 
-3. Chcete-li otestovat funkci, klikněte na tlačítko **testování** na pravém rozbalte karta testu. Zadejte hodnotu `0.2` pro **text žádosti**a potom klikněte na **spustit**. Hodnota **RED** je vrácený v textu odpovědi. 
+4. Chcete-li otestovat funkci, klikněte na tlačítko **testování** na pravém rozbalte karta testu. Zadejte hodnotu `0.2` pro **text žádosti**a potom klikněte na **spustit**. Hodnota **RED** je vrácený v textu odpovědi. 
 
     ![Testování funkce na portálu Azure](./media/functions-twitter-email/test.png)
 
-Nyní máte funkci, která rozděluje postojích skóre. Dále vytvoříte aplikaci logiky, která integruje funkce s vaše účty služby Twitter a kognitivní služby. 
+Nyní máte funkci, která rozděluje postojích skóre. Dále vytvoříte aplikaci logiky, která integruje funkce pomocí Twitteru a kognitivní rozhraní API služby. 
 
 ## <a name="create-a-logic-app"></a>Vytvoření aplikace logiky   
 
@@ -124,7 +136,7 @@ Nyní máte funkci, která rozděluje postojích skóre. Dále vytvoříte aplik
  
 4. Poté zadejte **název** jako `TweetSentiment`používat nastavení zadané v tabulce, přijměte podmínky a zkontrolujte **připnout na řídicí panel**.
 
-    ![Vytvoření aplikace logiky na portálu Azure](./media/functions-twitter-email/new_logicApp.png)
+    ![Vytvoření aplikace logiky na portálu Azure](./media/functions-twitter-email/new_logic_app.png)
 
     | Nastavení      |  Navrhovaná hodnota   | Popis                                        |
     | ----------------- | ------------ | ------------- |
@@ -152,7 +164,7 @@ Nejprve vytvořte připojení ke svému účtu služby Twitter. Aplikace logiky 
 
     | Nastavení      |  Navrhovaná hodnota   | Popis                                        |
     | ----------------- | ------------ | ------------- |
-    | **Hledaný text** | #Azure | Použijte hashtagu, který je dostatečně oblíbených generovat nové tweetů zvolené intervalu. Při použití úroveň Free a vaše hashtag je příliš oblíbených, můžete rychle použít až transakce ve vašem účtu kognitivní služby. |
+    | **Hledaný text** | #Azure | Použijte hashtagu, který je dostatečně oblíbených generovat nové tweetů zvolené intervalu. Při použití úroveň Free a vaše hashtag je příliš oblíbených, můžete rychle použít až kvótu transakce v kognitivní rozhraní API služby. |
     | **Frekvence** | Minuta | Frekvence jednotka použít pro cyklické dotazování služby Twitter.  |
     | **Interval** | 15 | Uplynulý čas mezi požadavků služby Twitter, v jednotkách frekvence. |
 
@@ -170,7 +182,7 @@ Aplikace je teď připojený k Twitter. V dalším kroku připojíte k Analýza 
 
     ![Zjištění postojích](media/functions-twitter-email/detect_sent.png)
 
-3. Zadejte například název připojení `MyCognitiveServicesConnection`, vložte klíč pro vaše kognitivní služby účtu, který jste uložili a klikněte na tlačítko **vytvořit**.  
+3. Zadejte například název připojení `MyCognitiveServicesConnection`, vložte klíč pro vaše kognitivní rozhraní API služby, který jste uložili a klikněte na **vytvořit**.  
 
 4. Klikněte na tlačítko **Text k analýze** > **Tweet text**a potom klikněte na **Uložit**.  
 
@@ -202,7 +214,7 @@ Poslední část pracovního postupu je pro aktivaci e-mailu, když myšlenkou s
 
     ![Přidáte podmínku do aplikace logiky.](media/functions-twitter-email/condition.png)
 
-3. V **Pokud ano, NEDĚLAT nic**, klikněte na tlačítko **přidat akci**, vyhledejte `outlook.com`, klikněte na tlačítko **e-mailovou zprávu**a přihlaste se ke svému účtu Outlook.com.
+3. V **hodnotu TRUE Pokud**, klikněte na tlačítko **přidat akci**, vyhledejte `outlook.com`, klikněte na tlačítko **e-mailovou zprávu**a přihlaste se ke svému účtu Outlook.com.
     
     ![Vyberte akci pro podmínku.](media/functions-twitter-email/outlook.png)
 
@@ -211,7 +223,7 @@ Poslední část pracovního postupu je pro aktivaci e-mailu, když myšlenkou s
 
 4. V **e-mailovou zprávu** akce, použijte nastavení e-mailu jako zadané v tabulce. 
 
-    ![Konfigurace e-mailu pro odeslání e-mailu akce.](media/functions-twitter-email/sendEmail.png)
+    ![Konfigurace e-mailu pro odeslání e-mailu akce.](media/functions-twitter-email/send_email.png)
 
     | Nastavení      |  Navrhovaná hodnota   | Popis  |
     | ----------------- | ------------ | ------------- |
@@ -246,7 +258,7 @@ Teď, když je dokončení pracovního postupu, můžete povolit aplikaci logiky
         return req.CreateResponse(HttpStatusCode.OK, category);
 
     > [!IMPORTANT]
-    > Po dokončení tohoto kurzu, měli byste zakázat aplikaci logiky. Zakázáním aplikace se vyhnout se účtovat pro spuštění a pomocí transakce ve vašem účtu kognitivní služby.
+    > Po dokončení tohoto kurzu, měli byste zakázat aplikaci logiky. Zakázáním aplikace se vyhnout se účtovat pro spuštění a pomocí transakce v kognitivní rozhraní API služby.
 
 Nyní jste viděli, jak je snadné pro integraci funkcí do pracovního postupu Logic Apps.
 
@@ -261,7 +273,7 @@ Chcete-li zakázat aplikaci logiky, klikněte na tlačítko **přehled** a pak k
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]
-> * Vytvoření účtu kognitivní Services.
+> * Vytvořte prostředek kognitivní služeb rozhraní API.
 > * Vytvoří funkci, která rozděluje tweet postojích.
 > * Vytvoření aplikace logiky, která se připojuje ke službě Twitter.
 > * Detekce postojích přidáte do aplikace logiky. 

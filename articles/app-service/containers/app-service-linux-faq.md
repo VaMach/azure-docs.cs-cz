@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>V systému Linux nejčastější dotazy týkající se služby Azure App Service
 
@@ -64,6 +64,20 @@ Ano.
 **Je možné používat *nasazení webu* nasazení webová aplikace?**
 
 Ano, je nutné nastavit aplikaci názvem `WEBSITE_WEBDEPLOY_USE_SCM` k *false*.
+
+**Nasazení Git Moje aplikace nezdaří, při použití Linux webové aplikace. Jak můžu alternativní řešení problému?**
+
+Pokud nasazení Git webové aplikace v systému Linux, je možné následující alternativní možnosti nasazení kódu aplikace:
+
+- Použít funkci nastavené průběžné doručování (Preview): můžete ukládat zdrojového kódu vaší aplikace do úložiště Team Services Git nebo úložiště GitHub používat Azure nastavené průběžné doručování. Další podrobnosti najdete v tématu [postup konfigurace nastavené průběžné doručování pro webovou aplikaci Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+
+- Použít [ZIP nasadit rozhraní API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): používat toto rozhraní API [SSH do vaší webové aplikace](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) a přejděte do složky, ve které chcete nasadit kód. Spusťte následující příkazy:
+
+   ```
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   ```
+
+   Pokud dojde k chybě `curl` příkaz nebyl nalezen, je nutné nainstalovat curl pomocí `apt-get install curl` předtím, než spustíte předchozí `curl` příkaz.
 
 ## <a name="language-support"></a>Podpora jazyků
 

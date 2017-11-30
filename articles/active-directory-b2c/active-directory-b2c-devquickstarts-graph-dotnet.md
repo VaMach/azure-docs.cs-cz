@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: ccd8bf902f707390f80e3c377e60dd35d535b4b5
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: cce30360145fe430141ceaf2efc91a6b87938601
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API pomocí
 
 >[!NOTE]
->V současné době je nutné použít [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) ke správě uživatelů v adresáři služby Azure AD B2C.
+> Je nutné použít [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) ke správě uživatelů v adresáři služby Azure AD B2C. To se liší od společnosti Microsoft Graph API. Další informace najdete [tady](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
 Azure Active Directory (Azure AD) B2C klientů jsou obvykle velké. To znamená, že mnoho běžné úlohy správy klienta musí být provedeny prostřednictvím kódu programu. Primární příkladem je Správa uživatelů. Možná budete muset migrovat stávající úložiště uživatele do klienta B2C. Můžete pro hostování registrace uživatele na vlastní stránky a vytvářet uživatelské účty ve svém adresáři Azure AD B2C na pozadí. Tyto typy úloh vyžadovat schopnost vytvářet, číst, aktualizovat a odstraňovat uživatelské účty. Můžete provést tyto úlohy pomocí rozhraní Azure AD Graph API.
 

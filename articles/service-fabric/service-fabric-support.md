@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/12/2017
+ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: 7bc0f70e99be04cd646c0b7c610f7c6e4a74dfc2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Možnosti podpory Azure Service Fabric
 
@@ -68,15 +68,15 @@ Naleznete v následujících dokumentech na podrobnosti o tom, jak udržovat clu
  
 Tady najdete seznam verzí Service Fabric, které jsou podporovány a koncovém datu jejich podporu.
 
-| **Cluster modulu runtime Service Fabric** | **Kompatibilní SDK / verze balíčku NuGet** | **Koncové datum podpory** |
-| --- | --- | --- |
-| Všechny verze clusteru před 5.3.121 |Menší než nebo rovna verze 2.3 |20. ledna 2017 |
-| 5.3.* |Menší než nebo rovna verze 2.3 |24. února 2017 |
-| 5.4.* |Menší než nebo rovna verze 2.4 |Může 10,2017       |
-| 5.5.* |Menší než nebo rovna verze 2.5 |Srpen 10,2017    |
-| 5.6.* |Menší než nebo rovna verzi 2.6 |Říjen 13,2017   |
-| 5.7.* |Menší než nebo rovna verze 2.7 |Prosinec 15,2017  |
-| 6.0.* |Menší než nebo rovna verze 2.8 |Aktuální verze a proto žádné datum ukončení
+| **Modulu runtime Service Fabric v clusteru** | **Můžete upgradovat přímo z verze clusteru** |**Kompatibilní SDK / verze balíčku NuGet** | **Koncové datum podpory** |
+| --- | --- |--- | --- |
+| Všechny verze clusteru před 5.3.121 | 5.1.158* |Menší než nebo rovna verze 2.3 |20. ledna 2017 |
+| 5.3.* | 5.1.158.* |Menší než nebo rovna verze 2.3 |24. února 2017 |
+| 5.4.* | 5.1.158.* |Menší než nebo rovna verze 2.4 |Může 10,2017       |
+| 5.5.* | 5.4.164.* |Menší než nebo rovna verze 2.5 |Srpen 10,2017    |
+| 5.6.* | 5.4.164.* |Menší než nebo rovna verzi 2.6 |Říjen 13,2017   |
+| 5.7.* | 5.4.164.* |Menší než nebo rovna verze 2.7 |Prosinec 15,2017  |
+| 6.0.* | 5.6.205.* |Menší než nebo rovna verze 2.8 |Aktuální verze a proto žádné datum ukončení |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Verze Preview prostředků infrastruktury služby - nepodporovaný pro použití v provozním prostředí.
 Čas od času jsme vydání verzí, které mají významných funkcí, které chceme zpětné vazby, které vydávají jako verze Preview. Tato verze preview lze používat pouze pro účely testování. Provozní cluster měli vždycky používat verzi podporován, stabilní, Service Fabric. Ve verzi preview vždycky začíná číslem hlavní verze a podverze 255. Například pokud se zobrazí Service Fabric verze 255.255.5703.949, tuto verzi je jenom pro použití v testovacích clusterů a je ve verzi preview. Tato verze preview také odesílány zpět [blog týmu Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) a bude mít podrobné informace o funkcích, které jsou.

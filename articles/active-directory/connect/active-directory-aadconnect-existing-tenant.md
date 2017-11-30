@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a62a3954d10e718f5d180ddb725c6a9c7cda56c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7df154748a4ce8ac592a41f2a3d6b10ac359113
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Pokud máte existující klienta
 Většinu témat, jak používat Azure AD Connect předpokládá začínat nové Azure AD klienta a že nejsou žádní uživatelé nebo existuje jiné objekty. Ale pokud jste spustili s klient Azure AD, naplní uživatelů a dalších objektů a teď chcete použít připojení, pak toto téma je pro vás.
@@ -33,7 +33,7 @@ Pokud jste začali ke správě uživatelů ve službě Azure AD, které jsou k d
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synchronizovat s stávajících uživatelů ve službě Azure AD
 Při instalaci Azure AD Connect a spustíte synchronizaci, služby Azure AD sync (ve službě Azure AD) neobsahuje kontrolu pro každý nový objekt a akci k vyhledání existujícího objektu tak, aby odpovídaly. Pro tento proces se používají tři atributy: **userPrincipalName**, **proxyAddresses**, a **sourceAnchor**/**immutableID** . Shoda s **userPrincipalName** a **proxyAddresses** se označuje jako **logicky shodu**. Shoda s **sourceAnchor** se označuje jako **pevný shodu**. Pro **proxyAddresses** atribut pouze hodnotu s **SMTP:**, která je na primární e-mailovou adresu, slouží k vyhodnocení.
 
-Shody je Vyhodnocená jenom pro všechny nové objekty pocházejících z připojení. Pokud změníte stávající objekt, je odpovídající, žádný z těchto atributů, pak se zobrazí chybová místo.
+Shody je Vyhodnocená jenom pro všechny nové objekty pocházejících z připojení. Pokud změníte existující objekt, je odpovídající, žádný z těchto atributů, pak se zobrazí chybová místo.
 
 Pokud Azure AD nalezne objekt, kde jsou hodnoty atributu stejné pro objekt pocházejících z připojení a zda se již nachází ve službě Azure AD, je objekt ve službě Azure AD byly převzaty připojit. Objekt dříve spravovanými přes cloud je označení místního spravované. Všechny atributy ve službě Azure AD s hodnotou v místním budou přepsána AD s místními hodnotou. Výjimkou je, když má atribut **NULL** hodnotu místně. V takovém případě je hodnota v Azure AD zůstane, ale stále ji změnit jedině tak místní na něco jiného.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Nejčastější dotazy (FAQ) 
 Tato stránka odpovědi časté otázky o Azure Active Directory (Azure AD) B2C. Kontrolovat zpět aktualizací.
@@ -75,13 +75,13 @@ Podpis e-mailu obsahuje název klienta B2C, který jste zadali při prvním vytv
 Aktuálně neexistuje žádný způsob, jak změnit "z:" na e-mailu. Hlasovat o [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) vás zajímá přizpůsobení textu ověřovací e-mail.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Jak mohu migrovat mé existující uživatelská jména, hesla a profilů z databáze do Azure AD B2C?
-Azure AD Graph API můžete použít k zápisu nástroj pro migraci. Najdete v článku [rozhraní Graph API ukázkový](active-directory-b2c-devquickstarts-graph-dotnet.md) podrobnosti.
+Azure AD Graph API můžete použít k zápisu nástroj pro migraci. Najdete v článku [příručka k migraci uživatelů](active-directory-b2c-user-migration.md) podrobnosti.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Jaké zásady hesel se používá pro místní účty v Azure AD B2C?
 Zásady hesel Azure AD B2C pro místní účty je na základě zásad pro Azure AD. Azure AD B2C je registrace, registrace nebo přihlášení a heslo resetovat zásady využívá sílu "silné" heslo a nemá vypršení platnosti hesla. Pro čtení [zásady hesel služby Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) další podrobnosti.
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Můžete použít Azure AD Connect pro migraci uživatelských identit, které jsou uložené na můj místní služby Active Directory k Azure AD B2C?
-Ne, Azure AD Connect není určená pro práci s Azure AD B2C. Zvažte použití [rozhraní Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) pro migraci uživatele.
+Ne, Azure AD Connect není určená pro práci s Azure AD B2C. Zvažte použití [rozhraní Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) pro migraci uživatele.  Najdete v článku [příručka k migraci uživatelů](active-directory-b2c-user-migration.md) podrobnosti.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Můžete otevřít mé aplikace do Azure AD B2C stránky v rámci elementu iFrame?
 Ne, z důvodů zabezpečení Azure AD B2C stránky nelze otevřít v rámci elementu iFrame.  Naše služba komunikuje s prohlížečem, který se má vložené rámce.  Komunita zabezpečení v obecné vlastnosti a specifikace OAUTH2 se nedoporučujeme používání prvky IFrame pro činnosti identity z důvodu riziko opěry pro klikněte na tlačítko.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager nejčastější dotazy (FAQ)
 
@@ -277,7 +277,7 @@ Azure Resource Manager vyžaduje všechny skupiny prostředků a zadejte umíst�
 
 Aktuální stav monitorování každý koncový bod, kromě celkové profil, se zobrazí na portálu Azure. Tyto informace jsou také k dispozici prostřednictvím sledování provozu [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [rutiny prostředí PowerShell](https://msdn.microsoft.com/library/mt125941.aspx), a [a platformy Azure CLI](../cli-install-nodejs.md).
 
-Azure neposkytuje historické informace o posledních stav koncového bodu nebo možnost vygeneroval výstrahy týkající se změny stavu koncový bod.
+Monitorování Azure můžete také sledovat stav koncových bodů a zobrazit je vizuální reprezentace. Další informace o používání Azure monitorování najdete v tématu [dokumentace Azure Monitoring](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Můžete monitorovat koncových bodů HTTPS?
 
@@ -288,6 +288,10 @@ Správce provozu neposkytuje žádné ověření certifikátu, včetně:
 * Serverové certifikáty nejsou ověřené.
 * SNI serverové certifikáty nejsou podporovány.
 * Klientské certifikáty nejsou podporovány.
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>I zastavena Azure cloud service / webové aplikace koncového bodu v Můj profil služby Traffic Manager, ale i po jeho restartoval veškeré přenosy doručována. Jak můžete tento problém odstranit?
+
+Když Azure Cloudová služba / web koncový bod aplikace je zastaven Traffic Manageru zastaví kontrola jeho stav a restartuje kontroly stavu až poté, co zjistí, že má restartovat koncový bod. Aby tato prodleva, zakažte a poté je znovu povolit tohoto koncového bodu v profil služby Traffic Manager po restartování koncový bod.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Můžete použít i v případě, že Moje aplikace nemá podpora protokolu HTTP nebo HTTPS Traffic Manageru?
 

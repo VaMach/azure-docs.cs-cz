@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mahender
-ms.openlocfilehash: 8cf2e4e9e9007549dbdc931b4485c4230c536479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7bcd57260b9763eabb9b4c915d9ff46e79e931
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-microsoft-graph-bindings"></a>Azure vazby funkcí Microsoft Graph
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Tento článek vysvětluje postup konfigurace a práce s Microsoft Graph triggerů a vazeb v Azure Functions.
 Pomocí těchto, můžete použít funkce Azure pro práci s daty, přehledy a události z [Microsoft Graph](https://graph.microsoft.io).
@@ -281,7 +280,7 @@ Tato vazba upravuje obsah tabulky aplikace Excel uložených na Onedrivu.
 Tato vazba vyžaduje následující AAD oprávnění:
 |Prostředek|Oprávnění|
 |--------|--------|
-|Microsoft Graph|Úplný přístup k souborům uživatele|
+|Microsoft Graph|Mají úplný přístup k souborům uživatele|
 
 Vazba podporuje následující vlastnosti:
 
@@ -470,7 +469,7 @@ Tato vazba změní obsah souboru uložených na Onedrivu.
 Tato vazba vyžaduje následující AAD oprávnění:
 |Prostředek|Oprávnění|
 |--------|--------|
-|Microsoft Graph|Úplný přístup k souborům uživatele|
+|Microsoft Graph|Mají úplný přístup k souborům uživatele|
 
 Vazba podporuje následující vlastnosti:
 
@@ -1062,3 +1061,8 @@ public class UserSubscription {
 
 [triggeru protokolu HTTP]: functions-bindings-http-webhook.md
 [práce s webhooky v aplikaci Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+
+## <a name="next-steps"></a>Další kroky
+
+> [!div class="nextstepaction"]
+> [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)
