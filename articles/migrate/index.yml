@@ -1,0 +1,26 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentace k Azure Migrate
+metadata:
+  title: 'Dokumentace k Azure Migrate – kurzy, reference k rozhraní API | Dokumentace Microsoftu'
+  description: Informace o posouzení místních počítačů pro migraci do Azure
+  services: migration-planner
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: migration
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: raynew
+abstract:
+  description: Azure Migrate pomáhá zkoumat a posuzovat vhodnost místních počítačů pro migraci do Azure a odhaduje velikost a náklady na provoz virtuálních počítačů Azure.
+sections:
+  - title: Podrobné kurzy
+    items:
+      - type: paragraph
+        text: Informace o posouzení virtuálních počítačů VMware pro migraci do Azure
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-assessment-vmware">Zkoumání a posouzení místních virtuálních počítačů VMware</a>

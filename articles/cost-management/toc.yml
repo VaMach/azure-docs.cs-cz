@@ -23,6 +23,10 @@
       href: tutorial-forecast-spending.md
     - name: 4. Správa nákladů
       href: tutorial-manage-costs.md
+- name: Koncepty
+  items:
+    - name: Vysvětlení sestav nákladů
+      href: understading-cost-reports.md
 - name: Zdroje
   items:
     - name: Videa ke správě nákladů

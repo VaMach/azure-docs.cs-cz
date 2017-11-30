@@ -6,16 +6,16 @@
       href: how-iot-edge-works.md
 - name: Šablony Rychlý start
   items:
-    - name: Nasazení do hraničních zařízení – Windows
-      href: quickstart.md
     - name: Nasazení do hraničních zařízení – Linux
       href: quickstart-linux.md
+    - name: Nasazení do hraničních zařízení – Windows
+      href: quickstart.md
 - name: Kurzy
   items:
-    - name: Simulace hraničního zařízení – Windows
-      href: tutorial-simulate-device-windows.md
     - name: Simulace hraničního zařízení – Linux
       href: tutorial-simulate-device-linux.md
+    - name: Simulace hraničního zařízení – Windows
+      href: tutorial-simulate-device-windows.md
     - name: 'Vývoj modulu jazyka C#'
       href: tutorial-csharp-module.md
     - name: Nasazení služby Azure Stream Analytics
@@ -26,8 +26,8 @@
       href: tutorial-deploy-function.md
 - name: Návody
   items:
-    - name: Vytvoření zařízení brány
-      href: how-to-create-gateway-device.md
+    - name: Vytvoření transparentní brány
+      href: how-to-create-transparent-gateway.md
     - name: Škálované nasazení a monitorování
       href: how-to-deploy-monitor.md
     - name: Zřízení zařízení IoT Core
@@ -45,6 +45,8 @@
       href: iot-edge-runtime.md
     - name: Nasazení
       href: module-deployment-monitoring.md
+    - name: Zařízení IoT Edge jako brána
+      href: iot-edge-as-gateway.md
     - name: Zabezpečení
       href: security.md
 - name: Zdroje

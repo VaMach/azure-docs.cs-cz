@@ -20,7 +20,7 @@
 
 ## Vytváření úloh
 ### [Vytváření vstupů](stream-analytics-define-inputs.md)
-### [Ukázka vstupních dat](stream-analytics-sample-data-input.md)
+### [Testování dotazů a ukázková vstupní data](stream-analytics-sample-data-input.md)
 ### [Běžné vzory dotazů](stream-analytics-stream-analytics-query-patterns.md)
 ### [Funkce okna](stream-analytics-window-functions.md)
 

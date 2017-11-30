@@ -1,52 +1,56 @@
 # Přehled
 
-## [Co je SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
-## [Úlohy datového skladu](sql-data-warehouse-overview-workload.md)
+## [Informace o službě SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 
-# Začínáme
+# Šablony Rychlý start
 
-## [Kurz k načítání dat](load-data-from-azure-blob-storage-using-polybase.md)
-## [Kurz k elastickým dotazům](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
-## [Osvědčené postupy](sql-data-warehouse-best-practices.md)
-## [Správa](sql-data-warehouse-overview-manage.md)
+## [Vytvoření a připojení – portál](create-data-warehouse-portal.md)
 
-# Postup
+# Kurzy
+## [1. Načtení dat z objektu blob](load-data-from-azure-blob-storage-using-polybase.md)
 
+# Koncepty
 ## Funkce služby
 ### [Architektura MPP](massively-parallel-processing-mpp-architecture.md)
 ### [Úrovně výkonu](performance-tiers.md)
 ### [Jednotky datového skladu](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Zálohy datového skladu](sql-data-warehouse-backups.md)
+### [Auditování](sql-data-warehouse-auditing-overview.md)
 ### [Omezení kapacity](sql-data-warehouse-service-capacity-limits.md)
 ### [Nejčastější dotazy](sql-data-warehouse-overview-faq.md)
 
-## Zálohování a obnovení
+## Zabezpečení
+### [Přehled](sql-data-warehouse-overview-manage-security.md)
+### [Ověřování](sql-data-warehouse-authentication.md)
 
-### [Přehled zálohování](sql-data-warehouse-backups.md)
-### [Přehled obnovení](sql-data-warehouse-restore-database-overview.md)
-#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
-#### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
-## Připojení
+## Migrace do služby SQL Data Warehouse
+### [Přehled](sql-data-warehouse-overview-migrate.md)
+### [Nástroj pro migraci](sql-data-warehouse-migrate-migration-utility.md)
+### [Migrace schématu](sql-data-warehouse-migrate-schema.md)
+### [Migrace kódu](sql-data-warehouse-migrate-code.md)
+### [Migrace dat](sql-data-warehouse-migrate-data.md)
 
-### [Přehled](sql-data-warehouse-connect-overview.md)
-### [SSMS](sql-data-warehouse-query-ssms.md)
-### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-### [Instalace sady Visual Studio](sql-data-warehouse-install-visual-studio.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-### [Připojovací řetězce](sql-data-warehouse-connection-strings.md)
+## Načítání a přesun dat
+### [Přehled](sql-data-warehouse-overview-load.md)
+### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
 
-## Vytvořit
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
-## Vývoj
+## Integrace
+### [Přehled](sql-data-warehouse-overview-integrate.md)
 
+
+## Monitorování a ladění
+### [Pokyny](resource-classes-for-workload-management.md)
+### [Komprese columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
+### [Monitorování](sql-data-warehouse-manage-monitor.md)
+### [Řešení problémů](sql-data-warehouse-troubleshoot.md)
+
+## Vývoj datových skladů
 ### [Přehled](sql-data-warehouse-overview-develop.md)
+### [Komponenty datového skladu](sql-data-warehouse-overview-workload.md)
 
 ### Tabulky
-
 #### [Přehled](sql-data-warehouse-tables-overview.md)
 #### [CTAS](sql-data-warehouse-develop-ctas.md)
 #### [Datové typy](sql-data-warehouse-tables-data-types.md)
@@ -59,13 +63,11 @@
 #### [Dočasné](sql-data-warehouse-tables-temporary.md)
 
 ### Dotazy
-
 #### [Dynamické SQL](sql-data-warehouse-develop-dynamic-sql.md)
 #### [Možnosti pro seskupení](sql-data-warehouse-develop-group-by-options.md)
 #### [Popisky](sql-data-warehouse-develop-label.md)
 
 ### Elementy jazyka T-SQL
-
 #### [Smyčky](sql-data-warehouse-develop-loops.md)
 #### [Uložené procedury](sql-data-warehouse-develop-stored-procedures.md)
 #### [Transakce](sql-data-warehouse-develop-transactions.md)
@@ -74,77 +76,45 @@
 #### [Přiřazení proměnné](sql-data-warehouse-develop-variable-assignment.md)
 #### [Zobrazení](sql-data-warehouse-develop-views.md)
 
-## Integrace
-
-### [Přehled](sql-data-warehouse-overview-integrate.md)
-### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)
-### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)
-### [Kurz služby Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-### [Power BI](sql-data-warehouse-integrate-power-bi.md)
-### [Vizualizace Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-
-### [Elastické dotazy s využitím SQL Database a SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
-
-## Načtení
-
-### Koncepty
-#### [Přehled](sql-data-warehouse-overview-load.md)
-#### [Pokyny k PolyBase](sql-data-warehouse-load-polybase-guide.md)
-
-### Kurzy
-#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-
-### Návody
-#### [Ukázková data](sql-data-warehouse-load-sample-databases.md)
-#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
-#### [BCP](sql-data-warehouse-load-with-bcp.md)
-#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-#### [PolyBase z Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-#### [PolyBase z SQL Serveru](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-#### [Redgate](sql-data-warehouse-load-with-redgate.md)
-#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-
-## Migrace
-
-### [Přehled](sql-data-warehouse-overview-migrate.md)
-### [Nástroj pro migraci](sql-data-warehouse-migrate-migration-utility.md)
-### [Migrace schématu](sql-data-warehouse-migrate-schema.md)
-### [Migrace kódu](sql-data-warehouse-migrate-code.md)
-### [Migrace dat](sql-data-warehouse-migrate-data.md)
-### [Migrace na Storage úrovně Premium](sql-data-warehouse-migrate-to-premium-storage.md)
-
-## Správa výpočetních služeb
-
-### [Přehled](sql-data-warehouse-manage-compute-overview.md)
-### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
-### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
-### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
-### [Automatizace výpočetních úrovní](manage-compute-with-azure-functions.md)
-
-### Třídy prostředků
-#### [Pokyny](resource-classes-for-workload-management.md)
-#### [Analýza úloh](analyze-your-workload.md)
-
-## Výkon
-
-### [Přehled](sql-data-warehouse-overview-manage-user-queries.md)
-### [Komprese columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Monitorování](sql-data-warehouse-manage-monitor.md)
+# Návody
+## Funkce služby
+### [Obnovení datového skladu – portál](sql-data-warehouse-restore-database-portal.md)
+### [Obnovení datového skladu – PowerShell](sql-data-warehouse-restore-database-powershell.md)
+### [Obnovení datového skladu – REST API](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Zabezpečení
-
-### [Přehled](sql-data-warehouse-overview-manage-security.md)
-### [Auditování](sql-data-warehouse-auditing-overview.md)
-### [Auditování pro klienty nižší úrovně](sql-data-warehouse-auditing-downlevel-clients.md)
-### [Ověřování](sql-data-warehouse-authentication.md)
-### [Šifrování](sql-data-warehouse-encryption-tde.md)
-### [Šifrování pomocí jazyka T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
+### [Povolení šifrování – portál](sql-data-warehouse-encryption-tde.md)
+### [Povolení šifrování – T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Detekce hrozeb](sql-data-warehouse-security-threat-detection.md)
 
-## Řešení potíží
-### [Řešení problémů](sql-data-warehouse-troubleshoot.md)
+
+## Načítání a přesun dat
+### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [BCP](sql-data-warehouse-load-with-bcp.md)
+### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+### [PolyBase z Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [PolyBase z SQL Serveru](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [Redgate](sql-data-warehouse-load-with-redgate.md)
+### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+
+
+## Integrace
+###  [Konfigurace elastického dotazu z SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Přidání úlohy služby Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+### [Konfigurace elastického dotazu](how-to-use-elastic-query-with-sql-data-warehouse.md)
+### [Použití Machine Learningu](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+### [Vizualizace pomocí Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+
+## Monitorování a ladění
+### [Analýza úloh](analyze-your-workload.md)
+
+## Horizontální navýšení kapacity
+### [Správa výpočetních služeb – portál](sql-data-warehouse-manage-compute-portal.md)
+### [Správa výpočetních služeb – PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+### [Správa výpočetních služeb – REST API](sql-data-warehouse-manage-compute-rest-api.md)
+### [Automatizace výpočetních úrovní](manage-compute-with-azure-functions.md)
+
 
 # Referenční informace
 

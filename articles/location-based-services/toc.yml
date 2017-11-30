@@ -1,0 +1,51 @@
+- name: Dokumentace k Azure Location Based Services
+  href: index.yml
+- name: Přehled
+  items:
+    - name: Informace o službách Azure Location Based Services
+      href: about-location-based-services.md
+- name: Šablony Rychlý start
+  expanded: true
+  items:
+    - name: Mapování aplikace pomocí služby Azure Location Based Services
+      href: quick-demo-map-app.md
+- name: Kurzy
+  items:
+    - name: 1. Hledání bodu zájmu
+      href: tutorial-search-location.md
+    - name: 2. Trasa k bodu zájmu
+      href: tutorial-route-location.md
+    - name: 3. Několik tras podle způsobu cesty
+      href: tutorial-prioritized-routes.md
+- name: Koncepty
+  items:
+    - name: Zajištění geokódování
+      href: geocoding-coverage.md
+    - name: Zajištění provozu
+      href: traffic-coverage.md
+- name: Návody
+  items:
+    - name: Správa účtu a klíčů
+      href: how-to-manage-account-keys.md
+    - name: Jak používat mapový ovládací prvek
+      href: how-to-use-map-control.md
+- name: Referenční informace
+  items:
+    - name: Centrum pro vývojáře Azure IoT
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Plány Azure do budoucna
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Fórum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Ceny
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Cenová kalkulačka
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aktualizace služeb
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Technické případové studie
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videa
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'
