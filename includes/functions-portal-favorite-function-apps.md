@@ -12,6 +12,6 @@ Pokud jste to ještě neudělali, přidejte si aplikace Function App mezi oblíb
 
 3. Zavřete nabídku a potom přejděte úplně dolů, kde uvidíte ikonu Funkce. Kliknutím na tuto ikonu zobrazíte seznam všech aplikací Function App. Po kliknutí na určitou aplikaci Function App můžete pracovat s funkcemi této aplikace. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Funkce aplikací v oblíbených položek](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

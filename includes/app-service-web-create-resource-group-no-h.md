@@ -1,4 +1,4 @@
-Ve službě Cloud Shell vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create).
+Ve službě Cloud Shell vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 
