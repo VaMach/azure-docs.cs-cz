@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Vytvoření virtuální počítač s Linuxem pomocí portálu Azure zásobníku
 
@@ -26,7 +26,7 @@ Virtuální počítače Azure zásobníku lze vytvořit pomocí portálu Azure z
 
 * **Bitovou kopii systému Linux v zásobníku Azure marketplace**
 
-   Zásobník Azure marketplace neobsahuje bitovou kopii systému Linux ve výchozím nastavení. Tak, než vytvoříte virtuální počítač s Linuxem, ujistěte se, že operátor zásobník Azure stáhla **Ubuntu Server 16.04 LT** bitovou kopii pomocí kroků popsaných v [stáhnout z Azure do Azure položky marketplace. Zásobník](../azure-stack-download-azure-marketplace-item.md) tématu.
+   Zásobník Azure marketplace neobsahuje bitovou kopii systému Linux ve výchozím nastavení. Tak, než vytvoříte virtuální počítač s Linuxem, ujistěte se, že operátor zásobník Azure stáhla **Ubuntu Server 16.04 LTS** bitovou kopii pomocí kroků popsaných v [stáhnout z Azure do Azure položky marketplace. Zásobník](../azure-stack-download-azure-marketplace-item.md) tématu.
 
 * **Přístup k klientem SSH**
 
