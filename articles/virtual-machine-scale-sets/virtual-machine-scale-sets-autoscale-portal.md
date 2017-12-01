@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatické škálování škálování virtuálních počítačů, nastavte na portálu Azure
 Když vytvoříte sadu škálování, definujete se počet instancí virtuálního počítače, které chcete spustit. Podle požadavků vaší aplikaci změní, můžete automaticky zvýšit nebo snížit počet instancí virtuálního počítače. Schopnost škálování umožňuje udržovat tempo s poptávku zákazníků nebo odpověď na změny výkonu aplikace v průběhu cyklu vaší aplikace.
@@ -122,7 +122,7 @@ V předchozích příkladech automaticky škálovat škálování nastavit pří
 
     ![Vytvoření pravidla automatického škálování, které škálování podle plánu](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-Pokud chcete zobrazit, jak se používají pravidel škálování, vyberte **historie spouštění** v horní části **škálování** okno. Graf a události seznamu zobrazí při aktivaci pravidel škálování a číslo instance virtuálních počítačů ve vaší škálování zvyšuje nebo snižuje.
+Pokud chcete zobrazit, jak se používají pravidel škálování, vyberte **historie spouštění** v horní části **škálování** okno. Graf a události seznamu zobrazí aktivační událost pravidel škálování a číslo instance virtuálních počítačů ve vaší škálování nastavena zvýšení nebo snížení.
 
 
 ## <a name="next-steps"></a>Další kroky

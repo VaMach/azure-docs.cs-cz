@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Upgrade modul runtime cluster Service Fabric
 
-V tomto kurzu je součástí čtyři řady a ukazuje, jak upgradovat modulu runtime Service Fabric v clusteru Azure Service Fabric. Tato část kurz je napsán pro clustery infrastruktury služby spuštěné v Azure a nevztahuje na vlastním hostováním clusterů Service Fabric.
+V tomto kurzu je součástí tři řady a ukazuje, jak upgradovat modulu runtime Service Fabric v clusteru Azure Service Fabric. Tato část kurz je napsán pro clustery infrastruktury služby spuštěné v Azure a nevztahuje na samostatné Service Fabric clustery.
 
 > [!WARNING]
 > Tato část kurzu vyžaduje rozhraní PowerShell. Pomocí nástrojů příkazového řádku Azure ještě není dostupná podpora pro upgrade clusteru runtime. Alternativně lze cluster upgradovat na portálu. Další informace najdete v tématu [Upgrade clusteru služby Azure Service Fabric](service-fabric-cluster-upgrade.md).
@@ -34,6 +34,13 @@ V tomto kurzu se naučíte:
 > [!div class="checklist"]
 > * Přečtěte si verze clusteru
 > * Nastavit verzi clusteru
+
+V této série kurzu zjistíte, jak:
+> [!div class="checklist"]
+> * Vytvoření zabezpečeného [clusteru se systémem Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) nebo [Linux clusteru](service-fabric-tutorial-create-vnet-and-linux-cluster.md) v Azure pomocí šablony
+> * [Škálování clusteru příchozí nebo odchozí](service-fabric-tutorial-scale-cluster.md)
+> * Upgrade clusteru modul runtime
+> * [Nasazení správy rozhraní API pomocí Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Požadavky
 Před zahájením tohoto kurzu:
@@ -190,3 +197,7 @@ V tomto kurzu jste se naučili:
 > * Získá verzi modulu runtime clusteru
 > * Upgrade clusteru runtime
 > * Monitorování upgradu
+
+V dalším kroku přechodu na následující kurzu se dozvíte, jak nasadit API Management se cluster Service Fabric.
+> [!div class="nextstepaction"]
+> [Nasazení správy rozhraní API pomocí Service Fabric](service-fabric-tutorial-deploy-api-management.md)

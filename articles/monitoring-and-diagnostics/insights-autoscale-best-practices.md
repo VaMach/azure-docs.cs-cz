@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b0232db1cfe2d6a7cefd07a8194a88a84a4ffb4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Osvědčené postupy pro automatické škálování
 V tomto článku se dozvíte, jaké osvědčené postupy pro škálování v Azure. Azure monitorování škálování se vztahují pouze na [sady škálování virtuálního počítače](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [cloudové služby](https://azure.microsoft.com/services/cloud-services/), a [služby App Service – webové aplikace](https://azure.microsoft.com/services/app-service/web/). Jinými službami Azure použít různé metody škálování.
@@ -113,7 +113,7 @@ Pojďme si to pomocí příklad:
 
 Následující obrázek ukazuje na nastavení automatického škálování s minimální instancí výchozí profil = 2 a maximální instancí = 10. V tomto příkladu pravidla jsou nakonfigurovány pro škálované při počet zpráv ve frontě je větší než 10 škálování in a když počet zpráv ve frontě je menší než 3. Prostředek, takže teď můžete škálovat mezi instancemi 2 až 10.
 
-Kromě toho je profil opakovaně nastavit pro pondělí. Nastavení pro minimální instance = 2 a maximální instancí = 12. To znamená v pondělí, první čas škálování kontroluje pro tuto podmínku, pokud je počet instancí 2, lze škálovat na nové minimálně 3. Tak dlouho, dokud škálování nadále najít tuto podmínku profil shodná (pondělí), pouze zpracovává bázi procesoru Škálováním na více systémů nebo v nakonfigurovaná pravidla pro tento profil. V tomto okamžiku nekontroluje se pro délku fronty. Ale pokud také chcete podmínku délka fronty, která má být zaškrtnuto, by měla obsahovat tato pravidla z výchozí profil také váš profil pondělí.
+Kromě toho je profil opakovaně nastavit pro pondělí. Nastavení pro minimální instance = 3 a maximální instancí = 10. To znamená v pondělí, první čas škálování kontroluje pro tuto podmínku, pokud je počet instancí 2, lze škálovat na nové minimálně 3. Tak dlouho, dokud škálování nadále najít tuto podmínku profil shodná (pondělí), pouze zpracovává bázi procesoru Škálováním na více systémů nebo v nakonfigurovaná pravidla pro tento profil. V tomto okamžiku nekontroluje se pro délku fronty. Ale pokud také chcete podmínku délka fronty, která má být zaškrtnuto, by měla obsahovat tato pravidla z výchozí profil také váš profil pondělí.
 
 Podobně když škálování přepne zpět na výchozí profil, nejdřív zkontroluje, pokud jsou splněny podmínky minimální a maximální. Pokud se počet instancí v době 12, přizpůsobí se v 10, maximum povolené pro výchozí profil.
 

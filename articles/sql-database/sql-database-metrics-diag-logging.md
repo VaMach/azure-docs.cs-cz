@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 6d5fc10b5186f2830f724325846a485e4064d12b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database metrik a protokolování diagnostiky 
 Databáze SQL Azure můžete emitování metriky a diagnostické protokoly pro snazší monitorování. SQL Database můžete nakonfigurovat pro ukládání využití prostředků, pracovních procesů, relací a možností připojení do jednoho z těchto prostředků Azure:
@@ -48,7 +48,7 @@ Když povolíte metrik a protokolování diagnostiky, budete muset zadat prostř
 
 Můžete zřídit nového prostředku Azure nebo vybrat existující prostředek. Po výběru prostředků úložiště, budete muset zadat shromažďovaných údajů. Mezi dostupné možnosti patří:
 
-- [1 minutu metriky](sql-database-metrics-diag-logging.md#1-minute-metrics): procento DTU obsahuje omezení jednotek DTU, procento využití procesoru, fyzické číst procento, protokolu zapisovat procento, bylo úspěšné nebo neúspěšné/blokováno připojení brány firewall, procento relací, procento pracovních procesů, úložiště, úložiště Procento a XTP úložiště.
+- [Všechny metriky](sql-database-metrics-diag-logging.md#all-metrics): procento DTU obsahuje omezení jednotek DTU, procento využití procesoru, fyzické číst procento, protokolu zapisovat procento, bylo úspěšné nebo neúspěšné/blokováno připojení brány firewall, procento relací, procento pracovních procesů, úložiště, procento úložiště a procento úložiště XTP.
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): obsahuje informace o statistiku modulu runtime dotazu, jako je například doba trvání procesoru využití a dotazu.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): obsahuje informace o čekání Statistika dotazu, který vás informuje, co vaše dotazy čekali, jako je například CPU, LOG a ZAMKNUTÍ.
 - [Chyby](sql-database-metrics-diag-logging.md#errors-dataset): obsahuje informace o chybách SQL, ke kterým došlo u této databáze.
@@ -243,7 +243,7 @@ Nebo jednodušeji:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Například může být název objektu blob pro 1 minutu metriky:
+Například může být název objektu blob pro všechny metriky:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -261,7 +261,7 @@ Zjistěte, jak [stáhnout metriky a diagnostické protokoly z úložiště](../s
 
 ## <a name="metrics-and-logs-available"></a>Metriky a k dispozici protokoly.
 
-### <a name="1-minute-metrics"></a>1 minutu metriky
+### <a name="all-metrics"></a>Všechny metriky
 
 |**Prostředek**|**Metriky**|
 |---|---|

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT hranu (preview)
 
@@ -35,7 +35,7 @@ Tato funkce je ve verzi preview, pokud máte jakékoli otázku nebo připomínky
 * **Příkaz s nízkou latencí a řízení**: například výrobní bezpečnostní systémy musí reagovat na provozních dat s velmi nízkou latencí. S ASA hranu IoT můžete analyzovat senzor, data v téměř v reálném čase a vydávat příkazy při zjišťovat anomálie počítače zastavit nebo výstrahy aktivovat.
 *   **Omezené připojení ke cloudu**: mise rozhodujících systémů, jako je vzdálené dolování vybavení, připojené plavidel nebo příbřežních procházení, třeba k analýze a reagovat na data i v případě, že se přerušované připojení cloudu. S ASA streamování logiky běží nezávisle na síťové připojení a můžete zvolit, co můžete odeslat do cloudu pro další zpracování nebo úložiště.
 * **Omezenou šířkou pásma**: objem dat vytvářených jet moduly nebo připojených aut může být tak velká, že data musí být filtrovaná nebo předem zpracovaných před odesláním do cloudu. ASA můžete filtrovat nebo agregovat data, která mají být odesílány do cloudu.
-* **Dodržování předpisů**: předpisů může vyžadovat některé data místně anonymní nebo agregovat před odesláním do cloudu. S ASA můžete 
+* **Dodržování předpisů**: předpisů může vyžadovat některé data místně anonymní nebo agregovat před odesláním do cloudu.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Hraniční úlohy v Azure Stream Analytics
 ### <a name="what-is-an-edge-job"></a>Co je úlohu "edge"?

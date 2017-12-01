@@ -3,75 +3,96 @@ title: "Postup propojení předplatné Azure s Azure AD B2C | Microsoft Docs"
 description: "Podrobný průvodce povolit fakturace pro klienta Azure AD B2C do předplatného Azure."
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
-manager: mbaldwin
+author: parakhj
+manager: krassk
 ms.service: active-directory-b2c
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
-ms.author: joroja
-ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: parja
+ms.openlocfilehash: 35fab74abf2c2ba27a8bf99eb93eb53f39b26227
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Propojování předplatné Azure do Azure B2C klienta k platit poplatky za používání
-
-K předplatnému Azure se účtují poplatky za probíhající používání pro Azure Active Directory B2C (nebo Azure AD B2C). Je nezbytné pro správce klienta explicitně propojení klienta Azure AD B2C k předplatnému Azure po vytvoření klienta B2C, sám sebe.  Tento odkaz je dosaženo vytvořením Azure AD "Klienta B2C" prostředků v cílové předplatné Azure. Velký počet klientů B2C se dá propojit jedno předplatné Azure společně s dalším prostředkům služby Azure (například virtuální počítače, úložiště dat, LogicApps)
-
+# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Propojování předplatné Azure klienta Azure AD B2C
 
 > [!IMPORTANT]
-> Nejnovější informace o využití fakturaci a cenách pro B2C je na následující stránce: [cenová Azure AD B2C](
-https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Nejnovější informace o využití fakturaci a cenách pro Azure AD B2C je na následující stránce: [cenová Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>Krok 1 – Vytvoření klienta Azure AD B2C
-Vytvoření klienta B2C musíte nejprve dokončit. Tento krok přeskočte, pokud jste již vytvořili cílových klienta B2C. [Začínáme s Azure AD B2C](active-directory-b2c-get-started.md)
+K předplatnému Azure se účtují poplatky za používání pro Azure AD B2C. Při vytváření klienta služby Azure AD B2C, musí správce klienta explicitně propojení klienta Azure AD B2C k předplatnému Azure. Tento článek ukazuje, jak.
 
-## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Krok 2 – otevřete portál Azure v klientovi Azure AD, který ukazuje vašeho předplatného Azure
-Přejděte na [Azure Portal](https://portal.azure.com). Umožňuje přepnout do klienta Azure AD, který obsahuje předplatné Azure, které že chcete použít. Tento klient Azure AD se liší od klienta B2C. V rámci portálu Azure klikněte na název účtu v pravém horním rohu stránky řídicího panelu a vyberte klienta Azure AD. Chcete-li pokračovat je potřeba předplatné Azure. [Získání předplatného Azure.](https://account.windowsazure.com/signup?showCatalog=True)
+> [!NOTE]
+> Předplatné propojené s klienta Azure AD B2C můžete použít pouze pro fakturaci využití Azure AD B2C. Odběr nelze použít k přidání další služby Azure nebo Office 365 licence *v rámci klienta Azure AD B2C*.
 
-![Přepnutí na klientovi služby Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
+ Odkaz pro předplatné je dosaženo vytvořením Azure AD B2C "prostředek" v rámci cílové předplatné Azure. V rámci jednoho předplatného Azure, společně s dalším prostředkům služby Azure (pro virtuální počítače, například dat úložiště, LogicApps) můžete vytvořit mnoho Azure AD B2C "zdroje". Uvidíte všechny prostředky v rámci předplatného na klienta služby Azure AD, který je předplatné přidružené k webu.
 
-## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>Krok 3 – vytvoření klienta B2C prostředků v Azure Marketplace
-Klepnutím na ikonu Marketplace, nebo výběrem zeleným "+" v levém horním rohu řídicího panelu, otevřete Marketplace.  Vyhledejte a vyberte Azure Active Directory B2C. Vyberte možnost vytvořit.
+Chcete-li pokračovat, je potřeba platné předplatné Azure.
 
-![Vyberte Marketplace.](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
+## <a name="create-an-azure-ad-b2c-tenant"></a>Vytvoření tenanta Azure AD B2C
 
-![Hledání AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
+Je nutné nejprve [vytvoření klienta Azure AD B2C](active-directory-b2c-get-started.md) , které chcete propojit předplatné. Tento krok přeskočte, pokud jste již vytvořili klienta Azure AD B2C.
 
-Prostředek Azure AD B2C vytvořit dialogové okno obsahuje následující parametry:
+## <a name="open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Otevřete portál Azure v klientovi Azure AD, který ukazuje vašeho předplatného Azure
 
-1. Klienta Azure AD B2C – vyberte klienta Azure AD B2C z rozevíracího seznamu.  Zobrazit pouze oprávněné klienty Azure AD B2C.  Oprávněné klienty B2C splňovat tyto podmínky: jste globální správce klienta B2C a klienta B2C není aktuálně přidružené k předplatnému Azure
+Přejděte do klienta Azure AD, který ukazuje vašeho předplatného Azure. Otevřete [portál Azure](https://portal.azure.com)a přejděte na klienta Azure AD, který ukazuje předplatné Azure, které chcete použít.
 
-2. Azure AD B2C prostředků název – je předem vybrali, aby odpovídal názvu domény klienta B2C
+![Přepnutí na klientovi Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
-3. Předplatné -, ve kterém se správce nebo spolusprávce aktivní předplatné Azure.  Několik klientů Azure AD B2C, mohou být přidány do jednoho předplatného Azure
+## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Najít Azure AD B2C v Azure Marketplace
 
-4. Umístění skupiny prostředků a skupina prostředků – tento artefaktů umožňuje uspořádat několik prostředků Azure.  Tato volba nemá žádný vliv na umístění klienta B2C, výkon nebo stav fakturace
+Klikněte na tlačítko **Nový**. Do pole **Hledat na Marketplace** zadejte `B2C`.
 
-5. Připnout na řídicí panel pro nejjednodušší přístup k vaší B2C klienta fakturační informace a nastavení klienta B2C ![vytvořit prostředek B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Přidejte tlačítkem a text Azure AD B2C ve vyhledávání pole marketplace.](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-## <a name="step-4---manage-your-b2c-tenant-resources-optional"></a>Krok 4 – spravovat prostředky klienta B2C (volitelné)
-Po dokončení nasazení nového prostředku "Klienta B2C" se vytvoří v cílové skupině prostředků a související předplatného Azure.  Měli byste vidět nový prostředek typu "Klienta B2C" přidat spolu s vašich prostředků Azure.
+V seznamu výsledků vyberte **Azure AD B2C**.
 
-![Vytvořte prostředek B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcedashboard.png)
+![Azure AD B2C vybraného v seznamu výsledků](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-Kliknutím na prostředek klienta B2C, budete moci
-- Klikněte na název odběru, chcete-li zkontrolovat fakturační informace. Viz fakturaci a využití.
-- Klikněte na tlačítko Nastavení Azure AD B2C, otevřete novou kartu prohlížeče přímo v okně Nastavení klienta B2C
+Jsou uvedeny podrobnosti o Azure AD B2C. Pokud chcete začít konfigurovat nového tenanta Azure Active Directory B2C, klikněte na tlačítko **Vytvořit**.
+
+Na obrazovce vytváření prostředků vyberte **odkaz existující Azure AD B2C klienta pro Moje předplatné**.
+
+## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Vytvořit prostředek služby Azure AD B2C v rámci předplatného Azure
+
+V dialogovém okně vytváření prostředků vyberte z rozevíracího seznamu tenanta Azure AD B2C. Zobrazí se všechny klienty, kteří jsou globální správce a ty, které již nejsou připojeny k odběru.
+
+Název prostředku Azure AD B2C bude být předvoleno podle názvu domény klienta Azure AD B2C.
+
+Pro předplatné vyberte aktivní předplatné Azure, které jsou oprávnění správce.
+
+Vyberte skupinu prostředků a umístění skupiny prostředků. Výběr zde nemá žádný vliv na umístění klienta Azure AD B2C, výkon nebo stav fakturace.
+
+![Vytvořte prostředek B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+
+## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Spravovat prostředky tenanta Azure AD B2C
+
+Po úspěšném vytvoření prostředek služby Azure AD B2C v rámci předplatného Azure, měli byste vidět nový prostředek typu "B2C tenanta" přidat spolu s vašich prostředků Azure.
+
+Můžete použít tento prostředek na:
+
+- Přejděte na předplatné si projděte fakturační informace.
+- Přejděte ke klientovi Azure AD B2C
 - Odeslání žádosti o podporu
-- Přesunutí prostředku klienta B2C do jiného předplatného Azure nebo do jiné skupiny prostředků.  Tato volba změny, které předplatné obdrží poplatky za používání.
+- Přesunutí prostředku klienta Azure AD B2C, do jiného předplatného Azure nebo do jiné skupiny prostředků.
 
 ![Nastavení prostředků B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Známé problémy
-- Odstranění klienta B2C. Pokud klienta B2C je vytvořen, odstraní a znovu vytvoří se stejným názvem domény, prosím také odstranit a znovu vytvořit "Propojování" prostředek se stejným názvem domény.  Tento prostředek "Propojování" v části "Všechny prostředky" zjistí v klientovi předplatné prostřednictvím portálu Azure.
-- Samoobslužné uložena omezení umístění místních prostředků.  Ve výjimečných případech může uživatel navázat místní omezení pro vytváření prostředků Azure.  Toto omezení by mohlo zabránit vytvoření propojení mezi předplatné Azure a klienta B2C. Pokud chcete zmírnit, prosím toto omezení zmírnit.
+
+### <a name="csp-subscriptions"></a>Odběry zprostředkovatele kryptografických služeb
+
+V současné době klienta Azure AD B2C **nelze** odkaz na předplatná CSP.
+
+### <a name="self-imposed-restrictions"></a>Samoobslužné uložena omezení
+
+Uživatel může vytvořit místní omezení pro vytváření prostředků Azure. Toto omezení by mohlo zabránit vytvoření prostředku Azure AD B2C. Pokud chcete zmírnit, prosím toto omezení zmírnit.
 
 ## <a name="next-steps"></a>Další kroky
-Po dokončení pro každou z vašich klientů B2C těchto kroků se vašeho předplatného Azure se fakturuje v souladu s podrobností o Azure přímý nebo smlouvu Enterprise.
-- Zkontrolujte využití a fakturace ve vašem vybraném předplatném Azure
-- Přečtěte si podrobné informace o použití ve dnech sestav pomocí [API pro vytváření sestav využití](active-directory-b2c-reference-usage-reporting-api.md)
+
+Po dokončení pro jednotlivé klienty Azure AD B2C těchto kroků se vašeho předplatného Azure se fakturuje v souladu s podrobností o Azure přímý nebo smlouvu Enterprise.
+
+Využití a fakturačních údajů můžete zkontrolovat ve vašem vybraném předplatném Azure. Můžete rovněž zkontrolovat podrobné informace o použití ve dnech sestav pomocí [využití reporting rozhraní API](active-directory-b2c-reference-usage-reporting-api.md).

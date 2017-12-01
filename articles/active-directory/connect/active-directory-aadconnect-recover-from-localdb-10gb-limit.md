@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab2aed2b9e86dc9b3111dc1fdf9deea2e2930c7c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Jak obnovit z limitu LocalDB 10 GB
 Azure AD Connect vyžaduje k ukládání dat identity databázi SQL Serveru. Můžete použít buď výchozí databázi SQL Server 2012 Express LocalDB nainstalovanou se službou Azure AD Connect, nebo vlastní plnou verzi SQL. SQL Server Express má omezení velikosti 10 GB. Pokud při použití LocalDB dosáhnete tohoto limitu, synchronizační služba Azure AD Connect se už nemůže spustit ani správně synchronizovat. Tento článek obsahuje kroky obnovení.
@@ -63,11 +63,11 @@ Název databáze vytvořené pro Azure AD Connect je **ADSync**. K provedení op
 * Účet synchronizační služby, který se používá jako operační kontext služby Azure AD Connect synchronizace.
 * Místní skupiny ADSyncAdmins, který byl vytvořen během instalace.
 
-1. Zálohovat databázi tak, že zkopírujete **ADSync.mdf** a **ADSync_log.ldf** soubory umístěné v `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` do bezpečného umístění.
+1. Zálohovat databázi tak, že zkopírujete **ADSync.mdf** a **ADSync_log.ldf** soubory umístěné v `%ProgramFiles%\Microsoft Azure AD Sync\Data` do bezpečného umístění.
 
 2. Spusťte novou relaci prostředí PowerShell.
 
-3. Přejděte do složky `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Přejděte do složky `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
 4. Spustit **sqlcmd** nástroj spuštěním příkazu `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, pomocí přihlašovacích údajů správce systému nebo databázi DBO.
 

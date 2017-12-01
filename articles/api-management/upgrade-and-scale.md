@@ -11,19 +11,19 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: apimpm
-ms.openlocfilehash: 22cc917eb6f296724bf535e48b0dd6ba8927e5d3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: e92c1a44b49c64308438184ab8185a90766c5bcf
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Upgrade a škálování instance služby API Management 
 
-Zákazníci můžete škálovat instance API Management (APIM) tak, že přidání a odebrání jednotek. A **jednotky** se skládá z vyhrazených prostředků Azure a má určité nosné kapacitu, vyjádřené jako počet rozhraní API volání za měsíc. Skutečné propustnosti a latence budou lišit široce v závislosti na faktorech, například číslo a počet souběžných připojení, typ a počet nakonfigurované zásady, požadavku a odpovědi velikosti a back-end latence. 
+Zákazníci můžete škálovat instance API Management (APIM) tak, že přidání a odebrání jednotek. A **jednotky** se skládá z vyhrazených prostředků Azure a má určité nosné kapacitu, vyjádřené jako počet rozhraní API volání za měsíc. Toto číslo nepředstavuje limit volání, ale spíše hodnotu maximální propustnost umožňující plánování hrubý kapacity. Skutečné propustnosti a latence široce lišit v závislosti na faktorech, například číslo a počet souběžných připojení, typ a počet nakonfigurované zásady, velikost požadavku a odpovědi a back-end latence.
 
 Kapacitu a cenu každé jednotky, závisí na **vrstvy** v které jednotka existuje. Můžete si vybrat mezi třech úrovních: **vývojáře**, **standardní**, **Premium**. Pokud je potřeba zvýšit kapacitu služby v rámci vrstvu, měli byste přidat jednotku. Pokud vrstvy, který je aktuálně vybraný v instanci APIM neumožňuje přidávat další jednotky, budete muset upgrade na vyšší úrovni vrstvy. 
 
-Cena za každou položku, možnost Přidat nebo odebrat jednotek, zda máte určité funkce (například nasazení více oblast) závisí na vrstvu, kterou jste zvolili pro vaše instance APIM. [Podrobnosti o cenách](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) článek, vysvětluje, co cena za jednotku a funkce získáte v jednotlivých úrovních. 
+Cena jednotlivých jednotek a dostupných funkcí (například nasazení více oblast) závisí na vrstvu, kterou jste zvolili pro vaše instance APIM. [Podrobnosti o cenách](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) článek, vysvětluje cena za jednotku a funkce můžete získat na jednotlivých úrovních. 
 
 >[!NOTE]
 >[Podrobnosti o cenách](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) článek ukazuje přibližný počet jednotek kapacity v jednotlivých úrovních. Chcete-li získat přesnější čísla, podívejte se na scénáři realistické pro vaše rozhraní API. Najdete v části "Jak plánování kapacity", který následuje dále.
@@ -42,7 +42,7 @@ K provedení kroků popsaných v tomto článku, musíte mít:
 
 Pokud chcete zjistit, jestli máte dost jednotky pro zpracování provozu, testovat na úlohy, které byste očekávali. 
 
-Jak je uvedeno nahoře, počet požadavků za druhé APIM může proces závisí na mnoha proměnných. Například připojení vzor, velikost požadavku a odpovědi, zásady, které jsou nakonfigurované na každé rozhraní API, počet klientů, které jsou odesílání požadavků.
+Jak je uvedeno nahoře, počet požadavků za sekundu, které může zpracovat s jednotkou APIM závisí na mnoha proměnných. Například připojení vzor, velikost požadavku a odpovědi, zásady, které jsou nakonfigurované na každé rozhraní API, počet klientů, které jsou odesílání požadavků.
 
 Použití **metriky** (používá možnosti monitorování Azure) zjistit, jakou kapacitu se používá v daném okamžiku.
 
@@ -52,23 +52,23 @@ Použití **metriky** (používá možnosti monitorování Azure) zjistit, jakou
 2. Vyberte **metriky**.
 3. Vyberte **kapacity** metriky z **dostupné metriky**. 
 
-    Metriky kapacity získáte představu, jakou kapacitu se používá ve vašem klientovi. Můžete otestovat umístěním více a více načíst a zjistit, co si vyberte zatížení. Můžete nastavit metriky upozornění pokaždé, když se děje něco, co není očekáván. Například instanci APIM přistupuje kapacity pro více než 5 minut. 
+    Metrika kapacity získáte představu, kolik dostupné výpočetní kapacitu se používá ve vašem klientovi. Jeho hodnota se odvozuje od výpočetní prostředky využívané třídou vašeho klienta, jako je paměť, procesor a délky fronty sítě. Není přímé míru počet zpracovávaných požadavků. Můžete otestovat zvýšené zatížení na vašeho klienta a monitorování, jaká hodnota metriky kapacity odpovídá zatížení ve špičce. Můžete nastavit upozornění pokaždé, když se něco neočekávaného děje na metriky. Například instanci APIM překročil své očekávané maximální kapacity pro více než 10 minut.
 
     >[!TIP]
-    > Můžete konfigurovat upozornění pokaždé, když služby dochází na kapacitu nebo zkontrolujte ho volání do aplikace logiky, která bude automaticky škálovat tak, že přidáte jednotku...
+    > Můžete nakonfigurovat výstrahy umožnit vám vědět, pokud se vaše služba má nedostatek kapacity nebo volání do aplikace logiky, které automaticky škálovat tak, že přidáte jednotku.
 
 ## <a name="upgrade-and-scale"></a>Upgrade a škálování 
 
-Jak už bylo zmíněno dříve, můžete si vybrat mezi třech úrovních: **vývojáře**, **standardní**, **Premium**. **Vývojáře** vrstvy se má použít k vyhodnocení služby; nesmí být použita pro produkční prostředí. **Vývojáře** úroveň nemá smlouvy o úrovni služeb a nemůže škálovat tuto vrstvu (Přidat nebo odebrat jednotky). 
+Jak už bylo zmíněno dříve, můžete si vybrat mezi třech úrovních: **vývojáře**, **standardní**, a **Premium**. **Vývojáře** vrstvy se má použít k vyhodnocení služby; nesmí být použita pro produkční prostředí. **Vývojáře** úroveň nemá smlouvy o úrovni služeb a nemůže škálovat tuto vrstvu (Přidat nebo odebrat jednotky). 
 
-**Standardní** a **Premium** jsou produkční úrovně mít SLA a je možné rozšířit. **Standardní** vrstvu lze škálovat až čtyři jednotkách. Můžete přidat libovolný počet jednotek na **Premium** vrstvy. 
+**Standardní** a **Premium** jsou produkční vrstvy, které mají SLA a je možné rozšířit. **Standardní** vrstvu lze škálovat až čtyři jednotkách. Můžete přidat libovolný počet jednotek na **Premium** vrstvy. 
 
-**Premium** vrstvy umožňuje distribuovat jedna instance API management napříč jakékoli číslo požadované oblasti Azure. Když vytvoříte původně služby API Management, instance obsahuje pouze jednu jednotku a se nachází v jedné oblasti Azure. Počáteční oblast je určený jako **primární** oblast. Další oblasti lze snadno přidat. Při přidávání oblast, je třeba zadat počet jednotek, které chcete přidělit. Například může mít jednu jednotku v **primární** oblast a pět jednotky v některé jiné oblasti. Můžete přizpůsobit pro libovolnou provoz máte v každé oblasti. Další informace najdete v tématu [nasazení instanci služby Azure API Management na několika oblastmi Azure](api-management-howto-deploy-multi-region.md).
+**Premium** vrstvy umožňuje distribuovat jedna instance API management napříč jakékoli číslo požadované oblasti Azure. Když vytvoříte původně služby API Management, instance obsahuje pouze jednu jednotku a se nachází v jedné oblasti Azure. Počáteční oblast je určený jako **primární** oblast. Další oblasti lze snadno přidat. Při přidávání oblast, je třeba zadat počet jednotek, které chcete přidělit. Například může mít jednu jednotku v **primární** oblast a pět jednotky v některé jiné oblasti. Počet jednotek pro provoz, který máte v každé oblasti můžete přizpůsobit. Další informace najdete v tématu [nasazení instanci služby Azure API Management na několika oblastmi Azure](api-management-howto-deploy-multi-region.md).
 
-Můžete upgradovat a starší verzi do a z libovolné úrovně. Upozorňujeme, že přechod na starší verzi můžete odebrat některé funkce, například virtuální sítě nebo nasazení s více oblast, když přechod na starší verzi standardního z úrovně Premium.
+Můžete upgradovat a starší verzi do a z libovolné úrovně. Všimněte si, že upgrade nebo přechod na starší verzi můžete odebrat některé funkce – například virtuální sítě nebo nasazení s více oblast, když přechod na starší verzi standardního z úrovně Premium.
 
 >[!NOTE]
->Proces upgradu nebo škálování může trvat od 15 do 30 minut použít. Pokud se provádí zobrazí oznámení.
+>Proces upgradu nebo škálování může trvat od 15 až 45 minut použít. Pokud se provádí zobrazí oznámení.
 
 ### <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Použijte portál Azure pro upgrade a škálování
 

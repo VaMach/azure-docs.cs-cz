@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: b3bf91a7ae5ed70456352ecdba9c0324f20f3555
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: da1f2c3170aba9dc13d77a8729a98e7b655edea8
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Nasazení správy rozhraní API pomocí Service Fabric
-V tomto kurzu je součástí série, tři.  Nasazení aplikace Azure API Management s Service Fabric je pokročilý scénář.  API Management je užitečné, když je potřeba publikovat rozhraní API s bohatou sadu pravidla směrování pro váš back endové služby Service Fabric. Cloudové aplikace obvykle nutné front-endu brány zajistit jediný bod příjem příchozích dat pro uživatele, zařízení nebo jiné aplikace. V Service Fabric brány může být jakékoli bezstavové služby určený pro příchozí provoz například APP.NET základní aplikace, služby Event Hubs, IoT Hub nebo Azure API Management. 
+V tomto kurzu je součástí série, čtyři.  Nasazení aplikace Azure API Management s Service Fabric je pokročilý scénář.  API Management je užitečné, když je potřeba publikovat rozhraní API s bohatou sadu pravidla směrování pro váš back endové služby Service Fabric. Cloudové aplikace obvykle nutné front-endu brány zajistit jediný bod příjem příchozích dat pro uživatele, zařízení nebo jiné aplikace. V Service Fabric brány může být jakékoli bezstavové služby určený pro příchozí provoz například APP.NET základní aplikace, služby Event Hubs, IoT Hub nebo Azure API Management. 
 
 V tomto kurzu se dozvíte, jak nastavit [Azure API Management](../api-management/api-management-key-concepts.md) s Service Fabric přesměrovat provoz na back-end služby v Service Fabric.  Jakmile budete hotovi, nasazené API Management k virtuální síti, nakonfigurované operace rozhraní API odesílat provoz do bezstavové služby back-end. Další informace o scénářích Azure API Management s Service Fabric najdete v tématu [přehled](service-fabric-api-management-overview.md) článku.
 
@@ -38,6 +38,7 @@ V této série kurzu zjistíte, jak:
 > [!div class="checklist"]
 > * Vytvoření zabezpečeného [clusteru se systémem Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) nebo [Linux clusteru](service-fabric-tutorial-create-vnet-and-linux-cluster.md) v Azure pomocí šablony
 > * [Škálování clusteru příchozí nebo odchozí](/service-fabric-tutorial-scale-cluster.md)
+> * [Upgrade clusteru modul runtime](service-fabric-tutorial-upgrade-cluster.md)
 > * Nasazení správy rozhraní API pomocí Service Fabric
 
 ## <a name="prerequisites"></a>Požadavky
@@ -335,10 +336,6 @@ V tomto kurzu jste se naučili:
 > * Vytvoření operace rozhraní API
 > * Nakonfigurujte zásady back-end
 > * Přidání rozhraní API do produktu
-
-V dalším kroku přechodu na následující kurzu se dozvíte, jak upgradovat runtime clusteru.
-> [!div class="nextstepaction"]
-> [Upgrade clusteru runtime Azure Service Fabric](service-fabric-tutorial-upgrade-cluster.md)
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

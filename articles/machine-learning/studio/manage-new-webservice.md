@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Správa webové služby pomocí portálu Azure Machine Learning webové služby
 Můžete spravovat vaše nové Machine Learning a Classic webové služby pomocí portálu Microsoft Azure Machine Learning webové služby. Vzhledem k tomu, že Classic webové služby a nové webové služby jsou založená na různých základní technologií, máte možnosti mírně lišit správy pro každý z nich.
@@ -155,36 +155,4 @@ Můžete aktualizovat následující vlastnosti:
 * **Protokolování** umožňuje povolit nebo zakázat protokolování na koncovém bodu. Další informace o protokolování naleznete v tématu Povolení [protokolování pro webové služby Machine Learning](web-services-logging.md).
 * **Povolit ukázková data** umožňuje poskytovat ukázková data, která můžete použít k testování služby požadavků a odpovědí. Pokud jste vytvořili webovou službu v nástroji Machine Learning Studio, ukázkových dat je převzat ze data vaší použité k natrénování modelu. Pokud jste vytvořili službu prostřednictvím kódu programu, data je převzat ze příklad dat, které jste zadali jako součást balíčku JSON.
 
-## <a name="grant-or-suspend-access-to-web-services-for-users-in-the-portal"></a>Udělit nebo pozastavit přístup k webovým službám pro uživatele na portálu
-Pomocí portálu Azure classic, můžete povolit nebo odepřít přístup k určitým uživatelům.
-
-### <a name="access-for-users-of-new-web-services"></a>Přístup pro uživatele nové webové služby
-Další uživatelé mohli pracovat s vaší webové služby na portálu Azure Machine Learning webové služby, musí přidejte je jako správci co ve vašem předplatném Azure.
-
-Přihlaste se k [portál Azure classic](https://manage.windowsazure.com/) pomocí Microsoft Azure účet – použijte účet, který je spojen s předplatným služby Azure.
-
-1. V navigačním podokně klikněte na tlačítko **nastavení**, pak klikněte na tlačítko **správci**.
-2. V dolní části okna klikněte na tlačítko **přidat**. 
-3. V dialogovém okně Přidat společné správce A zadejte e-mailovou adresu osoby, kterou chcete přidat jako spolusprávce a pak vyberte odběr, který chcete společné správce pro přístup.
-4. Klikněte na **Uložit**.
-
-### <a name="access-for-users-of-classic-web-services"></a>Přístup pro uživatele Classic webových služeb
-Správa pracovního prostoru:
-
-Přihlaste se k [portál Azure classic](https://manage.windowsazure.com/) pomocí Microsoft Azure účet – použijte účet, který je spojen s předplatným služby Azure.
-
-1. Na panelu služby Microsoft Azure, klikněte na tlačítko **MACHINE LEARNING**.
-2. Klikněte na pracovní prostor, který chcete spravovat.
-3. Klikněte **konfigurace** kartě.
-
-Na kartě konfigurace můžete pozastavit přístup do pracovního prostoru Machine Learning kliknutím **ODEPŘÍT**. Uživatelé už nebude moct v nástroji Machine Learning Studio otevřete pracovní prostor. Chcete-li obnovit přístup, klikněte na tlačítko **povolit**.
-
-Pro konkrétní uživatele:
-
-Chcete-li spravovat další účty, kteří mají přístup do pracovního prostoru v nástroji Machine Learning Studio, klikněte na tlačítko **přihlášení k ML Studio** v **řídicí panel** kartě. Otevře se v pracovním prostoru v nástroji Machine Learning Studio. Zde klikněte na tlačítko **nastavení** kartu a potom **uživatelé**. Můžete kliknout na **POZVAT uživatele více** uživatelům přístup k pracovním prostoru, nebo vyberte uživatele a klikněte na tlačítko **odebrat**.
-
-> [!NOTE]
-> **Přihlášení k ML Studio** odkaz otevře Machine Learning Studio pomocí Account Microsoft jste aktuálně přihlášeni. Account Microsoft, který jste použili pro přihlášení k portálu Azure classic k vytvoření pracovního prostoru automaticky nemá oprávnění k otevření tohoto pracovního prostoru. Otevřete pracovní prostor, musíte být přihlášeni k Account Microsoft, která byla definována jako vlastník pracovního prostoru, nebo je potřeba přijmout pozvánku od vlastníka pro připojení k pracovním prostoru.
-> 
-> 
 
