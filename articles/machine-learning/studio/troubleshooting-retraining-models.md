@@ -3,7 +3,7 @@ title: "Řešení potíží s retraining webové služby Azure Machine Learning 
 description: "Identifikujte a opravte narazil běžné problémy, když jsou retraining modelu pro webové služby Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
-author: VDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: 85cf9175bb4a5f253c7b47b2edc3ac8b00616ba2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 011/01/2017
+ms.author: garye
+ms.openlocfilehash: 1e5327ad135d9bc8881354679dc3f1b8a472cad3
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Řešení potíží s retraining Azure Machine Learning Classic webové služby
+# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Řešení potíží s retraining webové služby Azure Machine Learning Classic
 ## <a name="retraining-overview"></a>Retraining – přehled
 Když nasadíte prediktivní experiment jako vyhodnocování webové služby je statický model. Jakmile nová data k dispozici nebo pokud příjemce rozhraní API má svá vlastní data, musí být retrained modelu. 
 
@@ -32,7 +32,7 @@ Když potřebujete přeučování webovou službu, musíte přidat další někt
 * Webovou službu nasazenou z výukový Experiment. Musí mít experiment **výstup webové služby** modulu připojené k výstupu **Train Model** modulu.  
   
     ![Připojte k train model výstup webové služby.][image1]
-* Nový koncový bod přidán do vyhodnocování webovou službu.  Můžete přidat koncový bod programově pomocí ukázkový kód, kterou se odkazuje v Machine Learning Přeučování modelů prostřednictvím kódu programu tématu nebo prostřednictvím portálu Azure classic.
+* Nový koncový bod přidán do vyhodnocování webovou službu.  Můžete přidat koncový bod programově pomocí ukázkový kód, kterou se odkazuje v Machine Learning Přeučování modelů prostřednictvím kódu programu tématu nebo prostřednictvím portálu webové služby Azure Machine Learning.
 
 Ukázka kódu C# ze stránky nápovědy školení webové rozhraní API pak můžete přeučování modelu. Po vyhodnocení výsledky a spokojeni s nimi, je třeba aktualizovat pro cvičný model vyhodnocování webové službě pomocí nového koncového bodu, který jste přidali.
 
@@ -58,21 +58,19 @@ Pokud chcete získat správnou adresu URL opravy:
 3. Vložte adresu URL do prohlížeče, přejděte na stránku, která poskytuje odkazy na nápovědu pro webovou službu.
 4. Klikněte **aktualizace prostředků** odkazu k otevření stránky nápovědy opravy.
 
-**Možnost 2: Pomocí portálu Azure classic**
+**Možnost 2: Použití portálu Azure Machine Learning webové služby**
 
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Otevřete kartu Machine Learning. ![Karta opřené počítače.][image4]
-3. Pak klikněte na název pracovního prostoru, **webové služby**.
-4. Klikněte na tlačítko vyhodnocování webové služby, kterou pracujete. (Pokud jste nezměnila výchozí název webové služby, se bude končit [vyhodnocování Exp.].)
-5. Klikněte na tlačítko **přidání koncového bodu**.
-6. Po přidání koncového bodu, klikněte na název koncového bodu. Pak klikněte na tlačítko **aktualizace prostředků** chcete otevřít stránku nápovědy oprav.
+1. Přihlaste se k [webové služby Azure Machine Learning](https://services.azureml.net/) portálu.
+2. Klikněte na tlačítko **webové služby** nebo **Classic webové služby** v horní části.
+4. Klikněte na práci s vyhodnocování webové služby (pokud nebyl upravit výchozí název webové služby, je vyprší za "[hodnocení Exp.]").
+5. Klikněte na tlačítko **+ nový**.
+6. Po přidání koncového bodu, klikněte na název koncového bodu.
+7. V části **oprava** adresu URL, klikněte na tlačítko **rozhraní API nápovědy** chcete otevřít stránku nápovědy oprav.
 
 > [!NOTE]
-> Pokud jste přidali koncový bod k webové službě školení místo prediktivní webové služby, zobrazí se chybová zpráva po kliknutí na tlačítko **aktualizace prostředků** odkaz: je nám líto, ale tato funkce není podporována nebo k dispozici v tomto kontext. Tato webová služba nemá žádné aktualizovat prostředky. Omlouváme se za nepříjemnosti a práce na zlepšení tento pracovní postup.
+> Pokud jste přidali koncový bod k webové službě školení místo prediktivní webové služby, zobrazí se chybová zpráva po kliknutí na tlačítko **aktualizace prostředků** odkaz: "líto, ale tato funkce není podporována nebo k dispozici v Tento kontext. Tato webová služba nemá žádné aktualizovat prostředky. Omlouváme se za nepříjemnosti a práce na zlepšení tento pracovní postup."
 > 
 > 
-
-![Nový koncový bod řídicí panel.][image3]
 
 Na stránce nápovědy oprava obsahuje adresu URL opravy, je nutné použít a poskytuje ukázkový kód, které můžete použít k volání.
 
@@ -82,32 +80,32 @@ Na stránce nápovědy oprava obsahuje adresu URL opravy, je nutné použít a p
 * Není oprava webovou službu školení: operace opravy se musí provést na vyhodnocování webové službě.
 * Výchozí koncový bod webové služby není oprava: operace opravy se musí provést na nové vyhodnocování webové služby koncového bodu, který jste přidali.
 
-Můžete ověřit, které webové služby, koncový bod je na pomocí portálu Azure classic. 
+Můžete ověřit, které webové služby, koncový bod je na portálu pro webové služby. 
 
 > [!NOTE]
-> Ujistěte se, že přidáváte koncový bod do prediktivní webové služby není školení webovou službu. Pokud jste nasadili správně školení a prediktivní webové služby, měli byste vidět dvě samostatné webové služby uvedené. Prediktivní webové služby musí končit "[prediktivní exp.]".
+> Ujistěte se, že přidáváte koncový bod do prediktivní webové služby není školení webovou službu. Pokud jste nasadili správně školení a prediktivní webové služby, měli byste vidět dvě samostatné webové služby, které jsou uvedené. Prediktivní webové služby musí končit "[prediktivní exp.]".
 > 
 > 
 
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Otevřete kartu Machine Learning. ![Machine learning prostoru uživatelského rozhraní.][image4]
-3. Vyberte pracovní prostor.
-4. Klikněte na tlačítko **webové služby**.
-5. Vyberte prediktivní webové služby.
-6. Ověřte, že váš nový koncový bod byl přidán k webové službě.
+1. Přihlaste se k [webové služby Azure Machine Learning](https://services.azureml.net/) portálu.
+2. Klikněte na tlačítko **webové služby** nebo **Classic webové služby**.
+3. Vyberte prediktivní webové služby.
+4. Ověřte, že váš nový koncový bod byl přidán k webové službě.
 
-### <a name="check-the-workspace-that-your-web-service-is-in-to-ensure-it-is-in-the-correct-region"></a>Zkontrolujte pracovní prostor, který webová služba je v zajistit, že je ve správném oblasti
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Z nabídky vyberte Machine Learning.
+### <a name="check-that-your-workspace-is-in-the-same-region-as-the-web-service"></a>Zkontrolujte, zda je pracovní prostor ve stejné oblasti jako webovou službu
+1. Přihlaste se k [strojového učení Studio](https://studio.azureml.net/).
+2. V horní části klikněte na rozevírací seznam vašich pracovních prostorů.
+
    ![Machine learning oblast uživatelského rozhraní.][image4]
-3. Zkontrolujte umístění pracovního prostoru.
+
+3. Zkontrolujte oblast, kterou je pracovní prostor v.
 
 <!-- Image Links -->
 
 [image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
 [image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
 [image3]: ./media/troubleshooting-retraining-a-model/azure-portal-update-resource.png
-[image4]: ./media/troubleshooting-retraining-a-model/azure-portal-machine-learning-tab.png
+[image4]: ./media/troubleshooting-retraining-a-model/check-workspace-region.png
 [image5]: ./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png
 [image6]: ./media/troubleshooting-retraining-a-model/retraining-output.png
 [image7]: ./media/troubleshooting-retraining-a-model/web-services-tab.png

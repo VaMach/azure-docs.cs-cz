@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Pravidla ve službě Azure CDN modul funkce
 Toto téma obsahuje podrobný popis dostupných funkcí pro Azure Content Delivery Network (CDN) [stroj pravidel](cdn-rules-engine.md).
@@ -644,7 +644,7 @@ Zakázáno|Hlavička odpovědi X-ES-Debug budou vyloučeny z odpovědi.
 
 **Výchozí chování:** zakázané.
 
-###<a name="modify-client-response-header"></a>Upravit hlavičku odpovědi klienta
+###<a name="modify-client-request-header"></a>Upravit hlavička požadavku klienta
 **Účel:** každý požadavek obsahuje sadu [hlavičky požadavku]() popisují ho. Tato funkce může buď:
 
 - Připojení nebo přepsat hodnotu přiřazenou hlavičku požadavku. Pokud zadaný požadavek hlavička neexistuje, tato funkce ho pak přidá k požadavku.
@@ -680,7 +680,7 @@ Informace o klíči:
 ###<a name="modify-client-response-header"></a>Upravit hlavičku odpovědi klienta
 Každá odpověď obsahuje sadu [hlavičky odpovědi]() popisují ho. Tato funkce může buď:
 
-- Připojení nebo přepsat hodnotu přiřazenou hlavičky odpovědi. Pokud zadaný požadavek hlavička neexistuje, tato funkce ho pak přidá do odpovědi.
+- Připojení nebo přepsat hodnotu přiřazenou hlavičky odpovědi. Pokud zadané hlavičky odpovědi neexistuje, tato funkce ho pak přidá do odpovědi.
 - Odstraňte hlavičky odpovědi z odpovědi.
 
 Ve výchozím nastavení jsou definovány hodnoty hlavičky odpovědi původním serveru a naše servery edge.
@@ -689,9 +689,9 @@ Na hlavičku odpovědi je možné provádět jednu z následujících akcí:
 
 Možnost|Popis|Příklad
 -|-|-
-Připojit|Zadaná hodnota přidá na konec existující hodnotu hlavičky žádosti.|**Hodnota hlavičky odpovědi (klient):**Value1 <br/> **Hodnota hlavičky odpovědi (stroj pravidel HTTP):** hodnota2 <br/>**Nová hodnota hlavičky odpovědi:** Value1Value2
-Přepsání|Hodnota hlavičky požadavku se nastaví na zadanou hodnotu.|**Hodnota hlavičky odpovědi (klient):**Value1 <br/>**Hodnota hlavičky odpovědi (stroj pravidel HTTP):** hodnota2 <br/>**Nová hodnota hlavičky odpovědi:** hodnota2 <br/>
-Odstranění|Odstraní určenou hlavičku požadavku.|**Žádosti o hodnotu hlavičky (klient):** Value1 <br/> **Změna konfigurace hlaviček žádostí klienta:** odstranit dotyčném hlavičku odpovědi. <br/>**Výsledek:** zadané hlavičky odpovědi nebude předají do žadatel.
+Připojit|Zadaná hodnota přidá na konec existující hodnotu hlavičky odpovědi.|**Hodnota hlavičky odpovědi (klient):**Value1 <br/> **Hodnota hlavičky odpovědi (stroj pravidel HTTP):** hodnota2 <br/>**Nová hodnota hlavičky odpovědi:** Value1Value2
+Přepsání|Hodnota hlavičky odpovědi se nastaví na zadanou hodnotu.|**Hodnota hlavičky odpovědi (klient):**Value1 <br/>**Hodnota hlavičky odpovědi (stroj pravidel HTTP):** hodnota2 <br/>**Nová hodnota hlavičky odpovědi:** hodnota2 <br/>
+Odstranění|Odstraní zadané hlavičky odpovědi.|**Hodnota hlavičky odpovědi (klient):** Value1 <br/> **Změňte konfiguraci klienta hlavička odpovědi:** odstranit dotyčném hlavičku odpovědi. <br/>**Výsledek:** zadané hlavičky odpovědi nebude předají do žadatel.
 
 Informace o klíči:
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 1f0d50331aa3986e80542902fd528f98e1c91bc2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pro Visual Studio  
 
@@ -32,6 +32,9 @@ Funkce nástroje Azure poskytuje následující výhody:
 * Přitom má všechny výhody vývoje v sadě Visual Studio Code funkcí v jazyce C#. 
 
 Toto téma ukazuje, jak pomocí nástroje Azure funkce pro Visual Studio 2017 vyvíjet funkcí v jazyce C#. Také zjistíte, jak publikovat projekt do Azure jako sestavení rozhraní .NET.
+
+> [!IMPORTANT]
+> Nekombinujte místní vývoj pomocí portálu vývoj v aplikaci stejné funkce. Při publikování z místní projektu do aplikace pro funkce procesu nasazení přepíše všechny funkce, které jste vytvořili v portálu.
 
 ## <a name="prerequisites"></a>Požadavky
 

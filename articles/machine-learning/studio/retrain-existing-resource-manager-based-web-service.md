@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Přeučování existující prediktivní webovou službu
 Tento dokument popisuje proces retraining pro následující scénář:
@@ -44,7 +44,7 @@ Počínaje existující webovou službu a experimentů, je třeba postupovat pod
    6. Aktualizujte webovou službu pomocí nové definice webové služby.
 
 ## <a name="deploy-the-training-experiment"></a>Nasazení výukový experiment
-Pokud chcete nasadit výukový experiment jako retraining webové služby, musíte přidat webové služby vstupy a výstupy do modelu. Připojením *výstup webové služby* modulu experimentu * [Train Model] [ train-model] * modulu, povolte výukový experiment k vytvoření nové trained model, který můžete použít v prediktivní experiment. Pokud máte *Evaluate Model* modul, můžete taky přiložit výstup webové služby se získat výsledky hodnocení jako výstup.
+Pokud chcete nasadit výukový experiment jako retraining webové služby, musíte přidat webové služby vstupy a výstupy do modelu. Připojením *výstup webové služby* modulu experimentu  *[Train Model] [ train-model]*  modulu, povolte výukový experiment k vytvoření nové trained model, který můžete použít v prediktivní experiment. Pokud máte *Evaluate Model* modul, můžete taky přiložit výstup webové služby se získat výsledky hodnocení jako výstup.
 
 Aktualizace výukový experiment:
 
@@ -86,20 +86,19 @@ V **informace o základní spotřeby** části **spotřebě** stránky, vyhledej
 ### <a name="update-the-azure-storage-information"></a>Aktualizovat informace o Azure Storage
 Ukázkový kód BES se uloží soubor z místního disku (například "C:\temp\CensusIpnput.csv") do služby Azure Storage, procesy a zapíše výsledky zpět do služby Azure Storage.  
 
-Aktualizovat informace o Azure Storage, je nutné získat název účtu úložiště, klíč a informace o kontejneru pro váš účet úložiště z portálu Azure classic a aktualizovat odpovídající hodnoty v kódu.
 Po spuštění experimentu, výsledná pracovního postupu by měl vypadat přibližně takto:
 
 ![Po spuštění výsledného pracovního postupu][4]
 
-1. Přihlaste se k portálu Azure Classic.
-2. Ve sloupci levém navigačním panelu klikněte na tlačítko **úložiště**.
+1. Přihlaste se k portálu Azure.
+2. Ve sloupci levém navigačním panelu klikněte na tlačítko **další služby**, vyhledejte **účty úložiště**a vyberte ho.
 3. Ze seznamu účtů úložiště vyberte jeden pro uložení retrained modelu.
-4. V dolní části stránky klikněte na tlačítko **spravovat přístupové klíče**.
-5. Zkopírujte a uložte **primární přístupový klíč** a zavřete tento dialog.
-6. V horní části stránky klikněte na tlačítko **kontejnery**.
+4. Ve sloupci levém navigačním panelu klikněte na tlačítko **přístupové klíče**.
+5. Zkopírujte a uložte **primární přístupový klíč**.
+6. Ve sloupci levém navigačním panelu klikněte na tlačítko **kontejnery**.
 7. Vyberte existující kontejner, nebo vytvořte novou a uložit název.
 
-Vyhledejte *StorageAccountName*, *StorageAccountKey*, a *StorageContainerName* deklarace a aktualizujte hodnoty, které jste uložili z klasického portálu.
+Vyhledejte *StorageAccountName*, *StorageAccountKey*, a *StorageContainerName* deklarace a aktualizujte hodnoty, které jste uložili z portálu.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Webové služby Azure Machine Learning: Nasazení a využití
 Azure Machine Learning můžete použít k nasazení pracovní postupy a modely jako webové služby machine learning. Tyto webové služby pak lze volat modely machine learningu z aplikací přes Internet udělat předpovědi v reálném čase nebo v dávkovém režimu. Protože webových služeb jsou dosáhl standardu RESTful, můžete je volat z různé programovací jazyky a platformy, jako je například rozhraní .NET a Javu a z aplikace, jako je například aplikace Excel.
@@ -26,6 +26,7 @@ Azure Machine Learning můžete použít k nasazení pracovní postupy a modely 
 Další části obsahují odkazy na postupy, kód a dokumentaci, která vám pomůžou začít.
 
 ## <a name="deploy-a-web-service"></a>Nasazení webové služby
+
 ### <a name="with-azure-machine-learning-studio"></a>S Azure Machine Learning Studio
 Machine Learning Studio a portálu Microsoft Azure Machine Learning webové služby můžete nasazovat a spravovat bez nutnosti psaní kódu webové služby.
 
@@ -58,7 +59,7 @@ Spuštění aplikace vytvoří šablonu JSON webové služby. Abyste mohli použ
 
 * Název účtu úložiště a klíč
 
-    Název účtu úložiště a klíč můžete získat z buď [portál Azure](https://portal.azure.com/) nebo [portál Azure classic](http://manage.windowsazure.com/).
+    Můžete získat název účtu úložiště a klíč z [portál Azure](https://portal.azure.com/).
 * ID plánu závazků
 
     Můžete získat ID plánu z [webové služby Azure Machine Learning](https://services.azureml.net) portálu přihlášení a kliknutím na název plánu.

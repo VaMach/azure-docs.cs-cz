@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: baed3e290ed29d1459455441e7cac7c5b1b1ebd9
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Škálování clusteru Service Fabric
 
@@ -30,6 +30,13 @@ V tomto kurzu se naučíte:
 > * Přečtěte si počet uzlů clusteru
 > * Přidat uzly clusteru (škálování)
 > * Odebrání uzlů clusteru (měřítka v)
+
+V této série kurzu zjistíte, jak:
+> [!div class="checklist"]
+> * Vytvoření zabezpečeného [clusteru se systémem Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) nebo [Linux clusteru](service-fabric-tutorial-create-vnet-and-linux-cluster.md) v Azure pomocí šablony
+> * Škálování clusteru příchozí nebo odchozí
+> * [Upgrade clusteru modul runtime](service-fabric-tutorial-upgrade-cluster.md)
+> * [Nasazení správy rozhraní API pomocí Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Požadavky
 Před zahájením tohoto kurzu:
@@ -250,8 +257,8 @@ V tomto kurzu jste se naučili:
 > * Odebrání uzlů clusteru (měřítka v)
 
 
-V dalším kroku přechodu na následující kurzu se dozvíte, jak nasadit aplikace a používat službu API management.
+V dalším kroku přechodu na následující kurzu se dozvíte, jak upgradovat runtime clusteru.
 > [!div class="nextstepaction"]
-> [Nasadit službu API Management](service-fabric-tutorial-deploy-api-management.md)
+> [Upgrade clusteru modul runtime](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

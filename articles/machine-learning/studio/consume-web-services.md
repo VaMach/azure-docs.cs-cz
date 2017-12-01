@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 13de6daabf2b6d83cc703ae6b3f0a30a1dfa34d6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: ed41ec58dbdfd41931e8bab3a3cbe33caafe9a74
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Jak používat Azure Machine Learning webové služby
 
@@ -64,18 +64,11 @@ Načíst klíč rozhraní API pro Classic Machine Learning webové služby:
 5. Zkopírujte a uložte **primární klíč**.
 
 ### <a name="classic-web-service"></a>Classic webové služby
- Můžete také načíst klíč pro Classic webové služby Machine Learning Studio nebo portálu Azure classic.
+ Můžete také načíst klíč pro Classic webové služby ze Machine Learning Studio.
 
 #### <a name="machine-learning-studio"></a>Machine Learning Studio
 1. V nástroji Machine Learning Studio, klikněte na tlačítko **webové služby** na levé straně.
 2. Klikněte na webovou službu. **Klíč rozhraní API** na **řídicí panel** kartě.
-
-#### <a name="azure-classic-portal"></a>klasický portál Azure
-1. Klikněte na tlačítko **MACHINE LEARNING** na levé straně.
-2. Klikněte na pracovním prostoru, ve kterém se nachází webové služby.
-3. Klikněte na tlačítko **webové služby**.
-4. Klikněte na webovou službu.
-5. Klikněte na koncový bod. "API KEY" je mimo provoz v pravém dolním.
 
 ## <a id="connect"></a>Připojení k webové služby Machine Learning
 Můžete připojit k službě Machine Learning webové pomocí programovací jazyk, který podporuje žádostí HTTP a odpovědí. Příklady můžete zobrazit v C#, Python a R z Machine Learning webové stránky nápovědy služby.

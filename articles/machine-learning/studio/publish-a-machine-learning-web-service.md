@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Nasazení webové služby Azure Machine Learning
 Azure Machine Learning můžete vytvářet, testovat a nasazovat řešení prediktivní analýzy.
@@ -108,7 +108,7 @@ Na **konfigurace** stránky, můžete změnit popis, název, aktualizovat klíč
 Jakmile máte ukázku nasazenou webovou službu, můžete:
 
 * **Přístup k** přes rozhraní API webové služby.
-* **Spravovat** přes Azure Machine Learning, webový portál služby nebo portálu Azure classic.
+* **Spravovat** přes portál Azure Machine Learning webových služeb.
 * **Aktualizace** je-li změny modelu.
 
 #### <a name="access-your-new-web-service"></a>Přístup k vaší nové webové služby
@@ -141,7 +141,7 @@ Chcete-li otestovat spuštění služby Batch, klikněte na tlačítko **testov�
 
 ![Test webové služby](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-Na **konfigurace** stránky, můžete změnit zobrazovaný název služby a zadejte jeho popis. Název a popis se zobrazí v [portál Azure classic](http://manage.windowsazure.com/) kde budete spravovat webové služby.
+Na **konfigurace** stránky, můžete změnit zobrazovaný název služby a zadejte jeho popis. Název a popis se zobrazí v [portál Azure](https://portal.azure.com/) kde budete spravovat webové služby.
 
 Můžete zadat popis vstupních dat, výstupní data a webové služby parametry tak, že zadáte řetězec pro každý sloupec v části **vstupní schéma**, **výstupního schématu**, a **parametr webové služby**. Tyto popisy se používají v dokumentaci ukázkový kód zadaný pro webovou službu.
 

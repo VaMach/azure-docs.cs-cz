@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Krok 5 průvodce: Nasazení webové služby Azure Machine Learning
 Toto je pátý krok tohoto průvodce, [vývoj řešení prediktivní analýzy v Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -190,26 +190,6 @@ Výsledky testu se zobrazí na pravé straně stránky v výstupního sloupce.
 
 
 ## <a name="manage-the-web-service"></a>Správa webové služby
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Správa webové služby klasického portálu Azure classic
-
-Když máte ukázku nasazenou webovou službu Classic, můžete spravovat z [portál Azure classic](https://manage.windowsazure.com).
-
-1. Přihlaste se k [portál Azure classic](https://manage.windowsazure.com)
-2. Na panelu služby Microsoft Azure, klikněte na tlačítko **MACHINE LEARNING**
-3. Klikněte na pracovní prostor
-4. Klikněte **webové služby** karta
-5. Klikněte na webovou službu, kterou jsme vytvořili
-6. Klikněte na koncový bod "Výchozí"
-
-Tady můžete provést akce, jako je monitorování, jak je to webovou službu a vylepšení výkonu zkontrolujte změnou, kolik souběžných volání služby může zpracovat.
-
-Další podrobnosti najdete v tématu:
-
-* [Vytváření koncových bodů](create-endpoint.md)
-* [Škálování webové služby](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Spravovat na klasickém nebo novou webovou službu na portálu Azure Machine Learning webové služby
 
 Po nasazení webové služby, zda Classic nebo nové, můžete spravovat z [webové služby aplikace Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) portálu.
 

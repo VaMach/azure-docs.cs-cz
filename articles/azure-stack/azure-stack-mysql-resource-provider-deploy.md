@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/29/2017
 ms.author: JeffGo
-ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Používání databází MySQL v zásobníku Microsoft Azure
 
@@ -60,10 +60,16 @@ Systémový účet musí mít následující oprávnění:
 
     b. V systémech s více uzly hostitele musí být systém, kterým může přistupovat privilegované koncový bod.
 
-3. [Stáhněte si soubor binární soubory zprostředkovatele prostředků MySQL](https://aka.ms/azurestackmysqlrp) a provedení Self-Extractor extrahujte obsah do dočasného adresáře.
+3. Zprostředkovatel prostředků MySQL binární stažení a spuštění Self-Extractor extrahujte obsah do dočasného adresáře.
 
-    > [!NOTE]
-    > Pokud je spuštěn v zásobníku Azure sestavení 20170928.3 nebo dřívější, [tuto verzi stáhnout](https://aka.ms/azurestackmysqlrp1709).
+    >[!NOTE] 
+    > Sestavení zprostředkovatele prostředků odpovídá sestavení Azure zásobníku. Je nutné stáhnout správné binární verze zásobník Azure, který běží.
+
+    | Sestavení Azure zásobníku | Instalační program MySQL RP |
+    | --- | --- |
+    | 1.0.171122.1 | [MySQL RP verze 1.1.10.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171028.1 | [MySQL RP verze 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
+    | 1.0.170928.3 | [MySQL RP verze 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Kořenový certifikát zásobník Azure se načtou z privilegovaných koncový bod. Pro ASDK se vytvoří certifikát podepsaný svým držitelem v rámci tohoto procesu. Pro více uzly je nutné zadat příslušný certifikát.
 
@@ -116,7 +122,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set the credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 

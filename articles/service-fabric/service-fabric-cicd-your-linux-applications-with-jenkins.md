@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: e9422745de1f46098f1a1b0605c2560f44c02f3c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Použití volaných sestavení a nasazení aplikací systému Linux
 Jenkins je oblíbený nástroj pro průběžnou integraci a nasazování aplikací. Tady je postup, kterým můžete sestavit a nasadit aplikaci Azure Service Fabric s využitím Jenkinse.
 
 ## <a name="general-prerequisites"></a>Obecné požadavky
 - Máte lokálně nainstalovaný Git. Odpovídající verzi Gitu (v závislosti na operačním systému) můžete nainstalovat ze [stránky pro stažení Gitu](https://git-scm.com/downloads). Pokud jste ještě Git nepoužívali, další informace najdete v [dokumentaci ke Gitu](https://git-scm.com/docs).
-- Máte po ruce modul plug-in Jenkinse pro Service Fabric. Můžete ho stáhnout ze stránky pro [stažení Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
+- Máte po ruce modul plug-in Jenkinse pro Service Fabric. Můžete ho stáhnout ze stránky pro [stažení Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Pokud používáte přejmenování prohlížeče edge rozšíření staženého souboru .zip .hpi.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Nastavení Jenkinse uvnitř clusteru Service Fabric
 
@@ -129,8 +129,8 @@ Potřebujete mít nainstalovaný Docker. Pomocí následujících příkazů mů
 Když teď v terminálu spustíte příkaz ``docker info``, na výstupu by se mělo zobrazit, že je spuštěná služba Docker.
 
 ### <a name="steps"></a>Kroky
-  1. Stáhněte si image kontejneru s Jenkinsem pro Service Fabric: ``docker pull sayantancs/jenkins:v9``
-  2. Spusťte image kontejneru: ``docker run -itd -p 8080:8080 sayantancs/jenkins:v9``
+  1. Stáhněte si image kontejneru s Jenkinsem pro Service Fabric: ``docker pull rapatchi/jenkins:v9``
+  2. Spusťte image kontejneru: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
   3. Získejte ID instance image kontejneru. Pomocí příkazu ``docker ps –a`` můžete vypsat všechny kontejnery Dockeru.
   4. Přihlaste se k portálu Jenkinse pomocí následujících kroků:
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 6a0d218a9b9cb41a87264cfd5f653bb631b0bce9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 11/29/2017
+ms.openlocfilehash: 5983bbf6fac9c3cddda19f6a11d2fe2b18177160
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Přizpůsobit parametry konfigurace serveru pomocí rozhraní příkazového řádku Azure
 Seznam, zobrazit a aktualizovat parametry konfigurace pro databázi Azure pro MySQL server pomocí rozhraní příkazového řádku Azure, nástroj příkazového řádku Azure. Část konfigurace modulu je vystaven na úrovni serveru a nelze jej změnit. 
@@ -34,7 +34,7 @@ az mysql server configuration list --resource-group myresourcegroup --server mys
 Definice jednotlivých uvedených parametrů, najdete v části MySQL odkaz na [serveru systémové proměnné](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## <a name="show-server-configuration-parameter-details"></a>Zobrazit podrobnosti parametr konfigurace serveru
-Chcete-li zobrazit podrobnosti o konkrétní konfiguračního parametru pro server, spusťte [az mysql serveru konfigurace zobrazit](/cli/azure/mysql/server/configuration#show) příkaz.
+Chcete-li zobrazit podrobnosti o konkrétní konfiguračního parametru pro server, spusťte [az mysql serveru konfigurace zobrazit](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_show) příkaz.
 
 Tento příklad zobrazuje podrobnosti o **pomalé\_dotazu\_protokolu** parametr konfigurace serveru pro server **myserver4demo.mysql.database.azure.com** ve skupině prostředků **myresourcegroup.**
 ```azurecli-interactive

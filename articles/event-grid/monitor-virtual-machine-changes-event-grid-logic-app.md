@@ -9,13 +9,13 @@ ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Sledování změn virtuálního počítače se mřížka událostí Azure a Logic Apps
 
@@ -91,7 +91,7 @@ Nejprve vytvořte aplikaci logiky a přidejte mřížce aktivační událost, kt
    ![Přihlaste se pomocí přihlašovacích údajů Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Pokud jste přihlášení pomocí osobního účtu Microsoft, jako například @outlook.com nebo @hotmail.com, aktivační události mřížky, se nemusí zobrazit správně. Jako alternativní řešení, zvolte [připojit pomocí objektu služby](/azure-resource-manager/resource-group-create-service-principal-portal.md), nebo jako člen skupiny Azure Active Directory, který je spojen s předplatným Azure, například ověřit *uživatelské jméno*@emailoutlook.onmicrosoft.com.
+   > Pokud jste přihlášení pomocí osobního účtu Microsoft, jako například @outlook.com nebo @hotmail.com, aktivační události mřížky, se nemusí zobrazit správně. Jako alternativní řešení, zvolte [připojit pomocí objektu služby](../azure-resource-manager/resource-group-create-service-principal-portal.md), nebo jako člen skupiny Azure Active Directory, který je spojen s předplatným Azure, například ověřit *uživatelské jméno*@emailoutlook.onmicrosoft.com.
 
 8. Teď přihlášení k odběru aplikace logiky na události vydavatele. Zadejte podrobnosti pro vaše předplatné událostí uvedených v následující tabulce:
 

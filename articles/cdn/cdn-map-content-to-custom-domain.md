@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: fd36b94c64ad31064dbb2e0badceaee5e5bc400f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Přidat vlastní doménu pro koncový bod CDN
 Po vytvoření profilu, je obvykle také vytvořit jeden nebo více CDN [koncové body](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) (subdoména `azureedge.net`) k doručení obsahu pomocí protokolu HTTP a HTTPS. Ve výchozím nastavení je tento koncový bod součástí všechny adresy URL (například `https://contoso.azureedge.net/photo.png`). Pro usnadnění vaší práce Azure CDN vám umožní přidružit k vlastní doméně (například `www.contoso.com`) s váš koncový bod. Pomocí této možnosti používat vlastní doménu pro doručování obsahu místo váš koncový bod. Tato možnost je užitečná, pokud například chcete vlastní název domény, který se má uvidí vaši zákazníci pro branding pro účely.
@@ -54,7 +54,7 @@ K mapování vaši vlastní doménu na koncový bod CDN, použijte jednu z násl
  
   | JMÉNO             | TYP  | HODNOTA                  |
   |------------------|-------|------------------------|
-  | Webová\.consoto.com | CNAME | consoto\.azureedge.net |
+  | Webová\.contoso.com | CNAME | Contoso\.azureedge.net |
 
 
 - Možnost 2: Mapování s **cdnverify** subdomény. Pokud produkční provoz, který nelze přerušit běží na vlastní domény, můžete vytvořit dočasný mapování CNAME pro koncový bod CDN. Pomocí této možnosti můžete použít Azure **cdnverify** subdomény zajistit na krok zprostředkující registrace tak, aby uživatelé mají přístup k vaší doméně bez přerušení při mapování DNS probíhá.
@@ -64,7 +64,7 @@ K mapování vaši vlastní doménu na koncový bod CDN, použijte jednu z násl
 
    | JMÉNO                       | TYP  | HODNOTA                            |
    |----------------------------|-------|----------------------------------|
-   | cdnverify.WWW\.consoto.com | CNAME | cdnverify.consoto\.azureedge.net | 
+   | cdnverify.WWW\.contoso.com | CNAME | cdnverify.contoso\.azureedge.net | 
 
 
 ## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>Krok 3: Povolení mapování záznam CNAME ve službě Azure
@@ -103,7 +103,7 @@ Tento krok je závislá na krok 2, možnost 2 (mapování s **cdnverify** subdom
  
    | JMÉNO             | TYP  | HODNOTA                  |
    |------------------|-------|------------------------|
-   | Webová\.consoto.com | CNAME | consoto\.azureedge.net |
+   | Webová\.contoso.com | CNAME | Contoso\.azureedge.net |
 2. Odstranit záznam CNAME s **cdnverify** subdomény, kterou jste vytvořili.
 
 ## <a name="see-also"></a>Viz také

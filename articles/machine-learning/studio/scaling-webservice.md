@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: neerajkh
-ms.openlocfilehash: eea085308a5ca755cbf570465b97019de800768e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b4fcef51b2704f07f5d1d08a4bd16970864b0fd
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Škálování webové služby Azure Machine Learning přidáním další koncové body
 > [!NOTE]
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Ve výchozím nastavení každý publikované webové služby je nakonfigurován pro podporu 20 souběžnými požadavky a může být až 200 souběžných požadavků. Zatímco portál Azure classic poskytuje způsob, jak nastavit tuto hodnotu, Azure Machine Learning automaticky optimalizuje nastavení pro poskytovat nejlepší výkon pro webové služby a portálu hodnota je ignorována. 
+Ve výchozím nastavení každý publikované webové služby je nakonfigurován pro podporu 20 souběžnými požadavky a může být až 200 souběžných požadavků. Azure Machine Learning automaticky optimalizuje nastavení pro poskytovat nejlepší výkon pro webové služby a portálu hodnota je ignorována. 
 
 Pokud bude podporovat plán pro volání rozhraní API se zatížením vyšší než maximální počet souběžných volání hodnota 200, měli byste vytvořit několik koncových bodů na stejné webové službě. Potom můžete náhodně distribuovat zatížení napříč všemi z nich.
 
-Škálování webové služby je běžné úlohy. Některé z důvodů škálování jsou pro podporu více než 200 souběžných požadavků, zvýšit dostupnost prostřednictvím několik koncových bodů nebo poskytovat samostatný koncové body pro webovou službu. Měřítko můžete zvýšit tak, že přidáte další koncové body pro službu Web prostřednictvím [portál Azure classic](https://manage.windowsazure.com/) nebo [webovou službu Azure Machine Learning](https://services.azureml.net/) portálu.
+Škálování webové služby je běžné úlohy. Některé z důvodů škálování jsou pro podporu více než 200 souběžných požadavků, zvýšit dostupnost prostřednictvím několik koncových bodů nebo poskytovat samostatný koncové body pro webovou službu. Měřítko můžete zvýšit tak, že přidáte další koncové body pro stejné webové služby pomocí [webovou službu Azure Machine Learning](https://services.azureml.net/) portálu.
 
 Další informace o přidání nové koncové body, najdete v části [vytváření koncových bodů](create-endpoint.md).
 
