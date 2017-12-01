@@ -4,7 +4,7 @@ description: "Nastavení dat vědecké účely prostředí v Azure pro použití
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 481cfa6a-7ea3-46ac-b0f9-2e3982c37153
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: 00f767bffc86eceb16e3e69a205983af6ba4703b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96139523cd2440c801230b62abf9c9b56ec15e83
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Nastavení prostředí vědeckého zkoumání dat pro použití v rámci vědeckého zpracování týmových dat
 Proces vědecké účely Team dat používá různé vědě prostředí datových pro úložiště, zpracování a analýzu dat. Patří mezi ně Azure Blob Storage, několik typů virtuálních počítačích Azure, clustery HDInsight (Hadoop) a pracovních prostorů Azure Machine Learning. Rozhodnutí o prostředí, ve kterém používat závisí na typu a objemu dat modelovat a cílového místa pro tato data v cloudu. 
