@@ -8,14 +8,35 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 069ad2fcdd11f6fd2c7c282d28dbfa67edb902a1
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 12/01/2017
+ms.openlocfilehash: 08af9d01e55c3f7541d89605323602ec28c73db3
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Azure databázi PostgreSQL videa
+
+
+[Přehled: Azure databáze PostgreSQL a databáze MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T147/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure databáze PostgreSQL a Azure Database pro databázi MySQL společně nabídnou community edition databázové stroje a možností plně spravovaná služba – abyste se mohli zaměřit na vaší aplikace, aniž by museli spravovat databáze. Naladit vám zajistí rychlý přehled výhod používání služby a v některé z možností v akci.
+
+[Podrobné informace o možnosti spravované služby pro MySQL a PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T148/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure databáze PostgreSQL a Azure Database pro databázi MySQL sdružujícího community edition databázové stroje a možností plně spravované služby. Naladit získat podrobné informace na fungování těchto služeb, jak jsme zajistit vysokou dostupnost a Rychlé škálování (v sekundách), takže splňujete potřeb vašich zákazníků. Získáte také informace o některé základní investic v zabezpečení a dostupnosti po celém světě.
+
+[Vývoj aplikace inteligentního analytics s PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T149)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T149/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure databázi PostgreSQL spojuje community edition databázový stroj a možnosti plně spravovaná služba – abyste se mohli zaměřit na vaší aplikace, aniž by museli spravovat databáze. Vyladění zobrazíte v akci, jak je snadné vytvořit nové možnosti, jako je přidání kognitivní služeb pro vaše aplikace na základě se v Azure.
+
+
 [Jak začít pracovat s novou databází Azure pro službu PostgreSQL](https://channel9.msdn.com/events/Build/2017/B8046)
 
 <iframe src="https://channel9.msdn.com/Events/Build/2017/B8046/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>

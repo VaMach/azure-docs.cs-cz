@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 9ce1d32a2785bec1164d2a89dea9946fe113cb33
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c28d92ad23e42401d42d9510fd7d07429929ade7
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Vytvoření clusteru DSVM a HDI Spark jako výpočetní cíle
 
@@ -63,18 +63,22 @@ Zkopírujte a vložte následující fragment kódu JSON do `mydsvm.json` soubor
 
 Pro _vmSize_ pole, můžete použít libovolnou velikost virtuálního počítače suppported uvedené v [šablony správu prostředků Ubuntu DSVM Azure](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Doporučujeme použít jednu z níže velikosti jako výpočetní cíle pro Azure ML. 
 
-- Standard_DS2_v2 
-- Standard_DS3_v2 
-- Standard_DS4_v2 
-- Standard_DS12_v2 
-- Standard_DS13_v2 
-- Standard_DS14_v2 
-- Standard_NC6 
-- Standard_NC12 
-- Standard_NC24 
- 
+
 >[!TIP]
-> Práce s "NC" velikosti virtuálních počítačů jsou ty, které jsou vybaveny GPU.
+> Pro [hloubkové učení úlohy](how-to-use-gpu.md) můžete nasadit do GPU používá technologii virtuálních počítačů.
+
+- [Virtuální počítače pro obecné účely](/virtual-machines/linux/sizes-general.md)
+  - Standard_DS2_v2 
+  - Standard_DS3_v2 
+  - Standard_DS4_v2 
+  - Standard_DS12_v2 
+  - Standard_DS13_v2 
+  - Standard_DS14_v2 
+- [Grafický procesor používá technologii virtuálních počítačů](/virtual-machines/linux/sizes-gpu.md)
+  - Standard_NC6 
+  - Standard_NC12 
+  - Standard_NC24 
+ 
 
 Další informace o těchto [velikostí pro virtuální počítače s Linuxem v Azure](../../virtual-machines/linux/sizes.md) a jejich [informace o cenách](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 

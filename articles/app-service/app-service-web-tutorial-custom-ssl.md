@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f69bc731b2858c338d7f7b4d347e7107a0f4eeed
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Vytvoření vazby stávající vlastní certifikát SSL pro službu Azure Web Apps
 
@@ -214,61 +214,17 @@ Nyní již zbývá udělat je a ujistěte se, že funguje protokol HTTPS pro va�
 
 ## <a name="enforce-https"></a>Vynucení HTTPS
 
-Služba aplikace nemá *není* vynutit protokolu HTTPS, takže všichni uživatelé stále přístup k vaší webové aplikace pomocí protokolu HTTP. Pokud chcete vynutit HTTPS pro vaši webovou aplikaci, definovat pravidla přepsání v _web.config_ souboru pro vaši webovou aplikaci. Služby App Service používá tento soubor, bez ohledu na jazykové rozhraní vaší webové aplikace.
+Ve výchozím nastavení každý, kdo může pořád přístup k vaší webové aplikace pomocí protokolu HTTP. Můžete přesměrovat všechny požadavky protokolu HTTP s portem HTTPS.
 
-> [!NOTE]
-> Neexistuje konkrétní jazyk přesměrování požadavků. Můžete použít ASP.NET MVC [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filtru místo přepsání pravidla v _web.config_.
+Aplikace do webové stránky v levém navigačním panelu, vyberte **vlastní domény**. Potom v **pouze HTTPS**, vyberte **na**.
 
-Pokud jste vývojář .NET, byste měli být relativně obeznámeni s tohoto souboru. Je v kořenu vašeho řešení.
+![Vynucení HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-Případně pokud vyvíjíte pomocí PHP, Node.js, Python nebo Java, existuje pravděpodobnost, tento soubor vaším jménem jsme generované ve službě App Service.
+Po dokončení operace, přejděte k některému z adres URL protokolu HTTP, který odkazoval na vaši aplikaci. Například:
 
-Připojení ke koncovému bodu webové aplikace FTP podle pokynů v [nasazení vaší aplikace do Azure App Service pomocí FTP nebo S](app-service-deploy-ftp.md).
-
-Tento soubor se musí nacházet ve _/home/site/wwwroot_. Pokud ne, vytvořte _web.config_ soubor v této složce se souborem XML následující:
-
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
-
-Pro existující _web.config_ souboru, zkopírujte celou `<rule>` element do vaší _web.config_na `configuration/system.webServer/rewrite/rules` elementu. Pokud existují další `<rule>` elementů ve vaší _web.config_, umístit zkopírovaný `<rule>` element před dalších `<rule>` elementy.
-
-Toto pravidlo vrátí HTTP 301 (trvalé přesměrování) pro protokol HTTPS, vždy, když uživatel provede požadavek HTTP do vaší webové aplikace. Například přesměruje z `http://contoso.com` k `https://contoso.com`.
-
-Další informace o modul IIS URL Rewrite najdete v tématu [přepisování adres URL](http://www.iis.net/downloads/microsoft/url-rewrite) dokumentaci.
-
-## <a name="enforce-https-for-web-apps-on-linux"></a>Vynutit HTTPS pro webové aplikace v systému Linux
-
-Aplikační služby v systému Linux nemá *není* vynutit protokolu HTTPS, takže všichni uživatelé stále přístup k vaší webové aplikace pomocí protokolu HTTP. Pokud chcete vynutit HTTPS pro vaši webovou aplikaci, definovat pravidla přepsání v _.htaccess z_ souboru pro vaši webovou aplikaci. 
-
-Připojení ke koncovému bodu webové aplikace FTP podle pokynů v [nasazení vaší aplikace do Azure App Service pomocí FTP nebo S](app-service-deploy-ftp.md).
-
-V _/home/site/wwwroot_, vytvořit _.htaccess z_ soubor s následujícím kódem:
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-Toto pravidlo vrátí HTTP 301 (trvalé přesměrování) pro protokol HTTPS, vždy, když uživatel provede požadavek HTTP do vaší webové aplikace. Například přesměruje z `http://contoso.com` k `https://contoso.com`.
+- `http://<app_name>.azurewebsites.net`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
 ## <a name="automate-with-scripts"></a>Automatizovat pomocí skriptů
 
@@ -312,7 +268,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Certifikáty s veřejným (volitelné)
-Můžete nahrát [veřejné certifikáty](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) do vaší webové aplikace. Můžete použít certifikáty s veřejným s webovými aplikacemi App Service nebo prostředí App Service (App Service Environment). Pokud potřebujete k uložení certifikátu v úložišti certifikátů LocalMachine, budete muset použít webové aplikace v prostředí aplikace služby. Další podrobnosti najdete v tématu [postup konfigurace veřejné certifikáty do vaší webové aplikace](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+Můžete nahrát [veřejné certifikáty](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) do vaší webové aplikace. Veřejné certifikáty pro aplikace v prostředí App Service můžete také. Pokud potřebujete k uložení certifikátu v úložišti certifikátů LocalMachine, budete muset použít webové aplikace v App Service Environment. Další informace najdete v tématu [postup konfigurace veřejné certifikáty do vaší webové aplikace](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Nahrát veřejný certifikát](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -330,3 +286,5 @@ Přechodu na v dalším kurzu se dozvíte, jak používat Azure Content Delivery
 
 > [!div class="nextstepaction"]
 > [Přidat síti pro doručování obsahu (CDN) do Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+
+Další informace najdete v tématu [používají certifikát SSL v kódu aplikace v Azure App Service](app-service-web-ssl-cert-load.md).

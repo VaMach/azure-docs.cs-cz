@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36e204c73e62e950c3f40eab7e1ce6bccd7abd83
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bb4c21456643532df040df4fcd5f4fa1a4f48d2c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="how-to-use-perfinsights"></a>Jak používat PerfInsights 
 
@@ -30,7 +30,7 @@ Doporučujeme vám, spusťte tento skript před otevřením lístku podpory se s
 
 PerfInsights můžete shromažďovat a analyzovat několik druhů informace, které jsou seskupené do jedinečný scénáře.
 
-### <a name="collect-disk-configuration"></a>Shromáždit konfiguraci disku 
+### <a name="collect-basic-configuration"></a>Shromažďovat základní konfigurace 
 
 Tento scénář shromažďuje konfigurace disku a další důležité informace, včetně následující položky:
 
@@ -57,7 +57,7 @@ Toto je pasivní kolekce informace, které by neměly vliv na systém.
 >[!Note]
 >Tento scénář je automaticky zahrnuty v každé z následujících scénářů.
 
-### <a name="benchmarkstorage-performance-test"></a>Test výkonu srovnávacího testu/úložiště
+### <a name="benchmarking"></a>Srovnávací testy
 
 Tento scénář běží [diskspd](https://github.com/Microsoft/diskspd) srovnávacího testu (IOPS a MB/s) pro všechny disky, které jsou připojené k virtuálnímu počítači. 
 
@@ -65,11 +65,11 @@ Tento scénář běží [diskspd](https://github.com/Microsoft/diskspd) srovnáv
 > V tomto scénáři může mít vliv na systém a není doporučeno spouštět v systému za provozu produkční. V případě potřeby spusťte tento scénář v vyhrazené údržby vyhnuli potížím. Zvýšit zatížení, která je způsobena trasování nebo srovnávacího testu testovací může nepříznivě ovlivnit výkon virtuálního počítače.
 >
 
-### <a name="general-vm-slow-analysis"></a>Analýza pomalá obecné virtuálních počítačů 
+### <a name="slow-vm-analysis"></a>Pomalé analysis virtuálních počítačů 
 
 Tento scénář spustí [čítače výkonu](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trasování pomocí čítačů, které jsou určené v souboru Generalcounters.txt. Pokud virtuální počítač se identifikuje jako server, který je spuštěn SQL Server, spustí se trasování čítače výkonu pomocí čítačů, které se nacházejí v souboru Sqlcounters.txt. Zahrnuje také výkonu diagnostická data.
 
-### <a name="vm-slow-analysis-and-benchmark"></a>Virtuální počítač pomalé analýzy a srovnávacího testu
+### <a name="slow-vm-analysis-and-benchmarking"></a>Pomalé analýzy virtuálních počítačů a srovnávací testy
 
 Tento scénář spustí [čítače výkonu](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trasování, který je následován [diskspd](https://github.com/Microsoft/diskspd) srovnávacího testu. 
 
@@ -99,9 +99,9 @@ Tento scénář se spustí zachycení čítače výkonu speciální společně s
 |              | Střední Délka fronty zápisu       |
 |              | Střední Délka fronty dat        |
 
-### <a name="custom-configuration"></a>Vlastní konfigurace 
+### <a name="custom-slow-vm-analysis"></a>Vlastní pomalé analysis virtuálních počítačů 
 
-Když spustíte vlastní konfiguraci, používáte všech trasování (diagnostiku výkonu, čítače výkonu, xperf, sítě, storport) paralelně, podle toho, kolik různých trasování jsou vybrané. Po dokončení trasování je nástroj spuštěn srovnávacího testu diskspd, pokud je zaškrtnuto. 
+Při spuštění vlastního pomalé analysis virtuálních počítačů se systémem všech trasování (čítače výkonu, xperf, sítě, storport) paralelně, v závislosti, kolik různých trasování jsou vybrány. Po dokončení trasování je nástroj spuštěn srovnávacího testu diskspd, pokud je zaškrtnuto. 
 
 > [!Note]
 > V tomto scénáři může mít vliv na systém a není doporučeno spouštět v systému za provozu produkční. V případě potřeby spusťte tento scénář v vyhrazené údržby vyhnuli potížím. Zvýšit zatížení, která je způsobena trasování nebo srovnávacího testu testovací může nepříznivě ovlivnit výkon virtuálního počítače.
@@ -113,7 +113,7 @@ Informace o virtuální počítač s Windows, disky nebo konfigurace fondů úlo
 
 |Data shromážděná                              |  |  | Scénáře výkonu |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Shromažďování konfigurace disku | Test výkonu srovnávacího testu/úložiště | Analýza pomalá obecné virtuálních počítačů | Virtuální počítač pomalé analýzy a srovnávacího testu | Azure analysis soubory | Vlastní konfigurace |
+|                              | Shromažďovat základní konfigurace | Srovnávací testy | Pomalé analysis virtuálních počítačů | Pomalé analýzy virtuálních počítačů a srovnávací testy | Azure analysis soubory | Vlastní pomalé analysis virtuálních počítačů |
 | Informace z protokolů událostí      | Ano                        | Ano                                | Ano                      | Ano                            | Ano                  | Ano                  |
 | Informace o systému               | Ano                        | Ano                                | Ano                      | Ano                            | Ano                  | Ano                  |
 | Svazek mapy                       | Ano                        | Ano                                | Ano                      | Ano                            | Ano                  | Ano                  |
@@ -127,7 +127,7 @@ Informace o virtuální počítač s Windows, disky nebo konfigurace fondů úlo
 | Konfigurace sítě            | Ano                        | Ano                                | Ano                      | Ano                            | Ano                  | Ano                  |
 | Konfigurace brány firewall           | Ano                        | Ano                                | Ano                      | Ano                            | Ano                  | Ano                  |
 | Konfigurace systému SQL Server         | Ano                        | Ano                                | Ano                      | Ano                            | Ano                  | Ano                  |
-| Trasování diagnostiky výkonu * |                            |                                    | Ano                      |                                |                      | Ano                  |
+| Trasování diagnostiky výkonu * | Ano                        | Ano                                | Ano                      |                                | Ano                  | Ano                  |
 | Čítač výkonu trasování **     |                            |                                    |                          |                                |                      | Ano                  |
 | Čítač SMB trasování **             |                            |                                    |                          |                                | Ano                  |                      |
 | Čítače systému SQL Server trasování **      |                            |                                    |                          |                                |                      | Ano                  |
@@ -180,9 +180,9 @@ Zatížení testy Diskspd vstupně-výstupní operace [Disk operačního systém
 
 **Možné problémy při spuštění skriptu na produkční virtuální počítače:**
 
-1.  Skript může nepříznivě ovlivnit výkon virtuálního počítače, pokud se používá spolu s "Srovnávacího testu" nebo "Vlastní" scénář, který je nakonfigurovaný pomocí XPerf nebo nástroje DiskSpd. Buďte opatrní při spuštění skriptu v produkčním prostředí.
+1.  Pokud používáte všechny scénáře Benchmarking nebo scénář "Vlastní pomalé analysis virtuálního počítače", který je nakonfigurovaný na použití XPerf nebo nástroje DiskSpd, skript může nepříznivě ovlivnit výkon virtuálního počítače. Není doporučeno spouštět tyto scénáře v provozním prostředí bez dohled nad pracovníka šablon stylů CSS.
 
-2.  Pokud použijete skript společně s "Srovnávacího testu" nebo "Vlastní" scénář, který je nakonfigurovaný pomocí nástroje DiskSpd, ujistěte se, že žádné další aktivita na pozadí naruší vstupně-výstupní úlohy na otestované disky.
+2.  Pokud používáte všechny scénáře Benchmarking nebo scénář "Vlastní pomalé analysis virtuálního počítače", který je nakonfigurovaný na použití nástroje DiskSpd, ujistěte se, že žádné další aktivita na pozadí naruší vstupně-výstupní úlohy na otestované disky.
 
 3.  Ve výchozím nastavení používá skript ke shromažďování dat na jednotku dočasné úložiště. Pokud trasování zůstane povolena delší dobu, může být množství dat, které jsou shromážděny relevantní. To může snížit dostupnost místa na disku dočasné, proto by to ovlivnilo jakékoli aplikace, které jsou závislé na této jednotce.
 
@@ -236,7 +236,7 @@ Pokud chcete spustit skript PerfInsights, postupujte takto:
 
 8.  Můžete také spustit PerfInsights bez uživatelského rozhraní.
 
-    Tento příkaz spustí "Obecné virtuálních počítačů pomalá analysis" řešení potíží s scénář bez výzvy k uživatelského rozhraní nebo zaznamenání dat po dobu 30 sekund. Budete vyzváni k souhlas s právní omezení a smlouva EULA, které jsou uvedené v kroku 4.
+    Tento příkaz spustí "analysis pomalé virtuálních počítačů" řešení potíží s scénář bez výzvy k uživatelského rozhraní nebo zaznamenání dat po dobu 30 sekund. Budete vyzváni k souhlas s právní omezení a smlouva EULA, které jsou uvedené v kroku 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
@@ -264,13 +264,13 @@ Pokud nadále dochází k selhání skriptu ani po několika pokusech, doporuču
 
 Po dojde k selhání, zkopírujte úplný výstup konzoly prostředí PowerShell a odeslat do agenta nástroje Microsoft Support, který pomáhá vám pomoci při řešení problému.
 
-### <a name="how-do-i-run-the-script-in-custom-configuration-mode"></a>Jak spustit skript v režimu vlastní konfigurace?
+### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>Jak spustit skript v režimu vlastní pomalé virtuálních počítačů analysis?
 
-Výběrem **vlastní** konfigurace, můžete povolit několik trasování paralelně (použijte posunu vícenásobným výběrem):
+Výběrem **vlastní pomalé virtuálních počítačů analysis**, můžete povolit několik trasování paralelně (použijte posunu vícenásobným výběrem):
 
 ![Vyberte scénáře](media/how-to-use-perfInsights/select-scenario.png)
 
-Když vyberete diagnostiku výkonu, trasování čítače výkonu, trasování XPerf, síťové trasování nebo scénářů, Storport trasování, postupujte podle pokynů v dialogových oknech a pokuste se znovu provést problémy s pomalým výkonem po spuštění trasování.
+Když vyberete trasování čítače výkonu, trasování XPerf, síťové trasování nebo scénářů, Storport trasování, postupujte podle pokynů v dialogových oknech a zkuste reprodukujte problém nízký výkon po spuštění trasování.
 
 Následující dialogové okno umožňuje spustit trasování:
 
@@ -289,21 +289,22 @@ V rámci **CollectedData\_rrrr MM-dd\_hh\_mm\_ss.zip soubor** je generován Perf
 
 Vyberte **zjištění** kartě.
 
-![Karta najít](media/how-to-use-perfInsights/findingtab.png)
+![karta Najít](media/how-to-use-perfInsights/findingtab.png)
+![zjištění](media/how-to-use-perfInsights/findings.PNG)
 
 **Poznámky k**
 
--   Zprávy červeně jsou známé problémy s konfigurací, které může způsobit problémy s výkonem.
+-   Zjištění, které jsou klasifikovány jako kritické známé problémy, které může způsobit problémy s výkonem.
 
--   Upozornění, které představují-optimální konfigurace, které nutně nezpůsobí problémy s výkonem se zprávy žlutě.
+-   Zjištění klasifikovány jako důležité představují-optimální konfigurace, které nutně nezpůsobí problémy s výkonem.
 
--   Zprávy modře jsou pouze informativní příkazy.
+-   Zjištění, které jsou klasifikovány jako informační jsou pouze informativní příkazy.
 
-Zkontrolujte odkazy HTTP pro všechny chybové zprávy červeně získat podrobnější informace o zjištění a jak může ovlivnit výkon nebo osvědčené postupy pro výkonu optimalizované konfigurace.
+Zkontrolujte doporučení a odkazy na všechny výsledky kritická a důležitá, chcete-li získat podrobnější informace o zjištění a jak může ovlivnit výkon nebo osvědčené postupy pro výkonu optimalizované konfigurace.
 
-### <a name="disk-configuration-tab"></a>Na kartě Konfigurace disku
+### <a name="storage-tab"></a>Karta úložiště
 
-**Přehled** část zobrazuje různé náhledy konfiguraci úložiště, včetně informací z nástroje Diskpart a prostory úložiště
+**Zjištění** části se zobrazují různé zjištění a doporučení týkající se úložiště.
 
 **DiskMap** a **VolumeMap** části popisují na hlediska duální jak logické svazky a fyzické disky jsou vzájemně souvisí.
 
@@ -315,21 +316,24 @@ Ve svazku perspektivy (*VolumeMap*), tabulky zobrazují všechny fyzické disky 
 
 ![Karta svazku](media/how-to-use-perfInsights/volumetab.png)
 
-### <a name="sql-server-tab"></a>Karta systému SQL Server
+### <a name="sql-tab"></a>Karta SQL
 
-Pokud cílový počítač hostuje všechny instance systému SQL Server, se zobrazí další karta v sestavě, který je pojmenován **systému SQL Server**:
+Pokud cílový počítač hostuje všechny instance systému SQL Server, se zobrazí další karta v sestavě, který je pojmenován **SQL**:
 
 ![Karta SQL](media/how-to-use-perfInsights/sqltab.png)
 
-Tato část obsahuje přehled"" a další dílčí karty pro každou z instance systému SQL Server, který je hostitelem virtuálního počítače.
+Tato část obsahuje kartě "Zjištění" a další dílčí karty pro každou z instance systému SQL Server, který je hostitelem virtuálního počítače.
 
-V části "Přehled" obsahuje užitečné tabulku, která shrnuje všechny fyzické disky (systémové a datové disky) se systémem, které obsahují směs datových souborů a souborů protokolů transakci.
+Na kartě "Zjištění" obsahuje seznam všech SQL související s výkonem nalezen společně s doporučení.
 
 V následujícím příkladu *PhysicalDrive0* (spouštění jednotka C) se zobrazí, protože jak *modeldev* a *modellog* soubory jsou umístěny na jednotce C a jsou různých typů (jako je datový soubor a transakčního protokolu v uvedeném pořadí):
 
 ![LogInfo](media/how-to-use-perfInsights/loginfo.png)
 
 Karty specifické pro instanci systému SQL Server obsahovat obecné oddíl, který zobrazuje základní informace o vybrané instanci a dalších částech rozšířené informace, včetně nastavení, konfigurace a možnosti uživatele.
+
+### <a name="diagnostic-tab"></a>Karta diagnostiky
+Diagnostické karta obsahuje informace o nejvyšší využití procesoru, disku a paměť příjemce na pole po dobu trvání PerfInsights spustit. Můžete také získat další užitečné informace, jako je například důležité opravy, systém může být chybějící, seznam úkolů a důležité události systému. 
 
 ## <a name="references-to-the-external-tools-used"></a>Odkazy na externí nástroje použít
 

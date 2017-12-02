@@ -4,7 +4,7 @@ description: "Principy sledování úlohy Stream Analytics"
 keywords: "monitorování dotazu"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 12545dd3875e81f8f2248acceb66d2d840cf6702
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7474f45494c6190ffcac354e75458b18f5777fb9
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Porozumění sledování úlohy Stream Analytics a monitorování dotazy
 
@@ -40,7 +40,7 @@ Jak je znázorněno, objeví se okno:
 | Výstup události          | Množství dat odesílaných v úloze Stream Analytics cíl výstupu, počtu událostí. |
 | Události mimo pořadí    | Počet událostí přijatých mimo pořadí, které byly vyřazeny nebo zadané upravenou časového razítka na základě zásad řazení událostí. To může mít vliv konfigurace nastavení interval Tolerance v pořádku. |
 | Chyby při převodu dat | Počet chyb při převodu dat způsobené úloha Stream Analytics. |
-| Chyby za běhu         | Celkový počet chyb, které dojít během provádění úlohy Stream Analytics. |
+| Chyby za běhu         | Celkový počet chyb souvisejících s zpracování dotazu (s výjimkou chyby zjištěné při zpracování události nebo outputing výsledky) |
 | Pozdní vstupní události      | Počet událostí přicházejících pozdní ze zdroje, které buď byla vyřazena nebo jejich časové razítko bylo změněno, na základě zásady řazení událostí Konfigurace nastavení pozdní interval Tolerance doručení. |
 | Požadavky funkce      | Počet volání funkce Azure Machine Learning (pokud existuje). |
 | Požadavky neúspěšné funkce | Počet selhání volání funkce Azure Machine Learning (pokud existuje). |

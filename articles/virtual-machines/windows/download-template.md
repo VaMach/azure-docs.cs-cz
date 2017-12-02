@@ -4,7 +4,7 @@ description: "Stáhněte si templatefor virtuálního počítače můžete k aut
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
@@ -13,24 +13,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 9e4c0c3cf0e233447369a24b1d5fe27495abd1cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93ed84cb146119c877c3a143c5f7af9ca8ba0656
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="download-the-template-for-a-vm"></a>Stažení šablony pro virtuální počítač
 Při vytváření virtuálního počítače v Azure pomocí portálu nebo prostředí PowerShell, je pro vás automaticky vytvoří šablonu Resource Manager. Tuto šablonu můžete použít k rychlé duplicitní nasazení. Šablona obsahuje informace o všechny prostředky ve skupině prostředků. Pro virtuální počítač to znamená, že šablona obsahuje všechno, která je vytvořena na podporu virtuálních počítačů v příslušné skupině prostředků, včetně síťových prostředků.
 
 ## <a name="download-the-template-using-the-portal"></a>Stažení šablony pomocí portálu
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. Jeden nabídce centra vyberte **virtuální počítače**.
+2. Jeden v levé nabídce vyberte **virtuální počítače**.
 3. Ze seznamu vyberte virtuální počítač.
 4. Vyberte **skriptu pro automatizaci**.
-5. Vyberte **Stáhnout** a uložte soubor .zip do místního počítače.
-6. Otevřete soubor .zip a rozbalte soubory do složky. Bude obsahovat soubor .zip:
+5. Vyberte **Stáhnout** v nabídce v horní části a uložte soubor .zip do místního počítače.
+6. Otevřete soubor .zip a rozbalte soubory do složky. Soubor ZIP obsahuje:
    
    * Deploy.ps1
    * Deploy.SH 

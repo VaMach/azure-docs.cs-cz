@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 1939a18fbaf0aed0f62ac9e7641b9901ec4762ea
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 03e51ab298a08386f0094d6d0290aa1ec85d337f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning Model správy účtu API – referenční informace
 
-Informace o nastavení prostředí pro nasazení najdete v tématu [nastavení modelu správce účtu](model-management-configuration.md).
+Informace o nastavení prostředí pro nasazení najdete v tématu [nastavení modelu správce účtu](deployment-setup-configuration.md).
 
 Azure Machine Learning Model správy účtu API implementuje následující operace:
 

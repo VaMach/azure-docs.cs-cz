@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Rozšíření virtuálního počítače Azure výkon diagnostiky pro Windows
 
@@ -46,7 +46,6 @@ Následujícím kódu JSON znázorňuje schéma pro rozšíření diagnostiky v�
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -72,13 +71,11 @@ Následujícím kódu JSON znázorňuje schéma pro rozšíření diagnostiky v�
 |typeHandlerVersion|1.0|Verze rozšíření obslužné rutiny
 |performanceScenario|Základní|Scénář výkonu k zaznamenání dat pro. Platné hodnoty jsou: **základní**, **vmslow**, **azurefiles**, a **vlastní**.
 |traceDurationInSeconds|300|Doba trvání trasování, pokud nejsou vybrány žádné možnosti trasování.
-|DiagnosticsTrace|D|Možnost zapnout diagnostické trasování. Platné hodnoty jsou **d** nebo prázdnou hodnotu. Pokud nechcete zaznamenat trasování, nechte hodnotu jako prázdný.
 |perfCounterTrace|P|Možnost povolit trasování čítače výkonu. Platné hodnoty jsou **p** nebo prázdnou hodnotu. Pokud nechcete zaznamenat trasování, nechte hodnotu jako prázdný.
 |networkTrace|n|Možnost povolit trasování sledování sítě. Platné hodnoty jsou  **n**  nebo prázdnou hodnotu. Pokud nechcete zaznamenat trasování, nechte hodnotu jako prázdný.
 |xperfTrace|x|Možnost povolit XPerf trasování. Platné hodnoty jsou **x** nebo prázdnou hodnotu. Pokud nechcete zaznamenat trasování, nechte hodnotu jako prázdný.
 |storPortTrace|s|Možnost povolit StorPort trasování. Platné hodnoty jsou s nebo prázdnou hodnotu. Pokud nechcete zaznamenat trasování, nechte hodnotu jako prázdný.
 |srNumber|123452016365929|Číslo lístku podpory, pokud je k dispozici. Ponechte prázdné, pokud ji nemáte.
-|requestTimeUtc|2/9/2017 23:06:00: 00|Aktuální datum čas v Utc. Není nutné zadat tuto hodnotu, pokud používáte portál toto rozšíření nainstalovat.
 |storageAccountName|můj_účet_úložiště|Název účtu úložiště k ukládání protokolů diagnostiky a výsledky.
 |storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc ==|Klíč pro účet úložiště.
 
@@ -99,12 +96,12 @@ Postupujte podle těchto kroků nainstalujte rozšíření virtuálního počít
 5. Zadejte hodnoty parametrů pro instalaci a klikněte na tlačítko **OK** k instalaci rozšíření. Můžete najít další informace o podporované scénáře řešení potíží [zde](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
 
     ![Instalace rozšíření](media/performance-diagnostics-vm-extension/install-the-extension.png)
-6. Po úspěšné instalaci, zobrazí se, že bylo úspěšně dokončeno zprávu s upozorněním zřizování.
+6. Po úspěšné instalaci zobrazí zprávu s upozorněním zřizování bylo úspěšné.
 
     ![Zřizování úspěšné zpráv](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > Spuštění rozšíření se spustí po ní se zřizování je úspěšná a bude trvat několik minut nebo méně k dokončení spuštění pro základní scénář. Pro ostatní scénáře ho spustit prostřednictvím dobu zadanou během instalace.
+    > Spuštění rozšíření spustí po ní se zřizování je úspěšná a trvá několik minut nebo méně k dokončení spuštění pro základní scénář. Další scénáře spustí se prostřednictvím dobu zadanou během instalace.
 
 ## <a name="remove-the-extension"></a>Odeberte rozšíření
 Chcete-li odebrat rozšíření z virtuálního počítače, postupujte takto:
@@ -153,10 +150,6 @@ Rozšíření virtuálního počítače Azure se dá nasadit pomocí šablon Azu
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Rozšíření virtuálního počítače Azure se dá nasadit pomocí šablon Azu
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ Rozšíření virtuálního počítače Azure se dá nasadit pomocí šablon Azu
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -231,13 +223,13 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>Informace o data zaznamenaná
-Nástroj PerfInsights shromažďuje různé protokoly, konfiguraci, diagnostických dat atd. v závislosti na vybrané scénáři. Pro další informace o dat shromážděných za scénář prosím návštěvu [PerfInsights dokumentaci](http://aka.ms/perfinsights).
+Nástroj PerfInsights shromažďuje různé protokoly, konfiguraci, diagnostických dat atd. v závislosti na vybrané scénáři. Další informace o data shromažďují pro konkrétní scénář, navštivte [PerfInsights dokumentaci](http://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Zobrazovat a sdílet výsledky
 
 Výstup tohoto rozšíření se ukládají do složky s názvem log_collection v dočasné jednotce (obvykle D:\log_collection) ve výchozím nastavení. V této složce uvidíte soubory zip obsahující diagnostické protokoly a sestavy s výsledky a doporučení.
 
-Soubor zip vytvořený účet úložiště zadaný během instalace se také nahraje a sdílený po dobu 30 dnů pomocí [podpisy sdíleného přístupu (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Textový soubor s názvem *zipfilename*_saslink.txt se také vytvoří ve složce log_collection. Tento soubor obsahuje odkaz SAS vytvořili ke stažení souboru zip. Každý, kdo má tento odkaz bude moct stáhnout soubor zip.
+Soubor zip vytvořený účet úložiště zadaný během instalace se také nahraje a sdílený po dobu 30 dnů pomocí [podpisy sdíleného přístupu (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Textový soubor s názvem *zipfilename*_saslink.txt se také vytvoří ve složce log_collection. Tento soubor obsahuje odkaz SAS vytvořili ke stažení souboru zip. Každý, kdo má tento odkaz je možné stáhnout soubor zip.
 
 Společnost Microsoft může použít tento odkaz SAS ke stahování dat diagnostiky pro další šetření pracovníkem podpory práce v lístku podpory.
 

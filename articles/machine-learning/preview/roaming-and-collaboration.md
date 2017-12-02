@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 81954835185ebaa86c11a9498a85879e6985897a
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming a spolupráce v Azure Machine Learning Workbench
 Tento dokument vás provede jak Azure Machine Learning Workbench vám mohou pomoci přenášet projekty mezi počítače, jakož i povolení spolupráce s ostatními členy týmu. 
@@ -156,9 +156,9 @@ Pro ilustraci toku spolupráce, projděme příklad. Zaměstnanci contoso Alice 
 
 7. Robert klikne na název projektu a projekt se stáhne do svého počítače.
     
-    a. Spustí zaznamenané v historii spouštění klony snímku nejnovější jsou soubory staženého projektu. Nejsou poslední potvrzení na hlavní větve.
+    a. Kopie snímků nejnovější spuštění zaznamená do historie spouštění jsou soubory staženého projektu. Nejsou poslední potvrzení na hlavní větve.
     
-    b. Složka místní projektu je nastavena na _hlavní_ firemní pobočky s unstaged změny.
+    b. Složka místní projektu je nastavena na _hlavní_ firemní pobočky s výše unstaged změny.
 
 8. Bob teď můžete procházet spustí provedený Alice a obnovení snímku všech předchozích spuštění.
 

@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
+ms.date: 12/01/2017
 ms.author: szark
-ms.openlocfilehash: b753c76b8c3d789c681d7fbff6aa07590b860be5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18b7a5ec2a04962523a70886e1aa2344eb818458
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Příprava virtuálního počítače založeného na Red Hat pro Azure
 V tomto článku se dozvíte, jak připravit virtuální počítač Red Hat Enterprise Linux (RHEL) pro použití v Azure. Verze RHEL, které jsou popsané v tomto článku jsou 6.7 + a 7.1 +. Hypervisory pro přípravu, které jsou popsané v tomto článku jsou virtuální počítače Hyper-V, na základě jádra (KVM) a VMware. Další informace o požadavcích na podmínky pro účasti v programu Red Hat přístup ke cloudu najdete v tématu [webu přístup do cloudu Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) a [systémem RHEL v Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -343,24 +343,33 @@ V této části předpokládá, že jste již získat soubor ISO z webu Red Hat 
 
 19. Bitovou kopii qcow2 převeďte na formát VHD.
 
-    Nejdřív převeďte bitovou kopii formátu raw:
+> [!NOTE]
+> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Referenční dokumentace: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f qcow2 -O raw rhel-6.8.qcow2 rhel-6.8.raw
 
-    Ujistěte se, že velikost nezpracovaná bitové kopie je v souladu s 1 MB. Jinak zaokrouhlí nahoru na velikost zarovnané s 1 MB:
+    First convert the image to raw format:
+
+        # qemu-img convert -f qcow2 -O raw rhel-6.9.qcow2 rhel-6.9.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-6.9.raw $rounded_size
 
-    Nezpracovaná disku převeďte na virtuální pevný disk pevné velikosti:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.9.raw rhel-6.9.vhd
 
+    Or, with qemu version **2.6+** include the `force_size` option:
 
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
+
+        
 ### <a name="prepare-a-rhel-7-virtual-machine-from-kvm"></a>Příprava virtuálního počítače, RHEL 7 z KVM
 
 1. Stáhněte z webu Red Hat KVM bitové kopie systému RHEL 7. Tento postup používá RHEL 7 jako v příkladu.
@@ -483,22 +492,32 @@ V této části předpokládá, že jste již získat soubor ISO z webu Red Hat 
 
 19. Bitovou kopii qcow2 převeďte na formát VHD.
 
-    Nejdřív převeďte bitovou kopii formátu raw:
+> [!NOTE]
+> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Referenční dokumentace: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f qcow2 -O raw rhel-7.3.qcow2 rhel-7.3.raw
 
-    Ujistěte se, že velikost nezpracovaná bitové kopie je v souladu s 1 MB. Jinak zaokrouhlí nahoru na velikost zarovnané s 1 MB:
+    First convert the image to raw format:
+
+        # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-7.4.raw $rounded_size
 
-    Nezpracovaná disku převeďte na virtuální pevný disk pevné velikosti:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Příprava virtuálního počítače, na základě Red Hat z VMware
 ### <a name="prerequisites"></a>Požadavky
@@ -600,22 +619,32 @@ V této části se předpokládá, že jste již nainstalovali RHEL virtuálníh
 
 15. Vypněte virtuální počítač a převeďte soubor VMDK na soubor VHD.
 
-    Nejdřív převeďte bitovou kopii formátu raw:
+> [!NOTE]
+> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Referenční dokumentace: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f vmdk -O raw rhel-6.8.vmdk rhel-6.8.raw
 
-    Ujistěte se, že velikost nezpracovaná bitové kopie je v souladu s 1 MB. Jinak zaokrouhlí nahoru na velikost zarovnané s 1 MB:
+    First convert the image to raw format:
+
+        # qemu-img convert -f vmdk -O raw rhel-6.9.vmdk rhel-6.9.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-6.9.raw $rounded_size
 
-    Nezpracovaná disku převeďte na virtuální pevný disk pevné velikosti:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.9.raw rhel-6.9.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
+
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-vmware"></a>Příprava virtuálního počítače, RHEL 7 z VMware
 1. Vytvořit nebo upravit `/etc/sysconfig/network` souboru a přidejte následující text:
@@ -704,22 +733,32 @@ V této části se předpokládá, že jste již nainstalovali RHEL virtuálníh
 
 14. Vypněte virtuální počítač a převeďte soubor VMDK na formát VHD.
 
-    Nejdřív převeďte bitovou kopii formátu raw:
+> [!NOTE]
+> Je známého problému v qemu img verze > = 2.2.1, jejímž výsledkem nesprávně naformátovaný VHD. Ve verzi 2.6 QEMU byl opraven problém. Doporučuje se používat qemu-img 2.2.0 nebo nižší, nebo aktualizace na 2.6 nebo novější. Referenční dokumentace: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f vmdk -O raw rhel-7.3.vmdk rhel-7.3.raw
 
-    Ujistěte se, že velikost nezpracovaná bitové kopie je v souladu s 1 MB. Jinak zaokrouhlí nahoru na velikost zarovnané s 1 MB:
+    First convert the image to raw format:
+
+        # qemu-img convert -f vmdk -O raw rhel-7.4.vmdk rhel-7.4.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-7.4.raw $rounded_size
 
-    Nezpracovaná disku převeďte na virtuální pevný disk pevné velikosti:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Příprava virtuálního počítače, na základě Red Hat ze souboru ISO pomocí souboru kickstart automaticky
 ### <a name="prepare-a-rhel-7-virtual-machine-from-a-kickstart-file"></a>Příprava virtuálního počítače ze souboru kickstart RHEL 7
@@ -857,7 +896,7 @@ V této části se předpokládá, že jste již nainstalovali RHEL virtuálníh
 
     c.  Nastavení systému BIOS spouštění z disku CD.
 
-5. Umožňuje spustit virtuální počítač. Jakmile se zobrazí v instalační příručce, stiskněte klávesu **kartě** nakonfigurovat možnosti spuštění.
+5. Spuštění virtuálního počítače. Jakmile se zobrazí v instalační příručce, stiskněte klávesu **kartě** nakonfigurovat možnosti spuštění.
 
 6. Zadejte `inst.ks=<the location of the kickstart file>` na konci možnosti spuštění a stiskněte klávesu **Enter**.
 

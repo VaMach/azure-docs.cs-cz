@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informace o používání Azure Linux Agent
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ Konfigurační soubor (nebo etc/waagent.conf) akce příkaz waagent ovládací p
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Konfigurační soubor (nebo etc/waagent.conf) akce příkaz waagent ovládací p
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 Možnosti konfigurace jsou podrobně popsány v níže. Možnosti konfigurace jsou tři typy; Logická hodnota, řetězec nebo celé číslo. Možnosti konfigurace Boolean lze zadat jako "y" nebo "n". Speciální klíčové slovo "Žádný" může být použita pro některé řetězec typ konfigurace položky podle popisu níže.
 
@@ -209,8 +211,12 @@ Výchozí: n
 
 Pokud nastavíte, příkaz waagent provede CustomData po zřízení.
 
+**Provisioning.AllowResetSysUser** typ: Boolean výchozí: n
+
+Tato možnost umožňuje heslo pro uživatele sys resetování; Výchozí je zakázána.
+
 **Provisioning.PasswordCryptId**  
-Typ: řetězec  
+Typ: Řetězec  
 Výchozí: 6
 
 Algoritmus používaný crypt při generování hodnoty hash hesla.  
@@ -220,7 +226,7 @@ Algoritmus používaný crypt při generování hodnoty hash hesla.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Typ: řetězec  
+Typ: Řetězec  
 Výchozí: 10
 
 Délka náhodných salt používá při generování hodnoty hash hesla.
@@ -290,6 +296,12 @@ Typ: Řetězec
 Výchozí: žádná
 
 Pokud nastavíte, agent použije tento proxy server pro přístup k Internetu. 
+
+**AutoUpdate.Enabled** typ: Boolean výchozí: y
+
+Povolit nebo zakázat automatickou aktualizaci pro cíl stav zpracování; Výchozí hodnota je povolena.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Ubuntu cloudu obrázků
 Všimněte si, že Ubuntu cloudu Image využívat [cloudu init](https://launchpad.net/ubuntu/+source/cloud-init) mnoho úkoly konfigurace, které by jinak spravovány nástrojem Azure Linux Agent.  Je třeba počítat následující rozdíly:

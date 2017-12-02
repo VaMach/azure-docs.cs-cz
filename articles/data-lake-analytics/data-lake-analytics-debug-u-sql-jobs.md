@@ -1,9 +1,9 @@
 ---
-title: "Ladění úloh U-SQL | Microsoft Docs"
-description: "Zjistěte, jak k ladění selhání vrchol U-SQL pomocí sady Visual Studio."
+title: "Ladění uživatelem definované C# – kód pro selhání úloh Azure Data Lake U-SQL | Microsoft Docs"
+description: "Zjistěte, jak k ladění selhání vrchol U-SQL pomocí nástrojů Azure Data Lake pro Visual Studio."
 services: data-lake-analytics
 documentationcenter: 
-author: saveenr
+author: yanancai
 manager: jhubbard
 editor: cgronlun
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
@@ -12,27 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
-ms.author: saveenr
-ms.openlocfilehash: 2a77c72d3062272305208934d6406d040266c753
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/31/2017
+ms.author: yanacai
+ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Ladění uživatelem definované C# – kód pro selhání úloh U-SQL
 
-U-SQL poskytuje model rozšiřitelnosti pomocí jazyka C#, takže můžete napsat kód přidat další funkce, jako jsou vlastní Extraktor nebo reduktorem. Další informace najdete v tématu [U-SQL programovatelnosti průvodce](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). V praxi může potřebovat žádný kód, ladění a systémy velkých objemů dat může poskytnout jenom omezené runtime ladění informace, jako jsou soubory protokolu.
+U-SQL poskytuje model rozšiřitelnosti pomocí jazyka C#. V skriptů U-SQL je snadné volání funkcí jazyka C# a provádějí analytické funkce, které jazyka deklarativní SQL nepodporuje. Další informace pro rozšiřitelnost U-SQL najdete v tématu [U-SQL programovatelnosti průvodce](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-Azure nástrojů Data Lake pro Visual Studio poskytuje funkci **se nezdařilo ladění vrchol**, která vám umožňuje klonovat neúspěšnou úlohu z cloudu do místního počítače pro ladění. Místní klonu zaznamená celý cloudové prostředí, včetně všech vstupních dat a uživatelského kódu.
+V praxi kód, může být nutné ladění, ale je obtížné ladění distribuované úlohy pomocí vlastního kódu v cloudu se soubory protokolu omezené. [Nástroje Azure Data Lake pro Visual Studio](http://aka.ms/adltoolsvs) poskytuje funkci **se nezdařilo ladění vrchol**, což pomáhá snadněji ladění chyb, ke kterým dochází ve vaší vlastní kód. Pokud se nezdaří úlohy U-SQL, služba udržuje stav selhání a nástroj umožňuje stáhnout prostředí selhání cloudu do místního počítače, pro ladění. Místní stahování zaznamená celý cloudové prostředí, včetně všech vstupních dat a uživatelského kódu.
 
 Toto video ukazuje se nezdařilo vrchol ladění ve nástrojů Azure Data Lake pro Visual Studio.
 
-> [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
+> [!VIDEO https://www.youtube.com/embed/3enkNvprfm4]
 >
 
-> [!NOTE]
-> Visual Studio vyžaduje následující dvě aktualizace, pokud již nejsou nainstalovány: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) a [Universal C Runtime pro systém Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> [!IMPORTANT]
+> Visual Studio vyžaduje následující dvě aktualizace pro použití této funkce: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) a [Universal C Runtime pro systém Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+>
 
 ## <a name="download-failed-vertex-to-local-machine"></a>Vrchol stažení se nezdařilo místním počítači
 
@@ -44,80 +45,73 @@ Při otevření neúspěšnou úlohu v nástrojů Azure Data Lake pro Visual Stu
 
 ![Azure Data Lake Analytics U-SQL vrchol stažení sady visual studio pro ladění](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-Úlohy mohou zahrnovat soubory zdrojového kódu nebo registrovaný sestavení a tyto dva typy mají různé scénáře ladění.
-
-- [Ladění úlohy se nezdařilo s kódem v pozadí](#debug-job-failed-with-code-behind)
-- [Ladění neúspěšnou úlohu se sestavení](#debug-job-failed-with-assemblies)
-
-
-## <a name="debug-job-failed-with-code-behind"></a>Ladění úlohy se nezdařilo s kódem v pozadí
-
-Pokud se nezdaří úlohy U-SQL a úlohy zahrnuje uživatelského kódu (obvykle s názvem `Script.usql.cs` v projektu U-SQL), že zdrojový kód je importovat do ladění řešení.  Odtud můžete použít sady Visual Studio ladicí nástroje (sledovat, proměnné atd.) k vyřešení tohoto problému.
+## <a name="configure-the-debugging-environment"></a>Konfigurace ladění prostředí
 
 > [!NOTE]
 > Před ladění, nezapomeňte zkontrolovat **výjimky modulu CLR** v okně Nastavení výjimky (**Ctrl + Alt + E**).
 
 ![Azure Data Lake Analytics U-SQL ladění sady visual studio nastavení](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
-1. Stiskněte klávesu **F5** spustit kód kódu. Bude fungovat, dokud nebude zastaven výjimkou.
+V nové instanci spuštěného Visual Studio může nebo nemusí najít uživatelem definované zdrojový kód C#:
 
-2. Otevřete `ADLTool_Codebehind.usql.cs` souboru a nastavit zarážky, stiskněte **F5** k ladění kódu krok za krokem.
+1. [I my zdrojový kód najdete v řešení](#source-code-is-included-in-debugging-solution)
+
+2. [Nelze najít zdrojový kód v řešení](#source-code-is-not-included-in-debugging-solution)
+
+### <a name="source-code-is-included-in-debugging-solution"></a>Zdrojový kód je součástí ladění řešení
+
+Existují dva případy, že zachycenou zdrojového kódu C#:
+
+1. Kód uživatele je definována v souboru kódu na pozadí (obvykle s názvem `Script.usql.cs` v projektu U-SQL).
+
+2. Uživatelský kód je definovaný v C# projektu knihovny tříd součásti pro aplikaci U-SQL a registrován jako sestavení s **ladicí informace**.
+
+Pokud zdrojový kód je importovat do řešení, můžete použít nástroje sady Visual Studio ladění (sledovat, proměnné atd.) k vyřešení tohoto problému:
+
+1. Stiskněte klávesu **F5** spustit ladění. Kód běží, dokud nebude zastaven výjimkou.
+
+2. Otevření souboru se zdrojovým kódem a nastavit zarážky, stiskněte **F5** k ladění kódu krok za krokem.
 
     ![Azure Data Lake Analytics U-SQL ladění výjimek](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
 
-## <a name="debug-job-failed-with-assemblies"></a>Ladění úlohy se nezdařilo s sestavení
+### <a name="source-code-is-not-included-in-debugging-solution"></a>Zdrojový kód není součástí ladění řešení
 
-Pokud používáte registrované sestavení ve vašem skriptu U-SQL, systému nelze načíst zdrojový kód. Ručně přidejte v tomto případě soubory zdrojového kódu sestavení do řešení.
+Pokud uživatelský kód není zahrnutá v souboru kódu na pozadí nebo neregistrovala sestavení s **ladicí informace**, zdrojový kód není automaticky zahrnuty v ladění řešení. V takovém případě je třeba další kroky k přidání zdrojového kódu:
 
-### <a name="configure-the-solution"></a>Konfigurace řešení
-
-1. Klikněte pravým tlačítkem na **řešení 'VertexDebug' > Přidat > existující projekt...**  najít zdrojový kód sestavení a přidejte projekt k ladění řešení.
+1. Klikněte pravým tlačítkem na **řešení 'VertexDebug' > Přidat > existující projekt...**  k vyhledání sestavení zdrojového kódu a přidejte projekt k ladění řešení.
 
     ![Přidání projektu Azure Data Lake Analytics U-SQL ladění](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
 
-2. Klikněte pravým tlačítkem na **LocalVertexHost > vlastnosti** v řešení a zkopírujte **pracovní adresář** cesta.
+2. Cesta ke složce projektu pro získání **FailedVertexDebugHost** projektu. 
 
-3. Klikněte pravým tlačítkem na **sestavení projektu zdrojového kódu > vlastnosti**, vyberte **sestavení** kartě na levé straně a vložte zkopírovaný cestu jako **výstup > Výstupní cesta**.
+3. Klikněte pravým tlačítkem na **projektu přidané sestavení zdrojového kódu > vlastnosti**, vyberte **sestavení** kartě na levé straně a vložte zkopírovaný cesta konče \bin\debug jako **výstup > Výstupní cesta**. Konečné výstupní cesta je jako "<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\".
 
     ![Azure Data Lake Analytics U-SQL ladění, nastavte cestu pdb](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 
-4. Stiskněte klávesu **Ctrl + Alt + E**, zkontrolujte **výjimky modulu CLR** v okně Nastavení výjimky.
-
-### <a name="start-debug"></a>Spuštění ladění
-
-1. Klikněte pravým tlačítkem na **sestavení projektu zdrojového kódu > sestavit** do výstupní soubory PDB do `LocalVertexHost` pracovní adresář.
-
-2. Stiskněte klávesu **F5** a projekt se spustí, dokud nebude zastaven výjimkou. Může zobrazí následující zprávu upozornění, která můžete bezpečně ignorovat. Ho může trvat několik minut dostali na obrazovku pro ladění.
-
-    ![Azure Data Lake Analytics U-SQL ladění sady visual studio upozornění](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
-
-3. Otevřete vašeho zdrojového kódu a nastavit zarážky, stiskněte **F5** k ladění kódu krok za krokem.
-
-Můžete také použít Visual Studio ladicí nástroje (sledovat, proměnné atd.) k vyřešení tohoto problému.
+Po tato nastavení, spusťte ladění pomocí **F5** a zarážky. Můžete také použít Visual Studio ladicí nástroje (sledovat, proměnné atd.) k vyřešení tohoto problému.
 
 > [!NOTE]
 > Znovu sestavte projekt sestavení zdrojového kódu pokaždé, když po úpravě kód pro vygenerování souborů aktualizované pdb.
 
+## <a name="resubmit-the-job"></a>Odešlete znovu úlohu
+
 Po ladění, po úspěšném dokončení projektu ve výstupním okně zobrazí následující zprávu:
 
-```
-The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
-```
+    The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
 
 ![Azure Data Lake Analytics U-SQL ladění úspěšné](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
-## <a name="resubmit-the-job"></a>Odešlete znovu úlohu
-
-Po dokončení ladění znovu odešlete informace o neúspěšné úloze.
+Odeslat znovu úlohu došlo k chybě:
 
 1. Pro úlohy s kódem v pozadí řešení, zkopírujte kód C# do zdrojového souboru kódu na pozadí (obvykle `Script.usql.cs`).
-2. Pro úlohy se sestaveními registraci sestavení aktualizované .dll do vaší databáze ADLA:
-    1. Z Průzkumníka serveru nebo v Průzkumníku cloudu, rozbalte **ADLA účet > databáze** uzlu.
-    2. Klikněte pravým tlačítkem na **sestavení** a registraci vaší nové sestavení .dll s databází ADLA: ![Azure Data Lake Analytics U-SQL ladění registrace sestavení](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)
-3. Odešlete znovu úlohu.
+
+2. Pro úlohy s sestavení klikněte pravým tlačítkem na projekt sestavení zdrojového kódu v ladění řešení a zaregistrujte aktualizované .dll sestavení do katalogu Azure Data Lake.
+
+3. Odešlete znovu úlohu U-SQL.
 
 ## <a name="next-steps"></a>Další kroky
 
 - [Průvodce programovatelnosti U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Vývoj U-SQL uživatelem definované operátory pro úlohy Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-- [Kurz: vývoj skriptů U-SQL pomocí nástrojů Data Lake pro Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Testování a ladění úloh U-SQL pomocí místního spuštění a sady Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
+- [Řešení potíží s neobvyklé opakování úlohy](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

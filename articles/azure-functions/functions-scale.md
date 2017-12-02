@@ -1,5 +1,5 @@
 ---
-title: "Azure Functions hostování plány porovnání | Microsoft Docs"
+title: "Azure funkce škálování a hostování | Microsoft Docs"
 description: "Zjistěte, jak si vybrat mezi plánu spotřeby funkce Azure a plán služby App Service."
 services: functions
 documentationcenter: na
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions hostování plány porovnání
+# <a name="azure-functions-scale-and-hosting"></a>Azure funkce škálování a hostování
 
-Azure Functions můžete spustit ve dvou různých režimech: plánu spotřeby a plán služby Azure App Service. Plánu spotřeby automaticky přiděluje výpočetní výkon, když kód běží, horizontálně navýší kapacitu podle potřeby pro zpracování zatížení a potom škáluje, pokud kód není spuštěna. Ano nemusí platit pro nečinnosti virtuální počítače a nemusíte předem záložní kapacita. Tento článek se týká plánu spotřeby [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) modelu aplikace. Podrobnosti o tom, jak funguje plán služby App Service najdete v tématu [podrobný přehled plánů služby Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Azure Functions můžete spustit ve dvou různých režimech: plánu spotřeby a plán služby Azure App Service. Plánu spotřeby automaticky přiděluje výpočetní výkon, když kód běží, horizontálně navýší kapacitu podle potřeby pro zpracování zatížení a potom škáluje, pokud kód není spuštěna. Nemusí platit pro nečinnosti virtuální počítače a nemusíte předem záložní kapacita. Tento článek se týká plánu spotřeby [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) modelu aplikace. Podrobnosti o tom, jak funguje plán služby App Service najdete v tématu [podrobný přehled plánů služby Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
 > Hostování Linux je momentálně dostupná jenom na plán služby App Service.
@@ -84,18 +84,20 @@ Always On je k dispozici pouze na plán služby App Service. V plánu spotřeby 
 
 Spotřeba plánu nebo plán služby App Service vyžaduje aplikaci funkce obecné účtu úložiště Azure, který podporuje Azure Blob, fronty, soubory a tabulka úložiště. Azure Functions interně používá Azure Storage pro operace, jako je například Správa aktivační události a protokolování spuštěních funkce. Některé účty úložiště nepodporují fronty a tabulky, jako je například účty pouze objekt blob úložiště (včetně úložiště premium) a účty úložiště pro obecné účely s replikací zónově redundantní úložiště. Tyto účty jsou filtrovány z **účet úložiště** okno při vytváření aplikaci funkce.
 
+<!-- JH: Does using a PRemium Storage account improve perf? -->
+
 Další informace o typech účtu úložiště najdete v tématu [Představení služby Azure Storage](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Jak funguje s plánem spotřeba
 
-V plánu spotřeby řadičem škálování automaticky přizpůsobí prostředků procesoru a paměti přidáním další instance funkce hostitele, na základě počtu událostí, které jsou aktivována jeho funkce. Každá instance hostitele funkce je omezený na 1,5 GB paměti.
+V plánu spotřeby řadičem škálování automaticky přizpůsobí prostředků procesoru a paměti přidáním další instance funkce hostitele, na základě počtu událostí, které jsou aktivována jeho funkce. Každá instance hostitele funkce je omezený na 1,5 GB paměti.  Instance hostitele je funkce aplikace, což znamená všechny funkce v rámci – funkce aplikace sdílet zdroje v rámci služby instance a škálování ve stejnou dobu.
 
 Při spotřeby hostování plán, jsou uloženy soubory kódu funkce na Azure sdílených složek v účtu úložiště hlavní funkce. Pokud odstraníte účet úložiště hlavní funkce aplikace, soubory kódu funkce jsou odstraněny a nelze jej obnovit.
 
 > [!NOTE]
 > Pokud používáte aktivační události objektu blob na plánu spotřeby, může být až 10 minut zpoždění při zpracování nové objekty BLOB, pokud aplikaci funkce přešel nečinnosti. Po aplikaci funkce běží, objekty BLOB jsou zpracovávány okamžitě. Abyste se vyhnuli Tato počáteční prodleva, zvažte jednu z následujících možností:
 > - Hostování aplikace funkce na plán služby App Service s povolenou funkci Always On.
-> - Použijte jiný mechanismus pro aktivaci objektu blob zpracování, např. zprávu fronty, který obsahuje název objektu blob. Příklad, naleznete v části [skriptu jazyka C# a JavaScript příklady pro tento objekt blob vstup a výstup vazby](functions-bindings-storage-blob.md#input--output---example).
+> - Použijte jiný mechanismus pro aktivaci objektu blob zpracování, např. předplatné mřížky událostí nebo zprávu fronty, který obsahuje název objektu blob. Příklad, naleznete v části [skriptu jazyka C# a JavaScript příklady pro tento objekt blob vstup a výstup vazby](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Modul runtime škálování
 
@@ -104,6 +106,20 @@ Azure Functions využívá komponenty s názvem *škálování řadiče* ke sled
 Jednotka škálování je funkce aplikace. Když je funkce aplikace škálovat na více systémů, další prostředky jsou přiděleny spustit víc instancí služby Azure Functions hostitele. Naopak jako výpočetní, že se snižuje vyžádání, řadičem škálování odebere funkce hostitele instance. Počet instancí se nakonec měřítko nula. Pokud žádná funkce běží v rámci funkce aplikace.
 
 ![Škálování řadič sledování událostí a vytváření instancí](./media/functions-scale/central-listener.png)
+
+### <a name="understanding-scaling-behaviors"></a>Porozumění chování škálování
+
+Škálování se může lišit na několika faktorech a škálování různě v závislosti na aktivační události a jazyk vybraný. Několik aspektů škálování, který se však v systému existuje ještě dnes:
+* Aplikace jedné funkce se bude škálovat jenom maximálně 200 instancí. Jedna instance může zpracovat více než jeden zpráva nebo žádostí o současně ale, není k dispozici nastaveného limitu počtu souběžných spuštěních.
+* Nové instance pouze se přidělí maximálně jednou každých 10 sekund.
+
+Různé aktivační události mohou mít i jiné omezení škálovatelnosti, jakož i zdokumentovaných níže:
+
+* [Centrum událostí](functions-bindings-event-hubs.md#trigger---scaling)
+
+### <a name="best-practices-and-patterns-for-scalable-apps"></a>Osvědčené postupy a vzory pro škálovatelné aplikace
+
+Existuje mnoho aspektů funkce aplikaci, která bude mít vliv na tom, jak dobře se bude škálovat, včetně konfigurace hostitele, runtime nároky a účinnosti prostředků.  Zobrazení [škálovatelnost části článku aspekty výkonu](functions-best-practices.md#scalability-best-practices) Další informace.
 
 ### <a name="billing-model"></a>Model fakturace
 

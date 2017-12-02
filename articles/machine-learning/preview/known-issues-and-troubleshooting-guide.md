@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – známé problémy a Průvodce odstraňováním potíží s 
 Tento článek vám pomůže najít a opravy chyb nebo selhání došlo jako součást pomocí aplikace Azure Machine Learning Workbench. 
@@ -112,6 +112,19 @@ Bohužel neexistuje žádný snadný opravy na tomto. Je nutné provést násled
    - odebrat skriptu`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - odebrat zástupce na ploše, který spouští skript výše
    - stáhnout instalační program https://aka.ms/azureml-wb-msi a znovu nainstalujte.
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Na obrazovce "Kontrola experimentování účet" uváznout po přihlášení
+Po přihlášení může získat na prázdnou obrazovku zprávou zobrazující "Kontroluje experimentování účet" s roztočený kolem zablokované aplikace Workbench. Chcete-li vyřešit tento problém, proveďte následující kroky:
+1. Vypnutí aplikace
+2. Odstraňte následující soubor:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Restartujte aplikaci.
 
 ## <a name="cant-delete-experimentation-account"></a>Nelze odstranit účet experimentování
 Rozhraní příkazového řádku můžete použít k odstranění účtu experimentování, ale je nutné odstranit nejprve podřízených pracovních prostorů a podřízené projekty v rámci těchto podřízených pracovních prostorů. Jinak zobrazí chybu.

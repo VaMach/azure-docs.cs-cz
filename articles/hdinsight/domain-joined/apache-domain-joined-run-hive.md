@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 9523c008d509647c6e578bc9ca9bb88b348d6ebf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 812acea414096880c2b80958cb7c6f410f0d9c98
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Konfigurace zásad Hivu ve službě HDInsight připojené k doméně (Preview)
+# <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Nakonfigurovat zásady Hive v HDInsight připojený k doméně
 Zjistěte, jak nakonfigurovat zásady Apache Rangeru pro Hive. V tomto článku vytvoříte dvě zásady Ranger pro omezení přístupu k hivesampletable. Hivesampletable je součástí clusterů HDInsight. Po nakonfigurování zásad použijete Excel nebo ovladač ODBC a připojíte se k tabulkám Hivu ve službě HDInsight.
 
 ## <a name="prerequisites"></a>Požadavky
