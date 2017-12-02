@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: b267f5ce5ec76a89327ac58ca76895f8bcc4696b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Používání nástroje MapReduce v Hadoop v HDInsight
 
@@ -57,7 +57,7 @@ MapReduce můžou se implementovat v různých jazycích. Java nejběžnější 
 
 ## <a name="development-languages"></a>Programovacích jazyků
 
-Jazyky nebo rozhraní, které jsou založeny na jazyce Java a virtuální počítač Java můžete spustili přímo jako úlohu MapReduce. V příkladu v tomto dokumentu je aplikace Java MapReduce. Jazyky Java jiného typu, jako je C#, Python nebo samostatné spustitelné soubory, musíte použít, streamování Hadoop.
+Jazyky nebo rozhraní, které jsou založeny na jazyce Java a virtuální počítač Java můžete spustili přímo jako úlohu MapReduce. V příkladu v tomto dokumentu je aplikace Java MapReduce. Jazyky Java jiného typu, jako je C#, Python nebo samostatné spustitelné soubory, musíte použít **streamování Hadoop**.
 
 Streamování Hadoop komunikuje s mapper a reduktorem pomocí standardního vstupu a výstupu STDOUT. Mapovač a reduktorem číst data řádku současně z stdin – a zapisovat výstup STDOUT. Každý řádek čtení nebo vysílaných mapper a reduktorem musí být ve formátu pár klíč hodnota oddělená tabulátorem:
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 076d4d95db21f0a1c1500ae7766392547a441d1b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Přizpůsobení nastavení clusteru Service Fabric a zásady upgradu prostředků infrastruktury
-Tento dokument vysvětluje, jak přizpůsobit různá nastavení prostředků infrastruktury a infrastruktury upgradovat zásady pro váš cluster Service Fabric. Přizpůsobit pomocí [portál Azure](https://portal.azure.com) nebo pomocí šablony Azure Resource Manager.
+Tento dokument popisuje, jak přizpůsobit různá nastavení prostředků infrastruktury a zásad pro váš cluster Service Fabric upgradu. Přizpůsobit pomocí [portál Azure](https://portal.azure.com) nebo pomocí šablony Azure Resource Manager.
 
 > [!NOTE]
 > Ne všechna nastavení jsou k dispozici na portálu. V případě, že níže uvedených nastavení není k dispozici prostřednictvím portálu přizpůsobte pomocí šablony Azure Resource Manager.
@@ -772,8 +772,8 @@ PropertyGroup –|X509NameMap, výchozí hodnota je žádné|Dynamická| |
 |MaxPrimaryReplicationQueueMemorySize|Uint, výchozí hodnota je 0|Statická|Toto je maximální hodnota primární replikace fronty v bajtech.|
 |MaxSecondaryReplicationQueueSize|uint, výchozí je 2048|Statická|Toto je maximální počet operací, které může existovat ve frontě sekundární replikace. Všimněte si, že musí být násobkem 2.|
 |MaxSecondaryReplicationQueueMemorySize|Uint, výchozí hodnota je 0|Statická|Toto je maximální hodnota sekundární replikační fronty v bajtech.|
-|QueueHealthMonitoringInterval|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(30)|Statická|Zadejte časový interval v sekundách. Tato hodnota určuje časové období, které Replikátor používá k monitorování všechny události stavu upozornění nebo chyby ve frontách operace replikace. Hodnota '0' zakáže monitorování stavu |
-|QueueHealthWarningAtUsagePercent|uint, výchozí je 80|Statická|Tato hodnota určuje využití fronty replikace (v procentech), po jejímž uplynutí vytvoříme sestavy upozornění o použití vysoké fronty. Budeme tak učinit po odkladu intervalu QueueHealthMonitoringInterval. Pokud využití fronty klesne pod tuto procentuální hodnotu v intervalu odkladu|
+|QueueHealthMonitoringInterval|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(30)|Statická|Zadejte časový interval v sekundách. Tato hodnota určuje časové období, které Replikátor používá k monitorování všechny události stavu upozornění nebo chyby ve frontách operace replikace. Hodnota '0' zakáže, sledování stavu. |
+|QueueHealthWarningAtUsagePercent|uint, výchozí je 80|Statická|Tato hodnota určuje využití fronty replikace (v procentech), po jejímž uplynutí vytvoříme sestavy upozornění o použití vysoké fronty. Budeme tak učinit po odkladu intervalu QueueHealthMonitoringInterval. Pokud je využití fronty klesne pod tuto procentuální hodnotu v intervalu odkladu upozornění není hlášena.|
 |RetryInterval|Časový interval, výchozí hodnota je Common::TimeSpan::FromSeconds(5)|Statická|Zadejte časový interval v sekundách. Při operaci dojde ke ztrátě nebo odmítnuté tento časovač Určuje, jak často bude Replikátor opakovat operaci odeslání.|
 
 ### <a name="section-name-transport"></a>Název oddílu: přenosu

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 12/01/2017
 ms.author: jeedes
-ms.openlocfilehash: e8ca7fdacf8361570d88260b3c359ee6e2fd3e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 026eca7fc8f17602ba44ba38db138d645c9d7713
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Kurz: Konfigurace Google Apps pro zřizování automatické uživatelů
 
@@ -90,6 +90,10 @@ Tato část vás provede procesem připojení služby Azure AD s uživatelským 
      ![Domény](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. Opakujte předchozí kroky u všech domén, které chcete přidat do vašeho adresáře.
+
+    > [!NOTE]
+    Pro zřizování uživatelů vlastní domény Google Apps musí odpovídat názvu domény zdroje Azure AD. Pokud se neshodují, bude pravděpodobně možné vyřešit problém s implementací přizpůsobení mapování atributů.
+
 
 5. Teď, když si ověříte, že všechny vaše domény s Azure AD, je nutné je ověřit znovu s Google Apps. Pro každou doménu, která již není registrován u služby Google Apps proveďte následující kroky:
    

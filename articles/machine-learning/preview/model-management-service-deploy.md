@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Nasazení modelu strojového učení jako webovou službu
 
@@ -25,7 +25,7 @@ Tento dokument popisuje postup nasazení modely jako webové služby pomocí roz
 ## <a name="deploying-web-services"></a>Nasazení webové služby
 Pomocí CLIs, můžete nasadit webové služby pro spuštění v místním počítači nebo na clusteru.
 
-Doporučujeme začít s místní nasazení. Nejprve ověřit, že model a kód fungovat, pak nasazení webové služby do clusteru s podporou pro produkční škálování použití. Další informace o nastavení prostředí pro nasazení clusteru najdete v tématu [Model správy konfigurace](model-management-configuration.md). 
+Doporučujeme začít s místní nasazení. Nejprve ověřit, že model a kód fungovat, pak nasazení webové služby do clusteru s podporou pro produkční škálování použití. Další informace o nastavení prostředí pro nasazení clusteru najdete v tématu [Model správy konfigurace](deployment-setup-configuration.md). 
 
 Tady jsou kroky nasazení:
 1. Pomocí modelu Machine Learning uložené, vyškolení,
@@ -186,4 +186,4 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 ```
 
 ## <a name="next-steps"></a>Další kroky
-Teď, když testování k webové službě pro spustit místně, můžete nasadit do clusteru s podporou pro použití ve velkém měřítku. Podrobnosti o nastavení clusteru s podporou pro nasazení webu služby najdete v tématu [modelu Management Configuration](model-management-configuration.md). 
+Teď, když testování k webové službě pro spustit místně, můžete nasadit do clusteru s podporou pro použití ve velkém měřítku. Podrobnosti o nastavení clusteru s podporou pro nasazení webu služby najdete v tématu [modelu Management Configuration](deployment-setup-configuration.md). 

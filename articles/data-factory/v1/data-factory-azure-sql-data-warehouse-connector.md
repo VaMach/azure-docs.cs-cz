@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a56afa7c5200b53b398f8a99e8a36df3685b2f66
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopírování dat do a z Azure SQL Data Warehouse pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -196,7 +196,7 @@ SQL Data Warehouse PolyBase přímo podporují objektů Blob v Azure a Azure Dat
 Pokud požadavky nejsou splněny, zkontroluje nastavení Azure Data Factory a automaticky se vrátí k hromadné vložení mechanismus pro přesun dat.
 
 1. **Zdroj propojené služby** je typu: **azurestorage** nebo **AzureDataLakeStore s objekt zabezpečení ověřování služby**.  
-2. **Vstupní datové sady** je typu: **AzureBlob** nebo **AzureDataLakeStore**a zadejte v části formát `type` vlastnosti je **OrcFormat**, nebo **TextFormat** s následující konfigurace:
+2. **Vstupní datové sady** je typu: **AzureBlob** nebo **AzureDataLakeStore**a zadejte v části formát `type` vlastnosti je **OrcFormat**, **ParquetFormat**, nebo **TextFormat** s následující konfigurace:
 
    1. `rowDelimiter`musí být  **\n** .
    2. `nullValue`je nastavena na **prázdný řetězec** (""), nebo `treatEmptyAsNull` je nastaven na **true**.

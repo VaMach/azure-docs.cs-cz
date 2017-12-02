@@ -1,6 +1,6 @@
 ---
-title: "Zpracování zpráv typu zařízení cloud Azure IoT Hub pomocí tras (.Net) | Microsoft Docs"
-description: "Postupy zpracování zpráv typu zařízení cloud IoT Hub pomocí pravidel směrování a vlastní koncové body k odeslání zprávy do dalších služeb back-end."
+title: "Směrování zpráv službou Azure IoT Hub (.Net) | Microsoft Docs"
+description: "Postupy zpracování zpráv typu zařízení cloud Azure IoT Hub pomocí pravidel směrování a vlastní koncové body k odeslání zprávy do dalších služeb back-end."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Zpracování zpráv typu zařízení cloud IoT Hub pomocí tras (.NET)
+# <a name="routing-messages-with-iot-hub-net"></a>Směrování zpráv s centra IoT (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -43,7 +43,7 @@ Pro absolvování tohoto kurzu potřebujete:
 * Visual Studio 2015 nebo Visual Studio 2017.
 * Aktivní účet Azure. <br/>Pokud účet nemáte, můžete vytvořit [bezplatný účet](https://azure.microsoft.com/free/) si během několika minut.
 
-Měli byste některé základní znalosti o [Azure Storage] a [Azure Service Bus].
+Doporučujeme také výklad o [Azure Storage] a [Azure Service Bus].
 
 ## <a name="send-interactive-messages"></a>Odesílat interaktivní zprávy
 
@@ -74,8 +74,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -93,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Tato metoda náhodně přidá vlastnost `"level": "critical"` na zprávy odeslané zařízením, která simuluje zprávu, která vyžaduje okamžitý zásah pomocí back-end řešení. Aplikace zařízení předá tyto informace ve vlastnostech zpráv místo v textu zprávy, že IoT Hub může směrovat zprávy Cíl správné zprávy.
+Tato metoda náhodně přidá vlastnost `"level": "critical"` a `"level": "storage"` na zprávy odeslané zařízením, která simuluje zprávu, která vyžaduje okamžitý zásah back-end aplikace nebo ten, který musí být trvale uložená. Aplikace předá tyto informace ve vlastnostech zpráv místo v textu zprávy, že IoT Hub může směrovat zprávy Cíl správné zprávy.
 
 > [!NOTE]
 > Vlastnosti zprávy pro směrování zpráv můžete použít pro různé scénáře, včetně studený cesty při zpracování, kromě zde ukazuje příklad hot-path.
 
 > [!NOTE]
-> Z důvodu zjednodušení tento kurz neimplementuje žádné zásady opakování. V produkčním kódu, měli byste implementovat zásady opakování například exponenciálního omezení rychlosti dle pokynů v článku na webu MSDN [přechodných chyb].
+> Důrazně doporučujeme implementovat zásady opakování například exponenciálního omezení rychlosti dle pokynů v článku na webu MSDN [přechodných chyb].
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Směrování zpráv do fronty ve službě IoT hub
 
@@ -177,6 +185,30 @@ Nyní můžete spustit aplikace.
    
    ![Tři aplikace konzoly][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Volitelné) Přidat kontejner úložiště pro IoT hub a směrování zpráv do ní
+
+V této části vytvořit účet úložiště, připojte ho do služby IoT hub a konfigurace služby IoT hub pro odesílání zpráv pro účet, na základě přítomnosti vlastnosti na zprávu. Další informace o tom, jak spravovat úložiště najdete v tématu [Začínáme s Azure Storage][Azure Storage].
+
+ > [!NOTE]
+   > Pokud si nejste omezená na jedno **koncový bod**, může instalace **StorageContainer** kromě **CriticalQueue** a spusťte obě simulatneously.
+
+1. Vytvořte účet úložiště, jak je popsáno v [dokumentaci úložiště Azure] [lnk úložiště]. Poznamenejte si název účtu.
+
+2. Na portálu Azure otevřete své služby IoT hub a klikněte na tlačítko **koncové body**.
+
+3. V **koncové body** okně, vyberte **CriticalQueue** koncový bod a klikněte na tlačítko **odstranit**. Klikněte na tlačítko **Ano**a potom klikněte na **přidat**. Název koncového bodu **StorageContainer** a použijte rozevírací seznamy a vyberte **kontejneru úložiště Azure**a vytvořte **účet úložiště** a **úložiště kontejner**.  Poznamenejte si názvy.  Až budete hotovi, klikněte na tlačítko **OK** dole. 
+
+ > [!NOTE]
+   > Pokud si nejste omezená na jedno **koncový bod**, není potřeba odstranit **CriticalQueue**.
+
+4. Klikněte na tlačítko **trasy** ve službě IoT Hub. Klikněte na tlačítko **přidat** v horní části okna Vytvořit pravidlo směrování pro směrování zpráv do fronty jste právě přidali. Vyberte **zprávy zařízení** jako zdroj dat. Zadejte `level="storage"` jako podmínka a zvolte **StorageContainer** jako vlastní koncový bod jako koncový bod směrování pravidlo. Klikněte na tlačítko **Uložit** dole.  
+
+    Ujistěte se, že záložní cesta je nastavena na **ON**. Toto nastavení je výchozí konfigurace služby IoT hub.
+
+1. Ujistěte se, že předchozí aplikace stále běží. 
+
+1. Na portálu Azure přejděte na svůj účet úložiště, v části **služby objektů Blob**, klikněte na tlačítko **procházet objekty BLOB...** .  Vyberte vašeho kontejneru, přejděte na a klikněte na soubor JSON a klikněte na tlačítko **Stáhnout** chcete zobrazit data.
+
 ## <a name="next-steps"></a>Další kroky
 V tomto kurzu jste zjistili, jak spolehlivě odesláním zprávy typu zařízení cloud pomocí funkce směrování zpráv služby IoT Hub.
 
@@ -204,5 +236,5 @@ Další informace o směrování zpráv do služby IoT Hub, najdete v části [o
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Azure střediska pro vývojáře IoT]: https://azure.microsoft.com/develop/iot
 [přechodných chyb]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

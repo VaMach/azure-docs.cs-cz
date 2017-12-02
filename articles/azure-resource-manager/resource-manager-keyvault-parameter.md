@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 11/30/2017
 ms.author: tomfitz
-ms.openlocfilehash: e789a234979be877d990665902fd6219ae7ec40b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Použití Azure Key Vault předejte hodnotu parametru zabezpečení při nasazení
 
@@ -66,7 +66,11 @@ Ať používáte nového trezoru klíčů nebo stávající, zajistí, že uživ
 
 ## <a name="reference-a-secret-with-static-id"></a>Referenční tajný klíč s ID statické
 
-Šablony, která přijímá tajný klíč trezoru klíčů je jako libovolné jiné šablony. Je to způsobeno **odkazujete trezoru klíčů v souboru parametrů, není šablona.** Například následující šablony nasadí databázi SQL, která zahrnuje heslo správce. Parametr hesla je nastaven na zabezpečený řetězec. Ale šablony neurčuje, kde tato hodnota pochází z.
+Šablony, která přijímá tajný klíč trezoru klíčů je jako libovolné jiné šablony. Je to způsobeno **odkazujete trezoru klíčů v souboru parametrů, není šablona.** Následující obrázek ukazuje, jak soubor parametrů odkazuje tajný klíč a předá tuto hodnotu v šabloně.
+
+![Statické ID](./media/resource-manager-keyvault-parameter/statickeyvault.png)
+
+Například [následující šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) nasadí databázi SQL, která zahrnuje heslo správce. Parametr hesla je nastaven na zabezpečený řetězec. Ale šablony neurčuje, kde tato hodnota pochází z.
 
 ```json
 {
@@ -102,7 +106,7 @@ Ať používáte nového trezoru klíčů nebo stávající, zajistí, že uživ
 }
 ```
 
-Teď vytvořte soubor parametrů pro předchozí šablonu. V souboru parametrů zadejte parametr, který odpovídá názvu parametru v šabloně. Pro hodnotu parametru odkazovat tajného klíče z trezoru klíčů. Tajný klíč odkazujete předáním identifikátor prostředku služby key vault a název tajný klíč. V následujícím příkladu tajný klíč trezoru klíčů již musí existovat a zadejte statickou hodnotu pro jeho ID prostředku.
+Teď vytvořte soubor parametrů pro předchozí šablonu. V souboru parametrů zadejte parametr, který odpovídá názvu parametru v šabloně. Pro hodnotu parametru odkazovat tajného klíče z trezoru klíčů. Tajný klíč odkazujete předáním identifikátor prostředku služby key vault a název tajný klíč. V [následující soubor parametrů](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json), tajný klíč trezoru klíčů již musí existovat a zadejte statickou hodnotu pro jeho ID prostředku. Zkopírujte tento soubor místně a nastavit ID odběru, název trezoru a název systému SQL server.
 
 ```json
 {
@@ -127,25 +131,27 @@ Teď vytvořte soubor parametrů pro předchozí šablonu. V souboru parametrů 
 }
 ```
 
-Nyní se nasazení šablony a předejte soubor parametru. Pokud používáte Azure CLI, použijte:
+Nyní se nasazení šablony a předejte soubor parametru. Můžete například šablony z Githubu, ale musíte použít místní parametr souboru s hodnotami nastavenými pro vaše prostředí.
+
+Pokud používáte Azure CLI, použijte:
 
 ```azurecli-interactive
-az group create --name datagroup --location "Central US"
+az group create --name datagroup --location "South Central US"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file sqlserver.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
 Pokud používáte PowerShell, použijte:
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "Central US"
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile sqlserver.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
@@ -153,7 +159,13 @@ New-AzureRmResourceGroupDeployment `
 
 V předchozí části vám ukázal, jak předat ID statické prostředku pro tajný klíč trezoru klíčů. Ale v některých scénářích musíte tak, aby odkazovaly trezor klíčů tajný klíč, který se liší podle aktuální nasazení. V takovém případě nemůžete pevně ID prostředku v souboru parametrů. Bohužel nelze generovat dynamicky ID prostředku v souboru parametrů vzhledem k tomu, že šablona výrazy nejsou povoleny v souboru parametrů.
 
-K dynamickému generování ID prostředku pro tajný klíč trezoru klíčů, musíte přesunout prostředek, který potřebuje tajný klíč do vnořené šablony. V šabloně hlavní přidání vnořené šablony a předat v parametru, který obsahuje ID dynamicky generovaném prostředku. Vnořené šablony musí být k dispozici prostřednictvím externí identifikátor URI. Zbývající část tohoto článku předpokládá šablona v předchozím příkladu jste přidali do účtu úložiště a je k dispozici prostřednictvím identifikátor URI - `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+K dynamickému generování ID prostředku pro tajný klíč trezoru klíčů, musíte přesunout prostředek, který potřebuje tajný klíč do propojené šablony. V šabloně nadřazené přidání propojené šablony a předat v parametru, který obsahuje ID dynamicky generovaném prostředku. Následující obrázek ukazuje, jak parametr v šabloně propojené odkazuje tajný klíč.
+
+![Dynamické ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+
+Propojené šablony musí být k dispozici prostřednictvím externí identifikátor URI. Obvykle přidat šablony na účet úložiště a k němu přístup prostřednictvím identifikátor URI jako `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+
+[Následující šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) dynamicky vytvoří ID trezoru klíčů a předává je jako parametr. Obsahuje odkazy na [příklad šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) v Githubu.
 
 ```json
 {
@@ -184,7 +196,7 @@ K dynamickému generování ID prostředku pro tajný klíč trezoru klíčů, m
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json",
+          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -205,7 +217,29 @@ K dynamickému generování ID prostředku pro tajný klíč trezoru klíčů, m
 }
 ```
 
-Nasadit předchozí šablonu a zadejte hodnoty pro parametry.
+Nasadit předchozí šablonu a zadejte hodnoty pro parametry. Můžete například šablony z Githubu, ale je nutné zadat hodnoty parametrů pro vaše prostředí.
+
+Pokud používáte Azure CLI, použijte:
+
+```azurecli-interactive
+az group create --name datagroup --location "South Central US"
+az group deployment create \
+    --name exampledeployment \
+    --resource-group datagroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json \
+    --parameters vaultName=<your-vault> vaultResourceGroup=examplegroup secretName=examplesecret adminLogin=exampleadmin sqlServerName=<server-name>
+```
+
+Pokud používáte PowerShell, použijte:
+
+```powershell
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName datagroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json `
+  -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
+```
 
 ## <a name="next-steps"></a>Další kroky
 * Obecné informace o trezorů klíčů najdete v tématu [Začínáme s Azure Key Vault](../key-vault/key-vault-get-started.md).

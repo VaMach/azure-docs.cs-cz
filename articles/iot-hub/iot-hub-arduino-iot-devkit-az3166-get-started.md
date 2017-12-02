@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: deb362796966524ec2db5808623d2f92a1bf44e1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 6a9d5e029e48c1bb62ad4731c7413f023b97c8c9
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>IoT DevKit AZ3166 se připojit ke službě Azure IoT Hub v cloudu
 
@@ -29,7 +29,7 @@ Můžete použít [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-deve
 ## <a name="what-you-do"></a>Co dělat
 Připojení [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) do služby Azure IoT hub, který vytvoříte, shromažďování dat teploty a vlhkosti ze senzorů a odesílání dat do služby IoT hub.
 
-Nemáte DevKit ještě? [Získat](https://aka.ms/iot-devkit-purchase).
+Nemáte DevKit ještě? Zkuste [DevKit simulátoru](https://azure-samples.github.io/iot-devkit-web-simulator/) nebo [získat](https://aka.ms/iot-devkit-purchase).
 
 ## <a name="what-you-learn"></a>Co se naučíte
 

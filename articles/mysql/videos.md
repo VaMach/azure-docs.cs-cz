@@ -8,14 +8,26 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 88a3114271088ad49a3d4231facc88ee6f89b54b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 12/01/2017
+ms.openlocfilehash: 9320a08217a5748ee8e41ab6f282490757b4acd1
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-database-for-mysql-videos"></a>Azure databáze MySQL videa
+
+[Přehled: Azure databáze PostgreSQL a databáze MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T147/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure databáze PostgreSQL a Azure Database pro databázi MySQL společně nabídnou community edition databázové stroje a možností plně spravovaná služba – abyste se mohli zaměřit na vaší aplikace, aniž by museli spravovat databáze. Naladit vám zajistí rychlý přehled výhod používání služby a v některé z možností v akci.
+
+[Podrobné informace o možnosti spravované služby pro MySQL a PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T148/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure databáze PostgreSQL a Azure Database pro databázi MySQL sdružujícího community edition databázové stroje a možností plně spravované služby. Naladit získat podrobné informace na fungování těchto služeb, jak jsme zajistit vysokou dostupnost a Rychlé škálování (v sekundách), takže splňujete potřeb vašich zákazníků. Získáte také informace o některé základní investic v zabezpečení a dostupnosti po celém světě.
 
 [Jak začít pracovat s novou databází Azure pro službu MySQL](https://channel9.msdn.com/events/Build/2017/B8045)
 

@@ -1,11 +1,10 @@
 ---
-title: "Přidání certifikátu protokolu SSL do aplikace Azure App Service | Microsoft Docs"
-description: "Zjistěte, jak přidat certifikát SSL do vaší aplikace služby App Service."
+title: "Zakoupení a konfigurace certifikátu protokolu SSL pro vaši Azure App Service | Microsoft Docs"
+description: "Zjistěte, jak koupit certifikát služby App Service a navázat jej aplikaci aplikační služby"
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Koupě a konfigurace certifikátu SSL pro službu Azure App Service
 
@@ -74,12 +73,16 @@ Jakmile vyberete klíč trezoru úložiště pro uložení tohoto certifikátu, 
 
 ## <a name="step-4---verify-the-domain-ownership"></a>Krok 4 - ověřit vlastnictví domény
 
-> [!NOTE]
-> Existují tři typy ověření domény nepodporuje App service Certificate: ověření domény, e-mailu, ručně. Tyto typy ověření jsou vysvětleny v další podrobnosti najdete [Advanced části](#advanced).
-
 Ze stejné **konfigurace certifikátu** stránky, které jste použili v kroku 3 klikněte na tlačítko **krok 2: ověření**.
 
-**Ověření domény** jedná se o nejpohodlnější proces **pouze v případě** máte  **[zakoupili vaši vlastní doménu služby Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+Vyberte metodu ověřování upřednostňované domény. 
+
+Existují čtyři typy ověření domény nepodporuje App Service Certificate: služby App Service, domény, e-mailu a ruční ověření. Tyto typy ověření jsou vysvětleny v další podrobnosti najdete [Advanced části](#advanced).
+
+> [!NOTE]
+> **Aplikace služby ověření** je nejvhodnější možnost, pokud chcete ověřit doménu je již namapován na aplikaci služby App Service ve stejném předplatném. Provádí se fakt, že aplikace App Service již ověřit vlastnictví domény.
+>
+
 Klikněte na **ověřte** tlačítko k dokončení tohoto kroku.
 
 ![Vložit obrázek ověření domény](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -96,7 +99,7 @@ Po kliknutí na **ověřte**, použijte **aktualizovat** tlačítko až **ověř
 
 V  **[portál Azure](https://portal.azure.com/)**, klikněte **služby App Service** možnost na levé straně stránky.
 
-Klikněte na název aplikace, ke které chcete přiřadit certifikát.
+Klikněte na název vaší aplikace, ke kterému chcete přiřadit tento certifikát.
 
 V **nastavení**, klikněte na tlačítko **certifikáty SSL**.
 
@@ -141,6 +144,10 @@ K dokončení kroku ověření e-mailu, otevřete e-mailu a klikněte na odkaz o
 ![Vložit obrázek ověření e-mailu](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
 
 Pokud potřebujete znovu odeslat ověřovací e-mail, klikněte **znovu odeslat e-mailu** tlačítko.
+
+#### <a name="domain-verification"></a>Ověření domény
+
+Tuto volbu vyberte pouze pro [domény služby App Service, které jste zakoupili z Azure.](custom-dns-web-site-buydomains-web-app.md). Azure automaticky přidá ověření záznam TXT pro vás a dokončí proces.
 
 #### <a name="manual-verification"></a>Ruční ověření
 
@@ -197,6 +204,7 @@ Pokud váš certifikát SSL je nakonfigurovaný pro automatické obnovení, ale 
 - GoDaddy, který generuje certifikáty App Service, vyžaduje ověření domény jednou za tři roky. Správce domény obdrží e-mail, jednou za tři roky ověřit doménu. Selhání zkontrolujte e-mailu nebo ověřte svoji doménu zabrání certifikát služby App Service se automaticky obnovují vždy. 
 - Všechny služby App Service certifikáty vydané před 2017 31. března vyžadují reverification domény v době obnovení Další (i když je povolená automatického obnovení certifikátu). Toto je výsledek změny v zásadách GoDaddy. Zkontrolujte e-mailu a dokončit ověření jednorázové domény, chcete-li pokračovat automatického obnovení certifikátu služby App Service. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="more-resources"></a>Další zdroje informací
 
-* [Přidat síti pro doručování obsahu](app-service-web-tutorial-content-delivery-network.md)
+* [Použít certifikát SSL v kódu aplikace v Azure App Service](app-service-web-ssl-cert-load.md)
+* [– Nejčastější dotazy: Certifikáty App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

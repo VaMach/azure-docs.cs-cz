@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 7c582c81aac889b2b6f57777fab4531107e0fad3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Pomocí klienta Beeline s Apache Hive
 
@@ -202,7 +202,7 @@ Použijte následující postup k vytvoření souboru a potom spustit pomocí Be
     ```
 
     > [!NOTE]
-    > `-i` Parametr spustí Beeline, spouští příkazy v souboru query.hql. Po dokončení dotazu, které přicházejí na `jdbc:hive2://headnodehost:10001/>` řádku. Můžete taky spustit soubor pomocí `-f` parametr, který ukončí Beeline po dokončení dotazu.
+    > `-i` Parametr spustí Beeline a spouští příkazy v `query.hql` souboru. Po dokončení dotazu, které přicházejí na `jdbc:hive2://headnodehost:10001/>` řádku. Můžete taky spustit soubor pomocí `-f` parametr, který ukončí Beeline po dokončení dotazu.
 
 5. Ověřit, jestli **errorLogs** tabulka byla vytvořena, použijte následující příkaz a vrátí všechny řádky z **errorLogs**:
 
@@ -243,7 +243,7 @@ Najít plně kvalifikovaný název domény headnode, použijte informace v [spra
 
 ## <a id="sparksql"></a>Beeline pomocí Spark
 
-Spark poskytuje svou vlastní implementaci systému HiveServer2, což se často označuje jako serveru Spark Thrift. Tato služba používá Spark SQL při překladu místo Hive a může poskytovat lepší výkon v závislosti na svůj dotaz.
+Spark poskytuje svou vlastní implementaci systému HiveServer2, která se někdy označuje jako serveru Spark Thrift. Tato služba používá Spark SQL při překladu místo Hive a může poskytovat lepší výkon v závislosti na svůj dotaz.
 
 Pro připojení k serveru Spark Thrift Spark na clusteru HDInsight, použijte port `10002` místo `10001`. Například, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
 
