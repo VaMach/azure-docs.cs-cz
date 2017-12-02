@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: b54bb67e1188037385d0b373850b6b923eb8d7ac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Zpřístupnit image vlastní virtuálního počítače v Azure zásobníku
 
@@ -184,7 +184,7 @@ Bitové kopie musí být schopen odkazovat úložiště objektů Blob identifik�
 
 2. Přihlaste se k Azure zásobníku jako operátor. V nabídce vyberte **další služby** > **zprostředkovatelé prostředků**. Pak vyberte **výpočetní** > **Image virtuálních počítačů** > **přidat**.
 
-3. V části **přidat bitovou kopii virtuálního počítače**, zadejte vydavatele, nabídky, SKU a verzi bitové kopie virtuálního počítače. Tyto segmenty název odkazovat na bitovou kopii virtuálního počítače v šablonách Resource Manageru. Je nutné vybrat **osType** hodnota správně. Pro **identifikátor URI objektu Blob disku OD**, zadejte identifikátor URI objektu Blob, kde byl odeslán bitovou kopii. Pak vyberte **vytvořit** zahajte proces vytváření bitové kopie virtuálního počítače.
+3. V části **přidat bitovou kopii virtuálního počítače**, zadejte vydavatele, nabídky, SKU a verzi bitové kopie virtuálního počítače. Tyto segmenty název odkazovat na bitovou kopii virtuálního počítače v šablonách Resource Manageru. Je nutné vybrat **osType** hodnota správně. Pro **identifikátor URI objektu Blob disku operačního systému**, zadejte identifikátor URI objektu Blob, kde byl odeslán bitovou kopii. Pak vyberte **vytvořit** zahajte proces vytváření bitové kopie virtuálního počítače.
    
    ![Zahajte vytvoření bitové kopie](./media/azure-stack-add-vm-image/image4.png)
 
