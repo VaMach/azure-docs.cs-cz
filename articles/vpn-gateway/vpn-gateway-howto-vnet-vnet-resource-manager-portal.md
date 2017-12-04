@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2da1c7148e27ca8dd8eb774d4201415a969fada
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Konfigurace propojení brány VPN typu VNet-to-VNet pomocí webu Azure Portal
 
-Tento článek ukazuje, jak vytvořit připojení brány VPN mezi virtuálními sítěmi. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Pokud připojujete virtuální sítě z různých předplatných, tato předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. 
+V tomto článku zjistíte, jak propojit virtuální sítě s použitím typu připojení VNet-to-VNet. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Pokud připojujete virtuální sítě z různých předplatných, tato předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. 
 
 Postupy v tomto článku se týkají modelu nasazení Resource Manager a používají Azure Portal. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
 
@@ -39,15 +39,15 @@ Postupy v tomto článku se týkají modelu nasazení Resource Manager a použí
 
 ![Diagram v2v](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-Propojení virtuální sítě s jinou virtuální sítí (VNet-to-VNet) je podobné propojení virtuální sítě s místním serverem. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE. Mezi virtuálními sítěmi je možné kromě připojení VNet-to-VNet vytvořit také připojení Site-to-Site (IPsec). Oba typy připojení fungují při komunikaci stejným způsobem. Pokud ale vytvoříte připojení VNet-to-VNet a aktualizujete adresní prostor pro jednu virtuální síť, druhá virtuální síť budou automaticky znát trasu do aktualizovaného adresního prostoru. Pokud vytvoříte připojení Site-to-Site (IPsec), je nutné adresní prostor pro bránu místní sítě nakonfigurovat ručně. Při práci s komplexními konfiguracemi možná dáte přednost připojení protokolu IPsec, a ne připojení VNet-to-VNet. Pokud to uděláte, můžete pro bránu místní sítě zadat další adresní prostor ručně.
+## <a name="about"></a>Informace o propojování virtuálních sítí
 
-Pokud se virtuální sítě nacházejí ve stejné oblasti, můžete uvažovat o jejich propojení vytvořením partnerského vztahu virtuálních sítí. Partnerské vztahy virtuálních sítí nepoužívají bránu VPN. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
+Propojení virtuální sítě s jinou virtuální sítí s použitím typu připojení VNet-to-VNet je podobné jako vytvoření připojení IPsec k místnímu serveru. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE a oba komunikují stejným způsobem. Rozdílem mezi těmito typy připojení je způsob konfigurace místní síťové brány. Při vytváření připojení typu VNet-to-VNet se nezobrazí adresní prostor místní síťové brány. Vytvoří a naplní se automaticky. Pokud aktualizujete adresní prostor pro jednu virtuální síť, druhá virtuální síť bude automaticky znát trasu do aktualizovaného adresního prostoru.
 
-Komunikaci typu VNet-to-VNet můžete kombinovat s konfiguracemi s více servery. Díky tomu je možné vytvářet topologie sítí, ve kterých se používá propojování více míst i propojování virtuálních sítí, jak je znázorněno v následujícím schématu:
+Pokud pracujete se složitou konfigurací, možná místo typu připojení VNet-to-VNet dáte přednost použití typu připojení IPsec. Ten vám umožní pro místní síťovou bránu zadat další adresní prostor pro směrování provozu. Pokud propojíte virtuální sítě s použitím typu připojení IPsec, musíte místní síťovou bránu vytvořit a nakonfigurovat ručně. Další informace najdete v tématu [Konfigurace typu Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-![Informace o připojeních](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Informace o připojeních")
+Kromě toho, pokud se virtuální sítě nacházejí ve stejné oblasti, můžete uvažovat o jejich propojení vytvořením partnerského vztahu virtuálních sítí. Partnerský vztah virtuálních sítí nevyužívá bránu VPN a jeho ceny a funkce se poněkud liší. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="why-connect-virtual-networks"></a>Proč propojovat virtuální sítě?
+### <a name="why"></a>Proč vytvářet připojení typu VNet-to-VNet?
 
 Virtuální sítě může být vhodné propojit z následujících důvodů:
 
@@ -59,7 +59,11 @@ Virtuální sítě může být vhodné propojit z následujících důvodů:
 
   * V rámci stejné oblasti můžete vytvářet vícevrstvé aplikace s několika virtuálními sítěmi propojenými z důvodu izolace nebo požadavků na správu.
 
-Používáte-li tyto kroky jako cvičení, můžete použít ukázkové hodnoty nastavení. V tomto příkladu jsou virtuální sítě ve stejném předplatném, ale v různých skupinách prostředků. Pokud jsou vaše virtuální sítě v různých předplatných, nelze vytvořit připojení na portálu. Můžete použít [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) nebo [rozhraní příkazového řádku](vpn-gateway-howto-vnet-vnet-cli.md). Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější dotazy týkající se propojení VNet-to-VNet](#faq) na konci tohoto článku.
+Komunikaci typu VNet-to-VNet můžete kombinovat s konfiguracemi s více servery. Díky tomu je možné vytvářet topologie sítí, ve kterých se používá propojování více míst i propojování virtuálních sítí, jak je znázorněno v následujícím schématu:
+
+![Informace o připojeních](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Informace o připojeních")
+
+Tento článek vám pomůže propojit virtuální sítě s použitím typu připojení VNet-to-VNet. Používáte-li tyto kroky jako cvičení, můžete použít ukázkové hodnoty nastavení. V tomto příkladu jsou virtuální sítě ve stejném předplatném, ale v různých skupinách prostředků. Pokud jsou vaše virtuální sítě v různých předplatných, nelze vytvořit připojení na portálu. Můžete použít [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) nebo [rozhraní příkazového řádku](vpn-gateway-howto-vnet-vnet-cli.md). Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější dotazy týkající se propojení VNet-to-VNet](#faq) na konci tohoto článku.
 
 ### <a name="values"></a>Příklady nastavení
 

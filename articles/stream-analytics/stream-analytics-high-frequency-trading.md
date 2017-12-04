@@ -15,23 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 0a5a1129c5b7fc693ed7c187d928a128650f28b9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulace vysokofrekvenčního obchodování pomocí Stream Analytics
-Jazyk SQL v Azure Stream Analytics s uživatelem definovanými funkcemi (UDF) a uživatelem definovanými agregacemi (UDA) JavaScriptu představují výkonnou kombinaci, která uživatelům umožňuje provádět pokročilé analýzy, včetně online trénování a vyhodnocování machine learningu, a také simulaci stavových procesů. Tento článek popisuje, jak provádět lineární regresi v úloze Azure Stream Analytics, která provádí průběžné trénování a vyhodnocování ve scénáři vysokofrekvenčního obchodování.
+Kombinace jazyka SQL s uživatelem definovanými funkcemi (UDF) a uživatelem definovanými agregacemi (UDA) JavaScriptu v Azure Stream Analytics umožňuje uživatelům provádět pokročilé analýzy. Mezi pokročilé analýzy může patřit online trénování a vyhodnocování machine learningu a také simulace stavových procesů. Tento článek popisuje, jak provádět lineární regresi v úloze Azure Stream Analytics, která provádí průběžné trénování a vyhodnocování ve scénáři vysokofrekvenčního obchodování.
 
 ## <a name="high-frequency-trading"></a>Vysokofrekvenční obchodování
-Logický tok vysokofrekvenčního obchodování spočívá v získávání nabídek z burzy cenných papírů v reálném čase, sestavení prediktivního modelu z těchto nabídek, abychom mohli předvídat pohyb cen, a zadávání odpovídajících pokynů k nákupu nebo prodeji, abychom na úspěšné predikci pohybu cen vydělali. Ve výsledku potřebujeme následující:
-* Informační kanál nabídek v reálném čase
-* Prediktivní model schopný pracovat s nabídkami v reálném čase
-* Simulaci obchodování ukazující zisk nebo ztrátu algoritmu obchodování
+Logický tok vysokofrekvenčního obchodování spočívá v:
+1. Získávání nabídek z burzy cenných papírů v reálném čase.
+2. Sestavení prediktivního modelu z těchto nabídek, abychom mohli předvídat pohyb cen.
+3. Zadávání pokynů k nákupu nebo prodeji, abychom na úspěšné predikci pohybu cen vydělali. 
+
+Ve výsledku potřebujeme:
+* Informační kanál nabídek v reálném čase.
+* Prediktivní model schopný pracovat s nabídkami v reálném čase.
+* Simulaci obchodování ukazující zisk nebo ztrátu algoritmu obchodování.
 
 ### <a name="real-time-quote-feed"></a>Informační kanál nabídek v reálném čase
-IEX nabízí bezplatně a v reálném čase nabídky kupních a prodejních cen pomocí socket.io – https://iextrading.com/developer/docs/#websockets. Je možné napsat jednoduchý konzolový program, který přijímá nabídky v reálném čase a nabízí je jako zdroj dat do centra událostí. Kostra programu je znázorněna níže. Pro zkrácení je vynecháno zpracování chyb. Do svého projektu také budete muset zahrnout balíčky NuGet SocketIoClientDotNet a WindowsAzure.ServiceBus.
+IEX nabízí bezplatně [nabídky kupních a prodejních cen v reálném čase](https://iextrading.com/developer/docs/#websockets) pomocí socket.io. Je možné napsat jednoduchý konzolový program, který přijímá nabídky v reálném čase a nabízí je jako zdroj dat do služby Azure Event Hubs. Následující kód představuje kostru programu. Kód pro zkrácení vynechává zpracování chyb. Do svého projektu také musíte zahrnout balíčky NuGet SocketIoClientDotNet a WindowsAzure.ServiceBus.
 
 
     using Quobject.SocketIoClientDotNet.Client;
@@ -51,7 +56,7 @@ IEX nabízí bezplatně a v reálném čase nabídky kupních a prodejních cen 
         socket.Emit("subscribe", symbols);
     });
 
-Tady je několik vygenerovaných ukázkových událostí.
+Tady je několik vygenerovaných ukázkových událostí:
 
     {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04825,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953357633,"sector":"softwareservices","securityType":"commonstock"}
@@ -65,15 +70,17 @@ Tady je několik vygenerovaných ukázkových událostí.
 >Časové razítko události je hodnota **lastUpdated** v unixovém čase.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Prediktivní model pro vysokofrekvenční obchodování
-Pro účely ukázky používáme lineární model, který ve své studii popsal Darryl Shen. http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf.
+Pro účely ukázky používáme lineární model, který ve [své studii](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf) popsal Darryl Shen.
 
-VOI (Volume Order Imbalance) je funkce aktuální kupní/prodejní ceny a objemu a kupní/prodejní ceny a objemu z posledního impulzu. Studie identifikuje korelaci mezi funkcí VOI a budoucím pohybem ceny a sestavuje lineární model mezi posledními 5 hodnotami VOI a změnou ceny v dalších 10 impulzech. Model se trénuje pomocí dat z předchozího dne a lineární regrese. Natrénovaný model se pak použije k předvídání změny cen u nabídek v aktuálním obchodním dni v reálném čase. Pokud je předpokládaná změna ceny dostatečně velká, uzavře se obchod. V závislosti na nastavení prahové hodnoty se dají během trénovacího dne očekávat tisíce obchodů jedné akcie.
+VOI (Volume Order Imbalance) je funkce aktuální kupní/prodejní ceny a objemu a kupní/prodejní ceny a objemu z posledního impulzu. Studie identifikuje korelaci mezi funkcí VOI a budoucím pohybem ceny. Sestavuje lineární model mezi posledními 5 hodnotami VOI a změnou ceny v dalších 10 impulzech. Model se trénuje pomocí dat z předchozího dne a lineární regrese. 
+
+Natrénovaný model se pak použije k předvídání změny cen u nabídek v aktuálním obchodním dni v reálném čase. Pokud je předpokládaná změna ceny dostatečně velká, uzavře se obchod. V závislosti na nastavení prahové hodnoty se dají během trénovacího dne očekávat tisíce obchodů jedné akcie.
 
 ![Definice funkce VOI](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
 Teď vyjádříme operace trénování a predikce v úloze Azure Stream Analytics.
 
-Nejprve se vyčistí vstupy. Unixový čas se pomocí funkce **DATEADD** převede na datový typ datetime. Funkce **TRY_CAST** slouží k vynucení datových typů, aniž by došlo k selhání dotazu. Vstupní pole je vždy vhodné přetypovat na očekávané datové typy, aby nedocházelo k neočekávanému chování při manipulaci s poli nebo jejich porovnávání.
+Nejprve se vyčistí vstupy. Unixový čas se prostřednictvím funkce **DATEADD** převede na datový typ datetime. Funkce **TRY_CAST** slouží k vynucení datových typů, aniž by došlo k selhání dotazu. Vstupní pole je vždy vhodné přetypovat na očekávané datové typy, aby nedocházelo k neočekávanému chování při manipulaci s poli nebo jejich porovnávání.
 
     WITH
     typeconvertedquotes AS (
@@ -93,12 +100,12 @@ Nejprve se vyčistí vstupy. Unixový čas se pomocí funkce **DATEADD** převed
     ),
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
-        /* cleanup invalid data points */
+        /* clean up invalid data points */
         SELECT * FROM typeconvertedquotes
         WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
 
-Dále použijeme funkci **LAG** k získání hodnot z posledního impulzu. Jedna hodina pro hodnotu **LIMIT DURATION** je zvolena náhodně. S ohledem na frekvenci nabídek se dá předpokládat, že v poslední hodině předchozí impulz najdete.  
+Dále použijeme funkci **LAG** k získání hodnot z posledního impulzu. Jedna hodina pro hodnotu **LIMIT DURATION** je zvolena náhodně. S ohledem na frekvenci nabídek se dá předpokládat, že předchozí impulz najdete v poslední hodině.  
 
     shiftedquotes AS (
         /* get previous bid/ask price and size in order to calculate VOI */
@@ -116,7 +123,7 @@ Dále použijeme funkci **LAG** k získání hodnot z posledního impulzu. Jedna
         FROM timefilteredquotes
     ),
 
-Následně můžeme vypočítat hodnotu VOI. Poznámka: Pro jistotu vyfiltrujeme hodnoty null, pokud předchozí impulz neexistuje.
+Následně můžeme vypočítat hodnotu VOI. Pro jistotu vyfiltrujeme hodnoty null, pokud předchozí impulz neexistuje.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -230,7 +237,7 @@ Vzhledem k tomu, že Azure Stream Analytics neobsahuje integrovanou funkci line�
         FROM modelparambs
     ),
 
-Abychom pro vyhodnocení aktuálních událostí mohli použít model z předchozího dne, chceme nabídky spojit s modelem. Tady však místo použití operátoru **JOIN** sjednotíme události modelu a události nabídek pomocí operátoru **UNION** a pak pomocí funkce **LAG** spárujeme události s modelem z předchozího dne, abychom získali přesně jednu shodu. Kvůli víkendu se musíme podívat o tři dny zpět. Kdybychom použili přímé spojení operátorem **JOIN**, dostali bychom pro každou událost nabídky tři modely.
+Abychom pro vyhodnocení aktuálních událostí mohli použít model z předchozího dne, chceme nabídky spojit s modelem. Ale místo použití operátoru **JOIN** sjednotíme události modelu a události nabídek pomocí operátoru **UNION**. Potom pomocí funkce **LAG** spárujeme události s modelem z předchozího dne, abychom získali přesně jednu shodu. Kvůli víkendu se musíme podívat o tři dny zpět. Kdybychom použili přímé spojení operátorem **JOIN**, dostali bychom pro každou událost nabídky tři modely.
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
@@ -266,7 +273,7 @@ Abychom pro vyhodnocení aktuálních událostí mohli použít model z předcho
         FROM model
     ),
     VOIANDModelJoined AS (
-        /* match VOIs with the latest model within 3 days (72 hours, to take weekend into account) */
+        /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
         SELECT
             symbol,
             midPrice,
@@ -279,7 +286,7 @@ Abychom pro vyhodnocení aktuálních událostí mohli použít model z předcho
         WHERE type = 'voi'
     ),
 
-Teď můžeme provést předpovědi a na základě modelu vygenerovat signály pro nákup nebo prodej s prahovou hodnotou 0,02. Hodnota obchodu 10 znamená nákup, zatímco hodnota prodeje −10 znamená prodej.
+Teď můžeme provést předpovědi a na základě modelu vygenerovat signály pro nákup nebo prodej s prahovou hodnotou 0,02. Hodnota obchodu 10 znamená nákup. Hodnota obchodu −10 znamená prodej.
 
     prediction AS (
         /* make prediction if there is a model */
@@ -308,11 +315,13 @@ Teď můžeme provést předpovědi a na základě modelu vygenerovat signály p
     ),
 
 ### <a name="trading-simulation"></a>Simulace obchodování
-Jakmile budeme mít obchodní signály, chtěli bychom otestovat efektivitu této strategie obchodování, aniž bychom skutečně obchodovali. Toho dosáhneme pomocí uživatelem definované agregace (UDA) se skákajícími okny, kdy se skok provádí každou minutu. Další seskupení podle data a klauzule Having umožňují zahrnout do okna pouze účty pro události, které patří do stejného dne. V případě skákajícího okna trvajícího dva dny se pomocí seskupení podle data operátorem **GROUP BY** toto seskupení rozdělí na předchozí den a aktuální den. Klauzule **HAVING** vyfiltruje okna, která končí aktuálním dnem, ale byla seskupená předchozí den.
+Jakmile budeme mít obchodní signály, chceme otestovat efektivitu této strategie obchodování, aniž bychom skutečně obchodovali. 
+
+Tento test provedeme pomocí UDA se skákajícím oknem, kdy se skok provádí každou minutu. Další seskupení podle data a klauzule Having umožňují zahrnout do okna pouze účty pro události, které patří do stejného dne. V případě skákajícího okna trvajícího dva dny se pomocí seskupení podle data operátorem **GROUP BY** toto seskupení rozdělí na předchozí den a aktuální den. Klauzule **HAVING** vyfiltruje okna, která končí aktuálním dnem, ale byla seskupená předchozí den.
 
     simulation AS
     (
-        /* perform trade simulation for the past 7 hours to cover an entire trading day, generate output every minute */
+        /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
         SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
             symbol,
@@ -323,7 +332,13 @@ Jakmile budeme mít obchodní signály, chtěli bychom otestovat efektivitu tét
         Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-UDA JavaScriptu ve funkci init inicializuje všechny průběžné součty, při každém přidání události do okna vypočítá přechod stavu a na konci okna vrátí výsledky simulace. Obecný průběh obchodování je nákup akcií, když se obdrží signál k nákupu a žádné akcie nedržíme, prodej akcií, když se obdrží signál k prodeji a nějaké akcie držíme, nebo otevření krátké pozice, pokud žádné akcie nedržíme. Pokud je otevřená krátká pozice a obdrží se signál k nákupu, provede se nákup a uzavření pozice. V této simulaci nikdy nedržíme ani nemáme krátkou pozici na 10 stejných akcií a transakční náklady jsou pevně nastavené na 8 USD.
+UDA JavaScriptu ve funkci `init` inicializuje všechny průběžné součty, při každém přidání události do okna vypočítá přechod stavu a na konci okna vrátí výsledky simulace. Obecný průběh obchodování je:
+
+- Nákup akcií, když se obdrží signál k nákupu a žádné akcie nedržíme.
+- Prodej akcií, když se obdrží signál k prodeji a nějaké akcie držíme.
+- Otevření krátké pozice, pokud žádné akcie nedržíme. 
+
+Pokud je otevřená krátká pozice a obdrží se signál k nákupu, provedeme nákup a uzavřeme pozici. V této simulaci nikdy nedržíme ani nemáme krátkou pozici na 10 stejných akcií. Transakční náklady jsou pevně nastavené na 8 USD.
 
 
     function main() {
@@ -432,6 +447,10 @@ Nakonec odešleme výstup na řídicí panel Power BI, který zobrazí vizualiza
 
 
 ## <a name="summary"></a>Souhrn
-Jak je vidět, model reálného vysokofrekvenčního obchodování je možné implementovat pomocí mírně složitého dotazu v Azure Stream Analytics. Vzhledem k chybějící integrované funkci lineární regrese musíme model zjednodušit a místo pěti vstupních proměnných použít dvě. Odhodlaný uživatel však možná dokáže jako UDA JavaScriptu implementovat i sofistikovanější algoritmy vyšších dimenzí. Za zmínku stojí, že většinu dotazu, kromě UDA JavaScriptu, je možné testovat a ladit v sadě Visual Studio pomocí [nástroje Azure Stream Analytics pro Visual Studio](stream-analytics-tools-for-visual-studio.md). Od napsání počátečního dotazu strávil autor testováním a laděním dotazu v sadě Visual Studio méně než 30 minut. UDA v současné době není možné ladit v sadě Visual Studio. Pracujeme na povolení této funkce s možností procházet kód JavaScriptu. Navíc si všimněte, že názvy všech polí přicházejících do UDA jsou malými písmeny. Během testování dotazu to nebylo zřejmé chování. Díky úrovni kompatibility Azure Stream Analytics 1.1 však umožňujeme zachování velikosti písmen v názvech polí, takže je chování přirozenější.
+Realistický model vysokofrekvenčního obchodování můžeme implementovat pomocí mírně složitého dotazu v Azure Stream Analytics. Vzhledem k chybějící integrované funkci lineární regrese musíme model zjednodušit a místo pěti vstupních proměnných použít dvě. Odhodlaný uživatel však možná dokáže jako UDA JavaScriptu implementovat i sofistikovanější algoritmy vyšších dimenzí. 
+
+Za zmínku stojí, že většinu dotazu, kromě UDA JavaScriptu, je možné testovat a ladit v sadě Visual Studio prostřednictvím [nástrojů Azure Stream Analytics pro Visual Studio](stream-analytics-tools-for-visual-studio.md). Od napsání počátečního dotazu strávil autor testováním a laděním dotazu v sadě Visual Studio méně než 30 minut. 
+
+UDA v současné době není možné ladit v sadě Visual Studio. Pracujeme na povolení této funkce s možností procházet kód JavaScriptu. Navíc si všimněte, že názvy polí přicházejících do UDA jsou malými písmeny. Během testování dotazu to nebylo zřejmé chování. Díky úrovni kompatibility Azure Stream Analytics 1.1 však zachováváme velikosti písmen v názvech polí, takže je chování přirozenější.
 
 Doufám, že tento článek poslouží jako inspirace pro všechny uživatele Azure Stream Analytics, kteří můžou naši službu využít k průběžnému provádění pokročilých analýz v reálném čase. Podělte se s námi o svůj názor, usnadníte nám tím implementaci dotazů pro scénáře pokročilých analýz.

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/14/2017
-ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.date: 11/29/2017
+ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasifikace Iris – část 3: Nasazení modelu
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce. Datoví vědci pomocí nich můžou připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
@@ -163,7 +163,7 @@ _Místní režim_ můžete použít pro vývoj a testování. K provedení násl
 
 3. Vytvořte prostředí. Tento krok je potřeba provést jednou pro každé prostředí. Například jej provedete jednou pro vývojové a jednou pro produkční prostředí. Pro první prostředí použijte _místní režim_. Později můžete zkusit v tomto příkazu použít přepínač `-c` nebo `--cluster` a nastavit prostředí v _režimu clusteru_.
 
-Poznámka: Následující příkaz pro nastavení vyžaduje přístup k předplatnému na úrovni Přispěvatel. Pokud ho nemáte, potřebujete přístup na úrovni Přispěvatel alespoň ke skupině prostředků, do které nasazujete. V druhém případě je potřeba zadat název skupiny prostředků jako součást příkazu pro nastavení pomocí příznaku `-g`. 
+   Poznámka: Následující příkaz pro nastavení vyžaduje přístup k předplatnému na úrovni Přispěvatel. Pokud ho nemáte, potřebujete přístup na úrovni Přispěvatel alespoň ke skupině prostředků, do které nasazujete. V druhém případě je potřeba zadat název skupiny prostředků jako součást příkazu pro nastavení pomocí příznaku `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -276,10 +276,10 @@ Teď můžete webovou službu spustit.
 
 Spuštěnou webovou službu **irisapp** můžete otestovat pomocí zakódovaného záznamu JSON obsahujícího pole čtyř náhodných čísel:
 
-1. Webová služba zahrnuje ukázková data. Při spuštění v místním režimu můžete volat příkaz **az ml service show realtime**. Toto volání načte ukázkový příkaz pro spuštění, který je vhodný k otestování služby. Volání také načte hodnoticí adresu URL, pomocí které můžete službu začlenit do vlastní aplikace:
+1. Webová služba zahrnuje ukázková data. Při spuštění v místním režimu můžete volat příkaz **az ml service usage realtime**. Toto volání načte ukázkový příkaz pro spuštění, který je vhodný k otestování služby. Volání také načte hodnoticí adresu URL, pomocí které můžete službu začlenit do vlastní aplikace:
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. Pokud chcete službu otestovat, spusťte vrácený příkaz ke spuštění služby:

@@ -1,6 +1,6 @@
 ---
-title: "Připojení virtuální sítě Azure k jiné virtuální síti: PowerShell | Dokumentace Microsoftu"
-description: "Tento článek vás provede propojováním virtuálních sítí s použitím Azure Resource Manageru a prostředí PowerShell."
+title: "Propojení virtuální sítě Azure s jinou virtuální síti s použitím připojení typu VNet-to-VNet: PowerShell | Dokumentace Microsoftu"
+description: "Tento článek vás provede propojováním virtuálních sítí s použitím připojení typu VNet-to-VNet a PowerShellu."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurace připojení brány VPN typu VNet-to-VNet pomocí PowerShellu
 
-Tento článek ukazuje, jak vytvořit připojení brány VPN mezi virtuálními sítěmi. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Pokud připojujete virtuální sítě z různých předplatných, tato předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. 
+V tomto článku zjistíte, jak propojit virtuální sítě s použitím typu připojení VNet-to-VNet. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Pokud připojujete virtuální sítě z různých předplatných, tato předplatná nemusí být přidružená ke stejnému tenantovi Active Directory.
 
 Postupy v tomto článku se týkají modelu nasazení Resource Manager a používají PowerShell. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
 
@@ -37,13 +37,15 @@ Postupy v tomto článku se týkají modelu nasazení Resource Manager a použí
 >
 >
 
-Propojení virtuální sítě s jinou virtuální sítí (VNet-to-VNet) je podobné propojení virtuální sítě s místním serverem. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE. Pokud se virtuální sítě nacházejí ve stejné oblasti, můžete uvažovat o jejich propojení vytvořením partnerského vztahu virtuálních sítí. Partnerské vztahy virtuálních sítí nepoužívají bránu VPN. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>Informace o propojování virtuálních sítí
 
-Komunikaci typu VNet-to-VNet můžete kombinovat s konfiguracemi s více servery. Díky tomu je možné vytvářet topologie sítí, ve kterých se používá propojování více míst i propojování virtuálních sítí, jak je znázorněno v následujícím schématu:
+Propojení virtuální sítě s jinou virtuální sítí s použitím typu připojení VNet-to-VNet je podobné jako vytvoření připojení IPsec k místnímu serveru. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE a oba komunikují stejným způsobem. Rozdílem mezi těmito typy připojení je způsob konfigurace místní síťové brány. Při vytváření připojení typu VNet-to-VNet se nezobrazí adresní prostor místní síťové brány. Vytvoří a naplní se automaticky. Pokud aktualizujete adresní prostor pro jednu virtuální síť, druhá virtuální síť bude automaticky znát trasu do aktualizovaného adresního prostoru.
 
-![Informace o připojeních](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
+Pokud pracujete se složitou konfigurací, možná místo typu připojení VNet-to-VNet dáte přednost použití typu připojení IPsec. Ten vám umožní pro místní síťovou bránu zadat další adresní prostor pro směrování provozu. Pokud propojíte virtuální sítě s použitím typu připojení IPsec, musíte místní síťovou bránu vytvořit a nakonfigurovat ručně. Další informace najdete v tématu [Konfigurace typu Site-to-Site](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-### <a name="why-connect-virtual-networks"></a>Proč propojovat virtuální sítě?
+Kromě toho, pokud se virtuální sítě nacházejí ve stejné oblasti, můžete uvažovat o jejich propojení vytvořením partnerského vztahu virtuálních sítí. Partnerský vztah virtuálních sítí nevyužívá bránu VPN a jeho ceny a funkce se poněkud liší. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>Proč vytvářet připojení typu VNet-to-VNet?
 
 Virtuální sítě může být vhodné propojit z následujících důvodů:
 
@@ -55,19 +57,22 @@ Virtuální sítě může být vhodné propojit z následujících důvodů:
 
   * V rámci stejné oblasti můžete vytvářet vícevrstvé aplikace s několika virtuálními sítěmi propojenými z důvodu izolace nebo požadavků na správu.
 
-Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější dotazy týkající se propojení VNet-to-VNet](#faq) na konci tohoto článku.
+Komunikaci typu VNet-to-VNet můžete kombinovat s konfiguracemi s více servery. Díky tomu je možné vytvářet topologie sítí, ve kterých se používá propojování více míst i propojování virtuálních sítí.
 
 ## <a name="which-set-of-steps-should-i-use"></a>Kterou posloupnost kroků provést?
 
-V tomto článku uvidíte dvě různé sady kroků. Jednu sadu kroků pro [virtuální sítě patřící do stejného předplatného](#samesub). Kroky pro tuto konfiguraci využívají TestVNet1 a TestVNet4.
+V tomto článku uvidíte dvě různé sady kroků. Jedna sada kroků pro [virtuální sítě patřící do stejného předplatného](#samesub) a jedna pro [virtuální sítě patřící do různých předplatných](#difsub).
+Klíčovým rozdílem mezi těmito sadami je, že pokud konfigurujete připojení pro virtuální sítě, které patří do různých předplatných, musíte použít samostatné relace PowerShellu. 
 
-![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+Pro toto cvičení můžete konfigurace kombinovat nebo prostě vybrat tu, se kterou chcete pracovat. Všechny konfigurace používají typ připojení VNet-to-VNet. Provoz probíhá mezi virtuálními sítěmi, které jsou vzájemně přímo propojené. V tomto cvičení se provoz ze sítě TestVNet4 nesměruje do sítě TestVNet5.
 
-[Virtuálním sítím patřícím do různých předplatných](#difsub) je věnovaný samostatný článek. Kroky pro tuto konfiguraci využívají TestVNet1 a TestVNet5.
+* [Virtuální sítě patřící do stejného předplatného:](#samesub) V postupu pro tuto konfiguraci se používají sítě TestVNet1 a TestVNet4.
 
-![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+  ![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-Hlavní rozdíl mezi oběma postupy spočívá v tom, jestli je možné vytvářet a konfigurovat všechny prostředky virtuální sítě a brány v téže relaci prostředí PowerShell. Pokud konfigurujete připojení pro virtuální sítě, které patří do různých předplatných, musíte použít samostatné relace PowerShellu. Konfigurace můžete podle potřeby kombinovat nebo prostě vybrat tu, se kterou chcete pracovat.
+* [Virtuální sítě patřící do různých předplatných:](#difsub) V postupu pro tuto konfiguraci se používají sítě TestVNet1 a TestVNet5.
+
+  ![Diagram v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 ## <a name="samesub"></a>Postup při propojování virtuálních sítí patřících ke stejnému předplatnému
 
@@ -77,7 +82,7 @@ Než začnete, bude třeba nainstalovat nejnovější verzi rutin PowerShellu pr
 
 ### <a name="Step1"></a>Krok 1: Plánování rozsahů IP adres
 
-V následujících krocích vytvoříme dvě virtuální sítě spolu s příslušnými podsítěmi a konfiguracemi brány. Poté vytvoříme propojení VPN mezi oběma virtuálními sítěmi. Je důležité určit rozsahy IP adres pro konfiguraci vaší sítě. Mějte na paměti, že je třeba zajistit, aby se žádné rozsahy virtuálních sítí ani místní síťové rozsahy žádným způsobem nepřekrývaly. V těchto příkladech nezahrnujeme server DNS. Pokud chcete překlad IP adres pro virtuální sítě, přečtěte si téma [Překlad IP adres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+V následujících krocích vytvoříte dvě virtuální sítě spolu s příslušnými podsítěmi a konfiguracemi brány. Potom vytvoříte propojení VPN mezi oběma virtuálními sítěmi. Je důležité určit rozsahy IP adres pro konfiguraci vaší sítě. Mějte na paměti, že je třeba zajistit, aby se žádné rozsahy virtuálních sítí ani místní síťové rozsahy žádným způsobem nepřekrývaly. V těchto příkladech nezahrnujeme server DNS. Pokud chcete překlad IP adres pro virtuální sítě, přečtěte si téma [Překlad IP adres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 V příkladech používáme následující hodnoty:
 
@@ -284,7 +289,7 @@ Po konfiguraci virtuální sítě TestVNet1 vytvořte virtuální síť TestVNet
 
 ## <a name="difsub"></a>Postup při propojování virtuálních sítí patřících k různým předplatným
 
-V tomto scénáři propojíme sítě TestVNet1 a TestVNet5. Virtuální sítě TestVNet1 a TestVNet5 patří do různých předplatných. Předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. Rozdíl mezi těmito kroky a předchozí sadou spočívá v tom, že část kroků konfigurace je třeba provést v samostatné relaci PowerShellu v kontextu druhého předplatného. To je zvláště podstatné, když druhé předplatné patří jiné organizaci.
+V tomto scénáři propojíte sítě TestVNet1 a TestVNet5. Virtuální sítě TestVNet1 a TestVNet5 patří do různých předplatných. Předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. Rozdíl mezi těmito kroky a předchozí sadou spočívá v tom, že část kroků konfigurace je třeba provést v samostatné relaci PowerShellu v kontextu druhého předplatného. To je zvláště podstatné, když druhé předplatné patří jiné organizaci.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Krok 5: Vytvoření a konfigurace virtuální sítě TestVNet1
 
