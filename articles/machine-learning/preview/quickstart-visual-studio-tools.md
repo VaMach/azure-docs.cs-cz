@@ -1,6 +1,6 @@
 ---
-title: "Článek Rychlý start pro Visual Studio Code Tools pro Machine Learning v Azure | Dokumentace Microsoftu"
-description: "Tento článek popisuje, jak začít s používáním sady Visual Studio Code Tools pro službu Machine Learning, od vytvoření experimentu a trénování modelu až po zprovoznění webové služby."
+title: "Článek Rychlý start pro Visual Studio Tools pro Machine Learning v Azure | Dokumentace Microsoftu"
+description: "Tento článek popisuje, jak začít s používáním sady Visual Studio Tools pro službu Machine Learning, od vytvoření experimentu a trénování modelu až po zprovoznění webové služby."
 services: machine-learning
 author: ahgyger
 ms.author: ahgyger
@@ -10,72 +10,71 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
-ms.date: 09/12/2017
-ms.openlocfilehash: 400fc384519f2ff5c9bb7d83dab6499f5008a833
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 11/15/2017
+ms.openlocfilehash: 582ec5babf2bac34f20d4e9c7517f78ee2002e0b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="visual-studio-code-tools-for-ai"></a>Visual Studio Code Tools pro AI
-Sada Visual Studio Code Tools pro AI představuje rozšíření pro vývoj sloužící k sestavení, testování a nasazení řešení hloubkového učení a AI. Bezproblémově se integruje se službou Azure Machine Learning a poskytuje zejména zobrazení historie spuštění, podrobnosti o výkonu předchozích trénování a vlastní metriky. Nabízí zobrazení průzkumníka ukázek, který umožňuje procházení ukázek a spuštění nového projektu s využitím architektury [Microsoft Cognitive Toolkit](http://www.microsoft.com/en-us/cognitive-toolkit) (dříve označovaná jako CNTK), [Google TensorFlow](https://www.tensorflow.org) a dalších architektur hloubkového učení. Navíc poskytuje průzkumníka cílových výpočetních prostředí, který umožňuje odesílat úlohy k trénování modelů ve vzdálených prostředích, jako je služba Azure Virtual Machines nebo servery s Linuxem a GPU. 
+# <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools pro AI
+Sada Visual Studio Tools pro AI představuje rozšíření pro vývoj sloužící k sestavení, testování a nasazení řešení hloubkového učení a AI. Bezproblémově se integruje se službou Azure Machine Learning a poskytuje zejména zobrazení historie spuštění, podrobnosti o výkonu předchozích trénování a vlastní metriky. Nabízí zobrazení průzkumníka ukázek, který umožňuje procházení ukázek a spuštění nového projektu s využitím architektury [Microsoft Cognitive Toolkit](http://www.microsoft.com/en-us/cognitive-toolkit) (dříve označovaná jako CNTK), [Google TensorFlow](https://www.tensorflow.org) a dalších architektur hloubkového učení. Navíc poskytuje průzkumníka cílových výpočetních prostředí, který umožňuje odesílat úlohy k trénování modelů ve vzdálených prostředích, jako je služba Azure Virtual Machines nebo servery s Linuxem a GPU. Poskytuje také snazší přístup k [Azure Batch AI (Preview)](https://docs.microsoft.com/en-us/azure/batch-ai/).
  
 ## <a name="getting-started"></a>Začínáme 
-Abyste mohli začít, musíte nejprve stáhnout a nainstalovat [Visual Studio Code](https://code.visualstudio.com/Download). Jakmile budete mít otevřený nástroj Visual Studio Code, proveďte následující kroky:
-1. Klikněte na ikonu rozšíření na panelu aktivit. 
-2. Vyhledejte Visual Studio Code Tools pro AI. 
-3. Klikněte na tlačítko **Nainstalovat**. 
-4. Po dokončení instalace klikněte na tlačítko **Znovu načíst**. 
+Abyste mohli začít, musíte nejprve stáhnout a nainstalovat sadu [Visual Studio](https://www.visualstudio.com/downloads/). Jakmile budete mít otevřenou sadu Visual Studio, proveďte následující kroky:
+1. V sadě Visual Studio klikněte na řádek nabídek a vyberte Rozšíření a aktualizace...
+2. Klikněte na kartu Online a vyberte Hledat na Visual Studio Marketplace.
+3. Vyhledejte Visual Studio pro AI. 
+3. Klikněte na tlačítko **Stáhnout**. 
+4. Po instalaci restartujte sadu Visual Studio. 
 
-Po opětovném načtení nástroje Visual Studio Code se rozšíření aktivuje. [Další informace o instalaci rozšíření](https://code.visualstudio.com/docs/editor/extension-gallery).
+Po opětovném načtení sady Visual Studio se rozšíření aktivuje. [Další informace o vyhledání rozšíření](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions).
+
+> [!NOTE]
+> Visual Studio Tools pro AI vyžaduje sadu Visual Studio 2015 nebo 2017 v edici Professional nebo Enterprise. Verzi pro Apple OSX nepodporuje. 
+
 
 ## <a name="exploring-project-samples"></a>Zkoumání ukázek projektů
-Součástí sady Visual Studio Code Tools pro AI je průzkumník ukázek. Průzkumník ukázek usnadňuje vyhledávání ukázek a jejich zkoušení pomocí jenom několika kliknutí. Průzkumníka otevřete následujícím způsobem:   
-1. Otevřete paletu příkazů (Zobrazení > **Paleta příkazů** nebo **Ctrl + Shift + P**).
-2. Zadejte AI Sample. 
-3. Zobrazí se doporučení položky AI: Open Azure ML Sample Explorer (AI: Otevřít průzkumníka ukázek pro Azure ML). Vyberte ji a stiskněte Enter. 
+Součástí sady Visual Studio Tools pro AI je průzkumník ukázek. Průzkumník ukázek usnadňuje vyhledávání ukázek a jejich zkoušení pomocí jenom několika kliknutí. Průzkumníka otevřete následujícím způsobem:   
+1. Na řádku nabídek klikněte na **Nástroje AI**.
+2. Klikněte na Galerie Azure Machine Learning.
 
-Alternativně můžete kliknout na ikonu průzkumníka ukázek.
+Otevře se karta se všemi ukázkami pro Azure ML.
 
 ## <a name="creating-a-new-project-from-the-sample-explorer"></a>Vytvoření nového projektu v průzkumníku ukázek 
 Můžete procházet různé ukázky a získávat k nim více informací. Pusťme se do procházení, dokud nenajdeme ukázku Klasifikace Iris. Pokud chcete vytvořit nový projekt založený na této ukázce, postupujte následovně:
-1. Klikněte na tlačítko Nainstalovat v ukázce projektu a všimněte si zobrazených výzev s příkazy, které vás provedou postupem vytvoření nového projektu. 
-2. Vyberte název projektu, například Iris.
-3. Zvolte cestu ke složce, ve které chcete svůj projekt vytvořit, a stiskněte Enter. 
-4. Vyberte existující pracovní prostor a stiskněte Enter.
+1. Klikněte na tlačítko **Nainstalovat** v ukázce projektu. Otevře se nové dialogové okno. 
+2. Vyberte skupinu prostředků, účet a pracovní prostor.
+3. Typ projektu můžete nechat jako Obecný.
+4. Zadejte cestu k projektu a název projektu a pak stiskněte Enter. 
+5. Otevře se dialogové okno s výzvou k uložení projektu, klikněte na Uložit. 
 
-Projekt se pak vytvoří.
+Po dokončení se nový projekt otevře v nové instanci sady Visual Studio. 
 
 > [!TIP]
-> Pro přístup k prostředku Azure budete muset být přihlášeni. V integrovaném terminálu zadejte az login a postupujte podle pokynů. 
+> Pro přístup k prostředku Azure musíte být přihlášeni. V integrovaném terminálu zadejte az login a postupujte podle pokynů. 
 
 ## <a name="submitting-experiment-with-the-new-project"></a>Odeslání experimentu s použitím nového projektu
-Když je nový projekt otevřený ve Visual Studio Code, odešleme úlohu do našeho jiného cílového výpočetního prostředí (místní a virtuální počítač s Dockerem).
-Sada Visual Studio Code Tools pro AI poskytuje několik způsobů odeslání experimentu. 
-1. Místní nabídka (kliknutí pravým tlačítkem) – **AI: Submit Job** (AI: Odeslat úlohu).
-2. Z palety příkazů – AI: Submit Job (AI: Odeslat úlohu).
-3. Alternativně můžete příkaz spustit přímo pomocí integrovaného terminálu s použitím příkazů Azure CLI pro službu Machine Learning.
+Když je nový projekt otevřený v sadě Visual Studio, odešlete úlohu do cílového výpočetního prostředí (místní nebo virtuální počítač s Dockerem).
+Úlohu odešlete následujícím způsobem: 
+1. V průzkumníku řešení klikněte pravým tlačítkem na soubor, který chcete odeslat, a vyberte **Nastavit jako spouštěcí soubor**.
+2. Vyberte název projektu, klikněte pravým tlačítkem a vyberte **Odeslat úlohu...**
+3. Otevře se nové dialogové okno, ve kterém můžete zvolit cluster (nebo cílové výpočetní prostředí) pro spuštění vašeho skriptu.
+4. Klikněte na **Odeslat**.
 
-Otevřete soubor iris_sklearn.py, klikněte pravým tlačítkem a vyberte **AI: Submit Job** (AI: Odeslat úlohu).
-1. Vyberte vaši platformu: Azure Machine Learning.
-2. Vyberte vaši konfiguraci spuštění: Docker-Python.
-
-> [!NOTE]
-> Pokud odesíláte úlohu poprvé, zobrazí se zpráva „No Machine Learning configuration found, creating...“ (Nebyla nalezena konfigurace služby Machine Learning, probíhá vytváření...). Otevře se soubor JSON, který uložte (**Ctrl + S**).
-
-Po odeslání úlohy se v integrovaném terminálu zobrazí průběh spuštění. 
+Po odeslání úlohy se v integrovaném terminálu zobrazí průběh spuštění.
 
 ## <a name="view-list-of-jobs"></a>Zobrazení seznamu úloh
-Po odeslání úloh můžete zobrazit seznam úloh z historie spuštění.
-1. Otevřete paletu příkazů (Zobrazení > **Paleta příkazů** nebo **Ctrl + Shift + P**).
-2. Zadejte AI List.
-3. Zobrazí se doporučení položky AI: List Jobs (AI: Seznam úloh). Vyberte ji a stiskněte Enter.
+Po odeslání úlohy můžete zobrazit seznam úloh z historie spuštění.
+1. V **Průzkumníku serveru** klikněte na **Nástroje AI**.
+2. Pak vyberte **Azure Machine Learning**.
+3. Klikněte na nabídku **Úlohy**.
 
-Otevře se zobrazení seznamu úloh, ve kterém se zobrazí všechna spuštění a nějaké související informace.
+V Průzkumníku úloh se zobrazí seznam všech odeslaných experimentů pro tento projekt. 
 
 ## <a name="view-job-details"></a>Zobrazení podrobností o úloze
-Když je zobrazení seznamu úloh pořád otevřené, klikněte na první spuštění v seznamu.
-Pokud chcete zobrazit podrobné informace o výsledcích úlohy, klikněte na nejvyšší **ID úlohy**. 
+Když je zobrazení Průzkumníku úloh otevřené, klikněte na první spuštění v seznamu.
+Tím se načtou panely Souhrn úlohy, Protokoly a Výstupy.
 
 ## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]

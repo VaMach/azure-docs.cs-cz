@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Správa aktualizací pro několik počítačů
 
@@ -87,6 +87,16 @@ Správa aktualizací pro váš virtuální počítač je povolena.
 Pokyny k povolení správy aktualizací pro počítače a virtuální počítače s Windows jiné než Azure najdete v popisu [připojení počítačů s Windows ke službě Log Analytics v Azure](../log-analytics/log-analytics-windows-agents.md).
 
 Pokyny k povolení správy aktualizací pro počítače a virtuální počítače s Linuxem jiné než Azure najdete v tématu věnovaném [připojení počítačů s Linuxem k Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+
+## <a name="view-computers-attached-to-your-automation-account"></a>Zobrazení počítačů připojených k účtu Automation
+Jakmile pro vaše počítače povolíte správu aktualizací, můžete o nich zobrazit související informace kliknutím na **Počítače**. K dispozici jsou informace o počítači, jako například *Název*, *Dodržování předpisů*, *Prostředí*, *Typ operačního systému*, *Kritické aktualizace a aktualizace zabezpečení* a *Další aktualizace*. 
+
+  ![Zobrazení karty Počítače](./media/manage-update-multi/update-computers-tab.png)
+
+Pro počítače, u kterých byla správa aktualizací povolená nedávno, tyto informace ještě nemusely být vyhodnocené. Stav dodržování předpisů pro tyto počítače bude *Nevyhodnoceno*.  Tady je seznam hodnot pro stav dodržování předpisů:
+* Odpovídající – Počítače, kterým nechybí kritické aktualizace nebo aktualizace zabezpečení.
+* Neodpovídající – Počítače, kterým chybí minimálně jedna kritická aktualizace nebo aktualizace zabezpečení.
+* Nevyhodnoceno – Data o posouzení aktualizací nebyla z počítače přijata v očekávaném časovém rámci.  Pro počítače s Linuxem to jsou poslední tři hodiny a pro počítače s Windows to je posledních 12 hodin.  
 
 ## <a name="view-an-update-assessment"></a>Zobrazení posouzení aktualizací
 

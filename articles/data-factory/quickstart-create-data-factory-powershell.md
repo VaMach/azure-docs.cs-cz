@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 254dcb6642afc19f434df837c9073d2dd7314313
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: cb58fe167fe8b369f51e234badd8e419ebd284e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Vytvoření datové továrny Azure pomocí PowerShellu 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,122 +31,37 @@ Tento rychlý start popisuje použití PowerShellu k vytvoření datové továrn
 >
 > Tento článek neposkytuje podrobný úvod do služby Data Factory. Úvod do služby Azure Data Factory najdete v tématu [Úvod do Azure Data Factory](introduction.md).
 
-## <a name="prerequisites"></a>Požadavky
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
-### <a name="azure-subscription"></a>Předplatné Azure
-Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
-
-### <a name="azure-roles"></a>Role Azure
-Pro vytvoření instancí Data Factory musí být uživatelský účet, který použijete pro přihlášení k Azure, členem rolí **přispěvatel** nebo **vlastník** nebo **správcem** předplatného Azure. Na webu Azure Portal klikněte na **uživatelské jméno** v pravém horním rohu a vyberte **Oprávnění**. Zobrazí se oprávnění, která v příslušném předplatném máte. Pokud máte přístup k několika předplatným, vyberte odpovídající předplatné. Ukázku pokynů pro přidání uživatele k roli najdete v článku věnovaném [přidání rolí](../billing/billing-add-change-azure-subscription-administrator.md).
-
-### <a name="azure-storage-account"></a>Účet služby Azure Storage
-V tomto rychlém startu použijete účet služby Azure Storage (konkrétně služby Blob Storage) pro obecné účely jako **zdrojové** i **cílové úložiště dat**. Pokud nemáte účet úložiště Azure pro obecné účely, přečtěte si téma popisující [Vytvoření účtu úložiště](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-
-#### <a name="get-storage-account-name-and-account-key"></a>Získání názvu a klíče účtu úložiště
-V tomto rychlém startu použijete název a klíč svého účtu úložiště Azure. Následující postup předvádí kroky k získání názvu a klíče vašeho účtu úložiště. 
-
-1. Spusťte webový prohlížeč a přejděte na [Azure Portal](https://portal.azure.com). Přihlaste se pomocí svého uživatelského jména a hesla Azure. 
-2. V nabídce vlevo klikněte na **Další služby >**, použijte filtr s klíčovým slovem **úložiště** a vyberte **Účty úložiště**.
-
-    ![Vyhledání účtu úložiště](media/quickstart-create-data-factory-powershell/search-storage-account.png)
-3. V seznamu účtů úložiště vyfiltrujte váš účet úložiště (pokud je to potřeba) a pak vyberte **váš účet úložiště**. 
-4. Na stránce **Účet úložiště** vyberte v nabídce **Přístupové klíče**.
-
-    ![Získání názvu a klíče účtu úložiště](media/quickstart-create-data-factory-powershell/storage-account-name-key.png)
-5. Zkopírujte do schránky hodnoty z polí **Název účtu úložiště** a **klíč1**. Vložte je do Poznámkového bloku nebo jiného editoru a uložte je.  
-
-#### <a name="create-input-folder-and-files"></a>Vytvoření vstupní složky a souborů
-V této části vytvoříte ve svém úložišti objektů blob v Azure kontejner objektů blob s názvem **adftutorial**. Potom v kontejneru vytvoříte složku **input** a nahrajete do ní ukázkový soubor. 
-
-1. Na stránce **Účet úložiště** přepněte na **Přehled** a potom klikněte na **Objekty blob**. 
-
-    ![Výběr možnosti Objekty blob](media/quickstart-create-data-factory-powershell/select-blobs.png)
-2. Na stránce **Blob Service** klikněte na panelu nástrojů na **+ Kontejner**. 
-
-    ![Tlačítko pro přidání kontejneru](media/quickstart-create-data-factory-powershell/add-container-button.png)    
-3. V dialogovém okně **Nový kontejner** jako název zadejte **adftutorial** a klikněte na **OK**. 
-
-    ![Zadání názvu kontejneru](media/quickstart-create-data-factory-powershell/new-container-dialog.png)
-4. V seznamu kontejnerů klikněte na **adftutorial**. 
-
-    ![Výběr kontejneru](media/quickstart-create-data-factory-powershell/seelct-adftutorial-container.png)
-1. Na stránce **Kontejner** klikněte na panelu nástrojů na **Nahrát**.  
-
-    ![Tlačítko Nahrát](media/quickstart-create-data-factory-powershell/upload-toolbar-button.png)
-6. Na stránce **Nahrát objekt blob** klikněte na **Upřesnit**.
-
-    ![Kliknutí na odkaz Upřesnit](media/quickstart-create-data-factory-powershell/upload-blob-advanced.png)
-7. Spusťte **Poznámkový blok** a vytvořte soubor nazvaný **emp.txt** s následujícím obsahem: Uložte ho do složky **c:\ADFv2QuickStartPSH**. Pokud složka **ADFv2QuickStartPSH** neexistuje, vytvořte ji.
-    
-    ```
-    John, Doe
-    Jane, Doe
-    ```    
-8. Na webu Azure Portal na stránce **Nahrát objekt blob** vyberte **emp.txt** v poli **Soubory**. 
-9. Jako hodnotu pole **Nahrát do složky** zadejte **input**. 
-
-    ![Nastavení pro nahrání objektu blob](media/quickstart-create-data-factory-powershell/upload-blob-settings.png)    
-10. Potvrďte, že je nastavená složka **input** a soubor **emp.txt** a klikněte na **Nahrát**.
-11. Měli byste vidět soubor **emp.txt** a stav nahrávání v seznamu. 
-12. Zavřete okno **Nahrát objekt blob** kliknutím na **X** v rohu. 
-
-    ![Zavření okna Nahrát objekt blob](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
-1. Stránku **kontejneru** nechte otevřenou. Použijete ji k ověření výstupu na konci tohoto rychlého startu. 
-
-### <a name="azure-powershell"></a>Azure PowerShell
-
-#### <a name="install-azure-powershell"></a>Instalace prostředí Azure PowerShell
-Nainstalujte nejnovější Azure PowerShell, pokud jej ve svém počítači nemáte. 
-
-1. Ve webovém prohlížeči přejděte na stránku [Sady Azure SDK ke stažení a sady SDK](https://azure.microsoft.com/downloads/). 
-2. V části **Nástroje příkazového řádku** -> **PowerShell** klikněte na **Instalace pro Windows**. 
-3. Pokud chcete nainstalovat Azure PowerShell, spusťte soubor **MSI**. 
-
-Podrobné pokyny najdete v tématu [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/install-azurerm-ps). 
-
-#### <a name="log-in-to-azure-powershell"></a>Přihlášení do prostředí Azure PowerShell
-
-1. Spusťte na svém počítači **PowerShell**. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu Rychlý start. Pokud ho zavřete a znovu otevřete, tyto příkazy bude potřeba znovu spustit.
-
-    ![Spuštění PowerShellu](media/quickstart-create-data-factory-powershell/search-powershell.png)
-1. Spusťte následující příkaz a zadejte uživatelské jméno a heslo Azure, které používáte k přihlášení na Azure Portal:
-       
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-2. Pokud máte více předplatných Azure, spuštěním následujícího příkazu zobrazíte všechna předplatná pro tento účet:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-3. Spuštěním následujícího příkazu vyberte předplatné, se kterým chcete pracovat. Místo **SubscriptionId** použijte ID vašeho předplatného Azure:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
+[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
 
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
-1. Definujte proměnnou pro název skupiny prostředků, kterou použijete později v příkazech PowerShellu. Zkopírujte do PowerShellu následující text příkazu, zadejte název [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md) v uvozovkách a pak příkaz spusťte. Například: `"adfrg"`.
+1. Definujte proměnnou pro název skupiny prostředků, kterou použijete později v příkazech PowerShellu. Zkopírujte do PowerShellu následující text příkazu, zadejte název [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md) v uvozovkách a pak příkaz spusťte. Například: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>";
+    $resourceGroupName = "ADFQuickStartRG";
     ```
-2. Definujte proměnnou název datové továrny. 
+
+    Pokud již skupina prostředků existuje, nepřepisujte ji. Přiřaďte proměnné `$resourceGroupName` jinou hodnotu a spusťte tento příkaz znovu.
+2. Pokud chcete vytvořit skupinu prostředků Azure, spusťte následující příkaz: 
 
     ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    Pokud již skupina prostředků existuje, nepřepisujte ji. Přiřaďte proměnné `$resourceGroupName` jinou hodnotu a spusťte tento příkaz znovu. 
+3. Definujte proměnnou název datové továrny. 
+
+    > [!IMPORTANT]
+    >  Aktualizujte název datové továrny tak, aby byl globálně jedinečný. Například ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFQuickStartFactory";
     ```
 1. Definujte proměnnou pro umístění datové továrny: 
 
     ```powershell
     $location = "East US"
     ```
-4. Pokud chcete vytvořit skupinu prostředků Azure, spusťte následující příkaz: 
-
-    ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
-    ``` 
-    Pokud již skupina prostředků existuje, nepřepisujte ji. Přiřaďte proměnné `$resourceGroupName` jinou hodnotu a spusťte tento příkaz znovu. 
 5. Pokud chcete vytvořit datovou továrnu, spusťte následující rutinu **Set-AzureRmDataFactoryV2**: 
     
     ```powershell       
@@ -186,8 +101,8 @@ V datové továrně vytvořte propojené služby, abyste svá úložiště dat 
         }
     }
     ```
-
-2. V prostředí **Azure PowerShell** přejděte do složky **ADFv2QuickStartPSH**.
+    Pokud používáte Poznámkový blok, v dialogovém okně **Uložit jako** v poli **Uložit jako typ** vyberte **Všechny soubory**. Jinak se k souboru může přidat přípona `.txt`. Například, `AzureStorageLinkedService.json.txt`. Pokud soubor před otevřením v Poznámkovém bloku vytvoříte v Průzkumníku souborů, přípona `.txt` se možná nezobrazí, protože ve výchozím nastavení je nastavená možnost **Skrýt příponu souborů známých typů**. Než budete pokračovat k dalšímu kroku, odeberte příponu `.txt`.
+2. V **PowerShellu** přejděte do složky **ADFv2QuickStartPSH**.
 
 3. Spuštěním rutiny **Set-AzureRmDataFactoryV2LinkedService** vytvořte propojenou službu **AzureStorageLinkedService**. 
 
@@ -437,30 +352,7 @@ V tomto kroku nastavíte hodnoty pro parametry kanálu **inputPath** a **outputP
     "billedDuration": 14
     ```
 
-## <a name="verify-the-output"></a>Ověření výstupu
-Kanál v kontejneru objektů blob adftutorial automaticky vytvoří výstupní složku. Potom do výstupní složky zkopíruje soubor emp.txt ze vstupní složky. 
-
-1. Na webu Azure Portal na stránce kontejneru **adftutorial** klikněte na **Obnovit**. Zobrazí se výstupní složka. 
-    
-    ![Obnovení](media/quickstart-create-data-factory-powershell/output-refresh.png)
-2. V seznamu složek klikněte na **output**. 
-2. Potvrďte, že je do výstupní složky zkopírovaný soubor **emp.txt**. 
-
-    ![Obnovení](media/quickstart-create-data-factory-powershell/output-file.png)
-
-## <a name="clean-up-resources"></a>Vyčištění prostředků
-Prostředky, které jste vytvořili v rámci tohoto rychlého startu, můžete vyčistit dvěma způsoby. Můžete odstranit [skupinu prostředků Azure](../azure-resource-manager/resource-group-overview.md), což zahrnuje odstranění všech prostředků v této skupině prostředků. Pokud chcete ostatní prostředky zachovat beze změny, odstraňte pouze datovou továrnu, kterou jste vytvořili v tomto kurzu.
-
-Odstranění skupiny prostředků odstraní všechny prostředky, které v ní jsou, včetně datových továren. Spuštěním následujícího příkazu odstraníte celou skupinu prostředků: 
-```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
-```
-
-Pokud chcete odstranit jenom datovou továrnu, a ne celou skupinu prostředků, spusťte následující příkaz: 
-
-```powershell
-Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
-```
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
 ## <a name="next-steps"></a>Další kroky
 Kanál v této ukázce kopíruje data z jednoho umístění do jiného umístění v úložišti objektů blob v Azure. Projděte si [kurzy](tutorial-copy-data-dot-net.md), kde se dozvíte o použití služby Data Factory ve více scénářích. 

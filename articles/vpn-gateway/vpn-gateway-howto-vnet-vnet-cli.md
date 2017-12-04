@@ -1,6 +1,6 @@
 ---
-title: "Připojení virtuální sítě k jiné virtuální síti: Azure CLI | Dokumentace Microsoftu"
-description: "Tento článek vás provede propojováním virtuálních sítí s použitím Azure Resource Manageru a Azure CLI."
+title: "Propojení virtuální sítě s jinou virtuální síti s použitím připojení typu VNet-to-VNet: Azure CLI | Dokumentace Microsoftu"
+description: "Tento článek vás provede propojováním virtuálních sítí s použitím připojení typu VNet-to-VNet a Azure CLI."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: be33522fbabc801f64b7d3f38be83443c0327128
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurace připojení brány VPN typu VNet-to-VNet pomocí Azure CLI
 
-Tento článek ukazuje, jak vytvořit připojení brány VPN mezi virtuálními sítěmi. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Pokud připojujete virtuální sítě z různých předplatných, tato předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. 
+V tomto článku zjistíte, jak propojit virtuální sítě s použitím typu připojení VNet-to-VNet. Virtuální sítě se můžou nacházet ve stejné oblasti nebo v různých oblastech a můžou patřit do stejného předplatného nebo do různých předplatných. Pokud připojujete virtuální sítě z různých předplatných, tato předplatná nemusí být přidružená ke stejnému tenantovi Active Directory.
 
 Postupy v tomto článku se týkají modelu nasazení Resource Manager a používají Azure CLI. Tuto konfiguraci můžete vytvořit také pomocí jiného nástroje nasazení nebo pro jiný model nasazení, a to výběrem jiné možnosti z následujícího seznamu:
 
@@ -37,13 +37,15 @@ Postupy v tomto článku se týkají modelu nasazení Resource Manager a použí
 >
 >
 
-Propojení virtuální sítě s jinou virtuální sítí (VNet-to-VNet) je podobné propojení virtuální sítě s místním serverem. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE. Pokud se virtuální sítě nacházejí ve stejné oblasti, můžete uvažovat o jejich propojení vytvořením partnerského vztahu virtuálních sítí. Partnerské vztahy virtuálních sítí nepoužívají bránu VPN. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>Informace o propojování virtuálních sítí
 
-Komunikaci typu VNet-to-VNet můžete kombinovat s konfiguracemi s více servery. Díky tomu je možné vytvářet topologie sítí, ve kterých se používá propojování více míst i propojování virtuálních sítí, jak je znázorněno v následujícím schématu:
+Propojení virtuální sítě s jinou virtuální sítí s použitím typu připojení VNet-to-VNet je podobné jako vytvoření připojení IPsec k místnímu serveru. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE a oba komunikují stejným způsobem. Rozdílem mezi těmito typy připojení je způsob konfigurace místní síťové brány. Při vytváření připojení typu VNet-to-VNet se nezobrazí adresní prostor místní síťové brány. Vytvoří a naplní se automaticky. Pokud aktualizujete adresní prostor pro jednu virtuální síť, druhá virtuální síť bude automaticky znát trasu do aktualizovaného adresního prostoru.
 
-![Informace o připojeních](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+Pokud pracujete se složitou konfigurací, možná místo typu připojení VNet-to-VNet dáte přednost použití typu připojení IPsec. Ten vám umožní pro místní síťovou bránu zadat další adresní prostor pro směrování provozu. Pokud propojíte virtuální sítě s použitím typu připojení IPsec, musíte místní síťovou bránu vytvořit a nakonfigurovat ručně. Další informace najdete v tématu [Konfigurace typu Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
-### <a name="why"></a>Proč propojovat virtuální sítě?
+Kromě toho, pokud se virtuální sítě nacházejí ve stejné oblasti, můžete uvažovat o jejich propojení vytvořením partnerského vztahu virtuálních sítí. Partnerský vztah virtuálních sítí nevyužívá bránu VPN a jeho ceny a funkce se poněkud liší. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>Proč vytvářet připojení typu VNet-to-VNet?
 
 Virtuální sítě může být vhodné propojit z následujících důvodů:
 
@@ -55,19 +57,22 @@ Virtuální sítě může být vhodné propojit z následujících důvodů:
 
   * V rámci stejné oblasti můžete vytvářet vícevrstvé aplikace s několika virtuálními sítěmi propojenými z důvodu izolace nebo požadavků na správu.
 
-Další informace o propojeních VNet-to-VNet najdete v části [Nejčastější dotazy týkající se propojení VNet-to-VNet](#faq) na konci tohoto článku.
+Komunikaci typu VNet-to-VNet můžete kombinovat s konfiguracemi s více servery. Díky tomu je možné vytvářet topologie sítí, ve kterých se používá propojování více míst i propojování virtuálních sítí.
 
 ### <a name="which-set-of-steps-should-i-use"></a>Kterou posloupnost kroků provést?
 
-V tomto článku uvidíte dvě různé sady kroků. Jednu sadu kroků pro [virtuální sítě patřící do stejného předplatného](#samesub). Kroky pro tuto konfiguraci využívají TestVNet1 a TestVNet4.
+Tento článek vám pomůže propojit virtuální sítě s použitím typu připojení VNet-to-VNet. V tomto článku uvidíte dvě různé sady kroků. Jedna sada kroků pro [virtuální sítě patřící do stejného předplatného](#samesub) a jedna pro [virtuální sítě patřící do různých předplatných](#difsub). 
 
-![Diagram v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+Pro toto cvičení můžete konfigurace kombinovat nebo prostě vybrat tu, se kterou chcete pracovat. Všechny konfigurace používají typ připojení VNet-to-VNet. Provoz probíhá mezi virtuálními sítěmi, které jsou vzájemně přímo propojené. V tomto cvičení se provoz ze sítě TestVNet4 nesměruje do sítě TestVNet5.
 
-[Virtuálním sítím patřícím do různých předplatných](#difsub) je věnovaný samostatný článek. Kroky pro tuto konfiguraci využívají TestVNet1 a TestVNet5.
+* [Virtuální sítě patřící do stejného předplatného:](#samesub) V postupu pro tuto konfiguraci se používají sítě TestVNet1 a TestVNet4.
 
-![Diagram v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+  ![Diagram v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-Konfigurace můžete podle potřeby kombinovat nebo prostě vybrat tu, se kterou chcete pracovat.
+* [Virtuální sítě patřící do různých předplatných:](#difsub) V postupu pro tuto konfiguraci se používají sítě TestVNet1 a TestVNet5.
+
+  ![Diagram v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
 
 ## <a name="samesub"></a>Propojení virtuálních sítí patřících ke stejnému předplatnému
 
@@ -77,7 +82,7 @@ Než začnete, nainstalujte si nejnovější verzi příkazů rozhraní příkaz
 
 ### <a name="Plan"></a>Plánování rozsahů IP adres
 
-V následujících krocích vytvoříme dvě virtuální sítě spolu s příslušnými podsítěmi a konfiguracemi brány. Poté vytvoříme propojení VPN mezi oběma virtuálními sítěmi. Je důležité určit rozsahy IP adres pro konfiguraci vaší sítě. Mějte na paměti, že je třeba zajistit, aby se žádné rozsahy virtuálních sítí ani místní síťové rozsahy žádným způsobem nepřekrývaly. V těchto příkladech nezahrnujeme server DNS. Pokud chcete překlad IP adres pro virtuální sítě, přečtěte si téma [Překlad IP adres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+V následujících krocích vytvoříte dvě virtuální sítě spolu s příslušnými podsítěmi a konfiguracemi brány. Potom vytvoříte propojení VPN mezi oběma virtuálními sítěmi. Je důležité určit rozsahy IP adres pro konfiguraci vaší sítě. Mějte na paměti, že je třeba zajistit, aby se žádné rozsahy virtuálních sítí ani místní síťové rozsahy žádným způsobem nepřekrývaly. V těchto příkladech nezahrnujeme server DNS. Pokud chcete překlad IP adres pro virtuální sítě, přečtěte si téma [Překlad IP adres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 V příkladech používáme následující hodnoty:
 
@@ -261,7 +266,7 @@ Nyní máte dvě virtuální sítě s bránami VPN. Dalším krokem je vytvořen
 
 ## <a name="difsub"></a>Propojení virtuálních sítí patřících k různým předplatným
 
-V tomto scénáři propojíme sítě TestVNet1 a TestVNet5. Virtuální sítě patří k různým předplatným. Předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. Tento postup přidá nové propojení VNet-to-VNet pro připojení virtuální sítě TestVNet1 k virtuální síti TestVNet5.
+V tomto scénáři propojíte sítě TestVNet1 a TestVNet5. Virtuální sítě patří k různým předplatným. Předplatná nemusí být přidružená ke stejnému tenantovi Active Directory. Tento postup přidá nové propojení VNet-to-VNet pro připojení virtuální sítě TestVNet1 k virtuální síti TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Krok 5: Vytvoření a konfigurace virtuální sítě TestVNet1
 
@@ -327,7 +332,7 @@ Tento krok je třeba provést v rámci nového předplatného (předplatné 5). 
 
 ### <a name="connections5"></a>Krok 8: Vytvoření připojení
 
-Jelikož brány patří do různých předplatných, rozdělíme tento krok do dvou relací rozhraní příkazového řádku označených jako **[Předplatné 1]** a **[Předplatné 5]**. Pro přepínání mezi předplatnými použijte příkaz „az account list --all“, který vypíše dostupná předplatná pro váš účet, a pak pomocí příkazu „az account set --subscription <subscriptionID>“ přepněte na předplatné, které chcete použít.
+Vzhledem k tomu, že brány patří do různých předplatných, je tento krok rozdělený do dvou relací rozhraní příkazového řádku označených jako **[Předplatné 1]** a **[Předplatné 5]**. Pro přepínání mezi předplatnými použijte příkaz „az account list --all“, který vypíše dostupná předplatná pro váš účet, a pak pomocí příkazu „az account set --subscription <subscriptionID>“ přepněte na předplatné, které chcete použít.
 
 1. **[Předplatné 1]** Přihlaste a připojte se k předplatnému 1. Spusťte následující příkaz a z výstupu získejte název a ID brány:
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 77078087e2532ac779d25ef63cc7fa19b40f0851
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: ca8e664ff1fd509d0461b6d167f28743d2e1e69c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>Kurz: Kopírování dat z místního SQL Serveru do Azure Blob Storage
 V tomto kurzu použijete Azure PowerShell k vytvoření kanálu Data Factory, který kopíruje data z místní databáze SQL Serveru do úložiště objektů blob v Azure. Vytvoříte a použijete místní prostředí Integration Runtime, které přesouvá data mezi místním a cloudovým úložištěm dat. 
@@ -51,7 +51,7 @@ V tomto kurzu použijete místní databázi SQL Serveru jako **zdrojové** úlo�
 1. Na svém počítači spusťte **SQL Server Management Studio**. Pokud na svém počítači nemáte SQL Server Management Studio, nainstalujte ho z webu [Download Center](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
 2. Pomocí svých přihlašovacích údajů se přihlaste se ke svému SQL Serveru. 
 3. Vytvořte ukázkovou databázi. Ve stromovém zobrazení klikněte pravým tlačítkem na **Databáze** a klikněte na **Nová databáze**. V dialogovém okně **Nová databáze** zadejte **název** databáze a klikněte na **OK**. 
-4. Spusťte proti databázi následující skript dotazu, který vytvoří tabulku **emp**. Ve stromovém zobrazení klikněte pravým tlačítkem na **databázi**, kterou jste vytvořili, a klikněte na **Nový dotaz**. 
+4. Spusťte proti databázi následující skript dotazu, který vytvoří tabulku **emp** a vloží do ní nějaká ukázková data. Ve stromovém zobrazení klikněte pravým tlačítkem na **databázi**, kterou jste vytvořili, a klikněte na **Nový dotaz**. 
 
     ```sql   
     CREATE TABLE dbo.emp
@@ -61,13 +61,10 @@ V tomto kurzu použijete místní databázi SQL Serveru jako **zdrojové** úlo�
         LastName varchar(50),
         CONSTRAINT PK_emp PRIMARY KEY (ID)
     )
-    GO
-    ```
-2. Spusťte proti databázi následující příkazy, které do tabulky vloží ukázková data:
 
-    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
+    GO
     ```
 
 ### <a name="azure-storage-account"></a>Účet služby Azure Storage
@@ -105,10 +102,10 @@ V této části vytvoříte ve svém úložišti objektů blob v Azure kontejner
 
     ![Stránka Kontejner](media/tutorial-hybrid-copy-powershell/container-page.png)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="windows-powershell"></a>Windows PowerShell
 
-#### <a name="install-azure-powershell"></a>Instalace prostředí Azure PowerShell
-Pokud jej ve svém počítači ještě nemáte, nainstalujte nejnovější Azure PowerShell. 
+#### <a name="install-powershell"></a>Instalace PowerShellu
+Pokud jej ve svém počítači ještě nemáte, nainstalujte nejnovější PowerShell. 
 
 1. Ve webovém prohlížeči přejděte na stránku [Sady Azure SDK ke stažení a sady SDK](https://azure.microsoft.com/downloads/). 
 2. V části **Nástroje příkazového řádku** -> **PowerShell** klikněte na **Instalace pro Windows**. 
@@ -116,9 +113,9 @@ Pokud jej ve svém počítači ještě nemáte, nainstalujte nejnovější Azure
 
 Podrobné pokyny najdete v tématu [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-#### <a name="log-in-to-azure-powershell"></a>Přihlášení do prostředí Azure PowerShell
+#### <a name="log-in-to-powershell"></a>Přihlášení do PowerShellu
 
-1. Spusťte na svém počítači **PowerShell**. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu Rychlý start. Pokud ho zavřete a znovu otevřete, tyto příkazy bude potřeba znovu spustit.
+1. Spusťte na svém počítači **PowerShell**. Nechte okno PowerShellu otevřené až do konce tohoto kurzu Rychlý start. Pokud ho zavřete a znovu otevřete, tyto příkazy bude potřeba znovu spustit.
 
     ![Spuštění PowerShellu](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 1. Spusťte následující příkaz a zadejte uživatelské jméno a heslo Azure, které používáte k přihlášení na Azure Portal:
@@ -142,25 +139,28 @@ Podrobné pokyny najdete v tématu [Instalace a konfigurace prostředí Azure Po
 1. Definujte proměnnou pro název skupiny prostředků, kterou použijete později v příkazech PowerShellu. Zkopírujte do PowerShellu následující text příkazu, zadejte název [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md) v uvozovkách a pak příkaz spusťte. Například: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
+    $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-2. Definujte proměnnou pro název datové továrny, kterou můžete později použít v příkazech prostředí PowerShell. 
-
-    ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>"
-    ```
-1. Definujte proměnnou pro umístění datové továrny: 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. Pokud chcete vytvořit skupinu prostředků Azure, spusťte následující příkaz: 
+2. Pokud chcete vytvořit skupinu prostředků Azure, spusťte následující příkaz: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    Pokud již skupina prostředků existuje, nepřepisujte ji. Přiřaďte proměnné `$resourceGroupName` jinou hodnotu a spusťte tento příkaz znovu.   
+    Pokud již skupina prostředků existuje, nepřepisujte ji. Přiřaďte proměnné `$resourceGroupName` jinou hodnotu a spusťte tento příkaz znovu.
+3. Definujte proměnnou pro název datové továrny, kterou můžete později použít v příkazech prostředí PowerShell. Název musí začínat písmenem nebo číslicí a smí obsahovat jenom písmena, číslice a spojovníky (-).
+
+    > [!IMPORTANT]
+    >  Aktualizujte název datové továrny tak, aby byl globálně jedinečný. Například ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFTutorialFactory"
+    ```
+1. Definujte proměnnou pro umístění datové továrny: 
+
+    ```powershell
+    $location = "East US"
+    ```  
 5. Pokud chcete vytvořit datovou továrnu, spusťte následující rutinu **Set-AzureRmDataFactoryV2**: 
     
     ```powershell       
@@ -182,12 +182,12 @@ Je třeba počítat s následujícím:
 
 V této části můžete vytvořit místní prostředí Integration Runtime a přidružit ho k místnímu počítači s databází SQL Serveru. Místní prostředí Integration Runtime místně je komponenta, která zkopíruje data z SQL Serveru ve vašem počítači do úložiště objektů blob v Azure. 
 
-1. Vytvořte proměnnou pro název prostředí Integration Runtime. Poznamenejte si její název. Použijete ho později v tomto kurzu. 
+1. Vytvořte proměnnou pro název prostředí Integration Runtime. Použijte jedinečný název, který si poznamenejte. Použijete ho později v tomto kurzu. 
 
     ```powershell
-   $integrationRuntimeName = "<your integration runtime name>"
+   $integrationRuntimeName = "ADFTutorialIR"
     ```
-1. Vytvořte místní prostředí Integration Runtime. Pokud už existuje jiné prostředí Integration Runtime se stejným názvem, použijte jedinečný název.
+1. Vytvořte místní prostředí Integration Runtime. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -230,7 +230,7 @@ V této části můžete vytvořit místní prostředí Integration Runtime a p�
    State                     : NeedRegistration
    ```
 
-3. Spusťte následující příkaz, který načte **ověřovací klíče** pro registraci místního prostředí Integration Runtime ve službě Data Factory v cloudu. Pro registraci místního prostředí Integration Runtime, který nainstalujete na počítači v dalším kroku, zkopírujte jeden z klíčů (bez dvojitých uvozovek).  
+3. Spusťte následující příkaz, který načte **ověřovací klíče** pro registraci místního prostředí Integration Runtime ve službě Data Factory v cloudu. 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -243,7 +243,8 @@ V této části můžete vytvořit místní prostředí Integration Runtime a p�
        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
-   ```
+   ```    
+4. Pro registraci místního prostředí Integration Runtime, který nainstalujete na počítači v dalším kroku, zkopírujte jeden z klíčů (bez dvojitých uvozovek).  
 
 ## <a name="install-integration-runtime"></a>Instalace prostředí Integration Runtime
 1. Na místním počítači s Windows [stáhněte](https://www.microsoft.com/download/details.aspx?id=39717) místní prostředí Integration Runtime a spusťte instalaci. 
@@ -283,6 +284,7 @@ V této části můžete vytvořit místní prostředí Integration Runtime a p�
     - Zadejte **uživatelské jméno**. 
     - Zadejte **heslo** pro toto uživatelské jméno.
     - Kliknutím na **Test** potvrďte, že Integration Runtime může připojit k SQL Serveru. Pokud je připojení úspěšné, zobrazí se zelená značka zaškrtnutí. V opačném případě se zobrazí chybová zpráva přidružená k tomuto selhání. Opravte všechny problémy a ověřte, že se Integration Runtime může připojit k SQL Serveru.
+    - Poznamenejte si tyto hodnoty (typ ověřování, server, databáze, uživatel, heslo). Použijete je později v tomto kurzu. 
     
       
 ## <a name="create-linked-services"></a>Vytvoření propojených služeb
@@ -294,7 +296,7 @@ V tomto kroku s datovou továrnou propojíte svůj účet služby Azure Storage.
 1. Vytvořte soubor JSON s názvem **AzureStorageLinkedService.json** ve složce **C:\ADFv2Tutorial** s následujícím obsahem. Pokud složka ADFv2Tutorial ještě neexistuje, vytvořte ji.  
 
     > [!IMPORTANT]
-    > Než soubor uložíte, položky &lt;accountName&gt; a &lt;accountKey&gt; nahraďte názvem svého účtu úložiště Azure a jeho klíčem.
+    > Než soubor uložíte, položky &lt;accountName&gt; a &lt;accountKey&gt; nahraďte názvem svého **účtu úložiště Azure** a jeho klíčem. Poznamenali jste si je v rámci [požadavků](#get-storage-account-name-and-account-key).
 
    ```json
     {
@@ -310,6 +312,8 @@ V tomto kroku s datovou továrnou propojíte svůj účet služby Azure Storage.
         "name": "AzureStorageLinkedService"
     }
    ```
+
+    Pokud používáte Poznámkový blok, v dialogovém okně **Uložit jako** v poli **Uložit jako typ** vyberte **Všechny soubory**. Jinak se k souboru může přidat přípona `.txt`. Například, `AzureStorageLinkedService.json.txt`. Pokud soubor před otevřením v Poznámkovém bloku vytvoříte v Průzkumníku souborů, přípona `.txt` se možná nezobrazí, protože ve výchozím nastavení je nastavená možnost **Skrýt příponu souborů známých typů**. Než budete pokračovat k dalšímu kroku, odeberte příponu `.txt`. 
 2. V **Azure PowerShellu** přejděte do složky **C:\ADFv2Tutorial**.
 
    Spuštěním rutiny **Set-AzureRmDataFactoryV2LinkedService** vytvořte propojenou službu **AzureStorageLinkedService**. 
@@ -326,6 +330,8 @@ V tomto kroku s datovou továrnou propojíte svůj účet služby Azure Storage.
     DataFactoryName   : onpremdf0914
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
+
+    Pokud se zobrazí chyba Soubor nenalezen, spusťte příkaz `dir` a ověřte, že soubor existuje. Pokud má název souboru příponu `.txt` (například AzureStorageLinkedService.json.txt), odeberte ji a pak spusťte příkaz PowerShellu znovu. 
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Vytvoření a šifrování propojené služby SQL Serveru (zdroj)
 V tomto kroku s datovou továrnou propojíte místní SQL Server.
@@ -366,7 +372,7 @@ V tomto kroku s datovou továrnou propojíte místní SQL Server.
                     "type": "SecureString",
                     "value": "Server=<server>;Database=<database>;Integrated Security=True"
                 },
-                "userName": "<domain>\\<user>",
+                "userName": "<user> or <domain>\\<user>",
                 "password": {
                     "type": "SecureString",
                     "value": "<password>"
@@ -384,7 +390,7 @@ V tomto kroku s datovou továrnou propojíte místní SQL Server.
     > - Vyberte správnou sekci na základě **ověřování**, které požíváte pro připojení k SQL Serveru.
     > - Položku **&lt;integration** **runtime** **name>** nahraďte názvem vašeho prostředí Integration Runtime.
     > - Před uložením tohoto souboru položky **&lt;servername>**, **&lt;databasename>**, **&lt;username>** a **&lt;password>** nahraďte odpovídajícími hodnotami pro SQL Server.
-    > - Pokud v názvu uživatelského účtu nebo serveru potřebujete použít znak lomítko (`\`), použijte řídicí znak (`\`). Například `mydomain\\myuser`. 
+    > - Pokud v názvu uživatelského účtu nebo serveru potřebujete použít znak lomítko (`\`), použijte řídicí znak (`\`). Například, `mydomain\\myuser`. 
 
 2. Pokud chcete šifrovat důvěrné osobní údaje (uživatelské jméno, heslo atd.), spusťte rutinu **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**. Toto šifrování zajišťuje šifrování přihlašovacích údajů pomocí rozhraní Data Protection API. Zašifrované přihlašovací údaje jsou uložené místně v uzlu místního prostředí Integration Runtime (místní počítač). Výstupní datovou část je možné přesměrovat do jiného souboru JSON (v tomto případě encryptedLinkedService.json), který obsahuje zašifrované přihlašovací údaje.
     
