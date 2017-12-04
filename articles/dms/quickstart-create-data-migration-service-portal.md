@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření instance služby migrace databáze Azure pomocí portálu Azure | Microsoft Docs"
-description: "Pomocí portálu Azure k vytvoření instance služby Azure databáze migrace"
+title: "Vytvoření instance služby Azure Database Migration Service pomocí webu Azure Portal | Dokumentace Microsoftu"
+description: "Použití webu Azure Portal k vytvoření instance služby Azure Database Migration Service"
 services: database-migration
 author: edmacauley
 ms.author: edmaca
@@ -10,15 +10,15 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/17/2017
-ms.openlocfilehash: 9faac0716334d627cdde4c0ef16262670333b5d4
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: MT
+ms.date: 11/28/2017
+ms.openlocfilehash: 7fc4f8521afa41f21cda6576459a0794bef9ad3b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Vytvoření instance služby migrace databáze Azure pomocí portálu Azure
-V této úvodní použití portálu Azure k vytvoření instance služby migrace databáze Azure.  Po vytvoření služby budete moci použít jej k migraci dat z místního serveru SQL do Azure SQL database.
+# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Vytvoření instance služby Azure Database Migration Service pomocí webu Azure Portal
+V tomto rychlém startu použijete Azure Portal k vytvoření instance služby Azure Database Migration Service.  Po vytvoření služby ji můžete použít k migraci dat z místního SQL Serveru do databáze SQL Azure.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -26,38 +26,39 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 Otevřete svůj webový prohlížeč a přejděte na [portál Microsoft Azure Portal](https://portal.azure.com/). Zadejte přihlašovací údaje pro přihlášení k portálu. Výchozím zobrazením je váš řídicí panel služby.
 
 ## <a name="register-the-resource-provider"></a>Registrace poskytovatele prostředků
-Budete muset registrovat poskytovatele prostředků Microsoft.DataMigration před vytvořením první službě migrace databáze.
+Než vytvoříte první instanci služby Database Migration Service, zaregistrujte poskytovatele prostředků Microsoft.DataMigration.
 
-1. Na portálu Azure vyberte **všechny služby**a potom vyberte **odběry**.
+1. Na webu Azure Portal vyberte **Všechny služby** a pak vyberte **Předplatná**.
 
-1. Vyberte předplatné, ve kterém chcete vytvořit instanci služby Azure databáze migrace a potom vyberte **zprostředkovatelé prostředků**.
+2. Vyberte předplatné, ve kterém chcete vytvořit instanci služby Azure Database Migration Service, a pak vyberte **Poskytovatelé prostředků**.
 
-1. Vyhledejte migrace a potom vyberte napravo od Microsoft.DataMigration **zaregistrovat**.
+3. Vyhledejte „migration“ a pak napravo od Microsoft.DataMigration vyberte **Zaregistrovat**.
 
 ![Registrace poskytovatele prostředků](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
-## <a name="create-azure-database-migration-service"></a>Vytvoření služby migrace databáze Azure
-1. Klikněte na tlačítko  **+**  k vytvoření nové služby.  Služba migrace databáze je stále ve verzi preview.  
+## <a name="create-an-instance-of-the-service"></a>Vytvoření instance služby
+1. Kliknutím na **+ Vytvořit prostředek** vytvořte instanci služby Azure Database Migration Service, která je aktuálně ve verzi Preview.
 
-1. Vyhledávání na webu marketplace pro "migrace" Vyberte "Služba migrace databáze (preview)" a pak klikněte na tlačítko **vytvořit**.
+2. Vyhledejte na marketplace „migration“, vyberte **Azure Database Migration Service** a pak na obrazovce **Azure Database Migration Service (Preview)** klikněte na **Vytvořit**.
 
-    ![Vytvoření služby migrace](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
+3. Na obrazovce **Database Migration Service**: 
 
-    - Vyberte **název služby** se snadno zapamatovatelný a k identifikaci vaší Instance služby migrace databáze Azure jedinečný.
-    - Vyberte vaši Azure **předplatné** ve kterém chcete vytvořit službu migrace databáze.
-    - Vytvořte novou **sítě** s jedinečným názvem.
-    - Vyberte **umístění** který je nejblíže k zdrojového nebo cílového serveru.
-    - Vyberte Basic: 1 vCore pro **cenová úroveň**.
+    - Zvolte zapamatovatelný a jedinečný **Název služby** pro identifikaci vaší instance služby Azure Database Migration Service.
+    - Vyberte **Předplatné** Azure, ve kterém chcete instanci vytvořit.
+    - Vytvořte novou **Síť** s jedinečným názvem.
+    - Zvolte **Umístění**, které je nejblíže vašemu zdrojovému nebo cílovému serveru.
+    - Jako **cenovou úroveň** vyberte Basic: 1 virtuální jádro.
 
-1. Klikněte na možnost **Vytvořit**.
+    ![Vytvoření služby Migration Service](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
+4. Vyberte **Vytvořit**.
 
-Po chvíli se služby Azure databáze migrace bude vytvořená a připravená k použití.  Služba migrace databáze uvidíte, jak je znázorněno na obrázku.
+Po chvíli bude vaše instance služby Azure Database Migration Service vytvořená a připravená k použití. Služba Database Migration Service bude vypadat jako na následujícím obrázku:
 
-![Vytvoření služby migrace](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
+![Vytvořená služba Migration Service](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
-Můžete vyčistit prostředky, které jste vytvořili v rychlé spuštění odstraněním [skupina prostředků Azure](../azure-resource-manager/resource-group-overview.md).  Pokud chcete odstranit skupinu prostředků, přejděte do databáze služby migrace jste vytvořili, klikněte na **skupiny prostředků** název a potom vyberte **odstranit skupinu prostředků**.  Tato akce odstraní všechny prostředky ve skupině prostředků a také samotné skupině.
+Všechny prostředky vytvořené v rámci tohoto rychlého startu můžete vyčistit odstraněním [skupiny prostředků Azure](../azure-resource-manager/resource-group-overview.md).  Pokud chcete odstranit skupinu prostředků, přejděte do instance služby Azure Database Migration Service, kterou jste vytvořili. Vyberte název **skupiny prostředků** a pak vyberte **Odstranit skupinu prostředků**.  Tato akce odstraní všechny prostředky ve skupině prostředků i samotnou skupinu.
 
 ## <a name="next-steps"></a>Další kroky
 > [!div class="nextstepaction"]
-> [Migrace SQL serveru místně do databáze Azure SQL](tutorial-sql-server-to-azure-sql.md)
+> [Migrace místního SQL Serveru do služby Azure SQL Database](tutorial-sql-server-to-azure-sql.md)
