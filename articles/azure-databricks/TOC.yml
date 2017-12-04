@@ -13,6 +13,8 @@
   items:
     - name: Časté dotazy
       href: frequently-asked-questions-databricks.md
+    - name: "Poznámky k\_verzi"
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
     - name: Dokumentace k Databricks
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Plány Azure do budoucna

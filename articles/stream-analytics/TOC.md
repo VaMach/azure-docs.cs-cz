@@ -57,7 +57,6 @@
 ### [Okno Resource Health](stream-analytics-resource-health.md)
 ### [Metriky a diagram úloh](stream-analytics-job-diagram-with-metrics.md)
 ### [Ladění SELECT INTO](stream-analytics-select-into.md)
-### [Zpracování pořadí událostí](stream-analytics-out-of-order-and-late-events.md)
 ### [Důležité informace o řazení událostí](stream-analytics-out-of-order-and-late-events.md)
 ### [Omezení čtečky centra událostí](stream-analytics-event-hub-consumer-groups.md)
 ### [Protokoly diagnostiky](stream-analytics-job-diagnostic-logs.md)
