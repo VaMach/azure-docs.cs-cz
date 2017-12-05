@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentace ke službě Azure Site Recovery
+metadata:
+  title: 'Dokumentace ke službě Azure Site Recovery – kurzy, reference k rozhraní API | Dokumentace Microsoftu'
+  meta.description: Learn how to migrate to Azure with Azure Site Recovery
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: 'Kromě orchestrace zotavení po havárii virtuálních počítačů Azure a místních počítačů služba Azure Site Recovery orchestruje a spravuje migraci místních počítačů do Azure a migraci virtuálních počítačů Azure mezi oblastmi Azure. Prostřednictvím našich kurzů se naučíte, jak nastavit migraci.'
+sections:
+  - title: Podrobné kurzy
+    items:
+      - type: paragraph
+        text: Naučte se migrovat místní virtuální počítače.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Příprava Azure</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">Migrace místních počítačů do Azure</a>
+          - html: <a href="tutorial-migrate-aws-to-azure">Migrace instancí AWS do Azure</a>
+  - title: Referenční informace
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Příkazový řádek
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">Reference k rozhraní REST API</a></p>

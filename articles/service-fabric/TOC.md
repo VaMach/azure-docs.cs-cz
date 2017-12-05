@@ -6,7 +6,9 @@
 ## [Vytvoření aplikace .NET](service-fabric-quickstart-dotnet.md)
 ## [Nasazení aplikace typu kontejner pro Linux](service-fabric-quickstart-containers-linux.md)
 ## [Nasazení aplikace typu kontejner pro Windows](service-fabric-quickstart-containers.md)
-## [Nasazení aplikace v Javě](service-fabric-quickstart-java.md)
+## Šablony Rychlý start pro Javu
+### [Nasazení aplikace Spring Boot](service-fabric-quickstart-java-spring-boot.md)
+### [Nasazení aplikace s modelem Reliable Services](service-fabric-quickstart-java-reliable-services.md)
 
 # Kurzy
 ## Nasazení aplikace .NET
@@ -29,7 +31,9 @@
 #### [1a. Vytvoření clusteru s Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b. Vytvoření clusteru s Linuxem](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2. Škálování clusteru](service-fabric-tutorial-scale-cluster.md)
-### [3. Nasazení API Managementu s využitím Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [3. Upgrade modulu runtime clusteru](service-fabric-tutorial-upgrade-cluster.md)
+### [4. Nasazení API Managementu s využitím Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Ukázky

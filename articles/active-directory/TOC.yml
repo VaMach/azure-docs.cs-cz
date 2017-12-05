@@ -40,8 +40,6 @@
 - name: Managed Service Identity
   href: msi-overview.md
   items:
-    - name: Postup přihlášení nebo získání tokenu
-      href: msi-how-to-get-access-token-using-msi.md
     - name: Konfigurace MSI pro virtuální počítač Azure
       items:
         - name: Pomocí webu Azure Portal
@@ -62,6 +60,14 @@
           href: msi-howto-assign-access-powershell.md
         - name: Použití Azure CLI
           href: msi-howto-assign-access-cli.md
+    - name: Jak používat MSI virtuálních počítačů
+      items:
+        - name: Získání přístupového tokenu
+          href: msi-how-to-use-vm-msi-token.md
+        - name: 'Přihlášení do PowerShellu, rozhraní příkazového řádku Azure'
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Použití se sadami Azure SDK
+          href: msi-how-to-use-vm-msi-sdk.md
     - name: Použití MSI virtuálního počítače pro přístup ke službě Azure Data Lake Store
       items:
         - name: Z virtuálního počítače s Windows

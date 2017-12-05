@@ -11,8 +11,9 @@
 ### [Nastavení vysoké dostupnosti s využitím techniky STONITH](ha-setup-with-stonith.md)
 ### [Zálohování operačního systému pro SKU typu II](os-backup-type-ii-skus.md)
 # SAP HANA ve službě Azure Virtual Machines
-## [Jedna instance SAP HANA](hana-get-started.md)
+## [Instalace jedné instance SAP HANA](hana-get-started.md)
 ## [Průvodce nasazením S/4 HANA nebo BW/4 HANA SAP CAL](cal-s4h.md)
+## [Průvodce provozem SAP HANA v Azure](hana-vm-operations.md)
 ## [Vysoká dostupnost SAP HANA ve virtuálních počítačích Azure](sap-hana-high-availability.md)
 ## [Přehled zálohování SAP HANA](sap-hana-backup-guide.md)
 ## [Zálohování SAP HANA na úrovni souborů](sap-hana-backup-file-level.md)

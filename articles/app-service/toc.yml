@@ -127,6 +127,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Použití služby Managed Service Identity
           href: app-service-managed-service-identity.md
+        - name: Použití certifikátu SSL v kódu aplikace
+          href: app-service-web-ssl-cert-load.md
         - name: Konfigurace vzájemného ověřování TLS
           href: app-service-web-configure-tls-mutual-auth.md
     - name: Škálování aplikace

@@ -59,6 +59,8 @@
       href: /powershell/module/azurerm.containerregistry
     - name: Šablona Resource Manageru
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: Schéma webhooku
+      href: container-registry-webhook-reference.md
 - name: Zdroje
   items:
     - name: Dostupnost v oblastech

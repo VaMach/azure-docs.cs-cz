@@ -224,6 +224,8 @@
       items:
         - name: Chef
           href: chef-automation.md
+        - name: Publikování webové aplikace ze sady Visual Studio
+          href: publish-web-app-from-visual-studio.md
     - name: Spouštění aplikací
       items:
         - name: SQL Server

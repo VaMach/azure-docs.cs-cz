@@ -70,6 +70,7 @@
 ### [Volání runbooku Azure Automation z upozornění Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Nasazení šablony Azure Resource Manageru v powershellového runbooku Azure Automation](automation-deploy-template-runbook.md)
 ## Řešení
+### [Začlenění aktualizace a sledování změn](automation-onboard-solutions.md)
 ### [Správa aktualizací](../operations-management-suite/oms-solution-update-management.md)
 #### [Správa aktualizací pro několik virtuálních počítačů](manage-update-multi.md)
 #### [Integrace SCCM s OMS Update Managementem](oms-solution-updatemgmt-sccmintegration.md)

@@ -31,6 +31,7 @@
 ### [Konfigurace imagí Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Povolení licencované image](devtest-lab-enable-licensed-images.md)
 ### [Přidání značek do testovacího prostředí](devtest-lab-add-tag.md)
+### [Zveřejnění oznámení v testovacím prostředí](devtest-lab-announcements.md)
 
 ## [Výběr vlastní image nebo vzorce](devtest-lab-comparing-vm-base-image-types.md)
 
