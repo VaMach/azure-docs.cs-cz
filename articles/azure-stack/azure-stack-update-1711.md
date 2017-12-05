@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: andredm
-ms.openlocfilehash: 4d98556f17fa834c497c2d1cd1854c9e6b02e021
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-stack-1711-update"></a>Azure aktualizace 1711 zásobníku
 
@@ -31,7 +31,7 @@ Tento článek popisuje vylepšení a opravy v tomto balíčku aktualizace – z
 
 ## <a name="build-reference"></a>Odkaz na sestavení
 
-Číslo sestavení aktualizace 1711 zásobník Azure je **20171122.1**.
+Číslo sestavení aktualizace 1711 zásobník Azure je **171201.3**.
 
 ## <a name="before-you-begin"></a>Než začnete
 
@@ -85,7 +85,7 @@ Tato část obsahuje známé problémy, které mohou nastat při instalaci aktua
 
 ### <a name="known-issues-post-installation"></a>Známé problémy (po instalaci)
 
-Tato část obsahuje po instalaci Známé problémy s sestavení **20171122.1**.
+Tato část obsahuje po instalaci Známé problémy s sestavení **20171201.3**.
 
 #### <a name="portal"></a>Portál
 

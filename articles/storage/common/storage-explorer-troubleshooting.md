@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer Průvodci odstraňováním potíží
 
@@ -172,6 +172,14 @@ Pokud se připojujete ke službě pomocí adresy URL SAS a hlásí tuto chybu:
 - Ověřte, zda nevypršela platnost adresu URL.
 
 - Pokud SAS adresa URL je založená na zásadách přístupu, ověřte, že nebyl odvolaný zásady přístupu.
+
+Pokud vaše omylem připojena neplatná adresa URL SAS a se nepodařilo odpojit, postupujte podle těchto kroků:
+1.  Při spuštění Průzkumníka úložiště, stiskněte klávesu F12 a otevřete okno nástroje pro vývojáře.
+2.  Klikněte na kartu aplikace a pak klikněte na místní úložiště > file:// ve stromu na levé straně.
+3.  Najít klíč přidružený k typu služby problematické identifikátoru URI SAS. Pokud chybný identifikátor URI pro SAS pro kontejner objektů blob, vyhledejte například klíč s názvem "StorageExplorer_AddStorageServiceSAS_v1_blob".
+4.  Hodnota klíče musí být pole JSON. Vyhledejte objekt přidružený chybný identifikátor URI a jeho odebrání.
+5.  Stisknutím kombinace kláves Ctrl + R načtením Storage Explorer.
+
 
 ## <a name="next-steps"></a>Další kroky
 

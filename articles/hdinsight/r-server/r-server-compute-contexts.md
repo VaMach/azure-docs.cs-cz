@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Výpočetní kontextu možnosti pro R Server v HDInsight
 
@@ -33,12 +33,12 @@ Hraničního uzlu clusteru poskytuje vhodné místo pro připojení ke clusteru 
 ## <a name="compute-contexts-for-an-edge-node"></a>Výpočetní kontexty pro hraniční uzel
 Obecně platí R skript, který běží v R Server na uzlu edge běží v rámci překladač R v tomto uzlu. Výjimky jsou tyto kroky, které volají funkce ScaleR. Volání ScaleR spustit ve výpočetním prostředí, který je určen jak nastavit kontext výpočetní ScaleR.  Když spustíte R skript z hraniční uzel, kontextu výpočetní hodnoty jsou:
 
-- místní sekvenční (*'local'*)
-- místní paralelní (*'localpar'*)
+- místní sekvenční (*místní*)
+- místní paralelní (*localpar*)
 - Snižte mapy
 - Spark
 
-*'Local'* a *'localpar'* možnosti se liší pouze v tom **rxExec** provedení volání. Obě provést jiná volání funkce rx paralelní způsobem mezi všechny dostupné jader není uvedeno jinak prostřednictvím použití ScaleR **numCoresToUse** volby, například `rxOptions(numCoresToUse=6)`. Paralelní provádění možnosti nabízejí optimální výkon.
+*Místní* a *localpar* možnosti se liší pouze v tom **rxExec** provedení volání. Obě provést jiná volání funkce rx paralelní způsobem mezi všechny dostupné jader není uvedeno jinak prostřednictvím použití ScaleR **numCoresToUse** volby, například `rxOptions(numCoresToUse=6)`. Paralelní provádění možnosti nabízejí optimální výkon.
 
 Následující tabulka shrnuje různé možnosti kontextu výpočetní nastavit, jak jsou vykonány volání:
 
@@ -62,8 +62,8 @@ Která z těchto tří možností zvolíte, které poskytují paralelizovaná m�
 Zadané tyto zásady, následující části nabízí některé zásady pro výběr výpočetní kontextu.
 
 ### <a name="local"></a>Místní
-* Pokud množství dat k analýze je malá a nevyžaduje opakovanou analýzu, pak Streamovat ho přímo do rutiny analysis pomocí *'local'* nebo *'localpar'*.
-* Pokud množství dat k analýze je malá nebo středně velký a vyžaduje opakovanou analýzu, pak zkopírujte ho do místního systému souborů, importujte je do XDF a analyzujte ji prostřednictvím *'local'* nebo *'localpar'*.
+* Pokud množství dat k analýze je malá a nevyžaduje opakovanou analýzu, pak Streamovat ho přímo do rutiny analysis pomocí *místní* nebo *localpar*.
+* Pokud množství dat k analýze je malá nebo středně velký a vyžaduje opakovanou analýzu, pak zkopírujte ho do místního systému souborů, importujte je do XDF a analyzujte ji prostřednictvím *místní* nebo *localpar*.
 
 ### <a name="hadoop-spark"></a>Hadoop, Spark
 * Pokud je velké množství dat k analýze, pak ho importovat do Spark DataFrame pomocí **RxHiveData** nebo **RxParquetData**, nebo XDF v HDFS (Pokud úložiště je problém) a analyzujte ji pomocí Spark výpočetní kontext.
@@ -76,7 +76,7 @@ Další informace a příklady ScaleR výpočetní kontexty najdete v tématu vl
 
     > ?rxSetComputeContext
 
-Můžete se také podívat na "[ScaleR distribuované Průvodce Computing](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)", je k dispozici z [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server na webu MSDN") knihovny.
+Můžete se také podívat na [ScaleR distribuované Průvodce Computing](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) která je k dispozici z [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) knihovny.
 
 ## <a name="next-steps"></a>Další kroky
 V tomto článku jste se dozvěděli o možnostech, které jsou k dispozici k určení, zda a jak je paralelizovaná provádění málo mezi jader hraniční uzel nebo clusteru HDInsight. Další informace o tom, jak používat R Server s clustery HDInsight, naleznete v následujících tématech:

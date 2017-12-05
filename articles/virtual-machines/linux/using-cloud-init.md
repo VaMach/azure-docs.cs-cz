@@ -1,9 +1,9 @@
 ---
-title: "Použít cloudové init k přizpůsobení virtuálního počítače s Linuxem | Microsoft Docs"
-description: "Jak používat cloudové init k přizpůsobení virtuálního počítače s Linuxem během vytváření pomocí Azure CLI 2.0"
+title: "Přehled podpory init cloudu pro virtuální počítače s Linuxem v Azure | Microsoft Docs"
+description: "Přehled možností init cloudu v Microsoft Azure"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
+author: rickstercdn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,171 +13,86 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/03/2017
-ms.author: iainfou
-ms.openlocfilehash: 5559f258f5c29b07edb5e61be4755d67173019e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: rclaus
+ms.openlocfilehash: 3670676032eb71a5339bb1219cb794366b912147
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Použít cloudové init k přizpůsobení virtuálního počítače s Linuxem v Azure
-V tomto článku se dozvíte, jak používat [cloudu init](https://cloudinit.readthedocs.io) Pokud chcete nastavit název hostitele, balíčky aktualizací a spravovat uživatelské účty ve virtuálním počítači (VM) v Azure. Tyto skripty cloudu init spustit na spuštění při vytvoření virtuálního počítače pomocí Azure CLI 2.0. Podrobnější přehled o tom, jak nainstalovat aplikace, zápis konfigurační soubory a vložit klíče z Key Vault najdete v tématu [v tomto kurzu](tutorial-automate-vm-deployment.md). K provedení těchto kroků můžete také využít [Azure CLI 1.0](using-cloud-init-nodejs.md).
-
+V tomto článku se dozvíte, jak používat [cloudu init](https://cloudinit.readthedocs.io) ke konfiguraci virtuálního počítače (VM) nebo virtuální počítač sadách škálování (VMSS) na zřizování čas v Azure. Tyto skripty cloudu init spustit při prvním spuštění počítače po prostředky se zřizují Azure.  
 
 ## <a name="cloud-init-overview"></a>Init cloudu – přehled
-[Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Init cloudu běží během úvodního spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.
+[Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Protože init cloudu je volána v průběhu procesu počáteční spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.  Další informace o tom, jak správně formátu vaše `#cloud-config` soubory, najdete v článku [web dokumentace cloudu init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`fiels jsou textové soubory kódovaný jako base64.
 
 Init cloudu také funguje v různých distribucí. Například nepoužívejte **výstižný get instalace** nebo **yum nainstalovat** nainstalovat balíček. Místo toho můžete definovat seznam balíčků pro instalaci. Init cloudu automaticky používá nástroj pro správu nativní balíčku pro distro, kterou vyberete.
 
-Pracujeme s našimi partnery získat cloudu init zahrnuté a práci v bitové kopie, které poskytují do Azure. Následující tabulka popisuje aktuální dostupnosti cloudu init Image platformy Azure:
+ Aktivně Pracujeme s našimi potvrzená distro partnery Linux aby bylo možné používat cloudové inicializací povoleno imagím v Azure marketplace. Tyto bitové kopie budou vaše cloudové init nasazení a konfigurace bezproblémově pracovat virtuálních počítačů a virtuálních počítačů škálování sady (VMSS). Následující tabulka popisuje aktuální dostupnosti cloudu inicializací povoleno bitové kopie na platformě Azure:
 
-| Alias | Vydavatel | Nabídka | Skladová jednotka (SKU) | Verze |
+| Vydavatel | Nabídka | Skladová jednotka (SKU) | Verze | init cloudu připravené
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |nejnovější |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |nejnovější |
-| CoreOS |CoreOS |CoreOS |Stable |nejnovější |
+|Canonical |UbuntuServer |16.04 LTS |nejnovější |ano | 
+|Canonical |UbuntuServer |14.04.5-LTS |nejnovější |ano |
+|CoreOS |CoreOS |Stable |nejnovější |ano |
+|OpenLogic |CentOS |7 CI |nejnovější |verze Preview |
+|RedHat |RHEL |7 NEZPRACOVANÁ POLOŽEK KONFIGURACE |nejnovější |verze Preview |
 
+## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Jaký je rozdíl mezi init cloudu a agenta systému Linux (WALA)?
+WALA je použít pro zřídit a nakonfigurovat virtuální počítače a zpracování rozšíření Azure agenta specifické pro platformu Azure. Jsme se zlepší úloh konfigurace virtuálních počítačů pro použití cloudu init místo agenta systému Linux Chcete-li povolit existující cloudu init zákazníkům používat jejich aktuální cloudu init skripty.  Pokud jste už investovali do cloudu init skriptů pro konfiguraci systémů Linux, jsou **žádné další nastavení potřebná** a umožňuje jim. 
 
-## <a name="set-the-hostname-with-cloud-init"></a>Nastavte název hostitele s inicializací cloudu
-Init cloudu soubory jsou zapsány v [YAML](http://www.yaml.org). Spuštění skriptu cloudu init při vytváření virtuálního počítače v Azure s [vytvořit virtuální počítač az](/cli/azure/vm#create), zadejte soubor init cloudu s `--custom-data` přepínače. Podívejme se na některé příklady můžete nakonfigurovat pomocí souboru cloudu init. Běžný scénář je nastavit název hostitele virtuálního počítače. Ve výchozím nastavení název hostitele je stejný jako název virtuálního počítače. 
+Pokud nepoužijete přepínač příkazového řádku AzureCLI `--custom-data` v zřizování čas, WALA udělá zřizování parametrů požadovaných pro zřízení virtuálního počítače a dokončení nasazení s výchozím nastavením minimální virtuálních počítačů.  Pokud odkazujete cloudu inicializací `--custom-data` přepínače, ať je součástí vaší vlastní data (jednotlivá nastavení nebo úplné skriptu) přepíše výchozí hodnoty WALA definované. 
 
-Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *eastus* umístění:
+WALA konfigurace virtuálních počítačů jsou čas omezené pro práci v rámci maximální dobu zřizování virtuálních počítačů.  Konfigurace cloudu init použít pro virtuální počítače nemají časová omezení a nezpůsobí selhání pomocí vypršení časového limitu nasazení. 
 
-```azurecli
+## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Nasazení cloudu inicializací povoleno virtuálního počítače
+Nasazení virtuálního počítače v cloudu inicializací povolená je stejně jednoduché jako odkazující cloudu inicializací povolená distribuce během nasazení.  Údržby Linux distribuční programu muset zvolit povolení a integrovat cloudu init do jejich základní Azure publikované Image. Jakmile ověříte, že je povoleno cloudu inicializací bitovou kopii, kterou chcete nasadit, můžete AzureCLI nasazení bitové kopie. 
+
+Prvním krokem při nasazení této bitové kopie je vytvoření skupiny prostředků pomocí [vytvořit skupinu az](/cli/azure/group#create) příkaz. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. 
+
+Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
+
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-
-V aktuálním prostředí, vytvořte soubor s názvem *cloud_init_hostname.txt* a vložte následující konfigurace. Například vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. V prostředí cloudu, zadejte `sensible-editor cloud_init_hostname.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
-
-```yaml
-#cloud-config
-hostname: myhostname
-```
-
-Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#create) a určete soubor init cloudu s `--custom-data cloud_init_hostname.txt` následujícím způsobem:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMHostname \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_hostname.txt
-```
-
-Po vytvoření rozhraní příkazového řádku Azure obsahuje informace o virtuálním počítači. Použití `publicIpAddress` k SSH k virtuálnímu počítači. Zadejte vlastní adresu následujícím způsobem:
-
-```bash
-ssh azureuser@publicIpAddress
-```
-
-Chcete-li zobrazit název virtuálního počítače, použijte `hostname` příkaz takto:
-
-```bash
-hostname
-```
-
-Virtuální počítač by měl sestav název hostitele jako tuto hodnotu nastavit v cloudu init souboru, jak ukazuje následující příklad výstupu:
-
-```bash
-myhostname
-```
-
-## <a name="update-a-vm-with-cloud-init"></a>Aktualizace virtuálního počítače s inicializací cloudu
-Z bezpečnostních důvodů můžete nakonfigurovat virtuální počítač na nejnovější aktualizace na při prvním spuštění. Jak cloud init funguje napříč různých distribucích systému Linux, je nutné specifikovat `apt` nebo `yum` pro správce balíčků. Místo toho můžete definovat `package_upgrade` a umožněte proces cloudu init určit příslušné mechanismus pro distro používán. Tento pracovní postup můžete použít stejné cloudové init skripty ve distribucích.
-
-Informace o procesu upgradu v akci, vytvořte soubor init cloudu s názvem *cloud_init_upgrade.txt* a vložte následující konfiguraci:
+Dalším krokem je vytvoření souboru ve své aktuální prostředí s názvem *cloudu init.txt* a vložte následující konfigurace. V tomto příkladu vytvoření souboru v prostředí cloudu není na místním počítači. Můžete použít libovolný editor, které chcete. Zadejte `sensible-editor cloud-init.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Zvolte #1 používat **nano** editor. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
 
 ```yaml
 #cloud-config
 package_upgrade: true
+packages:
+  -httpd
 ```
+Stiskněte klávesu `ctrl-X` ukončíte souboru zadejte `y` uložit soubor a stiskněte klávesu `enter` potvrďte název souboru na ukončení.
 
-Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#create) a určete soubor init cloudu s `--custom-data cloud_init_upgrade.txt` následujícím způsobem:
+Posledním krokem je vytvoření virtuálního počítače s [vytvořit virtuální počítač az](/cli/azure/vm#az_vm_create) příkaz. 
 
-```azurecli
+Následující příklad vytvoří virtuální počítač s názvem *centos74* a vytvoří klíče SSH, pokud už neexistují ve výchozím umístění klíče. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.  Použití `--custom-data` parametr předávat do cloudu init konfiguračního souboru. Zadejte úplnou cestu k *cloudu init.txt* konfigurace, pokud jste uložili soubor mimo pracovní adresář existuje. Následující příklad vytvoří virtuální počítač s názvem *centos74*:
+
+```azurecli-interactive 
 az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUpgrade \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_upgrade.txt
+  --resource-group myResourceGroup \
+  --name centos74 \
+  --image OpenLogic:CentOS:7-CI:latest \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys 
 ```
 
-SSH na veřejnou IP adresu vašeho virtuálního počítače zobrazené ve výstupu z předchozí příkaz. Zadejte vlastní veřejné IP adresy následujícím způsobem:
+Po vytvoření virtuálního počítače, rozhraní příkazového řádku Azure obsahuje informace specifické pro vaše nasazení. Poznamenejte si `publicIpAddress`. Tato adresa se používá pro přístup k virtuálnímu počítači.  Jak dlouho trvá delší dobu pro virtuální počítač, který se má vytvořit, balíčky určené k instalaci a aplikaci spusťte. Existují úlohy na pozadí, které dál běžet po rozhraní příkazového řádku Azure se vrátíte do řádku. SSH můžete do virtuálního počítače a postupujte podle kroků uvedených v části řešení potíží k zobrazení protokolů init cloudu. 
 
-```bash
-ssh azureuser@publicIpAddress
-```
+## <a name="troubleshooting-cloud-init"></a>Řešení potíží s inicializací cloudu
+Jakmile zřídil virtuální počítač, cloudu init spustí prostřednictvím všechny moduly a skriptu definovaný v `--custom-data` Chcete-li nakonfigurovat virtuální počítač.  Pokud potřebujete vyřešit všechny chyby nebo opomenutí z konfigurace, budete muset vyhledat název modulu (`disk_setup` nebo `runcmd` třeba) v cloudu init protokolu - umístěný v **/var/log/cloud-init.log**.
 
-Spusťte nástroj pro správu balíček a kontrola aktualizací. Následující příklad používá `apt-get` na virtuálního počítače s Ubuntu:
+> [!NOTE]
+> Ne každý selhání modulu má za následek závažné init cloudu celkové Chyba konfigurace. Například pomocí `runcmd` modulu, pokud skript selže, cloudu init stále oznámí zřizování bylo úspěšné, protože modul runcmd provést.
 
-```bash
-sudo apt-get upgrade
-```
-
-Init cloudu – zkontrolovat a nainstalovat aktualizace na spouštěcí, nejsou dostupné žádné aktualizace pro použití, jak ukazuje následující příklad výstupu:
-
-```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-```
-
-## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Přidání uživatele do virtuálního počítače s inicializací cloudu
-Jedním z první úlohy na žádné nové virtuální počítače Linux je potřeba přidat uživatele pro sami, abyste nepoužívejte *kořenové*. Klíče SSH jsou vhodné pro zabezpečení a použitelnost. Klíče jsou přidány do *~/.ssh/authorized_keys* souboru pomocí tohoto skriptu init cloudu.
-
-Chcete-li přidat uživatele do virtuálního počítače s Linuxem, vytvořte soubor init cloudu s názvem *cloud_init_add_user.txt* a vložte následující konfigurace. Zadejte svůj veřejný klíč (například obsah *~/.ssh/id_rsa.pub*) pro *ssh oprávnění klíče*:
-
-```yaml
-#cloud-config
-users:
-  - name: myadminuser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>
-```
-
-Teď vytvořte virtuální počítač s [vytvořit virtuální počítač az](/cli/azure/vm#create) a určete soubor init cloudu s `--custom-data cloud_init_add_user.txt` následujícím způsobem:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUser \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_add_user.txt
-```
-
-SSH na veřejnou IP adresu vašeho virtuálního počítače zobrazené ve výstupu z předchozí příkaz. Zadejte vlastní veřejné IP adresy následujícím způsobem:
-
-```bash
-ssh myadminuser@publicIpAddress
-```
-
-Potvrďte uživatelů byla přidána do virtuálního počítače a zadaných skupin zobrazit obsah */etc/skupiny* následujícím způsobem:
-
-```bash
-cat /etc/group
-```
-
-Následující příklad výstupu zobrazuje uživateli *cloud_init_add_user.txt* soubor byl přidán do virtuálního počítače a do příslušné skupiny:
-
-```bash
-root:x:0:
-<snip />
-sudo:x:27:myadminuser
-<snip />
-myadminuser:x:1000:
-```
+Další podrobnosti o cloudu init protokolování, najdete v části [cloudu init dokumentace](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Další kroky
-Init cloudu je jedním z standardní způsoby, jak upravit vaše virtuální počítače Linux na spuštění. V Azure můžete taky rozšíření virtuálního počítače upravit virtuálním počítačům s Linuxem na spouštěcí nebo když je spuštěná. Například můžete použít rozšíření virtuálního počítače Azure pro spuštění skriptu na spuštění virtuálního počítače, ne jenom na první spuštění. Další informace o rozšíření virtuálního počítače najdete v tématu [virtuálního počítače rozšíření a funkce](extensions-features.md), nebo příklady o tom, jak používat rozšíření najdete v tématu [spravovat uživatele, SSH a zkontrolujte nebo opravte disky na virtuálních počítačích Azure Linux pomocí rozšíření VMAccess](using-vmaccess-extension.md).
+Příklady cloudu init změny konfigurace najdete v následujících dokumentech:
+ 
+- [Přidání další uživatele Linux do virtuálního počítače](cloudinit-add-user.md)
+- [Spusťte Správce balíčků aktualizovat existující balíčky na při prvním spuštění](cloudinit-update-vm.md)
+- [Změňte název místního hostitele virtuálního počítače](cloudinit-update-vm-hostname.md) 
+- [Instalace balíčku aplikace, aktualizace konfigurační soubory a vložit klíče](tutorial-automate-vm-deployment.md)

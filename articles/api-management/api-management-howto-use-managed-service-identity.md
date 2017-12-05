@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: cf27e4d9997a796fa61af6e6f0af3c0c5a0c296f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Použít identitu Azure spravované služby ve službě Azure API Management
 
@@ -118,9 +118,8 @@ Následující příklad ukazuje, jak získat certifikát z Azure Key Vault. Obs
 3. Nastavení názvu vlastní domény prostřednictvím certifikát z instance Key Vault aktualizujte instanci služby API Management.
 
 ### <a name="prerequisites"></a>Požadavky
-Spuštění níže šablony arm potřebujeme následující 
-1. Key Vault obsahující certifikát pfx ve stejném předplatném a stejné resourcegroup jako služba Api Management. Toto je požadavek šablony arm. 
-2. Typ obsahu tajný klíč by měl být *application/x-pkcs12*. Následující skript můžete použít k nahrání certifikátu
+1. Key Vault, který obsahuje certifikát pfx musí být ve stejném předplatném Azure a stejné skupině prostředků jako služba API Management. Toto je požadavek šablony Azure Resource Manageru. 
+2. Typ obsahu tajný klíč musí být *application/x-pkcs12*. Následující skript můžete použít k nahrání certifikátu:
 
 ```powershell
 $pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 

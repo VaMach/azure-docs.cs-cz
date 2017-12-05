@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0674aba66b48b26b70b3ab32d9283de5c63a267a
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Vytváření škálovatelných cloudových databází
 Škálování databáze dá snadno dosáhnout pomocí funkcí a nástrojů pro škálovatelná pro databázi SQL Azure. Konkrétně můžete použít **klientské knihovny pro elastické databáze** k vytváření a správě databází Škálováním. Tato funkce vám umožní snadno vyvíjet horizontálně dělené aplikace, které používají stovky – nebo dokonce tisíce – databází Azure SQL. [Elastické úlohy](sql-database-elastic-jobs-powershell.md) lze použít ke snadné správy těchto databází.
 
 Stažení:
-* verze rozhraní .NET knihovny, najdete v části [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 * Java verzi knihovny, najdete v části [Maven centrálním úložišti](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
+* verze rozhraní .NET knihovny, najdete v části [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## <a name="documentation"></a>Dokumentace
 1. [Začínáme s nástroji Elastic Database](sql-database-elastic-scale-get-started.md)
@@ -60,11 +60,11 @@ Obecně platí zákazníků týkající se použití nástroje elastické datab�
 
 ## <a name="next-steps"></a>Další kroky
 
-- Klientská knihovna pro elastické databáze ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) – na **Stáhnout** knihovny.
+- Klientská knihovna pro elastické databáze ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) – na **Stáhnout** knihovny.
 
 - [Začínáme s nástroje elastické databáze](sql-database-elastic-scale-get-started.md) – a zkuste to **ukázkovou aplikaci** který předvádí funkce klienta.
 
-- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) – přispívat ke kódu.
+- GitHub ([Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md), [.NET](https://github.com/Azure/elastic-db-tools)) – přispívat ke kódu.
 - [Přehled služby Azure SQL Database elastické dotazu](sql-database-elastic-query-overview.md) – Pokud chcete používat elastické dotazy.
 
 - [Přesun dat mezi instancemi cloudu databázemi](sql-database-elastic-scale-overview-split-and-merge.md) – pokyny k používání **nástroji pro sloučení rozdělení**.

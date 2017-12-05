@@ -6,53 +6,38 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-advanced-policies"></a>Pokročilé zásady API Management
 Toto téma obsahuje odkaz pro následující zásady služby API Management. Informace o přidávání a konfiguraci zásad najdete v tématu [zásady ve službě API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AdvancedPolicies"></a>Rozšířené zásady  
   
 -   [Řízení toku](api-management-advanced-policies.md#choose) – podmíněně platí příkazy zásad na základě výsledků vyhodnocení logická hodnota [výrazy](api-management-policy-expressions.md).  
-  
 -   [Předat dál žádost](#ForwardRequest) -předá požadavek back-end službu.
-
 -   [Omezit souběžnosti](#LimitConcurrency) -brání uzavřena zásady z provádění více než určitý počet požadavků současně.
-  
 -   [Protokol do centra událostí](#log-to-eventhub) -odešle zprávy v zadaném formátu do centra událostí definované entity protokolovacího nástroje. 
-
 -   [Model odpovědi](#mock-response) -přerušení způsobených kanálu provádění a vrátí mocked odpověď přímo na volajícího.
-  
 -   [Opakujte](#Retry) -opakování provádění příkazů závorkách zásad, pokud a dokud nebude splněna podmínka. Spuštění se opakovaly zadaným časovým intervalům a až zadaný počet opakování.  
-  
 -   [Vrátí odpověď](#ReturnResponse) -přerušení způsobených kanálu provádění a vrátí zadanou odpověď přímo na volajícího. 
-  
 -   [Odeslání žádosti o jednorázové jednoduché](#SendOneWayRequest) -odešle požadavek na zadanou adresu URL bez čekání na odpověď.  
-  
 -   [Odeslání požadavku](#SendRequest) -odešle požadavek na zadanou adresu URL.  
-
 -   [Nastavení proxy serveru HTTP](#SetHttpProxy) -umožňuje trasy předané požadavky prostřednictvím proxy serveru HTTP.  
-
 -   [Nastaví metodu požadavku](#SetRequestMethod) -vám umožní změnit metodu protokolu HTTP pro žádost.  
-  
 -   [Nastavit stavový kód](#SetStatus) -změní stavový kód protokolu HTTP se zadanou hodnotou.  
-  
 -   [Nastavená proměnná](api-management-advanced-policies.md#set-variable) -potrvají hodnotu v pojmenovaná [kontextu](api-management-policy-expressions.md#ContextVariables) proměnná pro pozdější přístup.  
-
 -   [Trasování](#Trace) -přidá řetězec do [rozhraní API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) výstup.  
-  
 -   [Počkejte](#Wait) -čeká pro uzavřené [odeslán požadavek na](api-management-advanced-policies.md#SendRequest), [získat hodnotu z mezipaměti](api-management-caching-policies.md#GetFromCacheByKey), nebo [řízení toku](api-management-advanced-policies.md#choose) zásady k dokončení než budete pokračovat.  
   
 ##  <a name="choose"></a>Tok řízení  
@@ -264,7 +249,6 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** back-end  
-  
 -   **Zásady obory:** všechny obory  
   
 ##  <a name="LimitConcurrency"></a>Limit souběžnosti  
@@ -807,7 +791,6 @@ Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako ho
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** odchozí, back-end, při chybě  
-  
 -   **Zásady obory:** všechny obory  
 
 ##  <a name="set-variable"></a>Nastavená proměnná  
@@ -843,72 +826,41 @@ Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako ho
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** vstupní, výstupní a back-end, při chybě  
-  
 -   **Zásady obory:** všechny obory  
   
 ###  <a name="set-variableAllowedTypes"></a>Povolené typy  
  Výrazy použité v `set-variable` zásady musí vrátit jednu z následujících základních typů.  
   
 -   System.Boolean  
-  
 -   System.SByte  
-  
 -   System.Byte  
-  
 -   System.UInt16  
-  
 -   System.UInt32  
-  
 -   System.UInt64  
-  
 -   System.Int16  
-  
 -   System.Int32  
-  
 -   System.Int64  
-  
 -   System.Decimal  
-  
 -   System.Single  
-  
 -   System.Double  
-  
 -   System.Guid  
-  
 -   System.String  
-  
 -   System.Char  
-  
 -   System.DateTime  
-  
 -   System.TimeSpan  
-  
 -   System.Byte?  
-  
 -   System.UInt16?  
-  
 -   System.UInt32?  
-  
 -   System.UInt64?  
-  
 -   System.Int16?  
-  
 -   System.Int32?  
-  
 -   System.Int64?  
-  
 -   System.Decimal?  
-  
 -   System.Single?  
-  
 -   System.Double?  
-  
 -   System.Guid?  
-  
 -   System.String?  
-  
 -   System.Char?  
-  
 -   System.DateTime?  
 
 ##  <a name="Trace"></a>Trasování  
@@ -1001,16 +953,19 @@ Všimněte si použití [vlastnosti](api-management-howto-properties.md) jako ho
   
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|-------------|  
-|Pro|Určuje, zda `wait` zásad čeká na všechny zásady bezprostředně podřízené jako dokončená nebo jenom jeden. Povolené hodnoty jsou:<br /><br /> -   `all`-čekat na všechny zásady bezprostředně podřízené k dokončení<br />-všechny - počkejte všechny bezprostředně podřízené zásadu pro dokončení. Po dokončení prvního bezprostředně podřízené zásad `wait` zásad dokončí a provádění dalších zásad bezprostředně podřízené je ukončen.|Ne|Všechny|  
+|Pro|Určuje, zda `wait` zásad čeká na všechny zásady bezprostředně podřízené jako dokončená nebo jenom jeden. Povolené hodnoty jsou:<br /><br /> -   `all`-čekat na všechny zásady bezprostředně podřízené k dokončení<br />-všechny - počkejte všechny bezprostředně podřízené zásadu pro dokončení. Po dokončení prvního bezprostředně podřízené zásad `wait` zásad dokončí a provádění dalších zásad bezprostředně podřízené je ukončen.|Ne|all|  
   
 ### <a name="usage"></a>Využití  
- Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ 
+Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** vstupní, výstupní a back-end  
-  
--   **Zásady obory:**všechny obory  
+-   **Zásady obory:** všechny obory  
   
 ## <a name="next-steps"></a>Další kroky
+
 Práce se zásadami pro další informace najdete v tématu:
--   [Zásady ve službě API Management](api-management-howto-policies.md) 
--   [Výrazy zásad](api-management-policy-expressions.md)
++ [Zásady ve službě API Management](api-management-howto-policies.md) 
++ [Výrazy zásad](api-management-policy-expressions.md)
++ [Referenční informace o zásadách](api-management-policy-reference.md) pro úplný seznam příkazy zásad a jejich nastavení
++ [Ukázky zásad](policy-samples.md)   

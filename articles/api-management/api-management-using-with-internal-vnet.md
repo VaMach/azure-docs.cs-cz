@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a496059d1959a6c9e762e70dfbeff9bf961c4d4
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Interní virtuální sítě pomocí služby Azure API Management
 S virtuálními sítěmi Azure Azure API Management můžete spravovat rozhraní API není dostupný na Internetu. Počet technologie VPN jsou k dispozici pro připojení. API Management se dá nasadit v dva hlavní režimy uvnitř virtuální sítě:
@@ -50,7 +50,7 @@ Služby API Management je interní virtuální síť je hostován za vyrovnává
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Povolit připojení virtuální sítě pomocí portálu Azure
 
 1. Přejděte k vaší instanci Azure API Management v [portál Azure](https://portal.azure.com/).
-2. Vyberte **vlastní domény a SSL**.
+2. Vyberte **virtuální síť**.
 3. Nakonfigurujte instanci služby API Management k nasazení ve virtuální síti.
 
     ![Nabídky pro nastavení Azure API Management v interní virtuální sítě][api-management-using-internal-vnet-menu]
@@ -121,7 +121,6 @@ Další informace naleznete v následujících článcích:
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
-
-[Create API Management service]: api-management-get-started.md#create-service-instance
+[Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 

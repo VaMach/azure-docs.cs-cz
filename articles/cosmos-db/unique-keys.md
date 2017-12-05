@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 030d6d136c16946d6231b165b4b33d496bb7c818
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Jedinečné klíče v Azure Cosmos DB
 
-Jedinečné klíče poskytne vývojářům možnost přidávat vrstvu integritu dat do své databáze. Vytvořením jedinečné klíče zásady při vytvoření kontejneru, zajistíte jedinečnost jednu nebo více hodnot za [oddílu](partition-data.md). Po vytvoření kontejneru zásadám jedinečné klíče brání vytvoření všechny nové nebo aktualizované položky s hodnotami, které duplicitní hodnoty určeného jedinečné omezení klíče.   
+Jedinečné klíče poskytne vývojářům možnost přidávat vrstvu integritu dat do své databáze. Vytvořením jedinečné klíče zásady při vytvoření kontejneru, zajistíte jedinečnost jednu nebo více hodnot za [klíč oddílu](partition-data.md). Po vytvoření kontejneru zásadám jedinečné klíče brání vytvoření všechny nové nebo aktualizované položky s hodnotami, které duplicitní hodnoty určeného jedinečné omezení klíče.   
 
 > [!NOTE]
 > Podporuje jedinečné klíče nejnovější verze [.NET](documentdb-sdk-dotnet.md) a [.NET Core](documentdb-sdk-dotnet-core.md) sad SDK DocumentDB (SQL) a [MongoDB API](mongodb-feature-support.md#unique-indexes). Rozhraní API pro tabulky a rozhraní Graph API nepodporují v tuto chvíli jedinečné klíče. 

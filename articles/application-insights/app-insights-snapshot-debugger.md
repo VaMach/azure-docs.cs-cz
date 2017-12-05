@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Ladění snímků výjimky v aplikacích .NET
 
@@ -27,6 +27,16 @@ Ladění snímky můžete zobrazit na portálu najdete v části volání zásob
 Snímek kolekce je k dispozici pro:
 * Aplikace rozhraní .NET framework a ASP.NET spuštění rozhraní .NET Framework 4.5 nebo novější.
 * Aplikace rozhraní .NET 2.0 core a ASP.NET Core 2.0 v systému Windows.
+
+Podporovány jsou následující prostředí:
+* Aplikační služba Azure.
+* Služba Azure Cloud spuštěna řada operačního systému, 4 nebo novější.
+* Azure Service Fabric služby běžící na Windows Server 2012 R2 nebo novějším.
+* Virtuální počítače Azure s Windows serverem 2012 R2 nebo novější.
+* Místní virtuální nebo fyzické počítače se systémem Windows Server 2012 R2 nebo novější.
+
+> [!NOTE]
+> Klientské aplikace (například WPF, Windows Forms nebo UWP) nejsou podporovány.
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>Konfigurace shromažďování snímků pro aplikace ASP.NET
 

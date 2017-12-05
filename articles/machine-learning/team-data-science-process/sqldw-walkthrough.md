@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: bradsev;weig
-ms.openlocfilehash: 73517a8d58700e987ce80889dadf8791e53170a3
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Proces Team dat. vědecké účely v akci: pomocí SQL Data Warehouse
 V tomto kurzu jsme vás provede procesem vytváření a nasazování modelu strojového učení pomocí SQL datového skladu (SQL DW) pro veřejně dostupné datové sady – [NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/) datovou sadu. Binární klasifikace model sestavený předpovídá, zda je tip placené cesty a které předpovědi distribuce pro tip částky placené jsou popsány i modely pro více třídami klasifikace a regrese.
@@ -839,7 +839,6 @@ V tomto cvičení jsme již prozkoumali a analýzou dat v SQL Data Warehouse a i
 3. Zadejte název DNS databáze v **název databázového serveru** pole. Formát:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Zadejte **název databáze** v odpovídajícím poli.
 5. Zadejte *uživatelské jméno SQL* v **název uživatelského účtu serveru**a *heslo* v **heslo uživatelského účtu serveru**.
-6. Zkontrolujte **přijmout některý z certifikátů serveru** možnost.
 7. V **databázový dotaz** upravit textová oblast, vložte dotaz, který extrahuje pole potřeby databáze (včetně všech počítané pole, jako je popisků) a nižší ukázky data na požadovanou velikost.
 
 V níže uvedeném obrázku je například binární klasifikace experimentů, čtení dat přímo z databáze SQL Data Warehouse (Nezapomeňte nahradit tabulku názvy nyctaxi_trip a nyctaxi_fare tak, že název schématu a názvy tabulek, který jste použili v vaší návod). Podobně jako experimenty konstruovat pro více třídami klasifikaci a regresní problémy.

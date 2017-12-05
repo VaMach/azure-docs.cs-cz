@@ -3,27 +3,26 @@ title: "Ovládací prvky stránky Azure API Management | Microsoft Docs"
 description: "Další informace o ovládací prvky stránky, která je k dispozici pro použití v šablonách portálu vývojáře ve službě Azure API Management."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 6aa7a25a9addceee78abe027fb3a19351940464e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Ovládací prvky stránky Azure API Management
 Azure API Management poskytuje následující ovládací prvky pro použití v vývojář portálu šablony.  
   
- Použití ovládacího prvku, umístěte ho na požadované místo v šabloně portálu pro vývojáře. Některé ovládací prvky, jako například [akcí aplikace](#app-actions) řízení, musí mít parametry, jak je znázorněno v následujícím příkladu.  
+Použití ovládacího prvku, umístěte ho na požadované místo v šabloně portálu pro vývojáře. Některé ovládací prvky, jako například [akcí aplikace](#app-actions) řízení, musí mít parametry, jak je znázorněno v následujícím příkladu:  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -36,19 +35,12 @@ Azure API Management poskytuje následující ovládací prvky pro použití v v
 ## <a name="developer-portal-template-page-controls"></a>Ovládací prvky stránky šablony portálu vývojáře  
   
 -   [Akce aplikace](#app-actions)  
-  
 -   [Basic přihlášení](#basic-signin)  
-  
 -   [ovládací prvek stránkování](#paging-control)  
-  
 -   [Zprostředkovatelé](#providers)  
-  
 -   [ovládací prvek vyhledávání](#search-control)  
-  
 -   [registrace](#sign-up)  
-  
 -   [přihlášení k odběru tlačítko](#subscribe-button)  
-  
 -   [zrušení předplatného](#subscription-cancel)  
   
 ##  <a name="app-actions"></a>Akce aplikace  
@@ -69,12 +61,12 @@ Azure API Management poskytuje následující ovládací prvky pro použití v v
 |appId|Id aplikace.|  
   
 ### <a name="developer-portal-templates"></a>Šablony na portálu vývojáře  
- `app-actions` Řízení je možné použít následující šablony portálu vývojáře.  
+ `app-actions` Řízení je možné použít následující šablony portálu developer:  
   
 -   [Aplikace](api-management-user-profile-templates.md#Applications)  
   
 ##  <a name="basic-signin"></a>Basic přihlášení  
- `basic-signin` Řízení poskytuje ovládací prvek pro shromažďování informací v přihlašovací stránku v portálu pro vývojáře přihlášení uživatele.  
+ `basic-signin` Řízení poskytuje ovládací prvek pro shromažďování uživatelské přihlašovací údaje na stránce přihlášení v portálu pro vývojáře.  
   
  ![Basic & č. 45; přihlášení řízení](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic přihlášení řízení")  
   
@@ -88,7 +80,7 @@ Azure API Management poskytuje následující ovládací prvky pro použití v v
  Žádné.  
   
 ### <a name="developer-portal-templates"></a>Šablony na portálu vývojáře  
- `basic-signin` Řízení je možné použít následující šablony portálu vývojáře.  
+ `basic-signin` Řízení je možné použít následující šablony portálu developer:  
   
 -   [Přihlásit se](api-management-page-templates.md#SignIn)  
   
@@ -107,7 +99,7 @@ Azure API Management poskytuje následující ovládací prvky pro použití v v
  Žádné.  
   
 ### <a name="developer-portal-templates"></a>Šablony na portálu vývojáře  
- `paging-control` Řízení je možné použít následující šablony portálu vývojáře.  
+ `paging-control` Řízení je možné použít následující šablony portálu developer:  
   
 -   [Rozhraní API seznamu](api-management-api-templates.md#APIList)  
   
@@ -116,7 +108,7 @@ Azure API Management poskytuje následující ovládací prvky pro použití v v
 -   [Seznam produktů](api-management-product-templates.md#ProductList)  
   
 ##  <a name="providers"></a>Zprostředkovatelé  
- `providers` Řízení poskytuje ovládací prvek pro výběr zprostředkovatelů ověřování v stránku v portálu pro vývojáře pro přihlášení.  
+ `providers` Řízení poskytuje ovládací prvek pro výběr zprostředkovatele ověřování na stránce přihlášení v portálu pro vývojáře.  
   
  ![poskytovatelé řízení](./media/api-management-page-controls/APIM-providers-control.png "APIM poskytovatelé řízení")  
   
@@ -130,7 +122,7 @@ Azure API Management poskytuje následující ovládací prvky pro použití v v
  Žádné.  
   
 ### <a name="developer-portal-templates"></a>Šablony na portálu vývojáře  
- `providers` Řízení je možné použít následující šablony portálu vývojáře.  
+ `providers` Řízení je možné použít následující šablony portálu developer:  
   
 -   [Přihlásit se](api-management-page-templates.md#SignIn)  
   
@@ -149,14 +141,14 @@ Azure API Management poskytuje následující ovládací prvky pro použití v v
  Žádné.  
   
 ### <a name="developer-portal-templates"></a>Šablony na portálu vývojáře  
- `search-control` Řízení je možné použít následující šablony portálu vývojáře.  
+ `search-control` Řízení je možné použít následující šablony portálu developer:  
   
 -   [Rozhraní API seznamu](api-management-api-templates.md#APIList)  
   
 -   [Seznam produktů](api-management-product-templates.md#ProductList)  
   
 ##  <a name="sign-up"></a>registrace  
- `sign-up` Řízení poskytuje ovládací prvek pro shromažďování informací o profilu uživatele na přihlašovací stránku v portálu pro vývojáře.  
+ `sign-up` Řízení poskytuje ovládací prvek pro shromažďování informací o profilu uživatele na stránce registrace v portálu pro vývojáře.  
   
  ![přihlašovací & č. 45; až řízení](./media/api-management-page-controls/APIM-sign-up-control.png "APIM registrace ovládacího prvku")  
   
@@ -170,7 +162,7 @@ Azure API Management poskytuje následující ovládací prvky pro použití v v
  Žádné.  
   
 ### <a name="developer-portal-templates"></a>Šablony na portálu vývojáře  
- `sign-up` Řízení je možné použít následující šablony portálu vývojáře.  
+ `sign-up` Řízení je možné použít následující šablony portálu developer:  
   
 -   [Registrace](api-management-page-templates.md#SignUp)  
   
@@ -189,12 +181,12 @@ Azure API Management poskytuje následující ovládací prvky pro použití v v
  Žádné.  
   
 ### <a name="developer-portal-templates"></a>Šablony na portálu vývojáře  
- `subscribe-button` Řízení je možné použít následující šablony portálu vývojáře.  
+ `subscribe-button` Řízení je možné použít následující šablony portálu developer:  
   
 -   [Produktu](api-management-product-templates.md#Product)  
   
 ##  <a name="subscription-cancel"></a>zrušení předplatného  
- `subscription-cancel` Řízení poskytuje ovládací prvek pro zrušení předplatného pro určitý produkt v profilu uživatele na stránce portálu pro vývojáře.  
+ `subscription-cancel` Řízení poskytuje ovládací prvek pro zrušení odběru produktu na stránce profilu uživatele v portálu pro vývojáře.  
   
  ![předplatné & č. 45; zrušit řízení](./media/api-management-page-controls/APIM-subscription-cancel-control.png "řízení APIM zrušit předplatné")  
   
@@ -211,10 +203,10 @@ Azure API Management poskytuje následující ovládací prvky pro použití v v
 |Parametr|Popis|  
 |---------------|-----------------|  
 |subscriptionId|Id předplatného zrušit.|  
-|cancelUrl|Adresa URL zrušit předplatné.|  
+|cancelUrl|Předplatné zruší adresy URL.|  
   
 ### <a name="developer-portal-templates"></a>Šablony na portálu vývojáře  
- `subscription-cancel` Řízení je možné použít následující šablony portálu vývojáře.  
+ `subscription-cancel` Řízení je možné použít následující šablony portálu developer:  
   
 -   [Produktu](api-management-product-templates.md#Product)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d4e3fc4f30d5c7b147fb460fb43367aef19118
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Uložte a konfiguraci konfigurace služby API Management pomocí Git
 > 
@@ -284,7 +284,7 @@ Informace o jiných způsobech spravovat instanci služby najdete v tématu:
   * [Referenční informace k rutinám PowerShellu pro nasazení služeb](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Správa služeb referenční informace o rutinách prostředí PowerShell](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 * Spravovat instanci služby na portálu vydavatele
-  * [Správa vašeho prvního rozhraní API](api-management-get-started.md)
+  * [Správa vašeho prvního rozhraní API](import-and-publish.md)
 * Spravovat instanci služby pomocí rozhraní REST API
   * [Referenční dokumentace rozhraní API REST API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

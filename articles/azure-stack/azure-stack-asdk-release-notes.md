@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/03/2017
 ms.author: andredm
-ms.openlocfilehash: 56d8ad4fecf14dfa69ade43438672c31a4954209
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Poznámky k verzi Azure zásobníku Development Kit
 
@@ -56,7 +56,7 @@ Tyto poznámky k verzi obsahují informace o vylepšení, opravy a známých pro
    Obejít poslední dva problémy, můžete zadat název předplatné nebo skupinu prostředků (pokud ho znáte), nebo můžete místo toho použít PowerShell.
 
 - Zobrazí se **je vyžadována aktivace** upozornění s výzvou k registraci vaší Azure zásobníku Development Kit. Toto chování je očekávané.
-- V **je vyžadována aktivace** upozornění podrobností o výstrahách, neklikejte na tento odkaz **AzureBridge** součásti. V takovém případě **přehled** okno se neúspěšně pokusí načíst, a nebude vypršení časového limitu.
+- Pokud **součást** po kliknutí na odkaz z libovolného **Role infrastruktury** výstrahy, výsledná **přehled** okno se pokusí načíst a selže. Kromě toho ** přehled ** okno nemá vypršení časového limitu.
 - Odstranění odběrů uživatele za následek osamocené prostředky. Jako alternativní řešení nejprve odstraňte prostředky uživatele nebo skupinu celý prostředků a potom odstraňte odběry uživatele.
 - Nemůžete se moci zobrazit oprávnění k předplatnému pomocí portálů zásobník Azure. Jako alternativní řešení můžete ověřit oprávnění pomocí prostředí PowerShell.
  

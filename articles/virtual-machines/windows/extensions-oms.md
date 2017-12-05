@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: b4cd56606d0f84653f3e50634fc5e4d1318c0f94
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cfdbf6c3d1ac86d430543eada15c1e3b31e3712f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Rozšíření virtuálního počítače OMS pro Windows
 
@@ -28,7 +28,12 @@ Operations Management Suite (OMS) poskytuje možnosti nápravy monitorování, v
 ## <a name="prerequisites"></a>Požadavky
 
 ### <a name="operating-system"></a>Operační systém
+
 Rozšíření agenta OMS pro pro Windows Server 2008 R2, můžete spouštět Windows 2012, 2012 R2 a 2016 uvolní.
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Azure Security Center automaticky zřídí agenta OMS a připojí pomocí výchozí pracovní prostor log analytics předplatného Azure. Pokud používáte Azure Security Center, se nespustí provede kroky v tomto dokumentu. Tím přepíšete nakonfigurované pracovní prostor a přerušení připojení s Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Připojení k internetu
 OMS Agent rozšíření pro Windows vyžaduje, aby cílový virtuální počítač je připojený k Internetu. 

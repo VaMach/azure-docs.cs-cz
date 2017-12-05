@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: f7337c1c5821016987096da47dda4ac1124d7910
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Postup nalezení adresu pomocí služby Azure na základě polohy (preview) vyhledávání
 Služba vyhledávání se RESTful sada rozhraní API určená pro vývojáře k vyhledání adresy, míst, bodů zájmu, výpisech obchodních a jiných zeměpisné údaje. Služba vyhledávání zeměpisnou šířku a délku přiřadí konkrétní adresu, křížové ulici, geografické funkci nebo v případě zájmu (bodů zájmu). Zeměpisné šířky a délky hodnot vrácených rozhraním API služby vyhledávání můžete použít jako parametry v jiných služeb na základě umístění Azure jako je například rozhraní API toku provozu a trasy.
@@ -62,12 +62,11 @@ Většina vyhledávací dotazy jako výchozí se maxFuzzyLevel = 1' k získání
     
     Výsledky jsou nastaveny pro tento dotaz není vázaný na libovolné místo konkrétní odkaz. Můžete použít **countrySet** parametr k určení pouze země, pro které aplikace potřebuje pokrytí, jako výchozí chování je na celém světě potenciálně vrácení nepotřebné výsledky hledání.
 
-5. Přidejte následující hodnotu řetězce dotazu a klikněte na tlačítko **odeslat**:
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >Ujistěte se, že je čárkami samostatné další identifikátor URI parametrů v řetězci dotazu.
+5. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
+
+    | Klíč | Hodnota |
+    |------------------|-------------------------|
+    | countrySet | USA |
     
     Výsledky jsou nyní ohraničené kód země a dotaz vrátí pizza restaurace ve Spojených státech amerických.
     
@@ -116,10 +115,11 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
         400 Broad, Seattle
     ```
 
-5. Přidejte následující hodnotu řetězce dotazu a klikněte na tlačítko **odeslat**:
-    ```
-        ,typeahead
-    ```
+5. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
+
+    | Klíč | Hodnota |
+    |-----|------------|
+    | typeahead | Hodnota TRUE |
 
     **Typeahead** příznak informuje rozhraní API pro vyhledávání adresu částečné vstup považovat za zařízení dotazu a vrátíte se pole prediktivní hodnot.
 
@@ -150,37 +150,43 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     
     Odpověď obsahuje položku bodů zájmu Safeco pole s bodů zájmu kategorie "stadium". 
     
-4. Přidejte následující hodnotu řetězce dotazu a klikněte na tlačítko **odeslat**:
-    ```
-        ,number
-    ```
+4. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
+
+    | Klíč | Hodnota |
+    |-----|------------|
+    | Číslo | Hodnota TRUE |
+
     Pokud [číslo](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je odeslán s požadavkem, odpověď může zahrnovat na straně ulici (doleva nebo doprava) a také posunutí pozice pro toto číslo.
     
-5. Přidejte následující hodnotu řetězce dotazu a klikněte na tlačítko **odeslat**:
-    ```
-        ,spatialKeys
-    ```
+5. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
+
+    | Klíč | Hodnota |
+    |-----|------------|
+    | spatialKeys | Hodnota TRUE |
 
     Když [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je nastavena, odpověď obsahuje důvěrné geograficky prostorových klíčové informace pro zadané umístění.
 
-6. Přidejte následující hodnotu řetězce dotazu a klikněte na tlačítko **odeslat**:
-    ```
-        ,returnSpeedLimit
-    ```
+6. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
+
+    | Klíč | Hodnota |
+    |-----|------------|
+    | returnSpeedLimit | Hodnota TRUE |
     
     Když [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je nastavena, vrátí odpověď z odeslaných limit rychlosti.
 
-7. Přidejte následující hodnotu řetězce dotazu a klikněte na tlačítko **odeslat**:
-    ```
-        ,returnRoadUse
-    ```
+7. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
+
+    | Klíč | Hodnota |
+    |-----|------------|
+    | returnRoadUse | Hodnota TRUE |
 
     Když [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je nastavena, odpověď vrací pole použití silniční pro reversegeocodes ulice úrovni.
 
-8. Přidejte následující hodnotu řetězce dotazu a klikněte na tlačítko **odeslat**:
-    ```
-        ,roadUse
-    ```
+8. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
+
+    | Klíč | Hodnota |
+    |-----|------------|
+    | roadUse | Hodnota TRUE |
 
     Dotaz zpětné geocode můžete omezit na určitý typ silniční použití pomocí [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu.
     

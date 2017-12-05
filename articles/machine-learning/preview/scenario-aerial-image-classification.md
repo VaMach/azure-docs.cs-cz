@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>Klasifikace leteckou bitové kopie
 
@@ -59,9 +59,14 @@ Následující pokyny vás provede procesem nastavení prostředí pro spuštěn
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Postupujte podle [instalace a vytvoření rychlý Start](quickstart-installation.md) instalace nástroje Azure Machine Learning Workbench a vytvoření experimentování a modelu správy účtů.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK a Azure CLI 2.0
-    - Nainstalovat sadu Batch AI SDK, Azure CLI 2.0 podle pokynů v [v části předpoklady recepty](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - Době psaní tohoto textu Azure Machine Learning Workbench používá samostatné rozvětvení 2.0 rozhraní příkazového řádku Azure. Pro přehlednost označujeme nástroje Workbench verzi rozhraní příkazového řádku jako "rozhraní příkazového řádku spustit z Azure Machine Learning Workbench" a obecné verzi, (která zahrnuje Batch AI) jako "Azure CLI 2.0."
-    - Vytvořte objekt zabezpečení aplikací a služeb Azure Active Directory pomocí následujících [tyto pokyny](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Záznam ID klienta a tajný klíč, ID klienta.
+    - Dokončení v následujících částech [Batch AI recepty README](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - "Požadavky"
+        - "Vytvoření a získat aplikaci Azure Active Directory (AAD)"
+        - "Registrovat poskytovatele prostředků BatchAI" (v části "spuštění recepty pomocí rozhraní příkazového řádku Azure 2.0")
+        - "Nainstalovat klienta pro správu Azure Batch AI"
+        - "Instalace Azure Python SDK"
+    - Záznam ID klienta, tajný klíč a ID klienta aplikace Azure Active Directory, který jste dostali pokyn k vytvoření. Tyto přihlašovací údaje použijete později v tomto kurzu.
+    - Době psaní tohoto textu pomocí Azure Machine Learning Workbench a Azure Batch AI samostatné větve 2.0 rozhraní příkazového řádku Azure. Pro přehlednost označujeme nástroje Workbench verzi rozhraní příkazového řádku jako "rozhraní příkazového řádku spustit z Azure Machine Learning Workbench" a obecné verzi, (která zahrnuje Batch AI) jako "Azure CLI 2.0."
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), uvolněte nástroj pro spolupráci přenos souborů mezi účty úložiště Azure
     - Zajistěte, aby byl ve složce obsahující AzCopy spustitelný soubor na proměnné prostředí PATH vašeho systému. (Informace o úpravě proměnné prostředí jsou k dispozici [zde](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Klientem SSH; Doporučujeme, abyste [PuTTY](http://www.putty.org/).
@@ -215,7 +220,7 @@ Cluster Batch AI přistupuje k datům školení na souborovém serveru sítě. P
 1. Vydejte následující příkaz k vytvoření síťového serveru:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Zkontrolujte stav zřizování sítě souborového serveru pomocí následujícího příkazu:

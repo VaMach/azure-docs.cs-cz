@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/04/2017
 ms.author: anoopkv
-ms.openlocfilehash: 1b7a2d99cfa9f7d54d5303c21202fc34cf6d15ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2dcca54c9e1e9330bf7c2a37dc08f67817b6af47
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Správa serveru VMware vCenter Server v Azure Site Recovery
 Tento článek popisuje různé operace obnovení lokality, které lze provést na VMware vCenter.
@@ -27,7 +27,7 @@ Tento článek popisuje různé operace obnovení lokality, které lze provést 
 
 **Podpora serveru VMware vCenter a VMware vSphere hostitele ESX** | **Podrobnosti** |
 |--- | --- |
-|**Na místní servery VMware** | Jeden nebo více VMware vSphere serverů, 6.0, 5.5, 5.1 s nejnovější aktualizace. Servery musí nacházet ve stejné síti jako konfigurační server (nebo samostatný procesový server).<br/><br/> Doporučujeme, abyste server vCenter pro správu hostitele, kde běží 6.0 nebo 5.5 s nejnovějšími aktualizacemi. Při nasazení verze 6.0 jsou podporovány pouze funkce, které jsou k dispozici v 5.5.|
+|**Na místní servery VMware** | Jeden nebo více VMware vSphere serverů, systémem 6.5,6.0, 5.5 s nejnovějšími aktualizacemi. Servery musí nacházet ve stejné síti jako konfigurační server (nebo samostatný procesový server).<br/><br/> Doporučujeme, abyste server vCenter pro správu hostitele, kde běží 6.5,6.0 nebo 5.5 s nejnovějšími aktualizacemi. Při nasazení verze 6.0 jsou podporovány pouze funkce, které jsou k dispozici v 5.5.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Příprava účtu pro automatické zjišťování
 Site Recovery potřebuje přístup k VMware pro procesový server se automaticky zjistit virtuální počítače a pro převzetí služeb při selhání a navrácení služeb po obnovení virtuálních počítačů.

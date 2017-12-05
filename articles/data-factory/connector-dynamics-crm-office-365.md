@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopírování dat z/do Dynamics 365 / Dynamics CRM pomocí Azure Data Factory
 
@@ -30,14 +30,20 @@ Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory
 
 Můžete zkopírovat data z Dynamics 365 / Dynamics CRM do úložiště dat žádné podporované podřízený nebo zkopírování dat z jakékoli úložiště podporované zdroje dat do Dynamics 365 / Dynamics CRM. Seznam úložišť dat jako zdroje nebo jímky nepodporuje aktivitě kopírování najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats) tabulky.
 
-Konkrétně tento Dynamics konektor podporuje následující verze Dynamics a typy ověřování:
+Tento konektor Dynamics podporuje následující verze Dynamics a typy ověřování (*IFD je zkratka pro internetové nasazení*):
 
 | Dynamics verze | Typy ověřování | Ukázky propojené služby |
 |:--- |:--- |:--- |
 | Dynamics 365 online <br> Dynamics CRM online | Office 365 | [Dynamics Online + ověřování Office 365](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 místně s IFD <br> Dynamics CRM 2016 místně s IFD <br> Dynamics CRM 2015 místně s IFD | IFD | [Dynamics místně s IFD + IFD ověřování](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD je zkratka pro internetové nasazení.*
+Dynamics 365 konkrétně následující typy aplikací jsou podporované:
+
+- Dynamics 365 pro prodej
+- Dynamics 365 zákaznický servis
+- Dynamics 365 služby pole
+- Dynamics 365 projektu služby Automation
+- Dynamics 365 pro Marketing
 
 > [!NOTE]
 > K používání konektoru Dynamics ukládat heslo v Azure Key Vault a nechat vyžádání aktivitu kopírování ADF odtud při kopírování dat. Zjistit, jak nakonfigurovat v [propojené vlastnosti služby](#linked-service-properties) části.

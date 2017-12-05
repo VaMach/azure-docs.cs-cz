@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
-ms.openlocfilehash: 1d289c09465cb8d5e4bfa569441dffcbf562b3bf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: b67fdfc82bbc132772186e3500079cfcfdafe02b
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Odstranit bránu virtuální sítě pomocí portálu
 
@@ -28,11 +28,15 @@ ms.lasthandoff: 11/17/2017
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (Classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
-Existuje několik způsobů, které můžete provést, pokud chcete odstranit bránu virtuální sítě pro konfiguraci brány VPN.
+Tento článek obsahuje pokyny k odstraňování Azure VPN Gateway nasazení pomocí modelu nasazení Resource Manager. Existuje několik způsobů, které můžete provést, pokud chcete odstranit bránu virtuální sítě pro konfiguraci brány VPN.
 
 - Pokud chcete odstranit vše a začít od začátku, jako v případě testovacím prostředí, můžete odstranit skupinu prostředků. Pokud odstraníte skupinu prostředků, odstraní všechny prostředky ve skupině. Toto je metoda se doporučuje jenom Pokud nechcete, aby zachovat prostředky ve skupině prostředků. Nelze odstranit selektivně pouze několik prostředků pomocí tohoto přístupu.
 
 - Pokud chcete zachovat některé prostředky ve vaší skupině prostředků, odstraňuje se Brána virtuální sítě je něco víc složité. Než budete moct odstranit bránu virtuální sítě, musíte nejprve odstranit všechny prostředky, které jsou závislé na bráně. Kroky, které budete postupovat podle závisí na typu připojení, které jste vytvořili a závislé prostředky pro každé připojení.
+
+> [!IMPORTANT]
+> Následující pokyny popisují postup odstranění brány Azure VPN se nasazuje pomocí modelu nasazení Resource Manager. Pokud chcete odstranit bránu VPN se nasazuje pomocí modelu nasazení classic, použijte prostředí Azure PowerShell popsaný [zde](vpn-gateway-delete-vnet-gateway-classic-powershell.md).
+
 
 ## <a name="delete-a-vpn-gateway"></a>Odstranění brány VPN
 

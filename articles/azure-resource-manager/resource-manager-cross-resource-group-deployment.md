@@ -1,6 +1,6 @@
 ---
-title: "Nasazení prostředků Azure do několika skupin prostředků | Microsoft Docs"
-description: "Ukazuje, jak mít více než jedné skupiny prostředků Azure během nasazení."
+title: "Nasazení prostředků Azure do několika skupin předplatného a prostředků | Microsoft Docs"
+description: "Ukazuje, jak mít více než jeden Azure předplatném nebo skupině prostředků během nasazení."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,43 +11,58 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
+ms.date: 12/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 763f46b9b5be7edf06ee0604bfc51a2482405b60
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="deploy-azure-resources-to-more-than-one-resource-group"></a>Nasadit Azure prostředky do více než jedné skupiny prostředků
+# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Nasazení prostředků Azure k více než jedno předplatné nebo skupinu prostředků
 
-Zpravidla nasazujete, všechny prostředky ve vaší šablony jedna skupina prostředků. Existují však scénáře, ve které chcete nasadit sadu prostředků společně, ale je umístit do jiné skupiny prostředků. Můžete například nasazení zálohování virtuálního počítače pro Azure Site Recovery na skupinu samostatné prostředků a umístění. Resource Manager umožňuje použití vnořených šablon pro různé skupiny prostředků než použití v šabloně nadřazené skupiny prostředků.
+Zpravidla nasazujete, všechny prostředky ve vaší šablony jedna skupina prostředků. Existují však scénáře, ve které chcete nasadit sadu prostředků společně ale umístěte je v různých skupinách prostředků nebo předplatných. Můžete například nasazení zálohování virtuálního počítače pro Azure Site Recovery na skupinu samostatné prostředků a umístění. Resource Manager umožňuje použití vnořených šablon cíl různých předplatných a skupin prostředků než předplatného a použití v šabloně nadřazené skupiny prostředků.
 
 Skupina prostředků je kontejner životního cyklu pro aplikace a jeho kolekce prostředků. Vytvořte skupinu prostředků mimo šablonu a zadejte skupinu prostředků pro během nasazení. Úvod do skupiny prostředků, najdete v části [přehled Azure Resource Manageru](resource-group-overview.md).
 
-## <a name="example-template"></a>Příklad šablony
+## <a name="specify-a-subscription-and-resource-group"></a>Zadejte skupinu předplatného a prostředků
 
-Pokud chcete zacílit na různé zdroje, musíte použít šablonu vnořené nebo propojené během nasazení. `Microsoft.Resources/deployments` Nabízí typ prostředku `resourceGroup` parametr, který umožňuje určit jinou skupinu prostředků pro vnořené nasazení. Všechny skupiny prostředků musí existovat před spuštěním nasazení. Následující příklad nasadí dva účty úložiště – jeden ve skupině prostředků, které se zadávají během nasazení a po jednom v skupinu prostředků s názvem `crossResourceGroupDeployment`:
+Pokud chcete zacílit na různé zdroje, musíte použít šablonu vnořené nebo propojené během nasazení. `Microsoft.Resources/deployments` Typ prostředku poskytuje parametry pro `subscriptionId` a `resourceGroup`. Tyto vlastnosti umožňují zadat jiné předplatné a prostředek skupiny pro vnořené nasazení. Všechny skupiny prostředků musí existovat před spuštěním nasazení. Pokud nezadáte skupině ID nebo prostředků předplatného, předplatné a skupina prostředků z nadřazené šablony se používá.
+
+Následující příklad nasadí dva účty úložiště – jeden ve skupině prostředků, které se zadávají během nasazení, a v zadat jeden ve skupině prostředků `secondResourceGroup` parametr:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "StorageAccountName1": {
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        },
+        "secondResourceGroup": {
             "type": "string"
         },
-        "StorageAccountName2": {
-            "type": "string"
+        "secondSubscriptionID": {
+            "type": "string",
+            "defaultValue": ""
+        },
+        "secondStorageLocation": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
         }
     },
-    "variables": {},
+    "variables": {
+        "firstStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
+        "secondStorageName": "[concat(parameters('storagePrefix'), uniqueString(parameters('secondSubscriptionID'), parameters('secondResourceGroup')))]"
+    },
     "resources": [
         {
             "apiVersion": "2017-05-10",
             "name": "nestedTemplate",
             "type": "Microsoft.Resources/deployments",
-            "resourceGroup": "crossResourceGroupDeployment",
+            "resourceGroup": "[parameters('secondResourceGroup')]",
+            "subscriptionId": "[parameters('secondSubscriptionID')]",
             "properties": {
                 "mode": "Incremental",
                 "template": {
@@ -58,11 +73,14 @@ Pokud chcete zacílit na různé zdroje, musíte použít šablonu vnořené neb
                     "resources": [
                         {
                             "type": "Microsoft.Storage/storageAccounts",
-                            "name": "[parameters('StorageAccountName2')]",
-                            "apiVersion": "2015-06-15",
-                            "location": "West US",
+                            "name": "[variables('secondStorageName')]",
+                            "apiVersion": "2017-06-01",
+                            "location": "[parameters('secondStorageLocation')]",
+                            "sku":{
+                                "name": "Standard_LRS"
+                            },
+                            "kind": "Storage",
                             "properties": {
-                                "accountType": "Standard_LRS"
                             }
                         }
                     ]
@@ -72,54 +90,115 @@ Pokud chcete zacílit na různé zdroje, musíte použít šablonu vnořené neb
         },
         {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('StorageAccountName1')]",
-            "apiVersion": "2015-06-15",
-            "location": "West US",
+            "name": "[variables('firstStorageName')]",
+            "apiVersion": "2017-06-01",
+            "location": "[resourceGroup().location]",
+            "sku":{
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
             "properties": {
-                "accountType": "Standard_LRS"
             }
         }
     ]
 }
 ```
 
-Pokud nastavíte `resourceGroup` název skupiny prostředků, který ještě neexistuje, nasazení se nezdaří. Pokud nezadáte hodnotu `resourceGroup`, správce prostředků používá nadřazené skupiny prostředků.  
+Pokud nastavíte `resourceGroup` název skupiny prostředků, který ještě neexistuje, nasazení se nezdaří.
 
 ## <a name="deploy-the-template"></a>Nasazení šablony
 
-Pokud chcete nasadit šablonu příklad, můžete portálu, prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure. Pro prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure musíte použít verzi z může 2017 nebo novější. Příklady předpokládají, že šablona byla uložena místně jako soubor s názvem **crossrgdeployment.json**.
+Pokud chcete nasadit šablonu příklad, použijte verzi prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure z může 2017 nebo novější. Pro tyto příklady, použijte [křížové předplatné šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) v Githubu.
 
-Pro prostředí PowerShell:
+### <a name="two-resource-groups-in-the-same-subscription"></a>Dvě skupiny prostředků v rámci stejného předplatného
+
+Pro prostředí PowerShell abyste mohli nasadit dva účty úložiště na dvě skupiny prostředků ve stejném předplatném, použijte:
 
 ```powershell
-Login-AzureRmAccount
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
 
-New-AzureRmResourceGroup -Name mainResourceGroup -Location "South Central US"
-New-AzureRmResourceGroup -Name crossResourceGroupDeployment -Location "Central US"
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName mainResourceGroup `
-  -TemplateFile c:\MyTemplates\crossrgdeployment.json
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus
 ```
 
-Pokud používáte Azure CLI:
+Pro rozhraní příkazového řádku Azure Pokud chcete nasadit dva účty úložiště na dvě skupiny prostředků v rámci stejného předplatného, použijte:
 
-```azurecli
-az login
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
 
-az group create --name mainResourceGroup --location "South Central US"
-az group create --name crossResourceGroupDeployment --location "Central US"
+az group create --name $firstRG --location southcentralus
+az group create --name $secondRG --location eastus
 az group deployment create \
-    --name ExampleDeployment \
-    --resource-group mainResourceGroup \
-    --template-file crossrgdeployment.json
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
 Po dokončení nasazení uvidíte dvě skupiny prostředků. Každé skupině prostředků obsahuje účet úložiště.
 
-## <a name="use-resourcegroup-function"></a>Pomocí funkce resourceGroup()
+### <a name="two-resource-groups-in-different-subscriptions"></a>Dvě skupiny prostředků v různých předplatných
 
-Pro různé nasazení skupiny prostředků, [resouceGroup() funkce](resource-group-template-functions-resource.md#resourcegroup) vyřeší různě v závislosti na tom, jak je zadat vnořené šablony. 
+Pro prostředí PowerShell Chcete-li nasadit dva účty úložiště pro obě předplatná, použijte:
 
-Pokud vložit jednu šablonu v rámci jiné šablony resouceGroup() v šabloně vnořené přeloží do nadřazené skupiny prostředků. Šablonu embedded používá následující formát:
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+$firstSub = "<first-subscription-id>"
+$secondSub = "<second-subscription-id>"
+
+Select-AzureRmSubscription -Subscription $secondSub
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+Select-AzureRmSubscription -Subscription $firstSub
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus `
+  -secondSubscriptionID $secondSub
+```
+
+Pokud používáte Azure CLI nasadit dva účty úložiště pro obě předplatná, použijte:
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+firstSub="<first-subscription-id>"
+secondSub="<second-subscription-id>"
+
+az account set --subscription $secondSub
+az group create --name $secondRG --location eastus
+
+az account set --subscription $firstSub
+az group create --name $firstRG --location southcentralus
+
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
+```
+
+## <a name="use-the-resourcegroup-function"></a>Použijte funkci resourceGroup()
+
+Pro různé nasazení skupiny prostředků, [resourceGroup() funkce](resource-group-template-functions-resource.md#resourcegroup) vyřeší různě v závislosti na tom, jak je zadat vnořené šablony. 
+
+Pokud vložit jednu šablonu v rámci jiné šablony resourceGroup() v šabloně vnořené přeloží do nadřazené skupiny prostředků. Šablonu embedded používá následující formát:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -135,7 +214,7 @@ Pokud vložit jednu šablonu v rámci jiné šablony resouceGroup() v šabloně 
 }
 ```
 
-Pokud jste odkaz na šablonu samostatné, resouceGroup() v šabloně propojené přeloží na skupině vnořeného prostředku. Propojené šablona používá následující formát:
+Pokud jste odkaz na šablonu samostatné, resourceGroup() v šabloně propojené přeloží na skupině vnořeného prostředku. Propojené šablona používá následující formát:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -149,6 +228,33 @@ Pokud jste odkaz na šablonu samostatné, resouceGroup() v šabloně propojené 
         resourceGroup() in linked template refers to linked resource group
     }
 }
+```
+
+K testování různé způsoby `resourceGroup()` vyřeší, nasazení [příklad šablony](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) která vrací objekt skupiny prostředků pro nadřazený prvek šablony, šablony vložené a propojené šablony. Nadřízené a vložené šablonu, kterou obě přeložit na stejnou skupinu prostředků. Přeloží propojené šablony do skupiny propojeného prostředku.
+
+Pokud používáte PowerShell, použijte:
+
+```powershell
+New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
+New-AzureRmResourceGroup -Name inlineGroup -Location southcentralus
+New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName parentGroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
+```
+
+Pokud používáte Azure CLI, použijte:
+
+```azurecli-interactive
+az group create --name parentGroup --location southcentralus
+az group create --name inlineGroup --location southcentralus
+az group create --name linkedGroup --location southcentralus
+
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group parentGroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
 ```
 
 ## <a name="next-steps"></a>Další kroky
