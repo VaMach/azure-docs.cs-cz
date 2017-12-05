@@ -247,6 +247,8 @@
       items:
         - name: Žádná data pro .NET
           href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: Ladicí program snímků
+          href: app-insights-troubleshoot-snapshot-debugger.md
         - name: Analýza
           href: app-insights-analytics-troubleshooting.md
         - name: Java

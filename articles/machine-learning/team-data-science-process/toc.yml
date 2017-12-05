@@ -29,14 +29,18 @@
       href: project-ic-tasks.md
 - name: Struktura projektu
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Plánování a spuštění projektu
+- name: Plánování projektu
+  href: team-data-science-process-project-templates.md
+- name: Spuštění projektu
   items:
-    - name: Plánování projektu
-      href: team-data-science-process-project-templates.md
-    - name: Spuštění projektu
-      items:
-        - name: Projekty datových věd
-          href: project-execution.md
+    - name: Agilní vývoj
+      href: agile-development.md
+    - name: Kódování založené na spolupráci s využitím Gitu
+      href: collaborative-coding-with-git.md
+    - name: Spuštění úloh datových věd
+      href: execute-data-science-tasks.md
+    - name: Sledování průběhu
+      href: track-progress.md
 - name: Příklady
   href: walkthroughs.md
   items:
@@ -52,12 +56,12 @@
     - name: Spark s PySparkem a Scalou
       href: walkthroughs-spark.md
       items:
-        - name: Zkoumání dat
+        - name: Zkoumání a modelování dat
           href: spark-data-exploration-modeling.md
+        - name: Pokročilé zkoumání a modelování dat
+          href: spark-advanced-data-exploration-modeling.md
         - name: Modely skóre
           href: spark-model-consumption.md
-        - name: Pokročilé zkoumání dat
-          href: spark-advanced-data-exploration-modeling.md
     - name: Hive s HDInsight Hadoopem
       href: walkthroughs-hdinsight-hadoop.md
     - name: U-SQL s Azure Data Lake
@@ -136,7 +140,8 @@
             - name: Použití AzCopy
               href: move-data-to-azure-blob-using-azcopy.md
             - name: Použití Pythonu
-              href: move-data-to-azure-blob-using-python.md
+              href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+              maintainContext: true
             - name: Použití SSIS
               href: move-data-to-azure-blob-using-ssis.md
             - name: Přesun do virtuálního počítače
@@ -211,14 +216,8 @@
             - name: Tahák s algoritmy
               href: ../studio/algorithm-cheat-sheet.md
               maintainContext: true
-    - name: Modely nasazení
-      items:
-        - name: S využitím webové služby
-          href: ../studio/publish-a-machine-learning-web-service.md
-          maintainContext: true
-        - name: Využívání webové služby
-          href: ../studio/consume-web-services.md
-          maintainContext: true
+    - name: Nasazení modelů v produkčním prostředí
+      href: deploy-models-in-production.md
 - name: Související
   items:
     - name: Sada Microsoft Cognitive Toolkit – CNTK

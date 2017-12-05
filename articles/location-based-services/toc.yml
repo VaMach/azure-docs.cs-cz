@@ -29,6 +29,8 @@
       href: how-to-manage-account-keys.md
     - name: Jak používat mapový ovládací prvek
       href: how-to-use-map-control.md
+    - name: Postup při hledání adresy
+      href: how-to-search-for-address.md
 - name: Referenční informace
   items:
     - name: Centrum pro vývojáře Azure IoT

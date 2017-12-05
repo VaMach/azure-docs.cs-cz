@@ -31,6 +31,8 @@
 ### [Kognitivní rozšíření U-SQL](data-lake-analytics-u-sql-cognitive.md)
 ### [Analýza webových protokolů](data-lake-analytics-analyze-weblogs.md)
 ### [Vlastní kód U-SQL pro Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+### [U-SQL pro Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Export databáze U-SQL](data-lake-analytics-data-lake-tools-export-database.md)
 
 ## Ladění programů U-SQL
 ### [Monitorování úloh a odstraňování potíží](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

@@ -70,9 +70,10 @@
 ### [Použití sady SDK pro zařízení IoT pro C](iot-hub-device-sdk-c-intro.md)
 #### [Použití IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Použití serializátoru](iot-hub-device-sdk-c-serializer.md)
-### Zpracování zpráv ze zařízení do cloudu
+### Směrování zpráv
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
+#### [Node.js](iot-hub-node-node-process-d2c.md)
 ### Odesílání zpráv z cloudu do zařízení
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)

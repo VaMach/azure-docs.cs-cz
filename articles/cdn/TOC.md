@@ -21,8 +21,8 @@
 ## Spravovat
 ### [Správa pomocí Azure PowerShellu](cdn-manage-powershell.md)
 ### Konfigurace hodnoty TTL (time-to-live)
-#### [Obsah služeb Web Apps / Cloud Services, ASP.NET nebo IIS](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Obsah služby Storage Blob](cdn-manage-expiration-of-blob-content.md)
+#### [Webový obsah Azure](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 ### [Omezení přístupu podle země](cdn-restrict-access-by-country.md)
 ### [Vylepšení výkonu prostřednictvím komprimace souborů](cdn-improve-performance.md)
 ### Ukládání obsahu do mezipaměti podle řetězce dotazu

@@ -7,8 +7,10 @@
 - name: Šablony Rychlý start
   expanded: true
   items:
-    - name: Vytvoření clusteru AKS
+    - name: Vytvoření clusteru AKS – rozhraní příkazového řádku
       href: kubernetes-walkthrough.md
+    - name: Vytvoření clusteru AKS – portál
+      href: kubernetes-walkthrough-portal.md
 - name: Kurzy
   items:
     - name: 1. Příprava aplikace pro AKS
