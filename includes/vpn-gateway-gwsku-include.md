@@ -22,7 +22,7 @@ Nové SKU brány zjednodušují sady funkcí, které se na branách nabízejí:
 
 | **SKU**| **Funkce**|
 | ---    | ---         |
-|**Basic**   | **Síť VPN založená na směrování:** 10 tunelů s P2S; bez ověřování RADIUS; bez IKEv2<br>**Síť VPN založená na zásadách (IKEv1):** 1 tunel, bez P2S|
+|**Basic**   | **Sítě VPN založené na trasách**: 10 tunelů s P2S; bez ověřování RADIUS pro P2S; žádné IKEv2 pro P2S<br>**Síť VPN založená na zásadách (IKEv1):** 1 tunel, bez P2S|
 | **VpnGw1, VpnGw2 a VpnGw3** | **Síť VPN založená na směrování:** až 30 tunelů (*), P2S, BGP, aktivní-aktivní, vlastní zásady IPsec/IKE, koexistence ExpressRoute/VPN |
 |        |             |
 

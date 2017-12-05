@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
 ms.author: v-dabosl
-ms.openlocfilehash: 01168e050f5feec1fa2eafc57b76f2e18c921b93
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 753d6abcdd063d5c092b0c90770396d176bc52e8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-log-a-security-event-support-ticket"></a>Protokolování lístek podpory událostí zabezpečení
+# <a name="how-to-log-a-security-event-support-ticket"></a>Postup protokolu lístek podpory událostí zabezpečení
 
-1. Přejděte na [portál vydavatele](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) a přihlaste se pomocí přihlašovacích údajů Microsoft.
+1. Přejděte na [technickou podporu vydavatele](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) a přihlaste se pomocí přihlašovacích údajů společnosti Microsoft.
 2. Vyberte jako typ problému "Událostí zabezpečení" a zvolte mezi kategorie "Incidentu zabezpečení" a "Chyba zabezpečení".
 
     ![Typ události a definice][1]
 
-3. Jakmile vyberete typ problému a kategorie, klikněte na tlačítko '**žádost o spuštění**' tlačítko.
+3. Jakmile vyberete typ problému a kategorie, klikněte na tlačítko '**žádost o spuštění**' tlačítko. Zadejte následující informace a pomoci tak lépe porozumět problému.
 
-    i. Co je problém nebo ohrožení zabezpečení.
+    i. Co je problém nebo ohrožení zabezpečení?
 
     II. Pro chyby Zadejte prosím CVE (mitre.org) nebo vyplněný out CVSS3 v3 kalkulačky (https://www.first.org/cvss/calculator/3.0).
 

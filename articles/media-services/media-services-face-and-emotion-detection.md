@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: a55a0c2ef8c1c065b39fce9dc6ef2f806b60dfdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89a2e590d7ae80540ac9f4d76be6f5f50049bdd6
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Zjistit vzhled a emoce s Azure Media Analytics
 ## <a name="overview"></a>Přehled
@@ -74,7 +74,7 @@ Při vytváření úlohy s **Azure Media vzhled detektor**, je nutné zadat jedn
 #### <a name="attribute-descriptions"></a>Atribut popisy
 | Název atributu | Popis |
 | --- | --- |
-| Režim |Rychlé - se rychlé zpracování rychlostí, ale méně přesný (výchozí).|
+| Mode |Rychlé - se rychlé zpracování rychlostí, ale méně přesný (výchozí).|
 
 ### <a name="json-output"></a>Výstup JSON
 Následující příklad výstupu JSON byl zkrácen.
@@ -146,7 +146,7 @@ Při vytváření úlohy s **Azure Media vzhled detektor**, je nutné zadat jedn
 #### <a name="attribute-descriptions"></a>Atribut popisy
 | Název atributu | Popis |
 | --- | --- |
-| Režim |Řezy: Pouze čelí detekce.<br/>PerFaceEmotion: Vrátí rozpoznávání emocí úrovně nezávisle pro každý řez zjišťování.<br/>AggregateEmotion: Návratový průměrná rozpoznávání emocí úrovně hodnoty pro všechny tyto řezy v rámečku. |
+| Mode |Řezy: Pouze čelí detekce.<br/>PerFaceEmotion: Vrátí rozpoznávání emocí úrovně nezávisle pro každý řez zjišťování.<br/>AggregateEmotion: Návratový průměrná rozpoznávání emocí úrovně hodnoty pro všechny tyto řezy v rámečku. |
 | AggregateEmotionWindowMs |Použijte, pokud je vybrána AggregateEmotion režimu. Určuje délku video, na které se používají k vytvoření každý agregační výsledek v milisekundách. |
 | AggregateEmotionIntervalMs |Použijte, pokud je vybrána AggregateEmotion režimu. Určuje, jak často k vytvoření agregačních výsledků. |
 
@@ -333,6 +333,13 @@ Program zobrazí následující postup:
 #### <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
 
 Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o připojení, jak je popsáno v tématu [Vývoj pro Media Services v .NET](media-services-dotnet-how-to-use.md). 
+
+Ukázka fungovala postupujte podle následující dva kroky:
+
+1. Použijte verzi 4.1.0 **WindowsAzure.MediaServices.Extensions** (kvůli problémům s kompatibilitou s závislé balíčky). 
+2. Použijte verzi 3.16.1 **Microsoft.IdentityModel.Clients.ActiveDirectory** (z důvodu známého problému v novějších verzích).
+
+Tyto požadavky jsou platná od 24 listopadu 2017.
 
 #### <a name="example"></a>Příklad
 

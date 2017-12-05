@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>Zásady pro API Management napříč doménami
 Toto téma obsahuje odkaz pro následující zásady služby API Management. Informace o přidávání a konfiguraci zásad najdete v tématu [zásady ve službě API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,9 +26,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 ##  <a name="CrossDomainPolicies"></a>Různé zásady domény  
   
 -   [Povolit volání mezi doménami](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -zpřístupní rozhraní API z Adobe Flash a Microsoft Silverlight založené na prohlížeči klientů.  
-  
 -   [CORS](api-management-cross-domain-policies.md#CORS) – přidává podporu (CORS), aby operace nebo rozhraní API umožňující volání napříč doménami založené na prohlížeči klientů pro sdílení prostředků různého původu.  
-  
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) -přidá JSON s podporou odsazení (JSONP) operace nebo rozhraní API, chcete-li povolit volání mezi doménami z klientů JavaScript založené na prohlížeči.  
   
 ##  <a name="AllowCrossDomainCalls"></a>Povolit volání mezi doménami  
@@ -63,7 +61,6 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** příchozí  
-  
 -   **Zásady obory:** globální  
   
 ##  <a name="CORS"></a>CORS  
@@ -147,7 +144,6 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** příchozí  
-  
 -   **Zásady obory:** rozhraní API, operace  
   
 ##  <a name="JSONP"></a>JSONP  
@@ -185,8 +181,13 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** odchozí  
-  
 -   **Zásady obory:** globální, produktu, rozhraní API, operace  
   
 ## <a name="next-steps"></a>Další kroky
-Práce se zásadami pro další informace najdete v tématu [zásady ve službě API Management](api-management-howto-policies.md).  
+
+Práce se zásadami pro další informace najdete v tématu:
+
++ [Zásady ve službě API Management](api-management-howto-policies.md)
++ [Transformuje rozhraní API](transform-api.md)
++ [Referenční informace o zásadách](api-management-policy-reference.md) pro úplný seznam příkazy zásad a jejich nastavení
++ [Ukázky zásad](policy-samples.md)   

@@ -1,5 +1,5 @@
 ---
-title: "Náhled vypršení platnosti skupiny Office 365 ve službě Azure Active Directory | Microsoft Docs"
+title: "Vypršení platnosti pro Office 365 skupin v Azure Active Directory | Microsoft Docs"
 description: "Jak nastavit vypršení platnosti pro skupiny Office 365 ve službě Azure Active Directory (preview)"
 services: active-directory
 documentationcenter: 
@@ -12,29 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2dd56bd34e5b7845298fab1f36e231113a2e28e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-office-365-groups-expiration-preview"></a>Nakonfigurovat vypršení platnosti skupiny Office 365 (preview)
+# <a name="configure-expiration-for-office-365-groups-preview"></a>Nakonfigurovat vypršení platnosti pro skupiny Office 365 (preview)
 
-Teď můžete spravovat životní cyklus skupiny Office 365 nastavením vypršení platnosti pro všechny skupiny Office 365, které jste vybrali. Po této vypršení platnosti je nastaveno, vlastníků těchto skupin vyzváni k obnovení jejich skupiny, pokud je stále nutné jejich skupiny. Odstraní se všechny skupiny Office 365, který není obnoven. Všechny skupiny Office 365, který byl odstraněn lze obnovit do 30 dní vlastníků skupiny nebo správce.  
-
+Teď můžete spravovat životní cyklus skupiny Office 365 nastavením vypršení platnosti funkce pro ně. V Azure Active Directory (Azure AD) můžete nastavit dobu platnosti pro pouze skupiny Office 365. Jakmile jednou nastavíte skupinu vyprší:
+-   Vlastníci skupiny jsou upozorněni obnovit skupinu jako doba vypršení platnosti přiblíží
+-   Je-li odstranit všechny skupiny, který není obnoven
+-   Všechny skupiny Office 365, který je odstraněn může být obnovena do 30 dní, podle vlastníků skupiny nebo správce
 
 > [!NOTE]
-> Můžete nastavit dobu platnosti pro pouze skupiny Office 365.
->
-> Nastavení vypršení platnosti pro skupiny O365 vyžaduje, aby se k přiřazenou licenci Azure AD Premium
->   - Správce, který konfiguruje nastavení vypršení platnosti pro klienta
->   - Všichni členové skupiny vybrané pro toto nastavení
+> Nastavení vypršení platnosti pro skupiny Office 365 vyžaduje licenci Azure AD Premium nebo Azure AD Basic EDU licence pro všechny členy skupiny, u které se použijí nastavení vypršení platnosti.
+> 
+> Pro Azure AD Basic EDU licenci zákazníků: ke konfiguraci těchto zásad poprvé, použijte rutiny Powershellu pro Azure Active Directory. Potom můžete aktualizovat nastavení vypršení platnosti, pomocí účtu, který je globální správce nebo správce účtu uživatele v klientovi služby Azure AD PowerShell nebo portálu Azure AD.
 
-## <a name="set-office-365-groups-expiration"></a>Nastavit dobu platnosti skupiny Office 365
+Informace o tom, jak stáhnout a nainstalovat rutiny Azure AD PowerShell najdete v tématu [Azure Active Directory PowerShell pro grafu – veřejné verze Preview 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+
+## <a name="set-group-expiration"></a>Sada skupiny vypršení platnosti
 
 1. Otevřete [centra pro správu Azure AD](https://aad.portal.azure.com) pomocí účtu, který je globálním správcem v klientovi služby Azure AD.
 
@@ -51,7 +53,6 @@ Teď můžete spravovat životní cyklus skupiny Office 365 nastavením vypršen
   * Vyberte skupiny Office 365, které vyprší. Můžete povolit vypršení platnosti pro **všechny** skupiny Office 365, můžete vybrat z skupiny Office 365, nebo můžete vybrat **žádné** zakázat vypršení platnosti pro všechny skupiny.
   * Uložit nastavení, když jste hotovi výběrem **Uložit**.
 
-Pokyny o tom, jak stáhnout a nainstalovat modul Microsoft PowerShell nakonfigurovat vypršení platnosti pro skupiny Office 365 pomocí prostředí PowerShell najdete v tématu [Azure modulu Active Directory V2 PowerShell - veřejné verze Preview 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 E-mailová oznámení, jako je tato jsou odesílány vlastníků skupiny Office 365 30 dní, 15 dní a 1 den před vypršením platnosti skupiny.
 
@@ -68,7 +69,8 @@ Skupinu lze obnovit tak, že vyberete **obnovení skupiny** nebo pomocí rutin p
 Pokud na skupinu, kterou jste obnovení obsahuje dokumenty, weby Sharepointu nebo jiné trvalé objekty, může trvat až 24 hodin plně obnovit skupiny a její obsah.
 
 > [!NOTE]
-> * Pokud nasazujete nastavení vypršení platnosti, může být některé skupiny, které jsou starší než období platnosti. Tyto skupiny nebudou odstraněny okamžitě, ale jsou nastaveny na 30 dní do vypršení platnosti. První e-mail s oznámením obnovení odeslání během dne. Například skupiny A byl vytvořen před 400 dny a interval vypršení platnosti je nastaven na 180 dní. Při aplikování nastavení vypršení platnosti, skupiny A má 30 dní, než je odstraní, pokud vlastník obnovuje ho.
+> * Při prvním nastavení vypršení platnosti všech skupin, které jsou starší než interval vypršení platnosti jsou nastaveny na 30 dní do vypršení platnosti. První e-mail s oznámením obnovení odeslání během dne. 
+>   Například skupiny A byl vytvořen před 400 dny a interval vypršení platnosti je nastaven na 180 dní. Při aplikování nastavení vypršení platnosti, skupiny A má 30 dní, než je odstraní, pokud vlastník obnovuje ho.
 > * Když dynamická skupina je odstranit a obnovit, je považovat za novou skupinu a znovu vyplněna podle pravidla. Tento proces může trvat až 24 hodin.
 
 ## <a name="next-steps"></a>Další kroky

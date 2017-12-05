@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proces Team dat. vědecké účely v akci: pomocí SQL serveru
 V tomto kurzu vás provede procesem vytváření a nasazování modelu strojového učení pomocí systému SQL Server a veřejně dostupné datové sady – [NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/) datovou sadu. Postup dodržovat standardní data vědecké účely pracovního postupu: ingestování a zkoumat data, pracovníka funkce pro usnadnění učení se pak sestavení a nasazení modelu.
@@ -581,7 +581,6 @@ V tomto cvičení jsme již prozkoumali a analýzou dat v systému SQL Server a 
 3. Zadejte název DNS databáze v **název databázového serveru** pole. Formát:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Zadejte **název databáze** v odpovídajícím poli.
 5. Zadejte **uživatelské jméno SQL** v ** aqccount uživatelského jména a hesla **heslo uživatelského účtu serveru**.
-6. Zkontrolujte **přijmout některý z certifikátů serveru** možnost.
 7. V **databázový dotaz** upravit textová oblast, vložte dotaz, který extrahuje pole potřeby databáze (včetně všech počítané pole, jako je popisků) a nižší ukázky data na požadovanou velikost.
 
 Příkladem binární klasifikace experimentů, čtení dat přímo z databáze serveru SQL je na obrázku níže. Podobně jako experimenty konstruovat pro více třídami klasifikaci a regresní problémy.

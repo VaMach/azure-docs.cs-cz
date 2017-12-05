@@ -6,51 +6,30 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 537e5caf-708b-430e-a83f-72b70af28aa9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: ef4cb447430a613dd519d96dd7732a9349ebba39
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 5c8e0a317126ae651bc93b7a00c3742e12d975fc
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="policies-in-azure-api-management"></a>Zásady ve službě Azure API Management
-Ve službě Azure API Management zásady jsou vynikající funkcí systému, která vydavatelům umožňuje měnit chování rozhraní API prostřednictvím konfigurace. Zásady představují kolekci příkazů, které jsou prováděny postupně v požadavku nebo odezvy z rozhraní API. Oblíbené příkazy patří převod formátu XML do formátu JSON a četnosti omezení omezit množství příchozích volání od vývojáře. Jsou dostupné ihned mnoho další zásady.
 
-Najdete v článku [referenční informace o zásadách] [ Policy Reference] pro úplný seznam příkazy zásad a jejich nastavení.
+V Azure API Management (APIM), zásady jsou vynikající funkcí systému, která vydavatelům umožňuje měnit chování rozhraní API prostřednictvím konfigurace. Zásady představují kolekci příkazů, které jsou prováděny postupně v požadavku nebo odezvy z rozhraní API. Oblíbené příkazy patří převod formátu XML do formátu JSON a četnosti omezení omezit množství příchozích volání od vývojáře. Jsou dostupné ihned mnoho další zásady.
 
 Jsou zásady použity uvnitř bránu, která je umístěna mezi příjemce rozhraní API a spravované rozhraní API. Brána přijme všechny požadavky a obvykle předává je do základního rozhraní API v nezměněném stavu. Zásady ale můžete použít změny požadavek příchozí i odchozí odpovědi.
 
 Výrazy zásad můžete použít jako hodnoty atributů nebo textové hodnoty v libovolných zásadách API Management (pokud zásady neurčí jinak). Některé zásady, jako [řízení toku] [ Control flow] a [nastavená proměnná] [ Set variable] jsou založené na výrazech zásad. Další informace najdete v tématu [pokročilé zásady] [ Advanced policies] a [výrazy zásad][Policy expressions].
 
-## <a name="scopes"></a>Postup konfigurace zásad
-Zásady je možné nakonfigurovat globálně nebo na rozsah [produktu][Product], [rozhraní API] [ API] nebo [operace][Operation]. Konfigurace zásad, přejděte do editoru zásad na portálu vydavatele.
+## <a name="sections"></a>Principy zásad konfigurace
 
-![Zásady nabídky][policies-menu]
-
-Editor zásad se skládá z tři hlavní části: obor zásady (nahoře), definice zásady, kde jsou zásady upravovat (vlevo) a příkazy seznamu (vpravo):
-
-![Editor zásad][policies-editor]
-
-Chcete-li začít, konfigurace zásad, musíte nejdřív vybrat rozsah, kdy mají zásady platit. Na tomto snímku obrazovky **Starter** produktu je vybrána. Všimněte si, že odmocnina symbol vedle názvu zásady označuje, že je zásada na této úrovni již použita.
-
-![Rozsah][policies-scope]
-
-Vzhledem k tomu, že již byla použita zásada, nastavení se zobrazí v definici zobrazení.
-
-![Konfigurace][policies-configure]
-
-Zásady se zobrazí, jen pro čtení na první. Chcete-li upravit definici kliknutím **konfigurovat zásadu** akce.
-
-![Upravit][policies-edit]
-
-Definice zásady je jednoduchý dokument XML, který popisuje posloupnost příchozí a odchozí příkazy. Soubor XML můžete upravovat přímo v okně definice. Seznam příkazů je uvedený vpravo a příkazy pro aktuální obor jsou povolené a zvýrazní; jak je předvedeno pomocí **omezení četnosti volání** příkaz v výše uvedený snímek obrazovky.
+Definice zásady je jednoduchý dokument XML, který popisuje posloupnost příchozí a odchozí příkazy. Soubor XML můžete upravovat přímo v okně definice. Seznam příkazů jsou poskytovány doprava a jsou povolené a zvýrazní příkazů pro aktuální obor.
 
 Kliknutím na povoleno příkaz přidá příslušný kód XML v umístění kurzoru v definici zobrazení. 
 
@@ -59,35 +38,7 @@ Kliknutím na povoleno příkaz přidá příslušný kód XML v umístění kur
 > 
 > 
 
-Úplný seznam příkazy zásad a jejich nastavení jsou k dispozici v [referenční informace o zásadách][Policy Reference].
-
-Například pokud chcete přidat nové prohlášení omezit příchozí požadavky na zadané IP adresy, umístěte kurzor právě do obsah `inbound` – element XML a klikněte na tlačítko **volající omezení IP adres** příkaz.
-
-![Zásady omezení][policies-restrict]
-
-Bude přidáno fragmentu kódu XML do `inbound` element, který poskytuje pokyny o tom, jak nakonfigurovat příkaz.
-
-```xml
-<ip-filter action="allow | forbid">
-    <address>address</address>
-    <address-range from="address" to="address"/>
-</ip-filter>
-```
-
-Omezit příchozí požadavky a přijímat pouze ty z IP adresy 1.2.3.4 upravte soubor XML následujícím způsobem:
-
-```xml
-<ip-filter action="allow">
-    <address>1.2.3.4</address>
-</ip-filter>
-```
-
-![Uložit][policies-save]
-
-Po dokončení konfigurace příkazy pro zásadu, klikněte na tlačítko **Uložit** a změny se rozšíří do rozhraní API správy brány okamžitě.
-
-## <a name="sections"></a>Principy zásad konfigurace
-Zásady je řada příkazů, které jsou spouštěny v pořadí pro požadavek a odpověď. Konfigurace je správně rozdělené do `inbound`, `backend`, `outbound`, a `on-error` částech, jak je znázorněno v následující konfiguraci.
+Konfigurace je rozdělené do `inbound`, `backend`, `outbound`, a `on-error`. Řadu příkazy určené zásadě se spustí v pořadí pro požadavek a odpověď.
 
 ```xml
 <policies>
@@ -109,18 +60,23 @@ Zásady je řada příkazů, které jsou spouštěny v pořadí pro požadavek a
 
 Pokud dojde k chybě během zpracování požadavku, všechny zbývající kroky `inbound`, `backend`, nebo `outbound` oddíly se přeskočí a provádění přejde na příkazy v `on-error` části. Tím, že příkazy zásad v `on-error` části Chyba můžete zkontrolovat pomocí `context.LastError` vlastnost, zkontrolovat a upravit pomocí odpovědi chyba `set-body` zásady a nakonfigurovat, co se stane, když dojde k chybě. Existují kódy chyb pro vestavěné kroky a chyby, které mohou nastat při zpracovávání příkazy zásad. Další informace najdete v tématu [zpracování chyb v zásady služby API Management](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-Vzhledem k tomu, že zásady můžete zadat na různých úrovních (globální, produktu, rozhraní api a operace) konfigurace poskytuje způsob, jak můžete určit pořadí, ve kterém spustit příkazy definice zásady s ohledem na zásady nadřazené. 
+## <a name="scopes"></a>Postup konfigurace zásad
 
-Zásady obory jsou vyhodnocovány v uvedeném pořadí.
+Informace o tom, jak nakonfigurovat zásady najdete v tématu [nastavit nebo upravit zásady](set-edit-policies.md).
 
-1. Globální obor
-2. Rozsah produktu
-3. Rozhraní API oboru
-4. Operace oboru
+## <a name="policy-reference"></a>Referenční informace o zásadách
 
-Příkazy v nich vyhodnoceny podle umístění `base` elementu, pokud je k dispozici. Globální zásady nemá nadřazený zásady a pomocí `<base>` element v ní nemá žádný vliv.
+Najdete v článku [referenční informace o zásadách](api-management-policy-reference.md) pro úplný seznam příkazy zásad a jejich nastavení.
 
-Například pokud máte zásadu na globální úrovni a zásada nakonfigurovaná pro rozhraní API, pak vždy, když se používá toto rozhraní API konkrétní obě zásady se použijí. API Management umožňuje deterministickou řazení příkazy kombinované zásad prostřednictvím base element. 
+## <a name="policy-samples"></a>Ukázky zásad
+
+V tématu [ukázky zásad](policy-samples.md) příklady kódu.
+
+## <a name="examples"></a>Příklady
+
+### <a name="appliy-policies-specified-at-different-scopes"></a>Zásady Appliy zadaný na různých místech
+
+Pokud máte zásadu na globální úrovni a zásada nakonfigurovaná pro rozhraní API, pak vždy, když se používá toto rozhraní API konkrétní obě zásady se použijí. API Management umožňuje deterministickou řazení příkazy kombinované zásad prostřednictvím base element. 
 
 ```xml
 <policies>
@@ -134,18 +90,46 @@ Například pokud máte zásadu na globální úrovni a zásada nakonfigurovaná
 
 V definici zásady příkladu výše `cross-domain` příkaz by provést před všechny vyšší zásady, které by naopak následovat `find-and-replace` zásad. 
 
-Chcete-li zobrazit zásady v aktuálním oboru v editoru zásad, klikněte na tlačítko **přepočítat efektivní zásady pro vybraný obor**.
+### <a name="restrict-incoming-requests"></a>Omezit příchozí požadavky
 
-## <a name="next-steps"></a>Další kroky
-Podívejte se na následující videa na výrazech zásad.
+Chcete-li přidat nové prohlášení omezit příchozí požadavky na zadané IP adresy, umístěte kurzor pouze uvnitř obsah `inbound` – element XML a klikněte na tlačítko **volající omezení IP adres** příkaz.
+
+![Zásady omezení][policies-restrict]
+
+Bude přidáno fragmentu kódu XML do `inbound` element, který poskytuje pokyny o tom, jak nakonfigurovat příkaz.
+
+```xml
+<ip-filter action="allow | forbid">
+    <address>address</address>
+    <address-range from="address" to="address"/>
+</ip-filter>
+```
+
+Omezit příchozí požadavky a přijímat pouze ty z IP adresy 1.2.3.4 upravte soubor XML následujícím způsobem:
+
+```xml
+<ip-filter action="allow">
+    <address>1.2.3.4</address>
+</ip-filter>
+```
+
+## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
 > 
 > 
 
+## <a name="next-steps"></a>Další kroky
+
+Práce se zásadami pro další informace najdete v tématu:
+
++ [Transformuje rozhraní API](transform-api.md)
++ [Referenční informace o zásadách](api-management-policy-reference.md) pro úplný seznam příkazy zásad a jejich nastavení
++ [Ukázky zásad](policy-samples.md)   
+
 [Policy Reference]: api-management-policy-reference.md
 [Product]: api-management-howto-add-products.md
-[API]: api-management-howto-add-products.md#add-apis 
+[API]: api-management-howto-add-products.md
 [Operation]: api-management-howto-add-operations.md
 
 [Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
@@ -153,10 +137,4 @@ Podívejte se na následující videa na výrazech zásad.
 [Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
-[policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
-[policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png
-[policies-scope]: ./media/api-management-howto-policies/api-management-policies-scope.png
-[policies-configure]: ./media/api-management-howto-policies/api-management-policies-configure.png
-[policies-edit]: ./media/api-management-howto-policies/api-management-policies-edit.png
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
-[policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png

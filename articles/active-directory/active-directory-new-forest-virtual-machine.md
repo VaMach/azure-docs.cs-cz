@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalace nové doménové struktury služby Active Directory na virtuální síť Azure
-Toto téma ukazuje postup vytvoření nového prostředí služby Active Directory pro Windows Server v Azure virtuální sítě na virtuálním počítači (VM) na [virtuální síť Azure](../virtual-network/virtual-networks-overview.md). V takovém případě virtuální síť Azure není připojen k místní síti.
+Tento článek ukazuje, jak vytvořit nového prostředí služby Active Directory pro Windows Server na virtuálním počítači (VM) na [virtuální síť Azure](../virtual-network/virtual-networks-overview.md). V takovém případě virtuální síť Azure není připojen k místní síti.
 
-Může být také zájem o tyto související témata:
+Může být také zájem o tyto související články:
 
 * Video, které představuje tyto kroky, najdete v části [instalace nové doménové struktury služby Active Directory na virtuální síť Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * Volitelně můžete [konfigurace VPN typu site-to-site](../vpn-gateway/vpn-gateway-site-to-site-create.md) a pak nainstalovat novou doménovou strukturu nebo rozšířit doménovou strukturu místní virtuální sítě Azure. Tyto pokyny najdete v části [instalaci řadiče domény repliky Active Directory ve virtuální síti Azure](active-directory-install-replica-active-directory-domain-controller.md).
@@ -87,7 +87,7 @@ Po dokončení instalace řadiče domény znovu připojit k virtuálnímu počí
    3. Na **předávání** , klikněte na IP adresu předávání a klikněte na tlačítko **upravit**.  Vyberte IP adresu a klikněte na tlačítko **odstranit**.
    4. Klikněte na tlačítko **OK** zavřete editor a **Ok** zavřete vlastnosti serveru DNS.
 2. Aktualizujte nastavení serveru DNS virtuální sítě.
-   1. Klikněte na tlačítko **virtuální sítě** > dvakrát klikněte na virtuální sítě, které jste vytvořili > **konfigurace** > **servery DNS**, zadejte název a DIP jednoho z virtuálních počítačů používající role řadiče domény a DNS serveru a klikněte na tlačítko **Uložit**.
+   1. Klikněte na tlačítko **virtuální sítě** > dvakrát klikněte na virtuální sítě, které jste vytvořili > **konfigurace** > **servery DNS**, zadejte název a IP adresy jednoho z virtuálních počítačů používající role řadiče domény a DNS serveru a klikněte na tlačítko **Uložit**.
    2. Vyberte virtuální počítač a klikněte na **restartujte** k aktivaci virtuálního počítače ke konfiguraci nastavení překladu DNS s IP adresou nového serveru DNS.
 
 ## <a name="create-vms-for-domain-members"></a>Vytváření virtuálních počítačů pro členy domény

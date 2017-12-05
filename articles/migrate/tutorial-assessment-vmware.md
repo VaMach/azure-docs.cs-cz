@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Zjišťovat a vyhodnocení místní virtuální počítače VMware pro migraci na Azure
 
@@ -37,10 +37,14 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 ## <a name="prerequisites"></a>Požadavky
 
-- **VMware**: budete potřebovat alespoň jeden virtuální počítač VMware umístěný na hostiteli ESXi nebo clusteru spuštěna verze 5.0 nebo vyšší. Server vCenter s verzí 5.5, 6.0 nebo 6.5 musí spravovat hostitele nebo cluster.
-- **účet vCenter**: je třeba účet jen pro čtení s přihlašovacími údaji správce pro vCenter server. Azure migrací používá tento účet k vyhledání virtuálních počítačů.
-- **Oprávnění**: na serveru vCenter server, potřebujete oprávnění k vytvoření virtuálního počítače importováním souboru v. VAJÍČKA formátu. 
-- **Nastavení statistiky**: nastavení statistiky pro vCenter server musí být nastavená na úroveň 3 před zahájením nasazení. Pokud je nižší než úroveň 3 assessment budou fungovat, ale nejsou shromažďovány údaje o výkonu pro úložiště a sítě.
+- **VMware**: virtuálních počítačů, která chcete migrovat se musí spravovat přes vCenter Server běžící verzi 5.5, 6.0 nebo 6.5. Dále je třeba jedna ESXi hostitele spuštěné verze 5.0 nebo vyšší pro nasazení kolekce virtuálních počítačů. 
+ 
+> [!NOTE]
+> Podpora technologie Hyper-V je v našem plán a brzy bude povolena. 
+
+- **účet serveru vCenter**: je třeba účet jen pro čtení pro přístup k systému vCenter Server. Azure migrací používá tento účet k vyhledání virtuálních počítačů na místě.
+- **Oprávnění**: V systému vCenter Server, potřebujete oprávnění k vytvoření virtuálního počítače importováním souboru v. VAJÍČKA formátu. 
+- **Nastavení statistiky**: nastavení statistiky pro vCenter Server musí být nastavená na úroveň 3 před zahájením nasazení. Pokud je nižší než úroveň 3, hodnocení budou fungovat, ale nejsou shromažďovány údaje o výkonu pro úložiště a sítě. Velikost, kterou doporučení v tomto případě bude provedeno založena na údaje o výkonu pro využití procesoru a paměti a konfigurační data pro disk a síťové adaptéry. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
@@ -51,7 +55,7 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
 2. Vyhledejte **Azure migrovat**a vyberte službu (**migrovat Azure (preview)** ve výsledcích hledání. Poté klikněte na **Vytvořit**.
 3. Zadejte název projektu a předplatné Azure pro projekt.
 4. Vytvořte novou skupinu prostředků.
-5. Zadejte oblast, ve kterém vytvořte projekt a pak klikněte na **vytvořit**. Metadata získané z virtuálních počítačů na místě, se uloží v této oblasti. Projekt migrovat Azure můžete vytvořit pouze v oblasti západní centrální USA pro tuto verzi preview. Můžete však vyhodnocení virtuálních počítačů do jiného umístění.
+5. Zadejte oblast, ve kterém vytvořte projekt a pak klikněte na **vytvořit**. Metadata získané z virtuálních počítačů na místě, se uloží v této oblasti. Projekt migrovat Azure můžete vytvořit pouze v oblasti západní centrální USA pro tuto verzi preview. Stále však můžete naplánovat migraci pro všechny cílové umístění Azure. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -93,7 +97,7 @@ Zkontrolujte, zda. Soubor vajíčka se zabezpečení, před nasazením.
 
 ## <a name="create-the-collector-vm"></a>Vytvoření kolekce virtuálních počítačů
 
-Stažený soubor importujte do serveru vCenter server.
+Stažený soubor importujte do systému vCenter Server.
 
 1. V konzole klienta vSphere klikněte na tlačítko **soubor** > **nasazení šablony OVF**.
 
@@ -143,7 +147,7 @@ Zjišťování, že doba závisí na tom, kolik virtuálních počítačů zjiš
 Po zjištění virtuálních počítačů, seskupovat je a vytvořit posouzení. 
 
 1. V projektu **přehled** klikněte na tlačítko **+ vytvořit assessment**.
-2. Klikněte na tlačítko **zobrazit všechny** pro kontrolu vyhodnocení nastavení.
+2. Klikněte na tlačítko **zobrazit všechny** zobrazíte vlastnosti hodnocení.
 3. Vytvořit skupinu a zadejte název skupiny.
 4. Vyberte počítače, které chcete přidat do skupiny.
 5. Klikněte na tlačítko **vytvořit Assessment**, chcete-li vytvořit skupinu a hodnocení.
@@ -168,13 +172,16 @@ Toto zobrazení uvádí stav připravenosti pro každý počítač.
 
 #### <a name="monthly-cost-estimate"></a>Měsíční náklady na odhad
 
-Toto zobrazení uvádí výpočet nákladů pro výpočetní prostředí a úložiště pro každý počítač. Odhadované náklady se počítají pomocí doporučení na základě výkonu velikost na počítač a hodnocení vlastností a jeho disky.
+Toto zobrazení uvádí celkový počet výpočetních a náklady na úložiště spuštěných virtuálních počítačů v Azure společně s podrobnosti pro každý počítač. Odhadované náklady se počítají pomocí doporučení na základě výkonu velikost na počítač a hodnocení vlastností a jeho disky. 
 
-Odhadované měsíční náklady na výpočetních operací a úložiště jsou agregována pro všechny virtuální počítače ve skupině. Kliknutím na každém počítači k podrobnostem podrobnosti. 
+> [!NOTE]
+> Odhad nákladů poskytované migrovat Azure se týká spuštění místní virtuální počítače jako infrastruktury Azure jako virtuální počítače služby (IaaS). Nebere v úvahu žádné platforma jako služba (PaaS) nebo softwaru jako služby (SaaS) náklady. 
+
+Odhadované měsíční náklady na výpočetních operací a úložiště jsou agregována pro všechny virtuální počítače ve skupině. 
 
 ![Hodnocení virtuálního počítače náklady.](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-Můžete přejít na najdete náklady pro konkrétní počítač.
+Můžete přejít na najdete v podrobnostech pro konkrétní počítač.
 
 ![Hodnocení virtuálního počítače náklady.](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

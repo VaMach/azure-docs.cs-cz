@@ -1,4 +1,4 @@
-V prostředí cloudu, vytvořte plán služby App Service ve skupině prostředků s [vytvořit plán aplikační služby az](/cli/azure/appservice/plan#create) příkaz.
+V prostředí cloudu, vytvořte plán služby App Service ve skupině prostředků s [vytvořit plán aplikační služby az](/cli/azure/appservice/plan#az_appservice_plan_create) příkaz.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 6eb07b5ad4b3ebdde75575fc5682ae2153a0c12f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>OMS rozšíření virtuálního počítače pro Linux
 
@@ -41,6 +41,10 @@ Rozšíření agenta OMS se může spouštět na těchto Linuxových distribucí
 | Debian GNU/Linux | 6, 7 a 8 |
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 a 12 |
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Azure Security Center automaticky zřídí agenta OMS a připojí pomocí výchozí pracovní prostor log analytics předplatného Azure. Pokud používáte Azure Security Center, se nespustí provede kroky v tomto dokumentu. Tím přepíšete nakonfigurované pracovní prostor a přerušení připojení s Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Připojení k internetu
 

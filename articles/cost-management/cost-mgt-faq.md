@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Nejčastější dotazy pro Azure náklady na správu
 
@@ -92,20 +92,13 @@ Pro poskytovatele cloudových služeb:
 
 Chcete-li přidat další účty CSP na entitu, vyberte **MSP přístup** místo **Enterprise** při vytváření nové entity. Pokud váš účet je registrován jako smlouvu Enterprise Agreement a chcete přidat přihlašovací údaje poskytovatele CSP, pracovníky technické podpory Cloudyn možná muset upravit nastavení svého účtu. Pokud jste placené Azure odběratele, můžete vytvořit novou žádost o podporu na portálu Azure. Vyberte **Nápověda a podpora**a potom vyberte **nová žádost o podporu**.
 
-## <a name="how-do-i-change-the-currency-symbol-used-in-cloudyn"></a>Změna symbolu měny používanou v Cloudyn
+## <a name="currency-symbols-in-cloudyn-reports"></a>Symboly měny v sestavách Cloudyn
 
-Když všechny účty Azure v jedné entity používají stejné měně, je automaticky zjišťován měny, který používáte. Ale symbolu měny chybnou informací zobrazené jako  **$**  pro některý z následujících měny:
+Můžete mít více účtů Azure používají různé měny. Náklady na sestavy v Cloudyn ale nezobrazovat více než jeden typ Měna na sestavu.
 
-- GBP = libra Spojené království
-- EUR = Evropského euro
-- INR = Indie rupie
-- NOK = Norská koruna
+Pokud máte více předplatných, pomocí různých měn, nadřazená entita a jeho podřízené entity měny jsou zobrazeny s  **$**  symbol. Naše navrhované osvědčeným postupem je vyhýbat se používání různých měny ve stejné hierarchii entity. Jinými slovy Všechna předplatná uspořádány do strukturu entity měli používat současně.
 
-I když se může zobrazit symbolu měny  **$**  pro USD hodnoty náklady jsou zobrazeny ve vaší správné měně. Pokud všechny účty pomocí EUR stejné entity, například _hodnoty_ v Cloudyn jsou uvedeny EUR, i když  **$**  zobrazí symbol chybnou informací.
-
-Pokud jste již smlouvu Enterprise Azure zákazníka, můžete změnit Cloudyn pracovníky podpory vaší symbolu měny, zobrazuje se v sestavách náklady z $. Na portálu Azure můžete vytvořit novou žádost o podporu. Vyberte **Nápověda a podpora**a potom vyberte **nová žádost o podporu**.
-
-Pokud jste zákazník s CSP, nelze změnit vaše symbolu měny. Cloudyn podporuje pouze sazebníky, které používají USD. Cloudyn k procházení možnost pro podporu sazebníky v různých měny.
+Cloudyn automaticky zjišťuje vaše předplatné Měna smlouvy Enterprise a uvede správně v sestavách.  Však Cloudyn zobrazí pouze  **$**  symbol pro zprostředkovatele kryptografických služeb a účtů Azure web přímo.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Co jsou Cloudyn data aktualizujte časové osy?
 

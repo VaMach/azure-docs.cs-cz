@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Podporované inspektoři Azure Machine Learning datový přípravy ve verzi Preview
 Tento dokument popisuje sadu kontroly, které jsou k dispozici v této verzi preview.
@@ -113,3 +113,18 @@ Mapa s body, které jsou zobrazeny, za předpokladu, že bylo zadáno zeměpisn�
 Tato kontrola podporuje filtrování přes výběr bodu na mapě. Stiskněte **Ctrl** klíče a pak klikněte na tlačítko a přetáhněte ji pomocí myši na formuláři čtverce kolem body. Potom použijte filtry, jak se popisuje výš.
 
 Můžete rychle velikost mapu, aby zobrazila pouze možné body stisknutím **E** na levé straně mapy.
+
+
+## <a name="pattern-frequency"></a>Vzor frekvence 
+
+Tato kontrola zobrazuje seznam vzorů ve vybraném sloupci řetězec. Vzory jsou reprezentované pomocí regulárního výrazu jako syntaxe. Ukazatele na vzoru jsou uvedeny příklady hodnot reprezentována tohoto vzoru. Společně s vzory je také zobrazit přibližnou coverages jako procenta.
+
+![Obrázek inspector vzor](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>Možnosti
+- Počet nejvyšší hodnoty
+- Sestupné
+- Zobrazit bylo
+
+### <a name="actions"></a>Akce
+Tato kontrola podporuje filtrování podle zobrazených vzory. Stiskněte **Ctrl** klíče a potom vyberte vyplněné řádky v vzor inspector. Potom použijte filtry, jak se popisuje výš. V důsledku acion uživatele se přidá na krok rozšířeného filtru. Můžete zobrazit a upravit generovaný kód Python vyvoláním možnost Upravit krok Advanced filtru.

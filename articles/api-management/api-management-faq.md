@@ -1,6 +1,6 @@
 ---
 title: "Nejčastější dotazy k Azure API Management | Microsoft Docs"
-description: "Přečtěte si odpovědi na časté otázky, vzorce a osvědčené postupy v Azure API Management."
+description: "Další odpovědi na nejčastější dotazy (FAQ), v případě vzorů a osvědčených postupů v Azure API Management."
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -12,20 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-faqs"></a>Nejčastější dotazy Azure API Management
 Získejte odpovědi na časté otázky, vzorce a osvědčené postupy pro Azure API Management.
 
 ## <a name="contact-us"></a>Kontaktujte nás
 * [Jak můžete I zeptejte týmem Microsoft Azure API Management?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 
 ## <a name="frequently-asked-questions"></a>Nejčastější dotazy
 * [Co znamená funkce je ve verzi preview?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -62,7 +61,7 @@ Když je funkce ve verzi preview, znamená to, že jsme se aktivně vyhledáván
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Jak můžete zabezpečit připojení mezi bránou rozhraní API Management a Moje back endové služby?
 Máte několik možností k zabezpečení připojení mezi bránou rozhraní API Management a back endové služby. Můžete:
 
-* Základní ověřování pomocí protokolu HTTP. Další informace najdete v tématu [nastavení konfigurace rozhraní API](api-management-howto-create-apis.md#configure-api-settings).
+* Základní ověřování pomocí protokolu HTTP. Další informace najdete v tématu [importu a publikování vašeho prvního rozhraní API](import-and-publish.md).
 * Používá vzájemné ověřování SSL, jak je popsáno v [jak zabezpečit back endové služby pomocí klienta ověření certifikátu ve službě Azure API Management](api-management-howto-mutual-certificates.md).
 * Vytvoření seznamu povolených IP použijte na back endové službě. Pokud máte Standard nebo Premium instance API Management vrstvě, konstantní IP adresu brány. Můžete nastavit seznamu povolených serverů povolit tuto IP adresu. Na řídicím panelu portálu Azure můžete získat IP adresu instanci služby API Management.
 * Vaše instance služby API Management se připojte k virtuální síti Azure.
@@ -102,7 +101,7 @@ Pokud neaktivní nebo stínování editoru zásad, ujistěte se, že jste ve spr
 Máte několik možností pro použití správy verzí rozhraní API v API Management:
 
 * Ve službě API Management můžete nakonfigurovat představují různé verze rozhraní API. Například můžete mít dvě různé rozhraní API, MyAPIv1 a MyAPIv2. Vývojář můžete vybrat verzi, která chce používat vývojář.
-* Můžete také konfigurovat rozhraní API s adresou URL služby, která nezahrnuje segment verze, například https://my.api. Potom nakonfigurujte segment verze na každou operaci [přepisu adresy URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) šablony. Například můžete mít operace s [adresa URL šablony](api-management-howto-add-operations.md#url-template) názvem/Resource a [přepisu adresy URL](api-management-howto-add-operations.md#rewrite-url-template) šablona nazývá/v1/prostředků. Můžete změnit hodnotu segment verze samostatně pro každou operaci.
+* Můžete také konfigurovat rozhraní API s adresou URL služby, která nezahrnuje segment verze, například https://my.api. Potom nakonfigurujte segment verze na každou operaci [přepisu adresy URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) šablony. 
 * Pokud chcete zachovat segment "Výchozí" verze v rozhraní API služby adresy URL, na vybrané operace, nastavit zásady, které používá [nastavení back-end služby](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) zásady, chcete-li změnit cestu požadavku back-end.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Jak nastavím prostředí s více v jediného rozhraní API?

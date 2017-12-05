@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-policy-expressions"></a>Výrazy zásad API Management
 Syntaxe výrazy zásad je C# 6.0. Každý výraz má přístup k implicitně poskytnutého [kontextu](api-management-policy-expressions.md#ContextVariables) proměnné a povolení [podmnožina](api-management-policy-expressions.md#CLRTypes) typů rozhraní .NET Framework.  
   
-> [!NOTE]
+> [!TIP]
 >  Další informace o výrazů zásad najdete v tématu [výrazy zásad](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) videa.  
 >   
 >  Ukázky Konfigurace zásady pomocí výrazů zásad najdete v části [cloudu zahrnují díl 177: rozhraní API funkce správy více s Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Toto video obsahuje následující ukázky výraz zásad.  
@@ -206,5 +206,15 @@ Syntaxe výrazy zásad je C# 6.0. Každý výraz má přístup k implicitně pos
 |Byte [] dešifrování (vstupní: Tento byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|vstup - cyphertext k dešifrování<br /><br />alg - šifrovacího algoritmu.<br /><br />Vrátí hodnotu ve formátu prostého textu.|
 |Byte [] dešifrování (vstupní: Tento byte [], alg: System.Security.Cryptography.SymmetricAlgorithm klíč: byte [], iv:byte[])|vstupní - vstupní - cyphertext k dešifrování<br /><br />alg - šifrovacího algoritmu.<br /><br />klíč – šifrovací klíč<br /><br />IV - inicializační vektor<br /><br />Vrátí hodnotu ve formátu prostého textu.|
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
+>
 ## <a name="next-steps"></a>Další kroky
-Práce se zásadami pro další informace najdete v tématu [zásady ve službě API Management](api-management-howto-policies.md).  
+
+Práce se zásadami pro další informace najdete v tématu:
+
++ [Zásady ve službě API Management](api-management-howto-policies.md)
++ [Transformuje rozhraní API](transform-api.md)
++ [Referenční informace o zásadách](api-management-policy-reference.md) pro úplný seznam příkazy zásad a jejich nastavení
++ [Ukázky zásad](policy-samples.md)   

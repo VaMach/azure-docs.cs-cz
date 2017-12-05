@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-caching-policies"></a>Ukládání do mezipaměti zásady služby API Management
 Toto téma obsahuje odkaz pro následující zásady služby API Management. Informace o přidávání a konfiguraci zásad najdete v tématu [zásady ve službě API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 -   Odpověď zásady ukládání do mezipaměti  
   
     -   [Získat z mezipaměti](api-management-caching-policies.md#GetFromCache) -provést mezipaměti vyhledat a vrátit platnou do mezipaměti odpovědi, pokud je k dispozici.  
-  
     -   [Úložiště pro mezipaměť](api-management-caching-policies.md#StoreToCache) -ukládá do mezipaměti odpovědi podle konfigurace zadané mezipaměti ovládacího prvku.  
   
 -   Hodnota zásady ukládání do mezipaměti  
-  
-    -   [Získat hodnotu z mezipaměti](#GetFromCacheByKey) -načíst položky v mezipaměti podle klíče.  
-  
-    -   [Uložení v mezipaměti hodnoty](#StoreToCacheByKey) -uložit položky do mezipaměti podle klíče.  
-  
+
+    -   [Získat hodnotu z mezipaměti](#GetFromCacheByKey) -načíst položky v mezipaměti podle klíče. 
+    -   [Uložení v mezipaměti hodnoty](#StoreToCacheByKey) -uložit položky do mezipaměti podle klíče. 
     -   [Odebrat hodnotu z mezipaměti](#RemoveCacheByKey) -odebrání položky v mezipaměti podle klíče.  
   
 ##  <a name="GetFromCache"></a>Získat z mezipaměti  
@@ -126,7 +123,6 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** příchozí  
-  
 -   **Zásady obory:** rozhraní API, operace, produktu  
   
 ##  <a name="StoreToCache"></a>Ukládání do mezipaměti  
@@ -198,8 +194,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 ### <a name="usage"></a>Využití  
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Části zásady:** odchozí  
-  
+-   **Části zásady:** odchozí    
 -   **Zásady obory:** rozhraní API, operace, produktu  
   
 ##  <a name="GetFromCacheByKey"></a>Získat hodnotu z mezipaměti  
@@ -244,7 +239,6 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** vstupní, výstupní a back-end, při chybě  
-  
 -   **Zásady obory:** globální, rozhraní API, operace, produktu  
   
 ##  <a name="StoreToCacheByKey"></a>Hodnota úložiště v mezipaměti  
@@ -287,11 +281,10 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Části zásady:** vstupní, výstupní a back-end, při chybě  
-  
 -   **Zásady obory:** globální, rozhraní API, operace, produktu  
   
 ###  <a name="RemoveCacheByKey"></a>Odebrat hodnotu z mezipaměti  
- `cache-remove-value` Odstraní identifikovaný svůj klíč položky v mezipaměti. Klíč může mít hodnotu libovolný řetězec a se většinou poskytuje pomocí výrazů zásad.  
+`cache-remove-value` Odstraní identifikovaný svůj klíč položky v mezipaměti. Klíč může mít hodnotu libovolný řetězec a se většinou poskytuje pomocí výrazů zásad.  
   
 #### <a name="policy-statement"></a>Prohlášení o zásadách  
   
@@ -325,9 +318,13 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **Části zásady:** vstupní, výstupní a back-end, při chybě  
-  
 -   **Zásady obory:** globální, rozhraní API, operace, produktu  
-  
 
 ## <a name="next-steps"></a>Další kroky
-Práce se zásadami pro další informace najdete v tématu [zásady ve službě API Management](api-management-howto-policies.md).  
+
+Práce se zásadami pro další informace najdete v tématu:
+
++ [Zásady ve službě API Management](api-management-howto-policies.md)
++ [Transformuje rozhraní API](transform-api.md)
++ [Referenční informace o zásadách](api-management-policy-reference.md) pro úplný seznam příkazy zásad a jejich nastavení
++ [Ukázky zásad](policy-samples.md)   

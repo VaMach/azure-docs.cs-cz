@@ -1,144 +1,124 @@
 ---
-title: "Monitorování správy rozhraní API s Azure monitorování | Microsoft Docs"
-description: "Naučte se monitorovat pomocí monitorování Azure služby Azure API Management."
+title: "Monitorování publikovaná rozhraní API v Azure API Management | Microsoft Docs"
+description: "Postupujte podle kroků tohoto kurzu se dozvíte, jak sledovat vaše rozhraní API v Azure API Management."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2017
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 717e033aa4bbd4dd8ebcc727c3f551aee81770dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="monitor-api-management-with-azure-monitor"></a>Monitorování API Management s Azure monitorování
+# <a name="monitor-published-apis"></a>Monitorování publikovaných rozhraní API
+
 Azure monitorování je služba Azure, která poskytuje jednoho zdroje pro monitorování všech prostředků Azure. S Azure monitorování můžete vizualizovat, dotaz, směrovat, archivaci a provádět akce na metriky a protokoly pocházejících z prostředků Azure, jako je například Správa rozhraní API. 
 
-Následující video ukazuje, jak monitorovat pomocí monitorování Azure API Management. Další informace o monitorování Azure najdete v tématu [Začínáme s Azure monitorování]. 
+V tomto kurzu se naučíte:
 
+> [!div class="checklist"]
+> * Zobrazení protokolů aktivit
+> * Zobrazení diagnostických protokolů
+> * Zobrazit metriky rozhraní API 
+> * Nastavit pravidlo výstrahy, když získá neoprávněným volání rozhraní API
+
+Následující video ukazuje, jak monitorovat pomocí monitorování Azure API Management. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 >
 >
- 
-## <a name="metrics"></a>Metriky
-API Management aktuálně vysílá pět metriky a plánujeme přidat další v budoucnu. Tyto metriky jsou vygenerované každou minutu, která poskytuje téměř v reálném čase přehled o stavu a stavu vašich rozhraní API. Následuje souhrn metriky:
+
+## <a name="prerequisites"></a>Požadavky
+
++ Dokončete následující rychlý start: [vytvoření instance služby Azure API Management](get-started-create-service-instance.md).
++ Navíc kurzu: [importu a publikování vašeho prvního rozhraní API](import-and-publish.md).
+
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+
+## <a name="diagnostic-logs"></a>Zobrazit protokoly aktivity
+
+Protokoly aktivity získat přehled o činnosti, které byly provedeny v vaše služby API Management. Pomocí protokolů z aktivity, můžete určit ", kdo a kdy" pro všechny operace (PUT, POST, DELETE) na vaše rozhraní API správy služby zápisu. 
+
+> [!NOTE]
+> Protokoly aktivity nezahrnují operace čtení (GET) nebo operace provádět na klasickém portálu vydavatele nebo pomocí původní rozhraní API pro správu.
+
+Lze zobrazit protokoly aktivit ve službě API Management nebo přístup k protokolům všechny prostředky Azure v Azure monitorování. 
+
+Chcete-li zobrazit protokoly aktivity:
+
+1. Z vaší **API Management** instance, klikněte na tlačítko **protokol aktivit**.
+
+## <a name="view-diagnostic-logs"></a>Zobrazení diagnostických protokolů
+
+Diagnostické protokoly poskytují bohaté informace o operacích a chyby, které jsou důležité pro auditování i pro účely odstraňování potíží. Diagnostické protokoly se liší od protokoly aktivity. Protokoly aktivity poskytují přehled o činnosti, které byly provedeny v vašich prostředků Azure. Diagnostické protokoly získat přehled o operace, aby prostředku provedeny sám sebe.
+
+Pro přístup k diagnostickým protokolům:
+
+1. Z vaší **API Management** instance, klikněte na tlačítko **protokolů diagnostiky**.
+
+## <a name="view-metrics-of-your-apis"></a>Zobrazit metriky vaše rozhraní API
+
+API Management vysílá metriky každou minutu, která poskytuje téměř v reálném čase přehled o stavu a stavu vašich rozhraní API. Následuje souhrn některých dostupné metriky:
+
+* Kapacita (preview): pomáhá vám při rozhodování o upgradu nebo přechod na starší verzi vaše APIM služby. Metrika je vygenerované za minutu a odráží kapacitu brány v době vytváření sestav. Metrika v rozsahu od 0 až 100 a se vypočítává podle brány prostředků, jako je například využití procesoru a paměti.
 * Celkový počet požadavků brány: počet rozhraní API požadavků v období. 
 * Úspěšné požadavky brány: počet žádostí o rozhraní API, které přijaly kódy úspěšné odpovědi HTTP včetně 304, 307 a nic menší než 301 (například 200). 
 * Neúspěšné požadavky brány: počet žádostí o rozhraní API, které obdržel chybné kódy odpovědi HTTP včetně 400 a nic větší než 500.
 * Neoprávněné žádosti brány: počet žádostí o rozhraní API, které přijaly, včetně 401, 403 a 429 kódy odpovědi HTTP. 
 * Další požadavky na brány: počet žádostí o rozhraní API, které přijaly kódy odpovědí protokolu HTTP, které nepatří do žádné z výše uvedených skupin (například 418).
 
-Můžete přistupovat metriky ve službě API Management, nebo přístup metrik Azure prostředky v Azure monitorování. Chcete-li zobrazit metriky ve službě API Management:
-1. Otevřete portál Azure.
-2. Přejděte do služby API Management.
-3. Klikněte na tlačítko **metriky**.
+Pro přístup k metriky:
 
-![Okno metriky][metrics-blade]
+1. Vyberte **metriky** v nabídce v dolní části stránky.
+2. Z rozevíracího seznamu vyberte metriky, které vás zajímají (můžete přidat více metriky). 
+    
+    Vyberte například **celkový počet požadavků brány** a **neúspěšné požadavky brány** ze seznamu dostupných metrik.
+3. Graf zobrazuje celkový počet volání rozhraní API. Také ukazuje počet volání rozhraní API, které se nezdařilo. 
 
-Další informace o tom, jak používat metriky najdete v tématu [přehled metriky].
+## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Nastavit pravidlo výstrahy pro neoprávněného požadavku
 
-## <a name="activity-logs"></a>Protokoly aktivit
-Protokoly aktivity získat přehled o činnosti, které byly provedeny v vaše služby API Management. Se dřív označovala jako "protokoly auditu" nebo "operační protokoly". Pomocí protokolů z aktivity, můžete určit ", kdo a kdy" pro všechny operace (PUT, POST, DELETE) na vaše rozhraní API správy služby zápisu. 
-
-> [!NOTE]
-> Protokoly aktivity nezahrnují operace čtení (GET) nebo operace provádět na klasickém portálu vydavatele nebo pomocí původní rozhraní API pro správu.
-
-Lze zobrazit protokoly aktivit ve službě API Management nebo přístup k protokolům všechny prostředky Azure v Azure monitorování. Pokud chcete zobrazit aktivity záznamy ve službě API Management:
-1. Otevřete portál Azure.
-2. Přejděte do služby API Management.
-3. Klikněte na tlačítko **protokol aktivit**.
-
-![Okno protokoly aktivit][activity-logs-blade]
-
-Další informace o tom, jak používat metriky najdete v tématu [protokoly aktivity přehled].
-
-## <a name="alerts"></a>Výstrahy
 Můžete nakonfigurovat přijímat výstrahy založené na protokolech metriky a aktivity. Azure monitorování umožňuje nakonfigurovat výstrahu při aktivaci, proveďte následující:
 
 * Odeslat oznámení e-mailu
 * Volat webhook, jehož
 * Vyvolání aplikace logiky Azure
 
-Pravidla výstrah můžete nakonfigurovat ve službě API Management, nebo v Azure monitorování. Konfigurace je ve službě API Management: 
-1. Otevřete portál Azure.
-2. Přejděte do služby API Management.
-3. Klikněte na tlačítko **výstrah pravidla**.
+Konfigurace výstrah:
 
-![Okno pravidla výstrah][alert-rules-blade]
+1. Vyberte **výstrah pravidla** z řádku nabídek v dolní části stránky.
+2. Vyberte **přidat metriky upozornění**.
+3. Zadejte **název** pro tuto výstrahu.
+4. Vyberte **neoprávněné žádosti brány** jako metriku k monitorování.
+5. Vyberte **e-mailu vlastníci, přispěvatelé a čtenáři**.
+6. Stiskněte **OK**.
+7. Zkuste pro volání rozhraní API naší konference bez klíč rozhraní API. Jako vlastník této služby API Management obdržíte e-mailové výstrahy. 
 
-Další informace o používání výstrah najdete v tématu [přehled výstrah].
+    > [!TIP]
+    > Pravidlo výstrahy můžete také volat háku Web nebo aplikaci logiky Azure, když se aktivuje na pozadí.
 
-## <a name="diagnostic-logs"></a>Diagnostické protokoly
-Diagnostické protokoly poskytují bohaté informace o operacích a chyby, které jsou důležité pro auditování i pro účely odstraňování potíží. Diagnostické protokoly se liší od protokoly aktivity. Protokoly aktivity poskytují přehled o činnosti, které byly provedeny v vašich prostředků Azure. Diagnostické protokoly získat přehled o operace, aby prostředku provedeny sám sebe.
+    ![množství set-upozornění](./media/api-management-azure-monitor/set-up-alert.png)
 
-API Management aktuálně poskytuje diagnostické protokoly (každou hodinu dávkově) o jednotlivých API žádosti s každou položku s následující strukturou:
+## <a name="next-steps"></a>Další kroky
 
-```
-{
-    "Tenant": "",
-      "DeploymentName": "",
-      "time": "",
-      "resourceId": "",
-      "category": "GatewayLogs",
-      "operationName": "Microsoft.ApiManagement/GatewayLogs",
-      "durationMs": ,
-      "Level": ,
-      "properties": "{
-          "ApiId": "",
-          "OperationId": "",
-          "ProductId": "",
-          "SubscriptionId": "",
-          "Method": "",
-          "Url": "",
-          "RequestSize": ,
-          "ServiceTime": "",
-          "BackendMethod": "",
-          "BackendUrl": "",
-          "BackendResponseCode": ,
-          "ResponseCode": ,
-          "ResponseSize": ,
-          "Cache": "",
-          "UserId"
-      }"
- }
-```
+V tomto kurzu jste se naučili:
 
-Můžete přístup k diagnostickým protokolům ve službě API Management, nebo přístup k protokolům všechny prostředky Azure v Azure monitorování. Chcete-li zobrazit diagnostické protokoly ve službě API Management:
-1. Otevřete portál Azure.
-2. Přejděte do služby API Management.
-3. Klikněte na tlačítko **protokolů diagnostiky**.
+> [!div class="checklist"]
+> * Zobrazení protokolů aktivit
+> * Zobrazení diagnostických protokolů
+> * Zobrazit metriky rozhraní API 
+> * Nastavit pravidlo výstrahy, když získá neoprávněným volání rozhraní API
 
-![Okno Diagnostické protokoly][diagnostic-logs-blade]
+Přechodu na další kurz:
 
-Další informace o tom, jak používat metriky najdete v tématu [přehled diagnostické protokoly].
-
-## <a name="next-step"></a>Další krok
-
-* [Začínáme s Azure monitorování]
-* [přehled metriky]
-* [protokoly aktivity přehled]
-* [přehled diagnostické protokoly]
-* [přehled výstrah]
-
-[Začínáme s Azure monitorování]: ../monitoring-and-diagnostics/monitoring-get-started.md
-[přehled metriky]: ../monitoring-and-diagnostics/monitoring-overview-metrics.md
-[protokoly aktivity přehled]: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md
-[přehled diagnostické protokoly]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
-[přehled výstrah]: ../monitoring-and-diagnostics/insights-alerts-portal.md
-
-
-
-[metrics-blade]: ./media/api-management-azure-monitor/api-management-metrics-blade.png
-[activity-logs-blade]: ./media/api-management-azure-monitor/api-management-activity-logs-blade.png
-[alert-rules-blade]: ./media/api-management-azure-monitor/api-management-alert-rules-blade.png
-[diagnostic-logs-blade]: ./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png
+> [!div class="nextstepaction"]
+> [Trasování volání](api-management-howto-api-inspector.md)

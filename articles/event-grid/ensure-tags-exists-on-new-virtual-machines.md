@@ -1,5 +1,5 @@
 ---
-title: "Integrace služby Azure Automation s událostí mřížky | Microsoft Docs"
+title: "Integrovat mřížky událostí služby Azure Automation | Microsoft Docs"
 description: "Zjistěte, jak se automaticky při vytvoření nového virtuálního počítače přidat značku a odeslat oznámení Teams společnosti Microsoft."
 keywords: "automatizace sady runbook, týmů, události mřížky, virtuálního počítače,"
 services: automation
@@ -15,85 +15,116 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: eamono
-ms.openlocfilehash: 6798f98755ad1d70d316b074643700f7b3e25ee7
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 8b698659ed91782b80dbefbfea02aa036c09210d
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="integrating-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrace služby Azure Automation s událostí mřížky a týmy Microsoftu
+# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrovat událostí mřížky a týmy pro Microsoft Azure Automation.
 
 V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Importujte událostí mřížky ukázkové sady runbook.
-> * Vytvořte webhook volitelné týmy.
+> * Importujte ukázkové sady runbook událostí mřížky.
+> * Vytvořte webhook volitelné Teams společnosti Microsoft.
 > * Vytvoření webhooku pro sadu runbook.
-> * Vytvořte odběr událostí mřížky.
+> * Vytvořte předplatné událostí mřížky.
 > * Vytvořte virtuální počítač, který aktivuje sady runbook.
 
 ## <a name="prerequisites"></a>Požadavky
 
-K dokončení tohoto kurzu, je potřeba splnit následující nástroje.
-+ [Účet Automation](../automation/automation-offering-get-started.md) pro uložení sady runbook, která se aktivuje z předplatného mřížky události.
+K dokončení tohoto kurzu [účet Azure Automation](../automation/automation-offering-get-started.md) je požadované pro uchovávání sady runbook, která se aktivuje z předplatného Azure událostí mřížky.
 
-## <a name="import-event-grid-sample-runbook"></a>Import událostí mřížky ukázkové sady runbook
-1.  Otevřete účet Automation a klikněte na stránce sady Runbook.
-2.  Klikněte na tlačítko "Procházet galerii".
-![Seznam Runbook z uživatelského rozhraní](media/ensure-tags-exists-on-new-virtual-machines/event-grid-runbook-list.png)
-3.  Vyhledejte "Události mřížky" a importovat sady runbook do účtu Automation.
-![Importovat Galerie sady runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
-4.  Klikněte na "Upravit" zobrazení zdroje sady Runbook a klikněte na tlačítko "Publikovat".
-![Publikovat runbook z uživatelského rozhraní](media/ensure-tags-exists-on-new-virtual-machines/publish-runbook.png)
+## <a name="import-an-event-grid-sample-runbook"></a>Importovat ukázkové sady runbook událostí mřížky
+1. Vyberte **účty Automation**a vyberte **Runbooky** stránky.
 
-## <a name="create-an-optional-teams-webhook"></a>Vytvoření webhook volitelné týmy
-1.  V Teams společnosti Microsoft zvolte Další možnosti (...) vedle názvu kanál a zvolte konektory.
-![Týmy připojení](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
-2.  Vyhledejte v seznamu konektory pro příchozí Webhooku a klikněte na tlačítko Přidat.
-![Týmy webhooku připojení](media/ensure-tags-exists-on-new-virtual-machines/select-teams-webhook.png)
-3.  Zadejte AzureAutomationIntegration pro název a klikněte na tlačítko vytvořit.
-![Týmy webhooku](media/ensure-tags-exists-on-new-virtual-machines/configure-teams-webhook.png)
-4.  Webhook zkopírujte do schránky a uložte jej. Adresa URL webhooku se používá k odesílání informací o Teams společnosti Microsoft.
-5.  Vyberte Hotovo, uložíte webhooku.
+2. Vyberte **procházet galerii** tlačítko.
+
+    ![Seznam Runbook z uživatelského rozhraní](media/ensure-tags-exists-on-new-virtual-machines/event-grid-runbook-list.png)
+
+3. Vyhledejte **událostí mřížky**a importovat sady runbook do účtu Automation.
+
+    ![Importovat Galerie sady runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
+
+4. Vyberte **upravit** zobrazení zdroje sady runbook a vyberte **publikovat** tlačítko.
+
+    ![Publikovat runbook z uživatelského rozhraní](media/ensure-tags-exists-on-new-virtual-machines/publish-runbook.png)
+
+## <a name="create-an-optional-microsoft-teams-webhook"></a>Vytvoření webhook volitelné Teams společnosti Microsoft
+1. V Teams společnosti Microsoft, vyberte **další možnosti** další název kanálu a pak vyberte **konektory**.
+
+    ![Připojení Teams společnosti Microsoft](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
+
+2. Procházení seznam konektorů k **příchozí Webhooku**a vyberte **přidat**.
+
+    ![Microsoft Teams webhooku připojení](media/ensure-tags-exists-on-new-virtual-machines/select-teams-webhook.png)
+
+3. Zadejte **AzureAutomationIntegration** pro název a vyberte **vytvořit**.
+
+    ![Webhooku Teams společnosti Microsoft](media/ensure-tags-exists-on-new-virtual-machines/configure-teams-webhook.png)
+
+4. Webhook zkopírujte do schránky a uložte jej. Adresa URL webhooku se používá k odeslání informací do Teams společnosti Microsoft.
+
+5. Vyberte **provádí** uložit webhooku.
 
 ## <a name="create-a-webhook-for-the-runbook"></a>Vytvoření webhooku pro sadu runbook
-1.  Otevřete runbook VMWrite sledovat.
-2.  Klikněte na tlačítko webhooku přidat a Webhooky ![vytvoření webhooku](media/ensure-tags-exists-on-new-virtual-machines/add-webhook.png)
-2.  Jako název zadejte "WatchVMEventGrid" a zkopírujte adresu URL do schránky a uložit.
-![Nakonfigurujte název webhooku](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-name.png)
-3.  Vyberte parametry a zadejte adresu URL webhooku Teams společnosti Microsoft a WEBHOOKDATA ponechat prázdné.
-![Konfigurovat parametry webhooku](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
-4.  Vyberte OK, abyste vytvořili webhook automatizace sady runbook.
+1. Otevřete sadu runbook VMWrite sledovat.
 
-## <a name="create-an-event-grid-subscription"></a>Vytvořit odběr událostí mřížky
-1.  Klikněte na stránku mřížky událostí z přehled účtu Automation.
-![Seznam událostí mřížky](media/ensure-tags-exists-on-new-virtual-machines/event-grid-list.png)
-2.  Klikněte na tlačítko Nový odběr událostí.
-3.  Konfigurace odběru s následujícími informacemi:
-    *   Zadejte název AzureAutomation. 
-    *   V typu tématu zvolte předplatných Azure.
-    *   Zrušte zaškrtnutí políčka "přihlásit k odběru pro všechny typy událostí"
-    *   Typy událostí zvolte úspěch zápisu prostředků.
-    *   V koncovém bodu odběratele zadejte adresu URL Webhooku pro sadu runbook VMWrite sledovat.
-    *   Ve filtru předpony zadejte předplatné a skupina prostředků, kterou chcete hledat vytvořit nové virtuální počítače. By měl vypadat jako /subscriptions/124aa551-849d-46e4-a6dc-0bc4895422aB/resourcegroups/ContosoResourceGroup/providers/Microsoft.Compute/virtualMachines ![seznam událostí mřížky](media/ensure-tags-exists-on-new-virtual-machines/configure-event-grid-subscription.png)
-6.  Klikněte na tlačítko "Vytvořit" se uložení odběru událostí mřížky.
+2. Vyberte **Webhooky**a vyberte **přidat Webhooku** tlačítko.
 
-## <a name="create-vm-that-triggers-runbook"></a>Vytvoření virtuálního počítače, který aktivuje sady runbook
-1.  Vytvoření nového virtuálního počítače ve skupině prostředků, které jste zadali v případě, že předplatné mřížky předpony filtru.
-2.  Kukátko – VMWrite runbook by měla být volána, novou značku přidat do virtuálního počítače.
-![VMTag](media/ensure-tags-exists-on-new-virtual-machines/vm-tag.png)
-3.  Nové zprávy se odesílá do kanálu týmy.
+    ![Vytvoření webhooku](media/ensure-tags-exists-on-new-virtual-machines/add-webhook.png)
 
-![Týmy oznámení](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
+3. Zadejte **WatchVMEventGrid** pro název. Zkopírujte adresu URL do schránky a uložte ho.
+
+    ![Nakonfigurujte název webhooku](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-name.png)
+
+4. Vyberte **nastavení parametrů a běhu**a zadejte adresu URL webhooku Teams společnosti Microsoft. Nechte **WEBHOOKDATA** prázdné.
+
+    ![Konfigurovat parametry webhooku](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
+
+5. Vyberte **OK** vytvořit webhook automatizace sady runbook.
+
+
+## <a name="create-an-event-grid-subscription"></a>Vytvořte předplatné událostí mřížky
+1. Na **účet Automation** Přehled stránky, vyberte **událostí mřížky**.
+
+    ![Seznam událostí mřížky](media/ensure-tags-exists-on-new-virtual-machines/event-grid-list.png)
+
+2. Vyberte **předplatného události** tlačítko.
+
+3. Konfigurace odběru s následujícími informacemi:
+
+    *   Zadejte **AzureAutomation** pro název. 
+    *   V **typu tématu**, vyberte **předplatných Azure**.
+    *   Vymazat **přihlášení k odběru pro všechny typy událostí** zaškrtávací políčko.
+    *   V **typů událostí**, vyberte **prostředků zápisu úspěch**.
+    *   V **úplnou adresu URL koncového bodu**, zadejte adresu URL webhooku pro sadu runbook VMWrite sledovat.
+    *   V **předpony filtru**, zadejte předplatné a k vytvoření skupiny prostředků, ve které chcete vyhledat nové virtuální počítače. By měl vypadat jako /subscriptions/124aa551-849d-46e4-a6dc-0bc4895422aB/resourcegroups/ContosoResourceGroup/providers/Microsoft.Compute/virtualMachines
+
+    ![Seznam událostí mřížky](media/ensure-tags-exists-on-new-virtual-machines/configure-event-grid-subscription.png)
+
+4. Vyberte **vytvořit** se uložení odběru událostí mřížky.
+
+## <a name="create-a-vm-that-triggers-the-runbook"></a>Vytvořit virtuální počítač, který aktivuje sady runbook
+1. Vytvořte nový virtuální počítač ve skupině prostředků, které jste zadali v případě, že předplatné mřížky předpony filtru.
+
+2. Kukátko – VMWrite runbook by měla být volána, novou značku přidat do virtuálního počítače.
+
+    ![Značka virtuálních počítačů](media/ensure-tags-exists-on-new-virtual-machines/vm-tag.png)
+
+3. Nové zprávy se odesílá do kanálu Teams společnosti Microsoft.
+
+    ![Oznámení Teams společnosti Microsoft](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Další kroky
 V tomto kurzu nastavíte integraci mezi událostí mřížky a automatizace. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]
-> * Importujte událostí mřížky ukázkové sady runbook.
-> * Vytvořte webhook volitelné týmy.
+> * Importujte ukázkové sady runbook událostí mřížky.
+> * Vytvořte webhook volitelné Teams společnosti Microsoft.
 > * Vytvoření webhooku pro sadu runbook.
-> * Vytvořte odběr událostí mřížky.
+> * Vytvořte předplatné událostí mřížky.
 > * Vytvořte virtuální počítač, který aktivuje sady runbook.
 
 > [!div class="nextstepaction"]

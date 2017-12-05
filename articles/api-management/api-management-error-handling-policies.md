@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Zpracování chyb v zásady služby API Management
 Azure API Management umožňuje vydavatelů reagovat na chybové stavy, které mohou nastat během zpracování žádosti k proxy serveru tím, že poskytuje `ProxyError` objektu. `ProxyError` Objekt přistupuje prostřednictvím [kontextu. Poslední chyba](api-management-policy-expressions.md#ContextVariables) vlastnost a mohou být využívána zásad v `on-error` zásad. Toto téma obsahuje odkaz pro Chyba funkce zpracování v Azure API Management.  
@@ -56,27 +56,16 @@ Azure API Management umožňuje vydavatelů reagovat na chybové stavy, které m
  Tyto zásady mohou být používány `on-error` zásad.  
   
 -   [Zvolte](api-management-advanced-policies.md#choose)  
-  
 -   [nastavená proměnná](api-management-advanced-policies.md#set-variable)  
-  
 -   [hledání a nahrazování](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [vrátí odpověď](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [set – hlavička](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [set – metoda](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [Nastavit stav](api-management-advanced-policies.md#SetStatus)  
-  
 -   [odeslání žádosti](api-management-advanced-policies.md#SendRequest)  
-  
 -   [odeslání jeden způsob požadavků](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [protokol eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [JSON do xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [XML – json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>Poslední chyba  
@@ -128,4 +117,10 @@ Azure API Management umožňuje vydavatelů reagovat na chybové stavy, které m
 |ověřit token jwt|Jiné chyby ověření|JwtInvalid|< zprávy z knihovny jwt\>|
 
 ## <a name="next-steps"></a>Další kroky
-Práce se zásadami pro další informace najdete v tématu [zásady ve službě API Management](api-management-howto-policies.md).  
+
+Práce se zásadami pro další informace najdete v tématu:
+
++ [Zásady ve službě API Management](api-management-howto-policies.md)
++ [Transformuje rozhraní API](transform-api.md)
++ [Referenční informace o zásadách](api-management-policy-reference.md) pro úplný seznam příkazy zásad a jejich nastavení
++ [Ukázky zásad](policy-samples.md)   

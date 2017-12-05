@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Podporované zdroje dat pro přípravu Azure Machine Learning dat. 
 Tento článek popisuje aktuálně podporovaných zdrojů dat pro přípravu dat Azure Machine Learning.
@@ -24,6 +24,25 @@ Tento článek popisuje aktuálně podporovaných zdrojů dat pro přípravu dat
 Takto vypadají podporovaných zdrojů dat pro tuto verzi.
 
 ## <a name="types"></a>Typy 
+
+### <a name="sql-server"></a>SQL Server
+Čtení z místní systém SQL server nebo Azure SQL database.
+
+#### <a name="options"></a>Možnosti
+- Adresa serveru
+- Důvěřovat serveru (sudé při certifikát na serveru není platný. Používejte opatrně)
+- Typ ověřování (Windows, Server)
+- Uživatelské jméno
+- Heslo
+- Pro připojení k databázi
+- Dotaz SQL
+
+#### <a name="notes"></a>Poznámky
+- SQL variant sloupce nejsou podporovány.
+- Sloupec čas je převést na typ datetime připojením čas z databáze k datu pod hodnotou 1970/1/1
+- Při spuštění v clusteru Spark, všechna data související s sloupců (date, datetime, datetime2, datetimeoffset) vyhodnotí nesprávné hodnoty dat před 1583
+- Hodnoty ve sloupcích decimal mohou ztratit přesnost z důvodu převodu do desítkové soustavy
+
 ### <a name="directory-vs-file"></a>Directory oproti souboru
 Zvolte jeden soubor a přečtěte si ho do přípravy data. Typ souboru je analyzována určit výchozí parametry pro připojení k souboru na další obrazovce.
 
@@ -88,6 +107,9 @@ Provádění Škálováním na více systémů využívá Spark Parquet čtení 
 ## <a name="locations"></a>Umístění
 ### <a name="local"></a>Místní
 Místní pevný disk nebo namapované síťové umístění úložiště.
+
+### <a name="sql-server"></a>SQL Server
+Místní SQL Server, nebo Azure SQL database.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Objekt Blob úložiště Azure, který vyžaduje předplatné Azure.

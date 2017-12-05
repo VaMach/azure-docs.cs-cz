@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: juliako
-ms.openlocfilehash: 024b4cbb13001d67e7c1f0b86a84dfb43478c49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="media-services-development-with-net"></a>Vývoj pro Media Services pomocí rozhraní .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -66,8 +66,11 @@ Alternativně můžete získat nejnovější sadu Media Services .NET SDK bits z
 
     Pokud používáte [ověření uživatele](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) konfiguračního souboru bude pravděpodobně mít hodnoty pro doménu klienta Azure AD a koncového bodu rozhraní REST API pro AMS.
     
+    >[!Note]
+    >Většina ukázek kódu v dokumentaci k Azure Media Services nastavit, použijte uživatele (interaktivní) typ ověřování pro připojení k rozhraní API pro AMS. Tato metoda ověřování bude fungovat i pro správu nebo monitorování nativní aplikace: mobilní aplikace, aplikace pro Windows a konzolové aplikace.
+    
     >[!Important]
-    >Většina ukázek kódu v dokumentaci k Azure Media Services nastavit, použijte uživatele (interaktivní) typ ověřování pro připojení k rozhraní API pro AMS. Tato metoda ověřování bude fungovat i pro správu nebo monitorování nativní aplikace: mobilní aplikace, aplikace pro Windows a konzolové aplikace. Tato metoda ověřování není vhodný pro server, webové služby, rozhraní API typu aplikací.  Další informace najdete v tématu [přístup k rozhraní API AMS pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+    > **Interaktivní** metoda ověřování není vhodný pro server, webové služby, rozhraní API typu aplikací. Pro tyto typy aplikací, použijte **instanční objekt** metodu ověřování. Další informace najdete v tématu [přístup k rozhraní API AMS pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...
