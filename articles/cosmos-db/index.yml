@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  ms.date: 11/29/2017
   ms.author: carolz
 abstract:
   description: 'Azure Cosmos DB je globálně distribuovaná databázová služba pro více modelů. Tyto Rychlé starty, kurzy a ukázky vám pomůžou s vývojem databází dokumentů, párů klíč-hodnota, širokých sloupců a grafů s použitím oblíbených rozhraní API a programovacích modelů. Potom se naučíte replikovat data do libovolného počtu oblastí Azure a škálovat propustnost nezávisle na úložišti s využitím výhod komplexních smluv SLA.'
@@ -63,7 +63,7 @@ sections:
               - href: /azure/cosmos-db/create-graph-java
               - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
-              - href: null
+              - href: /azure/cosmos-db/create-graph-python
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: Rozhraní Table API
             values:
