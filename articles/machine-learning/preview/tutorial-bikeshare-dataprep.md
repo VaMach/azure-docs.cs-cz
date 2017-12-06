@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Kurz kolo share: Advanced Příprava dat pomocí Azure Machine Learning Workbench
 Služby Azure Machine Learning (preview) je vědecké zpracování dat integrované, klient server a pokročilou analýzu řešení pro odborníky v oblasti datových vědců připravit data, vývoji experimenty a nasazení modely v cloudovém měřítku.
@@ -201,7 +201,7 @@ Vrátit __zobrazení dat__, vyberte __Data__ z levé horní části stránky.
    ![Obrázek dialogového okna filtru](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > FM – 15 je typ z meteorologických Terminálové leteckých rutiny počasí sestavy (METAR). FM – 15 sestavy jsou dodržovány empirically být nejúplnější, s listtle chybějící data.
+   > FM – 15 je typ z meteorologických Terminálové leteckých rutiny počasí sestavy (METAR). FM – 15 sestavy jsou dodržovány empirically být nejúplnější, s malým množstvím chybějící data.
 
 ## <a name="remove-a-column"></a>Odebrat sloupec
 
@@ -287,7 +287,7 @@ Data v předpovědi použít pro dvě hodiny čas bloky, je nutné vypočítat p
 
    Typ `Jan 01, 2015 12AM-2AM` jako v příkladu na prvním řádku a stiskněte klávesu **Enter**.
 
-   Nástroje Workbench určuje transformaci založena na příkladu, které zadáte. V tomto příkladu výsledkem je, že je datum formátu změnit a zřetězen s dvou hodin.
+   Nástroje Workbench určuje transformaci založena na příkladu, které zadáte. V tomto příkladu výsledkem je, že formát data je změněn a zřetězen s dvou hodin.
 
    ![Obrázek příkladu, 01 ledna 2015 12: 00 – 2: 00](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 241b744f5c5e89f53addb4d41d732245d76ef9a3
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Plánování nasazení synchronizace souboru Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -34,8 +34,8 @@ Synchronizační služba úložiště je prostředek Azure nejvyšší úrovně 
 ### <a name="sync-group"></a>Synchronizace skupiny
 Synchronizace skupiny definuje topologie synchronizace pro určitou sadu souborů. Koncové body v rámci synchronizace skupiny jsou synchronizovány mezi sebou. Pokud máte například dvě odlišné skupiny souborů, které chcete spravovat pomocí Azure synchronizace souborů, by vytvořit dvě synchronizace skupiny a přidat ke každé skupině synchronizaci různými koncovými body. Synchronizační služba úložiště, může hostovat libovolný počet skupin synchronizace, kolik potřebujete.  
 
-### <a name="registered-server"></a>Zaregistrovaný Server
-Objekt zaregistrovaný Server představuje vztah důvěryhodnosti mezi serverem (nebo clusteru) a služby úložiště Sync. Počet serverů do instance úložiště synchronizační služby podle potřeby můžete zaregistrovat. Však serveru (nebo clusteru) může být zaregistrován u pouze jeden synchronizační služby úložiště v čase.
+### <a name="registered-server"></a>Zaregistrovaný server
+Objekt zaregistrovaný server představuje vztah důvěryhodnosti mezi serverem (nebo clusteru) a služby úložiště Sync. Počet serverů do instance úložiště synchronizační služby podle potřeby můžete zaregistrovat. Však serveru (nebo clusteru) může být zaregistrován u pouze jeden synchronizační služby úložiště v čase.
 
 ### <a name="azure-file-sync-agent"></a>Agent Azure synchronizace souboru
 Agent Azure souboru Sync je ke stažení balíčku, který umožňuje systému Windows Server bude synchronizován se sdílenou složku Azure. Agent synchronizace souboru Azure má tři hlavní součásti: 
@@ -46,16 +46,22 @@ Agent Azure souboru Sync je ke stažení balíčku, který umožňuje systému W
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Koncový bod serveru
-Koncový bod serveru představuje určitého umístění na serveru registrován, například do složky na svazku serveru nebo v kořenovém adresáři svazku. Víc koncových bodů serveru může existovat na stejném svazku, pokud jejich obory názvů se nepřekrývají (například F:\sync1 a F:\sync2). Můžete nakonfigurovat zásady vrstvení cloudu zvlášť pro každý koncový bod serveru. Pokud přidáte umístění serveru, která má existující sadu souborů jako koncový bod serveru do skupiny synchronizace, tyto soubory jsou sloučeny s ostatními soubory, které již jsou v dalších koncových bodů v synchronizace skupiny.
+Koncový bod serveru představuje určitého umístění na zaregistrovaný server, například do složky na svazku serveru nebo v kořenovém adresáři svazku. Víc koncových bodů serveru může existovat na stejném svazku, pokud jejich obory názvů se nepřekrývají (například F:\sync1 a F:\sync2). Můžete nakonfigurovat zásady vrstvení cloud jednotlivě pro každý koncový bod serveru. Pokud přidáte umístění serveru, která má existující sadu souborů jako koncový bod serveru do skupiny synchronizace, tyto soubory jsou sloučeny s ostatními soubory, které již jsou v dalších koncových bodů v synchronizace skupiny.
+
+> [!Note]  
+> Koncový bod serveru může být umístěna na svazku systému Windows. Cloud vrstvení není podporována na systémovém svazku.
 
 ### <a name="cloud-endpoint"></a>Koncového bodu cloudu
-Koncový bod cloudu je Azure sdílené složky, která je součástí skupiny synchronizace. Synchronizace sdílené složky celý soubor Azure a sdílenou složku Azure může být členem pouze jeden koncový bod cloudu. Sdílenou složku Azure proto může být členem jenom jedné skupiny synchronizace. Pokud přidáte Azure sdílené složky, která má existující sadu souborů jako koncový bod cloudu do skupiny synchronizace, existující soubory jsou sloučeny s ostatními soubory, které již jsou v dalších koncových bodů v synchronizace skupiny.
+Koncový bod cloudu je Azure sdílené složky, která je součástí skupiny synchronizace. Synchronizace sdílené složky celý soubor Azure a sdílenou složku Azure můžou být členy koncového bodu jenom k jednomu cloudu. Sdílenou složku Azure proto může být členem jenom jedné skupiny synchronizace. Pokud přidáte Azure sdílené složky, která má existující sadu souborů jako koncový bod cloudu do skupiny synchronizace, existující soubory jsou sloučeny s ostatními soubory, které již jsou v dalších koncových bodů v synchronizace skupiny.
 
 > [!Important]  
 > Synchronizace služby Azure souboru podporuje změn sdílenou složkou Azure přímo. Ale veškeré změny provedené na sdílenou složkou Azure nejprve mají být zjišťované úlohou detekce změn v Azure synchronizace souboru. Úloha zjištění změn je zahájena pro koncový bod cloudu pouze jednou za 24 hodin. Další informace najdete v tématu [nejčastější dotazy k Azure Files](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Vrstvení cloudu 
 Cloud vrstvení je volitelná funkce synchronizace souborů Azure, ve kterém zřídka používá nebo používaná soubory mohou být rozvrstvena k Azure Files. Při vrstveny soubor synchronizace souboru Azure filtrem systému souborů (StorageSync.sys) nahradí soubor místně na ukazatel nebo bod rozboru. Bod rozboru představuje adresu URL k souboru v Azure Files. Vrstvený soubor má atribut "offline" nastavené v systému souborů NTFS, takže aplikace jiných výrobců můžete identifikovat vrstvené soubory. Když uživatel otevře soubor vrstvené, synchronizace souboru Azure bezproblémově vrátí data souborů ze souborů Azure bez uživatele, kteří potřebují vědět, že soubor není místně uložených v systému. Tato funkce se také nazývá správu hierarchických úložišť (HSM).
+
+> [!Important]  
+> Cloud vrstvení není podporována pro koncové body serveru na svazcích systému Windows.
 
 ## <a name="azure-file-sync-interoperability"></a>Interoperabilita Azure synchronizace souboru 
 Tato část obsahuje synchronizace souboru Azure Interoperabilita s funkcí Windows serveru a role a řešení třetí strany.
@@ -76,18 +82,18 @@ Budoucí verze systému Windows Server bude přidán jako jejich vydání. Star�
 ### <a name="file-system-features"></a>Funkce systému souborů
 | Funkce | Podpora stavu | Poznámky |
 |---------|----------------|-------|
-| Seznamy řízení přístupu (ACL) | Plně podporovány. | Seznamy ACL systému Windows se zachovají pomocí synchronizace souboru Azure a jsou vynucována ve Windows serveru na Server koncové body. Seznamy ACL systému Windows (dosud nejsou) nepodporuje soubory Azure, pokud soubory se k nim přistupuje přímo v cloudu. |
+| Seznamy řízení přístupu (ACL) | Plně podporovány. | Seznamy ACL systému Windows se zachovají pomocí synchronizace souboru Azure a jsou vynucována ve Windows serveru na koncové body serveru. Seznamy ACL systému Windows (dosud nejsou) nepodporuje soubory Azure, pokud soubory se k nim přistupuje přímo v cloudu. |
 | Pevné odkazy | Přeskočena | |
 | Symbolické odkazy | Přeskočena | |
 | Přípojné body | Částečně podporována. | Přípojné body může být kořenovém koncový bod serveru, ale budou se přeskočí, pokud jsou obsaženy v oboru názvů koncový bod serveru. |
-| Spojovacích bodech | Přeskočena | |
+| Spojovacích bodech | Přeskočena | Například distribuované DfrsrPrivate systému souborů a DFSRoots složky. |
 | Body rozboru | Přeskočena | |
 | Komprese NTFS | Plně podporovány. | |
 | Zhuštěných souborů | Plně podporovány. | Synchronizace zhuštěných souborů (nejsou blokována), ale jejich synchronizaci do cloudu jako celého souboru. Pokud se obsah souboru se změní v cloudu (nebo na jiném serveru), soubor je již zhuštěných po stažení změn. |
 | Alternativní datové proudy (reklamy) | Zachovají, ale nejsou synchronizované | |
 
 > [!Note]  
-> Jsou podporovány pouze svazky systému souborů NTFS.
+> Jsou podporovány pouze svazky systému souborů NTFS. Odolný systém souborů FAT, FAT32 a jiných systémů souborů nejsou podporovány.
 
 ### <a name="failover-clustering"></a>Clustering převzetí služeb při selhání
 Windows Server Failover Clustering podporuje Azure souboru Sync pro možnost "Souborový Server pro obecné použití" nasazení. Převzetí služeb při selhání není podporováno vytváření clusterů "Souborového serveru Škálovaného na více systémů pro data aplikací" (SOFS) nebo na sdílených svazků clusteru (CSV).
@@ -97,6 +103,24 @@ Windows Server Failover Clustering podporuje Azure souboru Sync pro možnost "So
 
 ### <a name="data-deduplication"></a>Odstranění duplicitních dat
 Pro svazky, které nemají cloudu vrstvení povoleno synchronizace souboru Azure podporuje Windows Server povoleným odstraněním duplicitních dat se na svazku. V současné době nepodporujeme spolupráci mezi Azure soubor synchronizaci s cloudem vrstvení povoleno a odstranění duplicitních dat.
+
+### <a name="distributed-file-system-dfs"></a>Distribuovaný systém souborů (DFS)
+Synchronizace služby Azure souboru podporuje Interoperabilita s obory názvů DFS (DFS-N) a replikace DFS (DFS-R) počínaje [agenta synchronizace souboru Azure 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+
+**Obory názvů DFS (DFS-N)**: synchronizace souboru Azure je plně nepodporuje na serverech systému souborů DFS-N. Agent synchronizace souboru Azure můžete nainstalovat na jeden nebo více členů DFS-N pro synchronizaci dat mezi koncovými body serveru a koncového bodu cloudu. Další informace najdete v tématu [přehled oborů názvů DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+ 
+**Replikace distribuovaného systému souborů (DFS-R)**: protože DFS-R a synchronizace souborů Azure jsou obě řešení replikace, ve většině případů, doporučujeme nahrazení DFS-R se synchronizací souboru Azure. Existuje ale několik scénářů, kdy budete chtít využívat společně systému souborů DFS-R a synchronizace souborů Azure:
+
+- Migrujete ze systému souborů DFS-R nasazení k nasazení služby Azure synchronizace souboru. Další informace najdete v tématu [migraci nasazení replikace distribuovaného systému souborů (DFS-R) k synchronizaci souboru Azure](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
+- Ne každý na místním serveru, který se musí kopii dat. můžete připojené přímo k Internetu.
+- Větev servery slučování dat do jednoho rozbočovače serveru, pro který chcete používat Azure souboru Sync.
+
+Synchronizace souboru Azure a systému souborů DFS-R fungovat vedle sebe:
+
+1. Synchronizace služby Azure souboru cloudu vrstvení musí být zakázáno na svazcích s DFS-R replikované složky.
+2. Koncové body serveru by se neměla konfigurovat na složky jen pro čtení replikace DFS-R.
+
+Další informace najdete v tématu [Přehled replikace DFS](https://technet.microsoft.com/library/jj127250).
 
 ### <a name="antivirus-solutions"></a>Antivirových řešení
 Vzhledem k tomu, že antivirový funguje tak, že kontrola soubory pro známého škodlivého kódu, může způsobit antivirového produktu odvolání vrstvené souborů. Protože vrstvené soubory mají atribut "offline" nastaven, doporučujeme poradě s dodavatelem softwaru se dozvíte, jak nakonfigurovat své řešení tak, aby přeskočil čtení offline soubory. 

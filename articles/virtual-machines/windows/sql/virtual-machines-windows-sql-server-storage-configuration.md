@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c0bd1aa2236eb44a41142f9cfc20c220ca49e99
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfiguraci úložiště pro virtuální počítače serveru SQL
 Když konfigurujete image virtuálního počítače systému SQL Server v Azure, pomáhá automatizovat konfiguraci úložiště na portálu. Jedná se o připojení k virtuálnímu počítači, zpřístupnění této úložiště pro SQL Server a nakonfigurovat jej pro optimalizaci pro vašim požadavkům na výkon konkrétní úložiště.
@@ -30,7 +30,7 @@ Toto téma vysvětluje, jak nakonfiguruje Azure úložiště pro virtuální po�
 ## <a name="prerequisites"></a>Požadavky
 Pokud chcete použít nastavení konfigurace automatizované úložiště, virtuální počítač vyžaduje následující vlastnosti:
 
-* Zřízená [image SQL serveru Galerie](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* Zřízená [image SQL serveru Galerie](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 * Používá [modelu nasazení Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md).
 * Používá [Storage úrovně Premium](../premium-storage.md).
 

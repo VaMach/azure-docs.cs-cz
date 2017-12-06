@@ -1,25 +1,19 @@
 ---
-title: CI/CD s Azure Container Service a Swarm | Microsoft Docs
+title: CI/CD s Azure Container Service a Swarm
 description: "Dostat nepřetržitě aplikace .NET Core více kontejnerů pomocí Docker Swarm, registru kontejner Azure a Visual Studio Team Services pomocí Azure Container Service"
 services: container-service
-documentationcenter: " "
 author: jcorioland
-manager: pierlag
-tags: acs, azure-container-service
-keywords: Docker, kontejnery, Micro-services, Swarm, Azure, Visual Studio Team Services, DevOps
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 99c27c37218a35d2a3416d6edd5e0a871cd5c011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38877afb63e993eeaab723a6ea5f4c40d3c956a5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Úplné kanálu CI nebo CD pro nasazení aplikace s více kontejnerů v Azure Container Service pomocí nástroje Docker Swarm, pomocí sady Visual Studio Team Services
 

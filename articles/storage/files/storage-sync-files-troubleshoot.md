@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 265c5f660c4bee53a2faf4a073384587eb3f65fc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Řešení potíží s synchronizace souboru Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -26,7 +26,7 @@ Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší orga
 Tento článek slouží můžete odstraňovat potíže a řešit problémy, které se můžete setkat s nasazením Azure synchronizace souboru. Můžeme také popisují, jak shromažďovat důležité protokoly ze systému, pokud je potřeba hlubší rozbor problému. Pokud nevidíte odpověď na svoji otázku, kontaktujte nás prostřednictvím následující kanály (v narůstajícím pořadí):
 
 1. Komentáře části tohoto článku.
-2. [Fórum pro Azure Storage](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Fórum pro Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Soubory Azure UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Podporu společnosti Microsoft. K vytvoření nové žádosti o podporu, na portálu Azure na **pomoci** vyberte **Nápověda a podpora** tlačítko a potom vyberte **nová žádost o podporu**.
 
@@ -69,7 +69,7 @@ Reset-StorageSyncServer
 Tento problém nastane, když **rozšířeného zabezpečení aplikace Internet Explorer** je povolena při registraci serveru. Další informace o tom, jak zakázat správně **rozšířeného zabezpečení aplikace Internet Explorer** zásady, najdete v části [Příprava systému Windows Server pro použití s Azure souboru Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) a [jak nasadit Azure File Synchronizace (preview)](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Synchronizace skupiny správy
-<a id="cloud-endpoint-using-share"></a>**Cloud selže vytvoření koncového bodu, k této chybě: "Zadaný Azure sdílení souborů je již používán jinou CloudEndpoint"**  
+<a id="cloud-endpoint-using-share"></a>**Vytvoření koncového bodu cloudu selže s touto chybou: "Zadaný Azure sdílení souborů je již používán jinou CloudEndpoint"**  
 K tomuto problému dochází, pokud sdílenou složkou Azure je již používán jiným koncovým bodem cloudu. 
 
 Pokud se zobrazí tato zpráva a sdílenou složkou Azure aktuálně není používán koncového bodu cloudu, proveďte následující kroky zrušte Azure souboru synchronizovat metadata Azure sdílené složky:
@@ -81,7 +81,7 @@ Pokud se zobrazí tato zpráva a sdílenou složkou Azure aktuálně není použ
 2. Klikněte pravým tlačítkem myši sdílenou složku Azure a potom vyberte **upravit metadata**.
 3. Klikněte pravým tlačítkem na **SyncService**a potom vyberte **odstranit**.
 
-<a id="cloud-endpoint-authfailed"></a>**Cloud selže vytvoření koncového bodu, k této chybě: "AuthorizationFailed"**  
+<a id="cloud-endpoint-authfailed"></a>**Vytvoření koncového bodu cloudu selže s touto chybou: "AuthorizationFailed"**  
 K tomuto problému dochází, pokud váš uživatelský účet nemá dostatečná práva k vytvoření koncového bodu cloudu. 
 
 Pokud chcete vytvořit koncový bod cloudu, váš uživatelský účet musí mít následující oprávnění Authorization Microsoft:  
@@ -102,7 +102,7 @@ Chcete-li zjistit, jestli vaše uživatelská role účet má potřebná oprávn
     * **Přiřazení role** by měl mít **čtení** a **zápisu** oprávnění.
     * **Definice role** by měl mít **čtení** a **zápisu** oprávnění.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Cloud selže odstranění koncového bodu, k této chybě: "MgmtInternalError"**  
+<a id="cloud-endpoint-deleteinternalerror"></a>**Odstranění koncového bodu cloudu selže s touto chybou: "MgmtInternalError"**  
 Tento problém může dojít, pokud účet sdílenou složku nebo úložiště Azure file je odstraněn před odstraněním koncového bodu cloudu. Tento problém bude opraven v budoucí aktualizaci. V ten moment se bude moct odstranit koncový bod cloudu po odstranění účet sdílenou složku nebo úložiště Azure file.
 
 Mezitím Chcete-li zabránit výskytu tohoto problému, odstraňte koncového bodu cloudu před odstraněním účtu sdílenou složku nebo úložiště Azure file.
@@ -133,6 +133,28 @@ Pokud jednotlivé soubory se nepodařilo synchronizovat:
     > Synchronizace služby Azure soubor pravidelně trvá snímků služby VSS pro synchronizaci souborů s otevřenými popisovači.
 
 ## <a name="cloud-tiering"></a>Vrstvení cloudu 
+Existují dvě cesty pro selhání v cloudu vrstvení:
+
+- Soubory můžete nepodaří vrstvy, což znamená, že synchronizace souboru Azure neúspěšně pokusí vrstvy soubor k Azure Files.
+- Soubory může selhat pro vyvolání, což znamená, že filtrem systému souborů synchronizace souboru Azure selže (StorageSync.sys) ke stahování dat při pokusy o uživatele pro přístup k souboru, které byly zřízeny vrstvené.
+
+Existují dvě hlavní třídy chyb, který může nastat prostřednictvím buď selhání cesta:
+
+- Chyby úložiště cloudu
+    - *Problémy s dostupností služby přechodným úložištěm*. V tématu [o úrovni služeb smlouvy (SLA) pro Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) Další informace.
+    - *Nedostupné sdílenou složku Azure*. Tato chyba obvykle se stane, když odstraníte, že Azure sdílené složky, pokud je stále koncového bodu cloudu ve skupině pro synchronizaci.
+    - *Účet úložiště nepřístupný*. Tato chyba obvykle dojde, když odstraníte účet úložiště při má stále Azure sdílenou, což je koncový bod cloudu ve skupině pro synchronizaci. 
+- Selhání serveru 
+    - *Azure synchronizace souboru filtrem systému souborů (StorageSync.sys) není načten*. Chcete-li reagovat na vrstvení nebo odvolání požadavky, musí být načteny filtrem systému souborů synchronizace souboru Azure. Filtr nebudou načteny může dojít z několika důvodů, ale nejběžnějším důvodem je, že správce uvolněna ji ručně. Filtrem systému souborů synchronizace souboru Azure musí být načteny na všechny časy pro Azure souboru synchronizaci správně fungovat.
+    - *Chybí, je poškozený nebo jinak poškozený spojovací bod*. Bod rozboru je speciální datová struktura, na soubor, který se skládá ze dvou částí:
+        1. Značku rozboru, což znamená operačního systému, že synchronizace souboru Azure filtrem systému souborů (StorageSync.sys) možná muset provést některé akce na vstupu nebo výstupu do souboru. 
+        2. Rozboru data, která určuje filtrem systému souborů, identifikátor URI souboru na koncovém bodu přidruženého cloudu (Azure sdílené složky). 
+        
+        Bod rozboru mohly být poškozeny nejběžnější způsob je, pokud se správce pokusí změnit značky nebo jeho data. 
+    - *Síťové problémy s připojením k*. Chcete-li úroveň, nebo odvolat soubor, server musí mít připojení k Internetu.
+
+Následující části určují, jak vrstvení potíží cloudu a určí, zda problém problémem cloudové úložiště nebo problémem serveru.
+
 <a id="files-fail-tiering"></a>**Řešení potíží s soubory, které se nepodařilo vrstvy**  
 Pokud se soubory se nepodaří vrstvy do Azure souborů:
 

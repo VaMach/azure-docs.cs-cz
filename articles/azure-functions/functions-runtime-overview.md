@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: cb98d5f2aaa526555820c15ba5a32fb7e78ffc5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 557f071e2cd8d4f639c881274e6e74a8fb745859
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-functions-runtime-overview"></a>Přehled Azure Functions modulu Runtime
 
@@ -29,6 +29,7 @@ Azure Functions Runtime nabízí nový způsob můžete využívat jednoduchost 
 Azure Functions Runtime poskytuje způsob, jak jste prostředí Azure Functions před potvrzením do cloudu. Tímto způsobem kód prostředků, které vytvoříte pak děláte s vámi do cloudu při migraci.  Modul runtime také otevře nové možnosti pro vás, například pomocí k výměně za chodu výpočetní výkon vašich počítačů místní spuštění dávky procesy přes noc. Zařízení můžete také použít v rámci vaší organizace podmíněně odesílání dat do jiných systémů, jak místně a v cloudu.
 
 Azure Functions Runtime se skládá ze dvou částí:
+
 * Role správy Runtime Azure Functions
 * Role pracovního procesu modulu Runtime Azure Functions
 
@@ -36,21 +37,21 @@ Azure Functions Runtime se skládá ze dvou částí:
 
 Role Azure funkce správy poskytuje pro správu funkce místní hostitel. Tato role se provádí tyto úlohy:
 
-* Z portálu Azure funkce správy, který je hostitelem stejný jako ten, můžete vidět v [portál Azure](https://portal.azure.com). Díky tomu můžete vyvíjet funkcí stejným způsobem, jako byste na portálu Azure.
+* Hostování portálu Azure funkce správy, což je stejný jako ten, můžete vidět v [portál Azure](https://portal.azure.com). Na portálu zajišťuje konzistentní prostředí, které vám umožní vyvíjet funkcí stejným způsobem, jako byste na portálu Azure.
 * Distribuci funkcí mezi více pracovníků funkce.
-* Poskytování publikování koncový bod, aby mohly publikovat vaše funkce přímo ze sady Microsoft Visual Studio.
+* Koncový bod publikování poskytuje tak, aby vaše funkce přímo ze sady Microsoft Visual Studio můžete publikovat pomocí stahování a import profilu publikování.
 
 ## <a name="azure-functions-worker-role"></a>Role pracovního procesu Azure Functions
 
-Role pracovního procesu Azure funkce nasazených v kontejnerech Windows a toto je, kde se provádí funkce kódu.  Můžete nasadit více rolí pracovního procesu ve vaší organizaci a je klíče způsob, ve kterém zákazníci měli používat k výměně za chodu výpočetním výkonu.
+Role pracovního procesu Azure funkce nasazených v kontejnerech Windows a jsou, kde se provádí funkce kódu.  Více rolí pracovního procesu můžete nasadit ve vaší organizaci a tato možnost je klíče způsob, ve kterém zákazníci měli použít k výměně za chodu výpočetní výkon.  Jedna je například kde k výměně za chodu výpočetní existuje v mnoha organizacích počítače neustále zapnutý, ale nepoužívala pro velké období.
 
 ## <a name="minimum-requirements"></a>Minimální požadavky
 
-Začít s Azure Functions Runtime musí mít počítač s **systému Windows Server 2016 nebo Windows 10 Creators Update** s přístupem k **systému SQL Server** instance.
+Chcete-li začít pracovat s modulem Runtime funkce Azure, musí mít počítač s Windows Server 2016 nebo Windows 10 Creators Update přístup k instanci systému SQL Server.
 
 ## <a name="next-steps"></a>Další kroky
 
-Nainstalujte [Runtime funkce Azure preview](https://aka.ms/azafr)
+Nainstalujte [Runtime funkce Azure preview](https://aka.ms/azafrdoc)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

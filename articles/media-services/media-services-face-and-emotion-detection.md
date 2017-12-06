@@ -14,8 +14,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 89a2e590d7ae80540ac9f4d76be6f5f50049bdd6
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d1f5c6e0ab682aedf015189f3540442a5657d462
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/05/2017
@@ -334,12 +334,7 @@ Program zobrazí následující postup:
 
 Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o připojení, jak je popsáno v tématu [Vývoj pro Media Services v .NET](media-services-dotnet-how-to-use.md). 
 
-Ukázka fungovala postupujte podle následující dva kroky:
 
-1. Použijte verzi 4.1.0 **WindowsAzure.MediaServices.Extensions** (kvůli problémům s kompatibilitou s závislé balíčky). 
-2. Použijte verzi 3.16.1 **Microsoft.IdentityModel.Clients.ActiveDirectory** (z důvodu známého problému v novějších verzích).
-
-Tyto požadavky jsou platná od 24 listopadu 2017.
 
 #### <a name="example"></a>Příklad
 

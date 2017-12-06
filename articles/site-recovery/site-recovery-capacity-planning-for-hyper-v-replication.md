@@ -12,14 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: db790f9dc56605b5b752e7ab797903e32b2fc675
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: e2a69f240068d3155c2fdd52c118dc037ccbcdcb
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+Nové vylepšené verze [planner nasazení Azure Site Recovery pro Hyper-V do Azure](site-recovery-hyper-v-deployment-planner.md) je nyní k dispozici a nahraďte staré nástrojem. Nový nástroj pro plánování nasazení. Tento nástroj nabízí následující obecné zásady: 
+* Vyhodnocení podmínky virtuálních počítačů na základě počtu disky, velikost disku, IOPS, změn a několik vlastností virtuálního počítače.
+* Šířka pásma sítě musí versus assessment plánovaný bod obnovení.
+* Požadavky na infrastrukturu Azure.
+* Požadavky na infrastrukturu na pracovišti.
+* Dávkování pokyny počáteční replikace.
+* Odhadované celkové náklady na zotavení po Havárii do Azure.
+
+
 # <a name="hyper-v-capacity-planner-tool-for-site-recovery"></a>Nástroje Plánovač kapacity technologie Hyper-V pro obnovení lokality
 
 Jako součást nasazení Azure Site Recovery musíte pochopit replikace a nároky na šířku pásma. Nástroje Hyper-V capacity planner pro Site Recovery pomáhá to provést pro replikaci virtuálního počítače technologie Hyper-V.

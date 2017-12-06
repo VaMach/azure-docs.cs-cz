@@ -1,29 +1,22 @@
 ---
-title: "Sdílené složky pro cluster Azure DC/OS | Microsoft Docs"
+title: "Sdílené složky pro cluster Azure DC/OS"
 description: "Vytvořit a připojit sdílenou složku na clusteru DC/OS v Azure Container Service"
 services: container-service
-documentationcenter: 
 author: julienstroheker
 manager: dcaro
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, kontejnery, Micro-services, Mesos, Azure, sdílení souborů, cifs"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: a5905cac12f52f94a5722cc01495d5c1168634f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1c318f4204efd24a2d9d3d83bb1cb71f5775bdb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Vytvořit a připojit sdílenou složku na clusteru DC/OS
+
 V tomto kurzu podrobné informace o tom, jak vytvořit sdílenou složku v Azure a připojte ho na každého agenta a k hlavnímu serveru clusteru DC/OS. Nastavení sdílené složky usnadňuje sdílení souborů mezi vašeho clusteru, například konfigurace, přístup, protokoly a další. V tomto kurzu jsou prováděny následující úlohy:
 
 > [!div class="checklist"]

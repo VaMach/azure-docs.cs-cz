@@ -1,41 +1,33 @@
 ---
-title: "Azure kontejner instancí - skupina více kontejneru | Dokumentace Azure"
-description: "Azure kontejner instancí - skupina více kontejneru"
+title: "Nasazení skupiny více kontejnerů v Azure kontejner instancí"
+description: "Postup nasazení kontejneru skupiny pomocí několika kontejnerů v Azure kontejner instancí."
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>Nasazení kontejneru skupiny
 
-Azure instancí kontejnerů podporu nasazení několika kontejnerů do jednoho hostitele pomocí *skupina kontejneru*. To je užitečné při sestavování něho aplikace pro protokolování, sledování nebo jakoukoli jinou konfiguraci, které služba potřebuje druhý připojené procesu. 
+Azure instancí kontejnerů podporu nasazení několika kontejnerů do jednoho hostitele pomocí *skupina kontejneru*. To je užitečné při sestavování něho aplikace pro protokolování, sledování nebo jakoukoli jinou konfiguraci, které služba potřebuje druhý připojené procesu.
 
 Tento dokument vás provede spuštění jednoduché něho více kontejneru konfigurace pomocí šablony Azure Resource Manager.
 
 ## <a name="configure-the-template"></a>Konfigurace šablony
 
-Vytvořte soubor s názvem `azuredeploy.json` a zkopírujte do ní následující kód json. 
+Vytvořte soubor s názvem `azuredeploy.json` a zkopírujte do ní následující kód json.
 
-V této ukázce je definována kontejner skupiny s dvěma kontejnery a veřejnou IP adresu. První kontejner skupiny spustí internetovou přístupných aplikaci. Druhý kontejneru něho, zašle požadavek HTTP do hlavní webové aplikace prostřednictvím místní sítě skupiny. 
+V této ukázce je definována kontejner skupiny s dvěma kontejnery a veřejnou IP adresu. První kontejner skupiny spustí internetovou přístupných aplikaci. Druhý kontejneru něho, zašle požadavek HTTP do hlavní webové aplikace prostřednictvím místní sítě skupiny.
 
-Tento příklad něho může rozšířit, aby spuštění výstrahy v případě obdržel kódu odpovědi HTTP než 200 OK. 
+Tento příklad něho může rozšířit, aby spuštění výstrahy v případě obdržel kódu odpovědi HTTP než 200 OK.
 
 ```json
 {
@@ -46,7 +38,7 @@ Tento příklad něho může rozšířit, aby spuštění výstrahy v případě
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ Nasazení šablony s [vytvořit nasazení skupiny az](/cli/azure/group/deploymen
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-Během pár sekund zobrazí se první odpověď z Azure. 
+Během pár sekund zobrazí se první odpověď z Azure.
 
 ## <a name="view-deployment-state"></a>Zobrazení stavu nasazení
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>Zobrazit protokoly   
+## <a name="view-logs"></a>Zobrazit protokoly
 
-Zobrazit výstup protokolu kontejneru pomocí `az container logs` příkaz. `--container-name` Argument určuje kontejner, ze kterého protokoly pro vyžádání obsahu. V tomto příkladu je zadána první kontejneru. 
+Zobrazit výstup protokolu kontejneru pomocí `az container logs` příkaz. `--container-name` Argument určuje kontejner, ze kterého protokoly pro vyžádání obsahu. V tomto příkladu je zadána první kontejneru.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

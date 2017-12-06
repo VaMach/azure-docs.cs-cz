@@ -14,23 +14,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 09d488a7600d85b6feab6a27cdd517240c95104b
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Spravovat konec platnosti úložiště objektů Azure Blob v Azure Content Delivery Network
 > [!div class="op_single_selector"]
-> * [Azure webového obsahu](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Webový obsah Azure](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
 [Služba úložiště objektů Blob](../storage/common/storage-introduction.md#blob-storage) ve službě Azure Storage je jedním z několika Azure na základě původu integrované s Azure Content Delivery Network (CDN). Veškerý obsah, veřejně přístupná objektů blob můžete v Azure CDN do mezipaměti, dokud uplynutí jeho time to live (TTL). Hodnota TTL je dáno `Cache-Control` hlavičku HTTP odpovědi ze zdrojového serveru. Tento článek popisuje několik způsobů, které můžete nastavit `Cache-Control` záhlaví u objektu blob ve službě Azure Storage.
 
+Nastavení mezipaměti na portálu Azure můžete také ovládat nastavením [CDN ukládání do mezipaměti pravidla](cdn-caching-rules.md). Pokud nastavíte jeden nebo více ukládání do mezipaměti pravidla a nastavte své chování ukládání do mezipaměti na **přepsat** nebo **vynechat mezipaměti**, zadaný počátečního nastavení ukládání do mezipaměti popsané v tomto článku jsou ignorovány. Informace o obecné koncepty ukládání do mezipaměti najdete v tématu [průběh ukládání do mezipaměti](cdn-how-caching-works.md).
+
 > [!TIP]
-> Můžete nastavit žádné TTL pro objekt blob. V takovém případě Azure CDN automaticky použije výchozí hodnotu TTL sedm dní. Toto výchozí nastavení TTL se vztahuje pouze na obecné webové doručení optimalizace. Pro optimalizace na velkých souborů je výchozí hodnota TTL je jeden den a pro streamování optimalizace médií, je výchozí hodnota TTL je jeden rok.
+> Můžete nastavit žádné TTL pro objekt blob. V takovém případě Azure CDN automaticky použije výchozí hodnotu TTL sedm dní, pokud jste nastavili ukládání do mezipaměti pravidla na portálu Azure. Toto výchozí nastavení TTL se vztahuje pouze na obecné webové doručení optimalizace. Pro optimalizace na velkých souborů je výchozí hodnota TTL je jeden den a pro streamování optimalizace médií, je výchozí hodnota TTL je jeden rok.
 > 
 > Další informace o tom, jak funguje Azure CDN pro urychlení přístupu k objektům BLOB a další soubory, najdete v části [přehled Azure Content Delivery Network](cdn-overview.md).
 > 
@@ -129,4 +131,5 @@ Snadno můžete ověřit nastavení TTL objektů BLOB. V prohlížeči [nástroj
 
 ## <a name="next-steps"></a>Další kroky
 * [Zjistěte, jak spravovat platnost obsahu cloudové služby v Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
+* [Další informace o ukládání do mezipaměti koncepty](cdn-how-caching-works.md)
 

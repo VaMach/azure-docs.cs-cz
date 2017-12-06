@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jgao
-ms.openlocfilehash: 3c98150239134c686ac8edebd3c477bec8be7dd8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Správa prostředků v clusteru Apache Spark v Azure HDInsight 
 
-V tomto článku zjistíte, jak pro přístup k rozhraní jako uživatelské rozhraní Ambari, YARN uživatelského rozhraní, a Server historie Spark přidruženého k vašemu clusteru Spark. Můžete také informace o tom, jak ladit konfigurace clusteru pro optimální výkon.
+Zjistěte, jak získat přístup k rozhraní jako uživatelské rozhraní Ambari, uživatelském rozhraní YARN a serveru Spark historie přidruženého k vašemu clusteru Spark a jak k vyladění konfigurace clusteru pro optimální výkon.
 
 **Požadavky:**
 
-* Předplatné Azure. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Cluster Apache Spark v HDInsight. Pokyny najdete v tématu [clusterů vytvořit Apache Spark v Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>Jak spuštění webové uživatelské rozhraní Ambari?
+## <a name="open-the-ambari-web-ui"></a>Otevřete webovému uživatelskému rozhraní Ambari
 1. Z portálu [Azure Portal](https://portal.azure.com/) z úvodního panelu klikněte na dlaždici pro váš cluster Spark (pokud je připnutý na úvodní panel). Můžete také přejít na cluster pod položkou **Procházet vše** > **Clustery HDInsight**.
 2. Pro váš cluster Spark klikněte na tlačítko **řídicí panel**. Po zobrazení výzvy zadejte přihlašovací údaje správce pro Spark cluster.
 
@@ -40,7 +39,7 @@ V tomto článku zjistíte, jak pro přístup k rozhraní jako uživatelské roz
 
     ![Webovému uživatelskému rozhraní Ambari](./media/apache-spark-resource-manager/ambari-web-ui.png "webovému uživatelskému rozhraní Ambari")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>Jak spuštění serveru historie Spark?
+## <a name="open-the-spark-history-server"></a>Otevřete Server historie Spark
 1. Z portálu [Azure Portal](https://portal.azure.com/) z úvodního panelu klikněte na dlaždici pro váš cluster Spark (pokud je připnutý na úvodní panel).
 2. V okně clusteru pod **rychlé odkazy**, klikněte na tlačítko **řídicí panel clusteru**. V **řídicí panel clusteru** okně klikněte na tlačítko **Spark historie serveru**.
 
@@ -48,7 +47,7 @@ V tomto článku zjistíte, jak pro přístup k rozhraní jako uživatelské roz
 
     Po zobrazení výzvy zadejte přihlašovací údaje správce pro Spark cluster.
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>Jak mohu spustit uživatelské rozhraní Yarn?
+## <a name="open-the-yarn-ui"></a>Otevřete Yarn uživatelského rozhraní
 Monitorování aplikací, které jsou aktuálně spuštěny v clusteru Spark můžete pomocí uživatelského rozhraní YARN.
 
 1. V okně clusteru, klikněte na tlačítko **řídicí panel clusteru**a potom klikněte na **YARN**.
@@ -60,7 +59,7 @@ Monitorování aplikací, které jsou aktuálně spuštěny v clusteru Spark mů
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>Jaká je optimální clusteru konfigurace ke spouštění aplikací Spark?
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>Konfigurace clusteru optimální ke spouštění aplikací Spark
 Tři klíčové parametry, které lze použít pro konfigurace Spark v závislosti na požadavcích aplikace jsou `spark.executor.instances`, `spark.executor.cores`, a `spark.executor.memory`. Vykonavatele je proces spuštění pro aplikaci Spark. Se spustí v pracovním uzlu a zodpovídá provádět úlohy pro aplikaci. Výchozí počet velikost vykonavatele pro každý cluster a vykonavatelů je vypočítáváno na počet uzlů pracovního procesu a velikost uzlu pracovníka. Tyto informace jsou uloženy v `spark-defaults.conf` o hlavních uzlech clusteru.
 
 Tři konfigurační parametry lze nastavit na úrovni clusteru (pro všechny aplikace, které běží na clusteru) nebo lze zadat pro každou jednotlivých aplikací.

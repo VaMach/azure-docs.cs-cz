@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurace služby experimenty Azure Machine Learning
 
@@ -198,7 +198,7 @@ Vzdálený počítač by měl splňovat následující požadavky:
 Můžete vytvořit oba definici výpočetní cíl a spustit konfigurace pro vzdálené spuštění na základě Docker následující příkaz.
 
 ```
-az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" --type remotedocker
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
 ```
 
 Jakmile nakonfigurujete výpočetní cíl, můžete spustit skript následující příkaz.
@@ -211,7 +211,7 @@ $ az ml experiment submit -c remotevm myscript.py
 Proces vytváření Docker pro vzdálené virtuální počítače je přesně stejný proces pro místní Docker běží, takže byste měli očekávat na podobném principu provádění.
 
 >[!TIP]
->Pokud dáváte přednost, aby se zabránilo latence zaváděné vytváření bitové kopie Docker pro vaše první práce, můžete připravit cílový výpočetní před provedením vašeho skriptu následující příkaz. Příprava experimentu ml az - c<remotedocker>
+>Pokud dáváte přednost, aby se zabránilo latence zaváděné vytváření bitové kopie Docker pro vaše první práce, můžete připravit cílový výpočetní před provedením vašeho skriptu následující příkaz. -c remotedocker Příprava az ml experimentu
 
 
 _**Přehled virtuálních počítačů vzdálené spuštění skript v jazyce Python:**_
@@ -221,12 +221,12 @@ _**Přehled virtuálních počítačů vzdálené spuštění skript v jazyce Py
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Spuštění skriptu v clusteru HDInsight
 HDInsight je Oblíbené platforma pro analýzu velkých objemů dat podpora Apache Spark. Workbench umožňuje experimentování velkých objemů dat pomocí clusterů HDInsight Spark. 
 
->! [POZNÁMKA] HDInsight cluster musí používat jako primární úložiště objektů Blob v Azure. Pomocí Azure Data Lake storage se zatím nepodporuje.
+>![POZNÁMKA] Cluster HDInsight musí jako primární úložiště používat Azure Blob. Použití úložiště Azure Data Lake se ještě nepodporuje.
 
 Můžete vytvořit cíl výpočetní a spustit konfigurace clusteru služby HDInsight Spark pomocí následujícího příkazu:
 
 ```
-$ az ml computetarget attach --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword" --type cluster 
+$ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword"  
 ```
 
 >[!NOTE]
@@ -253,6 +253,29 @@ _**Přehled HDInsight na základě spuštění skriptu PySpark**_
 ## <a name="running-a-script-on-gpu"></a>Spuštění skriptu na GPU
 Pokud chcete spustit skripty na grafický procesor, můžete podle pokynů uvedených v tomto článku:[použití GPU v Azure Machine Learning](how-to-use-gpu.md)
 
+## <a name="using-ssh-key-based-authentication-for-creating-and-using-compute-targets"></a>Pomocí ověřování založeného na klíč SSH pro vytváření a používání výpočetní cíle
+Azure Machine Learning Workbench umožňuje vytvořit a použít výpočetní cíle pomocí ověřování založeného na klíč SSH kromě schéma pomocí uživatelského jména nebo hesla. Tato funkce můžete použít při použití remotedocker nebo clusteru jako vaše výpočetní cíl. Při použití tohoto schématu nástroje Workbench vytvoří pár veřejného a privátního klíče a oznamuje ho zpátky veřejný klíč. Veřejný klíč se připojí k souborům ~/.ssh/authorized_keys pro vaše uživatelské jméno. Azure Machine Learning Workbench použije ssh ověřování na základě klíčů pro přístup k informacím a provádění na tento cíl výpočty. Vzhledem k tomu, že privátní klíč pro výpočetní cíl je uložen v úložišti klíčů pro pracovní prostor, jiných uživatelů pracovního prostoru můžete použít cíl výpočetní stejným způsobem jako tím, že poskytuje zadané uživatelské jméno pro vytváření výpočetní cíle.  
+
+Provedením následujících kroků k použití této funkce. 
+
+- Vytvořte cíl výpočetní pomocí jedné z následujících příkazů.
+
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+```
+nebo
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
+```
+- Připojí generované Workbench ~/.ssh/authorized_keys souboru na cílovém připojené výpočetní veřejný klíč. 
+
+[!IMPORTANT] Je nutné se přihlásit na cíli výpočetní pomocí stejné uživatelské jméno, které jste použili k vytvoření výpočetní cíl. 
+
+- Teď můžete Příprava a použití cíle výpočetní pomocí ověřování na základě klíčů SSH.
+
+```
+az ml experiment prepare -c remotevm
+```
 
 ## <a name="next-steps"></a>Další kroky
 * [Vytvořit a nainstalovat Azure Machine Learning](quickstart-installation.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Stavová jednotlivé prvky v trvanlivý funkce – Ukázka čítače
 
@@ -45,13 +45,31 @@ Trvanlivý funkce usnadňuje tento druh scénář trivial implementovat, protož
 
 Tento článek vás provede **E3_Counter** funkce v ukázkové aplikace.
 
-Následující části popisují kód, který se používá pro vývoj v sadě Visual Studio. Kód pro vývoj na portálu Azure je podobný.
+
 
 ## <a name="the-counter-orchestration"></a>Čítač orchestration
+
+Následující části popisují kód, který se používá pro vývoj pro Visual Studio Code a portálu Azure.
+
+### <a name="c-script"></a>Skript jazyka C#
+
+Soubor function.json:
+
+[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+
+Soubor run.csx:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+
+### <a name="precompiled-c"></a>Předkompilované C# 
+
+Následující části popisují kód, který se používá pro vývoj v sadě Visual Studio.
 
 Tady je kód, který implementuje funkce orchestrator:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+
+### <a name="explanation-of-the-code"></a>Vysvětlení kódu
 
 Tato funkce orchestrator v podstatě provede následující akce:
 

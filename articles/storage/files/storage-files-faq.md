@@ -11,13 +11,13 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/13/2017
+ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Časté otázky k Azure Files
 [Soubory Azure](storage-files-introduction.md) nabízí plně spravované sdílené složky v cloudu, které jsou přístupné přes oborových standardů [zpráva bloku protokol Server (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (také označovaný jako systém souborů běžné Internet nebo CIFS). Sdílené složky Azure můžete ke cloudu nebo na místní nasazení systému Windows, Linux a systému macOS připojit současně. Také můžete mezipaměti Azure sdílené složky na počítačích systému Windows Server pomocí synchronizace souboru Azure (preview) pro rychlý přístup blízko kde data se používají.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/20/2017
 Tento článek obsahuje odpovědi na časté otázky týkající se Azure soubory funkcí a funkčnosti, včetně použití synchronizace souborů Azure s Azure Files. Pokud nevidíte odpověď na svoji otázku, kontaktujte nás prostřednictvím následující kanály (v narůstajícím pořadí):
 
 1. Komentáře části tohoto článku.
-2. [Fórum pro Azure Storage](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
+2. [Fórum pro Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Soubory Azure UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Podporu společnosti Microsoft. K vytvoření nové žádosti o podporu, na portálu Azure na **pomoci** vyberte **Nápověda a podpora** tlačítko a potom vyberte **nová žádost o podporu**.
 
@@ -147,6 +147,9 @@ Tento článek obsahuje odpovědi na časté otázky týkající se Azure soubor
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
+
+* <a id="afs-effective-vfs"></a>**Jak je *volné místo na svazku* interpretovat při ve svazku, je nutné několik koncových bodů serveru?**  
+    Když je na svazku více než jeden koncový bod serveru, je prahová hodnota volného místa efektivní svazku největší volné místo svazku zadaný napříč žádný koncový bod serveru na tomto svazku. Soubory budou vrstvené podle způsobu jejich použití bez ohledu na to, které koncový bod serveru, do které patří. Například pokud máte dva koncové body serveru ve svazku, koncovém bodě 1 a Endpoint2, kde má prahová hodnota volného místa na svazku % 25 koncovém bodě 1 a Endpoint2 prahová hodnota volného místa na svazku, 50 % prahová hodnota volného místa na svazku pro oba koncové body serveru bude 50 %.
 
 * <a id="afs-files-excluded"></a>**Které soubory nebo složky se automaticky vyloučí pomocí synchronizace souboru Azure?**  
     Ve výchozím nastavení vyloučí synchronizace souboru Azure následující soubory:

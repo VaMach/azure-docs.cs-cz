@@ -1,28 +1,22 @@
 ---
-title: "Správa clusteru Azure DC/OS pomocí uživatelského rozhraní Marathon | Microsoft Docs"
+title: "Správa clusteru Azure DC/OS pomocí uživatelského rozhraní Marathon"
 description: "Využijte webového uživatelského rozhraní Marathon k nasazení kontejnerů do clusteru Azure Container Service."
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, kontejnery, mikroslužby, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b00088bb005519dc5d533433308c0e3e33c7f433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c5fc223105b1dae0ce07f242a6b42b34fd2ab3
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Správa clusteru Azure Container Service DC/OS přes webové uživatelské rozhraní Marathon
+
 DC/OS poskytuje prostředí pro nasazování a škálování clusterových úloh a zároveň poskytuje abstrakci používaného hardwaru. Nad DC/OS je rozhraní, které spravuje plánování a provádění výpočetních úloh.
 
 Jsou k dispozici pro mnoho populárních úloh rozhraní, tento dokument popisuje, jak začít nasazení kontejnerů pomocí Marathonu. 

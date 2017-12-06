@@ -12,40 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalace a konfigurace rozhraní příkazového řádku pro použití s Azure zásobníku
 
 V tomto článku jsme vás provede procesem pomocí rozhraní příkazového řádku Azure (CLI) ke správě prostředků Azure zásobníku Development Kit ze systému Linux a Mac klientských platforem. 
-
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Exportujte certifikát kořenové certifikační Autority Azure zásobníku
-
-Pokud používáte rozhraní příkazového řádku z virtuálního počítače, který běží v prostředí Azure zásobníku Development Kit, zásobník Azure kořenový certifikát je již nainstalována ve virtuálním počítači, je možné ho načíst přímo. Pokud používáte rozhraní příkazového řádku z pracovní stanice mimo sadě pro vývoj, musíte exportovat certifikát kořenové certifikační Autority zásobník Azure z sadě pro vývoj a přidejte ho do úložiště certifikátů Python stanici vývoje (externí platformy Linux nebo Mac.). 
-
-Pokud chcete exportovat certifikát od kořenové zásobník Azure ve formátu PEM, přihlaste development Kit a spusťte následující skript:
-
-```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Certificate with subject CN=$label not found"
-       return
-   }
-
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
-```
 
 ## <a name="install-cli"></a>Instalace rozhraní příkazového řádku
 
@@ -59,7 +36,7 @@ Měli byste vidět verzi rozhraní příkazového řádku Azure a další závis
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Důvěřovat certifikátu kořenové certifikační Autority Azure zásobníku
 
-Chcete-li důvěryhodný kořenový certifikát certifikační Autority zásobník Azure, připojte ji existující certifikát Python. Pokud používáte rozhraní příkazového řádku z počítače systému Linux, který je vytvořen v prostředí Azure zásobníku, spusťte následující příkaz bash:
+Získání certifikátu kořenové certifikační Autority zásobník Azure z operátor zásobník Azure a důvěřujete mu. Chcete-li důvěryhodný kořenový certifikát certifikační Autority zásobník Azure, připojte ji existující certifikát Python. Pokud používáte rozhraní příkazového řádku z počítače systému Linux, který je vytvořen v prostředí Azure zásobníku, spusťte následující příkaz bash:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
@@ -110,11 +87,10 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Nastavit koncový bod aliasy virtuálního počítače
+## <a name="get-the-virtual-machine-aliases-endpoint"></a>Získat koncový bod aliasy virtuálního počítače
 
-Než uživatelé mohou vytvářet virtuální počítače pomocí rozhraní příkazového řádku, správce cloudu by měl nastavit veřejně přístupném koncovém bodu, který obsahuje aliasy bitové kopie virtuálního počítače a zaregistrujte tento koncový bod s cloudem. `endpoint-vm-image-alias-doc` Parametr `az cloud register` příkaz se používá pro tento účel. Můžou správci cloudové musíte stáhnout bitovou kopii do zásobníku Azure marketplace, předtím, než se přidat do bitové kopie aliasy koncového bodu.
+Než uživatelé mohou vytvářet virtuální počítače pomocí rozhraní příkazového řádku, musí kontaktovat operátor zásobník Azure a získat identifikátor URI aliasy koncový bod virtuálního počítače. Například Azure používá následující identifikátor URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Správce cloudu by měl nastavit koncový bod podobné pro zásobník Azure s obrázky, které jsou k dispozici v zásobníku Azure marketplace. Uživatelé třeba předat identifikátor URI koncového bodu na `endpoint-vm-image-alias-doc` parametru `az cloud register` příkaz, jak je znázorněno v následujícím oddílu. 
    
-Například Azure používá následující identifikátor URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Správce cloudu by měl nastavit koncový bod podobné pro zásobník Azure s obrázky, které jsou k dispozici v zásobníku Azure marketplace.
 
 ## <a name="connect-to-azure-stack"></a>Připojení ke službě Azure Stack
 

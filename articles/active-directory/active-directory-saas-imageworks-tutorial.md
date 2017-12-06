@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c12fe2f01c35d70763910c41cb45859bce33aea
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9e152c43507cea7e6407a349be414c2a895cb5fc
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Kurz: Azure Active Directory integrace s FUNGUJE bitové kopie
 
@@ -113,7 +113,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
 
     > [!NOTE] 
-    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [tým podpory IMAGE FUNGUJE klient](mailto:riki.satou@fujifilm.com) k získání těchto hodnot. 
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [tým podpory IMAGE FUNGUJE klient](mailto:iw-sd-support@fujifilm.com) k získání těchto hodnot. 
  
 4. Na **SAML podpisový certifikát** klikněte na tlačítko **Certificate(Base64)** a potom uložte soubor certifikátu v počítači.
 
@@ -127,7 +127,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurace FUNGUJE bitové kopie](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_configure.png) 
 
-7. Konfigurace jednotného přihlašování na **IMAGE FUNGUJE** straně, budete muset odeslat stažený **Certificate(Base64), Sign-Out adresu URL, SAML Entity ID a SAML jeden přihlašování služby URL** k [FUNGUJE bitové kopie tým podpory](mailto:riki.satou@fujifilm.com). Nastavují toto nastavení tak, aby měl jednotné přihlašování SAML připojení správně nastavena na obou stranách.
+7. Konfigurace jednotného přihlašování na **IMAGE FUNGUJE** straně, budete muset odeslat stažený **Certificate(Base64), Sign-Out adresu URL, SAML Entity ID a SAML jeden přihlašování služby URL** k [FUNGUJE bitové kopie tým podpory](mailto:iw-sd-support@fujifilm.com). Nastavují toto nastavení tak, aby měl jednotné přihlašování SAML připojení správně nastavena na obou stranách.
 
 > [!TIP]
 > Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -167,7 +167,7 @@ Cílem této části je vytvoření zkušebního uživatele na portálu Azure, n
  
 ### <a name="create-a-image-works-test-user"></a>Vytvoření zkušebního uživatele FUNGUJE bitové kopie
 
-V této části vytvoříte uživatele volal Britta Simon v FUNGUJE bitové kopie. Práce s [tým podpory IMAGE FUNGUJE](mailto:riki.satou@fujifilm.com) přidat uživatele do FUNGUJE IMAGE platformy. Uživatelé musí být vytvořen a aktivovat dříve, než použijete jednotné přihlašování.
+V této části vytvoříte uživatele volal Britta Simon v FUNGUJE bitové kopie. Práce s [tým podpory IMAGE FUNGUJE](mailto:iw-sd-support@fujifilm.com) přidat uživatele do FUNGUJE IMAGE platformy. Uživatelé musí být vytvořen a aktivovat dříve, než použijete jednotné přihlašování.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 

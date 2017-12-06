@@ -1,5 +1,5 @@
 ---
-title: "Registrace a zrušení registrace serveru se synchronizací souboru Azure (preview) | Microsoft Docs"
+title: "Spravovat registrované servery se synchronizací souboru Azure (preview) | Microsoft Docs"
 description: "Naučte se registrovat a zrušit registraci serveru systému Windows pomocí služby Azure Storage synchronizace souboru synchronizace."
 services: storage
 documentationcenter: 
@@ -12,22 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 13a75d5cafd94435346660614721399f2d77919b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="registerunregister-a-server-with-azure-file-sync-preview"></a>Registrace a zrušení registrace serveru se synchronizací souboru Azure (preview)
+# <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Spravovat registrované servery se synchronizací souboru Azure (preview)
 Azure File Sync (Preview) umožňuje centralizovat sdílené složky organizace ve službě Soubory Azure bez ztráty flexibility, výkonu a kompatibility místního souborového serveru. Dělá to pomocí transformace serverů Windows na rychlou mezipaměť sdílené složky Azure. Pro místní přístup k datům můžete použít jakýkoli protokol dostupný ve Windows Serveru (včetně SMB, NFS a FTPS) a můžete mít libovolný počet mezipamětí po celém světě.
 
-V následujícím článku ukazuje způsob registrace a zrušení registrace serveru se službou Sync úložiště. To může potřeby, pokud vyřazuje serveru nebo pokud se požaduje nový koncový bod serveru ve skupině pro synchronizaci. V tématu [nasazení synchronizace souboru Azure (preview)](storage-sync-files-deployment-guide.md) informace o tom, jak nasadit synchronizace souboru Azure klient server.
+V následujícím článku ukazuje, jak se zaregistrovat a spravovat server se službou Sync úložiště. V tématu [nasazení synchronizace souboru Azure (preview)](storage-sync-files-deployment-guide.md) informace o tom, jak nasadit synchronizace souboru Azure klient server.
 
-## <a name="prerequisites"></a>Požadavky
-K registraci serveru systému Windows pomocí služby synchronizace úložiště, musíte nejdřív připravit na Windows Server s nezbytných předpokladů:
+## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registrace a zrušení registrace serveru se službou Sync úložiště
+Registrace serveru se synchronizací souboru Azure vytváří vztah důvěryhodnosti mezi Windows serverem a Azure. Tento vztah, můžete pak použije k vytvoření *koncové body serveru* na serveru, který reprezentuje určitých složek, které by měl být synchronizovány s sdílenou složku Azure (také označované jako *cloudu koncový bod*). 
 
+### <a name="prerequisites"></a>Požadavky
+K registraci serveru se službou Sync úložiště, musíte nejdřív připravit váš server nezbytné požadavky:
+
+* Váš server musí používat podporovanou verzi systému Windows Server. Další informace najdete v tématu [podporované verze systému Windows Server](storage-sync-files-planning.md#supported-versions-of-windows-server).
 * Ujistěte se, že byla nasazena synchronizační služby úložiště. Další informace o tom, jak nasadit službu synchronizace úložiště najdete v tématu [nasazení synchronizace souboru Azure (preview)](storage-sync-files-deployment-guide.md).
 * Ujistěte se, že je server připojen k Internetu a zda je přístupný Azure.
 * Zakažte konfigurace rozšířeného zabezpečení pro správce pomocí uživatelského rozhraní správce serveru.
@@ -39,10 +43,10 @@ K registraci serveru systému Windows pomocí služby synchronizace úložiště
     > [!Note]  
     > Doporučujeme používat nejnovější verze modulu AzureRM PowerShell registrace nebo odregistrace serveru. Pokud balíček AzureRM byl dříve nainstalován na tomto serveru (a verze prostředí PowerShell na tomto serveru je 5.* nebo vyšší), můžete použít `Update-Module` rutiny tento balíček aktualizace. 
 
-## <a name="register-a-server-with-storage-sync-service"></a>Registraci serveru se službou Sync úložiště
-Před použitím serveru systému Windows jako *koncový bod serveru* v souboru synchronizace služby Azure *skupiny synchronizace*, musí být zaregistrovaný u *úložiště synchronizační služba*. Server se dají registrovat jenom s jedním *úložiště synchronizační služba* najednou.
+### <a name="register-a-server-with-storage-sync-service"></a>Registraci serveru se službou Sync úložiště
+Před použitím serveru jako *koncový bod serveru* v souboru synchronizace služby Azure *skupiny synchronizace*, musí být zaregistrovaný u *úložiště synchronizační služba*. Server se dají registrovat jenom s jeden synchronizační služby úložiště v čase.
 
-### <a name="install-the-azure-file-sync-agent"></a>Nainstalujte agenta synchronizace souboru Azure
+#### <a name="install-the-azure-file-sync-agent"></a>Nainstalujte agenta synchronizace souboru Azure
 1. [Stáhnout agenta synchronizace souboru Azure](https://go.microsoft.com/fwlink/?linkid=858257).
 2. Spusťte instalační program agenta synchronizace souboru Azure.
     
@@ -57,15 +61,14 @@ Před použitím serveru systému Windows jako *koncový bod serveru* v souboru 
 > [!Important]  
 > Pokud je server členem clusteru s podporou převzetí služeb při selhání, agent synchronizace souboru Azure musí být nainstalovaný na všech uzlech v clusteru.
 
-### <a name="register-the-server-using-the-server-registration-ui"></a>Registrace serveru pomocí registrace serveru uživatelského rozhraní
-
+#### <a name="register-the-server-using-the-server-registration-ui"></a>Registrace serveru pomocí registrace serveru uživatelského rozhraní
 > [!Important]  
-> Cloud Solution Provider odběry nelze použít registrace serveru uživatelského rozhraní. Místo toho používejte PowerShell (níže v této části).
+> Cloud Solution Provider (CSP) odběry nelze použít registrace serveru uživatelského rozhraní. Místo toho používejte PowerShell (níže v této části).
 
 1. Pokud registrace serveru uživatelského rozhraní se nepodařilo spustit okamžitě po dokončení instalace agenta Azure souboru Sync, ho můžete spustit ručně spuštěním `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Klikněte na tlačítko *přihlášení* pro přístup k předplatnému Azure. 
 
-    ![Otevřete dialogové okno uživatelského rozhraní registrace serveru](media/storage-sync-files-server-registration/server-registration-ui-1.png)
+    ![Otevřete dialogové okno registrace serveru uživatelského rozhraní](media/storage-sync-files-server-registration/server-registration-ui-1.png)
 
 3. Vyberte správné předplatné, skupinu prostředků a úložiště synchronizační služby z tohoto dialogového okna.
 
@@ -76,21 +79,21 @@ Před použitím serveru systému Windows jako *koncový bod serveru* v souboru 
     ![Přihlaste se dialogové okno](media/storage-sync-files-server-registration/server-registration-ui-3.png)
 
 > [!Important]  
-> Pokud je server členem clusteru s podporou převzetí služeb při selhání, každý server je potřeba spustit registrací serveru. Při zobrazení servery zaregistrované na portálu Azure, Azure souboru Sync automaticky rozpozná každý uzel jako členem stejného clusteru převzetí služeb při selhání a skupin je společně správně.
+> Pokud je server členem clusteru s podporou převzetí služeb při selhání, každý server je potřeba spustit registrací serveru. Při zobrazení registrované servery na portálu Azure, Azure souboru Sync automaticky rozpozná každý uzel jako členem stejného clusteru převzetí služeb při selhání a skupin je společně správně.
 
-### <a name="register-the-server-with-powershell"></a>Registrace serveru pomocí prostředí PowerShell
-Můžete také provést registraci serveru pomocí prostředí PowerShell. Toto je jediným podporovaným způsobem registrace serveru pro poskytovatele Cloud Solution Provider odběry:
+#### <a name="register-the-server-with-powershell"></a>Registrace serveru pomocí prostředí PowerShell
+Můžete také provést registraci serveru pomocí prostředí PowerShell. Toto je jediný podporovaný způsob, jak registrace serveru pro předplatná Cloud Solution Provider (CSP):
 
 ```PowerShell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
 Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
 ```
 
-## <a name="unregister-the-server-with-storage-sync-service"></a>Zrušte registraci serveru se službou Sync úložiště
+### <a name="unregister-the-server-with-storage-sync-service"></a>Zrušte registraci serveru se službou Sync úložiště
 Existuje několik kroků, potřebné ke zrušení registrace serveru se službou Sync úložiště. Podívejme se na to, jak se správně zrušit registraci serveru.
 
-### <a name="optional-recall-all-tiered-data"></a>(Volitelné) Odvolat vrstvené všechna data
+#### <a name="optional-recall-all-tiered-data"></a>(Volitelné) Odvolat vrstvené všechna data
 Když je povolené pro koncový bod serveru, cloudové vrstvení bude *vrstvy* soubory do vaší sdílené složky Azure File. To umožňuje místní sdílené složky tak, aby fungoval jako mezipaměť, nikoli úplnou kopii datovou sadu, aby efektivní využití místa na souborovém serveru. Ale pokud serveru koncového bodu se odebere při vrstvené soubory stále místně na serveru, tyto soubory se stanou nelze získat přístup. Proto v případě, že se požaduje přístup k souborům, je nutné odvolat všechny vrstvené soubory ze souborů Azure před pokračováním v zrušení registrace. 
 
 To můžete provést pomocí rutiny prostředí PowerShell, jak je uvedeno níže:
@@ -101,13 +104,13 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 
 > [!Warning]  
-> Pokud místní svazek, který je hostitelem serveru nemá dostatek volného místa pro navrácení všech vrstvené souborů `Invoke-StorageSyncFileRecall` rutiny se nezdaří.  
+> Pokud místní svazek hostování koncový bod serveru nemá dostatek volného místa pro navrácení všech vrstvené souborů `Invoke-StorageSyncFileRecall` rutiny se nezdaří.  
 
-### <a name="remove-the-server-from-all-sync-groups"></a>Odeberte tento server ze všech skupin synchronizace
-Před zrušení registrace serveru na synchronizační služby úložiště, je třeba odebrat všechny koncové body serveru pro tento server. To lze provést prostřednictvím portálu:
+#### <a name="remove-the-server-from-all-sync-groups"></a>Odeberte tento server ze všech skupin synchronizace
+Před zrušení registrace serveru na synchronizační služby úložiště, je třeba odebrat všechny koncové body serveru na tomto serveru. To lze provést prostřednictvím portálu Azure:
 
 1. Přejděte do služby Sync úložiště, kde je server zaregistrován.
-2. Odeberte všechny koncové body serveru pro tento server v každé skupině synchronizace v úložišti služby synchronizace. To můžete provést kliknutím pravým tlačítkem na příslušné serveru koncového bodu v podokně synchronizace skupiny.
+2. Odeberte všechny koncové body serveru pro tento server v každé skupině synchronizace v úložišti služby synchronizace. To můžete provést kliknutím pravým tlačítkem na příslušný server koncového bodu v podokně synchronizace skupiny.
 
     ![Odebrání koncového bodu serveru ze skupiny synchronizace](media/storage-sync-files-server-registration/sync-group-server-endpoint-remove-1.png)
 
@@ -129,10 +132,46 @@ Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEac
 }
 ```
 
-### <a name="unregister-the-server"></a>Zrušte registraci serveru
+#### <a name="unregister-the-server"></a>Zrušte registraci serveru
 Teď, když byl odvolán všechna data a serveru byla odebrána ze všech skupin, synchronizace, může se zrušit registraci serveru. 
 
-1. Na portálu Azure přejděte v části "Registrované servery" synchronizace služby úložiště.
+1. Na portálu Azure přejděte do *registrované servery* části synchronizační služby úložiště.
 2. Klikněte pravým tlačítkem myši na serveru, kterou chcete zrušit registraci a klikněte na tlačítko "Zrušit registraci serveru".
 
     ![Zrušení registrace serveru](media/storage-sync-files-server-registration/unregister-server-1.png)
+
+## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Zajistit synchronizace souboru Azure je dobré sousedním ve vašem datovém centru 
+Vzhledem k tomu, že synchronizace souboru Azure zřídka bude pouze služba spuštěna ve vašem datovém centru, můžete omezit využití sítě a úložiště synchronizace souborů Azure.
+
+> [!Important]  
+> Nastavení příliš nízké omezení bude mít dopad na výkon synchronizace synchronizace souboru Azure a odvolání.
+
+### <a name="set-azure-file-sync-network-limits"></a>Nastavení limitů sítě Azure synchronizace souboru
+Utilitization sítě synchronizace souborů Azure můžete omezit pomocí rutin 'StorageSyncNetworkLimit'. 
+
+Například můžete vytvořit nový limit sítě zajistit, že synchronizace souboru Azure nepoužívá víc než 10 MB/s mezi 9: 00 a 17: 00 (h 17:00) během pracovní dny: 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
+```
+
+Limit můžete zobrazit pomocí následující rutiny:
+
+```PowerShell
+Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
+```
+
+K odebrání omezení sítě, použijte `Remove-StorageSyncNetworkLimit`. Například následující příkaz odebere všechna omezení sítě:
+
+```PowerShell
+Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported
+```
+
+### <a name="use-windows-server-storage-qos"></a>Používání úložiště systému Windows Server technologie QoS 
+Při synchronizaci souboru Azure je hostovaná ve virtuální počítač běží na hostiteli virtualizace systému Windows Server, můžete regulovat úložiště vstupně-výstupní operace spotřeba úložiště QoS (quality of service úložiště). Zásada QoS úložiště můžete nastavit jako maximální počet (nebo omezení, jako je jak StorageSyncNetwork limit vynucený výše), nebo jako minimální (nebo rezervace). Nastavení minimální místo maximální umožňuje Azure souboru Sync k rozšíření do využití šířky pásma úložiště k dispozici, pokud další pracovní úlohy nepoužívají. Další informace najdete v tématu [úložiště Quality of Service](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
+
+## <a name="see-also"></a>Viz také
+- [Plánování nasazení synchronizace souboru Azure (preview)](storage-sync-files-planning.md)
+- [Nasadit soubor synchronizaci Azure (preview)](storage-sync-files-deployment-guide.md) 
+- [Řešení potíží s synchronizace souboru Azure (preview)](storage-sync-files-troubleshoot.md)

@@ -14,22 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Spravovat vypršení platnosti webového obsahu v síti pro doručování obsahu Azure
 > [!div class="op_single_selector"]
-> * [Azure webového obsahu](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Webový obsah Azure](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Soubory z jakékoli veřejně přístupné počátek webový server může do mezipaměti v Azure Content Delivery Network (CDN), dokud uplynutí jejich time to live (TTL). Hodnota TTL je dáno `Cache-Control` hlavičku HTTP odpovědi ze zdrojového serveru. Tento článek popisuje, jak nastavit `Cache-Control` hlavičky pro funkci webové aplikace Microsoft Azure App Service, Azure Cloud Services, aplikace ASP.NET a weby Internetové informační služby (IIS), které jsou nakonfigurované podobně. Můžete nastavit `Cache-Control` záhlaví buď pomocí konfiguračních souborů nebo prostřednictvím kódu programu.
+Soubory z jakékoli veřejně přístupné počátek webový server může do mezipaměti v Azure Content Delivery Network (CDN), dokud uplynutí jejich time to live (TTL). Hodnota TTL je dáno `Cache-Control` hlavičku HTTP odpovědi ze zdrojového serveru. Tento článek popisuje, jak nastavit `Cache-Control` hlavičky pro funkci webové aplikace Microsoft Azure App Service, Azure Cloud Services, aplikace ASP.NET a weby Internetové informační služby (IIS), které jsou nakonfigurované podobně. Můžete nastavit `Cache-Control` záhlaví buď pomocí konfiguračních souborů nebo prostřednictvím kódu programu. 
+
+Nastavení mezipaměti na portálu Azure můžete také ovládat nastavením [CDN ukládání do mezipaměti pravidla](cdn-caching-rules.md). Pokud nastavíte jeden nebo více ukládání do mezipaměti pravidla a nastavte své chování ukládání do mezipaměti na **přepsat** nebo **vynechat mezipaměti**, zadaný počátečního nastavení ukládání do mezipaměti popsané v tomto článku jsou ignorovány. Informace o obecné koncepty ukládání do mezipaměti najdete v tématu [průběh ukládání do mezipaměti](cdn-how-caching-works.md).
 
 > [!TIP]
-> Můžete nastavit žádné TTL na soubor. V takovém případě Azure CDN automaticky použije výchozí hodnotu TTL sedm dní. Toto výchozí nastavení TTL se vztahuje pouze na obecné webové doručení optimalizace. Pro optimalizace na velkých souborů je výchozí hodnota TTL je jeden den a pro streamování optimalizace médií, je výchozí hodnota TTL je jeden rok.
+> Můžete nastavit žádné TTL na soubor. V takovém případě Azure CDN automaticky použije výchozí hodnotu TTL sedm dní, pokud jste nastavili ukládání do mezipaměti pravidla na portálu Azure. Toto výchozí nastavení TTL se vztahuje pouze na obecné webové doručení optimalizace. Pro optimalizace na velkých souborů je výchozí hodnota TTL je jeden den a pro streamování optimalizace médií, je výchozí hodnota TTL je jeden rok.
 > 
 > Další informace o tom, jak funguje Azure CDN pro urychlení přístupu k souborům a dalším prostředkům najdete v tématu [přehled Azure Content Delivery Network](cdn-overview.md).
 > 
@@ -82,5 +84,5 @@ Snadno můžete ověřit nastavení TTL webovému obsahu. V prohlížeči [nást
 ## <a name="next-steps"></a>Další kroky
 * [Přečtěte si podrobnosti o **clientCache** – element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Přečtěte si dokumentaci k **HttpResponse.Cache** vlastnost](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Přečtěte si dokumentaci k **HttpCachePolicy třída**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
-
+* [Přečtěte si dokumentaci k **HttpCachePolicy – třída**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Další informace o ukládání do mezipaměti koncepty](cdn-how-caching-works.md)

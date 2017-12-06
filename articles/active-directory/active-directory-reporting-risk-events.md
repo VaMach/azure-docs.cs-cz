@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory rizikových událostí
 
@@ -64,9 +64,9 @@ Tento typ události riziko identifikuje uživatele, kteří mají úspěšném p
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Nemožná cesta do netypických míst
 
-Tento typ události riziko identifikuje dvě přihlášení pocházející z geograficky vzdáleným umístění, kde alespoň jeden z umístění může být také pro uživatele netypické, dřívějšímu chování. Navíc čas mezi dvěma přihlášení je kratší než čas, než by trvaly uživateli cestují z první umístění do druhého, která určuje, že jiný uživatel používá stejné přihlašovací údaje. 
+Tento typ události riziko identifikuje dvě přihlášení pocházející z geograficky vzdáleným umístění, kde alespoň jeden z umístění může být také pro uživatele netypické, dřívějšímu chování. Tento algoritmus machine learning mezi několik dalších faktorech, bere v úvahu čas mezi dvě přihlášení a čas, kdy by trvaly k cestují z první umístění do druhého, která určuje, že jiný uživatel používá stejný uživatelem přihlašovací údaje.
 
-Tato algoritmu strojového učení, který ignoruje zřejmé "*falešně pozitivních*" přispívání do neuskutečnitelná cesta podmínku, jako jsou sítě VPN a umístění pravidelně používat další uživatelé v organizaci.  Systém má po počáteční learning dobu 14 dnů, za které se zjišťuje chování přihlášení nového uživatele.
+Algoritmus ignoruje zřejmé "falešně pozitivních" přispívání do neuskutečnitelná cesta podmínky, jako jsou sítě VPN a umístění pravidelně používat další uživatelé v organizaci. Systém má po počáteční learning dobu 14 dnů, za které se zjišťuje chování přihlášení nového uživatele. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Přihlášení z neznámých míst
 

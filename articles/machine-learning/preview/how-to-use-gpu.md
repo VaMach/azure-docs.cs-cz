@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 552a4c9565bef62bb1aa7071b88473feb21a05f8
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 4ef5c9ad58f86a669fc5c0bceb085ef2a266a008
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Jak používat GPU v Azure Machine Learning
 Grafické zpracování jednotky (GPU) se často používá ke zpracování výpočetně náročné úlohy, které obvykle může dojít při tréninku určité modely hluboké neuronové sítě. Pomocí grafickými procesory, můžete zkrátit dobu školení modelů výrazně. V tomto dokumentu, zjistíte, jak nakonfigurovat Azure ML Workbench používat [DSVM (datové vědy virtuální počítač)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) vybaven grafickými procesory jako cíl provádění. 
@@ -78,7 +78,7 @@ Můžete použít _klasifikace MNIST pomocí TensorFlow_ příkladu nebo _klasif
 Spusťte příkazový řádek z Azure ML Workbench. Zadejte následující příkaz. Zástupný text pomocí příkladu níže nahraďte vlastními hodnotami pro název, IP adresa, uživatelské jméno a heslo. 
 
 ```batch
-C:\MyProj> az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password" --type remotedocker
+C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password" 
 ```
 
 ### <a name="configure-azure-ml-workbench-to-access-gpu"></a>Konfigurace Azure ML Workbench, aby přístup GPU

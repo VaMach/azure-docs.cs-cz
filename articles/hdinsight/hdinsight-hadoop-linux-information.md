@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="information-about-using-hdinsight-on-linux"></a>Informace o používání HDInsight v Linuxu
+# <a name="information-about-using-hdinsight-on-linux"></a>Informace o používání HDInsightu v Linuxu
 
 Azure clustery HDInsight poskytují Hadoop na známém prostředí Linux, běží v cloudu Azure. Pro většinu věcí by měly fungovat přesně jako jiná instalace Hadoop na Linuxu. Tento dokument volá určité rozdíly, které byste měli vědět.
 
@@ -91,6 +91,8 @@ Tento příkaz vrátí dokumentu JSON s popisem služby, a potom jq lze posunout
     > [!NOTE]
     > Hlavního uzlu clusteru můžete přistupovat z počítače klienta pouze prostřednictvím SSH. Po připojení se pak dostanete pracovní uzly z headnode pomocí SSH.
 
+Další informace najdete v tématu [porty používané služby Hadoop v HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentu.
+
 ## <a name="file-locations"></a>Umístění souborů
 
 Soubory související s Hadoop naleznete na uzly clusteru na `/usr/hdp`. Tento adresář obsahuje následující podadresáře:
@@ -108,9 +110,6 @@ HDInsight používá jako výchozí úložiště buď objektů BLOB v Azure Stor
 
 * Levných dlouhodobé uložení
 * Usnadnění přístupu z externích služeb například weby, nástroje pro odeslání nebo stažení souboru, různých sadách SDK jazyka a webových prohlížečů
-
-> [!WARNING]
-> HDInsight podporuje pouze __pro obecné účely__ účty Azure Storage. Nepodporuje aktuálně __úložiště objektů Blob__ typ účtu.
 
 Účet úložiště Azure mohou být uloženy až 4.75 TB, i když jednotlivé objekty BLOB (nebo soubory z hlediska HDInsight) může použít pouze až 195 GB. Azure Data Lake Store dynamicky růst, aby udržení bilión soubory s jednotlivé soubory větší než petabajty. Další informace najdete v tématu [vysvětlení objektů blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) a [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -234,6 +233,8 @@ Typy jiného clusteru se týká škálování následujícím způsobem:
 
         1. Otevřete **https://CLUSTERNAME.azurehdinsight.net/stormui** ve webovém prohlížeči, kde CLUSTERNAME představuje název clusteru Storm. Pokud se zobrazí výzva, zadejte název správce (správce) clusteru HDInsight a heslo, které jste zadali při vytváření clusteru.
         2. Vyberte topologii chcete znovu vyvážit a pak vyberte **znovu vyvážit** tlačítko. Zadejte zpoždění před provedením operace obnovte rovnováhu.
+
+* **Kafka**: musíte znovu vyvážit repliky oddílu po operace škálování. Další informace najdete v tématu [vysokou dostupnost dat s Kafka v HDInsight](./kafka/apache-kafka-high-availability.md) dokumentu.
 
 Konkrétní informace o škálování clusteru HDInsight naleznete v tématu:
 

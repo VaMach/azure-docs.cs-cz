@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: 7d5534649595a3109442619e0adf13c0b354cc0f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Správa clusterů systému Hadoop v HDInsight pomocí portálu Azure
 
@@ -36,14 +36,17 @@ Chcete-li postupujte podle kroků v tomto článku, budete potřebovat **předpl
 1. Přihlaste se k [https://portal.azure.com](https://portal.azure.com).
 2. Po otevření portálu můžete:
 
-   * Klikněte na tlačítko **nový** v levé nabídce na vytvoření nového clusteru:
+   * Klikněte na tlačítko **vytvořit prostředek** v levé nabídce na vytvoření nového clusteru:
 
        ![tlačítko Nový cluster HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
+
+       Zadejte **HDInsight** v **vyhledávání na webu Marketplace**, klikněte na tlačítko **HDInsight**a potom klikněte na **vytvořit**.
+
    * Klikněte na tlačítko **clustery HDInsight** v levé nabídce seznam stávajících clusterů:
 
        ![Azure portálu tlačítko clusteru HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
-       Pokud nevidíte **clustery HDInsight** tlačítko, klikněte na tlačítko **další služby** v dolní části seznamu a pak klikněte na tlačítko **clustery HDInsight** pod  **Intelligence + analýzy** části.
+       Pokud nevidíte **clustery HDInsight** tlačítko a potom klikněte na **clustery HDInsight** pod **Intelligence + analýzy** části.
 
 
 ## <a name="create-clusters"></a>Vytváření clusterů
@@ -73,7 +76,7 @@ Pokud se zobrazí chyba NoRegisteredProviderFound nebo MissingSubscriptionRegist
 
 ## <a name="list-and-show-clusters"></a>Seznam a zobrazit clustery
 1. Přihlaste se k [https://portal.azure.com](https://portal.azure.com).
-2. Klikněte na tlačítko **clustery HDInsight** v levé nabídce seznam stávajících clusterů. Pokud nevidíte **clustery HDInsight**, klikněte na tlačítko **další služby** první.
+2. Klikněte na tlačítko **clustery HDInsight** v levé nabídce seznam stávajících clusterů. Pokud nevidíte **clustery HDInsight**, klikněte na tlačítko **všechny služby** první.
 3. Klikněte na název clusteru. Pokud je seznam clusteru dlouho, můžete použít možnosti filtrovat horní části stránky.
 4. Klikněte na cluster, ze seznamu na stránce Přehled v tématu:
 
@@ -81,6 +84,7 @@ Pokud se zobrazí chyba NoRegisteredProviderFound nebo MissingSubscriptionRegist
     * **Řídicí panel**: Otevře řídicí panel clusteru, který je Ambari Web pro clustery se systémem Linux.
     * **Secure Shell**: zobrazí pokyny pro připojení ke clusteru pomocí připojení Secure Shell (SSH).
     * **Škálování clusteru**: umožňuje změnit počet uzlů pracovního procesu pro tento cluster.
+    * **Přesunout**: přesunout clusteru na jiném skupiny prostředků nebo předplatného.
     * **Odstranit**: Odstraní clusteru.
 
     **Levé nabídce:**
@@ -92,17 +96,18 @@ Pokud se zobrazí chyba NoRegisteredProviderFound nebo MissingSubscriptionRegist
     * **Skriptu pro automatizaci**: zobrazení a export šablony Azure Resource Manageru pro cluster. V současné době můžete exportovat pouze účet závislého úložiště Azure. V tématu [vytvořit systémem Linux Hadoop clusterů v HDInsight pomocí šablony Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
     * **Rychlý Start**: Zobrazí informace, které vám pomůžou začněte používat HDInsight.
     * **Nástroje pro HDInsight**: informace nápovědy pro HDInsight související nástroje.
-    * **Cluster přihlášení**: Zobrazit informace o přihlášení clusteru.
     * **Použití jádra předplatné**: Zobrazit jádra dostupná a použitá pro vaše předplatné.
     * **Škálování clusteru**: Zvyšte a snižte počet uzlů pracovního procesu clusteru. V tématu[škálování clusterů](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **Secure Shell**: zobrazí pokyny pro připojení ke clusteru pomocí připojení Secure Shell (SSH). Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    * **SSH + clusteru přihlášení**: zobrazí pokyny pro připojení ke clusteru pomocí připojení Secure Shell (SSH). Další informace najdete v tématu [použití SSH s HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)a resetovat clusteru přihlašovací pověření.
     * **Partnera HDInsight**: Přidat nebo odebrat současného partnera HDInsight.
     * **Externí Metaúložiště**: Zobrazit metaúložiště Hive a Oozie. Metaúložiště se dá nakonfigurovat jenom během procesu vytváření clusteru. V tématu [použít metaúložiště Hive nebo Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Skript akce**: Spusťte Bash skripty v clusteru. V tématu [HDInsight se systémem Linux přizpůsobit clustery pomocí akce skriptu](hdinsight-hadoop-customize-cluster-linux.md).
     * **Aplikace**: aplikace HDInsight přidat nebo odebrat.  V tématu [instalace vlastních aplikací HDInsight](hdinsight-apps-install-custom-applications.md).
+    * **Monitorování**: sledování clusteru v Azure Operations Management Suite a Azure Log Analytics.
     * **Vlastnosti**: zobrazení vlastností clusteru.
     * **Účty úložiště**: Zobrazit účty úložiště a klíče. Účty úložiště jsou nakonfigurované během procesu vytváření clusteru.
-    * **Identita AAD clusteru**:
+    * **Data Lake Store přístup**: Konfigurace přístupu ukládá Data Lake.  V tématu [Tvorba clusterů HDInsight s Data Lake Store pomocí portálu Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Stav prostředku**: najdete v části [přehled stavu prostředků Azure](../service-health/resource-health-overview.md).
     * **Nová žádost o podporu**: vám umožní vytvořit lístek podpory s podporu společnosti Microsoft.
     
 6. Klikněte na tlačítko **vlastnosti**:
@@ -128,7 +133,7 @@ Pokud se zobrazí chyba NoRegisteredProviderFound nebo MissingSubscriptionRegist
 Odstranění clusteru neodstraní výchozí účet úložiště ani všechny propojené účty úložiště. Clusteru můžete znovu vytvořit pomocí stejné účty úložiště a stejné metaúložiště. Doporučujeme používat nový výchozí kontejner objektu Blob, když znovu vytvoříte cluster.
 
 1. Přihlaste se k [portál][azure-portal].
-2. Klikněte na tlačítko **clustery HDInsight** v levé nabídce. Pokud nevidíte **clustery HDInsight**, klikněte na tlačítko **další služby** první.
+2. Klikněte na tlačítko **clustery HDInsight** v levé nabídce. Pokud nevidíte **clustery HDInsight**, klikněte na tlačítko **všechny služby** první.
 3. Klikněte na cluster, který chcete odstranit.
 4. Klikněte na tlačítko **odstranit** z hlavní nabídky a pak postupujte podle pokynů.
 

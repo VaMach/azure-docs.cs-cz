@@ -10,8 +10,8 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: 3209ad7c9b2afd9ff06d685c41b1775800a62a53
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f3579942624de282b01d74c4b8c449c56a66e7b7
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/05/2017
@@ -73,10 +73,11 @@ Následuje seznam podrobné aktualizací v oblasti Azure Machine Learning v tét
 ### <a name="job-execution"></a>Provádění úlohy
 Teď můžete vytvářet a přístup k remotedocker nebo clusteru cíli typu výpočetní s SSH klíč ověřování pomocí následujících kroků:
 - Připojte cíl výpočetní pomocí následujícího příkazu v rozhraní příkazového řádku
-```
-az ml computetarget attach remotedocker -a <fqdn or IP address> -n <name for your compute target> -u <username to be used to access the compute target> –k
-```
-[!NOTE] -k možnost v příkazu určuje pro vygenerování a použití klíče SSH.
+
+    ```azure-cli
+    $ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+    ```
+[!NOTE] -k (nebo--použití azureml-ssh-key) možnost v příkazu určuje pro vygenerování a použití klíče SSH.
 
 - Azure ML Workbench bude generovat veřejný klíč a výstup, v konzole. Přihlaste se k cíli výpočetní pomocí stejného uživatelského jména a soubor ~/.ssh/authorized_keys připojit k tomuto veřejnému klíči.
 
@@ -109,11 +110,10 @@ Další informace o vytváření výpočetní cíle, najdete v části [konfigur
 - [Integrace AZTK](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark)
 
 ### <a name="sample-projects"></a>Ukázkové projekty
-- Ukázky Iris a SparkMML aktualizovat pomocí nové verze sady SDK Azure ML
+- [Iris](https://github.com/Azure/MachineLearningSamples-Iris) a [MMLSpark](https://github.com/Azure/mmlspark) ukázky aktualizovat pomocí nové verze sady SDK Azure ML
 
 ## <a name="breaking-changes"></a>NEJNOVĚJŠÍ ZMĚNY
 - Povýší `--type` přepínač ve `az ml computetarget attach` na dílčí příkaz. 
 
-- `az ml computetarget attach --type remotedocker`je nyní`az ml computetarget attach remotedocker`
-
-- `az ml computetarget attach --type cluster`je nyní`az ml computetarget attach cluster`
+    - `az ml computetarget attach --type remotedocker`je nyní`az ml computetarget attach remotedocker`
+    - `az ml computetarget attach --type cluster`je nyní`az ml computetarget attach cluster`

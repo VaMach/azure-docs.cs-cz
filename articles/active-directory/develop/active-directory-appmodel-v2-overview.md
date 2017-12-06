@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory koncového bodu v2.0 | Microsoft Docs"
-description: "Úvod do vytváření aplikace Microsoft Account a Azure Active Directory přihlášení."
+description: "Úvod do vytváření aplikací s Microsoft Account a Azure Active Directory přihlášení."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,42 +15,40 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bd090450fad0be855240788c4cfa9dc58c1c4c6d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Přihlášení uživatele Azure AD v jediné aplikaci & Account Microsoft
-V minulosti vývojář aplikace, kteří chtěli podporovat i osobní účty Microsoft a pracovní účty ze služby Azure Active Directory vyžaduje integrovat dvou samostatných systémech.  **Koncového bodu Azure AD v2.0** zavádí novou verzi ověřování rozhraní API, která umožňuje přihlásit oba typy účtů pomocí jednoho Jednoduchá integrace.  Aplikace, které používají koncového bodu v2.0 můžete také používat rozhraní REST API z [Microsoft Graph](https://graph.microsoft.io) pomocí buď typu účtu.
+# <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Přihlaste se uživatelům v jedné aplikaci Microsoft Account a Azure Active Directory
+V minulosti bylo integrovat dvou samostatných systémech vývojáři aplikací podporují i osobní účty Microsoft a pracovní účty ze služby Azure Active Directory. Koncový bod v2.0 Azure Active Directory (Azure AD) představuje novou verzi ověřování rozhraní API, která zjednodušuje tento proces. Koncový bod v2.0 Azure AD umožňuje přihlášení z obou typů účty pomocí jednoho integrace. Aplikace, které používají koncového bodu Azure AD v2.0 můžete také používat rozhraní REST API z [Microsoft Graph API](https://graph.microsoft.io) pomocí buď typ účtu.
 
 ## <a name="getting-started"></a>Začínáme
-Vyberte oblíbenou platformu z následujícího seznamu k sestavení aplikace pomocí našich opensourcové knihovny & architektury.  Alternativně můžete dokumentaci protokol OAuth 2.0 & OpenID Connect odesílat a přijímat zprávy protokolu přímo bez použití knihovny ověřování.
-
+Vyberte oblíbenou platformu z následujícího seznamu k sestavení aplikace pomocí Microsoft otevřete zdroj knihoven a architektur. Můžete taky protokoly OAuth 2.0 a OpenID Connect k odesílání a příjmu zprávy protokolu přímo bez použití knihovny pro ověřování.
 <br />
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [Azure AD v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
-## <a name="whats-new"></a>Novinky
-Zde uvedené informace budou užitečné porozumět, co je & co není možné s koncovým bodem v2.0.
+## <a name="learn-more-about-the-azure-ad-v20-endpoint"></a>Další informace o koncového bodu Azure AD v2.0
+Další informace o co můžete dělat s koncovým bodem v2.0 Azure AD:
 
-* Další informace o [typy aplikací můžete vytvořit s koncovým bodem v2.0](active-directory-v2-flows.md).
-* Pochopení [omezení, omezení a omezení](active-directory-v2-limitations.md) s koncovým bodem v2.0.
-* Podívejte se na tento přehled – video pro koncový bod v2.0:
+* Zjišťování [typy aplikací, které můžete sestavit s koncovým bodem v2.0 Azure AD](active-directory-v2-flows.md).
+* Pochopení [omezení, omezení a omezení](active-directory-v2-limitations.md) s koncovým bodem v2.0 Azure AD.
+* Podívejte se na toto video přehled koncového bodu Azure AD v2.0:
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
-## <a name="reference"></a>Referenční informace
-Následující odkazy budou užitečné při prozkoumávání platformou podrobněji:
+## <a name="additional-resources"></a>Další zdroje
+Další podrobné informace o platformě Azure AD v2.0 koncový bod:
 
-* [referenční informace o protokolu v2.0](active-directory-v2-protocols.md)
-* [Odkaz tokenu v2.0](active-directory-v2-tokens.md)
-* [Referenční příručka knihovny v2.0](active-directory-v2-libraries.md)
-* [Obory a souhlasu v koncového bodu v2.0](active-directory-v2-scopes.md)
-* [Microsoft Graph](https://graph.microsoft.io)
+* [Azure AD v2.0 protokoly reference](active-directory-v2-protocols.md)
+* [Azure AD v2.0 tokeny odkaz](active-directory-v2-tokens.md)
+* [Reference knihovny ověřování Azure AD v2.0](active-directory-v2-libraries.md)
+* [Obory a souhlasu v koncového bodu Azure AD v2.0](active-directory-v2-scopes.md)
+* [Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
-> Pokud potřebujete přihlásit pracovní a školní účty ze služby Azure Active Directory, měli byste začít s naše [Příručka pro vývojáře Azure AD](active-directory-developers-guide.md).  Koncový bod v2.0 je určená pro vývojáře, kteří explicitně se muset přihlásit osobní účty Microsoft.
+> Pokud potřebujete přihlásit pracovní a školní účty ze služby Azure Active Directory, začínat [Příručka pro vývojáře Azure AD](active-directory-developers-guide.md). Koncový bod v2.0 Azure AD je určená pro vývojáře, kteří explicitně se muset přihlásit osobní účty Microsoft.
 
-
-[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
