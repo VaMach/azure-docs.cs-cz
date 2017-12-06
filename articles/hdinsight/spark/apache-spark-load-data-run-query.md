@@ -14,102 +14,92 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: db8f0056fa3813e95c2c5bea583d7b66ac64260f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Spusťte interaktivní dotazy na clusteru HDInsight Spark
+# <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Spusťte interaktivní dotazy na clustery Spark v HDInsight
 
-V tomto článku pomocí poznámkového bloku Jupyter ke spouštění interaktivních dotazů Spark SQL na clusteru Spark. Poznámkový blok Jupyter je aplikace založené na prohlížeči, která rozšiřuje možnosti interaktivního pomocí konzoly na webu. Další informace najdete v tématu [Poznámkový blok Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html).
+Naučte se používat Poznámkový blok Jupyter ke spouštění interaktivních dotazů Spark SQL na clusteru Spark. 
 
-V tomto kurzu použijete **PySpark** jádra v poznámkového bloku Jupyter ke spuštění interaktivních dotazů Spark SQL. Poznámkové bloky Jupyter v clusterech HDInsight také podporují dva další jádra - **PySpark3** a **Spark**. Další informace o jádrech a výhody použití **PySpark**, najdete v části [clusterů jádra poznámkového bloku Jupyter použít s Apache Spark v HDInsight](apache-spark-jupyter-notebook-kernels.md).
+[Poznámkový blok Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) je aplikace založené na prohlížeči, která rozšiřuje možnosti interaktivního pomocí konzoly na webu. Spark v HDInsight také zahrnuje [Zeppelin Poznámkový blok](apache-spark-zeppelin-notebook.md). Poznámkový blok Jupyter se používá v tomto kurzu.
+
+Poznámkové bloky Jupyter v clusterech prostředí HDInsight podporují tři jádra - **PySpark**, **PySpark3**, a **Spark**. **PySpark** jádra se používá v tomto kurzu. Další informace o jádrech a výhody použití **PySpark**, najdete v části [clusterů jádra poznámkového bloku Jupyter použít s Apache Spark v HDInsight](apache-spark-jupyter-notebook-kernels.md). Pomocí poznámkového bloku Zeppelin naleznete v části [clusteru poznámkových bloků Zeppelin použít s Apache Spark v Azure HDInsight](./apache-spark-zeppelin-notebook.md).
+
+V tomto kurzu dotazování dat v souboru csv. Jako dataframe musí nejdřív načíst data do Spark. Potom můžete spouštět dotazy na dataframe pomocí poznámkového bloku Jupyter. 
 
 ## <a name="prerequisites"></a>Požadavky
 
 * **Clusteru Azure HDInsight Spark**. Pokyny najdete v tématu [vytvářet cluster Apache Spark v Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **Poznámkový blok Jupyter pomocí PySpark**. Pokyny najdete v tématu [vytvoření poznámkového bloku Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Vytvoření poznámkového bloku Jupyter ke spuštění interaktivních dotazů
+## <a name="create-a-dataframe-from-a-csv-file"></a>Vytvoření dataframe ze souboru csv
 
-Spuštění dotazů, použijeme ukázková data, která je ve výchozím nastavení k dispozici v úložišti, které jsou přidruženy ke clusteru. Ale je nutné nejdřív načíst data do Spark jako dataframe. Jakmile máte dataframe, můžete spouštět dotazy na pomocí poznámkového bloku Jupyter. V tomto článku vám tak informace o tom, jak:
+Pomocí SQLContext aplikace vytvářet dataframes z existující RDD, z tabulky Hive nebo z datové zdroje. 
 
-* Zaregistrujte se jako Spark dataframe Ukázka datové sady.
-* Na dataframe spouštět dotazy.
+**Chcete-li vytvořit dataframe ze souboru csv**
 
-Můžeme začít.
+1. Vytvoření poznámkového bloku Jupyter pomocí PySpark, pokud nemáte. Pokyny najdete v tématu [vytvoření poznámkového bloku Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-1. Otevřete web [Azure Portal](https://portal.azure.com/). Pokud jste se rozhodli připnout cluster na řídicí panel, kliknutím na dlaždici clusteru na řídicím panelu spusťte okno clusteru.
+2. Vložte následující kód do prázdné buňky poznámkového bloku a potom stiskněte klávesu **SHIFT + ENTER** spustit kód. Kód naimportuje typy potřebné pro tento scénář:
 
-    Pokud jste cluster na řídicí panel nepřipnuli, v levém podokně klikněte na **Clustery HDInsight** a pak klikněte na cluster, který jste vytvořili.
+    ```PySpark
+    from pyspark.sql import *
+    from pyspark.sql.types import *
+    ```
+    Pomocí jádra PySpark vytvoření poznámkového bloku, Spark a Hive se kontexty automaticky vytvoří za vás při spuštění první buňky kódu. Není nutné explicitně tvořit kontexty vytvořit.
 
-3. V části **Rychlé odkazy** klikněte na **Řídicí panely clusteru** a potom klikněte na **Poznámkový blok Jupyter**. Po vyzvání zadejte přihlašovací údaje správce clusteru.
-
-   ![Otevření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-start-jupyter-interactive-spark-sql-query.png "Otevření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL")
-
-   > [!NOTE]
-   > K poznámkovému bloku Jupyter pro váš cluster se dostanete také otevřením následující adresy URL v prohlížeči. Nahraďte **CLUSTERNAME** názvem clusteru:
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-3. Vytvořte poznámkový blok. Klikněte na tlačítko **Nový** a pak klikněte na tlačítko **PySpark**.
-
-   ![Vytvoření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Vytvoření poznámkového bloku Jupyter pro spuštění interaktivního dotazu Spark SQL")
-
-   Nový poznámkový blok se vytvoří a otevře s názvem Bez názvu (Bez názvu.pynb).
-
-4. Pokud chcete, klikněte na název poznámkového bloku v horní části a zadejte popisný název.
-
-    ![Zadání názvu, ze kterého má poznámkový blok Jupyter spustit interaktivní dotaz Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-jupyter-notebook-name.png "Zadání názvu, ze kterého má poznámkový blok Jupyter spustit interaktivní dotaz Spark")
-
-5. Do prázdné buňky vložte následující kód a stisknutím **SHIFT + ENTER** kód spusťte. Kód naimportuje typy potřebné pro tento scénář:
-
-        from pyspark.sql import *
-        from pyspark.sql.types import *
-
-    Vzhledem k tomu, že jste poznámkový blok vytvořili pomocí jádra PySpark, není nutné explicitně tvořit kontexty. Kontexty Spark a Hive se automaticky vytvoří za vás při spuštění první buňky kódu.
+    Při spouštění interaktivních dotazů v Jupyter, zobrazuje titulek okno nebo kartu webového prohlížeče **(zaneprázdněn)** společně s názvem poznámkového bloku. Zobrazí se také plný kroužek vedle textu **PySpark** v pravém horním rohu. Po dokončení úlohy se změní na prázdný kruh.
 
     ![Stav interaktivního dotazu Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Stav interaktivního dotazu Spark SQL")
 
-    Při každém spuštění interaktivního dotazu v Jupyter se název okna webového prohlížeče zobrazí jako **(Zaneprázdněn)** společně s názvem poznámkového bloku. Zobrazí se také plný kroužek vedle textu **PySpark** v pravém horním rohu. Po dokončení úlohy se změní na prázdný kruh.
+3. Spusťte následující kód k vytvoření dataframe a do dočasné tabulky (**TVK**) tak, že spustíte následující kód: kód není extrahujte všechny sloupce k dispozici v souboru CSV. 
 
-6. Před načtením dat do clusteru Spark, dejte nám vypadat snímek ho. Ukázková data použili v tomto kurzu jsou k dispozici jako soubor CSV na všechny clustery HDInsight Spark v **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Data zaznamená změny teploty budovy. Zde naleznete několik prvních řádků data.
+    ```PySpark
+    # Create an RDD from sample data
+    hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    
+    # Create a schema for our data
+    Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+    
+    # Parse the data and create a schema
+    hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
+    hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
+    
+    # Infer the schema and create a table       
+    hvacTable = sqlContext.createDataFrame(hvac)
+    hvacTable.registerTempTable('hvactemptable')
+    dfw = DataFrameWriter(hvacTable)
+    dfw.saveAsTable('hvac')
+    ```
+    Následující snímek obrazovky ukazuje snímek souboru HVAC.csv. Soubor csv obsahuje všechny clustery HDInsigt Spark. Data zaznamená změny teploty budovy.
 
     ![Snímek dat pro interaktivních dotazů Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "snímek dat pro interaktivních dotazů Spark SQL")
 
-6. Vytvoření dataframe a do dočasné tabulky (**TVK**) tak, že spustíte následující kód. V tomto kurzu jsme nevytvářejte všechny sloupce, které jsou k dispozici v souboru CSV. 
+## <a name="run-queries-on-the-dataframe"></a>Spuštění dotazů na dataframe
 
-        # Create an RDD from sample data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+Po vytvoření tabulky, můžete spustit interaktivní dotaz na data.
 
-        # Create a schema for our data
-        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+**Ke spuštění dotazu**
 
-        # Parse the data and create a schema
-        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-        
-        # Infer the schema and create a table       
-        hvacTable = sqlContext.createDataFrame(hvac)
-        hvacTable.registerTempTable('hvactemptable')
-        dfw = DataFrameWriter(hvacTable)
-        dfw.saveAsTable('hvac')
+1. Spusťte následující kód do prázdné buňky poznámkového bloku:
 
-7. Po vytvoření tabulky, spusťte interaktivní dotaz na data, použijte následující kód.
+    ```PySpark
+    %%sql
+    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+    ```
 
-        %%sql
-        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
-
-   Vzhledem k tomu, že používáte jádro PySpark, můžete nyní přímo spustit interaktivní dotaz SQL nad dočasnou tabulkou **hvac**, kterou jste vytvořili pomocí magických příkazů `%%sql`. Další informace o magických příkazech `%%sql` a dalších magických příkazech, které jsou k dispozici s jádrem PySpark, najdete v části [Jádra dostupná v poznámkových blocích Jupyter s clustery Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Protože jádra PySpark se používá v poznámkovém bloku, můžete nyní přímo spustit dotaz interaktivní SQL na dočasnou tabulku **TVK** kterou jste vytvořili pomocí `%%sql` magic. Další informace o magických příkazech `%%sql` a dalších magických příkazech, které jsou k dispozici s jádrem PySpark, najdete v části [Jádra dostupná v poznámkových blocích Jupyter s clustery Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    Ve výchozím nastavení se zobrazí následující tabulkový výstup.
 
      ![Tabulkový výstup výsledku interaktivního dotazu Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabulkový výstup výsledku interaktivního dotazu Spark")
 
-9. Výsledky můžete také zobrazit v dalších vizualizacích. Pokud chcete zobrazit plošný graf pro stejný výstup, vyberte **oblasti** pak nastavte jiné hodnoty, jak je zobrazeno.
+3. Výsledky můžete také zobrazit v dalších vizualizacích. Pokud chcete zobrazit plošný graf pro stejný výstup, vyberte **oblasti** pak nastavte jiné hodnoty, jak je zobrazeno.
 
     ![Plošný graf výsledku interaktivního dotazu Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Plošný graf výsledku interaktivního dotazu Spark")
 

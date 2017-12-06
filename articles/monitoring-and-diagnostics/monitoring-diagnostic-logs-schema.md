@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Podporované služby, schémat a kategorie pro diagnostických protokolů Azure.
 
@@ -29,6 +29,7 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 
 | Služba | Schéma & dokumentace |
 | --- | --- |
+| Analysis Services | Schéma není k dispozici. |
 | API Management | [Diagnostické protokoly rozhraní API pro správu](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Brány Application Gateway |[Protokolování diagnostiky pro službu Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Analýzy protokolů pro Azure Automation.](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,7 +46,7 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 | Logic Apps |[Vlastní schéma sledování B2B Logic Apps](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Groups (Skupiny zabezpečení sítě) |[Analýza protokolu pro skupiny zabezpečení sítě (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Ochrana před útoky DDoS | Schéma není k dispozici. |
-| Recovery Services | Schéma není k dispozici.|
+| Recovery Services | [Datový Model pro zálohování Azure](../backup/backup-azure-reports-data-model.md)|
 | Search |[Povolení a používání Analýza provozu vyhledávání](../search/search-traffic-analytics.md) |
 | Správa serveru | Schéma není k dispozici. |
 | Service Bus |[Diagnostické protokoly služby Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -56,6 +57,7 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 ## <a name="supported-log-categories-per-resource-type"></a>Podporované kategorií protokolu na typ prostředku
 |Typ prostředku|Kategorie|Zobrazovaný název kategorie|
 |---|---|---|
+|Microsoft.aadiam/tenants|přihlášení|přihlášení|
 |Microsoft.AnalysisServices/servers|Modul|Modul|
 |Microsoft.AnalysisServices/servers|Služba|Služba|
 |Microsoft.ApiManagement/service|GatewayLogs|Protokoly související s ApiManagement brány|
@@ -63,6 +65,7 @@ Schéma pro prostředek diagnostických protokolů se liší v závislosti na ka
 |Microsoft.Automation/automationAccounts|JobStreams|Datové proudy úlohy|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Stav uzlu DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Protokoly služby|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Získá metriky koncového bodu, například šířky pásma, odchozí, atd.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Kanál protokolu spuštění aktivit|
 |Microsoft.DataFactory/factories|PipelineRuns|Kanál spustí protokolu|

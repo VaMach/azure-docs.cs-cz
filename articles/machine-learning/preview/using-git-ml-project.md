@@ -1,6 +1,6 @@
 ---
-title: "Úložiště Git pomocí Azure Machine Learning Workbench projekt | Microsoft Docs"
-description: "Tento článek vysvětlují, jak používat úložiště Git ve spojení s projektu Azure Machine Learning Workbench."
+title: "Pomocí projektu Azure Machine Learning Workbench úložiště Git | Microsoft Docs"
+description: "Tento článek vysvětluje, jak používat úložiště Git ve spojení s projektu Azure Machine Learning Workbench."
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,137 +10,147 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: 0cd447a52964578dd2348a786dd57a45ea87516e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f4f1112fe68bdb2a26f68b3da08fe97f9d22d3b7
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Pomocí projektu Azure Machine Learning Workbench úložiště Git
-Tento dokument obsahuje informace o tom, jak Azure Machine Learning Workbench používá Git k poskytování správy verzí a zkontrolujte reprodukovatelnosti v experimentu vědecké účely data. K dispozici jsou také pokyny o tom, jak přidružit projektu cloudové úložiště Git.
+# <a name="use-a-git-repo-with-a-machine-learning-workbench-project"></a>Použít úložiště Git s projektem Machine Learning Workbench
+Zjistěte, jak Azure Machine Learning Workbench využívá Git k poskytování správy verzí a zajistěte reprodukovatelnosti v experimentu vědecké účely data. Zjistěte, jak přidružit projektu cloudové úložiště Git (úložiště).
 
-## <a name="introduction"></a>Úvod
-Azure Machine Learning Workbench je navržen s integrace Gitu od základů nahoru. Při vytváření nového projektu, složce projektu je automaticky "inicializován pro Git" jako místní úložiště Git (úložiště). Mezitím se také vytvoří druhý skrytá místní úložiště Git s větev s názvem _AzureMLHistory / < project_GUID >_ ke sledování změn složce projektu pro každé spuštění. 
+Machine Learning Workbench je navržený tak, že pro integrace Gitu. Když vytvoříte nový projekt, složce projektu je automaticky "inicializován pro Git" jako místní úložiště Git. Druhé, skrytý místní úložiště Git se také vytvoří s větev s názvem AzureMLHistory /\<projektu GUID\>. Větev uchovává informace o projektu změny složky pro každé spuštění. 
 
-Přidružení projektu Azure ML úložiště Git, hostovaným v rámci projektu Visual Studio Team Service (VSTS), umožňuje automatické verzí místně i vzdáleně. Toto přidružení umožňuje každý, kdo má přístup k Vzdálené úložiště stáhnout nejnovější zdrojový kód do jiného počítače (roaming).  
-
-> [!NOTE]
-> Služby VSTS má svou vlastní seznam řízení přístupu, která je nezávislá služba Azure Machine Learning experimenty. Uživatelský přístup se mezi úložiště Git a aplikace Azure ML prostoru nebo v projektu může lišit a může třeba spravovat. Takže pokud chcete sdílet projektu Azure ML s seskupení včetně úrovně přístupu kódu, kromě právě sdílet pracovním prostoru, budete muset explicitně udělit mu správný přístup k úložišti služby VSTS Git. 
-
-S Gitem, je také možné explicitně správě verzí pomocí _hlavní_ větev nebo pomocí vytváření ostatní větve zůstanou v úložišti. Použijete na místní úložiště Git, a můžete také posouvat do vzdáleného úložiště Git Pokud zřízené.
-
-Tento diagram znázorňuje vztah mezi úložišti Git služby VSTS a projektu Azure ML:
-
-![AML Git](media/using-git-ml-project/aml_git.png)
-
-Abyste mohli začít používat vzdálené úložiště Git, postupujte podle těchto pokynů základní.
+Přidružení projektu Azure Machine Learning úložiště Git umožňuje automatické verzí místně i vzdáleně. Úložiště Git je hostován ve Visual Studio Team Services (Team Services). Vzhledem k projektu Machine Learning je přidružen úložiště Git, kdokoliv, kdo má přístup do vzdáleného úložiště můžete stáhnout nejnovější zdrojový kód do jiného počítače (roaming).  
 
 > [!NOTE]
-> Azure Machine Learning v současné době podporuje pouze úložiště Git v účtech služby VSTS. Podpora pro úložiště Git obecné (například Githubu a atd.) je plánované v budoucnu.
+> Team Services má vlastní ovládací prvek seznam přístupu (ACL), který je nezávislý na službu Azure Machine Learning experimenty. Uživatelský přístup můžou lišit mezi úložiště Git a pracovní prostor Machine Learning nebo projektu. Možná budete muset spravovat přístup. 
+> 
+> Jestli chcete udělit seskupení kód úrovně přístup k projektu Machine Learning nebo prostě jenom Podělte o pracovním prostoru, potřebujete udělit správná oprávnění pro přístup k úložišti Team Services Git. 
 
-## <a name="step-1-create-an-azure-ml-experimentation-account"></a>Krok 1. Vytvoření účtu Azure ML experimentování
-Není-li již, vytvoření účtu Azure ML experimentování a nainstalujte aplikaci Azure ML Workbench. Další podrobnosti najdete v tématu [instalovat a vytvořte rychlý Start](quickstart-installation.md).
+Ke správě verzí s Gitem, můžete buď použít hlavní větve, nebo vytvořte ostatní větve zůstanou v úložišti. Můžete také použít místní úložiště Git a odešlete do vzdáleného úložiště Git, pokud je zřízený.
+
+Tento diagram znázorňuje vztah mezi úložišti Team Services Git a projekt Machine Learning:
+
+![Azure Machine Learning Git](media/using-git-ml-project/aml_git.png)
+
+Chcete-li začít používat vzdálené úložiště Git, proveďte kroky, které jsou popsané v následujících částech.
+
+> [!NOTE]
+> V současné době Azure Machine Learning podporuje úložiště Git pouze na účty Team Services. Podpora pro obecné úložiště Git, jako je Githubu, je plánované v budoucnosti.
+
+## <a name="step-1-create-a-machine-learning-experimentation-account"></a>Krok 1. Vytvořit účet Machine Learning experimentování
+Vytvořte účet Machine Learning experimentování a nainstalujte aplikaci Azure Machine Learning Workbench. Další informace najdete v tématu [instalovat a vytvořte rychlý Start](quickstart-installation.md).
 
 ## <a name="step-2-create-a-team-project-or-use-an-existing-team-project"></a>Krok 2. Vytvoření týmového projektu, nebo použijte existující týmového projektu
-Z [portál Azure](https://portal.azure.com/), vytvořte novou **týmového projektu**.
-1. Klikněte na**+**
-2. Vyhledejte **"Team projektu"**
-3. Zadejte požadované informace.
-    - Název: Název týmu.
-    - Správa verzí: **Git**
-    - Předplatné: Jednu s účtem Azure Machine Learning experimenty.
-    - Umístění: V ideálním případě zůstanou v oblasti, která je blízko vašich prostředků Azure Machine Learning experimentu.
-4. Klikněte na možnost **Vytvořit**. 
+V [portál Azure](https://portal.azure.com/), vytvoření nového týmového projektu:
+1. Vyberte  **+** .
+2. Vyhledejte **Team projektu**.
+3. Zadejte požadované informace:
+    - **Název**: název týmu.
+    - **Správa verzí**: vyberte **Git**.
+    - **Předplatné**: Vyberte předplatné, které má účet počítače Learning experimenty.
+    - **Umístění**: v ideálním případě vyberte oblast, která je blízko prostředkům na Machine Learning experimenty.
+4. Vyberte **Vytvořit**. 
 
-![Vytvoření týmového projektu z portálu Azure](media/using-git-ml-project/create_vsts_team.png)
+![Vytvoření týmového projektu na portálu Azure](media/using-git-ml-project/create_vsts_team.png)
 
-Ujistěte se, že se že přihlásíte pomocí stejného účtu Azure Active Directory (AAD), který používáte pro přístup k Azure Machine Learning Workbench. Jinak hodnota systém nemůže přistupovat k pomocí svoje přihlašovací údaje AAD Pokud použijete příkazového řádku k vytvoření projektu Azure ML a zadat osobní přístupový token pro přístup k úložišti Git. Další informace o to později.
+Ujistěte se, přihlásit se pomocí stejný účet služby Azure Active Directory (Azure AD), který používáte pro přístup k Machine Learning Workbench. Jinak systém nemá přístup k Machine Learning Workbench pomocí svých přihlašovacích údajů Azure AD. Výjimkou je, pokud pomocí příkazového řádku k vytvoření projektu Machine Learning a zadat osobní přístupový token pro přístup k úložišti Git. To probereme podrobněji později v článku.
 
-Po vytvoření týmového projektu, jste připravení přejít k dalšímu kroku.
+Chcete-li přejít přímo na týmový projekt, který jste vytvořili, použijte adresu URL https://\<název týmového projektu\>. visualstudio.com.
 
-Přejděte přímo na týmový projekt právě vytvořili, adresa URL je `https://<team_project_name>.visualstudio.com`.
+## <a name="step-3-set-up-a-machine-learning-project-and-git-repo"></a>Krok 3. Nastavení projektu Machine Learning a úložiště Git
 
-## <a name="step-3-create-a-new-azure-ml-project-with-a-remote-git-repo"></a>Krok 3. Vytvořte nový projekt Azure ML s vzdáleného úložiště Git
-Spusťte Azure ML Workbench a vytvoření nového projektu. Vyplnění textového pole úložiště Git s adresou URL úložiště Git služby VSTS, kterou můžete získat z kroku 2. Obvykle vypadá takto:`http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
+Pokud chcete nastavit projektu Machine Learning, máte dvě možnosti:
+- Vytvoření projektu Machine Learning, který má vzdáleného úložiště Git
+- Přidružit existujícího projektu Machine Learning úložiště Team Services Git
 
-![Vytvoření projektu Azure ML s úložiště Git](media/using-git-ml-project/create_project_with_git_rep.png)
+### <a name="create-a-machine-learning-project-that-has-a-remote-git-repo"></a>Vytvoření projektu Machine Learning, který má vzdáleného úložiště Git
+Otevřete Machine Learning Workbench a vytvořte nový projekt. V **úložiště Git** pole, zadejte adresu URL úložiště Team Services Git z kroku 2. Obvykle vypadá takto: https://\<název účtu Team Services\>.visualstudio.com/_git/\<název projektu\>
 
-Můžete také vytvořit projekt pomocí nástroje příkazového řádku. Máte možnost zadat osobní přístupový token. Azure ML můžete použít tento token pro přístup k úložišti Git vaším jménem, aniž byste museli spoléhat na vaše přihlašovací údaje AAD:
+![Vytvoření projektu Machine Learning, který má úložiště Git](media/using-git-ml-project/create_project_with_git_rep.png)
+
+Můžete také vytvořit projekt pomocí nástroje příkazového řádku Azure (Azure CLI). Máte možnost zadat osobní přístupový token. Machine Learning můžete použít tento token pro přístup k úložišti Git místo pomocí svých přihlašovacích údajů Azure AD:
 
 ```
-# create a new project with a Git repo and personal access token.
-$ az ml project create -a <experimentation account name> -n <project name> -g <resource group name> -w <workspace name> -r <Git repo URL> --vststoken <VSTS personal access token>
+# Create a new project that has a Git repo by using a personal access token.
+$ az ml project create -a <Experimentation account name> -n <project name> -g <resource group name> -w <workspace name> -r <Git repo URL> --vststoken <Team Services personal access token>
 ```
+
 > [!IMPORTANT]
-> Pokud si zvolíte Šablona prázdného projektu, je OK Pokud úložiště Git zvolíte už má _hlavní_ firemní pobočky. Jednoduše provede klonování Azure ML _hlavní_ větev místně a přidejte `aml_config` složky a další metadata soubory do složky místní projektu projektu. Ale pokud si zvolíte jiné šablony projektu, nesmí mít již vašeho úložiště Git _hlavní_ větve, nebo se zobrazí chyba. Alternativou je použít `az ml project create` nástroj pro příkazový řádek pro vytvoření projektu a poskytnete `--force` přepínače. To odstraní soubory na původní hlavní větve a nahradíte je nové soubory v šabloně, který zvolíte.
+> Pokud si zvolíte Šablona prázdného projektu, úložiště Git, kterou chcete použít už možná máte hlavní větve. Machine Learning jednoduše provede klonování hlavní větve místně. Přidá aml_config složky a další metadata soubory projektu do složky místní projektu. 
+>
+> Pokud zvolíte jakékoli další šablony projektu, vaše úložiště Git *nelze* už máte hlavní větve. Pokud ano, zobrazí se chyba. Alternativou je použít `az ml project create` příkaz pro vytvoření projektu, s `--force` přepínače. To odstraní soubory v původní hlavní větve a nahradí je nové soubory v šabloně, který zvolíte.
 
-Teď se vytvoří nový projekt Azure ML s integrací služby Vzdálené úložiště Git, povolené a jste připraveni.... Složce projektu je vždy inicializován pro Git jako místní úložiště Git. A Gitu _vzdáleného_ je nastavené na vzdálené úložiště Git služby VSTS, takže potvrzení možné převést do vzdáleného úložiště Git.
+Vzdálené úložiště integrace Gitu povoleno se vytvoří nový projekt Machine Learning. Složce projektu je vždy inicializován pro Git jako místní úložiště Git. Vzdálené úložiště Git je nastavené na vzdálené úložiště Team Services Git, takže potvrzení můžete posouvat nastavení do vzdáleného úložiště Git.
 
-## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Krok 3a. Přidružit úložiště Git služby VSTS existujícího projektu Azure ML
-Volitelně můžete také vytvoření projektu Azure ML bez úložiště Git služby VSTS a právě spoléhají na místní úložiště Git pro snímky historie spouštění. A je možné přidružit úložiště Git služby VSTS později tento existující projekt Azure ML pomocí následujícího příkazu:
+### <a name="associate-an-existing-machine-learning-project-with-a-team-services-git-repo"></a>Přidružit existujícího projektu Machine Learning úložiště Team Services Git
+Můžete vytvořit projekt Machine Learning bez úložiště Team Services Git a spoléhají na místní úložiště Git pro snímky historie spouštění. Úložiště Team Services Git můžete později přidružit tento existující projekt Machine Learning pomocí následujícího příkazu:
 
 ```azurecli
-# make sure you are in the project path so CLI has context of your current project
-$ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
+# Ensure that you are in the project path so Azure CLI has the context of your current project.
+$ az ml project update --repo https://<Team Services account name>.visualstudio.com/_git/<project name>
 ```
 
 > [!NOTE] 
-> Můžete provádět jenom operace aktualizace úložišti na projekt Azure ML, který nemá úložiště Git, s ním spojená. A jakmile je spojen úložiště Git, nelze ji odebrat.
+> Můžete provést operaci aktualizace úložišti jenom na Machine Learning projektu, který nemá úložiště Git, s ním spojená. Kromě toho po přidružíte úložiště Git Machine Learning, nelze odebrat.
 
-## <a name="step-4-capture-project-snapshot-in-git-repo"></a>Krok 4. Zachycení snímku projektu v úložiště Git
-Teď můžete spustit několik skript se spustí v projektu, zkontrolujte některé změny nevede je spuštěn. Můžete to udělat buď z plochy aplikace, nebo pomocí rozhraní příkazového řádku `az ml experiment submit` příkaz. Další podrobnosti, můžete postupovat podle [klasifikace Iris kurzu](tutorial-classifying-iris-part-1.md). Při každém spuštění, je-li všechny změny provedené v všechny soubory ve složce projektu snímek složce celý projekt je potvrzené a vložena do vzdáleného úložiště Git v části s názvem větev `AzureMLHistory/<Project_GUID>`. Můžete zobrazit tak, že přejde na adresu URL úložiště Git služby VSTS větve a potvrzení a najít tuto větev. 
+## <a name="step-4-capture-a-project-snapshot-in-the-git-repo"></a>Krok 4. Zachycení snímku projektu v úložišti Git
+Provést několik skript se spustí v projektu a provedeme některé změny mezi je spuštěn. To provedete v desktopová aplikace nebo z příkazového řádku Azure pomocí `az ml experiment submit` příkaz. Další informace najdete v tématu [klasifikace Iris kurzu](tutorial-classifying-iris-part-1.md). Při každém spuštění, pokud se všechny změny provedené v všechny soubory ve složce projektu snímek složce celý projekt je potvrzeny a instaluje do vzdáleného úložiště Git v části s názvem AzureMLHistory větev nebo\<projektu GUID\>. Chcete-li zobrazit větve a potvrdí, včetně AzureMLHistory /\<projektu GUID\> větve, přejděte na adresu URL úložiště Team Services Git. 
 
 > [!NOTE] 
-> Snímek se potvrdí pouze před spuštěním skriptu. Aktuálně data Příprava aplikace spuštění nebo spuštění Poznámkový blok buněk neaktivuje snímku.
+> Snímek se potvrdí pouze před spuštěním skriptu. V současné době data Příprava aplikace spuštění nebo spuštění Poznámkový blok buněk neaktivuje snímku.
 
 ![Historie spouštění větve](media/using-git-ml-project/run_history_branch.png)
 
 > [!IMPORTANT] 
-> Je nejvhodnější Pokud není provozujete v pobočce historie sami pomocí příkazy Gitu. Díky tomu může zřeteli do historie spouštění. Použít hlavní větve nebo místo toho vytvořte ostatní větve zůstanou pro operace Git.
+> Je nejvhodnější Pokud nemáte provozujete v pobočce historie pomocí příkazů Git. Ho může narušovat historie spouštění. Místo toho použít hlavní větve nebo vytvořit ostatní větve zůstanou pro operace Git.
 
 ## <a name="step-5-restore-a-previous-project-snapshot"></a>Krok 5. Obnovit předchozí snímek projektu 
-Chcete-li obnovit složce celý projekt do stavu předchozího historie spouštění projektu snímku stavu, z Azure ML Workbench:
-1. Klikněte na **spustí** v aktivitě panelu (ikona pohotovostní hodinu).
-2. Z **seznamu spustit** zobrazení, klikněte na spustit, kterou chcete obnovit.
-3. Z **spustit podrobností** zobrazení, klikněte na **obnovení**.
+Chcete-li obnovit složce celý projekt stav předchozí historie spouštění snímku v nástroji Machine Learning Workbench:
+1. V rámci aktivity panelu (ikona přesýpacích hodin) vyberte **spustí**.
+2. V **seznamu spustit** zobrazit, vyberte spuštění, které chcete obnovit.
+3. V **spustit podrobností** zobrazit, vyberte možnost **obnovení**.
 
 ![Historie spouštění větve](media/using-git-ml-project/restore_project.png)
 
-Alternativně můžete použít následující příkaz z okna příkazového řádku Azure ML Workbench.
+V okně příkazového řádku Azure CLI v nástroji Machine Learning Workbench můžete volitelně použít následující příkazy:
 
 ```azurecli
-# discover the run I want to restore snapshot from:
+# Discover the run I want to restore a snapshot from.
 $ az ml history list -o table
 
-# restore the snapshot from a particular run
-$ az ml project restore --run-id <run_id>
+# Restore the snapshot from a specific run.
+$ az ml project restore --run-id <run ID>
 ```
 
-Spuštěním tohoto příkazu jsme bude snímek pořízený v případě, že konkrétní spustit byla spuštěna přepište složce celý projekt. Ale váš projekt probíhal v aktuální větve. To znamená, že se **, ztratíte všechny změny** v aktuální složce projektu. Proto prosím buďte velmi opatrní při spuštění tohoto příkazu. Můžete chtít Git uložte provedené změny do aktuální větve před provedením výše uvedené operace. Před další podrobnosti najdete v.
+Buďte opatrní při spuštění tohoto příkazu. Spuštění tohoto příkazu přepíše složce celý projekt snímku, která se provede, když tento konkrétní spustit byla spuštěna. Váš projekt probíhal v aktuální větvi. To znamená, že jste **, ztratíte všechny změny** v aktuální složce projektu.  
+
+Můžete chtít pomocí Git uložte provedené změny do aktuální větve, před provedením této operace.
 
 ## <a name="step-6-use-the-master-branch"></a>Krok 6. Použít hlavní větve
-Jeden způsob, jak zabránit omylem došlo ke ztrátě aktuálního stavu projektu, je potvrzení projektu do hlavní větve (nebo všechny větve, které jste sami vytvořili) úložiště Git. Git můžete použít přímo z příkazového řádku (nebo vaše dalších oblíbených Git klienta nástroje) k provozu na hlavní větve. Například:
+Jedním ze způsobů, abyste se vyhnuli ztrátě omylem vaše aktuální stav projektu je potvrzení projektu do hlavní větve úložiště Git (nebo všechny firemní pobočky, který jste sami vytvořili). Můžete Git z příkazového řádku nebo z vaše oblíbené nástroje klienta Git pracovat na hlavní větve. Například:
 
 ```sh
-# check status to make sure you are on the master branch (or branch of your choice)
+# Check status to make sure you are on the master branch (or branch of your choice).
 $ git status
 
-# stage all changes
+# Stage all changes.
 $ git add -A
 
-# commit all changes locally on the master branch
+# Commit all changes locally on the master branch.
 $ git commit -m 'these are my updates so far'
 
-# push changes into the remote VSTS Git repo master branch.
+# Push changes to the remote Team Services Git repo master branch.
 $ git push origin master
 ```
 
-Nyní můžete bezpečně obnovit projekt starší snímku následující krok 5, a zároveň budete vědět, že vždy se můžete vrátit zpět k potvrzení jste právě probíhají hlavní větve.
+Nyní můžete bezpečně obnovit projekt starší snímek provedením kroku 5. Vždy se můžete vrátit zpět k potvrzení, který jste právě vytvořili na hlavní větve.
 
 ## <a name="authentication"></a>Authentication
-Pokud se právě využívají funkce historie spouštění v Azure ML pořizování snímků projektu a obnovení databází, nemusíte starat o ověřování úložiště Git. Se stará vrstvě služby experimenty.
+Pokud byste tedy spoléhat jenom na funkce historie spouštění v Machine Learning k pořízení snímků projektu a jejich obnovení, nemusíte si dělat starosti o ověřování úložiště Git. Ověřování se provádí vrstvě služby Machine Learning experimenty.
 
-Ale pokud používáte vlastní Git nástroje pro správu verzí, musíte řádně zpracovávat ověřování proti vzdáleného úložiště Git na služby VSTS. Vzdálené úložiště Git se v Azure ML, přidá do místního úložiště jako vzdálené pomocí protokolu HTTPS úložiště Git. To znamená, pokud vydáte Git příkazy ke vzdálenému (jako je například push nebo pull), že budete muset zadat uživatelské jméno a heslo nebo osobní přístupový token. Postupujte podle [tyto pokyny](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) vytvořit osobní přístupový token v úložišti služby VSTS Git.
+Ale pokud používáte vlastní Git nástroje pro správu verzí, budete muset zpracovávat ověřování proti vzdáleného úložiště Git v Team Services. Ve strojovém učení se vzdálené úložiště Git je přidán do místního úložiště jako vzdálené úložiště Git pomocí protokolu HTTPS. To znamená, pokud vydáte příkazy Gitu (například push nebo pull) ke vzdálenému, budete muset zadat svoje uživatelské jméno a heslo nebo osobní přístupový token. Pokud chcete vytvořit osobní přístupový token v úložišti Team Services Git, postupujte podle pokynů v [k ověření použít osobní přístupový token](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate).
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o použití procesu Team dat vědecké účely uspořádání strukturu projektu, najdete v článku [struktury projekt se TDSP](how-to-use-tdsp-in-azure-ml.md)
+- Zjistěte, jak [pomocí procesu Team dat vědecké účely uspořádat strukturu projektu](how-to-use-tdsp-in-azure-ml.md).

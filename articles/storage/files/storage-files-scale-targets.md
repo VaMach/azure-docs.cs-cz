@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 10/17/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 35d430b683224d1035cccdfb58b9db415d47ea3b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 381e96a0a777415b916e4093fe55aa0d355782a1
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure soubory škálovatelnosti a cílech výkonnosti
 [Soubory Azure](storage-files-introduction.md) nabízí plně spravované sdílené složky v cloudu, které jsou přístupné přes průmyslový standard protokolu SMB. Tento článek popisuje cíle škálovatelnost a výkon pro soubory Azure a synchronizace souborů Azure (Preview).

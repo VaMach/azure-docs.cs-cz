@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: b962ad3da6d5daff2c8b2524828a9450da702abb
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognózování úloh serveru s terabajty dat
 
@@ -203,7 +203,7 @@ Druhý argument je ladění. Jeho nastavení na hodnotu FILTER_IP umožňuje ryc
 
 Spusťte příkazový řádek z Machine Learning Workbench výběrem **soubor** > **spusťte příkazový řádek**. Potom spusťte: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 Následující dva soubory jsou vytvořeny ve složce aml_config projektu:
 
@@ -266,7 +266,7 @@ Po úspěšném dokončení experimentování na malá data, můžete nadále sp
 
 ##### <a name="1-create-the-compute-target-in-machine-learning-workbench-for-the-hdinsight-cluster"></a>1. Vytvořit cíl výpočetní v nástroji Machine Learning Workbench pro HDInsight cluster
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 Následující dva soubory jsou vytvořeny ve složce aml_config:
     
@@ -382,7 +382,7 @@ Vyberte jedinečný řetězec jako prostředí pro operationalization. Tady pou�
 
         az ml experiment submit -t dockerdsvm -c dockerdsvm webservice.py
 
-5. Vytvoření bitové kopie Docker. 
+5. Vytvořte image Dockeru. 
 
         az ml image create -n [unique]image --manifest-id $manifestID
 

@@ -1,6 +1,6 @@
 ---
-title: "Roaming a spolupráce v Azure strojového učení Workbench | Microsoft Docs"
-description: "Příručka k řešení a seznam známých problémů"
+title: "Roaming a spolupráce v Azure Machine Learning Workbench | Microsoft Docs"
+description: "Postup nastavení roamingu a spolupráce v nástroji Machine Learning Workbench."
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,193 +10,193 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 81954835185ebaa86c11a9498a85879e6985897a
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 137608007716452ec6468f1e13f494b095a11cb0
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming a spolupráce v Azure Machine Learning Workbench
-Tento dokument vás provede jak Azure Machine Learning Workbench vám mohou pomoci přenášet projekty mezi počítače, jakož i povolení spolupráce s ostatními členy týmu. 
+Tento článek popisuje, jak můžete použít Azure Machine Learning Workbench nastavit projekty pro roaming mezi počítači a spolupráci s členy týmu. 
 
-Když vytvoříte projekt Azure Machine Learning s odkazem vzdáleného úložiště Git (úložiště), metadata projektu a snímky jsou uložené v cloudu. Odkaz cloudu umožňuje přístup k projektu, z jiného počítače (Roaming). Můžete také poskytnout přístup k vaší spolupracovníci, a tak umožňuje spolupráci. 
+Když vytvoříte projekt Azure Machine Learning, který obsahuje odkaz vzdálené úložiště (úložiště) Git, metadata projektu a snímky jsou uložené v cloudu. Přístup k projektu z jiného počítače (roaming) můžete použít odkaz cloudu. Můžete také spolupráci s členy týmu pomocí bude mít přístup k projektu. 
 
 ## <a name="prerequisites"></a>Požadavky
-Nejdřív nainstalujte Azure Machine Learning Workbench s přístupem k účtu experimenty. Postupujte podle [Průvodce instalací](quickstart-installation.md) další podrobnosti.
+1. Nainstalujte strojového učení Workbench aplikace. Ujistěte se, zda máte přístup k účtu Azure Machine Learning experimenty. Další informace najdete v tématu [Průvodce instalací](quickstart-installation.md).
 
-Druhý, přístup k [Visual Studio Team System](https://www.visualstudio.com) a úložišti propojení projektu pro vytvoření. Podrobné informace o Git, podívejte se [pomocí úložiště Git s projektem Azure Machine Learning Workbench](using-git-ml-project.md) článku.
+2. Přístup k [Visual Studio Team Services](https://www.visualstudio.com) (Team Services) a poté vytvořit úložišti propojení projektu pro. Další informace najdete v tématu [pomocí úložiště Git s projektem Machine Learning Workbench](using-git-ml-project.md).
 
-## <a name="create-a-new-azure-machine-learning-project"></a>Vytvořte nový projekt Azure Machine Learning
-Spusťte Azure Machine Learning Workbench a vytvoření nového projektu (například _iris_). Vyplnění **adresu URL úložiště GIT Visualstudio.com** textové pole s platnou adresu URL úložiště Git služby VSTS. 
+## <a name="create-a-new-machine-learning-project"></a>Vytvoření nového projektu Machine Learning
+Otevřete Machine Learning Workbench a pak vytvořte nový projekt (například projektu s názvem iris). V **adresu URL úložiště GIT Visualstudio.com** zadejte platnou adresu URL pro úložiště Team Services Git. 
 
 > [!IMPORTANT]
-> Pokud si zvolíte Šablona prázdného projektu, je OK Pokud úložiště Git zvolíte už má _hlavní_ firemní pobočky. Jednoduše provede klonování Azure ML _hlavní_ větev místně a přidejte `aml_config` složky a další metadata soubory do složky místní projektu projektu. Ale pokud si zvolíte jiné šablony projektu, nesmí mít již vašeho úložiště Git _hlavní_ větve, nebo se zobrazí chyba. Alternativou je použít `az ml project create` nástroj pro příkazový řádek pro vytvoření projektu a poskytnete `--force` přepínače. To odstraní soubory na původní hlavní větve a nahradíte je nové soubory v šabloně, který zvolíte.
+> Pokud si zvolíte Šablona prázdného projektu, úložiště Git, kterou chcete použít už možná máte hlavní větve. Machine Learning jednoduše provede klonování hlavní větve místně. Přidá aml_config složky a další metadata soubory projektu do složky místní projektu. 
+>
+> Pokud zvolíte jakékoli další šablony projektu, vaše úložiště Git *nelze* už máte hlavní větve. Pokud ano, zobrazí se chyba. Alternativou je použít `az ml project create` příkaz pro vytvoření projektu, s `--force` přepínače. To odstraní soubory v původní hlavní větve a nahradí je nové soubory v šabloně, který zvolíte.
 
-Po vytvoření projektu se odešlete několik běží na všech skriptů v projektu. Tato akce provede stavu projektu do vzdáleného úložiště Git historie spouštění větev. 
+Po vytvoření projektu se odešlete několik běží na všech skriptů, které jsou v projektu. Tato akce provede stavu projektu do vzdáleného úložiště Git historie spouštění větve. 
 
 > [!NOTE] 
-> Pouze skript se spustí aktivační událost potvrzení do historie spouštění větve. Data připravená data provádění nebo poznámkového bloku běží nemáte aktivovat projektu snímků historie spouštění větev.
+> Pouze skript se spustí aktivační událost potvrzení do historie spouštění větve. Data připravená data spuštění a poznámkového bloku běží nemáte aktivovat snímky projektu ve větvi historie spouštění.
 
-Pokud máte instalaci Git ověřování, můžete také explicitně fungovat v hlavní větve, nebo vytvořte novou větev. 
+Pokud jste nastavili Git ověřování, můžou také fungovat v hlavní větve. Nebo můžete vytvořit nové větve. 
 
-Jako příklad: 
+Příklad: 
 ```
-# check current repo status
+# Check current repo status.
 $ git status
 
-# stage all changes in the current repo
+# Stage all changes in the current repo.
 $ git add -A
 
-# commit changes
+# Commit changes.
 $ git commit -m "my commit fixes this weird bug!"
 
-# push to remote repo.
+# Push to the remote repo.
 $ git push origin master
 ```
 
 ## <a name="roaming"></a>Roaming
 <a name="roaming"></a>
 
-### <a name="open-azure-machine-learning-workbench-on-second-machine"></a>Otevřete Azure Machine Learning Workbench na druhý počítač
-Jakmile úložiště Git služby VSTS je propojená s projektem, dostanete _iris_ projekt z libovolného počítače, kam jste nainstalovali Azure Machine Learning Workbench. 
+### <a name="open-machine-learning-workbench-on-a-second-computer"></a>Otevřete Machine Learning Workbench na druhý počítač
+Po úložiště Team Services Git je propojená s projektu, můžete přístup k projektu iris z libovolného počítače, který má Machine Learning Workbench nainstalovaná. 
 
-Přístup k projektu iris na jiném počítači, musíte se přihlásit k aplikaci se stejnými pověřeními, použít při vytváření projektu. Kromě toho budete muset přejít na stejný účet experimentování a pracovního prostoru. _Iris_ projektu abecedně označené Další projekty v pracovním prostoru. 
+Chcete-li získat přístup k projektu iris na jiném počítači, musíte přihlásit k aplikaci pomocí stejných přihlašovacích údajů, které jste použili k vytvoření projektu. Také musíte být ve stejné účet Machine Learning experimentování a pracovního prostoru. Projekt iris je uvedena abecedně s jinými projekty v pracovním prostoru. 
 
-### <a name="download-project-on-second-machine"></a>Stáhněte si projekt na druhý počítač
-Po otevření pracovního prostoru na druhý počítač, na ikonu vedle _iris_ projektu se liší od ikony typické složky. Ikona stažení označuje, že obsah projektu je v cloudu a musí být stáhnout do aktuálního počítače. 
+### <a name="download-the-project-on-a-second-computer"></a>Stáhněte si projekt na druhý počítač
+V otevřeném pracovním prostoru v druhém počítači, na ikonu přiléhající k projektu iris se liší od ikonu typické složky. Ikona stažení označuje, že obsah projektu jsou v cloudu, a zda projektu lze stáhnout do aktuálního počítače. 
 
 ![Vytvoření projektu](./media/roaming-and-collaboration/downloadable-project.png)
 
-Kliknutím na _iris_ projektu spustí stahování akce. Za malou chvíli, kdy stahování dokončí je připraven na druhý počítač přístup k projektu. 
+Vyberte projekt iris zahájíte stahování. Po dokončení stahování je připraven na druhý počítač přístup k projektu. 
 
-V systému Windows je`C:\Users\<username>\Documents\AzureML`
+V systému Windows, se nachází v C:\Users projektu\\< uživatelské jméno\>\Documents\AzureML.
 
-V systému macOS je tady:`/home/<username>/Documents/AzureML`
+V systému macOS, se nachází v /home/ projektu\<uživatelské jméno \> /dokumenty/AzureML.
 
-V budoucí verzi plánujeme vylepšují funkce a umožní vám vybrat cílovou složku. 
+V budoucí verzi plánujeme rozšíření funkcí, takže můžete vybrat cílovou složku. 
 
 > [!NOTE]
-> Pokud jste mají náhodou složky v adresáři Azure ML, který má přesně stejný název jako projekt, stahování se nezdaří. V současné době budete muset přejmenovat existující složku Chcete-li tento problém obejít.
+> Pokud máte složku v adresáři Machine Learning, který má přesně stejný název jako projekt, stahování se nezdaří. Chcete-li tento problém obejít, dočasně přejmenujte existující složku.
 
 
 ### <a name="work-on-the-downloaded-project"></a>Práce na staženého projektu 
-Nově staženého projektu odráží projektu stavu od posledního spuštění v projektu. Snímek stavu projektu je automaticky provedeny do historie spouštění větve v úložišti Git služby VSTS pokaždé, když odešlete spustit. Používáme snímku spojené s nejnovější spuštění při vytvoření instance projekt na druhém počítači. 
+Nově staženého projektu odráží stav projektu při posledním spuštění v projektu. Snímek stavu projektu je automaticky provedeny do historie spouštění větve v úložišti Team Services Git pokaždé, když odešlete spustit. Snímek, který je přidružen nejnovější spustit slouží k vytváření instancí projekt na druhém počítači. 
  
 
 ## <a name="collaboration"></a>Spolupráce
-Můžete spolupracovat s ostatními členy týmu v projektech propojené do úložiště Git služby VSTS. Můžete přiřadit oprávnění pro uživatele na účet experimentování, pracovní prostor a projekt. V tomto okamžiku můžete provést příkazy Azure Resource Manager pomocí rozhraní příkazového řádku Azure. Můžete také použít [portál Azure](https://portal.azure.com). V tématu [následující části](#portal).    
+Můžete spolupracovat s ostatními členy týmu v projektech, které jsou propojeny s úložišti Team Services Git. Můžete přiřadit oprávnění pro uživatele pro účet Machine Learning experimentování, pracovní prostor a projekt. V současné době můžete provést příkazy Azure Resource Manager pomocí rozhraní příkazového řádku Azure. Můžete také [portál Azure](https://portal.azure.com). Další informace najdete v tématu [na portálu Azure můžete přidat uživatele](#portal).    
 
-### <a name="using-command-line-to-add-users"></a>Pomocí příkazového řádku pro přidání uživatelů
-Umožňuje použít příklad. Řekněme, Alice je vlastníkem tý e_Iris_ projektu a chce sdílet přístup s Bob. 
+### <a name="use-the-command-line-to-add-users"></a>Použijte příkazový řádek pro přidání uživatelů
+Jako příklad Alice je vlastníkem iris projektu. Alice chce sdílet přístup k projektu s Bob. 
 
-Alice klikne na **soubor** nabídky a vybere **příkazového řádku** položky nabídky ke spuštění příkazového řádku nakonfigurovat tak, aby _iris_ projektu. Alice je pak může rozhodnout, jaké úrovně přístupu fo chce poskytnout Bobovi spuštěním následujících příkazů.  
+Vybere Alice **soubor** nabídce a potom vybere **příkazového řádku** položku nabídky. Otevře se okno příkazového řádku s iris projektu. Alice pak můžete rozhodnout, jakou úroveň přístupu, která chce předáte Bob. Jana uděluje oprávnění spuštěním následujících příkazů:  
 
 ```azurecli
-# Find ARM ID of the experimnetation account
+# Find the Resource Manager ID of the Experimentation account.
 az ml account experimentation show --query "id"
 
-# Add Bob to the Experimentation Account as a Contributor.
-# Bob now has read/write access to all workspaces and projects under the Account by inheritance.
-az role assignment create --assignee bob@contoso.com --role Contributor --scope <experimentation account ARM ID>
+# Add Bob to the Experimentation account as a Contributor.
+# Bob now has read/write access to all workspaces and projects under the account by inheritance.
+az role assignment create --assignee bob@contoso.com --role Contributor --scope <Experimentation account Resource Manager ID>
 
-# Find ARM ID of the workspace
+# Find the Resource Manager ID of the workspace.
 az ml workspace show --query "id"
 
 # Add Bob to the workspace as an Owner.
-# Bob now has read/write access to all projects under the Workspace by inheritance. And he can invite or remove others.
-az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace ARM ID>
+# Bob now has read/write access to all projects under the workspace by inheritance. Bob can invite or remove other users.
+az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace Resource Manager ID>
 ```
 
-Po přiřazení role přímo nebo prostřednictvím dědičnosti, Bob vidí na projekt v seznamu Workbench projektu. Aplikace může být nutné restartování, chcete-li zobrazit projektu. Bob pak můžete stáhnout projektu, jak je popsáno v [Roaming části](#roaming) a spolupracovat s Alice. 
+Po přiřazení role buď přímo nebo prostřednictvím dědičnosti, uvidí Bob na projekt v seznamu Machine Learning Workbench projektu. Bob může být potřeba restartovat aplikaci zobrazíte projektu. Bob pak můžete stáhnout projektu, jak je popsáno v [Roaming](#roaming)a začít spolupracovat s Alice. 
 
-Historie spouštění pro všechny uživatele spolupráce na projektu se zaměřuje na stejné vzdáleného úložiště Git. Proto když Alice provede spuštění, Bob vidí spustit v části historie spouštění projektu v aplikaci Workbench. Bob můžete také obnovit projekt stavu všech spustit včetně spustí spustí Alice. 
+Historie spouštění pro všechny uživatele, kteří spolupracovat na projektu se zaměřuje na stejné vzdáleného úložiště Git. Když Alice provede spuštění, Bob vidí spustit v části historie spouštění projektu v aplikaci Machine Learning Workbench. Bob můžete také obnovit projekt stavu všech běh, včetně spustí, kteří spustili Alice. 
 
-Sdílení vzdáleného úložiště Git pro projekt umožňuje Alice a Bob také spolupracovat na hlavní větve. V případě potřeby můžou taky vytvořit osobní větve a používat Git-žádosti o přijetí změn a sloučí spolupracovat. 
+Při sdílení vzdáleného úložiště Git pro projekt, může Alice a Bob také spolupracovat v hlavní pobočce. V případě potřeby můžou taky vytvořit osobní větve a používat žádosti o přijetí změn Git a sloučí spolupracovat. 
 
-### <a name="using-azure-portal-to-add-users"></a>Pomocí portálu Azure přidat uživatele
+### <a name="use-the-azure-portal-to-add-users"></a>Na portálu Azure můžete přidat uživatele
 <a name="portal"></a>
 
-Azure Machine Learning experimentování účty, pracovních prostorů a projekty jsou prostředky Azure Resource Manager. Můžete použít odkaz řízení přístupu v [portál Azure](https://portal.azure.com) přiřadit role. 
+Účty počítače Learning experimentování, pracovní prostor a projekty jsou prostředky Azure Resource Manager. Chcete-li přiřadit role, můžete použít **řízení přístupu** na odkaz v [portál Azure](https://portal.azure.com). 
 
-Najít prostředek, který Pokud chcete přidat uživatele zobrazíte ze všech zdrojů. Klikněte na řízení přístupu (IAM) odkaz v rámci stránky. Přidání uživatelů 
+Najít prostředek, který chcete přidat uživatele do pomocí **všechny prostředky** zobrazení. Vyberte **přístup k ovládacímu prvku (IAM)** propojit a potom vyberte **přidat uživatele**. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
 ## <a name="sample-collaboration-workflow"></a>Ukázkový pracovní postup spolupráce
-Pro ilustraci toku spolupráce, projděme příklad. Zaměstnanci contoso Alice a Bob chcete spolupracovat na projektu vědecké účely dat pomocí Azure ML Workbench. Svou identitu patřit do stejné klientovi Contoso Azure AD.
+Pro ilustraci pracovního postupu spolupráce, projděme příklad. Zaměstnanci contoso Alice a Bob chcete spolupracovat na datové vědě projektu pomocí Machine Learning Workbench. Svoji identitu patřit do stejné klienta Contoso Azure Active Directory (Azure AD). Tady jsou kroky Alice a Bob trvat:
 
-1. Alice nejprve vytvoří prázdný úložiště Git v projektu služby VSTS. Tento projekt služby VSTS by měl za provozu v předplatné Azure vytvořili v rámci klienta Contoso AAD. 
+1. Alice vytvoří prázdný úložiště Git v projektu Team Services. Projekt Team Services by měly mít předplatné Azure, který je vytvořen v klientovi Contoso Azure AD. 
 
-2. Alice pak vytvoří účet Azure ML experimentování, pracovní prostor a projektu Azure ML Workbench na svém počítači. Jana poskytuje adresu URL úložiště Git, při vytváření projektu.
+2. Alice vytvoří účet Machine Learning experimentování, pracovní prostor a projekt Machine Learning Workbench na svém počítači. Když uživatel vytvoří projekt, zadá adresu URL úložiště Team Services Git.
 
-3. Alice začne pracovat na projektu. Vytvoří některé skripty a provede několik spustí. Při každém spuštění se automaticky snímek složce celý projekt posune do historie spouštění větev z úložiště služby VSTS Git, vytvořené Workbench jako potvrzení.
+3. Alice začne pracovat na projektu. Vytvoří některé skripty a provede několik spustí. Při každém spuštění se snímek složce celý projekt posune jako potvrzení změn na větev historie spouštění úložiště Git služby týmu, který vytváří Machine Learning Workbench automaticky.
 
-4. Alice je nyní radostí s probíhající práce. Chce jeho změnu místní potvrdit _hlavní_ větev a doručí jej do úložiště Git služby VSTS _hlavní_ firemní pobočky. Uděláte to tak, že s projektem otevřeným se spustí v okně příkazového řádku Azure ML Workbench a vydá následující příkazy:
+4. Alice je radostí s probíhající práce. Chce potvrzení jeho změn v místní hlavní větve a vložit je do hlavní větve úložiště Team Services Git. S projektem otevřeným v nástroji Machine Learning Workbench se otevře okno příkazového řádku a potom zadání těchto příkazů:
     
     ```sh
-    # verify the Git remote is pointing to the VSTS Git repo
+    # Verify that the Git remote is pointing to the Team Services Git repo.
     $ git remote -v
 
-    # verify that the current branch is master
+    # Verify that the current branch is master.
     $ git branch
 
-    # stage all changes
+    # Stage all changes.
     $ git add -A
 
-    # commit changes with a comment
+    # Commit changes with a comment.
     $ git commit -m "this is a good milestone"
 
-    # push the commit to the master branch of the remote Git repo in VSTS
+    # Push the commit to the master branch of the remote Git repo in Team Services.
     $ git push
     ```
 
-5. Alice pak přidá Roberta do pracovního prostoru jako Přispěvatel. Bude moct provést z portálu Azure nebo pomocí `az role assignment` příkaz ilustrují výše. Jana také uděluje Bob přístup pro čtení nebo zápis do úložiště Git služby VSTS.
+5. Alice přidá Roberta do pracovního prostoru jako Přispěvatel. Jana můžete to udělat na portálu Azure nebo pomocí `az role assignment` příkaz, jak je uvedeno výše. Alice také uděluje oprávnění k úložišti Team Services Git Bob čtení a zápis.
 
-6. Bob teď nástroje Azure ML Workbench přihlásí na svém počítači. Si můžete zobrazit Alice prostoru sdílet s ním a projekt uvedené v části tohoto pracovního prostoru. 
+6. Bob se přihlásí k Machine Learning Workbench ve svém počítači. Si můžete zobrazit pracovní prostor, který Alice sdílet s ním. Si můžete zobrazit projektu iris uvedené v části tohoto pracovního prostoru. 
 
-7. Robert klikne na název projektu a projekt se stáhne do svého počítače.
-    
-    a. Kopie snímků nejnovější spuštění zaznamená do historie spouštění jsou soubory staženého projektu. Nejsou poslední potvrzení na hlavní větve.
-    
-    b. Složka místní projektu je nastavena na _hlavní_ firemní pobočky s výše unstaged změny.
+7. Bob vybere název projektu. Projekt se stáhne do svého počítače.
+    * Kopie snímků nejnovější spuštění, které se zaznamená do historie spouštění jsou soubory staženého projektu. Nejsou poslední potvrzení na hlavní větve.
+    * Složka místní projektu je nastavena do hlavní větve, s unstaged změny.
 
-8. Bob teď můžete procházet spustí provedený Alice a obnovení snímku všech předchozích spuštění.
+8. Bob můžete vyhledat spustí, které byly provedeny podle Alice. Si můžete obnovit snímky žádné dřívější spustí.
 
-9. Bob chce získání nejnovějších změn nabídnutých podle Alice a začít pracovat na jinou firemní pobočky. Tak, aby mohl otevře okno příkazového řádku z Azure ML Workbench a spouští následující příkazy:
+9. Bob chce získat nejnovější změny, které instaluje Alice a pak začít pracovat na jinou firemní pobočce. V nástroji Machine Learning Workbench Bob otevře okno příkazového řádku a spouští následující příkazy:
 
     ```sh
-    # verify the Git remote is pointing to the VSTS Git repo
+    # Verify that the Git remote is pointing to the Team Services Git repo.
     $ git remote -v
 
-    # verify that the current branch is master
+    # Verify that the current branch is master.
     $ git branch
 
-    # get the latest commit in VSTS Git master branch and overwrite current files
+    # Get the latest commit in the Team Services Git master branch and overwrite current files.
     $ git pull --force
 
-    # create a new local branch named "bob" so Bob's work is done on the "bob" branch
+    # Create a new local branch named "bob" so that Bob's work is done in the "bob" branch
     $ git checkout -b bob
     ```
 
-10. Bob teď upraví projektu a odeslání nové spuštění. Změny se provádějí v _bob_ firemní pobočky. A také budou zobrazeny Alici Boba spustí.
+10. Bob upraví projektu a odešle nové spuštění. Změny jsou probíhají bob větev. Spustí Boba také budou zobrazeny Alici.
 
-11. Robert je nyní připraven k nabízení své změny do vzdáleného úložiště Git. Aby se zabránilo konfliktu s _hlavní_ firemní pobočky, kde Alice pracuje, rozhodne se push svou práci do nové vzdálené větve také s názvem _bob_.
+11. Robert je připraven k odešlete své změny do vzdáleného úložiště Git. Aby se zabránilo konfliktu s hlavní větve, kde Alice funguje, vynutí Bob svou práci na nové vzdálené větve, který se nazývá také bob.
 
     ```sh
-    # verify that the current branch is "bob" and it has unstaged changes
+    # Verify that the current branch is "bob," and that it has unstaged changes.
     $ git status
     
-    # stage all changes
+    # Stage all changes.
     $ git add -A
 
-    # commit them with a comment
+    # Commit the changes with a comment.
     $ git commit -m "I found a cool new trick."
 
-    # create a new branch on the remote VSTS Git repo, and push changes
+    # Create a new branch on the remote Team Services Git repo, and then push the changes.
     $ git push origin bob
     ```
 
-12. Bob můžete v jeho kód, pak říct Alice o nové nástrojů efektu a vytvoří žádost o přijetí změn na vzdálené úložiště Git z _bob_ větvení do _hlavní_ firemní pobočky. A Alice můžete pak je sloučit žádost o přijetí změn do _hlavní_ firemní pobočky.
+12. Alice říct o nástrojů nové efektu ve svém kódu, Bob vytvoří žádost o přijetí změn na vzdálené úložiště Git z bob větve do hlavní větve. Alice pak sloučit žádost o přijetí změn do hlavní větve.
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o Azure ML Workbench pomocí Git: [úložiště Git pomocí služby Azure Machine Learning Workbench projektu](using-git-ml-project.md)
+- Další informace o [pomocí úložiště Git s projektem Machine Learning Workbench](using-git-ml-project.md).

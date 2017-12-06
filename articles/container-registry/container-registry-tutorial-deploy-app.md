@@ -2,22 +2,15 @@
 title: "Kurz pro Azure kontejneru registru – nasazení webové aplikace z registru kontejner Azure"
 description: "Nasazení založené na systému Linux webové aplikace pomocí bitové kopie kontejneru z registru geograficky replikované kontejner Azure. Dva součástí série, třemi částmi."
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: neilpeterson
-tags: acr, azure-container-registry, geo-replication
-keywords: Docker, kontejnery, registru, Azure
 ms.service: container-registry
-ms.devlang: 
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 4c597ab33bf344717f82187f4f7e6e620fd64d3e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/05/2017

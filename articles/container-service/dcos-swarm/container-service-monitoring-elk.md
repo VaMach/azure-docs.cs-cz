@@ -1,29 +1,22 @@
 ---
-title: "Monitorování Azure DC/OS cluster - ELK zásobníku | Microsoft Docs"
+title: "Monitorování Azure DC/OS cluster - ELK zásobníku"
 description: "Monitorování cluster DC/OS v clusteru Azure Container Service s ELK (Elasticsearch, Logstash a Kibana)."
 services: container-service
-documentationcenter: 
 author: sauryadas
-manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Kontejnery, DC/OS, Azure, monitorování, elk"
-ms.assetid: 
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: fcfa277cdd0f3cebc0fbbb23e771fb23ffbe2ca6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b378fc38233534df74582388e6e832d40f431d11
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Monitorování clusteru Azure Container Service s ELK
+
 V tomto článku jsme ukazují, jak nasadit zásobníku ELK (Elasticsearch, Logstash, Kibana) v clusteru DC/OS v Azure Container Service. 
 
 ## <a name="prerequisites"></a>Požadavky

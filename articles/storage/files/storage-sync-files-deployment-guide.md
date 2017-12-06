@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 42a0e7a3816e0f1d96951feac210e5770add4fe1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Nasadit soubor synchronizaci Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -92,32 +92,48 @@ Po přihlášení, budete vyzváni k zadání následujících informací:
 Jakmile vyberete příslušné informace, vyberte **zaregistrovat** dokončit registraci serveru. Jako součást procesu registrace budete vyzváni k další sign-in.
 
 ## <a name="create-a-sync-group"></a>Vytvořte skupinu synchronizace
-Synchronizace skupiny definuje topologie synchronizace pro určitou sadu souborů. Koncové body v rámci synchronizace skupiny jsou synchronizovány mezi sebou. Synchronizace skupiny musí obsahovat alespoň jeden koncového bodu cloudu, který představuje sdílenou složku Azure, a jeden koncový bod serveru, který představuje cestu v systému Windows Server. Chcete-li vytvořit skupinu synchronizace v [portál Azure](https://portal.azure.com/), přejděte do vaší služby synchronizace úložiště a potom vyberte **+ skupiny synchronizace**:
+Synchronizace skupiny definuje topologie synchronizace pro určitou sadu souborů. Koncové body v rámci synchronizace skupiny jsou synchronizovány mezi sebou. Synchronizace skupiny musí obsahovat alespoň jeden cloud koncový bod, který představuje sdílenou složku Azure, a koncový bod, jeden server, který představuje cestu v systému Windows Server. Chcete-li vytvořit skupinu synchronizace v [portál Azure](https://portal.azure.com/), přejděte do vaší služby synchronizace úložiště a potom vyberte **+ skupiny synchronizace**:
 
 ![Vytvořit novou skupinu synchronizace na portálu Azure](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
 V podokně, které se otevře zadejte následující informace a vytvořte skupinu synchronizace s koncového bodu cloudu:
 
-- **Název skupiny pro synchronizaci**: název skupiny synchronizace, který se má vytvořit. Tento název musí být jedinečný v rámci služby synchronizace úložiště, ale může být jakýkoli název, který je logické za vás.
+- **Název skupiny synchronizace**: název skupiny synchronizace, který se má vytvořit. Tento název musí být jedinečný v rámci služby synchronizace úložiště, ale může být jakýkoli název, který je logické za vás.
 - **Předplatné**: předplatné, které jste nasadili synchronizační služby úložiště v [nasazení služby Sync úložiště](#deploy-the-storage-sync-service).
 - **Účet úložiště**: Pokud jste vybrali **vyberte účet úložiště**, zobrazí se další podokno, ve kterém můžete vybrat účet úložiště, který má sdílenou složku Azure, které chcete synchronizovat s.
-- **Sdílenou složku Azure**: název sdílené složky Azure file, pro který chcete synchronizovat.
+- **Azure sdílení souborů**: název sdílené složky Azure file, pro který chcete synchronizovat.
 
-Chcete-li přidat koncový bod serveru, přejděte do nově vytvořenou skupinu synchronizace a potom vyberte **přidat koncový bod serveru**.
+Chcete-li přidat koncový bod serveru, přejděte do skupiny nově vytvořený synchronizace a potom vyberte **přidat koncový bod serveru**.
 
 ![Přidat nový koncový bod serveru v podokně skupiny synchronizace](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
 V **přidat koncový bod serveru** podokně zadejte následující informace pro vytvoření koncového bodu serveru:
 
-- **Zaregistrovat Server**: název serveru nebo clusteru, kde chcete vytvořit koncový bod serveru.
+- **Zaregistrovaný server**: název serveru nebo clusteru, kde chcete vytvořit koncový bod serveru.
 - **Cesta**: cestu v serveru Windows možné synchronizovat jako součást skupiny synchronizace.
 - **Cloud Tiering**: přepínač k povolení nebo zakázání cloudu vrstev. S cloudem vrstvení, zřídka používají nebo získat přístup k souborů může být rozvrstvena k Azure Files.
-- **Volné místo na svazku**: množství volného místa vyhradit na svazku, na kterém je umístěn serveru koncového bodu. Například pokud volné místo na svazku nastavená na 50 % ve svazku, který má jeden koncový bod serveru, zhruba poloviční množství dat, je vrstvené k Azure Files. Bez ohledu na tom, jestli cloud vrstvení je povoleno, Azure sdílené složky má vždy úplnou kopii dat ve skupině synchronizace.
+- **Volné místo na svazku**: množství volného místa vyhradit na svazku, na kterém je umístěn serveru koncového bodu. Například pokud volné místo na svazku nastavená na 50 % ve svazku, který má koncový bod jeden server, zhruba poloviční množství dat, je vrstvené k Azure Files. Bez ohledu na tom, jestli cloud vrstvení je povoleno, Azure sdílené složky má vždy úplnou kopii dat ve skupině synchronizace.
 
 Chcete-li přidat koncový bod serveru, vyberte **vytvořit**. Soubory jsou teď byly synchronizovány ve sdílenou složku Azure a Windows Server. 
 
 > [!Important]  
 > Můžete provádět změny žádný koncový bod cloudu nebo koncový bod serveru ve skupině synchronizace a na dalších koncových bodů ve skupině synchronizace proběhla vaše soubory. Pokud provedete změnu koncového bodu cloudu (Azure sdílené složky) přímo, nutné změny nejprve mají být zjišťované úlohou detekce změn v souboru synchronizace Azure. Úloha zjištění změn je zahájena pro koncový bod cloudu pouze jednou za 24 hodin. Další informace najdete v tématu [nejčastější dotazy k Azure Files](storage-files-faq.md#afs-change-detection).
+
+## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrace nasazení replikace distribuovaného systému souborů (DFS-R) do Azure souboru Sync
+Migrace systému souborů DFS-R nasazení do Azure souboru Sync:
+
+1. Vytvořte skupinu synchronizace představují topologii DFS-R, který chcete nahradit.
+2. Spusťte na serveru, který má v úplné sadě dat v topologii DFS-R na migraci. Instalaci synchronizace Azure soubor na tomto serveru.
+3. Zaregistrujte tento server a vytvořit koncový bod serveru pro první server chcete migrovat. Nepovolujte cloudu vrstev.
+4. Umožní všechny synchronizaci dat do sdílené složky Azure file (koncový bod cloudu).
+5. Instalace a registrace agenta Azure soubor synchronizaci na všechny zbývající servery systému souborů DFS-R.
+6. Zakázat DFS R. 
+7. Vytvoření koncového bodu serveru na všech serverech systému souborů DFS-R. Nepovolujte cloudu vrstev.
+8. Ujistěte se synchronizace dokončí a testování vaší topologie podle potřeby.
+9. Vyřadit z provozu systému souborů DFS R.
+10. Cloud vrstvení může nyní povolit pro libovolný koncový bod serveru podle potřeby.
+
+Další informace najdete v tématu [synchronizace souboru Azure zprostředkovatel komunikace s objekty s distribuovaného systému souborů (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
 ## <a name="next-steps"></a>Další kroky
 - [Přidat nebo odebrat koncový bod serveru synchronizace souboru Azure](storage-sync-files-server-endpoint.md)

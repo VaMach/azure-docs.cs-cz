@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d6cddf54827d44e41add9e1e6b1a4323e03879e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dff87d41df2bdb5439785846c9653f2f0be2b40d
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>Přesun dat pomocí aktivity kopírování
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +103,7 @@ Pokud jsou zdrojový a podřízený datová úložiště v cloudu, objekt pro vy
 | &nbsp; | Střed USA – jih | Střed USA – jih |
 | &nbsp; | Západní střed USA | Západní střed USA |
 | &nbsp; | Západní USA | Západní USA |
-| &nbsp; | Západní USA 2 | Západní USA |
+| &nbsp; | Západní USA 2 | Západní USA 2 |
 | Kanada | Východní Kanada | Střední Kanada |
 | &nbsp; | Střední Kanada | Střední Kanada |
 | Brazílie | Brazílie – jih | Brazílie – jih |

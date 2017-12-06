@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 6412445f4e7a9b639ae9a38a44ff51038c6fcc00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Sledování vlastní operace s Application Insights .NET SDK
 
@@ -33,7 +33,7 @@ Tento dokument obsahuje pokyny o tom, jak sledovat vlastní operace s Applicatio
 ## <a name="overview"></a>Přehled
 Operace je logické část práce spustit aplikace. Má název, čas spuštění, doba trvání, výsledek a kontext spuštění jako uživatelské jméno, vlastnosti a výsledek. Pokud byla zahájena operace A operace B, pak operaci B je nastaven jako nadřazený pro A. Operace může mít jen jednu nadřazenou položku, ale může mít mnoho podřízené operací. Další informace o operacích a telemetrie korelace najdete v tématu [Azure Application Insights telemetrie korelace](application-insights-correlation.md).
 
-V Application Insights .NET SDK, je popsán operaci abstraktní třída [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) a jeho následníky [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) a [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
+V Application Insights .NET SDK, je popsán operaci abstraktní třída [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) a jeho následníky [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) a [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
 ## <a name="incoming-operations-tracking"></a>Příchozí operace sledování 
 Webové služby Application Insights SDK automaticky shromažďuje požadavky protokolu HTTP pro aplikace ASP.NET, které běží v kanálu služby IIS a všechny aplikace ASP.NET Core. Nejsou podporované komunity řešení pro jiné platformy a rozhraní. Ale pokud aplikace nepodporují žádné řešení standardní nebo podporována komunity, můžete instrumentovat ji ručně.

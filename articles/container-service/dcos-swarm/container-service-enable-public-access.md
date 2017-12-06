@@ -1,28 +1,22 @@
 ---
-title: "Povolit přístup k aplikaci kontejner Azure DC/OS | Microsoft Docs"
+title: "Povolit přístup k aplikaci kontejner Azure DC/OS"
 description: "Postup povolení veřejný přístup k DC/OS kontejnerů v Azure Container Service."
 services: container-service
-documentationcenter: 
 author: sauryadas
 manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, kontejnery, mikroslužby, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aedc97335a0b9ad00cf653477b62bf530b556900
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Povolit veřejný přístup k aplikaci Azure Container Service
+
 Všechny DC/OS kontejneru služby ACS [veřejného agenta fondu](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) je automaticky přístup k Internetu. Ve výchozím nastavení, porty **80**, **443**, **8080** jsou otevřené, a jsou dostupné všechny (veřejné) kontejneru naslouchá na těchto portech. Tento článek ukazuje, jak otevřít další porty pro vaše aplikace v Azure Container Service.
 
 ## <a name="open-a-port-portal"></a>Otevřete port (portál)

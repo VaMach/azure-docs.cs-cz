@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: e3bba2cfd765505a167fe4776f81d06445a8c39c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 764a41dc9e890de85c3bfab3d2f78d5a07b39dff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrace z clusteru HDInsight se systémem Windows do clusteru se systémem Linux
 
@@ -146,7 +146,7 @@ HDInsight se systémem Windows clusterů funguje jenom s klasické virtuální s
 
 Další informace o požadavky na konfiguraci najdete v tématu [HDInsight rozšířit možnosti pomocí virtuální sítě](hdinsight-extend-hadoop-virtual-network.md) dokumentu.
 
-## <a name="management-and-monitoring"></a>Monitorování a správa
+## <a name="management-and-monitoring"></a>Správa a monitorování
 
 Mnoho webových uživatelská možná zneužil s HDInsight se systémem Windows, jako je historie úlohy nebo uživatelského rozhraní Yarn, jsou k dispozici prostřednictvím Ambari. Kromě toho zobrazení Ambari Hive poskytuje způsob, jak spouštět dotazy Hive pomocí webového prohlížeče. Webové uživatelské rozhraní Ambari je k dispozici v clusterech se systémem Linux v https://CLUSTERNAME.azurehdinsight.net.
 

@@ -1,5 +1,5 @@
 ---
-title: "Přidat nebo odebrat soubor synchronizace služby Azure (preview) koncový bod serveru | Microsoft Docs"
+title: "Přidat nebo odebrat server koncový bod synchronizace souboru Azure (preview) | Microsoft Docs"
 description: "Zjistěte, co je potřeba zvážit při plánování nasazení služby Azure Files."
 services: storage
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 92ac80953623a5a94d3104f30787c9636308c707
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Přidat nebo odebrat soubor synchronizace služby Azure (preview) koncový bod serveru
+# <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Přidat nebo odebrat server koncový bod synchronizace souboru Azure (preview)
 Azure File Sync (Preview) umožňuje centralizovat sdílené složky organizace ve službě Soubory Azure bez ztráty flexibility, výkonu a kompatibility místního souborového serveru. Dělá to pomocí transformace serverů Windows na rychlou mezipaměť sdílené složky Azure. Pro místní přístup k datům můžete použít jakýkoli protokol dostupný ve Windows Serveru (včetně SMB, NFS a FTPS) a můžete mít libovolný počet mezipamětí po celém světě.
 
-A *koncový bod serveru* představuje určitého umístění na *zaregistrovaný Server*, například do složky na svazku serveru nebo v kořenovém adresáři svazku. Víc koncových bodů serveru může existovat na stejném svazku, pokud nejsou jejich obory názvů překrývání (například F:\sync1 a F:\sync2). Můžete nakonfigurovat zásady vrstvení cloudu zvlášť pro každý koncový bod serveru. Pokud přidáte umístění na serveru s existující sadou souborů jako koncový bod serveru do skupiny synchronizace, budou tyto soubory sloučit s další soubory na ostatní koncové body ve skupině synchronizace.
+A *koncový bod serveru* představuje určitého umístění na *zaregistrovaný server*, například do složky na svazku serveru nebo v kořenovém adresáři svazku. Víc koncových bodů serveru může existovat na stejném svazku, pokud nejsou jejich obory názvů překrývání (například F:\sync1 a F:\sync2). Můžete nakonfigurovat zásady vrstvení cloud jednotlivě pro každý koncový bod serveru. Pokud přidáte umístění na serveru s existující sadou souborů jako koncový bod serveru do skupiny synchronizace, budou tyto soubory sloučit s další soubory na ostatní koncové body ve skupině synchronizace.
 
 V tématu [nasazení synchronizace souboru Azure (preview)](storage-sync-files-deployment-guide.md) informace o tom, jak nasadit synchronizace souboru Azure klient server.
 
@@ -35,16 +35,16 @@ Před vytvořením koncový bod serveru, musíte napřed zajistit, že se splní
 - Ujistěte se, že je server připojen k Internetu a zda je přístupný Azure.
 
 ## <a name="add-a-server-endpoint"></a>Přidat koncový bod serveru
-Chcete-li přidat koncový bod serveru, přejděte na požadovanou skupinu synchronizace a vyberte "Přidat koncový bod serveru".
+Chcete-li přidat koncový bod serveru, přejděte do požadovaného synchronizace skupiny a vyberte "Přidat koncový bod serveru".
 
 ![Přidat nový koncový bod serveru v podokně skupiny synchronizace](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
 
 Následující informace jsou požadovány podle **přidat koncový bod serveru**:
 
-- **Zaregistrovat Server**: název serveru nebo clusteru vytvořit na serveru koncového bodu.
+- **Zaregistrovaný server**: název serveru nebo clusteru vytvořit na serveru koncového bodu.
 - **Cesta**: cesta na serveru Windows k synchronizaci jako součást skupiny synchronizace.
 - **Cloud Tiering**: přepínač k povolení nebo zakázání cloudu vrstev, které umožňuje zřídka používají nebo získat přístup k souborům na být rozvrstvena k Azure Files.
-- **Volné místo na svazku**: množství volného místa vyhradit na svazku, který se nachází na serveru koncového bodu. Například pokud volné místo na svazku nastavená na 50 % na svazku s jeden koncový bod serveru, zhruba poloviční množství dat bude být rozvrstvena k Azure Files. Bez ohledu na tom, jestli cloud vrstvení je povoleno, Azure sdílené složky má vždy úplnou kopii dat ve skupině synchronizace.
+- **Volné místo na svazku**: množství volného místa vyhradit na svazku, který se nachází na serveru koncového bodu. Například pokud volné místo na svazku nastavená na 50 % na svazku s koncový bod jeden server, zhruba poloviční množství dat bude být rozvrstvena k Azure Files. Bez ohledu na tom, jestli cloud vrstvení je povoleno, Azure sdílené složky má vždy úplnou kopii dat ve skupině synchronizace.
 
 Vyberte **vytvořit** k přidání koncového bodu serveru. Soubory v oboru názvů skupiny synchronizace bude nyní sesynchronizovávat. 
 
@@ -65,7 +65,7 @@ Odebrání serveru koncového bodu:
 
 1. Přejděte do služby Sync úložiště, kde je server zaregistrován.
 2. Přejděte do požadovaného synchronizace skupiny.
-3. Koncový bod serveru, kterou si přejete odeberte ve skupině synchronizace v úložišti služby synchronizace. To můžete provést kliknutím pravým tlačítkem na příslušné serveru koncového bodu v podokně synchronizace skupiny.
+3. Odebere koncový bod serveru, které očekáváte skupiny synchronizace v úložišti služby synchronizace. To můžete provést kliknutím pravým tlačítkem na příslušný server koncového bodu v podokně synchronizace skupiny.
 
     ![Odebrání koncového bodu serveru ze skupiny synchronizace](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 

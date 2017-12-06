@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 3670676032eb71a5339bb1219cb794366b912147
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Použít cloudové init k přizpůsobení virtuálního počítače s Linuxem v Azure
-V tomto článku se dozvíte, jak používat [cloudu init](https://cloudinit.readthedocs.io) ke konfiguraci virtuálního počítače (VM) nebo virtuální počítač sadách škálování (VMSS) na zřizování čas v Azure. Tyto skripty cloudu init spustit při prvním spuštění počítače po prostředky se zřizují Azure.  
+# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Podpora init cloudu pro virtuální počítače v Azure
+Tento článek vysvětluje, zda existuje pro podporu [cloudu init](https://cloudinit.readthedocs.io) ke konfiguraci virtuálního počítače (VM) nebo virtuální počítač sadách škálování (VMSS) na zřizování čas v Azure. Tyto skripty cloudu init spustit při prvním spuštění počítače po prostředky se zřizují Azure.  
 
 ## <a name="cloud-init-overview"></a>Init cloudu – přehled
-[Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Protože init cloudu je volána v průběhu procesu počáteční spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.  Další informace o tom, jak správně formátu vaše `#cloud-config` soubory, najdete v článku [web dokumentace cloudu init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`fiels jsou textové soubory kódovaný jako base64.
+[Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Protože init cloudu je volána v průběhu procesu počáteční spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.  Další informace o tom, jak správně formátu vaše `#cloud-config` soubory, najdete v článku [web dokumentace cloudu init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`soubory jsou textové soubory kódovaný jako base64.
 
 Init cloudu také funguje v různých distribucí. Například nepoužívejte **výstižný get instalace** nebo **yum nainstalovat** nainstalovat balíček. Místo toho můžete definovat seznam balíčků pro instalaci. Init cloudu automaticky používá nástroj pro správu nativní balíčku pro distro, kterou vyberete.
 

@@ -12,26 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/14/2017
+ms.date: 11/30/2017
 ms.author: jroth
-ms.openlocfilehash: 67ba43f9456bbeffbf602067586143c4c68af672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80af63d2f2abd65da6ded4e48e5bd0bc9a7837a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Připojení k virtuálnímu počítači s SQL Serverem v Azure (Resource Manager)
-> [!div class="op_single_selector"]
-> * [Resource Manager](virtual-machines-windows-sql-connect.md)
-> * [Classic](../classic/sql-connect.md)
-> 
-> 
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Připojit k virtuálnímu počítači serveru SQL v Azure
 
 ## <a name="overview"></a>Přehled
 
-Toto téma popisuje, jak se připojit k instanci systému SQL Server spuštěna na virtuálním počítači Azure. Některé pokrývá [obecné připojení scénáře](#connection-scenarios) a pak poskytuje [podrobné kroky pro konfiguraci připojení k systému SQL Server ve virtuálním počítači Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+Toto téma popisuje, jak se připojit k instanci systému SQL Server spuštěna na virtuálním počítači Azure. Některé pokrývá [obecné připojení scénáře](#connection-scenarios) a pak poskytuje [kroků na portálu pro změnu nastavení připojení k](#change). Pokud potřebujete řešení nebo nakonfigurujte připojení mimo portál naleznete [ruční konfigurace](#manual) na konci tohoto tématu. 
 
 Pokud máte by místo úplné návodu zřizování a připojení, najdete v části [zřizování virtuálního počítače systému SQL Server na platformě Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -132,6 +125,23 @@ Dál povolte protokol TCP/IP s **SQL Server Configuration Manager**.
 Následující kroky ukazují, jak vytvořit popisek volitelné DNS pro virtuální počítač Azure a potom se připojte pomocí SQL Server Management Studio (SSMS).
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+
+## <a id="manual"></a>Ruční konfigurace a řešení potíží
+
+I když na portál poskytuje možnosti pro automatickou konfiguraci připojení, je užitečné vědět, jak ručně nakonfigurovat připojení. Seznámení s požadavky na také usnadňuje řešení potíží.
+
+Následující tabulka uvádí požadavky na připojení k SQL Server běžící ve virtuálním počítači Azure.
+
+| Požadavek | Popis |
+|---|---|
+| [Povolit režim ověřování systému SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | Ověřování systému SQL Server je potřebné pro připojení k virtuálnímu počítači vzdáleně, pokud jste nakonfigurovali služby Active Directory ve virtuální síti. |
+| [Vytvořit přihlašovací jméno SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Pokud používáte ověřování SQL, potřebujete přihlašovací jméno SQL pomocí uživatelského jména a hesla, která má také oprávnění k cílové databázi. |
+| [Povolit protokol TCP/IP](#manualTCP) | SQL Server musí umožňovat připojení přes protokol TCP. |
+| [Povolit pravidlo brány firewall pro port serveru SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | V bráně firewall na virtuální počítač musí umožňovat příchozí komunikaci na portu systému SQL Server (standardně 1433). |
+| [Vytvořit pravidlo pro skupinu zabezpečení sítě pro TCP 1433](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | Virtuální počítač přijímat přenosy na portu systému SQL Server (standardně 1433), pokud se chcete připojit přes internet, musíte povolit. Místní a virtuální sítě pouze připojení nevyžadují, aby to. Toto je jediný krok vyžadovaný na portálu Azure. |
+
+> [!TIP]
+> Kroky v předchozí tabulce jsou u můžete provést při konfiguraci připojení k portálu. Tyto kroky použijte pouze potvrzení konfiguraci nebo ručně nastavit připojení k systému SQL Server.
 
 ## <a name="next-steps"></a>Další kroky
 

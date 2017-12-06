@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: 978606aa5f16842f8198ee67a65b476b4f560ab7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2657db61ff3161cd87bc97edfe5f84f8b29cbcfb
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrace řešení .NET pro HDInsight se systémem Windows do HDInsight se systémem Linux
 
@@ -28,7 +28,7 @@ Clustery HDInsight se systémem Linux použijte [Mono (https://mono-project.com)
 
 ## <a name="mono-compatibility-with-net"></a>Monofonní kompatibilitu s rozhraním .NET
 
-Monofonní verze 4.2.1 je součástí HDInsight verze 3.5. Další informace o verzi Mono zahrnuté do HDInsight naleznete v tématu [HDInsight verze součástí](hdinsight-component-versioning.md). K instalaci na konkrétní verzi Mono naleznete [instalovat nebo aktualizovat Mono](hdinsight-hadoop-install-mono.md) dokumentu.
+Je součástí HDInsight verze 3.6 mono verze 4.2.1. Další informace o verzi Mono zahrnuté do HDInsight naleznete v tématu [HDInsight verze součástí](hdinsight-component-versioning.md). K instalaci na konkrétní verzi Mono naleznete [instalovat nebo aktualizovat Mono](hdinsight-hadoop-install-mono.md) dokumentu.
 
 Další informace o kompatibilitě mezi Mono a rozhraní .NET najdete v tématu [Mono kompatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentu.
 

@@ -1,26 +1,19 @@
 ---
-title: Fondy agenta DC/OS pro Azure Container Service | Microsoft Docs
+title: Fondy agenta DC/OS pro Azure Container Service
 description: "Jak fungují veřejné a privátní agenta fondy pomocí clusteru služby Azure Container Service DC/OS"
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, kontejnery, mikroslužby, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: da4a196b1a73c78dfff7d8310edcc349b8d10665
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e82a6c1ee2d45cd07f4e87c43ad4fb1149ef555c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Fondy agenta DC/OS pro Azure Container Service
 Clustery DC/OS v Azure Container Service obsahovat agenta uzly ve dvou fondů, veřejné fondu a privátní fondu. Aplikace lze nasadit do buď fondu, které mají vliv na usnadnění přístupu mezi počítači v kontejneru služby. Na počítačích, můžete přístup k Internetu (veřejných) nebo zachovány interní (soukromý). Tento článek poskytuje stručný přehled proto nejsou veřejné a privátní fondy.

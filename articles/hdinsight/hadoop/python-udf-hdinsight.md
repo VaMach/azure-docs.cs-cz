@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 822293da48f14dc3fe29e7e95e7a30faaadbfea4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Funkce (UDF) s Hive a Pig definované uživatelem Python použití v HDInsight
 
@@ -166,7 +166,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-V příkladu Pig Latin definovaného `LINE` vstupní jako chararray, protože neexistuje žádný konzistentní schéma pro vstup. Skript Pythonu transformuje dat na konzistentní schéma pro výstup.
+V příkladu Pig Latin `LINE` vstup je definován jako chararray, protože neexistuje žádný konzistentní schéma pro vstup. Skript Pythonu transformuje dat na konzistentní schéma pro výstup.
 
 1. `@outputSchema` Příkaz definuje formát data, která se vrátí do Pig. V takovém případě má **datový kontejner**, což je datový typ Pig. Kontejneru objektů a dat obsahuje následující pole, které jsou chararray (řetězce):
 
@@ -178,7 +178,7 @@ V příkladu Pig Latin definovaného `LINE` vstupní jako chararray, protože ne
 
 2. Dále `def create_structure(input)` definuje funkci, která Pig předá řádku položek.
 
-3. Příklad dat, `sample.log`, většinou vyhovuje datum, čas, classname úrovni a podrobností schématu chceme vrátit. Obsahuje však pár řádků, které začínají `*java.lang.Exception*`. Tyto řádky musí být upraven tak, aby odpovídala schématu. `if` Příkaz kontroluje pro ty pak massages vstupní data přesunout `*java.lang.Exception*` řetězec za účelem uvedení data v řádku pomocí našich očekávaný výstup schématu.
+3. Příklad dat, `sample.log`, většinou vyhovuje datum, čas, classname úrovni a podrobností schématu. Obsahuje však pár řádků, které začínají `*java.lang.Exception*`. Tyto řádky musí být upraven tak, aby odpovídala schématu. `if` Příkaz kontroluje pro ty pak massages vstupní data přesunout `*java.lang.Exception*` řetězec za účelem uvedení data v řádku se schématem očekávaný výstup.
 
 4. Dále `split` příkaz slouží k rozdělení dat na první čtyři znaky. Výstup je přiřazen do `date`, `time`, `classname`, `level`, a `detail`.
 
@@ -291,7 +291,7 @@ Mezi nahráním souborů, použijte následující postup ke spuštění úloh H
     #from pig_util import outputSchema
     ```
 
-    To upravuje skript Pythonu pro práci s C Python místo Jython. Jakmile změny byly provedeny, použijte **Ctrl + X** ukončete editor. Vyberte **Y**a potom **Enter** a uložte změny.
+    Tento řádek upravuje skript Pythonu pro práci s C Python místo Jython. Jakmile změny byly provedeny, použijte **Ctrl + X** ukončete editor. Vyberte **Y**a potom **Enter** a uložte změny.
 
 6. Použití `pig` příkaz ke spuštění prostředí znovu. Jakmile jste na `grunt>` řádku, použijte tento příkaz pro spuštění skriptu Python pomocí překladač Pythonu C.
 

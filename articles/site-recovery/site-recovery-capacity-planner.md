@@ -12,19 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f504888aac9e8d97e974fb5bec0a12a8ede39c76
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+Nové vylepšené verze [planner nasazení Azure Site Recovery pro Hyper-V do Azure](site-recovery-hyper-v-deployment-planner.md) je nyní k dispozici a nahraďte staré nástroj. Nový nástroj pro plánování nasazení. Tento nástroj nabízí následující obecné zásady:
+* Vyhodnocení podmínky virtuálních počítačů na základě počtu disky, velikost disku, IOPS, změn a několik vlastností virtuálního počítače.
+* Šířka pásma sítě musí versus assessment plánovaný bod obnovení.
+* Požadavky na infrastrukturu Azure.
+* Požadavky na infrastrukturu na pracovišti.
+* Dávkování pokyny počáteční replikace.
+* Odhadované celkové náklady na zotavení po Havárii do Azure.
+
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Plánování kapacity pro ochranu virtuálních počítačů Hyper-V pomocí Site Recovery
 
 Nástroj Azure Site Recovery Capacity Planner pomáhá pochopit požadavky na kapacitu při replikaci virtuálních počítačů technologie Hyper-V s Azure Site Recovery.
 
-Použijte nástroj Capacity Planner obnovení lokality k analýze vašeho zdrojového prostředí a úlohy, musí odhad šířky pásma a prostředky serveru, které budete potřebovat pro umístění zdroje a prostředky (virtuální počítače a úložiště atd), které je třeba v cílovém umístění.
+Použijte nástroj Capacity Planner obnovení lokality k analýze vaše zdrojové prostředí a úlohy, odhadnout požadavky na šířku pásma a prostředky serveru, které budete potřebovat pro umístění zdroje a prostředky (virtuální počítače a úložiště atd.), které je třeba v cílovém umístění .
 
 Nástroj můžete spustit v několika režimy:
 

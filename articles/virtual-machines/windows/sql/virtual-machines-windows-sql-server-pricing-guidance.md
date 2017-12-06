@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: 391f30e0c81aeaf313d58f1f4af877b5be9ed919
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Pokyny pro virtuální počítače SQL serveru Azure – ceny
 
@@ -102,8 +102,11 @@ Vytvoření virtuálního počítače s SQL Server 2016 Azure s jedním z těcht
 - [SQL Server 2016 Enterprise Azure virtuálních počítačů](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
 - [SQL Server 2016 standardní virtuální počítač Azure](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Dejte nám vědět do 10 dnů kolik licencí systému SQL Server, budete používat v Azure. Odkazy na předchozí bitové kopie jsou pokyny o tom, jak to udělat.
+
+> [!NOTE]
+> Není možné změnit licenční model virtuálního počítače s SQL Serverem placeného po minutách, aby používal vaši vlastní licenci. V takovém případě musíte vytvořit nový virtuální počítač BYOL a migrovat databáze do nového virtuálního počítače. 
 
 ## <a name="avoid-unnecessary-costs"></a>Vyhněte se zbytečných nákladů
 

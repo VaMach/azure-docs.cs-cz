@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuované ladění z hyperparameters pomocí Azure Machine Learning Workbench
 
@@ -27,9 +27,9 @@ Toto je odkaz na veřejné úložiště GitHub:
 
 Mnoho algoritmy strojového učení mít jeden nebo více knoflíky, názvem hyperparameters. Tyto knoflíky povolit ladění algoritmů k optimalizaci výkonu přes budoucí data, měří podle metriky definované uživatelem (například přesnost AUC, RMSE). Data vědecký pracovník musí zajistit hodnoty hyperparameters při sestavování model přes Cvičná data a před zobrazuje budoucí testovacích datech. Jak podle může data známé školení jsme nastavit hodnoty hyperparameters, aby model má dobrý výkon přes neznámé testovací data? 
 
-Oblíbené technika pro ladění hyperparameters je *mřížky vyhledávání* v kombinaci s *křížové ověření*. Křížového ověření je technika, který vyhodnocuje, jak dobře model trénink na sadu školení předpovídá přes testovací sada. Touto technikou původně jsme rozdělení datovou sadu na tisíc složení a pak cvičení algoritmus tisíc dobu, v kruhového dotazování, na všechny kromě složení, názvem násobek uchovávat na více systémů. Průměrná hodnota metriky modelů tisíc jsme výpočetním přes složení tisíc uchovávat na více systémů. Tato průměrná hodnota volána *odhad výkonu ověřit mezi*, závisí na hodnotách hyperparameters použít při vytváření modelů kB. Při ladění hyperparameters, budeme prohledávat prostor candidate hyperparameter hodnoty a zjistit, že ty, které optimalizace výkonu křížové ověření odhad. Vyhledávání mřížky je běžné vyhledávání techniku, kde prostor candidate hodnoty více hyperparameters je smíšený produkt sady candidate hodnoty jednotlivých hyperparameters. 
+Oblíbené technika pro ladění hyperparameters je *mřížky vyhledávání* v kombinaci s *křížové ověření*. Křížového ověření je technika, který vyhodnocuje, jak dobře model trénink na sadu školení předpovídá přes testovací sada. Touto technikou jsme nejprve rozdělení datovou sadu na tisíc složení a pak cvičení časy tisíc algoritmus v kruhového dotazování. Provedeme to na všech ale jeden z složení nazývá "násobek uchovávat out". Průměrná hodnota metriky modelů tisíc jsme výpočetním přes složení tisíc uchovávat na více systémů. Tato průměrná hodnota volána *odhad výkonu ověřit mezi*, závisí na hodnotách hyperparameters použít při vytváření modelů kB. Při ladění hyperparameters, budeme prohledávat prostor candidate hyperparameter hodnoty a zjistit, že ty, které optimalizace výkonu křížové ověření odhad. Hledání mřížky je běžné technika vyhledávání. V mřížce hledání je místo hodnoty candidate více hyperparameters smíšený produkt sady candidate hodnoty jednotlivých hyperparameters. 
 
-Mřížky vyhledávání pomocí křížového ověření může být časově náročná. Pokud algoritmus má 5 hyperparameters, každý s 5 candidate hodnot a používáme složení tisíc = 5, pak na dokončení vyhledávání mřížky musíme cvičení 5<sup>6</sup>= 15625 modelů. Naštěstí mřížky vyhledávání pomocí křížového ověření je jednoduše paralelně zpracovatelné postupu a všechny tyto modely můžete Trénink paralelně.
+Mřížky vyhledávání pomocí křížového ověření může být časově náročná. Pokud algoritmus má pět hyperparameters každý s pěti hodnot candidate, použijeme složení tisíc = 5. Jsme dokončete vyhledávání mřížky podle cvičení 5<sup>6</sup>= 15625 modelů. Naštěstí mřížky vyhledávání pomocí křížového ověření je jednoduše paralelně zpracovatelné postupu a všechny tyto modely můžete Trénink paralelně.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -37,9 +37,17 @@ Mřížky vyhledávání pomocí křížového ověření může být časově n
 * Nainstalovaná kopie produktu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) následující [instalace a vytvoření rychlý Start](./quickstart-installation.md) k instalaci nástroje Workbench a vytvořte účty.
 * Tento scénář předpokládá, že jsou spuštěny Azure ML Workbench na Windows 10 nebo systému MacOS s modulu Docker místně nainstalován. 
 * Pokud chcete spustit tento scénář s vzdálené kontejner Docker, zřídit Ubuntu datové vědy virtuálního počítače (DSVM) podle následujících [pokyny](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Doporučujeme použít virtuální počítač s minimálně 8 jader a 28 Gb paměti. D4 instance virtuálních počítačů mají takové kapacity. 
-* Pokud chcete spustit tento scénář s clusterem Spark, zřízení clusteru HDInsight pomocí následujících [pokyny](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Doporučujeme mít cluster s minimálně šest uzlů pracovního procesu a alespoň s 8 jádry a 28 Gb paměti v záhlaví a pracovní uzly. D4 instance virtuálních počítačů mají takové kapacity. Pokud chcete maximalizovat výkon clusteru, doporučujeme změnit pomocí následujících parametrů spark.executor.instances, spark.executor.cores a spark.executor.memory [pokyny](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) a definice v "vlastní úpravy Spark výchozí nastavení"oddílu.
+* Pokud chcete spustit tento scénář s clusterem Spark, zřídit cluster Azure HDInsight pomocí následujících tyto [pokyny](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Doporučujeme vám, že má cluster s nejméně 
+- šesti uzlů pracovního procesu
+- osm jader
+- 28 Gb paměti v záhlaví a pracovní uzly. D4 instance virtuálních počítačů mají takové kapacity. Doporučujeme, abyste změna následující parametry, které chcete maximalizovat výkon clusteru.
+- Spark.executor.Instances
+- Spark.executor.cores
+- Spark.executor.Memory 
 
-     **Řešení potíží s**: Azure vaše předplatné může mít kvótu na počet jader, které lze použít. Portál Azure nepovoluje vytvoření clusteru s celkový počet jader překračuje kvótu. Najít kvóty, přejděte na portálu Azure v části předplatná, klikněte na předplatné použité k nasazení clusteru a potom klikněte na **využití + kvóty**. Obvykle kvóty se definují pro jednotlivé oblasti Azure a je možné nasadit cluster Spark v oblasti, kde je k dispozici dostatek volného jader. 
+Můžete postupovat podle těchto [pokyny](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) a upravovat definice v části "vlastní spark je výchozí".
+
+     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
 * Vytvořte účet úložiště Azure, který se použije k uložení datové sady. Postupujte podle [pokyny](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) k vytvoření účtu úložiště.
 
@@ -72,7 +80,7 @@ Používáme [scikit-Další](https://anaconda.org/conda-forge/scikit-learn), [x
 
 Upravené conda\_dependencies.yml soubor je uložen v adresáři aml_config kurzu. 
 
-V dalších krocích jsme prostředí pro spuštění připojit k účtu Azure. Okno otevřít příkazového řádku (CLI) kliknutím na nabídku souborů, v levém horním rohu AML Workbench a zvolením "Spusťte příkazový řádek." Spusťte v rozhraní příkazového řádku
+V dalších krocích jsme prostředí pro spuštění připojit k účtu Azure. Klikněte na nabídku souborů z levého horního rohu AML Workbench. A zvolte "spusťte příkazový řádek". Spusťte v rozhraní příkazového řádku
 
     az login
 
@@ -84,7 +92,7 @@ Přejděte k této webové stránce, zadejte kód a přihlaste se k účtu Azure
 
     az account list -o table
 
-a najít odběr ID Azure předplatné, které má váš účet AML Workbench prostoru. Nakonec spustit v rozhraní příkazového řádku
+a najít ID předplatného Azure, který má váš účet AML Workbench prostoru. Nakonec spustit v rozhraní příkazového řádku
 
     az account set -s <subscription ID>
 
@@ -96,7 +104,7 @@ V následujících dvou částech ukážeme, jak k dokončení konfigurace vzdá
 
  Chcete-li nastavit vzdálené kontejner Docker, spusťte v rozhraní příkazového řádku
 
-    az ml computetarget attach --name dsvm --address <IP address> --username <username> --password <password> --type remotedocker
+    az ml computetarget attach remotedocker --name dsvm --address <IP address> --username <username> --password <password> 
 
 IP adresa, uživatelské jméno a heslo v DSVM. IP adresa DSVM naleznete v části Přehled DSVM stránky na portálu Azure:
 
@@ -106,7 +114,7 @@ IP adresa, uživatelské jméno a heslo v DSVM. IP adresa DSVM naleznete v čás
 
 Chcete-li nastavit Spark prostředí, spusťte v rozhraní příkazového řádku
 
-    az ml computetarget attach --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> --type cluster
+    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 s názvem clusteru, cluster SSH uživatelské jméno a heslo. Výchozí hodnota uživatelské jméno SSH je `sshuser`, pokud jste změnili při zřizování clusteru. Název clusteru naleznete v části Vlastnosti clusteru stránky na portálu Azure:
 
@@ -136,13 +144,13 @@ Chcete-li data z Kaggle, přejděte na [datovou sadu stránky](https://www.kaggl
 ![Otevřete blob](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![otevřete kontejner](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
 
-Potom vyberte datovou sadu kontejneru ze seznamu a klikněte na tlačítko Nahrát. Portál Azure umožňuje nahrát víc souborů současně. V části "Nahrát objekt blob" klikněte na tlačítko složky, vyberte všechny soubory z datové sady, klikněte na Otevřít a klikněte nahrávání. Následující snímek obrazovky znázorňuje tyto kroky:
+Potom vyberte datovou sadu kontejneru ze seznamu a klikněte na tlačítko Nahrát. Portál Azure vám umožní nahrát víc souborů současně. V části "Nahrát objekt blob" klikněte na tlačítko složky, vyberte všechny soubory z datové sady, klikněte na Otevřít a klikněte nahrávání. Následující snímek obrazovky znázorňuje tyto kroky:
 
 ![Nahrát objekt blob](media/scenario-distributed-tuning-of-hyperparameters/upload_blob.png) 
 
 Nahrávání souborů trvá několik minut, v závislosti na připojení k Internetu. 
 
-V našem kódu používáme [sada SDK úložiště Azure](https://azure-storage.readthedocs.io/en/latest/) ke stažení datové sady z úložiště objektů blob pro aktuální prováděcí prostředí. Stahování se provádí v zatížení\_data() funkce ze souboru load_data.py. Pokud chcete použít tento kód, je třeba nahradit < ACCOUNT_NAME > a < ACCOUNT_KEY > zadejte název a primární klíč účtu úložiště, který je hostitelem datovou sadu. Název účtu se zobrazí v levém horním rohu stránky Azure svého účtu úložiště. Chcete-li získat účet klíč, vyberte přístupové klíče v Azure stránce úložiště účet (viz první snímek obrazovky v části přijímání dat) a poté zkopírujte dlouhý řetězec v prvním řádku sloupce klíče:
+V našem kódu používáme [sada SDK úložiště Azure](https://azure-storage.readthedocs.io/en/latest/) ke stažení datové sady z úložiště objektů blob pro aktuální prováděcí prostředí. Stahování se provádí v zatížení\_data() funkce ze souboru load_data.py. Pokud chcete použít tento kód, je třeba nahradit < ACCOUNT_NAME > a < ACCOUNT_KEY > zadejte název a primární klíč účtu úložiště, který je hostitelem datovou sadu. Zobrazí se název účtu v levém horním rohu stránky účtu úložiště Azure. Chcete-li získat účet klíč, vyberte přístupové klíče v Azure stránce úložiště účet (viz první snímek obrazovky v části přijímání dat) a poté zkopírujte dlouhý řetězec v prvním řádku sloupce klíče:
  
 ![Přístupový klíč](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
@@ -161,7 +169,7 @@ Následující kód z funkce load_data() stáhne do jednoho souboru:
     # Load blob
     my_service.get_blob_to_path(CONTAINER_NAME, 'app_events.csv.zip', 'app_events.csv.zip')
 
-Všimněte si, že není potřeba load_data.py soubor spustit ručně. Později ji bude volat z jiných souborů.
+Všimněte si, že není potřeba load_data.py soubor spustit ručně. Je volána z jiných souborů později.
 
 ### <a name="feature-engineering"></a>Návrh funkcí
 Kód pro výpočty všechny funkce je ve funkci\_engineering.py souboru. Není nutné ručně spustit feature_engineering.py souboru. Později ji bude volat z jiných souborů.
@@ -174,11 +182,11 @@ Nemůžeme vytvořit více sady funkcí:
 * Podíl události generované uživatelem v každé aplikaci (jeden\_aktivní\_app_labels funkce)
 * Podíl událostí generovaných uživatele v každý popisek aplikace (jeden\_aktivní\_app_labels funkce)
 * Podíl události generované uživatelem v každé kategorii aplikace (text\_category_features funkce)
-* Ukazatel funkce kategorií aplikací, které byly používány, používá k vygeneruje události (jeden\_hot_category funkce)
+* Ukazatel funkce kategorií aplikací, které byly použité k vygeneruje události (jeden\_hot_category funkce)
 
 Tyto funkce byly INSPIROVANÉ jádra Kaggle [model lineární na aplikace a popisky](https://www.kaggle.com/dvasyukova/a-linear-model-on-apps-and-labels).
 
-Výpočet těchto funkcí vyžaduje značné množství paměti. Původně jsme se pokusili výpočetní funkce v místním prostředí s 16 Gb paměti RAM. Jsme byli schopni výpočetní první čtyři sady funkcí, ale přijata, nedostatek paměti' Chyba při výpočtu páté sada funkcí. Výpočet sad první čtyři funkce je v souboru singleVMsmall.py a mohou být provedeny v místním prostředí tak, že spustíte 
+Výpočet těchto funkcí vyžaduje značné množství paměti. Původně jsme se pokusili výpočetní funkce v místním prostředí s 16 GB paměti RAM. Jsme byli schopni výpočetní první čtyři sady funkcí, ale přijata, nedostatek paměti' Chyba při výpočtu páté sada funkcí. Výpočet sad první čtyři funkce je v souboru singleVMsmall.py a mohou být provedeny v místním prostředí tak, že spustíte 
 
      az ml experiment submit -c local .\singleVMsmall.py   
 
@@ -190,7 +198,7 @@ Vzhledem k tomu, že místní prostředí je příliš malá pro výpočty, že 
 Používáme [xgboost](https://anaconda.org/conda-forge/xgboost) zvyšovat skóre přechodu stromu implementace [1]. Používáme [scikit-Další](http://scikit-learn.org/) balíčku pro optimalizaci hyperparameters xgboost. I když xgboost není součástí scikit-další balíčku, implementuje scikit-další rozhraní API a proto je možné společně s hyperparameter ladění funkce scikit-Další informace. 
 
 Xgboost má osm hyperparameters:
-* n_esitmators
+* n_estimators
 * max_depth
 * reg_alpha
 * reg_lambda
@@ -198,9 +206,12 @@ Xgboost má osm hyperparameters:
 * learning_rate
 * colsample\_by_level
 * dílčí
-* cíl najdete popis těchto hyperparameters [sem](http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn) a [zde](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). Původně použít vzdálené DSVM a ladit hyperparameters z malých mřížky candidate hodnot:
+* cíl popis těchto hyperparameters najdete na
+- http://xgboost.readthedocs.IO/en/Latest/Python/python_api.HTML#Module-xgboost.sklearn-https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
+- 
+Na začátku použít vzdálené DSVM a ladit hyperparameters z malých mřížky candidate hodnot:
 
-    tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4] 'cíl.: ['multi:softprob'] 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1], 'learning_rate': [0,1] 'colsample_bylevel': [0,1,] 'dílčí': [0,5]}]  
+    tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
 Mřížce má čtyři kombinace hodnot hyperparameters. Používáme 5-fold křížového ověření, výsledná 4 × 5 = 20 spustí z xgboost. K měření výkonu modelů, použijeme metrika ztrátě záporné protokolu. Následující kód vyhledá hodnoty hyperparameters z mřížky, které maximalizovat ztrátě ověřit mezi záporné protokolu. Kód také používá tyto hodnoty pro trénování modelu konečné přes úplné trénovací sady:
 
@@ -224,7 +235,7 @@ Po vytvoření modelu, uložíme výsledky hyperparameter ladění. Používáme
     for key in clf_cv.best_params_.keys():
         run_logger.log(key, clf_cv.best_params_[key]) 
 
-Jsme také vytvořit soubor sweeping_results.txt ověřit mezi záporné protokolu ztráty všechny kombinace hodnot hyperparameter v mřížce:
+Jsme také vytvořit soubor sweeping_results.txt mezi ověřen, záporné protokolu ztráty všechny kombinace hodnot hyperparameter v mřížce.
 
     if not path.exists('./outputs'):
         makedirs('./outputs')
@@ -249,13 +260,13 @@ Tento příkaz dokončí v 1 hodina 38 minut po DSVM má 8 jader a 28 Gb paměti
 
 ![Historie spouštění](media/scenario-distributed-tuning-of-hyperparameters/run_history.png)
 
-Ve výchozím nastavení historii běhů okno zobrazuje hodnoty a grafy první zaznamenané hodnoty 1 – 2. Pokud chcete zobrazit úplný seznam vybrané hodnoty hyperparameters, klikněte na ikonu nastavení označené jako červené kolečko v předchozím snímku obrazovky a vyberte hyperparameters, která se má zobrazit v tabulce. Také vyberte grafy, které jsou zobrazeny v horní části okna historii běhů, klikněte na ikonu nastavení označené jako modrý kruh a vyberte v grafech ze seznamu. 
+Ve výchozím nastavení historii běhů okno zobrazuje hodnoty a grafy první zaznamenané hodnoty 1 – 2. Pokud chcete zobrazit úplný seznam vybrané hodnoty hyperparameters, klikněte na ikonu nastavení označené jako červené kolečko v předchozím snímku obrazovky. Pak vyberte hyperparameters, která se má zobrazit v tabulce. Také vyberte grafy, které jsou zobrazeny v horní části okna historii běhů, klikněte na ikonu nastavení označené jako modrý kruh a vyberte v grafech ze seznamu. 
 
 Vybrané hodnoty hyperparameters můžete také prověřit, v okně Vlastnosti spustit: 
 
 ![Spustit vlastnosti](media/scenario-distributed-tuning-of-hyperparameters/run_properties.png)
 
-V pravém horním rohu okna Vlastnosti spustit je oddíl výstupní soubory se seznamem všech souborů, které byly vytvořeny v '. \output' složky v prostředí pro spuštění. komínů\_výsledky.txt si můžete stáhnout zde jeho výběrem a kliknutím na tlačítko Stáhnout. sweeping_results.txt musí mít následující výstup:
+V pravém horním rohu okna Vlastnosti spustit je oddíl výstupní soubory se seznamem všech souborů, které byly vytvořeny v '. \output' složky. komínů\_výsledky.txt si můžete stáhnout zde jeho výběrem a kliknutím na tlačítko Stáhnout. sweeping_results.txt musí mít následující výstup:
 
     metric =  neg_log_loss
     mean: -2.29096, std: 0.03748, params: {'colsample_bytree': 1, 'learning_rate': 0.1, 'subsample': 0.5, 'n_estimators': 300, 'reg_alpha': 1, 'objective': 'multi:softprob', 'colsample_bylevel': 0.1, 'reg_lambda': 1, 'max_depth': 3}
@@ -297,15 +308,15 @@ v rozhraní příkazového řádku systému windows. Tato instalace trvá někol
 
     az ml experiment submit -c spark .\distributed_sweep.py
 
-Tento příkaz dokončí v 1 hodina 6 minut po clusteru Spark má 6 uzlů pracovního procesu s 28 Gb paměti. Výsledky ladění hyperparameters v clusteru Spark, konkrétně protokoly, doporučené hodnoty hyperparameters a sweeping_results.txt souboru, je přístupný v nástroji Azure Machine Learning Workbench stejným způsobem jako vzdálené spuštění DSVM. 
+Tento příkaz dokončí v 1 hodina 6 minut po clusteru Spark má 6 uzlů pracovního procesu s 28 Gb paměti. Výsledky ladění hyperparameter přístupná v nástroji Azure Machine Learning Workbench stejným způsobem jako vzdálené spuštění DSVM. (konkrétně protokoly, doporučené hodnoty hyperparameters a sweeping_results.txt soubor)
 
 ### <a name="architecture-diagram"></a>Diagram architektury
 
-Následující diagram znázorňuje pracovní postup začátku do konce: ![architektura](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
+Následující diagram znázorňuje celkového pracovního postupu: ![architektura](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
 
 ## <a name="conclusion"></a>Závěr 
 
-V tomto scénáři jsme vám ukázal, jak pomocí Azure Machine Learning Workbench provést optimalizaci hyperparameter v vzdáleného virtuálního počítače a vzdáleného clusteru Spark. Jsme viděli, že Azure Machine Learning Workbench poskytuje nástroje pro snadné konfiguraci spuštění prostředí a přepínání mezi nimi. 
+V tomto scénáři jsme vám ukázal, jak pomocí Azure Machine Learning Workbench provést optimalizaci hyperparameters ve vzdálené virtuální počítače a clustery Spark. Jsme viděli, že Azure Machine Learning Workbench poskytuje nástroje pro snadné konfiguraci prostředí provádění. Také umožňuje snadno přepínání mezi nimi. 
 
 ## <a name="references"></a>Odkazy
 

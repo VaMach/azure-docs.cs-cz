@@ -14,17 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 91b632c0c4bab2f0ac71b662cf1b73f5d37881ff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Nainstalujte rozšíření trvanlivý funkce a ukázky (Azure Functions)
 
 [Trvanlivý funkce](durable-functions-overview.md) rozšíření pro Azure Functions je součástí balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Tento článek ukazuje, jak nainstalovat balíček a sady vzorků pro následující vývojových prostředí:
 
 * Visual Studio 2017 (doporučeno) 
+
 * portál Azure
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -52,6 +53,67 @@ Postupujte podle pokynů k stejné jako u počínaje ukázku, ale proveďte nás
    ```xml
    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
    ```
+   
+## <a name="visual-studio-code"></a>Visual Studio Code
+
+Visual Studio Code poskytuje místní vývojové prostředí, který po sobě zakrývá všechny hlavní platformy – Windows, systému macOS a Linux.  Funkce můžete spustit místně a také mohou být publikovány do služby Azure. Můžete spustit s prázdným projektem nebo sadu ukázkových funkcích.
+
+### <a name="prerequisites"></a>Požadavky
+
+* Nainstalujte [nejnovější verzi Visual Studio Code](https://code.visualstudio.com/Download) 
+
+* Postupujte podle pokynů v části "Instalace Azure funkce základní nástrojů" v [kódu a testování Azure Functions místně](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+
+    >[!IMPORTANT]
+    > Pokud již máte nástrojů pro platformy různé funkce Azure, můžete je aktualizujte na nejnovější dostupnou verzi.
+
+*  Nainstalujte a spusťte [emulátoru úložiště Azure](https://docs.microsoft.com/azure/storage/storage-use-emulator) verze 5.2 nebo novější. Alternativně můžete aktualizovat *local.appsettings.json* soubor s skutečné připojení úložiště Azure. 
+
+
+### <a name="start-with-sample-functions"></a>Začněte s ukázkových funkcích
+
+1. Klon [úložiště odolné funkce](https://github.com/Azure/azure-functions-durable-extension.git).
+2. Přejděte na vašem počítači, aby [C# skript Ukázky složky](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx). 
+3. Nainstalujte rozšíření trvanlivý funkce Azure tak, že spustíte následující v příkazu výzvy a Terminálový okno:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    ```
+4. Spusťte emulátor úložiště Azure nebo aktualizace *local.appsettings.json* soubor s skutečné připojovacího řetězce úložiště Azure.
+3. Otevřete projekt ve Visual Studio Code. 
+5. Pokyny ke spuštění ukázky začínat [funkce řetězení – Hello ukázka pořadí](durable-functions-sequence.md). Ukázku můžete spustit místně nebo publikované do Azure.
+6. Spusťte projekt tak, že spustíte v příkazu výzvy a Terminálový následující příkaz:
+    ```bash
+    func host start
+    ```
+
+### <a name="start-with-an-empty-project"></a>Začít s prázdným projektem
+ 
+1. V příkazu výzvy a Terminálový přejděte do složky, který bude hostovat aplikaci funkce.
+2. Nainstalujte rozšíření trvanlivý funkce Azure tak, že spustíte následující v příkazu výzvy a Terminálový okno:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    ```
+3. Vytvoření projektu funkce aplikace tak, že spustíte následující příkaz:
+
+    ```bash
+    func init
+    ``` 
+4. Spusťte emulátor úložiště Azure nebo aktualizace *local.appsettings.json* soubor s skutečné připojovacího řetězce úložiště Azure.
+5. Dále vytvořte novou funkci tak, že spustíte následující příkaz a postupujte podle kroků průvodce:
+
+    ```bash
+    func new
+    ```
+    >[!IMPORTANT]
+    > Aktuálně šablona trvanlivý funkce není k dispozici, ale můžete začít s jedním z podporovaných možností a potom upravte kód. Použít pro referenci ukázky pro [Orchestration klienta](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/HttpStart), [aktivační událost Orchestration](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence), a [aktivační události aktivity](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence).
+
+6. Otevřete složku projektu ve Visual Studio Code a pokračovat změnou kód šablony. 
+7. Spusťte projekt tak, že spustíte v příkazu výzvy a Terminálový následující příkaz:
+    ```bash
+    func host start
+    ```
 
 ## <a name="azure-portal"></a>portál Azure
 
@@ -60,14 +122,58 @@ Pokud dáváte přednost, můžete portál Azure pro vývoj trvanlivý funkce.
 ### <a name="create-an-orchestrator-function"></a>Vytvoření funkce produktu orchestrator
 
 1. Vytvořit novou aplikaci funkce v [functions.azure.com](https://functions.azure.com/signin).
+
 2. Konfigurace funkce aplikaci [použít verzi 2.0 runtime](functions-versions.md).
-3. Vytvořte novou funkci, tak, že zvolíte "C" pro jazyk a "Vše" pro scénář. Vyberte **trvanlivý Orchestrator funkce – C#** šablony.
-4. V části **není nainstalovaná rozšíření**, klikněte na tlačítko **nainstalovat** ke stažení rozšíření od NuGet.org.
 
-### <a name="copy-sample-code-to-the-function-app"></a>Zkopírujte ukázkový kód do aplikaci funkce
+3. Vytvořte novou funkci tak, že vyberete **"Vytvoření vlastní funkce."** .
 
-1. Stažení [DFSampleApp.zip](https://github.com/Azure/azure-functions-durable-extension/raw/master/docfx/files/DFSampleApp.zip) souboru.
-2. Rozbalte ukázkový soubor do `D:\home\site\wwwroot` v aplikaci funkce, pomocí modulu Kudu nebo FTP.
+4. Změna **jazyk** k **C#**, **scénář** k **trvanlivý funkce** a vyberte **trvanlivý Starter funkce protokolu Http -C#** šablony.
+
+5. V části **není nainstalovaná rozšíření**, klikněte na tlačítko **nainstalovat** ke stažení rozšíření od NuGet.org. 
+
+6. Po dokončení instalace pokračujte vytvoření klienta funkce orchestration – **"HttpStart"** vytvořený výběrem **trvanlivý funkce protokolu Http Starter - C#** šablony.
+
+7. Teď vytvořte funkce orchestration **"HelloSequence"** z **trvanlivý Orchestrator funkce – C#** šablony.
+
+8. A bude se volat funkci naposledy **"Hello"** z **trvanlivý aktivita funkce – C#** šablony.
+
+9. Přejděte na **"HttpStart"** funkce a zkopírujte jeho adresa URL.
+
+10. Použijte Postman nebo adresu cURL k volání trvanlivý funkce. Před testováním, nahraďte v adrese URL **{funkce%{FunctionName/}** s názvem funkce orchestrator - **HelloSequence**.  Není třeba žádná data, stačí použít operaci POST. 
+
+    ```bash
+    curl -X POST https://{your function app name}.azurewebsites.net/api/orchestrators/HelloSequence
+    ```
+
+11. Potom zavolejte **"statusQueryGetUri"** koncový bod a můžete zobrazit aktuální stav trvanlivý funkce
+
+    ```json
+        {
+            "runtimeStatus": "Running",
+            "input": null,
+            "output": null,
+            "createdTime": "2017-12-01T05:37:33Z",
+            "lastUpdatedTime": "2017-12-01T05:37:36Z"
+        }
+    ```
+
+12. Pokračovat volání **"statusQueryGetUri"** koncový bod, dokud se stav změní na **"Dokončeno"** 
+
+    ```json
+    {
+            "runtimeStatus": "Completed",
+            "input": null,
+            "output": [
+                "Hello Tokyo!",
+                "Hello Seattle!",
+                "Hello London!"
+            ],
+            "createdTime": "2017-12-01T05:38:22Z",
+            "lastUpdatedTime": "2017-12-01T05:38:28Z"
+        }
+    ```
+
+Blahopřejeme! První trvanlivý funkce je spuštěná na portálu Azure!
 
 ## <a name="next-steps"></a>Další kroky
 

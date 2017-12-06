@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 4b0232db1cfe2d6a7cefd07a8194a88a84a4ffb4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Osvědčené postupy pro automatické škálování
 V tomto článku se dozvíte, jaké osvědčené postupy pro škálování v Azure. Azure monitorování škálování se vztahují pouze na [sady škálování virtuálního počítače](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [cloudové služby](https://azure.microsoft.com/services/cloud-services/), a [služby App Service – webové aplikace](https://azure.microsoft.com/services/app-service/web/). Jinými službami Azure použít různé metody škálování.
@@ -30,8 +30,8 @@ V tomto článku se dozvíte, jaké osvědčené postupy pro škálování v Azu
   Nastavení automatického škálování má maximální, minimální a výchozí hodnota instancí.
 * Úloha automatického škálování vždy přečte přidružené metriky škálování, kontrole, jestli se překročila nakonfigurovanou prahovou hodnotu pro škálování nebo škálování. Můžete zobrazit seznam metrik této škálování můžete škálovat podle na [běžné metriky automatického škálování Azure monitorování](insights-autoscale-common-metrics.md).
 * Všechny prahové hodnoty jsou vypočítávány na úrovni instance. Například "škálování odhlašování 1 instancí při průměrná procesoru > 80 %, pokud je počet instancí 2", znamená Škálováním na více systémů, když průměrné využití procesoru ve všech instancích je větší než 80 %.
-* Vždycky dostat oznámení selhání e-mailem. Konkrétně vlastník, Přispěvatel a čtečky cílový prostředek dostávat e-maily. Také vždy zobrazí *obnovení* e-mail, když se obnoví v případě selhání škálování a začne fungovat normálně.
-* Vám může výslovný souhlas pro příjem oznámení akce úspěšné škálování prostřednictvím e-mailu a pomocí webhooků.
+* Všechny chyby při škálování jsou zaznamenány do protokolu aktivit. Potom můžete nakonfigurovat [výstraha aktivity protokolu](./monitoring-activity-log-alerts.md) tak, aby vám může informování prostřednictvím e-mailu, SMS, webhooku atd., vždy, když dojde selhání škálování.
+* Všechny akce úspěšné škálování podobně jsou odeslány do protokolu činnosti. Potom můžete nakonfigurovat výstrahu protokolu aktivitu tak, aby můžete být upozorněni prostřednictvím e-mailu, SMS, webhooků, atd. pokaždé, když je akce škálování úspěšné. Můžete také nakonfigurovat oznámení e-mailu nebo webhooku chcete dostat upozornění pro akce úspěšné škálování prostřednictvím karty oznámení v nastavení automatického škálování.
 
 ## <a name="autoscale-best-practices"></a>Osvědčené postupy škálování
 Použijte následující osvědčené postupy při používání automatického škálování.
@@ -40,7 +40,7 @@ Použijte následující osvědčené postupy při používání automatického 
 Pokud máte nastavení, která má minimální = 2, maximální = 2 a aktuální počet instancí je 2, můžete dojít k žádné akci škálování. Zachovat odpovídající okraje mezi počty maximální a minimální instance, které jsou inkluzivní. Škálování vždy škáluje mezi tyto limity.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>Ruční škálování při obnovení škálování min a max
-Pokud je ručně aktualizovat na hodnotu vyšší nebo nižší než maximální počet instancí, modul škálování automaticky přizpůsobí zpět na minimální (Pokud se níže) nebo maximální (Pokud je vyšší než). Například můžete nastavit rozsah 3 až 6. Pokud máte jeden spuštěnou instanci, modul škálování škáluje na 3 instance při příštím spuštění. Podobně se by škálování in 8 instancí zpět do 6 při příštím spuštění.  Ruční škálování je velmi dočasný, pokud resetujete také pravidel škálování.
+Pokud je ručně aktualizovat na hodnotu vyšší nebo nižší než maximální počet instancí, modul škálování automaticky přizpůsobí zpět na minimální (Pokud se níže) nebo maximální (Pokud je vyšší než). Například můžete nastavit rozsah 3 až 6. Pokud máte jeden spuštěnou instanci, modul škálování škáluje na 3 instance při příštím spuštění. Podobně pokud ručně nastavit stupnici na 8 instance, při příštím spuštění automatického škálování se bude škálovat ji zpět 6 instance při příštím spuštění.  Ruční škálování je velmi dočasný, pokud resetujete také pravidel škálování.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Vždy používejte kombinaci Škálováním na více systémů a škálování pravidla, která provádí zvýšení a snížení
 Pokud používáte pouze jednou ze součástí sady kombinace, automatické škálování škálování in, který jednotné nebo ve, dokud maximální nebo minimální, je dosaženo.
@@ -143,14 +143,17 @@ Na druhé straně, pokud využití procesoru činí 25 % a paměti je 51 % autom
 Výchozí počet instancí je důležité automatické škálování škáluje služby do tohoto počtu metriky nejsou k dispozici. Proto vyberte výchozí počet instancí, který je bezpečný pro úlohy.
 
 ### <a name="configure-autoscale-notifications"></a>Konfigurace automatického škálování oznámení
-Škálování oznámí správci a přispěvatelé prostředku e-mailem, pokud dojde k některé z následujících podmínek:
+Škálování bude odeslána do protokolu činnosti, pokud dojde k některé z následujících podmínek:
 
-* škálování služby se nedaří provést akci.
+* Škálování vydává operace škálování
+* Škálování služby úspěšném dokončení akce škálování
+* Škálování služby se nepodaří akci škálování.
 * Metriky nejsou k dispozici pro škálování služby k provedení rozhodnutí škálování.
 * Metriky jsou k dispozici (obnovení) znovu k provedení rozhodnutí škálování.
-  Kromě výše uvedených podmínek můžete nakonfigurovat e-mailu nebo webhooku oznámení chcete dostat upozornění pro akce úspěšné škálování.
-  
+
 Můžete taky výstrahu protokolu aktivit k monitorování stavu modulu škálování. Zde jsou příklady [vytvořit aktivity protokolu výstrahy monitorovat všechny operace škálování modul vaše předplatné](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) nebo [vytvořit aktivity protokolu výstrahy monitorovat všechny neúspěšné automatické škálování měřítka ve / škálovat operací na vaše předplatné](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+Kromě použití aktivity protokolu výstrahy, můžete také nakonfigurovat oznámení e-mailu nebo webhooku chcete dostat upozornění pro akce úspěšné škálování prostřednictvím karty oznámení v nastavení automatického škálování.
 
 ## <a name="next-steps"></a>Další kroky
 - [Vytvoření aktivity protokolu výstrahy monitorovat všechny operace škálování modul vaše předplatné.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
