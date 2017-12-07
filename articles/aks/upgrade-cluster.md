@@ -1,6 +1,6 @@
 ---
-title: "Upgrade clusteru služby Azure Container Service (AKS) | Microsoft Docs"
-description: "Upgrade clusteru služby Azure Container Service (AKS)"
+title: Upgrade clusteru Azure Container Service (AKS) | Dokumentace Microsoftu
+description: Upgrade clusteru Azure Container Service (AKS)
 services: container-service
 documentationcenter: 
 author: gabrtv
@@ -17,19 +17,19 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 15e3e96587962ef9cc531e1825f37b92d26928fd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.openlocfilehash: bff0a69d3dac076333de569b2c29af2887e4e1de
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Upgrade clusteru služby Azure Container Service (AKS)
+# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Upgrade clusteru Azure Container Service (AKS)
 
-Azure Container Service (AKS) umožňuje snadno provádět běžné úlohy správy, včetně upgrade Kubernetes clustery.
+Služba Azure Container Service (AKS) usnadňuje provádění běžných úloh správy, včetně upgradu clusterů Kubernetes.
 
 ## <a name="upgrade-an-aks-cluster"></a>Upgrade clusteru AKS
 
-Před upgradem clusteru, použijte `az aks get-versions` příkaz a zkontrolujte, což uvolní Kubernetes jsou k dispozici pro upgrade.
+Před upgradem clusteru pomocí příkazu `az aks get-versions` zkontrolujte, které vydané verze Kubernetes jsou pro upgrade k dispozici.
 
 ```azurecli-interactive
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
@@ -43,7 +43,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Máme tři verze, které jsou k dispozici pro upgrade: 1.7.9, 1.8.1 a 1.8.2. Můžeme použít `az aks upgrade` příkaz pro upgrade na nejnovější dostupnou verzi.  Během procesu upgradu, jsou uzly pečlivě [cordoned a k nečekaně](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) minimalizovat přerušení spuštěných aplikací.
+Pro upgrade máme k dispozici tři verze: 1.7.9, 1.8.1 a 1.8.2. Pomocí příkazu `az aks upgrade` můžeme upgradovat na nejnovější dostupnou verzi.  Během procesu upgradu jsou uzly pečlivě [uzavřené a vyprázdněné](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), aby se minimalizovalo přerušení spuštěných aplikací.  Před zahájením upgradu clusteru se ujistěte, že máte dostatek další výpočetní kapacity pro zvládnutí úloh během přidávání a odebírání uzlů clusteru.
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
@@ -105,7 +105,7 @@ Výstup:
 }
 ```
 
-Nyní můžete potvrdit, upgrade proběhl úspěšně, přičemž `az aks show` příkaz.
+Teď můžete ověřit úspěšnost upgradu pomocí příkazu `az aks show`.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
@@ -121,7 +121,7 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o nasazení a správě AKS s AKS kurzy.
+Další informace o nasazení a správě AKS najdete v kurzech AKS.
 
 > [!div class="nextstepaction"]
 > [Kurz AKS](./tutorial-kubernetes-prepare-app.md)

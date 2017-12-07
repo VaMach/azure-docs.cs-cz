@@ -34,7 +34,14 @@
     - name: 4. Hromadné kopírování dat
       href: tutorial-bulk-copy.md
     - name: 5. Přírůstkové kopírování dat
-      href: tutorial-incremental-copy-powershell.md
+      href: tutorial-incremental-copy-overview.md
+      items:
+        - name: 5.1. Kopírování z jedné tabulky
+          href: tutorial-incremental-copy-powershell.md
+        - name: 5.2. Kopírování z několika tabulek
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+        - name: 5.3. Použití funkce sledování změn
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6. Transformace dat v cloudu
       href: tutorial-transform-data-spark-powershell.md
     - name: 7. Transformace dat ve virtuální síti
@@ -228,6 +235,16 @@
           href: create-azure-ssis-integration-runtime.md
         - name: Připojení prostředí Azure-SSIS Integration Runtime k virtuální síti
           href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Spouštění balíčků služby SSIS v Azure
+      items:
+        - name: Vytvoření prostředí Azure-SSIS Integration Runtime
+          href: create-azure-ssis-integration-runtime.md
+        - name: Připojení prostředí Azure-SSIS Integration Runtime k virtuální síti
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Správa prostředí Azure-SSIS Integration Runtime
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Konfigurace výkonu prostředí Azure-SSIS Integration Runtime
+          href: configure-azure-ssis-integration-runtime-performance.md
 - name: Referenční informace
   items:
     - name: .NET

@@ -33,6 +33,14 @@
       href: how-to-search-for-address.md
 - name: Referenční informace
   items:
+    - name: Funkční rozhraní API – REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
+    - name: Rozhraní API pro správu – REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
+    - name: Rozhraní API pro mapové ovládací prvky – Javascript
+      href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
+- name: Zdroje
+  items:
     - name: Centrum pro vývojáře Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Plány Azure do budoucna

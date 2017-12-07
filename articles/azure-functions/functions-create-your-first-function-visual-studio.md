@@ -3,7 +3,7 @@ title: "Vytvoření první funkce v Azure pomocí sady Visual Studio | Dokumenta
 description: "Vytvořte a publikujte do Azure jednoduchou funkci aktivovanou protokolem HTTP pomocí Azure Functions Tools for Visual Studio."
 services: functions
 documentationcenter: na
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -14,20 +14,22 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 12/1/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aeac4feaeea376ae5231d9c24d44d94f8132af42
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 7f71ecb2b58728f466371c7aa6d2aac965177863
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Vytvoření první funkce pomocí sady Visual Studio
 
-Azure Functions umožňuje spuštění kódu v [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) prostředí bez nutnosti nejprve vytvořit virtuální počítač nebo publikování webové aplikace.
+Služba Azure Functions umožňuje spuštění kódu v prostředí [bez serveru](https://azure.microsoft.com/overview/serverless-computing/), aniž byste nejdřív museli vytvořit virtuální počítač nebo publikovat webovou aplikaci.
 
-V tomto tématu se dozvíte, jak používat nástroje Visual Studio 2017 pro Azure Functions k vytvoření a otestování místně funkci "hello, world". Kód funkce potom budete publikovat do Azure. Tyto nástroje jsou dostupné jako součást sady funkcí Vývoj pro Azure v sadě Visual Studio 2017 verze 15.3 nebo novější.
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
+
+V tomto tématu zjistíte, jak pomocí nástrojů sady Visual Studio 2017 pro Azure Functions místně vytvořit a otestovat funkci Hello World. Kód funkce potom budete publikovat do Azure. Tyto nástroje jsou dostupné jako součást sady funkcí Vývoj pro Azure v sadě Visual Studio 2017 verze 15.3 nebo novější.
 
 ![Kód služby Azure Functions v projektu sady Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -35,7 +37,7 @@ V tomto tématu se dozvíte, jak používat nástroje Visual Studio 2017 pro Azu
 
 Pro absolvování tohoto kurzu nainstalujte:
 
-* [Visual Studio 2017 verzi 15.4](https://www.visualstudio.com/vs/) nebo novější verze, včetně **Azure development** zatížení.
+* [Visual Studio 2017 verze 15.4](https://www.visualstudio.com/vs/) nebo novější, včetně sady funkcí **Vývoj pro Azure**.
 
     ![Instalace sady Visual Studio 2017 se sadou funkcí Vývoj pro Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
@@ -49,15 +51,15 @@ Teď, když jste vytvořili projekt, můžete vytvořit svou první funkci.
 
 ## <a name="create-the-function"></a>Vytvoření funkce
 
-1. V **Průzkumníku řešení** klikněte pravým tlačítkem na uzel projektu a vyberte **Přidat** > **Nová položka**. Vyberte **funkce Azure**, zadejte `HttpTriggerCSharp.cs` pro **název**a klikněte na tlačítko **přidat**.
+1. V **Průzkumníku řešení** klikněte pravým tlačítkem na uzel projektu a vyberte **Přidat** > **Nová položka**. Vyberte **Funkce Azure Functions**, jako **Název** zadejte `HttpTriggerCSharp.cs` a klikněte na **Přidat**.
 
-2. Vyberte **HttpTrigger**, vyberte **anonymní** pro **přístupová práva**a klikněte na tlačítko **OK**. Vytvořená funkce je přístupná prostřednictvím požadavku HTTP z jakéhokoli klienta. 
+2. Vyberte **HttpTrigger**, jako **Přístupová práva** vyberte **Anonymní** a klikněte na **OK**. Vytvořená funkce je přístupná prostřednictvím požadavku HTTP z jakéhokoli klienta. 
 
     ![Vytvoření nové funkce Azure Functions](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
-    Soubor kódu se přidá do projektu, který obsahuje třídu, která implementuje funkce kódu. Tento kód je založena na šablonu, která přijímá název hodnota a toto využití zpátky. **%{FunctionName/** atribut nastaví název funkce. **HttpTrigger** atribut určuje zprávu, která aktivuje funkce. 
+    Do vašeho projektu se přidá soubor s kódem, který obsahuje třídu implementující kód vaší funkce. Tento kód je založený na šabloně, která přijímá hodnotu názvu a vrací ji zpět. Atribut **FunctionName** nastavuje název vaší funkce. Atribut **HttpTrigger** určuje zprávu, která funkci aktivuje. 
 
-    ![Funkce souboru kódu](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+    ![Soubor s kódem funkce](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
 Teď máte vytvořenou funkci aktivovanou protokolem HTTP a můžete ji otestovat na místním počítači.
 
