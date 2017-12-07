@@ -14,17 +14,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>Jak používat správu služby z Pythonu
-Tento průvodce vám ukáže, jak programově provádět běžné úlohy správy služby z Pythonu. **ServiceManagementService** třídy v [Azure SDK pro jazyk Python](https://github.com/Azure/azure-sdk-for-python) podporuje programový přístup k mnohem týkajících se správy funkcí služby, který je k dispozici v [Azure portál Classic] [ management-portal] (například **vytváření, aktualizaci a odstraňování cloudové služby, nasazení, služby pro správu dat a virtuální počítače**). Tato funkce může být užitečné při vytváření aplikace, které potřebují programový přístup ke správě služby.
+Tento průvodce vám ukáže, jak programově provádět běžné úlohy správy služby z Pythonu. **ServiceManagementService** třídy v [Azure SDK pro jazyk Python](https://github.com/Azure/azure-sdk-for-python) podporuje programový přístup k mnohem týkajících se správy funkcí služby, který je k dispozici v [Azure portál] [ management-portal] (například **vytváření, aktualizaci a odstraňování cloudové služby, nasazení, služby pro správu dat a virtuální počítače**). Tato funkce může být užitečné při vytváření aplikace, které potřebují programový přístup ke správě služby.
 
 ## <a name="WhatIs"></a>Co je služba správy
-Service Management API zajišťují programový přístup ke většinu funkcí správy služby k dispozici prostřednictvím [portál Azure classic][management-portal]. Sada Azure SDK pro Python umožňuje spravovat cloudové služby a účty úložiště.
+Service Management API zajišťují programový přístup ke většinu funkcí správy služby k dispozici prostřednictvím [portál Azure][management-portal]. Sada Azure SDK pro Python umožňuje spravovat cloudové služby a účty úložiště.
 
 Chcete-li použít rozhraní API pro správu služby, je potřeba [vytvoření účtu Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -35,7 +35,7 @@ Sada Azure SDK pro Python zabalí [Azure Service Management API][svc-mgmt-rest-a
 Všechny funkce, které jsou popsané v tomto článku jsou k dispozici v `azure-servicemanagement-legacy` balíčku, které můžete nainstalovat pomocí nástroje pip. Další informace o instalaci (například pokud jste novým uživatelem Python), najdete v tomto článku: [instalaci Python a sady Azure SDK](../python-how-to-install.md)
 
 ## <a name="Connect"></a>Postupy: připojení služby správy
-Pro připojení ke koncovému bodu služby správy, musíte svoje ID předplatného Azure a certifikát pro správu platné. Můžete získat svoje ID předplatného prostřednictvím [portál Azure classic][management-portal].
+Pro připojení ke koncovému bodu služby správy, musíte svoje ID předplatného Azure a certifikát pro správu platné. Můžete získat svoje ID předplatného prostřednictvím [portál Azure][management-portal].
 
 > [!NOTE]
 > Nyní je možné použít certifikáty vytvořené pomocí OpenSSL spuštěná v systému Windows.  Vyžaduje Python 2.7.4 nebo novější. Doporučujeme, abyste uživatelům používat OpenSSL místo .pfx, protože podpora pro .pfx, certifikáty budou odebrány pravděpodobně v budoucnu.
@@ -53,7 +53,7 @@ Chcete-li vytvořit `.cer` certifikátů, spustit:
 
 Další informace o Azure certifikáty najdete v tématu [Přehled certifikátů pro Azure Cloud Services](cloud-services-certs-create.md). Úplný popis parametrů OpenSSL, naleznete v dokumentaci na [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Po vytvoření těchto souborů, budete muset nahrát `.cer` souboru k Azure přes "Nahrávání" akce "Nastavení" karty [portál Azure classic][management-portal], a budete muset poznamenejte kde jste Uložit `.pem` souboru.
+Po vytvoření těchto souborů, budete muset nahrát `.cer` souboru k Azure přes "Nahrávání" akce "Nastavení" karty [portál Azure][management-portal], a budete muset poznamenejte uloženému `.pem` souboru.
 
 Po získání svoje ID předplatného, vytvořit certifikát a nahrán `.cer` souboru do Azure, se můžete připojit ke koncovému bodu správy Azure pomocí id předplatného a cestu k předání `.pem` do souboru  **ServiceManagementService**:
 
@@ -74,7 +74,7 @@ Můžete vytvořit certifikát podepsaný svým držitelem správy na váš poč
 
 Příkaz vytvoří `.cer` souboru a nainstaluje do **osobní** úložiště certifikátů. Další informace najdete v tématu [Přehled certifikátů pro Azure Cloud Services](cloud-services-certs-create.md).
 
-Po vytvoření certifikátu, budete muset nahrát `.cer` souboru k Azure přes "Nahrávání" akce "Nastavení" karty [portál Azure classic][management-portal].
+Po vytvoření certifikátu, budete muset nahrát `.cer` souboru k Azure přes "Nahrávání" akce "Nastavení" karty [portál Azure][management-portal].
 
 Po získání svoje ID předplatného, vytvořit certifikát a nahrán `.cer` souboru do Azure, se můžete připojit ke koncovému bodu správy Azure pomocí předáním id předplatného a umístění certifikátu v vaší **osobní**  úložišti certifikátů **ServiceManagementService** (znovu, nahraďte *AzureCertificate* s názvem vašeho certifikátu):
 
@@ -421,7 +421,7 @@ Další informace naleznete ve [Středisku pro vývojáře Python](/develop/pyth
 [How to: Create a virtual machine]: #CreateVM
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
-[management-portal]: https://manage.windowsazure.com/
+[management-portal]: https://portal.azure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 

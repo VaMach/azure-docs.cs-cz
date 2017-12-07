@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ec33ba08c6284e90edc1870eef4bf3059b917efb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Řešení potíží s cloudové služby role, které se nepodařilo spustit
 Tady jsou některé běžné problémy a řešení souvisejících s Azure Cloud Services rolí, které se nepodařilo spustit.
@@ -62,9 +62,8 @@ Jakmile služba je znovu nasazena, zobrazí se chybová zpráva s názvem chybí
 Vzdálená plocha můžete použít pro přístup k roli a vzdáleně zobrazit podrobnější informace o chybě. Chcete-li zobrazit chyby pomocí vzdálené plochy pomocí následujících kroků:
 
 1. Zkontrolujte, zda je nainstalovaný Azure SDK 1.3 nebo novější.
-2. Při nasazení řešení pomocí sady Visual Studio vyberte "Konfigurace připojení ke vzdálené ploše...". Další informace o konfiguraci připojení vzdálené plochy najdete v tématu [pomocí vzdálené plochy s rolemi Azure](../vs-azure-tools-remote-desktop-roles.md).
-3. V portálu Microsoft Azure classic, jakmile se zobrazí stav instance **připraven**, klikněte na jednu z instancí rolí.
-4. Klikněte na tlačítko **připojit** ikonu v **vzdáleného přístupu** oblasti pásu karet.
+2. Při nasazení řešení pomocí sady Visual Studio vyberte "Konfigurace připojení ke vzdálené ploše". Další informace o konfiguraci připojení vzdálené plochy najdete v tématu [pomocí vzdálené plochy s rolemi Azure](../vs-azure-tools-remote-desktop-roles.md).
+3. Na portálu Microsoft Azure, jakmile se zobrazí stav instance **připraven**vzdálený do instance. Další informace o používání vzdálené plochy s cloudovými službami najdete v tématu [vzdáleného do instance rolí](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Přihlaste se k virtuálnímu počítači pomocí přihlašovacích údajů, které se zadaly během konfigurace vzdálené plochy.
 6. Otevřete okno příkazového řádku.
 7. Zadejte `IPconfig`.

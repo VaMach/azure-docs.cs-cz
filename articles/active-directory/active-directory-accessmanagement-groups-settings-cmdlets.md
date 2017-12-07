@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e8e07fa54aa10d34f0878042a5d9ac43f9a6704b
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Rutiny Azure Active Directory pro konfiguraci nastavení skupiny
 Tento článek obsahuje pokyny pro použití rutin prostředí PowerShell pro Azure Active Directory (Azure AD) k vytvoření a aktualizovat skupiny. Tento obsah platí pouze pro skupiny Office 365. 
@@ -28,7 +28,7 @@ Tento článek obsahuje pokyny pro použití rutin prostředí PowerShell pro Az
 > [!IMPORTANT]
 > Některá nastavení vyžadují licenci Azure Active Directory Premium P1. Další informace najdete v tématu [nastavení šablony](#template-settings) tabulky.
 
-Další informace o tom, jak povolit uživatelům vytvářet skupiny zabezpečení, nastavte `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` jak je popsáno v [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+Další informace o tom, jak zabránit uživatelům bez oprávnění správce k vytvoření *zabezpečení* nastavit skupiny, `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` jak je popsáno v [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Nastavení skupiny Office 365 se konfigurují pomocí nastavení objektu a objekt SettingsTemplate. Na začátku nevidíte žádné objekty nastavení v adresáři, protože adresáře je konfigurován s výchozím nastavením. Chcete-li změnit výchozí nastavení, musíte vytvořit nový objekt nastavení pomocí nastavení šablony. Nastavení šablony jsou definovány společností Microsoft. Existuje několik různých nastavení šablon. Ke konfiguraci nastavení skupiny Office 365 pro váš adresář, použijete šablonu s názvem "Group.Unified". Na jedné skupiny, nakonfigurovat nastavení skupiny Office 365, použijte šablonu s názvem "Group.Unified.Guest". Tato šablona se používá ke správě hostů přístup ke skupině Office 365. 
 

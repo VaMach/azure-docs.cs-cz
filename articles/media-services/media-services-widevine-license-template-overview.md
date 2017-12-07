@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d519cd36d41728f57419cd6cecd2a79d65a4af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="widevine-license-template-overview"></a>Přehled šablonu licence Widevine
-## <a name="overview"></a>Přehled
-Azure Media Services teď umožňuje nakonfigurovat a požadavků licence na Widevine. Když player koncový uživatel pokusí o přehrání obsahu Widevine chráněný, žádost o posílá službu doručování licencí jak licenci získat. Pokud licenční služby schvalovat žádosti, vydá licenci, která se může odeslat klientovi a slouží k dešifrování- and -play zadaný obsah.
+Azure Media Services umožňuje nakonfigurovat a požadavků licence na Widevine. Když player koncový uživatel pokusí o přehrání obsahu Widevine chráněný, žádost o posílá službu doručování licencí jak licenci získat. Pokud licenční služby schvalovat žádosti, vydá licenci, která se může odeslat klientovi a slouží k dešifrování- and -play zadaný obsah.
 
 Požadavek na licenční Widevine je naformátován jako zprávu JSON.  
 
@@ -197,5 +196,5 @@ Následující příklad ukazuje, jak konfigurovat jednoduché licenci Widevine 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Viz také
-[Použití běžného šifrování PlayReady nebo Widevine dynamický](media-services-protect-with-drm.md)
+[Použití běžného šifrování PlayReady nebo Widevine dynamický](media-services-protect-with-playready-widevine.md)
 

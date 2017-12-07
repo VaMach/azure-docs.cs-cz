@@ -12,11 +12,11 @@ Virtuální počítače řady F-series jsou skvělou volbou pro úlohy, které p
 
 Řada Fs-series nabízí všechny výhody řady F-series a navíc službu Storage úrovně Premium.
 
-## <a name="fsv2-series"></a>Fsv2-series
+## <a name="fsv2-series"></a>Fsv2-series *
 
 ACU: 195-210
 
-| Velikost             | pro virtuální procesory | Paměť: GiB | Místní SSD: GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
+| Velikost             | pro virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Střední                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Střední                                       |
@@ -25,7 +25,7 @@ ACU: 195-210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Velmi vysoké                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Velmi vysoké                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Velmi vysoké                                 |
-
+* Fsv2-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
 
 ## <a name="fs-series"></a>Fs-series*
 

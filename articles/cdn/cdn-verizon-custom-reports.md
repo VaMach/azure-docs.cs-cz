@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>Vlastní sestavy od společnosti Verizon
 
@@ -30,7 +30,7 @@ Pomocí sestav vlastní Verizon prostřednictvím portálu spravovat profilů Ve
 ## <a name="accessing-verizon-custom-reports"></a>Přístup k vlastní Verizon sestavy
 1. Okno profil CDN, klikněte **spravovat** tlačítko.
    
-    ![Tlačítko Spravovat okno profil CDN](./media/cdn-reports/cdn-manage-btn.png)
+    ![Tlačítko Spravovat profil CDN](./media/cdn-reports/cdn-manage-btn.png)
    
     Otevře se na portálu pro správu CDN.
 2. Najeďte myší **Analytics** a potom přejděte myší **vlastní sestavy** plovoucím panelem. Klikněte na tlačítko **okraj záznamů CNAME**.

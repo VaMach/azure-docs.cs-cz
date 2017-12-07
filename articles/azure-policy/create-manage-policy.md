@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Vytvořit a spravovat zásady na vynucování dodržování shody
 
@@ -26,22 +26,6 @@ Vědět, jak vytvořit a spravovat zásady v Azure je důležité pro zachován�
 > * Implementovat novou zásadu celé organizaci
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
-
-## <a name="opt-in-to-azure-policy"></a>Vyjádřit výslovný souhlas Azure zásad
-
-Azure zásad je teď dostupná ve verzi Preview omezené, je nutné zaregistrovat k požádat o přístup.
-
-1. Přejděte do zásad Azure v https://aka.ms/getpolicy a vyberte **zaregistrovat** v levém podokně.
-
-   ![Vyhledejte zásad](media/assign-policy-definition/sign-up.png)
-
-2. Přihlásit k Azure zásady tak, že vyberete odběry ve **předplatné** seznamu chcete pracovat. Potom vyberte **zaregistrovat**.
-
-   Seznam odběrů obsahuje všechny předplatné Azure.
-
-   ![Výslovný souhlas pomocí zásad Azure](media/assign-policy-definition/preview-opt-in.png)
-
-   V závislosti na vyžádání může trvat do několika dní, abychom mohli přijmout vaši žádost o registraci. Jakmile vaši žádost o získá přijatá, budete informováni prostřednictvím e-mailu, můžete začít používat službu.
 
 ## <a name="assign-a-policy"></a>Přiřadit zásady
 
@@ -69,7 +53,7 @@ Prvním krokem při vynucování souladu se zásadami Azure je přiřadit defini
 
    Existují dvě cenové úrovně v rámci zásad Azure – *volné* a *standardní*. S úroveň Free, můžete pouze vynutit zásady na budoucí prostředky, zatímco s Standard, můžete taky vynutit je na stávajících prostředcích pro lepší pochopení vašeho stavu dodržování předpisů. Jsme jsou umístěny v omezené Preview, jsme ještě uvolněny cenový model, takže nebudete dostávat faktury pro výběr *standardní*. Další informace o cenách, podívejte se na: [zásad Azure ceny](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Vyberte **oboru** -předplatné (nebo skupinu prostředků) můžete dříve registrován když jste se rozhodli do zásad Azure. Obor určuje, jaké prostředky nebo seskupení prostředků v získá vynucena přiřazení zásad. Může rozsahu z odběru do skupiny prostředků.
+8. Vyberte **oboru** -předplatné (nebo skupinu prostředků) dříve registrován. Obor určuje, jaké prostředky nebo seskupení prostředků v získá vynucena přiřazení zásad. Může rozsahu z odběru do skupiny prostředků.
 
    V tomto příkladu používáme toto předplatné - **Azure analýzy kapacity Dev**. Vaše předplatné se budou lišit.
 
@@ -94,9 +78,9 @@ Teď, když přiřadili jsme definice zásady, vytvoříme k vytvoření nové z
       - Zásady pravidla nebo podmínky, v takovém případě – velikost virtuálního počítače SKU rovna G řady
       - Účinek zásady, v takovém případě – **Odepřít**.
 
-   Zde je, jak by měla vypadat json
+    Zde je, jak by měla vypadat json
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Teď, když přiřadili jsme definice zásady, vytvoříme k vytvoření nové z
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   Chcete-li zobrazit ukázky kódu json, podívejte se na tento článek - [šablon pro Azure zásad](json-samples.md)
+    Prohlédněte si ukázky kódu json, přečtěte si téma [šablon pro Azure zásad](json-samples.md) článku.
 
 4. Vyberte **Uložit**.
 

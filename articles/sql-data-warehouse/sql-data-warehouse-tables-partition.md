@@ -3,8 +3,8 @@ title: "Vytváření oddílů tabulky v SQL Data Warehouse | Microsoft Docs"
 description: "Začínáme s vytváření oddílů tabulky v Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 6cef870c-114f-470c-af10-02300c58885d
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: 3edfd34d368228be32afef48688739639a3b03ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: a28cb1f8a2e48332b344566620dc49b29d9d3c99
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Vytváření oddílů tabulky v SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -39,22 +39,22 @@ Vytváření oddílů je podporován u všech typů tabulek SQL Data Warehouse; 
 Vytváření oddílů využívat data výkonu údržby a dotazů.  Jestli výhody oba, nebo pouze jeden, je závislá na tom, jak načíst data a zda na stejný sloupec lze použít pro obě účely, protože vytváření oddílů je možné provést pouze na jeden sloupec.
 
 ### <a name="benefits-to-loads"></a>Výhody zatížení
-Hlavní výhoda vytváření oddílů v SQL Data Warehouse je zvýšit efektivitu a výkon načtení dat pomocí použití odstranění oddílu, přepínání a slučování.  Ve většině případů jsou data rozdělena na sloupec data, která úzce souvisí pořadí, ve kterém je načíst data do databáze.  Jednou z výhod použití oddíly pro zachování dat největší ho předcházení protokolování transakcí.  Když jednoduše vkládání, aktualizaci nebo odstranění dat může být nejjednodušší způsob, s malým množstvím myšlenku a úsilí, pomocí dělení během procesu vaše zatížení může podstatně zlepšit výkon.
+Hlavní výhoda vytváření oddílů v SQL Data Warehouse je ke zlepšení efektivity a výkon načítání dat pomocí odstranění oddílu, přepínání a slučování.  Ve většině případů jsou data rozdělena na sloupec data, která úzce souvisí pořadí, ve kterém je načíst data do databáze.  Jednou z výhod použití oddíly pro zachování dat největší ho předcházení protokolování transakcí.  Když jednoduše vkládání, aktualizaci nebo odstranění dat může být nejjednodušší způsob, s malým množstvím myšlenku a úsilí, pomocí dělení během procesu vaše zatížení může podstatně zlepšit výkon.
 
-Přepnutí oddílu umožňuje rychle odeberte nebo nahraďte oddíl tabulky.  Tabulka faktů prodeje například může obsahovat jen data po dobu posledních 36 měsíců.  Na konci každého měsíce se odstraní nejstarší měsíc prodejních dat z tabulky.  Tato data může odstranit pomocí příkazu delete k odstranění dat nejstarší měsíc.  Ale odstraňování velké množství dat řádek po řádku příkazem delete může trvat velmi dlouho, stejně jako vytvořit riziko velké transakcí, které může trvat dlouhou dobu vrátit zpět, pokud dojde k chybě.  Více optimální metodu je jednoduše vyřadit nejstarší oddílu data.  Kde odstranění jednotlivých řádků může trvat hodiny, odstraňování celý oddíl může trvat sekund.
+Přepnutí oddílu umožňuje rychle odeberte nebo nahraďte oddíl tabulky.  Tabulka faktů prodeje například může obsahovat jen data po dobu posledních 36 měsíců.  Na konci každého měsíce se odstraní nejstarší měsíc prodejních dat z tabulky.  Tato data může odstranit pomocí příkazu delete k odstranění dat nejstarší měsíc.  Ale odstraňování velké množství dat řádek po řádku příkazem delete může trvat příliš dlouho, stejně jako vytvořit riziko velké transakcí, které trvat dlouhou dobu vrátit zpět, pokud dojde k chybě.  Více optimální metodu je vyřadit nejstarší oddílu data.  Kde odstranění jednotlivých řádků může trvat hodiny, odstraňování celý oddíl může trvat sekund.
 
 ### <a name="benefits-to-queries"></a>Výhody pro dotazy
-Vytváření oddílů můžete použít také pro zlepšení výkonu dotazů.  Pokud dotaz použije filtr na sloupec rozdělení, to můžete omezit prohledávání pouze opravňující oddíly, které můžou být mnohem menší podmnožinu dat, zabraňující prohledání úplnou tabulky.  Se zavedením Clusterované indexy columnstore jsou méně výhodné predikátem odstranění výkonnostních výhod, ale v některých případech může být výhoda dotazy.  Například pokud tabulka faktů prodeje jsou rozděleny do 36 měsíců pomocí pole Datum prodeje a potom se dotazuje tento filtr na datum prodej můžete přeskočit hledání v oddíly, které neodpovídají filtru.
+Vytváření oddílů můžete použít také pro zlepšení výkonu dotazů.  Dotaz, který použije filtr na oddílů data můžete omezit prohledávání pouze opravňující oddíly. Tato metoda filtrování můžete vyhnout prohledání úplnou tabulky a kontrolovat pouze podmnožinu dat menší. Se zavedením Clusterované indexy columnstore jsou méně výhodné predikátem odstranění výkonnostních výhod, ale v některých případech může být výhoda dotazy.  Například pokud tabulka faktů prodeje jsou rozděleny do 36 měsíců pomocí pole Datum prodeje a potom se dotazuje tento filtr na datum prodej můžete přeskočit hledání v oddíly, které neodpovídají filtru.
 
 ## <a name="partition-sizing-guidance"></a>Pokyny k dimenzování oddílu
-Při vytváření oddílů lze použít ke zlepšení výkonu některých scénářích, vytváření tabulku s **příliš mnoho** oddíly může narušit výkonnost za určitých okolností.  Tyto problémy jsou především pro Clusterované tabulky columnstore.  Pro dělení být užitečné, je důležité pochopit, kdy použít vytváření oddílů a počet oddílů pro vytvoření.  Není pevný rychlé pravidlo, kolik oddíly jsou příliš mnoho, závisí na vaše data a kolik oddíly jsou načítání současně.  Ale jako obecné pravidlo, vezměte v úvahu přidávání 10s k 100s oddílů není 1000s.
+Při vytváření oddílů lze použít ke zlepšení výkonu některých scénářích, vytváření tabulku s **příliš mnoho** oddíly může narušit výkonnost za určitých okolností.  Tyto problémy jsou především pro Clusterované tabulky columnstore.  Pro dělení být užitečné, je důležité pochopit, kdy použít vytváření oddílů a počet oddílů pro vytvoření.  Není pevný rychlé pravidlo, kolik oddíly jsou příliš mnoho, závisí na vaše data a kolik oddíly jsou načítání současně.  Úspěšné schéma rozdělení oddílů má obvykle desítkami na stovky oddíly, není tisíců.
 
-Při vytváření dělení na **Clusterové columnstore** tabulky, je důležité zvážit, kolik řádků se nebude zobrazovat v každém oddílu.  Pro optimální komprese a výkon Clusterované tabulky columnstore je potřeba minimálně 1 milionu řádků na distribuce a oddíl.  Před vytvořením oddíly, SQL Data Warehouse každá tabulka již rozdělí na 60 distribuované databáze.  Všechny oddíly přidat do tabulky je kromě distribuce vytvořen na pozadí.  V tomto příkladu, pokud tabulka faktů prodeje obsažené 36 měsíční oddíly a vzhledem k tomu, že SQL Data Warehouse je 60 distribuce, pak tabulky faktů prodeje by měl obsahovat 60 milionu řádků měsíčně nebo 2.1 miliardy řádků při zaplnění všechny měsíce.  Pokud tabulka obsahuje výrazně méně řádků, než je minimální doporučený počet řádků na jeden oddíl, zvažte použití méně oddíly aby bylo možné zvýšit počet řádků na jeden oddíl.  Viz také [indexování] [ Index] článek, který obsahuje dotazy, které lze spustit v SQL Data Warehouse k vyhodnocení kvality indexy columnstore clusteru.
+Při vytváření oddílů v **Clusterové columnstore** tabulky, je důležité zvážit, kolik řádků patří každý oddíl.  Pro optimální komprese a výkon Clusterované tabulky columnstore je potřeba minimálně 1 milionu řádků na distribuce a oddíl.  Před vytvořením oddíly, SQL Data Warehouse každá tabulka již rozdělí na 60 distribuované databáze.  Všechny oddíly přidat do tabulky je kromě distribuce vytvořen na pozadí.  V tomto příkladu, pokud tabulka faktů prodeje obsažené 36 měsíční oddíly a vzhledem k tomu, že SQL Data Warehouse je 60 distribuce, pak tabulky faktů prodeje by měl obsahovat 60 milionu řádků měsíčně nebo 2.1 miliardy řádků při zaplnění všechny měsíce.  Pokud tabulka obsahuje výrazně menší než minimální doporučený počet řádků na jeden oddíl, zvažte použití méně oddíly chcete-li zvýšit počet řádků na jeden oddíl.  Viz také [indexování] [ Index] článek, který obsahuje dotazy, které lze spustit v SQL Data Warehouse k vyhodnocení kvality indexy columnstore clusteru.
 
 ## <a name="syntax-difference-from-sql-server"></a>Syntaxe rozdíl oproti systému SQL Server
-SQL Data Warehouse zavádí zjednodušenou definice oddíly, který se mírně liší od systému SQL Server.  Vytváření oddílů funkce a schémata nejsou použity v SQL Data Warehouse, jako jsou v systému SQL Server.  Místo toho, které musíte udělat je identifikaci oddílů sloupce a body hranic.  Syntaxe vytváření oddílů se mírně liší v systému SQL Server, se základními koncepty jsou stejné.  SQL Server a SQL Data Warehouse podporují jeden sloupec oddílu na jednu tabulku, která může být pohyboval oddílu.  Další informace o oddílech najdete v tématu [rozdělena na oddíly tabulky a indexy][Partitioned Tables and Indexes].
+SQL Data Warehouse zavádí zjednodušenou způsob, jak definovat oddíly, které se mírně liší od systému SQL Server.  Vytváření oddílů funkce a schémata nejsou použity v SQL Data Warehouse, jako jsou v systému SQL Server.  Místo toho, které musíte udělat je identifikaci oddílů sloupce a body hranic.  Syntaxe vytváření oddílů se mírně liší v systému SQL Server, se základními koncepty jsou stejné.  SQL Server a SQL Data Warehouse podporují jeden sloupec oddílu na jednu tabulku, která může být pohyboval oddílu.  Další informace o oddílech najdete v tématu [rozdělena na oddíly tabulky a indexy][Partitioned Tables and Indexes].
 
-Následujícím příkladu SQL Data Warehouse rozdělena na oddíly [CREATE TABLE] [ CREATE TABLE] příkaz oddíly tabulka FactInternetSales na sloupci OrderDateKey:
+Následující příklad SQL Data Warehouse rozdělena na oddíly [CREATE TABLE] [ CREATE TABLE] příkaz oddíly tabulka FactInternetSales na sloupci OrderDateKey:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -86,7 +86,7 @@ Pokud chcete migrovat definice oddíl systému SQL Server do SQL Data Warehouse 
 * Odstranění serveru SQL Server [schéma oddílu][partition scheme].
 * Přidat [oddílu funkce] [ partition function] definici tak, aby vaše CREATE TABLE.
 
-Pokud provádíte migraci dělenou tabulku z instance systému SQL Server nižší než SQL vám může pomoci zjistěte počet řádků, které jsou v každém oddílu.  Uvědomte si, že pokud se v SQL Data Warehouse používá stejnou členitost rozdělení, počet řádků na jeden oddíl se sníží o faktor 60.  
+Pokud migrujete dělenou tabulku z instance systému SQL Server, následující příkaz SQL můžete zjistit počet řádků, že v každém oddílu.  Uvědomte si, že pokud se v SQL Data Warehouse používá stejnou členitost rozdělení, počet řádků na jeden oddíl faktor 60 snižuje.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -123,9 +123,9 @@ GROUP BY    s.[name]
 ```
 
 ## <a name="workload-management"></a>Správa zatížení
-Jeden aspekt poslední díl okolnosti rozhodnutí oddílu tabulky je [úlohy správy][workload management].  Úlohy správy v SQL Data Warehouse je primárně správy paměti a souběžnosti.  Maximální paměť přidělená pro každý distribuční během provádění dotazů v SQL Data Warehouse je třídy upraveny prostředků.  V ideálním případě bude mít velikost oddílů s ohledem na dalších faktorech, jako je potřebnou velikost paměti pro vytváření Clusterované indexy columnstore.  Clusterovaný benefit indexy columnstore výrazně při jejich přidělení více paměti.  Proto můžete zajistit, že nové vytvoření oddílu indexu není nedostatek paměti. Při přechodu z výchozí role, smallrc, jeden z jiných rolí, například largerc lze dosáhnout zvýšení množství paměti k dispozici pro dotaz.
+Jeden aspekt poslední díl okolnosti rozhodnutí oddílu tabulky je [úlohy správy][workload management].  Úlohy správy v SQL Data Warehouse je primárně správy paměti a souběžnosti.  V SQL Data Warehouse je maximální paměť přidělená pro každý distribuční během provádění dotazu se řídí třídy prostředků.  V ideálním případě jsou s ohledem na dalších faktorech, jako je potřebnou velikost paměti pro vytváření Clusterované indexy columnstore dimenzované oddílů.  Clusterovaný benefit indexy columnstore výrazně při jejich přidělení více paměti.  Tedy chcete zajistit, že nové vytvoření oddílu indexu není nedostatek paměti. Při přechodu z výchozí role, smallrc, jeden z jiných rolí, například largerc lze dosáhnout zvýšení množství paměti k dispozici pro dotaz.
 
-Informace o přidělení paměti na jeden distribuční je k dispozici pomocí dotazu na zobrazení dynamické správy Správce prostředků. Ve skutečnosti vaší přidělení paměti bude menší než údaje níže. To však poskytuje úroveň pokyny, které můžete použít, když vaše oddíly pro operace správy dat pro definování velikosti.  Pokuste se vyhnout, změna velikosti vašeho oddíly nad rámec poskytovaný třída velmi velké prostředků přidělení paměti. Pokud vaše oddíly růst nad rámec tohoto obrázku spuštěním riziko přetížení paměti, což pak vede k menší optimální komprese.
+Informace o přidělení paměti na jeden distribuční je k dispozici pomocí dotazu na zobrazení dynamické správy Správce prostředků. Ve skutečnosti vaší přidělení paměti je menší než následující obrázky. To však poskytuje úroveň pokyny, které můžete použít, když vaše oddíly pro operace správy dat pro definování velikosti.  Pokuste se vyhnout, změna velikosti vašeho oddíly nad rámec poskytovaný třída velmi velké prostředků přidělení paměti. Pokud vaše oddíly růst nad rámec tohoto obrázku spuštěním riziko přetížení paměti, což pak vede k menší optimální komprese.
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]

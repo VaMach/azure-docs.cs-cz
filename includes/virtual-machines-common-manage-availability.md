@@ -8,17 +8,17 @@ Existují tři scénáře, které můžou vést k virtuálnímu počítači v Az
 
   Virtuální počítače můžete také plánovaná odstávka k nepravděpodobnému výpadku nebo po havárii, ovlivní celého datového centra nebo i celou oblast. Pro tyto scénáře Azure poskytuje možnosti ochrany včetně [dostupnost zóny](../articles/availability-zones/az-overview.md) a [spárovat oblasti](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-* **Plánované události údržby** jsou pravidelné aktualizace základní platformy Azure prováděné Microsoftem za účelem zlepšení celkové spolehlivosti, výkonu a zabezpečení infrastruktury platformy, na které běží vaše virtuální počítače. U většiny těchto aktualizací nemá jejich provedení žádný vliv na vaše služby Virtual Machines ani Cloud Services (viz [Údržba se zachováním virtuálních počítačů](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/preserving-maintenance)). Přestože se platforma Azure pokouší použít údržbu se zachováním virtuálních počítačů kdykoli je to možné, existují výjimečné případy, kdy tyto aktualizace k aplikaci požadovaných aktualizací na základní infrastrukturu vyžadují restartování virtuálního počítače. V takovém případě můžete provést plánovanou údržbu Azure pomocí operace údržba-opětovné nasazení, která zahájí údržbu virtuálních počítačů ve vhodném časovém intervalu. Další informace najdete v tématu [Plánovaná údržba pro virtuální počítače](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/planned-maintenance/).
+* **Plánované události údržby** jsou pravidelné aktualizace základní platformy Azure prováděné Microsoftem za účelem zlepšení celkové spolehlivosti, výkonu a zabezpečení infrastruktury platformy, na které běží vaše virtuální počítače. U většiny těchto aktualizací nemá jejich provedení žádný vliv na vaše služby Virtual Machines ani Cloud Services (viz [Údržba se zachováním virtuálních počítačů](https://docs.microsoft.com/azure/virtual-machines/windows/preserving-maintenance)). Přestože se platforma Azure pokouší použít údržbu se zachováním virtuálních počítačů kdykoli je to možné, existují výjimečné případy, kdy tyto aktualizace k aplikaci požadovaných aktualizací na základní infrastrukturu vyžadují restartování virtuálního počítače. V takovém případě můžete provést plánovanou údržbu Azure pomocí operace údržba-opětovné nasazení, která zahájí údržbu virtuálních počítačů ve vhodném časovém intervalu. Další informace najdete v tématu [Plánovaná údržba pro virtuální počítače](https://docs.microsoft.com/azure/virtual-machines/windows/planned-maintenance/).
 
 
 Pokud chcete snížit dopad výpadků kvůli jedné nebo několika takovým událostem, doporučujeme pro vaše virtuální počítače následující osvědčené postupy z hlediska vysoké dostupnosti:
 
 * [Konfigurace více virtuálních počítačů ve skupině dostupnosti pro zajištění redundance]
 * [Použití spravovaných disků pro virtuální počítače ve skupině dostupnosti]
-* [Použití plánovaných událostí k aktivní odezvě na události ovlivňující virtuální počítače] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Naplánované události použít k proaktivně odpovědi na virtuální počítač události, které mají vliv] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Konfigurace jednotlivých vrstev aplikace v samostatných skupinách dostupnosti]
 * [Kombinace nástroje pro vyrovnávání zatížení se skupinami dostupnosti]
-* [Používání zón dostupnosti k ochraně úrovně selhání datacenter]
+* [Dostupnost zóny používat k ochraně úrovně selhání datacenter]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Konfigurace více virtuálních počítačů ve skupině dostupnosti pro zajištění redundance
 Pokud chcete zajistit redundanci pro vaši aplikaci, doporučujeme seskupit dva nebo více virtuálních počítačů do skupiny dostupnosti. Tato konfigurace v datacentru zajišťuje, že během buď plánované i neplánované údržby alespoň jeden virtuální počítač je k dispozici a splňuje podmínku 99.95 % smlouva Azure SLA. Další informace najdete v tématu [SLA pro virtuální počítače](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
@@ -81,3 +81,4 @@ Další informace o nasazení [Windows](../articles/virtual-machines/windows/cre
 [Kombinace nástroje pro vyrovnávání zatížení se skupinami dostupnosti]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Použití spravovaných disků pro virtuální počítače ve skupině dostupnosti]: #use-managed-disks-for-vms-in-an-availability-set
+[Dostupnost zóny používat k ochraně úrovně selhání datacenter]: #use-availability-zones-to-protect-from-datacenter-level-failures

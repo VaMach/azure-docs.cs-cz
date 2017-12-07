@@ -24,7 +24,7 @@ Jakmile se připojíte k virtuálním počítačům, měli byste použít šifro
 
 ## <a name="policies"></a>Zásady
 
-[Azure Resource Manager zásady](../articles/azure-resource-manager/resource-manager-policy.md) lze použít k definování požadované chování pro vaši organizaci [virtuálních počítačů Windows](../articles/virtual-machines/windows/policy.md) a [virtuální počítače s Linuxem](../articles/virtual-machines/linux/policy.md). Pomocí zásad můžete vynutit organizaci různé konvence a pravidla v rámci podniku. Vynucení požadované chování může pomoci zmírnit rizika při přispívání do úspěch organizace.
+[Azure zásady](../articles/azure-policy/azure-policy-introduction.md) lze použít k definování požadované chování pro vaši organizaci [virtuálních počítačů Windows](../articles/virtual-machines/windows/policy.md) a [virtuální počítače s Linuxem](../articles/virtual-machines/linux/policy.md). Pomocí zásad můžete vynutit organizaci různé konvence a pravidla v rámci podniku. Vynucení požadované chování může pomoci zmírnit rizika při přispívání do úspěch organizace.
 
 ## <a name="role-based-access-control"></a>Řízení přístupu na základě role
 

@@ -139,7 +139,7 @@ Virtuální počítače Azure, sady škálování virtuálního počítače, Bat
 * [Úložiště souborů](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Data a analýza
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) pro clustery Hadoop v Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) pro clustery Hadoop v Azure
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)

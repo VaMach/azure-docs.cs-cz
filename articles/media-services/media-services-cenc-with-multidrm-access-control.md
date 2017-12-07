@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: e4a53d053a4c792f54e215c19a8f0c4064815839
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 50bcb71cd4f52386e9ea428fc124ac30ae9a862b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC využívající Multi-DRM a Access Control: Referenční návrh a implementace v prostředí Azure a Azure Media Services
  
@@ -186,8 +186,8 @@ Implementace bude zahrnovat následující kroky:
 
 1. Příprava testovacího majetek: kódování nebo balíček testovací video, které více přenosovými rychlostmi fragmentovaný soubor MP4 ve službě Azure Media Services. Tento prostředek není DRM chráněný. DRM ochrany se provádí dynamické ochrany později.
 2. Vytvoření klíče ID a obsah klíče (volitelně od počáteční hodnoty klíčů). Pro naše účely není vyžadována systémem správy klíčů, protože jsme se zabývají pouze jedinou sadu klíčů ID a klíč obsahu pro několik prostředků testovací;
-3. Slouží ke konfiguraci služeb doručování licencí DRM více pro prostředek test rozhraní API pro AMS. Pokud používáte vlastní licenčních serverů ve vaší společnosti nebo vaše společnost dodavatelé místo licenční služby ve službě Azure Media Services, můžete tento krok přeskočit a zadat licenční získání adresy URL v kroku ke konfiguraci doručování licencí. Rozhraní API pro AMS je potřeba zadat, že některé podrobné konfigurace, například omezení zásady autorizace, šablony odpovědi licence pro různé služby licence DRM, atd. V tuto chvíli portál Azure ještě neposkytuje rozhraní potřebných pro tuto konfiguraci. Můžete najít informace o úroveň rozhraní API a ukázkový kód v dokumentu Dita Kornich: [pomocí PlayReady nebo Widevine běžného dynamického šifrování](media-services-protect-with-drm.md).
-4. Konfigurace zásad doručení assetu pro prostředek test pomocí rozhraní API AMS. Můžete najít informace o úroveň rozhraní API a ukázkový kód v dokumentu Dita Kornich: [pomocí PlayReady nebo Widevine běžného dynamického šifrování](media-services-protect-with-drm.md).
+3. Slouží ke konfiguraci služeb doručování licencí DRM více pro prostředek test rozhraní API pro AMS. Pokud používáte vlastní licenčních serverů ve vaší společnosti nebo vaše společnost dodavatelé místo licenční služby ve službě Azure Media Services, můžete tento krok přeskočit a zadat licenční získání adresy URL v kroku ke konfiguraci doručování licencí. Rozhraní API pro AMS je potřeba zadat, že některé podrobné konfigurace, například omezení zásady autorizace, šablony odpovědi licence pro různé služby licence DRM, atd. V tuto chvíli portál Azure ještě neposkytuje rozhraní potřebných pro tuto konfiguraci. Můžete najít informace o úroveň rozhraní API a ukázkový kód v následujícím článku: [pomocí PlayReady nebo Widevine běžného dynamického šifrování](media-services-protect-with-playready-widevine.md).
+4. Konfigurace zásad doručení assetu pro prostředek test pomocí rozhraní API AMS. Můžete najít informace o úroveň rozhraní API a ukázkový kód v následujícím článku: [pomocí PlayReady nebo Widevine běžného dynamického šifrování](media-services-protect-with-playready-widevine.md).
 5. Vytvořit a nakonfigurovat klienta služby Azure Active Directory v Azure;
 6. Vytvořit několik uživatelských účtů a skupin v klientovi služby Azure Active Directory: je třeba vytvořit alespoň "EntitledUser" skupiny a přidat uživatele do této skupiny. Uživatelé v této skupině předá kontrolu oprávnění v získání licence a uživatelé není v této skupině se nepodaří předat kontrola ověřování a nebude možné získat žádné licence. Je členem této skupiny "EntitledUser" je taková deklarace požadované "skupiny" v tokenu JWT vydaného Azure AD. Tento požadavek deklarace identity musí být zadán v konfiguraci krok služeb doručování licence více technologiemi DRM.
 7. Vytvoření aplikace ASP.NET MVC, který bude hostitelem vaší přehrávání videa. Tato aplikace ASP.NET bude chránit pomocí ověřování uživatele pomocí služby klienta Azure Active Directory. Správné deklarací identity bude součástí přístupových tokenů získat po ověření uživatele. Pro tento krok se doporučuje OpenID Connect rozhraní API. Je potřeba nainstalovat následující balíčky NuGet:
@@ -226,10 +226,10 @@ V implementaci nejsou některé "gotchas". Zpravidla v následujícím seznamu "
 
     V [JWT Decoder](http://jwt.calebb.net/), měli byste vidět **oblast** a **iss** jako níže v tokenu JWT:
 
-    ![1. gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
+    ![První gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 2. Přidejte oprávnění k aplikaci v AAD (na kartě Konfigurace aplikace). To je potřeba pro každou aplikaci (místní a nasazené verze).
 
-    ![gotcha 2.](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
+    ![Druhý gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
 3. Použijte správné vystavitele v nastavení dynamické šifrování CENC ochrany:
 
         <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
@@ -323,7 +323,7 @@ Je potřeba zaregistrovat a nakonfigurovat "ukazatel" aplikace ve službě Azure
    https://[aad_tenant_name].onmicrosoft.com/[resource_name];
 2. Přidejte nový klíč pro aplikaci prostředků;
 3. Aktualizace souboru manifest aplikace, tak, aby vlastnost groupMembershipClaims s následující hodnotou: "groupMembershipClaims": "Vše",  
-4. V aplikaci Azure AD odkazující na webovou aplikaci player v části "oprávnění k ostatním aplikacím", přidejte prostředků aplikace, která byla přidána v kroku 1 výše. V části "delegovaná oprávnění" zkontrolujte zaškrtnutí "Přístup [resource_name]". To dává oprávnění webové aplikace k vytvoření přístupové tokeny pro přístup k prostředku aplikace. Měli byste to provést pro místní i nasazené verze webové aplikace Pokud vyvíjíte pomocí sady Visual Studio a Azure webové aplikace.
+4. V aplikaci Azure AD odkazující na webovou aplikaci player v části "oprávnění k ostatním aplikacím", přidejte prostředek aplikaci, která byla přidána v kroku 1 výše. V části "delegovaná oprávnění" zkontrolujte zaškrtnutí "Přístup [resource_name]". To dává oprávnění webové aplikace k vytvoření přístupové tokeny pro přístup k prostředku aplikace. Měli byste to provést pro místní i nasazené verze webové aplikace Pokud vyvíjíte pomocí sady Visual Studio a Azure webové aplikace.
 
 Proto tokenu JWT vydaného Azure AD, je skutečně přístupového tokenu pro přístup k tomuto prostředku "ukazatel".
 
@@ -332,12 +332,12 @@ Ve výše má byla tato diskuse zaměřovat na prostředky na vyžádání. Co s
 
 Dobrá zpráva je, že můžete používat přesně stejnou návrh a implementaci pro ochranu živé streamování ve službě Azure Media Services tak, že považuje asset přidružený program jako "VOD asset".
 
-Konkrétně je dobře známý, uděláte živé vysílání datového proudu ve službě Azure Media Services, musíte vytvořit kanál a potom program v kanálu. Pokud chcete vytvořit program, potřebujete vytvořit prostředek, který bude obsahovat za provozu archivu programu. Chcete-li poskytovat CENC s více technologiemi DRM ochrany obsahu za provozu, všechny je potřeba udělat, je použít stejné nastavení nebo zpracování pro daný prostředek jako by byl "VOD asset" před spuštěním programu.
+Konkrétně je dobře známý, uděláte živé vysílání datového proudu ve službě Azure Media Services, musíte vytvořit kanál a potom program v kanálu. Pokud chcete vytvořit program, potřebujete vytvořit asset, který bude obsahovat za provozu archivu programu. Chcete-li poskytovat CENC s více technologiemi DRM ochrany obsahu za provozu, všechny je potřeba udělat, je použít stejné nastavení nebo zpracování pro daný prostředek jako by byl "VOD asset" před spuštěním programu.
 
 ### <a name="what-about-license-servers-outside-of-azure-media-services"></a>Co licenčních serverů mimo Azure Media Services?
 Zákazníci mohou často investovaly do licence serverové farmy buď v svá vlastní data center nebo hostované poskytovateli služeb DRM. Naštěstí Azure Media Services obsahu Protection umožňuje pracovat v režimu hybridní: obsah hostované a dynamicky chráněné v Azure Media Services, zatímco licence DRM se dodávají servery mimo Azure Media Services. V takovém případě existují následující aspekty změny:
 
-1. Služba tokenů zabezpečení je potřeba vystavovat tokeny, které jsou přijatelné a lze ověřit pomocí licence serverové farmy. Například servery licence Widevine poskytované Axinom vyžaduje konkrétní token JWT, který obsahuje "nárocích zprávu". Proto je potřeba mít služby tokenů zabezpečení vystavit takový token JWT. Autoři dokončili takové implementace a podrobnosti najdete v následujícím dokumentu v [centru dokumentace Azure](https://azure.microsoft.com/documentation/): [pomocí Axinom pro doručování licence na Widevine do služby Azure Media Services](media-services-axinom-integration.md).
+1. Služba tokenů zabezpečení je potřeba vystavovat tokeny, které jsou přijatelné a lze ověřit pomocí licence serverové farmy. Například servery licence Widevine poskytované Axinom vyžadovat konkrétní token JWT, který obsahuje "nárocích zprávu." Proto je potřeba mít služby tokenů zabezpečení vystavit takový token JWT. Autoři dokončili takové implementace a podrobnosti najdete v následujícím dokumentu v [centru dokumentace Azure](https://azure.microsoft.com/documentation/): [pomocí Axinom pro doručování licence na Widevine do služby Azure Media Services](media-services-axinom-integration.md).
 2. Už je nutné nakonfigurovat službu doručování licencí (ContentKeyAuthorizationPolicy) ve službě Azure Media Services. Co musíte udělat je poskytnout licence získání adresy URL (pro PlayReady, Widevine a FairPlay) při konfiguraci AssetDeliveryPolicy v nastavení šifrování CENC s více technologiemi DRM.
 
 ### <a name="what-if-i-want-to-use-a-custom-sts"></a>Co dělat, když chcete používat vlastní službu tokenů zabezpečení?
@@ -362,13 +362,13 @@ Pokud používáte rozhraní .NET Framework nebo C# jako vývoj platformy, X509 
 IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' pro podepisování nemůže být menší než '2048' bits.
 
 ## <a name="the-completed-system-and-test"></a>Dokončené systému a testování
-Vám ukážeme v dokončené systému začátku do konce několik scénářů, tak, aby čtečky může mít základní "formát" chování před získáním účet přihlášení.
+Jsme provede několik scénářů v dokončené začátku do konce systému tak, aby čtečky může mít základní "formát" chování před získáním účet přihlášení.
 
 Přehrávač webové aplikace a její přihlášení najdete [zde](https://openidconnectweb.azurewebsites.net/).
 
 Pokud je třeba je "zjistili" scénář: video prostředky, které jsou hostované v Azure Media Services, které jsou buď nechráněné nebo chráněné DRM, ale bez ověření pomocí tokenu (vystavování licenci pro kdo o to požádá), můžete otestovat ji bez přihlášení (při přechodu HTTP Pokud video streamování přes protokol HTTP).
 
-Pokud je třeba je integrovaný scénář začátku do konce: video prostředky je pod dynamické DRM ochrany ve službě Azure Media Services pomocí tokenu ověření a token JWT generován službou Azure AD, musíte se přihlásit.
+Pokud je třeba je integrovaný scénář začátku do konce: video prostředky Probíhá dynamická DRM ochrany ve službě Azure Media Services pomocí tokenu ověření a token JWT generován službou Azure AD, budete muset přihlásit.
 
 ### <a name="user-login"></a>Přihlášení uživatele
 Chcete-li otestovat integrovaný systém DRM začátku do konce, je potřeba mít "účet", nebo přidat.
@@ -402,7 +402,7 @@ Níže jsou snímky obrazovky stránky jiné přihlašovací údaje používané
 ![Účet domény klienta vlastní Azure AD](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="using-encrypted-media-extensions-for-playready"></a>Pomocí rozšíření šifrované média pro PlayReady
-Moderní prohlížeč s šifrované rozšíření média (EME) pro podporu technologie PlayReady, jako je například Internet Exploreru 11 na Windows 8.1 nebo vyšší a prohlížeč Microsoft Edge ve Windows 10 bude PlayReady základní DRM pro EME.
+Moderní prohlížeč s šifrované rozšíření média (EME) pro podporu technologie PlayReady, jako je například Internet Exploreru 11 na Windows 8.1 nebo vyšší a prohlížeč Microsoft Edge ve Windows 10 je PlayReady základní DRM pro EME.
 
 ![Použití EME pro PlayReady](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready1.png)
 
@@ -414,7 +414,7 @@ Následující obrazovka ukazuje player modulů plug-in a MSE/EME podporu.
 
 EME v Microsoft Edge a aplikace Internet Explorer 11 ve Windows 10 umožňuje vyvolání z [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) na zařízení s Windows 10, které ji podporují. PlayReady SL3000 odemkne toku obsahu rozšířené premium (4K, záhlaví, atd.) a nové modely doručování obsahu (časná okna pro rozšířený obsah).
 
-Zaměřit se na zařízení se systémem Windows: PlayReady je pouze DRM v HW dostupná na zařízeních s Windows (PlayReady SL3000). Streamování služby můžete použít PlayReady prostřednictvím EME nebo aplikaci UWP a nabízí vyšší kvalitu videa pomocí PlayReady SL3000 než jiné DRM. Obvykle 2K obsahu budou procházet skrz Chrome nebo Firefox a 4K obsahu prostřednictvím Microsoft Edge/IE11 nebo aplikace UPW do stejného zařízení (v závislosti na nastavení služby a implementaci).
+Zaměřit se na zařízení se systémem Windows: PlayReady je pouze DRM v HW dostupná na zařízeních s Windows (PlayReady SL3000). Streamování služby můžete použít PlayReady prostřednictvím EME nebo aplikaci UWP a nabízí vyšší kvalitu videa pomocí PlayReady SL3000 než jiné DRM. Obvykle 2K obsah obtéká prostřednictvím Chrome nebo Firefox a 4K obsahu prostřednictvím Microsoft Edge/IE11 nebo aplikace UPW do stejného zařízení (v závislosti na nastavení služby a implementaci).
 
 #### <a name="using-eme-for-widevine"></a>Použití EME pro Widevine
 Moderní prohlížeč s podporou EME nebo Widevine, jako je například Chrome 41 + na Windows 10, Windows 8.1, Mac OSX Yosemite a Chrome na Android bodu 4.4.4 je Google Widevine DRM za EME.
@@ -428,10 +428,10 @@ Všimněte si, že Widevine nebrání z provedení snímek obrazovky chráněné
 ### <a name="not-entitled-users"></a>Není nárok uživatelé
 Pokud uživatel není členem skupiny "Uživatelé s názvem", uživatel nebude možné předat "Kontrola nárocích" a více technologiemi DRM licenční služby bude odmítnout vydání licence, které jsou požadované, jak je uvedeno níže. Podrobný popis je "získat licenci se nezdařilo", což je tak, jak má.
 
-![Zrušení nárok uživatelé](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
+![Unentitled uživatelé](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
 ### <a name="running-custom-secure-token-service"></a>Spuštění vlastního tokenu služby Zabezpečené
-Scénář spuštěných vlastní zabezpečení tokenu služby (STS) JWT token bude vydat vlastní službu tokenů zabezpečení pomocí buď symetrický, nebo asymetrický klíč.
+Scénář spuštěných vlastní zabezpečení tokenu služby (STS) JWT token je vydaný vlastní službu tokenů zabezpečení pomocí buď symetrický, nebo asymetrický klíč.
 
 Případ použití symetrického klíče (pomocí chromu):
 
@@ -441,7 +441,7 @@ V případě pomocí asymetrického klíče prostřednictvím X509 certifikátu 
 
 ![Spuštění vlastní službu tokenů zabezpečení](./media/media-services-cenc-with-multidrm-access-control/media-services-running-sts2.png)
 
-V obou případech zůstává ověření uživatele stejný – prostřednictvím služby Azure AD. Jediným rozdílem je, že tokeny JWT vydal vlastní službu tokenů zabezpečení místo Azure AD. Samozřejmě, při konfiguraci ochrany dynamické šifrování CENC, omezení službu doručování licencí Určuje typ tokenu JWT, buď symetrický, nebo asymetrický klíč.
+V obou případech zůstává ověření uživatele stejný – prostřednictvím služby Azure AD. Jediným rozdílem je, že tokeny JWT vydal vlastní službu tokenů zabezpečení místo Azure AD. Při konfiguraci ochrany dynamické šifrování CENC, omezení službu doručování licencí Určuje typ tokenu JWT, buď symetrický, nebo asymetrický klíč.
 
 ## <a name="summary"></a>Souhrn
 V tomto dokumentu jsme probrali CENC s více native DRM a řízení přístupu prostřednictvím tokenu ověřování: návrh a jeho implementace pomocí Azure, Azure Media Services a Azure Media Player.

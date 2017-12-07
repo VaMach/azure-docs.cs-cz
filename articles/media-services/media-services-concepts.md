@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-concepts"></a>Koncepty Azure Media Services
 Toto téma poskytuje přehled konceptů nejdůležitější Media Services.
@@ -151,10 +151,9 @@ Zásady autorizace klíče obsahu může mít jeden nebo více omezení autoriza
 Při konfiguraci token omezený zásad, musíte zadat klíč primární ověřování, vystavitele a cílová skupina parametry. Ověření primární klíč obsahuje klíč, který byl podepsaný token, Vystavitel je zabezpečený tokenu služba, která vydá token. Cílová skupina (někdy nazývané oboru) popisuje záměr tokenu nebo prostředek token povolí přístup k. Služba Media Services doručení klíče ověří, jestli tyto hodnoty v tokenu shodují s hodnotami v šabloně.
 
 Další informace najdete v následujících článcích:
-
-[Ochrana obsahu přehled](media-services-content-protection-overview.md)
-[chránit pomocí standardu AES-128](media-services-protect-with-aes128.md)
-[chránit pomocí DRM](media-services-protect-with-drm.md)
+- [Ochrana obsahu – přehled](media-services-content-protection-overview.md)
+- [Chránit pomocí standardu AES-128](media-services-protect-with-aes128.md)
+- [Chránit pomocí PlayReady nebo Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Doručování
 ### <a id="dynamic_packaging"></a>Dynamické balení

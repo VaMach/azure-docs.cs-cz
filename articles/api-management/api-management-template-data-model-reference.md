@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referenční model dat šablony Azure API Management
 Toto téma popisuje reprezentace entitu a typ pro běžné položky použít v modelech dat pro vývojáře šablony portálu v Azure API Management.  
@@ -149,7 +149,7 @@ Toto téma popisuje reprezentace entitu a typ pro běžné položky použít v m
   
 |Vlastnost|Typ|Popis|  
 |--------------|----------|-----------------|  
-|vzor|Řetězec|Aktuální hledaný termín; nebo `null` Pokud neexistuje žádný hledaný termín.|  
+|Vzor|Řetězec|Aktuální hledaný termín; nebo `null` Pokud neexistuje žádný hledaný termín.|  
 |Zástupný symbol|Řetězec|Text, který zobrazit do vyhledávacího pole, pokud neexistuje žádný hledaný termín, který je zadán.|  
   
 ##  <a name="Header"></a>Záhlaví  
@@ -332,7 +332,7 @@ Toto téma popisuje reprezentace entitu a typ pro běžné položky použít v m
 |DelegationEnabled|Logická hodnota|Jestli je povolené delegované přihlášení.|  
 |DelegationUrl|Řetězec|Delegované přihlašovací adresa url, pokud je povoleno.|  
 |SsoSignUpUrl|Řetězec|Jednotné přihlašování adresu URL pro uživatele, pokud je k dispozici.|  
-|AuxServiceUrl|Řetězec|Pokud má aktuální uživatel je správce, toto je odkaz na instanci služby v portálu Azure Classic.|  
+|AuxServiceUrl|Řetězec|Pokud má aktuální uživatel je správce, toto je odkaz na instanci služby na portálu Azure.|  
 |Poskytovatelé|Kolekce [zprostředkovatele](#Provider) entity|Zprostředkovatelé ověřování pro tohoto uživatele.|  
 |UserRegistrationTerms|Řetězec|Podmínky, které uživatel musí vyjádřit souhlas s před přihlášením.|  
 |UserRegistrationTermsEnabled|Logická hodnota|Jestli jsou povolené podmínky.|  

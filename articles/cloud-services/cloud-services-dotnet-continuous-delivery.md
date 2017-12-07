@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: kraigb
-ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 470fda7722e6a22e50ed66a7bc193fc7c9f71536
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Nastavené průběžné doručování pro cloudové služby v Azure
 Proces popsaný v tomto článku se dozvíte, jak nastavit průběžné doručování Azure cloudových aplikací. Po každém vrácení kódu se změnami vám tento proces umožní automaticky vytvořit balíčky a nasadit balíček do Azure. Proces sestavení balíčku, který je popsaný v tomto článku je ekvivalentní **balíček** příkaz v sadě Visual Studio a publikování kroky jsou rovnocenná **publikovat** příkazu v sadě Visual Studio.
@@ -96,7 +96,7 @@ Pokud chcete konfigurovat TFS sestavovat balíčky, Azure, proveďte následují
 ## <a name="4-publish-a-package-using-a-powershell-script"></a>4: publikování balíčku pomocí skriptu prostředí PowerShell
 Tato část popisuje, jak vytvořit skript prostředí Windows PowerShell, která bude publikovat balíček výstup cloudové aplikace do Azure pomocí volitelné parametry. Tento skript je možné volat po kroku sestavení ve vaší vlastní sestavovací automation. Také může být volána z aktivit pracovního postupu šablonu procesu v sestavení Team TFS s Visual Studio.
 
-1. Nainstalujte [rutin prostředí Azure PowerShell] [ Azure PowerShell cmdlets] (v0.6.1 nebo vyšší).
+1. Nainstalujte [rutin prostředí Azure PowerShell][Azure PowerShell cmdlets] (v0.6.1 nebo vyšší).
    Během fáze instalace rutiny zvolte instalaci jako modul snap-in. Všimněte si, že tato oficiálně podporované verze nahrazuje starší verze nabízeným přes webu CodePlex, i když bylo předchozí verze číslované 2.x.x.
 2. Otevřete prostředí Azure PowerShell pomocí nabídky Start nebo úvodní stránka. Pokud spustíte tímto způsobem, budou načteny rutin prostředí Azure PowerShell.
 3. Do příkazového řádku Powershellu, ověřte, zda jsou načteny rutin prostředí PowerShell zadáním příkazu částečné `Get-Azure` a stisknutím klávesy tabulátor pro dokončování.
@@ -310,7 +310,7 @@ Tento volitelný krok připojí TFS Team od sestavení k skript vytvořený v kr
 12. Fronta sestavení ke spouštění balíčku sestavení a publikování. Pokud je nastavena na průběžnou integraci aktivační událost, provede toto chování na každý vrácení se změnami.
 
 ### <a name="publishcloudserviceps1-script-template"></a>Šablona PublishCloudService.ps1 skriptu
-```
+```powershell
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -522,7 +522,6 @@ Chcete-li povolit vzdálené ladění při použití nastavené průběžné dor
 [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
 [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
 [Azure PowerShell cmdlets]: /powershell/azureps-cmdlets-docs
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
 [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
 [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
 [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

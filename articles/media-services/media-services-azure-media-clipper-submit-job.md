@@ -9,16 +9,20 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a142648793f934e939be26378504c19facf40e1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Odesílání úloh výstřižek z média výřez Azure
 Vyžaduje Azure výřez média **submitSubclipCallback** metody k implementaci pro zpracování výstřižek úlohy odeslání. Tato funkce je pro implementaci HTTP POST výstupu výřez k webové službě. Tato webová služba je, kde můžete odeslat úlohy kódování. Výstup výřez je buď Media Encoder Standard kódování přednastavených vykreslené úloh nebo REST API datové části pro dynamické manifestu filtrovat volání. Tento model průchozí je nutné, protože přihlašovací údaje účtu media services nejsou zabezpečené v prohlížeči klienta.
 
-Následující příklad kódu ukazuje ukázku **submitSubclipCallback** metoda. V této metodě implementovat HTTP POST MES kódování předvolby. Pokud byl úspěšný v příspěvku (**výsledek**), **Promise** vyřešen, jinak se odmítne kvůli podrobnosti o chybě.
+Následující diagram pořadí znázorňuje pracovní postup mezi klienta prohlížeče, webové služby a služby Azure Media Services: ![Azure Media výřez pořadí Diagram](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+
+Na předchozím obrázku jsou čtyři entity: koncového uživatele prohlížeče, webové služby, koncový bod CDN hostování výřez prostředků a Azure Media Services. Když koncový uživatel přejde na webové stránce, získá stránce výřez JavaScript a CSS prostředky z hostitelských koncového bodu CDN. Koncový uživatel nakonfiguruje úloha výstřižek nebo volání vytvoření dynamické manifestu filtru ze svého prohlížeče. Když koncový uživatel odešle volání vytvoření úlohy nebo filtr, uloží prohlížeče datové části úlohy k webové službě, která je nutné nasadit. Tato webová služba nakonec předá úlohu výstřižek nebo volání Vytvoření filtru k Azure Media Services pomocí médiu služeb přihlašovací údaje účtu.
+
+Následující příklad kódu ukazuje ukázku **submitSubclipCallback** metoda. V této metodě implementovat HTTP POST Media Encoder Standard kódování předvolby. Pokud byl úspěšný v příspěvku (**výsledek**), **Promise** vyřešen, jinak se odmítne kvůli podrobnosti o chybě.
 
 ```javascript
 // Submit Subclip Callback
@@ -49,9 +53,11 @@ var subclipper = new subclipper({
     submitSubclipCallback: onSubmitSubclip,
 });
 ```
-Výstup úlohy odeslání je buď MES kódování přednastavených vykreslené úlohy nebo REST API datové části pro dynamické filtry manifestu.
+Výstup úlohy odeslání je buď Media Encoder Standard přednastavení kódování pro vykreslené úlohu nebo REST API datové části pro dynamické filtry manifestu.
 
-## <a name="rendered-output"></a>Vygenerovaný výstup
+## <a name="submitting-encoding-job-to-create-video"></a>Odeslání úlohy kódování, chcete-li vytvořit video
+Můžete odeslat Media Encoder Standard úlohy kódování vytvořit přesný snímek video klip. Kódování úlohy produktu vykresluje videa, nový fragmentované souboru MP4.
+
 Kontrakt výstup úlohy vykreslené výstřižek je objekt JSON s následujícími vlastnostmi:
 
 ```json
@@ -145,8 +151,10 @@ Kontrakt výstup úlohy vykreslené výstřižek je objekt JSON s následující
 }
 ```
 
-## <a name="filter-output"></a>Filtrování výstupu
-Výstup kontrakt výstřižek filtru je objekt JSON s následujícími vlastnostmi:
+K provedení úlohy kódování, odeslání Media Encoder Standard úlohy kódování s přidruženého přednastavení. Najdete v tomto článku podrobnosti o odesílání kódování úlohy pomocí [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) nebo [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+
+## <a name="quickly-creating-video-clips-without-encoding"></a>Rychlé vytváření videosoubory bez kódování
+Alternativa k vytváření úlohu kódování, můžete použít výřez Azure Media k vytvoření manifestu dynamické filtry. Filtry nevyžadují kódování a můžete se rychle vytvořit, protože není vytvořen nový prostředek. Výstup kontrakt výstřižek filtru je objekt JSON s následujícími vlastnostmi:
 
 ```json
 {
@@ -218,3 +226,5 @@ Výstup kontrakt výstřižek filtru je objekt JSON s následujícími vlastnost
   }
 }
 ```
+
+Pokud chcete odeslat volání REST za účelem vytvoření dynamického manifestu filtru, odeslání pomocí datové části přidružené filtru [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).

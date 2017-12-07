@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.openlocfilehash: 948693c8501ecc46a1508e5ea085846d0910783e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fcd78eaa0c5b09b70aa973466a34556fff56071
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-app"></a>Volání rozhraní Microsoft Graph API z aplikace pro iOS
 
@@ -45,9 +45,9 @@ Rozhraní API, jako je například Microsoft Graph vyžadují token přístupu u
 MSAL spravuje ukládání do mezipaměti a aktualizaci přístupových tokenů, aby vaše aplikace nemusí.
 
 
-### <a name="nuget-packages"></a>Balíčky NuGet
+### <a name="libraries"></a>Knihovny
 
-Tato příručka používá následující balíčky NuGet:
+Tato příručka používá následující knihovny:
 
 |Knihovna|Popis|
 |---|---|

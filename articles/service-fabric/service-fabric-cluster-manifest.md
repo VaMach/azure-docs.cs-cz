@@ -12,40 +12,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Nastavení konfigurace pro samostatné clusteru se systémem Windows
-Tento článek popisuje postup konfigurace clusteru s podporou samostatné Azure Service Fabric pomocí souboru souboru ClusterConfig.JSON. Tento soubor můžete zadat informace, jako je Service Fabric uzlů a jejich IP adresy a různé typy uzlů v clusteru. Konfigurace zabezpečení, jakož i topologie sítě z hlediska selhání nebo upgradovat domény můžete zadat také pro váš cluster samostatné.
+Tento článek popisuje postup konfigurace clusteru s podporou samostatné Azure Service Fabric pomocí souboru souboru ClusterConfig.json. Tento soubor použijete k zadání informací o uzly clusteru, konfigurace zabezpečení, jakož i topologie sítě z hlediska selhání a upgradu domény.
 
-Pokud jste [Stáhnout balíček Service Fabric samostatné](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), několik ukázky souboru ClusterConfig.JSON souboru se stáhnou do počítače pracovní. Ukázky, které jsou v jejich názvy DevCluster vám pomůže vytvořit cluster s všechny tři uzly na stejném počítači, jako jsou logické uzly. Mimo tyto uzly alespoň jeden musí být označen jako primárního uzlu. Tento cluster je užitečné pro vývojové nebo testovací prostředí. Není podporováno jako provozní cluster. Ukázky, které jsou v jejich názvy MultiMachine vám pomůže vytvořit cluster s podporou produkční kvality s každý uzel na samostatný počítač. Počet uzlů primární pro tyto clustery je založen na [úroveň spolehlivosti](#reliability). Ve verzi 5.7 verze rozhraní API 05-2017 jsme odebrali vlastnost úroveň spolehlivosti. Místo toho našem kódu, vypočítá úroveň spolehlivosti nejvíce optimalizované pro váš cluster. Tato vlastnost nepoužívejte v kódu 5.7 nebo novější verze.
+Pokud jste [Stáhnout balíček Service Fabric samostatné](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), souboru ClusterConfig.json ukázky jsou také zahrnuté. Ukázky, které jsou v jejich názvy "DevCluster" Vytvoření clusteru s všechny tři uzly na stejném počítači, pomocí logických uzlů. Mimo tyto uzly alespoň jeden musí být označen jako primárního uzlu. Tento typ clusteru je užitečné pro vývoj nebo testovací prostředí. Není podporováno jako provozní cluster. Ukázky, které jsou v jejich názvy "MultiMachine" pomoci vytvořit produkční úrovni clustery s každý uzel na samostatný počítač. Počet uzlů primární pro tyto clustery je založen na clusteru [úroveň spolehlivosti](#reliability). Ve verzi 5.7, verze rozhraní API 05-2017, jsme odebrali vlastnost úroveň spolehlivosti. Místo toho našem kódu, vypočítá úroveň spolehlivosti nejvíce optimalizované pro váš cluster. Nepokoušejte se nastavit hodnotu pro tuto vlastnost ve verzích 5.7 a vyšší.
 
 
-* ClusterConfig.Unsecure.DevCluster.JSON a ClusterConfig.Unsecure.MultiMachine.JSON ukazují, jak vytvořit testovací zabezpečená nebo provozní cluster.
+* ClusterConfig.Unsecure.DevCluster.json a ClusterConfig.Unsecure.MultiMachine.json ukazují, jak vytvořit testovací zabezpečená nebo provozní cluster.
 
-* ClusterConfig.Windows.DevCluster.JSON a ClusterConfig.Windows.MultiMachine.JSON ukazují, jak vytvořit testovací nebo produkční clustery, které jsou zabezpečené pomocí [zabezpečení systému Windows](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json a ClusterConfig.Windows.MultiMachine.json ukazují, jak vytvořit testovací nebo produkční clustery, které jsou zabezpečené pomocí [zabezpečení systému Windows](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.JSON a ClusterConfig.X509.MultiMachine.JSON ukazují, jak vytvořit testovací nebo produkční clustery, které jsou zabezpečené pomocí [X509 zabezpečení na základě certifikátu](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json a ClusterConfig.X509.MultiMachine.json ukazují, jak vytvořit testovací nebo produkční clustery, které jsou zabezpečené pomocí [X509 zabezpečení na základě certifikátu](service-fabric-windows-cluster-x509-security.md).
 
-Teď se podíváme na různé části souboru souboru ClusterConfig.JSON.
+Teď se podíváme na různé části souboru souboru ClusterConfig.json.
 
 ## <a name="general-cluster-configurations"></a>Konfigurace obecných clusteru
 Konfigurace obecných clusteru zahrnují široké konfigurace specifických pro cluster, jak je znázorněno v následujícím fragmentu kódu JSON:
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 Přiřazením název proměnné, můžete zajistit libovolný popisný název pro váš cluster Service Fabric. ClusterConfigurationVersion je číslo verze vašeho clusteru. Pokaždé, když upgradujete cluster Service Fabric, zvýšit jeho. Ponechte apiVersion sadu na výchozí hodnotu.
 
+## <a name="nodes-on-the-cluster"></a>Uzly v clusteru
+
     <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>Uzly v clusteru
 Můžete nakonfigurovat uzly v clusteru Service Fabric pomocí části uzly jako následující fragment kódu ukazuje:
 
     "nodes": [{
@@ -79,12 +82,12 @@ Cluster Service Fabric musí obsahovat alespoň tři uzly. Do této části mů�
 | upgradeDomain |Domén upgradu popisují sadu uzlů, které jsou vypnuté upgradů Service Fabric v přibližně ve stejnou dobu. Uzlů, které přiřadit které upgradu domény, můžete vybrat, protože nejsou omezeny všechny fyzické požadavky. |
 
 ## <a name="cluster-properties"></a>Vlastnosti clusteru
-V části vlastnosti v souboru ClusterConfig.JSON slouží ke konfiguraci clusteru, jak je znázorněno:
-
-    <a id="reliability"></a>
+V části vlastnosti v souboru ClusterConfig.json slouží ke konfiguraci clusteru, jak je znázorněno:
 
 ### <a name="reliability"></a>Spolehlivost
 Koncept reliabilityLevel definuje počet replik nebo instancí systémových služeb Service Fabric, které můžou běžet na primární uzlů v clusteru. Určuje spolehlivost tyto služby a proto clusteru. Hodnota je vypočítána systému v době vytváření a upgrade clusteru.
+
+    <a id="reliability"></a>
 
 ### <a name="diagnostics"></a>Diagnostika
 V části diagnosticsStore můžete nakonfigurovat parametry, které umožňují diagnostiku a řešení potíží s selhání uzlu nebo clusteru, jak je znázorněno v následujícím fragmentu kódu: 
@@ -119,9 +122,10 @@ Je nezbytné pro cluster Service Fabric zabezpečené samostatné části zabezp
 
 Metadata popis zabezpečení clusteru a můžete nastavit podle vašeho nastavení. ClusterCredentialType a ServerCredentialType Určuje typ zabezpečení, které cluster a uzly implementovat. Se může být nastaven na hodnotu *X509* pro zabezpečení na základě certifikátů nebo *Windows* pro zabezpečení na základě Azure Active Directory. Zbývající část zabezpečení je založený na typu zabezpečení. Informace o tom, jak vyplnění zbývající části zabezpečení najdete v tématu [zabezpečení na základě certifikátů v clusteru s podporou samostatné](service-fabric-windows-cluster-x509-security.md) nebo [zabezpečení systému Windows v clusteru s podporou samostatné](service-fabric-windows-cluster-windows-security.md).
 
+### <a name="node-types"></a>Typy uzlů
+
     <a id="nodetypes"></a>
 
-### <a name="node-types"></a>Typy uzlů
 NodeTypes část popisuje typ uzlů, které má váš cluster. Je třeba zadat alespoň jeden uzel typ pro cluster, jak je znázorněno v následujícím fragmentu kódu: 
 
     "nodeTypes": [{
@@ -197,5 +201,5 @@ Povolení podpory kontejner pro Windows Server kontejnery a kontejnery technolog
 
 
 ## <a name="next-steps"></a>Další kroky
-Po dokončení soubor souboru ClusterConfig.JSON nakonfigurovaný podle vaší samostatné nastavení clusteru, můžete nasadit cluster. Postupujte podle kroků v [vytvořit cluster Service Fabric samostatné](service-fabric-cluster-creation-for-windows-server.md). Pak pokračujte s [vizualizace clusteru pomocí Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) a postupujte podle pokynů.
+Po dokončení soubor souboru ClusterConfig.json nakonfigurovaný podle vaší samostatné nastavení clusteru, můžete nasadit cluster. Postupujte podle kroků v [vytvořit cluster Service Fabric samostatné](service-fabric-cluster-creation-for-windows-server.md). Pak pokračujte s [vizualizace clusteru pomocí Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) a postupujte podle pokynů.
 

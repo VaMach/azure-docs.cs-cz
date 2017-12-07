@@ -4,9 +4,9 @@ Azure pravidelně provádí aktualizace ke zlepšení spolehlivosti, výkonu a z
 
 - Pokud údržby vyžaduje restartování, zobrazí oznámení o při plánované údržby. V těchto případech budete také mít k dispozici časový interval, kde můžete spustit údržby sami, v čase, který vám vyhovuje.
 
-Tato stránka popisuje, jak Microsoft Azure provádí oba typy údržby. Další informace o neplánované události (výpadků) najdete v tématu Správa dostupnosti virtuálních počítačů [Windows] (../articles/virtual-machines/windows/manage-availability.md) nebo [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Tato stránka popisuje, jak Microsoft Azure provádí oba typy údržby. Další informace o neplánované události (výpadků) najdete v tématu Správa dostupnosti virtuálních počítačů [Windows] (.. / articles/virtual-machines/windows/manage-availability.md) nebo [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Aplikace běžící na virtuálním počítači může shromažďovat informace o nadcházejících aktualizace pomocí služby Azure Metadata pro [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) nebo [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+Aplikace běžící na virtuálním počítači může shromažďovat informace o nadcházejících aktualizace pomocí služby Azure Metadata pro [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) nebo [Linux] (.. / articles/virtual-machines/linux/instance-metadata-service.md).
 
 "Jak na to" informace na správu plánované maintence najdete v tématu "Zpracování plánované údržby oznámení" pro [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) nebo [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
@@ -47,4 +47,4 @@ V rámci skupiny dostupnosti jednotlivé virtuální počítače jsou rozloženy
 
 Sady škálování virtuálního počítače se Azure výpočtový prostředek, který umožňuje nasadit a spravovat sadu identické virtuální počítače jako jeden prostředek. Sada škálování je automaticky nasadí napříč doménami aktualizace, jako jsou virtuální počítače v nastavení dostupnosti. Stejně jako s skupiny dostupnosti s sady škálování pouze jednu aktualizaci doméně ovlivní v každém okamžiku.
 
-Další informace o konfiguraci virtuálních počítačů pro vysokou dostupnost, najdete v části Správa dostupnosti virtuálních počítačů pro Windows (../articles/virtual-machines/windows/manage-availability.md) nebo [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Další informace o konfiguraci virtuálních počítačů pro vysokou dostupnost, najdete v části Správa dostupnosti virtuálních počítačů pro [Windows](../articles/virtual-machines/windows/manage-availability.md) nebo [Linux](../articles/virtual-machines/linux/manage-availability.md).

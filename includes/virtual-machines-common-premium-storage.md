@@ -26,7 +26,7 @@ Začít s Storage úrovně Premium, [vytvořit účet Azure zdarma](https://azur
 Informace o migraci stávající virtuální počítače do úložiště úrovně Premium najdete v tématu [převést virtuální počítač s Windows z disků nespravované na spravované disky](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) nebo [převeďte virtuální počítač s Linuxem z disků nespravované na spravované disky](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
-> Storage úrovně Premium je k dispozici ve většině oblastí. Pro seznam dostupných oblastí v [služby Azure podle oblasti](https://azure.microsoft.com/regions/#services), podívejte se na oblasti, ve kterém podporované virtuální počítače velikost řady podporu Premium (DS-series, DSV2-series, GS-series a virtuálních počítačů služby Fs-series) jsou podporovány.
+> Storage úrovně Premium je k dispozici ve většině oblastí. Seznam dostupných oblastí najdete v části řádek pro **diskového úložiště** v [Azure produkty podle oblasti](https://azure.microsoft.com/regions/#services).
 > 
 
 ## <a name="features"></a>Funkce

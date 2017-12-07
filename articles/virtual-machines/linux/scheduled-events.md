@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 2df39c64470e28bdf664d388041ae1b17d80db69
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 763e690cac06fc321f7d1f873da7405c44c02b80
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Služba Azure Metadata: Naplánované události (Preview) pro virtuální počítače s Linuxem
 
@@ -87,7 +87,7 @@ Při dotazu Metadata služby, je nutné zadat hlavičku `Metadata:true` zajistit
 Při prvním může požádat o naplánované události Azure implicitně povolí funkci na virtuálním počítači. V důsledku toho byste měli očekávat zpožděné odpovědi v první volání až dvě minuty.
 
 > [!NOTE]
-> Naplánované události je automaticky zakázaná pro vaši službu, pokud vaše služba nepodporuje volání koncový bod pro 1 den. Po naplánované události je zakázán pro služby, nebude existovat události vytvořené za účelem údržby inicializované uživatelem.
+> Naplánované události je automaticky zakázaná pro vaši službu, pokud vaše služba nepodporuje volání koncový bod pro 1 den. Po naplánované události je zakázán pro služby, budou existovat žádné události vytvořené za účelem údržby inicializované uživatelem.
 
 ### <a name="user-initiated-maintenance"></a>Údržby iniciované uživatelem
 Uživatel spustil údržby virtuálního počítače prostřednictvím portálu Azure, rozhraní API, rozhraní příkazového řádku, nebo prostředí PowerShell, které jsou výsledkem plánovaná událost. To umožňuje otestovat logiku přípravy údržby v aplikaci a umožňuje aplikaci připravit pro údržbu inicializované uživatelem.

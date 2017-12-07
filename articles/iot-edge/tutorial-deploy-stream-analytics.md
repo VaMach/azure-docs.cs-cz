@@ -9,84 +9,109 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5a143bbf7abb5304ac51782d517c02ec184a05a2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6cf8e2469a6fe6bac0db6caf9acb182a6349096f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Nasazení služby Azure Stream Analytics jako modul IoT Edge – náhled
 
-Zařízení IoT může vytvářet velké objemy dat. Tato data v některých případech může být analyzován nebo zpracovaných před dosažením cloudu ke snížení velikosti odeslaná data nebo omezit čekací doba přenosu řešitelné přehledu.
+Zařízení IoT může vytvářet velké objemy dat. Ke snížení objemu odeslaná data nebo omezit čekací doba přenosu řešitelné přehledu data někdy analyzovat nebo zpracovat předtím, než dorazí do cloudu.
 
-Okraj IoT využívá předdefinovaných Azure služby IoT Edge modulů pro rychlé nasazení a [Azure Stream Analytics] [ azure-stream] (ASA) je jeden takový modul. Můžete vytvořit úlohu ASA z jeho portálu a pak se na portál služby IoT Hub a nasaďte ho jako modul Edge IoT.  
+Azure IoT Edge využívá výhod předdefinovaných služby Azure IoT Edge moduly pro rychlé nasazení. [Azure Stream Analytics] [ azure-stream] je jeden takový modul. Můžete vytvořit úlohu služby Azure Stream Analytics z jeho portálu a potom přejděte na portál Azure IoT Hub a nasaďte ho jako modul IoT okraj. 
 
-Azure Stream Analytics poskytuje syntaxe bohatě strukturovaných dotazů pro analýzu dat v cloudu i na IoT hraniční zařízení. Další informace o ASA hranu IoT najdete v tématu [ASA dokumentaci](../stream-analytics/stream-analytics-edge.md).
+Azure Stream Analytics poskytuje syntaxe bohatě strukturovaných dotazů pro analýzu dat v cloudu i na IoT hraniční zařízení. Další informace o Azure Stream Analytics hranu IoT najdete v tématu [dokumentace Azure Stream Analytics](../stream-analytics/stream-analytics-edge.md).
 
-Tento kurz vás provede procesem vytvoření úlohu služby Azure Stream Analytics a jeho nasazení na IoT hraniční zařízení pro zpracování datového proudu místní telemetrie přímo na zařízení a generování výstrah pro jednotku okamžitý zásah na zařízení.  Zahrnutých v tomto kurzu jsou dva moduly. Modul simulované teplotní snímač (tempSensor) generuje teploty data z 20 do 120 stupňů, zvýší o 1 každých 5 sekund. Modul služby Stream Analytics resetuje tempSensor dosáhne 70-průměru 30 sekund. V produkčním prostředí tato funkce může sloužit k vypnuté na počítači nebo přijmout preventivní opatření, když teplota dosáhne nebezpečná úrovně. 
+Tento kurz vás provede vytvořením úlohu služby Azure Stream Analytics a jeho nasazení na IoT hraniční zařízení. Tímto způsobem můžete zpracovat datový proud telemetrie místní přímo na zařízení a generování výstrah, jež řídí okamžitý zásah na zařízení. 
 
-Získáte informace o těchto tématech:
+Tento kurz představuje dva moduly: 
+* Simulované teplotní snímač modulu (tempSensor), který generuje teploty data z 20 do 120 stupňů, zvýší o 1 každých 5 sekund. 
+* Stream Analytics modul, který resetuje tempSensor dosáhne 70-průměru 30 sekund. V produkčním prostředí můžete použít tuto funkci vypnuté na počítači nebo přijmout preventivní opatření, když teplota dosáhne nebezpečná úrovně. 
+
+V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvořit úlohu ASA zpracováním dat na okraj
-> * Připojit nové úlohy ASA s další moduly IoT Edge
-> * Nasadit úlohy ASA IoT hraniční zařízení
+> * Vytvořte úlohu služby Azure Stream Analytics zpracováním dat na okraj.
+> * Připojte nové úlohy Azure Stream Analytics s další moduly IoT okraj.
+> * Nasaďte úlohu služby Azure Stream Analytics IoT hraniční zařízení.
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Centrum IoT 
-* Zařízení, které vytvoříte a nakonfigurujete v rychlý start nebo v nasazení Azure IoT Edge om simulované zařízení v [Windows] [ lnk-tutorial1-win] a [Linux] [ lnk-tutorial1-lin]. Je nutné znát klíč připojení zařízení a ID zařízení. 
-* Docker spuštění na vašem zařízení IoT Edge
-    * [Nainstalujte Docker v systému Windows][lnk-docker-windows]
-    * [Nainstalujte Docker v systému Linux][lnk-docker-linux]
-* Python 2.7.x na vašem zařízení IoT Edge
+* Centrum IoT. 
+* Zařízení, které jste vytvořili a nakonfigurovat v rychlé spuštění, nebo v článcích o nasazení v simulovaném zařízení v Azure IoT Edge [Windows] [ lnk-tutorial1-win] nebo v [Linux] [ lnk-tutorial1-lin]. Je nutné znát klíč připojení zařízení a ID zařízení. 
+* Docker spuštění na vašem zařízení IoT okraj.
+    * [V systému Windows nainstalujte Docker][lnk-docker-windows].
+    * [Nainstalujte Docker v systému Linux][lnk-docker-linux].
+* Python 2.7.x na vašem zařízení IoT okraj.
     * [Instalace jazyka Python 2.7 v systému Windows][lnk-python].
-    * Většina Linuxových distribucích, včetně Ubuntu, už máte Python 2.7 nainstalována.  Použijte následující příkaz a ujistěte se, je nainstalována pip: `sudo apt-get install python-pip`.
+    * Většina Linuxových distribucích, včetně Ubuntu, už máte Python 2.7 nainstalována. Chcete-li zkontrolujte, zda je nainstalován pip, použijte následující příkaz: `sudo apt-get install python-pip`.
 
+## <a name="create-an-azure-stream-analytics-job"></a>Umožňuje vytvořit úlohu služby Azure Stream Analytics
 
-## <a name="create-an-asa-job"></a>Umožňuje vytvořit úlohu služby ASA
-
-V této části můžete vytvořit úlohu služby Azure Stream Analytics využít data ze služby IoT hub, dotaz odeslaný telemetrická data ze zařízení a předávat výsledky do Azure Storage kontejneru (BLOB). Další informace najdete v tématu **přehled** části [Stream Analytics dokumentaci][azure-stream]. 
+V této části můžete vytvořit úlohu služby Azure Stream Analytics využít data ze služby IoT hub, dotaz odeslaný telemetrická data ze zařízení a pak je odeslat výsledky do kontejner úložiště objektů Blob v Azure. Další informace najdete v části "Přehled" [Stream Analytics dokumentaci][azure-stream]. 
 
 ### <a name="create-a-storage-account"></a>vytvořit účet úložiště
 
-Účet služby Azure Storage je nutné k zajištění koncový bod má být použit jako výstup ve vaší úloze ASA. Následující příklad používá typ úložiště objektů BLOB.  Další informace najdete v tématu **objekty BLOB** části [dokumentaci pro Azure Storage][azure-storage].
+Účet služby Azure Storage je nutné k zajištění koncový bod má být použit jako výstup ve vaší úloze Azure Stream Analytics. Příklad v této části používá typ úložiště objektů Blob. Další informace najdete v části "Objekty BLOB" [dokumentaci pro Azure Storage][azure-storage].
 
-1. Na portálu Azure přejděte do **vytvořit prostředek** a zadejte `Storage account` v panelu vyhledávání. Vyberte **účet úložiště – objekt blob, soubor, tabulka, fronta**.
+1. V portálu Azure přejděte do **vytvořit prostředek**, zadejte **účet úložiště** v vyhledávacího pole a potom vyberte **účet úložiště – objekt blob, soubor, tabulka, fronta**.
 
-2. Zadejte název účtu úložiště a vyberte stejné umístění, kde se nachází služby IoT hub. Klikněte na možnost **Vytvořit**. Pamatujte název pro pozdější.
+2. V **vytvořit účet úložiště** podokně, zadejte název účtu úložiště, vyberte stejné umístění, kde jsou uložené služby IoT hub a potom vyberte **vytvořit**. Poznamenejte si název pro pozdější použití.
 
-    ![Nový účet úložiště][1]
+    ![vytvořit účet úložiště][1]
 
-3. Přejděte na účet úložiště, kterou jste právě vytvořili. Klikněte na tlačítko **procházet objekty BLOB**. 
-4. Vytvořte nový kontejner pro modul ASA ukládat data. Nastavení přístupu na úrovni **kontejneru**. Klikněte na **OK**.
+3. Přejděte na účet úložiště, který jste právě vytvořili a pak vyberte **procházet objekty BLOB**. 
+
+4. Vytvořit nový kontejner pro modul Azure Stream Analytics k ukládání dat, nastavení přístupu na úrovni **kontejneru**a potom vyberte **OK**.
 
     ![Nastavení úložiště][10]
 
 ### <a name="create-a-stream-analytics-job"></a>Vytvoření úlohy Stream Analytics
 
-1. Na portálu Azure přejděte do **vytvořit prostředek** > **Internet věcí** a vyberte **úlohy Stream Analytics**.
+1. V portálu Azure přejděte do **vytvořit prostředek** > **Internet věcí**a potom vyberte **úlohy Stream Analytics**.
 
-2. Zadejte název, vyberte **Edge** jako hostitelské prostředí a použít zbývající výchozí hodnoty.  Klikněte na možnost **Vytvořit**.
+2. V **nové úlohy Stream Analytics** podokně, postupujte takto:
 
-    >[!NOTE]
-    >Úlohy ASA IoT hranu nejsou aktuálně podporované v oblasti západní USA 2. 
+    a. V **název úlohy** zadejte název úlohy.
+    
+    b. V části **hostitelské prostředí**, vyberte **Edge**.
+    
+    c. Zbývající pole použijte výchozí hodnoty.
 
-3. Přejděte do vytvořené úlohy. Vyberte **vstupy** klikněte **přidat**.
+    > [!NOTE]
+    > Úlohy Azure Stream Analytics IoT hranu nejsou aktuálně podporované v oblasti západní USA 2. 
 
-4. Alias vstupu zadejte `temperature`, nastavte typ zdroje **datový proud**a použijte výchozí nastavení pro ostatní parametry. Klikněte na možnost **Vytvořit**.
+3. Vyberte **Vytvořit**.
 
-   ![Vstup ASA](./media/tutorial-deploy-stream-analytics/asa_input.png)
+4. Ve vytvořené úloze pod **úlohy topologie**, vyberte **vstupy**a potom vyberte **přidat**.
 
-5. Vyberte **výstupy** klikněte **přidat**.
+5. V **nové vstup** podokně, postupujte takto:
 
-6. Alias pro výstup zadejte `alert`a použijte výchozí nastavení pro ostatní parametry. Klikněte na možnost **Vytvořit**.
+    a. V **vstupní alias** zadejte **teploty**.
+    
+    b. V **typ zdroje** vyberte **datový proud**.
+    
+    c. Zbývající pole použijte výchozí hodnoty.
 
-   ![Výstup ASA](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure Stream Analytics vstup](./media/tutorial-deploy-stream-analytics/asa_input.png)
+
+6. Vyberte **Vytvořit**.
+
+7. V části **úlohy topologie**, vyberte **výstupy**a potom vyberte **přidat**.
+
+8. V **nový výstupní** podokně, postupujte takto:
+
+    a. V **alias pro výstup** zadejte **výstraha**.
+    
+    b. Zbývající pole použijte výchozí hodnoty. 
+    
+    c. Vyberte **Vytvořit**.
+
+   ![Výstup Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 
-7. Vyberte **dotazu**.
-8. Výchozí text nahraďte následující dotaz:
+9. V části **úlohy topologie**, vyberte **dotazu**a výchozí text nahraďte následující dotaz:
 
     ```sql
     SELECT  
@@ -98,30 +123,43 @@ V této části můžete vytvořit úlohu služby Azure Stream Analytics využí
     GROUP BY TumblingWindow(second,30) 
     HAVING Avg(machine.temperature) > 70
     ```
-9. Klikněte na **Uložit**.
+
+10. Vyberte **Uložit**.
 
 ## <a name="deploy-the-job"></a>Úloha nasazení
 
-Nyní jste připraveni k nasazení úlohy ASA na vašem zařízení IoT okraj.
+Nyní jste připraveni k nasazení úlohy Azure Stream Analytics na vašem zařízení IoT okraj.
 
-1. Na portálu Azure ve službě IoT hub, přejděte na **IoT okraj (preview)** a otevřete stránku podrobností pro vaše zařízení IoT okraj.
-1. Vyberte **nastavit moduly**.
-1. Pokud jste předtím nasadili modul tempSensor na tomto zařízení, může autopopulate. Pokud ne, použijte následující postup přidání tohoto modulu:
-   1. Klikněte na tlačítko **přidání okraj IoT modulu**
-   1. Zadejte `tempSensor` jako název, a `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` pro identifikátor URI bitové kopie. 
-   1. Další nastavení nezměníte a klikněte na tlačítko **Uložit**.
-1. Chcete-li přidat úlohu ASA Edge, vyberte **Import Azure Stream Analytics IoT Edge Module**.
-1. Vyberte předplatné a úlohy ASA okraj, který jste vytvořili. 
-1. Vyberte předplatné a účet úložiště, který jste vytvořili. Klikněte na **Uložit**.
+1. Na portálu Azure ve službě IoT hub, přejděte na **IoT okraj (preview)**a pak otevřete stránku podrobností pro vaše zařízení IoT okraj.
+
+2. Vyberte **nastavit moduly**.  
+    Pokud jste předtím nasadili modul tempSensor na tomto zařízení, může být autopopulate. Pokud není, přidejte modul následujícím způsobem:
+
+   a. Vyberte **přidání okraj IoT modulu**.
+
+   b. Pro název, typ **tempSensor**.
+    
+   c. Pro bitovou kopii identifikátor URI, zadejte **microsoft azureiotedge-simulated teploty-senzor: 1.0-preview**. 
+
+   d. Nechte ostatní nastavení beze změny.
+   
+   e. Vyberte **Uložit**.
+
+3. Chcete-li přidat úlohu Azure Stream Analytics Edge, vyberte **Import Azure Stream Analytics IoT Edge Module**.
+
+4. Vyberte předplatné a úlohy Azure Stream Analytics okraj, který jste vytvořili. 
+
+5. Vyberte předplatné a účet úložiště, který jste vytvořili a potom vyberte **Uložit**.
 
     ![Sada modulu][6]
 
-1. Název, který byl automaticky vygenerován pro modul ASA zkopírujte. 
+6. Zkopírujte název, který se automaticky vygeneroval pro modul Azure Stream Analytics. 
 
     ![teplotní modulu][11]
 
-1. Klikněte na tlačítko **Další** nakonfigurovat trasy.
-1. Zkopírujte následující příkaz pro **trasy**.  Nahraďte _{moduleName}_ s názvem modulu, který jste zkopírovali:
+7. Pokud chcete nakonfigurovat směrování, vyberte **Další**.
+
+8. Zkopírujte následující kód do **trasy**. Nahraďte _{moduleName}_ s názvem modulu, který jste zkopírovali:
 
     ```json
     {
@@ -134,19 +172,20 @@ Nyní jste připraveni k nasazení úlohy ASA na vašem zařízení IoT okraj.
     }
     ```
 
-1. Klikněte na **Další**.
+9. Vyberte **Další**.
 
-1. V **šablona kontrolní** krok, klikněte na tlačítko **odeslání**.
+10. V **šablona kontrolní** krok, vyberte **odeslání**.
 
-1. Vraťte se na stránce s podrobnostmi o zařízení a klikněte na tlačítko **aktualizovat**.  Byste měli vidět nového modulu Stream Analytics společně s **IoT Edge agenta** modulu a **IoT Edge hub**.
+11. Vraťte se na stránce s podrobnostmi o zařízení a potom vyberte **aktualizovat**.  
+    Měli byste vidět nového modulu Stream Analytics spuštěna, společně s modul agenta IoT okraj a okraj IoT hub.
 
     ![výstup modulu][7]
 
 ## <a name="view-data"></a>Zobrazení dat
 
-Nyní můžete přejít na zařízení IoT Edge rezervovat interakce mezi modul ASA a modul tempSensor.
+Nyní můžete přejít na zařízení IoT Edge rezervovat interakce mezi tempSensor modul a modulu Azure Stream Analytics.
 
-Zkontrolujte, zda jsou spuštěny všechny moduly v Docker:
+1. Zkontrolujte, zda jsou spuštěny všechny moduly v Docker:
 
    ```cmd/sh
    docker ps  
@@ -154,20 +193,20 @@ Zkontrolujte, zda jsou spuštěny všechny moduly v Docker:
 
    ![výstup docker][8]
 
-Zobrazit všechna data metrik a protokolování systému. Použijte název modulu Stream Analytics:
+2. Zobrazte všechna data metrik a protokolování systému. Použijte název modulu Stream Analytics:
 
    ```cmd/sh
    docker logs -f {moduleName}  
    ```
 
-Nyní byste měli mít podívejte se na tento počítač teploty postupně roste, dokud nebude dosaženo 70 stupňů po dobu 30 sekund. Pak spustí modul Stream Analytics resetování a teploty počítač vrátí k 21. 
+Nyní byste měli mít podívejte se na tento počítač teploty postupně roste, dokud nebude dosaženo 70 stupňů po dobu 30 sekund. Pak spustí modul Stream Analytics provést obnovení, a počítač teploty vrátí k 21. 
 
    ![docker protokolu][9]
 
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto kurzu jste nakonfigurovali kontejner Azure Storage a úlohu streamování Analytics k analýze dat ze zařízení IoT okraj.  Pak načten vlastní modul ASA pro přesun dat ze zařízení prostřednictvím datového proudu, do objektu BLOB pro stahování.  Můžete pokračovat na další kurzy zobrazíte další jak Azure IoT okraj můžete vytvořit řešení pro vaši organizaci.
+V tomto kurzu jste nakonfigurovali kontejner úložiště Azure a úlohu streamování Analytics k analýze dat ze zařízení IoT okraj. Pak načten vlastní modul Azure Stream Analytics pro přesun dat ze zařízení prostřednictvím datového proudu, do objektu blob pro stahování. Informace o tom, jak Azure IoT okraj můžete vytvořit další řešení pro vaši firmu, pokračování do dalších kurzech.
 
 > [!div class="nextstepaction"] 
 > [Nasadit model Azure Machine Learning jako modul][lnk-ml-tutorial]

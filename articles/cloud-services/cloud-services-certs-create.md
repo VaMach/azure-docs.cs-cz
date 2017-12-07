@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8629f069440299690c68887b0d23d9f4ed7dfcc5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Přehled certifikáty pro cloudové služby Azure
-Certifikáty se používají v Azure pro cloudové služby ([služby certifikáty](#what-are-service-certificates)) a pro ověřování pomocí rozhraní API pro správu ([certifikáty pro správu](#what-are-management-certificates) při použití portálu Azure classic a ne portál ne klasický Azure). Toto téma obsahuje obecný přehled oba typy certifikátů, jak k [vytvořit](#create) a [nasazení](#deploy) je do Azure.
+Certifikáty se používají v Azure pro cloudové služby ([služby certifikáty](#what-are-service-certificates)) a pro ověřování pomocí rozhraní API pro správu ([certifikáty pro správu](#what-are-management-certificates)). Toto téma obsahuje obecný přehled oba typy certifikátů, jak k [vytvořit](#create) a [nasazení](#deploy) je do Azure.
 
 Certifikáty používané v Azure jsou x.509 v3 certifikáty a může být podepsány jiný certifikát důvěryhodné nebo mohou být podepsaný svým držitelem. Certifikát podepsaný svým držitelem je podepsána vlastní creator, proto není důvěryhodný ve výchozím nastavení. Tento problém můžete ignorovat většina prohlížečů. Byste měli používat jenom certifikáty podepsané svým držitelem při vývoji a testování vaší cloudové služby. 
 
@@ -30,7 +30,7 @@ Certifikáty používané Azure může obsahovat privátního nebo veřejného k
 ## <a name="what-are-service-certificates"></a>Jaké jsou certifikáty služby?
 Certifikáty služby jsou připojené ke cloudové služby a zajištění zabezpečené komunikace do a ze služby. Pokud jste nasadili webovou roli, by například chcete zadat certifikát, který může ověřit zveřejněné koncový bod HTTPS. Certifikáty služby definované v definice služby, se automaticky nasadí do virtuálního počítače, který je spuštěna instance role. 
 
-Můžete nahrát certifikáty služby na portálu Azure classic, buď pomocí portálu Azure classic nebo pomocí modelu nasazení classic. Certifikáty služby jsou přidruženy ke konkrétní cloudové službě. Jsou přiřazeny k nasazení v definičním souboru služby.
+Certifikáty služby můžete nahrát do Azure, buď pomocí portálu Azure nebo pomocí modelu nasazení classic. Certifikáty služby jsou přidruženy ke konkrétní cloudové službě. Jsou přiřazeny k nasazení v definičním souboru služby.
 
 Certifikáty služby může být spravován od něj odděleně vašim službám a mohou být spravovány nástrojem různí jednotlivci. Vývojář může například odeslat balíček služby, který odkazuje na certifikát, který se správce IT se předtím nahrála do Azure. Správce IT můžete spravovat a obnovit tento certifikát (Změna konfigurace služby) bez nutnosti nahrát nový balíček pro službu. Aktualizace bez nový balíček služby je možné, protože logický název, název úložiště a umístění certifikátu naleznete v souboru definice služby, a když kryptografický otisk certifikátu je uveden v konfiguračním souboru služby. Pokud chcete aktualizovat certifikát, je pouze potřeba nahrát nový certifikát a změňte hodnotu kryptografický otisk v konfiguračním souboru služby.
 
@@ -95,5 +95,5 @@ Existuje mnoho stránek na Internetu, které se týkají jak to provést pomocí
 ## <a name="next-steps"></a>Další kroky
 [Nahrajte certifikát služby do portálu Azure](cloud-services-configure-ssl-certificate-portal.md).
 
-Nahrát [certifikát správy rozhraní API](../azure-api-management-certs.md) na portálu Azure classic. Portál Azure nepoužívá certifikáty pro správu pro ověřování.
+Nahrát [certifikát správy rozhraní API](../azure-api-management-certs.md) na portál Azure.
 

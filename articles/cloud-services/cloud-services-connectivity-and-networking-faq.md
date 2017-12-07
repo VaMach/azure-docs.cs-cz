@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problémy s připojením a sítě pro Azure Cloud Services: Časté otázky (FAQ)
 
@@ -48,8 +48,8 @@ Můžete také vytvořit úlohu spuštění pro selektivní blokování někter�
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>Při pokusu protokolu RDP pro instance Moje cloudové služby se zobrazí zpráva, "vypršela platnost uživatelského účtu."
 Při vyřazení datum vypršení platnosti, který je nakonfigurovaný v nastavení protokolu RDP, může se zobrazit chybová zpráva "Tento uživatelský účet vypršela". Datum vypršení platnosti z portálu můžete změnit pomocí následujících kroků:
-1. Přihlaste se ke konzole pro správu Azure (https://manage.windowsazure.com), přejděte do cloudové služby a vyberte **konfigurace** kartě.
-2. Vyberte **vzdáleného**.
+1. Přihlaste se k [portál Azure](https://portal.azure.com), přejděte do cloudové služby a vyberte **vzdálené plochy** kartě.
+2. Vyberte **produkční** nebo **pracovní** nasazovací slot.
 3. Změňte na datum "Vyprší dne" a pak konfiguraci uložte.
 
 Nyní nyní byste měli mít pro připojení RDP k vašemu počítači.

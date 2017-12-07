@@ -44,7 +44,7 @@ Můžete [nastavit aktivace](../articles/monitoring-and-diagnostics/insights-aut
 
 Můžete přidat nebo odebrat tak, že změníte kapacitu škálovací sady virtuálních počítačů. Na portálu Azure, můžete snížit nebo zvýšit počet virtuálních počítačů (zobrazené jako **instance počet**) v škálování, která nastavuje klouzavé panelu podmínku přepsání na obrazovce škálování doleva nebo doprava.
 
-Pomocí Azure PowerShell, které je potřeba získat objekt nastavení škálování pomocí [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Pak můžete nastavit **sku.capacity** vlastnosti tak, aby počet virtuálních počítačů, které chcete a aktualizace měřítka nastavit s [aktualizace AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Použití Azure CLI, změníte kapacitu s **– nové kapacity** parametr pro [az vmss škálování](https://docs.microsoft.com/cli/azure/vmss#scale) příkaz.
+Pomocí Azure PowerShell, které je potřeba získat objekt nastavení škálování pomocí [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Pak můžete nastavit **sku.capacity** vlastnosti tak, aby počet virtuálních počítačů, které chcete a aktualizace měřítka nastavit s [aktualizace AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Použití Azure CLI, změníte kapacitu s **– nové kapacity** parametr pro [az vmss škálování](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) příkaz.
 
 ### <a name="vertical"></a>Svislý
 

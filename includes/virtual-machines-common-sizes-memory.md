@@ -10,7 +10,7 @@ Paměťově optimalizovaná nabídka velikosti virtuálních počítačů vysok�
 * Virtuální počítače Dv2-series, nástupce původní řady D-series, mají výkonnější procesor. Procesor v Dv2-series je asi o 35 % rychlejší než procesor v D-series. Využívá nejnovější generaci procesorů Intel Xeon® E5-2673 v3 (Haswell) s frekvencí 2,4 GHz, kterou může technologie Intel Turbo Boost 2.0 zvýšit až na 3,1 GHz. Řada Dv2-series má stejnou konfiguraci paměti a disku jako řada D.
 
 
-## <a name="esv3-series"></a>ESv3-series
+## <a name="esv3-series"></a>Esv3-series *
 
 ACU: 160–190
 
@@ -25,10 +25,10 @@ Instance ESv3-series jsou založené na procesorech 2,3 GHz Intel XEON® E5-267
 | Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / vysoká                                       |
 | Standard_E32s_v3 | 32     | 256         | 512            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / velmi vysoká                             |
 | Standard_E64s_v3 | 64     | 432         | 864            | 32             | 128 000 / 1 024 (1 600)                                                   | 80 000 / 1 200                             | 8 / velmi vysoká                             |
+* Esv3-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
 
 
-
-## <a name="ev3-series"></a>Ev3-series
+## <a name="ev3-series"></a>Ev3-series *
 
 ACU: 160–190 
 
@@ -45,7 +45,7 @@ Instance Ev3-series jsou založené na procesorech 2,3 GHz Intel XEON® E5-2673
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24 000 / 375 / 187                                            | 8 / vysoká                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48 000 / 750 / 375                                            | 8 / velmi vysoká           |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96 000 / 1 000 / 500                                           | 8 / velmi vysoká           |
-
+* Ev3-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
 
 ## <a name="m-series"></a>M-series*
 
@@ -53,8 +53,8 @@ ACU: 160–180
 
 | Velikost            | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální propustnost disku bez mezipaměti: IOPS / MB/s | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M64s  | 64   | 1024        | 2 048           | 32             | 80 000 / 800 (6 348)       | 40 000 / 1 000                            | 8 / 16 000          |
-| Standard_M64ms  | 64   | 1 792        | 2 048           | 32             | 80 000 / 800 (6 348)       | 40 000 / 1 000                            | 8 / 16 000          |
+| Standard_M64s  | 64   | 1024        | 2 048           | 64             | 80 000 / 800 (6 348)       | 40 000 / 1 000                            | 8 / 16 000          |
+| Standard_M64ms  | 64   | 1 792        | 2 048           | 64             | 80 000 / 800 (6 348)       | 40 000 / 1 000                            | 8 / 16 000          |
 | Standard_M128s** | 128  | 2 048        | 4 096           | 64             | 160 000 / 1 600 (12 696) | 80 000 / 2 000                            | 8 / 25 000          |
 
 
@@ -70,10 +70,10 @@ ACU: 180–240
 
 | Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální propustnost disku bez mezipaměti: IOPS / MB/s | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_GS1 |2 |28 |56 |4 |10 000 / 100 (264) |5 000 / 125 |2 / 2 000 |
-| Standard_GS2 |4 |56 |112 |8 |20 000 / 200 (528) |10 000 / 250 |2 / 4 000 |
-| Standard_GS3 |8 |112 |224 |16 |40 000 / 400 (1 056) |20 000 / 500 |4 / 8 000 |
-| Standard_GS4 |16 |224 |448 |32 |80 000 / 800 (2 112) |40 000 / 1 000 |8 / 6 000–16 000 &#8224; |
+| Standard_GS1 |2 |28 |56 |8 |10 000 / 100 (264) |5 000 / 125 |2 / 2 000 |
+| Standard_GS2 |4 |56 |112 |16 |20 000 / 200 (528) |10 000 / 250 |2 / 4 000 |
+| Standard_GS3 |8 |112 |224 |32 |40 000 / 400 (1 056) |20 000 / 500 |4 / 8 000 |
+| Standard_GS4 |16 |224 |448 |64 |80 000 / 800 (2 112) |40 000 / 1 000 |8 / 6 000–16 000 &#8224; |
 | Standard_GS5** |32 |448 |896 |64 |160 000 / 1 600 (4 224) |80 000 / 2 000 |8 / 20 000 |
 
 *Maximální propustnost disku (IOPS nebo MB/s) dostupná pro virtuální počítače GS-series může být omezená počtem, velikostí a prokládáním připojených disků. Podrobnosti viz článek [Storage úrovně Premium: Vysoce výkonné úložiště pro virtuální počítače Azure](../articles/virtual-machines/windows/premium-storage.md). 
@@ -89,10 +89,10 @@ ACU: 180–240
 
 | Velikost         | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Maximální propustnost dočasného úložiště: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 4 / 4 × 500                       | 2 / 2 000                     |
-| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 8 / 8 × 500                       | 2 / 4 000                     |
-| Standard_G3  | 8         | 112         | 1 536          | 24000 / 375 / 187                                        | 16 / 16 × 500                     | 4 / 8 000                |
-| Standard_G4  | 16        | 224         | 3 072          | 48000 / 750 / 375                                        | 32 / 32 × 500                     | 8 / 6 000–16 000 &#8224;          |
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 × 500                       | 2 / 2 000                     |
+| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 × 500                       | 2 / 4 000                     |
+| Standard_G3  | 8         | 112         | 1 536          | 24000 / 375 / 187                                        | 32 / 32 × 500                     | 4 / 8 000                |
+| Standard_G4  | 16        | 224         | 3 072          | 48000 / 750 / 375                                        | 64 / 64 × 500                     | 8 / 6 000–16 000 &#8224;          |
 | Standard_G5* | 32        | 448         | 6 144          | 96000 / 1500 / 750                                       | 64 / 64 × 500                     | 8 / 20 000           |
 
 *Instance je izolovaná na hardwaru vyhrazeném pro jediného zákazníka.
@@ -105,11 +105,11 @@ ACU: 210–250
 
 | Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální propustnost disku bez mezipaměti: IOPS / MB/s | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11_v2 |2 |14 |28 |4 |8 000 / 64 (72) |6 400 / 96 |2 / 1 500 |
-| Standard_DS12_v2 |4 |28 |56 |8 |16 000 / 128 (144) |12 800 / 192 |4 / 3 000 |
-| Standard_DS13_v2 |8 |56 |112 |16 |32 000 / 256 (288) |25 600 / 384 |8 / 6 000 |
-| Standard_DS14_v2 |16 |112 |224 |32 |64 000 / 512 (576) |51 200 / 768 |8 / 6 000–12 000 &#8224; |
-| Standard_DS15_v2** |20 |140 |280 |40 |80 000 / 640 (720) |64 000 / 960 |8 / 20 000***
+| Standard_DS11_v2 |2 |14 |28 |8 |8 000 / 64 (72) |6 400 / 96 |2 / 1 500 |
+| Standard_DS12_v2 |4 |28 |56 |16 |16 000 / 128 (144) |12 800 / 192 |4 / 3 000 |
+| Standard_DS13_v2 |8 |56 |112 |32 |32 000 / 256 (288) |25 600 / 384 |8 / 6 000 |
+| Standard_DS14_v2 |16 |112 |224 |64 |64 000 / 512 (576) |51 200 / 768 |8 / 6 000–12 000 &#8224; |
+| Standard_DS15_v2** |20 |140 |280 |64 |80 000 / 640 (720) |64 000 / 960 |8 / 20 000***
 
 *Maximální propustnost disku (IOPS nebo MB/s) dostupná pro virtuální počítače DSv2-series může být omezená počtem, velikostí a prokládáním připojených disků.  Podrobnosti viz článek [Storage úrovně Premium: Vysoce výkonné úložiště pro virtuální počítače Azure](../articles/virtual-machines/windows/premium-storage.md).
 
@@ -125,11 +125,11 @@ ACU: 210–250
 
 | Velikost              | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Maximální propustnost dočasného úložiště: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4×500                         | 2 / 1 500                     |
-| Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8 / 8×500                         | 4 / 3 000                     |
-| Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16×500                       | 8 / 6 000                     |
-| Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32×500                       | 8 / 6 000–12 000 &#8224;          |
-| Standard_D15_v2* | 20        | 140         | 1 000          | 60000 / 937 / 468                                        | 40 / 40×500                       | 8 / 20 000** |
+| Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8×500                         | 2 / 1 500                     |
+| Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16×500                         | 4 / 3 000                     |
+| Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32×500                       | 8 / 6 000                     |
+| Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 6 000–12 000 &#8224;          |
+| Standard_D15_v2* | 20        | 140         | 1 000          | 60000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 20 000** |
 
 * Instance je izolovaný uzel, který zaručuje, že váš virtuální počítač je jediným virtuálním počítačem na našem uzlu Intel Haswell.
 
@@ -143,10 +143,10 @@ ACU: 160
 
 | Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální propustnost disku bez mezipaměti: IOPS / MB/s | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11 |2 |14 |28 |4 |8 000 / 64 (72) |6 400 / 64 |2 / 1 000 |
-| Standard_DS12 |4 |28 |56 |8 |16 000 / 128 (144) |12 800 / 128 |4 / 2 000 |
-| Standard_DS13 |8 |56 |112 |16 |32 000 / 256 (288) |25 600 / 256 |8 / 4 000 |
-| Standard_DS14 |16 |112 |224 |32 |64 000 / 512 (576) |51 200 / 512 |8 / 6 000–8 000 &#8224; |
+| Standard_DS11 |2 |14 |28 |8 |8 000 / 64 (72) |6 400 / 64 |2 / 1 000 |
+| Standard_DS12 |4 |28 |56 |16 |16 000 / 128 (144) |12 800 / 128 |4 / 2 000 |
+| Standard_DS13 |8 |56 |112 |32 |32 000 / 256 (288) |25 600 / 256 |8 / 4 000 |
+| Standard_DS14 |16 |112 |224 |64 |64 000 / 512 (576) |51 200 / 512 |8 / 6 000–8 000 &#8224; |
 
 *Maximální propustnost disku (IOPS nebo MB/s) dostupná pro virtuální počítače DS-series může být omezená počtem, velikostí a prokládáním připojených disků.  Podrobnosti viz článek [Storage úrovně Premium: Vysoce výkonné úložiště pro virtuální počítače Azure](../articles/virtual-machines/windows/premium-storage.md).
 
@@ -157,10 +157,10 @@ ACU: 160
 
 | Velikost         | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Maximální propustnost dočasného úložiště: IOPS / čtení v MB/s / zápis v MB/s | Maximální propustnost datových disků: IOPS | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 4 / 4×500                         | 2 / 1 000                     |
-| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 8 / 8×500                         | 4 / 2 000                     |
-| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 16 / 16×500                       | 8 / 4 000                     |
-| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32×500                       | 8 / 6 000–8 000 &#8224;                |
+| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8×500                         | 2 / 1 000                     |
+| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16×500                         | 4 / 2 000                     |
+| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32×500                       | 8 / 4 000                     |
+| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 6 000–8 000 &#8224;                |
 
 <br>
 

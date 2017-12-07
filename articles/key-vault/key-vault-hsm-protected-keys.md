@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: barclayn
-ms.openlocfilehash: 6c49b086fd35a855fa8e32fa576c5b52d16f1d04
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0d34a19658ae67a9c98d6f31aaca35e67add5beb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Klíče postup generování a přenos chráněných pomocí HSM pro Azure Key Vault
 ## <a name="introduction"></a>Úvod
@@ -82,10 +82,14 @@ Pokyny k instalaci naleznete v tématu [postup instalace a konfigurace prostřed
 ### <a name="step-12-get-your-azure-subscription-id"></a>Krok 1.2: Získání ID předplatného Azure
 Spusťte relaci prostředí Azure PowerShell a přihlaste se k účtu Azure pomocí následujícího příkazu:
 
-        Add-AzureAccount
+```Powershell
+   Add-AzureAccount
+```
 V automaticky otevřeném okně prohlížeče zadejte svoje uživatelské jméno a heslo k účtu Azure. Potom použít [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) příkaz:
 
-        Get-AzureSubscription
+```powershell
+   Get-AzureSubscription
+```
 Z výstupu vyhledejte ID pro odběr, který budete používat pro Azure Key Vault. Toto ID předplatného budete potřebovat později.
 
 Nezavírejte okno Azure PowerShell.
@@ -188,7 +192,9 @@ KeyVault BYOK nástroje UnitedKingdom.zip
 
 Chcete-li ověřit integritu vašeho stažené sady nástrojů funkce BYOK, z relace prostředí Azure PowerShell, použijte [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) rutiny.
 
-    Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```powershell
+   Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```
 
 Sada nástrojů obsahuje následující:
 
@@ -208,7 +214,9 @@ Nainstalujte na počítači s Windows podpůrný software nCipher (Thales) a pak
 
 Zajistěte, aby byly nástroje Thales ve své cestě (**%nfast_home%\bin**). Můžete například zadejte následující:
 
-        set PATH=%PATH%;"%nfast_home%\bin"
+  ```cmd
+  set PATH=%PATH%;"%nfast_home%\bin"
+  ```
 
 Další informace najdete v tématu v uživatelské příručce dodané s modulem HSM Thales.
 
@@ -229,7 +237,9 @@ Pokud používáte Thales nShield Edge, chcete-li změnit režim: 1. Pomocí tla
 ### <a name="step-32-create-a-security-world"></a>Krok 3.2: Vytvoření architektury security world
 Spusťte příkazový řádek a spusťte program společnosti Thales nové architektury Security world.
 
+   ```cmd
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+   ```
 
 Tento program vytvoří **architektury Security World** soubor v adresáři % NFAST_KMDATA%\local\world, který odpovídá složce aplikací\Místní C:\ProgramData\nCipher\Key správy. Pro kvorum můžete použít jiné hodnoty, ale v našem příkladu se zobrazí výzva k zadání pro každé z nich tři prázdné karty a kódy PIN. Jakékoli dvě karty potom poskytnout úplný přístup k architektury security world. Tyto karty tvoří **Administrator Card Set** pro nové architektury security world.
 
@@ -293,6 +303,10 @@ Ověření staženého balíčku:
    * Pro Indii:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+   * Pro Spojené království:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+
      > [!TIP]
      > Software společnosti Thales obsahuje python v %NFAST_HOME%\python\bin
      >
@@ -370,6 +384,9 @@ Otevřete nový příkazový řádek a změňte aktuální adresář na umístě
 * Pro Indii:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+* Pro Spojené království:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
 Když spustíte tento příkaz, nahraďte *contosokey* nahraďte stejnou hodnotou, kterou jste zadali v **3.5 krok: Vytvořte nový klíč** z [vygenerování klíče](#step-3-generate-your-key) krok.
 
@@ -426,6 +443,9 @@ Spusťte jeden z následujících příkazů, v závislosti na zeměpisné oblas
 * Pro Indii:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* Pro Spojené království:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 Když spustíte tento příkaz, použijte tyto pokyny:
 
@@ -441,7 +461,9 @@ Pomocí USB Flash disk nebo jiného přenosného úložiště zkopírujte výstu
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Krok 5: Přenos vašeho klíče do Azure Key Vault
 Tento poslední krok, na pracovní stanici připojené k Internetu, použijte [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) rutinu k odeslání balíčku pro přenos klíče, který jste zkopírovali z odpojené pracovní stanici do Azure Key Vault HSM:
 
-    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```powershell
+        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```
 
 Pokud bude odesílání úspěšné, zobrazí zobrazí vlastnosti klíče, který jste právě přidali.
 

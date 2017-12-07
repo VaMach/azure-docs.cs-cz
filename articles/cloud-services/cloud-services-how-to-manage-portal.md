@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Jak spravovat cloudové služby
-V **cloudové služby (klasické)** oblasti Azure portálu, můžete aktualizovat roli služby nebo nasazení, zvýšení úrovně dvoufázového nasazení do produkčního prostředí, prostředky propojit cloudové služby, aby mohli zobrazit závislosti prostředků a škálování prostředky společně a odstraňte cloudovou službu nebo nasazení.
+V **cloudové služby** oblasti Azure portálu, můžete aktualizovat roli služby nebo nasazení, zvýšení úrovně dvoufázového nasazení do produkčního prostředí, prostředky propojit cloudové služby, aby mohli zobrazit závislosti prostředků a škálování prostředky společně a odstraňování cloudové služby nebo nasazení.
 
 Další informace o tom, jak škálování cloudové služby jsou k dispozici [zde](cloud-services-how-to-scale-portal.md).
 
@@ -80,9 +80,6 @@ Všimněte si, že hostovaného operačního systému, aktualizace a opravy oper
 **Nesnižuje prohození výpadek své aplikaci? Jak by měly zpracovávat ho?**
 
 Jak je popsáno v poslední části, je obvykle rychlé prohození nasazení, protože je právě změnu konfigurace pro vyrovnávání zatížení Azure. V některých případech ale ho můžete trvat deset nebo víc sekund a způsobit selhání přechodný připojení. Chcete-li omezit vliv na vaše zákazníky, zvažte implementaci [logika opakovaných pokusů klienta](../best-practices-retry-general.md).
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Postupy: odkaz prostředek cloudové služby
-Portál Azure neobsahuje odkazy prostředky společně jako nemá na aktuálním portálu Azure classic. Místo toho nasaďte další prostředky do stejné skupiny prostředků používá cloudové služby.
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Postupy: odstranění nasazení a cloudové služby
 Před odstraněním cloudové služby, je nutné odstranit každé existující nasazení.

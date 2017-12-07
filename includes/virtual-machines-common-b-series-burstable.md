@@ -1,20 +1,11 @@
 
-> [!NOTE] 
-> Verze Preview jsou k dispozici pro vás, za předpokladu, že souhlasíte s podmínkami použití. Další informace najdete v [dodatečných podmínkách použití systémů Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Tato předběžná verze je omezená na následující oblasti:
-> - USA – západ 2
-> - USA – východ
-> - Evropa – západ
-> - Asie a Tichomoří – jihovýchod
-
-
 Počítač B-series rodiny umožňuje zvolit, které velikost virtuálního počítače poskytuje nezbytné základní úroveň výkonu pro úlohy, možnost burst výkonu procesoru až o 100 % Intel® Broadwell E5-2673 v4 2.3 GHz nebo procesor Intel® Haswell 2.4 GHz E5-2673 v3 virtuální procesory.
 
 Virtuální počítače B-series jsou ideální pro úlohy, které nemají potřebovat úplný výkon procesoru nepřetržitě, jako jsou webové servery, malé databáze a vývoj a testovací prostředí. Tyto úlohy mají obvykle burstable výkonu požadavky. B-series poskytuje možnost zakoupit velikost virtuálního počítače se základní výkon a instance virtuálního počítače vytvoří kredity při je nižší než jeho základní použití. Když virtuální počítač nahromadění platební, můžete virtuální počítač burst nad účaří použití až o 100 % virtuální procesor, když vaše aplikace vyžaduje vyšší výkon procesoru.
 
 B-series se dodává v následujících šesti velikosti virtuálních počítačů:
 
-| Velikost          | pro virtuální procesory | Paměť: GiB | Místní SSD: GiB | Základní výkonu procesoru virtuálního počítače | Maximální počet výkonu procesoru virtuálního počítače | Kredity bankovních / hodinu | Maximální počet bankovních kredity |
+| Velikost          | pro virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Základní výkonu procesoru virtuálního počítače | Maximální počet výkonu procesoru virtuálního počítače | Kredity bankovních / hodinu | Maximální počet bankovních kredity |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
 | Standard_B1s  | 1      | 1           | 4              | 10 %                            | 100%                      | 6                     | 144                |
 | Standard_B1ms | 1      | 2           | 4              | 20 %                            | 100%                      | 12                    | 288                |
@@ -26,16 +17,11 @@ B-series se dodává v následujících šesti velikosti virtuálních počíta�
 
 
 
-## <a name="q--a-about-this-preview"></a>Otázky a odpovědi o této verzi preview
-
-### <a name="q-how-can-i-participate-in-this-preview"></a>Otázka: jak můžete účast v této verzi preview?
-**A**: žádost o kvótu pro B-series v jednom z podporovaných oblastí.  Po schválení vaší kvóty můžete použít na portálu nebo by za normálních okolností provedete nasazení podle rozhraní API. Další informace najdete v tématu [základní kvóta správce prostředků zvýšit požadavky](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+## <a name="q--a"></a>Dotazy a odpovědi 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Otázka: Jak získat 135 % standardních hodnot výkonu z virtuálního počítače?
 **A**: 135 % je sdílená mezi 8 virtuálních procesorů na který tvoří velikost virtuálního počítače. Například pokud aplikace využívá 4 s 8 jádry pracující na dávkové zpracování a každý z těchto 4 virtuální procesory jsou spuštěné v 30 % využití celkový objem výkonu procesoru virtuálního počítače by roven 120 %.  Znamená, že virtuální počítač by vytváření platební čas podle rozdílů 15 % z základní výkon.  Můžete ale také znamená, že pokud máte kredity, které jsou k dispozici, stejného virtuálního počítače můžete použít 100 % všechny 8 virtuálních procesorů je udělení tohoto virtuálního počítače výkonu procesoru maximální 800 %.
 
-### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>Otázka: je slevu na ceny ve verzi Preview?
-**A**: Ano, můžete zobrazit ceny náhled v naší [stránce s cenami](http://aka.ms/vmsizes).
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Otázka: jak můžete monitorovat Moje kredit a spotřeba
 **A**: jsme představení 2 nové metriky v následujících týdnech **platební** metrika vám umožní zobrazit kolik kredity má bankovních virtuálního počítače a **ConsumedCredit** metrika se zobrazí kolik Virtuální počítač spotřebovala z banky kredity procesoru.    Bude moct zobrazit tyto metriky z podokna metriky na portálu nebo programově pomocí rozhraní API Azure monitorování.
@@ -58,14 +44,7 @@ Pokud I trvat 120 kredity, které I vytvořené mimo špičku a odečtena 96 kre
 **A**: Ano, všech velikostí B-Series podporují Storage úrovně Premium datových disků.   
     
 
-### <a name="q-which-regions-can-i-access-the-preview-from"></a>Otázka: které oblasti mohou lze získat přístup z verze preview?
-**A**: verze preview B-series bude k dispozici v následujících oblastech:
-- USA – západ 2
-- USA – východ
-- Evropa – západ
-- Asie a Tichomoří – jihovýchod
 
-Po dokončení ve verzi preview vydáváme B-series pro všechny zbývající oblasti.
     
 
     

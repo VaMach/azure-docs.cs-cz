@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Nejčastější dotazy se správou hesel
 
@@ -81,6 +81,19 @@ Tyto nejčastější dotazy je rozdělená do následujících částí:
 
 ## <a name="password-reset"></a>Resetování hesla
 
+* **Otázka: zabránit uživatelům ve více pokusí resetovat heslo v krátké době?**
+
+  > **Odpověď:** Ano, jsou funkce zabezpečení, které jsou součástí pro ochranu před zneužitím pro vytvoření nového hesla. 
+  >
+  > Uživatelé mohou zkuste pouze pět resetování pokusů o zadání hesla v období 24 hodin, než se uzamčen po dobu 24 hodin. 
+  >
+  > Uživatele můžete zkusit ověřit telefonní číslo odeslat SMS a ověřit bezpečnostní otázky a odpovědi pouze pětkrát v rámci jednu hodinu, než jste uzamčena na dobu 24 hodin. 
+  >
+  > Uživatelé mohou odesílat e-mailu nesmí být delší než 10krát v rámci období 10 minut, než se uzamčen po dobu 24 hodin.
+  >
+  > Čítače se obnoví, jakmile uživatel vytvoří své heslo.
+  >
+  >
 * **Otázka: jak dlouho má čekat pro příjem e-mailem, SMS nebo telefonní hovor z resetování hesla?**
 
   > **Odpověď:** e-mailů, zpráv SMS, a telefonních hovorů by měl doručení za minutu. Normální postup je 5 až 20 sekund.
@@ -163,11 +176,6 @@ Tyto nejčastější dotazy je rozdělená do následujících částí:
 * **Otázka: Pokud uživatel má více než maximální počet otázek vyžadovaných k resetování registrované, jak jsou bezpečnostní otázky vybrané během obnovení?**
 
   > **A:** *N* počet bezpečnostní otázky jsou náhodně vybrané mimo celkový počet otázek, které má uživatel zaregistrován pro, kde *N* jde o dobu, která je nastavena  **Počet otázek vyžadovaných k resetování** možnost. Například pokud uživatel zaregistroval pět bezpečnostní otázky, ale pouze tři nutných k obnovení hesla, tři, z pěti otázky jsou náhodně vybírány a jsou uvedené v resetování. Aby se zabránilo otázku ražením, pokud uživatel získá odpovědi na otázky nesprávný procesu výběru spustí přes.
-  >
-  >
-* **Otázka: zabránit uživatelům ve více pokusí resetovat heslo v krátké době?**
-
-  > **Odpověď:** Ano, jsou funkce zabezpečení, které jsou součástí pro ochranu před zneužitím pro vytvoření nového hesla. Uživatelé mohou zkuste pouze pět resetování pokusů o zadání hesla v rámci jednu hodinu, než jste uzamčena na dobu 24 hodin. Uživatelé mohou pokusí se ověřit telefonní číslo pouze pětkrát v rámci jednu hodinu, než jste uzamčena na dobu 24 hodin. Uživatele můžete zkusit metoda ověření jednotného pouze pětkrát v rámci jednu hodinu, než jste uzamčena na dobu 24 hodin.
   >
   >
 * **Otázka: jak dlouho jsou e-mailu a SMS jednorázového hesla platný?**
@@ -275,7 +283,7 @@ Tyto nejčastější dotazy je rozdělená do následujících částí:
 * [Jak dokončit úspěšné zavedení SSPR?](active-directory-passwords-best-practices.md)
 * [Resetování nebo změna hesla](active-directory-passwords-update-your-own-password.md)
 * [Registrace samoobslužného resetování hesla](active-directory-passwords-reset-register.md)
-* [Máte licencování otázku?](active-directory-passwords-licensing.md)
+* [Máte dotaz k licencování?](active-directory-passwords-licensing.md)
 * [Jaká data používá SSPR a která data byste měli naplnit pro vaše uživatele?](active-directory-passwords-data.md)
 * [Které metody ověřování jsou dostupné pro uživatele?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Jaké jsou možnosti zásad se SSPR?](active-directory-passwords-policy.md)

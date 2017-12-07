@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 12/06/2017
 ms.author: alkohli
-ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple zabezpečení a ochranu dat.
 
@@ -157,7 +157,7 @@ Asymetrické klíče systému pomáhá chránit data, která toků prostřednict
 > 
 > Pokud dojde ke ztrátě šifrovacího klíče dat služby, pracovníci technické podpory společnosti Microsoft můžete ji načíst za předpokladu, že máte alespoň jedno zařízení ve stavu online. Doporučujeme vám, že po načtením změníte šifrovacího klíče dat služby. Pokyny, přejděte na [změnit šifrovacího klíče dat služby](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
-Výběrem můžete změnit šifrovacího klíče dat služby a odpovídající certifikát šifrování dat **šifrovacího klíče dat služby změnu** možnost na řídicím panelu služby. Aby se zajistilo, že nedojde k ohrožení zabezpečení dat, musí můžete změnit šifrovacího klíče dat služby pomocí fyzického zařízení StorSimple. Změna šifrovací klíče vyžaduje, aby všechna zařízení aktualizovat pomocí nového klíče. Doporučujeme proto, že změníte klíč všechna zařízení jsou online. Pokud zařízení offline, jejich klíče lze změnit v jinou dobu. Zařízení s zastaralé klíče bude nadále možné spustit zálohování, ale nebudou schopni obnovit data, až po aktualizaci klíče. Další informace, přejděte na [pomocí řídicího panelu služby StorSimple Manager zařízení](storsimple-8000-service-dashboard.md).
+Chcete-li změnit šifrovacího klíče dat služby a odpovídající certifikát šifrování dat, postupujte podle kroků v [změnit šifrovacího klíče dat služby pro služby StorSimple Manager zařízení](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Změna šifrovací klíče vyžaduje, aby všechna zařízení aktualizovat pomocí nového klíče. Doporučujeme proto, že změníte klíč všechna zařízení jsou online. Pokud zařízení offline, jejich klíče lze změnit v jinou dobu. Zařízení s zastaralé klíče bude nadále možné spustit zálohování, ale nebudou schopni obnovit data, až po aktualizaci klíče.
 
 Šifrovací klíč dat služby a certifikát datového šifrovacího nevyprší platnost. Doporučujeme však změnit šifrovacího klíče dat služby každý rok, aby se zabránilo ohrožení zabezpečení klíčů.
 
@@ -212,7 +212,7 @@ Následují některé otázky a odpovědi týkající se zabezpečení a Microso
 
 **Odpověď:** by měl hned změnit šifrovacího klíče dat služby a klíče účtu úložiště pro účet úložiště, který se používá pro vrstvení data. Pokyny najdete v tématu:
 
-* [Změna šifrovacího klíče dat služby](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Změna šifrovacího klíče dat služby](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Střídání klíče účtů úložiště](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **Otázka:** mám nové zařízení StorSimple, které se žádostí o registrační klíč služby. Jak jej lze vyhledat?
@@ -225,7 +225,7 @@ Následují některé otázky a odpovědi týkající se zabezpečení a Microso
 
 **Odpověď:** obraťte se na podporu společnosti Microsoft. Se může přihlásit k relaci podpory na zařízení a nápovědy načíst klíč (za předpokladu, že je online alespoň jedno zařízení). Ihned po získáte šifrovacího klíče dat služby, měli byste ji zajistit, že se nový klíč označuje pouze pro vás změnit. Pokyny najdete v tématu:
 
-* [Změna šifrovacího klíče dat služby](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Změna šifrovacího klíče dat služby](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **Otázka:** I oprávnění zařízení pro změnu klíče šifrování dat služby, ale proces změny klíče se nespustila. Co bych měl/a dělat?
 
@@ -240,7 +240,7 @@ Následují některé otázky a odpovědi týkající se zabezpečení a Microso
 **Odpověď:** změny a resetování hesel, která umožňují přístup k zařízení StorSimple a změnit šifrování dat služby klíče zajistit, že nové informace o nezná Neautorizováno pracovníky. Pokyny najdete v tématu:
 
 * [Chcete-li změnit hesla služby storsimple používat službu Správce zařízení StorSimple](storsimple-8000-change-passwords.md)
-* [Změna šifrovacího klíče dat služby](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Změna šifrovacího klíče dat služby](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Konfigurace protokolů CHAP pro vaše zařízení StorSimple](storsimple-8000-configure-chap.md)
 
 **Otázka:** chcete zadejte heslo Snapshot Manager zařízení StorSimple na hostitele, který se připojuje k zařízení StorSimple, ale heslo není k dispozici. Co můžete dělat?

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 17ecf39128994dad93f017f87f105254f3017230
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Mám zvolit cloudové služby, nebo něco jiného?
 Můžete je volba Azure Cloud Services? Azure poskytuje různé hostování modely pro spouštění aplikací. Každé z nich poskytuje jinou sadu služeb, kterého vystavitele si zvolíte, závisí na přesně co se pokoušíte provést.
@@ -50,7 +50,7 @@ I když aplikace spustit ve virtuálních počítačích, je důležité si uvě
 ## <a name="scaling-and-management"></a>Škálování a Správa
 S cloudovými službami nevytvářejte virtuálních počítačů. Místo toho zadat konfigurační soubor informuje Azure, kolik jednotlivých chcete, jako například **tři instance webových rolí** a **dvě instance role pracovního procesu**, a platformy je pro vás vytvoří.  Stále zvolíte [jakou velikost](cloud-services-sizes-specs.md) by měla být ty zálohování virtuálních počítačů, ale nevytvoříte explicitně je sami. Pokud aplikace potřebuje ke zpracování větší zatížení, můžete požádat o další virtuální počítače a Azure vytvoří těchto instancí. Pokud snížení zatížení je možné vypnout těchto instancí a zastavit platícího pro ně.
 
-Cloudové služby aplikace obvykle je k dispozici uživatelům přes ve dvou krocích. Vývojář první [nahrávání aplikace](cloud-services-how-to-create-deploy-portal.md) do pracovní oblasti platformu. Když vývojář je připraven k zpřístupnění aplikace za provozu, použijí portál Azure se Prohodit pracovní s produkčním. To [přepínat mezi pracovní a provozní](cloud-services-nodejs-stage-application.md) lze provést bez výpadků, která umožní spuštěné aplikace upgradovat na novou verzi bez narušení svým uživatelům.
+Cloudové služby aplikace obvykle je k dispozici uživatelům přes ve dvou krocích. Vývojář první [nahrávání aplikace](cloud-services-how-to-create-deploy-portal.md) do pracovní oblasti platformu. Když vývojář je připraven k zpřístupnění aplikace za provozu, použijí portál Azure se Prohodit pracovní s produkčním. To [přepínat mezi pracovní a provozní](cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production) lze provést bez výpadků, která umožní spuštěné aplikace upgradovat na novou verzi bez narušení svým uživatelům.
 
 ## <a name="monitoring"></a>Monitorování
 Cloudové služby poskytuje také monitorování. Jako virtuální počítače Azure, zjistí selhání fyzického serveru a restartuje virtuální počítače, které byly spuštěné na daném serveru na nový počítač. Ale cloudové služby také zjistí selhání virtuální počítače a aplikace, ne jenom selhání hardwaru. Na rozdíl od virtuálních počítačů má agenta v každé webové a pracovní role, a proto je možné spustit nové virtuální počítače a instance aplikací, když dojde k selhání.

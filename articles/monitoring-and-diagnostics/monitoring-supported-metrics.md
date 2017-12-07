@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: 05830547a5b8a24a59571edf6dd44d101b660189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef27a15bb6a6305f7a762716a20487ef983cb5d1
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Podporované metriky s monitorováním Azure
 Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včetně grafů, je na portálu, k nim přistupovat pomocí rozhraní REST API nebo je dotazování pomocí prostředí PowerShell nebo rozhraní příkazového řádku. Níže je úplný seznam všech metriky aktuálně k dispozici s Azure monitorování metriky kanálu.
@@ -509,7 +509,7 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |jobs.completed|Dokončené úlohy|Počet|Celkem|Počet všech dokončené úlohy.|Žádné dimenze|
 |jobs.Failed|Neúspěšné úlohy|Počet|Celkem|Počet všechny neúspěšné úlohy.|Žádné dimenze|
 |d2c.telemetry.ingress.sendThrottle|Počet omezení chyb|Počet|Celkem|Omezí počet omezení chyb z důvodu propustnost zařízení generovaný|Žádné dimenze|
-|dailyMessageQuotaUsed|Celkový počet zpráv, které používá|Počet|Průměr|Počet celkový počet zpráv v současné době používá|Žádné dimenze|
+|dailyMessageQuotaUsed|Celkový počet zpráv, které používá|Počet|Průměr|Počet celkový počet zpráv v současné době používá. Toto je kumulativní hodnotu, která je nastaven na hodnotu nula v 00:00 UTC každý den.|Žádné dimenze|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -560,33 +560,33 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
-|RunsStarted|Spustí spuštění|Počet|Celkem|Počet spuštěných běhů pracovního postupu.|Žádné dimenze|
-|RunsCompleted|Spustí byla dokončena|Počet|Celkem|Počet dokončených běhů pracovního postupu.|Žádné dimenze|
-|RunsSucceeded|Spustí bylo úspěšné|Počet|Celkem|Počet úspěšných běhů pracovního postupu.|Žádné dimenze|
-|RunsFailed|Spustí se nezdařilo|Počet|Celkem|Počet neúspěšných běhů pracovního postupu.|Žádné dimenze|
-|RunsCancelled|Spustí zrušena|Počet|Celkem|Počet zrušených běhů pracovního postupu.|Žádné dimenze|
-|RunLatency|Spustit latence|Sekundy|Průměr|Latence dokončených běhů pracovního postupu.|Žádné dimenze|
-|RunSuccessLatency|Spustit latence úspěch|Sekundy|Průměr|Latence úspěšných běhů pracovního postupu.|Žádné dimenze|
-|RunThrottledEvents|Spustit omezenému události|Počet|Celkem|Počet akcí pracovního postupu nebo omezených událostí triggeru.|Žádné dimenze|
+|RunsStarted|Spustí spuštění|Počet|Celkem|Počet pracovní postup spouští spuštěna.|Žádné dimenze|
+|RunsCompleted|Spustí byla dokončena|Počet|Celkem|Počet pracovní postup spouští dokončené.|Žádné dimenze|
+|RunsSucceeded|Spustí bylo úspěšné|Počet|Celkem|Počet pracovní postup spouští úspěšně.|Žádné dimenze|
+|RunsFailed|Spustí se nezdařilo|Počet|Celkem|Počet pracovní postup spouští se nezdařilo.|Žádné dimenze|
+|RunsCancelled|Spustí zrušena|Počet|Celkem|Počet pracovní postup spouští zrušené.|Žádné dimenze|
+|RunLatency|Spustit latence|Sekundy|Průměr|Spustí latence dokončené pracovního postupu.|Žádné dimenze|
+|RunSuccessLatency|Spustit latence úspěch|Sekundy|Průměr|Spustí latence úspěšně pracovního postupu.|Žádné dimenze|
+|RunThrottledEvents|Spustit omezenému události|Počet|Celkem|Počet akci pracovního postupu nebo aktivační událost omezení událostí.|Žádné dimenze|
 |RunFailurePercentage|Spustit procento selhání|Procento|Celkem|Procento pracovního postupu, spustí se nezdařilo.|Žádné dimenze|
-|ActionsStarted|Akce spustila |Počet|Celkem|Počet spuštěných akcí pracovního postupu.|Žádné dimenze|
-|ActionsCompleted|Akce |Počet|Celkem|Počet dokončených akcí pracovního postupu.|Žádné dimenze|
-|ActionsSucceeded|Akce byla úspěšná |Počet|Celkem|Počet úspěšných akcí pracovního postupu.|Žádné dimenze|
-|ActionsFailed|Akce se nezdařilo|Počet|Celkem|Počet neúspěšných akcí pracovního postupu.|Žádné dimenze|
-|ActionsSkipped|Akce přeskočena |Počet|Celkem|Počet vynechaných akcí pracovního postupu.|Žádné dimenze|
-|ActionLatency|Latence akce |Sekundy|Průměr|Latence dokončených akcí pracovního postupu.|Žádné dimenze|
-|ActionSuccessLatency|Latence úspěch akce |Sekundy|Průměr|Latence úspěšných akcí pracovního postupu.|Žádné dimenze|
-|ActionThrottledEvents|Akce omezení událostí|Počet|Celkem|Počet omezených událostí akcí pracovního postupu.|Žádné dimenze|
-|TriggersStarted|Spuštění aktivační události |Počet|Celkem|Počet spuštěných triggerů pracovního postupu.|Žádné dimenze|
-|TriggersCompleted|Aktivace dokončena |Počet|Celkem|Počet dokončených triggerů pracovního postupu.|Žádné dimenze|
-|TriggersSucceeded|Aktivační události bylo úspěšně dokončeno |Počet|Celkem|Počet úspěšných triggerů pracovního postupu.|Žádné dimenze|
-|TriggersFailed|Aktivace se nezdařila |Počet|Celkem|Počet neúspěšných triggerů pracovního postupu.|Žádné dimenze|
-|TriggersSkipped|Aktivační události přeskočena|Počet|Celkem|Počet vynechaných triggerů pracovního postupu.|Žádné dimenze|
-|TriggersFired|Aktivační události aktivováno |Počet|Celkem|Počet aktivovaných triggerů pracovního postupu.|Žádné dimenze|
-|TriggerLatency|Latence aktivační události |Sekundy|Průměr|Latence dokončených triggerů pracovního postupu.|Žádné dimenze|
-|TriggerFireLatency|Aktivační událost ještě efektivněji latence |Sekundy|Průměr|Latence aktivovaných triggerů pracovního postupu.|Žádné dimenze|
-|TriggerSuccessLatency|Aktivační událost úspěch latence |Sekundy|Průměr|Latence úspěšných triggerů pracovního postupu.|Žádné dimenze|
-|TriggerThrottledEvents|Aktivaci omezenému událostí|Počet|Celkem|Počet omezených událostí triggeru pracovního postupu.|Žádné dimenze|
+|ActionsStarted|Akce spustila |Počet|Celkem|Počet spuštění akce pracovního postupu.|Žádné dimenze|
+|ActionsCompleted|Akce |Počet|Celkem|Počet akce pracovního postupu byla dokončena.|Žádné dimenze|
+|ActionsSucceeded|Akce byla úspěšná |Počet|Celkem|Počet akce pracovního postupu byla úspěšná.|Žádné dimenze|
+|ActionsFailed|Akce se nezdařilo|Počet|Celkem|Počet akce pracovního postupu se nezdařilo.|Žádné dimenze|
+|ActionsSkipped|Akce přeskočena |Počet|Celkem|Počet akce pracovního postupu přeskočeno.|Žádné dimenze|
+|ActionLatency|Latence akce |Sekundy|Průměr|Latence akce dokončené pracovního postupu.|Žádné dimenze|
+|ActionSuccessLatency|Latence úspěch akce |Sekundy|Průměr|Latence akce úspěšně pracovního postupu.|Žádné dimenze|
+|ActionThrottledEvents|Akce omezení událostí|Počet|Celkem|Počet pracovního postupu akce omezeny události...|Žádné dimenze|
+|TriggersStarted|Spuštění aktivační události |Počet|Celkem|Počet aktivuje pracovní postup spuštění.|Žádné dimenze|
+|TriggersCompleted|Aktivace dokončena |Počet|Celkem|Počet aktivační události pracovního postupu byla dokončena.|Žádné dimenze|
+|TriggersSucceeded|Aktivační události bylo úspěšně dokončeno |Počet|Celkem|Počet aktivační události pracovního postupu byla úspěšná.|Žádné dimenze|
+|TriggersFailed|Aktivace se nezdařila |Počet|Celkem|Počet nezdařených z aktivačních událostí pracovního postupu.|Žádné dimenze|
+|TriggersSkipped|Aktivační události přeskočena|Počet|Celkem|Počet aktivuje pracovní postup přeskočeno.|Žádné dimenze|
+|TriggersFired|Aktivační události aktivováno |Počet|Celkem|Počet aktivuje pracovní postup aktivována.|Žádné dimenze|
+|TriggerLatency|Latence aktivační události |Sekundy|Průměr|Latence služby aktivačních událostí dokončené pracovního postupu.|Žádné dimenze|
+|TriggerFireLatency|Aktivační událost ještě efektivněji latence |Sekundy|Průměr|Latence aktivována aktivuje pracovní postup.|Žádné dimenze|
+|TriggerSuccessLatency|Aktivační událost úspěch latence |Sekundy|Průměr|Latence služby aktivačních událostí úspěšně pracovního postupu.|Žádné dimenze|
+|TriggerThrottledEvents|Aktivaci omezenému událostí|Počet|Celkem|Počet aktivační událost pracovního postupu omezení událostí.|Žádné dimenze|
 |BillableActionExecutions|Fakturovatelný akce spuštění|Počet|Celkem|Počet spuštěních akce pracovního postupu získávání účtují.|Žádné dimenze|
 |BillableTriggerExecutions|Fakturovatelný aktivační událost spuštění|Počet|Celkem|Počet spuštěních aktivační událost pracovního postupu získávání účtují.|Žádné dimenze|
 |TotalBillableExecutions|Celkový počet spuštěních fakturovatelného času|Počet|Celkem|Počet spuštěních pracovního postupu získávání účtují.|Žádné dimenze|
@@ -689,7 +689,7 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |outgoing.allpns.invalidpayload|Datová část chyby|Počet|Celkem|Počet oznámení, které se nezdařila, protože systém PNS vrátil chybu chybná datová část.|Žádné dimenze|
 |outgoing.allpns.pnserror|Chyby systému externí oznámení|Počet|Celkem|Počet oznámení, které se nezdařila, protože došlo k potížím při komunikaci se Správou (nezahrnuje problémy ověřování).|Žádné dimenze|
 |outgoing.allpns.channelerror|Kanál chyby|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože kanál byla neplatná nejsou přidružené aplikace správné omezeny nebo jeho platnost.|Žádné dimenze|
-|outgoing.allpns.badorexpiredchannel|Chyby – chybný kanál nebo vypršení časového limitu kanálu|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože vypršela platnost, nebo neplatný kanál/token nebo registrationId v registraci.|Žádné dimenze|
+|outgoing.allpns.badorexpiredchannel|Chybný nebo vypršela její platnost kanál chyby|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože vypršela platnost, nebo neplatný kanál/token nebo registrationId v registraci.|Žádné dimenze|
 |outgoing.wns.Success|Úspěšné oznámení WNS|Počet|Celkem|Počet všech úspěšné oznámení.|Žádné dimenze|
 |outgoing.wns.invalidcredentials|Chyb autorizace WNS (Neplatné přihlašovací údaje)|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože systém PNS nebyl přijat zadané přihlašovací údaje nebo přihlašovací údaje jsou blokovány. (Windows Live nerozpoznal přihlašovací údaje).|Žádné dimenze|
 |outgoing.wns.badchannel|Chyba WNS chybný kanál|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože nebyla rozpoznána ChannelURI v registraci (WNS stav: 404 nebyl nalezen).|Žádné dimenze|
@@ -699,7 +699,7 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |outgoing.wns.invalidtoken|Chyb autorizace WNS (neplatný Token)|Počet|Celkem|Zadaný pro WNS token není platný (WNS stav: 401 – Neověřeno).|Žádné dimenze|
 |outgoing.wns.wrongtoken|Chyb autorizace WNS (chybný Token)|Počet|Celkem|Zadaný pro WNS token je platný, ale pro jinou aplikaci (WNS stav: 403 Zakázáno). To může nastat, když ChannelURI v registraci souvisí s jinou aplikací. Zkontrolujte, jestli klientská aplikace je přidružená ke stejné aplikaci, jehož pověření se v centru oznámení.|Žádné dimenze|
 |outgoing.wns.invalidnotificationformat|Formát neplatný oznámení WNS|Počet|Celkem|Formát oznámení není platný (stav WNS: 400). Všimněte si, že WNS není odmítnout všechny neplatné datové části.|Žádné dimenze|
-|outgoing.wns.invalidnotificationsize|WNS – chyba neplatné velikosti oznámení|Počet|Celkem|Datová část oznámení je moc velký (WNS stav: 413).|Žádné dimenze|
+|outgoing.wns.invalidnotificationsize|WNS Chyba neplatné velikosti oznámení|Počet|Celkem|Datová část oznámení je moc velký (WNS stav: 413).|Žádné dimenze|
 |outgoing.wns.channelthrottled|Kanál WNS omezení|Počet|Celkem|Oznámení byla vyřazena, protože se omezuje ChannelURI v registraci (hlavička odpovědi WNS: X-WNS-NotificationStatus:channelThrottled).|Žádné dimenze|
 |outgoing.wns.channeldisconnected|Kanál WNS odpojení|Počet|Celkem|Oznámení byla vyřazena, protože se omezuje ChannelURI v registraci (hlavička odpovědi WNS: X-WNS-DeviceConnectionStatus: odpojení).|Žádné dimenze|
 |outgoing.wns.dropped|WNS vyřadit oznámení|Počet|Celkem|Oznámení byla vyřazena, protože se omezuje ChannelURI v registraci (X-WNS-NotificationStatus: vynechaných, ale není X-WNS-DeviceConnectionStatus: odpojení).|Žádné dimenze|
@@ -709,7 +709,7 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |outgoing.apns.invalidcredentials|Chyb autorizace služby APN|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože systém PNS nebyl přijat zadané přihlašovací údaje nebo přihlašovací údaje jsou blokovány.|Žádné dimenze|
 |outgoing.apns.badchannel|Chyba služby APN chybný kanál|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože token je neplatný (kód stavu služby APN: 8).|Žádné dimenze|
 |outgoing.apns.expiredchannel|APNS vypršela platnost Chyba kanálu|Počet|Celkem|Počet token, který došlo ke zrušení platnosti podle kanálu zpětné vazby služby APN.|Žádné dimenze|
-|outgoing.apns.invalidnotificationsize|APNS – chyba neplatné velikosti oznámení|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože byla příliš velká datová část (APNS stavový kód: 7).|Žádné dimenze|
+|outgoing.apns.invalidnotificationsize|APNS Chyba neplatné velikosti oznámení|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože byla příliš velká datová část (APNS stavový kód: 7).|Žádné dimenze|
 |outgoing.apns.pnserror|Chyby služby APN|Počet|Celkem|Počet nabízených oznámení, která se nezdařila z důvodu chyb, komunikaci se službou APNS.|Žádné dimenze|
 |outgoing.gcm.Success|Úspěšné oznámení GCM|Počet|Celkem|Počet všech úspěšné oznámení.|Žádné dimenze|
 |outgoing.gcm.invalidcredentials|Chyb autorizace služby GCM (Neplatné přihlašovací údaje)|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože systém PNS nebyl přijat zadané přihlašovací údaje nebo přihlašovací údaje jsou blokovány.|Žádné dimenze|
@@ -717,7 +717,7 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |outgoing.gcm.expiredchannel|GCM platnost Chyba kanálu|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože platnost vypršela registrationId v registraci (GCM výsledek: NotRegistered).|Žádné dimenze|
 |outgoing.gcm.throttled|Omezení oznámení GCM|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože GCM omezuje tuto aplikaci (GCM stavový kód: 501-599 nebo výsledek: není k dispozici).|Žádné dimenze|
 |outgoing.gcm.invalidnotificationformat|Formát neplatný oznámení GCM|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože nebyla správně naformátována datové části (GCM výsledek: InvalidDataKey nebo InvalidTtl).|Žádné dimenze|
-|outgoing.gcm.invalidnotificationsize|GCM – chyba neplatné velikosti oznámení|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože byla příliš velká datová část (GCM výsledek: MessageTooBig).|Žádné dimenze|
+|outgoing.gcm.invalidnotificationsize|GCM Chyba neplatné velikosti oznámení|Počet|Celkem|Počet nabízených oznámení, která se nezdařila, protože byla příliš velká datová část (GCM výsledek: MessageTooBig).|Žádné dimenze|
 |outgoing.gcm.wrongchannel|Chyba GCM nesprávné kanálu|Počet|Celkem|Počet oznámení, které se nezdařila, protože není přidružen k aktuální aplikaci registrationId v registraci (GCM výsledek: InvalidPackageName).|Žádné dimenze|
 |outgoing.gcm.pnserror|Chyby GCM|Počet|Celkem|Počet nabízených oznámení, která se nezdařila z důvodu chyb, komunikaci se službou GCM.|Žádné dimenze|
 |outgoing.gcm.authenticationerror|Chyby ověřování GCM|Počet|Celkem|Počet oznámení, které se nezdařila, protože systém PNS nebyl přijat zadaných pověření přihlašovací údaje jsou zablokované nebo ID odesílatele není správně nakonfigurována v aplikaci (GCM výsledek: MismatchedSenderId).|Žádné dimenze|
@@ -747,7 +747,7 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
 |CPUXNS|Využití procesoru na obor názvů|Procento|Maximální počet|Service bus premium obor názvů procesoru využití metrika|Žádné dimenze|
-|WSXNS|Využití paměti na obor názvů|Procento|Maximální počet|Service bus premium obor názvů paměti využití metrika|Žádné dimenze|
+|WSXNS|Velikost využití paměti na obor názvů|Procento|Maximální počet|Service bus premium obor názvů paměti využití metrika|Žádné dimenze|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
@@ -757,7 +757,7 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |physical_data_read_percent|Procento datových V/V|Procento|Průměr|Procento datových V/V|Žádné dimenze|
 |log_write_percent|Procento vstupně-výstupní operace protokolu|Procento|Průměr|Procento vstupně-výstupní operace protokolu|Žádné dimenze|
 |dtu_consumption_percent|Procento DTU|Procento|Průměr|Procento DTU|Žádné dimenze|
-|Úložiště|Velikost celkový databáze|Bajty|Maximální počet|Velikost celkový databáze|Žádné dimenze|
+|úložiště|Velikost celkový databáze|Bajty|Maximální počet|Velikost celkový databáze|Žádné dimenze|
 |connection_successful|Úspěšné připojení|Počet|Celkem|Úspěšné připojení|Žádné dimenze|
 |connection_failed|Neúspěšné připojení|Počet|Celkem|Neúspěšné připojení|Žádné dimenze|
 |blocked_by_firewall|Blokováno bránou Firewall|Počet|Celkem|Blokováno bránou Firewall|Žádné dimenze|

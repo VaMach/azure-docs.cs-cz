@@ -1,6 +1,6 @@
 ---
 title: "Umístění ve službě Azure Active Directory s názvem | Microsoft Docs"
-description: "Konfigurace s názvem umístění, nemusíte mít IP adresy, které jsou vlastněny organizaci generovat falešně pozitivních pro Impossible dostavit do netypických míst typ události riziko."
+description: "Zjistěte, co s názvem umístění jsou a způsob jejich konfigurace."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Pojmenované umístění v Azure Active Directory
 
-Pomocí funkce s názvem umístění služby Azure Active Directory můžete označit důvěryhodné rozsahy IP adres ve vaší organizace. Ve vašem prostředí, můžete použít s názvem umístění v kontextu detekce [rizik události](active-directory-reporting-risk-events.md). Tato funkce pomáhá snížit počet hlášených falešně pozitivních pro *Impossible dostavit do netypických míst* rizik typ události. 
+Pomocí pojmenovaného umístění můžete označit důvěryhodné rozsahy IP adres ve vaší organizaci. S názvem umístění v rámci Azure Active Directory používá:
 
-## <a name="configuration"></a>Konfigurace
+- Ke zjištění [rizik události](active-directory-reporting-risk-events.md) a snížit počet hlášených falešně pozitivních zjištění.  
 
-Konfigurace s názvem umístění:
+- [Podmíněného přístupu na základě umístění](active-directory-conditional-access-azure-portal.md#locations).
+
+
+Tento článek vysvětluje, jak můžete nakonfigurovat s názvem umístění ve vašem prostředí.
+
+
+## <a name="entry-points"></a>Vstupní body
+
+Dostanete na stránku konfigurace s názvem umístění **zabezpečení** části stránky Azure Active Directory kliknutím:
+
+![Vstupní body](./media/active-directory-named-locations/34.png)
+
+- **Podmíněný přístup:**
+
+    - V **spravovat** klikněte na tlačítko **s názvem umístění**.
+    
+        ![Příkaz pojmenované umístění](./media/active-directory-named-locations/06.png)
+
+- **Rizikové přihlášení:**
+
+    - Na panelu nástrojů v horní části klikněte na tlačítko **přidat známé rozsahy IP adres**.
+
+       ![Příkaz pojmenované umístění](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>Příklad konfigurace
+
+**Konfigurace s názvem umístění:**
 
 1. Přihlaste se k [portál Azure](https://portal.azure.com) jako globální správce.
 
@@ -34,22 +62,22 @@ Konfigurace s názvem umístění:
 
     ![V levém podokně na odkaz Azure Active Directory](./media/active-directory-named-locations/01.png)
 
-3. Na **Azure Active Directory** okno v **zabezpečení** klikněte na tlačítko **podmíněného přístupu**.
+3. Na **Azure Active Directory** stránky v **zabezpečení** klikněte na tlačítko **podmíněného přístupu**.
 
     ![Příkaz podmíněného přístupu](./media/active-directory-named-locations/05.png)
 
 
-4. Na **podmíněného přístupu** okno v **spravovat** klikněte na tlačítko **s názvem umístění**.
+4. Na **podmíněného přístupu** stránky v **spravovat** klikněte na tlačítko **s názvem umístění**.
 
     ![Příkaz pojmenované umístění](./media/active-directory-named-locations/06.png)
 
 
-5. Na **s názvem umístění** okně klikněte na tlačítko **nové umístění**.
+5. Na **s názvem umístění** klikněte na tlačítko **nové umístění**.
 
     ![Příkaz nové umístění](./media/active-directory-named-locations/07.png)
 
 
-6. Na **nový** okno, proveďte následující:
+6. Na **nový** proveďte následující:
 
     ![Nové okno](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ Konfigurace s názvem umístění:
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o rizikových událostech najdete v tématu [Azure Active Directory rizikových událostech](active-directory-reporting-risk-events.md).
+Další informace o:
 
+- **Riziko události**, najdete v části [Azure Active Directory rizikových událostech](active-directory-reporting-risk-events.md).
+
+- **Podmíněný přístup**, najdete v části [podmíněný přístup v Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+- **Sestavy rizikové přihlášení**, najdete v části [rizikové přihlášení sestav na portálu Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e1c1b8bdf94104c0047e367f67a29d557fcc8df9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Nejčastější dotazy týkající se vytváření sestav Azure Active Directory.
 
@@ -119,5 +119,11 @@ Tento článek obsahuje odpovědi na nejčastější dotazy k Azure Active Direc
 **Otázka: jak jsou vypočítávány IP adresy v sestavě rizikové přihlášení a přihlášení?**
 
 **Odpověď:** IP adresy vydávají tak, že není spolehlivý připojení mezi IP adresu a kde se fyzicky nacházejí počítači s touto adresou. To ztěžuje faktorech například mobilní poskytovatelů a vydání z Centrální fondy IP adres velmi často daleko od skutečně použití klientské zařízení sítě VPN. Z výše uvedených převodu IP adresu na fyzické umístění je nejlepší úsilí na základě trasování, data registru, zpětné vyhledání a další informace. 
+
+---
+
+**Otázka: Co znamená riziko události "Přihlášení s další riziko zjistil" označují?**
+
+**Odpověď:** získáte přehled o všech rizikové přihlášení ve vašem prostředí ukážeme riziko událostí "Přihlášení s další riziko zjistil" pro přihlášení z důvodu zjištění považována za rizikové výhradní předplatitelům služby Azure AD Identity Protection.
 
 ---

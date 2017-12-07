@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Smyčky, obory a rozdělení dávek v Logic Apps
   
@@ -26,7 +26,7 @@ Služba Logic Apps poskytuje několik způsobů, jak pracovat s poli, kolekcí, 
   
 ## <a name="foreach-loop-and-arrays"></a>Pole a smyčka typu ForEach
   
-Služba Logic Apps umožňuje smyčky v rámci sady dat a provedení akce pro každou položku.  To je možné prostřednictvím `foreach` akce.  V návrháři, můžete přidat pro každou smyčku.  Až vyberete pole, která si přejete iterace, můžete začít přidáním akce.  Aktuálně jste omezeni na jenom jednu akci za smyčka typu foreach, ale toto omezení se zruší, v následujících týdnech.  V rámci smyčky začnete jednou zadejte, co má probíhat na každou hodnotu pole.
+Služba Logic Apps umožňuje smyčky v rámci sady dat a provedení akce pro každou položku.  To je možné prostřednictvím `foreach` akce.  V návrháři, můžete přidat pro každou smyčku.  Až vyberete pole, která si přejete iterace, můžete začít přidáním akce.  Můžete přidat více akcí za smyčka typu foreach.  V rámci smyčky začnete jednou zadejte, co má probíhat na každou hodnotu pole.
 
 Pokud používáte zobrazení kódu, můžete zadat, pro každou smyčku jako níže.  Toto je příklad pro každou smyčku, která odešle e-mail pro každý e-mailovou adresu, která obsahuje 'microsoft.com.:
 
