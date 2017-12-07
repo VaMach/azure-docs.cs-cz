@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 11/27/2017
-ms.openlocfilehash: c77ea674a1f8ad2b4c879f65a3fdb6758e3ddf63
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d462bb19b7a662f7d65529b5a2ec9f65be19d131
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Vytvoření Azure Database for PostgreSQL pomocí rozhraní CLI Azure
 Azure Database for PostgreSQL je spravovaná služba, která umožňuje spouštět, spravovat a škálovat vysoce dostupné databáze PostgreSQL v cloudu. Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. V tomto rychlém startu se dozvíte, jak vytvořit server Azure Database for PostgreSQL ve [skupině prostředků Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pomocí rozhraní CLI Azure.
@@ -30,7 +30,7 @@ Pokud používáte rozhraní příkazového řádku místně, musíte se přihl�
 az login
 ```
 
-Pokud máte více předplatných, vyberte odpovídající předplatné, ve kterém se má prostředek účtovat. Ve svém účtu vyberte pomocí příkazu [az account set](/cli/azure/account#set) určité ID předplatného.
+Pokud máte více předplatných, vyberte odpovídající předplatné, ve kterém se má prostředek účtovat. Ve svém účtu vyberte pomocí příkazu [az account set](/cli/azure/account#az_account_set) určité ID předplatného.
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
@@ -44,7 +44,7 @@ az group create --name myresourcegroup --location westus
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Vytvoření serveru Azure Database for PostgreSQL
 
-Vytvořte [server Azure Database for PostgreSQL](overview.md) pomocí příkazu [az postgres server create](/cli/azure/postgres/server#create). Server obsahuje soubor databází spravovaných jako skupina. 
+Vytvořte [server Azure Database for PostgreSQL](overview.md) pomocí příkazu [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Server obsahuje soubor databází spravovaných jako skupina. 
 
 Následující příklad vytvoří ve skupině prostředků `myresourcegroup` server s názvem `mypgserver-20170401` a přihlašovacím jménem správce serveru `mylogin`. Název serveru se mapuje na název DNS, a proto musí být v rámci Azure globálně jedinečný. Nahraďte položku `<server_admin_password>` vlastní hodnotou.
 ```azurecli-interactive
