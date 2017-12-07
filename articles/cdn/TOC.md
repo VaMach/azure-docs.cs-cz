@@ -20,16 +20,19 @@
  
 ## Spravovat
 ### [Správa pomocí Azure PowerShellu](cdn-manage-powershell.md)
+### [Omezení přístupu podle země](cdn-restrict-access-by-country.md)
+### [Vylepšení výkonu prostřednictvím komprimace souborů](cdn-improve-performance.md)
+### Řízení chování při ukládání do mezipaměti
+#### [Jak funguje ukládání do mezipaměti](cdn-how-caching-works.md)
+#### [Řízení chování při ukládání do mezipaměti s využitím pravidel ukládání do mezipaměti](cdn-caching-rules.md)
+#### Ukládání obsahu do mezipaměti podle řetězců dotazu
+##### [Úroveň Standard](cdn-query-string.md)
+##### [Úroveň Premium](cdn-query-string-premium.md)
+#### [Vyprázdnění prostředků z mezipaměti](cdn-purge-endpoint.md)
+#### [Předběžné načtení prostředků do mezipaměti](cdn-preload-endpoint.md)
 ### Konfigurace hodnoty TTL (time-to-live)
 #### [Webový obsah Azure](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
-### [Omezení přístupu podle země](cdn-restrict-access-by-country.md)
-### [Vylepšení výkonu prostřednictvím komprimace souborů](cdn-improve-performance.md)
-### Ukládání obsahu do mezipaměti podle řetězce dotazu
-#### [Úroveň Standard](cdn-query-string.md)
-#### [Úroveň Premium](cdn-query-string-premium.md)
-### [Vyprázdnění prostředků z mezipaměti](cdn-purge-endpoint.md)
-### [Předběžné načtení prostředků do mezipaměti](cdn-preload-endpoint.md)
 ### [Ověření tokenu](cdn-token-auth.md)
 ### [Sledování prostředků](cdn-resource-health.md)
 ### [Potlačení chování pomocí pravidel](cdn-rules-engine.md)

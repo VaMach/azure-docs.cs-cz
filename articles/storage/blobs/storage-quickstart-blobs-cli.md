@@ -1,9 +1,9 @@
 ---
-title: "Azure rychlý start - objekty přenosu do nebo z Azure Blob storage pomocí rozhraní příkazového řádku Azure | Microsoft Docs"
-description: "Naučte se rychle převést objekty do a z Azure Blob storage pomocí rozhraní příkazového řádku Azure"
+title: "Rychlý start Azure – Přenos objektů do a z úložiště objektů blob v Azure pomocí Azure CLI | Dokumentace Microsoftu"
+description: "Rychle se naučíte, jak přenášet objekty do a z úložiště objektů blob v Azure pomocí Azure CLI"
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: marsma
-ms.openlocfilehash: c9b7e7a1fbc6b67821183ce31bdf2527de490c92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 327639f49d27972548e4e8c243d1e349a9cb58bb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Objekty přenosu do nebo z Azure Blob storage pomocí rozhraní příkazového řádku Azure
+# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Přenos objektů do a z úložiště objektů blob v Azure pomocí Azure CLI
 
-Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. Tento rychlý start údaje, nahrávání a stahování dat do a z Azure Blob storage pomocí rozhraní příkazového řádku Azure.
+Azure CLI slouží k vytváření a správě prostředků Azure z příkazového řádku nebo ve skriptech. Tento rychlý start podrobně popisuje použití Azure CLI k nahrávání dat do úložiště objektů blob v Azure a stahování dat z úložiště objektů blob v Azure.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
@@ -35,7 +35,7 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku 
 
 ## <a name="create-a-container"></a>Vytvoření kontejneru
 
-Objekty BLOB jsou vždy nahrát do kontejneru. Kontejnery umožňují uspořádat skupiny objektů BLOB jako uspořádání souborů v adresářích ve vašem počítači.
+Objekty blob se vždy nahrávají do kontejneru. Kontejnery umožňují organizovat skupiny objektů blob podobně, jako organizujete soubory do adresářů na svém počítači.
 
 K vytvoření kontejneru pro ukládání objektů blob použijte příkaz [az storage container create](/cli/azure/storage/container#create).
 
@@ -45,9 +45,9 @@ az storage container create --name mystoragecontainer
 
 ## <a name="upload-a-blob"></a>Nahrání objektu blob
 
-Úložiště objektů blob podporuje objekty blob bloku, doplňovací objekty blob a objekty blob stránky. Většina souborů uložených v úložišti objektů Blob jsou uloženy jako objekty BLOB bloku. Append – objekty BLOB se používají při data musí být přidaný do existující objekt blob bez úpravy jeho existující obsah, například konkrétní protokolování. Objekty blob stránky zálohují soubory virtuálního pevného disku virtuálních počítačů IaaS.
+Úložiště objektů blob podporuje objekty blob bloku, doplňovací objekty blob a objekty blob stránky. Většina souborů uložených v úložišti objektů blob se ukládá jako objekty blob bloku. Doplňovací objekty blob se používají, když je k existujícímu objektu blob potřeba přidat data a neměnit přitom jeho stávající obsah, například pro účely protokolování. Objekty blob stránky zálohují soubory virtuálního pevného disku virtuálních počítačů IaaS.
 
-V tomto příkladu jsme nahrát objekt blob do kontejneru jsme vytvořili v předchozím kroku s [az úložiště objektů blob nahrávání](/cli/azure/storage/blob#upload) příkaz.
+V tomto příkladu nahrajeme objekt blob do kontejneru, který jsme vytvořili v předchozím kroku, a to pomocí příkazu [az storage blob upload](/cli/azure/storage/blob#upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -56,7 +56,7 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
-Tato operace vytvoří objekt blob, pokud ještě neexistuje, a přepíše ho, pokud už existoval. Nahrání libovolný počet souborů, jak se vám líbí, než budete pokračovat.
+Tato operace vytvoří objekt blob, pokud ještě neexistuje, a přepíše ho, pokud už existoval. Než budete pokračovat, můžete nahrát libovolné množství souborů.
 
 ## <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
 
@@ -70,7 +70,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Stažení objektu blob
 
-Použití [az úložiště objektů blob stažení](/cli/azure/storage/blob#download) příkaz ke stažení do objektu blob, který jste nahráli dříve.
+Pomocí příkazu [az storage blob download](/cli/azure/storage/blob#download) stáhněte objekt blob, který jste nahráli dříve.
 
 ```azurecli-interactive
 az storage blob download \
@@ -79,11 +79,11 @@ az storage blob download \
     --file ~/destination/path/for/file
 ```
 
-## <a name="data-transfer-with-azcopy"></a>Přenos dat pomocí nástroje AzCopy
+## <a name="data-transfer-with-azcopy"></a>Přenos dat pomocí AzCopy
 
-[AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) nástroj je další možností pro přenos dat Skriptovatelná vysoce výkonné úložiště Azure. AzCopy můžete použít k přenosu dat do a z úložiště objektů Blob, soubor a tabulku.
+Nástroj [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) představuje další možnost vysoce výkonného a skriptovatelného přenosu dat pro službu Azure Storage. Pomocí AzCopy můžete přenášet data do a ze služeb Blob, File a Table Storage.
 
-Jako zběžný příklad, zde je AzCopy příkaz pro nahrání souboru názvem *myfile.txt* k *mystoragecontainer* kontejneru.
+Tady je jednoduchý příklad příkazu AzCopy pro nahrání souboru *myfile.txt* do kontejneru *mystoragecontainer*.
 
 ```bash
 azcopy \
@@ -95,7 +95,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud již nepotřebujete kterýkoli z prostředků ve vaší skupině prostředků, včetně účet úložiště, který jste vytvořili v tento rychlý start, odstraňte skupinu prostředků s [odstranění skupiny az](/cli/azure/group#delete) příkaz.
+Pokud již ze skupiny prostředků nepotřebujete žádné prostředky, včetně účtu úložiště, který jste vytvořili v rámci tohoto rychlého startu, odstraňte ji pomocí příkazu [az group delete](/cli/azure/group#delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -103,7 +103,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Další kroky
 
-V tento rychlý start zjistili, jak pro přenos souborů mezi místní disk a kontejner v úložišti objektů Blob Azure. Další informace o práci s objekty BLOB ve službě Azure Storage, i nadále tento kurz pro práci s úložištěm Azure Blob.
+V tomto rychlém startu jste zjistili, jak přenášet soubory mezi místním diskem a kontejnerem v úložišti objektů blob v Azure. Další informace o práci s objekty blob ve službě Azure Storage najdete v kurzu práce s úložištěm objektů blob v Azure.
 
 > [!div class="nextstepaction"]
-> [Postupy: Blob operace úložiště pomocí Azure CLI](storage-how-to-use-blobs-cli.md)
+> [Postup: Operace s úložištěm objektů blob pomocí Azure CLI](storage-how-to-use-blobs-cli.md)

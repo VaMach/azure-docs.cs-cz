@@ -172,8 +172,6 @@
           href: change-vm-size.md
         - name: Označení virtuálního počítače
           href: tag.md
-        - name: Použití cloud-init
-          href: using-cloud-init.md
         - name: Spouštění skriptů na virtuálním počítači
           href: extensions-customscript.md
         - name: Použití Vzdálené plochy
@@ -252,6 +250,22 @@
               href: terraform-install-configure.md
             - name: Vytvoření kompletního virtuálního počítače
               href: terraform-create-complete-vm.md
+        - name: Cloud-init
+          items:
+            - name: Přehled Cloud-init
+              href: using-cloud-init.md
+            - name: Konfigurace názvu hostitele virtuálního počítače
+              href: cloudinit-update-vm-hostname.md
+            - name: Aktualizace balíčků ve virtuálním počítači
+              href: cloudinit-update-vm.md
+            - name: Přidání uživatele ve virtuálním počítači
+              href: cloudinit-add-user.md
+            - name: Konfigurace stránkovacího souboru
+              href: cloudinit-configure-swapfile.md
+            - name: Spuštění existujícího skriptu Bash
+              href: cloudinit-bash-script.md
+            - name: Příprava existujícího virtuálního počítače pro cloud-init
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:

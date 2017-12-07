@@ -13,8 +13,10 @@
 - name: Šablony Rychlý start
   expanded: true
   items:
-    - name: Vytvoření aplikace .NET
+    - name: Vytvoření aplikace v .NET Core
       href: app-service-web-get-started-dotnet.md
+    - name: Vytvoření aplikace v .NET Frameworku
+      href: app-service-web-get-started-dotnet-framework.md
     - name: Vytvoření aplikace v Node.js
       href: app-service-web-get-started-nodejs.md
     - name: Vytvoření aplikace v PHP

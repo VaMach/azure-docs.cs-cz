@@ -1,6 +1,6 @@
 ---
-title: "Přehled Azure zásad | Microsoft Docs"
-description: "Azure zásad je služba v Azure, který použijete k vytvoření, přiřazení a spravovat zásady definice v prostředí Azure."
+title: "Přehled služby Azure Policy | Dokumentace Microsoftu"
+description: "Azure Policy je služba v Azure, pomocí které vytváříte, přiřazujete a spravujete definice zásad ve svém prostředí Azure."
 services: azure-policy
 keywords: 
 author: bandersmsft
@@ -10,118 +10,118 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 82c3f4629da635d1006db91e236d38b1aa16695c
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="what-is-azure-policy"></a>Co je Azure zásad?
+# <a name="what-is-azure-policy"></a>Co je Azure Policy?
 
-Zásady správného řízení IT vytvoří přehlednost mezi obchodních cílů a IT projekty. Dobrý řízení IT zahrnuje vaše iniciativami v oblasti plánování a nastavování priorit na strategické úrovni. Vaše společnost prostředí velký počet problémů IT, které zdá se, že nikdy potřebujete vyřešit? Implementace zásad vám pomůže lépe spravovat a zabránit jejich. Implementace zásad přichází zásad Azure.
+Zásady správného řízení v oblasti IT vytvářejí jasný vztah mezi obchodními cíli a projekty IT. Dobré zásady správného řízení v oblasti IT zahrnují plánování iniciativ a nastavení priorit na strategické úrovni. Potýká se vaše společnost s velkým množstvím problémů v oblasti IT, které se zdánlivě nikdy nevyřeší? Implementace zásad vám pomůže tyto problémy lépe zvládnout a předcházet jim. Tuto implementaci zásad řeší Azure Policy.
 
-Azure zásad je služba v Azure, který použijete k vytvoření, přiřazení a spravovat definice zásady. Definice zásady vynutit různá pravidla a akce přes vaše prostředky, takže tyto prostředky zůstat kompatibilní s firemními standardy a smlouvy o úrovni služeb. Azure zásad běží zkušební verzi vašich prostředků kontrolu pro ty, které nejsou kompatibilní s definice zásady, které máte. Například můžete mít zásady a umožní, jsou pouze určitý typ virtuálních počítačů. Jiné vyžaduje, aby všechny prostředky bylo konkrétní značku. Tyto zásady jsou proto vyhodnocována při vytváření nebo aktualizaci prostředky.
+Azure Policy je služba v Azure, pomocí které vytváříte, přiřazujete a spravujete definice zásad. Definice zásad u vašich prostředků vynucují různá pravidla a akce, aby tyto prostředky i nadále odpovídaly vašim firemním standardům a smlouvám o úrovni služeb. Azure Policy provádí hodnocení vašich prostředků, mezi kterými vyhledává ty, které neodpovídají vašim definicím zásad. Například můžete mít zásadu pro povolení pouze určitého typu virtuálních počítačů. Další vyžaduje, aby všechny prostředky měly konkrétní značku. Tyto zásady se následně vyhodnocují při vytváření a aktualizaci prostředků.
 
-## <a name="how-is-it-different-from-rbac"></a>Jak se liší od RBAC?
+## <a name="how-is-it-different-from-rbac"></a>Čím se to liší od RBAC?
 
-Existuje několik hlavní rozdíly mezi zásadami a řízení přístupu na základě role (RABC). RBAC se zaměřuje na akcí uživatele na různých místech. Například je může být přidán k roli Přispěvatel pro skupinu prostředků na požadovaný rozsah. Role umožňuje provést změny do této skupiny prostředků. Zásady se zaměřuje na vlastnosti prostředku během nasazení a pro již existující prostředky. Například prostřednictvím zásad, můžete řídit typy prostředků, které mohou být zřízeny. Nebo můžete omezit umístění, ve kterých se dá zřídit prostředky. Na rozdíl od RBAC, je povolit výchozí zásady a explicitní odepřít systému.
+Mezi zásadami a řízením přístupu na základě role (RBAC) existuje několik klíčových rozdílů. RBAC se zaměřuje na akce uživatelů v různých oborech. Například můžete být přidáni do role přispěvatele pro skupinu prostředků v požadovaném oboru. Tato role vám umožňuje provádět změny této skupiny prostředků. Zásady se zaměřují na vlastnosti prostředků během nasazování a vlastnosti již existujících prostředků. Prostřednictvím zásad můžete například řídit, které typy prostředků je možné zřizovat. Nebo můžete omezit oblasti, ve kterých se prostředky můžou zřizovat. Na rozdíl od RBAC jsou zásady systémem, kdy je ve výchozím nastavení vše povoleno a explicitně se zamítá.
 
-Pokud chcete používat zásady, musí být ověřeny pomocí RBAC. Konkrétně, musí váš účet:
+Pokud chcete používat zásady, musíte být ověřeni pomocí RBAC. Konkrétně váš účet potřebuje:
 
-- `Microsoft.Authorization/policydefinitions/write`oprávnění k definování zásad.
-- `Microsoft.Authorization/policyassignments/write`oprávnění k přiřazení zásad.
+- Oprávnění `Microsoft.Authorization/policydefinitions/write` pro definování zásady.
+- Oprávnění `Microsoft.Authorization/policyassignments/write` pro přiřazení zásady.
 
-Tato oprávnění nejsou součástí **Přispěvatel** role.
+Tato oprávnění nejsou součástí role **Přispěvatel**.
 
 
-## <a name="policy-definition"></a>Definice zásad
+## <a name="policy-definition"></a>Definice zásady
 
-Každý definice zásady má podmínky, za kterých je vynucená. A má doprovodné akci, která probíhá, pokud jsou splněny podmínky.
+Každá definice zásady obsahuje podmínky, za kterých se vynucuje. Obsahuje také doprovodnou akci, která se provede při splnění podmínek.
 
-V zásadách Azure nabízíme některé předdefinované zásady, které jsou k dispozici ve výchozím nastavení. Například:
+Ve službě Azure Policy nabízíme několik integrovaných zásad, které máte k dispozici ve výchozím nastavení. Například:
 
-- **Vyžadovat SQL serveru 12.0**: tuto definici zásady má podmínky nebo pravidla zajistit, že všechny servery SQL Server používat verzi 12.0. Jeho akce je tak, aby odepřel všechny servery, které tato kritéria nesplňují.
-- **Povolená SKU účet úložiště**: Tato zásada definice obsahuje sadu podmínky nebo pravidla, která určí, zda účet úložiště, který se nasazuje v rámci sady velikostí SKU. Jeho akce je tak, aby odepřel všechny servery, které neodpovídají sadu definované velikosti SKU.
-- **Typ prostředku povoleno**: tuto definici zásady obsahuje sadu podmínek/pravidel můžete určit typy prostředků, které můžete nasadit vaší organizace. Jeho akce je tak, aby odepřel všechny prostředky, které nejsou součástí tohoto seznamu definované.
-- **Povolené umístění**: Tato zásada umožňuje omezit umístění, které vaše organizace můžete zadat při nasazení prostředků. Jeho akce slouží k vynucení požadavků geo-dodržování předpisů.
-- **Povolená SKU virtuální počítač**: Tato zásada umožňuje určit sadu položek SKU, které vaše organizace můžete nasadit virtuální počítač.
-- **Použít značky a jeho výchozí hodnotu**: Tato zásada se aplikuje požadované značky a jeho výchozí hodnotu, pokud není zadaný uživatelem.
-- **Vynutit značku a její hodnota**: tyto zásady vynucují požadované značky a jeho hodnota k prostředku.
-- **Není povoleno typy prostředků**: Tato zásada umožňuje určit typy prostředků, které vaše organizace nelze nasadit.
+- **Vyžadovat SQL Server 12.0:** Tato definice zásady obsahuje podmínky/pravidla pro zajištění, aby všechny servery SQL byly verze 12.0. Akcí je zamítnutí všech serverů, které nesplňují tato kritéria.
+- **Povolené skladové položky účtu úložiště:** Tato definice zásady obsahuje sadu podmínek/pravidel určujících, jestli se nasazovaný účet úložiště nachází v sadě velikostí skladových položek. Akcí je zamítnutí všech serverů, které neodpovídají sadě definovaných velikostí skladových položek.
+- **Povolený typ prostředku:** Tato definice zásady obsahuje sadu podmínek/pravidel určujících typy prostředků, které může vaše organizace nasazovat. Akcí je zamítnutí všech prostředků, které se nenachází na tomto definovaném seznamu.
+- **Povolená umístění:** Tato zásada umožňuje omezit umístění, která může vaše organizace zadat při nasazování prostředků. Akcí je vynucení vašich požadavků na geografické dodržování předpisů.
+- **Povolené skladové položky virtuálních počítačů:** Tato zásada umožňuje zadat sadu skladových položek virtuálních počítačů, které může vaše organizace nasazovat.
+- **Použít značku a její výchozí hodnotu:** Tato zásada použije požadovanou značku a její výchozí hodnotu, pokud ji nezadá uživatel.
+- **Vynucovat použití značky a její hodnoty:** Tato zásada vynucuje použití požadované značky a její hodnoty pro prostředek.
+- **Nepovolené typy prostředků:** Tato zásada umožňuje zadat typy prostředků, které vaše organizace nemůže nasazovat.
 
-Můžete přiřadit některé z těchto zásad prostřednictvím portálu Azure, PowerShell nebo rozhraní příkazového řádku Azure.
+Jakékoli z těchto zásad můžete přiřadit prostřednictvím webu Azure Portal, PowerShellu nebo Azure CLI.
 
-Další informace o struktury definice zásady, podívejte se na tento článek - [struktury definice zásady](policy-definition.md).
+Další informace o strukturách definic zásad najdete v článku [Struktura definic zásad](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Přiřazení zásad
 
-Přiřazení zásady je definici zásady, který byl přiřazen proběhla v rámci konkrétní obor. Tento obor může být v rozsahu od skupiny pro správu do skupiny prostředků. Termín *oboru* odkazuje na všechny skupiny prostředků, odběry nebo skupin pro správu, které definice zásady je přiřazena k. Přiřazení zásad jsou zdědí všechny podřízené prostředky. Takže pokud je zásada pro skupinu prostředků, se použije na všechny prostředky v příslušné skupině prostředků. Subscope však můžete vyloučit z přiřazení zásad. Například v oboru předplatné, můžete přiřadit zásady, které brání vytvoření síťových prostředků. Ale vyloučit jednu skupinu prostředků v rámci předplatného, který je určený pro síťové infrastruktury. Udělit přístup do této skupiny síťových prostředků uživatelům, kterým důvěřujete s vytvářením síťových prostředků.
+Přiřazení zásady je definice zásady, která byla přiřazena, aby proběhla v rámci zadaného oboru. Tento obor může sahat od skupiny pro správu až po skupinu prostředků. Termín *obor* označuje všechny skupiny prostředků, předplatná nebo skupiny pro správu, ke kterým je definice zásady přiřazená. Všechny podřízené prostředky dědí přiřazení zásad. Takže pokud se použije zásada na skupinu prostředků, použije se na všechny prostředky v této skupině prostředků. Z přiřazení zásad však můžete vyloučit určitý podobor. Například v oboru předplatného můžete přiřadit zásadu, která brání vytváření síťových prostředků. V rámci tohoto předplatného však vyloučíte jednu skupinu prostředků, která je určená pro síťovou infrastrukturu. Přístup k této skupině síťových prostředků udělíte uživatelům, kterým důvěřujete s vytvářením síťových prostředků.
 
-Další informace o nastavení zásad definice a přiřazení najdete v tématu [vytvoří přiřazení zásady k identifikaci nekompatibilní prostředky v prostředí Azure](assign-policy-definition.md).
+Další informace o nastavování definic a přiřazení zásad najdete v tématu [Vytvoření přiřazení zásady pro identifikaci neodpovídajících prostředků v prostředí Azure](assign-policy-definition.md).
 
 ## <a name="policy-parameters"></a>Parametry zásad
 
-Zásady parametry zjednodušit vaší zásady správy snížením počtu definice zásady, které je nutné vytvořit. Při vytváření definice zásad Chcete-li více Obecné můžete definovat parametry. Pak můžete znovu použít tuto definici zásady pro různé scénáře. Můžete to provést předávání různé hodnoty při přiřazování definice zásady. Například když zadáte jednu sadu umístění pro předplatné.
+Parametry zásad pomáhají zjednodušit správu zásad tím, že snižují počet definic zásad, které musíte vytvářet. Parametry můžete definovat při vytváření definice zásady a tím ji více zobecnit. Následně můžete tuto definici zásady použít opakovaně pro různé scénáře. Provedete to předáváním různých hodnot při přiřazování této definice zásady. Například můžete pro každé předplatné zadat jednu sadu umístění.
 
-Parametry jsou definované nebo vytvořit při vytváření definice zásad. Pokud je parametr definované, je zadaný název a volitelně zadána hodnota. Můžete například definovat parametr pro zásady s názvem *umístění*. Pak můžete jí přiřadit různé hodnoty, jako *EastUS* nebo *WestUS* při přiřazování zásady.
+Parametry se definují/vytvářejí při vytváření definice zásady. Při definování získá parametr název a volitelně i hodnotu. Pro zásadu můžete například definovat parametr s názvem *location* (umístění). Následně mu můžete při přiřazování zásady předávat různé hodnoty, například *EastUS* nebo *WestUS*.
 
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Další informace o parametrech zásad najdete v tématu [přehled zásad prostředků - parametry](policy-definition.md#parameters).
+Další informace o parametrech zásad najdete v tématu [Přehled zásad prostředků – Parametry](policy-definition.md#parameters).
 
-## <a name="initiative-definition"></a>Iniciativy definice
-Iniciativy definice je kolekce definice zásady, které jsou přizpůsobené k dosahování singulární zastřešující cíle. Iniciativy definice zjednodušit správu a přiřazení zásad definice. Jejich zjednodušit seskupením sady zásad jako jeden jednu položku. Můžete například vytvořit initiative s názvem **povolit monitorování v Azure Security Center**, s cílem monitorování všechna doporučení zabezpečení k dispozici ve vaší službě Azure Security Center.
+## <a name="initiative-definition"></a>Definice iniciativy
+Definice iniciativy je kolekce definic zásad, které jsou přizpůsobené pro dosažení jednoho zastřešujícího cíle. Definice iniciativ zjednodušují správu a přiřazování definic zásad. Toto zjednodušení spočívá v seskupování sad zásad do jedné položky. Mohli byste například vytvořit iniciativu s názvem **Povolení monitorování v Azure Security Center** s cílem monitorovat všechna dostupná doporučení zabezpečení v Azure Security Center.
 
-V rámci této iniciativa byste měli definice zásady, jako:
+V rámci této iniciativy byste měli například tyto definice zásad:
 
-1. **Monitorování bez šifrování databáze SQL ve službě Security Center** – pro monitorování nezašifrované databází SQL a servery.
-2. **Monitorování chyb zabezpečení operačního systému ve službě Security Center** – sledování serverů, které nesplňují nakonfigurované směrného plánu.
-3. **Sledování chybějící služby Endpoint Protection v Centru zabezpečení** – sledování serverů bez agenta ochrany nainstalovaného koncový bod.
+1. **Monitorování nešifrované služby SQL Database v Security Center** – pro monitorování nešifrovaných databází a serverů SQL.
+2. **Monitorování ohrožení zabezpečení operačního systému v Security Center** – pro monitorování serverů, které nevyhovují nakonfigurovaným standardním hodnotám.
+3. **Monitorování chybějící služby Endpoint Protection v Security Center** – pro monitorování serverů bez nainstalovaného agenta služby Endpoint Protection.
 
 <!--
 For more information about initiative definitions, see Initiative Definitions.+ (instead of linking to this, link out to Concept page on Initiative Definitions)
 -->
 
-## <a name="initiative-assignment"></a>Iniciativy přiřazení
-Podobně jako přiřazení zásady je iniciativy přiřazení iniciativy definice, které jsou přiřazeny k určité oboru. Iniciativy přiřazení snížit potřeba provést několik iniciativy definice pro každý obor. Tento obor může také rozsahu ze skupiny pro správu do skupiny prostředků.
+## <a name="initiative-assignment"></a>Přiřazení iniciativy
+Podobně jako přiřazení zásady je přiřazení iniciativy definicí iniciativy přiřazenou ke konkrétnímu oboru. Přiřazení iniciativ omezují potřebu vytváření několika definic iniciativ pro každý obor. Tento obor může také sahat od skupiny pro správu až po skupinu prostředků.
 
-Z předchozího příkladu **povolit monitorování v Azure Security Center** initiative lze přiřadit k různými obory. Například jeden přiřazení lze přiřadit k **subscriptionA**. Jiné lze přiřadit k **subscriptionB**.
+Iniciativu **Povolení monitorování v Azure Security Center** z předchozího příkladu je možné přiřadit k různým oborům. Jedno přiřazení se může přiřadit například k předplatnému **subscriptionA**. Další se může přiřadit k předplatnému **subscriptionB**.
 
-## <a name="initiative-parameters"></a>Iniciativy parametry
-Jako parametry zásad iniciativy parametry zjednodušit správu iniciativy snížením redundance. Iniciativy parametry jsou v podstatě seznam parametrů, které jsou používány definice zásady v rámci iniciativy.
+## <a name="initiative-parameters"></a>Parametry iniciativ
+Podobně jako parametry zásad pomáhají parametry iniciativ zjednodušit správu iniciativ tím, že snižují redundanci. Parametry iniciativ jsou v podstatě seznamem parametrů používaných definicemi zásad v rámci příslušné iniciativy.
 
-Například trvat scénáři kde máte iniciativy definice - **initiativeC**, s dvě definice zásady. Každý má jeden parametr definované definice zásady:
+Vezměte si například scénář, kdy máte definici iniciativy **initiativeC** se dvěma definicemi zásad. Každá definice zásady má definovaný jeden parametr:
 
 | Zásada | Název parametru |Typ parametru  |Poznámka |
 |---|---|---|---|
-| policyA | allowedLocations | Pole  |Tento parametr očekává seznam řetězců pro hodnotu vzhledem k tomu, že typ parametru byla definována jako pole |
-| policyB | allowedSingleLocation |Řetězec |Tento parametr očekává jednoho slova pro hodnotu vzhledem k tomu, že typ parametru byla definována jako řetězec |
+| policyA | allowedLocations | pole  |Tento parametr jako hodnotu očekává seznam řetězců, protože typ parametru byl definovaný jako pole. |
+| policyB | allowedSingleLocation |řetězec |Tento parametr jako hodnotu očekává jedno slovo, protože typ parametru byl definovaný jako řetězec. |
 
-V tomto scénáři při definování iniciativy parametry **initiativeC**, máte tři možnosti:
+V tomto scénáři máte při definování parametrů iniciativy pro **initiativeC** tři možnosti:
 
-1. Použití parametrů definice zásady v rámci této initiative: V tomto příkladu *allowedLocations* a *allowedSingleLocation* stát iniciativy parametry pro **initiativeC** .
-2. Zadejte hodnoty na parametry definice zásad této iniciativy definice. V tomto příkladu můžete zadat seznam umístění **policyA na parametr – allowedLocations** a **policyB na parametr – allowedSingleLocation**.
-Můžete také zadat hodnoty při přiřazování této iniciativy.
-3. Zadejte seznam *hodnotu* možnosti, které lze použít při přiřazování této iniciativy. Přiřadíte-li tento initiative, zděděné parametry z definice zásady v rámci iniciativa, může mít pouze hodnoty ze zadaného seznamu.
+1. Použít parametry definic zásad v rámci této iniciativy: V tomto příkladu se *allowedLocations* a *allowedSingleLocation* stanou parametry iniciativy pro **initiativeC**.
+2. Zadat hodnoty do parametrů definic zásad v rámci této definice iniciativy. V tomto příkladu můžete zadat seznam umístění do **parametru allowedLocations zásady policyA** a **parametru allowedSingleLocation zásady policyB**.
+Hodnoty můžete zadat také při přiřazování této iniciativy.
+3. Zadat seznam možností *hodnot*, které se můžou použít při přiřazování této iniciativy. Když přiřadíte tuto iniciativu, zděděné parametry z definic zásad v rámci této iniciativy můžou mít pouze hodnoty z tohoto zadaného seznamu.
 
-Například může vytvořit seznam možnosti hodnoty v iniciativy definice, které obsahují *EastUS*, *WestUS*, *CentralUS*, a *WestEurope*. Pokud ano, nebudete moci, jako vstup jinou hodnotu *jihovýchodní Asie* během iniciativy přiřazení, protože není součástí seznamu.
+V definici iniciativy můžete například vytvořit seznam možností hodnot, který obsahuje oblasti *EastUS*, *WestUS*, *CentralUS* a *WestEurope*. Pokud to uděláte, během přiřazování iniciativy nemůžete zadat jinou hodnotu, například oblast *Southeast Asia* (Jihovýchodní Asie), protože není na seznamu.
 
 ## <a name="recommendations-for-managing-policies"></a>Doporučení pro správu zásad
 
-Při vytváření a správě definice zásady a přiřazení, zde je několik ukazatele, doporučujeme, abyste postupovali podle:
+Při vytváření a správě definic a přiřazení zásad existuje několik ukazatelů, kterými byste se měli řídit:
 
-- Při vytváření definice zásad ve vašem prostředí, doporučujeme začít s auditu vliv, a efekt odepřít ke sledování dopadu vaší definice zásady s prostředky ve vašem prostředí. Pokud máte skripty již na místě, které chcete používat automatické škálování nahoru aplikace, nastavení Odepřít vliv mohou bránit automatizaci úkoly, které už máte na místě.
-- Je důležité mít na paměti organizační hierarchie, při vytváření definice a přiřazení. Doporučujeme, abyste vytváření definic na úrovni předplatného nebo vyšší úrovni, například na skupinu pro správu a přiřazení na další podřízené úrovni. Například pokud vytvoříte definici zásady na úrovni skupiny správy, přiřazení zásad definice lze snížit úrovni předplatného v rámci této skupiny pro správu.
-- Doporučujeme přes standardní cenovou úroveň, abyste lépe pochopili, stav dodržování předpisů vašeho prostředí. Další informace o našich cenovou modely a co každý z nich nabízejí, podívejte se na [cenová](https://azure.microsoft.com/pricing/details/azure-policy).
-- Doporučujeme vždy používat iniciativy definice místo definice zásad, i v případě, že máte jenom jednu zásadu v paměti. Pokud máte definici zásady – například *policyDefA* a musíte ji vytvořit v rámci iniciativy definice - *initiativeDefC*, pokud se rozhodnete vytvořit jinou definici zásady později pro *policyDefB* s cíle podobná *policyDefA*, můžete ho přidat *initiativeDefC* a sledovat je lepší tímto způsobem.
+- Pokud ve svém prostředí vytváříte definice zásad, doporučujeme místo efektu zamítnutí začít efektem auditu, abyste mohli sledovat dopad definic zásad na prostředky ve vašem prostředí. Pokud již máte skripty pro automatické vertikální navyšování kapacity vašich aplikací, nastavení efektu zamítnutí může bránit těmto již existujícím úlohám automatizace.
+- Při vytváření definic a přiřazení je důležité mít na paměti organizační hierarchie. Doporučujeme vytvářet definice na vyšší úrovni, například na úrovni skupiny pro správu nebo předplatného, a přiřazovat je na další podřízené úrovni. Pokud například vytvoříte definici zásady na úrovni skupiny pro správu, oblast přiřazení zásady této definice můžete snížit na úroveň předplatného v rámci této skupiny pro správu.
+- Pro lepší pochopení stavu dodržování předpisů vašeho prostředí doporučujeme používat cenovou úroveň Standard. Další informace o našich cenových modelech a o tom, co jednotlivé modely nabízejí, najdete na stránce s [cenami](https://azure.microsoft.com/pricing/details/azure-policy).
+- Doporučujeme vždy místo definic zásad používat definice iniciativ, a to i v případě, že plánujete používat jenom jednu zásadu. Pokud máte například definici zásady *policyDefA* a vytvoříte ji v rámci definice iniciativy *initiativeDefC*, v případě, že se později rozhodnete vytvořit další definici zásady pro *policyDefB* s podobnými cíli, jako má zásada *policyDefA*, můžete ji přidat do iniciativy *initiativeDefC* a obě definice zásad tak lépe sledovat.
 
-   Mějte na paměti, že po vytvoření iniciativy přiřazení z definice iniciativy žádné nové definice zásady přidané do definice iniciativy automaticky vrátit v rámci iniciativy přiřazení v rámci této iniciativy definice. Ale pokud je nový parametr seznámili novou definici zásady, musíte aktualizovat iniciativy definice a přiřazení úpravou iniciativy definice nebo přiřazení.
+   Mějte na paměti, že jakmile z definice iniciativy vytvoříte přiřazení iniciativy, všechny nové definice zásad přidané do této definice iniciativy se automaticky zahrnou do přiřazení iniciativy v rámci této definice iniciativy. Pokud však nová definice zásady zavádí nový parametr, musíte aktualizovat definici a přiřazení iniciativy upravením definice nebo přiřazení iniciativy.
 
 ## <a name="next-steps"></a>Další kroky
 
-Nyní když máte přehled zásad Azure a některé klíčové koncepty, které jsme se představení, zde jsou navrhované další kroky:
+Když teď máte přehled o službě Azure Policy a některých klíčových konceptech, které zavádíme, tady jsou další navrhované kroky:
 
-- [Přiřadit definici zásady](./assign-policy-definition.md)
-- [Přiřadit definici zásady pomocí rozhraní příkazového řádku Azure](./assign-policy-definition-cli.md)
-- [Přiřadit definici zásady pomocí prostředí PowerShell](./assign-policy-definition-ps.md)
+- [Přiřazení definice zásady](./assign-policy-definition.md)
+- [Přiřazení definice zásady pomocí Azure CLI](./assign-policy-definition-cli.md)
+- [Přiřazení definice zásady pomocí PowerShellu](./assign-policy-definition-ps.md)

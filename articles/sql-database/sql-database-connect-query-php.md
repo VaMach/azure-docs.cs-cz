@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 08/08/2017
+ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: ae8cf7b847442883f03078a8c34d0921f8992b02
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: b45acf8a7abdee070c6db2c5d7f4c108a073b1bb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Použití PHP k dotazování databáze SQL Azure
 
@@ -29,15 +29,11 @@ Tento rychlý úvodní kurz ukazuje použití [PHP](http://php.net/manual/en/int
 
 Abyste mohli absolvovat tento rychlý úvodní kurz, ujistěte se, že máte následující:
 
-- Databázi SQL Azure. Tento rychlý start používá prostředky vytvořené v některém z těchto rychlých startů: 
-
-   - [Vytvoření databáze – portál](sql-database-get-started-portal.md)
-   - [Vytvoření databáze – rozhraní příkazového řádku](sql-database-get-started-cli.md)
-   - [Vytvoření databáze – PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - [Pravidlo brány firewall na úrovni serveru](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pro veřejnou IP adresu počítače, který používáte pro tento rychlý úvodní kurz.
 
-- Máte nainstalovaný jazyk PHP a související software pro váš operační systém.
+- Máte nainstalovaný jazyk PHP a související software pro váš operační systém:
 
     - **MacOS:** Nainstalujte Homebrew a PHP, nainstalujte ovladač ODBC a nástroj SQLCMD a potom nainstalujte ovladač PHP pro SQL Server. Viz [kroky 1.2, 1.3 a 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
     - **Ubuntu:** Nainstalujte PHP a další požadované balíčky a potom nainstalujte ovladač PHP pro SQL Server. Viz [kroky 1.2 a 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
@@ -45,15 +41,7 @@ Abyste mohli absolvovat tento rychlý úvodní kurz, ujistěte se, že máte ná
 
 ## <a name="sql-server-connection-information"></a>Informace o připojení k SQL serveru
 
-Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
-
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
-3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na následujícím obrázku. Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírování kliknutím**.  
-
-   ![název-serveru](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Pokud zapomenete přihlašovací informace pro server, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby resetovali heslo.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
     
 ## <a name="insert-code-to-query-sql-database"></a>Vložení kódu pro dotazování databáze SQL
 
@@ -100,3 +88,10 @@ Získejte informace o připojení potřebné pro připojení k databázi SQL Azu
 - [Návrh první databáze SQL Azure](sql-database-design-first-database.md)
 - [Ovladače Microsoft PHP pro SQL Server](https://github.com/Microsoft/msphpsql/)
 - [Hlášení problémů nebo kladení dotazů](https://github.com/Microsoft/msphpsql/issues)
+- [Příklad logiky opakování: Odolné připojení k SQL pomocí PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 07/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 6eb026b5f478769f680e3899a7c743546c2c9d88
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 1d2a22500c322a63b134e29e5f7509df271eafb9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Použití .NET Core (jazyk C#) k dotazování databáze SQL Azure
 
@@ -29,30 +29,21 @@ Tento rychlý úvodní kurz ukazuje použití [.NET Core](https://www.microsoft.
 
 Abyste mohli absolvovat tento rychlý úvodní kurz, ujistěte se, že máte následující:
 
-- Databázi SQL Azure. Tento rychlý start používá prostředky vytvořené v některém z těchto rychlých startů: 
-
-   - [Vytvoření databáze – portál](sql-database-get-started-portal.md)
-   - [Vytvoření databáze – rozhraní příkazového řádku](sql-database-get-started-cli.md)
-   - [Vytvoření databáze – PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - [Pravidlo brány firewall na úrovni serveru](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pro veřejnou IP adresu počítače, který používáte pro tento rychlý úvodní kurz.
+
 - Nainstalované [.NET Core pro váš operační systém](https://www.microsoft.com/net/core). 
 
 ## <a name="sql-server-connection-information"></a>Informace o připojení k SQL serveru
 
-Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
-3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na následujícím obrázku. Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírování kliknutím**. 
+#### <a name="for-adonet"></a>ADO.NET
 
-   ![název-serveru](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. Pokračujte kliknutím na **Zobrazit databázové připojovací řetězce**.
 
-4. Pokud zapomenete přihlašovací informace pro váš server služby Azure SQL Database, přejděte na stránku serveru služby SQL Database, abyste zobrazili jméno správce serveru. V případě potřeby můžete obnovit heslo.
-
-5. Klikněte na tlačítko **Zobrazit databázové připojovací řetězce**.
-
-6. Zkontrolujte úplný připojovací řetězec **ADO.NET**.
+2. Zkontrolujte úplný připojovací řetězec **ADO.NET**.
 
     ![Připojovací řetězec pro ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 

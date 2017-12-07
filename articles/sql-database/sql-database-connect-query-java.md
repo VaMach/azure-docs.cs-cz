@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/10/2017
+ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: cb1c387628a79ddfada0786c8c6422b6671a2c19
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 994705b0a9c7ca850c357a5810f1edb1618098d6
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Použití Javy k dotazování databáze SQL Azure
 
@@ -29,15 +29,11 @@ Tento rychlý start ukazuje použití [Javy](https://docs.microsoft.com/sql/conn
 
 Abyste mohli absolvovat tento rychlý úvodní kurz, ujistěte se, že máte následující:
 
-- Databázi SQL Azure. Tento rychlý start používá prostředky vytvořené v některém z těchto rychlých startů: 
-
-   - [Vytvoření databáze – portál](sql-database-get-started-portal.md)
-   - [Vytvoření databáze – rozhraní příkazového řádku](sql-database-get-started-cli.md)
-   - [Vytvoření databáze – PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - [Pravidlo brány firewall na úrovni serveru](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pro veřejnou IP adresu počítače, který používáte pro tento rychlý úvodní kurz.
 
-- Máte nainstalovanou Javu a související software pro váš operační systém.
+- Máte nainstalovanou Javu a související software pro váš operační systém:
 
     - **MacOS:** Nainstalujte Homebrew a Javu a potom nainstalujte Maven. Viz [kroky 1.2 a 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
     - **Ubuntu:** Nainstalujte Java Development Kit a Maven. Viz [kroky 1.2, 1.3 a 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
@@ -45,15 +41,7 @@ Abyste mohli absolvovat tento rychlý úvodní kurz, ujistěte se, že máte ná
 
 ## <a name="sql-server-connection-information"></a>Informace o připojení k SQL serveru
 
-Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
-
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
-3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na následujícím obrázku: Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírovat kliknutím**.  
-
-   ![název-serveru](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Pokud zapomenete přihlašovací informace pro váš server, přejděte na stránku serveru služby SQL Database, abyste zobrazili jméno správce serveru.  V případě potřeby obnovte heslo.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="create-maven-project-and-dependencies"></a>**Vytvoření projektu a závislostí v Mavenu**
 1. Na terminálu vytvořte nový projekt v Mavenu s názvem **sqltest**. 

@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: n
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/08/2017
+ms.date: 08/09/2017
 ms.author: carlrab
-ms.openlocfilehash: dc1697520080cbdc8e53686f800ad122e69c2478
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: f7496c7b78449d5ceae861dc0daac607acdb1f84
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Použití Pythonu k dotazování databáze SQL Azure
 
@@ -29,15 +29,11 @@ ms.lasthandoff: 10/31/2017
 
 Abyste mohli absolvovat tento rychlý úvodní kurz, ujistěte se, že máte následující:
 
-- Databázi SQL Azure. Tento rychlý start používá prostředky vytvořené v některém z těchto rychlých startů: 
-
-   - [Vytvoření databáze – portál](sql-database-get-started-portal.md)
-   - [Vytvoření databáze – rozhraní příkazového řádku](sql-database-get-started-cli.md)
-   - [Vytvoření databáze – PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - [Pravidlo brány firewall na úrovni serveru](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) pro veřejnou IP adresu počítače, který používáte pro tento rychlý úvodní kurz.
 
-- Máte nainstalovaný Python a související software pro váš operační systém.
+- Máte nainstalovaný Python a související software pro váš operační systém:
 
     - **MacOS:** Nainstalujte Homebrew a Python, nainstalujte ovladač ODBC a nástroj SQLCMD a potom nainstalujte ovladač Python pro SQL Server. Viz [kroky 1.2, 1.3 a 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
     - **Ubuntu:** Nainstalujte Python a další požadované balíčky a potom nainstalujte ovladač Python pro SQL Server. Viz [kroky 1.2, 1.3 a 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
@@ -45,15 +41,7 @@ Abyste mohli absolvovat tento rychlý úvodní kurz, ujistěte se, že máte ná
 
 ## <a name="sql-server-connection-information"></a>Informace o připojení k SQL serveru
 
-Získejte informace o připojení potřebné pro připojení k databázi SQL Azure. V dalších postupech budete potřebovat plně kvalifikovaný název serveru, název databáze a přihlašovací údaje.
-
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. V nabídce vlevo vyberte **SQL Database** a na stránce **Databáze SQL** klikněte na vaši databázi. 
-3. Na stránce **Přehled** pro vaši databázi si prohlédněte plně kvalifikovaný název serveru, jak je znázorněno na následujícím obrázku. Pokud na název serveru najedete myší, můžete vyvolat možnost **Kopírování kliknutím**.  
-
-   ![název-serveru](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Pokud zapomenete přihlašovací informace pro server, přejděte na stránku serveru SQL Database, abyste zobrazili jméno správce serveru a v případě potřeby resetovali heslo.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
     
 ## <a name="insert-code-to-query-sql-database"></a>Vložení kódu pro dotazování databáze SQL 
 

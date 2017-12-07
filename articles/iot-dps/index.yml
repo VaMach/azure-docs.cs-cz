@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentace ke službě Azure IoT Hub Device Provisioning (Preview)
+title: Dokumentace ke službě Azure IoT Hub Device Provisioning
 metadata:
-  title: 'Dokumentace ke službě Azure IoT Hub Device Provisioning (Preview) – kurzy, reference k rozhraní API'
+  title: 'Dokumentace ke službě Azure IoT Hub Device Provisioning – kurzy, reference k rozhraní API'
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'Služba IoT Hub Device Provisioning (Preview) je pomocná služba pro IoT Hub. Umožňuje plně automatizované zřizování za běhu ve správném IoT Hubu, které nevyžaduje zásah člověka. Zákazníci tak mohou bezpečným a škálovatelným způsobem zřizovat miliony zařízení. Pomocí našich šablon Rychlý start, kurzů a ukázek se naučíte zřizovat zařízení v IoT Hubu.'
+  description: 'Služba IoT Hub Device Provisioning je pomocná služba pro IoT Hub. Umožňuje plně automatizované zřizování za běhu ve správném IoT Hubu, které nevyžaduje zásah člověka. Zákazníci tak mohou bezpečným a škálovatelným způsobem zřizovat miliony zařízení. Pomocí našich šablon Rychlý start, kurzů a ukázek se naučíte zřizovat zařízení v IoT Hubu.'
 sections:
   - title: Zprovoznění během 5 minut
     items:
@@ -34,7 +34,7 @@ sections:
   - title: Podrobné kurzy
     items:
       - type: paragraph
-        text: Naučte se používat IoT Hub Device Provisioning (Preview) k automatickému zřízení zabezpečených zařízení v jednom nebo několika IoT Hubech.
+        text: Naučte se používat IoT Hub Device Provisioning k automatickému zřízení zabezpečených zařízení v jednom nebo několika IoT Hubech.
       - type: list
         style: ordered
         items:

@@ -1,30 +1,22 @@
 ---
-title: "Rychlý start - vytvoření vaší první instance kontejner Azure kontejneru"
+title: "Rychlý start: Vytvoření prvního kontejneru služby Azure Container Instances"
 description: "Nasazení služby Azure Container Instances a zahájení práce"
 services: container-instances
-documentationcenter: 
 author: seanmck
 manager: timlt
-editor: mmacy
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2017
+ms.date: 11/29/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 160ba84d2c022ca3af2eb13a9689a282b4a6b198
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.openlocfilehash: 22f7ec70b5fc9d04de18a8b6029f0e24d3f6a83f
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Vytvoření prvního kontejneru ve službě Azure Container Instances
-Azure instancí kontejnerů umožňuje snadno vytvářet a spravovat Docker kontejnerů v Azure, aniž by museli zřizovat virtuální počítače nebo přijmou vyšší úrovně služby. V tento rychlý start vytvořit kontejner ve službě Azure a umístěte ji do internet s veřejnou IP adresu. K dokončení této operace stačí jediný příkaz. Během několika sekund se zobrazí tato v prohlížeči:
+Služba Azure Container Instances usnadňuje vytváření a správu kontejnerů Dockeru v Azure. aniž byste museli zřizovat virtuální počítače nebo používat službu vyšší úrovně. V tomto rychlém startu vytvoříte kontejner v Azure a zveřejníte ho na internetu s použitím veřejné IP adresy. K dokončení této operace stačí jediný příkaz. Během několika sekund uvidíte ve svém prohlížeči toto:
 
 ![Aplikace nasazená pomocí služby Azure Container Instances zobrazená v prohlížeči][aci-app-browser]
 
@@ -32,13 +24,13 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Dokončete tento rychlý start můžete použít prostředí cloudové služby Azure nebo místní instalace rozhraní příkazového řádku Azure. Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, vyžaduje tento rychlý start, že používáte Azure CLI verze 2.0.21 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).
+K dokončení tohoto rychlého startu můžete použít Azure Cloud Shell nebo místní instalaci Azure CLI. Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít Azure CLI verze 2.0.21 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
 Služba Azure Container Instances je prostředek Azure a musí být umístěná ve skupině prostředků Azure, což je logická kolekce, ve které se nasazují a spravují prostředky Azure.
 
-Vytvořte skupinu prostředků s [vytvořit skupinu az] [ az-group-create] příkaz.
+Vytvořte skupinu prostředků pomocí příkazu [az group create][az-group-create].
 
 Následující příklad vytvoří skupinu prostředků *myResourceGroup* v umístění *eastus*.
 
@@ -48,13 +40,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Vytvoření kontejneru
 
-Kontejner můžete vytvořit zadáním názvu, bitovou kopii Docker a skupinu prostředků Azure k [vytvořit kontejner az] [ az-container-create] příkaz. Volitelně můžete kontejner zveřejnit na internetu s použitím veřejné IP adresy. V tento rychlý start nasadit kontejner, který je hostitelem malé webové aplikace napsané v [Node.js](http://nodejs.org).
+Kontejner můžete vytvořit zadáním názvu, image Dockeru a skupiny prostředků Azure do příkazu [az container create][az-container-create]. Volitelně můžete kontejner zveřejnit na internetu s použitím veřejné IP adresy. V tomto rychlém startu nasadíte kontejner, který je hostitelem malé webové aplikace napsané v [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public --ports 80
 ```
 
-Během několika sekund byste měli obdržet odpověď na váš požadavek. Standardně je kontejner v **vytváření** stavu, ale by se měl spustit během několika sekund. Můžete zkontrolovat stav pomocí [az kontejneru zobrazit] [ az-container-show] příkaz:
+Během několika sekund byste měli obdržet odpověď na váš požadavek. Zpočátku je kontejner ve stavu **Vytváření**, ale během několika sekund by se měl spustit. Stav můžete zkontrolovat pomocí příkazu [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -78,13 +70,13 @@ V dolní části výstupu se zobrazí stav zřizování kontejneru a jeho IP adr
 ...
 ```
 
-Jakmile kontejneru přesune do **úspěšné** stavu, můžete dosáhnout v prohlížeči IP adresa zadaná pomocí.
+Jakmile se kontejner přesune do stavu **Úspěšné**, můžete k němu přistoupit v prohlížeči pomocí zadané IP adresy.
 
 ![Aplikace nasazená pomocí služby Azure Container Instances zobrazená v prohlížeči][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Vyžádání protokolů kontejneru
 
-Může vyžádat protokoly pro kontejner, který jste vytvořili pomocí [az kontejneru protokoly] [ az-container-logs] příkaz:
+Protokoly pro vytvořený kontejner si můžete vyžádat pomocí příkazu [az container logs][az-container-logs]:
 
 ```azurecli-interactive
 az container logs --name mycontainer --resource-group myResourceGroup
@@ -93,36 +85,35 @@ az container logs --name mycontainer --resource-group myResourceGroup
 Výstup:
 
 ```bash
-Server running...
-10.240.255.107 - - [20/Nov/2017:19:16:28 +0000] "GET / HTTP/1.1" 200 1663 "" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
-10.240.255.107 - - [20/Nov/2017:19:16:28 +0000] "GET / HTTP/1.1" 200 1663
-10.240.255.107 - - [20/Nov/2017:19:16:28 +0000] "GET /favicon.ico HTTP/1.1" 404 19
+listening on port 80
+::ffff:10.240.255.107 - - [29/Nov/2017:20:48:50 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
+::ffff:10.240.255.107 - - [29/Nov/2017:20:48:50 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://52.224.178.107/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
 ```
 
 ## <a name="delete-the-container"></a>Odstranění kontejneru
 
-Až skončíte s kontejneru, můžete odebrat pomocí [odstranit kontejner az] [ az-container-delete] příkaz:
+Až s kontejnerem skončíte, můžete ho odebrat pomocí příkazu [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
 ```
 
-Pokud chcete ověřit, že kontejner byl odstraněn, spusťte [az kontejneru seznamu](/cli/azure/container#az_container_list) příkaz:
+Pokud chcete ověřit odstranění kontejneru, spusťte příkaz [az container list](/cli/azure/container#az_container_list):
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup -o table
 ```
 
-**Můj_kontejner** kontejneru neměla v výstup příkazu. Pokud máte ve skupině prostředků žádné jiné kontejnery, zobrazí se žádný výstup.
+Kontejner **mycontainer** by se neměl zobrazit ve výstupu příkazu. Pokud ve skupině prostředků nemáte žádné další kontejnery, nezobrazí se žádný výstup.
 
 ## <a name="next-steps"></a>Další kroky
 
-Kód pro kontejner použitý v tento rychlý start je k dispozici [na Githubu][app-github-repo], společně s jeho soubor Docker. Pokud byste si chtěli sami vyzkoušet jeho sestavení a nasazení do služby Azure Container Instances pomocí služby Azure Container Registry, pokračujte na kurz služby Azure Container Instances.
+Veškerý kód pro kontejner použitý v tomto rychlém startu je k dispozici [na GitHubu][app-github-repo] společně s příslušným souborem Dockerfile. Pokud byste si chtěli sami vyzkoušet jeho sestavení a nasazení do služby Azure Container Instances pomocí služby Azure Container Registry, pokračujte na kurz služby Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Kurzy služby Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
-Můžete vyzkoušet na možnosti spuštění kontejnery v systému orchestration v Azure, najdete v článku [Service Fabric] [ service-fabric] nebo [Azure Container Service (AKS)] [ container-service] – elementy quickstart.
+Pokud chcete vyzkoušet možnosti spouštění kontejnerů v systému orchestrace v Azure, prostudujte si rychlé starty pro [Service Fabric][service-fabric] nebo [Azure Container Service (AKS)][container-service].
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

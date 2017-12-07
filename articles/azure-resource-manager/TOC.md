@@ -38,7 +38,7 @@
 #### [Nasazení prostředků](resource-group-template-deploy-portal.md)
 #### [Export šablony](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Nasazení napříč skupinami prostředků](resource-manager-cross-resource-group-deployment.md)
+### [Několik skupin prostředků nebo předplatných](resource-manager-cross-resource-group-deployment.md)
 ### [Průběžná integrace se sadou Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Předání zabezpečených hodnot během nasazení](resource-manager-keyvault-parameter.md)
 
