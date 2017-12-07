@@ -41,7 +41,6 @@
 ### [Vytvoření a nasazení cloudové služby na portálu](cloud-services-how-to-create-deploy-portal.md)
 ### [Vytvoření prázdného kontejneru cloudové služby v PowerShellu](cloud-services-powershell-create-cloud-container.md)
 ### [Konfigurace vlastního názvu domény](cloud-services-custom-domain-name-portal.md)
-### [Příprava nasazení cloudové služby (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Připojení k vlastnímu řadiči domény](cloud-services-connect-to-custom-domain.md)
 
 ## Správa služby

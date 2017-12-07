@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 54e39a1f1627ccf57271d2e8970af72fea3e75f0
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrování provozu sítě s použitím skupin zabezpečení sítě
 
@@ -123,7 +123,7 @@ Skupiny zabezpečení sítě můžete implementovat v modelu nasazení Resource 
 
 | Nástroj pro nasazení | Classic | Resource Manager |
 | --- | --- | --- |
-| portál Azure   | Ano | [Ano](virtual-networks-create-nsg-arm-pportal.md) |
+| portál Azure   | Ne | [Ano](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Ano](virtual-networks-create-nsg-classic-ps.md) | [Ano](virtual-networks-create-nsg-arm-ps.md) |
 | Rozhraní příkazového řádku Azure CLI **V1**   | [Ano](virtual-networks-create-nsg-classic-cli.md) | [Ano](virtual-networks-create-nsg-arm-cli.md) |
 | Rozhraní příkazového řádku Azure CLI **V2**   | Ne | [Ano](virtual-networks-create-nsg-arm-cli.md) |

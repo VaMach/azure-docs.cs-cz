@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2017
+ms.date: 12/05/2017
 ms.author: shlo
-ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 5c78f61074258c734cefade28d6aca1055519758
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Prostředí Integration Runtime v Azure Data Factory
 Prostředí Integration Runtime (IR) je výpočetní infrastruktura, kterou Azure Data Factory používá k poskytování následujících funkcí integrace dat v různých síťových prostředích:
@@ -141,7 +141,7 @@ Spojené státy | Východ USA | Východ USA
 &nbsp; | Střed USA – jih | Střed USA – jih
 &nbsp; | Západní střed USA | Západní střed USA
 &nbsp; | Západní USA | Západní USA
-&nbsp; | Západní USA 2 | Západní USA
+&nbsp; | Západní USA 2 | Západní USA 2
 Kanada | Východní Kanada | Střední Kanada
 &nbsp; | Střední Kanada | Střední Kanada
 Brazílie | Brazílie – jih | Brazílie – jih
