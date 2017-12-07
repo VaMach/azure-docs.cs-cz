@@ -3,7 +3,7 @@
 3. V případě **skupiny prostředků** vyberte existující skupinu prostředků nebo vytvořte novou (použijte stejný název, jaký má aplikace). 
    
     Můžete buď vybrat jiný plán služby App Service nebo vytvořit nový. Další informace o plánech služby App Service a vytvoření nového plánu v různých cenových úrovních a požadovaném umístění najdete v článku [Podrobný přehled plánů služby Azure App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. V případě **plánu služby App Service** je vybraný výchozí plán (na [úrovni Standard](https://azure.microsoft.com/pricing/details/app-service/)). Můžete také vybrat jiný plán nebo [vytvořte novou](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Nastavení plánu služby App Service určují [umístění, funkce a nákladové a výpočetní prostředky](https://azure.microsoft.com/pricing/details/app-service/) přidružené k vaší aplikaci. 
+4. V případě **plánu služby App Service** je vybraný výchozí plán (na [úrovni Standard](https://azure.microsoft.com/pricing/details/app-service/)). Můžete také vybrat jiný plán nebo [vytvořte novou](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). Nastavení plánu služby App Service určují [umístění, funkce a nákladové a výpočetní prostředky](https://azure.microsoft.com/pricing/details/app-service/) přidružené k vaší aplikaci. 
    
     Až se rozhodnete pro konkrétní plán, klikněte na **Vytvořit**. Tím vytvoříte back-end mobilní aplikace. 
 5. V okně **Nastavení** nového back-endu mobilní aplikace klikněte na **Rychlý start** > aplikační platforma vašeho klienta > **Připojit databázi**. 

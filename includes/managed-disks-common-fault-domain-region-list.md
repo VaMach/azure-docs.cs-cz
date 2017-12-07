@@ -32,3 +32,9 @@
 | Austrálie – jihovýchod | 2                       |
 |                     |                         |
 | Brazílie – jih        | 2                       |
+|                     |                         |
+| USA (Gov) – Virginia     | 2                       |
+| USA (Gov) – Texas        | 2                       |
+| USA (Gov) – Arizona      | 2                       |
+| US DoD – střed      | 2                       |
+| US DoD – východ         | 2                       |

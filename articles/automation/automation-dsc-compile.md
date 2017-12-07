@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilování konfigurace v Azure Automation DSC.
 
@@ -128,6 +128,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 Informace o předávání PSCredentials jako parametry najdete v tématu <a href="#credential-assets"> **prostředků přihlašovacích údajů** </a> níže.
+
+## <a name="composite-resources"></a>Složené prostředky
+
+**Složené prostředky** vám umožní použít konfigurace DSC jako vnořených prostředků v rámci konfigurace.  To umožňuje použít více konfigurací pro jediný zdroj.  V tématu [složené prostředků: pomocí konfigurace DSC jako prostředek](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) Další informace o **složené prostředky**
+
+> [!NOTE]
+> Aby **složené prostředky** pro správnou kompilaci, musíte napřed zajistit, aby veškeré prostředky DSC, které složené spoléhá na prvním nainstalování v úložišti moduly účet Azure Automation nebo nebude správně importovat.
+
+Chcete-li přidat DSC **složené prostředků**, modul prostředků je třeba přidat do archivu (* .zip). Přejděte do úložiště modulů na váš účet Azure Automation.  Klikněte na tlačítko "Přidat modul".
+
+![Přidání modulu](./media/automation-dsc-compile/add_module.png)
+
+Přejděte do adresáře, kde se nachází vašem archivu.  Vyberte soubor archivu a klikněte na tlačítko OK.
+
+![Vyberte modul](./media/automation-dsc-compile/select_dscresource.png)
+
+Pak přejdete zpět do adresáře modulů, kde můžete sledovat stav vaší **složené prostředků** při se rozbalí a zaregistruje se Azure Automation.
+
+![Import složené prostředků](./media/automation-dsc-compile/register_composite_resource.png)
+
+Jakmile je registrovaný modul, můžete pak kliknutím na ho chcete ověřit, že **složené prostředky** jsou nyní k dispozici pro použití v konfiguraci.
+
+![Ověření složeného prostředků](./media/automation-dsc-compile/validate_composite_resource.png)
+
+Potom můžete volat **složené prostředků** do vaší konfigurace takto:
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
 
 ## <a name="configurationdata"></a>ConfigurationData
 **ConfigurationData** umožňuje oddělit strukturální konfiguraci z žádnou konkrétní konfiguraci prostředí při používání DSC prostředí PowerShell. V tématu [oddělení "Co" z "Kde" v prostředí PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) Další informace o **ConfigurationData**.
@@ -242,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Import konfigurace uzlu
 
-Můžete také importovat configuratons uzlu (soubory MOF), které zkompilujete mimo Azure. Jednou z výhod to je, že tento uzel confiturations může být podepsané.
+Můžete také importovat configuratons uzlu (soubory MOF), které zkompilujete mimo Azure. Jednou z výhod to je, že může být podepsané konfigurace uzlu.
 Konfigurace podepsaný uzlu je ověřováno místně na spravovaný uzel DSC agenta, zajistíte, že konfigurace aplikované na uzlu pochází z autorizovaná zdrojová.
 
 > [!NOTE]

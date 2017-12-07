@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a5bb66db889dc1c52252773e3f129ba2c3d55f1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Vytvoření klipů pomocí Azure Media výřez
 Azure Media výřez je volné knihovna JavaScript, která umožňuje vývojářům webů jejich uživatelům poskytnout rozhraní pro vytváření klipů média. Tento nástroj lze integrovat do žádné webové stránce a poskytuje rozhraní API pro načítání prostředků a odesílání úloh výstřižek.
@@ -29,8 +29,11 @@ Azure Media výřez umožňuje:
 
 Chcete-li požádat o nové funkce, zadejte nápady nebo připomínky, odeslání [UserVoice pro službu Azure Media Services](http://aka.ms/amsvoice/). Pokud máte a konkrétní problémy, dotazy nebo najít žádné chyby, vyřaďte Media Services team řádek v amcinfo@microsoft.com.
 
+Následující obrázek ukazuje rozhraní výřez: ![výřez médií Azure](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+
 ## <a name="release-notes"></a>Poznámky k verzi
-Následující seznam popisuje různé známé problémy a protokol změn pro nejnovější verzi výřez:
+Najdete v příspěvku blogu výřez různé známé problémy a protokol změn pro nejnovější verzi výřez v následujícím seznamu:
+- [Příspěvek blogu](https://azure.microsoft.com/blog/azure-media-clipper/)
 - [Seznam známých problémů](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
 - [Protokol změn](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 

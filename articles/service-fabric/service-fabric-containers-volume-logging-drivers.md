@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Docker Compose Preview | Microsoft Docs
-description: "Azure Service Fabric přijme Docker Compose formátu, aby bylo snazší orchestraci kontejnerů exsiting pomocí Service Fabric. Tato podpora je aktuálně ve verzi preview."
+title: Azure Service Fabric Docker Compose (Preview) | Microsoft Docs
+description: "Azure Service Fabric přijme formát Docker Compose usnadnění orchestraci existující kontejnery pomocí Service Fabric. Podpora pro Docker Compose je aktuálně ve verzi preview."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 955f84e5656bbf568234cbaf69faa4dd0a741206
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>Pomocí svazku modulů plug-in a ovladače protokolování v vašeho kontejneru
-Service Fabric podporuje určení [modulů plug-in svazku Docker](https://docs.docker.com/engine/extend/plugins_volume/) a [Docker protokolování ovladače](https://docs.docker.com/engine/admin/logging/overview/) pro vaši službu kontejneru.  To vám umožní zachovat data v [Azure Files](https://azure.microsoft.com/en-us/services/storage/files/) i v případě, že jste kontejneru je přesunout nebo restartováním jiného hostitele.
+# <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Pomocí Docker svazku zásuvné moduly a protokolování ovladače v vašeho kontejneru
+Azure Service Fabric podporuje určení [Docker svazku zásuvné moduly](https://docs.docker.com/engine/extend/plugins_volume/) a [Docker protokolování ovladače](https://docs.docker.com/engine/admin/logging/overview/) pro vaši službu kontejneru. Může uchovávat vaše data v [Azure Files](https://azure.microsoft.com/services/storage/files/) při vašeho kontejneru je přesunout nebo restartováním jiného hostitele.
 
-Momentálně nejsou k dispozici pouze svazku ovladače pro Linux kontejnery, jak je uvedeno níže.  Pokud používáte Windows kontejnery, je možné namapovat svazek k Azure Files [SMB3 sdílení](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) bez ovladač svazek pomocí nejnovější verze. 1709 systému Windows Server. Bude vyžadovat aktualizaci na verzi Windows serveru. 1709 virtuálních počítačů v clusteru.
+Aktuálně jsou podporovány pouze svazku ovladače pro kontejnery Linux. Pokud používáte Windows kontejnery, můžete namapovat svazek Azure Files [SMB3 sdílení](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) bez ovladač svazku. Aby bylo toto mapování aktualizujte virtuální počítače (VM) v clusteru na nejnovější verzi. 1709 Windows serveru.
 
 
-## <a name="install-volumelogging-driver"></a>Nainstalujte ovladač svazku nebo protokolování
+## <a name="install-the-docker-volumelogging-driver"></a>Nainstalujte ovladač svazku nebo protokolování Docker
 
-Pokud ovladač svazku nebo protokolování Docker není nainstalovaný na počítači, nainstalujte ji ručně pomocí protokolu RDP/SSH-ing do počítače, prostřednictvím [VMSS spuštění skriptu](https://azure.microsoft.com/en-us/resources/templates/201-vmss-custom-script-windows/) nebo pomocí [SetupEntryPoint](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service) skriptu. Vyberete jednu z uvedených metod, můžete napsat skript pro instalaci [Docker svazku ovladač pro Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/):
+Pokud ovladač svazku nebo protokolování Docker není nainstalovaný na počítači, můžete je nainstalovat ručně pomocí protokolu RDP/SSH. Můžete provést instalaci těchto protokolech prostřednictvím [škálovací sady virtuálních počítačů spuštění skriptu](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) nebo [SetupEntryPoint skriptu](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
+Příklad skriptu k instalaci [Docker svazku ovladač pro Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) vypadá takto:
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
@@ -39,8 +40,8 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 
-## <a name="specify-the-plugin-or-driver-in-the-manifest"></a>Zadejte modul plug-in nebo ovladač v manifestu
-Moduly plug-in jsou určené v manifestu aplikace, jak je znázorněno v následujícím manifestu:
+## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Zadejte modul plug-in nebo ovladač v manifestu
+Moduly plug-in jsou určené v manifestu aplikace takto:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -75,19 +76,16 @@ Moduly plug-in jsou určené v manifestu aplikace, jak je znázorněno v násled
 </ApplicationManifest>
 ```
 
-V předchozím příkladu `Source` označení pro `Volume` odkazuje do zdrojové složky. Zdrojová složka může být do složky ve virtuálním počítači, který je hostitelem kontejnery nebo trvalé vzdálené úložiště. `Destination` Značka je umístění, `Source` je namapována na spuštěné kontejneru.  Cíl proto nemůže být již existující umístění v rámci vašeho kontejneru.
+**Zdroj** značka pro **svazku** element odkazuje do zdrojové složky. Zdrojová složka může být do složky ve virtuálním počítači, který je hostitelem kontejnery nebo trvalé vzdálené úložiště. **Cílové** značka je umístění, **zdroj** je namapována na spuštěné kontejneru. Cíl proto nemůže být umístění, které již existuje v rámci vašeho kontejneru.
 
-Při zadávání modulu plug-in svazku, Service Fabric automaticky vytvoří svazku, pomocí zadaných parametrů. `Source` Značka je název svazku a `Driver` značky Určuje modul plug-in ovladač svazku. Možnosti lze zadat pomocí `DriverOption` značky, jak je znázorněno v následujícím fragmentu kódu:
+Při zadávání svazek modul plug-in, Service Fabric automaticky vytvoří svazek pomocí zadaných parametrů. **Zdroj** značka je název svazku a **ovladač** značky určuje modulu plug-in svazku ovladačů. Možnosti lze zadat pomocí **DriverOption** značky následujícím způsobem:
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```
-Pokud je zadaný ovladač protokolu Docker, je nezbytné pro nasazení agentů (nebo kontejnery) pro zpracování protokoly v clusteru.  `DriverOption` Značky lze zadat také možnosti protokolu ovladačů.
+Pokud je zadaný ovladač Docker protokolu, budete muset nasazení agentů (nebo kontejnery) pro zpracování protokoly v clusteru. **DriverOption** značku lze použít k určení možností pro ovladač protokolu.
 
-Najdete v těchto článcích nasazení kontejnerů do clusteru Service Fabric:
-
-
-[Nasazení kontejneru v Service Fabric](service-fabric-deploy-container.md)
-
+## <a name="next-steps"></a>Další kroky
+Nasazení kontejnerů do clusteru Service Fabric najdete v tématu [nasazení kontejneru v Service Fabric](service-fabric-deploy-container.md).

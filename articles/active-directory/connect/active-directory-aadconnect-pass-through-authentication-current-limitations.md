@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: 978ad8f14d70fe60cb220136e87ce4a064672b8a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure předávací ověřování služby Active Directory: Aktuální omezení
 
@@ -47,7 +47,10 @@ Následující scénáře jsou _není_ podporovány:
 - Zjišťování uživatelů s [úniku přihlašovacích údajů](../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
->Jako alternativní řešení pro nepodporované scénáře _pouze_, povolte synchronizaci hodnoty hash hesla na [volitelné funkce](active-directory-aadconnect-get-started-custom.md#optional-features) stránku průvodce Azure AD Connect. Povolit synchronizaci hodnoty hash hesla také vám dává možnost převzetí služeb při selhání ověřování Pokud dojde k narušení na místní infrastrukturu. Toto převzetí služeb při selhání z předávací ověřování synchronizaci hodnoty hash hesla služby Active Directory není automatické. To vyžaduje pomoci Microsoft Support.
+>Jako alternativní řešení pro nepodporované scénáře _pouze_, povolte synchronizaci hodnoty hash hesla na [volitelné funkce](active-directory-aadconnect-get-started-custom.md#optional-features) stránku průvodce Azure AD Connect.
+
+>[!NOTE]
+Povolení synchronizaci hodnoty hash hesla nabízí možnost převzetí služeb při selhání ověřování Pokud dojde k narušení na místní infrastrukturu. Toto převzetí služeb při selhání z předávací ověřování synchronizaci hodnoty hash hesla služby Active Directory není automatické. Budete potřebovat přepnout metoda přihlašování ručně pomocí služby Azure AD Connect. Pokud server se službou Azure AD Connect přestane fungovat, budete vyžadovat pomoc od společnosti Microsoft Support vypnout předávací ověřování.
 
 ## <a name="next-steps"></a>Další kroky
 - [Rychlý start](active-directory-aadconnect-pass-through-authentication-quick-start.md): zprovoznění s Azure AD předávací ověřování.

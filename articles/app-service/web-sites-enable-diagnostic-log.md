@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Povolit protokolování diagnostiky pro webové aplikace v Azure App Service
 ## <a name="overview"></a>Přehled
@@ -60,7 +60,7 @@ Když povolíte **rozhraní application diagnostics**, můžete také zvolit **�
 >
 >
 
-Pro **protokolování aplikací**, můžete zapnout možnost systému souboru dočasně pro účely ladění. Tato možnost vypne automaticky za 12 hodin. Můžete také zapnout možnost Objekt blob úložiště vyberte kontejner blog k zápisu v protokolech.
+Pro **protokolování aplikací**, můžete zapnout možnost systému souboru dočasně pro účely ladění. Tato možnost vypne automaticky za 12 hodin. Můžete taky zapnout možnost úložiště objektů blob a vyberte kontejner objektů blob k zápisu v protokolech.
 
 Pro **protokolování webového serveru**, můžete vybrat **úložiště** nebo **systém souborů**. Výběr **úložiště** vám umožní vybrat účet úložiště a kontejner objektů blob, které se zapisují protokoly do. 
 

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Nasazení a monitorování modulů IoT Edge ve velkém měřítku – náhled
 
@@ -42,19 +42,21 @@ Další informace o značky a dvojčata zařízení najdete v tématu [Rady pro 
 
 1. Přihlaste se k [portál Azure] [ lnk-portal] a přejděte do služby IoT hub. 
 1. Vyberte **IoT okraj (preview)**.
-1. Vyberte **vytvořit nasazení Edge**.
+1. Vyberte **přidání okraj IoT nasazení**.
 
 Existují pět kroky k vytvoření nasazení. V následujících částech provede každé z nich. 
 
-### <a name="step-1-label-deployment"></a>Krok 1: Popisek nasazení
+### <a name="step-1-name-and-label"></a>Krok 1: Název a popisku
 
-1. Poskytnout vašemu nasazení jedinečný identifikátor. Vyhněte se mezery a následující neplatné znaky: `& ^ [ ] { } \ | " < > /`.
+1. Zadejte jedinečný název vašeho nasazení. Vyhněte se mezery a následující neplatné znaky: `& ^ [ ] { } \ | " < > /`.
 1. Přidejte popisky, abyste mohli snadněji sledovat vaše nasazení. Popisky jsou **název**, **hodnotu** páry, které popisují vaše nasazení. Například `HostPlatform, Linux` nebo `Version, 3.0.1`.
 1. Vyberte **Další** přesunout do kroku 2. 
 
-### <a name="step-2-add-modules"></a>Krok 2: Přidání modulů
+### <a name="step-2-add-modules-optional"></a>Krok 2: Přidání modulů (volitelné)
 
 Existují dva typy modulů, které můžete přidat do nasazení. První je modul, na základě služby Azure, jako je účet úložiště nebo Stream Analytics. Druhá je modul, na základě vlastní kód. Více modulů buď typu můžete přidat do nasazení. 
+
+Pokud vytvoříte nasazení s žádné moduly, odstraní všechny existující moduly ze zařízení. 
 
 >[!NOTE]
 >Azure Machine Learning a Azure Functions nepodporují ještě nasazení automatizované služby Azure. Nasazení vlastní modul používá tyto služby ručně přidat do vašeho nasazení. 

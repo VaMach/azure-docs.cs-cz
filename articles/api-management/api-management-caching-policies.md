@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>Ukládání do mezipaměti zásady služby API Management
 Toto téma obsahuje odkaz pro následující zásady služby API Management. Informace o přidávání a konfiguraci zásad najdete v tématu [zásady ve službě API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -51,7 +51,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -116,8 +116,8 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
 |Povolit privátní odpovědi-ukládání do mezipaměti|Pokud nastavíte hodnotu `true`, umožňuje ukládání do mezipaměti požadavků, které obsahují autorizační hlavičky.|Ne|False|  
 |podřízený typ ukládání do mezipaměti|Tento atribut musí být nastaven na jednu z následujících hodnot.<br /><br /> -none - podřízené ukládání do mezipaměti není povolen.<br />-soukromý – podřízené privátní ukládání do mezipaměti je povolen.<br />-veřejný - privátní a sdílené podřízené ukládání do mezipaměti je povolen.|Ne|None|  
 |musí revalidate|Pokud je povoleno ukládání do mezipaměti podřízené tento atribut Zapne nebo vypne `must-revalidate` direktiva ovládací prvek mezipaměti v odpovědi brány.|Ne|Hodnota TRUE|  
-|se liší podle vývojáře|Nastavte na `true` do mezipaměti odpovědi na vývojáře klíč.|Ne|False|  
-|se liší podle vývojáře skupiny –|Nastavte na `true` do mezipaměti odpovědi na roli uživatele.|Ne|False|  
+|se liší podle vývojáře|Nastavte na `true` do mezipaměti odpovědi na vývojáře klíč.|Ano||  
+|se liší podle vývojáře skupiny –|Nastavte na `true` do mezipaměti odpovědi na roli uživatele.|Ano||  
   
 ### <a name="usage"></a>Využití  
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

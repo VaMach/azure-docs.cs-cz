@@ -41,21 +41,24 @@ Naučte se:
 
 
 ## <a name="cloud-init"></a>init cloudu
-[Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Init cloudu běží během úvodního spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.
+[Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Protože init cloudu je volána v průběhu procesu počáteční spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.  Další informace o tom, jak správně formátu vaše `#cloud-config` soubory, najdete v článku [web dokumentace cloudu init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`soubory jsou textové soubory kódovaný jako base64.
 
 Init cloudu také funguje v různých distribucí. Například nepoužívejte **výstižný get instalace** nebo **yum nainstalovat** nainstalovat balíček. Místo toho můžete definovat seznam balíčků pro instalaci. Init cloudu automaticky používá nástroj pro správu nativní balíčku pro distro, kterou vyberete.
 
-Pracujeme s našimi partnery získat cloudu init zahrnuté a práci v bitové kopie, které poskytují do Azure. Následující tabulka popisuje aktuální dostupnosti cloudu init Image platformy Azure:
+ Aktivně Pracujeme s našimi potvrzená distro partnery Linux aby bylo možné používat cloudové inicializací povoleno imagím v Azure marketplace. Tyto bitové kopie budou vaše cloudové init nasazení a konfigurace bezproblémově pracovat virtuálních počítačů a virtuálních počítačů škálování sady (VMSS). Následující tabulka popisuje aktuální dostupnosti cloudu inicializací povoleno bitové kopie na platformě Azure:
 
-| Alias | Vydavatel | Nabídka | Skladová jednotka (SKU) | Verze |
+| Vydavatel | Nabídka | Skladová jednotka (SKU) | Verze | init cloudu připravené
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |nejnovější |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |nejnovější |
-| CoreOS |CoreOS |CoreOS |Stable |nejnovější |
+|Canonical |UbuntuServer |16.04 LTS |nejnovější |ano | 
+|Canonical |UbuntuServer |14.04.5-LTS |nejnovější |ano |
+|CoreOS |CoreOS |Stable |nejnovější |ano |
+|OpenLogic |CentOS |7 CI |nejnovější |verze Preview |
+|RedHat |RHEL |7 NEZPRACOVANÁ POLOŽEK KONFIGURACE |nejnovější |verze Preview |
 
-Naučte se:
+Další podrobnosti o cloudu init v Azure:
 
-- [Přizpůsobení virtuálního počítače s Linuxem s inicializací cloudu](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Init cloudu – podpora pro virtuální počítače s Linuxem v Azure](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Vyzkoušejte si kurz na automatické konfigurace virtuálního počítače pomocí cloudu init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## <a name="powershell-dsc"></a>Prostředí PowerShell DSC

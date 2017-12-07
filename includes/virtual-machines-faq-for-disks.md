@@ -109,6 +109,40 @@ Ne. Nelze aktualizovat vlastnosti název počítače. Nový virtuální počíta
 * [Seznam šablon pomocí spravovaných disků](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="migrate-to-managed-disks"></a>Migrace na spravované disky 
+
+**Jaké změny jsou potřeba v existující Azure Backup service před nebo za migraci konfigurace na spravovaných disky?**
+
+Nejsou vyžadovány žádné změny. 
+
+**Bude Moje zálohování virtuálních počítačů vytvořené prostřednictvím služby Azure Backup před migrací pokračovat v práci?**
+
+Ano, zálohování funguje bez problémů.
+
+**Jaké změny jsou potřeba v existující šifrování disků Azure konfigurace před nebo po migraci na spravované disky?**
+
+Nejsou vyžadovány žádné změny. 
+
+**Je automatické migrace z existující virtuální počítač škálování sady (VMSS) z nespravovaných disků spravované disky podporovány?**
+
+Ne. Nové VMSS můžete vytvořit s disky spravované pomocí bitové kopie z vašeho původního VMSS nespravované disky. 
+
+**Můžete vytvořit na Disk spravovaný ze snímku objekt blob stránky prováděné před migrací na spravované disky?**
+
+Ne. Můžete exportovat snímek objekt blob stránky jako objekt blob stránky a pak vytvořit spravované Disk z objektu blob exportovaný stránky. 
+
+**Můžete převzít Moje místní počítače chráněné službou Azure Site Recovery pro virtuální počítač s spravované disky?**
+
+Ano, můžete k převzetí služeb při selhání pro virtuální počítač s spravované disky.
+
+**Je k dispozici žádný vliv migrace na virtuálních počítačích Azure, které jsou chráněné pomocí Azure lokality Recovery (ASR) prostřednictvím replikace Azure do Azure?**
+
+Ano. Automatické obnovení systému Azure do Azure ochrany není podporováno pro virtuální počítače s spravované disky. Se bude na konci CY2018 podporovat. 
+
+**Můžete migrovat virtuální počítače s nespravované disky, které se nacházejí na účtech úložiště, které jsou nebo byly dříve šifrovaná na spravované disky?**
+
+Ano
+
 ## <a name="managed-disks-and-storage-service-encryption"></a>Spravované disky a šifrování služby úložiště 
 
 **Šifrování služby úložiště Azure ve výchozím nastavení zapnutá po vytvoření se spravovaným diskem?**

@@ -7,19 +7,18 @@ documentationcenter:
 author: eamonoreilly
 manager: 
 editor: 
-ms.assetid: 0dd95270-761f-448e-af48-c8b1e82cd821
 ms.service: automation
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: eamono
-ms.openlocfilehash: 8b698659ed91782b80dbefbfea02aa036c09210d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrovat událostí mřížky a týmy pro Microsoft Azure Automation.
 
@@ -32,24 +31,26 @@ V tomto kurzu se naučíte:
 > * Vytvořte předplatné událostí mřížky.
 > * Vytvořte virtuální počítač, který aktivuje sady runbook.
 
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
+
 ## <a name="prerequisites"></a>Požadavky
 
 K dokončení tohoto kurzu [účet Azure Automation](../automation/automation-offering-get-started.md) je požadované pro uchovávání sady runbook, která se aktivuje z předplatného Azure událostí mřížky.
 
 ## <a name="import-an-event-grid-sample-runbook"></a>Importovat ukázkové sady runbook událostí mřížky
-1. Vyberte **účty Automation**a vyberte **Runbooky** stránky.
+1. Vyberte svůj účet Automation a vyberte **Runbooky** stránky.
+
+   ![Vyberte sady runbook](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
 2. Vyberte **procházet galerii** tlačítko.
 
-    ![Seznam Runbook z uživatelského rozhraní](media/ensure-tags-exists-on-new-virtual-machines/event-grid-runbook-list.png)
-
-3. Vyhledejte **událostí mřížky**a importovat sady runbook do účtu Automation.
+3. Vyhledejte **událostí mřížky**a vyberte **integrace Azure Automation s událostí mřížky**. 
 
     ![Importovat Galerie sady runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
-4. Vyberte **upravit** zobrazení zdroje sady runbook a vyberte **publikovat** tlačítko.
+4. Vyberte **Import** a pojmenujte ji **sledovat VMWrite**.
 
-    ![Publikovat runbook z uživatelského rozhraní](media/ensure-tags-exists-on-new-virtual-machines/publish-runbook.png)
+5. Potom, co se importuje, vyberte **upravit** zobrazení zdroje sady runbook. Vyberte tlačítko **Publikovat**.
 
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Vytvoření webhook volitelné Teams společnosti Microsoft
 1. V Teams společnosti Microsoft, vyberte **další možnosti** další název kanálu a pak vyberte **konektory**.
@@ -58,11 +59,7 @@ K dokončení tohoto kurzu [účet Azure Automation](../automation/automation-of
 
 2. Procházení seznam konektorů k **příchozí Webhooku**a vyberte **přidat**.
 
-    ![Microsoft Teams webhooku připojení](media/ensure-tags-exists-on-new-virtual-machines/select-teams-webhook.png)
-
 3. Zadejte **AzureAutomationIntegration** pro název a vyberte **vytvořit**.
-
-    ![Webhooku Teams společnosti Microsoft](media/ensure-tags-exists-on-new-virtual-machines/configure-teams-webhook.png)
 
 4. Webhook zkopírujte do schránky a uložte jej. Adresa URL webhooku se používá k odeslání informací do Teams společnosti Microsoft.
 
@@ -73,13 +70,11 @@ K dokončení tohoto kurzu [účet Azure Automation](../automation/automation-of
 
 2. Vyberte **Webhooky**a vyberte **přidat Webhooku** tlačítko.
 
-    ![Vytvoření webhooku](media/ensure-tags-exists-on-new-virtual-machines/add-webhook.png)
-
 3. Zadejte **WatchVMEventGrid** pro název. Zkopírujte adresu URL do schránky a uložte ho.
 
-    ![Nakonfigurujte název webhooku](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-name.png)
+    ![Nakonfigurujte název webhooku](media/ensure-tags-exists-on-new-virtual-machines/copy-url.png)
 
-4. Vyberte **nastavení parametrů a běhu**a zadejte adresu URL webhooku Teams společnosti Microsoft. Nechte **WEBHOOKDATA** prázdné.
+4. Vyberte **nakonfigurovat parametry a nastavení spouštění**a zadejte adresu URL webhooku Teams společnosti Microsoft pro **CHANNELURL**. Nechte **WEBHOOKDATA** prázdné.
 
     ![Konfigurovat parametry webhooku](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
@@ -89,20 +84,18 @@ K dokončení tohoto kurzu [účet Azure Automation](../automation/automation-of
 ## <a name="create-an-event-grid-subscription"></a>Vytvořte předplatné událostí mřížky
 1. Na **účet Automation** Přehled stránky, vyberte **událostí mřížky**.
 
-    ![Seznam událostí mřížky](media/ensure-tags-exists-on-new-virtual-machines/event-grid-list.png)
+    ![Vyberte události mřížky](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Vyberte **předplatného události** tlačítko.
+2. Vyberte **+ předplatného události** tlačítko.
 
 3. Konfigurace odběru s následujícími informacemi:
 
-    *   Zadejte **AzureAutomation** pro název. 
+    *   Zadejte **AzureAutomation** pro název.
     *   V **typu tématu**, vyberte **předplatných Azure**.
     *   Vymazat **přihlášení k odběru pro všechny typy událostí** zaškrtávací políčko.
     *   V **typů událostí**, vyberte **prostředků zápisu úspěch**.
-    *   V **úplnou adresu URL koncového bodu**, zadejte adresu URL webhooku pro sadu runbook VMWrite sledovat.
-    *   V **předpony filtru**, zadejte předplatné a k vytvoření skupiny prostředků, ve které chcete vyhledat nové virtuální počítače. By měl vypadat jako /subscriptions/124aa551-849d-46e4-a6dc-0bc4895422aB/resourcegroups/ContosoResourceGroup/providers/Microsoft.Compute/virtualMachines
-
-    ![Seznam událostí mřížky](media/ensure-tags-exists-on-new-virtual-machines/configure-event-grid-subscription.png)
+    *   V **koncový bod odběratele**, zadejte adresu URL webhooku pro sadu runbook VMWrite sledovat.
+    *   V **předpony filtru**, zadejte předplatné a k vytvoření skupiny prostředků, ve které chcete vyhledat nové virtuální počítače. By měl vypadat jako:`/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Vyberte **vytvořit** se uložení odběru událostí mřížky.
 

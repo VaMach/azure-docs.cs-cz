@@ -1,7 +1,7 @@
 
 | Prostředek | Výchozí omezení | Maximální omezení | 
 | --- | --- | --- |
-| Profily CDN |8 |25 |
+| Profily CDN |25 |25 |
 | Koncové body CDN jeden profil |10 |25 |
 | Vlastní domény na jeden koncový bod |10 |25 |
 

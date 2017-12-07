@@ -13,7 +13,7 @@
 | Zásady skupiny| Tyto zásady skupiny, nemělo by být povolené na serveru <br> -Zabránit přístupu do příkazového řádku <br> -Zabránit přístupu do nástroje pro úpravy registru <br> -Důvěřovat logiku pro přílohy souborů <br> -Zapnout provádění skriptu <br> **Poznámka:** naleznete další informace o těchto zásadách skupiny [sem](https://technet.microsoft.com/en-us/library/gg176671(v=ws.10).aspx)|
 | Konfigurace Service(IIS) informace Internet | -Žádné existující výchozí web <br> -Aktivovat [anonymní ověřování](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> -Aktivovat [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) nastavení  <br> -Žádná existující websit nebo aplikace by měla naslouchání na portu 443<br>|
 | **Síť** | |
-| Typ karty síťového rozhraní | VMXNET3 |
+| Typ karty síťového rozhraní | VMXNET3 (Pokud je nasazený jako virtuální počítač VMware) |
 | Typ IP adresy | Statická |
 | Přístup k internetu | Server by měl mít přístup k následujícím adresám URL, buď přímo, nebo prostřednictvím proxy serveru: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (nevyžaduje se pro procesový server pro horizontální navýšení kapacity) <br> - time.nist.gov <br> - time.windows.com |
 | Porty | 443 (orchestrace řídicího kanálu)<br>9443 (přenos dat)|

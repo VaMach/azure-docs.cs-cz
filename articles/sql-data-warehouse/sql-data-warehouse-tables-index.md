@@ -3,8 +3,8 @@ title: "Indexování tabulek v SQL Data Warehouse | Microsoft Azure"
 description: "Začínáme s tabulkou indexování v Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/12/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 672270536a7405e617edbcf5ec0e6eff68be7fde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexování tabulek v SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -174,14 +174,14 @@ Po spuštění dotazu, který můžete začít podívejte se na data a analyzujt
 | [OPEN_rowgroup_rows_MAX] |Stejně jako výše |
 | [OPEN_rowgroup_rows_AVG] |Stejně jako výše |
 | [CLOSED_rowgroup_rows] |Podívejte se na seskupení řádků uzavřené řádek jako kontrolu správností. |
-| [CLOSED_rowgroup_count] |Počet skupin uzavřené řádků by měl být nízká, pokud žádné vidět vůbec. Uzavřené řádek skupiny lze převést na komprimovaný rowg roups pomocí příkazu ALTER INDEX... Příkaz REORGANIZOVAT. Není to však obvykle vyžaduje. Uzavřené skupiny budou automaticky převedeny na skupiny řádků columnstore procesem "přesunu řazené kolekce členů" pozadí. |
+| [CLOSED_rowgroup_count] |Počet skupin uzavřené řádků by měl být nízká, pokud žádné vidět vůbec. Uzavřené řádek skupiny lze převést na skupiny komprimované řádku pomocí příkazu ALTER INDEX... Příkaz REORGANIZOVAT. Není to však obvykle vyžaduje. Uzavřené skupiny budou automaticky převedeny na skupiny řádků columnstore procesem "přesunu řazené kolekce členů" pozadí. |
 | [CLOSED_rowgroup_rows_MIN] |Uzavřené řádek skupiny musí mít na velmi vysokou výplně míru. Pokud je rychlost výplně pro skupinu uzavřené řádek nízkou, další analýza columnstore je požadovaná. |
 | [CLOSED_rowgroup_rows_MAX] |Stejně jako výše |
 | [CLOSED_rowgroup_rows_AVG] |Stejně jako výše |
 | [Rebuild_Index_SQL] |SQL znovu sestavit index columnstore pro tabulku |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Příčiny nízký columnstore index kvality
-Pokud jste našli tabulky s kvalitou nízký segmentu, můžete určit hlavní příčinu.  Tady jsou některé další běžné příčiny nízký segment quaility:
+Pokud jste našli tabulky s kvalitou nízký segmentu, můžete určit hlavní příčinu.  Tady jsou některé běžné příčiny nízký segment kvality:
 
 1. Pokud byl vytvořený index nárokům na paměť
 2. Velkému počtu operace DML
@@ -191,7 +191,7 @@ Pokud jste našli tabulky s kvalitou nízký segmentu, můžete určit hlavní p
 Tyto faktory mohou způsobit index columnstore tak, aby měl výrazně menší než optimální 1 milionu řádků na skupinu řádků.  Také způsobit řádky, které chcete přejít na řádek skupinu rozdílů místo skupiny komprimované řádek. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Pokud byl vytvořený index nárokům na paměť
-Počet řádků na skupinu komprimované řádek přímo souvisí s šířka řádku a množství paměti k dispozici pro zpracování skupiny řádků.  Když se řádky zapisují do tabulek columnstore při zatížení paměti, může tím utrpět kvalita segmentů columnstore.  Osvědčeným postupem je proto umožnit relace, který je zápis do indexu columnstore tabulky přístup k tolik paměti.  Vzhledem k tomu, že je kompromis mezi paměti a souběžnosti, pokyny k přidělení správné paměti závisí na datech v každý řádek tabulky, množství DWU jste přidělené k vašemu systému a množství souběžnosti sloty, které můžete do relace, který je zápis dat do tabulky.  Jako osvědčený postup doporučujeme začít s xlargerc, pokud používáte DW300 nebo méně largerc, pokud používáte DW400 DW600 a mediumrc, pokud používáte DW1000 a vyšší.
+Počet řádků na skupinu komprimované řádek přímo souvisí s šířka řádku a množství paměti k dispozici pro zpracování skupiny řádků.  Když se řádky zapisují do tabulek columnstore při zatížení paměti, může tím utrpět kvalita segmentů columnstore.  Osvědčeným postupem je proto umožnit relace, který je zápis do indexu columnstore tabulky přístup k tolik paměti.  Vzhledem k tomu, že je kompromis mezi paměti a souběžnost, pokyny k přidělení správné paměti závisí na datech v každý řádek tabulky, jednotky datového skladu přidělené systému a počet souběžnosti sloty, které poskytnete relace, který zapisuje data do tabulky.  Jako osvědčený postup doporučujeme začít s xlargerc, pokud používáte DW300 nebo méně largerc, pokud používáte DW400 DW600 a mediumrc, pokud používáte DW1000 a vyšší.
 
 ### <a name="high-volume-of-dml-operations"></a>Velkému počtu operace DML
 K velkému počtu operace DML, které aktualizace a odstraňování řádků můžou představovat neefektivnost na columnstore. To platí hlavně při změně většina řádky v skupiny řádků.
@@ -247,7 +247,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Nové sestavení indexu v SQL Data Warehouse je offline operace.  Další informace o nové sestavení indexů, najdete v části ALTER INDEX REBUILD v [defragmentace indexy Columnstore] [ Columnstore Indexes Defragmentation] a téma syntaxe [ALTER INDEX] [ ALTER INDEX].
+Nové sestavení indexu v SQL Data Warehouse je offline operace.  Další informace o nové sestavení indexů, najdete v části ALTER INDEX REBUILD v [defragmentace indexy Columnstore][Columnstore Indexes Defragmentation], a [ALTER INDEX] [ ALTER INDEX].
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Krok 3: Ověření, že je vylepšený Clusterové columnstore segment kvality
 Opětovné spuštění dotazu, které identifikovaných tabulku s nízká segmentovat kvality a ověření kvality segmentu je vylepšený.  Pokud ke zlepšení kvality segmentu, může to být, že jsou řádky v tabulce velmi široké.  Zvažte použití vyšší Třída prostředků nebo DWU při opětovném sestavování vaší indexy.

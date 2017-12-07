@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1bc76062b05938992b71eedaa71b3c7dfedd7ef4
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory bezproblémové jednotné přihlašování: rychlý start
 
@@ -127,7 +127,7 @@ Ve výchozím prohlížeči automaticky vypočítá správné zóně, Internetu 
 
 ### <a name="browser-considerations"></a>Důležité informace o prohlížeči
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (všechny platformy)
 
 Mozilla Firefox nebude automaticky používat ověřování protokolu Kerberos. Každý uživatel musí ručně Azure AD adresy URL přidáte do jejich nastavení Firefox pomocí následujících kroků:
 1. Spustit Firefox a zadejte `about:config` na panelu Adresa. Zavřete všechny oznámení, které vidíte.
@@ -136,11 +136,15 @@ Mozilla Firefox nebude automaticky používat ověřování protokolu Kerberos. 
 4. Zadejte https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net v poli.
 5. Vyberte **OK** a znovu otevřete v prohlížeči.
 
-#### <a name="safari-on-mac-os"></a>Safari v systému Mac OS
+#### <a name="safari-mac-os"></a>Safari (Mac OS)
 
 Ujistěte se, že počítač se systémem Mac OS je připojený k Azure AD. Pokyny týkající se připojení Azure AD, najdete v části [osvědčené postupy pro OS X integraci se službou Active Directory](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-#### <a name="google-chrome-on-mac-os"></a>Google Chrome systému Mac OS
+#### <a name="google-chrome-all-platforms"></a>Google Chrome (všechny platformy)
+
+Pokud máte elementem [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) nebo [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) nastavení zásad ve vašem prostředí, ujistěte se, že přidáte adresy URL služby Azure AD (https:// AutoLogon.microsoftazuread sso.com a https://aadg.windows.net.nsatc.net) k nim také.
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome (pouze Mac OS)
 
 Google Chrome na ostatní platformy jiný systém než Windows a Mac OS, najdete v části [seznamu zásad projektu chromu](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) informace o tom, jak vytvořit bílou Azure AD adresy URL pro integrované ověřování.
 
@@ -149,9 +153,6 @@ Použití zásad skupiny služby Active Directory rozšíření třetích stran 
 #### <a name="known-browser-limitations"></a>Omezení známé prohlížeče
 
 Bezproblémové SSO nefunguje v privátním režimu procházení na prohlížeče Firefox a okraj. Také nefunguje v Internet Exploreru Pokud prohlížeče běží v rozšířené chráněný režim.
-
->[!IMPORTANT]
->Jsme nedávno vrácena podporu pro hraniční k prozkoumání problémů ohlášených zákazníka.
 
 ## <a name="step-4-test-the-feature"></a>Krok 4: Testování funkce
 

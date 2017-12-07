@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: c584806105c2583daca944260b65da2f7637bb0c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0ae5d37507bb6e36589e9755faf8bd3471910257
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Dynamické šifrování: Konfigurace zásad autorizace klíče obsahu
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -34,13 +34,9 @@ Služba Media Services podporuje více způsobů ověřování uživatelů, kte�
 
 Služba Media Services neposkytuje zabezpečení tokenu služby. Můžete vytvořit vlastní službu tokenů zabezpečení nebo využívat Microsoft Azure ACS problém tokeny. Služba tokenů zabezpečení musí být nakonfigurované vytvořit token podepsané zadaný klíč a vystavování deklarací identity, které jste zadali v nastavení omezení s tokenem (jak je popsáno v tomto článku). Doručení klíče služby Media Services bude vrácena klientovi šifrovací klíč, pokud token je platný a deklarace identity v tokenu shodují s těmi, nakonfigurované pro klíč k obsahu.
 
-Další informace najdete v tématu
-
-[Ověření pomocí tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[Integrace aplikace Azure Media Services OWIN MVC se službou Azure Active Directory a omezit klíče doručování obsahu na základě deklarací JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
-
-[Pomocí Azure ACS problém tokeny](http://mingfeiy.com/acs-with-key-services).
+Další informace najdete v následujících článcích:
+- [Ověření pomocí tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Integrace aplikace Azure Media Services OWIN MVC se službou Azure Active Directory a omezit klíče doručování obsahu na základě deklarací JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### <a name="some-considerations-apply"></a>Musí být splněny určité předpoklady:
 * Abyste mohli používat dynamické balení a dynamické šifrování, ujistěte se, že koncový bod streamování, ze kterého chcete Streamovat obsah je v **systémem** stavu.
@@ -50,6 +46,7 @@ Další informace najdete v tématu
 * Službu doručování klíč ukládá do mezipaměti ContentKeyAuthorizationPolicy a související objekty (Možnosti zásad a omezení) pro 15 minut.  Pokud vytvoříte ContentKeyAuthorizationPolicy a nastavení, aby používal "Token" omezení, pak otestovat ji a potom aktualizovat zásady "Otevřené" omezení, bude trvat přibližně 15 minut, než zásady přepne do "Otevřené" verze zásad.
 * Pokud přidáte nebo aktualizujete zásady pro doručení assetu, musíte odstranit stávající lokátor (pokud existuje) a vytvořit nový.
 * V současné době nelze zašifrovat progresivní stahování.
+* Koncový bod streamování AMS nastaví hodnotu hlavičky CORS 'přístup-Control-Allow-Origin, v předběžné odpovědi jako zástupný znak '\*'. To funguje dobře u většiny přehrávače včetně naše Azure Media Player, Roku a JW a dalších. Ale některé přehrávače, které využívají dashjs nefungují od s přihlašovacími údaji režimu nastavenou na hodnotu "zahrnout", XMLHttpRequest v jejich dashjs neumožňuje zástupný znak "\*" jako hodnotu "'Access-Control-Allow-Origin". Jako řešení pro toto omezení v dashjs Pokud jsou hostování vašeho klienta z jedné domény, Azure Media Services můžete zadat tuto doménu v hlavičce předběžných odpovědi. Můžete oslovení otevřením lístku podpory prostřednictvím portálu Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Dynamické šifrování AES-128
 > [!NOTE]
@@ -234,7 +231,7 @@ Pokud chcete konfigurovat omezení s tokenem možnost, budete muset použít XML
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Při konfiguraci **tokenu** omezený zásady, je nutné zadat primární ** ověřovací klíč **, **vystavitele** a **cílovou skupinu** parametry. ** Primární ověření klíč ** obsahuje klíč, který byl podepsaný token, **vystavitele** je zabezpečený tokenu služba, která vydá token. **Cílovou skupinu** (někdy nazývané **oboru**) popisuje záměr token nebo token povolí přístup k prostředku. Služba Media Services doručení klíče ověří, jestli tyto hodnoty v tokenu shodují s hodnotami v šabloně. 
+Při konfiguraci **tokenu** omezený zásady, je nutné zadat primární **ověřovací klíč**, **vystavitele** a **cílová skupina** Parametry. Primární **ověřovací klíč** obsahuje klíč, který byl podepsaný token, **vystavitele** je zabezpečený tokenu služba, která vydá token. **Cílovou skupinu** (někdy nazývané **oboru**) popisuje záměr token nebo token povolí přístup k prostředku. Služba Media Services doručení klíče ověří, jestli tyto hodnoty v tokenu shodují s hodnotami v šabloně.
 
 Následující příklad vytvoří zásad autorizace pomocí tokenu omezení. V tomto příkladu by klient musel token, který obsahuje k dispozici: podpisový klíč (VerificationKey), vydavatel tokenu a požadované deklarace identity.
 

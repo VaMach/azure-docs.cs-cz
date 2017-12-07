@@ -1,4 +1,4 @@
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create).
+Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#az_group_create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 

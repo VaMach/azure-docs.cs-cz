@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Vypršení platnosti dat v kolekcích Azure Cosmos DB automaticky s Hodnota time to live
 Aplikace můžete vytvářet a ukládat velká množství dat. Některé z těchto dat, jako například počítač generuje data, protokoly a uživatelské relace události, které informace jsou užitečné pouze omezenou dobu. Jakmile se změní na data přebytečných potřebám aplikace je bezpečné mazání tato data a snížit požadavkům na ukládání aplikace.
@@ -149,6 +149,8 @@ Měla by být odstraněna zakázat TTL zcela na kolekci a ukončit proces na poz
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## <a name="ttl-and-index-interaction"></a>Interakce TTL a Index.
+Hodnota TTL přidání nebo změna je ke změně základní index. Pokud není žádná hodnota TTL a zadejte platnou hodnotu TTL - výsledkem operace opakovaného indexování. Pro konzistentní Index - uživatel neuvidí žádné změny ve stavu indexu. V případě, že opožděné indexu – index první řadě je vždy zachytávání nahoru a tato změna v ttl, index znovu od začátku. Dopad v druhém případě je, že dotazy během sestavení indexu nevrátí úplné nebo správné výsledky. Neměňte TTL pro opožděné index pokud potřebují přesnou počet datových atd jako je opožděné indexování režimu sám sebe.  V ideálním případě by měla být vždy zvolena konzistentní index. 
 
 ## <a name="faq"></a>Nejčastější dotazy
 **Co se TTL náklady mi?**

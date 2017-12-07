@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Služba vzdálené komunikace se službami Reliable Services
 Pro služby, které nejsou svázané s konkrétní komunikační protokol nebo zásobníku, například WebAPI, Windows Communication Foundation (WCF) nebo jiné spolehlivé služby framework poskytuje mechanismus vzdálenou komunikaci rychle a snadno nastavit vzdáleného volání procedur pro služby.
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-Vzdálená komunikace framework rozšíří výjimek vyvolaných ve službách do klienta. Logika tak výjimek na straně klienta pomocí `ServiceProxy` můžete přímo zpracování výjimek, které vyvolá službu.
+Vzdálená komunikace framework rozšíří výjimky vyvolané službu do klienta. V důsledku toho, při použití `ServiceProxy`, klient je zodpovědná za zpracování výjimky vyvolané službu.
 
 ## <a name="service-proxy-lifetime"></a>Doby platnosti Proxy služby
-Vytvoření ServiceProxy je lightweight operace, takže uživatelé můžete vytvořit tolik, kolik potřebují. Instance Proxy služby lze znovu použít, dokud ho uživatelé potřebovat. Pokud vzdálené volání procedury, vyvolá výjimku, uživatelé stále znovu použít, na stejnou instanci proxy serveru. Každý ServiceProxy obsahuje komunikace klienta používá k odeslání zprávy prostřednictvím sítě. Při volání vzdáleného volání, jsme interně zkontrolujte, zda komunikace klienta je platný. Podle toho, že výsledků, znovu vytvoříme komunikace klienta v případě potřeby. Proto pokud dojde k výjimce, není nutné znovu vytvořit serviceproxy uživatelé ale se provádí tak transparentně.
+Vytvoření ServiceProxy je lightweight operace, takže uživatelé můžete vytvořit tolik, kolik potřebují. Instance Proxy služby lze znovu použít, dokud ho uživatelé potřebovat. Pokud vzdálené volání procedury, vyvolá výjimku, uživatelé stále znovu použít, na stejnou instanci proxy serveru. Každý ServiceProxy obsahuje komunikace klienta používá k odeslání zprávy prostřednictvím sítě. Při volání vzdáleného volání, jsme interně zkontrolujte, zda komunikace klienta je platný. Podle toho, že výsledků, znovu vytvoříme komunikace klienta v případě potřeby. Proto pokud dojde k výjimce, uživatelé nemusí znovu vytvořit `ServiceProxy` protože tak transparentně se provádí.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Doba platnosti ServiceProxyFactory
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) je objekt factory, který vytváří instance proxy pro různé vzdálené komunikace rozhraní. Pokud používáte rozhraní api `ServiceProxy.Create` k vytváření proxy serveru, pak rozhraní framework vytvoří ServiceProxy typu singleton.
@@ -91,12 +91,13 @@ Vytvoření objektu pro vytváření je náročná operace. ServiceProxyFactory 
 Osvědčeným postupem je pro ukládání do mezipaměti ServiceProxyFactory jako dlouho.
 
 ## <a name="remoting-exception-handling"></a>Vzdálená komunikace zpracování výjimek
-Všechny vzdálené výjimky vyvolané rozhraní API služby, jsou odesílány zpět do klienta v AggregateException. RemoteExceptions musí být serializovatelný kontraktu jinak [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) je vyvolána k proxy serveru rozhraní API s Chyba serializace v ní.
+Všechny vzdálené výjimky vyvolané rozhraní API služby jsou odesílány zpět do klienta v AggregateException. RemoteExceptions by měla být kontraktu serializovatelný; Pokud tomu tak není, vyvolá proxy rozhraní API [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) s Chyba serializace v ní.
 
-ServiceProxy zpracovávat všechny výjimky převzetí služeb při selhání pro oddíl služby, kterou je vytvořeno. Znovu přeloží koncových bodů při převzetí služeb při selhání Exceptions(Non-Transient Exceptions) a opakuje volání s správný koncový bod. Počet opakovaných pokusů pro převzetí služeb při selhání výjimka je neomezené.
-Pokud dojde k přechodné výjimky, proxy opakuje volání.
+ServiceProxy zpracuje všechny výjimky převzetí služeb při selhání pro oddíl služby, kterou je vytvořeno. Ho znovu přeloží koncových bodů, pokud jsou výjimky převzetí služeb při selhání (bez přechodná výjimky) a opakuje volání s správný koncový bod. Počet opakovaných pokusů pro převzetí služeb při selhání výjimky jsou neomezené.
+Pokud dojde k přechodné výjimky, proxy server opakuje volání.
 
-Výchozí parametry opakování se poskytují podle [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) Uživatel může konfigurovat tyto hodnoty pomocí předání objektu OperationRetrySettings ServiceProxyFactory konstruktor.
+Výchozí parametry opakování se poskytují podle [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Uživatel může konfigurovat tyto hodnoty pomocí předání objektu OperationRetrySettings ServiceProxyFactory konstruktor.
 ## <a name="how-to-use-remoting-v2-stack"></a>Jak používat vzdálenou komunikaci V2 zásobníku
 2,8 balíčkem NuGet vzdálenou komunikaci máte možnost použít vzdálenou komunikaci V2 zásobníku. Vzdálenou komunikaci V2 zásobníku další původce a poskytuje funkce, například vlastní serializable a více modulární rozhraní Api.
 Ve výchozím nastavení Pokud nechcete provést následující změny, nadále používat vzdálenou komunikaci V1 zásobníku.

@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Jak používat Azure spravované služby Identity (verze public preview) ve službě App Service a Azure Functions
 
@@ -45,6 +45,35 @@ Nastavit identita spravované služby v portálu, se nejprve vytvořit aplikace 
 4. Přepínač **registrují s Azure Active Directory** k **na**. Klikněte na **Uložit**.
 
 ![Identita spravované služby ve službě App Service](media/app-service-managed-service-identity/msi-blade.png)
+
+### <a name="using-the-azure-cli"></a>Použití Azure CLI
+
+Pokud chcete nastavit identitu spravované služby pomocí rozhraní příkazového řádku Azure, budete muset použít `az webapp assign-identity` příkaz s existující aplikaci. Máte tři možnosti pro spuštění v příkladech v této části:
+
+- Použití [prostředí cloudu Azure](../cloud-shell/overview.md) z portálu Azure.
+- Používání embedded prostředí cloudu Azure prostřednictvím "Zkuste ho" tlačítko, umístěné v pravém horním rohu každé blok kódu níže.
+- [Nainstalujte nejnovější verzi 2.0 rozhraní příkazového řádku](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 nebo novější) Pokud byste radši chtěli použít místní konzoly rozhraní příkazového řádku. 
+
+Následující postup vás provede vytvořením webové aplikace a jeho přiřazení identity pomocí rozhraní příkazového řádku:
+
+1. Pokud používáte Azure CLI v místní konzole, nejdřív přihlásit k Azure pomocí [az přihlášení](/cli/azure/#login). Používáte účet, který je přidružen k předplatnému Azure, pod kterou chcete nasadit aplikaci:
+
+    ```azurecli-interactive
+    az login
+    ```
+2. Vytvoření webové aplikace pomocí rozhraní příkazového řádku. Další příklady použití rozhraní příkazového řádku službou App Service naleznete v tématu [ukázky rozhraní příkazového řádku služby aplikace](../app-service/app-service-cli-samples.md):
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. Spustit `assign-identity` příkaz pro vytvoření identity pro tuto aplikaci:
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Pomocí šablony Azure Resource Manager
 
@@ -134,7 +163,7 @@ Aplikace s identitou, spravované služby má dvě proměnné definované:
 > |-----|-----|-----|
 > |Prostředek|Dotaz|AAD identifikátor URI prostředku, pro který by měl získat token.|
 > |verze rozhraní API.|Dotaz|Verze rozhraní API tokenů, který se má použít. "2017-09-01" je aktuálně podporovány pouze verze.|
-> |tajný klíč|Záhlaví|Hodnota proměnné prostředí MSI_SECRET.|
+> |Tajný kód|Záhlaví|Hodnota proměnné prostředí MSI_SECRET.|
 
 
 Úspěšná odpověď 200 OK zahrnuje text JSON s následujícími vlastnostmi:

@@ -6,19 +6,18 @@ documentationcenter:
 author: antonba
 manager: erikre
 editor: 
-ms.assetid: 64b58f7b-ca22-47dc-89c0-f6bb0af27a48
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak používat Azure API Management s virtuálními sítěmi
 Virtuální sítě Azure (virtuální sítě) umožňují některé z vašich prostředků Azure umístění v síti routeable Internetu jiných výrobců, která můžete řídit přístup ke. Tyto sítě můžete pak připojené k vaší místní sítě pomocí různých technologií sítě VPN. Další informace o virtuálních sítí Azure začínat zde uvedené informace: [Přehled virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md).
@@ -110,11 +109,11 @@ Pokud je instance služby API Management je hostováno ve virtuální síti, se 
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Příchozí |TCP |INTERNET NEBO VIRTUAL_NETWORK|Komunikaci klientů API Management|Externí |
 | * / 3443 |Příchozí |TCP |INTERNET NEBO VIRTUAL_NETWORK|Koncový bod správy pro portál Azure a prostředí Powershell |Interní |
-| * / 80, 443 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|**Přístup k koncové body Azure Storage** |Externí & interní |
+| * / 80, 443 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Závislost na službě Azure Storage, Azure Service Bus a Azure Active Directory (v případě potřeby).|Externí & interní | 
 | * / 1433 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|**Přístup k koncové body Azure SQL** |Externí & interní |
 | * / 11000 - 11999 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|**Přístup k Azure SQL verze 12** |Externí & interní |
 | * / 14000 - 14999 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|**Přístup k Azure SQL verze 12** |Externí & interní |
-| * / 5671 |Odchozí |AMQP |VIRTUAL_NETWORK NEBO INTERNET|Závislosti pro protokol do centra událostí zásadu a agent monitorování |Externí & interní |
+| * / 5671, 5672 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Závislosti pro protokol do centra událostí zásadu a agent monitorování |Externí & interní |
 | * / 445 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Závislost na sdílenou složku Azure pro GIT |Externí & interní |
 | * / 25028 |Odchozí |TCP |VIRTUAL_NETWORK NEBO INTERNET|Připojení k předávání SMTP pro odesílání e-mailů |Externí & interní |
 | * / 6381 - 6383 |Příchozí a odchozí |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Instance služby Redis Cache přístupu mezi RoleInstances |Externí & interní |
@@ -134,6 +133,8 @@ Pokud je instance služby API Management je hostováno ve virtuální síti, se 
  * Konfigurace ExpressRoute inzeruje 0.0.0.0/0 a ve výchozím nastavení vynucené tunelových propojení všechny odchozí přenosy na místě.
  * UDR použije na podsíť obsahující Azure API Management definuje 0.0.0.0/0 s typ dalšího segmentu z Internetu.
  Celkové požadavky tyto kroky je, že na úrovni podsítě UDR má přednost před ExpressRoute vynucené tunelování, čímž zajišťuje odchozí přístup k Internetu z Azure API Management.
+
+**Směrování prostřednictvím síťových virtuálních zařízení**: konfigurace, které používají UDR výchozí trasa (0.0.0.0/0) směrovat přenosy z Internetu určené z podsítě API Management prostřednictvím zařízení vitrual sítě běžící v Azure zabrání úplné komunikace mezi API Management a požadované služby. Tato konfigurace není podporována. 
 
 >[!WARNING]  
 >Azure API Management není podporovaný s konfigurací ExpressRoute, **nesprávně Inzerovat trasy z cesty veřejného partnerského vztahu k cestou soukromého partnerského vztahu mezi**. Konfigurace ExpressRoute, které mají veřejné partnerské vztahy nakonfigurované, obdrží inzerování trasy od společnosti Microsoft pro velké sady rozsahů adres Microsoft Azure IP. Pokud tyto rozsahy adres nesprávně ohlášené mezi na cestou soukromého partnerského vztahu, konečným výsledkem je, že všechny odchozí síťových paketů z podsítě instance Azure API Management jsou nesprávně force tunelovým propojením zákazníka místní síťové infrastruktuře. Tento tok sítě dělí Azure API Management. Řešení tohoto problému je zastavit směrování mezi – reklamu z cesty veřejného partnerského vztahu cestou soukromého partnerského vztahu.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Chránit váš obsah s Apple FairPlay nebo Microsoft PlayReady HLS
 Azure Media Services umožňuje dynamicky šifrovat obsah HTTP Live Streaming (HLS) pomocí následujících formátů:  
@@ -33,12 +33,12 @@ Azure Media Services umožňuje dynamicky šifrovat obsah HTTP Live Streaming (H
 
 Na následujícím obrázku **HLS + FairPlay nebo PlayReady dynamického šifrování** pracovního postupu.
 
-![Diagram pracovního postupu dynamického šifrování](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagram pracovního postupu dynamického šifrování](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Toto téma ukazuje, jak pomocí služby Media Services dynamicky šifrovat obsah HLS s Apple FairPlay. Také ukazuje, jak používat službu doručování licencí Media Services k doručování licence FairPlay klientům.
+Tento článek ukazuje, jak dynamicky šifrovat obsah HLS s Apple FairPlay pomocí služby Media Services. Také ukazuje, jak používat službu doručování licencí Media Services k doručování licence FairPlay klientům.
 
 > [!NOTE]
-> Pokud chcete zašifrovat obsah HLS pomocí technologie PlayReady, budete muset vytvořit běžné klíč obsahu a přidružte ji k asset. Budete také muset nakonfigurovat zásady autorizace pro klíč k obsahu, jak je popsáno v [běžného dynamického šifrování PlayReady pomocí](media-services-protect-with-drm.md).
+> Pokud chcete zašifrovat obsah HLS pomocí technologie PlayReady, budete muset vytvořit běžné klíč obsahu a přidružte ji k asset. Budete také muset nakonfigurovat zásady autorizace pro klíč k obsahu, jak je popsáno v [běžného dynamického šifrování PlayReady pomocí](media-services-protect-with-playready-widevine.md).
 >
 >
 
@@ -65,14 +65,14 @@ Na straně doručení klíče služby Media Services musí být nastavena násle
         Přejděte do složky, kde jsou FairPlay certifikátu a další soubory dodané společností Apple.
     2. V příkazovém řádku spusťte následující příkaz. Tento soubor .cer převede na soubor .pem.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informovat der – v fairplay.cer-out fairplay out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informovat der – v FairPlay.cer-out FairPlay out.pem
     3. V příkazovém řádku spusťte následující příkaz. Tento soubor .pem převede do souboru .pfx s privátním klíčem. Heslo pro soubor .pfx pak požaduje od OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-export - out fairplay out.pfx-inkey privatekey.pem-v - passin file:privatekey-pem-pass.txt fairplay out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-export - out FairPlay out.pfx-inkey privatekey.pem-v - passin file:privatekey-pem-pass.txt FairPlay out.pem
   * **Heslo aplikace Cert**: heslo pro vytvoření souboru .pfx.
   * **ID aplikace Cert heslo**: je potřeba načíst heslo, podobně jako jak odesílají jiných klíčů Media Services. Použití **ContentKeyType.FairPlayPfxPassword** hodnota výčtu získat ID služby média. Toto je požadované použít uvnitř možnost zásady doručení klíče.
   * **IV**: je to hodnota náhodných 16 bajtů. Musí se shodovat iv do zásady doručení assetu. Generovat iv a umístí jej na obou místech: zásady doručení assetu a možnost zásady doručení klíče.
-  * **Požádejte**: Tento klíč je oznámených při generování certifikační pomocí portálu pro vývojáře Apple. Každý vývojový tým obdrží jedinečný požádejte. Uložte kopii požádejte a uložit na bezpečném místě. Musíte nakonfigurovat požádejte jako FairPlayAsk ke službě Media Services později.
+  * **Požádejte**: Tento klíč je oznámených při generování certifikační pomocí portálu pro vývojáře Apple. Každý vývojový tým obdrží jedinečný požádejte. Uložte kopii požádejte a uložit na bezpečném místě. Budete muset nakonfigurovat požádejte jako FairPlayAsk ke službě Media Services později.
   * **Požádejte ID**: Toto ID je získali při nahrávání požádejte ve službě Media Services. Požádejte musíte nahrát pomocí **ContentKeyType.FairPlayAsk** hodnota výčtu. V důsledku toho se vrátí Media Services ID a je to, co by měl být použit při nastavení možnosti zásad doručení klíče.
 
 Na straně klienta FPS musí nastavit následujících akcí:
@@ -125,7 +125,7 @@ Přehrávač aplikace můžete vyvíjet pomocí iOS SDK. Abyste mohli k přehrá
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player nepodporuje přehrávání FairPlay mimo pole. Pokud chcete získat FairPlay přehrávání na MAC OS X, získejte player ukázkové z účtu vývojáře Apple.
+> Azure Media Player podporuje FairPlay přehrávání. V tématu [dokumentace Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) Další informace.
 >
 >
 
@@ -157,7 +157,7 @@ Následující příklad ukazuje možnost používat pro doručování obsahu š
 Přepište kód v souboru Program.cs kódem zobrazeným v této části.
 
 >[!NOTE]
->Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) tématu.
+>Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v tématu [to](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
 
 Nezapomeňte aktualizovat proměnné tak, aby odkazovaly do složek, ve kterých jsou umístěné vaše vstupní soubory.
 

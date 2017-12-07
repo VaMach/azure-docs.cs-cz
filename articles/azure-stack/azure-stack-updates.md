@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5c7810a88bee65cf22276082f72b18a7f9e983f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Správa aktualizací v přehledu Azure zásobníku
 
 *Platí pro: Azure zásobníku integrované systémy*
 
-Společnost Microsoft vydá balíčky aktualizací pro Azure zásobníku integrované systémy v pravidelných intervalech. Jednotlivými verzemi aktualizací softwaru společnosti Microsoft je instalován jako balíček jednu aktualizaci. Jako operátor zásobník Azure můžete snadno importovat, instalace a sledujte průběh instalace těchto aktualizací balíčky z portálu správce. 
+Společnost Microsoft vydá balíčky aktualizací pro Azure zásobníku integrované systémy v pravidelných cadence, který patří obvykle čtvrté úterý v každém měsíci začínající na obecné dostupnosti. Požádejte výrobce OEM o jejich konkrétní oznámení procesu zajistit aktualizace oznámení reach vaší organizace, nebo toto políčko zaškrtněte v části systémy notes\Integrated Concepts\Release poznámky k verzi pro další informace o konkrétních verzích.
+
+Jednotlivými verzemi aktualizací softwaru společnosti Microsoft je instalován jako balíček jednu aktualizaci. Jako operátor zásobník Azure můžete snadno importovat, instalace a sledujte průběh instalace těchto aktualizací balíčky z portálu správce. 
 
 Dodavatele hardwaru, výrobce (OEM), bude také uvolnit aktualizace, jako jsou ovladače a firmware aktualizace. Tyto aktualizace se dodávají jako samostatné balíčky podle dodavatele hardwaru, od výrobců OEM a jsou spravovány samostatně z aktualizací společnosti Microsoft.
 

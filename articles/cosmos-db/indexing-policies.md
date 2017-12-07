@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Jak funguje Azure Cosmos DB data indexu?
 
@@ -68,7 +68,7 @@ Azure Cosmos DB podporuje tři indexování režimů, které je možné nakonfig
 
 **Konzistentní**: Pokud zásady Azure Cosmos DB kolekce je určený jako "konzistentní", dotazy na danou kolekci Azure Cosmos DB, postupujte podle kroků stejnou úroveň konzistence jsou zadány pro čtení bod (tj. silné a ohraničenou odolností, založenou relace nebo závěrečné). Index je aktualizována synchronně jako součást aktualizace dokumentu (tj. vložení, nahraďte, aktualizace a odstranění dokumentu v kolekci Azure Cosmos DB).  Konzistentní indexování podporuje konzistentní dotazy za cenu možné snížení zápisu propustnost. Toto snížení je funkce jedinečné cesty, které je třeba zpracovat a "úroveň konzistence". Konzistentní indexování režimu je určená pro "zápisu rychle dotaz okamžitě" úlohy.
 
-**Opožděné**: Povolit přijímání propustnost maximální dokumentu, můžete nakonfigurovat kolekci Azure Cosmos DB opožděné konzistence; význam dotazy jsou nakonec byl konzistentní. Index se asynchronně aktualizuje v případě kolekci Azure Cosmos DB je tichém tj kapacity propustnosti kolekce není plně využívat k obsluze požadavků uživatele. Pro "ingestování teď dotaz později" procesy vyžadující přijímání nerušený dokumentu může být vhodné "opožděné" indexování režimu.
+**Opožděné**: index se asynchronně aktualizuje v případě kolekci Azure Cosmos DB je tichém tj kapacity propustnosti kolekce není plně využívat k obsluze požadavků uživatele. Pro "ingestování teď dotaz později" procesy vyžadující ingestováním dokument může být vhodné "opožděné" indexování režimu. Upozorňujeme, že můžete získat nekonzistentní výsledky jako data získá požity a indexované pomalu. To znamená počet dotazů nebo konkrétní dotaz, že výsledky nemusí být správný nebo repeatable, dokud je indexovaný data. Index je obvykle v catch až režimu. WRT Opožděné indexování - TTL výsledky změny při získávání index vyřazen a znovu vytvořen, tak tato aktivita může způsobit neočekávané výsledky. Většina zákazníků, kteří by měli používat konzistentní indexování.
 
 **Žádný**: kolekce označené jako index režim "Žádný" neobsahuje index s ním spojená. To se často používá, pokud se využívá Azure Cosmos DB jako klíč hodnota úložiště a dokumenty jsou dostupné jenom přes jejich vlastnost ID. 
 

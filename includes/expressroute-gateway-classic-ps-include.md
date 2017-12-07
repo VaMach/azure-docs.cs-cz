@@ -1,4 +1,4 @@
-Je nutné vytvořit virtuální síť a podsíť brány nejprve, před prací na následující úlohy. Najdete v článku [konfigurace virtuální sítě pomocí portálu classic](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) Další informace.
+Je nutné vytvořit virtuální síť a podsíť brány nejprve, před prací na následující úlohy.
 
 > [!NOTE]
 > Tyto příklady se nevztahují na S2S nebo ExpressRoute existovat vedle sebe konfigurace.
@@ -9,7 +9,7 @@ Je nutné vytvořit virtuální síť a podsíť brány nejprve, před prací na
 Použijte následující příkaz k vytvoření brány. Nezapomeňte nahradit všechny hodnoty vlastními.
 
 ```powershell
-New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
+New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
 ```
 
 ## <a name="verify-the-gateway-was-created"></a>Ověřte, že vytvoření brány
@@ -17,7 +17,7 @@ New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" 
 Použijte následující příkaz k ověření, zda byl vytvořen brány. Tento příkaz načte také ID brány, které potřebujete pro jiné operace.
 
 ```powershell
-Get-AzureVirtualNetworkGateway
+Get-AzureVNetGateway
 ```
 
 ## <a name="resize-a-gateway"></a>Změnit velikost brány
@@ -30,7 +30,7 @@ Existuje řada [SKU brány](../articles/expressroute/expressroute-about-virtual-
 >
 
 ```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+Resize-AzureVNetGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
 ## <a name="remove-a-gateway"></a>Odebrat bránu
@@ -38,5 +38,5 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 Pomocí následujícího příkazu odeberte brány
 
 ```powershell
-Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+Remove-AzureVnetGateway -GatewayId <Gateway ID>
 ```

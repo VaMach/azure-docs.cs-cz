@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: d6a405f7245bf1b9635872efd0e29f8361d6a2f6
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8722d7827aad10bcae3e8ec06b7014ebc64179d5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory předávací ověřování: Nejčastější dotazy
 
@@ -99,24 +99,20 @@ Ano. Prostředí s více doménovými strukturami jsou podporovány, pokud exist
 
 Instalace více agentů předávací ověřování zajišťuje [vysokou dostupnost](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Ale neposkytuje deterministický vyrovnávání zátěže mezi agenty ověřování.
 
-Vezměte v úvahu maximální a průměrné zatížení přihlášení požadavků, které byste měli vidět na klientovi. Jako srovnávací test může zpracovávat jednoho agenta ověřování než 300 000 k 400,000 ověření za sekundu na standardní 4 jádra procesoru, 16 GB paměti RAM serveru. Pro většinu zákazníků dvě nebo tři agenty ověřování celkem postačí pro vysokou dostupnost a kapacity.
+Vezměte v úvahu maximální a průměrné zatížení přihlášení požadavků, které byste měli vidět na klientovi. Jako srovnávací test může zpracovávat jednoho agenta ověřování 300 až 400 ověření za sekundu na standardní 4 jádra procesoru, 16 GB paměti RAM serveru.
 
-Musíte nainstalovat agenty ověřování blízko řadičích domény ke zlepšení latence přihlášení.
+Chcete-li odhadnout síťový provoz, použijte následující pokyny k dimenzování:
+- Každý požadavek má velikost datové části (0.5K + 1 tisíc * num_of_agents) bajtů. například data z Azure AD k ověřování agenta. Zde "num_of_agents" označuje, že počet agentů ověřování registrovaných na vašeho klienta.
+- Každá odpověď má velikost datové části 1 kB; například data od agenta ověřování do služby Azure AD.
+
+Pro většinu zákazníků dvě nebo tři agenty ověřování celkem postačí pro vysokou dostupnost a kapacity. Musíte nainstalovat agenty ověřování blízko řadičích domény ke zlepšení latence přihlášení.
+
+>[!NOTE]
+>Existuje omezení systému 12 ověřování agentů podle jednotlivých klientů.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Můžete nainstalovat první Agent předávací ověřování na jiném serveru než ten, který spouští Azure AD Connect?
 
 Ne, tento scénář je _není_ podporována.
-
-## <a name="how-many-pass-through-authentication-agents-should-i-install"></a>Kolik předávací ověřování agenty nainstalovat?
-
-Doporučujeme, aby:
-
-- Je celkem nainstalovat dvě nebo tři agenty ověřování. Tato konfigurace je dostatečné pro většinu zákazníků.
-- Nainstalovat agenty ověřování na řadičích domény (nebo tak, jak blízko je nejdříve) ke zlepšení latence přihlášení.
-- Zajistíte, že přidáte servery, které jste nainstalovali agenty ověřování k doménové struktuře služby Active Directory jako uživatele, jejichž hesla je třeba provést ověření.
-
->[!NOTE]
->Existuje omezení systému 12 ověřování agentů podle jednotlivých klientů.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Jak můžete zakázat předávací ověřování?
 

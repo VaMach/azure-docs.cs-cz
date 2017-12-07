@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 3e41e293cc5340c0e32cf2cc6ef7ab7534330884
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c18c2b3b0d271f2dbe4f247c132850b49d8f1d9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="container-security"></a>Kontejner zabezpečení
 
@@ -36,13 +36,13 @@ Zadáním certifikát můžete zabezpečit vaše služby kontejneru. Certifikát
 
 Modul runtime pro windows clusterů, při spouštění aplikace, čte certifikáty a vygeneruje soubor PFX a heslo pro každý certifikát. Tento soubor PFX a heslo jsou přístupné uvnitř kontejneru pomocí následující proměnné prostředí: 
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PFX**
-* **Certificate_ServicePackageName_CodePackageName_CertName_Password**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PFX**
+* **Certificates_ServicePackageName_CodePackageName_CertName_Password**
 
 Pro Linux clusterů certificates(PEM) jednoduše zkopírují přes z obchodu určeného X509StoreName do kontejneru. Odpovídající proměnné prostředí v systému linux jsou:
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PEM**
-* **Certificate_ServicePackageName_CodePackageName_CertName_PrivateKey**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PEM**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey**
 
 Případně, pokud už máte ve formuláři požadované certifikáty a jednoduše chcete k němu přístup do kontejneru, můžete vytvořit balíček data uvnitř vaší balíček aplikace a zadejte následující uvnitř manifest aplikace:
 
@@ -54,8 +54,8 @@ Případně, pokud už máte ve formuláři požadované certifikáty a jednodu�
 Službu kontejneru nebo procesu je zodpovědná za importování soubory certifikátu do kontejneru. Chcete-li import certifikátu, můžete použít `setupentrypoint.sh` skriptů nebo spuštění vlastního kódu v rámci procesu kontejneru. Následuje ukázkový kód v jazyce C# pro import souboru PFX:
 
 ```c#
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
+    string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+    string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
     string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
     password = password.Replace("\0", string.Empty);

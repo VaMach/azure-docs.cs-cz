@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory podmíněného přístupu technické reference
 
@@ -117,7 +117,7 @@ V zásadách podmíněného přístupu můžete vybrat **prohlížeče** jako kl
 
 ![Řízení přístupu pro podporované prohlížeče](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Toto nastavení má vliv na pokusů o přístup provedených z následujících prohlížečů: 
+Toto nastavení funguje u všech prohlížečů. Splňovat zásady pro zařízení, jako je zařízení kompatibilní s požadavek, následující operační systémy a prohlížeče jsou však podporovány:
 
 
 | Operační systém                     | Prohlížeče                            | Podpora     |
@@ -138,6 +138,9 @@ Toto nastavení má vliv na pokusů o přístup provedených z následujících 
 > [!NOTE]
 > Pro podporu Chrome, musíte použít Windows 10 Creators Update (verze 1703) nebo novější.<br>
 > Můžete nainstalovat [toto rozšíření](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Ověřování zařízení umožňuje zařízení identifikovat a ověřovat s zásadu podporují tyto prohlížeče. Kontrola zařízení selže, pokud je v prohlížeči spuštění v privátním režimu. 
+
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Podporovaná mobilní aplikace a klienti vzdálené plochy
 
