@@ -1,6 +1,6 @@
-V prostředí cloudu, vytvoření webové aplikace v `myAppServicePlan` plán služby App Service pomocí [az webapp vytvořit](/cli/azure/webapp#create) příkaz. 
+V prostředí cloudu, vytvoření webové aplikace v `myAppServicePlan` plán služby App Service pomocí [az webapp vytvořit](/cli/azure/webapp#az_webapp_create) příkaz. 
 
-V následujícím příkladu nahraďte `<app_name>` s globálně jedinečným názvem aplikace (platnými znaky jsou `a-z`, `0-9`, a `-`). Modul runtime je nastaven na `NODE|6.9`. Pokud chcete zobrazit všechny podporované moduly runtime, spusťte [az webapp seznamu runtimes](/cli/azure/webapp#list-runtimes). 
+V následujícím příkladu nahraďte `<app_name>` s globálně jedinečným názvem aplikace (platnými znaky jsou `a-z`, `0-9`, a `-`). Modul runtime je nastaven na `NODE|6.9`. Pokud chcete zobrazit všechny podporované moduly runtime, spusťte [az webapp seznamu runtimes](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
