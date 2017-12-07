@@ -8,15 +8,7 @@ Velikosti virtuálních počítačů pro obecné účely poskytují vyrovnáván
 
 - Velikosti úrovně Basic jsou primárně určeny pro úlohy související s vývojem a další aplikace, pro které se nevyžaduje vyrovnávání zatížení, automatické škálování nebo používání virtuálních počítačů s vysokými nároky na paměť. Informace o velikostech virtuálních počítačů vhodnějších pro produkční aplikace najdete v tématu (Velikosti virtuálních počítačů)[virtual-machines-size-specs.md] a informace o cenách virtuálních počítačů najdete v tématu [Ceny virtuálních počítačů](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="b-series-preview"></a>B-series (Preview)
-
-> [!NOTE] 
-> Verze Preview jsou k dispozici pro vás, za předpokladu, že souhlasíte s podmínkami použití. Další informace najdete v [dodatečných podmínkách použití systémů Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Tato verze preview bude omezeno na následující oblasti:
-> - USA – západ 2
-> - USA – východ
-> - Evropa – západ
-> - Asie a Tichomoří – jihovýchod
+## <a name="b-series"></a>B-Series
 
 B-series burstable virtuální počítače jsou ideální pro úlohy, které nemají potřebovat úplný výkon procesoru nepřetržitě, jako jsou webové servery, malé databáze a vývoj a testovací prostředí. Tyto úlohy mají obvykle burstable výkonu požadavky. B-Series poskytuje možnost zakoupit velikost virtuálního počítače s ceny standardních hodnot výkonu svědomí umožňující instance virtuálního počítače vytvořit kredity při virtuálního počítače je nižší než jeho základní výkon použití těchto zákazníků. Když virtuální počítač nahromadění platební, můžete virtuální počítač burst nad úroveň Virtuálního počítače pomocí až o 100 % procesoru, když vaše aplikace vyžaduje vyšší výkon procesoru.
 
@@ -31,7 +23,7 @@ B-series burstable virtuální počítače jsou ideální pro úlohy, které nem
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3-series
+## <a name="dsv3-series"></a>Dsv3-series *
 
 ACU: 160–190
 
@@ -46,9 +38,9 @@ Velikosti Dsv3-series jsou založeny na procesorech 2,3 GHz Intel XEON® E5-267
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / vysoká                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / velmi vysoké                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000 / 1 200                              | 8 / velmi vysoké                                       |
+* Dsv3-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
 
-
-## <a name="dv3-series"></a>Dv3-series
+## <a name="dv3-series"></a>Dv3-series * 
 
 ACU: 160–190
 
@@ -65,7 +57,7 @@ Velikosti Dv3-series jsou založeny na procesorech 2,3 GHz Intel XEON® E5-2673
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24 000 / 375 / 187                                            | 8 / vysoká                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48 000 / 750 / 375                                            | 8 / velmi vysoké                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96 000 / 1 000 / 500                                            | 8 / velmi vysoké                     |
-
+* Dv3-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
 
 ## <a name="dsv2-series"></a>DSv2-series
 
