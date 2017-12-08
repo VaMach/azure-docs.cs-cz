@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Jak používat Azure Search z aplikace .NET
 Tento článek je návod, které vám pomůžou s spuštěná [Azure Search .NET SDK](https://aka.ms/search-sdk). Můžete implementovat bohaté vyhledáváním do vaší aplikace pomocí Azure Search .NET SDK.
@@ -33,7 +33,7 @@ Definuje klientské knihovny tříd jako `Index`, `Field`, a `Document`, stejně
 
 Aktuální verze rozhraní .NET SDK služby Azure Search je nyní všeobecně dostupná. Pokud chcete poskytnout zpětnou vazbu, abychom mohli začlenit v příští verzi, navštivte prosím naše [zpětné vazby stránky](https://feedback.azure.com/forums/263029-azure-search/).
 
-.NET SDK podporuje verzi `2016-09-01` z [REST API služby Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Tato verze teď zahrnuje podporu pro vlastní analyzátorů a objektů Blob v Azure a Azure Table podpora indexeru. Zobrazit náhled funkce, které jsou *není* jsou součástí této verze, jako je podpora pro indexování soubory JSON a sdíleného svazku clusteru v [preview](search-api-2015-02-28-preview.md) a dostupný prostřednictvím starší [verze 2.0 preview .NET SDK](https://aka.ms/search-sdk-preview).
+.NET SDK podporuje verzi `2016-09-01` z [REST API služby Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Tato verze teď zahrnuje podporu pro vlastní analyzátorů a objektů Blob v Azure a Azure Table podpora indexeru. Zobrazit náhled funkce, které jsou *není* jsou součástí této verze, jako je podpora pro indexování soubory JSON a sdíleného svazku clusteru v [preview](search-api-2016-09-01-preview.md) a dostupný prostřednictvím [4.0.1-preview verzi .NET SDK](https://aka.ms/search-sdk-preview).
 
 Tato sada SDK nepodporuje [operace správy](https://docs.microsoft.com/rest/api/searchmanagement/) jako je například vytváření a škálování služby vyhledávání a správa klíče rozhraní API. Pokud potřebujete ke správě prostředků vyhledávání z aplikace .NET, můžete použít [SDK služby Azure Search .NET správu](https://aka.ms/search-mgmt-sdk).
 
