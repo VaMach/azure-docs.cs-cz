@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: larryfr
-ms.openlocfilehash: 89b7d48afd72fb424305da6c2cbdcea2ddc52ddd
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Použití Oozie se systémem Hadoop k definování a spuštění workflowu v Azure HDInsight se systémem Linux
 
@@ -43,7 +43,7 @@ Můžete taky Oozie při plánování úloh, které jsou specifické pro systém
 
 ## <a name="prerequisites"></a>Požadavky
 
-**Cluster služby HDInsight**: Další informace najdete v tématu [Začínáme s prostředím HDInsight v Linuxu](hdinsight-hadoop-linux-tutorial-get-started.md).
+* **Cluster služby HDInsight**: najdete v části [Začínáme s prostředím HDInsight v Linuxu](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > Kroky v tomto dokumentu vyžadují clusteru služby HDInsight, který používá Linux. Linux je jenom operační systém používaný v HDInsight verze 3.4 nebo novější. Další informace najdete v tématu [Vyřazení prostředí HDInsight ve Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -748,15 +748,15 @@ V tomto kurzu jste se dozvěděli, jak definovat pracovním postupu Oozie a jak 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
+[hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
