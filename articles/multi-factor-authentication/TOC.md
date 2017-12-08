@@ -13,7 +13,6 @@
 # Postup
 ## Nasazení a používání
 ### [Konfigurace nastavení](multi-factor-authentication-whats-next.md)
-#### [Použití portálu PhoneFactor](multi-factor-authentication-whats-next-pfweb.md)
 ### [Sestavy v MFA](multi-factor-authentication-manage-reports.md)
 ### [Použití stávajících serverů NPS](multi-factor-authentication-nps-extension.md)
 #### [Pokročilá konfigurace pro rozšíření serveru NPS](nps-extension-advanced-configuration.md)
