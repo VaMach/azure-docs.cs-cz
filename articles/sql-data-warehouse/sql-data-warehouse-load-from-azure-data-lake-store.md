@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 09/15/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4c3ca2a26fe47a8f0831a1ce4edf2c35911f3fc1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Načtení dat z Azure Data Lake Store do SQL Data Warehouse
 Tento dokument poskytuje všechny kroky, které je třeba načíst z Azure Data Lake Store (ADLS) svoje vlastní data do SQL Data Warehouse pomocí PolyBase.
@@ -56,7 +56,7 @@ PolyBase používá externí objekty T-SQL zadat umístění a atributy externí
 ###  <a name="create-a-credential"></a>Vytvoření přihlašovacích údajů
 Pro přístup k Azure Data Lake Store, musíte vytvořit hlavní klíč databáze pro zašifrování váš tajný klíč pověření použít v dalším kroku.
 Pak vytvořte přihlašovací údaje databáze obor, který ukládá hlavní přihlašovací údaje služby nastavit v AAD. Pro ty z vás kdo PolyBase použili pro připojení k systému Windows Azure Storage Blobs syntaxe přihlašovacích údajů se liší.
-Abyste mohli připojit k Azure Data Lake Store, musíte **první** vytvoření aplikace Azure Active Directory, vytvořte přístupový klíč a udělit aplikaci přístup k prostředku Azure Data Lake. Pokyny k provedení těchto kroků jsou umístěné [zde](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+Abyste mohli připojit k Azure Data Lake Store, musíte **první** vytvoření aplikace Azure Active Directory, vytvořte přístupový klíč a udělit aplikaci přístup k prostředku Azure Data Lake. Pokyny k provedení těchto kroků jsou umístěné [zde](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.

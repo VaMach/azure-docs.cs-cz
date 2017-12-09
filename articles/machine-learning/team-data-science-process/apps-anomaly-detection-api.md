@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 519ac38c484b9631a3fc096a17be026e9378a178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Strojového učení detekce anomálií rozhraní API
 ## <a name="overview"></a>Přehled
@@ -44,13 +44,13 @@ Detekce anomálií nabídky se dodává s užitečné nástroje, které vám pom
 >
 
 ## <a name="api-deployment"></a>Rozhraní API nasazení
-Chcete-li použít rozhraní API, je nutné nasadit k předplatnému Azure, kde se bude hostovat jako webové služby Azure Machine Learning.  Můžete to provést z [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  To nasadí dvě AzureML webové služby (a jejich související prostředky) k předplatnému Azure – jeden pro zjišťování anomálií s sezónnosti detekce a jeden bez detekce sezónnosti.  Po dokončení nasazení budou moci spravovat vaše rozhraní API z [AzureML webové služby](https://services.azureml.net/webservices/) stránky.  Z této stránky bude možné najít váš koncový bod umístění, klíče rozhraní API a také ukázkový kód pro volání rozhraní API.  Podrobnější pokyny jsou k dispozici [zde](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
+Chcete-li použít rozhraní API, je nutné nasadit k předplatnému Azure, kde se bude hostovat jako webové služby Azure Machine Learning.  Můžete to provést z [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  To nasadí dvě AzureML webové služby (a jejich související prostředky) k předplatnému Azure – jeden pro zjišťování anomálií s sezónnosti detekce a jeden bez detekce sezónnosti.  Po dokončení nasazení budou moci spravovat vaše rozhraní API z [AzureML webové služby](https://services.azureml.net/webservices/) stránky.  Z této stránky bude možné najít váš koncový bod umístění, klíče rozhraní API a také ukázkový kód pro volání rozhraní API.  Podrobnější pokyny jsou k dispozici [zde](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Škálování rozhraní API
 Ve výchozím nastavení bude mít vaše nasazení plán fakturace volné vývoje/testování, která zahrnuje 1000 transakce za měsíc a 2 výpočetních hodin za měsíc.  Můžete upgradovat na jiný plán, podle potřeb.  Podrobnosti o cenách různé plány jsou k dispozici [sem](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) v části "Produkční webové rozhraní API ceny".
 
 ## <a name="managing-aml-plans"></a>Správa AML plány 
-Můžete spravovat cenového plánu [zde](https://services.azureml.net/plans/).  Název plánu budou založeny na název skupiny prostředků, které jste zvolili při nasazování rozhraní API plus řetězec, který je jedinečné pro vaše předplatné.  Pokyny o tom, jak upgradovat plán jsou k dispozici [sem](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) v části "Správa fakturace plány".
+Můžete spravovat cenového plánu [zde](https://services.azureml.net/plans/).  Název plánu budou založeny na název skupiny prostředků, které jste zvolili při nasazování rozhraní API plus řetězec, který je jedinečné pro vaše předplatné.  Pokyny o tom, jak upgradovat plán jsou k dispozici [sem](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) v části "Správa fakturace plány".
 
 ## <a name="api-definition"></a>Definice rozhraní API.
 Webová služba poskytuje rozhraní založené na REST API přes protokol HTTPS, které mohou být využívány různými způsoby, včetně webových a mobilních aplikací, R, Python, Excel, atd.  Odeslání dat v řadě čas k této službě prostřednictvím volání rozhraní REST API a běží kombinaci typů tři anomálií, které jsou popsané dál.

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Chránit souborový Server pomocí Azure Site Recovery 
 
@@ -145,7 +145,7 @@ Doporučuje integrace synchronizace souboru Azure s Azure Site Recovery se
 
 Pod pomocí služby Azure souboru Sync podrobné kroky:
 
-1. [Vytvořit účet úložiště v Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Pokud jste zvolili přístup pro čtení geograficky redundantní úložiště (RA-GRS) (doporučeno) pro účty úložiště, máte přístup pro čtení k datům ze sekundární oblasti v případě havárie. Odkazovat [strategie obnovení po havárii sdílenou složku Azure File](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) Další informace.
+1. [Vytvořit účet úložiště v Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Pokud jste zvolili přístup pro čtení geograficky redundantní úložiště (RA-GRS) (doporučeno) pro účty úložiště, máte přístup pro čtení k datům ze sekundární oblasti v případě havárie. Odkazovat [strategie obnovení po havárii sdílenou složku Azure File](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) Další informace.
 2. [Vytvoření sdílené složky](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Nasazení Azure souboru Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) ve vaší místní souborový server.
 4. Vytvořte skupinu synchronizace: koncové body v rámci skupiny synchronizace se budou uchovávat vzájemně synchronizována. Synchronizace skupiny musí obsahovat alespoň jeden koncového bodu cloudu, který představuje sdílenou složku Azure, a jeden koncový bod serveru, který představuje cestu v místním systému Windows Server.

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 9503dc4a1fa8bc7773677de1673fed3abe1c1b51
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 7ae0fbf5f7566bd3f1f6591501b8b004a1e5cb0f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Příprava registru geograficky replikované kontejner Azure
 
@@ -93,7 +93,7 @@ Po dokončení replikace na portálu odráží *připraven* pro obě oblasti. Po
 
 Nyní, když jste nakonfigurovali geografická replikace, vytvořit bitovou kopii kontejneru a poslat ho přímo v registru. Musíte nejprve se přihlásit k vaší instanci ACR před odesláním bitové kopie do ní. S [Basic, Standard a Premium SKU](container-registry-skus.md), můžete ověřovat pomocí Azure identity.
 
-Použití [az acr přihlášení](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) příkaz k ověřování a přihlašovací údaje pro vaše registru do mezipaměti. Nahraďte `<acrName>` s názvem registru, který jste vytvořili v předchozích krocích.
+Použití [az acr přihlášení](https://docs.microsoft.com/cli/azure/acr#az_acr_login) příkaz k ověřování a přihlašovací údaje pro vaše registru do mezipaměti. Nahraďte `<acrName>` s názvem registru, který jste vytvořili v předchozích krocích.
 
 ```azurecli
 az acr login --name <acrName>

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: e43b9c7a854bc7150247a2b92d2d37ad6d74c705
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: c66761d44266a33ddfa1e95444355d3908186ef8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Zásobník datacenter integrace se službou Azure - Identity
 
@@ -260,7 +260,7 @@ Existuje mnoho scénářů, které vyžadují použití hlavní název služby (
 - Různé aplikace
 - Vyžadujete-interaktivní přihlášení
 
-Další informace o vytvoření názvu SPN najdete v tématu [vytvořit objekt služby pro službu AD FS](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+Další informace o vytvoření názvu SPN najdete v tématu [vytvořit objekt služby pro službu AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
 ## <a name="troubleshooting"></a>Řešení potíží

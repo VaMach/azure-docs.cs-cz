@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Spravovat konec platnosti úložiště objektů Azure Blob v Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Nastavení mezipaměti na portálu Azure můžete také ovládat nastavením [CD
 > 
 > Další informace o tom, jak funguje Azure CDN pro urychlení přístupu k objektům BLOB a další soubory, najdete v části [přehled Azure Content Delivery Network](cdn-overview.md).
 > 
-> Další informace o Azure Blob storage najdete v tématu [Úvod do úložiště objektů Blob](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+> Další informace o Azure Blob storage najdete v tématu [Úvod do úložiště objektů Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
  
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Nastavení hlavičky Cache-Control pomocí prostředí Azure PowerShell
@@ -113,7 +113,7 @@ Chcete-li aktualizovat *CacheControl* vlastnost objektu blob s Azure Storage Exp
 ![Azure Storage Explorer vlastnosti](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Rozhraní příkazového řádku Azure
-Pomocí [rozhraní příkazového řádku Azure](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI), můžete spravovat prostředky Azure blob z příkazového řádku. Hlavička cache-control při nahrání objektu blob pomocí Azure CLI, nastavit *cacheControl* vlastnost pomocí `-p` přepínače. Následující příklad ukazuje, jak nastavit hodnotu TTL na jednu hodinu (3600 sekund):
+Pomocí [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), můžete spravovat prostředky Azure blob z příkazového řádku. Hlavička cache-control při nahrání objektu blob pomocí Azure CLI, nastavit *cacheControl* vlastnost pomocí `-p` přepínače. Následující příklad ukazuje, jak nastavit hodnotu TTL na jednu hodinu (3600 sekund):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt

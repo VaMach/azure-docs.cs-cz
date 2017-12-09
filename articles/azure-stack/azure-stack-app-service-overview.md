@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
-ms.translationtype: HT
+ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Přehled App Service v Azure Stacku
 
@@ -37,8 +37,8 @@ Toto jsou některé klíčové funkce a možnosti služby App Service:
 
 Služby App Service nabízí několik typů aplikací, z nichž každá je určena k hostování konkrétní úlohu:
 
-- [Webové aplikace](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) pro hostování webů a webových aplikací.
-- [Aplikace API](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) pro hostování rozhraní RESTful API.
+- [Webové aplikace](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) pro hostování webů a webových aplikací.
+- [Aplikace API](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) pro hostování rozhraní RESTful API.
 - Azure Functions pro hostování událostí řízené bez serveru úloh.
 
 Aplikace word odkazuje na prostředky hostování vyhrazené na běžící zatížení. Pokud zde například zmiňujeme „webovou aplikaci“, pravděpodobně jste zvyklí chápat webovou aplikaci jako výpočetní prostředky i kód aplikace, které společně poskytují v prohlížeči příslušné funkce. Ale ve službě App Service je webová aplikace výpočetní prostředky, které zásobník Azure poskytuje k hostování kódu aplikace.

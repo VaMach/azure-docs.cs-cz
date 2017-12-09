@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: e1e858b19f9aed680f95ad2f5e84310200340bf9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Přiřazení rolí správce v Azure Active Directory
 
-Pomocí služby Azure Active Directory (Azure AD), můžete určit samostatné správcům poskytovat různé funkce. Správci mají přístup k různým funkcím v portálu Azure nebo portál Azure classic a v závislosti na jejich role, můžete vytvořit nebo upravit uživatele, přiřadit role správců jiným uživatelům, resetovat hesla uživatelů, správě uživatelských licencí a správě domén mezi dalších věcí. Uživatel, který je přiřazen roli správce bude mít stejné oprávnění ve všech cloudových služeb, které vaše organizace předplatila, bez ohledu na to, jestli přiřadíte roli na portálu Office 365 nebo portálu Azure classic nebo pomocí modulu Azure AD pro prostředí Windows PowerShell.
+Pomocí služby Azure Active Directory (Azure AD), můžete určit samostatné správcům poskytovat různé funkce. Správci mají přístup k různým funkcím v portálu Azure a v závislosti na jejich role, můžete vytvořit nebo upravit uživatele, přiřadit role správců jiným uživatelům, resetovat uživatelská hesla, spravovat uživatelské licence a správě domén, mimo jiné. Uživatel, který je přiřazen roli správce bude mít stejné oprávnění ve všech cloudových služeb, na které má vaše organizace předplatné, bez ohledu na to, jestli přiřadíte roli na portálu Office 365 nebo portálu Azure nebo pomocí modulu Azure AD pro Prostředí Windows PowerShell.
 
 Následující role správce jsou k dispozici:
 

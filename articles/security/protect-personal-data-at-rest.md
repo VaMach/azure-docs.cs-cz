@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure šifrovací technologie: ochrana osobních údajů v klidovém stavu se šifrováním
 
@@ -57,7 +57,7 @@ Azure services poskytují několik nástrojů a technologie, které vám umožn�
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-[Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) poskytuje zabezpečené úložiště pro klíče, které slouží k šifrování dat v klidovém stavu uložených v služby Azure a je doporučenou klíče úložiště a správu řešení. Správa klíčů pro šifrování je nezbytné pro zabezpečení uložená data.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) poskytuje zabezpečené úložiště pro klíče, které slouží k šifrování dat v klidovém stavu uložených v služby Azure a je doporučenou klíče úložiště a správu řešení. Správa klíčů pro šifrování je nezbytné pro zabezpečení uložená data.
 
 #### <a name="how-do-i-use-azure-key-vault-to-protect-keys-that-encrypt-personal-data"></a>Jak používat Azure Key Vault k ochraně klíče, které šifrování osobní údaje?
 
@@ -79,13 +79,13 @@ Azure Key Vault můžete zadat softwarově chráněný klíč, nebo můžete imp
 
 Můžete také vygenerovat klíč v místním HSM a jeho přenesení do HSM ve službě Key Vault, aniž by klíč opustil hranice HSM.
 
-Pro podrobné pokyny týkající se použití Azure Key Vault, postupujte podle kroků v [Začínáme s Azure Key Vault.](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started)
+Pro podrobné pokyny týkající se použití Azure Key Vault, postupujte podle kroků v [Začínáme s Azure Key Vault.](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
 
-Seznam rutin prostředí PowerShell použít s Azure Key Vault najdete v tématu [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+Seznam rutin prostředí PowerShell použít s Azure Key Vault najdete v tématu [AzureRM.KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
 ### <a name="azure-disk-encryption-for-windows"></a>Azure Disk Encryption pro Windows
 
-[Azure Disk Encryption pro Windows a virtuálních počítačů IaaS Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) chrání osobní data v klidovém stavu na virtuálních počítačích Azure a integruje se službou Azure Key Vault. Používá Azure Disk Encryption [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) v systému Windows a [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) v systému Linux k šifrování operačního systému a datové disky. Azure Disk Encryption je podporována v systému Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 a u klientů Windows 8 a Windows 10.
+[Azure Disk Encryption pro Windows a virtuálních počítačů IaaS Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) chrání osobní data v klidovém stavu na virtuálních počítačích Azure a integruje se službou Azure Key Vault. Používá Azure Disk Encryption [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) v systému Windows a [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) v systému Linux k šifrování operačního systému a datové disky. Azure Disk Encryption je podporována v systému Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 a u klientů Windows 8 a Windows 10.
 
 #### <a name="how-do-i-use-azure-disk-encryption-to-protect-personal-data"></a>Jak používat Azure Disk Encryption na ochranu osobních údajů?
 
@@ -103,11 +103,11 @@ Při nastavování trezoru klíčů pro podporu Azure Disk Encryption, můžete 
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
-Podrobné pokyny pro konkrétní nasazení scénáře a uživatelského prostředí jsou uvedené v [Azure Disk Encryption pro systém Windows a virtuálních počítačů IaaS Linux.](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+Podrobné pokyny pro konkrétní nasazení scénáře a uživatelského prostředí jsou uvedené v [Azure Disk Encryption pro systém Windows a virtuálních počítačů IaaS Linux.](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="azure-storage-service-encryption"></a>Šifrování služby Azure Storage
 
-[Azure Storage Service šifrování (SSE) pro Data v klidovém stavu](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) pomáhá chránit a ochranu dat, aby splňovaly vaše organizace závazky zabezpečení a dodržování předpisů. Úložiště Azure automaticky šifruje vaše data pomocí šifrování AES 256 bitů před uložením do úložiště a dešifruje ji před načtení. Tato služba je k dispozici pro soubory a objektů BLOB služby Azure.
+[Azure Storage Service šifrování (SSE) pro Data v klidovém stavu](https://docs.microsoft.com/azure/storage/storage-service-encryption) pomáhá chránit a ochranu dat, aby splňovaly vaše organizace závazky zabezpečení a dodržování předpisů. Úložiště Azure automaticky šifruje vaše data pomocí šifrování AES 256 bitů před uložením do úložiště a dešifruje ji před načtení. Tato služba je k dispozici pro soubory a objektů BLOB služby Azure.
 
 #### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>Jak použít šifrování služby úložiště na ochranu osobních údajů?
 
@@ -129,13 +129,13 @@ Nová data se budou šifrovat. Data v existující soubory v rámci tohoto účt
 
 Po povolení šifrování, zkopírujte data do účtu úložiště pomocí jedné z následujících metod:
 
-1. Kopírování objektů BLOB nebo soubory s [nástroj příkazového řádku AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy).
+1. Kopírování objektů BLOB nebo soubory s [nástroj příkazového řádku AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy).
 
-2. [Připojit sdílenou složku pomocí protokolu SMB](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows) proto můžete použít nástroj, například Robocopy pro kopírování souborů.
+2. [Připojit sdílenou složku pomocí protokolu SMB](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-windows) proto můžete použít nástroj, například Robocopy pro kopírování souborů.
 
-3. Zkopírujte soubor nebo objekt blob dat do a z úložiště objektů blob nebo mezi účtů úložiště pomocí [knihovny klienta úložiště, jako je například .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
+3. Zkopírujte soubor nebo objekt blob dat do a z úložiště objektů blob nebo mezi účtů úložiště pomocí [knihovny klienta úložiště, jako je například .NET](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs).
 
-4.  Použití [Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/storage-explorers) nahrát objektů BLOB do účtu úložiště s povolit šifrování.
+4.  Použití [Storage Explorer](https://docs.microsoft.com/azure/storage/storage-explorers) nahrát objektů BLOB do účtu úložiště s povolit šifrování.
 
 ### <a name="transparent-data-encryption"></a>Transparentní šifrování dat
 
@@ -159,7 +159,7 @@ Transparentní šifrování šifrování dat (TDE) je funkce v produktech SQL Az
 
 ![Povolení šifrování dat](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 
-Informace o dešifrování TDE chráněné databáze a informace a pokyny o tom, jak povolit šifrování TDE najdete v článku [transparentní šifrování dat s Azure SQL Database.](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
+Informace o dešifrování TDE chráněné databáze a informace a pokyny o tom, jak povolit šifrování TDE najdete v článku [transparentní šifrování dat s Azure SQL Database.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
 
 ## <a name="summary"></a>Souhrn
 
@@ -169,10 +169,10 @@ K ochraně klíčů, které se používají k šifrování dat v Azure, může s
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Průvodce odstraňováním potíží Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
+- [Průvodce odstraňováním potíží Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [Šifrování virtuálního počítače Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [Šifrování virtuálního počítače Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
-- [Šifrování dat v Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption)
+- [Šifrování dat v Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 
-- [Azure Cosmos DB databáze šifrování v klidovém stavu](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest)
+- [Azure Cosmos DB databáze šifrování v klidovém stavu](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)

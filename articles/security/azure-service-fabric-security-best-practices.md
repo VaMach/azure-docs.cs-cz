@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric osvědčené postupy zabezpečení
 Nasazení aplikace v Azure je rychlý, snadný a nákladově efektivní. Před nasazením cloudové aplikace do produkčního prostředí, projděte si seznam důležité a doporučené osvědčené postupy pro implementaci zabezpečeného clustery ve vaší aplikaci.
@@ -64,7 +64,7 @@ Chcete-li zabránit neoprávněným uživatelům v připojení, zejména pokud c
 Existují tři [scénáře](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) pro implementaci zabezpečení clusteru pomocí různých technologií:
 
 -   Zabezpečení – uzly: Tento scénář zabezpečuje komunikaci mezi počítači v clusteru a virtuální počítače. Tato forma zabezpečení zajišťuje pouze počítače, které jsou autorizované pro připojení ke clusteru může být hostitelem aplikace a služby v clusteru.
-V tomto scénáři, clustery, které běží na Azure nebo samostatné clustery, které běží v systému Windows, můžete použít buď [certifikátu zabezpečení](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) nebo [zabezpečení systému Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) pro počítače, Windows Server.
+V tomto scénáři, clustery, které běží na Azure nebo samostatné clustery, které běží v systému Windows, můžete použít buď [certifikátu zabezpečení](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) nebo [zabezpečení systému Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) pro počítače, Windows Server.
 -   Uzel Klient zabezpečení: Tento scénář zabezpečuje komunikaci mezi klientem Service Fabric a jednotlivé uzly v clusteru.
 -   Na základě rolí řízení přístupu (RBAC): Tento scénář používá samostatné identity (certifikáty, Azure AD, a tak dále) pro každou roli klienta správce a uživatele, který přistupuje k clusteru. Při vytváření clusteru zadáte identity role.
 
@@ -125,7 +125,7 @@ Každý objekt actor je definován jako instanci objektu actor typu identické z
 Konfigurace Replikátor nakonfigurovat Replikátor, která zodpovídá za vytvoření zprostředkovatele stavu objektu Actor stavu vysoce spolehlivé.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Konfigurace protokolu SSL pro Azure Service Fabric
-Proces ověřování serveru [ověřuje](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) clusteru koncových bodů správy klient pro správu. Klient pro správu poté rozpozná, že je rozhovoru s skutečné clusteru. Tento certifikát také poskytuje [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) pro rozhraní API pro správu protokolu HTTPS a pro Service Fabric Explorer přes protokol HTTPS.
+Proces ověřování serveru [ověřuje](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) clusteru koncových bodů správy klient pro správu. Klient pro správu poté rozpozná, že je rozhovoru s skutečné clusteru. Tento certifikát také poskytuje [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) pro rozhraní API pro správu protokolu HTTPS a pro Service Fabric Explorer přes protokol HTTPS.
 Je nutné získat vlastní název domény pro váš cluster. Pokud budete požadovat certifikát od certifikační autority, název subjektu certifikátu musí odpovídat názvu vlastní domény, který používáte pro váš cluster.
 
 Konfigurace protokolu SSL pro aplikaci, musíte nejdřív získat certifikát SSL, který podepsala certifikační Autority. Tato certifikační Autorita je důvěryhodná třetí strany, která vydává certifikáty SSL z bezpečnostních důvodů. Pokud ještě nemáte certifikát SSL, budete muset získat jeden ze společnosti, která prodává certifikáty SSL.

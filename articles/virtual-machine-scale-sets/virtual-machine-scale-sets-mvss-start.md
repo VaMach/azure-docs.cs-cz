@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 65f02c4675eb752dcc82e9a1d1c7f6c2c193fc32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e1672474e22411e7f7fca4082ce83146e40ebfbc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Další informace o šablonách sady škálování virtuálního počítače
 [Šablony Azure Resource Manageru](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) nabízí skvělou možnost pro nasazení skupin souvisejících prostředků. Tato řada kurz ukazuje, jak vytvořit šablonu sady minimální přijatelná škálování a postup úpravy této šablony, aby vyhovovala různé scénáře. Všechny příklady pocházejí z tohoto [úložiště GitHub](https://github.com/gatneil/mvss). 
@@ -123,7 +123,7 @@ V seznamu, virtuální sítě z předchozího příkladu je v tomto případě p
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Zadejte vlastnosti sady škálování
-Sady škálování mít mnoho vlastností pro přizpůsobení virtuálních počítačů v sadě škálování. Úplný seznam těchto vlastností najdete v tématu [škálovací sady dokumentace k REST API](https://docs.microsoft.com/en-us/rest/api/virtualmachinescalesets/create-or-update-a-set). V tomto kurzu jsme nastaví jen několik běžně používané vlastností.
+Sady škálování mít mnoho vlastností pro přizpůsobení virtuálních počítačů v sadě škálování. Úplný seznam těchto vlastností najdete v tématu [škálovací sady dokumentace k REST API](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). V tomto kurzu jsme nastaví jen několik běžně používané vlastností.
 ### <a name="supply-vm-size-and-capacity"></a>Zadejte velikost virtuálního počítače a kapacity
 Měřítko nastavit musí vědět, jakou velikost virtuálního počítače k vytvoření ("název sku") a kolik tyto virtuální počítače na vytvoření ("kapacita sku"). Informace, které velikosti virtuálních počítačů jsou k dispozici, najdete v tématu [velikosti virtuálních počítačů dokumentaci](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

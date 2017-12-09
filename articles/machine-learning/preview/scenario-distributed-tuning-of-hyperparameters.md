@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuované ladění z hyperparameters pomocí Azure Machine Learning Workbench
 
@@ -36,8 +36,8 @@ Mřížky vyhledávání pomocí křížového ověření může být časově n
 * [Účet Azure](https://azure.microsoft.com/free/) (bezplatné zkušební verze jsou k dispozici).
 * Nainstalovaná kopie produktu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) následující [instalace a vytvoření rychlý Start](./quickstart-installation.md) k instalaci nástroje Workbench a vytvořte účty.
 * Tento scénář předpokládá, že jsou spuštěny Azure ML Workbench na Windows 10 nebo systému MacOS s modulu Docker místně nainstalován. 
-* Pokud chcete spustit tento scénář s vzdálené kontejner Docker, zřídit Ubuntu datové vědy virtuálního počítače (DSVM) podle následujících [pokyny](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Doporučujeme použít virtuální počítač s minimálně 8 jader a 28 Gb paměti. D4 instance virtuálních počítačů mají takové kapacity. 
-* Pokud chcete spustit tento scénář s clusterem Spark, zřídit cluster Azure HDInsight pomocí následujících tyto [pokyny](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Doporučujeme vám, že má cluster s nejméně 
+* Pokud chcete spustit tento scénář s vzdálené kontejner Docker, zřídit Ubuntu datové vědy virtuálního počítače (DSVM) podle následujících [pokyny](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Doporučujeme použít virtuální počítač s minimálně 8 jader a 28 Gb paměti. D4 instance virtuálních počítačů mají takové kapacity. 
+* Pokud chcete spustit tento scénář s clusterem Spark, zřídit cluster Azure HDInsight pomocí následujících tyto [pokyny](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Doporučujeme vám, že má cluster s nejméně 
 - šesti uzlů pracovního procesu
 - osm jader
 - 28 Gb paměti v záhlaví a pracovní uzly. D4 instance virtuálních počítačů mají takové kapacity. Doporučujeme, abyste změna následující parametry, které chcete maximalizovat výkon clusteru.
@@ -45,11 +45,11 @@ Mřížky vyhledávání pomocí křížového ověření může být časově n
 - Spark.executor.cores
 - Spark.executor.Memory 
 
-Můžete postupovat podle těchto [pokyny](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) a upravovat definice v části "vlastní spark je výchozí".
+Můžete postupovat podle těchto [pokyny](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) a upravovat definice v části "vlastní spark je výchozí".
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Vytvořte účet úložiště Azure, který se použije k uložení datové sady. Postupujte podle [pokyny](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) k vytvoření účtu úložiště.
+* Vytvořte účet úložiště Azure, který se použije k uložení datové sady. Postupujte podle [pokyny](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) k vytvoření účtu úložiště.
 
 ## <a name="data-description"></a>Popis dat
 

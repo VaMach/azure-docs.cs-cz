@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: b20c54660552f527ff403fb41f2a04e478832d43
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>OMS rozšíření virtuálního počítače pro Linux
 
@@ -182,7 +182,7 @@ Výstupu spuštění rozšíření je zaznamenána do následujícího souboru:
 | 10 | Virtuální počítač je již připojen k pracovnímu prostoru OMS | Připojit virtuální počítač do pracovního prostoru, určená ve schématu rozšíření, nastavena na hodnotu false v nastavení veřejných stopOnMultipleConnections nebo odeberte tuto vlastnost. Tento virtuální počítač získá účtován pro každý pracovní prostor po připojení. |
 | 11 | Neplatná konfigurace poskytuje rozšíření | Postupujte podle předchozích ukázkách nastavit všechny hodnoty vlastností nezbytné pro nasazení. |
 | 12 | Správce balíčků dpkg je uzamčena. | Zajistěte, aby všechny dpkg operace aktualizace na počítači dokončení a akci opakujte. |
-| 20 | Povolit názvem předčasně | [Aktualizovat Azure Linux Agent](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) na nejnovější dostupnou verzi. |
+| 20 | Povolit názvem předčasně | [Aktualizovat Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) na nejnovější dostupnou verzi. |
 | 51 | Toto rozšíření není podporována na operační systém Virtuálního počítače | |
 | 55 | Nelze připojit ke službě Microsoft Operations Management Suite | Zkontrolujte, jestli systém má přístup k Internetu nebo že bylo zadáno platný proxy server HTTP. Kromě toho zkontrolujte správnost ID pracovního prostoru. |
 

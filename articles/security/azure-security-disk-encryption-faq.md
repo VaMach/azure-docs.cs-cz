@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Nejčastější dotazy k Azure Disk Encryption
 
@@ -119,7 +119,7 @@ Tento článek obsahuje odpovědi na nejčastější dotazy (FAQ) o Azure Disk E
 * Šifrování (může trvat několik hodiny nebo i dny v závislosti na vlastnosti virtuálního počítače a velikost všech připojených datových disků)
 * Přizpůsobit a přidat softwaru na bitovou kopii podle potřeby.
 
-Pokud tento pracovní postup není možné, spoléhat na [šifrování služby úložiště](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) na úložiště platformy vrstvy účet může být alternativu k použití dm-crypt šifrování celého disku.
+Pokud tento pracovní postup není možné, spoléhat na [šifrování služby úložiště](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) na úložiště platformy vrstvy účet může být alternativu k použití dm-crypt šifrování celého disku.
 
 **Otázka:** co je na disku "Svazek Bek" nebo "/ mnt/azure_bek_disk"?
 

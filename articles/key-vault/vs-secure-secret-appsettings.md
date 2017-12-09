@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Bezpečně uložte nastavení tajný aplikace pro webovou aplikaci
 
@@ -32,7 +32,7 @@ Pokud chcete mít jistotu, že je bezpečné vývoje, nástrojů a framework kni
 ## <a name="aspnet-and-net-core-applications"></a>Aplikace ASP.NET a rozhraní .NET
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Uložit nastavení tajný v úložišti tajného klíče uživatele, který je mimo složku Zdroj ovládacího prvku
-Pokud byste rychlé prototypu nebo nemáte přístup k Internetu, začněte přesunutí nastavení tajný mimo zdrojové složce ovládacích prvků do úložiště tajného klíče uživatele. Uživatel tajný úložiště je soubor uložený ve složce profileru uživatele, takže tajné klíče se změnami do správy zdrojového kódu. Následující diagram ukazuje, jak [tajného klíče uživatele](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) funguje.
+Pokud byste rychlé prototypu nebo nemáte přístup k Internetu, začněte přesunutí nastavení tajný mimo zdrojové složce ovládacích prvků do úložiště tajného klíče uživatele. Uživatel tajný úložiště je soubor uložený ve složce profileru uživatele, takže tajné klíče se změnami do správy zdrojového kódu. Následující diagram ukazuje, jak [tajného klíče uživatele](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) funguje.
 
 ![Tajného klíče uživatele zachová tajný nastavení mimo zdrojového kódu](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -45,7 +45,7 @@ Pokud jsou vývoj týmového projektu a potřebují bezpečně sdílet zdrojový
 
     ![Vytvoření Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Udělení jste a členové týmu přístup do služby Key Vault. Pokud máte velké tým, můžete vytvořit [skupiny Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal) a přidejte skupiny zabezpečení přístup do služby Key Vault. V *tajný klíč oprávnění* rozevíracího seznamu, zkontrolujte *získat* a *seznamu* pod *operace správy tajný klíč*.
+2. Udělení jste a členové týmu přístup do služby Key Vault. Pokud máte velké tým, můžete vytvořit [skupiny Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) a přidejte skupiny zabezpečení přístup do služby Key Vault. V *tajný klíč oprávnění* rozevíracího seznamu, zkontrolujte *získat* a *seznamu* pod *operace správy tajný klíč*.
 
     ![Přidání zásady přístupu Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

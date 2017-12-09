@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 1622149009a37b864e84caa158da960ccc03ca65
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: c7650fe4e10b9dcfe6068152398922723587a658
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Postup kódování assetu pomocí kodéru Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -52,9 +52,6 @@ Než začnete, odkazující na procesory médií, ověřte, zda máte správná 
 
 Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI.
-
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Vytvoření úlohy pomocí jednoho úkolu kódování
 > [!NOTE]
 > Při práci s Media Services REST API, platí následující aspekty:
@@ -63,7 +60,7 @@ Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přís
 >
 > Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI. Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 >
-> Při použití formátu JSON a určení pro použití **__metadata** – klíčové slovo v žádosti o (například k odkazuje na objekt odkazovaný), musíte nastavit **přijmout** hlavičky k [JSON podrobný formát](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): přijmout: application/json; odata = podrobné.
+> Při použití formátu JSON a určení pro použití **__metadata** – klíčové slovo v požadavku (například na referenční dokumentace propojeného objektu), musíte nastavit **přijmout** hlavičky k [JSON podrobný formát](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Přijměte: application/json; odata = verbose.
 >
 >
 
@@ -76,7 +73,7 @@ Následující příklad ukazuje, jak vytvořit a odeslat úlohu s jeden úkol n
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
@@ -95,7 +92,7 @@ Následující příklad ukazuje, jak nastavit atribut assetName:
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Požadavky
-* Taskbody – vlastnosti používaly literál XML Definujte počet vstup nebo výstup prostředky, které jsou používány úlohu. Úloha téma obsahuje definici schématu XML pro soubor XML.
+* Taskbody – vlastnosti používaly literál XML Definujte počet vstup nebo výstup prostředky, které jsou používány úlohu. Úloha článek obsahuje definici schématu XML pro soubor XML.
 * V definici taskbody – každý vnitřní hodnota <inputAsset> a <outputAsset> musí být nastavena jako JobInputAsset(value) nebo JobOutputAsset(value).
 * Úloha může mít více prostředků výstup. Jeden JobOutputAsset(x) lze použít jako výstup úlohy pro úlohu pouze jednou.
 * Můžete zadat JobInputAsset nebo JobOutputAsset jako vstupní datový zdroj úlohy.
@@ -118,7 +115,7 @@ V mnoha scénářích aplikace vývojáři chcete vytvořit řadu zpracování �
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -162,7 +159,7 @@ Následující příklad ukazuje, jak používat dávkovým zpracováním OData 
     Accept: multipart/mixed
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
 
@@ -182,7 +179,7 @@ Následující příklad ukazuje, jak používat dávkovým zpracováním OData 
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
@@ -199,7 +196,7 @@ Následující příklad ukazuje, jak používat dávkovým zpracováním OData 
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {  
@@ -223,7 +220,7 @@ Následující příklad ukazuje, jak vytvořit JobTemplate s TaskTemplate, kter
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     Host: media.windows.net
 
@@ -250,7 +247,7 @@ Následující příklad ukazuje, jak vytvořit úlohu, která odkazuje na JobTe
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     Host: media.windows.net
 

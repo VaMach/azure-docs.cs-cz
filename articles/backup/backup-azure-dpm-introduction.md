@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Příprava zálohování úloh do Azure pomocí DPM
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Tento článek obsahuje úvod do Microsoft Azure Backup používá k ochraně va
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) zálohuje data souborů a aplikací. Další informace o podporovaných úlohách najdete [zde](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix). Data zálohovaná na DPM můžete uložit na pásce, na disku, nebo zálohovat do Azure se zálohováním Microsoft Azure. Aplikace DPM komunikuje s Azure Backup následujícím způsobem:
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) zálohuje data souborů a aplikací. Další informace o podporovaných úlohách najdete [zde](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Data zálohovaná na DPM můžete uložit na pásce, na disku, nebo zálohovat do Azure se zálohováním Microsoft Azure. Aplikace DPM komunikuje s Azure Backup následujícím způsobem:
 
 * **Aplikace DPM nasazená jako fyzický server nebo místní virtuální počítač** – Pokud aplikace DPM je nasazená jako fyzický server nebo jako virtuální počítač technologie Hyper-V místní data můžete zálohovat do trezoru služeb zotavení kromě disku a pásky Zálohování.
 * **Aplikace DPM nasazená jako virtuální počítač Azure** – ze System Center 2012 R2 s aktualizací 3, DPM dá nasadit jako virtuální počítač Azure. Pokud je aplikace DPM nasazená jako virtuální počítač Azure, které můžete zálohovat data na disky Azure připojené k virtuálnímu počítači DPM Azure nebo může přenést úložiště data prostřednictvím jejich zálohování až do trezoru služeb zotavení.
@@ -66,7 +66,7 @@ Zde jsou některé klíčové definice pro zálohování Azure pro aplikaci DPM:
 
 1. **Přihlašovací údaje trezoru** – přihlašovací údaje úložiště jsou potřebné k ověření počítače pro odesílání zálohovaných dat do identifikovaného trezoru ve službě Azure Backup. Ho můžete stáhnout z trezoru a je platný pro 48hrs.
 2. **Přístupové heslo** – heslo se používá k šifrování záloh do cloudu. Uložte soubor na bezpečné místo, jako je vyžadována během operace obnovení.
-3. **Zabezpečení kódu PIN** – Pokud jste povolili [nastavení zabezpečení](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature) úložiště, je potřeba zabezpečení PIN kódu pro provádění kritické operace zálohování. Tato služba Multi-Factor authentication přidá další vrstvu zabezpečení. 
+3. **Zabezpečení kódu PIN** – Pokud jste povolili [nastavení zabezpečení](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) úložiště, je potřeba zabezpečení PIN kódu pro provádění kritické operace zálohování. Tato služba Multi-Factor authentication přidá další vrstvu zabezpečení. 
 4. **Složka pro obnovení** – je slovní spojení, které jsou zálohy z cloudu dočasně stáhnout do během obnovení cloudu. Jeho velikost musí být přibližně rovná velikosti zálohování položek, které chcete obnovit souběžně.
 
 

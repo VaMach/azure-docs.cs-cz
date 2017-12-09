@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database metrik a protokolování diagnostiky 
 Databáze SQL Azure můžete emitování metriky a diagnostické protokoly pro snazší monitorování. SQL Database můžete nakonfigurovat pro ukládání využití prostředků, pracovních procesů, relací a možností připojení do jednoho z těchto prostředků Azure:
@@ -184,7 +184,7 @@ Monitorování firemního vozového databáze SQL je jednoduchý analýzy protok
 
 2. Vyberte **monitorování + správu**.
 
-3. Vyberte **protokolu analýzy**.
+3. Vyberte **Log Analytics**.
 
 4. Vyplňte formulář analýzy protokolů společně s dalšími informacemi, které jsou potřeba: název pracovního prostoru, předplatné, skupinu prostředků, umístění a cenovou úroveň.
 
@@ -318,7 +318,7 @@ Zjistěte, jak [stáhnout metriky a diagnostické protokoly z úložiště](../s
 |query_id_d|ID dotazu v úložišti dotazů.|
 |plan_id_d|ID plánu v úložišti dotazů.|
 
-Další informace o [úložiště dotazů modulu runtime statistiky dat](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Další informace o [úložiště dotazů modulu runtime statistiky dat](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Úložiště dotazů čekání statistiky
 
@@ -356,7 +356,7 @@ Další informace o [úložiště dotazů modulu runtime statistiky dat](https:/
 |query_id_d|ID dotazu v úložišti dotazů.|
 |plan_id_d|ID plánu v úložišti dotazů.|
 
-Další informace o [úložiště dotazů počkejte statistiky dat](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Další informace o [úložiště dotazů počkejte statistiky dat](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### <a name="errors-dataset"></a>Chyby datové sady
 
@@ -414,7 +414,7 @@ Další informace o [chybových zpráv systému SQL Server](https://msdn.microso
 |delta_wait_time_ms_d|Celkový čekací čas v období.|
 |delta_waiting_tasks_count_d|Počet úloh čekání.|
 
-Další informace o [databáze statistiky čekání](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Další informace o [databáze statistiky čekání](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### <a name="time-outs-dataset"></a>Vypršení časových limitů datové sady
 

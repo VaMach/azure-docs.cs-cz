@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 220d6e04c780cc5c8bedd16228fca5abf31eb681
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Konfigurace nastavení FabricTransport Reliable actors
 
 Zde jsou nastavení, která můžete konfigurovat:
 - C#: [FabricTransportRemotingSettings](
-https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 Můžete upravit výchozí konfigurace FabricTransport následujícími způsoby.
 
 ## <a name="assembly-attribute"></a>Atribut sestavení
 
-[FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) musí být použity na objektu actor klienta a sestavení služby objektu actor atribut.
+[FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) musí být použity na objektu actor klienta a sestavení služby objektu actor atribut.
 
 Následující příklad ukazuje, jak změnit výchozí hodnotu FabricTransport OperationTimeout nastavení:
 

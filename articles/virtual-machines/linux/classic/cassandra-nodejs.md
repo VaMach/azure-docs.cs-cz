@@ -1,5 +1,5 @@
 ---
-title: "Spouštět Cassandra s Linuxem v Azure | Microsoft Docs"
+title: "Spusťte Cassandra clusteru v systému Linux v Azure z Node.js"
 description: "Jak spustit Cassandra clusteru v systému Linux v Azure Virtual Machines z aplikace Node.js"
 services: virtual-machines-linux
 documentationcenter: nodejs
@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Spuštění Cassandry s Linuxem v Azure a přístup pomocí Node.js
+# <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Spusťte Cassandra clusteru v systému Linux v Azure pomocí Node.js
+
 > [!IMPORTANT] 
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md). Tento článek se zabývá pomocí modelu nasazení Classic. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager. Zobrazit šablony Resource Manageru pro [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) a [Spark clusteru a Cassandra na CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 

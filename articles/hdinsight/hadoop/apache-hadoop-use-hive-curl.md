@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 07386c2fbb5fe4ce4fe1ca6844f6308cf59cbfb4
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Spouštění dotazů Hive se systémem Hadoop v HDInsight pomocí REST
 
@@ -122,7 +122,7 @@ Naučte se používat rozhraní REST API WebHCat ke spouštění dotazů Hive se
 
 4. Jakmile se stav úlohy se změnila na **úspěšné**, můžete načíst výsledky úlohy z Azure Blob storage. `statusdir` Parametr předaný s dotaz obsahuje umístění výstupního souboru; v tomto případě **/příklad/curl**. Tato adresa ukládá výstup v **příklad/curl** adresáře v úložišti výchozí clustery.
 
-    Můžete zobrazit seznam a stáhnout tyto soubory pomocí [rozhraní příkazového řádku Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Další informace o používání rozhraní příkazového řádku Azure s Azure Storage najdete v tématu [použití Azure CLI 2.0 s Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs) dokumentu.
+    Můžete zobrazit seznam a stáhnout tyto soubory pomocí [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Další informace o používání rozhraní příkazového řádku Azure s Azure Storage najdete v tématu [použití Azure CLI 2.0 s Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) dokumentu.
 
 5. Použít následující příkazy k vytvoření nové "interní" tabulku s názvem **errorLogs**:
 

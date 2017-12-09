@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 208dfa14d5d18e106d654539cd80bafdeb90cdf8
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: f9854172e08785676a7804433d9a559e623a7b05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stream-analytics-event-order-consideration"></a>Azure Stream Analytics událostí pořadí aspekt
 
 ## <a name="understand-arrival-time-and-application-time"></a>Porozumět čas doručení a doba aplikace.
 
-V dočasné datovém proudu událostí je přiřazen každé události časového razítka. Azure Stream Analytics přiřadí každé události pomocí čas doručení nebo doba aplikace časové razítko. Sloupce "System.Timestamp" obsahuje časové razítko přiřazené k události. Čas doručení přiřazen za vstupní zdroj, když událost dosáhne zdroji. Čas doručení je EventEnqueuedTime pro vstup centra událostí a [čas poslední změny objektů blob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) pro vstup objektů blob. Čas aplikace je přiřazena, když se vygeneruje událost a je součástí datové části. Ke zpracování události doba aplikace, použijte klauzuli "Časové razítko podle" v dotazu select. Chybí-li klauzuli "Časové razítko podle", jsou události zpracovává čas doručení. Čas doručení lze přistupovat pomocí vlastnosti EventEnqueuedTime pro centra událostí a pomocí vlastnosti BlobLastModified pro vstup objektů blob. Azure Stream Analytics vytvoří výstupní v pořadí, časové razítko a poskytuje několik nastavení, jak nakládat s daty mimo pořadí.
+V dočasné datovém proudu událostí je přiřazen každé události časového razítka. Azure Stream Analytics přiřadí každé události pomocí čas doručení nebo doba aplikace časové razítko. Sloupce "System.Timestamp" obsahuje časové razítko přiřazené k události. Čas doručení přiřazen za vstupní zdroj, když událost dosáhne zdroji. Čas doručení je EventEnqueuedTime pro vstup centra událostí a [čas poslední změny objektů blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) pro vstup objektů blob. Čas aplikace je přiřazena, když se vygeneruje událost a je součástí datové části. Ke zpracování události doba aplikace, použijte klauzuli "Časové razítko podle" v dotazu select. Chybí-li klauzuli "Časové razítko podle", jsou události zpracovává čas doručení. Čas doručení lze přistupovat pomocí vlastnosti EventEnqueuedTime pro centra událostí a pomocí vlastnosti BlobLastModified pro vstup objektů blob. Azure Stream Analytics vytvoří výstupní v pořadí, časové razítko a poskytuje několik nastavení, jak nakládat s daty mimo pořadí.
 
 
 ## <a name="azure-stream-analytics-handling-of-multiple-streams"></a>Azure Stream Analytics zpracování víc datových proudů

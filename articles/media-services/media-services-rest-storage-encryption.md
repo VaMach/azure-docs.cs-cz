@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Šifrování svůj obsah pomocí šifrování úložiště
 
@@ -31,7 +31,7 @@ Tento článek přináší přehled o šifrování úložiště AMS a ukazuje, j
   
      Šifrované prostředky musí být přidružen klíčů k obsahu.
 * Klíč k obsahu na odkaz pro daný prostředek.  
-* Nastavení šifrování souvisejících parametrů na AssetFile entity.
+* Nastavte parametry šifrování na AssetFile entity.
 
 ## <a name="considerations"></a>Požadavky 
 
@@ -43,24 +43,21 @@ Při přístupu k entity ve službě Media Services, musíte nastavit specifick�
 
 Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI.
-
 ## <a name="storage-encryption-overview"></a>Šifrování úložiště – přehled
-Šifrování úložiště AMS platí **AES PEV.cenu** režim šifrování pro celý soubor.  Režim PEV.cenu AES je blok šifer, které můžete šifrovat libovolné délce dat bez nutnosti odsazení. Funguje šifrování čítač blok s AES – algoritmus a XOR končící na-ing výstup AES s daty se zašifrovat nebo dešifrovat.  Čítač bloku používá je vytvořený tak, že zkopírujete hodnotu InitializationVector bajtů 0 až 7 hodnota čítače a bajtů 8 až 15 hodnota čítače je nastaven na hodnotu nula. Čítač bloku 16 bajtů bajtů (tj. nejméně významný bajtů) 8 až 15 slouží jako celé číslo bez znaménka jednoduché 64bitová verze, která se zvýší, jedna pro každou další blok dat zpracovat a je uložen v síťovém pořadí bajtů. Pamatujte, že pokud toto celé číslo nedosáhne maximální hodnoty (0xFFFFFFFFFFFFFFFF) zvyšování ho resetovat čítač bloku na nula (v bajtech 8 až 15) bez vlivu 64 bitů čítače (tj. bajty 0 až 7).   Chcete-li zajistit bezpečnost šifrování AES-PEV.cenu režimu, musí být jedinečný pro každý soubor InitializationVector hodnotu pro daný identifikátor klíče pro každý klíč k obsahu a soubory musí být menší než 2 ^ 64 bloky délku.  To je potřeba zajistit, že hodnota čítače se nikdy znovu použije k danému klíči. Další informace o režimu PEV.cenu najdete v tématu [této stránce wikiwebu](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (článku na wiki používá termín "Nonce" místo "InitializationVector").
+Šifrování úložiště AMS platí **AES PEV.cenu** režim šifrování pro celý soubor.  Režim PEV.cenu AES je blok šifer, které můžete šifrovat libovolné délce dat bez nutnosti odsazení. Funguje šifrování čítač blok s AES – algoritmus a XOR končící na-ing výstup AES s daty se zašifrovat nebo dešifrovat.  Čítač bloku používá je vytvořený tak, že zkopírujete hodnotu InitializationVector bajtů 0 až 7 hodnota čítače a bajtů 8 až 15 hodnota čítače je nastaven na hodnotu nula. Bloku 16 bajtů Čítač bajtů (který je nejméně významný bajtů) 8 až 15 slouží jako číslo bez znaménka jednoduché 64-bit, který se zvýší, jedna pro každou další blok dat zpracovat a je uložen v síťovém pořadí bajtů. Pokud toto celé číslo nedosáhne maximální hodnoty (0xFFFFFFFFFFFFFFFF) pak zvyšování ho obnoví čítač bloku na nulu (v bajtech 8 až 15) bez vlivu 64 bitů čítače (to znamená, bajty 0 až 7).   Chcete-li zajistit bezpečnost šifrování AES-PEV.cenu režimu, musí být jedinečný pro každý soubor InitializationVector hodnotu pro daný identifikátor klíče pro každý klíč k obsahu a soubory musí být menší než 2 ^ 64 bloky délku.  To je potřeba zajistit, že hodnota čítače se nikdy znovu použije k danému klíči. Další informace o režimu PEV.cenu najdete v tématu [této stránce wikiwebu](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (článku na wiki používá termín "Nonce" místo "InitializationVector").
 
-Použití **šifrování úložiště** k zašifrování obsahu místně pomocí standardu AES 256 bitů šifrování a nahrajte ho do Azure Storage kde bude uložený v zašifrované podobě. Prostředky chráněné pomocí šifrování úložiště jsou automaticky bez šifrování umístěny do systému souborů EFS před kódování a volitelně se znovu zašifrují před jejich odesláním zpět v podobě nového výstupního prostředku. Případem primárního použití šifrování úložiště je, když chcete zabezpečit vysoké kvality souborů vstupními médii pomocí silného šifrování v klidovém stavu na disku.
+Použití **šifrování úložiště** k zašifrování obsahu místně pomocí standardu AES 256 bitů šifrování a nahrajte ho do Azure Storage kde bude uložený v zašifrované podobě. Prostředky chráněné pomocí šifrování úložiště jsou automaticky bez šifrování umístěny do systému souborů EFS před kódování a volitelně se znovu zašifrují před jejich odesláním zpět v podobě nového výstupního prostředku. Případem primárního použití šifrování úložiště je, když chcete zabezpečit soubory vysoce kvalitními vstupními médii pomocí silného šifrování v klidovém stavu na disku.
 
 Aby bylo možné poskytovat asset šifrované úložiště, musíte nakonfigurovat zásady doručení assetu, aby věděl Media Services může způsob doručení obsahu. Před asset Streamovat, server datových proudů odebere šifrování úložiště a datové proudy svůj obsah pomocí zadaného doručování zásad (například AES, běžným šifrováním nebo žádné šifrování).
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Vytvoření ContentKeys pro šifrování
 Šifrované prostředky musí být přidružen úložiště šifrovací klíč. Je nutné vytvořit klíč obsahu, který se má použít pro šifrování před vytvořením soubory prostředků. Tato část popisuje postup vytvoření klíče k obsahu.
 
-Následují obecné kroky pro generování obsahu klíčů, které se spojují s prostředky, které chcete šifrovat. 
+Následují obecné kroky pro generování obsahu klíčů, které spojují s prostředky, které chcete šifrovat. 
 
 1. Šifrování úložiště náhodně Generovat klíč standardu AES 32 bajtů. 
    
-    Bude jím klíč k obsahu pro váš asset, což znamená, že všechny soubory přidružené k této asset bude nutné použít stejný klíč k obsahu během dešifrování. 
+    Toto je klíč k obsahu pro váš asset, což znamená, všechny soubory přidružené k této asset potřeba použít stejný klíč k obsahu během dešifrování. 
 2. Volání [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) a [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metod k získání správného certifikátu X.509, který použije k zašifrování obsahu klíče.
 3. Zašifrování obsahu klíče pomocí veřejného klíče certifikátu X.509. 
    
@@ -101,7 +98,7 @@ Následují obecné kroky pro generování obsahu klíčů, které se spojují s
     ---|---
     ID | ContentKey Id, které jsme si generovat v následujícím formátu "nb:kid:UUID:<NEW GUID>".
     ContentKeyType | Toto je typ obsahu klíče jako celé číslo pro tento klíč obsahu. Jsme předejte hodnotu 1 pro šifrování úložiště.
-    EncryptedContentKey | Vytvoříme novou hodnotu obsahu klíče, což je hodnota 256 bitů (32 bajtů). Že je klíč zašifrovaný pomocí certifikátu X.509 šifrování úložiště, který načteme ze služby Microsoft Azure Media Services spuštěním požadavek HTTP GET pro GetProtectionKeyId a GetProtectionKey metody. Jako příklad, viz následující kód .NET: **EncryptSymmetricKeyData** metoda definované [zde](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | Vytvoříme nové obsahu klíče hodnotu, která je hodnota 256 bitů (32 bajtů). Klíč se šifruje pomocí certifikátu X.509 šifrování úložiště, který jsme načíst ze služby Microsoft Azure Media Services tak, že provádění požadavku HTTP GET pro GetProtectionKeyId a GetProtectionKey metody. Jako příklad, viz následující kód .NET: **EncryptSymmetricKeyData** metoda definované [zde](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Jedná se o ochranu id klíče pro certifikát X.509 šifrování úložiště, který slouží k šifrování naše klíč obsahu.
     ProtectionKeyType | Jedná se o typ šifrování pro ochranu klíč, který slouží k šifrování klíče obsahu. Tato hodnota je StorageEncryption(1) pro náš příklad.
     Kontrolní součet |Algoritmus MD5 počítané kontrolního součtu pro klíč k obsahu. Výpočet je šifrování obsahu Id obsahu klíčem. Příklad kódu ukazuje, jak k výpočtu kontrolního součtu.
@@ -118,7 +115,7 @@ Následující příklad ukazuje, jak načíst ProtectionKeyId, kryptografický 
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Odpověď:
@@ -149,7 +146,7 @@ Následující příklad ukazuje, jak načíst pomocí ProtectionKeyId certifik�
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -189,7 +186,7 @@ Následující příklad ukazuje, jak vytvořit **ContentKey** s **ContentKeyTyp
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -238,7 +235,7 @@ Následující příklad ukazuje, jak vytvořit prostředek.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
@@ -285,7 +282,7 @@ Po vytvoření ContentKey, přidružte ho Asset pomocí operace $links, jak je z
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
@@ -299,7 +296,7 @@ Odpověď:
 
 Všimněte si, že **AssetFile** instance a samotný mediální soubor jsou dva odlišné objekty. AssetFile instance obsahuje metadata o souboru média, zatímco souboru média obsahuje samotný mediální obsah.
 
-Po odeslání souboru digitálního média do kontejneru objektů blob, kterou použijete **SLOUČENÍ** HTTP žádost o aktualizaci AssetFile s informacemi o souboru média (v tomto tématu není znázorněné). 
+Po odeslání souboru digitálního média do kontejneru objektů blob, kterou použijete **SLOUČENÍ** HTTP žádost o aktualizaci AssetFile s informacemi o souboru média (není zobrazen v tomto článku). 
 
 **Požadavek HTTP**
 
@@ -310,7 +307,7 @@ Po odeslání souboru digitálního média do kontejneru objektů blob, kterou p
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164
 

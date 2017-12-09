@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4dc4a0bd43f61474692abb8c21e0b6448769f8e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Použití Azure Key Vault z webové aplikace
 
@@ -107,7 +107,7 @@ public static async Task<string> GetToken(string authority, string resource, str
 ```
 
 > [!NOTE]
->* Nejjednodušší způsob ověřování v současnosti představuje nová funkce identity spravované služby (MSI). Další podrobnosti vám poskytne následující odkaz na ukázku s použití služby [Key Vault s využitím MSI v aplikaci v .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) a související [kurz k MSI se službami App Service a Functions](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity). 
+>* Nejjednodušší způsob ověřování v současnosti představuje nová funkce identity spravované služby (MSI). Další podrobnosti vám poskytne následující odkaz na ukázku s použití služby [Key Vault s využitím MSI v aplikaci v .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) a související [kurz k MSI se službami App Service a Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
 >* Pomocí ID klienta a tajný klíč klienta je další způsob ověření aplikaci Azure AD. A použití ve vaší webové aplikace je možné oddělení povinností a větší kontrolu nad vaší správy klíčů. Je však závislý na uvedení tajný klíč klienta v nastavení konfigurace, které pro některé můžou být jako rizikové jako uvedení tajný klíč, který chcete chránit v nastavení konfigurace. Najdete zde informace o tom, jak použít ID klienta a certifikát místo ID klienta a tajný klíč klienta k ověření aplikace Azure AD.
 
 ## <a id="appstart"></a>Načtení tajný klíč na spuštění aplikace

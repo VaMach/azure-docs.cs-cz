@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7e25b9a77d5ba7b856c9616c8384a567b7d37bbd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operace v Azure Resource Manager poskytovatele prostředků
 
-Tento dokument obsahuje seznam operací dostupných pro každý poskytovatel prostředků Microsoft Azure Resource Manager. To umožňuje v vlastní role poskytují podrobné řízení přístupu na základě Role (RBAC) oprávnění k prostředkům v Azure. Poznámka: Toto není kompletní seznam a operace může přidat nebo odebrat, protože každý poskytovatel je aktualizovat. Operace řetězce použijte formát `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Pro komplexní a aktuální seznam použijte `Get-AzureRmProviderOperation` (v prostředí PowerShell) nebo `azure provider operations show` (v Azure CLI) k operacím seznamu zprostředkovatelů prostředků Azure.
+Tento dokument obsahuje seznam operací dostupných pro každý poskytovatel prostředků Microsoft Azure Resource Manager. To umožňuje v vlastní role poskytují podrobné řízení přístupu na základě Role (RBAC) oprávnění k prostředkům v Azure. Poznámka: Toto není kompletní seznam a operace může přidat nebo odebrat, protože každý poskytovatel je aktualizovat. Operace řetězce použijte formát `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
+
+> [!NOTE]
+> Pro komplexní a aktuální seznam použijte `Get-AzureRmProviderOperation` (v prostředí PowerShell) nebo `az provider operation list` (v Azure CLI verze 2) k operacím seznamu zprostředkovatelů prostředků Azure.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -172,27 +175,27 @@ Tento dokument obsahuje seznam operací dostupných pro každý poskytovatel pro
 
 | Operace | Popis |
 |---|---|
-|/ elevateAccess nebo akce|Udělí volajícímu přístup Správce uživatelských přístupů v oboru tenanta.|
-|/classicAdministrators/Read|Umožňuje načíst správce předplatného.|
-|/ classicAdministrators/zápisu|Umožňuje přidat nebo změnit správce předplatného.|
+|/ elevateAccess nebo akce|Uděluje přístup správce uživatelského přístupu v oboru klienta volající|
+|/classicAdministrators/Read|Přečte správce pro předplatné.|
+|/ classicAdministrators/zápisu|Přidat nebo změnit správce předplatného.|
 |/classicAdministrators/DELETE|Umožňuje odebrat správce z předplatného.|
 |/Locks/Read|Umožňuje načíst zámky v zadaném oboru.|
-|/ zámky a zápis|Umožňuje přidat zámky v zadaném oboru.|
-|/Locks/DELETE|Umožňuje odstranit zámky v zadaném oboru.|
-|/policyAssignments/Read|Získání informací o přiřazení zásady|
-|/ policyAssignments/zápisu|Vytvoření přiřazení zásady v zadaném oboru|
-|/policyAssignments/DELETE|Odstranění přiřazení zásady v zadaném oboru|
-|/Permissions/Read|Umožňuje vypsat seznam všech oprávnění, která má volající v daném oboru.|
-|/roleDefinitions/Read|Umožňuje načíst informace o definici role.|
-|/ roleDefinitions/zápisu|Odstraňte nebo aktualizujte definice vlastních rolí s určenými oprávněními a přiřaditelnými obory.|
+|/ zámky a zápis|Umožňuje přidáte zámky v zadaném oboru.|
+|/Locks/DELETE|Umožňuje odstraňte zámky v zadaném oboru.|
+|/policyAssignments/Read|Získáte informace o přiřazení zásad.|
+|/ policyAssignments/zápisu|Vytvoření přiřazení zásady v zadaném oboru.|
+|/policyAssignments/DELETE|Odstraní přiřazení zásady v zadaném oboru.|
+|/Permissions/Read|Seznam všech oprávnění, která má volající v daném oboru.|
+|/roleDefinitions/Read|Získejte informace o definici role.|
+|/ roleDefinitions/zápisu|Vytvořit nebo aktualizovat definice vlastních rolí s určenými oprávněními a přiřaditelnými obory.|
 |/roleDefinitions/DELETE|Odstraňte zadané definice vlastních rolí.|
-|/providerOperations/Read|Získejte operace pro všechny poskytovatele prostředků, které je možné použít v definicích rolí.|
-|/policyDefinitions/Read|Získání informací o definici zásady|
+|/providerOperations/Read|Získáte operace pro všechny poskytovatele prostředků, které se dají použít v definicích rolí.|
+|/policyDefinitions/Read|Získáte informace o definici zásady.|
 |/ policyDefinitions/zápisu|Vytvoření vlastních zásad pro definice.|
 |/policyDefinitions/DELETE|Odstraní definici zásady.|
-|/roleAssignments/Read|Umožňuje načíst informace o přiřazení role.|
-|/ roleAssignments/zápisu|Umožňuje vytvořit přiřazení role v zadaném oboru.|
-|/roleAssignments/DELETE|Umožňuje odstranit přiřazení role v zadaném oboru.|
+|/roleAssignments/Read|Získáte informace o přiřazení role.|
+|/ roleAssignments/zápisu|Vytvořte přiřazení role v zadaném oboru.|
+|/roleAssignments/DELETE|Umožňuje odstraňte přiřazení role v zadaném oboru.|
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -297,9 +300,9 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/ mapApis/čtení|Operace čtení|
 |/ mapApis/zápisu|Operace zápisu|
 |/ mapApis/odstranit|Operace odstranění|
-|/mapApis/regenerateKey/Action|Znovu vygeneruje klíč.|
-|/mapApis/listSecrets/Action|Uvádí tajné klíče.|
-|/mapApis/listSingleSignOnToken/Action|Přečíst autorizační token jednotného přihlašování pro prostředek|
+|/mapApis/regenerateKey/Action|Znovu vygeneruje klíč|
+|/mapApis/listSecrets/Action|Seznam těchto tajných klíčů|
+|/mapApis/listSingleSignOnToken/Action|Přečíst autorizační Token pro prostředek jednotného přihlašování|
 |/ Operací/čtení|Popis operace.|
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
@@ -309,21 +312,21 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/ checknameavailability nebo akce|Ověří, zda název je k dispozici pro použití s novou mezipaměť Redis|
 |/ registrace nebo akce|Registruje zprostředkovatele prostředků 'Microsoft.Cache' s předplatným|
 |nebo zrušit registraci nebo akce|Zrušení registrace poskytovatele prostředků 'Microsoft.Cache' s předplatným|
-|/ redis a zápis|Upravit nastavení a konfiguraci služby Redis Cache na portálu pro správu|
+|/ redis a zápis|Upravit nastavení a konfigurace v portálu pro správu Redis Cache|
 |/redis/Read|Zobrazit nastavení a konfiguraci Redis Cache na portálu pro správu|
-|/redis/DELETE|Odstranit celou službu Redis Cache|
+|/redis/DELETE|Odstranit celý Redis Cache|
 |/redis/listKeys/Action|Zobrazit hodnotu přístupových klíčů služby Redis Cache na portálu pro správu|
-|/redis/regenerateKey/Action|Změnit hodnotu přístupových klíčů služby Redis Cache na portálu pro správu|
-|/redis/import/Action|Import dat určeného formátu z víc objektů blob do Redis|
-|/redis/export/Action|Export dat Redis v určeném formátu do objektů blob úložiště označených prefixem|
-|/redis/forceReboot/Action|Vynuťte restartování instance mezipaměti, což ale může mít za následek ztrátu dat.|
+|/redis/regenerateKey/Action|Změňte hodnotu přístupové klíče služby Redis Cache v portálu pro správu|
+|/redis/import/Action|Umožňuje importovat data z více objektů BLOB do Redis zadaného formátu|
+|/redis/export/Action|Export dat Redis do předponou úložiště objektů BLOB v zadaném formátu.|
+|/redis/forceReboot/Action|Vynutit restartování instance mezipaměti s ztráty dat.|
 |/redis/stop/Action|Zastavte instance mezipaměti.|
 |/redis/Start/Action|Spuštění instance mezipaměti.|
-|/redis/metricDefinitions/Read|Načte dostupné metriky pro Redis Cache.|
+|/redis/metricDefinitions/Read|Načte dostupné metriky pro Redis Cache|
 |/redis/firewallRules/Read|Získat IP pravidla brány firewall Redis Cache|
 |/redis/firewallRules/Write|Úprava pravidla brány firewall IP Redis Cache|
 |/redis/firewallRules/DELETE|Odstranit pravidla firewallu IP mezipaměti Redis|
-|/redis/listUpgradeNotifications/Read|Vypíše seznam nejnovějších upozornění na upgrady pro klienta mezipaměti.|
+|/redis/listUpgradeNotifications/Read|Seznam nejnovějších upozornění na upgrady pro klienta mezipaměti.|
 |/redis/linkedservers/Read|Získáte odkazované servery přidružené k mezipaměti redis.|
 |/redis/linkedservers/Write|Odkazovaný Server přidat do mezipaměti Redis|
 |/redis/linkedservers/DELETE|Odstranit odkazovaný Server z mezipaměti Redis|
@@ -357,170 +360,170 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 
 | Operace | Popis |
 |---|---|
-|/ registrace nebo akce|Registrovat pro klasické výpočetní prostředky|
-|/ checkDomainNameAvailability nebo akce|Umožňuje zkontrolovat dostupnost zadaného názvu domény.|
+|/ registrace nebo akce|Zaregistrujte se a klasické výpočetní|
+|/ checkDomainNameAvailability nebo akce|Zkontroluje dostupnost zadaného názvu domény.|
 |/ moveSubscriptionResources nebo akce|Přesune všechny klasické prostředky do jiného předplatného.|
-|/ validateSubscriptionMoveAvailability nebo akce|Ověří dostupnost klasické operace přesunu u předplatného.|
+|/ validateSubscriptionMoveAvailability nebo akce|Ověřte dostupnost odběru pro operaci přesunutí classic.|
 |/operatingSystemFamilies/Read|Uvádí hostovaného operačního systému rodiny, který je k dispozici ve službě Microsoft Azure a také uvádí verze operačního systému k dispozici pro každý f
-|/Capabilities/Read|Umožňuje zobrazit schopnosti.|
-|/operatingSystems/Read|Vypíše seznam verzí hostovaných operačních systémů, které jsou aktuálně dostupné v Microsoft Azure.|
-|/resourceTypes/skus/Read|Načte seznam skladových položek pro podporované typy prostředků.|
-|/domainNames/Read|Umožňuje načíst názvy domén pro prostředky.|
-|/ domainNames/zápisu|Umožňuje přidat nebo změnit názvy domén pro prostředky.|
-|/domainNames/DELETE|Umožňuje odebrat názvy domén pro prostředky.|
-|/domainNames/swap/Action|Umožňuje přepnout přípravný slot na produkční.|
-|/domainNames/serviceCertificates/Read|Umožňuje načíst používané certifikáty služeb.|
-|/domainNames/serviceCertificates/Write|Umožňuje přidat nebo změnit používané certifikáty služeb.|
-|/domainNames/serviceCertificates/DELETE|Umožňuje odstranit používané certifikáty služeb.|
-|/domainNames/serviceCertificates/operationStatuses/Read|Přečte stav operace pro certifikáty služeb názvů domén.|
+|/Capabilities/Read|Ukazuje možnosti|
+|/operatingSystems/Read|Obsahuje seznam verzí hostovaného operačního systému, které jsou aktuálně dostupné v Microsoft Azure.|
+|/resourceTypes/skus/Read|Získá seznam Sku pro typy podporovaných prostředků.|
+|/domainNames/Read|Vrátí názvy domén pro prostředky.|
+|/ domainNames/zápisu|Přidat nebo změnit názvy domén pro prostředky.|
+|/domainNames/DELETE|Umožňuje odeberte názvy domén pro prostředky.|
+|/domainNames/swap/Action|Umožňuje přepnout přípravný slot na produkční slot.|
+|/domainNames/serviceCertificates/Read|Vrátí používané certifikáty služeb.|
+|/domainNames/serviceCertificates/Write|Přidat nebo změnit používané certifikáty služeb.|
+|/domainNames/serviceCertificates/DELETE|Odstraňte používané certifikáty služeb.|
+|/domainNames/serviceCertificates/operationStatuses/Read|Přečte stav operace pro doménu certifikáty služeb názvů.|
 |/domainNames/Capabilities/Read|Ukazuje možnosti názvu domény|
 |/domainNames/Extensions/Read|Vrátí rozšíření názvu domény.|
-|/domainNames/Extensions/Write|Přidá rozšíření názvu domény.|
-|/domainNames/Extensions/DELETE|Odebere rozšíření názvu domény.|
-|/domainNames/Extensions/operationStatuses/Read|Přečte stav operace pro rozšíření názvů domén.|
-|/domainNames/Active/Write|Slouží k nastavení názvu aktivní domény.|
-|/domainNames/slots/Read|Umožňuje zobrazit sloty pro nasazení.|
-|/domainNames/slots/Write|Umožňuje vytvořit nebo aktualizovat slot pro nasazení.|
-|/domainNames/slots/DELETE|Umožňuje odstranit zadaný slot pro nasazení.|
-|/domainNames/slots/Start/Action|Umožňuje spustit slot pro nasazení.|
-|/domainNames/slots/stop/Action|Umožňuje pozastavit slot pro nasazení.|
-|/domainNames/slots/operationStatuses/Read|Přečte stav operace pro sloty názvů domén.|
+|/domainNames/Extensions/Write|Přidejte rozšíření názvu domény.|
+|/domainNames/Extensions/DELETE|Odeberte rozšíření názvu domény.|
+|/domainNames/Extensions/operationStatuses/Read|Přečte stav operace pro doménu názvy rozšíření.|
+|/domainNames/Active/Write|Nastaví názvu aktivní domény.|
+|/domainNames/slots/Read|Zobrazuje nasazovací sloty.|
+|/domainNames/slots/Write|Umožňuje vytvořit nebo aktualizovat nasazení.|
+|/domainNames/slots/DELETE|Odstraní danou nasazovací slot.|
+|/domainNames/slots/Start/Action|Spustí se nasazovací slot.|
+|/domainNames/slots/stop/Action|Pozastaví slotu nasazení.|
+|/domainNames/slots/operationStatuses/Read|Přečte stav operace pro doménu názvy přihrádek.|
 |/domainNames/slots/Roles/Read|Umožňuje načíst roli slotu pro nasazení.|
 |/domainNames/slots/Roles/extensionReferences/Read|Vrátí odkaz na rozšíření u role slotu nasazení.|
-|/domainNames/slots/Roles/extensionReferences/Write|Přidá nebo upraví odkaz na rozšíření u role slotu nasazení.|
-|/domainNames/slots/Roles/extensionReferences/DELETE|Odebere odkaz na rozšíření u role slotu nasazení.|
-|/domainNames/slots/Roles/extensionReferences/operationStatuses/Read|Přečte stav operace pro reference na rozšíření rolí slotů názvů domén.|
-|/domainNames/slots/Roles/roleInstances/Read|Umožňuje načíst instanci role.|
+|/domainNames/slots/Roles/extensionReferences/Write|Přidat nebo změnit odkaz na rozšíření u role slotu nasazení.|
+|/domainNames/slots/Roles/extensionReferences/DELETE|Odeberte odkaz na rozšíření u role slotu nasazení.|
+|/domainNames/slots/Roles/extensionReferences/operationStatuses/Read|Přečte stav operace pro odkazy rozšíření rolí slotů názvy domény.|
+|/domainNames/slots/Roles/roleInstances/Read|Získá instanci role.|
 |/domainNames/slots/Roles/roleInstances/restart/Action|Restartování instance role.|
-|/domainNames/slots/Roles/roleInstances/reimage/Action|Umožňuje obnovit instanci role z image.|
-|/domainNames/slots/Roles/roleInstances/operationStatuses/Read|Přečte stav operace pro instance rolí u rolí slotů názvů domén.|
-|/domainNames/slots/State/Start/Write|Umožňuje změnit stav slotu pro nasazení na Zastavený.|
-|/domainNames/slots/State/stop/Write|Umožňuje změnit stav slotu pro nasazení na Spuštěný.|
-|/domainNames/slots/upgradeDomain/Write|Umožňuje upgradovat doménu.|
-|/domainNames/internalLoadBalancers/Read|Umožňuje načíst interní nástroje pro vyrovnávání zatížení.|
-|/domainNames/internalLoadBalancers/Write|Umožňuje vytvořit nový interní nástroj pro vyrovnávání zatížení.|
-|/domainNames/internalLoadBalancers/DELETE|Umožňuje odebrat interní nástroj pro vyrovnávání zatížení.|
-|/domainNames/internalLoadBalancers/operationStatuses/Read|Přečte stav operace pro interní služby Load Balancer názvů domén.|
-|/domainNames/loadBalancedEndpointSets/Read|Umožňuje zobrazit skupiny koncových bodů s vyrovnáváním zatížení.|
-|/domainNames/loadBalancedEndpointSets/operationStatuses/Read|Přečte stav operace pro sady koncových bodů s vyrovnaným zatížením u názvů domén.|
-|/domainNames/availabilitySets/Read|Umožňuje zobrazit skupinu dostupnosti pro prostředek.|
+|/domainNames/slots/Roles/roleInstances/reimage/Action|Reimages role instance.|
+|/domainNames/slots/Roles/roleInstances/operationStatuses/Read|Přečte stav operace pro instance rolí role sloty názvů domény.|
+|/domainNames/slots/State/Start/Write|Změnit stav slotu pro nasazení na zastavený.|
+|/domainNames/slots/State/stop/Write|Změnit stav slotu nasazení spustit.|
+|/domainNames/slots/upgradeDomain/Write|Procházení upgradu domény.|
+|/domainNames/internalLoadBalancers/Read|Získá interní služby load balancer.|
+|/domainNames/internalLoadBalancers/Write|Vytvoří nový interní služby load balance.|
+|/domainNames/internalLoadBalancers/DELETE|Odeberte nový interní služby load balance.|
+|/domainNames/internalLoadBalancers/operationStatuses/Read|Přečte stav operace pro interní služby load balancer názvů domén.|
+|/domainNames/loadBalancedEndpointSets/Read|Zobrazuje nastaví koncový bod Vyrovnávání zatížení|
+|/domainNames/loadBalancedEndpointSets/operationStatuses/Read|Přečte stav operace pro sady koncových bodů s vyrovnáváním zatížení názvů domén.|
+|/domainNames/availabilitySets/Read|Zobrazit skupinu dostupnosti pro prostředek.|
 |/Quotas/Read|Umožňuje načíst kvótu pro předplatné.|
-|/virtualMachines/Read|Umožňuje načíst seznam virtuálních počítačů.|
-|/ virtuálních počítačů a zápis|Umožňuje přidat nebo upravit virtuální počítače.|
+|/virtualMachines/Read|Načte seznam virtuálních počítačů.|
+|/ virtuálních počítačů a zápis|Přidat nebo upravit virtuální počítače.|
 |/virtualMachines/DELETE|Odebere virtuální počítače.|
-|/virtualMachines/Start/Action|Umožňuje spustit virtuální počítač.|
+|/virtualMachines/Start/Action|Spuštění virtuálního počítače.|
 |/virtualMachines/redeploy/Action|Opětovně nasadí virtuální počítač.|
 |/virtualMachines/restart/Action|Restartuje virtuální počítače.|
-|/virtualMachines/stop/Action|Umožňuje zastavit virtuální počítač.|
-|/virtualMachines/Shutdown/Action|Umožňuje vypnout virtuální počítač.|
-|/virtualMachines/attachDisk/Action|Umožňuje připojit datový disk k virtuálnímu počítači.|
+|/virtualMachines/stop/Action|Zastaví virtuální počítač.|
+|/virtualMachines/Shutdown/Action|Vypněte virtuální počítač.|
+|/virtualMachines/attachDisk/Action|Datový disk se připojuje k virtuálnímu počítači.|
 |/virtualMachines/detachDisk/Action|Umožňuje odpojit datový disk od virtuálního počítače.|
-|/virtualMachines/downloadRemoteDesktopConnectionFile/Action|Umožňuje stáhnout soubor RDP pro virtuální počítač.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/čtení|Načte skupinu zabezpečení sítě spojenou se síťovým rozhraním.|
+|/virtualMachines/downloadRemoteDesktopConnectionFile/Action|Stáhne soubor RDP pro virtuální počítač.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/čtení|Načte skupinu zabezpečení sítě spojená se síťovým rozhraním.|
 |/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups a zápis|Přidá skupinu zabezpečení sítě spojenou se síťovým rozhraním.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups nebo odstranění|Odstraní skupinu zabezpečení sítě spojenou se síťovým rozhraním.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/operationStatuses/čtení|Přečte stav operace pro skupiny zabezpečení sítě spojené s virtuálními počítači.|
-|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/Read|Umožňuje načíst definice metrik.|
-|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Read|Umožňuje načíst nastavení diagnostiky.|
-|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Write|Umožňuje přidat nebo změnit nastavení diagnostiky.|
-|/virtualMachines/Metrics/Read|Umožňuje načíst metriky.|
-|/virtualMachines/operationStatuses/Read|Přečte stav operace pro virtuální počítače|
-|/virtualMachines/Extensions/Read|Umožňuje načíst rozšíření virtuálního počítače.|
-|/virtualMachines/Extensions/Write|Umožňuje vložit rozšíření virtuálního počítače.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups nebo odstranění|Odstraní skupinu zabezpečení sítě spojená se síťovým rozhraním.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/operationStatuses/čtení|Přečte že stav operace pro virtuální počítače spojené skupiny zabezpečení sítě.|
+|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/Read|Získá definice metrik.|
+|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Read|Získáte nastavení diagnostiky.|
+|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Write|Přidat nebo změnit nastavení diagnostiky.|
+|/virtualMachines/Metrics/Read|Získá metriky.|
+|/virtualMachines/operationStatuses/Read|Přečte stav operace pro virtuální počítače.|
+|/virtualMachines/Extensions/Read|Získá rozšíření virtuálního počítače.|
+|/virtualMachines/Extensions/Write|Vloží rozšíření virtuálního počítače.|
 |/virtualMachines/Extensions/operationStatuses/Read|Přečte stav operace pro rozšíření virtuálních počítačů.|
-|/virtualMachines/asyncOperations/Read|Umožňuje získat seznam možných asynchronních operací.|
-|/virtualMachines/Disks/Read|Umožňuje načíst seznam datových disků.|
-|/virtualMachines/associatedNetworkSecurityGroups/Read|Načte skupinu zabezpečení sítě spojenou s virtuálním počítačem.|
+|/virtualMachines/asyncOperations/Read|Získá seznam možných asynchronních operací|
+|/virtualMachines/Disks/Read|Umožňuje načíst seznam datových disků|
+|/virtualMachines/associatedNetworkSecurityGroups/Read|Načte skupinu zabezpečení sítě spojené s virtuálním počítačem.|
 |/virtualMachines/associatedNetworkSecurityGroups/Write|Přidá skupinu zabezpečení sítě spojenou s virtuálním počítačem.|
-|/virtualMachines/associatedNetworkSecurityGroups/DELETE|Odstraní skupinu zabezpečení sítě spojenou s virtuálním počítačem.|
-|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/Read|Přečte stav operace pro skupiny zabezpečení sítě spojené s virtuálními počítači.|
+|/virtualMachines/associatedNetworkSecurityGroups/DELETE|Odstraní skupinu zabezpečení sítě spojené s virtuálním počítačem.|
+|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/Read|Přečte že stav operace pro virtuální počítače spojené skupiny zabezpečení sítě.|
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 | Operace | Popis |
 |---|---|
-|/ registrace nebo akce|Registrace pro klasickou síť|
-|/gatewaySupportedDevices/Read|Umožňuje načíst seznam podporovaných zařízení.|
-|/reservedIps/Read|Umožňuje načíst vyhrazené IP adresy.|
-|/ rezervovaných adres IP a zápis|Umožňuje přidat novou vyhrazenou IP adresu.|
-|/reservedIps/DELETE|Umožňuje odstranit vyhrazenou IP adresu.|
-|/reservedIps/Link/Action|Odkaz na rezervovanou IP adresu|
-|/reservedIps/JOIN/Action|Připojit se k rezervované IP adrese|
+|/ registrace nebo akce|Zaregistrujte se a Classic sítě|
+|/gatewaySupportedDevices/Read|Načte seznam podporovaných zařízení.|
+|/reservedIps/Read|Získá rezervované IP adresy|
+|/ rezervovaných adres IP a zápis|Přidat nové vyhrazená IP adresa|
+|/reservedIps/DELETE|Odstraňte vyhrazená IP adresa.|
+|/reservedIps/Link/Action|Odkaz vyhrazená IP adresa|
+|/reservedIps/JOIN/Action|Připojení k vyhrazené IP adresy|
 |/reservedIps/operationStatuses/Read|Přečte stav operace pro rezervované IP adresy.|
-|/virtualNetworks/Read|Umožňuje načíst virtuální síť.|
-|/ virtualNetworks/zápisu|Umožňuje přidat novou virtuální síť.|
-|/virtualNetworks/DELETE|Umožňuje odstranit virtuální síť.|
-|/virtualNetworks/peer/Action|Vytvoří partnerskou virtuální síť s jinou virtuální sítí.|
+|/virtualNetworks/Read|Získáte virtuální sítě.|
+|/ virtualNetworks/zápisu|Přidáte nové virtuální sítě.|
+|/virtualNetworks/DELETE|Odstraní virtuální sítě.|
+|/virtualNetworks/peer/Action|Partnerský vztah virtuální síť s jinou virtuální sítí.|
 |/virtualNetworks/JOIN/Action|Připojí se k virtuální síti.|
 |/virtualNetworks/checkIPAddressAvailability/Action|Zkontroluje dostupnost dané IP adresy ve virtuální síti.|
-|/virtualNetworks/Capabilities/Read|Umožňuje zobrazit schopnosti.|
+|/virtualNetworks/Capabilities/Read|Ukazuje možnosti|
 |/virtualNetworks/podsítě /<br>associatedNetworkSecurityGroups/čtení|Načte skupinu zabezpečení sítě spojenou s podsítí.|
 |/virtualNetworks/podsítě /<br>associatedNetworkSecurityGroups a zápis|Přidá skupinu zabezpečení sítě spojenou s podsítí.|
 |/virtualNetworks/podsítě /<br>associatedNetworkSecurityGroups nebo odstranění|Odstraní skupinu zabezpečení sítě spojenou s podsítí.|
-|/virtualNetworks/podsítě /<br>associatedNetworkSecurityGroups/operationStatuses/čtení|Přečte stav operace pro skupinu zabezpečení sítě spojenou s podsítí virtuální sítě.|
+|/virtualNetworks/podsítě /<br>associatedNetworkSecurityGroups/operationStatuses/čtení|Přečte stav operace pro skupiny zabezpečení sítě spojené s podsítí virtuální sítě.|
 |/virtualNetworks/operationStatuses/Read|Přečte stav operace pro virtuální sítě.|
-|/virtualNetworks/gateways/Read|Umožňuje načíst brány virtuální sítě.|
-|/virtualNetworks/gateways/Write|Umožňuje přidat bránu virtuální sítě.|
-|/virtualNetworks/gateways/DELETE|Umožňuje odstranit bránu virtuální sítě.|
+|/virtualNetworks/gateways/Read|Získá brány virtuální sítě.|
+|/virtualNetworks/gateways/Write|Přidá bránu virtuální sítě.|
+|/virtualNetworks/gateways/DELETE|Odstraní bránu virtuální sítě.|
 |/virtualNetworks/gateways/startDiagnostics/Action|Umožňuje spustit diagnostiku pro bránu virtuální sítě.|
 |/virtualNetworks/gateways/stopDiagnostics/Action|Umožňuje zastavit diagnostiku pro bránu virtuální sítě.|
-|/virtualNetworks/gateways/downloadDiagnostics/Action|Umožňuje stáhnout diagnostiku brány.|
-|/virtualNetworks/gateways/listCircuitServiceKey/Action|Umožňuje načíst klíč služby okruhů.|
-|/virtualNetworks/gateways/downloadDeviceConfigurationScript/Action|Umožňuje stáhnout skript pro konfiguraci zařízení.|
-|/virtualNetworks/gateways/listPackage/Action|Umožňuje vypsat balíček bran virtuální sítě.|
+|/virtualNetworks/gateways/downloadDiagnostics/Action|Stáhne diagnostiku brány.|
+|/virtualNetworks/gateways/listCircuitServiceKey/Action|Načte klíč služby okruhů.|
+|/virtualNetworks/gateways/downloadDeviceConfigurationScript/Action|Stáhne skript pro konfiguraci zařízení.|
+|/virtualNetworks/gateways/listPackage/Action|Uvádí balíček bran virtuální sítě.|
 |/virtualNetworks/gateways/operationStatuses/Read|Přečte stav operace pro brány virtuálních sítí.|
-|/virtualNetworks/gateways/Packages/Read|Umožňuje načíst balíček bran virtuální sítě.|
-|/virtualNetworks/gateways/Connections/Read|Umožňuje načíst seznam připojení.|
-|/virtualNetworks/gateways/Connections/Connect/Action|Umožňuje připojit lokalitu k připojení brány lokality.|
-|/virtualNetworks/gateways/Connections/Disconnect/Action|Umožňuje odpojit lokalitu od připojení brány lokality.|
-|/virtualNetworks/gateways/Connections/test/Action|Umožňuje otestovat připojení lokality k bráně lokality.|
-|/virtualNetworks/gateways/clientRevokedCertificates/Read|Umožňuje načíst odvolané klientské certifikáty.|
-|/virtualNetworks/gateways/clientRevokedCertificates/Write|Umožňuje odvolat klientský certifikát.|
-|/virtualNetworks/gateways/clientRevokedCertificates/DELETE|Umožňuje zrušit odvolání klientského certifikátu.|
-|/virtualNetworks/gateways/clientRootCertificates/Read|Umožňuje vyhledat klientské kořenové certifikáty.|
-|/virtualNetworks/gateways/clientRootCertificates/Write|Umožňuje nahrát nový klientský kořenový certifikát.|
-|/virtualNetworks/gateways/clientRootCertificates/DELETE|Umožňuje odstranit klientský certifikát brány virtuální sítě.|
-|/virtualNetworks/gateways/clientRootCertificates/download/Action|Umožňuje stáhnout certifikát podle kryptografického otisku.|
-|/virtualNetworks/gateways/clientRootCertificates/listPackage/Action|Vypíše balíček certifikátů bran virtuální sítě.|
+|/virtualNetworks/gateways/Packages/Read|Získá balíček bran virtuální sítě.|
+|/virtualNetworks/gateways/Connections/Read|Načte seznam připojení.|
+|/virtualNetworks/gateways/Connections/Connect/Action|Připojí připojení lokality k bráně lokality.|
+|/virtualNetworks/gateways/Connections/Disconnect/Action|Odpojí připojení lokality k bráně lokality.|
+|/virtualNetworks/gateways/Connections/test/Action|Otestuje připojení lokality k bráně lokality.|
+|/virtualNetworks/gateways/clientRevokedCertificates/Read|Načíst odvolané klientské certifikáty.|
+|/virtualNetworks/gateways/clientRevokedCertificates/Write|Odvolá certifikát klienta.|
+|/virtualNetworks/gateways/clientRevokedCertificates/DELETE|Unrevokes klientský certifikát.|
+|/virtualNetworks/gateways/clientRootCertificates/Read|Umožňuje vyhledejte klientské kořenové certifikáty.|
+|/virtualNetworks/gateways/clientRootCertificates/Write|Ukládání nový klientský kořenový certifikát.|
+|/virtualNetworks/gateways/clientRootCertificates/DELETE|Odstraní klientský certifikát brány virtuální sítě.|
+|/virtualNetworks/gateways/clientRootCertificates/download/Action|Stahování nástrojem kryptografický otisk certifikátu.|
+|/virtualNetworks/gateways/clientRootCertificates/listPackage/Action|Uvádí balíček certifikátů bran virtuální sítě.|
 |/networkSecurityGroups/Read|Načte skupinu zabezpečení sítě.|
 |/ skupin zabezpečení sítě a zápis|Přidá novou skupinu zabezpečení sítě.|
 |/networkSecurityGroups/DELETE|Odstraní skupinu zabezpečení sítě.|
 |/networkSecurityGroups/operationStatuses/Read|Přečte stav operace pro skupinu zabezpečení sítě.|
-|/networkSecurityGroups/securityRules/Read|Načte pravidlo zabezpečení.|
+|/networkSecurityGroups/securityRules/Read|Získá pravidlo zabezpečení.|
 |/networkSecurityGroups/securityRules/Write|Přidá nebo aktualizuje pravidlo zabezpečení.|
 |/networkSecurityGroups/securityRules/DELETE|Odstraní pravidlo zabezpečení.|
-|/networkSecurityGroups/securityRules/operationStatuses/Read|Přečte stav operace pro pravidla zabezpečení skupiny u zabezpečení sítě.|
+|/networkSecurityGroups/securityRules/operationStatuses/Read|Přečte stav operace pro pravidla zabezpečení skupiny zabezpečení sítě.|
 |/Quotas/Read|Umožňuje načíst kvótu pro předplatné.|
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 | Operace | Popis |
 |---|---|
-|/ registrace nebo akce|Umožňuje registraci v klasickém úložišti.|
+|/ registrace nebo akce|Zaregistrujte se a Classic úložiště|
 |/ checkStorageAccountAvailability nebo akce|Umožňuje zkontrolovat dostupnost účtu úložiště.|
-|/Capabilities/Read|Umožňuje zobrazit schopnosti.|
-|/publicImages/Read|Načte veřejnou image virtuálního počítače.|
+|/Capabilities/Read|Ukazuje možnosti|
+|/publicImages/Read|Načte obrázek veřejné virtuálního počítače.|
 |/Images/Read|Vrátí image.|
-|/storageAccounts/Read|Umožňuje načíst účet úložiště se zadaným účtem.|
-|/ storageAccounts/zápisu|Umožňuje přidat nový účet úložiště.|
-|/storageAccounts/DELETE|Umožňuje odstranit účet úložiště.|
-|/storageAccounts/listKeys/Action|Umožňuje vypsat seznam přístupových klíčů pro účty úložiště.|
-|/storageAccounts/regenerateKey/Action|Umožňuje znovu vytvořit existující přístupové klíče pro účet úložiště.|
-|/storageAccounts/operationStatuses/Read|Umožňuje načíst stav operace pro prostředek.|
-|/storageAccounts/Images/Read|Vrátí image účtu Storage.|
-|/storageAccounts/Images/DELETE|Odstraní danou image účtu Storage.|
-|/storageAccounts/Disks/Read|Vrátí disk účtu úložiště.|
-|/storageAccounts/Disks/Write|Přidá disk účtu úložiště.|
-|/storageAccounts/Disks/DELETE|Odstraní daný disk účtu úložiště.|
-|/storageAccounts/Disks/operationStatuses/Read|Umožňuje načíst stav operace pro prostředek.|
-|/storageAccounts/osImages/Read|Vrátí image operačního systému pro účet Storage.|
-|/storageAccounts/osImages/DELETE|Odstraní danou image operačního systému pro účet Storage.|
-|/storageAccounts/Services/Read|Umožňuje načíst dostupné služby.|
-|/storageAccounts/Services/metricDefinitions/Read|Umožňuje načíst definice metrik.|
-|/storageAccounts/Services/Metrics/Read|Umožňuje načíst metriky.|
-|/storageAccounts/Services/diagnosticSettings/Read|Umožňuje načíst nastavení diagnostiky.|
-|/storageAccounts/Services/diagnosticSettings/Write|Umožňuje přidat nebo změnit nastavení diagnostiky.|
-|/Disks/Read|Vrátí disk účtu úložiště.|
+|/storageAccounts/Read|Umožňuje načíst účet úložiště pomocí daného účtu.|
+|/ storageAccounts/zápisu|Přidá nový účet úložiště.|
+|/storageAccounts/DELETE|Odstranění účtu úložiště.|
+|/storageAccounts/listKeys/Action|Uvádí přístupové klíče pro účty úložiště.|
+|/storageAccounts/regenerateKey/Action|Obnoví existující přístupové klíče pro účet úložiště.|
+|/storageAccounts/operationStatuses/Read|Přečte stav operace pro prostředek.|
+|/storageAccounts/Images/Read|Vrátí image účtu storage.|
+|/storageAccounts/Images/DELETE|Odstraní danou image účtu storage.|
+|/storageAccounts/Disks/Read|Vrátí disku účet úložiště.|
+|/storageAccounts/Disks/Write|Přidá disk účet úložiště.|
+|/storageAccounts/Disks/DELETE|Odstraní účet disku dané úložiště.|
+|/storageAccounts/Disks/operationStatuses/Read|Přečte stav operace pro prostředek.|
+|/storageAccounts/osImages/Read|Vrátí image operačního systému pro účet úložiště.|
+|/storageAccounts/osImages/DELETE|Odstraní danou image účtu storage operačního systému.|
+|/storageAccounts/Services/Read|Získáte služby k dispozici.|
+|/storageAccounts/Services/metricDefinitions/Read|Získá definice metrik.|
+|/storageAccounts/Services/Metrics/Read|Získá metriky.|
+|/storageAccounts/Services/diagnosticSettings/Read|Získáte nastavení diagnostiky.|
+|/storageAccounts/Services/diagnosticSettings/Write|Přidat nebo změnit nastavení diagnostiky.|
+|/Disks/Read|Vrátí disku účet úložiště.|
 |/osImages/Read|Vrátí image operačního systému.|
 |/Quotas/Read|Umožňuje načíst kvótu pro předplatné.|
 
@@ -548,7 +551,7 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 
 | Operace | Popis |
 |---|---|
-|/ registrace nebo akce|Umožňuje registrovat předplatné zprostředkovatele prostředků Microsoft.Compute.|
+|/ registrace nebo akce|Zaregistruje předplatné zprostředkovatele prostředků Microsoft.Compute|
 |/restorePointCollections/Read|Umožňuje získat vlastnosti kolekce bodu obnovení|
 |/ restorePointCollections/zápisu|Vytvoří novou kolekci bodu obnovení nebo aktualizuje existující|
 |/restorePointCollections/DELETE|Odstranění obnovení bodu kolekce a obsažené bodů obnovení|
@@ -556,59 +559,59 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/restorePointCollections/restorePoints/Write|Vytvoří nový bod obnovení|
 |/restorePointCollections/restorePoints/DELETE|Odstraní bodu obnovení|
 |/restorePointCollections/restorePoints/retrieveSasUris/Action|Umožňuje získat vlastnosti bod obnovení společně s identifikátory URI SAS objektu blob|
-|/virtualMachineScaleSets/Read|Umožňuje získat vlastnosti škálovací sady virtuálních počítačů.|
-|/ virtualMachineScaleSets/zápisu|Umožňuje vytvořit novou nebo aktualizovat stávající škálovací sadu virtuálních počítačů.|
-|/virtualMachineScaleSets/DELETE|Umožňuje odstranit škálovací sadu virtuálních počítačů.|
-|/virtualMachineScaleSets/Start/Action|Umožňuje spustit instance škálovací sady virtuálních počítačů.|
-|/virtualMachineScaleSets/powerOff/Action|Umožňuje vypnout instance škálovací sady virtuálních počítačů.|
-|/virtualMachineScaleSets/restart/Action|Umožňuje restartovat instance škálovací sady virtuálních počítačů.|
-|/virtualMachineScaleSets/deallocate/Action|Umožňuje vypnout instance škálovací sady virtuálních počítačů a uvolnit výpočetní prostředky, které tyto instance zabíraly. |
-|/virtualMachineScaleSets/manualUpgrade/Action|Umožňuje ručně aktualizovat instance na poslední model škálovací sady virtuálních počítačů.|
+|/virtualMachineScaleSets/Read|Umožňuje získat vlastnosti škálovací sadu virtuálních počítačů|
+|/ virtualMachineScaleSets/zápisu|Vytvoří novou sadu škálování virtuálního počítače nebo aktualizuje existující|
+|/virtualMachineScaleSets/DELETE|Odstraní sady škálování virtuálního počítače|
+|/virtualMachineScaleSets/Start/Action|Umožňuje spustit instance škálovací sady virtuálního počítače|
+|/virtualMachineScaleSets/powerOff/Action|Umožňuje vypnout instance škálovací sady virtuálního počítače|
+|/virtualMachineScaleSets/restart/Action|Umožňuje restartovat instance škálovací sady virtuálního počítače|
+|/virtualMachineScaleSets/deallocate/Action|Umožňuje vypnout a uvolnit výpočetní prostředky pro instance škálovací sady virtuálního počítače |
+|/virtualMachineScaleSets/manualUpgrade/Action|Umožňuje ručně aktualizovat instance na poslední model škálovací sadu virtuálních počítačů|
 |/virtualMachineScaleSets/Scale/Action|Škálování v / set horizontální navýšení kapacity počet instancí existující škálování virtuálních počítačů|
-|/virtualMachineScaleSets/instanceView/Read|Umožňuje získat zobrazení instance škálovací sady virtuálních počítačů.|
-|/virtualMachineScaleSets/skus/Read|Umožňuje zobrazit seznam platných SKU pro existující škálovací sadu virtuálních počítačů.|
-|/virtualMachineScaleSets/virtualMachines/Read|Umožňuje načíst vlastnosti virtuálního počítače ve škálovací sadě virtuálních počítačů.|
-|/virtualMachineScaleSets/virtualMachines/DELETE|Umožňuje odstranit konkrétní virtuální počítač ve škálovací sadě virtuálních počítačů.|
-|/virtualMachineScaleSets/virtualMachines/Start/Action|Umožňuje spustit instanci virtuálního počítače ve škálovací sadě virtuálních počítačů.|
-|/virtualMachineScaleSets/virtualMachines/powerOff/Action|Umožňuje vypnout instanci virtuálního počítače ve škálovací sadě virtuálních počítačů.|
-|/virtualMachineScaleSets/virtualMachines/restart/Action|Umožňuje restartovat instanci virtuálního počítače ve škálovací sadě virtuálních počítačů.|
-|/virtualMachineScaleSets/virtualMachines/deallocate/Action|Umožňuje vypnout a uvolnit výpočetní prostředky pro virtuální počítač ve škálovací sadě virtuálních počítačů.|
-|/virtualMachineScaleSets/virtualMachines/instanceView/Read|Umožňuje načíst zobrazení instance virtuálního počítače ve škálovací sadě virtuálních počítačů.|
+|/virtualMachineScaleSets/instanceView/Read|Načte zobrazení instance škálovací sady virtuálního počítače|
+|/virtualMachineScaleSets/skus/Read|Zobrazit seznam platných SKU pro existující škálovací sadu virtuálních počítačů|
+|/virtualMachineScaleSets/virtualMachines/Read|Načte vlastnosti virtuálního počítače ve Škálovací sadě virtuálních počítačů|
+|/virtualMachineScaleSets/virtualMachines/DELETE|Odstraňte konkrétní virtuální počítač ve Škálovací sadě virtuálních počítačů.|
+|/virtualMachineScaleSets/virtualMachines/Start/Action|Spustí instanci virtuálního počítače ve Škálovací sadě virtuálních počítačů.|
+|/virtualMachineScaleSets/virtualMachines/powerOff/Action|Umožňuje vypnout instanci virtuálního počítače ve Škálovací sadě virtuálních počítačů.|
+|/virtualMachineScaleSets/virtualMachines/restart/Action|Restartuje instanci virtuálního počítače ve Škálovací sadě virtuálních počítačů.|
+|/virtualMachineScaleSets/virtualMachines/deallocate/Action|Umožňuje vypnout a uvolnit výpočetní prostředky pro virtuální počítač ve Škálovací sadě virtuálních počítačů.|
+|/virtualMachineScaleSets/virtualMachines/instanceView/Read|Načte zobrazení instance virtuálního počítače ve Škálovací sadě virtuálních počítačů.|
 |/Images/Read|Umožňuje získat vlastnosti bitové kopie|
 |/ bitové kopie a zápis|Vytvoří novou bitovou kopii nebo aktualizuje existující|
 |/Images/DELETE|Odstraní bitovou kopii|
-|/Operations/Read|Umožňuje zobrazit seznam operací dostupných na zprostředkovateli prostředků Microsoft.Compute.|
-|/Disks/Read|Získá vlastnosti disku.|
-|/ disků a zápis|Vytvoří nový disk nebo aktualizuje stávající.|
-|/Disks/DELETE|Odstraní disky.|
+|/Operations/Read|Seznam operací dostupných na zprostředkovateli prostředků Microsoft.Compute.|
+|/Disks/Read|Umožňuje získat vlastnosti disku|
+|/ disků a zápis|Vytvoří nový Disk nebo aktualizuje existující|
+|/Disks/DELETE|Odstraní disku|
 |/Disks/beginGetAccess/Action|Získat identifikátor URI SAS disku pro přístup k objektu blob|
 |/Disks/endGetAccess/Action|Odvolá identifikátor URI SAS disku|
-|/snapshots/Read|Získat vlastnosti snímku|
-|/ snímky a zápis|Vytvoří nový snímek nebo aktualizuje stávající.|
+|/snapshots/Read|Umožňuje získat vlastnosti snímku|
+|/ snímky a zápis|Vytvoří nový snímek nebo aktualizuje stávající|
 |/snapshots/DELETE|Odstranit snímek|
 |/availabilitySets/Read|Umožňuje získat vlastnosti sady dostupnosti.|
-|/ availabilitySets/zápisu|Umožňuje vytvořit novou nebo aktualizovat stávající sadu dostupnosti.|
-|/availabilitySets/DELETE|Umožňuje odstranit sadu dostupnosti.|
-|/availabilitySets/vmSizes/Read|Umožňuje zobrazit seznam dostupných velikostí pro vytváření nebo aktualizaci virtuálního počítače v sadě dostupnosti.|
-|/virtualMachines/Read|Umožňuje získat vlastnosti virtuálního počítače.|
-|/ virtuálních počítačů a zápis|Umožňuje vytvořit nový nebo aktualizovat stávající virtuální počítač.|
-|/virtualMachines/DELETE|Umožňuje odstranit virtuální počítač.|
-|/virtualMachines/Start/Action|Umožňuje spustit virtuální počítač.|
+|/ availabilitySets/zápisu|Vytvoří novou skupinu dostupnosti nebo aktualizuje existující|
+|/availabilitySets/DELETE|Umožňuje odstranit sadu dostupnosti|
+|/availabilitySets/vmSizes/Read|Seznam dostupných velikostí pro vytváření nebo aktualizaci virtuálního počítače v sadě dostupnosti|
+|/virtualMachines/Read|Umožňuje získat vlastnosti virtuálního počítače|
+|/ virtuálních počítačů a zápis|Vytvoří nový virtuální počítač nebo aktualizuje existující virtuální počítač|
+|/virtualMachines/DELETE|Odstraní virtuální počítač|
+|/virtualMachines/Start/Action|Spustit virtuální počítač.|
 |/virtualMachines/powerOff/Action|Umožňuje vypnout virtuální počítač. Všimněte si, že virtuální počítač bude dál účtovat.|
 |/virtualMachines/redeploy/Action|Opětovně nasadí virtuální počítač|
-|/virtualMachines/restart/Action|Umožňuje restartovat virtuální počítač.|
-|/virtualMachines/deallocate/Action|Umožňuje vypnout virtuální počítač a uvolnit výpočetní prostředky.|
-|/virtualMachines/generalize/Action|Umožňuje nastavit stav virtuálního počítače na Zobecněno a připravit virtuální počítač na zachycení.|
-|/virtualMachines/Capture/Action|Umožňuje zachytit virtuální počítač zkopírováním virtuálních pevných disků a vygenerováním šablony, kterou je možné použít k vytvoření podobných virtuálních počítačů.|
+|/virtualMachines/restart/Action|Restartování virtuálního počítače|
+|/virtualMachines/deallocate/Action|Umožňuje vypnout virtuální počítač a uvolnit výpočetní prostředky|
+|/virtualMachines/generalize/Action|Nastaví stav virtuálního počítače na zobecněno a připraví na zachycení virtuálního počítače|
+|/virtualMachines/Capture/Action|Zaznamená virtuální počítač zkopírováním virtuálních pevných disků a vygenerováním šablony, kterou lze použít k vytvoření podobných virtuálních počítačů.|
 |/virtualMachines/convertToManagedDisks/Action|Převede objekt blob na základě disky virtuálního počítače na spravovaného disky|
-|/virtualMachines/vmSizes/Read|Umožňuje zobrazit seznam dostupných velikostí, na které je možné virtuální počítač aktualizovat.|
-|/virtualMachines/instanceView/Read|Umožňuje získat podrobný stav runtime virtuálního počítače a jeho prostředků.|
+|/virtualMachines/vmSizes/Read|Seznam dostupných velikostí, které lze aktualizovat virtuální počítač|
+|/virtualMachines/instanceView/Read|Získá získat podrobný stav runtime virtuálního počítače a jeho prostředků|
 |/virtualMachines/Extensions/Read|Umožňuje získat vlastnosti rozšíření virtuálního počítače.|
-|/virtualMachines/Extensions/Write|Umožňuje vytvořit nové nebo aktualizovat stávající rozšíření virtuálního počítače.|
-|/virtualMachines/Extensions/DELETE|Umožňuje odstranit rozšíření virtuálního počítače.|
-|/Locations/vmSizes/Read|Umožňuje zobrazit seznam dostupných velikostí virtuálních počítačů v daném umístění.|
-|/Locations/usages/Read|Umožňuje získat limity služby a aktuální využívaná množství výpočetních prostředků předplatného v daném umístění.|
-|/Locations/Operations/Read|Umožňuje získat stav asynchronní operace.|
+|/virtualMachines/Extensions/Write|Vytvoří nové rozšíření virtuálního počítače nebo aktualizuje existující|
+|/virtualMachines/Extensions/DELETE|Odstraní rozšíření virtuálního počítače.|
+|/Locations/vmSizes/Read|Zobrazí seznam dostupných velikostí virtuálních počítačů v umístění|
+|/Locations/usages/Read|Získá limity služby a aktuální využívaná množství výpočetních prostředků odběru v umístění|
+|/Locations/Operations/Read|Získá stav asynchronní operace|
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -627,7 +630,7 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 | Operace | Popis |
 |---|---|
 |/containerServices/Subscriptions/Read|Získá určené služby kontejneru na základě předplatného.|
-|/containerServices/resourceGroups/Read|Získá určené služby kontejneru na základě skupiny prostředků.|
+|/containerServices/resourceGroups/Read|Získá určené služby kontejneru na základě skupiny prostředků|
 |/containerServices/resourceGroups/ContainerServiceName/Read|Získá určenou službu kontejneru.|
 |/containerServices/resourceGroups/ContainerServiceName/Write|Použije nebo aktualizuje určenou službu kontejneru.|
 |/containerServices/resourceGroups/ContainerServiceName/DELETE|Odstraní určenou službu kontejneru.|
@@ -654,8 +657,8 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/ hubs a zápis|Vytvořit nebo aktualizovat všechny statistiky centra Azure zákazníků|
 |/hubs/DELETE|Odstranit všechny statistiky Centrum Azure zákazníků|
 |/hubs/providers/Microsoft.Insights/metricDefinitions/Read|Načte dostupné metriky pro prostředek|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|Získá nastavení diagnostiky pro tento prostředek.|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Vytvoří nebo aktualizuje nastavení diagnostiky pro tento prostředek.|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|Získá nastavení diagnostiky pro prostředek|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Vytvoří nebo aktualizuje nastavení diagnostiky pro prostředek|
 |/hubs/providers/Microsoft.Insights/logDefinitions/Read|Získá dostupné protokoly pro prostředek|
 |/hubs/authorizationPolicies/Read|Přečtěte si, že žádné přehledy Azure zákazníků sdílené zásady přístupu podpis|
 |/hubs/authorizationPolicies/Write|Vytvořit nebo aktualizovat žádné zásady Azure zákazníků Statistika sdílený přístupový podpis|
@@ -767,8 +770,8 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/iotHubs/eventHubEndpoints/consumerGroups/DELETE|Odstranění skupiny příjemců EventHub|
 |/iotHubs/Routing/Routes/$ testall nebo akce|Testovací zpráva proti všechny existující trasy|
 |/iotHubs/Routing/Routes/$ testnew nebo akce|Testovací zpráva proti testu zadané trasy|
-|/ IotHubs/diagnosticSettings/čtení|Získá nastavení diagnostiky pro tento prostředek.|
-|/ IotHubs/diagnosticSettings/zápis|Vytvoří nebo aktualizuje nastavení diagnostiky pro tento prostředek.|
+|/ IotHubs/diagnosticSettings/čtení|Získá nastavení diagnostiky pro prostředek|
+|/ IotHubs/diagnosticSettings/zápis|Vytvoří nebo aktualizuje nastavení diagnostiky pro prostředek|
 |/iotHubs/skus/Read|Získání platných SKU IotHub|
 |/iotHubs/Jobs/Read|Získání úloh Podrobnosti odeslaného na daný IotHub|
 |/iotHubs/routingEndpointsHealth/Read|Získá stav všech směrování koncové body pro platformou IotHub|
@@ -832,7 +835,7 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/Labs/policySets/Policies/Write|Přidat nebo upravit zásady.|
 |/Labs/virtualMachines/DELETE|Odstraňte virtuální počítače.|
 |/Labs/virtualMachines/Read|Přečtěte si virtuálních počítačů.|
-|/Labs/virtualMachines/Write|Umožňuje přidat nebo upravit virtuální počítače.|
+|/Labs/virtualMachines/Write|Přidat nebo upravit virtuální počítače.|
 |/Labs/virtualMachines/Start/Action|Spuštění virtuálního počítače.|
 |/Labs/virtualMachines/stop/Action|Zastavit virtuální počítač|
 |/Labs/virtualMachines/ApplyArtifacts/Action|Artefakty se vztahují na virtuální počítač.|
@@ -909,17 +912,17 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 
 | Operace | Popis |
 |---|---|
-|/ checkNameAvailability nebo akce|Zkontroluje dostupnost oboru názvů v daném předplatném.|
-|/ registrace nebo akce|Zaregistruje předplatné pro poskytovatele prostředků EventHub a povolí vytváření prostředků EventHub.|
+|/ checkNameAvailability nebo akce|Kontroly dostupnosti oboru názvů v rámci daného předplatného.|
+|/ registrace nebo akce|Zaregistruje předplatné pro poskytovatele prostředků EventHub a povolí vytvoření EventHub prostředků|
 |/ obory názvů a zápis|Vytvořte prostředek Namespace a aktualizujte jeho vlastnosti. Značky a stav Namespace jsou vlastnosti, které lze aktualizovat.|
-|/namespaces/Read|Získá seznam popisů prostředku oboru názvů.|
+|/namespaces/Read|Získání seznamu Namespace popis prostředku|
 |/ obory názvů/odstranit|Odstranit prostředek Namespace|
 |/namespaces/metricDefinitions/Read|Získání seznamu Namespace metrik popisy prostředků|
-|/namespaces/authorizationRules/Read|Získá seznam popisů autorizačních pravidel oboru názvů.|
+|/namespaces/authorizationRules/Read|Získejte seznam popis obory názvů autorizačních pravidel.|
 |/namespaces/authorizationRules/Write|Autorizační pravidla úrovni Namespace vytvořit a aktualizujte jeho vlastnosti. Autorizační pravidla přístupová práva, primární a sekundární klíče lze aktualizovat.|
 |/namespaces/authorizationRules/DELETE|Odstraňte Namespace autorizační pravidlo. Výchozí Namespace autorizační pravidlo nelze odstranit. |
-|/namespaces/authorizationRules/listkeys/Action|Získat připojovací řetězec k oboru názvů|
-|/namespaces/authorizationRules/regenerateKeys/Action|Znovu vygeneruje primární nebo sekundární klíč k prostředku.|
+|/namespaces/authorizationRules/listkeys/Action|Získat připojovací řetězec k Namespace|
+|/namespaces/authorizationRules/regenerateKeys/Action|Znova vygenerovat primární nebo sekundární klíč k prostředku|
 |/namespaces/eventhubs/Write|Vytvoření nebo aktualizace EventHub vlastnosti.|
 |/namespaces/eventhubs/Read|Získání seznamu popisů EventHub prostředků|
 |/namespaces/eventhubs/DELETE|Operace odstranění EventHub prostředků|
@@ -930,7 +933,7 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/namespaces/eventhubs/authorizationRules/Write|Centrum EventHub autorizační pravidla vytvořit a aktualizujte jeho vlastnosti. Autorizační pravidla přístupová práva, primární a sekundární klíče lze aktualizovat.|
 |/namespaces/eventhubs/authorizationRules/DELETE|Operace odstranění EventHub autorizační pravidla|
 |/namespaces/eventhubs/authorizationRules/listkeys/Action|Získat připojovací řetězec k centru EventHub|
-|/namespaces/eventhubs/authorizationRules/regenerateKeys/Action|Znovu vygeneruje primární nebo sekundární klíč k prostředku.|
+|/namespaces/eventhubs/authorizationRules/regenerateKeys/Action|Znova vygenerovat primární nebo sekundární klíč k prostředku|
 |/namespaces/diagnosticSettings/Read|Získání seznamu popisů Namespace nastavení pro diagnostiku prostředků|
 |/namespaces/diagnosticSettings/Write|Získání seznamu popisů Namespace nastavení pro diagnostiku prostředků|
 |/namespaces/logDefinitions/Read|Získání seznamu protokolů Namespace popisy prostředků|
@@ -972,31 +975,31 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 
 | Operace | Popis |
 |---|---|
-|/ Registrace nebo akce|Registrovat poskytovatele platformy Microsoft Insights|
-|/ AlertRules/zápis|Zapisuje se do konfigurace pravidla výstrahy.|
-|AlertRules nebo odstranění|Odstraňuje se konfigurace pravidla výstrahy.|
-|/ AlertRules/čtení|Čte se konfigurace pravidla výstrahy.|
+|/ Registrace nebo akce|Zaregistrujte zprostředkovatele služby microsoft statistiky|
+|/ AlertRules/zápis|Zápis do konfigurace aplikace pravidlo výstrahy|
+|AlertRules nebo odstranění|Odstraňuje se konfigurace aplikace pravidlo výstrahy|
+|/ AlertRules/čtení|Čtení konfigurace aplikace pravidlo výstrahy|
 |/ AlertRules nebo aktivovat nebo akce|Pravidlo výstrahy, které jsou aktivované|
 |/ AlertRules/vyřešit nebo akce|Pravidlo výstrahy vyřešil|
 |/ AlertRules/omezeny nebo akce|Pravidlo výstrahy je omezen.|
-|/ AlertRules/incidenty/čtení|Čte se konfigurace incidentu pravidla výstrahy.|
+|/ AlertRules/incidenty/čtení|Čtení incidentu konfigurace aplikace pravidlo výstrahy|
 |/ MetricDefinitions/čtení|Číst definice metrik|
-|/eventtypes/Values/Read|Číst hodnoty typů událostí správy|
-|/eventtypes/digestevents/Read|Číst výtah typů událostí správy|
+|/eventtypes/Values/Read|Hodnoty typu událostí najdete v části Správa|
+|/eventtypes/digestevents/Read|Čtení správy událostí typ ověřování algoritmem digest|
 |/ Metriky/čtení|Číst metriky|
 |/ LogProfiles/zápis|Zápis do protokolu konfigurace profilu|
 |LogProfiles nebo odstranění|Odstranit konfiguraci profilů protokolu|
 |/ LogProfiles/čtení|Profily protokolu pro čtení|
-|/ AutoscaleSettings/zápis|Zapisuje se do konfigurace nastavení automatického škálování.|
-|AutoscaleSettings nebo odstranění|Odstraňuje se konfigurace nastavení automatického škálování.|
-|/ AutoscaleSettings/čtení|Čte se konfigurace nastavení automatického škálování.|
-|/ AutoscaleSettings/Scaleup nebo akce|Operace automatického vertikálního navýšení kapacity|
+|/ AutoscaleSettings/zápis|Zápis ke konfiguraci nastavení automatického škálování|
+|AutoscaleSettings nebo odstranění|Odstraňuje se konfigurace nastavení aplikace škálování|
+|/ AutoscaleSettings/čtení|Čtení konfigurace nastavení automatického škálování|
+|/ AutoscaleSettings/Scaleup nebo akce|Škálování rozšiřování škálování využívajících operace|
 |/ AutoscaleSettings/Scaledown nebo akce|Škálování vertikálně operace|
 |/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Číst definice metrik|
 |/ ActivityLogAlerts nebo aktivovat nebo akce|Aktivoval výstrahu protokolu aktivit|
-|/ DiagnosticSettings/zápis|Zapisuje se do konfiguračního nastavení diagnostiky.|
+|/ DiagnosticSettings/zápis|Zápis do konfigurace nastavení pro diagnostiku|
 |DiagnosticSettings nebo odstranění|Odstraňuje se konfigurace nastavení pro diagnostiku|
-|/ DiagnosticSettings/čtení|Čte se konfigurační nastavení diagnostiky.|
+|/ DiagnosticSettings/čtení|Čtení konfigurace nastavení pro diagnostiku|
 |/ LogDefinitions/čtení|Číst definice protokolu|
 |/ ExtendedDiagnosticSettings/zápis|Zápis do konfigurace rozšířených nastavení diagnostiky|
 |ExtendedDiagnosticSettings nebo odstranění|Odstraňuje se konfigurace rozšířených nastavení diagnostiky|
@@ -1007,14 +1010,14 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 | Operace | Popis |
 |---|---|
 |/ registrace nebo akce|Zaregistruje předplatné|
-|/checkNameAvailability/Read|Zkontroluje, jestli je název trezoru klíčů platný a jestli se nepoužívá.|
-|/vaults/Read|Zobrazí vlastnosti trezoru klíčů.|
-|/ trezory a zápis|Vytvoří nový trezor klíčů nebo aktualizuje vlastnosti existujícího trezoru klíčů.|
+|/checkNameAvailability/Read|Ověří, že název trezoru klíčů je platný a nepoužívá|
+|/vaults/Read|Zobrazit vlastnosti trezoru klíčů|
+|/ trezory a zápis|Vytvoření nového trezoru klíčů nebo aktualizovat vlastnosti existující trezor klíčů|
 |/vaults/DELETE|Odstranění trezoru klíčů|
 |/vaults/Deploy/Action|Umožňuje přístup k tajných klíčů v trezoru klíčů při nasazování prostředků Azure|
-|/vaults/secrets/Read|Zobrazí vlastnosti tajného kódu, ale ne jeho hodnotu.|
-|/vaults/secrets/Write|Vytvoří nový tajný kód nebo aktualizuje hodnotu existujícího tajného kódu.|
-|/vaults/accessPolicies/Write|Existující zásady přístupu můžete aktualizovat sloučením nebo nahrazením, případně můžete do trezoru přidat nové zásady přístupu.|
+|/vaults/secrets/Read|Zobrazení vlastností tajný klíč, ale ne jeho hodnota|
+|/vaults/secrets/Write|Vytvořit nový sdílený tajný klíč nebo aktualizujte hodnotu existujícím tajným klíčem|
+|/vaults/accessPolicies/Write|Aktualizovat existující zásady přístupu slučování nebo výměna nebo přidání nové zásady přístupu k trezoru.|
 |/deletedVaults/Read|Zobrazení vlastností logicky odstraněné trezorů klíčů|
 |/Locations/operationResults/Read|Zkontrolujte výsledek operace dlouho spustit|
 |/Locations/deletedVaults/Read|Zobrazení vlastností logicky odstraněné trezoru klíčů|
@@ -1024,34 +1027,34 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 
 | Operace | Popis |
 |---|---|
-|/workflows/Read|Načte pracovní postup.|
-|/ pracovní postupy a zápis|Vytvoří nebo aktualizuje pracovní postup.|
+|/workflows/Read|Přečte pracovního postupu.|
+|/ pracovní postupy a zápis|Vytvoří nebo aktualizuje pracovního postupu.|
 |/workflows/DELETE|Odstraní pracovní postup.|
-|/workflows/Run/Action|Spustí běh pracovního postupu.|
+|/workflows/Run/Action|Spustí spuštění pracovního postupu.|
 |/workflows/disable/Action|Zakáže pracovní postup.|
-|/workflows/enable/Action|Povolí pracovní postup.|
-|/workflows/Validate/Action|Ověří pracovní postup.|
-|/workflows/Move/Action|Přesune pracovní postup z existujícího ID předplatného, skupiny prostředků a/nebo názvu na jiné ID předplatného, skupinu prostředků nebo název.|
+|/workflows/enable/Action|Umožňuje pracovního postupu.|
+|/workflows/Validate/Action|Ověří pracovního postupu.|
+|/workflows/Move/Action|Přesune pracovního postupu z existující id předplatného, skupinu prostředků nebo název id jiné předplatné, skupinu prostředků nebo název.|
 |/workflows/listSwagger/Action|Získá swagger definice pracovního postupu.|
-|/workflows/regenerateAccessKey/Action|Obnoví tajné přístupové klíče.|
+|/workflows/regenerateAccessKey/Action|Regeneruje klíče tajné klíče přístup.|
 |/workflows/listCallbackUrl/Action|Získá adresu URL zpětné volání pro pracovní postup.|
-|/workflows/versions/Read|Načte verzi pracovního postupu.|
+|/workflows/versions/Read|Přečte verze pracovního postupu.|
 |/workflows/versions/Triggers/listCallbackUrl/Action|Získá adresu URL zpětné volání pro aktivační událost.|
-|/ pracovních/spouští/číst|Načte běh pracovního postupu.|
-|/workflows/runs/Cancel/Action|Zruší běh pracovního postupu.|
-|/workflows/runs/Actions/Read|Načte akci běhu pracovního postupu.|
-|/workflows/runs/Operations/Read|Načte stav operace běhu pracovního postupu.|
-|/workflows/Triggers/Read|Načte trigger.|
-|/workflows/Triggers/Run/Action|Spustí trigger.|
+|/ pracovních/spouští/číst|Přečte spustit pracovní postup.|
+|/workflows/runs/Cancel/Action|Zruší spuštění pracovního postupu.|
+|/workflows/runs/Actions/Read|Přečte pracovní postup spustit akci.|
+|/workflows/runs/Operations/Read|Přečte stav operace spuštění pracovního postupu.|
+|/workflows/Triggers/Read|Přečte aktivační událost.|
+|/workflows/Triggers/Run/Action|Spustí aktivační událost.|
 |/workflows/Triggers/listCallbackUrl/Action|Získá adresu URL zpětné volání pro aktivační událost.|
-|/workflows/Triggers/histories/Read|Načte historie triggerů.|
+|/workflows/Triggers/histories/Read|Přečte historií aktivační události.|
 |/workflows/Triggers/histories/resubmit/Action|Znovu odešle aktivační událost pracovního postupu.|
-|/workflows/accessKeys/Read|Načte přístupový klíč.|
+|/workflows/accessKeys/Read|Přečte přístupový klíč.|
 |/workflows/accessKeys/Write|Vytvoří nebo aktualizuje přístupový klíč.|
 |/workflows/accessKeys/DELETE|Odstraní přístupový klíč.|
-|/workflows/accessKeys/list/Action|Zobrazí seznam tajných přístupových klíčů.|
-|/workflows/accessKeys/regenerate/Action|Obnoví tajné přístupové klíče.|
-|/Locations/workflows/Validate/Action|Ověří pracovní postup.|
+|/workflows/accessKeys/list/Action|Zobrazí seznam těchto tajných klíčů klíče přístup.|
+|/workflows/accessKeys/regenerate/Action|Regeneruje klíče tajné klíče přístup.|
+|/Locations/workflows/Validate/Action|Ověří pracovního postupu.|
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
@@ -1260,30 +1263,30 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 
 | Operace | Popis |
 |---|---|
-|/ registrace nebo akce|Zaregistruje předplatné u poskytovatele prostředků NotificationHubs a povolí vytváření oborů názvů a NotificationHubs.|
-|/ CheckNamespaceAvailability nebo akce|Zkontroluje, jestli je ve službě NotificationHub k dispozici název prostředku oboru názvů, nebo ne.|
+|/ registrace nebo akce|Zaregistruje předplatné pro poskytovatele prostředků NotifciationHubs a umožňuje vytváření oborů názvů a NotificationHubs|
+|/ CheckNamespaceAvailability nebo akce|Kontroluje, zda je k dispozici v rámci služby NotificationHub daný název prostředku Namespace.|
 |A obory názvů/zápis|Vytvořte prostředek Namespace a aktualizujte jeho vlastnosti. Značky a stav Namespace jsou vlastnosti, které lze aktualizovat.|
-|/ Obory názvů/čtení|Získá seznam popisů prostředku oboru názvů.|
+|/ Obory názvů/čtení|Získání seznamu Namespace popis prostředku|
 |Obory názvů nebo odstranění|Odstranit prostředek Namespace|
-|/ Obory názvů nebo authorizationRules nebo akce|Získá seznam popisů autorizačních pravidel oboru názvů.|
-|/ Obory názvů nebo CheckNotificationHubAvailability nebo akce|Zkontroluje, jestli je v oboru názvů k dispozici název NotificationHub, nebo ne.|
+|/ Obory názvů nebo authorizationRules nebo akce|Získejte seznam popis obory názvů autorizačních pravidel.|
+|/ Obory názvů nebo CheckNotificationHubAvailability nebo akce|Kontroluje, zda zadaný název NotificationHub je k dispozici uvnitř Namespace.|
 |A obory názvů nebo authorizationRules/zápis|Autorizační pravidla úrovni Namespace vytvořit a aktualizujte jeho vlastnosti. Autorizační pravidla přístupová práva, primární a sekundární klíče lze aktualizovat.|
-|/ Obory názvů nebo authorizationRules/čtení|Získá seznam popisů autorizačních pravidel oboru názvů.|
+|/ Obory názvů nebo authorizationRules/čtení|Získejte seznam popis obory názvů autorizačních pravidel.|
 |Obory názvů, authorizationRules nebo odstranění|Odstraňte Namespace autorizační pravidlo. Výchozí Namespace autorizační pravidlo nelze odstranit. |
-|/ Obory názvů nebo authorizationRules/listkeys nebo akce|Získat připojovací řetězec k oboru názvů|
-|/ Obory názvů nebo authorizationRules/regenerateKeys nebo akce|Autorizační pravidlo oboru názvů – opětovné vygenerování primárního nebo sekundárního klíče. Zadejte klíč, který je nutné znovu vygenerovat.|
+|/ Obory názvů nebo authorizationRules/listkeys nebo akce|Získat připojovací řetězec k Namespace|
+|/ Obory názvů nebo authorizationRules/regenerateKeys nebo akce|Namespace autorizační pravidlo znovu vygenerovat primární nebo sekundární klíč, zadejte klíč, který musí být znovu vygenerována|
 |A obory názvů nebo NotificationHubs/zápis|Vytvoření centra oznámení a aktualizujte jeho vlastnosti. Jeho vlastnosti především zahrnovat přihlašovací údaje systému PNS. Autorizační pravidla a hodnota TTL|
-|/ Obory názvů nebo NotificationHubs/čtení|Získá seznam popisů prostředků Centra oznámení.|
+|/ Obory názvů nebo NotificationHubs/čtení|Získání seznamu popisů prostředků centra oznámení|
 |Obory názvů, NotificationHubs nebo odstranění|Odstranit prostředek centra oznámení|
-|/ Obory názvů nebo NotificationHubs/authorizationRules nebo akce|Získá seznam autorizačních pravidel Centra oznámení.|
+|/ Obory názvů nebo NotificationHubs/authorizationRules nebo akce|Získání seznamu pravidla autorizace centra oznámení|
 |/ Obory názvů nebo NotificationHubs/pnsCredentials nebo akce|Získáte všechna pověření systému PNS centra oznámení. To zahrnuje, přihlašovací údaje WNS, MPNS, APNS, GCM a Baidu|
-|/ Obory názvů nebo NotificationHubs/debugSend nebo akce|Poslat testovací nabízené oznámení|
+|/ Obory názvů nebo NotificationHubs/debugSend nebo akce|Odeslat testovací nabízená oznámení.|
 |/ Obory názvů nebo NotificationHubs/metricDefinitions/čtení|Získání seznamu Namespace metrik popisy prostředků|
 |/Namespaces/NotificationHubs /<br>authorizationRules a zápis|Vytvoření pravidla autorizace centra oznámení a aktualizujte jeho vlastnosti. Autorizační pravidla přístupová práva, primární a sekundární klíče lze aktualizovat.|
-|/Namespaces/NotificationHubs /<br>authorizationRules/čtení|Získá seznam autorizačních pravidel Centra oznámení.|
-|/Namespaces/NotificationHubs /<br>authorizationRules nebo odstranění|Odstranit autorizační pravidla Centra oznámení|
-|/Namespaces/NotificationHubs /<br>authorizationRules/listkeys nebo akce|Získá připojovací řetězec k Centru oznámení.|
-|/Namespaces/NotificationHubs /<br>authorizationRules/regenerateKeys nebo akce|Autorizační pravidlo Centra oznámení – opětovné vygenerování primárního nebo sekundárního klíče. Zadejte klíč, který je nutné znovu vygenerovat.|
+|/Namespaces/NotificationHubs /<br>authorizationRules/čtení|Získání seznamu pravidla autorizace centra oznámení|
+|/Namespaces/NotificationHubs /<br>authorizationRules nebo odstranění|Odstranit pravidla autorizace centra oznámení|
+|/Namespaces/NotificationHubs /<br>authorizationRules/listkeys nebo akce|Získat připojovací řetězec k centru oznámení|
+|/Namespaces/NotificationHubs /<br>authorizationRules/regenerateKeys nebo akce|Oznámení centra autorizační pravidlo znovu vygenerovat primární nebo sekundární klíč, zadejte klíč, který musí být znovu vygenerována|
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
@@ -1457,14 +1460,14 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 
 | Operace | Popis |
 |---|---|
-|/ checkNamespaceAvailability nebo akce|Zkontroluje dostupnost oboru názvů v daném předplatném.|
-|/ registrace nebo akce|Zaregistruje předplatné u poskytovatele prostředků Relay a povolí vytváření prostředků Relay.|
+|/ checkNamespaceAvailability nebo akce|Kontroly dostupnosti oboru názvů v rámci daného předplatného.|
+|/ registrace nebo akce|Zaregistruje předplatné pro poskytovatele prostředků předávání a povolí vytvoření předávací prostředků|
 |/ obory názvů a zápis|Vytvořte prostředek Namespace a aktualizujte jeho vlastnosti. Značky a stav Namespace jsou vlastnosti, které lze aktualizovat.|
-|/namespaces/Read|Získá seznam popisů prostředku oboru názvů.|
+|/namespaces/Read|Získání seznamu Namespace popis prostředku|
 |/ obory názvů/odstranit|Odstranit prostředek Namespace|
 |/namespaces/authorizationRules/Write|Autorizační pravidla úrovni Namespace vytvořit a aktualizujte jeho vlastnosti. Autorizační pravidla přístupová práva, primární a sekundární klíče lze aktualizovat.|
 |/namespaces/authorizationRules/DELETE|Odstraňte Namespace autorizační pravidlo. Výchozí Namespace autorizační pravidlo nelze odstranit. |
-|/namespaces/authorizationRules/listkeys/Action|Získat připojovací řetězec k oboru názvů|
+|/namespaces/authorizationRules/listkeys/Action|Získat připojovací řetězec k Namespace|
 |/namespaces/HybridConnections/Write|Vytvoření nebo aktualizace HybridConnection vlastnosti.|
 |/namespaces/HybridConnections/Read|Získání seznamu popisů HybridConnection prostředků|
 |/namespaces/HybridConnections/DELETE|Operace odstranění HybridConnection prostředků|
@@ -1482,46 +1485,46 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 
 | Operace | Popis |
 |---|---|
-|/ AvailabilityStatuses/čtení|Získá stavy dostupnosti pro všechny prostředky v zadaném rozsahu.|
-|/ AvailabilityStatuses/aktuální/čtení|Získá stav dostupnosti pro zadaný prostředek.|
+|/ AvailabilityStatuses/čtení|Získá stavy dostupnosti pro všechny prostředky v zadaném oboru|
+|/ AvailabilityStatuses/aktuální/čtení|Získá stav dostupnosti pro zadaný prostředek|
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 | Operace | Popis |
 |---|---|
-|/ checkResourceName nebo akce|Zkontroluje správnost názvu prostředku.|
-|/providers/Read|Načte seznam zprostředkovatelů.|
-|/subscriptions/Read|Získá výpis předplatných.|
-|/subscriptions/operationresults/Read|Načte výsledky operací s předplatným.|
+|/ checkResourceName nebo akce|Zkontrolujte správnost názvu prostředku.|
+|/providers/Read|Získáte seznam zprostředkovatelů.|
+|/subscriptions/Read|Získá seznam odběrů.|
+|/subscriptions/operationresults/Read|Získáte předplatné výsledky operace.|
 |/subscriptions/providers/Read|Načte nebo vypíše zprostředkovatele prostředků.|
 |/subscriptions/tagNames/Read|Načte nebo vypíše značky předplatného.|
 |/subscriptions/tagNames/Write|Přidá značku předplatného.|
-|/subscriptions/tagNames/DELETE|Odstraní značku předplatného.|
+|/subscriptions/tagNames/DELETE|Odstraní značky předplatného.|
 |/subscriptions/tagNames/tagValues/Read|Načte nebo vypíše hodnoty značky předplatného.|
 |/subscriptions/tagNames/tagValues/Write|Přidá hodnotu značky předplatného.|
 |/subscriptions/tagNames/tagValues/DELETE|Odstraní hodnotu značky předplatného.|
 |/subscriptions/Resources/Read|Získá prostředky předplatného.|
-|/subscriptions/resourceGroups/Read|Načte nebo vypíše skupinu prostředků.|
+|/subscriptions/resourceGroups/Read|Načte nebo vypíše skupiny prostředků.|
 |/subscriptions/resourceGroups/Write|Vytvoří nebo aktualizuje skupinu prostředků.|
 |/subscriptions/resourceGroups/DELETE|Odstraní skupinu prostředků a všechny její prostředky.|
 |/subscriptions/resourceGroups/moveResources/Action|Přesune prostředky z jedné skupiny prostředků do jiné.|
 |/subscriptions/resourceGroups/validateMoveResources/Action|Ověří přesun prostředků z jedné skupiny prostředků do jiné.|
-|/subscriptions/resourcegroups/Resources/Read|Načte prostředky pro skupinu prostředků.|
+|/subscriptions/resourcegroups/Resources/Read|Získá prostředky pro skupinu prostředků.|
 |/subscriptions/resourcegroups/Deployments/Read|Načte nebo vypíše nasazení.|
 |/subscriptions/resourcegroups/Deployments/Write|Vytvoří nebo aktualizuje nasazení.|
 |/subscriptions/resourcegroups/Deployments/operationstatuses/Read|Načte nebo vypíše stavy operace nasazení.|
 |/subscriptions/resourcegroups/Deployments/Operations/Read|Načte nebo vypíše operace nasazení.|
 |/subscriptions/Locations/Read|Získá výpis podporovaných umístění.|
-|/Links/Read|Načte nebo vypíše odkazy na prostředek.|
+|/Links/Read|Načte nebo vypíše odkazy na zdroje.|
 |/ odkazy a zápis|Vytvoří nebo aktualizuje odkaz na prostředek.|
 |/Links/DELETE|Odstraní odkaz na prostředek.|
 |/tenants/Read|Získá výpis klientů.|
-|/Resources/Read|Načte seznam prostředků na základě filtrů.|
+|/Resources/Read|Získejte seznam prostředků na základě filtrů.|
 |/Deployments/Read|Načte nebo vypíše nasazení.|
 |/ nasazení a zápis|Vytvoří nebo aktualizuje nasazení.|
 |/Deployments/DELETE|Odstraní nasazení.|
 |/Deployments/Cancel/Action|Zruší nasazení.|
-|/Deployments/Validate/Action|Ověří nasazení.|
+|/Deployments/Validate/Action|Ověří k nasazení.|
 |/Deployments/Operations/Read|Načte nebo vypíše operace nasazení.|
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
@@ -1534,10 +1537,10 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/jobcollections/enable/Action|Kolekce úloh umožňuje.|
 |/jobcollections/disable/Action|Zakáže kolekce úloh.|
 |/jobcollections/Jobs/Read|Získá úlohy.|
-|/jobcollections/Jobs/Write|Vytvoří nebo aktualizuje úlohu.|
+|/jobcollections/Jobs/Write|Vytvoří nebo aktualizuje úlohy.|
 |/jobcollections/Jobs/DELETE|Odstraní úlohu.|
 |/jobcollections/Jobs/Run/Action|Úloha se spustí.|
-|/jobcollections/Jobs/generateLogicAppDefinition/Action|Vygeneruje definici Aplikace logiky na základě úlohy Scheduleru.|
+|/jobcollections/Jobs/generateLogicAppDefinition/Action|Generuje definici aplikace logiky podle plánovače úloh.|
 |/jobcollections/Jobs/jobhistories/Read|Získá historie úlohy.|
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1601,17 +1604,17 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 
 | Operace | Popis |
 |---|---|
-|/ checkNameAvailability nebo akce|Zkontroluje dostupnost oboru názvů v daném předplatném.|
-|/ registrace nebo akce|Zaregistruje předplatné u poskytovatele prostředků ServiceBus a povolí vytváření prostředků ServiceBus.|
+|/ checkNameAvailability nebo akce|Kontroly dostupnosti oboru názvů v rámci daného předplatného.|
+|/ registrace nebo akce|Zaregistruje předplatné pro poskytovatele prostředků sběrnice a umožňuje vytváření prostředků sběrnice|
 |/ obory názvů a zápis|Vytvořte prostředek Namespace a aktualizujte jeho vlastnosti. Značky a stav Namespace jsou vlastnosti, které lze aktualizovat.|
-|/namespaces/Read|Získá seznam popisů prostředku oboru názvů.|
+|/namespaces/Read|Získání seznamu Namespace popis prostředku|
 |/ obory názvů/odstranit|Odstranit prostředek Namespace|
 |/namespaces/metricDefinitions/Read|Získání seznamu Namespace metrik popisy prostředků|
 |/namespaces/authorizationRules/Write|Autorizační pravidla úrovni Namespace vytvořit a aktualizujte jeho vlastnosti. Autorizační pravidla přístupová práva, primární a sekundární klíče lze aktualizovat.|
-|/namespaces/authorizationRules/Read|Získá seznam popisů autorizačních pravidel oboru názvů.|
+|/namespaces/authorizationRules/Read|Získejte seznam popis obory názvů autorizačních pravidel.|
 |/namespaces/authorizationRules/DELETE|Odstraňte Namespace autorizační pravidlo. Výchozí Namespace autorizační pravidlo nelze odstranit. |
-|/namespaces/authorizationRules/listkeys/Action|Získat připojovací řetězec k oboru názvů|
-|/namespaces/authorizationRules/regenerateKeys/Action|Znovu vygeneruje primární nebo sekundární klíč k prostředku.|
+|/namespaces/authorizationRules/listkeys/Action|Získat připojovací řetězec k Namespace|
+|/namespaces/authorizationRules/regenerateKeys/Action|Znova vygenerovat primární nebo sekundární klíč k prostředku|
 |/namespaces/diagnosticSettings/Read|Získání seznamu popisů Namespace nastavení pro diagnostiku prostředků|
 |/namespaces/diagnosticSettings/Write|Získání seznamu popisů Namespace nastavení pro diagnostiku prostředků|
 |/namespaces/Queues/Write|Vytvoření nebo aktualizace fronty vlastnosti.|
@@ -1621,7 +1624,7 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/namespaces/Queues/authorizationRules/Read| Získání seznamu fronty autorizační pravidla|
 |/namespaces/Queues/authorizationRules/DELETE|Operace odstranění fronty autorizační pravidla|
 |/namespaces/Queues/authorizationRules/listkeys/Action|Získat připojovací řetězec do fronty|
-|/namespaces/Queues/authorizationRules/regenerateKeys/Action|Znovu vygeneruje primární nebo sekundární klíč k prostředku.|
+|/namespaces/Queues/authorizationRules/regenerateKeys/Action|Znova vygenerovat primární nebo sekundární klíč k prostředku|
 |/namespaces/logDefinitions/Read|Získání seznamu protokolů Namespace popisy prostředků|
 |/namespaces/topics/Write|Vytvoření nebo aktualizace tématu vlastnosti.|
 |/namespaces/topics/Read|Získání seznamu popisů tématu prostředků|
@@ -1630,7 +1633,7 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/namespaces/topics/authorizationRules/Read| Získání seznamu tématu autorizační pravidla|
 |/namespaces/topics/authorizationRules/DELETE|Operace odstranění tématu autorizační pravidla|
 |/namespaces/topics/authorizationRules/listkeys/Action|Získat připojovací řetězec k tématu|
-|/namespaces/topics/authorizationRules/regenerateKeys/Action|Znovu vygeneruje primární nebo sekundární klíč k prostředku.|
+|/namespaces/topics/authorizationRules/regenerateKeys/Action|Znova vygenerovat primární nebo sekundární klíč k prostředku|
 |/namespaces/topics/Subscriptions/Write|Vytvoření nebo aktualizace TopicSubscription vlastnosti.|
 |/namespaces/topics/Subscriptions/Read|Získání seznamu popisů TopicSubscription prostředků|
 |/namespaces/topics/Subscriptions/DELETE|Operace odstranění TopicSubscription prostředků|
@@ -1670,8 +1673,8 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/Servers/elasticPools/DELETE|Odstraňte existující fond elastické databáze|
 |/Servers/elasticPools/operationResults/Read|Načíst podrobnosti o fondu operace dané elastické databáze|
 |/Servers/elasticPools/providers/Microsoft.Insights/<br>metricDefinitions/čtení|Návratové typy metriky, které jsou k dispozici pro fondy elastické databáze|
-|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/čtení|Získá nastavení diagnostiky pro tento prostředek.|
-|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings a zápis|Vytvoří nebo aktualizuje nastavení diagnostiky pro tento prostředek.|
+|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/čtení|Získá nastavení diagnostiky pro prostředek|
+|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings a zápis|Vytvoří nebo aktualizuje nastavení diagnostiky pro prostředek|
 |/Servers/elasticPools/Metrics/Read|Vrátí metriky využití prostředků fondu elastické databáze|
 |/Servers/elasticPools/elasticPoolDatabaseActivity/Read|Načtení činnosti a údaje na danou databázi, která je součástí fondu elastické databáze|
 |/Servers/elasticPools/advisors/Read|Vrátí seznam poradci pro elastický fond k dispozici|
@@ -1718,8 +1721,8 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 |/Servers/Databases/securityAlertPolicies/Read|Načíst podrobnosti o zásadě detekce hrozeb nakonfigurované na danou databázi|
 |/Servers/Databases/securityAlertPolicies/Write|Změna zásad detekce hrozeb pro danou databázi|
 |/Servers/Databases/providers/Microsoft.Insights/<br>metricDefinitions/čtení|Návratové typy metriky, které jsou k dispozici pro databáze|
-|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/čtení|Získá nastavení diagnostiky pro tento prostředek.|
-|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings a zápis|Vytvoří nebo aktualizuje nastavení diagnostiky pro tento prostředek.|
+|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/čtení|Získá nastavení diagnostiky pro prostředek|
+|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings a zápis|Vytvoří nebo aktualizuje nastavení diagnostiky pro prostředek|
 |/Servers/Databases/providers/Microsoft.Insights/<br>logDefinitions/čtení|Získá dostupné protokoly pro databáze|
 |/Servers/Databases/topQueries/Read|Vrátí statistiku modulu runtime pro vybraný dotaz agregovat do vybrané časové období|
 |/Servers/Databases/topQueries/queryText/Read|Vrátí text Transact-SQL pro ID vybraný dotaz|
@@ -1758,17 +1761,17 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 | Operace | Popis |
 |---|---|
 |/ registrace nebo akce|Zaregistruje předplatné pro zprostředkovatele prostředku úložiště a povolí vytvoření účtů úložiště.|
-|/checknameavailability/Read|Zkontroluje, že název účtu je platný a nepoužívá se.|
-|/ storageAccounts/zápisu|Vytvoří účet úložiště se zadanými parametry, aktualizuje vlastnosti a značky nebo přidá vlastní doménu pro zadaný účet úložiště.|
-|/storageAccounts/DELETE|Odstraní existující účet úložiště.|
+|/checknameavailability/Read|Ověří, že název účtu je platný a nepoužívá.|
+|/ storageAccounts/zápisu|Vytvoří účet úložiště se zadanými parametry nebo aktualizuje vlastnosti a značky nebo přidá vlastní doménu pro zadaný účet úložiště.|
+|/storageAccounts/DELETE|Odstraní stávající účet úložiště.|
 |/storageAccounts/listkeys/Action|Vrátí přístupové klíče pro zadaný účet úložiště.|
 |/storageAccounts/regeneratekey/Action|Obnoví přístupové klíče pro zadaný účet úložiště.|
-|/storageAccounts/Read|Vrátí seznam účtů úložišť nebo načte vlastnosti zadaného účtu.|
+|/storageAccounts/Read|Vrátí seznam úložiště účtů nebo získá vlastnosti pro zadaný účet úložiště.|
 |/storageAccounts/listAccountSas/Action|Vrátí token SAS účtu pro zadaný účet úložiště.|
 |/storageAccounts/listServiceSas/Action|Token SAS služby úložiště|
 |/storageAccounts/Services/diagnosticSettings/Write|Vytvořit nebo aktualizovat nastavení diagnostiky účet úložiště.|
 |/skus/Read|Zobrazí seznam SKU nepodporuje Microsoft.Storage.|
-|/usages/Read|Vrací limit a aktuální počet použití pro zdroje v zadaném odběru|
+|/usages/Read|Vrací limit a aktuální počet použití pro prostředky v zadaném odběru|
 |/Operations/Read|Zadá dotaz na stav asynchronní operace.|
 |/Locations/deleteVirtualNetworkOrSubnets/Action|Microsoft.Storage upozorní, že virtuální síť nebo podsíť, Probíhá odstranění|
 
@@ -1932,7 +1935,7 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 | Operace | Popis |
 |---|---|
 |/ registrace nebo akce|Registruje zprostředkovatele prostředků podpory.|
-|/supportTickets/Read|Umožňuje získat podrobnosti lístku podpory (včetně stavu, závažnosti, podrobností kontaktu a komunikací) nebo seznam lístků podpory pro všechna předplatná.|
+|/supportTickets/Read|Získat podrobnosti lístku podpory (včetně stavu, závažnosti, podrobnosti kontaktu a komunikací) nebo získá seznam lístky žádostí o podporu ve předplatných.|
 |/ supportTickets/zápisu|Vytvoří nebo aktualizuje lístek podpory. Můžete vytvořit lístek podpory pro Technical, fakturace, kvóty nebo správy předplatného související problémy. Můžete aktualizovat závažnost, podrobnosti kontaktu a komunikace pro existující lístky žádostí o podporu.|
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -2194,7 +2197,6 @@ Tento zprostředkovatel není úplná zprostředkovatele ARM a neposkytuje žád
 ## <a name="next-steps"></a>Další kroky
 
 - Zjistěte, jak [vytvořit vlastní roli](role-based-access-control-custom-roles.md).
-
 - Zkontrolujte [integrovaným rolím RBAC](role-based-access-built-in-roles.md).
-
 - Zjistěte, jak spravovat přístup k přiřazení [uživatelem](role-based-access-control-manage-assignments.md) nebo [prostředkem](role-based-access-control-configure.md) 
+- Zjistěte, jak [zobrazit protokoly aktivity akce u prostředků](~/articles/azure-resource-manager/resource-group-audit.md)

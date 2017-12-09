@@ -8,11 +8,11 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Důležité informace týkající se sítě Azure zásobníku
 
@@ -34,7 +34,7 @@ Tento článek obsahuje přehled jedinečné aspekty pro sítě a jeho funkce v 
 | |Sady záznamů DNS na zónu|5000 (výchozí)<br>Je možné zvýšit na vyžádání.|5000|
 ||Názvové servery pro delegování zóny|Azure poskytují čtyři názvové servery pro každou zónu uživatele (klientů), který je vytvořen.|Zásobník Azure poskytuje dva názvové servery pro každou zónu uživatele (klientů), který je vytvořen.|
 | Virtuální síť|Partnerské vztahy virtuálních sítí|Připojení dvou virtuálních sítí ve stejné oblasti přes Azure páteřní síti.|Není dosud podporován.|
-| |Adresy IPv6|Můžete přiřadit adresu IPv6 v rámci [konfigurace síťového rozhraní](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Podporovaný je jenom protokol IPv4.|
+| |Adresy IPv6|Můžete přiřadit adresu IPv6 v rámci [konfigurace síťového rozhraní](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Podporovaný je jenom protokol IPv4.|
 |VPN Gateway|Brána sítě VPN Point-to-Site|Podporuje se|Není dosud podporován.|
 | |Bránu Vnet-to-Vnet|Podporuje se|Není dosud podporován.|
 | |SKU služby VPN Gateway|Podpora pro Basic, GW1, GW2, GW3, standardní vysoký výkon, velmi vysoký výkon. |Podpora Basic, Standard a vysoce výkonné SKU.|

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: samacha
-ms.openlocfilehash: f17225d92fc35a6da9f6aa3cb0397569665e95e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2ac5d305aae110eff46459ecb7d89ca50ae1823d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Správa .NET SDK: Nastavení a spuštění úloh analytics pomocí rozhraní API služby Azure Stream Analytics pro .NET
 Zjistěte, jak nastavit a spustit úlohy analytics pomocí rozhraní API služby Stream Analytics pro .NET pomocí .NET SDK služby správy. Nastavení projektu, vytvořte vstupní a výstupní zdrojů, transformace a spuštění a zastavení úloh. Pro úlohy analýzy může Streamovat data z úložiště objektů Blob nebo z centra událostí.
@@ -29,7 +29,7 @@ Najdete v článku [správu referenční dokumentaci rozhraní API služby Strea
 Azure Stream Analytics je plně spravovaná služba poskytuje zpracování událostí s nízkou latencí, vysoce dostupná, škálovatelná, komplexní přes streamování dat v cloudu. Stream Analytics umožňuje zákazníkům nastavit úloh streamování k analýze datové proudy a umožňuje, aby jednotka téměř analýzu v reálném čase.  
 
 > [!NOTE]
-> Aktualizovali jsme ukázkový kód v tomto článku s verzí v2.x .NET SDK služby Azure Stream Analytics správy. Ukázku kódu pomocí verze sady SDK lagecy (1.x) používá, najdete v tématu [použít v1.x Management .NET SDK pro Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
+> Aktualizovali jsme ukázkový kód v tomto článku s verzí v2.x .NET SDK služby Azure Stream Analytics správy. Ukázku kódu pomocí verze sady SDK lagecy (1.x) používá, najdete v tématu [použít v1.x Management .NET SDK pro Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
 ## <a name="prerequisites"></a>Požadavky
 Je nutné, abyste před zahájením tohoto článku měli tyto položky:

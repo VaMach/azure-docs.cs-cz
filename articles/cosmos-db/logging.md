@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 407a9a3be4ae8a9b00a953914e6b4414d8dac8b6
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: 608222da9cbe2895914e14c9f76cc5629ef65684
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Protokolování diagnostiky Azure Cosmos DB
 
@@ -60,7 +60,7 @@ K dokončení tohoto kurzu, musí mít následující prostředky:
 
 3. Klikněte na **Uložit**.
 
-    Pokud obdržíte chybu, která uvádí, že "se nepodařilo aktualizovat diagnostiku pro \<název pracovního prostoru >. Předplatné \<id předplatného > není zaregistrované pro používání microsoft.insights. " postupujte podle [řešení potíží s Azure Diagnostics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) pokyny k registraci účtu, opakujte tento postup.
+    Pokud obdržíte chybu, která uvádí, že "se nepodařilo aktualizovat diagnostiku pro \<název pracovního prostoru >. Předplatné \<id předplatného > není zaregistrované pro používání microsoft.insights. " postupujte podle [řešení potíží s Azure Diagnostics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) pokyny k registraci účtu, opakujte tento postup.
 
     Pokud chcete změnit, jak diagnostické protokoly jsou uloženy v libovolném bodě v budoucnosti, můžete se vrátit k této stránce na kdykoli změnit nastavení diagnostiky protokolu pro váš účet.
 

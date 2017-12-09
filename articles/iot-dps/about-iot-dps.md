@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4a2ac24442c425e1c2f2e81badef5dbd3a8dcf5e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Zřizování zařízení službou Azure IoT Hub zařízení zřizování (preview)
 Microsoft Azure poskytuje bohatou sadu integrovaných veřejné cloudové služby pro všechny vaše potřeby řešení IoT. Zřizování služby zařízení IoT Hub je služba Pomocník pro IoT Hub, která umožňuje nula touch, za běhu zřizování do správné služby IoT hub bez nutnosti lidského zásahu povolení zákazníkům zřídit miliony zařízení zabezpečený a škálovatelné způsobem.
@@ -116,7 +116,7 @@ Další informace o omezení kvót:
 * [Omezení služby předplatného Azure](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Související Azure součásti
-Službu zřizování zařízení automatizuje zřizování zařízení s Azure IoT Hub. Další informace o [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/).
+Službu zřizování zařízení automatizuje zřizování zařízení s Azure IoT Hub. Další informace o [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
 ## <a name="next-steps"></a>Další kroky
 Teď máte přehled o zřizování zařízení IoT v Azure. Dalším krokem je můžete vyzkoušet na scénář IoT od začátku do konce.

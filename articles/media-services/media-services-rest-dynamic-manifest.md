@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 76d2721138668d9f0a908af3fa42840309b068ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 98df3b6592ed865fc0eb4b942d298b26e930365f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Vytváření filtrů s Azure Media Services REST API
 > [!div class="op_single_selector"]
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Od verze 2.11, Media Services umožňuje definovat filtry pro vaše prostředky. Tyto filtry jsou pravidla na straně serveru, které vám umožní vašim zákazníkům, kde můžete provádět například následující akce: přehrávání pouze část videa (namísto přehrávání celou video), nebo zadejte pouze podmnožinu interpretace audia a videa, které může zařízení vašich zákazníků (místo toho zpracovat všechny interpretací, jsou přidružený asset). Tento filtrování vaše prostředky bude archivován prostřednictvím **dynamické Manifest**ů, které jsou vytvořené na žádost zákazníka Streamovat videa podle zadané filtry.
+Od verze 2.17, Media Services umožňuje definovat filtry pro vaše prostředky. Tyto filtry jsou serverové pravidla, která umožňují vašim zákazníkům, kde můžete provádět například následující akce: přehrávání pouze část videa (namísto přehrávání celou video), nebo zadejte pouze podmnožinu interpretace audia a videa, které může zpracovat vašeho zákazníka zařízení (ne z všechny interpretace přidružených asset). Tento filtrování vaše prostředky bude archivován prostřednictvím **dynamické Manifest**ů, které jsou vytvořené na žádost zákazníka Streamovat videa podle zadané filtry.
 
 Podrobné informace týkající se filtrů a dynamické Manifest, najdete v části [dynamické manifesty přehled](media-services-dynamic-manifest-overview.md).
 
-Toto téma ukazuje, jak používat rozhraní REST API vytvářet, aktualizovat a odstraňovat filtry. 
+Tento článek ukazuje, jak používat rozhraní REST API vytvářet, aktualizovat a odstraňovat filtry. 
 
 ## <a name="types-used-to-create-filters"></a>Typy používané pro vytvoření filtrů
 Následující typy se používají při vytváření filtrů:  
@@ -49,9 +49,6 @@ Následující typy se používají při vytváření filtrů:
 
 Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI.
-
 ## <a name="create-filters"></a>Vytváření filtrů
 ### <a name="create-global-filters"></a>Vytvoření globálních filtrů
 K vytvoření globálních filtrů, použijte následující požadavky HTTP:  
@@ -66,7 +63,7 @@ Hlavičky požadavku
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
 
@@ -119,7 +116,7 @@ Hlavičky požadavku
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
 
@@ -169,7 +166,7 @@ Chcete-li seznam filtrů, použijte následující HTTP požadavků:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 ### <a name="get-assetfilters-associated-with-an-asset"></a>Získat **AssetFilter**s přidružený prostředek
@@ -180,7 +177,7 @@ Chcete-li seznam filtrů, použijte následující HTTP požadavků:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
@@ -192,14 +189,14 @@ Chcete-li seznam filtrů, použijte následující HTTP požadavků:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000
 
 
 ## <a name="update-filters"></a>Aktualizace filtrů
-Použití opravy, PUT nebo SLOUČENÍ aktualizovat filtr s hodnotami novou vlastnost.  Další informace týkající se těchto operací najdete v tématu [opravy, PUT, SLOUČENÍ](http://msdn.microsoft.com/library/dd541276.aspx).
+Použijte k aktualizaci filtr s novými hodnotami vlastností opravy, PUT nebo MERGE.  Další informace týkající se těchto operací najdete v tématu [opravy, PUT, SLOUČENÍ](http://msdn.microsoft.com/library/dd541276.aspx).
 
-Pokud aktualizujete filtr, může trvat až 2 minuty koncový bod streamování aktualizovat pravidla. Pokud obsah zpracování pomocí tohoto filtru (a uložené v mezipaměti v proxy servery a CDN mezipaměti), aktualizace tento filtr může způsobit selhání přehrávač. Je doporučujeme vymazání mezipaměti po aktualizaci filtru. Pokud tato možnost není možné, zvažte použití jiný filtr.  
+Pokud aktualizujete filtr, může trvat až dvě minuty pro koncový bod streamování aktualizovat pravidla. Pokud obsah zpracování pomocí tohoto filtru (a uložené v mezipaměti v proxy servery a CDN mezipaměti), aktualizace tento filtr může způsobit selhání přehrávač. Vymazání mezipaměti po aktualizaci filtru. Pokud tato možnost není možné, zvažte použití jiný filtr.  
 
 ### <a name="update-global-filters"></a>Aktualizace globálních filtrů
 Chcete-li aktualizovat globální filtr, použijte následující požadavky HTTP: 
@@ -214,7 +211,7 @@ Hlavičky požadavku:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
     Content-Length: 384
@@ -254,7 +251,7 @@ Hlavičky požadavku:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
@@ -292,7 +289,7 @@ Chcete-li odstranit globální filtr, použijte následující požadavky HTTP:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 
@@ -306,7 +303,7 @@ Chcete-li odstranit místní AssetFilter, použijte následující požadavky HT
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>Vytvoření adresy URL, které používají filtry pro streamování

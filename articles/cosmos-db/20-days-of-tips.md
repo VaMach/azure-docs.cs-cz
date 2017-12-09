@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 39fd3e0df9a9d86272fb94afc9397ff61dd049f0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dnů Azure Cosmos DB tipy
 
@@ -103,7 +103,7 @@ Tip 10: Zjistěte, jak si zkopírujte svá data MongoDB k databázi Cosmos Azure
 
 Tip 11: Sestavení nejdůležitější aplikace pro sledování pomocí reagují, Node.js a Azure Cosmos DB.
 
-Článek: [vytvoření aplikace pro MongoDB pomocí reagují a Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+Článek: [vytvoření aplikace pro MongoDB pomocí reagují a Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![Retweet na twitteru](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)[![sdílené složky na LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -119,7 +119,7 @@ Tip 12: Přejděte bez serveru s Azure #CosmosDB a @AzureFunctions! Úplné doku
 
 Tip 13: od nuly do hrdina s @John_Papa a Azure Cosmos DB. Naučte se vytvářet střední aplikace od začátku
 
-Článek: [vytvoření aplikace pro MongoDB pomocí Cosmos úhlová a Azure DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+Článek: [vytvoření aplikace pro MongoDB pomocí Cosmos úhlová a Azure DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![Retweet na twitteru](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)[![sdílené složky na LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 

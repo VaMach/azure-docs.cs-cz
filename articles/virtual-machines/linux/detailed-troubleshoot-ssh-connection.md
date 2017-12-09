@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 07/06/2017
 ms.author: iainfou
-ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 264fe2acbdd393a2f9d349e1522263f1728c5d48
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Podrobné SSH řešení potíží s kroky pro připojení k virtuální počítač s Linuxem v Azure
 Existuje mnoho možných příčin, které použije klient SSH nemusí být možné kontaktovat službu SSH ve virtuálním počítači. Pokud jste provedli prostřednictvím Čím více [obecné SSH při řešení potíží](troubleshoot-ssh-connection.md), budete muset dále řešit potíže s připojením. Tento článek vás provede podrobný postup řešení potíží k určení, kde se nedaří připojení SSH a jak je vyřešit.
@@ -113,7 +113,7 @@ Chcete odstranit koncový bod jako zdroj problému, odeberte aktuální koncový
 Skupiny zabezpečení sítě umožňují mít členitější řízení toho povolené příchozí a odchozí přenosy. Můžete vytvořit pravidla, která span podsítě a cloudových služeb v virtuální sítě Azure. Zkontrolujte vaše pravidel skupiny zabezpečení sítě pro zajistit, že je povolené SSH provoz do a z Internetu.
 Další informace najdete v tématu [o skupinách zabezpečení sítě](../../virtual-network/virtual-networks-nsg.md).
 
-Můžete taky ověřit IP pro ověření konfigurace NSG. Další informace najdete v tématu [síť Azure Přehled monitorování](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Můžete taky ověřit IP pro ověření konfigurace NSG. Další informace najdete v tématu [síť Azure Přehled monitorování](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Zdroj 5: Systémem Linux virtuálního počítače Azure
 Poslední zdroj možné problémy je virtuální počítač Azure, sám sebe.

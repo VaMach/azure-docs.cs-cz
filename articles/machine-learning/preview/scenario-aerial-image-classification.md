@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="aerial-image-classification"></a>Klasifikace leteckou bitové kopie
 
@@ -67,7 +67,7 @@ Následující pokyny vás provede procesem nastavení prostředí pro spuštěn
         - "Instalace Azure Python SDK"
     - Záznam ID klienta, tajný klíč a ID klienta aplikace Azure Active Directory, který jste dostali pokyn k vytvoření. Tyto přihlašovací údaje použijete později v tomto kurzu.
     - Době psaní tohoto textu pomocí Azure Machine Learning Workbench a Azure Batch AI samostatné větve 2.0 rozhraní příkazového řádku Azure. Pro přehlednost označujeme nástroje Workbench verzi rozhraní příkazového řádku jako "rozhraní příkazového řádku spustit z Azure Machine Learning Workbench" a obecné verzi, (která zahrnuje Batch AI) jako "Azure CLI 2.0."
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), uvolněte nástroj pro spolupráci přenos souborů mezi účty úložiště Azure
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), uvolněte nástroj pro spolupráci přenos souborů mezi účty úložiště Azure
     - Zajistěte, aby byl ve složce obsahující AzCopy spustitelný soubor na proměnné prostředí PATH vašeho systému. (Informace o úpravě proměnné prostředí jsou k dispozici [zde](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Klientem SSH; Doporučujeme, abyste [PuTTY](http://www.putty.org/).
 

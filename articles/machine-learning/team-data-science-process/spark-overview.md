@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 8a4c9d37f0a6d004422fb745ac991f2648d2e255
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Přehled vědecké zpracování dat pomocí Spark v Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -44,8 +44,8 @@ Tyto poznámkových bloků se mají spustit v jádra pySpark serveru poznámkov�
 ### <a name="spark-20-notebooks"></a>Spark 2.0 poznámkových bloků
 Tyto poznámkových bloků se mají spustit v jádru pySpark3 serveru poznámkového bloku Jupyter.
 
-- [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Tento soubor obsahuje informace o tom, jak provést zkoumání dat, modelování a vyhodnocování v rámci Spark 2.0 clusterů pomocí cesty NYC taxíkem a tarif sady dat popsané [zde](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Tento poznámkový blok, může být to dobrý výchozí bod pro zkoumání rychle kód, který jsme připravili pro Spark 2.0. Podrobnější Poznámkový blok analyzuje data taxíkem NYC, naleznete další poznámkového bloku v tomto seznamu. Najdete v poznámkách k následující tento seznam porovnávající tyto poznámkových bloků. 
-- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Tento soubor ukazuje, jak provést data wrangling (Spark SQL a dataframe operations), zkoumání, modelování a vyhodnocování pomocí cesty NYC taxíkem a tarif sady dat popsané [zde](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Tento soubor obsahuje informace o tom, jak provést zkoumání dat, modelování a vyhodnocování v rámci Spark 2.0 clusterů pomocí cesty NYC taxíkem a tarif sady dat popsané [zde](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Tento poznámkový blok, může být to dobrý výchozí bod pro zkoumání rychle kód, který jsme připravili pro Spark 2.0. Podrobnější Poznámkový blok analyzuje data taxíkem NYC, naleznete další poznámkového bloku v tomto seznamu. Najdete v poznámkách k následující tento seznam porovnávající tyto poznámkových bloků. 
+- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Tento soubor ukazuje, jak provést data wrangling (Spark SQL a dataframe operations), zkoumání, modelování a vyhodnocování pomocí cesty NYC taxíkem a tarif sady dat popsané [zde](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
 - [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): Tento soubor ukazuje, jak provést data wrangling (Spark SQL a dataframe operations), zkoumání, modelování a vyhodnocování pomocí známých letecká společnost na čas odeslání datové sady z 2011 a 2012. Jsme integrované letecká společnost datovou sadu s daty počasí letiště (např. větru, teploty, výška atd.) před modelování, takže tyto funkce počasí můžou být součástí modelu.
 
 <!-- -->

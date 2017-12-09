@@ -12,11 +12,11 @@ ms.prod:
 ms.service: microsoft-keyvault
 ms.technology: 
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: f67f81aeee0775ea8d90e4459f2c46266a774786
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Ověřování do služby Azure Key Vault pomocí rozhraní .NET
 
@@ -28,7 +28,7 @@ Pomocí přihlašovacích údajů vývojáře během vývoje místní je bezpeč
 
 `Microsoft.Azure.Services.AppAuthentication` Knihovny spravuje ověřování automaticky, která zase umožňuje zaměřit se na řešení, nikoli vaše přihlašovací údaje.
 
-`Microsoft.Azure.Services.AppAuthentication` Knihovny podporuje místní vývoj pomocí sady Microsoft Visual Studio, rozhraní příkazového řádku Azure nebo integrované ověřování služby Azure AD. Když se nasadí aplikační služby Azure nebo Azure virtuálního počítače (VM), automaticky používá knihovna [identita spravované služby](/azure/active-directory/msi-overview) (MSI). Nejsou vyžadovány žádné změny kódu nebo konfigurace. Knihovna také podporuje rovnou použít Azure AD [pověření klienta](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) při MSI není k dispozici nebo pokud nelze určit kontext zabezpečení pro vývojáře během místní vývoj.
+`Microsoft.Azure.Services.AppAuthentication` Knihovny podporuje místní vývoj pomocí sady Microsoft Visual Studio, rozhraní příkazového řádku Azure nebo integrované ověřování služby Azure AD. Když se nasadí aplikační služby Azure nebo Azure virtuálního počítače (VM), automaticky používá knihovna [identita spravované služby](/azure/active-directory/msi-overview) (MSI). Nejsou vyžadovány žádné změny kódu nebo konfigurace. Knihovna také podporuje rovnou použít Azure AD [pověření klienta](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) při MSI není k dispozici nebo pokud nelze určit kontext zabezpečení pro vývojáře během místní vývoj.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Použití knihovny
@@ -57,7 +57,7 @@ Pro aplikace .NET je nejjednodušší způsob, jak pracovat s identita spravovan
 
 `AzureServiceTokenProvider` Třídy ukládá do mezipaměti v paměti token a načte z Azure AD těsně před vypršení platnosti. V důsledku toho již nebude muset zkontrolovat vypršení platnosti před voláním `GetAccessTokenAsync` metoda. Pokud chcete použít token stačí zavoláte metodu. 
 
-`GetAccessTokenAsync` Metoda vyžaduje identifikátor prostředku. Další informace najdete v tématu [služby Azure který podporovat identita spravované služby](https://docs.microsoft.com/en-us/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
+`GetAccessTokenAsync` Metoda vyžaduje identifikátor prostředku. Další informace najdete v tématu [služby Azure který podporovat identita spravované služby](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
 
 
 <a name="samples"></a>

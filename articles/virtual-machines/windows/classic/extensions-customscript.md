@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: danis
-ms.openlocfilehash: b62cf38b2b16bd54b4df38402e8b7d75f5fd5e68
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 5de2949561ed5f64582898006de7818e81f79f5b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Vlastní skript rozšíření pro systém Windows s použitím modelu nasazení classic
 
@@ -88,7 +88,7 @@ Rozšíření virtuálního počítače Azure se dá nasadit pomocí šablon Azu
 
 ## <a name="powershell-deployment"></a>Nasazení prostředí PowerShell
 
-`Set-AzureVMCustomScriptExtension` Příkaz lze použít k přidání rozšíření vlastních skriptů do existujícího virtuálního počítače. Další informace najdete v tématu [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
+`Set-AzureVMCustomScriptExtension` Příkaz lze použít k přidání rozšíření vlastních skriptů do existujícího virtuálního počítače. Další informace najdete v tématu [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
 
 ```powershell
 # create vm object

@@ -10,11 +10,11 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: HT
+ms.openlocfilehash: 9e3b498aa28a1075c8ed65ea698df955824b9893
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Navrhnout první databáze Azure pro databázi MySQL
 Azure Database for MySQL je spravovaná služba, která umožňuje spouštět, spravovat a škálovat vysoce dostupné databáze MySQL v cloudu. Pomocí portálu Azure, můžete snadno spravovat váš server a návrhu databáze.
@@ -34,7 +34,7 @@ V tomto kurzu pomocí portálu Azure další postup:
 Otevřete Oblíbené webový prohlížeč a přejděte [portálu Microsoft Azure](https://portal.azure.com/). Zadejte přihlašovací údaje pro přihlášení k portálu. Výchozím zobrazením je váš řídicí panel služby.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Vytvoření serveru Azure Database for MySQL
-Server Azure Database for MySQL se vytvoří s definovanou sadou [výpočetních prostředků a prostředků úložiště](./concepts-compute-unit-and-storage.md). Server se vytvoří v rámci [skupiny prostředků Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+Server Azure Database for MySQL se vytvoří s definovanou sadou [výpočetních prostředků a prostředků úložiště](./concepts-compute-unit-and-storage.md). Server se vytvoří v rámci [skupiny prostředků Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1. Přejděte na **databáze** > **Azure databáze pro databázi MySQL**. Pokud nemůžete najít MySQL serveru v části **databáze** kategorii, klikněte na tlačítko **zobrazit všechny** zobrazíte všechny služby k dispozici databáze. Můžete také zadat **Azure Database pro databázi MySQL** do vyhledávacího pole rychle najít službu.
 ![2-1, přejděte na MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)

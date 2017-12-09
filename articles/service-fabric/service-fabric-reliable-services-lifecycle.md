@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a0a4558da0b308799a153b300b098891e933712b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Přehled životního cyklu spolehlivé služby
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Service Fabric změní primární stavové služby z různých důvodů. Nejbě�
 
 Služby, které zpracovávají zrušení řádně může mít několik problémy. Tyto operace jsou pomalé, protože Service Fabric čeká na služby, aby řádně ukončena. Nakonec to může vést k selhání upgrady tohoto časového limitu a vrátit zpět. Selhání respektovat token zrušení může také způsobit imbalanced clustery. Clustery stát nevyváženou, protože uzly získat aktivní, ale služby nemůže být znovu vyrovnána protože trvá příliš dlouho přesunout na jiné místo. 
 
-Protože se stavové služby, je také pravděpodobné, že se používají [spolehlivé kolekce](service-fabric-reliable-services-reliable-collections.md). V Service Fabric při snížení úrovně primární jeden z nejdůležitějších věcí, které se stane, se zruší se oprávnění k zápisu do základní stav. To vede ke druhé sadě problémy, které můžou ovlivnit služby životního cyklu. Kolekce návratový výjimky založené na načasování a jestli je přesouvání repliky nebo vypnutí. Tyto výjimky by měl být správně zpracovat. Výjimky vyvolané Service Fabric spadají do trvalého [(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) a přechodný [(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) kategorií. Trvalé výjimky by měl zaznamenána a vyvolána při přechodné výjimky můžete zkusit znovu na základě logiky některé opakování.
+Protože se stavové služby, je také pravděpodobné, že se používají [spolehlivé kolekce](service-fabric-reliable-services-reliable-collections.md). V Service Fabric při snížení úrovně primární jeden z nejdůležitějších věcí, které se stane, se zruší se oprávnění k zápisu do základní stav. To vede ke druhé sadě problémy, které můžou ovlivnit služby životního cyklu. Kolekce návratový výjimky založené na načasování a jestli je přesouvání repliky nebo vypnutí. Tyto výjimky by měl být správně zpracovat. Výjimky vyvolané Service Fabric spadají do trvalého [(`FabricException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) a přechodný [(`FabricTransientException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) kategorií. Trvalé výjimky by měl zaznamenána a vyvolána při přechodné výjimky můžete zkusit znovu na základě logiky některé opakování.
 
 Zpracování výjimek, které pocházejí z použití `ReliableCollections` ve spojení s událostmi služby životního cyklu, je důležitou součástí testování a ověření spolehlivě. Doporučujeme vždy spustit služby zatížení při provádění upgradu a [chaos testování](service-fabric-controlled-chaos.md) před nasazením do produkčního prostředí. Tyto základní postup pomůže, zajistěte, aby služby je implementovaná správně a zpracovává události životního cyklu správně.
 

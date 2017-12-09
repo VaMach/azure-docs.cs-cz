@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: 57f9dae1b353b873fdc0ec5903018d160cfe384f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Nastavení clusteru Linux Service Fabric na počítači pro vývojáře systému Windows
 
@@ -27,7 +27,7 @@ Tento dokument popisuje, jak nastavit místní Service Fabric Linux na vývoj pr
 ## <a name="prerequisites"></a>Požadavky
 Clustery se systémem Linux Service Fabric nativně nespouštějte v systému Windows. Pokud chcete spustit místní cluster Service Fabric, je k dispozici bitovou kopii předem nakonfigurovaná kontejner Docker. Než začnete, budete potřebovat:
 
-* Minimálně 4 GB paměti RAM
+* Minimálně 4 GB RAM
 * Nejnovější verzi [Dockeru](https://store.docker.com/editions/community/docker-ce-desktop-windows)
 * Přístup k [imagi](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) kontejneru Dockeru pro Service Fabric One-box
 
@@ -37,7 +37,7 @@ Clustery se systémem Linux Service Fabric nativně nespouštějte v systému Wi
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Vytvoření místního kontejneru a nastavení Service Fabric
-Nastavit místní kontejner Docker a mít cluster service fabric, v rámci něj spuštěna, proveďte následující kroky:
+Pokud chcete nastavit místní kontejner Dockeru a mít v něm spuštěný cluster Service Fabric, proveďte následující kroky:
 
 1. Stáhněte si image z úložiště Docker Hub:
 
@@ -45,7 +45,7 @@ Nastavit místní kontejner Docker a mít cluster service fabric, v rámci něj 
     docker pull servicefabricoss/service-fabric-onebox
     ```
 
-2. Aktualizujte konfiguraci démon Docker na hostiteli s následujícími službami a restartujte démon Docker: 
+2. Následujícím způsobem aktualizujte konfiguraci démona Dockeru na hostiteli a potom démon Dockeru restartujte: 
 
     ```json
     {
@@ -62,9 +62,9 @@ Nastavit místní kontejner Docker a mít cluster service fabric, v rámci něj 
     ```
     >[!TIP]
     > * Pokud zadáte název instance kontejneru, můžete s ní pracovat srozumitelněji. 
-    > * Pokud vaše aplikace naslouchá na určitých portů, musí být zadán, pomocí další -p značek. Například pokud aplikace naslouchá na portu 8080, spusťte docker spustit 8080:8080 -p - itd -p 19080:19080 – název sfonebox servicefabricoss/service-prostředků infrastruktury – onebox
+    > * Pokud vaše aplikace naslouchá na konkrétních portech, musí se zadat pomocí dalších značek -p. Pokud vaše aplikace například naslouchá na portu 8080, spusťte docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox.
 
-4. Přihlaste se k kontejner Docker v interaktivní ssh režimu:
+4. Přihlaste se ke kontejneru Dockeru v interaktivním režimu SSH:
 
     ```powershell
     docker exec -it sfonebox bash
@@ -80,10 +80,10 @@ Nastavit místní kontejner Docker a mít cluster service fabric, v rámci něj 
 6. Po úspěšném dokončení kroku 5, můžete přejít na ``http://localhost:19080`` z vašeho systému Windows a bude moci zobrazit v Service Fabric Exploreru. V tomto okamžiku můžete připojit k tomuto clusteru pomocí všech nástrojů od vývojáře počítač se systémem Windows a nasadit aplikaci do cílového pro Linux Service Fabric clustery. 
 
     > [!NOTE]
-    > Modul plug-in Eclipse se aktuálně nepodporuje v systému Windows. 
+    > Modul plug-in Eclipse se v systému Windows aktuálně nepodporuje. 
 
 ## <a name="next-steps"></a>Další kroky
-* Začínáme s [Eclipse](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse)
+* Začínáme s [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Podívejte se na jiné [ukázky Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 1cfbe988d881075d1a7bfc7513fbe5f44a531abd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalace a konfigurace rozhraní příkazového řádku pro použití s Azure zásobníku
 
@@ -145,7 +145,7 @@ Pro připojení k Azure zásobníku použijte následující kroky:
      --profile 2017-03-09-profile
    ```
 
-4. Přihlaste se k prostředí Azure zásobníku pomocí `az login` příkaz. Můžete se přihlásit do prostředí Azure zásobníku buď jako uživatel, nebo jako [instanční objekt](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Přihlaste se k prostředí Azure zásobníku pomocí `az login` příkaz. Můžete se přihlásit do prostředí Azure zásobníku buď jako uživatel, nebo jako [instanční objekt](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Přihlaste se jako *uživatele*: můžete zadat uživatelské jméno a heslo přímo v rámci `az login` příkaz nebo ověřit pomocí prohlížeče. Je nutné provést k tomu, pokud má váš účet povolenou službou Multi-Factor authentication.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 900447ab931f15e4d27aedd525eba7881ba813b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Ladění výkonu Azure Data Lake Store
 
@@ -46,13 +46,13 @@ Síťové připojení mezi zdrojem dat a Azure Data Lake store v některých př
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Konfigurace nástrojů přijímání dat pro maximální paralelizace
 
-Jakmile vyřešili zdrojového hardwaru a síťové připojení kritická místa výše, jste připraveni ke konfiguraci vaší přijímání nástroje. Následující tabulka shrnuje nastavení klíče pro několik oblíbených přijímání nástrojů a poskytuje podrobné ladění články pro ně výkonu.  Další informace o nástroji pro váš scénář, získáte na tomto [článku](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios).
+Jakmile vyřešili zdrojového hardwaru a síťové připojení kritická místa výše, jste připraveni ke konfiguraci vaší přijímání nástroje. Následující tabulka shrnuje nastavení klíče pro několik oblíbených přijímání nástrojů a poskytuje podrobné ladění články pro ně výkonu.  Další informace o nástroji pro váš scénář, získáte na tomto [článku](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
 
 | Nástroj               | Nastavení     | Další informace                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount ConcurrentFileCount |  [Odkaz](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)   |
-| AdlCopy    | Azure Data Lake Analytics jednotky  |   [Odkaz](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (Mapovač)   | [Odkaz](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| PowerShell       | PerFileThreadCount ConcurrentFileCount |  [Odkaz](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
+| AdlCopy    | Azure Data Lake Analytics jednotky  |   [Odkaz](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (Mapovač)   | [Odkaz](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Odkaz](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | FS.Azure.Block.Size -m (Mapovač)    |   [Odkaz](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09b59630d9aa8d1adf2f56cde6f8039d6bfe6718
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="community-portal"></a>Portál komunity
 ## <a name="community-spotlight"></a>Spotlight komunity
@@ -167,6 +167,7 @@ Abyste mohli zůstat podle aktuální s nejnovějšími Azure Cosmos DB zprávy 
 ### <a name="videos-and-podcasts"></a>Videa a podcastů
 | Zobrazit | Přednášející | Datum | Díl |
 | --- | --- | --- | --- |
+| Databáze NoSQL podcastu | Kirill Gavrylyuk | 16 může 2017 | [Microsoft DocumentDB pro NoSQL v cloudu](http://nosql.libsyn.com/ndp018-microsoft-documentdb-for-nosql-in-the-cloud) |
 | Azure Friday |Kirill Gavrylyuk |31. října 2016 |[Co je nového v Azure DocumentDB?](https://channel9.msdn.com/Shows/Azure-Friday/AzureFridayNewinDocumentDB) |
 | Channel 9: Microsoft + Open Source |Jose Miguel Parrella |14. dubna 2016 |[Ze střední na DEAN v Azure pomocí Bitnami, škálovatelné sady virtuálních počítačů a DocumentDB](https://channel9.msdn.com/Blogs/Open/From-MEAN-to-DEAN-in-Azure-with-Bitnami-VM-Scale-Sets-and-DocumentDB) |
 | Wired2WinWebinar |Sai Sankar Kunnathukuzhiyil |9. března 2016 |[Vývoj řešení s Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs) |

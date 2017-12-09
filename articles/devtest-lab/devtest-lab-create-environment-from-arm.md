@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 381b3e5cc82e71dde4fe3a4266678dbd5919290d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Vytvoření prostředí více virtuálních počítačů a PaaS prostředky pomocí šablony Azure Resource Manager
 
-[Portál Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) umožňuje snadno [vytvořte a přidejte virtuální počítač do testovacího prostředí](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). To funguje dobře pro vytvoření virtuálního počítače, jeden v čase. Ale pokud prostředí obsahuje víc virtuálních počítačů, každý virtuální počítač má vytvoření jednotlivě. Pro scénáře, jako je vícevrstvé webové aplikace nebo farmy služby SharePoint je nutné mechanismus k povolení pro vytvoření více virtuálních počítačů v jediném kroku. Pomocí šablony Azure Resource Manager, můžete teď určit infrastrukturu a konfiguraci řešení Azure a opakovaně nasazovat více virtuálních počítačů v konzistentním stavu. Tato funkce poskytuje následující výhody:
+[Portál Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) umožňuje snadno [vytvořte a přidejte virtuální počítač do testovacího prostředí](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). To funguje dobře pro vytvoření virtuálního počítače, jeden v čase. Ale pokud prostředí obsahuje víc virtuálních počítačů, každý virtuální počítač má vytvoření jednotlivě. Pro scénáře, jako je vícevrstvé webové aplikace nebo farmy služby SharePoint je nutné mechanismus k povolení pro vytvoření více virtuálních počítačů v jediném kroku. Pomocí šablony Azure Resource Manager, můžete teď určit infrastrukturu a konfiguraci řešení Azure a opakovaně nasazovat více virtuálních počítačů v konzistentním stavu. Tato funkce poskytuje následující výhody:
 
 - Šablony Azure Resource Manageru jsou načítány přímo ze svým úložištěm řízení zdrojů (GitHub nebo Team Services Git).
 - Po nakonfigurování mohou uživatelé vytvářet prostředí výběrem šablonu Azure Resource Manageru z portálu Azure jako co mohou provádět u jiných typů [virtuálních počítačů základů](./devtest-lab-comparing-vm-base-image-types.md).

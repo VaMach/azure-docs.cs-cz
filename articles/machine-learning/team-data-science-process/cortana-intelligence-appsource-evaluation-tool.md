@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 8340ae1231b7f40f739d7bbb63cee1bf0f095ab5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Nástroj pro vyhodnocení řešení Cortana Intelligence
 ## <a name="overview"></a>Přehled
@@ -95,17 +95,17 @@ Všechny prostředky Azure SQL nebo Azure SQL DW v sloution by měl povolit ově
 
 | Další informace o | Najdete v tomto článku |
 | --- | --- |
-| AAD s SQL Database a SQL Data Warehouse | [Pomocí ověřování Azure Active Directory k ověřování připojení k SQL Database nebo SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
-| Konfigurovat a spravovat AAD | [Konfigurovat a spravovat ověřování Azure Active Directory s SQL Database nebo SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
-| Azure WebApps ověřování | [Ověřování a autorizace ve službě Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| Konfigurace WebApps v AAD | [Postup konfigurace aplikace služby App Service pomocí přihlášení Azure Active Directory](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
+| AAD s SQL Database a SQL Data Warehouse | [Pomocí ověřování Azure Active Directory k ověřování připojení k SQL Database nebo SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) |
+| Konfigurovat a spravovat AAD | [Konfigurovat a spravovat ověřování Azure Active Directory s SQL Database nebo SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) |
+| Azure WebApps ověřování | [Ověřování a autorizace ve službě Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) |
+| Konfigurace WebApps v AAD | [Postup konfigurace aplikace služby App Service pomocí přihlášení Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>Datové sady, které jsou dostupné pro koncové uživatele by měly podporovat řízení přístupu na základě rolí
 Při provádění nástroj hodnocení, se výzva k zadání všech vytváření sestav, nebo publikování prostředků. Předpokládá se, že tyto prostředky jsou určeny pro přístup koncových uživatelů, nikoli pro vývojáře. Tyto prostředky by měl poskytovat řízení přístupu na základě role (RBAC) aby se zajistilo, že koncoví uživatelé jsou pouze přístup k autorizovaným data.
 
 Konkrétně všechny následující prostředky Azure se dá nakonfigurovat s RBAC a jsou považovány za přijatelné:
-- Zabezpečení HDInsight naleznete v tématu [Úvod k zabezpečení Hadoop s clustery HDInsight připojený k doméně](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-domain-joined-introduction)
-- Azure SQL, najdete v části [AAD ověřování s Azure SQL]( https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)
+- Zabezpečení HDInsight naleznete v tématu [Úvod k zabezpečení Hadoop s clustery HDInsight připojený k doméně](https://docs.microsoft.com/azure/hdinsight/hdinsight-domain-joined-introduction)
+- Azure SQL, najdete v části [AAD ověřování s Azure SQL]( https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
 - Azure Analysis Services, najdete v části [spravovat role databáze a uživatelů pro Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-database-users)
 - Azure SQL Data Warehouse (mějte na paměti, protože SQL DW podporuje RBAC, není doporučeno pro koncového uživatele přímý přístup.)
 
@@ -114,17 +114,17 @@ Pokud používáte jiný typ prostředku podporující RBAC, zadejte, v zarovná
 ### <a name="azure-data-lake-store-should-use-at-rest-encryption"></a>Azure Data Lake Store měli používat šifrování na rest
 Azure Data Lake Store (ADLS) podporuje šifrování na rest ve výchozím nastavení pomocí ADLS spravované šifrovací klíče. Můžete také nakonfigurovat šifrování pomocí Azure Key Vault.
 
-Informace o zadání nastavení šifrování ADLS [vytvoření účtu Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account).
+Informace o zadání nastavení šifrování ADLS [vytvoření účtu Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account).
 
 ### <a name="azure-sql-and-azure-sql-data-warehouse-should-use-encryption"></a>Azure SQL a Azure SQL Data Warehouse měli použít šifrování
 Azure SQL a Azure SQL DW podporují transparentní dat šifrování (TDE), který poskytuje v reálném čase šifrování a dešifrování souborů protokolu a data.
 
 | Další informace o | Najdete v tomto článku |
 | --- | --- |
-| Transparentní šifrování dat (šifrování TDE) | [Transparentní šifrování dat](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
-| Azure SQL Data Warehouse pomocí šifrování TDE | [SQL datového skladu Encrption TDE TSQL](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql) |
-| Konfigurace Azure SQL pomocí šifrování TDE | [Transparentní šifrování dat s databází Azure SQL](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) |
-| Konfigurace SQL Azure s vždycky šifrovaná. | [Databáze SQL Always Encrypted Azure Key Vault](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault)|
+| Transparentní šifrování dat (šifrování TDE) | [Transparentní šifrování dat](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
+| Azure SQL Data Warehouse pomocí šifrování TDE | [SQL datového skladu Encrption TDE TSQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql) |
+| Konfigurace Azure SQL pomocí šifrování TDE | [Transparentní šifrování dat s databází Azure SQL](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) |
+| Konfigurace SQL Azure s vždycky šifrovaná. | [Databáze SQL Always Encrypted Azure Key Vault](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)|
 
 Kromě TDE Azure SQL také podporuje vždycky šifrovaná, nové technologie šifrování dat, která zajišťuje, že data se šifrují nejen na rest a během pohybu mezi klientem a serverem, ale také při dat se používá při provádění příkazů na serveru.
 
@@ -133,7 +133,7 @@ Chcete-li poskytovat konzistentní úroveň zabezpečení napříč AppSource, j
 
 Pokud chcete hledat aktuální seznam Azure Marketplace Image, najdete v části [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute).
 
-Informace o tom, jak publikovat bitovou kopii virtuálního počítače pro Azure Marketplace najdete v tématu [Průvodce pro vytvoření bitové kopie virtuálního počítače pro Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
+Informace o tom, jak publikovat bitovou kopii virtuálního počítače pro Azure Marketplace najdete v tématu [Průvodce pro vytvoření bitové kopie virtuálního počítače pro Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
 
 ## <a name="scalability-evaluation-considerations"></a>Důležité informace ke škálovatelnosti vyhodnocení
 ### <a name="cortana-intelligence-solutions-should-include-a-scalable-big-data-platform"></a>Řešení Cortana Intelligence by měla obsahovat platformu škálovatelné velkých objemů dat
@@ -145,14 +145,14 @@ Pokud vaše řešení nevyžaduje podporu pro tyto velikosti dat nebo pokud pou�
 ### <a name="cortana-intelligence-solutions-should-include-dedicated-ingestion-data-environments"></a>Řešení Cortana Intelligence by měla obsahovat vyhrazený přijímání dat prostředí
 Řešení Cortana Intelligence byste obvykle neměli přímo vložení dat do zdroje relačních dat. Nezpracovaná data místo toho by měly být uložené v prostředí nestrukturovaných s idempotent vložení nebo aktualizace do všech relační úložiště pomocí Azure Data Factory.
 
-Další informace o kopírování dat pomocí Azure Data Factory [kurz: vytvoření kanálu s aktivitou kopírování pomocí sady Visual Studio](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio).
+Další informace o kopírování dat pomocí Azure Data Factory [kurz: vytvoření kanálu s aktivitou kopírování pomocí sady Visual Studio](https://docs.microsoft.com/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio).
 
 ### <a name="azure-sql-data-warehouse-should-use-polybase-for-data-ingestion"></a>Azure SQL Data Warehouse by měly používat PolyBase pro přijímání dat
 Azure SQL DW podporuje pro přijímání dat vysoce škálovatelnou a paralelní PolyBase. PolyBase umožňuje používat Azure SQL DW problém dotazy proti externích datových sad, které jsou uložené v Azure Blob Storage nebo Azure Data Lake Store. To poskytuje vyšší výkon a alternativní metody hromadné aktualizace.
 
-Pokyny Začínáme s funkcí PolyBase a Azure SQL DW, najdete v části [načtení dat pomocí funkce PolyBase v SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase).
+Pokyny Začínáme s funkcí PolyBase a Azure SQL DW, najdete v části [načtení dat pomocí funkce PolyBase v SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase).
 
-Další informace o osvědčených postupech s PolyBase a datovým Skladem SQL Azure najdete v tématu [Průvodce pro používání funkce PolyBase v SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide).
+Další informace o osvědčených postupech s PolyBase a datovým Skladem SQL Azure najdete v tématu [Průvodce pro používání funkce PolyBase v SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide).
 
 ## <a name="availability-evaluation-considerations"></a>Důležité informace o vyhodnocení dostupnosti
 
@@ -161,38 +161,38 @@ Při provádění nástroj hodnocení, se výzva k zadání všech vytváření 
 
 Azure SQL Data Warehouse konkrétně musí není zdroj dat pouze k dispozici koncovým uživatelům. Pokud Azure SQL DW je zadaný jako prostředek pro Power Users, Azure Analysis Services musí být k dispozici typické uživatelům.
 
-Další informace o omezeních souběžnosti Azure SQL DW najdete v tématu [souběžnosti a úlohy správy v SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency).
+Další informace o omezeních souběžnosti Azure SQL DW najdete v tématu [souběžnosti a úlohy správy v SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency).
 
 Další informace o Azure Analysis Services najdete v tématu [Přehled služby Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview).
 
 ### <a name="azure-sql-resources-should-have-a-read-only-replica-for-failover"></a>Prostředky Azure SQL by měly mít repliku jen pro čtení pro převzetí služeb při selhání
 Databáze Azure SQL podporují geografické replikace do sekundární instance. Tato instance pak slouží jako převzetí služeb při selhání instance zajistit vysokou dostupnost aplikací.
 
-Další informace o geografická replikace pro databáze Azure SQL najdete v tématu [Geografickou replikaci databáze SQL přehled](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview).
+Další informace o geografická replikace pro databáze Azure SQL najdete v tématu [Geografickou replikaci databáze SQL přehled](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
 
-Pokyny ke konfiguraci geografická replikace pro Azure SQL najdete v tématu [konfigurace aktivní geografickou replikací pro Azure SQL Database pomocí jazyka Transact-SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-transact-sql).
+Pokyny ke konfiguraci geografická replikace pro Azure SQL najdete v tématu [konfigurace aktivní geografickou replikací pro Azure SQL Database pomocí jazyka Transact-SQL](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-transact-sql).
 
 ### <a name="azure-sql-data-warehouse-should-have-geo-redundant-backups-enabled"></a>Azure SQL Data Warehouse by měl mít geograficky redundantní zálohy povoleno
 Azure SQL DW podporuje denní zálohování na geograficky redundantní úložiště. Geografická replikace zajistí, že můžete obnovit datového skladu i v situacích, kdy nelze získat přístup snímky uložené ve vaší primární oblasti. Tato funkce je ve výchozím a nesmí být zakázat Cortana Intelligence řešení.
 
-Další informace o Azure SQL DW zálohování a obnovení, zde [SQL Data Warehouse zálohy](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-backups).
+Další informace o Azure SQL DW zálohování a obnovení, zde [SQL Data Warehouse zálohy](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-backups).
 
 ### <a name="virtual-machines-should-be-configured-with-availability-sets"></a>Virtuální počítače by měly být nakonfigurované skupiny dostupnosti
 Virtuální počítače Azure musí být nakonfigurovaný v nastavení dostupnosti, aby bylo možné minimalizovat dopad plánovaných a neplánovaných údržby události.
 
-Další informace o dostupnosti virtuálního počítače Azure najdete v tématu [Správa dostupnosti virtuálních počítačích s Windows v Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability).
+Další informace o dostupnosti virtuálního počítače Azure najdete v tématu [Správa dostupnosti virtuálních počítačích s Windows v Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 ## <a name="other-evaluation-considerations"></a>Další důležité informace o vyhodnocení
 ### <a name="cortana-intelligence-apps-should-use-a-centralized-tool-for-data-orchestration"></a>Cortana Intelligence aplikace by měl použít centrální nástroj pro Orchestrace dat
-Pomocí jediného nástroje pro správu a plánování přesun dat a transformaci zajišťuje konzistenci kolem důležitá data. Umožňuje vymazat logiku kolem logika opakovaných pokusů, správě závislosti, výstrahy nebo protokolování, atd. Doporučujeme použít [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-introduction) pro Orchestrace dat v Azure.
+Pomocí jediného nástroje pro správu a plánování přesun dat a transformaci zajišťuje konzistenci kolem důležitá data. Umožňuje vymazat logiku kolem logika opakovaných pokusů, správě závislosti, výstrahy nebo protokolování, atd. Doporučujeme použít [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-introduction) pro Orchestrace dat v Azure.
 
 Pokud používáte nástroj pro Orchestrace dat než Azure Data Factory, popište prosím, které nástroje nebo nástroje, které používáte.
 ### <a name="azure-machine-learning-models-should-be-retrained-using-azure-data-factory"></a>Modely Azure Machine Learning by měla být retrained pomocí Azure Data Factory
 Azure Machine Learning (AzureML) poskytuje snadno použitelný nástroje pro vytváření a nasazení prediktivního modelování a strojového učení kanály. Ale je důležité, že není založena na jednu datovou sadu s pevnou nasazení v produkčním prostředí těchto modelů AzureML, ale místo toho přizpůsobení shifting dynamics reálného jevů.
 
-Další informace o vytváření retraining webové služby v AzureML najdete v tématu [Machine Learning Přeučování modelů prostřednictvím kódu programu](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
+Další informace o vytváření retraining webové služby v AzureML najdete v tématu [Machine Learning Přeučování modelů prostřednictvím kódu programu](https://docs.microsoft.com/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
-Další informace o automatizaci procesu školení modelu pomocí Azure Data Factory najdete v tématu [aktualizace Azure Machine Learning modelů pomocí aktivita prostředku aktualizace](https://docs.microsoft.com/en-us/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
+Další informace o automatizaci procesu školení modelu pomocí Azure Data Factory najdete v tématu [aktualizace Azure Machine Learning modelů pomocí aktivita prostředku aktualizace](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## <a name="existing-documentation"></a>Stávající dokumentaci
 [Microsoft Azure Certified růst vaší firmě cloudu](https://azure.microsoft.com/en-us/marketplace/programs/certified/)

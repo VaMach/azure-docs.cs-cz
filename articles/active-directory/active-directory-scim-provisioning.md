@@ -16,11 +16,11 @@ ms.date: 07/28/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b84fe16f533db71207effa58b2b596600b4bcd27
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Pomocí systému pro správu identit napříč doménami pro automatické zřizování uživatelů a skupin ze služby Azure Active Directory k aplikacím
 
@@ -87,7 +87,7 @@ Aplikace, které podporují profilem SCIM popsané v tomto článku může být 
 13. Klikněte na tlačítko **Uložit** zahájíte zřizování služby Azure AD. 
 14. Pokud synchronizaci přiřadit pouze uživatelé a skupiny (doporučeno), je nutné vybrat **uživatelů a skupin** a přiřaďte uživatele a skupiny, které chcete synchronizovat.
 
-Po dokončení počáteční synchronizace se spustil, můžete **protokoly auditu** a sledovat postup, který zobrazuje všechny akce prováděné při zřizování služby ve vaší aplikaci. Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Po dokončení počáteční synchronizace se spustil, můžete **protokoly auditu** a sledovat postup, který zobrazuje všechny akce prováděné při zřizování služby ve vaší aplikaci. Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
 >Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. 
@@ -159,7 +159,7 @@ Nejjednodušší způsob, jak implementovat SCIM koncový bod, který může př
 13. Klikněte na tlačítko **Uložit** zahájíte zřizování služby Azure AD. 
 14. Pokud synchronizaci přiřadit pouze uživatelé a skupiny (doporučeno), je nutné vybrat **uživatelů a skupin** a přiřaďte uživatele a skupiny, které chcete synchronizovat.
 
-Po dokončení počáteční synchronizace se spustil, můžete **protokoly auditu** a sledovat postup, který zobrazuje všechny akce prováděné při zřizování služby ve vaší aplikaci. Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Po dokončení počáteční synchronizace se spustil, můžete **protokoly auditu** a sledovat postup, který zobrazuje všechny akce prováděné při zřizování služby ve vaší aplikaci. Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 V posledním kroku ověření ukázce je k otevření souboru TargetFile.csv ve složce \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug na počítač se systémem Windows. Po spuštění procesu zřizování, tento soubor zobrazuje podrobnosti o veškerém přiřazené a zřízení uživatelů a skupin.
 

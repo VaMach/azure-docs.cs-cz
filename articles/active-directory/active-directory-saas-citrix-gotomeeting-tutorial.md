@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: jeedes
-ms.openlocfilehash: e8871ea9c3aa9f962bf961a8b44b748392a56ba7
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: HT
+ms.openlocfilehash: 44a1a7d1c3116af71e07f9579dd8b7570693b813
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Kurz: Azure Active Directory integrace s GoToMeeting
 
@@ -279,7 +279,7 @@ Další informace o na přístupovém panelu najdete v tématu [Úvod k přístu
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Konfiguraci zřizování uživatelů](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+* [Konfiguraci zřizování uživatelů](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
 
 
 <!--Image references-->

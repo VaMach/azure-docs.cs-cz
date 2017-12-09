@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-overview"></a>Přehled Azure provozního zabezpečení
 Zabezpečení provozu Azure se odkazuje na služby, ovládací prvky a funkce, které jsou k dispozici uživatelům pro ochranu svá data, aplikace a dalších prostředků ve službě Microsoft Azure. [Zabezpečení provozu Azure](https://docs.microsoft.com/azure/security/azure-operational-security) je rozhraní, které zahrnuje znalosti získaných prostřednictvím nejrůznějších možností, které jsou jedinečné pro společnosti Microsoft, včetně Microsoft SDL Security Development Lifecycle (), Microsoft Security Response Center program a hloubkové povědomí o povahu hrozeb kybernetického zabezpečení.
@@ -158,5 +158,5 @@ Profesionálové zabývající vyspělá DevOps přijmout řadu následující p
 Další informace o řešení OMS zabezpečení a Audit, naleznete v následujících článcích:
 
 - [Služby Operations Management Suite | Zabezpečení a dodržování předpisů](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [Monitorování a zpracování výstrah zabezpečení v Operations Management Suite zabezpečení a Audit řešení](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts).
-- [Sledování prostředků v Operations Management Suite zabezpečení a Audit řešení](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources).
+- [Monitorování a zpracování výstrah zabezpečení v Operations Management Suite zabezpečení a Audit řešení](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+- [Sledování prostředků v Operations Management Suite zabezpečení a Audit řešení](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources).

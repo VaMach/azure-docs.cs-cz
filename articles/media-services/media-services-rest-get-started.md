@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: ae2f73322f481b1c0b1e81d66ac3542c9e02d98c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 844e6756316aad13918c2a16391f33b2941de7dc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Začínáme s doručováním obsahu na vyžádání pomocí REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 Tento rychlý start vás provede jednotlivými kroky implementace aplikace pro doručování obsahu na vyžádání pomocí rozhraní API REST Azure Media Services (AMS).
 
-Kurz představuje základní pracovní postup služby Media Services a nejběžnější programovací objekty a úkoly, které Media Services vyžaduje. Po dokončení kurzu bude umět streamovat nebo progresivně stáhnout ukázkový multimediální soubor, který jste odeslali, zakódovali a stáhli.
+Kurz představuje základní pracovní postup služby Media Services a nejběžnější programovací objekty a úkoly, které Media Services vyžaduje. Po dokončení tohoto kurzu budete moci Streamovat nebo progresivně stáhnout ukázkový mediální soubor, který nahráli, kódování a stáhnout.
 
 Následující obrázek ukazuje některé z nejčastěji používaných objektů při vývoji aplikace VoD na základě modelu Media Services OData.
 
@@ -51,16 +51,16 @@ V tento rychlý Start jsou uvedeny následující úlohy.
 6. Přehrání obsahu
 
 >[!NOTE]
->Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) tématu.
+>Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Stejné ID zásady použijte, pokud vždy používají stejné dny / přístupová oprávnění, například zásady pro lokátory, které jsou určeny k zůstat na místě po dlouhou dobu (bez odeslání zásady). Další informace najdete v tématu [to](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
 
-Podrobnosti o entitách AMS REST použitým v tomto tématu najdete v tématu [Azure Media Services REST API – referenční informace](/rest/api/media/services/azure-media-services-rest-api-reference). Další informace naleznete v [konceptech Azure Media Services](media-services-concepts.md).
+Podrobnosti o entitách AMS REST používané v tomto článku najdete v tématu [Azure Media Services REST API – referenční informace](/rest/api/media/services/azure-media-services-rest-api-reference). Další informace naleznete v [konceptech Azure Media Services](media-services-concepts.md).
 
 >[!NOTE]
 >Při přístupu k entity ve službě Media Services, musíte nastavit specifická pole hlaviček a hodnoty ve své žádosti HTTP. Další informace najdete v tématu [instalační program pro Media Services REST API vývoj](media-services-rest-how-to-use.md).
 
 ## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Spuštění koncového bodu streamování pomocí webu Azure Portal
 
-Při práci se službou Azure Media Services je jedním z nejběžnější scénářů doručování videa prostřednictvím streamování s adaptivní přenosovou rychlostí. Služba Media Services poskytuje dynamické balení, které umožňuje doručovat obsah s adaptivní přenosovou rychlostí s kódováním MP4 ve formátech streamování podporovaných službou Media Services (MPEG DASH, HLS, technologie Smooth Streaming). není přitom potřeba ukládat předem zabalené verze pro každý z těchto formátů streamování.
+Při práci se službou Azure Media Services je jedním nejběžnější scénářů doručování videa přes streamování s adaptivní přenosovou rychlostí. Služba Media Services poskytuje dynamické balení, které umožňuje doručovat obsah s adaptivní přenosovou rychlostí s kódováním MP4 ve formátech streamování podporovaných službou Media Services (MPEG DASH, HLS, technologie Smooth Streaming). není přitom potřeba ukládat předem zabalené verze pro každý z těchto formátů streamování.
 
 >[!NOTE]
 >Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu **Spuštěno**.
@@ -79,16 +79,6 @@ Pokud chcete spustit koncový bod streamování, postupujte takto:
 ## <a id="connect"></a>Připojení k účtu Media Services pomocí rozhraní REST API
 
 Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI.
-
-Například pokud po pokusu o připojení, vy máte následující:
-
-    HTTP/1.1 301 Moved Permanently
-    Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
-
-Publikujte následující volání rozhraní API https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ## <a id="upload"></a>Vytvoření nového prostředku a odeslání videosouboru pomocí rozhraní REST API
 
@@ -116,7 +106,7 @@ Následující příklad ukazuje, jak vytvořit prostředek.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 45
@@ -170,7 +160,7 @@ Po odeslání souboru digitálního média do kontejneru objektů blob, můžete
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 164
 
@@ -232,7 +222,7 @@ Následující příklad ukazuje, jak vytvořit AccessPolicy:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 74
 
@@ -293,7 +283,7 @@ Následující příklad ukazuje, jak vytvořit lokátor SAS adresa URL, podle d
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 178
 
@@ -357,7 +347,7 @@ Teď, když jste odeslali souboru, aktualizujte informace FileAsset velikost (a 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
     {  
@@ -385,7 +375,7 @@ V případě úspěchu se vrátí následující:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -404,7 +394,7 @@ V případě úspěchu se vrátí následující:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 **Odpověď HTTP**
@@ -435,7 +425,7 @@ Následující kód požadavků kodér id.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -469,7 +459,7 @@ Následující kód požadavků kodér id.
     }
 
 ### <a name="create-a-job"></a>Vytvoření úlohy
-Každá úloha může mít jeden nebo více úloh, v závislosti na typu zpracování, který chcete provést. Přes rozhraní REST API, můžete vytvořit úlohy a jejich související úlohy v jedné ze dvou způsobů: úloh může být definována vložením prostřednictvím úlohy navigační vlastnost u entity úlohy nebo zpracování dávky OData. Sada SDK služby Media používá dávkové zpracování. Čitelnější příklady kódu v tomto tématu jsou úlohy však definována vložením. Informace o zpracování dávky, najdete v části [Open Data Protocol (OData) dávkové zpracování](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Každá úloha může mít jeden nebo více úloh, v závislosti na typu zpracování, který chcete provést. Přes rozhraní REST API, můžete vytvořit úlohy a jejich související úlohy v jedné ze dvou způsobů: úloh může být definována vložením prostřednictvím úlohy navigační vlastnost u entity úlohy nebo zpracování dávky OData. Sada SDK služby Media používá dávkové zpracování. Čitelnější příklady kódu v tomto článku jsou úlohy však definována vložením. Informace o zpracování dávky, najdete v části [Open Data Protocol (OData) dávkové zpracování](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 Následující příklad ukazuje, jak vytvořit a odeslat úlohu s jedním úloh nastavit ke kódování videa na konkrétní řešení a kvality. V následující části dokumentace obsahuje seznam všech [úkolů přednastavení](http://msdn.microsoft.com/library/mt269960) nepodporuje procesoru Media Encoder Standard.  
 
@@ -482,7 +472,7 @@ Následující příklad ukazuje, jak vytvořit a odeslat úlohu s jedním úloh
     Accept: application/json;odata=verbose
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 482
 
@@ -569,7 +559,7 @@ V případě úspěchu se vrátí následující odpověď:
 
 Poznámka: v žádné žádosti o úlohu několik důležité věci:
 
-* Taskbody – vlastnosti používaly literál XML Definujte počet vstup nebo výstup prostředky, které jsou používány úlohu. Úloha téma obsahuje definici schématu XML pro soubor XML.
+* Taskbody – vlastnosti používaly literál XML Definujte počet vstup nebo výstup prostředky, které jsou používány úlohu. Úloha článek obsahuje definici schématu XML pro soubor XML.
 * V definici taskbody – každý vnitřní hodnota <inputAsset> a <outputAsset> musí být nastavena jako JobInputAsset(value) nebo JobOutputAsset(value).
 * Úloha může mít více prostředků výstup. Jeden JobOutputAsset(x) lze použít jako výstup úlohy pro úlohu pouze jednou.
 * Můžete zadat JobInputAsset nebo JobOutputAsset jako vstupní datový zdroj úlohy.
@@ -595,7 +585,7 @@ Poznámka: v žádné žádosti o úlohu několik důležité věci:
 Další informace najdete v tématu [vytváření úlohu kódování s Media Services REST API](media-services-rest-encode-asset.md).
 
 ### <a name="monitor-processing-progress"></a>Monitorování zpracování průběh
-Stav úlohy můžete načíst pomocí vlastnosti stavu, jak je znázorněno v následujícím příkladu.
+Stav úlohy můžete načíst pomocí vlastnosti stavu, jak je znázorněno v následujícím příkladu:
 
 **Požadavek HTTP**
 
@@ -604,7 +594,7 @@ Stav úlohy můžete načíst pomocí vlastnosti stavu, jak je znázorněno v n�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=zf84471d-2233-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336908022&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=RYXOraO6Z%2f7l9whWZQN%2bypeijgHwIk8XyikA01Kx1%2bk%3d
     Host: wamsbayclus001rest-hs.net
     Content-Length: 0
@@ -665,7 +655,7 @@ Následující kód ukazuje, jak požádat o výstupní asset ID.
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -742,7 +732,7 @@ Následující příklad ukazuje, jak zadat AccessPolicy pro oprávnění ke čt
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
     Host: wamsbayclus001rest-hs.net
     Content-Length: 74
@@ -765,7 +755,7 @@ Následující kód ukazuje, jak získat adresu URL, která slouží k stažení
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=zf84471d-b1ae-2233-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
     Host: wamsbayclus001rest-hs.net
     Content-Length: 182
@@ -858,7 +848,7 @@ Následující kód ukazuje, jak vytvořit lokátor streamování adresy URL:
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
     Host: wamsbayclus001rest-hs
     Content-Length: 182

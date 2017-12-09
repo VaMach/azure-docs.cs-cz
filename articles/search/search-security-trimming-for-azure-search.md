@@ -11,11 +11,11 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-trimming-with-azure-search"></a>Oříznutí zabezpečení s Azure Search
 
@@ -108,13 +108,13 @@ Pokud je potřeba aktualizovat stávající dokument s seznam skupin, můžete p
 }
 ```
 
-Úplné podrobnosti o přidání nebo aktualizace dokumenty, můžete si přečíst [úpravám dokumentů](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+Úplné podrobnosti o přidání nebo aktualizace dokumenty, můžete si přečíst [úpravám dokumentů](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Použijte filtr zabezpečení
 
 Chcete-li trim dokumentů na základě `group_ids` přístup, musí vydejte vyhledávací dotaz s `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filtru, kde "group_id1, group_id2,..." jsou skupiny, do kterých patří vystavitele žádost o vyhledávání.
 Tento filtr odpovídá všechny dokumenty, pro kterou `group_ids` pole obsahuje jeden z daného identifikátory.
-Úplné podrobnosti o vyhledávání dokumentů pomocí Azure Search, můžete si přečíst [vyhledávání dokumentů](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+Úplné podrobnosti o vyhledávání dokumentů pomocí Azure Search, můžete si přečíst [vyhledávání dokumentů](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Všimněte si, že tento příklad ukazuje postup vyhledávání dokumentů pomocí požadavek POST.
 
 Vydání požadavku HTTP POST:

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fdbe3c3f2ac7bd6ccb98ef5c1346444ca34e5ac3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Vytváření řídicích panelů Azure prostřednictvím kódu programu
 
@@ -27,7 +27,7 @@ Tento dokument vás provede procesem prostřednictvím kódu programu vytvářen
 
 ## <a name="overview"></a>Přehled
 
-Sdílet řídicí panely v Azure jsou [prostředky](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) stejně jako virtuální počítače a účty úložiště.  Proto je můžete spravovat prostřednictvím kódu programu prostřednictvím [rozhraní API REST Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), [rozhraní příkazového řádku Azure](https://docs.microsoft.com/en-us/cli/azure/overview), [příkazy prostředí Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0)a mnoho [ Portál Azure](https://portal.azure.com) funkce sestavení nad tato rozhraní API v zájmu snazší správy prostředků.  
+Sdílet řídicí panely v Azure jsou [prostředky](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) stejně jako virtuální počítače a účty úložiště.  Proto je můžete spravovat prostřednictvím kódu programu prostřednictvím [rozhraní API REST Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/overview), [příkazy prostředí Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)a mnoho [ Portál Azure](https://portal.azure.com) funkce sestavení nad tato rozhraní API v zájmu snazší správy prostředků.  
 
 Každý z těchto rozhraní API a nástroje nabízí způsoby vytváření, výpisu, načtení, upravit a odstranit prostředky.  Vzhledem k tomu, že řídicí panely jsou prostředky, můžete vybrat vaše oblíbená rozhraní API a nástroj použít.
 
@@ -43,7 +43,7 @@ Pokud chcete vytvořit nový řídicí panel, použijte příkaz nového řídic
 
 Potom můžete galerii dlaždice můžete najít a přidat dlaždice. Dlaždice se přidají pomocí přetahování a vkládání je. Některé dlaždice podporovat změnu velikosti prostřednictvím popisovač přetažení, zatímco jiné, podporu opraví velikosti, které si můžete prohlédnout ve své místní nabídce.
 
-### <a name="drag-handle"></a>Popisovač přetažení
+### <a name="drag-handle"></a>Přetažením úchytu
 ![Přetažením úchytu](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
 ### <a name="fixed-sizes-via-context-menu"></a>Pevné velikosti prostřednictvím místní nabídky
@@ -55,7 +55,7 @@ Po nakonfigurování řídicího panelu, aby přesně další kroky jsou publiko
 
 ![příkaz sdílené složky](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Kliknutím na příkaz sdílené složky zobrazí dialogové okno s dotazem, abyste si zvolili které předplatném nebo skupině prostředků pro publikování do. Mějte na paměti, [musí mít oprávnění k zápisu](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) ke skupině předplatného a prostředků, který zvolíte.
+Kliknutím na příkaz sdílené složky zobrazí dialogové okno s dotazem, abyste si zvolili které předplatném nebo skupině prostředků pro publikování do. Mějte na paměti, [musí mít oprávnění k zápisu](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) ke skupině předplatného a prostředků, který zvolíte.
 
 ![sdílení a přístup](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ Není nutné, abyste plně porozuměli tomu struktuře JSON řídicího panelu v
 
 Pokud chcete publikovat tento řídicí panel pro jakýkoli virtuální počítač je třeba v budoucnu Parametrizace všechny výskyty řetězce tento řetězec ve formátu JSON. 
 
-Existují dva typy rozhraní API, která vytváření prostředků v Azure. [Imperativní rozhraní API](https://docs.microsoft.com/en-us/rest/api/resources/resources) současně, který vytvořit jeden prostředek a [nasazení na základě šablony](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) systém, který můžete orchestraci vytvoření více prostředků závislých na základě jednoho volání rozhraní API. K tomu nativně podporuje Parametrizace a ukázka tak používáme pro náš příklad.
+Existují dva typy rozhraní API, která vytváření prostředků v Azure. [Imperativní rozhraní API](https://docs.microsoft.com/rest/api/resources/resources) současně, který vytvořit jeden prostředek a [nasazení na základě šablony](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) systém, který můžete orchestraci vytvoření více prostředků závislých na základě jednoho volání rozhraní API. K tomu nativně podporuje Parametrizace a ukázka tak používáme pro náš příklad.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Řídicí panel ze šablony pomocí šablony nasazení vytváření prostřednictvím kódu programu
 
-Azure nabízí možnost orchestraci nasazení více prostředků. Můžete vytvořit šablonu nasazení, která vyjadřuje sadu prostředků pro nasazení také vztahy mezi nimi.  Formát JSON každého prostředku je stejný, jako kdyby jejich byly vytváření po jednom. Rozdíl je, že [jazyk šablony](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) přidá s několika koncepty jako proměnné, parametry, základní funkce a další. Tuto rozšířenou syntaxe je podporován pouze v kontextu šablony nasazení a nefunguje, pokud se používá s imperativní rozhraní API už jsme probírali výše.
+Azure nabízí možnost orchestraci nasazení více prostředků. Můžete vytvořit šablonu nasazení, která vyjadřuje sadu prostředků pro nasazení také vztahy mezi nimi.  Formát JSON každého prostředku je stejný, jako kdyby jejich byly vytváření po jednom. Rozdíl je, že [jazyk šablony](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) přidá s několika koncepty jako proměnné, parametry, základní funkce a další. Tuto rozšířenou syntaxe je podporován pouze v kontextu šablony nasazení a nefunguje, pokud se používá s imperativní rozhraní API už jsme probírali výše.
 
 Pokud budete tuto trasu, pak by mělo být provedeno Parametrizace pomocí syntaxe parametru šablony.  Můžete nahradit všechny instance, které jsme našli dříve, jak je vidět tady ID prostředku.
 
@@ -119,7 +119,7 @@ Také musíte deklarovat některá metadata požadovanou šablonu a parametry v 
 
 __Uvidíte kompletní, funkční šablonou na konci tohoto dokumentu.__
 
-Jakmile máte vytvořené šablony můžete nasadit pomocí [rozhraní REST API](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [prostředí PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), [rozhraní příkazového řádku Azure](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create), nebo [stránku nasazení šablony portálu ](https://portal.azure.com/#create/Microsoft.Template).
+Jakmile máte vytvořené šablony můžete nasadit pomocí [rozhraní REST API](https://docs.microsoft.com/rest/api/resources/deployments), [prostředí PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create), nebo [stránku nasazení šablony portálu ](https://portal.azure.com/#create/Microsoft.Template).
 
 Tady jsou jsou dvě verze náš příklad řídicího panelu JSON. První je verze, který jsme exportovali z portálu, který byl již vázána na prostředek. Druhá je verzi šablony, které mohou být prostřednictvím kódu programu vázány na žádné virtuální počítače a nasazují pomocí Azure Resource Manager.
 

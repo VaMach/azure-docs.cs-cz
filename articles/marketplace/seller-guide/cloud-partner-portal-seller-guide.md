@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: divacc@microsoft.com
-ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 9a9e9b3116c0d787162284197c8dbbd77374cff3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Příručka pro prodejce na Azure Marketplace
 
 Vítejte v Průvodci prodejce Azure Marketplace. Tato příručka je určená pro firmy uživatelům a správcům produktu v nezávislí dodavatelé softwaru (ISV), kteří mají zájem o prodávané jejich Azure certifikované bitové kopie virtuálních počítačů a spravované aplikace pro odborníky v oblasti IT a vývojářům. S Azure zákazníky umístěné po celém světě [Azure Marketplace](https://azuremarketplace.microsoft.com/) poskytne skvělé reach a ohrožení vaší produktů.
 
 > [!NOTE]
-> Pokud vás zajímá prodávané vaše [spravované aplikace](https://docs.microsoft.com/en-us/azure/managed-applications/overview), postupujte podle pokynů k zobrazení seznamu je v Azure Marketplace [zde](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Pokud vás zajímá prodávané vaše [spravované aplikace](https://docs.microsoft.com/azure/managed-applications/overview), postupujte podle pokynů k zobrazení seznamu je v Azure Marketplace [zde](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Pokud vás zajímá prodávané dokončení software jako služba (SaaS) produktů pro _IT profesionálům a vývojářům_, můžete oslovení saas-on-amp@microsoft.com Další informace o možnostech.
@@ -100,7 +100,7 @@ Obrázek 1: Proces prodávané v Azure Marketplace
 V závislosti na pracovním vytížení (virtuálního počítače nebo spravované aplikace), můžete plán pro publikování, postupujte podle jiným procesem publikování vaši nabídku. Následující obsah se zaměřuje na publikování _virtuální počítač nabízí_.
 
 > [!NOTE]
-> Pokud vás zajímá prodávané vaše [spravované aplikace](https://docs.microsoft.com/en-us/azure/managed-applications/overview), postupujte podle pokynů k zobrazení seznamu je v Azure Marketplace [zde](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Pokud vás zajímá prodávané vaše [spravované aplikace](https://docs.microsoft.com/azure/managed-applications/overview), postupujte podle pokynů k zobrazení seznamu je v Azure Marketplace [zde](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Pokud vás zajímá prodávané dokončení software jako služba (SaaS) produktů pro _IT profesionálům a vývojářům_, můžete oslovení saas-on-amp@microsoft.com Další informace o možnostech.

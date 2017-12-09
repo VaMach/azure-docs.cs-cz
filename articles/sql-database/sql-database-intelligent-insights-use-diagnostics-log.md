@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Použití protokolu diagnostiky výkonu inteligentního Statistika Azure SQL Database
 
@@ -139,13 +139,13 @@ Poslední část protokol inteligentního Statistika výkonu se vztahují na Ana
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Můžete použít protokol inteligentního Statistika výkonu s [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) nebo řešení třetí strany pro vlastní DevOps výstrahy a vytváření sestav funkce.
+Můžete použít protokol inteligentního Statistika výkonu s [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) nebo řešení třetí strany pro vlastní DevOps výstrahy a vytváření sestav funkce.
 
 ## <a name="next-steps"></a>Další kroky
 - Další informace o [inteligentního Statistika](sql-database-intelligent-insights.md) koncepty.
 - Zjistěte, jak [řešení potíží s výkonem databáze SQL Azure s inteligentního Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Zjistěte, jak [monitorovat Azure SQL Database pomocí Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
-- Zjistěte, jak [shromažďovat a využívat data protokolu z vašich prostředků Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Zjistěte, jak [monitorovat Azure SQL Database pomocí Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Zjistěte, jak [shromažďovat a využívat data protokolu z vašich prostředků Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

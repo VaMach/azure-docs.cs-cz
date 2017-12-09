@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 92076c7fe1f867919b7e02abf79cf0fb74fb7eb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2bfeba27b6de9e5db623eba1526bd2d2ff1b7211
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Vytvořit výstrahu protokolu aktivit pomocí šablony Resource Manageru
-V tomto článku se dozvíte, jak používat [šablony Azure Resource Manageru](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) konfigurace aktivity protokolu výstrah. Pomocí šablon můžete snadno nastavit více výstrah, které aktivovat na základě konkrétní aktivitu protokolu události podmínek jako součást procesu automatického nasazení.
+V tomto článku se dozvíte, jak používat [šablony Azure Resource Manageru](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) konfigurace aktivity protokolu výstrah. Pomocí šablon můžete snadno nastavit více výstrah, které aktivovat na základě konkrétní aktivitu protokolu události podmínek jako součást procesu automatického nasazení.
 
 Toto jsou základní kroky:
 

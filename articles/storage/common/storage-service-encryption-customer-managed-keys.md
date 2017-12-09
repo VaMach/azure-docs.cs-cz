@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Šifrování služby úložiště pomocí klíčů zákazníků spravované v Azure Key Vault
 
@@ -50,7 +50,7 @@ Můžete povolit SSE pro účet úložiště pomocí [portál Azure](https://por
 ![Možnost šifrování portálu snímek obrazovky zobrazující](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 <br/>*Povolit SSE pro služby objektů Blob*
 
-Pokud chcete prostřednictvím kódu programu povolit nebo zakázat šifrování služby úložiště na účet úložiště, můžete použít [REST API služby Azure Storage prostředků zprostředkovatele](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN), [prostředků zprostředkovatele Klientská knihovna pro úložiště pro .NET ](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN), [Prostředí azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0), nebo [rozhraní příkazového řádku Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
+Pokud chcete prostřednictvím kódu programu povolit nebo zakázat šifrování služby úložiště na účet úložiště, můžete použít [REST API služby Azure Storage prostředků zprostředkovatele](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), [prostředků zprostředkovatele Klientská knihovna pro úložiště pro .NET ](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [Prostředí azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0), nebo [rozhraní příkazového řádku Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 Na této obrazovce Pokud nevidíte zaškrtávací políčko "použití vlastní klíč", můžete nebylo schváleno ve verzi preview. Odeslat e-mail, který [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) a požádat o schválení.
 
@@ -71,10 +71,10 @@ Pokud účet úložiště nemá přístup do služby Key Vault, můžete spustit
 Můžete také udělit přístup prostřednictvím portálu Azure tak, že přejdete do Azure Key Vault na portálu Azure a udělení přístupu k účtu úložiště.
 
 ## <a name="step-4-copy-data-to-storage-account"></a>Krok 4: Kopírování dat do účtu úložiště
-Pokud chcete k přenosu dat do nového účtu úložiště tak, aby se šifrují, podívejte se na [krok 3 z Začínáme v šifrování služby úložiště pro Data v klidovém stavu](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+Pokud chcete k přenosu dat do nového účtu úložiště tak, aby se šifrují, podívejte se na [krok 3 z Začínáme v šifrování služby úložiště pro Data v klidovém stavu](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
 
 ## <a name="step-5-query-the-status-of-the-encrypted-data"></a>Krok 5: Dotaz na stav šifrovaná data
-Dotaz na stav šifrovaná data, najdete v tématu [krok 4 z Začínáme v šifrování služby úložiště pro Data v klidovém stavu](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+Dotaz na stav šifrovaná data, najdete v tématu [krok 4 z Začínáme v šifrování služby úložiště pro Data v klidovém stavu](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
 ## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Nejčastější dotazy o šifrování služby úložiště pro Data v klidovém stavu
 **Otázka: používám storage úrovně Premium; můžete použít SSE pomocí klíčů zákazníků spravovat?**
@@ -91,7 +91,7 @@ Odpověď: je s náklady související pro použití Azure Key Vault. Další po
 
 **Otázka: je možné odvolat přístup k šifrovacím klíčům?**
 
-A: Ano, můžete kdykoli odvolat přístup. Existuje několik způsobů odvolat přístup k klíče. Odkazovat na [Azure Key Vault PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) a [příkazového řádku Azure Key Vault](https://docs.microsoft.com/en-us/cli/azure/keyvault) další podrobnosti. Odvolání přístupu bude efektivně blokovat přístup k všech objektů BLOB v účtu úložiště, protože účet šifrovací klíč je pravděpodobně nepřístupný úložiště Azure.
+A: Ano, můžete kdykoli odvolat přístup. Existuje několik způsobů odvolat přístup k klíče. Odkazovat na [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) a [příkazového řádku Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault) další podrobnosti. Odvolání přístupu bude efektivně blokovat přístup k všech objektů BLOB v účtu úložiště, protože účet šifrovací klíč je pravděpodobně nepřístupný úložiště Azure.
 
 **Otázka: je možné vytvořit účet úložiště a klíč v jiné oblasti?**
 
@@ -123,6 +123,6 @@ Odpověď: kontaktní [ ssediscussions@microsoft.com ](mailto:ssediscussions@mic
 
 ## <a name="next-steps"></a>Další kroky
 
-*   Další informace o komplexní sadu zabezpečení možnosti, které pomáhají vývojářům vytvářet aplikace, zabezpečení naleznete v tématu [Průvodce zabezpečením úložiště](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
-*   Souhrnné informace o Azure Key Vault naleznete v tématu [co je Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?
+*   Další informace o komplexní sadu zabezpečení možnosti, které pomáhají vývojářům vytvářet aplikace, zabezpečení naleznete v tématu [Průvodce zabezpečením úložiště](https://docs.microsoft.com/azure/storage/storage-security-guide).
+*   Souhrnné informace o Azure Key Vault naleznete v tématu [co je Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
 *   Začínáme v Azure Key Vault, najdete v části [Začínáme s Azure Key Vault](../../key-vault/key-vault-get-started.md).

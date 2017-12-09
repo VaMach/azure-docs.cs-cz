@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Rady pro pochopení a upravit jednotek streamování
 
@@ -27,7 +27,7 @@ Azure Stream Analytics agreguje výkonu "váhu" běžící úlohy do jednotek st
 
 Aby bylo možné dosáhnout s nízkou latencí streamování zpracování, provádět úlohy Azure Stream Analytics veškeré zpracování v paměti. Když spustíte nedostatek paměti, úloha streamování se nezdaří. V důsledku toho pro provozní úlohy, je důležité monitorovat využití prostředků úlohu streamování a ujistěte se, není dostatek prostředků přidělené abychom zachovali úloh spuštěných 24 hodin denně 7.
 
-Metrika je procento číslo od 0 % až 100 %. Pro úlohu streamování s minimální nároky metriky využití SU % je obvykle mezi 10 až 20 %. Je nejlepší mít metrika nižší než 80 %, aby se zohlednily příležitostně špičky.  Metriky můžete nastavit upozornění (v tématu [zde nastavit metriky výstrahy](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+Metrika je procento číslo od 0 % až 100 %. Pro úlohu streamování s minimální nároky metriky využití SU % je obvykle mezi 10 až 20 %. Je nejlepší mít metrika nižší než 80 %, aby se zohlednily příležitostně špičky.  Metriky můžete nastavit upozornění (v tématu [zde nastavit metriky výstrahy](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
 
 
 
@@ -82,7 +82,7 @@ Chcete-li ameliorate problémů způsobených vysokou kardinalitou v předchozí
 
 Jakmile je dotaz rozdělený, rozprostře se mezi několik uzlů. V důsledku toho clusterid přicházející do každého uzlu se snížil počet a snižují se mohutnost skupiny operátorem. 
 
-Oddíly centra událostí by měl pomocí klíče seskupení, abyste nemuseli pro fází reduce rozdělit na oddíly. Další podrobnosti jsou popsané [zde](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview). 
+Oddíly centra událostí by měl pomocí klíče seskupení, abyste nemuseli pro fází reduce rozdělit na oddíly. Další podrobnosti jsou popsané [zde](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
 #### <a name="temporal-join"></a>Dočasné připojení k
 Velikost stavu dočasné připojení k je úměrná počtu událostí v místnosti dočasné rychlý pohyb spojení, která je vstupní rychlost událostí násobkem velikostí rychlý pohyb místnosti. 
 

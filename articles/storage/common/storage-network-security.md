@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: bc77fe59fdb128d28389c43d41c43ca1d393d83c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurace brány firewall úložiště Azure a virtuálních sítí (preview)
 Úložiště Azure poskytuje vrstvený model zabezpečení umožňuje zabezpečit účtů úložiště na konkrétní sadu povolených sítí.  Pokud jsou nakonfigurovaná pravidla pro sítě, můžete jenom aplikace z povolených sítí přístup k účtu úložiště.  Při volání z povolených sítě, aplikace dál vyžadují správné autorizace (platný přístupový klíč nebo tokenu SAS) pro přístup k účtu úložiště.
@@ -293,13 +293,13 @@ Pokud výjimky "Důvěryhodné služby Microsoft" je povoleno, tyto služby (př
 
 |Služba|Název zprostředkovatele prostředků|Účel|
 |:------|:---------------------|:------|
-|Azure DevTest Labs|Microsoft.DevTestLab|Vytváření a artefaktů instalace vlastní image.  [Další informace](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-overview).|
-|Azure Event Grid|Microsoft.EventGrid|Povolte publikování událostí úložiště objektů Blob.  [Další informace](https://docs.microsoft.com/en-us/azure/event-grid/overview).|
-|Azure Event Hubs|Microsoft.EventHub|Archivní data s zaznamenat centra událostí.  [Další informace](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|Zřizování clusteru a instalaci.  [Další informace](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
-|Sítě Azure|Microsoft.Networking|Ukládat a analyzovat protokoly síťových přenosů.  [Další informace](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Import a export.  [Další informace](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
-|Azure Backup|Microsoft.RecoveryServices|Zálohování a obnovení nespravované disků.  [Další informace](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
+|Azure DevTest Labs|Microsoft.DevTestLab|Vytváření a artefaktů instalace vlastní image.  [Další informace](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
+|Azure Event Grid|Microsoft.EventGrid|Povolte publikování událostí úložiště objektů Blob.  [Další informace](https://docs.microsoft.com/azure/event-grid/overview).|
+|Azure Event Hubs|Microsoft.EventHub|Archivní data s zaznamenat centra událostí.  [Další informace](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
+|Azure HDInsight|Microsoft.HDInsight|Zřizování clusteru a instalaci.  [Další informace](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
+|Sítě Azure|Microsoft.Networking|Ukládat a analyzovat protokoly síťových přenosů.  [Další informace](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Import a export.  [Další informace](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Azure Backup|Microsoft.RecoveryServices|Zálohování a obnovení nespravované disků.  [Další informace](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Přístup k datům analytics úložiště

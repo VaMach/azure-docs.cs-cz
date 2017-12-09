@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 3e8727e80571be70124fb439f4c7e448f521b692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostické protokoly Azure
 
@@ -261,7 +261,7 @@ Použijte následující postup přidání řešení pro správu:
 
 ### <a name="offers-and-pricing-tiers"></a>Nabídky a cenové úrovně
 
-Můžete zobrazit nabídky a cenové úrovně pro řešení pro správu OMS [zde](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Můžete zobrazit nabídky a cenové úrovně pro řešení pro správu OMS [zde](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Přizpůsobení zobrazení
 
@@ -410,8 +410,8 @@ Příklad vlastnosti:
 
 * [Azure diagnostické protokoly](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Základní analýza prostřednictvím doplňkovém portálu Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Analýzy protokolů Azure OMS](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview)
-* [Analýza protokolů Azure rozhraní REST API](https://docs.microsoft.com/en-us/rest/api/loganalytics)
+* [Analýzy protokolů Azure OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Analýza protokolů Azure rozhraní REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

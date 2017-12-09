@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: terrylan
-ms.openlocfilehash: c80e78b39b3fba4dcd9523e1e679822758822805
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fd238f0b2d877f7f57a27ce495dae8de1ab9c066
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Podporované platformy v Azure Security Center
 Sledování stavu zabezpečení a doporučení jsou k dispozici pro virtuální počítače (VM) vytvořené pomocí modelu nasazení Resource Manager i classic.
@@ -59,6 +59,6 @@ Virtuální počítače spuštěné v rámci cloudové služby jsou také podpor
 ## <a name="next-steps"></a>Další kroky
 
 - [Průvodce Azure Security Center plánováním a provozem](security-center-planning-and-operations-guide.md) – zjistěte, jak naplánovat a pochopit aspekty návrhu přijmout službu Azure Security Center
-- [Výstrahy zabezpečení podle typu v Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) – Další informace o analýzy chování virtuálního počítače a havárií analýza výpisu paměti v Centru zabezpečení
+- [Výstrahy zabezpečení podle typu v Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) – Další informace o analýzy chování virtuálního počítače a havárií analýza výpisu paměti v Centru zabezpečení
 - [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Přečtěte si nejčastější dotazy o použití této služby.
 - [Blog o bezpečnosti Azure](http://blogs.msdn.com/b/azuresecurity/) – přečtěte si příspěvky o zabezpečení Azure a dodržování předpisů

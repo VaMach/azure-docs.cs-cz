@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 94658dfcf93e821e24cabb1f010f8dce0c014700
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e51d31035a8b05238ef0f8d13dd6b6c3f9ad02e8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostika místní připojení prostřednictvím brány sítě VPN
 
@@ -32,7 +32,7 @@ Chcete nakonfigurovat připojení site-to-site mezi Azure a místními pomocí F
 
 1. Brána virtuální sítě - bránu sítě VPN v Azure
 1. Brána místní sítě - [místní brány sítě VPN (FortiGate)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) reprezentace v cloudu Azure
-1. Připojení Site-to-site (trasy na základě) - [připojení mezi služby VPN Gateway a místní směrovač](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Připojení Site-to-site (trasy na základě) - [připojení mezi služby VPN Gateway a místní směrovač](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
 1. [Konfigurace FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Podrobné pokyny krok za krokem pro konfiguraci konfigurace Site-to-Site najdete navštivte stránky: [vytvoření virtuální sítě s připojením Site-to-Site pomocí webu Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Osvědčené postupy zabezpečení databáze Azure
 
@@ -137,7 +137,7 @@ Pokud jsou interakci s Azure Storage prostřednictvím portálu Azure, všechny 
 
 Organizace, které se nepodařilo ochranu přenášených dat budou náchylnější pro [útokům man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [odposlouchávání](https://technet.microsoft.com/library/gg195641.aspx) a zneužití relace. Prvním krokem při přístupu k důvěrných dat může být tyto útoky.
 
-Další informace o Azure VPN možnost přečíst v článku [plánování a návrhu pro bránu VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+Další informace o Azure VPN možnost přečíst v článku [plánování a návrhu pro bránu VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## <a name="enable-database-auditing"></a>Povolit auditování databáze
 Auditování instanci databázového stroje SQL Server nebo jednotlivé databáze zahrnuje sledování a protokolování události na databázového stroje. SQL Server audit umožňuje vytvářet audity serveru, které může obsahovat specifikace auditu serveru pro události na úrovni serveru a specifikace auditu databáze pro databázi úroveň události. Auditované události lze zapsat do protokolů událostí nebo auditovat soubory.

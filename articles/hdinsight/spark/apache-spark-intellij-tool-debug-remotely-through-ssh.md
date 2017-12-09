@@ -17,20 +17,20 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 87cda776195dc93a35c6e978b18e823bf54c9ffb
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 6ea6d94453583c6b5ed680f96ebc43d33d0262a0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Ladění aplikací Spark místně nebo vzdáleně v clusteru s Azure nástrojů HDInsight pro IntelliJ prostřednictvím SSH
 
 Tento článek obsahuje podrobné pokyny o tom, jak používat nástroje HDInsight v Azure nástrojů pro IntelliJ k ladění aplikací vzdáleně v clusteru HDInsight. K ladění projektu, můžete také zobrazit [HDInsight Spark ladění aplikace s Azure Toolkit pro IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) videa.
 
 **Požadavky**
-* **Nástroje HDInsight v Azure nástrojů pro IntelliJ**. Tento nástroj je součástí sady nástrojů Azure pro IntelliJ. Další informace najdete v tématu [instalaci nástrojů Azure pro IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). A **Azure nástrojů pro IntelliJ**. Tato sada nástrojů použijte k vytvoření aplikací Spark pro cluster služby HDInsight. Další informace, postupujte podle pokynů v [pomocí nástrojů Azure pro IntelliJ k vytvoření aplikací Spark pro cluster služby HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
+* **Nástroje HDInsight v Azure nástrojů pro IntelliJ**. Tento nástroj je součástí sady nástrojů Azure pro IntelliJ. Další informace najdete v tématu [instalaci nástrojů Azure pro IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). A **Azure nástrojů pro IntelliJ**. Tato sada nástrojů použijte k vytvoření aplikací Spark pro cluster služby HDInsight. Další informace, postupujte podle pokynů v [pomocí nástrojů Azure pro IntelliJ k vytvoření aplikací Spark pro cluster služby HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
 
-* **HDInsight SSH služby pomocí uživatelského jména a hesla správu**. Další informace najdete v tématu [připojení k HDInsight (Hadoop) pomocí protokolu SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) a [použití SSH tunelového propojení pro přístup k Ambari webové uživatelské rozhraní, JobHistory, NameNode, Oozie a jiné webové uživatelská](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **HDInsight SSH služby pomocí uživatelského jména a hesla správu**. Další informace najdete v tématu [připojení k HDInsight (Hadoop) pomocí protokolu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) a [použití SSH tunelového propojení pro přístup k Ambari webové uživatelské rozhraní, JobHistory, NameNode, Oozie a jiné webové uživatelská](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
 ## <a name="learn-how-to-perform-local-run-and-debugging"></a>Zjistěte, jak provádět místní spuštění a ladění
 ### <a name="scenario-1-create-a-spark-scala-application"></a>Scénář 1: Vytvoření aplikací Spark Scala 

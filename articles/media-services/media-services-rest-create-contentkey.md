@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 7e4cd0b455ab39db01d50943d15f7e138bbd5e4e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Vytváření obsahu klíčů se zbytkem
 > [!div class="op_single_selector"]
@@ -35,18 +35,18 @@ Při předvádění prostředky pro klienty, můžete [konfigurace pro prostřed
 
 Šifrované prostředky musí být přidružený **ContentKey**s. Tento článek popisuje postup vytvoření klíče k obsahu.
 
-Následují obecné kroky pro generování obsahu klíčů, které se spojují s prostředky, které chcete šifrovat. 
+Následují obecné kroky pro generování obsahu klíčů, které spojují s prostředky, které chcete šifrovat. 
 
 1. Náhodně generovat klíče AES 16 bajtů (pro běžné a obálky šifrování) nebo klíče AES 32 bajtů (pro šifrování úložiště). 
    
-    Bude jím klíč k obsahu pro váš asset, což znamená, že všechny soubory přidružené k této asset bude nutné použít stejný klíč k obsahu během dešifrování. 
+    Toto je klíč k obsahu pro váš asset, což znamená, všechny soubory přidružené k této asset potřeba použít stejný klíč k obsahu během dešifrování. 
 2. Volání [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) a [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metod k získání správného certifikátu X.509, který použije k zašifrování obsahu klíče.
 3. Zašifrování obsahu klíče pomocí veřejného klíče certifikátu X.509. 
    
    Media Services .NET SDK používá RSA s OAEP při provádění šifrování.  Můžete zobrazit příklad v [EncryptSymmetricKeyData funkce](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Vytvoří hodnotu kontrolního součtu (založený na algoritmu PlayReady AES klíče kontrolního součtu) pomocí identifikátoru klíče a klíč obsahu. Další informace najdete v části "PlayReady AES klíč kontrolního součtu algoritmus" dokumentu PlayReady záhlaví objekt nachází [zde](http://www.microsoft.com/playready/documents/).
    
-   Následuje příklad rozhraní .NET, která vypočítá kontrolního součtu pomocí identifikátoru GUID části identifikátoru klíče a vymazat obsah klíče.
+   Následující příklad .NET vypočítá kontrolního součtu pomocí identifikátoru GUID části identifikátoru klíče a vymazat obsah klíče.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -68,7 +68,7 @@ Následují obecné kroky pro generování obsahu klíčů, které se spojují s
 5. Vytvořte klíč obsahu se **EncryptedContentKey** (převést na řetězec s kódováním base64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, a **kontrolního součtu** hodnoty, které jste dostali v předchozích krocích.
 6. Přidružení **ContentKey** entita s vaší **Asset** entity prostřednictvím operace $links.
 
-Všimněte si, že v tomto tématu není ukazují, jak generovat klíč standardu AES, šifrování klíče a vypočítat kontrolní součet. 
+Tento článek nezobrazuje jak generovat klíč standardu AES, šifrování klíče a vypočítat kontrolní součet. 
 
 >[!NOTE]
 
@@ -92,7 +92,7 @@ Následující příklad ukazuje, jak načíst ProtectionKeyId, kryptografický 
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 
@@ -124,7 +124,7 @@ Následující příklad ukazuje, jak načíst pomocí ProtectionKeyId certifik�
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -152,7 +152,7 @@ Odpověď:
 ## <a name="create-the-contentkey"></a>Vytvořte ContentKey
 Po načíst certifikát X.509 a používá svůj veřejný klíč k šifrování vašeho obsahu klíče, vytvoření **ContentKey** entity a sady jeho vlastnost hodnoty odpovídajícím způsobem.
 
-Jedna z hodnot musí nastavit při vytváření obsahu je typ klíče. Vyberte jednu z následujících hodnot.
+Jedna z hodnot musí nastavit při vytváření obsahu je typ klíče. Vyberte jednu z následujících hodnot:
 
     public enum ContentKeyType
     {
@@ -179,7 +179,7 @@ Jedna z hodnot musí nastavit při vytváření obsahu je typ klíče. Vyberte j
     }
 
 
-Následující příklad ukazuje, jak vytvořit **ContentKey** s **ContentKeyType** nastavit šifrování úložiště ("1") a **ProtectionKeyType** nastaven na hodnotu "0" k označení, že klíč ochrany Id je kryptografický otisk certifikátu X.509.  
+Následující příklad ukazuje, jak vytvořit **ContentKey** s **ContentKeyType** nastavit šifrování úložiště ("1") a **ProtectionKeyType** nastaven na hodnotu "0" k označení, že klíč ochrany ID je kryptografický otisk certifikátu X.509.  
 
 Žádost
 
@@ -191,7 +191,7 @@ Následující příklad ukazuje, jak vytvořit **ContentKey** s **ContentKeyTyp
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -241,7 +241,7 @@ Po vytvoření ContentKey, přidružte ho Asset pomocí operace $links, jak je z
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: 9bd92e48440ad4edf2261221446ce66718ffea17
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopírovat data z databáze Cosmos Azure pomocí Azure Data Factory
 
@@ -36,7 +36,7 @@ Můžete zkopírovat data z Azure Cosmos DB do úložiště dat žádné podporo
 
 Konkrétně tento konektor Azure Cosmos DB podporuje:
 
-- Cosmos DB [DocumentDB rozhraní API](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction).
+- Cosmos DB [DocumentDB rozhraní API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - Import/export dokumentů JSON jako-je nebo kopírování dat z/do tabulkové datové sady například databáze SQL, souborů CSV atd.
 
 Zkopírujte dokumenty jako-je do nebo ze soubory JSON nebo jiné Cosmos DB kolekce najdete v části [dokumentů JSON importu a exportu](#importexport-json-documents).

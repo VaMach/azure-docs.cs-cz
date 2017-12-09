@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 2687eb022bce0b71c217f0be611c8fabdfb66040
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 5a5893df8b734acc2d16f149505ed65c288c9306
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Prediktivní údržby scénářem z reálného prostředí.
 
@@ -30,7 +30,7 @@ Toto je odkaz na veřejné úložiště GitHub: [https://github.com/Azure/Machin
 
 ## <a name="use-case-overview"></a>Přehled případu použití
 
-Hlavní problém firmy v odvětví asset náročné, jimž je významné náklady, které jsou přidruženy zpoždění mechanických problémy s. Většina podniků zajímá predikci při tyto problémy jsou vyvolány prevence proaktivně je předtím, než k nim dojde. Cílem je snížení nákladů snížením výpadky a možném zvětšení zabezpečení. Odkazovat [scénářem pro prediktivní údržby](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) podrobné vysvětlení běžné použít případů, jakož i modelování přístupu, používají pro prediktivní údržby.
+Hlavní problém firmy v odvětví asset náročné, jimž je významné náklady, které jsou přidruženy zpoždění mechanických problémy s. Většina podniků zajímá predikci při tyto problémy jsou vyvolány prevence proaktivně je předtím, než k nim dojde. Cílem je snížení nákladů snížením výpadky a možném zvětšení zabezpečení. Odkazovat [scénářem pro prediktivní údržby](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) podrobné vysvětlení běžné použít případů, jakož i modelování přístupu, používají pro prediktivní údržby.
 
 Tento scénář využívá nápady z playbook s cílem poskytnout kroky pro implementaci prediktivního modelu pro scénáře, která je založena na shrnutí více skutečných obchodních problémů. Tento příklad spojuje, že běžné datové prvky zjištěnými mezi mnoha prediktivní údržby případy použití.
 
@@ -40,7 +40,7 @@ Obchodního problému pro toto simulované dat je k předvídání problémy př
 
 * [Účet Azure](https://azure.microsoft.com/en-us/free/) (bezplatné zkušební verze jsou k dispozici).
 * Nainstalovaná kopie produktu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) následující [Průvodce instalací úvodní](./quickstart-installation.md) k instalaci programu a vytvořit pracovní prostor.
-* Azure Machine Learning Operationalization vyžaduje prostředí pro místní nasazení a [modelu účet pro správu](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
+* Azure Machine Learning Operationalization vyžaduje prostředí pro místní nasazení a [modelu účet pro správu](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
 
 V tomto příkladu můžete spustit na jakýkoli kontext výpočetní AML Workbench. Však doporučujeme používat ji s minimálně 16 GB paměti. V tomto scénáři byl vytvořen a otestovali na počítač s Windows 10 běží vzdálené standard DS4_V2 [datové vědy virtuálního počítače pro Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
@@ -112,7 +112,7 @@ Tento scénář nabízí čtečky přehled o tom, jak sestavit řešení predikt
 
 Tento případ použití dříve vyvinula ve více platformách:
 
-* [Šablona řešení prediktivní údržby](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
+* [Šablona řešení prediktivní údržby](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Průvodce modelováním prediktivní údržby](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Prediktivní údržby modelování příručce, která je pomocí služby SQL Server R](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Prediktivní údržby modelování Poznámkový blok průvodce Python](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)

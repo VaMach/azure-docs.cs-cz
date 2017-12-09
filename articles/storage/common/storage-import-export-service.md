@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: bf661e8970011aeb3b810056a11659d57258dde9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Použít službu Microsoft Azure Import/Export k přenosu dat do úložiště Azure.
 V tomto článku jsme poskytují podrobné pokyny k používání služby Azure Import/Export bezpečně přenést velké objemy dat do úložiště objektů Blob v Azure a Azure Files jednotkami přenosů disku pro datové centrum Azure. Tato služba slouží také k přenosu dat ze služby Azure storage na jednotky pevného disku a dodávat místní servery. Buď do úložiště objektů Blob v Azure nebo Azure Files můžete importovat data z jednoho disku interní disků SATA. 
@@ -493,7 +493,7 @@ Ne. Musíte dodávat vlastní jednotky pro obě import a export úloh.
 
 ** Jak může přistupovat k datům, importovaných pomocí této služby **
 
-Data v rámci účtu úložiště Azure se dají zpřístupnit přes portál Azure nebo pomocí samostatný nástroj nazývá Průzkumník úložišť. https://docs.microsoft.com/en-us/Azure/vs-Azure-Tools-Storage-Manage-with-Storage-Explorer 
+Data v rámci účtu úložiště Azure se dají zpřístupnit přes portál Azure nebo pomocí samostatný nástroj nazývá Průzkumník úložišť. https://docs.microsoft.com/Azure/vs-Azure-Tools-Storage-Manage-with-Storage-Explorer 
 
 **Po dokončení úlohy importu, co bude Moje data vypadat v účtu storage? Moje hierarchie adresářů se zachovají?**
 

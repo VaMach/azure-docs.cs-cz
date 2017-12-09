@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 955356ffe6fc524c1528364add7e2c2a336137b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f198de0bf212f4ae566193954a319bece1e421f6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Nahrání souborů do účtu Media Services pomocí REST
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Ve službě Media Services můžete digitální soubory nahrát do assetu. [Asse
 > 
 > * Služba Media Services použije hodnotu vlastnosti IAssetFile.Name při sestavování adresy URL pro streamování obsah (například http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Z tohoto důvodu není povoleno kódování v procentech. Hodnota **název** vlastnost nemůže mít žádné z následujících [procent kódování vyhrazené znaky](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Navíc může existovat pouze jedna '.' pro příponu názvu souboru.
 > * Délka názvu nesmí být větší než 260 znaků.
-> * Maximální velikost souboru podporovaná při zpracování ve službě Media Services je omezená. Podrobnosti o omezení velikosti souboru najdete [tady](media-services-quotas-and-limitations.md).
+> * Maximální velikost souboru podporovaná při zpracování ve službě Media Services je omezená. V tématu [to](media-services-quotas-and-limitations.md) článku podrobnosti o omezení velikosti souboru.
 > 
 
 Základní pracovní postup pro odesílání prostředky je rozdělené do následujících částí:
@@ -54,9 +54,6 @@ AMS můžete také nahrát prostředky hromadně. Další informace najdete v [t
 
 Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI.
-
 ## <a name="upload-assets"></a>Nahrát prostředky
 
 ### <a name="create-an-asset"></a>Vytvořit prostředek
@@ -65,16 +62,16 @@ Prostředek je kontejner pro více typů nebo sady objektů ve službě Media Se
 
 Jedna z vlastností, které můžete zadat při vytváření prostředek je **možnosti**. **Možnosti** je hodnota výčtu, která popisuje možnosti šifrování, které prostředek může být vytvořen pomocí. Platná hodnota je jedna z hodnot v seznamu níže není kombinace hodnot. 
 
-* **Žádný** = **0**: použije se žádné šifrování. Toto je výchozí hodnota. Všimněte si, že při použití této možnosti není váš obsah chráněný během přenosu ani umístěná v úložišti.
+* **Žádný** = **0**: nepoužívá se žádné šifrování. Toto je výchozí hodnota. Při použití této možnosti není váš obsah chráněný během přenosu ani umístěná v úložišti.
     Pokud chcete pomocí progresivního stahování dodávat obsah ve formátu MP4, použijte tuto možnost. 
 * **StorageEncrypted** = **1**: Zadejte, pokud chcete použít pro vaše soubory k zašifrování s AES 256 bitové šifrování pro odesílání a úložiště.
   
-    Pokud váš asset používá šifrování úložiště, musíte nakonfigurovat zásady doručení assetu. Další informace najdete v části [konfigurace zásad doručení assetu](media-services-rest-configure-asset-delivery-policy.md).
+    Pokud váš asset používá šifrování úložiště, musíte nakonfigurovat zásady doručení assetu. Další informace najdete v tématu [konfigurace zásad doručení assetu](media-services-rest-configure-asset-delivery-policy.md).
 * **CommonEncryptionProtected** = **2**: Zadejte, pokud odesíláte soubory chráněné pomocí běžnou metodu šifrování (např. PlayReady). 
-* **EnvelopeEncryptionProtected** = **4**: Zadejte, pokud odesíláte HLS se šifrováním pomocí standardu AES soubory. Pamatujte, že soubory musí být zakódované a zašifrované pomocí správce transformací.
+* **EnvelopeEncryptionProtected** = **4**: Zadejte, pokud odesíláte HLS se šifrováním pomocí standardu AES soubory. Soubory musí mít kódování a zašifrované pomocí Správce transformací.
 
 > [!NOTE]
-> Pokud váš asset používat šifrování, musíte vytvořit **ContentKey** a tu propojit na váš asset, jak je popsáno v následujícím tématu:[postup vytvoření ContentKey](media-services-rest-create-contentkey.md). Poznámka: po odeslání souborů do assetu, budete muset aktualizovat vlastnosti šifrování na **AssetFile** entity s hodnotami, které jste získali při **Asset** šifrování. To provést pomocí **SLOUČENÍ** požadavek HTTP. 
+> Pokud váš asset používá šifrování, musíte vytvořit **ContentKey** a tu propojit na váš asset, jak je popsáno v následujícím článku: [postup vytvoření ContentKey](media-services-rest-create-contentkey.md). Po odeslání souborů do assetu, musíte aktualizovat vlastnosti šifrování na **AssetFile** entity s hodnotami, které jste získali při **Asset** šifrování. To provést pomocí **SLOUČENÍ** požadavek HTTP. 
 > 
 > 
 
@@ -89,7 +86,7 @@ Následující příklad ukazuje, jak vytvořit prostředek.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"BigBuckBunny.mp4"}
@@ -127,9 +124,9 @@ V případě úspěchu se vrátí následující:
 ### <a name="create-an-assetfile"></a>Vytvoření AssetFile
 [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entity představuje soubor video nebo zvuk, který je uložený v kontejneru objektů blob. Soubor asset je vždy přidružena k assetu a prostředek může obsahovat mnoho soubory asset. Media Services Encoder úloh selže, pokud objekt souboru asset není spojen s digitálnímu souboru v kontejneru objektů blob.
 
-Všimněte si, že **AssetFile** instance a samotný mediální soubor jsou dva odlišné objekty. AssetFile instance obsahuje metadata o souboru média, zatímco souboru média obsahuje samotný mediální obsah.
+**AssetFile** instance a samotný mediální soubor jsou dva odlišné objekty. AssetFile instance obsahuje metadata o souboru média, zatímco souboru média obsahuje samotný mediální obsah.
 
-Po odeslání souboru digitálního média do kontejneru objektů blob, kterou použijete **SLOUČENÍ** HTTP žádost o aktualizaci AssetFile s informacemi o souboru média (Jak uvidíte později v tomto tématu). 
+Po odeslání souboru digitálního média do kontejneru objektů blob, kterou použijete **SLOUČENÍ** HTTP žádost o aktualizaci AssetFile s informacemi o souboru média (jak je uvedeno dále v tomto článku). 
 
 **Požadavek HTTP**
 
@@ -140,7 +137,7 @@ Po odeslání souboru digitálního média do kontejneru objektů blob, kterou p
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164
 
@@ -189,9 +186,9 @@ Po odeslání souboru digitálního média do kontejneru objektů blob, kterou p
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Vytváření AccessPolicy s oprávnění k zápisu.
 
 >[!NOTE]
->Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) tématu.
+>Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v tématu [to](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
 
-Před nahráním do úložiště objektů blob všechny soubory, nastavení přístupu zásady oprávnění pro zápis do prostředek. Kvůli tomu odeslat požadavek HTTP do sady entit AccessPolicies. Zadejte hodnotu doba trvání v minutách, po vytvoření nebo obdržíte zprávu 500 Chyba interní Server zpět v odpovědi. Další informace o AccessPolicies najdete v tématu [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Před nahráním do úložiště objektů blob všechny soubory, nastavení přístupu zásady oprávnění pro zápis do prostředek. Kvůli tomu odeslat požadavek HTTP do sady entit AccessPolicies. Zadejte hodnotu doba trvání v minutách, po vytvoření nebo zobrazí 500 chybová zpráva Interní Server zpět v odpovědi. Další informace o AccessPolicies najdete v tématu [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 Následující příklad ukazuje, jak vytvořit AccessPolicy:
 
@@ -204,7 +201,7 @@ Následující příklad ukazuje, jak vytvořit AccessPolicy:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
@@ -237,7 +234,7 @@ Následující příklad ukazuje, jak vytvořit AccessPolicy:
     }
 
 ### <a name="get-the-upload-url"></a>Získat adresu URL pro odeslání
-Pokud chcete získat adresu URL skutečného odeslání, vytvoření lokátoru SAS. Lokátory zadejte čas spuštění a typ koncového bodu připojení pro klienty, kteří mají přístup k souborům v prostředek. Můžete vytvořit více Lokátor entit pro danou AccessPolicy a Asset dvojici pro zpracování různých klientských požadavků a potřebách. Každý z těchto lokátory pomocí hodnoty StartTime plus hodnota Doba trvání v minutách AccessPolicy můžete určit dobu, kterou lze použít adresu URL. Další informace najdete v tématu [Lokátor](https://docs.microsoft.com/rest/api/media/operations/locator).
+Pokud chcete získat adresu URL skutečného odeslání, vytvoření lokátoru SAS. Lokátory zadejte čas spuštění a typ koncového bodu připojení pro klienty, kteří mají přístup k souborům v prostředek. Můžete vytvořit více Lokátor entit pro danou AccessPolicy a Asset dvojici pro zpracování různých klientských požadavků a potřebách. Každá z těchto lokátory používá hodnoty StartTime plus hodnota Doba trvání v minutách AccessPolicy určit dobu, kterou lze použít adresu URL. Další informace najdete v tématu [Lokátor](https://docs.microsoft.com/rest/api/media/operations/locator).
 
 Adresa URL typu SAS má následující formát:
 
@@ -260,7 +257,7 @@ Následující příklad ukazuje, jak vytvořit lokátor SAS adresa URL, podle d
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {  
        "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
@@ -321,7 +318,7 @@ Teď, když jste odeslali souboru, aktualizujte informace FileAsset velikost (a 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {  
@@ -346,7 +343,7 @@ Pokud úspěšné, následující, je vrácena: HTTP/1.1 204 ne obsahu
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 **Odpověď HTTP**
@@ -364,7 +361,7 @@ V případě úspěchu se vrátí následující:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 **Odpověď HTTP**
@@ -385,7 +382,7 @@ IngestManifest je kontejner pro sadu prostředky, soubory prostředků a statist
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 36
@@ -403,7 +400,7 @@ Před vytvořením IngestManifestAsset, musíte vytvořit Asset, který bude mo�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 55
@@ -421,7 +418,7 @@ IngestManifestAssets představují prostředky v rámci IngestManifest, které s
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 152
@@ -430,7 +427,7 @@ IngestManifestAssets představují prostředky v rámci IngestManifest, které s
 
 
 ### <a name="create-the-ingestmanifestfiles-for-each-asset"></a>Vytvořte IngestManifestFiles pro každý prostředek
-IngestManifestFile představuje skutečný video nebo zvuk blob objekt, který v rámci hromadné příjem pro určitý prostředek, nebude možné odesílat. Vlastnosti nejsou vyžadovány, pokud asset používá možnost šifrování související s šifrování. Příkladu v této části ukazuje, že vytvoření IngestManifestFile, který používá StorageEncryption pro prostředek vytvořili.
+IngestManifestFile představuje skutečný video nebo zvuk blob objekt, který je odesílané jako součást hromadné příjem pro určitý prostředek. Vlastnosti týkající se šifrování nejsou vyžadovány, pokud asset používá možnost šifrování. Příkladu v této části ukazuje, že vytvoření IngestManifestFile, který používá StorageEncryption pro prostředek vytvořili.
 
 **Odpověď HTTP**
 
@@ -439,7 +436,7 @@ IngestManifestFile představuje skutečný video nebo zvuk blob objekt, který v
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 367
@@ -448,19 +445,19 @@ IngestManifestFile představuje skutečný video nebo zvuk blob objekt, který v
     { "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
 
 ### <a name="upload-the-files-to-blob-storage"></a>Odeslat soubory do úložiště objektů Blob
-Můžete použít libovolná aplikace klienta vysokorychlostní schopná nahrávání souborů asset ke kontejneru úložiště objektů blob Uri poskytované vlastnost BlobStorageUriForUpload IngestManifest. Je jedna služba nahrávání významné vysokorychlostní [Aspera na vyžádání pro aplikaci Azure](http://go.microsoft.com/fwlink/?LinkId=272001).
+Můžete použít libovolné schopná nahrávání souborů asset ke kontejneru úložiště objektů blob Uri poskytované vlastnost BlobStorageUriForUpload IngestManifest vysokorychlostní klientské aplikace. Je jedna služba významné vysokorychlostní nahrávání [Aspera na vyžádání pro aplikaci Azure](http://go.microsoft.com/fwlink/?LinkId=272001).
 
 ### <a name="monitor-bulk-ingest-progress"></a>Monitorování hromadné Ingestování průběh
-Můžete sledovat průběh hromadné příjem operací pro IngestManifest pomocí cyklického dotazování vlastnost statistiky IngestManifest. Zda je vlastnost komplexního typu, [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). Dotazování vlastnost statistiky, odešlete požadavek HTTP GET předáním IngestManifest.
+Můžete sledovat průběh hromadné příjem operací pro IngestManifest pomocí cyklického dotazování vlastnost statistiky IngestManifest. Zda je vlastnost komplexního typu, [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). Dotazování vlastnost statistiky, odeslání požadavku HTTP GET předáním IngestManifest.
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Vytvoření ContentKeys pro šifrování
-Pokud váš asset používat šifrování, musíte vytvořit ContentKey, který se má použít pro šifrování před vytvořením soubory prostředků. Šifrování úložiště by měla zahrnovat následující vlastnosti v textu požadavku.
+Pokud váš asset používá šifrování, musíte vytvořit ContentKey, který se má použít pro šifrování před vytvořením soubory prostředků. Šifrování úložiště by měla zahrnovat následující vlastnosti v textu požadavku.
 
 | Vlastnost text žádosti | Popis |
 | --- | --- |
-| ID |ContentKey Id, které jsme si generovat v následujícím formátu "nb:kid:UUID:<NEW GUID>". |
+| ID |ContentKey Id, že se vygeneruje sebe v následujícím formátu "nb:kid:UUID:<NEW GUID>". |
 | ContentKeyType |Toto je typ obsahu klíče jako celé číslo pro tento klíč obsahu. Jsme předejte hodnotu 1 pro šifrování úložiště. |
-| EncryptedContentKey |Vytvoříme novou hodnotu obsahu klíče, což je hodnota 256 bitů (32 bajtů). Že je klíč zašifrovaný pomocí certifikátu X.509 šifrování úložiště, který načteme ze služby Microsoft Azure Media Services spuštěním požadavek HTTP GET pro GetProtectionKeyId a GetProtectionKey metody. |
+| EncryptedContentKey |Vytvoříme nové obsahu klíče hodnotu, která je hodnota 256 bitů (32 bajtů). Klíč se šifruje pomocí certifikátu X.509 šifrování úložiště, který jsme načíst ze služby Microsoft Azure Media Services tak, že provádění požadavku HTTP GET pro GetProtectionKeyId a GetProtectionKey metody. |
 | ProtectionKeyId |Jedná se o ochranu id klíče pro certifikát X.509 šifrování úložiště, který slouží k šifrování naše klíč obsahu. |
 | ProtectionKeyType |Jedná se o typ šifrování pro ochranu klíč, který slouží k šifrování klíče obsahu. Tato hodnota je StorageEncryption(1) pro náš příklad. |
 | Kontrolní součet |Algoritmus MD5 počítané kontrolního součtu pro klíč k obsahu. Výpočet je šifrování obsahu Id obsahu klíčem. Příklad kódu ukazuje, jak k výpočtu kontrolního součtu. |
@@ -472,7 +469,7 @@ Pokud váš asset používat šifrování, musíte vytvořit ContentKey, který 
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 572
@@ -490,7 +487,7 @@ ContentKey je přidružena k jedné nebo více prostředků odesláním požadav
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 113
@@ -505,7 +502,7 @@ ContentKey je přidružena k jedné nebo více prostředků odesláním požadav
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
 

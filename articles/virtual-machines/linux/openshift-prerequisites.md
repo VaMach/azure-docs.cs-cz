@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: c6758e8e1a9d9595ae8efb0b8c5aba0b81b0dc38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: eb2bdd203bfbd170992358f48cde6f7b5c0bdf16
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Běžné požadavky pro nasazení OpenShift v Azure
 
@@ -123,7 +123,7 @@ Poznamenejte si vlastnost appId vrácená z tohoto příkazu:
  > [!WARNING] 
  > Ujistěte se, že vytvoření zabezpečeného hesla. Postupujte podle pokynů v tématu [Pravidla a omezení pro hesla Azure AD](/azure/active-directory/active-directory-passwords-policy).
 
-Další informace o objekty služby najdete v tématu [vytvořit objekt služby Azure pomocí Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Další informace o objekty služby najdete v tématu [vytvořit objekt služby Azure pomocí Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Další kroky
 

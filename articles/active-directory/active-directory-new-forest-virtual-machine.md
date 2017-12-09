@@ -1,6 +1,6 @@
 ---
 title: "Nainstalovat doménovou strukturu služby Active Directory na virtuální síť Azure | Microsoft Docs"
-description: "Kurz, který vysvětluje, jak vytvořit novou doménovou strukturu služby Active Directory na virtuálním počítači (VM) na virtuální síti Azure."
+description: "Kurz, který vysvětluje, jak vytvořit novou doménovou strukturu služby Active Directory na virtuálním počítači (VM) na virtuální síť Azure."
 services: active-directory, virtual-network
 keywords: "služby Active directory virtuálního počítače, instalace služby active directory doménové struktury, videa služby azure active directory "
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 96020eb305b0a027a2128cdd3e3c8acf998c8e54
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalace nové doménové struktury služby Active Directory na virtuální síť Azure
 Tento článek ukazuje, jak vytvořit nového prostředí služby Active Directory pro Windows Server na virtuálním počítači (VM) na [virtuální síť Azure](../virtual-network/virtual-networks-overview.md). V takovém případě virtuální síť Azure není připojen k místní síti.
@@ -45,7 +45,7 @@ Není k dispozici mnoho rozdíl mezi instalací řadiče domény v Azure a míst
 | **Úložiště databáze služby Active Directory** |Volitelně můžete změnit výchozí umístění úložiště z C:\ |Budete muset změnit výchozí umístění úložiště z C:\ |
 
 ## <a name="create-an-azure-virtual-network"></a>Vytvoření virtuální sítě Azure
-1. Přihlaste se k portálu Azure Classic.
+1. Přihlaste se k portálu Azure.
 2. Vytvořte virtuální síť. Klikněte na tlačítko **sítě** > **vytvořit virtuální síť**. Použijte hodnoty v následující tabulce dokončete průvodce.
 
    | Na této stránce průvodce... | Zadejte tyto hodnoty |
@@ -59,7 +59,7 @@ Opakujte tyto kroky k vytvoření virtuálních počítačů k hostování role 
 
 Vytvoření virtuálních počítačů místo uživatelského rozhraní pomocí prostředí Windows PowerShell naleznete v tématu [použití Azure PowerShell k vytvoření a nastavení virtuálních počítačích se systémem Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-1. Na portálu classic klikněte na tlačítko **nový** > **výpočetní** > **virtuálního počítače** > **z Galerie**. Použijte následující hodnoty a dokončete průvodce. Přijměte výchozí hodnotu pro nastavení, není-li navrhované nebo vyžaduje jinou hodnotu.
+1. Na portálu Azure vyberte **nový** > **výpočetní**a potom vyberte virtuální počítač. Použijte následující hodnoty a dokončete průvodce. Přijměte výchozí hodnotu pro nastavení, není-li navrhované nebo vyžaduje jinou hodnotu.
 
    | Na této stránce průvodce... | Zadejte tyto hodnoty |
    | --- | --- |

@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 014dbb38d0f47d926db192a6117f7acd06b41a20
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Postup nalezení adresu pomocí služby Azure na základě polohy (preview) vyhledávání
 Služba vyhledávání se RESTful sada rozhraní API určená pro vývojáře k vyhledání adresy, míst, bodů zájmu, výpisech obchodních a jiných zeměpisné údaje. Služba vyhledávání zeměpisnou šířku a délku přiřadí konkrétní adresu, křížové ulici, geografické funkci nebo v případě zájmu (bodů zájmu). Zeměpisné šířky a délky hodnot vrácených rozhraním API služby vyhledávání můžete použít jako parametry v jiných služeb na základě umístění Azure jako je například rozhraní API toku provozu a trasy.
@@ -44,7 +44,7 @@ Většina vyhledávací dotazy jako výchozí se maxFuzzyLevel = 1' k získání
     | Adresa URL požadavku | https://Atlas.microsoft.com/search/fuzzy/JSON? |
     | Autorizace | Bez ověřování |
 
-    **Json** atribut v cesty URL určuje formát odpovědi. Json v tomto článku používají pro snadné použití a přehlednosti. Můžete najít formáty k dispozici odpověď v **získat přibližné vyhledávání** definice [umístění na základě služby funkční referenční dokumentace rozhraní API] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    **Json** atribut v cesty URL určuje formát odpovědi. Json v tomto článku používají pro snadné použití a přehlednosti. Můžete najít formáty k dispozici odpověď v **získat přibližné vyhledávání** definice [umístění na základě služby funkční referenční dokumentace rozhraní API] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Klikněte na tlačítko **parametry**a zadejte následující klíč / hodnota dvojice k použití jako parametry dotazu nebo cestu v adrese URL požadavku:
 
@@ -156,7 +156,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     |-----|------------|
     | Číslo | Hodnota TRUE |
 
-    Pokud [číslo](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je odeslán s požadavkem, odpověď může zahrnovat na straně ulici (doleva nebo doprava) a také posunutí pozice pro toto číslo.
+    Pokud [číslo](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je odeslán s požadavkem, odpověď může zahrnovat na straně ulici (doleva nebo doprava) a také posunutí pozice pro toto číslo.
     
 5. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
 
@@ -164,7 +164,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     |-----|------------|
     | spatialKeys | Hodnota TRUE |
 
-    Když [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je nastavena, odpověď obsahuje důvěrné geograficky prostorových klíčové informace pro zadané umístění.
+    Když [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je nastavena, odpověď obsahuje důvěrné geograficky prostorových klíčové informace pro zadané umístění.
 
 6. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
 
@@ -172,7 +172,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     |-----|------------|
     | returnSpeedLimit | Hodnota TRUE |
     
-    Když [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je nastavena, vrátí odpověď z odeslaných limit rychlosti.
+    Když [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je nastavena, vrátí odpověď z odeslaných limit rychlosti.
 
 7. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
 
@@ -180,7 +180,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     |-----|------------|
     | returnRoadUse | Hodnota TRUE |
 
-    Když [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je nastavena, odpověď vrací pole použití silniční pro reversegeocodes ulice úrovni.
+    Když [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu je nastavena, odpověď vrací pole použití silniční pro reversegeocodes ulice úrovni.
 
 8. Přidat následující klíč / hodnota pár k **parametry** části a klikněte na tlačítko **odeslat**:
 
@@ -188,7 +188,7 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
     |-----|------------|
     | roadUse | Hodnota TRUE |
 
-    Dotaz zpětné geocode můžete omezit na určitý typ silniční použití pomocí [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu.
+    Dotaz zpětné geocode můžete omezit na určitý typ silniční použití pomocí [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametr dotazu.
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Vyhledejte křížové ulici pomocí Reverse ulice hledání mezi adresy
 
@@ -215,4 +215,4 @@ Můžete předat úplné nebo částečné adresu adres rozhraní API služby Se
 4. Klikněte na tlačítko **odeslat** a zkontrolujte text odpovědi. 
 
 ## <a name="next-steps"></a>Další kroky
-- Prozkoumejte [služby Azure umístění na základě Serices Search](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) dokumentaci k rozhraní API 
+- Prozkoumejte [služby Azure umístění na základě Serices Search](https://docs.microsoft.com/rest/api/location-based-services/search) dokumentaci k rozhraní API 
