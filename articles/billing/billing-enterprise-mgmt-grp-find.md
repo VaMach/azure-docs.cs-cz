@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f1b9c1ec2af8240ff71f6907516d8894c36ac9c3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-an-azure-subscription-or-management-group"></a>Najít skupiny správy nebo předplatné Azure
 
-Pokud máte problémy s vyhledáním předplatné nebo skupinu pro správu v Azure, můžete být vyhledávání v adresáři nesprávný. Tato situace může dojít v případě, že váš účet existuje v několika Azure Active Directory. Každý [služby active directory je nezávislá](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) a přístup není zděděna ve adresářích.      
+Pokud máte problémy s vyhledáním předplatné nebo skupinu pro správu v Azure, můžete být vyhledávání v adresáři nesprávný. Tato situace může dojít v případě, že váš účet existuje v několika Azure Active Directory. Každý [služby active directory je nezávislá](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-directory-independence) a přístup není zděděna ve adresářích.      
 
 ![Přepínač adresáři nabídce](media/billing-enterprise-mgmt-groups/mgempty.png)
 
@@ -41,7 +41,7 @@ Pokud se vám zobrazí zpráva "Tento prostředek je k dispozici" při pokusu o 
 ![prostředek není nalezena](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Obraťte se na Spravovat předplatné nebo správu skupin má být poskytnut přístup.  
-* Odběry, odkazovat [řízení řízení přístupu (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) dokumentu nápovědy, na kterém je vyžadována role.
+* Odběry, odkazovat [řízení řízení přístupu (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) dokumentu nápovědy, na kterém je vyžadována role.
 * Pro skupiny pro správu přístupu RBAC není k dispozici a bude brzo. Obraťte se na podnikový portál spravovat tak, aby měl přístup přiřazen.   
 
 ## <a name="improve-your-experience-with-management-groups-and-subscriptions-in-the-same-directory"></a>Zlepšení vašich zkušeností s skupin pro správu a odběry ve stejném adresáři 

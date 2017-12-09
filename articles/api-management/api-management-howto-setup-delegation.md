@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1fad082a576bc994897c6b396e5edcfa02313487
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 0c0a229e973999cb60ca5da2df652a6182c192a8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Pro delegování uživatele registrace a produktu předplatného
 Delegování umožňuje použít existující web pro zpracování vývojáře sign v nebo registrace-množství a předplatné produkty oproti pomocí integrované funkce v portálu pro vývojáře. To umožňuje webu do vlastní data uživatele a provést ověření z těchto kroků vlastní způsobem.
@@ -172,7 +172,7 @@ Další informace o delegování najdete v následujícím videu.
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[žádosti o token jednotného přihlašování (SSO)]: https://docs.microsoft.com/en-us/rest/api/apimanagement/User/GenerateSsoUrl
+[žádosti o token jednotného přihlašování (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [vytvoření uživatele]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [volání rozhraní REST API pro odběr produktů]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps

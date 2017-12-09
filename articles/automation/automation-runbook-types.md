@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 7bb90a51ffaca1a67933bc59f42ed08684fca5de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Typy runbooků služby Azure Automation
 Služby Azure Automation podporuje několik typů sad runbook, které jsou popsány v následující tabulce.  V níže uvedených částech poskytují další informace o jednotlivých typech včetně důležité informace týkající se použití každé.
@@ -96,7 +96,7 @@ Sady runbook Python zkompilovat pod Python 2.  Lze přímo upravit kód sadu run
 ### <a name="known-issues"></a>Známé problémy
 Toto jsou aktuální známé problémy s runbooky Python.
 
-* Aby bylo možné využívat knihovny třetích stran, musí být spuštěn na sadu runbook [Windows hybridní pracovní proces Runbooku](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) nebo [Linux hybridní pracovní proces Runbooku](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) s knihovnami již nainstalován v počítači před Sada runbook je spuštěna.
+* Aby bylo možné využívat knihovny třetích stran, musí být spuštěn na sadu runbook [Windows hybridní pracovní proces Runbooku](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install) nebo [Linux hybridní pracovní proces Runbooku](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install) s knihovnami již nainstalován v počítači před Sada runbook je spuštěna.
 
 ## <a name="considerations"></a>Požadavky
 Byste měli vzít v úvahu následující další aspekty při určování, který typ používat konkrétní sady runbook.

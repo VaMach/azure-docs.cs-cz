@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pro Windows Server
 Pro zákazníky s programu Software Assurance umožňuje Azure hybridní výhody pro Windows Server používat své místní licence systému Windows Server a spustit virtuální počítače s Windows v Azure s malými náklady. Azure hybridní výhody pro Windows Server můžete použít k nasazení nových virtuálních počítačů z libovolného Azure podporovaný image platformy systému Windows Server nebo vlastních bitových kopií systému Windows. Tento článek přejde přes kroky na tom, jak nasadit nové virtuální počítače s Azure hybridní výhody pro Windows Server a jak můžete aktualizovat existující spuštěných virtuálních počítačů. Další informace o Azure hybridní výhody pro Windows Server najdete v části úspory licencování a náklady [licencování stránky Azure hybridní výhody pro Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -58,10 +58,10 @@ Nasazením těchto bitových kopií přímo z portálu Azure. Pro použití v š
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-Můžete provést kroky k [vytvoření virtuálního počítače s Windows pomocí prostředí PowerShell](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) a předejte LicenseType = "Windows_Server". Tato možnost umožňuje použít existující licence systému Windows Server na platformě Azure.
+Můžete provést kroky k [vytvoření virtuálního počítače s Windows pomocí prostředí PowerShell](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) a předejte LicenseType = "Windows_Server". Tato možnost umožňuje použít existující licence systému Windows Server na platformě Azure.
 
 ### <a name="portal"></a>Portál
-Můžete provést kroky k [vytvoření virtuálního počítače s Windows pomocí portálu Azure](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) a vyberte možnost použít existující licence systému Windows Server.
+Můžete provést kroky k [vytvoření virtuálního počítače s Windows pomocí portálu Azure](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) a vyberte možnost použít existující licence systému Windows Server.
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Převést stávající virtuální počítač pomocí Azure hybridní výhody pro Windows Server
 Pokud máte existující virtuální počítač, který chcete převést na využít výhod programu Azure hybridní výhody pro Windows Server, můžete aktualizovat typ licence Virtuálního počítače takto:
@@ -181,17 +181,17 @@ V rámci virtuálního počítače sady škálování šablony Resource Manageru
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-Můžete také [vytvořit a nasadit škálovací sadu virtuálních počítačů](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) a nastavte vlastnost LicenseType
+Můžete také [vytvořit a nasadit škálovací sadu virtuálních počítačů](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) a nastavte vlastnost LicenseType
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o [jak ušetřit peníze s výhodou hybridní Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Další informace o [Azure hybridní výhody pro Windows Server licencování podrobné pokyny](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
+Další informace o [Azure hybridní výhody pro Windows Server licencování podrobné pokyny](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 
 Další informace o [šablon pomocí Resource Manageru](../../azure-resource-manager/resource-group-overview.md)
 
 Další informace o [Azure hybridní výhody pro Windows Server a Azure Site Recovery zkontrolujte migrace aplikací do Azure i více nákladově efektivní](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 
-Další informace o [Windows 10 v Azure s víceklientské hostování vpravo](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+Další informace o [Windows 10 v Azure s víceklientské hostování vpravo](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Další informace o [nejčastější dotazy](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

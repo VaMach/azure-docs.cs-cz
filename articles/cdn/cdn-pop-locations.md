@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 44028b2ef268cb2deff273f755d2f5aeab5bdc17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6ebf9f70abc6fbf880d7183ca0f5533a24d59451
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cdn-pop-locations"></a>Lokality POP v Azure CDN
 Toto téma uvádí aktuální umístění POP pro **Azure CDN společnosti Verizon** a **Azure CDN společnosti Akamai**.
@@ -44,5 +44,5 @@ Toto téma uvádí aktuální umístění POP pro **Azure CDN společnosti Veriz
 | Austrálie a Nový Zéland | Melbourne, Austrálie<br />Sydney, Austrálie<br />Auckland, Nový Zéland | Austrálie<br />Nový Zéland |
 
 ## <a name="see-also"></a>Viz také
-* [Chcete-li získat nejnovější IP adresy pro vytvoření seznamu povolených Azure API uzly okraj CDN](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
+* [Chcete-li získat nejnovější IP adresy pro vytvoření seznamu povolených Azure API uzly okraj CDN](https://docs.microsoft.com/rest/api/cdn/edgenodes)
 

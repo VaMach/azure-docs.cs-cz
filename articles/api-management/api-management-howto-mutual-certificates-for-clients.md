@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: 10cc1daf89212635243cbfe8f7b598a567d0f7c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 841825923819bdb257e5b5983071d999cca805e9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Zabezpečení rozhraní API pomocí klienta pro ověřování pomocí certifikátu ve službě API Management
 
 API Management poskytuje schopnost zabezpečit přístup k rozhraní API (tj. klienta k API Management) pomocí klientských certifikátů. V současné době můžete zkontrolovat kryptografický otisk certifikátu klienta pro požadovanou hodnotu. Můžete také zkontrolovat kryptografický otisk pro existující certifikátů odeslaných do rozhraní API Management.  
 
-Informace o zabezpečení přístupu ke službě back endové rozhraní API pomocí klientských certifikátů (tj, rozhraní API správy na back-end) najdete v tématu [jak zabezpečit back endové služby pomocí klienta pro ověřování pomocí certifikátu](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+Informace o zabezpečení přístupu ke službě back endové rozhraní API pomocí klientských certifikátů (tj, rozhraní API správy na back-end) najdete v tématu [jak zabezpečit back endové služby pomocí klienta pro ověřování pomocí certifikátu](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 
 ## <a name="checking-the-expiration-date"></a>Kontrola datum vypršení platnosti
 
@@ -84,6 +84,6 @@ Následující příklad ukazuje, jak zkontrolujte kryptografický otisk certifi
 
 ## <a name="next-step"></a>Další krok
 
-*  [Jak zabezpečit back endové služby pomocí klienta pro ověřování pomocí certifikátu](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+*  [Jak zabezpečit back endové služby pomocí klienta pro ověřování pomocí certifikátu](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 *  [Postup nahrání certifikátů](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

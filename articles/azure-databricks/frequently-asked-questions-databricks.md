@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Časté otázky k Azure Databricks
 
@@ -94,7 +94,7 @@ Pokud jste nevytvořili pracovním prostoru, a jsou přidány jako uživatel, ob
 
 #### <a name="solution"></a>Řešení
 
-Clustery Databricks použít jednu veřejnou IP adresu na jeden uzel. Pokud vaše předplatné již použit všechny jeho veřejné IP adresy, měli byste [žádost o zvýšení kvóty](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Zvolte **kvóty** jako **vydat typ**, a **sítě: ARM** jako **typ kvóty**. V **podrobnosti**, požádat o zvýšení kvóty veřejnou IP adresu. Například pokud limit je aktuálně 60 a chcete vytvořit 100 uzly clusteru, požádat o zvýšení limitu na 160.
+Clustery Databricks použít jednu veřejnou IP adresu na jeden uzel. Pokud vaše předplatné již použit všechny jeho veřejné IP adresy, měli byste [žádost o zvýšení kvóty](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Zvolte **kvóty** jako **vydat typ**, a **sítě: ARM** jako **typ kvóty**. V **podrobnosti**, požádat o zvýšení kvóty veřejnou IP adresu. Například pokud limit je aktuálně 60 a chcete vytvořit 100 uzly clusteru, požádat o zvýšení limitu na 160.
 
 ### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Druhý typ spuštění selhání poskytovatele cloudové při nastavení clusteru
 

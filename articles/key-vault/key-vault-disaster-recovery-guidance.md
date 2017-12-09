@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: sumedhb;aglick
-ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1f19c4bba2152eb021831dedda734fd54ee78d75
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault dostupnost a redundance
 Azure Key Vault funkce více vrstev redundance a ujistěte se, že klíče a tajné klíče zůstanou k dispozici pro vaše aplikace i v případě jednotlivé komponenty služby selžou.
 
-Obsah trezoru klíčů se replikují do oblasti a do sekundární oblasti aspoň 150 miles ji okamžitě, ale v rámci stejné geography. Tím se zachová vysokou odolnost klíčů a tajných klíčů. Najdete v článku [Azure spárovat oblasti](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) dokumentu podrobnosti o konkrétní oblasti páry.
+Obsah trezoru klíčů se replikují do oblasti a do sekundární oblasti aspoň 150 miles ji okamžitě, ale v rámci stejné geography. Tím se zachová vysokou odolnost klíčů a tajných klíčů. Najdete v článku [Azure spárovat oblasti](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) dokumentu podrobnosti o konkrétní oblasti páry.
 
 Pokud jednotlivých součástí v rámci trezoru klíčů služby selže, krok alternativní součásti v rámci oblasti v poskytovat vaši žádost a ujistěte se, že neexistuje žádná snížení funkčnosti. Není nutné provádět žádnou akci k aktivaci to. To se stane automaticky a budou průhledné vám.
 

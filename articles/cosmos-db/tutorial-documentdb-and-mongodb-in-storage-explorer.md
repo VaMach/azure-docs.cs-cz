@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: fc7d9494ddce127cb402d756f5fb03f21c5d3e8c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Správa Azure Cosmos DB v Azure Storage Explorer (Preview)
 
@@ -70,7 +70,7 @@ Alternativní způsob připojení k databázi Cosmos Azure je použití připojo
 
     ![Připojte se k Azure Cosmos databázi pomocí připojovacího řetězce](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Zvolte odpovídající **výchozí prostředí** pro typ vašeho účtu buď **DocumentDB** nebo **MongoDB**, vložte vaší **připojovací řetězec**a potom klikněte na **OK** pro připojení účet Azure Cosmos DB. Informace o načítání připojovací řetězec najdete v tématu [získat připojovací řetězec](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Zvolte odpovídající **výchozí prostředí** pro typ vašeho účtu buď **DocumentDB** nebo **MongoDB**, vložte vaší **připojovací řetězec**a potom klikněte na **OK** pro připojení účet Azure Cosmos DB. Informace o načítání připojovací řetězec najdete v tématu [získat připojovací řetězec](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![připojovací řetězec](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -152,5 +152,5 @@ Upravit filtr dokumentu zadáním [dotazu SQL](documentdb-sql-query.md) a pak kl
 ## <a name="next-steps"></a>Další kroky
 
 * V následujícím videu v tématu Jak používat Azure Cosmos DB v Azure Storage Explorer: [použít Azure Cosmos DB v Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Další informace o Storage Explorer a připojte další služby v [Začínáme se Storage Explorerem (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Další informace o Storage Explorer a připojte další služby v [Začínáme se Storage Explorerem (Preview)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

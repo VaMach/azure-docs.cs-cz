@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: d593b011ce4d0998ef07bc257d3c26f1286e3b0e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Nasazení OpenShift původ v Azure
 
@@ -98,7 +98,7 @@ Následující příklad vytvoří soubor parametrů s názvem azuredeploy.param
 
 
 > [!NOTE] 
-> Tento příkaz vyžaduje rozhraní příkazového řádku Azure 2.0.8 nebo novější. Verze rozhraní příkazového řádku s můžete ověřit `az --version` příkaz. K aktualizaci verze rozhraní příkazového řádku, najdete v části [nainstalovat Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Tento příkaz vyžaduje rozhraní příkazového řádku Azure 2.0.8 nebo novější. Verze rozhraní příkazového řádku s můžete ověřit `az --version` příkaz. K aktualizaci verze rozhraní příkazového řádku, najdete v části [nainstalovat Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Následující příklad nasadí do skupiny prostředků s názvem myResourceGroup, s názvem nasazení myOpenShiftCluster OpenShift clusteru a všechny související prostředky. Šablona se odkazuje přímo z úložiště GitHub pomocí místní parametry soubor s názvem azuredeploy.parameters.json.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Cloudové služby řešení problémů s nasazením
 Při nasazení balíčku aplikace cloudové služby Azure, můžete získat informace o nasazení z **vlastnosti** podokně na portálu Azure. Podrobné informace v tomto podokně můžete použít k vyřešení problémů s cloudovou službou a může poskytnout tyto informace k podpoře Azure, při otevření nové žádosti o podporu.
@@ -82,6 +82,6 @@ Další informace o způsobu řešení tohoto problému naleznete v příspěvku
 >
 
 ## <a name="next-steps"></a>Další kroky
-Zobrazení [řešení potíží s články](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) pro cloudové služby.
+Zobrazení [řešení potíží s články](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) pro cloudové služby.
 
 Informace o řešení problémů role služby cloudu pomocí Azure PaaS dat diagnostiky počítače, v tématu [řady blogu kevina Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilování konfigurace v Azure Automation DSC.
 
@@ -131,7 +131,7 @@ Informace o předávání PSCredentials jako parametry najdete v tématu <a href
 
 ## <a name="composite-resources"></a>Složené prostředky
 
-**Složené prostředky** vám umožní použít konfigurace DSC jako vnořených prostředků v rámci konfigurace.  To umožňuje použít více konfigurací pro jediný zdroj.  V tématu [složené prostředků: pomocí konfigurace DSC jako prostředek](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) Další informace o **složené prostředky**
+**Složené prostředky** vám umožní použít konfigurace DSC jako vnořených prostředků v rámci konfigurace.  To umožňuje použít více konfigurací pro jediný zdroj.  V tématu [složené prostředků: pomocí konfigurace DSC jako prostředek](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) Další informace o **složené prostředky**
 
 > [!NOTE]
 > Aby **složené prostředky** pro správnou kompilaci, musíte napřed zajistit, aby veškeré prostředky DSC, které složené spoléhá na prvním nainstalování v úložišti moduly účet Azure Automation nebo nebude správně importovat.

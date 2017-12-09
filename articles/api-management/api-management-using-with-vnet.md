@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak používat Azure API Management s virtuálními sítěmi
 Virtuální sítě Azure (virtuální sítě) umožňují některé z vašich prostředků Azure umístění v síti routeable Internetu jiných výrobců, která můžete řídit přístup ke. Tyto sítě můžete pak připojené k vaší místní sítě pomocí různých technologií sítě VPN. Další informace o virtuálních sítí Azure začínat zde uvedené informace: [Přehled virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md).
@@ -99,7 +99,7 @@ Následuje seznam běžných problémů chybné konfigurace, které se mohou vys
 * **Vlastní instalace serveru DNS**: rozhraní API správy služby závisí na několik služeb Azure. Při API Management je umístěn ve virtuální síti s vlastního serveru DNS, je nutné přeložit názvy hostitelů těchto služeb Azure. Postupujte podle [to](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) pokyny na vlastní instalační program DNS. Zobrazit následující porty tabulce a další požadavky sítě pro referenci.
 
 > [!IMPORTANT]
-> Doporučuje se, že pokud používáte vlastní servery DNS pro virtuální sítě, můžete nastavit, **před** nasazení služby API Management do ní. V opačném případě je potřeba aktualizovat služba API Management pokaždé, když změníte servery DNS (s) spuštěním [použít operace konfigurace sítě](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Doporučuje se, že pokud používáte vlastní servery DNS pro virtuální sítě, můžete nastavit, **před** nasazení služby API Management do ní. V opačném případě je potřeba aktualizovat služba API Management pokaždé, když změníte servery DNS (s) spuštěním [použít operace konfigurace sítě](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Porty vyžadované pro API Management**: příchozí a odchozí přenosy do podsítě, ve kterém je nasazený API Management se dá řídit pomocí [skupinu zabezpečení sítě][Network Security Group]. Pokud některá z těchto portů není k dispozici, API Management nemusí pracovat správně a může být nedostupný. Nejméně jeden z těchto portů blokované je jiné běžné chybné konfigurace problém při použití služby API Management s virtuální sítě.
 
@@ -148,7 +148,7 @@ Pokud je instance služby API Management je hostováno ve virtuální síti, se 
  > [!IMPORTANT]
  > Po ověření připojení je třeba odstranit všechny prostředky nasazené v podsíti, před nasazením API Management do podsítě.
 
-* **Přírůstkové aktualizace**: při provádění změn k síti, najdete [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), chcete-li ověřit, že služba API Management ještě ztratili přístup k jakémukoli z důležitých prostředků, které je závislá na. Stav připojení musí být aktualizováno každých 15 minut.
+* **Přírůstkové aktualizace**: při provádění změn k síti, najdete [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), chcete-li ověřit, že služba API Management ještě ztratili přístup k jakémukoli z důležitých prostředků, které je závislá na. Stav připojení musí být aktualizováno každých 15 minut.
 
 * **Odkazy na zdroje navigace**: Při nasazování do podsítě virtuální sítě Resource Manager styl, API Management rezerv podsíť, vytvořením prostředku navigační odkaz. Pokud podsíť již obsahuje prostředek od jiného výrobce, nasazení se **nezdaří**. Podobně když přesunout do jiné podsítě služby API Management nebo odstranit, jsme odebere tento prostředek navigačního odkazu. 
 

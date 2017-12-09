@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Postup ověření propustnost sítě VPN do virtuální sítě
 
@@ -53,7 +53,7 @@ Následující diagram znázorňuje logické připojení místní síti pro virt
 4.  Určuje šířku pásma vašeho poskytovatele služeb sítě Internet (ISP).
 5.  Vypočítat očekávané propustnost - minimálně šířka pásma (virtuální počítač, brány, poskytovatele internetových služeb) * 0,8.
 
-Pokud vaše počítané propustnost nesplňuje požadavky na propustnost směrného plánu vaší aplikace, je potřeba zvýšit šířku pásma k prostředku, který jste určili jako kritická místa. Ke změně velikosti služby Azure VPN Gateway, najdete v části [změna skladová položka brány](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Chcete-li změnit velikost virtuálního počítače, přečtěte si téma [změnit velikost virtuálního počítače](../virtual-machines/virtual-machines-windows-resize-vm.md). Pokud k těmto problémům očekávané šířky pásma Internetu, můžete také na bezpečném místě.
+Pokud vaše počítané propustnost nesplňuje požadavky na propustnost směrného plánu vaší aplikace, je potřeba zvýšit šířku pásma k prostředku, který jste určili jako kritická místa. Ke změně velikosti služby Azure VPN Gateway, najdete v části [změna skladová položka brány](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Chcete-li změnit velikost virtuálního počítače, přečtěte si téma [změnit velikost virtuálního počítače](../virtual-machines/virtual-machines-windows-resize-vm.md). Pokud k těmto problémům očekávané šířky pásma Internetu, můžete také na bezpečném místě.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Ověření propustnost sítě pomocí nástroje pro sledování výkonu
 

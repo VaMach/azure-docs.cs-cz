@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: c8573c73b0a6dc1b2644f78276d2f3e4fd442cea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Jak zabezpečit back endové služby pomocí klienta pro ověřování pomocí certifikátu ve službě Azure API Management
 API Management poskytuje možnost zabezpečený přístup ke službě back endové rozhraní API pomocí klientských certifikátů. Tato příručka ukazuje, jak ke správě certifikátů v rozhraní API portálu vydavatele a postup konfigurace rozhraní API používat certifikát pro přístup k jeho back endové službě.
@@ -108,7 +108,7 @@ Klikněte na tlačítko **Uložit** se uložit změnu konfigurace rozhraní API.
 
 ## <a name="self-signed-certificates"></a>Certifikáty podepsané svým držitelem
 
-Pokud používáte certifikáty podepsané svým držitelem, budete muset zakázat ověřování řetězu certifikátů v pořadí pro API Management ke komunikaci s back-end systému, jinak vrátí chybu 500 kódu. To můžete nakonfigurovat, můžete použít [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (pro nový back-end) nebo [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (pro existující back-end) rutiny prostředí PowerShell a nastavte `-SkipCertificateChainValidation` parametru `True`.
+Pokud používáte certifikáty podepsané svým držitelem, budete muset zakázat ověřování řetězu certifikátů v pořadí pro API Management ke komunikaci s back-end systému, jinak vrátí chybu 500 kódu. To můžete nakonfigurovat, můžete použít [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (pro nový back-end) nebo [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (pro existující back-end) rutiny prostředí PowerShell a nastavte `-SkipCertificateChainValidation` parametru `True`.
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

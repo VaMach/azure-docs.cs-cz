@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 5377512732efdb37b5c7a22a395b091fda6e5af7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Požadavky na přístup k Azure AD reporting rozhraní API
 
@@ -40,7 +40,7 @@ Chcete-li připravit váš přístup k rozhraní API pro vytváření sestav, po
 2. Udělení oprávnění 
 3. Shromážděte nastavení konfigurace 
 
-Pro dotazy, problémy nebo připomínky, prosím [souboru lístek podpory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
+Pro dotazy, problémy nebo připomínky, prosím [souboru lístek podpory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="register-an-azure-active-directory-application"></a>Zaregistrovat aplikaci Azure Active Directory
 

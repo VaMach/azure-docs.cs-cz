@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/6/2017
+ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>Nastavení modelu správce
 
@@ -25,8 +25,8 @@ Pomocí správy modelu Azure ML můžete efektivně nasadit a spravovat modelů 
 Na konci tohoto dokumentu musí mít možnost získat přehledné prostředí správy modelu nastavené a připravené k nasazení vaší modelů strojového učení.
 
 ## <a name="what-you-need-to-get-started"></a>Co potřebujete, abyste mohli začít
-K Získejte maximum z této příručky, byste měli mít vlastníka přístup k předplatnému Azure, které vaše modely, které můžete nasadit.
-Rozhraní příkazového řádku obsahuje předem nainstalovaná na Azure Machine Learning Workbench a na [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+K plnému využití z této příručky, byste měli mít přispěvatele přístup k předplatné Azure nebo skupinu prostředků, které vaše modely, které můžete nasadit.
+Rozhraní příkazového řádku obsahuje předem nainstalovaná na Azure Machine Learning Workbench a na [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Pomocí rozhraní příkazového řádku
 Chcete-li používat rozhraní příkazového řádku (CLIs) z nástroje Workbench, klikněte na tlačítko **soubor** -> **spusťte příkazový řádek**. 
@@ -128,7 +128,7 @@ Příkaz clusteru prostředí instalační program vytvoří následující pros
 - Účet statistiky aplikace
 
 >[!IMPORTANT]
-> Aby bylo možné úspěšně vytvořit prostředí clusteru, musíte být vlastníkem na předplatné Azure a také mít možnost vytvořit objekt služby. Pokud chcete zkontrolovat, zda máte dostatečná oprávnění, postupujte podle pokynů na této stránce: [vytvoření objektu služby v Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> Aby bylo možné úspěšně vytvořit prostředí clusteru, musíte mít přístup Přispěvatel na předplatné Azure nebo skupinu prostředků.
 
 Rychle se vytvoří skupinu prostředků, účet úložiště a ACR. Nasazení služby ACS může trvat až 20 minut. 
 

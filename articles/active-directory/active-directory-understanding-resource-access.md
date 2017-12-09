@@ -4,21 +4,21 @@ description: "Toto téma vysvětluje koncepty o používání správci předplat
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/06/2017
 ms.author: curtand
-ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.custom: it-pro;
+ms.openlocfilehash: e0f167ed4859573b8a225312ed54ce80c8fb7269
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Principy přístupu k prostředkům v Azure
 
@@ -26,27 +26,22 @@ Spustí se z hlediska fakturační řízení přístupu v Azure. Vlastník účt
 
 <br><br>![Účty Azure][1]
 
-Odběry mají také přidružení s adresářem. Adresář definuje sadu uživatelů. Může jít o uživatele z práce nebo škola vytvořený adresář nebo může se jednat o externí uživatele (to znamená, Accounts Microsoft). Odběry jsou přístupné pro podmnožinu těchto directory uživatelů, kteří mají přiřazený jako služba správce nebo Spolusprávce (CA); Jedinou výjimkou je, že starší verze důvodů Accounts Microsoft (dříve Windows Live ID) může být přiřazen jako SA nebo certifikační Autority bez se nachází v adresáři.
+Odběry mají také přidružení s adresářem. Adresář definuje sadu uživatelů. Může jít o uživatele z práce nebo škola vytvořený adresář nebo mohou být uživatele typu Host externí. Odběry jsou přístupné pro podmnožinu těchto directory uživatelů, kteří mají přiřazený jako služba správce nebo Spolusprávce (CA); Jedinou výjimkou je, že starší verze důvodů účty Microsoft (dříve Windows Live ID) může být přiřazen jako SA nebo certifikační Autority bez se nachází v adresáři.
 
 <br><br>![Řízení přístupu v Azure][2]
 
-Funkcionalitu v rámci portálu Azure classic umožňuje SAs, které jsou podepsané pomocí Account Microsoft Chcete-li změnit adresář, který je přidružen odběru pomocí **upravit adresář** příkaz na **odběry** stránky v **nastavení**. Všimněte si, že tato operace má dopad na řízení přístupu daného předplatného.
+Funkce v rámci portálu Azure umožňuje SAs, které jsou podepsané pomocí Account Microsoft a změnit adresář, ke kterému je přiřazeno předplatné. Tato operace má dopad na řízení přístupu daného předplatného.
 
-> [!NOTE]
-> **Upravit adresář** příkaz na portálu Azure classic není k dispozici pro uživatele, kteří jsou přihlášení pomocí pracovního nebo školního účtu, protože tyto účty se můžete přihlásit pouze k adresáři, do které patří.
-> 
-> 
+<br><br>![Jednoduché uživatelské přihlašovací toku][3]
 
-<br><br>![Tok přihlášení jednoduchá uživatele][3]
-
-V případě jednoduchého bude organizace (například Contoso) vynutit fakturace a řízení přístupu v stejnou sadu odběry. Adresář je přidružen k odběry, které jsou vlastněny jeden účet Azure. Po úspěšném přihlášení k portálu Azure classic se uživatelům zobrazí dvě kolekce prostředků (znázorněný v oranžová na předchozím obrázku):
+V případě jednoduchého bude organizace (například Contoso) vynutit fakturace a řízení přístupu v stejnou sadu odběry. Adresář je přidružen k odběry, které jsou vlastněny jeden účet Azure. Po úspěšném přihlášení k portálu Azure se uživatelům zobrazí dvě kolekce prostředků (znázorněný v oranžová na předchozím obrázku):
 
 * Adresáře, kde existuje uživatelského účtu (jako zdroj nebo přidat jako cizí objekt zabezpečení). Všimněte si, že adresáři použít pro přihlášení není relevantní pro tento výpočet tak adresářů se vždy zobrazí bez ohledu na to, kde jste se přihlásili.
 * Prostředky, které jsou součástí odběry, které jsou přidruženy k adresáři použít pro přihlášení a který má uživatel přístup (kde se jedná SA nebo certifikační Autority).
 
 <br><br>![Uživatel s více předplatnými a adresáři][4]
 
-Možnost přepnout aktuální kontext portálu Azure classic pomocí filtru předplatné mít uživatelé s odběry v několika adresářích. V pozadí výsledkem je samostatný přihlášení do jiného adresáře, ale to se provádí bezproblémově pomocí jednotného přihlašování (SSO).
+Možnost přepnout aktuální kontext portálu Azure pomocí filtru předplatné mít uživatelé s odběry v několika adresářích. V pozadí výsledkem je samostatný přihlášení do jiného adresáře, ale to se provádí bezproblémově pomocí jednotného přihlašování (SSO).
 
 Operace, například přesun prostředků mezi předplatnými může být obtížnější v důsledku toto zobrazení jednoho adresářového předplatných. Pokud chcete provést přenos prostředků, může být potřeba první použití **upravit adresář** příkaz na stránce předplatných v **nastavení** přidružení předplatných do stejného adresáře.
 

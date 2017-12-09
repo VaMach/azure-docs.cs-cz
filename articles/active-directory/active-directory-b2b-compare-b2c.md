@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 33990e58ffed271b4d6e968b92a5ce16e8bbd287
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Porovnání spolupráce B2B a B2C v Azure Active Directory
 
@@ -35,7 +35,7 @@ Jednotné přihlašování (SSO) k aplikacím všechny připojené AD Azure je p
 Životní cyklus partnera: spravuje hostitele nebo pozvání organizace.  | Životní cyklus zákazníka: samoobslužný postup nebo spravovaných aplikací.
 Zásady zabezpečení a dodržování předpisů: spravuje hostitele nebo pozvání organizace.  | Zásady zabezpečení a dodržování předpisů: spravovaných aplikací.
 Branding: Brand hostitele nebo pozvání organizace se používá.  |    Branding: Spravované aplikace. Obvykle bývá produktu s organizace směrem do pozadí značky.
-Další informace: [příspěvku na blogu](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [dokumentace](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Další informace: [stránky produktu](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [dokumentace](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
+Další informace: [příspěvku na blogu](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [dokumentace](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Další informace: [stránky produktu](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [dokumentace](https://docs.microsoft.com/azure/active-directory-b2c/)
 
 
 ### <a name="next-steps"></a>Další kroky

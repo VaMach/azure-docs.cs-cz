@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4e673a92a9740b96eac20cdf5673395bacca8b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Jak získat instanci procesor médií
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Přehled
-Ve službě Media Services, kterou procesor médií je komponenta, která zpracovává zpracování specifické pro úlohy, jako je například kódování formátu převodu, šifrování nebo dešifrování mediální obsah. Obvykle vytvoříte procesor médií při vytváření úlohy kódování, šifrování nebo převést formát mediální obsah.
+Procesory médií jsou komponenty, která zpracovává konkrétní video nebo zvuk zpracování úloh, třeba kódování, převod formátu, šifrování nebo dešifrování objektu mediální obsah. Všechny úlohy, odeslané ke službě Media Services vyžadují kódování, šifrování nebo převod obsahu video nebo zvuk procesor médií. 
 
 ## <a name="azure-media-processors"></a>Procesory médií Azure 
 
@@ -44,8 +44,6 @@ Následující téma obsahuje seznam procesory médií:
 
 Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI.
 
 ## <a name="get-a-media-processor"></a>Získat procesor médií
 
@@ -60,7 +58,7 @@ Toto volání REST ukazuje, jak získat instance procesoru média podle názvu (
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Odpověď:
@@ -89,5 +87,5 @@ Odpověď:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Další kroky
-Teď, když víte, jak získat instance procesoru média, přejděte na [postup kódovat Asset](media-services-rest-get-started.md) téma, které vám ukáže, jak používat Media Encoder Standard kódování assetu.
+Teď, když víte, jak získat instance procesoru média, přejděte na [postup kódovat Asset](media-services-rest-get-started.md) článek, která demonstruje použití Media Encoder Standard kódování assetu.
 

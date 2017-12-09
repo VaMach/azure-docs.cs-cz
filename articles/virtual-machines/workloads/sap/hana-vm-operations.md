@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0328bdc40429e1e82a76f290f5bde39089db0a9d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: ab609fe9e7b01d7087dd00c22c19e69a471f6599
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA na Azure provozní příručky
 Tato příručka obsahuje pokyny pro operační systémy SAP HANA, které jsou nasazené na virtuálních počítačích Azure. Tento dokument není určen k nahrazení všechny standardní dokumentace SAP. SAP příručky a poznámky naleznete v následujících umístěních:
@@ -93,7 +93,7 @@ Když instalujete virtuální počítače, které se má spustit HANA, musí mí
 
 Přehled o různých možnostech, které přiřazení IP adresy najdete [zde](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
-Provoz směrování do přímo na instance SAP HANA nebo na jumpbox přesměrován podle [skupin zabezpečení sítě Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) , a jsou přidruženy ke HANA podsíť a podsíť správy.
+Provoz směrování do přímo na instance SAP HANA nebo na jumpbox přesměrován podle [skupin zabezpečení sítě Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) , a jsou přidruženy ke HANA podsíť a podsíť správy.
 
 Celkové schéma hrubý nasazení by vypadat podobně jako:
 
@@ -112,7 +112,7 @@ Možnosti SAP HANA zálohování a obnovení jsou popsány v těchto dokumentů:
 
 - [Přehled funkce zálohování SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [Zálohování SAP HANA na úrovni souborů](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [Srovnávací test SAP HANA úložiště snímků](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [Srovnávací test SAP HANA úložiště snímků](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
 
@@ -132,7 +132,7 @@ Musíte nainstalovat SAPRouter v samostatných virtuálních počítačů a nen�
 Další informace o tom, jak nastavit a spravovat podporu vzdáleného připojení prostřednictvím SAPRouter, zaškrtněte toto políčko [SAP zdroj](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Vysoká dostupnost s SAP HANA na virtuálních počítačích Azure nativní
-Systém SUSE Linux 12 SP1 a novější můžete vytvořit cluster kardiostimulátor s STONITH zařízení k nastavení konfigurace SAP HANA, který používá synchronní replikaci s HANA systému replikace a automatické převzetí služeb při selhání. Postup instalace je popsána v článku [vysokou dostupnost z SAP HANA ve virtuálních počítačích Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Systém SUSE Linux 12 SP1 a novější můžete vytvořit cluster kardiostimulátor s STONITH zařízení k nastavení konfigurace SAP HANA, který používá synchronní replikaci s HANA systému replikace a automatické převzetí služeb při selhání. Postup instalace je popsána v článku [vysokou dostupnost z SAP HANA ve virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
  
 

@@ -19,7 +19,7 @@ Předtím, než se podíváme na zálohování a zotavení po Havárii možnosti
 
 ### <a name="azure-iaas-resiliency"></a>Odolnost Azure IaaS
 
-*Odolnost proti chybám* odkazuje na tolerance pro běžné chyby, ke kterým došlo v hardwarové součásti. Odolnost proti chybám je možnost obnovení v případě selhání a i nadále fungovat. Nejedná se o zamezení selhání, ale odpověď na selhání způsobem, který zabraňuje výpadku nebo ztráty dat. Cílem odolnosti je pro návrat aplikace plně funkční stavu selhání. Virtuální počítače Azure a disky jsou navržené jako odolné vůči běžné chyby hardwaru. Podíváme, jak na platformu Azure IaaS poskytuje tuto odolnost proti chybám.
+*Odolnost proti chybám* odkazuje na tolerance pro běžné chyby, ke kterým došlo v hardwarové součásti. Odolnost proti chybám je možnost obnovení v případě selhání a i nadále fungovat. Nejedná se o zamezení selhání, ale odpověď na selhání způsobem, který zabraňuje výpadku nebo ztráty dat. Cílem odolnosti proti chybám je obnovení plně funkčního stavu aplikace co nejdříve po selhání. Virtuální počítače Azure a disky jsou navržené jako odolné vůči běžné chyby hardwaru. Podíváme, jak na platformu Azure IaaS poskytuje tuto odolnost proti chybám.
 
 Virtuální počítač se skládá především ze dvou částí: serveru výpočetní a trvalé disky. Obě ovlivnit odolnost proti chybám virtuálního počítače.
 
@@ -211,7 +211,7 @@ Pokud chcete zkopírovat vaší přírůstkové snímky pro zotavení po Havári
 
 ### <a name="recovery-from-snapshots"></a>Obnovení ze snímků
 
-Načíst snímek, zkopírujte jej, aby nový objekt blob. Pokud kopírujete snímek z primární účet, můžete zkopírovat snímku přes na základní objekt blob snímku. Tento proces obnoví disku do snímku. Tento proces se označuje jako povýšení snímku. Pokud kopírujete zálohy snímku pomocí jiného účtu, v případě účtu přístup pro čtení geograficky redundantní úložiště, zkopírujte jej do primární účet. Můžete zkopírovat snímek pomocí [pomocí prostředí PowerShell](../articles/storage/common/storage-powershell-guide-full.md) nebo pomocí nástroje azcopy. Další informace najdete v tématu [přenos dat pomocí nástroje příkazového řádku azcopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy).
+Načíst snímek, zkopírujte jej, aby nový objekt blob. Pokud kopírujete snímek z primární účet, můžete zkopírovat snímku přes na základní objekt blob snímku. Tento proces obnoví disku do snímku. Tento proces se označuje jako povýšení snímku. Pokud kopírujete zálohy snímku pomocí jiného účtu, v případě účtu přístup pro čtení geograficky redundantní úložiště, zkopírujte jej do primární účet. Můžete zkopírovat snímek pomocí [pomocí prostředí PowerShell](../articles/storage/common/storage-powershell-guide-full.md) nebo pomocí nástroje azcopy. Další informace najdete v tématu [přenos dat pomocí nástroje příkazového řádku azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
 Pro virtuální počítače s více disky musíte zkopírovat všechny snímky, které jsou součástí stejného bodu koordinované obnovení. Po zkopírování snímky s možností zápisu objektů BLOB VHD, můžete použít objekty BLOB k opětovnému vytvoření virtuálního počítače pomocí šablony pro virtuální počítač.
 

@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Najít a diagnostikovat výjimky v době běhu pomocí služby Azure Application Insights
 
@@ -37,12 +37,12 @@ K provedení kroků v tomto kurzu je potřeba:
     - Vývoj pro ASP.NET a web
     - Vývoj pro Azure
 - Stáhněte a nainstalujte [Visual Studio Debugger snímku](http://aka.ms/snapshotdebugger).
-- Povolit [snímku ladicího programu sady Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger)
+- Povolit [snímku ladicího programu sady Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 - Nasazení aplikace .NET do Azure a [povolit Application Insights SDK](app-insights-asp-net.md). 
 - Kurz sleduje identifikace výjimku ve vaší aplikaci, takže upravit kód ve vašem prostředí vývoj nebo testování generovat výjimku. 
 
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
-Přihlaste se k portálu Azure v [https://portal.azure.com](https://portal.azure.com).
+Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="analyze-failures"></a>Analýza selhání

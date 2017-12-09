@@ -19,11 +19,11 @@ ms.date: 11/03/2017
 ms.author:
 - kraigb
 - justcla
-ms.openlocfilehash: 5a0dd3d123cb0d580ea753cebc36ebcdb7084db9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publikování aplikace technologie ASP.NET pro virtuální počítač Azure ze sady Visual Studio
 
@@ -119,7 +119,7 @@ Vaše nastavení by měl vypadat přibližně takto:
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Nastavení položky konfigurace nebo CD pro automatické nasazení do virtuálního počítače Azure
 
-Kanál nastavené průběžné doručování pomocí sady Visual Studio Team Service, naleznete v tématu [nasadit na virtuální počítač Windows](https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+Kanál nastavené průběžné doručování pomocí sady Visual Studio Team Service, naleznete v tématu [nasadit na virtuální počítač Windows](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

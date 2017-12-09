@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Sledování služeb Azure v Grafana
 Nyní také můžete monitorovat Azure služeb a aplikací z [Grafana](https://grafana.com/) pomocí [modul plug-in zdroje dat monitorování Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). Tento modul plug-in shromažďuje údaje o výkonu aplikací získané nástrojem Application Insights SDK, jakož i infrastruktury data poskytnutá Azure monitorování. Pak můžete zobrazit tato data na řídicím panelu Grafana.
@@ -62,7 +62,7 @@ Grafana používá objektu služby Azure Active Directory pro připojení k rozh
 
 1. V tématu [tyto pokyny](../azure-resource-manager/resource-group-create-service-principal-portal.md) k vytvoření objektu služby. Zkopírujte a uložte vašeho klienta ID, ID klienta a tajný klíč klienta.
 
-2. V tématu [přiřazení aplikace k roli](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) přiřadit role Čtenář do aplikace Azure Active Directory.   
+2. V tématu [přiřazení aplikace k roli](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) přiřadit role Čtenář do aplikace Azure Active Directory.     
 
 3. Pokud používáte Application Insights, můžete použít také Application Insights API a ID aplikace ke shromažďování metrik Application Insights na základě. Další informace najdete v tématu [získávání klíč rozhraní API a ID aplikace](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
