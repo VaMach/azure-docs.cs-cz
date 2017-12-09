@@ -115,7 +115,7 @@ Pokud přístup k aplikaci, ověřte, že je umožňuje vaše Internet hraničn�
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Krok 4 Pokud nemají přístup k aplikaci, pomocí ověření IP zkontrolujte nastavení. 
 
-Další informace najdete v tématu [síť Azure Přehled monitorování](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Další informace najdete v tématu [síť Azure Přehled monitorování](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Další zdroje
 [Řešení potíží s připojení ke vzdálené ploše do systému Windows Azure virtuálního počítače](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

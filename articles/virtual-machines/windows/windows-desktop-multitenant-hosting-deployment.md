@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 8/20/2017
 ms.author: xujing
-ms.openlocfilehash: e3209abd17c7ba3e39a67f834be69f113c27a021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e1fd3cf826915b128039e3d9fe20c309f20ad2c6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Postup nasazení Windows 10 v Azure s oprávnění víceklientské hostování 
 Víceklientská hostování práva pro Windows 10 pro zákazníky s Windows 10 Enterprise E3/E5 za Windows virtuální plochy přístup uživatele nebo na uživatele (licence předplatného uživatele nebo licence předplatného rozšíření uživatele), umožňuje uvést vaše licence Windows 10 do cloudu a spouštět virtuální počítače s Windows 10 v Azure bez placení pro jiné licence. Další informace najdete v tématu [víceklientské hostování pro Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -108,7 +108,7 @@ LicenseType              :
 >
 
 ## <a name="next-steps"></a>Další kroky
-- Další informace o [konfigurace VDA pro Windows 10](https://docs.microsoft.com/en-us/windows/deployment/vda-subscription-activation)
+- Další informace o [konfigurace VDA pro Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
 - Další informace o [víceklientské hostování pro Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
 
 

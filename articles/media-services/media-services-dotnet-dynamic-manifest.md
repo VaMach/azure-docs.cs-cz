@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 6c43473b86c14679ace558de478bd95f41d476da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Vytváření filtrů pomocí sady Azure Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -27,13 +27,13 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Od verze 2.11, Media Services umožňuje definovat filtry pro vaše prostředky. Tyto filtry jsou pravidla na straně serveru, které vám umožní vašim zákazníkům, kde můžete provádět například následující akce: přehrávání pouze část videa (namísto přehrávání celou video), nebo zadejte pouze podmnožinu interpretace audia a videa, které může zařízení vašich zákazníků (místo toho zpracovat všechny interpretací, jsou přidružený asset). Tento filtrování vaše prostředky je dosaženo pomocí **dynamické Manifest**ů, které jsou vytvořené na žádost zákazníka Streamovat videa podle zadané filtry.
+Od verze 2.17, Media Services umožňuje definovat filtry pro vaše prostředky. Tyto filtry jsou serverové pravidla, která umožňují vašim zákazníkům, kde můžete provádět například následující akce: přehrávání pouze část videa (namísto přehrávání celou video), nebo zadejte pouze podmnožinu interpretace audia a videa, které může zpracovat vašeho zákazníka zařízení (ne z všechny interpretace přidružených asset). Tento filtrování vaše prostředky je dosaženo pomocí **dynamické Manifest**ů, které jsou vytvořené na žádost zákazníka Streamovat videa podle zadané filtry.
 
 Podrobné informace týkající se filtrů a dynamické Manifest, najdete v části [dynamické manifesty přehled](media-services-dynamic-manifest-overview.md).
 
-Toto téma ukazuje, jak vytvářet, aktualizovat a odstraňovat filtry pomocí sady Media Services .NET SDK. 
+Tento článek ukazuje, jak používat sadu Media Services .NET SDK vytvářet, aktualizovat a odstraňovat filtry. 
 
-Poznámka: Pokud aktualizujete filtr, může trvat až 2 minuty pro koncový bod k aktualizaci pravidla streamování. Pokud obsah zpracování pomocí tohoto filtru (a uložené v mezipaměti v proxy servery a CDN mezipaměti), aktualizace tento filtr může způsobit selhání přehrávač. Je doporučujeme vymazání mezipaměti po aktualizaci filtru. Pokud tato možnost není možné, zvažte použití jiný filtr. 
+Poznámka: Pokud aktualizujete filtr, může trvat až dvě minuty pro koncový bod k aktualizaci pravidla streamování. Pokud obsah zpracování pomocí tohoto filtru (a uložené v mezipaměti v proxy servery a CDN mezipaměti), aktualizace tento filtr může způsobit selhání přehrávač. Po aktualizaci filtr vždy vymazání mezipaměti. Pokud tato možnost není možné, zvažte použití jiný filtr. 
 
 ## <a name="types-used-to-create-filters"></a>Typy používané pro vytvoření filtrů
 Následující typy se používají při vytváření filtrů: 

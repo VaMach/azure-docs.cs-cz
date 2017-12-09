@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 57bd8758c2ae24922a959c9ce3893aad90dfe7e1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Pokyny pro Hive v HDInsight a Azure Data Lake Store optimalizace výkonu
 
@@ -29,8 +29,8 @@ K zajištění dobrý výkon v řadě případů použití v odlišných byly na
 * **Předplatné Azure**. Viz [Získání bezplatné zkušební verze Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Účet Azure Data Lake Store**. Pokyny o tom, jak vytvořit najdete v tématu [Začínáme s Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** s přístupem k účtu Data Lake Store. V tématu [vytvoření clusteru HDInsight s Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Ujistěte se, že povolení vzdálené plochy pro cluster.
-* **Spuštění Hive v HDInsight**.  Další informace o probíhajících úloh Hive v HDInsight naleznete v tématu [použití Hive v HDInsight] (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)
-* **Ladění pokyny na ADLS výkonu**.  Obecný výkon koncepty, najdete v části [Data Lake Store výkonu ladění pokyny](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Spuštění Hive v HDInsight**.  Další informace o probíhajících úloh Hive v HDInsight naleznete v tématu [použití Hive v HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Ladění pokyny na ADLS výkonu**.  Obecný výkon koncepty, najdete v části [Data Lake Store výkonu ladění pokyny](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametry
 
@@ -56,7 +56,7 @@ Zde jsou nejdůležitější nastavení a vylaďte pro zlepšení výkonu ADLS:
 
 **Nastavit hive.exec.reducer.bytes.per.reducer** – výchozí hodnota funguje dobře, když nekomprimované data.  Pro data, která je komprimován by měl zmenšete velikost reduktorem.  
 
-**Nastavit hive.tez.container.size** – v každém uzlu, je zadána yarn.nodemanager.resource.memory mb paměti a musí být správně v clusteru HDI ve výchozím nastavení.  Další informace o nastavení odpovídající paměti v YARN najdete [post](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Nastavit hive.tez.container.size** – v každém uzlu, je zadána yarn.nodemanager.resource.memory mb paměti a musí být správně v clusteru HDI ve výchozím nastavení.  Další informace o nastavení odpovídající paměti v YARN najdete [post](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
 Zatížení s intenzivním vstupně-výstupních operací můžete těžit z další paralelismus snížením velikosti kontejneru Tez. To umožňuje uživateli víc kontejnerů, což zvyšuje souběžnosti.  Ale některé dotazy Hive vyžadovat značné množství paměti (např. MapJoin).  Pokud úloha nemá dostatek paměti, zobrazí se nedostatku paměti výjimky za běhu.  Pokud se zobrazí nedostatek paměti výjimky, měli byste zvýšit velikost paměti.   
 

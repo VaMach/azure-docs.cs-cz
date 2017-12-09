@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Vysvětlení vašeho vyúčtování služeb Microsoft Azure
 Chcete-li vysvětlení faktury Azure, porovnejte faktury s podrobné soubor denní využití a správu sestav náklady na portálu Azure.
@@ -31,7 +31,7 @@ Pokud chcete získat PDF části faktury a kopii podrobné stahování sdílené
 
 Podrobné podmínky a popisy faktury a podrobný soubor denní využití najdete v tématu [pochopit podmínky v Microsoft Azure faktury](billing-understand-your-invoice.md) a [Rady pro pochopení podmínky v Microsoft Azure podrobné využití](billing-understand-your-usage.md). 
 
-Podrobnosti sestavy náklady na správu najdete v tématu [Správa nákladů na portálu Azure](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+Podrobnosti sestavy náklady na správu najdete v tématu [Správa nákladů na portálu Azure](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Jak se ujistěte se, zda jsou informace správné poplatky v fakturou?
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
@@ -42,7 +42,7 @@ Pokud je na vaší faktuře, které chcete podrobnosti na zpoplatněny, existuje
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Možnost 1: Zkontrolujte faktury a porovnání využití a náklady s podrobné informace o použití souboru CSV
 
-Podrobné informace o použití souboru CSV zobrazuje vaše poplatky podle denní využití a fakturační období. Chcete-li získat podrobné informace o použití souboru CSV, přečtěte si téma [získat vaše Azure fakturace faktury a denní data o využití](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+Podrobné informace o použití souboru CSV zobrazuje vaše poplatky podle denní využití a fakturační období. Chcete-li získat podrobné informace o použití souboru CSV, přečtěte si téma [získat vaše Azure fakturace faktury a denní data o využití](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
 Vaše poplatky za používání se zobrazí na úrovni měření. Následující termíny mají stejný význam v faktury a podrobné informace o použití souboru. Například fakturačního cyklu na faktuře je ekvivalentní fakturační období uvedené v souboru podrobné informace o použití.
 

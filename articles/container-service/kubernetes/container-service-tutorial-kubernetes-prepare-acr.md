@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4bca5e2522c091b5d8045fd9738b438156ff07f9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: c9c8ad6dfd6df0e99f9e41eaf1da12ebeb2a2da6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Nasazení a používání Azure kontejneru registru
 
@@ -54,7 +54,7 @@ Po celý zbytek v tomto kurzu používáme `<acrname>` jako zástupný symbol pr
 
 ## <a name="container-registry-login"></a>Kontejner registru přihlášení
 
-Použití [az acr přihlášení](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) příkaz k přihlášení do ACR instance. Je třeba zadat jedinečný název zadané registru kontejneru v okamžiku vytvoření.
+Použití [az acr přihlášení](https://docs.microsoft.com/cli/azure/acr#az_acr_login) příkaz k přihlášení do ACR instance. Je třeba zadat jedinečný název zadané registru kontejneru v okamžiku vytvoření.
 
 ```azurecli
 az acr login --name <acrName>

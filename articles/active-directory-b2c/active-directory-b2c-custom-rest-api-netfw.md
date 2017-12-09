@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: e9a5b6ffdf2a2c30ae1bcb2bd8f91adb12f35266
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 0bc00dd14977e7cf24f5bff6928d09ca67761d3b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrace rozhraní REST API deklarace identity výměn v vám dobře slouží Azure AD B2C uživatele jako ověřování vstupu uživatele
 S použitím rozhraní Framework Identity, které základem Azure Active Directory B2C (Azure AD B2C), kterou můžete integrovat se rozhraní RESTful API cesty uživatele. V tomto návodu se dozvíte, jak Azure AD B2C komunikuje s rozhraní .NET Framework RESTful služeb (webové rozhraní API).
@@ -215,7 +215,7 @@ Ve webové rozhraní API _řadič_ je objekt, který zpracovává požadavky HTT
     **Vytvořit službu App Service** otevře se okno. V něm vytvořit všechny potřebné prostředky Azure ke spouštění webové aplikace ASP.NET v Azure.
 
     > [!NOTE]
-    >Další informace o tom, jak publikovat najdete v tématu [vytvoření webové aplikace ASP.NET v Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Další informace o tom, jak publikovat najdete v tématu [vytvoření webové aplikace ASP.NET v Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. V **název webové aplikace** zadejte jedinečným názvem aplikace (jsou platné znaky-z, 0 – 9 a pomlčky (-). Adresa URL webové aplikace je http://<app_name>.azurewebsites.NET, kde *app_name* je název vaší webové aplikace. Můžete přijmout automaticky vygenerovaný název, který je jedinečný.
 

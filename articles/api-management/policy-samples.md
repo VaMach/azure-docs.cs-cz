@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: ae62638fd1d325822b15b7de998861d4df67bd8e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="api-management-policy-samples"></a>Ukázky rozhraní API správy zásad
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/04/2017
 |[Přidávání funkcí do back-end službu a odpověď do mezipaměti](./policies/cache-response.md?toc=api-management/toc.json) |Ukazuje, jak pro přidání možností do back-end službu. Například přijměte název místě, ne na zeměpisnou šířku a délku předpovědi počasí rozhraní API.|
 |[Autorizace přístupu na základě deklarací JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |Ukazuje, jak k autorizaci přístupu pro konkrétní metody HTTP do rozhraní API založené na deklaracích identity JWT.|
 |[Autorizace přístupu pomocí token Google OAuth](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |Ukazuje, jak autorizace přístupu k koncové body pomocí Google jako zprostředkovatel tokenu OAuth.|
-|[Vygenerování sdíleného přístupového podpisu a předat dál požadavek do úložiště Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Ukazuje, jak vygenerovat [sdíleného přístupového podpisu](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) pomocí výrazů a předání požadavku do úložiště Azure zásadám přepisování uri. |
+|[Vygenerování sdíleného přístupového podpisu a předat dál požadavek do úložiště Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Ukazuje, jak vygenerovat [sdíleného přístupového podpisu](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) pomocí výrazů a předání požadavku do úložiště Azure zásadám přepisování uri. |
 |[Získání tokenu přístupu OAuth2 z AAD a předá je na back-end](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |Poskytuje příklad použití OAuth2 pro ověřování mezi bránou rozhraní a back-end. Ukazuje, jak získat přístupový token z AAD a předá je na back-end.|
 |[Získat X-proti útokům CSRF tokenu z bráně SAP pomocí odeslání žádosti o zásadu](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |Ukazuje, jak implementovat X proti útokům CSRF vzor používá mnoho rozhraní API. V tomto příkladu je konkrétní k bráně SAP. |
 |[Směrování požadavku na základě velikosti jeho obsahu](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |Ukazuje, jak pro směrování požadavků na základě velikosti jejich subjektů.|

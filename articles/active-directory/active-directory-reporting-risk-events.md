@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2e0fb528b22c5696aa46a677199b95ff3fbd6a79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory rizikových událostí
 
@@ -31,9 +31,13 @@ V současné době Azure Active Directory zjistí šesti typy rizikových událo
 - [Nemožná cesta do netypických míst](#impossible-travel-to-atypical-locations) 
 - [Přihlášení z nakažených zařízení](#sign-ins-from-infected-devices) 
 - [Přihlášení z IP adres s podezřelou aktivitou](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Přihlášení z neznámých míst](#sign-in-from-unfamiliar-locations) (výhradně pro **Azure Active Directory Premium P2** edice)
+- [Přihlášení z neznámých míst](#sign-in-from-unfamiliar-locations) 
+
 
 ![Riziko událostí](./media/active-directory-reporting-risk-events/91.png)
+
+Přehledy, které máte pro událost zjištěnou riziko je vázaný na vaše předplatné Azure AD. Pokud máte edice Azure AD Premium P1 (součástí nabídky EMS E3), detekce, které nejsou předmětem licence hlásit jako **přihlášení s další riziko zjistil**. Jinými slovy viz riziko událost přihlášení s další riziko pro zjištění výhradní předplatitelům služby Azure AD Identity Protection zjištěn.
+
 
 Toto téma poskytuje můžete podrobný přehled o událostech, které riziko jsou a jak je používat k ochraně vašich identit Azure AD.
 

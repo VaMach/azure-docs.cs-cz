@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3f7d6a0b7b1f874d87e10c490d0b48fe6e6083ef
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Návody vědecké účely dat systému SQL Server pomocí R, Python a T-SQL
 
@@ -39,12 +39,12 @@ Návody vědecké účely další data, které se spouští proces vědecké ú�
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Předpověď taxíkem tipy R z T-SQL nebo uložené procedury pomocí systému SQL Server
 
-[Datové vědy návod pro R a SQL Server](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) poskytuje programátory v jazyce SQL s prostředím sestavování řešení s pokročilou analýzu pomocí jazyka Transact-SQL pomocí služby SQL Server R Services pro zprovoznění řešení s R. 
+[Datové vědy návod pro R a SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) poskytuje programátory v jazyce SQL s prostředím sestavování řešení s pokročilou analýzu pomocí jazyka Transact-SQL pomocí služby SQL Server R Services pro zprovoznění řešení s R. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Předpověď taxíkem tipy v uložených procedur SQL Server používá Python
 
-[Použití T-SQL s SQL Server Python Services](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) názorný postup obsahuje programátory v jazyce SQL s prostředím vytváření machine learning řešení v systému SQL Server. Ukazuje, jak začlenit Python do aplikace tak, že přidáte kód Python k uloženým procedurám.
+[Použití T-SQL s SQL Server Python Services](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) názorný postup obsahuje programátory v jazyce SQL s prostředím vytváření machine learning řešení v systému SQL Server. Ukazuje, jak začlenit Python do aplikace tak, že přidáte kód Python k uloženým procedurám.
 
 
 ## <a name="next-steps"></a>Další kroky

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 603efa917e1b74eca4742795b3f72cb426fcbb2a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Knihovny ověřování služby Azure Active Directory
 Azure Active Directory Authentication Library (ADAL) umožňuje vývojáři aplikace k ověřování uživatelů do cloudu nebo místní služby Active Directory (AD) a získat tokeny zabezpečení volání rozhraní API. ADAL usnadňuje ověřování pro vývojáře prostřednictvím funkcí, jako například:
@@ -29,7 +29,7 @@ Azure Active Directory Authentication Library (ADAL) umožňuje vývojáři apli
  - a další
 
 > [!NOTE]
-> Hledáte na Azure AD v2.0 knihovny (MSAL)? Najdete v článku věnovaném [MSAL knihovny průvodce](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries). 
+> Hledáte na Azure AD v2.0 knihovny (MSAL)? Najdete v článku věnovaném [MSAL knihovny průvodce](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries). 
 > 
 > 
 
@@ -59,7 +59,7 @@ Azure Active Directory Authentication Library (ADAL) umožňuje vývojáři apli
 
 ### <a name="v20-client-libraries-msal"></a>Knihovny klienta v2.0 (MSAL)
 
-[Koncového bodu Azure AD v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) kombinuje Azure AD a Accounts Microsoft za jeden koncový bod. Pro přístup k tomuto koncovému bodu, vývojáři mohou použít [podporované produkční preview MSAL knihovny](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries) místo ADAL.
+[Koncového bodu Azure AD v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) kombinuje Azure AD a Accounts Microsoft za jeden koncový bod. Pro přístup k tomuto koncovému bodu, vývojáři mohou použít [podporované produkční preview MSAL knihovny](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) místo ADAL.
 
 | Platforma | Knihovna | Ke stažení | Zdrojový kód | Ukázka | Referenční informace
 | --- | --- | --- | --- | --- | --- |

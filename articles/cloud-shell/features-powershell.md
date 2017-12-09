@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2017
 ms.author: damaerte
-ms.openlocfilehash: 6ec1d8dac4e07b28b92c2aee5d1e9d47fa62b7a1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 31ba4b68850e14fc038df0bbe91146b90f8ca4b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funkce a nástroje pro prostředí PowerShell v prostředí cloudu Azure (Preview)
 
@@ -47,7 +47,7 @@ Vzhledem k tomu, že každý požadavek pro cloudové prostředí je přidělov�
 
 Prostředí PowerShell v prostředí cloudu (Preview) vám spuštění v Azure jednotce (`Azure:`).
 Azure jednotky umožňuje snadno našli a navigační prostředků Azure, jako jsou výpočty, sítě, úložiště atd podobná navigační systému souborů.
-Můžete nadále používat známé [rutin prostředí Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure) tyto zdroje spravovat.
+Můžete nadále používat známé [rutin prostředí Azure PowerShell](https://docs.microsoft.com/powershell/azure) tyto zdroje spravovat.
 Všechny změny prostředků Azure, buď provedené přímo na portálu Azure nebo pomocí rutin prostředí Azure PowerShell, se okamžitě projeví v Azure jednotky.
 
 ![](media/features-powershell/azure-drive.png)
@@ -91,7 +91,7 @@ Tyto příkazy jsou postavená na vzdálenou komunikaci prostředí PowerShell a
 
 |**Kategorie**    |**Název**                                 |
 |----------------|-----------------------------------------|
-|Nástroje Azure     |[Prostředí Azure PowerShell (– 5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Rozhraní příkazového řádku Azure (2.0.22)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Nástroje Azure     |[Prostředí Azure PowerShell (– 5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Rozhraní příkazového řádku Azure (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
 |Textové editory    |VIM<br> nano                             |
 |Správce balíčků |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Správa zdrojového kódu  |Git                                      |

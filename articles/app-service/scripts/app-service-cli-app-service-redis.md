@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c1277a04e3a63c09b2ed7f9304bfc482ab9189a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b8ae453ca73ae69c34ff785dc619433035257a6a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Připojení webové aplikace do mezipaměti redis
 
@@ -47,8 +47,8 @@ Tento skript používá následující příkazy k vytvoření skupiny prostřed
 | [Vytvoření skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
 | [Vytvořit plán aplikační služby az](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Vytvoří plán služby App Service. Toto je jako serverové farmy pro Azure webové aplikace. |
 | [Vytvoření az webapp](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Vytvoří webové aplikace Azure. |
-| [Vytvoření az redis](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) | Vytvořte novou instanci služby Redis Cache. Toto je, kde bude uložena data. |
-| [AZ redis seznamu klíčů](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_list_keys) | Uvádí přístupové klíče pro instanci služby redis cache. |
+| [Vytvoření az redis](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Vytvořte novou instanci služby Redis Cache. Toto je, kde bude uložena data. |
+| [AZ redis seznamu klíčů](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Uvádí přístupové klíče pro instanci služby redis cache. |
 | [AZ webapp konfigurace appsettings sady](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Vytvoří nebo aktualizuje nastavení aplikace pro webové aplikace Azure. Nastavení aplikace jsou zveřejněné jako proměnné prostředí pro vaši aplikaci. |
 
 ## <a name="next-steps"></a>Další kroky

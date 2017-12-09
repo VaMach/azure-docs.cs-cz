@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 43c930c18c284a8e6c71174bcf905904001dcde2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Nejčastější dotazy (FAQ) 
 Tato stránka odpovědi časté otázky o Azure Active Directory (Azure AD) B2C. Kontrolovat zpět aktualizací.
@@ -37,7 +37,7 @@ V klienta Azure AD B2C, většina aplikací, aby uživatel Přihlaste se pomocí
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Sociální identity poskytovatelů, kteří je podporují nyní? Ty, které plánujete podporovat v budoucnu?
 Momentálně podporujeme sítě Facebook, Google +, LinkedIn, Amazon, služby Twitter (preview), WeChat (preview), Weibo (preview) a QQ (Preview). Přidáme podporou dalších zprostředkovatelů oblíbených sociálních identity na základě poptávky zákazníka.
 
-Azure AD B2C je také přidána podpora pro [vlastní zásady](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Tyto [vlastní zásady](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) umožňuje vývojářům vytvářet své vlastní zásady, s všechny zprostředkovatele identity, která podporuje [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) nebo SAML. 
+Azure AD B2C je také přidána podpora pro [vlastní zásady](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Tyto [vlastní zásady](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) umožňuje vývojářům vytvářet své vlastní zásady, s všechny zprostředkovatele identity, která podporuje [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) nebo SAML. 
 
 Začínáme s vlastními zásadami Vyzkoušejte naše [vlastní zásady starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
@@ -87,7 +87,7 @@ Ne, Azure AD Connect není určená pro práci s Azure AD B2C. Zvažte použití
 Ne, z důvodů zabezpečení Azure AD B2C stránky nelze otevřít v rámci elementu iFrame.  Naše služba komunikuje s prohlížečem, který se má vložené rámce.  Komunita zabezpečení v obecné vlastnosti a specifikace OAUTH2 se nedoporučujeme používání prvky IFrame pro činnosti identity z důvodu riziko opěry pro klikněte na tlačítko.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Funguje s CRM systémů, jako jsou Microsoft Dynamics Azure AD B2C?
-Integrace s Microsoft Dynamics 365 Portal je k dispozici.  V tématu [konfigurace portálu 365 Dynamics pro ověřování pomocí Azure AD B2C](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Integrace s Microsoft Dynamics 365 Portal je k dispozici.  V tématu [konfigurace portálu 365 Dynamics pro ověřování pomocí Azure AD B2C](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Nemá Azure AD B2C práce s místní SharePoint 2016 nebo starší?
 Azure AD B2C není určena pro SharePoint externí sdílení partnera scénář; v tématu [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) místo.

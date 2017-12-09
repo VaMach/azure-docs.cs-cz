@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Pomocí Docker svazku zásuvné moduly a protokolování ovladače v vašeho kontejneru
 Azure Service Fabric podporuje určení [Docker svazku zásuvné moduly](https://docs.docker.com/engine/extend/plugins_volume/) a [Docker protokolování ovladače](https://docs.docker.com/engine/admin/logging/overview/) pro vaši službu kontejneru. Může uchovávat vaše data v [Azure Files](https://azure.microsoft.com/services/storage/files/) při vašeho kontejneru je přesunout nebo restartováním jiného hostitele.
@@ -28,7 +28,7 @@ Aktuálně jsou podporovány pouze svazku ovladače pro kontejnery Linux. Pokud 
 
 ## <a name="install-the-docker-volumelogging-driver"></a>Nainstalujte ovladač svazku nebo protokolování Docker
 
-Pokud ovladač svazku nebo protokolování Docker není nainstalovaný na počítači, můžete je nainstalovat ručně pomocí protokolu RDP/SSH. Můžete provést instalaci těchto protokolech prostřednictvím [škálovací sady virtuálních počítačů spuštění skriptu](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) nebo [SetupEntryPoint skriptu](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service).
+Pokud ovladač svazku nebo protokolování Docker není nainstalovaný na počítači, můžete je nainstalovat ručně pomocí protokolu RDP/SSH. Můžete provést instalaci těchto protokolech prostřednictvím [škálovací sady virtuálních počítačů spuštění skriptu](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) nebo [SetupEntryPoint skriptu](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
 Příklad skriptu k instalaci [Docker svazku ovladač pro Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) vypadá takto:
 

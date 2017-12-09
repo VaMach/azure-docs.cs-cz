@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: d5aa5cb5331b8b0e714156982ed162e873428be0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Potřebujete pomoci s portálem Moje aplikace?
 
@@ -35,7 +35,7 @@ Obecné problémy zkontrolujte:
 
 - Zajistěte, aby není platnost nebo zapomenete heslo. Zkontrolujte [sem](active-directory-passwords-update-your-own-password.md) další podrobnosti o tom, jak aktualizovat heslo.
 
-- Zkontrolujte, jestli si kontaktní údaje ověřování je aktuální a není blokuje přístup. Zkontrolujte [sem](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) další podrobnosti o nastavení informace o vašem ověřování.
+- Zkontrolujte, jestli si kontaktní údaje ověřování je aktuální a není blokuje přístup. Zkontrolujte [sem](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) další podrobnosti o nastavení informace o vašem ověřování.
 
 - Vymažte soubory cookie v prohlížeči a zkuste se znovu přihlásit.
 

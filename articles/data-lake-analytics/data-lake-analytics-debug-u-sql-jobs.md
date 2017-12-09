@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Ladění uživatelem definované C# – kód pro selhání úloh U-SQL
 
-U-SQL poskytuje model rozšiřitelnosti pomocí jazyka C#. V skriptů U-SQL je snadné volání funkcí jazyka C# a provádějí analytické funkce, které jazyka deklarativní SQL nepodporuje. Další informace pro rozšiřitelnost U-SQL najdete v tématu [U-SQL programovatelnosti průvodce](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL poskytuje model rozšiřitelnosti pomocí jazyka C#. V skriptů U-SQL je snadné volání funkcí jazyka C# a provádějí analytické funkce, které jazyka deklarativní SQL nepodporuje. Další informace pro rozšiřitelnost U-SQL najdete v tématu [U-SQL programovatelnosti průvodce](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 V praxi kód, může být nutné ladění, ale je obtížné ladění distribuované úlohy pomocí vlastního kódu v cloudu se soubory protokolu omezené. [Nástroje Azure Data Lake pro Visual Studio](http://aka.ms/adltoolsvs) poskytuje funkci **se nezdařilo ladění vrchol**, což pomáhá snadněji ladění chyb, ke kterým dochází ve vaší vlastní kód. Pokud se nezdaří úlohy U-SQL, služba udržuje stav selhání a nástroj umožňuje stáhnout prostředí selhání cloudu do místního počítače, pro ladění. Místní stahování zaznamená celý cloudové prostředí, včetně všech vstupních dat a uživatelského kódu.
 

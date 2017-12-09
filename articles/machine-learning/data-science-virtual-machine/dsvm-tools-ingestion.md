@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8f1ef4bbc050560287b8638a0f3398e02efec554
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data nástroje pro přijímání dat vědecké účely virtuálního počítače
 
@@ -35,7 +35,7 @@ Tady jsou některé nástroje přesun dat, které uvádíme v DSVM.
 | Podporované DSVM verze      | Windows      |
 | Typické použití      | Import více objektů blob z úložiště Azure do Azure Data Lake Store.      |
 |  Jak se použít nebo ji spustit?    |   Otevřete příkazový řádek, zadejte `adlcopy` jak získat nápovědu.    |
-| Odkazy na ukázky      | [Pomocí AdlCopy] https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Odkazy na ukázky      | [Pomocí AdlCopy] https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Na DSVM souvisejících nástrojích      | AzCopy, Azure příkazového řádku     |
 
 ## <a name="azure-command-line"></a>Azure příkazového řádku
@@ -58,7 +58,7 @@ Tady jsou některé nástroje přesun dat, které uvádíme v DSVM.
 | Podporované DSVM verze      | Windows      |
 | Typické použití      | Kopírování souborů do úložiště objektů blob, kopírování objekty BLOB mezi účty.      |
 |  Jak se použít nebo ji spustit?    |   Otevřete příkazový řádek, zadejte `azcopy` jak získat nápovědu.    |
-| Odkazy na ukázky      | [AzCopy ve Windows](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)      |
+| Odkazy na ukázky      | [AzCopy ve Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | Na DSVM souvisejících nástrojích      | AdlCopy     |
 
 
@@ -70,7 +70,7 @@ Tady jsou některé nástroje přesun dat, které uvádíme v DSVM.
 | Podporované DSVM verze      | Windows      |
 | Typické použití      | Import souborů z virtuálního počítače do CosmosDB, import dat z úložiště tabulek Azure do CosmosDB nebo import dat z databáze systému SQL Server do CosmosDB.     |
 |  Jak se použít nebo ji spustit?    |   Chcete-li použít příkaz verze, otevřete příkazový řádek, zadejte `dt`. Chcete-li použít nástroj grafickým uživatelským rozhraním, otevřete příkazový řádek, zadejte `dtui`.    |
-| Odkazy na ukázky      | [CosmosDB Import dat](https://docs.microsoft.com/en-us/azure/cosmos-db/import-data)      |
+| Odkazy na ukázky      | [CosmosDB Import dat](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Na DSVM souvisejících nástrojích      | AzCopy, AdlCopy      |
 
 
@@ -82,7 +82,7 @@ Tady jsou některé nástroje přesun dat, které uvádíme v DSVM.
 | Podporované DSVM verze      | Windows      |
 | Typické použití      | Import souboru CSV do tabulky SQL Server, export tabulky SQL serveru do souboru.      |
 |  Jak se použít nebo ji spustit?    |   Otevřete příkazový řádek, zadejte `bcp` jak získat nápovědu.    |
-| Odkazy na ukázky      | [Hromadné kopírování nástroj](https://docs.microsoft.com/en-us/sql/tools/bcp-utility)      |
+| Odkazy na ukázky      | [Hromadné kopírování nástroj](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Na DSVM souvisejících nástrojích      | SQL Server, sqlcmd      |
 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Procházet a spravovat prostředky úložiště pomocí Průzkumníka serveru
 
@@ -162,7 +162,7 @@ Následující obrázek znázorňuje fronty, který obsahuje dvě zprávy:
 Další informace o úložišti služeb fronty naleznete v tématu [Začínáme s Azure Queue storage pomocí rozhraní .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Informace o webové službě úložiště služeb fronty naleznete v tématu [koncepty služby front](http://go.microsoft.com/fwlink/?LinkId=264788). Informace o tom, jak odesílat zprávy do fronty služby úložiště pomocí sady Visual Studio najdete v tématu [odeslání zprávy do fronty služby úložiště](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
 > [!NOTE]
-> Fronty úložiště služby se liší od fronty Azure Service Bus. Další informace o fronty Service Bus najdete v tématu [Service Bus fronty, témata a odběry](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+> Fronty úložiště služby se liší od fronty Azure Service Bus. Další informace o fronty Service Bus najdete v tématu [Service Bus fronty, témata a odběry](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## <a name="work-with-table-resources"></a>Pracovat s prostředky tabulky
 

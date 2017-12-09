@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b581f8d5a4e924e0aa88bf614839c917345eb570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a59e0512308a85248a10a24c5951984040bedbcc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>Webovou aplikaci připojit k databázi systému Cosmos
 
@@ -49,8 +49,8 @@ Tento skript používá následující příkazy k vytvoření skupiny prostřed
 | [Vytvoření skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
 | [Vytvořit plán aplikační služby az](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Vytvoří plán služby App Service. Toto je jako serverové farmy pro Azure webové aplikace. |
 | [Vytvoření az webapp](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Vytvoří webové aplikace Azure. |
-| [Vytvoření az cosmosdb](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az_cosmosdb_create) | Vytvoří účet Cosmos DB. Toto je, kde bude uložena data. |
-| [AZ cosmosdb seznamu klíčů](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Uvádí přístupové klíče pro zadaný účet Cosmos DB. |
+| [Vytvoření az cosmosdb](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Vytvoří účet Cosmos DB. Toto je, kde bude uložena data. |
+| [AZ cosmosdb seznamu klíčů](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Uvádí přístupové klíče pro zadaný účet Cosmos DB. |
 | [AZ webapp konfigurace appsettings sady](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Vytvoří nebo aktualizuje nastavení aplikace pro webové aplikace Azure. Nastavení aplikace jsou zveřejněné jako proměnné prostředí pro vaši aplikaci. |
 
 ## <a name="next-steps"></a>Další kroky

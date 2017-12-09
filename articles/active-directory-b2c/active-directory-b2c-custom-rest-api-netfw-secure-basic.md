@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 33fd86ce92043e1de5b3d72c9fe4bb7b428b4b03
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Zabezpečení vašich služeb RESTful pomocí základního ověřování protokolu HTTP
 V [souvisejícím článku Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md), vytvoření RESTful služby (webového rozhraní API), který se integruje se službou Azure Active Directory B2C cesty (Azure AD B2C) uživatele bez ověřování. 
 
 V tomto článku základní ověřování protokolu HTTP přidat k RESTful službě tak, aby jen ověření uživatelé, včetně B2C, můžete přístup k rozhraní API. Základní ověřování protokolu HTTP nastavte přihlašovací údaje uživatele (ID aplikace a tajný klíč aplikace) ve vlastních zásadách. 
 
-Další informace najdete v tématu [základní ověřování v rozhraní ASP.NET web API](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication).
+Další informace najdete v tématu [základní ověřování v rozhraní ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Požadavky
 Proveďte kroky v [integrovat REST API deklarací výměn v vám dobře slouží uživatele Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md) článku.

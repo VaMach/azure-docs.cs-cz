@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 60efffd9313f6972ae46fd1925d999597d3c6ba2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Nasaďte kontejner ASP.NET vzdáleného hostitele Docker
 ## <a name="overview"></a>Přehled
 Docker je modul lightweight kontejneru, podobně jako v některých způsobech virtuální počítač, který můžete použít k hostování aplikací a služeb.
-Tento kurz vás provede pomocí [Visual Studio Tools for Docker](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) rozšíření pro nasazení aplikace ASP.NET Core do hostitelů Docker v Azure pomocí prostředí PowerShell.
+Tento kurz vás provede pomocí [Visual Studio Tools for Docker](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) rozšíření pro nasazení aplikace ASP.NET Core do hostitelů Docker v Azure pomocí prostředí PowerShell.
 
 ## <a name="prerequisites"></a>Požadavky
 K dokončení tohoto kurzu se vyžaduje následující text:

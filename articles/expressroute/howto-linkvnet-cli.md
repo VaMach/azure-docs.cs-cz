@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: 0ea696e796ec3a943bc028f56da417978b728b82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Připojit virtuální sítě k okruhu ExpressRoute pomocí rozhraní příkazového řádku
 
@@ -35,13 +35,13 @@ Tento článek pomáhá propojení virtuálních sítí (virtuální sítě) pro
 
 ## <a name="configuration-prerequisites"></a>Předpoklady konfigurace
 
-* Je třeba nejnovější verzi rozhraní příkazového řádku (CLI). Další informace najdete v tématu [nainstalovat Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+* Je třeba nejnovější verzi rozhraní příkazového řádku (CLI). Další informace najdete v tématu [nainstalovat Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Je potřeba posoudit [požadavky](expressroute-prerequisites.md), [požadavky na směrování](expressroute-routing.md), a [pracovních](expressroute-workflows.md) před zahájením konfigurace.
 * Musí mít aktivní okruh ExpressRoute. 
   * Postupujte podle pokynů a [vytvoření okruhu ExpressRoute](howto-circuit-cli.md) a mějte ho povolený vaším poskytovatelem připojení. 
   * Ujistěte se, abyste měli soukromého partnerského vztahu Azure nakonfigurovaný pro váš okruh. Najdete v článku [konfigurace směrování](howto-routing-cli.md) směrování pokyny najdete v článku. 
   * Zkontrolujte, jestli je nakonfigurovaný soukromého partnerského vztahu Azure. Protokol BGP partnerský vztah mezi vaší sítí a Microsoftem musí být si tak, že povolíte připojení klient server.
-  * Ujistěte se, že máte virtuální sítě a brány virtuální sítě vytvoří a plně zřízený. Postupujte podle pokynů a [nakonfigurovat bránu virtuální sítě pro ExpressRoute](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Nezapomeňte použít `--gateway-type ExpressRoute`.
+  * Ujistěte se, že máte virtuální sítě a brány virtuální sítě vytvoří a plně zřízený. Postupujte podle pokynů a [nakonfigurovat bránu virtuální sítě pro ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Nezapomeňte použít `--gateway-type ExpressRoute`.
 
 * Až 10 virtuálních sítí můžete propojit standardní okruh ExpressRoute. Všechny virtuální sítě musí být ve stejné geopolitické oblasti, při použití standardní okruh ExpressRoute. 
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ed43651c51eaba7112308d7550c2073ccfc5c5ee
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struktura Azure řídicí panely
 Tento dokument vás provede strukturu Azure řídicí panel jako příklad použijeme řídicím panelu následující:
 
 ![ukázkový řídicí panel](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Vzhledem k tomu, že sdílené [Azure řídicí panely jsou prostředky](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), tento řídicí panel může být reprezentován jako JSON.  Následujícím kódu JSON představuje řídicím panelu vizualizována výše.
+Vzhledem k tomu, že sdílené [Azure řídicí panely jsou prostředky](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), tento řídicí panel může být reprezentován jako JSON.  Následujícím kódu JSON představuje řídicím panelu vizualizována výše.
 
 ```json
 
@@ -294,7 +294,7 @@ Umožňuje rozdělení v příslušných částech formátu JSON.  Nejvyšší �
 
 ### <a name="the-id-property"></a>Vlastnost id
 
-Id prostředku Azure, předmět k [prostředků Azure konvence vytváření názvů](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). Když portál vytvoří řídicí panel obecně zvolí id ve formátu guid, ale můžete použít libovolný platný název při jejich vytváření prostřednictvím kódu programu. 
+Id prostředku Azure, předmět k [prostředků Azure konvence vytváření názvů](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Když portál vytvoří řídicí panel obecně zvolí id ve formátu guid, ale můžete použít libovolný platný název při jejich vytváření prostřednictvím kódu programu. 
 
 ### <a name="the-name-property"></a>Vlastnost názvu
 Název je segmentu prostředku Id, která nezahrnuje předplatné, typ prostředku nebo informace o skupině prostředků. Je v podstatě poslední segment ID prostředku.
@@ -303,7 +303,7 @@ Název je segmentu prostředku Id, která nezahrnuje předplatné, typ prostřed
 Všechny řídicí panely jsou typu __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>Vlastnosti umístění
-Na rozdíl od jiných prostředků nemáte řídicí panely komponenty modulu runtime.  Pro řídicí panely Určuje umístění primárního zeměpisného umístění, která ukládá reprezentace JSON řídicího panelu. Hodnota musí být jeden z umístění kódy, které můžete načíst pomocí [umístění rozhraní API na prostředku odběry](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Na rozdíl od jiných prostředků nemáte řídicí panely komponenty modulu runtime.  Pro řídicí panely Určuje umístění primárního zeměpisného umístění, která ukládá reprezentace JSON řídicího panelu. Hodnota musí být jeden z umístění kódy, které můžete načíst pomocí [umístění rozhraní API na prostředku odběry](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Vlastnost značky
 Značky jsou běžnou funkcí prostředků Azure, které umožňují uspořádat podle páry hodnota libovolný název prostředku. Pro řídicí panely, je jednu s názvem speciální značky __skryté název__. Pokud váš řídicí panel je tato vlastnost vyplněný, je použít jako zobrazovaný název pro tento řídicí panel portálu. Azure ID prostředku nelze přejmenovat, ale můžete značky. Tato značka poskytuje způsob, jak mít renamable zobrazovaný název pro tento řídicí panel.

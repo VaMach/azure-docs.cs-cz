@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: b8d6a998bc86337b286a3434f44f762cca9b7e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 508b3755556bcae6aa2c7d17a2d86a1430a8109a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Sítě rozšíření virtuálního počítače sledovacích procesů agenta pro Windows
 
 ## <a name="overview"></a>Přehled
 
-[Azure sledovací proces sítě](https://review.docs.microsoft.com/en-us/azure/network-watcher/) je sítě výkonu monitorování, diagnostiku a analýzy služba, která umožňuje monitorování pro sítě Azure. Rozšíření sítě sledovacích procesů agenta virtuálního počítače není pro některé funkce sledovací proces sítě na virtuálních počítačích Azure. To zahrnuje Zachytávání síťových přenosů na vyžádání a další pokročilé funkce.
+[Azure sledovací proces sítě](https://review.docs.microsoft.com/azure/network-watcher/) je sítě výkonu monitorování, diagnostiku a analýzy služba, která umožňuje monitorování pro sítě Azure. Rozšíření sítě sledovacích procesů agenta virtuálního počítače není pro některé funkce sledovací proces sítě na virtuálních počítačích Azure. To zahrnuje Zachytávání síťových přenosů na vyžádání a další pokročilé funkce.
 
 Tento dokument podrobně popisuje podporované platformy a možnosti nasazení pro rozšíření sítě sledovacích procesů agenta virtuálního počítače pro systém Windows.
 

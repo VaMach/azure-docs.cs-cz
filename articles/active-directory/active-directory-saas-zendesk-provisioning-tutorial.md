@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 1a1414eefd20e6d7c025da08cfd5ae7c45daad33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d168cab568eb8afd4d92febf4e80e29fe576f2ec
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tutorial-configuring-zendesk-for-automatic-user-provisioning"></a>Kurz: Konfigurace služby ZenDesk pro zřizování automatické uživatelů
 
@@ -94,7 +94,7 @@ Tato část vás provede připojení k této služby je uživatelský účet zř
 
 Tato operace spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené k této služby v části Uživatelé a skupiny. Počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby.
 
-Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Další informace o tom, jak číst zřizování protokoly služby Azure AD najdete v tématu [zprávy o zřizování účtu automatické uživatele](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
 ## <a name="additional-resources"></a>Další zdroje

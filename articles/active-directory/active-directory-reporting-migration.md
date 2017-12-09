@@ -1,37 +1,36 @@
 ---
-title: "Najít sestavy aktivity na portálu Azure | Microsoft Docs"
-description: "Zjistěte, jak najít sestavy aktivita služby Azure Active Directory na portálu Azure."
+title: "Najít sestavy aktivity uživatele Azure Active Directory na portálu Azure | Microsoft Docs"
+description: "Zjistěte, kde jsou sestavy aktivity uživatele Azure Active Directory na portálu Azure."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: michael.tillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 732a3c376f6e99f6a5b5c3043ef8cb4884a4d468
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Najít sestavy aktivity na portálu Azure
 
-Pokud přecházíte z portálu Azure classic na portálu Azure, můžete získat nový pohled na protokoly aktivity Azure Active Directory (Azure AD). V poslední [příspěvku na blogu](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), vám vysvětlíme, jak vidíte aktivitu protokolů v rámci prostředků pracujete na portálu Azure. V tomto článku jsme popisují, jak najít sestavy, které jste použili na portálu Azure classic na portálu Azure.
+V tomto článku jsme popisují, jak najít sestavy aktivity uživatele Azure Active Directory na portálu Azure.
 
 ## <a name="whats-new"></a>Co je nového
 
-Sestavy v portálu Azure classic jsou rozdělené do kategorií:
-
-1.  Sestavy zabezpečení
-2.  Sestavy aktivit
-3.  Sestavy integrované aplikace
+Sestavy v portálu Azure classic byly rozdělené do kategorií:
+* Sestavy zabezpečení
+* Sestavy aktivit
+* Sestavy integrované aplikace
 
 ### <a name="activity-and-integrated-app-reports"></a>Aktivity a integrované aplikace sestavy
 
@@ -43,14 +42,14 @@ V tomto zobrazení **Azure Active Directory** okno, v části **aktivity**, vybe
 
 V tomto zobrazení jsou konsolidovány následující sestavy:
 
--   Sestava auditu
--   Aktivity resetování hesla
--   Registrace aktivita resetování hesla
--   Aktivita samoobslužných skupin
--   Změny názvu skupiny Office 365
--   Účet zřizování aktivity
--   Stav Změna hesla
--   Chyby zřizování účtů
+* Sestava auditu
+* Aktivity resetování hesla
+* Registrace aktivita resetování hesla
+* Aktivita samoobslužných skupin
+* Změny názvu skupiny Office 365
+* Účet zřizování aktivity
+* Stav Změna hesla
+* Chyby zřizování účtů
 
 
 Sestava využití aplikace je vylepšený a je součástí **přihlášení** zobrazení. V tomto zobrazení **Azure Active Directory** okno, v části **aktivity**, vyberte **přihlášení**.
@@ -96,7 +95,7 @@ Následující tabulka seznamy Azure AD neobvyklé aktivity zabezpečení sestav
 
 | Sestava neobvyklé aktivity Azure AD |  Typ události riziko ochranu identity|
 | :--- | :--- |
-| Uživatelé s uniklými přihlašovacími údaji | Uniklé přihlašovací údaje |
+| Uživatelé s uniklé přihlašovací údaje | Uniklé přihlašovací údaje |
 | Nestandardní přihlašovací aktivita | Nemožná cesta do netypických míst |
 | Přihlášení z možných nakažených zařízení | Přihlášení z nakažených zařízení|
 | Přihlášení z neznámých zdrojů | Přihlášení z anonymních IP adres |
