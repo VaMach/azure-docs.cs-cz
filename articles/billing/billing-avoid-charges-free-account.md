@@ -14,37 +14,52 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: e4f7571acb72d8f099898fffc05eb43083aeabfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0efea55d0e1329ddf4ada35aa0dd6164f0951a70
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Vyhněte se získávání účtovat účet Azure zdarma
 
-Bezplatný účet Azure vám poskytuje 200 USD kredity Azure zatěžovat do první 30 dnů a 12 měsíců od bezplatné služby. Další informace najdete v tématu [bezplatný účet Azure](https://azure.microsoft.com/free/) a [vytvořit bezplatné služby s bezplatný účet Azure](billing-create-free-services-included-free-account.md). V závislosti na stavu kreditu mohou používat kreditu nebo získat účtovat poplatek za použití nepokrytých prostřednictvím výhody bezplatný účet Azure.
+Bezplatný účet Azure vám 200 USD v kredity Azure pro první 30 dnů a omezená počtu bezplatné služby po dobu 12 měsíců. Další informace najdete v tématu [bezplatný účet Azure](https://azure.microsoft.com/free/). V závislosti na stavu kreditu mohou používat kreditu nebo získat účtovat poplatek za využití kromě bezplatné služby a počty.
 
 ## <a name="you-still-have-active-azure-free-account-credit"></a>Máte pořád aktivní Azure bez platební účet 
-Pokud máte kreditu Azure, který nevypršela, použijete se kredit platit za jakékoli poplatky za na účet Azure zdarma.
+Pokud máte kreditu Azure, který nevypršela, používá Azure kreditu k platbě za využití kromě bezplatné služby a počty.
 
 ## <a name="your-credit-ran-out-or-has-expired"></a>Byla spuštěna kreditu, nebo skončila jeho platnost
-Pokud kreditu spustili nebo platnost na konci 30 dní, zakáže Azure vašeho předplatného. Pokud povolíte vaše předplatné inovací na předplatné platím průběžně neúčtujeme. Další informace najdete v tématu [upgradu předplatného bezplatné zkušební verze Azure na průběžné platby](billing-upgrade-azure-subscription.md). Po upgradu vašeho předplatného, můžete získat účtovat platím průběžně sazby za jakékoli poplatky za na účet Azure zdarma. 
+Pokud kreditu spustili nebo platnost na konci 30 dní, zakáže Azure vašeho předplatného. Chcete-li pokračovat v používání služby Azure, je nutné upgradovat předplatné na předplatné s průběžnými platbami. Další informace najdete v tématu [upgradu předplatného bezplatné zkušební verze Azure na průběžné platby](billing-upgrade-azure-subscription.md). Po upgradu, vaše předplatné má stále přístup k bezplatné služby po dobu 12 měsíců. Vám pouze získat účtovat využití kromě bezplatné služby a počty.
 
 
 Podívejme se na některé z důvodů, že může platit poplatky na účet Azure zdarma.
 
 
-### <a name="your-usage-exceeds-the-limits-of-free-services-included-with-azure-free-account"></a>Vaše využití překročí omezení bezplatné služby zahrnuté do bezplatný účet Azure
+### <a name="your-usage-exceeds-the-limits-of-free-services-included-with-your-azure-free-account"></a>Vaše využití překročí omezení bezplatné služby zahrnuté do vaší bezplatný účet Azure
 
 Omezené množství bezplatné služby zobrazí s vaším účtem Azure volné každý měsíc. Množství volné vyprší na konci tohoto měsíce a není přejít na příští měsíc. Například získat 5 GB úložiště File každý měsíc. Pokud v měsíci, používáte pouze 2 GB, zbývajících 3 GB není přejít na příští měsíc. Abyste se vyhnuli, získávání účtovat, zachovat vašeho využití v rámci omezení. Další informace o omezení bezplatné služby najdete v tématu [co je bezplatný účet Azure](https://azure.microsoft.com/free/free-account-faq/). Zkontrolujte vaše bezplatná služba využití, najdete v části [zkontrolujte využití volného služby zahrnuté do bezplatný účet Azure](billing-check-free-service-usage.md). 
 
-### <a name="you-are-using-services-not-included-with-azure-free-account"></a>Používáte služby, které nejsou součástí bezplatný účet Azure
+### <a name="you-are-using-services-not-included-for-free-with-your-azure-free-account"></a>Používáte služby nejsou zahrnuté zdarma do vaší bezplatný účet Azure
 
-Získat účtovat platím průběžně sazby pro používání služby, které nejsou součástí zdarma účet Azure zdarma. Další informace o služby zahrnuté do bezplatný účet, najdete v části [co je bezplatný účet Azure](https://azure.microsoft.com/free/free-account-faq/). Můžete zkontrolovat vaše využití na portálu Azure nebo prostřednictvím Azure využití souboru. Další informace najdete v tématu [pravidelně zkontrolujte na portálu a rozdělení nákladů a vypálíte míra](billing-getting-started.md#costs) a [stáhnout využití z centra účtů](billing-download-azure-invoice-daily-usage-date.md). 
+Získat účtovat průběžnými platbami sazby pro používání služby, které nejsou součástí zdarma účet Azure zdarma. Další informace o služby zahrnuté do bezplatný účet, najdete v části [co je bezplatný účet Azure](https://azure.microsoft.com/free/free-account-faq/). Můžete zkontrolovat využití pro služby, kterou používáte na portálu Azure nebo prostřednictvím Azure využití souboru. Další informace najdete v tématu [pravidelně zkontrolujte na portálu a rozdělení nákladů a vypálíte míra](billing-getting-started.md#costs) a [stáhnout využití z centra účtů](billing-download-azure-invoice-daily-usage-date.md). 
 
-### <a name="you-have-reached-the-end-of-your-azure-free-account-benefits"></a>Bylo dosaženo konce své výhody bezplatný účet Azure
+### <a name="you-have-reached-the-end-of-your-12-months-free-services"></a>Bylo dosaženo konce 12 měsíců bezplatné služby
 
-Váš účet Azure zdarma výhody vyprší na konci dobu 12 měsíců. Potom Azure účtuje jste platím průběžně sazby za služby, které používáte. Na portálu Azure můžete odstranit prostředky pro služby, které nepoužíváte. Pokud nemáte v úmyslu použít libovolnou službu Azure, můžete [zrušit předplatné](billing-how-to-cancel-azure-subscription.md).
+Bezplatné služby a počty vyprší na konci dobu 12 měsíců. Můžete získat datum vypršení platnosti na portálu Azure.
+
+1.  Přihlaste se k portálu [Azure Portal](http://portal.azure.com).
+
+2.  V dolní části levé navigaci, vyberte **další služby**.
+
+3.  Vyberte **odběry**.
+
+4.  Vyberte odběr, který jste vytvořili při registraci bezplatné účtu.
+
+5.  Posuňte se dolů a mřížky bezplatné služby najít. Klikněte na popisek nachází v horní pravé mřížky.
+
+![Snímek obrazovky, který ukazuje, kde se datum vypršení platnosti výhody bezplatný účet](./media/billing-avoid-charges-free-account/freeaccount-benefits-expiration-date.png)
+
+
+Jakmile platnost bezplatné služby a počty Azure účtuje můžete průběžnými platbami sazby za služby, který používáte. Na portálu Azure můžete odstranit prostředky pro služby, které nepoužíváte. Pokud nemáte v úmyslu použít libovolnou službu Azure, můžete [zrušit předplatné](billing-how-to-cancel-azure-subscription.md).
 
 ## <a name="need-help-contact-support"></a>Potřebujete pomoct? Kontaktování podpory
 

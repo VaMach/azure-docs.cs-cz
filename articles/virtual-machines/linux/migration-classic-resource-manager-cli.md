@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 1d6f2d8319dde63434041885dcf5ff1a1cde3bcc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 607ab59dbeb414c69a6272d0aeb00299296bca6a
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrovat prostředky infrastruktury z klasického do Azure Resource Manageru pomocí rozhraní příkazového řádku Azure
 Tyto kroky ukazují, jak používat příkazy rozhraní příkazového řádku Azure (CLI) k migraci infrastruktury jako služby (IaaS) prostředky z modelu nasazení classic do modelu nasazení Azure Resource Manager. Článek vyžaduje [Azure CLI 1.0](../../cli-install-nodejs.md). Vzhledem k tomu, že Azure CLI 2.0 je k dispozici jenom pro prostředky Azure Resource Manager, nelze použít pro migraci.
@@ -48,7 +48,7 @@ Tady je několik osvědčených postupů, které doporučujeme jak vyhodnotit mi
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Krok 2: Nastavte předplatné a zaregistrujte zprostředkovatele
-Pro scénáře migrace, budete muset nastavit svoje prostředí pro obě classic a Resource Manager. [Instalace rozhraní příkazového řádku Azure](../../cli-install-nodejs.md) a [vyberte své předplatné](../../xplat-cli-connect.md).
+Pro scénáře migrace, budete muset nastavit svoje prostředí pro obě classic a Resource Manager. [Instalace rozhraní příkazového řádku Azure](../../cli-install-nodejs.md) a [vyberte své předplatné](/cli/azure/authenticate-azure-cli).
 
 Přihlášení ke svému účtu.
 

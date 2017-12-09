@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/07/2017
 ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6fc52bc779dcb58d4f7e6aa90e25c9d8e8ec6011
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Automatické upgrady operačního systému sadu škálování virtuálního počítače Azure
 
@@ -39,10 +39,10 @@ Automatický upgrade operačního systému má následující vlastnosti:
 ## <a name="preview-notes"></a>Poznámky k verzi Preview 
 Zatímco ve verzi preview, platí následující omezení a omezení:
 
-- Automatické operační systém upgraduje podporuje se jen [tři SKU OS](#supported-os-images). Neexistuje žádné SLA nebo záruky. Doporučujeme, abyste že nepoužijete automatické upgrady na kritické úlohy produkční verzi Preview.
+- Automatické operační systém upgraduje podporuje se jen [čtyři SKU OS](#supported-os-images). Neexistuje žádné SLA nebo záruky. Doporučujeme, abyste že nepoužijete automatické upgrady na kritické úlohy produkční verzi Preview.
 - Podpora pro sady škálování v prostředí clusterů Service Fabric už bude brzo dostupné.
 - Azure disk encryption (momentálně ve verzi preview) je **není** aktuálně podporované škálování virtuálního počítače sady Automatické OS upgradu.
-- Připravuje se portálu prostředí.
+- V portálu rozhraní tu bude brzo dostupná.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Zaregistrujte se a použít automatický Upgrade operačního systému
@@ -78,9 +78,11 @@ Aktuálně jsou podporovány následující SKU (více se přidají):
     
 | Vydavatel               | Nabídka         |  Skladová jednotka (SKU)               | Verze  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04 LTS          | nejnovější   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | nejnovější   |
 | MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter    | nejnovější   |
-| Canonical               | UbuntuServer  | 16.04 LTS          | nejnovější   |
+| MicrosoftWindowsServer  | WindowsServer | 2016. Datacenter Smalldisk | nejnovější   |
+
 
 
 ## <a name="application-health"></a>Stav aplikace
@@ -90,6 +92,15 @@ Během upgradu operačního systému, instance virtuálního počítače ve šk�
 
 Pokud byly sadou škálování je nakonfigurovaný na použití více skupin umístění, sondy pomocí [nástroj pro vyrovnávání zatížení](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) zapotřebí.
 
+### <a name="important-keep-credentials-up-to-date"></a>Důležité: Aktuálnost přihlašovacích údajů
+Pokud škálovací sadu používá všechny přihlašovací údaje pro přístup k externím prostředkům, například pokud rozšíření virtuálního počítače je nakonfigurován používaný SAS token pro účet úložiště, musíte Ujistěte se, že přihlašovací údaje jsou pořád aktuální. Pokud žádné přihlašovací údaje, včetně certifikátů a tokeny mají platnost vypršela, se upgrade nezdaří a první dávky virtuálních počítačů bude ponechána ve stavu selhání.
+
+Doporučený postup obnovení virtuálních počítačů a znovu povolte automatický upgrade operačního systému, pokud dojde k selhání ověřování prostředků jsou:
+
+* Znovu vygenerovat token (nebo jiné přihlašovací údaje) předané do vaší přípony.
+* Zajistěte, aby žádné pověření použít z ve virtuálním počítači, aby komunikoval s externí entity aktuální.
+* Aktualizujte všechny nové tokeny přípony v modelu sady škálování.
+* Nasazení aktualizované škálovací sadu, která aktualizuje všechny instance virtuálních počítačů, včetně těch se nezdařilo. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Konfigurace služby Řízení Probe vyrovnávání vlastní zatížení zpráv jako sběru dat stavu aplikace na škále nastavit
 Jako osvědčený postup vytvoření explicitně sondu nástroje pro vyrovnávání zatížení, pro sadu škálování stavu. Může použít stejný koncový bod pro existující sondu HTTP nebo TCP testu, ale test stavu může vyžadovat různé chování z sondu tradiční Vyrovnávání zatížení. Například může vrátit sondu nástroje pro vyrovnávání zatížení obvykle není v pořádku, pokud zatížení instance je příliš vysoká, zatímco, nemusí být vhodný pro určování stavu instance během automatického upgradu operačního systému. Konfigurace testu do mají vysokou míru testování méně než dvě minuty.

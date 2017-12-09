@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d6681a5b46aa352b1aa0dadedad8a51c9d1e5eaf
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager nejčastější dotazy (FAQ)
 
@@ -368,7 +368,7 @@ Počet stavů Traffic Manager zkontroluje, že dosažení váš koncový bod, z�
 
 ### <a name="how-do-i-configure-nested-profiles"></a>Konfigurování vnořených profilů
 
-Vnořené profily Traffic Manager lze nakonfigurovat pomocí Azure Resource Manager a classic Azure rozhraní API REST, rutin prostředí Azure PowerShell a rozhraní příkazového řádku Azure příkazy napříč platformami. Podporovány jsou i prostřednictvím nového portálu Azure. Nejsou podporovány na portálu classic.
+Vnořené profily Traffic Manager lze nakonfigurovat pomocí Azure Resource Manager a classic Azure rozhraní API REST, rutin prostředí Azure PowerShell a rozhraní příkazového řádku Azure příkazy napříč platformami. Podporovány jsou i prostřednictvím nového portálu Azure.
 
 ### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>Počet vrstev vnoření nemá provoz Manager podporuje?
 

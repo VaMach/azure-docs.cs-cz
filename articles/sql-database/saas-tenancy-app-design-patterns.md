@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 0377baaa4a0db7e3cb2041f3ca018322e379f0df
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Víceklientské SaaS databáze klientů vzory
 
@@ -165,7 +165,7 @@ Všechny databáze v modelu hybridního mít identifikátor klienta v jejich sch
 
 Kdykoli můžete přesunout konkrétní klienta svou vlastní databázi více klientů.  A v každém okamžiku může rozmyslíte a přesunout klienta zpět do databáze, která obsahuje několik klientů.  Můžete také přiřadit klienta k nové databázi jednoho klienta při zřizování nové databáze.
 
-Model hybridní září, když jsou velké rozdíly mezi požadavky na prostředky osobní skupin klientů.  Předpokládejme například, že stejnou vysokou úroveň výkonu, které jsou odběru klienty se nezaručuje, klienty účastní bezplatnou zkušební verzi.  Zásady může být pro klienty ve fázi bezplatné zkušební verze se neukládají v databázi více klientů, která je sdílena mezi bezplatné zkušební klienty.  Pokud bezplatnou zkušební verzi klienta přihlásí k úroveň služby na úrovni basic, klient se dají přesunout do jiné databáze více klientů, který může mít méně klientů.  Odběratele, které platí pro úroveň služby premium může přesunout do jeho získaných novou databázi jednoho klienta.
+Model hybridní září, když jsou velké rozdíly mezi požadavky na prostředky osobní skupin klientů.  Předpokládejme například, že stejnou vysokou úroveň výkonu, které jsou odběru klienty se nezaručuje, klienty účastní bezplatnou zkušební verzi.  Zásady může být pro klienty ve fázi bezplatné zkušební verze se neukládají v databázi více klientů, která je sdílena mezi bezplatné zkušební klienty.  Pokud bezplatnou zkušební verzi klienta přihlásí k úroveň služby na úrovni basic, klient se dají přesunout do jiné databáze více klientů, který může mít méně klientů.  Odběratele, které platí pro úroveň služby premium může přesunout do vlastní novou databázi jednoho klienta.
 
 #### <a name="pools"></a>Fondy
 

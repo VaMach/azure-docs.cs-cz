@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f140ff3841259251ddaf39124db2756084b26a53
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e9296241b2128c9abe762f595161895948c8f70c
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Jak zachytit klasický virtuální počítač s Linuxem jako image
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Tento postup předpokládá, že jste vytvořili virtuální počítač Azure po
    > [!NOTE]
    > Zbývající kroky předpokládají, že už máte [nainstalované rozhraní příkazového řádku Azure](../../../cli-install-nodejs.md) na klientském počítači. Všechny následující kroky lze provést [portál Azure](http://portal.azure.com).
 
-5. Na klientském počítači otevřete rozhraní příkazového řádku Azure a přihlaste se k předplatnému Azure. Podrobnosti najdete v tématu [připojení k předplatnému Azure z rozhraní příkazového řádku Azure](../../../xplat-cli-connect.md).
+5. Na klientském počítači otevřete rozhraní příkazového řádku Azure a přihlaste se k předplatnému Azure. Podrobnosti najdete v tématu [připojení k předplatnému Azure z rozhraní příkazového řádku Azure](/cli/azure/authenticate-azure-cli).
 
    > [!NOTE]
    > Na portálu Azure Přihlaste se k portálu.

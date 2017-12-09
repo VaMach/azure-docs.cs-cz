@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Použití elastické dotazu s SQL Data Warehouse
 
@@ -78,7 +78,7 @@ Další informace o elastické dotazu s databází SQL, najdete v článku [Azur
 
 ### <a name="elastic-querying"></a>Elastické dotazování
 
-- Interally v mezipaměti tabulky a externí tabulky existovat jako jiné objekty s instance databáze SQL. Zvažte vytvoření zobrazení v horní části uložené v mezipaměti v tabulce a externí tabulky, které sjednocení obě tabulky a použije filtry pro každou tabulku v bodě hranic.
+- V mnoha případech jeden chtít spravovat typu roztažené tabulky, kde je část tabulku v databázi SQL jako data výkonu se zbytkem data uložená v SQL Data Warehouse uložená v mezipaměti. Budete muset mít dva objekty v databázi SQL: externí tabulku v databázi SQL, který odkazuje na základní tabulky v SQL Data Warehouse a "v mezipaměti" část tabulky v databázi SQL. Zvažte vytvoření zobrazení v horní části uložené v mezipaměti v tabulce a externí tabulky, které sjednocení tabulky i použity filtry, které oddělte materializována v rámci SQL Database a SQL Data Warehouse dat, které jsou k dispozici prostřednictvím externí tabulky data.
 
   Představte si, že nám chcete zachovat poslední rok data v instanci databáze SQL. Máme dvě tabulky **ext. Objednávky**, který odkazuje na datový sklad řadí tabulky, a **dbo. Objednávky** představuje poslední za roky dat v rámci instance databáze SQL. Místo požádat uživatele, můžete rozhodnout, jestli dotaz jednu tabulku nebo jiné, můžeme vytvořit zobrazení v horní části obě tabulky v bodě oddílu posledního roku.
 
@@ -135,13 +135,17 @@ Další informace o elastické dotazu s databází SQL, najdete v článku [Azur
 
 ## <a name="faq"></a>Nejčastější dotazy
 
-Otázka: je možné použít databází v rámci fondu elastické databáze pomocí dotazu elastické?
+Otázka: je možné použít databází v Elastickém fondu se elastické dotazu?
 
-Odpověď: Ano. Databáze SQL v elastickém fondu pomocí elastické dotazu. 
+Odpověď: Ano. Databáze SQL v Elastickém fondu pomocí elastické dotazu. 
 
 Otázka: je limitu pro počet databází, které lze použít pro elastické dotaz?
 
-Odpověď: logické servery mají omezení jednotek DTU zavedené zákazníkům zabránit náhodnému nákladů nad plán. Pokud chcete povolit několik databází pro elastický dotaz spolu s instanci SQL Data Warehouse, můžete narazit krytky neočekávaně. Pokud k tomu dojde, odešlete žádost o zvýšení limitu DTU na logickém serveru. Můžete zvýšit kvótu podle [vytvoření lístku podpory](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) a výběrem *kvóty* jako typ požadavku
+Odpověď: neexistuje žádné pevné zakončení na tom, kolik databází lze použít pro elastické dotazu. Každý elastické dotaz (dotazy, které dosáhl SQL Data Warehouse) však bude počítat směrem k omezení normální souběžnosti.
+
+Otázka: existují omezení jednotek dtu úrovně spojené s elastické dotazu?
+
+Odpověď: DTU omezení nejsou uložené žádné jinak s elastické dotazu. Standardní zásady je tak, aby logické servery mají omezení jednotek DTU zavedené zákazníkům zabránit náhodnému nákladů nad plán. Pokud chcete povolit několik databází pro elastický dotaz spolu s instanci SQL Data Warehouse, můžete narazit krytky neočekávaně. Pokud k tomu dojde, odešlete žádost o zvýšení limitu DTU na logickém serveru. Můžete zvýšit kvótu podle [vytvoření lístku podpory](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) a výběrem *kvóty* jako typ požadavku
 
 Otázka: je možné použít řádek úrovně zabezpečení nebo dynamické Data maskování s elastické dotazu?
 

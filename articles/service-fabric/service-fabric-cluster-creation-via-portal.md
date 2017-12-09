@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6ddadad6f5697fed006e3f938ef3c3faedb6a354
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Vytvořit cluster Service Fabric v Azure pomocí portálu Azure
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Toto je podrobný průvodce, který vás provede kroky nastavení zabezpečení 
 
 Cluster s podporou zabezpečení je clusteru, který brání neoprávněným přístupem k operace správy, která zahrnuje nasazení, upgrade a odstranění aplikací, služeb a data, která obsahují. Nezabezpečená clusteru je cluster každý, kdo může připojit k kdykoli a provádět operace správy. Přestože je možné vytvořit nezabezpečená clusteru, je **důrazně doporučujeme vytvořit cluster zabezpečené**. Nezabezpečená clusteru **nelze zabezpečit později** -je nutné vytvořit nový cluster.
 
-Koncepty jsou stejné pro vytvoření zabezpečeného clusterů, jestli jsou clusterů systému Windows nebo Linux clusterů. Další informace a pomocné rutiny skripty pro vytvoření zabezpečeného clusterů systému Linux, najdete v tématu [vytváření zabezpečené clusterů v systému Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Parametry získané zadané pomocné rutiny skript můžete zadat přímo do portálu, jak je popsáno v části [na portálu Azure vytvořit cluster](#create-cluster-portal).
+Koncepty jsou stejné pro vytvoření zabezpečeného clusterů, jestli jsou clusterů systému Windows nebo Linux clusterů. Další informace a pomocné rutiny skripty pro vytvoření zabezpečeného clusterů systému Linux, najdete v tématu [vytváření clusterů zabezpečené](service-fabric-cluster-creation-via-arm.md). Parametry získané zadané pomocné rutiny skript můžete zadat přímo do portálu, jak je popsáno v části [na portálu Azure vytvořit cluster](#create-cluster-portal).
 
 ## <a name="configure-key-vault"></a>Konfigurace trezoru klíčů 
 ### <a name="log-in-to-azure"></a>Přihlaste se k Azure.

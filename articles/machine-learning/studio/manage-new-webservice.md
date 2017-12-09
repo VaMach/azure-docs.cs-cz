@@ -3,7 +3,7 @@ title: "Použití portálu webové služby Azure Machine Learning | Microsoft Do
 description: "Správa přístupu k Azure Machine Learning pracovní prostory a nasadit a spravovat rozhraní API pro ML webové služby"
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9024bc82c0de5b8058a848cc809a2571baa7ce83
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Správa webové služby pomocí portálu Azure Machine Learning webové služby
 Můžete spravovat vaše nové Machine Learning a Classic webové služby pomocí portálu Microsoft Azure Machine Learning webové služby. Vzhledem k tomu, že Classic webové služby a nové webové služby jsou založená na různých základní technologií, máte možnosti mírně lišit správy pro každý z nich.

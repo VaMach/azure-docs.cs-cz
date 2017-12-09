@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: dd09a4df42c1022c2a9f96daf69591bbfc777d79
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Zabezpečení samostatné clusteru v systému Windows pomocí certifikátů X.509
 Tento článek popisuje, jak pro zabezpečení komunikace mezi různými uzly clusteru Windows samostatné. Také popisuje, jak k ověřování klientů, které se připojují k tomuto clusteru pomocí certifikátů X.509. Ověřování zajistí, že můžete jenom autorizovaným uživatelům přístup ke clusteru a nasazené aplikace a provádět úlohy správy. Certifikát zabezpečení by měly být povoleny v clusteru při vytvoření clusteru.  
@@ -255,7 +255,7 @@ Nyní exportu certifikátu do souboru .pfx chráněný heslem. Nejdřív získá
    Write-Host $cert.ToString($true)
    ```
 
-Případně, pokud máte předplatné Azure, postupujte podle kroků v části [přidejte certifikáty do trezoru klíčů](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault).
+Případně, pokud máte předplatné Azure, postupujte podle kroků v [vytvořit cluster Service Fabric pomocí Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="install-the-certificates"></a>Nainstalujte certifikáty
 Až budete mít certifikáty, můžete je nainstalovat na uzlech clusteru. Uzly musí mít nejnovější prostředí Windows PowerShell 3.x na nich být nainstalovaný. Opakujte tyto kroky na každém uzlu clusteru a certifikáty serveru a všechny sekundární certifikáty.

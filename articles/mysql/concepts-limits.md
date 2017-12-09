@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/26/2017
-ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 12/09/2017
+ms.openlocfilehash: 65dc158a3a8c88a02d66bff7abe34d457cfef10a
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="limitations-in-azure-database-for-mysql-preview"></a>Omezení v Azure databáze pro databázi MySQL (Preview)
-Databáze Azure pro službu MySQL je ve verzi public preview. Následující části popisují kapacitu a funkční omezení ve službě databáze. Viz také [obecná omezení](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) vztahuje k modulu databáze MySQL.
+# <a name="limitations-in-azure-database-for-mysql"></a>Omezení v Azure databáze pro databázi MySQL
+Databáze Azure pro službu MySQL je ve verzi public preview. Následující části popisují kapacity, modul úložiště s podporou, oprávnění podpory, podpora příkaz manipulaci dat a funkční omezení ve službě databázového. Viz také [obecná omezení](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) vztahuje k modulu databáze MySQL.
 
 ## <a name="service-tier-maximums"></a>Maximální hodnoty úroveň služby
 Azure databáze MySQL, má více úrovní služeb, které lze vybírat při vytváření serveru. Další informace najdete v tématu [co je dostupné na jednotlivých úrovních služby](concepts-service-tiers.md).  
@@ -42,6 +42,31 @@ Je maximální počet připojení, výpočetní jednotky a úložiště v jednot
 Když se dosáhne příliš mnoha připojení, může se zobrazit chybová zpráva:
 > Chyba 1040 (08004): Příliš mnoho připojení
 
+## <a name="storage-engine-support"></a>Podpora modulu úložiště
+
+### <a name="supported"></a>Podporuje se
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [PAMĚŤ](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+
+### <a name="unsupported"></a>Nepodporované
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
+- [SMĚROVAČE BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
+- [ARCHIV](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [FEDEROVANÉ](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+
+## <a name="privilege-support"></a>Podpora oprávnění
+
+### <a name="unsupported"></a>Nepodporované
+- [SUPER oprávnění](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+
+## <a name="data-manipulation-statement-support"></a>Podpora příkaz manipulace dat
+
+### <a name="supported"></a>Podporuje se
+- DATA VSTUPNÍ_SOUBOR zatížení - podporována, ale musíte zadat parametr [místní], který směřuje na cestu UNC (úložiště Azure připojené prostřednictvím XSMB).
+
+### <a name="unsupported"></a>Nepodporované
+- VYBERTE... DO VÝSTUPNÍ_SOUBOR
+
 ## <a name="preview-functional-limitations"></a>Funkční omezení verze Preview
 
 ### <a name="scale-operations"></a>Operace škálování
@@ -52,12 +77,14 @@ Když se dosáhne příliš mnoha připojení, může se zobrazit chybová zprá
 ### <a name="server-version-upgrades"></a>Upgrady verze serveru
 - Automatické migrace mezi verzemi modul hlavní databáze není aktuálně podporována.
 
-### <a name="subscription-management"></a>Správa předplatného
-- Dynamicky přesunutí předem vytvořené serverů mezi předplatné a skupina prostředků není aktuálně podporováno.
-
 ### <a name="point-in-time-restore"></a>Obnovení do bodu v čase
 - Obnovení na jinou službu vrstvy nebo výpočetní jednotky a velikost úložiště není povoleno.
-- Obnovení vynechaných server není podporováno.
+- Obnovení odstraněného server není podporováno.
+
+## <a name="functional-limitations"></a>Funkční omezení
+
+### <a name="subscription-management"></a>Správa předplatného
+- Dynamicky přesunutí předem vytvořené serverů mezi předplatné a skupina prostředků není aktuálně podporováno.
 
 ## <a name="next-steps"></a>Další kroky
 - [Co je dostupné na jednotlivých úrovních služby](concepts-service-tiers.md)

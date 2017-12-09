@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ebc6b758221d61793dbbd21ca02050d8402dbe71
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Různé role pro správu v Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -27,9 +27,9 @@ ms.lasthandoff: 11/14/2017
 Můžete přiřadit uživatele ve vaší organizaci pro různé role pro správu ve službě Azure AD. Přiřazení rolí řídí, jaké úkoly, jako je například přidávání nebo odebírání uživatelů nebo změna nastavení služby, mohou uživatelé provádět na Azure AD, Office 365 a dalších služeb Microsoft Online Services a propojených aplikací.  
 
 > [!IMPORTANT]
-> Společnost Microsoft doporučuje při správě služby Azure AD používat [centrum pro správu Azure AD](https://aad.portal.azure.com) na webu Azure Portal namísto používání portálu Azure Classic, na který odkazuje tento článek.
+> Společnost Microsoft doporučuje, které spravujete pomocí Azure AD [centra pro správu Azure AD](https://aad.portal.azure.com) na portálu Azure.
 
-Můžete aktualizovat globální správce, které jsou uživatelé **trvale** přiřadit do rolí ve službě Azure AD, například pomocí rutin prostředí PowerShell `Add-MsolRoleMember` a `Remove-MsolRoleMember`, nebo prostřednictvím portálu classic, jak je popsáno v [přiřazení rolí správce v Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Můžete aktualizovat globální správce, které jsou uživatelé **trvale** přiřadit do rolí ve službě Azure AD, například pomocí rutin prostředí PowerShell `Add-MsolRoleMember` a `Remove-MsolRoleMember`, nebo prostřednictvím portálu, jak je popsáno v [přiřazení rolí správce ve službě Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) spravuje zásady pro privilegovaný přístup pro uživatele ve službě Azure AD. PIM přiřadí uživatelům jednu nebo více rolí ve službě Azure AD, a můžete přiřadit někoho, aby se trvale, v roli, ani vhodné k roli. Když uživatel trvale přiřazená k roli nebo aktivuje přiřazení vhodné role, pak můžou spravovat služby Azure Active Directory, Office 365 a dalších aplikací s oprávněními přiřazené k jejich rolí.
 
@@ -75,15 +75,14 @@ Skupiny prostředků a předplatná Azure také nenachází ve službě Azure AD
 ## <a name="user-roles-and-signing-in"></a>Uživatelské role a přihlášení
 Pro některé služby společnosti Microsoft a aplikace nemusí být přiřazení uživatele k roli dostatečná povolení tohoto uživatele jako správce.
 
-Přístup k portálu Azure classic vyžaduje, že uživatel být služby správce nebo spolusprávce na předplatné Azure, i když uživatel není potřeba spravovat předplatná Azure.  Například ke správě nastavení konfigurace pro Azure AD na portálu classic, uživatel musí být globálním správcem ve službě Azure AD a spolusprávce předplatného na základě předplatného služby Azure.  Zjistěte, jak přidat uživatele do předplatná Azure, najdete v tématu [postup přidání nebo změna role Správce služby Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+Přístup k portálu Azure vyžaduje, že uživatel být služby správce nebo spolusprávce na předplatné Azure, i v případě, že uživatel není potřeba spravovat předplatná Azure.  Například ke správě nastavení konfigurace pro Azure AD, uživatel musí být globálním správcem ve službě Azure AD a spolusprávce předplatného na základě předplatného služby Azure.  Zjistěte, jak přidat uživatele do předplatná Azure, najdete v tématu [postup přidání nebo změna role Správce služby Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Přístup ke službám Microsoft Online Services může vyžadovat uživatel taky přiřadit licenci před jejich otevřete portál služby nebo provádění úloh správy.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Přiřazení licence pro uživatele ve službě Azure AD
-1. Přihlaste se k [portál Azure classic](http://manage.windowsazure.com) s účet globálního správce nebo spolusprávce účtem.
-2. Vyberte **všechny položky** z hlavní nabídky.
-3. Vyberte adresář, který chcete pracovat a s licencí, které jsou s ním spojená.
-4. Vyberte **licence**. Zobrazí se seznam dostupných licencí.
+1. Přihlaste se k [portál Azure](http://portal.azure.com) s účet globálního správce nebo spolusprávce účtem.
+3. Výběr možnosti Azure AD a adresáře, který chcete pracovat s a že má licencí s ním spojená.
+4. Vyberte **licence** na levé straně. Zobrazí se seznam dostupných licencí.
 5. Vyberte licenční plán, který obsahuje licencí, které chcete distribuovat.
 6. Vyberte **přiřazení uživatelů**.
 7. Vyberte uživatele, který chcete přiřadit licenci k.

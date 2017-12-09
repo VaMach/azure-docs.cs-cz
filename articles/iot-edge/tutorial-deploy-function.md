@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 9c35410ee1bb67c8ee96eeea6e51601bc29f39aa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 1dfe46d307a076ae02362c4bba292602001ed915
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Nasazení funkce Azure jako modul IoT Edge – náhled
 Azure Functions můžete použít k nasazení kód, který implementuje obchodní logiku přímo do zařízení IoT okraj. Tento kurz vás provede vytvoření a nasazení funkce Azure, který filtruje data snímačů na simulované zařízení IoT okraj, který jste vytvořili v nasazení Azure IoT Edge na simulované zařízení na [Windows] [ lnk-tutorial1-win]nebo [Linux] [ lnk-tutorial1-lin] kurzy. V tomto kurzu se naučíte:     
@@ -32,60 +32,81 @@ Funkce Azure, který vytvoříte v tomto kurzu filtruje data teploty generována
 
 * Azure IoT hraniční zařízení, který jste vytvořili v předchozí kurz na rychlý start.
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [C# pro rozšíření Visual Studio Code (používá technologii OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (Můžete nainstalovat rozšíření z panelu rozšíření ve Visual Studio Code.)
-* [Azure IoT Edge rozšíření pro Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). (Můžete nainstalovat rozšíření z panelu rozšíření ve Visual Studio Code.)
+* [C# pro rozšíření Visual Studio Code (používá technologii OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [Azure IoT Edge rozšíření pro Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [Docker](https://docs.docker.com/engine/installation/). Pro tento kurz stačí Community Edition (CE) pro vaši platformu. 
 * [Základní rozhraní .NET 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
-## <a name="set-up-a-docker-registry"></a>Nastavení registru Docker
-V tomto kurzu použijete k vytvoření funkce Azure a vytvoření rozšíření Azure IoT Edge pro VS Code [Docker image](https://docs.docker.com/glossary/?term=image) s ním. Pak push k této Docker bitové kopie [úložiště Docker](https://docs.docker.com/glossary/?term=repository) hostované [Docker registru](https://docs.docker.com/glossary/?term=registry). Nakonec nasadit zabalené jako image Docker [kontejner Docker](https://docs.docker.com/glossary/?term=container) z registru na vaše zařízení IoT okraj.  
+## <a name="create-a-container-registry"></a>Vytvoření registru kontejnerů
+V tomto kurzu použijete modul sestavení a vytvoření rozšíření Azure IoT Edge pro VS Code **kontejneru image** z souborů. Pak push k této bitové kopie **registru** která uchovává a spravuje vaše Image. Nakonec nasazení bitové kopie z registru ke spuštění na vašem zařízení IoT okraj.  
 
-Žádné kompatibilní Docker registru můžete použít pro tento kurz. Jsou dvě oblíbených Docker registru služby k dispozici v cloudu **registru kontejner Azure** a **úložiště Docker Hub**:
+Žádné kompatibilní Docker registru můžete použít pro tento kurz. Jsou dvě oblíbených Docker registru služby k dispozici v cloudu [registru kontejner Azure](https://docs.microsoft.com/azure/container-registry/) a [úložiště Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Tento kurz používá registru kontejner Azure. 
 
-- [Azure kontejneru registru](https://docs.microsoft.com/azure/container-registry/) je k dispozici [placené předplatné](https://azure.microsoft.com/en-us/pricing/details/container-registry/). V tomto kurzu **základní** předplatného je dostačující. 
-
-- [Úložiště docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) nabízí jeden volné privátní úložiště, pokud se zaregistrujete k (zdarma) Docker ID. 
-    1. Zaregistrujte si Docker ID, postupujte podle pokynů v [zaregistrovat pro Docker ID](https://docs.docker.com/docker-id/#register-for-a-docker-id) na webu Docker. 
-
-    2. Chcete-li vytvořit privátní úložiště Docker, postupujte podle pokynů v [vytvoření nového úložiště na úložiště Docker Hub](https://docs.docker.com/docker-hub/repos/#creating-a-new-repository-on-docker-hub) na webu Docker.
-
-V tomto kurzu kde je to vhodné, jsou příkazy uvedené pro registru kontejner Azure i úložiště Docker Hub.
+1. V [portál Azure](https://portal.azure.com), vyberte **vytvořit prostředek** > **kontejnery** > **registru kontejner Azure** .
+2. Pojmenujte registr, vyberte předplatné, vybrat skupinu prostředků a nastavte verze SKU **základní**. 
+3. Vyberte **Vytvořit**.
+4. Po vytvoření kontejneru registr, přejděte k němu a vyberte **přístupové klíče**. 
+5. Přepnutí **uživatel s oprávněními správce** k **povolit**.
+6. Zkopírujte hodnoty pro **přihlášení na server**, **uživatelské jméno**, a **heslo**. Tyto hodnoty budete používat později v tomto kurzu. 
 
 ## <a name="create-a-function-project"></a>Vytvoření projektu – funkce
 Následující kroky ukazují, jak vytvořit funkce IoT Edge pomocí kódu v jazyce Visual Studio a rozšíření Azure IoT okraj.
-1. Kód Open VS.
-2. Použití **zobrazení | Integrované Terminálové** příkazu v nabídce otevřete integrované terminálu VS Code.
-3. Integrované terminálu, zadejte následující příkaz pro instalaci (nebo aktualizujte) **AzureIoTEdgeFunction** šablony v dotnet:
+1. Otevřete Visual Studio Code.
+2. Otevřete terminál integrované VS Code, vyberte **zobrazení** > **integrované terminálu**.
+3. Instalaci (nebo aktualizaci) **AzureIoTEdgeFunction** šablony v dotnet, spusťte následující příkaz v integrovaném terminálu:
 
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Function
     ```
-2. V integrovaném terminálu zadejte následující příkaz pro vytvoření projektu pro nový modul:
+2. Vytvoření projektu pro nového modulu. Následující příkaz vytvoří složce projektu **FilterFunction**, v aktuální pracovní složku:
 
     ```cmd/sh
     dotnet new aziotedgefunction -n FilterFunction
     ```
 
-    >[!NOTE]
-    > Tento příkaz vytvoří složce projektu **FilterFunction**, v aktuální pracovní složku. Pokud chcete vytvořit v jiném umístění, změňte adresáře před spuštěním příkazu.
+3. Vyberte **soubor** > **otevřete složku**, vyhledejte **FilterFunction** složky a otevřete projekt v produktu VS Code.
+4. V Průzkumníku VS Code rozbalte **EdgeHubTrigger Csharp** složku, otevřete **run.csx** souboru.
+5. Obsah souboru nahraďte následujícím kódem:
 
-3. Použití **souboru | Otevřete složku** příkaz nabídky, přejděte k **FilterFunction** složky a klikněte na **vyberte složku** otevřete projekt v produktu VS Code.
-4. V Průzkumníku VS Code, klikněte na tlačítko **EdgeHubTrigger Csharp** složku, klikněte **run.csx** jej otevřete.
-5. Přidejte následující příkaz po `#r "Microsoft.Azure.Devices.Client"` příkaz:
+   ```csharp
+   #r "Microsoft.Azure.Devices.Client"
+   #r "Newtonsoft.Json"
 
-    ```csharp
-    #r "Newtonsoft.Json"
-    ```
+   using System.IO;
+   using Microsoft.Azure.Devices.Client;
+   using Newtonsoft.Json;
 
-5. Přidejte následující příkazy using po existující `using` příkazy:
+   // Filter messages based on the temperature value in the body of the message and the temperature threshold value.
+   public static async Task Run(Message messageReceived, IAsyncCollector<Message> output, TraceWriter log)
+   {
+        const int temperatureThreshold = 25;
+        byte[] messageBytes = messageReceived.GetBytes();
+        var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
 
-    ```csharp
-    using Newtonsoft.Json;
-    ```
+        if (!string.IsNullOrEmpty(messageString))
+        {
+            // Get the body of the message and deserialize it
+            var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
 
-1. Přidejte následující třídy. Tyto třídy definují očekávané schéma pro tělo příchozí zprávy.
+            if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+            {
+                // Send the message to the output as the temperature value is greater than the threashold
+                var filteredMessage = new Message(messageBytes);
+                // Copy the properties of the original message into the new Message object
+                foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                {
+                    filteredMessage.Properties.Add(prop.Key, prop.Value);
+                }
+                // Add a new property to the message to indicate it is an alert
+                filteredMessage.Properties.Add("MessageType", "Alert");
+                // Send the message        
+                await output.AddAsync(filteredMessage);
+                log.Info("Received and transferred a message with temperature above the threshold");
+            }
+        }
+    }
 
-    ```csharp
+    //Define the expected schema for the body of incoming messages
     class MessageBody
     {
         public Machine machine {get;set;}
@@ -102,66 +123,28 @@ Následující kroky ukazují, jak vytvořit funkce IoT Edge pomocí kódu v jaz
        public double temperature {get; set;}
        public int humidity {get; set;}         
     }
-    ```
-
-1. Nahraďte text **spustit** metoda následujícím kódem. Filtruje zprávy na základě hodnoty teploty v těle zprávy a teploty prahovou hodnotu.
-
-    ```csharp
-    const int temperatureThreshold = 25;
-
-    byte[] messageBytes = messageReceived.GetBytes();
-    var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
-
-    if (!string.IsNullOrEmpty(messageString))
-    {
-        // Get the body of the message and deserialize it
-        var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
-        
-        if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
-        {
-            // We will send the message to the output as the temperature value is greater than the threashold
-            var filteredMessage = new Message(messageBytes);
-            // We need to copy the properties of the original message into the new Message object
-            foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
-            {
-                filteredMessage.Properties.Add(prop.Key, prop.Value);
-            }
-            // We are adding a new property to the message to indicate it is an alert
-            filteredMessage.Properties.Add("MessageType", "Alert");
-            // Send the message        
-            await output.AddAsync(filteredMessage);
-            log.Info("Received and transferred a message with temperature above the threshold");
-        }
-    }
-    ```
+   ```
 
 11. Uložte soubor.
 
 ## <a name="publish-a-docker-image"></a>Publikování bitovou kopii Docker
 
 1. Vytvořte bitovou kopii Docker.
-    1. V Průzkumníku VS Code, klikněte na **Docker** složku ji otevřete. Potom vyberte složku pro vaši platformu kontejneru buď **linux x64** nebo **windows nano**. 
+    1. V Průzkumníku VS Code rozbalte **Docker** složky. Poté rozbalte složku pro vaši platformu kontejneru buď **linux x64** nebo **windows nano**. 
     2. Klikněte pravým tlačítkem myši **soubor Docker** souboru a klikněte na tlačítko **sestavení IoT Edge modulu Docker image**. 
-    3. V **vyberte složku** pole, přejděte do složky, do projektu, **FilterFunction**a klikněte na tlačítko **vyberte složku jako EXE_DIR**. 
-    4. Automaticky otevírané okno textového pole v horní části okna VS Code zadejte název bitové kopie. Například `<docker registry address>/filterfunction:latest`, kde *docker registru adresu* je vaše ID Docker, pokud používáte úložiště Docker Hub nebo je podobná `<your registry name>.azurecr.io`, pokud používáte Azure kontejneru registru.
+    3. Přejděte na **FilterFunction** složky projektu a klikněte na tlačítko **vyberte složku jako EXE_DIR**. 
+    4. Automaticky otevírané okno textového pole v horní části okna VS Code zadejte název bitové kopie. Například: `<your container registry address>/filterfunction:latest`. Adresa registru kontejneru je stejný jako server přihlášení, který jste zkopírovali z registru. Musí být ve tvaru `<your container registry name>.azurecr.io`.
  
 4. Přihlaste se k Docker. V integrovaném terminálu zadejte následující příkaz: 
 
-    - Úložiště docker Hub (zadejte své přihlašovací údaje po zobrazení výzvy):
+   ```csh/sh
+   docker login -u <username> -p <password> <Login server>
+   ```
         
-        ```csh/sh
-        docker login
-        ```
+   Uživatelské jméno, heslo a přihlášení serveru pro použití v tomto příkazu najdete na [portál Azure] (https://portal.azure.com). Z **všechny prostředky**, klikněte na dlaždici pro váš kontejner Azure registru otevřete jeho vlastnosti a pak klikněte na **přístupové klíče**. Zkopírujte hodnoty v **uživatelské jméno**, **heslo**, a **přihlášení na server** pole. 
 
-    - Kontejner Azure registru:
-        
-        ```csh/sh
-        docker login -u <username> -p <password> <Login server>
-        ```
-        
-        Uživatelské jméno, heslo a přihlášení serveru pro použití v tomto příkazu najdete na [portál Azure] (https://portal.azure.com). Z **všechny prostředky**, klikněte na dlaždici pro váš kontejner Azure registru otevřete jeho vlastnosti a pak klikněte na **přístupové klíče**. Zkopírujte hodnoty v **uživatelské jméno**, **heslo**, a **přihlášení na server** pole. Sould server přihlášení být ve formátu: `<your registry name>.azurecr.io`.
-
-3. Do úložiště Docker push bitovou kopii. Použití **zobrazení | Příkaz palety... | Okraj: Nabízené IoT Edge modulu Docker image** nabídky příkaz a zadejte název bitové kopie do místní textového pole v horní části okna VS Code. Použijte stejný název bitové kopie jste použili v kroku 1.c.
+3. Do úložiště Docker push bitovou kopii. Vyberte **zobrazení** > **příkaz palety...**  vyhledejte **Edge: Push IoT Edge modulu Docker image**.
+4. Automaticky otevírané okno textového pole zadejte stejný název bitové kopie, který jste použili v kroku 1.d.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Přidejte pověření registru do hraniční zařízení
 Přidáte přihlašovací údaje pro vaše registru do hraniční runtime v počítači, na kterém je spuštěn hraniční zařízení. To dává runtime přístup ke kontejneru pro vyžádání obsahu. 
@@ -169,13 +152,13 @@ Přidáte přihlašovací údaje pro vaše registru do hraniční runtime v poč
 - Pro systém Windows spusťte následující příkaz:
     
     ```cmd/sh
-    iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password> 
+    iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
 - Pro Linux spusťte následující příkaz:
     
     ```cmd/sh
-    sudo iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password> 
+    sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
 ## <a name="run-the-solution"></a>Spuštění řešení
@@ -183,24 +166,24 @@ Přidáte přihlašovací údaje pro vaše registru do hraniční runtime v poč
 1. V **portál Azure**, přejděte do služby IoT hub.
 2. Přejděte na **IoT okraj (preview)** a vyberte zařízení IoT okraj.
 1. Vyberte **nastavit moduly**. 
-2. Přidat **tempSensor** modulu. Tento krok je jenom potřeba, pokud jste nenasadili dříve **tempSensor** modulu zařízení IoT okraj.
+2. Pokud jste už nasazená **tempSensor** modul s tímto zařízením ji může automaticky doplněno. Pokud ne, použijte následující postup je přidat:
     1. Vyberte **přidání okraj IoT modulu**.
     2. V **název** zadejte `tempSensor`.
     3. V **Image URI** zadejte `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
     4. Další nastavení nezměníte a klikněte na tlačítko **Uložit**.
-1. Přidat **filterfunction** modulu.
+1. Přidat **filterFunction** modulu.
     1. Vyberte **přidat modul Edge IoT** znovu.
-    2. V **název** zadejte `filterfunction`.
+    2. V **název** zadejte `filterFunction`.
     3. V **Image** pole, zadejte adresu bitové kopie, třeba `<docker registry address>/filterfunction:latest`.
     74. Klikněte na **Uložit**.
 2. Klikněte na **Další**.
-3. V **zadejte trasy** kroku, zkopírujte do textového pole JSON níže. Moduly publikovat všechny zprávy do hraniční runtime. Deklarativní pravidel v modulu runtime definovat, kde se tyto zprávy toku. V tomto kurzu musíte dvě trasy. První trasa je určena k přenosu zpráv z teploty senzoru modulu filtru prostřednictvím koncového bodu "input1", což je koncový bod, který jste nakonfigurovali s **FilterMessages** obslužné rutiny. Druhá trasa je určena k přenosu zpráv z modulu filtru do služby IoT Hub. V této trase `upstream` je speciální cílového umístění, které informuje Edge rozbočovače k odesílání zpráv do služby IoT Hub. 
+3. V **zadejte trasy** kroku, zkopírujte do textového pole JSON níže. První trasa je určena k přenosu zpráv z teploty senzoru modulu filtru prostřednictvím koncového bodu "input1". Druhá trasa je určena k přenosu zpráv z modulu filtru do služby IoT Hub. V této trase `$upstream` je speciální cílového umístění, které informuje Edge rozbočovače k odesílání zpráv do služby IoT Hub. 
 
     ```json
     {
        "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
+          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterFunction/inputs/input1\")",
+          "filterToIoTHub":"FROM /messages/modules/filterFunction/outputs/* INTO $upstream"
        }
     }
     ```
@@ -213,13 +196,13 @@ Přidáte přihlašovací údaje pro vaše registru do hraniční runtime v poč
 
 K monitorování zařízení na cloud zprávy odeslané ze zařízení IoT okraj do služby IoT hub:
 1. Rozšíření Azure IoT Toolkit nakonfigurujte připojovací řetězec služby IoT hub: 
-    1. Použití **zobrazení | Průzkumník** příkazu v nabídce otevřete Průzkumník kódu VS. 
-    3. V Průzkumníku, klikněte na tlačítko **zařízení IOT HUB** a pak klikněte na **...** . Klikněte na tlačítko **nastavit připojovací řetězec centra IoT** a zadejte připojovací řetězec pro službu IoT hub, která zařízení IoT Edge připojuje v místním okně. 
+    1. Na portálu Azure přejděte do služby IoT hub a vyberte **zásady sdíleného přístupu**. 
+    2. Vyberte **iothubowner** zkopírujte hodnotu **připojovací řetězec primární klíč**.
+    1. V Průzkumníku VS Code, klikněte na tlačítko **zařízení IOT HUB** a pak klikněte na **...** . 
+    1. Vyberte **nastavit připojovací řetězec centra IoT** a zadejte připojovací řetězec služby Iot Hub v místním okně. 
 
-        Chcete-li najít připojovací řetězec, klikněte na dlaždici služby IoT hub v portálu Azure a pak klikněte na **zásady sdíleného přístupu**. V **zásady sdíleného přístupu**, klikněte **iothubowner** zásad a zkopírujte IoT Hub připojovací řetězec v **iothubowner** okno.   
-
-1. Ke sledování dat odesílaných do služby IoT hub, použijte **zobrazení | Příkaz palety... | IoT: Spuštění monitorování D2C zpráva** příkazu nabídky. 
-2. Chcete-li zastavit monitorování dat, použijte **zobrazení | Příkaz palety... | IoT: Zastavení monitorování D2C zpráva** příkazu nabídky. 
+1. Chcete-li monitorovat dat odesílaných do služby IoT hub, vyberte **zobrazení** > **příkaz palety...**  a vyhledejte **IoT: spuštění monitorování D2C zpráva**. 
+2. Chcete-li zastavit monitorování dat, použijte **IoT: zastavení monitorování D2C zpráva** v příkazu palety. 
 
 ## <a name="next-steps"></a>Další kroky
 

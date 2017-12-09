@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Nainstalovat Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Rychle nainstalujte rozhraní příkazového řádku Azure (Azure CLI 1.0) použ
 
 Další možnosti a pozadí, najdete v úložišti projektu na [Githubu](https://github.com/azure/azure-xplat-cli).
 
-Po instalaci Azure CLI 1.0 [připojit ke svému předplatnému Azure](xplat-cli-connect.md) a spusťte **azure** příkazy z vaší rozhraní příkazového řádku (Bash, terminálu, příkazový řádek a tak dále) pro práci s vaší Prostředky Azure.
+Po instalaci Azure CLI 1.0 [připojit ke svému předplatnému Azure](/cli/azure/authenticate-azure-cli) a spusťte **azure** příkazy z vaší rozhraní příkazového řádku (Bash, terminálu, příkazový řádek a tak dále) pro práci s vaší Prostředky Azure.
 
 ## <a name="option-1-install-an-npm-package"></a>Možnost 1: Instalace balíčku npm
 Pokud chcete nainstalovat rozhraní příkazového řádku z balíčku npm, zajistěte, aby byly staženy a nainstalovány [nejnovější Node.js a npm](https://nodejs.org/en/download/package-manager/). Potom spusťte **npm nainstalujte** k instalaci balíčku rozhraní příkazového řádku azure:
@@ -99,7 +99,7 @@ Pokud chcete zobrazit verzi 1.0 rozhraní příkazového řádku Azure, jste nai
 azure --version
 ```
 
-Nyní jste připraveni! Pro přístup k všechny příkazy rozhraní příkazového řádku pro práci s vlastními prostředky [připojení k předplatnému Azure z rozhraní příkazového řádku Azure](xplat-cli-connect.md).
+Nyní jste připraveni! Pro přístup k všechny příkazy rozhraní příkazového řádku pro práci s vlastními prostředky [připojení k předplatnému Azure z rozhraní příkazového řádku Azure](/cli/azure/authenticate-azure-cli).
 
 > [!NOTE]
 > Při prvním použití Azure CLI, zobrazí se zpráva s dotazem, pokud chcete povolit Microsoftu shromažďovat informace o využití. Účast je dobrovolná. Pokud se rozhodnete pro účast můžete kdykoli zastavit spuštěním `azure telemetry --disable`. Chcete-li povolit účast kdykoli, spusťte `azure telemetry --enable`.
@@ -129,7 +129,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 
 ## <a name="next-steps"></a>Další kroky
-* [Připojení k předplatnému Azure z rozhraní příkazového řádku](xplat-cli-connect.md) k vytváření a správě prostředků Azure.
+* [Připojení k předplatnému Azure z rozhraní příkazového řádku](/cli/azure/authenticate-azure-cli) k vytváření a správě prostředků Azure.
 * Další informace o Azure CLI, stažení zdrojový kód, problémy sestavy, nebo můžete přispět k projektu, najdete [úložiště GitHub pro rozhraní příkazového řádku Azure](https://github.com/azure/azure-xplat-cli).
 * Pokud máte dotazy týkající se používání rozhraní příkazového řádku Azure nebo Azure, přejděte [fóra Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 

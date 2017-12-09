@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigační a řídicích panelů v portálu služby Application Insights
 Až budete mít [nastavte Application Insights na projektu](app-insights-overview.md), telemetrická data o výkonu a využití vaší aplikace se zobrazí v projektu na prostředek Application Insights [portál Azure](https://portal.azure.com).
@@ -97,6 +97,9 @@ Pokud jste vytvořili řídicí panel, můžete ji sdílet s ostatními uživate
 ![V záhlaví řídicí panel klikněte na sdílenou složku](./media/app-insights-dashboards/41.png)
 
 Další informace o [role a řízení přístupu](app-insights-resources-roles-access-control.md).
+
+## <a name="create-dashboards-programmatically"></a>Vytvořit řídicí panely prostřednictvím kódu programu
+Můžete automatizovat pomocí řídicího panelu vytvoření [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) a jednoduchý editor JSON.
 
 ## <a name="app-navigation"></a>Navigace aplikace
 V okně Přehled je bránu a další informace o vaší aplikaci.

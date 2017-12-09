@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Prozkoumejte možnosti předkonfigurovaného řešení vzdáleného monitorování
 
@@ -43,7 +43,7 @@ Pokud jste nenasadili řešení vzdáleného monitorování ještě by se měla 
 Můžete použít Contoso ukázka IoT nasazení k pochopení základních scénářů vzdáleném řešení monitorování, poskytuje se na pole. Tyto scénáře jsou založeny na skutečném IoT nasazení. S největší pravděpodobností zvolíte přizpůsobení řešení vzdáleného monitorování podle specifických požadavků, ale ukázkové společnosti Contoso umožňuje získejte základní informace.
 
 > [!NOTE]
-> Pokud jste použili rozhraní příkazového řádku nasadíte předkonfigurované řešení, soubor `deployment-{your deployment name}-output.json` obsahuje informace o nasazení například adresu URL accss nasazené vzorku.
+> Pokud jste použili rozhraní příkazového řádku nasadíte předkonfigurované řešení, soubor `deployment-{your deployment name}-output.json` obsahuje informace o nasazení, jako je například adresa URL pro přístup k nasazené vzorku.
 
 Ukázka Contoso zřídí sadu simulované zařízení a pravidel tak, aby fungoval s nimi. Jakmile porozumíte základní scénáře, můžete dál zkoumat více funkcí řešení v [provést rozšířené monitorování zařízení pomocí řešení vzdáleného monitorování](iot-suite-remote-monitoring-monitor.md).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrace aplikace pomocí virtuální sítě Azure
 Tento dokument popisuje funkci integrace virtuální sítě Azure App Service a ukazuje, jak ho nastavit s aplikacemi ve [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Pokud jste obeznámeni s virtuální sítí Azure (virtuální sítě), toto je funkce, která umožňuje umístit mnoho vašich prostředků Azure v Internetu jiných routeable síti, která můžete řídit přístup ke. Tyto sítě můžete pak připojené k vaší místní sítě pomocí různých technologií, sítě VPN. Další informace o virtuálních sítí Azure, spusťte s informacemi, zde: [Přehled virtuálních sítí Azure][VNETOverview]. 
@@ -39,7 +39,7 @@ Funkce integrace virtuální sítě:
 * vyžaduje standardní, Premium nebo izolované ceny plán 
 * funguje s Classic nebo virtuální sítě Resource Manageru 
 * podporuje TCP a UDP
-* funguje s aplikacemi pro webové, mobilní a rozhraní API
+* funguje s webové, mobilní aplikace API a funkce aplikace
 * umožňuje aplikaci připojit k virtuální síti pouze 1 současně
 * umožňuje až pět virtuálních sítí s integrovat v plán služby App Service 
 * umožňuje stejnou virtuální síť má být používána více aplikacemi v plán služby App Service
@@ -93,7 +93,7 @@ Pokud virtuální síť nemá bránu ani má bod do lokality, budete muset nasta
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Povolení bod do lokality ve virtuální síti Resource Manager
-Konfigurace virtuální sítě Resource Manageru pomocí brány a bod do lokality, můžete použít buď PowerShell podle postupu uvedeného zde [konfigurace připojení typu Point-to-Site k virtuální síti pomocí prostředí PowerShell] [ V2VNETP2S] nebo pomocí portálu Azure podle postupu uvedeného zde [konfigurace připojení typu Point-to-Site k virtuální síti pomocí portálu Azure][V2VNETPortal]. Uživatelské rozhraní k provedení tato funkce není k dispozici. Všimněte si, že potřebujete k vytvoření certifikátů, aby bod konfigurace lokality. Ta se automaticky nakonfiguruje při připojení k virtuální síti vaší webové aplikace. 
+Konfigurace virtuální sítě Resource Manageru pomocí brány a bod do lokality, můžete použít buď PowerShell podle postupu uvedeného zde [konfigurace připojení typu Point-to-Site k virtuální síti pomocí prostředí PowerShell] [ V2VNETP2S] nebo pomocí portálu Azure podle postupu uvedeného zde [konfigurace připojení typu Point-to-Site k virtuální síti pomocí portálu Azure][V2VNETPortal]. Uživatelské rozhraní k provedení tato funkce není k dispozici. Všimněte si, že nepotřebujete k vytvoření certifikátů, aby bod konfigurace lokality. Ta se automaticky nakonfiguruje při připojení k virtuální síti vaší webové aplikace. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Vytvoření předem konfigurovaný virtuální sítě
 Pokud chcete vytvořit novou virtuální síť, který je nakonfigurovaný s bránou a Point-to-Site, App Service sítě uživatelského rozhraní má možnost udělat, ale jenom pro virtuální sítě Resource Manageru. Pokud chcete vytvořit klasické virtuální sítě se brána a Point-to-Site, budete muset udělat to ručně přes uživatelské rozhraní sítě. 

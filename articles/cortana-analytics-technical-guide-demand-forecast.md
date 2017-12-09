@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Technické příručce k šabloně Cortana Intelligence řešení pro vyžádání prognózy v energie
 ## <a name="overview"></a>**Přehled**
@@ -82,7 +82,7 @@ Vyžádání prognózy pro šablonu řešení energie dotaz Azure Stream Analyti
 
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) dotazu lze najít:
 
-* Přihlášení k [portálu Azure](https://manage.windowsazure.com/)
+* Přihlášení k [portálu Azure](https://portal.azure.com/)
 * Vyhledání úlohy stream analytics ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) které byly generovány při řešení byl nasazen. Jeden je pro předání dat do blob storage (například mytest1streaming432822asablob) a druhý je pro předání dat do Power BI (například mytest1streaming432822asapbi).
 * Výběr
 

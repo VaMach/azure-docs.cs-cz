@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Nastavení clusteru Linux RDMA pro spouštění aplikací MPI
 Zjistěte, jak nastavit clusteru s podporou Linux RDMA v Azure pomocí [vysokovýkonné výpočetní velikosti virtuálních počítačů](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ke spouštění paralelních aplikací Message Passing Interface (MPI). Tento článek obsahuje kroky k přípravě image Linux HPC ke spuštění v clusteru s podporou Intel MPI. Po přípravě nasazení clusteru virtuálních počítačů pomocí tuto bitovou kopii a jeden velikostí podporující RDMA virtuální počítač Azure (aktuálně H16r, H16mr, A8 a A9). Použijte cluster ke spouštění aplikací MPI, které efektivně komunikují přes síť s nízkou latencí, vysokou propustností založené na technologii do paměti vzdáleného přímý přístup do (počítače RDMA).
@@ -47,7 +47,7 @@ Následující kroky ukazují, jak používat rozhraní příkazového řádku A
 * **Předplatné Azure**: Pokud nemáte předplatné, můžete vytvořit [bezplatný účet](https://azure.microsoft.com/free/) si během několika minut. Pro větší clustery zvažte průběžnými platbami předplatné nebo jiné možnosti nákupu.
 * **Virtuální počítač velikost dostupnosti**: následující instance velikosti jsou podporující RDMA: H16r, H16mr, A8 a A9. Zkontrolujte [produkty podle oblasti](https://azure.microsoft.com/regions/services/) pro dostupnost v oblastech Azure.
 * **Kvóta jader**: možná budete muset zvýšit kvótu jader, který má nasadit cluster virtuálních počítačů náročné. Pokud chcete nasadit virtuální počítače 8 A9, jak je znázorněno v tomto článku se například potřebovat nejméně 128 jader. Vaše předplatné může také omezit počet jader, který můžete nasadit v určité rodiny velikost virtuálního počítače, včetně H-series. Požádat o zvýšení kvóty, [otevřete žádosti o podporu online zákazníka](../../../azure-supportability/how-to-create-azure-support-request.md) zdarma.
-* **Rozhraní příkazového řádku Azure**: [nainstalovat](../../../cli-install-nodejs.md) rozhraní příkazového řádku Azure a [připojení k předplatnému Azure](../../../xplat-cli-connect.md) z klientského počítače.
+* **Rozhraní příkazového řádku Azure**: [nainstalovat](../../../cli-install-nodejs.md) rozhraní příkazového řádku Azure a [připojení k předplatnému Azure](/cli/azure/authenticate-azure-cli) z klientského počítače.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Zřizování virtuálních počítačů SLES 12 SP1 HPC
 Po přihlášení do Azure pomocí Azure CLI, spusťte `azure config list` potvrďte, že výstup zobrazuje režimu správy služby. Pokud ne, nastavte režim spuštěním tohoto příkazu:

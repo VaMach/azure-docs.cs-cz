@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cad36fdaf0e7b151809cf07ede10abd1abec99d0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Jak obnovit virtuální počítač s Linuxem heslo nebo klíč SSH, opravit konfiguraci SSH a kontrola konzistence disku pomocí rozšíření VMAccess
 Pokud se nemůžete připojit k virtuální počítač s Linuxem v Azure z důvodu zapomenuté heslo, nesprávného klíče Secure Shell (SSH), nebo problém s konfigurací SSH, používají rozšíření VMAccessForLinux s Azure CLI resetovat heslo nebo klíč SSH, opravte SSH Konfigurace a kontrolu konzistence disku. 
@@ -44,7 +44,7 @@ Pomocí rozhraní příkazového řádku Azure lze provádět následující úl
 ## <a name="prerequisites"></a>Požadavky
 Musíte provést následující akce:
 
-* Budete muset [nainstalovat Azure CLI](../../../cli-install-nodejs.md) a [připojení k vašemu předplatnému](../../../xplat-cli-connect.md) používat prostředky Azure, které jsou spojené s vaším účtem.
+* Budete muset [nainstalovat Azure CLI](../../../cli-install-nodejs.md) a [připojení k vašemu předplatnému](/cli/azure/authenticate-azure-cli) používat prostředky Azure, které jsou spojené s vaším účtem.
 * Nastavte do správného režimu pro model nasazení classic pomocí následujícího příkazu na příkazovém řádku:
     ``` 
         azure config mode asm

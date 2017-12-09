@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1b8010876a46999d9cfcefc8c3bf537c7a1deb4e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Řešení potíží s synchronizace souboru Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -102,10 +102,8 @@ Chcete-li zjistit, jestli vaše uživatelská role účet má potřebná oprávn
     * **Přiřazení role** by měl mít **čtení** a **zápisu** oprávnění.
     * **Definice role** by měl mít **čtení** a **zápisu** oprávnění.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Odstranění koncového bodu cloudu selže s touto chybou: "MgmtInternalError"**  
-Tento problém může dojít, pokud účet sdílenou složku nebo úložiště Azure file je odstraněn před odstraněním koncového bodu cloudu. Tento problém bude opraven v budoucí aktualizaci. V ten moment se bude moct odstranit koncový bod cloudu po odstranění účet sdílenou složku nebo úložiště Azure file.
-
-Mezitím Chcete-li zabránit výskytu tohoto problému, odstraňte koncového bodu cloudu před odstraněním účtu sdílenou složku nebo úložiště Azure file.
+<a id="server-endpoint-deletejobexpired"></a>**Odstranění koncového bodu serveru selže s touto chybou: "MgmtServerJobExpired"**                
+K tomuto problému dochází, pokud server je offline nebo nemá připojení k síti. Pokud server již není k dispozici, zrušte registraci serveru na portálu, který bude server koncové body odstranit. Pokud chcete odstranit koncové body serveru, postupujte podle kroků popsaných v [zrušit registraci serveru s Azure souboru Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Pokud soubor vytvořili přímo v mé sdílenou složku Azure přes protokol SMB nebo prostřednictvím portálu, jak dlouho trvá souboru pro synchronizaci servery ve skupině synchronizace?**  

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Zachytit virtuální počítač Linux spuštěné v Azure
 Postupujte podle kroků v tomto článku generalize a zachycení Azure Linux virtuálního počítače (VM) v modelu nasazení Resource Manager. Při průchodu generalize virtuálního počítače, můžete odebrat informace o osobní účet a připravit virtuální počítač, který se má použít jako obrázek. Můžete potom zachycení bitové kopie zobecněný virtuální pevný disk (VHD) pro operační systém, virtuální pevné disky pro připojené datových disků, a [šablony Resource Manageru](../../azure-resource-manager/resource-group-overview.md) pro nová nasazení virtuálních počítačů. Tento článek popisuje, jak zachytit image virtuálního počítače s 1.0 rozhraní příkazového řádku Azure pro virtuální počítač pomocí nespravované disků. Můžete také [zachytit virtuální počítač Azure spravované disky pomocí Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Spravované disky jsou zpracovávány platformy Azure a nevyžadují, aby všechny přípravné nebo umístění pro uložení. Další informace najdete v tématu [Přehled služby Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -61,7 +61,7 @@ Nejprve spustit **příkaz waagent** s **deprovision** parametr na virtuální p
 ## <a name="step-2-capture-the-vm"></a>Krok 2: Zachycení virtuálního počítače
 Pomocí rozhraní příkazového řádku Azure generalize a zachycení virtuálního počítače. V následujících příkladech nahraďte názvy parametrů příklad vlastní hodnoty. Zahrnout názvy parametrů příklad **myResourceGroup**, **myVnet**, a **Můjvp**.
 
-1. Z místního počítače, otevřete rozhraní příkazového řádku Azure a [přihlášení k předplatnému Azure](../../xplat-cli-connect.md). 
+1. Z místního počítače, otevřete rozhraní příkazového řádku Azure a [přihlášení k předplatnému Azure](/cli/azure/authenticate-azure-cli). 
 2. Ujistěte se, že jste v režimu Resource Manager.
    
     ```azurecli

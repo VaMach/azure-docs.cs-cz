@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: be940b694ba95529b5f5a84acfd789240354dae2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Nejčastější dotazy pro Azure Active Directory Connect
 
@@ -35,6 +35,11 @@ S sestavení z února 2016 to je podporováno.
 Ano. Po instalaci agenta, můžete dokončit proces registrace pomocí následující rutiny prostředí PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**Otázka: AADConnect podporuje synchronizace ze dvou domén na Azure AD?**</br>
+Ano, tato možnost je podporována. Odkazovat na [více domén](active-directory-aadconnect-multiple-domains.md)
+ 
+**Otázka: jsme podporují s více konektorů pro stejné domény služby Active Directory ve službě Azure AD connect?**</br> Ne, to není podporováno 
 
 ## <a name="network"></a>Síť
 **Otázka: je nutné bránu firewall, síťové zařízení, nebo něco jiného, který omezuje maximální dobu, po připojení můžete zůstat otevřené v mé síti. Jak dlouho mají Moje prahová hodnota časového limitu straně klienta se při použití Azure AD Connect?**  
@@ -78,8 +83,6 @@ Ne, to není aktuálně podporováno.
 **Otázka: je to, že nepodporuje ručně nastavit atribut ImmutableId u stávajících objektů Azure AD skupiny nebo kontaktu pevného odpovídat jej do místní AD skupiny nebo kontaktu objekty?**  
 Ne, to není aktuálně podporováno.
 
-
-
 ## <a name="custom-configuration"></a>Vlastní konfigurace
 **Otázka: kde popsané rutiny prostředí PowerShell pro Azure AD Connect?**  
 S výjimkou rutiny popsané v této lokalitě nejsou podporované jinými rutinami prostředí PowerShell nalezen ve službě Azure AD Connect pro použití zákazníka.
@@ -95,8 +98,6 @@ Aktuálně nepodporujeme změna atributů HTML přihlašovací stránky. Právě
 
 **Otázka: je způsob, jak zabránit souběžných relací?**</br>
 Ne.
-
-
 
 ## <a name="troubleshooting"></a>Řešení potíží
 **Otázka: jak můžete získat pomoc s Azure AD Connect?**

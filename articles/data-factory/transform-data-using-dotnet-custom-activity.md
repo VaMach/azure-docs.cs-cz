@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: e470071ca0ff45fce0a410b18ea9a91e1925af4b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Použití vlastních aktivit v kanálu Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -308,14 +308,30 @@ Pokud chcete pracovat s obsahem stdout.txt v podřízené aktivity, můžete zí
 
   S změny uváděné ve vlastní aktivita služby Azure Data Factory V2 jsou volně zapisovat logiku vlastního kódu ve vašem preferovaném jazyce a spouštět je v systému Windows a operační systémy Linux podporované nástrojem Azure Batch. 
 
+  Následující tabulka popisuje rozdíly mezi Data Factory V2 vlastní aktivity a Data Factory V1 aktivity DotNet (vlastní): 
+
+
+|Rozdíly      |Vlastní aktivity ADFv2      |Aktivita ADFv1 (vlastní) DotNet.      |
+| ---- | ---- | ---- |
+|Jak je definovaný vlastní logiky      |Spuštěním jakéhokoliv spustitelného souboru (stávající nebo implementace vlastní spustitelný soubor)      |Implementací .net knihovny DLL      |
+|Provádění hodnotit vlastní logiky      |Windows nebo Linux      |Windows (rozhraní .net Framework 4.5.2)      |
+|Provádění skriptů      |Podpora spuštění skriptů přímo (například "cmd /c echo hello world" na virtuální počítač s Windows)      |Vyžaduje implementaci v rozhraní .net knihovny DLL      |
+|Datová sada vyžaduje      |Nepovinné      |Potřeba řetězu aktivit a předání informací      |
+|Předávání informací z aktivity do vlastní logiky      |Prostřednictvím ReferenceObjects (LinkedServices a datové sady) a ExtendedProperties (vlastní vlastnosti) a      |Prostřednictvím ExtendedProperties (vlastní vlastnosti), vstupní a výstupní datové sady      |
+|Načtení informací v vlastní logiky      |Analyzovat activity.json, linkedServices.json a datasets.json uložené ve složce ke spustitelnému souboru      |Pomocí .net SDK (.Net rámce 4.5.2)      |
+|Protokolování      |Zapíše přímo do STDOUT      |Protokolovač Implemeting v rozhraní .net knihovny DLL      |
+
+
   Pokud máte existující kód .net, které jsou napsané pro V1 aktivitu DotNet (vlastní), budete muset upravit kód pro pro práci s V2 vlastní aktivity se podle následujících pokynů vysoké úrovně:  
 
-  > - Změnit projekt z .net knihovny tříd do konzoly aplikace. 
-  > - Spustit aplikaci s metodu Main, metoda spouštění rozhraní IDotNetActivity se už nevyžaduje. 
-  > - Číst a analyzovat propojené služby, datové sady a aktivity s serializátor JSON místo jako objektů se silným typem a předat hodnoty požadované vlastnosti logika hlavní vlastní kód. Naleznete v předchozích SampleApp.exe kód jako ukázka. 
-  > - Protokolovač objekt již není podporována, executeable výstupy může být tisk do konzoly a je uložen do stdout.txt. 
-  > - Balíček Microsoft.Azure.Management.DataFactories NuGet se už nevyžaduje. 
-  > - Kompilace kódu, nahrát spustitelný soubor a závislosti do služby Azure Storage a zadejte cestu ve vlastnosti folderPath. 
+   - Změnit projekt z .net knihovny tříd do konzoly aplikace. 
+   - Spustit aplikaci s metodu Main, metoda spouštění rozhraní IDotNetActivity se už nevyžaduje. 
+   - Číst a analyzovat propojené služby, datové sady a aktivity s serializátor JSON místo jako objektů se silným typem a předat hodnoty požadované vlastnosti logika hlavní vlastní kód. Naleznete v předchozích SampleApp.exe kód jako ukázka. 
+   - Protokolovač objekt již není podporována, executeable výstupy může být tisk do konzoly a je uložen do stdout.txt. 
+   - Balíček Microsoft.Azure.Management.DataFactories NuGet se už nevyžaduje. 
+   - Kompilace kódu, nahrát spustitelný soubor a závislosti do služby Azure Storage a zadejte cestu ve vlastnosti folderPath. 
+
+Kompletní příklad, jak koncová DLL a kanál ukázku popsané v dokumentu V1 objekt pro vytváření dat [použít vlastní aktivity v kanálu Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) může být přepisování do styl Data Factory V2 vlastní aktivity. Odkazovat [ukázková Data Factory V2 vlastní aktivity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatické škálování služby Azure Batch
 Můžete také vytvořit fond Azure Batch s **škálování** funkce. Můžete například vytvořit fondu azure batch s 0 vyhrazených virtuálních počítačích a vzorec škálování na základě počtu úkolů čekajících na zpracování. 

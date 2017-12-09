@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Úrovně výkonu Azure SQL Data Warehouse (Preview)
 SQL Data Warehouse nabízí dvě úrovně výkonu, které jsou optimalizované pro analytické úlohy. Tento článek vysvětluje koncepty úrovně výkonu, které vám pomohou zvolit nejvhodnější úroveň výkonu pro úlohy. 
 
-
 ## <a name="what-is-a-performance-tier"></a>Co je úroveň výkonu?
 Úroveň výkonu je možnost, která určuje konfiguraci datového skladu. Tato možnost je jedním z první možnosti výběru, které jste při vytváření datového skladu.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - **Úroveň výkonu optimalizovaná pro zajištění elasticity** odděluje výpočetní a úložnou vrstvu architektury. Tato možnost vyniká v úlohách, které můžou naplno využít oddělení výpočetního výkonu a úložiště, díky častému škálování podporujícímu krátká období nejvyšší aktivity. Tato výpočetní vrstva zahrnuje nízké vstupní náklady a škáluje se pro zajištění podpory většiny úloh zákazníků.
 
@@ -74,7 +75,7 @@ WITH
 | DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
 | DW6000        | 32                     | 60            | 1                              | 24,000                           | 1440                               |
 
-### <a name="optimized-for-compute"></a>Optimalizovaná pro výpočet
+### <a name="optimized-for-compute"></a>Optimalizováno pro výpočetní výkon
 
 Úrovně služeb pro optimalizovaný pro výpočetní výkon vrstvy v rozsahu od DW1000c DW30000c. 
 
@@ -112,11 +113,11 @@ Každý dotaz spotřebuje nula, jednu nebo více sloty souběžnosti. Dotazy na 
  
 Pouze na dotazy prostředků, které využívají sloty souběžnosti. Přesné číslo souběžnosti sloty spotřebované je určen v dotazu [Třída prostředků](resource-classes-for-workload-management.md).
 
-### <a name="optimized-for-compute"></a>Optimalizovaná pro výpočet
+### <a name="optimized-for-compute"></a>Optimalizováno pro výpočetní výkon
 Následující tabulka uvádí maximální počet souběžných dotazů a souběžnosti sloty pro každou [třída dynamické prostředků](resource-classes-for-workload-management.md).  Toto platí pro optimalizovaný pro výpočetní výkon vrstvě.
 
 **Dynamické prostředků třídy**
-| Úrovně služeb | Maximální počet souběžných dotazů | Concurrency sloty, které jsou k dispozici | Sloty používané smallrc | Sloty používané mediumrc | Sloty používané largerc | Sloty používané xlargerc |
+| Úroveň služby | Maximální počet souběžných dotazů | Concurrency sloty, které jsou k dispozici | Sloty používané smallrc | Sloty používané mediumrc | Sloty používané largerc | Sloty používané xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW1000c       | 32                         |   40                        | 1                     |  8                     |  16                   |  32                    |
 | DW1500c       | 32                         |   60                        | 1                     |  8                     |  16                   |  32                    |
@@ -134,7 +135,7 @@ Následující tabulka uvádí maximální počet souběžných dotazů a soubě
 
 Následující tabulka uvádí maximální počet souběžných dotazů a souběžnosti sloty pro každou [Třída prostředků se statickou](resource-classes-for-workload-management.md).  
 
-| Úrovně služeb | Maximální počet souběžných dotazů | Concurrency sloty, které jsou k dispozici |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Úroveň služby | Maximální počet souběžných dotazů | Concurrency sloty, které jsou k dispozici |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |

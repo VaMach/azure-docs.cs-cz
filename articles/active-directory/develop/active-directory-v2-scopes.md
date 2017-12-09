@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1488e8d2a70f7317c97275b83db3b9f05e9deb4b
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Obory, oprávnění a souhlasu v koncového bodu v2.0 Azure Active Directory
 Aplikace, které se integrují s Azure Active Directory (Azure AD), postupujte podle modelu autorizace, který nabízí uživatelům kontrolu nad přístupu svá data aplikace. Implementace v2.0 modelu autorizace byl aktualizován a změní způsob, jakým aplikace musí komunikovat s Azure AD. Tento článek se zabývá základními koncepty prostředí tato ověřování modelu, včetně obory, oprávnění a souhlasu.
@@ -40,14 +40,14 @@ Totéž platí pro všechny prostředky třetích stran, které mají integrovan
 
 * Číst kalendář uživatele
 * Zápis do kalendáře uživatele
-* Odesílání pošty jménem uživatele
+* Odesílat poštu jménem uživatele
 
 Definováním tyto typy oprávnění prostředek má jemně odstupňovanou kontrolu nad jeho data a jak je vystaven data. Aplikace jiných výrobců může požádat o oprávnění z aplikace uživatele. Uživatel aplikaci musí schválit oprávnění, než aplikace může fungovat jménem uživatele. Podle rozdělování funkce prostředku do menší sady oprávnění, se dají vytvářet aplikace jiných výrobců s žádostí o pouze konkrétní oprávnění, které potřebují k provedení jejich funkce. Uživatelé aplikaci můžete věděli, přesně jak aplikace bude používat svá data, a může se jednat o větší jistotu, že aplikace není chovají se zlými úmysly.
 
 Ve službě Azure AD a OAuth, se nazývají tyto typy oprávnění *obory*. Taky někdy označují se jako *oAuth2Permissions*. Obor představuje ve službě Azure AD hodnotu řetězce. Pokračování příkladu Microsoft Graph s, je hodnota oboru pro každé oprávnění:
 
-* Číst kalendář uživatele pomocí`Calendar.Read`
-* Zápis do kalendáře uživatele pomocí`Mail.ReadWrite`
+* Číst kalendář uživatele pomocí`Calendars.Read`
+* Zápis do kalendáře uživatele pomocí`Calendars.ReadWrite`
 * Odesílat poštu jménem uživatele pomocí podle`Mail.Send`
 
 Aplikace může požádat o tato oprávnění zadáním obory v požadavcích na koncový bod v2.0.
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```

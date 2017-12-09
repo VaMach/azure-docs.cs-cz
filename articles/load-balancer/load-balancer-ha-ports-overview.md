@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>Přehled porty vysokou dostupnost
 
@@ -74,7 +74,7 @@ K účasti ve verzi preview funkci HA porty ve standardní nástroje pro vyrovn�
 
 Tady jsou podporované konfigurace nebo výjimky pro funkci HA porty:
 
-- Na jednom front-endové konfiguraci protokolu IP může mít jedno pravidlo Vyrovnávání zatížení DSR s vysokou DOSTUPNOSTÍ porty, nebo můžete mít pravidlo služby load balancer jeden jiný DSR s vysokou DOSTUPNOSTÍ porty. Nemůže mít obě.
+- Na jednom front-endové konfiguraci protokolu IP může mít jeden přímou odpověď ze serveru (DSR - plovoucí IP adresa v Azure) načíst pravidlo vyrovnávání s vysokou DOSTUPNOSTÍ porty, nebo můžete mít pravidlo služby load balancer jeden jiný DSR s vysokou DOSTUPNOSTÍ porty. Nemůže mít obě.
 - Konfigurace protokolu IP rozhraní jedním síťovým může mít pouze jeden jiný DSR načíst pravidlo vyrovnávání s vysokou DOSTUPNOSTÍ porty. Nelze nakonfigurovat další pravidla pro tento příkaz ipconfig.
 - Konfigurace protokolu IP rozhraní jedním síťovým může mít jeden nebo více DSR načíst pravidla vyrovnávání s vysokou DOSTUPNOSTÍ porty, ale všechny jejich odpovídajících front-endové konfigurace protokolu IP musí být jedinečný.
 - Pokud jsou všechny pravidla Vyrovnávání zatížení HA porty (pouze DSR), může existovat společně pravidla Vyrovnávání zatížení pro dva (nebo více) odkazující na stejný fond back-end. Stejné je hodnota true, pokud jsou všechna pravidla jiný-HA porty (DSR a bez DSR). Pokud je kombinace HA porty a porty bez HA pravidla, ale dvě takové pravidla vyrovnávání zátěže nemohou existovat společně.

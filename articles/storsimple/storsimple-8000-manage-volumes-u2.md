@@ -4,7 +4,7 @@ description: "Vysvětluje, jak přidat, upravit, sledovat a odstraňovat svazky 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Použít službu StorSimple Manager zařízení ke správě svazky (Update 3 nebo novější)
 
@@ -119,11 +119,7 @@ Můžete [vytvořili svazek](storsimple-8000-deployment-walkthrough-u2.md#step-6
       
        Pokud v zařízení 8100 zřídíte místně vázaný svazek o velikosti 8.5 TB (maximální možná velikost), vyčerpáte tím veškeré volné místo dostupné v zařízení. Od této chvíle už nebudete moct vytvořit žádné vrstvené svazky, protože v zařízení už nebude žádné volné místo k hostování pracovní sady vrstveného svazku. Objem dostupného volného místa ovlivňují také vrstvené svazky. Pokud například používáte zařízení 8100, ve kterém jsou už zřízeny vrstvené svazky o velikosti zhruba 106 TB, k vytváření místně vázaných svazků zbude už jenom 4 TB dostupného volného místa.
 
-    6. V poli **Připojení hostitelé** klikněte na šipku. 
-
-        ![Připojení hostitelé](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
-
-    7. V **připojení hostitele** okně zvolte existující ACR nebo přidat nový ACR. Pokud si zvolíte nové ACR, potom zadejte **název** acr, zadejte **iSCSI Qualified Name** (IQN) hostitele s Windows. Pokud název IQN nemáte, přejděte do části [Získání názvu hostitele se systémem Windows Server](#get-the-iqn-of-a-windows-server-host). Klikněte na možnost **Vytvořit**. Vytvoří se svazek se zadaným nastavením.
+    6. V poli **Připojení hostitelé** klikněte na šipku. V **připojení hostitele** okně zvolte existující ACR nebo přidat nový ACR. Pokud si zvolíte nové ACR, potom zadejte **název** acr, zadejte **iSCSI Qualified Name** (IQN) hostitele s Windows. Pokud název IQN nemáte, přejděte do části [Získání názvu hostitele se systémem Windows Server](#get-the-iqn-of-a-windows-server-host). Klikněte na možnost **Vytvořit**. Vytvoří se svazek se zadaným nastavením.
 
         ![Kliknutí na Vytvořit](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 

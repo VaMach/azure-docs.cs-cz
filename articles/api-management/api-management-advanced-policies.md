@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="api-management-advanced-policies"></a>Pokročilé zásady API Management
 Toto téma obsahuje odkaz pro následující zásady služby API Management. Informace o přidávání a konfiguraci zásad najdete v tématu [zásady ve službě API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -242,7 +242,7 @@ Toto téma obsahuje odkaz pro následující zásady služby API Management. Inf
   
 |Atribut|Popis|Požaduje se|Výchozí|  
 |---------------|-----------------|--------------|-------------|  
-|časový limit = "celé číslo"|Interval vypršení časového limitu v sekundách, než volání službě back-end se nezdaří.|Ne|Bez časového limitu|  
+|časový limit = "celé číslo"|Interval vypršení časového limitu v sekundách, než volání službě back-end se nezdaří.|Ne|300 sekund|  
 |postupujte podle přesměrování = "true &#124; false"|Určuje, zda jsou přesměrování z back-end službu následuje bránu nebo vrácen volajícímu.|Ne|False|  
   
 ### <a name="usage"></a>Využití  

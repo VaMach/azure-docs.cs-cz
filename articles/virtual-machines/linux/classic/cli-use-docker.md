@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b276911ecbbf161cb6068c1af7a035850035b98d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Použití rozšíření Docker VM z rozhraní příkazového řádku Azure (Azure CLI)
 > [!IMPORTANT] 
@@ -45,7 +45,7 @@ Instalace a konfigurace rozhraní příkazového řádku Azure CLI, najdete v č
 > 
 
 ### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>Azure CLI pro připojení k účtu Azure
-Abyste mohli používat rozhraní příkazového řádku Azure je nutné přidružit přihlašovací údaje účtu Azure pomocí Azure CLI na vaši platformu. V části [jak se připojit k předplatnému Azure](../../../xplat-cli-connect.md) vysvětluje, jak stáhnout a naimportovat vaše **.publishsettings** souboru nebo Azure CLI přidružit id organizace.
+Abyste mohli používat rozhraní příkazového řádku Azure je nutné přidružit přihlašovací údaje účtu Azure pomocí Azure CLI na vaši platformu. V části [jak se připojit k předplatnému Azure](/cli/azure/authenticate-azure-cli) vysvětluje, jak stáhnout a naimportovat vaše **.publishsettings** souboru nebo Azure CLI přidružit id organizace.
 
 > [!NOTE]
 > Existují určité rozdíly v chování při použití jednoho nebo jiné metody ověřování, takže nezapomeňte si přečíst dokument výše a pochopit různé funkce.

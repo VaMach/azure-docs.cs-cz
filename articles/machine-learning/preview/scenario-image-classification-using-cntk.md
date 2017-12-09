@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 64a035c216e4d7aa4c14baf1812b9a25e27b3e19
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Pomocí Azure Machine Learning Workbench klasifikace bitové kopie
 
@@ -51,7 +51,7 @@ Požadavky na spuštění v tomto příkladu jsou následující:
 3. Počítače s Windows. Operačního systému Windows je nutné, protože nástroje Workbench podporuje pouze systém Windows a systému MacOS při kognitivní Toolkit společnosti Microsoft (který používáme jako přímý learning knihovny) podporuje pouze systém Windows a Linux.
 4. Vyhrazené GPU není nutné provést školení SVM část 1, ale je potřeba pro upřesnění z DNN popsané v části 2. Chybí silné grafického procesoru, chcete cvičení na více grafickými procesory nebo nemají počítače s Windows, můžete použít Azure hloubkové Learning virtuální počítač s operačním systémem Windows. V tématu [sem](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) průvodce kliknutím 1 nasazení. Po nasazení připojit k virtuálnímu počítači prostřednictvím připojení ke vzdálené ploše, nainstalujte Workbench existuje a spouštění kódu místně z virtuálního počítače.
 5. Různé knihovny Python, jako je například OpenCV je potřeba nainstalovat. Klikněte na tlačítko *spusťte příkazový řádek* z *souboru* nabídky na Workbench a spusťte následující příkazy pro instalaci tyto závislosti:  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`Po stažení OpenCV wheel z http://www.lfd.uci.edu/~gohlke/pythonlibs/ (přesný název souboru a verze můžete změnit)
     - `conda install pillow`
     - `pip install -U numpy`
@@ -61,10 +61,11 @@ Požadavky na spuštění v tomto příkladu jsou následující:
 ### <a name="troubleshooting--known-bugs"></a>Řešení potíží / známé chyby
 - Grafického procesoru je potřeba pro část 2 a v opačném případě "Batch normalizaci školení na procesoru není dosud implementována" je vyvolána chyba při pokusu o Upřesnit DNN.
 - Chyby z důvodu nedostatku paměti při školení DNN předejít zmenšení velikosti minibatch (proměnná `cntk_mb_size` v `PARAMETERS.py`).
-- Kód byla testována pomocí CNTK 2.0 a 2.1 a má změny spustit také na novější verze bez (nebo pouze malé).
+- Kód byl testován pomocí CNTK 2.2 a by také spustit v starší (až v2.0) a novější verze bez nebo pouze malé změny.
 - V době psaní Azure Machine Learning Workbench měla problémy s zobrazující poznámkových bloků větší než 5 MB. Poznámkové bloky této velké velikosti může dojít, pokud poznámkového bloku je uložit s všechny buňky zobrazí výstup. Pokud k této chybě dojde, otevřete příkazový řádek z nabídky Soubor uvnitř nástroje Workbench, provést `jupyter notebook`, otevřete Poznámkový blok, zrušte všechny výstup a uložte poznámkového bloku. Po provedení těchto kroků, poznámkového bloku bude správně uvnitř Azure Machine Learning Workbench znovu otevřít.
+- Všechny skripty v této ukázce muset provést místně a ne na například docker vzdáleného prostředí. Všech poznámkových bloků muset provést s jádra nastavena na jádra místní projektu s názvem "<projectname> místní" (například "místní myImgClassUsingCNTK").
 
-
+    
 ## <a name="create-a-new-workbench-project"></a>Vytvoření nového projektu workbench
 
 Chcete-li vytvořit nový projekt v tomto příkladu jako šablona:
@@ -91,7 +92,7 @@ Provedením těchto kroků vytvoří strukturu projektu vidíte níže. Adresá�
 
 Tento kurz používá jako příklad spuštěn dataset texture oblečení horní text tvořený až 428 bitové kopie. Každé bitové kopie je označena jako jednu ze tří různých textury (leopard desítkovém, prokládané,). Jsme udržováno počet bitových kopií malé tak, aby v tomto kurzu lze rychle provést. Kód, ale je dobře otestované a funguje s desítkami tisíc bitové kopie nebo více. Všechny bitové kopie byly oškrábána pomocí hledání bitové kopie Bingu a poznámky popsaná v dolním [část 3](#using-a-custom-dataset). Bitovou kopii adresy URL s jejich příslušné atributy, které jsou uvedeny v */resources/fashionTextureUrls.tsv* souboru.
 
-Skript `0_downloadData.py` stáhne všechny bitové kopie do *DATA_DIR nebo bitové kopie nebofashionTexture/* adresáře. Některé 428 adres URL jsou pravděpodobně poškozená. To není problém a právě znamená, že máme něco menší počet bitových kopií pro trénování a testování.
+Skript `0_downloadData.py` stáhne všechny bitové kopie do *DATA_DIR nebo bitové kopie nebofashionTexture/* adresáře. Některé 428 adres URL jsou pravděpodobně poškozená. To není problém a právě znamená, že máme něco menší počet bitových kopií pro trénování a testování. Všechny skripty v této ukázce muset provést místně a ne na například docker vzdáleného prostředí.
 
 Následující obrázek znázorňuje příklady pro atributy s tečkami (vlevo), prokládané (střední) a leopard (vpravo). Poznámky měla provést podle položky oblečení horní textu.
 
@@ -114,7 +115,7 @@ Jsou zadány všechny důležité parametry a krátký vysvětlení dostupné na
 ### <a name="step-1-data-preparation"></a>Krok 1: Příprava dat
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-Poznámkového bloku `showImages.ipynb` lze použít k vizualizaci bitové kopie a opravte jejich poznámky podle potřeby. Pokud chcete spustit poznámkového bloku, otevřete v nástroji Azure Machine Learning Workbench, klikněte na Server poznámkového bloku"spustit", pokud tato možnost se zobrazí a potom spusťte všechny buňky v poznámkovém bloku. Pokud dojde k chybě nesouhlasících Poznámkový blok je příliš velký, který se má zobrazit, najdete v části řešení potíží v tomto dokumentu.
+Poznámkového bloku `showImages.ipynb` lze použít k vizualizaci bitové kopie a opravte jejich poznámky podle potřeby. Pokud chcete spustit poznámkového bloku, otevřete v nástroji Azure Machine Learning Workbench, klikněte na "spustit poznámkového bloku Server" Pokud tato možnost se zobrazí, změňte jádra místní projektu s názvem "<projectname> místní" (například "myImgClassUsingCNTK místní") a potom spusťte všechny buňky v Poznámkový blok. Pokud dojde k chybě nesouhlasících Poznámkový blok je příliš velký, který se má zobrazit, najdete v části řešení potíží v tomto dokumentu.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -178,7 +179,7 @@ Kromě přesnost se vykreslí křivka ROC s příslušnými oblasti v křivky (v
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Nakonec poznámkového bloku `showResults.py` zajišťuje procházení testovací obrázků a vizualizovat jejich skóre příslušné klasifikace:
+Nakonec poznámkového bloku `showResults.py` zajišťuje procházení testovací obrázků a vizualizovat jejich skóre příslušné klasifikace. Jak je popsáno v krok 1, každý poznámkového bloku v této ukázce potřebuje používat jádra místní projektu s názvem "<projectname> místní":
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -190,7 +191,7 @@ Nakonec poznámkového bloku `showResults.py` zajišťuje procházení testovac�
 ### <a name="step-6-deployment"></a>Krok 6: nasazení
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Vyškolení systém teď může být publikován jako rozhraní REST API. Nasazení je vysvětleno v poznámkovém bloku `deploy.ipynb`a podle funkcionalitu v rámci nástroje Workbench Azure Machine Learning. Viz také části vynikající nasazení [IRIS kurzu](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+Vyškolení systému lze nyní publikovat jako rozhraní REST API. Nasazení je vysvětleno v poznámkovém bloku `deploy.ipynb`a podle funkcionalitu v rámci nástroje Azure Machine Learning Workbench (Nezapomeňte nastavit jako jádra jádra místní projektu s názvem "<projectname> místní"). Viz také části vynikající nasazení [IRIS kurzu](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) pro další nasazení související informace.
 
 Po nasazení webové služby je možné volat pomocí skriptu `6_callWebservice.py`. Všimněte si, že IP adresa (místní nebo v cloudu) webové služby je třeba nejprve nastavit ve skriptu. Poznámkového bloku `deploy.ipynb` vysvětluje, jak najít tuto IP adresu.
 
