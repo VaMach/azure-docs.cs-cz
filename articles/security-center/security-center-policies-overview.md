@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>Přehled zásad zabezpečení
 Tento článek obsahuje přehled zásad zabezpečení ve službě Security Center.
@@ -29,7 +29,7 @@ Zásady zabezpečení definují požadovanou konfiguraci úloh a pomáhají zaji
 Zásady Security Center obsahují následující součásti:
 
 - **Shromažďování dat**: Určuje agenta zřizování a [shromažďování dat](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) nastavení.
-- **Zásady zabezpečení**: Určuje, které řídí monitorování Security Center a doporučuje. Můžete upravit [zásady zabezpečení](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) ve službě Security Center. Můžete také použít [zásad Azure](security-center-azure-policy.md) (ve verzi preview omezené) k vytvoření nových definic, definovat další zásady a přiřazení zásad skupinami pro správu.
+- **Zásady zabezpečení**: Určuje, které řídí monitorování Security Center a doporučuje. Můžete upravit [zásady zabezpečení](https://docs.microsoft.com/azure/security-center/security-center-policies) ve službě Security Center. Můžete také použít [zásad Azure](security-center-azure-policy.md) (ve verzi preview omezené) k vytvoření nových definic, definovat další zásady a přiřazení zásad skupinami pro správu.
 - **E-mailová oznámení**: Určuje zabezpečení kontakty a [e-mailová oznámení](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) nastavení.
 - **Cenová úroveň**: Definuje volné nebo standardní [ceny výběr](https://docs.microsoft.com/azure/security-center/security-center-pricing). Vrstvy, které zvolíte určuje funkce Security Center, které jsou k dispozici pro prostředky v oboru. Můžete zadat úroveň pro pracovní prostory, skupiny prostředků a předplatná. 
 
@@ -46,11 +46,11 @@ V tomto článku jste se dozvěděli o zásady zabezpečení v Azure Security Ce
 
 * [Nastavení zásad zabezpečení v Azure Security Center](security-center-policies.md): Zjistěte, jak nakonfigurovat zásady zabezpečení pro skupiny prostředků a předplatná Azure.
 * [Správa doporučení zabezpečení v Azure Security Center](security-center-recommendations.md): Zjistěte, jak doporučení služby Security Center pomáhá chránit prostředky v Azure.
-* [Sledování stavu zabezpečení v Azure Security Center](security-center-monitoring.md): Naučte se monitorovat stav svých prostředků Azure.
+* [Sledování stavu zabezpečení v Azure Security Center](security-center-monitoring.md) – Naučte se sledovat stav svých prostředků Azure.
 * [Správa a zpracování výstrah zabezpečení v Azure Security Center](security-center-managing-and-responding-alerts.md): Zjistěte, jak spravovat výstrahy zabezpečení a reagovat na ně.
 * [Sledování partnerských řešení pomocí Azure Security Center](security-center-partner-solutions.md): Zjistěte, jak sledovat stav vašich partnerských řešení.
 - [Zabezpečení dat v Azure Security Center](security-center-data-security.md): Zjistěte, jak Security Center spravuje a chrání data.
-* [Nejčastější dotazy k Azure Security Center](security-center-faq.md): získáte odpovědi na nejčastější dotazy o použití této služby.
+* [Azure Security Center – nejčastější dotazy](security-center-faq.md) – Získejte odpovědi na nejčastější dotazy týkající se použití této služby.
 * [Blog o bezpečnosti Azure](http://blogs.msdn.com/b/azuresecurity/): Získejte nejnovější informace zabezpečení Azure a informace.
 
 

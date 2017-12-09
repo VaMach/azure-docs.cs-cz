@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 131e475a7f313d5844bb93332da183053f8e604c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migrace uživatelů
 Když migrujete zprostředkovatele identity do Azure Active Directory B2C (Azure AD B2C), možná budete také muset migrovat uživatelský účet. Tento článek vysvětluje, jak migrovat existující uživatelské účty z kteréhokoli zprostředkovatele identity do Azure AD B2C. Článek by neměl být doporučený, ale místo toho popisuje dvě několik přístupů. Vývojář je zodpovědná za vhodnosti obou těchto přístupů.
 
 ## <a name="user-migration-flows"></a>Toky migrace uživatele
-S Azure AD B2C, můžete migrovat uživateli prostřednictvím [rozhraní Graph API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Proces migrace uživatele, které patří do dvou toky:
+S Azure AD B2C, můžete migrovat uživateli prostřednictvím [rozhraní Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Proces migrace uživatele, které patří do dvou toky:
 
 * **Před migrací**: Tento tok platí, pokud máte buď zrušte přístup k přihlašovacím údajům uživatele (uživatelské jméno a heslo) nebo přihlašovací údaje jsou šifrované, ale lze je dešifrovat. Proces před migrací zahrnuje čtení z původního zprostředkovatele identity uživatelů a vytváření nových účtů v adresáři Azure AD B2C.
 
@@ -100,7 +100,7 @@ Nyní máte aplikace s oprávněními k vytváření, čtení a aktualizaci uži
 > Musíte použít účet správce klienta B2C, který je *místní* klienta B2C. Syntaxe názvu účtu není  *admin@contosob2c.onmicrosoft.com* .
 
 >[!NOTE]
-> Následující skript prostředí PowerShell vyžaduje [Azure Active Directory PowerShell verze 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> Následující skript prostředí PowerShell vyžaduje [Azure Active Directory PowerShell verze 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 V tento skript prostředí PowerShell postupujte takto:
 1. Připojení k online službě. Chcete-li tak učinit, spusťte `Connect-AzureAD` rutiny v prostředí Windows PowerShell, příkazový řádek a zadejte svoje přihlašovací údaje. 
@@ -278,7 +278,7 @@ Chcete-li sledovat Změna hesla, použijte Azure table. Když spustíte proces p
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>Krok 4.2: Nasazení webové aplikace do služby Azure App Service
-Publikování vaši rozhraní API služby Azure App Service. Další informace najdete v tématu [nasazení vaší aplikace do Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+Publikování vaši rozhraní API služby Azure App Service. Další informace najdete v tématu [nasazení vaší aplikace do Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>Krok 4.3: Přidejte technické profilu a technické profil ověření do vaší zásady 
 1. V pracovním adresáři, otevřete *TrustFrameworkExtensions.xml* soubor rozšíření zásad. 
@@ -384,7 +384,7 @@ Můžete zobrazit a sledování informací o protokolování v skoro v reálném
 
 6. Zkontrolujte výstup rozhraní RESTful API.
 
-Další informace najdete v tématu [streamování protokoly a konzole](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console).
+Další informace najdete v tématu [streamování protokoly a konzole](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console).
 
 > [!IMPORTANT]
 > Diagnostické protokoly můžete použijte pouze během vývoje a testování. Výstup rozhraní RESTful API může obsahovat důvěrné informace, které by neměly být vystaveny v produkčním prostředí.

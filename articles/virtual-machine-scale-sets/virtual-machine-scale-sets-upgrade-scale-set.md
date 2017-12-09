@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Upgradovat škálovací sadu virtuálních počítačů
 Tento článek popisuje, jak můžete zavádět aktualizaci operačního systému na virtuální počítač Azure měřítko nastavit bez odstávky. V tomto kontextu aktualizaci operačního systému zahrnuje změna verze nebo skladová položka operačního systému nebo změna identifikátoru URI vlastní image. Aktualizace bez výpadku prostředků aktualizace virtuálních počítačů najednou, nebo ve skupinách (například jeden doména selhání najednou) namísto všechny najednou. Díky tomu můžete spouštět všechny virtuální počítače, které nejsou probíhá upgrade.
@@ -31,7 +31,7 @@ Aby se zabránilo nejednoznačnosti, umožňuje rozlišit čtyři typy aktualiza
 * Změna referenční bitové kopie sady škálování, která byla vytvořena pomocí Azure spravované disky.
 * Opravy operačního systému z virtuálního počítače (to příklady instalace opravy zabezpečení a spuštění služby Windows Update). Tento scénář je podporují, ale nejsou zahrnuté v tomto článku.
 
-Sady škálování virtuálního počítače, které jsou nasazeny jako součást [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) clusteru nejsou popsané v tomto poli. V tématu [opravy operačního systému Windows v clusteru Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application) Další informace o použití dílčích oprav Service Fabric.
+Sady škálování virtuálního počítače, které jsou nasazeny jako součást [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) clusteru nejsou popsané v tomto poli. V tématu [opravy operačního systému Windows v clusteru Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application) Další informace o použití dílčích oprav Service Fabric.
 
 Změna verze nebo SKU operačního systému z image platformy nebo identifikátor URI vlastní image základní pořadí vypadá takto:
 

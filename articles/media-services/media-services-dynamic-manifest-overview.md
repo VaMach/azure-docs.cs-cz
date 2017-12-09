@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 12/07/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 4034fd0aa64627c107a43208dcca766f7f44d5d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtry a dynamické manifestů
-Od verze 2.11, Media Services umožňuje definovat filtry pro vaše prostředky. Tyto filtry jsou pravidla na straně serveru, které vám umožní vašim zákazníkům, kde můžete provádět například následující akce: přehrávání pouze část videa (namísto přehrávání celou video), nebo zadejte pouze podmnožinu interpretace audia a videa, které může zařízení vašich zákazníků (místo toho zpracovat všechny interpretací, jsou přidružený asset). Tento filtrování vaše prostředky bude archivován prostřednictvím **dynamické Manifest**ů, které jsou vytvořené na žádost zákazníka Streamovat videa podle zadané filtry.
+Od verze 2.17, Media Services umožňuje definovat filtry pro vaše prostředky. Tyto filtry jsou pravidla na straně serveru, které vám umožní vašim zákazníkům, kde můžete provádět například následující akce: přehrávání pouze část videa (namísto přehrávání celou video), nebo zadejte pouze podmnožinu interpretace audia a videa, které může zařízení vašich zákazníků (místo toho zpracovat všechny interpretací, jsou přidružený asset). Tento filtrování vaše prostředky bude archivován prostřednictvím **dynamické Manifest**ů, které jsou vytvořené na žádost zákazníka Streamovat videa podle zadané filtry.
 
 Tato témata popisuje běžné scénáře, ve kterém pomocí filtrů by bylo velmi užitečné k vašim zákazníkům a odkazy na témata, které ukazují, jak vytvářet filtry prostřednictvím kódu programu (v současné době můžete vytvořit filtry pomocí rozhraní REST API pouze).
 
@@ -124,12 +124,12 @@ Vaše prostředky může obsahovat více zvuk jazyků, jako je angličtina, špa
 ![Sleduje jazyka filtrování][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Oříznutí začátek prostředek
-Ve většině živě streamovaných událostí operátoři spustit některé testy před skutečné události. Například může zahrnovat projektem takto před zahájením události: "Programu zbývá na okamžik". Pokud je program archivace, test a projektem data jsou také archivovány a budou zahrnuty do prezentaci. Tyto informace však by neměly být uváděny klientům. S dynamické manifestu můžete vytvořit filtr času zahájení a odebrat nežádoucí data z manifestu.
+Ve většině živě streamovaných událostí operátoři spustit některé testy před skutečné události. Například může zahrnovat projektem takto před zahájením události: "Programu zbývá na okamžik". Pokud je program archivace, test a projektem data jsou také archivovat a součástí prezentaci. Tyto informace však by neměly být uváděny klientům. S dynamické manifestu můžete vytvořit filtr času zahájení a odebrat nežádoucí data z manifestu.
 
 ![Oříznutí start][trim_filter]
 
-## <a name="creating-sub-clips-views-from-a-live-archive"></a>Vytváření dílčí klipů (zobrazení) z archivu za provozu
-Mnoho živé události jsou dlouho spuštěný a za provozu archivu může obsahovat více událostí. Po živé události končí televizního chtít rozdělit za provozu archivu do logické program spuštění a zastavení pořadí. Potom publikujte samostatně tyto virtuální programy bez post zpracování archivu za provozu a nevytváří samostatné prostředky (které nebude získat výhody existující uložené v mezipaměti fragmenty v sítím CDN). Mezi tyto virtuální programy (dílčí klipy) jsou čtvrtletí fotbalové nebo Basketbalový hra, innings v baseballové nebo jednotlivé události odpoledne olympiáda programu.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Vytváření z archivu živé subclips (zobrazení)
+Mnoho živé události jsou dlouho spuštěný a za provozu archivu může obsahovat více událostí. Po skončení živé události, chtít televizního rozdělit za provozu archivu do logické program spuštění a zastavení pořadí. V dalším kroku publikujte samostatně tyto virtuální programy bez post zpracování archivu za provozu a nevytváří samostatné prostředky (který není těžit z existující uložené v mezipaměti fragmenty v sítím CDN). Mezi tyto virtuální programy jsou čtvrtletí fotbalové nebo Basketbalový hra, innings v baseballové nebo jednotlivé události žádné program sportu.
 
 S dynamické Manifest můžete vytvářet filtry, pomocí počáteční/koncový čas a vytvořit virtuální zobrazení v horní části vaší živé archivu. 
 
@@ -140,24 +140,24 @@ Filtrované Asset:
 ![Lyžování][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Nastavení prezentace okno (DVR)
-V současné době Azure Media Services nabízí cyklické archivu, kde můžete trvání nakonfigurované mezi 5 minut – 25 hodin. Manifestu filtrování slouží k vytvoření postupného formátu DVR okna v horní části archivu, bez odstranění média. Existuje mnoho scénářů, kde chcete poskytnout okno omezené formátu DVR, které přesune s hranou za provozu a současně zachovat větší archivační okno televizního. Zdroje všesměrového vysílání může používat data, která je mimo okno formátu DVR, zvýrazněte klipů, nebo může být vhodné he\she poskytují různé formátu DVR windows pro různá zařízení. Většina mobilních zařízení například nemáte zpracovávat velký formátu DVR windows (může mít 2 minuty formátu DVR okna pro mobilní zařízení a 1 hodina klientů plochy).
+V současné době Azure Media Services nabízí cyklické archivu, kde můžete trvání nakonfigurované mezi 5 minut – 25 hodin. Manifestu filtrování slouží k vytvoření postupného formátu DVR okna v horní části archivu, bez odstranění média. Existuje mnoho scénářů, kde chcete poskytnout okno omezené formátu DVR přesunout s hranou za provozu a současně zachovat větší archivační okno televizního. Zdroje všesměrového vysílání může používat data, která je mimo okno formátu DVR, zvýrazněte klipů, nebo může být vhodné he\she poskytují různé formátu DVR windows pro různá zařízení. Většina mobilních zařízení například nemáte zpracovávat velké formátu DVR windows (může mít 2 minuty formátu DVR okna pro mobilní zařízení a jednu hodinu klientů plochy).
 
 ![Okno formátu DVR][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>Úprava LiveBackoff (živé pozice)
-Manifestu filtrování lze použít k odebrání za provozu hrany živou program několik sekund. To umožňuje televizního podívejte na prezentaci v bodě publikace preview a vytvořit oznámení o inzerovaném programu body vložení předtím, než prohlížeče zobrazí datový proud (obvykle zálohovaný vypnuto 30 sekund). Televizního můžete nabízená těchto oznámení o inzerovaném programu jejich rozhraní klienta v čase se přijaté a zpracovat informace před možnost oznámení o inzerovaném programu.
+Manifestu filtrování lze použít k odebrání za provozu hrany živou program několik sekund. Filtrování umožňuje televizního podívejte na prezentaci v bodě publikace preview a vytvořit oznámení o inzerovaném programu body vložení předtím, než prohlížeče zobrazí datový proud (zálohovaný vypnuto 30 sekund). Televizního můžete nabízená těchto oznámení o inzerovaném programu jejich rozhraní klienta v čase se přijaté a zpracovat informace před možnost oznámení o inzerovaném programu.
 
-Kromě podpory oznámení o inzerovaném programu LiveBackoff lze pro úpravu pozice za provozu stažení klienta tak, že když se klienti soubor a stiskněte tlačítko za provozu edge mohou stále získat fragmenty ze serveru, místo dochází k chybám protokolu HTTP 404 nebo 412.
+Kromě podpory oznámení o inzerovaném programu LiveBackoff nastavení slouží k úpravě pozice prohlížeče tak, že když se klienti soubor a stiskněte tlačítko za provozu edge mohou stále získat fragmenty ze serveru, místo získávání HTTP 404 nebo 412 chyba.
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Kombinování více pravidel v jednom filtru
-Můžete kombinovat více pravidel filtrování v jednom filtru. Jako příklad můžete definovat rozsah pravidlo pro odebrání za provozu archivu projektem a také filtrovat dostupné přenosových rychlostí. Pro více pravidel filtrování konečný výsledek je sestavení (pouze průnik) těchto pravidel.
+Můžete kombinovat více pravidel filtrování v jednom filtru. Jako příklad můžete definovat pravidla"rozsah" Odebrat slaty z archivu za provozu a také filtrovat dostupné přenosových rychlostí. Při použití více pravidel filtrování, je konečný výsledek průnik všechna pravidla.
 
 ![více pravidel][multiple-rules]
 
 ## <a name="create-filters-programmatically"></a>Vytvoření filtrů prostřednictvím kódu programu
-Následující téma popisuje entity Media Services, které souvisí s filtry. Téma také ukazuje, jak programově vytvářet filtry.  
+V následujícím článku popisuje entity Media Services, které souvisí s filtry. Článek také ukazuje, jak programově vytvářet filtry.  
 
 [Vytvoření filtrů rozhraní REST API](media-services-rest-dynamic-manifest.md).
 
@@ -166,17 +166,17 @@ Můžete také kombinovat více filtrů v jednu adresu URL.
 
 Následující příklad ukazuje, proč můžete chtít zkombinovat filtry:
 
-1. Budete muset filtrovat vaše video vlastnosti pro mobilní zařízení, třeba na Android nebo iPAD (Chcete-li omezit video vlastnosti). Odebrat nežádoucí vlastností, by vytvořit globální filtr, který je vhodný pro profily zařízení. Jak je uvedeno nahoře, globální filtry lze použít pro všechny prostředky pod stejným účtem služby média bez dalšího přidružení. 
+1. Budete muset filtrovat vaše video vlastnosti pro mobilní zařízení, třeba na Android nebo iPAD (Chcete-li omezit video vlastnosti). Odebrat nežádoucí vlastností, by vytvořit globální filtr vhodný pro profily zařízení. Jak je uvedeno výše v tomto článku, globální filtry lze použít pro všechny prostředky pod stejným účtem služby média bez dalšího přidružení. 
 2. Chcete trim počáteční a koncový čas prostředek. Toho dosáhnete tak, by vytvořit místní filtr a nastavit čas zahájení a ukončení. 
-3. Chcete kombinovat obě tyto filtry (bez kombinaci by potřebujete přidat filtrování kvality oříznutí filtru, který bude obtížné filtru využití).
+3. Chcete kombinovat obě tyto filtry (bez kombinaci, je nutné přidat kvality filtrování oříznutí filtru, což znesnadňuje filtru využití).
 
 Se zkombinovat filtry, budete muset nastavit názvy filtru do manifestu/stop adresu URL s oddělený středníky. Předpokládejme, máte filtr s názvem *MyMobileDevice* , filtry vlastností a druhou s názvem máte *MyStartTime* nastavit konkrétní počáteční čas. Můžete je spojit takto:
 
     http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 
-Můžete kombinovat až 3 filtry. 
+Můžete kombinovat až tři filtry. 
 
-Další informace najdete v části [to](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogu.
+Další informace najdete v tématu [to](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogu.
 
 ## <a name="know-issues-and-limitations"></a>Vědět, problémy a omezení
 * Dynamické manifest funguje v GOP hranice (klíč rámce) proto ořezávání má GOP přesnost. 

@@ -15,19 +15,19 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1d423859b299d27472dfa2eb4bbaa7d32d82f2a9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Knihovny ověřování Azure Active Directory v2.0
-[Koncového bodu v2.0 Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) podporuje standardní protokoly OAuth 2.0 a OpenID Connect 1.0. Můžete použít různé knihovny od společnosti Microsoft a jiných organizací s koncovým bodem v2.0.
+[Koncového bodu v2.0 Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) podporuje standardní protokoly OAuth 2.0 a OpenID Connect 1.0. Můžete použít různé knihovny od společnosti Microsoft a jiných organizací s koncovým bodem v2.0.
 
 Když vytvoříte aplikaci, která používá koncový bod v2.0, doporučujeme používat knihovny, které jsou zapsány odborníky protokolu domény, kteří podle metodika životního cyklu SDL (Security Development), jako je třeba [ten následuje Microsoft][Microsoft-SDL]. Pokud se rozhodnete k ruční kódu podporu pro protokoly, doporučujeme, postupujte podle SDL metodika a zaměřit na aspekty zabezpečení do specifikací standardy pro každý protokol.
 
 > [!NOTE]
-> Hledáte verze 1.0 knihovny Azure AD (ADAL)? Najdete v článku věnovaném [knihovna ADAL průvodce](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> Hledáte verze 1.0 knihovny Azure AD (ADAL)? Najdete v článku věnovaném [knihovna ADAL průvodce](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
 > 
 > 
 

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c0a102cac9b5b7bd284de6f5f51b75386c2581fe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Nasazení a monitorování modulů IoT Edge ve velkém měřítku – náhled
 
@@ -40,7 +40,7 @@ Další informace o značky a dvojčata zařízení najdete v tématu [Rady pro 
 
 ## <a name="create-a-deployment"></a>Vytvoření nasazení
 
-1. Přihlaste se k [portál Azure] [ lnk-portal] a přejděte do služby IoT hub. 
+1. V [portál Azure][lnk-portal], přejděte do služby IoT hub. 
 1. Vyberte **IoT okraj (preview)**.
 1. Vyberte **přidání okraj IoT nasazení**.
 
@@ -61,26 +61,25 @@ Pokud vytvoříte nasazení s žádné moduly, odstraní všechny existující m
 >[!NOTE]
 >Azure Machine Learning a Azure Functions nepodporují ještě nasazení automatizované služby Azure. Nasazení vlastní modul používá tyto služby ručně přidat do vašeho nasazení. 
 
-Chcete-li přidat modul z Azure service postupujte takto:
-1. Vyberte **modul IoT Edge služby Azure přidat**.
+Chcete-li přidat modul ze služby Azure Stream Analytics, postupujte takto:
+1. Vyberte **Import Azure Stream Analytics IoT Edge modulu**.
 1. Pomocí rozevíracích nabídek vyberte instancí služby Azure, které chcete nasadit.
-1. Vyberte **Uložit** přidat moduly pro nasazení. 
+1. Vyberte **Uložit** přidat modul pro nasazení. 
 
 Chcete-li přidat vlastní kód jako modul, nebo ručně přidat modul služby Azure, postupujte takto:
-1. Vyberte **přidat vlastní modul IoT Edge**.
+1. Vyberte **přidání okraj IoT modulu**.
 1. Poskytnout modul **název**.
-1. Pro **Image** zadejte bitovou kopii kontejner Docker pro tento modul: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Pomocí rozevíracích nabídek v části **OS** a **architektura** k identifikaci vlastnosti kontejner Docker, který představuje tento modul. 
-1. Zadejte všechny **vytvořit možnosti** který mají být odeslány do kontejneru. Další informace najdete v tématu [docker vytvořit][lnk-docker-create].
+1. Pro **Image URI** zadejte bitovou kopii kontejner Docker pro modul. 
+1. Zadejte všechny **možnosti vytvoření kontejneru** který mají být odeslány do kontejneru. Další informace najdete v tématu [docker vytvořit][lnk-docker-create].
 1. Použijte rozevírací nabídky vyberte **restartujte zásad**. Vyberte z následujících možností: 
    * **Vždy** – modul vždy restartuje, pokud z nějakého důvodu ukončí.
    * **Nikdy** – modul nikdy restartuje, pokud z nějakého důvodu ukončí.
    * **Na selhalo** – modul restartuje, pokud ji dojde k chybě, ale není-li vypne ještě jednou. 
    * **V pořádku** – modul restartuje, pokud dojde k chybě nebo vrátí není v pořádku stav. Je to na každý modul implementovat funkci stav stavu. 
-1. Použijte rozevírací nabídky vyberte počáteční **stav** pro modul. Vyberte z následujících možností:
+1. Použijte rozevírací nabídky vyberte **požadovaného stavu** pro modul. Vyberte z následujících možností:
    * **Spuštění** -Toto je výchozí možnost. V modulu se spustí hned po dokončení nasazení.
    * **Zastavit** – po nasazení, modul zůstane v nečinnosti, dokud není zavolána při spuštění vy nebo jiný modul.
-1. Vyberte **úpravy modulu twin** Pokud chcete přidat všechny značky nebo požadované vlastnosti modulu. 
+1. Vyberte **povolit** Pokud chcete přidat do modulu twin všechny značky nebo požadované vlastnosti. 
 1. Vyberte **Uložit** přidat modul pro nasazení. 
 
 Až budete mít všechny moduly pro nasazení nakonfigurovat, vyberte **Další** přesunout do třetí krok.
@@ -172,7 +171,7 @@ Při odstranění nasazení aplikace na jejich další nejvyšší prioritou nas
 Další informace o [nasazení modulů do hraniční zařízení][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

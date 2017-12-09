@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 593cb6da3527a32906e8e9faa11dc13a3ef5440f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Osvědčené postupy zabezpečení Azure a vzory
 Máme aktuálně následující osvědčené postupy zabezpečení Azure a vzory články. Nezapomeňte navštívit tento web pravidelně zobrazíte aktualizace našich rostoucí seznam zabezpečení Azure osvědčených postupů a vzorů:  
@@ -30,7 +30,7 @@ Máme aktuálně následující osvědčené postupy zabezpečení Azure a vzory
 * [Osvědčené postupy zabezpečení azure IaaS] (azure iaas.md zabezpečení)
 * [Osvědčené postupy zabezpečení Azure hranic](../best-practices-network-security.md)
 * [Implementace zabezpečené hybridní síťové architektury v Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS osvědčených postupů] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
+* [Azure PaaS osvědčených postupů] (https://docs.microsoft.com/azure/security/security-paas-deployments)
 
 Azure poskytuje zabezpečené platformy, na které můžete sestavit vaše řešení. Poskytujeme také službách a technologiích zabezpečit vaše řešení v Azure. Z důvodu k dispozici mnoho možností řada z vás mají znělá zájem o co Microsoft doporučuje, jako nejlepší postupy a vzory pro zlepšení zabezpečení.
 

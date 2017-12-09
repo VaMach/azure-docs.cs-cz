@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 13fe5e37424704bd5b948d3a6629c28b320025c4
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: 0fdc7bd1a98e147bf6c7f7c290f03a878c83a1a9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Nastavit průběžnou integraci a nasazení procesu pomocí nástrojů Stream Analytics Visual Studio
 V tomto kurzu dozvíte, jak nastavit průběžnou integraci a proces nasazení pomocí nástroje Azure Stream Analytics Visual Studio.
 
-Nejnovější verzi (2.3.0000.0 nebo vyšší) z [Stream Analytics tools pro Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio) přidává podporu pro nástroje MSBuild.
+Nejnovější verzi (2.3.0000.0 nebo vyšší) z [Stream Analytics tools pro Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) přidává podporu pro nástroje MSBuild.
 
 Je také nově vydané balíčku NuGet, [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Poskytuje nástroje MSBuild, místní spuštění a nástroje pro nasazení, které podporují průběžnou integraci a nasazení proces projektů sady Visual Studio Stream Analytics. 
 > [!NOTE] 
 Balíček NuGet můžete použít pouze s 2.3.0000.0 nebo vyšší verzi Stream Analytics Tools pro sadu Visual Studio. Pokud máte projektů vytvořených v předchozích verzích nástroje sady Visual Studio, stačí je otevřít s 2.3.0000.0 nebo vyšší verze a uložte. Nové funkce, které jsou poté povoleny. 
 
-Další informace o použití [Stream Analytics tools pro Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Další informace o použití [Stream Analytics tools pro Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>Nástroje MSBuild
 Jako standardní prostředí Visual Studio MSBuild pro sestavení projektu, máte dvě možnosti. Klikněte pravým tlačítkem na projekt a zvolte **sestavení**. Můžete taky použít **MSBuild** v balíčku NuGet z příkazového řádku.
@@ -59,7 +59,7 @@ Pro všechny přihlašovací údaje, výchozí hodnoty jsou nastaveny na hodnotu
       "value": null
     },
 ```
-Další informace o tom, jak [nasazení s soubor šablony Resource Manageru a prostředí Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy). Další informace o tom, jak [použít jako parametr v šabloně Resource Manager objekt](https://docs.microsoft.com/en-us/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Další informace o tom, jak [nasazení s soubor šablony Resource Manageru a prostředí Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Další informace o tom, jak [použít jako parametr v šabloně Resource Manager objekt](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 
 ## <a name="command-line-tool"></a>Nástroj příkazového řádku

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Ladění snímků výjimky v aplikacích .NET
 
@@ -299,6 +299,6 @@ Pokud stále nevidíte výjimku s tímto ID snímku, telemetrie výjimek nebyla 
 
 ## <a name="next-steps"></a>Další kroky
 
-* [Nastavit snappoints ve vašem kódu](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) získat snímky bez čekání na výjimku.
+* [Nastavit snappoints ve vašem kódu](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) získat snímky bez čekání na výjimku.
 * [Diagnostikovat výjimky ve webových aplikacích](app-insights-asp-net-exceptions.md) vysvětluje, jak chcete zviditelnit více výjimek pro Application Insights. 
 * [Inteligentní detekce](app-insights-proactive-diagnostics.md) automaticky vyhledá anomálie výkonu.

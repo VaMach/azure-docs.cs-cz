@@ -18,11 +18,11 @@ ms.dyn365.ops.version:
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: mcollier
-ms.openlocfilehash: ab522b444c234e1159acfea1780bae1801c4d047
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 357a63c65a4f6864dca259aad8a76f83681cd501
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure návod monitorování REST API
 V tomto článku se dozvíte, jak provést ověření, abyste mohli používat kódu [Microsoft referenční dokumentace rozhraní API REST Azure monitorování](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -93,7 +93,7 @@ Po ověření dotazy pak jde spustit pro monitorování REST API služby Azure. 
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Načtení definice metrik (vícerozměrných rozhraní API)
 
-Použití [Azure monitorování metrika definice rozhraní API REST](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) pro přístup k seznamu metriky, které jsou k dispozici pro službu.
+Použití [Azure monitorování metrika definice rozhraní API REST](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) pro přístup k seznamu metriky, které jsou k dispozici pro službu.
 
 **Metoda**: získání
 

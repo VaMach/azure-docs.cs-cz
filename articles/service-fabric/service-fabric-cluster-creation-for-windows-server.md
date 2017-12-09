@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Vytvoření clusteru s podporou samostatné systémem Windows Server
 Azure Service Fabric můžete použít k vytvoření clusterů Service Fabric na všechny virtuální počítače nebo počítače se systémem Windows Server. To znamená, můžete nasazovat a spouštět aplikace Service Fabric v jakémkoli prostředí, které obsahuje sadu vzájemně propojena počítačů Windows serveru, je-li jej v místním nebo se všechny poskytovatele cloudových služeb. Service Fabric nabízí instalační balíček k vytvoření clusterů Service Fabric se nazývá samostatný balíček Windows Server.
@@ -36,7 +36,7 @@ Tento článek vás provede kroky pro vytvoření samostatné clusteru Service F
 * Zeptejte se komunity pro systém Windows Server v o samostatný balíček Service Fabric [fórum Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Otevřít lístek pro [Professional podporu pro Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Další informace o Professional podporu společnosti Microsoft [zde](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Můžete také získat podporu pro tento balíček jako součást [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
-* Další podrobnosti najdete v tématu [možnosti podpory Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
+* Další podrobnosti najdete v tématu [možnosti podpory Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Chcete-li shromažďovat protokoly pro účely podpory, spusťte [kolektor protokolů samostatné Service Fabric](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: eaadd531b9e05a54446e61f98584ae9d75470a5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Sítě rozšíření virtuálního počítače sledovacích procesů agenta pro Linux
 
 ## <a name="overview"></a>Přehled
 
-[Azure sledovací proces sítě](https://review.docs.microsoft.com/en-us/azure/network-watcher/) je sítě výkonu monitorování, diagnostiku a analýzy služba, která umožňuje monitorování pro sítě Azure. Rozšíření sítě sledovacích procesů agenta virtuálního počítače není pro některé funkce sledovací proces sítě na virtuálních počítačích Azure. To zahrnuje Zachytávání síťových přenosů na vyžádání a další pokročilé funkce.
+[Azure sledovací proces sítě](https://review.docs.microsoft.com/azure/network-watcher/) je sítě výkonu monitorování, diagnostiku a analýzy služba, která umožňuje monitorování pro sítě Azure. Rozšíření sítě sledovacích procesů agenta virtuálního počítače není pro některé funkce sledovací proces sítě na virtuálních počítačích Azure. To zahrnuje Zachytávání síťových přenosů na vyžádání a další pokročilé funkce.
 
 Tento dokument podrobně popisuje možnosti nasazení pro rozšíření sítě sledovacích procesů agenta virtuálního počítače pro Linux a podporované platformy.
 
@@ -49,7 +49,7 @@ Všimněte si, že se v tuto chvíli nepodporuje CoreOS.
 
 ### <a name="internet-connectivity"></a>Připojení k internetu
 
-Některé funkce sítě sledovacích procesů agenta vyžaduje, aby cílový virtuální počítač připojen k Internetu. Bez možnosti navázat odchozí připojení některé funkce sítě sledovacích procesů agenta nebude fungovat správně nebo nedostupná. Další podrobnosti najdete v tématu [sledovací proces sítě dokumentaci](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
+Některé funkce sítě sledovacích procesů agenta vyžaduje, aby cílový virtuální počítač připojen k Internetu. Bez možnosti navázat odchozí připojení některé funkce sítě sledovacích procesů agenta nebude fungovat správně nebo nedostupná. Další podrobnosti najdete v tématu [sledovací proces sítě dokumentaci](https://review.docs.microsoft.com/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Rozšíření schématu
 

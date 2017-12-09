@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>Nastavení modelu správce
 
@@ -27,7 +27,7 @@ Na konci tohoto dokumentu musí mít možnost získat přehledné prostředí sp
 
 ## <a name="what-you-need-to-get-started"></a>Co potřebujete, abyste mohli začít
 K Získejte maximum z této příručky, byste měli mít vlastníka přístup k předplatnému Azure, které vaše modely, které můžete nasadit.
-Rozhraní příkazového řádku obsahuje předem nainstalovaná na Azure Machine Learning Workbench a na [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Rozhraní příkazového řádku obsahuje předem nainstalovaná na Azure Machine Learning Workbench a na [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Pomocí rozhraní příkazového řádku
 Chcete-li používat rozhraní příkazového řádku (CLIs) z nástroje Workbench, klikněte na tlačítko **soubor** -] **otevřete rozhraní příkazového řádku**. 

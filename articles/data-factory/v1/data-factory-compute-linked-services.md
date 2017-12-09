@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1547b5c3a5c629b85ff5fa9de6b39b25531d9ec9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: b7686dc5c52737106a8bc819c160b67baaffd147
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Výpočetní prostředí podporovaných službou Azure Data Factory
 > [!NOTE]
@@ -50,7 +50,7 @@ Po 15. prosince 2017:
 
 - Už nebudete moct vytvořit HDInsight se systémem Linux verze 3.3 (nebo starší verze) clusterů pomocí propojená služba HDInsight na vyžádání v Azure Data Factory v1. 
 
-- Pokud [osType nebo vlastnost Version](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) nejsou explicitně zadané v existující definice JSON propojené služby HDInsight na vyžádání v1 Azure Data Factory, výchozí hodnota se změní z **verze = 3.1, osType = Windows** k **verze = 3.6, osType = Linux**.
+- Pokud [osType nebo vlastnost Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) nejsou explicitně zadané v existující definice JSON propojené služby HDInsight na vyžádání v1 Azure Data Factory, výchozí hodnota se změní z **verze = 3.1, osType = Windows** k **verze = 3.6, osType = Linux**.
 
 Po 31. července 2018:
 
@@ -58,10 +58,10 @@ Po 31. července 2018:
 
  **Doporučené akce** 
 
-- Aktualizace [osType nebo vlastnost Version](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) ovlivněné definic propojená služba HDInsight na vyžádání v1 Azure Data Factory pro HDInsight se systémem Linux novější verze (3.6 HDInsight) a tak se mohou používat nejnovější Hadoop ekosystém součástí a opravy. 
-- Před testovacího 15 prosince 2017 Azure Data Factory V1 Hive, Pig, MapReduce a Hadoop streamování aktivity, které odkazují ovlivněné propojené služby, abyste měli jistotu, jsou kompatibilní s novým *osType* nebo  *Verze* výchozí hodnota (verze = 3.6, osType = Linux) nebo explicitní HDInsight verze a osType při upgradu. Další informace o kompatibilitě, přečtěte si [migrace z clusteru HDInsight se systémem Windows do clusteru se systémem Linux](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) a [co jsou komponent systému Hadoop a verze, které jsou k dispozici v prostředí HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) webové stránky dokumentace. 
+- Aktualizace [osType nebo vlastnost Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) ovlivněné definic propojená služba HDInsight na vyžádání v1 Azure Data Factory pro HDInsight se systémem Linux novější verze (3.6 HDInsight) a tak se mohou používat nejnovější Hadoop ekosystém součástí a opravy. 
+- Před testovacího 15 prosince 2017 Azure Data Factory V1 Hive, Pig, MapReduce a Hadoop streamování aktivity, které odkazují ovlivněné propojené služby, abyste měli jistotu, jsou kompatibilní s novým *osType* nebo  *Verze* výchozí hodnota (verze = 3.6, osType = Linux) nebo explicitní HDInsight verze a osType při upgradu. Další informace o kompatibilitě, přečtěte si [migrace z clusteru HDInsight se systémem Windows do clusteru se systémem Linux](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) a [co jsou komponent systému Hadoop a verze, které jsou k dispozici v prostředí HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) webové stránky dokumentace. 
 - Explicitně nastavte osType Windows před 15. prosince 2017, pokud chcete pokračovat v používání služby Azure Data Factory v1On vyžádání HDInsight propojené k vytvoření clusterů HDInsight se systémem Windows. Ale doporučujeme před 31 července 2018 migrace na clustery HDInsight se systémem Linux. 
-- Aktualizujte definice DotNet vlastní aktivity JSON propojené služby Azure Batch místo toho chcete použít, pokud používáte propojená služba HDInsight na vyžádání k provádění Azure Data Factory v1DotNet vlastní aktivity. Další informace na [použít vlastní aktivity v kanálu objekt pro vytváření dat Azure](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) webová stránka dokumentace. 
+- Aktualizujte definice DotNet vlastní aktivity JSON propojené služby Azure Batch místo toho chcete použít, pokud používáte propojená služba HDInsight na vyžádání k provádění Azure Data Factory v1DotNet vlastní aktivity. Další informace na [použít vlastní aktivity v kanálu objekt pro vytváření dat Azure](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) webová stránka dokumentace. 
 
 >[!Note]
 >Pro zákazníky, kteří používají vaše stávající přineste si vlastní clusteru (BYOC) propojená služba HDInsight v Azure Data Factory v1 nebo uživatelů, kteří používají BYOC a HDInsightLinked služba na vyžádání v Azure Data Factory v2 podporovat nejnovější verzi zásad ofAzure HDInsight clustery je již vynucené, proto není vyžadována žádná akce. 

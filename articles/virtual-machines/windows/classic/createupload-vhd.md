@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: c2540120bcb1eca9f4ba62c7dbc0675343bf4f99
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: fa672fd7811e68368c311ef6a3f57eac4b240a4a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Vytvoření virtuálního pevného disku s Windows Serverem a jeho nahrání do Azure
 Tento článek ukazuje, jak nahrát vlastní zobecněný image virtuálního počítače jako virtuální pevný disk (VHD), takže ho můžete použít k vytvoření virtuálních počítačů. Další podrobnosti o disky a virtuální pevné disky ve službě Microsoft Azure najdete v tématu [o disky a virtuální pevné disky pro virtuální počítače](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -88,7 +88,7 @@ Z virtuálního počítače, který byl pro nainstalovaný operační systém pr
     ```
 
 ## <a name="step-3-upload-the-vhd-file"></a>Krok 3: Odeslání souboru VHD
-Použití [přidat AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) odeslání disku VHD.
+Použití [přidat AzureVhd](https://docs.microsoft.com/powershell/module/azure/add-azurevhd) odeslání disku VHD.
 
 V okně Azure PowerShell jste použili v předchozím kroku, zadejte následující příkaz a nahraďte proměnné v &lsaquo; závorky &rsaquo; nahraďte svými vlastními informacemi.
 
@@ -97,7 +97,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## <a name="step-4-add-the-image-to-your-list-of-custom-images"></a>Krok 4: Přidejte bitovou kopii do seznamu vlastních bitových kopií
-Použití [přidat AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) rutiny přidat bitovou kopii do seznamu vlastních bitových kopií.
+Použití [přidat AzureVMImage](https://docs.microsoft.com/powershell/module/azure/add-azurevmimage) rutiny přidat bitovou kopii do seznamu vlastních bitových kopií.
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"

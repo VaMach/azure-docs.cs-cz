@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: 50d1548637ecc6862f680f73e333e8d7f8d20e39
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatické ladění ve službě Azure SQL Database
 
@@ -48,7 +48,7 @@ Automatické ladění mechanismy jsou vyspělá a mít byla dohoda na stovky tis
 
 ![Jak funguje automatické ladění](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Azure SQL Database automatické ladění je svou logikou základní sdílení s automatické ladění stroj SQL Server. Další technické informace o mechanismus vestavěné inteligentní najdete v tématu [automatické ladění serveru SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+Azure SQL Database automatické ladění je svou logikou základní sdílení s automatické ladění stroj SQL Server. Další technické informace o mechanismus vestavěné inteligentní najdete v tématu [automatické ladění serveru SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 ## <a name="use-automatic-tuning"></a>Použít automatické ladění
 
@@ -80,4 +80,4 @@ Automatické ladění možnosti může být nezávisle zapnout nebo vypnout na d
 - Pokud chcete povolit automatické ladění v databázi SQL Azure ke správě velikosti pracovní zátěže, najdete v části [povolit automatické ladění](sql-database-automatic-tuning-enable.md).
 - Chcete-li ručně zkontrolovat a použít automatické ladění doporučení, přečtěte si téma [najít a použít výkonu doporučení](sql-database-advisor-portal.md).
 - Další informace o předdefinovaných intelligence používají při automatické ladění, najdete v části [umělé Intelligence vyladí databází SQL Azure](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
-- Další informace o tom, jak automatické ladění funguje v Azure SQL Database a SQL server 2017 najdete v tématu [automatické ladění serveru SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+- Další informace o tom, jak automatické ladění funguje v Azure SQL Database a SQL server 2017 najdete v tématu [automatické ladění serveru SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

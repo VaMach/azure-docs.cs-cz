@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c4db342299e009249ac98a2b58fb882c57c01a0b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publikování aplikace HDInsight v Azure Marketplace
 Aplikace Azure HDInsight můžete nainstalovat na clusteru HDInsight se systémem Linux. V tomto článku se dozvíte, jak publikovat aplikace HDInsight do Azure Marketplace. Obecné informace o publikování v Azure Marketplace najdete v tématu [publikování nabídky v Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -46,8 +46,7 @@ Dva kroky jsou součástí publikování aplikací na webu Marketplace. Nejprve 
     "version": "0.0.1-preview",
     "clusterFilters": {
         "types": ["Hadoop", "HBase", "Storm", "Spark"],
-        "tiers": ["Standard", "Premium"],
-        "versions": ["3.4"]
+        "versions": ["3.6"]
     }
 }
 ```
@@ -55,7 +54,6 @@ Dva kroky jsou součástí publikování aplikací na webu Marketplace. Nejprve 
 | Pole | Popis | Možné hodnoty |
 | --- | --- | --- |
 | typy |Typy clusterů, se kterými je aplikace kompatibilní. |Hadoop, HBase, Storm, Spark (nebo jejich kombinace) |
-| vrstvy |Úrovně clusterů, se kterými je aplikace kompatibilní. |Standardní, Premium (nebo obě) |
 | verze |Typy clusterů HDInsight, se kterými je aplikace kompatibilní. |3.4 |
 
 ## <a name="application-installation-script"></a>Skript instalace aplikace

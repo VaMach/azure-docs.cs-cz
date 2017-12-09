@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6a40a85426d2be72fa688548f7ab30e7e5f92146
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Shromažďování dat modelu pomocí shromažďování dat
 
@@ -98,9 +98,9 @@ Data mohou být využívány z Azure BLOB v mnoha různými způsoby, prostředn
 - Azure Machine Learning Workbench: Otevřete soubor CSV v nástroji Azure Machine Learning Workbench tak, že přidáte jako zdroj dat souboru CSV.
 - V aplikaci Excel: Otevřete denní soubory CSV jako tabulku.
 - [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): vytvářet grafy s daty ze .csv data do objektů BLOB.
-- [Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-overview): vytvořte snímek dat s velká část dat CSV.
+- [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): vytvořte snímek dat s velká část dat CSV.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
-- [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): načítání dat CSV do podregistru tabulky a provádět dotazy SQL na přímo pro objekt blob.
+- [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): načítání dat CSV do podregistru tabulky a provádět dotazy SQL na přímo pro objekt blob.
 

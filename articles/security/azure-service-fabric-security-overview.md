@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Přehled zabezpečení služby Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) je platforma distribuovaných systémů, která usnadňuje balíčku, nasazovat a spravovat škálovatelného a spolehlivého mikroslužeb. Service Fabric řeší významné problémy vývoj a správu aplikací v cloudu. Vývojáři a správci se můžou vyhnout problémům se složitou infrastrukturou a místo toho se soustředit na implementaci zásadních a náročných úloh, které jsou škálovatelné, spolehlivé a spravovatelné.
@@ -50,7 +50,7 @@ Clustery, které jsou spuštěny v Azure nebo samostatné clustery, které běž
 
 Service Fabric používá certifikáty X.509 serveru, zda jste zadali při vytváření clusteru s podporou. Rychlý přehled toho, co jsou tyto certifikáty a jak můžete získat nebo je vytvořit, naleznete v části [práce s certifikáty](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-Certifikát zabezpečení se konfigurují při vytváření clusteru, a to buď prostřednictvím portálu Azure, šablon Azure Resource Manageru nebo samostatné JSON šablony. Můžete určit primární certifikát a volitelné sekundární certifikát, který se používá pro certifikát efekty přechodu. Primární a sekundární certifikáty zadáte by měla být jiná než správce klienta a jen pro čtení klientské certifikáty, které zadáte pro [klientský uzel zabezpečení](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+Certifikát zabezpečení se konfigurují při vytváření clusteru, a to buď prostřednictvím portálu Azure, šablon Azure Resource Manageru nebo samostatné JSON šablony. Můžete určit primární certifikát a volitelné sekundární certifikát, který se používá pro certifikát efekty přechodu. Primární a sekundární certifikáty zadáte by měla být jiná než správce klienta a jen pro čtení klientské certifikáty, které zadáte pro [klientský uzel zabezpečení](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 ### <a name="client-to-node-security"></a>Uzel Klient zabezpečení
 Nakonfigurujete klientský uzel zabezpečení pomocí identity klienta. K vybudování důvěry mezi klientem a cluster, je nutné nakonfigurovat clusteru potřebujete vědět, který klient identit, které můžete důvěřovat. Tento krok můžete provést dvěma způsoby:

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Nasazení aplikace do virtuální počítače s Linuxem pomocí volaných a Team Services
 
@@ -40,7 +40,7 @@ Vaším úkolem je:
 
 ## <a name="before-you-begin"></a>Než začnete
 
-* Potřebujete přístup k serveru volaných. Pokud jste ještě nevytvořili volaných server, přečtěte si téma [vytvořit hlavní volaných na virtuální počítač Azure](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+* Potřebujete přístup k serveru volaných. Pokud jste ještě nevytvořili volaných server, přečtěte si téma [vytvořit hlavní volaných na virtuální počítač Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Přihlaste se ke svému účtu Team Services (**https://{youraccount}.visualstudio.com**). 
   Můžete získat [bezplatný účet Team Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -48,9 +48,9 @@ Vaším úkolem je:
   > [!NOTE]
   > Další informace najdete v tématu [připojit k Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  Je nutné virtuální počítač s Linuxem pro cíl nasazení.  Další informace najdete v tématu [vytvořit a spravovat virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  Je nutné virtuální počítač s Linuxem pro cíl nasazení.  Další informace najdete v tématu [vytvořit a spravovat virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Otevřete příchozí port 80 pro virtuální počítač. Další informace najdete v tématu [vytvoření skupin zabezpečení sítě pomocí portálu Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Otevřete příchozí port 80 pro virtuální počítač. Další informace najdete v tématu [vytvoření skupin zabezpečení sítě pomocí portálu Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## <a name="get-the-sample-app"></a>Načíst ukázková aplikace
 
@@ -132,7 +132,7 @@ Je nutné [skupiny nasazení](https://www.visualstudio.com/docs/build/concepts/d
    > V následujícím postupu, nezapomeňte nainstalovat požadované součásti a *nespouštět skript s oprávněními sudo.*
 
 1. Otevřete **verze** kartě **sestavení &amp; verze** rozbočovače, otevřete **nasazení skupiny**a vyberte **+ nový**.
-2. Zadejte název skupiny nasazení a volitelný popis. Potom vyberte **vytvořit**.
+2. Zadejte název skupiny nasazení a volitelný popis. Potom vyberte **Vytvořit**.
 3. Vyberte operační systém pro vaše nasazení cílového virtuálního počítače. Vyberte například **Ubuntu 16.04 +**.
 4. Vyberte **používat osobní přístupový token ve skriptu pro ověřování**.
 5. Vyberte **požadované součásti systému** odkaz. Instalace požadovaných součástí pro operační systém.

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 0b10132f1a6be3a237ffa386f45233e3494d10eb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Poznámky k verzi Azure Media Services
 Tyto poznámky k verzi shrnout změny z předchozích verzí a známé problémy.
@@ -58,7 +58,7 @@ Informace o historii verze Media Services REST API najdete v tématu [Azure Medi
 2.  Pokud máte video zdroje, které je zakódovaných pomocí kodek videa H.265(HEVC), jako je například video zachytit pomocí iOS11 nebo GoPro nejdůležitější 6, můžete teď používat kodér úrovně Premium nebo standardní kodér ke kódování těchto videa. Podrobnosti najdete [Online služby podmínky](https://azure.microsoft.com/support/legal/) pro důležitá poznámka o patentová licence.
 3.  Pokud máte obsah, který obsahuje více jazyk zvukových stop, pak tak dlouho, dokud jazyk hodnoty jsou správně označené podle odpovídající specifikaci formátu souboru (například ISO MP4), pak můžete standardní kodér ke kódování pro tento obsah streamování. Výsledná Lokátor streamování zobrazí seznam dostupných zvuk jazyků.
 4.  Standardní kodér teď podporuje dva nové přednastavení systému jen zvuk, "AAC zvuk" a "AAC dobrý kvalitu zvuku". Jak vytvořit stereo AAC výstupu v přenosové rychlosti 128 kb/s a 192 kb/s.
-5.  Kodér úrovně Premium teď podporuje formáty souborů MOV QuickTime nebo jako vstup, dokud kodek videa je některý z [Apple ProRes typů tady](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), a AAC nebo PCM zvukovém souboru.
+5.  Kodér úrovně Premium teď podporuje formáty souborů MOV QuickTime nebo jako vstup, dokud kodek videa je některý z [Apple ProRes typů tady](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), a AAC nebo PCM zvukovém souboru.
 
 > [!NOTE]
 > Kodér úrovně Premium nepodporuje, například DVC/DVCPro video uzavřen do MOV QuickTime nebo soubory, jako vstup.  Standardní kodér však podporuje tyto kodeky videa.

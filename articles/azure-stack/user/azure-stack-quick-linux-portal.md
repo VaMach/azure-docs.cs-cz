@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Vytvoření virtuální počítač s Linuxem pomocí portálu Azure zásobníku
 
@@ -30,7 +30,7 @@ Virtuální počítače Azure zásobníku lze vytvořit pomocí portálu Azure z
 
 * **Přístup k klientem SSH**
 
-   Pokud používáte sadu Azure zásobníku Development Kit (ASDK), nemusí mít přístup k klientem SSH ve vašem prostředí. Pokud je to tento případ, můžete mezi více balíčků, které zahrnují klientem SSH. Například můžete nainstalovat PuTTY, která zahrnuje služby Klient SSH a generátor klíče SSH (puttygen.exe). Další informace o možných parametrech najdete v tématu Azure článek týkající se následující: [jak klíče použití SSH se systémem Windows v Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   Pokud používáte sadu Azure zásobníku Development Kit (ASDK), nemusí mít přístup k klientem SSH ve vašem prostředí. Pokud je to tento případ, můžete mezi více balíčků, které zahrnují klientem SSH. Například můžete nainstalovat PuTTY, která zahrnuje služby Klient SSH a generátor klíče SSH (puttygen.exe). Další informace o možných parametrech najdete v tématu Azure článek týkající se následující: [jak klíče použití SSH se systémem Windows v Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    Tento rychlý start využívá PuTTY generování klíčů SSH a připojit k virtuálnímu počítači Linux. Chcete-li stáhnout a nainstalovat PuTTY, přejděte na [http://www.putty.org/](http://www.putty.org).
 

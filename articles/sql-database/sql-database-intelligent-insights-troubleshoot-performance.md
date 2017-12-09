@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Řešení potíží s výkonem databáze SQL Azure s inteligentního statistiky
 
@@ -52,7 +52,7 @@ Problémy s výkonem inteligentního Insights automaticky rozpozná s databází
 | [Cenová úroveň přechod na starší verzi](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Přechod na starší verzi akci s cenovou úroveň zmenšit dostupné prostředky, které ovlivňuje výkon databáze SQL. |
 
 > [!TIP]
-> Optimalizace výkonu průběžné databáze SQL, povolit [Azure SQL Database automatické ladění](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). Tato jedinečná funkce vestavěné inteligentní SQL Database nepřetržitě monitoruje databázi SQL, automaticky vyladí indexy a platí opravy plán spuštění dotazu.
+> Optimalizace výkonu průběžné databáze SQL, povolit [Azure SQL Database automatické ladění](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Tato jedinečná funkce vestavěné inteligentní SQL Database nepřetržitě monitoruje databázi SQL, automaticky vyladí indexy a platí opravy plán spuštění dotazu.
 >
 
 Následující část popisuje vzory výše uvedených rozpoznat výkonu podrobněji.
@@ -63,7 +63,7 @@ Následující část popisuje vzory výše uvedených rozpoznat výkonu podrobn
 
 Tento vzor rozpoznat výkonu kombinuje problémy s výkonem, které se vztahují k dosažení limitů dostupných prostředků, pracovní limity a omezení relací. Po zjištění tento problém s výkonem se pole Popis protokolu diagnostiky označuje, zda problémy s výkonem se prostředků, worker nebo omezení relací.
 
-Prostředky v databázi SQL se obvykle označují jako [DTU prostředky](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). Skládají se z kombinaci měření procesoru a vstupně-výstupních prostředků (dat a transakční protokol vstupně-výstupních operací). Vzor dosažení limitů prostředků se rozpozná, když zjistí snížení výkonu dotazu je způsobena dosažení žádné omezení měřená prostředků.
+Prostředky v databázi SQL se obvykle označují jako [DTU prostředky](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Skládají se z kombinaci měření procesoru a vstupně-výstupních prostředků (dat a transakční protokol vstupně-výstupních operací). Vzor dosažení limitů prostředků se rozpozná, když zjistí snížení výkonu dotazu je způsobena dosažení žádné omezení měřená prostředků.
 
 Prostředek omezení relace označuje počet dostupných souběžných přihlášení k databázi SQL. Tento vzor výkonu se rozpozná, když aplikace, které jsou připojené k databázím SQL bylo dosaženo počtu dostupných souběžných přihlášení k databázi. Pokud se aplikace pokusí použít více relací, než je k dispozici v databázi, je vliv na výkon dotazu.
 
@@ -75,7 +75,7 @@ Protokol diagnostiky výstupy hodnoty hash dotazu dotazů, které vliv na výkon
 
 Pokud bylo dosaženo omezení relace k dispozici, můžete optimalizovat aplikací snížením počtu přihlášení, provedené v databázi. Pokud nemůžete snížit počet přihlášení z vaší aplikace do databáze, zvažte zvýšení cenová úroveň databáze. Nebo můžete rozdělit a přesuňte databázi do více databází pro více vyvážené distribuce zatížení.
 
-Další návrhy na řešení omezení relací, najdete v části [řešení problémů s omezení přihlašovacích jmen k databázi SQL maximální](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). K dispozici prostředek limity pro vaše předplatné vrstvy naleznete v tématu [limitů prostředků databáze SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
+Další návrhy na řešení omezení relací, najdete v části [řešení problémů s omezení přihlašovacích jmen k databázi SQL maximální](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). K dispozici prostředek limity pro vaše předplatné vrstvy naleznete v tématu [limitů prostředků databáze SQL](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
 
 ## <a name="workload-increase"></a>Zvýšení zatížení
 
@@ -145,7 +145,7 @@ Možnosti konfigurace serveru MAXDOP pro službu SQL Database je použít k ří
 
 Protokol diagnostiky výstupy hodnoty hash dotazu související s dotazy, pro které trvání provádění zvýšit, protože jejich byly paralelizovaná více než by měl mít byla málo. Protokol také výstupy CXP dobu čekání. Tentokrát představuje dobu, kterou jeden organizátora/coordinator vlákno (vlákna 0) čeká jiná vlákna ukončíte před slučování výsledky a průběh. Kromě toho protokol diagnostiky výstupy nízká provádění dotazů čekaly při provádění celkové doby čekání. Tyto informace můžete použít jako základ pro řešení potíží.
 
-Nejprve optimalizovat nebo zjednodušte složitých dotazů. Dobrým postupem je rozdělit dlouho dávkových úloh na menší části. Kromě toho ověřte, že jste vytvořili indexy, aby se vaše dotazy. Maximální stupně paralelního zpracování (MAXDOP) můžete také ručně vynutit pro dotaz, který byl označení nízký provádění. Tato operace konfigurace pomocí T-SQL najdete v tématu [konfigurovat možnosti konfigurace serveru MAXDOP](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Nejprve optimalizovat nebo zjednodušte složitých dotazů. Dobrým postupem je rozdělit dlouho dávkových úloh na menší části. Kromě toho ověřte, že jste vytvořili indexy, aby se vaše dotazy. Maximální stupně paralelního zpracování (MAXDOP) můžete také ručně vynutit pro dotaz, který byl označení nízký provádění. Tato operace konfigurace pomocí T-SQL najdete v tématu [konfigurovat možnosti konfigurace serveru MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Nastavení serveru MAXDOP možnost konfigurace na nulu (0) jako výchozí hodnota označuje, že databáze SQL můžete použít všechny dostupné logické jader procesoru učinit paralelní vlákna pro provádění jeden dotaz. Nastavení MAXDOP na jedna (1) označuje, že pouze jeden základní lze použít pro spuštění jeden dotaz. To znamená, že paralelismus vypnutý. V závislosti na základ za případů k dispozici jader s databází a diagnostiku protokolování informací, můžete vyladit MAXDOP možnost počet jader používá pro provádění paralelního dotazu, který může být problém ve vašem případě vyřešit.
 
@@ -231,7 +231,7 @@ Tento vzor rozpoznat výkonu označuje podmínku výkonu databáze, ve kterém e
 
 Protokol diagnostiky výstupy databáze tempDB kolizí podrobnosti. Informace můžete použít jako výchozí bod pro řešení potíží. Můžete pokračovat a zmírnit tento druh kolizí zvýšit propustnost celkové zatížení dvě věci: můžete zastavit pomocí dočasných tabulek. Můžete taky použít paměťově optimalizované tabulky. 
 
-Další informace najdete v tématu [Úvod k paměťově optimalizované tabulky](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Další informace najdete v tématu [Úvod k paměťově optimalizované tabulky](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
 ## <a name="elastic-pool-dtu-shortage"></a>Nedostatek DTU elastického fondu
 
@@ -328,10 +328,10 @@ Statistika inteligentního přístup prostřednictvím portálu Azure tak, že p
 > [!TIP]
 > Vyberte vývojový diagram ke stažení PDF verze.
 
-Inteligentní Insights je obvykle nutné jednu hodinu čas k provedení analýza hlavní příčiny problémy s výkonem. Pokud problém nelze najít v inteligentního přehledy a je pro vás velmi důležité, použijte k identifikaci ručně hlavní příčinu problémy s výkonem úložiště dotazů. (Tyto problémy jsou obvykle méně než hodinu stará.) Další informace najdete v tématu [monitorování výkonu pomocí úložiště dotazů](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Inteligentní Insights je obvykle nutné jednu hodinu čas k provedení analýza hlavní příčiny problémy s výkonem. Pokud problém nelze najít v inteligentního přehledy a je pro vás velmi důležité, použijte k identifikaci ručně hlavní příčinu problémy s výkonem úložiště dotazů. (Tyto problémy jsou obvykle méně než hodinu stará.) Další informace najdete v tématu [monitorování výkonu pomocí úložiště dotazů](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Další kroky
 - Další informace [inteligentního Statistika](sql-database-intelligent-insights.md) koncepty.
 - Použití [protokolu diagnostiky výkonu inteligentního Statistika Azure SQL Database](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Monitorování [Azure SQL Database pomocí Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- Monitorování [Azure SQL Database pomocí Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Naučte se [shromažďovat a využívat data protokolu z vašich prostředků Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

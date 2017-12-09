@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: db92fdcdad6f6a81d749fd7648d48da53c21479f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Řešení potíží s Azure Backup selhání: problémy s agenta nebo rozšíření
 
@@ -34,6 +34,7 @@ Po registraci a naplánovat virtuálního počítače pro službu Azure Backup, 
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Příčina 3: [agent nainstalovaný ve virtuálním počítači je zastaralý (pro virtuální počítače s Linuxem)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Příčina 4: [nelze načíst stav snímku ani snímku nelze provést.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Příčina 5: [rozšíření zálohování se nezdaří aktualizace nebo zatížení](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Příčina 6: [Azure klasické virtuální počítače může vyžadovat další krok k dokončení registrace](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Snímek operace se nezdařila z důvodu žádné připojení k síti na virtuálním počítači
 Po registraci a naplánovat virtuálního počítače pro službu Azure zálohování, zálohování spustí úlohu komunikaci s rozšíření zálohování virtuálních počítačů k pořízení snímku v daném okamžiku. Některé z následujících podmínek může zabránit snímek z se aktivuje, což následně může vést k selhání zálohování. Postupujte podle níže řešení potíží s kroky v uvedeném pořadí a opakujte operaci.
@@ -115,7 +116,7 @@ Agent virtuálního počítače může dojít k poškození nebo služba může 
 6. Pak by měl být schopní zobrazit služby agenta hosta Windows ve službě
 7. Zkuste spustit zálohu na vyžádání nebo ad hoc kliknutím na "zálohování" na portálu.
 
-Rovněž ověřte váš virtuální počítač má  **[.NET 4.5 v systému nainstalovány](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Je potřeba agenta virtuálního počítače ke komunikaci se službou
+Rovněž ověřte váš virtuální počítač má  **[.NET 4.5 v systému nainstalovány](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Je potřeba agenta virtuálního počítače ke komunikaci se službou
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Agent nainstalovaný ve virtuálním počítači je zastaralý (pro virtuální počítače s Linuxem)
 
@@ -183,4 +184,23 @@ Pokud chcete odinstalovat rozšíření, postupujte takto:
 6. Klikněte na tlačítko **odinstalovat**.
 
 Tento postup způsobí, že rozšíření nutné přeinstalovat během příští zálohování.
+
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Virtuální počítače Azure Classic může vyžadovat další krok k dokončení registrace
+Agent v Azure klasické virtuální počítače by měl registraci navázat připojení ke službě zálohování a spusťte zálohování
+
+#### <a name="solution"></a>Řešení
+
+Po instalaci agenta hosta virtuálního počítače, spusťte prostředí Azure PowerShell <br>
+1. Přihlášení pomocí účtu služby Azure <br>
+       `Login-AzureAsAccount`<br>
+2. Ověřte, pokud parametr ProvisionGuestAgent vlastnosti Virtuálního počítače je nastavena na hodnotu True, pomocí následujících příkazů <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. Pokud je vlastnost nastavena na hodnotu FALSE, postupujte podle níže příkazy pro ni nastavit na hodnotu TRUE<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. Spusťte následující příkaz k aktualizaci virtuálního počítače <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Vyzkoušejte si inicializaci zálohování. <br>
+
 

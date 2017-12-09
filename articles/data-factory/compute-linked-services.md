@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: shengc
-ms.openlocfilehash: a530b08c276596ddbffafc21e6cffdd9e0e9e3fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: db3be2120c998a0c8973a85d375b526f53e73247
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Výpočetní prostředí podporovaných službou Azure Data Factory
 Tento článek vysvětluje různé výpočetní prostředí, které můžete použít k datům procesu nebo transformace. Obsahuje také podrobnosti o různých konfiguracích (na vyžádání oproti přineste si vlastní) podporovaných službou Data Factory při konfiguraci propojených služeb propojení tyto výpočetní prostředí s objektem pro vytváření dat Azure.
@@ -136,7 +136,7 @@ Následující kód JSON určuje základě Linux na vyžádání propojené slu�
 
 ### <a name="service-principal-authentication"></a>Ověřování instančních objektů
 
-Služba HDInsight na vyžádání propojené vyžaduje ověření služby objektu k vytvoření clusterů HDInsight vaším jménem. Použít objekt zabezpečení ověřování služby, registrace entitu aplikace v Azure Active Directory (Azure AD) a udělit mu **Přispěvatel** role předplatné nebo skupinu prostředků, ve kterém se vytvoří HDInsight cluster. Podrobné pokyny najdete v tématu [použití portálu k vytvoření aplikace a služby objekt zabezpečení, které mají přístup k prostředkům Azure Active Directory](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Poznamenejte si následující hodnoty, které můžete použít k definování propojené služby:
+Služba HDInsight na vyžádání propojené vyžaduje ověření služby objektu k vytvoření clusterů HDInsight vaším jménem. Použít objekt zabezpečení ověřování služby, registrace entitu aplikace v Azure Active Directory (Azure AD) a udělit mu **Přispěvatel** role předplatné nebo skupinu prostředků, ve kterém se vytvoří HDInsight cluster. Podrobné pokyny najdete v tématu [použití portálu k vytvoření aplikace a služby objekt zabezpečení, které mají přístup k prostředkům Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Poznamenejte si následující hodnoty, které můžete použít k definování propojené služby:
 
 - ID aplikace
 - Klíč aplikace 

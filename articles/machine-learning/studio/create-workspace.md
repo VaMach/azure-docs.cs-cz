@@ -1,24 +1,22 @@
 ---
-title: "Vytvořit pracovní prostor Machine Learning | Microsoft Docs"
+title: "Vytvoření Machine Learning Studio prostoru | Microsoft Docs"
 description: "Postup vytvoření pracovního prostoru pro Azure Machine Learning Studio"
 services: machine-learning
-documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Vytvoření a sdílení pracovního prostoru Azure Machine Learning
 Tato nabídka odkazy na témata, které popisují, jak nastavit různé vědě prostředí data používá Cortana proces pro analýzu (CAP).
@@ -39,16 +37,16 @@ Pokud chcete používat Azure Machine Learning Studio, musíte mít pracovní pr
 
 2. Klikněte na tlačítko **+ nové**
 
-3. Vyberte **Intelligence + analýzy**, klikněte na tlačítko **pracovní prostor Machine Learning**, pak klikněte na tlačítko **vytvořit**
+3. Do vyhledávacího pole zadejte **pracovní prostor Machine Learning Studio** a vyberte odpovídající položku. Potom klikněte na vybrat **vytvořit** v dolní části stránky.
 
-4. Zadejte informace o pracovním prostoru
+4. Zadejte informace o pracovním prostoru:
 
     - *Název pracovního prostoru* může být až 260 znaků, ne končí v prostoru. Název nesmí obsahovat tyto znaky:`< > * % & : \ ? + /`
     - *Plán webové služby* vyberete (nebo vytvořte), spolu s příslušnými *cenová úroveň* můžete vybrat, se používá při nasazování webových služeb z tohoto pracovního prostoru.
 
     ![Vytvořit nový pracovní prostor](./media/create-workspace/create-new-workspace.png)
 
-5. Klikněte na **Vytvořit**
+5. Klikněte na možnost **Vytvořit**.
 
 Po nasazení pracovním prostoru můžete ho otevřít v nástroji Machine Learning Studio.
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: cce30360145fe430141ceaf2efc91a6b87938601
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 127159084fc99866881a93b16fd2b7faebeb3588
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API pomocí
 
@@ -71,7 +71,7 @@ Teď máte aplikaci, která má oprávnění k vytváření, čtení a aktualiza
 ## <a name="configure-delete-permissions-for-your-application"></a>Konfigurace odstranění oprávnění pro vaši aplikaci
 V současné době *pro čtení a zápis dat adresáře* nemá oprávnění **není** zahrnují možnost udělat všechny odstranění například odstraňování uživatelů. Pokud chcete poskytnout vaše aplikace umožňuje odstranit uživatele, je potřeba provést tyto další kroky, které se týkají prostředí PowerShell, jinak, můžete přeskočit k další části.
 
-První, pokud ještě nemáte nainstalováno, instalaci [modulu Azure AD PowerShell v1 (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
+První, pokud ještě nemáte nainstalováno, instalaci [modulu Azure AD PowerShell v1 (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
 ```powershell
 Install-Module MSOnline

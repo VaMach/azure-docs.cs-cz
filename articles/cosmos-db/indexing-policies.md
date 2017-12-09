@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: MT
+ms.openlocfilehash: c079e9c02041cbc1b61f135038fba634a45c574d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Jak funguje Azure Cosmos DB data indexu?
 
@@ -229,7 +229,7 @@ Můžete zvolit, jestli chcete kolekci automaticky indexuje všechny dokumenty. 
 
 S automatické indexování, vypnutý, můžete stále selektivně přidat pouze konkrétní dokumentů do indexu. Naopak můžete nechat automatické indexování na a selektivně zvolte vyloučit pouze konkrétní dokumenty. Indexování zapnout nebo vypnout konfigurace jsou užitečné v případě, že máte jenom podmnožinu dokumentů, které je třeba zadat dotaz.
 
-Například následující příklad ukazuje, jak zahrnout dokumentu explicitně pomocí [DocumentDB rozhraní API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) a [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) vlastnost.
+Například následující příklad ukazuje, jak zahrnout dokumentu explicitně pomocí [DocumentDB rozhraní API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) a [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) vlastnost.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,

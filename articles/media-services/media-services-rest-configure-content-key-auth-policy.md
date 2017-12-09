@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 0ae5d37507bb6e36589e9755faf8bd3471910257
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: d3388643a3d7c38104a4c61f94a8b68a86168846
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Dynamické šifrování: Konfigurace zásad autorizace klíče obsahu
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -28,25 +28,25 @@ Microsoft Azure Media Services umožňuje doručovat obsah (dynamicky) šifrová
 
 Pokud chcete pro Media Services k šifrování prostředek, je potřeba přidružit šifrovací klíč (**CommonEncryption** nebo **EnvelopeEncryption**) k assetu (jak je popsáno [sem](media-services-rest-create-contentkey.md)) a taky nakonfigurovat zásady autorizace pro klíč (jak je popsáno v tomto článku).
 
-Datový proud je žádost přehrávač, Media Services používá k zadanému klíči dynamicky šifrovat pomocí šifrování AES nebo PlayReady obsah. K dešifrování datového proudu, bude přehrávač požadovat klíč ze služby doručení klíče. Při rozhodování, zda je uživatel oprávnění k získání klíče, služba vyhodnocuje zásady autorizace, které jste zadali pro klíč.
+Datový proud je žádost přehrávač, Media Services používá k zadanému klíči dynamicky šifrovat pomocí šifrování AES nebo PlayReady obsah. Přehrávač dešifrovat datový proud, požadavků klíč ze služby doručení klíče. Při rozhodování, zda je uživatel oprávnění k získání klíče, služba vyhodnocuje zásady autorizace, které jste zadali pro klíč.
 
 Služba Media Services podporuje více způsobů ověřování uživatelů, kteří žádají o klíč. Zásady autorizace klíče obsahu může mít jeden nebo více omezení autorizace: **otevřete** nebo **tokenu** omezení. Zásady omezení tokenem musí být doplněny tokenem vydaným službou tokenů zabezpečení (STS). Služba Media Services podporuje tokeny ve **jednoduchých webových tokenů** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) formátu a **webových tokenů JSON** formátu (JWT).
 
-Služba Media Services neposkytuje zabezpečení tokenu služby. Můžete vytvořit vlastní službu tokenů zabezpečení nebo využívat Microsoft Azure ACS problém tokeny. Služba tokenů zabezpečení musí být nakonfigurované vytvořit token podepsané zadaný klíč a vystavování deklarací identity, které jste zadali v nastavení omezení s tokenem (jak je popsáno v tomto článku). Doručení klíče služby Media Services bude vrácena klientovi šifrovací klíč, pokud token je platný a deklarace identity v tokenu shodují s těmi, nakonfigurované pro klíč k obsahu.
+Služba Media Services neposkytuje zabezpečení tokenu služby. Můžete vytvořit vlastní službu tokenů zabezpečení nebo použít tokeny problém Azure Active Directory (AAD). Služba tokenů zabezpečení musí být nakonfigurované vytvořit token podepsané zadaný klíč a vystavování deklarací identity, které jste zadali v nastavení omezení s tokenem (jak je popsáno v tomto článku). Služba Media Services doručení klíče vrátí šifrovací klíč do klienta, pokud token je platný a deklarace identity v tokenu shodují s těmi, nakonfigurované pro klíč k obsahu.
 
 Další informace najdete v následujících článcích:
 - [Ověření pomocí tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-- [Integrace aplikace Azure Media Services OWIN MVC se službou Azure Active Directory a omezit klíče doručování obsahu na základě deklarací JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+- [Aplikace založené na Azure Media Services OWIN MVC integrovat Azure Active Directory a omezit klíče doručování obsahu na základě deklarací JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### <a name="some-considerations-apply"></a>Musí být splněny určité předpoklady:
 * Abyste mohli používat dynamické balení a dynamické šifrování, ujistěte se, že koncový bod streamování, ze kterého chcete Streamovat obsah je v **systémem** stavu.
 * Váš asset musí obsahovat sadu s adaptivní přenosovou rychlostí soubory MP4 s rychlostmi nebo soubory technologie Smooth Streaming s adaptivní přenosovou rychlostí. Další informace najdete v tématu [kódovat asset](media-services-encode-asset.md).
 * Nahrání a kódování vaše prostředky pomocí **AssetCreationOptions.StorageEncrypted** možnost.
-* Pokud budete chtít mít několik klíčů obsahu, které vyžadují stejnou konfiguraci zásad, důrazně doporučujeme vytvořit zásadu jeden autorizace a opakovaně ji používat s více klíčů k obsahu.
+* Pokud budete chtít mít několik klíčů obsahu, které vyžadují stejnou konfiguraci zásad, se doporučuje vytvořit zásadu jeden autorizace a opakovaně ji používat s více klíčů k obsahu.
 * Službu doručování klíč ukládá do mezipaměti ContentKeyAuthorizationPolicy a související objekty (Možnosti zásad a omezení) pro 15 minut.  Pokud vytvoříte ContentKeyAuthorizationPolicy a nastavení, aby používal "Token" omezení, pak otestovat ji a potom aktualizovat zásady "Otevřené" omezení, bude trvat přibližně 15 minut, než zásady přepne do "Otevřené" verze zásad.
 * Pokud přidáte nebo aktualizujete zásady pro doručení assetu, musíte odstranit stávající lokátor (pokud existuje) a vytvořit nový.
 * V současné době nelze zašifrovat progresivní stahování.
-* Koncový bod streamování AMS nastaví hodnotu hlavičky CORS 'přístup-Control-Allow-Origin, v předběžné odpovědi jako zástupný znak '\*'. To funguje dobře u většiny přehrávače včetně naše Azure Media Player, Roku a JW a dalších. Ale některé přehrávače, které využívají dashjs nefungují od s přihlašovacími údaji režimu nastavenou na hodnotu "zahrnout", XMLHttpRequest v jejich dashjs neumožňuje zástupný znak "\*" jako hodnotu "'Access-Control-Allow-Origin". Jako řešení pro toto omezení v dashjs Pokud jsou hostování vašeho klienta z jedné domény, Azure Media Services můžete zadat tuto doménu v hlavičce předběžných odpovědi. Můžete oslovení otevřením lístku podpory prostřednictvím portálu Azure.
+* Koncový bod streamování AMS nastaví hodnotu hlavičky CORS 'přístup-Control-Allow-Origin, v předběžné odpovědi jako zástupný znak '\*'. To funguje dobře u většiny přehrávače včetně Azure Media Player, Roku a JW a dalších. Ale některé přehrávače, které využívají dashjs nefungují od s přihlašovacími údaji režimu nastavenou na hodnotu "zahrnout", XMLHttpRequest v jejich dashjs neumožňuje zástupný znak "\*" jako hodnotu "'Access-Control-Allow-Origin". Jako řešení pro toto omezení v dashjs Pokud jsou hostování vašeho klienta z jedné domény, Azure Media Services můžete zadat tuto doménu v hlavičce předběžných odpovědi. Můžete oslovení otevřením lístku podpory prostřednictvím portálu Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Dynamické šifrování AES-128
 > [!NOTE]
@@ -54,12 +54,11 @@ Další informace najdete v následujících článcích:
 > 
 > Při přístupu k entity ve službě Media Services, musíte nastavit specifická pole hlaviček a hodnoty ve své žádosti HTTP. Další informace najdete v tématu [instalační program pro Media Services REST API vývoj](media-services-rest-how-to-use.md).
 > 
-> Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI. Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 > 
 
 ### <a name="open-restriction"></a>Otevřete omezení
-Otevřete omezení znamená, že systém bude poskytovat klíč všem uživatelům, kteří vytváří klíče požadavek. Toto omezení může být užitečná pro účely testování.
+Otevřete omezení znamená, že systém přináší klíč každý, kdo požádá klíče. Toto omezení může být užitečná pro účely testování.
 
 Následující příklad vytvoří zásadu otevřete autorizace a přidává ji k klíč obsahu.
 
@@ -73,7 +72,7 @@ Následující příklad vytvoří zásadu otevřete autorizace a přidává ji 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423578086&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lZlyQ2%2bvH73qtJsb42%2fH3xF7r7EvQFR3UXyezuDENFU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: d732dbfa-54fc-474c-99d6-9b46a006f389
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 36
@@ -109,7 +108,7 @@ Odpověď:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580006&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Ref3EsonGF7fUKCwGwGgiMnZitzIzsDOvvMTeVrVVPg%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: d225e357-e60e-4f42-add8-9d93aba1409a
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 168
@@ -145,7 +144,7 @@ Odpověď:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580006&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Ref3EsonGF7fUKCwGwGgiMnZitzIzsDOvvMTeVrVVPg%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 9847f705-f2ca-4e95-a478-8f823dbbaa29
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 154
@@ -166,7 +165,7 @@ Odpověď:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: e613efff-cb6a-41b4-984a-f4f8fb6e76a4
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 78
@@ -180,7 +179,7 @@ Odpověď:
 ### <a name="token-restriction"></a>Omezení s tokenem
 Tato část popisuje, jak vytvořit zásady autorizace klíče obsahu a přidružte ji k klíč obsahu. Zásady autorizace popisuje, jaké autorizace musí být splněny k určení, pokud je uživatel oprávněn přijímat klíč (například nemá seznam "ověřovací klíč" obsahovat klíč, který byl podepsaný token).
 
-Pokud chcete konfigurovat omezení s tokenem možnost, budete muset použít XML k popisu tokenu autorizace požadavky. Konfigurace omezení s tokenem XML musí odpovídat následujícím schématu XML.
+Pokud chcete konfigurovat omezení s tokenem možnost, budete muset použít XML k popisu tokenu autorizace požadavky. Konfigurace omezení s tokenem XML musí splňovat následující schéma XML:
 
 
 #### <a id="schema"></a>Omezení s tokenem schématu
@@ -248,7 +247,7 @@ Vytvořte "Token omezení zásady", jak je znázorněno [zde](#ContentKeyAuthori
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580720&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=5LsNu%2b0D4eD3UOP3BviTLDkUjaErdUx0ekJ8402xidQ%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 2643d836-bfe7-438e-9ba2-bc6ff28e4a53
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 1079
@@ -286,7 +285,7 @@ Služba Media Services umožňuje nakonfigurovat práva a omezení, které chcet
 Při ochraně obsahu pomocí technologie PlayReady, jednou z věcí, je třeba zadat ve vaší zásady autorizace je řetězec XML, který definuje [šablona licence PlayReady](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Otevřete omezení
-Otevřete omezení znamená, že systém bude poskytovat klíč všem uživatelům, kteří vytváří klíče požadavek. Toto omezení může být užitečná pro účely testování.
+Otevřete omezení znamená, že systém přináší klíč každý, kdo požádá klíče. Toto omezení může být užitečná pro účely testování.
 
 Následující příklad vytvoří zásadu otevřete autorizace a přidává ji k klíč obsahu.
 
@@ -300,7 +299,7 @@ Následující příklad vytvoří zásadu otevřete autorizace a přidává ji 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 9e7fa407-f84e-43aa-8f05-9790b46e279b
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 58
@@ -337,7 +336,7 @@ Odpověď:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: f160ad25-b457-4bc6-8197-315604c5e585
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 593
@@ -385,7 +384,7 @@ Vytvořte ContentKeyAuthorizationPolicies, jak je znázorněno [zde](#ContentKey
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423583561&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=5eZnkOsSv%2fLLEKmS%2bWObBlsNYyee8BQlp%2bUYbjugcJg%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: ab079b0e-2ba9-4cf1-b549-a97bfa6cd2d3
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 1525
@@ -448,5 +447,5 @@ Přidejte AuthorizationPolicy ContentKey, jak je znázorněno [zde](#AddAuthoriz
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Další kroky
-Teď, když jste nakonfigurovali zásady autorizace klíče obsahu, přejděte na [postup konfigurace zásad doručení assetu](media-services-rest-configure-asset-delivery-policy.md) tématu.
+Teď, když jste nakonfigurovali zásady autorizace klíče obsahu, přejděte na [postup konfigurace zásad doručení assetu](media-services-rest-configure-asset-delivery-policy.md) článku.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/27/2017
 ms.author: rickbyh
-ms.openlocfilehash: a6895f7a145c7b925703e4deb32411d51e7a3cab
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 89a5ee969cf4337dbc0521027f36f80e357c54e5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurace vícefaktorového ověřování pro SQL Server Management Studio a Azure AD
 
@@ -67,7 +67,7 @@ Po dokončení ověření SSMS připojí, obvykle za předpokladu platné přihl
 - Přehled služby databáze SQL Azure Multi-Factor authentication, naleznete v části Universal ověřování s [SQL Database a SQL Data Warehouse (SSMS podporu vícefaktorového ověřování)](sql-database-ssms-mfa-authentication.md).  
 - Ostatní udělit přístup k vaší databázi: [SQL databáze ověřování a autorizace: udělení přístupu](sql-database-manage-logins.md)  
 - Zajistěte, aby ostatní můžete připojit přes bránu firewall: [konfigurace pravidla brány firewall na úrovni serveru Azure SQL Database pomocí portálu Azure](sql-database-configure-firewall-settings.md)  
-- Při použití **Active Directory - Universal s MFA** ověřování ADAL trasování je k dispozici počínaje [SSMS 17.3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Vypnout ve výchozím nastavení, můžete zapnout ADAL trasování pomocí **nástroje**, **možnosti** nabídky v části **služeb Azure**, **cloudu Azure**,  **ADAL úroveň trasování okno výstup**, za nímž povolením **výstup** v **zobrazení** nabídky. Trasování jsou k dispozici v okně výstupu. při výběru **možnost Azure Active Directory**.   
+- Při použití **Active Directory - Universal s MFA** ověřování ADAL trasování je k dispozici počínaje [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Vypnout ve výchozím nastavení, můžete zapnout ADAL trasování pomocí **nástroje**, **možnosti** nabídky v části **služeb Azure**, **cloudu Azure**,  **ADAL úroveň trasování okno výstup**, za nímž povolením **výstup** v **zobrazení** nabídky. Trasování jsou k dispozici v okně výstupu. při výběru **možnost Azure Active Directory**.   
 
 
 [1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png

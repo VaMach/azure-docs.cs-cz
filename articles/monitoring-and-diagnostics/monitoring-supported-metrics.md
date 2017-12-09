@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: ef27a15bb6a6305f7a762716a20487ef983cb5d1
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: d66c6760cd2414e377d9c0cf55835a21b4bc5051
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Podporované metriky s monitorováním Azure
 Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včetně grafů, je na portálu, k nim přistupovat pomocí rozhraní REST API nebo je dotazování pomocí prostředí PowerShell nebo rozhraní příkazového řádku. Níže je úplný seznam všech metriky aktuálně k dispozici s Azure monitorování metriky kanálu.
 
 > [!NOTE]
-> Další metriky může být k dispozici v portálu nebo pomocí starší verze rozhraní API. Tento seznam obsahuje pouze metriky, které jsou k dispozici konsolidované monitorování Azure metriky zřetězením příkazů. Vyhledat a přístup k metriky s dimenzí použijte prosím [2017-05-01-preview verze rozhraní api.](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions)
+> Další metriky může být k dispozici v portálu nebo pomocí starší verze rozhraní API. Tento seznam obsahuje pouze metriky, které jsou k dispozici konsolidované monitorování Azure metriky zřetězením příkazů. Vyhledat a přístup k metriky s dimenzí použijte prosím [2017-05-01-preview verze rozhraní api.](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 >
 >
 

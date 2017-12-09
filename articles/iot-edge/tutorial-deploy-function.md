@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fb295b37819788ed14f54e4123ae0fe1b52d0210
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9c35410ee1bb67c8ee96eeea6e51601bc29f39aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Nasazení funkce Azure jako modul IoT Edge – náhled
 Azure Functions můžete použít k nasazení kód, který implementuje obchodní logiku přímo do zařízení IoT okraj. Tento kurz vás provede vytvoření a nasazení funkce Azure, který filtruje data snímačů na simulované zařízení IoT okraj, který jste vytvořili v nasazení Azure IoT Edge na simulované zařízení na [Windows] [ lnk-tutorial1-win]nebo [Linux] [ lnk-tutorial1-lin] kurzy. V tomto kurzu se naučíte:     
@@ -42,7 +42,7 @@ V tomto kurzu použijete k vytvoření funkce Azure a vytvoření rozšíření 
 
 Žádné kompatibilní Docker registru můžete použít pro tento kurz. Jsou dvě oblíbených Docker registru služby k dispozici v cloudu **registru kontejner Azure** a **úložiště Docker Hub**:
 
-- [Azure kontejneru registru](https://docs.microsoft.com/en-us/azure/container-registry/) je k dispozici [placené předplatné](https://azure.microsoft.com/en-us/pricing/details/container-registry/). V tomto kurzu **základní** předplatného je dostačující. 
+- [Azure kontejneru registru](https://docs.microsoft.com/azure/container-registry/) je k dispozici [placené předplatné](https://azure.microsoft.com/en-us/pricing/details/container-registry/). V tomto kurzu **základní** předplatného je dostačující. 
 
 - [Úložiště docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) nabízí jeden volné privátní úložiště, pokud se zaregistrujete k (zdarma) Docker ID. 
     1. Zaregistrujte si Docker ID, postupujte podle pokynů v [zaregistrovat pro Docker ID](https://docs.docker.com/docker-id/#register-for-a-docker-id) na webu Docker. 

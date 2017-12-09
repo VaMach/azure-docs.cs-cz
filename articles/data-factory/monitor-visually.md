@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Vizuální sledování Azure data Factory
 Azure Data Factory je cloudová služba pro integraci dat umožňující vytváření pracovních postupů řízených daty v cloudu za účelem orchestrace a automatizace přesunu a transformace dat. Pomocí služby Azure Data Factory můžete vytvářet a plánovat pracovní postupy řízené daty (nazývané kanály) se schopností ingestovat data z různorodých úložišť dat, zpracovat a transformovat tato data pomocí výpočetních služeb, jako je Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics a Azure Machine Learning, a publikovat výstupní data do úložišť dat, jako je Azure SQL Data Warehouse, aby je mohly využívat aplikace business intelligence (BI).
@@ -73,7 +73,7 @@ Zobrazení seznamu ji spustí aktivita odpovídající každý kanál spustit. K
 > Je třeba kliknout na **'Aktualizujte'** ikonu na horní k aktualizaci seznamu kanálu a aktivita běží. Automatická aktualizace se aktuálně nepodporuje.
 >
 
-![Aktualizace](media/monitor-visually/refresh.png)
+![Obnovení](media/monitor-visually/refresh.png)
 
 ## <a name="features"></a>Funkce
 
@@ -97,10 +97,10 @@ Klikněte pravým tlačítkem na hlavičku zobrazení seznamu a vyberte sloupce,
 #### <a name="reorder-column-widths-in-list-view"></a>Změna pořadí šířku sloupců v zobrazení seznamu
 Zvýšení a snižte šířku sloupců v zobrazení seznamu jednoduše ukazatele myši na záhlaví sloupce
 
-#### <a name="select-data-factory"></a>Vyberte objekt pro vytváření dat
+#### <a name="select-data-factory"></a>Výběr datové továrny
 Najeďte na ikonu služby Data Factory v levé horní části. Klikněte na ikonu 'Šipku' Chcete-li zobrazit seznam azure odběry a data Factory, můžete monitorovat.
 
-![Vyberte objekt pro vytváření dat](media/monitor-visually/select-datafactory.png)
+![Výběr datové továrny](media/monitor-visually/select-datafactory.png)
 
 #### <a name="guided-tours"></a>Cesty s průvodcem
 Klikněte na informační ikona ve spodní levé a klikněte na tlačítko 'Na základě prohlídka' Chcete-li získat podrobné pokyny o tom, jak sledovat vaše kanálu a aktivita běží.
@@ -114,4 +114,4 @@ Klikněte na ikonu 'zpětnou vazbu, sdělte nám svůj názor na různých funkc
 
 ## <a name="next-steps"></a>Další kroky
 
-V tématu [monitorování a Správa kanálů prostřednictvím kódu programu](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) článku se dozvíte o monitorování a Správa kanálů
+V tématu [monitorování a Správa kanálů prostřednictvím kódu programu](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) článku se dozvíte o monitorování a Správa kanálů

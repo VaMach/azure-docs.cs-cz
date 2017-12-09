@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 0e4a2aa0ed7327a8ed19e9a716b0bd97abc71d5c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Možnosti podpory Azure Service Fabric
 
@@ -81,7 +81,7 @@ Tady najdete seznam verzí Service Fabric, které jsou podporovány a koncovém 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Verze Preview prostředků infrastruktury služby - nepodporovaný pro použití v provozním prostředí.
 Čas od času jsme vydání verzí, které mají významných funkcí, které chceme zpětné vazby, které vydávají jako verze Preview. Tato verze preview lze používat pouze pro účely testování. Provozní cluster měli vždycky používat verzi podporován, stabilní, Service Fabric. Ve verzi preview vždycky začíná číslem hlavní verze a podverze 255. Například pokud se zobrazí Service Fabric verze 255.255.5703.949, tuto verzi je jenom pro použití v testovacích clusterů a je ve verzi preview. Tato verze preview také odesílány zpět [blog týmu Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) a bude mít podrobné informace o funkcích, které jsou.
 
-Neexistuje žádná možnost placené podporu pro tyto verze preview. Použijte jednu z možností uvedených v části [sestavy Azure Service Fabric problémy](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) k nim máte nějaké otázky nebo poskytnout zpětnou vazbu.
+Neexistuje žádná možnost placené podporu pro tyto verze preview. Použijte jednu z možností uvedených v části [sestavy Azure Service Fabric problémy](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) k nim máte nějaké otázky nebo poskytnout zpětnou vazbu.
 
 ## <a name="next-steps"></a>Další kroky
 

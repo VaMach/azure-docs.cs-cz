@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2151ed6c95e8cb65917654e54133e98912011c00
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-ad-token-reference"></a>Odkaz tokenu Azure AD
 Azure Active Directory (Azure AD) vysílá několik typů tokenů zabezpečení ve zpracování každý tok ověřování. Tento dokument popisuje formát, zabezpečení vlastnosti a obsah každého typu token.
@@ -96,7 +96,7 @@ Pokud uplatníte obnovovací token pro nový přístupový token, zobrazí se no
 
 ## <a name="validating-tokens"></a>Ověřování tokenů
 
-K ověřování požadavku id_token nebo access_token, aplikace by měl ověřit podpis tokenu a deklarace identity. Chcete-li ověřit přístupové tokeny, by mělo aplikace také ověřit vystavitele, cílovou skupinu a podepisování tokenů. Tyto muset ověřit pomocí hodnoty v dokumentu zjišťování OpenID. Například se nachází na klienta nezávislé verzi dokumentu [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD middleware obsahuje integrované funkce pro ověření přístupové tokeny, a můžete procházet naše [ukázky](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) vyhledat některé v jazyce podle svého výběru. Další informace o tom, jak explicitně ověřit JWT token, najdete v tématu [ruční Ukázka ověřování tokenů JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+K ověřování požadavku id_token nebo access_token, aplikace by měl ověřit podpis tokenu a deklarace identity. Chcete-li ověřit přístupové tokeny, by mělo aplikace také ověřit vystavitele, cílovou skupinu a podepisování tokenů. Tyto muset ověřit pomocí hodnoty v dokumentu zjišťování OpenID. Například se nachází na klienta nezávislé verzi dokumentu [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD middleware obsahuje integrované funkce pro ověření přístupové tokeny, a můžete procházet naše [ukázky](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) vyhledat některé v jazyce podle svého výběru. Další informace o tom, jak explicitně ověřit JWT token, najdete v tématu [ruční Ukázka ověřování tokenů JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Poskytujeme knihovny a ukázky kódu, které ukazují, jak snadno zpracovat ověření tokenu - níže uvedené informace se jednoduše poskytuje pro ty, kteří chtějí porozumět v podkladovém procesu.  Existují také několik třetích stran opensourcové knihovny k dispozici pro ověřování JWT – je alespoň jednu možnost pro téměř každé platformě a jazyk odhlašování došlo. Další informace o Azure AD authentication knihovny a ukázky kódu, najdete v tématu [knihovny ověřování služby Azure AD](active-directory-authentication-libraries.md).
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Řešení potíží Storm pomocí Azure HDInsight
 
@@ -91,7 +91,7 @@ Storm binární soubory pro aktuální zásobník HDP jsou /usr/hdp/current/stor
  
 Může existovat více binární soubory pro konkrétní verze softwaru HDP v /usr/hdp (například /usr/hdp/2.5.0.1233/storm). Složka /usr/hdp/current/storm-client je symlinked na nejnovější verzi, která běží na clusteru.
 
-Další informace najdete v tématu [připojit ke clusteru HDInsight pomocí protokolu SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) a [Storm](http://storm.apache.org/).
+Další informace najdete v tématu [připojit ke clusteru HDInsight pomocí protokolu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) a [Storm](http://storm.apache.org/).
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Jak je možné zjistit topologii nasazení clusteru Storm?
 Nejdřív určete všechny součásti, které jsou nainstalované s HDInsight Storm. Storm cluster se skládá ze čtyř kategorií uzlu:
@@ -127,10 +127,10 @@ Storm uzlů pracovního procesu spouštění následujících služeb:
 Další informace o pomocí topologie Storm event hub spout .jar soubory najdete v následujících zdrojích informací.
  
 ### <a name="java-based-topology"></a>Topologie založené na jazyce Java
-[Zpracování událostí z Azure Event Hubs se Storm v HDInsight (Java)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[Zpracování událostí z Azure Event Hubs se Stormem v HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C# – na základě topologie (Mono u clusterů Linux Storm HDInsight 3.4 +)
-[Zpracování událostí z Azure Event Hubs se Stormem v HDInsight (C#)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Zpracování událostí z Azure Event Hubs se Stormem v HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
 ### <a name="latest-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Nejnovější Storm event hub spout binární soubory pro clustery Linux Storm HDInsight 3.5 +
 Naučte se používat nejnovější spout Storm události rozbočovače, který funguje s clustery Linux Storm HDInsight 3.5 +, najdete v tématu mvn úložišti [souboru readme](https://github.com/hdinsight/mvn-repo/blob/master/README.md).

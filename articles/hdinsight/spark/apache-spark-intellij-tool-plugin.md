@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 77c7163b896c2b364039ea6c669ee70cf8be4d9e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Vytvoření aplikací Spark pro cluster služby HDInsight pomocí nástrojů Azure pro IntelliJ
 
@@ -169,7 +169,7 @@ Pokyny k instalaci naleznete v tématu [instalaci nástrojů Azure pro IntelliJ]
       Další informace o přístupu k výstup úlohy najdete v tématu "přístup a spravovat clustery HDInsight Spark pomocí nástrojů Azure pro IntelliJ" později v tomto článku.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Ladění aplikací Spark v clusteru HDInsight místně nebo vzdáleně 
-Doporučujeme také jiný způsob odesílání aplikací Spark pro cluster. Můžete také provést nastavením parametry v **konfigurace spustit/Debug** IDE. Další informace najdete v tématu [ladění aplikací Spark místně nebo vzdáleně v clusteru s Azure nástrojů HDInsight pro IntelliJ prostřednictvím SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Doporučujeme také jiný způsob odesílání aplikací Spark pro cluster. Můžete také provést nastavením parametry v **konfigurace spustit/Debug** IDE. Další informace najdete v tématu [ladění aplikací Spark místně nebo vzdáleně v clusteru s Azure nástrojů HDInsight pro IntelliJ prostřednictvím SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Přístup a spravovat clustery HDInsight Spark pomocí nástrojů Azure pro IntelliJ
 Pomocí nástrojů Azure pro IntelliJ můžete provádět různé operace.

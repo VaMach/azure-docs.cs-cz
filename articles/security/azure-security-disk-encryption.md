@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: 15ed35ab3a082db3376890992be3a29b6e042a2f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 4c2d3ba72b768e21a027478dfe912689457049fd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption pro systém Windows a virtuálních počítačů Linux IaaS
 Microsoft Azure se důrazně zaměřuje na zajištění ochrany osobních údajů, suverenity data a umožňuje vám řízení vaší Azure hostované data prostřednictvím řadu pokročilých technologiích k šifrování, řídit a spravovat šifrovací klíče, řízení a audit přístupu k datům. To poskytuje Azure zákazníkům flexibilitu zvolit si řešení, které nejlépe vyhovuje potřebám své firmy. V tomto dokumentu jsme vás seznámí s nové řešení technologie "Azure Disk Encryption pro systém Windows a Linux IaaS virtuálního počítače je" k ochraně a ochranu dat, aby splňovaly vaše organizace zabezpečení a dodržování předpisů závazky. Dokumentu poskytuje podrobné pokyny k použití funkcí Azure disk encryption, včetně Podporované scénáře a uživatel dojde.
@@ -199,7 +199,7 @@ Než povolíte Azure Disk Encryption na virtuálních počítačích Azure IaaS 
   > [!NOTE]
   > Pokud vaše zásady zabezpečení omezuje přístup z virtuálních počítačů Azure k Internetu, můžete předchozí URI vyřešit a nakonfigurovat konkrétní pravidlo povolení odchozí připojení k IP adresy.
   >
-  >Ke konfiguraci a přístup k Azure Key Vault za bránou firewall (https://docs.microsoft.com/en-us/azure/key-vault/key-vault-access-behind-firewall)
+  >Ke konfiguraci a přístup k Azure Key Vault za bránou firewall (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Použijte nejnovější verzi Azure PowerShell SDK verze konfigurovat Azure Disk Encryption. Stáhněte si nejnovější verzi [verzi prostředí Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 
@@ -218,9 +218,9 @@ Než povolíte Azure Disk Encryption na virtuálních počítačích Azure IaaS 
 * Zásady nástroje BitLocker na virtuální počítače připojené k doméně pomocí zásad skupiny vlastní musí zahrnovat následující nastavení: `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key` Azure Disk Encryption se nezdaří, pokud nejsou kompatibilní, nastavení zásad vlastní skupiny pro Bitlocker. Na počítačích, které nemá správné zásady může být nastavení, použít nové zásady, vynucení nové zásady aktualizace (gpupdate.exe/Force) a pak restartování požadováno.  
 * Pokud chcete vytvořit aplikaci Azure AD, vytvoření trezoru klíčů, nebo nastavit existující trezor klíčů a povolit šifrování, najdete v článku [požadovaných skript prostředí PowerShell Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * Konfigurace šifrování disku požadavků pomocí Azure CLI, najdete v části [tento skript Bash](https://github.com/ejarvi/ade-cli-getting-started).
-* Pomocí služby Azure Backup k zálohování a obnovení virtuálních počítačů služby šifrovaná, pokud je povolené šifrování s Azure Disk Encryption, zašifrujte virtuální počítače pomocí klíče konfigurace Azure Disk Encryption. Služba zálohování podporuje virtuální počítače, které jsou šifrované pomocí ne KEK nebo KEK konfigurace. V tématu [šifrované zálohování a obnovení virtuálních počítačů s šifrováním Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+* Pomocí služby Azure Backup k zálohování a obnovení virtuálních počítačů služby šifrovaná, pokud je povolené šifrování s Azure Disk Encryption, zašifrujte virtuální počítače pomocí klíče konfigurace Azure Disk Encryption. Služba zálohování podporuje virtuální počítače, které jsou šifrované pomocí ne KEK nebo KEK konfigurace. V tématu [šifrované zálohování a obnovení virtuálních počítačů s šifrováním Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* Při šifrování svazku operačního systému Linux, je momentálně nevyžaduje na konci procesu Všimněte si, že virtuální počítač restartovat. To lze provést přes portál, prostředí powershell nebo rozhraní příkazového řádku.   Pokud chcete sledovat průběh šifrování, pravidelně dotazovala vrácený Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus stavové zprávy.  Po dokončení šifrování stavové zprávy vrácené tento příkaz označí to.  Například "ProgressMessage: disk operačního systému úspěšně šifrování, restartujte virtuální počítač" v tomto okamžiku může být virtuální počítač restartovat a použita.  
+* Při šifrování svazku operačního systému Linux, je momentálně nevyžaduje na konci procesu Všimněte si, že virtuální počítač restartovat. To lze provést přes portál, prostředí powershell nebo rozhraní příkazového řádku.   Pokud chcete sledovat průběh šifrování, pravidelně dotazovala vrácený Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus stavové zprávy.  Po dokončení šifrování stavové zprávy vrácené tento příkaz označí to.  Například "ProgressMessage: disk operačního systému úspěšně šifrování, restartujte virtuální počítač" v tomto okamžiku může být virtuální počítač restartovat a použita.  
 
 * Azure Disk Encryption pro Linux vyžaduje datové disky tak, aby měl systém připojeného souboru v systému Linux před šifrování
 
@@ -396,7 +396,7 @@ Vytvoření trezoru klíčů, použijte jednu z následujících možností:
 * ["101-Key-trezoru-vytvořit" šablony Resource Manageru](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Rutiny Azure PowerShell trezoru klíčů](/powershell/module/azurerm.keyvault/#key_vault)
 * Azure Resource Manager
-* Postup [zabezpečit váš trezor klíčů](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
+* Postup [zabezpečit váš trezor klíčů](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
 
 > [!NOTE]
 > Pokud jste již nastavili trezoru klíčů pro vaše předplatné, přejděte k další části.

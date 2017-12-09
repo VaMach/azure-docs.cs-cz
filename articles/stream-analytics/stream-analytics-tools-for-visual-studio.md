@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sujie
-ms.openlocfilehash: 8e3f1ae6739896dfd1329561dbcede38a6069546
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Použití Azure Stream Analytics tools pro sadu Visual Studio
 Azure Stream Analytics tools pro Visual Studio jsou obecně dostupné. Tyto nástroje povolte bohatší možnosti pro uživatele Stream Analytics k řešení potíží a také zápisu složitých dotazů a i psát dotazy místně. Úloha Stream Analytics také můžete exportovat do projektu sady Visual Studio.
@@ -40,7 +40,7 @@ Požadovaný k dokončení tohoto kurzu potřebujete:
 
 * Dokončete kroky až "Vytvořit úlohu služby Stream Analytics" v tomto kurzu [sestavení řešení IoT pomocí služby Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Nainstalujte Visual Studio 2017, Visual Studio 2015 nebo Visual Studio 2013 Update 4. Enterprise (Ultimate nebo Premium), Professional a Community jsou podporované tyto edice. Express edition není podporován. 
-* Postupujte podle [pokyny k instalaci](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) k instalaci služby Stream Analytics tools pro sadu Visual Studio.
+* Postupujte podle [pokyny k instalaci](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) k instalaci služby Stream Analytics tools pro sadu Visual Studio.
 
 ## <a name="create-a-stream-analytics-project"></a>Vytvoření projektu Stream Analytics
 V sadě Visual Studio, vyberte **soubor** > **nový projekt**. V seznamu šablon na levé straně vyberte **Stream Analytics**a potom vyberte **Azure Stream Analytics aplikace**.
@@ -137,7 +137,7 @@ Další podrobnosti najdete v tématu o [čas management](https://msdn.microsoft
 
 Teď, když jste napsali svůj první dotaz služby Stream Analytics, otestujte ji pomocí ukázkových datových souborů umístěné ve složce TollApp v následující cestě:
 
-**..\TollApp\TollApp\Data**
+**.. \TollApp\TollApp\Data**
 
 Tato složka obsahuje následující soubory:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: mimig
-ms.openlocfilehash: 4907df15fddfb7d8d6128dc994b0920ca601f2c7
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.openlocfilehash: 6fc96dae8c7c6983b1d062c22438344278d478e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure DocumentDB Cosmos DB rozhraní API: Reference syntaxe SQL
 
@@ -677,8 +677,8 @@ ORDER BY <sort_specification>
     |'symbol.|Literál symbol, který je součástí syntaxe.|  
     |&#124; (svislé čáry)|Alternativy pro položky syntaxe. Můžete vytvořit pouze jeden položky.|  
     |[] /(brackets)|Závorky uzavřete jeden nebo více nepovinných položek.|  
-    |[ ,...n ]|Označuje, že předchozí položce může být opakovaný n stanovený počet. Výskytů jsou oddělené čárkami.|  
-    |[ ...n ]|Označuje, že předchozí položce může být opakovaný n stanovený počet. Výskytů se oddělují mezerami.|  
+    |[,.. .n]|Označuje, že předchozí položce může být opakovaný n stanovený počet. Výskytů jsou oddělené čárkami.|  
+    |[.. .n]|Označuje, že předchozí položce může být opakovaný n stanovený počet. Výskytů se oddělují mezerami.|  
   
 ##  <a name="bk_built_in_functions"></a>Integrované funkce  
  Azure Cosmos DB poskytuje mnoho předdefinovaných funkcí SQL. Kategorie integrované funkce jsou uvedeny níže.  
@@ -2791,6 +2791,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Další kroky  
  [Syntaxe jazyka SQL a dotaz SQL pro Azure Cosmos DB](documentdb-sql-query.md)   
- [Dokumentace k Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
+ [Dokumentace k Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  
   
   

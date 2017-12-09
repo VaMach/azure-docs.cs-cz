@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 004e7b0299763be9d31b1df22df2a423dc7c52cf
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-api-management-faqs"></a>Nejčastější dotazy Azure API Management
 Získejte odpovědi na časté otázky, vzorce a osvědčené postupy pro Azure API Management.
@@ -139,7 +139,7 @@ Ano. Najdete v článku [Azure API Management Service](http://aka.ms/apimtemplat
 Ano. Tento krok můžete provést pomocí prostředí PowerShell nebo odesláním přímo do rozhraní API. Tím se zakázat ověřování řetězu certifikátů a vám umožní použít certifikáty podepsané svým držitelem nebo soukromě podepsané při komunikaci ze správy rozhraní API na back-end služby.
 
 #### <a name="powershell-method"></a>PowerShell – metoda ####
-Použití [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (pro nový back-end) nebo [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (pro existující back-end) rutiny prostředí PowerShell a nastavte `-SkipCertificateChainValidation` parametru `True`. 
+Použití [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (pro nový back-end) nebo [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (pro existující back-end) rutiny prostředí PowerShell a nastavte `-SkipCertificateChainValidation` parametru `True`. 
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

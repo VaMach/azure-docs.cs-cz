@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b9f4004eb69314ad9d4cdad0f7140b6f85af300b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 75d0bbc536c907e6530570b4d7568f39371cfced
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Co je StorSimple pro Program poskytovatelé cloudové řešení?
 
@@ -29,7 +29,7 @@ Microsoft Azure StorSimple je jedinečný přístup k úložišti enterprise s m
 
 Virtuální zařízení StorSimple pole pro poskytovatele cloudové řešení (CSP) umožňuje partnerům využít této příležitosti. Partnery, které vlastníte životního cyklu začátku do konce zákazníků s přímé zřizování, fakturaci a podporu společnosti Microsoft cloudových služeb. Stručně řečeno partnery, které teď transact StorSimple spolu s jejich služeb zákazníkům.
 
-Další informace o StorSimple pro zprostředkovatele kryptografických služeb, naleznete [přehled Azure CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview) stránky.
+Další informace o StorSimple pro zprostředkovatele kryptografických služeb, naleznete [přehled Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) stránky.
 
 Další informace o fakturaci, ceny, motivace a získání podpory v CSP, přejděte na [StorSimple v CSP: Nejčastější dotazy k](storsimple-partner-csp-faq.md). 
 

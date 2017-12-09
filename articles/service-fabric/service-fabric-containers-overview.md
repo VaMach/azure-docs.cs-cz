@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric a kontejnery
 > [!NOTE]
@@ -61,7 +61,7 @@ Následující obrázek ukazuje různé typy virtualizace a izolaci úrovně, kt
 ## <a name="scenarios-for-using-containers"></a>Scénáře použití kontejnerů
 Zde jsou příklady typických kde kontejner je vhodné použít:
 
-* **Služba IIS navýšení a posunutí**: Pokud máte existující [ASP.NET MVC](https://www.asp.net/mvc) aplikace, které chcete nadále používat, jejich umístění v kontejneru místo migrace je ASP.NET Core. Tyto aplikace ASP.NET MVC závisí na Internetové informační služby (IIS). Můžete balíček tyto aplikace do bitové kopie kontejner z image precreated služby IIS a jejich nasazení pomocí Service Fabric. V tématu [kontejneru bitové kopie v systému Windows Server](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server) informace o Windows kontejnery.
+* **Služba IIS navýšení a posunutí**: Pokud máte existující [ASP.NET MVC](https://www.asp.net/mvc) aplikace, které chcete nadále používat, jejich umístění v kontejneru místo migrace je ASP.NET Core. Tyto aplikace ASP.NET MVC závisí na Internetové informační služby (IIS). Můžete balíček tyto aplikace do bitové kopie kontejner z image precreated služby IIS a jejich nasazení pomocí Service Fabric. V tématu [kontejneru bitové kopie v systému Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) informace o Windows kontejnery.
 * **Kombinovat kontejnery a mikroslužeb Service Fabric**: pomocí stávající image kontejner pro součást aplikace. Například můžete použít [kontejner nginx a SVÁŽE](https://hub.docker.com/_/nginx/) pro front-end webové aplikace a stavové služby pro více náročné výpočty back-end.
 * **Snížení vlivu služby "aktivní okolí"**: možnost zásad správného řízení prostředků kontejnerů můžete použít k omezení prostředků, které služba používá na hostiteli. Pokud služby může využívat mnoho prostředků a vliv na výkon jiných (třeba dlouho běžící, dotaz jako operace), vezměte v úvahu uvedení těchto služeb do kontejnery, které mají zásady správného řízení zdrojů.
 
@@ -90,6 +90,6 @@ V tomto článku jste se dozvěděli o kontejnery, Service Fabric je kontejner o
 
 [Vytvoření první aplikace Service Fabric kontejneru v systému Linux](service-fabric-get-started-containers-linux.md)
 
-[Další informace o Windows kontejnery](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
+[Další informace o Windows kontejnery](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

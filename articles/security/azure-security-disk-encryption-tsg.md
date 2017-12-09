@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Průvodci odstraňováním potíží Azure Disk Encryption
 
@@ -36,7 +36,7 @@ Tato chyba je nejčastěji dochází při pokusu o šifrování disku operační
 - Disk operačního systému používá schéma Manager logické svazek (LVM). I když je k dispozici omezená podpora disku data LVM, disk operačního systému LVM není.
 - Nejsou splněné požadavky na minimální množství paměti (7 GB je navržený pro šifrování disku operačního systému).
 - Datové jednotky jsou rekurzivně připojeny v adresáři /mnt/ nebo navzájem (například /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Další Azure Disk Encryption [požadavky](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) pro Linux nejsou splněny.
+- Další Azure Disk Encryption [požadavky](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) pro Linux nejsou splněny.
 
 ## <a name="unable-to-encrypt"></a>Nelze zašifrovat
 

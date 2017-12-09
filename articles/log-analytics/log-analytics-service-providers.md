@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 1a8bc500c837d60b4106f37f1803415a12b62a88
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Funkce analýzy protokolů pro poskytovatele služeb
 Analýzy protokolů může pomoct zprostředkovatelé spravované služby (MSPs), velké podniky, nezávislí dodavatelé softwaru (ISV) a poskytovatele hostitelských služeb spravovat a monitorovat servery v jeho místní nebo cloudovou infrastrukturu. 
@@ -26,7 +26,7 @@ Analýzy protokolů může pomoct zprostředkovatelé spravované služby (MSPs)
 Velké podniky sdílet mnoho společného s poskytovatelé služeb, zejména v případě, že je centralizované IT tým, který je zodpovědný za správu IT pro mnoho různých podnikových jednotek. Pro jednoduchost, tento dokument používá termín *poskytovatele služeb* ale stejné funkce je také k dispozici pro podniky a dalších zákazníků.
 
 ## <a name="cloud-solution-provider"></a>Cloud Solution Provider
-Pro partnery a poskytovatelé, kteří jsou součástí služby [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programu, analýzy protokolů je jednou ze služeb Azure k dispozici v [předplatného poskytovatele CSP Azure](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview). 
+Pro partnery a poskytovatelé, kteří jsou součástí služby [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) programu, analýzy protokolů je jednou ze služeb Azure k dispozici v [předplatného poskytovatele CSP Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 Pro analýzy protokolů jsou povoleny následující možnosti v *poskytovatele Cloud Solution Provider* odběry.
 

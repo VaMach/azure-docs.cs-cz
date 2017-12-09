@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: f3bb92335ec8d7d6edc0f10346b9b3a26adf65af
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Azure Log Analytics upgradovat na nové hledání protokolu
 
@@ -52,7 +52,7 @@ Pokud automaticky upgradován pracovního prostoru, se zobrazí banner indikují
 Při převodu se do pracovního prostoru provedeny následující změny:
 
 - Všechny uložená hledání, pravidla výstrah a zobrazení, které jste vytvořili pomocí návrháře zobrazení je automaticky převeden na nový jazyk.  Hledání součástí řešení se nepřevádějí automaticky, ale budou se místo toho převést za chodu při jejich otevření.  
-- [Můj řídicí panel](log-analytics-dashboards.md) je zastaralá pro [Návrhář zobrazení](log-analytics-view-designer.md) a [řídicí panely Azure](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Dlaždice, které jste přidali do vlastní řídicí panel jsou stále k dispozici, ale budou se jen pro čtení.
+- [Můj řídicí panel](log-analytics-dashboards.md) je zastaralá pro [Návrhář zobrazení](log-analytics-view-designer.md) a [řídicí panely Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Dlaždice, které jste přidali do vlastní řídicí panel jsou stále k dispozici, ale budou se jen pro čtení.
 - [Power BI integrace](log-analytics-powerbi.md) se nahradí nový proces.  Všechny existující plán Power BI, které jste vytvořili bude zakázáno a budete muset nahraďte nový proces.
 - Odpovědí z [výstrahy akce](log-analytics-alerts-actions.md) pomocí webhooků a sady runbook mají nový formát, a budete muset aktualizovat vaše pravidla výstrah odpovídajícím způsobem.
 - Podívejte se na [– nejčastější dotazy vyhledávání protokolu](log-analytics-log-search-faq.md) pro běžné dotazy týkající se upgradu.

@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 69707931402de597c9d6a329da349723da2a782a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 8ca11d92cd147b18b7b4fa629c0eaf84703a69ab
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopírovat data do nebo z Azure Data Lake Store pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -232,7 +232,7 @@ Ke zkopírování dat z Azure Data Lake Store, nastavte typ zdroje v aktivitě k
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store jako jímku
 
-Ke zkopírování dat do objektu Blob Azure, nastavte typ jímky v aktivitě kopírování do **AzureDataLakeStoreSink**. Následující vlastnosti jsou podporovány v **podřízený** části:
+Ke zkopírování dat do Azure Data Lake Store, nastavte typ jímky v aktivitě kopírování do **AzureDataLakeStoreSink**. Následující vlastnosti jsou podporovány v **podřízený** části:
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |

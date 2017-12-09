@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: HT
+ms.openlocfilehash: 3ab858f98077149983ca12e97a621dac18bb580c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="my-first-python-runbook"></a>Můj první runbook Python
 
@@ -213,5 +213,5 @@ Klikněte na tlačítko **OK** pro spuštění sady runbook. Sada runbook spušt
 * První kroky s grafickými runbooky najdete v článku [Můj první grafický runbook](automation-first-runbook-graphical.md).
 * První kroky s runbooky pracovních postupů PowerShellu najdete v článku [Můj první runbook pracovního postupu PowerShellu](automation-first-runbook-textual.md).
 * Další informace o typech runbooků, jejich výhodách a omezeních najdete v článku [Typy runbooků ve službě Azure Automation](automation-runbook-types.md).
-* Další informace o vývoji pro Azure s Python najdete v tématu [Azure pro vývojáře v Pythonu](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-* Ukázkové sady runbook Python 2 najdete v tématu [Azure Automation Githubu](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* Další informace o vývoji pro Azure s Python najdete v tématu [Azure pro vývojáře v Pythonu](https://docs.microsoft.com/python/azure/?view=azure-python).
+* Ukázkové sady runbook Python 2 najdete v tématu [Azure Automation Githubu](https://docs.microsoft.com/python/azure/?view=azure-python).

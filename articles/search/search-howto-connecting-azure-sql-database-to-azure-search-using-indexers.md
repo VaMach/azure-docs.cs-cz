@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Připojení k Azure Search pomocí indexerů Azure SQL Database
 
@@ -44,7 +44,7 @@ Můžete nastavit a nakonfigurovat indexer Azure SQL pomocí:
 
 * Průvodce importem dat v [portálu Azure](https://portal.azure.com)
 * Služba Azure Search [sady .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Služba Azure Search [rozhraní REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
+* Služba Azure Search [rozhraní REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 V tomto článku pomocí REST API pro vytvoření **indexery** a **zdroje dat**.
 
@@ -302,7 +302,7 @@ SQL indexer zpřístupňuje několik nastavení konfigurace:
 
 | Nastavení | Datový typ | Účel | Výchozí hodnota |
 | --- | --- | --- | --- |
-| queryTimeout |Řetězec |Nastaví časový limit pro spuštění dotazu SQL |5 minut ("00: 05:00") |
+| queryTimeout |řetězec |Nastaví časový limit pro spuštění dotazu SQL |5 minut ("00: 05:00") |
 | disableOrderByHighWaterMarkColumn |BOOL |Způsobí, že příkaz jazyka SQL, které používají zásady horní mez k vynechejte klauzuli ORDER by. V tématu [zásad horní mez](#HighWaterMarkPolicy) |False |
 
 Toto nastavení se použije v `parameters.configuration` objektu v definici indexer. Pokud chcete nastavit časový limit dotazu na 10 minut, například vytvořit nebo aktualizovat indexer s následující konfigurací:

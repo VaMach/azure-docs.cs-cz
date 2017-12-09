@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
-ms.openlocfilehash: f4d3d6a7c6b16ca9c6f1ae7e73b57103a5ae4844
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: cee6ece907950724f6ad4a86c489a5f07dfcaaec
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="develop-for-azure-files-with-python"></a>Vývoj pro Azure soubory s Pythonem
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -33,7 +33,7 @@ V tomto kurzu se ukazují základy používání Python k vývoji aplikací nebo
 * Odesílání, stahování a odstranění souboru
 
 > [!Note]  
-> Protože soubory Azure může mít přístup přes protokol SMB, je možné psát jednoduché aplikace, které přístup k Azure souborové složce přes standardní Python vstupně-výstupních operací třídy a funkce. Tento článek popisuje, jak k psaní aplikací, které používají Azure Python SDK úložiště, který používá [REST API služby Azure soubory](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) ke komunikaci s Azure Files.
+> Protože soubory Azure může mít přístup přes protokol SMB, je možné psát jednoduché aplikace, které přístup k Azure souborové složce přes standardní Python vstupně-výstupních operací třídy a funkce. Tento článek popisuje, jak k psaní aplikací, které používají Azure Python SDK úložiště, který používá [REST API služby Azure soubory](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) ke komunikaci s Azure Files.
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Stáhněte a nainstalujte úložiště Azure SDK pro Python
 

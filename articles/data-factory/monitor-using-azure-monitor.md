@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 3d9ec6325e25477bf4ee0475caeca64b75b1f89f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorovat pomocí monitorování Azure data Factory  
 Cloudové aplikace jsou komplexní s mnoha přesunutí částmi. Monitorování poskytuje data a ujistěte se, že vaše aplikace zůstává nahoru a spuštěna v dobrém stavu. Také pomáhá stave vypnout potenciální problémy nebo vyřešit potíže s uplynulou těch, které jsou. Kromě toho můžete data monitorování a získáte přehled o hloubkové o vaší aplikaci. Tato znalostní báze můžete dozvíte, jak zlepšit výkon aplikace nebo udržovatelnosti nebo automatizaci akcí, které by jinak vyžadují ruční zásah.
 
-Monitorování Azure poskytuje základní úroveň infrastruktura metriky a protokoly pro většina služeb v Microsoft Azure. Podrobnosti najdete v tématu [Přehled monitorování](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure diagnostické protokoly jsou protokoly vygenerované prostředek, které poskytují bohatou a často data o operaci prostředku. Objekt pro vytváření dat výstupy diagnostické protokoly v nástroji Sledování Azure. 
+Monitorování Azure poskytuje základní úroveň infrastruktura metriky a protokoly pro většina služeb v Microsoft Azure. Podrobnosti najdete v tématu [Přehled monitorování](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure diagnostické protokoly jsou protokoly vygenerované prostředek, které poskytují bohatou a často data o operaci prostředku. Objekt pro vytváření dat výstupy diagnostické protokoly v nástroji Sledování Azure. 
 
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [monitorování a Správa kanálů v objektu pro vytváření dat version1](v1/data-factory-monitor-manage-pipelines.md).
@@ -396,7 +396,7 @@ ADFV2 vysílá následující metriky
 | TriggerSucceededRuns | Aktivační událost metriky spustí bylo úspěšné  | Počet    | Celkem                | Celkový aktivační událost spustí úspěšně v rámci časového období minut   |
 | TriggerFailedRuns    | Aktivační událost metriky spuštění se nezdařilo     | Počet    | Celkem                | Celkový počet aktivační událost běží v rámci okno minut se nezdařilo      |
 
-Pro přístup k metriky, postupujte podle pokynů v článku - https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Přístup metriky, postupujte podle pokynů v článku – https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
 ## <a name="next-steps"></a>Další kroky
 V tématu [monitorování a Správa kanálů prostřednictvím kódu programu](monitor-programmatically.md) článku se dozvíte o monitorování a Správa kanálů spuštěním. 

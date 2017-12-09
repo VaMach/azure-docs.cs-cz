@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Použití rozšíření diagnostiky Linux ke sledování metrik a protokoly
 
@@ -52,7 +52,7 @@ Zaváděná konfigurace je jenom jako příklad; upravte tak, aby vyhovovaly pot
 
 ### <a name="prerequisites"></a>Požadavky
 
-* **Azure Linux Agent verze 2.2.0 nebo novější**. Většina virtuálních počítačů Linux Azure Galerie Image zahrnují verze 2.2.7 nebo novější. Spustit `/usr/sbin/waagent -version` chcete ověřit verzi nainstalovaný na Virtuálním počítači. Pokud virtuální počítač běží starší verze agenta hosta, postupujte podle [tyto pokyny](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) jej aktualizovat.
+* **Azure Linux Agent verze 2.2.0 nebo novější**. Většina virtuálních počítačů Linux Azure Galerie Image zahrnují verze 2.2.7 nebo novější. Spustit `/usr/sbin/waagent -version` chcete ověřit verzi nainstalovaný na Virtuálním počítači. Pokud virtuální počítač běží starší verze agenta hosta, postupujte podle [tyto pokyny](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) jej aktualizovat.
 * **Azure CLI**. [Nastavení Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) prostředí na váš počítač.
 * Příkaz wget, pokud ji nemáte: Spusťte `sudo apt-get install wget`.
 * Stávající předplatné Azure a v něm k uložení dat stávající účet úložiště.

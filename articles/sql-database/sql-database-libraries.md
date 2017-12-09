@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: ce7cfdfa4695283c588bc5c73791b1c04cd2f772
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Připojení knihoven a architektur pro Microsoft SQL Server
 
@@ -41,7 +41,7 @@ Následující tabulka uvádí několik příkladů architektury relační mapov
 
 | Jazyk | Platforma | ORM(s) |
 | :-- | :-- | :-- |
-| C# | Systému Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/en-us/ef)<br>[Základní Entity Framework](https://docs.microsoft.com/en-us/ef/core/index) |
+| C# | Systému Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Základní Entity Framework](https://docs.microsoft.com/ef/core/index) |
 | Java | Systému Windows, Linux, macOS |[Hibernace ORM](http://hibernate.org/orm)|
 | PHP | Windows, Linux | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
 | Node.js | Systému Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |

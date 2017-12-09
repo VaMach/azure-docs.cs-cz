@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Nasazení do Azure App Service pomocí volaných a rozhraní příkazového řádku Azure CLI
 Chcete-li nasadit webovou aplikaci Java do Azure, můžete použít rozhraní příkazového řádku Azure v [volaných kanálu](https://jenkins.io/doc/book/pipeline/). V tomto kurzu vytvoříte kanál CI/CD na virtuální počítač Azure včetně postup:
@@ -56,7 +56,7 @@ sudo apt-get install -y maven
 Azure přihlašovacích údajů je potřeba provést rozhraní příkazového řádku Azure.
 
 * V rámci volaných řídicí panel, klikněte na **pověření -> Systém ->**. Klikněte na tlačítko **globální credentials(unrestricted)**.
-* Klikněte na tlačítko **přidat přihlašovací údaje** přidat [objektu služby Microsoft Azure](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) tak, že vyplníte ID předplatného, ID klienta, sdílený tajný klíč klienta a koncový bod tokenu OAuth 2.0. Zadejte ID pro použití v následném kroku.
+* Klikněte na tlačítko **přidat přihlašovací údaje** přidat [objektu služby Microsoft Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) tak, že vyplníte ID předplatného, ID klienta, sdílený tajný klíč klienta a koncový bod tokenu OAuth 2.0. Zadejte ID pro použití v následném kroku.
 
 ![Přidejte pověření](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 

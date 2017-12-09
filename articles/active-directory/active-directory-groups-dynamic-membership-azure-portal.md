@@ -4,23 +4,23 @@ description: "Postup vytváření rozšířených pravidel, včetně členství 
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 4b3ef48fbec734d3aea1e04dc77b2ad329f637fe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Vytvořit pravidla založená na atributu pro dynamické členství ve skupině v Azure Active Directory
 V Azure Active Directory (Azure AD) můžete vytvořit rozšířených pravidel povolit komplexní založená na atributu dynamické členství skupiny. Tento článek podrobně atributy a syntaxe k vytvoření pravidla dynamické členství pro uživatele nebo zařízení.
@@ -28,13 +28,13 @@ V Azure Active Directory (Azure AD) můžete vytvořit rozšířených pravidel 
 Pokud žádné atributy uživatele nebo zařízení změnit, systém vyhodnotí všechna pravidla dynamické skupiny v adresáři, abyste zjistili, zda by změna aktivovat libovolnou skupinu přidá nebo odebere. Pokud na uživatele nebo zařízení splňuje pravidlo ve skupině, přidají se jako člena této skupiny. Pokud se už splňovat pravidla, se odeberou.
 
 > [!NOTE]
-> - Pravidlo pro dynamické členství můžete nastavit pro skupiny zabezpečení nebo pro skupiny Office 365.
+> Pravidlo pro dynamické členství můžete nastavit pro skupiny zabezpečení nebo pro skupiny Office 365.
 >
-> - Tato funkce vyžaduje pro každého člena uživatel přidán do alespoň jednu skupinu dynamické licenci Azure AD Premium P1. Není to povinné ve skutečnosti přiřaďte licence uživatelům pro ně mají být členy v dynamických skupin, ale musíte mít minimální počet licencí v klientovi nepokrývají všechny tyto uživatele. Například: Pokud máte celkem 1 000 jedinečných uživatelů, kteří ve všech dynamických skupin ve vašem klientovi, musíte mít alespoň 1 000 licencí pro Azure AD Premium P1 nebo vyšší, aby splňovala požadavky licence.
+> Tato funkce vyžaduje pro každého člena uživatel přidán do alespoň jednu skupinu dynamické licenci Azure AD Premium P1. Není to povinné ve skutečnosti přiřaďte licence uživatelům pro ně mají být členy v dynamických skupin, ale musíte mít minimální počet licencí v klientovi nepokrývají všechny tyto uživatele. Například: Pokud máte celkem 1 000 jedinečných uživatelů, kteří ve všech dynamických skupin ve vašem klientovi, musíte mít alespoň 1 000 licencí pro Azure AD Premium P1 nebo vyšší, aby splňovala požadavky licence.
 >
-> - Můžete vytvořit skupinu dynamické pro zařízení nebo uživatelů, ale nelze vytvořit pravidlo, které obsahuje uživatele a zařízení.
-
-> - V tuto chvíli není možné vytvořit skupinu zařízení podle vlastnící atributy uživatele. Pravidla členství zařízení může odkazovat pouze na okamžitou atributy zařízení objektů v adresáři.
+> Můžete vytvořit skupinu dynamické pro zařízení nebo uživatelů, ale nelze vytvořit pravidlo, které obsahuje uživatele a zařízení.
+> 
+> V tuto chvíli není možné vytvořit skupinu zařízení na základě atributů vlastnícím uživatele. Pravidla členství zařízení může odkazovat pouze na okamžitou atributy zařízení objektů v adresáři.
 
 ## <a name="to-create-an-advanced-rule"></a>Vytvoření pokročilé pravidla
 1. Přihlaste se k [centra pro správu Azure AD](https://aad.portal.azure.com) pomocí účtu, který je globální správce nebo správce účtu uživatele.
@@ -293,7 +293,7 @@ Můžete také vytvořit pravidlo, které vybere objekty zařízení pro členst
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Změna dynamické členství na statické a naopak
 Je možné změnit, jak se spravuje členství ve skupině. To je užitečné, pokud chcete zachovat stejný název skupiny a ID v systému, takže všechny existující odkazy na skupiny musí být stále platné; Vytvoření nové skupiny by vyžadovaly aktualizace tyto odkazy.
 
-Probíhá aktualizace portál Azure pro tuto funkci podporují. Do té doby, můžete použít [portál Azure classic](https://manage.windowsazure.com) (postupujte podle pokynů [sem](active-directory-groups-dynamic-membership-azure-portal.md)) nebo pomocí rutin prostředí PowerShell, jak je uvedeno níže.
+Probíhá aktualizace portál Azure pro tuto funkci podporují. Do té doby můžete použít rutiny prostředí PowerShell, jak je uvedeno níže.
 
 > [!WARNING]
 > Při změně existující statická skupina pro skupinu dynamické, všechny stávající členy se odeberou ze skupiny, a pak se zpracují pravidlo členství pro přidání nové členy. Pokud skupině se používá k řízení přístupu k aplikacím nebo prostředkům, původní členy může ztratit přístup, dokud plně zpracování pravidla členství se.
@@ -303,7 +303,7 @@ Probíhá aktualizace portál Azure pro tuto funkci podporují. Do té doby, mů
 **Chcete-li změnit správy členství ve skupině pomocí prostředí PowerShell**
 
 > [!NOTE]
-> Chcete-li změnit vlastnosti dynamické skupiny budete muset použít rutiny z **verze preview** [Azure AD PowerShell verze 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Můžete nainstalovat ve verzi preview z [zde](https://www.powershellgallery.com/packages/AzureADPreview).
+> Chcete-li změnit vlastnosti dynamické skupiny budete muset použít rutiny z **verze preview** [Azure AD PowerShell verze 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Můžete nainstalovat ve verzi preview z [zde](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Tady je příklad funkcí, které přepínač na existující skupinu pro správu členství. Všimněte si, pozor správně pracovat s vlastnost GroupTypes a zároveň zachovat všechny hodnoty, které mohou existovat existuje, který nesouvisí se dynamické členství.
 

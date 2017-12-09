@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: Časté otázky (FAQ)
 Tento článek obsahuje nejčastější dotazy týkající se Azure Site Recovery. Pokud po přečtení tohoto článku máte dotazy, odešlete je na [fóru Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -88,7 +88,7 @@ Site Recovery je ISO 27001: 2013, 27018, HIPAA, DPA certifikaci a probíhá vyho
 Ano. Když vytvoříte trezor Site Recovery v oblasti, je zajištěno, že všechna metadata, která potřebujeme k umožnění a orchestraci replikace a převzetí služeb při selhání zůstávají uvnitř této oblasti je geografické hranice.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Šifruje Site Recovery replikaci?
-Pro virtuální počítače a fyzické servery je podporováno replikaci mezi místními lokalitami šifrování během přenosu. Pro virtuální počítače a fyzické servery replikující se do Azure, jak šifrování během přenosu a [šifrování na rest (v Azure)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) jsou podporovány.
+Pro virtuální počítače a fyzické servery je podporováno replikaci mezi místními lokalitami šifrování během přenosu. Pro virtuální počítače a fyzické servery replikující se do Azure, jak šifrování během přenosu a [šifrování na rest (v Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) jsou podporovány.
 
 ## <a name="replication"></a>Replikace
 

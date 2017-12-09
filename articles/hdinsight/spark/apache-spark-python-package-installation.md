@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: nitinme
-ms.openlocfilehash: ab1d48188d4e0ef1274eb175b49bafd1d63b8480
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: c2921c6d7a0f46322fc4e0b3c84b743ee98e4a4d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Použití akce skriptu k instalaci externích balíčků Python pro poznámkové bloky Jupyter v clusterech Apache Spark v HDInsight
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Musíte mít následující:
 * Cluster Apache Spark v HDInsight. Pokyny najdete v tématu [clusterů vytvořit Apache Spark v Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
    > [!NOTE]
-   > Pokud už cluster Spark na HDInsight Linux nemáte, můžete spustit skript akce při vytváření clusteru. Najdete v dokumentaci na [postup použít vlastní skript akce](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+   > Pokud už cluster Spark na HDInsight Linux nemáte, můžete spustit skript akce při vytváření clusteru. Najdete v dokumentaci na [postup použít vlastní skript akce](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
    > 
    > 
 
@@ -55,7 +55,7 @@ Musíte mít následující:
 
 1. Z [Portálu Azure](https://portal.azure.com/) z úvodního panelu klikněte na dlaždici pro váš cluster Spark (pokud je připnutý na úvodní panel). Můžete také přejít na cluster pod položkou **Procházet vše** > **Clustery HDInsight**.   
 
-2. Z okna clusteru Spark klikněte na tlačítko **akcí skriptů** v levém podokně. Spuštění vlastní akce, který se instaluje TensorFlow head uzlů a uzly pracovního procesu. Skript bash lze odkazovat z: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh najdete v dokumentaci na [postup použít vlastní skript akce](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. Z okna clusteru Spark klikněte na tlačítko **akcí skriptů** v levém podokně. Spuštění vlastní akce, který se instaluje TensorFlow head uzlů a uzly pracovního procesu. Skript bash lze odkazovat z: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh najdete v dokumentaci na [postup použít vlastní skript akce](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
    > Existují dvě python instalace v clusteru. Spark použije instalace python Anaconda nacházející se v `/usr/bin/anaconda/bin`. Referenční instalaci ve vaší vlastní akce prostřednictvím `/usr/bin/anaconda/bin/pip` a `/usr/bin/anaconda/bin/conda`.

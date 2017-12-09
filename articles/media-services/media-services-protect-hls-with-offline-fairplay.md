@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf5828ecd6b6bd2e862c4d7709014ecac47c6be0
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="offline-fairplay-streaming"></a>Offline FairPlay streamování
 Microsoft Azure Media Services poskytuje sadu dobře navrženou [obsahu služby ochrany](https://azure.microsoft.com/services/media-services/content-protection/), o:
@@ -189,7 +189,7 @@ Některé nejčastější dotazy pro řešení potíží:
 - **Co poslední parametr stanoven v následující rozhraní API pro offline režim FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-Naleznete v dokumentaci pro toto rozhraní API [zde](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Parametr představuje dobu trvání offline pronájem s hodinu v podobě jednotka.
+Naleznete v dokumentaci pro toto rozhraní API [zde](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Parametr představuje dobu trvání offline pronájem s hodinu v podobě jednotka.
 - **Co je strukturu stáhnout offline souborů na zařízeních s iOS?** Struktura stažený soubor na zařízení s iOS vypadá níže (snímek). `_keys`Složka úložiště stáhli FPS licence soubor jedno úložiště pro každého hostitele licence služby. `.movpkg`složka obsahuje audio a video obsahu. První složka s názvem s pomlčkou následuje jednu číslici obsahuje obsahu videa. Číselná hodnota je "PeakBandwidth" videa interpretace. Druhý složka s názvem s pomlčkou následuje 0 obsahuje zvukového obsahu. Třetí složku s názvem "Data" obsahuje hlavní seznam stop FPS obsahu. Boot.XML poskytuje úplný popis `.movpkg` obsah složky (dole najdete ukázkový soubor boot.xml).
 
 ![Offline FairPlay iOS strukturu souborů ukázkové aplikace](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

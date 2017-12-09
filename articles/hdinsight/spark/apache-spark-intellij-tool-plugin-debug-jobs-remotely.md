@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a87f1c6ba82edc0a762d9e02542a7756383ed82
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 3a673d2ad58f85f5437c378a1d05aa4963893df1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Ladění aplikací Spark v HDInsight prostřednictvím sítě VPN vzdáleně pomocí nástrojů Azure pro IntelliJ
 
-Doporučujeme, abyste ladění aplikací spark vzdáleně přes SSH. Pokyny najdete v tématu [vzdálené ladění aplikací Spark v clusteru HDInsight pomocí sady Azure Toolkit pro IntelliJ prostřednictvím SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Doporučujeme, abyste ladění aplikací spark vzdáleně přes SSH. Pokyny najdete v tématu [vzdálené ladění aplikací Spark v clusteru HDInsight pomocí sady Azure Toolkit pro IntelliJ prostřednictvím SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 Tento článek obsahuje podrobné pokyny o tom, jak používat nástroje HDInsight v Azure nástrojů pro IntelliJ odeslat úlohu Spark v HDInsight Spark clusteru a pak ho vzdáleně ladit ze stolního počítače. K dokončení těchto úloh, je nutné provést následující postup vysoké úrovně:
 

@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 3183c61323b1b9ce22b0b64d9021f683b2276d9d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Připojit nebo odpojit datový disk k virtuálnímu počítači v Azure DevTest Labs
-[Disky systému Azure spravované](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) spravuje účty úložiště přidružené ke datových disků virtuálního počítače. Uživatel připojí, nová data na disku k virtuálnímu počítači, určuje typ a velikost disku, který je potřeba, a Azure vytváří a spravuje disku automaticky. Z virtuálního počítače lze poté odpojit datový disk a buď znovu připojit později na stejný virtuální počítač nebo připojené k jiné virtuální počítač, který patří do stejného uživatele.
+[Disky systému Azure spravované](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) spravuje účty úložiště přidružené ke datových disků virtuálního počítače. Uživatel připojí, nová data na disku k virtuálnímu počítači, určuje typ a velikost disku, který je potřeba, a Azure vytváří a spravuje disku automaticky. Z virtuálního počítače lze poté odpojit datový disk a buď znovu připojit později na stejný virtuální počítač nebo připojené k jiné virtuální počítač, který patří do stejného uživatele.
 
 Tato funkce je užitečný pro správu úložiště nebo softwaru mimo každý jednotlivý virtuální počítač. Pokud úložiště nebo softwaru již existuje v rámci datový disk, ho můžete být snadno připojit, odpojit a znovu připojit k žádné virtuální počítače, který je vlastněn uživatele, který vlastní tento datový disk.
 
 ## <a name="attach-a-data-disk"></a>Připojení datového disku
 Než můžete připojit datový disk k virtuálnímu počítači, projděte si tyto tipy:
 
-- Velikost virtuálního počítače určuje, kolik datových disků můžete připojit. Podrobnosti najdete v tématu [velikosti virtuálních počítačů](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+- Velikost virtuálního počítače určuje, kolik datových disků můžete připojit. Podrobnosti najdete v tématu [velikosti virtuálních počítačů](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 - Je možné ještě připojit datový disk k virtuálnímu počítači se systémem. Zkontrolujte, zda že je virtuální počítač spuštěný, než se pokusíte připojit datový disk.
 
 ### <a name="attach-a-new-disk"></a>Připojit nový disk

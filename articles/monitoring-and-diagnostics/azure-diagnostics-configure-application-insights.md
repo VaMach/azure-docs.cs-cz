@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 67dc2d5bbfa2012e4e098616edda593d023c4c1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7dd8c6e1fbfba2587aadb3410c3a769b57e06001
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Posílat diagnostická data Cloudová služba, virtuální počítač nebo Service Fabric Application insights
 Cloudové služby, virtuální počítače sady škálování virtuálního počítače a Service Fabric všechny použít ke shromažďování dat rozšíření Azure Diagnostics.  Azure diagnostics odesílá data do tabulky služby Azure Storage.  Můžete však také všechny kanálu nebo podmnožinu dat do jiných umístění pomocí rozšíření Azure Diagnostics 1.5 nebo novější.
@@ -220,6 +220,6 @@ Následující řádky v předchozí konfiguraci, mají následující významy:
 - **Nelze odeslat data objektu blob shromážděné rozšíření Azure diagnostics Application Insights.** Například nic zadané v položce *adresáře* uzlu. Pro výpisů stavu systému je odeslána úložiště objektů blob skutečný stav systému a pouze oznámení, že byl vygenerován stav systému jsou odeslána do Application Insights.
 
 ## <a name="next-steps"></a>Další kroky
-* Zjistěte, jak [zobrazit informace o Azure diagnostics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) ve službě Application Insights.
+* Zjistěte, jak [zobrazit informace o Azure diagnostics](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) ve službě Application Insights.
 * Použití [prostředí PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) povolit rozšíření Azure diagnostics pro vaši aplikaci.
 * Použití [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) povolit rozšíření Azure diagnostics pro vaši aplikaci

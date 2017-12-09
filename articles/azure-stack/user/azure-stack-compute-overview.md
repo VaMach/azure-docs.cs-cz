@@ -7,11 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Úvod do Azure zásobníku virtuálních počítačů
 
@@ -121,8 +121,8 @@ Následující tabulka ukazuje některé způsoby, které můžete získat infor
 |Metoda|Popis|
 |---------|---------|
 |Portál Azure zásobníku|V nabídce centra klikněte na virtuální počítače a potom vyberte virtuální počítač ze seznamu. Na stránce pro virtuální počítač máte přístup k přehled informací, monitorování metriky a nastavení hodnoty.|
-|Azure PowerShell|Správa virtuálních počítačů je podobný v Azure a Azure zásobníku. Další informace o použití prostředí PowerShell najdete v následujícím tématu Azure:<br>[Vytvoření a správa virtuálních počítačů Windows s modulu Azure PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Klientské sady SDK|Použití jazyka C# ke správě virtuálních počítačů je podobný v Azure a Azure zásobníku. Další informace najdete v následujícím tématu Azure:<br>[Vytvářet a spravovat virtuální počítače Windows v Azure pomocí jazyka C#](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Správa virtuálních počítačů je podobný v Azure a Azure zásobníku. Další informace o použití prostředí PowerShell najdete v následujícím tématu Azure:<br>[Vytvoření a správa virtuálních počítačů Windows s modulu Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Klientské sady SDK|Použití jazyka C# ke správě virtuálních počítačů je podobný v Azure a Azure zásobníku. Další informace najdete v následujícím tématu Azure:<br>[Vytvářet a spravovat virtuální počítače Windows v Azure pomocí jazyka C#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-the-vm"></a>Připojení k virtuálnímu počítači
 

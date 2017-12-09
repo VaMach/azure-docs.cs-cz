@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Požadavky nasazení Azure Stack
 
@@ -176,7 +176,7 @@ Konfigurace systému SQL Server telemetrie najdete v tématu [jak nakonfigurovat
 
 Prostřednictvím registrace zásobník Azure nastaven také na informace o využití dopředného do Azure. Vytváření sestav využití je řízena nezávisle z telemetrie. Můžete vypnout využití sestav při [registrace](azure-stack-register.md) pomocí skriptu na Githubu. Stačí nastavit **$reportUsage** parametru **$false**.
 
-Data o využití je naformátován jako podrobné v [zásobník Azure sestavy využití dat do Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Ve skutečnosti není účtován Azure uživatelé Development Kit zásobníku. Tato funkce je zahrnutá v sadě pro vývoj, mohli otestovat a zkontrolujte, jak funguje generování sestav o využívání. 
+Data o využití je naformátován jako podrobné v [zásobník Azure sestavy využití dat do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). Ve skutečnosti není účtován Azure uživatelé Development Kit zásobníku. Tato funkce je zahrnutá v sadě pro vývoj, mohli otestovat a zkontrolujte, jak funguje generování sestav o využívání. 
 
 
 ## <a name="next-steps"></a>Další kroky

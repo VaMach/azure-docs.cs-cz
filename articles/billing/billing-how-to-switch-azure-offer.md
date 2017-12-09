@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 48f5f4db60c104778a6c391d254e0bc0c4c95cee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Změna předplatného Azure průběžné platby na jinou nabídku
 
@@ -105,7 +105,7 @@ V den, kdy jste přešli je vygenerována faktura pro všechny nezaplacených po
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Můžete migrovat z průběžné platby k [poskytovatele Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) nebo [smlouva Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Chcete-li migrovat do CSP, přečtěte si téma [migrace předplatného Azure Pa-jako-vám-přejděte k CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Chcete-li migrovat do CSP, přečtěte si téma [migrace předplatného Azure Pa-jako-vám-přejděte k CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Pokud chcete migrovat do EA, mohl váš správce pro zápis do EA přidejte svůj účet. Postupujte podle pokynů v e-mailová pozvánka tak, aby měl vašich předplatných přesunout pod EA registrace. Další informace najdete v tématu [přidružit existující účet](https://ea.azure.com/helpdocs/associateExistingAccount) EA portálu.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Můžete migrovat data a služby do nového předplatného?

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d1e0a112040f6aa4cfa9e8c323507b1c0a223f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9bcd7c099bb46795f6f33c073261c0b949ff536a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publikovat obsah Azure Media Services pomocí REST
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Přehled
-Můžete datového proudu s adaptivní přenosovou rychlostí sady souborů MP4 vytvořením Lokátor streamování OnDemand a vytvoření adresy URL streamování. [Kódování prostředek](media-services-rest-encode-asset.md) téma ukazuje, jak ke kódování do sady souborů MP4 adaptivní přenosovou rychlostí. Pokud váš obsah je zašifrován, konfigurace zásad doručení assetu (jak je popsáno v [to](media-services-rest-configure-asset-delivery-policy.md) tématu) před vytvořením lokátoru. 
+Můžete datového proudu s adaptivní přenosovou rychlostí sady souborů MP4 vytvořením Lokátor streamování OnDemand a vytvoření adresy URL streamování. [Kódování prostředek](media-services-rest-encode-asset.md) článek ukazuje, jak zakódovat do sady souborů MP4 adaptivní přenosovou rychlostí. Pokud váš obsah je zašifrován, konfigurace zásad doručení assetu (jak je popsáno v [to](media-services-rest-configure-asset-delivery-policy.md) článek) před vytvořením lokátoru. 
 
 Lokátor streamování OnDemand. můžete také použít k vytvoření adresy URL, které odkazují na soubory MP4, které lze progresivně stáhnout.  
 
-Toto téma ukazuje, jak vytvořit lokátor, aby bylo možné publikování asset a vytvoření Smooth, MPEG DASH a adresy URL streamování HLS streamování OnDemand. Také ukazuje aktivní pro vytvoření adres URL progresivního stahování.
+Tento článek ukazuje, jak vytvořit lokátor, aby bylo možné publikování asset a vytvoření Smooth, MPEG DASH a adresy URL streamování HLS streamování OnDemand. Také ukazuje aktivní pro vytvoření adres URL progresivního stahování.
 
 [Následující](#types) část ukazuje typy výčtu, jejichž hodnoty se používají ve voláních REST.   
 
@@ -49,7 +49,7 @@ Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přís
 >Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Vytvořit lokátor streamování OnDemand.
-Vytvořit lokátor streamování OnDemand a získání adres URL musíte udělat následující:
+Pokud chcete vytvořit lokátor streamování OnDemand a získání adres URL, musíte udělat následující:
 
 1. Pokud je obsah šifrovat, definujte zásady přístupu.
 2. Vytvořte Lokátor streamování OnDemand.
@@ -57,12 +57,12 @@ Vytvořit lokátor streamování OnDemand a získání adres URL musíte udělat
    
    Pokud budete chtít progresivně stahovat, získáte názvy soubory MP4 v prostředku. 
 4. Sestavení adresy URL k souboru manifestu nebo soubory MP4. 
-5. Všimněte si, že nemůžete vytvořit lokátor streamování pomocí AccessPolicy, která zahrnuje zapsat nebo odstranit oprávnění.
+5. Nelze vytvořit lokátor streamování pomocí AccessPolicy, která zahrnuje zápisu nebo odstraňte oprávnění.
 
 ### <a name="create-an-access-policy"></a>Vytvoření zásad přístupu
 
 >[!NOTE]
->Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) tématu.
+>Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Stejné ID zásady použijte, pokud vždy používají stejné dny / přístupová oprávnění, například zásady pro lokátory, které jsou určeny k zůstat na místě po dlouhou dobu (bez odeslání zásady). Další informace najdete v tématu [to](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
 
 Žádost:
 
@@ -73,7 +73,7 @@ Vytvořit lokátor streamování OnDemand a získání adres URL musíte udělat
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
     Host: media.windows.net
     Content-Length: 68
@@ -111,7 +111,7 @@ Vytvořte Lokátor pro daný prostředek a zásady assetu.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
     Host: media.windows.net
     Content-Length: 181

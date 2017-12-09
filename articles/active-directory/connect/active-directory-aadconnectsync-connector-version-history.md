@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 6699f19f0dbd20ca4bafba16b16b006bb03ec405
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connector-version-release-history"></a>Historie vydaných verzí konektoru
 Konektory pro Forefront Identity Manager (FIM) a Microsoft Identity Manager (MIM) jsou často aktualizuje.
@@ -44,7 +44,7 @@ Související odkazy:
 
 * Lotus Notes:
   * Filtrování vlastní udělení licence certifikátorům možnost
-  * Importovat třídy ImportOperations byla opravena definice jaké operace můžete spouštět v režimu, zobrazení a který v režimu "Search".
+  * Importovat třídy ImportOperations pevné definice jaké operace můžete spouštět v režimu, zobrazení a který v režimu "Search".
 * Obecné LDAP:
   * Adresář OpenLDAP používá jako ukotvení spíše než entryUUI rozlišující název. Nová možnost GLDAP konektor, který umožňuje změnit ukotvení
 * Obecné SQL:
@@ -70,7 +70,7 @@ Související odkazy:
 * Obecné webové služby:
   * Byl opraven problém brání vytváří při nebyly k dispozici dva nebo víc koncových bodů protokolu SOAP projektu.
 * Obecné SQL:
-  * Operace importu GSQL nebyl konvertování času správně, když se uloží do prostoru konektoru. Výchozí formát data a času pro konektor místa GSQL byl změněn z "rrrr MM-dd: ssZ" na "rrrr MM-dd: ssZ..
+  * Operace importu GSQL nebyl konvertování času správně, když se uloží do prostoru konektoru. Výchozí formát data a času pro konektor místa GSQL byl změněn z "rrrr MM-dd: ssZ" na "rrrr MM-dd: ssZ.
 
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 

@@ -101,7 +101,6 @@
 
 ## Správa aplikací
 ### [Přehled](service-fabric-application-lifecycle.md)
-### [Nastavení ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Upgrade aplikací
 #### [Přehled](service-fabric-application-upgrade.md)
 #### [Konfigurace](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [Serializace dat v upgradech aplikací](service-fabric-application-upgrade-data-serialization.md)
 #### [Pokročilá témata týkající se upgradů aplikací](service-fabric-application-upgrade-advanced.md)
 ### [Přehled analýzy chyb](service-fabric-testability-overview.md)
+### [Nastavení ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
 ## Vytvoření a správa clusterů
 ### [Přehled](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [Omezování](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Přesun služeb](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [Integrace se službou API Management](service-fabric-api-management-overview.md)
-
 ## Monitorování a diagnóza
 ### [Monitorování a diagnostika aplikací](service-fabric-diagnostics-overview.md)
 ### Generování událostí
@@ -164,13 +162,14 @@
 #### [Analýza událostí s využitím OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Řešení potíží s místním clusterem](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Integrace se službou API Management](service-fabric-api-management-overview.md)
+
 # Návody
 ## Nastavení vývojového prostředí
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Nastavení rozhraní příkazového řádku Service Fabric](service-fabric-cli.md)
+### [Nastavení rozhraní příkazového řádku Service Fabric](service-fabric-cli.md)
 
 ## Sestavení aplikace
 ### [Vytvoření první aplikace C# v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

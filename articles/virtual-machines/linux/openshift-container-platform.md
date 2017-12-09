@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: 81d1e2a92a24d43c6324b4fe026680c379e656da
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Nasazení OpenShift kontejneru platformy v Azure
 
@@ -138,7 +138,7 @@ Nahraďte položky v závorkách s konkrétní informace.
 ### <a name="deploy-by-using-azure-cli"></a>Nasazení pomocí rozhraní příkazového řádku Azure
 
 > [!NOTE] 
-> Tento příkaz vyžaduje rozhraní příkazového řádku Azure 2.0.8 nebo novější. Verze rozhraní příkazového řádku s můžete ověřit `az --version` příkaz. K aktualizaci verze rozhraní příkazového řádku, najdete v části [nainstalovat Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> Tento příkaz vyžaduje rozhraní příkazového řádku Azure 2.0.8 nebo novější. Verze rozhraní příkazového řádku s můžete ověřit `az --version` příkaz. K aktualizaci verze rozhraní příkazového řádku, najdete v části [nainstalovat Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 Následující příklad nasadí do skupiny prostředků s názvem myResourceGroup, s názvem nasazení myOpenShiftCluster OpenShift clusteru a všechny související prostředky. Šablona se odkazuje přímo z úložiště GitHub a místní parametrů, které se používá soubor s názvem azuredeploy.parameters.json souboru.
 

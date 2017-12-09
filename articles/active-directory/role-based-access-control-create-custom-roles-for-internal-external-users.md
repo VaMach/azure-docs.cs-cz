@@ -1,24 +1,26 @@
 ---
-title: "Vytvořte vlastní role řízení přístupu na základě Role a přiřaďte interních a externích uživatelů v Azure | Microsoft Docs"
+title: "Vytvořit vlastní přístupu na základě rolí role řízení a přiřadit uživatelům interních a externích v Azure | Microsoft Docs"
 description: "Přiřadit vlastní role RBAC vytvořené pomocí prostředí PowerShell a rozhraní příkazového řádku pro interních a externích uživatelů"
 services: active-directory
 documentationcenter: 
 author: andreicradu
 manager: catadinu
-editor: kgremban
+editor: 
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 12/06/2017
 ms.author: a-crradu
-ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.reviewer: skwan
+ms.custom: it-pro
+ms.openlocfilehash: 595d9de5c3a6e9943f158ae1f21c57ea6e1e81e1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="intro-on-role-based-access-control"></a>Úvod na řízení přístupu na základě rolí
 
@@ -35,7 +37,7 @@ Používání RBAC v prostředí Azure vyžaduje:
 * Zajistěte si následující zprostředkovatelé prostředků zaregistrovat pro předplatné uživatele: **Microsoft.Authorization**. Další informace o postupu při registraci zprostředkovatele prostředků najdete v tématu [zprostředkovatelé Resource Manager, oblastí, verzí rozhraní API a schémat](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Předplatná Office 365 nebo Azure Active Directory licence (například: přístup k Azure Active Directory) zajištěného z O365 portál nemáte kvalifikaci pro pomocí RBAC.
+> Předplatná Office 365 nebo Azure Active Directory licence (například: přístup k Azure Active Directory) zajištěného z správu Office 365 není pro použití RBAC kvalifikaci center.
 
 ## <a name="how-can-rbac-be-used"></a>RBAC použití
 RBAC lze použít na tři různé rozsahy v Azure. Z oboru nejvyšší nejnižší tomu, že jsou následující:
@@ -102,7 +104,7 @@ Probíhá mimo organizaci, nový uživatel nemá žádné existující atributy 
 
 ![e-mailové zprávě pozvánky pro RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-Zobrazuje externí uživatel v klientovi Azure Active Directory od této chvíle jako externí uživatel a tato lze zobrazit na portálu Azure i na portálu classic.
+Zobrazuje externí uživatel v klientovi Azure Active Directory od této chvíle jako externí uživatel a tato lze zobrazit na portálu Azure.
 
 
 
@@ -112,14 +114,7 @@ Zobrazuje externí uživatel v klientovi Azure Active Directory od této chvíle
 
 
 
-
-
-![uživatelé okno azure active directory portálu Azure classic](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
-
-V **uživatelé** zobrazení v obou portálů rozpoznal externí uživatele:
-
-* Typ vlastní ikonu na portálu Azure
-* Jiné zdrojové bod v portálu classic
+V **uživatelé** zobrazení, externí uživatele umožňuje rozpoznat typ vlastní ikonu na portálu Azure.
 
 Ale udělení **vlastníka** nebo **Přispěvatel** přístup k externím uživatelem v **předplatné** obor, neumožňuje přístup k adresáři uživatele správce, pokud **Globálního správce** to umožňuje. Ve vlastnosti uživatele **typ uživatele** jehož dvě společné parametry, **člen** a **hosta** lze identifikovat. Člen je uživatel, která je registrována v adresáři, zatímco hosta je uživatel vyzván k adresáři z externího zdroje. Další informace najdete v tématu [jak správci Azure Active Directory přidat uživatele spolupráce B2B](active-directory-b2b-admin-add-users.md).
 
@@ -145,9 +140,6 @@ Přiřazení předdefinované role RBAC **Přispěvatel virtuálních počítač
 * Nelze zobrazit u jiných typů prostředků v předplatném
 * Všechny změny z hlediska fakturační nemůže pracovat.
 
-> [!NOTE]
-> RBAC se portálu Azure pouze funkce, se nebude udělit přístup k portálu classic.
-
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Předdefinovaná role RBAC přiřadit externího uživatele
 Pro různé scénáře v tomto testu, externí uživatele "alflanigan@gmail.com" se přidá jako **Přispěvatel virtuálních počítačů**.
 
@@ -156,9 +148,7 @@ Pro různé scénáře v tomto testu, externí uživatele "alflanigan@gmail.com"
 
 ![předdefinované role Přispěvatel virtuálního počítače](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Normální chování pro tento externí uživatele s tato předdefinovaná role je chcete zobrazit a spravovat pouze virtuální počítače a jejich přiléhající Resource Manager pouze prostředky potřebné při nasazování. Podle návrhu, nabízí tyto role omezený přístup jenom k jejich příslušné prostředky, které jsou vytvořené na portálu Azure, bez ohledu na to některé můžete stále nasadit na klasickém portálu (například: virtuální počítače).
-
-
+Normální chování pro tento externí uživatele s tato předdefinovaná role je chcete zobrazit a spravovat pouze virtuální počítače a jejich přiléhající Resource Manager pouze prostředky potřebné při nasazování. Návrh nabízí tyto role omezený přístup jenom k jejich příslušné prostředky, které jsou vytvořené na portálu Azure.
 
 
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 8a31ed948fe9387720db61018e0edded530cd900
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migrace databáze systému SQL Server do služby SQL Database v cloudu
 V tomto článku se dozvíte o dvou základních způsobech migrace databáze SQL Serveru 2005 nebo novější do služby Azure SQL Database. První způsob je jednodušší, ale vyžaduje nějaké, potenciálně dlouhé, prostoje během migrace. Druhý způsob je složitější, ale podstatným způsobem eliminuje prostoje během migrace.
@@ -39,11 +39,11 @@ Následující seznam obsahuje obecný pracovní postup pro migraci databáze SQ
 
   ![Diagram migrace VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Vyhodnocení](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) databázi pro kompatibilitu s použitím nejnovější verzi [Pomocníka pro migraci dat (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Vyhodnocení](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) databázi pro kompatibilitu s použitím nejnovější verzi [Pomocníka pro migraci dat (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Příprava všech nezbytných oprav ve formě skriptů Transact-SQL.
 3. Vytvořit kopii zdrojové databáze stavu transakční konzistence migrovaného - a ujistěte se, které jsou právě provedeny žádné další změny zdrojové databáze (nebo můžete ručně provést tyto změny po dokončení migrace). Existuje spousta metod uvedení databáze do nečinnosti od zakázání připojení klientů po vytvoření [snímku databáze](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Nasazení skriptů Transact-SQL a aplikování oprav na kopii databáze.
-5. [Migrace](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) pro novou databázi SQL Azure pomocí Pomocníka pro migraci dat kopie databáze.
+5. [Migrace](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) pro novou databázi SQL Azure pomocí Pomocníka pro migraci dat kopie databáze.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimalizace výkonu přenosu dat během migrace 
 

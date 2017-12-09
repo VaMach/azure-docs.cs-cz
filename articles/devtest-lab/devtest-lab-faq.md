@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
-ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a5e686a7f60b15b55d8f4365b73c71de02c4bad
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-devtest-labs-faq"></a>Nejčastější dotazy k Azure DevTest Labs
 Získejte odpovědi na některé nejčastější dotazy o Azure DevTest Labs.
@@ -226,11 +226,11 @@ Jednou z možností je, že název virtuální sítě obsahuje tečky. Pokud ano
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Proč se při můžu zřídit virtuální počítač z prostředí PowerShell zobrazí chyba "Nebyl nalezen nadřazený prostředek"?
 Pokud jeden prostředek je nadřazený na jiný prostředek, nadřazený prostředek musí existovat před vytvořením podřízené prostředků. Pokud nadřazený prostředek neexistuje, zobrazí **ParentResourceNotFound** zprávy. Pokud nezadáte závislost na nadřazeném prostředku, před nadřazený může být nasazený podřízených prostředků.
 
-Virtuální počítače jsou podřízené prostředky v testovacím prostředí ve skupině prostředků. Při použití šablony Resource Manageru k nasazení virtuálních počítačů pomocí prostředí PowerShell, název skupiny prostředků uvedené v skriptu prostředí PowerShell by měl být název skupiny prostředků v prostředí. Další informace najdete v tématu [odstraňování běžných chyb nasazení Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Virtuální počítače jsou podřízené prostředky v testovacím prostředí ve skupině prostředků. Při použití šablony Resource Manageru k nasazení virtuálních počítačů pomocí prostředí PowerShell, název skupiny prostředků uvedené v skriptu prostředí PowerShell by měl být název skupiny prostředků v prostředí. Další informace najdete v tématu [odstraňování běžných chyb nasazení Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Kde můžete najít další informace o chybě, pokud se nezdaří nasazení virtuálního počítače?
 Chyby nasazení virtuálního počítače zachyceny v protokoly aktivity. Testovacího prostředí můžete najít protokoly aktivity virtuálních počítačů v rámci **protokoly auditu** nebo **diagnostiky virtuálního počítače** v nabídce prostředků v okně v prostředí virtuálního počítače (v okně se zobrazí po výběru virtuálního počítače z **Můj virtuální počítače** seznamu).
 
-V některých případech chyba nasazení se vyskytuje před začátkem nasazení virtuálního počítače. Příkladem je při překročení limitu předplatného pro prostředek, který byl vytvořen s virtuálním Počítačem. V takovém případě podrobnosti o chybě zachyceny v protokoly aktivity úrovni testovacího prostředí. Protokoly aktivity jsou umístěné v dolní části **konfiguraci a zásady** nastavení. Další informace o používání aktivita přihlásí Azure, najdete v části [zobrazit protokoly aktivity akce u prostředků](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+V některých případech chyba nasazení se vyskytuje před začátkem nasazení virtuálního počítače. Příkladem je při překročení limitu předplatného pro prostředek, který byl vytvořen s virtuálním Počítačem. V takovém případě podrobnosti o chybě zachyceny v protokoly aktivity úrovni testovacího prostředí. Protokoly aktivity jsou umístěné v dolní části **konfiguraci a zásady** nastavení. Další informace o používání aktivita přihlásí Azure, najdete v části [zobrazit protokoly aktivity akce u prostředků](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Přehled metriky v Microsoft Azure
 Tento článek popisuje, co metriky jsou ve službě Microsoft Azure jejich výhody a jak je začít používat.  
@@ -89,11 +89,11 @@ Monitorování Azure má také nové metriky grafů, prostředí, které jsou do
 ## <a name="access-metrics-via-the-rest-api"></a>Metriky přístup přes REST API
 Azure metriky je přístupný prostřednictvím rozhraní API Azure monitorování. Existují dvě rozhraní API, které vám pomohou zjistit a přístup k metriky:
 
-* Použití [Azure monitorování metrika definice rozhraní API REST](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) pro přístup k seznamu metriky a všechny dimenze, které jsou k dispozici pro službu.
-* Použití [REST API služby Azure monitorování metriky](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) segmentu, filtrovat a přístup k datům skutečné metriky.
+* Použití [Azure monitorování metrika definice rozhraní API REST](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) pro přístup k seznamu metriky a všechny dimenze, které jsou k dispozici pro službu.
+* Použití [REST API služby Azure monitorování metriky](https://docs.microsoft.com/rest/api/monitor/metrics) segmentu, filtrovat a přístup k datům skutečné metriky.
 
 > [!NOTE]
-> Tento článek se zabývá metriky prostřednictvím [nové rozhraní API pro metriky](https://docs.microsoft.com/en-us/rest/api/monitor/) pro prostředky Azure. Verze rozhraní API pro nové definice metrik a metriky rozhraní API je 2017-05-01-preview. Starší verze definice metrik a metriky můžete přistupovat pomocí rozhraní API verze 2014-04-01.
+> Tento článek se zabývá metriky prostřednictvím [nové rozhraní API pro metriky](https://docs.microsoft.com/rest/api/monitor/) pro prostředky Azure. Verze rozhraní API pro nové definice metrik a metriky rozhraní API je 2017-05-01-preview. Starší verze definice metrik a metriky můžete přistupovat pomocí rozhraní API verze 2014-04-01.
 >
 >
 

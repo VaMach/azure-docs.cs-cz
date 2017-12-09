@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Dokument ochranu osobních údajů v Azure, vytváření sestav nástroje
 
@@ -90,7 +90,7 @@ Přejděte [auditování Azure Active Directory referenční dokumentace rozhran
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Analýza protokolu](https://azure.microsoft.com/services/log-analytics/) můžete [shromažďování dat z Azure monitorování](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) korelující s jinými daty a poskytnout další analýzu. Azure monitorování shromažďuje a analyzuje data sledování prostředí Azure. 
+[Analýza protokolu](https://azure.microsoft.com/services/log-analytics/) můžete [shromažďování dat z Azure monitorování](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) korelující s jinými daty a poskytnout další analýzu. Azure monitorování shromažďuje a analyzuje data sledování prostředí Azure. 
 
 Nástrojů pro analýzu v analýzy protokolů například protokol hledání, zobrazení a řešení fungovat na všech shromážděná data vám poskytnou centralizované analýzu celé prostředí. Analýzy protokolů můžete agregovat a analyzovat protokoly událostí systému Windows, protokoly služby IIS a systémové protokoly, které lze zjistit potenciální narušení osobní údaje, které mohla vystavit osobních dat neautorizovaným uživatelům.
 

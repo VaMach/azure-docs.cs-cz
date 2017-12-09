@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 499ba030e9768b82dfdc01df416fc9c8fe3de37d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: de225fde09665f25b326f4012ff0452ab6cef83b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Kontrolní seznam zabezpečení Azure provozní
 Nasazení aplikace v Azure je rychlý, snadný a nákladově efektivní. Před nasazením cloudových aplikací v provozním prostředí, které jsou užitečné používat kontrolní seznam pro si udělali představu o vaší aplikace podle seznamu provozního zabezpečení důležité a doporučené akce je třeba zvážit.
@@ -52,6 +52,6 @@ Mnoho organizací mít úspěšně nasadit a provozovat jejich cloudových aplik
 ## <a name="next-steps"></a>Další kroky
 V tomto dokumentu jste se seznámili s řešením Zabezpečení a audit v OMS. Další informace o zabezpečení v OMS najdete v následujících článcích:
 
-- [Přehled Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview).
+- [Přehled Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Návrh a provozní zabezpečení](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Azure Security Center plánování a operace](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

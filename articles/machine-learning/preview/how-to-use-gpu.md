@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 4ef5c9ad58f86a669fc5c0bceb085ef2a266a008
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: ca4066396f71865626f4034e490bb069a5f7ddf6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Jak používat GPU v Azure Machine Learning
 Grafické zpracování jednotky (GPU) se často používá ke zpracování výpočetně náročné úlohy, které obvykle může dojít při tréninku určité modely hluboké neuronové sítě. Pomocí grafickými procesory, můžete zkrátit dobu školení modelů výrazně. V tomto dokumentu, zjistíte, jak nakonfigurovat Azure ML Workbench používat [DSVM (datové vědy virtuální počítač)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) vybaven grafickými procesory jako cíl provádění. 
@@ -67,7 +67,7 @@ Azure ML Workbench také podporují spouštění v Docker Linux virtuální poč
 Při výběru umístění pro virtuální počítač, Všimněte si, že virtuální grafický procesor počítače jsou k dispozici pouze v určité oblasti, například **jihu USA**. V tématu [výpočetní produkty podle oblasti](https://azure.microsoft.com/en-us/regions/services/).
 Kliknutím na tlačítko OK uložte **Základy** informace.
 
-6. Zvolte velikost virtuálního počítače. Vyberte jednu z velikosti předponu NC virtuálních počítačů, které jsou vybaveny čipy NVidia GPU.  Klikněte na tlačítko **Zobrazit vše** chcete zobrazit úplný seznam podle potřeby. Další informace o [vybavený GPU virtuálních počítačích Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+6. Zvolte velikost virtuálního počítače. Vyberte jednu z velikosti předponu NC virtuálních počítačů, které jsou vybaveny čipy NVidia GPU.  Klikněte na tlačítko **Zobrazit vše** chcete zobrazit úplný seznam podle potřeby. Další informace o [vybavený GPU virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 7. Dokončit zbývající nastavení a zkontrolovat informace o nákupu. Kliknutím na nákup vytvořte virtuální počítač. Poznamenejte si adresu IP přidělené k virtuálnímu počítači. 
 
@@ -119,7 +119,7 @@ dependencies:
     - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
-Můžete taky 1 bit SGD verzi sady Microsoft kognitivní nástrojů, které poskytuje vylepšení výkonu na virtuálních počítačích více grafickými procesory. Všimněte si [požadavek na licence pro verze 1-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
+Můžete taky 1 bit SGD verzi sady Microsoft kognitivní nástrojů, které poskytuje vylepšení výkonu na virtuálních počítačích více grafickými procesory. Všimněte si [požadavek na licence pro verze 1-SGD](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license).
 
 ```yaml
 name: project_environment

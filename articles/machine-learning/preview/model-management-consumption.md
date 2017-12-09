@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 39023712f72d5ac874de1f20a110bef9703ed5e8
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="consuming-web-services"></a>Využívání webových služeb
 Jakmile nasadíte model jako webovou službu v reálném čase, můžete odeslat data a získat předpovědi z mnoha různých platforem a aplikace. Webovou službu v reálném čase zpřístupňuje rozhraní REST API pro získání předpovědi. K webové službě ve formátu jednoho nebo více řádků získat jeden nebo více předpovědi v okamžiku může odesílat data.
 
-Pomocí [Azure Machine Learning webové služby](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy), externí aplikací synchronně komunikuje s prediktivního modelu tím, že volání HTTP POST na adresu URL služby. Chcete-li volání webové služby, klientská aplikace musí určovat klíč rozhraní API, která se vytvoří při nasazení předpovědi a ukládat data požadavku do textu požadavku POST.
+Pomocí [Azure Machine Learning webové služby](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), externí aplikací synchronně komunikuje s prediktivního modelu tím, že volání HTTP POST na adresu URL služby. Chcete-li volání webové služby, klientská aplikace musí určovat klíč rozhraní API, která se vytvoří při nasazení předpovědi a ukládat data požadavku do textu požadavku POST.
 
 Všimněte si, že klíče rozhraní API jsou k dispozici pouze v režimu nasazení clusteru. Místní webové služby není nutné klíče.
 

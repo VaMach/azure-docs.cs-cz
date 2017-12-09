@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: fboylu
-ms.openlocfilehash: aafa395f8c0593d9597f74cd5cd2a41f26897c6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cortana Intelligence řešení šablony scénářem pro prediktivní údržby v letecký a jiné firmy
 ## <a name="executive-summary"></a>Shrnutí
@@ -165,7 +165,7 @@ Je možné, obvykle případ selhání historie je součástí údržby historie
 
 Některé příklady výše datové prvky z případy použití jsou:
 
-Selhání historie: boje zpoždění data, letadla součást selhání data a typy, selhání transakce za stažení peněžních ATM, selhání dveře train nebo hodnocení, brzdy disku nahrazení pořadí data, větru turbína selhání data a jistič příkaz selhání.
+Selhání historie: letu zpoždění data, letadla součást selhání data a typy, selhání transakce za stažení peněžních ATM, selhání dveře train nebo hodnocení, brzdy disku nahrazení pořadí data, větru turbína selhání data a jistič příkaz selhání.
 
 Historie údržby: protokoly chyb letu, chyba ATM transakcích cvičení údržby záznamů, včetně typu údržby, krátký popis atd. a jistič údržby záznamy.
 
@@ -234,10 +234,10 @@ Poslední funkce tabulky po funkce technici kroky popsané v předchozí části
 | --- | --- | --- | --- |
 | 1 |1 den | | |
 | 1 |Den 2 | | |
-| Tlačítka ... |Tlačítka ... | | |
+| ... |... | | |
 | 2 |1 den | | |
 | 2 |Den 2 | | |
-| Tlačítka ... |Tlačítka ... | | |
+| ... |... | | |
 
 ## <a name="modeling-techniques"></a>Techniky modelování
 Prediktivní údržby je velmi bohaté doména často zaměstnávající obchodní otázky, které může použijí z mnoha různých úhlů prediktivního modelování perspektivy. V následujících částech poskytujeme hlavní techniky, které se používají k modelu různých obchodních otázek, které můžete zodpovězeny s řešení prediktivní údržby. I když existují podobnosti, každý model má svou vlastní způsob vytváření popisky, které jsou podrobně popsány. Jako prostředek doprovodné najdete šablona prediktivní údržby, který je součástí ukázkových experimentů uvedené v Azure Machine Learning. Odkazy na online materiálu pro tuto šablonu jsou uvedeny v části prostředky. Uvidíte, jak některé funkce engineering techniky popsané výše a modelování techniku, která je popsána v následujících částech jsou použity k předpovědi selhání motoru letadla pomocí Azure Machine Learning.

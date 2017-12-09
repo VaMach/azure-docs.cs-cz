@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 8ba153cf2775fe76c824e142ed9a181d0e956392
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Zabezpečení služby RESTful pomocí klientských certifikátů
 V souvisejícím článku jste [vytvoření RESTful služby](active-directory-b2c-custom-rest-api-netfw.md) který komunikuje se službou Azure Active Directory B2C (Azure AD B2C).
@@ -41,7 +41,7 @@ Tento článek podrobnosti o tom, jak:
 Nastavit **Azure App Service** vyžadování klientských certifikátů, nastavení webové aplikace `clientCertEnabled` lokality nastavení *true*. Chcete-li tuto změnu, musíte použít rozhraní REST API. Toto nastavení je k dispozici prostřednictvím prostředí pro správu na portálu Azure. Najít nastavení, v aplikaci RESTful **nastavení** nabídce v části **nástroje pro vývoj**, vyberte **Průzkumníka prostředků**.
 
 >[!NOTE]
->Ujistěte se, že plán služby Azure App Service je standardní nebo vyšší. Další informace najdete v tématu [podrobný přehled plánů služby Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Ujistěte se, že plán služby Azure App Service je standardní nebo vyšší. Další informace najdete v tématu [podrobný přehled plánů služby Azure App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 
 Použití [Průzkumníka prostředků Azure (Preview)](https://resources.azure.com) nastavit **clientCertEnabled** vlastnost *true*, jak je znázorněno na následujícím obrázku:
@@ -49,7 +49,7 @@ Použití [Průzkumníka prostředků Azure (Preview)](https://resources.azure.c
 ![Nastavení clientCertEnabled pomocí Průzkumníka prostředků Azure](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->Další informace o nastavení **clientCertEnabled** vlastnost, najdete v části [konfigurace TLS vzájemné ověřování pro webové aplikace](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Další informace o nastavení **clientCertEnabled** vlastnost, najdete v části [konfigurace TLS vzájemné ověřování pro webové aplikace](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 >[!TIP]
 >Aby bylo snazší vytvořit volání rozhraní REST API služby, případně můžete použít [ARMClient](https://github.com/projectkudu/ARMClient) nástroj.
@@ -165,7 +165,7 @@ Certifikát klienta, který Azure AD B2C odešle do služby RESTful nepodléhaj�
 V této části přidejte ukázkový kód ASP.NET, která ověřuje vlastnosti certifikátu pro účely ověření.
 
 > [!NOTE]
->Další informace o konfiguraci Azure App Service pro ověření certifikátu klienta najdete v tématu [konfigurace TLS vzájemné ověřování pro webové aplikace](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Další informace o konfiguraci Azure App Service pro ověření certifikátu klienta najdete v tématu [konfigurace TLS vzájemné ověřování pro webové aplikace](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 přidáte nastavení aplikace do souboru web.config vašeho projektu
 V sadě Visual Studio projekt, který jste vytvořili dříve, přidejte následující nastavení aplikace, které *web.config* souboru po `appSettings` element:

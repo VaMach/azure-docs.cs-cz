@@ -10,17 +10,17 @@ ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: HT
+ms.openlocfilehash: 3ad9da6e990fbb2a099bd83627eb36cd5e8f94c6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="password-writeback-overview"></a>Přehled zpětný zápis hesla
 
@@ -160,7 +160,6 @@ Hesla jsou zapsány zpět v následujících situacích:
   * Všechny dobrovolném samoobslužné služby správce změnit operace hesla
   * Všechny force samoobslužné služby správce změnit heslo operace, například vypršení platnosti hesla
   * Jakékoli správce samoobslužného resetování hesel, pochází z [portálu pro resetování hesla](https://passwordreset.microsoftonline.com)
-  * Resetování z jakékoli hesla iniciované správcem koncového uživatele [portál Azure classic](https://manage.windowsazure.com)
   * Resetování z jakékoli hesla iniciované správcem koncového uživatele [portálu Azure](https://portal.azure.com)
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Uživatele a správce operací, které nejsou podporovány pro zpětný zápis hesla

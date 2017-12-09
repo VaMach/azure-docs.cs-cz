@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 1e8b8359efb75246e40103ee8cbc2a786bfa6b46
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurace uživatelského rozhraní s dynamickým obsahem pomocí vlastních zásad
 Pomocí Azure Active Directory B2C (Azure AD B2C) vlastní zásady, můžete odeslat parametr v řetězci dotazu. Pomocí předání parametru váš koncový bod HTML, můžete dynamicky měnit obsah stránky. Například můžete změnit obrázek pozadí na Azure AD B2C registrace nebo přihlášení stránky, na základě parametr, který můžete předat z webu nebo mobilních aplikací. 
@@ -155,7 +155,7 @@ Vyhledejte `<img>` elementu, který obsahuje `ID` hodnotu *background_background
     **Vytvořit službu App Service** otevře se okno. V něm můžete začít vytvářet všechny potřebné prostředky Azure ke spouštění webové aplikace ASP.NET v Azure.
 
     > [!NOTE]
-    > Další informace o publikování najdete v tématu [vytvoření webové aplikace ASP.NET v Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Další informace o publikování najdete v tématu [vytvoření webové aplikace ASP.NET v Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. V **název webové aplikace** zadejte jedinečným názvem aplikace (platné znaky jsou a – z, A-Z, 0 – 9 a pomlčku (-). Adresa URL webové aplikace je `http://<app_name>.azurewebsites.NET`, kde `<app_name>` je název vaší webové aplikace. Můžete přijmout automaticky vygenerovaný název, který je jedinečný.
 
