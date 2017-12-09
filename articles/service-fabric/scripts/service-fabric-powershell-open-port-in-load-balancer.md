@@ -12,18 +12,18 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 08/15/2017
+ms.date: 12/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9dbb0bedd02752c4735ae097a7bd64b7b5383d6e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c643fc9e575a8e836a361893d78348bbd627a425
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Otevřete port aplikace nástroji pro vyrovnávání zatížení Azure
 
-Aplikace běžící v Azure Service Fabric se nachází za nástrojem pro vyrovnávání zatížení Azure. Tento ukázkový skript otevře port v k nástroji pro vyrovnávání zatížení Azure tak, aby aplikace Service Fabric může komunikovat s externími klienty. Podle potřeby upravte parametry. 
+Aplikace běžící v Azure Service Fabric se nachází za nástrojem pro vyrovnávání zatížení Azure. Tento ukázkový skript otevře port v k nástroji pro vyrovnávání zatížení Azure tak, aby aplikace Service Fabric může komunikovat s externími klienty. Podle potřeby upravte parametry. Pokud váš cluster je ve skupině zabezpečení sítě, také [přidání skupiny pravidla zabezpečení příchozích síťových](service-fabric-powershell-add-nsg-rule.md) chcete povolit příchozí přenosy.
 
 V případě potřeby nainstalujte modul Service Fabric prostředí PowerShell s [Service Fabric SDK](../service-fabric-get-started.md). 
 

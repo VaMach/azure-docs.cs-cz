@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c10374adf9b1438e087aa5fdba670f6d0234ee6f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Jak vyžadovat dvoustupňové ověřování pro uživatele nebo skupinu
 
@@ -40,11 +40,11 @@ Obě tyto možnosti vyzvat uživatele k registraci pro Azure Multi-Factor Authen
 
 Uživatelské účty v Azure Multi-Factor Authentication mají následující tři jedinečné stavy:
 
-| Status | Popis | Neprohlížečové aplikace vliv | Aplikace prohlížeče a moderním ověřováním vliv |
-|:---:|:---:|:---:|:--:|
-| Zakázáno |Výchozího stavu pro nového uživatele, která nejsou zaregistrovaná Azure Multi-Factor Authentication (MFA). |Ne |Ne |
-| Povoleno |Uživatel byl zaregistrován ke službě Azure MFA, ale není registrován. Se zobrazí výzva k registraci při příštím přihlášení. |Ne.  Budou nadále fungovat až do dokončení procesu registrace. | Ano. Po vypršení platnosti tokenu obnovení pro relaci, se bude vyžadovat registrace MFA.|
-| Vynuceno |Uživatel byl zaregistrován a dokončil proces registrace pro Azure MFA. |Ano.  Aplikace potřebujete hesla aplikace. |Ano. MFA vyžaduje na přihlášení. |
+| Status | Popis | Neprohlížečové aplikace vliv | Aplikace prohlížeče vliv | Moderní ověřování vliv |
+|:---:|:---:|:---:|:--:|:--:|
+| Zakázáno |Výchozího stavu pro nového uživatele, která nejsou zaregistrovaná Azure Multi-Factor Authentication (MFA). |Ne |Ne |Ne |
+| Povoleno |Uživatel byl zaregistrován ke službě Azure MFA, ale není registrován. Se zobrazí výzva k registraci při příštím přihlášení. |Ne.  Budou nadále fungovat až do dokončení procesu registrace. | Ano. Po vypršení platnosti relace, se bude vyžadovat registrace MFA.| Ano. Jakmile vyprší platnost přístupového tokenu, se bude vyžadovat registrace MFA. |
+| Vynuceno |Uživatel byl zaregistrován a dokončil proces registrace pro Azure MFA. |Ano.  Aplikace potřebujete hesla aplikace. |Ano. MFA vyžaduje na přihlášení. | Ano. MFA vyžaduje na přihlášení. |
 
 Stav uživatele, odráží jestli správce zapsal je v Azure MFA, a zda jejich dokončit proces registrace.
 

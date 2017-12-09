@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fd3c36825746a009c01c97fb8664e04278159f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 *Platí pro: Azure zásobníku Development Kit*
 
@@ -28,7 +28,7 @@ Po [nasazení Azure zásobníku Development Kit](azure-stack-run-powershell-scri
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Vytvoření účtu Azure zásobníku klienta pomocí portálu Azure
 Musíte mít předplatné služby Azure pomocí webu Azure portal.
 
-1. Přihlaste se k [Azure](http://manage.windowsazure.com).
+1. Přihlaste se k [Azure](https://portal.azure.com).
 2. V levém navigačním panelu Microsoft Azure, klikněte na tlačítko **služby Active Directory**.
 3. V seznamu adresáře klikněte na adresář, který chcete použít pro zásobník Azure nebo vytvořte novou.
 4. Na této stránce adresáře klikněte na tlačítko **uživatelé**.

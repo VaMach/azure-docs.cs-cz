@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a9d6ebb2ae92b631d4663b1373c684b2e10a9507
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognózování úloh serveru s terabajty dat
 
@@ -46,9 +46,11 @@ V tomto scénáři můžete soustředit na předpověď zatížení pro každý 
 Požadavky na spuštění v tomto příkladu jsou následující:
 
 * [Účet Azure](https://azure.microsoft.com/free/) (bezplatné zkušební verze jsou k dispozici).
-* Nainstalovaná kopie produktu [Machine Learning Workbench](./overview-what-is-azure-ml.md). K instalaci programu a vytvořit pracovní prostor, najdete v článku [rychlé spuštění Průvodce instalací](./quickstart-installation.md).
+* Nainstalovaná kopie produktu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). K instalaci programu a vytvořit pracovní prostor, najdete v článku [rychlé spuštění Průvodce instalací](./quickstart-installation.md). Pokud máte více předplatných, můžete [nastavte požadované předplatné na aktuální aktivní předplatné](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (podle pokynů v tomto příkladu jsou obvykle stejné systémů systému macOS).
-* Datové vědy virtuálního počítače (DSVM) pro Linux (Ubuntu). Můžete zřídit DSVM Ubuntu pomocí následujících [tyto pokyny](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Můžete také zjistit [tento rychlý Start](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Doporučujeme použít virtuální počítač s minimálně 8 jader a 32 GB paměti. Potřebujete DSVM IP adresu, uživatelské jméno a heslo můžete vyzkoušet na tomto příkladu. V následující tabulce uložte s DSVM informace o dalších krocích:
+* Na datové vědě virtuálního počítače (DSVM) pro Linux (Ubuntu), pokud možno v oblasti Východ USA, kde vyhledá data. Můžete zřídit DSVM Ubuntu pomocí následujících [tyto pokyny](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Můžete také zjistit [tento rychlý Start](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Doporučujeme použít virtuální počítač s minimálně 8 jader a 32 GB paměti. 
+
+Postupujte podle [instrukce](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) na povolení přístupu bez sudoer ve virtuálním počítači pro AML Workbench.  Můžete použít [ověřování na základě klíčů SSH pro vytváření a používání virtuálních počítačů v AML Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). V tomto příkladu používáme heslo pro přístup k virtuálnímu počítači.  V následující tabulce uložte s DSVM informace o dalších krocích:
 
  Název pole| Hodnota |  
  |------------|------|
@@ -56,9 +58,10 @@ DSVM IP adresa | xxx|
  Uživatelské jméno  | xxx|
  Heslo   | xxx|
 
+
  Můžete použít žádné virtuální počítače s [modulu Docker](https://docs.docker.com/engine/) nainstalována.
 
-* Clusteru Spark HDInsight, bez Spark a verze softwaru Hortonworks Data Platform 3.6 2.1.x. Navštivte [vytvářet cluster Apache Spark v Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) podrobnosti o tom, jak HDInsight vytvářet clustery. Doporučujeme používat cluster tři pracovní s každou pracovního procesu s 16 jader a 112 GB paměti. Nebo můžete zvolit typ virtuálního počítače právě `D12 V2` pro hlavního uzlu a `D14 V2` pracovního uzlu. Nasazení clusteru trvá přibližně 20 minut. Potřebujete název clusteru, SSH uživatelské jméno a heslo můžete vyzkoušet na tomto příkladu. Uložte s informacemi clusteru Azure HDInsight na pozdější kroky v následující tabulce:
+* Clusteru Spark HDInsight, bez Spark a verze softwaru Hortonworks Data Platform 3.6 2.1.x, pokud možno v oblasti Východ USA, kde vyhledá data. Navštivte [vytvářet cluster Apache Spark v Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) podrobnosti o tom, jak HDInsight vytvářet clustery. Doporučujeme používat cluster tři pracovní s každou pracovního procesu s 16 jader a 112 GB paměti. Nebo můžete zvolit typ virtuálního počítače právě `D12 V2` pro hlavního uzlu a `D14 V2` pracovního uzlu. Nasazení clusteru trvá přibližně 20 minut. Potřebujete název clusteru, SSH uživatelské jméno a heslo můžete vyzkoušet na tomto příkladu. Uložte s informacemi clusteru Azure HDInsight na pozdější kroky v následující tabulce:
 
  Název pole| Hodnota |  
  |------------|------|
@@ -91,7 +94,7 @@ Spustit `git status` Kontrola stavu souborů pro verzi sledování.
 
 ## <a name="data-description"></a>Popis dat
 
-Data použitá v tomto příkladu je dat syntetizovaná server úloh. Je umístěn v účtu úložiště objektů Blob v Azure, který je veřejně přístupná. Informace o účtu konkrétní úložiště najdete v `dataFile` pole z [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). Data přímo z úložiště objektů Blob můžete použít. Pokud úložiště je používá mnoho uživatelů současně, můžete použít [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) stahování dat do vlastního úložiště. 
+Data použitá v tomto příkladu je dat syntetizovaná server úloh. Je umístěn v účtu úložiště objektů Blob v Azure, který je veřejně dostupné v oblasti Východ USA. Informace o účtu konkrétní úložiště najdete v `dataFile` pole z [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) ve formátu "wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". Data přímo z úložiště objektů Blob můžete použít. Pokud úložiště je používá mnoho uživatelů současně, můžete použít [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) stahovat data do vlastního úložiště pro lepší uživatelské možnosti experimenty. 
 
 Celkové velikosti dat je přibližně 1 TB. Každý soubor je přibližně 1 – 3 GB a je ve formátu souboru CSV, bez hlavičky. Každý řádek dat představuje zatížení transakce na konkrétním serveru. Podrobné informace o schématu dat je následující:
 
@@ -270,7 +273,7 @@ Po úspěšném dokončení experimentování na malá data, můžete nadále sp
 
 Následující dva soubory jsou vytvořeny ve složce aml_config:
     
--  myhdo.COMPUTE: Tento soubor obsahuje informace o vzdálené spuštění cíl připojení a konfiguraci.
+-  myhdi.COMPUTE: Tento soubor obsahuje informace o vzdálené spuštění cíl připojení a konfiguraci.
 -  myhdi.runconfig: Tento soubor je sada spuštění možnosti, které se používá v rámci aplikace Workbench.
 
 

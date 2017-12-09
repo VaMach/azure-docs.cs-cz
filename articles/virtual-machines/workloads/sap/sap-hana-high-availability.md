@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Vysoká dostupnost SAP HANA na virtuálních počítačích Azure (VM)
 
@@ -85,12 +85,12 @@ Azure Marketplace obsahuje bitovou kopii pro SUSE Linux Enterprise Server pro SA
 1. Vytvořit nástroj pro vyrovnávání zatížení (interní)  
    Vyberte virtuální síť kroku výše
 1. Vytvoření virtuálního počítače 1  
-   https://Portal.Azure.com/#Create/SuSE-byos.SLES-for-SAP-byos12-SP1  
+   Použijte alespoň SLES4SAP 12 SP1 v tomto příkladu použijeme https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 image SLES4SAP 12 SP1 BYOS  
    SLES pro SAP aplikace 12 SP1 (BYOS)  
    Vyberte účet úložiště 1  
    Vyberte sady dostupnosti.  
 1. Vytvoření virtuálního počítače 2  
-   https://Portal.Azure.com/#Create/SuSE-byos.SLES-for-SAP-byos12-SP1  
+   Použijte alespoň SLES4SAP 12 SP1 v tomto příkladu použijeme https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 image SLES4SAP 12 SP1 BYOS  
    SLES pro SAP aplikace 12 SP1 (BYOS)  
    Vyberte účet úložiště 2   
    Vyberte sady dostupnosti.  
@@ -99,7 +99,7 @@ Azure Marketplace obsahuje bitovou kopii pro SUSE Linux Enterprise Server pro SA
     1. Vytvořte fond IP front-endu
         1. Otevřete nástroj pro vyrovnávání zatížení, vyberte fond IP front-endu a klikněte na tlačítko Přidat
         1. Zadejte název nového fondu IP front-endu (například hana-front-endu)
-       1. Klikněte na tlačítko OK
+        1. Klikněte na tlačítko OK
         1. Po vytvoření nového fondu IP front-endu, zapište si jeho IP adresu
     1. Vytvořte fond back-end
         1. Otevřete nástroj pro vyrovnávání zatížení, zvolte back-endové fondy a klikněte na tlačítko Přidat
@@ -109,7 +109,7 @@ Azure Marketplace obsahuje bitovou kopii pro SUSE Linux Enterprise Server pro SA
         1. Vyberte virtuální počítače clusteru SAP HANA
         1. Klikněte na tlačítko OK
     1. Vytvoření test stavu
-       1. Otevřete nástroj pro vyrovnávání zatížení, zvolte sondy stavu služby a klikněte na tlačítko Přidat
+        1. Otevřete nástroj pro vyrovnávání zatížení, zvolte sondy stavu služby a klikněte na tlačítko Přidat
         1. Zadejte název nové kontroly stavu (například hana-hp)
         1. Vyberte TCP jako protokol, port 625**03**, zachovat Interval 5 a prahová hodnota špatného stavu 2
         1. Klikněte na tlačítko OK
@@ -119,17 +119,17 @@ Azure Marketplace obsahuje bitovou kopii pro SUSE Linux Enterprise Server pro SA
         1. Vyberte IP adresu front-endu a back-endový fond a stav testu jste vytvořili dříve (například hana-front-endu)
         1. Zachovat protokol TCP, zadejte port 3**03**15
         1. Časový limit nečinnosti zvýšení do 30 minut
-       1. **Nezapomeňte povolit plovoucí IP adresa**
+        1. **Nezapomeňte povolit plovoucí IP adresa**
         1. Klikněte na tlačítko OK
         1. Opakujte předchozí kroky pro port 3**03**17
 
 ### <a name="deploy-with-template"></a>Nasazení pomocí šablony
-Jeden z šablony rychlý start způsobem můžete na githubu nasadit všechny požadované prostředky. Šablona nasadí virtuální počítače, nástroj pro vyrovnávání zatížení, dostupnosti apod. Postupujte podle těchto kroků nasadíte šablony:
+Můžete jeden z šablony rychlý start na githubu nasadit všechny požadované prostředky. Šablona nasadí virtuální počítače, nástroj pro vyrovnávání zatížení, dostupnosti apod. Postupujte podle těchto kroků nasadíte šablony:
 
 1. Otevřete [databáze šablony] [ template-multisid-db] nebo [konvergované šablony] [ template-converged] na portálu Azure, pouze vytvoří šablona databáze Vyrovnávání zatížení pravidel pro databáze, zatímco sblížené Šablona také vytváří pravidla Vyrovnávání zatížení ASC nebo SCS a instance YBRAT (pouze Linux). Pokud máte v plánu pro instalaci systému SAP NetWeaver na základě a také chcete nainstalovat instanci ASC nebo SCS stejné počítače, použijte [konvergované šablony][template-converged].
 1. Zadejte následující parametry
-    1. Id systému SAP  
-       Zadejte Id systému SAP systému SAP, který chcete nainstalovat. Identifikátor se použije jako předpona pro prostředky, které jsou nasazeny.
+    1. ID systému SAP  
+       Zadejte ID systému SAP systému SAP, který chcete nainstalovat. Identifikátor se použije jako předpona pro prostředky, které jsou nasazeny.
     1. Typ zásobníku (platí pouze pokud použijete šablonu sblížené)  
        Vyberte typ SAP NetWeaver zásobníku
     1. Typ operačního systému  
@@ -144,8 +144,8 @@ Jeden z šablony rychlý start způsobem můžete na githubu nasadit všechny po
        Po vytvoření nového uživatele, který lze použít pro přihlášení k počítači.
     1. Nový nebo existující podsíť  
        Určuje, zda mají být vytvořeny nové virtuální sítě a podsítě nebo by měl použít existující podsítí. Pokud již máte virtuální síť, která je připojen k síti na pracovišti, vyberte existující.
-    1. Id podsítě  
-    ID podsítě, ke které by měl být připojený virtuální počítače. Vyberte podsíť virtuální sítě VPN nebo Expressroute připojit virtuální počítač k síti na pracovišti. ID obvykle vypadá /subscriptions/`<subscription id`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
+    1. ID podsítě  
+    ID podsítě, ke které by měl být připojený virtuální počítače. Vyberte podsíť virtuální sítě VPN nebo Expressroute připojit virtuální počítač k síti na pracovišti. ID obvykle vypadá /subscriptions/`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Nastavení Linux HA
 
@@ -229,7 +229,7 @@ Následující položky jsou s předponou buď [A] - platí pro všechny uzly [1
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * Vytvoření položky fstab pro tři logické svazky
@@ -252,7 +252,7 @@ Následující položky jsou s předponou buď [A] - platí pro všechny uzly [1
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # <a name="write-down-the-id-of-devsdc1"></a>Poznamenejte si id /dev/sdc1
+    # <a name="write-down-the-id-of-devsdc1"></a>Poznamenejte si ID /dev/sdc1
     sudo/sbin/blkid sudo vi/etc/fstab
     ```
 
@@ -381,7 +381,7 @@ Postupujte podle kapitoly 4 z [SAP HANA SR výkonu optimalizované scénář pr�
     * Zadejte heslo k databázi uživatelů (systém):
     * Potvrďte heslo k databázi uživatelů (systém):
     * Restartování systému po restartování počítače? [n]: -> zadejte
-    * Chcete pokračovat? (Ano/Ne):  
+    * Opravdu chcete pokračovat? (Ano/Ne):  
   Ověřit, souhrn a zadejte y můžete pokračovat
 1. [A] Agent hostitele upgradu SAP  
   Stáhněte si nejnovější archivu SAP Agent hostitele z [SAP Softwarecenter] [ sap-swcenter] a spusťte následující příkaz k aktualizaci agenta. Nahraďte cestu do archivu tak, aby odkazoval na soubor, který jste stáhli.
@@ -450,7 +450,7 @@ STONITH zařízení používá objekt služby k autorizaci s Microsoft Azure. Po
 
 1. Přejděte na <https://portal.azure.com>
 1. Otevřete okno Azure Active Directory  
-   Přejděte k vlastnostem a poznamenejte si ID adresáře. Toto je **id klienta**.
+   Přejděte k vlastnostem a poznamenejte si ID adresáře. Toto je **ID klienta**.
 1. Klikněte na možnost registrace aplikace
 1. Klikněte na tlačítko Přidat.
 1. Zadejte název, vyberte typ aplikace "Aplikace webového rozhraní API", zadejte přihlašovací adresu URL (například http://localhost) a klikněte na možnost vytvořit
@@ -458,7 +458,7 @@ STONITH zařízení používá objekt služby k autorizaci s Microsoft Azure. Po
 1. Vyberte nové aplikace a na kartě nastavení klikněte na klíče
 1. Zadejte popis pro nový klíč, vyberte "Je platné stále" a klikněte na Uložit
 1. Poznamenejte si hodnotu. Použije se jako **heslo** pro objekt služby
-1. Poznamenejte si ID aplikace. Se používá jako uživatelské jméno (**přihlašovacího id** v následujících krocích) instančního objektu
+1. Poznamenejte si ID aplikace. Se používá jako uživatelské jméno (**přihlašovacího ID** v následujících krocích) instančního objektu
 
 Objekt služby nemá oprávnění pro přístup k prostředkům Azure ve výchozím nastavení. Musíte poskytnout oprávnění objektu služby spuštění a zastavení (zrušit přidělení) všechny virtuální počítače v clusteru.
 
@@ -476,13 +476,13 @@ Poté, co jste upravili oprávnění pro virtuální počítače, můžete nakon
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -496,7 +496,7 @@ sudo crm nakonfigurovat aktualizace zatížení crm-fencing.txt
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -516,7 +516,7 @@ sudo crm nakonfigurovat aktualizace zatížení crm-saphanatop.txt
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -622,16 +622,16 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
-Migrace vytvoří omezení umístění, které je nutné znovu odstranit.
+Migrace vytvoří omezení umístění, které je potřeba znovu odstranit.
 
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-Musíte také čištění stav prostředku sekundárního uzlu
+Musíte také vyčištění stav prostředku sekundárního uzlu
 
 <pre><code>
 # switch back to root and cleanup the failed state

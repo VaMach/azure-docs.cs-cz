@@ -11,9 +11,9 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: e4dc4a0bd43f61474692abb8c21e0b6448769f8e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/08/2017
 ---
@@ -36,7 +36,7 @@ K dokončení tohoto kurzu potřebujete:
 * Webová aplikace. Jsme se, že se zobrazuje kroky pro aplikaci ASP.NET MVC nasazené v Azure jako webovou aplikaci.
 
 >[!IMPORTANT]
->* Tato ukázka závisí na starší způsob, jak ručně zřizování identit AAD. V současné době je nová funkce ve verzi preview názvem [identita spravované služby (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), které mohou automaticky poskytovat identit AAD. Naleznete v následujícím příkladu v [githubu](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) další podrobnosti.
+>* Tato ukázka závisí na starší způsob, jak ručně zřizování identit AAD. V současné době je nová funkce ve verzi preview názvem [identita spravované služby (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), které mohou automaticky poskytovat identit AAD. Naleznete v následujícím příkladu v [Githubu](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) další podrobnosti.
 
 > [!NOTE]
 >* Je nezbytné, že jste dokončili kroky uvedené v [Začínáme s Azure Key Vault](key-vault-get-started.md) pro účely tohoto kurzu tak, aby měli identifikátor URI tajného klíče a ID klienta a tajný klíč klienta pro webovou aplikaci.
@@ -46,7 +46,7 @@ Webovou aplikaci, která bude mít přístup k Key Vault je ten, který je zareg
 
 Tento kurz je určen pro vývojářům webů, které pochopit základy toho vytváření webových aplikací v Azure. Další informace o službě Azure Web Apps, naleznete v části [přehled Web Apps](../app-service/app-service-web-overview.md).
 
-## <a id="packages"></a>Přidání balíčků Nuget
+## <a id="packages"></a>Přidání balíčků NuGet
 
 Jsou dva balíčky, které webové aplikace musí mít nainstalovaný.
 
@@ -147,11 +147,11 @@ Jiný způsob, jak ověřit aplikaci Azure AD je pomocí ID klienta a certifiká
 Pro naše účely budeme testovacího certifikátu. Tady je několik příkazů, které můžete použít v příkazovém řádku vývojáře vytvořit certifikát. Změňte adresář na místo, kam chcete vytvořené soubory certifikátu.  Navíc pro počáteční a koncové datum platnosti certifikátu použijte aktuální datum plus 1 rok.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Poznamenejte si koncové datum a heslo .pfx (v tomto příkladu: 07/31. prosinci 2016 a test123). Je nutné je níže.
+Poznamenejte si koncové datum a heslo .pfx (v tomto příkladu: 07/31/2017 a test123). Je nutné je níže.
 
 Další informace o vytvoření testovacího certifikátu najdete v tématu [postup: vytvořit vaše vlastní testovací certifikát](https://msdn.microsoft.com/library/ff699202.aspx)
 

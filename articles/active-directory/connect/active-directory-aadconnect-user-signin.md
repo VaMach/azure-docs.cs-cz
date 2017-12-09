@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7901d6d5668f62a8df7783d6fb1dfe9fc02ebed3
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect uživatelské možnosti přihlášení
 Připojení služby Azure Active Directory (Azure AD) umožňuje uživatelům přihlásit do cloudu a místní prostředky pomocí stejnými hesly. Tento článek popisuje klíčové koncepty pro každý model identity, které vám pomohou zvolit identity, která chcete použít pro přihlášení ke službě Azure AD.
@@ -28,6 +28,10 @@ Pokud jste již obeznámeni s modelem identity Azure AD a chcete získat další
 * [Synchronizaci hodnoty hash hesla](#password-synchronization) s [bezproblémové jednotné přihlašování (SSO)](active-directory-aadconnect-sso.md)
 * [Předávací ověřování](active-directory-aadconnect-pass-through-authentication.md) s [bezproblémové jednotné přihlašování (SSO)](active-directory-aadconnect-sso.md)
 * [Federované jednotné přihlašování (službou Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> Je důležité si pamatovat, že konfigurace federace pro Azure AD, je vytvořit vztah důvěryhodnosti mezi vašeho klienta Azure AD a federované domény. S touto doménou federovaného vztahu důvěryhodnosti budou mít uživatelé přístup k prostředkům cloudu Azure AD v rámci klienta.  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Výběr uživatele přihlašovací metoda pro vaši organizaci
 Pro většinu organizací, které právě chcete povolit přihlášení uživatele k Office 365, aplikace SaaS a jiné na základě AD prostředky Azure doporučujeme, abyste výchozí možnost synchronizace hodnoty hash hesla. Některé organizace, ale mají konkrétní důvod nejsou možné použít tuto možnost. Můžete se buď federované možnost přihlášení, například služby AD FS nebo předávací ověřování. Následující tabulka vám pomůže vám pomůže zajistit správnou volbou.

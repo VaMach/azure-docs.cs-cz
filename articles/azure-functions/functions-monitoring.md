@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitorování Azure Functions
 
@@ -486,7 +486,7 @@ Soubory protokolu na relaci příkazového řádku na místní pracovní stanici
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Monitorování souborů protokolů funkce aplikace pomocí Azure CLI 1.0
 
-Abyste mohli začít, [nainstalovat Azure CLI 1.0](../cli-install-nodejs.md) a [přihlaste k Azure](../xplat-cli-connect.md).
+Abyste mohli začít, [nainstalovat Azure CLI 1.0](../cli-install-nodejs.md) a [přihlaste k Azure](/cli/azure/authenticate-azure-cli).
 
 Povolit klasického režimu správy služby, vyberte předplatné, a stream souborů protokolů použijte následující příkazy:
 

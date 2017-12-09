@@ -1,6 +1,6 @@
 ---
-title: "Skrýt aplikace třetích stran z možnosti pro uživatele v Azure Active Directory | Microsoft Docs"
-description: "Skrytí aplikace třetích stran z možnosti pro uživatele v Azure Active Directory"
+title: "Skrýt aplikace z možnosti pro uživatele v Azure Active Directory | Microsoft Docs"
+description: "Skrytí aplikace z možnosti pro uživatele v Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,18 +15,18 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 58e3dd23805ada39e77194ddb4ebf507c24fd1f2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Skrýt aplikace třetích stran z možnosti pro uživatele v Azure Active Directory
+# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Skrýt aplikace z možnosti pro uživatele v Azure Active Directory
 
-Pokud máte aplikaci třetí strany (aplikace, které zveřejnil jiné než Microsoft), že nechcete zobrazovat ve panelů přístup uživatele nebo Spouštěč oken Office 365, je k dispozici možnost ke skrytí tuto dlaždici aplikace. Skrytím uživatelům aplikací stále mít oprávnění k aplikaci, ale nezobrazí je zobrazit na jejich Spouštěč aplikace oken. Musí mít příslušná oprávnění ke správě firemní aplikace a musí být globální správce adresáře.
+Pokud máte aplikaci, která nechcete zobrazit na panelů přístup uživatelů nebo Spouštěč oken Office 365, je možnost Skrýt tuto dlaždici aplikace. Tato možnost je pouze k dispozici pro aplikace jiných výrobců (aplikace není publikována společností Microsoft). Skrytím uživatelům aplikací stále mít oprávnění k aplikaci, ale nezobrazí je zobrazit na jejich Spouštěč aplikace oken. Musí mít příslušná oprávnění ke správě firemní aplikace a musí být globální správce adresáře. 
 
-## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Skrytí aplikace třetích stran ze zkušeností uživatele
-Použijte následující postup ke skrytí aplikace třetích stran z přístupového panelu a Spouštěč oken aplikace Office 365 uživatele
+## <a name="hiding-an-application-from-users-end-user-experiences"></a>Skrytí aplikace z prostředí koncového uživatele uživatele
+Použijte následující postup ke skrytí aplikace do přístupového panelu a Spouštěč oken aplikace Office 365 uživatele
 
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Jak skrýt aplikace třetích stran z přístupového panelu a Spouštěč oken aplikace O365 uživatele?
 

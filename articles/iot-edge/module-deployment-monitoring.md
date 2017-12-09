@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 54c92937c507cabd9053920baef97e745c2300f6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Pochopení IoT Edge nasazení jednoho zařízení nebo ve velkém měřítku – náhled
 
@@ -57,7 +57,23 @@ Konfigurace metadata pro každý modul zahrnují:
 
 ### <a name="target-condition"></a>Cílovou podmínku
 
-Cílení podmínky zadejte, zda IoT hraniční zařízení musí být v oboru nasazení. Cílení podmínky jsou založeny na zařízení twin značky. 
+Cílovou podmínku nepřetržitě vyhodnotí zahrnout všechny nová zařízení, které splňují požadavky nebo odeberte zařízení, které už se provést prostřednictvím doba životnosti nasazení. Nasazení bude znovu aktivovat, pokud služba zjistí všechny změny stavu cíl. Například máte nasazení A, který má na cílový stav tags.environment = 'produkčního'. Pokud ji nasazení, neexistují 10 produkčnímu zařízení. Moduly jsou úspěšně nainstalováni v těchto 10 zařízení. Stav agenta Edge IoT se zobrazí jako 10 Celkový počet zařízení, 10 úspěšně odpovědi, 0 selhání odpovědí a 0 čekající odpovědi. Nyní přidáte 5 Další zařízení, s tags.environment = 'produkčního'. Služba zjistí změnu a stav agenta na IoT Edge stane 15 celkový počet zařízení, 10 úspěšně odpovědi, 0 selhání odpovědí a 5 čekající odpovědi při pokusu o nasazení na pět nových zařízení.
+
+Všechny logické podmínku můžete použijte na značky dvojčata zařízení nebo deviceId k výběru cílových zařízení. Pokud chcete použít podmínku s značkami, budete muset přidat "značky" kapitoly :{} dvojče zařízení v rámci stejné úrovni jako vlastnosti. [Další informace o značkách v dvojče zařízení](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+
+Příklady podmínek cíl:
+* deviceId ='linuxprod1
+* Tags.Environment = 'produkčního.
+* Tags.Environment = produkčního a tags.location = 'westus.
+* Tags.Environment = produkčního nebo tags.location = 'westus.
+* Tags.Operator = "Jan" a tags.environment = produkčního není deviceId = 'linuxprod1.
+
+Tady jsou některé omezí při vytváření cílovou podmínku:
+
+* V dvojče zařízení může vytvořit pouze cílovou podmínku pomocí značky nebo ID zařízení.
+* Dvojité uvozovky nejsou povoleny v jakékoli její části cílovou podmínku. Použijte prosím jednoduché uvozovky.
+* Jednoduchých uvozovek a být představují hodnoty cílovou podmínku. Pokud je součástí názvu zařízení, proto musí vyhnuli jednoduchých uvozovkách s jinou jednoduchých uvozovkách. Například cílovou podmínku pro: operator'sDevice by bylo potřeba zapsat jako deviceId = "operátor" sDevice'.
+* Čísla, písmena a následující znaky jsou povoleny v cílové podmínku values:-:.+%_#*? (),=@;$
 
 ### <a name="priority"></a>Priorita
 

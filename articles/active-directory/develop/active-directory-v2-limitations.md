@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: eb9c2ce5170aa02b7502eb5a52f2bf4b3a8ccb9c
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Použít koncového bodu v2.0?
 Při vytváření aplikací, které se integrují s Azure Active Directory, musíte rozhodnout, zda protokoly v2.0 koncový bod a ověřování podle svých potřeb. Původní koncový bod Azure služby Active Directory je stále plně podporovaná a v některých ohledech je další bohaté funkce než v2.0. Ale koncového bodu v2.0 [představuje významné výhody](active-directory-v2-compare.md) pro vývojáře.
@@ -110,7 +110,7 @@ Koncový bod v2.0 nepodporuje SAML nebo WS-Federation; podporuje pouze Open ID C
 * Koncový bod v2.0 nepodporuje vydávající role nebo skupiny deklarací identity v tokenech ID.
 * [Udělení pověření heslo vlastníka prostředku OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3) nepodporuje koncového bodu v2.0.
 
-Koncový bod v2.0 v addtion, nepodporuje jakoukoli formu protokoly SAML nebo WS-Federation.
+Kromě toho koncového bodu v2.0 nepodporuje jakoukoli formu protokoly SAML nebo WS-Federation.
 
 Abyste lépe pochopili rozsah protokol funkcí podporovaných v koncový bod v2.0, přečíst naše [referenční informace o protokolu OpenID Connect a OAuth 2.0](active-directory-v2-protocols.md).
 

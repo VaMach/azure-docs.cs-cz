@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: e0d69d2b744fd08269b1ef87cb60efd3f205a92e
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Nástroj pro migraci dat
 
@@ -29,7 +29,7 @@ V tomto kurzu poskytuje pokyny k používání nástroj Azure Cosmos DB Data mig
 Které rozhraní API budete používat s Azure Cosmos DB? 
 * **[Rozhraní API DocumentDB](documentdb-introduction.md)**  -některé z možností na zdroj nástroj pro migraci dat můžete importovat data.
 * **[Tabulka rozhraní API](table-introduction.md)**  -k importu dat můžete použít nástroj pro migraci dat nebo AzCopy. V tématu [Import dat pro použití s rozhraním API pro Azure Cosmos DB tabulky](table-import.md) Další informace.
-* **[Rozhraní API MongoDB](mongodb-introduction.md)**  – nástroj pro migraci dat pro použití s rozhraním API pro DocumentDB exportovat data databáze MongoDB do Azure Cosmos DB. Ale pokud chcete pokračovat v používání rozhraní API MongoDB, budete chtít použít rozhraní API služby Azure DB Cosmos MongoDB a využít k importu dat mongoimport.exe nebo mongorestore.exe. V tématu [Cosmos databázi Azure: migrace dat pro rozhraní API MongoDB?](mongodb-migrate.md), další informace.
+* **[Rozhraní API MongoDB](mongodb-introduction.md)**  – nástroj pro migraci dat aktuálně nepodporuje rozhraní API služby Azure Cosmos DB MongoDB jako zdroj nebo jako cíl. Pokud chcete migrovat data do nebo z kolekce MongoDB rozhraní API v Azure Cosmos DB, podívejte se na [Cosmos databázi Azure: migrace dat pro rozhraní API MongoDB](mongodb-migrate.md) pokyny. Nástroj pro migraci dat stále můžete exportovat data z MongoDB do kolekce rozhraní API pro Azure Cosmos databáze SQL pro použití s rozhraním API SQL. 
 * **[Graph API](graph-introduction.md)**  – nástroj pro migraci dat není podporované import nástroj pro rozhraní Graph API účty v tuto chvíli. 
 
 Tento kurz obsahuje následující úlohy:

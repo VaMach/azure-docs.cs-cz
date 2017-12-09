@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise vygenerované uživatelské rozhraní – zásady správného řízení doporučený předplatného
 Podniky jsou stále přijetí veřejného cloudu pro jeho její agilnost a flexibilitu. Budou se využívá v cloudu síly ke generování výnosy nebo optimalizovat prostředky pro firmy. Microsoft Azure poskytuje různé služby, aby podniky můžete sestavit jako stavební bloky k řešení široké škály úlohy a aplikace. 
@@ -168,7 +168,7 @@ Další příklady značek najdete v tématu [doporučená zásady vytváření 
 ## <a name="resource-group"></a>Skupina prostředků
 Resource Manager umožňuje umístit prostředky do smysluplný skupin pro správu, fakturace nebo přírodní spřažení. Jak už bylo zmíněno dříve, Azure má dva modely nasazení. V dřívějších klasického modelu se základní jednotkou správy předplatného. Bylo obtížné rozdělení prostředků v rámci předplatného, která vedla k vytvoření velkého počtu předplatných. Pomocí modelu Resource Manager jsme viděli zavedení skupiny prostředků. Skupiny prostředků jsou kontejnery prostředky, které mají společné životního cyklu nebo sdílet atribut jako je například "všechny SQL servery" nebo "Aplikaci A".
 
-Skupiny prostředků, nemůžou být obsažené v sobě navzájem a zdroje můžete pouze patřit do jedné skupiny prostředků. Některé akce můžete použít na všechny prostředky ve skupině prostředků. Odstranění skupiny prostředků, například odebere všechny prostředky v rámci skupiny prostředků. Obvykle umístěte celou aplikaci nebo související systémová ve stejné skupině prostředků. Tři vrstvy aplikaci s názvem Contoso webová aplikace by například obsahovat webový server, aplikační server a SQL server ve stejné skupině prostředků.
+Skupiny prostředků, nemůžou být obsažené v sobě navzájem a zdroje můžete pouze patřit do jedné skupiny prostředků. Některé akce můžete použít na všechny prostředky ve skupině prostředků. Odstranění skupiny prostředků, například odebere všechny prostředky v rámci skupiny prostředků. Obvykle umístěte celou aplikaci nebo související systémová ve stejné skupině prostředků. Třívrstvá aplikace s názvem Contoso webová aplikace by například obsahovat webový server, aplikační server a SQL server ve stejné skupině prostředků.
 
 > [!TIP]
 > Jak uspořádat vaší skupiny prostředků může lišit úlohy "Tradičních IT" na "Agilní IT" úlohy:

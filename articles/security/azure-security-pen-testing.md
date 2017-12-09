@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: yurid
-ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="pen-testing"></a>Testování pera
 Jednou z výhod používání Azure pro testování aplikací a nasazení je, můžete rychle získat prostředí vytvořili.  Nemusíte si dělat starosti o žádanek, získávání a "stáčení a překrývání" vlastní místní hardware.
@@ -29,11 +29,12 @@ Možná už víte, že Microsoft provádí [průnikům testování naše prostř
 
 Jsme nemáte pera testování vaší aplikace pro vás, ale Chápeme, že se má a potřeba provést testování na vaše vlastní aplikace pera. Dobrá vlastnost, je to způsobeno můžete zvýšit zabezpečení aplikací, vám pomoci lépe zabezpečit celý ekosystém Azure.
 
-Pokud jste pera testování vaší aplikace, může vypadat například útoku do us. Jsme [neustále monitorovat](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) pro vzorce útoků a zahájí o proces reakcí na incidenty, pokud je potřeba. Není můžete a nemá nám pomoci Pokud odpověď incidentu z důvodu vlastní kvůli opatrností pera testování se spouští.
-
 Co dělat?
 
-Až budete připraveni na pero testování aplikací hostovaných v Azure, máte možnost [dejte nám vědět](https://portal.msrc.microsoft.com/en-us/engage/pentest). Jakmile oznámení, Microsoft vypne žádné nechtěně můžete (třeba blokování IP adresu, která testujete z). Testy musí odpovídat Azure pera testování podmínky a ujednání popsaných v [Microsoft Cloud Unified průnikům testování pravidla zapojení](https://technet.microsoft.com/en-us/mt784683).
+Od 15. června 2017, Microsoft už vyžaduje schválení před vést průnikům testy s prostředky Azure. Doporučujeme, aby vyplnit se zákazníky, kteří chtějí oficiálně dokumentu nadcházející průnikům testování oznámeních podporujících zapojení uživatelů s Microsoft Azure [Azure Service průnikům testování oznámení formuláře](https://portal.msrc.microsoft.com/engage/pentest). Tento proces se vztahuje pouze k Microsoft Azure a nemusí platit pro všechny ostatní cloudové služby Microsoftu. 
+
+>[!IMPORTANT] 
+>Při odesílání oznámení o chybách společnosti Microsoft pera testování aktivity se už nevyžaduje zákazníky stále splňovat [Microsoft Cloud Unified průnikům testování pravidla zapojení](https://technet.microsoft.com/en-us/mt784683). 
 
 Standardní testy, které můžete provádět, zahrnují:
 

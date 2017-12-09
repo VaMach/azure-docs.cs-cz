@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI příkazy v režimu Resource Manager
 Tento článek obsahuje syntaxi a možnosti pro příkazy rozhraní příkazového řádku Azure (CLI), které by běžně používat k vytváření a správě prostředků Azure v modelu nasazení Azure Resource Manager. Tyto příkazy přistupujete pomocí rozhraní příkazového řádku v režimu Resource Manager (arm). Toto není odkazem na dokončení a CLI verze může zobrazovat mírně odlišné příkazy nebo parametry. Obecné přehled prostředků Azure a skupiny prostředků, najdete v tématu [přehled Azure Resource Manageru](../azure-resource-manager/resource-group-overview.md).  
@@ -29,7 +29,7 @@ Tento článek obsahuje syntaxi a možnosti pro příkazy rozhraní příkazové
 >Další informace o [starý a nový Azure CLIs](/cli/azure/old-and-new-clis).
 >
 
-Abyste mohli začít, nejprve [nainstalovat Azure CLI](../cli-install-nodejs.md) a [připojení k předplatnému Azure](../xplat-cli-connect.md).
+Abyste mohli začít, nejprve [nainstalovat Azure CLI](../cli-install-nodejs.md) a [připojení k předplatnému Azure](/cli/azure/authenticate-azure-cli).
 
 Pro aktuální příkaz syntaxe a parametry na příkazovém řádku v režimu Resource Manager, zadejte `azure help` nebo, pokud chcete zobrazit nápovědu pro konkrétní příkaz `azure help [command]`. Také najděte rozhraní příkazového řádku příklady v dokumentaci k vytváření a správě konkrétní služby Azure.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Jak vytvořit a spravovat Azure Redis Cache pomocí rozhraní příkazového řádku Azure (Azure CLI)
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Chcete-li vytvořit a spravovat instance služby Azure Redis Cache pomocí rozhr
 
 * Musí mít účet Azure. Pokud nemáte, můžete vytvořit [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/) za pár chvil.
 * [Instalace rozhraní příkazového řádku Azure CLI](../cli-install-nodejs.md).
-* Připojit vaše instalace rozhraní příkazového řádku Azure osobní účet Azure, nebo s pracovní nebo školní účet Azure a přihlaste se pomocí rozhraní příkazového řádku Azure `azure login` příkaz. Porozumět rozdílům a zvolte najdete v tématu [připojení k předplatnému Azure z rozhraní příkazového řádku (Azure CLI)](../xplat-cli-connect.md).
+* Připojit vaše instalace rozhraní příkazového řádku Azure osobní účet Azure, nebo s pracovní nebo školní účet Azure a přihlaste se pomocí rozhraní příkazového řádku Azure `azure login` příkaz. Porozumět rozdílům a zvolte najdete v tématu [připojení k předplatnému Azure z rozhraní příkazového řádku (Azure CLI)](/cli/azure/authenticate-azure-cli).
 * Před s některým z následujících příkazů, přepínač příkazového řádku Azure CLI do režimu Resource Manager tak, že spustíte `azure config mode arm` příkaz. Další informace najdete v tématu [používat rozhraní příkazového řádku Azure ke správě prostředků Azure a skupiny prostředků](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="redis-cache-properties"></a>Vlastnosti mezipaměti redis

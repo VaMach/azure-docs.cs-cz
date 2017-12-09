@@ -11,10 +11,10 @@ ACU: 180–240
 | Standard_L4s   | 4    | 32   | 678   | 16    | 20,000 / 200   | 10 000 / 250        | 2 / 4,000  | 
 | Standard_L8s   | 8    | 64   | 1 388 | 32   | 40,000 / 400   | 20 000 / 500       | 4 / 8,000  | 
 | Standard_L16s  | 16   | 128  | 2 807 | 64   | 80,000 / 800   | 40 000 / 1 000       | 8 / 6,000 - 16,000 &#8224; | 
-| Standard_L32s* | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 80 000 / 2 000     | 8 / 20,000 | 
+| Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 80 000 / 2 000     | 8 / 20,000 | 
  
 
 Maximální propustnost disku dostupná pro virtuální počítače řady Ls-series může být omezená počtem, velikostí a prokládáním připojených disků. Podrobnosti viz článek [Storage úrovně Premium: Vysoce výkonné úložiště pro virtuální počítače Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
-*Instance je izolovaná na hardwaru vyhrazeném pro jediného zákazníka.
+<sup>1</sup> instance je izolovaný hardware vyhrazený pro jednoho zákazníka.
 

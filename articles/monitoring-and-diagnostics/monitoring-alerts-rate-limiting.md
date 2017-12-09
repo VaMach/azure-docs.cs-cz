@@ -1,8 +1,8 @@
 ---
-title: "Míra, omezení pro SMS, e-mailů a webhooky | Microsoft Docs"
-description: "Pochopte, jak Azure omezuje počet možných oznámení SMS, e-mailu nebo webhooku ze skupiny pro akce."
-author: anirudhcavale
-manager: orenr
+title: "Míra, omezení pro SMS, e-mailů, nabízená oznámení v aplikaci Azure a webhooky | Microsoft Docs"
+description: "Pochopte, jak Azure omezuje počet možných SMS, e-mailu, aplikaci Azure nabízené nebo webhooku oznámení ze skupiny pro akce."
+author: dukek
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,29 +12,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: bde645624ab1860d19ba18470f55845855a7d1fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/8/2017
+ms.author: dukek
+ms.openlocfilehash: c76bf5cf51f18a32b33060d528c64d119e31dbbd
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="rate-limiting-for-sms-messages-emails-and-webhook-posts"></a>Míra, omezení pro zprávy SMS, e-mailů a webhooku příspěvcích
-Omezení rychlosti je pozastavení oznámení, která nastane po příliš mnoho oznámení se odesílají do konkrétní telefonní číslo nebo e-mailovou adresu. Omezení rychlosti zajistí výstrahy spravovat a možné použít.
+# <a name="rate-limiting-for-sms-messages-emails-azure-app-push-notifications-and-webhook-posts"></a>Míra, omezení pro zprávy SMS, e-mailů, nabízená oznámení v aplikaci Azure a webhooku příspěvcích
+Omezení rychlosti je pozastavení oznámení, která nastane po příliš mnoho oznámení se odesílají do konkrétní telefonní číslo, e-mailovou adresu nebo zařízení. Omezení rychlosti zajistí výstrahy spravovat a možné použít.
 
-Pravidla pro SMS a e-mailu jsou stejné. Prahová hodnota omezení míry je:
+Prahové hodnoty omezení míry jsou:
 
- - **SMS**: 10 zpráv za hodinu.
+ - **SMS**: více než 1 SMS každých 5 minut.
  - **E-mailu**: 100 zpráv za hodinu.
+ - **Azure nabízená oznámení v aplikaci**: neexistuje žádné kurz omezení pro nabízená oznámení.
+ - **Webhooky**: neexistuje žádné kurz omezení pro webhooky.
 
 ## <a name="rate-limit-rules"></a>Míra limit pravidla
 - Konkrétní telefonní číslo nebo e-mailu je míra při přijetí více zpráv, než prahová hodnota umožňuje omezené.
 - Telefonní číslo nebo e-mailu může být součástí akce skupin napříč mnoho odběrů. Omezení rychlosti platí ve všech předplatných. Jakmile je dosaženo prahové hodnoty, platí i v případě, že jsou zpráv odesílány z více předplatných.  
-- Pokud telefonní číslo nebo e-mailu je míra omezené, další oznámení odesláno komunikovat omezení rychlosti. Stavy oznámení, když vyprší platnost omezení rychlosti.
-
-## <a name="rate-limit-of-webhooks"></a>Míra limit webhooky ##
-Neexistuje žádné kurz omezení nastavené pro webhooky.
+- Míra omezené po e-mailovou adresu další oznámení se odesílá komunikovat omezení rychlosti. Stavy oznámení, když vyprší platnost omezení rychlosti.
 
 ## <a name="next-steps"></a>Další kroky ##
 * Další informace o [SMS výstrahy chování](monitoring-sms-alert-behavior.md).

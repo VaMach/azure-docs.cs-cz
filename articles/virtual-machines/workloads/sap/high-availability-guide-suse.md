@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Vysoká dostupnost pro SAP NetWeaver na virtuálních počítačích Azure na SUSE Linux Enterprise Server pro aplikace SAP
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 [sap-hana-ha]:sap-hana-high-availability.md
 
 Tento článek popisuje postup nasazení virtuálních počítačů, konfiguraci virtuálních počítačů, nainstalujte rozhraní framework clusteru a nainstalujte systému SAP NetWeaver 7.50 vysoce dostupný.
-V konfiguraci příklad příkazy instalace atd. Počet instancí ASC 00, čísla instance YBRAT 02 a NWS ID systému SAP se používá. Názvy prostředků (například virtuální počítače, virtuální sítě) v příkladu předpokládá, že jste použili [konvergované šablony] [ template-converged] systémem SAP NWS ID pro vytvoření prostředků.
+V konfiguraci příklad příkazy instalace atd. Čísla instance ASC 00 YBRAT instance číslo 02 a používá se NWS ID systému SAP. Názvy prostředků (například virtuální počítače, virtuální sítě) v příkladu předpokládá, že jste použili [konvergované šablony] [ template-converged] systémem SAP NWS ID pro vytvoření prostředků.
 
 Přečtěte si tyto poznámky k SAP a dokumenty Paper nejprve
 
@@ -84,7 +84,7 @@ K dosažení vysoké dostupnosti, vyžaduje SAP NetWeaver serverem NFS. Server s
 
 ![Přehled SAP NetWeaver vysokou dostupnost](./media/high-availability-guide-suse/img_001.png)
 
-Na serveru NFS, SAP NetWeaver ASC, SAP NetWeaver SCS, SAP NetWeaver YBRAT a databázi SAP HANA používat virtuální název hostitele a virtuální IP adresy. K použití virtuální IP adresy se v Azure, vyžaduje nástroj pro vyrovnávání zatížení. Následující seznam obsahuje konfiguraci služby Vyrovnávání zatížení.
+Na serveru NFS, SAP NetWeaver ASC, SAP NetWeaver SCS, SAP NetWeaver YBRAT a databázi SAP HANA použijte virtuální název hostitele a virtuální IP adresy. K použití virtuální IP adresy se v Azure, vyžaduje nástroj pro vyrovnávání zatížení. Následující seznam obsahuje konfiguraci služby Vyrovnávání zatížení.
 
 ### <a name="nfs-server"></a>Server systému souborů NFS
 * Front-endovou konfiguraci
@@ -142,7 +142,7 @@ Na serveru NFS, SAP NetWeaver ASC, SAP NetWeaver SCS, SAP NetWeaver YBRAT a data
 ### <a name="deploying-linux"></a>Nasazení Linux
 
 Azure Marketplace obsahuje bitovou kopii pro SUSE Linux Enterprise Server pro 12 aplikace SAP, který můžete použít k nasazení nových virtuálních počítačů.
-Jeden z šablony rychlý start způsobem můžete na githubu nasadit všechny požadované prostředky. Šablona nasadí virtuální počítače, nástroj pro vyrovnávání zatížení, dostupnosti apod. Postupujte podle těchto kroků nasadíte šablony:
+Můžete jeden z šablony rychlý start na githubu nasadit všechny požadované prostředky. Šablona nasadí virtuální počítače, nástroj pro vyrovnávání zatížení, dostupnosti apod. Postupujte podle těchto kroků nasadíte šablony:
 
 1. Otevřete [šablony serveru SAP souboru] [ template-file-server] na portálu Azure   
 1. Zadejte následující parametry
@@ -152,8 +152,8 @@ Jeden z šablony rychlý start způsobem můžete na githubu nasadit všechny po
       Vyberte jednu z distribucích systému Linux. V tomto příkladu vyberte SLES 12
    3. Uživatelské jméno správce a heslo správce  
       Po vytvoření nového uživatele, který lze použít pro přihlášení k počítači.
-   4. Id podsítě  
-      ID podsítě, ke které by měl být připojený virtuální počítače. Ponechte prázdné, pokud chcete vytvořit novou virtuální síť, nebo vyberte podsíť virtuální sítě VPN nebo Expressroute připojit virtuální počítač k síti na pracovišti. ID obvykle vypadá /subscriptions/**&lt;id předplatného&gt;**/resourceGroups/**&lt;název skupiny prostředků&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;název virtuální sítě&gt;**/subnets/**&lt;název podsítě.&gt;**
+   4. ID podsítě  
+      ID podsítě, ke které by měl být připojený virtuální počítače. Ponechte prázdné, pokud chcete vytvořit novou virtuální síť, nebo vyberte podsíť virtuální sítě VPN nebo Expressroute připojit virtuální počítač k síti na pracovišti. ID obvykle vypadá /subscriptions/**&lt;ID předplatného&gt;**/resourceGroups/**&lt;název skupiny prostředků&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;název virtuální sítě&gt;**/subnets/**&lt;název podsítě.&gt;**
 
 ### <a name="installation"></a>Instalace
 
@@ -254,7 +254,7 @@ Následující položky jsou předponou buď **[A]** – platí pro všechny uzl
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Konfigurace corosync používají jiné přenos a přidání seznamu. V opačném případě nebude fungovat clusteru.
+1. **[A]**  Konfigurace corosync používají jiné přenos a přidání seznamu. Cluster nefunguje jinak.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -475,7 +475,7 @@ Následující položky jsou předponou buď **[A]** – platí pro všechny uzl
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -495,7 +495,7 @@ STONITH zařízení používá objekt služby k autorizaci s Microsoft Azure. Po
 
 1. Přejděte na <https://portal.azure.com>
 1. Otevřete okno Azure Active Directory  
-   Přejděte k vlastnostem a poznamenejte si ID adresáře. Toto je **id klienta**.
+   Přejděte k vlastnostem a poznamenejte si ID adresáře. Toto je **ID klienta**.
 1. Klikněte na možnost registrace aplikace
 1. Klikněte na tlačítko Přidat.
 1. Zadejte název, vyberte typ aplikace "Aplikace webového rozhraní API", zadejte přihlašovací adresu URL (například http://localhost) a klikněte na možnost vytvořit
@@ -503,7 +503,7 @@ STONITH zařízení používá objekt služby k autorizaci s Microsoft Azure. Po
 1. Vyberte nové aplikace a na kartě nastavení klikněte na klíče
 1. Zadejte popis pro nový klíč, vyberte "Je platné stále" a klikněte na Uložit
 1. Poznamenejte si hodnotu. Použije se jako **heslo** pro objekt služby
-1. Poznamenejte si ID aplikace. Se používá jako uživatelské jméno (**přihlašovacího id** v následujících krocích) instančního objektu
+1. Poznamenejte si ID aplikace. Se používá jako uživatelské jméno (**přihlašovacího ID** v následujících krocích) instančního objektu
 
 Objekt služby nemá oprávnění pro přístup k prostředkům Azure ve výchozím nastavení. Musíte poskytnout oprávnění objektu služby spuštění a zastavení (zrušit přidělení) všechny virtuální počítače v clusteru.
 
@@ -523,13 +523,13 @@ Poté, co jste upravili oprávnění pro virtuální počítače, můžete nakon
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -549,14 +549,14 @@ sudo crm configure property stonith-enabled=true
 
 Azure Marketplace obsahuje bitovou kopii pro SUSE Linux Enterprise Server pro 12 aplikace SAP, který můžete použít k nasazení nových virtuálních počítačů. Bitová kopie marketplace obsahuje agenta prostředků pro SAP NetWeaver.
 
-Jeden z šablony rychlý start způsobem můžete na githubu nasadit všechny požadované prostředky. Šablona nasadí virtuální počítače, nástroj pro vyrovnávání zatížení, dostupnosti apod. Postupujte podle těchto kroků nasadíte šablony:
+Můžete jeden z šablony rychlý start na githubu nasadit všechny požadované prostředky. Šablona nasadí virtuální počítače, nástroj pro vyrovnávání zatížení, dostupnosti apod. Postupujte podle těchto kroků nasadíte šablony:
 
 1. Otevřete [ASC nebo SCS více SID šablony] [ template-multisid-xscs] nebo [konvergované šablony] [ template-converged] na Azure portálu ASC nebo SCS pouze vytvoří šablona pravidla Vyrovnávání zatížení pro SAP NetWeaver ASC nebo SCS a instance YBRAT (pouze Linux) zatímco sblížené Šablona také vytváří pravidla Vyrovnávání zatížení pro databázi (například Microsoft SQL Server nebo SAP HANA). Pokud máte v plánu pro instalaci systému SAP NetWeaver na základě a také chcete databázi nainstalovat na stejný počítače, použijte [konvergované šablony][template-converged].
 1. Zadejte následující parametry
    1. Předpona prostředků (pouze šablony SID více ASC nebo SCS)  
       Zadejte předponu, kterou chcete použít. Hodnota se používá jako předpona pro prostředky, které jsou nasazeny.
-   3. Id systému SAP (pouze sblížené šablony)  
-      Zadejte Id systému SAP systému SAP, který chcete nainstalovat. Identifikátor se používá jako předpona pro prostředky, které jsou nasazeny.
+   3. ID systému SAP (pouze sblížené šablony)  
+      Zadejte ID systému SAP systému SAP, který chcete nainstalovat. Identifikátor se používá jako předpona pro prostředky, které jsou nasazeny.
    4. Typ zásobníku  
       Vyberte typ SAP NetWeaver zásobníku
    5. Typ operačního systému  
@@ -564,13 +564,13 @@ Jeden z šablony rychlý start způsobem můžete na githubu nasadit všechny po
    6. Typ databázového  
       Vyberte HANA
    7. Velikost systému SAP  
-      Množství protokoly SAP poskytuje nový systém. Pokud si nejste jisti kolik protokoly SAP vyžaduje systém, požádejte SAP technologie partnera nebo systémový integrátor
+      Množství protokoly SAP poskytuje nový systém. Pokud si nejste jisti kolik protokoly SAP vyžaduje systém, obraťte se na partnera technologie SAP nebo systémový integrátor
    8. Dostupnost systému  
       Vyberte HA
    9. Uživatelské jméno správce a heslo správce  
       Po vytvoření nového uživatele, který lze použít pro přihlášení k počítači.
-   10. Id podsítě  
-   ID podsítě, ke které by měl být připojený virtuální počítače.  Ponechte prázdné, pokud chcete vytvořit novou virtuální síť, nebo vyberte stejné podsíti, který můžete použít nebo vytvořit jako součást nasazení serveru NFS. ID obvykle vypadá /subscriptions/**&lt;id předplatného&gt;**/resourceGroups/**&lt;název skupiny prostředků&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;název virtuální sítě&gt;**/subnets/**&lt;název podsítě.&gt;**
+   10. ID podsítě  
+   ID podsítě, ke které by měl být připojený virtuální počítače.  Ponechte prázdné, pokud chcete vytvořit novou virtuální síť, nebo vyberte stejné podsíti, který můžete použít nebo vytvořit jako součást nasazení serveru NFS. ID obvykle vypadá /subscriptions/**&lt;ID předplatného&gt;**/resourceGroups/**&lt;název skupiny prostředků&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;název virtuální sítě&gt;**/subnets/**&lt;název podsítě.&gt;**
 
 ### <a name="installation"></a>Instalace
 
@@ -700,7 +700,7 @@ Následující položky jsou předponou buď **[A]** – platí pro všechny uzl
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Konfigurace corosync používají jiné přenos a přidání seznamu. V opačném případě nebude fungovat clusteru.
+1. **[A]**  Konfigurace corosync používají jiné přenos a přidání seznamu. Cluster nefunguje jinak.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -967,7 +967,7 @@ Následující položky jsou předponou buď **[A]** – platí pro všechny uzl
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1008,7 +1008,7 @@ Následující položky jsou předponou buď **[A]** – platí pro všechny uzl
 
 1. **[1]**  Nainstalovat SAP NetWeaver ASC  
 
-   Instalace SAP NetWeaver ASC jako kořenového na prvním uzlu pomocí virtuální název hostitele, který se mapuje na adresu IP front-endové konfigurace služby Vyrovnávání zatížení pro ASC například <b>nws Asc</b>, <b>10.0.0.10</b> a číslo instance, který jste použili pro kontrolu služby Vyrovnávání zatížení například <b>00</b>.
+   Instalace SAP NetWeaver ASC jako kořenového na prvním uzlu pomocí virtuální název hostitele, který se mapuje na adresu IP front-endové konfigurace služby Vyrovnávání zatížení pro ASC, například <b>nws Asc</b>, <b>10.0.0.10</b> a instance číslo, které jste použili pro kontrolu služby Vyrovnávání zatížení, například <b>00</b>.
 
    Parametr sapinst SAPINST_REMOTE_ACCESS_USER můžete povolit uživateli nekořenovými pro připojení k sapinst.
 
@@ -1041,7 +1041,7 @@ Následující položky jsou předponou buď **[A]** – platí pro všechny uzl
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1092,7 +1092,7 @@ Následující položky jsou předponou buď **[A]** – platí pro všechny uzl
 
 1. **[2]**  Nainstalovat SAP NetWeaver YBRAT  
 
-   Instalace SAP NetWeaver YBRAT jako kořenového na druhém uzlu pomocí virtuální název hostitele, který se mapuje na adresu IP front-endové konfigurace služby Vyrovnávání zatížení pro YBRAT například <b>nws ybrat</b>, <b>10.0.0.11</b> a číslo instance, který jste použili pro kontrolu služby Vyrovnávání zatížení například <b>02</b>.
+   Instalace SAP NetWeaver YBRAT jako kořenového na druhém uzlu pomocí virtuální název hostitele, který se mapuje na adresu IP front-endové konfigurace služby Vyrovnávání zatížení pro YBRAT, například <b>nws ybrat</b>, <b>10.0.0.11</b> a instance číslo, které jste použili pro kontrolu služby Vyrovnávání zatížení, například <b>02</b>.
 
    Parametr sapinst SAPINST_REMOTE_ACCESS_USER můžete povolit uživateli nekořenovými pro připojení k sapinst.
 
@@ -1101,7 +1101,7 @@ Následující položky jsou předponou buď **[A]** – platí pro všechny uzl
    </code></pre>
 
    > [!NOTE]
-   > Použijte prosím SWPM SP 20 PL 05 nebo vyšší. Nižší verze nenastavujte oprávnění správně a instalace se nezdaří.
+   > Použijte SWPM SP 20 PL 05 nebo vyšší. Nižší verze nenastavujte oprávnění správně a instalace se nezdaří.
    > 
 
 1. **[1]**  Adapt ASC nebo SCS a YBRAT instance profily
@@ -1136,7 +1136,7 @@ Následující položky jsou předponou buď **[A]** – platí pro všechny uzl
 
 1. **[A]**  Konfigurace zachování
 
-   Komunikace mezi serverem aplikace SAP NetWeaver a ASC nebo SCS směrován přes softwarovému Vyrovnávání zatížení. Nástroje pro vyrovnávání zatížení odpojí neaktivní připojení po vypršení časového limitu se dají konfigurovat. K tomu potřebujete nastavení parametru v profilu SAP NetWeaver ASC nebo SCS a změnit nastavení systému Linux. Přečtěte si prosím [1410736 Poznámka SAP] [ 1410736] Další informace.
+   Komunikace mezi serverem aplikace SAP NetWeaver a ASC nebo SCS směrován přes softwarovému Vyrovnávání zatížení. Nástroje pro vyrovnávání zatížení odpojí neaktivní připojení po vypršení časového limitu se dají konfigurovat. K tomu potřebujete nastavení parametru v profilu SAP NetWeaver ASC nebo SCS a změnit nastavení systému Linux. Čtení [1410736 Poznámka SAP] [ 1410736] Další informace.
    
    Již byl přidán ASC nebo SCS profil parametr enque/encni/set_so_keepalive v posledním kroku.
 
@@ -1228,7 +1228,7 @@ STONITH zařízení používá objekt služby k autorizaci s Microsoft Azure. Po
 
 1. Přejděte na <https://portal.azure.com>
 1. Otevřete okno Azure Active Directory  
-   Přejděte k vlastnostem a poznamenejte si ID adresáře. Toto je **id klienta**.
+   Přejděte k vlastnostem a poznamenejte si ID adresáře. Toto je **ID klienta**.
 1. Klikněte na možnost registrace aplikace
 1. Klikněte na tlačítko Přidat.
 1. Zadejte název, vyberte typ aplikace "Aplikace webového rozhraní API", zadejte přihlašovací adresu URL (například http://localhost) a klikněte na možnost vytvořit
@@ -1236,7 +1236,7 @@ STONITH zařízení používá objekt služby k autorizaci s Microsoft Azure. Po
 1. Vyberte nové aplikace a na kartě nastavení klikněte na klíče
 1. Zadejte popis pro nový klíč, vyberte "Je platné stále" a klikněte na Uložit
 1. Poznamenejte si hodnotu. Použije se jako **heslo** pro objekt služby
-1. Poznamenejte si ID aplikace. Se používá jako uživatelské jméno (**přihlašovacího id** v následujících krocích) instančního objektu
+1. Poznamenejte si ID aplikace. Se používá jako uživatelské jméno (**přihlašovacího ID** v následujících krocích) instančního objektu
 
 Objekt služby nemá oprávnění pro přístup k prostředkům Azure ve výchozím nastavení. Musíte poskytnout oprávnění objektu služby spuštění a zastavení (zrušit přidělení) všechny virtuální počítače v clusteru.
 
@@ -1256,13 +1256,13 @@ Poté, co jste upravili oprávnění pro virtuální počítače, můžete nakon
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1280,7 +1280,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="install-database"></a>Instalace databáze
 
-V tomto příkladu je replikaci systému SAP HANA nainstalovaný a nakonfigurovaný. Ve stejném clusteru jako SAP NetWeaver ASC nebo SCS a YBRAT se spustí SAP HANA. Můžete taky nainstalovat SAP HANA na vyhrazeném clusteru. V tématu [vysokou dostupnost z SAP HANA ve virtuálních počítačích Azure (VM)] [ sap-hana-ha] Další informace.
+V tomto příkladu replikaci systému SAP HANA nainstalován a nakonfigurován. SAP HANA běží ve stejném clusteru jako SAP NetWeaver ASC nebo SCS a YBRAT. Můžete taky nainstalovat SAP HANA na vyhrazeném clusteru. Další informace najdete v tématu [vysokou dostupnost z SAP HANA ve virtuálních počítačích Azure (VM)][sap-hana-ha].
 
 ### <a name="prepare-for-sap-hana-installation"></a>Příprava pro instalaci SAP HANA
 
@@ -1326,7 +1326,7 @@ Obecně doporučujeme používat LVM pro svazky, které ukládají data a soubor
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1440,7 +1440,7 @@ Následující kroky jsou založeny na kapitoly 4 z [SAP HANA SR výkonu optimal
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1461,7 +1461,7 @@ Následující kroky jsou založeny na kapitoly 4 z [SAP HANA SR výkonu optimal
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \

@@ -12,7 +12,7 @@ Virtuální počítače řady F-series jsou skvělou volbou pro úlohy, které p
 
 Řada Fs-series nabízí všechny výhody řady F-series a navíc službu Storage úrovně Premium.
 
-## <a name="fsv2-series"></a>Fsv2-series *
+## <a name="fsv2-series-sup1sup"></a>Fsv2-series <sup>1</sup>
 
 ACU: 195-210
 
@@ -25,9 +25,10 @@ ACU: 195-210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Velmi vysoké                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Velmi vysoké                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Velmi vysoké                                 |
-* Fsv2-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
 
-## <a name="fs-series"></a>Fs-series*
+<sup>1</sup>Fsv2-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
+
+## <a name="fs-series-sup1sup"></a>FS-series <sup>1</sup>
 
 ACU: 210–250
 
@@ -41,7 +42,7 @@ ACU: 210–250
 
 MB/s = 10^6 bajtů za sekundu a GiB = 1024^3 bajtů.
 
-*Maximální propustnost disku (IOPS nebo MB/s) dostupná pro virtuální počítače Fs-series může být omezená počtem, velikostí a prokládáním připojených disků.  Podrobnosti viz článek [Storage úrovně Premium: Vysoce výkonné úložiště pro virtuální počítače Azure](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> propustnost maximální disku (IOPS nebo MB/s) možné pomocí řady Fs virtuálních počítačů může být omezena číslo, velikost a proložení připojené disky.  Podrobnosti viz článek [Storage úrovně Premium: Vysoce výkonné úložiště pro virtuální počítače Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 
 <br>

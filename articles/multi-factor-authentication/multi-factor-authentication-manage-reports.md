@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 76a13467fff23ad62a857a53e0e31865b1a9fe81
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Sestavy v Azure Multi-Factor Authentication
 
@@ -36,22 +36,20 @@ Azure Multi-Factor Authentication nabízí několik sestav, které mohou být vy
 
 ## <a name="view-reports"></a>Zobrazení sestav
 
-1. Přihlaste se do [portál Azure Classic](https://manage.windowsazure.com).
-2. Vlevo vyberte možnost Active Directory.
-3. Proveďte jeden z těchto dvou možností, v závislosti na tom, zda používáte zprostředkovatelé ověřování:
-   * **Možnost 1**: klikněte na kartu zprostředkovatelé vícefaktorového ověřování. Vyberte poskytovatele MFA a klikněte na tlačítko **spravovat** tlačítko dole.
-   * **Možnost 2**: Vyberte adresář, přejděte na **konfigurace** kartě. V části ověřování vícefaktorového ověřování vyberte **Spravovat nastavení služby**. V dolní části stránky nastavení vícefaktorového ověřování služby kliknutím na Přejít do portálu odkaz.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Na levé straně vyberte **Azure Active Directory** > **uživatelů a skupin** > **všichni uživatelé** > **Multi-Factor Ověřování**.
+3. V části **služby Multi-Factor authentication**, vyberte **nastavení služby**. Dole v části **spravovat Pokročilá nastavení a zobrazit sestavy**, vyberte **přejděte na portál**.
 4. V portálu Azure Multi-Factor Authentication Management Portal, vyberte typ sestavy, které chcete z **zobrazit sestavu** část v levém navigačním panelu.
 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 ## <a name="powershell-reporting"></a>Vytváření sestav prostředí PowerShell
 
-Identifikujte uživatele, kteří mají zaregistrovaný pro MFA pomocí prostředí Powershell, který následuje.
+Identifikujte uživatele, kteří mají zaregistrovaný pro MFA pomocí prostředí PowerShell, který následuje.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Identifikujte uživatele, kteří se ještě nezaregistrovali pro MFA pomocí prostředí Powershell, který následuje dále.
+Identifikujte uživatele, kteří se ještě nezaregistrovali pro MFA pomocí prostředí PowerShell, který následuje dále.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 

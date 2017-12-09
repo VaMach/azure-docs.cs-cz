@@ -3,7 +3,7 @@ title: "Přeučování strojového učení modelu | Microsoft Docs"
 description: "Zjistěte, jak aktualizovat webovou službu, která používá nově trénovaného modelu v Azure Machine Learning a přeučování modelu."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 0270a43f79202d102a8cdfe9cba7011a882e8117
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54655c33336ff3fef261024984947108d6f1df9c
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="retrain-a-machine-learning-model"></a>Přeučování strojového učení modelu
 Jako součást procesu operationalization modelů machine learning v Azure Machine Learning je váš model vycvičena a uložit. Potom ji používáte k vytvoření predicative webové služby. Webové služby, pak mohou být využívány v weby, řídicí panely a mobilní aplikace. 

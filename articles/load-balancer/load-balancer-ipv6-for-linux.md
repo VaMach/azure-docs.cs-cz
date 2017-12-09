@@ -15,42 +15,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 84558cb6e3a5524969f590eb0272a64ad8839ab5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b46c2107dcfda5f02407e08daf08bd42d722dfda
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="configuring-dhcpv6-for-linux-vms"></a>Konfigurace protokolu DHCPv6 pro virtuální počítače s Linuxem
+# <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurace DHCPv6 pro virtuální počítače s Linuxem
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Některé bitové kopie virtuálních počítačů Linux v Azure Marketplace nemají ve výchozím nastavení nakonfigurované DHCPv6. Chcete-li podporovat protokol IPv6, musí být nakonfigurován DHCPv6 v v rámci operačního systému Linux distribuce, kterou používáte. Různých distribucí Linux mají různé způsoby konfigurace DHCPv6, protože používají různé balíčky.
+Některé bitové kopie virtuálního počítače Linux v Azure Marketplace nemají Dynamic Host Configuration Protocol verze 6 (DHCPv6) ve výchozím nastavení nakonfigurované. Chcete-li podporovat protokol IPv6, musí být nakonfigurován DHCPv6 v distribuci operační systém Linux, kterou používáte. Různé Linuxových distribucích DHCPv6 nakonfigurovat různými způsoby, protože používají různé balíčky.
 
 > [!NOTE]
-> Poslední SUSE Linux a CoreOS bitové kopie v Azure Marketplace se předem nakonfigurovaným rozhraním DHCPv6. Při použití těchto imagí nejsou vyžadovány žádné další změny.
+> Poslední SUSE Linux a CoreOS bitové kopie v Azure Marketplace se předem nakonfigurovaným rozhraním DHCPv6. Při použití těchto bitových kopií nejsou vyžadovány žádné další změny.
 
 Tento dokument popisuje, jak povolit DHCPv6 tak, aby virtuální počítač Linux získá adresu IPv6.
 
 > [!WARNING]
-> Nesprávně úpravou konfiguračních souborů síť může způsobit ztrátu přístupu k síti k virtuálnímu počítači. Doporučujeme, abyste otestovali změny konfigurace v systémech nevýrobní prostředí. Podle pokynů v tomto článku jsme otestovali na nejnovější verze Linux obrázků v Azure Marketplace. V dokumentaci ke konkrétní verzi systému Linux podrobnější pokyny.
+> Úpravou nesprávně konfiguračních souborů síť, můžete k virtuálnímu počítači ztratit přístup k síti. Doporučujeme, abyste otestovali změny konfigurace v systémech nevýrobní prostředí. Podle pokynů v tomto článku jsme otestovali na nejnovější verze Linux obrázků v Azure Marketplace. Podrobnější pokyny naleznete v dokumentaci k vaší vlastní verzi systému Linux.
 
 ## <a name="ubuntu"></a>Ubuntu
 
-1. Upravte soubor `/etc/dhcp/dhclient6.conf` a přidejte následující řádek:
+1. Upravit */etc/dhcp/dhclient6.conf* souboru a přidejte následující řádek:
 
         timeout 10;
 
 2. Upravte konfiguraci sítě pro položku eth0 rozhraní s následující konfigurací:
 
-   * Na **Ubuntu 12.04 a 14.04**, upravte soubor`/etc/network/interfaces.d/eth0.cfg`
-   * Na **Ubuntu 16.04**, upravte soubor`/etc/network/interfaces.d/50-cloud-init.cfg`
+   * Na **Ubuntu 12.04 a 14.04**, upravit */etc/network/interfaces.d/eth0.cfg* souboru. 
+   * Na **Ubuntu 16.04**, upravit */etc/network/interfaces.d/50-cloud-init.cfg* souboru.
 
          iface eth0 inet6 auto
              up sleep 5
              up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
 
-3. Obnovení IPv6 adresa:
+3. Obnovení na adresu IPv6:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -58,42 +58,42 @@ Tento dokument popisuje, jak povolit DHCPv6 tak, aby virtuální počítač Linu
 
 ## <a name="debian"></a>Debian
 
-1. Upravte soubor `/etc/dhcp/dhclient6.conf` a přidejte následující řádek:
+1. Upravit */etc/dhcp/dhclient6.conf* souboru a přidejte následující řádek:
 
         timeout 10;
 
-2. Upravte soubor `/etc/network/interfaces` a přidejte následující konfigurace:
+2. Upravit */etc/network/interfaces* souboru a přidejte následující konfigurace:
 
         iface eth0 inet6 auto
             up sleep 5
             up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
 
-3. Obnovení IPv6 adresa:
+3. Obnovení na adresu IPv6:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="rhel--centos--oracle-linux"></a>RHEL nebo CentOS nebo Oracle Linux
+## <a name="rhel-centos-and-oracle-linux"></a>RHEL a CentOS, Oracle Linux
 
-1. Upravte soubor `/etc/sysconfig/network` a přidejte následující parametr:
+1. Upravit */etc/sysconfig/network* souboru a přidejte následující parametr:
 
         NETWORKING_IPV6=yes
 
-2. Upravte soubor `/etc/sysconfig/network-scripts/ifcfg-eth0` a přidejte následující dva parametry:
+2. Upravit */etc/sysconfig/network-scripts/ifcfg-eth0* souboru a přidejte následující dva parametry:
 
         IPV6INIT=yes
         DHCPV6C=yes
 
-3. Obnovení IPv6 adresa:
+3. Obnovení na adresu IPv6:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-11--opensuse-13"></a>SLES 11 & openSUSE 13
+## <a name="sles-11-and-opensuse-13"></a>SLES 11 a openSUSE 13
 
-Poslední SLES a openSUSE bitové kopie v Azure se předem nakonfigurovaným rozhraním DHCPv6. Při použití těchto imagí nejsou vyžadovány žádné další změny. Pokud máte virtuální počítač, na základě bitové kopie starší nebo vlastní SUSE, použijte následující kroky:
+Poslední SUSE Linux Enterprise Server (SLES) a openSUSE obrázků v Azure se předem nakonfigurovaným rozhraním DHCPv6. Při použití těchto bitových kopií nejsou vyžadovány žádné další změny. Pokud máte virtuální počítač, který je založen na bitovou kopii starší nebo vlastní SUSE, postupujte takto:
 
 1. Nainstalujte `dhcp-client` balíčku, v případě potřeby:
 
@@ -101,7 +101,7 @@ Poslední SLES a openSUSE bitové kopie v Azure se předem nakonfigurovaným roz
     sudo zypper install dhcp-client
     ```
 
-2. Upravte soubor `/etc/sysconfig/network/ifcfg-eth0` a přidejte následující parametr:
+2. Upravit */etc/sysconfig/network/ifcfg-eth0* souboru a přidejte následující parametr:
 
         DHCLIENT6_MODE='managed'
 
@@ -113,17 +113,13 @@ Poslední SLES a openSUSE bitové kopie v Azure se předem nakonfigurovaným roz
 
 ## <a name="sles-12-and-opensuse-leap"></a>SLES 12 a openSUSE přestupného
 
-Poslední SLES a openSUSE bitové kopie v Azure se předem nakonfigurovaným rozhraním DHCPv6. Při použití těchto imagí nejsou vyžadovány žádné další změny. Pokud máte virtuální počítač, na základě bitové kopie starší nebo vlastní SUSE, použijte následující kroky:
+Poslední SLES a openSUSE bitové kopie v Azure se předem nakonfigurovaným rozhraním DHCPv6. Při použití těchto bitových kopií nejsou vyžadovány žádné další změny. Pokud máte virtuální počítač, který je založen na bitovou kopii starší nebo vlastní SUSE, postupujte takto:
 
-1. Upravte soubor `/etc/sysconfig/network/ifcfg-eth0` a nahraďte tento parametr
-
-        #BOOTPROTO='dhcp4'
-
-    s následující hodnotou:
+1. Upravit */etc/sysconfig/network/ifcfg-eth0* souboru a nahraďte `#BOOTPROTO='dhcp4'` parametru s následující hodnotou:
 
         BOOTPROTO='dhcp'
 
-2. Přidejte následující parametr k `/etc/sysconfig/network/ifcfg-eth0`:
+2. Na */etc/sysconfig/network/ifcfg-eth0* soubor, přidejte následující parametr:
 
         DHCLIENT6_MODE='managed'
 
@@ -135,9 +131,9 @@ Poslední SLES a openSUSE bitové kopie v Azure se předem nakonfigurovaným roz
 
 ## <a name="coreos"></a>CoreOS
 
-Poslední CoreOS bitové kopie v Azure se předem nakonfigurovaným rozhraním DHCPv6. Při použití těchto imagí nejsou vyžadovány žádné další změny. Pokud máte virtuální počítač, na základě bitové kopie starší nebo vlastní CoreOS, použijte následující kroky:
+Poslední CoreOS bitové kopie v Azure se předem nakonfigurovaným rozhraním DHCPv6. Při použití těchto bitových kopií nejsou vyžadovány žádné další změny. Pokud máte virtuální počítač, na základě bitové kopie starší nebo vlastní CoreOS, postupujte takto:
 
-1. Upravte soubor`/etc/systemd/network/10_dhcp.network`
+1. Upravit */etc/systemd/network/10_dhcp.network* souboru:
 
         [Match]
         eth0

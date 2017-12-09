@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: f060ddc958a7b266464bd28cee774f6ce065088d
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latence sestav Azure Active Directory.
 
@@ -39,8 +39,8 @@ Následující tabulka uvádí informace o protokolování aktivit latenci.
 
 | Sestava | Minimální | Průměr | Maximální počet |
 | :-- | --- | --- | --- |
-| Protokoly auditu             | 30 minut  | 45 minut | 1 hodina     |
-| Přihlášení               | 15 minut  | 15 minut | 2 hodiny *   |
+| Protokoly auditu             | 30 minut  | 1 hodina | 2 hodiny     |
+| Přihlášení               | 15 minut  | 2 hodiny * | 24 hodin  |
 
 >[!NOTE]
 > Pro některá data aktivit přihlášení pocházející z aplikací Office starší verze může zobrazení dat pro generování sestav trvat až 8 hodin. 
@@ -57,7 +57,7 @@ Následující tabulka uvádí informace o zabezpečení sestavy latenci.
 
 | Sestava | Minimální | Průměr | Maximální počet |
 | :-- | --- | --- | --- |
-| Ohrožení uživatelé          | 5 minut   | 15 minut  | 2 hodiny  |
+| Ohrožených uživatelích          | 5 minut   | 15 minut  | 2 hodiny  |
 | Rizikové přihlášení         | 5 minut   | 15 minut  | 2 hodiny  |
 
 ## <a name="risk-events"></a>Riziko události
@@ -70,7 +70,7 @@ Následující tabulka uvádí informace o rizikových událostech latenci.
 | :-- | --- | --- | --- |
 | Přihlášení z anonymních IP adres |5 minut |15 minut |2 hodiny |
 | Přihlášení z neznámých míst |5 minut |15 minut |2 hodiny |
-| Uživatelé s uniklými přihlašovacími údaji |2 hodiny |4 hodiny |8 hodin |
+| Uživatelé s uniklé přihlašovací údaje |2 hodiny |4 hodiny |8 hodin |
 | Nemožná cesta do netypických míst |5 minut |1 hodina |8 hodin  |
 | Přihlášení z nakažených zařízení |2 hodiny |4 hodiny |8 hodin  |
 | Přihlášení z IP adres s podezřelou aktivitou |2 hodiny |4 hodiny |8 hodin  |

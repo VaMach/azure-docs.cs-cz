@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 30574be2d0a803aa162ca225b5c2a66c65cc1eaa
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 03e62d20367544fda1d5abcdb1acef90cdcaa640
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Paměťově optimalizované velikosti virtuálních počítačů
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>Další velikosti
-- [Obecné účely](../windows/sizes-general.md)
-- [Optimalizované z hlediska výpočetních služeb](../windows/sizes-compute.md)
+- [Obecné účely](sizes-general.md)
+- [Optimalizované z hlediska výpočetních služeb](sizes-compute.md)
 - [Optimalizované z hlediska úložiště](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-- [Vysokovýkonné výpočetní prostředí](../windows/sizes-hpc.md)
+- [Vysokovýkonné výpočetní prostředí](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o [Azure výpočetní jednotky (ACU)](../windows/acu.md) můžete porovnat výpočetní výkon v Azure SKU.
+Další informace o [Azure výpočetní jednotky (ACU)](acu.md) můžete porovnat výpočetní výkon v Azure SKU.

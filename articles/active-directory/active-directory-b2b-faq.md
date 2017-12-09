@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 9f0ee9174c925f9338dc69bc5560255d66b30493
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Spolupráce Azure Active Directory s B2B nejčastější dotazy
 
@@ -115,7 +115,7 @@ Doporučujeme, abyste pozvání jeden uživatel od partnerské organizace k pozv
 Pokud partner má tenanta služby Azure AD, který je federovaného ověřování místní infrastruktury, místní jednotné přihlašování (SSO) automaticky dosáhnout. Pokud partner nemá klient služby Azure AD, vytvoří se účet služby Azure AD pro nové uživatele. 
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Ačkoli Azure AD B2B nepřijal gmail.com a outlook.com e-mailové adresy a že B2C byla použita pro tyto typy účtů?
-Rozdíly mezi B2B a spolupráci obchodní společnosti (B2C) z hlediska, které jsou podporovány identity jsme se odebrat. Identita použitá není funkční důvod, proč zvolit mezi použitím B2B a použitím B2C. Informace o výběru vaše možnosti spolupráce naleznete v tématu [spolupráce B2B porovnat a B2C v Azure Active Directory](active-directory-b2b-compare-b2c.md).
+Rozdíly mezi B2B a spolupráci obchodní k příjemce (B2C) z hlediska, které jsou podporovány identity jsme se odebrat. Identita použitá není funkční důvod, proč zvolit mezi použitím B2B a použitím B2C. Informace o výběru vaše možnosti spolupráce naleznete v tématu [spolupráce B2B porovnat a B2C v Azure Active Directory](active-directory-b2b-compare-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Jaké aplikace a služby podporují uživatele typu Host Azure B2B?
 Aplikace všechny integrované s Active Directory Azure podporují uživatele typu Host Azure B2B. 

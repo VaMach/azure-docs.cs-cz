@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 15afdead60d4c1ee3c7e3c079d43e0651b262ec8
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 31b0df0442a46761cb19e390e723535ff5a81594
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Hledání nedaleko bodu zájmu pomocí služeb na základě umístění Azure
 
@@ -39,9 +39,9 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
 
 Postupujte podle těchto kroků můžete vytvořit nový účet na základě polohy.
 
-1. V levém horním rohu [portál Azure](https://portal.azure.com), klikněte na tlačítko **vytvořit prostředek**.
-2. V *vyhledávání na webu Marketplace* zadejte **umístění služby založené na**.
-3. Z *výsledky*, klikněte **služeb na základě umístění (preview)**. Klikněte na tlačítko **vytvořit** umístěné pod mapy. 
+1. V levém horním rohu webu [Azure Portal](https://portal.azure.com) klikněte na **Vytvořit prostředek**.
+2. Do pole *Hledat na Marketplace* zadejte **location based services**.
+3. Ve *výsledcích* klikněte na **Location Based Services (Preview)**. Klikněte na tlačítko **Vytvořit**, které se zobrazí pod mapou. 
 4. Na **vytvořit účet služby služby umístění na základě** stránky, zadejte následující hodnoty:
     - *Název* svého nového účtu. 
     - *Předplatné* , kterou chcete použít pro tento účet.
@@ -50,7 +50,7 @@ Postupujte podle těchto kroků můžete vytvořit nový účet na základě pol
     - Pro čtení *podmínky* a zaškrtnutím políčka přijmout podmínky. 
     - Nakonec klikněte na **vytvořit** tlačítko.
    
-    ![Vytvoření účtu na základě polohy v portálu](./media/tutorial-search-location/create-lbs-account.png)
+    ![Vytvoření účtu Location Based Services na portálu](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
@@ -101,12 +101,12 @@ Azure mapy ovládacího prvku rozhraní API je vhodné klientské knihovny, kter
             }
         </style>
     </head>
+
     <body>
         <div id="map"></div>
         <script>
         // Embed Map Control JavaScript code here
         </script>
-
     </body>
 
     </html>
@@ -116,25 +116,24 @@ Azure mapy ovládacího prvku rozhraní API je vhodné klientské knihovny, kter
 3.  Přidejte následující kód JavaScript, který *skriptu* bloku souboru HTML. Nahraďte zástupný symbol *< klávesy insert >* s primární klíč účtu na základě polohy. 
 
     ```HTML/JavaScript
-            // Instantiate map to the div with id "map"
-            var subscriptionKey = "<insert-key>";
-            var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey
-            });
-
+    // Instantiate map to the div with id "map"
+    var subscriptionKey = "<insert-key>";
+    var map = new atlas.Map("map", {
+        "subscription-key": subscriptionKey
+    });
     ```
     Tento segment zahájí rozhraní API ovládacího prvku mapy pro svůj klíč předplatného. **Atlas** je obor názvů, který obsahuje rozhraní API služby Azure mapy ovládacího prvku a související vizuální součásti. **Atlas. Mapa** poskytuje ovládací prvek pro mapu visual a interaktivní web. Může sledovat, jak mapy vypadá tak, že otevřete stránku HTML v prohlížeči. 
 
 4. Přidejte následující kód JavaScript, který *skriptu* bloku pro přidání vrstvy vyhledávání kódů PIN pro mapový ovládací prvek:
 
     ```HTML/JavaScript
-            // Initialize the pin layer for search results to the map
-            var searchLayerName = "search-results";
-            map.addPins([], {
-                name: searchLayerName,
-                cluster: false,
-                icon: "pin-round-darkblue"
-            });
+    // Initialize the pin layer for search results to the map
+    var searchLayerName = "search-results";
+    map.addPins([], {
+        name: searchLayerName,
+        cluster: false,
+        icon: "pin-round-darkblue"
+    });
     ```
 
 5. Uložte soubor na počítači. 
@@ -148,90 +147,90 @@ Tato část ukazuje způsob použití rozhraní API služby Search Azure na zák
 
 1. Otevřete **MapSearch.html** soubor vytvořili v předchozí části a přidejte následující kód JavaScript, který *skriptu* bloku pro ilustraci službu vyhledávání. 
     ```HTML/JavaScript
-            // Perform a request to the search service and create a pin on the map for each result
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                var searchPins = [];
+    // Perform a request to the search service and create a pin on the map for each result
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        var searchPins = [];
 
-                if (this.readyState === 4 && this.status === 200) {
-                    var response = JSON.parse(this.responseText);
+        if (this.readyState === 4 && this.status === 200) {
+            var response = JSON.parse(this.responseText);
 
-                    var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
+            var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
 
-                    searchPins = poiResults.map((poiResult) => {
-                        var poiPosition = [poiResult.position.lon, poiResult.position.lat];
-                        return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                            name: poiResult.poi.name,
-                            address: poiResult.address.freeformAddress,
-                            position: poiResult.position.lat + ", " + poiResult.position.lon
-                        });
-                    });
+            searchPins = poiResults.map((poiResult) => {
+                var poiPosition = [poiResult.position.lon, poiResult.position.lat];
+                return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
+                    name: poiResult.poi.name,
+                    address: poiResult.address.freeformAddress,
+                    position: poiResult.position.lat + ", " + poiResult.position.lon
+                });
+            });
 
-                    map.addPins(searchPins, {
-                        name: searchLayerName
-                    });
+            map.addPins(searchPins, {
+                name: searchLayerName
+            });
 
-                    var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
-                    var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
+            var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
+            var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
 
-                    var swLon = Math.min.apply(null, lons);
-                    var swLat = Math.min.apply(null, lats);
-                    var neLon = Math.max.apply(null, lons);
-                    var neLat = Math.max.apply(null, lats);
+            var swLon = Math.min.apply(null, lons);
+            var swLat = Math.min.apply(null, lats);
+            var neLon = Math.max.apply(null, lons);
+            var neLat = Math.max.apply(null, lats);
 
-                    map.setCameraBounds({
-                        bounds: [swLon, swLat, neLon, neLat],
-                        padding: 50
-                    });
-                }
-            };
+            map.setCameraBounds({
+                bounds: [swLon, swLat, neLon, neLat],
+                padding: 50
+            });
+        }
+    };
     ```
     Vytvoří tento fragment kódu [XMLHttpRequest](https://xhr.spec.whatwg.org/), a přidá obslužnou rutinu události analyzovat příchozí odpověď. Pro úspěšné odpovědi, shromažďuje adresy, názvy, zeměpisnou šířku a logitude informace pro každé umístění, vrátila ve `searchPins` proměnné. Nakonec přidá umístění odkazuje na tato kolekce `map` ovládací prvek, kódy PIN. 
 
 2. Přidejte následující kód, který *skriptu* blok, k odeslání XMLHttpRequest službě Search Azure na základě polohy.:
 
     ```HTML/JavaScript
-            var url = "https://atlas.microsoft.com/search/fuzzy/json?";
-            url += "&api-version=1.0";
-            url += "&query=gasoline%20station";
-            url += "&subscription-key=" + subscriptionKey;
-            url += "&lat=47.6292";
-            url += "&lon=-122.2337";
-            url += "&radius=100000"
+    var url = "https://atlas.microsoft.com/search/fuzzy/json?";
+    url += "&api-version=1.0";
+    url += "&query=gasoline%20station";
+    url += "&subscription-key=" + subscriptionKey;
+    url += "&lat=47.6292";
+    url += "&lon=-122.2337";
+    url += "&radius=100000";
 
-            xhttp.open("GET", url, true);
-            xhttp.send();
+    xhttp.open("GET", url, true);
+    xhttp.send();
     ``` 
     Tento fragment kódu používá základní hledání rozhraní API služby vyhledávání, volá se **přibližné vyhledávání**. Zpracovává nejvíce přibližné vstupy zpracování libovolnou kombinaci adresy nebo *bodů zájmu* tokeny. Vyhledá blízkou **benzinového stanice**, pro danou adresu v zeměpisné šířky a délky a v rámci zadaného protokolu radius. Používá klíč předplatného váš účet dříve součástí ukázkový soubor pro volání do služeb na základě umístění. Vrátí výsledky jako zeměpisnou šířku a délku páry pro umístění nalezena. Kódy PIN vyhledávání může sledovat tak, že otevřete stránku HTML v prohlížeči. 
 
 3. Přidejte následující řádky, které se *skriptu* bloku, vytvořit automaticky otevíraná okna pro body zájmu vrácený službu vyhledávání:
 
     ```HTML/JavaScript
-            // Add a popup to the map which will display some basic information about a search result on hover over a pin
-            var popup = new atlas.Popup();
-            map.addEventListener("mouseover", searchLayerName, (e) => {
-                var popupContentElement = document.createElement("div");
-                popupContentElement.style.padding = "5px";
+    // Add a popup to the map which will display some basic information about a search result on hover over a pin
+    var popup = new atlas.Popup();
+    map.addEventListener("mouseover", searchLayerName, (e) => {
+        var popupContentElement = document.createElement("div");
+        popupContentElement.style.padding = "5px";
 
-                var popupNameElement = document.createElement("div");
-                popupNameElement.innerText = e.features[0].properties.name;
-                popupContentElement.appendChild(popupNameElement);
+        var popupNameElement = document.createElement("div");
+        popupNameElement.innerText = e.features[0].properties.name;
+        popupContentElement.appendChild(popupNameElement);
 
-                var popupAddressElement = document.createElement("div");
-                popupAddressElement.innerText = e.features[0].properties.address;
-                popupContentElement.appendChild(popupAddressElement);
+        var popupAddressElement = document.createElement("div");
+        popupAddressElement.innerText = e.features[0].properties.address;
+        popupContentElement.appendChild(popupAddressElement);
 
-                var popupPositionElement = document.createElement("div");
-                popupPositionElement.innerText = e.features[0].properties.position;
-                popupContentElement.appendChild(popupPositionElement);
+        var popupPositionElement = document.createElement("div");
+        popupPositionElement.innerText = e.features[0].properties.position;
+        popupContentElement.appendChild(popupPositionElement);
 
-                popup.setPopupOptions({
-                    position: e.features[0].geometry.coordinates,
-                    content: popupContentElement
-                });
+        popup.setPopupOptions({
+            position: e.features[0].geometry.coordinates,
+            content: popupContentElement
+        });
 
-                popup.open(map);
-            });
+        popup.open(map);
+    });
     ```
     Rozhraní API **atlas. Místní nabídka** poskytuje informace okno ukotvené umístění na mapě. Tento fragment kódu nastaví obsah a pozici pro místní nabídce, a také přidá naslouchací proces událostí k `map` řízení, čeká _myši_ rozšíří automaticky otevřeném okně. 
 

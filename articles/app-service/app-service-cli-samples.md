@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6718694af487929d193dae54ecb2d85ece64887a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e6adf0c4b8273facce609c9e162969cdd2afaaa
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cli-samples"></a>Ukázky rozhraní příkazového řádku Azure
 
@@ -45,6 +45,10 @@ Následující tabulka obsahuje odkazy na bash skripty, které jsou vytvořené 
 | [Připojení webové aplikace k účtu úložiště](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Vytvoří webové aplikace Azure a účet úložiště a potom přidá připojovacího řetězce úložiště nastavení aplikace. |
 | [Připojení webové aplikace do mezipaměti redis](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Vytvoří webové aplikace Azure a mezipaměti redis a potom přidá podrobnosti připojení redis nastavení aplikace.) |
 | [Webovou aplikaci připojit k databázi systému Cosmos](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Vytvoří webové aplikace Azure a Cosmos DB a potom přidá podrobnosti připojení Cosmos DB nastavení aplikace. |
+|**Zálohování a obnovení aplikace**||
+| [Zálohování webové aplikace](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Vytvoří webové aplikace Azure a vytvoří pro ni jednorázové zálohy. |
+| [Vytvoření naplánovaného zálohování pro webovou aplikaci](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Vytvoří webové aplikace Azure a vytvoří pro ni plánované zálohování. |
+| [Obnoví ze zálohy, webové aplikace](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Webové aplikace Azure obnoví ze zálohy. |
 |**Monitorování aplikace**||
 | [Monitorování webové aplikace pomocí protokolů webového serveru](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Vytvoří webové aplikace Azure, povolí protokolování pro něj a stáhne protokoly do místního počítače. |
 | | |

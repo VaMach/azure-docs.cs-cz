@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/31/2017
+ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: ecc81dcfaf8dc158792a3bbcac78ea6da6488822
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery matici podpory pro replikaci z Azure do Azure
 
@@ -90,11 +90,11 @@ Níže podpora je dostupná pro jakoukoli úlohu spuštěnou na uvedených opera
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
 
-(Upgrade replikaci počítačů z SLES 11 SP3 na SLES 11 SP4 není podporována. V případě upgradu replikovaného počítače z SLES 11SP3 pro SLES 11 SP4, musíte zakázat replikaci a chránit počítač znovu po upgradu.)
+(Upgrade replikaci počítačů z SLES 11 SP3 na SLES 11 SP4 není podporována. Pokud replikovaného počítače z SLES 11SP3 byl upgradován na verzi SLES 11 SP4, budete muset zakázat replikaci a chránit počítač znovu po upgradu.)
 
 >[!NOTE]
 >
-> Ověřování a přihlaste se na základě Ubuntu servery pomocí hesla a pomocí balíčku pro cloud init ke konfiguraci cloudu virtuálních počítačů, může být založené na heslech přihlášení po převzetí služeb při selhání (v závislosti na konfiguraci cloudinit.) zakázány Resetováním hesla z nabídky nastavení může být založené na heslech přihlášení znovu zapnout na virtuálním počítači (v části Podpora + Poradce při potížích s část) došlo přes virtuální počítač na portálu Azure.
+> Ubuntu servery pomocí ověřování pomocí hesla a přihlášení a pomocí balíčku pro cloud init ke konfiguraci cloudu virtuálních počítačů, může mít založené na heslech přihlašovací údaje zakázána po převzetí služeb při selhání (v závislosti na konfiguraci cloudinit.) Resetováním hesla z nabídky nastavení může být založené na heslech přihlášení znovu zapnout na virtuálním počítači (v části Podpora + Poradce při potížích s část) došlo přes virtuální počítač na portálu Azure.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Podporované verze Ubuntu jádra pro virtuální počítače Azure
 
@@ -122,10 +122,13 @@ Amerika | Východní Kanada, Kanada centrální, Jižní střed USA, střed USA 
 Evropa | Spojené království – Západ, Spojené království – Jih, Severní Evropa, západní Evropa
 Asie | Indie – Jih, střed, jihovýchodní Asie, východní Asie, Japonsko – východ, Japonsko – Západ, Korejská – střed, Korejská jih
 Austrálie   | Austrálie – východ, Austrálie – jihovýchod
+Azure Government    | Virginia verze pro státní správu USA, USA verze pro státní správu Iowa, USA verze pro státní správu Arizona, Texas verze pro státní správu USA, DOD USA – východ, DOD USA – střed
+Německo | Německo – střed, Německo – severovýchod
+Čína | Východní Čína, severní Čína
 
 >[!NOTE]
 >
-> Brazílie – jih oblasti můžete pouze replikace a převzetí služeb při selhání k jednomu jihu USA – Západ střední USA, Východ USA, Východ USA 2, západ USA, západní USA 2 a oblastech severní jihu USA a selhání zpět.
+> Oblasti Brazílie – jih můžete replikaci a převzetí služeb při selhání mezi jihu USA – Západ střední USA, Východ USA, Východ USA 2, západní USA, západní USA 2 a oblastech severní jihu USA a navrácení služeb po obnovení.
 
 
 ## <a name="support-for-compute-configuration"></a>Podpora pro konfiguraci výpočtů
