@@ -6,7 +6,7 @@ Když už nepotřebujete datový disk připojený k virtuálnímu počítači, m
 ## <a name="find-the-disk"></a>Vyhledání disku
 Než budete moci odpojit disk od virtuálního počítače, musíte zjistit číslo logické jednotky (LUN), což je identifikátor disku, který se má odpojit. Provedete to podle těchto kroků:
 
-1. Otevřete rozhraní příkazového řádku Azure a [připojte se k předplatnému Azure](../articles/xplat-cli-connect.md). Zkontrolujte, že jste v režimu Azure Service Management (`azure config mode asm`).
+1. Otevřete rozhraní příkazového řádku Azure a [připojte se k předplatnému Azure](/cli/azure/authenticate-azure-cli). Zkontrolujte, že jste v režimu Azure Service Management (`azure config mode asm`).
 2. Zjistěte, které disky jsou připojené k virtuálnímu počítači. Následující příklad zobrazí seznam disků pro virtuální počítač `myVM`:
 
     ```azurecli

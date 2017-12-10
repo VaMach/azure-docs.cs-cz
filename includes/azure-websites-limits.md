@@ -18,14 +18,14 @@
 | Vlastní domény [podpora protokolu SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Neomezený počet připojení SNI SSL |Neomezená SNI SSL a 1 připojení IP SSL zahrnuté |Neomezená SNI SSL a 1 připojení IP SSL zahrnuté |
 | Integrovaný nástroj Load Balancer | |X |X |X |X |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Naplánovaných záloh](../articles/app-service/web-sites-backup.md) | | | |12 za den |Každých 5 minut<sup>8</sup> |
+| [Naplánovaných záloh](../articles/app-service/web-sites-backup.md) | | | | Plánované zálohování každé 2 hodiny, max 12 zálohy za den (ruční + naplánovaných) | Naplánovaných záloh každou hodinu, maximálně 50 zálohy za den (ruční + naplánovaných) |
 | [Automatické škálování](../articles/app-service/web-sites-scale.md) | | | |X |X |
-| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
+| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) podporu | |X |X |X |X |
 | [Monitorování koncových bodů](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
 | [Přípravných slotů](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
 | Vlastní domény jednotlivé aplikace</a> | |500 |500 |500 |500 |
-| SLA | |<p> |99,9 % |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
+| SLA | |<p> |99,9 % |99.95%<sup>10</sup> |99.95%<sup>9</sup> |
 
 <sup>1</sup>aplikace a kvóty úložišť jsou za plán služby App Service, pokud není uvedeno jinak.  
 <sup>2</sup>skutečný počet aplikací, které je možné hostovat na tyto počítače závisí na aktivitu aplikace, velikost instance počítačů a odpovídající využití prostředků.  
@@ -34,7 +34,6 @@
 <sup>5</sup>limitu úložiště je celková velikost obsahu mezi všechny aplikace ve stejném plán služby App Service. Další možnosti úložiště jsou k dispozici v [App Service Environment](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>tyto prostředky jsou omezeny fyzické prostředky v rámci vyhrazenou instancí (velikost instance a číslo instance).  
 <sup>7</sup>je škálovat aplikaci v základní vrstvě na dvě instance, kdy máte 350 souběžných připojení pro každou z obou instancí.  
-<sup>8</sup>úroveň premium umožňuje zálohování intervaly dolů až každých 5 minut, při použití prostředí App Service a 50 časy denně jinak.  
-<sup>9</sup>spouštět vlastní spustitelné soubory nebo skripty na vyžádání, podle plánu, nebo instance nepřetržitě jako úlohy na pozadí v rámci vaší služby App Service. U nepřetržitého provádění úloh WebJobs se vyžaduje stálé připojení. Pro plánované úlohy WebJobs se vyžaduje Azure Scheduler na úrovni Free nebo Standard. Neexistuje žádné předdefinované omezení počtu WebJobs, která se může spustit v instanci služby App Service, ale neexistují praktické omezení, které závisí na kódu aplikace pokouší o provedení.   
-<sup>10</sup>SLA 99,95 % zadaná pro nasazení, které používají více instancí Azure Traffic Manager nakonfigurován pro převzetí služeb při selhání.  
+<sup>8</sup>spouštět vlastní spustitelné soubory nebo skripty na vyžádání, podle plánu, nebo instance nepřetržitě jako úlohy na pozadí v rámci vaší služby App Service. U nepřetržitého provádění úloh WebJobs se vyžaduje stálé připojení. Pro plánované úlohy WebJobs se vyžaduje Azure Scheduler na úrovni Free nebo Standard. Neexistuje žádné předdefinované omezení počtu WebJobs, která se může spustit v instanci služby App Service, ale neexistují praktické omezení, které závisí na kódu aplikace pokouší o provedení.   
+<sup>9</sup>SLA 99,95 % zadaná pro nasazení, které používají více instancí Azure Traffic Manager nakonfigurován pro převzetí služeb při selhání.  
 
