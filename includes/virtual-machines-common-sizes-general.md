@@ -4,7 +4,7 @@ Velikosti virtuálních počítačů pro obecné účely poskytují vyrovnáván
 
 - Virtuální počítače D-series slouží ke spouštění aplikací, které potřebují vyšší výpočetní výkon a krátkodobý vysoký diskový výkon. Virtuální počítače řady D-series mají rychlejší procesory, vyšší poměr paměti na virtuální procesor a jednotky SSD (solid-state-drive) pro dočasný disk. Podrobnosti najdete v oznámení na blogu Azure: [Nové velikosti virtuálních počítačů D-Series](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-- Virtuální počítače Dv2-series, nástupce původní řady D-series, mají výkonnější procesor. Procesor v Dv2-series je asi o 35 % rychlejší než procesor v D-series. Využívá nejnovější generaci procesorů Intel Xeon® E5-2673 v3 (Haswell) s frekvencí 2,4 GHz, kterou může technologie Intel Turbo Boost 2.0 zvýšit až na 3,1 GHz. Řada Dv2-series má stejnou konfiguraci paměti a disku jako řada D.
+- Dv3-series, Dv2-series, návaznosti na původní D-series, funkce výkonnější procesor. Procesor v Dv2-series je asi o 35 % rychlejší než procesor v D-series. Využívá nejnovější generaci procesorů Intel Xeon® E5-2673 v3 (Haswell) s frekvencí 2,4 GHz, kterou může technologie Intel Turbo Boost 2.0 zvýšit až na 3,1 GHz. Řada Dv2-series má stejnou konfiguraci paměti a disku jako řada D.
 
 - Velikosti úrovně Basic jsou primárně určeny pro úlohy související s vývojem a další aplikace, pro které se nevyžaduje vyrovnávání zatížení, automatické škálování nebo používání virtuálních počítačů s vysokými nároky na paměť. Informace o velikostech virtuálních počítačů vhodnějších pro produkční aplikace najdete v tématu (Velikosti virtuálních počítačů)[virtual-machines-size-specs.md] a informace o cenách virtuálních počítačů najdete v tématu [Ceny virtuálních počítačů](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
@@ -23,11 +23,11 @@ B-series burstable virtuální počítače jsou ideální pro úlohy, které nem
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3-series *
+## <a name="dsv3-series-sup1sup"></a>Dsv3-series <sup>1</sup>
 
 ACU: 160–190
 
-Velikosti Dsv3-series jsou založeny na procesorech 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell), jejichž frekvence se s technologií Intel Turbo Boost 2.0 může zvýšit až na 3,5 GHz, a používají službu Storage úrovně Premium. Velikosti Dsv3-series nabízejí kombinaci virtuálního procesoru, paměti a dočasného úložiště pro většinu produkčních úloh.
+Dsv3-series velikosti jsou založené na 2.4® GHz Intel Xeon E5-2673 v3 (Haswell) procesoru nebo nejnovější 2.3 v4® GHz Intel XEON E5-2673 procesoru (Broadwell), která může dosáhnout 3.5GHz s Intel Turbo nárůst technologie 2.0 a používat úložiště úrovně premium. Velikosti Dsv3-series nabízejí kombinaci virtuálního procesoru, paměti a dočasného úložiště pro většinu produkčních úloh.
 
 
 | Velikost             | Virtuální procesory | Paměť: GiB | Dočasné úložiště (SSD): GiB | Max. datových disků | Maximální propustnost dočasného úložiště a úložiště v mezipaměti: IOPS / MB/s (velikost mezipaměti v GiB) | Maximální propustnost disku bez mezipaměti: IOPS / MB/s | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s) |
@@ -38,13 +38,14 @@ Velikosti Dsv3-series jsou založeny na procesorech 2,3 GHz Intel XEON® E5-267
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / vysoká                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / velmi vysoké                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000 / 1 200                              | 8 / velmi vysoké                                       |
-* Dsv3-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
 
-## <a name="dv3-series"></a>Dv3-series * 
+<sup>1</sup> Dsv3-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
+
+## <a name="dv3-series-sup1sup"></a>Dv3-series <sup>1</sup>
 
 ACU: 160–190
 
-Velikosti Dv3-series jsou založeny na procesorech 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell) a s technologií Intel Turbo Boost 2.0 se jejich frekvence může zvýšit až na 3,5 GHz. Velikosti Dv3-series nabízejí kombinaci virtuálního procesoru, paměti a dočasného úložiště pro většinu produkčních úloh.
+Dv3-series velikosti jsou založené na 2.4® GHz Intel Xeon E5-2673 v3 (Haswell) procesoru nebo 2.3 v4® GHz Intel XEON E5-2673 procesor (Broadwell), které můžete dosáhnout 3.5GHz s Intel Turbo nárůst technologie 2.0. Velikosti Dv3-series nabízejí kombinaci virtuálního procesoru, paměti a dočasného úložiště pro většinu produkčních úloh.
 
 Úložiště datových disků se účtuje nezávisle na virtuálních počítačích. Pokud chcete použít disky Storage úrovně Premium, použijte velikosti Dsv3. Měřiče cen a účtování pro velikosti Dsv3 jsou stejné jako pro Dv3-series. 
 
@@ -57,7 +58,8 @@ Velikosti Dv3-series jsou založeny na procesorech 2,3 GHz Intel XEON® E5-2673
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24 000 / 375 / 187                                            | 8 / vysoká                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48 000 / 750 / 375                                            | 8 / velmi vysoké                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96 000 / 1 000 / 500                                            | 8 / velmi vysoké                     |
-* Dv3-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
+
+<sup>1</sup> Dv3-series Virtuálního počítače funkci technologii Intel® Hyper-Threading
 
 ## <a name="dsv2-series"></a>DSv2-series
 
@@ -137,7 +139,7 @@ ACU: 50–100
 
 | Velikost | Virtuální procesory | Paměť: GiB | Dočasné úložiště (HDD): GiB | Max. datových disků | Maximální propustnost datového disku: IOPS | Maximální počet síťových adaptérů / očekává šířku pásma sítě (MB/s)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0* |1 |0,768 |20 |1 |1×500 |2 / 100 |
+| Standard_A0 <sup>1</sup> |1 |0,768 |20 |1 |1×500 |2 / 100 |
 | Standard_A1 |1 |1,75 |70 |2 |2×500 |2 / 500  |
 | Standard_A2 |2 |3,5 |135 |4 |4×500 |2 / 500 |
 | Standard_A3 |4 |7 |285 |8 |8×500 |2 / 1 000 |
@@ -147,7 +149,7 @@ ACU: 50–100
 | Standard_A7 |8 |56 |605 |16 |16×500 |4 / 2 000 |
 <br>
 
-* Velikost A0 využívá fyzický hardware na maximum. Pouze pro tuto konkrétní velikost můžou výkon vašich spuštěných úloh ovlivnit jiná zákaznická nasazení. Relativní výkon je popsaný níže jako očekávaný základ, přičemž se dá očekávat variabilita přibližně 15 procent.
+<sup>1</sup> the A0 velikost je povolená odebíraných na fyzickém hardwaru. Pouze pro tuto konkrétní velikost můžou výkon vašich spuštěných úloh ovlivnit jiná zákaznická nasazení. Relativní výkon je popsaný níže jako očekávaný základ, přičemž se dá očekávat variabilita přibližně 15 procent.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Velikosti Standard A0–A4 při použití rozhraní příkazového řádku a PowerShellu
 V klasickém modelu nasazení se některé názvy virtuálních počítačů s prostředím příkazového řádku a PowerShellu trochu liší:

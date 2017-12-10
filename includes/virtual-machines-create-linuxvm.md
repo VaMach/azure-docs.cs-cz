@@ -1,5 +1,5 @@
 
-1. Přihlaste se k předplatnému Azure, pomocí kroků uvedených v tématu věnovaném [připojení k Azure z rozhraní příkazového řádku Azure CLI 1.0](../articles/xplat-cli-connect.md).
+1. Přihlaste se k předplatnému Azure, pomocí kroků uvedených v tématu věnovaném [připojení k Azure z rozhraní příkazového řádku Azure CLI 1.0](/cli/azure/authenticate-azure-cli).
 
 2. Pomocí následujícího postupu zkontrolujte, že používáte režim nasazení Classic:
 
