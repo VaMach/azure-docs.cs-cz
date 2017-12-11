@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Řešení problémů](active-directory-application-proxy-troubleshoot.md)
-#### Použití portálu Classic
-##### [Stažení konektorů](application-proxy-enable-classic-portal.md)
-##### [Publikování aplikací](active-directory-application-proxy-publish.md)
-##### [Použití konektorů](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Podmíněný přístup](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Správa podnikových aplikací
 #### [Přiřazení uživatelů](active-directory-coreapps-assign-user-azure-portal.md)

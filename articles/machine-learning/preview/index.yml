@@ -1,50 +1,55 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentace ke službě Azure Machine Learning (Preview)
+title: "Dokumentace ke službě Azure Machine Learning (Preview)"
 metadata:
-  title: Dokumentace ke službě Azure Machine Learning (Preview)
+  title: "Dokumentace ke službě Azure Machine Learning (Preview)"
   meta.description: Learn how to use Azure Machine Learning public preview features.
   services: machine-learning
-  author: czeumault
-  manager: carolz
+  author: garyericson
+  manager: jhubbard
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/06/2017
-  ms.author: carolz
+  ms.author: garye
+  ms.openlocfilehash: c5873c1a9f5a73f700a07fe1050180750bf59cd4
+  ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+  ms.translationtype: HT
+  ms.contentlocale: cs-CZ
+  ms.lasthandoff: 12/09/2017
 abstract:
-  description: 'Prostřednictvím našich šablon Rychlý start a kurzů se naučíte připravovat data a sestavovat a nasazovat modely. Funkce Preview služby Azure Machine Learning umožňují sestavovat, nasazovat a spravovat modely ML a AI s využitím libovolných knihoven a nástrojů Pythonu. K ukládání a zpracování dat můžete využít širokou škálu dat a výpočetních služeb v Azure.'
+  description: "Prostřednictvím našich šablon Rychlý start a kurzů se naučíte připravovat data a sestavovat a nasazovat modely. Funkce Preview služby Azure Machine Learning umožňují sestavovat, nasazovat a spravovat modely ML a AI s využitím libovolných knihoven a nástrojů Pythonu. K ukládání a zpracování dat můžete využít širokou škálu dat a výpočetních služeb v Azure."
 sections:
-  - title: Zprovoznění během 5 minut
+- title: "Zprovoznění během 5 minut"
+  items:
+  - type: paragraph
+    text: "Vytvoření prvního projektu s Machine Learningem"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Vytvoření prvního projektu s Machine Learningem
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/machine-learning/media/index/i_machine-learning.svg
-            text: Instalace a vytvoření
-            href: quickstart-installation
-  - title: Podrobné kurzy
+    - image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      text: "Instalace a vytvoření"
+      href: quickstart-installation
+- title: "Podrobné kurzy"
+  items:
+  - type: paragraph
+    text: "Informace o postupu při přípravě dat, vytvoření experimentu a zprovoznění vašich modelů"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Informace o postupu při přípravě dat, vytvoření experimentu a zprovoznění vašich modelů'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-classifying-iris-part-1">Názorné seznámení se základy služeb Machine Learning (Preview)</a>
-          - html: <a href="tutorial-classifying-iris-part-2">Využití aplikace Machine Learning Workbench k sestavení modelu s datovou sadou Iris</a>
-          - html: <a href="tutorial-classifying-iris-part-3">Informace o postupu při nasazení modelu ve službě Machine Learning</a>
-          - html: <a href="tutorial-bikeshare-dataprep">Použití aplikace Azure Machine Learning Workbench pro pokročilou přípravu dat</a>
-  - title: Referenční informace
+    - html: "<a href=\"tutorial-classifying-iris-part-1\">Názorné seznámení se základy služeb Machine Learning (Preview)</a>"
+    - html: "<a href=\"tutorial-classifying-iris-part-2\">Využití aplikace Machine Learning Workbench k sestavení modelu s datovou sadou Iris</a>"
+    - html: "<a href=\"tutorial-classifying-iris-part-3\">Informace o postupu při nasazení modelu ve službě Machine Learning</a>"
+    - html: "<a href=\"tutorial-bikeshare-dataprep\">Použití aplikace Azure Machine Learning Workbench pro pokročilou přípravu dat</a>"
+- title: "Referenční informace"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Jazyky
-            html: '<p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
-          - title: REST
-            html: <p><a href="model-management-api-reference">Rozhraní REST API pro správu modelů</a></p>
+    - title: Jazyky
+      html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+    - title: REST
+      html: "<p><a href=\"model-management-api-reference\">Rozhraní REST API pro správu modelů</a></p>"
