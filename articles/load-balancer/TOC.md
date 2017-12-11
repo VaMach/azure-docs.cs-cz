@@ -1,7 +1,7 @@
 # Přehled
 ## [Co je nástroj pro vyrovnávání zatížení?](load-balancer-overview.md)
 ## [Co je Load Balancer Standard?](load-balancer-standard-overview.md)
-## [Internetový nástroj pro vyrovnávání zatížení](load-balancer-internet-overview.md)
+## [Veřejný nástroj pro vyrovnávání zatížení](load-balancer-internet-overview.md)
 ## [Interní nástroj pro vyrovnávání zatížení.](load-balancer-internal-overview.md)
 ## [Porozumění testům nástroje pro vyrovnávání zatížení](load-balancer-custom-probe-overview.md)
 ## [Principy portů s vysokou dostupnost](load-balancer-ha-ports-overview.md)
@@ -17,22 +17,14 @@
 ### [Konfigurace interního nástroje pro vyrovnávání zatížení (rozhraní příkazového řádku)](load-balancer-get-started-ilb-arm-cli.md)
 ### [Konfigurace interního nástroje pro vyrovnávání zatížení (šablona)](load-balancer-get-started-ilb-arm-template.md)
 
-## [Konfigurace interního nástroje pro vyrovnávání zatížení pro Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
-### [Konfigurace interního nástroje pro vyrovnávání zatížení pro Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
-### [Konfigurace interního nástroje pro vyrovnávání zatížení pro Cloud Services (rozhraní příkazového řádku)](load-balancer-get-started-ilb-classic-cli.md)
+## [Konfigurace veřejného nástroje pro vyrovnávání zatížení](load-balancer-get-started-internet-portal.md)
+### [Konfigurace veřejného nástroje pro vyrovnávání zatížení (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
+### [Konfigurace veřejného nástroje pro vyrovnávání zatížení (rozhraní příkazového řádku)](load-balancer-get-started-internet-arm-cli.md)
+### [Konfigurace veřejného nástroje pro vyrovnávání zatížení (šablona)](load-balancer-get-started-internet-arm-template.md)
 
-## [Konfigurace internetového nástroje pro vyrovnávání zatížení](load-balancer-get-started-internet-portal.md)
-### [Konfigurace internetového nástroje pro vyrovnávání zatížení (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-### [Konfigurace internetového nástroje pro vyrovnávání zatížení (rozhraní příkazového řádku)](load-balancer-get-started-internet-arm-cli.md)
-### [Konfigurace internetového nástroje pro vyrovnávání zatížení (šablona)](load-balancer-get-started-internet-arm-template.md)
-
-## [Konfigurace internetového nástroje pro vyrovnávání zatížení (Classic PowerShell)](load-balancer-get-started-internet-classic-ps.md)
-### [Konfigurace internetového nástroje pro vyrovnávání zatížení (cloud Classic)](load-balancer-get-started-internet-classic-cloud.md)
-### [Konfigurace internetového nástroje pro vyrovnávání zatížení (rozhraní příkazového řádku Classic)](load-balancer-get-started-internet-classic-cli.md)
-
-## [Vytvoření internetového nástroje pro vyrovnávání zatížení s protokolem IPv6](load-balancer-ipv6-internet-ps.md)
-### [Vytvoření internetového nástroje pro vyrovnávání zatížení s protokolem IPv6 (rozhraní příkazového řádku)](load-balancer-ipv6-internet-cli.md)
-### [Vytvoření internetového nástroje pro vyrovnávání zatížení s protokolem IPv6 (šablona)](load-balancer-ipv6-internet-template.md)
+## [Vytvoření veřejného nástroje pro vyrovnávání zatížení s využitím IPv6](load-balancer-ipv6-internet-ps.md)
+### [Vytvoření veřejného nástroje pro vyrovnávání zatížení s využitím IPv6 (rozhraní příkazového řádku)](load-balancer-ipv6-internet-cli.md)
+### [Vytvoření veřejného nástroje pro vyrovnávání zatížení s využitím IPv6 (šablona)](load-balancer-ipv6-internet-template.md)
 
 ## [Vytvoření zónově redundantní veřejné služby Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)
 ### [Vytvoření zónově redundantní veřejné služby Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
@@ -50,11 +42,17 @@
 ## [Log Analytics pro Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Konfigurace protokolu DHCPv6 pro virtuální počítače s Linuxem](load-balancer-ipv6-for-linux.md)
 ## [Konfigurace portů s vysokou dostupností pro interní nástroj pro vyrovnávání zatížení](load-balancer-configure-ha-ports.md)
-## [Vytvoření veřejné IP adresy v zóně dostupnosti](../virtual-network/create-public-ip-availability-zone-portal.md)
-## [Vytvoření veřejné IP adresy v zóně dostupnosti (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
-## [Vytvoření veřejné IP adresy v zóně dostupnosti (rozhraní příkazového řádku)](../virtual-network/create-public-ip-availability-zone-cli.md)
+
 ## Řešení potíží
 ### [Řešení potíží s nástrojem pro vyrovnávání zatížení Azure](load-balancer-troubleshoot.md)
+
+## Články věnované modelu nasazení Classic
+### [Konfigurace interního nástroje pro vyrovnávání zatížení pro Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
+#### [Konfigurace interního nástroje pro vyrovnávání zatížení pro Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
+#### [Konfigurace interního nástroje pro vyrovnávání zatížení pro Cloud Services (rozhraní příkazového řádku)](load-balancer-get-started-ilb-classic-cli.md)
+### [Konfigurace veřejného nástroje pro vyrovnávání zatížení (PowerShell Classic)](load-balancer-get-started-internet-classic-ps.md)
+#### [Konfigurace veřejného nástroje pro vyrovnávání zatížení (cloud Classic)](load-balancer-get-started-internet-classic-cloud.md)
+#### [Konfigurace veřejného nástroje pro vyrovnávání zatížení (rozhraní příkazového řádku Classic)](load-balancer-get-started-internet-classic-cli.md)
 
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)

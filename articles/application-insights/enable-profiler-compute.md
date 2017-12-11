@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 66ea24cfe9dd03ed62c06daa76ee043886ad7bcc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>Povolit Application Insights profileru pro virtuální počítače Azure, Service Fabric a cloudové služby
 
 Tento článek ukazuje, jak povolit Azure Application Insights profileru na aplikace ASP.NET, který je hostitelem prostředek výpočtů Azure. 
 
-V příkladech v tomto článku zahrnují podporu pro virtuální počítače Azure, sady škálování virtuálního počítače, Azure Service Fabric a cloudových služeb Azure. Příklady spoléhají na šablony, které podporují [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) modelu nasazení.  
+V příkladech v tomto článku zahrnují podporu pro virtuální počítače Azure, sady škálování virtuálního počítače, Azure Service Fabric a cloudových služeb Azure. Příklady spoléhají na šablony, které podporují [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) modelu nasazení.  
 
 
 ## <a name="overview"></a>Přehled
@@ -47,14 +47,14 @@ Na portálu Azure vytvořit nebo na instanci služby Application Insights, kter�
 Tato instance musí být stejná jako aplikace. Je nakonfigurován pro odesílat telemetrická data, aby na každý požadavek.
 Profileru výsledky jsou také k dispozici v této instanci.  
 
-Na portálu Azure, proveďte kroky popsané v [povolit profileru](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler) a dokončete nastavení instance služby Application Insights pro profileru. Nemusíte odkaz webové aplikace, aby v příkladu v tomto článku. Právě Ujistěte se, že profileru je povolena na portálu.
+Na portálu Azure, proveďte kroky popsané v [povolit profileru](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) a dokončete nastavení instance služby Application Insights pro profileru. Nemusíte odkaz webové aplikace, aby v příkladu v tomto článku. Právě Ujistěte se, že profileru je povolena na portálu.
 
 
 ## <a name="set-up-the-application-source-code"></a>Nastavit zdrojovému kódu aplikace
 
 Nastavení vaší aplikace odesílat telemetrická data do instance Application Insights na každém `Request` operace:  
 
-1. Přidat [Application Insights SDK](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview#get-started) na projekt aplikace. Ujistěte se, že verze balíčku NuGet jsou následující:  
+1. Přidat [Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) na projekt aplikace. Ujistěte se, že verze balíčku NuGet jsou následující:  
   - Pro aplikace ASP.NET: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 nebo novější.
   - Pro aplikace ASP.NET Core: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 nebo novější.
   - U ostatních aplikací .NET a .NET Core (například bezstavové služby Service Fabric nebo roli pracovního procesu cloudové služby): [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) nebo [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 nebo novější.  
@@ -138,9 +138,9 @@ Prostředí, ve kterém může být profileru a vaše aplikace spuštění virtu
   * [Škálovací sadu virtuálních počítačů](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
   * [Cluster Service Fabric](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
 
-1. Zajistit, aby [rozhraní .NET Framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) nebo novějším, je používán, je dostačující k potvrzení, že je nasazený operační systém `Windows Server 2012 R2` nebo novější.
+1. Zajistit, aby [rozhraní .NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) nebo novějším, je používán, je dostačující k potvrzení, že je nasazený operační systém `Windows Server 2012 R2` nebo novější.
 
-2. Vyhledejte [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) rozšíření v šabloně nasazení souboru a potom přidejte následující `SinksConfig` části jako podřízeného prvku `WadCfg`. Nahraďte `ApplicationInsightsProfiler` hodnotu vlastnosti s vlastní klíč instrumentace Application Insights:  
+2. Vyhledejte [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) rozšíření v šabloně nasazení souboru a potom přidejte následující `SinksConfig` části jako podřízeného prvku `WadCfg`. Nahraďte `ApplicationInsightsProfiler` hodnotu vlastnosti s vlastní klíč instrumentace Application Insights:  
   ```json
   "SinksConfig": {
     "Sink": [
@@ -152,16 +152,16 @@ Prostředí, ve kterém může být profileru a vaše aplikace spuštění virtu
   }
   ```
 
-  Informace o přidání rozšíření diagnostiky do šablony nasazení najdete v tématu [použití monitorování a Diagnostika pomocí šablony virtuálního počítače s Windows a Azure Resource Manager](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  Informace o přidání rozšíření diagnostiky do šablony nasazení najdete v tématu [použití monitorování a Diagnostika pomocí šablony virtuálního počítače s Windows a Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 ### <a name="cloud-services"></a>Cloud Services
 
-1. Zajistit, aby [rozhraní .NET Framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) nebo novějším, je v použití, stačí k potvrzení, že objekt ServiceConfiguration.\*. soubory cscfg `osFamily` hodnotu **"5"** nebo novější.
+1. Zajistit, aby [rozhraní .NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) nebo novějším, je v použití, stačí k potvrzení, že objekt ServiceConfiguration.\*. soubory cscfg `osFamily` hodnotu **"5"** nebo novější.
 
-2. Vyhledejte [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx soubor pro aplikační role:  
+2. Vyhledejte [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx soubor pro aplikační role:  
   ![Umístění souboru konfigurace diagnostiky](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
-  Pokud nemůže najít soubor, se dozvíte, jak povolit rozšíření diagnostiky v projektu cloudové služby, přečtěte si téma [nastavení diagnostiky pro Azure Cloud Services a virtuálních počítačů](https://docs.microsoft.com/en-us/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
+  Pokud nemůže najít soubor, se dozvíte, jak povolit rozšíření diagnostiky v projektu cloudové služby, přečtěte si téma [nastavení diagnostiky pro Azure Cloud Services a virtuálních počítačů](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
 3. Přidejte následující `SinksConfig` části jako podřízeného prvku `WadCfg`:  
   ```xml
@@ -205,11 +205,11 @@ Prostředí, ve kterém může být profileru a vaše aplikace spuštění virtu
 
 2. Pokud příslušné aplikace běží [IIS](https://www.microsoft.com/web/platform/server.aspx), povolte `IIS Http Tracing` funkce systému Windows:  
   
-  1. Vytvoření vzdáleného přístupu v prostředí a potom pomocí [přidat funkce Windows]( https://docs.microsoft.com/en-us/iis/configuration/system.webserver/tracing/) okna nebo spusťte následující příkaz v prostředí PowerShell (jako správce):  
+  1. Vytvoření vzdáleného přístupu v prostředí a potom pomocí [přidat funkce Windows]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) okna nebo spusťte následující příkaz v prostředí PowerShell (jako správce):  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-  2. Pokud navazování vzdáleného přístupu k potížím, můžete použít [rozhraní příkazového řádku Azure](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli) spusťte následující příkaz:  
+  2. Pokud navazování vzdáleného přístupu k potížím, můžete použít [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) spusťte následující příkaz:  
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
     ```
@@ -223,7 +223,7 @@ Máme žádný plán oficiálně podporovalo profileru pro místní servery. Pok
 
 ## <a name="next-steps"></a>Další kroky
 
-- Generovat provoz vaší aplikace (například spuštění [test dostupnosti](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-monitor-web-app-availability)). Potom počkejte 10 až 15 minut pro trasování k odeslání do instance Application Insights.
-- V tématu [profileru trasování](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler) na portálu Azure.
+- Generovat provoz vaší aplikace (například spuštění [test dostupnosti](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Potom počkejte 10 až 15 minut pro trasování k odeslání do instance Application Insights.
+- V tématu [profileru trasování](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) na portálu Azure.
 - Zobrazit nápovědu k řešení potíží s profileru v [profileru řešení potíží s](app-insights-profiler.md#troubleshooting).
 - Další informace o profileru v [Application Insights profileru](app-insights-profiler.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Použití Azure CLI 1.0 s Azure Storage
 
@@ -95,7 +95,7 @@ Po spuštění skriptu, měli byste mít místní cílovou složku, která obsah
 
 ## <a name="manage-storage-accounts-with-the-azure-cli"></a>Správa účtů úložiště pomocí Azure CLI
 ### <a name="connect-to-your-azure-subscription"></a>Připojení k předplatnému služby Azure
-Zatímco většina příkazů, úložiště bude fungovat bez předplatného Azure, doporučujeme vám umožní připojit se k vašemu předplatnému z příkazového řádku Azure. Pokud chcete nakonfigurovat rozhraní příkazového řádku Azure pro práci s vaším předplatným, postupujte podle kroků v [připojení k předplatnému Azure z rozhraní příkazového řádku Azure](../../xplat-cli-connect.md).
+Zatímco většina příkazů, úložiště bude fungovat bez předplatného Azure, doporučujeme vám umožní připojit se k vašemu předplatnému z příkazového řádku Azure. Pokud chcete nakonfigurovat rozhraní příkazového řádku Azure pro práci s vaším předplatným, postupujte podle kroků v [připojení k předplatnému Azure z rozhraní příkazového řádku Azure](/cli/azure/authenticate-azure-cli).
 
 ### <a name="create-a-new-storage-account"></a>Vytvořit nový účet úložiště
 Pokud chcete používat úložiště Azure, potřebujete účet úložiště. Po nakonfigurování počítače pro připojení k vašemu předplatnému, můžete vytvořit nový účet úložiště Azure.
@@ -198,7 +198,7 @@ Adresář poskytuje volitelné hierarchická struktura pro sdílenou složku Azu
 azure storage directory create myshare myDir
 ```
 
-Všimněte si, že cesta k adresáři může obsahovat několik úrovní *například*, **/ b**. Nicméně je nutné zajistit, že existují všechny nadřazeného adresáře. Například pro cestu **a/b**, je nutné vytvořit adresář **a** nejdřív poté vytvořte adresář **b**.
+Všimněte si, že cesta k adresáři může obsahovat několik úrovní *například*, **/ b**. Nicméně je nutné zajistit, že existují všechny nadřazeného adresáře. Například pro cestu **/ b**, je nutné vytvořit adresář nejdřív poté vytvořte adresář **b**.
 
 ### <a name="upload-a-local-file-to-directory"></a>Uložte místní soubor do adresáře
 V následujícím příkladu se uloží soubor z **~/temp/samplefile.txt** k **adresář** adresáře. Upravte cestu k souboru tak, aby odkazovala na platný soubor na místním počítači:
