@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 68788efffd27edf2813cf455490b651c2c7106a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Monitorování a Diagnostika v Service Fabric aplikace ASP.NET Core
 V tomto kurzu je součástí série, čtyři. Projde kroky při nastavení monitorování a Diagnostika pro aplikace ASP.NET Core běžící v clusteru Service Fabric pomocí Application Insights. Budou shromažďovány telemetrická data z aplikace vyvinuté v první část kurzu, [sestavení aplikace .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -153,7 +153,7 @@ HEAD přes do zdroje Application Insights na portálu Azure a v levém navigačn
 Klikněte na tlačítko **přehled** se vrátíte na cílovou stránku vaší prostředku. Pak klikněte na tlačítko **vyhledávání** v horní části zobrazíte trasování brzo. Jak dlouho trvá několik minut, než se objeví ve službě Application Insights trasování. V případě, že nemáte žádnou, počkejte několik minut a stiskněte tlačítko **aktualizovat** tlačítka v horní části.
 ![Trasování najdete AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
 
-Posouvání dolů na *vyhledávání* v okně se zobrazí všechny příchozí telemetrii, zobrazí se na pole s Application Insights. Pro každou akci, kterou trvala v hlasovací aplikaci, musí být požadavek PUT odchozí ze *VotingWeb* (PUT hlasy nebo Put [name]), z příchozí žádosti PUT *VotingData* (PUT VoteData nebo Put [název]), za nímž následuje pár požadavků GET pro aktualizace dat, které se zobrazí. Také bude závislostí trasování pro protokol HTTP na místního hostitele, protože existují požadavky HTTP. Tady je příklad se zobrazí pro jak jeden hlas se přidá: ![trasování požadavku ukázka AI](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
+Posouvání dolů na *vyhledávání* v okně se zobrazí všechny příchozí telemetrii, zobrazí se na pole s Application Insights. Pro každou akci, kterou trvala v hlasovací aplikaci, musí být požadavek PUT odchozí ze *VotingWeb* (PUT hlasy nebo Put [name]), z příchozí žádosti PUT *VotingData* (PUT VoteData nebo Put název []), za nímž následuje pár požadavků GET pro aktualizace dat, které se zobrazí. Také bude závislostí trasování pro protokol HTTP na místního hostitele, protože existují požadavky HTTP. Tady je příklad se zobrazí pro jak jeden hlas se přidá: ![trasování požadavku ukázka AI](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
 Kliknutím na jednom z trasování a zobrazit další podrobnosti o něm. Jsou užitečné informace o žádosti, které poskytuje Application Insights, včetně *doba odezvy* a *adrese URL žádosti*. Navíc vzhledem k tomu, že jste přidali konkrétní NuGet Service Fabric, se zobrazí také data o vaší aplikaci v kontextu clusteru Service Fabric v *vlastní Data* části níže. To zahrnuje kontext služby, abyste viděli *PartitionID* a *ReplicaId* zdroje požadavku a lepší lokalizaci problémy při diagnostikování chyb v aplikaci.
 
@@ -235,4 +235,4 @@ V tomto kurzu jste se naučili:
 Teď, když jste dokončili nastavení monitorování a Diagnostika pro vaši aplikaci ASP.NET, zkuste následující postup:
 - [Prozkoumejte monitorování a Diagnostika v Service Fabric](service-fabric-diagnostics-overview.md)
 - [Analýza události Service Fabric pomocí služby Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-- Další informace o Application Insights, najdete v části [Application Insights dokumentace](https://docs.microsoft.com/en-us/azure/application-insights/)
+- Další informace o Application Insights, najdete v části [Application Insights dokumentace](https://docs.microsoft.com/azure/application-insights/)

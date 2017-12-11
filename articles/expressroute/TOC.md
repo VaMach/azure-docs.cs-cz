@@ -28,6 +28,7 @@
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
+## [Konfigurace sítě VPN typu Site-to-Site přes partnerský vztah Microsoftu](site-to-site-vpn-over-microsoft-peering.md)
 ## Konfigurace brány virtuální sítě pro ExpressRoute
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)

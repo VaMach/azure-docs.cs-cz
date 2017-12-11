@@ -50,6 +50,7 @@
 ### [Ověření XML](logic-apps-enterprise-integration-xml-validation.md)
 ### [Přidání schémat pro ověřování XML](logic-apps-enterprise-integration-schemas.md)
 ### [Transformace XML](logic-apps-enterprise-integration-transform.md)
+### [Transformace JSON](logic-apps-enterprise-integration-liquid-transform.md)
 ### [Přidání map pro transformaci XML](logic-apps-enterprise-integration-maps.md)
 ### [Přidání certifikátů pro zabezpečení B2B](logic-apps-enterprise-integration-certificates.md)
 ### [Ukládání metadat pro artefakty](logic-apps-enterprise-integration-metadata.md)

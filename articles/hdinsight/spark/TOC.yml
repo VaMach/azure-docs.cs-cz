@@ -19,6 +19,9 @@
       href: apache-spark-resource-manager.md
     - name: Ladění sparkových úloh
       href: apache-spark-job-debugging.md
+    - name: Instalace aplikací HDInsight
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
 - name: Postup
   items:
     - name: Použití úložiště clusteru
@@ -28,23 +31,6 @@
           maintainContext: true
         - name: S využitím Azure Data Lake Store
           href: ../hdinsight-hadoop-use-data-lake-store.md
-          maintainContext: true
-    - name: Použití clusteru s více uživateli
-      items:
-        - name: Přehled
-          href: ../domain-joined/apache-domain-joined-introduction.md
-          maintainContext: true
-        - name: Plánování služby HDInsight připojené k doméně
-          href: ../domain-joined/apache-domain-joined-architecture.md
-          maintainContext: true
-        - name: Konfigurace služby HDInsight připojené k doméně
-          href: ../domain-joined/apache-domain-joined-configure.md
-          maintainContext: true
-        - name: Konfigurace zásad Hivu
-          href: ../domain-joined/apache-domain-joined-run-hive.md
-          maintainContext: true
-        - name: Správa clusteru s více uživateli
-          href: ../domain-joined/apache-domain-joined-manage.md
           maintainContext: true
     - name: Vývoj
       items:
@@ -130,17 +116,11 @@
           href: apache-spark-analyze-application-insight-logs.md
     - name: Rozšíření clusterů
       items:
-        - name: Použití zabezpečeného povoleného účtu úložiště
-          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-          maintainContext: true
         - name: Přizpůsobení clusterů pomocí Bootstrap
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
         - name: Přizpůsobení clusterů pomocí akce skriptu
           href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
-        - name: Připojení HDInsightu k místní síti
-          href: ../connect-on-premises-network.md
           maintainContext: true
         - name: Vývoj akcí skriptů
           href: ../hdinsight-hadoop-script-actions-linux.md
@@ -166,17 +146,11 @@
         - name: Použití Solr
           href: ../hdinsight-hadoop-solr-install-linux.md
           maintainContext: true
-        - name: Použití služby Virtual Network
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Použití prázdných hraničních uzlů
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
         - name: Vytváření aplikací HDInsight
           items:
-            - name: Instalace aplikací HDInsight
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: Instalace vlastních aplikací
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -295,20 +269,6 @@
         - name: Opravy operačního systému pro cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Monitorování
-      items:
-        - name: Použití Azure Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Řídicí panely pro konkrétní clustery
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Použití dotazů se službou Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Monitorování výkonu clusteru
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: Řešení potíží
       items:
         - name: Řešení potíží se Sparkem
@@ -347,6 +307,53 @@
             - name: Optimalizace dotazů Hive
               href: ../hdinsight-hadoop-optimize-hive-query.md
               maintainContext: true
+- name: Připravenost pro podnikové zpracování
+  items:
+    - name: Podnikové zabezpečení
+      items:
+        - name: Přehled
+          href: ../domain-joined/apache-domain-joined-introduction.md
+          maintainContext: true
+        - name: Plán pro podnikové zabezpečení
+          href: ../domain-joined/apache-domain-joined-architecture.md
+          maintainContext: true
+        - name: Konfigurace podnikového zabezpečení v HDInsightu
+          href: ../domain-joined/apache-domain-joined-configure.md
+          maintainContext: true
+        - name: Konfigurace podnikového zabezpečení v HDInsightu s využitím Azure AD DS
+          href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
+          maintainContext: true
+        - name: Konfigurace zásad Hivu
+          href: ../domain-joined/apache-domain-joined-run-hive.md
+          maintainContext: true
+        - name: Správa clusterů s podnikovým zabezpečením
+          href: ../domain-joined/apache-domain-joined-manage.md
+          maintainContext: true
+    - name: Zabezpečení dat
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: Síťový přístup
+      items:
+        - name: HDInsight ve virtuální síti Azure
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: Připojení HDInsightu k místní síti
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+    - name: Monitorování pomocí OMS
+      items:
+        - name: Použití Azure Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: Řídicí panely pro konkrétní clustery
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Použití dotazů se službou Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: Monitorování výkonu clusteru
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: Referenční informace
   items:
     - name: Ukázky kódů
