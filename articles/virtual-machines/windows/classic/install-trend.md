@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 7922a9561369acf3c4299e1cadc0dc9f8f8eadb1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Jak nainstalovat a nakonfigurovat Trend Micro Deep Security na virtuálním počítači s Windows jako službu
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ Tento článek ukazuje, jak nainstalovat a nakonfigurovat Trend Micro hluboké S
 
 Klient je nainstalován jako rozšíření zabezpečení prostřednictvím agenta virtuálního počítače. Na nový virtuální počítač nainstalujte hloubkové Agent zabezpečení jako Agent virtuálního počítače je vytvářena automaticky nástrojem portálu Azure.
 
-Existující virtuální počítač vytvořený na portálu classic, rozhraní příkazového řádku Azure nebo PowerShell nemusí mít agenta virtuálního počítače. Pro stávajícího virtuálního počítače, který nemá agenta virtuálního počítače potřebujete stáhněte a nainstalujte ji jako první. Tento článek se týká obou situacích.
+Existující virtuální počítač vytvořený pomocí portálu Azure, Azure CLI nebo prostředí PowerShell nemusí mít agenta virtuálního počítače. Pro stávajícího virtuálního počítače, který nemá agenta virtuálního počítače potřebujete stáhněte a nainstalujte ji jako první. Tento článek se týká obou situacích.
 
 Pokud máte z Trend Micro aktuální předplatné pro místní řešení, můžete k ochraně virtuální počítače Azure. Pokud vám ještě nejsou zákazníka, můžete zaregistrovat zkušební předplatné. Další informace o tomto řešení najdete v příspěvku blogu Trend Micro [Microsoft Azure virtuálního počítače agenta rozšíření pro přímý zabezpečení](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 

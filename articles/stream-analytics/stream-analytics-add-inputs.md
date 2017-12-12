@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Přidat streamování data vstup nebo referenční data do úlohy Stream Analytics
 Zjistěte, jak spojit zdroje dat do vaší úlohy Stream Analytics jako vysílání datového proudu vstupní data ze služby Event Hubs nebo odkaz na data z úložiště objektů Blob.
@@ -38,7 +38,7 @@ Chcete-li přidat vstup do úlohy Stream Analytics:
 
 1. V portálu Azure klikněte na **vstupy** a pak klikněte na **přidat vstup** v úloze Stream Analytics.
    
-    ![Portál Azure classic – přidat vstup.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Portál Azure – přidání vstup.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     V portálu Azure klikněte na **vstupy** dlaždici v úloze Stream Analytics.  
    
@@ -61,7 +61,7 @@ Chcete-li přidat vstup do úlohy Stream Analytics:
 5. Zadejte nastavení serializace pro vstupní data:
    
    * Abyste měli jistotu, dotazy fungovaly podle očekávání, zadejte **formát serializace událostí** příchozích dat.  Formáty podporované serializace jsou JSON, CSV a Avro.
-   * Ověřte **kódování** pro data.  V tuto chvíli je jediným podporovaným formátem kódování UTF-8.
+   * Ověřte **kódování** pro data.  Znakové sady UTF-8 se v tuto chvíli je jediným podporovaným formátem kódování.
      
      ![Nastavení serializace dat pro vložení dat](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
      

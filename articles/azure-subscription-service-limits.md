@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 49dc4551f1a1528d30e489d4ba1c974f84cc70b0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity, kvóty a omezení předplatného a služeb Azure
 Tento dokument uvádí některé z nejběžnějších omezení Microsoft Azure, což se taky někdy označují jako kvóty. Tento dokument nepokrývá aktuálně všech služeb Azure. V čase v seznamu rozbalit a aktualizovat tak, aby pokrývalo více platformou.
@@ -29,7 +29,7 @@ Navštivte [ceny přehled Azure](https://azure.microsoft.com/pricing/) Další i
 > [!NOTE]
 > Pokud chcete zvýšit limit nebo kvóty výše **výchozí Limit**, [otevřete žádosti o podporu online zákazníka zdarma](azure-supportability/resource-manager-core-quotas-request.md). Není možné zvýšit limity výše **maximální Limit** hodnota použitá v následujících tabulkách. Pokud není žádná **maximální Limit** sloupec a potom prostředek nemá nastavitelná omezení.
 >
-> Bezplatné předplatné zkušební verze nejsou způsobilé k omezení nebo zvyšuje kvóty. Pokud máte bezplatnou zkušební verzi, můžete upgradovat na [průběžné platby](https://azure.microsoft.com/offers/ms-azr-0003p/) předplatné. Další informace najdete v tématu [Upgrade bezplatné zkušební verze Azure na průběžné platby](billing/billing-upgrade-azure-subscription.md).
+> [Uvolněte zkušební verze předplatného](https://azure.microsoft.com/offers/ms-azr-0044p) nejsou způsobilé pro zvýšení limitu nebo kvóty. Pokud máte [bezplatnou zkušební verzi](https://azure.microsoft.com/offers/ms-azr-0044p), můžete upgradovat [průběžné platby](https://azure.microsoft.com/offers/ms-azr-0003p/) předplatné. Další informace najdete v tématu [Upgrade bezplatné zkušební verze Azure na průběžné platby](billing/billing-upgrade-azure-subscription.md) a [bezplatnou zkušební verzi – nejčastější dotazy](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Omezení a Azure Resource Manager

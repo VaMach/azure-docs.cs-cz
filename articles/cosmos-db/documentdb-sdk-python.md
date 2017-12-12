@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB Python rozhraní API, sadu SDK a prostředky | Microsoft Docs"
-description: "Další informace o rozhraní API pro Python a sady SDK, včetně data vydání, vyřazení dat a změny provedené mezi každou verzi sady Azure Cosmos DB Python SDK."
+title: "Azure Cosmos DB: Rozhraní API pro SQL Python, sadu SDK a prostředky | Microsoft Docs"
+description: "Další informace o rozhraní API pro Python SQL a sady SDK, včetně data vydání, vyřazení dat a změny provedené mezi každou verzi sady Azure Cosmos DB Python SDK."
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 891af14f347c798d7c661e19d110b5c0a2d8982c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure Python Cosmos DB SDK: Poznámky k verzi a prostředky
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Python SDK Cosmos DB pro SQL API: poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Informační kanál změnu rozhraní .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/15/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -81,8 +83,8 @@ ms.lasthandoff: 11/15/2017
 * Byla přidána podpora pro dotazy na nejvyšší nebo ORDERBY pro dělené kolekce.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-* Podpora zásad přidané opakování omezenému požadavky. (Omezenému požadavky obdrží žádost o míra příliš velký výjimka, kód chyby 429.) Ve výchozím nastavení Azure Cosmos DB opakuje devětkrát pro každý požadavek vyskytne kód chyby 429, aby byla dodržena retryAfter čas v hlavičku odpovědi. Časový interval opakování pevné lze nyní nastavit jako součást RetryOptions vlastnost v objektu ConnectionPolicy Pokud budete chtít ignorovat čas retryAfter vrácená serverem mezi jednotlivými pokusy o odeslání. Azure Cosmos DB nyní čeká maximálně 30 sekund pro každý požadavek, který je omezené (bez ohledu na počet opakování) a vrátí odpověď s kódem chyby 429. Tento čas může být také elementem ve vlastnosti RetryOptions ConnectionPolicy objektu.
-* Cosmos DB nyní vrátí x-ms omezení--počet opakování a x-ms-throttle-retry-wait-time-ms jako opakovat hlavičky odpovědi v každé žádosti k označení omezení počtu a cummulative čas požadavku čekali mezi jednotlivými pokusy o odeslání.
+* Podpora zásad přidané opakování omezenému požadavky. (Omezenému požadavky obdrží žádost o míra příliš velký výjimka, kód chyby 429.) Ve výchozím nastavení Azure Cosmos DB opakuje devětkrát pro každý požadavek vyskytne kód chyby 429, aby byla dodržena retryAfter čas v hlavičku odpovědi. Časový interval opakování pevné lze nyní nastavit jako součást RetryOptions vlastnost v objektu ConnectionPolicy Pokud budete chtít ignorovat čas retryAfter vrácená serverem mezi jednotlivými pokusy o odeslání. Azure Cosmos DB nyní čeká maximálně 30 sekund pro každý požadavek, který je omezené (bez ohledu na počet opakování) a vrátí odpověď s kódem chyby 429. Nyní lze přepsat také ve vlastnosti RetryOptions ConnectionPolicy objektu.
+* Cosmos DB nyní vrátí x-ms omezení--počet opakování a x-ms-throttle-retry-wait-time-ms jako opakovat hlavičky odpovědi v každé žádosti k označení omezení počtu a kumulativní čas požadavku čekali mezi jednotlivými pokusy o odeslání.
 * Odebrat RetryPolicy třídu a vlastnost odpovídající (retry_policy) zveřejněné na třídě document_client a místo toho zavedl třídu RetryOptions vystavení vlastnost RetryOptions u ConnectionPolicy třídy, které je možné přepsat některé výchozí možnosti opakování.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
@@ -92,7 +94,7 @@ ms.lasthandoff: 11/15/2017
 * Přidaná podpora pro funkce čas k Live(TTL) pro dokumenty.
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
-* Opravy chyb související s serveru straně vytváření oddílů umožňuje speciální znaky v cestě klíč oddílu.
+* Opravy chyb související s serverové vytváření oddílů umožňuje speciální znaky v cestě klíče oddílu.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Implementovat [oddíly kolekce](partition-data.md) a [úrovně výkonu uživatelem definované](performance-levels.md). 
@@ -119,14 +121,14 @@ ms.lasthandoff: 11/15/2017
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>Verze & vyřazení kalendářních dat
-Microsoft bude poskytovat oznámení alespoň **dobu 12 měsíců** předem vyřazení sady SDK k funkce smooth přechodu na novější nebo podporované verzi.
+Společnost Microsoft poskytuje oznámení alespoň **dobu 12 měsíců** předem vyřazení sady SDK k funkce smooth přechodu na novější nebo podporované verzi.
 
 Nové funkce a funkce a optimalizace, jsou přidány pouze v aktuální sadě SDK, jako takový je doporučujeme, aby vždy upgradu na nejnovější verze sady SDK v míře. 
 
-Každá žádost o DB Cosmos pomocí vyřazeno sady SDK budou odmítnuty službou.
+Každá žádost o DB Cosmos pomocí vyřazeno SDK odmítají službou.
 
 > [!WARNING]
-> Všechny verze sady Azure DocumentDB SDK pro jazyk Python starší než verze **1.0.0** vyřadí na **29. února 2016**. 
+> Všechny verze sady SDK SQL Azure pro jazyk Python starší než verze **1.0.0** bylo vyřazeno na **29. února 2016**. 
 > 
 > 
 

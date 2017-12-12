@@ -1,35 +1,34 @@
 ---
 title: "Začínáme s Azure Active Directory Identity Protection a Microsoft Graph | Microsoft Docs"
-description: "Poskytuje úvod do dotazů Microsoft Graph seznam rizikových událostech a přidružené informace ze služby Azure Active Directory."
+description: "Zjistěte, jak dotazovat Microsoft Graph seznam rizikových událostech a přidružené informace ze služby Azure Active Directory."
 services: active-directory
 keywords: "ochrany identit Azure active directory, riziko událostí, ohrožení zabezpečení, zásady zabezpečení, Microsoft Graph"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 568cad4e394dfedddce1bfce66ddf627947d7568
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: fafad74f46baaf56a8220dab05028781b2f2258e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Začínáme s Azure Active Directory Identity Protection a Microsoft Graph
 Microsoft Graph je Microsoft unified koncový bod rozhraní API a součástí [Azure Active Directory Identity Protection](active-directory-identityprotection.md) rozhraní API. Rozhraní API first **identityRiskEvents**, umožňuje dotazování Microsoft Graph seznam [rizik události](active-directory-identityprotection-risk-events-types.md) a související informace. Tento článek vám pomůže začít dotazování toto rozhraní API. Podrobný úvod, úplnou dokumentaci a přístup do Průzkumníka grafu naleznete v tématu [Microsoft Graph lokality](https://graph.microsoft.io/).
 
-> [!IMPORTANT]
-> Společnost Microsoft doporučuje při správě služby Azure AD používat [centrum pro správu Azure AD](https://aad.portal.azure.com) na webu Azure Portal namísto používání portálu Azure Classic, na který odkazuje tento článek.
 
-Přístup k datům ochrany identit pomocí Microsoft Graph tři kroky:
+Přístup k datům ochrany identit pomocí Microsoft Graph čtyři kroky:
 
-1. Přidáte aplikaci s tajný klíč klienta. 
+1. Načíst název vaší domény.
+2. Vytvořte novou registraci aplikace. 
 2. Tento tajný klíč a několik další požadované informace můžete použijte k ověření do aplikace Microsoft Graph, kterou budete dostávat ověřovací token. 
 3. Pomocí tohoto tokenu provádět požadavky na koncový bod rozhraní API a vrátit data pro ochranu Identity.
 
@@ -38,100 +37,130 @@ Než začnete, budete potřebovat:
 * Oprávnění správce k vytvoření aplikace ve službě Azure AD
 * Název domény vašeho klienta (například contoso.onmicrosoft.com)
 
-## <a name="add-an-application-with-a-client-secret"></a>Přidat aplikaci s tajný klíč klienta
-1. [Přihlaste se](https://manage.windowsazure.com) na portálu Azure classic jako správce. 
-2. V klikněte v levém navigačním podokně na **služby Active Directory**. 
+
+## <a name="retrieve-your-domain-name"></a>Načtení názvu domény 
+
+1. [Přihlaste se](https://portal.azure.com) na portálu Azure jako správce. 
+
+2. V levém navigačním podokně klikněte na tlačítko **služby Active Directory**. 
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_01.png)
-3. Z **Directory** seznamu, vyberte adresář, pro který chcete povolit integraci adresáře.
-4. V nabídce v horní části, klikněte na tlačítko **aplikace**.
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/41.png)
+
+
+3. V **spravovat** klikněte na tlačítko **vlastnosti**.
+
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/42.png)
+
+4. Zkopírujte název vaší domény.
+
+
+## <a name="create-a-new-app-registration"></a>Vytvořit novou registraci aplikace
+
+1. Na **služby Active Directory** stránky v **spravovat** klikněte na tlačítko **registrace aplikace**.
+
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/42.png)
+
+
+2. V nabídce v horní části, klikněte na tlačítko **nové registrace aplikace**.
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_02.png)
-5. Klikněte na tlačítko **přidat** v dolní části stránky.
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/43.png)
+
+3. Na **vytvořit** proveďte následující kroky:
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_03.png)
-6. Na **co chcete udělat** dialogové okno, klikněte na tlačítko **přidat aplikaci, kterou vyvíjí Moje organizace**.
-   
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_04.png)
-7. Na **Řekněte nám o své aplikaci** dialogové okno, proveďte následující kroky:
-   
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_05.png)
-   
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/44.png)
+
     a. V **název** textovému poli, zadejte název vaší aplikace (např: aplikace AADIP riziko událostí rozhraní API).
    
     b. Jako **typ**, vyberte **webové aplikace nebo webové rozhraní API**.
    
-    c. Klikněte na **Další**.
-8. Na **vlastností aplikace** dialogové okno, proveďte následující kroky:
-   
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_06.png)
-   
-    a. V **přihlašovací adresa URL** textovému poli, typ `http://localhost`.
-   
-    b. V **identifikátor ID URI aplikace** textovému poli, typ `http://localhost`.
-   
-    c. Klikněte na **Dokončit**.
+    c. V **přihlašovací adresa URL** textovému poli, typ `http://localhost`.
 
-Můžete teď konfigurovat vaší aplikace.
+    d. Klikněte na možnost **Vytvořit**.
 
-![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_07.png)
+4. Chcete-li otevřít **nastavení** stránky, v seznamu aplikací, klikněte na možnost registrace nově vytvořené aplikace. 
+
+5. Kopírování **ID aplikace**.
+
 
 ## <a name="grant-your-application-permission-to-use-the-api"></a>Udělit oprávnění vaše aplikace k používání rozhraní API
-1. Na stránce vaší aplikace, v nabídce v horní části klikněte na **konfigurace**. 
+
+1. Na **nastavení** klikněte na tlačítko **požadovaná oprávnění**.
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_08.png)
-2. V **oprávnění k ostatním aplikacím** klikněte na tlačítko **přidat aplikaci**.
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/15.png)
+
+2. Na **požadovaná oprávnění** stránky, na panelu nástrojů v horní části klikněte na tlačítko **přidat**.
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_09.png)
-3. Na **oprávnění k ostatním aplikacím** dialogové okno, proveďte následující kroky:
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/16.png)
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_10.png)
+3. Na **přidat rozhraní API pro přístup** klikněte na tlačítko **vybrat rozhraní API**.
    
-    a. Vyberte **Microsoft Graph**.
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/17.png)
+
+4. Na **vybrat rozhraní API** vyberte **Microsoft Graph**a potom klikněte na **vyberte**.
    
-    b. Klikněte na **Dokončit**.
-4. Klikněte na tlačítko **oprávnění aplikací: 0**a potom vyberte **čtení informací o události riziko všechny identity**.
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/18.png)
+
+5. Na **přidat rozhraní API pro přístup** klikněte na tlačítko **vyberte oprávnění**.
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_11.png)
-5. V dolní části stránky klikněte na **Uložit**.
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/19.png)
+
+6. Na **povolit přístup** klikněte na tlačítko **číst všechny informace o identitě riziko**a potom klikněte na **vyberte**.
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_12.png)
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/20.png)
+
+7. Na **přidat rozhraní API pro přístup** klikněte na tlačítko **provést**.
+   
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/21.png)
+
+8. Na **požadovaných oprávnění** klikněte na tlačítko **udělit oprávnění**a potom klikněte na **Ano**.
+   
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/22.png)
+
+
 
 ## <a name="get-an-access-key"></a>Získání přístupového klíče
-1. Na stránce vaší aplikace v **klíče** vyberte 1 rok jako doba trvání.
+
+1. Na **nastavení** klikněte na tlačítko **klíče**.
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_13.png)
-2. V dolní části stránky klikněte na **Uložit**.
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/23.png)
+
+2. Na **klíče** proveďte následující kroky:
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_12.png)
-3. v části klíče hodnotu nově vytvořený klíč zkopírujte a vložte jej do bezpečného umístění.
+    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/24.png)
+
+    a. V **klíče popis** textovému poli, zadejte popis (například *AADIP riziko událostí*).
+    
+    b. Jako **doba trvání**, vyberte **v 1 rok**.
+
+    c. Klikněte na **Uložit**.
    
-    ![Vytváření aplikací](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_14.png)
+    d. Hodnota klíče zkopírujte a vložte jej do bezpečného umístění.   
    
    > [!NOTE]
    > Pokud tento klíč ztratíte, budete muset vraťte do této části a vytvořte nový klíč. Zachovat tento klíč tajný klíč: každý, kdo je přístup ke svým datům.
    > 
    > 
-4. V **vlastnosti** část, zkopírujte **ID klienta**a pak ji vložit do bezpečného umístění. 
 
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Ověřování do aplikace Microsoft Graph a dotaz rozhraní API Identity riziko události
 V tomto okamžiku byste měli mít:
 
-* ID klienta, které jste zkopírovali výše
-* Klíč, který jste zkopírovali výše
-* Název domény vašeho klienta
+- Název domény vašeho klienta
+
+- ID klienta 
+
+- Klíč 
+
 
 K ověření, odeslat požadavek post do `https://login.microsoft.com` s následujícími parametry v textu:
 
-* grant_type: "**client_credentials**"
-* prostředek: "**https://graph.microsoft.com**"
-* client_id:<your client ID>
-* tajný klíč client_secret:<your key>
+- grant_type: "**client_credentials**"
 
-> [!NOTE]
-> Je nutné zadat hodnoty **client_id** a **tajný klíč client_secret** parametr.
-> 
-> 
+-  prostředek: "**https://graph.microsoft.com**"
+
+- client_id: \<vaše ID klienta\>
+
+- tajný klíč client_secret: \<klíč\>
+
 
 V případě úspěchu vrátí ověřovací token.  
 Pro volání rozhraní API, vytvoří hlavičku s následující parametr:
@@ -145,8 +174,8 @@ Odeslat tuto hlavičku jako požadavek na následující adresu URL rozhraní AP
 
 Odpověď, a to v případě úspěchu je kolekce identity rizikových událostech a přidružená data ve formátu OData JSON, který lze analyzovat a zpracovávají podle svých potřeb.
 
-Tady je ukázkový kód pro ověřování a volání rozhraní API pomocí prostředí Powershell.  
-Stačí přidat vaše ID klienta, klíče a klienta domény.
+Tady je ukázkový kód pro ověřování a volání rozhraní API pomocí prostředí PowerShell.  
+Stačí přidáte vaše ID klienta a tajný klíč, doména klienta.
 
     $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
     $ClientSecret   = "<your client secret here>"    # Should be a ~44 character string; insert your info here
@@ -178,15 +207,21 @@ Stačí přidat vaše ID klienta, klíče a klienta domény.
 
 
 ## <a name="next-steps"></a>Další kroky
+
 Blahopřejeme, jste právě provedli vaše první volání Microsoft Graph.  
 Nyní můžete dotaz identity rizikových událostech a použije data, ale svých potřeb.
 
 Další informace o Microsoft Graph a jak vytvářet aplikace, které používají rozhraní Graph API, podívejte se [dokumentace](https://graph.microsoft.io/docs) zdaleka na [Microsoft Graph lokality](https://graph.microsoft.io/). Také si nezapomeňte bookmark [Azure AD Identity Protection API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) stránky, která obsahuje seznam všech dostupných v grafu Identity ochrany pro rozhraní API. Jak jsme přidat nové způsoby, jak pracovat s ochranou Identity prostřednictvím rozhraní API, uvidíte je na této stránce.
 
-## <a name="additional-resources"></a>Další zdroje
-* [Ochrany identit Azure Active Directory](active-directory-identityprotection.md)
-* [Typy rizikových událostí detekovaných službou Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
-* [Microsoft Graph](https://graph.microsoft.io/)
-* [Přehled Microsoft Graph](https://graph.microsoft.io/docs)
-* [Kořenovém adresáři služby Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
+Související informace najdete v tématu:
+
+-  [Ochrany identit Azure Active Directory](active-directory-identityprotection.md)
+
+-  [Typy rizikových událostí detekovaných službou Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
+
+- [Microsoft Graph](https://graph.microsoft.io/)
+
+- [Přehled Microsoft Graph](https://graph.microsoft.io/docs)
+
+- [Kořenovém adresáři služby Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 

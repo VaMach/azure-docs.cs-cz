@@ -4,7 +4,7 @@ description: "Podrobné pokrytí manifestu aplikace Azure Active Directory, kter
 services: active-directory
 documentationcenter: 
 author: sureshja
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c92631323040f9be015d3824b9803cdde95d874b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Principy manifest aplikace Azure Active Directory
 Aplikace, které se integrují s Azure Active Directory (AD) musí být zaregistrován u klienta služby Azure AD, poskytuje konfiguraci trvalé identity pro aplikaci. Tato konfigurace je konzultaci za běhu, povolení scénáře, které umožňují, aby aplikace a externí zprostředkovatel ověřování/autorizace služby prostřednictvím služby Azure AD. Další informace o modelu aplikace Azure AD najdete v tématu [přidání, aktualizace a odebrání aplikace] [ ADD-UPD-RMV-APP] článku.
@@ -28,7 +28,7 @@ Aplikace, které se integrují s Azure Active Directory (AD) musí být zaregist
 ## <a name="updating-an-applications-identity-configuration"></a>Aktualizuje se konfigurace identity aplikace
 Ve skutečnosti více možností pro nejsou k dispozici aktualizace vlastností konfigurace identity aplikace, které se liší v možnosti a stupňů potíže, včetně následujících:
 
-* **[Portál Azure] [ AZURE-PORTAL] webové uživatelské rozhraní** umožňuje aktualizovat nejběžnější vlastností aplikace. To je chyba nejrychlejší a minimálně náchylné k chybám způsob aktualizace vlastnosti aplikace, ale není poskytnuta úplný přístup na všechny vlastnosti, jako jsou následující dvě metody.
+*  **[Portál Azure] [ AZURE-PORTAL] webové uživatelské rozhraní** umožňuje aktualizovat nejběžnější vlastností aplikace. To je chyba nejrychlejší a minimálně náchylné k chybám způsob aktualizace vlastnosti aplikace, ale není poskytnuta úplný přístup na všechny vlastnosti, jako jsou následující dvě metody.
 * Pro pokročilejší scénáře, kde je potřeba aktualizovat vlastnosti, které nejsou přístupné na portálu Azure classic, můžete upravit **manifest aplikace**. Toto je fokus v tomto článku a je podrobněji popsána spouštění v další části.
 * Je také možné **zápisu aplikace, která používá [rozhraní Graph API] [ GRAPH-API]**  aktualizovat aplikace, které vyžaduje nejvíce úsilí. To může být atraktivní možnosti i když, pokud jsou zápis software pro správu, nebo muset aktualizovat vlastnosti aplikace v pravidelných intervalech automatizovaně.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: 4c699a8e5a9fafa0fec10bcb731f9ba533e3d283
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c6185cd240d1c040c993e581c27624e1f170f709
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Import dat do nástroje Azure Machine Learning Studio z různých online zdrojů dat pomocí modulu Import Dat
 Tento článek popisuje podporu pro import dat online z různých zdrojů a informace potřebné pro přesun dat z těchto zdrojů do experimentu Azure Machine Learning.
@@ -43,7 +43,7 @@ Pomocí [importovat Data] [ import-data] modul, můžete přistupujete k datům 
 * Azure SQL database nebo SQL Server na virtuálním počítači Azure
 * Místní databáze systému SQL Server
 * Datový kanál poskytovatele, aktuálně OData
-* Azure CosmosDB (dříve nazývané DocumentDB)
+* Azure Cosmos DB
 
 Chcete-li přistupovat ke zdrojům dat online v experimentu Studio, přidejte [importovat Data] [ import-data] modulu vaše, vyberte **zdroj dat**a pak zadejte parametry, které jsou potřebné pro přístup k data. Zdroje dat online, které jsou podporovány je uvedeno v následující tabulce. Tato tabulka shrnuje formáty souborů, které jsou podporovány a parametry, které se používají pro přístup k datům.
 

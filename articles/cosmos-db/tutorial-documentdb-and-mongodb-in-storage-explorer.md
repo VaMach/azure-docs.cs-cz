@@ -1,7 +1,7 @@
 ---
 title: "Správa Azure Cosmos DB v Azure Storage Explorer"
 description: "Naučte se spravovat Azure DB Cosmos v Azure Storage Explorer."
-Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
+Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
 author: Jiaj-Li
@@ -17,22 +17,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: fc7d9494ddce127cb402d756f5fb03f21c5d3e8c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 153369270399efbe38ca2e8b8ab2e05cb7e702f9
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Správa Azure Cosmos DB v Azure Storage Explorer (Preview)
 
-Použití Azure Cosmos DB v Azure Storage Explorer umožňuje uživatelům spravovat Azure Cosmos DB entity, pracovat s daty, aktualizace uložených procedur a aktivačních událostí společně s dalšími subjekty Azure jako úložiště objektů BLOB a fronty. Nyní můžete na stejný nástroj ke správě vašeho různých Azure entit na jednom místě. V současné době podporuje Azure Storage Explorer SQL (DocumentDB) a účty MongoDB.
+Použití Azure Cosmos DB v Azure Storage Explorer umožňuje uživatelům spravovat Azure Cosmos DB entity, pracovat s daty, aktualizace uložených procedur a aktivačních událostí společně s dalšími subjekty Azure jako úložiště objektů BLOB a fronty. Nyní můžete na stejný nástroj ke správě vašeho různých Azure entit na jednom místě. V současné době podporuje Azure Storage Explorer účty SQL a MongoDB.
 
 V tomto článku můžete další informace o použití Průzkumníka úložiště ke správě Azure Cosmos DB.
 
 
 ## <a name="prerequisites"></a>Požadavky
 
-Účet Azure Cosmos DB pro SQL (DocumentDB) nebo databázi MongoDB. Pokud nemáte účet, můžete vytvořit jeden na portálu Azure jak je popsáno v [Cosmos databázi Azure: vytvoření webové aplikace DocumentDB rozhraní API pomocí rozhraní .NET a portálu Azure](create-documentdb-dotnet.md).
+Účet Azure Cosmos DB pro SQL API nebo rozhraní API MongoDB. Pokud nemáte účet, můžete vytvořit jeden na portálu Azure jak je popsáno v [Cosmos databázi Azure: sestavení rozhraní SQL API webové aplikace pomocí rozhraní .NET a portálu Azure](create-documentdb-dotnet.md).
 
 ## <a name="installation"></a>Instalace
 

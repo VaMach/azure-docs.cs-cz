@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/06/2017
 ms.author: raynew
-ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 448dda89623ca2a1e8de86773c1d6a50e708c151
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Zjišťovat a vyhodnocení místní virtuální počítače VMware pro migraci na Azure
 
@@ -175,7 +175,7 @@ Toto zobrazení uvádí stav připravenosti pro každý počítač.
 Toto zobrazení uvádí celkový počet výpočetních a náklady na úložiště spuštěných virtuálních počítačů v Azure společně s podrobnosti pro každý počítač. Odhadované náklady se počítají pomocí doporučení na základě výkonu velikost na počítač a hodnocení vlastností a jeho disky. 
 
 > [!NOTE]
-> Odhad nákladů poskytované migrovat Azure se týká spuštění místní virtuální počítače jako infrastruktury Azure jako virtuální počítače služby (IaaS). Nebere v úvahu žádné platforma jako služba (PaaS) nebo softwaru jako služby (SaaS) náklady. 
+> Odhad nákladů poskytované migrovat Azure se týká spuštění místní virtuální počítače jako infrastruktury Azure jako virtuální počítače služby (IaaS). Azure migrací nebere v úvahu žádné platforma jako služba (PaaS) nebo softwaru jako služby (SaaS) náklady. 
 
 Odhadované měsíční náklady na výpočetních operací a úložiště jsou agregována pro všechny virtuální počítače ve skupině. 
 

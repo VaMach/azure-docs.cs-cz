@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Nastavit clusterů v HDInsight Hadoop, Spark, Kafka a dalšími
 
@@ -98,15 +98,6 @@ Další informace najdete v tématu [výchozí velikosti virtuálního počíta�
 
 ### <a name="hdinsight-version"></a>HDInsight verze
 Zvolte verzi HDInsight pro tento cluster. Další informace najdete v tématu [podporované HDInsight verze](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-### <a name="cluster-tiers"></a>Vrstvy clusteru: HDInsight úrovně služeb
-
-Azure HDInsight nabízí cloud nabídky velkých objemů dat v dvě úrovně služby: Standard a Premium.  Další informace najdete v tématu [HDInsight Standard a HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
-
-Následující snímek obrazovky ukazuje Azure portálu informace pro výběr typy clusteru.
-
-![Konfigurace HDInsight premium](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Přihlášení a uživatelské jméno SSH clusteru
 S clustery HDInsight můžete nakonfigurovat dva účty uživatele při vytváření clusteru:

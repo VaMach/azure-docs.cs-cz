@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df5614d8a708b49ee1368c4d7983f45d29920fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 312f8d6038718991a563dcf6214aaab4c5f2cd9a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Použít koncept s Azure Container Service (AKS)
 
-Koncept je otevřený nástroj, který pomáhá balíček a spuštění kódu v clusteru s podporou Kubernetes. Koncept je zaměřená na vývoj iterační cyklus; jako kód je vyvíjen, ale před potvrzením do správy verzí. S koncept můžete rychle znovu nasadit aplikace do Kubernetes jsou prováděny změny kódu. Další informace o návrhu najdete v tématu [koncept dokumentaci na Githubu](https://github.com/Azure/draft/tree/master/docs).
+Koncept je otevřený nástroj, který pomáhá balíček a spuštění kódu v clusteru s podporou Kubernetes. Koncept je zaměřená na vývoj iterační cyklus; jako kód je vyvíjen, ale před potvrzením do správy verzí. S koncept můžete rychle znovu nasadit aplikace do Kubernetes jsou prováděny změny kódu. Další informace o návrhu najdete v tématu [koncept dokumentaci na Githubu][draft-documentation].
 
 Tento dokument údaje pomocí clusteru Kubernetes AKS koncept.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Podrobně popsané kroky v tomto dokumentu předpokládají, že jste vytvořili cluster AKS a navázali s ním připojení přes kubectl. Pokud budete potřebovat tyto položky, najdete v článku [rychlý start AKS](./kubernetes-walkthrough.md).
+Podrobně popsané kroky v tomto dokumentu předpokládají, že jste vytvořili cluster AKS a navázali s ním připojení přes kubectl. Pokud budete potřebovat tyto položky, najdete v článku [rychlý start AKS][aks-quickstart].
 
-Budete také potřebovat privátní registru Docker v registru kontejner Azure (ACR). Pokyny pro nasazení ACR instance najdete v tématu [Azure kontejneru registru Quickstart](../container-registry/container-registry-get-started-azure-cli.md).
+Budete také potřebovat privátní registru Docker v registru kontejner Azure (ACR). Pokyny pro nasazení ACR instance najdete v tématu [Azure kontejneru registru rychlý start] [acr rychlý start].
 
 ## <a name="install-helm"></a>Nainstalujte Helm
 
 Rozhraní příkazového řádku Helm je klient, který běží ve vývojovém systému a umožňuje spuštění, zastavení a správu aplikací s Helm grafy.
 
-Chcete-li nainstalovat rozhraní příkazového řádku Helm na Macu, použijte `brew`. Možnosti Další informace najdete v tématu [instalace Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+Chcete-li nainstalovat rozhraní příkazového řádku Helm na Macu, použijte `brew`. Možnosti Další informace najdete v tématu [instalace Helm][install-helm].
 
 ```console
 brew install kubernetes-helm
@@ -54,7 +54,7 @@ Bash completion has been installed to:
 
 Rozhraní příkazového řádku koncept je klient, který běží ve vývojovém systému a umožňuje že vám quicky nasazení kódu do clusteru s podporou Kubernetes.
 
-Instalace rozhraní příkazového řádku koncept na použití Mac `brew`. Další informace o instalaci naleznete v části, [koncept nainstalovat Průvodce](https://github.com/Azure/draft/blob/master/docs/install.md).
+Instalace rozhraní příkazového řádku koncept na použití Mac `brew`. Další informace o instalaci naleznete v části, [koncept nainstalovat Průvodce][install-draft].
 
 ```console
 brew install draft
@@ -178,7 +178,7 @@ Po dokončení testování aplikace pomocí `Control+C` zastavit připojení k p
 
 ## <a name="expose-application"></a>Zveřejnit aplikaci
 
-Při testování aplikace v Kubernetes, můžete chtít zpřístupnění aplikace v síti internet. To lze provést pomocí Kubernetes služby s typem [nástroj pro vyrovnávání zatížení](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) nebo [příjem příchozích dat řadiče](https://kubernetes.io/docs/concepts/services-networking/ingress/). Tento dokument údaje pomocí Kubernetes služby.
+Při testování aplikace v Kubernetes, můžete chtít zpřístupnění aplikace v síti internet. To lze provést pomocí Kubernetes služby s typem [nástroj pro vyrovnávání zatížení] [ kubernetes-service-loadbalancer] nebo [příjem příchozích dat řadič][kubernetes-ingress]. Tento dokument údaje pomocí Kubernetes služby.
 
 
 Nejdřív na konceptu pack musí aktualizovat určíte, že služby s typem `LoadBalancer` by měl být vytvořen. Uděláte to tak, aktualizujte typ služby v `values.yaml` souboru.
@@ -302,4 +302,15 @@ Hello World, I'm Java - Draft Rocks!
 Další informace o používání koncept naleznete v dokumentaci k koncept na Githubu.
 
 > [!div class="nextstepaction"]
-> [Koncept dokumentace](https://github.com/Azure/draft/tree/master/docs)
+> [Koncept dokumentace][draft-documentation]
+
+<!-- LINKS - external -->
+[draft-documentation]: https://github.com/Azure/draft/tree/master/docs
+[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
+[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+
+<!-- LINKS - internal -->
+[acr-quicstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./kubernetes-walkthrough.md

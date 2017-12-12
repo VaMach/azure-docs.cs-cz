@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: ab38f6866519aabe1b4740cfaa26d7ff570d78de
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Plánování migrace z klasického do Azure Resource Manageru prostředků IaaS
 Zatímco Azure Resource Manager nabízí mnoho úžasné funkcí, je důležité k naplánování vaší cesty migrace zkontrolujte, zda věcí bezproblémové. Výdaje čas na plánování zajistí nedochází chybám při provádění migrace aktivity. 
@@ -96,7 +96,7 @@ Následující byly problémy zjištěné v mnoha větší migrace. Nejedná se 
 - **Rozšíření virtuálního počítače** -rozšíření virtuálního počítače jsou potenciálně jeden z největších roadblocks migrace spuštěné virtuální počítače. Náprava rozšíření virtuálního počítače může trvat upwards of 1 – 2 dny, takže Plánujte odpovídajícím způsobem.  Funkční Azure agent je potřeba k hlášení zpět stav rozšíření virtuálního počítače spuštěných virtuálních počítačů. Pokud stav, je vrácen chybný pro spuštění virtuálního počítače, to se zastaví migrace. Vlastní agent není nutné, aby pracovní povolte migraci, ale pokud rozšíření ve virtuálním počítači, pak oba pracovní agenta a odchozí připojení k Internetu (pomocí DNS) bude potřeba k migraci přejdete na následující.
   - Pokud během migrace, všechna rozšíření virtuálních počítačů s výjimkou BGInfo v1 dojde ke ztrátě připojení k serveru DNS. \* nutné nejprve odebrat z každý virtuální počítač před Příprava migrace a následně znovu přidat zpět do virtuálního počítače po migraci správce prostředků Azure.  **Toto je pouze pro virtuální počítače, které jsou spuštěné.**  Pokud virtuální počítače jsou zastaveny deallocated, rozšíření virtuálního počítače není třeba je odebrat. **Poznámka:** mnoho rozšíření, jako jsou Azure diagnostics a security center monitorování bude přeinstalovat sami po migraci, odebrání, takže se nejedná o problém.
   - Kromě toho se ujistěte, skupiny zabezpečení sítě nejsou omezení odchozí přístup k Internetu. K tomu dochází s některé konfigurace skupin zabezpečení sítě. Odchozí přístup k Internetu (a DNS) je potřeba pro rozšíření virtuálního počítače, který se má migrovat na Azure Resource Manager. 
-  - Existují dvě verze rozšíření BGInfo: v1 a v2.  Pokud virtuální počítač byl vytvořen pomocí portálu classic nebo prostředí PowerShell, virtuální počítač bude pravděpodobně mít příponu v1 na něm. Toto rozšíření není třeba je odebrat a bude vynechán. (není migrovat) migrace rozhraní API. Ale pokud klasické virtuální počítač byl vytvořen s nový portál Azure, bude pravděpodobně mít základě JSON v2 verzi BGInfo, které lze migrovat na Azure Resource Manager poskytuje agenta je funkční a má odchozí přístup k Internetu (a DNS). 
+  - Existují dvě verze rozšíření BGInfo: v1 a v2.  Pokud virtuální počítač byl vytvořen pomocí portálu Azure nebo Powershellu, virtuální počítač bude pravděpodobně mít příponu v1 na něm. Toto rozšíření není třeba je odebrat a bude vynechán. (není migrovat) migrace rozhraní API. Ale pokud klasické virtuální počítač byl vytvořen s nový portál Azure, bude pravděpodobně mít základě JSON v2 verzi BGInfo, které lze migrovat na Azure Resource Manager poskytuje agenta je funkční a má odchozí přístup k Internetu (a DNS). 
   - **Možnost nápravy 1**. Pokud víte, že virtuální počítače nebudou mít odchozí přístupem k Internetu, funkční službu DNS a práci agenty Azure na virtuálních počítačích, pak odinstalovat všechny rozšíření virtuálního počítače jako součást migrace před Příprava, znovu nainstalujte rozšíření virtuálního počítače po dokončení migrace. 
   - **Možnost nápravy 2**. Pokud rozšíření virtuálního počítače z mezní příliš velký, Další možností je vypnutí nebo navrácení všechny virtuální počítače před migrací. Migrace deallocated virtuálních počítačů a potom je znovu spustit na straně Azure Resource Manager. Zde výhodou je, že bude migrovat rozšíření virtuálního počítače. Nevýhodou je, že budou ztraceny všechny veřejných virtuálních IP adres (to může být jiný starter), a samozřejmě se zastaví virtuální počítače způsobuje mnohem větší vliv na pracovní aplikace.
 

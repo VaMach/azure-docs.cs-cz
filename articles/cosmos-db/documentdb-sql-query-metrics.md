@@ -1,5 +1,5 @@
 ---
-title: "Metriky dotazů SQL pro rozhraní API služby Azure Cosmos databáze DocumentDB | Microsoft Docs"
+title: "Metriky dotazů SQL pro rozhraní API pro Azure Cosmos databáze SQL | Microsoft Docs"
 description: "Další informace o tom, jak instrumentace a ladění výkon dotazů SQL Azure Cosmos DB požadavků."
 keywords: "syntaxe SQL, dotaz sql, sql dotazy, json dotazovací jazyk, databázových koncepcí a sql, agregační funkce"
 services: cosmos-db
@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2cb6319356a536aebc1db3122cf80b8736d1fd4f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ladění výkonu dotazů s Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Poskytuje Azure Cosmos DB [SQL rozhraní API pro dotazování na data](documentdb-sql-query.md), aniž byste museli schématu nebo sekundární indexy. Tento článek obsahuje následující informace pro vývojáře:
 
 * Nejdůležitější podrobnosti o způsobu fungování spuštění dotazu SQL Azure Cosmos DB
@@ -31,7 +34,7 @@ Poskytuje Azure Cosmos DB [SQL rozhraní API pro dotazování na data](documentd
 
 ## <a name="about-sql-query-execution"></a>O spuštění dotazu SQL
 
-V Azure Cosmos DB, ukládat data do kontejnerů, které můžete dosáhnout žádné [velikost nebo žádostí o propustnost úložiště](partition-data.md). Azure Cosmos DB bezproblémově škáluje data mezi fyzické oddíly skrytě zpracovat nárůst dat nebo zvyšte v zřízené propustnosti. Můžete použít dotazy SQL pro každý kontejner pomocí rozhraní REST API nebo jeden z podporovaném [DocumentDB SDK](documentdb-sdk-dotnet.md).
+V Azure Cosmos DB, ukládat data do kontejnerů, které můžete dosáhnout žádné [velikost nebo žádostí o propustnost úložiště](partition-data.md). Azure Cosmos DB bezproblémově škáluje data mezi fyzické oddíly skrytě zpracovat nárůst dat nebo zvyšte v zřízené propustnosti. Můžete použít dotazy SQL pro každý kontejner pomocí rozhraní REST API nebo jeden z podporovaném [sady SDK SQL](documentdb-sdk-dotnet.md).
 
 Stručný přehled vytváření oddílů: definování klíč oddílu, jako je "city", která určuje, jak je rozdělit data do fyzického oddíly. Data patřící do jednoho oddílu klíč (například "city" == "Seattle") je uložen v rámci fyzické oddílu, ale obvykle jednoho oddílu fyzického má více klíčů oddílů. V případě oddíl dosáhne velikosti úložiště, služba bezproblémově rozdělí oddílu na dva nové oddíly a se rovnoměrně rozděluje klíč oddílu mezi tyto oddíly. Vzhledem k tomu, že oddíly jsou přechodné, pomocí rozhraní API abstrakci "oddílu klíče rozsahu", který označuje rozsahy hodnoty hash klíče oddílu. 
 
@@ -50,7 +53,7 @@ Sady SDK poskytují různé možnosti pro spuštění dotazu. Například v rozh
 | `EnableScanInQuery` | Musí být nastavena na hodnotu true, pokud jste zvolili mimo indexování, ale chcete přesto spustit dotaz prostřednictvím kontrolu. Pouze použito pouze v případě indexování pro cestu požadovaný filtr je zakázána. | 
 | `MaxItemCount` | Maximální počet položek k vrácení za dobu odezvy na server. Nastavení na hodnotu -1, můžete je nechat server spravovat počet položek. Nebo můžete snížit tuto hodnotu načíst pouze malý počet položek na dobu odezvy. 
 | `MaxBufferedItemCount` | Toto je možnost na straně klienta a používá k omezení využití paměti při provádění cross-partition ORDER BY. Vyšší hodnota pomáhá snížit latenci mezi oddílu řazení. |
-| `MaxDegreeOfParallelism` | Získá nebo nastaví počet souběžných operací spustit na straně klienta během provádění paralelního dotazu v databázi služby Azure DocumentDB. Hodnotu vlastnosti kladné omezuje počet souběžných operací nastavte hodnotu. Pokud je nastavena na hodnotu menší než 0, systém automaticky rozhoduje, počet souběžných operací ke spuštění. |
+| `MaxDegreeOfParallelism` | Získá nebo nastaví počet souběžných operací spustit na straně klienta během provádění paralelního dotazu ve službě Azure Cosmos DB databáze. Hodnotu vlastnosti kladné omezuje počet souběžných operací nastavte hodnotu. Pokud je nastavena na hodnotu menší než 0, systém automaticky rozhoduje, počet souběžných operací ke spuštění. |
 | `PopulateQueryMetrics` | Doba načítání umožní podrobné protokolování statistiky času stráveného v různých fázích provádění dotazu jako čas kompilace, index smyčky čas a dokumentu. Výstup z Statistika dotazu můžete sdílet s podporu Azure o diagnostice problémů s výkonem dotazu. |
 | `RequestContinuation` | Provádění dotazů můžete obnovit pomocí předávání neprůhledné pokračovací token vrácený jakýkoli dotaz. Token pro pokračování zapouzdří všechny stavy, které jsou potřebné pro spuštění dotazu. |
 | `ResponseContinuationTokenLimitInKb` | Můžete omezit maximální velikost token pro pokračování vrácená serverem. Možná budete muset nastavit Pokud hostitele vaší aplikace má omezení velikosti hlavičky odpovědi. Toto nastavení může zvýšit celkový doba trvání a RUs využité pro dotaz.  |
@@ -137,7 +140,7 @@ Hlavičky odpovědi klíče vrácená z dotazu zahrnují následující:
 | `x-ms-documentdb-query-metrics` | Statistika dotazu pro spuštění. Toto je oddělený řetězec obsahující statistiky času stráveného v různých fázích spuštění dotazu. Vrácené v případě `x-ms-documentdb-populatequerymetrics` je nastaven na `True`. | 
 | `x-ms-request-charge` | Počet [požadované jednotky](request-units.md) spotřebovávají dotazu. | 
 
-Podrobnosti o hlavičky požadavku REST API a možnostech najdete v tématu [dotaz na prostředky pomocí DocumentDB REST API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+Podrobnosti o hlavičky požadavku REST API a možnostech najdete v tématu [dotaz na prostředky, pomocí rozhraní REST API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Osvědčené postupy pro výkon dotazů
 Níže jsou většiny běžných faktorů, které mít vliv na výkon dotazů Azure Cosmos DB. Jsme podrobněji prozkoumat každý z těchto témat v tomto článku.
@@ -212,7 +215,7 @@ Toto jsou důsledky chování paralelní dotazy pro různé hodnoty P.
 * (P > 1) = > Min (P, N) paralelní úlohy 
 * (P < 1) = > Min (N, D) paralelní úlohy
 
-Poznámky k verzi sady SDK a najdete v části Podrobnosti o implementované třídy a metody [DocumentDB SDK](documentdb-sdk-dotnet.md)
+Poznámky k verzi sady SDK a najdete v části Podrobnosti o implementované třídy a metody [SQL SDK](documentdb-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Latence sítě
 V tématu [globální distribuční databázi Cosmos Azure](tutorial-global-distribution-documentdb.md) jak nastavit globální distribuční a připojte se k nejbližší oblast. Latence sítě nemá významný dopad na výkon dotazů, když potřebujete udělat vícenásobný nebo načíst velké výslednou sadu z dotazu. 

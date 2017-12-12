@@ -4,7 +4,7 @@ description: "Toto téma nabízí podrobný přehled o jaké jsou rizikových ud
 services: active-directory
 keywords: "ochrany identit Azure active directory, zabezpečení, rizik, úroveň rizika, ohrožení zabezpečení, zásady zabezpečení"
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e0fb528b22c5696aa46a677199b95ff3fbd6a79
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory rizikových událostí
 

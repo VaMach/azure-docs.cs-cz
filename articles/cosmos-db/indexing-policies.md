@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 791446fbd7eb025441f051e2d8f8f2b1e6c47ebe
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 8b990d1887551cbe182fe1c38d2cfd02f3af5e78
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Jak funguje Azure Cosmos DB data indexu?
 
@@ -229,7 +229,7 @@ Můžete zvolit, jestli chcete kolekci automaticky indexuje všechny dokumenty. 
 
 S automatické indexování, vypnutý, můžete stále selektivně přidat pouze konkrétní dokumentů do indexu. Naopak můžete nechat automatické indexování na a selektivně zvolte vyloučit pouze konkrétní dokumenty. Indexování zapnout nebo vypnout konfigurace jsou užitečné v případě, že máte jenom podmnožinu dokumentů, které je třeba zadat dotaz.
 
-Například následující příklad ukazuje, jak zahrnout dokumentu explicitně pomocí [DocumentDB rozhraní API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) a [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) vlastnost.
+Například následující příklad ukazuje, jak zahrnout dokumentu explicitně pomocí [SQL rozhraní API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) a [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) vlastnost.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -315,7 +315,7 @@ Pokud by provedete indexování změny zásad Azure Cosmos DB kolekce? Tady jsou
 > 
 
 ## <a name="performance-tuning"></a>Ladění výkonu
-Rozhraní API DocumentDB poskytují informace o metrik výkonu, jako je například úložiště indexu používá a náklady na propustnost (jednotek žádosti) pro všechny operace. Tyto informace slouží k porovnání různé zásady indexování a optimalizace výkonu.
+Rozhraní API SQL zadejte informace o metrik výkonu, jako je například úložiště indexu používá a náklady na propustnost (jednotek žádosti) pro všechny operace. Tyto informace slouží k porovnání různé zásady indexování a optimalizace výkonu.
 
 Ke kontrole kvótu úložiště a využití kolekce, spustit žádost HEAD nebo GET pro kolekci prostředků a zkontrolovat x-ms požadavku kvóty a hlavičky x-ms požadavku využití. V sadě SDK .NET [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) a [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) vlastnosti v [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) obsahovat tyto odpovídající hodnoty.
 
@@ -409,7 +409,7 @@ Praktické porovnání tady je jeden příklad vlastní zásady indexování vyt
 ## <a name="next-steps"></a>Další kroky
 V odkazech dole pro index ukázky správy zásad a další informace o databázi Cosmos Azure dotazovací jazyk.
 
-1. [Ukázky kódu Správa indexu .NET DocumentDB rozhraní API](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [Operace kolekci DocumentDB rozhraní API REST](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+1. [Ukázky kódu SQL rozhraní API .NET Index Management](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [Operace SQL rozhraní API REST kolekce](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Dotaz s SQL](documentdb-sql-query.md)
 

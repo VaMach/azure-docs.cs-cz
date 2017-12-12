@@ -75,6 +75,7 @@
 ##### [Serializace typu](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 ### [Aplikační model](service-fabric-application-model.md)
+### [Manifesty služby a aplikace](service-fabric-application-and-service-manifests.md)
 ### [Model hostingu](service-fabric-hosting-model.md)
 
 ### Služby

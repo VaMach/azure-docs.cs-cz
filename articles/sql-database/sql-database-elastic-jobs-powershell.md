@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Vytvářet a spravovat úlohy elastické databáze SQL pomocí prostředí PowerShell (preview)
 
@@ -203,7 +203,7 @@ Otevření připojení do úlohy elastické databáze:
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Zašifrované přihlašovací údaje v rámci úlohy elastické databáze
 Přihlašovací údaje databáze lze vložit do úlohy *řízení databáze* s jeho heslo šifrované. Je nezbytné k ukládání pověření a umožněte úloh provést později, (pomocí plány úloh).
 
-Šifrování funguje prostřednictvím certifikát vytvořen jako součást instalační skript. Instalační skript se vytvoří a odešle certifikát do cloudové služby Azure pro dešifrování uložené šifrovaná hesla. Cloudová služba Azure později ukládá veřejný klíč v rámci úlohy *řízení databáze* což umožňuje rozhraní API prostředí PowerShell nebo portálu Azure Classic k šifrování poskytnuté heslo bez nutnosti certifikát, který má být místně nainstalovat.
+Šifrování funguje prostřednictvím certifikát vytvořen jako součást instalační skript. Instalační skript se vytvoří a odešle certifikát do cloudové služby Azure pro dešifrování uložené šifrovaná hesla. Cloudová služba Azure později ukládá veřejný klíč v rámci úlohy *řízení databáze* což umožňuje rozhraní API prostředí PowerShell nebo Azure rozhraní portálu pro zašifrování zadaného hesla bez nutnosti certifikát, který chcete nainstalovat místně .
 
 Hesla přihlašovací údaje jsou šifrované a zabezpečení od uživatelů s přístupem jen pro čtení k objektům úlohy elastické databáze. Ale je možné, uživatel se zlými úmysly přístup pro čtení a zápis k objektům elastické databáze úlohy extrahování heslo. Přihlašovací údaje jsou navrženy pro opětovné použití mezi jednotlivými spuštěními úlohy. Přihlašovací údaje jsou předány k cílovým databázím při navazování připojení. Aktuálně neexistují žádná omezení na cílové databáze používané pro každý přihlašovací údaje, uživatel se zlými úmysly může přidat cíl databáze pro databázi pod kontrolou uživateli se zlými úmysly. Uživatel může následně spustit úlohu cílení na tuto databázi k získání hesla přihlašovací údaje.
 

@@ -4,7 +4,7 @@ description: "Toto téma popisuje funkci prevence náhodného odstranění (prev
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: a33fb729cff5007e40820af696cfec823a3ecfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronizace Azure AD Connect: Prevence náhodného odstranění
 Toto téma popisuje funkci prevence náhodného odstranění (prevence náhodného odstranění) ve službě Azure AD Connect.
@@ -32,7 +32,7 @@ Běžné scénáře až uvidíte mnoho odstranění patří:
 * Všechny objekty v organizační jednotce se odstraní.
 * Organizační jednotka se přejmenuje tak všechny objekty v ní se považují za mimo rozsah pro synchronizaci.
 
-Výchozí hodnota 500 objektů lze změnit pomocí prostředí PowerShell pomocí `Enable-ADSyncExportDeletionThreshold`. Měli byste nakonfigurovat tuto hodnotu, aby odpovídal zadané velikosti vaší organizace. Vzhledem k tomu, že plánovače synchronizace spouští každých 30 minut, je hodnota číslo z odstranění vidět do 30 minut.
+Výchozí hodnota 500 objektů lze změnit pomocí prostředí PowerShell pomocí `Enable-ADSyncExportDeletionThreshold`, který je součástí modulu AD Sync nainstalovat s Azure Active Directory Connect. Měli byste nakonfigurovat tuto hodnotu, aby odpovídal zadané velikosti vaší organizace. Vzhledem k tomu, že plánovače synchronizace spouští každých 30 minut, je hodnota číslo z odstranění vidět do 30 minut.
 
 Pokud jsou moc odstranění připravený být exportovány do služby Azure AD, poté se zastaví exportu a obdržíte e-mail takto:
 

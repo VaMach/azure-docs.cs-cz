@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: efa5a50564d94dbecd4bc7fcb4082b01d16f680d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Export rozhraní API Azure hostovaná PowerApps a Microsoft toku
 
@@ -34,7 +34,7 @@ Před exportem rozhraní API, musí popisovat, rozhraní API pomocí definici Op
 
 Pokud chcete exportovat definice rozhraní API, postupujte takto:
 
-1. V [portál Azure](https://portal.azure.com), přejděte na Azure Functions nebo služby App Service aplikaci.
+1. V [portál Azure](https://portal.azure.com), přejděte na Azure Functions nebo jiná aplikace služby App Service.
 
     Pokud používáte Azure Functions, vyberte svou aplikaci funkce, vyberte **funkce**a potom **definice rozhraní API**.
 
@@ -48,11 +48,11 @@ Pokud chcete exportovat definice rozhraní API, postupujte takto:
 
     ![Exportovat do PowerApps + Microsoft Flow tlačítko](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
-3. Vyberte **Export režimu**:
+3. Vyberte **exportovat režimu**:
 
-    **Express** se dá vytvořit vlastní konektor z portálu Azure. Vyžaduje se přihlášení k PowerApps nebo Flow Microsoft a mají oprávnění vytvářet konektory v cílovém prostředí. Toto je doporučený postup, pokud tento požadavek můžete splnit. Pokud při použití tohoto režimu, postupujte podle kroků [použít expresní exportu](#express) podle následujících pokynů.
+    **Express** se dá vytvořit vlastní konektor z portálu Azure. Vyžaduje se přihlášení k PowerApps nebo Flow Microsoft a mají oprávnění vytvářet konektory v cílovém prostředí. Toto je doporučený postup, pokud tyto dva požadavky lze splnit. Pokud při použití tohoto režimu, postupujte podle kroků [použít expresní exportu](#express) podle následujících pokynů.
 
-    **Ruční** umožňuje exportovat definice rozhraní API, které pak importovat používání portálů PowerApps nebo Flow společnosti Microsoft. Toto je doporučený postup, pokud uživatel Azure a uživatel s oprávněním k vytvoření konektory jsou jiné osoby nebo pokud konektor musí být vytvořen v jiného klienta. Pokud při použití tohoto režimu, postupujte podle kroků [použít ruční export](#manual) podle následujících pokynů.
+    **Ruční** umožňuje exportovat definice rozhraní API, které pak importovat používání portálů PowerApps nebo Flow společnosti Microsoft. Toto je doporučený postup, pokud uživatel Azure a uživatel s oprávněním k vytvoření konektory jsou jiné osoby nebo pokud konektor musí být vytvořen v jiné klientovi Azure. Pokud při použití tohoto režimu, postupujte podle kroků [použít ruční export](#manual) podle následujících pokynů.
 
     ![Export režimu](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 

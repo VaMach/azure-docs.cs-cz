@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Výkonu a možností škálování testování pomocí Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Testování výkonu a škálování je klíče krok při vývoji aplikace. Mnoho aplikací databázové vrstvy má významný dopad na celkový výkon a škálovatelnost. Proto je zásadní součástí testování výkonu. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) je vytvořeného pro tento účel pro elastické škálování a předvídatelný výkon. Tyto funkce umožňují skvělé přizpůsobit pro aplikace, které potřebují a vysoce výkonné databázové vrstvy. 
 
 Tento článek je odkaz pro vývojáře implementace sad testů výkonu pro své úlohy Azure Cosmos DB. Také může sloužit k vyhodnocení Azure Cosmos DB pro vysoce výkonné aplikace scénáře. Se zaměřují hlavně na test výkonnosti izolované databáze, ale také obsahuje osvědčené postupy pro výrobní aplikace.
@@ -54,7 +57,7 @@ Pro zkompilování a spuštění vzorového .NET je nejrychlejší způsob, jak 
 
 **Krok 3:** zkompilování a spuštění aplikace konzoly z příkazového řádku. Měli byste vidět výstup podobný tomuto:
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.com:443/

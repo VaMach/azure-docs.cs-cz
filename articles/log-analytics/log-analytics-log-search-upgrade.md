@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: f3bb92335ec8d7d6edc0f10346b9b3a26adf65af
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Azure Log Analytics upgradovat na nové hledání protokolu
 
@@ -58,7 +58,7 @@ Při převodu se do pracovního prostoru provedeny následující změny:
 - Podívejte se na [– nejčastější dotazy vyhledávání protokolu](log-analytics-log-search-faq.md) pro běžné dotazy týkající se upgradu.
 
 ## <a name="how-do-i-know-if-there-were-any-issues-from-the-upgrade"></a>Jak poznám, pokud byly všechny problémy z upgradu?
-Po dokončení upgradu bude **upgradu Souhrn** část v pracovním prostoru nastavení.  Zkontrolujte informace o upgradu a k zobrazení této části
+Po dokončení upgradu bude **upgradu Souhrn** část v pracovním prostoru nastavení.  Zkontrolujte informace o upgradu a chcete-li zobrazit všechny problémy, které byly zjištěny této části.
 
  ![Souhrn upgradu](media/log-analytics-log-search-upgrade/upgrade-summary.png)
 

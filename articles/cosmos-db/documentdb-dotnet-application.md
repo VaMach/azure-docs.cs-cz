@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.custom: devcenter
-ms.openlocfilehash: b7c967550f9f89eec29288b24525b5f043615437
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 619886d129c6b9fca62376e366ce3a78d57c56c0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="_Toc395809351"></a>Kurz k ASP.NET MVC: Vývoj webové aplikace s použitím služby Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,6 +30,8 @@ ms.lasthandoff: 10/20/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Pro větší názornost, jak lze pomocí služby Azure Cosmos DB efektivně ukládat dokumenty JSON a zadávat na ně dotazy, obsahuje tento článek úplný podrobný návod, jak pomocí služby Azure Cosmos DB vytvořit aplikaci seznamu úkolů. Úkoly se budou ve službě Azure Cosmos DB ukládat jako dokumenty JSON.
 
@@ -55,7 +57,7 @@ Než budete postupovat podle pokynů tohoto článku, měli byste se ujistit, ž
 Všechny snímky obrazovky v tomto článku byly pořízeny pomocí nástroje Microsoft Visual Studio Community 2017. Pokud je systém konfigurován s jinou verzí je možné, že vaše obrazovky a možnosti budou mírně lišit, ale pokud splníte výše uvedené požadavky tohoto řešení by mělo fungovat.
 
 ## <a name="_Toc395637761"></a>Krok 1: Vytvoření účtu databáze Azure Cosmos DB
-Začněme vytvořením účtu služby Azure Cosmos DB. Pokud již máte účet SQL (DocumentDB) pro Azure Cosmos DB nebo pokud používáte emulátor DB Cosmos Azure pro účely tohoto kurzu, můžete přeskočit na [vytvoření nové aplikace ASP.NET MVC](#_Toc395637762).
+Začněme vytvořením účtu služby Azure Cosmos DB. Pokud již máte účet SQL pro Azure Cosmos DB nebo pokud používáte emulátor DB Cosmos Azure pro účely tohoto kurzu, můžete přeskočit na [vytvoření nové aplikace ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -99,7 +101,7 @@ Teď již máme za sebou většinu potřebných příprav technologie ASP.NET MV
    
     Ve výsledcích nainstalovat **Microsoft.Azure.DocumentDB Microsoft** balíčku. Tím stáhnout a nainstalovat balíček Azure Cosmos DB a také všechny závislosti, jako je například Newtonsoft.Json. Dokončete instalaci tak, že v okně **Náhled** kliknete na **OK** a v okně **Souhlas s podmínkami licence** na **Přijímám**.
    
-    ![Snímek obrazovky okna Správa balíčků NuGet se zvýrazněnou položkou Microsoft Azure DocumentDB Client Library](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Snímek obrazovky okna Správa balíčků NuGet s Microsoft Azure Cosmos DB klientské knihovny zvýrazněná](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       K instalaci balíčku můžete případně použít i Konzolu Správce balíčků. Pokud ji chcete využít, v nabídce **Nástroje** klikněte na **Správce balíčků NuGet** a pak na **Konzola Správce balíčků**. Do příkazového řádku zadejte následující příkaz.
    

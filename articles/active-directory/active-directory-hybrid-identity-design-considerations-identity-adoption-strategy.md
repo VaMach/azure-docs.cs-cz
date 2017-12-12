@@ -4,7 +4,7 @@ description: "Azure Active Directory pomocí podmíněného řízení přístupu
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definování strategie přijetí hybridní identity
 V této úloze definujete strategií hybridní identity přijetí řešení hybridní identity splňovat obchodní požadavky, které se zabývá:
@@ -59,7 +59,7 @@ Strategie, kterou použijete, bude určovat přihlášení uživatele.  Následu
 
 **Domain připojený a privátní síťových aplikací**:
 
-|  | Synchronizované Identity | Federované Identity |
+|  | Synchronizované Identity | Federated Identity |
 | --- | --- | --- |
 | Webové prohlížeče |Ověřování pomocí formulářů |jednotné přihlašování na, někdy je potřeba zadat ID organizace |
 | Outlook |Výzva k zadání přihlašovacích údajů |Výzva k zadání přihlašovacích údajů |
@@ -69,7 +69,7 @@ Strategie, kterou použijete, bude určovat přihlášení uživatele.  Následu
 
 **Externí nebo nedůvěryhodných zdrojů**:
 
-|  | Synchronizované Identity | Federované Identity |
+|  | Synchronizované Identity | Federated Identity |
 | --- | --- | --- |
 | Webové prohlížeče |Ověřování pomocí formulářů |Ověřování pomocí formulářů |
 | Outlook, Skype pro firmy (Lync) Skydrive Pro předplatného systému Office |Výzva k zadání přihlašovacích údajů |Výzva k zadání přihlašovacích údajů |

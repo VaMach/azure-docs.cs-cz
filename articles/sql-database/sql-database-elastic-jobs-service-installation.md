@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 7c741deba180af56414b0711de94ba110aeea9b8
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Instalace úlohy elastické databáze – přehled
-[**Elastické databáze úlohy** ](sql-database-elastic-jobs-overview.md) lze nainstalovat pomocí prostředí PowerShell nebo prostřednictvím Azure Classic Portal.You mohou získat přístup k vytvářet a spravovat úlohy pomocí rozhraní API prostředí PowerShell, pouze v případě, že budete instalovat balíček prostředí PowerShell. Kromě toho rozhraní API prostředí PowerShell poskytuje výrazně víc funkcí než portálu v daném okamžiku.
+[**Elastické databáze úlohy** ](sql-database-elastic-jobs-overview.md) lze nainstalovat pomocí prostředí PowerShell nebo prostřednictvím portálu Azure. Můžete získat přístup k vytvářet a spravovat úlohy pomocí rozhraní API prostředí PowerShell, pouze v případě, že budete instalovat balíček prostředí PowerShell. Kromě toho rozhraní API prostředí PowerShell poskytuje výrazně víc funkcí než portálu v daném okamžiku.
 
 Pokud jste již nainstalovali **úlohy elastické databáze** prostřednictvím portálu ze stávajícího **elastický fond**, nejnovější prostředí Powershell preview zahrnuje skripty, které upgradovat existující instalaci. Důrazně doporučujeme pro upgrade na nejnovější instalace **úlohy elastické databáze** součásti, aby bylo možné využívat nové funkce, které jsou zveřejňovány prostřednictvím rozhraní API prostředí PowerShell.
 

@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/3/2017
+ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Pokyny a doporučení pro spolehlivé kolekce v Azure Service Fabric
 Tato část obsahuje pokyny pro použití spolehlivé správce stavu a spolehlivé kolekce. Cílem je pomoct uživatelům vyhnout se běžné nástrahy.
@@ -33,6 +33,7 @@ Pokyny jsou uspořádána jako jednoduchý doporučení předponu s podmínkami 
 * Nevytvářejte transakce v rámci jiné transakci `using` příkaz vzhledem k tomu může dojít k zablokování.
 * Ujistěte se, že vaše `IComparable<TKey>` implementace je správný. Systém má závislost `IComparable<TKey>` ke sloučení kontrolních bodů a řádky.
 * Použití aktualizační zámek při čtení položky s záměr aktualizujte, aby se zabránilo třídu zablokování.
+* Vezměte v úvahu zachování počet kolekcí, spolehlivé na oddíl být menší než 1 000. Upřednostnit spolehlivé kolekce s více položkami přes více spolehlivé kolekcí s menším počtem položek.
 * Zvažte zachování položek (například TKey + TValue pro spolehlivé slovník) nižší než 80 kB: menší tím lépe. Tím se snižuje množství velkého objektu haldy využití a také diskových a síťových vstupně-VÝSTUPNÍMI požadavky. Často snižuje replikace duplicitních dat, je-li aktualizován pouze jeden malou část hodnoty. Běžným způsobem to můžete udělat ve slovníku spolehlivé, je proniknout vaší řádky do více řádků.
 * Zvažte použití zálohování a obnovení funkce tak, aby měl zotavení po havárii.
 * Vyhněte se kombinování jedné entity operací a operací s více entit (např `GetCountAsync`, `CreateEnumerableAsync`) v rámci jedné transakce z důvodu izolace různé úrovně.

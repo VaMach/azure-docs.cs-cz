@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Úvodní kurz k rozhraní DocumentDB API | Dokumentace Microsoftu"
-description: "Kurz, v rámci kterého se vytvoří online databáze a konzolová aplikace v jazyce C# pomocí rozhraní DocumentDB API."
+title: "Azure Cosmos DB: Rozhraní SQL API kurz Začínáme | Microsoft Docs"
+description: "Kurz, který vytváří online databáze a Konzolová aplikace C# pomocí rozhraní SQL API."
 keywords: "kurz nosql, online databáze konzolová aplikace jazyka c#"
 services: cosmos-db
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
-ms.openlocfilehash: e5e6a2e5b7ec4bc9c3c81ff37640c98cae36392d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a6049ac8d196282f146a60de3a0f0cb05943dd
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: Úvodní kurz k rozhraní DocumentDB API
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Rozhraní SQL API kurz Začínáme
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,9 +32,11 @@ ms.lasthandoff: 10/11/2017
 >  
 > 
 
-Vítejte v úvodním kurzu k rozhraní DocumentDB API služby Azure Cosmos DB! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky Azure Cosmos DB a dotazuje se na ně.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Budeme se zabývat těmito tématy:
+Vítá vás rozhraní API pro Azure Cosmos DB SQL kurzu Začínáme! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky Azure Cosmos DB a dotazuje se na ně.
+
+Tento kurz se zabývá:
 
 * Vytvoření účtu služby Azure Cosmos DB a připojení k němu
 * Konfigurace řešení v nástroji Visual Studio
@@ -48,12 +50,9 @@ Budeme se zabývat těmito tématy:
 
 Nemáte čas? Nevadí! Úplné řešení je k dispozici na [GitHubu](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Pro rychlé pokyny přeskočte na [oddíl Získání úplného řešení kurzu NoSQL](#GetSolution).
 
-Potom prosím použijte hlasovací tlačítka v horní nebo dolní části stránky, abychom získali zpětnou vazbu. Pokud chcete, abychom vás kontaktovali přímo, můžete nám nechat e-mailovou adresu v komentářích.
-
 Můžeme začít!
 
-## <a name="prerequisites"></a>Předpoklady
-Ujistěte se prosím, že máte následující:
+## <a name="prerequisites"></a>Požadavky
 
 * Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/). 
 
@@ -62,7 +61,7 @@ Ujistěte se prosím, že máte následující:
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)].
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Krok 1: Vytvoření účtu služby Azure Cosmos DB
-Vytvořme účet služby Azure Cosmos DB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení řešení v nástroji Visual Studio](#SetupVS). Pokud používáte emulátor služby Azure Cosmos DB, nastavte emulátor pomocí postupu v tématu [Emulátor služby Azure Cosmos DB](local-emulator.md) a přeskočte k části [Nastavení řešení v sadě Visual Studio](#SetupVS).
+Vytvořme účet služby Azure Cosmos DB. Pokud již máte účet, který chcete použít, můžete přeskočit na [Nastavení řešení v nástroji Visual Studio](#SetupVS). Pokud používáte emulátor DB Cosmos Azure, postupujte podle kroků v [emulátoru DB Cosmos Azure](local-emulator.md) nastavit emulátoru a přeskočit na [nastavení řešení v nástroji Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -74,10 +73,10 @@ Vytvořme účet služby Azure Cosmos DB. Pokud již máte účet, který chcete
 4. V **Průzkumníku řešení** klikněte pravým tlačítkem na novou konzolovou aplikaci v rámci řešení sady Visual Studio a pak klikněte na **Spravovat balíčky NuGet**.
     
     ![Snímek obrazovky místní nabídky projektu](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-5. Na kartě **NuGet** klikněte na **Procházet** a do vyhledávacího pole zadejte **azure documentdb**.
+5. V **NuGet** , klikněte na **Procházet**a typ **azure documentdb** do vyhledávacího pole.
 6. Najděte ve výsledcích **Microsoft.Azure.DocumentDB** a klikněte na **Nainstalovat**.
-   Je třeba ID balíčku klientské knihovny Azure Cosmos databáze DocumentDB rozhraní API [Microsoft Azure DocumentDB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   ![Snímek obrazovky nabídky Nuget pro vyhledání sady Azure Cosmos DB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   Je třeba ID balíčku klientské knihovny Azure Cosmos SQL DB rozhraní API [Klientská knihovna pro Microsoft Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+   ![Snímek obrazovky nabídky NuGet pro vyhledání Azure Cosmos DB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Pokud se vám zobrazí zpráva týkající se kontroly změn řešení, klikněte na **OK**. Pokud se vám zobrazí zpráva týkající se přijetí licence, klikněte na **Souhlasím**.
 
@@ -116,7 +115,7 @@ Na portálu Azure přejděte na svůj účet Azure Cosmos DB a pak klikněte na 
 
 Zkopírujte identifikátor URI z portálu a vložte ho do `<your endpoint URL>` v souboru program.cs. Poté zkopírujte PRIMÁRNÍ KLÍČ z portálu a vložte ho do `<your primary key>`.
 
-![Snímek obrazovky portálu Azure používá v kurzu NoSQL k vytvoření konzolové aplikace jazyka C#. Ukazuje účet služby Azure Cosmos DB se zvýrazněným aktivním centrem, zvýrazněným tlačítkem KLÍČE v okně účtu služby Azure Cosmos DB a zvýrazněnými hodnotami URI, PRIMÁRNÍ KLÍČ a SEKUNDÁRNÍ KLÍČ v okně Klíče.][keys]
+![Snímek obrazovky portálu Azure používá v kurzu NoSQL k vytvoření konzolové aplikace jazyka C#. Zobrazuje účet Azure Cosmos DB s AKTIVNÍM centrem, zvýrazněným tlačítkem klíče na stránce účtu Azure Cosmos DB a zvýrazněnými na stránce klíče hodnotami URI, primární klíč a sekundární klíč][keys]
 
 Potom vytvořením nové instance **DocumentClient** spustíme aplikaci.
 

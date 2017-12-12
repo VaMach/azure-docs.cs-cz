@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 61d71479ae39c1ee22618f2c7fc6677b5bae8fe4
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 0a80599df07767cd6a117157fc699315cce7ad23
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Vytvoření virtuálního počítače se systémem Windows na portálu Azure
 > [!div class="op_single_selector"]
@@ -39,8 +39,6 @@ V tomto kurzu se dozvíte, jak vytvořit virtuální počítač Azure (VM) s Win
 V této části se dozvíte, jak používat **řídicí panel** na portálu Azure vyberte a poté vytvořit virtuální počítač.
 
 Můžete také vytvořit virtuální počítače pomocí [vlastní image](createupload-vhd.md). Informace o tomto a dalších metod najdete v tématu [různé způsoby vytvoření virtuálního počítače s Windows](../../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-<!-- 02/27/2017 Video removed as it was based on the classic portal. -->
 
 ## <a id="createvirtualmachine"></a>Vytvoření virtuálního počítače
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]

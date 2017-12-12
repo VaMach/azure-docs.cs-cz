@@ -2,7 +2,7 @@
 title: "Úvod do Azure Cosmos DB Graph API | Microsoft Docs"
 description: "Zjistěte, jak můžete pomocí Azure Cosmos DB uložení dotazu a procházení masivní grafy s nízkou latencí pomocí dotazovacího jazyka pro graf Gremlin systému Apache TinkerPop."
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: lbosq
+ms.openlocfilehash: 45169394bed2287896ddc93ad56657f7394366f8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Úvod do Azure Cosmos DB: Graph API
 
@@ -98,7 +98,7 @@ Azure Cosmos DB nabízí následující možnosti odlišné ve srovnání s jin�
 
 * Přizpůsobitelné úrovně konzistence
 
- Vyberte z pěti dobře definované úrovně konzistence zajistit optimální kompromis mezi konzistencí a výkonem. Pro dotazy a operace čtení nabízí služba Azure Cosmos DB pět různých úrovní konzistence: silná, omezená neaktuálnost, relace, konzistentní předpona a konečný výsledek. Tyto úrovně konzistence podrobné, dobře definované umožňují zvukové kompromisy mezi konzistence, dostupností a latencí. Další informace najdete v tématu o [využití úrovní konzistence pro maximalizaci dostupnosti a výkonu v DocumentDB](consistency-levels.md).
+ Vyberte z pěti dobře definované úrovně konzistence zajistit optimální kompromis mezi konzistencí a výkonem. Pro dotazy a operace čtení nabízí služba Azure Cosmos DB pět různých úrovní konzistence: silná, omezená neaktuálnost, relace, konzistentní předpona a konečný výsledek. Tyto úrovně konzistence podrobné, dobře definované umožňují zvukové kompromisy mezi konzistence, dostupností a latencí. Další informace v [úrovně konzistence přizpůsobitelné dat v Azure Cosmos DB](consistency-levels.md).
 
 Azure Cosmos DB také můžete použít více modelů, jako je dokument a graf, v rámci stejné kontejnery nebo databáze. Kolekce dokumentů můžete použít k ukládání dat grafu node souběžně s dokumenty. Dotazy SQL za JSON a Gremlin dotazy můžete použít k dotazování stejná data jako graf.
 
@@ -113,7 +113,7 @@ V následující tabulce jsou uvedeny oblíbených Gremlin ovladače, které mů
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin JavaScript na Githubu](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin konzoly](https://tinkerpop.apache.org/downloads.html) |[TinkerPop dokumentace](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Také poskytuje knihovny .NET, který má Gremlin rozšiřující metody na Azure Cosmos DB [SDK služby Azure Cosmos DB](documentdb-sdk-dotnet.md) prostřednictvím balíčku NuGet. Tato knihovna nabízí server Gremlin služby "v rámci procesu", který můžete použít pro připojení přímo k DocumentDB data oddíly.
+Také poskytuje knihovny .NET, který má Gremlin rozšiřující metody na Azure Cosmos DB [SDK služby Azure Cosmos DB](documentdb-sdk-dotnet.md) prostřednictvím balíčku NuGet. Tato knihovna nabízí server Gremlin služby "v rámci procesu", který můžete použít pro připojení přímo k datové oddíly.
 
 | Ke stažení | Dokumentace |
 | --- | --- |

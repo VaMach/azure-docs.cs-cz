@@ -4,7 +4,7 @@ description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Ceza
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3934f814a9060adf275a4bdcc83403da4b2a4075
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Kurz: Azure Active Directory integrace s Cezanne HR softwaru
 
@@ -125,25 +125,29 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. Na **Cezanne HR softwarové konfigurace** klikněte na tlačítko **konfigurace softwaru HR Cezanne** otevřete **konfigurovat přihlášení** okno. Kopírování **SAML Entity ID a SAML jeden přihlašování adresu URL služby** z **Stručná referenční příručka části.**
+6. Na **Cezanne HR softwarové konfigurace** klikněte na tlačítko **konfigurace softwaru HR Cezanne** otevřete **konfigurovat přihlášení** okno.
 
-    ![Konfigurace softwaru Cezanne personálního oddělení](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![Konfigurace softwaru Cezanne personálního oddělení](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. V okně prohlížeče jiných webových přihlašování ke klientovi Cezanne HR softwaru jako správce.
+7. Přejděte dolů k položce **Stručná referenční příručka** části. Kopírování **SAML jeden přihlašování adresa URL služby a SAML Entity ID** z **Stručná referenční příručka části.**
 
-8. V levém navigačním podokně klikněte na tlačítko **nastavení systému**. Přejděte na **nastavení zabezpečení**. Potom přejděte na **konfigurace přihlášení**.
+    ![Konfigurace softwaru Cezanne personálního oddělení](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. V okně prohlížeče jiných webových přihlašování ke klientovi Cezanne HR softwaru jako správce.
+
+9. V levém navigačním podokně klikněte na tlačítko **nastavení systému**. Přejděte na **nastavení zabezpečení**. Potom přejděte na **konfigurace přihlášení**.
 
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. V **umožňují uživatelům přihlásit pomocí následující služby Jednotné přihlašování (SSO)** panel, zaškrtněte **SAML 2.0** a vyberte položku **Upřesnit konfiguraci** možnost.
+10. V **umožňují uživatelům přihlásit pomocí následující služby Jednotné přihlašování (SSO)** panel, zaškrtněte **SAML 2.0** a vyberte položku **Upřesnit konfiguraci** možnost.
 
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. Klikněte na tlačítko **přidat nové** tlačítko.
+11. Klikněte na tlačítko **přidat nové** tlačítko.
 
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. Proveďte následující kroky na **zprostředkovatelů IDENTITY SAML 2.0** části.
+12. Proveďte následující kroky na **zprostředkovatelů IDENTITY SAML 2.0** části.
 
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -161,7 +165,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     
     g. Klikněte na tlačítko **OK**. 
 
-12. Klikněte na tlačítko **Uložit** tlačítko.
+13. Klikněte na tlačítko **Uložit** tlačítko.
 
     ![Konfigurace straně jediné přihlášení na aplikaci](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 

@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Použití Azure Webhooky monitorování oznámení úlohy Media Services pomocí rozhraní .NET
-Při spuštění úlohy, často vyžadují způsob, jak sledovat průběh úlohy. Oznámení úlohy Media Services můžete monitorovat pomocí Webhooků Azure nebo [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Toto téma ukazuje, jak pracovat s webhooky.
+Při spuštění úlohy, často vyžadují způsob, jak sledovat průběh úlohy. Oznámení úlohy Media Services můžete monitorovat pomocí Webhooků Azure nebo [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Tento článek ukazuje, jak pracovat s webhooky.
 
-Toto téma ukazuje, jak
+Tento článek ukazuje, jak
 
 *  Definujte funkce Azure, který upravit tak, aby odpovídal na webhooky. 
     
@@ -33,9 +33,9 @@ Toto téma ukazuje, jak
     >Než budete pokračovat, musíte rozumět jak [vazby HTTP funkce Azure a webhooku](../azure-functions/functions-bindings-http-webhook.md) fungovat.
     >
     
-* Přidejte webhook, jehož kódování úlohu a zadejte adresu URL webhooku a tajný klíč, který tento webhook reaguje na. Najdete příklad, který přidá webhook, jehož kódování úlohu na konci tohoto tématu.  
+* Přidejte webhook, jehož kódování úlohu a zadejte adresu URL webhooku a tajný klíč, který tento webhook reaguje na. Najdete příklad, který přidá webhook, jehož kódování úlohu na konci tohoto článku.  
 
-Můžete najít definice různých Media Services .NET Azure Functions (včetně uvedeno v tomto tématu) [zde](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Můžete najít definice různých Media Services .NET Azure Functions (včetně uvedeno v tomto článku) [zde](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -54,7 +54,7 @@ K dokončení kurzu potřebujete následující:
 
 Při vývoji funkce Media Services, je užitečný pro přidání proměnné prostředí, které se používají v rámci funkcí. Chcete-li nakonfigurovat nastavení aplikace, klikněte na odkaz nakonfigurovat nastavení aplikace. 
 
-[Nastavení aplikace](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) oddíl definuje parametry, které se používají v webhooku definované v tomto tématu. Tyto parametry můžete také přidáte nastavení aplikace. 
+[Nastavení aplikace](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) oddíl definuje parametry, které se používají v webhooku definované v tomto článku. Tyto parametry můžete také přidáte nastavení aplikace. 
 
 |Name (Název)|Definice|Příklad| 
 |---|---|---|
@@ -72,7 +72,7 @@ Po nasazení aplikace funkce najdete ji mezi **App Services** Azure Functions.
 
 ### <a name="files"></a>Soubory
 
-Funkce Azure je přidružen soubory kódu a další soubory, které jsou popsané v této části. Ve výchozím nastavení, je přidružen funkci **function.json** a **run.csx** soubory (C#). Budete muset přidat **project.json** souboru. Zbývající část tohoto oddílu obsahuje definice pro tyto soubory.
+Funkce Azure je přidružen soubory kódu a další soubory, které jsou popsané v této části. Ve výchozím nastavení, je přidružen funkci **function.json** a **run.csx** soubory (C#). Je nutné přidat **project.json** souboru. Zbývající část tohoto oddílu obsahuje definice pro tyto soubory.
 
 ![Soubory](./media/media-services-azure-functions/media-services-azure-functions003.png)
 

@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrace Amazon Web Services (AWS) virtuálních počítačů do Azure
 
-V tomto kurzu se naučíte, jak migrovat Amazon Web Services (AWS) virtuálních počítačů (VM) k virtuálním počítačům Azure pomocí Site Recovery. Při migraci EC2 instance Azure, VMsare zacházet jako v případě, že jsou fyzické, místních počítačů. V tomto kurzu se naučíte:
+V tomto kurzu se naučíte, jak migrovat Amazon Web Services (AWS) virtuálních počítačů (VM) k virtuálním počítačům Azure pomocí Site Recovery. Při migraci EC2 instance do Azure, virtuální počítače jsou zpracovány jako v případě, že jsou fyzické, místních počítačů. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 > * Příprava prostředků Azure

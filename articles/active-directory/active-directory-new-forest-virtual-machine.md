@@ -5,7 +5,7 @@ services: active-directory, virtual-network
 keywords: "služby Active directory virtuálního počítače, instalace služby active directory doménové struktury, videa služby azure active directory "
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 tags: 
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 96020eb305b0a027a2128cdd3e3c8acf998c8e54
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalace nové doménové struktury služby Active Directory na virtuální síť Azure
 Tento článek ukazuje, jak vytvořit nového prostředí služby Active Directory pro Windows Server na virtuálním počítači (VM) na [virtuální síť Azure](../virtual-network/virtual-networks-overview.md). V takovém případě virtuální síť Azure není připojen k místní síti.
@@ -27,7 +27,7 @@ Tento článek ukazuje, jak vytvořit nového prostředí služby Active Directo
 Může být také zájem o tyto související články:
 
 * Video, které představuje tyto kroky, najdete v části [instalace nové doménové struktury služby Active Directory na virtuální síť Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-* Volitelně můžete [konfigurace VPN typu site-to-site](../vpn-gateway/vpn-gateway-site-to-site-create.md) a pak nainstalovat novou doménovou strukturu nebo rozšířit doménovou strukturu místní virtuální sítě Azure. Tyto pokyny najdete v části [instalaci řadiče domény repliky Active Directory ve virtuální síti Azure](active-directory-install-replica-active-directory-domain-controller.md).
+* Volitelně můžete [konfigurace VPN typu site-to-site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) a pak nainstalovat novou doménovou strukturu nebo rozšířit doménovou strukturu místní virtuální sítě Azure. Tyto pokyny najdete v části [instalaci řadiče domény repliky Active Directory ve virtuální síti Azure](active-directory-install-replica-active-directory-domain-controller.md).
 * Koncepční informace o instalaci služby Active Directory Domain Services (AD DS) na virtuální síť Azure, najdete v části [pokyny pro nasazení systému Windows Server Active Directory ve virtuálních počítačích Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Diagram scénáře
@@ -108,7 +108,7 @@ Další informace o používání prostředí Windows PowerShell najdete v téma
 ## <a name="see-also"></a>Viz také
 * [Postup instalace nové doménové struktury služby Active Directory na virtuální síť Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * [Pokyny pro nasazení systému Windows Server Active Directory na virtuálních počítačích Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-* [Konfigurace VPN typu Site-to-Site](../vpn-gateway/vpn-gateway-site-to-site-create.md)
+* [Konfigurace VPN typu Site-to-Site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Instalaci řadiče domény repliky Active Directory v virtuální sítě Azure](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IaaS IT specialista: Základy (01) virtuálního počítače](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS IT specialista: (05) vytváření virtuální sítě a připojení mezi různými místy](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)

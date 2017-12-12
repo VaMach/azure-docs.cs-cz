@@ -16,54 +16,57 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53059c09d454dedbd65ef188a0dd91d497b0e502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a81a51982cec25b41f5ebe7877a4b914f6c1a09
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hierarchický model prostředků a základní koncepty databáze Azure Cosmos
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Databáze entitami, které spravuje databázi Cosmos Azure jsou označovány jako **prostředky**. Každý prostředek je jedinečně identifikovaný logického identifikátoru URI. Můžete pracovat s prostředky pomocí standardních operací protokolu HTTP, hlaviček požadavků a odpovědí a stavové kódy. 
 
-Po přečtení tohoto článku, budete moct odpovězte si na následující otázky:
+Tento článek obsahuje odpovědi na tyto otázky:
 
 * Co je Azure Cosmos DB model prostředků?
-* Co jsou systémem definované prostředky a prostředky definované uživatelem?
+* Co jsou systémové definované prostředky a uživatelem definované prostředky?
 * Jak řeší prostředku?
 * Jak funguje s kolekcí?
 * Jak funguje s uložené procedury, triggery a uživatelem definované funkce (UDF)?
 
 ## <a name="hierarchical-resource-model"></a>Model hierarchické prostředků
-Jak ukazuje následující diagram, Azure DB Cosmos hierarchické **model prostředků** se skládá ze sady prostředků v rámci účtu databáze, každý adresovatelné prostřednictvím logické a stabilní identifikátoru URI. Sadu prostředků budeme ho označovat jako **kanálu** v tomto článku. 
+Jak ukazuje následující diagram, Azure DB Cosmos hierarchické **model prostředků** se skládá ze sady prostředků v rámci účtu databáze, každý adresovatelné prostřednictvím logické a stabilní identifikátoru URI. Sadu prostředků jsou označovány jako **kanálu** v tomto článku. 
 
 > [!NOTE]
-> Azure Cosmos DB nabízí vysoce efektivní protokolu TCP, který je taky dosáhl standardu RESTful komunikační model, k dispozici prostřednictvím [klient DocumentDB .NET rozhraní API](documentdb-sdk-dotnet.md).
+> Azure Cosmos DB nabízí vysoce efektivní protokol TCP, který je také dosáhl standardu RESTful v jeho komunikace modelu, k dispozici prostřednictvím [klient SQL .NET API](documentdb-sdk-dotnet.md).
 > 
 > 
 
 ![Model hierarchické prostředků Azure Cosmos DB][1]  
 **Model hierarchické prostředků**   
 
-Chcete-li začít pracovat s prostředky, je potřeba [vytvoření databázového účtu](create-documentdb-dotnet.md) pomocí svého předplatného Azure. Databázový účet se může skládat z sadu **databáze**, každá obsahuje několik **kolekce**, každý naopak obsahovat **uložené procedury, aktivuje, funkce UDF, dokumenty**a související **přílohy**. Databáze také přiřazeni **uživatelé**, každý s sadu **oprávnění** pro přístup k kolekce, uložené procedury, triggery, funkce UDF, dokumenty nebo přílohy. Databáze, uživatelé, oprávnění a kolekce jsou systémem definované prostředky s dobře známými schématy, dokumenty a přílohy obsahují libovolný, uživatelem definovaný obsah JSON.  
+Chcete-li začít pracovat s prostředky, je potřeba [vytvoření databázového účtu](create-documentdb-dotnet.md) pomocí svého předplatného Azure. Databázový účet se může skládat z sadu **databáze**, každá obsahuje několik **kolekce**, každý naopak obsahovat ** uložené procedury, aktivuje, funkce UDF, dokumenty a související  **přílohy**. Databáze také přiřazeni **uživatelé**, každý s sadu **oprávnění** pro přístup k kolekce, uložené procedury, triggery, funkce UDF, dokumenty nebo přílohy. Databáze, uživatelé, oprávnění a kolekce jsou systémem definované prostředky s dobře známými schématy, dokumenty a přílohy obsahují libovolný, uživatelem definovaný obsah JSON.  
 
 | Prostředek | Popis |
 | --- | --- |
-| Účet databáze |Databázový účet je přidružen sadu databází a pevné velikosti úložiště objektů blob pro přílohy. Můžete vytvořit jeden nebo více účtů databáze pomocí svého předplatného Azure. Další informace najdete v článku naše [stránce s cenami](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| Účet databáze |Databázový účet je přidružen sadu databází a pevné velikosti úložiště objektů blob pro přílohy. Můžete vytvořit jeden nebo více účtů databáze pomocí svého předplatného Azure. Další informace najdete v článku [stránce s cenami](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | Databáze |Databáze je logický kontejner úložiště dokumentů rozděleného mezi kolekcemi. Je také kontejner uživatelé. |
 | Uživatel |Logické obor názvů pro obor oprávnění. |
 | Oprávnění |Autorizační token přidružit k uživateli pro přístup k určitému zdroji. |
 | Kolekce |Kolekce je kontejner dokumentů JSON a přidružené logiky javascriptové aplikace. Kolekce je fakturovatelná entita, kde [náklady](performance-levels.md) je určen podle úrovně výkonu přidružené ke kolekci. Kolekce mohou pokrývat jeden nebo více oddílů nebo serverů a lze je škálovat tak, aby zvládaly prakticky neomezené objemy úložišť a propustnosti. |
 | Uložená procedura |Logiku aplikace napsané v jazyce JavaScript, který je registrován s kolekcí a transakčně provést v rámci databázového stroje. |
-| Trigger |Logiku aplikace napsané v jazyce JavaScript provést před nebo po buď vložit, nahradí nebo operace odstranění. |
-| UDF |Logiku aplikace napsané v jazyce JavaScript. Funkce UDF umožňují modelu operátor vlastního dotazu a tím rozšiřovat základní dotazovací jazyk DocumentDB rozhraní API. |
+| Trigger |Logiku aplikace napsané v jazyce JavaScript provést před nebo po buď typu vložení, nahraďte nebo operace odstranění. |
+| UDF |Logiku aplikace napsané v jazyce JavaScript. Funkce UDF umožňují modelu operátor vlastního dotazu a tím rozšiřovat základní rozhraní SQL API dotazovací jazyk. |
 | Dokument |Uživatelem definovaný (libovolný) obsah JSON. Ve výchozím nastavení musí být definováno žádné schéma ani udělat sekundární indexy, které musí být zadané pro všechny dokumenty do kolekce přidána. |
 | Přílohy |Přílohu je speciální dokument obsahující odkazy a související metadata pro externí objektů blob nebo médium. Vývojář můžete mít objekt blob spravuje Cosmos DB nebo jej uložte u poskytovatele služeb externí objekt blob, jako je například OneDrive, Dropbox, atd. |
 
-## <a name="system-vs-user-defined-resources"></a>Systém a prostředky definované uživatelem
-Prostředkům, například účty databáze, databáze, kolekce, uživatelé, oprávnění, uložené procedury, aktivační události a UDF – všechny mají pevného schématu a se označují jako systémové prostředky. Naproti tomu prostředkům, například dokumentů a příloh mít žádná omezení na schéma a jsou příklady prostředků definované uživatelem. V Cosmos databáze, systém a uživatel definované prostředky reprezentované a spravovat jako kompatibilní se standardem standard JSON. Všechny prostředky, systém nebo uživatelsky definované, máte následující běžné vlastnosti.
+## <a name="system-vs-user-defined-resources"></a>Systém oproti uživatelem definované prostředky
+Prostředkům, například účty databáze, databáze, kolekce, uživatelé, oprávnění, uložené procedury, aktivační události a UDF – všechny mají pevného schématu a se označují jako systémové prostředky. Naproti tomu prostředkům, například dokumentů a příloh mít žádná omezení na schéma a jsou příklady uživatelem definované prostředky. V systému Cosmos databáze jsou systému i uživatelem definované prostředky reprezentované a spravovat jako kompatibilní se standardem standard JSON. Všechny prostředky, systém nebo uživatelsky definované, mají následující běžné vlastnosti:
 
 > [!NOTE]
-> Všimněte si, že všechny systému vygenerovaných vlastnosti prostředku začínají podtržítkem (_) v jejich reprezentace JSON.
+> Všechny vlastnosti vygenerované systémem v prostředku začínají podtržítkem (_) v jejich reprezentace JSON.
 > 
 > 
 
@@ -77,7 +80,7 @@ Prostředkům, například účty databáze, databáze, kolekce, uživatelé, op
         <tr>
             <td valign="top"><p>_rid</p></td>
             <td valign="top"><p>Vygenerované systémem</p></td>
-            <td valign="top"><p>Generované systémem, hierarchické a jedinečný identifikátor prostředku</p></td>
+            <td valign="top"><p>Generované systémem, jedinečný a hierarchické identifikátor prostředku</p></td>
         </tr>
         <tr>
             <td valign="top"><p>_etag</p></td>
@@ -97,7 +100,7 @@ Prostředkům, například účty databáze, databáze, kolekce, uživatelé, op
         <tr>
             <td valign="top"><p>id</p></td>
             <td valign="top"><p>Buď</p></td>
-            <td valign="top"><p>Jedinečný název prostředku (s stejnou hodnotu klíče oddílu) definovaný uživatelem. Pokud uživatel není uveden id, bude id vygenerované systémem</p></td>
+            <td valign="top"><p>Uživatelem definované jedinečný název prostředku (s stejnou hodnotu klíče oddílu). Pokud uživatel není uveden id, id je generováno systémem</p></td>
         </tr>
     </tbody>
 </table>
@@ -121,7 +124,7 @@ Všechny prostředky jsou adresovatelné identifikátor URI. Hodnota **_self** v
 | /users/ /DBS/ {dbName} {userId} nebo oprávnění |Informační kanál oprávnění pod uživatelským |
 | /permissions/ /users/ {userId} /DBS/ {dbName} {permissionId} |Oprávnění s id odpovídající hodnotě {oprávnění} |
 
-Každý prostředek, má název jedinečný uživatelsky definované zveřejňovány prostřednictvím vlastnost id. Poznámka: pro dokumenty, pokud uživatel není uveden id, naše podporovaných sad SDK automaticky vygeneruje jedinečné id pro dokument. Id je řetězec definované uživatelem, až 256 znaků, které je jedinečné v rámci konkrétní nadřazený prostředek. 
+Každý prostředek má jedinečný název definovaný uživatelem, zveřejňovány prostřednictvím vlastnost id. Poznámka: pro dokumenty, pokud uživatel není uveden id, sady SDK automaticky generovat jedinečný identifikátor pro dokument. Id je řetězec definovaný uživatelem, až 256 znaků, které je jedinečné v rámci konkrétní nadřazený prostředek. 
 
 Každý prostředek, má také identifikátor hierarchické prostředků vygenerované systémem (také označované jako identifikátorů RID), která je dostupná přes vlastnost _rid. Identifikátor RID kóduje celou hierarchii daný prostředek a je vhodné interního vyjádření slouží k vynucení referenční integrity distribuovaných způsobem. Identifikátor RID je jedinečná v rámci účtu databáze a Cosmos DB je používán interně pro efektivní směrování, bez nutnosti hledání křížové oddílu. Hodnoty vlastností _rid a _self jsou alternativní i kanonický reprezentace prostředku. 
 
@@ -143,16 +146,16 @@ V rámci zřizování a správa databázového účtu můžete nakonfigurovat a 
         </tr>
         <tr>
             <td valign="top"><p>Konzistence zásad</p></td>
-            <td valign="top"><p>Nastavte tuto vlastnost nakonfigurovat výchozí úroveň konzistence pro všechny kolekce v rámci účtu databáze. Můžete přepsat úroveň konzistence na základě žádosti pomocí hlaviček požadavku [x-ms--úroveň konzistence]. <p><p>Všimněte si, že tato vlastnost se vztahuje pouze na <i>uživatelem definované prostředky</i>. Všechny systému definované prostředky jsou konfigurovány pro podporu čtení či dotazy s silnou konzistenci.</p></td>
+            <td valign="top"><p>Nastavte tuto vlastnost nakonfigurovat výchozí úroveň konzistence pro všechny kolekce v rámci účtu databáze. Můžete přepsat úroveň konzistence na základě žádosti pomocí hlaviček požadavku [x-ms--úroveň konzistence]. <p><p>Tato vlastnost se vztahuje pouze na <i>uživatelem definované prostředky</i>. Všechny systému definované prostředky jsou konfigurovány pro podporu čtení či dotazy s silnou konzistenci.</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Autorizace klíče</p></td>
-            <td valign="top"><p>Toto jsou primární a sekundární hlavní a jen pro čtení klíčů, které poskytují přístup správce ke všem prostředkům v rámci účtu databáze.</p></td>
+            <td valign="top"><p>Primární a sekundární hlavní a jen pro čtení klíčů, které poskytují přístup správce ke všem prostředkům v rámci účtu databáze.</p></td>
         </tr>
     </tbody>
 </table>
 
-Všimněte si, že kromě zřizování, konfigurace a Správa účtu databáze z portálu Azure, můžete také prostřednictvím kódu programu vytvořit a spravovat účty Cosmos DB databáze pomocí [rozhraní API REST Azure Cosmos DB](/rest/api/documentdb/) a také [klientskou sadu SDK](documentdb-sdk-dotnet.md).  
+Kromě zřizování, konfigurace a Správa účtu databáze z portálu Azure můžete také programově vytvořit a spravovat účty Cosmos DB databáze pomocí [rozhraní API REST Azure Cosmos DB](/rest/api/documentdb/) i [klientskou sadu SDK](documentdb-sdk-dotnet.md).  
 
 ## <a name="databases"></a>Databáze
 Cosmos DB databáze je logický kontejner jeden nebo více kolekcí a uživatelů, jak je znázorněno v následujícím diagramu. Můžete vytvořit libovolný počet databází pod účtem databáze Cosmos DB vztahují omezení nabídky.  
@@ -162,7 +165,7 @@ Cosmos DB databáze je logický kontejner jeden nebo více kolekcí a uživatel�
 
 Databáze může obsahovat úložiště prakticky neomezené dokumentů rozděleného v rámci kolekce.
 
-### <a name="elastic-scale-of-a-azure-cosmos-db-database"></a>Elastické škálování databáze Azure Cosmos DB
+### <a name="elastic-scale-of-an-azure-cosmos-db-database"></a>Elastické škálování databáze Azure Cosmos DB
 Je ve výchozím nastavení – od několik GB až po petabajty SSD zálohovaný dokumentu úložiště a zřízené propustnosti elastické databáze Cosmos DB. 
 
 Na rozdíl od databáze v tradiční relační databáze v databázi Cosmos není v oboru pro jeden počítač. S Cosmos DB jako škálování aplikace je potřeba růst, můžete více kolekcí a databází vytvořit. Ve skutečnosti různé první strany aplikací v rámci Microsoft již používáte Azure Cosmos DB škálované příjemce vytvořením velmi velké databáze Azure Cosmos DB každý obsahující tisíce kolekce s terabajtů úložiště dokumentů. Může zvětšovat a zmenšovat databáze přidáním nebo odebráním kolekcí, aby splňovaly požadavky rozsahu vaší aplikace. 
@@ -171,7 +174,7 @@ Můžete vytvořit libovolný počet kolekcí v databázi v závislosti nabídku
 
 Databázi Azure Cosmos DB je také kontejner uživatelů. Uživatel, naopak, je logický obor názvů pro sadu oprávnění, která poskytuje jemně odstupňovaných autorizace a přístupu do kolekcí, dokumentů a příloh.  
 
-Jako s další prostředky ve model prostředků Azure Cosmos DB databáze se dají vytvářet, nahrazen, odstranit, číst, nebo vytvořit její výčet snadno buď pomocí [rozhraní REST API](/rest/api/documentdb/) nebo [klientskou sadu SDK](documentdb-sdk-dotnet.md). Azure Cosmos DB zaručuje silnou konzistenci pro čtení nebo dotazování metadata databáze prostředků. Odstranění databáze automaticky zajistí, že nemůžete použít žádnou z kolekce nebo uživatelé jsou v něm obsažena.   
+Jako s další prostředky ve model prostředků Azure Cosmos DB databáze se dají vytvářet, nahrazen, odstranit, čtení, nebo vytvořit její výčet snadno buď pomocí [rozhraní REST API](/rest/api/documentdb/) ani v žádné z [klientskou sadu SDK](documentdb-sdk-dotnet.md). Azure Cosmos DB zaručuje silnou konzistenci pro čtení nebo dotazování metadata databáze prostředků. Odstranění databáze automaticky zajistí, že nemůžete použít žádnou z kolekce nebo uživatelé jsou v něm obsažena.   
 
 ## <a name="collections"></a>Kolekce
 Cosmos DB kolekce je kontejner dokumentů JSON. 
@@ -185,23 +188,23 @@ Azure Cosmos DB je systém true databáze bez schémat. Se nepředpokládá ani 
 ### <a name="configuring-the-indexing-policy-of-a-collection"></a>Konfigurace zásady indexování kolekce
 Zásady indexování jednotlivých kolekcí můžete výkonu a úložiště kompromis přidružené k indexování. K dispozici jako součást indexování konfigurace jsou následující možnosti:  
 
-* Zvolte, zda kolekce automaticky indexuje všechny dokumenty nebo ne. Ve výchozím nastavení jsou všechny dokumenty automaticky indexovány. Můžete vypnout automatické indexování a selektivně přidat pouze konkrétní dokumentů do indexu. Naopak selektivně můžete vyloučit jenom konkrétní dokumenty. Můžete dosáhnout nastavení automatického vlastnost, která má být true nebo false na indexingPolicy kolekce a použitím hlaviček požadavku [x-ms-indexingdirective] při vkládání, nahraďte nebo odstranění dokumentu.  
+* Zvolte, zda kolekce automaticky indexuje všechny dokumenty nebo ne. Ve výchozím nastavení jsou všechny dokumenty automaticky indexovány. Můžete vypnout automatické indexování a selektivně přidat pouze konkrétní dokumentů do indexu. Naopak selektivně můžete vyloučit jenom konkrétní dokumenty. Můžete dosáhnout nastavení automatického vlastnost, která má být true nebo false na indexingPolicy kolekce a použitím hlaviček požadavku [x-ms-indexingdirective] při vložení, nahrazení nebo odstranění dokumentu.  
 * Vyberte, zda chcete zahrnout nebo vyloučit konkrétní cesty nebo vzory v dokumentech z indexu. Můžete dosáhnout to tak, že nastavení includedPaths a excludedPaths na indexingPolicy kolekce v uvedeném pořadí. Můžete také nakonfigurovat úložiště a výkon kompromisy pro dotazy na rozsah a hodnota hash pro vzory konkrétní cesty. 
 * Výběr mezi synchronní (konzistentní) a aktualizace asynchronní indexu (lazy). Ve výchozím nastavení je synchronně aktualizace indexu na každý insert, replace nebo odstranění dokumentu do kolekce. To umožňuje dotazy vyhovět stejnou úroveň konzistence jako čtení dokumentu. Zatímco Azure Cosmos DB je optimalizovaná zápisu která podporuje dlouhodobě svazky zápisů dokumentu společně s synchronní indexu údržby a poskytování konzistentní dotazů, můžete nakonfigurovat určité kolekce k aktualizaci svého indexu líné. Opožděné indexování součást zvyšuje výkon zápisu další a je ideální pro hromadné přijímání scénáře pro především pro čtení náročné kolekce.
 
-Zásady indexování lze změnit spuštěním PUT na kolekci. To může být buď prostřednictvím dosáhnout [klienta SDK](documentdb-sdk-dotnet.md), [portálu Azure](https://portal.azure.com) nebo [rozhraní REST API](/rest/api/documentdb/).
+Zásady indexování lze změnit spuštěním PUT na kolekci. To může být buď prostřednictvím dosáhnout [klienta SDK](documentdb-sdk-dotnet.md), [portál Azure](https://portal.azure.com) nebo [rozhraní REST API](/rest/api/documentdb/).
 
 ### <a name="querying-a-collection"></a>Dotazování na kolekci
-Dokumenty v rámci kolekce může obsahovat libovolný schémata a můžete dát dotaz na dokumenty v rámci kolekce bez zadání žádné schéma nebo předem sekundárních indexů. Můžete zadat dotaz na kolekce pomocí [rozhraní API služby Azure Cosmos databáze DocumentDB: reference syntaxe SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx), která nabízí bohaté hierarchické, relační a prostorových operátory a rozšiřitelnost prostřednictvím bázi jazyka JavaScript UDF. Gramatika JSON umožňuje modelování dokumentů JSON jako stromy s popisky formě uzlů stromu. To je zneužití jak DocumentDB API automatických technikách indexování, jakož i dialekt DocumentDB API SQL. Dotazovací jazyk DocumetDB rozhraní API se skládá z tři hlavní aspekty:   
+Dokumenty v rámci kolekce může obsahovat libovolný schémata a můžete dát dotaz na dokumenty v rámci kolekce bez zadání žádné schéma nebo předem sekundárních indexů. Můžete zadat dotaz na kolekce pomocí [reference syntaxe Azure Cosmos DB SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx), která nabízí bohaté hierarchické, relační a prostorových operátory a rozšiřitelnost prostřednictvím bázi jazyka JavaScript UDF. Gramatika JSON umožňuje modelování dokumentů JSON jako stromy s popisky formě uzlů stromu. To je zneužití, jak rozhraní SQL API automatických technikách indexování, jakož i dialekt Azure Cosmos DB SQL. Dotazovací jazyk SQL se skládá ze tří hlavních aspekty:   
 
 1. Malá sada operace dotazů, které mapují přirozeně do stromové struktury, včetně hierarchické dotazy a projekce. 
 2. Podmnožinu relační operacím, včetně složení, filtr, projekce, agregace a vlastní spojení. 
 3. Čistý JavaScript na základě UDF, které pracují s (1) a (2).  
 
-Model Azure Cosmos DB dotazu se pokusí vytvořit rovnováhu mezi funkce, efektivitu a jednoduchost. Databázový stroj Azure Cosmos DB nativně kompilovaný a provede příkazy dotaz SQL. Můžete dát dotaz na kolekce pomocí [rozhraní REST API](/rest/api/documentdb/) nebo [klientskou sadu SDK](documentdb-sdk-dotnet.md). .NET SDK se dodává s LINQ zprostředkovatele.
+Model Azure Cosmos DB dotazu se pokusí vytvořit rovnováhu mezi funkce, jednoduchost a efektivitu. Databázový stroj Azure Cosmos DB nativně kompilovaný a provede příkazy dotaz SQL. Můžete dát dotaz na kolekce pomocí [rozhraní REST API](/rest/api/documentdb/) nebo [klientskou sadu SDK](documentdb-sdk-dotnet.md). .NET SDK se dodává s LINQ zprostředkovatele.
 
 > [!TIP]
-> Můžete vyzkoušet na rozhraní API DocumentDB a spouštění dotazů SQL na našem datovou sadu v [Query Playground](https://www.documentdb.com/sql/demo).
+> Můžete vyzkoušet rozhraní SQL API a spouštění dotazů SQL na našem datovou sadu v [Query Playground](https://www.documentdb.com/sql/demo).
 > 
 > 
 
@@ -273,10 +276,10 @@ Všimněte si, že vzhledem k tomu, že databáze nativně funguje s technologi�
 
 Uložené procedury a triggery komunikovat s kolekce a dokumenty v kolekci prostřednictvím dobře definovaný objekt modelu, který zveřejňuje aktuální kontext kolekce.  
 
-Kolekce v rozhraní API DocumentDB mohou být vytvořeny, odstraní, čtení nebo výčtové snadno buď pomocí [rozhraní REST API](/rest/api/documentdb/) ani v žádné z [klientskou sadu SDK](documentdb-sdk-dotnet.md). Rozhraní API DocumentDB vždy poskytuje silnou konzistenci pro čtení nebo dotazování metadata kolekce. Odstranění kolekce automaticky zajistí, že nemůžete použít žádnou dokumenty, přílohy, uložené procedury, triggery a jsou v něm obsažena UDF.   
+Kolekce v rozhraní SQL API lze vytvořit, odstraní, čtení nebo výčtové snadno buď pomocí [rozhraní REST API](/rest/api/documentdb/) ani v žádné z [klientskou sadu SDK](documentdb-sdk-dotnet.md). Rozhraní SQL API vždy poskytuje silnou konzistenci pro čtení nebo dotazování metadata kolekce. Odstranění kolekce automaticky zajistí, že nemůžete použít žádnou dokumenty, přílohy, uložené procedury, triggery a jsou v něm obsažena UDF.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Uložené procedury, triggery a uživatel definované funkce (UDF)
-Jak je popsáno v předchozí části, můžete napsat aplikační logiku a spustit přímo v rámci transakce uvnitř databázového stroje. Aplikace logiky můžete vytvořené zcela v JavaScriptu a můžete modelován jako uložené procedury, aktivační události nebo uživatelem definovanou FUNKCI. Kód jazyka JavaScript v rámci uložené procedury nebo aktivační událost můžete vložit, nahradí, odstranit, číst nebo dotaz, dokumenty v rámci kolekce. Na druhé straně JavaScript v rámci uživatelem definovanou FUNKCI nelze vložit, nahradí nebo odstranit dokumenty. Funkce UDF výčet dokumenty sadu výsledků dotazu a vytvořit jinou sadu výsledků. Víceklientský Azure Cosmos DB vynucuje zásady správného řízení striktní rezervace na základě prostředků. Každý uložené procedury, aktivační události nebo uživatelem definovanou FUNKCI získá pevné quantum operačního systému prostředků ke své práci. Kromě toho uložené procedury, aktivační události nebo UDF nemůže propojit s externí knihovny jazyka JavaScript a jsou zakázány, pokud se překročí rozpočty prostředků přidělené k nim. Můžete zaregistrovat, zrušení registrace uložené procedury, aktivační události nebo UDF v kolekci pomocí rozhraní REST API.  Po registraci se uložené procedury, aktivační události nebo uživatelem definovanou FUNKCI předem zkompilovat a uložené jako bajtové kód, který se provede později. V následující části ilustrují, jak můžete použít Azure Cosmos DB JavaScript SDK se zaregistrovat, spuštění a zrušit uložené procedury, aktivační události a UDF. JavaScript SDK je jednoduché obálku nad [rozhraní REST API](/rest/api/documentdb/). 
+Jak je popsáno v předchozí části, můžete napsat aplikační logiku a spustit přímo v rámci transakce uvnitř databázového stroje. Aplikace logiky můžete vytvořené zcela v JavaScriptu a můžete modelován jako uložené procedury, aktivační události nebo uživatelem definovanou FUNKCI. Kód jazyka JavaScript v rámci uložené procedury nebo aktivační událost lze vložit, nahradí, odstranit, číst nebo dotazování dokumentů v rámci kolekce. Na druhé straně JavaScript v rámci uživatelem definovanou FUNKCI nelze vložit, nahradí nebo odstranit dokumenty. Funkce UDF výčet dokumenty sadu výsledků dotazu a vytvořit jinou sadu výsledků. Víceklientský Azure Cosmos DB vynucuje přísné založené na vyhrazené prostředků řízení. Každý uložené procedury, aktivační události nebo uživatelem definovanou FUNKCI získá pevné quantum operačního systému prostředků ke své práci. Kromě toho uložené procedury, aktivační události nebo UDF nemůže propojit s externí knihovny jazyka JavaScript a jsou zakázány, pokud se překročí rozpočty prostředků přidělené k nim. Můžete zaregistrovat, zrušení registrace uložené procedury, aktivační události nebo UDF v kolekci pomocí rozhraní REST API.  Po registraci se uložené procedury, aktivační události nebo uživatelem definovanou FUNKCI předem zkompilovat a uložené jako bajtové kód, který se provede později. Následující ssection illustrateshow Azure Cosmos DB JavaScript SDK můžete použít k registraci, spouštění a zrušit registraci uložené procedury, aktivační události a UDF. JavaScript SDK je jednoduché obálku nad [rozhraní REST API](/rest/api/documentdb/). 
 
 ### <a name="registering-a-stored-procedure"></a>Registrace uložené procedury
 Registrace uložená procedura vytvoří nový prostředek uložené procedury na kolekci přes HTTP POST.  
@@ -384,7 +387,7 @@ Registrace UDF se provádí tak, že vytvoříte nový prostředek UDF na kolekc
         });
 
 ### <a name="executing-a-udf-as-part-of-the-query"></a>Provádění UDF jako součást dotazu
-Uživatelem definovanou FUNKCI lze zadat jako součást dotazu SQL a slouží jako způsob, jak rozšířit základní [dotazovací jazyk SQL pro rozhraní API DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+Uživatelem definovanou FUNKCI lze zadat jako součást dotazu SQL a slouží jako způsob, jak rozšířit základní [dotazovací jazyk SQL](documentdb-sql-query-reference.md).
 
     var filterQuery = "SELECT udf.mathSqrt(r.Age) AS sqrtAge FROM root r WHERE r.FirstName='John'";
     client.queryDocuments(collection._self, filterQuery).toArrayAsync();
@@ -404,29 +407,29 @@ Zrušení registrace UDF jednoduše provádí vydáním HTTP DELETE se proti exi
             console.log("Error");
         });
 
-I když výše uvedené fragmenty kódu vám ukázal registrace (POST), zrušení registrace (PUT), pro čtení nebo jejich výpisu (GET) a provádění (POST) prostřednictvím [JavaScript SDK](https://github.com/Azure/azure-documentdb-js), můžete použít také [rozhraní REST API](/rest/api/documentdb/) či jiné [ klientské sady SDK](documentdb-sdk-dotnet.md). 
+I když výše uvedené fragmenty kódu vám ukázal registrace (POST), zrušení registrace (PUT), pro čtení nebo jejich výpisu (GET) a provádění (POST) prostřednictvím [JavaScript SDK](https://github.com/Azure/azure-documentdb-js), můžete použít také [rozhraní REST API](/rest/api/documentdb/) nebo jiných [klientskou sadu SDK](documentdb-sdk-dotnet.md). 
 
 ## <a name="documents"></a>Dokumenty
 Můžete vložit, nahradí, odstranit, číst, výčet a dotaz na libovolné dokumenty JSON v kolekci. Azure Cosmos DB nenutí žádné schéma a nevyžaduje sekundární indexy za účelem podpory dotazování s dokumenty v kolekci. Maximální velikost pro dokument je 2 MB.   
 
-Probíhá skutečně otevřenou databázi služby, Azure Cosmos DB není skladová žádné speciální datové typy (např. datum čas) nebo konkrétní kódování pro dokumenty JSON. Všimněte si, že Azure Cosmos DB nevyžaduje žádné speciální konvence JSON do kodifikovat vztahy mezi různé dokumenty; syntaxe SQL Azure Cosmos DB poskytuje velmi výkonný hierarchické a relační dotazu, operátory dotazu a projekt dokumenty bez jakékoli speciální poznámky nebo potřeba kodifikovat vztahy mezi dokumenty pomocí rozlišující vlastnosti.  
+Probíhá skutečně otevřenou databázi služby, Azure Cosmos DB není skladová žádné speciální datové typy (například datum a čas) nebo konkrétní kódování pro dokumenty JSON. Azure Cosmos DB nevyžaduje žádné speciální konvence JSON do kodifikovat vztahy mezi různé dokumenty; syntaxe SQL Azure Cosmos DB poskytuje velmi výkonný hierarchické a relační dotazu, operátory dotazu a projekt dokumenty bez jakékoli speciální poznámky nebo potřeba kodifikovat vztahy mezi dokumenty pomocí rozlišující vlastnosti.  
 
 Jak se všemi ostatními prostředky dokumentů mohou být vytvořeny, nahrazen, odstranit, číst, výčet a dotazovat snadno pomocí rozhraní REST API nebo některou z [klientskou sadu SDK](documentdb-sdk-dotnet.md). Odstranění dokumentu okamžitě uvolní kvótu odpovídající všechny vnořené přílohy. Úroveň konzistenci čtení dokumentů odpovídá zásad konzistence na databázového účtu. Tuto zásadu lze přepsat na základě požadavků v závislosti na požadavcích konzistence dat vaší aplikace. Při dotazování dokumentů, následuje konzistenci čtení indexování režim nastavený na kolekci. Pro "konzistentní" což odpovídá zásad konzistence účtu. 
 
 ## <a name="attachments-and-media"></a>Přílohy a média
-Azure Cosmos DB umožňuje ukládání binární objekty BLOB nebo médium buď pomocí Azure DB Cosmos (maximum 2 GB každý účet) nebo do vlastního médium vzdáleného úložiště. Také umožňuje představuje metadata médií z hlediska speciální dokument s názvem přílohy. Přílohy v databázi Cosmos Azure je speciální dokument (JSON), který odkazuje média nebo objekt blob uložená na jiném místě. Příloha je jednoduše speciální dokument, který zachycuje metadata médií uložených v médium vzdáleného úložiště (např. umístění, Autor atd.). 
+Azure Cosmos DB umožňuje ukládání binární objekty BLOB nebo médium buď pomocí Azure DB Cosmos (maximum 2 GB každý účet) nebo do vlastního médium vzdáleného úložiště. Také umožňuje představuje metadata médií z hlediska speciální dokument s názvem přílohy. Přílohy v databázi Cosmos Azure je speciální dokument (JSON), který odkazuje média nebo objekt blob uložená na jiném místě. Příloha je jednoduše speciální dokument, který zachycuje metadata médií uložených v médium vzdáleného úložiště (například umístění, Autor atd.). 
 
-Zvažte sociálních čtení aplikaci, která používá Azure Cosmos DB k uložení neobsahovaly a metadata včetně komentář, označuje záložky, hodnocení, líbí nebo nelíbí atd přidružené pro zde elektronickou knihu daného uživatele.   
+Zvažte sociálních čtení aplikace, která používá Azure Cosmos DB k uložení neobsahovaly a metadata včetně komentář, označuje záložky, hodnocení, líbí nebo nelíbí atd přidružené pro zde elektronickou knihu daného uživatele.   
 
 * Obsah knihy samotné je uložen v úložišti média buď jako součást účet Azure Cosmos DB databáze nebo médium vzdáleného úložiště k dispozici. 
 * Aplikace může ukládat metadata každého uživatele jako odlišné dokument – například Michalův metadata pro Sešit1 se ukládají v dokumentu odkazuje /colls/joe/docs/book1. 
-* Přílohy odkazující na stránky obsahu daného adresáře uživatele, jsou uloženy v odpovídající dokumentu například /colls/joe/docs/book1/chapter1 /colls/joe/docs/book1/chapter2 atd. 
+* Přílohy odkazující na obsah, který stránky daného adresáře uživatele, jsou uloženy v odpovídající dokumentu například, /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 atd. 
 
-Všimněte si, že příklady uvedené výše pro vyjádření prostředků hierarchii použijte popisný ID. Jsou přístup k prostředkům prostřednictvím rozhraní REST API prostřednictvím ID prostředků jedinečné. 
+Příklady uvedené výše použijte popisný ID k vyjádření hierarchie prostředků. Jsou přístup k prostředkům prostřednictvím rozhraní REST API prostřednictvím ID prostředků jedinečné. 
 
-Pro média, která spravuje databázi Cosmos Azure bude vlastnost _media přílohu odkazovat média pomocí jeho identifikátoru URI. Azure Cosmos DB zajistí do paměti shromažďování médium, když všechny odkazy na zbývající vyřadit. Azure Cosmos DB automaticky generuje přílohu při nahrávání nové médium a naplní _media tak, aby odkazovaly na nově přidané médium. Pokud se rozhodnete ukládat média v úložišti objektů blob vzdálené spravované vámi (například OneDrive, Azure Storage, DropBox atd), stále můžete přílohy tak, aby odkazovaly média. V tomto případě vytvoříte přílohu sami a naplnit její _media vlastnost.   
+Pro média, která spravuje databázi Cosmos Azure vlastnost _media přílohu odkazuje médium pomocí jeho identifikátoru URI. Azure Cosmos DB zajistí do paměti shromažďování médium, když všechny odkazy na zbývající vyřadit. Azure Cosmos DB automaticky generuje přílohu při nahrávání nové médium a naplní _media tak, aby odkazovaly na nově přidané médium. Pokud se rozhodnete ukládat média v úložišti objektů blob vzdálené spravované vámi (například OneDrive, Azure Storage, atd. DropBox), stále můžete přílohy tak, aby odkazovaly média. V tomto případě vytvoříte přílohu sami a naplnit její _media vlastnost.   
 
-Stejně jako u všech ostatních prostředků přílohy lze vytvořit, nahradit, odstranit, čtení a vytvořit její výčet snadno pomocí rozhraní REST API nebo některou z klienta sady SDK. Stejně jako u dokumenty, odpovídá konzistenci čtení úroveň přílohy zásad konzistence na databázového účtu. Tuto zásadu lze přepsat na základě požadavků v závislosti na požadavcích konzistence dat vaší aplikace. Při dotazování pro přílohy, následuje konzistenci čtení indexování režim nastavený na kolekci. Pro "konzistentní" což odpovídá zásad konzistence účtu. 
+Jako se všemi ostatními prostředky, můžete vytvořit přílohy, nahradit, odstranit, čtení nebo vytvořit její výčet snadno pomocí rozhraní REST API nebo některou z klienta sady SDK. Stejně jako u dokumenty, odpovídá konzistenci čtení úroveň přílohy zásad konzistence na databázového účtu. Tuto zásadu lze přepsat na základě požadavků v závislosti na požadavcích konzistence dat vaší aplikace. Při dotazování pro přílohy, následuje konzistenci čtení indexování režim nastavený na kolekci. Pro "konzistentní" což odpovídá zásad konzistence účtu. 
  
 
 ## <a name="users"></a>Uživatelé
@@ -446,14 +449,14 @@ Bez ohledu na konkrétní horizontálního dělení strategie si zvolíte, můž
 ![Kolekce uživatelů][3]  
 **Strategie horizontálního dělení a uživatelé modelování**
 
-Podobně jako všechny ostatní prostředky uživatele v Azure Cosmos DB je možné vytvořit, nahradit, odstranit, číst nebo uvedené snadno pomocí rozhraní REST API nebo některou z klienta sady SDK. Azure Cosmos DB vždy poskytuje silnou konzistenci pro čtení nebo dotazování metadata prostředek uživatele. Je vhodné odkazující odstranění uživatele automaticky zajistí, že nemůžete použít žádnou z oprávnění jsou v něm obsažena. I když Azure Cosmos DB získá kvótu oprávnění v rámci Odstraněný uživatel na pozadí, odstraněné oprávnění opět k dispozici okamžitě budete muset používat.  
+Podobně jako všechny ostatní prostředky uživatele v Azure Cosmos DB lze vytvořit, nahradit, odstranit, číst nebo uvedené snadno pomocí rozhraní REST API nebo některou z klientské sady SDK. Azure Cosmos DB vždy poskytuje silnou konzistenci pro čtení nebo dotazování metadata prostředek uživatele. Je vhodné odkazující odstranění uživatele automaticky zajistí, že nemůžete použít žádnou z oprávnění jsou v něm obsažena. I když Azure Cosmos DB získá kvótu oprávnění v rámci Odstraněný uživatel na pozadí, odstraněné oprávnění opět k dispozici okamžitě budete muset používat.  
 
 ## <a name="permissions"></a>Oprávnění
-Z hlediska řízení k přístupu, prostředkům, například účty databáze, databáze, uživatelů a oprávnění jsou považovány za *správu* prostředky, protože vyžadují oprávnění správce. Na druhé straně prostředků, včetně kolekcí, dokumentů, přílohy, uložené procedury, triggery, a UDF jsou obor v části na danou databázi a považovány za *prostředky aplikace*. Odpovídající dva typy prostředků a rolí, které přistupovat k nim (konkrétně správce a uživatele), modelu autorizace definuje dva typy *přístupové klíče*: *hlavní klíč* a  *klíč prostředku*. Hlavní klíč je součástí databázového účtu a je k dispozici pro vývojáře (nebo správce) kdo je zřizování databázového účtu. Tento hlavní klíč musí správce sémantiku v tom, že může sloužit k autorizaci přístupu k prostředkům pro správu a aplikace. Klíč prostředku spočívá v tom, podrobné přístupový klíč, který umožňuje přístup k *konkrétní* prostředků aplikace. Proto zaznamená vztah mezi uživatelem databáze a oprávnění, která má uživatel pro konkrétní zdroje (například kolekce, dokument, přílohy, uložené procedury, aktivační události nebo UDF).   
+Z hlediska řízení k přístupu, jsou považovány za prostředkům, například účty databáze, databáze, uživatelů a oprávnění *správu* prostředky, protože vyžadují oprávnění správce. Na druhé straně prostředků, včetně kolekcí, dokumentů, přílohy, uložené procedury, triggery, a UDF jsou obor v části na danou databázi a považovány za *prostředky aplikace*. Odpovídající dva typy prostředků a rolí, které přistupovat k nim (konkrétně správce a uživatele), modelu autorizace definuje dva typy *přístupové klíče*: *hlavní klíč* a  *klíč prostředku*. Hlavní klíč je součástí databázového účtu a je k dispozici pro vývojáře (nebo správce) kdo je zřizování databázového účtu. Tento hlavní klíč musí správce sémantiku v tom, že může sloužit k autorizaci přístupu k prostředkům pro správu a aplikace. Klíč prostředku spočívá v tom, podrobné přístupový klíč, který umožňuje přístup k *konkrétní* prostředků aplikace. Proto zaznamená vztah mezi uživatelem databáze a oprávnění, která má uživatel pro konkrétní zdroje (například kolekce, dokument, přílohy, uložené procedury, aktivační události nebo UDF).   
 
 Jediný způsob, jak získat klíč prostředku je vytvoření prostředku oprávnění v rámci daného uživatele. Všimněte si, že abyste mohli vytvořit nebo načíst oprávnění, hlavní klíč musí být uvedené v hlavičce autorizace. Prostředek oprávnění sváže prostředek, přístup a uživatele. Po vytvoření oprávnění prostředků, uživatel se musí předložit klíč přidružený prostředku s cílem získat přístup k prostředku relevantní. Klíč prostředku proto lze zobrazit jako logické a compact reprezentace prostředku oprávnění.  
 
-Jako se všemi ostatními prostředky oprávnění v Azure Cosmos DB lze vytvořit, nahradit, odstranit, čtení a vytvořit její výčet snadno pomocí rozhraní REST API nebo některou z klienta sady SDK. Azure Cosmos DB vždy poskytuje silnou konzistenci pro čtení nebo dotazování metadata oprávnění. 
+Jako se všemi ostatními prostředky, můžete vytvořit oprávnění v Azure Cosmos DB, nahradit, odstranit, čtení nebo ve výčtu snadno pomocí rozhraní REST API nebo některou z klienta sady SDK. Azure Cosmos DB vždy poskytuje silnou konzistenci pro čtení nebo dotazování metadata oprávnění. 
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o práci s prostředky pomocí příkazů HTTP v [RESTful interakce s prostředky Azure Cosmos DB](https://msdn.microsoft.com/library/azure/mt622086.aspx).

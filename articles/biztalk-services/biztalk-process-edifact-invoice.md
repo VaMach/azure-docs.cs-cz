@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Kurz: Proces EDIFACT faktury pomocí služby Azure BizTalk Services
 
@@ -55,7 +55,7 @@ Chcete-li dokončit tento scénář, jsme používat fronty Service Bus odesíla
 
 ## <a name="prerequisites"></a>Požadavky
 * Musí mít obor názvů sběrnice. Pokyny pro vytvoření oboru názvů, naleznete v části [postupy: vytvoření nebo úprava Namespace služby Service Bus](https://msdn.microsoft.com/library/azure/hh674478.aspx). Předpokládejme, že už máte obor názvů sběrnice zřízený, nazývá **edifactbts**.
-* Musíte mít předplatné služby BizTalk Services. Pokyny najdete v tématu [vytvoření služby BizTalk pomocí portálu Azure classic](http://go.microsoft.com/fwlink/?LinkID=302280). V tomto kurzu, dejte nám předpokládá, že máte předplatné služby BizTalk, názvem **contosowabs**.
+* Musíte mít předplatné služby BizTalk Services. V tomto kurzu, dejte nám předpokládá, že máte předplatné služby BizTalk, názvem **contosowabs**.
 * Zaregistrujte své předplatné služby BizTalk Services na portálu služby BizTalk. Pokyny najdete v tématu [registrace nasazení služby BizTalk na portálu služby BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
 * Musíte mít nainstalovanou sadu Visual Studio.
 * Musíte mít nainstalované sady SDK služby BizTalk. Si můžete stáhnout sady SDK z [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  

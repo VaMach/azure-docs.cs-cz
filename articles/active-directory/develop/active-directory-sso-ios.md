@@ -4,7 +4,7 @@ description: "Jak používat funkce sady ADAL SDK povolit jednotné přihlašov�
 services: active-directory
 documentationcenter: 
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 73b8ed7e6a153a0790f7eae9bd51bb2e554ae72e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e8b9e61f0417e365fb68a7de7135965ca43ab86
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Postup povolení jednotného přihlašování napříč aplikacemi v systému iOS pomocí ADAL
 Pokud jednotné přihlašování (SSO), aby uživatelé stačí jednou zadat své přihlašovací údaje a mají tyto přihlašovací údaje automaticky fungovat na všech aplikací nyní očekává zákazníků. Problémy se zadáním uživatelského jména a hesla na malou obrazovku, často časy v kombinaci s další faktor (2FA) jako telefonní hovor nebo kód zasílání zpráv SMS, má za následek rychlé nespokojenosti, pokud uživatel má k tomu více než jednou pro svůj produkt.

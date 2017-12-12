@@ -4,7 +4,7 @@ description: "Jak používat vlastní atributy ke shromažďování informací o
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 055ffb0a-197b-4716-8dad-1fd8a01e174f
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e2c8b3ab223cf269129d7723c37d98c24f0653c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: Použijte vlastní atributy ke shromažďování informací o uživatelích
 Adresáře Azure Active Directory (Azure AD) B2C se dodává s integrovanou sadu informace (atributy): křestní jméno, příjmení, Město, PSČ a další atributy. Každá aplikace určených však má jedinečné požadavky na atributy, které ke shromáždění od příjemce. S Azure AD B2C můžete rozšířit sadu atributů, které jsou uložené na každý uživatelský účet. Můžete vytvořit vlastní atributy na [portál Azure](https://portal.azure.com/) a použít ho v registraci zásady, jak je uvedeno níže. Můžete také číst a zapsat pomocí těchto atributů [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
@@ -35,7 +35,7 @@ Adresáře Azure Active Directory (Azure AD) B2C se dodává s integrovanou sadu
 4. Zadejte **název** pro vlastní atribut (například "ShoeSize") a volitelně **popis**. Klikněte na možnost **Vytvořit**.
    
    > [!NOTE]
-   > Pouze "řetězec" **datový typ** aktuálně nejsou k dispozici.
+   > Pouze "Řetězec", "Logická hodnota" a "Int" **datové typy** jsou nyní k dispozici.
    > 
    > 
 

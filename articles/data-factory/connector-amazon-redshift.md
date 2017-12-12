@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 598e7c0c60c82c6f752ec37676dae52488cccb21
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4feed2537a45784bc8aa19de05bdc18533dd64d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopírování dat z Amazon Redshift pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -207,7 +207,7 @@ Pro tuto ukázku případy použití, zkopírujte data aktivity uvolní z Amazon
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Mapování datového typu pro Amazon Redshift
 
-Při kopírování dat z Teradata, se používají následující mapování Teradata datových typů k Azure Data Factory dočasné datové typy. V tématu [schéma a data zadejte mapování](copy-activity-schema-and-type-mapping.md) a zjistěte, jak aktivity kopírování mapuje zdroje schéma a data typ jímky.
+Při kopírování dat z Amazon Redshift, se používají následující mapování Amazon Redshift datových typů k Azure Data Factory dočasné datové typy. V tématu [schéma a data zadejte mapování](copy-activity-schema-and-type-mapping.md) a zjistěte, jak aktivity kopírování mapuje zdroje schéma a data typ jímky.
 
 | Amazon Redshift datový typ | Typ průběžných dat objektu pro vytváření dat |
 |:--- |:--- |

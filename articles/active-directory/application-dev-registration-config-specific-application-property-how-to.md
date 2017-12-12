@@ -4,7 +4,7 @@ description: "Pokyny k vyplnění konkrétních polí při registraci vlastní a
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 04fd35f238e4dd05486f85b0b16c2ab0c5ae9f30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Postup vyplňte konkrétní pole vyvinul vlastní aplikace
 
@@ -49,7 +49,7 @@ Jakmile jste vyplnili pole výše, zaregistrovat aplikaci na portálu Azure a bu
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID aplikace  | Při registraci aplikace Azure AD přiřadí vaší aplikace ID aplikace. Aplikace, ID, které lze použít k jednoznačné identifikaci vaší aplikace v žádosti o ověření do služby Azure AD, a také přístup k prostředkům, například rozhraní Graph API.                                                          |
 | Identifikátor ID URI aplikace      | Měl by být jedinečný identifikátor URI, obvykle ve formátu **https://&lt;klienta\_název&gt;/&lt;aplikace\_název&gt;.** Při udělení tok autorizace, slouží jako jedinečný identifikátor pro zadejte prostředek, který by měl být token vydán pro. Také bude deklarace identity, oblast, v vydaný přístupový token. |
-| Nahrát nové logo | To můžete použít k nahrání logo, které se pro vaši aplikaci. Logo musí být ve formátu BMP, JPG nebo PNG a velikost souboru musí být menší než 100KB. Dimenze pro bitovou kopii by měl být 215 x 215 pixelů, s dimenzemi v centrální image 94 x 94 pixelů.                                                       |
+| Nahrávat nové logo | To můžete použít k nahrání logo, které se pro vaši aplikaci. Logo musí být ve formátu BMP, JPG nebo PNG a velikost souboru musí být menší než 100KB. Dimenze pro bitovou kopii by měl být 215 x 215 pixelů, s dimenzemi v centrální image 94 x 94 pixelů.                                                       |
 | Adresa URL domovské stránky   | Toto je přihlašovací adresa URL zadaná při registraci aplikace.                                                                                                                                                                                                                                              |
 | Adresa URL odhlašovací      | Tuto adresu URL odhlásit jediné odhlášení. Azure AD odešle žádost o odhlášení tato adresa URL Pokud uživatel zruší zaškrtnutí jejich relace s Azure AD pomocí jiných zaregistrovanou aplikaci.                                                                                                                                       |
 | Více-nevyužívá dělené tabulky  | Tento přepínač určuje, zda aplikace mohou být využívána víc klientů. Obvykle to znamená, že externími organizacemi moci používat vaši aplikaci zaregistrujete na jejich klienta a udělení přístupu k datům jejich organizace.                                                                   |

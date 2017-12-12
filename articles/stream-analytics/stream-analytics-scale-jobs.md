@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: a38394d825c9a9b3007b30f598b37caa08f7325f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781a3b71c35cb48e40202e3b1acc8edbbaf865c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Škálování služby Stream Analytics ke zvýšení propustnosti
 Tento článek ukazuje, jak ladit dotaz služby Stream Analytics chcete zvýšit propustnost pro úlohy streamování Analytics. V následujícím průvodci můžete škálovat vaše úloha zpracování větší zátěže a využít výhod více systémových prostředků (například větší šířku pásma, další prostředky procesoru, paměť).
@@ -170,7 +170,6 @@ Pro další pomoc, vyzkoušejte naše [fórum Azure Stream Analytics](https://so
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

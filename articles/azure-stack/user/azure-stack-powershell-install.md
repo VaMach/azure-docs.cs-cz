@@ -3,33 +3,33 @@ title: "Instalace prostředí PowerShell pro Azure zásobníku | Microsoft Docs"
 description: "Informace o instalaci prostředí PowerShell pro Azure zásobníku."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: sngun
-ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: mabrigg
+ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalace prostředí PowerShell pro Azure zásobníku  
 
 Azure zásobníku kompatibilní prostředí Azure PowerShell moduly jsou nutné k práci s Azure zásobníku. V této příručce budeme vás provede kroky potřebné k instalaci prostředí PowerShell pro Azure zásobníku. Můžete vytvořit podle pokynů popsaných v tomto článku z Development Kit zásobník Azure nebo z externí klienta se systémem Windows, pokud jsou připojené prostřednictvím sítě VPN.
 
-Tento článek obsahuje podrobné pokyny k instalaci prostředí PowerShell pro Azure zásobníku. Pokud chcete nainstalovat a nakonfigurovat prostředí PowerShell, můžete však použít skript, který je k dispozici v tématu "Zprovoznění pomocí prostředí PowerShell". 
+Tento článek obsahuje podrobné pokyny k instalaci prostředí PowerShell pro Azure zásobníku. Pokud chcete nainstalovat a nakonfigurovat prostředí PowerShell, můžete však použít skript, který je uvedený v článku "Zprovoznění pomocí prostředí PowerShell". 
 
 > [!NOTE]
 > Následující kroky vyžadují prostředí PowerShell 5.0. Pokud chcete zkontrolovat vaší verzí, spusťte $PSVersionTable.PSVersion a porovnat "Hlavní" verzi.
 
-Příkazy prostředí PowerShell pro Azure zásobníku jsou nainstalovány v galerii prostředí PowerShell. Chcete regiser PSGallery úložiště otevřete relaci prostředí PowerShell zvýšenými z sadě pro vývoj nebo z externí klienta se systémem Windows Pokud jsou připojené prostřednictvím sítě VPN a spusťte následující příkaz:
+Příkazy prostředí PowerShell pro Azure zásobníku jsou nainstalovány v galerii prostředí PowerShell. Pokud chcete zaregistrovat PSGallery úložiště, otevřete relaci prostředí PowerShell zvýšenými z sadě pro vývoj nebo z externí klienta se systémem Windows Pokud jsou připojené prostřednictvím sítě VPN a spusťte následující příkaz:
 
 ```powershell
 Set-PSRepository `
@@ -78,7 +78,7 @@ Pokud chcete potvrdit instalaci, spusťte následující příkaz:
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
-  Pokud je instalace úspěšná, moduly AzureRM a AzureStack se zobrazí ve výstupu.
+  Pokud je instalace úspěšná, moduly Azure zásobníku a AzureRM se zobrazí ve výstupu.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Nainstalujte prostředí PowerShell odpojený nebo částečně připojené scénář (s omezenou připojení k Internetu)
 

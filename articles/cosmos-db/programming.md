@@ -1,7 +1,7 @@
 ---
 title: "Programování v jazyce JavaScript na straně serveru pro databázi Azure Cosmos | Microsoft Docs"
 description: "Naučte se používat Azure Cosmos DB zápis uložené procedury, triggery databáze a uživatelem definované funkce (UDF) v jazyce JavaScript. Získáte tipy programing databáze a další."
-keywords: "Databáze aktivační události, uložené procedury, uložené procedury, program databáze, sproc, documentdb, azure, Microsoft azure"
+keywords: "Databáze aktivační události, uložené procedury, uložené procedury, program databáze, sproc, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: 
 author: aliuy
@@ -13,15 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2016
+ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: ef191c3c8d85afa389859956d30b5ac0275053d2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2fbf716422df324ad15c9400fe1f2e88b1415620
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure programování na straně serveru Cosmos DB: uložené procedury, triggery databáze a UDF
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Zjistěte, jak integrovat Azure Cosmos DB jazyka, spouštění transakcí jazyka JavaScript umožňuje vývojářům zápisu **uložené procedury**, **aktivační události** a **funkce (UDF)definovanéuživatelem** nativně v [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. To umožňuje psát logiku aplikace program databáze, který může být dodána a provedeny přímo na databázi oddílů pro úložiště. 
 
 Doporučujeme začít následujícím videem, kde Andrew Liu poskytuje stručný úvod do Cosmos DB serverové databáze programovací model. 
@@ -53,7 +56,7 @@ Tento přístup z *"JavaScript jako moderní den T-SQL"* uvolní vývojáři apl
   * Přidá abstraktní vrstvu nad nezpracovaná data, která umožňuje data architekty vyvíjí svých aplikací nezávisle data. To je zvlášť výhodné, pokud data bez schémat, z důvodu křehká předpokladů, které možná muset zaručená do aplikace, pokud mají jak nakládat s daty přímo.  
   * Tato abstrakce umožňuje podnikům zabezpečit svá data pomocí zjednodušení přístup z skripty.  
 
-Vytvoření a spuštění databáze aktivační události, uložené procedury a operátory vlastního dotazu jsou podporovány prostřednictvím [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), a [klientskou sadu SDK](documentdb-sdk-dotnet.md)na spoustě platforem včetně .NET, Node.js a JavaScript.
+Vytvoření a spuštění databáze aktivační události, uložené procedury a operátory vlastního dotazu jsou podporovány prostřednictvím [portál Azure](https://portal.azure.com), [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), a [klientskou sadu SDK](documentdb-sdk-dotnet.md) na spoustě platforem včetně .NET, Node.js a JavaScript.
 
 Tento kurz používá [Node.js SDK Q lišící](http://azure.github.io/azure-documentdb-node-q/) pro ilustraci syntaxi a použití uložené procedury, triggery a UDF.   
 
@@ -437,7 +440,7 @@ Této aktivační události dotazuje na dokument metadat a aktualizuje s podrobn
 Je jednou z věcí, je důležité si uvědomit **transakcí** provádění aktivační události do databáze. Cosmos. Této aktivační události po spuštění v rámci stejné transakci jako vytváření původního dokumentu. Proto pokud jsme z po aktivační události (například pokud nelze aktualizovat dokument metadat) způsobí výjimku, celá transakce se nezdaří a vrácena zpět. Žádné dokumentu se vytvoří a bude vrácen výjimku.  
 
 ## <a id="udf"></a>Uživatelem definované funkce
-Uživatelem definované funkce (UDF) slouží k rozšíření gramatika jazyk dotazu DocumentDB SQL rozhraní API a implementovat vlastní obchodní logiku. Je možné volat jedině z uvnitř dotazy. Tyto nemají přístup k objektu kontextu a jsou určené pro použití jako jen výpočetní JavaScript. Proto UDF lze spustit na sekundárních replikách služby Cosmos DB.  
+Uživatelem definované funkce (UDF) slouží k rozšíření gramatiky jazyka dotazů Azure Cosmos DB SQL a implementovat vlastní obchodní logiku. Je možné volat jedině z uvnitř dotazy. Tyto nemají přístup k objektu kontextu a jsou určené pro použití jako jen výpočetní JavaScript. Proto UDF lze spustit na sekundárních replikách služby Cosmos DB.  
 
 Následující příklad vytvoří UDF k výpočtu daně z příjmu podle sazby za různé příjem závorky a používá je uvnitř dotazu najít všechny lidí, kteří v daně placené více než 20 000 $.
 
@@ -479,7 +482,7 @@ UDF lze následně použít v dotazech jako následující ukázka:
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript language-integrated query rozhraní API
-Kromě vydávat dotazy pomocí DocumentDB SQL gramatika, sadu SDK na straně serveru umožňuje provádět optimalizované dotazy pomocí rozhraní fluent JavaScript bez znalostí SQL. Dotaz jazyka JavaScript, který rozhraní API umožňuje prostřednictvím kódu programu vytvořit dotazy předáním predikátem funkce do chainable funkce volá s pro pole built-ins a Oblíbené knihovny JavaScript jako lodash ECMAScript5 na syntaxi. Dotazy jsou analyzovat pomocí prostředí JavaScript runtime spouštění efektivně pomocí Azure Cosmos DB indexy.
+Kromě vydávat dotazy pomocí gramatiky SQL Azure Cosmos DB, SDK na straně serveru umožňuje provádět optimalizované dotazy pomocí rozhraní fluent JavaScript bez znalostí SQL. Dotaz jazyka JavaScript, který rozhraní API umožňuje prostřednictvím kódu programu vytvořit dotazy předáním predikátem funkce do chainable funkce volá s pro pole built-ins a Oblíbené knihovny JavaScript jako lodash ECMAScript5 na syntaxi. Dotazy jsou analyzovat pomocí prostředí JavaScript runtime spouštění efektivně pomocí Azure Cosmos DB indexy.
 
 > [!NOTE]
 > `__`(dvojité podtržítko) je alias `getContext().getCollection()`.
@@ -642,7 +645,7 @@ V následujících popisech popisují každý dotaz v předchozí tabulce.
 
 
 ## <a name="runtime-support"></a>Podpora modulu runtime
-[Rozhraní API jazyka DocumentDB JavaScript serveru straně](http://azure.github.io/azure-documentdb-js-server/) poskytuje podporu pro většinu všeobecně funkce jazyka JavaScript jako standardizované podle [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+Azure Cosmos DB [JavaScript serveru straně API](http://azure.github.io/azure-documentdb-js-server/) poskytuje podporu pro většinu všeobecně funkce jazyka JavaScript jako standardizované podle [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Zabezpečení
 JavaScript uložené procedury a triggery jsou v izolovaném prostoru tak, aby důsledky jeden skript není pronikly na druhý bez průchodu přes transakci izolace snímku na úrovni databáze. Prostředí runtime jsou ve fondu, ale čištění kontextu po každé spuštění. Proto jsou zaručeno bezpečné z jakékoli nezamýšleným vedlejší účinky od sebe navzájem.
@@ -651,7 +654,7 @@ JavaScript uložené procedury a triggery jsou v izolovaném prostoru tak, aby d
 Uložené procedury, triggery a UDF jsou implicitně předkompilovaných na formát kódu byte předejdete tak náklady na kompilace v době každé vyvolání skriptu. To zajišťuje volání uložené procedury jsou rychlé a nízkým nárokům mít.
 
 ## <a name="client-sdk-support"></a>Podpora klienta SDK
-Kromě rozhraní API služby DocumentDB [Node.js](documentdb-sdk-node.md) má klient Azure Cosmos DB [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [ JavaScript](http://azure.github.io/azure-documentdb-js/), a [Python SDK](documentdb-sdk-python.md) pro DocumentDB rozhraní API. Uložené procedury, triggery a UDF lze vytvořit a spustit některé z těchto sad SDK také používá. Následující příklad ukazuje postup vytvoření a provedení uložené procedury pomocí klienta rozhraní .NET. Všimněte si, jak jsou typy .NET předaný do uložené procedury jako JSON a čtení zpět.
+Kromě Azure Cosmos DB [Node.js](documentdb-sdk-node.md) rozhraní API, Azure Cosmos DB má [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), a [Python SDK](documentdb-sdk-python.md) pro rozhraní SQL API. Uložené procedury, triggery a UDF lze vytvořit a spustit některé z těchto sad SDK také používá. Následující příklad ukazuje postup vytvoření a provedení uložené procedury pomocí klienta rozhraní .NET. Všimněte si, jak jsou typy .NET předaný do uložené procedury jako JSON a čtení zpět.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -684,7 +687,7 @@ Kromě rozhraní API služby DocumentDB [Node.js](documentdb-sdk-node.md) má kl
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
-Tento příklad ukazuje způsob použití [DocumentDB .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) vytvořit před aktivační události a vytvořit dokument s aktivační událost povolena. 
+Tento příklad ukazuje způsob použití [SQL .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) vytvořit před aktivační události a vytvořit dokument s aktivační událost povolena. 
 
     Trigger preTrigger = new Trigger()
     {
@@ -705,7 +708,7 @@ Tento příklad ukazuje způsob použití [DocumentDB .NET API](/dotnet/api/over
         });
 
 
-A následující příklad ukazuje, jak vytvořit uživatelsky definované funkce (UDF) a použít ho [dotazu DocumentDB API SQL](documentdb-sql-query.md).
+A následující příklad ukazuje, jak vytvořit uživatelsky definované funkce (UDF) a použít ho [dotazu SQL](documentdb-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {

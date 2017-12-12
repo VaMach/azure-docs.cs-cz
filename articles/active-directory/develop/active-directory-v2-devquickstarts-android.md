@@ -4,7 +4,7 @@ description: "Postup vytvoření aplikace pro Android s přihlašováním uživa
 services: active-directory
 documentationcenter: 
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c30362a7b14c8f7f0c44d911c46c491b3de3c0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Přidání přihlášení do aplikace pro Android pomocí rozhraní Graph API pomocí koncového bodu v2.0 knihovnu třetích stran
 Platforma Microsoft identity používá otevřené standardy, jako je například OAuth2 nebo OpenID Connect. Vývojáři mohou použít žádné knihovny, které chtějí integrovat našich služeb. Což vývojářům používat naše platforma s další knihovny, jsme jste zapisují několik návody podobné následujícímu abychom ukázali, jak nakonfigurovat třetích stran knihovny pro připojení k identitu platformy Microsoft. Většina knihovny, které implementují [specifikace RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) se může připojit k Microsoft identity platform.

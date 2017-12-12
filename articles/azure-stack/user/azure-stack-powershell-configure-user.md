@@ -3,26 +3,26 @@ title: "Konfigurace prostředí PowerShell Azure zásobník uživatele | Microso
 description: "Konfigurace prostředí PowerShell Azure zásobník uživatele"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: sngun
-ms.openlocfilehash: e0ad968cac50ebb1e9ca0a4ff228c748f2da5f28
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Konfigurace prostředí PowerShell Azure zásobník uživatele
 
-Jako uživatel Azure zásobníku můžete nakonfigurovat vaše Azure zásobníku Development Kit na prostředí PowerShell. Po dokončení konfigurace, můžete použít PowerShell ke správě prostředků, jako se přihlásit k odběru nabízí, zásobník Azure vytvářet virtuální počítače, nasazení šablony Azure Resource Manager, atd. Toto téma je vymezen na pomocí prostředí, pokud chcete pro nastavení prostředí PowerShell pro operátor cloudovém prostředí odkazovat pouze na uživatele [nakonfigurovat prostředí PowerShell Azure zásobníku operátor](../azure-stack-powershell-configure-admin.md) tématu. 
+Jako uživatel Azure zásobníku můžete nakonfigurovat vaše Azure zásobníku Development Kit na prostředí PowerShell. Po dokončení konfigurace, můžete použít PowerShell ke správě prostředků, jako se přihlásit k odběru nabízí, zásobník Azure vytvářet virtuální počítače, nasazení šablony Azure Resource Manager, atd. Toto téma je vymezen na pomocí prostředí, pokud chcete pro nastavení prostředí PowerShell pro operátor cloudovém prostředí odkazovat pouze na uživatele [nakonfigurovat prostředí PowerShell Azure zásobníku operátor](../azure-stack-powershell-configure-admin.md) článku. 
 
 ## <a name="prerequisites"></a>Požadavky 
 
@@ -33,7 +33,7 @@ Spusťte následující předpoklady, některý z [development kit](azure-stack-
 
 ## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Konfigurace uživatelského prostředí a přihlaste se k Azure zásobníku
 
-Na základě typu nasazení (Azure AD ani AD FS), spusťte následující skript ke konfiguraci prostředí PowerShell pro Azure zásobníku (ujistěte se, zda chcete nahradit AAD tenantName, GraphAudience koncový bod a hodnoty ArmEndpoint podle konfiguraci prostředí):
+Na základě typu nasazení (Azure AD ani AD FS), spusťte jeden z následujících skriptů možné nakonfigurovat prostředí PowerShell pro Azure zásobníku (Nezapomeňte nahradit AAD tenantName, GraphAudience koncový bod a hodnoty ArmEndpoint podle konfiguraci prostředí):
 
 ### <a name="azure-active-directory-aad-based-deployments"></a>Nasazení na bázi Azure Active Directory (AAD)
        
@@ -118,7 +118,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 ## <a name="test-the-connectivity"></a>Testovací připojení
 
-Teď, když My jsme všechna nastavení, umožňuje pomocí prostředí PowerShell vytvořit prostředky v rámci Azure zásobníku. Můžete například vytvořit skupinu prostředků pro aplikace a přidat virtuální počítač. Chcete-li vytvořit skupinu prostředků s názvem "MyResourceGroup" použijte následující příkaz:
+Teď, když jste všechno My nastavení, umožňuje vytvářet prostředky v rámci zásobníku Azure pomocí prostředí PowerShell. Můžete například vytvořit skupinu prostředků pro aplikace a přidat virtuální počítač. Chcete-li vytvořit skupinu prostředků s názvem "MyResourceGroup" použijte následující příkaz:
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Poznámky k verzi pro komponent systému Hadoop v Azure HDInsight
 
@@ -101,7 +101,7 @@ Spark 2.0.1 je nyní k dispozici na clustery Spark (HDInsight verze 3.5).
 * Identifikátor URI pro přístup k uzlu edge se změnila na **clustername**-ed-ssh.azurehdinsight.net
 * Bylo vylepšeno serveru R na zřizování clusteru HDInsight.
 * R serverem v HDInsight je k dispozici jako regulární HDInsight "R Server" clusteru typu a již není nainstalován jako samostatné aplikace HDInsight. Hraniční uzel a binárních souborů serveru R jsou nyní zajištěna v rámci nasazení clusteru R Server. To zvyšuje rychlost a spolehlivost zřizování. Cenový model pro R Server se příslušným způsobem aktualizuje.
-* R Server clusteru typu cena teď vychází z úrovně Standard cena plus R Server příplatek ceny. Úroveň Premium je vyhrazeno pro prémiové funkce, které jsou k dispozici napříč různými typy clusteru a pro typ clusteru R Server nepoužívá. Tato změna nemá vliv efektivní ceny R Server; změní jenom jak poplatků prezentovány v kusovníku. Všechny existující clustery R Server pokračovat v práci a šablony Resource Manager i nadále fungovat až do vyřazení oznámení. **Doporučuje se i když k aktualizaci skriptované nasazení použít novou šablonu Resource Manager.**
+* R Server clusteru typu cena teď vychází z úrovně Standard cena plus R Server příplatek ceny. Tato změna nemá vliv efektivní ceny R Server; změní jenom jak poplatků prezentovány v kusovníku. Všechny existující clustery R Server pokračovat v práci a šablony Resource Manager i nadále fungovat až do vyřazení oznámení. **Doporučuje se i když k aktualizaci skriptované nasazení použít novou šablonu Resource Manager.**
 
 
 

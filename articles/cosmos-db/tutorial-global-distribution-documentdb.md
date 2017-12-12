@@ -1,8 +1,8 @@
 ---
-title: "Globální distribuční kurz pro Azure Cosmos DB pro rozhraní API DocumentDB | Microsoft Docs"
-description: "Zjistěte, jak nastavit globální distribuční databázi Cosmos Azure pomocí rozhraní API pro DocumentDB."
+title: "Globální distribuční kurz pro Azure Cosmos DB pro rozhraní SQL API | Microsoft Docs"
+description: "Zjistěte, jak nastavit globální distribuční databázi Cosmos Azure pomocí rozhraní SQL API."
 services: cosmos-db
-keywords: "globální distribuční, documentdb"
+keywords: "Globální distribuční"
 documentationcenter: 
 author: mimig1
 manager: jhubbard
@@ -16,31 +16,33 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: c3d0d46ac12faa6b1e28edbeadd97c1a987bed1e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 11b6edb811c6e88941db63cb22f1d2308dd31f66
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>Jak nastavit globální distribuční databázi Cosmos Azure pomocí rozhraní API DocumentDB
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Jak nastavit globální distribuční databázi Cosmos Azure pomocí rozhraní SQL API
 
-V tomto článku jsme ukazují, jak nastavit globální distribuční databázi Cosmos Azure a potom se připojte pomocí rozhraní API DocumentDB pomocí portálu Azure.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+V tomto článku jsme ukazují, jak nastavit globální distribuční databázi Cosmos Azure a potom se připojte pomocí rozhraní API SQL pomocí portálu Azure.
 
 Tento článek obsahuje následující úlohy: 
 
 > [!div class="checklist"]
 > * Nakonfigurujte globální distribuci pomocí portálu Azure
-> * Nakonfigurujte globální distribuční pomocí [DocumentDB rozhraní API](documentdb-introduction.md)
+> * Nakonfigurujte globální distribuční pomocí [rozhraní SQL API](documentdb-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-documentdb-api"></a>Připojování k upřednostňovaná oblast pomocí rozhraní API DocumentDB
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Připojování k upřednostňovaná oblast pomocí rozhraní SQL API
 
-Aby bylo možné využít výhod [globální distribuční](distribute-data-globally.md), klientské aplikace můžete zadat seznam seřazený předvoleb oblastí se používá k provádění operací dokumentu. Tento krok můžete provést nastavením zásad pro připojení. Na základě konfigurace účtu Azure Cosmos DB, aktuální místní dostupnosti a seznamu předvoleb zadaný, optimální koncového bodu, bude použita volba DocumentDB SDK k provedení operace zápisu a operace čtení.
+Aby bylo možné využít výhod [globální distribuční](distribute-data-globally.md), klientské aplikace můžete zadat seznam seřazený předvoleb oblastí se používá k provádění operací dokumentu. Tento krok můžete provést nastavením zásad pro připojení. Na základě konfigurace účtu Azure Cosmos DB, aktuální místní dostupnosti a seznamu předvoleb zadán, bude vybrána optimální koncový bod SDK SQL k provedení operace zápisu a operace čtení.
 
-Tento seznam předvoleb je zadána při inicializaci připojení pomocí DocumentDB SDK. Sady SDK přijmout volitelný parametr "PreferredLocations" tedy uspořádaný seznam oblastí Azure.
+Tento seznam předvoleb je zadána při inicializaci připojení pomocí sady SDK SQL. Sady SDK přijmout volitelný parametr "PreferredLocations" tedy uspořádaný seznam oblastí Azure.
 
 Sada SDK automaticky odesílat všechny zápisy na aktuální zápisu oblast.
 
@@ -169,7 +171,7 @@ V tomto kurzu jste provést následující:
 
 > [!div class="checklist"]
 > * Nakonfigurujte globální distribuci pomocí portálu Azure
-> * Nakonfigurujte globální distribuční pomocí rozhraní API DocumentDB
+> * Nakonfigurujte globální distribuční pomocí rozhraní API SQL
 
 Nyní můžete přejít k dalším kurzu se dozvíte, jak vyvíjet místně pomocí emulátoru místního Azure Cosmos DB.
 

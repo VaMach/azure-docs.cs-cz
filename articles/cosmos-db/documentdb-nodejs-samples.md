@@ -15,20 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: moderakh
-ms.openlocfilehash: 751ad19e72c7d705639227bd6a44dafab78e41d8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 9c07800747dcfda3d233467174bb6b893a24039e
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Příklady Azure Cosmos DB Node.js
 > [!div class="op_single_selector"]
 > * [Příklady rozhraní .NET](documentdb-dotnet-samples.md)
 > * [Příklady Node.js](documentdb-nodejs-samples.md)
 > * [Příklady Python](documentdb-python-samples.md)
-> * [Galerie ukázkový kód Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+> * [Galerie ukázkový kód Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Ukázka řešení, která provádět operace CRUD a dalších běžných operací s prostředky Azure Cosmos DB jsou součástí [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) úložiště GitHub. Tento článek obsahuje:
 

@@ -2,18 +2,17 @@
 title: "Zdokumentujte kolekce analýza - Azure | Microsoft Docs"
 description: "Jak shrnout a analyzovat velké kolekce dokumentů, včetně techniky například learning frázi, tématu modelování a analýzy modelu tématu pomocí Azure ML Workbench."
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 49e215e723728f54a34f7c4e3a89217f16250002
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="document-collection-analysis"></a>Kolekce analýzy dokumentu
 
@@ -72,7 +71,7 @@ Vytvořte nový projekt v tomto příkladu jako šablona:
 
 ## <a name="data-description"></a>Popis dat
 
-V tomto scénáři používají datová sada obsahuje souhrny text a přidružená data meta pro každý legislativní akce trvá podle kongresu. Data jsou shromažďována z [GovTrack.us](https://www.govtrack.us/), který sleduje aktivity Kongresu Spojených státech amerických a pomáhá Američanů se podílet na jejich national legislativní proces. Hromadné dat si můžete stáhnout prostřednictvím [tento odkaz](https://www.govtrack.us/data/congress/) pomocí ruční skriptu, který není součástí tohoto scénáře. Podrobnosti o tom, jak stáhnout data nebyla nalezena v [dokumentaci k rozhraní API GovTrack](https://www.govtrack.us/developers/api).
+V tomto scénáři používají datová sada obsahuje souhrny text a přidružená data meta pro každý legislativní akce kongresu. Data jsou shromažďována z [GovTrack.us](https://www.govtrack.us/), který sleduje aktivity Kongresu Spojených státech amerických a pomáhá Američanů se podílet na jejich national legislativní proces. Hromadné dat si můžete stáhnout prostřednictvím [tento odkaz](https://www.govtrack.us/data/congress/) pomocí ruční skriptu, který není součástí tohoto scénáře. Podrobnosti o tom, jak stáhnout data nebyla nalezena v [dokumentaci k rozhraní API GovTrack](https://www.govtrack.us/developers/api).
 
 ### <a name="data-source"></a>Zdroj dat
 

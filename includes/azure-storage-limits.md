@@ -3,6 +3,7 @@
 | Počet účtů úložiště na předplatné | 200<sup>1</sup> |
 | Maximální kapacitě účtu úložiště | 500 TiB<sup>2</sup> |
 | Maximální počet kontejnery objektů blob, objekty BLOB, sdílené soubory, tabulky, fronty, entity nebo zpráv na účet úložiště | Bez omezení |
+| Rychlost maximální požadavků na účet úložiště | 20 000 požadavků za sekundu<sup>2</sup> |
 | Příjem příchozích dat Max<sup>3</sup> na účet úložiště (nám oblastech) | 10 GB/s Pokud GRS nebo ZRS<sup>4</sup> povoleno, 20 GB/s pro LRS<sup>2</sup> |
 | Maximální počet odchozí<sup>3</sup> na účet úložiště (nám oblastech) | 20 GB/s Pokud RA-GRS nebo GRS nebo ZRS<sup>4</sup> povoleno, 30 GB/s pro LRS<sup>2</sup> |
 | Příjem příchozích dat Max<sup>3</sup> na účet úložiště (oblastech mimo USA) | 5 GB/s Pokud GRS nebo ZRS<sup>4</sup> povoleno, 10 GB/s pro LRS<sup>2</sup> |

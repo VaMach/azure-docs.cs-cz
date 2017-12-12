@@ -15,20 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 10/16/2017
 ms.author: mimig
-ms.openlocfilehash: f2687369b8e247f00e9de5f3f79d8e44be5b8300
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Ukázek Azure PowerShell pro Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Následující tabulka obsahuje odkazy na ukázkové skripty prostředí Azure PowerShell pro Azure Cosmos DB. V tuto chvíli můžete spravovat pouze accountlayer Azure Cosmos DB pomocí prostředí PowerShell; Další prostředky, jako jsou databáze a kolekce nelze spravovat pomocí prostředí PowerShell.
 
 | |  |
 |---|---|
 |**Vytvoření účtu Azure Cosmos DB**||
-|[Vytvoření účtu DocumentDB rozhraní API](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Vytvoří jeden účet Azure Cosmos DB používat s rozhraním API pro DocumentDB. |
+|[Vytvoření účtu SQL API](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Vytvoří jeden účet Azure Cosmos DB pro použití s rozhraní SQL API. |
 |**Škálování Azure Cosmos DB**||
 |[Replikaci účtu Azure Cosmos DB do několika oblastí a konfigurace priorit převzetí služeb při selhání](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Globálně replikuje data účtu do několika oblastí s prioritou zadaný převzetí služeb při selhání.|
 |**Zabezpečení Azure Cosmos DB**||

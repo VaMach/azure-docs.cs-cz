@@ -4,7 +4,7 @@ description: "Popis různých funkcí v portálu pro registraci aplikace společ
 services: active-directory
 documentationcenter: 
 author: lnalepa
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c60499c425a7fd800f7ca9a5bac1fed5af73b801
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3340df3fcc2456a355e523bfcf09978a16966036
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="app-registration-reference"></a>Informace o registraci aplikace
 Tento dokument obsahuje kontextu a popisy různé funkce, které se nacházejí v portálu pro registraci aplikace Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
@@ -38,7 +38,7 @@ Každá aplikace může obsahovat dva tajné klíče platnou aplikaci v libovoln
 V tomto okamžiku jsou povolené jenom dva typy tajné klíče aplikace v portálu pro registraci aplikace.  Výběr **generovat nové heslo** bude generovat a ukládat sdílený tajný klíč v úložišti příslušných dat, který můžete použít v aplikaci.  Výběr **vygenerovat nový pár klíč** vytvoří nový pár veřejného a privátního klíče, je možné stáhnout a použít pro ověřování klientů na Azure AD.
 
 ## <a name="profile"></a>Profil
-Část profilu portálu pro registraci aplikace lze přizpůsobit přihlašovací stránku pro aplikaci.  V tuto chvíli můžete změnit na přihlašovací stránce aplikace loga, podmínky adresa URL služby a zásady ochrany osobních údajů.  Logo musí být průhledný obrázek 48×48 nebo 50×50 pixelů v souboru GIF, PNG nebo JPEG o velikosti 15 kB a míň.  Zkuste změnit hodnoty a zobrazení výsledné přihlašovací stránky!
+Část profilu portálu pro registraci aplikace lze přizpůsobit přihlašovací stránku pro aplikaci.  V tuto chvíli můžete změnit na přihlašovací stránce aplikace loga, podmínky adresa URL služby a zásady ochrany osobních údajů.  Logo musí být transparentní 48 × 48 nebo 50 × 50 pixelů v souboru GIF, PNG nebo JPEG, který je 15 KB nebo menší.  Zkuste změnit hodnoty a zobrazení výsledné přihlašovací stránky!
 
 ## <a name="live-sdk-support"></a>Live SDK podpory
 Pokud povolíte "podporu SDK Live", žádné aplikace tajné klíče vytvoříte, se zřídí do služby Azure AD a úložišť dat Account Microsoft.  To vám umožní integrovat službu Microsoft Account (login.live.com) aplikace.  Pokud chcete vytvořit aplikaci pomocí Microsoft Account přímo (na rozdíl od použití koncového bodu v2.0 Azure AD), měli byste si ověřit, že je zapnutá podpora Live SDK.

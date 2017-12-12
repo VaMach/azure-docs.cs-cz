@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/11/2017
 ms.author: asgang
-ms.openlocfilehash: aa8a79cd152a532ef8989e61c2ec9609b826634b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Pomocí Azure Site Recovery replikovat vícevrstvých aplikací Dynamics AX
 
@@ -31,7 +31,6 @@ V současné době Dynamics AX neposkytuje žádné po havárii se na poli Možn
 
 Tento článek vysvětluje, jak můžete vytvořit řešení zotavení po havárii pro vaši aplikaci Dynamics AX pomocí [Azure Site Recovery](site-recovery-overview.md). Také vysvětluje testovací plánované/neplánované převzetí služeb při selhání pomocí plán obnovení jedním kliknutím, požadavky a podporované konfigurace.
 
-Řešení pro zotavení po havárii založené na Site Recovery je plně otestovat, certifikaci a doporučení Dynamics AX.
 
 
 ## <a name="prerequisites"></a>Požadavky

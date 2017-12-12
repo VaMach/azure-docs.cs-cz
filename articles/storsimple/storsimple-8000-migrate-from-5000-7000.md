@@ -11,13 +11,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 12/11/2017
 ms.author: alkohli
-ms.openlocfilehash: b5c84dbea574afceba93d978425a70ce33271e36
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 36df62c4b01c623702707d39c6af59f4752ee6e0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrovat data z řady 5000 7000 zařízení StorSimple řady 8000 zařízení
 
@@ -73,12 +73,12 @@ Před zahájením migrace, zajistěte, aby:
     > [!IMPORTANT]
     > Doporučujeme, abyste měli sériový přístup k tomuto zařízení v celém procesu migrace. Mělo by být všechny problémy zařízení, můžete sériového přístupu pomáhají při řešení problémů.
 
-* Zařízení s zdroj řad 5000 a 7000 běží v2.1.1.518 verze softwaru. Starší verze nepodporují.
+* Zařízení s zdroj řad 5000 a 7000 běží v2.1.1.518 verze softwaru nebo novější. Starší verze nepodporují.
 * Pokud chcete ověřit verzi, která je spuštěna vaše řad 5000 a 7000, podívejte se na pravém horním rohu webové uživatelské rozhraní. To by měl zobrazit verzi softwaru, vaše zařízení používá. Pro migraci řad 5000 a 7000 by však být spuštěna v2.1.1.518.
 
     ![Zkontrolujte verzi softwaru na zařízení starší verze](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Pokud zařízení za provozu není spuštěná v2.1.1.518, upgradujte systém požadovaná minimální verze. Podrobné pokyny najdete v části [upgradu systému na v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
+    * Pokud není spuštěna v2.1.1.518 nebo novější, systém upgradujte na požadovanou minimální verzi zařízení za provozu. Podrobné pokyny najdete v části [upgradu systému na v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
     * Pokud používáte v2.1.1.518, přejděte do webového uživatelského rozhraní, pokud jsou k dispozici žádná upozornění k selhání obnovení registru. Pokud registru obnovení nebylo úspěšné, spusťte obnovení registru. Další informace, přejděte na postup [spustit obnovení registru](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
     * Pokud máte dolů zařízení, které v2.1.1.518 nebyla spuštěna, proveďte převzetí služeb při selhání k nahrazení zařízení, které běží v2.1.1.518. Podrobné pokyny najdete v části zotavení po Havárii zařízení StorSimple řady 5000/7000.
     * Zálohování dat pro vaše zařízení provedením cloudový snímek.

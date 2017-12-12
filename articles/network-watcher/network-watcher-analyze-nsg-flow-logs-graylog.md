@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Spravovat a analyzovat protokoly toku skupiny sítě zabezpečení v Azure pomocí sledovací proces sítě a Graylog
 
@@ -152,8 +152,8 @@ Zadaný soubor konfigurace Logstash se skládá ze tří částí: vstupní, vý
 
 Nakonec části výstup předává všechny události Logstash Graylog server. Tak, aby vyhovovala konkrétní potřebuje, upravte konfigurační soubor Logstash, podle potřeby.
 
-    > [!NOTE]
-    > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
+   > [!NOTE]
+   > Předchozí konfiguračním souboru se předpokládá, že Graylog server nakonfigurovaný na IP adresu zpětné smyčky místního hostitele 127.0.0.1. Pokud ne, nezapomeňte změnit parametr hostitelů v sekci Výstup na správnou IP adresu.
 
 Další pokyny k instalaci Logstash, najdete v článku Logstash [dokumentaci](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 

@@ -1,6 +1,6 @@
 ---
-title: "Vývoj U-SQL s Python, R a CSharp pro Azure Data Lake Analytics v sadě Visual Studio Code | Microsoft Docs"
-description: "Další informace o použití kódu na pozadí s Python, R a CSharp se odeslat úlohu v Azure Data Lake."
+title: "Vývoj U-SQL s Python, R a C# pro Azure Data Lake Analytics v sadě Visual Studio Code | Microsoft Docs"
+description: "Další informace o použití kódu na pozadí s Python, R a C# se odeslat úlohu v Azure Data Lake."
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/22/2017
 ms.author: jejiang
-ms.openlocfilehash: 82f6527388017aadecf761871f5acb25eb100acb
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="develop-u-sql-with-python-r-and-csharp-for-azure-data-lake-analytics-in-visual-studio-code"></a>Vývoj U-SQL s Python, R a CSharp pro Azure Data Lake Analytics v kódu aplikace Visual Studio
-Naučte se používat Visual Studio Code (VSCode) pro zápis Python, R a CSharp kódu na pozadí pomocí U-SQL a odesílání úloh do služby Azure Data Lake. Další informace o nástrojů Azure Data Lake pro VSCode najdete v tématu [pomocí nástroje Azure Data Lake pro Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+# <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Vývoj U-SQL s Python, R a C# pro Azure Data Lake Analytics v kódu aplikace Visual Studio
+Naučte se používat Visual Studio Code (VSCode) pro zápis Python, R a C# kódu na pozadí pomocí U-SQL a odesílání úloh do služby Azure Data Lake. Další informace o nástrojů Azure Data Lake pro VSCode najdete v tématu [pomocí nástroje Azure Data Lake pro Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
 Před zápisem kódu vlastní kód, budete muset otevřít složku nebo pracovního prostoru v VSCode.
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5ee89d0ae4c3c56d164aff4e321ee99f015ba4fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b5b1d7723b57db2614dc889282f98e9673b4bbd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Pomocí Azure Queue storage monitorovat oznámení úlohy Media Services pomocí rozhraní .NET
 Při spuštění úlohy kódování, často vyžadují způsob, jak sledovat průběh úlohy. Můžete nakonfigurovat Media Services pro doručování oznámení [Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md). Průběh úlohy můžete sledovat získáním oznámení z Queue storage. 
@@ -27,7 +27,7 @@ Doručování zpráv do fronty úložiště přístupná odkudkoli na světě. Z
 
 Jeden běžný scénář pro naslouchání oznámení Media Services je, že pokud vyvíjíte systém správy obsahu, který potřebuje provést některé další úlohy po dokončení kódování úlohy (například k aktivaci na další krok v pracovním postupu nebo publikovat obsah).
 
-Toto téma ukazuje, jak získat oznamující zprávy z fronty úložiště.  
+Tento článek ukazuje, jak získat oznamující zprávy z fronty úložiště.  
 
 ## <a name="considerations"></a>Požadavky
 Při vývoji aplikací Media Services, které používají fronty úložiště, zvažte následující:
@@ -54,7 +54,7 @@ Příklad kódu v této části provede následující akce:
 9. Odstraní frontu a koncového bodu oznámení.
 
 > [!NOTE]
-> Doporučeným způsobem, jak sledovat stav úlohy je naslouchání zpráv s oznámením, jak je znázorněno v následujícím příkladu.
+> Doporučeným způsobem, jak sledovat stav úlohy je prostřednictvím naslouchání zpráv s oznámením, jak je znázorněno v následujícím příkladu:
 >
 > Alternativně můžete zkontrolovat stav úlohy s použitím **IJob.State** vlastnost.  Oznámení o dokončení úlohy může před stav doručení do **IJob** je nastaven na **dokončeno**. **IJob.State** vlastnost odráží přesného stavu se ke krátké prodlevě.
 >
@@ -63,7 +63,8 @@ Příklad kódu v této části provede následující akce:
 ### <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
 
 1. Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o připojení, jak je popsáno v tématu [Vývoj pro Media Services v .NET](media-services-dotnet-how-to-use.md). 
-2. Vytvořte novou složku (kdekoli na místním disku) a zkopírujte si soubor .mp4, který chcete kódovat a streamovat nebo progresivně stahovat. V tomto příkladu se používá cestu "C:\Media".
+2. Vytvořte novou složku (složka může být kdekoli na místní disk) a zkopírujte soubor MP4, který chcete kódovat a Streamovat nebo progresivně stahovat. V tomto příkladu se používá cestu "C:\Media".
+3. Přidat odkaz na **System.Runtime.Serialization** knihovny.
 
 ### <a name="code"></a>Kód
 
@@ -120,9 +121,14 @@ namespace JobNotification
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
         private static readonly string _StorageConnectionString = 
             ConfigurationManager.AppSettings["StorageConnectionString"];
 
@@ -138,11 +144,15 @@ namespace JobNotification
             string endPointAddress = Guid.NewGuid().ToString();
 
             // Create the context.
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
+            
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
@@ -326,7 +336,8 @@ namespace JobNotification
     }
 }
 ```
-V předchozím příkladu vytváří následující výstup. Vaše hodnoty se budou lišit.
+
+V předchozím příkladu vytváří následující výstup: vaše hodnoty se budou lišit.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Práce s Azure Functions proxy
 
@@ -60,7 +60,7 @@ V současné době není k dispozici žádné portálu prostředí pro úpravy o
 
 ## <a name="using-variables"></a>Použití proměnných
 
-Konfigurace proxy serveru nemusí být statická. Podmínka vyhodnocena ho na použití proměnné z původní žádost, back-end odpovědi nebo nastavení aplikace.
+Konfigurace proxy serveru nemusí být statická. Podmínka vyhodnocena ho na použití proměnné z původního požadavku klienta, back-end odpovědi nebo nastavení aplikace.
 
 ### <a name="request-parameters"></a>Parametry žádosti referenční dokumentace
 
@@ -93,7 +93,7 @@ Můžete taky odkazovat [nastavení aplikace, které jsou definovány pro funkce
 Například adresu URL back-end z *https://%ORDER_PROCESSING_HOST%/api/orders* by měla mít "% ORDER_PROCESSING_HOST %" nahrazeno hodnotou ORDER_PROCESSING_HOST nastavení.
 
 > [!TIP] 
-> Použít nastavení aplikace pro hostitele back-end, když máte více nasazení nebo testovací prostředí. Tímto způsobem můžete zajistit, že jste vždy rozhovoru s právo back-end pro prostředí.
+> Použít nastavení aplikace pro hostitele back-end, když máte více nasazení nebo testovací prostředí. Tímto způsobem můžete zajistit, aby vždy mluvení do správné back-end pro prostředí.
 
 ## <a name="advanced-configuration"></a>Pokročilá konfigurace
 

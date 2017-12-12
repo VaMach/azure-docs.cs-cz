@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d1e3c826e61b8dee264e1c01fd2d54ba7ebb636
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Nejčastější dotazy k databázím ClearDB MySQL ve službě Azure App Service
 Tyto nejčastější dotazy odpovědi na běžné dotazy týkající se použití a nákup databáze MySQL cleardb – pro webové aplikace Azure.
@@ -68,7 +68,7 @@ Použijte základní nebo používat vyšší cenová úroveň pro webové aplik
 V [portál Azure](https://portal.azure.com), můžete postupně škálovat sdílenou databázi ClearDB hostování. Přečtěte si to [článku](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) Další informace. Aktuálně nepodporujeme aktualizace pro clustery ClearDB Premium na portálu Azure.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Nelze zobrazit databázi ClearDB na portálu Azure?
-Pokud jsme vytvořit databázi ClearDB pomocí Azure Resource Manager nebo [nový portál Azure](https://portal.azure.com), nebude se zobrazovat v [starý portál Azure](https://manage.windowsazure.com). Chcete obejít tím je ručně propojit databáze do webové aplikace. Podobně pokud vytvoříte databázi ClearDB v [starý portál](https://manage.windowsazure.com) nebudete moci zobrazit vaše databáze v [nový portál Azure](https://portal.azure.com). Neexistuje žádné řešení pro pozdější scénář.
+Když vytvoříte databázi ClearDB v klasickém, nebudete moci zobrazit vaše databáze v [portálu Azure](https://portal.azure.com). Neexistuje žádné řešení pro tento scénář.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Kdo I požádat o podporu Pokud databáze je dolů?
 Obraťte se na [ClearDB podporu](https://www.cleardb.com/developers/help/support) pro všechny databáze související problémy. Připravte se na jim poskytnout informace o vašem předplatném Azure.

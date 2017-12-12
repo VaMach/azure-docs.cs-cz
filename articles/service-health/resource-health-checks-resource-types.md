@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 22e1768257524400f341cf881dfebfb35115a43b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Typy prostředků a stav kontrol ve stavu prostředků Azure.
 Níže je úplný seznam všechny kontroly provedené prostřednictvím stav prostředku pro typy prostředků.
@@ -73,7 +73,7 @@ Níže je úplný seznam všechny kontroly provedené prostřednictvím stav pro
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Spuštění kontroly|
 |---|
-|<ul><li>Existuje byly všechny databáze nebo kolekce žádosti není zpracovat z důvodu nedostupnosti služby DocumentDB?</li><li>Existuje byly všechny žádosti dokument není zpracovat z důvodu nedostupnosti služby DocumentDB?</li></ul>|
+|<ul><li>Existuje byly všechny databáze nebo kolekce žádosti není zpracovat z důvodu nedostupnosti služby databázi Cosmos Azure?</li><li>Existuje byly všechny žádosti dokument není zpracovat z důvodu nedostupnosti služby databázi Cosmos Azure?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Spuštění kontroly|

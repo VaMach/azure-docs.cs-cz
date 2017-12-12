@@ -6,19 +6,18 @@ documentationcenter:
 author: Juliako
 manager: cfowler
 editor: 
-ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 0b407c3b092fd2c706775154cee3164a9869315a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c99d39a7e33a161d63cf934e0b5983e3977598c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Správa Media Services prostředky napříč více účtů úložiště
 Od verze Microsoft Azure Media Services 2.2, můžete k jednomu účtu Media Services připojit více účtů úložiště. Možnost připojit více účtů úložiště k účtu Media Services poskytuje následující výhody:
@@ -26,7 +25,7 @@ Od verze Microsoft Azure Media Services 2.2, můžete k jednomu účtu Media Ser
 * Vyrovnávání zatížení vaše prostředky napříč více účtů úložiště.
 * Škálování Media Services pro velké objemy zpracování obsahu (jako účet jednoho úložiště aktuálně má maximální limit 500 TB). 
 
-Toto téma ukazuje, jak připojit více účtů úložiště k účtu Media Services pomocí [rozhraní API Správce Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) a [prostředí Powershell](/powershell/module/azurerm.media). Také ukazuje, jak při vytváření prostředků pomocí sady Media Services SDK zadat jiným účtům úložiště. 
+Tento článek ukazuje, jak připojit více účtů úložiště k účtu Media Services pomocí [rozhraní API Správce Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) a [prostředí Powershell](/powershell/module/azurerm.media). Také ukazuje, jak při vytváření prostředků pomocí sady Media Services SDK zadat jiným účtům úložiště. 
 
 ## <a name="considerations"></a>Požadavky
 Při připojování více účtů úložiště k účtu Media Services, platí následující aspekty:
@@ -42,7 +41,7 @@ Služba Media Services použije hodnotu **IAssetFile.Name** vlastnost při sesta
 
 ## <a name="to-attach-storage-accounts"></a>Připojit účty úložiště  
 
-Připojit ke svému účtu AMS účty úložiště, použijte [rozhraní API Správce Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) a [prostředí Powershell](/powershell/module/azurerm.media), jak je znázorněno v následujícím příkladu.
+Připojit ke svému účtu AMS účty úložiště, použijte [rozhraní API Správce Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) a [prostředí Powershell](/powershell/module/azurerm.media), jak je znázorněno v následujícím příkladu:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -91,15 +90,23 @@ namespace MultipleStorageAccounts
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

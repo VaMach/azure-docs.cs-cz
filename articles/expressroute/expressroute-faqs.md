@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0456cde7e30e9b25f8baebdcd15e0e029f89d7ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="expressroute-faq"></a>ExpressRoute – nejčastější dotazy
 
@@ -175,7 +175,7 @@ Další informace najdete v tématu [sdílení okruh ExpressRoute napříč víc
 
 ### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>Je nutné víc předplatných Azure, které jsou přidružené k jiných klientů Azure Active Directory nebo smlouva Enterprise Agreement registrace. Je možné připojit virtuální sítě, které jsou v samostatných klientů a registrace na jeden okruh ExpressRoute není ve stejné klienta nebo registraci?
 
-Ano. Povolení ExpressRoute může mít rozsah hranice předplatné, klienta a registrace se žádné další confgiruation vyžaduje. 
+Ano. Povolení ExpressRoute může mít rozsah hranice předplatné, klienta a registrace s bez další nezbytné konfigurace. 
 
 Další informace najdete v tématu [sdílení okruh ExpressRoute napříč více předplatných](expressroute-howto-linkvnet-arm.md).
 

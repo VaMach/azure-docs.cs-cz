@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9eba0de054b06233f2de7fb375010b4b40c6937f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Škálování aplikací v Azure Container Service (AKS)
 
@@ -32,7 +32,7 @@ V následujících kurzech hlas Azure bude aktualizována a Operations Managemen
 
 V předchozích kurzy byla aplikace zabalené do kontejneru image, tento image nahrané do registru kontejner Azure a cluster Kubernetes vytvořit. Aplikace pak byl na Kubernetes clusteru spusťte.
 
-Pokud se ještě provést tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image](./tutorial-kubernetes-prepare-app.md).
+Pokud se ještě provést tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image][aks-tutorial-prepare-app].
 
 ## <a name="scale-aks-nodes"></a>Škálování AKS uzly
 
@@ -64,7 +64,7 @@ Výstup je podobný tomuto:
 
 ## <a name="manually-scale-pods"></a>Ručně škálovat, pracovními stanicemi soustředěnými kolem
 
-Proto úplně, Azure hlas front-endu a Redis instance byly nasazené, každý s jednu repliku. Pokud chcete ověřit, spusťte [kubectl získat](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) příkaz.
+Proto úplně, Azure hlas front-endu a Redis instance byly nasazené, každý s jednu repliku. Pokud chcete ověřit, spusťte [kubectl získat] [ kubectl-get] příkaz.
 
 ```azurecli
 kubectl get pods
@@ -78,13 +78,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Ručně změnit počet pracovními stanicemi soustředěnými kolem v `azure-vote-front` nasazení pomocí [kubectl škálování](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) příkaz. Tento příklad zvyšuje počet 5.
+Ručně změnit počet pracovními stanicemi soustředěnými kolem v `azure-vote-front` nasazení pomocí [kubectl škálování] [ kubectl-scale] příkaz. Tento příklad zvyšuje počet 5.
 
 ```azurecli
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Spustit [kubectl získat pracovními stanicemi soustředěnými kolem](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) k ověření, že Kubernetes vytváří pracovními stanicemi soustředěnými kolem. Za minutu další pracovními stanicemi soustředěnými kolem běží:
+Spustit [kubectl získat pracovními stanicemi soustředěnými kolem] [ kubectl-get] k ověření, že Kubernetes vytváří pracovními stanicemi soustředěnými kolem. Za minutu další pracovními stanicemi soustředěnými kolem běží:
 
 ```azurecli
 kubectl get pods
@@ -104,7 +104,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Pracovními stanicemi soustředěnými kolem škálování
 
-Podporuje Kubernetes [automatické škálování vodorovné pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) upravit počet pracovními stanicemi soustředěnými kolem v nasazení v závislosti na využití procesoru nebo jiné vybrat metriky.
+Podporuje Kubernetes [automatické škálování vodorovné pod] [ kubernetes-hpa] upravit počet pracovními stanicemi soustředěnými kolem v nasazení v závislosti na využití procesoru nebo jiné vybrat metriky.
 
 Pokud chcete použít autoscaler, musí mít vaše pracovními stanicemi soustředěnými kolem procesoru požadavky a omezení definovaná. V `azure-vote-front` nasazení, front-end kontejneru požadavky 0,25 procesor limit 0,5 procesoru. Nastavení vypadat podobně jako:
 
@@ -116,7 +116,7 @@ resources:
      cpu: 500m
 ```
 
-Následující příklad používá [kubectl škálování](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) příkaz pro škálování počtu pracovními stanicemi soustředěnými kolem v `azure-vote-front` nasazení. Sem pokud využití procesoru přesahuje 50 %, autoscaler zvyšuje pracovními stanicemi soustředěnými kolem maximálně 10.
+Následující příklad používá [kubectl škálování] [ kubectl-autoscale] příkaz pro škálování počtu pracovními stanicemi soustředěnými kolem v `azure-vote-front` nasazení. Sem pokud využití procesoru přesahuje 50 %, autoscaler zvyšuje pracovními stanicemi soustředěnými kolem maximálně 10.
 
 
 ```azurecli
@@ -150,4 +150,14 @@ V tomto kurzu použít v clusteru Kubernetes různé funkce škálování. Úloh
 Přechodu na v dalším kurzu se dozvíte o aktualizaci aplikace v Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Aktualizace aplikace v Kubernetes](./tutorial-kubernetes-app-update.md)
+> [Aktualizace aplikace v Kubernetes][aks-tutorial-update-app]
+
+<!-- LINKS - external -->
+[kubectl-autoscale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
+[kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md

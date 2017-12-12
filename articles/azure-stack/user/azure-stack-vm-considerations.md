@@ -3,28 +3,28 @@ title: "Rozdíly a důležité informace pro virtuální počítače v Azure zá
 description: "Další informace o rozdílech a důležité informace při práci s virtuálními počítači v Azure zásobníku."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
+author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
-ms.author: sngun
-ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mabrigg
+ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Důležité informace pro virtuální počítače v Azure zásobníku
 
 *Platí pro: Azure zásobníku integrované systémy a Azure zásobníku Development Kit*
 
-Virtuální počítače jsou na vyžádání, škálovatelných výpočetních prostředků, které nabízí Azure zásobníku. Použijete-li virtuální počítače, je potřeba pochopit, že jsou rozdíly mezi funkce, které jsou dostupné v Azure a Azure zásobníku. Tento článek obsahuje přehled aspektů jedinečné pro virtuální počítače a jeho funkce v zásobníku Azure. Další informace o nejvýraznějších rozdílů mezi zásobník Azure a Azure, najdete v článku [klíčové aspekty](azure-stack-considerations.md) tématu.
+Virtuální počítače jsou na vyžádání, škálovatelných výpočetních prostředků, které nabízí Azure zásobníku. Použijete-li virtuální počítače, je potřeba pochopit, že jsou rozdíly mezi funkce, které jsou dostupné v Azure a Azure zásobníku. Tento článek obsahuje přehled aspektů jedinečné pro virtuální počítače a jeho funkce v zásobníku Azure. Další informace o nejvýraznějších rozdílů mezi zásobník Azure a Azure, najdete v článku [klíčové aspekty](azure-stack-considerations.md) článku.
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Tahák: rozdíly virtuálního počítače
 
@@ -33,7 +33,7 @@ Virtuální počítače jsou na vyžádání, škálovatelných výpočetních p
 | Bitové kopie virtuálních počítačů | Azure Marketplace obsahuje bitové kopie, které můžete použít k vytvoření virtuálního počítače. Najdete v článku [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) stránky pro zobrazení seznamu bitových kopií, které jsou k dispozici v Azure Marketplace. | Ve výchozím nastavení nejsou k dispozici všechny Image, k dispozici v zásobníku Azure marketplace. Správce cloudu Azure zásobníku by měla publikovat nebo před uživatelé používají stáhli bitové kopie do zásobníku Azure marketplace. |
 | Velikosti virtuálních počítačů | Azure podporuje širokou škálu velikostí pro virtuální počítače. Další informace o dostupných velikostí a možnosti, naleznete [velikosti virtuálních počítačů Windows](../../virtual-machines/virtual-machines-windows-sizes.md) a [velikostí virtuálních počítačů Linux](../../virtual-machines/linux/sizes.md) témata. | Azure zásobníku podporuje podmnožinu velikostí virtuálních počítačů, které jsou k dispozici v Azure. Chcete-li zobrazit seznam podporovaných velikostí, naleznete [velikostí virtuálních počítačů](#virtual-machine-sizes) tohoto článku. |
 | Kvóty virtuálního počítače | [Maximální kvóty](../../azure-subscription-service-limits.md#service-specific-limits) jsou nastavené microsoftem. | Správce cloudu Azure zásobníku musí přiřadit kvóty, než virtuální počítače nabízejí uživatelům. |
-| Rozšíření virtuálního počítače |Azure podporuje širokou škálu rozšíření virtuálního počítače. Další informace o dostupných rozšíření, naleznete [rozšíření virtuálního počítače a funkce](../../virtual-machines/windows/extensions-features.md) tématu.| Azure zásobníku podporuje podmnožinu rozšíření, které jsou k dispozici v Azure a rozšíření mají konkrétních verzí. Správce cloudu Azure zásobníku může rozhodnout, jaká rozšíření bylo k dispozici na pro své uživatele. Chcete-li zobrazit seznam podporovaných rozšíření, naleznete [rozšíření virtuálního počítače](#virtual-machine-extensions) tohoto článku. |
+| Rozšíření virtuálního počítače |Azure podporuje širokou škálu rozšíření virtuálního počítače. Další informace o dostupných rozšíření, naleznete [rozšíření virtuálního počítače a funkce](../../virtual-machines/windows/extensions-features.md) článku.| Azure zásobníku podporuje podmnožinu rozšíření, které jsou k dispozici v Azure a rozšíření mají konkrétních verzí. Správce cloudu Azure zásobníku může rozhodnout, jaká rozšíření bylo k dispozici na pro své uživatele. Chcete-li zobrazit seznam podporovaných rozšíření, naleznete [rozšíření virtuálního počítače](#virtual-machine-extensions) tohoto článku. |
 | Síť virtuálních počítačů | Veřejné IP adresy, které jsou přiřazené k virtuálnímu počítači klienta jsou přístupné přes Internet.<br><br><br>Virtuální počítače Azure má pevný název DNS | Veřejné IP adresy, které jsou přiřazeny k virtuálnímu počítači klienta jsou přístupné pouze na prostředí Azure zásobníku Development Kit. Uživatel musí mít přístup k Azure zásobníku Development Kit prostřednictvím [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) nebo [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) pro připojení k virtuálnímu počítači, který je vytvořen v zásobníku Azure.<br><br>Virtuální počítače vytvořené v rámci konkrétní instanci Azure zásobníku mít název DNS na základě hodnoty, který je nakonfigurovaný pomocí Správce cloudu. |
 | Úložiště virtuálního počítače | Podporuje [spravované disky.](../../virtual-machines/windows/managed-disks-overview.md) | Spravované disky se ještě nepodporují v zásobníku Azure. |
 | Verze rozhraní API | Azure má vždy nejnovější verze rozhraní API pro všechny součásti virtuálního počítače. | Azure zásobníku podporuje konkrétní služby Azure a konkrétní verze rozhraní API pro tyto služby. Chcete-li zobrazit seznam podporovaných verzí rozhraní API, naleznete [verze rozhraní API](#api-versions) tohoto článku. |

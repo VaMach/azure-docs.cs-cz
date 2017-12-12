@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: be178a59f7c3558cc0fef89e5529893f160c649b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Pomocí vyrovnávání zatížení sítě nastaví clusterize MySQL v systému Linux
 > [!IMPORTANT]
@@ -52,7 +52,7 @@ Budete potřebovat následující prostředky a dalo:
   * Corosync a kardiostimulátor
 
 ### <a name="affinity-group"></a>Skupina vztahů
-Vytvořit skupinu vztahů pro řešení po přihlášení k portálu Azure classic, vyberte **nastavení**a vytváření skupiny vztahů. Přidělené prostředky vytvořit později přiřadí do této skupiny vztahů.
+Vytvořit skupinu vztahů pro řešení po přihlášení k portálu Azure vyberte **nastavení**a vytváření skupiny vztahů. Přidělené prostředky vytvořit později přiřadí do této skupiny vztahů.
 
 ### <a name="networks"></a>Networks
 Se vytvoří nová síť a podsíť je vytvořit uvnitř sítě. Tento příklad používá 10.10.10.0/24 síť s podsítí pouze jeden /24 uvnitř.

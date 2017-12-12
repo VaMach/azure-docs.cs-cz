@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 75ee9cc7c4b40e9a724c8ce98d770a18ae654096
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Řídicí panel Kubernetes s Azure Container Service (AKS)
 
-Rozhraní příkazového řádku Azure lze spustit Kubernetes řídicího panelu. Tento dokument provede řídicím panelu Kubernetes počínaje rozhraní příkazového řádku Azure a také provede některých operací základní řídicího panelu. Další informace o řídicím panelu najdete Kubernetes [Kubernetes webového uživatelského rozhraní řídicí panel](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+Rozhraní příkazového řádku Azure lze spustit Kubernetes řídicího panelu. Tento dokument provede řídicím panelu Kubernetes počínaje rozhraní příkazového řádku Azure a také provede některých operací základní řídicího panelu. Další informace o řídicím panelu najdete Kubernetes [Kubernetes webového uživatelského rozhraní řídicí panel][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Než začnete
 
-Podrobně popsané kroky v tomto dokumentu předpokládají, že jste vytvořili cluster AKS a navázali s ním připojení přes kubectl. Pokud potřebujete tyto položky, přečtěte si [Rychlý úvod ke službě AKS](./kubernetes-walkthrough.md).
+Podrobně popsané kroky v tomto dokumentu předpokládají, že jste vytvořili cluster AKS a navázali s ním připojení přes kubectl. Pokud budete potřebovat tyto položky zobrazit, [rychlý start AKS][aks-quickstart].
 
-Také musíte mít nainstalované a nakonfigurované rozhraní Azure CLI verze 2.0.21 nebo novější. Pokud chcete zjistit verzi, spusťte příkaz az --version. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI](/cli/azure/install-azure-cli).
+Také musíte mít nainstalované a nakonfigurované rozhraní Azure CLI verze 2.0.21 nebo novější. Pokud chcete zjistit verzi, spusťte příkaz az --version. Pokud je potřeba nainstalovat nebo upgradovat najdete v tématu [nainstalovat rozhraní příkazového řádku Azure][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Spustit Kubernetes řídicí panel
 
@@ -76,4 +76,11 @@ Vyberte **aktualizace** Jakmile budete připraveni.
 Další informace o řídicím panelu Kubernetes najdete v dokumentaci k Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Řídicí panel Kubernetes webového uživatelského rozhraní](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+> [Řídicí panel Kubernetes webového uživatelského rozhraní][kubernetes-dashboard]
+
+<!-- LINKS - external -->
+[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md
+[install-azure-cli]: /cli/azure/install-azure-cli

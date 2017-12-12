@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Výstupní datový proud analýza Data Lake Store
 Úlohy Stream Analytics podporovat několik metod pro výstup, jeden se [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store je celopodnikové, flexibilně škálovatelné úložiště pro analytické úlohy s velkými objemy dat. Data Lake Store umožňuje ukládání dat z jakékoli velikosti, typu a rychlosti příjmu pro provozní a zjišťovací analýzy.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Autorizace účtu Data Lake Store
-1. Pokud Data Lake Store je vybraná jako výstupu na portálu Azure, zobrazí se výzva k autorizaci použití existující Data Lake Store nebo abychom požádali o přístup k Data Lake Store prostřednictvím portálu Classic.
+1. Pokud Data Lake Store je vybraná jako výstupu na portálu Azure, zobrazí se výzva k autorizaci použití existující Data Lake Store nebo abychom požádali o přístup k Data Lake Store.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
@@ -68,7 +68,7 @@ Jakmile máte účet Data Lake Store, ověření, můžete konfigurovat vlastnos
 </tr>
 <tr>
 <td>Encoding</td>
-<td>Pokud formátu CSV nebo formátu JSON, kódování musí být zadán. V tuto chvíli je jediným podporovaným formátem kódování UTF-8.</td>
+<td>Pokud formátu CSV nebo formátu JSON, kódování musí být zadán. Znakové sady UTF-8 se v tuto chvíli je jediným podporovaným formátem kódování.</td>
 </tr>
 <tr>
 <td>Oddělovač</td>

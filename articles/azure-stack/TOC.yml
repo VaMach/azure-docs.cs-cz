@@ -45,6 +45,8 @@
       items:
         - name: Požadavky
           href: azure-stack-deploy.md
+        - name: Telemetrická data
+          href: azure-stack-telemetry.md
         - name: Nasazení
           href: azure-stack-run-powershell-script.md
         - name: Instalace PowerShellu

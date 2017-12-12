@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Řešení úložiště Azure pro R serverem v HDInsight
 
@@ -43,19 +43,25 @@ Informace o výběru nejvhodnější možnosti úložiště pro váš scénář,
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Účty úložiště objektů Blob v Azure pomocí R Server
 
-V případě potřeby můžete přistupovat k vašemu clusteru HDI více účtů úložiště Azure nebo kontejnerů. Uděláte to tak, je třeba zadat další úložiště účtů v uživatelském rozhraní, při vytváření clusteru a potom postupujte podle těchto kroků používat s R Server.
+Pokud při vytváření clusteru R Server jste zadali více než jeden účet úložiště, následující pokyny popisují, jak používat sekundární účet pro přístup k datům a operací na R Server. Předpokládejme následující účty úložiště a kontejneru: **storage1** výchozí kontejner s názvem **container1**, a **storage2**.
 
 > [!WARNING]
 > Z důvodů výkonu se HDInsight cluster vytvoří ve stejném datovém centru jako účet primárního úložiště, který určíte. Použití účtu úložiště v jiném umístění než HDInsight cluster není podporováno.
 
-1. Vytvoření clusteru HDInsight s názvem účtu úložiště **storage1** výchozí kontejner s názvem **container1**.
-2. Zadejte účet úložiště, názvem **storage2**.  
-3. Zkopírujte soubor mycsv.csv do adresáře/Share a provádět analýzy na daný soubor.  
+1. Pomocí klienta SSH, připojte k okrajovému uzlu clusteru jako remoteuser.  
+
+  + Na portálu Azure > stránku služby clusteru HDI > Přehled, klikněte na tlačítko **Secure Shell (SSH)**.
+  + V názvu hostitele, vyberte hraničního uzlu (zahrnuje *ed-ssh.azurehdinsight.net* v názvu).
+  + Zkopírujte název hostitele.
+  + Otevřete klientem SSH jako PutTY nebo SmartTY a zadejte název hostitele.
+  + Zadejte remoteuser pro uživatelské jméno a heslo clusteru.
+  
+2. Zkopírujte soubor mycsv.csv do adresáře/Share. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. V kódu jazyka R, nastavte na název uzlu **výchozím** a nastavte adresáře a souboru ke zpracování.  
+3. Přepněte do R Studio nebo jinou konzolu R a napsat kód R nastavit na název uzlu **výchozí** a umístění souboru, kterému chcete přistupovat.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -64,7 +70,7 @@ V případě potřeby můžete přistupovat k vašemu clusteru HDI více účtů
         bigDataDirRoot <- "/share"  
 
         #Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
         #Set compute context:
         rxSetComputeContext(mySparkCluster)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: cba1dd7e5f7c9f30db5d1dccd41a3262af668bce
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: b5a3537355bef593cc7796af041a53a5eca76b23
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Plánování nasazení synchronizace souboru Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -46,10 +46,12 @@ Agent Azure souboru Sync je ke stažení balíčku, který umožňuje systému W
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Koncový bod serveru
-Koncový bod serveru představuje určitého umístění na serveru pro registrované, například do složky na serveru svazku.  Poznámka: v současné době konkrétního umístění nemůže být kořenového adresáře svazku (například f:\) i když to bude podporovaný v náhledu budoucí aktualizace. Víc koncových bodů serveru může existovat na stejném svazku, pokud jejich obory názvů se nepřekrývají (například F:\sync1 a F:\sync2). Můžete nakonfigurovat zásady vrstvení cloud jednotlivě pro každý koncový bod serveru. Pokud přidáte umístění serveru, která má existující sadu souborů jako koncový bod serveru do skupiny synchronizace, tyto soubory jsou sloučeny s ostatními soubory, které již jsou v dalších koncových bodů v synchronizace skupiny.
+Koncový bod serveru představuje určitého umístění na serveru pro registrované, například do složky na serveru svazku. Víc koncových bodů serveru může existovat na stejném svazku, pokud se nepřekrývají jejich obory názvů (například `F:\sync1` a `F:\sync2`). Můžete nakonfigurovat zásady vrstvení cloud jednotlivě pro každý koncový bod serveru. V současné době není možné vytvořit koncový bod serveru pro kořenový adresář svazku (například `F:\` nebo `C:\myvolume`, pokud je svazek připojen jako přípojný bod).
 
 > [!Note]  
 > Koncový bod serveru může být umístěna na svazku systému Windows. Cloud vrstvení není podporována na systémovém svazku.
+
+Pokud přidáte umístění serveru, která má existující sadu souborů jako koncový bod serveru do skupiny synchronizace, tyto soubory jsou sloučeny s ostatními soubory, které již jsou v dalších koncových bodů v synchronizace skupiny.
 
 ### <a name="cloud-endpoint"></a>Koncového bodu cloudu
 Koncový bod cloudu je Azure sdílené složky, která je součástí skupiny synchronizace. Synchronizace sdílené složky celý soubor Azure a sdílenou složku Azure můžou být členy koncového bodu jenom k jednomu cloudu. Sdílenou složku Azure proto může být členem jenom jedné skupiny synchronizace. Pokud přidáte Azure sdílené složky, která má existující sadu souborů jako koncový bod cloudu do skupiny synchronizace, existující soubory jsou sloučeny s ostatními soubory, které již jsou v dalších koncových bodů v synchronizace skupiny.

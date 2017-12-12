@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e825968981df1aaee4ceb037995209ba48a8f4ec
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Práce se změnami kanálu podpory v Azure Cosmos DB
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/03/2017
 ![Pomocí Azure Cosmos DB změnu kanálu power analýzu v reálném čase a událostmi řízené výpočetní scénáře](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Změna kanálu podpory se poskytuje pro všechny datové modely a kontejnerů v Azure Cosmos DB. Však informačního kanálu změn je pro čtení pomocí klienta DocumentDB a serializuje položky do formátu JSON. Z důvodu JSON formátování, MongoDB, bude mít klienti ve formátu neshody mezi dokumenty formátu BSON a JSON změnu informačního kanálu. 
+> Změna kanálu podpory se poskytuje pro všechny datové modely a kontejnerů v Azure Cosmos DB. Ale informačního kanálu změn je pro čtení pomocí klienta SQL a serializuje položky do formátu JSON. Z důvodu JSON formátování, MongoDB, bude mít klienti ve formátu neshody mezi dokumenty formátu BSON a JSON změnu informačního kanálu. 
 
 ## <a name="how-does-change-feed-work"></a>Jak změnit kanálu pracovní?
 
@@ -90,9 +90,9 @@ Aktivační události lze vytvořit na portálu Azure Functions na portálu Azur
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Pomocí sady SDK
 
-[DocumentDB SDK](documentdb-sdk-dotnet.md) pro Azure Cosmos DB vám dává všechny ke čtení a správa změn, kanálu. Ale s skvělé power obsahuje příliš velké množství odpovědnosti. Pokud chcete spravovat kontrolní body, řeší dokumentu pořadová čísla a mít podrobnou kontrolu nad klíče oddílů, pak pomocí sady SDK může mít správný přístup.
+[SQL SDK](documentdb-sdk-dotnet.md) pro Azure Cosmos DB vám dává všechny ke čtení a správa změn, kanálu. Ale s skvělé power obsahuje příliš velké množství odpovědnosti. Pokud chcete spravovat kontrolní body, řeší dokumentu pořadová čísla a mít podrobnou kontrolu nad klíče oddílů, pak pomocí sady SDK může mít správný přístup.
 
-Tato část vás provede jak používat sadu SDK DocumentDB pro práci s změnu informačního kanálu.
+Tato část vás provede jak používat sadu SDK SQL pro práci s změnu informačního kanálu.
 
 1. Nejdříve si přečtěte následující prostředky z appconfig. Pokyny k načítání koncový bod a autorizační klíč jsou k dispozici v [aktualizovat připojovací řetězec](create-documentdb-dotnet.md#update-your-connection-string).
 

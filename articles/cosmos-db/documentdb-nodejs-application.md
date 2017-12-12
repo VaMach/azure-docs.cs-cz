@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 32d4b4a7db134975158e53fc964c24b52b14a1e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 259ce894b9b0e4a1b2dda2bff387f97bf68ad32b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="_Toc395783175"></a>Sestavení webové aplikace Node.js využívající službu Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Tento kurz Node.js popisuje, jak pomocí Azure Cosmos DB a rozhraní API DocumentDB ukládat a přistupovat k datům z aplikace Node.js Express hostované na webech Azure. Vytvoříte jednoduchou webovou aplikaci pro správu úkolů, aplikaci seznamu úkolů, která umožní vytvářet, získávat a dokončovat úkoly. Úkoly se ve službě Azure Cosmos DB ukládají jako dokumenty JSON. Tento kurz vás provede procesem vytvoření a nasazení aplikace a vysvětlí, co se v každé části děje.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Tento kurz Node.js popisuje, jak používat Azure Cosmos DB a rozhraní SQL API k uložení a přístup k datům z aplikace Node.js Express hostované na webech Azure. Vytvoříte jednoduchou webovou aplikaci pro správu úkolů, aplikaci seznamu úkolů, která umožní vytvářet, získávat a dokončovat úkoly. Úkoly se ve službě Azure Cosmos DB ukládají jako dokumenty JSON. Tento kurz vás provede procesem vytvoření a nasazení aplikace a vysvětlí, co se v každé části děje.
 
 ![Snímek obrazovky aplikace pro seznam úkolů vytvořené v tomto kurzu k Node.js](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
@@ -534,7 +536,7 @@ To by mělo být vše, co potřebujeme ke zprovoznění aplikace.
 * Chcete testovat škálování a výkon pomocí služby Azure Cosmos DB? Viz [Testování výkonu a škálování pomocí služby Azure Cosmos DB](performance-testing.md).
 * Zjistěte, jak [monitorovat účet služby Azure Cosmos DB](monitor-accounts.md).
 * Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
-* Prozkoumejte [dokumentaci ke službě Azure Cosmos DB](https://docs.microsoft.com/azure/documentdb/).
+* Prozkoumejte [dokumentaci ke službě Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

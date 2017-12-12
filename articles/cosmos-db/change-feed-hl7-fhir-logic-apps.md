@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Upozornění pacientů HL7 FHIR zdravotní péče záznam změn pomocí Logic Apps a Azure Cosmos DB
 
@@ -54,7 +54,7 @@ Toto řešení vyžaduje tři Logic Apps, abyste splňují výše uvedené poža
 
 ### <a name="azure-services-used-in-the-solution"></a>Použít v řešení služby Azure
 
-#### <a name="azure-cosmos-db-documentdb-api"></a>Azure Cosmos databáze DocumentDB rozhraní API
+#### <a name="azure-cosmos-db-sql-api"></a>Rozhraní API pro Azure Cosmos databáze SQL
 Azure Cosmos DB slouží jako úložiště pro prostředky FHIR, jak je znázorněno na následujícím obrázku.
 
 ![Účet Azure Cosmos DB použitý v tomto kurzu HL7 FHIR zdravotní péče](./media/change-feed-hl7-fhir-logic-apps/account.png)
@@ -86,7 +86,7 @@ Následující obrázek znázorňuje pacienty fronty. Hodnota vlastnosti značky
 #### <a name="api-app"></a>Aplikace API
 Aplikace API připojí k databázi Cosmos Azure a dotazů pro nové nebo upravené dokumenty FHIR podle typů prostředků. Tato aplikace má jeden řadič **FhirNotificationApi** s jednu operaci **GetNewOrModifiedFhirDocuments**, najdete v části [zdroje pro aplikaci API](#api-app-source).
 
-Používáme [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) třídy z Azure Cosmos databáze DocumentDB .NET API. Další informace najdete v tématu [změnu kanálu článku](change-feed.md). 
+Používáme [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) třídy z Azure SQL DB Cosmos .NET rozhraní API. Další informace najdete v tématu [změnu kanálu článku](change-feed.md). 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>Operace GetNewOrModifiedFhirDocuments
 

@@ -1,7 +1,7 @@
 ---
 title: "Kurz vývoje aplikace Java využívající službu Azure Cosmos DB | Dokumentace Microsoftu"
-description: "Tento kurz webové aplikace Java popisuje, jak pomocí Azure Cosmos DB a rozhraní API DocumentDB ukládat a přistupovat k datům z aplikace Java hostované na webech Azure."
-keywords: "Vývoj aplikací, databázový kurz, aplikace v jazyce java, kurz vývoje webových aplikací v jazyce java, documentdb, azure, Microsoft azure"
+description: "Tento kurz webové aplikace Java popisuje, jak používat Azure Cosmos DB a rozhraní SQL API k uložení a přístup k datům z aplikace Java hostované na webech Azure."
+keywords: "Vývoj aplikací, databázi, aplikaci java, kurz webové aplikace java, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0081a080e33b0377516f99d6cdeb9fcc38bc10da
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Vytvoření webové aplikace Java pomocí Azure Cosmos DB a rozhraní API DocumentDB
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Vytvoření webové aplikace Java pomocí Azure Cosmos DB a rozhraní SQL API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -29,6 +29,8 @@ ms.lasthandoff: 10/11/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Tento kurz webové aplikace Java se dozvíte, jak používat [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) služby k ukládání a přístup k datům z aplikace Java hostované v Azure App Service Web Apps. V tomto tématu se naučíte:
 
@@ -86,8 +88,8 @@ Vytvoření aplikace JSP:
    
     ![Hello World – kurz aplikace Java](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Krok 3: Instalace sady DocumentDB Java SDK
-Nejjednodušším způsobem, jak stáhnout sadu DocumentDB Java SDK a její závislosti, je použít [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Krok 3: Instalace SQL Java SDK
+Nejjednodušší způsob, jak stáhnout sady Java SDK SQL a jeho závislé součásti je prostřednictvím [Apache Maven](http://maven.apache.org/).
 
 K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následující kroky:
 
@@ -101,12 +103,12 @@ K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následuj
    * V **Id artefaktů** zadejte azure-documentdb.
    * V **verze** zadejte 1.5.1.
      
-   ![Instalace DocumentDB Java Application SDK](./media/documentdb-java-application/image13.png)
+   ![Instalace SQL Java Application SDK](./media/documentdb-java-application/image13.png)
      
    * Nebo přidejte XML závislosti pro Id skupiny a Id artefaktů přímo do souboru pom.xml pomocí textového editoru:
      
         <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version></dependency>
-6. Klikněte na tlačítko **OK** a Maven nainstaluje DocumentDB Java SDK.
+6. Klikněte na tlačítko **OK** a Maven nainstaluje SQL Java SDK.
 7. Uložte soubor pom.xml.
 
 ## <a id="UseService"></a>Krok 4: Využití služby Azure Cosmos DB v aplikaci Java
@@ -279,7 +281,7 @@ K tomu bude nutné převést projekt na projekt Maven. K tomu slouží následuj
                 return null;
             }
         }
-7. Také můžeme použít DocumentClient k získání kolekce nebo seznamu objektů TodoItem pomocí DocumentDB SQL:
+7. Také můžeme použít DocumentClient k získání kolekce nebo seznamu objektů Todoitem pomocí SQL:
    
         @Override
         public List<TodoItem> readTodoItems() {

@@ -16,11 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénář: Zpracování výjimek a protokolování chyb pro logic apps
 
@@ -45,7 +45,7 @@ Projekt má dva hlavní požadavky:
 
 ## <a name="how-we-solved-the-problem"></a>Jak jsme problém byl
 
-Jsme zvolili [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") jako úložiště pro záznamy protokolu a chyby (Cosmos DB odkazuje na záznamy jako dokumenty). Azure Logic Apps obsahuje standardní šablonu pro všechny odpovědi, a proto jsme nebude muset vytvořit vlastní schéma. Vytvoříme může aplikace API k **vložit** a **dotazu** pro záznamy chyba a protokolu. Může také definujeme schéma pro jednotlivé aplikace API.  
+Jsme zvolili [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") jako úložiště pro záznamy protokolu a chyby (Cosmos DB odkazuje na záznamy jako dokumenty). Azure Logic Apps obsahuje standardní šablonu pro všechny odpovědi, a proto jsme nebude muset vytvořit vlastní schéma. Vytvoříme může aplikace API k **vložit** a **dotazu** pro záznamy chyba a protokolu. Může také definujeme schéma pro jednotlivé aplikace API.  
 
 Další požadavky se k vyprázdnění záznamů po určitém datu. Cosmos DB má vlastnost s názvem [TTL](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "TTL") (TTL), což nám nastavit povolené **TTL** hodnotu pro každý záznam nebo kolekce. Tato funkce eliminovat potřeba ručně odstranit záznamy v databázi Cosmos.
 
@@ -107,7 +107,7 @@ Zdroj (požadavek) pacienta záznamu jsme musíte se přihlásit z portálu Dyna
    Aktivační události pocházející z CRM poskytuje nám s **CRM PatentId**, **typ záznamu**, **nový nebo aktualizovat záznam** (nový nebo aktualizovat logická hodnota), a **SalesforceId**. **SalesforceId** může mít hodnotu null, protože se používá pouze pro aktualizaci.
    Se nám získat záznam CRM pomocí aplikace CRM **PatientID** a **typ záznamu**.
 
-2. Dále je potřeba přidat naše aplikace DocumentDB API **InsertLogEntry** operace, jak je vidět tady v návrháři aplikace logiky.
+2. Dále je potřeba přidat vaší aplikace Azure Cosmos DB SQL API **InsertLogEntry** operace, jak je vidět tady v návrháři aplikace logiky.
 
    **Vložit položky protokolu**
 
@@ -400,7 +400,7 @@ Po získání odpovědi můžete předat odpověď zpět do aplikace logiky nad�
 
 ## <a name="cosmos-db-repository-and-portal"></a>Úložiště cosmos DB a portálu
 
-Naše řešení možnosti s přidané [Cosmos DB](https://azure.microsoft.com/services/documentdb).
+Naše řešení možnosti s přidané [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Portál pro správu chyby
 
@@ -430,14 +430,14 @@ K zobrazení protokolů, také jsme vytvořili webové aplikace MVC. Zde jsou p�
 
 Naše open-source Azure Logic Apps Výjimka rozhraní API pro správu aplikací poskytuje funkci podle postupu popsaného tady – existují dva řadiče:
 
-* **ErrorController** vloží záznam chyby (dokument) v kolekci DocumentDB.
-* **LogController** vloží záznam protokolu (dokument) v kolekci DocumentDB.
+* **ErrorController** vloží záznam chyby (dokument) v kolekci Azure Cosmos DB.
+* **LogController** vloží záznam protokolu (dokument) v kolekci Azure Cosmos DB.
 
 > [!TIP]
-> Použít oba řadiče `async Task<dynamic>` operace a operace přeložit za běhu, takže jsme můžete vytvořit schéma DocumentDB v těle operace. 
+> Použít oba řadiče `async Task<dynamic>` operace a operace přeložit za běhu, takže jsme můžete vytvořit schéma databáze Cosmos Azure v těle operace. 
 > 
 
-Každému dokumentu v DocumentDB musí mít jedinečné ID. Používáme `PatientId` a přidání časové razítko, které jsou převedeny na hodnotu časového razítka systému Unix (double). Jsme zkrátit hodnota odebrat desetinnou hodnotu.
+Každému dokumentu v Azure Cosmos DB musí mít jedinečné ID. Používáme `PatientId` a přidání časové razítko, které jsou převedeny na hodnotu časového razítka systému Unix (double). Jsme zkrátit hodnota odebrat desetinnou hodnotu.
 
 Můžete zobrazit zdrojový kód chyby kontroleru rozhraní API [z Githubu](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -479,7 +479,7 @@ Vyhledá výraz v předchozím příkladu kódu *Create_NewPatientRecord* stav *
 ## <a name="summary"></a>Souhrn
 
 * Můžete snadno implementovat protokolování a zpracování chyb v aplikaci logiky.
-* DocumentDB slouží jako úložiště pro záznamy protokolu a chyby (dokumentů).
+* Můžete použít Azure Cosmos DB jako úložiště pro záznamy protokolu a chyby (dokumentů).
 * MVC slouží k vytvoření portálu zobrazit záznamy protokolu a chyby.
 
 ### <a name="source-code"></a>Zdrojový kód

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 85157f3f0bcf86ae049c0bec76afb0ca33797b11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Jedinečné klíče v Azure Cosmos DB
 
 Jedinečné klíče poskytne vývojářům možnost přidávat vrstvu integritu dat do své databáze. Vytvořením jedinečné klíče zásady při vytvoření kontejneru, zajistíte jedinečnost jednu nebo více hodnot za [klíč oddílu](partition-data.md). Po vytvoření kontejneru zásadám jedinečné klíče brání vytvoření všechny nové nebo aktualizované položky s hodnotami, které duplicitní hodnoty určeného jedinečné omezení klíče.   
 
 > [!NOTE]
-> Podporuje jedinečné klíče nejnovější verze [.NET](documentdb-sdk-dotnet.md) a [.NET Core](documentdb-sdk-dotnet-core.md) sad SDK DocumentDB (SQL) a [MongoDB API](mongodb-feature-support.md#unique-indexes). Rozhraní API pro tabulky a rozhraní Graph API nepodporují v tuto chvíli jedinečné klíče. 
+> Podporuje jedinečné klíče nejnovější verze [.NET](documentdb-sdk-dotnet.md) a [.NET Core](documentdb-sdk-dotnet-core.md) SQL sady SDK a [MongoDB API](mongodb-feature-support.md#unique-indexes). Rozhraní API pro tabulky a rozhraní Graph API nepodporují v tuto chvíli jedinečné klíče. 
 > 
 >
 
@@ -54,7 +54,7 @@ Jedinečné klíče musí být definován, když se kontejner vytvoří, a jedin
 
 Existující kontejnery nelze aktualizovat, a použít jedinečné klíče.
 
-Po vytvoření kontejneru zásadám jedinečné klíče nelze změnit zásady, pokud je znovu vytvořit kontejner. Pokud máte existující data, která chcete implementovat jedinečné klíče na, vytvořte nový kontejner a potom pomocí nástroje Migrace příslušná data pro přesun dat do nového kontejneru. Pro DocumentDB (SQL) kontejnery, použijte [nástroj pro migraci dat](import-data.md). Pro MongoDB kontejnery, použijte [mongoimport.exe nebo mongorestore.exe](mongodb-migrate.md).
+Po vytvoření kontejneru zásadám jedinečné klíče nelze změnit zásady, pokud je znovu vytvořit kontejner. Pokud máte existující data, která chcete implementovat jedinečné klíče na, vytvořte nový kontejner a potom pomocí nástroje Migrace příslušná data pro přesun dat do nového kontejneru. Pro kontejnery SQL, použijte [nástroj pro migraci dat](import-data.md). Pro MongoDB kontejnery, použijte [mongoimport.exe nebo mongorestore.exe](mongodb-migrate.md).
 
 Maximálně 16 hodnotami cestu (například /firstName, /lastName, /address/zipCode atd.) můžou být součástí každého jedinečný klíč. 
 
@@ -64,9 +64,9 @@ Každá zásada jedinečné klíče může mít maximálně 10 jedinečné omeze
 
 Zhuštěný jedinečné klíče nejsou podporovány. Pokud chybí hodnoty pro některé jedinečné cesty, jsou považovány za zvláštní hodnotu null, která je součástí omezení jedinečnosti.
 
-## <a name="documentdb-sql-api-sample"></a>Ukázka DocumentDB (SQL) rozhraní API
+## <a name="sql-api-sample"></a>Ukázka rozhraní SQL API
 
-Následující příklad kódu ukazuje, jak vytvořit nový kontejner DocumentDB (SQL) s omezeními dva jedinečné klíče. První omezení je firstName, lastName, e-mailu omezení, které jsou popsané v předchozím příkladu. Druhý omezení je adresa/zipCode uživatelé. Ukázkový soubor JSON, který používá cesty v této zásadě jedinečné klíče následuje příklad kódu. 
+Následující příklad kódu ukazuje, jak vytvořit nový kontejner SQL s omezeními dva jedinečné klíče. První omezení je firstName, lastName, e-mailu omezení, které jsou popsané v předchozím příkladu. Druhý omezení je adresa/zipCode uživatelé. Ukázkový soubor JSON, který používá cesty v této zásadě jedinečné klíče následuje příklad kódu. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,

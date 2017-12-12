@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8f89ef5a1763d5fc4ad09a9aeae89ccf683138c7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Ovládací prvek Azure Content Delivery Network s ukládáním do mezipaměti pravidla chování ukládání do mezipaměti
 
@@ -40,13 +40,19 @@ Informace o výchozí chování ukládání do mezipaměti a ukládání do mezi
 Postup nastavení ukládání do mezipaměti CDN pravidla:
 
 1. Otevřete portál Azure, vyberte profil CDN a pak vyberte koncový bod.
-2. V levém podokně v části nastavení, klikněte na tlačítko **mezipaměti**.
-3. Vytvořte globální pravidlo ukládání do mezipaměti takto:
+2. V levém podokně v části nastavení, klikněte na tlačítko **ukládání do mezipaměti pravidla**.
+
+   ![Ukládání do mezipaměti CDN tlačítko pravidla](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+1. Vytvořte globální pravidlo ukládání do mezipaměti takto:
    1. V části **globální ukládání do mezipaměti pravidla**, nastavte **chování ukládání řetězců s dotazy** k **ignorovat řetězce dotazů**.
    2. Nastavit **chování ukládání do mezipaměti** k **nastavit, pokud chybí**.
+       
    3. Pro **mezipaměti Doba vypršení platnosti**, zadejte 10 v **dní** pole.
 
        Globální ukládání do mezipaměti pravidlo ovlivní všechny požadavky na koncový bod. Toto pravidlo ctí hlavičky cache – direktiva původu, pokud existují (`Cache-Control` nebo `Expires`); jinak, pokud nejsou zadané, nastaví mezipaměť na 10 dnů. 
+
+     ![Globální pravidla pro ukládání do mezipaměti](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. Vytvořte vlastní pravidlo pro ukládání do mezipaměti takto:
     1. V části **vlastní ukládání do mezipaměti pravidla**, nastavte **vyhovují podmínce** k **cesta** a **odpovídají hodnotě** k `/images/*.jpg`.
@@ -54,7 +60,7 @@ Postup nastavení ukládání do mezipaměti CDN pravidla:
        
        Toto vlastní pravidlo pro ukládání do mezipaměti nastaví dobu trvání mezipaměti 30 dní na žádném `.jpg` bitové kopie souborů v `/images` složky váš koncový bod. Přepíše všechny `Cache-Control` nebo `Expires` hlavičky HTTP, které odesílá na zdrojový server.
 
-  ![Ukládání do mezipaměti dialogové okno pravidla](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
+    ![Vlastní pravidla ukládání do mezipaměti](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > Soubory, které jsou uložené v mezipaměti před změnou pravidlo zachovat jejich nastavení doby trvání mezipaměti původu. Pokud chcete resetovat jejich mezipaměti doby trvání, je nutné [vyprázdnění souboru](cdn-purge-endpoint.md). Pro **Azure CDN společnosti Verizon** koncových bodů, může trvat až 90 minut pro ukládání do mezipaměti pravidla vstoupily v platnost.

@@ -4,7 +4,7 @@ description: "Co dělat, pokud položka nabídky služby Active Directory se nez
 services: active-directory
 documentationcenter: na
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: b27363a38c1a5955e062d1e5c036b542341e16bc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 27a884b89224ed5765e9fcef134e711e3952ff72
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Řešení potíží: 'Služby Active Directory, je položka chybí nebo není k dispozici
 Řadu pokynů pro použití funkce Azure Active Directory a služby začínat řetězcem "přejděte na portálu pro správu Azure a klikněte na tlačítko **služby Active Directory**." Ale co můžete udělat, pokud položka rozšíření nebo nabídky služby Active Directory se nezobrazí nebo pokud je označen **není k dispozici**? Toto téma je navržená tak, abyste. Popisuje podmínky, pod kterým **služby Active Directory** se nezobrazí nebo není k dispozici a vysvětluje, jak pokračovat.

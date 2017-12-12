@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 9aafd6300bebbb5505aa4ed707cac9716c8e6aa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 622bb5971a6ad774e770f00d2d9f44999b844d12
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Deset věcí, které můžete provádět na virtuálních počítačích pro vědecké zkoumání dat
 
@@ -803,14 +803,14 @@ Azure Cosmos DB je databáze NoSQL v cloudu. Ji umožňuje pracovat s dokumenty 
 
 Je třeba provést následující kroky na požadavky pro přístup k databázi Azure Cosmos z DSVM.
 
-1. Instalace DocumentDB Python SDK (Spustit ```pip install pydocumentdb``` z příkazového řádku)
+1. Nainstalovat sadu Azure Cosmos DB Python SDK (Spustit ```pip install pydocumentdb``` z příkazového řádku)
 2. Vytvoření účtu Azure Cosmos databáze a databáze z [portálu Azure](https://portal.azure.com)
 3. Stáhnout "Nástroj pro migraci Azure Cosmos DB" z [zde](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) a extrahování k adresáři podle svého výběru
 4. Umožňuje importovat data JSON (sopka data) uložené na [veřejného objektu blob](https://cahandson.blob.core.windows.net/samples/volcano.json) do databáze Cosmos s následující parametry příkazu pro nástroj pro migraci (dtui.exe z adresáře, kam jste nainstalovali nástroj pro migraci DB Cosmos). Zadejte umístění zdrojové a cílové s těmito parametry:
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/; AccountKey = [[klíče]; Database = sopka /t.Collection:volcano1
 
-Jakmile importujete data, můžete přejít do Jupyter a otevřete Poznámkový blok s názvem *DocumentDBSample* obsahující kód python přístup k DocumentDB a provádět některé základní dotazování. Další informace o Cosmos DB návštěvou službu [stránky dokumentace, která](https://docs.microsoft.com/azure/cosmos-db/).
+Jakmile importujete data, můžete přejít do Jupyter a otevřete Poznámkový blok s názvem *DocumentDBSample* obsahující kód python pro přístup k databázi Cosmos Azure a provést některé základní dotazování. Další informace o Cosmos DB návštěvou službu [stránky dokumentace, která](https://docs.microsoft.com/azure/cosmos-db/).
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Vytvářejte sestavy a řídicí panel pomocí Power BI Desktop
 Dejte nám Vizualizujte soubor sopka JSON, který jsme viděli v předchozím příkladu Cosmos DB v Power BI k visual proniknout do data. Podrobné pokyny jsou k dispozici v [Power BI článku](../../cosmos-db/powerbi-visualize.md). Zde jsou základní kroky:

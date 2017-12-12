@@ -4,7 +4,7 @@ description: "Tento článek popisuje, jak zaregistrovat aplikaci s Azure Active
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registrace aplikace pomocí klienta služby Azure Active Directory
 
@@ -45,7 +45,7 @@ Můžete snadno upravit existující aplikaci nastavení pomocí portálu Azure.
   * **Vlastnosti** stránce lze upravit obecné informace pro aplikace. To zahrnuje název aplikace, adresa URL přihlašování a adresy URL odhlašovací.
   * **Adresy URL odpovědí** stránky umožňuje přidat adresu URL odpovědi, která je, kde Azure AD odešle token odpovědi.
   * **Vlastníky** stránky umožňuje přidat vlastníci aplikace.
-  * **Oprávnění** stránce umožňuje nakonfigurovat oprávnění pro aplikaci. Například pro přístup k rozhraní Graph API společnosti Microsoft, klikněte na možnost **přidat** a vyberte **Microsoft Graph** v modulu pro výběr rozhraní API, zvolte oprávnění požadované, například **čtení dat adresáře**.
+  * **Požadovaná oprávnění** stránce umožňuje nakonfigurovat oprávnění pro aplikaci. Například pro přístup k rozhraní Graph API společnosti Microsoft, klikněte na možnost **přidat** a vyberte **Microsoft Graph** v modulu pro výběr rozhraní API, zvolte oprávnění požadované, například **čtení dat adresáře**.
   * **Klíče** stránky umožňuje přidat aplikace tajných klíčů. Tajný klíč se zobrazí pouze po okamžitě po vytvoření, tak zkontrolujte, zda a zkopírujte ho pro další použití.
 
 ## <a name="use-the-inline-manifest-editor"></a>Použití editoru vložené manifestu

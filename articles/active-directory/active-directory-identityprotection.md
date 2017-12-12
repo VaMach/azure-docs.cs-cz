@@ -5,7 +5,7 @@ services: active-directory
 keywords: "ochrany identit Azure active directory, cloud app discovery,. Správa aplikací, zabezpečení, rizik, úroveň rizika, ohrožení zabezpečení, zásady zabezpečení"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b3aaf2b717937fdf62de423f5d9219be5ce0ad60
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: d9a83c1f1adb0a3dedaf7f8f0665de8bb809c4e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -210,11 +210,11 @@ Přehled související uživatelské prostředí najdete v tématu:
 
 
 
-## <a name="users-flagged-for-risk"></a>Uživatelé označení příznakem rizika
+## <a name="users-flagged-for-risk"></a>Uživatelé označení příznakem rizik
 
 Všechny aktivní [rizik události](active-directory-identity-protection-risk-events.md) , byly zjištěny službou Azure Active Directory pro uživatele můžete přispět k logický pojem, který volá riziko pro uživatele. Uživatele s příznakem pro riziko je indikátorem pro uživatelský účet, který byl napaden.
 
-![Uživatelé označení příznakem rizika](./media/active-directory-identityprotection/1200.png)
+![Uživatelé označení příznakem rizik](./media/active-directory-identityprotection/1200.png)
 
 
 ### <a name="user-risk-level"></a>Úroveň rizika uživatele

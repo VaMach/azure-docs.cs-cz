@@ -12,8 +12,6 @@
   items:
     - name: Vytvoření aplikace katalogu služeb
       href: publish-service-catalog-app.md
-    - name: Vytvoření aplikace Marketplace
-      href: publish-marketplace-app.md
 - name: Ukázky
   items:
     - name: Azure CLI

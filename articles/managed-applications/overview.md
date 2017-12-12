@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 682b7577135e327457976dc77ce4b4364bd12e48
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-managed-applications-overview"></a>Přehled Azure spravované aplikace
 
@@ -48,8 +48,6 @@ Informace o publikování aplikace spravované katalogu služeb najdete v témat
 
 Dodavatelé chtějí účtovat pošle pro své služby můžete zpřístupnit spravované aplikace prostřednictvím Azure marketplace. Po dodavatele publikuje aplikace, je k dispozici pro uživatele mimo organizaci. K tomuto přístupu, zprostředkovatelé spravované služby (MSPs), nezávislí dodavatelé softwaru (ISV) a systém integrátorech (si) nabízejí svá řešení pro všechny zákazníky využívající Azure.
 
-Informace o publikování spravované aplikace na web Marketplace najdete v tématu [vytvoření aplikace marketplace](publish-marketplace-app.md).
-
 ## <a name="resource-groups-for-managed-applications"></a>Skupiny prostředků pro spravované aplikace
 
 Prostředky pro spravované aplikace jsou obvykle umístěny ve dvou skupinách prostředků. Příjemce spravuje jednu skupinu prostředků, a vydavatele jiné skupině prostředků. Při definování spravované aplikace, vydavatele Určuje úrovně přístupu. Následující obrázek ukazuje scénář, kde vydavatele požadavky roli vlastníka pro skupinu spravovaných prostředků. Vydavatele umístit zámek jen pro čtení do této skupiny prostředků pro příjemce.
@@ -72,5 +70,4 @@ Když příjemce odstraní spravované aplikace, je taky odstranit skupinu sprav
 
 * Úvod k definování a nasazování spravovaných aplikací, najdete v části [vytvořit a nasadit Azure spravované aplikace pomocí rozhraní příkazového řádku Azure](managed-apps-quickstart-cli.md)
 * Informace o publikování interní aplikace najdete v tématu [vytvořit aplikaci služby katalogu](publish-service-catalog-app.md).
-* Informace o publikování spravovaných aplikací na webu marketplace najdete v tématu [vytvoření aplikace marketplace](publish-marketplace-app.md).
 

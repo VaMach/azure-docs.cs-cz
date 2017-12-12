@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275c0fdfecac558e4f10d36eee71d38528f34679
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Konfigurace skupiny dostupnosti Always On v Azure Virtual Machines (klasické)
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Tento kurz předpokládá následující:
 > 
 
 ## <a name="create-the-virtual-network-and-domain-controller-server"></a>Vytvořit virtuální síť a doména serveru controller
-Začínat nové zkušební účet Azure. Po nastavení účtu musí být na domovské obrazovce portálu Azure classic.
+Začínat nové zkušební účet Azure. Po nastavení účtu musí být na domovské obrazovce portálu Azure.
 
 1. Klikněte **nový** tlačítko v levém horním rohu dolní části stránky, jak je znázorněno na následujícím snímku obrazovky.
    
@@ -89,7 +89,7 @@ Začínat nové zkušební účet Azure. Po nastavení účtu musí být na domo
    | Konfigurace virtuálního počítače |**CLOUDOVÉ služby** = vytvořit novou cloudovou službu<br/>**Název CLOUDOVÉ služby DNS** = název jedinečný cloudové služby<br/>**NÁZEV DNS** = jedinečný název (např: ContosoDC123)<br/>**OBLASTI nebo skupiny vztahů nebo VIRTUÁLNÍCH SÍŤOVÝCH** = ContosoNET<br/>**PODSÍTĚ virtuální sítě** = Back(10.10.2.0/24)<br/>**ÚČET úložiště** = použít účet úložiště automaticky generované<br/>**Skupina dostupnosti** = (None) |
    | Možnosti virtuálního počítače |Použít výchozí nastavení |
 
-Po dokončení konfigurace nového virtuálního počítače, počkejte, než pro virtuální počítač jako provsioned. Tento proces trvá delší dobu pro dokončení. Pokud kliknete **virtuálního počítače** karta v portálu Azure classic, uvidíte ContosoDC recyklace stavů ze **počáteční (zřizování)** k **Zastaveno**, **počáteční**, **spuštění (zřizování)**a nakonec **systémem**.
+Po dokončení konfigurace nového virtuálního počítače, počkejte, než pro virtuální počítač jako provsioned. Tento proces trvá delší dobu pro dokončení. Pokud kliknete **virtuálního počítače** kartě v portálu Azure, uvidíte ContosoDC recyklace stavy z **počáteční (zřizování)** k **Zastaveno**,  **Spouštění**, **spuštění (zřizování)**a v neposlední řadě **systémem**.
 
 Nyní je úspěšně zřízen serveru řadiče domény. Dále nakonfigurujete domény služby Active Directory na tomto serveru řadiče domény.
 

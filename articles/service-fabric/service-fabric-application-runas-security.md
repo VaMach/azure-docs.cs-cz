@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2ff715d8225bd0a9c7f6108f8804cdfa3189cc8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>Konfigurace zásad zabezpečení pro aplikaci
 Pomocí Azure Service Fabric můžete zabezpečit aplikace, které jsou spuštěny v clusteru v rámci jiné uživatelské účty. Service Fabric také pomáhá zabezpečit prostředky, které jsou používány aplikací v době nasazení podle uživatelských účtů – například soubory, adresářů a certifikáty. Díky spuštěné aplikace, i v prostředí sdílené hostované bezpečnější od sebe navzájem.
@@ -30,7 +30,7 @@ Ve výchozím nastavení se aplikace Service Fabric běžet pod účtem, proces 
 Můžete definovat a vytvořit skupiny uživatelů, aby pro každou skupinu pro správu společně lze přidat jeden nebo více uživatelů. To je užitečné, pokud existuje více uživatelů pro různé služby vstupní body a vyžadují, aby byla určité společné oprávnění, které jsou k dispozici na úrovni skupiny.
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Konfigurace zásad pro bod služby instalační položka
-Jak je popsáno v [aplikačního modelu](service-fabric-application-model.md), instalační program vstupního bodu, **SetupEntryPoint**, je privilegované vstupního bodu, který běží se stejnými pověřeními, jako Service Fabric (obvykle *NetworkService* účtu) před další vstupní bod. Spustitelný soubor, který je zadán **EntryPoint** je obvykle dlouho běžící hostitele služby. Proto nutnosti samostatného instalačního vstupního bodu tomu není nutné spustit spustitelný soubor hostitele služby s vysokou úrovní oprávnění pro dlouhou dobu. Spustitelný soubor, **EntryPoint** určuje běží **SetupEntryPoint** ukončí úspěšně. Výsledný proces monitorovat a restartuje a znovu začíná **SetupEntryPoint** Pokud někdy ukončí nebo dojde k chybě.
+Jak je popsáno v [služby manifestů aplikace a](service-fabric-application-and-service-manifests.md), instalační program vstupního bodu, **SetupEntryPoint**, je privilegované vstupního bodu, který běží se stejnými pověřeními, jako Service Fabric (obvykle *NetworkService* účtu) před další vstupní bod. Spustitelný soubor, který je zadán **EntryPoint** je obvykle dlouho běžící hostitele služby. Proto nutnosti samostatného instalačního vstupního bodu tomu není nutné spustit spustitelný soubor hostitele služby s vysokou úrovní oprávnění pro dlouhou dobu. Spustitelný soubor, **EntryPoint** určuje běží **SetupEntryPoint** ukončí úspěšně. Výsledný proces monitorovat a restartuje a znovu začíná **SetupEntryPoint** Pokud někdy ukončí nebo dojde k chybě.
 
 Zde je jednoduché služby manifestu příklad, který ukazuje SetupEntryPoint a hlavní vstupní bod pro službu.
 

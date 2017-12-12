@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 12/10/2017
 ms.author: magoedte
-ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Připojení nástroje Operations Manager k analýze protokolů
 Pokud chcete zachovat existující investic do služby System Center Operations Manager a používat rozšířené možnosti s analýzy protokolů, můžete integrovat nástroje Operations Manager s vaším pracovním prostorem OMS.  To umožňuje že využít příležitostí OMS a nadále používat nástroj Operations Manager:
@@ -40,9 +40,9 @@ Pokud vaše zásady zabezpečení IT neumožňují počítače v síti pro přip
 ## <a name="system-requirements"></a>Požadavky na systém
 Než začnete, zkontrolujte následující podrobnosti k ověření, že splňujete požadavky.
 
-* OMS podporuje pouze Operations Manager 2016 UR10 Operations Manager 2012 SP1 a vyšší a UR11 Operations Manager 2012 R2 a vyšší.
+* OMS podporuje pouze Operations Manager 2016 UR6 Operations Manager 2012 SP1 a vyšší a UR2 Operations Manager 2012 R2 a vyšší.  V nástrojích Operations Manager 2012 SP1 UR7 a Operations Manager 2012 R2 UR3 je přidaná podpora proxy serverů.
 * Všichni agenti nástroje Operations Manager musí splňovat požadavky na minimální podporu. Zkontrolujte, zda jsou agenti na minimální aktualizace, v opačném případě může selhat provoz agenta Windows a mnoho chyb může vyplnit protokolu událostí nástroje Operations Manager.
-* Předplatné Azure Log Analytics.  Další informace najdete v tématu [začít pracovat s analýzy protokolů](log-analytics-get-started.md).
+* Předplatné OMS.  Další informace najdete v tématu [začít pracovat s analýzy protokolů](log-analytics-get-started.md).
 
 ### <a name="network"></a>Síť
 Informace o následující seznam konfigurace proxy a firewall informace požadované pro agenta nástroje Operations Manager, servery pro správu a konzole Operations console ke komunikaci s OMS.  Provoz z jednotlivých součástí je odchozí z vaší sítě do služby OMS.     
@@ -208,7 +208,7 @@ Chcete-li odstranit dva konektory - Microsoft.SystemCenter.Advisor.DataConnector
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

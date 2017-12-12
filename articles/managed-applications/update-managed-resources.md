@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 59dce2fe7d91cc80f991e5ff298be7757ae19ef4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3c955d7be0e7e6d45751c0e685bad498e524d94
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Pracovat s prostředky v spravovanou skupinu prostředků pro Azure spravované aplikace
 
@@ -95,6 +95,5 @@ Přiřazení zásady se zobrazí na portálu.
 
 ## <a name="next-steps"></a>Další kroky
 
-* Úvod do spravovaných aplikací, najdete v části [spravované aplikace přehled](overview.md).
+* Úvod ke spravovaným aplikacím najdete v [přehledu spravovaných aplikací](overview.md).
 * Ukázkové projekty, najdete v části [ukázkové projekty Azure spravované aplikace](sample-projects.md).
-* Informace o publikování spravované aplikace do Azure Marketplace najdete v tématu [spravované aplikace na webu Marketplace](publish-marketplace-app.md).

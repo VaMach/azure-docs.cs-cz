@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3d552ae8593773fbf17cd19344f1ddb4d3a49fba
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Spusťte Cassandra clusteru v systému Linux v Azure pomocí Node.js
 
@@ -134,7 +134,7 @@ V tomto kroku procesu Ubuntu image pomocí vytvoříme požadovaného softwaru t
 Azure potřebuje X509 veřejný klíč, který je PEM nebo DER kódovaný během zřizování. Generování páru veřejného a privátního klíče RSA podle pokynů v tom, jak použití SSH se systémem Linux v Azure. Pokud budete chtít použít putty.exe jako klienta SSH buď na systému Windows nebo Linux, je nutné převést PEM kódovaný privátního klíče RSA PPK formátu s využitím puttygen.exe; Pokyny k tomuto naleznete na webové stránce nahoře.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>Krok 2: Vytvoření Ubuntu šablony virtuálních počítačů
-Vytvořit šablonu virtuálního počítače, přihlaste se k portálu Azure classic a použijte následující posloupnost: klikněte na tlačítko Nový, výpočetní, virtuální počítač, FROM GALERIE, UBUNTU a Ubuntu Server 14.04 LTS a klikněte na šipku vpravo. Kurz, který popisuje, jak vytvořit virtuální počítač s Linuxem, najdete v části vytvořit virtuální počítač systémem Linux.
+Vytvořit šablonu virtuálního počítače, přihlaste se k portálu Azure a použijte následující posloupnost: klikněte na tlačítko Nový, výpočetní, virtuální počítač, FROM GALERIE, UBUNTU a Ubuntu Server 14.04 LTS a klikněte na šipku vpravo. Kurz, který popisuje, jak vytvořit virtuální počítač s Linuxem, najdete v části vytvořit virtuální počítač systémem Linux.
 
 Na obrazovce "Konfigurace virtuálního počítače" #1 zadejte následující informace:
 

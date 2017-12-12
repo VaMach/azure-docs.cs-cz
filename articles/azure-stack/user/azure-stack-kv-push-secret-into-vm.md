@@ -3,8 +3,8 @@ title: "Nasazení virtuálního počítače s certifikátem bezpečně uložené
 description: "Postup nasazení virtuálního počítače a vložit do jeho certifikát pomocí trezoru klíčů v Azure zásobníku"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
-ms.author: sngun
-ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: e319f5c6d27d3a223764b0a5593480f02864ddbe
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Vytvoření virtuálního počítače a obsahují certifikát načíst z trezoru klíčů
 
@@ -26,7 +26,7 @@ Tento článek vám pomůže vytvořit virtuální počítač v Azure zásobník
 
 ## <a name="prerequisites"></a>Požadavky
 
-* Musí se musíte přihlásit k nabídku obsahující službu Key Vault. 
+* Musí se přihlásíte na nabídku obsahující službu Key Vault. 
 * [Instalace prostředí PowerShell pro Azure zásobníku.](azure-stack-powershell-install.md)  
 * [Konfigurace prostředí PowerShell Azure zásobník uživatele](azure-stack-powershell-configure-user.md)
 

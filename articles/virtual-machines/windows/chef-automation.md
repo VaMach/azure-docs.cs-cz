@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: c9a67644ff2922875de486b2a2b671f8e82e9449
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9dabf666c633b59c7d1f9478b0e9cfe9d313e129
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizace nasazení virtuálních počítačů Azure pomocí Chefu
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef je skvělý nástroj pro doručení automatizace a požadovaného stavu konfigurace.
 
-Naše nejnovější verzi api cloudu Chef poskytuje bezproblémovou integraci s Azure, což vám umožní zřídit a nasadit stavům konfigurace prostřednictvím jeden příkaz.
+Na nejnovější cloudových rozhraní api verze, Chef poskytuje bezproblémovou integraci s Azure, což vám umožní zřídit a nasadit stavům konfigurace prostřednictvím jeden příkaz.
 
-V tomto článku I budete ukazují, jak nastavit prostředí Chef vás provede procesem vytvoření zásadu nebo "Kuchařka" a pak tento kuchařka nasazení pro virtuální počítač Azure a zřizovat virtuální počítače Azure.
+V tomto článku nastavíte prostředí Chef provede procesem vytvoření zásadu nebo "Kuchařka" a pak tento kuchařka nasazení pro virtuální počítač Azure a zřizovat virtuální počítače Azure.
 
 Můžeme začít!
 
 ## <a name="chef-basics"></a>Základy Chef
-Než začnete, naznačují, že zkontrolujte se základními koncepty Chef. Je skvělým materiálu <a href="http://www.chef.io/chef" target="_blank">zde</a> a I doporučujeme mít Rychlé čtení před provedením tohoto návodu. Základy I bude recap, ale než začneme.
+Než začnete, [zkontrolujte se základními koncepty Chef](http://www.chef.io/chef). 
 
 Následující diagram znázorňuje architekturu Chef vysoké úrovně.
 
@@ -41,24 +41,23 @@ Následující diagram znázorňuje architekturu Chef vysoké úrovně.
 
 Chef má třemi hlavními komponentami architektury: Chef, Chef klienta (uzel), Chef pracovní stanici a serveru.
 
-Je Chef Server naše bod správy a existují dvě možnosti pro Chef Server: hostované řešení nebo v případě místních řešení. Použijeme hostované řešení.
+Je Chef Server bod správy a existují dvě možnosti pro Chef Server: hostované řešení nebo v případě místních řešení. Použijeme hostované řešení.
 
 Klient Chef (uzel) je agenta, která se nachází na serverech, které spravujete.
 
-Pracovní stanice Chef je naše správce pracovní stanice, kde budeme vytvářet naše zásady a spustit příkazy pro správu. Jsme spustit **nůž** příkazu z Chef pracovní stanice ke správě naše infrastruktury.
+Pracovní stanice Chef je pracovní stanice správce, kde budeme vytvářet zásady a spustit příkazy pro správu. Jsme spustit **nůž** příkazu z Chef pracovní stanice ke správě infrastruktury.
 
-Je také koncepci "Cookbooks" a "Recepty". Toto jsou efektivně zásady jsme definovat a aplikovat na našich serverech.
+Je také koncepci "Cookbooks" a "Recepty". Toto jsou efektivně zásady jsme definovat a použít na servery.
 
 ## <a name="preparing-the-workstation"></a>Příprava pracovní stanice
-Umožňuje nejprve rychlá příprava pracovní stanice. Používám standardní pracovní stanice systému Windows. Je potřeba vytvořit adresář k uložení naše konfigurační soubory a cookbooks.
+Umožňuje nejprve rychlá příprava pracovní stanice. Používám standardní pracovní stanice systému Windows. Je potřeba vytvořit adresář k uložení konfigurační soubory a cookbooks.
 
 Nejprve vytvořte adresář s názvem C:\chef.
 
 Potom vytvořte druhý adresář s názvem c:\chef\cookbooks.
 
-Nyní potřebujeme Stáhnout naše souborů nastavení Azure, Chef může komunikovat s naše předplatné Azure.
+Nyní potřebujeme stáhnout soubor nastavení Azure, Chef může komunikovat s předplatným služby Azure.
 
-<!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
 Stáhněte si vaše nastavení pomocí PowerShell Azure publikování [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) příkaz. 
 
 Uložte soubor nastavení publikování v C:\chef.
@@ -147,13 +146,13 @@ Pokud se vše správně nakonfigurovaná, zobrazí se seznam dostupných imagí 
 Blahopřejeme. Pracovní stanici je nastavený!
 
 ## <a name="creating-a-cookbook"></a>Vytváření kuchařka
-Kuchařka slouží Chef definovat sadu příkazů, které chcete spustit na spravovaného klienta. Vytváření kuchařka je jednoduchý a používáme **chef generovat kuchařka** příkazu vygenerujte naše kuchařka šablony. I bude možné volání Moje kuchařka webový server jako nastavit jako zásadu, která automaticky nasadí služby IIS.
+Kuchařka slouží Chef definovat sadu příkazů, které chcete spustit na spravovaného klienta. Vytváření kuchařka je jednoduchý a používáme **chef generovat kuchařka** příkazu vygenerujte kuchařka šablony. I bude možné volání Moje kuchařka webový server jako nastavit jako zásadu, která automaticky nasadí služby IIS.
 
 V části adresáře C:\Chef spusťte následující příkaz.
 
     chef generate cookbook webserver
 
-Tím se vygeneruje určitou sadu souborů v adresáři C:\Chef\cookbooks\webserver. Nyní potřebujeme definovat sadu příkazů, že rádi bychom znali našeho Chef klienta ke spouštění na našem spravované virtuálního počítače.
+Tím se vygeneruje určitou sadu souborů v adresáři C:\Chef\cookbooks\webserver. Nyní potřebujeme definovat sadu příkazů, že má klient Chef pro spuštění ve spravovaných virtuálního počítače.
 
 Příkazy jsou uloženy v souboru default.rb. V tomto souboru I budete definování sadu příkazů, který nainstaluje službu IIS, spustí službu IIS a zkopíruje soubor šablony do složky wwwroot.
 
@@ -176,7 +175,7 @@ Upravte soubor C:\chef\cookbooks\webserver\recipes\default.rb a přidejte násle
 Až budete hotoví, uložte soubor.
 
 ## <a name="creating-a-template"></a>Vytvoření šablony
-Jak jsme už bylo zmíněno dříve, je potřeba generovat soubor šablony, který se použije jako naší stránce s default.html.
+Jak jsme už bylo zmíněno dříve, je potřeba generovat soubor šablony, který se použije jako default.html stránky.
 
 Spusťte následující příkaz pro vytvoření šablony.
 
@@ -185,14 +184,14 @@ Spusťte následující příkaz pro vytvoření šablony.
 Nyní přejděte k souboru C:\chef\cookbooks\webserver\templates\default\Default.htm.erb. Upravte soubor přidáním jednoduchý "Hello, World" HTML kód a pak soubor uložte.
 
 ## <a name="upload-the-cookbook-to-the-chef-server"></a>Nahrát na Server Chef kuchařka
-V tomto kroku jsme jsou pořízení kopie Cookbook, který jsme vytvořili na našem místního počítače a pak ho nahrát na Server hostované Chef. Po nahrání kuchařka se zobrazí v části **zásad** kartě.
+V tomto kroku jsme jsou pořízení kopie Cookbook, který jsme vytvořili v místním počítači a pak ho nahrát na Server hostované Chef. Po nahrání kuchařka se zobrazí v části **zásad** kartě.
 
     knife cookbook upload webserver
 
 ![][9]
 
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Nasazení virtuálního počítače s nůž Azure
-Nyní změníme nasadit virtuální počítač Azure a použít kuchařka "Webový server", který nainstaluje naše IIS webové služby a výchozí webové stránky.
+Nyní změníme nasadit virtuální počítač Azure a použít kuchařka "Webový server", který nainstaluje službu IIS webové služby a výchozí webové stránce.
 
 Chcete-li to provést, použijte **server nůž azure vytvořit** příkaz.
 

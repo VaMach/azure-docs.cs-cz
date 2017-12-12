@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: e3aa1d432cf2c510c09b13d4f07833edcb1e9b53
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Prostředky, role a řízení přístupu ve službě Application Insights
 Můžete řídit, kdo má číst a aktualizovat přístupu k datům v Azure [Application Insights][start], pomocí [řízení přístupu na základě Role ve službě Microsoft Azure](../active-directory/role-based-access-control-configure.md).
@@ -42,7 +42,7 @@ První, definice:
 
     ![Vyberte možnost Procházet, skupiny prostředků, a potom vyberte skupinu](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Předplatné** ](https://manage.windowsazure.com) – Pokud chcete použít Application Insights nebo další prostředky Azure, přihlaste se k předplatnému Azure. Každá skupina prostředků patří do jedno předplatné, kde vyberete vašeho balíčku ceny a, pokud je předplatné organizace, zvolte členy a jejich oprávnění k přístupu.
+* [**Předplatné** ](https://portal.azure.com) – Pokud chcete použít Application Insights nebo další prostředky Azure, přihlaste se k předplatnému Azure. Každá skupina prostředků patří do jedno předplatné, kde vyberete vašeho balíčku ceny a, pokud je předplatné organizace, zvolte členy a jejich oprávnění k přístupu.
 * [**Účet Microsoft** ] [ account] -uživatelské jméno a heslo, které používáte pro přihlášení k Microsoft Azure odběry, XBox Live, Outlook.com a dalších služeb společnosti Microsoft.
 
 ## <a name="access"></a>Řízení přístupu ve skupině prostředků
@@ -67,7 +67,7 @@ Přidejte uživatele existuje.
 
 Nebo můžete přejít do jiné úrovně a přidejte uživatele k předplatnému.
 
-#### <a name="select-a-role"></a>Vyberte roli
+#### <a name="select-a-role"></a>Vybrat roli
 ![Vyberte role pro nového uživatele](./media/app-insights-resources-roles-access-control/03-role.png)
 
 | Role | Ve skupině prostředků |
@@ -84,7 +84,7 @@ Nebo můžete přejít do jiné úrovně a přidejte uživatele k předplatnému
 * Výstrahy
 * Průběžný export
 
-#### <a name="select-the-user"></a>Vybrat uživatele
+#### <a name="select-the-user"></a>Vyberte uživatele
 
 Pokud uživatel, který má být není v adresáři, můžete pozvat, každý uživatel s účtem Microsoft.
 (Pokud používají služby, jako je Outlook.com, OneDrive, Windows Phone nebo XBox Live, budou mít účet Microsoft.)

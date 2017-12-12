@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Články DocumentDB rozhraní API | Microsoft Docs"
-description: "Seznam všech článků, které jsou specifické pro vytvoření databáze dokumentů pomocí rozhraní API DocumentDB v Azure Cosmos DB."
+title: "Azure Cosmos DB: Články rozhraní API pro SQL | Microsoft Docs"
+description: "Seznam všech článků, které jsou specifické pro vytvoření databáze dokumentů pomocí rozhraní SQL API v Azure Cosmos DB."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,23 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: b036c52d4b06d95f701e655308d011cb92aa8780
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB: Dokumentace DocumentDB rozhraní API
+# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: Dokumentace rozhraní API pro SQL
 
-Tento článek obsahuje odkazy na všechny konkrétního obsahu Azure Cosmos DB rozhraní API DocumentDB.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Tento článek obsahuje odkazy na všechny konkrétního obsahu Azure Cosmos DB rozhraní SQL API.
 
 Tyto články se nevztahují na rozhraní Graph API, rozhraní API tabulky nebo rozhraní API MongoDB. 
 
 ## <a name="introduction-and-concepts"></a>Úvod a koncepty
 
-Jedná se o musí přečíst témata a prostředků ke spuštění informací o DocumentDB rozhraní API pro Azure Cosmos DB.
+Jedná se o musí přečíst témata a prostředků ke spuštění informací o rozhraní SQL API pro Azure Cosmos DB.
 
-- [Rozhraní API DocumentDB Úvod](documentdb-introduction.md)
+- [Rozhraní API pro SQL Úvod](documentdb-introduction.md)
 - [Model prostředků databáze.](documentdb-resources.md)
 - Webový server: [Query playground](https://www.documentdb.com/sql/demo)
 - Tahák: [gramatiky SQL](documentdb-sql-query-cheat-sheet.md)
@@ -109,7 +111,7 @@ Azure Cosmos DB poskytuje řadu sady SDK umožňující vývoj aplikací na stra
 
 ## <a name="samples"></a>Ukázky
 
-Tyto ukázkové stránky poskytují odkazy na ukázkový kód a rozhraní API referenční obsah pro běžné úkoly, rozhraní API DocumentDB.
+Tyto ukázkové stránky poskytují odkazy na ukázkový kód a rozhraní API referenční obsah pro běžné úkoly, rozhraní API pro SQL.
 
 - [.NET](documentdb-dotnet-samples.md)
 - [Node.js](documentdb-nodejs-samples.md)

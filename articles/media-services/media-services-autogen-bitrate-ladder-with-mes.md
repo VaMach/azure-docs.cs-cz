@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Pomocí Azure Media Encoder Standard pro automatické generování žebříku přenosovou rychlostí
 
 ## <a name="overview"></a>Přehled
 
-Toto téma ukazuje způsob použití Media Encoder Standard (MES) pro automatické generování žebříku přenosovou rychlostí (přenosovou rychlostí řešení páry) na základě vstupních řešení a přenosovou rychlostí. Automaticky generovaný přednastavení se nikdy překročit vstupní řešení a přenosovou rychlostí. Například pokud je vstupní 720p na 3 MB/s, bude výstup zůstat v nejlépe 720p a spustí tempem nižší než 3 MB/s.
+Tento článek ukazuje způsob použití Media Encoder Standard (MES) pro automatické generování žebříku přenosovou rychlostí (přenosovou rychlostí řešení páry) na základě vstupních řešení a přenosovou rychlostí. Automaticky generovaný přednastavení se nikdy překročit vstupní řešení a přenosovou rychlostí. Například pokud vstupní 720p 3 MB/s, výstup v nejlépe zůstane 720p a začne tempem nižší než 3 MB/s.
 
 ### <a name="encoding-for-streaming-only"></a>Kódování pro streamování pouze
 
-Pokud vaše je určený ke kódování videa zdroje jenom pro streamování, volných prostředků můžete použít "Adaptivní streamování" přednastavení při vytvoření úlohy kódování. Při použití **adaptivní datové proudy** předvolby, kodér MES bude inteligentně cap žebříku přenosovou rychlostí. Ale nebudete moct kódování náklady, protože služba určuje, kolik vrstvách používat ovládací prvek a v jakém rozlišení. Vidíte příklady vytvoření MES v důsledku kódování s vrstev výstup **adaptivní datové proudy** přednastavení na konci tohoto tématu. Výstupní Asset bude obsahovat soubory MP4, kde audio a video nejsou prokládaný.
+Pokud vaše je určený ke kódování videa zdroje jenom pro streamování, měli byste použít "Adaptivní streamování" přednastavení při vytvoření úlohy kódování. Při použití **adaptivní datové proudy** předvolby, kodér MES bude inteligentně cap žebříku přenosovou rychlostí. Ale nebudete moct kódování náklady, protože služba určuje, kolik vrstvách používat ovládací prvek a v jakém rozlišení. Vidíte příklady vytvoření MES v důsledku kódování s vrstev výstup **adaptivní datové proudy** přednastavení na konci tohoto článku. Výstupní Asset obsahuje soubory MP4, kde audio a video není prokládaný.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Kódování pro streamování a progresivní stahování
 
-Pokud vaše je určený ke kódování zdroj videa pro streamování a také k vytváření souborů MP4 pro progresivní stahování, volných prostředků můžete používat "obsahu adaptivní více přenosovou rychlostí MP4" přednastavení při vytvoření úlohy kódování. Při použití **obsahu adaptivní více MP4 přenosovou rychlostí** předvolby, kodér MES se použijí stejné logiky, která kódování, jak je uvedeno výše, ale teď výstupní asset bude obsahovat soubory MP4, kde audio a video je prokládaný. Jako soubor progresivní stahování můžete použít jednu z těchto souborů MP4 (například nejvyšší verze přenosovou rychlostí).
+Pokud vaše je určený ke kódování zdroj videa pro streamování a také k vytváření souborů MP4 pro progresivní stahování, měli byste použít "obsahu adaptivní více přenosovou rychlostí MP4" přednastavení při vytvoření úlohy kódování. Při použití **obsahu adaptivní více MP4 přenosovou rychlostí** předvolby, kodér MES platí stejné logiky, která kódování, jak je uvedeno výše, ale teď výstupní asset bude obsahovat soubory MP4, kde audio a video je prokládaný. Jako soubor progresivní stahování můžete použít jednu z těchto souborů MP4 (například nejvyšší verze přenosovou rychlostí).
 
 ## <a id="encoding_with_dotnet"></a>Kódování pomocí služby Media Services .NET SDK
 
@@ -41,7 +40,7 @@ Následující příklad kódu používá sadu Media Services .NET SDK k provád
 - Vytvořte úlohu kódování.
 - Získáte odkaz na kodéru Media Encoder Standard.
 - Přidejte kódování úkolů do úlohy a použít **adaptivní datové proudy** přednastavené. 
-- Vytvoření výstupní asset, který bude obsahovat k zakódovanému assetu.
+- Vytvoření výstupní asset, který obsahuje k zakódovanému assetu.
 - Přidání obslužné rutiny události zkontrolovat průběh úlohy.
 - Odeslání úlohy.
 
@@ -51,28 +50,37 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
 #### <a name="example"></a>Příklad
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace AdaptiveStreamingMESPresest
+namespace AdaptiveStreamingMESPresest
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -122,26 +130,26 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -150,12 +158,13 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
-        }
     }
+}
+```
 
 ## <a id="output"></a>Výstup
 

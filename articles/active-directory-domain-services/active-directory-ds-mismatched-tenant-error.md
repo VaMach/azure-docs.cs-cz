@@ -4,7 +4,7 @@ description: "Rady pro pochopení a řešení chyb neodpovídající directory p
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: maheshu
-ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Vyřešte chyby neodpovídající directory pro existující spravované domény služby Azure AD Domain Services
-Máte existující spravované domény, která byla povolit pomocí portálu Azure classic. Přejděte na nový portál Azure a zobrazení spravované doméně, zobrazí se následující chybová zpráva:
+Máte existující spravované doméně služby Azure AD Domain Services. Když přejdete na portál Azure a zobrazení spravované doméně, zobrazí se následující chybová zpráva:
 
 ![Chyba neodpovídající adresáře](.\media\getting-started\mismatched-tenant-error.png)
 
@@ -33,7 +33,7 @@ K této chybě dojde, pokud vaší spravované domény a virtuální sítě je p
 
 Nový portál Azure (a konkrétně rozšíření Azure AD Domain Services) je založený na Azure Resource Manager. Moderní prostředí Azure Resource Manager vynutí se určitá omezení a poskytovat vyšší úroveň zabezpečení pro přístup na základě rolí k řízení (RBAC) k prostředkům. Povolení služby Azure AD Domain Services pro klienta služby Azure AD je citlivé operace, protože způsobí, že hodnoty hash přihlašovacích údajů k synchronizaci k spravované doméně. Tuto operaci, musíte být správcem klienta pro adresář. Kromě toho musí mít oprávnění správce přes virtuální síť, ve kterém povolíte spravované domény. Pro RBAC kontroly, které mají pracují konzistentně spravované doméně a virtuální síť musí náležet do stejné klienta Azure AD.
 
-Stručně řečeno nelze povolit spravované domény pro klienta služby Azure AD "contoso.com" ve virtuální síti, které patří k předplatnému Azure vlastníkem jiného klienta Azure AD, fabrikam.com'. Portál Azure classic není postavená na platformě Resource Manager a nevynucuje takových omezení.
+Stručně řečeno nelze povolit spravované domény pro klienta služby Azure AD "contoso.com" ve virtuální síti, které patří k předplatnému Azure vlastníkem jiného klienta Azure AD, fabrikam.com'. 
 
 **Platná konfigurace**: V tomto scénáři nasazení spravované domény Contoso je povolený pro klientovi Contoso Azure AD. Spravované domény je vystaven ve virtuální síti, které patří k předplatnému Azure vlastníkem klientovi Contoso Azure AD. Spravované doméně jak virtuální sítě, tedy patřit do stejné klienta Azure AD. Tato konfigurace je platný a plně podporované.
 

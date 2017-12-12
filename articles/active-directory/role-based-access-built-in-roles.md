@@ -4,7 +4,7 @@ description: "Toto téma popisuje předdefinovaných do rolí pro řízení př�
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Předdefinované role pro řízení přístupu Azure na základě rolí
 Azure na základě rolí řízení přístupu (RBAC) obsahuje následující předdefinované role, které lze přiřadit uživatelům, skupinám a službám. Definice předdefinované role se nedá změnit. Můžete však vytvořit [vlastní role v Azure RBAC](role-based-access-control-custom-roles.md) podle konkrétních potřeb vaší organizace.
@@ -55,7 +55,7 @@ V tomto článku pouze adresy různé role, které existují ještě dnes. Když
 | [Přispěvatel objekt pro vytváření dat](#data-factory-contributor) |Můžete vytvořit a spravovat datové továrny a podřízené prostředky v nich. |
 | [Uživatel DevTest Labs](#devtest-labs-user) |Můžete zobrazit vše, co a připojit, spuštění, restart a vypnutí virtuálního počítače |
 | [Přispěvatel zóny DNS](#dns-zone-contributor) |Můžete spravovat zóny DNS a záznamy |
-| [Přispěvatel účet Azure Cosmos DB](#documentdb-account-contributor) |Můžete spravovat účty pro Azure Cosmos DB |
+| [Přispěvatel účtu DocumentDB](#documentdb-account-contributor) |Můžete spravovat účty pro Azure Cosmos DB |
 | [Přispěvatel účet inteligentních systémů](#intelligent-systems-account-contributor) |Můžete spravovat účty inteligentních systémů |
 | Přispěvatel aplikace logiky | Můžete spravovat všechny aspekty aplikace logiky, ale není vytvořte novou. |
 | Operátor aplikace logiky |Můžete spustit a zastavit pracovní postupy definované v rámci aplikace logiky. |
@@ -371,13 +371,13 @@ Můžete spravovat zóny DNS a záznamy.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/\* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Přispěvatel účet Azure Cosmos DB
-Můžete spravovat účty pro Azure Cosmos DB
+### <a name="documentdb-account-contributor"></a>Přispěvatel účtu DocumentDB
+Ke správě účtů Azure Cosmos DB. Azure Cosmos DB je dříve označované jako DocumentDB.
 
 | **Akce** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Čtení role a role přiřazení |
-| Microsoft.DocumentDb/databaseAccounts/* |Vytvářet a spravovat účty DocumentDB |
+| Microsoft.DocumentDb/databaseAccounts/* |Vytvořit a spravovat účty pro Azure Cosmos DB |
 | Microsoft.Insights/alertRules/* |Vytvářet a spravovat pravidla výstrah |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Načíst stav prostředků |
 | Microsoft.Resources/deployments/* |Vytvářet a spravovat nasazení skupiny prostředků |
@@ -440,7 +440,7 @@ Můžete spravovat všechny síťové prostředky
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="new-relic-apm-account-contributor"></a>Přispěvatel účtů New Relic APM
+### <a name="new-relic-apm-account-contributor"></a>Nový přispěvatel účet New Relic APM
 Můžete spravovat novou Správa výkonu aplikací New Relic účty a aplikace
 
 | **Akce** |  |

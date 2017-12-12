@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 64a035c216e4d7aa4c14baf1812b9a25e27b3e19
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2410ed152674637cb1b287db55da67b8d5f5f072
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Pomocí Azure Machine Learning Workbench klasifikace bitové kopie
 
@@ -63,7 +63,7 @@ Požadavky na spuštění v tomto příkladu jsou následující:
 - Chyby z důvodu nedostatku paměti při školení DNN předejít zmenšení velikosti minibatch (proměnná `cntk_mb_size` v `PARAMETERS.py`).
 - Kód byl testován pomocí CNTK 2.2 a by také spustit v starší (až v2.0) a novější verze bez nebo pouze malé změny.
 - V době psaní Azure Machine Learning Workbench měla problémy s zobrazující poznámkových bloků větší než 5 MB. Poznámkové bloky této velké velikosti může dojít, pokud poznámkového bloku je uložit s všechny buňky zobrazí výstup. Pokud k této chybě dojde, otevřete příkazový řádek z nabídky Soubor uvnitř nástroje Workbench, provést `jupyter notebook`, otevřete Poznámkový blok, zrušte všechny výstup a uložte poznámkového bloku. Po provedení těchto kroků, poznámkového bloku bude správně uvnitř Azure Machine Learning Workbench znovu otevřít.
-- Všechny skripty v této ukázce muset provést místně a ne na například docker vzdáleného prostředí. Všech poznámkových bloků muset provést s jádra nastavena na jádra místní projektu s názvem "<projectname> místní" (například "místní myImgClassUsingCNTK").
+- Všechny skripty v této ukázce muset provést místně a ne na například docker vzdáleného prostředí. Všech poznámkových bloků je nutné provést s jádra nastavena na jádra místní projektu s názvem "PROJECTNAME místní" (například "myImgClassUsingCNTK místní").
 
     
 ## <a name="create-a-new-workbench-project"></a>Vytvoření nového projektu workbench
@@ -115,7 +115,7 @@ Jsou zadány všechny důležité parametry a krátký vysvětlení dostupné na
 ### <a name="step-1-data-preparation"></a>Krok 1: Příprava dat
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-Poznámkového bloku `showImages.ipynb` lze použít k vizualizaci bitové kopie a opravte jejich poznámky podle potřeby. Pokud chcete spustit poznámkového bloku, otevřete v nástroji Azure Machine Learning Workbench, klikněte na "spustit poznámkového bloku Server" Pokud tato možnost se zobrazí, změňte jádra místní projektu s názvem "<projectname> místní" (například "myImgClassUsingCNTK místní") a potom spusťte všechny buňky v Poznámkový blok. Pokud dojde k chybě nesouhlasících Poznámkový blok je příliš velký, který se má zobrazit, najdete v části řešení potíží v tomto dokumentu.
+Poznámkového bloku `showImages.ipynb` lze použít k vizualizaci bitové kopie a opravte jejich poznámky podle potřeby. Pokud chcete spustit poznámkového bloku, otevřete ho v Azure Machine Learning Workbench, klikněte na "spustit poznámkového bloku Server" Pokud tato možnost se zobrazí, změňte jádra místní projektu s názvem "PROJECTNAME místní" (například "myImgClassUsingCNTK místní"), a potom spusťte všechny buňky v Poznámkový blok. Pokud dojde k chybě nesouhlasících Poznámkový blok je příliš velký, který se má zobrazit, najdete v části řešení potíží v tomto dokumentu.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -179,7 +179,7 @@ Kromě přesnost se vykreslí křivka ROC s příslušnými oblasti v křivky (v
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Nakonec poznámkového bloku `showResults.py` zajišťuje procházení testovací obrázků a vizualizovat jejich skóre příslušné klasifikace. Jak je popsáno v krok 1, každý poznámkového bloku v této ukázce potřebuje používat jádra místní projektu s názvem "<projectname> místní":
+Nakonec poznámkového bloku `showResults.py` zajišťuje procházení testovací obrázků a vizualizovat jejich skóre příslušné klasifikace. Jak je popsáno v krok 1, musí používat jádra místní projektu s názvem "PROJECTNAME místní" každých poznámkového bloku v této ukázce:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -191,7 +191,7 @@ Nakonec poznámkového bloku `showResults.py` zajišťuje procházení testovac�
 ### <a name="step-6-deployment"></a>Krok 6: nasazení
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Vyškolení systému lze nyní publikovat jako rozhraní REST API. Nasazení je vysvětleno v poznámkovém bloku `deploy.ipynb`a podle funkcionalitu v rámci nástroje Azure Machine Learning Workbench (Nezapomeňte nastavit jako jádra jádra místní projektu s názvem "<projectname> místní"). Viz také části vynikající nasazení [IRIS kurzu](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) pro další nasazení související informace.
+Vyškolení systému lze nyní publikovat jako rozhraní REST API. Nasazení je vysvětleno v poznámkovém bloku `deploy.ipynb`a podle funkcionalitu v rámci nástroje Azure Machine Learning Workbench (Nezapomeňte nastavit jako jádra jádra místní projektu s názvem "PROJECTNAME místní"). Viz také části vynikající nasazení [IRIS kurzu](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) pro další nasazení související informace.
 
 Po nasazení webové služby je možné volat pomocí skriptu `6_callWebservice.py`. Všimněte si, že IP adresa (místní nebo v cloudu) webové služby je třeba nejprve nastavit ve skriptu. Poznámkového bloku `deploy.ipynb` vysvětluje, jak najít tuto IP adresu.
 

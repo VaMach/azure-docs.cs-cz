@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: 181ad8471c0d0cb24d8f4eae6bddd9d750b4ee61
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ca04cf773fc337694626f21ab785baecf68858b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="securing-your-sql-database"></a>Zabezpečení SQL Database
 
@@ -31,7 +31,7 @@ V tomto článku najdete základní informace o zabezpečení datové vrstvy apl
 Služba SQL Database chrání vaše data zajištěním šifrování přenášených dat pomocí [protokolu TLS (Transport Layer Security)](https://support.microsoft.com/kb/3135244), neaktivních uložených dat pomocí [transparentního šifrování dat](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) a používaných dat pomocí funkce [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->Všechna připojení ke službě Azure SQL Database vyžadují nepřetržité šifrování (SSL/TLS) příchozích a odchozích databázových dat. V připojovacím řetězci aplikace musíte zadat parametry, které šifrují připojení, a nastavit, že *nechcete* důvěřovat certifikátu serveru (udělá se to automaticky, když zkopírujete připojovací řetězec z portálu Azure Classic), jinak připojení neověří identitu serveru a může být napadeno útočníky, kteří se vydávají za prostředníky. Například u ovladače ADO.NET mají parametry připojovacího řetězce hodnoty **Encrypt=True** a **TrustServerCertificate=False**. 
+>Všechna připojení ke službě Azure SQL Database vyžadují nepřetržité šifrování (SSL/TLS) příchozích a odchozích databázových dat. V připojovacím řetězci vaší aplikace, musíte zadat parametry k šifrování připojení a *není* důvěřovat certifikátu serveru (Pokud udělá se to pro vás zkopírujte připojovací řetězec mimo portál Azure), jinak hodnota připojení nebude ověřit identitu serveru a bude náchylné k útokům "man-in-the-middle". Například u ovladače ADO.NET mají parametry připojovacího řetězce hodnoty **Encrypt=True** a **TrustServerCertificate=False**. 
 
 Existují i jiné možnosti šifrování dat:
 

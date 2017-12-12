@@ -4,7 +4,7 @@ description: "Tento článek popisuje, jak použít k implementaci služeb ově�
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: cc30a54cd56c0cb03a67f86e4552398baa764e58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad2118130ec36aed1561db763946104501eb0f32
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Služby volání služby pomocí pověření klienta (sdílený tajný klíč nebo certifikát)
 OAuth 2.0 klienta pověření Grant toku umožňuje webové služby (*důvěrné klienta*) používat svoje vlastní přihlašovací údaje namísto zosobňování uživatele, k ověřování při volání metody jiné webové služby. V tomto scénáři klient je většinou střední vrstvy webové služby, služba démon nebo webu. Pro vyšší úroveň záruky Azure AD umožňuje také volání služby pro použití certifikátu (ne sdílený tajný klíč) jako pověření.

@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: 64c01c1256e4bcb472ceea874ab3f3b17c0467d7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ab7448d3f55a921d3fb8c06d54c230d262dbec6a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Tipy pro zvýšení výkonu pro Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure Cosmos DB je rychlé a flexibilní distribuovanou databázi, která bezproblémově škáluje s zaručenou latence a propustnosti. Není nutné provádět změny hlavní architektura nebo zapsat složitý kód se škálovat databázi Cosmos DB. Škálování nahoru a dolů je stejně snadná jako provedení jednoho volání rozhraní API nebo [volání metody SDK](set-throughput.md#set-throughput-sdk). Ale protože Cosmos DB přistupuje prostřednictvím sítě volání existují optimalizace straně klienta, provedené k dosažení nejvyššího výkonu.
 
 Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvažte následující možnosti:
@@ -96,7 +99,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
     Jsou vytvářeny požadavky cosmos DB přes protokol HTTPS nebo REST při použití režimu brány a podléhají výchozí limit připojení pro hostitele nebo IP adresa. Musíte nastavit MaxConnections na vyšší hodnotu (100-1000) tak, aby klientské knihovny může využívat víc souběžných připojení k databázi Cosmos. V sadě SDK .NET 1.8.0 a vyšší, výchozí hodnota pro [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) je 50 a chcete-li změnit hodnotu, můžete nastavit [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)na vyšší hodnotu.   
 4. **Ladění paralelní dotazy pro dělené kolekce**
 
-     DocumentDB .NET SDK verze 1.9.0 a vyšší paralelní dotazy podpory, které vám umožní dotazovat dělenou kolekci paralelně (najdete v části [práce sady SDK](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) a související [ukázky kódu jsou](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) Další informace informace o). Paralelní dotazy jsou navrženy pro zlepšit latenci dotazů a propustnosti na jejich sériové protějšku. Paralelní dotazy poskytují dva parametry, které uživatelé mohli vyladit vlastní-přizpůsobit jejich požadavků (a) MaxDegreeOfParallelism: řídit maximální počet oddílů pak může být dotazována v paralelní a (b) MaxBufferedItemCount: k řízení počet předem načtených výsledky.
+     SQL .NET SDK verze 1.9.0 a vyšší paralelní dotazy podpory, které vám umožní dotazovat dělenou kolekci paralelně (najdete v části [práce sady SDK](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) a související [ukázky kódu jsou](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) Další informace). Paralelní dotazy jsou navrženy pro zlepšit latenci dotazů a propustnosti na jejich sériové protějšku. Paralelní dotazy poskytují dva parametry, které uživatelé mohli vyladit vlastní-přizpůsobit jejich požadavků (a) MaxDegreeOfParallelism: řídit maximální počet oddílů pak může být dotazována v paralelní a (b) MaxBufferedItemCount: k řízení počet předem načtených výsledky.
 
     (a) ***ladění MaxDegreeOfParallelism\:***  paralelní dotaz funguje dotazováním více oddílů souběžně. Data z shromažďování jednotlivých oddílů je však načtených sériově s ohledem na dotaz. Ano nastavení MaxDegreeOfParallelism na počet oddílů má maximální riziko dosažení většina původce dotazu, zadaná jinými podmínkami systému zůstávají stejné. Pokud si nejste jisti počet oddílů, můžete nastavit MaxDegreeOfParallelism na vysoké číslo, a systém zvolí minimální (počet oddílů, uživatel zadal vstup) jako MaxDegreeOfParallelism.
 
@@ -110,7 +113,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
     V některých případech mohou pomoci snížit frekvenci uvolňování paměti. V rozhraní .NET, nastavte [gcserver –](https://msdn.microsoft.com/library/ms229357.aspx) na hodnotu true.
 6. **Implementace omezení rychlosti v intervalech RetryAfter**
 
-    Během testování výkonu měli zvýšit zatížení, dokud malý počet žádostí o získání omezeny. Pokud omezené, klientská aplikace měli omezení rychlosti na omezení pro interval opakování zadaný server. Bere ohledy omezení rychlosti zajišťuje strávený minimální množství času čekat mezi opakovanými pokusy. Podpora zásad opakování je součástí verze 1.8.0 a výše documentdb [.NET](documentdb-sdk-dotnet.md) a [Java](documentdb-sdk-java.md), verze 1.9.0 a vyšší z [Node.js](documentdb-sdk-node.md) a [Python ](documentdb-sdk-python.md), a všechny podporované verze [.NET Core](documentdb-sdk-dotnet-core.md) sady SDK. Další informace najdete v tématu [Exceeding vyhrazené omezení propustnosti](request-units.md#RequestRateTooLarge) a [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Během testování výkonu měli zvýšit zatížení, dokud malý počet žádostí o získání omezeny. Pokud omezené, klientská aplikace měli omezení rychlosti na omezení pro interval opakování zadaný server. Bere ohledy omezení rychlosti zajišťuje strávený minimální množství času čekat mezi opakovanými pokusy. Podpora zásad opakování je součástí verze 1.8.0 a výše SQL [rozhraní .NET](documentdb-sdk-dotnet.md) a [Java](documentdb-sdk-java.md), verze 1.9.0 a vyšší z [Node.js](documentdb-sdk-node.md) a [Python](documentdb-sdk-python.md), a všechny podporované verze [.NET Core](documentdb-sdk-dotnet-core.md) sady SDK. Další informace najdete v tématu [Exceeding vyhrazené omezení propustnosti](request-units.md#RequestRateTooLarge) a [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Horizontální navýšení kapacity vaše úlohy klienta**
 
     Pokud testujete na úrovních vysoké propustnosti (> 50 000 RU/s), klientská aplikace se může stát úzkým místem kvůli počítač omezení se na využití procesoru nebo sítě. Pokud dostanete tento bod, můžete dál tak, aby nabízel další účet Cosmos DB podle škálování klientských aplikací na více serverech.
@@ -120,7 +123,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
    <a id="tune-page-size"></a>
 9. **Optimalizovat velikost stránky pro dotazy/číst informační kanály pro lepší výkon**
 
-    Při provádění hromadně číst dokumenty pomocí funkce (například ReadDocumentFeedAsync) informační kanál čtení, nebo při vystavování dotazu DocumentDB SQL, budou vráceny výsledky segmentovaným způsobem, pokud sadu výsledků dotazu je příliš velký. Ve výchozím nastavení budou vráceny výsledky v bloky 100 položky nebo 1 MB, z těchto omezení dosáhl první.
+    Při provádění hromadně číst dokumenty pomocí funkce (například ReadDocumentFeedAsync) informační kanál čtení, nebo při vydání příkazu jazyka SQL, budou vráceny výsledky segmentovaným způsobem, pokud sadu výsledků dotazu je příliš velký. Ve výchozím nastavení budou vráceny výsledky v bloky 100 položky nebo 1 MB, z těchto omezení dosáhl první.
 
     Ke snížení počtu sítě zaokrouhlit služebních cest potřebnou k načtení všech příslušných výsledků, můžete zvýšit velikost stránky pomocí hlavička x-ms-max--počet položek požadavku na až 1000. V případech, kdy je třeba zobrazit jen pár výsledky například pokud vaše uživatelské rozhraní nebo aplikací rozhraní API vrátí jenom 10 výsledků na dobu, může také snížit velikost stránky na 10 ke snížení propustnosti využité pro čtení a dotazy.
 
@@ -133,7 +136,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
 
 11. **Použijte hostitele 64-bit zpracování**
 
-    DocumentDB SDK pracuje v 32bitové hostitelský proces, při použití DocumentDB .NET SDK verze 1.11.4 a vyšší. Ale pokud používáte křížové oddílu dotazy, se doporučuje zpracování hostitelem 64-bit pro zlepšení výkonu. Následující typy aplikací mít 32-bit hostitelský proces jako výchozí, tak, aby bylo možné změnit, na 64-bit, postupujte podle těchto kroků na základě typu aplikace:
+    Sadu SDK SQL pracuje v 32bitové hostitelský proces, při použití SQL .NET SDK verze 1.11.4 a vyšší. Ale pokud používáte křížové oddílu dotazy, se doporučuje zpracování hostitelem 64-bit pro zlepšení výkonu. Následující typy aplikací mít 32-bit hostitelský proces jako výchozí, tak, aby bylo možné změnit, na 64-bit, postupujte podle těchto kroků na základě typu aplikace:
 
     - Pro spustitelný soubor aplikace, to můžete provést zrušením zaškrtnutí políčka **raději 32bitové** možnost **vlastnosti projektu** okno na **sestavení** kartě.
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Požadavky nasazení Azure Stack
 
@@ -121,62 +121,6 @@ Ověřte si dostupnost serveru DHCP v síti, do které se síťová karta připo
 
 ### <a name="internet-access"></a>Přístup k internetu
 Zásobník Azure vyžaduje přístup k Internetu, buď přímo nebo prostřednictvím proxy serveru transparentní. Azure zásobník nepodporuje konfiguraci webového proxy serveru pro povolení přístupu k Internetu. IP adresa hostitele a nových IP přiřazená MAS-BGPNAT01 (pomocí protokolu DHCP nebo statickou IP adresu) musí být mít přístup k Internetu. V rámci domény graph.windows.net a login.microsoftonline.com používají porty 80 a 443.
-
-## <a name="telemetry"></a>Telemetrická data
-
-Telemetrie pomáhá nám utvářejí budoucích verzích zásobník Azure. Umožňuje nám rychle reagovat na připomínky, zadejte nové funkce a zlepšení kvality. Microsoft Azure Stack zahrnuje Windows Server 2016 a SQL Server 2014. Ani jeden z těchto produktů se změní oproti výchozímu nastavení a jak jsou popsány v prohlášení o ochraně osobních údajů Microsoft Enterprise. Azure zásobníku také obsahuje software s otevřeným zdrojem, který byl změněn na odeslání telemetrie do společnosti Microsoft. Tady jsou některé příklady zásobník Azure telemetrická data:
-
-- informace o registraci nasazení
-- Když je výstraha otevřít a zavřít
-- počet síťových prostředků
-
-Pro podporu tok dat telemetrie, musí být otevřen ve vaší síti port 443 (HTTPS). Koncovým bodem klienta je https://vortex-win.data.microsoft.com.
-
-Pokud nechcete, aby zajistit telemetrie pro zásobník Azure, můžete ho vypnout v hostiteli kit vývoj a infrastrukturu virtuálních počítačů, jak je popsáno níže.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Vypnutí telemetrie na hostiteli development kit (volitelné)
-
->[!NOTE]
-Pokud chcete k vypnutí telemetrie pro vývoj kit hostitele, musíte tak učinit před spuštěním skriptu nasazení.
-
-Před [skriptu asdk installer.ps1]() k nasazení hostitele development kit, přihlaste se do CloudBuilder.vhdx a v okně Powershellu se zvýšenými oprávněními spusťte následující skript:
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-Nastavení **AllowTelemetry** na 0 vypne telemetrii pro nasazení systému Windows a protokolů Azure. Jsou odesílány pouze kritické zabezpečení události z operačního systému. Nastavení řídí telemetrie Windows ve všech hostitelích a infrastrukturu virtuálních počítačů a se znovu použije na nové uzly nebo virtuální počítače při výskytu operace škálování.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Vypnutí telemetrie na infrastrukturu virtuálních počítačů (volitelné)
-
-Po úspěšné nasazení, spusťte následující skript v okně prostředí PowerShell se zvýšenými oprávněními (jako uživatel AzureStack\AzureStackAdmin) na hostiteli development kit:
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-Konfigurace systému SQL Server telemetrie najdete v tématu [jak nakonfigurovat SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
-
-### <a name="usage-reporting"></a>Vytváření sestav využití
-
-Prostřednictvím registrace zásobník Azure nastaven také na informace o využití dopředného do Azure. Vytváření sestav využití je řízena nezávisle z telemetrie. Můžete vypnout využití sestav při [registrace](azure-stack-register.md) pomocí skriptu na Githubu. Stačí nastavit **$reportUsage** parametru **$false**.
-
-Data o využití je naformátován jako podrobné v [zásobník Azure sestavy využití dat do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). Ve skutečnosti není účtován Azure uživatelé Development Kit zásobníku. Tato funkce je zahrnutá v sadě pro vývoj, mohli otestovat a zkontrolujte, jak funguje generování sestav o využívání. 
 
 
 ## <a name="next-steps"></a>Další kroky

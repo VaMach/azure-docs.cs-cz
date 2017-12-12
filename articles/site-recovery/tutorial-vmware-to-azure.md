@@ -9,22 +9,22 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Nastavení pro virtuální počítače VMware místní zotavení po havárii do Azure
 
-V tomto kurzu se dozvíte, jak nastavit zotavení po havárii do Azure VMware místní virtuální počítač se službou Windows. V tomto kurzu se naučíte:
+Tento kurz ukazuje, jak nastavit zotavení po havárii do Azure pro místní virtuální počítače VMware s Windows. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
-> * Vytvoření trezoru služeb zotavení pro Site Recovery
-> * Nastavit zdroje a cíle replikace prostředí
+> * Zadejte replikace zdroje a cíle.
+> * Nastavení prostředí zdroje replikace, včetně místní součásti Site Recovery a cílovém prostředí replikace.
 > * Vytvoření zásady replikace
 > * Povolení replikace pro virtuální počítač
 
@@ -35,37 +35,28 @@ Toto je třetí kurz v řadě. V tomto kurzu předpokládá, že jste už dokon�
 
 Než začnete, je vhodné [zkontrolujte architekturu](concepts-vmware-to-azure-architecture.md) pro scénáře zotavení po havárii.
 
-## <a name="configure-vmware-account-permissions"></a>Konfigurace oprávnění pro uživatelský účet VMware
 
-1. Umožňuje vytvořte roli na úrovni vCenter. Zadejte název role **Azure_Site_Recovery**.
-2. Přiřaďte následující oprávnění k **Azure_Site_Recovery** role.
+## <a name="select-a-replication-goal"></a>Vyberte cíle replikace
 
-   **Úkol** | **Role nebo oprávnění** | **Podrobnosti**
-   --- | --- | ---
-   **Zjišťování virtuálních počítačů** | Objekt datového centra –> Propagate pro podřízený objekt role = jen pro čtení | Uživatel alespoň jen pro čtení.<br/><br/> Uživatel přiřazené úrovni datacenter a má přístup ke všem objektům v datovém centru.<br/><br/> Pokud chcete omezit přístup, přiřadit **žádný přístup** role s **Propagate na podřízené** objekt, pro podřízený objekt (hostitelů vSphere, datastores, virtuální počítače a sítě).
-   **Úplná replikace, převzetí služeb při selhání a navrácení služeb po obnovení** |  Objekt datového centra –> Propagate pro podřízený objekt role = Azure_Site_Recovery<br/><br/> Úložiště dat -> přidělte místo, procházet úložiště dat, operace se soubory nízké úrovně, odstraňte soubor, aktualizovat soubory virtuálního počítače<br/><br/> Síť -> přiřazení sítě<br/><br/> Zdroj -> Přiřazení virtuálního počítače do fondu zdrojů, migrovat napájený vypnout virtuální počítač, migrace napájený na virtuálním počítači<br/><br/> Úlohy -> Vytvořit úlohu, úloha aktualizace<br/><br/> Virtuální počítač -> Konfigurace<br/><br/> Virtuální počítač -> interakcí -> odpovědí otázku, připojení zařízení, nakonfigurovat média CD, nakonfigurovat disketová média, vypnout, zapnutí, instalaci nástroje VMware<br/><br/> Virtuální počítač -> inventáře -> vytvořit, registraci, zrušení registrace<br/><br/> Virtuální počítač -> zřizování -> Povolit stahování virtuálního počítače, povolí nahrát soubory virtuálního počítače<br/><br/> Virtuální počítač -> snímky -> odebrat snímky | Uživatel přiřazené úrovni datacenter a má přístup ke všem objektům v datovém centru.<br/><br/> Pokud chcete omezit přístup, přiřadit **žádný přístup** role s **Propagate na podřízené** objekt, pro podřízený objekt (hostitelů vSphere, datastores, virtuální počítače a sítě).
-
-3. Vytvořte uživatele na hostiteli systému vCenter server nebo vSphere. Přiřazení role uživatele.
-
-## <a name="specify-what-you-want-to-replicate"></a>Zadejte, co chcete replikovat
-
-Služba Mobility musí být nainstalovaná na jednotlivé virtuální počítače, které chcete replikovat. Site Recovery tato služba nainstaluje automaticky při povolení replikace pro virtuální počítač. Pro automatické instalaci je nutné připravit účet, který Site Recovery bude používat pro přístup k virtuálnímu počítači.
-
-Můžete vytvořit, domény nebo místní účet. Pro virtuální počítače s Linuxem musí být účet root na zdrojovém serveru Linux. Pro virtuální počítače Windows, pokud nepoužíváte účet domény, zakažte řízení vzdáleného přístupu uživatele v místním počítači:
-
-  - V registery v části **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, přidejte položku DWORD **LocalAccountTokenFilterPolicy** a nastavte hodnotu na 1.
+1. V **trezory služeb zotavení**, klikněte na název trezoru **ContosoVMVault**.
+2. V **Začínáme**, klikněte na možnost obnovení lokality. Pak klikněte na tlačítko **Příprava infrastruktury**.
+3. V **cíl ochrany** > **kam se vaše počítače umístěné**, vyberte **místní**.
+4. V ** kde chcete replikovat počítače, vyberte **do Azure**.
+5. V **jsou vaše počítače virtualizovaných**, vyberte **Ano, s hypervisoru VMware vSphere**. Pak klikněte na **OK**.
 
 ## <a name="set-up-the-source-environment"></a>Nastavení zdrojového prostředí
 
-Nastavení zdrojového prostředí se skládá z stahovat instalaci Unified služby Site Recovery, nastavení konfigurace serveru a její registrací v trezoru a zjišťování virtuálních počítačů.
+Nastavení prostředí zdroje, si stáhnout soubor Unified instalace nástroje Site Recovery. Spuštěním instalačního programu pro instalaci součásti Site Recovery místní, zaregistrujte server VMware v trezoru a zjistit místní virtuální počítače.
 
-Konfigurační server je jediný místní virtuální počítač VMware pro hostování všech součástí Site Recovery. Tento virtuální počítač se spustí konfigurační server, procesový server a hlavní cílový server.
+### <a name="verify-on-premises-site-recovery-requirements"></a>Ověřte požadavky na místní Site Recovery
+
+Potřebujete součásti Site Recovery místního hostitele virtuálních počítačů jednoho, vysoce dostupné, místní VMware. Součásti zahrnují konfigurační server, procesový server a hlavní cílový server.
 
 - Konfigurační server koordinuje komunikaci mezi místním prostředím a Azure a spravuje replikaci dat.
-- Procesový server funguje jako replikační brána. Přijímá data replikace, optimalizuje je pomocí ukládání do mezipaměti, komprese a šifrování a odesílá je do úložiště Azure. Procesový server také nainstaluje služba Mobility na virtuálních počítačích, které chcete replikovat, a provádí automatického zjišťování virtuálních počítačů na místní servery VMware.
+- Procesový server funguje jako replikační brána. Přijímá data replikace, optimalizuje je pomocí ukládání do mezipaměti, komprese a šifrování a odesílá je do úložiště Azure. Procesový server také nainstaluje služba Mobility na virtuálních počítačích, které chcete replikovat, a provádí automatického zjišťování virtuálních počítačů VMware na místě.
 - Hlavní cílový server zpracovává replikační data během navrácení služeb po obnovení z Azure.
 
-Konfigurace serveru virtuálního počítače by měla být vysoce dostupný virtuální počítač VMware, který splňuje následující požadavky:
+Virtuální počítač by měl splňovat následující požadavky.
 
 | **Požadavek** | **Podrobnosti** |
 |-----------------|-------------|
@@ -82,30 +73,25 @@ Konfigurace serveru virtuálního počítače by měla být vysoce dostupný vir
 | Typ IP adresy | Statická |
 | Porty | 443 (orchestrace řídicího kanálu)<br/>9443 (přenos dat)|
 
-Na konfiguračním serveru virtuálních počítačů Ujistěte se, jestli se systémové hodiny synchronizované se čas serveru.
-Čas musí být synchronizovány s během 15 minut. Pokud je časový rozdíl je větší než 15 minut, instalace se nezdaří.
+Navíc platí: 
+- Ujistěte se, zda jsou systémové hodiny ve virtuálním počítači synchronizovány s čas serveru. Čas musí být synchronizovány s během 15 minut. Pokud je větší instalace se nezdaří.
+instalace se nezdaří.
+- Ujistěte se, že konfigurační server virtuální počítač přístup k tyto adresy URL:
 
-Ujistěte se, že konfigurační server mají přístup k tyto adresy URL:
-
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-    - Všechna pravidla brány firewall založená na adresu IP by měl povolit komunikaci s Azure.
-
-- Povolte [Rozsahy IP adres datového centra Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) a port HTTPS (443).
+- Ujistěte se, zda pravidla brány firewall založená na adresu IP umožňují komunikaci s Azure.
+    - Povolit [rozsahy IP adres Azure datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653)portu 443 (HTTPS) a portu 9443 (replikaci dat).
     - Povolte rozsahy IP adres pro oblast Azure svého předplatného a západní USA (používá se pro přístup k řízení a identity management).
 
-Všechna pravidla brány firewall založená na adresu IP by měl umožňují komunikaci s [rozsahy IP Datacentra Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)a porty 443 (HTTPS) a 9443 (replikaci dat). Ujistěte se, zda povolit rozsahy IP adres pro oblast Azure svého předplatného a západní USA (používá se pro správu Identity a řízení přístupu).
 
-### <a name="download-the-site-recovery-unified-setup"></a>Stažení webu obnovení sjednocený instalační program
+### <a name="download-the-site-recovery-unified-setup-file"></a>Stáhněte si soubor Unified instalace nástroje Site Recovery
 
-1. Otevřete [portál Azure](https://portal.azure.com) a klikněte na **všechny prostředky**.
-2. Klikněte na trezoru služby zotavení s názvem **ContosoVMVault**.
-3. Klikněte na tlačítko **Site Recovery** > **Příprava infrastruktury** > **cíl ochrany**.
-4. Vyberte **místní** pro kde vaše počítače nacházejí, **do Azure** pro které chcete replikovat počítače, a **Ano, s hypervisoru VMware vSphere**. Potom klikněte na **OK**.
-5. V podokně připravit zdroj, klikněte na tlačítko **+ konfigurační server**.
-6. V **přidat Server**, zkontrolujte, zda **konfigurační Server** se zobrazí v **typ serveru**.
-7. Stáhněte instalační soubor nástroje Unified instalace nástroje Site Recovery.
-8. Stáhnout registrační klíč trezoru Tuto funkci potřebujete po spuštění Unified instalace. Klíč je platný pět dní od jeho vygenerování.
+1. V trezoru > **Příprava infrastruktury**, klikněte na tlačítko **zdroj**.
+1. V **připravit zdroj**, klikněte na tlačítko **+ konfigurační server**.
+2. V **přidat Server**, zkontrolujte, zda **konfigurační Server** se zobrazí v **typ serveru**.
+3. Stáhněte instalační soubor nástroje Unified instalace nástroje Site Recovery.
+4. Stáhnout registrační klíč trezoru Tuto funkci potřebujete po spuštění Unified instalace. Klíč je platný pět dní od jeho vygenerování.
 
    ![Nastavení zdroje](./media/tutorial-vmware-to-azure/source-settings.png)
 
@@ -146,9 +132,11 @@ Všechna pravidla brány firewall založená na adresu IP by měl umožňují ko
 
 ### <a name="configure-automatic-discovery"></a>Konfigurace automatického zjišťování
 
-Pokud chcete zjistit virtuální počítače, musí připojit k místní servery VMware konfigurační server. Pro účely tohoto kurzu přidejte vCenter server nebo hostitelů vSphere, pomocí účtu, který má oprávnění správce na serveru.
+Pokud chcete zjistit virtuální počítače, musí připojit k místní servery VMware konfigurační server. Pro účely tohoto kurzu přidejte vCenter server nebo hostitelů vSphere, pomocí účtu, který má oprávnění správce na serveru. Jste vytvořili tento účet v [předchozí kurzu](tutorial-prepare-on-premises-vmware.md). 
 
-1. Na konfiguračním serveru, spusťte **CSPSConfigtool.exe**. Je k dispozici jako zástupce na ploše a umístěný ve složce *umístění instalace*\home\svsystems\bin.
+Pro přidání účtu:
+
+1. Na serveru, konfigurace virtuálního počítače, spusťte **CSPSConfigtool.exe**. Je k dispozici jako zástupce na ploše a umístěný ve složce *umístění instalace*\home\svsystems\bin.
 
 2. Klikněte na **Správa účtu** > **Přidat účet**.
 
@@ -158,12 +146,12 @@ Pokud chcete zjistit virtuální počítače, musí připojit k místní servery
 
    ![Podrobnosti](./media/tutorial-vmware-to-azure/credentials2.png)
 
-Přidání serveru:
+Chcete-li přidat VMware server:
 
 1. Otevřete [portál Azure](https://portal.azure.com) a klikněte na **všechny prostředky**.
 2. Klikněte na trezoru služby zotavení s názvem **ContosoVMVault**.
 3. Klikněte na tlačítko **lokality obnovení** > **Příprava infrastruktury** > **zdroje**
-4. Vyberte **+ vCenter** pro připojení k systému vCenter server nebo vSphere hostitele ESXi.
+4. Vyberte **+ vCenter**, pro připojení k systému vCenter server nebo vSphere hostitele ESXi.
 5. V **přidat vCenter**, zadejte popisný název serveru. Zadejte IP adresu nebo plně kvalifikovaný název domény.
 6. Ponechte port nastaven na hodnotu 443, pokud vaše servery VMware naslouchat požadavkům na jiném portu.
 7. Vyberte účet, který chcete použít pro připojení k serveru. Klikněte na **OK**.

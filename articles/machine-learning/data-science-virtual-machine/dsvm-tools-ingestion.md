@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1ef4bbc050560287b8638a0f3398e02efec554
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data nástroje pro přijímání dat vědecké účely virtuálního počítače
 
@@ -62,11 +62,11 @@ Tady jsou některé nástroje přesun dat, které uvádíme v DSVM.
 | Na DSVM souvisejících nástrojích      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-documentdb-api-data-migration-tool"></a>Azure Cosmos DB: Nástroj pro migraci dat rozhraní API DocumentDB
+## <a name="azure-cosmos-db-data-migration-tool"></a>Azure nástroj pro migraci dat DB Cosmos
 
 |    |           |
 | ------------- | ------------- |
-| Co je to?   | Nástroj pro import dat z různých zdrojů, včetně soubory JSON, CSV soubory, SQL, MongoDB, Azure Table úložiště, Amazon DynamoDB a rozhraní API služby Azure Cosmos databáze DocumentDB kolekcí do databáze Cosmos Azure nebo Azure DocumentDB.      |
+| Co je to?   | Nástroj pro import dat z různých zdrojů, včetně soubory JSON, CSV soubory, SQL, MongoDB, Azure Table úložiště, Amazon DynamoDB a rozhraní API pro Azure Cosmos DB SQL kolekcí do Azure Cosmos DB.      |
 | Podporované DSVM verze      | Windows      |
 | Typické použití      | Import souborů z virtuálního počítače do CosmosDB, import dat z úložiště tabulek Azure do CosmosDB nebo import dat z databáze systému SQL Server do CosmosDB.     |
 |  Jak se použít nebo ji spustit?    |   Chcete-li použít příkaz verze, otevřete příkazový řádek, zadejte `dt`. Chcete-li použít nástroj grafickým uživatelským rozhraním, otevřete příkazový řádek, zadejte `dtui`.    |

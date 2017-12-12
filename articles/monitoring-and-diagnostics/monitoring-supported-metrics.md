@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: d66c6760cd2414e377d9c0cf55835a21b4bc5051
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f678bba89adf1450bd6a08909fdad51424a210e8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Podporované metriky s monitorováním Azure
 Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včetně grafů, je na portálu, k nim přistupovat pomocí rozhraní REST API nebo je dotazování pomocí prostředí PowerShell nebo rozhraní příkazového řádku. Níže je úplný seznam všech metriky aktuálně k dispozici s Azure monitorování metriky kanálu.
@@ -519,7 +519,9 @@ Monitorování Azure poskytuje několik způsobů, jak pracovat s metriky, včet
 |DeviceAssignments|Zařízení přiřazená|Počet|Celkem|Počet zařízení přiřazená do služby IoT hub|ProvisioningServiceName IotHubName|
 |AttestationAttempts|Pokusy o ověření identity|Počet|Celkem|Počet zařízení atestace podle pokus|Protokol ProvisioningServiceName, stav,|
 
-## <a name="microsoftdocumentdbdatabaseaccounts-cosmosdb"></a>Microsoft.DocumentDB/databaseAccounts (CosmosDB)
+<a id="cosmosdb"></a>
+
+## <a name="microsoftdocumentdbdatabaseaccounts-azure-cosmos-db"></a>Microsoft.DocumentDB/databaseAccounts (Azure Cosmos DB)
 |Metrika|Metriky zobrazovaný název|Jednotka|Typ agregace|Popis|Dimenze|
 |---|---|---|---|---|---|
 |TotalRequests|Celkový počet požadavků|Počet|Počet|Počet zpracovaných požadavků|DatabaseAccount, název_kolekce, DatabaseName, oblast, StatusCode|

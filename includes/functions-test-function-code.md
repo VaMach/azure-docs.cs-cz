@@ -1,4 +1,4 @@
-## <a name="test-the-function"></a>Testování funkce
+## <a name="test"></a>Testování funkce
 
 Na počítačích se systémem Mac nebo Linux otestujete nasazenou funkci pomocí cURL nebo v systému Windows pomocí skriptu Bash. Proveďte následující příkaz cURL, který nahradí zástupný symbol `<app_name>` názvem vaší aplikace Function App. Připojte řetězec dotazu `&name=<yourname>` k adrese URL.
 

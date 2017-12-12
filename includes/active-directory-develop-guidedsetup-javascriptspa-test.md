@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Otestujte svůj kód
 
 ### <a name="test-with-visual-studio"></a>Test pomocí sady Visual Studio

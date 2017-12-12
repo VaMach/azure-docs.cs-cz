@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Vývoj s DocumentDB rozhraní API v rozhraní .NET | Microsoft Docs"
-description: "Naučte se vyvíjet s rozhraním API Azure Cosmos DB DocumentDB pomocí rozhraní .NET"
+title: "Azure Cosmos DB: Vývoj pomocí rozhraní SQL API v rozhraní .NET | Microsoft Docs"
+description: "Naučte se vyvíjet s rozhraním API Azure Cosmos DB SQL pomocí rozhraní .NET"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,19 +16,21 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 106eaa1eb64dffd6c8362b13b4edb6452d536965
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f019ae72e380f1c8e5b1ec67bd5177144ce1b345
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure CosmosDB: Vývoj s DocumentDB rozhraní API v rozhraní .NET
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: Vývoj pomocí rozhraní SQL API v rozhraní .NET
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
 
-Tento kurz ukazuje, jak vytvořit účet Azure Cosmos DB pomocí portálu Azure a pak vytvořte databázi dokumentů a kolekce s [klíč oddílu](documentdb-partition-data.md#partition-keys) pomocí [DocumentDB .NET API](documentdb-introduction.md). Definováním klíč oddílu, když vytvoříte kolekci, je připraven aplikace pak moci bez obtíží škálujte podle rozšiřujícího se vaše data. 
+Tento kurz ukazuje, jak vytvořit účet Azure Cosmos DB pomocí portálu Azure a pak vytvořte databázi dokumentů a kolekce s [klíč oddílu](documentdb-partition-data.md#partition-keys) pomocí [SQL .NET API](documentdb-introduction.md). Definováním klíč oddílu, když vytvoříte kolekci, je připraven aplikace pak moci bez obtíží škálujte podle rozšiřujícího se vaše data. 
 
-Tento kurz se zaměřuje na tyto úlohy pomocí [DocumentDB .NET API](documentdb-sdk-dotnet.md):
+Tento kurz se zaměřuje na tyto úlohy pomocí [SQL .NET API](documentdb-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Vytvoření účtu služby Azure Cosmos DB
@@ -79,7 +81,7 @@ Začněme vytvořením účtu Azure Cosmos DB na portálu Azure.
     Pokud se vám zobrazí zpráva týkající se kontroly změn řešení, klikněte na **OK**. Pokud se vám zobrazí zpráva týkající se přijetí licence, klikněte na **Souhlasím**.
 
 ## <a id="Connect"></a>Přidejte odkazy na projekt
-Příklady zbývajících kroků v tomto kurzu poskytují fragmenty kódu rozhraní API DocumentDB nutná k vytváření a aktualizují Azure Cosmos DB prostředky ve vašem projektu.
+Příklady zbývajících kroků v tomto kurzu poskytují fragmenty kódu rozhraní API pro SQL, který je nutná k vytváření a aktualizují Azure Cosmos DB prostředky ve vašem projektu.
 
 Nejprve přidejte tyto odkazy na aplikace.
 <!---These aren't added by default when you install the pkg?--->
@@ -119,7 +121,7 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>Vytvoření databáze
 
-Dále vytvořte Azure DB Cosmos [databáze](documentdb-resources.md#databases) pomocí [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metoda nebo [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metodu  **DocumentClient** třídy z [DocumentDB .NET SDK](documentdb-sdk-dotnet.md). Databáze je logický kontejner úložiště dokumentů JSON rozděleného mezi kolekcemi.
+Dále vytvořte Azure DB Cosmos [databáze](documentdb-resources.md#databases) pomocí [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metoda nebo [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metodu  **DocumentClient** třídy z [SQL .NET SDK](documentdb-sdk-dotnet.md). Databáze je logický kontejner úložiště dokumentů JSON rozděleného mezi kolekcemi.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -259,7 +261,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Provádění paralelního dotazu
-Azure Cosmos databáze DocumentDB SDK 1.9.0 a vyšší možnosti provádění paralelního dotazu podpory, které umožňují provádět dotazy s nízkou latencí pro dělené kolekce, i v případě, že potřebují k touch velký počet oddílů. Například následující dotaz je nakonfigurována pro spuštění paralelně napříč oddíly.
+Azure Cosmos DB SQL SDK 1.9.0 a vyšší možnosti provádění paralelního dotazu podpory, které umožňují provádět dotazy s nízkou latencí pro dělené kolekce, i v případě, že potřebují k touch velký počet oddílů. Například následující dotaz je nakonfigurována pro spuštění paralelně napříč oddíly.
 
 ```csharp
 // Cross-partition Order By queries
@@ -275,7 +277,7 @@ Provádění paralelního dotazu můžete spravovat pomocí ladění následují
 * Nastavením `MaxDegreeOfParallelism`, můžete řídit stupně paralelního zpracování tedy maximální počet souběžných síťové připojení k kolekce oddíly. Pokud nastavíte na hodnotu -1, stupně paralelního zpracování spravuje sady SDK. Pokud `MaxDegreeOfParallelism` není zadaný, nebo je nastavený na 0, což je výchozí hodnota, bude jedno síťové připojení k oddílům kolekce.
 * Nastavením `MaxBufferedItemCount`, můžete kompromisy využití paměti dotazu latence a na straně klienta. Pokud tento parametr vynecháte nebo tuto možnost nastavíte na hodnotu -1, počet položek do vyrovnávací paměti při provádění paralelního dotazu, které spravuje sady SDK.
 
-Zadaný stav stejné kolekce, paralelní dotaz vrátí výsledky ve stejném pořadí jako sériové provádění. Při provádění dotazu mezi oddílu, který zahrnuje řazení (ORDER BY a/nebo horní), DocumentDB SDK vydá dotaz paralelně napříč oddíly a sloučí částečně seřazená výsledky na straně klienta k vytvoření globální seřazené výsledky.
+Zadaný stav stejné kolekce, paralelní dotaz vrátí výsledky ve stejném pořadí jako sériové provádění. Při provádění dotazu mezi oddílu, který zahrnuje řazení (ORDER BY a/nebo horní), sadu SDK SQL vydá dotaz paralelně napříč oddíly a sloučí částečně seřazená výsledky na straně klienta k vytvoření globální seřazené výsledky.
 
 ## <a name="execute-stored-procedures"></a>Provedení uložené procedury
 Nakonec můžete provést jednotlivé transakce na dokumenty se stejným ID zařízení, například pokud jste údržbě agregace nebo nejnovější stav zařízení do jednoho dokumentu přidáním následující kód do projektu.

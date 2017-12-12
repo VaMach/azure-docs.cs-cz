@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: cc9b1e1474e67628857dd80a63850634469ca5e8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Řešení potíží s připojením k databázi SQL Azure
 Když se připojení k databázi SQL Azure nezdaří, zobrazí se [chybové zprávy](sql-database-develop-error-messages.md). Tento článek je centralizované téma, které vám pomůže vyřešit problémy s připojením k databázi SQL Azure. Zavádí [běžných příčin](#cause) z problémů s připojením, doporučuje [nástroje pro odstraňování potíží](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) se vám pomůže identity problém a k řešení potíží naleznete [přechodné chyby](#troubleshoot-transient-errors) a [trvalé nebo jiných přechodná chyb](#troubleshoot-persistent-errors). 
@@ -77,7 +77,7 @@ Pokud aplikace se trvale nepodaří připojit k databázi SQL Azure, obvykle ozn
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kroky řešení potíží s trvalé připojení
 1. Nastavit [pravidla brány firewall](sql-database-configure-firewall-settings.md) umožňuje klientovi IP adresu. Pro dočasné pro účely testování nastavte pravidla brány firewall používání 0.0.0.0 jako počáteční rozsah IP adres a 255.255.255.255 jako koncová rozsah IP adres. Otevře se server pro všechny IP adresy. Pokud to řeší problém s připojením, toto pravidlo odebrat a vytvořte pravidlo brány firewall pro správně omezené IP adresu nebo rozsah adres. 
 2. Na všechny brány firewall mezi klientem a Internetu Ujistěte se, že port 1433 je otevřený pro odchozí připojení. Zkontrolujte [konfigurace brány Windows Firewall a povolit přístup k serveru SQL](https://msdn.microsoft.com/library/cc646023.aspx) a [hybridní Identity požadované porty a protokoly](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) pro další ukazatele související s další porty, které budete muset otevřít pro ověřování Azure Active Directory.
-3. Ověřte připojovací řetězec a další nastavení připojení. Najdete v části připojovací řetězec v [tématu problémy s připojením](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+3. Ověřte připojovací řetězec a další nastavení připojení. Najdete v části připojovací řetězec v [tématu problémy s připojením](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Zkontrolujte stav služby v řídicím panelu. Pokud se domníváte, že je místní výpadku, přečtěte si téma [zotavit výpadku](sql-database-disaster-recovery.md) pokyny k obnovení do nové oblasti.
 
 ## <a name="next-steps"></a>Další kroky

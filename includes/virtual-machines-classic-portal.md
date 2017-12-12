@@ -1,1 +1,1 @@
-Od 15. listopadu 2017, virtuální počítače budou k dispozici pouze v [portál Azure](https://portal.azure.com). Přístup z portálu classic budou už podporované.
+Od 15. listopadu 2017, virtuální počítače budou k dispozici pouze v [portál Azure](https://portal.azure.com). 

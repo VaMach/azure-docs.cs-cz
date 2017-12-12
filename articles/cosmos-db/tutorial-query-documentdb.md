@@ -1,6 +1,6 @@
 ---
 title: "Postup dotazování pomocí SQL v Azure Cosmos DB? | Dokumentace Microsoftu"
-description: "Postup dotazování pomocí dat DocumentDB pomocí SQL v Azure Cosmos DB"
+description: "Postup dotazování pomocí SQL v Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,15 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 61a2516ec9f51df4ac88beaf55108208c7b8c6bc
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 6e159ba7988801b274feb0d7c15a292b3b3b3126
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: Jak dotazovat pomocí SQL?
 
-Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) podporuje dotazování dokumentů pomocí SQL. Tento článek obsahuje ukázkové dokumentu a dva ukázkové dotazy SQL a výsledky.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Azure Cosmos DB [rozhraní SQL API](documentdb-introduction.md) podporuje dotazování dokumentů pomocí SQL. Tento článek obsahuje ukázkové dokumentu a dva ukázkové dotazy SQL a výsledky.
 
 Tento článek obsahuje následující úlohy: 
 

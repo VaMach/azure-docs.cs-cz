@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef01271fd4885f9bdac80194bbf72e2a10df0d27
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: ce7faa985f3616cee42a22ad7a240b1f0a674060
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Sestavení webové aplikace Python Flask využívající službu Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,6 +30,8 @@ ms.lasthandoff: 12/01/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Tento kurz ukazuje, jak používat Azure Cosmos databázi k ukládání a přístup k datům z webové aplikace Python Flask hostované v Azure App Service. Tento kurz předpokládá, že máte zkušenosti s používáním Pythonu a webů Azure.
 
@@ -213,10 +215,10 @@ def vote():
         db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
 
         # Read collections and take first since id should not be duplicated.
-        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
+        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.COSMOSDB_COLLECTION))
 
         # Read documents and take first since id should not be duplicated.
-        doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
+        doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.COSMOSDB_DOCUMENT))
 
         # Take the data from the deploy_preference and increment our database
         doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
@@ -315,21 +317,21 @@ def vote():
 
 ### <a name="add-a-configuration-file-and-change-the-initpy"></a>Přidejte konfigurační soubor a změňte \_\_init\_\_.py.
 1. V Průzkumníkovi řešení klikněte pravým tlačítkem na projekt **tutorial**, pak levým na **Přidat**, dále na **Nová položka**, vyberte **Prázdný soubor Python** a pojmenujte jej **config.py**. Formuláře ve Flasku vyžadují tento konfigurační soubor. Můžete jej použít i k poskytnutí tajného klíče. Ten ale pro tento kurz není nezbytný.
-2. Do souboru config.py přidejte následující kód. V dalším kroku bude nutné upravit hodnoty **DOCUMENTDB\_HOST** a **DOCUMENTDB\_KEY**.
+2. Přidejte následující kód do souboru config.py, budete muset změnit hodnoty **COSMOSDB\_hostitele** a **COSMOSDB\_klíč** v dalším kroku.
    
     ```python
     CSRF_ENABLED = True
     SECRET_KEY = 'you-will-never-guess'
    
-    DOCUMENTDB_HOST = 'https://YOUR_DOCUMENTDB_NAME.documents.azure.com:443/'
-    DOCUMENTDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
+    COSMOSDB_HOST = 'https://YOUR_COSMOSDB_NAME.documents.azure.com:443/'
+    COSMOSDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
    
-    DOCUMENTDB_DATABASE = 'voting database'
-    DOCUMENTDB_COLLECTION = 'voting collection'
-    DOCUMENTDB_DOCUMENT = 'voting document'
+    COSMOSDB_DATABASE = 'voting database'
+    COSMOSDB_COLLECTION = 'voting collection'
+    COSMOSDB_DOCUMENT = 'voting document'
     ```
-3. V [portál Azure](https://portal.azure.com/), přejděte na **klíče** stránku kliknutím **Procházet**, **Azure Cosmos DB účty**, dvakrát klikněte na název účet používat a klikněte **klíče** tlačítka na **Essentials** oblasti. Na **klíče** stránky, zkopírujte **URI** a vložte ji do **config.py** soubor, zadejte hodnotu **DOCUMENTDB\_hostitele**vlastnost. 
-4. Zpět na portál Azure, na **klíče** stránky, zkopírujte hodnotu **primární klíč** nebo **sekundární klíč**a vložte ji do **config.py**soubor, zadejte hodnotu **DOCUMENTDB\_klíč** vlastnost.
+3. V [portál Azure](https://portal.azure.com/), přejděte na **klíče** stránku kliknutím **Procházet**, **Azure Cosmos DB účty**, dvakrát klikněte na název účet používat a klikněte **klíče** tlačítka na **Essentials** oblasti. Na **klíče** stránky, zkopírujte **URI** a vložte ji do **config.py** soubor, zadejte hodnotu **COSMOSDB\_hostitele**vlastnost. 
+4. Zpět na portál Azure, na **klíče** stránky, zkopírujte hodnotu **primární klíč** nebo **sekundární klíč**a vložte ji do **config.py**soubor, zadejte hodnotu **COSMOSDB\_klíč** vlastnost.
 5. V  **\_ \_init\_\_.py** soubor, přidejte následující řádek: 
    
         app.config.from_object('config')

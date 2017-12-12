@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redigovat řezy s Azure Media Analytics
 ## <a name="overview"></a>Přehled
 **Azure Media Redactor** je [Azure Media Analytics](media-services-analytics-overview.md) procesor médií (PP), která nabízí redigování škálovatelné řez v cloudu. Vzhled redigování umožní vám upravit videa k rozostření řezy vybrané jednotlivce. Můžete použít službu redigování řez ve veřejné scénáře zabezpečení a média zprávy. Pár minut záznamů, která obsahuje více řezy může trvat hodiny redigovat ručně, ale s touto službou proces redigování řez bude vyžadovat několika jednoduchých kroků. Další informace najdete v tématu [to](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
 
-Toto téma uvádí podrobnosti o **Azure Media Redactor** a ukazuje, jak pomocí sady Media Services SDK pro .NET.
+Tento článek obsahuje údaje o **Azure Media Redactor** a ukazuje, jak pomocí sady Media Services SDK pro .NET.
 
 ## <a name="face-redaction-modes"></a>Vzhled redigování režimy
-Obličeje redigování funguje zjišťování tyto řezy v každém snímku videa a sledováním vzhled objekt obou dopředný a zpětně v průběhu času, aby stejné jednotlivých můžete hranice z jiných úhly také. Proces automatického redigování je velmi složitý a nemá vždy produktu 100 % požadované výstupu z tohoto důvodu Media Analytics nabízí několik způsobů, jak upravit finální výstup.
+Obličeje redigování funguje zjišťování tyto řezy v každém snímku videa a sledováním vzhled objekt obou dopředný a zpětně v průběhu času, aby stejné jednotlivých můžete hranice z jiných úhly také. Proces automatického redigování je složitý a nemá vždy produktu 100 % požadované výstupu z tohoto důvodu Media Analytics nabízí několik způsobů, jak upravit finální výstup.
 
-Kromě plně automatickými režimu je dva průchodu pracovního postupu, které umožňuje výběr nebo deaktivuje-selection nalezen ploch prostřednictvím seznam identifikátorů. Také aby libovolný za rámce úpravy MP používá soubor metadat ve formátu JSON. Tento pracovní postup je rozdělená do **analyzovat** a **Redact** režimy. Zkombinováním dva režimy při jednom průchodu používající obě úlohy v úloh. Tento režim je volána **kombinované**.
+Kromě plně automatickými režimu je dva průchodu pracovní postup umožňuje výběr nebo deaktivuje-selection nalezen ploch prostřednictvím seznam identifikátorů. Také aby libovolný za rámce úpravy MP používá soubor metadat ve formátu JSON. Tento pracovní postup je rozdělená do **analyzovat** a **Redact** režimy. Zkombinováním dva režimy při jednom průchodu používající obě úlohy v úloh. Tento režim je volána **kombinované**.
 
 ### <a name="combined-mode"></a>Kombinovaná režimu
-Vznikne tak zredigované mp4 automaticky bez jakékoli ruční vstup.
+To vytváří zredigované mp4 automaticky bez jakékoli ruční vstup.
 
 | Krok | Název souboru | Poznámky |
 | --- | --- | --- |
@@ -172,7 +171,7 @@ MP redigování poskytuje vysokou přesnost vzhled umístění detekce a sledov�
 Program zobrazí následující postup:
 
 1. Vytvořte asset a nahrajte soubor média do assetu.
-2. Vytvořte úlohu s úkolem redigování vzhled podle konfigurační soubor, který obsahuje následující přednastavení json. 
+2. Vytvořte úlohu s úkolem redigování vzhled podle konfigurační soubor, který obsahuje následující přednastavení json: 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
 3. Stáhněte soubory JSON výstupu. 
@@ -183,30 +182,39 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
 #### <a name="example"></a>Příklad
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
-    using System.Threading.Tasks;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
+using System.Threading.Tasks;
 
-    namespace FaceRedaction
+namespace FaceRedaction
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -265,11 +273,11 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
             // for error state and exit if needed.
             if (job.State == JobState.Error)
             {
-            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-            Console.WriteLine(string.Format("Error: {0}. {1}",
-                            error.Code,
-                            error.Message));
-            return null;
+                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                Console.WriteLine(string.Format("Error: {0}. {1}",
+                                error.Code,
+                                error.Message));
+                return null;
             }
 
             return job.OutputMediaAssets[0];
@@ -289,7 +297,7 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
         {
             foreach (IAssetFile file in asset.AssetFiles)
             {
-            file.Download(Path.Combine(outputDirectory, file.Name));
+                file.Download(Path.Combine(outputDirectory, file.Name));
             }
         }
 
@@ -302,8 +310,8 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
             .LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor",
-                                   mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor",
+                                       mediaProcessorName));
 
             return processor;
         }
@@ -316,30 +324,31 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
 
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished.");
-                Console.WriteLine();
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-                // Display or log error details as needed.
-                // LogJobStop(job.Id);
-                break;
-            default:
-                break;
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished.");
+                    Console.WriteLine();
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
+                    // Display or log error details as needed.
+                    // LogJobStop(job.Id);
+                    break;
+                default:
+                    break;
             }
         }
-        }
     }
+}
+```
 
 ## <a name="next-steps"></a>Další kroky
 

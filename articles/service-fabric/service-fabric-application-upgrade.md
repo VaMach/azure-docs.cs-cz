@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Upgrade aplikace Service Fabric
-Aplikace Azure Service Fabric je kolekce služeb. Během upgradu, porovná Service Fabric nové [manifest aplikace](service-fabric-application-model.md#describe-an-application) v předchozí verzi a určuje, které služby v uzlu aktualizace vyžadovat aplikace. Service Fabric porovnává verze čísla ve službě manifesty s čísla verze v předchozí verzi. Je-li služba se nezměnila, není aktualizován dané služby.
+Aplikace Azure Service Fabric je kolekce služeb. Během upgradu, porovná Service Fabric nové [manifest aplikace](service-fabric-application-and-service-manifests.md) v předchozí verzi a určuje, které služby v uzlu aktualizace vyžadovat aplikace. Service Fabric porovnává verze čísla ve službě manifesty s čísla verze v předchozí verzi. Je-li služba se nezměnila, není aktualizován dané služby.
 
 ## <a name="rolling-upgrades-overview"></a>Vrácení upgradu – přehled
 V postupného upgradu aplikace upgradu provádí ve fázích. V každé fázi upgradu použijí pro dílčí sadu uzlů v clusteru, názvem domény služby aktualizace. V důsledku toho zůstává k dispozici v rámci upgradu aplikace. Během upgradu clusteru může obsahovat kombinací staré a nové verze.
@@ -47,14 +47,14 @@ Režim, který doporučujeme pro upgradu aplikace je monitorovaných režimu, kt
 Sledována ruční režim musí ruční zásah po každém upgradu v doméně služby aktualizace, chcete-li ji upgradu na další aktualizaci domény. Budou provedeny žádné kontroly stavu Service Fabric. Správce provádí kontroly stavu nebo stavu před spuštěním upgradu v další aktualizaci domény.
 
 ## <a name="upgrade-default-services"></a>Upgradujte výchozí služby
-Během procesu upgradu aplikace lze upgradovat výchozích služeb v rámci aplikace Service Fabric. Výchozí služby jsou definovány v [manifest aplikace](service-fabric-application-model.md#describe-an-application). Standardní pravidla upgradu výchozích služeb jsou:
+Během procesu upgradu aplikace lze upgradovat výchozích služeb v rámci aplikace Service Fabric. Výchozí služby jsou definovány v [manifest aplikace](service-fabric-application-and-service-manifests.md). Standardní pravidla upgradu výchozích služeb jsou:
 
-1. Výchozí služby v novém [manifest aplikace](service-fabric-application-model.md#describe-an-application) které neexistují v clusteru se vytvářejí.
+1. Výchozí služby v novém [manifest aplikace](service-fabric-application-and-service-manifests.md) které neexistují v clusteru se vytvářejí.
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) musí být nastavena na hodnotu true, chcete-li povolit následující pravidla. Tato funkce je podporovaná ze v5.5.
 
-2. Výchozí služby existující v obou předchozích [manifest aplikace](service-fabric-application-model.md#describe-an-application) a jsou aktualizovány novou verzi. Popis služby v nové verzi by přepsala těch, které již v clusteru. Upgrade aplikace by vrácení zpět automaticky při aktualizaci selhání výchozí služby.
-3. Výchozí služby v předchozím [manifest aplikace](service-fabric-application-model.md#describe-an-application) , ale ne v nové verzi jsou odstraněny. **Všimněte si, že tento odstraňování výchozích služeb nelze vrátit zpět.**
+2. Výchozí služby existující v obou předchozích [manifest aplikace](service-fabric-application-and-service-manifests.md) a jsou aktualizovány novou verzi. Popis služby v nové verzi by přepsala těch, které již v clusteru. Upgrade aplikace by vrácení zpět automaticky při aktualizaci selhání výchozí služby.
+3. Výchozí služby v předchozím [manifest aplikace](service-fabric-application-and-service-manifests.md) , ale ne v nové verzi jsou odstraněny. **Všimněte si, že tento odstraňování výchozích služeb nelze vrátit zpět.**
 
 V případě aplikace upgradu se vrátí zpátky, výchozí služby se vrátit zpět na stav, před zahájením upgradu. Ale odstraněné služby nikdy možné vytvořit.
 

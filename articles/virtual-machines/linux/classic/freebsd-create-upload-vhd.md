@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 71ba93c64657725b48ad5915c6bb26dc32e5434d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Vytvoření a nahrání virtuálního pevného disku FreeBSD do Azure
 Tento článek ukazuje, jak vytvořit a odeslat virtuální pevný disk (VHD), který obsahuje FreeBSD operační systém. Po odeslání, můžete ho použít jako vlastní image pro vytvoření virtuálního počítače (VM) v Azure.
@@ -133,7 +133,7 @@ Při nahrávání souboru VHD, můžete je umístit kamkoli do úložiště obje
 
 * **BlobStorageURL** je adresa URL pro účet úložiště, který jste vytvořili v kroku 2.
 * **YourImagesFolder** je kontejneru v úložiště objektů Blob, kam chcete uložit vaše Image.
-* **VHDName** je štítek, který se zobrazí na portálu Azure classic k identifikaci virtuální pevný disk.
+* **VHDName** je štítek, který se zobrazí na portálu Azure k identifikaci virtuální pevný disk.
 * **PathToVHDFile** je úplná cesta a název souboru VHD.
 
 V okně Azure PowerShell, které jste použili v předchozím kroku zadejte:
