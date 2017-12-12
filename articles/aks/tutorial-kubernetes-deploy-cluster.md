@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a03bbfbdedd418216c26379e9d8dbd780fa89fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2c2318d9a5f72800f9cfbd430dca448fd1e5746f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Nasazení clusteru Azure Container Service (AKS)
 
@@ -28,7 +28,7 @@ V následujících kurzech aplikace Azure hlas je nasadit do clusteru, škálova
 
 ## <a name="before-you-begin"></a>Než začnete
 
-V předchozí kurzy byl bitovou kopii kontejner vytvořit a nahrát do Azure kontejneru registru instance. Pokud se ještě provést tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image](./tutorial-kubernetes-prepare-app.md).
+V předchozí kurzy byl bitovou kopii kontejner vytvořit a nahrát do Azure kontejneru registru instance. Pokud se ještě provést tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image][aks-tutorial-prepare-app].
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Povolení AKS náhled pro vaše předplatné Azure
 Při AKS je ve verzi preview, vytváření nových clusterů vyžaduje funkce příznak vaše předplatné. Může požádat o tuto funkci pro libovolný počet předplatná, která se má použít. Použití `az provider register` příkaz pro registraci zprostředkovatele AKS:
@@ -41,7 +41,7 @@ Po registraci, nyní jste připraveni k vytvoření clusteru s podporou Kubernet
 
 ## <a name="create-kubernetes-cluster"></a>Vytvoření clusteru Kubernetes
 
-Následující příklad vytvoří cluster s názvem `myK8sCluster` ve skupině prostředků s názvem `myResourceGroup`. Tato skupina prostředků byl vytvořen v [předchozí kurzu](./tutorial-kubernetes-prepare-acr.md).
+Následující příklad vytvoří cluster s názvem `myK8sCluster` ve skupině prostředků s názvem `myResourceGroup`. Tato skupina prostředků byl vytvořen v [předchozí kurzu][aks-tutorial-prepare-acr].
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
@@ -51,7 +51,7 @@ Po několika minutách se nasazení dokončí a formátu json vrátí informace 
 
 ## <a name="install-the-kubectl-cli"></a>Nainstalujte kubectl rozhraní příkazového řádku
 
-Chcete-li připojit ke clusteru Kubernetes z klientského počítače, použijte [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), klient příkazového řádku Kubernetes.
+Chcete-li připojit ke clusteru Kubernetes z klientského počítače, použijte [kubectl][kubectl], klient příkazového řádku Kubernetes.
 
 Pokud používáte Azure Cloud Shell, kubectl je už nainstalován. Pokud chcete nainstalovat místně, spusťte následující příkaz:
 
@@ -67,7 +67,7 @@ Konfigurovat kubectl se připojit ke svému clusteru Kubernetes, spusťte násle
 az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Chcete-li ověřit připojení ke clusteru, spusťte [kubectl získat uzly](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) příkaz.
+Chcete-li ověřit připojení ke clusteru, spusťte [kubectl získat uzly] [ kubectl-get] příkaz.
 
 ```azurecli
 kubectl get nodes
@@ -94,4 +94,13 @@ V tomto kurzu Kubernetes cluster nasazená v AKS. Dokončili jste následující
 Přechodu na v dalším kurzu se dozvíte o spuštění aplikace v clusteru.
 
 > [!div class="nextstepaction"]
-> [Nasazení aplikace v Kubernetes](./tutorial-kubernetes-deploy-application.md)
+> [Nasazení aplikace v Kubernetes][aks-tutorial-deploy-app]
+
+<!-- LINKS - external -->
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

@@ -4,7 +4,7 @@ description: "Další informace o službě Azure Active Directory provádění O
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/15/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 241c744737515ee0c8d5d833a51121808877e559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Princip toku implicitní grant OAuth2 v Azure Active Directory (AD)
 Implicitní grant OAuth2 je notorious pro probíhá grant s nejdelší seznam zabezpečení se specifikací OAuth2. A ještě, který je implementované ADAL JS a ten, který doporučujeme při psaní aplikací SPA přístup. Co nabízí? Je všechny řádu kompromisy: jak se jím implicitní grant se je nejlepším postupem můžete pokračovat pro aplikace, které využívají webové rozhraní API prostřednictvím jazyka JavaScript v prohlížeči.
