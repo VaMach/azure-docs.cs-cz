@@ -4,7 +4,7 @@ description: "Zjistěte, jak chcete-li zobrazit SAML vrácený službě Řízen�
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: 
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Postup zobrazení SAML vrácený službě Řízení přístupu Azure
 Tento průvodce vám ukáže, jak chcete zobrazit základní zabezpečení kontrolního výrazu SAML (Markup Language) vrátíte zpět do aplikace služby Řízení přístupu (ACS) Azure. V příručce vychází [postup ověření webového uživatele s Azure přístup k řízení služby pomocí Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) tématu, tím, že poskytuje kód, který zobrazí informace o tomto SAML. Hotová aplikace bude vypadat podobně jako následující.

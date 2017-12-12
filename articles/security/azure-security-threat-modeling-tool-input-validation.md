@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Rámce zabezpečení: Ověřování vstupu | Způsoby zmírnění rizik 
 | Produktům a službám | Článek |
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 | **Webové aplikace** | <ul><li>[Zakázat XSLT skriptování všechny transformací pomocí nedůvěryhodné šablony stylů](#disable-xslt)</li><li>[Ujistěte se, že každé stránce, která může obsahovat uživatele ovladatelné obsah výslovný nesouhlas automatické sledování toku dat MIME](#out-sniffing)</li><li>[Posílení zabezpečení nebo zakázat řešení Entity XML](#xml-resolution)</li><li>[Aplikace využívá ovladač http.sys provést ověření kanonizace adresy URL](#app-verification)</li><li>[Zajistěte, aby byl příslušný ovládací prvky jsou zavedené při přijetí soubory od uživatelů](#controls-users)</li><li>[Ujistěte se, jestli je pro přístup k datům ve webové aplikaci používají bezpečnost typů parametrů](#typesafe)</li><li>[Používat samostatný model vazby třídy nebo seznamy vazby filtru, aby se zabránilo ohrožení zabezpečení velkokapacitního přiřazení MVC](#binding-mvc)</li><li>[Kódování nedůvěryhodné webové výstup před vykreslování](#rendering)</li><li>[Provedení ověření vstupu a filtrování u všech řetězec typu vlastnosti modelu](#typemodel)</li><li>[Čištění bude použito na pole formuláře, které přijímají všechny znaky, např, bohaté textového editoru](#richtext)</li><li>[Jímky, které nemají integrované kódování nepřiřazujte elementů modelu DOM](#inbuilt-encode)</li><li>[Ověřit, zda všechny jsou uzavřeny nebo bezpečně provést přesměrování v rámci aplikace](#redirect-safe)</li><li>[Implementace ověření vstupu na všechny parametry typu řetězec akceptovat metody Kontroleru](#string-method)</li><li>[Nastavit časový limit horní limit pro regulární výraz zpracování, aby se zabránilo DoS z důvodu chybné regulární výrazy](#dos-expression)</li><li>[Nepoužívejte Html.Raw v zobrazení syntaxe Razor](#html-razor)</li></ul> | 
 | **Database** | <ul><li>[Nepoužívejte dynamické dotazy v uložené procedury](#stored-proc)</li></ul> |
 | **Webové rozhraní API** | <ul><li>[Zajistit, aby ověření modelu pro metody webového rozhraní API](#validation-api)</li><li>[Implementace ověření vstupu na všechny parametry typu řetězec přijata metodami webového rozhraní API](#string-api)</li><li>[Ujistěte se, že bezpečnost typů parametrů se používají v webového rozhraní API pro přístup k datům](#typesafe-api)</li></ul> | 
-| **Azure Documentdb** | <ul><li>[Použít umožňující dotazy SQL pro DocumentDB](#sql-docdb)</li></ul> | 
+| **Azure Documentdb** | <ul><li>[Použít umožňující dotazy SQL pro Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Ověření vstupu WCF prostřednictvím vazbou schématu](#schema-binding)</li><li>[Ověření vstupu WCF prostřednictvím parametru kontroly](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>Zakázat XSLT skriptování všechny transformací pomocí nedůvěryhodné šablony stylů
@@ -660,8 +660,8 @@ V předchozím příkladu kódu vstupní hodnota nemůže být delší než 11 z
 | **SDL fáze**               | Sestavení |  
 | **Použít technologie** | Obecné |
 | **Atributy**              | Není k dispozici  |
-| **Odkazy**              | [Uvedení Parametrizace SQL v DocumentDB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Kroky** | I když DocumentDB podporuje pouze dotazy jen pro čtení, je stále možné v případě, že dotazy jsou vytvořený zřetězením s uživatelský vstup Injektáž SQL. Je možné, pro uživatele k získání přístupu k datům, které budou by neměla přístup v rámci stejné kolekce, tím, že vytvoří škodlivý dotazy SQL. Parametrizované dotazy SQL pomocí Pokud dotazy se vytvářejí na základě na vstup uživatele. |
+| **Odkazy**              | [Uvedení Parametrizace SQL v Azure Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **Kroky** | I když Azure Cosmos DB podporuje pouze dotazy jen pro čtení, je stále možné v případě, že dotazy jsou vytvořený zřetězením s uživatelský vstup Injektáž SQL. Je možné, pro uživatele k získání přístupu k datům, které budou by neměla přístup v rámci stejné kolekce, tím, že vytvoří škodlivý dotazy SQL. Parametrizované dotazy SQL pomocí Pokud dotazy se vytvářejí na základě na vstup uživatele. |
 
 ## <a id="schema-binding"></a>Ověření vstupu WCF prostřednictvím vazbou schématu
 

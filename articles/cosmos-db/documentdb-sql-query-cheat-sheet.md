@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ac83f948e367be2006e677d8d56fbd4c4a3ab57
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: DocumentDB API SQL dotazu tahák PDF
-**Cosmos databázi Azure: DocumentDB rozhraní API SQL dotaz cheaty list** vám pomůže rychle zápis dotazů pro rozhraní API DocumentDB data zobrazením běžných dotazů databáze, klíčová slova, integrované funkce a operátory ve snadno tisku odkaz PDF list. 
+# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: SQL dotaz tahák PDF
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+**Cosmos databázi Azure: seznamu cheaty dotazu SQL** pomáhá rychle psát dotazy pro rozhraní API pro SQL data zobrazením běžných dotazů databáze, klíčová slova, integrované funkce a operátory ve snadno tisku PDF referenční list. 
 
 Cosmos DB podporuje relačních, hierarchických a prostorových dotazování JSON dokumentů pomocí [SQL](documentdb-sql-query.md) bez zadání schéma nebo sekundární indexy. Kromě standardní klíčová slova ANSI SQL a operátory podporuje Cosmos DB JavaScript uživatelem definované funkce (UDF), operátory jazyka JavaScript a velkého množství integrovaných funkcí.
 
@@ -38,7 +41,7 @@ Rychlý přehled dotazu SQL stažením a použitím jako Stručná referenční 
 
 ## <a name="more-help-with-writing-sql-queries"></a>Další pomoc s zápis dotazů SQL
 * Procházení prostřednictvím možnosti dotazu, který je k dispozici v systému Cosmos DB, najdete v části [dotazu Cosmos DB](documentdb-sql-query.md).
-* Odkaz na související dokumentaci najdete v tématu [rozhraní API služby Azure Cosmos databáze DocumentDB: reference syntaxe SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* Odkaz na související dokumentaci najdete v tématu [rozhraní API pro Azure Cosmos DB SQL: SQL reference syntaxe](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## <a name="release-notes"></a>Poznámky k verzi
 Aktualizovat 7/29/2016 zahrnout TOP.

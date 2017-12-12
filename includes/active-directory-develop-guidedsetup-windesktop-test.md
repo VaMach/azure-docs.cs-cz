@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Otestujte svůj kód
 
 Chcete-li otestovat aplikaci v sadě Visual Studio, stiskněte **F5** ke spuštění projektu. **MainWindow** pro vaše aplikace se zobrazí:

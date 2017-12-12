@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 2a20ee1df23df683c49444e8fb3ffdb2085b174f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 355151ee6c3507d8e2fd2ab6cc5127324b3a6d7c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problémy se správou a konfigurace pro Azure Cloud Services: Časté otázky (FAQ)
 
@@ -221,3 +221,65 @@ Po byla provedena, můžete ověřit, zda byl povolen protokol HTTP/2 nebo není
 - Povolit F12 Developer Tool v Internet Explorer nebo Edge a přepněte na kartu sítě k ověření protokol. 
 
 Další informace najdete v tématu [HTTP/2 ve službě IIS](https://blogs.iis.net/davidso/http2).
+
+## <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>Portál Azure nezobrazuje verze sady SDK Moje cloudové služby. Načtení který?
+
+Pracujeme na převedení této funkce na portálu Azure. Mezitím můžete provádět následující příkazy prostředí PowerShell získat verze sady SDK:
+
+    Get-AzureService -ServiceName "<Cloud service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+
+## <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Vzdálené plochy na virtuální počítač cloudové služby nelze provést I pomocí souboru RDP. Můžu získat následující chyba: došlo k chybě ověřování (kód: 0x80004005)
+
+Této chybě může dojít, pokud použijete soubor RDP z počítače, který je připojený ke službě Azure Active Directory. Chcete-li vyřešit tento problém, postupujte takto:
+
+1. Klikněte pravým tlačítkem na soubor RDP, který jste stáhli a potom vyberte **upravit**.
+2. Přidání "&#92;" jako předpony před uživatelské jméno. Například použít **. \username** místo **uživatelské jméno**.
+
+## <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Chci vypnout cloudové služby na několik měsíců. Jak snížit náklady na fakturační cloudové služby bez ztráty IP adresu?
+
+Cloudové služby už nasazené získá účtovány poplatky za výpočty a úložiště používá. Takže i v případě, že vypnout virtuální počítač Azure, bude stále získat fakturuje pro úložiště. 
+
+Zde je, co můžete dělat ke snížení vaší fakturace bez ztráty IP adresa služby:
+
+1. [Rezervovat IP adresu](../virtual-network/virtual-networks-reserved-public-ip.md) před odstraněním nasazení.  Můžete pouze platit pro tuto IP adresu. Další informace o fakturaci IP adresu, najdete v části [IP adresy ceny](https://azure.microsoft.com/pricing/details/ip-addresses/).
+2. Odstraňte nasazení. Neodstraňujte xxx.cloudapp.net, takže budete používat pro budoucí.
+3. Pokud chcete znovu zavést cloudové služby s použitím stejnou IP Adresou rezervy, která je vyhrazena ve vašem předplatném naleznete v tématu [vyhrazené IP adresy pro cloudové služby a virtuální počítače](https://azure.microsoft.com/blog/reserved-ip-addresses/).
+
+## <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Moje cloudové služby správy certifikátu vyprší. Jak jej obnovit?
+
+Můžete použít následující příkazy prostředí PowerShell, obnovit certifikáty pro správu:
+
+    Add-AzureAccount
+    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+    Get-AzurePublishSettingsFile
+
+**Get-AzurePublishSettingsFile** dojde k vytvoření nového certifikátu pro správu v **předplatné** > **certifikáty pro správu** na portálu Azure. Název nového certifikátu vypadá jako "YourSubscriptionNam]-[CurrentDate] - pověření".
+
+## <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Konfigurování automatického škálování, na základě paměti metriky
+
+Automatické škálování, na základě paměti metriky pro cloudové služby není aktuálně podporován. 
+
+Chcete-li tento problém obejít, můžete Application Insights, takže agenta pro diagnostiku by směrovat metriky Application Insights. Automatické škálování podporuje Application Insights jako zdroj metriky a můžete škálovat podle metriky hosta jako "Paměti" počet instancí role.  Budete muset nakonfigurovat Application Insights v balíčku souboru projektu cloudové služby (*.cspkg) a povolit rozšíření diagnostiky Azure ve službě k implementaci této feat.
+
+Další podrobnosti o tom, jak využívat vlastní metriku pomocí Application Insights ke konfiguraci automatického škálování na Cloud Services najdete v tématu [začít pracovat s automatické škálování podle vlastní metriky v Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+
+
+Další informace o tom, jak integrovat Azure Diagnostics Application Insights pro cloudové služby najdete v tématu [odeslat Cloudová služba, virtuální počítač nebo Service Fabric diagnostická data do služby Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+
+Další informace o povolení Application Insights pro cloudové služby najdete v tématu [Application Insights pro Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+
+Další informace o tom, jak povolit protokolování diagnostiky Azure pro cloudové služby najdete v tématu [nastavení diagnostiky pro Azure Cloud Services a virtuálních počítačů](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+
+## <a name="how-to-automate-the-main-ssl-certificatepfx-and-intermediate-certificatep7b-cert-installation"></a>Jak automatizovat hlavní SSL certifikát (.pfx) a instalaci certifikátu zprostředkující certificate(.p7b)?
+
+Můžete automatizovat tato úloha pomocí spouštěcího skriptu (batch nebo cmd/PowerShell) a zaregistrujte spuštění skriptu v definičním souboru služby. Přidáte certifikát (soubor .p7b) i spouštěcí skript ve složce projektu ve stejném adresáři spouštěcího skriptu.
+
+Další informace najdete v následujících článcích:
+- [Jak nakonfigurovat a spustit úlohy spuštění pro cloudové služby](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
+- [Běžné úlohy spuštění cloudové služby](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Proč portál Azure vyžaduje mi zadejte účet úložiště pro nasazení?
+
+Na portálu classic balíčku byl odeslán na vrstvu rozhraní API správy přímo a pak by vrstvu rozhraní API dočasně přesuňte balíček do účtu interní úložiště.  Tento proces způsobuje problémy, výkon a škálovatelnost, protože vrstvu rozhraní API služby nebyl navržen jako služba nahrávání souboru.  Na portálu Azure (modelu nasazení Resource Manager) jsme mít vynechá dočasné krok nejdříve odeslat do rozhraní API vrstvy, výsledkem je rychlejší a spolehlivější nasazení.
+ 
+Jako náklady je velmi malé a můžete znovu použít stejný účet úložiště napříč všechna nasazení. Můžete použít [kalkulačky náklady na úložiště](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) k určení nákladů pro nahrání balíčku služby (CSPKG), stáhněte si CSPKG a pak odstraňte CSPKG.

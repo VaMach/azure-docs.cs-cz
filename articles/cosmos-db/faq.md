@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: f32d23caa0a89b7f9336628280d726a351fb0603
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e79a63c4316c50a7af0fc7ba0979a772ff5e6a91
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Nejčastější dotazy k Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Základy Azure Cosmos DB
@@ -30,11 +30,15 @@ Azure Cosmos DB je správným řešením pro webové, mobilní a herní, a aplik
 
 Další databáze otázky, odpovědi a pokyny pro nasazení a používání této služby najdete v tématu [dokumentace stránky Azure Cosmos DB] ((https://docs.microsoft.com/azure/cosmos-db/).
 
-### <a name="what-happened-to-documentdb"></a>Co se stalo s DocumentDB?
-Rozhraní API DocumentDB je jedním z podporovaných rozhraní API a datové modely pro Azure Cosmos DB. Kromě toho Azure Cosmos DB podporuje můžete pomocí rozhraní Graph API (Preview), tabulka rozhraní API a rozhraní API MongoDB. Další informace najdete v tématu [dotazy zákazníků DocumentDB](#moving-to-cosmos-db).
+### <a name="what-happened-to-the-documentdb-api"></a>Co se stalo rozhraní API DocumentDB?
 
-### <a name="how-do-i-get-to-my-documentdb-account-in-the-azure-portal"></a>Jak získat na můj účet DocumentDB na portálu Azure
-Na portálu Azure klikněte na ikonu Azure Cosmos DB v levém podokně. Pokud jste měli účet DocumentDB před, nyní máte účet Azure Cosmos DB beze změny na vaši fakturaci.
+Rozhraní API služby Azure Cosmos databáze DocumentDB nebo SQL (DocumentDB) rozhraní API se nyní označuje jako rozhraní API pro Azure Cosmos databáze SQL. Nemusíte změnit všechno, chcete-li pokračovat, spouští vaše aplikace vytvořené s DocumentDB rozhraní API. Funkce zůstává stejná.
+
+Pokud jste měli účet DocumentDB API před, nyní máte účet rozhraní API pro SQL, nezmění se vaše fakturace. 
+
+### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Co se stalo s Azure DocumentDB jako službu?
+
+Služba Azure DocumentDB je nyní součástí služby Azure Cosmos DB a se projevuje ve formě rozhraní SQL API. Aplikace sestavené s Azure DocumentDB se spustí bez uložení změn rozhraní API Azure Cosmos databáze SQL. Kromě toho Azure Cosmos DB podporuje rozhraní Graph API (Preview), rozhraní API tabulky, MongoDB rozhraní API a rozhraní API Cassandra (Preview).
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Jaké jsou typické použití případů pro Azure Cosmos DB?
 Azure Cosmos DB je dobrou volbou pro nové webové, mobilní a herní, a je důležité, aplikace či aplikace IoT kde automatické škálování, předvídatelný výkon, rychlé pořadí doby odezvy milisekund a schopnost dotazovat přes data bez schémat. Azure Cosmos DB slouží k rychlému vývoji a podpoře nepřetržitých iterací modelů dat aplikace. Aplikace, které spravují uživatelem generovaný obsah a data jsou [běžné případy použití pro Azure Cosmos DB](use-cases.md). 
@@ -42,11 +46,11 @@ Azure Cosmos DB je dobrou volbou pro nové webové, mobilní a herní, a je důl
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Jak Azure Cosmos DB nabízí předvídatelný výkon?
 A [jednotek žádosti](request-units.md) (RU) je mírou propustnosti v Azure Cosmos DB. Propustnost 1 RU odpovídá propustnosti operace GET u 1 KB dokumentu. Všechny operace v Azure DB Cosmos, včetně čtení, zápisu, dotazů SQL a spuštění uložených procedur, má deterministickou RU hodnotu, která je založena na propustnost potřebné k dokončení operace. Namísto přemýšlení o procesoru, vstupně-výstupní operace a paměti a jak každá ovlivňují propustnost aplikace, si můžete představit jako jednu míru RU.
 
-Je možné rezervovat každý kontejner Azure Cosmos DB zajištěnou propustností z hlediska RUs propustnost za sekundu. Pro aplikace jakéhokoli rozsahu můžete srovnávací test jednotlivých požadavků, změřit jejich hodnoty RU a zřídit kontejner pro zpracování celkový počet jednotek žádosti ze všech požadavků. Můžete taky škálovat nebo snižovat propustnost vaší kontejneru potřebám vaší aplikace měnícím. Další informace o jednotkách žádosti a nápovědu pro určení vašeho kontejneru potřebuje, najdete v části [odhadnout požadavky propustnost](request-units.md#estimating-throughput-needs) a zkuste to [propustnost kalkulačky](https://www.documentdb.com/capacityplanner). Termín *kontejneru* zde označují odkazuje na kolekci DocumentDB rozhraní API, rozhraní Graph API grafu, kolekce MongoDB rozhraní API a rozhraní API tabulky tabulku. 
+Je možné rezervovat každý kontejner Azure Cosmos DB zajištěnou propustností z hlediska RUs propustnost za sekundu. Pro aplikace jakéhokoli rozsahu můžete srovnávací test jednotlivých požadavků, změřit jejich hodnoty RU a zřídit kontejner pro zpracování celkový počet jednotek žádosti ze všech požadavků. Můžete taky škálovat nebo snižovat propustnost vaší kontejneru potřebám vaší aplikace měnícím. Další informace o jednotkách žádosti a nápovědu pro určení vašeho kontejneru potřebuje, najdete v části [odhadnout požadavky propustnost](request-units.md#estimating-throughput-needs) a zkuste to [propustnost kalkulačky](https://www.documentdb.com/capacityplanner). Termín *kontejneru* zde označují odkazuje na kolekci rozhraní API pro SQL, rozhraní Graph API grafu, kolekce MongoDB rozhraní API a rozhraní API tabulky tabulku. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Jak Azure Cosmos DB podporuje různé datové modely, například klíč/hodnota, sloupcové, dokument a graf?
 
-Klíč hodnota (tabulky), sloupcové, dokumentů a data grafu modely jsou všechny nativně podporované kvůli ARS (atomů, záznamy a pořadí) návrhu tohoto Azure DB Cosmos je založený na. Atomů, záznamy a pořadí může být snadno namapované a promítá do různých datových modelů. Rozhraní API pro podmnožinu modely jsou k dispozici pravé nyní (DocumentDB, MongoDB, tabulky a rozhraní Graph API) a ostatní specifické pro další datové modely bude k dispozici v budoucnu.
+Klíč hodnota (tabulky), sloupcové, dokumentů a data grafu modely jsou všechny nativně podporované kvůli ARS (atomů, záznamy a pořadí) návrhu tohoto Azure DB Cosmos je založený na. Atomů, záznamy a pořadí může být snadno namapované a promítá do různých datových modelů. Rozhraní API pro podmnožinu modely jsou k dispozici pravé nyní (SQL, MongoDB, tabulky a rozhraní Graph API) a ostatní specifické pro další datové modely bude k dispozici v budoucnu.
 
 Azure Cosmos DB má schéma lhostejné indexování modul schopná automaticky indexování všechna data, která ho ingestuje bez nutnosti žádné schéma nebo sekundární indexy od vývojáře. Modul spoléhá na sadu rozvržení logické indexu (obráceným, sloupcové, stromu), které oddělit rozložení úložiště z indexu a zpracování subsystémů dotazů. Cosmos DB má také možnost podporovat sadu přenosu protokolů a rozhraní API extensible způsobem a efektivně převede základní datový model (1) a rozložení logické indexu (2) díky tomu jednoznačně schopný zajistit podporu více datové modely nativně.
 
@@ -60,7 +64,7 @@ Neexistuje žádné omezení na celkovém množství dat, která kontejner můž
 Neexistuje žádné omezení na celkovém množství propustnosti, kterou kontejner může podporovat v Azure Cosmos DB. Klíče Rada je distribuovat vaši úlohu přibližně rovnoměrně mezi dostatečně velký počet klíčů oddílů.
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Kolik Azure Cosmos DB stojí?
-Podrobnosti najdete [podrobnosti o cenách Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) stránky. Poplatky za používání služby Azure Cosmos DB určuje počet zřízené kontejnerů, počet hodin kontejnery byly online, a zřízené propustnosti pro každý kontejner. Termín *kontejnery* zde odkazuje na kolekci DocumentDB rozhraní API, grafu rozhraní Graph API, rozhraní API MongoDB shromažďování a Table API tabulky. 
+Podrobnosti najdete [podrobnosti o cenách Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) stránky. Poplatky za používání služby Azure Cosmos DB určuje počet zřízené kontejnerů, počet hodin kontejnery byly online, a zřízené propustnosti pro každý kontejner. Termín *kontejnery* zde označují rozhraní API pro SQL shromažďování, grafu rozhraní Graph API, rozhraní API MongoDB kolekce a Table API tabulky. 
 
 ### <a name="is-a-free-account-available"></a>Je k dispozici bezplatný účet?
 Ano, můžete zaregistrovat pro účet časově omezené bez poplatků, bez závazků. Přejděte na [zdarma zkuste Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) nebo Další informace najdete v [zkuste Azure Cosmos DB – nejčastější dotazy](#try-cosmos-db).
@@ -81,7 +85,7 @@ Předplatná Azure Cosmos DB zkuste zobrazovat na portálu Azure vedle dalších
 
 Tyto podmínky platí pro odběry zkuste Cosmos databázi Azure:
 
-* Jeden kontejner jedno předplatné pro SQL (DocumentDB rozhraní API), Gremlin (rozhraní Graph API) a účty tabulky.
+* Jeden kontejner jedno předplatné pro účty SQL, Gremlin (rozhraní Graph API) a tabulku.
 * Až 3 kolekce jedno předplatné pro účty MongoDB.
 * Kapacita úložiště 10 GB.
 * Globální replikace je k dispozici v následujícím [oblastí Azure](https://azure.microsoft.com/regions/): střed USA, severní Evropy a Asie a Tichomoří – jihovýchod
@@ -91,7 +95,7 @@ Tyto podmínky platí pro odběry zkuste Cosmos databázi Azure:
 
 ## <a name="set-up-azure-cosmos-db"></a>Nastavení Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Jak přihlásím Azure Cosmos DB?
-Azure Cosmos DB je k dispozici na portálu Azure. První zaregistrujte si předplatné Azure. Poté, co jste se přihlásili, můžete přidat DocumentDB rozhraní API, rozhraní Graph API (Preview), rozhraní API tabulky nebo rozhraní API MongoDB účet k předplatnému Azure.
+Azure Cosmos DB je k dispozici na portálu Azure. První zaregistrujte si předplatné Azure. Po jste zaregistrovali, můžete přidat rozhraní SQL API, rozhraní Graph API (Preview), tabulka rozhraní API, rozhraní API MongoDB nebo Cassandra API účtu k předplatnému Azure.
 
 ### <a name="what-is-a-master-key"></a>Co je hlavní klíč?
 Hlavní klíč je token zabezpečení pro přístup ke všem prostředkům účtu. Uživatelé, kteří mají klíč čtení a zápisu přístup ke všem prostředkům v databázovém účtu. Při distribuci hlavního klíče buďte opatrní. Primární hlavní klíč nebo sekundární hlavní klíč jsou k dispozici na **klíče** okno [portál Azure][azure-portal]. Další informace o klíčích najdete v tématu [zobrazení, kopírování a opětovné vytváření přístupových klíčů](manage-account.md#keys).
@@ -104,22 +108,22 @@ Azure Cosmos DB přes všechny oblasti Azure, jak je uvedeno v nachází [oblast
 
 Když nastavíte oblast, mějte na paměti, že Azure Cosmos DB respektuje suverénní a government cloudy. To znamená pokud vytvoříte účet v svrchovaných oblasti, nelze replikovat mimo danou svrchovaných oblast. Podobně nelze povolit replikaci do jiných umístění svrchovaných z mimo účtu. 
 
-## <a name="develop-against-the-documentdb-api"></a>Vývoj s DocumentDB rozhraní API
+## <a name="develop-against-the-sql-api"></a>Vývoj rozhraní SQL API
 
-### <a name="how-do-i-start-developing-against-the-documentdb-api"></a>Jak spustit vývoj proti rozhraní API DocumentDB?
-Rozhraní API služby Microsoft DocumentDB je k dispozici v [portál Azure][azure-portal]. Nejprve musíte zaregistrovat předplatné Azure. Jakmile si zaregistrujete předplatné Azure, můžete přidat kontejner DocumentDB API k předplatnému Azure. Pokyny k přidání účtu Azure Cosmos DB najdete v tématu [vytvoření účtu Azure Cosmos DB databáze](create-documentdb-dotnet.md#create-account). Pokud jste měli účet DocumentDB v minulosti, máte nyní účet Azure Cosmos DB. 
+### <a name="how-do-i-start-developing-against-the-sql-api"></a>Jak spustit vývoj proti rozhraní SQL API?
+Nejprve musíte zaregistrovat předplatné Azure. Jakmile si zaregistrujete předplatné Azure, můžete přidat kontejner rozhraní SQL API k předplatnému Azure. Pokyny k přidání účtu Azure Cosmos DB najdete v tématu [vytvoření účtu Azure Cosmos DB databáze](create-documentdb-dotnet.md#create-account). 
 
 Pro .NET, Python, Node.js, JavaScript a Javu jsou k dispozici sady [SDK](documentdb-sdk-dotnet.md). Vývojáři mohou použít také [RESTful HTTP API](/rest/api/documentdb/) pracovat s prostředky Azure Cosmos DB z různých platforem a jazyků.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Může přistupovat ke profesionální některé připravených vzorků?
-Ukázky pro rozhraní API DocumentDB [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), a [Python](documentdb-python-samples.md) sady SDK jsou k dispozici na Githubu.
+Ukázky pro rozhraní SQL API [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), a [Python](documentdb-python-samples.md) sady SDK jsou k dispozici na Githubu.
 
 
-### <a name="does-the-documentdb-api-database-support-schema-free-data"></a>Podporuje databázi DocumentDB API data bez schémat?
-Ano, rozhraní API DocumentDB umožňuje aplikacím ukládat libovolné dokumenty JSON bez schématu definic nebo parametrů. Data jsou okamžitě k dispozici pro dotaz přes rozhraní dotazů SQL databáze Azure Cosmos.  
+### <a name="does-the-sql-api-database-support-schema-free-data"></a>Podporuje rozhraní API pro SQL databáze data bez schémat?
+Ano, rozhraní SQL API umožňuje aplikacím ukládat libovolné dokumenty JSON bez schématu definic nebo parametrů. Data jsou okamžitě k dispozici pro dotaz přes rozhraní dotazů SQL databáze Azure Cosmos.  
 
-### <a name="does-the-documentdb-api-support-acid-transactions"></a>Podporuje rozhraní API DocumentDB transakce ACID?
-Ano, rozhraní API DocumentDB podporuje transakce mezi dokumenty vyjádřené jako JavaScript uložených procedur a aktivačních událostí. Transakce jsou omezená na jeden oddíl v každé kolekci a spouštěny sémantice ACID jako "všechny nebo nic," izolované od ostatních souběžně spuštěných požadavků kód a uživatele. Pokud jsou výjimky vyvolány prostřednictvím spuštění serverový kód Javascriptové aplikace, celá transakce bude vrácena zpět. Další informace o transakcích najdete v tématu [databáze programu transakce](programming.md#database-program-transactions).
+### <a name="does-the-sql-api-support-acid-transactions"></a>Podporuje rozhraní SQL API transakce ACID?
+Ano, rozhraní SQL API podporuje transakce mezi dokumenty vyjádřené jako JavaScript uložených procedur a aktivačních událostí. Transakce jsou omezená na jeden oddíl v každé kolekci a spouštěny sémantice ACID jako "všechny nebo nic," izolované od ostatních souběžně spuštěných požadavků kód a uživatele. Pokud jsou výjimky vyvolány prostřednictvím spuštění serverový kód Javascriptové aplikace, celá transakce bude vrácena zpět. Další informace o transakcích najdete v tématu [databáze programu transakce](programming.md#database-program-transactions).
 
 ### <a name="what-is-a-collection"></a>Co je kolekce?
 Kolekce je skupina dokumentů a jejich přidružené logiky Javascriptové aplikace. Kolekce je fakturovatelná entita, kde [náklady](performance-levels.md) je dáno propustnost a použít úložiště. Kolekce může mít rozsah jeden nebo více oddílů nebo serverů a můžete škálovat zvládaly prakticky neomezené objemy úložišť a propustnosti.
@@ -132,19 +136,19 @@ Databáze můžete vytvořit pomocí [portál Azure](https://portal.azure.com), 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Jak nastavím uživatele a oprávnění?
 Uživatele a oprávnění můžete vytvořit pomocí jedné z [Cosmos DB rozhraní API sady SDK](documentdb-sdk-dotnet.md) nebo [rozhraní REST API](/rest/api/documentdb/).  
 
-### <a name="does-the-documentdb-api-support-sql"></a>Podporuje rozhraní API DocumentDB SQL?
-Dotazovací jazyk SQL je vylepšená podmnožina dotazovacích funkcí, kterou podporuje SQL. Dotazovací jazyk Azure Cosmos DB SQL nabízí bohaté hierarchické a relační operátory a rozšiřitelnost prostřednictvím bázi jazyka JavaScript, uživatelsky definované funkce (UDF). Gramatika JSON umožňuje modelování dokumentů JSON ve formě stromů ve s popiskem uzly, které jsou používány Azure Cosmos DB automatických technikách indexování a dialektu dotazování SQL v Azure Cosmos DB. Informace o používání gramatiky SQL najdete v tématu [QueryDocumentDB] [ query] článku.
+### <a name="does-the-sql-api-support-sql"></a>Podporuje rozhraní SQL API SQL?
+Dotazovací jazyk SQL nepodporuje účty rozhraní API pro SQL je vylepšená podmnožina dotazovacích funkcí podporovaným systémem SQL Server. Dotazovací jazyk Azure Cosmos DB SQL nabízí bohaté hierarchické a relační operátory a rozšiřitelnost prostřednictvím bázi jazyka JavaScript, uživatelsky definované funkce (UDF). Gramatika JSON umožňuje modelování dokumentů JSON ve formě stromů ve s popiskem uzly, které jsou používány Azure Cosmos DB automatických technikách indexování a dialektu dotazování SQL v Azure Cosmos DB. Informace o používání gramatiky SQL najdete v tématu [dotazu SQL] [ query] článku.
 
-### <a name="does-the-documentdb-api-support-sql-aggregation-functions"></a>Podporuje DocumentDB rozhraní API funkce agregace SQL?
-Rozhraní API DocumentDB podporuje agregace s nízkou latencí v jakémkoli měřítku prostřednictvím agregační funkce `COUNT`, `MIN`, `MAX`, `AVG`, a `SUM` prostřednictvím gramatiku SQL. Další informace najdete v tématu [agregační funkce](documentdb-sql-query.md#Aggregates).
+### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>Podporuje rozhraní SQL API funkce agregace SQL?
+Rozhraní SQL API podporuje agregace s nízkou latencí v jakémkoli měřítku prostřednictvím agregační funkce `COUNT`, `MIN`, `MAX`, `AVG`, a `SUM` prostřednictvím gramatiku SQL. Další informace najdete v tématu [agregační funkce](documentdb-sql-query.md#Aggregates).
 
-### <a name="how-does-the-documentdb-api-provide-concurrency"></a>Jak rozhraní API DocumentDB zajišťuje souběžnost?
-Rozhraní API DocumentDB podporuje optimistické řízení souběžného (přístupu OCC) prostřednictvím značek entit HTTP, neboli Etagů. Každý prostředek DocumentDB API má ETag a značku ETag je nastaven na serveru pokaždé, když je aktualizován dokument. Všechny zprávy odpovědi jsou součástí hlavičku ETag a aktuální hodnotu. Značky etag binárním rozsáhlým použít s hlavičku If-Match umožňuje serveru se rozhodnout, zda mají být aktualizovány prostředku. Hodnota If-Match je hodnota ETag, která má být zkontrolován. Pokud hodnota ETag odpovídá serveru hodnota ETag, prostředek je aktualizována. Pokud už je ETag aktuální, server odmítne operaci s "HTTP 412 Precondition selhání" kód odpovědi. Klient pak znovu načte prostředek získat aktuální hodnota ETag pro prostředek. Kromě toho značky etag binárním rozsáhlým umožňuje s hlavičku If-None-Match určit, jestli je potřeba znovu načtěte prostředku.
+### <a name="how-does-the-sql-api-provide-concurrency"></a>Jak rozhraní SQL API zajišťuje souběžnost?
+Rozhraní SQL API podporuje optimistické řízení souběžného (přístupu OCC) prostřednictvím značek entit HTTP, neboli Etagů. Každé rozhraní API pro SQL prostředků má ETag a značku ETag je nastaven na serveru pokaždé, když je aktualizován dokument. Všechny zprávy odpovědi jsou součástí hlavičku ETag a aktuální hodnotu. Značky etag binárním rozsáhlým použít s hlavičku If-Match umožňuje serveru se rozhodnout, zda mají být aktualizovány prostředku. Hodnota If-Match je hodnota ETag, která má být zkontrolován. Pokud hodnota ETag odpovídá serveru hodnota ETag, prostředek je aktualizována. Pokud už je ETag aktuální, server odmítne operaci s "HTTP 412 Precondition selhání" kód odpovědi. Klient pak znovu načte prostředek získat aktuální hodnota ETag pro prostředek. Kromě toho značky etag binárním rozsáhlým umožňuje s hlavičku If-None-Match určit, jestli je potřeba znovu načtěte prostředku.
 
 Chcete-li použít optimistickou metodu souběžného v rozhraní .NET, použijte [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) třídy. Ukázku .NET naleznete v části [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) v DocumentManagement ukázce na Githubu.
 
-### <a name="how-do-i-perform-transactions-in-the-documentdb-api"></a>Jak se v rozhraní API DocumentDB provádí transakce?
-Rozhraní API DocumentDB podporuje transakce integrované do jazyka prostřednictvím JavaScript uložených procedur a aktivačních událostí. Všechny databázové operace ve skriptech se spouští v izolaci snímku. Pokud je kolekci s jedním oddílem, provádění je vymezen na kolekci. Pokud je kolekce rozdělena na oddíly, provádění je vymezen na dokumenty se stejnou hodnotou klíče oddílu v rámci kolekce. Na začátku transakce se pořídí snímek verzí dokumentů (ETagy) a k potvrzení dojde pouze v případě, že skript uspěje. Pokud JavaScript vyvolá chybu, transakce se vrátí zpět. Další informace najdete v tématu [programování v jazyce JavaScript na straně serveru pro databázi Azure Cosmos](programming.md).
+### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Jak se provádí transakce v rozhraní SQL API?
+Rozhraní SQL API podporuje transakce integrované do jazyka prostřednictvím JavaScript uložených procedur a aktivačních událostí. Všechny databázové operace ve skriptech se spouští v izolaci snímku. Pokud je kolekci s jedním oddílem, provádění je vymezen na kolekci. Pokud je kolekce rozdělena na oddíly, provádění je vymezen na dokumenty se stejnou hodnotou klíče oddílu v rámci kolekce. Na začátku transakce se pořídí snímek verzí dokumentů (ETagy) a k potvrzení dojde pouze v případě, že skript uspěje. Pokud JavaScript vyvolá chybu, transakce se vrátí zpět. Další informace najdete v tématu [programování v jazyce JavaScript na straně serveru pro databázi Azure Cosmos](programming.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Jak můžete I hromadného vložení dokumenty do Cosmos DB?
 Vám může hromadného vložení dokumenty do Azure Cosmos DB v některém ze dvou způsobů:
@@ -152,10 +156,10 @@ Vám může hromadného vložení dokumenty do Azure Cosmos DB v některém ze d
 * Nástroj pro migraci dat, jak je popsáno v [nástroj pro migraci databáze pro databázi Azure Cosmos](import-data.md).
 * Uložené procedury, jak je popsáno v [programování v jazyce JavaScript na straně serveru pro databázi Azure Cosmos](programming.md).
 
-### <a name="does-the-documentdb-api-support-resource-link-caching"></a>Podporuje DocumentDB API podporu prostředků odkaz ukládání do mezipaměti?
-Ano, protože Azure Cosmos DB je služba RESTful, odkazy na zdroje jsou neměnné a mohou být uloženy v mezipaměti. Klienti DocumentDB API můžete zadat hlavičku "If-None-Match" pro čtení pro všechny prostředků jako dokumentu nebo kolekci a pak aktualizujte své místní kopie po změně verze serveru.
+### <a name="does-the-sql-api-support-resource-link-caching"></a>Využívá rozhraní SQL API podporu prostředků odkaz ukládání do mezipaměti?
+Ano, protože Azure Cosmos DB je služba RESTful, odkazy na zdroje jsou neměnné a mohou být uloženy v mezipaměti. Rozhraní SQL API klientů můžete zadat hlavičku "If-None-Match" pro čtení pro všechny prostředků jako dokumentu nebo kolekci a pak aktualizujte své místní kopie po změně verze serveru.
 
-### <a name="is-a-local-instance-of-documentdb-api-available"></a>Je k dispozici místní instanci rozhraní API DocumentDB?
+### <a name="is-a-local-instance-of-sql-api-available"></a>Je k dispozici místní instance systému SQL API?
 Ano. [Emulátoru DB Cosmos Azure](local-emulator.md) poskytuje zachováním emulace služby Cosmos DB. Podporuje funkce, které jsou shodné s Azure Cosmos databáze, včetně podpory pro vytváření a dotazování dokumentů JSON, zřizování a škálování kolekce a provádění uložené procedury a triggery. Můžete vyvíjet a testovat aplikace pomocí emulátoru DB Cosmos Azure a jejich nasazení do Azure v globálním měřítku tím, že změníte koncového bodu připojení pro Azure Cosmos DB jednu konfiguraci.
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Vývoj pro rozhraní API pro MongoDB
@@ -236,7 +240,7 @@ Váš názor můžete sdílet v některém z následujících způsobů:
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Co je připojovací řetězec, který je nutné použít pro připojení k rozhraní API tabulky?
 Připojovací řetězec je:
 ```
-DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.table.cosmosdb.azure.com
+DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountName>.table.cosmosdb.azure.com
 ```
 Na stránce připojovací řetězec na portálu Azure můžete získat připojovací řetězec. 
 
@@ -364,7 +368,7 @@ Ze sady SDK rozhraní .NET můžete odeslat v souboru app.config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure DB Cosmos jako platformu zdá se, že máte spoustu možností, jako je například řazení, agregace, hierarchie a další funkce. Můžete přidávat tyto funkce rozhraní API tabulky? 
-Rozhraní API tabulka poskytuje stejné funkce dotazu jako Azure Table storage. Azure Cosmos DB také podporuje řazení, agregace, geoprostorové dotazu, hierarchie a širokou škálu integrované funkce. Poskytujeme další funkce v rozhraní API tabulky v aktualizaci budoucí služby. Další informace najdete v tématu [dotazy SQL pro rozhraní API služby Azure Cosmos databáze DocumentDB](../documentdb/documentdb-sql-query.md).
+Rozhraní API tabulka poskytuje stejné funkce dotazu jako Azure Table storage. Azure Cosmos DB také podporuje řazení, agregace, geoprostorové dotazu, hierarchie a širokou škálu integrované funkce. Poskytujeme další funkce v rozhraní API tabulky v aktualizaci budoucí služby. Další informace najdete v tématu [dotazy SQL](documentdb-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Kdy je třeba změnit TableThroughput pro rozhraní API tabulky?
 Měli byste změnit TableThroughput, pokud platí některá z následujících podmínek:
@@ -534,47 +538,6 @@ Rozhraní API Cassandra Apache poskytuje stejné funkce jako Apache Cassandra CQ
 
 ### <a name="feature-x-of-regular-cassandra-api-is-not-working-as-today-where-can-the-feedback-be-provided"></a>Funkce x regulární Cassandra rozhraní API nepracuje jako dnes, kde můžete zajistit zpětnou vazbu?
 Poskytnutí zpětné vazby pomocí [názorů na webu uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
-
-<a id="moving-to-cosmos-db"></a>
-## <a name="questions-from-documentdb-customers"></a>Dotazy zákazníků DocumentDB
-### <a name="why-are-you-moving-to-azure-cosmos-db"></a>Proč se vám přesun k databázi Cosmos Azure? 
-
-Azure Cosmos DB je další velký nárůst ve globálně distribuované databáze cloudu v odpovídajícím měřítku. Jako zákazník DocumentDB nyní máte přístup k systému revoluční a možnosti, které nabízí Azure Cosmos DB.
-
-Azure Cosmos DB spustit jako "Projektu Florencii" v 2010 tak, aby adres problémové body, jimž vývojáři při vytváření aplikace ve velkém měřítku uvnitř společnosti Microsoft. Na výzvy vytváření globálně distribuované aplikace nejsou jedinečné společnosti Microsoft, proto jsme provedli první generace této technologie k dispozici v 2015 pro vývojáře Azure ve formě Azure DocumentDB. 
-
-Od tohoto okamžiku jsme přidali nové funkce a zavedla významná nové funkce. Azure Cosmos DB je výsledek. Jako součást této verze, DocumentDB zákazníků s jejich daty, automaticky a bezproblémově budou Azure Cosmos DB zákazníků. Tyto funkce jsou v oblasti základní databázový stroj, jakož i globální distribuci, elastickou škálovatelnost a špičkový, komplexní SLA. Konkrétně jsme vyvinuly databázový stroj Azure Cosmos DB efektivně mapovat oblíbených datové modely, typ systémy a rozhraní API základní datový model Azure Cosmos DB. 
-
-Aktuální projevem vývojáře přístupem Tato práce je nová podpora pro [Gremlin](../cosmos-db/graph-introduction.md) a [tabulky úložiště rozhraní API](../cosmos-db/table-introduction.md). A právě začátek. Plánujeme přidat další oblíbených rozhraní API a novější datové modely v čase, s další vylepšení výkonu a úložiště v globálním měřítku. 
-
-Je důležité zmínit, DocumentDB [SQL dialekt](../documentdb/documentdb-sql-query.md) byla vždy jen jednou z mnoha rozhraní API, které může podporovat základní Azure DB Cosmos. Pro vývojáře, kteří používají plně spravovaná služba, například Azure Cosmos DB je rozhraní pouze ke službě rozhraní API, který je zveřejněný prostřednictvím služby. Nic skutečně změní pro stávající zákazníky služby DocumentDB. V Azure DB Cosmos získáte přesně stejné SQL rozhraní API, které nabízí DocumentDB. A teď (a v budoucnu) můžete přístup k dalším funkcím dříve nedostupné 
-
-Jiné projevem naše trvalá práce je rozšířené základem pro globální a elastické škálovatelnost propustnost a úložiště. Provedli jsme několik vylepšení základní subsystém globální distribuce. Jednou z mnoha takové vývojáře směřujících funkcí je model konzistentní předpony konzistence, takže je celkový počet pět modely dobře definovaný konzistence. Vydá jsme řadu zajímavějšího funkcí, jako se pro dospělé. 
-
-### <a name="what-do-i-need-to-do-to-ensure-that-my-documentdb-resources-continue-to-run-on-azure-cosmos-db"></a>Co je třeba provést k zajištění, že moje prostředky DocumentDB dále spustit v Azure Cosmos DB?
-
-Nepotřebujete provádět všechny změny. Vaše prostředky DocumentDB jsou teď prostředky Azure Cosmos DB a bez přerušení v rámci služby se při přesunutí došlo k chybě.
-
-### <a name="what-changes-do-i-need-to-make-for-my-app-to-work-with-azure-cosmos-db"></a>Jaké změny jsou třeba chcete, aby pro aplikace pro práci s Azure Cosmos DB?
-
-Neexistují žádné změny, aby. Názvy tříd, obory názvů a NuGet balíček nezměnily. Jako vždy doporučujeme, aby byl váš sady SDK aktuální využívat nejnovější funkce a vylepšení. 
-
-### <a name="whats-changed-in-the-azure-portal"></a>Co se změnilo na portálu Azure?
-
-DocumentDB je již nadále nebude zobrazovat na portálu jako služby Azure. Místo ní je nová ikona Azure Cosmos DB, jak je znázorněno na následujícím obrázku. Všechny kolekce jsou k dispozici, protože se nacházely před a je možné škálovat propustnosti, změna úrovně konzistence a sledování smluv SLA. Vylepšené možnosti dat Explorer (Preview). Teď můžete zobrazit a upravit dokumenty, vytvářet a spouštět dotazy a pracovat s uložené procedury, triggery a UDF z jedné stránky, jak je znázorněno na následujícím obrázku: 
-
-![Stránka Azure Cosmos DB kolekce](./media/faq/cosmos-db-data-explorer.png)
-
-### <a name="are-there-changes-to-pricing"></a>Existují změny ceny?
-
-Ne, náklady na provozování vaší aplikace v Azure Cosmos DB je stejný jako byl před.
-
-### <a name="are-there-changes-to-the-slas"></a>Existují změny smluv SLA?
-
-Ne, smlouvy SLA pro dostupnost, konzistence, latence a propustnosti jsou beze změny a se pořád zobrazí na portálu. Další informace najdete v tématu [SLA pro Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/).
-   
-![Aplikace úkolů s ukázkovými daty](./media/faq/azure-cosmosdb-portal-metrics-slas.png)
-
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md

@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 002c4376c91f4a7176cc9b00a4d6ba275f87dadb
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 39c6de1ce2443cf027d7cde067281355ea0b7207
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>Použití Helm s Azure Container Service (AKS)
 
-[Helm](https://github.com/kubernetes/helm/) je nástroj balení open source, který vám pomůže nainstalovat a spravovat životní cyklus aplikace Kubernetes. Podobně jako správce balíčku Linux jako *byt č* a *Yum*, Helm slouží ke správě Kubernetes grafy, které jsou balíčky předkonfigurované Kubernetes prostředků.
+[Helm] [ helm] je nástroj balení open source, který vám pomůže nainstalovat a spravovat životní cyklus aplikace Kubernetes. Podobně jako správce balíčku Linux jako *byt č* a *Yum*, Helm slouží ke správě Kubernetes grafy, které jsou balíčky předkonfigurované Kubernetes prostředků.
 
 Tento dokument postup prostřednictvím konfiguraci a použití Helm v clusteru s podporou Kubernetes na AKS.
 
 ## <a name="before-you-begin"></a>Než začnete
 
-Podrobně popsané kroky v tomto dokumentu předpokládají, že jste vytvořili cluster AKS a navázali s ním připojení přes kubectl. Pokud potřebujete tyto položky, přečtěte si [Rychlý úvod ke službě AKS](./kubernetes-walkthrough.md).
+Podrobně popsané kroky v tomto dokumentu předpokládají, že jste vytvořili cluster AKS a navázali s ním připojení přes kubectl. Pokud budete potřebovat tyto položky zobrazit, [rychlý start AKS][aks-quickstart].
 
 ## <a name="install-helm-cli"></a>Nainstalujte Helm rozhraní příkazového řádku
 
 Rozhraní příkazového řádku Helm je klient, který běží ve vývojovém systému a umožňuje spuštění, zastavení a správu aplikací s Helm grafy.
 
-Pokud používáte Azure CloudShell, rozhraní příkazového řádku Helm je již nainstalován. Instalace rozhraní příkazového řádku Helm na použití Mac `brew`. Instalace dalších možností najdete v tématu [instalace Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+Pokud používáte Azure CloudShell, rozhraní příkazového řádku Helm je již nainstalován. Instalace rozhraní příkazového řádku Helm na použití Mac `brew`. Instalace dalších možností najdete v tématu [instalace Helm][helm-install-options].
 
 ```console
 brew install kubernetes-helm
@@ -50,7 +50,7 @@ Bash completion has been installed to:
 
 ## <a name="configure-helm"></a>Konfigurace Helm
 
-[Helm init](https://docs.helm.sh/helm/#helm-init) příkaz slouží k instalaci součástí Helm v clusteru s podporou Kubernetes a proveďte konfigurace na straně klienta. Spusťte následující příkaz k instalaci Helm AKS cluster a konfiguraci klienta Helm.
+[Helm init] [ helm-init] příkaz slouží k instalaci součástí Helm v clusteru s podporou Kubernetes a proveďte konfigurace na straně klienta. Spusťte následující příkaz k instalaci Helm AKS cluster a konfiguraci klienta Helm.
 
 ```azurecli-interactive
 helm init
@@ -59,14 +59,15 @@ helm init
 Výstup:
 
 ```
-$HELM_HOME has been configured at /Users/user/.helm.
-Not installing Tiller due to 'client-only' flag having been set
+$HELM_HOME has been configured at /home/user/.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
 Happy Helming!
 ```
 
 ## <a name="find-helm-charts"></a>Najít Helm grafy
 
-Helm grafy se používají k nasazení aplikací do clusteru s podporou Kubernetes. Chcete-li vyhledat předem vytvořené Helm grafy, použijte [helm vyhledávání](https://docs.helm.sh/helm/#helm-search) příkaz.
+Helm grafy se používají k nasazení aplikací do clusteru s podporou Kubernetes. Chcete-li vyhledat předem vytvořené Helm grafy, použijte [helm vyhledávání] [ helm-search] příkaz.
 
 ```azurecli-interactive
 helm search
@@ -94,7 +95,7 @@ stable/datadog                  0.8.0   DataDog Agent
 ...
 ```
 
-Chcete-li aktualizovat seznam grafy, použijte [helm úložišti aktualizace](https://docs.helm.sh/helm/#helm-repo-update) příkaz.
+Chcete-li aktualizovat seznam grafy, použijte [helm úložišti aktualizace] [ helm-repo-update] příkaz.
 
 ```azurecli-interactive
 helm repo update
@@ -111,7 +112,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Spustit Helm grafy
 
-Chcete-li nasadit řadič NGINX příjem příchozích dat, použijte [helm instalace](https://docs.helm.sh/helm/#helm-install) příkaz.
+Chcete-li nasadit řadič NGINX příjem příchozích dat, použijte [helm instalace] [ helm-install] příkaz.
 
 ```azurecli-interactive
 helm install stable/nginx-ingress
@@ -142,11 +143,11 @@ tufted-ocelot-nginx-ingress-default-backend  1        1        1           1    
 ...
 ```
 
-Další informace o používání řadič NGINX příjem příchozích dat s Kubernetes najdete v tématu [NGINX příjem příchozích dat řadiče](https://github.com/kubernetes/ingress/tree/master/controllers/nginx).
+Další informace o používání řadič NGINX příjem příchozích dat s Kubernetes najdete v tématu [NGINX příjem příchozích dat řadič][nginx-ingress].
 
 ## <a name="list-helm-charts"></a>Seznam Helm grafy
 
-Chcete-li zobrazit seznam grafy nainstalován na váš cluster, použijte [helm seznamu](https://docs.helm.sh/helm/#helm-list) příkaz.
+Chcete-li zobrazit seznam grafy nainstalován na váš cluster, použijte [helm seznamu] [ helm-list] příkaz.
 
 ```azurecli-interactive
 helm list
@@ -164,4 +165,18 @@ bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingres
 Další informace o správě Kubernetes grafy naleznete v dokumentaci k Helm.
 
 > [!div class="nextstepaction"]
-> [Helm dokumentace](https://github.com/kubernetes/helm/blob/master/docs/index.md)
+> [Helm dokumentace][helm-documentation]
+
+<!-- LINKS - external -->
+[helm]: https://github.com/kubernetes/helm/
+[helm-documentation]: https://github.com/kubernetes/helm/blob/master/docs/index.md
+[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
+[helm-search]: https://docs.helm.sh/helm/#helm-search
+[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md

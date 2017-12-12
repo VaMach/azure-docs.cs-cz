@@ -1,4 +1,3 @@
-
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Test dotazování Microsoft Graph API z vaší aplikace iOS
 
 Spustí kód v simulátoru, stiskněte klávesu **příkaz** + **R**.

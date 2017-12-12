@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Spravovat databáze v Azure SQL Data Warehouse
 SQL Data Warehouse automatizuje mnoho aspektů správy vašich databází. Například škálování výkonu stačí upravit platit pro správnou úroveň výpočetní prostředky a potom umožní provádět všechny operace škálování a škálování zpět SQL Data Warehouse.
@@ -47,7 +47,7 @@ Chcete-li začít používat portál Azure, přečtěte si téma [vytvoření SQ
 ### <a name="sql-server-data-tools-in-visual-studio"></a>Nástroje SQL Server Data Tools v sadě Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) v sadě Visual Studio umožňuje připojit, spravovat a vývoji vaší databáze. Pokud jste vývojář aplikací obeznámeni s Visual Studio nebo jiné integrované vývojové prostředí (integrovaného vývojového prostředí), zkuste použít rozšíření SSDT v sadě Visual Studio.
 
-Rozšíření SSDT zahrnuje Průzkumník objektů SQL serveru, která umožňuje vizualizovat, připojit a spouštět skripty pro databáze SQL Data Warehouse. Chcete-li rychle se připojit k SQL Data Warehouse, můžete jednoduše klikněte na tlačítko **otevřete v sadě Visual Studio** tlačítko v příkazu panelu při zobrazení databáze podrobnosti v portálu Azure Classic.  
+Rozšíření SSDT zahrnuje Průzkumník objektů SQL serveru, která umožňuje vizualizovat, připojit a spouštět skripty pro databáze SQL Data Warehouse. Chcete-li rychle se připojit k SQL Data Warehouse, můžete jednoduše klikněte na tlačítko **otevřete v sadě Visual Studio** tlačítko v příkazu panelu při zobrazení databáze podrobnosti na portálu Azure.  
 
 Chcete-li začít pracovat s rozšířením SSDT v sadě Visual Studio, přečtěte si téma [dotazu Azure SQL Data Warehouse pomocí sady Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 

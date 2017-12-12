@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: 2e5cce26bc8bebbe6b9f8ba3c3d03e8c3db8c87c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorování Azure Cosmos DB
 Můžete monitorovat své účty Azure Cosmos DB [portál Azure](https://portal.azure.com/). U každého účtu Azure Cosmos DB je k dispozici ke sledování propustnosti, úložiště, dostupnosti, latence a konzistence úplnou sadu metriky.
@@ -69,7 +69,7 @@ Metriky lze zobrazit na stránku účtu, nová stránka metriky, nebo v Azure mo
      ![Snímek obrazovky s možností přidat stránku pravidlo výstrahy](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Monitorování databáze Azure Cosmos prostřednictvím kódu programu
-Účet úrovně metriky dostupné na portálu, jako je například využití a celkový počet požadavků na účet úložiště, nejsou k dispozici prostřednictvím rozhraní API DocumentDB. Data o využití na úrovni kolekce však můžete načíst pomocí rozhraní API DocumentDB. Načtení dat na úrovni kolekce, postupujte takto:
+Účet úrovně metriky dostupné na portálu, jako je například využití a celkový počet požadavků na účet úložiště, nejsou k dispozici prostřednictvím rozhraní API SQL. Data o využití na úrovni kolekce však můžete načíst pomocí rozhraní API SQL. Načtení dat na úrovni kolekce, postupujte takto:
 
 * Chcete-li použít rozhraní API REST [provádět GET na kolekci](https://msdn.microsoft.com/library/mt489073.aspx). V záhlaví x-ms-resource kvóty a x-ms-resource využití v odpovědi se vrátí informace kvóta a využití pro kolekci.
 * Chcete-li používat sadu .NET SDK, použijte [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) metoda, která vrátí hodnotu [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) obsahující počet použití vlastnosti, jako **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**a další.

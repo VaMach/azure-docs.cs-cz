@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>Zabezpečení rámce: Autorizace | Způsoby zmírnění rizik 
 | Produktům a službám | Článek |
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 | **Database** | <ul><li>[Ujistěte se, že nejméně privilegovaných účtů se používají pro připojení k databázi serveru](#privileged-server)</li><li>[Implementace zabezpečení na úrovni řádku RLS zabránit klientům v přístupu k výměně dat](#rls-tenants)</li><li>[Sysadmin role by měla mít pouze platné potřeby uživatelů](#sysadmin-users)</li></ul> |
 | **Brána IoT cloudu** | <ul><li>[Připojení k bráně cloudu pomocí nejméně privilegovaným tokeny](#cloud-least-privileged)</li></ul> |
 | **Centra událostí Azure** | <ul><li>[Použít jen odesílání oprávnění klíče SAS ke generování tokenů zařízení](#sendonly-sas)</li><li>[Nepoužívejte přístupové tokeny, které poskytuje přímý přístup do centra událostí](#access-tokens-hub)</li><li>[Připojení k Centru událostí pomocí klíče SAS, které mají minimální oprávnění potřebná](#sas-minimum-permissions)</li></ul> |
-| **Azure Documentdb** | <ul><li>[Použít prostředků tokeny pro připojení k DocumentDB, kdykoli je to možné](#resource-docdb)</li></ul> |
+| **Azure Documentdb** | <ul><li>[Použít prostředků tokeny pro připojení k databázi Azure Cosmos kdykoli je to možné](#resource-docdb)</li></ul> |
 | **Hranice vztahů důvěryhodnosti Azure** | <ul><li>[Povolit přesnou správu přístupu pomocí RBAC předplatné Azure](#grained-rbac)</li></ul> |
 | **Hranice vztahů důvěryhodnosti Service Fabric** | <ul><li>[Omezení přístupu klienta pro operace clusteru pomocí RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Provedení modelování zabezpečení a použití zabezpečení na úrovni pole případě požadavku](#modeling-field)</li></ul> |
@@ -224,7 +224,7 @@ Upozorňujeme, že RLS jako databáze se na pole funkce se vztahuje pouze na sys
 | **Použít technologie** | Obecné |
 | **Atributy**              | Není k dispozici  |
 | **Odkazy**              | Není k dispozici  |
-| **Kroky** | Token prostředku je přidružen k DocumentDB oprávnění zdroji a zachytí vztah mezi uživatelem databáze a oprávnění tento uživatel má pro určitý prostředek DocumentDB aplikace (např. kolekce a dokumentu). Vždy používejte token prostředků pro přístup k DocumentDB, pokud klient nemůže být považován za důvěryhodný nakládání s klíči hlavní nebo jen pro čtení - jako koncový uživatel aplikace, jako je mobilní nebo desktopové klienta. Pomocí hlavního klíče nebo klíče jen pro čtení z back-end aplikace, které můžete bezpečně uložit tyto klíče.|
+| **Kroky** | Token prostředku je přidružený prostředek Azure Cosmos DB oprávnění a zachytí vztah mezi uživatelem databáze a oprávnění tento uživatel má pro určitý prostředek Azure Cosmos DB aplikace (např. kolekce a dokumentu). Vždy používejte token prostředků pro přístup k databázi Cosmos Azure, pokud klient nemůže být považován za důvěryhodný nakládání s klíči hlavní nebo jen pro čtení - jako koncový uživatel aplikace, jako je mobilní nebo desktopové klienta. Pomocí hlavního klíče nebo klíče jen pro čtení z back-end aplikace, které můžete bezpečně uložit tyto klíče.|
 
 ## <a id="grained-rbac"></a>Povolit přesnou správu přístupu pomocí RBAC předplatné Azure
 

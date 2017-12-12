@@ -24,7 +24,7 @@
 
 # Referenční informace
 ## Rozhraní API
-### [Rozhraní REST API pro správu prostředků Azure](/rest/api/powerbiembedded/)
+### [Rozhraní REST API pro správu prostředků Azure](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [Rozhraní REST API](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 ## Sady SDK
 ### [Stažení sady .NET SDK](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)

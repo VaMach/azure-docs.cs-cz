@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Oddíl a škálování v Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Jak funguje dělení Každá položka musí mít klíč oddílu a klíč řádku
 
 * Zřídit kontejner Azure Cosmos DB s `T` propustnost požadavky/s.
 * Na pozadí Azure Cosmos DB zřídí oddíly, které jsou potřebné k obsluze `T` požadavky/s. Pokud `T` je vyšší než maximální propustnost na oddíl `t`, pak Azure Cosmos DB zřizuje `N`  =  `T/t` oddíly.
-* Azure Cosmos DB přiděluje místo na klíče oddílu klíče hash rovnoměrně napříč `N` oddíly. Každý oddíl (fyzickém oddílu), takže hostuje hodnoty klíče oddílu 1-N (logické oddíly).
+* Azure Cosmos DB přiděluje místo na klíče oddílu klíče hash rovnoměrně napříč `N` oddíly. Takže každý oddíl (fyzickém oddílu) hostitele `1/N` oddílu hodnoty klíče (logické oddíly).
 * Při fyzickém oddílu `p` dosáhnou limitu úložiště Azure Cosmos DB bezproblémově rozdělí `p` do dvou nových oddílů, `p1` a `p2`. Distribuuje hodnoty odpovídající přibližně poloviční klíče pro každou nadefinovaných oddílů. Toto rozdělení operace je pro vaše aplikace skrytá.
 * Podobně když zřídit propustnost vyšší než `t*N`, Azure Cosmos DB rozdělí jeden nebo více oddíly mohou podporovat vyšší propustnost.
 
@@ -49,10 +49,10 @@ Sémantika pro klíče oddílů je mírně odlišný tak, aby odpovídaly séman
 
 | Rozhraní API | Klíč oddílu | Klíč řádku |
 | --- | --- | --- |
-| Azure Cosmos DB | Cesta klíče vlastní oddíl | Pevná`id` | 
-| MongoDB | Vlastní sdílený klíč  | Pevná`_id` | 
-| Graph | klíčovou vlastností vlastní oddíl | Pevná`id` | 
-| Table | Pevná`PartitionKey` | Pevná`RowKey` | 
+| Azure Cosmos DB | Cesta klíče vlastní oddíl | Oprava `id` | 
+| MongoDB | Vlastní sdílený klíč  | Oprava `_id` | 
+| Graph | klíčovou vlastností vlastní oddíl | Oprava `id` | 
+| Table | Oprava `PartitionKey` | Oprava `RowKey` | 
 
 Azure Cosmos DB používá algoritmus HMAC rozdělení do oddílů. Při zápisu položky Azure Cosmos DB hashuje hodnotu klíče oddílu a hash výsledek používá k určení oddíl, který k uložení položky v. Azure Cosmos DB ukládá všechny položky se stejným klíčem oddílu v jednom fyzickém oddílu. Volba klíč oddílu je důležité rozhodnutí, která je nutné provést v době návrhu. Je třeba vybrat název vlastnosti, která má široký rozsah hodnot a má i přístupové vzorce.
 

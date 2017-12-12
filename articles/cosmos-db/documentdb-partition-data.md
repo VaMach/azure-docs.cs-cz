@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b721f66ef4d453b5c5f0faf40f5eb2b8913a848
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Vytváření oddílů v Azure DB Cosmos pomocí rozhraní API DocumentDB
+# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Vytváření oddílů v Azure DB Cosmos pomocí rozhraní SQL API
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) je globální databáze distribuované, více modelu služba navržená tak, aby vám pomohou dosáhnout rychlé, předvídatelný výkon a škálování bezproblémově společně s vaší aplikací je s růstem. 
 
-Tento článek obsahuje přehled o tom, jak pracovat s oddíly Cosmos DB kontejnery s rozhraním API pro DocumentDB. V tématu [vytváření oddílů a horizontální škálování](../cosmos-db/partition-data.md) přehled o konceptech a osvědčené postupy pro vytváření oddílů s jakéhokoli rozhraní API Azure Cosmos DB. 
+Tento článek obsahuje přehled o tom, jak pracovat s oddíly Cosmos DB kontejnery s rozhraním API SQL. V tématu [vytváření oddílů a horizontální škálování](../cosmos-db/partition-data.md) přehled o konceptech a osvědčené postupy pro vytváření oddílů s jakéhokoli rozhraní API Azure Cosmos DB. 
 
 Pokud chcete začít s kódem, stáhněte si projekt z [Githubu](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
@@ -44,7 +46,7 @@ Pokud chcete začít s kódem, stáhněte si projekt z [Azure Cosmos DB výkonu 
 
 ## <a name="partition-keys"></a>Klíče oddílů
 
-V rozhraní API služby DocumentDB zadejte definici klíče oddílu ve formě cesta JSON. V následující tabulce jsou uvedeny příklady oddílu klíčové definice a hodnoty odpovídající každé. Klíč oddílu je zadán jako cesta, například `/department` představuje vlastnost oddělení. 
+V rozhraní API SQL zadejte definici klíče oddílu ve formě cesta JSON. V následující tabulce jsou uvedeny příklady oddílu klíčové definice a hodnoty odpovídající každé. Klíč oddílu je zadán jako cesta, například `/department` představuje vlastnost oddělení. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -106,7 +108,7 @@ await client.CreateDocumentCollectionAsync(
 Tato metoda umožňuje volání do databáze Cosmos rozhraní REST API a zřizovat počet oddílů podle propustnosti, požadované služby. Výkon vašich potřeb momentální, můžete změnit propustnost kontejner. 
 
 ### <a name="reading-and-writing-items"></a>Čtení a zápis položky
-Nyní Pojďme vkládat data do databáze Cosmos. Zde je ukázka třída obsahující zařízení, čtení a volání CreateDocumentAsync vložit nového zařízení čtení do kontejneru. Jedná se o příklad využití rozhraní API DocumentDB:
+Nyní Pojďme vkládat data do databáze Cosmos. Zde je ukázka třída obsahující zařízení, čtení a volání CreateDocumentAsync vložit nového zařízení čtení do kontejneru. Jedná se o příklad využívá rozhraní SQL API:
 
 ```csharp
 public class DeviceReading
@@ -223,7 +225,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 V další části podíváme na tom, jak můžete přesunout do oddílů kontejnerů z kontejnerů jedním oddílem.
 
 ## <a name="next-steps"></a>Další kroky
-V tomto článku jsme poskytuje přehled o tom, jak pracovat s oddíly kontejnery Azure Cosmos DB s rozhraním API pro DocumentDB. Viz také [vytváření oddílů a horizontální škálování](../cosmos-db/partition-data.md) přehled o konceptech a osvědčené postupy pro vytváření oddílů s jakéhokoli rozhraní API Azure Cosmos DB. 
+V tomto článku jsme poskytuje přehled o tom, jak pracovat s oddíly kontejnery Azure Cosmos DB s rozhraním API SQL. Viz také [vytváření oddílů a horizontální škálování](../cosmos-db/partition-data.md) přehled o konceptech a osvědčené postupy pro vytváření oddílů s jakéhokoli rozhraní API Azure Cosmos DB. 
 
 * Proveďte škálování a výkon testování pomocí Azure Cosmos DB. V tématu [testování výkonu a škálování s Azure Cosmos DB](performance-testing.md) pro ukázku.
 * Začínáme s kódování [sady SDK](documentdb-sdk-dotnet.md) nebo [REST API](/rest/api/documentdb/)

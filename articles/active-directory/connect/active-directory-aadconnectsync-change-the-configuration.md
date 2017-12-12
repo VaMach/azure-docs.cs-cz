@@ -4,7 +4,7 @@ description: "Vás provede procesem jak provést změnu konfigurace v synchroniz
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dc6be73abafb99772ed428bd4f22c1797c9b1bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Synchronizace Azure AD Connect: jak provést změnu výchozí konfigurace
 Účelem tohoto tématu je vám ukážeme, jak změnit výchozí konfigurace v synchronizaci Azure AD Connect. Popisuje kroky pro některé běžné scénáře. Replikace byste měli možnost provádět některé jednoduché změny do vlastní konfigurace založené na vlastní obchodní pravidla.

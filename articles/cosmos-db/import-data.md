@@ -16,18 +16,20 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: e0d69d2b744fd08269b1ef87cb60efd3f205a92e
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c22f887f0371f70927d42130b959053ef7a0e5cc
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Nástroj pro migraci dat
 
-V tomto kurzu poskytuje pokyny k používání nástroj Azure Cosmos DB Data migrace, který můžete importovat data z různých zdrojů do kolekce Azure Cosmos databáze a tabulky. Můžete importovat z JSON soubory, CSV soubory, SQL, MongoDB, Azure Table úložiště, Amazon DynamoDB a i rozhraní API služby Azure Cosmos databáze DocumentDB kolekcí a provedete migraci, že data do kolekcí a tabulky pro použití s Azure Cosmos DB. Nástroj pro migraci dat lze také při migraci z kolekce tvořené jedním oddílem kolekci více oddílů pro rozhraní API DocumentDB.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+V tomto kurzu poskytuje pokyny k používání nástroj Azure Cosmos DB Data migrace, který můžete importovat data z různých zdrojů do kolekce Azure Cosmos databáze a tabulky. Můžete importovat z JSON soubory, CSV soubory, SQL, MongoDB, Azure Table úložiště, Amazon DynamoDB a kolekce i rozhraní API pro Azure Cosmos databáze SQL a provedete migraci, že data do kolekcí a tabulky pro použití s Azure Cosmos DB. Nástroj pro migraci dat lze také při migraci z kolekce tvořené jedním oddílem kolekci více oddílů pro rozhraní SQL API.
 
 Které rozhraní API budete používat s Azure Cosmos DB? 
-* **[Rozhraní API DocumentDB](documentdb-introduction.md)**  -některé z možností na zdroj nástroj pro migraci dat můžete importovat data.
+* **[Rozhraní API pro SQL](documentdb-introduction.md)**  -některé z možností na zdroj nástroj pro migraci dat můžete importovat data.
 * **[Tabulka rozhraní API](table-introduction.md)**  -k importu dat můžete použít nástroj pro migraci dat nebo AzCopy. V tématu [Import dat pro použití s rozhraním API pro Azure Cosmos DB tabulky](table-import.md) Další informace.
 * **[Rozhraní API MongoDB](mongodb-introduction.md)**  – nástroj pro migraci dat aktuálně nepodporuje rozhraní API služby Azure Cosmos DB MongoDB jako zdroj nebo jako cíl. Pokud chcete migrovat data do nebo z kolekce MongoDB rozhraní API v Azure Cosmos DB, podívejte se na [Cosmos databázi Azure: migrace dat pro rozhraní API MongoDB](mongodb-migrate.md) pokyny. Nástroj pro migraci dat stále můžete exportovat data z MongoDB do kolekce rozhraní API pro Azure Cosmos databáze SQL pro použití s rozhraním API SQL. 
 * **[Graph API](graph-introduction.md)**  – nástroj pro migraci dat není podporované import nástroj pro rozhraní Graph API účty v tuto chvíli. 
@@ -76,9 +78,9 @@ Po instalaci tohoto nástroje je čas lze importovat data. Jaký typ dat chcete 
 * [Azure Table storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [Objekt BLOB](#BlobImport)
-* [Azure Cosmos DB kolekce](#DocumentDBSource)
+* [Azure Cosmos DB kolekce](#SQLSource)
 * [HBase](#HBaseSource)
-* [Azure Cosmos DB hromadného importu](#DocumentDBBulkImport)
+* [Azure Cosmos DB hromadného importu](#SQLBulkImport)
 * [Sekvenční záznam importu do Azure Cosmos DB](#DocumentDSeqTarget)
 
 
@@ -210,7 +212,7 @@ Zde je ukázka příkazového řádku pro importu souboru CSV:
 ## <a id="AzureTableSource"></a>Importovat z Azure Table storage
 Možnost zdroje program pro import úložiště Azure Table umožňuje importovat z jednotlivé tabulky Azure Table storage. Volitelně můžete filtrovat entity tabulky určených k importu. 
 
-Data importovaná z úložiště tabulek Azure může být výstupní tabulky Azure Cosmos DB a entity, pro použití s rozhraním API pro tabulky, nebo do kolekcí a dokumenty pro použití s rozhraním API pro DocumentDB. Ale; Je k dispozici jako cíl v nástroj příkazového řádku pouze tabulky rozhraní API, nemůžete exportovat do tabulky API přes uživatelské rozhraní pro nástroj pro migraci dat. Další informace najdete v tématu [Import dat pro použití s rozhraním API pro Azure Cosmos DB tabulky](table-import.md). 
+Výstupní tabulky Azure Cosmos DB a entity, pro použití s rozhraním API pro tabulky, nebo do kolekcí a dokumenty pro použití s rozhraním API pro SQL lze data importovat z úložiště tabulek Azure. Ale; Je k dispozici jako cíl v nástroj příkazového řádku pouze tabulky rozhraní API, nemůžete exportovat do tabulky API přes uživatelské rozhraní pro nástroj pro migraci dat. Další informace najdete v tématu [Import dat pro použití s rozhraním API pro Azure Cosmos DB tabulky](table-import.md). 
 
 ![Možnosti nastavení zdroje snímek Azure Table storage](./media/import-data/azuretablesource.png)
 
@@ -267,7 +269,7 @@ Zde je ukázka příkazového řádku k importu souborů JSON z Azure Blob stora
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:doctest
 
-## <a id="DocumentDBSource"></a>Importovat z kolekce DocumentDB rozhraní API
+## <a id="SQLSource"></a>Importovat z kolekce rozhraní SQL API
 Možnost Azure Cosmos DB zdrojový program pro import umožňuje importovat data z jedné nebo více kolekcí Azure Cosmos DB a volitelně filtrování dokumentů pomocí dotazu.  
 
 ![Možnosti nastavení zdroje snímek databázi Cosmos Azure](./media/import-data/documentdbsource.png)
@@ -342,7 +344,7 @@ Zde je ukázka příkazového řádku k importu z HBase:
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
-## <a id="DocumentDBBulkTarget"></a>Import do DocumentDB rozhraní API (hromadným importem)
+## <a id="SQLBulkTarget"></a>Importovat do rozhraní SQL API (hromadným importem)
 Program pro import hromadné DB Cosmos Azure umožňuje importovat z jakéhokoli z dostupných možností, pomocí Azure DB Cosmos uložené procedury pro efektivitu. Nástroj podporuje importovat do jedné kolekce rozdělena na oddíly jedním Azure Cosmos DB, a také horizontálně dělené importu, které je dat rozděleného mezi více kolekcí oddíly jedním Azure Cosmos DB. Další informace o segmentace dat naleznete v tématu [dělení a škálování v Azure Cosmos DB](partition-data.md). Nástroj vytvoří, spustí a odstraní z kolekcí cíl uložené procedury.  
 
 ![Možnosti hromadné snímek databázi Cosmos Azure](./media/import-data/documentdbbulk.png)
@@ -406,7 +408,7 @@ Program pro import hromadné DB Cosmos Azure má následující další rozší�
 > 
 > 
 
-## <a id="DocumentDBSeqTarget"></a>Import do DocumentDB rozhraní API (po sobě jdoucích záznam Import)
+## <a id="SQLSeqTarget"></a>Importovat do rozhraní SQL API (po sobě jdoucích záznam Import)
 – Importér sekvenční záznam Azure Cosmos DB umožňuje importovat z jakéhokoli z dostupných možností na základě záznamu podle. Tuto možnost můžete zvolit, pokud při importu do existující kolekce, která dosáhla své kvóty uložené procedury. Nástroj podporuje import do Azure Cosmos DB kolekce jedním (jedním oddílem i více oddílu), stejně jako horizontálně dělené importu, které jsou data rozdělena mezi více kolekcí Azure Cosmos DB jedním oddílem nebo více oddílů. Další informace o segmentace dat naleznete v tématu [dělení a škálování v Azure Cosmos DB](partition-data.md).
 
 ![Snímek obrazovky databázi Cosmos Azure možnosti sekvenční záznamů importu](./media/import-data/documentdbsequential.png)
@@ -466,7 +468,7 @@ Azure Cosmos DB - program pro import po sobě jdoucích záznam obsahuje násled
 > 
 
 ## <a id="IndexingPolicy"></a>Zadejte zásady indexování
-Když povolíte nástroj pro migraci při vytváření kolekcí rozhraní API služby Azure Cosmos databáze DocumentDB během importu, můžete zadat zásady indexování kolekcí. V části Rozšířené možnosti Azure DB Cosmos po sobě jdoucích záznamů možností a Azure Cosmos DB hromadného importu přejděte do části zásady indexování.
+Když povolíte nástroj pro migraci při vytváření kolekcí rozhraní API pro Azure Cosmos databáze SQL během importu, můžete zadat zásady indexování kolekcí. V části Rozšířené možnosti Azure DB Cosmos po sobě jdoucích záznamů možností a Azure Cosmos DB hromadného importu přejděte do části zásady indexování.
 
 ![Snímek obrazovky Azure Cosmos DB indexování zásad rozšířené možnosti](./media/import-data/indexingpolicy1.png)
 

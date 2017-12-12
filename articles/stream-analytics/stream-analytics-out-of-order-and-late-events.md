@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: f9854172e08785676a7804433d9a559e623a7b05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b4ce26fbbb2a494004e9c80462881dd754531497
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stream-analytics-event-order-consideration"></a>Azure Stream Analytics událostí pořadí aspekt
 
@@ -78,7 +78,7 @@ Chcete-li změnit pořadí událostí přijatých v rámci "mimo pořadí tolera
    * Událost 4 _doba aplikace_ = 00:09:00, _čas doručení_ = 00:10:03 _System.Timestamp_ = 00:09:00, bere s původní časové razítko, jako je doba aplikace v rámci mimo pořadí proti chybám.
    * Událost 5 _doba aplikace_ = 00:06:00, _čas doručení_ = 00:10:04 _System.Timestamp_ = 00:07:00, upravit, protože doba aplikace je starší než mimo pořadí tolerance.
 
-## <a name="practical-considerations"></a>Praktické informace
+### <a name="practical-considerations"></a>Praktické informace
 Jak je uvedeno nahoře, *pozdní tolerance příchodem* je maximální rozdíl mezi aplikací čas a čas doručení.
 Také při zpracování aplikace čas, události, které jsou novější než nakonfigurované *pozdní tolerance příchodem* jsou upravena před *mimo pořadí tolerance* nastavení se použije. Ano platné mimo pořadí je minimálně pozdní příchodem proti chybám a tolerance mimo pořadí.
 
@@ -94,22 +94,33 @@ Při konfiguraci *pozdní tolerance příchodem* a *mimo pořadí tolerance* pro
 
 Následuje několik příkladů
 
-### <a name="example-1"></a>Příklad 1: 
+#### <a name="example-1"></a>Příklad 1: 
 Dotaz obsahuje klauzuli "Oddílu podle PartitionId" a v rámci jednoho oddílu, události se posílají pomocí metody synchronní odesílání. Synchronní odesílání metody blok dlouho, dokud se neodešle události.
 V takovém případě mimo pořadí totiž nula události jsou zasílány v pořadí s explicitní potvrzení před odesláním další události. Opožděné předání je maximální zpoždění mezi generování události a odesílání událostí + maximální latence mezi odesílatele a vstupní zdroj
 
-### <a name="example-2"></a>Příklad 2:
+#### <a name="example-2"></a>Příklad 2:
 Dotaz obsahuje klauzuli "Oddílu podle PartitionId" a v rámci jednoho oddílu, události se posílají pomocí metody asynchronní odesílání. Asynchronní odesílání metody můžete spustit více zasílá ve stejnou dobu, což může způsobit události mimo pořadí.
 V takovém případě jsou mimo pořadí a pozdní příchodem alespoň Maximální zpoždění mezi generování události a odesílání událostí + maximální latence mezi odesílatele a vstupní zdroj.
 
-### <a name="example-3"></a>Příklad 3:
+#### <a name="example-3"></a>Příklad 3:
 Dotaz nemá "Oddílu podle PartitionId" a nejsou alespoň dva oddíly.
 Konfigurace je stejné jako příklad 2. Však chybí data v jedné z oddílů zpoždění výstup podle dalších * pozdní příchodem tolerance "okno.
+
+## <a name="handling-event-producers-with-differing-timelines"></a>Zpracování událostí producenti s odlišnými časové osy
+Jedna událost vstupní datový proud se často obsahují události pocházející z více událostí producenti (jako jsou například jednotlivé zařízení).  Tyto události může dorazí mimo pořadí z důvodů uvedených dříve. V těchto scénářích při nepořádku napříč producenti události může být velký, nepořádku v rámci událostí od jednoho výrobce bude malé (nebo i neexistující).
+Zatímco Azure Stream Analytics poskytuje obecné mechanismy pro práci s událostmi pořadí se na více systémů, tyto mechanismy výsledek buď prodlevám zpracování (při čekání na straggling události k dosažení systému), vyřadit nebo upravena události nebo obojí.
+Ještě v mnoha scénářích požadovaného dotazu je zpracování události z různých událostí producenti nezávisle.  Například je může být agregování událostí za období licence vázané na zařízení.  V takových případech je potřeba zpoždění výstup odpovídající producent jednu událost při čekání na jiných výrobců událostí k zachycení.  Jinými slovy není třeba řešit čas zkosení mezi producenti a může být jednoduše ignorována.
+Samozřejmě, to znamená, že výstupních událostech sami mimo pořadí s ohledem na jejich časová razítka; podřízené příjemce musí být schopen řešit takové chování.  Všechny události ve výstupu bude ji však správné.
+
+Azure Stream Analytics implementuje pomocí této funkce [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) klauzule.
+
+
 
 ## <a name="to-summarize"></a>Vytváření souhrnů
 * Pozdní příchodem proti chybám a okno mimo pořadí by měl být nakonfigurovaný podle správnost, požadavky na latenci a měli také zvážit, jak jsou odesílány události.
 * Doporučuje se, že mimo pořadí tolerance je menší než pozdní příchodem tolerance.
 * Při kombinování více časových os, nedostatku dat v jednom ze zdroje nebo oddíly zpozdit výstup v závislosti další interval tolerance pozdního.
+* Když pořadí je jenom důležité v rámci časovou osu producent událostí, je možné použít v klauzuli TIMESTAMP BY OVER ke zpracování jednotlivých událostí producent jako nezávislé podproudu vysílání.
 
 ## <a name="get-help"></a>Podpora
 Pro další pomoc, vyzkoušejte naše [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

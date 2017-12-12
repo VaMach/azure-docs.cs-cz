@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurace služby experimenty Azure Machine Learning
 
@@ -221,7 +221,8 @@ _**Přehled virtuálních počítačů vzdálené spuštění skript v jazyce Py
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Spuštění skriptu v clusteru HDInsight
 HDInsight je Oblíbené platforma pro analýzu velkých objemů dat podpora Apache Spark. Workbench umožňuje experimentování velkých objemů dat pomocí clusterů HDInsight Spark. 
 
->![POZNÁMKA] Cluster HDInsight musí jako primární úložiště používat Azure Blob. Použití úložiště Azure Data Lake se ještě nepodporuje.
+>[!NOTE]
+>HDInsight cluster musí používat jako primární úložiště objektů Blob v Azure. Použití úložiště Azure Data Lake se ještě nepodporuje.
 
 Můžete vytvořit cíl výpočetní a spustit konfigurace clusteru služby HDInsight Spark pomocí následujícího příkazu:
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - Připojí generované Workbench ~/.ssh/authorized_keys souboru na cílovém připojené výpočetní veřejný klíč. 
 
-[!IMPORTANT] Je nutné se přihlásit na cíli výpočetní pomocí stejné uživatelské jméno, které jste použili k vytvoření výpočetní cíl. 
+>[!IMPORTANT]
+>Je nutné se přihlásit na cíli výpočetní pomocí stejné uživatelské jméno, které jste použili k vytvoření výpočetní cíl. 
 
 - Teď můžete Příprava a použití cíle výpočetní pomocí ověřování na základě klíčů SSH.
 

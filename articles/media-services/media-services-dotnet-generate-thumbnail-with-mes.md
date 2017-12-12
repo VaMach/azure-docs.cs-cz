@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7b8732a06e54f7828418cba0c0d172e34f1f4ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Postup generování miniatur pomocí kodéru Media Encoder Standard a .NET
 
-Můžete použít Media Encoder Standard generovat jednu nebo více miniatur z váš vstup videa v [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), nebo [BMP](https://en.wikipedia.org/wiki/BMP_file_format) bitové kopie formáty souborů. Můžete odeslat úlohy, které vytvářejí pouze obrázky, nebo můžete kombinovat miniatur generování s kódováním. Toto téma obsahuje několik ukázkových XML a JSON miniatur přednastavení pro takové scénáře. Na konci tohoto tématu, je [ukázkový kód](#code_sample) který ukazuje, jak používat sadu Media Services .NET SDK k provedení úlohy kódování.
+Můžete použít Media Encoder Standard generovat jednu nebo více miniatur z váš vstup videa v [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), nebo [BMP](https://en.wikipedia.org/wiki/BMP_file_format) bitové kopie formáty souborů. Můžete odeslat úlohy, které vytvářejí pouze obrázky, nebo můžete kombinovat miniatur generování s kódováním. Tento článek obsahuje několik ukázkových XML a JSON miniatur přednastavení pro takové scénáře. Na konci tohoto článku, je [ukázkový kód](#code_sample) který ukazuje, jak používat sadu Media Services .NET SDK k provedení úlohy kódování.
 
 Další informace o prvky, které se používají v ukázkové přednastavení, měli byste prostudovat [Media Encoder Standard schématu](media-services-mes-schema.md).
 
@@ -30,7 +30,7 @@ Projděte si [aspekty](media-services-dotnet-generate-thumbnail-with-mes.md#cons
     
 ## <a name="example-of-a-single-png-file-preset"></a>Příklad přednastavení "jeden soubor PNG"
 
-Následující přednastavení JSON a XML lze použít k vytvoření jediného výstupu PNG soubor z prvních několika sekund vstup videa, kde kodér díky best effort pokusem hledání "zajímavé" rámce. Všimněte si, že dimenze výstup bitové kopie byly nastaveny na 100 %, znamená to bude odpovídat dimenze vstupní video. Všimněte si také, jak je "Format" nastavení "Výstupy" vyžadovanou pro shodu použití "PngLayers" v části "Kodeky". 
+Následující přednastavení JSON a XML lze použít k vytvoření jediného výstupu PNG soubor z prvních několika sekund vstup videa, kde kodér díky best effort pokusem hledání "zajímavé" rámce. Všimněte si, že dimenze výstup image byla nastavena na 100 %, což znamená, že toto odpovídat dimenze vstupní video. Všimněte si také, jak je "Format" nastavení "Výstupy" vyžadovanou pro shodu použití "PngLayers" v části "Kodeky". 
 
 ### <a name="json-preset"></a>Přednastavení JSON
 
@@ -138,7 +138,7 @@ Následující přednastavení JSON a XML lze vytvořit sady 10 Image v časová
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Příklad přednastavení "jednu bitovou kopii v konkrétní časové razítko"
 
-Následující přednastavení JSON a XML lze použít k vytvoření jedné JPEG image na 30 druhý značce vstupní videa. Tato předvolba očekává vstupní video být víc než 30 sekund doby trvání (jinak se nezdaří úlohy).
+Následující přednastavení JSON a XML lze použít k vytvoření jedné JPEG image na 30 sekund označení vstup videa. Tato předvolba očekává vstupní video být víc než 30 sekund doby trvání (jinak úloha selže).
 
 ### <a name="json-preset"></a>Přednastavení JSON
 
@@ -267,7 +267,7 @@ Všimněte si použití {řešení} makro v názvu souboru; označuje kodéru po
 Když mají všechny výše uvedené příklady popsané, jak můžete odeslat kódování úloh, která jenom vytváří bitové kopie, můžete také kombinovat video nebo zvuk kódování se miniatur generací. Sdělte následující přednastavení JSON a XML **Media Encoder Standard** ke generování miniaturu při kódování.
 
 ### <a id="json"></a>Přednastavení JSON
-Informace o schématu najdete v tématu [to](https://msdn.microsoft.com/library/mt269962.aspx) tématu.
+Informace o schématu najdete v tématu [to](https://msdn.microsoft.com/library/mt269962.aspx) článku.
 
     {
       "Version": 1.0,
@@ -330,7 +330,7 @@ Informace o schématu najdete v tématu [to](https://msdn.microsoft.com/library/
     }
 
 ### <a id="xml"></a>Přednastavení XML
-Informace o schématu najdete v tématu [to](https://msdn.microsoft.com/library/mt269962.aspx) tématu.
+Informace o schématu najdete v tématu [to](https://msdn.microsoft.com/library/mt269962.aspx) článku.
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -394,40 +394,49 @@ Následující příklad kódu používá sadu Media Services .NET SDK k provád
         string configuration = File.ReadAllText(fileName);  
 * Přidáte jednoho kódování úkolu do úlohy. 
 * Zadejte vstupní asset, který je zakódován.
-* Vytvoření výstupní asset, který bude obsahovat k zakódovanému assetu.
+* Vytvoření výstupní asset, který obsahuje k zakódovanému assetu.
 * Přidání obslužné rutiny události zkontrolovat průběh úlohy.
 * Odeslání úlohy.
 
-Najdete v článku [vývoj Media Services pomocí rozhraní .NET](media-services-dotnet-how-to-use.md) tématu pokyny o tom, jak nastavit svoje prostředí vývojářů.
+Najdete v článku [vývoj Media Services pomocí rozhraní .NET](media-services-dotnet-how-to-use.md) článku Pokyny o tom, jak nastavit svoje prostředí vývojářů.
 
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-        namespace EncodeAndGenerateThumbnails
-        {
-        class Program
-        {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+namespace EncodeAndGenerateThumbnails
+{
+    class Program
+    {
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+        ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+        ConfigurationManager.AppSettings["AMSClientSecret"];
 
-            private static CloudMediaContext _context = null;
+        private static CloudMediaContext _context = null;
 
-            private static readonly string _mediaFiles =
-            Path.GetFullPath(@"../..\Media");
+        private static readonly string _mediaFiles =
+        Path.GetFullPath(@"../..\Media");
 
-            private static readonly string _singleMP4File =
+        private static readonly string _singleMP4File =
             Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
 
-            static void Main(string[] args)
-            {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+        static void Main(string[] args)
+        {
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -439,10 +448,10 @@ Najdete v článku [vývoj Media Services pomocí rozhraní .NET](media-services
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
-            }
+        }
 
-            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-            {
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+        {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Thumbnail Job");
             // Get a media processor reference, and pass to it the name of the 
@@ -454,9 +463,9 @@ Najdete v článku [vývoj Media Services pomocí rozhraní .NET](media-services
 
             // Create a task
             ITask task = job.Tasks.AddNew("Media Encoder Standard Thumbnail task",
-                processor,
-                configuration,
-                TaskOptions.None);
+                    processor,
+                    configuration,
+                    TaskOptions.None);
 
             // Specify the input asset to be encoded.
             task.InputAssets.Add(asset);
@@ -464,47 +473,47 @@ Najdete v článku [vývoj Media Services pomocí rozhraní .NET](media-services
             // This output is specified as AssetCreationOptions.None, which 
             // means the output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
-                AssetCreationOptions.None);
+                    AssetCreationOptions.None);
 
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
             job.Submit();
             job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
             return job.OutputMediaAssets[0];
-            }
+        }
 
-            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-            {
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
             Console.WriteLine("Job state changed event:");
             Console.WriteLine("  Previous state: " + e.PreviousState);
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
                 case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
                 case JobState.Canceling:
                 case JobState.Queued:
                 case JobState.Scheduled:
                 case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
+                    Console.WriteLine("Please wait...\n");
+                    break;
                 case JobState.Canceled:
                 case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
+                    // Display or log error details as needed.
+                    break;
                 default:
-                break;
+                    break;
             }
-            }
+        }
 
-            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
             var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
@@ -512,25 +521,26 @@ Najdete v článku [vývoj Media Services pomocí rozhraní .NET](media-services
                 throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
-            }
         }
-
+    }
+}
+```
 
 ## <a name="considerations"></a>Požadavky
 Platí následující aspekty:
 
 * Použití explicitní časová razítka pro spuštění nebo krok nebo rozsah předpokládá, že se vstupní zdroj alespoň 1 minuta.
-* JPG nebo Png nebo BmpImage prvky mít počáteční, krok a rozsah řetězce atributy – to jde interpretovat jako:
+* JPG nebo Png nebo BmpImage prvky má spustit, krok a rozsah řetězec atributy – to jde interpretovat jako:
   
-  * Číslo rámce, pokud jsou nezáporná celá čísla, např. "Start": "120",
-  * Vzhledem ke zdrojové trvání Pokud vyjádřený jako konci %, např. "Start": "15 %", nebo
-  * Časové razítko, pokud vyjádřený jako hh: mm:... formát. Např. "Start": "00: 01:00"
+  * Rámce číslo, pokud jsou nezáporná celá čísla, například "Start": "120",
+  * Vzhledem ke zdrojové doba trvání, pokud vyjádřený jako % konci, například "Start": "15 %", nebo
+  * Časové razítko, pokud vyjádřený jako hh: mm:... formát. Například "Start": "00: 01:00"
     
     Můžete kombinovat a párovat zápisy, jako je prosím.
     
     Kromě toho spustit také podporuje speciální makra: {osvědčené}, která se pokusí určit první "zajímavé" snímek obsahu Poznámka: (krok a rozsah ignorují při spuštění je nastaven na {nejvhodnější})
   * Výchozí nastavení: Spuštění: {nejlepší}
-* Výstupní formát je třeba explicitně zadat pro každý formát obrázku: Jpg nebo Png nebo BmpFormat. Pokud jsou k dispozici, MES bude odpovídat JpgVideo k JpgFormat a tak dále. OutputFormat zavádí nové makro konkrétní kodek obrázků: {Index}, které musí být k dispozici (jednou a jen jednou) pro výstupní formáty bitové kopie.
+* Výstupní formát je třeba explicitně zadat pro každý formát obrázku: Jpg nebo Png nebo BmpFormat. Pokud jsou k dispozici, odpovídá MES JpgVideo k JpgFormat a tak dále. OutputFormat zavádí nové makro konkrétní kodek obrázků: {Index}, které musí být k dispozici (jednou a jen jednou) pro výstupní formáty bitové kopie.
 
 ## <a name="next-steps"></a>Další kroky
 

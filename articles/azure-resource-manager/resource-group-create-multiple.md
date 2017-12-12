@@ -12,23 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 12/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Nasazení více instancí prostředek nebo vlastnost v šablonách Azure Resource Manager
-Toto téma ukazuje, jak k iteraci v šablony Azure Resource Manager můžete vytvořit více instancí prostředku nebo více instancí vlastnosti prostředku.
+Tento článek ukazuje, jak podmíněně nasazení prostředku a jak k iteraci v šablony Azure Resource Manager vytvořit více instancí prostředku.
 
-Pokud potřebujete přidat logiku do šablony, která umožňuje určit, jestli je prostředek nasazené, najdete v části [podmíněně nasazení prostředků](#conditionally-deploy-resource).
+## <a name="conditionally-deploy-resource"></a>Podmíněná nasazení prostředků
 
-Příklad vytvoření více elementů v proměnné pole, naleznete v části [proměnné](resource-group-authoring-templates.md#variables).
+Pokud se rozhodnete musí během nasazení k vytvoření jedné instance nebo žádné instance prostředku, použijte `condition` elementu. Hodnota pro tento element překládá true nebo false. Pokud je hodnota true, prostředek je nasazena. Pokud je hodnota false, prostředek není nasazen. Například k určení, zda nový účet úložiště je nasazena nebo existující účet úložiště se používá, použijte tento příkaz:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
 
 ## <a name="resource-iteration"></a>Iterace prostředků
-Chcete-li vytvořit více instancí typu prostředku, přidejte `copy` element pro typ prostředku. V elementu kopírování zadejte počet opakování a název pro tento smyčky. Hodnota počtu musí být kladné celé číslo a nesmí být delší než 800. Resource Manager vytvoří prostředky paralelně. Proto není zaručena pořadí, ve které byly vytvořeny. Pokud chcete vytvořit vstupní prostředky v pořadí, v tématu [sériové kopie](#serial-copy). 
+Pokud se rozhodnete musí během nasazení vytvořit jeden nebo více instancí prostředku, přidejte `copy` element pro typ prostředku. V elementu kopírování zadejte počet opakování a název pro tento smyčky. Hodnota počtu musí být kladné celé číslo a nesmí být delší než 800. 
 
 Prostředek pro vytvoření vícekrát má následující formát:
 
@@ -112,151 +127,40 @@ Vytvoří tyto názvy:
 * storagefabrikam
 * storagecoho
 
-## <a name="serial-copy"></a>Kopírování sériového portu
+Ve výchozím nastavení vytvoří Resource Manager prostředky paralelně. Proto není zaručena pořadí, ve které byly vytvořeny. Můžete však zadat, aby byly prostředky nasazené v pořadí. Například při aktualizaci provozním prostředí, můžete tak rozložte aktualizací jenom několik jsou aktualizovány v daném okamžiku.
 
-Při použití elementu kopie vytvořit více instancí na typ prostředku, správce prostředků, ve výchozím nastavení, nasadí tyto instance paralelně. Můžete však zadat, aby byly prostředky nasazené v pořadí. Například při aktualizaci provozním prostředí, můžete tak rozložte aktualizací jenom několik jsou aktualizovány v daném okamžiku.
+Sériově nasadit více instancí prostředku, nastavte `mode` k **sériové** a `batchSize` na počet instancí pro nasazení v čase. Sériového portu v režimu Resource Manager vytvoří závislost na dřívější instancí ve smyčce, tak nespustí jeden batch, dokud se nedokončí předchozí dávka.
 
-Resource Manager poskytuje vlastnosti na kopírování elementu, který vám umožní sériově nasazení více instancí. V sadě elementů kopie `mode` k **sériové** a `batchSize` na počet instancí pro nasazení v čase. Sériového portu v režimu Resource Manager vytvoří závislost na dřívější instancí ve smyčce, tak nespustí jeden batch, dokud se nedokončí předchozí dávka.
-
-```json
-"copy": {
-    "name": "iterator",
-    "count": "[parameters('numberToDeploy')]",
-    "mode": "serial",
-    "batchSize": 2
-},
-```
-
-Vlastnost režimu také přijímá **paralelní**, což je výchozí hodnota.
-
-K otestování sériové kopírování bez vytváření skutečné prostředků, použijte následující šablony, která nasadí prázdný vnořené šablony:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberToDeploy": {
-      "type": "int",
-      "minValue": 2,
-      "defaultValue": 5
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "type": "Microsoft.Resources/deployments",
-      "name": "[concat('loop-', copyIndex())]",
-      "copy": {
-        "name": "iterator",
-        "count": "[parameters('numberToDeploy')]",
-        "mode": "serial",
-        "batchSize": 1
-      },
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [],
-          "outputs": {
-          }
-        }
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-V historii nasazení Všimněte si, že vnořené nasazení se zpracovávají v pořadí.
-
-![sériové nasazení](./media/resource-group-create-multiple/serial-copy.png)
-
-Následující příklad realističtější scénáři nasadí dvě instance v době virtuálního počítače s Linuxem z vnořené šablony:
+Například sériově nasadit účty úložiště, dva v čase, použijte:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "User name for the Virtual Machine."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Password for the Virtual Machine."
-            }
-        },
-        "dnsLabelPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        },
-        "ubuntuOSVersion": {
-            "type": "string",
-            "defaultValue": "16.04.0-LTS",
-            "allowedValues": [
-                "12.04.5-LTS",
-                "14.04.5-LTS",
-                "15.10",
-                "16.04.0-LTS"
-            ],
-            "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
-            }
-        }
-    },
-    "variables": {
-        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
-    },
     "resources": [
         {
-            "apiVersion": "2015-01-01",
-            "name": "[concat('nestedDeployment',copyIndex())]",
-            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
             "copy": {
-                "name": "myCopySet",
+                "name": "storagecopy",
                 "count": 4,
                 "mode": "serial",
                 "batchSize": 2
-            },
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('templatelink')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "adminUsername": {
-                        "value": "[parameters('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[parameters('adminPassword')]"
-                    },
-                    "dnsLabelPrefix": {
-                        "value": "[parameters('dnsLabelPrefix')]"
-                    },
-                    "ubuntuOSVersion": {
-                        "value": "[parameters('ubuntuOSVersion')]"
-                    },
-                    "index":{
-                        "value": "[copyIndex()]"
-                    }
-                }
             }
         }
-    ]
+    ],
+    "outputs": {}
 }
-```
+``` 
+
+Vlastnost režimu také přijímá **paralelní**, což je výchozí hodnota.
 
 ## <a name="property-iteration"></a>Vlastnost iterace
 
@@ -352,50 +256,56 @@ Iterace prostředků a vlastnosti můžete použít společně. Odkaz na vlastno
 }
 ```
 
-Ve vlastnostech pro každý prostředek může zahrnovat pouze jeden element kopírování. Chcete-li zadat smyčky iterace pro více než jednu vlastnost, definujte více objektů v poli Kopírovat. Každý objekt je vstupní samostatně. Chcete-li například vytvořit více instancí i `frontendIPConfigurations` vlastnost a `loadBalancingRules` vlastnost zařízení na Vyrovnávání zatížení, zadejte oba objekty v elementu jedna kopie: 
+## <a name="variable-iteration"></a>Proměnné iterace
+
+Chcete-li vytvořit více instancí proměnné, použijte `copy` element v sekci proměnných. Můžete vytvořit více instancí objektů s související hodnotami a potom přiřadit tyto hodnoty k instancím typu prostředku. Kopírování vám pomůže vytvořit objekt s ve vlastnosti pole nebo pole. Následující příklad ukazuje obou přístupů:
 
 ```json
 {
-    "name": "[variables('loadBalancerName')]",
-    "type": "Microsoft.Network/loadBalancers",
-    "properties": {
-        "copy": [
-          {
-              "name": "frontendIPConfigurations",
-              "count": 2,
-              "input": {
-                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
-                  "properties": {
-                      "publicIPAddress": {
-                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
-                      }
-                  }
-              }
-          },
-          {
-              "name": "loadBalancingRules",
-              "count": 2,
-              "input": {
-                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
-                  "properties": {
-                      "frontendIPConfiguration": {
-                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
-                      },
-                      "backendAddressPool": {
-                          "id": "[variables('lbBackendPoolID')]"
-                      },
-                      "protocol": "tcp",
-                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "probe": {
-                          "id": "[variables('lbProbeID')]"
-                      }
-                  }
-              }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
           }
-        ],
-        ...
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
     }
+  }
 }
 ```
 
@@ -435,7 +345,7 @@ Určíte, že je prostředek nasazeno po jiný prostředek pomocí `dependsOn` e
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a>Vytvoření více instancí podřízených prostředků
+## <a name="iteration-for-a-child-resource"></a>Iterace pro podřízený prostředek
 Kopírovací smyčkou nelze použít pro podřízený prostředek. Pokud chcete vytvořit několik instancí na prostředek, který je obvykle definovat jako vnořené v rámci jiný prostředek, musíte místo toho vytvořit prostředku jako prostředek nejvyšší úrovně. Můžete definovat relaci s nadřazený prostředek prostřednictvím typ a název vlastnosti.
 
 Předpokládejme například, že definujete obvykle datovou sadu jako podřízený prostředek v rámci služby data factory.
@@ -485,28 +395,140 @@ Následující příklad ukazuje implementaci:
 }]
 ```
 
-## <a name="conditionally-deploy-resource"></a>Podmíněná nasazení prostředků
+## <a name="deploy-example-templates"></a>Příklad šablony nasazení
 
-Chcete-li určit, jestli je nasazené prostředku, použijte `condition` elementu. Hodnota pro tento element překládá true nebo false. Pokud je hodnota true, prostředek je nasazena. Pokud je hodnota false, prostředek není nasazen. Například k určení, zda nový účet úložiště je nasazena nebo existující účet úložiště se používá, použijte tento příkaz:
+### <a name="resource-iteration"></a>Iterace prostředků
 
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
+[Zkopírujte úložiště](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) šablony nasadí více účtů úložiště s číslem indexu v názvu.
+
+Pokud používáte PowerShell, použijte:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
 ```
 
-Příklad použití nový nebo existující prostředek, naleznete v části [nový nebo stávající šablonu podmínku](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+Pokud používáte Azure CLI, použijte:
 
-Příklad použití heslo nebo klíč SSH pro virtuální počítač nejde nasadit, naleznete v části [uživatelské jméno nebo SSH podmínku šablony](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
+```
+
+### <a name="serial-resource-iteration"></a>Sériové prostředků iterace
+
+[Úložiště sériové kopie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) šablony nasadí více účtů úložiště jeden v čase. Název obsahuje číslo indexu.
+
+Pokud používáte PowerShell, použijte:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+Pokud používáte Azure CLI, použijte:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+### <a name="resource-iteration-from-array"></a>Iterace prostředků z pole
+
+[Zkopírujte úložiště s polem](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) šablony nasadí více účtů úložiště. Název obsahuje hodnotu z pole.
+
+Pokud používáte PowerShell, použijte:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+Pokud používáte Azure CLI, použijte:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+### <a name="conditionally-deploy-resources"></a>Podmíněná nasazení prostředků
+
+[Virtuální počítač s nový nebo existující virtuální sítě, úložiště a veřejnou IP adresu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) šablony nasadí nový nebo existující prostředky s virtuálním počítačem.
+
+Pokud používáte PowerShell, použijte:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+Pokud používáte Azure CLI, použijte:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+### <a name="property-iteration"></a>Vlastnost iterace
+
+[Nasazení virtuálního počítače s proměnný počet datových disků](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) šablony nasadí více datových disků s virtuálním počítačem.
+
+Pokud používáte PowerShell, použijte:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+Pokud používáte Azure CLI, použijte:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+### <a name="variable-iteration"></a>Proměnné iterace
+
+[Zkopírujte proměnné](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) šablony ukazuje různé způsoby iterace v proměnné.
+
+Pokud používáte PowerShell, použijte:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+Pokud používáte Azure CLI, použijte:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+### <a name="variable-iteration-to-create-resources"></a>Proměnné iterace vytvořit prostředky
+
+[Víc pravidel zabezpečení](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) šablony nasadí víc pravidel zabezpečení do skupiny zabezpečení sítě. Vytvoří z parametr pravidla zabezpečení.
+
+Pokud používáte PowerShell, použijte:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
+```
 
 ## <a name="next-steps"></a>Další kroky
 * Pokud chcete další informace o části šablony, najdete v části [vytváření šablon Azure Resource Manager](resource-group-authoring-templates.md).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 9bd92e48440ad4edf2261221446ce66718ffea17
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopírovat data z databáze Cosmos Azure pomocí Azure Data Factory
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
 > * [Verze 1 – GA](v1/data-factory-azure-documentdb-connector.md)
 > * [Verze 2 – Preview](connector-azure-cosmos-db.md)
 
-Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z a do Azure DB Cosmos (DocumentDB rozhraní API). Vychází [zkopírujte aktivity přehled](copy-activity-overview.md) článek, který představuje obecný přehled aktivity kopírování.
+Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z a do Azure Cosmos databáze (SQL API). Vychází [zkopírujte aktivity přehled](copy-activity-overview.md) článek, který představuje obecný přehled aktivity kopírování.
 
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [connnector Azure Cosmos DB v V1](v1/data-factory-azure-documentdb-connector.md).
@@ -36,7 +36,7 @@ Můžete zkopírovat data z Azure Cosmos DB do úložiště dat žádné podporo
 
 Konkrétně tento konektor Azure Cosmos DB podporuje:
 
-- Cosmos DB [DocumentDB rozhraní API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Cosmos DB [rozhraní SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - Import/export dokumentů JSON jako-je nebo kopírování dat z/do tabulkové datové sady například databáze SQL, souborů CSV atd.
 
 Zkopírujte dokumenty jako-je do nebo ze soubory JSON nebo jiné Cosmos DB kolekce najdete v části [dokumentů JSON importu a exportu](#importexport-json-documents).

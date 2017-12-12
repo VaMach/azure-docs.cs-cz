@@ -1,6 +1,6 @@
 ---
-title: "Azure DocumentDB Cosmos DB rozhraní API: Syntaxe SQL | Microsoft Docs"
-description: "Referenční dokumentace pro jazyk dotazu SQL rozhraní API Azure Cosmos databáze DocumentDB."
+title: "Azure Cosmos DB: Referenční informace SQL syntaxe dotazu | Microsoft Docs"
+description: "Referenční dokumentace pro Azure Cosmos DB SQL dotazovací jazyk."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: mimig
-ms.openlocfilehash: 6fc96dae8c7c6983b1d062c22438344278d478e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 73d20826f24d233653fcf4a2c16e3d14486d9eb2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure DocumentDB Cosmos DB rozhraní API: Reference syntaxe SQL
+# <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL reference syntaxe
 
-Rozhraní API služby Azure DB Cosmos DocumentDB podporuje dotazování dokumentů pomocí známých SQL (Structured Query Language) jako gramatika přes hierarchické dokumenty JSON bez nutnosti explicitního schématu nebo vytváření sekundárních indexů. Toto téma obsahuje referenční dokumentaci k nástroji pro dotazovací jazyk DocumentDB SQL rozhraní API.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Návod dotazovací jazyk DocumentDB SQL rozhraní API najdete v tématu [dotazy SQL pro rozhraní API služby Azure Cosmos databáze DocumentDB](documentdb-sql-query.md).  
+Azure Cosmos DB podporuje dotazování dokumentů pomocí známých SQL (Structured Query Language) jako gramatika přes hierarchické dokumenty JSON bez nutnosti explicitního schématu nebo vytváření sekundárních indexů. Toto téma obsahuje referenční dokumentaci k nástroji pro dotaz jazyka SQL, který je kompatibilní s účty rozhraní SQL API.
+
+Návod dotazovací jazyk SQL najdete v tématu [dotazy SQL pro Azure Cosmos DB](documentdb-sql-query.md).  
   
 Také doporučujeme přejděte [Query Playground](http://www.documentdb.com/sql/demo) kde mohou zkuste Azure Cosmos DB a spouštění dotazů SQL na naší datové sadě.  
   
@@ -663,7 +665,7 @@ ORDER BY <sort_specification>
   
      **Syntaxe konvence**  
   
-     Následující tabulka popisuje konvence používají k popisu syntaxe v referenci dotazovací jazyk DocumentDB rozhraní API.  
+     Následující tabulka popisuje konvence používají k popisu syntaxi následující odkaz SQL.  
   
     |**Konvence**|**Použít pro**|  
     |-|-|    

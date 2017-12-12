@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3d3c6c95763bc8eb67f092bda61bb58c7af9daf2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publikování aplikace katalogu služby prostřednictvím portálu Azure
 
@@ -60,7 +60,6 @@ Soubor .zip, který obsahuje definici spravované aplikace musí být k dispozic
 
 ## <a name="next-steps"></a>Další kroky
 
-* Úvod do spravovaných aplikací, najdete v části [spravované aplikace přehled](overview.md).
+* Úvod ke spravovaným aplikacím najdete v [přehledu spravovaných aplikací](overview.md).
 * Příklady spravovaných aplikací najdete v tématu [ukázkové projekty Azure spravované aplikace](sample-projects.md).
-* Informace o publikování spravované aplikace do Azure Marketplace najdete v tématu [Azure spravované aplikace na webu Marketplace](publish-marketplace-app.md).
-* Naučte se vytvořit soubor definice uživatelského rozhraní pro spravované aplikace, najdete v tématu [začít pracovat s CreateUiDefinition](create-uidefinition-overview.md).
+* Pokud chcete zjistit, jak vytvořit definiční soubor uživatelského rozhraní pro spravovanou aplikaci, přečtěte si téma [Začínáme s CreateUiDefinition](create-uidefinition-overview.md).

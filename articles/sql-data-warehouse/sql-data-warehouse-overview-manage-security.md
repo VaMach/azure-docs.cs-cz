@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 6ea45c40bc428282faf24b4a08f8b0d345adb3fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Zabezpečení databáze v SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Existují i další způsoby, jak ještě více omezit možnosti uživatele slu�
 * [Rolí databáze] [ Database roles] jiného, než db_datareader a db_datawriter lze použít k vytvoření výkonnější aplikace uživatelské účty nebo méně výkonná účty pro správu. Předdefinované pevné databázové role poskytují snadný způsob, jak udělit oprávnění, ale může mít za následek přidělení více oprávnění, než je potřeba.
 * [Uložené procedury] [ Stored procedures] umožňují omezit akce, které můžete provést na databázi.
 
-Správa databází a logických serverů na portálu Azure Classic nebo v rozhraní API Azure Resource Manageru se řídí tím, jaké role má uživatelský účet na portálu přiřazené. Další informace v tomto tématu najdete v tématu [řízení přístupu na základě Role v Azure Portal][Role-based access control in Azure Portal].
+Správa databází a logické servery z portálu Azure nebo pomocí rozhraní API služby Azure Resource Manager řídí přiřazení rolí portálu uživatelského účtu. Další informace v tomto tématu najdete v tématu [řízení přístupu na základě Role v Azure Portal][Role-based access control in Azure Portal].
 
 ## <a name="encryption"></a>Šifrování
 Azure SQL Data Warehouse transparentní dat šifrování (TDE) pomáhá chránit před ohrožením škodlivých aktivit provedením v reálném čase šifrování a dešifrování dat v klidovém stavu.  Při šifrování databáze, přidružených záloh a souborů protokolů transakci jsou šifrované bez nutnosti změny aplikace. Šifrování TDE zašifruje úložiště celé databáze pomocí symetrický klíč s názvem šifrovací klíč databáze. V databázi SQL šifrovací klíč databáze je chráněn certifikát integrovaného serveru. Certifikát integrovaného serveru je jedinečný pro každý server databáze SQL. Microsoft automaticky otočí tyto certifikáty alespoň jednou za 90 dní. Šifrovacího algoritmu používaného funkcí SQL Data Warehouse je AES 256. Obecný popis TDE, najdete v části [transparentní šifrování dat][Transparent Data Encryption].

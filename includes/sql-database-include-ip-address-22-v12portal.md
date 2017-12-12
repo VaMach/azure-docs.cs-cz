@@ -15,25 +15,32 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Přihlaste se k [portál Azure](https://portal.azure.com/) v http://portal.azure.com/.
-2. V levém informační zprávě, klikněte na tlačítko **Procházet vše**. **Procházet** zobrazí se okno.
-3. Přejděte a klikněte na **servery SQL**. **Servery SQL** zobrazí se okno.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
+
+2. V seznamu na levé straně vyberte **Procházet**. 
+
+3. Posuňte zobrazení a vyberte **servery SQL**. 
    
     ![Najít server služby Azure SQL Database na portálu][b21-FindServerInPortal]
-4. Pro usnadnění práce, klikněte na ovládací prvek pro minimalizaci k dřívějšímu **Procházet** okno.
+4. Pro usnadnění práce minimalizovat **Procházet** okno.
+
 5. Do textového pole Filtr začněte zadávat text název vašeho serveru. Řádek, který jste se zobrazí.
-6. Klikněte na řádek pro váš server. Zobrazí se okno pro váš server.
-7. V okně vaší serveru klikněte na tlačítko **nastavení**. **Nastavení** zobrazí se okno.
-8. Klikněte na tlačítko **brány Firewall**. **Nastavení brány Firewall** zobrazí se okno.
+
+6. Vyberte řádek pro váš server. Zobrazí se okno pro váš server.
+
+7. V okně vaší serveru vyberte **nastavení**. 
+
+8. Vyberte **brány Firewall**. 
    
-    ![Klikněte na Nastavení > brány Firewall][b31-SettingsFirewallNavig]
-9. Klikněte na tlačítko **Přidání klienta IP**. Zadejte název nové pravidlo do textového pole první.
+    ![Vyberte nastavení > brány Firewall][b31-SettingsFirewallNavig]
+9. Vyberte **Přidání klienta IP**. První textového pole zadejte název nové pravidlo.
+
 10. Zadejte v vysoké a nízké hodnoty adres IP pro oblast, kterou chcete povolit.
     
-    * Může být užitečný tak, aby měl nízkou hodnotu končit **.0** a vysoce s **.255**.
+    * Může být užitečný tak, aby měl nízkou hodnotu končit **.0** a vysokou hodnotu končit **.255**.
     
     ![Přidat rozsah IP adres umožňuje][b41-AddRange]
-11. Klikněte na **Uložit**.
+11. Vyberte **Uložit**.
 
 <!-- Image references. -->
 

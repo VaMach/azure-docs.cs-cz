@@ -1,6 +1,6 @@
 ---
-title: "Úrovně výkonu DocumentDB API | Microsoft Docs"
-description: "Informace o tom, jak úrovně výkonu DocumentDB API umožňují rezervovat propustnosti na kontejneru na základě."
+title: "Vyřazeno úrovně výkonu Azure Cosmos DB | Microsoft Docs"
+description: "Další informace o S1, S2 a S3 úrovně výkonu dříve k dispozici v Azure Cosmos DB."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Vyřazení úrovní výkonu S1, S2 a S3
 
 > [!IMPORTANT] 
-> Úrovně výkonu S1, S2 a S3 popsané v tomto článku se postupně vyřazuje z provozu a nadále již nebudou k dispozici pro nové účty DocumentDB rozhraní API.
+> Úrovně výkonu S1, S2 a S3 popsané v tomto článku se postupně vyřazuje z provozu a nadále již nebudou k dispozici pro nové účty Azure Cosmos DB.
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Tento článek obsahuje přehled úrovní výkonu S1, S2 a S3 a popisuje, jak kolekcí, které používají tyto úrovně výkonu se budou migrovat do kolekce tvořené jedním oddílem pozdní v 2017. Po přečtení tohoto článku, budete moct odpovězte si na následující otázky:
 
@@ -44,7 +46,7 @@ Tento článek obsahuje přehled úrovní výkonu S1, S2 a S3 a popisuje, jak ko
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Proč se výkonu S1, S2 a S3 úrovně postupně vyřazuje z provozu?
 
-Úrovně výkonu S1, S2 a S3 nenabízejí flexibilitu této nabídky kolekce DocumentDB rozhraní API. Kapacita propustnosti i úložiště s S1, S2, úrovně výkonu S3, byly předem nastavené a nenabízí pružnost. Azure Cosmos DB teď nabízí přizpůsobit propustnost a úložiště nabízí mnohem větší flexibilitu v schopnost škálovat podle potřeby.
+Úrovně výkonu S1, S2 a S3 nenabízejí flexibilitu, která poskytuje standardní nabídku Azure Cosmos DB. Kapacita propustnosti i úložiště s S1, S2, úrovně výkonu S3, byly předem nastavené a nenabízí pružnost. Azure Cosmos DB teď nabízí přizpůsobit propustnost a úložiště nabízí mnohem větší flexibilitu v schopnost škálovat podle potřeby.
 
 <a name="compare"></a>
 
@@ -141,7 +143,7 @@ Můžete migrovat z úrovní výkonu S1, S2 a S3 kolekce tvořené jedním oddí
 
 **Migrace do kolekce tvořené jedním oddílem pomocí sady .NET SDK**
 
-Další možností pro změnu úrovně výkonu vaší kolekce je prostřednictvím sady SDK Azure Cosmos DB. Tato část se vztahuje pouze změna shromažďování výkonu úrovně pomocí [DocumentDB .NET API](documentdb-sdk-dotnet.md), ale proces je podobný pro naše dalších sadách SDK.
+Další možností pro změnu úrovně výkonu vaší kolekce je prostřednictvím sady SDK Azure Cosmos DB. Tato část se vztahuje pouze změna shromažďování výkonu úrovně pomocí [SQL .NET API](documentdb-sdk-dotnet.md), ale proces je podobný pro naše dalších sadách SDK.
 
 Zde je fragment kódu pro změnu propustnost kolekce do 5 000 jednotek žádosti za sekundu:
     

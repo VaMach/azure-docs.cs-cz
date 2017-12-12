@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 4b970341f9511a889bfcc288756b1be6a4f4647e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 350ce0fd9a10d862e811dd1eaa39e0e90076e1ef
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-data-factory-service-identity"></a>Identita služby Azure Data Factory
 
@@ -172,3 +172,5 @@ Najdete v následujících tématech, které zavést kdy a jak používat identi
 
 - [Uložení přihlašovacích údajů v Azure Key Vault](store-credentials-in-key-vault.md)
 - [Kopírování dat z/do Azure Data Lake Store pomocí ověření identity spravované služby](connector-azure-data-lake-store.md)
+
+V tématu [MSI přehled](~/articles/active-directory/msi-overview.md) pro další informace o identita spravované služby, je na základě které identita služby data factory. 

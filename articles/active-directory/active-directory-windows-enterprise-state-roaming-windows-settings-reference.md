@@ -5,7 +5,7 @@ services: active-directory
 keywords: roaming, stav Enterprise windows cloud
 documentationcenter: 
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referenční informace k nastavení roamingu pro Windows 10
 Následuje úplný seznam všech nastavení, které budou roamované nebo zálohovat ve Windows 10. 
@@ -137,25 +137,25 @@ Nastavení, která není přemístit nebo synchronizace nebude patří do skupin
 | **Jazyk**: Kontrola pravopisu - automatické opravy a zvýraznění pravopisné chyby |Synchronizace |zálohování |Jazyk |
 | **Jazyk**: seznam klávesnice |Synchronizace |zálohování |Jazyk |
 | **Zamknout obrazovku**: všechny uzamknout nastavení obrazovky |X |X | |
-| **Lupa**: zapnout nebo vypnout (hlavní přepínač). |X |X |Usnadnění přístupu |
-| **Lupa**: inverzi barev vypnutí a zapnutí (ve výchozím nastavení vypnuté) |Synchronizace |X |Usnadnění přístupu |
-| **Lupa**: sledování – postupujte podle fokus klávesnice |Synchronizace |X |Usnadnění přístupu |
-| **Lupa**: sledování – ukazatele myši |Synchronizace |X |Usnadnění přístupu |
-| **Lupa**: spustit po přihlášení uživatelé (ve výchozím nastavení vypnuté) |Synchronizace |X |Usnadnění přístupu |
+| **Lupa**: zapnout nebo vypnout (hlavní přepínač). |X |X |usnadnění přístupu |
+| **Lupa**: inverzi barev vypnutí a zapnutí (ve výchozím nastavení vypnuté) |Synchronizace |X |usnadnění přístupu |
+| **Lupa**: sledování – postupujte podle fokus klávesnice |Synchronizace |X |usnadnění přístupu |
+| **Lupa**: sledování – ukazatele myši |Synchronizace |X |usnadnění přístupu |
+| **Lupa**: spustit po přihlášení uživatelé (ve výchozím nastavení vypnuté) |Synchronizace |X |usnadnění přístupu |
 | **Myš**: Změna velikosti myší |Synchronizace |X |ostatní |
 | **Myš**: změnit barvu myší |Synchronizace |X |ostatní |
 | **Myš**: všechna ostatní nastavení |X |X | |
-| **Program Předčítání**: Snadné spuštění |Synchronizace |X |Usnadnění přístupu |
-| **Program Předčítání**: uživatelé mohou změnit Předčítání hovořícího výšky |Synchronizace |X |Usnadnění přístupu |
-| **Program Předčítání**: uživatelů můžete zapnout nebo vypnout program Předčítání čtení odkazů pro společné položky (na ve výchozím nastavení) |Synchronizace |X |Usnadnění přístupu |
-| **Program Předčítání**: uživatelů můžete zapnout nebo vypnout, zda lze poslouchat zadané znaky (na ve výchozím nastavení) |Synchronizace |X |Usnadnění přístupu |
-| **Program Předčítání**: uživatelů můžete zapnout nebo vypnout, zda lze poslouchat typové slova (na ve výchozím nastavení) |Synchronizace |X |Usnadnění přístupu |
-| **Program Předčítání**: mít vložení kurzoru následující Předčítání (na ve výchozím nastavení) |Synchronizace |X |Usnadnění přístupu |
-| **Program Předčítání**: Povolit visual zvýraznění Předčítání kurzoru (na ve výchozím nastavení) |Synchronizace |X |Usnadnění přístupu |
-| **Program Předčítání**: přehrávání zvuku upozornění (na ve výchozím nastavení) |Synchronizace |X |Usnadnění přístupu |
-| **Program Předčítání**: Aktivace kláves na klávesnici touch při navýšení prstu (ve výchozím nastavení vypnuté) |Synchronizace |X |Usnadnění přístupu |
-| **Usnadnění přístupu**: nastavit tloušťku blikající kurzor |Synchronizace |X |Usnadnění přístupu |
-| **Usnadnění přístupu**: Odeberte obrázky na pozadí (ve výchozím nastavení vypnuté) |Synchronizace |X |Usnadnění přístupu |
+| **Program Předčítání**: Snadné spuštění |Synchronizace |X |usnadnění přístupu |
+| **Program Předčítání**: uživatelé mohou změnit Předčítání hovořícího výšky |Synchronizace |X |usnadnění přístupu |
+| **Program Předčítání**: uživatelů můžete zapnout nebo vypnout program Předčítání čtení odkazů pro společné položky (na ve výchozím nastavení) |Synchronizace |X |usnadnění přístupu |
+| **Program Předčítání**: uživatelů můžete zapnout nebo vypnout, zda lze poslouchat zadané znaky (na ve výchozím nastavení) |Synchronizace |X |usnadnění přístupu |
+| **Program Předčítání**: uživatelů můžete zapnout nebo vypnout, zda lze poslouchat typové slova (na ve výchozím nastavení) |Synchronizace |X |usnadnění přístupu |
+| **Program Předčítání**: mít vložení kurzoru následující Předčítání (na ve výchozím nastavení) |Synchronizace |X |usnadnění přístupu |
+| **Program Předčítání**: Povolit visual zvýraznění Předčítání kurzoru (na ve výchozím nastavení) |Synchronizace |X |usnadnění přístupu |
+| **Program Předčítání**: přehrávání zvuku upozornění (na ve výchozím nastavení) |Synchronizace |X |usnadnění přístupu |
+| **Program Předčítání**: Aktivace kláves na klávesnici touch při navýšení prstu (ve výchozím nastavení vypnuté) |Synchronizace |X |usnadnění přístupu |
+| **Usnadnění přístupu**: nastavit tloušťku blikající kurzor |Synchronizace |X |usnadnění přístupu |
+| **Usnadnění přístupu**: Odeberte obrázky na pozadí (ve výchozím nastavení vypnuté) |Synchronizace |X |usnadnění přístupu |
 | **Napájení a režimu spánku**: všechna nastavení |X |X | |
 | **Přizpůsobení obrazovky Start**: zvýraznění barvu (pouze phone) |X |Synchronizace |Motiv |
 | **Zadáním**: slovníku |Synchronizace |zálohování |Jazyk |

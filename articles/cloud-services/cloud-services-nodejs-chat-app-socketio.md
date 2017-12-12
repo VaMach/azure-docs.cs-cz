@@ -1,5 +1,5 @@
 ---
-title: "Aplikace Node.js pomocí Socket.io | Microsoft Docs"
+title: "Aplikace Node.js pomocí Socket.io – Azure"
 description: "Další informace o použití socket.io v aplikaci node.js hostované v Azure."
 services: cloud-services
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Sestavení aplikace Chat v Node.js se Socket.IO na cloudové služby Azure
-Socket.IO poskytuje v reálném čase komunikace mezi mezi node.js serverem a klienty. Tento kurz vás provede hostování soketu. Vstupně-výstupních operací na základě chatovací aplikace v Azure. Další informace o Socket.IO najdete v tématu <http://socket.io/>.
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Vytvoření chatovací aplikace Node.js pomocí Socket.IO ve službě Azure Cloud Service
+
+Socket.IO poskytuje v reálném čase komunikaci mezi serverem node.js a klienty. Tento kurz vás provede hostování soketu. Vstupně-výstupních operací na základě chatovací aplikace v Azure. Další informace o Socket.IO najdete v tématu [socket.io](http://socket.io).
 
 Zde je snímek obrazovky dokončené aplikace:
 

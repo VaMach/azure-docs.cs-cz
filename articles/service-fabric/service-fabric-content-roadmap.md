@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 05b57a065f6d92c7c285ef5178b465dc8f419dbc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Proto chcete dozvědět o Service Fabric?
 Azure Service Fabric je platforma distribuovaných systémů usnadňující balení, nasazování a spravování škálovatelných a spolehlivých mikroslužeb.  Service Fabric má rozlehlých, ale a je mnoha Další.  Tento článek obsahuje souhrn Service Fabric a popisuje základní koncepty, programovací modely, životního cyklu aplikací, testování, clustery a sledování stavu. Pro čtení [přehled](service-fabric-overview.md) a [co jsou mikroslužeb?](service-fabric-overview-microservices.md) úvod a jak Service Fabric slouží k vytvoření mikroslužeb. Tento článek neobsahuje kompletní seznam obsahu, ale propojit přehled a získávání Začínáme články pro každou oblast Service Fabric. 
@@ -103,7 +103,7 @@ A [spustitelný soubor hosta](service-fabric-deploy-existing-app.md) je existuj�
 ## <a name="application-lifecycle"></a>Životní cyklus aplikace
 Jako s jinými platformami, v Service Fabric aplikace obvykle projde má tyto fáze: návrh, vývoj, testování, nasazení, upgrade, údržbu a odebírání. Service Fabric nabízí prvotřídní podporu pro celou aplikaci životního cyklu aplikací cloudu, od vývoje přes nasazení, každodenní správu a údržbu na případné vyřazení z provozu. Model služby umožňuje několik různých rolí se zúčastnit nezávisle v průběhu životního cyklu aplikace. [Životní cyklus aplikace Service Fabric](service-fabric-application-lifecycle.md) poskytuje přehled o rozhraní API a jak se používají různé role v průběhu fáze životního cyklu aplikace Service Fabric. 
 
-Životní cyklus celé aplikace můžete spravovat pomocí [rutiny prostředí PowerShell](/powershell/module/ServiceFabric/), [rozhraní API jazyka C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [rozhraní API Java](/java/api/system.fabric._application_management_client), a [rozhraní REST API](/rest/api/servicefabric/). Můžete také nastavit nepřetržité integrace/průběžné kanály nasazení pomocí nástrojů, jako [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) nebo [volaných](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+Životní cyklus celé aplikace můžete spravovat pomocí [rutiny prostředí PowerShell](/powershell/module/ServiceFabric/), [rozhraní příkazového řádku](service-fabric-sfctl.md), [rozhraní API jazyka C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [rozhraní API Java](/java/api/system.fabric._application_management_client), a [ Rozhraní REST API](/rest/api/servicefabric/). Můžete také nastavit nepřetržité integrace/průběžné kanály nasazení pomocí nástrojů, jako [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) nebo [volaných](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 V následujícím videu Microsoft Virtual Academy popisuje, jak spravovat životním cyklu aplikací:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -184,12 +184,31 @@ Předinstalované komponenty Service Fabric sestavy stavu všech entit v cluster
 
 Service Fabric nabízí několik způsobů, jak [zobrazit sestavy stavu](service-fabric-view-entities-aggregated-health.md) agregován v health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) nebo jiných nástrojů vizualizace.
-* Dotazy na stav (prostřednictvím [prostředí PowerShell](/powershell/module/ServiceFabric/), [FabricClient rozhraní API jazyka C#](/dotnet/api/system.fabric.fabricclient.healthclient) a [rozhraní API Java FabricClient](/java/api/system.fabric._health_client), nebo [rozhraní REST API](/rest/api/servicefabric)).
-* Obecné dotazuje to návratový seznam entit, které mají stav jako jedna z vlastností (pomocí prostředí PowerShell, rozhraní API nebo REST).
+* Dotazy na stav (prostřednictvím [prostředí PowerShell](/powershell/module/ServiceFabric/), [rozhraní příkazového řádku](service-fabric-sfctl.md), [FabricClient rozhraní API jazyka C#](/dotnet/api/system.fabric.fabricclient.healthclient) a [rozhraní API Java FabricClient](/java/api/system.fabric._health_client), nebo [REST Rozhraní API](/rest/api/servicefabric)).
+* Obecné dotazuje to návratový seznam entit, které mají stav jako jedna z vlastností (pomocí prostředí PowerShell, rozhraní příkazového řádku, rozhraní API nebo REST).
 
 V následujícím videu Microsoft Virtual Academy popisuje model stavu Service Fabric a jak se používají:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
+## <a name="monitoring-and-diagnostics"></a>Monitorování a diagnostika
+[Monitorovací a diagnostické](service-fabric-diagnostics-overview.md) jsou důležité pro vývoj, testování a nasazení aplikace a služby v jakémkoli prostředí. Řešení Service Fabric fungují lépe, když plánování a implementace monitorování a diagnostiky, které pomáhají zajistit aplikace a služby jsou funguje podle očekávání v místním vývojovém prostředí, nebo v produkčním prostředí.
+
+Hlavní cíle monitorování a Diagnostika se:
+
+- Najít a diagnostikovat problémy s hardwarem a infrastruktury
+- Rozpoznat problémy s softwaru a aplikace, zkrátit dobu prostojů při služby
+- Informace k prostředku využívání a nápovědy jednotky operations rozhodování o
+- Optimalizace výkonu aplikace, služby a infrastruktury
+- Generovat podnikových statistik a identifikujte oblasti zlepšování
+ 
+Celkové pracovní postup monitorování a Diagnostika zahrnuje tři kroky:
+
+1. Generování událostí: Jedná se o událostí (protokoly, trasování, vlastní události) na infrastrukturu (cluster), platformy a na úrovni aplikace / služby
+2. Agregace událostí: vygenerovaných událostí je třeba shromažďovat a agregovat předtím, než lze zobrazit
+3. Analýza: události musí být vizualizovaných a v některých formátu, aby bylo možné pro analýzu a zobrazit podle potřeby
+
+Více produkty jsou k dispozici, které zahrnují tyto tři oblasti, a můžete vybrat různé technologie pro každou. Další informace najdete v tématu [monitorovací a diagnostické pro Azure Service Fabric](service-fabric-diagnostics-overview.md).
 
 ## <a name="next-steps"></a>Další kroky
 * Naučte se vytvořit [cluster v Azure](service-fabric-cluster-creation-via-portal.md) nebo [samostatný clusteru ve Windows](service-fabric-cluster-creation-for-windows-server.md).

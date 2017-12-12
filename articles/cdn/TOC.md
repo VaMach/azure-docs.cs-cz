@@ -41,13 +41,14 @@
 
 ## Analýza
 ### [Analýza vzorů využití Azure CDN](cdn-log-analysis.md)
-#### [Základní sestavy od Verizonu](cdn-analyze-usage-patterns.md)
-#### [Vlastní sestavy od Verizonu](cdn-verizon-custom-reports.md)
 #### [Protokoly diagnostiky Azure](cdn-azure-diagnostic-logs.md)
-### Analytické nástroje pro Azure CDN od Verizonu
-#### [Generování pokročilých sestav HTTP](cdn-advanced-http-reports.md)
-#### [Zobrazení statistik v reálném čase](cdn-real-time-stats.md)
-#### [Analýza výkonu hraničních uzlů](cdn-edge-performance.md)
+#### Analytické nástroje pro Azure CDN od Verizonu
+##### [Základní sestavy od Verizonu](cdn-analyze-usage-patterns.md)
+##### [Vlastní sestavy od Verizonu](cdn-verizon-custom-reports.md)
+#### Analytické nástroje pro Azure CDN Premium od Verizonu
+##### [Generování pokročilých sestav HTTP](cdn-advanced-http-reports.md)
+##### [Zobrazení statistik v reálném čase](cdn-real-time-stats.md)
+##### [Analýza výkonu hraničních uzlů](cdn-edge-performance.md)
 
 ## Vývoj
 ### [.NET](cdn-app-dev-net.md)

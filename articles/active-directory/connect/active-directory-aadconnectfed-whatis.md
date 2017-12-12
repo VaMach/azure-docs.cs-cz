@@ -4,7 +4,7 @@ description: "Tato stránka je centrálního umístění pro veškerá dokumenta
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: anandy
-ms.openlocfilehash: 6dc5ef81704423c5a1bc136fb2d51d79a9265e20
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 04516e38e72405ca797a0d748d9ed825ae452966
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect a federace
 Azure Active Directory (Azure AD) připojit umožňuje konfiguraci federace pomocí místní služby Active Directory Federation Services (AD FS) a Azure AD. Federační přihlášení můžete povolit uživatelům přihlášení k Azure AD na základě služby pomocí jejich místních hesel – a v podnikové síti, aniž by museli znovu zadejte hesla. Pomocí možnosti federační službou AD FS můžete nasadit nové instalace služby AD FS, nebo můžete zadat existující instalace ve farmě Windows serveru 2012 R2.

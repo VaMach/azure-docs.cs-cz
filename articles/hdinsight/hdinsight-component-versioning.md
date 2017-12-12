@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 79f3cfbe5f5603d3c9f42e8af1d4093a5135b267
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Co jsou komponent systému Hadoop a verze, které jsou k dispozici v prostředí HDInsight?
 
@@ -77,7 +77,7 @@ V tématu [poznámky k verzi HDInsight](hdinsight-release-notes.md) pro další 
 Následující tabulka uvádí verze HDInsight, které jsou aktuálně dostupné na portálu Azure. Verze softwaru HDP, které odpovídají každé HDInsight verze jsou uvedeny společně s daty verzi produktu. Podpora vypršení platnosti a vyřazení kalendářní data jsou tu taky, při jejich jste známé.
 
 > [!NOTE]
-> Po podpora pro verze vypršela platnost, nemusí být k dispozici prostřednictvím portálu Microsoft Azure classic. Ale verzích clusterů nadále k dispozici pomocí `Version` parametr v prostředí Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) příkaz a .NET SDK dokud verze datu vyřazení.
+> Po podpora pro verze vypršela platnost, nemusí být k dispozici prostřednictvím portálu Microsoft Azure. Ale verzích clusterů nadále k dispozici pomocí `Version` parametr v prostředí Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) příkaz a .NET SDK dokud verze datu vyřazení.
 > 
 > Vysoce dostupný clustery se dvěma uzly head nasazených ve výchozím nastavení pro HDInsight verze 2.1 nebo novější. Nejsou k dispozici pro verzi 1.6 clustery služby HDInsight.
 
@@ -186,7 +186,7 @@ Následující tabulka uvádí typy clusteru, které jsou podporovány v HDInsig
 | HBase |Ano |Ne |
 | Storm |Ano |Ne |
 | R Server |Ano |Ne |
-| Interaktivní dotazu |Ano |Ne |
+| Interaktivní dotaz |Ano |Ne |
 | Kafka (Preview) |Ano |Ne | 
 
 ### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Podpora pro Azure Data Lake Store v HDInsight Premium

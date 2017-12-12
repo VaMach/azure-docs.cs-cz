@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2bbbde3497d8680ba4203049f66ea05005af0d11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Pomocí Azure Functions computing bez serveru databáze
 
@@ -44,7 +44,7 @@ Aktivační událost Azure Cosmos DB, vstupní vazby a výstup vazby lze použí
 * Vstupní vazbu ke kontejneru Azure Cosmos DB mohou být používány stejnou funkci jako aktivační procedury Azure Cosmos DB a dají se použít s nebo bez vazby také výstup. Můžete použít tuto kombinaci použít informace o aktuální Měna systému exchange (vyžádat pomocí vstupní vazbu ke kontejneru exchange) k informačnímu kanálu změn nových objednávek ve službě nákupní košík. Aktualizované nákupní košík celkem s aktuální převodu měny, který se použije, může být napsán na kontejner třetí pomocí vazbu výstup.
 
 > [!NOTE]
-> Aktivační událost Azure Cosmos DB, vstupní vazby a výstup vazby pracovat v tuto chvíli pouze účty DocumentDB, tabulky a rozhraní Graph API.
+> Aktivační událost Azure Cosmos DB, vstupní vazby a výstup vazby pracovat v tuto chvíli pouze účty SQL, tabulky a rozhraní Graph API.
 
 ## <a name="use-cases"></a>Případy použití
 

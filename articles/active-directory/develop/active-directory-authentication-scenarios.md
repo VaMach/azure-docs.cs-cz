@@ -4,7 +4,7 @@ description: "Přehled pět nejběžnějších scénářů ověřování pro Azu
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32077c1e9415dd8be7064a2377ee806ae21d1390
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Scénáře ověřování pro Azure AD
 Azure Active Directory (Azure AD) zjednodušuje tím, že poskytuje identity jako zdroj služby, se podpora pro standardní protokoly, jako je například OAuth 2.0 a OpenID Connect, jakož i otevřené knihovny pro různé platformy můžete rychle psaní ověřování pro vývojáře. Tento dokument vám pomůže pochopit podporuje různé scénáře služby Azure AD a vám ukáže, jak začít pracovat. Je rozdělený do následujících částí:

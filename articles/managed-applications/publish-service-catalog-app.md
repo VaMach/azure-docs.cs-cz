@@ -1,6 +1,6 @@
 ---
 title: "Vytvoření a publikování aplikace spravované katalogu služby Azure | Microsoft Docs"
-description: "Ukazuje, jak vytvořit Azure spravované aplikace, která je určena pro členy vaší organizace."
+description: "Ukazuje, jak vytvořit spravovanou aplikaci Azure, která je určená pro členy vaší organizace."
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2017
+ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6b1d609b7b1b21e80cc7f68f05e16e3c1e8eebba
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: 7f00fe304cc4a9de7727882bb2c38f85713bd521
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publikování spravované aplikace pro interní používání
 
@@ -32,7 +32,7 @@ Spravované aplikace pro tento článek obsahuje pouze účet úložiště. Je u
 
 ## <a name="create-the-resource-template"></a>Vytvoření šablony prostředků
 
-Každé spravované aplikaci definice obsahuje soubor s názvem **mainTemplate.json**. V něm definovat zřídit prostředky Azure. Šablona je nejsou jiné než regulární šablony Resource Manageru.
+Každé spravované aplikaci definice obsahuje soubor s názvem **mainTemplate.json**. V něm definovat zřídit prostředky Azure. Šablona se nijak neliší od běžné šablony Resource Manageru.
 
 Vytvořte soubor s názvem **mainTemplate.json**. Název je malá a velká písmena.
 
@@ -83,7 +83,7 @@ Uložte soubor mainTemplate.json.
 
 ## <a name="create-the-user-interface-definition"></a>Vytvořit definici uživatelského rozhraní
 
-Používá portál Azure **createUiDefinition.json** soubor ke generování uživatelského rozhraní pro uživatele, kteří vytvářejí spravované aplikace. Můžete definovat, jak uživatelé zadali vstup pro jednotlivé parametry. Možnosti můžete použít jako rozevíracího seznamu, textové pole, pole pro heslo a další vstupní nástroje. Naučte se vytvořit soubor definice uživatelského rozhraní pro spravované aplikace, najdete v tématu [začít pracovat s CreateUiDefinition](create-uidefinition-overview.md).
+Používá portál Azure **createUiDefinition.json** soubor ke generování uživatelského rozhraní pro uživatele, kteří vytvářejí spravované aplikace. Můžete definovat, jak uživatelé zadali vstup pro jednotlivé parametry. Možnosti můžete použít jako rozevíracího seznamu, textové pole, pole pro heslo a další vstupní nástroje. Pokud chcete zjistit, jak vytvořit definiční soubor uživatelského rozhraní pro spravovanou aplikaci, přečtěte si téma [Začínáme s CreateUiDefinition](create-uidefinition-overview.md).
 
 Vytvořte soubor s názvem **createUiDefinition.json**. Název je malá a velká písmena.
 
@@ -164,7 +164,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
   -Context $ctx 
 ```
 
-## <a name="create-the-managed-application-definition"></a>Vytvořit definici spravované aplikace
+## <a name="create-the-managed-application-definition"></a>Vytvoření definice spravované aplikace
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Vytvoření skupiny uživatelů Azure Active Directory nebo aplikace
 
@@ -182,7 +182,7 @@ Dále je nutné zadat ID definice role RBAC předdefinovaná role, které chcete
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 ```
 
-### <a name="create-the-managed-application-definition"></a>Vytvořit definici spravované aplikace
+### <a name="create-the-managed-application-definition"></a>Vytvoření definice spravované aplikace
 
 Pokud již jste skupinu prostředků pro ukládání definice spravované aplikace, vytvořte jeden:
 
@@ -190,7 +190,7 @@ Pokud již jste skupinu prostředků pro ukládání definice spravované aplika
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
-Teď vytvořte prostředek definice spravované aplikace.
+Teď vytvoříte prostředek definice spravované aplikace.
 
 ```powershell
 $blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
@@ -242,7 +242,6 @@ Po dokončení nasazení v skupinu prostředků s názvem applicationGroup exist
 
 ## <a name="next-steps"></a>Další kroky
 
-* Úvod do spravovaných aplikací, najdete v části [spravované aplikace přehled](overview.md).
+* Úvod ke spravovaným aplikacím najdete v [přehledu spravovaných aplikací](overview.md).
 * Například zobrazit projekty, [ukázkové projekty Azure spravované aplikace](sample-projects.md).
-* Informace o publikování spravované aplikace do Azure Marketplace najdete v tématu [Azure spravované aplikace na webu Marketplace](publish-marketplace-app.md).
-* Naučte se vytvořit soubor definice uživatelského rozhraní pro spravované aplikace, najdete v tématu [začít pracovat s CreateUiDefinition](create-uidefinition-overview.md).
+* Pokud chcete zjistit, jak vytvořit definiční soubor uživatelského rozhraní pro spravovanou aplikaci, přečtěte si téma [Začínáme s CreateUiDefinition](create-uidefinition-overview.md).

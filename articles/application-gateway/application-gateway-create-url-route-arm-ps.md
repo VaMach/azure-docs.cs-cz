@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
-ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Vytvoření služby application gateway pomocí směrování na základě cesty
 
@@ -55,7 +55,7 @@ Požadavky pro http://contoso.com/image * jsou směrovány do fondu serverů bit
 
 ## <a name="create-an-application-gateway"></a>Vytvoření služby Application Gateway
 
-Rozdíl mezi použitím portálu Azure classic a Azure Resource Manager je pořadí, ve kterém vytvoříte službu application gateway a položky, které musí být nakonfigurované.
+Rozdíl mezi použitím modelu nasazení classic a Azure Resource Manager je v pořadí, ve kterém vytvoříte službu application gateway a položky, které musí být nakonfigurované.
 
 S Resource Managerem se všechny položky, které tvoří službu Application Gateway, konfigurují individuálně, potom se spojí dohromady a vytvoří prostředek služby Application Gateway.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: b6a77e33eea24000037ffb31d7aae3cb1d345ce9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Práce s daty v Azure Cosmos DB
 Azure Cosmos DB nabízí flexibilitu schémat a bohaté indexování prostřednictvím nativní [JSON](http://www.json.org) datového modelu. Všechny prostředky Azure Cosmos DB včetně databází, kolekcí, dokumentů a uložené procedury jsou modelovány a ukládány jako dokumenty JSON. Jako požadavek na vrácení přenosné, JSON (a Azure Cosmos DB) podporuje pouze omezenou sadu základních typů: řetězec, číslo, logickou hodnotu, pole, objekt a hodnotu Null. Ale JSON je flexibilní a umožňují vývojářům a architektury představují složitější typy pomocí těchto primitivních elementů a skládání je jako objekty nebo pole. 
@@ -75,7 +75,7 @@ Dotazy na rozsah jsou běžné s hodnotami data a času. Například pokud budet
 Další informace o tom, jak nakonfigurovat zásady indexování na [Azure Cosmos DB indexování zásady](indexing-policies.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Dotazování na data a času v technologii LINQ
-Sadu DocumentDB .NET SDK automaticky podporuje dotazování na data uložená v Azure DB Cosmos prostřednictvím LINQ. Například následující fragment kódu ukazuje dotaz LINQ této odeslaných za poslední tři dny objednávek filtry.
+.NET SDK služby SQL automaticky podporuje dotazování na data uložená v Azure DB Cosmos prostřednictvím LINQ. Například následující fragment kódu ukazuje dotaz LINQ této odeslaných za poslední tři dny objednávek filtry.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -89,5 +89,5 @@ V tomto článku jsme se podívali na postup ukládání, index a dotaz na data 
 
 ## <a name="next-steps"></a>Další kroky
 * Stažení a spuštění [ukázky kódů v Githubu](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Další informace o [dotaz rozhraní API DocumentDB](documentdb-sql-query.md)
+* Další informace o [dotazy SQL](documentdb-sql-query.md)
 * Další informace o [Azure Cosmos DB indexování zásady](indexing-policies.md)

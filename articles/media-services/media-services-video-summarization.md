@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5d5afdaf22ffea8f3b77a154acb5d0a8dda74405
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Použít miniatur videa Azure Media k vytvoření Videosouhrn
 ## <a name="overview"></a>Přehled
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 **Azure Media Video miniaturu** MP je aktuálně ve verzi Preview.
 
-Toto téma uvádí podrobnosti o **Azure Media Video miniaturu** a ukazuje, jak pomocí sady Media Services SDK pro .NET.
+Tento článek obsahuje údaje o **Azure Media Video miniaturu** a ukazuje, jak pomocí sady Media Services SDK pro .NET.
 
 ## <a name="limitations"></a>Omezení
 
@@ -77,7 +77,7 @@ Následujícím kódu JSON nastaví dostupné parametry.
 Program zobrazí následující postup:
 
 1. Vytvořte asset a nahrajte soubor média do assetu.
-2. Vytvoří úlohu s video miniatur úloh podle konfigurační soubor, který obsahuje následující přednastavení json. 
+2. Vytvoří úlohu s video miniatur úloh podle konfigurační soubor, který obsahuje následující přednastavení json: 
    
         {                
             "version": "1.0",
@@ -109,16 +109,24 @@ Nastavte své vývojové prostředí a v souboru app.config vyplňte informace o
         {
             // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
 
             static void Main(string[] args)
             {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

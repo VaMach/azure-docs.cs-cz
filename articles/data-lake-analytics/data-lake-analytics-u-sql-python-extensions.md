@@ -14,13 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.openlocfilehash: 51c0bac3cd03965d002b3fe87804a0d7ea6cf63e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Kurz: Začínáme s jazykem U-SQL s Pythonem rozšíření
+
+## <a name="prerequisites"></a>Požadavky
+
+Než začnete, zkontrolujte, jestli že rozšíření Python jsou nainstalované ve vašem účtu Azure Data Lake Analytics.
+
+* Přejděte do jste účet Data Lake Analytics na portálu Azure
+* V levé nabídce v části **ZAČÍNÁME** klikněte na **ukázkové skripty**
+* Klikněte na tlačítko **instalovat rozšíření U-SQL** pak **OK**
+
+## <a name="overview"></a>Přehled 
 
 Rozšíření Python pro U-SQL umožňují vývojářům provádět masivně paralelní provádění kódu jazyka Python. Následující příklad ukazuje základní kroky:
 

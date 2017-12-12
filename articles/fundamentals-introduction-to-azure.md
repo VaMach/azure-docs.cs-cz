@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Úvod do Microsoft Azure
 Microsoft Azure je platforma aplikace společnosti Microsoft pro veřejný cloud.  Cílem tohoto článku je poskytují základ pro pochopení základy Azure, i v případě, že bez znalosti o cloud computing.
@@ -40,7 +40,7 @@ Tento článek se použije **jiné organizaci** mluvit o služeb na základě po
  *Obrázek: Azure poskytuje přístupné z Internetu aplikačních služeb běžících v datových centrech Azure.*
 
 ## <a name="management-portal"></a>Portál pro správu
-Azure je webové rozhraní s názvem [portálu pro správu](http://manage.windowsazure.com) umožňuje správcům přístup a spravovat většinu, ale všechny Azure funkce.  Společnost Microsoft obvykle vydává novější uživatelského rozhraní portálu ve verzi beta před vyřazením z provozu starší. Je volána novější jeden ["Portál Azure Preview"](https://portal.azure.com/).
+Azure je webové rozhraní s názvem [portálu pro správu](http://manage.windowsazure.com) umožňuje správcům přístup a spravovat většinu, ale všechny Azure funkce.  Společnost Microsoft obvykle vydává novější uživatelského rozhraní portálu ve verzi beta před vyřazením z provozu starší. Je volána novější jeden ["Azure Portal"](https://portal.azure.com/).
 
 Je to obvykle dlouhé překrývají oba Portály jsou aktivní. Zatímco základní služby se zobrazí v obou portálů, ne všechny funkce mohou být k dispozici v obou. Novější služby může zobrazí v novější portálu první a starší služby a funkce může existovat pouze v ta starší.  Zpráva tady je, že Pokud nenajdete něco v portálu starší kontrolují novější jednu a naopak.
 
@@ -218,7 +218,7 @@ Vlastník aplikace definuje pravidla, které určují, jak se mají směrovat po
 Správce provozu používá Directory Name Service (DNS) uživatelům trasy, aby koncové body služby, ale dál provoz nepřekračuje prostřednictvím Správce provozu, po připojení. Díky tomu Traffic Manager nebudou problémové místo, které může zpomalit vaší komunikace služby.
 
 ## <a name="developer-services"></a>Vývojářské služby
-Azure nabízí řadu nástrojů, který pomáhá vývojářům a IT profesionály, vytvářet a spravovat aplikace v cloudu.  
+Azure nabízí řadu nástrojů, který pomáhá vývojářům a odborníkům vytvořit a spravovat aplikace v cloudu.  
 
 ### <a name="azure-sdk"></a>Azure SDK
 Zpět v 2008 úplně první předběžné verze Azure podporované jenom .NET – vývoj. V současné době však můžete vytvořit aplikace Azure v prakticky žádný jazyk. Společnost Microsoft poskytuje aktuálně jazykové sady SDK pro .NET, Java, PHP, Node.js, Ruby nebo Python. Je také obecné Azure SDK, která poskytuje základní podporu pro žádný jazyk, jako je například C++.  
@@ -228,7 +228,7 @@ Tyto sady SDK můžete vytvářet, nasazovat a spravovat aplikace na platformě 
 Společně umožňují vytvářet Azure aplikace, tyto sady SDK také poskytují klientské knihovny, které vám pomůžou vytvořit softwaru, která používá služby Azure. Může například sestavit aplikaci, která čte a zapisuje objektů Azure BLOB, nebo vytvořte nástroj, který nasadí Azure aplikací prostřednictvím rozhraní pro správu Azure.
 
 ### <a name="visual-studio-team-services"></a>Visual Studio Team Services
-Visual Studio Team Services je marketing název pokrývajících číslo služeb, které pomáhají k vývoji aplikací ve službě Azure.
+Visual Studio Team Services je marketing název pokrývajících číslo služeb, které pomáhají k vývoji aplikací v Azure.
 
 Aby nedocházelo k záměně - neposkytuje hostované nebo webové verzi sady Visual Studio. Stále potřebujete vaše místní spuštěná kopie sady Visual Studio. Ale nabízí celou řadu nástrojů, které může být velmi užitečné.
 
@@ -368,7 +368,7 @@ Data je bezpečnější, protože zálohování se šifrují před samotným př
 
 **Scénáře pro zálohování Azure**
 
-Pokud jste už používá Windows Server nebo System Center, zálohování Azure je přirozené řešení pro zálohování své servery systému souborů, virtuální počítače a databáze systému SQL Server.  Funguje s šifrovaný zhuštěný a komprimovaných souborů. Existují určitá omezení, takže byste měli [Zkontrolujte předpoklady Azure Backup](http://technet.microsoft.com/library/dn296608.aspx) první.
+Pokud už používáte Windows Server nebo System Center, Azure backup je přirozené řešení pro zálohování své servery systému souborů, virtuální počítače a databáze systému SQL Server.  Funguje s šifrovaný zhuštěný a komprimovaných souborů. Existují určitá omezení, takže byste měli [Zkontrolujte předpoklady Azure Backup](http://technet.microsoft.com/library/dn296608.aspx) první.
 
 ## <a name="messaging-and-integration"></a>Zasílání zpráv a integrace
 Bez ohledu na to, co je to kód často potřebuje komunikovat s jiným kódem.  V některých situacích všechno, co je potřeba je základní zařazených do fronty zasílání zpráv. V ostatních případech se vyžadují složitější interakce. Azure poskytuje několik různých způsobů k řešení těchto problémů. Obrázek 5 ukazuje volby.
@@ -424,11 +424,11 @@ Kdykoli nastavujete kde existuje mnoho zpráv, které jsou všechny důležité,
 ![BizTalk Services](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
  *Obrázek: Služba BizTalk Services nabízí možnost transformace formáty XML zpráv v cloudu.*
 
-Někdy je nutné připojit systémy, které komunikují pomocí různých formátech zasílání zpráv. Je běžné pro firmy k jiné databázi schémata a XML zasílání zpráv formáty, i když, což je běžný standard je k dispozici. Místo zapisovat velké množství vlastní kód, můžete použít místní BizTalk Server integrovat různými systémy.  Služba Azure BizTalk Services poskytuje stejný typ služby, ale v cloudu. Může platit pouze co používáte a nestarat se o škálování, jako by bylo nutné místně.
+V některých případech budete muset připojit systémy, které komunikují pomocí různých formátech zasílání zpráv. Je běžné pro firmy k jiné databázi schémata a XML zasílání zpráv formáty, i když, což je běžný standard je k dispozici. Místo zapisovat velké množství vlastní kód, můžete použít místní BizTalk Server integrovat různými systémy.  Služba Azure BizTalk Services poskytuje stejný typ služby, ale v cloudu. Může platit pouze co používáte a nestarat se o škálování, jako by bylo nutné místně.
 
 **BizTalk Services scénáře**
 
-Interakce Business-to-Business (B2B) běžně vyžadují tento typ posunutí.  Například společnost vytváření letadla musí pořadí částí z jeho různé části poskytovatele. Bude mít mnoho dodavatelů částí.  Tyto objednávky dobré automatizovat přejdete přímo ze systémů počítačů letadle do systémů dodavatelů.  Ani obchodní chce změnit jejich základní systémy a formáty zpráv a je velmi nepravděpodobné, že tyto formáty jsou stejné. BizTalk Services můžete provést zprávy a převod mezi nové formáty obou směrech. Buď letadle dodavatele můžete práci převede nebo můžete různých dodavatelů, v závislosti na tom, kdo chce větší kontrolu a množství překlad potřeby.     
+Interakce Business-to-Business (B2B) běžně vyžadují tento typ posunutí.  Například společnost vytváření letadla musí pořadí částí z jejích dodavatelů různých částí. Bude mít mnoho dodavatelů částí.  Tyto objednávky dobré automatizovat přejdete přímo ze systémů počítačů letadle do systémů dodavatelů.  Ani obchodní chce změnit jejich základní systémy a formáty zpráv a je velmi nepravděpodobné, že tyto formáty jsou stejné. BizTalk Services můžete provést zprávy a převod mezi nové formáty obou směrech. Buď letadle dodavatele můžete práci převede nebo můžete různých dodavatelů, v závislosti na tom, kdo chce větší kontrolu a množství překlad potřeby.     
 
 ## <a name="compute-assistance"></a>Výpočetní pomoc
 Azure poskytuje pomoc pro služby, které není potřeba spustit vždy.  
@@ -437,7 +437,7 @@ Azure poskytuje pomoc pro služby, které není potřeba spustit vždy.
 ![Azure Scheduler](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png)   
 *Obrázek: Azure Scheduler poskytuje způsob, jak plánování úloh v určitém čase pro určitou dobu.*
 
-Aplikace v některých případech nutné spustit v určitém čase. V Azure můžete ušetřit peníze s tímto typem aplikace místo aplikace právě běžet 24 x 7 čekání data ke zpracování. Azure Scheduler umožňuje naplánovat, kdy aplikace by neměl být spuštěný na základě intervalu, času nebo kalendáře. Je spolehlivé a ověří, že proces běží i v případě, že tam jsou chyby center sítě, počítače a data. REST API Scheduleru používáte ke správě těchto akcí.
+Aplikace v některých případech nutné spustit v určitém čase. V Azure můžete ušetřit peníze s tímto typem aplikace místo aplikace právě běžet 24 x 7 čekání data ke zpracování. Azure Scheduler umožňuje naplánovat, kdy aplikace měly být spuštěny na základě v intervalu čas nebo kalendáře. Je spolehlivé a ověří, že proces běží i v případě, že tam jsou chyby center sítě, počítače a data. REST API Scheduleru používáte ke správě těchto akcí.
 
 Při výskytu naplánované varování Plánovač odešle zprávy protokolu HTTP nebo HTTPS na konkrétní nebo můžete vložit zprávu do fronty úložiště.  Proto musíte mít aplikaci tak mít dostupný koncový bod, nebo ji sledovat frontu úložiště. Potom po získá zprávu, může provádět jakékoli akce je naprogramovaný tak, aby.
 
@@ -493,7 +493,7 @@ HDInsight je název služby Apache Hadoop založené Azure. HDInsight umožňuje
 HDinsight podporuje jiných součástí ekosystému Hadoop, včetně Hive a Pig. Společnost Microsoft vytvořila také součásti, které usnadňují pracovat s daty vytvořeného v prostředí HDInsight pomocí tradičních nástrojů BI, například adaptér HiveODBC a Průzkumníku dat, které pracují v aplikaci Excel.
 
 ### <a name="high-performance-computing-big-compute"></a>High-Performance Computing (Big Compute)
-Jedním z nejvíce atraktivní způsobů, jak používat cloudové platformy je spustit vysokovýkonného výpočetního prostředí (HPC) a dalších aplikacích "Big Compute". Mezi příklady patří specializované engineering aplikacích vytvořených pro standardní rozhraní MPI (Message Passing) a také takzvané paralelně zpracovatelné aplikace, tyto modely finančních rizik.
+Jedním z nejvíce atraktivní způsobů, jak používat cloudové platformy je spustit vysokovýkonného výpočetního prostředí (HPC) a dalších aplikacích "Big Compute". Mezi příklady patří specializované engineering aplikacích vytvořených pro standardní rozhraní MPI (Message Passing) a také takzvané paralelně zpracovatelné aplikace, jako je například modely finančních rizik.
 
 Podstatu Big Compute provádí kódu na mnoho počítačů současně. V Azure to znamená systémem mnoho virtuálních počítačů současně, všechny práce paralelně vyřešit nějaký problém. Tato funkce vyžaduje nějakým způsobem k prostředkům a naplánovat aplikací, tj., distribuci práci přes tyto instance. Volné HPC Pack společnosti Microsoft a jiných řešení výpočetního clusteru můžete provést i v Azure, pořízení výhod služeb Azure výpočty a infrastruktura pro přidání kapacity na vyžádání do výpočetní cluster místní nebo spouštět aplikace Big Compute zcela v cloudu.
 
@@ -515,7 +515,7 @@ Jak ukazuje obrázek, služba Media Services poskytuje sada komponent pro aplika
 
 Aplikace, které používají tuto platformu lze spustit v Azure nebo jinde. Například aplikace pro úklidové video produkční může uživatelům jeho nahrání video ke službě Media Services, pak zpracovat různými způsoby. Alternativně může správy obsahu cloudové služby spuštěné v Azure spoléhají na Media Services ke zpracování a distribuovat video. Všude, kde běží a jakým funguje, každá aplikace zvolí součástí, které je nutné použít, a k nim přistupovat pomocí rozhraní RESTful.
 
-Pokud chcete distribuovat, co ji vytvoří, můžete aplikace použít Azure CDN, jiné CDN, nebo jenom odesílat bits přímo uživatelům. Ale získá existuje, video, které jsou vytvořené pomocí služby Media Services mohou být spotřebovávána různé klientské systémy, včetně systému Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash a Silverlight. Cílem je usnadnit k vytvoření média moderních aplikací.
+Pokud chcete distribuovat, co ji vytvoří, můžete aplikace použít Azure CDN, jiné CDN, nebo jenom odesílat bits přímo uživatelům. Ale když získá existuje, video, které jsou vytvořené pomocí služby Media Services mohou být spotřebovávána různé klientské systémy, včetně systému Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash a Silverlight. Cílem je usnadnit k vytvoření média moderních aplikací.
 
 **Odkazy**
 

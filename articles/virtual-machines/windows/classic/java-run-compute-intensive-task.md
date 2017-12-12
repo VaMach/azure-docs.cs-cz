@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Jak spouštět úlohy náročné na výpočetní výkon v Javě na virtuálním počítači
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ Následuje příklad monitorování úlohy náročné na výkon aplikací Java.
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Vytvoření virtuálního počítače
-1. Přihlaste se do [portálu Azure Classic](https://manage.windowsazure.com).
+1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
 2. Klikněte na tlačítko **nový**, klikněte na tlačítko **výpočetní**, klikněte na tlačítko **virtuálního počítače**a potom klikněte na **z Galerie**.
 3. V **vyberte bitovou kopii virtuálního počítače** dialogové okno, vyberte **JDK 7 Windows serveru 2012**.
    Všimněte si, že **JDK 6 systému Windows Server 2012** je k dispozici v případě, že máte starší aplikace, které ještě nejsou připravené ke spuštění v JDK 7.
@@ -74,7 +74,7 @@ Následuje příklad monitorování úlohy náročné na výkon aplikací Java.
    2. Klikněte na **Dokončit**.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Vzdáleně se přihlásit k virtuálnímu počítači
-1. Přihlaste se na [portál Azure classic](https://manage.windowsazure.com).
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. Klikněte na tlačítko **virtuální počítače**.
 3. Klikněte na název virtuálního počítače, který chcete k přihlášení do.
 4. Klikněte na **Připojit**.
@@ -87,15 +87,15 @@ Pokud chcete začít používat fronty služby Service Bus v Azure, musíte nejd
 
 Vytvoření oboru názvů služby:
 
-1. Přihlaste se na [portál Azure classic](https://manage.windowsazure.com).
-2. V levém navigačním podokně portálu Azure classic, klikněte na **Service Bus, řízení přístupu a ukládání do mezipaměti**.
-3. V levém podokně portálu Azure classic, klikněte na **Service Bus** uzel a klikněte **nový** tlačítko.  
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. V levém navigačním podokně portálu Azure, klikněte na tlačítko **Service Bus, řízení přístupu a ukládání do mezipaměti**.
+3. V levém podokně portálu Azure, klikněte na **Service Bus** uzel a klikněte **nový** tlačítko.  
    ![Snímek obrazovky uzel Service Bus][svc_bus_node]
 4. V **vytvoření nové služby Namespace** dialogovém okně zadejte **Namespace**a pokud chcete mít jistotu, že je jedinečný, klikněte **zkontrolovat dostupnost** tlačítko.  
    ![Vytvořit nový Namespace snímek][create_namespace]
 5. Po dostupné zajistit, že název oboru názvů vyberte zemi nebo oblast, ve kterém by měl být hostován vašeho oboru názvů a klikněte **vytvořit Namespace** tlačítko.  
    
-   Obor názvů, který jste vytvořili se potom zobrazí na portálu Azure classic a aktivovat chvíli trvá. Počkejte, dokud je stav **Active** před pokračováním na další krok.
+   Obor názvů, který jste vytvořili se potom zobrazí na portálu Azure a aktivovat chvíli trvá. Počkejte, dokud je stav **Active** před pokračováním na další krok.
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Získání výchozí pověření pro správu oboru názvů
 Aby bylo možné provádět operace správy, jako je například vytváření fronty, na novém oboru názvů, potřebujete získat přihlašovací údaje pro obor názvů správu.

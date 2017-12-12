@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>Doporučení výkonu
 
@@ -57,7 +57,12 @@ Chcete-li odhadnout dopad toto doporučení, jsou k dispozici srovnání skuteč
 
 Když použijete toto doporučení, zapne vynucené Parametrizace minut ve vaší databázi a začne monitorování procesu, který přibližně trvá po dobu 24 hodin. Po uplynutí této doby bude moci zobrazit sestavy ověření, který ukazuje využití procesoru vaší databáze, 24 hodin před a po použití doporučení. Poradce pro funkci SQL Database má bezpečnostní mechanismus, který automaticky vrátí použité doporučení v případě, že byla zjištěna snížení výkonu.
 
-## <a name="fix-schema-issues-recommendations"></a>Opravte problémy doporučení schématu
+## <a name="fix-schema-issues-recommendations-preview"></a>Opravte problémy doporučení schématu (preview)
+
+> [!IMPORTANT]
+> Společnost Microsoft právě místo začne "Opravit problém schématu" doporučení. Měli byste začít používat [inteligentního Statistika](sql-database-intelligent-insights.md) pro automatické monitorování vaší problémů s výkonem databáze, která zahrnuje schématu problémy, které dříve doporučení "Opravit problém schématu" zahrnuté.
+> 
+
 **Opravte problémy schématu** doporučení se zobrazí, pokud služba SQL Database oznámení anomálií v počtu chyby související s schématu SQL aktivit ve vaší databázi SQL Azure. Toto doporučení se obvykle zobrazují, když databáze dojde více schématu související chyby (neplatný název sloupce, neplatný název objektu atd.) v rámci hodiny.
 
 "Schématu problémy" jsou třídou chyby syntaxe v systému SQL Server, které dojít v případě, že definice schématu databáze a definice dotazu SQL nejsou zarovnány. Například jeden ze sloupců očekávanou dotazu může být chybějící v cílové tabulce, nebo naopak. 

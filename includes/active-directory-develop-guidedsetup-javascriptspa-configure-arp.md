@@ -1,4 +1,3 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Přidat informace o registraci aplikace do aplikace
 
 V tomto kroku budete muset nakonfigurovat adresu URL pro přesměrování informace o registraci aplikace a pak přidejte do vaší aplikace JavaScript SPA Id aplikace.

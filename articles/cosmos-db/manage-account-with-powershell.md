@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 25c543528119410dff0684845a713dcb0d6151d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Vytvoření účtu Azure Cosmos DB pomocí prostředí PowerShell
 
@@ -66,7 +66,7 @@ Příklad:
 * V předchozím příkladu vytvoří databázový účet se dvěma oblastmi. Je také možné vytvoření databázového účtu pomocí jedné oblasti (který je určený jako oblasti zápisu a mít hodnotu převzetí služeb při selhání s prioritou 0) nebo víc než dvou oblastech. Další informace najdete v tématu [účty databáze více oblast][scaling-globally].
 * Umístění musí být oblasti, ve kterých je Azure Cosmos DB všeobecně dostupná. Aktuální seznam oblastí je uvedený na [oblasti Azure stránky](https://azure.microsoft.com/regions/#services).
 
-## <a id="update-documentdb-account-powershell"></a>Aktualizace účtu databáze DocumentDB
+## <a id="update-documentdb-account-powershell"></a>Aktualizace databáze účtu Azure Cosmos DB
 
 Tento příkaz umožňuje aktualizovat vlastnostech účtu databáze Azure Cosmos DB. To zahrnuje konzistence zásad a které databázový účet existuje v umístění.
 
@@ -97,7 +97,7 @@ Příklad:
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a>Odstranění účtu databáze DocumentDB
+## <a id="delete-documentdb-account-powershell"></a>Odstranit účet Azure Cosmos DB databáze
 
 Tento příkaz umožňuje odstranit existující databáze účet Azure Cosmos DB.
 
@@ -110,7 +110,7 @@ Příklad:
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a>Získat vlastnosti účtu databáze DocumentDB
+## <a id="get-documentdb-properties-powershell"></a>Získat vlastnosti účtu databáze Azure Cosmos DB
 
 Tento příkaz umožňuje získat vlastnosti existující databáze účet Azure Cosmos DB.
 

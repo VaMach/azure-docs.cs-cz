@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6b72bdc546c824515867daa062c4a94f7326d7fb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Spustit úlohu Apache Hive, Pig nebo Hadoop pomocí Azure Cosmos DB a HDInsight
 V tomto kurzu se dozvíte, jak spustit [Apache Hive][apache-hive], [Apache Pig][apache-pig], a [Apache Hadoop] [ apache-hadoop] úloh MapReduce v Azure HDInsight s konektorem Hadoop Cosmos DB. Cosmos DB Hadoop konektor umožňuje Cosmos DB tak, aby fungoval jako zdroj a jímka pro úlohy Hive, Pig a MapReduce. V tomto kurzu použije Cosmos DB jako zdroj dat i v cílovém pro úlohy Hadoop.
@@ -178,7 +178,7 @@ Zadejte: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
         $clusterName = "<HDInsightClusterName>"
 2. <p>Začněme, vytváření řetězec vašeho dotazu. Jsme budete napsat dotaz Hive, které trvá vygenerované systémem časová razítka (_ts) a jedinečné ID (_rid) z Azure Cosmos DB kolekce všechny dokumenty, zaznamená všechny dokumenty podle počtu minut a pak uloží výsledky zpět do nové kolekce Azure Cosmos DB.</p>
 
-    <p>Nejdříve vytvoříme tabulku Hive z našich kolekce Azure Cosmos DB. Přidejte následující fragment kódu do podokna skript prostředí PowerShell <strong>po</strong> fragmentu kódu od #1. Zajistěte, aby naše dokumenty, které se právě _ts zahrnete volitelné DocumentDB.query parametr t uvolnění dočasné paměti a _rid.</p>
+    <p>Nejdříve vytvoříme tabulku Hive z našich kolekce Azure Cosmos DB. Přidejte následující fragment kódu do podokna skript prostředí PowerShell <strong>po</strong> fragmentu kódu od #1. Ujistěte se, zahrnete parametr dotazu volitelné oříznout dokumenty, které se právě _ts a _rid.</p>
 
    > [!NOTE]
    > **Pojmenování DocumentDB.inputCollections se jedná o chybu.** Ano, jsme povolit přidávání více kolekcí jako vstup: </br>
@@ -276,7 +276,7 @@ Zadejte: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>Začněme, vytváření řetězec vašeho dotazu. Jsme budete napsat dotaz Pig, které trvá vygenerované systémem časová razítka (_ts) a jedinečné ID (_rid) z Azure Cosmos DB kolekce všechny dokumenty, zaznamená všechny dokumenty podle počtu minut a pak uloží výsledky zpět do nové kolekce Azure Cosmos DB.</p>
-    <p>Nejdřív načíst dokumenty z databáze Cosmos do HDInsight. Přidejte následující fragment kódu do podokna skript prostředí PowerShell <strong>po</strong> fragmentu kódu od #1. Nezapomeňte přidat DocumentDB dotaz na volitelný parametr dotazu DocumentDB oříznout naše dokumenty, které se právě _ts a _rid.</p>
+    <p>Nejdřív načíst dokumenty z databáze Cosmos do HDInsight. Přidejte následující fragment kódu do podokna skript prostředí PowerShell <strong>po</strong> fragmentu kódu od #1. Nezapomeňte přidat dotaz na volitelný parametr dotazu DocumentDB oříznout naše dokumenty, které se právě _ts a _rid.</p>
 
    > [!NOTE]
    > Ano, jsme povolit přidávání více kolekcí jako vstup: </br>

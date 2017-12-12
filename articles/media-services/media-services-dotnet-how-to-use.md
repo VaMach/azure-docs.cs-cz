@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 19760b743e7cdcba3e30503090b61243911441ee
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="media-services-development-with-net"></a>Vývoj pro Media Services pomocí rozhraní .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-Toto téma popisuje, jak chcete začít vyvíjet aplikace Media Services pomocí rozhraní .NET.
+Tento článek popisuje, jak chcete začít vyvíjet aplikace Media Services pomocí rozhraní .NET.
 
 **Azure Media Services .NET SDK** knihovny umožňuje programu proti Media Services pomocí rozhraní .NET. Aby bylo snazší i pro vývoj pomocí rozhraní .NET, **rozšíření Azure Media Services .NET SDK** knihovna je k dispozici. Tato knihovna obsahuje sadu metod rozšíření a pomocných funkcí, které zjednodušují kódu .NET. Obě knihovny jsou k dispozici prostřednictvím **NuGet** a **Githubu**.
 
 ## <a name="prerequisites"></a>Požadavky
-* Účet Media Services v novém nebo existujícím předplatném Azure. Další informace najdete v tématu [Vytvoření účtu Media Services](media-services-portal-create-account.md).
+* Účet Media Services v novém nebo existujícím předplatném Azure. Najdete v článku [postup vytvoření účtu Media Services](media-services-portal-create-account.md).
 * Operační systémy: Windows 10, Windows 7, Windows 2008 R2 nebo Windows 8.
-* Rozhraní .NET framework 4.5.
+* Rozhraní .NET framework 4.5 nebo novější.
 * Visual Studio.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Vytvoření a konfigurace projektu Visual Studia
@@ -60,28 +60,21 @@ Alternativně můžete získat nejnovější sadu Media Services .NET SDK bits z
    
     2. Otevře se dialogové okno Spravovat odkazy.
     3. V části sestavení rozhraní .NET framework, najděte a vyberte sestavení System.Configuration a stiskněte klávesu **OK**.
-6. Otevřete soubor App.config a přidejte **appSettings** část do souboru.     
-   
-    Nastavte hodnoty, které jsou potřebné pro připojení k rozhraní API služby Media Services. Další informace najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+6. Otevřete soubor App.config a přidejte **appSettings** část do souboru. Nastavte hodnoty, které jsou potřebné pro připojení k rozhraní API služby Media Services. Další informace najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    Pokud používáte [ověření uživatele](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) konfiguračního souboru bude pravděpodobně mít hodnoty pro doménu klienta Azure AD a koncového bodu rozhraní REST API pro AMS.
-    
-    >[!Note]
-    >Většina ukázek kódu v dokumentaci k Azure Media Services nastavit, použijte uživatele (interaktivní) typ ověřování pro připojení k rozhraní API pro AMS. Tato metoda ověřování bude fungovat i pro správu nebo monitorování nativní aplikace: mobilní aplikace, aplikace pro Windows a konzolové aplikace.
-    
-    >[!Important]
-    > **Interaktivní** metoda ověřování není vhodný pro server, webové služby, rozhraní API typu aplikací. Pro tyto typy aplikací, použijte **instanční objekt** metodu ověřování. Další informace najdete v tématu [přístup k rozhraní API AMS pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+Nastavte hodnoty, které jsou potřebné pro připojení pomocí **instanční objekt** metodu ověřování.  
 
         <configuration>
         ...
             <appSettings>
-              <add key="AADTenantDomain" value="YourAADTenantDomain" />
-              <add key="MediaServiceRESTAPIEndpoint" value="YourRESTAPIEndpoint" />
+                <add key="AMSAADTenantDomain" value="tenant"/>
+                <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                <add key="AMSClientId" value="id"/>
+                <add key="AMSClientSecret" value="secret"/>
             </appSettings>
-
         </configuration>
-
-7. Následujícím kódem přepište existující příkazy **using** na začátku souboru Program.cs.
+7. Přidat **System.Configuration** odkaz na projekt.
+7. Přepište existující **pomocí** příkazy na začátku souboru Program.cs následujícím kódem:
            
         using System;
         using System.Configuration;
@@ -100,17 +93,26 @@ Zde je malý příklad, který se připojuje k rozhraní API pro AMS a uvádí v
     class Program
     {
         // Read values from the App.config file.
+
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
     
         private static CloudMediaContext _context = null;
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-    
+
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
     
             // List all available Media Processors

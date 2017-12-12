@@ -1,6 +1,6 @@
 ---
-title: "Konfigurace pro vyrovnávání zatížení pro SQL vždy na | Microsoft Docs"
-description: "Konfigurace pro vyrovnávání zatížení tak pracovat s SQL vždy na a jak využít prostředí powershell vytvořit nástroj pro vyrovnávání zatížení pro provedení SQL"
+title: "Konfigurace pro vyrovnávání zatížení pro SQL Server vždy na | Microsoft Docs"
+description: "Konfigurace vyrovnávání zatížení, fungovat s SQL serveru Always On a zjistěte, jak pomocí prostředí PowerShell vytvořit nástroj pro vyrovnávání zatížení pro implementaci serveru SQL"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,40 +13,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3ebbf1c4009d89b1f18b2ff8ff5dd243c456dff8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e890f8314c8f191dbfa6c6818d810b91d0e829d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-load-balancer-for-sql-always-on"></a>Konfigurace pro vyrovnávání zatížení pro SQL vždy na
+# <a name="configure-a-load-balancer-for-sql-server-always-on"></a>Konfigurace služby Vyrovnávání zatížení pro SQL serveru Always On
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Skupiny dostupnosti AlwaysOn serveru SQL je teď možné spustit s ILB. Skupina dostupnosti je řešení nejdůležitějšího SQL serveru pro vysokou dostupnost a zotavení po havárii. Naslouchací proces skupiny dostupnosti, umožňuje klientským aplikacím bezproblémově připojit k primární replice, bez ohledu na počet replik v konfiguraci.
+Skupiny dostupnosti SQL serveru Always On s nástrojem pro vyrovnávání zatížení pro vnitřní teď můžete spustit. Skupina dostupnosti je řešení nejdůležitějšího SQL serveru pro vysokou dostupnost a zotavení po havárii. Naslouchací proces skupiny dostupnosti, umožňuje klientským aplikacím bezproblémově připojit k primární replice, bez ohledu na počet replik v konfiguraci.
 
-Název naslouchacího procesu (DNS) je namapovaný na IP adresu s vyrovnáváním zatížení a nástroj pro vyrovnávání zatížení Azure směruje příchozí provoz jenom na primární server sady replik.
+Název naslouchacího procesu (DNS) je namapována na IP adresu s vyrovnáváním zatížení. Azure nástroj pro vyrovnávání zatížení bude směrovat příchozí provoz jenom na primární server sady replik.
 
-Podpora ILB můžete použít pro koncové body SQL Server AlwaysOn (naslouchací proces). Nyní máte kontrolu nad usnadnění naslouchacího procesu a vyberte IP adresu Vyrovnávání zatížení sítě z konkrétní podsítě ve virtuální síti (VNet).
+Podpora nástroje pro vyrovnávání zatížení interní můžete použít pro koncové body SQL serveru Always On (naslouchací proces). Nyní máte kontrolu nad usnadnění naslouchacího procesu. Můžete z konkrétní podsítě IP adresu s vyrovnáváním zatížení ve virtuální síti.
 
-Pomocí ILB na naslouchací proces, koncový bod SQL server (například Server = tcp:ListenerName, 1433; Database = DatabaseName) je přístupná jenom pro:
+Pomocí interní vyrovnávání zátěže na naslouchací proces, koncový bod SQL Server (například Server = tcp:ListenerName, 1433; Database = DatabaseName) je přístupná jenom pro:
 
-* Služby a virtuální počítače ve stejné virtuální síti
-* Služeb a virtuálních počítačů z připojených do místní sítě
-* Služeb a virtuálních počítačů z vzájemně propojena virtuální sítě
+* Služby a virtuální počítače ve stejné virtuální síti.
+* Služeb a virtuálních počítačů z připojených místní sítě.
+* Služeb a virtuálních počítačů z vzájemně propojena virtuální sítě.
 
-![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.png)
+![Nástroj pro vyrovnávání zatížení pro vnitřní SQL serveru Always On](./media/load-balancer-configure-sqlao/sqlao1.png)
 
-Obrázek 1 – nakonfigurovaná pomocí nástroje pro vyrovnávání zatížení internetového technologie AlwaysOn serveru SQL
+## <a name="add-an-internal-load-balancer-to-the-service"></a>Přidejte interní nástroj pro službu
 
-## <a name="add-internal-load-balancer-to-the-service"></a>Přidejte interní nástroj pro vyrovnávání zatížení do služby
-
-1. V následujícím příkladu jsme nakonfigurovat virtuální síť, která obsahuje podsíť s názvem "Subnet-1.:
+1. V následujícím příkladu můžete nakonfigurovat virtuální síť, která obsahuje podsíť s názvem "Subnet-1.:
 
     ```powershell
     Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
     ```
-2. Přidat skupinu s vyrovnáváním zatížení koncové body pro ILB na jednotlivé virtuální počítače
+2. Přidejte Vyrovnávání zatížení sítě koncové body pro interní nástroj pro každý virtuální počítač.
 
     ```powershell
     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -
@@ -55,15 +53,12 @@ Obrázek 1 – nakonfigurovaná pomocí nástroje pro vyrovnávání zatížení
     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
     ```
 
-    V příkladu nahoře, máte názvem "sqlsvc1" a "sqlsvc2" spuštěna 2 Virtuálního počítače v cloudu služby "Sqlsvc". Po vytvoření ILB s `DirectServerReturn` přepínače, můžete přidat skupinu s vyrovnáváním zatížení koncové body k ILB umožňující nakonfigurovat naslouchací procesy pro skupiny dostupnosti SQL.
+    V předchozím příkladu máte dva virtuální počítače nazvané "sqlsvc1" a "sqlsvc2" spuštěné v rámci cloudové služby "Sqlsvc". Po vytvoření Vyrovnávání zatížení pro vnitřní `DirectServerReturn` přepnout, přidáte do nástroje pro vyrovnávání zatížení pro vnitřní koncové body s vyrovnáváním zatížení. Koncové body s vyrovnáváním zatížení povolit systému SQL Server ke konfiguraci naslouchací procesy pro skupiny dostupnosti.
 
-Další informace o SQL AlwaysOn najdete v tématu [konfigurace interní nástroj pro skupinu dostupnosti AlwaysOn v Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+Další informace o SQL serveru Always On najdete v tématu [konfigurace interní nástroj pro skupiny dostupnosti Always On v Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 ## <a name="see-also"></a>Viz také
-[Začít konfigurovat internetové nástroj pro vyrovnávání zatížení](load-balancer-get-started-internet-arm-ps.md)
-
-[Začněte konfiguraci Vyrovnávání zatížení interní](load-balancer-get-started-ilb-arm-ps.md)
-
-[Konfigurace distribučního režimu nástroje pro vyrovnávání zatížení](load-balancer-distribution-mode.md)
-
-[Konfigurace nastavení časového limitu nečinnosti protokolu TCP pro nástroj pro vyrovnávání zatížení](load-balancer-tcp-idle-timeout.md)
+* [Začněte konfiguraci služby Vyrovnávání zatížení veřejnou](load-balancer-get-started-internet-arm-ps.md)
+* [Začínáme s konfigurací interního nástroje pro vyrovnávání zatížení](load-balancer-get-started-ilb-arm-ps.md)
+* [Konfigurace distribučního režimu nástroje pro vyrovnávání zatížení](load-balancer-distribution-mode.md)
+* [Konfigurace nastavení časového limitu nečinnosti protokolu TCP pro nástroj pro vyrovnávání zatížení](load-balancer-tcp-idle-timeout.md)

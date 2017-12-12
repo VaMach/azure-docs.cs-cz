@@ -124,6 +124,8 @@
       items:
         - name: Pokyny pro infrastrukturu
           href: infrastructure-example.md
+        - name: Kvóty virtuálních procesorů
+          href: quotas.md
 - name: Návody
   items:
     - name: Vytvoření virtuálních počítačů

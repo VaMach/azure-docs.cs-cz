@@ -209,6 +209,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Odstraňování potíží Azure Backup Serveru
           href: backup-azure-mabs-troubleshoot.md
+        - name: Řešení potíží s agentem Azure Backup
+          href: backup-azure-mars-troubleshoot.md
 - name: Referenční informace
   items:
     - name: Azure PowerShell

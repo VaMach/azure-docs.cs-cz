@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 95c609ab49fe478eda48b2a2eca6a772d1356d18
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5399fa40542fd9a1163654d5619cb94029bc3c6f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Aktualizace aplikace v Azure Container Service (AKS)
 
@@ -35,7 +35,7 @@ V předchozích kurzech byla aplikace zabalené do kontejneru image, image nahra
 
 Jako úložiště aplikace byla také klonovat, který obsahuje zdrojový kód aplikace a předem vytvořený soubor Docker Compose použitý v tomto kurzu. Ověřte, že jste vytvořili klon úložišti a že jste změnili adresáře do adresáře klonovaný. Uvnitř je adresář s názvem `azure-vote` a soubor s názvem `docker-compose.yml`.
 
-Pokud jste nedokončili tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image](./tutorial-kubernetes-prepare-app.md). 
+Pokud jste nedokončili tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image][aks-tutorial-prepare-app]. 
 
 ## <a name="update-application"></a>Aktualizace aplikace
 
@@ -61,7 +61,7 @@ Uložte a zavřete soubor.
 
 ## <a name="update-container-image"></a>Aktualizace image kontejneru
 
-Použití [docker compose](https://docs.docker.com/compose/) znovu vytvořit bitovou kopii front-endu a spustit aktualizovanou aplikaci. `--build` Dáte pokyn, aby Docker Compose znovu vytvořit bitovou kopii aplikace se používá argument.
+Použití [docker compose] [ docker-compose] znovu vytvořit bitovou kopii front-endu a spustit aktualizovanou aplikaci. `--build` Dáte pokyn, aby Docker Compose znovu vytvořit bitovou kopii aplikace se používá argument.
 
 ```console
 docker-compose up --build -d
@@ -83,13 +83,13 @@ Získat název serveru přihlášení s [az acr seznamu](/cli/azure/acr#list) p�
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Použití [docker značky](https://docs.docker.com/engine/reference/commandline/tag/) k označení bitovou kopii. Nahraďte `<acrLoginServer>` se název serveru registru kontejner Azure přihlášení nebo registru veřejný název hostitele. Také Všimněte si, že se aktualizuje na verzi bitové kopie na `redis-v2`.
+Použití [docker značka] [ docker-tag] k označení bitovou kopii. Nahraďte `<acrLoginServer>` se název serveru registru kontejner Azure přihlášení nebo registru veřejný název hostitele. Také Všimněte si, že se aktualizuje na verzi bitové kopie na `redis-v2`.
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Použití [docker nabízené](https://docs.docker.com/engine/reference/commandline/push/) Odeslat bitovou kopii do registru. Nahraďte `<acrLoginServer>` nahraďte názvem serveru registru kontejner Azure přihlášení.
+Použití [docker nabízené] [ docker-push] Odeslat bitovou kopii do registru. Nahraďte `<acrLoginServer>` nahraďte názvem serveru registru kontejner Azure přihlášení.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -97,7 +97,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>Nasazení aktualizace aplikace
 
-Aby maximální doba provozu, musí být spuštěna více instancí pod aplikace. Ověřte, tato konfigurace se [kubectl získat pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) příkaz.
+Aby maximální doba provozu, musí být spuštěna více instancí pod aplikace. Ověřte, tato konfigurace se [kubectl získat pod] [ kubectl-get] příkaz.
 
 ```
 kubectl get pod
@@ -120,13 +120,13 @@ Pokud nemáte více pracovními stanicemi soustředěnými kolem systémem bitov
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Chcete-li aktualizovat aplikace, použijte [kubectl sady](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) příkaz. Aktualizace `<acrLoginServer>` s přihlášení serveru nebo název hostitele vašeho kontejneru registru.
+Chcete-li aktualizovat aplikace, použijte [kubectl sady] [ kubectl-set] příkaz. Aktualizace `<acrLoginServer>` s přihlášení serveru nebo název hostitele vašeho kontejneru registru.
 
 ```azurecli
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Ke sledování nasazení, použijte [kubectl získat pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) příkaz. Jako aktualizované aplikace nasazena, jsou vaše pracovními stanicemi soustředěnými kolem ukončena a znovu vytvořit s novou bitovou kopii kontejneru.
+Ke sledování nasazení, použijte [kubectl získat pod] [ kubectl-get] příkaz. Jako aktualizované aplikace nasazena, jsou vaše pracovními stanicemi soustředěnými kolem ukončena a znovu vytvořit s novou bitovou kopii kontejneru.
 
 ```azurecli
 kubectl get pod
@@ -167,4 +167,15 @@ V tomto kurzu aktualizovat aplikaci a vrátit se tato aktualizace na clusteru s 
 Přechodu na v dalším kurzu se dozvíte o tom, jak sledovat Kubernetes s Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Monitorování Kubernetes pomocí Log Analytics](./tutorial-kubernetes-monitor.md)
+> [Monitorování Kubernetes s analýzy protokolů][aks-tutorial-monitor]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-set]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md

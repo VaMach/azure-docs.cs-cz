@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: ed92255264a155fff5ad1a8d9a3cd1a7bda4e972
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ca7489b18c53825bad7790ae4718f2c724716856
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrace na Storage úrovně Premium pomocí Azure Site Recovery
 
@@ -202,7 +202,7 @@ Site Recovery se vytvoří instance virtuálního počítače, jejichž typ je s
    * Pro virtuální počítač vytvořený pomocí modelu nasazení classic: Přidání virtuálního počítače pro skupinu dostupnosti na portálu Azure. Podrobné kroky, přejděte na [přidat existující virtuální počítač do skupiny dostupnosti](../linux/classic/configure-availability.md#addmachine).
    * Pro virtuální počítač vytvořený pomocí modelu nasazení Resource Manager: Uložit konfiguraci virtuálního počítače a pak odstraňte a znovu vytvořit virtuální počítače v sadě dostupnosti. Uděláte to tak, použijte skript v [nastavit Azure Resource Manager virtuálních počítačů sady dostupnosti](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Před spuštěním tohoto skriptu zkontrolujte jeho omezení a naplánovat odstávka.
 
-2. **Odstranit staré virtuální počítače a disky**. Ujistěte se, že prémiové disky jsou konzistentní s disky, zdroje a že nové virtuální počítače provádí stejnou funkci jako zdrojové virtuální počítače. V modelu nasazení Resource Manager odstraňte virtuální počítač a odstraňte disky ze zdrojového účtů úložiště na portálu Azure. V modelu nasazení classic můžete odstranit virtuální počítač a disky v portálu classic nebo portálu Azure. Pokud dojde k problému, který disk není odstraněn, i když jste odstranili virtuálního počítače naleznete v tématu [řešení chyb při odstranění virtuální pevné disky](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Odstranit staré virtuální počítače a disky**. Ujistěte se, že prémiové disky jsou konzistentní s disky, zdroje a že nové virtuální počítače provádí stejnou funkci jako zdrojové virtuální počítače. Odstraňte virtuální počítač a odstraňte disky ze zdrojového účtů úložiště na portálu Azure. Pokud dojde k problému, který disk není odstraněn, i když jste odstranili virtuálního počítače naleznete v tématu [řešení chyb při odstranění virtuální pevné disky](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
 3. **Vyčištění infrastruktury Azure Site Recovery**. Pokud Site Recovery je již nepotřebujete, můžete smazat svoji infrastrukturu. Odstranit replikované položky, že konfigurační server a obnovení zásad a pak odstraňte trezor Azure Site Recovery.
 

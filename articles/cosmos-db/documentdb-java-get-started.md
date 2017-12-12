@@ -1,6 +1,6 @@
 ---
-title: "Kurzu NoSQL: DocumentDB rozhraní API pro Azure Cosmos DB Java SDK | Microsoft Docs"
-description: "Kurz NoSQL, která vytváří online databáze a Konzolová aplikace Java pomocí DocumentDB rozhraní API pro Azure Cosmos DB. Azure DocumentDB je databáze NoSQL pro JSON."
+title: "Kurzu NoSQL: SQL API týkající se Azure Cosmos DB Java SDK | Microsoft Docs"
+description: "Kurz NoSQL, která vytváří online databáze a Konzolová aplikace Java pomocí rozhraní SQL API pro Azure Cosmos DB. Azure SQL je databáze NoSQL pro JSON."
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
 documentationcenter: Java
@@ -15,13 +15,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
-ms.openlocfilehash: ea667a889bc6eaed08619ee5e141d8e3e9add7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38595b18817b4034c08fa0e0ec7c5dc8cde1fbb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="nosql-tutorial-build-a-documentdb-api-java-console-application"></a>Kurzu NoSQL: vytvoření konzolové aplikace DocumentDB Java rozhraní API
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Kurzu NoSQL: vytvoření konzolové aplikace SQL API Java
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,7 +32,9 @@ ms.lasthandoff: 10/11/2017
 >  
 > 
 
-Vítejte v kurzu NoSQL pro DocumentDB rozhraní API pro Azure Cosmos DB Java SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky Azure Cosmos DB a dotazuje se na ně.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Vítejte v kurzu NoSQL pro rozhraní SQL API pro Azure Cosmos DB Java SDK! Až projdete tímto kurzem, budete mít konzolovou aplikaci, která vytváří prostředky Azure Cosmos DB a dotazuje se na ně.
 
 Kurz zahrnuje:
 
@@ -73,7 +75,7 @@ Můžete začít naklonováním úložiště GitHub pro projekt [Začínáme se 
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-Obsahuje adresáři `pom.xml` pro projekt a `src` složku obsahující Java zdrojového kódu včetně `Program.java` které ukazuje, jak provádějí jednoduché operace s Azure DB Cosmos jako je vytváření dokumentů a dotazování na data v rámci kolekce . Soubor `pom.xml` obsahuje závislost na sadu [DocumentDB Java SDK v nástroji Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+Obsahuje adresáři `pom.xml` pro projekt a `src` složku obsahující Java zdrojového kódu včetně `Program.java` které ukazuje, jak provádějí jednoduché operace s Azure DB Cosmos jako je vytváření dokumentů a dotazování na data v rámci kolekce . `pom.xml` Obsahuje závislost na [Azure Cosmos DB Java SDK na Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -192,6 +194,5 @@ Blahopřejeme! Dokončili jste tento kurz NoSQL a máte funkční konzolovou apl
 * Chcete kurz vývoje webové aplikace v jazyce Java? Viz [Vytvoření webové aplikace pomocí Javy a služby Azure Cosmos DB](documentdb-java-application.md).
 * Zjistěte, jak [monitorovat účet služby Azure Cosmos DB](monitor-accounts.md).
 * Spouštějte dotazy proti ukázkovým datovým sadám v [Query Playground](https://www.documentdb.com/sql/demo).
-* Přečtěte si více o tomto programovacím modelu v části Vyvíjejte na [stránce dokumentace ke službě Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

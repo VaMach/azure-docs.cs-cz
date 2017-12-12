@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ef0395a9c666732ba117822f46e8d2a7540aee14
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d134359cd986d654ad411586302d01634914325e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>Příprava aplikací pro Azure Container Service (AKS)
 
@@ -32,9 +32,9 @@ V následujících kurzech se kontejner image nahrané do registru kontejneru sl
 
 ## <a name="before-you-begin"></a>Než začnete
 
-V tomto kurzu se předpokládá základní znalost klíčových konceptů Dockeru, jako jsou kontejnery, image kontejnerů a základní příkazy Dockeru. V případě potřeby najdete základní informace o kontejnerech v článku [Get started with Docker]( https://docs.docker.com/get-started/) (Začínáme s Dockerem). 
+V tomto kurzu se předpokládá základní znalost klíčových konceptů Dockeru, jako jsou kontejnery, image kontejnerů a základní příkazy Dockeru. V případě potřeby, najdete v části [začít pracovat s Docker] [ docker-get-started] pro úvod do na základní informace o kontejneru. 
 
-K dokončení tohoto kurzu potřebujete vývojové prostředí pro Docker. Docker nabízí balíčky pro snadnou konfiguraci Dockeru na jakémkoli systému [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) nebo [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+K dokončení tohoto kurzu potřebujete vývojové prostředí pro Docker. Docker poskytuje balíčky, které můžete snadno konfigurovat Docker na žádném [Mac][docker-for-mac], [Windows][docker-for-windows], nebo [Linux] [ docker-for-linux] systému.
 
 Prostředí Azure Cloud neobsahuje součásti Docker nutné pro dokončení každý krok v tomto kurzu. Proto doporučujeme používat úplnou Docker vývojovém prostředí.
 
@@ -58,7 +58,7 @@ V adresáři je zdrojový kód aplikace, předem vytvořené Docker compose soub
 
 ## <a name="create-container-images"></a>Vytvořit kontejner bitové kopie
 
-[Docker Compose](https://docs.docker.com/compose/) můžete použít k automatizaci sestavení mimo kontejner bitové kopie a nasazení aplikací s více kontejneru.
+[Docker Compose] [ docker-compose] můžete použít k automatizaci sestavení mimo kontejner bitové kopie a nasazení aplikací s více kontejneru.
 
 Spustit `docker-compose.yml` soubor pro vytvoření bitové kopie kontejneru, stáhněte bitovou kopii Redis a spusťte aplikaci.
 
@@ -66,7 +66,7 @@ Spustit `docker-compose.yml` soubor pro vytvoření bitové kopie kontejneru, st
 docker-compose up -d
 ```
 
-Po dokončení použít [imagí dockeru](https://docs.docker.com/engine/reference/commandline/images/) příkazu zobrazte vytvořené bitové kopie.
+Po dokončení použít [imagí dockeru] [ docker-images] příkazu zobrazte vytvořené bitové kopie.
 
 ```console
 docker images
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Spustit [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) příkazu zobrazte spuštěných kontejnerů.
+Spustit [docker ps] [ docker-ps] příkazu zobrazte spuštěných kontejnerů.
 
 ```console
 docker ps
@@ -131,4 +131,16 @@ V tomto kurzu aplikace byla testována a vytvořit kontejner bitových kopií pr
 Přejděte k dalšímu kurzu, ve kterém se seznámíte s ukládáním imagí kontejnerů ve službě Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Nahrávání imagí do služby Azure Container Registry](./tutorial-kubernetes-prepare-acr.md)
+> [Push bitové kopie do registru kontejner Azure][aks-tutorial-prepare-acr]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-for-mac]: https://docs.docker.com/docker-for-mac/
+[docker-for-windows]: https://docs.docker.com/docker-for-windows/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

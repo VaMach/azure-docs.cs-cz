@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Poznámky k verzi pro služby Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Poznámky k verzi pro služby Microsoft Azure BizTalk Services obsahují známé problémy v této verzi.
 
@@ -34,8 +36,8 @@ Poznámky k verzi pro služby Microsoft Azure BizTalk Services obsahují známé
 * Účty organizace nejsou podporované:  
   * **Scénář**: jste zaregistrovali nasazení služby BizTalk pomocí účtu Microsoft (jako je user@live.com). V tomto scénáři můžete spravovat pouze uživatelé s Account Microsoft službu BizTalk pomocí portálu služby BizTalk Services. Nelze použít účet organizace.  
   * **Scénář**: jste zaregistrovali nasazení služby BizTalk pomocí organizačního účtu v Azure Active Directory (například user@fabrikam.com nebo user@contoso.com). V tomto scénáři můžete spravovat pouze uživatelé Azure Active Directory v rámci stejné organizace službu BizTalk pomocí portálu služby BizTalk Services. Nelze použít účet Microsoft.  
-* Při vytváření služby BizTalk v portálu Azure classic, se automaticky registruje v portálu služby BizTalk.
-  * **Scénář**: přihlášení k portálu Azure classic, vytváření služby BizTalk a pak vyberte **spravovat** velmi poprvé. Když se otevře na portálu služby BizTalk Services, služba BizTalk automaticky zaregistruje a je připravený pro vaše nasazení.  
+* Při vytváření služby BizTalk se automaticky registruje v portálu služby BizTalk.
+  * **Scénář**: přihlásit k Azure, vytvoření služby BizTalk a potom vyberte **spravovat** velmi poprvé. Když se otevře na portálu služby BizTalk Services, služba BizTalk automaticky zaregistruje a je připravený pro vaše nasazení.  
     V tématu [registrace a aktualizace nasazení služby BizTalk v BizTalk Services portál](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>Srpen 14 aktualizace

@@ -4,7 +4,7 @@ description: "Tento článek popisuje, jak používat zprávy protokolu HTTP k a
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1bb944997caa0c43354e82bf9b1a70e3e104a476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a813d73dc8a80c46e1b7500ec72ccb2a47bc6d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizace přístupu k webovým aplikacím pomocí OpenID Connect a službou Azure Active Directory
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) je vrstva jednoduché identity postavená na protokol OAuth 2.0. OAuth 2.0 definuje mechanismy pro získání a používání **přístup tokeny** pro přístup k chráněným prostředkům, ale nejsou definovány standardní metody, které poskytují informace o identitě. Jako rozšíření pro proces autorizace OAuth 2.0, OpenID Connect implementuje ověřování. Poskytuje informace o koncového uživatele ve formě `id_token` který ověřuje identitu uživatele a poskytuje základní profil informace o uživateli.

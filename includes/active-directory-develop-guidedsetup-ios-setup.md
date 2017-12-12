@@ -1,4 +1,3 @@
-
 ## <a name="setting-up-your-ios-application"></a>Nastavení aplikace iOS
 
 Tato část obsahuje podrobné pokyny pro vytvoření nového projektu do ukazují, jak integrovat aplikace pro iOS (Swift) s *přihlášení se společností Microsoft* , může se dotázat webovým rozhraním API, které vyžadují token.

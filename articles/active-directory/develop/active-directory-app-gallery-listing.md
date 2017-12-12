@@ -4,7 +4,7 @@ description: "Jak zobrazit aplikace, která podporuje jednotné přihlašování
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1d315cf63bcbf37b6b03b5a965ac615282526682
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 0c324829469b9babe6608480204bd46691f84228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Výpis aplikace v galerii aplikací Azure Active Directory
 Aplikace, která podporuje jednotné přihlašování s Azure Active Directory na seznam [Galerie Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), aplikace se nejdřív musí implementovat jednu z následujících režimů integrace:

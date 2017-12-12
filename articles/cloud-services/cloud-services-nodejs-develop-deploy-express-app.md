@@ -1,6 +1,6 @@
 ---
-title: "Webová aplikace s Express (Node.js) | Microsoft Docs"
-description: "Kurz, který je založený na kurz cloudové služby a ukazuje, jak použít modul Express."
+title: "Sestavení a nasazení aplikace Node.js Express do Azure Cloud Services"
+description: "Sestavení a nasazení aplikace Express.js v Node.js do Azure Cloud Services"
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -14,15 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Vytvoření webové aplikace Node.js pomocí expresního na cloudové služby Azure
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Sestavení a nasazení webové aplikace Node.js pomocí expresního na cloudových služeb Azure
+
 Node.js zahrnuje minimální sadu funkcí, které v modulu runtime jádra.
-3. stran moduly vývojáři často používají k poskytování dalších funkcí při vývoji aplikace Node.js. V tomto kurzu vytvoříte novou aplikaci pomocí [Express] [ Express] modul, který poskytuje MVC technologie pro vytváření webových aplikací Node.js.
+3. stran moduly vývojáři často používají k poskytování dalších funkcí při vývoji aplikace Node.js. V tomto kurzu vytvoříte novou aplikaci pomocí [Express](https://github.com/expressjs/express) modul, který poskytuje MVC technologie pro vytváření webových aplikací Node.js.
 
 Zde je snímek obrazovky dokončené aplikace:
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 0581fd4467272469501abf5324b87f84f5f32b9b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Ověření řešení služby Batch se službou Active Directory
 
@@ -314,9 +314,11 @@ public static async Task PerformBatchOperations()
 
 Další informace o Azure AD, najdete v článku [Azure Active Directory dokumentaci](https://docs.microsoft.com/azure/active-directory/). Podrobné příklady znázorňující způsob použití knihovny ADAL jsou k dispozici v [ukázky kódu Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) knihovny.
 
-Další informace o objektech služby najdete v tématu [aplikace a služby hlavní objekty ve službě Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Pokud chcete vytvořit objekt služby pomocí portálu Azure, najdete v části [použití portálu k vytvoření služby Active Directory objekt zabezpečení aplikací a služeb, který mají přístup k prostředkům](../resource-group-create-service-principal-portal.md). Hlavní název služby můžete vytvořit také pomocí prostředí PowerShell nebo rozhraní příkazového řádku Azure. 
+Další informace o objektech služby najdete v tématu [aplikace a služby hlavní objekty ve službě Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Pokud chcete vytvořit objekt služby pomocí portálu Azure, najdete v části [použití portálu k vytvoření služby Active Directory objekt zabezpečení aplikací a služeb, který mají přístup k prostředkům](../resource-group-create-service-principal-portal.md). Hlavní název služby můžete vytvořit také pomocí prostředí PowerShell nebo rozhraní příkazového řádku Azure.
 
-K ověření aplikace Batch správy pomocí služby Azure AD, najdete v části [řešení pro správu Batch ověření pomocí služby Active Directory](batch-aad-auth-management.md). 
+K ověření aplikace Batch správy pomocí služby Azure AD, najdete v části [řešení pro správu Batch ověření pomocí služby Active Directory](batch-aad-auth-management.md).
+
+Příklad Python, o tom, jak vytvořit klienta Batch ověřen pomocí tokenu Azure AD, najdete v článku [ověřování Azure Active Directory](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) ukázku v sadě Azure SDK pro Python dokumentaci.
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Co je Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

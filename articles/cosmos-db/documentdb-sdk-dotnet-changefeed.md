@@ -1,6 +1,6 @@
 ---
-title: "Změnit Azure DocumentDB .NET SDK informačního kanálu procesoru a prostředky | Microsoft Docs"
-description: "Další informace o rozhraní API pro změnu kanálu procesoru a sady SDK, včetně data vydání, vyřazení dat a změny provedené mezi každou verzi sadu DocumentDB .NET změnu kanálu procesoru SDK."
+title: "Azure Cosmos DB: .NET změnu kanálu procesoru API, sadu SDK a prostředky | Microsoft Docs"
+description: "Další informace o rozhraní API pro změnu kanálu procesoru a sady SDK, včetně data vydání, vyřazení dat a změny provedené mezi každou verzi .NET změnu kanálu procesoru SDK."
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: maquaran
-ms.openlocfilehash: 8c5a081105d37b8f1c78e90d9ccb8d945099b621
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 495d69ffc485cc0df148cff9898e9c1f734c296a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>DocumentDB .NET změnu kanálu procesor SDK: Stažení a poznámky k verzi
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Informační kanál procesor změnu .NET SDK: Stažení a poznámky k verzi
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Informační kanál změnu rozhraní .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -32,31 +32,33 @@ ms.lasthandoff: 11/01/2017
 > * [Poskytovatel prostředků REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 |   |   |
 |---|---|
 |**Stažení sady SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Dokumentaci k rozhraní API**|[Změnit referenční dokumentace rozhraní API knihovny kanálu procesoru](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Začínáme**|[Začínáme s DocumentDB změnu kanálu procesoru .NET SDK](change-feed.md)|
+|**Začínáme**|[Začínáme s změnu kanálu procesoru .NET SDK](change-feed.md)|
 |**Aktuální podporovaných prostředí**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Rozhraní Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Poznámky k verzi
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Přidává podporu pro standardní rozhraní .NET 2.0. Balíček teď podporuje `netstandard2.0` a `net451` monikery framework.
-* Kompatibilní s [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) verze 1.17.0 a vyšší.
-* Kompatibilní s [DocumentDB .NET Core SDK](documentdb-sdk-dotnet-core.md) verze 1.5.1 a vyšší.
+* Kompatibilní s [SQL .NET SDK](documentdb-sdk-dotnet.md) verze 1.17.0 a vyšší.
+* Kompatibilní s [SQL .NET Core SDK](documentdb-sdk-dotnet-core.md) verze 1.5.1 a vyšší.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * Řeší problém s výpočtu odhad zbývající práce při změnu kanálu byla prázdná nebo žádná práce se čekalo na zpracování.
-* Kompatibilní s [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) verze 1.13.2 a vyšší.
+* Kompatibilní s [SQL .NET SDK](documentdb-sdk-dotnet.md) verze 1.13.2 a vyšší.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Přidat metodu k získání odhad zbývající práce mají být zpracovány v kanálu změnu.
-* Kompatibilní s [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) verze 1.13.2 a vyšší.
+* Kompatibilní s [SQL .NET SDK](documentdb-sdk-dotnet.md) verze 1.13.2 a vyšší.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA SDK
-* Kompatibilní s [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) verze 1.14.1 a níže.
+* Kompatibilní s [SQL .NET SDK](documentdb-sdk-dotnet.md) verze 1.14.1 a níže.
 
 ## <a name="release--retirement-dates"></a>Verze & vyřazení kalendářních dat
 Microsoft bude poskytovat oznámení alespoň **dobu 12 měsíců** předem vyřazení sady SDK k funkce smooth přechodu na novější nebo podporované verzi.

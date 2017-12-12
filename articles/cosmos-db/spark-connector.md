@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: denlee
-ms.openlocfilehash: 1a551615d0ffbbc036d3052cc552fbf4c1098ff7
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: bcd29d0b21d7624f6de10fc27e3dfce2fb3406c6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Urychlit analýzy velkých objemů dat v reálném čase s Spark pro konektor Azure Cosmos DB
 
@@ -56,13 +56,13 @@ Oficiálně podporované verze:
 |---------|-------|
 |Apache Spark|2.0+|
 | Scala| 2.11|
-| Azure DocumentDB Java SDK | 1.10.0 |
+| Azure Cosmos DB SQL Java SDK | 1.10.0 |
 
 Tento článek vám pomůže spustit některé jednoduché ukázky pomocí Python (prostřednictvím pydocumentdb v tuto) a rozhraní Scala.
 
 Existují dva přístupy k připojení Apache Spark a Cosmos databázi Azure:
-- Použít pydocumentdb v tuto prostřednictvím [Azure DocumentDB Python SDK](https://github.com/Azure/azure-documentdb-python).
-- Vytvoření Spark založené na jazyce Java do Azure Cosmos DB konektoru s využitím [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
+- Použít pydocumentdb v tuto prostřednictvím [Azure Cosmos DB SQL Python SDK](https://github.com/Azure/azure-documentdb-python).
+- Vytvoření Spark založené na jazyce Java do Azure Cosmos DB konektoru s využitím [Azure Cosmos DB SQL Java SDK](https://github.com/Azure/azure-documentdb-java).
 
 ## <a name="pydocumentdb-implementation"></a>pydocumentdb v tuto implementaci
 Aktuální [pydocumentdb v tuto sadu SDK](https://github.com/Azure/azure-documentdb-python) umožňuje připojení k databázi Cosmos Azure Spark, jak je znázorněno v následujícím diagramu:
@@ -158,7 +158,7 @@ Spark se připojit k databázi Cosmos Azure pomocí pydocumentdb v tuto obvykle 
 
 ## <a name="spark-to-azure-cosmos-db-connector"></a>Spark pro konektor Azure Cosmos DB
 
-Spark pro konektor Azure Cosmos DB využívá [Azure DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java) a přesouvá data mezi uzly pracovního procesu Spark a Azure Cosmos DB, jak je znázorněno v následujícím diagramu:
+Spark pro konektor Azure Cosmos DB využívá [Azure Cosmos DB SQL Java SDK](https://github.com/Azure/azure-documentdb-java) a přesouvá data mezi uzly pracovního procesu Spark a Azure Cosmos DB, jak je znázorněno v následujícím diagramu:
 
 ![Tok dat v Spark pro konektor Azure Cosmos DB](./media/spark-connector/spark-connector.png)
 
@@ -202,7 +202,7 @@ Pokud používáte služby Poznámkový blok, jako je služba poznámkového blo
 }
 ```
 
-**JAR** příkaz umožňuje zahrnout dva JAR, které jsou potřebné pro **azure. cosmosdb spark** (samostatně a Azure DocumentDB Java SDK) a vyloučit **scala-odráží** tak, že nebudou v konfliktu s volá Livy (Poznámkový blok Jupyter > Livy > Spark).
+**JAR** příkaz umožňuje zahrnout dva JAR, které jsou potřebné pro **azure. cosmosdb spark** (samostatně a sada SDK SQL Azure Cosmos DB Java) a vyloučit **scala-odráží**tak, že nebudou v konfliktu s Livy volání (Poznámkový blok Jupyter > Livy > Spark).
 
 ### <a name="connect-spark-to-azure-cosmos-db-using-the-connector"></a>Spark připojit k databázi Cosmos Azure pomocí služby connector
 I když přenos komunikace je trochu složitější, provádění dotazu z Spark pro Azure Cosmos DB pomocí konektoru je výrazně rychlejší.

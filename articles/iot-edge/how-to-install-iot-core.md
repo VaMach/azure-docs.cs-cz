@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Nainstalovat modul runtime IoT Edge na jádro IoT Windows – náhled
 
-Modulu Runtime Azure IoT Edge můžete spustit i na malá velikost počítače jeden Tabule (SBC) zařízení, které jsou velmi běžně se vyskytujícím v odvětví IoT. Tento článek vás provede zřizování modul runtime na [kambala velká MinnowBoard] [ lnk-minnow] vývoj Tabule systémem jádro IoT Windows.
+Azure IoT okraj a [jádro IoT Windows](https://docs.microsoft.com/windows/iot-core/) spolupracují, aby povolit edge computing na i malé zařízení. Modulu Runtime Azure IoT Edge můžete spustit i na malá velikost počítače jeden Tabule (SBC) zařízení, které jsou velmi běžně se vyskytujícím v odvětví IoT. 
+
+Tento článek vás provede zřizování modul runtime na [kambala velká MinnowBoard] [ lnk-minnow] vývoj Tabule systémem jádro IoT Windows. Jádro IoT Windows podporuje jenom na x64 64 procesory Intel Azure IoT okraj. 
 
 ## <a name="install-the-runtime"></a>Nainstalovat modul runtime
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa9bf1661e3a77ae4a2bf51285ab9a8da35e297
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Připojování Cosmos databáze s Azure Search pomocí indexerů
 
@@ -29,7 +29,7 @@ Chcete-li nastavit indexer Cosmos DB, musíte mít [služby Azure Search](search
 Pokud se přihlásíte pro tento portál [Průvodce importem dat](search-import-data-portal.md) provede vás procesem vytvoření těchto prostředků.
 
 > [!NOTE]
-> Cosmos databáze je nová generace DocumentDB. I když se změnil název produktu, syntaxe je stejná jako předtím. Pokračovat v zadejte `documentdb` podle pokynů v tomto článku indexer. 
+> Azure Cosmos DB je nová generace DocumentDB. I když se změnil název produktu, syntaxe je stejná jako předtím. Pokračovat v zadejte `documentdb` podle pokynů v tomto článku indexer. 
 
 > [!TIP]
 > Můžete spustit **importovat data** z řídicího panelu Cosmos DB zjednodušit indexování pro tento zdroj dat průvodce. Začněte tak, že v levém navigačním panelu přejdete do **Collections** (Kolekce) > **Add Azure Search** (Přidat službu Azure Search).
@@ -295,5 +295,5 @@ Následující příklad vytvoří zdroj dat s zásadu obnovitelného odstraněn
 ## <a name="NextSteps"></a>Další kroky
 Blahopřejeme! Jste se naučili integrace Azure Cosmos DB služby Azure Search pomocí indexeru pro Cosmos DB.
 
-* Informace o další informace o databázi Cosmos Azure najdete v tématu [stránku služby Cosmos DB](https://azure.microsoft.com/services/documentdb/).
+* Informace o další informace o databázi Cosmos Azure najdete v tématu [stránku služby Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Další informace o další informace o službě Azure Search najdete v tématu [stránku služby vyhledávání](https://azure.microsoft.com/services/search/).

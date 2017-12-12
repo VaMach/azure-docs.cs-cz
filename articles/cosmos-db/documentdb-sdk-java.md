@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: DocumentDB Java rozhraní API, sadu SDK a prostředky | Microsoft Docs"
-description: "Další informace o rozhraní API Java a sady SDK, včetně data vydání, vyřazení dat a změny provedené mezi každou verzi Azure Cosmos databáze DocumentDB Java SDK."
+title: "Azure Cosmos DB: Rozhraní API Java SQL, sadu SDK a prostředky | Microsoft Docs"
+description: "Další informace o rozhraní API Java SQL a sady SDK, včetně data vydání, vyřazení dat a změny provedené mezi každou verzi sady Azure Cosmos DB SQL Java SDK."
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38737c8a296e27a4256e19b8c45cab17fc71b81a
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: c0d3bdfb607d2bbea669d2b0a76f610d42f31b33
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: DocumentDB Java SDK poznámky k verzi a prostředky
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK pro rozhraní API pro SQL: poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Informační kanál změnu rozhraní .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/16/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -173,7 +175,7 @@ Nové funkce a funkce a optimalizace, jsou přidány pouze v aktuální sadě SD
 Každá žádost o DB Cosmos pomocí vyřazeno sady SDK budou odmítnuty službou.
 
 > [!WARNING]
-> Všechny verze sady SDK DocumentDB pro jazyk Java starší než verze **1.0.0** vyřadí na **29. února 2016**.
+> Všechny verze sady SDK SQL pro jazyk Java starší než verze **1.0.0** bylo vyřazeno na **29. února 2016**.
 > 
 > 
 

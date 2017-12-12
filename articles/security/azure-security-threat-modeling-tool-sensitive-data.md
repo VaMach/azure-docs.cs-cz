@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Zabezpečení rámce: Citlivá Data | Způsoby zmírnění rizik 
 | Produktům a službám | Článek |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | **Webové aplikace** | <ul><li>[Ujistěte se, že není citlivého obsahu do mezipaměti, v prohlížeči](#cache-browser)</li><li>[Šifrování oddíly konfiguračních souborů webové aplikace, které obsahují citlivá data](#encrypt-data)</li><li>[Explicitně zakážete atributu HTML automatického dokončování v citlivých formulářů a vstupy](#autocomplete-input)</li><li>[Ujistěte se, že citlivá data zobrazí na obrazovce uživatele zakryté hvězdičkami](#data-mask)</li></ul> | 
 | **Database** | <ul><li>[Implementovat dynamické maskování omezení uživatelů bez ohrožení privilegovaný citlivá data dat](#dynamic-users)</li><li>[Ujistěte se, že hesla jsou uložena ve formátu hashe](#salted-hash)</li><li>[Musí být šifrovaný citlivá data v databázi sloupců](#db-encrypted)</li><li>[Ujistěte se, že je povolené šifrování tuto úroveň databáze (TDE)](#tde-enabled)</li><li>[Zajistěte, aby byly šifrované zálohování databáze](#backup)</li></ul> | 
 | **Webové rozhraní API** | <ul><li>[Ujistěte se, že citlivá data, které jsou relevantní pro webového rozhraní API není uložena v prohlížeči úložiště](#api-browser)</li></ul> | 
-| Azure Documentdb | <ul><li>[Šifrování citlivých dat, které jsou uložené v DocumentDB](#encrypt-docdb)</li></ul> | 
+| Azure Documentdb | <ul><li>[Šifrování citlivých dat, které jsou uloženy v databázi Cosmos Azure](#encrypt-docdb)</li></ul> | 
 | **Hranice vztahů důvěryhodnosti virtuálních počítačů Azure IaaS** | <ul><li>[Použít k šifrování disků používaných virtuálními počítači Azure Disk Encryption](#disk-vm)</li></ul> | 
 | **Hranice vztahů důvěryhodnosti Service Fabric** | <ul><li>[Šifrování tajných klíčů v aplikace Service Fabric](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Provedení modelování zabezpečení a použít obchodní jednotky nebo týmy případě požadavku](#modeling-teams)</li><li>[Minimalizovat přístup ke sdílení funkcí na důležité entity](#entities)</li><li>[Školení uživatelů na rizika související s funkcí sdílené složky Dynamics CRM a postupy dobrý zabezpečení](#good-practices)</li><li>[Zahrnout pravidla standardy vývoj proscribing zobrazující podrobnosti konfigurace ve správě výjimek](#exception-mgmt)</li></ul> | 

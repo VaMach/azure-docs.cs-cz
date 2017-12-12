@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 084c6bf3855bdc757c3f2926b35eaf7bba0ef389
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d10f9ce965e832c826e2b27b4746231b47be83d0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>Monitorování Azure Container Service (AKS)
 
 Monitorování Kubernetes clusteru a kontejnerů, je důležité, zejména v případě, že spuštění clusteru výroby, ve velkém měřítku, s více aplikacemi.
 
-V tomto kurzu můžete nakonfigurovat monitorování pomocí AKS clusteru [kontejnery řešení pro analýzu protokolu](../log-analytics/log-analytics-containers.md).
+V tomto kurzu můžete nakonfigurovat monitorování pomocí AKS clusteru [kontejnery řešení pro analýzu protokolu][log-analytics-containers].
 
 V tomto kurzu součástí sedm osm, obsahuje následující úlohy:
 
@@ -32,7 +32,7 @@ V tomto kurzu součástí sedm osm, obsahuje následující úlohy:
 
 V předchozích kurzech byla aplikace zabalené do kontejneru obrázků, tyto Image nahrané do registru kontejner Azure a cluster Kubernetes vytvořili.
 
-Pokud se ještě provést tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image](./tutorial-kubernetes-prepare-app.md).
+Pokud se ještě provést tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image][aks-tutorial-prepare-app].
 
 ## <a name="configure-the-monitoring-solution"></a>Konfigurace řešení monitorování
 
@@ -58,7 +58,7 @@ K načtení těchto hodnot, vyberte **pracovním prostorem OMS** z kontejneru ř
 
 ## <a name="configure-monitoring-agents"></a>Konfigurovat monitorovací agenty
 
-Následující soubor manifestu Kubernetes slouží ke konfiguraci monitorování prostředků v clusteru s podporou Kubernetes kontejneru. Vytvoří Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), která se spouští jeden pod na každém uzlu clusteru.
+Následující soubor manifestu Kubernetes slouží ke konfiguraci monitorování prostředků v clusteru s podporou Kubernetes kontejneru. Vytvoří Kubernetes [DaemonSet][kubernetes-daemonset], která se spouští jeden pod na každém uzlu clusteru.
 
 Uložte následující text do souboru s názvem `oms-daemonset.yaml`a nahraďte zástupný symbol hodnoty pro `WSID` a `KEY` s ID pracovního prostoru analýzy protokolů a klíč.
 
@@ -153,7 +153,7 @@ Na portálu Azure vyberte pracovní prostor analýzy protokolů, které je přip
 
 ![Řídicí panel](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Najdete v článku [dokumentace Azure Log Analytics](../log-analytics/index.yml) obsahuje podrobné pokyny k dotazování a analýze dat monitorování.
+Najdete v článku [dokumentace Azure Log Analytics] [ log-analytics-docs] obsahuje podrobné pokyny k dotazování a analýze dat monitorování.
 
 ## <a name="next-steps"></a>Další kroky
 
@@ -167,4 +167,14 @@ V tomto kurzu sledovat Kubernetes clusteru pomocí OMS. Úlohy popsané součás
 Přechodu na v dalším kurzu se dozvíte o upgradu Kubernetes na novou verzi.
 
 > [!div class="nextstepaction"]
-> [Upgrade Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [Upgrade Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

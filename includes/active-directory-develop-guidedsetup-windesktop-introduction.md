@@ -1,4 +1,3 @@
-
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Volání Microsoft Graph API z aplikace na ploše systému Windows
 
 Tato příručka ukazuje, jak získat přístupový token a volání Microsoft Graph API nebo jiná rozhraní API, které vyžadují přístupové tokeny z koncového bodu Azure Active Directory v2 nativní aplikace Windows Desktop .NET (XAML).

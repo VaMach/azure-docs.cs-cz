@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Postup modelu komplexní datové typy ve službě Azure Search
 Externích datových sad, které používá k naplnění indexu Azure Search někdy obsahovat hierarchické nebo vnořená používání dílčích struktur, které nejsou v tabulkovém řádků přehledně rozdělení. Příkladem takových struktury může zahrnovat více umístění a telefonních čísel pro jednoho zákazníka, více barvy a velikosti pro jednu SKU, více autorů jeden knihy a tak dále. V modelování podmínky, můžete se setkat těchto struktur, označuje jako *komplexními datovými typy*, *složené datové typy*, *složené datové typy*, nebo *agregace datové typy*, a další.
@@ -66,7 +66,7 @@ Dotyčné údaje se obvykle nachází jako sada dokumentů XML nebo JSON, nebo j
 Při pole s názvem "id", "název" a "společnost" lze snadno mapovat 1: 1 jako pole v indexu Azure Search, pole, umístění, obsahuje pole umístění, i skupinu ID umístění, jakož i popisy umístění. Vzhledem k tomu, že Azure Search nemá datový typ, který to podporuje, potřebujeme jiný způsob, jak to modelu ve službě Azure Search. 
 
 > [!NOTE]
-> Tento postup je popsán také zařízení Kirk Evans v příspěvku blogu [indexování DocumentDB s Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), zobrazující techniku nazývaný "sloučení dat", kterým byste měli pole s názvem `locationsID` a `locationsDescription` jsou oba [kolekce](https://msdn.microsoft.com/library/azure/dn798938.aspx) (nebo pole řetězců).   
+> Tento postup je popsán také zařízení Kirk Evans v příspěvku blogu [indexování DB Cosmos Azure s Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), zobrazující techniku nazývaný "sloučení dat", kterým byste měli pole s názvem `locationsID` a `locationsDescription` které jsou obě [kolekce](https://msdn.microsoft.com/library/azure/dn798938.aspx) (nebo pole řetězců).   
 > 
 > 
 

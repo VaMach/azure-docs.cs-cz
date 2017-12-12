@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Vytvoření aplikace Azure Active Directory a objektu služby, které mají přístup k prostředkům pomocí portálu
 
@@ -118,7 +118,7 @@ Pokud protokolování prostřednictvím kódu programu, je potřeba ID pro vaše
 
    ![Vyberte aplikaci](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. Kopírování **ID aplikace** a ukládá je v kódu aplikace. Aplikace v [ukázkové aplikace](#sample-applications) části odkazují na tuto hodnotu jako ID klienta.
+1. Kopírování **ID aplikace** a ukládá je v kódu aplikace. Některé [ukázkové aplikace](#log-in-as-the-application) odkaz na tuto hodnotu jako ID klienta.
 
    ![ID klienta](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 

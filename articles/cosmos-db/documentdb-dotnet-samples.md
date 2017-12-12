@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Příklady .NET pro rozhraní API DocumentDB | Microsoft Docs"
-description: "Pro běžné úlohy v DocumentDB, včetně operace CRUD najít příklady C# .NET na githubu."
+title: "Azure Cosmos DB: Příklady .NET rozhraní SQL API | Microsoft Docs"
+description: "Pro běžné úlohy pomocí Cosmos DB SQL rozhraní API služby Azure, včetně operace CRUD najít příklady C# .NET na githubu."
 keywords: "Příklad NoSQL"
 services: cosmos-db
 author: rnagpal
@@ -15,20 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: bc019e50ba72adc8b399579d623a63e86f21f92c
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c15440d78c43fce4613953c5151ff76729f28a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB: Příklady .NET pro rozhraní API DocumentDB
+# <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Příklady .NET rozhraní SQL API
 > [!div class="op_single_selector"]
 > * [Příklady rozhraní .NET](documentdb-dotnet-samples.md)
 > * [Příklady Node.js](documentdb-nodejs-samples.md)
 > * [Příklady Python](documentdb-python-samples.md)
-> * [Galerie ukázkový kód Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+> * [Galerie ukázkový kód Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Nejnovější ukázkové řešení, která provádět operace CRUD a dalších běžných operací s prostředky Azure Cosmos DB jsou součástí [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) úložiště GitHub. Tento článek obsahuje:
 

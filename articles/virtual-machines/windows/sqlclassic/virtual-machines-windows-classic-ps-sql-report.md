@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Použití PowerShellu k vytvoření virtuálního počítače Azure se serverem sestav v nativním režimu
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ Toto téma popisuje a provede nasazení a konfiguraci serveru sestav v nativním
 ## <a name="prerequisites-and-assumptions"></a>Požadavky a předpoklady
 * **Předplatné Azure**: ověření počtu jader v rámci vašeho předplatného Azure k dispozici. Pokud vytvoříte doporučená velikost virtuálního počítače u **A3**, je nutné **4** dostupné jader. Pokud používáte velikost virtuálního počítače u **A2**, je nutné **2** dostupné jader.
   
-  * Ověření základní limit vašeho předplatného, na portálu Azure classic klikněte na nastavení v levém podokně a pak klikněte na tlačítko využití v horní nabídce.
+  * Ověření základní limit vašeho předplatného, na portálu Azure klikněte na nastavení v levém podokně a pak klikněte na tlačítko využití v horní nabídce.
   * Obraťte se na základní kvótu zvýšit, [podporu Azure](https://azure.microsoft.com/support/options/). Informace o velikosti virtuálních počítačů, najdete v části [velikostí virtuálních počítačů pro Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Windows PowerShell skriptování**: tématu se předpokládá, že máte základní znalosti pracovní prostředí Windows PowerShell. Další informace o používání prostředí Windows PowerShell naleznete v následujících tématech:
   
@@ -43,7 +43,7 @@ Toto téma popisuje a provede nasazení a konfiguraci serveru sestav v nativním
   * [Začínáme s prostředím Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>Krok 1: Zřídit virtuální počítač Azure
-1. Přejděte na portál Azure classic.
+1. Přejděte na portál Azure.
 2. Klikněte na tlačítko **virtuální počítače** v levém podokně.
    
     ![virtuální počítače Microsoft azure](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
@@ -117,7 +117,7 @@ Certifikát podepsaný svým držitelem byl vytvořen ve virtuálním počítač
 
 1. Tak, aby důvěřoval kořenové certifikační Autority certifikátu na místní počítač, přidejte certifikát, který chcete **důvěryhodné kořenové certifikační autority**. Zde je souhrn kroky. Podrobné pokyny o tom, jak důvěřovat certifikační Autoritě, najdete v tématu [nainstalovat certifikát serveru](https://technet.microsoft.com/library/cc740068).
    
-   1. Z klasického portálu Azure vyberte virtuální počítač a klikněte na tlačítko Připojit. V závislosti na konfiguraci vašeho prohlížeče zobrazí se výzva k uložení souboru RDP pro připojení k virtuálnímu počítači.
+   1. Z portálu Azure vyberte virtuální počítač a klikněte na tlačítko Připojit. V závislosti na konfiguraci vašeho prohlížeče zobrazí se výzva k uložení souboru RDP pro připojení k virtuálnímu počítači.
       
        ![připojení k virtuálnímu počítači azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Použijte název virtuálního počítače uživatele, uživatelské jméno a heslo, které jste konfigurovali při vytváření virtuálního počítače. 
       
@@ -153,7 +153,7 @@ Podrobné kroky, najdete v části [připojení k virtuálnímu počítači a sp
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>Konfigurovat server sestav a HTTP pomocí skriptu
 Použití skriptu prostředí Windows PowerShell ke konfiguraci serveru sestav, proveďte následující kroky. Konfigurace zahrnuje protokolu HTTP, nikoli HTTPS:
 
-1. Z klasického portálu Azure vyberte virtuální počítač a klikněte na tlačítko Připojit. V závislosti na konfiguraci vašeho prohlížeče zobrazí se výzva k uložení souboru RDP pro připojení k virtuálnímu počítači.
+1. Z portálu Azure vyberte virtuální počítač a klikněte na tlačítko Připojit. V závislosti na konfiguraci vašeho prohlížeče zobrazí se výzva k uložení souboru RDP pro připojení k virtuálnímu počítači.
    
     ![připojení k virtuálnímu počítači azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Použijte název virtuálního počítače uživatele, uživatelské jméno a heslo, které jste konfigurovali při vytváření virtuálního počítače. 
    
@@ -287,7 +287,7 @@ Použití skriptu prostředí Windows PowerShell ke konfiguraci serveru sestav, 
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>Použít skript ke konfiguraci serveru sestav a HTTPS
 Pomocí prostředí Windows PowerShell ke konfiguraci serveru sestav, proveďte následující kroky. Konfigurace zahrnuje protokol HTTPS, nikoli protokol HTTP.
 
-1. Z klasického portálu Azure vyberte virtuální počítač a klikněte na tlačítko Připojit. V závislosti na konfiguraci vašeho prohlížeče zobrazí se výzva k uložení souboru RDP pro připojení k virtuálnímu počítači.
+1. Z portálu Azure vyberte virtuální počítač a klikněte na tlačítko Připojit. V závislosti na konfiguraci vašeho prohlížeče zobrazí se výzva k uložení souboru RDP pro připojení k virtuálnímu počítači.
    
     ![připojení k virtuálnímu počítači azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Použijte název virtuálního počítače uživatele, uživatelské jméno a heslo, které jste konfigurovali při vytváření virtuálního počítače. 
    
@@ -495,10 +495,10 @@ Výsledkem bude zahrnovat následující:
 ### <a name="use-configuration-manager-to-configure-the-report-server"></a>Použijte nástroj Configuration Manager ke konfiguraci serveru sestav
 Pokud nechcete spustit skript prostředí PowerShell, který chcete nakonfigurovat server sestav, postupujte podle kroků v této části Konfigurace serveru sestav pomocí nástroje configuration manager služby Reporting Services v nativním režimu.
 
-1. Z klasického portálu Azure vyberte virtuální počítač a klikněte na tlačítko Připojit. Použijte uživatelské jméno a heslo, které jste konfigurovali při vytváření virtuálního počítače.
+1. Z portálu Azure vyberte virtuální počítač a klikněte na tlačítko Připojit. Použijte uživatelské jméno a heslo, které jste konfigurovali při vytváření virtuálního počítače.
    
     ![připojení k virtuálnímu počítači azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. Spusťte službu Windows update a instalaci aktualizací do virtuálního počítače. Pokud je vyžadováno restartování virtuálního počítače, restartujte virtuální počítač a znovu připojit k virtuálnímu počítači z portálu Azure classic.
+2. Spusťte službu Windows update a instalaci aktualizací do virtuálního počítače. Pokud je vyžadováno restartování virtuálního počítače, restartujte virtuální počítač a znovu připojit k virtuálnímu počítači z portálu Azure.
 3. Z nabídky Start na virtuálním počítači, zadejte **služby Reporting Services** a otevřete **Správce konfigurace služby Reporting Services**.
 4. Ponechte výchozí hodnoty pro **název serveru** a **instanci serveru sestav**. Klikněte na **Připojit**.
 5. V levém podokně klikněte na **adresa URL webové služby**.
@@ -593,7 +593,7 @@ Následující tabulka shrnuje některé možnosti, které jsou k dispozici pro 
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Minimalizovat náklady, pokud nepoužíváte virtuální počítač
 > [!NOTE]
-> Chcete-li minimalizovat náklady pro virtuální počítače Azure když není používán, vypněte virtuální počítač z portálu Azure classic. Pokud použijete možnosti napájení Windows uvnitř virtuálního počítače vypnout virtuální počítač, jsou stále účtovat stejnou úroveň pro virtuální počítač. Chcete-li snížit náklady, je potřeba vypnout virtuální počítač na portálu Azure classic. Pokud již nepotřebujete virtuální počítač, nezapomeňte odstranit virtuální počítač a soubory VHD související náklady na úložiště. Další informace najdete v tématu v části Nejčastější dotazy na [podrobnosti o cenách virtuálních počítačů](https://azure.microsoft.com/pricing/details/virtual-machines/).
+> Chcete-li minimalizovat náklady pro virtuální počítače Azure když není používán, vypněte virtuální počítač z portálu Azure. Pokud použijete možnosti napájení Windows uvnitř virtuálního počítače vypnout virtuální počítač, jsou stále účtovat stejnou úroveň pro virtuální počítač. Chcete-li snížit náklady, je potřeba vypnout virtuální počítač na portálu Azure. Pokud již nepotřebujete virtuální počítač, nezapomeňte odstranit virtuální počítač a soubory VHD související náklady na úložiště. Další informace najdete v tématu v části Nejčastější dotazy na [podrobnosti o cenách virtuálních počítačů](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## <a name="more-information"></a>Další informace
 ### <a name="resources"></a>Zdroje

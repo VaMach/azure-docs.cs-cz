@@ -3,8 +3,8 @@ title: "Povolit aplikacím načíst tajné klíče Azure zásobníku Key Vault |
 description: "Pomocí ukázkové aplikace pro práci s Azure zásobníku Key Vault"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
-ms.author: sngun
-ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 50103dca21d047c5cee211b2250e750739131bc1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Ukázkovou aplikaci, která používá klíče a tajné klíče uložené v trezoru klíčů
 
@@ -132,7 +132,7 @@ Poznamenejte si **VaultUrl**, **AuthClientId**, a **AuthClientSecret** hodnot vr
 
 ## <a name="download-and-run-the-sample-application"></a>Stáhněte a spusťte ukázkové aplikace
 
-Stažení ukázky klíče trezoru z Azure [Key Vault klienta ukázky](https://www.microsoft.com/en-us/download/details.aspx?id=45343) stránky. Extrahujte obsah souboru .zip, který na stanici vývoje. Existují dvě ukázky ve složce Ukázky. Ukázka HellpKeyVault používáme v tomto tématu. Vyhledejte **Microsoft.Azure.KeyVault.Samples** > **ukázky** > **HelloKeyVault** složky a otevřete aplikaci HelloKeyVault v sadě Visual Studio. 
+Stažení ukázky klíče trezoru z Azure [Key Vault klienta ukázky](https://www.microsoft.com/en-us/download/details.aspx?id=45343) stránky. Extrahujte obsah souboru .zip, který na stanici vývoje. Existují dvě ukázky ve složce Ukázky. V tomto článku používáme HellpKeyVault vzorku. Vyhledejte **Microsoft.Azure.KeyVault.Samples** > **ukázky** > **HelloKeyVault** složky a otevřete aplikaci HelloKeyVault v sadě Visual Studio. 
 
 Otevřete soubor HelloKeyVault\App.config a nahraďte hodnoty <appSettings> element s **VaultUrl**, **AuthClientId**, a **AuthClientSecret** hodnoty vrácená skriptem předchozí. Všimněte si, že ve výchozím nastavení souboru App.config obsahuje zástupný symbol pro *AuthCertThumbprint*, ale použít *AuthClientSecret* místo. Po nastavení nahradíte, znovu sestavte řešení a spusťte aplikaci.
 

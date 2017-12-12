@@ -4,7 +4,7 @@ description: "Vytvoření webové aplikace pomocí Azure AD v2.0 implementace ov
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: d63692f02b3dec50a1e7df034b8915bb450b4cfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 a protokolu OpenID Connect
 OpenID Connect je ověřovací protokol založený na OAuth 2.0, který můžete použít k bezpečně přihlášení uživatele k webové aplikaci. Použijete-li koncového bodu v2.0 implementaci OpenID Connect, můžete přidat přihlášení a rozhraní API pro přístup k vaší webové aplikace. V tomto článku jsme ukazují, jak chcete tento bez ohledu na jazyk. Jsme popisují, jak odesílat a přijímat zprávy HTTP bez použití žádné knihovny Microsoft open-source.

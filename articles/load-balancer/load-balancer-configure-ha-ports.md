@@ -15,54 +15,53 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Postup konfigurace portů pro vysokou dostupnost pro interní nástroj pro vyrovnávání zatížení
+# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurace portů pro vysokou dostupnost pro interní nástroj
 
-Tento článek poskytuje příklad nasazení vysoké dostupnosti (HA) porty na interní pro vyrovnávání zatížení. Konkrétní konfigurací virtuálních síťových zařízení (NVAs) najdete v části odpovídající weby zprostředkovatele.
+Tento článek obsahuje příklad nasazení vysoké dostupnosti portů na interní nástroj. Další informace o konfiguracích, které jsou specifické pro síťových virtuálních zařízení (NVAs) najdete na webech odpovídající zprostředkovatele.
 
 >[!NOTE]
-> Vysoká dostupnost porty funkce je aktuálně ve verzi Preview. Během období Preview tato funkce nemusí dosahovat stejné úrovně dostupnosti a spolehlivosti jako funkce, které jsou ve verzi všeobecné dostupnosti. Další informace najdete v [dodatečných podmínkách použití systémů Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Funkce vysoké dostupnosti portů je aktuálně ve verzi preview. Ve verzi Preview funkci nemusí mít stejnou úroveň dostupnost a spolehlivost jako verze funkce, které jsou obecné dostupnosti. Další informace najdete v [dodatečných podmínkách použití systémů Microsoft Azure Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Obrázek 1 ukazuje příklad nasazení, které jsou popsané v tomto článku následující konfiguraci:
-- NVAs nasazených ve fondu back-end interní služby Vyrovnávání zatížení za konfiguraci portů HA. 
-- UDR použít v podsíti DMZ trasy veškerý provoz NVAs tím, že další směrování jako interní virtuální IP nástroje pro vyrovnávání zatížení. 
-- Interní nástroj pro vyrovnávání zatížení distribuuje provoz do jednoho z active NVAs podle algoritmus LB.
+Na obrázku vidíte příklad nasazení, které jsou popsané v tomto článku následující konfiguraci:
+
+- Ve fondu back endové služby Vyrovnávání zatížení interní za vysokou dostupnost porty konfigurace jsou nasazeny NVAs. 
+- Trasy definované uživatelem (UDR) použít na směrování podsítí DMZ veškerý provoz NVAs tím, že další směrování jako interní virtuální IP adresy služby Vyrovnávání zatížení. 
+- Nástroje pro vyrovnávání zatížení pro vnitřní distribuuje provoz do jednoho z active NVAs podle algoritmus Vyrovnávání zatížení.
 - Hodnocení chyb zabezpečení zpracovává provoz a předává do původního cíle v podsíti back-end.
-- Návratový cestu můžete taky využít stejné trasy, pokud odpovídající UDR je nakonfigurovaný v podsíti back-end. 
+- Pokud odpovídající UDR je nakonfigurovaný v back-end podsíť, může trvat návratový cesta stejné trasy. 
 
-![ha porty příklad nasazení](./media/load-balancer-configure-ha-ports/haports.png)
+![Příklad nasazení vysoké dostupnosti porty](./media/load-balancer-configure-ha-ports/haports.png)
 
-Obrázek 1 – síťových virtuálních zařízení nasazený za interní Vyrovnávání zatížení s vysokou dostupností porty 
 
 ## <a name="preview-sign-up"></a>Náhled registrace
 
-K účasti ve verzi Preview funkci HA porty ve standardní nástroje pro vyrovnávání zatížení, zaregistrujte předplatné pro získání přístupu pomocí Azure CLI 2.0 nebo prostředí PowerShell. Registrace předplatného pro [standardní nástroje pro vyrovnávání zatížení preview](https://aka.ms/lbpreview#preview-sign-up).
+K účasti ve verzi preview funkce vysokou dostupnost porty v nástroj pro vyrovnávání zatížení standardní Azure, zaregistrujte své předplatné k získání přístupu pomocí Azure CLI 2.0 nebo prostředí PowerShell. Registrace předplatného pro [standardní Preview nástroje pro vyrovnávání zatížení](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Registrace standardní nástroje pro vyrovnávání zatížení verze Preview může trvat až jednu hodinu.
+>Registrace standardní Preview nástroje pro vyrovnávání zatížení může trvat až jednu hodinu.
 
-## <a name="configuring-ha-ports"></a>Konfigurace portů HA
+## <a name="configure-high-availability-ports"></a>Konfigurace portů pro vysokou dostupnost
 
-Konfigurace portů HA zahrnuje nastavení k interní nástroj pro vyrovnávání zatížení, s NVAs ve fondu back-end odpovídající konfiguraci služby Vyrovnávání zatížení stavu test ke zjištění stavu hodnocení chyb zabezpečení a pravidlo Vyrovnávání zatížení s vysokou DOSTUPNOSTÍ porty. Obecná konfigurace související nástroje pro vyrovnávání zatížení je popsaná v [Začínáme](load-balancer-get-started-ilb-arm-portal.md). V tomto článku klade důraz na konfiguraci portů HA.
+Konfigurace portů vysokou dostupnost, nastavení Vyrovnávání zatížení interní NVAs ve fondu back-end. Nastavte odpovídající konfiguraci služby Vyrovnávání zatížení stavu test ke zjištění stavu hodnocení chyb zabezpečení a pravidlo Vyrovnávání zatížení s vysokou dostupností porty. Je součástí konfigurace související se nástroj pro vyrovnávání zatížení Obecné [Začínáme](load-balancer-get-started-ilb-arm-portal.md). V tomto článku jsou vysvětlené v konfiguraci vysoké dostupnosti porty.
 
-Konfigurace v podstatě zahrnuje nastavení hodnoty front-end port a back-end port **0**a pro protokol hodnotu **všechny**. Tento článek popisuje postup konfigurace vysoké dostupnosti portů pomocí portálu Azure, PowerShell a Azure CLI 2.0.
+Konfigurace v podstatě zahrnuje nastavení front-end port a back-end port hodnota, která má **0**. Nastavte na hodnotu protokol **všechny**. Tento článek popisuje postup konfigurace portů pro vysokou dostupnost pomocí portálu Azure, PowerShell a Azure CLI 2.0.
 
-### <a name="configure-ha-ports-load-balancer-rule-with-the-azure-portal"></a>Konfigurovat porty HA se pravidlo Vyrovnávání zatížení pomocí portálu Azure
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Pravidlo Vyrovnávání zatížení vysoké dostupnosti porty nakonfigurovat na portálu Azure
 
-Portál Azure obsahuje **HA porty** možnost prostřednictvím zaškrtávací políčko pro tuto konfiguraci. Pokud vybraná, se automaticky vyplní odpovídající konfigurační protokol a port. 
+Chcete-li konfigurovat vysokou dostupnost porty pomocí portálu Azure, vyberte **HA porty** zaškrtávací políčko. Pokud vybraná, se automaticky vyplní odpovídající konfigurační protokol a port. 
 
-![ha porty konfigurace prostřednictvím portálu Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
+![Konfigurace portů vysokou dostupnost prostřednictvím portálu Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
-Obrázek 2 – HA porty konfigurace prostřednictvím portálu
 
-### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>Konfigurace pravidla LB porty HA pomocí šablony Resource Manageru
+### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Konfigurace pravidla Vyrovnávání zatížení porty vysokou dostupnost prostřednictvím šablony Resource Manageru
 
-Můžete nakonfigurovat porty HA pomocí 2017-08-01 verze rozhraní API pro Microsoft.Network/loadBalancers v prostředku nástroj pro vyrovnávání zatížení. Následující fragment kódu JSON znázorňuje změny v konfiguraci Vyrovnávání zatížení pro HA porty přes REST API.
+Vysoká dostupnost porty můžete nakonfigurovat pomocí 2017-08-01 verze rozhraní API pro Microsoft.Network/loadBalancers v prostředku nástroj pro vyrovnávání zatížení. Následující fragment kódu JSON znázorňuje změny v konfiguraci služby Vyrovnávání zatížení pro vysokou dostupnost porty přes REST API:
 
 ```json
     {
@@ -93,17 +92,17 @@ Můžete nakonfigurovat porty HA pomocí 2017-08-01 verze rozhraní API pro Micr
     }
 ```
 
-### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>Konfigurovat porty HA se pravidlo Vyrovnávání zatížení v prostředí PowerShell
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Konfigurace se pravidlo Vyrovnávání zatížení vysoké dostupnosti portů pomocí prostředí PowerShell
 
-Vytvoření pravidla HA porty pro vyrovnávání zatížení při vytváření interní nástroj pro vyrovnávání zatížení v prostředí PowerShell, použijte následující příkaz:
+Vytvořit pravidlo Vyrovnávání zatížení vysokou dostupnost porty při vytvoření nástroje pro vyrovnávání zatížení pro vnitřní pomocí prostředí PowerShell, použijte následující příkaz:
 
 ```powershell
 lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-ha-ports-load-balancer-rule-with-azure-cli-20"></a>Pravidlo Vyrovnávání zatížení HA porty nakonfigurovat 2.0 rozhraní příkazového řádku Azure
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli-20"></a>Pravidlo Vyrovnávání zatížení vysoké dostupnosti porty nakonfigurovat 2.0 rozhraní příkazového řádku Azure
 
-V kroku č. 4 z [vytvoření interní zatížení vyrovnávání skupiny](load-balancer-get-started-ilb-arm-cli.md), použijte následující příkaz pro vytvoření porty HA pravidla pro vyrovnávání zatížení.
+V kroku 4 [vytvořit sadu Nástroje pro vyrovnávání zatížení pro vnitřní](load-balancer-get-started-ilb-arm-cli.md), použijte následující příkaz k vytvoření pravidla služby load balancer vysokou dostupnost porty:
 
 ```azurecli
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
@@ -111,4 +110,4 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o [porty vysokou dostupnost](load-balancer-ha-ports-overview.md)
+Další informace o [vysokou dostupnost porty](load-balancer-ha-ports-overview.md).

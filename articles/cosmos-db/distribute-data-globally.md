@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4427e65930aaeac6335e31dcfe3479baa6fdb6cd
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Jak se bude distribuovat dat globálně pomocí Azure Cosmos DB
 Azure je všudypřítomný – má globální nároků přes 30 + zeměpisné oblasti a průběžně zvětšuje. S jeho po celém světě přítomnosti jeden odlišné možnosti, které Azure nabízí pro jeho vývojáře je schopnost vytvářet, nasazovat a spravovat snadno globálně distribuované aplikace. 
@@ -88,7 +88,7 @@ Možnosti automatického nebo ručního převzetí služeb při selhání jsou a
 ### <a id="MultiHomingAPIs"></a>Více funkci rozhraní API v Azure Cosmos DB
 Azure Cosmos DB umožňuje pracovat s databází pomocí logických (bez ohledu na oblast) nebo fyzické koncových bodů (specifické pro oblast). Použití logické koncové body zajišťuje, že aplikace může transparentně byly vícedomé v případě převzetí služeb při selhání. Druhé fyzické koncových bodů, zadejte podrobnější řízení přístupu k aplikaci pro přesměrování čte a zapisuje do určitých oblastí.
 
-Můžete najít informace o tom, jak nakonfigurovat čtení předvoleb pro [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md), [rozhraní Graph API](../cosmos-db/tutorial-global-distribution-graph.md), [tabulky API](../cosmos-db/tutorial-global-distribution-table.md), a [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) v dané propojené články.
+Můžete najít informace o tom, jak nakonfigurovat čtení předvoleb pro [rozhraní SQL API](../cosmos-db/tutorial-global-distribution-documentdb.md), [rozhraní Graph API](../cosmos-db/tutorial-global-distribution-graph.md), [tabulky API](../cosmos-db/tutorial-global-distribution-table.md), a [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) v jejich příslušné propojené články.
 
 ### <a id="TransparentSchemaMigration"></a>Migrace databáze transparentní a konzistentní schéma a index 
 Azure Cosmos DB je plně [bez ohledu na schéma](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Jedinečný návrhu databázového stroje to umožňuje automaticky a synchronně indexu všechna data, která ho ingestuje bez nutnosti žádné schéma nebo sekundární indexy, které od vás. To umožňuje rychle iterovat globálně distribuované aplikace bez starostí o migraci databáze schéma a index nebo koordinace aplikace s více fáze zavedení změn schématu uživatelům. Azure Cosmos DB zaručuje, že všechny změny indexování zásady explicitně které jste udělali nepovedou do snížení výkonu výkon nebo dostupnost.  

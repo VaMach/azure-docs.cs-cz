@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Otestujte svůj kód
 
 1. Nasazení kódu do vašeho zařízení nebo emulátor.

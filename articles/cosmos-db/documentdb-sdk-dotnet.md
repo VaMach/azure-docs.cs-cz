@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB .NET SDK & prostředky | Microsoft Docs"
-description: "Další informace o rozhraní API .NET a sady SDK, včetně data vydání, vyřazení dat a změny provedené mezi každou verzi .NET SDK služby Azure Cosmos DB."
+title: "Azure Cosmos DB: Rozhraní API .NET SQL, sadu SDK a prostředky | Microsoft Docs"
+description: "Další informace o rozhraní API .NET SQL a sady SDK, včetně data vydání, vyřazení dat a změny provedené mezi každou verzi .NET SDK služby Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee6d649ac1ab0813098b13750ccc1f6ebf82f684
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d68079e2bbf12f50eb74b0d2d2c5b17ddb42d28d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: Stažení a poznámky k verzi
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK pro rozhraní API pro SQL: stažení a poznámky k verzi
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Informační kanál změnu rozhraní .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/18/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -86,7 +88,7 @@ ms.lasthandoff: 11/18/2017
 *   Přidaná podpora pro zadání vlastní JsonSerializerSettings při vytváření instance [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   Byl opraven problém ovlivňující x64 počítače, které nemají podporu SSE4 instrukce a throw SEHException – při spuštění dotazů na rozhraní API Azure Cosmos databáze DocumentDB.
+*   Byl opraven problém ovlivňující x64 počítače, které nemají podporu SSE4 instrukce a throw SEHException – při spuštění dotazů SQL databáze Azure Cosmos.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   Přidaná podpora pro novou úroveň konzistence volá ConsistentPrefix.
@@ -275,7 +277,7 @@ Služba odmítne všechny požadavky pro Azure DB Cosmos pomocí vyřazeno sady 
 
 | Verze | Datum vydání | Datum vyřazení |
 | --- | --- | --- |
-| [1.19.1](#1.19.1) |16 listopadu 2017 |--- |
+| [1.19.1](#1.19.1) |16. listopadu 2017 |--- |
 | [1.19.0](#1.19.0) |10 listopadu 2017 |--- |
 | [1.18.1](#1.18.1) |07 listopadu 2017 |--- |
 | [1.18.0](#1.18.0) |17 říjen 2017 |--- |

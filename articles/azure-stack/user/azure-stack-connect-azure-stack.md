@@ -3,8 +3,8 @@ title: "Připojení k Azure zásobníku | Microsoft Docs"
 description: "Zjistěte, jak připojit Azure zásobníku"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
-ms.author: sngun
-ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 7479202a8afabf5a84560691a2bccf849206c077
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>Připojení ke službě Azure Stack
 
-Ke správě prostředků, musíte se připojit k Azure zásobníku Development Kit. Toto téma podrobnosti kroky potřebné k připojení k sadě pro vývoj. Můžete použít některý z následujících možností připojení:
+Ke správě prostředků, musíte se připojit k Azure zásobníku Development Kit. Tento článek podrobnosti kroky potřebné k připojení k sadě pro vývoj. Můžete použít některý z následujících možností připojení:
 
 * [Vzdálená plocha](#connect-with-remote-desktop): umožňuje, aby uživatel s jednotným souběžných rychle připojit z development kit.
 * [Virtuální privátní sítě (VPN)](#connect-with-vpn): umožňuje více souběžným uživatelům připojení od klientů mimo infrastruktury Azure zásobníku (vyžaduje konfiguraci).
@@ -51,7 +51,7 @@ Můžete vytvořit děleného tunelového připojení virtuální privátní sí
 
 ### <a name="configure-vpn-connectivity"></a>Konfigurace připojení k síti VPN
 
-Chcete-li vytvořit připojení k síti VPN development Kit, otevřete relaci prostředí PowerShell zvýšenými z místního počítače založené na Windows a spusťte následující skript (Nezapomeňte aktualizovat IP adresu a heslo hodnoty pro vaše prostředí):
+Pokud chcete vytvořit připojení k síti VPN development Kit, otevřete relaci prostředí PowerShell zvýšenými z vašeho místního počítače se systémem Windows a spusťte následující skript (Nezapomeňte aktualizujte hodnoty IP adresu a heslo pro vaše prostředí):
 
 ```PowerShell 
 # Configure winrm if it's not already configured
@@ -82,7 +82,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Pokud nastavení úspěšné, měli byste vidět **azurestack** v seznamu připojení VPN.
+Pokud instalace proběhne úspěšně, měli byste vidět **azurestack** v seznamu připojení VPN.
 
 ![Připojení k síti](media/azure-stack-connect-azure-stack/image3.png)  
 

@@ -3,7 +3,7 @@ title: "Konfigurace integrace LinkedIn ve službě Azure AD | Microsoft Docs"
 description: "Vysvětluje, jak povolit nebo zakázat LinkedIn integrace pro aplikace společnosti Microsoft v Azure Active Directory."
 services: active-directory
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.date: 09/25/2017
 ms.author: jeffgilb
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 48b26bfcce67ce915c404a0ab2ac0f399c3b821d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c161542d6826e6aeb5f708a0d9c3fa1f1885e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enabling-linkedin-integration-in-azure-active-directory"></a>Povolení integrace LinkedIn v Azure Active Directory
 Povolení integrace LinkedIn umožní uživatelům přistupovat k data i veřejného LinkedIn a pokud se rozhodnete, jejich osobní LinkedIn síti ze v rámci aplikací společnosti Microsoft. Každý uživatel může vybrat nezávisle pro připojení k účtu mají LinkedIn svého pracovního účtu.

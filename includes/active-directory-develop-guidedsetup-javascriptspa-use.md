@@ -1,4 +1,3 @@
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Knihovna ověřování společnosti Microsoft (MSAL) použít k přihlášení uživatele
 
 1.  Vytvořte soubor s názvem `app.js`. Pokud používáte Visual Studio, vyberte projekt (projektu do kořenové složky), klikněte pravým tlačítkem a vyberte: `Add`  >  `New Item`  >  `JavaScript File`:

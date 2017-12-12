@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Správa počtu a dostupnosti výpočetních uzlů v clusteru HPC Pack v Azure
 Pokud jste vytvořili clusteru HPC Pack 2012 R2 ve virtuálních počítačích Azure, můžete chtít způsoby, jak snadno přidat, odebrat, (zřídit) spuštění nebo zastavení (deprovision) některé výpočetní uzel virtuální počítače v clusteru. Chcete-li provést tyto úlohy, spusťte prostředí Azure PowerShell skripty, které jsou nainstalované na hlavního uzlu virtuálního počítače. Tyto skripty vám pomůžou usnadnit řízení číslo a dostupnost prostředků clusteru HPC Pack, můžete řídit náklady.
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>Parametry
 * **ServiceName**: název cloudové služby, která nový výpočet uzlu virtuální počítače jsou přidány do.
-* **ImageName**: název bitové kopie virtuálního počítače Azure, který můžete získat prostřednictvím portálu Azure classic nebo rutiny Azure Powershellu **Get-AzureVMImage**. Obrázek musí splňovat následující požadavky:
+* **ImageName**: název bitové kopie virtuálního počítače Azure, který můžete získat prostřednictvím portálu Azure nebo rutiny Azure Powershellu **Get-AzureVMImage**. Obrázek musí splňovat následující požadavky:
   
   1. Musí být nainstalován operační systém Windows.
   2. HPC Pack musí být nainstalován v uzlu výpočetní roli.

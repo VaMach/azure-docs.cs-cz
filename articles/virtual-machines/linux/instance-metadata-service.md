@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-instance-metadata-service"></a>Služba Azure Instance metadat
 
@@ -391,7 +391,7 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.SH
    * Instance Metadata služba vyžaduje, aby záhlaví `Metadata: true` předávané v požadavku. Předávání tuto hlavičku ve volání REST umožňuje přístup ke službě Instance metadat. 
 2. Proč není zobrazuje informace o výpočetní pro virtuální počítač?
    * Instance služby Metadata aktuálně podporuje jenom instancích vytvořených pomocí Azure Resource Manageru. V budoucnu jsme může přidat podporu pro virtuální počítače cloudové služby.
-3. Delší dobou vytvořený virtuální počítač prostřednictvím Správce Azure Resource Manager. Proč není najdete informace o metadatech výpočetní?
+3. Delší dobou vytvořený virtuální počítač prostřednictvím Správce Azure Resource Manager. Proč není vidět informace metadat výpočetní?
    * Pro všechny virtuální počítače vytvořené po září 2016, přidejte [značky](../../azure-resource-manager/resource-group-using-tags.md) zahájíte zobrazuje výpočetní metadat. Pro starší virtuální počítače (vytvořených před září 2016) přidat nebo odebrat rozšíření nebo data disky na virtuální počítač aktualizujte metadata.
 4. Nejsou zobrazeny všechna data vyplněný pro novou verzi 2017-08-01
    * Pro všechny virtuální počítače vytvořené po září 2016, přidejte [značky](../../azure-resource-manager/resource-group-using-tags.md) zahájíte zobrazuje výpočetní metadat. Pro starší virtuální počítače (vytvořených před září 2016) přidat nebo odebrat rozšíření nebo data disky na virtuální počítač aktualizujte metadata.
@@ -402,7 +402,7 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.SH
 7. To funguje pro instanci nastavení škálování virtuálního počítače?
    * Ano je k dispozici pro škálování nastavení instance služby metadat. 
 8. Jak získat podporu pro službu?
-   * Získat podporu pro službu, vytvořte problém podpory na portálu Azure pro virtuální počítač, kde není možné získat metadata odpověď po dlouhou opakování 
+   * Získat podporu pro službu, vytvořte žádost o podporu na portálu Azure pro virtuální počítač, kde není možné získat metadata odpověď po dlouhou opakování 
 
    ![Podpora metadat instance](./media/instance-metadata-service/InstanceMetadata-support.png)
     

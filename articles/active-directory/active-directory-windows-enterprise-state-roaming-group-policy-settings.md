@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Co jsou zásady skupiny a nastavení MDM Enterprise State Roaming, Enterprise State Roaming, cloudu systému windows"
 documentationcenter: 
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 71dd5281a618fe7367eab3e97daac069f77ab491
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 588084481ffc5cbbeed34e9527271179fa359ed5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="group-policy-and-mdm-settings"></a>Nastavení zásad skupiny a správu mobilních zařízení
 Používejte tyto zásady skupiny a nastavení správy mobilních zařízení jenom na zařízení ve vlastnictví firmy, protože tyto zásady se použijí pro uživatele zařízení. Zásady pro správu mobilních zařízení pro zakázat synchronizaci nastavení pro osobní použití, zařízení ve vlastnictví uživatele bude mít negativní vliv na používání těchto zařízení. Kromě toho by jiné uživatelské účty v zařízení nebude mít vliv také zásady.

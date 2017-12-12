@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1283d3cff4edc0c99d22612c65fda48f9dddfbd3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Nasazení a používání Azure kontejneru registru
 
@@ -28,21 +28,21 @@ V následujících kurzech této instance ACR je integrovaná do clusteru s podp
 
 ## <a name="before-you-begin"></a>Než začnete
 
-V [předchozí kurzu](./tutorial-kubernetes-prepare-app.md), bitovou kopii kontejner byl vytvořen pro jednoduchou aplikaci Azure hlasování. Pokud jste ještě nevytvořili obrázek aplikace Azure hlasování, vrátit [kurzu 1 – Vytvoření kontejneru image](./tutorial-kubernetes-prepare-app.md).
+V [předchozí kurzu][aks-tutorial-prepare-app], bitovou kopii kontejner byl vytvořen pro jednoduchou aplikaci Azure hlasování. Pokud jste ještě nevytvořili obrázek aplikace Azure hlasování, vrátit [kurzu 1 – Vytvoření kontejneru image][aks-tutorial-prepare-app].
 
-Tento kurz vyžaduje, že používáte Azure CLI verze 2.0.21 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI]( /cli/azure/install-azure-cli).
+Tento kurz vyžaduje, že používáte Azure CLI verze 2.0.21 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud je potřeba nainstalovat nebo upgradovat najdete v tématu [nainstalovat rozhraní příkazového řádku Azure][azure-cli-install].
 
 ## <a name="deploy-azure-container-registry"></a>Nasadit kontejner Azure registru
 
 Pokud nasazujete registru kontejneru služby Azure, musíte nejprve skupinu prostředků. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure.
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create). V tomto příkladu skupinu prostředků s názvem `myResourceGroup` je vytvořen v `eastus` oblast.
+Vytvořte skupinu prostředků pomocí příkazu [az group create][az-group-create]. V tomto příkladu skupinu prostředků s názvem `myResourceGroup` je vytvořen v `eastus` oblast.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Vytvoření kontejneru Azure registr s využitím [az acr vytvořit](/cli/azure/acr#create) příkaz. Název kontejneru registru **musí být jedinečné**.
+Vytvoření kontejneru Azure registr s využitím [az acr vytvořit] [ az-acr-create] příkaz. Název kontejneru registru **musí být jedinečné**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -52,7 +52,7 @@ Po celý zbytek v tomto kurzu používáme `<acrName>` jako zástupný symbol pr
 
 ## <a name="container-registry-login"></a>Kontejner registru přihlášení
 
-Použití [az acr přihlášení](https://docs.microsoft.com/cli/azure/acr#az_acr_login) příkaz k přihlášení do ACR instance. Je třeba zadat jedinečný název zadané registru kontejneru v okamžiku vytvoření.
+Použití [az acr přihlášení] [ az-acr-login] příkaz k přihlášení do ACR instance. Je třeba zadat jedinečný název zadané registru kontejneru v okamžiku vytvoření.
 
 ```azurecli
 az acr login --name <acrName>
@@ -62,7 +62,7 @@ Příkaz vrátí zprávu, byla úspěšná přihlášení po dokončení.
 
 ## <a name="tag-container-images"></a>Značka kontejneru obrázků
 
-Chcete-li zobrazit seznam aktuální bitové kopie, použijte [imagí dockeru](https://docs.docker.com/engine/reference/commandline/images/) příkaz.
+Chcete-li zobrazit seznam aktuální bitové kopie, použijte [imagí dockeru] [ docker-images] příkaz.
 
 ```console
 docker images
@@ -91,7 +91,7 @@ Nyní, označit `azure-vote-front` bitovou kopii s loginServer registru kontejne
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Jakmile příznakem, spustit [imagí dockeru] (https://docs.docker.com/engine/reference/commandline/images/) k ověření operaci.
+Jakmile příznakem, spustit [imagí dockeru] [ docker-images] ověření operaci.
 
 ```console
 docker images
@@ -121,7 +121,7 @@ Tato akce trvá několik minut na dokončení.
 
 ## <a name="list-images-in-registry"></a>Seznam obrázků v registru
 
-K zobrazení seznamu bitové kopie, které se nabídne do vašeho kontejneru Azure registru uživatele [az acr úložiště seznamu](/cli/azure/acr/repository#list) příkaz. Aktualizujte příkaz s názvem instance ACR.
+K zobrazení seznamu bitové kopie, které se nabídne do vašeho kontejneru Azure registru uživatele [az acr úložiště seznamu] [ az-acr-repository-list] příkaz. Aktualizujte příkaz s názvem instance ACR.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -135,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-A pak najdete v části značky pro konkrétní image, pomocí [az acr úložiště zobrazit značky](/cli/azure/acr/repository#show-tags) příkaz.
+A pak najdete v části značky pro konkrétní image, pomocí [az acr úložiště zobrazit značky] [ az-acr-repository-show-tags] příkaz.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -163,4 +163,17 @@ V tomto kurzu registru kontejner Azure připravené pro použití v clusteru slu
 Přechodu na v dalším kurzu se dozvíte o nasazení clusteru s podporou Kubernetes v Azure.
 
 > [!div class="nextstepaction"]
-> [Nasazení clusteru Kubernetes](./tutorial-kubernetes-deploy-cluster.md)
+> [Nasazení clusteru Kubernetes][aks-tutorial-deploy-cluster]
+
+<!-- LINKS - external -->
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+
+<!-- LINKS - internal -->
+[az-acr-create]: /cli/azure/acr#create
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-repository-list]: /cli/azure/acr/repository#list
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
+[az-group-create]: /cli/azure/group#az_group_create
+[azure-cli-install]: /cli/azure/install-azure-cli
+[aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

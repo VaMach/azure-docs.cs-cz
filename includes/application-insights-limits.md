@@ -11,7 +11,7 @@ Existují některá omezení počtu metrik a událostí na aplikaci (tj. na inst
 | Délka názvu vlastnosti a metriky | 150 | V tématu [zadejte schémat.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Délka řetězce hodnoty vlastnosti | 8 192 | V tématu [zadejte schémat.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Délka zprávy trasování a výjimky | 10 000 | V tématu [zadejte schémat.](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| [Testy dostupnosti](../articles/application-insights/app-insights-monitor-web-app-availability.md) – počet na aplikaci  | 10 |
+| [Testy dostupnosti](../articles/application-insights/app-insights-monitor-web-app-availability.md) – počet na aplikaci  | 100 |
 | [Profileru](../articles/application-insights/app-insights-profiler.md) uchovávání dat | 5 dní |
 | [Profileru](../articles/application-insights/app-insights-profiler.md) data odeslaná za den | 10GB |
 

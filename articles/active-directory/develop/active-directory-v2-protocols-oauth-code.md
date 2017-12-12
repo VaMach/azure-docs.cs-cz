@@ -4,7 +4,7 @@ description: "Vytváření webové aplikace pomocí Azure AD implementace ověř
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1cffe40c14b931485cc5cec48a95e02ae770764e
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 06d5000e30850156781496c32ac549ecc0772f46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protokoly v2.0 - toku kódu autorizace OAuth 2.0
 Udělení autorizačního kódu OAuth 2.0 lze použít v aplikacích, které jsou nainstalované na zařízení k získání přístupu k chráněným prostředkům, jako jsou webová rozhraní API.  Pomocí implementace v2.0 modelu aplikace OAuth 2.0, můžete přidat, přihlaste se a rozhraní API, přístup k mobilním a desktopovým aplikacím.  Tato příručka je nezávislé na jazyku a popisuje, jak odesílat a přijímat zprávy HTTP bez použití některé z našich knihovny open-source.

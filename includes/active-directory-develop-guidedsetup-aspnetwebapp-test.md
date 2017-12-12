@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Otestujte svůj kód
 
 Chcete-li otestovat aplikaci v sadě Visual Studio, stiskněte **F5** ke spuštění projektu. Prohlížeči se otevře http://<span></span>localhost: {port} umístění a zobrazí **přihlásit pomocí Microsoft** tlačítko. Kliknutím na tlačítko Spustit proces přihlášení.

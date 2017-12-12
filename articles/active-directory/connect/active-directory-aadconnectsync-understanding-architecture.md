@@ -4,7 +4,7 @@ description: "Toto téma popisuje architekturu synchronizace Azure AD Connect a 
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 51082ad453d53f56f30f814b78578801c00f4827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc6c772f8f5cc86f8b975ac7835ffff85ef3435c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronizace Azure AD Connect: Principy architektura
 Toto téma popisuje základní architekturu pro synchronizaci Azure AD Connect. V mnoha aspektům se podobně jako jeho předchůdci serveru MIIS 2003 ILM 2007 a FIM 2010. Synchronizace Azure AD Connect je vývoj těchto technologií. Pokud jste obeznámeni s žádným z těchto starších technologií, obsah tohoto tématu bude povědomé také. Pokud jste ještě synchronizace, pak toto téma je pro vás. Je ale není potřeba znát podrobnosti o něm být úspěšné při přizpůsobení synchronizace služby Azure AD Connect (nazývané synchronizační modul v tomto tématu).

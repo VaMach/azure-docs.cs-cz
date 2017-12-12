@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b530cd6f12c08124d9483c6c4898ee4d69b8e5a2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Automatické regionální převzetí služeb při selhání pro kontinuitu podnikových procesů v Azure Cosmos DB
 Azure Cosmos DB zjednodušuje globální distribuci dat tím, že nabídka plně spravované, [účty databáze více oblast](distribute-data-globally.md) , poskytovat jasné kompromisy mezi konzistencí, dostupnosti a výkonu, všechny odpovídající záruky. Účty cosmos DB nabízí vysokou dostupnost, jednu číslici ms latenci, [dobře definované úrovně konzistence](consistency-levels.md), transparentní regionální převzetí služeb při selhání s více funkci rozhraní API a schopnost Elasticky škálovat propustnost a úložiště napříč zeměkouli. 
@@ -46,7 +46,7 @@ Následující fragment kódu ukazuje, jak k chybě při inicializaci aplikace u
 * Nakonfigurované s `West US` jako první upřednostňovaná oblast pro s nízkou latencí čte
 * Nakonfigurované s `North Europe` jako druhý upřednostňovaná oblast (pro vysokou dostupnost při místní selhání)
 
-Rozhraní API služby DocumentDB tato konfigurace vypadá následující fragment kódu:
+V rozhraní SQL API tato konfigurace vypadá následující fragment kódu:
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ V tomto článku jsme přečetli jak ruční a automatické převzetí služeb p
 ## <a id="NextSteps"></a>Další kroky
 * Další informace o tom, jak Cosmos DB podporuje [globální distribuční](distribute-data-globally.md)
 * Další informace o [globální konzistence s Azure Cosmos DB](consistency-levels.md)
-* Vývoj s více oblastí pomocí Azure Cosmos DB [DocumentDB rozhraní API](../cosmos-db/tutorial-global-distribution-documentdb.md)
-* Naučte se vytvářet [více oblast zapisovače architektury](multi-region-writers.md) pomocí Azure DocumentDB
+* Vývoj s více oblastí pomocí Azure Cosmos DB [rozhraní SQL API](tutorial-global-distribution-documentdb.md)
+* Naučte se vytvářet [více oblast zapisovače architektury](multi-region-writers.md) s Azure Cosmos DB
 

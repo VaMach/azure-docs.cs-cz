@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b26108b000bac56fe7d49a3a634f2be9d7543a8
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Přehled služby Azure DDoS ochrany standardní
 
@@ -33,7 +33,7 @@ Azure ochrana proti útoku DDoS v kombinaci s osvědčenými postupy návrhu apl
 ![Standardní ochrany Azure DDoS](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
 > [!IMPORTANT]
-> Azure DDoS ochrany standardní je aktuálně ve verzi preview. Ochrana se poskytuje pro jakýmikoli prostředky Azure, který má Azure veřejnou IP adresu přidružené k, jako jsou virtuální počítače, nástroje pro vyrovnávání zatížení a aplikačních bran. Budete muset [zaregistrovat](http://aka.ms/ddosprotection) pro službu, než můžete povolit standardní ochrany DDoS pro vaše předplatné. Po registraci, Azure DDoS team kontakty zobrazeno jste a Průvodce vás provede procesem povolování. DDoS ochrany Standard je k dispozici ve východní USA, Východ USA 2, západ USA, Západ střední USA, Severní Evropa, západní Evropa, Japonsko – Západ, Japonsko – východ, Asie – východ a jihovýchodní Asie oblasti. Verzi Preview se vám neúčtují poplatky za používání služby.
+> Azure DDoS ochrany standardní je aktuálně ve verzi preview. Ochrana se poskytuje pro jakýmikoli prostředky Azure, který má Azure veřejnou IP adresu přidružené k, jako jsou virtuální počítače, nástroje pro vyrovnávání zatížení a aplikačních bran. Budete muset [zaregistrovat](http://aka.ms/ddosprotection) pro službu, než můžete povolit standardní ochrany DDoS pro vaše předplatné. Po registraci, tým Azure DDoS kontaktuje jste a provede vás provede procesem povolování. DDoS ochrany Standard je k dispozici ve východní USA, Východ USA 2, západ USA, Západ střední USA, Severní Evropa, západní Evropa, Japonsko – Západ, Japonsko – východ, Asie – východ a jihovýchodní Asie oblasti. Verzi Preview se vám neúčtují poplatky za používání služby.
 
 Doporučujeme vám opakujte DDoS ochrany standardní vývoj, testovací nebo produkční prostředí. Použijte v následujících zdrojích informací k poskytnutí zpětné vazby na vaše prostředí:
 - [Ochrana Azure proti útoku DDoS ve fóru Microsoft Azure](https://feedback.azure.com/forums/905032-azure-ddos-protection). 

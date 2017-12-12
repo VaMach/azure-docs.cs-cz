@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: a9d6ebb2ae92b631d4663b1373c684b2e10a9507
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognózování úloh serveru s terabajty dat
 
@@ -108,10 +108,10 @@ Celkové velikosti dat je přibližně 1 TB. Každý soubor je přibližně 1 �
 6 | `HTTP1` | Integer|  Relace používá HTTP1 nebo HTTP2
 7 |`ServerType` | Integer   |Typ serveru
 8 |`SubService_1_Load` | Double |   Zatížení subservice 1
-9 | `SubService_1_Load` | Double |  Zatížení subservice 2
-10 | `SubService_1_Load` | Double |     Zatížení subservice 3
-11 |`SubService_1_Load` | Double |  Zatížení subservice 4
-12 | `SubService_1_Load`| Double |      Zatížení subservice 5
+9 | `SubService_2_Load` | Double |  Zatížení subservice 2
+10 | `SubService_3_Load` | Double |     Zatížení subservice 3
+11 |`SubService_4_Load` | Double |  Zatížení subservice 4
+12 | `SubService_5_Load`| Double |      Zatížení subservice 5
 13 |`SecureBytes_Load`  | Double | Zabezpečené bajtů zatížení
 14 |`TotalLoad` | Double | Celkový počet zatížení na serveru
 15 |`ClientIP` | Řetězec|    IP adresa klienta
@@ -327,7 +327,7 @@ Na pravém bočním panelu nástroje Workbench, přejděte do **spustí** zobraz
 
 ### <a name="operationalize-the-model"></a>Zprovoznit model
 
-V této části zprovoznit model, který jste vytvořili v předchozích krocích jako webovou službu. Můžete také další informace o použití webovou službu pro předpověď zatížení. Pomocí rozhraní příkazového řádku operationalization počítač jazyk (CLIs) do balíčku kódu a závislosti jako imagí Dockeru a k publikování modelu jako kontejnerizované webovou službu. Další informace najdete v tématu [tento přehled](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+V této části zprovoznit model, který jste vytvořili v předchozích krocích jako webovou službu. Můžete také další informace o použití webovou službu pro předpověď zatížení. Pomocí rozhraní příkazového řádku operationalization počítač jazyk (CLIs) do balíčku kódu a závislosti jako imagí Dockeru a k publikování modelu jako kontejnerizované webovou službu.
 
 Příkazovém řádku v nástroji Machine Learning Workbench můžete použít ke spuštění CLIs.  Můžete taky spustit CLIs na Ubuntu Linux podle [Průvodce instalací](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 

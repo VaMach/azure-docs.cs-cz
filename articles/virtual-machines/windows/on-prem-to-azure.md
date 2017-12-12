@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b427556c589c7cc5205bfda16edc8d891814326
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrace z Amazon Web Services (AWS) a jiné platformy na spravované disky v Azure
 
-Můžete nahrát souborů VHD z AWS nebo místní virtualizačních řešeních Azure k vytvoření virtuálních počítačů, které využít výhod spravované disky. Disky systému Azure spravované eliminuje nutnost nástroje pro správu účtů úložiště pro virtuální počítače Azure IaaS. Budete muset zadat pouze typ (Standard nebo Premium) a velikost disku je nutné, a Azure vytváří a spravuje disku za vás. 
+Můžete nahrát souborů VHD z AWS nebo místní virtualizačních řešeních Azure k vytvoření virtuálních počítačů, které využít výhod spravované disky. Disky systému Azure spravované eliminuje nutnost spravovat účty úložiště pro virtuální počítače Azure IaaS. Budete muset zadat pouze typ (Standard nebo Premium) a velikost disku je nutné, a Azure vytváří a spravuje disku za vás. 
 
 Můžete nahrát zobecněný a specializované virtuálních pevných disků. 
 - **Zobecněný virtuální pevný disk** -zaznamenala všechny vaše osobní účet informace odebrat pomocí nástroje Sysprep. 
