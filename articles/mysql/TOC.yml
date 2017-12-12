@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: Vývoj aplikací
           href: concepts-database-application-development.md
-    - name: Migrace databáze
-      items:
-        - name: Výpis a obnovení
-          href: concepts-migrate-dump-restore.md
-        - name: Import a export
-          href: concepts-migrate-import-export.md
 - name: Návody
   items:
     - name: Správa serveru
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+    - name: Migrace databáze
+      items:
+        - name: Výpis a obnovení
+          href: concepts-migrate-dump-restore.md
+        - name: Import a export
+          href: concepts-migrate-import-export.md
     - name: Připojení aplikací
       items:
         - name: Vytvoření uživatelů
@@ -161,3 +161,5 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: Příběhy zákazníků
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
+    - name: Průvodce migrací databází
+      href: 'https://datamigration.microsoft.com/'

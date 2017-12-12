@@ -219,7 +219,6 @@
 ### [Konfigurace automatického zrychlení přihlašování pomocí zásad HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Správa přístupu k aplikacím](active-directory-managing-access-to-apps.md)
-#### [Samoobslužný přístup](active-directory-self-service-application-access.md)
 #### [Přístup s jednotným přihlašováním](active-directory-appssoaccess-whatis.md)
 #### [Certifikáty pro jednotné přihlašování](active-directory-sso-certs.md)
 #### [Exportní tenanta](active-directory-tenant-restrictions.md)
