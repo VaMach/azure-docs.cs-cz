@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: a4bada3c099e348e2aa188fe08a67ef170ad50ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Vytvoření první aplikace spolehlivé stavové služby Service Fabric v jazyce C#
 
@@ -84,7 +84,7 @@ Až se aplikace spustí, Visual Studio automaticky zobrazí **Prohlížeč diagn
 
 Šablona stavové služby, kterou jsme použili, uvádí jenom hodnotu čítače, která se zvyšuje v metodě `RunAsync` v souboru **MyStatefulService.cs**.
 
-Pokud některou událost rozbalíte, zobrazí se další podrobnosti, včetně uzlu, na kterém kód běží. V tomto případě je to uzel \_Node\_2, to se ale může na vašem počítači lišit.
+Pokud některou událost rozbalíte, zobrazí se další podrobnosti, včetně uzlu, na kterém kód běží. V tomto případě je to uzel \_Node\_0, to se ale může na vašem počítači lišit.
    
 ![Podrobnosti v prohlížeči diagnostických událostí][6]
 

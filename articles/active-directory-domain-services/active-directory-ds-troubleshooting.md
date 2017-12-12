@@ -4,7 +4,7 @@ description: "Průvodce řešením potíží pro Azure AD Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – Průvodce odstraňováním potíží s
 Tento článek obsahuje pokyny k odstranění potíží pro problémy, se kterými se můžete setkat při nastavení nebo jejich správě Azure Active Directory (AD) Domain Services.
@@ -57,13 +57,10 @@ Zkontrolujte, zda je aplikace s názvem "Azure AD Domain Services synchronizace,
 
 Proveďte následující kroky k kontrolovat přítomnost aplikace a k odstranění, pokud existuje aplikace:
 
-1. Přejděte do **portálu Azure Classic** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. V levém podokně vyberte uzel **Active Directory**.
-3. Vyberte klienta Azure AD (adresář), pro kterého chcete povolit službu Azure AD Domain Services.
-4. Přejděte na **aplikace** kartě.
-5. Vyberte **aplikace Moje společnost vlastní** možnost v rozevírací nabídce.
-6. Zkontrolujte aplikaci s názvem **synchronizace Azure AD Domain Services**. Pokud existuje aplikace, pokračujte ho odstranit.
-7. Jakmile jste odstranili aplikace, zkuste znovu povolit Azure AD Domain Services.
+1. Přejděte na **aplikace** oddílu adresáře Azure AD [portál Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Vyberte **všechny aplikace** v **zobrazit** rozevíracího seznamu. Vyberte **žádné** v **stav aplikace** rozevíracího seznamu. Vyberte **žádné** v **aplikace viditelnost** rozevíracího seznamu.
+3. Typ **synchronizace Azure AD Domain Services** do vyhledávacího pole. Pokud aplikace existuje, klikněte na něm a klikněte na **odstranit** tlačítka na panelu nástrojů ho odstranit.
+4. Jakmile jste odstranili aplikace, zkuste znovu povolit Azure AD Domain Services.
 
 ### <a name="invalid-configuration"></a>Neplatná konfigurace
 **Chybová zpráva:**
@@ -153,7 +150,7 @@ Azure AD vás chrání před náhodným odstraněním objektů uživatelů. Kdy�
 
 Uživatelský účet zůstane v zakázaném stavu ve vaší spravované domény, i když je znovu vytvořit uživatelský účet s stejný hlavní název uživatele v adresáři služby Azure AD. Chcete-li odebrat uživatelský účet z vaší spravované domény, nuceně odstranit z vašeho klienta Azure AD.
 
-Chcete-li odebrat uživatelský účet plně z vaší spravované domény, trvale odstraňte uživatele z vašeho klienta Azure AD. Použijte rutinu PowerShellu Remove-MsolUser s možností -RemoveFromRecycleBin, jak to popisuje tento [článek MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Chcete-li odebrat uživatelský účet plně z vaší spravované domény, trvale odstraňte uživatele z vašeho klienta Azure AD. Použití `Remove-MsolUser` rutiny prostředí PowerShell s `-RemoveFromRecycleBin` možnost, jak je popsáno v tomto [článku na webu MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## <a name="contact-us"></a>Kontaktujte nás
 Obraťte se na produktový tým Azure Active Directory Domain Services na [sdílet zpětnou vazbu nebo pro podporu](active-directory-ds-contact-us.md).

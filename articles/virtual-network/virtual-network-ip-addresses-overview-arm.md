@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Typy IP adres a metody přidělování v Azure
 
@@ -150,7 +150,7 @@ Privátní IP adresa se přiděluje z rozsahu adres podsítě virtuální sítě
 Existují dvě metody přidělování privátní IP adresy:
 
 - **Dynamická:** Azure přiřadí další dostupnou nepřiřazenou nebo nevyhrazenou IP adresu v rozsahu adres podsítě. Azure novému prostředku například přiřadí 10.0.0.10, pokud adresy 10.0.0.4-10.0.0.9 jsou už přiřazené jiným prostředkům. Dynamická metoda přidělování je výchozí metoda. Jakmile jsou dynamické IP adresy přiřazené, uvolní se pouze v případě odstranění síťového rozhraní, jeho přiřazení k jiné podsíti ve stejné virtuální síti nebo změně metody přidělování na statickou a zadání jiné IP adresy. Když změníte metodu přidělování z dynamické na statickou, Azure ve výchozím nastavení jako statickou IP adresu přiřadí dříve dynamicky přiřazenou adresu.
-- **Statická:** Vyberete a přiřadíte libovolnou nepřiřazenou nebo nevyhrazenou IP adresu v rozsahu adres podsítě. Pokud rozsah adres podsítě je například 10.0.0.0/16 a adresy 10.0.0.4-10.0.0.9 jsou už přiřazené jiným prostředkům, můžete přiřadit libovolnou adresu mezi 10.0.0.10 a 10.0.255.254. Statické adresy se uvolní pouze v případě odstranění síťového rozhraní. Pokud změníte metodu přidělování na statickou, Azure jako dynamickou adresu dynamicky přiřadí dříve přiřazenou statickou IP adresu, a to i v případě, že tato adresa není další dostupnou adresou v rozsahu adres podsítě. Adresa se změní také v případě přiřazení síťového rozhraní k jiné podsíti ve stejné virtuální síti. Pokud však chcete síťové rozhraní přiřadit k jiné podsíti, musíte nejprve změnit metodu přidělování ze statické na dynamickou. Jakmile přiřadíte síťové rozhraní k jiné podsíti, můžete metodu přidělování změnit zpět na statickou a přiřadit IP adresu z rozsahu adres nové podsítě.
+- **Statická:** Vyberete a přiřadíte libovolnou nepřiřazenou nebo nevyhrazenou IP adresu v rozsahu adres podsítě. Pokud rozsah adres podsítě je například 10.0.0.0/16 a adresy 10.0.0.4-10.0.0.9 jsou už přiřazené jiným prostředkům, můžete přiřadit libovolnou adresu mezi 10.0.0.10 a 10.0.255.254. Statické adresy se uvolní pouze v případě odstranění síťového rozhraní. Pokud změníte metodu přidělování na dynamickou, Azure jako dynamickou adresu dynamicky přiřadí dříve přiřazenou statickou IP adresu, a to i v případě, že tato adresa není další dostupnou adresou v rozsahu adres podsítě. Adresa se změní také v případě přiřazení síťového rozhraní k jiné podsíti ve stejné virtuální síti. Pokud však chcete síťové rozhraní přiřadit k jiné podsíti, musíte nejprve změnit metodu přidělování ze statické na dynamickou. Jakmile přiřadíte síťové rozhraní k jiné podsíti, můžete metodu přidělování změnit zpět na statickou a přiřadit IP adresu z rozsahu adres nové podsítě.
 
 ### <a name="virtual-machines"></a>Virtuální počítače
 

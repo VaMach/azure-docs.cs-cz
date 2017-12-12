@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Azure ExpressRoute pro poskytovatele Cloud Solution Provider
 Společnost Microsoft poskytuje pro tradiční prodejce a distributory (poskytovatele Cloud Solution Provider) hyperškálovatelné služby, aby mohli pro vaše zákazníky rychle zřizovat nové služby a řešení bez nutnosti investovat do vývoje těchto nových služeb. Aby měl poskytovatel Cloud Solution Provider (CSP) možnosti spravovat tyto služby přímo, poskytuje společnost Microsoft programy a rozhraní API umožňující poskytovateli CSP spravovat prostředky Microsoft Azure za své zákazníky. Jeden z těchto prostředků je ExpressRoute. ExpressRoute umožňuje poskytovateli CSP připojovat prostředky zákazníků ke službám Azure. ExpressRoute je vysokorychlostní propojení se službami v Azure, které zajišťuje privátní komunikaci. 
 
-ExpresRoute sestává z dvojice okruhů pro zajištění vysoké dostupnosti, které jsou připojeny k předplatným jednoho zákazníka a nemůže je sdílet více zákazníků. Každý okruh by měl být ukončen v různých směrovačích, aby se zajistila vysoká dostupnost.
+ExpressRoute sestává z dvojice okruhů pro zajištění vysoké dostupnosti, které jsou připojeny k předplatným jednoho zákazníka a nemůže je sdílet více zákazníků. Každý okruh by měl být ukončen v různých směrovačích, aby se zajistila vysoká dostupnost.
 
 > [!NOTE]
 > V ExpressRoute se uplatňují omezení šířky pásma a počtu připojení, což znamená, že velké nebo složité implementace budou vyžadovat více okruhů ExpressRoute pro jednoho zákazníka.
 > 
 > 
 
-Množství služeb Microsoft Azure, které můžete nabídnout zákazníkům, se stále zvyšuje.  Aby bylo možné využívat výhody těchto služeb co nejlépe, vyžaduje se použití připojení ExpressRoute, která zajišťují vysokorychlostní přístup s nízkou latencí k prostředí Microsoft Azure.
+Množství služeb Microsoft Azure, které můžete nabídnout zákazníkům, se stále zvyšuje. ExpressRoute pomáhá vám a vašim zákazníkům využívat výhody těchto služeb zajišťováním vysokorychlostního přístupu s nízkou latencí k prostředí Microsoft Azure.
 
 ## <a name="microsoft-azure-management"></a>Správa Microsoft Azure
 Společnost Microsoft nabízí poskytovatelům CSP rozhraní API pro správu předplatných Azure zákazníků, čímž umožňuje programovou integraci s vlastními systémy správy služeb. Podporované možnosti správy najdete [tady](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Správa prostředků Microsoft Azure
-Způsob správy předplatného závisí na vaší smlouvě se zákazníkem. Poskytovatel CSP může přímo spravovat vytváření a správu prostředků, případně si může zákazník ponechat kontrolu nad předplatným Microsoft Azure a vytvářet prostředky Azure podle potřeby. Pokud zákazník spravuje vytváření prostředků v rámci svého předplatného Microsoft Azure, bude používat jeden ze dvou modelů: „Connect-Through“ (nepřímé připojení) nebo „Direct-To“ (přímé připojení). Tyto modely jsou podrobně popsány v následujících oddílech.  
+Způsob správy předplatného závisí na vaší smlouvě se zákazníkem. Poskytovatel CSP může přímo spravovat vytváření a správu prostředků, případně si může zákazník ponechat kontrolu nad předplatným Microsoft Azure a vytvářet prostředky Azure podle potřeby. Pokud zákazník spravuje vytváření prostředků v rámci svého předplatného Microsoft Azure, bude používat jeden ze dvou modelů: „*Connect-Through*“ (nepřímé připojení) nebo „*Direct-To*“ (přímé připojení). Tyto modely jsou podrobně popsány v následujících oddílech.  
 
 ### <a name="connect-through-model"></a>Model s nepřímým připojením
 ![alternativní text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -67,7 +67,7 @@ Volba mezi těmito dvěma možnostmi závisí na potřebách zákazníka a na va
 
 * **Řízení přístupu na základě role (RBAC)** – Funkce RBAC je založena na službě Azure Active Directory.  Další informace o funkci Azure RBAC najdete [tady](../active-directory/role-based-access-control-configure.md).
 * **Sítě** – Obsahuje informace k různým tématům týkající se sítí v Microsoft Azure.
-* **Azure Active Directory (AAD)** – AAD poskytuje správu identit pro Microsoft Azure a aplikace SaaS jiných dodavatelů. Další informace o Azure AD najdete [tady](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure Active Directory (Azure AD)** – Azure AD poskytuje správu identit pro Microsoft Azure a aplikace SaaS jiných dodavatelů. Další informace o Azure AD najdete [tady](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Rychlost sítě
 ExpressRoute podporuje rychlost sítě 50 Mb/s až 10 Gb/s. Díky tomu mohou zákazníci zakoupit šířku pásma sítě potřebnou pro konkrétní jedinečné prostředí.

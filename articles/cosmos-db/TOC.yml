@@ -9,7 +9,7 @@
 - name: Šablony Rychlý start
   expanded: true
   items:
-    - name: DocumentDB
+    - name: SQL
       items:
         - name: .NET
           href: create-documentdb-dotnet.md
@@ -71,7 +71,7 @@
   items:
     - name: 1. Vytvoření
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-develop-documentdb-dotnet.md
         - name: MongoDB s .NET
           href: tutorial-develop-mongodb.md
@@ -87,7 +87,7 @@
           href: tutorial-develop-cassandra-java.md
     - name: 2. Import
       items:
-        - name: DocumentDB
+        - name: SQL
           href: import-data.md
         - name: MongoDB
           href: mongodb-migrate.md
@@ -97,7 +97,7 @@
           href: cassandra-import-data.md
     - name: 3. Dotazování
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-query-documentdb.md
         - name: MongoDB
           href: tutorial-query-mongodb.md
@@ -107,7 +107,7 @@
           href: tutorial-query-graph.md
     - name: 4. Globální distribuce
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-global-distribution-documentdb.md
         - name: MongoDB
           href: tutorial-global-distribution-mongodb.md
@@ -147,7 +147,7 @@
       href: request-units.md
     - name: Rozhraní API s více modely
       items:
-        - name: DocumentDB
+        - name: SQL
           href: documentdb-introduction.md
         - name: MongoDB
           href: mongodb-introduction.md
@@ -170,10 +170,10 @@
   items:
     - name: Vývoj
       items:
-        - name: Rozhraní DocumentDB API
+        - name: SQL API
           href: documentdb-index.md
           items:
-            - name: Zdroje a prostředky
+            - name: Zdroje
               href: documentdb-resources.md
             - name: Dotazy SQL
               href: documentdb-sql-query.md
@@ -239,8 +239,6 @@
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Aktualizace služeb
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
-                - name: Portál komunity
-                  href: community.md
                 - name: Dokument o indexování bez schémat
                   href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
                 - name: 'Vyřazení S1, S2, S3'
@@ -378,13 +376,13 @@
           href: powerbi-visualize.md
         - name: Využití ovladače ODBC pro vizualizaci dat
           href: odbc-driver.md
-        - name: Použití aplikace Spring Boot Starter s rozhraními DocumentDB API
+        - name: Použití aplikace Spring Boot Starter s rozhraními SQL API
           href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Referenční informace
   items:
     - name: Ukázky kódů
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
-    - name: Rozhraní DocumentDB API
+    - name: Rozhraní SQL API
       items:
         - name: Java
           href: documentdb-sdk-java.md

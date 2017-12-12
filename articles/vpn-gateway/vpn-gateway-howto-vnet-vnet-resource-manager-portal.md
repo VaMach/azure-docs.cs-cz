@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 406cb4faf53bde5f615593e2e904d91a1d90a729
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Konfigurace propojení brány VPN typu VNet-to-VNet pomocí webu Azure Portal
 
@@ -41,15 +41,23 @@ Postupy v tomto článku se týkají modelu nasazení Resource Manager a použí
 
 ## <a name="about"></a>Informace o propojování virtuálních sítí
 
-Propojení virtuální sítě s jinou virtuální sítí s použitím typu připojení VNet-to-VNet je podobné jako vytvoření připojení IPsec k místnímu serveru. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE a oba komunikují stejným způsobem. Rozdílem mezi těmito typy připojení je způsob konfigurace místní síťové brány. Při vytváření připojení typu VNet-to-VNet se nezobrazí adresní prostor místní síťové brány. Vytvoří a naplní se automaticky. Pokud aktualizujete adresní prostor pro jednu virtuální síť, druhá virtuální síť bude automaticky znát trasu do aktualizovaného adresního prostoru.
+Existuje více způsobů propojení virtuálních sítí. Následující oddíly popisují různé způsoby připojení virtuálních sítí.
 
-Pokud pracujete se složitou konfigurací, možná místo typu připojení VNet-to-VNet dáte přednost použití typu připojení IPsec. Ten vám umožní pro místní síťovou bránu zadat další adresní prostor pro směrování provozu. Pokud propojíte virtuální sítě s použitím typu připojení IPsec, musíte místní síťovou bránu vytvořit a nakonfigurovat ručně. Další informace najdete v tématu [Konfigurace typu Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+### <a name="vnet-to-vnet"></a>VNet-to-VNet
 
-Kromě toho, pokud se virtuální sítě nacházejí ve stejné oblasti, můžete uvažovat o jejich propojení vytvořením partnerského vztahu virtuálních sítí. Partnerský vztah virtuálních sítí nevyužívá bránu VPN a jeho ceny a funkce se poněkud liší. Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
+Konfigurace připojení VNet-to-VNet je dobrým způsobem, jak snadno připojit virtuální sítě. Propojení virtuální sítě s jinou virtuální sítí s použitím typu připojení VNet-to-VNet je podobné jako vytvoření připojení Site-to-Site IPsec k místnímu umístění. Oba typy připojení využívají bránu VPN k poskytnutí zabezpečeného tunelového propojení prostřednictvím protokolu IPsec/IKE a oba komunikují stejným způsobem. Rozdílem mezi těmito typy připojení je způsob konfigurace místní síťové brány. Při vytváření připojení typu VNet-to-VNet se nezobrazí adresní prostor místní síťové brány. Vytvoří a naplní se automaticky. Pokud aktualizujete adresní prostor pro jednu virtuální síť, druhá virtuální síť bude automaticky znát trasu do aktualizovaného adresního prostoru. Vytvoření připojení VNet-to-VNet je obvykle rychlejší a snazší než vytvoření připojení Site-to-Site mezi virtuálními sítěmi.
 
-### <a name="why"></a>Proč vytvářet připojení typu VNet-to-VNet?
+### <a name="site-to-site-ipsec"></a>Site-to-Site (IPsec)
 
-Virtuální sítě může být vhodné propojit z následujících důvodů:
+Pokud pracujete se složitou konfigurací sítě, můžete chtít vaše virtuální sítě raději připojit pomocí kroků [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Při použití kroků Site-to-Site (IPsec) vytvoříte a nakonfigurujete brány místní sítě ručně. Brána místní sítě pro každou virtuální síť zpracovává jiné virtuální sítě jako místní síť. Ten vám umožní pro místní síťovou bránu zadat další adresní prostor pro směrování provozu. Pokud se adresní prostor pro virtuální síť změní, musíte aktualizovat odpovídající bránu místní sítě tak, aby změnu odrážela. Nedojde k automatické aktualizaci.
+
+### <a name="vnet-peering"></a>Partnerské vztahy virtuálních sítí
+
+Můžete chtít zvážit připojení vašich virtuálních sítí pomocí VNET Peering. VNET Peering nepoužívá bránu sítě VPN a má jiná omezení. Kromě toho [ceny pro VNET Peering](https://azure.microsoft.com/pricing/details/virtual-network) se vypočítávají odlišně než [ceny pro VNet-to-VNet VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway). Další informace najdete v tématu [Partnerské vztahy virtuálních sítí](../virtual-network/virtual-network-peering-overview.md).
+
+## <a name="why"></a>Proč vytvářet připojení typu VNet-to-VNet?
+
+Virtuální sítě může být vhodné propojit pomocí připojení VNet-to-VNet z následujících důvodů:
 
 * **Geografická redundance napříč oblastmi a geografická přítomnost**
 

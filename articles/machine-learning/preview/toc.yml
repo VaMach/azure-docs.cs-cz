@@ -128,6 +128,8 @@
           href: scenario-tdsp-classifying-us-incomes.md
         - name: Klasifikace obrázků s využitím CNTK
           href: scenario-image-classification-using-cntk.md
+        - name: Hloubkové učení pro prediktivní údržbu
+          href: scenario-deep-learning-for-predictive-maintenance.md
 - name: Referenční informace
   items:
     - name: Příprava dat

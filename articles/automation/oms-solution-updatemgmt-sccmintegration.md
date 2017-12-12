@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integrace System Center Configuration Manageru s OMS Update Managementem [Preview]
+# <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integrace System Center Configuration Manageru s OMS Update Managementem
 
 Zákazníci, kteří investovali do System Center Configuration Manageru pro správu počítačů, serverů a mobilních zařízení využívají jeho odolnost a další přednosti také při správě aktualizací softwaru jako součást cyklu správy softwarových aktualizací (SUM).  
 
@@ -42,12 +42,13 @@ To, jak spravujete klienty hostované v Azure IaaS s využitím stávajícího p
 Pokud budete nadále spravovat nasazení aktualizace z Configuration Manageru, proveďte následující kroky.  OMS se připojí ke Configuration Manageru a nainstaluje aktualizace do klientských počítačů připojených k pracovnímu prostoru Log Analytics. Obsah aktualizace obsah je dostupný z mezipaměti klientského počítače, stejně jako v případě, kdy nasazení spravoval Configuration Manager.  
 
 1. Na webu nejvyšší úrovně v hierarchii Configuration Manager vytvořte nasazení aktualizace softwaru, a to pomocí postupu popsaného v [procesu nasazení softwarových aktualizací](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  Jediným nastavením, které se musí nakonfigurovat jinak než u standardního nasazení, je možnost **Neinstalovat softwarové aktualizace**, která řídí řízení chování balíčku pro nasazení při stahování. Toto chování spravuje řešení OMS Update Management vytvořením plánovaného nasazení aktualizace v dalším kroku.  
-2. Na webu Azure Portal vyberte účet Automation na obrazovce **Účet Automation** a vytvořte proměnnou typu Boolean nazvanou **UseOMSForSCCMUpdates** s hodnotou **true**. Použijte přitom pokyny v tématu věnovaném [vytvoření nové proměnné s využitím webu Azure Portal](../automation/automation-variables.md#to-create-a-new-variable-with-the-azure-portal).
-3. Na portálu OMS otevřete řídicí panel Update Managementu.  Pomocí kroků popsaných v tématu [Vytvoření nasazení aktualizace](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) vytvořte nové nasazení a v rozevíracím seznamu vyberte příslušnou kolekci Configuration Manageru reprezentovanou jako skupina počítačů OMS.  Mějte na paměti následující důležité skutečnosti:
+
+1. Na portálu OMS otevřete řídicí panel Update Managementu.  Pomocí kroků popsaných v tématu [Vytvoření nasazení aktualizace](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) vytvořte nové nasazení a v rozevíracím seznamu vyberte příslušnou kolekci Configuration Manageru reprezentovanou jako skupina počítačů OMS.  Mějte na paměti následující důležité skutečnosti:
     1. Pokud je u vybrané kolekce zařízení Configuration Manageru definované časové období údržby, členové této kolekce se ho budou držet (a nevyužijí nastavení **Doba trvání** definované pro naplánované nasazení v OMS.
-    2. Členové cílové kolekce musí mít připojení k internetu (přímo, přes proxy server nebo přes bránu OMS).  
+    1. Členové cílové kolekce musí mít připojení k internetu (přímo, přes proxy server nebo přes bránu OMS).  
 
 Po dokončení nasazení aktualizace s využitím řešení OMS cílové počítače, které jsou členy vybrané skupiny počítačů, v naplánovaném čase nainstalují aktualizace z místní mezipaměti klienta.  Můžete si [zobrazit stav nasazení aktualizací](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments) a monitorovat výsledky nasazení.  
+
 
 ### <a name="manage-software-updates-from-oms"></a>Správa aktualizací softwaru s využitím OMS
 

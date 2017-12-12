@@ -139,24 +139,24 @@
           items:
             - name: Přehled a požadavky
               href: site-recovery-deployment-planner.md
-            - name: Spuštění plánovače nasazení
+            - name: Spuštění nástroje Plánovač nasazení
               href: site-recovery-vmware-deployment-planner-run.md
             - name: Analýza vygenerované sestavy
               href: site-recovery-vmware-deployment-planner-analyze-report.md
-            - name: Analýza sestavy odhadu nákladů na zotavení po havárii
+            - name: Analýza sestavy odhadu náklady
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Horizontální navýšení kapacity procesních serverů pro replikaci VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-        - name: Nástroj a plánování nasazení pro replikaci Hyper-V do Azure
+        - name: Nástroj Plánovač nasazení pro replikaci Hyper-V do Azure
           href: null
           items:
             - name: Přehled a požadavky
               href: site-recovery-hyper-v-deployment-planner.md
-            - name: Spuštění plánovače nasazení
+            - name: Spuštění nástroje Plánovač nasazení
               href: site-recovery-hyper-v-deployment-planner-run.md
             - name: Analýza vygenerované sestavy
               href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-            - name: Analýza sestavy odhadu nákladů na zotavení po havárii
+            - name: Analýza sestavy odhadu náklady
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Testy škálování výkonu pro replikaci Hyper-V mezi místními lokalitami
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md

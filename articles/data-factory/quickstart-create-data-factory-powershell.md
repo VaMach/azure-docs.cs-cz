@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/16/2017
+ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: cb58fe167fe8b369f51e234badd8e419ebd284e4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 4bbac0e82181e46b84afee5ff7601da018226ec0
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Vytvoření datové továrny Azure pomocí PowerShellu 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,30 +42,26 @@ Tento rychlý start popisuje použití PowerShellu k vytvoření datové továrn
     $resourceGroupName = "ADFQuickStartRG";
     ```
 
-    Pokud již skupina prostředků existuje, nepřepisujte ji. Přiřaďte proměnné `$resourceGroupName` jinou hodnotu a spusťte tento příkaz znovu.
+    Pokud již skupina prostředků existuje, nepřepisujte ji. Přiřaďte proměnné `$ResourceGroupName` jinou hodnotu a spusťte tento příkaz znovu.
 2. Pokud chcete vytvořit skupinu prostředků Azure, spusťte následující příkaz: 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
     ``` 
-    Pokud již skupina prostředků existuje, nepřepisujte ji. Přiřaďte proměnné `$resourceGroupName` jinou hodnotu a spusťte tento příkaz znovu. 
+    Pokud již skupina prostředků existuje, nepřepisujte ji. Přiřaďte proměnné `$ResourceGroupName` jinou hodnotu a spusťte tento příkaz znovu. 
 3. Definujte proměnnou název datové továrny. 
 
     > [!IMPORTANT]
     >  Aktualizujte název datové továrny tak, aby byl globálně jedinečný. Například ADFTutorialFactorySP1127. 
 
     ```powershell
-    $dataFactoryName = "ADFQuickStartFactory";
+    $DataFactoryName = "ADFQuickStartFactory";
     ```
-1. Definujte proměnnou pro umístění datové továrny: 
 
-    ```powershell
-    $location = "East US"
-    ```
-5. Pokud chcete vytvořit datovou továrnu, spusťte následující rutinu **Set-AzureRmDataFactoryV2**: 
+5. Pokud chcete vytvořit datovou továrnu, spusťte následující rutinu **Set-AzureRmDataFactoryV2** s použitím vlastností Location a ResourceGroupName z proměnné $ResGrp: 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    $DataFactory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName -Location $ResGrp.Location -Name $dataFactoryName 
     ```
 
 Je třeba počítat s následujícím:
@@ -104,10 +100,14 @@ V datové továrně vytvořte propojené služby, abyste svá úložiště dat 
     Pokud používáte Poznámkový blok, v dialogovém okně **Uložit jako** v poli **Uložit jako typ** vyberte **Všechny soubory**. Jinak se k souboru může přidat přípona `.txt`. Například, `AzureStorageLinkedService.json.txt`. Pokud soubor před otevřením v Poznámkovém bloku vytvoříte v Průzkumníku souborů, přípona `.txt` se možná nezobrazí, protože ve výchozím nastavení je nastavená možnost **Skrýt příponu souborů známých typů**. Než budete pokračovat k dalšímu kroku, odeberte příponu `.txt`.
 2. V **PowerShellu** přejděte do složky **ADFv2QuickStartPSH**.
 
+```powershell
+Set-Location 'C:\ADFv2QuickStartPSH'
+```
+
 3. Spuštěním rutiny **Set-AzureRmDataFactoryV2LinkedService** vytvořte propojenou službu **AzureStorageLinkedService**. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
     ```
 
     Zde je ukázkový výstup:
@@ -151,7 +151,7 @@ V tomto kroku nadefinujete datovou sadu, která představuje data ke kopírován
 2. Spuštěním rutiny **Set-AzureRmDataFactoryV2Dataset** vytvořte datovou sadu **BlobDataset**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
     ```
 
     Zde je ukázkový výstup:
@@ -221,7 +221,7 @@ V tomto rychlém startu vytvoříte kanál s jednou aktivitou, který přebírá
 2. Spuštěním rutiny **Set-AzureRmDataFactoryV2Pipeline** vytvořte kanál **Adfv2QuickStartPipeline**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
+    $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
     ```
 
     Zde je ukázkový výstup:
@@ -249,7 +249,7 @@ V tomto kroku nastavíte hodnoty pro parametry kanálu **inputPath** a **outputP
 2. Spuštěním rutiny **Invoke-AzureRmDataFactoryV2Pipeline** vytvořte spuštění kanálu a předejte mu hodnoty parametrů. Tato rutina vrací ID spuštění kanálu pro budoucí monitorování.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name -ParameterFile .\PipelineParameters.json
     ```
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorování spuštění kanálu
@@ -258,19 +258,19 @@ V tomto kroku nastavíte hodnoty pro parametry kanálu **inputPath** a **outputP
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -PipelineRunId $RunId
 
-        if ($run) {
+        if ($Run) {
             if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-                $run
+                Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
+                $Run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Output  "Pipeline is running...status: InProgress"
         }
 
         Start-Sleep -Seconds 10
-    }
+    }   
     ```
 
     Zde je ukázkový výstup spuštění kanálu:
@@ -314,15 +314,15 @@ V tomto kroku nastavíte hodnoty pro parametry kanálu **inputPath** a **outputP
 1. Spusťte následující skript, který načte podrobnosti o spuštění aktivity kopírování, například velikost načtených/zapsaných dat.
 
     ```powershell
-    Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    $result
-    
-    Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
-    $result.Output -join "`r`n"
-    
-    Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
-    $result.Error -join "`r`n"
+    Write-Output "Activity run details:"
+    $Result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $Result
+
+    Write-Output "Activity 'Output' section:"
+    $Result.Output -join "`r`n"
+
+    Write-Output "Activity 'Error' section:"
+    $Result.Error -join "`r`n"
     ```
 3. Zkontrolujte, jestli se zobrazí výstup podobný následujícímu ukázkovému výstupu výsledku spuštění aktivity:
 

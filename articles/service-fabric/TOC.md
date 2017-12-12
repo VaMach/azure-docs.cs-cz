@@ -50,14 +50,11 @@
 ## [Terminologie](service-fabric-technical-overview.md)
 
 ## Sestavení aplikací a služeb
-### Podporované programovací modely
-#### [Přehled](service-fabric-choose-framework.md)
-#### Kontejnery
-##### [Přehled](service-fabric-containers-overview.md)
+### [Podporované programovací modely](service-fabric-choose-framework.md)
+#### [Kontejnery](service-fabric-containers-overview.md)
 ##### [Docker Compose (Preview)](service-fabric-docker-compose.md)
 ##### [Zásady správného řízení prostředků](service-fabric-resource-governance.md)
-#### Reliable Services
-##### [Přehled](service-fabric-reliable-services-introduction.md)
+#### [Reliable Services](service-fabric-reliable-services-introduction.md)
 ##### [Životní cyklus Reliable Services – C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Životní cyklus Reliable Services – Java](service-fabric-reliable-services-lifecycle-java.md)
 ##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
@@ -69,8 +66,7 @@
 ##### [Interní informace Reliable State Manager a Reliable Collection](service-fabric-reliable-services-reliable-collections-internals.md)
 ##### [Pokročilé využití](service-fabric-reliable-services-advanced-usage.md)
 
-#### Reliable Actors
-##### [Přehled](service-fabric-reliable-actors-introduction.md)
+#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 ##### [Architektura](service-fabric-reliable-actors-platform.md)
 ##### [Životní cyklus a uvolňování paměti](service-fabric-reliable-actors-lifecycle.md)
 ##### [Správa stavu](service-fabric-reliable-actors-state-management.md)
@@ -86,10 +82,9 @@
 #### [Stav služby](service-fabric-concepts-state.md)
 #### [Dělení služby](service-fabric-concepts-partitioning.md)
 #### [Dostupnost služeb](service-fabric-availability-services.md)
-#### [Repliky a instance](service-fabric-concepts-replica-lifecycle.md)
+#### [Životní cyklus replik a instancí](service-fabric-concepts-replica-lifecycle.md)
 #### [Rekonfigurace](service-fabric-concepts-reconfiguration.md)
-#### Komunikace služeb
-##### [Přehled](service-fabric-connect-and-communicate-with-services.md)
+#### [Komunikace služeb](service-fabric-connect-and-communicate-with-services.md)
 ##### [Služba DNS](service-fabric-dnsservice.md)
 ##### [Reverzní proxy server](service-fabric-reverseproxy.md)
 ##### [Konfigurace reverzního proxy serveru pro zabezpečenou komunikaci](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -99,10 +94,8 @@
 
 ### [Plánování kapacity aplikace](service-fabric-capacity-planning.md)
 
-## Správa aplikací
-### [Přehled](service-fabric-application-lifecycle.md)
-### Upgrade aplikací
-#### [Přehled](service-fabric-application-upgrade.md)
+## [Správa aplikací](service-fabric-application-lifecycle.md)
+### [Upgrade aplikací](service-fabric-application-upgrade.md)
 #### [Konfigurace](service-fabric-visualstudio-configure-upgrade.md)
 #### [Parametry upgradu aplikace](service-fabric-application-upgrade-parameters.md)
 #### [Serializace dat v upgradech aplikací](service-fabric-application-upgrade-data-serialization.md)
@@ -110,8 +103,7 @@
 ### [Přehled analýzy chyb](service-fabric-testability-overview.md)
 ### [Nastavení ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
-## Vytvoření a správa clusterů
-### [Přehled](service-fabric-deploy-anywhere.md)
+## [Vytvoření a správa clusterů](service-fabric-deploy-anywhere.md)
 ### Plánování a příprava
 #### [Plánování kapacity](service-fabric-cluster-capacity.md)
 #### [Zotavení po havárii](service-fabric-disaster-recovery.md)
@@ -121,8 +113,7 @@
 ### Clustery v Azure
 #### [Typy uzlů a škálovací sady virtuálních počítačů](service-fabric-cluster-nodetypes.md)
 #### [Vzory zapojení clusteru do sítě](service-fabric-patterns-networking.md)
-### Cluster Resource Manager
-#### [Přehled](service-fabric-cluster-resource-manager-introduction.md)
+### [Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 #### [Architektura](service-fabric-cluster-resource-manager-architecture.md)
 #### [Popis clusteru](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [Přehled skupin aplikací](service-fabric-cluster-resource-manager-application-groups.md)
@@ -230,7 +221,7 @@
 #### [Správa tajných klíčů aplikací](service-fabric-application-secret-management.md)  
 #### [Konfigurace zásad zabezpečení pro aplikaci](service-fabric-application-runas-security.md)
 
-## Práce ve vývojovém prostředí Windows
+## Práce ve vývojovém prostředí Windows/VS
 ### [Správa aplikací v sadě Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Konfigurace zabezpečených připojení v sadě Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 ### [Konfigurace aplikace pro více prostředí](service-fabric-manage-multiple-environment-app-configuration.md)
@@ -239,7 +230,7 @@
 ### [Místní monitorování a diagnostika](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [Nastavení linuxového clusteru ve Windows](service-fabric-local-linux-cluster-windows.md)
 
-## Práce v linuxovém vývojovém prostředí
+## Práce ve vývojovém prostředí Linux/Eclipse
 ### [Začínáme s modulem plug-in Eclipse pro Java Development](service-fabric-get-started-eclipse.md)
 ### [Ladění služby Java v Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Místní monitorování a diagnostika](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

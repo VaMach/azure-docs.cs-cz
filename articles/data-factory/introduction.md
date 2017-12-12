@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Úvod do Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,63 +67,7 @@ Po převodu nezpracovaných dat do podoby, která umožňuje využití v rámci 
 ### <a name="monitor"></a>Monitorování
 Jakmile úspěšně sestavíte a nasadíte kanál integrace dat, který ze zpracovaných dat získává obchodní hodnotu, můžete monitorovat naplánované aktivity a kanály a jejich míru úspěšnosti a chyb. Azure Data Factory obsahuje integrovanou podporu monitorování kanálů prostřednictvím služby Azure Monitor, rozhraní API, PowerShellu, Microsoft Operations Management Suite a panelů stavu na webu Azure Portal.
 
-## <a name="whats-different-in-version-2"></a>Co je nového ve verzi 2?
-Azure Data Factory verze 2 staví na původní službě pro přesouvání a transformaci dat Azure Data Factory a rozšiřuje ji pro pestřejší škálu scénářů integrace dat s upřednostněním cloudu. Azure Data Factory verze 2 přináší tyto funkce:
-
-- Tok řízení a škálování
-- Nasazení a spouštění balíčků služby SSIS (SQL Server Integration Services) v Azure
-
-Po vydání verze 1 jsme zjistili, že zákazníci potřebují navrhovat komplexní scénáře integrace hybridních dat, které vyžadují přesouvání a zpracování dat jak v cloudu, tak i v místním prostředí a cloudových virtuálních počítačích. Z těchto požadavků vyplynula potřeba přesouvat a zpracovávat data v zabezpečených prostředích virtuálních sítí a horizontálně navyšovat kapacitu pomocí výpočetního výkonu na vyžádání.
-
-Jelikož se datové kanály stávají kritickou součástí strategie služeb obchodní analýzy, pochopili jsme, že tyto kritické aktivity práce s daty vyžadují flexibilní plánování pro podporu rostoucích objemů načítaných dat a spouštění na základě událostí. A konečně s rostoucí složitostí těchto operací vzrůstá také potřeba, aby služba podporovala běžná paradigmata pracovních postupů, včetně větvení, smyček a podmíněného zpracování.
-
-Ve verzi 2 můžete do cloudu migrovat také stávající balíčky služby SSIS. Můžete využít novou funkci Integration Runtime (IR) a migrovat službu SSIS metodou „lift and shift“ jako službu Azure spravovanou v rámci ADF. Přidání funkce SSIS IR do verze 2 vám dává možnost spouštět, spravovat, monitorovat a sestavovat balíčky služby SSIS v cloudu.
-
-### <a name="control-flow-and-scale"></a>Tok řízení a škálování 
-V zájmu podpory rozmanitých toků a vzorů integrace v moderních datových skladech služba Data Factory umožňuje nový flexibilní model datového kanálu, který už není svázaný s daty časových řad. V této verzi můžete modelovat podmíněné příkazy a větvení v toku řízení datového kanálu a explicitně předávat parametry v těchto tocích a mezi nimi.
-
-Získáváte teď svobodu modelovat jakýkoli styl toku potřebný pro integraci dat, který se může odesílat na vyžádání nebo opakovaně podle hodinového plánu. Mezi běžné toky, které dříve nebyly podporované, ale teď jsou, patří například tyto:   
-
-- Tok řízení:
-    - Řetězení aktivit v sekvenci v rámci kanálu
-    - Větvení aktivit v rámci kanálu
-    - Parametry
-        - Parametry se dají definovat na úrovni kanálu a při volání kanálu na vyžádání nebo pomocí aktivační události se dají předávat argumenty.
-        - Aktivity mohou využívat argumenty předávané do kanálu.
-    - Předávání vlastního stavu
-        - Výstupy aktivity včetně stavu může používat následující aktivita v kanálu.
-    - Kontejnery smyček
-        - For-each 
-- Toky založené na aktivačních událostech
-    - Kanály se můžou spouštět na vyžádání nebo v nastavenou hodinu.
-- Toky rozdílů
-    - Pomocí parametrů můžete definovat horní mez pro rozdílové kopírování při přesouvání tabulek dimenzí nebo referenčních tabulek z relačního úložiště v místním prostředí nebo cloudu a načíst data do jezera. 
-
-Další informace najdete v tématu [Větvení a řetězení aktivit v kanálech Data Factory](tutorial-control-flow.md).
-
-### <a name="deploy-ssis-packages-to-azure"></a>Nasazení balíčků služby SSIS do Azure 
-Pokud chcete přesunout úlohy služby SSIS, můžete vytvořit službu Data Factory verze 2 a zřídit prostředí Azure-SSIS Integration Runtime (IR). Prostředí Azure-SSIS IR je plně spravovaný cluster virtuálních počítačů Azure (uzlů) vyhrazených ke spouštění balíčků služby SSIS v cloudu. Podrobné pokyny najdete v kurzu [Nasazení balíčků služby SSIS (SQL Server Integration Services) do Azure](tutorial-deploy-ssis-packages-azure.md). 
- 
-
-### <a name="sdks"></a>Sady SDK
-Pokud jste pokročilý uživatel a hledáte programové rozhraní, verze 2 poskytuje pestrou nabídku sad SDK, které můžete použít k vytváření, správě a monitorování kanálů pomocí vašeho oblíbeného integrovaného vývojového prostředí (IDE).
-
-- *.NET SDK:* Sada .NET SDK je aktualizovaná pro verzi 2. 
-- *PowerShell:* Rutiny PowerShellu jsou aktualizované pro verzi 2. Rutiny verze 2 mají v názvu **DataFactoryV2**. Například: Get-AzureRmDataFactoryV2. 
-- *Python SDK:* Tato sada SDK je ve verzi 2 nová.
-- *REST API:* Rozhraní REST API je aktualizováno pro verzi 2.  
-
-Sady SDK aktualizované pro verzi 2 nejsou zpětně kompatibilní s klienty verze 1. 
-
-### <a name="monitoring"></a>Monitorování
-Verze 2 v současné době podporuje monitorování datových továren pouze pomocí sad SDK. Portál ještě monitorování datových továren verze 2 nepodporuje. 
-
-## <a name="load-the-data-into-a-lake"></a>Načtení dat do jezera
-Služba Data Factory má více než 30 konektorů, které umožňují načítat data z hybridních a heterogenních prostředí do Azure. V článku [Průvodce výkonem a laděním](copy-activity-performance.md) najdete nejnovější výsledky výkonu z interního testování a návrhy pro ladění. 
-
-Kromě toho jsme nedávno povolili vysokou dostupnost a škálovatelnost pro prostředí Integration Runtime v místním prostředí, které nainstalujete v privátním síťovém prostředí. Tím se řeší požadavky velkých zákazníků úrovně 1 na lepší dostupnost a škálovatelnost.
-
-## <a name="top-level-concepts-in-version-2"></a>Koncepty nejvyšší úrovně ve verzi 2
+## <a name="top-level-concepts"></a>Koncepty nejvyšší úrovně
 Předplatné Azure může obsahovat jednu nebo více instancí služby Azure Data Factory (neboli datových továren). Azure Data Factory se skládá ze čtyř klíčových součástí. Tyto součásti společně poskytují platformu, na které můžete vytvářet pracovní postupy řízené daty s kroky pro přesun a transformaci dat.
 
 ### <a name="pipeline"></a>Kanál
@@ -147,8 +91,7 @@ Propojené služby slouží ve službě Data Factory ke dvěma účelům:
 - Představují **výpočetní prostředek**, který může hostovat provádění aktivity. Například aktivita HDInsightHive se spouští na clusteru HDInsight Hadoop. Seznam aktivit transformace a podporovaných výpočetních prostředí najdete v článku o [transformaci dat](transform-data.md).
 
 ### <a name="triggers"></a>Triggery
-Aktivační události jsou jednotkou zpracování, která určuje, kdy se má zahájit provádění kanálu. Pro různé typy událostí existují různé typy aktivačních událostí. Ve verzi Preview podporujeme aktivační událost plánovače s hodinovým plánem. 
-
+Aktivační události jsou jednotkou zpracování, která určuje, kdy se má zahájit provádění kanálu. Pro různé typy událostí existují různé typy aktivačních událostí. Ve verzi Preview služba Data Factory podporuje aktivační událost plánovače s hodinovým plánem. 
 
 ### <a name="pipeline-runs"></a>Spuštění kanálu
 Spuštění kanálu je instance provádění kanálu. Instance spuštění kanálu se obvykle vytvářejí předáváním argumentů do parametrů definovaných v kanálech. Argumenty je možné předat ručně nebo v rámci definice aktivační události.
@@ -179,6 +122,9 @@ Samotná služba Azure Data Factory žádná data neuchovává. Umožňuje vytv�
 Přestože je služba Data Factory dostupná jenom v oblastech Východní USA, Východní USA 2 a Západní Evropa, služba pohánějící přesouvání dat ve službě Data Factory je dostupná globálně v několika oblastech. Pokud je úložiště dat za bránou firewall, o přesun dat se postará Systém sledování a správy dat nainstalovaný ve vašem místním prostředí.
 
 Předpokládejme například, že vaše výpočetní prostředí, jako je cluster Azure HDInsight nebo služba Azure Machine Learning, běží v oblasti Západní Evropa. Můžete vytvořit instanci služby Azure Data Factory v oblasti Severní Evropa a použít ji k plánování úloh na výpočetních prostředích v oblasti Západní Evropa. Trvá několik milisekund, než Data Factory aktivuje úlohu ve výpočetním prostředí, ale čas potřebný pro vykonání úlohy ve výpočetním prostředí se nemění.
+
+## <a name="compare-with-version-2"></a>Porovnání s verzí 2
+Seznam rozdílů mezi verzí 1 a verzí 2 služby Data Factory najdete v [porovnání s verzí 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Další kroky
 Naučte se vytvořit datovou továrnu na základě podrobných pokynů v následujících průvodcích pro rychlý start: [prostředí PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md) a portál Azure. 

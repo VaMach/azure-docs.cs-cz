@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59acc48870adf15f59391de1cba9596744a747a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-preview-with-the-azure-portal"></a>Nastavení služby Azure IoT Hub Device Provisioning (Preview) pomocí webu Azure Portal
+# <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Nastavení služby Azure IoT Hub Device Provisioning pomocí webu Azure Portal
 
 Tyto kroky ukazují, jak na portálu nastavit cloudové prostředky Azure pro zřizování zařízení. To zahrnuje vytvoření služby IoT Hub a nové služby IoT Hub Device Provisioning a jejich propojení. 
 
@@ -46,7 +46,7 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
 1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
 
-2. *V Marketplace vyhledejte***službu Device Provisioning**. Vyberte **Služba IoT Device Provisioning (Preview)** a klikněte na tlačítko **Vytvořit**. 
+2. *V Marketplace vyhledejte***službu Device Provisioning**. Vyberte **Služba IoT Device Provisioning** a klikněte na tlačítko **Vytvořit**. 
 
 3. Zadejte **Název** instance služby Device Provisioning. Vyberte předplatné, které se pro tuto instanci použije, a zadejte název nové nebo existující skupiny prostředků. Vyberte umístění. Jakmile budete hotovi, klikněte na **Vytvořit**.
 

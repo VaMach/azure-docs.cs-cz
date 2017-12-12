@@ -4,7 +4,7 @@ description: "Koncepty správy a postupy pro správu název domény v Azure Acti
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 64c1be4358305a736ac1dd8a1b7194c80100d256
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Správa vlastních názvů domén v Azure Active Directory
 Název domény, je důležitou součástí identifikátoru pro mnoho prostředků adresáře: je součástí uživatelského jména nebo e-mailové adresy pro uživatele, část adresy pro skupinu a můžou být součástí identifikátor ID URI aplikace pro aplikaci. Prostředek v Azure Active Directory (Azure AD) může zahrnovat název domény, který už je ověřený jako vlastníkem adresáře, která obsahuje daný prostředek. Globální správce můžete provádět úlohy správy domény ve službě Azure AD.
@@ -66,5 +66,5 @@ Většinu úloh správy pro názvy domén v Azure Active Directory je možné do
 * [Pomocí rozhraní Graph API ke správě názvů domén ve službě Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Další kroky
-* [Přidat vlastní názvy domén](add-custom-domain.md)
+* [Přidání vlastních názvů domén](add-custom-domain.md)
 

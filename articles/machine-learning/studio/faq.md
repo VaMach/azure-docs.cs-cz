@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Nejčastější dotazy ke službě Azure Machine Learning: fakturace, možnosti, omezení a podpora
 Zde jsou některé nejčastější dotazy (a příslušné odpovědi) týkající se cloudové služby Azure Machine Learning, která slouží k vývoji prediktivních modelů a zprovozňování řešení prostřednictvím webových služeb. Najdete tu dotazy ke způsobu používání této služby, včetně modelu fakturace, možností, omezení a podpory.
@@ -230,7 +230,7 @@ Další informace najdete v tématu o [programovém přeučení modelů Machine 
 
 **Jak je možné sledovat webovou službu nasazenou do produkčního prostředí?**
 
-Po nasazení prediktivního modelu ji můžete sledovat z portálu Azure Classic (jenom klasické webové služby) nebo z portálu Azure Machine Learning Web Services. Každá nasazená služba má svůj vlastní řídicí panel, kde můžete sledovat informace z monitorování dané služby. Další informace o správě nasazené webové služby najdete v tématech [Správa webové služby s použitím portálu Azure Machine Learning Web Services](manage-new-webservice.md) a [Správa pracovního prostoru Azure Machine Learning](manage-workspace.md).
+Po nasazení prediktivního modelu ji můžete sledovat z portálu Azure Machine Learning Web Services. Každá nasazená služba má svůj vlastní řídicí panel, kde můžete sledovat informace z monitorování dané služby. Další informace o správě nasazené webové služby najdete v tématech [Správa webové služby s použitím portálu Azure Machine Learning Web Services](manage-new-webservice.md) a [Správa pracovního prostoru Azure Machine Learning](manage-workspace.md).
 
 **Je možné si někde zobrazit výstup RRS nebo BES?**
 
@@ -285,7 +285,7 @@ Ne.
 ## <a name="security-and-availability"></a>Zabezpečení a dostupnost
 **Kdo má ve výchozím nastavení přístup ke koncovému bodu HTTP pro webovou službu? Jak omezím přístup ke koncovému bodu?**
 
-Po nasazení webové služby je pro tuto službu vytvořen koncový bod. Výchozí koncový bod je možné volat pomocí klíče rozhraní API. Další koncové body s vlastními klíči je možné přidat na portálu Azure Classic nebo programově pomocí rozhraní API pro správu webových služeb. Pro volání do webové služby se vyžadují přístupové klíče. Další informace najdete v tématu o [využívání webové služby Azure Machine Learning](consume-web-services.md).
+Po nasazení webové služby je pro tuto službu vytvořen koncový bod. Výchozí koncový bod je možné volat pomocí klíče rozhraní API. Další koncové body s vlastními klíči je možné přidat na portálu webových služeb nebo programově pomocí rozhraní API pro správu webových služeb. Pro volání do webové služby se vyžadují přístupové klíče. Další informace najdete v tématu o [využívání webové služby Azure Machine Learning](consume-web-services.md).
 
 **Co se stane, když se můj účet Azure Storage nenajde?**
 
@@ -297,7 +297,7 @@ Pokud jste účet úložiště omylem odstranili, znovu vytvořte účet úloži
 
 Machine Learning Studio při provádění pracovního postupu využívá k ukládání pracovních dat uživatelem zadaný účet Azure Storage. Tento účet úložiště se do nástroje Machine Learning Studio zadává při vytváření pracovního prostoru. Přístupové klíče se přiřadí k tomuto pracovnímu prostoru. Pokud se přístupové klíče po vytvoření pracovního prostoru změní, pracovní prostor už nebude mít přístup k účtu úložiště. Přestane proto fungovat a všechny experimenty v něm selžou.
 
-Pokud jste změnili přístupové klíče účtu úložiště, znovu je v pracovním prostoru synchronizujte přes portál Azure Classic.  
+Pokud jste změnili přístupové klíče účtu úložiště, znovu je v pracovním prostoru synchronizujte přes portál Azure.  
 
 ## <a name="support-and-training"></a>Podpora a školení
 **Kde získám školení pro Azure Machine Learning?**
@@ -509,7 +509,7 @@ Stačí vám jen účet Microsoft. Přejděte na [domovskou stránku Azure Machi
 
 **Jak se ve službě Azure Machine Learning zaregistrovat k úrovni Standard?**
 
-Pokud chcete vytvořit pracovní prostor Machine Learning úrovně Standard, musíte mít přístup k předplatnému Azure. Nejdřív si můžete vyzkoušet 30denní bezplatnou verzi Azure a později upgradovat na placené předplatné Azure. Nebo si placenou verzi Azure můžete pořídit hned. S přístupem k předplatnému potom můžete pracovní prostor Machine Learning vytvořit na portálu Microsoft Azure Classic. Projděte si prosím [podrobný návod](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Pokud chcete vytvořit pracovní prostor Machine Learning úrovně Standard, musíte mít přístup k předplatnému Azure. Nejdřív si můžete vyzkoušet 30denní bezplatnou verzi Azure a později upgradovat na placené předplatné Azure. Nebo si placenou verzi Azure můžete pořídit hned. S přístupem k předplatnému potom můžete pracovní prostor Machine Learning vytvořit na portálu Microsoft Azure. Projděte si prosím [podrobný návod](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 Nebo vás do pracovního prostoru může pozvat vlastník pracovního prostoru Machine Learning úrovně Standard.
 

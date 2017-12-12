@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: a1ea4007f7399dff6da9d66931e1f5366942be0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1388a351b82beb6b3e7eb61a3a0517aa90c695f5
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Správa a zpracování výstrah zabezpečení v Azure Security Center
 Tento dokument vám pomůže používat Azure Security Center ke správě výstrah zabezpečení a reagování na ně.
@@ -57,6 +57,10 @@ V dolní části této stránky jsou uvedené podrobnosti pro každou výstrahu.
 * **State** (Stav): Aktuální stav výstrahy. Existují dva typy stavů:
   * **Active** (Aktivní): Výstraha zabezpečení byla zjištěna.
 * **Severity** (Závažnost): Úroveň závažnosti, tj. vysoká, střední nebo nízká.
+
+> [!NOTE]
+> Výstrahy zabezpečení, které generuje Security Center, se také zobrazí v části Protokol aktivit Azure. Další informace o tom, jak získat přístup k Protokolu aktivit Azure, najdete v popisu [zobrazení protokolů aktivit pro auditování akcí u prostředků](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+>
 
 ### <a name="filtering-alerts"></a>Filtrování výstrah
 Výstrahy můžete filtrovat podle data, stavu nebo závažnosti. Filtrování výstrah může být užitečné v případech, kdy potřebujete zúžit obor zobrazených výstrah zabezpečení. Například můžete chtít zabývat se výstrahami zabezpečení, k nimž došlo v posledních 24 hodinách, protože zjišťujete případný průnik do systému.

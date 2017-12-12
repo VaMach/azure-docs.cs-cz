@@ -38,6 +38,7 @@
 
 ## Integrace
 ### [Přehled](sql-data-warehouse-overview-integrate.md)
+### [Elastický dotaz SQL Database](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## Monitorování a ladění
@@ -100,9 +101,8 @@
 
 
 ## Integrace
-###  [Konfigurace elastického dotazu z SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Konfigurace elastického dotazu SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [Přidání úlohy služby Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [Konfigurace elastického dotazu](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [Použití Machine Learningu](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Vizualizace pomocí Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 

@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Vývoj rozsáhlých paralelních výpočetních řešení pomocí služby Batch
 
@@ -56,10 +56,8 @@ Některé z následujících prostředků – účty, výpočetní uzly, fondy, 
 * [Výpočetní uzel](#compute-node)
 * [Fond](#pool)
 * [Úloha](#job)
-
   * [Plány úlohy](#scheduled-jobs)
 * [Úkol](#task)
-
   * [Spouštěcí úkol](#start-task)
   * [Úkol správce úloh](#job-manager-task)
   * [Úkoly přípravy a uvolnění úloh](#job-preparation-and-release-tasks)
@@ -263,6 +261,9 @@ Při vytvoření úkolu můžete zadat:
 * **Omezení**, za kterých by měl být proveden úkol. Mezi omezení patří například: maximální doba, po kterou smí úkol běžet, maximální počet pokusů o opakování neúspěšného úkolu a maximální doba, po kterou jsou zachovány soubory v pracovním adresáři úkolu.
 * **Balíčky aplikací** pro nasazení do výpočetního uzlu, na kterém je naplánováno spuštění úkolu. [Balíčky aplikací](#application-packages) poskytují možnost zjednodušeného nasazení a správy verzí aplikací, které provádějí vaše úkoly. Balíčky aplikací na úrovni úkolů jsou zvláště užitečné v prostředích sdíleného fondu, kde se různé úlohy spouštějí v jednom fondu a kde se fond po dokončení úlohy neodstraňuje. Pokud má vaše úloha méně úkolů, než je uzlů ve fondu, balíčky aplikací úkolů můžou omezit přenosy dat, protože se aplikace může nasadit jen na uzly, které úkoly budou skutečně provádět.
 * Odkaz na **image kontejneru** v Docker Hubu nebo privátním registru a další nastavení pro vytvoření kontejneru Dockeru, ve kterém se bude spouštět úloha na uzlu. Tyto údaje zadáváte pouze v případě, že je ve fondu nastavená konfigurace kontejneru.
+
+> [!NOTE]
+> Maximální doba života úkolu, od jeho přidání do úlohy po jeho dokončení, je 7 dní. Dokončené úkoly se zachovávají po neomezenou dobu; data pro úkoly, které se nedokončí v rámci maximální doby života, nejsou dostupná.
 
 Vedle úkolů, které definujete pro provádění výpočtů na uzlu, poskytuje služba Batch také následující zvláštní úkoly:
 

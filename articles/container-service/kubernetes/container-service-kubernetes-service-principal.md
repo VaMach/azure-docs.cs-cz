@@ -1,26 +1,19 @@
 ---
-title: "Instanční objekt pro cluster Azure Kubernetes | Dokumentace Microsoftu"
+title: "Instanční objekt pro cluster Azure Kubernetes"
 description: "Vytvoření a správa instančního objektu služby Azure Active Directory pro cluster Kubernetes v Azure Container Service"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Nastavení instančního objektu služby Azure AD pro cluster Kubernetes ve službě Container Service
 
@@ -36,11 +29,11 @@ Tento článek ukazuje různé možnosti nastavení instančního objektu pro cl
 
 Můžete vytvořit existující instanční objekt služby Azure AD splňující následující požadavky nebo můžete vytvořit nový.
 
-* **Obor:** Skupina prostředků použitá k nasazení clusteru.
+* **Obor:** Skupina prostředků
 
-* **Role:****Přispěvatel**
+* **Role:** Přispěvatel
 
-* **Tajný kód klienta:** Musí se jednat o heslo. V současné době nemůžete použít instanční objekt nastavený pro ověření certifikátu.
+* **Tajný klíč klienta:** Musí to být heslo. V současné době nemůžete použít instanční objekt nastavený pro ověření certifikátu.
 
 > [!IMPORTANT]
 > Abyste mohli vytvořit instanční objekt, musíte mít oprávnění k registraci aplikace v tenantu Azure AD a přiřazení aplikace k roli v předplatném. Pokud chcete zjistit, jestli máte požadovaná oprávnění, [podívejte se na portál](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 Výstup je podobný tomuto (zobrazuje se zde zrevidovaně):
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Při zadávání **ID klienta** instančního objektu můžete použít hodnotu `appId` (jak je ukázáno v tomto článku) nebo odpovídající `name` instančního objektu (například `https://www.contoso.org/example`).
 
-* Na hlavním virtuálním počítači a virtuálních počítačích agentů v clusteru Kubernetes se přihlašovací údaje instančního objektu ukládají v souboru /etc/kubernetes/azure.json.
+* Na hlavním virtuálním počítači a virtuálních počítačích agentů v clusteru Kubernetes jsou pověření instančního objektu uložená v souboru `/etc/kubernetes/azure.json`.
 
-* Pokud použijete příkaz `az acs create` k automatickému vygenerování instančního objektu, zapíší se přihlašovací údaje instančního objektu do souboru ~/.azure/acsServicePrincipal.json na počítači, který jste ke spuštění příkazu použili.
+* Pokud použijete příkaz `az acs create` k automatickému vygenerování instančního objektu, zapíší se přihlašovací údaje instančního objektu do souboru `~/.azure/acsServicePrincipal.json` na počítači, který jste ke spuštění příkazu použili.
 
 * Pokud použijete příkaz `az acs create` k automatickému vygenerování instančního objektu, bude se tento instanční objekt moci ověřovat také pomocí služby [Azure Container Registry](../../container-registry/container-registry-intro.md) vytvořené ve stejném předplatném.
+
+* Přihlašovací údaje instančního objektu můžou vypršet, což způsobí přechod uzlů clusteru do stavu **NotReady**. Informace o omezení rizik najdete v části [Vypršení platnosti přihlašovacích údajů](#credential-expiration).
+
+## <a name="credential-expiration"></a>Vypršení platnosti přihlašovacích údajů
+
+Pokud při vytváření instančního objektu nezadáte vlastní okno platnosti pomocí parametru `--years`, jsou přihlašovací údaje platné po dobu jednoho roku od času vytvoření. Když vyprší platnost přihlašovacích údajů, můžou uzly clusteru přejít do stavu **NotReady**.
+
+Pokud chcete zkontrolovat datum vypršení platnosti instančního objektu, spusťte příkaz [az ad app show](/cli/azure/ad/app#az_ad_app_show) s parametrem `--debug` a vyhledejte hodnotu `endDate` pro `passwordCredentials` u konce výstupu:
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+Výstup (zkrácené zobrazení):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+Pokud vypršela platnost přihlašovacích údajů instančního objektu, použijte příkaz [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials), abyste přihlašovací údaje aktualizovali:
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Výstup:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+Potom aktualizujte soubor `/etc/kubernetes/azure.json` novými přihlašovacími údaji na všech uzlech clusteru a uzly restartujte.
 
 ## <a name="next-steps"></a>Další kroky
 

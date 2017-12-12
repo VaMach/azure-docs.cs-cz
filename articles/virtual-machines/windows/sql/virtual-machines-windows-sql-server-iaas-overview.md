@@ -1,6 +1,6 @@
 ---
 title: "Přehled SQL Serveru na virtuálních počítačích Azure s Windows | Dokumentace Microsoftu"
-description: "Zjistěte, jak spouštět úplné edice SQL Serveru na virtuálních počítačích Azure s Windows. Můžete získat přímé odkazy na všechny image virtuálních počítačů SQL Serveru a související obsah."
+description: "Můžete se dozvědět, jak spouštět úplné edice SQL Serveru virtuálních počítačích Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
@@ -12,103 +12,99 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/02/2017
+ms.date: 12/02/2017
 ms.author: jroth
-ms.openlocfilehash: b10c995fdd8e241d354c62537a0600b393795c1b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36fa884b451d41ed7443312cc21b49b0b720a954
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="overview-of-sql-server-on-azure-virtual-machines-windows"></a>Přehled SQL Serveru na virtuálních počítačích Azure (Windows)
+# <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Co je SQL Server na virtuálních počítačích Azure? (Windows)
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
 
-Toto téma popisuje možnosti spouštění SQL Serveru na virtuálních počítačích Azure s Windows a uvádí [odkazy na image na portálu](#option-1-create-a-sql-vm-with-per-minute-licensing) a přehled [běžných úloh](#manage-your-sql-vm).
+[SQL Server na virtuálních počítačích Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) umožňuje používat plné verze SQL Serveru v cloudu, aniž by bylo potřeba spravovat jakýkoli místní hardware. Pokud platíte průběžně, pro virtuální počítače s SQL Serverem se také zjednoduší náklady na licencování.
 
-> [!NOTE]
-> Pokud jste již obeznámeni s SQL Serverem a chcete jenom zjistit, jak nasadit virtuální počítač s Windows a SQL Serverem, přečtěte si téma [Zřízení virtuálního počítače s Windows a SQL Serverem v Azure](virtual-machines-windows-portal-sql-server-provision.md). Případně pokud chcete vytvořit virtuální počítač s Linuxem a SQL Serverem, přečtěte si téma [Zřízení virtuálního počítače s Linuxem a SQL Serverem v Azure](../../linux/sql/provision-sql-server-linux-virtual-machine.md).
+Virtuální počítače Azure běží v mnoha různých [geografických oblastech](https://azure.microsoft.com/regions/) po celém světě. Také nabízejí celou řadu [velikostí počítačů](../sizes.md). Galerie imagí virtuálních počítačů umožňuje vytvoření virtuálního počítače s SQL Serverem, který má správnou verzi, vydání i operační systém. Díky tomu jsou virtuální počítače vhodné pro mnoho různých úloh SQL Serveru.
 
-Pokud jste správce databáze nebo vývojář, nabízejí virtuální počítače Azure způsob, jak lokální úlohy aplikace SQL Serveru přesunout do cloudu.
+## <a name="automated-updates"></a>Automatizované aktualizace
 
-## <a name="scenarios"></a>Scénáře
-Existuje mnoho důvodů, kvůli kterým byste se mohli rozhodnout, že jako hostitele dat budete využívat Azure. Pokud do Azure přesunujete některou aplikaci, dosáhnete lepšího výkonu, když tam přesunete i data. Ale jsou tu i další výhody. Budete mít automaticky přístup k většímu počtu datových center pro dosažení globální působnosti a zotavení po havárii. Data také získají vysoké zabezpečení a odolnost.
+Virtuální počítače Azure s SQL Serverem mohou používat [Automatické opravy](virtual-machines-windows-sql-automated-patching.md) k naplánování okna údržby pro automatickou instalaci důležitých oken a aktualizace SQL serveru.
 
-SQL Server běžící na virtuálních počítačích Azure je jednou z možností, jak ukládat relační data v Azure. Je to dobrá volba pro několik scénářů. Například by mohlo být vhodné virtuální počítač Azure nakonfigurovat co nejpodobněji lokálnímu počítači s SQL Serverem. Nebo budete chtít na stejném databázovém serveru provozovat další aplikace a služby. Existují dva hlavní prostředky, které vám pomůžou promyslet si ještě další scénáře a předpoklady:
+## <a name="automated-backups"></a>Automatizované zálohy
 
-* [SQL Server ve službě Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) poskytuje přehled nejlepších scénářů použití SQL Serveru na virtuálních počítačích Azure. 
-* [Volba cloudového řešení systému SQL Server: Azure SQL (PaaS) Database nebo SQL Server na virtuálních počítačích Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) nabízí podrobné porovnání SQL Database a SQL Serveru běžícího na virtuálním počítači.
+Virtuální počítače Azure s SQL Serverem mohou využívat výhod [automatizovaného zálohování](virtual-machines-windows-sql-automated-backup-v2.md), které pravidelně vytváří zálohy databáze do Blob Storage. Tento postup můžete použít také ručně. Další informace najdete v tématu [Použití služby Azure Storage pro zálohování a obnovování SQL Serveru](virtual-machines-windows-use-storage-sql-server-backup-restore.md).
 
-## <a name="create-a-new-sql-vm"></a>Vytvoření nového virtuálního počítače s SQL Serverem
-Následující oddíly poskytují přímé odkazy na image v galerii virtuálních počítačů s SQL Serverem na webu Azure Portal. V závislosti na zvolené imagi můžete platit licenční náklady na SQL Server po minutách, nebo můžete používat vlastní licenci (BYOL).
+## <a name="high-availability"></a>Vysoká dostupnost
 
-Podrobné pokyny k vytvoření nového virtuálního počítače s SQL Serverem najdete v kurzu [Zřízení virtuálního počítače s SQL Serverem na webu Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Projděte si také téma [Osvědčené postupy z hlediska výkonu pro virtuální počítače s SQL Serverem](virtual-machines-windows-sql-performance.md), které vysvětluje, jak vybrat odpovídající velikost počítače a další funkce dostupné při zřizování.
+Pokud požadujete vysokou dostupnost, doporučujeme nakonfigurovat skupiny dostupnosti SQL Serveru. Znamená to využívat více virtuálních počítačů Azure s SQL Serverem ve virtuální síti. Řešení vysoké dostupnosti můžete nakonfigurovat ručně, nebo můžete použít šablony na webu Azure Portal pro automatickou konfiguraci. Přehled možností vysoké dostupnosti najdete v tématu [Vysoká dostupnost a zotavení po havárii pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
-## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a>Možnost 1: Vytvoření virtuálního počítače s SQL Serverem a licencováním po minutách
-Následující tabulka obsahuje matici nejnovějších imagí SQL Serveru v galerii virtuálních počítačů. Po kliknutí na odkaz se začne vytvářet nový virtuální počítač SQL se zadanou verzí, edicí a operačním systémem. 
+## <a name="get-started-with-sql-vms"></a>Začínáme s virtuálními počítači SQL
+
+Chcete-li začít, zvolte image virtuálního počítače s SQL Serverem s požadovanou verzí, vydáním a operačním systémem. Následující oddíly poskytují přímé odkazy na image v galerii virtuálních počítačů s SQL Serverem na webu Azure Portal.
 
 > [!TIP]
 > Pro lepší pochopení cen virtuálních počítačů a SQL si přečtěte [doprovodné materiály k cenám pro virtuální počítače Azure s SQL Serverem](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-| Version | Operační systém | Edice |
+### <a id="payasyougo"></a> Průběžné platby
+Následující tabulka obsahuje matici imagí SQL Serveru s průběžnými platbami.
+
+| Verze | Operační systém | Edice |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
 | **SQL Server 2012 SP3** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2) |
+| **SQL Server 2008 R2 SP3** |Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2008R2) |
 
-> [!NOTE]
-> Dostupné image virtuálních počítačů s Linuxem a SQL Serverem najdete v tématu [Přehled SQL Serveru na virtuálních počítačích Azure (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
+Dostupné image virtuálních počítačů s Linuxem a SQL Serverem najdete v tématu [Přehled SQL Serveru na virtuálních počítačích Azure (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
-## <a id="BYOL"></a> Možnost 2: Vytvoření virtuálního počítače s SQL Serverem a stávající licencí
-Můžete také používat vlastní licenci (BYOL). V tomto scénáři zaplatíte jenom za virtuální počítač bez jakýchkoli dalších poplatků za licencování SQL Serveru. Pokud budete chtít využívat vlastní licenci, použijte níže uvedenou tabulku verzí, edicí a operačních systémů SQL Serveru. Na portálu mají názvy těchto imagí předponu **{BYOL}**.
+### <a id="BYOL"></a> Používání vlastní licence
+Můžete také používat vlastní licenci (BYOL). V tomto scénáři zaplatíte jenom za virtuální počítač bez jakýchkoli dalších poplatků za licencování SQL Serveru.  Používáním vlastní licence můžete časem ušetřit peníze za nepřetržité produkční úlohy. Požadavky k použití této možnosti najdete v tématu [Doprovodné materiály k cenám pro virtuální počítače Azure s SQL Serverem](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-> [!TIP]
-> Používáním vlastní licence můžete časem ušetřit peníze za nepřetržité produkční úlohy. Další informace najdete v tématu [Doprovodné materiály k cenám pro virtuální počítače Azure s SQL Serverem](virtual-machines-windows-sql-server-pricing-guidance.md).
-
-| Version | Operační systém | Edice |
+| Verze | Operační systém | Edice |
 | --- | --- | --- |
-| **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016) |
+| **SQL Server 2017** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
+| **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3StandardWindowsServer2012R2) |
 
-Možné jsou i jiné kombinace verzí SQL Serveru a operačního systému, než jsou v uvedeném seznamu. Další image najdete hledáním na marketplace na portálu Azure Portal (dejte vyhledat „{BYOL} SQL Server“).
-
-> [!IMPORTANT]
-> Abyste mohli používat image virtuálních počítačů BYOL, musíte mít smlouvu Enterprise s [Mobilitou licencí v rámci programu Software Assurance na platformě Azure](https://azure.microsoft.com/pricing/license-mobility/). Budete také potřebovat platnou licenci pro verzi nebo edici SQL Serveru, kterou budete chtít používat. Do **10** dnů od zřízení virtuálního počítače musíte [společnosti Microsoft předat nezbytné informace v souvislosti s BYOL](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf). 
-
-> [!NOTE]
-> Není možné změnit licenční model virtuálního počítače s SQL Serverem placeného po minutách, aby používal vaši vlastní licenci. V takovém případě musíte vytvořit nový virtuální počítač BYOL a migrovat databáze do nového virtuálního počítače. 
-
-## <a name="manage-your-sql-vm"></a>Správa vašeho virtuálního počítače s SQL Serverem
-Po zřízení virtuálního počítače s SQL Serverem je možné volitelně provést některé úlohy správy. V mnoha aspektech se SQL Server konfiguruje a spravuje úplně stejně jako místní instance SQL Serveru. Některé úlohy jsou ale pro Azure specifické. V následujících částech se na některé z těchto oblastí podíváme podrobněji a najdete v nich také odkazy na další informace.
+Na portálu mají názvy těchto imagí předponu **{BYOL}**.
 
 ### <a name="connect-to-the-vm"></a>Připojení k virtuálnímu počítači
-Jedním z nejzákladnějších kroků správy je připojení k virtuálnímu počítači SQL Serveru pomocí nástrojů, jako je SQL Server Management Studio (SSMS). Pokyny pro připojení k novému virtuálnímu počítači s SQL Serverem najdete v tématu [Připojení k virtuálnímu počítači s SQL Serverem v Azure](virtual-machines-windows-sql-connect.md).
+Po vytvoření virtuálního počítače s SQL Serverem se k němu připojte z aplikací nebo nástrojů, jako je například SQL Server Management Studio (SSMS). Pokyny najdete v tématu [Připojení k virtuálnímu počítači SQL Serveru na Azure](virtual-machines-windows-sql-connect.md).
 
 ### <a name="migrate-your-data"></a>Migrace dat
 Pokud máte existující databázi, bude ji nutné přesunout do nově zřízeného virtuálního počítače s SQL Serverem. Seznam možností migrace a pokyny najdete v části [Migrace databáze do SQL Serveru ve virtuálním počítači Azure](virtual-machines-windows-migrate-sql.md).
 
-### <a name="configure-high-availability"></a>Nakonfigurování vysoké dostupnosti
-Pokud požadujete vysokou dostupnost, doporučujeme nakonfigurovat skupiny dostupnosti SQL Serveru. Znamená to využívat více virtuálních počítačů Azure ve virtuální síti. Na portálu Azure Portal najdete šablonu, která vám tuto konfiguraci nastaví automaticky. Další informace najdete v tématu [Konfigurace skupiny dostupnosti AlwaysOn ve virtuálních počítačích Azure Resource Manageru](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pokud chcete skupiny dostupnosti a přidružený naslouchací proces nakonfigurovat ručně, najdete další informace v tématu [Konfigurace skupin dostupnosti AlwaysOn ve virtuálním počítači Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+## <a name="customer-experience-improvement-program-ceip"></a>Program Zlepšování softwaru a služeb na základě zkušeností uživatelů (CEIP)
+Program Zlepšování softwaru a služeb na základě zkušeností uživatelů (CEIP) je ve výchozím nastavení povolen. Ten pravidelně odesílá zprávy do Microsoftu s cílem přispět k vylepšování SQL Serveru. S programem CEIP není spojená žádná nutná úloha správy – za předpokladu, že ho nechcete po zřízení zakázat. Tento program můžete přizpůsobit nebo vypnout připojením k virtuálnímu počítači pomocí vzdálené plochy. Pak spusťte nástroj **pro zasílání zpráv o chybách a vytváření sestav využití SQL Serveru**. Podle pokynů zakažte generování sestav. Další informace o shromažďování dat najdete v [Prohlášení o zásadách ochrany osobních údajů pro SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx).
 
-Další důležité informace o tom, co je potřeba zvážit z hlediska vysoké dostupnosti, najdete v tématu [Vysoká dostupnost a zotavení po havárii pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
+## <a name="related-products-and-services"></a>Související produkty a služby
+### <a name="windows-virtual-machines"></a>Virtuální počítače s Windows
+* [Přehled služby Virtual Machines](../overview.md)
 
-### <a name="back-up-your-data"></a>Zálohování dat
-Virtuální počítače Azure mohou využívat výhod [automatizovaného zálohování](virtual-machines-windows-sql-automated-backup.md), které pravidelně vytváří zálohy databáze do úložiště blob storage. Tento postup můžete použít také ručně. Další informace najdete v tématu [Použití služby Azure Storage pro zálohování a obnovování SQL Serveru](virtual-machines-windows-use-storage-sql-server-backup-restore.md). Přehled všech možností zálohování a obnovení najdete v tématu [Zálohování a obnovení pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+### <a name="storage"></a>Úložiště
+* [Úvod do Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
-### <a name="automate-updates"></a>Automatické aktualizace
-Virtuální počítače Azure mohou používat [Automatické opravy](virtual-machines-windows-sql-automated-patching.md) k naplánování okna údržby pro automatickou instalaci důležitých oken a aktualizace SQL serveru.
+### <a name="networking"></a>Sítě
+* [Přehled služby Virtual Network](../../../virtual-network/virtual-networks-overview.md)
+* [IP adresy v Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Vytvoření plně kvalifikovaného názvu domény (FQDN) na webu Azure Portal](../portal-create-fqdn.md)
 
-### <a name="customer-experience-improvement-program-ceip"></a>Program Zlepšování softwaru a služeb na základě zkušeností uživatelů (CEIP)
-Program Zlepšování softwaru a služeb na základě zkušeností uživatelů (CEIP) je ve výchozím nastavení povolen. Ten pravidelně odesílá zprávy do Microsoftu s cílem přispět k vylepšování SQL Serveru. S programem CEIP není spojená žádná nutná úloha správy – za předpokladu, že ho nechcete po zřízení zakázat. Tento program můžete přizpůsobit nebo vypnout připojením k virtuálnímu počítači pomocí vzdálené plochy. Pak spusťte nástroj **pro zasílání zpráv o chybách a vytváření sestav využití SQL Serveru**. Podle pokynů zakažte generování sestav. 
-
-Další informace o shromažďování dat najdete v [Prohlášení o zásadách ochrany osobních údajů pro SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
+### <a name="sql"></a>SQL
+* [Dokumentace SQL Serveru](https://docs.microsoft.com/sql/index)
+* [Porovnání Azure SQL Database](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
 
 ## <a name="next-steps"></a>Další kroky
 
-Máte-li dotazy ohledně cen, podívejte se na [Doprovodné materiály k cenám pro virtuální počítače Azure s SQL Serverem](virtual-machines-windows-sql-server-pricing-guidance.md) a na [stránku s cenami Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). V seznamu **Operační systém nebo software** vyberte cílovou edici SQL Serveru. Potom se můžete podívat na ceny různě velkých virtuálních počítačů.
+Začínáme s SQL Serverem na virtuálních počítačích Azure:
 
-Máte nějaký další dotaz? Nejdříve si projděte [Nejčastější dotazy k SQL Serveru na Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md). Můžete ale také svoje dotazy nebo připomínky přidat do pole, které najdete v dolní části všech témat týkajících se virtuálních počítačů s SQL Serverem, a komunikovat se zástupci společnosti Microsoft a komunitou uživatelů.
+* [Vytvoření virtuálního počítače s SQL Serverem na webu Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
+
+Odpovědi na nejčastější dotazy o virtuálních počítačích SQL:
+
+* [SQL Server na Azure Virtual Machines – nejčastější dotazy](virtual-machines-windows-sql-server-iaas-faq.md)
