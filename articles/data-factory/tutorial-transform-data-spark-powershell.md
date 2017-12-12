@@ -13,21 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shengc
-ms.openlocfilehash: b2ec609da51c753ab14685b735f022513ce5809e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 74bff33edd738642ea88ca9b3430aac0ff32bc6f
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformace dat v cloudu pomocí aktivity Sparku ve službě Azure Data Factory
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Tento kurz
-
-> [!NOTE]
-> Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), prostudujte si [dokumentaci služby Data Factory verze 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 V tomto kurzu použijete Azure PowerShell k vytvoření kanálu Data Factory, který transformuje data pomocí aktivity Sparku a propojené služby HDInsight na vyžádání. V tomto kurzu provedete následující kroky:
 
 > [!div class="checklist"]
@@ -36,6 +28,9 @@ V tomto kurzu použijete Azure PowerShell k vytvoření kanálu Data Factory, kt
 > * Vytvoření a nasazení kanálu 
 > * Zahájení spuštění kanálu
 > * Monitorování spuštění kanálu
+
+> [!NOTE]
+> Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), prostudujte si [dokumentaci služby Data Factory verze 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -193,10 +188,18 @@ Vytvořili jste definice propojené služby a kanálu v souborech JSON. Teď vyt
 
 1. Nastavte proměnné jednu po druhé.
 
+    **Název skupiny prostředků**
     ```powershell
-    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
-    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09102017" # Globally unique name of the data factory
+    $resourceGroupName = "ADFTutorialResourceGroup" 
+    ```
+
+    **Název datové továrny. Musí být globálně jedinečný.** 
+    ```powershell
+    $dataFactoryName = "MyDataFactory09102017"
+    ```
+    
+    **Název kanálu**
+    ```powershell
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
 2. Spusťte **PowerShell**. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu Rychlý start. Pokud ho zavřete a znovu otevřete, bude potřeba tyto příkazy spustit znovu. Data Factory V2 v současné době umožňuje vytváření datových továren jenom v oblastech Východní USA, Východní USA 2 a Západní Evropa. Úložiště dat (Azure Storage, Azure SQL Database atd.) a výpočetní prostředí (HDInsight atd.) používané datovou továrnou mohou být v jiných oblastech.

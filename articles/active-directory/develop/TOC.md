@@ -62,6 +62,7 @@
 ### [Co se stalo s mým projektem webového rozhraní API](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [Migrace ACS](active-directory-acs-migration.md)
+## [Osvědčené postupy zpracování chyb pro ADAL](active-directory-devhowto-adal-error-handling.md)
 # Referenční informace
 ## [Ukázky kódu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Knihovny ověřování (ADAL)](active-directory-authentication-libraries.md)

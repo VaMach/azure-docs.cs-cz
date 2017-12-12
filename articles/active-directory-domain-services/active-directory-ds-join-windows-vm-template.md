@@ -4,7 +4,7 @@ description: "Připojení virtuálního počítače s Windows serverem k spravov
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 8cfa13ee028b5e367158de42ceab0a1cd99d45c2
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: b90198696b7bdb9277fd2f2b8e8e727af42c5cfa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Připojení virtuálního počítače Windows serveru ke spravované doméně pomocí šablony Resource Manageru
 Tento článek ukazuje, jak připojit virtuální počítač Windows serveru k spravované doméně služby Azure AD Domain Services pomocí šablony Resource Manageru.

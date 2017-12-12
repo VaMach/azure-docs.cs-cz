@@ -4,7 +4,7 @@ description: "Naučte se spravovat uživatele zřizování účtu pro podnikové
 services: active-directory
 documentationcenter: 
 author: asmalser
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Správa uživatelský účet zřizování pro podnikové aplikace na portálu Azure
 Tento článek popisuje postup použití [portál Azure](https://portal.azure.com) ke správě automatické uživatel účet zřizování a jeho rušení pro aplikace, které to podporují, zejména ta, která byla přidána z "doporučenou" kategorii [ Galerii aplikací Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Další informace o zřizování účtu automatické uživatele a jak to funguje, najdete v části [automatizace zřizování uživatelů a jeho rušení pro aplikace SaaS ve službě Azure Active Directory](active-directory-saas-app-provisioning.md).

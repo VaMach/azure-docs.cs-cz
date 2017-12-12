@@ -4,7 +4,7 @@ description: "Spravovat uživatele typu Host jako členové skupiny nebo přiřa
 services: active-directory
 documentationcenter: 
 author: markwahl-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: d67b12eaac17e278724ddf8670e65afba235f099
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d5cc8035d085ac9c8fc46077376836726afbb1a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Správa přístupu k hostované službě Azure AD přístup recenze
 
@@ -33,7 +33,7 @@ Také můžete snadno zajistíte, že hosta uživatelé mají odpovídající p�
 
 ## <a name="prerequisites"></a>Požadavky 
 
-Nejsou k dispozici na edici Premium P2 služby Azure AD, která je součástí Microsoft Enterprise Mobility + Security, E5 recenze přístup. Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md). Každý uživatel, který komunikuje s touto funkcí Vytvořit kontrolu, přístup k kontrolu nebo použít kontrolu vyžaduje licenci.
+Kontroly přístupu jsou k dispozici v edici Premium P2 služby Azure AD, která je součástí řešení Microsoft Enterprise Mobility + Security, E5. Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md). Každý uživatel, který komunikuje s touto funkcí při vytváření kontroly, přístupu ke kontrole nebo použití kontroly, musí mít licenci.
 
 Pokud budete chtít požádat uživatele typu Host zkontrolovat svůj vlastní přístup, přečtěte si informace o licencování uživatele guest. Další informace najdete v tématu [licencování spolupráce Azure AD B2B](active-directory-b2b-licensing.md).
 
@@ -56,11 +56,11 @@ Potom se můžete rozhodnout, zda požádat každý hostovaný můžete zhodnoti
 
 Recenze přístup vám pomůže zajistit, že uživatelé, kteří byly pozvali a přidat do skupiny dál potřebovat přístup. Snadno můžete pokládat hosté ke kontrole vlastní členství v této skupině.
 
-1. Spuštění kontrola přístupu pro skupinu, vyberte kontrolní zahrnout pouze členy uživatele guest a členy zkontrolovat sami. Další informace najdete v tématu [vytvořit kontrola přístupu](active-directory-azure-ad-controls-create-access-review.md).
+1. Spuštění kontrola přístupu pro skupinu, vyberte kontrolní zahrnout pouze členy uživatele guest a členy zkontrolovat sami. Další informace najdete v popisu [vytvoření kontroly přístupu](active-directory-azure-ad-controls-create-access-review.md).
 
 2. Požádejte každý hostovi Zkontrolujte své vlastní členství. Ve výchozím nastavení každý hosta, který přijmout pozvánku obdrží e-mailu z Azure AD s odkazem ke kontrole přístupu. Azure AD má pokyny pro hosty o tom, jak [kontrolovat jejich přístup](active-directory-azure-ad-controls-perform-access-review.md).
 
-3. Po kontroloři poskytnout vstup, zastavte kontrola přístupu a použití změn. Další informace najdete v tématu [dokončit kontrola přístupu](active-directory-azure-ad-controls-complete-access-review.md).
+3. Jakmile revidující poskytnou potřebné informace, zastavte kontrolu přístupu a proveďte příslušné změny. Další informace najdete v popisu [dokončení kontroly přístupu](active-directory-azure-ad-controls-complete-access-review.md).
 
 4. Kromě uživatelů, kteří vlastní potřebu nepřetržitý přístup odepřen rovněž můžete odebrat uživatele, kteří neodpověděla. Uživatelé bez neodpovídá potenciálně už obdrží e-mailu.
 
@@ -70,21 +70,21 @@ Recenze přístup vám pomůže zajistit, že uživatelé, kteří byly pozvali 
 
 Požádejte řad, jako je vlastník skupiny, chcete-li zkontrolovat hosta potřebu trvalá členství ve skupině.
 
-1. Pokud chcete spustit kontrola přístupu pro skupinu, vyberte kontrolní zahrnout pouze členy uživatelské hosta. Zadejte jeden nebo více kontrolorů. Další informace najdete v tématu [vytvořit kontrola přístupu](active-directory-azure-ad-controls-create-access-review.md).
+1. Pokud chcete spustit kontrola přístupu pro skupinu, vyberte kontrolní zahrnout pouze členy uživatelské hosta. Zadejte jeden nebo více kontrolorů. Další informace najdete v popisu [vytvoření kontroly přístupu](active-directory-azure-ad-controls-create-access-review.md).
 
-2. Požádejte revidující o informace. Ve výchozím nastavení, každý obdrží e-mailu z Azure AD s odkazem na panel přístupu, kde se [provádět jejich kontrola přístupu](active-directory-azure-ad-controls-perform-access-review.md).
+2. Požádejte revidující o informace. Ve výchozím nastavení každý z nich obdrží e-mailu od Azure AD s odkazem na panel přístupu, kde bude [provádět kontrolu přístupu](active-directory-azure-ad-controls-perform-access-review.md).
 
-3. Po kontroloři poskytnout vstup, zastavte kontrola přístupu a použití změn. Další informace najdete v tématu [dokončit kontrola přístupu](active-directory-azure-ad-controls-complete-access-review.md).
+3. Jakmile revidující poskytnou potřebné informace, zastavte kontrolu přístupu a proveďte příslušné změny. Další informace najdete v popisu [dokončení kontroly přístupu](active-directory-azure-ad-controls-complete-access-review.md).
 
 ### <a name="ask-guests-to-review-their-own-access-to-an-application"></a>ASK hostech ke kontrole vlastní přístup k aplikaci
 
 Recenze přístup vám pomůže zajistit, že uživatelé, kteří byly pozvat u konkrétní aplikace dál potřebovat přístup. Snadno můžete požádat, hosté, sami ke kontrole vlastní potřebují pro přístup.
 
-1. Pokud chcete spustit kontrola přístupu pro aplikace, vyberte kontrolní zahrnout pouze hosty a, uživatelé si svůj vlastní přístup. Další informace najdete v tématu [vytvořit kontrola přístupu](active-directory-azure-ad-controls-create-access-review.md).
+1. Pokud chcete spustit kontrola přístupu pro aplikace, vyberte kontrolní zahrnout pouze hosty a, uživatelé si svůj vlastní přístup. Další informace najdete v popisu [vytvoření kontroly přístupu](active-directory-azure-ad-controls-create-access-review.md).
 
 2. Požádejte každý hostovi Zkontrolujte své vlastní přístup k aplikaci. Ve výchozím nastavení každý hosta, který přijmout pozvánku obdrží e-mailu z Azure AD s odkazem ke kontrole přístupu ve vaší organizaci přístupového panelu. Azure AD má pokyny pro hosty o tom, jak [kontrolovat jejich přístup](active-directory-azure-ad-controls-perform-access-review.md).
 
-3. Po kontroloři poskytnout vstup, zastavte kontrola přístupu a použití změn. Další informace najdete v tématu [dokončit kontrola přístupu](active-directory-azure-ad-controls-complete-access-review.md).
+3. Jakmile revidující poskytnou potřebné informace, zastavte kontrolu přístupu a proveďte příslušné změny. Další informace najdete v popisu [dokončení kontroly přístupu](active-directory-azure-ad-controls-complete-access-review.md).
 
 4. Kromě uživatelů, kteří odepřen vlastní nutnost nepřetržitý přístup, můžete také odebrat uživatele typu Host kteří neodpověděla. Uživatelé bez neodpovídá potenciálně už obdrží e-mailu. Můžete také odebrat uživatele typu Host kteří nebyly zvoleny se zúčastnit, zejména v případě, že nedostali jste pozvánku, nedávno. Tyto uživatele nebylo přijmout že pozvánku k jejich a tak neměly přístup k aplikaci. 
 
@@ -92,11 +92,11 @@ Recenze přístup vám pomůže zajistit, že uživatelé, kteří byly pozvat u
 
 Požádejte řad, jako je vlastník aplikace, chcete-li zkontrolovat hosta potřebu nepřetržitý přístup k aplikaci.
 
-1. Pokud chcete spustit kontrola přístupu pro aplikace, vyberte kontrolní zahrnout pouze hosté. Jako kontroloři zadejte jeden nebo více uživatelů. Další informace najdete v tématu [vytvořit kontrola přístupu](active-directory-azure-ad-controls-create-access-review.md).
+1. Pokud chcete spustit kontrola přístupu pro aplikace, vyberte kontrolní zahrnout pouze hosté. Jako kontroloři zadejte jeden nebo více uživatelů. Další informace najdete v popisu [vytvoření kontroly přístupu](active-directory-azure-ad-controls-create-access-review.md).
 
-2. Požádejte revidující o informace. Ve výchozím nastavení, každý obdrží e-mailu z Azure AD s odkazem na panel přístupu, kde se [provádět jejich kontrola přístupu](active-directory-azure-ad-controls-perform-access-review.md).
+2. Požádejte revidující o informace. Ve výchozím nastavení každý z nich obdrží e-mailu od Azure AD s odkazem na panel přístupu, kde bude [provádět kontrolu přístupu](active-directory-azure-ad-controls-perform-access-review.md).
 
-3. Po kontroloři poskytnout vstup, zastavte kontrola přístupu a použití změn. Další informace najdete v tématu [dokončit kontrola přístupu](active-directory-azure-ad-controls-complete-access-review.md).
+3. Jakmile revidující poskytnou potřebné informace, zastavte kontrolu přístupu a proveďte příslušné změny. Další informace najdete v popisu [dokončení kontroly přístupu](active-directory-azure-ad-controls-complete-access-review.md).
 
 ### <a name="ask-guests-to-review-their-need-for-access-in-general"></a>Požádejte hosté zkontrolovat jejich potřebují pro přístup, obecné
 
@@ -107,11 +107,11 @@ V některých organizacích hosté nemusíte být vědomi jejich členství ve s
 
 1. Vytvořte skupinu zabezpečení ve službě Azure AD s hosté jako členové, pokud ještě neexistuje vhodné skupiny. Můžete například vytvořit skupinu s ručně zachována členství hostů. Nebo můžete vytvořit dynamická skupina s názvem, například "Hosté Contoso" pro uživatele v klientovi Contoso, kteří mají hodnotu atribut UserType hosta.
 
-2. Pokud chcete spustit kontrola přístupu pro tuto skupinu, vyberte kontroloři mají být členy sami. Další informace najdete v tématu [vytvořit kontrola přístupu](active-directory-azure-ad-controls-create-access-review.md).
+2. Pokud chcete spustit kontrola přístupu pro tuto skupinu, vyberte kontroloři mají být členy sami. Další informace najdete v popisu [vytvoření kontroly přístupu](active-directory-azure-ad-controls-create-access-review.md).
 
 3. Požádejte každý hostovi Zkontrolujte své vlastní členství. Ve výchozím nastavení každý hosta, který přijmout pozvánku obdrží e-mailu z Azure AD s odkazem ke kontrole přístupu ve vaší organizaci přístupového panelu. Azure AD má pokyny pro hosty o tom, jak [kontrolovat jejich přístup](active-directory-azure-ad-controls-perform-access-review.md).
 
-4. Po kontroloři poskytnout vstup, zastavte kontrola přístupu. Další informace najdete v tématu [dokončit kontrola přístupu](active-directory-azure-ad-controls-complete-access-review.md).
+4. Po kontroloři poskytnout vstup, zastavte kontrola přístupu. Další informace najdete v popisu [dokončení kontroly přístupu](active-directory-azure-ad-controls-complete-access-review.md).
 
 5. Pro hosty, kteří byly byl odepřen, nebyla dokončena kontrola nebo nebyla dříve přijmout pozvánku k jejich odebrání přístupu hosta. Pokud jsou některé z hostů kontakty, které byly vybrány k účasti v recenzi, protože nebyla dříve přijetí pozvánky, můžete zakázat své účty pomocí portálu Azure nebo prostředí PowerShell. Pokud Host už potřebuje přístup a není kontaktu, můžete odebrat jejich objekt uživatele z adresáře pomocí portálu Azure nebo prostředí PowerShell.
 

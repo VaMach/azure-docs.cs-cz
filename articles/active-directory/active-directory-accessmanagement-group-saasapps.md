@@ -4,7 +4,7 @@ description: "Jak používat skupin v Azure Active Directory Premium nebo Basic 
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ab8dee63-bedc-46ca-8852-234f5c16ae98
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 09/12/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: 818f4b515926c35078b3118978f3accbf3bbb65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 49a2c86516f0882f341597876d2a44ea3a312ea8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Použití skupiny ke správě přístupu k aplikacím SaaS
 Pomocí Azure Active Directory (Azure AD) s licencí Azure AD Premium nebo Azure AD Basic, můžete použít skupiny přiřazení přístupu k aplikaci SaaS, která je integrovaná s Azure AD. Například pokud chcete přiřadit přístup pro marketingové oddělení používat pět různých aplikace SaaS, je můžete vytvořit skupinu, která obsahuje uživatelé v marketingovém oddělení a potom přidělit této skupině pro těchto pět aplikace SaaS, které jsou vyžadovány z marketingového oddělení. Tímto způsobem můžete ušetřit čas tím Správa členství z marketingového oddělení na jednom místě. Uživatelé pak přiřazené k aplikaci při jsou přidány jako členové skupiny marketing a jejich přiřazení odebrali z aplikace, když jsou odebrány ze skupiny marketing. Tato funkce slouží se stovkami aplikací, které můžete přidat z v galerii aplikací Azure AD.

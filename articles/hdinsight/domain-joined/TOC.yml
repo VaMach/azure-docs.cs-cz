@@ -1,29 +1,53 @@
 - name: Dokumentace ke službě HDInsight
   href: /azure/hdinsight
-- name: Podnikové zabezpečení v HDInsightu
+- name: Podnikové zabezpečení
   items:
     - name: Přehled
       href: apache-domain-joined-introduction.md
-    - name: Plánování služby HDInsight připojené k doméně
+    - name: Plán pro podnikové zabezpečení
       href: apache-domain-joined-architecture.md
-    - name: Správa verzí komponent
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-- name: Začínáme
-  items:
-    - name: Konfigurace služby HDInsight připojené k doméně
+    - name: Konfigurace podnikového zabezpečení ve službě HDInsight
       href: apache-domain-joined-configure.md
-    - name: Konfigurace služby HDInsight připojené k doméně s využitím Azure AD DS
+    - name: Konfigurace podnikového zabezpečení ve službě HDInsight s využitím Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Konfigurace zásad Hivu
       href: apache-domain-joined-run-hive.md
     - name: Plánování kapacity
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: Postup
-  items:
-    - name: Správa clusterů
+    - name: Správa clusterů s podnikovým zabezpečením
       href: apache-domain-joined-manage.md
+- name: Zabezpečení dat
+  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+  maintainContext: true
+- name: Síťový přístup
+  items:
+    - name: HDInsight ve virtuální síti Azure
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: Připojení služby HDInsight k místní síti
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+    - name: Vytvoření clusteru HBase ve virtuální síti Azure
+      href: ../hbase/apache-hbase-provision-vnet.md
+      maintainContext: true
+    - name: Replikace clusteru HBase ve virtuální síti Azure
+      href: ../hbase/apache-hbase-replication.md
+      maintainContext: true
+- name: Monitorování pomocí OMS
+  items:
+    - name: Použití Azure Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Řídicí panely pro konkrétní clustery
+      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+      maintainContext: true
+    - name: Použití dotazů se službou Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Monitorování výkonu clusteru
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true
 - name: Referenční informace
   items:
     - name: Ukázky kódů

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Aktualizace řešení pro správu v OMS
 
@@ -57,7 +57,7 @@ Na počítače, které vyžadují aktualizace softwaru, můžete tyto aktualizac
 V den a čas, který zadáte v nasazení aktualizací, spustí cílové počítače paralelně nasazení.  Nejprve se provede kontrola pro ověření, že se aktualizace stále vyžadují, a pak se aktualizace nainstalují.  U klientských počítačů služby WSUS je důležité si uvědomit, že pokud nejsou aktualizace schválené ve službě WSUS, nasazení aktualizací se nezdaří.  Výsledky použitých aktualizací se předají ke zpracování do OMS a vytvoří se souhrny, které najdete na řídicích panelech nebo pomocí vyhledání událostí.     
 
 ## <a name="prerequisites"></a>Požadavky
-* Řešení podporuje vyhodnocování aktualizací pro systém Windows Server 2008 nebo novější a nasazení aktualizací pro systém Windows Server 2008 R2 SP1 nebo novější.  Možnosti instalace Server Core a Nano Server nejsou podporované.
+* Řešení podporuje vyhodnocování aktualizací pro systém Windows Server 2008 nebo novější a nasazení aktualizací pro systém Windows Server 2008 R2 SP1 nebo novější.  Nano Server není podporován.
 
     > [!NOTE]
     > Podpora pro nasazování aktualizací do Windows Serveru 2008 R2 SP1 vyžaduje .NET Framework 4.5 a WMF 5.0 nebo novější.

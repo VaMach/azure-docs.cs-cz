@@ -4,7 +4,7 @@ description: "Při plánování řešení hybridní identity, určete požadavky
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Plán pro zlepšení zabezpečení dat prostřednictvím řešení silné identity
 Prvním krokem k ochraně dat je identifikovat, kdo má přístup k těmto datům a řešení, které můžete v rámci tohoto procesu je potřeba mít identity se integruje s systému a poskytuje možnosti ověřování a autorizace. Ověřování a autorizace často matoucí mezi sebou a nesprávně pochopeny jejich rolí. Ve skutečnosti jsou výrazně lišit, jak je znázorněno na obrázku níže:

@@ -1,13 +1,13 @@
-### <a name="windows-powershell"></a>Windows PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 #### <a name="install-powershell"></a>Instalace PowerShellu
 Pokud jej ve svém počítači nemáte, nainstalujte nejnovější PowerShell. 
 
-1. Ve webovém prohlížeči přejděte na stránku [Sady Azure SDK ke stažení a sady SDK](https://azure.microsoft.com/downloads/). 
+1. Ve webovém prohlížeči přejděte na stránku [Položky ke stažení Azure](https://azure.microsoft.com/downloads/). 
 2. V části **Nástroje příkazového řádku** -> **PowerShell** klikněte na **Instalace pro Windows**. 
 3. Pokud chcete nainstalovat PowerShell, spusťte soubor **MSI**. 
 
-Podrobné pokyny najdete v tématu [Instalace a konfigurace PowerShellu](/powershell/azure/install-azurerm-ps). 
+Podrobné pokyny najdete v tématu [Instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 #### <a name="log-in-to-powershell"></a>Přihlášení do PowerShellu
 
@@ -19,12 +19,12 @@ Podrobné pokyny najdete v tématu [Instalace a konfigurace PowerShellu](/powers
     ```powershell
     Login-AzureRmAccount
     ```        
-2. Pokud máte více předplatných Azure, spuštěním následujícího příkazu zobrazíte všechna předplatná pro tento účet:
+2. Spuštěním následujícího příkazu zobrazíte všechna předplatná pro tento účet:
 
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Spuštěním následujícího příkazu vyberte předplatné, se kterým chcete pracovat. Místo **SubscriptionId** použijte ID vašeho předplatného Azure:
+3. Pokud se zobrazí několik předplatných přidružených vašem účtu, spuštěním následujícího příkazu vyberte předplatné, se kterým chcete pracovat. Místo **SubscriptionId** použijte ID vašeho předplatného Azure:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       

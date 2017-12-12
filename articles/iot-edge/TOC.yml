@@ -34,6 +34,8 @@
       href: how-to-install-iot-core.md
 - name: Koncepty
   items:
+    - name: Glosář IoT Edge
+      href: iot-edge-glossary.md
     - name: Moduly IoT Edge
       href: iot-edge-modules.md
       items:

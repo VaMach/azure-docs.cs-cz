@@ -4,7 +4,7 @@ description: "Spravovat DNS v doménách spravovaných Azure Active Directory Do
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: maheshu
-ms.openlocfilehash: 3747f87cad4b3701129b7460321b50ee54336585
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55b6368d55b5d0ad50d066a4963e74d8c44a2049
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Spravovat DNS na spravované doméně služby Azure AD Domain Services
 Azure Active Directory Domain Services zahrnuje server DNS (překlad názvu domény), který poskytuje překlad názvů DNS pro spravovanou doménu. V některých případech může musíte nakonfigurovat DNS na spravované domény. Musíte vytvořit záznamy DNS pro počítače, které nejsou připojené k doméně, nakonfigurujte virtuální IP adresy pro vyrovnávání zatížení nebo nastavit externí servery DNS pro předávání. Z toho důvodu jsou uživatelé, kteří patří do skupiny "Administrators AAD řadič domény, udělena oprávnění správy DNS na spravované domény.

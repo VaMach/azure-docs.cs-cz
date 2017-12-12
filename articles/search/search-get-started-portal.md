@@ -1,29 +1,29 @@
 ---
-title: "Indexování, dotazování a filtrování na stránkách portálu Azure Search | Dokumentace Microsoftu"
-description: "K vytvoření indexu na webu Azure Portal použijte předdefinovaná ukázková data. Prozkoumejte fulltextové vyhledávání, filtry, omezující vlastnosti, vyhledávání přibližných shod, geografické vyhledávání a další funkce."
+title: "Kurz pro Azure Search k indexování, dotazům a filtrování pomocí portálu | Microsoft Docs"
+description: "K vytvoření indexu v Azure Search použijte na webu Azure Portal předdefinovaná ukázková data. Prozkoumejte fulltextové vyhledávání, filtry, omezující vlastnosti, vyhledávání přibližných shod, geografické vyhledávání a další funkce."
 services: search
 documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Vytvoření, dotazování a filtrování indexu Azure Search na portálu
 
-Na webu Azure Portal začněte s předdefinovanou ukázkovou datovou sadou a rychle vytvořte index pomocí průvodce **importem dat**. Prozkoumejte fulltextové vyhledávání, filtry, omezující vlastnosti, vyhledávání přibližných shod a geografické vyhledávání pomocí **průzkumníka služby Search**.  
+Na webu Azure Portal začněte s předdefinovanou ukázkovou datovou sadou a rychle vytvořte index Azure Search pomocí průvodce **importem dat**. Prozkoumejte fulltextové vyhledávání, filtry, omezující vlastnosti, vyhledávání přibližných shod a geografické vyhledávání pomocí **průzkumníka služby Search**.  
 
 Tento úvod bez kódu vám pomůže začít s předdefinovanými daty, abyste mohli hned začít psát zajímavé dotazy. Nástroje portálu nejsou náhradou za kód, ale můžou být užitečné pro tyto úlohy:
 

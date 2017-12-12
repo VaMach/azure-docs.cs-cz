@@ -12,7 +12,7 @@
 # Postup
 ## Konfigurace vysoké dostupnosti
 ### [Možnosti vysoké dostupnosti](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Konfigurace skupiny dostupnosti Always On na portálu Classic](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [Konfigurace skupiny dostupnosti Always On na portálu](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [Konfigurace skupiny dostupnosti Always On pomocí PowerShellu](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Konfigurace interního naslouchacího procesu pro skupinu dostupnosti](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Konfigurace externího naslouchacího procesu pro skupinu dostupnosti](virtual-machines-windows-classic-ps-sql-ext-listener.md)

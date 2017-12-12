@@ -5,7 +5,7 @@ services: active-directory
 keywords: "ochrany identit Azure active directory, cloud app discovery,. Správa aplikací, zabezpečení, rizik, úroveň rizika, ohrožení zabezpečení, zásady zabezpečení, Glosář"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5b6d2db0a8df31fd159053cceab6b9b320ffd8cb
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Slovník ochrany identit Azure Active Directory
 ### <a name="at-risk-user"></a>Riziko (uživatel)
@@ -154,7 +154,7 @@ V tématu riziko úroveň (ohrožení zabezpečení uživatele).
 ### <a name="user-risk-policy"></a>Riziko zásady uživatele
 Zásady podmíněného přístupu, který zvažuje přihlášení a způsoby zmírnění rizik na základě předem definované podmínky a pravidla se vztahují.
 
-### <a name="users-flagged-for-risk"></a>Uživatelé označení příznakem rizika
+### <a name="users-flagged-for-risk"></a>Uživatelé označení příznakem rizik
 Uživatelé, kteří mají rizikových událostech, které jsou aktivní nebo napravených
 
 ### <a name="vulnerability"></a>Ohrožení zabezpečení

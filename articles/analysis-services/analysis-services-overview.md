@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: owend
-ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Co je služba Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -124,7 +124,7 @@ Klienti pro připojení k serverům služby Analysis Services používají [klie
 ## <a name="get-help"></a>Podpora
 
 #### <a name="documentation"></a>Dokumentace
-Službu Azure Analysis Services je jednoduché nastavit a spravovat. Všechny potřebné informace týkající se vytvoření a správy služeb serveru najdete zde. Vytváření datového modelu pro nasazení na server je velmi podobné vytváření datového modelu nasazovaného na místní server. [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) obsahuje rozsáhlou knihovnu článků s koncepty, postupy, kurzy a odkazy.
+Službu Azure Analysis Services je jednoduché nastavit a spravovat. Všechny potřebné informace týkající se vytvoření a správy služeb serveru najdete zde. Vytváření datového modelu pro nasazení na server je velmi podobné vytváření datového modelu nasazovaného na místní server. [Nápověda pro SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) obsahuje rozsáhlou knihovnu článků s koncepty, postupy, kurzy a odkazy.
 
 #### <a name="videos"></a>Videa
 Užitečná videa najdete v části [Azure Analysis Services na webu Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).

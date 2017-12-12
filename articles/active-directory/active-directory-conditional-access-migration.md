@@ -5,7 +5,7 @@ services: active-directory
 keywords: "podmíněný přístup k aplikacím, podmíněného přístupu s Azure AD, zabezpečený přístup k prostředkům společnosti, zásady podmíněného přístupu"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 10/23/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c584eddb5542c2c49d08d35bcaf8e7acb5c5b83a
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 416ae171564fa23473d09bad950d149e201bcc98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migrace na portálu Azure classic zásady 
 
@@ -80,7 +80,7 @@ Přejděte na téma:
 
 ## <a name="multi-factor-authentication-policy"></a>Zásady vícefaktorového ověřování 
 
-Tento příklad ukazuje, jak migrovat classic zásadu, která vyžaduje službu Multi-Factor authentication ** pro cloudové aplikace. 
+Tento příklad ukazuje, jak migrovat classic zásady, které vyžadují **služby Multi-Factor authentication** pro cloudové aplikace. 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 

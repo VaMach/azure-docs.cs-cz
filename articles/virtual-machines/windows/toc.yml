@@ -66,6 +66,9 @@
         - name: Optimalizované z hlediska výpočetních služeb
           href: sizes-compute.md
         - name: Optimalizované z hlediska paměti
+          items:
+            - name: Virtuální procesory s omezením
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: Optimalizované z hlediska úložiště
           href: sizes-storage.md
@@ -164,6 +167,8 @@
       items:
         - name: Platba za virtuální počítače předem – rezervované instance
           href: prepay-reserved-vm-instances.md
+        - name: Využití virtuálních počítačů
+          href: vm-usage.md
         - name: Běžné úlohy PowerShellu
           href: ps-common-ref.md
         - name: Přesun virtuálního počítače

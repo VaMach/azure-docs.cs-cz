@@ -60,6 +60,8 @@
       items:
         - name: Replikace
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Možnosti účtu úložiště
+          href: storage-account-options.md
         - name: 'Vrstvy Hot, Cool a archivační vrstvy'
           href: storage-blob-storage-tiers.md
         - name: Reakce na události

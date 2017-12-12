@@ -4,7 +4,7 @@ description: "Časté otázky k Azure Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Časté otázky (FAQ)
 Tato stránka odpovědi časté otázky o Azure Active Directory Domain Services. Kontrolovat zpět aktualizací.
 
 ### <a name="troubleshooting-guide"></a>Průvodce odstraňováním potíží
-Odkazovat na našem [Průvodce odstraňováním potíží](active-directory-ds-troubleshooting.md) pro řešení běžných problémů při konfiguraci nebo jejich správě Azure AD Domain Services.
+Odkazovat [Průvodce odstraňováním potíží](active-directory-ds-troubleshooting.md) pro řešení běžných problémů při konfiguraci nebo jejich správě Azure AD Domain Services.
 
 ### <a name="configuration"></a>Konfigurace
 #### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Můžete vytvořit více spravovaných domén pro jeden adresář Azure AD?
@@ -34,10 +34,10 @@ Ne. Můžete vytvořit pouze jeden spravované doméně obsluhovány pomocí Azu
 Ano. Azure AD Domain Services se dají povolit v virtuální síť Azure Resource Manager. Tato funkce je aktuálně ve verzi preview.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Můžete migrovat mé existující spravované domény z klasickou virtuální síť k virtuální síti Resource Manager?
-Aktuálně nepodporuje. Jsme bude poskytovat mechanismus k migraci stávající spravované domény z klasickou virtuální síť k virtuální síti Resource Manager v budoucnu.
+Aktuálně nepodporuje. Microsoft bude poskytovat mechanismus k migraci stávající spravované domény z klasickou virtuální síť k virtuální síti Resource Manager v budoucnu.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Můžete povolit Azure AD Domain Services v předplatné Azure CSP (Cloud Solution Provider)?
-Ne. Pracujeme na přidání podpory pro předplatná CSP.
+Ne. Produktový tým pracuje na přidání podpory pro předplatná CSP.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Můžete povolit funkci Azure AD Domain Services ve federované Azure AD adresáře? I pomocí služby AD FS k ověřování uživatelů pro přístup k Office 365 a nesynchronizovat hodnot hash hesel do služby Azure AD. Můžete povolit pro tento adresář Azure AD Domain Services?
 Ne. Azure AD Domain Services, potřebuje přístup k hodnoty hash hesla uživatelských účtů, ověřuje uživatele pomocí protokolu NTLM nebo Kerberos. Federované adresáře hodnot hash hesel nejsou uložené v adresáři služby Azure AD. Azure AD Domain Services se proto nefunguje s takové adresáře Azure AD.
@@ -46,13 +46,13 @@ Ne. Azure AD Domain Services, potřebuje přístup k hodnoty hash hesla uživate
 Služba sama přímo nepodporuje tento scénář. Najednou je k dispozici v pouze jednu virtuální síť vaší spravované domény. Můžete ale nakonfigurovat připojení mezi více virtuálních sítí, která zveřejňuje Azure AD Domain Services pro jiné virtuální sítě. V tématu jak můžete [propojit virtuální sítě v Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Můžete povolit Azure AD Domain Services pomocí prostředí PowerShell?
-Prostředí PowerShell nebo automatizované nasazení služby Azure AD Domain Services není momentálně k dispozici.
+Ano. V tématu [jak povolit Azure AD Domain Services pomocí prostředí PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Azure AD Domain Services je k dispozici v nové verzi portálu Azure?
 Ano. Azure AD Domain Services pomocí se dají konfigurovat [portál Azure](https://portal.azure.com). [Portál Azure classic](https://manage.windowsazure.com) již není podporována.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Můžete povolit pomocí šablony správce prostředků Azure AD Domain Services?
-Ne. Některé úlohy musí být provedeny v rámci povolení služby Azure AD Domain Services. Tyto úlohy nejsou možné provádět prostřednictvím šablony Resource Manageru. Použijte na nový portál Azure k povolení služby Azure AD Domain Services pro svůj adresář.
+Ano. V tématu [jak povolit Azure AD Domain Services pomocí prostředí PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Můžete přidávat řadiče domény k spravované doméně služby Azure AD Domain Services?
 Ne. Domény, které poskytuje Azure AD Domain Services je spravovaná doména. Není potřeba zřizovat, konfigurovat nebo jinak spravovat řadiče domény pro tuto doménu - tyto aktivity správy jsou poskytovány jako služba společnosti Microsoft. Proto nelze přidat další řadiče domény (pro čtení a zápis nebo jen pro čtení) pro spravovanou doménu.

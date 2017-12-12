@@ -4,7 +4,7 @@ description: "Informace o postupu přidání role pro uživatele s příponou Az
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: aeaefb484b29da6e89c2c3c650a79a881b3fa5b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fccf7cae61f4d8862640b89d39f9d4480362429
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Udělení přístupu ke správě Azure AD Privileged Identity Management
 Globální správce, který umožňuje Azure AD Privileged Identity Management (PIM) pro organizaci automaticky získat přiřazení rolí a přístup k PIM. Nikdo jiný získá přístup pro zápis ve výchozím nastavení, ale včetně další globální správce. Další globální správci, správce zabezpečení a zabezpečení čtečky mají přístup jen pro čtení k Azure AD PIM. Udělit přístup k PIM, můžete přiřadit první uživatel ostatním uživatelům **správce privilegovaných rolí** role. Toto přiřazení musí provádět v PIM sám a nelze změnit pomocí prostředí PowerShell nebo dalších portálech.

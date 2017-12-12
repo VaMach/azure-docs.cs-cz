@@ -4,7 +4,7 @@ description: "Identifikace obchodních potřeb společnosti, které povede k def
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 6503034b3f5a17a2a42338c73329eef0b01f2f27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d88648731ef021f2705a15a544d23359e65c64f6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Stanovení požadavků na identit pro hybridní řešení identit
 Prvním krokem při navrhování řešení hybridní identity je určit požadavky na obchodní organizace, která bude mít využívání tohoto řešení.  Hybridní identita se spustí jako podpůrné role (podporuje jiných řešení cloud tím, že poskytuje ověřování) a přejde na, zadejte nové a zajímavé funkce, které odemknutí nové úlohy pro uživatele.  Tyto úlohy nebo služby, které chcete použít pro vaše uživatele se určují požadavky na návrh hybridní identity.  Tyto služby a úlohy muset využívají hybridní identita jak místně a v cloudu.  

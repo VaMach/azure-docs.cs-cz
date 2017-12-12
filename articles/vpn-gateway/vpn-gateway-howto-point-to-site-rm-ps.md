@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8c4b2d578a8a586fc63c972ab5da694b2dd9d571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurace připojení typu Point-to-Site k virtuální síti s použitím nativního ověřování certifikátů Azure: PowerShell
 
@@ -36,7 +36,7 @@ Brána VPN typu Point-to-Site (P2S) umožňuje vytvořit zabezpečené připojen
 
 Klienti při připojování mohou využít následující metody ověřování:
 
-* Server RADIUS – aktuálně ve verzi Preview
+* Server RADIUS
 * Nativní ověřování certifikátů Azure ve službě VPN Gateway
 
 Tento článek vám pomůže nakonfigurovat konfiguraci P2S s ověřováním pomocí nativního ověřování certifikátů Azure. Pokud chcete RADIUS využít k ověřování připojujících se uživatelů, přečtěte si téma věnované [P2S s využitím ověřování pomocí protokolu RADIUS](point-to-site-how-to-radius-ps.md).
@@ -45,13 +45,9 @@ Tento článek vám pomůže nakonfigurovat konfiguraci P2S s ověřováním pom
 
 Připojení typu Point-to-Site nevyžadují zařízení VPN ani veřejnou IP adresu. P2S vytvoří připojení VPN prostřednictvím protokolu SSTP (Secure Socket Tunneling Protocol) nebo protokolu IKEv2.
 
-* SSTP je tunel VPN založený na SSL, který se podporuje jenom na klientských platformách Windows. Může proniknout branami firewall a díky tomu je ideální možností pro připojení k Azure odkudkoli. Na straně serveru podporujeme SSTP verze 1.0, 1.1 a 1.2. Klient rozhodne, která verze se má použít. Pro Windows 8.1 a novější se standardně používá SSTP verze 1.2.
+* SSTP je tunel VPN založený na SSL, který se podporuje jenom na klientských platformách Windows. Může proniknout branami firewall a díky tomu je ideální možností pro připojení k Azure odkudkoli. Na straně serveru se podporuje SSTP verze 1.0, 1.1 a 1.2. Klient rozhodne, která verze se má použít. Pro Windows 8.1 a novější se standardně používá SSTP verze 1.2.
 
-* IKEv2 VPN, řešení IPsec VPN založené na standardech. IKEv2 VPN je možné použít k připojení ze zařízení se systémem Mac (OSX verze 10.11 a vyšší). IKEv2 je aktuálně ve verzi Preview.
-
->[!NOTE]
->IKEv2 pro P2S je aktuálně ve verzi Preview.
->
+* IKEv2 VPN, řešení IPsec VPN založené na standardech. IKEv2 VPN je možné použít k připojení ze zařízení se systémem Mac (OSX verze 10.11 a vyšší).
 
 Připojení typu Point-to-Site s nativním ověřováním certifikátů Azure vyžadují následující:
 
@@ -69,7 +65,7 @@ Další informace o připojení Point-to-Site najdete v tématu věnovaném [př
 
 ### <a name="example"></a>Příklady hodnot
 
-Příklady hodnot můžete použít k vytvoření testovacího prostředí nebo můžou sloužit k lepšímu pochopení příkladů v tomto článku. Nastavíme proměnné uvedené v části [1](#declare) článku. Můžete buď využít kroky jako podrobný postup a převzít hodnoty beze jejich změny, nebo je změnit tak, aby odpovídaly vašemu prostředí.
+Příklady hodnot můžete použít k vytvoření testovacího prostředí nebo můžou sloužit k lepšímu pochopení příkladů v tomto článku. Proměnné se nastaví v části [1](#declare) článku. Můžete buď využít kroky jako podrobný postup a převzít hodnoty beze jejich změny, nebo je změnit tak, aby odpovídaly vašemu prostředí.
 
 * **Název: VNet1**
 * **Adresní prostor: 192.168.0.0/16** a **10.254.0.0/16**<br>V tomto příkladu se používá více adresních prostorů k ilustraci, že tato konfigurace funguje s více adresními prostory. Více adresních prostorů pro ni ale není potřeba.
@@ -143,7 +139,7 @@ V této části se přihlásíte a deklarujete hodnoty používané pro tuto kon
   ```
 3. Vytvořte virtuální síť.
 
-  V tomto příkladu je parametr serveru -DnsServer volitelný. Zadání hodnoty nevytvoří nový server DNS. Server DNS, jehož IP adresu zadáte, by měl být server DNS, který dokáže přeložit názvy pro prostředky, ke kterým se ze své virtuální sítě připojujete. V tomto příkladu jsme použili privátní IP adresu, ale je pravděpodobné, že to není IP adresa vašeho serveru DNS. Je potřeba, abyste použili svoje vlastní hodnoty. Hodnotu, kterou zadáte, použijí prostředky, které nasadíte do virtuální sítě, a ne připojení P2S nebo klient VPN.
+  V tomto příkladu je parametr serveru -DnsServer volitelný. Zadání hodnoty nevytvoří nový server DNS. Server DNS, jehož IP adresu zadáte, by měl být server DNS, který dokáže přeložit názvy pro prostředky, ke kterým se ze své virtuální sítě připojujete. V tomto příkladu se používá privátní IP adresa, ale je pravděpodobné, že to není IP adresa vašeho serveru DNS. Je potřeba, abyste použili svoje vlastní hodnoty. Hodnotu, kterou zadáte, použijí prostředky, které nasadíte do virtuální sítě, a ne připojení P2S nebo klient VPN.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
@@ -167,14 +163,14 @@ V této části se přihlásíte a deklarujete hodnoty používané pro tuto kon
 
 Nakonfigurujte a vytvořte bránu virtuální sítě pro svou virtuální síť.
 
-* Parametr *-GatewayType* musí mít hodnotu **Vpn** a parametr *-VpnType* musí mít hodnotu **RouteBased**.
-* -VpnClientProtocols se používá k zadání typů tunelů, které chcete povolit. Dostupné jsou dvě možnosti, **SSTP** a **IKEv2**. Můžete si vybrat, jestli povolíte jednu z nich nebo obě. Pokud chcete povolit obě, zadejte oba názvy oddělené čárkou. Klient Strongswan v Androidu a Linuxu a nativní klient IKEv2 VPN v iOS a OSX budou pro připojení používat jenom tunel IKEv2. Klienti Windows nejdřív vyzkoušejí IKEv2 a pokus se nepřipojí, přejdou zpátky k SSTP.
-* Dokončení brány VPN může trvat až 45 minut v závislosti na vybrané [skladové jednotce brány](vpn-gateway-about-vpn-gateway-settings.md). V tomto příkladu používáme protokol IKEv2, který je aktuálně dostupný ve verzi Preview.
+* Parametr -GatewayType musí mít hodnotu **Vpn** a parametr -VpnType musí mít hodnotu **RouteBased**.
+* -VpnClientProtocol se používá k zadání typů tunelů, které chcete povolit. Dostupné jsou dvě možnosti, **SSTP** a **IKEv2**. Můžete si vybrat, jestli povolíte jednu z nich nebo obě. Pokud chcete povolit obě, zadejte oba názvy oddělené čárkou. Klient Strongswan v Androidu a Linuxu a nativní klient IKEv2 VPN v iOS a OSX budou pro připojení používat jenom tunel IKEv2. Klienti Windows nejdřív vyzkoušejí IKEv2 a pokus se nepřipojí, přejdou zpátky k SSTP.
+* Dokončení brány VPN může trvat až 45 minut v závislosti na vybrané [skladové jednotce brány](vpn-gateway-about-vpn-gateway-settings.md). V tomto příkladu se používá protokol IKEv2, který je aktuálně dostupný ve verzi Preview.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocols "IKEv2"
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 ```
 
 ## <a name="addresspool"></a>4. Přidání fondu adres klienta VPN

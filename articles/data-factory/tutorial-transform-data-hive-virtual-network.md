@@ -13,22 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shengc
-ms.openlocfilehash: b8c30a2fd68178ddd2bfb3ff079c47ba00928855
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c15d723efdcf273c86f54ddce04904ce1a274631
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformace dat ve službě Azure Virtual Network pomocí aktivity Hivu v Azure Data Factory
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Tento kurz
-
-> [!NOTE]
-> Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), prostudujte si [dokumentaci služby Data Factory verze 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-V tomto kurzu použijete Azure PowerShell k vytvoření kanálu datové továrny, který transformuje data pomocí aktivity Hivu v clusteru HDInsight, který je ve virtuální síti Azure. V tomto kurzu provedete následující kroky:
+V tomto kurzu použijete Azure PowerShell k vytvoření kanálu datové továrny, který transformuje data pomocí aktivity Hivu v clusteru HDInsight, který je ve službě Azure Virtual Network. V tomto kurzu provedete následující kroky:
 
 > [!div class="checklist"]
 > * Vytvoření datové továrny 
@@ -39,6 +31,8 @@ V tomto kurzu použijete Azure PowerShell k vytvoření kanálu datové továrny
 > * Monitorování spuštění kanálu 
 > * Ověření výstupu 
 
+> [!NOTE]
+> Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), prostudujte si [dokumentaci služby Data Factory verze 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -70,23 +64,33 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
        state
    FROM hivesampletable
    ```
-2. Ve službě Azure Blob Storage, vytvořte kontejner nazvaný **adftutorial**, pokud ještě neexistuje.
-3. Vytvořte složku s názvem `hivescripts`.
-4. Uložte soubor `hivescript.hql` do podsložky `hivescripts`.
+2. Ve službě Azure Blob Storage, vytvořte kontejner **adftutorial**, pokud ještě neexistuje.
+3. Vytvořte složku s názvem **hivescripts**.
+4. Uložte soubor **hivescript.hql** do podsložky **hivescripts**.
 
  
 
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
 
 
-1. Nastavte proměnné jednu po druhé.
+1. Nastavte název skupiny prostředků. Skupinu prostředků vytvoříte v rámci tohoto kurzu. Pokud ale chcete, můžete použít existující skupinu prostředků. 
 
     ```powershell
-    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
-    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09142017" # Globally unique name of the data factory
-    $pipelineName = "MyHivePipeline" # Name of the pipeline
-    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" # make it a unique name. 
+    $resourceGroupName = "ADFTutorialResourceGroup" 
+    ```
+2. Zadejte název datové továrny. Musí být globálně jedinečný.
+
+    ```powershell
+    $dataFactoryName = "MyDataFactory09142017"
+    ```
+3. Zadejte název pro kanál. 
+
+    ```powershell
+    $pipelineName = "MyHivePipeline" # 
+    ```
+4. Zadejte název pro místní prostředí Integration Runtime. Místní prostředí Integration Runtime potřebujete, pokud služba Data Factory vyžaduje přístup k prostředkům uvnitř virtuální sítě (jako je Azure SQL Database). 
+    ```powershell
+    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
 2. Spusťte **PowerShell**. Nechte prostředí Azure PowerShell otevřené až do konce tohoto kurzu Rychlý start. Pokud ho zavřete a znovu otevřete, bude potřeba tyto příkazy spustit znovu. Data Factory V2 v současné době umožňuje vytváření datových továren jenom v oblastech Východní USA, Východní USA 2 a Západní Evropa. Úložiště dat (Azure Storage, Azure SQL Database atd.) a výpočetní prostředí (HDInsight atd.) používané datovou továrnou mohou být v jiných oblastech.
 
@@ -222,21 +226,27 @@ V definici propojené služby aktualizujte hodnoty následujících vlastností:
 - **clusterUri**. Zadejte adresu URL clusteru HDInsight ve formátu https://<clustername>.azurehdinsight.net.  V tomto článku se předpokládá, že máte ke clusteru přístup přes internet. To znamená, že se ke clusteru můžete připojit třeba na `https://clustername.azurehdinsight.net`. Tato adresa se používá veřejnou brány, která není dostupná, pokud jste k omezení přístupu z internetu použili skupiny zabezpečení sítě (NSG) nebo uživatelem definované trasy (UDR). Aby datová továrna mohla odesílat úlohy do clusteru HDInsight ve službě Azure Virtual Network, musíte ji nakonfigurovat tak, aby tuto adresu URL bylo možné přeložit na privátní IP adresu brány, kterou používá HDInsight.
 
   1. Na webu Azure Portal otevřete službu Virtual Network, ve které je HDInsight. Otevřete síťové rozhraní s názvem začínajícím textem `nic-gateway-0`. Poznamenejte si jeho privátní IP adresu. Příklad: 10.6.0.15. 
-  2. Pokud Azure Virtual Network má server DNS, aktualizujte záznam DNS tak, aby se adresa URL clusteru HDInsight `https://<clustername>.azurehdinsight.net` dala přeložit na `10.6.0.15`. Toto je doporučený postup. Pokud ve službě Azure Virtual Network nemáte server DNS, můžete to dočasně obejít tak, že upravíte soubor hosts (C:\Windows\System32\drivers\etc) všech virtuálních počítačů, které se registrovaly jako uzly modulu runtime integrace v místním prostředí, a to přidáním položky jako je tato: 
+  2. Pokud Azure Virtual Network má server DNS, aktualizujte záznam DNS tak, aby se adresa URL clusteru HDInsight `https://<clustername>.azurehdinsight.net` dala přeložit na `10.6.0.15`. Toto je doporučený postup. Pokud ve službě Azure Virtual Network nemáte server DNS, můžete to dočasně obejít tak, že upravíte soubor hosts (C:\Windows\System32\drivers\etc) všech virtuálních počítačů, které se registrovaly jako uzly místního prostředí Integration Runtime, a to přidáním položky jako je tato: 
   
         `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
-Přejděte do složky, ve které jste vytvořili soubory JSON, a spusťte následující příkaz pro nasazení propojených služeb: 
+## <a name="create-linked-services"></a>Vytvoření propojených služeb
+V PowerShellu přejděte do složky, ve které jste vytvořili soubory JSON, a spusťte následující příkaz pro nasazení propojených služeb: 
 
+1. V PowerShellu přejděte do složky, ve které jste vytvořili soubory JSON.
+2. Spuštěním následujícího příkazu vytvořte propojenou službu Azure Storage. 
 
-```powershell
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```
+3. Spuštěním následujícího příkazu vytvořte propojenou službu Azure HDInsight. 
 
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDILinkedService" -File "MyHDILinkedService.json"
-```
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
+    ```
 
 ## <a name="author-a-pipeline"></a>Vytvoření kanálu
-V tomto kroku pomocí aktivity Hivu vytvoříte nový kanál. Tato aktivity spustí skript Hivu, který vrátí data z ukázkové tabulky a uloží je do cesty, které jste definovali. Pomocí preferovaného editoru vytvořte soubor JSON, zkopírujte následující definici JSON kanálu a potom tento soubor uložte jako **MyHiveOnDemandPipeline.json**.
+V tomto kroku pomocí aktivity Hivu vytvoříte nový kanál. Tato aktivity spustí skript Hivu, který vrátí data z ukázkové tabulky a uloží je do cesty, které jste definovali. Pomocí preferovaného editoru vytvořte soubor JSON, zkopírujte následující definici JSON kanálu a potom tento soubor uložte jako **MyHivePipeline.json**.
 
 
 ```json
