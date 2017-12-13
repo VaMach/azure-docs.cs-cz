@@ -179,6 +179,8 @@
           href: data-factory-troubleshoot.md
         - name: Řešení potíží při použití Brány pro správu dat
           href: data-factory-troubleshoot-gateway-issues.md
+    - name: Vyvolání balíčků SSIS pomocí aktivity uložených procedur
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md
 - name: Referenční informace
   items:
     - name: Ukázky kódů

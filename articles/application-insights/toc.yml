@@ -146,6 +146,12 @@
               href: app-insights-proactive-trace-severity.md
             - name: Objem výjimek
               href: app-insights-proactive-exception-volume.md
+            - name: Nevrácená paměť
+              href: app-insights-proactive-potential-memory-leak.md
+            - name: Využití prostředků
+              href: app-insights-proactive-low-utilization-cloud-resources.md
+            - name: Zjišťování zabezpečení
+              href: app-insights-proactive-application-security-detection-pack.md
         - name: Vytvoření prostředku
           href: app-insights-create-new-resource.md
     - name: Analýza

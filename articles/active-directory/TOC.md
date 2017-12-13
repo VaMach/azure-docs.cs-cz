@@ -283,8 +283,9 @@
 #### [Začínáme](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
 #### [Vysvětlení zásad zařízení pro služby Office 365](active-directory-conditional-access-device-policies.md)
+#### [Migrace klasických zásad](active-directory-conditional-access-migration.md)
 #### Úlohy
-##### [Migrace klasických zásad](active-directory-conditional-access-migration.md)
+##### [Migrace klasických zásad MFA](active-directory-conditional-access-migration-mfa.md)
 ##### [Nastavení podmíněného přístupu na základě zařízení](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Nastavení podmíněného přístupu na základě aplikace](active-directory-conditional-access-mam.md)
 ##### [Podmínky použití pro uživatele a aplikace](active-directory-tou.md)
