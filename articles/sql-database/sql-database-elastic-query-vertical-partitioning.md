@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd5bd82a35c5a2ba72cffe35138311322714a1c0
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Dotazování mezi databází cloudu s různými schématy (preview)
 ![Dotazování mezi tabulkami v různých databází][1]
@@ -43,7 +43,7 @@ Svisle oddíly databáze používají různé sady tabulek na různých databáz
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Vytvořit hlavní klíč databáze obor a přihlašovací údaje
 Přihlašovací údaje se používá v elastické dotazu pro připojení k vzdálené databáze.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
@@ -155,14 +155,14 @@ Následující dotaz provede třícestný spojení mezi dvěma místní tabulky 
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Uložené procedury pro vzdálené spuštění T-SQL: sp\_execute_remote
-Elastické dotazu také zavádí uložené procedury, která poskytuje přímý přístup k horizontálních oddílů. Uložená procedura je volána [sp\_provést \_vzdáleného](https://msdn.microsoft.com/library/mt703714) a můžete použít ke spuštění vzdálené uložené procedury nebo kód T-SQL na vzdálené databáze. Ji používá následující parametry: 
+Elastické dotazu také zavádí uložené procedury, která poskytuje přímý přístup ke vzdálené databázi. Uložená procedura je volána [sp\_provést \_vzdáleného](https://msdn.microsoft.com/library/mt703714) a můžete použít ke spuštění vzdálené uložené procedury nebo kód T-SQL na vzdálené databáze. Ji používá následující parametry: 
 
 * Název zdroje dat (nvarchar): název zdroje externích dat typu relační. 
-* Dotaz (nvarchar): na každý horizontálního oddílu provedení dotazu T-SQL. 
+* Dotaz (nvarchar): na vzdálené databáze provedení dotazu T-SQL. 
 * Deklarace parametru (nvarchar) - volitelné: řetězec s definice typu dat pro parametry použité v parametru dotazu (např. sp_executesql). 
 * Seznam hodnot parametru - volitelné: čárkami oddělený seznam hodnot parametrů (např. sp_executesql).
 
-Sp\_provést\_vzdálené používá externí zdroj dat součástí Parametry vyvolání daný příkaz T-SQL nelze provést na vzdálené databáze. Přihlašovací údaje z externí zdroj dat používá pro připojení k databázi správce shardmap a vzdálené databáze.  
+Sp\_provést\_vzdálené používá externí zdroj dat součástí Parametry vyvolání daný příkaz T-SQL nelze provést na vzdálené databáze. Přihlašovací údaje z externí zdroj dat používá pro připojení ke vzdálené databázi.  
 
 Příklad: 
 

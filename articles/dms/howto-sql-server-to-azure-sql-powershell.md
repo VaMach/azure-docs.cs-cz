@@ -10,15 +10,15 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2017
-ms.openlocfilehash: ad6469fcf86aeb7a0076ab5909fbe593596df695
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 12/13/2017
+ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrovat místní SQL Server k databázi SQL Azure pomocí Azure PowerShell
-V tomto článku, migrovat **Adventureworks2012** databáze obnovena do místní instance systému SQL Server 2016 nebo novější verze do Azure SQL Database pomocí Microsoft Azure PowerShell.  Databáze můžete migrovat z místní instance systému SQL Server do Azure SQL Database pomocí `AzureRM.DataMigration` modulu v Microsoft Azure PowerShell.
+V tomto článku, migrovat **Adventureworks2012** databáze obnovena do místní instance systému SQL Server 2016 nebo novější verze do Azure SQL Database pomocí Microsoft Azure PowerShell. Databáze můžete migrovat z místní instance systému SQL Server do Azure SQL Database pomocí `AzureRM.DataMigration` modulu v Microsoft Azure PowerShell.
 
 V tomto článku se dozvíte, jak:
 > [!div class="checklist"]
@@ -26,7 +26,6 @@ V tomto článku se dozvíte, jak:
 > * Vytvoření instance služby migrace databáze Azure.
 > * Vytvoření projektu migrace v instanci služby migrace databáze Azure.
 > * Spusťte migrace.
-
 
 ## <a name="prerequisites"></a>Požadavky
 K dokončení těchto kroků, potřebujete:
@@ -36,15 +35,15 @@ K dokončení těchto kroků, potřebujete:
 - Ke konfiguraci vaší [brány Windows Firewall pro přístup k databázovému stroji](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Instance databáze SQL Azure. Instance databáze SQL Azure můžete vytvořit pomocí následujících podrobností v článku [vytvoření Azure SQL database na portálu Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Pomocník pro migraci dat](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 nebo novější.
-- Služba Azure migrace databáze vyžaduje virtuální sítě vytvořené pomocí modelu nasazení Azure Resource Manager, které poskytuje připojení site-to-site k vaší místní zdrojové servery pomocí [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) nebo [ VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Služba Azure databáze migrace vyžaduje, aby virtuální sítě vytvořené pomocí modelu nasazení Azure Resource Manager, které poskytuje připojení site-to-site k vaší místní zdrojové servery pomocí [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) nebo [ VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Dokončit hodnocení místní databázi a schéma migrace pomocí Pomocníka pro migraci dat, jak je popsáno v článku [ provádění na posouzení migrace systému SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
-- Stáhněte a nainstalujte modul AzureRM.DataMigration z Galerie prostředí PowerShell pomocí [rutinu instalace modulu prostředí PowerShell](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
+- Stáhněte a nainstalujte modul AzureRM.DataMigration z Galerie prostředí PowerShell pomocí bu [rutinu instalace modulu prostředí PowerShell](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
 - Pověření použitá pro připojení k instanci systému SQL Server zdrojové musí mít [ovládacího PRVKU serveru](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) oprávnění.
-- Pověření použitá pro připojení k cílové instance Azure SQL DB musí mít oprávnění CONTROL DATABASE na Azure SQL DB cílovým databázím.
+- Pověření použitá pro připojení k cílové databázi SQL Azure instance musí mít oprávnění CONTROL DATABASE na Azure SQL Database cílovým databázím.
+- Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Přihlaste se k předplatnému Microsoft Azure
 Postupujte podle pokynů v článku [Přihlaste se pomocí Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) k přihlášení k předplatnému Azure pomocí prostředí PowerShell.
-
 
 ## <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Vytvořte skupinu prostředků, než bude možné vytvořit virtuální počítač.
@@ -56,7 +55,6 @@ Následující příklad vytvoří skupinu prostředků s názvem *myResourceGro
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
-
 ## <a name="create-an-azure-database-migration-service-instance"></a>Vytvoření instance služby migrace databáze Azure 
 Můžete vytvořit novou instanci služby Azure databáze migrace pomocí `New-AzureRmDataMigrationService` rutiny. Tato rutina očekává následující požadované parametry:
 - *Název skupiny prostředků Azure*. Můžete použít [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) příkaz pro vytvoření skupiny prostředků Azure jako dříve vidět a zadejte jeho název jako parametr.
@@ -130,11 +128,9 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>Vytvoření a spuštění úlohy migrace
-
 Nakonec vytvořte a spusťte úlohy migrace databáze Azure. Azure úloha migrace databáze vyžaduje připojení přihlašovací údaje pro zdroj i cíl a seznam tabulek databáze se tedy migrovat kromě informací o již součástí projektu vytvořili v rámci předpokladů. 
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Vytvoření parametry přihlašovací údaje pro zdroje a cíle
-
 Přihlašovací údaje pro připojení zabezpečení se dá vytvořit jako [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) objektu. 
 
 Následující příklad ukazuje vytvoření *PSCredential* objekty pro zdroj i cíl připojení poskytuje hesla jako řetězec proměnné *$sourcePassword* a *$ Cílové_heslo*. 
@@ -200,11 +196,11 @@ $migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
 Můžete monitorovat úloha migrace spuštěna vlastnost Stav úlohy, jak je znázorněno v následujícím příkladu:
 
 ```powershell
-if (($task.Properties.State -eq "Running") -or ($task.Properties.State -eq "Queued"))
+if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTask.Properties.State -eq "Queued"))
 {
   write-host "migration task running"
 }
 ```
 
 ## <a name="next-steps"></a>Další kroky
-- Přečtěte si pokyny v migrace [příručka k migraci databáze Microsoft](https://datamigration.microsoft.com/)
+- Přečtěte si pokyny migrace v Microsoft [příručka k migraci databáze](https://datamigration.microsoft.com/).

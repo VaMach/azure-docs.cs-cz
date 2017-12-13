@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/28/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 53c5c340dc4e91db29fbbb45893fabe6eec2bc5d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ac89562a5156282bb0fe8a6aa6761d6acb97f785
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Přehled dostupnosti zón v Azure (Preview)
 
@@ -32,6 +32,7 @@ Dostupnost zóny pomoci při ochraně před selháním úrovni datového centra.
 
 - Východní USA 2
 - Západní Evropa
+- Francie – střed
 
 ## <a name="services-that-support-availability-zones"></a>Služby, které podporují dostupnost zóny
 
@@ -42,6 +43,7 @@ Služby Azure, které podporují dostupnost zóny jsou:
 - Sady škálování virtuálního počítače oblastmi
 - Managed Disks
 - Load Balancer
+- Veřejná IP adresa
 
 ## <a name="supported-virtual-machine-size-families"></a>Podporované virtuální počítač velikost řady
 
@@ -52,7 +54,7 @@ Služby Azure, které podporují dostupnost zóny jsou:
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Začínáme s preview dostupnost zóny
 
-Dostupnost zóny náhled je dostupný ve východní USA 2 a oblasti západní Evropa pro konkrétní služby Azure. 
+Dostupnost zóny náhled je dostupný ve východní USA 2, západní Evropa a Francie centrální oblasti pro konkrétní služby Azure. 
 
 1. [Registrace pro náhled zóny dostupnosti](http://aka.ms/azenroll). 
 2. Přihlaste se k předplatnému Azure.

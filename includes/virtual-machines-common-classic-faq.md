@@ -58,7 +58,7 @@ Pokud máte problémy se Vzdálenou plochou nebo SSH, nainstalujte rozšíření
 
 Pro virtuální počítače s Windows další možnosti zahrnují:
 
-* Na portálu Azure Classic vyhledejte virtuální počítač a potom klikněte na **Resetovat vzdálený přístup** na panelu příkazů.
+* Na portálu Azure najít virtuálního počítače a pak klikněte na **resetovat vzdálený přístup** z řádku nabídek.
 * Přečtěte si článek [Řešení problémů s připojením ke vzdálené ploše na virtuálním počítači Azure s Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Připojte se k virtuálnímu počítači prostřednictvím vzdálené komunikace prostředí Windows PowerShell nebo vytvořte další koncové body, aby se k virtuálnímu počítači mohly připojit další prostředky. Podrobnosti najdete v článku [Nastavení koncových bodů pro virtuální počítač](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -85,7 +85,7 @@ Pokud jste uživatelské jméno nebo heslo zapomněli a máte nainstalovaného a
 
 Další podrobnosti:
 
-* Pro image Linuxu se při použití portálu Azure Classic jako výchozí uživatelské jméno přidělí azureuser, ale to můžete změnit použitím způsobu vytvoření virtuálního počítače Z galerie místo možnosti Rychlé vytvoření. Při použití možnosti Z galerie se také můžete rozhodnout, jestli se k přihlášení má používat heslo, klíč SSH nebo obojí. Uživatelský účet je neprivilegovaný uživatel s přístupem k příkazu sudo pro spouštění privilegovaných příkazů. Účet root je zakázaný.
+* Pro Linux Image Pokud používáte portál Azure, 'azureuser' je zadána jako výchozí uživatelské jméno, ale toto můžete změnit pomocí 'Galerie z' místo 'Vytvořit' jako způsob, jak vytvořit virtuální počítač. Při použití možnosti Z galerie se také můžete rozhodnout, jestli se k přihlášení má používat heslo, klíč SSH nebo obojí. Uživatelský účet je neprivilegovaný uživatel s přístupem k příkazu sudo pro spouštění privilegovaných příkazů. Účet root je zakázaný.
 * V případě imagí Windows bude potřeba zadat uživatelské jméno a heslo při vytváření virtuálního počítače. Účet se přidá do skupiny Administrators.
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Může Azure na mém virtuálním počítači spouštět antivirové produkty?
@@ -105,7 +105,7 @@ Azure účtuje hodinovou cenu na základě velikosti virtuálního počítače a
 
 Virtuální počítač se vám účtuje ve spuštěném nebo zastaveném stavu, ale ne ve stavu Zastaveno (přidělení zrušeno). Pokud chcete změnit stav virtuálního počítače na Zastaveno (přidělení zrušeno), proveďte jednu z následujících akcí:
 
-* Vypněte nebo odstraňte virtuální počítač na portálu Azure Classic.
+* Vypnutí nebo odstranění virtuálního počítače z portálu Azure.
 * Použijte rutinu Stop-AzureVM, která je dostupná v modulu Azure PowerShellu.
 * Použijte operaci Shutdown Role (Vypnutí role) v rozhraní REST API pro správu služeb a pro element PostShutdownAction zadejte StoppedDeallocated.
 
@@ -118,7 +118,7 @@ K neplánovaným událostem údržby může docházet, když Azure zjistí záva
 
 U každého samostatného virtuálního počítače (tj. virtuální počítače, které nejsou součástí žádné sady dostupnosti) Azure e-mailem upozorní správce služeb předplatného alespoň týden před plánovanou údržbou, protože během aktualizace může dojít k restartování virtuálních počítačů. U aplikací spouštěných na virtuálních počítačích může dojít k výpadku.
 
-Pokud dojde k restartování z důvodu plánované údržby, pomocí portálu Azure Classic nebo Azure PowerShellu můžete také zobrazit protokoly restartování. Podrobnosti najdete v tématu [Zobrazení protokolů restartování virtuálního počítače](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Také můžete portál Azure nebo Azure PowerShell k zobrazení protokolů restartování při restartování došlo k chybě z důvodu plánované údržby. Podrobnosti najdete v tématu [Zobrazení protokolů restartování virtuálního počítače](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Pokud chcete zajistit redundanci, umístěte do stejné skupiny dostupnosti dva nebo více podobně nakonfigurovaných virtuálních počítačů. Tím pomůžete zajistit, že během plánované nebo neplánované údržby bude dostupný alespoň jeden virtuální počítač. Azure pro tuto konfiguraci zaručuje určité úrovně dostupnosti virtuálních počítačů. Podrobnosti najdete v článku [Správa dostupnosti virtuálních počítačů](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

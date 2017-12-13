@@ -1,9 +1,7 @@
-1. Přihlaste se do [portál Azure Classic](http://manage.windowsazure.com).  
-2. Na panelu příkazů v dolní části okna klikněte na tlačítko **nový**.
-3. V části **výpočetní**, klikněte na tlačítko **virtuálního počítače**a potom klikněte na **z Galerie**.
+1. Přihlaste se k webu [Azure Portal](http://portal.azure.com).  
+2. Klikněte na tlačítko **nový** > **výpočetní** > **najdete v článku všechny** a pak zadejte **SUSE**.
    
-    ![Vytvoření nového virtuálního počítače][Image1]
-4. V části **SUSE** skupiny, vyberte bitovou kopii virtuálního počítače OpenSUSE a pak klikněte na šipku pokračujte.
+3. Vyberte bitovou kopii virtuálního počítače OpenSUSE a pak klikněte na šipku pokračujte.
 5. V prvním **konfigurace virtuálního počítače** stránky:
    
    * Zadejte **název virtuálního počítače**, jako je například "testlinuxvm". Název musí obsahovat 3 až 15 znaků, může obsahovat pouze písmena, číslice a pomlčky a musí začínat písmenem a končit písmenem nebo číslicí.
@@ -49,7 +47,5 @@ SSH nebo PuTTY budete používat pro připojení k virtuálnímu počítači, v 
 3. Po dokončení instalace, vyberte **Dokončit**.  Systém je nyní aktuální.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
-
-[Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png

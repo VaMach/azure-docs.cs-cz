@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0b86be1c1b26079aee33bcf8e861f679f4cbe11e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure předávací ověřování služby Active Directory: Aktuální omezení
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/11/2017
 Plně podporuje následující scénáře:
 
 - Přihlášení uživatele na všechny webové aplikace založené na prohlížeči
-- Přihlášení uživatele pro klientské aplikace Office 365, které podporují [moderní ověřování](https://aka.ms/modernauthga)
-- Office 2016 a Office 2013 _s_ moderní ověřování
+- Uživatelská přihlášení do aplikace Office, které podporují [moderní ověřování](https://aka.ms/modernauthga): Office 2016 a Office 2013 _s_ moderní ověřování
+- Přihlášení uživatele ke Skypu pro firmy moderní ověřování této podpory, včetně Online a hybridní topologie. Další informace o podporovaných topologiích [zde](https://technet.microsoft.com/library/mt803262.aspx).
 - Azure AD domain spojení pro zařízení s Windows 10
 - Podporu protokolu Exchange ActiveSync
 
@@ -40,14 +40,14 @@ Plně podporuje následující scénáře:
 Následující scénáře jsou _není_ podporovány:
 
 - Přihlášení uživatele pro starší klientské aplikace Office: Office 2010 a Office 2013 _bez_ moderní ověřování. Organizace doporučujeme přepnout na moderní ověřování, pokud je to možné. Moderní ověřování umožňuje podporu předávací ověřování. Také pomáhá vám zabezpečit vaše uživatelské účty pomocí [podmíněného přístupu](../active-directory-conditional-access-azure-portal.md) funkce, jako je Azure Multi-Factor Authentication.
-- Uživatelská přihlášení ke Skypu pro firmy klientské aplikace, včetně Skype pro firmy 2016.
+- Uživatelská přihlášení ke Skypu pro firmy klientské aplikace _bez_ moderní ověřování.
 - Přihlášení uživatele k prostředí PowerShell, verze 1.0. Doporučujeme použít PowerShell verze 2.0.
-- Azure Active Directory Domain Services.
 - Hesla aplikací pro službu Multi-Factor Authentication.
 - Zjišťování uživatelů s [úniku přihlašovacích údajů](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Azure AD Domain Services vyžaduje synchronizaci hodnoty Hash hesla, aby byl povolen u klienta. Proto klientů, které používají předávací ověřování _pouze_ nefungují pro scénáře, které je třeba Azure AD Domain Services.
 
 >[!IMPORTANT]
->Jako alternativní řešení pro nepodporované scénáře _pouze_, povolte synchronizaci hodnoty hash hesla na [volitelné funkce](active-directory-aadconnect-get-started-custom.md#optional-features) stránku průvodce Azure AD Connect.
+>Jako alternativní řešení pro nepodporované scénáře _pouze_, povolte synchronizaci hodnoty Hash hesla na [volitelné funkce](active-directory-aadconnect-get-started-custom.md#optional-features) stránku průvodce Azure AD Connect.
 
 >[!NOTE]
 Povolení synchronizaci hodnoty hash hesla nabízí možnost převzetí služeb při selhání ověřování Pokud dojde k narušení na místní infrastrukturu. Toto převzetí služeb při selhání z předávací ověřování synchronizaci hodnoty hash hesla služby Active Directory není automatické. Budete potřebovat přepnout metoda přihlašování ručně pomocí služby Azure AD Connect. Pokud server se službou Azure AD Connect přestane fungovat, budete vyžadovat pomoc od společnosti Microsoft Support vypnout předávací ověřování.

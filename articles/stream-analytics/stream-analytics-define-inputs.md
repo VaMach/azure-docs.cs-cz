@@ -4,8 +4,8 @@ description: "Další informace o nastavení připojení dat do služby Stream A
 keywords: "datový proud, datové připojení, datového proudu událostí"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/05/2017
-ms.author: samacha
-ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 12/11/2017
+ms.author: sngun
+ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Datové připojení: Další informace o datech vstupy datového proudu z událostí do služby Stream Analytics
 Datové připojení do úlohy Stream Analytics je datový proud událostí ze zdroje dat, který se označuje jako úlohy *vstupní*. Stream Analytics obsahuje prvotřídní integrace s datového proudu zdrojů dat Azure, včetně [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), a [úložiště objektů Azure Blob](https://azure.microsoft.com/services/storage/blobs/). Tyto vstupního zdroje může být ze stejného předplatného Azure jako vaše úloha analýzy nebo z jiného předplatného.
@@ -37,9 +37,9 @@ Naučte se vytvořit odkaz na vstupy data, najdete v tématu [použití referen�
 
 ## <a name="compression"></a>Komprese
 
-Azure Stream Analytics podporuje kompresi mezi všechny datového proudu vstupního zdroje dat (Event Hubs, IoT Hub a objekt Blob úložiště). Tato funkce přidává nová možnost rozevírací seznam **nové vstup** okno portálu Azure, což umožňuje volitelně komprese datové proudy. Podporované typy jsou aktuálně None, GZip a kompresi Deflate. 
+Azure Stream Analytics podporuje kompresi mezi všechny datového proudu vstupního zdroje dat (Event Hubs, IoT Hub a objekt Blob úložiště). Tato funkce přidává nová možnost rozevírací seznam **nové vstup** okno portálu Azure, což umožňuje volitelně komprese datové proudy. Aktuálně podporované typy jsou odkaz - None, GZip a kompresi Deflate. Podpora pro kompresi není k dispozici pro referenční data.
 
-Komprese se nepodporuje v kombinaci s Avro serializace a není použitelný pro referenční data. 
+Nemusíte určit typ komprese s Avro serializace. Pokud vstupní data Avro je komprimován, zpracuje se transparentně. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Vytvoření vstupní datový proud dat ze služby Event Hubs
 

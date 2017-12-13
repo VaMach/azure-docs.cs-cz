@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/11/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f4b3e59cb6cec5ac4ca771818e5eca8509a43d82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latence sestav Azure Active Directory.
 
@@ -37,13 +37,15 @@ Existují dvě oblasti aktivity generování sestav:
 
 Následující tabulka uvádí informace o protokolování aktivit latenci.
 
-| Sestava | Minimální | Průměr | Maximální počet |
-| :-- | --- | --- | --- |
-| Protokoly auditu             | 30 minut  | 1 hodina | 2 hodiny     |
-| Přihlášení               | 15 minut  | 2 hodiny * | 24 hodin  |
+| Sestava | Minimální | Průměr |
+| :-- | --- | --- |
+| Protokoly auditu | 30 minut  | 1 hodina  |
+| Přihlášení | 15 minut  | 2 hodiny |
 
->[!NOTE]
-> Pro některá data aktivit přihlášení pocházející z aplikací Office starší verze může zobrazení dat pro generování sestav trvat až 8 hodin. 
+V některých případech edge může trvat:
+
+- 2 hodiny pro audit aktivity dat zobrazení.
+- 24 hodin pro přihlašovací aktivita data objeví. To zahrnuje přihlášení aktivity dat pocházejících z aplikací office starší verze. 
 
 
 ## <a name="security-reports"></a>Sestavy zabezpečení

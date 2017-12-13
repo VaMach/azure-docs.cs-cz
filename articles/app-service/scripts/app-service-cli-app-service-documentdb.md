@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI skriptu ukázkové – webovou aplikaci připojit k databázi Cosmos | Microsoft Docs"
-description: "Azure CLI skriptu ukázkové – webovou aplikaci připojit k databázi systému Cosmos"
+title: "Azure CLI skriptu ukázkové – webovou aplikaci připojit k MongoDB (Cosmos DB) | Microsoft Docs"
+description: "Azure CLI skriptu ukázkové – webovou aplikaci připojit k MongoDB (Cosmos DB)"
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -13,26 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 06/19/2017
+ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a59e0512308a85248a10a24c5951984040bedbcc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 67f5f392e360c03c231e0657d453a1df33ffee52
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>Webovou aplikaci připojit k databázi systému Cosmos
 
-V tomto scénáři se dozvíte, jak vytvořit účet Azure Cosmos DB a webové aplikace Azure. Potom propojíte Cosmos databáze pro webovou aplikaci pomocí nastavení aplikace.
-
+Tento ukázkový skript vytvoří účet Azure Cosmos DB s MongoDB rozhraní API a webové aplikace Azure. Následně odkazy MongoDB připojovacího řetězce pro webovou aplikaci pomocí nastavení aplikace.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (CLI) místně, musíte mít spuštěnou verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, je třeba Azure CLI verze 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Ukázkový skript
 
@@ -42,16 +40,16 @@ Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku (
 
 ## <a name="script-explanation"></a>Vysvětlení skriptu
 
-Tento skript používá následující příkazy k vytvoření skupiny prostředků, webové aplikace, Cosmos DB a všechny související prostředky. Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
+Tento skript používá následující příkazy k vytvoření skupiny prostředků, webové aplikace, databáze Cosmos a všechny související prostředky. Každý příkaz v tabulce odkazy na dokumentaci konkrétní příkaz.
 
 | Příkaz | Poznámky |
 |---|---|
-| [Vytvoření skupiny az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
-| [Vytvořit plán aplikační služby az](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Vytvoří plán služby App Service. Toto je jako serverové farmy pro Azure webové aplikace. |
-| [Vytvoření az webapp](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Vytvoří webové aplikace Azure. |
-| [Vytvoření az cosmosdb](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Vytvoří účet Cosmos DB. Toto je, kde bude uložena data. |
-| [AZ cosmosdb seznamu klíčů](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Uvádí přístupové klíče pro zadaný účet Cosmos DB. |
-| [AZ webapp konfigurace appsettings sady](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Vytvoří nebo aktualizuje nastavení aplikace pro webové aplikace Azure. Nastavení aplikace jsou zveřejněné jako proměnné prostředí pro vaši aplikaci. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Vytvoří skupinu prostředků, ve kterém jsou uložené všechny prostředky. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Vytvoří plán služby App Service. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Vytvoří webové aplikace Azure. |
+| [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | Vytvoří účet Cosmos DB. |
+| [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_connection_strings) | Obsahuje připojovací řetězce pro zadaný účet Cosmos DB. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Vytvoří nebo aktualizuje nastavení aplikace pro webové aplikace Azure. Nastavení aplikace jsou zveřejněné jako proměnné prostředí pro vaši aplikaci. |
 
 ## <a name="next-steps"></a>Další kroky
 

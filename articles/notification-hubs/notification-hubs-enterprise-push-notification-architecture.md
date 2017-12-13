@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Doprovodné materiály k architektuře nabízení v podnicích
 Podniky jsou dnes postupně přesunutí směrem vytváření mobilních aplikací buď pro své koncové uživatele (externí) nebo pro zaměstnance (interní). Mají existující back-end systémy zavedené je jej sálové počítače nebo některé obchodní aplikace, které musí být integrován do architektury mobilních aplikací. Tato příručka se mluvit o tom, jak vhodné provést této integrace doporučujeme možná řešení pro běžné scénáře.
@@ -212,7 +212,7 @@ Musíte provést následující kurzy seznamte s koncepty a také běžné vytvo
    
     ![][3]
    
-    g. Nakonfigurujte úlohu, která má být "Spouštět nepřetržitě" tak, aby při přihlášení do [portálu Azure Classic] měli byste vidět nějak takto:
+    g. Nakonfigurujte úlohu, která má být "Spouštět nepřetržitě" tak, aby při přihlášení do [portál Azure] měli byste vidět něco podobného jako následující:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ Musíte provést následující kurzy seznamte s koncepty a také běžné vytvo
 3. Spustit **EnterprisePushBackendSystem** konzolovou aplikaci, která bude simulovat LoB back-end a spustí odesílání zpráv a měli byste vidět informační zprávy, které jsou uvedeny jako následující:
    
     ![][5]
-4. Zprávy byly původně odeslána do témat Service Bus, které byl monitorován odběry služby Service Bus ve webové úlohy. Jakmile byla přijata zpráva, oznámení se vytváří a odesílají do mobilní aplikace. Můžete zobrazit prostřednictvím protokolů webové úlohy potvrďte zpracování při přechodu na odkaz protokoly v [portálu Azure Classic] pro webové úlohy:
+4. Zprávy byly původně odeslána do témat Service Bus, které byl monitorován odběry služby Service Bus ve webové úlohy. Jakmile byla přijata zpráva, oznámení se vytváří a odesílají do mobilní aplikace. Můžete zobrazit prostřednictvím protokolů webové úlohy potvrďte zpracování při přechodu na odkaz protokoly v [portál Azure] pro webové úlohy:
    
     ![][6]
 
@@ -264,4 +264,4 @@ Musíte provést následující kurzy seznamte s koncepty a také běžné vytvo
 [Service Bus Pub nebo Sub programování]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [webové úlohy Azure]: ../app-service/web-sites-create-web-jobs.md
 [Kurzu centra oznámení – Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[portálu Azure Classic]: https://manage.windowsazure.com/
+[portál Azure]: https://portal.azure.com/

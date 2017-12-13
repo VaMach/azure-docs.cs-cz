@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jingwang
-ms.openlocfilehash: d0db2bd3a7e4d93a8d0690fcb4535c4552cef7ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Kopírování dat z/do služby Salesforce pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,8 @@ Pro služby Salesforce propojené služby jsou podporovány následující vlast
 | type |Vlastnost typu musí být nastavena na: **Salesforce**. |Ano |
 | environmentUrl | Zadejte adresu URL služby Salesforce instanci. <br> -Výchozí hodnota je `"https://login.salesforce.com"`. <br> -Ke zkopírování dat z izolovaného prostoru, zadejte `"https://test.salesforce.com"`. <br> -Ke zkopírování dat z vlastní domény, zadejte, například `"https://[domain].my.salesforce.com"`. |Ne |
 | uživatelské jméno |Zadejte uživatelské jméno pro uživatelský účet. |Ano |
-| heslo |Zadejte heslo pro uživatelský účet.<br/><br/>Můžete označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat ADF kopírování vyžádání aktivitu z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). |Ano |
-| securityToken |Zadejte token zabezpečení pro uživatelský účet. V tématu [získal token zabezpečení](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) pokyny o tom, jak resetování nebo získat token zabezpečení. Obecné informace o tokeny zabezpečení najdete v tématu [zabezpečení a rozhraní API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Můžete označit toto pole jako SecureString bezpečně uložit v ADF nebo ukládání tokenu zabezpečení v Azure Key Vault a nechat ADF kopírování vyžádání aktivitu z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). |Ano |
+| heslo |Zadejte heslo pro uživatelský účet.<br/><br/>Můžete vybrat v tomto poli označit jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitu kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). |Ano |
+| securityToken |Zadejte token zabezpečení pro uživatelský účet. V tématu [získal token zabezpečení](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) pokyny o tom, jak resetování nebo získat token zabezpečení. Obecné informace o tokeny zabezpečení najdete v tématu [zabezpečení a rozhraní API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Můžete vybrat v tomto poli označit jako SecureString bezpečně uložit v ADF nebo ukládání tokenu zabezpečení v Azure Key Vault a nechat aktivitu kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). |Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Ne Ano pro sink zdroje |
 
 >[!IMPORTANT]

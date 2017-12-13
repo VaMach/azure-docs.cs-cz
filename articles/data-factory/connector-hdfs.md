@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Kopírování dat z a do HDFS pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -162,7 +162,7 @@ Pokud chcete zkopírovat data z HDFS, nastavte typ zdroje v aktivitě kopírová
 | Rekurzivní | Označuje, zda je data načíst rekurzivně z dílčí složky nebo pouze do zadané složky.<br/>Povolené hodnoty jsou: **true** (výchozí), **false** | Ne |
 | distcpSettings | Skupina vlastností při použití HDFS DistCp. | Ne |
 | resourceManagerEndpoint | Koncový bod Yarn ResourceManager | Ano, při použití DistCp |
-| tempScriptPath | Cesty používá k ukládání dočasného DistCp příkazu skriptu. Soubor skriptu je generován ADF a odeberou se po dokončení úlohu kopírování. | Ano, při použití DistCp |
+| tempScriptPath | Cesty používá k ukládání dočasného DistCp příkazu skriptu. Soubor skriptu je generován objekt pro vytváření dat a bude odebrána po dokončení úlohu kopírování. | Ano, při použití DistCp |
 | distcpOptions | Další možnosti poskytnuté DistCp příkaz. | Ne |
 
 **Příklad: HDFS zdroje v aktivitou kopírování pomocí uvolnění**

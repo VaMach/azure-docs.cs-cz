@@ -5,7 +5,7 @@
 
 3. V okně **Nový účet** zadejte požadovanou konfiguraci účtu databáze Azure Cosmos. 
 
-    V databázi Azure Cosmos můžete vybrat jeden ze čtyř programovacích modelů: Gremlin (graf), MongoDB, SQL (DocumentDB) a Tabulka (klíč-hodnota). 
+    S Azure Cosmos databáze, můžete vybrat jednu z čtyři programovací modely: Gremlin (grafu), MongoDB, SQL a tabulky (klíč hodnota). 
        
     V tomto rychlém startu budeme programovat s využitím rozhraní API MongoDB, takže při vyplňování formuláře vyberete možnost **MongoDB**. Pokud ale máte data grafu pro aplikaci sociálních médií, data dokumentu z aplikace katalogu nebo data typu klíč/hodnota (tabulka), je dobré si uvědomit, že databáze Azure Cosmos může poskytnout vysoce dostupnou a globálně distribuovanou platformu databázové služby pro všechny důležité podnikové aplikace.
 

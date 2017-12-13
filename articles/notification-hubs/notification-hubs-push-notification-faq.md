@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Nabízená oznámení pomocí Azure Notification Hubs: Nejčastější dotazy
 ## <a name="general"></a>Obecné
@@ -179,14 +179,14 @@ Pokud nemáte back-end, když se aplikace spustí na cílovém zařízení, fung
 Bude časové období, kdy zařízení s vyberte aplikace nebude přijímat oznámení.
 
 ### <a name="is-there-audit-log-capability"></a>Je k dispozici funkce protokolu auditování?
-Všechny operace správy Notification Hubs přejděte na protokoly operací, které jsou přístupné [portál Azure classic].
+Všechny operace správy Notification Hubs přejděte na protokoly operací, které jsou přístupné [portál Azure].
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorování a řešení potíží
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Jaké možnosti pro odstraňování potíží jsou k dispozici?
 Služba Azure Notification Hubs poskytuje několik funkcí pro řešení potíží, zejména pro nejčastější scénáře vynechaných oznámení. Podrobnosti najdete v tématu [řešení potíží s Notification Hubs] dokumentu white paper.
 
 ### <a name="what-telemetry-features-are-available"></a>Jaké funkce telemetrická data jsou k dispozici?
-Zobrazení telemetrická data v Azure Notification Hubs umožňuje [portál Azure classic]. Podrobnosti o podle metrik, které jsou k dispozici na [metriky centra oznámení] stránky.
+Zobrazení telemetrická data v Azure Notification Hubs umožňuje [portál Azure]. Podrobnosti o podle metrik, které jsou k dispozici na [metriky centra oznámení] stránky.
 
 > [!NOTE]
 > Úspěšné oznámení jednoduše znamená, že externí systém PNS (například APNS pro Apple) nebo GCM pro Google byly dodány nabízená oznámení. Je zodpovědností systém oznámení platformy pro doručení oznámení do cílových zařízení. Systém PNS obvykle nevystavuje doručení metriky třetím stranám.  
@@ -195,7 +195,7 @@ Zobrazení telemetrická data v Azure Notification Hubs umožňuje [portál Azur
 
 Poskytujeme také schopnost exportovat telemetrická data prostřednictvím kódu programu (na vrstvě Standard). Podrobnosti najdete v tématu [metriky centra oznámení ukázka].
 
-[portál Azure classic]: https://manage.windowsazure.com
+[portál Azure]: https://portal.azure.com
 [ceny centra oznámení]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Případová studie: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -215,7 +215,7 @@ Poskytujeme také schopnost exportovat telemetrická data prostřednictvím kód
 [metriky centra oznámení]: https://msdn.microsoft.com/library/dn458822.aspx
 [metriky centra oznámení ukázka]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [registrace exportu/importu]: https://msdn.microsoft.com/library/dn790624.aspx
-[portál Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
 [App Service – ceny]: https://azure.microsoft.com/pricing/details/app-service/

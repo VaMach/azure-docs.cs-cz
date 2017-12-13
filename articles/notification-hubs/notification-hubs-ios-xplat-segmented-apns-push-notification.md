@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8aec171b46df3e0e7f2a2d3cc9d44084d064e6fd
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Používání centra oznámení k odesílání novinek
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -207,7 +207,7 @@ Prvním krokem je přidání prvky uživatelského rozhraní do vaší stávají
 Aplikaci teď můžete uložit sadu kategorií v místním úložišti zařízení používá k registraci do centra oznámení při každém spuštění aplikace.  Uživatel může změnit výběr kategorie v modulu runtime a kliknutím **přihlášení k odběru** metoda aktualizace registrace pro zařízení. Dále se aktualizovat aplikaci odesílat oznámení o aktuálních zprávách přímo do aplikace.
 
 ## <a name="optional-sending-tagged-notifications"></a>(volitelné) Odesílání oznámení s příznakem
-Pokud nemáte přístup k sadě Visual Studio, můžete přeskočit k další části a odesílání oznámení z aplikace. Můžete také odeslat oznámení správné šablony z [portálu Azure Classic] pomocí karty ladění pro vaše Centrum oznámení. 
+Pokud nemáte přístup k sadě Visual Studio, můžete přeskočit k další části a odesílání oznámení z aplikace. Můžete také odeslat oznámení správné šablony z [portál Azure] pomocí karty ladění pro vaše Centrum oznámení. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -331,4 +331,4 @@ V tomto kurzu jsme zjistili, jak k vysílání novinek podle kategorie. Vezměte
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
-[portálu Azure Classic]: https://manage.windowsazure.com
+[portál Azure]: https://portal.azure.com

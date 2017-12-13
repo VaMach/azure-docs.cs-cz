@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/07/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f74a953d04e8633e802b33903de603b39ac08e9b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ceac2897e7b584c90945f3f556afc12891bf8a25
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Kopírování dat do a z Data Lake Store pomocí objektu pro vytváření dat
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -84,11 +84,11 @@ Pokud chcete použít ověřování hlavní služby, zaregistrujte entitu aplika
 * Klíč aplikace 
 * ID tenanta
 
-> [!TIP]
+> [!IMPORTANT]
 > Ujistěte se, že udělíte hlavní správné oprávnění služby v Azure Data Lake Store:
->- Pokud použijete Průvodce kopírováním vytvářet kanály, udělit alespoň **čtečky** role v účtu řízení přístupu (IAM). Navíc udělit alespoň **čtení + Execute** oprávnění kořenového adresáře Data Lake Store ("/") a její podřízené položky. V opačném případě může zobrazí se zpráva "zadané přihlašovací údaje jsou neplatné."
 >- Pokud chcete použít jako zdroj Data Lake Store, udělte alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu.
 >- Pokud chcete používat Data Lake Store jako jímku, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure Reakcí na základě kterých kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud chcete, aby se zabránilo této role IAM [zadejte executionLocation](data-factory-data-movement-activities.md#global) s umístěním Data Lake Store v aktivitě kopírování.
+>- Pokud použijete Průvodce kopírováním vytvářet kanály, udělit alespoň **čtečky** role v účtu řízení přístupu (IAM). Navíc udělit alespoň **čtení + Execute** oprávnění kořenového adresáře Data Lake Store ("/") a její podřízené položky. V opačném případě může zobrazí se zpráva "zadané přihlašovací údaje jsou neplatné."
 
 Použijte objekt zabezpečení ověřování služby tak, že zadáte následující vlastnosti:
 
@@ -124,6 +124,12 @@ Alternativně můžete ověření přihlašovacích údajů uživatele ke kopír
 | **autorizace** | Klikněte **Autorizovat** tlačítko v editoru služby Data Factory a zadejte svoje přihlašovací údaje, který přiřazuje URL pro autorizaci automaticky generovaný této vlastnosti. | Ano |
 | **ID relace** | ID relace OAuth z autorizační relace OAuth. Každé ID relace je jedinečné a může být použit pouze jednou. Toto nastavení se automaticky generuje při pomocí editoru služby Data Factory. | Ano |
 
+> [!IMPORTANT]
+> Ujistěte se, že udělíte správné oprávnění uživatele v Azure Data Lake Store:
+>- Pokud chcete použít jako zdroj Data Lake Store, udělte alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu.
+>- Pokud chcete používat Data Lake Store jako jímku, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure Reakcí na základě kterých kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud chcete, aby se zabránilo této role IAM [zadejte executionLocation](data-factory-data-movement-activities.md#global) s umístěním Data Lake Store v aktivitě kopírování.
+>- Pokud použijete Průvodce kopírováním vytvářet kanály, udělit alespoň **čtečky** role v účtu řízení přístupu (IAM). Navíc udělit alespoň **čtení + Execute** oprávnění kořenového adresáře Data Lake Store ("/") a její podřízené položky. V opačném případě může zobrazí se zpráva "zadané přihlašovací údaje jsou neplatné."
+
 **Příklad: Ověření pověření uživatele**
 ```json
 {
@@ -147,7 +153,6 @@ Autorizační kód, který můžete vygenerovat pomocí **Autorizovat** tlačít
 Přihlašovací údaje chyby operace: invalid_grant - AADSTS70002: Chyba při ověřování přihlašovacích údajů. AADSTS70008: Předloženému udělení přístupu je prošlý nebo odvolat. ID trasování: ID korelace d18629e8-af88-43c5-88e3-d8419eb1fca1: časové razítko fac30a0c-6be6-4e02-8d69-a776d2ffefd7: 2015-12-15 21-09-31Z.
 
 V následující tabulce jsou uvedeny doby vypršení platnosti, různé typy uživatelských účtů:
-
 
 | Typ uživatele | Platnost vyprší po |
 |:--- |:--- |

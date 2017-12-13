@@ -1,24 +1,16 @@
 ---
 title: "Přizpůsobit Azure migrovat nastavení assessment | Microsoft Docs"
 description: "Popisuje, jak nastavit a spustit posouzení pro migraci virtuálních počítačů VMware do Azure pomocí Azure Plánovač migrace"
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: a068b9c7-5f87-4fe1-90b9-3be48d91aa3f
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 20aeb2073ad307952f92c8377bc9d78169f1756c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: ce47790f6214864afdba33eb5cbe3a9e49b81cd5
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-an-assessment"></a>Přizpůsobení posouzení
 
@@ -32,9 +24,9 @@ ms.lasthandoff: 11/29/2017
 
     **Nastavení** | **Podrobnosti** | **Výchozí**
     --- | --- | ---
-    **Cílové umístění** | Azure umístění, do kterého chcete migrovat. |  Západní USA 2 je výchozí umístění.
-    **Redundance úložiště** | Typ úložiště, který bude používat k virtuálním počítačům Azure po migraci. | Pouze [místně redundantní úložiště (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikace v současné době podporuje.
-    **Faktor pohodlí** | Pohodlí. faktor je vyrovnávací paměť, která se používá při hodnocení. Účet pro akcí, například sezónní využití krátkodobých historie výkonu, pravděpodobně v budoucnu zvýšit v využití pomocí něj. | Výchozí nastavení je 1.3 x.
+    **Cílové umístění** | Umístění Azure, do kterého chcete migrovat. |  Západní USA 2 je výchozí umístění.
+    **Redundance úložiště** | Typ úložiště, které budou po migraci používat virtuální počítače Azure. | Pouze [místně redundantní úložiště (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikace v současné době podporuje.
+    **Faktor komfortu** | Pohodlí. faktor je vyrovnávací paměť, která se používá při hodnocení. Účet pro akcí, například sezónní využití krátkodobých historie výkonu, pravděpodobně v budoucnu zvýšit v využití pomocí něj. | Výchozí nastavení je 1.3 x.
     **Prováděcí historie** | Čas používaný k vyhodnocení historie výkonu. | Výchozí hodnota je jeden měsíc.
     **Percentil využití** | Hodnota percentilu ke zvážení prováděcí historie. | Výchozí hodnota je 95 %.
     **Cenová úroveň** | Můžete zadat [cenová úroveň](https://azure.microsoft.com/blog/basic-tier-virtual-machines-2/) pro virtuální počítač.  | Ve výchozím nastavení [standardní](../virtual-machines/windows/sizes-general.md) vrstvy se používá.

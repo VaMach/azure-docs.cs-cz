@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 4feed2537a45784bc8aa19de05bdc18533dd64d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopírování dat z Amazon Redshift pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,7 +130,7 @@ Ke zkopírování dat z Amazon Redshift, nastavte typ zdroje v aktivitě kopíro
 | type | Vlastnost typ zdroje kopie aktivity musí být nastavena na: **AmazonRedshiftSource** | Ano |
 | query |Čtení dat pomocí vlastního dotazu. |Řetězec dotazu SQL. Příklad: vybrat * z MyTable. |Ne (když je určena "tableName" v datové sadě) |
 | redshiftUnloadSettings | Skupina vlastností při použití Amazon Redshift uvolnění. | Ne |
-| s3LinkedServiceName | Odkazuje Amazon S3 k-be používané jako dočasné úložiště tak, že zadáte název ADF propojené služby typu "AmazonS3". | Ano, pokud používáte uvolnění |
+| s3LinkedServiceName | Odkazuje Amazon S3 k-be používané jako dočasné úložiště tak, že zadáte název propojené služby typu "AmazonS3". | Ano, pokud používáte uvolnění |
 | bucketName | Uveďte sady S3 k uložení dat o dočasné. Pokud není zadaná, služba Data Factory ho generuje automaticky.  | Ano, pokud používáte uvolnění |
 
 **Příklad: Amazon Redshift zdroj v aktivitou kopírování pomocí uvolnění**

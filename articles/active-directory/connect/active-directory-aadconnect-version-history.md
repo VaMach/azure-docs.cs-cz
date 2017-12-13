@@ -12,28 +12,93 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5a47d7f589d4d2dcd40ebb6ff551f2c77fc8a8aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historie verzí
 Tým služby Azure Active Directory (Azure AD) pravidelně aktualizuje Azure AD Connect s novými funkcemi a funkce. Ne všechny dodatky platí pro všechny cílové skupiny.
-
-Tento článek je určen, abyste mohli sledovat verze, které byly vydány a zjistit, jestli je potřeba aktualizovat na nejnovější verzi, nebo ne.
+"Tento článek je navržený tak, abyste mohli sledovat verze, které byly vydány a zjistit, jestli je potřeba aktualizovat na nejnovější verzi, nebo ne.
 
 Toto je seznam Příbuzná témata:
+
 
 
 Téma |  Podrobnosti
 --------- | --------- |
 Kroky pro upgrade z Azure AD Connect | Různých způsobů [upgrade z předchozí verze na nejnovější](active-directory-aadconnect-upgrade-previous-version.md) verzi Azure AD Connect.
 Požadovaná oprávnění | Oprávnění potřebná k použití aktualizace, najdete v části [účty a oprávnění](./active-directory-aadconnect-accounts-permissions.md#upgrade).
-Ke stažení| [Stažení Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+Stáhněte si | [Stažení Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+Stav: 12. prosince 2017
+
+>[!NOTE]
+>Toto je zabezpečení související oprava hotfix pro Azure AD Connect
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+Při první instalaci Azure AD Connect, nový účet může být vytvořen používaný ke spouštění služby Azure AD Connect. Než tato verze s nastavením, které povolené uživatele s heslem práva adminsitrator vědět, možnost změny hesla na hodnotu k jejich vytvoření účtu.  Toto nastavení povoleno můžete se přihlásit pomocí tohoto účtu, a to by představovalo zvýšení úrovně oprávnění porušení zabezpečení. Tato verze tightens nastavení pro účet, který je vytvořen a odebere toto ohrožení zabezpečení.
+
+>[!NOTE]
+>Tato verze pouze odebere ohrožení zabezpečení pro nové instalace služby Azure AD Connect, kde se má vytvořit účet služby procesem instalace. Exisating instalace, nebo v případech, kde můžete vytvořit účet sami můžete sould ujistěte, že tuto chybu zabezpečení neexistuje.
+
+Chcete-li posílit nastavení pro účet služby můžete spustit [tento skript prostředí PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Ho bude posílit nastavení na účet služby k odstranění chyby na následující hodnoty:
+
+*   Zakázat dědičnost na zadaný objekt
+*   Odeberte všechny položky řízení přístupu pro daný objekt, s výjimkou položky řízení přístupu konkrétním do sebe sama. Chceme zachovat výchozí oprávnění při přechodu do sebe sama.
+*   Přiřadíte tato konkrétní oprávnění:
+
+Typ     | Name (Název)                          | Access               | Platí pro
+---------|-------------------------------|----------------------|--------------|
+Povolit    | SYSTÉM                        | Úplné řízení         | Tento objekt  |
+Povolit    | Enterprise Admins             | Úplné řízení         | Tento objekt  |
+Povolit    | Domain Admins                 | Úplné řízení         | Tento objekt  |
+Povolit    | Správci                | Úplné řízení         | Tento objekt  |
+Povolit    | Enterprise Domain Controllers | Zobrazovat obsah        | Tento objekt  |
+Povolit    | Enterprise Domain Controllers | Číst všechny vlastnosti  | Tento objekt  |
+Povolit    | Enterprise Domain Controllers | Oprávnění ke čtení     | Tento objekt  |
+Povolit    | Ověření uživatelé           | Zobrazovat obsah        | Tento objekt  |
+Povolit    | Ověření uživatelé           | Číst všechny vlastnosti  | Tento objekt  |
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Skript prostředí PowerShell, abyste posílili existující účet služby
+
+Chcete-li toto nastavení použít pro existující účet služby, pomocí tohoto skriptu prostředí PowerShell (ether poskytnutá vaší organizací nebo vytvořený předchozí instalace služby Azure AD Connect, stáhněte si prosím skript z výše zadaný odkaz.
+
+##### <a name="usage"></a>Použití:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+kde 
+
+$ObjectDN = účet služby Active Directory, jehož oprávnění musí lze zvýšit.
+$Credential = pověření pro ověření klienta při posuzování do služby Active Directory. Obvykle se jedná o pověření správce podniku použít k vytvoření účtu, jehož oprávnění vyžaduje zpřísnění.
+
+>[!NOTE] 
+>$credential. Uživatelské jméno musí být ve formátu doména\uživatelské_jméno.  
+
+##### <a name="example"></a>Příklad:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Bylo toto ohrožení zabezpečení použít k získání neoprávněného přístupu?
+
+Pokud chcete zobrazit, pokud je toto ohrožení zabezpečení byl použit ohrozit vaši službu Azure AD Connect konfigurace by měl ověřit poslední heslo resetovat datum účtu služby.  Pokud časové razítko v neočekávané, další šetření, prostřednictvím protokolu událostí, mělo být provedeno pro toto heslo resetovat událostí,.
+
+                                                                                                               
+
+## <a name="116490"></a>1.1.649.0
+Stav: 27 říjen 2017
+
+>[!NOTE]
+>Toto sestavení není k dispozici zákazníkům prostřednictvím funkce Azure AD Connect automatického upgradu
 
 ## <a name="116490"></a>1.1.649.0
 Stav: 27 říjen 2017

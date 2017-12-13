@@ -4,7 +4,7 @@ description: "Naučte se spravovat Azure DB Cosmos v Azure Storage Explorer."
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
-author: Jiaj-Li
+author: jejiang
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
-ms.author: Jiaj-Li
-ms.openlocfilehash: 153369270399efbe38ca2e8b8ab2e05cb7e702f9
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: Jejiang
+ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Správa Azure Cosmos DB v Azure Storage Explorer (Preview)
 
-Použití Azure Cosmos DB v Azure Storage Explorer umožňuje uživatelům spravovat Azure Cosmos DB entity, pracovat s daty, aktualizace uložených procedur a aktivačních událostí společně s dalšími subjekty Azure jako úložiště objektů BLOB a fronty. Nyní můžete na stejný nástroj ke správě vašeho různých Azure entit na jednom místě. V současné době podporuje Azure Storage Explorer účty SQL a MongoDB.
+Použití Azure Cosmos DB v Azure Storage Explorer umožňuje uživatelům spravovat Azure Cosmos DB entity, pracovat s daty, aktualizace uložených procedur a aktivačních událostí společně s dalšími subjekty Azure jako úložiště objektů BLOB a fronty. Nyní můžete na stejný nástroj ke správě vašeho různých Azure entit na jednom místě. V současné době podporuje Azure Storage Explorer účty SQL a MongoDB. Azure Storage Explorer nefunguje s místní emulátoru Azure Cosmos DB. 
 
 V tomto článku můžete další informace o použití Průzkumníka úložiště ke správě Azure Cosmos DB.
 

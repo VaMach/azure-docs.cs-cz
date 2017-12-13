@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 8b990d1887551cbe182fe1c38d2cfd02f3af5e78
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Jak funguje Azure Cosmos DB data indexu?
 
@@ -258,9 +258,9 @@ Ale můžete přesunout na Lazy nebo hodnotu None probíhá indexování režimu
 * Při přesunutí Lazy index zásad změny efektivní okamžitě a Azure Cosmos DB spustí znovu vytvořit index asynchronně. 
 * Když přesouváte na hodnotu None, pak index vyřazen efektivní okamžitě. Přesun na hodnotu None je užitečné, když chcete zrušit v průběhu transformaci a spusťte novou s jiný zásady indexování. 
 
-Pokud používáte sady SDK rozhraní .NET, můžete ji indexování změn zásad pomocí nového **ReplaceDocumentCollectionAsync** metoda a sledovat průběh procento index transformace pomocí **IndexTransformationProgress** vlastnost odpověď z **ReadDocumentCollectionAsync** volání. Jiné sady SDK a rozhraní REST API podporují ekvivalentní vlastnosti a metody pro provádění změn v zásadách indexování.
-
 Zde je fragment kódu, který ukazuje, jak upravit indexování zásady kolekce z konzistentní indexování režimu Lazy.
+
+Pokud používáte sady SDK rozhraní .NET, můžete ji indexování změn zásad pomocí nového **ReplaceDocumentCollectionAsync** metoda.
 
 **Upravit zásady indexování z konzistentní k opožděné**
 
@@ -271,10 +271,9 @@ Zde je fragment kódu, který ukazuje, jak upravit indexování zásady kolekce 
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-
-Voláním ReadDocumentCollectionAsync, například můžete zkontrolovat průběh transformaci index, jak je uvedeno níže.
-
 **Sledovat průběh Index transformace**
+
+Procento průběh transformace index do konzistentního indexu můžete sledovat pomocí **IndexTransformationProgress** vlastnost odpověď z **ReadDocumentCollectionAsync** volání. Jiné sady SDK a rozhraní REST API podporují ekvivalentní vlastnosti a metody pro provádění změn v zásadách indexování. Můžete zkontrolovat průběh transformaci index do konzistentního indexu voláním **ReadDocumentCollectionAsync**: 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -288,6 +287,14 @@ Voláním ReadDocumentCollectionAsync, například můžete zkontrolovat průbě
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
+
+> [!NOTE]
+> Vlastnost IndexTransformationProgress lze použít pouze v případě, že transformace konzistentní indexu. Použijte vlastnost ResourceResponse.LazyIndexingProgress pro sledování transformace opožděné indexu.
+>
+
+> [!NOTE]
+> IndexTransformationProgress a LazyIndexingProgress vlastnosti jsou naplněny pouze v případě kolekce bez oddílů, který je kolekce, která je vytvořen bez klíče oddílu.
+>
 
 Přesunutím na hodnotu None indexování režim můžete vyřadit index pro kolekci. Pokud chcete zrušit transformaci v průběhu a okamžitě spustit nový, může to být užitečné provozní nástroj.
 

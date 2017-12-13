@@ -1,26 +1,18 @@
 ---
 title: "Migrace počítačů po vyhodnocení s Azure migrovat | Microsoft Docs"
 description: "Popisuje, jak získat doporučení k migraci počítačů po spuštění posouzení se službou Azure migrovat."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 809c6e85-0928-45e2-a7c7-6824d860e134
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 083e614628645d2eb94b7d84f4127b690865d770
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e6e32e9bd2384987a1d0315bfbef913c46fc5dbb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="migrate-machines-after-assessment"></a>Migrujte počítače po vyhodnocení
+# <a name="migrate-machines-after-assessment"></a>Migrace počítačů po posouzení
 
 
 [Azure migrací](migrate-overview.md) vyhodnocuje místní počítače, zkontrolujte, zda jsou vhodné pro migraci na Azure a poskytuje velikost a cenově odhady pro spuštění na počítač v Azure. V současné době Azure migrovat vyhodnocuje pouze počítače pro migraci. Migrace samotné právě probíhá, pomocí jiných služeb Azure.
