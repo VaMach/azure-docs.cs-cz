@@ -119,6 +119,10 @@
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: Azure Stack CLI
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: Související
+  items:
+    - name: Dokumentace operátora k Azure Stacku
+      href: /azure/azure-stack/
 - name: Zdroje
   items:
     - name: Plány Azure do budoucna
