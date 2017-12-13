@@ -11,7 +11,8 @@
 ## [Začínáme se službou Advisor](advisor-get-started.md)
 
 # Referenční informace
-## [REST](https://docs.microsoft.com/rest/api/advisor)
+## [REST API](https://docs.microsoft.com/rest/api/advisor)
+## [Rozhraní příkazového řádku](https://docs.microsoft.com/cli/azure/advisor)
 
 # Související
 ## [Security Center](https://azure.microsoft.com/services/security-center/)

@@ -4,11 +4,11 @@ hide_bc: True
 title: Dokumentace k Microsoft Azure
 description: "Naučte se vytvářet a spravovat výkonné aplikace pomocí cloudových služeb Microsoft Azure. Získejte dokumentaci, ukázkový kód, výukové kurzy a další materiály."
 featureFlags: clicktale
-ms.openlocfilehash: 1d6ff00b9fdabbf612cba15fa09f923d0b08a58e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4cc932ca2dcdad16f4b1b7cfc2494eec0ccf18b3
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4106,7 +4106,7 @@ Azure CLI </h3>
                                                     <a href="https://www.visualstudio.com/vs/azure-tools/">Visual Studio Tools for Azure</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">Stáhnout</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Stáhnout</a>
                                                 </p>
                                             </div>
                                         </div>
