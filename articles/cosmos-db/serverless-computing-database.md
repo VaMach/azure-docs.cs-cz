@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 2bbbde3497d8680ba4203049f66ea05005af0d11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Pomocí Azure Functions computing bez serveru databáze
 
@@ -44,7 +44,7 @@ Aktivační událost Azure Cosmos DB, vstupní vazby a výstup vazby lze použí
 * Vstupní vazbu ke kontejneru Azure Cosmos DB mohou být používány stejnou funkci jako aktivační procedury Azure Cosmos DB a dají se použít s nebo bez vazby také výstup. Můžete použít tuto kombinaci použít informace o aktuální Měna systému exchange (vyžádat pomocí vstupní vazbu ke kontejneru exchange) k informačnímu kanálu změn nových objednávek ve službě nákupní košík. Aktualizované nákupní košík celkem s aktuální převodu měny, který se použije, může být napsán na kontejner třetí pomocí vazbu výstup.
 
 > [!NOTE]
-> Aktivační událost Azure Cosmos DB, vstupní vazby a výstup vazby pracovat v tuto chvíli pouze účty SQL, tabulky a rozhraní Graph API.
+> Aktivační událost Azure Cosmos DB, vstupní vazby a výstup vazby pracovat v tuto chvíli pouze účty rozhraní SQL API a rozhraní Graph API.
 
 ## <a name="use-cases"></a>Případy použití
 
@@ -86,14 +86,14 @@ Následující obrázky znázorňují kód na portálu Azure pro tento scénář
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Herní případ - aktivační událost Azure Cosmos DB použití a výstupní vazby
 
-V hry, při vytváření nového uživatele můžete vyhledat jiných uživatelů, kteří mohou vědět pomocí [Azure Cosmos DB Graph API](graph-introduction.md). Poté můžete napsat výsledky do [databáze Azure Cosmos Databázové tabulce](table-introduction.md) lze snadno načíst.
+V hry, při vytváření nového uživatele můžete vyhledat jiných uživatelů, kteří mohou vědět pomocí [Azure Cosmos DB Graph API](graph-introduction.md). Poté můžete napsat výsledky do [databáze Azure Cosmos DB SQL] lze snadno načíst.
 
 **Implementace:** použít aktivační událost INSTEAD Azure Cosmos DB a vazbu výstup
 
 1. Pomocí Azure DB Cosmos [grafu databáze](graph-introduction.md) k uložení všech uživatelů, můžete vytvořit novou funkci s aktivační procedury Azure Cosmos DB. 
 2. Vždy, když je vložit nového uživatele, je volána funkce a pak výsledek je uložen pomocí **výstup vazby**.
 3. Funkce dotazu na graf databázi pro vyhledání všech uživatelů, kteří jsou přímo souvisí s novým uživatelem a vrátí tuto datovou sadu funkce.
-4. Tato data se pak uloženy v databázi služby Azure Cosmos [tabulky databáze](table-introduction.md) jako klíč hodnota sada párů, které může pak snadno načíst všechny front-endu aplikace, která ukazuje svoje přátele připojené nového uživatele.
+4. Tato data se pak uloženy v databázi Cosmos Azure, který může pak snadno načíst všechny front-endu aplikace, která ukazuje svoje přátele připojené nového uživatele.
 
 ### <a name="retail-use-case---multiple-functions"></a>Případ použití prodejní - víc funkcí
 

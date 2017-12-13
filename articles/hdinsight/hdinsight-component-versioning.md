@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 79f3cfbe5f5603d3c9f42e8af1d4093a5135b267
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b6afcad6f838170d83f90a2cef8ccab0e2cfc9a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Co jsou komponent systému Hadoop a verze, které jsou k dispozici v prostředí HDInsight?
 
@@ -206,28 +206,28 @@ V následujících tabulkách jsou uvedeny výchozí velikosti virtuálního po�
 
 * Všechny podporované oblasti s výjimkou Brazílie – jih a Japonsko – západ:
 
-  | Typ clusteru | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | HEAD: velikost virtuálního počítače výchozí |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | HEAD: doporučené velikosti virtuálních počítačů |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3 A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Worker: velikost virtuálního počítače výchozí |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Pracovní: doporučené velikosti virtuálních počítačů |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | ZooKeeper: velikost virtuálního počítače výchozí | |A3 |A2 | | |
-  | ZooKeeper: doporučené velikosti virtuálních počítačů | |A3 A4, A5 |A2, A3, A4 | | |
-  | Okraj: velikost virtuálního počítače výchozí | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Okraj: Doporučená velikost virtuálního počítače | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Typ clusteru | Hadoop | HBase | Interaktivní dotaz | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | HEAD: velikost virtuálního počítače výchozí |D3 v2 |D3 v2 | D13 D14 |A3 |D12 v2 |D12 v2 |
+  | HEAD: doporučené velikosti virtuálních počítačů |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13 D14 |A3 A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Worker: velikost virtuálního počítače výchozí |D3 v2 |D3 v2  | D13 D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Pracovní: doporučené velikosti virtuálních počítačů |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13 D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: velikost virtuálního počítače výchozí | |A3 | |A2 | | |
+  | ZooKeeper: doporučené velikosti virtuálních počítačů | |A3 A4, A5 | | A2, A3, A4 | | |
+  | Okraj: velikost virtuálního počítače výchozí | | | | | |Windows: D12 v2; Linux: D4 v2 |
+  | Okraj: Doporučená velikost virtuálního počítače | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brazílie – jih a Japonsko – západ pouze (žádné velikosti v2):
 
-  | Typ clusteru | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | HEAD: velikost virtuálního počítače výchozí |D3 |D3 |A3 |D12 |D12 |
-  | HEAD: doporučené velikosti virtuálních počítačů |D12 D3, D4, |D12 D3, D4, |A3 A4, A5 |D12 D13, D14 |D12 D13, D14 |
-  | Worker: velikost virtuálního počítače výchozí |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Pracovní: doporučené velikosti virtuálních počítačů |D12 D3, D4, |D12 D3, D4, |D12 D3, D4, |Windows: D12 D13, D14; Linux: D4, D14 D12 D13, |Windows: D12 D13, D14; Linux: D4, D14 D12 D13, |
-  | ZooKeeper: velikost virtuálního počítače výchozí | |A2 |A2 | | |
-  | ZooKeeper: doporučené velikosti virtuálních počítačů | |A2, A3, A4 |A2, A3, A4 | | |
-  | Hraniční: velikosti virtuálních počítačů výchozí | | | | |Windows: D12; Linux: D4 |
-  | Okraj: doporučené velikosti virtuálních počítačů | | | | |Windows: D12 D13, D14; Linux: D4, D14 D12 D13, |
+  | Typ clusteru | Hadoop | HBase | Interaktivní dotaz |Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | HEAD: velikost virtuálního počítače výchozí |D3 |D3  | D13 D14 |A3 |D12 |D12 |
+  | HEAD: doporučené velikosti virtuálních počítačů |D12 D3, D4, |D12 D3, D4,  | D13 D14 |A3 A4, A5 |D12 D13, D14 |D12 D13, D14 |
+  | Worker: velikost virtuálního počítače výchozí |D3 |D3  | D13 D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Pracovní: doporučené velikosti virtuálních počítačů |D12 D3, D4, |D12 D3, D4,  | D13 D14 |D12 D3, D4, |Windows: D12 D13, D14; Linux: D4, D14 D12 D13, |Windows: D12 D13, D14; Linux: D4, D14 D12 D13, |
+  | ZooKeeper: velikost virtuálního počítače výchozí | |A2 | | A2 | | |
+  | ZooKeeper: doporučené velikosti virtuálních počítačů | |A2, A3, A4 | |A2, A3, A4 | | |
+  | Hraniční: velikosti virtuálních počítačů výchozí | | | | | |Windows: D12; Linux: D4 |
+  | Okraj: doporučené velikosti virtuálních počítačů | | | | | |Windows: D12 D13, D14; Linux: D4, D14 D12 D13, |
 
 > [!NOTE]
 > - HEAD se označuje jako *Nimbus* Storm clusteru typu.

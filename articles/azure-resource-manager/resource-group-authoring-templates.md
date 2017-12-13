@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: b8d1988a8705e0708e412c24fb5b49f5ece31429
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 73d3397ac6527a216eadd6d0d013c97b86c55e6b
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Pochopit strukturu a syntaxe šablon Azure Resource Manager
 Tento článek popisuje strukturu šablony Azure Resource Manager. Představuje různé části šablony a vlastnosti, které jsou k dispozici v těchto částech. Šablona se skládá z JSON a výrazy, které můžete použít k vytvoření hodnot pro vaše nasazení. Podrobný kurz k vytvoření šablony, najdete v části [vytvoření vaší první šablony Azure Resource Manager](resource-manager-create-first-template.md).
@@ -159,227 +159,33 @@ Následující příklad ukazuje, jak použít několik funkcí, při vytvářen
 ## <a name="parameters"></a>Parametry
 V sekci parametrů šablony zadejte hodnoty, které můžete zadat při nasazování prostředky. Tyto hodnoty parametrů umožňují přizpůsobit nasazení zadáním hodnoty, které jsou přizpůsobené pro konkrétní prostředí (například vývoj, testování a provozním). Není nutné zadat parametry v šabloně, ale bez parametrů šablony vždy nasazení stejné prostředky se stejnými názvy, umístění a vlastnosti.
 
-Můžete definovat parametry s následující strukturou:
+Následující příklad ukazuje definici jednoduchého parametr:
 
 ```json
 "parameters": {
-    "<parameter-name>" : {
-        "type" : "<type-of-parameter-value>",
-        "defaultValue": "<default-value-of-parameter>",
-        "allowedValues": [ "<array-of-allowed-values>" ],
-        "minValue": <minimum-value-for-int>,
-        "maxValue": <maximum-value-for-int>,
-        "minLength": <minimum-length-for-string-or-array>,
-        "maxLength": <maximum-length-for-string-or-array-parameters>,
-        "metadata": {
-            "description": "<description-of-the parameter>" 
-        }
+  "siteNamePrefix": {
+    "type": "string",
+    "metadata": {
+      "description": "The name prefix of the web app that you wish to create."
     }
-}
+  },
+},
 ```
 
-| Název elementu | Požaduje se | Popis |
-|:--- |:--- |:--- |
-| Název parametru |Ano |Název parametru. Musí být platný identifikátor jazyka JavaScript. |
-| type |Ano |Typ hodnoty parametru. Zobrazit seznam povolených typů za touto tabulkou. |
-| Výchozí hodnota |Ne |Výchozí hodnota pro parametr, pokud není zadána žádná hodnota pro parametr. |
-| allowedValues |Ne |Povolené hodnoty pro parametr a ujistěte se, že je zadaná hodnota pravé pole. |
-| MinValue |Ne |Minimální hodnota pro parametry typu int, tato hodnota je (včetně). |
-| MaxValue |Ne |Maximální hodnota parametry typu int, tato hodnota je (včetně). |
-| minLength |Ne |Minimální délka řetězce, secureString a parametry typu pole, tato hodnota je (včetně). |
-| Hodnota maxLength |Ne |Maximální délka řetězce, secureString a parametry typu pole, tato hodnota je (včetně). |
-| description |Ne |Popis parametru, který se zobrazí uživatelům prostřednictvím portálu. |
-
-Povolené typy a hodnoty jsou:
-
-* **řetězec**
-* **secureString**
-* **celá čísla**
-* **BOOL**
-* **objekt** 
-* **secureObject**
-* **pole**
-
-Pro zadání parametru, jako je volitelné, zadejte hodnotu defaultValue (může být prázdný řetězec). 
-
-Pokud zadáte název parametru v šabloně, který odpovídá parametru v příkazu k nasazení šablony, je potenciální nejednoznačnosti hodnoty, které zadáte. Správce prostředků řeší tento nedorozuměním přidáním operátory **FromTemplate** pro parametr šablony. Například, pokud zahrnete parametr s názvem **ResourceGroupName** v šabloně, je v konfliktu s **ResourceGroupName** parametr ve [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) rutiny. Během nasazení, budete vyzváni, zadejte hodnotu pro **ResourceGroupNameFromTemplate**. Obecně platí neměli byste toto nedorozuměním není pojmenováním parametry se stejným názvem jako parametry použité pro operace nasazení.
-
-> [!NOTE]
-> Všechna hesla, klíče a jiné tajné klíče by měl používat **secureString** typu. Pokud předáte citlivá data v objektu JSON, použít **secureObject** typu. Parametry šablony s secureString nebo secureObject typů nelze přečíst po nasazení prostředků. 
-> 
-> Například následující položku v historii nasazení zobrazuje hodnotu pro řetězce a objekt, ale ne pro secureString a secureObject.
->
-> ![Zobrazit hodnoty nasazení](./media/resource-group-authoring-templates/show-parameters.png)  
->
-
-Následující příklad ukazuje, jak definovat parametry:
-
-```json
-"parameters": {
-    "siteName": {
-        "type": "string",
-        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-    },
-    "hostingPlanName": {
-        "type": "string",
-        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-    },
-    "skuName": {
-        "type": "string",
-        "defaultValue": "F1",
-        "allowedValues": [
-          "F1",
-          "D1",
-          "B1",
-          "B2",
-          "B3",
-          "S1",
-          "S2",
-          "S3",
-          "P1",
-          "P2",
-          "P3",
-          "P4"
-        ]
-    },
-    "skuCapacity": {
-        "type": "int",
-        "defaultValue": 1,
-        "minValue": 1
-    }
-}
-```
-
-Pro vstupní hodnoty parametrů během nasazování naleznete v tématu [nasazení aplikace pomocí šablony Azure Resource Manageru](resource-group-template-deploy.md). 
+Informace o definování parametrů najdete v tématu [oddílu parametry šablon Azure Resource Manager](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Proměnné
 V sekci proměnných můžete vytvořit hodnoty, které lze použít v celé vaší šablony. Není potřeba definovat proměnné, ale jejich často zjednodušit vaše šablony snížením složité výrazy.
 
-Můžete definovat proměnné s následující strukturou:
+Následující příklad ukazuje definici jednoduché proměnné:
 
 ```json
 "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-name>": { 
-        <variable-complex-type-value> 
-    }
-}
-```
-
-Následující příklad ukazuje, jak k definování proměnné, který je sestavený ze dvou hodnot parametrů:
-
-```json
-"variables": {
-    "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
-}
-```
-
-Další příklad ukazuje, proměnné, která je komplexního typu JSON a proměnné, které se vytvářejí na základě jiné proměnné:
-
-```json
-"parameters": {
-    "environmentName": {
-        "type": "string",
-        "allowedValues": [
-          "test",
-          "prod"
-        ]
-    }
-},
-"variables": {
-    "environmentSettings": {
-        "test": {
-            "instancesSize": "Small",
-            "instancesCount": 1
-        },
-        "prod": {
-            "instancesSize": "Large",
-            "instancesCount": 4
-        }
-    },
-    "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-    "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-    "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
-}
-```
-
-Můžete použít **kopie** syntaxe vytvoření proměnné s pole více elementů. Zadejte počet pro počet elementů. Každý prvek obsahuje vlastnosti v rámci **vstupní** objektu. Můžete kopírovat buď v rámci proměnné nebo vytvořte proměnnou. Následující příklad ukazuje obou přístupů:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "disk-array-on-object": {
-      "copy": [
-        {
-          "name": "disks",
-          "count": 5,
-          "input": {
-            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-            "diskSizeGB": "1",
-            "diskIndex": "[copyIndex('disks')]"
-          }
-        }
-      ]
-    },
-    "copy": [
-      {
-        "name": "disks-top-level-array",
-        "count": 5,
-        "input": {
-          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-          "diskSizeGB": "1",
-          "diskIndex": "[copyIndex('disks-top-level-array')]"
-        }
-      }
-    ]
-  },
-  "resources": [],
-  "outputs": {
-    "exampleObject": {
-      "value": "[variables('disk-array-on-object')]",
-      "type": "object"
-    },
-    "exampleArrayOnObject": {
-      "value": "[variables('disk-array-on-object').disks]",
-      "type" : "array"
-    },
-    "exampleArray": {
-      "value": "[variables('disks-top-level-array')]",
-      "type" : "array"
-    }
-  }
-}
-```
-
-Více než jeden objekt můžete zadat také v případě použití kopie k vytvoření proměnné. V následujícím příkladu definuje dvě pole jako proměnné. Jednu s názvem **disky nejvyšší úroveň pole** a má pět elementy. Druhá s názvem **jiné pole** a má tři prvky.
-
-```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
+  "webSiteName": "[concat(parameters('siteNamePrefix'), uniqueString(resourceGroup().id))]",
 },
 ```
+
+Informace o definování proměnné najdete v tématu [části proměnných šablon Azure Resource Manager](resource-manager-templates-variables.md).
 
 ## <a name="resources"></a>Zdroje
 V části prostředky definujete prostředky, které jsou nasazené a aktualizovat. V této části můžete získat složité, protože je potřeba pochopit, typy, které nasazujete zadejte správné hodnoty. Pro konkrétní prostředky hodnoty (apiVersion, typ a vlastnosti), které je nutné nastavit, najdete v části [definování zdrojů v šablonách Azure Resource Manager](/azure/templates/). 

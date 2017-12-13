@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 35bae19deb6d4a79367c171aea5d74b6698e023b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f60b858d76dd021a158a62b32199be9b1c4ed822
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Pravidla ve službě Azure CDN modul funkce
 Tento článek obsahuje seznam podrobný popis dostupných funkcí pro Azure Content Delivery Network (CDN) [stroj pravidel](cdn-rules-engine.md).
@@ -162,6 +162,7 @@ Name (Název) | Účel
 -----|--------
 [Metody HTTP lze uložit do mezipaměti](#cacheable-http-methods) | Určuje sadu další metody HTTP, které mohou být uloženy v mezipaměti v síti.
 [Velikost textu lze uložit do mezipaměti žádosti](#cacheable-request-body-size) | Definuje prahovou hodnotu pro určení, zda POST odpověď do mezipaměti.
+[Uživatelské proměnné](#user-variable) | Použít primarity pomocí Lua skriptů.
 
  
 ## <a name="url-features"></a>Adresa URL funkce
@@ -178,6 +179,7 @@ Name (Název) | Účel
 
 ## <a name="azure-cdn-rules-engine-features-reference"></a>Referenční dokumentace funkcí modul pravidla ve službě Azure CDN
 
+---
 ### <a name="age-response-header"></a>Hlavička odpovědi stáří
 **Účel**: Určuje, zda hlavičku odpovědi stáří budou zahrnuty v odpovědi odeslat žadatel.
 Hodnota|výsledek
@@ -187,6 +189,11 @@ Zakázáno | Hlavička odpovědi stáří je vyloučen z odpovědi odeslat žada
 
 **Výchozí chování**: zakázáno.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="bandwidth-parameters"></a>Parametry šířky pásma
 **Účel:** Určuje, jestli parametry (například ec_rate a ec_prebuf) omezení šířky pásma bude aktivní.
 
@@ -198,7 +205,12 @@ Povoleno|Umožňuje u serverů edge případném dalším sdílení dodržovat p
 Zakázáno|Způsobí, že servery edge ignorovat parametry omezení šířky pásma. Požadovaným obsahem se zpracuje normálně (tedy bez omezení šířky pásma).
 
 **Výchozí chování:** povolena.
+ 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
 
+</br>
+
+---
 ### <a name="bandwidth-throttling"></a>Omezení šířky pásma
 **Účel:** omezení šířky pásma pro odpověď poskytované servery edge.
 
@@ -207,10 +219,15 @@ Při správném nastavení omezení šířky pásma musí být definovány obě 
 Možnost|Popis
 --|--
 KB za sekundu|Tuto možnost nastavte na maximální pásma (Kb za sekundu), který se dá použít k poskytování odpovědi.
-Prebuf sekund|Tuto možnost nastavte počet sekund, po které bude odložena servery edge omezení šířky pásma. Účelem tohoto období bez omezení šířky pásma je zabránit přehrávač médií má problémy přerušované nebo vyrovnávací paměti z důvodu omezení šířky pásma.
+Prebuf sekund|Tuto možnost nastavte počet sekund, než servery edge Počkejte, dokud se omezuje šířku pásma. Účelem tohoto období bez omezení šířky pásma je zabránit přehrávač médií má problémy přerušované nebo vyrovnávací paměti z důvodu omezení šířky pásma.
 
 **Výchozí chování:** zakázané.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="bypass-cache"></a>Nepoužívat mezipaměti
 **Účel:** Určuje, zda požadavek by měl nepoužívat ukládání do mezipaměti.
 
@@ -225,21 +242,31 @@ Zakázáno|Způsobí, že servery edge do mezipaměti prostředky podle zásady 
 
 <!---
 - **ADN:** Enabled
+
 --->
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cacheable-http-methods"></a>Metody HTTP lze uložit do mezipaměti
 **Účel:** určuje sadu další metody HTTP, které mohou být uloženy v mezipaměti v síti.
 
 Informace o klíči:
 
 - Tato funkce se předpokládá, že GET odpovědi by měl vždycky být ukládat do mezipaměti. Metodu GET HTTP v důsledku toho by neměl být zahrnuty při nastavování této funkce.
-- Tato funkce podporuje jenom metodu POST HTTP. Povolit POST ukládání odpovědí do mezipaměti podle nastavení této funkce: POST 
-- Ve výchozím nastavení bude do mezipaměti pouze požadavky, jejichž text je menší než 14 Kb. Použijte funkci velikost textu lze uložit do mezipaměti žádosti nastavit velikost textu maximální žádosti.
+- Tato funkce podporuje jenom metodu POST protokolu HTTP. Povolit POST ukládání odpovědí do mezipaměti pomocí nastavení této funkce na `POST`.
+- Ve výchozím nastavení jsou do mezipaměti pouze požadavky, jejichž text je menší než 14 Kb. Použijte funkci velikost textu lze uložit do mezipaměti žádosti nastavit velikost textu maximální žádosti.
 
-**Výchozí chování:** pouze GET odpovědi bude ukládat do mezipaměti.
+**Výchozí chování:** pouze GET odpovědi jsou ukládat do mezipaměti.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cacheable-request-body-size"></a>Velikost textu lze uložit do mezipaměti žádosti
-
 **Účel:** definuje prahová hodnota pro určení, zda POST odpověď do mezipaměti.
 
 Tato prahová hodnota je určen podle určení velikosti textu maximální požadavku. Požadavky, které obsahují větší textu žádosti nebudou zapisována do mezipaměti.
@@ -256,6 +283,11 @@ Informace o klíči:
 
 **Výchozí chování:** 14 Kb
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-control-header-treatment"></a>Zpracování hlavička Cache-Control
 **Účel:** řídí generování `Cache-Control` hlavičky, server edge když externí funkce Max-Age je aktivní.
 
@@ -263,13 +295,18 @@ Nejjednodušší způsob, jak dosáhnout tento typ konfigurace se má umístit e
 
 Hodnota|výsledek
 --|--
-Přepsání|Zajišťuje, že takto bude probíhat:<br/> -Přepíše hlavička Cache-Control, které jsou generované na zdrojový server. <br/>-Přidá `Cache-Control` záhlaví vyprodukované funkci externí Max-Age do odpovědi.
-Předání|Zajišťuje, že `Cache-Control` záhlaví vyprodukované funkci externí Max-Age se nikdy přidá do odpovědi. <br/> Pokud je zdrojový server vytvoří `Cache-Control` záhlaví, se předá pro koncového uživatele. <br/> Pokud je zdrojový server nevytváří `Cache-Control` záhlaví, pak se tato možnost může způsobit, že hlavičku odpovědi k neobsahuje `Cache-Control` záhlaví.
-Přidejte Pokud chybí|Pokud `Cache-Control` hlavička nebyla přijata od zdrojového serveru a potom přidá tato možnost `Cache-Control` záhlaví vyprodukované funkci externí Max-Age. Tato možnost je užitečná pro zajištění, že všechny prostředky budou přiřazeny `Cache-Control` záhlaví.
+Přepsání|Zajišťuje, že dojde k následujícím akcím:<br/> -Přepíše hlavička Cache-Control, které jsou generované na zdrojový server. <br/>-Přidá `Cache-Control` záhlaví vyprodukované funkci externí Max-Age do odpovědi.
+Předání|Zajišťuje, že `Cache-Control` záhlaví vyprodukované funkci externí Max-Age se nikdy přidá do odpovědi. <br/> Pokud je zdrojový server vytvoří `Cache-Control` záhlaví, projdou pro koncového uživatele. <br/> Pokud je zdrojový server nevytváří `Cache-Control` záhlaví, pak se tato možnost může způsobit, že hlavičku odpovědi k neobsahuje `Cache-Control` záhlaví.
+Přidejte Pokud chybí|Pokud `Cache-Control` hlavička nebyla přijata od zdrojového serveru a potom přidá tato možnost `Cache-Control` záhlaví vyprodukované funkci externí Max-Age. Tato možnost je užitečná pro zajištění, že jsou všechny prostředky budou přiřazeny `Cache-Control` záhlaví.
 Odebrat| Tato možnost zajistí, že `Cache-Control` hlavičky není součástí hlavičky odpovědi. Pokud `Cache-Control` hlavička již byla přiřazena a potom se odstraní z hlavičky odpovědi.
 
 **Výchozí chování:** přepsat.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-key-query-string"></a>Řetězec dotazu klíče mezipaměti
 **Účel:** Určuje, zda bude klíč mezipaměti zahrnout nebo vyloučit parametrů řetězce dotazu přidružený k požadavku.
 
@@ -338,6 +375,11 @@ Tento typ konfigurace by generovat následující dotaz řetězec parametr-klí�
 
     /800001/Origin/folder/asset.htm
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-key-rewrite"></a>Přepište klíče mezipaměti
 **Účel:** přepíše klíč mezipaměti přidružený k požadavku.
 
@@ -351,6 +393,11 @@ Původní cesta| Definování relativní cesta pro typy požadavků, jejichž kl
 Nová cesta|Zadejte relativní cestu k nové klíče mezipaměti. Relativní cesta může být definováno výběrem základní původní cestu a poté definování vzor regulárního výrazu. Tuto relativní cestu lze sestavit dynamicky prostřednictvím protokolu HTTP, proměnné
 **Výchozí chování:** klíče mezipaměti požadavek je určen podle identifikátoru URI požadavku.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="comment"></a>Komentář
 **Účel:** umožňuje Poznámka přidávaného v pravidle.
 
@@ -362,12 +409,18 @@ Informace o klíči:
 - Použijte pouze alfanumerické znaky.
 - Tato funkce nemá vliv na chování pravidla. Smyslem je jenom zajistit oblast, ve kterém můžete zadat informace pro budoucí použití nebo která může pomoci při řešení potíží s pravidlo.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="complete-cache-fill"></a>Dokončení výplně mezipaměti
 **Účel:** Určuje, co se stane, když požadavek výsledkem k neúspěšnému přístupu do mezipaměti částečné na hraniční server.
 
 K neúspěšnému přístupu do mezipaměti částečné popisuje mezipaměti stavu pro určitý prostředek, který nebyl zcela stažen do hraniční server. Pokud prostředek jen částečně v mezipaměti na serveru edge, pak další požadavek pro tento prostředek předá se znovu na zdrojový server.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
+
 --->
 K neúspěšnému přístupu do mezipaměti částečné obvykle dochází, až uživatel zruší stahování nebo pro prostředky, které jsou vyžadovány výhradně pomocí protokolu HTTP rozsah požadavků. Tato funkce je nejvhodnější pro velké prostředky, kde uživatelé nebudou stahovat obvykle je od začátku do konce (například videa). V důsledku toho je tato funkce povolená ve výchozím nastavení na HTTP velké platformě. Na jiných platformách je zakázaná.
 
@@ -382,6 +435,11 @@ Zakázáno|Hraniční server bránit v provádění načítání na pozadí pro 
 
 **Výchozí chování:** povolena.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="compress-file-types"></a>Komprimovat typy souborů
 **Účel:** definuje formáty souborů, které komprimuje na serveru.
 
@@ -402,12 +460,17 @@ Informace o klíči:
 - Zástupné znaky, jako je například hvězdičky, nejsou podporovány.
 - Než přidáte tuto funkci na pravidlo, ujistěte se, nastavit kompresi zakázaná možnost na stránce komprese pro platformu, do které bude použito toto pravidlo.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="custom-log-field-1"></a>Pole vlastní protokol 1
 **Účel:** Určuje formát a obsah, který se přiřadí pole vlastního protokolu v nezpracovaných souboru protokolu.
 
-Hlavním účelem za toto vlastní pole je vám umožní určit, který žádost a hodnoty hlavičky odpovědi se uloží do souborů protokolu.
+Toto vlastní pole umožňuje určit, které hodnoty hlavičky požadavku a odpovědi jsou uložené v souborech protokolu.
 
-Ve výchozím nastavení pole vlastní protokol se nazývá "x-ec_custom-1." Ale název tohoto pole lze přizpůsobit z [stránka nastavení protokolu Raw]().
+Ve výchozím nastavení pole vlastní protokol se nazývá "x-ec_custom-1." Ale název tohoto pole lze přizpůsobit z stránce nezpracovaná nastavení protokolu.
 
 Níže jsou uvedeny formátování, používejte k určení hlavičkách žádostí a odpovědí.
 
@@ -426,6 +489,11 @@ Informace o klíči:
 
 **Výchozí hodnota:** -
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="debug-cache-response-headers"></a>Ladění hlavičky odpovědi v mezipaměti
 **Účel:** Určuje, zda odpověď může zahrnovat hlavičku odpovědi X-ES-Debug, který obsahuje informace o zásady ukládání do mezipaměti pro požadovaný prostředek.
 
@@ -449,6 +517,11 @@ Zakázáno|Hlavička odpovědi X-ES-Debug budou vyloučeny z odpovědi.
 
 **Výchozí chování:** zakázané.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="default-internal-max-age"></a>Výchozí interní Max-Age
 **Účel:** určuje je výchozí interval maximální stáří hraničního serveru na původní server mezipaměti opětovné ověření. Jinými slovy množství času, který bude předat před hraniční server zkontrolujte, zda v mezipaměti asset odpovídá asset uložené na původním serveru.
 
@@ -474,6 +547,11 @@ Informace o klíči:
 
 **Výchozí hodnota:** 7 dnů
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="deny-access-403"></a>Odepřít přístup (403)
 **Účel**: Určuje, zda všechny požadavky byly zamítnuty 403 Zakázáno odpovědi.
 
@@ -487,6 +565,11 @@ Zakázáno| Obnoví výchozí chování. Výchozí chování je umožnit zdrojov
 > [!TIP]
    > Možné použití této funkce se má přidružit podmínku shoda hlavičky požadavku, kterou chcete blokovat přístup k protokolu HTTP odkazující servery, které používají vložený odkazy na obsah.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="expires-header-treatment"></a>Vyprší platnost zacházení záhlaví
 **Účel:** ovládací prvky generování hlavičky Expires server edge, když funkci externí Max-Age je aktivní.
 
@@ -501,6 +584,11 @@ Odebrat| Zajišťuje, že není součástí hlavičky odpovědi hlavičku Expire
 
 **Výchozí chování:** přepsat
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="external-max-age"></a>Externí Max-Age
 **Účel:** určuje maximální stáří interval pro prohlížeč edge server mezipaměti opětovné ověření. Jinými slovy množství času, který bude uplynout, než pro novou verzi prostředek z hraniční server můžete zkontrolovat v prohlížeči.
 
@@ -515,6 +603,11 @@ Informace o klíči:
 
 **Výchozí chování:** vypnuto
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="follow-redirects"></a>Držet se přesměrování
 **Účel:** Určuje, zda požadavky můžete přesměrovat k názvu hostitele definované v hlavičce umístění vrácený zdrojový server zákazníka.
 
@@ -529,6 +622,11 @@ Zakázáno|Požadavky nebude přesměrovat.
 
 **Výchozí chování:** zakázané.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="force-internal-max-age"></a>Vynutit interní Max-Age
 **Účel:** určuje maximální stáří interval pro server edge na původní server mezipaměti opětovné ověření. Množství času, který bude předat před hraniční server jinými slovy, můžete zkontrolovat, zda v mezipaměti asset odpovídá asset uložené na původním serveru.
 
@@ -553,6 +651,11 @@ Informace o klíči:
 
 **Výchozí chování:** vypnuto
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="h264-support-http-progressive-download"></a>Podpora H.264 (HTTP progresivního stahování)
 **Účel:** Určuje typy H.264 formáty souborů, které lze použít k vysílání datového proudu obsahu.
 
@@ -563,6 +666,11 @@ Informace o klíči:
 
 **Výchozí chování:** progresivní stahování HTTP podporuje média MP4 a F4V ve výchozím nastavení.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="honor-no-cache-request"></a>Dodržet No Cache požadavku
 **Účel:** Určuje, zda klientem HTTP je ne mezipaměti budou předány požadavky na zdrojový server.
 
@@ -579,6 +687,11 @@ Stav mezipaměti, která bude hlášena, pro požadavek, který může být pře
 
 **Výchozí chování:** zakázané.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="ignore-origin-no-cache"></a>Ignorovat počátek No-Cache
 **Účel:** Určuje, zda CDN bude ignorovat následující direktivy zpracování zdrojovému serveru:
 
@@ -603,6 +716,11 @@ Informace o klíči:
 
 **Výchozí chování:** výchozí chování je respektovat výše direktivy.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="ignore-unsatisfiable-ranges"></a>Ignorovat Unsatisfiable rozsahů 
 **Účel:** určuje odpověď, který bude vrácen na klienty, pokud žádost vygeneruje stavový kód 416 požadovaný rozsah nelze uspokojit.
 
@@ -615,6 +733,11 @@ Zakázáno|Obnoví výchozí chování. Výchozí chování je respektovat 416 p
 
 **Výchozí chování:** zakázané.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="internal-max-stale"></a>Interní Max zastaralé
 **Účel:** ovládací prvky, jak dlouho po čase normální vypršení platnosti mezipaměti asset, může vyhovovat z hraniční server při hraničního serveru se nepodařilo znovu ověřit v mezipaměti asset je zdrojový server.
 
@@ -644,6 +767,11 @@ Informace o klíči:
 
 **Výchozí chování:** dvě minuty.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="log-query-string"></a>Řetězec protokolu dotazu
 **Účel:** Určuje, zda řetězec dotazu se uloží spolu s adresu URL v protokolech přístup.
 
@@ -654,6 +782,11 @@ Zakázáno|Obnoví výchozí chování. Výchozí chování je ignorovat řetěz
 
 **Výchozí chování:** zakázané.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="maximum-keep-alive-requests"></a>Udržování požadavky (maximum)
 **Účel:** definuje maximální počet požadavků pro zachování připojení, než je uzavřený.
 
@@ -666,6 +799,11 @@ Informace o klíči:
 
 **Výchozí hodnota:** 10 000 požadavků
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="modify-client-request-header"></a>Upravit hlavička požadavku klienta
 **Účel:** každý požadavek obsahuje sadu hlaviček požadavků, které popisují ho. Tato funkce může buď:
 
@@ -699,6 +837,11 @@ Informace o klíči:
     - x předávaných pro
     - Všechny názvy záhlaví, které začínají "x ES" jsou vyhrazeny.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="modify-client-response-header"></a>Upravit hlavičku odpovědi klienta
 Každá odpověď obsahuje sadu hlaviček odpovědí, které popisují ho. Tato funkce může buď:
 
@@ -740,6 +883,11 @@ Informace o klíči:
     - Upozornění
     - Všechny názvy záhlaví, které začínají "x ES" jsou vyhrazeny.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="partial-cache-sharing"></a>Sdílení částečné mezipaměti
 **Účel:** Určuje, zda žádost může generovat obsahu částečně v mezipaměti.
 
@@ -752,6 +900,11 @@ Zakázáno|Požadavky můžete generovat jenom plně v mezipaměti verzi požado
 
 **Výchozí chování:** zakázané.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="prevalidate-cached-content"></a>Prevalidate obsah uložený v mezipaměti
 **Účel:** Určuje, zda obsah uložený v mezipaměti vhodné pro včasné opětovné ověření před jeho hodnota TTL nevyprší.
 
@@ -763,6 +916,11 @@ Informace o klíči:
 
 **Výchozí chování:** vypnout. Opětovné ověření může proběhnout pouze po vypršení platnosti obsahu v mezipaměti TTL.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="proxy-special-headers"></a>Speciálními záhlavími proxy
 **Účel:** definuje sadu hlaviček požadavků specifických CDN, které budou předány z hraniční server zdrojový server.
 
@@ -773,6 +931,11 @@ Informace o klíči:
 
 **Výchozí chování:** všechny hlavičky požadavku specifické CDN se předají na zdrojový server.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="refresh-zero-byte-cache-files"></a>Aktualizujte souborů z mezipaměti nula bajtů
 **Účel:** určuje zpracování požadavku klienta HTTP pro prostředek 0 bajtů mezipaměti servery edge.
 
@@ -788,6 +951,11 @@ takový obsah pak tato funkce zabránit tyto typy prostředků zpracování vaš
 
 **Výchozí chování:** zakázané.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="set-cacheable-status-codes"></a>Nastavit lze uložit do mezipaměti stavové kódy
 **Účel:** definuje sadu stavové kódy, které mohou způsobovat obsah uložený v mezipaměti.
 
@@ -803,6 +971,11 @@ Informace o klíči:
 
 **Výchozí chování:** ukládání do mezipaměti je povolená jenom pro odpovědi, které generují 200 OK stavový kód.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="set-client-ip-custom-header"></a>Nastavit vlastní záhlaví IP klienta
 **Účel:** přidá hlavičku vlastní, který identifikuje klienta, který podle IP adresy na požadavek.
 
@@ -822,6 +995,11 @@ Ujistěte se, že zadaná hlavička název neodpovídá žádnému tyto názvy:
     - x předávaných pro
     - Všechny názvy záhlaví, které začínají "x ES" jsou vyhrazeny.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="stale-content-delivery-on-error"></a>Zastaralé doručování obsahu při chybě
 **Účel:** Určuje, zda budou doručeny vypršení platnosti obsahu v mezipaměti, když dojde k chybě během opětovné ověření mezipaměti nebo při načítání požadovaný obsah ze zdrojového serveru zákazníka.
 
@@ -832,6 +1010,11 @@ Zakázáno|Chyba na zdrojový server se předají do žadatel.
 
 **Výchozí chování:** zakázáno
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="stale-while-revalidate"></a>Zastaralých při Revalidate
 **Účel:** tím, že servery edge při opětovné ověření probíhá doručují zastaralé obsah žadatel zlepšuje výkon.
 
@@ -844,6 +1027,11 @@ Informace o klíči:
 
 **Výchozí chování:** vypnout. Opětovné ověření musí proběhnout, než je možné dodávat požadovaný obsah.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth"></a>Token ověřování
 **Účel:** Určuje, zda ověřování na základě tokenu se použijí pro žádost.
 
@@ -858,6 +1046,11 @@ Zakázáno| Obnoví výchozí chování. Výchozí chování je umožnit konfigu
 
 **Výchozí chování:** zakázané.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-denial-code"></a>Odmítnutí kód tokenu ověřování
 **Účel:** Určuje typ odpovědi, který bude vrácen uživateli při požadavku byl odepřen v důsledku ověřování na základě tokenu.
 
@@ -898,6 +1091,11 @@ Výše uvedené konfigurace lze dosáhnout následujících kroků:
 
 Hlavička WWW-Authenticate platí pouze pro kódy 401 odpovědi.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-ignore-url-case"></a>Token Auth ignorovat případ adresy URL
 **Účel:** určí, zda jsou adresa URL porovnání provedené na základě tokenu ověřování malá a velká písmena.
 
@@ -915,7 +1113,12 @@ Povoleno|Způsobí, že server edge ignorovat velká / při porovnávání adres
 Zakázáno|Obnoví výchozí chování. Výchozí chování je pro porovnání adresu URL pro ověřování tokenem být malá a velká písmena.
 
 **Výchozí chování:** zakázané.
- 
+
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-parameter"></a>Parametr tokenu ověřování
 **Účel:** Určuje, zda by měl parametr řetězce dotazu ověřování na základě tokenu přejmenovat.
 
@@ -932,6 +1135,11 @@ Zakázáno|Token je možné zadat jako parametr řetězce dotazu Nedefinovaná v
 
 **Výchozí chování:** zakázané. Token je možné zadat jako parametr řetězce dotazu Nedefinovaná v adrese URL žádosti.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="url-redirect"></a>Adresa URL přesměrování
 **Účel:** přesměruje požadavky prostřednictvím hlavička umístění.
 
@@ -967,7 +1175,12 @@ Tato adresa URL přesměrování může dosáhnout pomocí následující konfig
         - Adresa URL požadavku (po přesměrování): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - Proměnná požadavku schématu (% {schéma}) byl využity v cílovém možnost. Tím se zajistí, že schéma žádosti zůstává beze změny po přesměrování.
 - Segmenty adres URL, které zaznamenalo z požadavku se připojují na novou adresu URL prostřednictvím "1 USD."
- 
+
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="url-rewrite"></a>Přepisování adres URL
 **Účel:** přepíše adresu URL požadavku.
 
@@ -1021,6 +1234,14 @@ Tato funkce zahrnuje odpovídající kritériím, které je nutné splnit, než 
 - Parametr URL dotazu
 - Adresa URL dotazu Regex
 - Adresa URL dotazu zástupný znak
+
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
+### <a name="user-variable"></a>Uživatelské proměnné
+**Účel:** použít primarity s Lua skripty. V uživatelské proměnné funkce, můžete použít funkce hash jako zabezpečit pomocí skriptu Lua adresy URL pro stahování.
 
 
 ## <a name="next-steps"></a>Další kroky

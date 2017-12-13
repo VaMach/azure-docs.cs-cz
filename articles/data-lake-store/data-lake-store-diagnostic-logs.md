@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Přístup k diagnostickým protokolům pro Azure Data Lake Store
 Informace o povolení protokolování pro váš účet Data Lake Store a postup zobrazení shromážděné pro váš účet protokoly diagnostiky.
@@ -47,7 +47,7 @@ Organizace může povolit protokolování diagnostiky ke svému účtu Azure Dat
         
         * Vyberte možnost **datový proud do centra událostí** na datový proud protokolu data do centra událostí Azure. Bude s největší pravděpodobností používat tuto možnost, pokud máte kanálu zpracování příjmu dat pro analýzu příchozích protokolů v reálném čase. Pokud vyberete tuto možnost, je nutné zadat podrobnosti pro centra událostí Azure, kterou chcete použít.
 
-        * Vyberte možnost **odeslat k analýze protokolů** používat službu Azure Log Analytics k analýze dat generovaný protokolu. Pokud vyberete tuto možnost, je nutné zadat podrobnosti pro pracovní prostor služby Operations Management Suite se, že používáte analýzy protokolů provést.
+        * Vyberte možnost **odeslat k analýze protokolů** používat službu Azure Log Analytics k analýze dat generovaný protokolu. Pokud vyberete tuto možnost, je nutné zadat podrobnosti pro pracovní prostor služby Operations Management Suite se, že používáte analýzy protokolů provést. V tématu [zobrazit a analyzovat data shromážděná pomocí hledání protokolů analýzy protokolů](../log-analytics/log-analytics-tutorial-viewdata.md) podrobnosti o použití analýzy protokolů.
      
    * Určete, jestli chcete získat protokoly auditu nebo protokoly požadavku nebo obě.
    * Zadejte počet dnů, pro které se musí uchovávat data. Uchování platí pouze pokud používáte k archivaci dat protokolu účtu úložiště Azure.
@@ -122,7 +122,7 @@ Zde je vzorového vstupu do formátu JSON žádost protokolu. Každý objekt blo
 | operationName |Řetězec |Název operace, která je zaznamenána. Například getfilestatus. |
 | resultType |Řetězec |Stav operace, například 200. |
 | callerIpAddress |Řetězec |IP adresa klienta vytvoření požadavku |
-| correlationId |Řetězec |Id protokolu, který můžete použít k seskupení sady položek protokolu související |
+| correlationId |Řetězec |ID protokolu, který můžete použít k seskupení sady položek protokolu související |
 | identity |Objekt |Identity, která generuje protokol |
 | properties |JSON |Níže naleznete podrobnosti |
 
@@ -167,7 +167,7 @@ Zde je vzorového vstupu v protokolu auditování formátu JSON. Každý objekt 
 | category |Řetězec |Kategorie protokolu. Například **auditu**. |
 | operationName |Řetězec |Název operace, která je zaznamenána. Například getfilestatus. |
 | resultType |Řetězec |Stav operace, například 200. |
-| correlationId |Řetězec |Id protokolu, který můžete použít k seskupení sady položek protokolu související |
+| correlationId |Řetězec |ID protokolu, který můžete použít k seskupení sady položek protokolu související |
 | identity |Objekt |Identity, která generuje protokol |
 | properties |JSON |Níže naleznete podrobnosti |
 
@@ -177,6 +177,15 @@ Zde je vzorového vstupu v protokolu auditování formátu JSON. Každý objekt 
 | StreamName |Řetězec |Cesta k operaci byla provedena na |
 
 ## <a name="samples-to-process-the-log-data"></a>Ukázky ke zpracování dat protokolu
+Při odesílání protokolů z Azure Data Lake Store k monitorování Azure (viz [zobrazení a analyzovat data shromážděná pomocí hledání protokolů analýzy protokolů](../log-analytics/log-analytics-tutorial-viewdata.md) podrobnosti o použití analýzy protokolů), následující dotaz vrátí tabulku obsahující seznam uživatelů, zobrazte názvy, čas události a počet událostí dobu události společně s visual grafu. Můžete ho snadno upravit tak, aby zobrazit GUID uživatele, nebo dalšími atributy:
+
+```
+search *
+| where ( Type == "AzureDiagnostics" )
+| summarize count(TimeGenerated) by identity_s, TimeGenerated
+```
+
+
 Azure Data Lake Store poskytuje vzorku o tom, jak zpracovávat a analyzovat data protokolu. Můžete najít ukázku najdete na adrese [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Viz také

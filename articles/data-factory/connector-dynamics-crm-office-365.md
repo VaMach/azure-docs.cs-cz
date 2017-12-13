@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ec1b9868ca94392cd00875ef2913d4c14a608110
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopírování dat z/do Dynamics 365 / Dynamics CRM pomocí Azure Data Factory
 
@@ -46,7 +46,7 @@ Dynamics 365 konkrétně následující typy aplikací jsou podporované:
 - Dynamics 365 pro Marketing
 
 > [!NOTE]
-> K používání konektoru Dynamics ukládat heslo v Azure Key Vault a nechat vyžádání aktivitu kopírování ADF odtud při kopírování dat. Zjistit, jak nakonfigurovat v [propojené vlastnosti služby](#linked-service-properties) části.
+> K používání konektoru Dynamics uložit heslo v Azure Key Vault a nechat vyžádání aktivitu kopírování z ní při kopírování dat provádění. Zjistit, jak nakonfigurovat v [propojené vlastnosti služby](#linked-service-properties) části.
 
 ## <a name="getting-started"></a>Začínáme
 
@@ -322,7 +322,7 @@ Ke zkopírování dat do Dynamics, nastavte typ jímky v aktivitě kopírování
 
 Při kopírování dat z Dynamics, se používají následující mapování Dynamics datových typů k Azure Data Factory dočasné datové typy. V tématu [schéma a data zadejte mapování](copy-activity-schema-and-type-mapping.md) a zjistěte, jak aktivity kopírování mapuje zdroje schéma a data typ jímky.
 
-Nakonfigurujte odpovídající datový typ ADF ve struktuře datové sady na základě vaší zdroje dat Dynamics zadejte pomocí níže mapování tabulky:
+Nakonfigurujte odpovídající datový typ objektu pro vytváření dat ve struktuře datové sady na základě vaší zdroje dat Dynamics zadejte pomocí níže mapování tabulky:
 
 | Dynamics datový typ | Typ průběžných dat objektu pro vytváření dat | Podporované jako zdroj | Podporované jako jímku |
 |:--- |:--- |:--- |:--- |

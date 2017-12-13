@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 355151ee6c3507d8e2fd2ab6cc5127324b3a6d7c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problémy se správou a konfigurace pro Azure Cloud Services: Časté otázky (FAQ)
 
@@ -259,7 +259,7 @@ Můžete použít následující příkazy prostředí PowerShell, obnovit certi
 
 Automatické škálování, na základě paměti metriky pro cloudové služby není aktuálně podporován. 
 
-Chcete-li tento problém obejít, můžete Application Insights, takže agenta pro diagnostiku by směrovat metriky Application Insights. Automatické škálování podporuje Application Insights jako zdroj metriky a můžete škálovat podle metriky hosta jako "Paměti" počet instancí role.  Budete muset nakonfigurovat Application Insights v balíčku souboru projektu cloudové služby (*.cspkg) a povolit rozšíření diagnostiky Azure ve službě k implementaci této feat.
+Chcete-li tento problém obejít, můžete použít Application Insights. Automatické škálování podporuje Application Insights jako zdroj metriky a můžete škálovat podle metriky hosta jako "Paměti" počet instancí role.  Budete muset nakonfigurovat Application Insights v balíčku souboru projektu cloudové služby (*.cspkg) a povolit rozšíření diagnostiky Azure ve službě k implementaci této feat.
 
 Další podrobnosti o tom, jak využívat vlastní metriku pomocí Application Insights ke konfiguraci automatického škálování na Cloud Services najdete v tématu [začít pracovat s automatické škálování podle vlastní metriky v Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
 
@@ -270,16 +270,10 @@ Další informace o povolení Application Insights pro cloudové služby najdete
 
 Další informace o tom, jak povolit protokolování diagnostiky Azure pro cloudové služby najdete v tématu [nastavení diagnostiky pro Azure Cloud Services a virtuálních počítačů](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
-## <a name="how-to-automate-the-main-ssl-certificatepfx-and-intermediate-certificatep7b-cert-installation"></a>Jak automatizovat hlavní SSL certifikát (.pfx) a instalaci certifikátu zprostředkující certificate(.p7b)?
+## <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Jak automatizovat instalaci hlavní SSL certifikát (.pfx) a zprostředkující certificate(.p7b)?
 
 Můžete automatizovat tato úloha pomocí spouštěcího skriptu (batch nebo cmd/PowerShell) a zaregistrujte spuštění skriptu v definičním souboru služby. Přidáte certifikát (soubor .p7b) i spouštěcí skript ve složce projektu ve stejném adresáři spouštěcího skriptu.
 
 Další informace najdete v následujících článcích:
 - [Jak nakonfigurovat a spustit úlohy spuštění pro cloudové služby](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
 - [Běžné úlohy spuštění cloudové služby](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
-
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Proč portál Azure vyžaduje mi zadejte účet úložiště pro nasazení?
-
-Na portálu classic balíčku byl odeslán na vrstvu rozhraní API správy přímo a pak by vrstvu rozhraní API dočasně přesuňte balíček do účtu interní úložiště.  Tento proces způsobuje problémy, výkon a škálovatelnost, protože vrstvu rozhraní API služby nebyl navržen jako služba nahrávání souboru.  Na portálu Azure (modelu nasazení Resource Manager) jsme mít vynechá dočasné krok nejdříve odeslat do rozhraní API vrstvy, výsledkem je rychlejší a spolehlivější nasazení.
- 
-Jako náklady je velmi malé a můžete znovu použít stejný účet úložiště napříč všechna nasazení. Můžete použít [kalkulačky náklady na úložiště](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) k určení nákladů pro nahrání balíčku služby (CSPKG), stáhněte si CSPKG a pak odstraňte CSPKG.

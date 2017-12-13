@@ -35,12 +35,12 @@
    
         mysql -u root -p
    
-    Zadejte hesla kořenového MySQL (který jste změnili v předchozím kroku) a zobrazí vám s výzvou kde můžete použít příkazy SQL pro interakci s databází.
-7. Pokud chcete vytvořit nového uživatele databáze MySQL, spusťte následující příkaz na **mysql >** řádku:
+    Zadejte hesla kořenového MySQL (který jste změnili v předchozím kroku) a uvedené jsou s výzvou, kde můžete použít příkazy SQL pro interakci s databází.
+7. Pokud chcete vytvořit nového uživatele databáze MySQL, spusťte následující příkaz **mysql >** řádku:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Poznámka: středníkem (;) na konci řádky jsou zásadní pro ukončení příkazy.
+    Poznámka: středníkem (;) na konci řádku je zásadní pro ukončení příkazu.
 8. K vytvoření databáze a udělit `mysqluser` oprávnění uživatele, vydávání následující příkazy:
    
         CREATE DATABASE testdatabase;
@@ -51,24 +51,24 @@
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    kde `ip-address` je IP adresa počítače, ze kterého budete se připojovat k MySQL.
+    kde `ip-address` je IP adresa počítače, ze kterého se můžete připojit k MySQL.
 10. Ukončete nástroj pro správu databáze MySQL, zadejte:
     
         quit
 
 ## <a name="add-an-endpoint"></a>Přidání koncového bodu
-1. Po instalaci MySQL, budete potřebovat ke konfiguraci koncového bodu vzdálený přístup MySQL. Přihlaste se k [portál Azure classic][AzurePortal]. Klikněte na tlačítko **virtuální počítače**, klikněte na název nového virtuálního počítače a pak klikněte na tlačítko **koncové body**.
+1. Po instalaci MySQL, budete potřebovat ke konfiguraci koncového bodu vzdálený přístup MySQL. Přihlaste se k [portál Azure][AzurePortal]. Klikněte na tlačítko **virtuální počítače**, klikněte na název nového virtuálního počítače a pak klikněte na tlačítko **koncové body**.
 2. Klikněte na tlačítko **přidat** v dolní části stránky.
 3. Přidat koncový bod s názvem "MySQL" s protokolem **TCP**, a **veřejné** a **privátní** porty nastavena na "3306".
 4. Chcete-li vzdáleně připojit k virtuálnímu počítači z vašeho počítače, zadejte:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    Například používání virtuální počítače, které jsme vytvořili v tomto kurzu, zadejte tento příkaz:
+    Například používání virtuálních počítačů, které jste vytvořili v tomto kurzu, zadejte tento příkaz:
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: http://portal.azure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png

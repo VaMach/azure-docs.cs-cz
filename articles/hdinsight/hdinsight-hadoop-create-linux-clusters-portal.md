@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 812b6f323e2ddaee9095a7bdf221d6a8ebd69fd2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 80e797c1b53d62b08c3c7fce99ec961fe26f1f4c
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Vytvořit clustery se systémem Linux v HDInsight pomocí portálu Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -52,25 +52,18 @@ Portál Azure zpřístupní většinu vlastností clusteru. Pomocí šablony Azu
 
     * Z **předplatné** rozevíracího seznamu, vyberte předplatné Azure, který se použije pro cluster.
 
-    * Klikněte na tlačítko **clusteru typu**a potom vyberte:
-   
-        * **Typ clusteru**: Pokud nevíte, vyberte možnost **Hadoop**. Jedná se o nejoblíbenější typ clusteru.
+    * Klikněte na tlačítko **clusteru typu**a pak vyberte typ clusteru (Hadoop, Spark atd.), kterou chcete vytvořit. Pro **operačního systému**, klikněte na tlačítko **Linux** a potom vyberte verzi. Pokud si nejste jisti, co zvolte, použijte výchozí verze. Další informace najdete v článku [Verze clusterů HDInsight](hdinsight-component-versioning.md).
      
-            > [!IMPORTANT]
-            > HDInsight clustery mohou mít různé typy, které odpovídají zatížení nebo technologie, která clusteru je přizpůsobená pro. Neexistuje žádná podporovaná metoda pro vytvoření clusteru, který kombinuje více typů, jako je například Storm a HBase v jednom clusteru. 
-            > 
-            > 
+        > [!IMPORTANT]
+        > HDInsight clustery mohou mít různé typy, které odpovídají zatížení nebo technologie, která clusteru je přizpůsobená pro. Neexistuje žádná podporovaná metoda pro vytvoření clusteru, který kombinuje více typů, jako je například Storm a HBase v jednom clusteru. 
+        > 
+        > 
         
-        * **Operační systém**: Vyberte **Linux**.
-        
-        * **Verze**: Pokud nevíte, použijte výchozí verzi. Další informace najdete v článku [Verze clusterů HDInsight](hdinsight-component-versioning.md).
-        
-
     * Pro **uživatelské jméno přihlášení clusteru** a **clusteru přihlašovacího hesla**, zadejte uživatelské jméno a heslo pro uživatele správce.
 
     * Zadejte **uživatelské jméno SSH** a pokud budete chtít mít heslo SSH stejné jako heslo správce jste dřív zadali, vyberte **použijte stejné heslo jako přihlašovací údaje clusteru** zaškrtávací políčko. Pokud ne, zadejte buď **heslo** nebo **veřejný klíč**, který se používá k ověření uživatele SSH. Doporučujeme používat veřejný klíč. Klikněte v dolní části na tlačítko **Vybrat** a uložte konfiguraci přihlašovacích údajů.
    
-        Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Další informace najdete v tématu [Použití SSH se službou HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     * Pro **skupiny prostředků**, zadejte, zda chcete vytvořit novou skupinu prostředků nebo použijte existující.
 

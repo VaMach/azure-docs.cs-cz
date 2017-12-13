@@ -1,3 +1,4 @@
+
 1. Po vytvoření a spuštění virtuálního počítače Azure klikněte na webu Azure Portal na ikonu služby Virtual Machines a zobrazte vaše virtuální počítače.
 
 1. Klikněte na tři tečky (**...**) u vašeho nového virtuálního počítače.

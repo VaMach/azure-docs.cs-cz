@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06b77ce5b6f15e3dae4a7d4bad76def949774678
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 233e0449bc0803709f0aa369a446c2ec5d3f177e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Vytvoření virtuálního počítače pomocí Accelerated sítě
 
@@ -46,13 +46,13 @@ Výhody Zrychlený sítě se vztahují pouze na virtuálním počítači, který
 Při použití této funkce, existují tato omezení:
 
 * **Vytvoření rozhraní sítě:** Accelerated sítě lze povolit pouze pro nový síťový adaptér. Nelze nastavit pro existující síťovou.
-* **Vytvoření virtuálního počítače:** A síťovým Adaptérem s Zrychlený sítě povolené lze připojit pouze k virtuálnímu počítači, když je vytvořen virtuální počítač. Síťový adaptér nelze připojit k existující virtuální počítač.
-* **Oblasti:** virtuálních počítačů Windows s Zrychlený sítě jsou nabízena v oblastech nejvíce Azure. Virtuální počítače Linux s Zrychlený sítě jsou nabízena v několika oblastech. Oblasti, které tato funkce je dostupná v zvětšuje. Naleznete v blogu aktualizace virtuální sítě na Azure pod nejnovější informace.   
+* **Vytvoření virtuálního počítače:** A síťovým Adaptérem s Zrychlený sítě povolené lze připojit pouze k virtuálnímu počítači, když je vytvořen virtuální počítač. Síťový adaptér nelze připojit k existující virtuální počítač. Pokud Přidání virtuálního počítače do existující dostupnosti nastavena, všechny virtuální počítače v sadě dostupnosti musí také mít accelerated sítě povolené.
+* **Oblasti:** virtuálních počítačů Windows s Zrychlený sítě jsou nabízena v oblastech nejvíce Azure. Virtuální počítače Linux s Zrychlený sítě jsou nabízena v několika oblastech. Oblasti, které funkce jsou k dispozici v zvětšuje. Nejnovější informace najdete v tématu [aktualizace virtuální sítě na Azure](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blogu.   
 * **Podporované operační systémy:** Windows: Microsoft Windows Server 2012 R2 Datacenter a Windows Server 2016. Linux: Ubuntu Server 16.04 LTS s 4.4.0-77 jádra nebo vyšší, SLES 12 SP2, RHEL 7.3 a CentOS 7.3 (publikováno "Podvodný Wave software").
 * **Velikost virtuálního počítače:** velikost optimalizované výpočetní instance s osmi nebo více jader a obecné účely. Další informace najdete v tématu [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) články velikostí virtuálních počítačů. Sadu podporované velikosti instance virtuálních počítačů bude v budoucnu rozšířit.
 * **Nasazení pomocí Azure Resource Manager (ARM) pouze:** Accelerated síťové služby není k dispozici pro nasazení prostřednictvím ASM/RDFE.
 
-Změny těchto omezení jsou oznámeny prostřednictvím [virtuální sítí Azure aktualizace](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/) stránky.
+Změny těchto omezení jsou oznámeny prostřednictvím [virtuální sítí Azure aktualizace](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) stránky.
 
 ## <a name="create-a-windows-vm"></a>Vytvoření virtuálního počítače s Windows
 Můžete použít portál Azure nebo Azure [prostředí PowerShell](#windows-powershell) vytvořte virtuální počítač.
@@ -164,7 +164,7 @@ Po vytvoření virtuálního počítače v Azure, je nutné nainstalovat Zrychle
 9. Pro virtuální počítač je nyní k dispozici Zrychlený sítě.
 
 ## <a name="create-a-linux-vm"></a>Vytvoření virtuálního počítače s Linuxem
-Můžete použít portál Azure nebo Azure [prostředí PowerShell](#linux-powershell) pro vytvoření aplikace Ubuntu nebo SLES virtuálních počítačů. RHEL a CentOS virtuální počítače se jiný pracovní postup.  Podrobnosti najdete níže uvedených pokynů.
+Můžete použít portál Azure nebo Azure [prostředí PowerShell](#linux-powershell) pro vytvoření aplikace Ubuntu nebo SLES virtuálních počítačů. RHEL a CentOS pokyny najdete v tématu [RHEL a CentOS](#rhel-and-centos).
 
 ### <a name="linux-portal"></a>Portál
 1. Zaregistrovat pro Zrychlený sítě pro Linux preview provedením kroků 1 až 5 z [vytvoření virtuálního počítače s Linuxem - PowerShell](#linux-powershell) tohoto článku.  Nelze zaregistrovat na portálu ve verzi Preview.
@@ -183,7 +183,7 @@ Můžete použít portál Azure nebo Azure [prostředí PowerShell](#linux-power
 2. Kliknutím na tlačítko Start systému Windows spusťte relaci prostředí PowerShell zadáním **prostředí powershell**, pak levým na **prostředí PowerShell** ve výsledcích hledání.
 3. V okně prostředí PowerShell, zadejte `login-azurermaccount` příkaz se přihlásit pomocí vašeho Azure [účet](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Pokud účet nemáte, můžete si zaregistrovat [bezplatnou zkušební verzi](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Registrace pro Zrychlený sítě pro Azure preview podle následujících kroků:
-    - E-mailovou zprávu na [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) s ID předplatného Azure a zamýšlené použití. Počkejte na potvrzení e-mailu společnosti Microsoft o vaše předplatné povolený.
+    - E-mailovou zprávu na [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) s ID předplatného Azure a zamýšlené použití. Následující kroky, dokud nedokončila, jakmile se zobrazí potvrzení e-mailu společnosti Microsoft, aby byla vaše předplatné povolená pro Zrychlený sítě.
     - Zadejte následující příkaz a ověřte, zda že jste zaregistrováni pro verzi preview:
     
         ```powershell
@@ -201,7 +201,7 @@ Můžete použít portál Azure nebo Azure [prostředí PowerShell](#linux-power
       >[!NOTE]
       >Pokud jste se účastnili Accelerated sítě pro virtuální počítače Windows preview (je už nezbytné k registraci a k použití Accelerated sítě pro virtuální počítače Windows), můžete nejsou registrované automaticky Accelerated sítě pro virtuální počítače s Linuxem náhled. Je třeba zaregistrovat pro Accelerated sítě pro virtuální počítače s Linuxem preview k účasti v něm.
       >
-5. V prohlížeči zkopírujte následující skript podle potřeby nahraďte Ubuntu nebo SLES.  Znovu Redhat a CentOS mít jiný pracovní postup uvedené níže:
+5. V prohlížeči zkopírujte následující skript podle potřeby nahraďte Ubuntu nebo SLES.  Znovu Redhat a CentOS mít jiný pracovní postup popsaný v [RHEL a CentOS](#rhel-and-centos):
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -316,11 +316,11 @@ V tomto okamžiku lišit podle pokynů v závislosti na distribuce, kterou použ
  >[!NOTE]
       >Aplikace, které používají Zrychlený sítě musí komunikovat přes *bond0* rozhraní není *eth0*.  Název rozhraní může změnit než Zrychlený sítě dosáhne obecné dostupnosti.
 
-#### <a name="rhelcentos"></a>RHEL nebo CentOS
+#### <a name="rhel-and-centos"></a>RHEL a CentOS
 
 Vytváření Red Hat Enterprise Linux nebo CentOS 7.3 virtuálního počítače vyžaduje několik kroků navíc načíst nejnovější ovladače potřebné pro rozhraní SR-IOV a ovladač virtuální funkce (VF) pro síťové karty. První fáze pokynů připraví image, které je možné, aby jeden nebo více virtuálních počítačů, které jsou předem načtená ovladače.
 
-##### <a name="phase-one-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Fáze 1: Příprava Red Hat Enterprise Linux nebo CentOS 7.3 základní image. 
+##### <a name="phase-1-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Fáze 1: Příprava Red Hat Enterprise Linux nebo CentOS 7.3 základní image 
 
 1.  Zřídit jiný - SR-IOV CentOS 7.3 virtuálního počítače v Azure
 
@@ -352,9 +352,9 @@ Vytváření Red Hat Enterprise Linux nebo CentOS 7.3 virtuálního počítače 
 
 5.  Z portálu Azure Zastavit tento virtuální počítač; a přejděte do Virtuálního počítače "disky", zaznamenat URI virtuálního pevného disku OSDisk. Tento identifikátor URI obsahuje název základní image virtuálního pevného disku a jeho účet úložiště. 
  
-##### <a name="phase-two-provision-new-vms-on-azure"></a>Fáze 2: zřizovat nové virtuální počítače v Azure
+##### <a name="phase-2-provision-new-vms-on-azure"></a>Fáze 2: Zřizovat nové virtuální počítače v Azure
 
-1.  Zřídit nové virtuální počítače na základě pomocí New-AzureRMVMConfig pomocí základní image virtuálního pevného disku zaznamenané v první fázi, s AcceleratedNetworking zapnuta vNIC:
+1.  Zřídit nové virtuální počítače na základě pomocí New-AzureRMVMConfig pomocí základní image virtuálního pevného disku zaznamenané v fáze 1, s AcceleratedNetworking povoleno na kartě vNIC:
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -394,7 +394,7 @@ Vytváření Red Hat Enterprise Linux nebo CentOS 7.3 virtuálního počítače 
      -PublicIpAddressId $Pip.Id `
      -EnableAcceleratedNetworking
     
-    # Specify the base image's VHD URI (from phase one step 5). 
+    # Specify the base image's VHD URI (from phase 1, step 5). 
     # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
     # See more from here: https://docs.microsoft.com/azure/storage/storage-service-encryption
     # This is just an example URI, you will need to replace this when running this script
@@ -430,7 +430,7 @@ Vytváření Red Hat Enterprise Linux nebo CentOS 7.3 virtuálního počítače 
      -VM $VmConfig
     ```
 
-2.  Po spustit virtuální počítače, ověřte VF zařízení podle "lspci" a zkontrolujte položku Mellanox. Například bychom měli vidět této položky ve výstupu lspci:
+2.  Po spustit virtuální počítače, ověřte VF zařízení podle "lspci" a zkontrolujte položku Mellanox. Například byste měli vidět následující text ve výstupu lspci:
     
     ```
     0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]

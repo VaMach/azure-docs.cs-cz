@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Používání centra oznámení k odesílání novinek
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -278,7 +278,7 @@ Aplikace je nyní dokončen a sadu kategorií můžete uložit do místního úl
 2. Povolit jednu nebo více kategorií přepínačů a potom klikněte na **přihlásit k odběru**.
    
     Aplikace převede vybraných kategorií značky a požaduje novou registraci zařízení pro vybranou značky z centra oznámení. Registrovaný kategorie jsou vráceny a zobrazeny v oznámení s informační zprávou.
-3. Nové oznámení odesílat spuštěním aplikace konzoly .NET.  Alternativně můžete odeslat oznámení s příznakem šablony pomocí karty ladění centra oznámení v [portálu Azure Classic].
+3. Nové oznámení odesílat spuštěním aplikace konzoly .NET.  Alternativně můžete odeslat oznámení s příznakem šablony pomocí karty ladění centra oznámení v [portál Azure].
    
     Oznámení pro vybrané kategorie se zobrazí jako informační zprávy.
 
@@ -302,5 +302,5 @@ V tomto kurzu jsme zjistili, jak k vysílání novinek podle kategorie. Vezměte
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[portálu Azure Classic]: https://manage.windowsazure.com
+[portál Azure]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 12/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d785c70dff331f2c5050fd07c65812a4cbc983b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Co jsou hesla aplikací v Azure Multi-Factor Authentication?
-Některé neprohlížečové aplikace, jako je například klienta Apple nativní e-mailu, který používá protokolu Exchange Active Sync, aktuálně nepodporují službu Multi-Factor authentication. Služba Multi-Factor authentication je povoleno podle uživatelů. To znamená, že pokud uživatel povolen pro službu Multi-Factor authentication a že se pokoušíte použít neprohlížečové aplikace, nebude možné provést. Heslo aplikace umožňuje tuto funkci používat.
+Některé neprohlížečové aplikace, jako je například klienta Apple nativní e-mailu, který používá protokolu Exchange Active Sync, aktuálně nepodporují službu Multi-Factor authentication. Služba Multi-Factor authentication je povoleno podle uživatelů. To znamená, že pokud uživatel povolen pro službu Multi-Factor authentication a že se pokoušíte použít neprohlížečové aplikace, nebude možné provést. Heslo aplikace umožňuje tuto funkci používat. Pokud jste vynutit ověřování Multi-Factor Authentication prostřednictvím zásad podmíněného přístupu a ne prostřednictvím MFA na uživatele, nebude možné vytvořit hesla aplikací. Aplikace, které používají zásady podmíněného přístupu k řízení přístupu není nutné hesla aplikací.
 
 Jakmile máte heslo aplikace, použijte toto místo původní heslo těchto neprohlížečových aplikací. Je to proto, že při registraci pro dvoustupňové ověření, že informuje Microsoft nechcete libovolný uživatel přihlásit pomocí hesla, pokud nemohou také provádět druhé ověření. Klient pro nativní e-mailové Apple na váš telefon nemůžete se přihlásit jako je vzhledem k tomu, že nemůžete žádat pro dvoustupňové ověření. Řešení pro tuto je vytvoření bezpečnější heslo aplikace, které nepoužíváte každodenní, ale jenom pro tyto aplikace, které nemohou podporovat dvoustupňové ověřování. Používejte heslo aplikace, takže aplikace se můžou obejít ověřování Multi-Factor authentication a pokračovat v práci.
 

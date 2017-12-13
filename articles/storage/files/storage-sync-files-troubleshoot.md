@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 91958b14d3e73677b30bbc8f46eb9eada3afde84
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Řešení potíží s synchronizace souboru Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -101,6 +101,9 @@ Chcete-li zjistit, jestli vaše uživatelská role účet má potřebná oprávn
 4. V **poskytovatele prostředků** seznamu, vyberte **Microsoft Authorization**. 
     * **Přiřazení role** by měl mít **čtení** a **zápisu** oprávnění.
     * **Definice role** by měl mít **čtení** a **zápisu** oprávnění.
+
+<a id="server-endpoint-createjobfailed"></a>**Vytvoření koncového bodu serveru selže s touto chybou: "MgmtServerJobFailed" (kód chyby:-2134375898)**                                                                                                                           
+K tomuto problému dochází, pokud cesta ke koncovému bodu serveru je na systémovém svazku a cloud vrstvení je povoleno. Cloud vrstvení není podporována na systémovém svazku. Chcete-li vytvořit koncový bod serveru na systémovém svazku, zakažte vrstvení při vytváření serveru koncového bodu cloudu.
 
 <a id="server-endpoint-deletejobexpired"></a>**Odstranění koncového bodu serveru selže s touto chybou: "MgmtServerJobExpired"**                
 K tomuto problému dochází, pokud server je offline nebo nemá připojení k síti. Pokud server již není k dispozici, zrušte registraci serveru na portálu, který bude server koncové body odstranit. Pokud chcete odstranit koncové body serveru, postupujte podle kroků popsaných v [zrušit registraci serveru s Azure souboru Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).

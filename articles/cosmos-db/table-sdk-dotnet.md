@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabulky .NET API: Stažení a poznámky k verzi
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/20/2017
 |**Aktuální podporovaných prostředí**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 > [!IMPORTANT]
-> Pokud jste vytvořili účet tabulky rozhraní API ve verzi Preview, vytvořte [nový účet rozhraní API tabulky](create-table-dotnet.md#create-a-database-account) pro práci s všeobecně dostupná SDK API tabulky.
+> Pokud jste vytvořili účet Table API během období Preview, vytvořte [nový účet Table API](create-table-dotnet.md#create-a-database-account) pro práci s obecně dostupnými sadami Table API SDK.
 >
 
 ## <a name="release-notes"></a>Poznámky k verzi
@@ -45,10 +45,12 @@ ms.lasthandoff: 11/20/2017
 * Obecné dostupnosti verze
 
 ### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-Preview
-* Verze preview počáteční
+* Počáteční verze Preview
 
 ## <a name="release-and-retirement-dates"></a>Datum vydání a vyřazování z provozu
 Společnost Microsoft poskytuje oznámení alespoň **dobu 12 měsíců** předem vyřazení sady SDK k funkce smooth přechodu na novější nebo podporované verzi.
+
+[WindowsAzure.Storage PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview balíček je zastaralý a nahrazuje [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) balíčku. Sadu SDK WindowsAzure.Storage PremiumTable vyřadí na 15. listopadu 2018, na dobu žádosti není povoleno vyřazeno SDK.
 
 Nové funkce a funkce a optimalizace, jsou přidány pouze v aktuální sadě SDK, jako takový se doporučuje, aby vždy upgradu na nejnovější verze sady SDK v míře. 
 
@@ -58,7 +60,7 @@ Služba odmítne všechny požadavky pro Azure DB Cosmos pomocí vyřazeno sady 
 | Verze | Datum vydání | Datum vyřazení |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 listopadu 2017|--- |
-| [0.9.0-Preview](#0.1.0-preview) |11 listopadu 2017 |--- |
+| [0.9.0-Preview](#0.9.0-preview) |11 listopadu 2017 |--- |
 
 ## <a name="troubleshooting"></a>Řešení potíží
 

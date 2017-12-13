@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problémy při nasazení pro Azure Cloud Services: Časté otázky (FAQ)
 
@@ -75,3 +75,8 @@ Vzhledem k tomu, že Cloudová služba se klasický prostředek, který není p�
 
     To bude fungovat z [portál Azure](https://portal.azure.com) jako volání prochází proxy/shim, který umožňuje komunikaci mezi prostředky Azure Resource Manager a Klasický model. 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Proč portál Azure vyžaduje mi zadejte účet úložiště pro nasazení? 
+
+Na portálu classic balíčku byl odeslán na vrstvu rozhraní API správy přímo a pak by vrstvu rozhraní API dočasně přesuňte balíček do účtu interní úložiště.  Tento proces způsobuje problémy, výkon a škálovatelnost, protože vrstvu rozhraní API služby nebyl navržen jako služba nahrávání souboru.  Na portálu Azure (modelu nasazení Resource Manager) jsme mít vynechá dočasné krok nejdříve odeslat do rozhraní API vrstvy, výsledkem je rychlejší a spolehlivější nasazení. 
+
+Jako náklady je velmi malé a můžete znovu použít stejný účet úložiště napříč všechna nasazení. Můžete použít [kalkulačky náklady na úložiště](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) k určení nákladů pro nahrání balíčku služby (CSPKG), stáhněte si CSPKG a pak odstraňte CSPKG. 

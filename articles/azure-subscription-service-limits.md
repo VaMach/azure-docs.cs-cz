@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 49dc4551f1a1528d30e489d4ba1c974f84cc70b0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity, kvóty a omezení předplatného a služeb Azure
 Tento dokument uvádí některé z nejběžnějších omezení Microsoft Azure, což se taky někdy označují jako kvóty. Tento dokument nepokrývá aktuálně všech služeb Azure. V čase v seznamu rozbalit a aktualizovat tak, aby pokrývalo více platformou.
@@ -85,6 +85,7 @@ V níže uvedené limity se přidal nové tabulky, aby odrážela případné ro
 * [Service Bus](#service-bus-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
+* [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Úložiště](#storage-limits)
 * [Systém StorSimple](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
@@ -308,6 +309,9 @@ Další informace o omezeních na podrobnější úrovni, jako je například ve
 
 ### <a name="sql-database-limits"></a>Omezení databáze SQL
 Omezení SQL Database, najdete v části [limitů prostředků databáze SQL](sql-database/sql-database-resource-limits.md).
+
+### <a name="sql-data-warehouse-limits"></a>Omezení SQL Data Warehouse
+Omezení SQL Data Warehouse, najdete v části [SQL Data Warehouse prostředků omezení](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="see-also"></a>Viz také
 [Seznámení s Azure omezení a zvyšuje](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)

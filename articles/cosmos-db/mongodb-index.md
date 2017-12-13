@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 313f176a1f33fcd5f627ec2251380e602027f8b6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB: Dokumentace k MongoDB rozhraní API
 
@@ -31,16 +31,18 @@ Jedná se o musí přečíst témata a prostředků ke spuštění informací o 
 
 - [Rozhraní API MongoDB Úvod](mongodb-introduction.md)
 - [Připojení k účtu MongoDB](connect-mongodb-account.md)
+- [Podpora pro funkce MongoDB a syntaxe](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>Šablony Rychlý start
 
 Rychlý start témata jsou nejrychlejší způsob, jak vytvářet aplikace práce s Azure Cosmos DB. V každé rychlý start a zjistěte, jak používat portál Azure na základě uživatelského rozhraní a své oblíbené kódování jazyka k vytvoření databáze řešení s Azure Cosmos DB. Klonovatelné webové aplikace z Githubu oblasti, které jsou k dispozici pro každý rychlý start. 
 
 
-- [MongoDB + Express + AngularJS + Node.js + webové aplikace](create-mongodb-nodejs.md)
+- [Node.js + Express + AngularJS + webové aplikace](create-mongodb-nodejs.md)
 - [Rozhraní .NET + portál azure + webové aplikace](create-mongodb-dotnet.md)
 - [Java + portál Azure + webové aplikace](create-mongodb-java.md)
 - [Přejděte + portál Azure + přejděte](create-mongodb-golang.md)
+- [Python + Flask + portálu Azure](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>Kurzy
 

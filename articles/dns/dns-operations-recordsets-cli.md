@@ -3,7 +3,7 @@ title: "Správa záznamů DNS v Azure DNS pomocí Azure CLI 2.0 | Microsoft Docs
 description: "Správa sad záznamů DNS a záznamy v Azure DNS při hostování vaší domény ve službě Azure DNS. Všechny příkazy rozhraní příkazového řádku 2.0 pro operace na sady záznamů a záznamy."
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,29 +13,21 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
-ms.author: subsarma
-ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: kumud
+ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Správa záznamů DNS a sady záznamů v Azure DNS pomocí Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Tento článek ukazuje, jak spravovat záznamy DNS pro zónu DNS s použitím různé platformy Azure rozhraní příkazového řádku (CLI) 2.0, která je k dispozici pro Windows, Mac a Linux. Můžete také spravovat svoje záznamy DNS pomocí [prostředí Azure PowerShell](dns-operations-recordsets.md) nebo [portál Azure](dns-operations-recordsets-portal.md).
-
-## <a name="cli-versions-to-complete-the-task"></a>Verze rozhraní příkazového řádku pro dokončení úlohy
-
-K dokončení úlohy můžete využít jednu z následujících verzí rozhraní příkazového řádku:
-
-* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md) – naše rozhraní příkazového řádku pro klasické modely nasazení a modely nasazení správy prostředků
-* [Azure CLI 2.0](dns-operations-recordsets-cli.md) – naše rozhraní příkazového řádku nové generace pro model nasazení správy prostředků
 
 V příkladech v tomto článku předpokládá, že už máte [nainstalovat Azure CLI 2.0, přihlášení a vytvořit zónu DNS](dns-operations-dnszones-cli.md).
 

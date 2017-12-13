@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Zálohovat virtuální počítače s Windows v Azure
 
@@ -78,7 +78,7 @@ V tomto příkladu ukážeme, jak k obnovení souboru bitové kopie, který se p
     ![Výchozí služba IIS webové stránky](./media/tutorial-backup-vms/iis-broken.png)
 
 5. V místním počítači, otevřete novou kartu a přejděte [portál Azure](https://portal.azure.com).
-6. V nabídce na levé straně vyberte **virtuální počítače** a vyberte formuláře virtuálních počítačů v seznamu.
+6. V nabídce na levé straně vyberte **virtuální počítače** a vyberte virtuální počítač ze seznamu.
 8. V okně virtuálního počítače v **nastavení** klikněte na tlačítko **zálohování**. **Zálohování** otevře se okno. 
 9. V nabídce v horní části okna vyberte **obnovení souboru**. **Obnovení souboru** otevře se okno.
 10. V **krok 1: Vyberte bod obnovení**, vyberte bod obnovení z rozevíracího seznamu.

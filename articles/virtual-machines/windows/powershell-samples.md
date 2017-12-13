@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/20/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9d0db50e5dcf6af97e15019c11fdeafb209de639
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 042b2b4a5c4ccb573b0d1d13abe7855aea779348
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Ukázek Azure PowerShell virtuálního počítače
 
@@ -29,6 +29,7 @@ Následující tabulka obsahuje odkazy na ukázky skripty prostředí PowerShell
 | | |
 |---|---|
 |**Vytváření virtuálních počítačů**||
+| [Rychlé vytvoření virtuálního počítače](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Vytvoří skupinu prostředků, virtuální počítač a všechny související prostředky s minimálním výzvy.|
 | [Vytvoření kompletně nakonfigurovaný virtuálního počítače](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Vytvoří skupinu prostředků, virtuální počítač a všechny související prostředky.|
 | [Vytvoření vysoce dostupné virtuální počítače](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Vytvoří několik virtuálních počítačů v s vysokou dostupností a konfigurace skupinu s vyrovnáváním zatížení.|
 | [Vytvořte virtuální počítač a spusťte skript konfigurace](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Vytvoří virtuální počítač a používá rozšíření Azure vlastní skript k instalaci služby IIS. |

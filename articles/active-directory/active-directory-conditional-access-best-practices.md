@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 119189415e75134ff0c77a551536559b81116fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Osvědčené postupy pro podmíněný přístup v Azure Active Directory
 
@@ -100,86 +100,18 @@ Ve vašem prostředí neměli byste následující konfigurace:
 
 ## <a name="policy-migration"></a>Migrace zásad
 
-Pokud máte na portálu Azure classic nakonfigurované zásady, musí ho migrovat na portál Azure, protože:
+Měli byste zvážit, zásady, které jste dosud nevytvořili na portálu Azure, protože migrace:
+
+- Scénáře, které nelze zpracovat před můžete vyřešit.
+
+- Můžete snížit počet zásad, které budete muset spravovat konsolidovat.   
+
+- Můžete spravovat všechny zásady podmíněného přístupu v jednom centrálním místě.
+
+- Portál Azure classic vyřadí.   
 
 
-- Uživatel, který je v portálu zásady služby Azure classic a zásady služby Azure portálu musí splňovat požadavky uvedené v obou zásad 
-
-- Pokud nemáte migrovat existující zásady, nebudete moct implementovat zásady, které jsou udělení přístupu
-
-
-### <a name="migration-from-the-azure-classic-portal"></a>Migrace z klasického portálu Azure
-
-V tomto scénáři: 
-
-- Ve vašem [portál Azure classic](https://manage.windowsazure.com), jste nakonfigurovali:
-
-    - SharePoint Online
-
-    ![Podmíněný přístup](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - Zásady podmíněného přístupu na základě zařízení
-
-    ![Podmíněný přístup](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Chcete-li konfigurovat zásadu podmíněného přístupu správy mobilních aplikací na portálu Azure 
- 
-
-#### <a name="configuration"></a>Konfigurace 
-
-- Projděte si zásady podmíněného přístupu na základě zařízení
-
-- Migrovat na portálu Azure 
-
-- Přidání zásady podmíněného přístupu správy mobilních aplikací
-
-
-### <a name="migrating-from-intune"></a>Migrace ze služby Intune 
-
-V tomto scénáři:
-
-- V [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), máte zásadu podmíněného přístupu správy mobilních aplikací pro buď Exchange Online nebo SharePoint Online nakonfigurované
-
-    ![Podmíněný přístup](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Chcete migrovat pomocí podmíněného přístupu pro správu mobilních aplikací na portálu Azure
-
-
-#### <a name="configuration"></a>Konfigurace 
- 
-- Projděte si zásady podmíněného přístupu na základě zařízení
-
-- Migrovat na portálu Azure 
-
-- Projděte si zásady podmíněného přístupu správy mobilních aplikací je nakonfigurován pro Exchange Online nebo SharePoint Online v Intune
-
-- Přidání ovládacího prvku pro **vyžadují schválených aplikací** kromě řízení na základě zařízení 
- 
-
-### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migrace z portálu Azure classic a Intune
-
-V tomto scénáři:
-
-- Máte nakonfigurovat následující:
-
-    - **Portál Azure classic:** podmíněného na zařízení 
-
-    - **Intune:** zásady podmíněného přístupu správy mobilních aplikací 
-    
-- Chcete migrovat obě zásady podmíněného přístupu zásady správy mobilních aplikací pomocí portálu Azure
-
-
-#### <a name="configuration"></a>Konfigurace
-
-- Projděte si zásady podmíněného přístupu na základě zařízení
-
-- Migrovat na portálu Azure 
-
-- Projděte si zásady podmíněného přístupu správy mobilní aplikace nakonfigurován pro Exchange Online nebo SharePoint Online v Intune
-
-- Přidání ovládacího prvku pro **vyžadují schválených aplikací** kromě na zařízení 
-
-
+Další informace najdete v tématu [migraci na portálu Azure classic zásad](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Další kroky

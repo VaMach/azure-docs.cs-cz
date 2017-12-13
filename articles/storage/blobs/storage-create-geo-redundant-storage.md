@@ -4,25 +4,25 @@ description: "Geograficky redundantní úložiště s přístupem pro čtení po
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 547ca7843f53bd11fdb922af8e0ae77e38f813d9
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 286013aaa5335689206514027bef80b250643be1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Zajistit vysokou dostupnost s Azure storage data aplikací
 
-V tomto kurzu je součástí, jednu z řady. V tomto kurzu se dozvíte, jak chcete nastavit vysokou dostupnost v Azure data aplikací. Jakmile budete hotovi, budete mít konzolovou aplikaci, která odešle a načte objekt blob [čtení geograficky redundantní](../common/storage-redundancy.md#read-access-geo-redundant-storage) účet úložiště (RA-GRS). RA-GRS funguje tak, že replikace transakce z primárního na sekundární oblast. Tento proces replikace zaručuje, že data v sekundární oblasti jsou nakonec byl konzistentní. Aplikace používá [jistič](/azure/architecture/patterns/circuit-breaker.md) vzor k určení kterému koncovému bodu se připojit k. Aplikace se při selhání se simuluje přepne do sekundárního koncového bodu.
+V tomto kurzu je součástí, jednu z řady. V tomto kurzu se dozvíte, jak chcete nastavit vysokou dostupnost v Azure data aplikací. Jakmile budete hotovi, máte základní konzolovou aplikaci .NET, která odešle a načte objekt blob [čtení geograficky redundantní](../common/storage-redundancy.md#read-access-geo-redundant-storage) účet úložiště (RA-GRS). RA-GRS funguje tak, že replikace transakce z primárního na sekundární oblast. Tento proces replikace zaručuje, že data v sekundární oblasti jsou nakonec byl konzistentní. Aplikace používá [jistič](/azure/architecture/patterns/circuit-breaker.md) vzor k určení kterému koncovému bodu se připojit k. Aplikace se při selhání se simuluje přepne do sekundárního koncového bodu.
 
 V rámci jedna řada, zjistíte, jak:
 
@@ -63,7 +63,7 @@ Postupujte podle těchto kroků můžete vytvořit účet geograficky redundantn
    | Nastavení       | Navrhovaná hodnota | Popis |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Název** | můj_účet_úložiště | Jedinečnou hodnotu pro váš účet úložiště |
-   | **Model nasazení** | Resource Manager  | Správce prostředků obsahuje nejnovější funkce.  |
+   | **Model nasazení** | Resource Manager  | Správce prostředků obsahuje nejnovější funkce.|
    | **Typ účtu** | Obecné účely | Podrobnosti o typech účtů najdete v tématu [typy účtů úložiště](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Výkon** | Standard | Ukázkový scénář stačí Standard. |
    | **Replikace**| Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS) | To je nezbytné pro ukázku pracovat. |
@@ -83,17 +83,29 @@ Obsahuje ukázkový projekt konzolové aplikace.
 
 ## <a name="set-the-connection-string"></a>Nastavení připojovacího řetězce
 
-Otevřete *storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs* Konzolová aplikace v sadě Visual Studio.
+V aplikaci je nutné zadat připojovací řetězec pro váš účet úložiště. Doporučujeme uložit tento připojovací řetězec v rámci proměnné prostředí v místním počítači spuštění aplikace. Proveďte jeden z příkladů níže v závislosti na operačním systému vytvořte proměnnou prostředí.
 
-V části **appSettings** uzlu **App.config** souboru, nahraďte hodnotu _StorageConnectionString_ připojovacím řetězcem účet úložiště. Tato hodnota je načtena výběrem **přístupové klíče** pod **nastavení** ve vašem účtu úložiště na portálu Azure. Kopírování **připojovací řetězec** z primární nebo sekundární klíč a vložte jej do **App.config** souboru. Vyberte **Uložit**, uložte soubor po dokončení.
+Na portálu Azure přejděte do účtu úložiště. Vyberte **přístupové klíče** pod **nastavení** ve vašem účtu úložiště. Kopírování **připojovací řetězec** z primární nebo sekundární klíč. Nahraďte \<yourconnectionstring\> s samotný připojovací řetězec spuštěním jednoho z následujících příkazů podle operačního systému. Tento příkaz uloží proměnné prostředí v místním počítači. V systému Windows, není dostupná, dokud nebude znovu načíst proměnnou prostředí **příkazového řádku** nebo prostředí používáte. Nahraďte  **\<storageConnectionString\>**  následující ukázka:
+
+### <a name="linux"></a>Linux
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+### <a name="windows"></a>Windows
+
+```cmd
+setx storageconnectionstring "<yourconnectionstring>"
+```
 
 ![soubor konfigurace aplikace](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## <a name="run-the-console-application"></a>Spuštěním konzolové aplikace
 
-V sadě Visual Studio, stiskněte klávesu **F5** nebo vyberte **spustit** spustit ladění aplikace. Visual studio automaticky obnovení chybějících balíčků Nuget pokud nakonfigurovaný, přejděte k [instalace a přeinstalace balíčky se obnovení balíčku](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) Další informace. 
+V sadě Visual Studio, stiskněte klávesu **F5** nebo vyberte **spustit** spustit ladění aplikace. Visual studio automaticky obnovení chybějících balíčků NuGet pokud nakonfigurovaný, přejděte k [instalace a přeinstalace balíčky se obnovení balíčku](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) Další informace.
 
-Spustí okno konzoly a začne aplikace spuštěna. Aplikace odešle **HelloWorld.png** bitovou kopii z řešení k účtu úložiště. Aplikace zkontroluje, aby bitovou kopii replikoval na sekundární koncový bod RA-GRS. Poté zahájí stahování obrázku až 999 x. Každý pro čtení je representated podle **P** nebo **S**. Kde **P** představuje primární koncový bod a **S** reprezentuje sekundární koncový bod.
+Spustí okno konzoly a začne aplikace spuštěna. Aplikace odešle **HelloWorld.png** bitovou kopii z řešení k účtu úložiště. Aplikace zkontroluje, aby bitovou kopii replikoval na sekundární koncový bod RA-GRS. Poté zahájí stahování obrázku až 999 x. Každý pro čtení je reprezentována **P** nebo **S**. Kde **P** představuje primární koncový bod a **S** reprezentuje sekundární koncový bod.
 
 ![Konzolové aplikace spuštěná](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -101,10 +113,10 @@ V ukázkovém kódu `RunCircuitBreakerAsync` úloh v `Program.cs` souboru se pou
 
 ### <a name="retry-event-handler"></a>Opakujte obslužné rutiny události
 
-`Operation_context_Retrying` Obslužné rutiny události je volána, když stažení bitové kopie selže a je nastavený na rety. Pokud se dosáhne maximálního počtu opakování pokusů, které jsou definovány v aplikaci, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) požadavku se změní na `SecondaryOnly`. Toto nastavení vynutí se aplikace pokusí stáhnout bitovou kopii z sekundární koncový bod. Tato konfigurace snižuje čas potřebný k požadují bitovou kopii jako primární koncový bod není opakovat po neomezenou dobu.
+`OperationContextRetrying` Obslužné rutiny události je volána, když stažení bitové kopie selže a je nastavený na rety. Pokud se dosáhne maximálního počtu opakování pokusů, které jsou definovány v aplikaci, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) požadavku se změní na `SecondaryOnly`. Toto nastavení vynutí se aplikace pokusí stáhnout bitovou kopii z sekundární koncový bod. Tato konfigurace snižuje čas potřebný k požadují bitovou kopii jako primární koncový bod není opakovat po neomezenou dobu.
 
 ```csharp
-private static void Operation_context_Retrying(object sender, RequestEventArgs e)
+private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
     retryCount++;
     Console.WriteLine("Retrying event because of failure reading the primary. RetryCount = " + retryCount);
@@ -129,10 +141,10 @@ private static void Operation_context_Retrying(object sender, RequestEventArgs e
 
 ### <a name="request-completed-event-handler"></a>Dokončit žádost o obslužnou rutinu události
 
-`Operation_context_RequestCompleted` Obslužné rutiny události je volána po úspěšné stažení bitové kopie. Pokud aplikace používá sekundární koncový bod, aplikace budou nadále používat tento koncový bod až 20 x. Po dobu 20 aplikace nastaví [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) zpět na `PrimaryThenSecondary` a opakuje primární koncový bod. Pokud je požadavek úspěšně aplikace i nadále číst z primární koncový bod.
+`OperationContextRequestCompleted` Obslužné rutiny události je volána po úspěšné stažení bitové kopie. Pokud aplikace používá sekundární koncový bod, aplikace budou nadále používat tento koncový bod až 20 x. Po dobu 20, aplikace sady [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) zpět na `PrimaryThenSecondary` a opakuje primární koncový bod. Pokud je požadavek úspěšné, aplikace bude číst z primární koncový bod.
 
 ```csharp
-private static void Operation_context_RequestCompleted(object sender, RequestEventArgs e)
+private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {

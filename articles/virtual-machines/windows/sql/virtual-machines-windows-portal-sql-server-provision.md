@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření virtuálního počítače s Windows a SQL Serverem 2017 v Azure | Dokumentace Microsoftu"
-description: "Díky tomuto kurzu se dozvíte, jak vytvořit virtuální počítač s Windows a SQL Serverem 2017 na webu Azure Portal."
+title: "Postup konfigurace virtuálních počítačů 2017 Windows SQL serveru na portálu Azure | Microsoft Docs"
+description: "Tento postup průvodce popisuje možnosti pro vytváření virtuálních počítačů Windows SQL serveru 2017 na portálu Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -9,39 +9,29 @@ tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 440c783de73652ad2d312cd92db8635dc65df9ed
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Zřízení virtuálního počítače s Windows a SQL Serverem na webu Azure Portal
+# <a name="how-to-create-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Postup vytvoření virtuálního počítače s SQL serverem Windows na portálu Azure
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+Tento průvodce vás provede různé možnosti dostupné při vytváření virtuálního počítače s SQL serverem Windows na portálu Azure. Můžete provést kroky pro vytvoření vlastní virtuální počítač SQL Server při učení o různé možnosti. Nebo můžete přejít na určitou část pro odkaz na konkrétní krok na portálu.
 
-V tomto úvodním kurzu pomocí webu Azure Portal vytvoříte virtuální počítač s Windows a nainstalovaným SQL Serverem.
+> [!TIP]
+> Abyste mohli rychle začít s výchozími hodnotami portálu, najdete v článku [Azure rychlý start - vytvoření virtuálního počítače s SQL serverem na portálu](quickstart-sql-vm-create-portal.md).
 
-V tomto kurzu provedete následující:
-
-* [Výběr image virtuálního počítače s SQL Serverem z galerie](#select)
-* [Nakonfigurování a vytvoření virtuálního počítače](#configure)
-* [Otevření virtuálního počítače pomocí Vzdálené plochy](#remotedesktop)
-* [Vzdálené připojení k SQL Serveru](#connect)
+Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
 ## <a id="select"></a>Výběr image virtuálního počítače s SQL Serverem z galerie
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) pomocí svého účtu.
-
-   > [!NOTE]
-   > Pokud účet Azure nemáte, můžete začít používat [bezplatnou zkušební verzi Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 1. Na webu Azure Portal klikněte na **Nový**. Na Portálu se otevře okno **Nový**.
 
@@ -277,19 +267,11 @@ Nasazení můžete monitorovat z webu Azure Portal. Tlačítko **Oznámení** v 
 
 Podle následujícího postupu se připojte k virtuálnímu počítači s SQL Serverem pomocí Vzdálené plochy:
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 Po připojení k virtuálnímu počítači s SQL Serverem můžete spustit SQL Server Management Studio a připojit se pomocí ověřování systému Windows se svými přihlašovacími údaji místního správce. Pokud jste povolili ověřování SQL Serveru, můžete se také připojit pomocí ověřování SQL Serveru a použít k tomu přihlašovací jméno a heslo SQL Serveru, které jste nakonfigurovali během zřizování.
 
 Přístup k počítači vám umožňuje podle potřeb přímo měnit nastavení počítače a SQL Serveru. Můžete například nakonfigurovat nastavení brány firewall nebo změnit nastavení konfigurace SQL Serveru.
-
-## <a name="enable-tcpip-for-developer-and-express-editions"></a>Povolení protokolu TCP/IP pro edice Developer a Express
-
-Při zřizování nového virtuálního počítače s SQL Serverem Azure automaticky nepovoluje protokol TCP/IP pro edice SQL Serveru Developer a Express. Následující kroky popisují ruční povolení protokolu TCP/IP, abyste se mohli vzdáleně připojit pomocí IP adresy.
-
-V následujících krocích se k povolení protokolu TCP/IP pro edice SQL Serveru Developer a Express používá **Správce konfigurace SQL Serveru**.
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a id="connect"></a>Vzdálené připojení k SQL Serveru
 
@@ -300,7 +282,7 @@ V tomto kurzu jsme pro virtuální počítač vybrali **veřejný** přístup a 
 
 Následující části vysvětlují, jak se připojit k instanci SQL Serveru na vašem virtuálním počítači z jiného počítače přes internet.
 
-> [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Datové sady a propojené služby v Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Pokud jste nový objekt pro vytváření dat, najdete v části [Úvod do Azure 
 ## <a name="overview"></a>Přehled
 Objekt pro vytváření dat může mít jeden nebo víc kanálů. A **kanálu** je logické seskupení **aktivity** společně provádějí úlohy. Aktivity v kanálu definují akce, které se mají provést s vašimi daty. Může například pomocí aktivity kopírování zkopírovat data z místního serveru SQL do úložiště objektů Blob v Azure. Pak můžete použít aktivitu Hive, která se spouští skript Hive v clusteru Azure HDInsight pro zpracování dat z úložiště objektů Blob nevytvořila výstupní data. Nakonec můžete použít druhý aktivity kopírování zkopírovat výstupní data do Azure SQL Data Warehouse, na které business intelligence (BI), vytváření sestav jsou integrované řešení. Další informace o kanály a aktivity, najdete v části [kanály a aktivity](concepts-pipelines-activities.md) v Azure Data Factory.
 
-Nyní **datovou sadu** pojmenované zobrazení obsahuje data, která jednoduše bodů nebo odkazuje na data, kterou chcete použít v vaše **aktivity** jako vstupy a výstupy. Datové sady identifikují data v rámci různých úložišť dat, jako jsou tabulky, soubory, složky a dokumenty. Například datové sadě služby Azure Blob Určuje kontejner objektů blob a složky v úložišti objektů Blob, ze kterého by měl aktivity číst data.
+Nyní **datovou sadu** pojmenované zobrazení obsahuje data, která jednoduše bodů nebo odkazuje na data, kterou chcete použít v vaše **aktivity** jako vstupy a výstupy. Datové sady identifikují data v rámci různých úložišť dat, jako jsou tabulky, soubory, složky a dokumenty. Datová sada objektu blob Azure například určuje kontejner objektů blob a složku v úložišti objektů blob, ze kterých by měla aktivita číst data.
 
 Než vytvoříte datové sady, musíte vytvořit **propojená služba** propojit data store k objektu pro vytváření dat. Propojené služby jsou velmi podobné připojovacím řetězcům, které definují informace o připojení, které služba Data Factory potřebuje pro připojení k externím prostředkům. Považujte ho tímto způsobem; Datová sada reprezentuje strukturu dat v rámci propojených úložištích dat a propojené služby definuje připojení ke zdroji dat. Například Azure Storage propojená služba propojuje účet úložiště do služby data factory. Datové sadě služby Azure Blob představuje kontejner objektů blob a složky v rámci tohoto účtu úložiště Azure, který obsahuje vstupní objekty BLOB ke zpracování.
 
@@ -43,6 +43,56 @@ Tady je ukázkový scénář. Ke zkopírování dat z úložiště objektů Blob
 Následující obrázek znázorňuje vztahy mezi kanálu, aktivity, datové sady a propojené služby objektu pro vytváření dat:
 
 ![Vztah mezi kanálu, aktivity, datové sady, propojených služeb](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## <a name="linked-service-json"></a>JSON propojené služby
+V datové továrně propojené služby je definováno ve formátu JSON následujícím způsobem:
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Následující tabulka popisuje vlastnosti v výše uvedený kód JSON:
+
+Vlastnost | Popis | Požaduje se |
+-------- | ----------- | -------- |
+jméno | Název propojené služby. V tématu [Azure Data Factory - pravidla po pojmenování](naming-rules.md). |  Ano |
+type | Typ propojené služby. Příklad: azurestorage. (úložiště dat) nebo AzureBatch (výpočetní). Najdete popis rámci typeProperties. | Ano |
+typeProperties | Vlastnosti typu se liší u každé úložiště dat nebo výpočetní. <br/><br/> Pro podporované data uložit typy a jejich vlastnosti typu, najdete v článku [typ dataset](#dataset-type) tabulky v tomto článku. Přejděte na článek konektor úložiště dat, další informace o typu vlastnosti specifické pro úložiště dat. <br/><br/> Typy podporované výpočtů a jejich vlastnosti typu najdete v tématu [výpočetní propojené služby](compute-linked-services.md). | Ano |
+connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je vaše úložiště dat se nachází v privátní síti), můžete použít modul Runtime integrace Azure nebo Self-hosted integrace Runtime. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Ne
+
+## <a name="linked-service-example"></a>Propojenou službu příkladu
+Následující propojené služby je propojenou službu úložiště Azure. Všimněte si, že je typ nastaven na azurestorage. Typ vlastnosti pro službu Azure Storage, propojené zahrnují připojovací řetězec. Služba Data Factory používá tento připojovací řetězec k připojení k úložišti dat za běhu. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="dataset-json"></a>JSON datové sady
 Datové sady ve službě Data Factory je definováno ve formátu JSON následujícím způsobem:
@@ -72,12 +122,12 @@ Datové sady ve službě Data Factory je definováno ve formátu JSON následuj�
 ```
 Následující tabulka popisuje vlastnosti v výše uvedený kód JSON:
 
-Vlastnost | Popis | Požaduje se | Výchozí
--------- | ----------- | -------- | -------
-jméno | Název datové sady. | V tématu [Azure Data Factory - pravidla po pojmenování](naming-rules.md). | Ano | Není k dispozici
-type | Typ datové sady. | Zadejte jeden z typů podporovaných službou Data Factory (například: AzureBlob, AzureSqlTable). <br/><br/>Podrobnosti najdete v tématu [datovou sadu typy](#dataset-types). | Ano | Není k dispozici
-Struktura | Schéma datové sady. | Podrobnosti najdete v tématu [strukturu datové sady](#dataset-structure). | Ne | Není k dispozici
-typeProperties | Vlastnosti typu se liší pro jednotlivé typy (například: Azure Blob, tabulka Azure SQL). Podrobnosti o svých vlastnostech a podporované typy najdete v tématu [typ sady](#dataset-type). | Ano | Není k dispozici
+Vlastnost | Popis | Požaduje se |
+-------- | ----------- | -------- |
+jméno | Název datové sady. V tématu [Azure Data Factory - pravidla po pojmenování](naming-rules.md). |  Ano |
+type | Typ datové sady. Zadejte jeden z typů podporovaných službou Data Factory (například: AzureBlob, AzureSqlTable). <br/><br/>Podrobnosti najdete v tématu [datovou sadu typy](#dataset-types). | Ano |
+Struktura | Schéma datové sady. Podrobnosti najdete v tématu [strukturu datové sady](#dataset-structure). | Ne |
+typeProperties | Vlastnosti typu se liší pro jednotlivé typy (například: Azure Blob, tabulka Azure SQL). Podrobnosti o svých vlastnostech a podporované typy najdete v tématu [typ sady](#dataset-type). | Ano |
 
 ## <a name="dataset-example"></a>Příklad datové sady
 V následujícím příkladu představuje datovou sadu tabulku s názvem MyTable v databázi SQL.
@@ -104,28 +154,6 @@ Je třeba počítat s následujícím:
 - Typ je nastaven na AzureSqlTable.
 - Název tabulky typu (specifické pro typ AzureSqlTable) je nastavena na MyTable.
 - linkedServiceName odkazuje na propojené služby typu azuresqldatabase., která je definována v další fragmentu kódu JSON.
-
-## <a name="linked-service-example"></a>Propojenou službu příkladu
-AzureSqlLinkedService je definován následujícím způsobem:
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-V předchozím fragmentu kódu JSON:
-
-- **typ** je nastaven na azuresqldatabase.
-- **connectionString** vlastnost typu Určuje informace pro připojení k databázi SQL.
-
-Jak vidíte, propojené služby definuje, jak se připojit k databázi SQL. Datová sada definuje, jaký tabulka je použít jako vstup a výstup aktivity v kanálu.
 
 ## <a name="dataset-type"></a>Typ sady
 Existuje mnoho různých typů datových sad, v závislosti na úložiště dat, které používáte. Najdete v následující tabulce najdete seznam úložišť dat podporovaných službou Data Factory. Klikněte na úložiště dat pro informace o vytvoření propojené služby a sadu dat pro toto datové úložiště.
