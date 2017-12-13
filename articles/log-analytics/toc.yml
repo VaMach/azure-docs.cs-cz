@@ -41,6 +41,8 @@
       href: log-analytics-usage.md
     - name: Správa přístupu
       href: log-analytics-manage-access.md
+    - name: Monitorování hybridních prostředí
+      href: log-analytics-concept-hybrid.md
     - name: Funkce pro poskytovatele služeb
       href: log-analytics-service-providers.md
     - name: Prohledávání protokolů
@@ -58,11 +60,7 @@
         - name: Připojené zdroje
           items:
             - name: Agenti systému Windows
-              href: log-analytics-windows-agents.md
-            - name: Agenti systému Linux
-              href: log-analytics-agent-linux.md
-            - name: Virtuální počítače Azure
-              href: log-analytics-azure-vm-extension.md
+              href: log-analytics-agent-windows.md
             - name: Prostředky Azure
               href: log-analytics-azure-storage.md
             - name: Prostředky Azure PaaS
@@ -75,6 +73,8 @@
               href: log-analytics-sccm.md
             - name: Brána OMS
               href: log-analytics-oms-gateway.md
+            - name: Řešení potíží s linuxovým agentem
+              href: log-analytics-agent-linux-support.md
         - name: Zdroje dat
           items:
             - name: Přehled zdrojů dat
@@ -158,6 +158,8 @@
           href: log-analytics-solution-alert-management.md
     - name: Spravovat
       items:
+        - name: Správa agentů
+          href: log-analytics-agent-manage.md
         - name: Správa nákladů pracovního prostoru
           href: log-analytics-manage-cost-storage.md
         - name: Odstranění pracovního prostoru
