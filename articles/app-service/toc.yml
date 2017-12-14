@@ -89,6 +89,8 @@
       items:
         - name: Nasazení aplikace
           items:
+            - name: Nasazení souboru ZIP
+              href: app-service-deploy-zip.md
             - name: Nasazení prostřednictvím FTP
               href: app-service-deploy-ftp.md
             - name: Nasazení prostřednictvím cloudové synchronizace

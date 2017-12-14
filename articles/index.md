@@ -4,11 +4,11 @@ hide_bc: True
 title: Dokumentace k Microsoft Azure
 description: "Naučte se vytvářet a spravovat výkonné aplikace pomocí cloudových služeb Microsoft Azure. Získejte dokumentaci, ukázkový kód, výukové kurzy a další materiály."
 featureFlags: clicktale
-ms.openlocfilehash: 4cc932ca2dcdad16f4b1b7cfc2494eec0ccf18b3
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 41b9a56fbf0979dfc8bd228c5eff0ae4c74864b0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -109,6 +109,7 @@ ms.lasthandoff: 12/13/2017
                                                     <li><a class="barLink" href="/azure/cost-management/">Správa nákladů v Azure</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -653,7 +654,7 @@ ms.lasthandoff: 12/13/2017
                                         <li>
                                             <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Služba LUIS (Language Understanding Intelligent Service)</p>
+                                                <p>Rozpoznávání jazyka (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2343,7 +2344,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                         </div>
                                     </div>
                                 </a>
-                            </li>   
+                            </li>
                             <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
@@ -2669,7 +2670,7 @@ Nástroj pro vyrovnávání zatížení vrstvy 7 s integrovaným vyrovnáváním
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Kontrola pravopisu Bingu</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Služba LUIS (Language Understanding Intelligent Services)&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Rozpoznávání jazyka (LUIS)</span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Lingvistická analýza&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
