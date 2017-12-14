@@ -17,7 +17,7 @@
 # Příklady
 ## [Nasazení prostředků Azure pomocí Terraformu v prostředí Bash](example-terraform-bash.md)
 
-# [Ceny](pricing.md)
+# [Vložení služby Cloud Shell](embed-cloud-shell.md)
 
 # [Řešení potíží](troubleshooting.md)
 
