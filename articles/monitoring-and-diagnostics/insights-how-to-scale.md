@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Ruční nebo automatické škálování počtu instancí
 V [portálu Azure](https://portal.azure.com/), můžete nastavit počet instancí služby ručně nebo můžete nastavit parametry, aby ji automaticky škálování na základě poptávky. To se obvykle označuje jako *škálovat* nebo *škálování v*.
@@ -26,11 +26,6 @@ V [portálu Azure](https://portal.azure.com/), můžete nastavit počet instanc�
 Před škálování podle počtu instancí, je třeba zvážit, zda je ovlivňován škálování **cenová úroveň** kromě počet instancí. Jiné cenové úrovně může mít odlišné počty jader a paměti, a proto budou mít lepší výkon pro stejný počet instancí (což je *škálovat* nebo *snižovat*). Tento článek se zabývá konkrétně *škálování v* a *out*.
 
 Je možné škálovat na portálu, a můžete také [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) nebo [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) na ručně nebo automaticky upravit měřítko.
-
-> [!NOTE]
-> Tento článek popisuje postup vytvoření nastavení automatického škálování na portál [http://portal.azure.com](http://portal.azure.com). Nastavení automatického škálování vytvořená na portálu nelze upravit, portálu classic ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
-> 
-> 
 
 ## <a name="scaling-manually"></a>Škálování ručně
 1. V [portálu Azure](https://portal.azure.com/), klikněte na tlačítko **Procházet**, pak přejděte k prostředku, kterou chcete použít škálování, jako například **plán služby App Service**.

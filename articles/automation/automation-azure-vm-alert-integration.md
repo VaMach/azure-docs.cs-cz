@@ -3,7 +3,7 @@ title: " Opravit virtuální počítač Azure výstrah pomocí Runbooků Automat
 description: "Tento článek ukazuje, jak integrovat Azure Automation runbook virtuální počítač Azure výstrahy a automatické odstranění problémů"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1f7baa7f-7283-4a4f-9385-3f5cd1062c7f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: csand;magoedte
-ms.openlocfilehash: 18cccc88ab74235722e2f4886671fc483ab67da8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef18a2de8ce62de945c49b91dc74aca7d7f408b0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---remediate-azure-vm-alerts"></a>Scénář automatizace Azure – opravit virtuální počítač Azure výstrahy
 Azure Automation a virtuální počítače Azure byla vydána nová funkce umožňuje nakonfigurovat výstrahy virtuálního počítače (VM) ke spuštění sady Automation runbook. Tato nová funkce umožňuje automaticky provádět standardní nápravy v reakci na výstrahy virtuálních počítačů, jako je restartování nebo zastavení virtuálního počítače.

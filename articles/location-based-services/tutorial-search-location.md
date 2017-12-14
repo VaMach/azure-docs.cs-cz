@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 31b0df0442a46761cb19e390e723535ff5a81594
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Hledání nedaleko bodu zájmu pomocí služeb na základě umístění Azure
 
@@ -105,7 +105,7 @@ Azure mapy ovládacího prvku rozhraní API je vhodné klientské knihovny, kter
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
     </body>
 
@@ -115,7 +115,7 @@ Azure mapy ovládacího prvku rozhraní API je vhodné klientské knihovny, kter
  
 3.  Přidejte následující kód JavaScript, který *skriptu* bloku souboru HTML. Nahraďte zástupný symbol *< klávesy insert >* s primární klíč účtu na základě polohy. 
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Instantiate map to the div with id "map"
     var subscriptionKey = "<insert-key>";
     var map = new atlas.Map("map", {
@@ -126,7 +126,7 @@ Azure mapy ovládacího prvku rozhraní API je vhodné klientské knihovny, kter
 
 4. Přidejte následující kód JavaScript, který *skriptu* bloku pro přidání vrstvy vyhledávání kódů PIN pro mapový ovládací prvek:
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
     map.addPins([], {
@@ -146,7 +146,7 @@ Azure mapy ovládacího prvku rozhraní API je vhodné klientské knihovny, kter
 Tato část ukazuje způsob použití rozhraní API služby Search Azure na základě polohy při hledání bodu zájmu na mapě. Je určený pro vývojáře k vyhledání adresy, vás zajímá a jiné zeměpisné údaje rozhraní RESTful API. Službu vyhledávání informací o zeměpisné šířky a délky přiřadí zadaná adresa. 
 
 1. Otevřete **MapSearch.html** soubor vytvořili v předchozí části a přidejte následující kód JavaScript, který *skriptu* bloku pro ilustraci službu vyhledávání. 
-    ```HTML/JavaScript
+    ```JavaScript
     // Perform a request to the search service and create a pin on the map for each result
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -189,7 +189,7 @@ Tato část ukazuje způsob použití rozhraní API služby Search Azure na zák
 
 2. Přidejte následující kód, který *skriptu* blok, k odeslání XMLHttpRequest službě Search Azure na základě polohy.:
 
-    ```HTML/JavaScript
+    ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
@@ -205,7 +205,7 @@ Tato část ukazuje způsob použití rozhraní API služby Search Azure na zák
 
 3. Přidejte následující řádky, které se *skriptu* bloku, vytvořit automaticky otevíraná okna pro body zájmu vrácený službu vyhledávání:
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Add a popup to the map which will display some basic information about a search result on hover over a pin
     var popup = new atlas.Popup();
     map.addEventListener("mouseover", searchLayerName, (e) => {

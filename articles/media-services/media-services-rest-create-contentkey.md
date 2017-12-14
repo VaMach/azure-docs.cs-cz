@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 7e4cd0b455ab39db01d50943d15f7e138bbd5e4e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ff8e5ccdc7e14ed39466b4525fdbae86fdc4e9a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Vytváření obsahu klíčů se zbytkem
 > [!div class="op_single_selector"]
@@ -77,9 +77,6 @@ Tento článek nezobrazuje jak generovat klíč standardu AES, šifrování klí
 ## <a name="connect-to-media-services"></a>Připojení ke službě Media Services
 
 Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI.
 
 ## <a name="retrieve-the-protectionkeyid"></a>Načtení ProtectionKeyId
 Následující příklad ukazuje, jak načíst ProtectionKeyId, kryptografický otisk certifikátu pro certifikát, který je nutné použít při šifrování klíče obsahu. Proveďte tento krok, abyste měli jistotu, že už máte příslušný certifikát na počítači.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: fe6c003e095b25cf3ec3430fc68dcd399150b3ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Řešení konektor služby Statistika aplikace (Preview) v Operations Management Suite (OMS)
 
@@ -39,7 +39,7 @@ Na rozdíl od většině ostatních řešení pro analýzu protokolu není data 
 
 | Připojený zdroj | Podporuje se | Popis |
 | --- | --- | --- |
-| [Agenti systému Windows](log-analytics-windows-agents.md) | Ne | Řešení neshromažďuje informace z agentů v systému Windows. |
+| [Agenti systému Windows](log-analytics-windows-agent.md) | Ne | Řešení neshromažďuje informace z agentů v systému Windows. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne | Řešení neshromažďuje informace od agentů systému Linux. |
 | [Skupiny správy nástroje SCOM](log-analytics-om-agents.md) | Ne | Řešení neshromažďuje informace od agentů v připojené skupině pro správu SCOM. |
 | [Účet služby Azure Storage](log-analytics-azure-storage.md) | Ne | Řešení nemá shromažďování informací z úložiště Azure. |
@@ -187,7 +187,7 @@ Záznam s *typ* z *ApplicationInsights* se vytvoří pro každý typ vstupní da
 | isSynthetic | Určuje, zda požadavek nebyl vytvořen uživatelem nebo automatizované metodou. Hodnotu true = uživatelem generovaný nebo = false automatizované – metoda |
 | SamplingRate | Procento telemetrii vygenerovanou sadou SDK, která je odeslána na portál. V rozsahu 0,0 100.0. |
 | SampledCount | 100/(SamplingRate). Například, 4 =&gt; 25 % |
-| IsAuthenticated | True nebo False |
+| IsAuthenticated | hodnotu true nebo false |
 | OperationID | Položky, které mají stejné operace ID se zobrazují jako související položky v portálu. Obvykle ID požadavku |
 | ParentOperationID | ID nadřazené operace |
 | OperationName |   |
