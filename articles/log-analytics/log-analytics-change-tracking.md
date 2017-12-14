@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Sledování změn softwaru ve vašem prostředí do řešení pro sledování změn
 
@@ -32,7 +32,7 @@ Nainstalujete řešení aktualizovat typ agenta, který jste nainstalovali. Změ
 ## <a name="installing-and-configuring-the-solution"></a>Instalace a konfigurace řešení
 Použijte následující informace k instalaci a konfiguraci řešení.
 
-* Musíte mít [Windows](log-analytics-windows-agents.md), [nástroje Operations Manager](log-analytics-om-agents.md), nebo [Linux](log-analytics-linux-agents.md) agent na každém počítači, ve které chcete sledovat změny.
+* Musíte mít [Windows](log-analytics-windows-agent.md), [nástroje Operations Manager](log-analytics-om-agents.md), nebo [Linux](log-analytics-linux-agents.md) agent na každém počítači, ve které chcete sledovat změny.
 * Přidat do pracovního prostoru OMS z tohoto řešení pro sledování změn [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Nebo můžete přidat řešení podle informací uvedených v [řešení přidat analýzy protokolů z Galerie řešení](log-analytics-add-solutions.md). Není nutná žádná další konfigurace.
 
 ### <a name="configure-linux-files-to-track"></a>Konfigurace souborů Linux ke sledování

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Plánování kapacity virtuálního počítače technologie Hyper-V s řešením kapacitu a výkon (Preview)
 
@@ -45,7 +45,7 @@ Následující tabulka popisuje připojené zdroje, které toto řešení podpor
 
 | Připojený zdroj | Podpora | Popis |
 |---|---|---|
-| [Agenti systému Windows](log-analytics-windows-agents.md) | Ano | Řešení shromažďuje informace kapacitu a výkon data z agentů v systému Windows. |
+| [Agenti systému Windows](log-analytics-windows-agent.md) | Ano | Řešení shromažďuje informace kapacitu a výkon data z agentů v systému Windows. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne    | Řešení neshromažďuje data informace kapacitu a výkon od agentů přímé Linux.|
 | [Skupiny správy nástroje SCOM](log-analytics-om-agents.md) | Ano |Řešení shromažďuje údaje o kapacitu a výkon od agentů v připojené skupině pro správu SCOM. Přímé připojení z agenta nástroje SCOM k OMS se nevyžaduje. Data se přesměrovávají ze skupiny pro správu do úložiště OMS.|
 | [Účet služby Azure Storage](log-analytics-azure-storage.md) | Ne | Úložiště Azure nezahrnuje data kapacitu a výkon.|

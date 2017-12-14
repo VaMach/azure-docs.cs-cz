@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streamování dat diagnostiky Azure v aktivní trase pomocí služby Event Hubs
 Azure Diagnostics poskytuje flexibilní způsoby, jak shromažďovat metriky a protokoly z cloudové služby virtuálních počítačů (VM) a přenos výsledků do služby Azure Storage. Spouštění v časovém intervalu. března 2016 (SDK 2.9), můžete odeslání diagnostiky do vlastní zdroje dat a přenos dat aktivní trase v sekundách pomocí [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -104,7 +104,7 @@ Event Hubs podřízený musí být také deklarovaný a definované v **PrivateC
 }
 ```
 
-`SharedAccessKeyName` Hodnota musí odpovídat klíč sdíleného přístupového podpisu (SAS) a zásad, která byla definována v **Event Hubs** oboru názvů. Přejděte do centra událostí řídicího panelu [portál Azure](https://manage.windowsazure.com), klikněte na tlačítko **konfigurace** kartě a nastavte s názvem zásady (například "SendRule"), který má *odeslat* oprávnění. **StorageAccount** také deklarovaného v **PrivateConfig**. Není nutné ke změně hodnot v tomto poli, pokud pracují. V tomto příkladu jsme ponechte hodnoty prázdná, což je přihlašovací, že podřízené asset bude nastavit hodnoty. Například *ServiceConfiguration.Cloud.cscfg* prostředí konfigurační soubor nastaví příslušné prostředí názvů a klíče.  
+`SharedAccessKeyName` Hodnota musí odpovídat klíč sdíleného přístupového podpisu (SAS) a zásad, která byla definována v **Event Hubs** oboru názvů. Přejděte do centra událostí řídicího panelu [portál Azure](https://portal.azure.com), klikněte na tlačítko **konfigurace** kartě a nastavte s názvem zásady (například "SendRule"), který má *odeslat* oprávnění. **StorageAccount** také deklarovaného v **PrivateConfig**. Není nutné ke změně hodnot v tomto poli, pokud pracují. V tomto příkladu jsme ponechte hodnoty prázdná, což je přihlašovací, že podřízené asset bude nastavit hodnoty. Například *ServiceConfiguration.Cloud.cscfg* prostředí konfigurační soubor nastaví příslušné prostředí názvů a klíče.  
 
 > [!WARNING]
 > Event Hubs SAS klíč, který je uložený ve formátu prostého textu v *.wadcfgx* souboru. Často tento klíč se změnami do správy zdrojového kódu, nebo není k dispozici jako prostředek na vašem serveru sestavení, takže byste měli chránit podle potřeby. Doporučujeme používat klíč SAS se zde *odesílat pouze* oprávnění tak, aby uživatel se zlými úmysly nelze zapisovat do centra událostí, ale naslouchání k němu nebo k její správě.

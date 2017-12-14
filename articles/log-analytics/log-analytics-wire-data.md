@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 3bb4c82268fe7805227c213000dc803307876fe7
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Řešení přenosu dat 2.0 (Preview) v analýzy protokolů
 
@@ -58,7 +58,7 @@ Data kabelové sítě získává data od agenta nástroje Microsoft závislostí
 
 | **Připojené zdroje** | **Podporuje se** | **Popis** |
 | --- | --- | --- |
-| Agenti systému Windows | Ano | Data kabelové sítě analyzuje a shromažďuje data z počítače se systémem Windows agenta. <br><br> Kromě [agenta OMS](log-analytics-windows-agents.md), Agent služby Microsoft Dependency vyžadují agentů v systému Windows. Najdete v článku [podporované operační systémy](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) úplný seznam verzí operačního systému. |
+| Agenti systému Windows | Ano | Data kabelové sítě analyzuje a shromažďuje data z počítače se systémem Windows agenta. <br><br> Kromě [agenta OMS](log-analytics-windows-agent.md), Agent služby Microsoft Dependency vyžadují agentů v systému Windows. Najdete v článku [podporované operační systémy](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) úplný seznam verzí operačního systému. |
 | Agenti systému Linux | Ano | Data kabelové sítě analyzuje a shromažďuje data z počítače se systémem Linux agent.<br><br> Kromě [agenta OMS](log-analytics-quick-collect-linux-computer.md), agenty Linux vyžadují Microsoft Agent závislostí. Najdete v článku [podporované operační systémy](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) úplný seznam verzí operačního systému. |
 | Skupina pro správu nástroje System Center Operations Manager | Ano | Analyzuje Data kabelové sítě a shromažďuje data z agentů systému Windows a Linux v připojeného [skupiny pro správu System Center Operations Manager](log-analytics-om-agents.md). <br><br> Je nutné přímé připojení z počítače agenta System Center Operations Manager k analýze protokolů. K analýze protokolů se předají data ze skupiny pro správu. |
 | Účet služby Azure Storage | Ne | Data kabelové sítě shromažďuje data z počítačů agentů, takže není žádná data z něj shromažďovat ze služby Azure Storage. |
@@ -208,7 +208,7 @@ Je závislost Agent nainstalován v počítačích se systémem Windows prostře
 
 Použijte následující kroky pro instalaci agenta závislost na každém počítači se systémem Windows:
 
-1. Nainstalovat agenta OMS kroků v [shromažďovat data z počítače se systémem Windows hostované ve vašem prostředí](log-analytics-windows-agents.md).
+1. Nainstalovat agenta OMS kroků v [shromažďovat data z počítače se systémem Windows hostované ve vašem prostředí](log-analytics-windows-agent.md).
 2. Stáhnout agenta pro Windows závislostí pomocí odkazu v předchozí části a spusťte jej pomocí následujícího příkazu:`InstallDependencyAgent-Windows.exe`
 3. Postupujte podle pokynů průvodce k instalaci agenta.
 4. Pokud Agent služby Dependency se nepodaří spustit, zkontrolujte protokoly podrobné informace o chybě. Pro agenty se systémem Windows k adresáři protokolu není %Programfiles%\Microsoft Agent\logs závislostí.

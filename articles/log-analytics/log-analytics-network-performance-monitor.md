@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Síťová řešení pro sledování výkonu v analýzy protokolů
 
@@ -46,7 +46,7 @@ Pokud chcete monitorovat řádek obchodní aplikace, můžete jako doprovodné �
 Navíc pokud již investovat do jiné sítě, nástroje pro sledování, pak řešení můžete doplnit tyto nástroje protože většina tradiční řešení pro monitorování sítě neposkytuje přehledy metriky výkonu začátku do konce sítě jako ztrátě a latenci.  Sledování výkonu sítě řešení může pomoct této mezeru.
 
 ## <a name="installing-and-configuring-agents-for-the-solution"></a>Instalování a konfigurování agentů pro řešení
-Použijte k instalaci agentů na základní procesy [počítače se systémem Windows se připojit k analýze protokolů](log-analytics-windows-agents.md) a [připojení nástroje Operations Manager k analýze protokolů](log-analytics-om-agents.md).
+Použijte k instalaci agentů na základní procesy [počítače se systémem Windows se připojit k analýze protokolů](log-analytics-windows-agent.md) a [připojení nástroje Operations Manager k analýze protokolů](log-analytics-om-agents.md).
 
 > [!NOTE]
 > Budete muset nainstalovat aspoň 2 agenty, abyste měli dostatek dat ke zjišťování a monitorování síťových prostředků. V opačném řešení zůstane v konfiguraci stavu, dokud instalaci a konfiguraci dalších agentů.

@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 3173964f0315559b0839fd7e659f8f3bd2c30b2a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Konfigurace připojení SSL ve službě Azure Database pro PostgreSQL
 Azure databázi PostgreSQL upřednostní připojení vaší klientské aplikace do služby PostgreSQL pomocí Secure Sockets Layer (SSL). Vynucování připojení SSL mezi databázový server a klientských aplikací pomáhá chránit před útoky "man uprostřed" šifrování datový proud mezi serverem a aplikace.
@@ -110,10 +110,6 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Připojení k databázi Azure pro PostgreSQL s ověřováním certifikátu SSL
 Teď, když jste úspěšně dekódovat vašeho certifikátu, můžete nyní připojíte k databázovému serveru bezpečně přes protokol SSL. Povolit certifikát ověření serveru, certifikát musí být umístěny v souboru ~/.postgresql/root.crt v domovském adresáři uživatele. (V systému Windows soubor je s názvem % APPDATA%\postgresql\root.crt.). Následující část obsahuje pokyny pro připojení k databázi Azure pro PostgreSQL.
-
-> [!NOTE]
-> V současné době je známý problém. Pokud používáte "sslmode = ověřte úplná" v připojení ke službě, připojení se nezdaří s následující chybou: _certifikát serveru pro "&lt;oblast&gt;. control.database.windows.net" (a 7 jiné názvy) se neshoduje s názvem hostitele "&lt;servername&gt;. postgres.database.azure.com"._
-> Pokud "sslmode = ověřte úplná" je potřeba, použijte zásady vytváření názvů serveru  **&lt;servername&gt;. database.windows.net** jako název hostitele v připojovacím řetězci. Plánujeme odebrat v budoucnu toto omezení. Připojení pomocí dalších [SSL režimy](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) by měly být nadále používat zásady vytváření názvů upřednostňované hostitele  **&lt;servername&gt;. postgres.database.azure.com**.
 
 #### <a name="using-psql-command-line-utility"></a>Pomocí nástroje příkazového řádku psql
 Následující příklad ukazuje, jak se úspěšně připojit k serveru pomocí nástroje příkazového řádku psql PostgreSQL. Použití `root.crt` soubor vytvořený a `sslmode=verify-ca` nebo `sslmode=verify-full` možnost.

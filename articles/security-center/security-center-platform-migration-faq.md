@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 69d0c368eb11953d1a6e954990a3be10df7044f0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Migrace platformy Security Center – nejčastější dotazy
 V časná června 2017 začal Azure Security Center pomocí agenta Microsoft Monitoring Agent shromažďovat a ukládat data. Další informace najdete v tématu [Azure Security Center platformy migrace](security-center-platform-migration.md). Tyto nejčastější dotazy odpovídá na dotazy týkající se migrace platformy.
@@ -175,7 +175,7 @@ Můžete chtít vyjádření výslovného nesouhlasu s automatické zřizování
 Po dokončení migrace Security Center není moct shromažďovat data zabezpečení z virtuálního počítače a některé zabezpečení doporučení a výstrahy nejsou k dispozici. Pokud chodit, musíte ručně nainstalovat agenta Microsoft Monitoring Agent. V tématu [doporučené kroky při odhlášení](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Jaké jsou doporučené kroky při zrušení automatické zřizování?
-Microsoft Monitoring Agent by měl ručně nainstalovat, aby mohl shromažďovat data zabezpečení z virtuálních počítačů a poskytovat doporučení a výstrahy Security Center. V tématu [počítače se systémem Windows se připojit ke službě Analýza protokolů v Azure](../log-analytics/log-analytics-windows-agents.md) pokyny k instalaci.
+Microsoft Monitoring Agent by měl ručně nainstalovat, aby mohl shromažďovat data zabezpečení z virtuálních počítačů a poskytovat doporučení a výstrahy Security Center. V tématu [počítače se systémem Windows se připojit ke službě Analýza protokolů v Azure](../log-analytics/log-analytics-windows-agent.md) pokyny k instalaci.
 
 Agenta můžete připojit k žádné existující vlastní prostoru nebo Security Center vytvořen pracovní prostor. Pokud vlastní prostoru nemá 'Zabezpečení' nebo 'SecurityCenterFree' řešení, které jsou povolené, pak bude potřeba použít řešení. Pokud chcete použít, vyberte vlastní prostoru nebo předplatného a použít cenovou úroveň prostřednictvím **zásady zabezpečení – cenová úroveň** okno.
 
