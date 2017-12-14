@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: jgao
-ms.openlocfilehash: e139db13cf943723a498158870627fd66cdd6e0f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Použití služby Data Lake Store s clustery Azure HDInsight
 
@@ -51,7 +51,6 @@ V současné době podporují použití služby Data Lake Store jako výchozího
 | HDInsight verze 3.4 | Ne | Ano | |
 | HDInsight verze 3.3 | Ne | Ne | |
 | HDInsight verze 3.2 | Ne | Ano | |
-| HDInsight Premium (úroveň)| Ne | Ne | |
 | Storm | | |Data Lake Store můžete použít k zápisu dat z topologie Storm. Data Lake Store můžete také použít pro referenční data, která pak může číst topologie Storm.|
 
 Použití služby Data Lake Store jako dalšího účtu úložiště nemá vliv na výkon ani schopnost číst ze služby Azure Storage nebo do ní zapisovat z clusteru.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrace zásad zabezpečení ve službě Security Center se službou Azure Policy
 Tento článek vám pomůže s konfigurací zásad zabezpečení ve službě Azure Security Center, které využívají službu Azure Policy. 
@@ -30,7 +30,7 @@ Security Center automaticky vytváří výchozí zásady zabezpečení pro každ
 * Monitorování dodržování zásad
 
 > [!NOTE]
-> Zásady Azure jsou ve verzi Limited Preview. Pokud se chcete zapojit, přejděte na web [pro registraci do Azure Policy](https://aka.ms/getpolicy). Další informace o službě Azure Policy najdete v tématu [Vytvoření a správa zásad pro vynucování dodržování předpisů](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
+> Zásady Azure jsou ve verzi Limited Preview. Pokud se chcete zapojit, přejděte na web [pro registraci do Azure Policy](https://aka.ms/getpolicy). Další informace o službě Azure Policy najdete v tématu [Vytvoření a správa zásad pro vynucování dodržování předpisů](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
 
 ## <a name="edit-security-policies"></a>Upravení zásad zabezpečení
 Ve službě Security Center můžete upravit výchozí zásady zabezpečení pro každé z vašich předplatných Azure. Pokud chcete upravit zásady zabezpečení, musíte být vlastníkem, přispěvatelem nebo správcem zabezpečení daného předplatného nebo skupiny pro správu, která ho obsahuje. Pokud chcete zobrazit zásady zabezpečení ve službě Security Center, postupujte takto:

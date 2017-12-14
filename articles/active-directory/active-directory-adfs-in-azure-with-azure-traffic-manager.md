@@ -5,7 +5,7 @@ keywords: "AD FS pomoc Azure Traffic Manageru, ADFS pomocí Azure Traffic Manage
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: 077710049894d2690299ce0fcb0ead9911aa4bb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e984d3d590021e3dd9e46d0f12493889b2acc229
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Vysoká dostupnost mezi geografickými nasazeními služby AD FS v Azure pomocí Azure Traffic Manageru
 Článek [Nasazení služby AD FS v Azure](active-directory-aadconnect-azure-adfs.md) poskytuje podrobné pokyny pro nasazení jednoduché infrastruktury služby AD FS pro vaši organizaci v Azure. Tento článek popisuje další kroky při vytváření nasazení služby AD FS v Azure mezi geografickými lokalitami pomocí [Azure Traffic Manageru](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager pomáhá vytvořit geograficky rozsáhlou infrastruktury služby AD FS s vysokou dostupnost a vysokým výkonem pro vaši organizaci tím, že využívá široké spektrum metod směrování, které jsou k dispozici pro splnění různých požadavků infrastruktury.

@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9e27ffe72986406031ba6cf9b1153090f6ff1113
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pro Azure Cloud Services
-U [aplikací cloudových služeb Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) lze pomocí služby [Application Insights][start] sledovat dostupnost, výkon, chyby a využití díky kombinování dat ze sad SDK služby Application Insights a dat [diagnostiky Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) z vašich cloudových služeb. Na základě zpětné vazby ohledně výkonu a efektivity vaší aplikace při běžném používání můžete informovaně rozhodovat o směrování návrhu v každé fázi vývoje.
+U [aplikací cloudových služeb Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) lze pomocí služby [Application Insights][start] sledovat dostupnost, výkon, chyby a využití díky kombinování dat ze sad SDK služby Application Insights a dat [diagnostiky Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) z vašich cloudových služeb. Na základě zpětné vazby ohledně výkonu a efektivity vaší aplikace při běžném používání můžete informovaně rozhodovat o směrování návrhu v každé fázi vývoje.
 
 ![Příklad](./media/app-insights-cloudservices/sample.png)
 
@@ -142,7 +142,7 @@ Přidejte další telemetrická data (viz části níže) a pak aplikaci publiku
 * Další informace najdete v tématu [Poradce při potížích][qna].
 
 ## <a name="view-azure-diagnostic-events"></a>Zobrazení událostí diagnostiky Azure
-Kde najít informace [diagnostiky Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) ve službě Application Insights:
+Kde najít informace [diagnostiky Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) ve službě Application Insights:
 
 * Čítače výkonu se zobrazují jako vlastní metriky. 
 * Protokoly událostí systému Windows se zobrazují jako trasování a vlastní události.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 47cdbf31e6b01055405cefedda11d5eeef82f32e
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b36e8064da2661e6424d68f11b1e08d5af96131f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Sestava odhadu nákladů Plánovače nasazení služby Azure Site Recovery  
 
@@ -30,7 +30,7 @@ Graf zobrazuje přehled odhadovaných celkových nákladů na zotavení po havá
  
 Náklady můžete zobrazit po měsících nebo letech. Další informace o [podporovaných cílových oblastech](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) a [podporovaných měnách](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies)
 
-**Náklady podle komponent** Celkové náklady na zotavení po havárii se dělí do čtyř komponent: výpočetní služby, úložiště, síť a licenční náklady na Azure Site Recovery. Náklady se počítají na základě spotřeby, ke které dojde během replikace a v průběhu nácviku zotavení po havárii pro výpočetní funkce, úložiště (Premium a Standard), síť ExpressRoute nebo VPN, která je nakonfigurovaný mezi místní lokalitou a Azure, a licence Azure Site Recovery.
+**Náklady podle komponent** Celkové náklady na zotavení po havárii se dělí do čtyř komponent: výpočetní služby, úložiště, síť a licenční náklady na Azure Site Recovery. Náklady se počítají na základě spotřeby, ke které dojde během replikace a v průběhu nácviku zotavení po havárii pro výpočetní funkce, úložiště (Premium a Standard), síť ExpressRoute nebo VPN, která je nakonfigurovaná mezi místní lokalitou a Azure, a licence Azure Site Recovery.
 
 **Náklady podle stavu** Celkové náklady na zotavení po havárii jsou rozdělené do kategorií na základě dvou různých stavů – replikace a nácvik zotavení po havárii. 
 
@@ -155,11 +155,11 @@ Plánovač nasazení Azure Site Recovery může vygenerovat sestavu nákladů s 
 |ARS|Argentinské peso ($)||AUD|Australský dolar ($)||BRL|Brazilský real (R$)|
 |CAD|Kanadský dolar ($)||CHF|Švýcarský frank (chf)||DKK|Dánská koruna (kr)|
 |EUR|Euro (€)||GBP|Britská libra (£)||HKD|Hongkongský dolar (HK$)|
-|IDR|Indonéská rupie (Rp)||INR|Indická rupie ()||JPY|Japonský jen (¥)|
+|IDR|Indonéská rupie (Rp)||INR|Indická rupie (₹)||JPY|Japonský jen (¥)|
 |KRW|Korejský won (₩)||MXN|Mexické peso (MXN$)||MYR|Malajský ringit ($)|
 |NOK|Norská koruna (kr)||NZD|Novozélandský dolar ($)||RUB|Ruský rubl (руб)|
 |SAR|Saúdský rijál (SR)||SEK|Švédská koruna (kr)||TWD|Tchajwanský dolar (NT$)|
 |TRY|Turecká lira (TL)||USD| Americký dolar ($)||ZAR|Jihoafrický rand (R)|
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o ochraně [virtuálních počítačů Hyper-V do Azure s využitím Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure)
+Další informace o ochraně [virtuálních počítačů Hyper-V do Azure s využitím Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-hyper-v-to-azure)

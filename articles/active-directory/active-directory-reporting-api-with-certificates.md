@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2017
 ms.author: ramical
-ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Získání dat pomocí rozhraní API pro generování sestav Azure AD s certifikáty
 Tento článek probírá, jak používat rozhraní API pro generování sestav Azure AD s přihlašovacími údaji ve formě certifikátů k získání dat z adresářů bez zásahu uživatele. 
@@ -89,7 +89,7 @@ Nyní můžete vytvořit skript. Dále je uvedený příklad používající rut
 Nyní jste připraveni k exportu do souboru CSV a jeho uložení do systému SIEM. Můžete také zabalit váš skript do naplánované úlohy, abyste získávali data Azure AD z vašeho klienta pravidelně bez nutnosti ukládat klíče aplikace ve zdrojovém kódu. 
 
 ## <a name="next-steps"></a>Další kroky
-[Základy správy identit Azure](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
+[Základy správy identit Azure](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
 
 
 

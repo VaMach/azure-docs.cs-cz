@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: "authentication server,stránka pro aktivaci aplikace azure multi factor authentication,stažení authentication serveru"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: a164dfa23a0bd8a598eb8871a160ced4158b172a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Začínáme s Azure Multi-Factor Authentication Serverem
 
@@ -89,7 +89,7 @@ Pokud nepoužíváte funkci Potvrzení události a vaši uživatelé nepoužíva
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-mfa-server---public-preview"></a>Stažení MFA Serveru – Public Preview
+## <a name="download-the-mfa-server"></a>Stažení MFA Serveru
 
 Postupujte podle těchto kroků a stáhněte Azure Multi-Factor Authentication Server z webu Azure Portal:
 
@@ -101,28 +101,6 @@ Postupujte podle těchto kroků a stáhněte Azure Multi-Factor Authentication S
    ![Stažení MFA Serveru](./media/multi-factor-authentication-get-started-server/downloadportal.png)
 
 5. Ponechte tuto stránku otevřenou, protože se k ní vrátíme po spuštění instalačního programu.
-
-
-## <a name="download-the-mfa-server"></a>Stažení MFA Serveru
-
-Postupujte podle těchto kroků a stáhněte Azure Multi-Factor Authentication Server z portálu pfweb:
-
-1. Přihlaste se na webu [Azure Portal](https://portal.azure.com) jako správce.
-2. Na levé straně vyberte **Active Directory**.
-3. Vyberte **Uživatelé a skupiny**.
-4. Vyberte **Všichni uživatelé**.
-5. Vyberte **Multi-Factor Authentication**.
-6. V části týkající se **vícefaktorového ověřování** klikněte na **Nastavení služby**.
-
-   ![Stránka Nastavení služby](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-
-6. Dole na stránce s nastavením služby klikněte na **Přejít na portál**. Otevře se nová stránka.
-7. Vyberte **Stáhnout**.
-8. Klikněte na odkaz **Stáhnout** a uložte instalační program.
-
-   ![Stažení MFA Serveru](./media/multi-factor-authentication-get-started-server/download4.png)
-
-9. Ponechte tuto stránku otevřenou, protože se k ní vrátíme po spuštění instalačního programu.
 
 ## <a name="install-and-configure-the-mfa-server"></a>Instalace a konfigurace MFA Serveru
 
