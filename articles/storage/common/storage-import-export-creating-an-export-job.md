@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Vytvoření úlohy exportu pro službu Azure Import/Export
 Vytvoření úlohy exportu pro službu Microsoft Azure Import/Export pomocí rozhraní REST API zahrnuje následující kroky:
@@ -57,7 +57,7 @@ Před vytvořením úlohy exportu, je nutné získat přenosů umístění názv
 
 Použijte následující postup k získání přesouvání umístění:
 
--   Určete název umístění účtu úložiště. Tuto hodnotu najdete v části **umístění** na účet úložiště **řídicí panel** v klasickém portálu nebo předmětem dotazu pro pomocí operace rozhraní API pro správu služby [získat vlastnosti účtu úložiště](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Určete název umístění účtu úložiště. Tuto hodnotu najdete v části **umístění** na účet úložiště **řídicí panel** ve službě Azure portálu nebo předmětem dotazu pro pomocí operace rozhraní API pro správu služby [získat vlastnosti účtu úložiště](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
 -   Načíst umístění, které jsou k dispozici pro zpracování tento účet úložiště pomocí volání `Get Location` operaci.
 

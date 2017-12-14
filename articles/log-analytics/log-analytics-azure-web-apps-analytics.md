@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Zobrazení analýzy dat pro metriky mezi všechny prostředky webové aplikace Azure
 
@@ -39,7 +39,7 @@ Na rozdíl od většině ostatních řešení pro analýzu protokolu není data 
 
 | Připojený zdroj | Podporuje se | Popis |
 | --- | --- | --- |
-| [Agenti systému Windows](log-analytics-windows-agents.md) | Ne | Řešení neshromažďuje informace z agentů v systému Windows. |
+| [Agenti systému Windows](log-analytics-windows-agent.md) | Ne | Řešení neshromažďuje informace z agentů v systému Windows. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne | Řešení neshromažďuje informace od agentů systému Linux. |
 | [Skupiny správy nástroje SCOM](log-analytics-om-agents.md) | Ne | Řešení neshromažďuje informace od agentů v připojené skupině pro správu SCOM. |
 | [Účet služby Azure Storage](log-analytics-azure-storage.md) | Ne | Řešení nemá shromažďování informací z úložiště Azure. |

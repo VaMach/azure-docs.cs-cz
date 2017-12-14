@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Výstrahy řešení pro správu v Operations Management Suite (OMS)
 
@@ -49,7 +49,7 @@ Následující tabulka popisuje připojené zdroje, které toto řešení podpor
 
 | Připojený zdroj | Podpora | Popis |
 |:--- |:--- |:--- |
-| [Agenti systému Windows](log-analytics-windows-agents.md) | Ne |Přímé agenty se systémem Windows negenerují výstrahy.  Log Analytics výstrahy lze vytvořit na základě události a údaje o výkonu shromážděných ze systému Windows agenty. |
+| [Agenti systému Windows](log-analytics-windows-agent.md) | Ne |Přímé agenty se systémem Windows negenerují výstrahy.  Log Analytics výstrahy lze vytvořit na základě události a údaje o výkonu shromážděných ze systému Windows agenty. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne |Přímé agenty Linux negenerují výstrahy.  Log Analytics výstrahy mohou být vytvořeny z události a data výkonu shromážděných z agentů systému Linux.  Nagios a Zabbix výstrahy se shromažďují z těchto serverů, které vyžadují agenta systému Linux. |
 | [Skupina pro správu System Center Operations Manager](log-analytics-om-agents.md) |Ano |Výstrahy, které jsou vytvořeny na agenty nástroje Operations Manager jsou doručeny do skupiny pro správu a pak předají k analýze protokolů.<br><br>Přímé připojení z agenty nástroje Operations Manager k analýze protokolů se nevyžaduje. Do úložiště analýzy protokolů se předají výstrahy data ze skupiny pro správu. |
 
