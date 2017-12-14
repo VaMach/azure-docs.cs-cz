@@ -3,7 +3,7 @@ title: "Správa účtu Azure Automation | Dokumentace Microsoftu"
 description: "Tento článek popisuje, jak spravovat konfiguraci vašeho účtu Automation, jako je chybná konfigurace, odstranění nebo obnovení certifikátu."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: fa3109f15cf14a95af35e814fb61a505d3130462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7ad5f539afc25c7c36712f8af25ce4e4f6d31a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-azure-automation-account"></a>Správa účtu Azure Automation
 V určitém okamžiku před vypršením platnosti účtu Automation musíte obnovit certifikát. Pokud se domníváte, že zabezpečení účtu Spustit jako je ohrožené, můžete ho odstranit a vytvořit znovu. Tato část popisuje, jak tyto operace provést.

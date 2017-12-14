@@ -15,11 +15,11 @@ ms.devlang: JavaScript
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 600b1b7e5f3987c9a0acc33b7049f7118442b931
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107c001f1b02874adfdc53856f18e6bfcbcb0cf4
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="send-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Odesílání nabízených oznámení do aplikací pro Chrome přes Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -460,7 +460,6 @@ Pokud chcete své uživatele rozdělit podle specifických skupin, můžete post
 <!-- URLs. -->
 [ukázky využití Notification Hubs v aplikaci pro Chrome]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
 [Google Cloud Console]: http://cloud.google.com/console
-[Azure Classic Portal]: https://manage.windowsazure.com/
 [přehledu této služby]: notification-hubs-push-notification-overview.md
 [Přehled aplikací pro Chrome]: https://developer.chrome.com/apps/about_apps
 [ukázce GCM aplikace pro Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications

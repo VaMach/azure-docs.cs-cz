@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migrace platformy pro Azure Security Center
 
@@ -36,7 +36,7 @@ Výhledově bude Security Center používat agenta Microsoft Monitoring Agent �
 
 ## <a name="agent"></a>Agent
 
-V rámci přechodu se agent Microsoft Monitoring Agent (pro [Windows](../log-analytics/log-analytics-windows-agents.md) nebo [Linux](../log-analytics/log-analytics-linux-agents.md)) nainstaluje na všech virtuálních počítačích Azure, ze kterých se aktuálně shromažďují data.  Pokud je na virtuálním počítači agent Microsoft Monitoring Agent již nainstalovaný, Security Center bude využívat stávajícího nainstalovaného agenta.
+V rámci přechodu se agent Microsoft Monitoring Agent (pro [Windows](../log-analytics/log-analytics-windows-agent.md) nebo [Linux](../log-analytics/log-analytics-linux-agents.md)) nainstaluje na všech virtuálních počítačích Azure, ze kterých se aktuálně shromažďují data.  Pokud je na virtuálním počítači agent Microsoft Monitoring Agent již nainstalovaný, Security Center bude využívat stávajícího nainstalovaného agenta.
 
 Oba agenti budou po nějakou dobu (obvykle několik dnů) pracovat souběžně, aby se zajistil bezproblémový přechod bez ztráty dat. To umožní Microsoftu před ukončením používání stávajícího kanálu ověřit, že je nový datový kanál funkční. Po ověření bude agent Azure Monitoring Agent z virtuálních počítačů odebrán. Od vás se nic nevyžaduje. Jakmile budou všichni zákazníci úspěšně migrováni, obdržíte e-mail s oznámením.
  
