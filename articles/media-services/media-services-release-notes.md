@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 0b10132f1a6be3a237ffa386f45233e3494d10eb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Poznámky k verzi Azure Media Services
 Tyto poznámky k verzi shrnout změny z předchozích verzí a známé problémy.
@@ -324,13 +324,6 @@ Media Services SDK pro .NET je nyní verze 3.0.0.7
 * **Původ** byla přejmenována na [StreamingEndpoint].
 * Ke změně výchozího chování při použití **portál Azure** ke kódování a pak publikovat soubory MP4.
 
-Dříve, když pomocí portálu Azure Classic k publikování jednoho souboru MP4 asset videa adresu URL typu SAS by se vytvořily (adresy URL SAS umožňují stahovat videa z úložiště objektů blob). V současné době při použití portálu Azure Classic ke kódování a pak publikujte asset videa jednoho souboru MP4, vygenerovaná adresa URL odkazuje na Azure Media Services koncový bod streamování.  Tato změna nemá vliv videa MP4, které jsou přímo nahrán do Media Services a publikovány bez zakódování službou Azure Media Services.
-
-V současné době máte následujících dvou možností problém vyřešit.
-
-* Jednotky streamování povolit a používat dynamické balení k vysílání datového proudu asset .mp4 jako technologie smooth streaming prezentaci.
-* Vytvořte adresu url typu SAS stáhnout (nebo progresivně play) MP4. Další informace o tom, jak vytvořit lokátor SAS najdete v tématu [doručování obsahu].
-
 ### <a id="sept_14_GA_changes"></a>Nové funkce nebo scénáře, které jsou součástí verze GA
 * **Procesor médií indexer**. Další informace najdete v tématu [indexování mediálních souborů pomocí Azure Media Indexer].
 * [StreamingEndpoint] entity teď umožňuje přidat názvy vlastních domén (hostitel).
@@ -561,7 +554,7 @@ Následující funkce se nové v listopadu verzi sady SDK.
 [podrobnosti o cenách na Media Services]: http://azure.microsoft.com/pricing/details/media-services/
 [vstupu Metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [výstup metadat]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[doručování obsahu]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [indexování mediálních souborů pomocí Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [práci s Azure Media Services živým streamováním]: http://msdn.microsoft.com/library/azure/dn783466.aspx

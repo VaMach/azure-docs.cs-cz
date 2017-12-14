@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-azure-activity-logs"></a>Zobrazit protokoly aktivita Azure
 
@@ -52,7 +52,7 @@ Na rozdíl od většiny jiných řešení analýzy protokolů není data shromá
 
 | Připojený zdroj | Podporuje se | Popis |
 | --- | --- | --- |
-| [Agenti systému Windows](log-analytics-windows-agents.md) | Ne | Řešení neshromažďuje informace z agentů v systému Windows. |
+| [Agenti systému Windows](log-analytics-windows-agent.md) | Ne | Řešení neshromažďuje informace z agentů v systému Windows. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne | Řešení neshromažďuje informace od agentů systému Linux. |
 | [Skupiny správy nástroje SCOM](log-analytics-om-agents.md) | Ne | Řešení neshromažďuje informace od agentů v připojené skupině pro správu SCOM. |
 | [Účet služby Azure Storage](log-analytics-azure-storage.md) | Ne | Řešení neshromažďuje informace ze služby Azure storage. |

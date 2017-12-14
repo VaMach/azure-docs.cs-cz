@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Shromažďovat statistiky o infrastruktury služby DNS s řešením DNS Analytics Preview
 
@@ -42,7 +42,7 @@ Následující tabulka popisuje připojené zdroje, které podporuje toto řeše
 
 | **Připojené zdroje** | **Podpora** | **Popis** |
 | --- | --- | --- |
-| [Agenti systému Windows](log-analytics-windows-agents.md) | Ano | Řešení shromažďuje informace DNS z agentů v systému Windows. |
+| [Agenti systému Windows](log-analytics-windows-agent.md) | Ano | Řešení shromažďuje informace DNS z agentů v systému Windows. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne | Řešení neshromažďuje informace DNS z přímé agenty Linux. |
 | [Skupina pro správu System Center Operations Manager](log-analytics-om-agents.md) | Ano | Řešení shromažďuje informace DNS z agentů v připojené skupině pro správu nástroje Operations Manager. Přímé připojení z agenta nástroje Operations Manager k Operations Management Suite se nevyžaduje. Do úložiště služby Operations Management Suite se předají data ze skupiny pro správu. |
 | [Účet služby Azure Storage](log-analytics-azure-storage.md) | Ne | Úložiště Azure není používán řešení. |
@@ -55,7 +55,7 @@ Následující tabulka popisuje připojené zdroje, které podporuje toto řeše
 
 Pomocí následujících informací nakonfigurujte řešení:
 
-- Musíte mít [Windows](log-analytics-windows-agents.md) nebo [nástroje Operations Manager](log-analytics-om-agents.md) agent na každém serveru DNS, který chcete monitorovat.
+- Musíte mít [Windows](log-analytics-windows-agent.md) nebo [nástroje Operations Manager](log-analytics-om-agents.md) agent na každém serveru DNS, který chcete monitorovat.
 - Řešení analýzy DNS můžete přidat do pracovního prostoru služby Operations Management Suite z [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Můžete také použít proces popsaný v [řešení přidat analýzy protokolů z Galerie řešení](log-analytics-add-solutions.md).
 
 Řešení spustí shromažďování dat bez nutnosti další konfigurace. Můžete však použít následující konfigurace přizpůsobit shromažďování dat.

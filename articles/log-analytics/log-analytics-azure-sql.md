@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorování databáze Azure SQL pomocí analýzy SQL Azure (Preview) v analýzy protokolů
 
@@ -43,7 +43,7 @@ Následující tabulka popisuje připojené zdroje, které toto řešení podpor
 
 | Připojený zdroj | Podpora | Popis |
 | --- | --- | --- |
-| [Agenti systému Windows](log-analytics-windows-agents.md) | Ne | Přímé agentů v systému Windows nejsou používány nástrojem řešení. |
+| [Agenti systému Windows](log-analytics-windows-agent.md) | Ne | Přímé agentů v systému Windows nejsou používány nástrojem řešení. |
 | [Agenti systému Linux](log-analytics-linux-agents.md) | Ne | Přímé agenty Linux nejsou používány nástrojem řešení. |
 | [Skupiny správy nástroje SCOM](log-analytics-om-agents.md) | Ne | Přímé připojení z agenta nástroje SCOM k analýze protokolů nepoužívá řešení. |
 | [Účet služby Azure Storage](log-analytics-azure-storage.md) | Ne | Analýzy protokolů číst data z účtu úložiště. |

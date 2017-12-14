@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 4d2a027a4e803dd68fba5f7fe130066fb7bd1232
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 391190c48c8ea5996d579db26a1b05ccff861d10
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configuring-asset-delivery-policies"></a>Konfigurace zásad doručení assetu
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -68,9 +68,6 @@ Pokyny k publikování assetu a vytvoření adresy URL streamování najdete v �
 ## <a name="connect-to-media-services"></a>Připojení ke službě Media Services
 
 Informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI.
 
 ## <a name="clear-asset-delivery-policy"></a>Zásady doručení assetu vymazat
 ### <a id="create_asset_delivery_policy"></a>Vytvoření zásady doručení assetu

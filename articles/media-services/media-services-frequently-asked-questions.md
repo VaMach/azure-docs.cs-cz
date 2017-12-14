@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: juliako
-ms.openlocfilehash: e2a580b835496c677f048599ae83287dbb61621d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab66994b0212593aff1384b0801f3359eb0a3751
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="frequently-asked-questions"></a>Nejčastější dotazy
 
@@ -28,7 +28,7 @@ Tento článek řeší nejčastější dotazy aktivováno komunit uživatelů Az
 
 Otázka: jak můžete stream zařízení Apple iOS
 
-Následující položky: přidejte "(format = m3u8-aapl)" cesta k "/ Manifest" část adresy URL streamování zdrojového serveru k vrácení zpět HLS obsah pro používání v Apple iOS nativní zařízení (podrobnosti viz (doručování obsahu) [říct Media-services doručit obsah overview.md]),
+Následující položky: přidejte "(format = m3u8-aapl)" cesta k "/ Manifest" část adresy URL streamování zdrojového serveru k vrácení zpět HLS obsah pro používání v Apple iOS nativní zařízení (podrobnosti viz (doručování obsahu)[media-services-deliver-content-overview.md]),
 
 Otázka: jak můžete škálovat indexování?
 
@@ -60,7 +60,7 @@ Odpověď: Media Services použije hodnotu vlastnosti IAssetFile.Name při sesta
 
 Otázka: jak se připojit pomocí REST?
 
-Odpověď: informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Po úspěšném připojení k https://media.windows.net, obdržíte 301 přesměrování zadání jiném identifikátoru URI Media Services. Je nutné provést následující volání nový identifikátor URI. 
+Odpověď: informace o tom, jak připojit k rozhraní API pro AMS najdete v tématu [přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 Otázka: jak můžete během procesu kódování otočit video.
 

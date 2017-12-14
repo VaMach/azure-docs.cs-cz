@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Vytvoření protokolu hledání v Azure Log Analytics pomocí portálu hledání protokolů
 
@@ -34,7 +34,7 @@ Vytvoření vyhledávání v portálu pokročilé analýzy místo portálu vyhle
 Tento kurz předpokládá, že už máte pracovní prostor analýzy protokolů s alespoň jeden připojený zdroj, který generuje data pro dotazy k analýze.  
 
 - Pokud nemáte pracovní prostor, můžete vytvořit volné jeden pomocí postupu v [začít pracovat s pracovní prostor analýzy protokolů](log-analytics-get-started.md).
-- Připojit aspoň jeden [agenta Windows](log-analytics-windows-agents.md) nebo jednu [agenta systému Linux](log-analytics-linux-agents.md) do pracovního prostoru.  
+- Připojit aspoň jeden [agenta Windows](log-analytics-windows-agent.md) nebo jednu [agenta systému Linux](log-analytics-linux-agents.md) do pracovního prostoru.  
 
 ## <a name="open-the-log-search-portal"></a>Otevřete portál hledání protokolů
 Začněte otevřením portálu hledání protokolů.  Můžete k němu přístup v portálu Azure nebo na portálu OMS.

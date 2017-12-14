@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec66c322550ac3a7729dc1fddc8c026fb4ec1895
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimalizace prostředí SQL s řešením kontroly stavu serveru SQL v analýzy protokolů
 
@@ -52,7 +52,7 @@ Když jste přidali řešení a posouzení je dokončené, souhrnné informace p
 
 K provedení kontroly stavu na serverech systému SQL Server, vyžadují agenta a připojení k analýze protokolů pomocí jedné z následujících podporovaných metod:
 
-1. Nainstalujte [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) Pokud server není již monitorován pomocí System Center 2016 - Operations Manager nebo Operations Manager 2012 R2.
+1. Nainstalujte [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) Pokud server není již monitorován pomocí System Center 2016 - Operations Manager nebo Operations Manager 2012 R2.
 2. Pokud je monitorovaný pomocí System Center 2016 - Operations Manager nebo Operations Manager 2012 R2 a skupině pro správu není integrované se službou analýzy protokolů, je možné serveru vícedomé s analýzy protokolů pro shromažďování dat a předání do služby a je stále sledovány serverem Operations Manager.  
 3. Jinak, pokud skupině pro správu nástroje Operations Manager je integrovaná se službou, je nutné přidat řadiče domény pro shromažďování dat pomocí služby podle kroků v části [přidat počítače spravované agentem](log-analytics-om-agents.md#connecting-operations-manager-to-oms) po povolení řešení v pracovním prostoru.  
 
@@ -163,8 +163,8 @@ Než v analýzy protokolů můžete použít řešení pro vyhodnocení, musíte
 Zobrazte vyhodnocování souhrnné dodržování předpisů pro infrastrukturu a potom přejít k podrobnostem doporučení.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Proveďte opravné akce a zobrazit doporučení pro oblastí zájmu
-1. Přihlaste se k portálu Azure v [https://portal.azure.com](https://portal.azure.com). 
-2. Na portálu Azure klikněte na tlačítko **další služby** v levém dolním nalezen. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **protokolu analýzy**.
+1. Přihlaste se k webu Azure Portal na adrese [https://portal.azure.com](https://portal.azure.com). 
+2. Na webu Azure Portal klikněte v levém dolním rohu na **Další služby**. V seznamu prostředků zadejte **Log Analytics**. Seznam se průběžně filtruje podle zadávaného textu. Vyberte **Log Analytics**.
 3. V podokně odběry analýzy protokolů vyberte pracovní prostor a klikněte **portálu OMS** dlaždici.  
 4. Na **přehled** klikněte na tlačítko **SQL stavu zkontrolujte** dlaždici. 
 5. Na **kontroly stavu** zkontrolujte souhrnné informace v jednom z okna oblasti fokus a pak klikněte na jednu zobrazíte doporučení pro tuto oblast fokus.

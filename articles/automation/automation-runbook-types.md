@@ -3,7 +3,7 @@ title: "Typy Runbooků služby Azure Automation | Microsoft Docs"
 description: "Popisuje různé typy sad runbook, které můžete použít v Azure Automation a důležité informace, které byste měli vzít v úvahu při určování, který typ používat. "
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 7bb90a51ffaca1a67933bc59f42ed08684fca5de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e4a8ab0e68d6614fea1b44f0115a1c633f145277
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Typy runbooků služby Azure Automation
 Služby Azure Automation podporuje několik typů sad runbook, které jsou popsány v následující tabulce.  V níže uvedených částech poskytují další informace o jednotlivých typech včetně důležité informace týkající se použití každé.

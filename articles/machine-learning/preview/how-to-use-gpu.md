@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: ca4066396f71865626f4034e490bb069a5f7ddf6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ce1557aed09384b0d7a0b65aabd473fe72ab740c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Jak používat GPU v Azure Machine Learning
 Grafické zpracování jednotky (GPU) se často používá ke zpracování výpočetně náročné úlohy, které obvykle může dojít při tréninku určité modely hluboké neuronové sítě. Pomocí grafickými procesory, můžete zkrátit dobu školení modelů výrazně. V tomto dokumentu, zjistíte, jak nakonfigurovat Azure ML Workbench používat [DSVM (datové vědy virtuální počítač)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) vybaven grafickými procesory jako cíl provádění. 
@@ -64,7 +64,7 @@ Azure ML Workbench také podporují spouštění v Docker Linux virtuální poč
 4. Klikněte na tlačítko **vytvořit** vytvořit Ubuntu DSVM.
 
 5. Vyplňte **Základy** formuláře se požadované informace.
-Při výběru umístění pro virtuální počítač, Všimněte si, že virtuální grafický procesor počítače jsou k dispozici pouze v určité oblasti, například **jihu USA**. V tématu [výpočetní produkty podle oblasti](https://azure.microsoft.com/en-us/regions/services/).
+Při výběru umístění pro virtuální počítač, Všimněte si, že virtuální grafický procesor počítače jsou k dispozici pouze v určité oblasti, například **jihu USA**. V tématu [výpočetní produkty podle oblasti](https://azure.microsoft.com/regions/services/).
 Kliknutím na tlačítko OK uložte **Základy** informace.
 
 6. Zvolte velikost virtuálního počítače. Vyberte jednu z velikosti předponu NC virtuálních počítačů, které jsou vybaveny čipy NVidia GPU.  Klikněte na tlačítko **Zobrazit vše** chcete zobrazit úplný seznam podle potřeby. Další informace o [vybavený GPU virtuálních počítačích Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).

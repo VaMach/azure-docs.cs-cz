@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurace programu Sledování výkonu sítě pro ExpressRoute (Preview)
 
@@ -129,7 +129,7 @@ Doporučujeme nainstalovat aspoň dva agenty na každé straně připojení Expr
 
 ### <a name="proxy"></a>2.3: Konfigurace nastavení proxy serveru (volitelné)
 
-Pokud používáte webový proxy server pro přístup k Internetu, použijte následující postup ke konfiguraci nastavení proxy serveru pro službu Microsoft Monitoring Agent. Proveďte tyto kroky pro každý server. pokud máte mnoho serverů, které je nutné nakonfigurovat, může být jednodušší použít skript, který tento proces zautomatizuje. Pokud ano, najdete v části [ke konfiguraci nastavení proxy serveru pro službu Microsoft Monitoring Agent pomocí skriptu](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Pokud používáte webový proxy server pro přístup k Internetu, použijte následující postup ke konfiguraci nastavení proxy serveru pro službu Microsoft Monitoring Agent. Proveďte tyto kroky pro každý server. pokud máte mnoho serverů, které je nutné nakonfigurovat, může být jednodušší použít skript, který tento proces zautomatizuje. Pokud ano, najdete v části [ke konfiguraci nastavení proxy serveru pro službu Microsoft Monitoring Agent pomocí skriptu](../log-analytics/log-analytics-windows-agent.md).
 
 Konfigurace nastavení proxy serveru pro službu Microsoft Monitoring Agent pomocí ovládacího panelu:
 

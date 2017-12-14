@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Úroveň události a protokolu generování platformy
 
@@ -105,7 +105,7 @@ Seznam čítačů výkonu, které mají shromažďovat při pomocí Service Fabr
 
 Tady jsou dvě běžné způsoby, ve kterých můžete nastavit shromažďování dat o výkonu pro váš cluster:
 
-* Pomocí agenta: Toto je upřednostňovaný způsob shromažďování výkonu z počítače, protože agenti mají obvykle seznam možných výkonu metriky, které se můžou shromažďovat, a je poměrně snadné proces vybrat metriky, které chcete shromažďovat nebo změnit. Přečtěte si informace o [konfigurace pro Service Fabric OMS](service-fabric-diagnostics-event-analysis-oms.md) a [nastavení agenta Windows OMS](../log-analytics/log-analytics-windows-agents.md) články Další informace o agenta OMS, což je jedna takové monitorování agent, který je schopen vyzvednutí výkonu data pro virtuální počítače clusteru a nasazené kontejnery.
+* Pomocí agenta: Toto je upřednostňovaný způsob shromažďování výkonu z počítače, protože agenti mají obvykle seznam možných výkonu metriky, které se můžou shromažďovat, a je poměrně snadné proces vybrat metriky, které chcete shromažďovat nebo změnit. Přečtěte si informace o [konfigurace pro Service Fabric OMS](service-fabric-diagnostics-event-analysis-oms.md) a [nastavení agenta Windows OMS](../log-analytics/log-analytics-windows-agent.md) články Další informace o agenta OMS, což je jedna takové monitorování agent, který je schopen vyzvednutí výkonu data pro virtuální počítače clusteru a nasazené kontejnery.
 
 * Konfigurace diagnostiky k zápisu čítače výkonu do tabulky: pro clustery v Azure, to znamená, změna konfigurace Azure Diagnostics načíst čítače výkonu odpovídající z virtuálních počítačů v clusteru a povolení se vyzvedávat docker statistiky, pokud budete nasazovat žádné kontejnery. Přečtěte si informace o konfiguraci [čítače výkonu v WAD](service-fabric-diagnostics-event-aggregation-wad.md) v Service Fabric nastavení kolekce čítače výkonu.
 

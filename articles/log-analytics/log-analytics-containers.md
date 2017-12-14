@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: d200587e211758ade85b14cbeb206ebce9291f1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Řešení monitorování kontejneru v analýzy protokolů
 
@@ -113,7 +113,7 @@ Zkontrolujte [modulu Docker v systému Windows](https://docs.microsoft.com/virtu
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Nainstalujte a nakonfigurujte hostitele kontejneru Linux
 
-Po instalaci Docker, použijte následující nastavení pro svého hostitele kontejneru konfigurace agenta pro použití s Docker. Je třeba nejprve vaše OMS ID a klíč, který můžete najít na portálu Azure. V pracovním prostoru, klikněte na tlačítko **rychlý Start** > **počítače** zobrazíte vaše **ID pracovního prostoru** a **primární klíč**.  Zkopírujte a vložte do vašeho oblíbeného editoru.
+Po instalaci Docker, použijte následující nastavení pro svého hostitele kontejneru konfigurace agenta pro použití s Docker. Je třeba nejprve vaše OMS ID a klíč, který můžete najít na portálu Azure. V pracovním prostoru, klikněte na tlačítko **rychlý Start** > **počítače** zobrazíte vaše **ID pracovního prostoru** a **primární klíč**.  Obě hodnoty zkopírujte a vložte do oblíbeného editoru.
 
 **Pro všechny hostitele kontejneru Linux s výjimkou CoreOS:**
 
@@ -137,7 +137,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Přepínání z pomocí nainstalovaného agenta systému Linux na jednu v kontejneru**
 
-Pokud dříve použít agenta přímo nainstalovat a chcete místo toho použít agenta spuštěného v kontejneru, je nutné nejprve odebrat agenta OMS pro Linux. V tématu [odinstalování agenta OMS pro Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) pochopit, jak úspěšně odinstalace agenta.  
+Pokud dříve použít agenta přímo nainstalovat a chcete místo toho použít agenta spuštěného v kontejneru, je nutné nejprve odebrat agenta OMS pro Linux. V tématu [odinstalování agenta OMS pro Linux](log-analytics-agent-linux.md) pochopit, jak úspěšně odinstalace agenta.  
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Konfigurace agenta OMS pro Docker Swarm
 
@@ -515,9 +515,9 @@ Další informace o konfiguraci démon Docker použít s kontejnery Windows najd
 
 #### <a name="install-windows-agents"></a>Instalace agentů v systému Windows
 
-Chcete-li povolit monitorování kontejneru systému Windows a technologie Hyper-V, nainstalujte Microsoft Monitoring Agent (MMA) na počítačích s Windows, které jsou hostiteli kontejneru. Pro počítače se systémem Windows v místním prostředí, najdete v části [počítače se systémem Windows se připojit k analýze protokolů](log-analytics-windows-agents.md). Pro virtuální počítače běžící v Azure, připojte je k analýze protokolů pomocí [rozšíření virtuálního počítače](log-analytics-azure-vm-extension.md).
+Chcete-li povolit monitorování kontejneru systému Windows a technologie Hyper-V, nainstalujte Microsoft Monitoring Agent (MMA) na počítačích s Windows, které jsou hostiteli kontejneru. Pro počítače se systémem Windows v místním prostředí, najdete v části [počítače se systémem Windows se připojit k analýze protokolů](log-analytics-windows-agent.md). Pro virtuální počítače běžící v Azure, připojte je k analýze protokolů pomocí [rozšíření virtuálního počítače](log-analytics-azure-vm-extension.md).
 
-Můžete monitorovat kontejnery Windows spuštěné v Service Fabric. Ale pouze [virtuální počítače běžící v Azure](log-analytics-azure-vm-extension.md) a [počítačů se systémem Windows v místním prostředí](log-analytics-windows-agents.md) jsou aktuálně podporovány pro Service Fabric.
+Můžete monitorovat kontejnery Windows spuštěné v Service Fabric. Ale pouze [virtuální počítače běžící v Azure](log-analytics-azure-vm-extension.md) a [počítačů se systémem Windows v místním prostředí](log-analytics-windows-agent.md) jsou aktuálně podporovány pro Service Fabric.
 
 Můžete ověřit, jestli je řešení monitorování kontejneru správně nastavené pro systém Windows. Chcete-li zkontrolovat, jestli byla sada management pack správně ke stažení, vyhledejte *ContainerManagement.xxx*. Soubory musí být ve složce C:\Program Files\Microsoft Monitoring Agent\Agent\Health služby State\Management balíčky.
 
@@ -534,7 +534,7 @@ Pokud používáte agenty se systémem Windows, je při přidání tohoto řeše
 Data jsou shromažďována každé tři minuty následující typy agenta.
 
 - [OMS agenta pro Linux](log-analytics-linux-agents.md)
-- [Agent služby Windows](log-analytics-windows-agents.md)
+- [Agent služby Windows](log-analytics-windows-agent.md)
 - [Rozšíření virtuálního počítače analýzy protokolů](log-analytics-azure-vm-extension.md)
 
 
