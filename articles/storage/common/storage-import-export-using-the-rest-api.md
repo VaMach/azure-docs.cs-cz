@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Použití rozhraní REST API služby Azure Import/Export
 
-Službu Microsoft Azure Import/Export zpřístupňuje rozhraní REST API umožňující programovací řízení úlohy importu a exportu. Rozhraní REST API můžete provádět všechny operace importu a exportu, které můžete provádět pomocí [portál Azure](https://portal.azure.com/). Kromě toho můžete použít rozhraní API REST k provádění některých granulární operací, jako je například dotazování procento dokončení úlohy, která není aktuálně k dispozici na portálu Azure classic.
+Službu Microsoft Azure Import/Export zpřístupňuje rozhraní REST API umožňující programovací řízení úlohy importu a exportu. Rozhraní REST API můžete provádět všechny operace importu a exportu, které můžete provádět pomocí [portál Azure](https://portal.azure.com/). Kromě toho můžete použít rozhraní API REST k provádění některých granulární operací, jako je například dotazování procento dokončení úlohy, která není aktuálně k dispozici na portálu Azure.
 
-V tématu [pomocí služby Microsoft Azure Import/Export přenos dat do úložiště objektů Blob](../storage-import-export-service.md) přehled službu Import/Export a kurz, který ukazuje, jak použít klasický portál pro vytváření a správu import a export úloh.
+V tématu [pomocí služby Microsoft Azure Import/Export přenos dat do úložiště objektů Blob](../storage-import-export-service.md) přehled službu Import/Export a kurz, který ukazuje, jak pomocí portálu pro vytváření a správu import a export úloh.
 
 ## <a name="service-endpoints"></a>Koncové body služby
 

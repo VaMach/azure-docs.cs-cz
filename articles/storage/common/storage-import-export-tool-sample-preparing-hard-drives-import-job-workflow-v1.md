@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 179c6bac9a2d9509baa0007a7008d75d0874a25e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Ukázkový pracovní postup pro přípravu pevných disků pro úlohu importu
 Toto téma vás provede kompletní proces přípravy jednotky pro úlohy importu.  
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>Zkopírujte dokončení relace
 
-Po dokončení kopírování relací mají můžete odpojit dvě jednotky z počítače, kopírování a dodávat je k příslušné datovému centru systému Windows Azure. Odesílat soubory dvě deníku `FirstDrive.jrn` a `SecondDrive.jrn`, při vytváření úlohy importu v [portálu Windows Azure](https://manage.windowsazure.com/).  
+Po dokončení kopírování relací mají můžete odpojit dvě jednotky z počítače, kopírování a dodávat je k příslušné datovému centru systému Windows Azure. Odesílat soubory dvě deníku `FirstDrive.jrn` a `SecondDrive.jrn`, při vytváření úlohy importu v [portál Azure](https://portal.azure.com).  
   
 ## <a name="next-steps"></a>Další kroky
 

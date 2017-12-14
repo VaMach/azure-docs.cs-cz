@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Požadavky nasazení Azure Stack
 
@@ -85,7 +85,7 @@ Nasazení zásobník Azure pomocí účtu Azure AD, je nutné připravit účet 
 
 1. Vytvořte účet Azure AD, který je správcem adresáře pro alespoň jeden Azure AD. Pokud už účet máte, můžete ho použít. Jinak, můžete jej vytvořit zdarma v [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (v Číně, navštivte <http://go.microsoft.com/fwlink/?LinkID=717821> místo). Pokud budete chtít později [zaregistrovat zásobník Azure s Azure](azure-stack-register.md), je také nutné mít předplatné v tomto nově vytvořený účet.
    
-    Uložit tyto přihlašovací údaje pro použití v kroku 6 v [nasazení development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). Tento účet *správce služby* může konfigurovat a spravovat cloudy prostředků, uživatelské účty, plány tenantů, kvóty a ceny. Na portálu může vytvářet webové cloudy, soukromé cloudy pro virtuální počítače a plány a spravovat předplatné uživatelů.
+    Uložit tyto přihlašovací údaje pro použití v kroku 6 v [nasazení development kit](azure-stack-run-powershell-script.md). Tento účet *správce služby* může konfigurovat a spravovat cloudy prostředků, uživatelské účty, plány tenantů, kvóty a ceny. Na portálu může vytvářet webové cloudy, soukromé cloudy pro virtuální počítače a plány a spravovat předplatné uživatelů.
 2. [Vytvoření](azure-stack-add-new-user-aad.md) alespoň jeden účet tak, aby se můžete přihlásit development Kit jako klient.
    
    | **Účet Azure Active Directory** | **Podporovány?** |

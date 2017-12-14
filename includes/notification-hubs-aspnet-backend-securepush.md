@@ -1,6 +1,6 @@
 ## <a name="webapi-project"></a>WebAPI projektu
 1. V sadě Visual Studio, otevřete **AppBackend** projekt, který jste vytvořili v **upozornění uživatelů** kurzu.
-2. V Notifications.cs, nahraďte celek **oznámení** třídy následujícím kódem. Ujistěte se, že nahraďte zástupné symboly připojovací řetězec (s úplným přístupem) pro vaše Centrum oznámení a název rozbočovače. Můžete získat z těchto hodnot [portálu Azure Classic](http://manage.windowsazure.com). Tento modul představuje teď jiné zabezpečené oznámení, které se budou odesílat. Do dokončení implementace se uloží oznámení v databázi. pro jednoduchost v takovém případě jsme je uložit v paměti.
+2. V Notifications.cs, nahraďte celek **oznámení** třídy následujícím kódem. Ujistěte se, že nahraďte zástupné symboly připojovací řetězec (s úplným přístupem) pro vaše Centrum oznámení a název rozbočovače. Můžete získat z těchto hodnot [portál Azure](http://portal.azure.com). Tento modul představuje teď jiné zabezpečené oznámení, které se budou odesílat. Do dokončení implementace se uloží oznámení v databázi. pro jednoduchost v takovém případě jsme je uložit v paměti.
    
         public class Notification
         {

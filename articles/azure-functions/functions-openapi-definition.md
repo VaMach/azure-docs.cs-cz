@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/09/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Vytvořit definici OpenAPI pro funkci
 Rozhraní REST API popsané často pomocí definici OpenAPI (dříve označovaný jako [Swagger](http://swagger.io/) souboru). Tato definice obsahuje informace o jaké operace jsou k dispozici v rozhraní API a jak by měla strukturovaná data požadavku a odpovědi pro rozhraní API.
@@ -48,9 +48,17 @@ K hostování provádění funkcí musíte mít aplikaci Function App. Umožňuj
 
 Tento kurz používá protokolu HTTP aktivované funkce, která přebírá dva parametry: odhadovaný čas vytvořit turbínu opravit (v hodinách); a kapacitu turbína (v kilowatthodinách). Funkce pak vypočítá, budou náklady na tom, kolik opravy, a kolik výnosy turbíně může změnit v období 24 hodin.
 
-1. Rozbalte funkce aplikace, klikněte na tlačítko  **+**  vedle položky **funkce**, klikněte na tlačítko **HTTPTrigger** šablony. Zadejte `TurbineRepair` pro funkci **název** a klikněte na tlačítko **vytvořit**.
+1. Rozbalte funkce aplikace a vyberte  **+**  vedle položky **funkce**. Pokud jde o první funkci ve vaší aplikaci Function App, vyberte možnost **Vlastní funkce**. Zobrazí se kompletní sada šablon funkcí. 
 
-    ![Okno aplikace funkce, funkce +](media/functions-openapi-definition/add-function.png)
+    ![Stručný úvod do služby Functions na webu Azure Portal](media/functions-openapi-definition/add-first-function.png)
+
+2. Do pole hledání zadejte `http` a potom zvolte **C#** šablony aktivace protokolu HTTP. 
+ 
+    ![Zvolte triggeru protokolu HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Typ `TurbineRepair` pro funkci **název**, zvolte `Function` pro  **[úroveň ověřování](functions-bindings-http-webhook.md#http-auth)**a potom vyberte **vytvořit**.  
+
+    ![Vytvoření funkce protokolu HTTP aktivované](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Nahraďte obsah souboru run.csx následující kód a potom klikněte na **Uložit**:
 

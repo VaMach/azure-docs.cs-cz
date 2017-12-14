@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b099abb27fbd2adf78b65123a62048967406d401
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Zásady hesel a omezení v Azure Active Directory
 
@@ -97,7 +97,7 @@ Následující tabulka popisuje nastavení zásad k dispozici heslo, které moho
 | --- | --- |
 | Povolené znaky |<ul><li>A – Z</li><li>a – z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Znaky nejsou povoleny |<ul><li>Znaky kódování Unicode.</li><li>Prostory.</li><li> Silná hesla pouze: nesmí obsahovat tečku znak "." bezprostředně předcházející "@" symbol.</li></ul> |
-| Omezení hesla |<ul><li>Minimálně 8 znaků a maximálně 16 znaků.</li><li>Silná hesla pouze: vyžaduje tři ze čtyř z následujících akcí:<ul><li>Malá písmena character.s</li><li>Velká písmena.</li><li>Čísla (0-9).</li><li>Symboly (viz předchozí omezení hesla).</li></ul></li></ul> |
+| Omezení hesla |<ul><li>Minimálně 8 znaků a maximálně 16 znaků.</li><li>Silná hesla pouze: vyžaduje tři ze čtyř z následujících akcí:<ul><li>Malá písmena.</li><li>Velká písmena.</li><li>Čísla (0-9).</li><li>Symboly (viz předchozí omezení hesla).</li></ul></li></ul> |
 | Doba vypršení platnosti hesla |<ul><li>Výchozí hodnota: **90** dnů.</li><li>Hodnota je možné konfigurovat pomocí `Set-MsolPasswordPolicy` rutiny z Azure Active Directory modul pro prostředí Windows PowerShell.</li></ul> |
 | Oznámení o vypršení hesla |<ul><li>Výchozí hodnota: **14** (před vypršením platnosti hesla).</li><li>Hodnota je možné konfigurovat pomocí `Set-MsolPasswordPolicy` rutiny.</li></ul> |
 | Vypršení platnosti hesla |<ul><li>Výchozí hodnota: **false** dní (to znamená, že vypršení platnosti hesla je povoleno).</li><li>Hodnotu lze nastavit pro jednotlivé uživatelské účty pomocí `Set-MsolUser` rutiny.</li></ul> |

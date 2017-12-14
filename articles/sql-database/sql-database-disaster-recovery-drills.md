@@ -12,14 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 10/20/2016
 ms.workload: Inactive
-ms.date: 07/31/2016
 ms.author: sashan
-ms.openlocfilehash: 8e395153fc9907107156c3412e5e0de554c83750
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.reviewer: carlrab
+ms.openlocfilehash: 55f73c30db96d91a642daee98832b1e1c9a38035
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Provedením postupu zotavení po havárii
 Doporučujeme, aby se pravidelně provádí ověřování připravenosti aplikace pro pracovní postup obnovení. Ověření chování aplikace a dopad ztráty dat nebo přerušení zahrnuje tento převzetí služeb při selhání je dobrým zvykem engineering. Je také požadavek ve většině oborové standardy jako součást Certifikační kontinuity firmy.
@@ -30,10 +31,10 @@ Provádění postupu zotavení po havárii zahrnuje:
 * Obnovení
 * Ověření obnovení post integritu aplikací
 
-V závislosti na tom, jak můžete [určená aplikace pro kontinuitu podnikových procesů](sql-database-business-continuity.md), pracovní postup spuštění podrobné se může lišit. Níže budeme popisují doporučené postupy provádění postupu zotavení po havárii v kontextu databáze SQL Azure.
+V závislosti na tom, jak můžete [určená aplikace pro kontinuitu podnikových procesů](sql-database-business-continuity.md), pracovní postup spuštění podrobné se může lišit. Tento článek popisuje osvědčené postupy pro provádění postupu zotavení po havárii v kontextu databáze SQL Azure.
 
 ## <a name="geo-restore"></a>Geografické obnovení
-Aby se zabránilo potenciální ztrátě dat při provádění postupu zotavení po havárii, doporučujeme provádění procházení testovacím prostředí pomocí vytvořit kopii produkčního prostředí a používat jej ověření pracovní postup převzetí služeb při selhání aplikace.
+Aby se zabránilo potenciální ztrátě dat při provádění postupu zotavení po havárii, proveďte procházení testovacím prostředí pomocí vytvořit kopii produkčního prostředí a používat jej ověření pracovní postup převzetí služeb při selhání aplikace.
 
 #### <a name="outage-simulation"></a>Simulace výpadku
 Pro simulaci se výpadek, můžete odstranit nebo přejmenovat zdrojové databáze. To způsobí selhání připojení aplikace.
@@ -45,22 +46,22 @@ Pro simulaci se výpadek, můžete odstranit nebo přejmenovat zdrojové databá
 #### <a name="validation"></a>Ověření
 * Dokončete podrobné sestavy pomocí ověření obnovení post integrity aplikace (včetně připojovací řetězce, přihlášení, základní funkce testování nebo jinou ověření část postupy signoffs standardní aplikace).
 
-## <a name="geo-replication"></a>Geografická replikace
-Pro databáze, který je chráněný pomocí geografická replikace zahrnuje cvičení procházení plánované převzetí služeb při selhání pro sekundární databázi. Plánované převzetí služeb při selhání zaručuje, že primární a sekundární databáze zachovány synchronizované při přepínání role. Na rozdíl od neplánované převzetí služeb při selhání tato operace není způsobit ztrátu dat, takže podrobné sestavy lze provést v provozním prostředí.
+## <a name="failover-groups"></a>Skupiny převzetí služeb při selhání
+Pro databáze, který je chráněný pomocí skupin převzetí služeb při selhání zahrnuje cvičení procházení plánované převzetí služeb při selhání na sekundární server. Plánované převzetí služeb při selhání zaručuje, že primární a sekundární databází ve skupině pro převzetí služeb při selhání zachovány synchronizované při přepínání role. Na rozdíl od neplánované převzetí služeb při selhání tato operace není způsobit ztrátu dat, takže podrobné sestavy lze provést v provozním prostředí.
 
 #### <a name="outage-simulation"></a>Simulace výpadku
 Pro simulaci se výpadek, můžete zakázat webové aplikace nebo virtuální počítač připojen k databázi. Pro klienty webového výsledkem chyby připojení.
 
 #### <a name="recovery"></a>Obnovení
-* Zajistěte, aby konfigurace aplikace v oblasti zotavení po Havárii odkazuje na sekundární dřívějším, který se stane plně dostupný nový primární.
-* Provedení [plánované převzetí služeb při selhání](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) aby sekundární databázi nový primární
+* Zkontrolujte konfiguraci aplikace v bodech oblast zotavení po Havárii na dřívějším sekundární, který se stane plně dostupný nový primární.
+* Zahájit [plánované převzetí služeb při selhání](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) převzetí služeb při selhání skupiny ze sekundárního serveru.
 * Postupujte podle [nakonfigurovat databázi po obnovení](sql-database-disaster-recovery.md) průvodce dokončí obnovení.
 
 #### <a name="validation"></a>Ověření
-* Dokončete podrobné sestavy pomocí ověření obnovení post integrity aplikace (včetně připojovací řetězce, přihlášení, základní funkce testování nebo jinou ověření část postupy signoffs standardní aplikace).
+Dokončete podrobné sestavy pomocí ověření obnovení post integrity aplikace (včetně připojení, testování základní funkce nebo další ověření požadované pro procházení signoffs).
 
 ## <a name="next-steps"></a>Další kroky
-* Další informace o obchodních scénářů kontinuity najdete v tématu [kontinuity scénáře](sql-database-business-continuity.md)
+* Další informace o obchodních scénářů kontinuity najdete v tématu [kontinuity scénáře](sql-database-business-continuity.md).
 * Další informace o Azure SQL Database automatizované zálohování najdete v tématu [automatizované zálohování SQL Database](sql-database-automated-backups.md)
-* Další informace o použití automatizované zálohování pro obnovení, najdete v části [obnovit databázi ze zálohy spouštěná služba](sql-database-recovery-using-backups.md)
-* Další informace o možnosti rychlejší obnovení najdete v tématu [aktivní geografickou replikaci](sql-database-geo-replication-overview.md)  
+* Další informace o použití automatizované zálohování pro obnovení, najdete v části [obnovit databázi ze zálohy spouštěná služba](sql-database-recovery-using-backups.md).
+* Další informace o možnosti rychlejší obnovení najdete v tématu [aktivní geografickou replikaci a převzetí služeb při selhání skupiny](sql-database-geo-replication-overview.md).  

@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 28/9/2017
+ms.date: 12/11/2017
 ms.author: seguler
-ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 1cf1ce1cb739d8958767f0e84380ff6ba57eb1b6
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Přenos dat pomocí nástroje AzCopy v systému Linux
-V systému Linux AzCopy je nástroj příkazového řádku pro kopírování dat do a z úložiště objektů Blob v Microsoft Azure a soubor pomocí jednoduchých příkazů optimální výkon. Data můžete zkopírovat z jednoho objektu do druhého v rámci účtu úložiště nebo mezi účty úložiště.
+V systému Linux AzCopy je nástroj příkazového řádku pro kopírování dat do a z úložiště objektů Blob v Microsoft Azure a soubor pomocí jednoduchých příkazů optimální výkon. V rámci účtu úložiště nebo mezi účty úložiště, můžete také zkopírovat data z jednoho objektu na jiný.
 
 Existují dvě verze nástroje AzCopy, které si můžete stáhnout. AzCopy v systému Linux je sestaven pomocí rozhraní .NET Framework Core, které cílí platformy Linux nabídky stylu POSIX možnosti příkazového řádku. [AzCopy v systému Windows](../storage-use-azcopy.md) je obsažena v rozhraní .NET Framework a nabízí možnosti příkazového řádku Windows stylu. Tento článek se zabývá AzCopy v systému Linux.
 
@@ -30,7 +30,7 @@ Existují dvě verze nástroje AzCopy, které si můžete stáhnout. AzCopy v sy
 
 Článek obsahuje příkazy pro různé verze Ubuntu.  Použití `lsb_release -a` příkaz potvrďte oprav a kódové označení. 
 
-AzCopy v systému Linux vyžaduje základní rozhraní .NET framework (verze 1.1.x) na platformě. Najdete v pokynech k instalaci na [.NET Core](https://www.microsoft.com/net/download/linux) stránky.
+AzCopy v systému Linux vyžaduje základní rozhraní .NET framework (verze 2.0) na platformě. Najdete v pokynech k instalaci na [.NET Core](https://www.microsoft.com/net/download/linux) stránky.
 
 Jako příklad nainstalujme na Ubuntu 16.04 .NET Core. Nejnovější Průvodce instalací, najdete v článku [.NET Core v systému Linux](https://www.microsoft.com/net/download/linux) instalační stránka.
 
@@ -40,7 +40,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.1.4
+sudo apt-get install dotnet-sdk-2.0.2
 ```
 
 Po instalaci .NET Core, stáhněte a nainstalujte AzCopy.
@@ -68,22 +68,20 @@ Následující příklady ukazují různé scénáře pro kopírování dat do a
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key> 
 ```
 
-Pokud složka `/mnt/myfiles` neexistuje, AzCopy ji vytvoří a stáhne `abc.txt ` do nové složky.
+Pokud složka `/mnt/myfiles` neexistuje, AzCopy ji vytvoří a stáhne `abc.txt ` do nové složky. 
 
 ### <a name="download-single-blob-from-secondary-region"></a>Stáhnout jediného objektu blob ze sekundární oblasti
 
 ```azcopy
 azcopy \
-    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 Všimněte si, že je nutné mít přístup pro čtení geograficky redundantní úložiště s povoleným.
@@ -189,10 +187,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --dest-key <key>
 ```
 
 Pokud zadaný cílový kontejner neexistuje, AzCopy ji vytvoří a odešle soubor do ní.
@@ -201,10 +198,9 @@ Pokud zadaný cílový kontejner neexistuje, AzCopy ji vytvoří a odešle soubo
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/vd/abc.txt \
+    --dest-key <key>
 ```
 
 Pokud zadaný virtuální adresář neexistuje, AzCopy nahrávání souboru v názvu objektu blob virtuálního adresáře (*například*, `vd/abc.txt` v předchozím příkladu).
@@ -315,11 +311,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://myaccount.blob.core.windows.net/mycontainer2 \
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-key <key> \
-    --dest-key <key> \
-    --include "abc.txt"
+    --dest-key <key>
 ```
 
 Při kopírování objektu blob bez – možnosti synchronní kopie, [serverové kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operace.
@@ -328,11 +323,10 @@ Při kopírování objektu blob bez – možnosti synchronní kopie, [serverové
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://destaccount.blob.core.windows.net/mycontainer2 \
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 Při kopírování objektu blob bez – možnosti synchronní kopie, [serverové kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operace.
@@ -341,11 +335,10 @@ Při kopírování objektu blob bez – možnosti synchronní kopie, [serverové
 
 ```azcopy
 azcopy \
-    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 \
-    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2 \
+    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1/abc.txt \
+    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 Všimněte si, že je nutné mít přístup pro čtení geograficky redundantní úložiště s povoleným.
@@ -354,8 +347,8 @@ Všimněte si, že je nutné mít přístup pro čtení geograficky redundantní
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://destaccount.blob.core.windows.net/mycontainer2 \
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/ \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/ \
     --source-key <key1> \
     --dest-key <key2> \
     --include "abc.txt" \
@@ -392,10 +385,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/ \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 Pokud je zadaný zdroj sdílenou složku Azure, pak buď musíte zadat přesný název souboru, (*například* `abc.txt`) ke stažení jeden soubor nebo zadejte možnost `--recursive` ke stažení všechny soubory ve sdílené složce rekurzivně. Probíhá pokus o zadat šablonu souboru a možnost `--recursive` společně dojde k chybě.
@@ -417,10 +409,9 @@ Všimněte si, že všechny prázdné složky nestahují.
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.file.core.windows.net/myfileshare/ \
-    --dest-key <key> \
-    --include abc.txt
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.file.core.windows.net/myfileshare/abc.txt \
+    --dest-key <key>
 ```
 
 ### <a name="upload-all-files"></a>Odeslat všechny soubory.
@@ -543,11 +534,10 @@ AzCopy selže, pokud rozložení parametru mezi dvěma čárami, jak je vidět t
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://myaccount.blob.core.windows.net/mycontainer2 \
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-sas <SAS1> \
-    --dest-sas <SAS2> \
-    --include abc.txt
+    --dest-sas <SAS2>
 ```
 
 Můžete také určit SAS URI kontejneru:
@@ -558,8 +548,6 @@ azcopy \
     --destination /mnt/myfiles \
     --recursive
 ```
-
-Všimněte si, že AzCopy aktuálně podporuje jenom [SAS účtu](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Složky pro soubor deníku
 Pokaždé, když příkaz azcopy, zkontroluje existenci souboru deníku ve výchozí složce, nebo jestli existuje ve složce, kterou jste zadali pomocí této možnosti. Pokud soubor deníku neexistuje ani na jednom místě, AzCopy zpracovává operaci jako nové a generuje nový soubor deníku.
@@ -609,47 +597,12 @@ azcopy \
 ### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Zadejte počet souběžných operací spuštění
 Možnost `--parallel-level` určuje počet souběžných kopie operací. Ve výchozím nastavení spustí AzCopy počet souběžných operací, pokud chcete zvýšit propustnost dat přenosu. Počet souběžných operací osm časy počet procesorů, které máte. Pokud používáte AzCopy přes síť s malou šířkou pásma, můžete na nižší číslo pro – paralelní úrovni, aby se zabránilo selhání kvůli konfliktům prostředků.
 
-[!TIP]
+>[!TIP]
 >Pokud chcete zobrazit úplný seznam parametrů AzCopy, podívejte se na 'azcopy – Nápověda' nabídky.
 
 ## <a name="known-issues-and-best-practices"></a>Známé problémy a doporučené postupy
-### <a name="error-net-core-is-not-found-in-the-system"></a>Chyba: .NET Core není v systému nalezena.
-Pokud se vyskytne chyba s oznámením, že .NET Core není nainstalována v systému, cesta k .NET Core binární `dotnet` pravděpodobně chybí.
-
-Chcete-li tento problém vyřešit, najděte .NET Core binární v systému:
-```bash
-sudo find / -name dotnet
-```
-
-To vrací cestu ke dotnet binární. 
-
-    /opt/rh/rh-dotnetcore11/root/usr/bin/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/shared/Microsoft.NETCore.App/1.1.2/dotnet
-
-Nyní přidáte tuto cestu do proměnné PATH. Sudo upravte secure_path obsahuje cestu k binární dotnet:
-```bash 
-sudo visudo
-### Append the path found in the preceding example to 'secure_path' variable
-```
-
-V tomto příkladu secure_path proměnná přečte jako:
-
-```
-secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
-```
-
-Pro aktuálního uživatele upravte.bash_profile/.profile k zahrnovat cestu k binární v proměnné PATH dotnet. 
-```bash
-vi ~/.bash_profile
-### Append the path found in the preceding example to 'PATH' variable
-```
-
-Ověřte, zda .NET Core je teď v CESTĚ:
-```bash
-which dotnet
-sudo which dotnet
-```
+### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>Chyba: .NET SDK 2.0 není v systému nalezena.
+AzCopy závisí na rozhraní .NET 2.0 SDK od verze AzCopy 7.0. Před touto verzí použít AzCopy .NET Core 1.1. Pokud se vyskytne chyba s oznámením, že rozhraní .NET 2.0 jádra není nainstalována v systému, budete muset nainstalovat nebo upgradovat pomocí [pokyny k instalaci .NET Core](https://www.microsoft.com/net/learn/get-started/linuxredhat).
 
 ### <a name="error-installing-azcopy"></a>Chyba při instalaci nástroje AzCopy
 Pokud narazíte na potíže s instalací AzCopy, můžete se pokusit spustit AzCopy pomocí skriptů bash ve extrahované `azcopy` složky.

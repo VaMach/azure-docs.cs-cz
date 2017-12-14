@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-anomalydetection-operator"></a>Pomocí operátoru ANOMALYDETECTION
 
@@ -38,12 +38,12 @@ Volitelně může zpracovat skupiny událostí odděleně podle je klíč zadan�
 
 ## <a name="syntax"></a>Syntaxe
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## <a name="example-usage"></a>Příklad použití
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## <a name="arguments"></a>Argumenty
@@ -56,7 +56,7 @@ Volitelně může zpracovat skupiny událostí odděleně podle je klíč zadan�
 
 - **partition_by_clause** 
 
-  `PARTITION BY \<partition key\>` Klauzule rozděluje učení a školení napříč samostatné oddíly. Jinými slovy, samostatného modelu se použije na hodnotu `\<partition key\>` a jenom události s hodnotou, kterou by se používat pro učení a školení v tomto modelu. Například:
+  `PARTITION BY <partition key>` Klauzule rozděluje učení a školení napříč samostatné oddíly. Jinými slovy, samostatného modelu se použije na hodnotu `<partition key>` a jenom události s hodnotou, kterou by se používat pro učení a školení v tomto modelu. Například:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -80,7 +80,7 @@ Vrátí záznam obsahující všechny tři skóre jako výstup. Vlastnosti souvi
 
 Chcete-li extrahovat jednotlivé hodnoty mimo záznam, použijte **GetRecordPropertyValue** funkce. Například:
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 Anomálií konkrétní typ je zjištěna, když jeden z těchto anomálií skóre překračuje prahovou hodnotu. Prahová hodnota může být jakékoli plovoucí bodu číslo \>= 0. Prahová hodnota je kompromis mezi velkých a malých písmen a spolehlivosti. Například by nižší prahové hodnotě zkontrolujte detekce více citlivé na změny a generovat více výstrah, zatímco vyšší prahová hodnota může zvýšit detekce méně citlivou a větší jistotu, ale některé anomálií maskování. Přesný prahová hodnota používat závisí na scénáři. Neexistuje žádné horní limit, ale doporučené rozsah je 3,25 5.
@@ -160,12 +160,12 @@ Jak jsme uvedli před, není přeskočit `FillInMissingValuesStep` krok teď. Vy
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## <a name="references"></a>Odkazy

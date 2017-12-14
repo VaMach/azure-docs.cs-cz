@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: f60b858d76dd021a158a62b32199be9b1c4ed822
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Pravidla ve službě Azure CDN modul funkce
 Tento článek obsahuje seznam podrobný popis dostupných funkcí pro Azure Content Delivery Network (CDN) [stroj pravidel](cdn-rules-engine.md).
@@ -48,13 +48,13 @@ Name (Název) | Účel
 [Parametry šířky pásma](#bandwidth-parameters) | Určuje, zda parametry omezení šířky pásma (například ec_rate a ec_prebuf) jsou aktivní.
 [Omezení šířky pásma](#bandwidth-throttling) | Omezení šířky pásma pro odpověď poskytované servery edge.
 [Nepoužívat mezipaměti](#bypass-cache) | Určuje, zda požadavek by měl nepoužívat ukládání do mezipaměti.
-[Zpracování hlavička Cache-Control](#cache-control-header-treatment) | Když je aktivní funkce externí Max-Age ovládací prvky server edge generování hlavičky Cache-Control.
+[Zpracování hlavička Cache-Control](#cache-control-header-treatment) | Ovládací prvky generování `Cache-Control` záhlaví podle hraniční server, když je aktivní funkce externí Max-Age.
 [Řetězec dotazu klíče mezipaměti](#cache-key-query-string) | Určuje, zda bude klíč mezipaměti zahrnout nebo vyloučit parametrů řetězce dotazu přidružený k požadavku.
 [Přepište klíče mezipaměti](#cache-key-rewrite) | Přepíše klíč mezipaměti přidružený k požadavku.
 [Dokončení výplně mezipaměti](#complete-cache-fill) | Určuje, co se stane, když požadavek výsledky v k neúspěšnému přístupu do mezipaměti částečné na hraniční server.
 [Komprimovat typy souborů](#compress-file-types) | Definuje formáty souborů, které komprimuje na serveru.
 [Výchozí interní Max-Age](#default-internal-max-age) | Určuje výchozí interval maximální stáří hraničního serveru na původní server mezipaměti opětovné ověření.
-[Vyprší platnost zacházení záhlaví](#expires-header-treatment) | Když je aktivní funkce externí Max-Age ovládací prvky server edge generování hlavičky Expires.
+[Vyprší platnost zacházení záhlaví](#expires-header-treatment) | Ovládací prvky generování `Expires` hlavičky pomocí serveru edge, když je aktivní funkce externí Max-Age.
 [Externí Max-Age](#external-max-age) | Určuje maximální stáří interval pro prohlížeč edge server mezipaměti opětovné ověření.
 [Vynutit interní Max-Age](#force-internal-max-age) | Určuje maximální stáří interval pro server edge na původní server mezipaměti opětovné ověření.
 [Podpora H.264 (HTTP progresivního stahování)](#h264-support-http-progressive-download) | Určuje typy H.264 formáty souborů, které lze použít k vysílání datového proudu obsahu.
@@ -162,7 +162,7 @@ Name (Název) | Účel
 -----|--------
 [Metody HTTP lze uložit do mezipaměti](#cacheable-http-methods) | Určuje sadu další metody HTTP, které mohou být uloženy v mezipaměti v síti.
 [Velikost textu lze uložit do mezipaměti žádosti](#cacheable-request-body-size) | Definuje prahovou hodnotu pro určení, zda POST odpověď do mezipaměti.
-[Uživatelské proměnné](#user-variable) | Použít primarity pomocí Lua skriptů.
+[Uživatelské proměnné](#user-variable) | Pouze pro interní použití.
 
  
 ## <a name="url-features"></a>Adresa URL funkce
@@ -181,7 +181,7 @@ Name (Název) | Účel
 
 ---
 ### <a name="age-response-header"></a>Hlavička odpovědi stáří
-**Účel**: Určuje, zda hlavičku odpovědi stáří budou zahrnuty v odpovědi odeslat žadatel.
+**Účel**: Určuje, zda hlavičku odpovědi stáří je zahrnut v odpovědi odeslat žadatel.
 Hodnota|výsledek
 --|--
 Povoleno | Hlavička odpovědi stáří je zahrnutý v odpovědi odeslat žadatel.
@@ -295,10 +295,10 @@ Nejjednodušší způsob, jak dosáhnout tento typ konfigurace se má umístit e
 
 Hodnota|výsledek
 --|--
-Přepsání|Zajišťuje, že dojde k následujícím akcím:<br/> -Přepíše hlavička Cache-Control, které jsou generované na zdrojový server. <br/>-Přidá `Cache-Control` záhlaví vyprodukované funkci externí Max-Age do odpovědi.
+Přepsání|Zajišťuje, že dojde k následujícím akcím:<br/> -Přepíše `Cache-Control` hlavičky generované na zdrojový server. <br/>-Přidá `Cache-Control` záhlaví vyprodukované funkci externí Max-Age do odpovědi.
 Předání|Zajišťuje, že `Cache-Control` záhlaví vyprodukované funkci externí Max-Age se nikdy přidá do odpovědi. <br/> Pokud je zdrojový server vytvoří `Cache-Control` záhlaví, projdou pro koncového uživatele. <br/> Pokud je zdrojový server nevytváří `Cache-Control` záhlaví, pak se tato možnost může způsobit, že hlavičku odpovědi k neobsahuje `Cache-Control` záhlaví.
-Přidejte Pokud chybí|Pokud `Cache-Control` hlavička nebyla přijata od zdrojového serveru a potom přidá tato možnost `Cache-Control` záhlaví vyprodukované funkci externí Max-Age. Tato možnost je užitečná pro zajištění, že jsou všechny prostředky budou přiřazeny `Cache-Control` záhlaví.
-Odebrat| Tato možnost zajistí, že `Cache-Control` hlavičky není součástí hlavičky odpovědi. Pokud `Cache-Control` hlavička již byla přiřazena a potom se odstraní z hlavičky odpovědi.
+Přidejte Pokud chybí|Pokud `Cache-Control` hlavička nebyla přijata od zdrojového serveru a potom přidá tato možnost `Cache-Control` záhlaví vyprodukované funkci externí Max-Age. Tato možnost je užitečná pro zajištění, že všechny prostředky jsou přiřazeny `Cache-Control` záhlaví.
+Odebrat| Tato možnost zajistí, že `Cache-Control` hlavičky není součástí hlavičky odpovědi. Pokud `Cache-Control` hlavička již byla přiřazena a pak se odebere z hlavičky odpovědi.
 
 **Výchozí chování:** přepsat.
 
@@ -424,7 +424,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 --->
 K neúspěšnému přístupu do mezipaměti částečné obvykle dochází, až uživatel zruší stahování nebo pro prostředky, které jsou vyžadovány výhradně pomocí protokolu HTTP rozsah požadavků. Tato funkce je nejvhodnější pro velké prostředky, kde uživatelé nebudou stahovat obvykle je od začátku do konce (například videa). V důsledku toho je tato funkce povolená ve výchozím nastavení na HTTP velké platformě. Na jiných platformách je zakázaná.
 
-Doporučujeme ponechat výchozí konfiguraci pro HTTP velké platformu, protože budou snižovat zatížení na serveru počátek zákazníka a zvýšit rychlost, jakou vašim zákazníkům stažení vašeho obsahu.
+Ponechat výchozí konfiguraci pro HTTP velké platformu, protože snižuje zatížení na serveru počátek zákazníka a zvyšuje rychlost, jakou vašim zákazníkům stažení vašeho obsahu.
 
 Z důvodu způsobem v mezipaměti, které jsou sledovány nastavení, tato funkce nemůže být přidružena následující podmínky shody: Edge Cname, literálu hlavičky požadavku, žádosti o záhlaví zástupný znak, adresa URL dotazu literálu a adresa URL dotazu.
 
@@ -527,15 +527,15 @@ Zakázáno|Hlavička odpovědi X-ES-Debug budou vyloučeny z odpovědi.
 
 Informace o klíči:
 
-- Tato akce uskuteční pouze pro odpovědi ze serveru původu nepřiřadili indikace maximální stáří v hlavičce Cache-Control nebo Expires.
+- Tato akce bude trvat jenom místní pro odpovědi ze serveru původu nepřiřadili indikace maximální stáří v `Cache-Control` nebo `Expires` záhlaví.
 - Tato akce neproběhne u prostředků, které se považují za lze uložit do mezipaměti.
-- Tato akce nemá vliv na prohlížeči revalidations mezipaměti serveru edge. Tyto typy revalidations jsou určena Cache-Control nebo Expires hlavičky odeslán do prohlížeče, který lze přizpůsobit pomocí funkce Max-Age externí.
+- Tato akce nemá vliv na prohlížeči revalidations mezipaměti serveru edge. Tyto typy revalidations vyplývají z `Cache-Control` nebo `Expires` hlavičky odeslán do prohlížeče, který lze přizpůsobit pomocí funkce Max-Age externí.
 - Výsledky této akce nemají pozorovatelné ovlivnění hlavičky odpovědi a vrátí obsah ze serverů edge pro obsah, ale může mít vliv na objem provozu opětovné ověření odeslaných ze serverů edge na původním serveru.
 - Nakonfigurujte tuto funkci pomocí:
     - Výběr kód stavu, pro který lze použít výchozí vnitřní, max-age.
     - Určení celočíselnou hodnotu a pak vyberete požadovanou časovou jednotku (například sekund, minut, hodin, atd.). Tato hodnota definuje výchozí interval interní maximální stáří.
 
-- Nastavení na hodnotu "Vypnuto" časovou jednotku intervalu výchozí vnitřní maximální stáří 7 dní pro požadavky, které nebyly přiřazeny indikace maximální stáří v jejich hlavička Cache-Control nebo Expires přiřadí.
+- Nastavení časovou jednotku na hodnotu "Vypnuto" přidělí intervalu výchozí vnitřní maximální stáří 7 dní pro požadavky, které nebyly přiřazeny indikace maximální stáří v jejich `Cache-Control` nebo `Expires` záhlaví.
 - Z důvodu způsobem v mezipaměti, které jsou sledovány nastavení nemůže být přidružena následující podmínky shody této funkce: 
     - Edge 
     - CNAME
@@ -571,16 +571,16 @@ Zakázáno| Obnoví výchozí chování. Výchozí chování je umožnit zdrojov
 
 ---
 ### <a name="expires-header-treatment"></a>Vyprší platnost zacházení záhlaví
-**Účel:** ovládací prvky generování hlavičky Expires server edge, když funkci externí Max-Age je aktivní.
+**Účel:** řídí generování `Expires` hlavičky pomocí serveru edge, když je aktivní funkce externí Max-Age.
 
 Nejjednodušší způsob, jak dosáhnout tento typ konfigurace se má umístit externí Max-Age a vyprší platnost zacházení záhlaví funkcí v jednom příkazu.
 
 Hodnota|výsledek
 --|--
-Přepsání|Zajišťuje, že takto bude probíhat:<br/>-Přepíše hlavičku Expires generovaný serverem původu.<br/>-Přidá hlavičku Expires vyprodukované funkci externí Max-Age do odpovědi.
-Předání|Zajišťuje, že hlavičku Expires vyprodukované funkci externí Max-Age se nikdy přidá do odpovědi. <br/> Pokud je zdrojový server vytvoří hlavičku Expires, se předá pro koncového uživatele. <br/>Pokud je zdrojový server nevytváří hlavičku Expires, tato možnost může způsobit hlavičku odpovědi k neobsahuje hlavičku Expires.
-Přidejte Pokud chybí| Pokud hlavička Expires nebyla přijata od zdrojového serveru, tato možnost přidá hlavičku Expires vyprodukované funkci externí Max-Age. Tato možnost je užitečná pro zajištění, že všechny prostředky se přiřadí hlavičku Expires.
-Odebrat| Zajišťuje, že není součástí hlavičky odpovědi hlavičku Expires. Pokud již byla přiřazena hlavičku Expires, pak jej se odstraní z hlavičky odpovědi.
+Přepsání|Zajišťuje, že takto bude probíhat:<br/>-Přepíše `Expires` hlavičky generované na zdrojový server.<br/>-Přidá `Expires` záhlaví vyprodukované funkci externí Max-Age do odpovědi.
+Předání|Zajišťuje, že `Expires` záhlaví vyprodukované funkci externí Max-Age se nikdy přidá do odpovědi. <br/> Pokud je zdrojový server vytvoří `Expires` záhlaví, se předá pro koncového uživatele. <br/>Pokud je zdrojový server nevytváří `Expires` záhlaví, pak se tato možnost může způsobit, že hlavičku odpovědi k neobsahuje `Expires` záhlaví.
+Přidejte Pokud chybí| Pokud `Expires` hlavička nebyla přijata od zdrojového serveru a potom přidá tato možnost `Expires` záhlaví vyprodukované funkci externí Max-Age. Tato možnost je užitečná pro zajištění, že všechny prostředky budou přiřazeny `Expires` záhlaví.
+Odebrat| Zajišťuje, že `Expires` hlavičky není součástí hlavičky odpovědi. Pokud `Expires` hlavička již byla přiřazena a pak se odebere z hlavičky odpovědi.
 
 **Výchozí chování:** přepsat
 
@@ -592,14 +592,14 @@ Odebrat| Zajišťuje, že není součástí hlavičky odpovědi hlavičku Expire
 ### <a name="external-max-age"></a>Externí Max-Age
 **Účel:** určuje maximální stáří interval pro prohlížeč edge server mezipaměti opětovné ověření. Jinými slovy množství času, který bude uplynout, než pro novou verzi prostředek z hraniční server můžete zkontrolovat v prohlížeči.
 
-Povolení této funkce vytvoří mezipaměť – ovládací prvek: maximální-stáří a vyprší hlavičky ze serverů edge a jejich odeslání do klienta protokolu HTTP. Ve výchozím nastavení bude tato záhlaví přepsat nebyla vytvořena v původním serveru. Ale způsob zpracování hlavička Cache-Control a funkce vyprší platnost zacházení záhlaví lze toto chování změnit.
+Povolení této funkce bude generovat `Cache-Control: max-age` a `Expires` hlavičky ze serverů edge a odešlete je klienta HTTP. Ve výchozím nastavení bude tato záhlaví přepsat nebyla vytvořena v původním serveru. Ale způsob zpracování hlavička Cache-Control a funkce vyprší platnost zacházení záhlaví lze toto chování změnit.
 
 Informace o klíči:
 
-- Tato akce nemá vliv na původní server mezipaměti revalidations hraničního serveru. Tyto typy revalidations vyplývají z mezipaměti – ovládací prvek nebo Expires hlavičky přijatých ze zdrojového serveru a lze přizpůsobit pomocí výchozí vnitřní Max-Age a funkcí Force interní Max-Age.
+- Tato akce nemá vliv na původní server mezipaměti revalidations hraničního serveru. Tyto typy revalidations vyplývají z `Cache-Control` a `Expires` hlavičky přijatých ze zdrojového serveru a lze přizpůsobit pomocí výchozí vnitřní Max-Age a funkcí Force interní Max-Age.
 - Nakonfigurujte tuto funkci zadáním celočíselnou hodnotu a vyberte požadovanou časovou jednotku (například sekund, minut, hodin, atd.).
-- Nastavení této funkce na zápornou hodnotu způsobí, že servery edge k odeslání mezipaměti – ovládací prvek: Ne-mezipaměti a Expires čas, který je nastavený v minulosti s každou odezva do prohlížeče. I když klientem HTTP nebude odpověď do mezipaměti, toto nastavení nebude mít vliv na schopnost se servery edge odpověď ze zdrojového serveru do mezipaměti.
-- Nastavení časovou jednotku na hodnotu "Vypnuto" bude tuto funkci zakázat. Hlavičky Cache – ovládací prvek nebo Expires uložené v mezipaměti k odpovědi na zdrojový server předá do prohlížeče.
+- Nastavení této funkce na zápornou hodnotu způsobí, že servery edge k odeslání `Cache-Control: no-cache` a `Expires` čas, který je nastavený v minulosti s každou odezva do prohlížeče. I když klientem HTTP nebude odpověď do mezipaměti, toto nastavení nebude mít vliv na schopnost se servery edge odpověď ze zdrojového serveru do mezipaměti.
+- Nastavení časovou jednotku na hodnotu "Vypnuto" bude tuto funkci zakázat. `Cache-Control` a `Expires` záhlaví uložené v mezipaměti k odpovědi na zdrojový server se předají do prohlížeče.
 
 **Výchozí chování:** vypnuto
 
@@ -674,7 +674,7 @@ Informace o klíči:
 ### <a name="honor-no-cache-request"></a>Dodržet No Cache požadavku
 **Účel:** Určuje, zda klientem HTTP je ne mezipaměti budou předány požadavky na zdrojový server.
 
-Požadavek ne mezipaměti nastane, když klient HTTP odešle mezipaměť – ovládací prvek: Ne-mezipaměti nebo Pragma:no-mezipaměti hlavičky v požadavku HTTP.
+Žádost o ne mezipaměti nastane, když odešle klient HTTP `Cache-Control: no-cache` nebo `Pragma: no-cache` hlavičky v požadavku HTTP.
 
 Hodnota|výsledek
 --|--
@@ -747,7 +747,7 @@ Pokud je server edge nelze navázat připojení je zdrojový server při pokusu 
 
 Všimněte si, že tento časový interval spustí, když vyprší platnost assetu, max-age, není, když nastane selhání opětovné ověření. Množství času určeného kombinace maximální stáří plus maximální zastaralé je proto maximální doba, během které prostředek může zpracovat bez úspěšné opětovné ověření. Například pokud prostředek se ukládá do mezipaměti v 9:00 s maximální stáří 30 minut a maximální zastaralé 15 minut, pak se nezdařilo opětovné ověření pokus o 9:44 by mělo za následek koncový uživatel přijetí zastaralé asset uložené v mezipaměti, při selhání opětovné ověření pokus o 9:46 by způsobilo en d uživatel, který obdrží 504 limitu brány.
 
-Žádnou hodnotu pro tuto funkci je nahrazena nakonfigurován `Cache-Control:must-revalidate` nebo `Cache-Control:proxy-revalidate` hlavičky přijatých ze zdrojového serveru. Pokud některý z těchto záhlaví je přijme ze zdrojového serveru, pokud prostředek je původně uložené v mezipaměti, edge server neprovede zastaralé v mezipaměti asset. V takovém případě pokud hraničního serveru se nepodařilo znovu ověřit s počátek po vypršení intervalu maximální stáří assetu, vrátí edge server chybu 504 limitu brány.
+Žádnou hodnotu pro tuto funkci je nahrazena nakonfigurován `Cache-Control: must-revalidate` nebo `Cache-Control: proxy-revalidate` hlavičky přijatých ze zdrojového serveru. Pokud některý z těchto záhlaví je přijme ze zdrojového serveru, pokud prostředek je původně uložené v mezipaměti, edge server neprovede zastaralé v mezipaměti asset. V takovém případě pokud hraničního serveru se nepodařilo znovu ověřit s počátek po vypršení intervalu maximální stáří assetu, vrátí edge server chybu 504 limitu brány.
 
 Informace o klíči:
 
@@ -823,7 +823,7 @@ Odstranění|Odstraní určenou hlavičku požadavku.|**Žádosti o hodnotu hlav
 Informace o klíči:
 
 - Zkontrolujte, zda je hodnota zadaná v názvu možnosti přesnou shodu pro hlavičku požadované žádosti.
-- Případ nebere v úvahu za účelem identifikace hlavičku. Například některé z následujících variace název hlavičky Cache-Control slouží k identifikaci:
+- Případ nebere v úvahu za účelem identifikace hlavičku. Například některé z následujících variace `Cache-Control` název hlavičky slouží k identifikaci:
     - ovládací prvek mezipaměti
     - CACHE-CONTROL
     - cachE-Control
@@ -861,7 +861,7 @@ Odstranění|Odstraní zadané hlavičky odpovědi.|**Hodnota hlavičky odpověd
 Informace o klíči:
 
 - Zkontrolujte, zda je hodnota zadaná v názvu možnosti přesnou shodu pro hlavičku požadované odpovědi. 
-- Případ nebere v úvahu za účelem identifikace hlavičku. Například některé z následujících variace název hlavičky Cache-Control slouží k identifikaci:
+- Případ nebere v úvahu za účelem identifikace hlavičku. Například některé z následujících variace `Cache-Control` název hlavičky slouží k identifikaci:
     - ovládací prvek mezipaměti
     - CACHE-CONTROL
     - cachE-Control
@@ -1241,8 +1241,11 @@ Tato funkce zahrnuje odpovídající kritériím, které je nutné splnit, než 
 
 ---
 ### <a name="user-variable"></a>Uživatelské proměnné
-**Účel:** použít primarity s Lua skripty. V uživatelské proměnné funkce, můžete použít funkce hash jako zabezpečit pomocí skriptu Lua adresy URL pro stahování.
+**Účel:** pouze pro interní použití.
 
+[Zpět na začátek](#azure-cdn-rules-engine-features)
+
+</br>
 
 ## <a name="next-steps"></a>Další kroky
 * [Referenční dokumentace pravidel modulu](cdn-rules-engine-reference.md)

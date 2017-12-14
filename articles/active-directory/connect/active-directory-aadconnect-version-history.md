@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 12/13/2017
 ms.author: billmath
-ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historie verzí
 Tým služby Azure Active Directory (Azure AD) pravidelně aktualizuje Azure AD Connect s novými funkcemi a funkce. Ne všechny dodatky platí pro všechny cílové skupiny.
@@ -42,12 +42,16 @@ Stav: 12. prosince 2017
 >Toto je zabezpečení související oprava hotfix pro Azure AD Connect
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
-Při první instalaci Azure AD Connect, nový účet může být vytvořen používaný ke spouštění služby Azure AD Connect. Než tato verze s nastavením, které povolené uživatele s heslem práva adminsitrator vědět, možnost změny hesla na hodnotu k jejich vytvoření účtu.  Toto nastavení povoleno můžete se přihlásit pomocí tohoto účtu, a to by představovalo zvýšení úrovně oprávnění porušení zabezpečení. Tato verze tightens nastavení pro účet, který je vytvořen a odebere toto ohrožení zabezpečení.
+Zlepšení přidala do Azure AD Connect verze 1.1.654.0 (i po) ujistěte se, že se změní popsané v části Doporučená oprávnění [uzamčení přístup k účtu služby AD DS](#lock) budou automaticky použita při Azure AD Připojení vytvoří účet služby AD DS. 
+
+- Při nastavování Azure AD Connect, instalaci správce můžete zadat existující účet služby AD DS, nebo nechat automaticky vytvořit účet Azure AD Connect. Změny oprávnění budou automaticky použita pro účet služby AD DS, který se vytvoří Azure AD Connect během instalace. Nepoužívají se existující účet služby AD DS od instalaci správce.
+- Pro zákazníky, kteří upgradovali ze starší verze služby Azure AD Connect na 1.1.654.0 (nebo po) oprávnění změny se nepoužije zpětně do existující účty služby AD DS vytvořené před upgradem. Se použijí jenom k nové účty služby AD DS vytvořené po upgradu. K tomu dochází, když přidáváte nové doménové struktury AD synchronizovány se službou Azure AD.
 
 >[!NOTE]
->Tato verze pouze odebere ohrožení zabezpečení pro nové instalace služby Azure AD Connect, kde se má vytvořit účet služby procesem instalace. Exisating instalace, nebo v případech, kde můžete vytvořit účet sami můžete sould ujistěte, že tuto chybu zabezpečení neexistuje.
+>Tato verze pouze odebere ohrožení zabezpečení pro nové instalace služby Azure AD Connect, kde se má vytvořit účet služby procesem instalace. Pro existující instalace, nebo v případech, kde můžete vytvořit účet sami můžete sould zkontrolujte, že tuto chybu zabezpečení neexistuje.
 
-Chcete-li posílit nastavení pro účet služby můžete spustit [tento skript prostředí PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Ho bude posílit nastavení na účet služby k odstranění chyby na následující hodnoty:
+#### <a name="lock"></a>Zablokovat přístup k účtu služby AD DS
+Uzamčení přístup k účtu služby AD DS implementací následující oprávnění změny v místní AD:  
 
 *   Zakázat dědičnost na zadaný objekt
 *   Odeberte všechny položky řízení přístupu pro daný objekt, s výjimkou položky řízení přístupu konkrétním do sebe sama. Chceme zachovat výchozí oprávnění při přechodu do sebe sama.
@@ -64,10 +68,13 @@ Povolit    | Enterprise Domain Controllers | Číst všechny vlastnosti  | Tento
 Povolit    | Enterprise Domain Controllers | Oprávnění ke čtení     | Tento objekt  |
 Povolit    | Ověření uživatelé           | Zobrazovat obsah        | Tento objekt  |
 Povolit    | Ověření uživatelé           | Číst všechny vlastnosti  | Tento objekt  |
+Povolit    | Ověření uživatelé           | Oprávnění ke čtení     | Tento objekt  |
+
+Můžete spustit, abyste posílili nastavení pro účet služby AD DS [tento skript prostředí PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Skript PowerShell bude přiřadit oprávnění zmíněné k účtu služby AD DS.
 
 #### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Skript prostředí PowerShell, abyste posílili existující účet služby
 
-Chcete-li toto nastavení použít pro existující účet služby, pomocí tohoto skriptu prostředí PowerShell (ether poskytnutá vaší organizací nebo vytvořený předchozí instalace služby Azure AD Connect, stáhněte si prosím skript z výše zadaný odkaz.
+Chcete-li toto nastavení použít pro existující účet služby AD DS pomocí skriptu prostředí PowerShell, (ether poskytnutá vaší organizací nebo vytvořený předchozí instalace služby Azure AD Connect, stáhněte si prosím skript z výše zadaný odkaz.
 
 ##### <a name="usage"></a>Použití:
 
@@ -92,13 +99,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 Pokud chcete zobrazit, pokud je toto ohrožení zabezpečení byl použit ohrozit vaši službu Azure AD Connect konfigurace by měl ověřit poslední heslo resetovat datum účtu služby.  Pokud časové razítko v neočekávané, další šetření, prostřednictvím protokolu událostí, mělo být provedeno pro toto heslo resetovat událostí,.
 
-                                                                                                               
-
-## <a name="116490"></a>1.1.649.0
-Stav: 27 říjen 2017
-
->[!NOTE]
->Toto sestavení není k dispozici zákazníkům prostřednictvím funkce Azure AD Connect automatického upgradu
+Další informace najdete v tématu [4056318 informační zpravodaj zabezpečení společnosti Microsoft](https://technet.microsoft.com/library/security/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Stav: 27 říjen 2017

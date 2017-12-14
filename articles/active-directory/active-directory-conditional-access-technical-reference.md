@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory podmíněného přístupu technické informace | Microsoft Docs"
-description: "Další informace o použití podmíněného řízení přístupu v Azure Active Directory. Zadejte podmínky pro ověřování uživatelů a řízení přístupu k vaší aplikaci. Při splnění zadané podmínky, ověření uživatele a udělit přístup k vaší aplikaci."
+title: "Přehled nastavení podmíněného přístupu služby Azure Active Directory | Microsoft Docs"
+description: "Získáte přehled o podporovaná nastavení v zásadách podmíněného přístupu Azure Active Directory."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 871c1d222d78eccdb7e25bf22276b5f63f8f3b8f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d9680b22864e95c5953ddac50f2179b147b1e21
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory podmíněného přístupu technické reference
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Odkaz nastavení podmíněného přístupu Azure Active Directory
 
-Můžete použít [podmíněného přístupu Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) a systém doladit jak oprávněným uživatelům můžete přístup k prostředkům.   
+Můžete použít [podmíněného přístupu Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) k řízení způsobu oprávněným uživatelům můžete přístup k prostředkům.   
 
-Tento článek obsahuje informace o podporu pro následující možnosti konfigurace pro zásady podmíněného přístupu: 
+Tento článek obsahuje informace o podporu pro následující možnosti konfigurace v zásadách podmíněného přístupu: 
 
 - Přiřazení cloudové aplikace
 
@@ -35,6 +35,7 @@ Tento článek obsahuje informace o podporu pro následující možnosti konfigu
 - Požadavek schválené klientské aplikace
 
 
+Pokud to není informace, které hledáte, uveďte poznámky na konci tohoto článku.
 
 ## <a name="cloud-apps-assignments"></a>Přiřazení cloudové aplikace
 

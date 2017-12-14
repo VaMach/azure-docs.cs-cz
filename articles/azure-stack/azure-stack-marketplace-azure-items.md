@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/13/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 1a6dbe2f4a66a44222e0b34b34a283c101b055de
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 8a4e92dbcf65d907e7b95b5f52597fc625e77897
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure k dispozici pro Azure zásobníku položky Marketplace.
 
@@ -29,6 +29,7 @@ Zásobník Microsoft Azure podporuje následující položky Azure Marketplace:
 |  | Název položky | Popis | Vydavatel |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Docker rozšíření pro virtuální počítače s Linuxem. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | Rozšíření IaaS SQL | <b>Stáhněte si toto rozšíření nasazení žádné systému SQL Server, na položky Marketplace systému Windows.<b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.2.1 v systému Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft Machine Learning serveru 9.2.1 v systému Windows Server 2016. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 na Ubuntu 16.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft Machine Learning Server 9.2.1 na Ubuntu 16.04. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning serveru 9.2.1 v systému CentOS Linux 7.2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft Machine Learning serveru 9.2.1 v systému CentOS Linux 7.2. | Microsoft |
@@ -156,8 +157,8 @@ Zásobník Microsoft Azure podporuje následující položky Azure Marketplace:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine prodeje CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compact marketingu, prodej a zákazníků aplikace služby. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS a webový portál programu, který vytvoří dynamické weby.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Otevřete systému CRM zdroj: mobilní, sociální a Gamified. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Kontrolní bod vSEC Správa zabezpečení](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Kontrolní bod vSEC nabízí pokročilé, víceúrovňová threat prevence k ochraně před malwarem a sofistikované hrozbami zákazníka prostředky v Azure. | Check Point |
-| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatizovat Chef](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Vytvoření, nasazení a správě s Chef automatizovat, průběžné platformu automatizace. | Software Chef, Inc |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Kontrolní bod vSEC Správa zabezpečení](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Kontrolní bod vSEC nabízí pokročilé, víceúrovňová threat prevence k ochraně před malwarem a sofistikované hrozbami zákazníka prostředky v Azure. <b>Stáhněte si obě položky marketplace. Zkontrolujte vSEC bodu.</b> | Check Point |
+| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatizovat Chef](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Vytvoření, nasazení a správě s Chef automatizovat, průběžné platformu automatizace. <b>Stáhněte si oba Chef položky marketplace.</b> | Software Chef, Inc |
 | ![](media/azure-stack-marketplace-azure-items/coreos.png) | [Kontejner Linux podle CoreOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Kontejner Linux je distribuce Linux moderní a minimální poskytuje snadný způsob, jak spouštět kontejnery, Správa clusterů a bezproblémově aktualizovat vaše servery – výpočetní všechny součásti, které umožňují skladu škálování. | CoreOS |
 | ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server je nejoblíbenější Linux na světě pro cloudové prostředí. | Canonical |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Klára"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux je jednou z nejčastěji používané distribucích systému Linux. | credativ |
@@ -171,7 +172,9 @@ Zásobník Microsoft Azure podporuje následující položky Azure Marketplace:
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Hloubkové zabezpečení agenta pro Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Trend Micro hluboké Security rozšíření pro Linux. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agent hloubkové zabezpečení pro Windows](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Trend Micro hluboké Security rozšíření pro Windows. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Nástroj ZeroDown softwaru](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | Nástroj v7.1 ZeroDown softwaru - migrovat + HA. | ZeroDown softwaru |
-
+| ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise umožňuje automatizovat celý životní cyklus infrastruktury Azure zásobníku. <b>Stáhněte si oba položky Puppet Marketplace.</b> | Puppet |
+| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa hybridní AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Služba S3 kompatibilní úložiště, která zahrnuje veřejné a místní prostředky kapacity. | NooBaa |
+| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Izolovaný prostor Hortonworks Data Platform (HDP)](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Používá technologii HDP 2,5 100 % otevřete zdroj platformu pro Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 
 ### <a name="next-steps"></a>Další kroky
 [Stažení položku Marketplace.](azure-stack-download-azure-marketplace-item.md)

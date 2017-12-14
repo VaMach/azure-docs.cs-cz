@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 46b0269b3f5b98e1bcecdbeabd5544e97bb5c06c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Řešení potíží a opravám problémů zařízení
 
@@ -46,11 +46,7 @@ Chcete-li prozkoumat další potíže, zvolte **prozkoumat alarmů** možnost ve
 
 ![Prozkoumejte alarmů na řídicím panelu](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-Seznam nastavení upozornění se zobrazí na **údržby** stránky:
-
-![Seznam nastavení upozornění na stránce údržby](media/iot-suite-remote-monitoring-maintain/maintenancealarms.png)
-
-Pokud chcete zobrazit podrobnosti na upozornění, vyberte výstrahy v **výstrahy** seznamu. Zobrazení podrobností uvádí:
+Ukazuje, zobrazení podrobností o varování:
 
 * Pokud bylo spuštěno na upozornění
 * Informace o zařízení spojených s varováním stavu
@@ -70,7 +66,7 @@ V seznamu se zobrazí **prototypu** zodpovědná za ohlásí teplotní alarm za�
 
 Oprava problému s **prototypu** zařízení, je třeba volat **DecreaseTemperature** metoda v zařízení.
 
-Tak, aby fungoval na zařízení, vyberte ho v seznamu zařízení a potom zvolte **plán**. **Modul** model zařízení určuje tři metody musí podporovat zařízení:
+Tak, aby fungoval na zařízení, vyberte ho v seznamu zařízení a potom zvolte **plán**. **Prototypu** model zařízení určuje čtyři metody musí podporovat zařízení:
 
 ![Zobrazení metod, které podporuje zařízení](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -78,11 +74,11 @@ Zvolte **DecreaseTemperature** a nastavte název úlohy na **DecreaseTemperature
 
 ![Vytvoření úlohy snížení teplota](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-Chcete-li sledovat stav úlohy na **údržby** vyberte **stav systému**. Použití **stav systému** zobrazení sledovat všechny úlohy a metoda volá v řešení:
+Chcete-li sledovat stav úlohy na **údržby** vyberte **úlohy**. Použití **úlohy** zobrazení sledovat všechny úlohy a metoda volá v řešení:
 
 ![Monitorování úlohy snížení teplota](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-Chcete-li zobrazit podrobnosti o konkrétní úlohy nebo volání metody, vyberte v seznamu **stav systému** zobrazení:
+Chcete-li zobrazit podrobnosti o konkrétní úlohy nebo volání metody, vyberte v seznamu **úlohy** zobrazení:
 
 ![Zobrazení podrobností o úloze](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 

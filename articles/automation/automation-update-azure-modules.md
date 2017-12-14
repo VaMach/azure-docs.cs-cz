@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 6bd259f3da1005228b8137415c30660221507909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: ce249694035c48d3f626006e63724f47fee3d877
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Postup aktualizace modulů prostředí Azure PowerShell ve službě Azure Automation
 
@@ -28,11 +28,11 @@ Protože moduly se pravidelně aktualizují v product group, změny můžou nast
 
 ## <a name="updating-azure-modules"></a>Aktualizace Azure moduly
 
-1. V modulech je okno účtu Automation existuje možnost **moduly Azure aktualizace**.  Je vždy povolena.<br><br> ![Aktualizovat možnost moduly Azure v okně moduly](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
+1. Na stránce modulů účtu Automation je možnost **moduly Azure aktualizace**. Je vždy povolena.<br><br> ![Aktualizovat moduly Azure možnost stránce modulů](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
 2. Klikněte na tlačítko **moduly Azure aktualizace** a zobrazí se oznámení o potvrzení, která požaduje, pokud chcete pokračovat.<br><br> ![Moduly Azure oznámení o aktualizaci](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
-3. Klikněte na tlačítko **Ano** a zahájí proces aktualizace modulu.  Proces aktualizace trvá asi 15-20 minut aktualizovat následující moduly:
+3. Klikněte na tlačítko **Ano** a zahájí se proces aktualizace modulu. Proces aktualizace trvá asi 15-20 minut aktualizovat následující moduly:
 
   * Azure
   * Azure.Storage
@@ -43,12 +43,12 @@ Protože moduly se pravidelně aktualizují v product group, změny můžou nast
   * AzureRm.Sql
   * AzureRm.Storage
 
-    Pokud moduly jsou již aktuální, proces dokončí za několik sekund.  Po dokončení procesu aktualizace budete informováni.<br><br> ![Aktualizovat stav aktualizace moduly Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    Pokud moduly jsou již aktuální, proces dokončení za několik sekund. Po dokončení procesu aktualizace, budete upozorněni.<br><br> ![Aktualizovat stav aktualizace moduly Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
-> Služby Azure Automation bude používat nejnovější modulů ve vašem účtu Automation, při spuštění novou naplánovanou úlohu.    
+> Při spuštění novou naplánovanou úlohu automatizace Azure používá nejnovější modulů ve vašem účtu Automation.    
 
-Pokud používáte rutiny z těchto modulů prostředí Azure PowerShell ve vašich sadách runbook ke správě prostředků Azure, je třeba provést proces aktualizace každý měsíc, nebo proto, aby zajistil, že máte nejnovější moduly.
+Pokud používáte rutiny z těchto modulů prostředí Azure PowerShell ve vašich sadách runbook ke správě prostředků Azure, pak budete chtít provést tento proces aktualizace každý měsíc, nebo proto, aby zajistil, že máte nejnovější moduly.
 
 ## <a name="next-steps"></a>Další kroky
 

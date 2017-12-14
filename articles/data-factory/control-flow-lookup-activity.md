@@ -11,31 +11,97 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/12/2017
 ms.author: spelluru
-ms.openlocfilehash: d498705ef7f714b4f15b8d2722053bf3081b5045
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e0a1613f2f820f0c108e97c2c15585a581041181
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Aktivita vyhledávání v Azure Data Factory
 Aktivita vyhledávání slouží ke čtení nebo vyhledání záznamu / názvu tabulky / hodnoty z jakéhokoli externího zdroje. Na tento výstup mohou dále odkazovat následující aktivity. 
-
-Následující zdroje dat jsou aktuálně podporovány pro vyhledávání:
-- Soubor JSON v Azure Blob
-- Místní soubor JSON
-- Azure SQL Database (JSON dat převedených z dotazu)
-- Azure Table Storage (JSON dat převedených z dotazu)
 
 Vyhledávání aktivity je užitečné, pokud chcete dynamicky načíst seznam souborů nebo záznamy nebo tabulky z konfiguračního souboru nebo zdroj dat. Výstup z aktivity další lze ostatní aktivity k provedení určité zpracování na jen ty položky.
 
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [Data Factory V1 dokumentaci](v1/data-factory-introduction.md).
 
+## <a name="supported-capabilities"></a>Podporované možnosti
+
+Následující zdroje dat jsou aktuálně podporovány pro vyhledávání:
+- Soubor JSON v Azure Blob
+- Soubor JSON v systému souborů
+- Azure SQL Database (JSON dat převedených z dotazu)
+- Azure SQL Data Warehouse (JSON dat převedených z dotazu)
+- SQL Server (JSON dat převedených z dotazu)
+- Azure Table Storage (JSON dat převedených z dotazu)
+
+## <a name="syntax"></a>Syntaxe
+
+```json
+{
+    "name": "LookupActivity",
+    "type": "Lookup",
+    "typeProperties": {
+        "source": {
+            "type": "<source type>"
+            <additional source specific properties (optional)>
+        },
+        "dataset": { 
+            "referenceName": "<source dataset name>",
+            "type": "DatasetReference"
+        },
+        "firstRowOnly": false
+    }
+}
+```
+
+## <a name="type-properties"></a>Vlastnosti typu
+Name (Název) | Popis | Typ | Požaduje se
+---- | ----------- | ---- | --------
+Datové sady | Atribut datové sady je poskytnout odkaz na datovou sadu pro vyhledávání. V současné době jsou typy podporované datové sady:<ul><li>`AzureBlobDataset`pro [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties) jako zdroj</li><li>`FileShareDataset`pro [systém souborů](connector-file-system.md#dataset-properties) jako zdroj</li><li>`AzureSqlTableDataset`pro [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) nebo [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) jako zdroj</li><li>`SqlServerTable`pro [systému SQL Server](connector-sql-server.md#dataset-properties) jako zdroj</li><li>`AzureTableDataset`pro [Azure Table Storage](connector-azure-table-storage.md#dataset-properties) jako zdroj</li> | Dvojice klíč/hodnota | Ano
+Zdroj | Vlastnosti specifické pro datové sady zdroje, stejně jako zdroj kopie aktivity. Další podrobnosti o z části "Zkopírovat vlastnosti aktivity" v každé odpovídající tématu konektor. | Dvojice klíč/hodnota | Ano
+firstRowOnly | Označuje, jestli se mají vracet pouze první řádek nebo všechny řádky. | Logická hodnota | Ne. Výchozí hodnota je `ture`.
+
+## <a name="use-lookup-activity-result-in-subsequent-activity"></a>Výsledek vyhledávání aktivity použít následné aktivity
+
+Výsledek vyhledávání je vrácený v `output` části v rámci aktivity výsledek spuštění.
+
+**Když `firstRowOnly` je nastaven na `true` (výchozí)**, formát výstupu se následujícím způsobem. Výsledek vyhledávání je pod pevná `firstRow` klíč. Pokud chcete použít výsledek následné aktivity, použijte vzor `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+
+```json
+{
+    "firstRow":
+    {
+        "Id": "1",
+        "TableName" : "Table1"
+    }
+}
+```
+
+**Když `firstRowOnly` je nastaven na `false`** , foramt výstup je následující. A `count` pole určuje, kolik záznamů se vrátí, a podrobné hodnoty jsou v části pevná `value` pole. V takovém případě je vyhledávání aktivity obvykle následuje [Foreach aktivity](control-flow-for-each-activity.md), můžete předat `value` pole pro aktivitu ForEach `items` pole pomocí vzor `@activity('MyLookupActivity').output.value`.
+
+```json
+{
+    "count": "2",
+    "value": [
+        {
+            "Id": "1",
+            "TableName" : "Table1"
+        },
+        {
+            "Id": "2",
+            "TableName" : "Table2"
+        }
+    ]
+} 
+```
 
 ## <a name="example"></a>Příklad
 V tomto příkladu aktivitě kopírování kopíruje data z tabulky SQL v databázi Azure SQL do Azure Blob Storage. Název tabulky SQL je uložené v souboru JSON ve službě Blob Storage. Aktivita vyhledávání vyhledá název tabulky za běhu. Tento přístup umožňuje JSON má být změněn dynamicky bez opětovného nasazení kanálů nebo datové sady. 
+
+Tento příklad demostrates vyhledat pouze první řádek. Vyhledávání všechny řádky a řetězec s aktivitou ForEach, najdete v části [kurz – hromadné kopírování dat](tutorial-bulk-copy.md) ukázka.
 
 ### <a name="pipeline"></a>Kanál
 Tento kanál obsahuje dvě aktivity: **vyhledat** a **kopie**. 
@@ -68,7 +134,7 @@ Tento kanál obsahuje dvě aktivity: **vyhledat** a **kopie**.
                 "typeProperties": {
                     "source": { 
                         "type": "SqlSource", 
-                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.tableName}" 
+                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.firstRow.tableName}" 
                     },
                     "sink": { 
                         "type": "BlobSink" 
@@ -131,7 +197,7 @@ Datové sady zdroje používá výstup aktivity vyhledávání, což je název t
     "properties": {
         "type": "AzureSqlTable",
         "typeProperties":{
-            "tableName": "@{activity('LookupActivity').output.tableName}"
+            "tableName": "@{activity('LookupActivity').output.firstRow.tableName}"
         },
         "linkedServiceName": {
             "referenceName": "AzureSqlLinkedService",
@@ -215,6 +281,7 @@ Tato databáze Azure SQL obsahuje data, která mají být zkopírovány do úlo�
   "tableName": "Table2",
 }
 ```
+
 #### <a name="array-of-objects"></a>Pole objektů
 
 ```json
@@ -229,15 +296,6 @@ Tato databáze Azure SQL obsahuje data, která mají být zkopírovány do úlo�
     }
 ]
 ```
-
-
-
-## <a name="type-properties"></a>Vlastnosti typu
-Name (Název) | Popis | Typ | Požaduje se
----- | ----------- | ---- | --------
-Datové sady | Atribut datové sady je poskytnout odkaz na datovou sadu pro vyhledávání. V současné době jsou typy podporované datové sady:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | Dvojice klíč/hodnota | Ano
-Zdroj | Vlastnosti specifické pro datové sady zdroje, stejně jako zdroj kopie aktivity | Dvojice klíč/hodnota | Ne
-firstRowOnly | Vrátí první řádek nebo všechny řádky. | Logická hodnota | Ne
 
 ## <a name="next-steps"></a>Další kroky
 Najdete v části Další aktivity toku řízení podporovaných službou Data Factory: 

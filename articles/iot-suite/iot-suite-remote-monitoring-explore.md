@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Prozkoumejte možnosti předkonfigurovaného řešení vzdáleného monitorování
 
@@ -101,11 +101,11 @@ Jakožto Obsluha zobrazí v řídicím panelu, je alarm související s tlak chl
 
 1. Zavřít **zařízení podrobností**.
 
-1. Přejděte na **údržby** klikněte na tlačítko **...**  v **prozkoumat alarmů** sloupce vedle výstrahy v mřížce výstrahy.
+1. Přejděte na **údržby** vyberte **údržby** v navigační nabídce.
 
 Na **údržby** stránky, můžete zobrazit podrobnosti o pravidlo, které spustí alarm přetížení chladič.
 
-1. Počet pokusů, které se aktivuje na upozornění, potvrzování a otevřené a uzavřené výstrahy, můžete zjistit:
+1. Počet pokusů, které se aktivuje na upozornění, potvrzování a otevřené a uzavřené výstrahy jsou uvedeny v seznamu oznámení.
 
     ![Stránka údržby zobrazuje seznam výstrahy, které mají aktivaci](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ Určili jste nyní problém, který aktivuje na upozornění a přidružené za�
 
     ![Vyberte zařízení a naplánovat akci.](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. Chcete-li zobrazit stav úlohy, vraťte se k **údržby** a zobrazte seznam úloh v **stav systému** zobrazení. Uvidíte, že úloha byla spuštěna k uvolnění tlak na ventil chladič:
+1. Chcete-li zobrazit stav úlohy, vraťte se k **údržby** a zobrazte seznam úloh v **úlohy** zobrazení. Uvidíte, že úloha byla spuštěna k uvolnění tlak na ventil chladič:
 
-    ![Stav úloh v stav systému](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![Stav úlohy v zobrazení úloh](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Nakonec ověřte, zda hodnoty telemetrie z chladič zpět na normální.
 
@@ -159,7 +159,7 @@ K provádění úloh správy nutné zařízení, použijte **zařízení** strá
     ![Naplánovat aktualizaci firmwaru na zařízení](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > V Simulovaná zařízení můžete použít libovolná adresa URL se vám líbí jako **Firemware URI** hodnotu. Simulovaná zařízení není přístup k adrese URL.
+    > V Simulovaná zařízení můžete použít libovolná adresa URL se vám líbí jako **Firmware URI** hodnotu. Simulovaná zařízení není přístup k adrese URL.
 
 1. Všimněte si, kolik zařízení ovlivňuje úlohy a zvolte **použít**:
 
@@ -167,13 +167,13 @@ K provádění úloh správy nutné zařízení, použijte **zařízení** strá
 
 Můžete použít **údržby** stránky sledovat úlohu při jeho spuštění.
 
-1. Chcete-li zobrazit seznam úloh, přejděte na **údržby** a klikněte na tlačítko **stav systému**.
+1. Chcete-li zobrazit seznam úloh, přejděte na **údržby** a klikněte na tlačítko **úlohy**.
 
 1. Vyhledejte události související s úkol, který jste vytvořili. Ověřte, že byl proces aktualizace firmwaru správně spuštěné.
 
-Můžete vytvořit filtr ověření verze aktualizace firmwaru správně.
+Můžete vytvořit filtr ověřit verzi firmwaru správně aktualizován.
 
-1. Chcete-li vytvořit filtr, přejděte na **zařízení** a vyberte **spravovat**:
+1. Chcete-li vytvořit filtr, přejděte na **zařízení** a vyberte **Správa filtrů**:
 
     ![Správa zařízení filtrů](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ Názvy značek pro použití s zařízení můžete vytvořit.
 
     ![Vyberte zařízení, která prototypu a vůz](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Zvolte **značka** a poté vytvořit novou značku řetězec názvem **FieldService** s hodnotou **ConnectedVehicle**. Zvolte název pro úlohu. Pak klikněte na tlačítko **použít**:
+1. Zvolte **značka** a poté vytvořit novou značku text názvem **FieldService** s hodnotou **ConnectedVehicle**. Zvolte název pro úlohu. Pak klikněte na tlačítko **použít**:
 
     ![Přidání značky na prototypu a vůz zařízení](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +210,7 @@ Názvy značek pro použití s zařízení můžete vytvořit.
 
     ![Vyberte zařízení, která chladič, modul a hodnocení](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Zvolte **značka** a poté vytvořit novou značku názvem **FieldService** s hodnotou **SmartBuilding**. Zvolte název pro úlohu. Pak klikněte na tlačítko **Uložit**:
+1. Zvolte **značka** a poté vytvořit novou značku text názvem **FieldService** s hodnotou **SmartBuilding**. Zvolte název pro úlohu. Pak klikněte na tlačítko **Uložit**:
 
     ![Přidání značky do zařízení chladič, modul a hodnocení](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

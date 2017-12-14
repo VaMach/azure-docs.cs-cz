@@ -7,20 +7,20 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 7550748c496f4e5c671ab49f9b139d2d4926d497
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testování řešení pomocí simulovaných zařízení
 
-V tomto kurzu se dozvíte, jak používat přizpůsobit mikroslužbu simulátoru zařízení s předkonfigurovaného řešení vzdáleného monitorování. Chcete-li zobrazit možnosti v simulátoru zařízení, tento kurz používá dva scénáře v aplikaci Contoso IoT.
+V tomto kurzu se dozvíte, jak přizpůsobit mikroslužbu simulátoru zařízení v předkonfigurovaného řešení vzdáleného monitorování. Chcete-li zobrazit možnosti v simulátoru zařízení, tento kurz používá dva scénáře v aplikaci Contoso IoT.
 
 V prvního scénáře Contoso chce otestovat nového inteligentní žárovek zařízení. Pokud chcete provést testy, vytvořte nového simulovaného zařízení s následujícími charakteristikami:
 
@@ -34,7 +34,7 @@ V prvního scénáře Contoso chce otestovat nového inteligentní žárovek za�
 
 *Telemetrie*
 
-Následující tabulka obsahuje data že ligthbulb sestav v cloudu jako datový proud:
+Následující tabulka obsahuje data že žárovek sestav v cloudu jako datový proud:
 
 | Name (Název)   | Hodnoty      |
 | ------ | ----------- |
@@ -177,7 +177,7 @@ Nejjednodušší způsob, jak vytvořit nový typ zařízení v simulaci mikrosl
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -273,9 +273,9 @@ K testování a ladění změny místně, najdete v části [zařízení simulac
 
 Konfigurace projektu zkopírovat nové **žárovek** souborů zařízení do výstupního adresáře:
 
-* Pokud používáte Visual Studio, ujistěte se, přidejte tři nové soubory žárovek jste vytvořili v předchozím oddílu, který má **služby** projekt v řešení. Potom pomocí **Průzkumníku řešení** označit je zkopírovány do výstupního adresáře.
+* Pokud používáte Visual Studio, ujistěte se, přidejte čtyři nové soubory žárovek jste vytvořili v předchozím oddílu, který má **služby** projekt v řešení. Potom pomocí **Průzkumníku řešení** označit je zkopírovány do výstupního adresáře.
 
-* Pokud používáte Visual Studio Code, otevřete **Services.csproj** souboru a přidejte tři nové soubory žárovek jste vytvořili v předchozí části. Zobrazit existující položky souboru modelu zařízení v **Services.csproj** soubor jako příklady.
+* Pokud používáte Visual Studio Code, otevřete **Services.csproj** souboru a přidejte čtyři nové soubory žárovek jste vytvořili v předchozí části. Zobrazit existující položky souboru modelu zařízení v **Services.csproj** soubor jako příklady.
 
 K testování nového zařízení v nasazené řešení, najdete v jednom z:
 

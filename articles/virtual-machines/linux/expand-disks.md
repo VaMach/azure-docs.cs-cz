@@ -4,7 +4,7 @@ description: "Zjistěte, jak rozšířit virtuální pevné disky na virtuální
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc370c1f02eedf996824136b117a4021915fc57
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Způsob, jak rozbalit virtuální pevné disky na virtuální počítač s Linuxem pomocí rozhraní příkazového řádku Azure
 Výchozí velikost virtuálního pevného disku pro operační systém (OS) je obvykle 30 GB na virtuální počítač s Linuxem (VM) v Azure. Můžete [přidat datových disků](add-disk.md) zajistit pro dalšího volného místa, ale můžete také chtít rozšířit stávající datový disk. Tento článek podrobně popisují rozbalte spravované disky pro virtuální počítač s Linuxem pomocí Azure CLI 2.0. Můžete také rozšířit nespravované disk operačního systému pomocí [Azure CLI 1.0](expand-disks-nodejs.md).
@@ -26,7 +26,7 @@ Výchozí velikost virtuálního pevného disku pro operační systém (OS) je o
 > [!WARNING]
 > Ujistěte se, můžete zálohovat data před provedením disku změnit velikost operace vždy. Další informace najdete v tématu [zálohovat virtuální počítače s Linuxem v Azure](tutorial-backup-vms.md).
 
-## <a name="expand-disk"></a>Rozbalte disk
+## <a name="expand-azure-managed-disk"></a>Rozbalte spravovaných disků na Azure
 Ujistěte se, že máte nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) nainstalován a přihlášení k účtu Azure pomocí [az přihlášení](/cli/azure/#login).
 
 Tento článek vyžaduje existující virtuální počítač v Azure s alespoň jeden datový disk připojený a připravený. Pokud jste ještě není virtuální počítač, který můžete použít, najdete v části [vytvořit a připravit virtuální počítač s datovými disky](tutorial-manage-disks.md#create-and-attach-disks).
@@ -40,7 +40,7 @@ V následující ukázky nahraďte názvy parametrů příklad vlastní hodnoty.
     ```
 
     > [!NOTE]
-    > `az vm stop`neuvolní výpočetní prostředky. Chcete-li uvolnit výpočetní prostředky, pomocí `az vm deallocate`. Virtuální počítač musí být navrácena rozbalte virtuální pevný disk.
+    > Virtuální počítač musí být navrácena rozbalte virtuální pevný disk. `az vm stop`neuvolní výpočetní prostředky. Chcete-li uvolnit výpočetní prostředky, pomocí `az vm deallocate`.
 
 2. Zobrazit seznam spravovaných disků ve skupině prostředků s [seznam disků az](/cli/azure/disk#list). Tento příklad zobrazuje seznam spravovaných disků ve skupině prostředků s názvem *myResourceGroup*:
 
@@ -69,13 +69,17 @@ V následující ukázky nahraďte názvy parametrů příklad vlastní hodnoty.
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. SSH pro virtuální počítač s příslušnými přihlašovacími údaji. Můžete získat veřejnou IP adresu vašeho virtuálního počítače s [az virtuálních počítačů zobrazit](/cli/azure/vm#show):
+
+## <a name="expand-disk-partition-and-filesystem"></a>Rozbalte diskový oddíl a systému souborů
+Chcete-li použít rozšířené disk, rozbalte položku Základní oddílu a systému souborů.
+
+1. SSH pro virtuální počítač s příslušnými přihlašovacími údaji. Můžete získat veřejnou IP adresu vašeho virtuálního počítače s [az virtuálních počítačů zobrazit](/cli/azure/vm#show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-5. Chcete-li použít rozšířené disk, rozbalte položku Základní oddílu a systému souborů.
+2. Chcete-li použít rozšířené disk, rozbalte položku Základní oddílu a systému souborů.
 
     a. Pokud je již připojen, odpojte disk:
 
@@ -116,25 +120,25 @@ V následující ukázky nahraďte názvy parametrů příklad vlastní hodnoty.
 
     d. Chcete-li ukončit, zadejte`quit`
 
-5. S oddílem po změně velikosti, ověření konzistence oddílu s `e2fsck`:
+3. S oddílem po změně velikosti, ověření konzistence oddílu s `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-6. Nyní změnit velikost souborů s `resize2fs`:
+4. Nyní změnit velikost souborů s `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-7. Připojit oddíl do požadovaného umístění, jako například `/datadrive`:
+5. Připojit oddíl do požadovaného umístění, jako například `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-8. Pokud chcete ověřit, změně velikosti disku operačního systému, použijte `df -h`. Následující příklad výstupu zobrazuje datová jednotka */dev/sdc1*, je nyní 200 GB:
+6. Pokud chcete ověřit, změně velikosti disku operačního systému, použijte `df -h`. Následující příklad výstupu zobrazuje datová jednotka */dev/sdc1*, je nyní 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
