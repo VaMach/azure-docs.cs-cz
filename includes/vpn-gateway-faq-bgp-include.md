@@ -10,7 +10,7 @@ Ano, svá vlastní veřejná čísla ASN nebo privátní čísla ASN můžete po
 ### <a name="are-there-asns-reserved-by-azure"></a>Existují ASN vyhrazená sítí Azure?
 Ano, následující ASN jsou vyhrazena sítí Azure pro vnitřní a vnější peering:
 
-* Veřejná ASN: 8075, 8076, 12076
+* Veřejná čísla ASN: 8074 8075, 12076
 * Soukromá ASN: 65515, 65517, 65518, 65519, 65520
 
 Tato ASN nelze zadat pro místní zařízení VPN při připojování k bránám sítě Azure VPN.
