@@ -3,7 +3,7 @@ title: "Automatizace odebrání skupin prostředků | Dokumentace Microsoftu"
 description: "Verze scénáře Azure Automation s pracovními postupy prostředí PowerShell, včetně runbooků pro odebrání všech skupin prostředků v rámci vašeho předplatného."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scénář Azure Automation – automatizace odebrání skupin prostředků
 Mnoho zákazníků vytváří více než jednu skupinu prostředků. Některé mohou sloužit ke správě produkčních aplikací, jiné mohou sloužit jako vývojové, testovací nebo přípravné prostředí. Automatizace nasazení těchto prostředků je jedna věc, ale možnost vyřadit skupinu prostředků z provozu jediným kliknutím něco úplně jiného. Tuto běžnou úlohu správy můžete zjednodušit pomocí Azure Automation. To je užitečné v případě, že pracujete s předplatným Azure, které má nastavený limit útraty prostřednictvím členské nabídky, jako je například MSDN nebo program Microsoft Partner Network Cloud Essentials.

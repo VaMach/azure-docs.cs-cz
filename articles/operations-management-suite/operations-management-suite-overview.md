@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94dedebe48060441cd3167fea87f6b721eb14517
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Co je Operations Management Suite (OMS)?
 Tento článek obsahuje úvod k sadě Operations Management Suite (OMS), včetně stručného přehledu výhod, které poskytuje, řešení správy a služeb, které zahrnuje, a nabídek, které zahrnují různé služby a řešení.  Zahrnuje také odkazy na podrobnou dokumentaci k nasazení jednotlivých služeb a řešení.
@@ -64,7 +64,7 @@ Základní funkce OMS poskytuje sada služeb, které běží v Azure.  Každá s
 #### <a name="collecting-data"></a>Shromažďování dat
 Existuje široká škála způsobů, kterými můžete dostat data do úložiště, aby je mohla služba Log Analytics analyzovat.
 
-- **Virtuální počítače a počítače s Windows nebo Linuxem.**  Nainstalujte Microsoft Monitoring Agent na virtuální počítače nebo počítače s [Windows](../log-analytics/log-analytics-windows-agents.md) nebo [Linuxem](../log-analytics/log-analytics-linux-agents.md), ze kterých chcete shromažďovat data.  Agent automaticky stáhne konfiguraci z Log Analytics, která definuje události a výkonnostní data, která se mají shromažďovat.  S využitím webu Azure Portal můžete snadno nainstalovat agenta na virtuální počítače spuštěné v Azure.  Pokud máte existující prostředí Operations Manageru, můžete připojit skupinu správy k Log Analytics a automaticky zahájit shromažďování dat ze všech existujících agentů.
+- **Virtuální počítače a počítače s Windows nebo Linuxem.**  Nainstalujte Microsoft Monitoring Agent na virtuální počítače nebo počítače s [Windows](../log-analytics/log-analytics-windows-agent.md) nebo [Linuxem](../log-analytics/log-analytics-linux-agents.md), ze kterých chcete shromažďovat data.  Agent automaticky stáhne konfiguraci z Log Analytics, která definuje události a výkonnostní data, která se mají shromažďovat.  S využitím webu Azure Portal můžete snadno nainstalovat agenta na virtuální počítače spuštěné v Azure.  Pokud máte existující prostředí Operations Manageru, můžete připojit skupinu správy k Log Analytics a automaticky zahájit shromažďování dat ze všech existujících agentů.
 - **Služby Azure.**  Log Analytics shromažďuje telemetrie z [Diagnostiky Azure a monitorování Azure](../log-analytics/log-analytics-azure-storage.md) do úložiště, takže můžete monitorovat prostředky Azure.
 - **Rozhraní API kolekce dat.**  Log Analytics má rozhraní [REST API pro naplňování dat z libovolného klienta](../log-analytics/log-analytics-data-collector-api.md).  To vám umožní shromažďovat data z aplikací třetích stran nebo implementovat vlastní scénáře správy.  Běžnou metodou je použít runbook v Azure Automation ke shromáždění dat a potom použít rozhraní API kolekce dat k jejich zapsání do úložiště.
 

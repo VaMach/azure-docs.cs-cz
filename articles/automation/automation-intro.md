@@ -3,7 +3,7 @@ title: Co je Azure Automation | Dokumentace Microsoftu
 description: "Seznamte se s hodnotou, kterou Azure Automation nabízí, a získejte odpovědi na časté otázky, abyste mohli začít vytváření za pomoci runbooků a Azure Automation DSC."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "co je automatizace, azure automation, příklady azure automation"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-overview"></a>Přehled Azure Automation
 Microsoft Azure Automation nabízí uživatelům možnost automatizace ručních, dlouhotrvajících, problematických a často se opakujících úloh, které se běžně provádějí v cloudovém a podnikovém prostředí. Šetří čas a zvyšuje spolehlivost běžných administrativních úloh a umí je dokonce naplánovat, aby se v pravidelných intervalech prováděly automaticky. Procesy můžete automatizovat pomocí runbooků nebo můžete automatizovat správu konfigurace pomocí DSC (požadovaný stav konfigurace). Tento článek poskytuje stručný přehled Azure Automation a odpovědi na některé běžné dotazy. Podrobnější informace o dalších tématech najdete v jiných článcích z této knihovny.

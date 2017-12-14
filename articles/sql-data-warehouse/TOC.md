@@ -32,8 +32,8 @@
 ### [Migrace dat](sql-data-warehouse-migrate-data.md)
 
 ## Načítání a přesun dat
-### [Přehled](sql-data-warehouse-overview-load.md)
-### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
+### [Přehled](design-elt-data-loading.md)
+### [Doprovodné materiály](guidance-for-loading-data.md)
 
 
 ## Integrace

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Řešení Agent Health v OMS
 Řešení Agent Health v OMS vám pomůže rozpoznat, kteří z agentů, odesílajících sestavy přímo do pracovního prostoru OMS nebo do skupiny pro správu nástroje System Center Operations Manager připojené k OMS, nereagují a odesílají provozní data.  Můžete také sledovat, kolik agentů je nasazených a jak jsou geograficky distribuováni, a provádět další dotazy, abyste si udrželi přehled o distribuci agentů nasazených v Azure, dalších cloudových prostředích nebo místně.    
 
 ## <a name="prerequisites"></a>Požadavky
-Před nasazením tohoto řešení potvrďte, že aktuálně podporujete [agenty systému Windows](../log-analytics/log-analytics-windows-agents.md) odesílající sestavy to pracovního prostoru OMS nebo do [skupiny pro správu nástroje Operations Manager](../log-analytics/log-analytics-om-agents.md) integrované s pracovním prostorem OMS.    
+Před nasazením tohoto řešení potvrďte, že aktuálně podporujete [agenty systému Windows](../log-analytics/log-analytics-windows-agent.md) odesílající sestavy to pracovního prostoru OMS nebo do [skupiny pro správu nástroje Operations Manager](../log-analytics/log-analytics-om-agents.md) integrované s pracovním prostorem OMS.    
 
 ## <a name="solution-components"></a>Součásti řešení
 Toto řešení se skládá z následujících prostředků, které se přidají do vašeho pracovního prostoru, a přímo připojených agentů nebo skupiny pro správu připojené k nástroji Operations Manager.

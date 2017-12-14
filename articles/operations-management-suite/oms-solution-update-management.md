@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Aktualizace řešení pro správu v OMS
 
@@ -81,7 +81,7 @@ V den a čas, který zadáte v nasazení aktualizací, spustí cílové počíta
     > Agent OMS pro Linux nakonfigurovaný k ukládání dat do více pracovních prostorů OMS se v tomto řešení nepodporuje.  
     >
 
-Další informace o tom, jak nainstalovat agenta OMS pro Linux, a odkaz na stažení nejnovější verze najdete na stránce [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux) (Agent Operations Management Suite pro Linux).  Informace o tom, jak nainstalovat agenta OMS pro Windows, najdete v tématu popisujícím [agenta Operations Management Suite pro Windows](../log-analytics/log-analytics-windows-agents.md).  
+Další informace o tom, jak nainstalovat agenta OMS pro Linux, a odkaz na stažení nejnovější verze najdete na stránce [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux) (Agent Operations Management Suite pro Linux).  Informace o tom, jak nainstalovat agenta OMS pro Windows, najdete v tématu popisujícím [agenta Operations Management Suite pro Windows](../log-analytics/log-analytics-windows-agent.md).  
 
 ### <a name="permissions"></a>Oprávnění
 Pokud chcete vytvořit nasazení aktualizací, musíte mít přidělenou roli přispěvatele v účtu Automation i pracovním prostoru Log Analytics.  
@@ -126,7 +126,7 @@ Na počítači s Windows můžete ověřit připojení agenta k OMS následujíc
 1.  V Ovládacích panelech otevřete agenta Microsoft Monitoring Agent a na kartě **Azure Log Analytics (OMS)** agent zobrazí zprávu: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent se úspěšně připojil ke službě Microsoft Operations Management Suite).   
 2.  Otevřete protokol událostí systému Windows, přejděte do **Application and Services Logs\Operations Manager** a vyhledejte ID události 3000 a 5002 ze zdrojového konektoru Service Connector.  Tyto události značí, že se počítač zaregistroval do pracovního prostoru OMS a přijímá konfiguraci.  
 
-Pokud agent není schopen komunikovat se službou OMS a má nakonfigurovanou komunikaci s internetem prostřednictvím brány firewall nebo proxy serveru, přečtěte si téma věnované [konfigurace sítě pro agenta Windows](../log-analytics/log-analytics-windows-agents.md#network) nebo [konfigurace sítě pro linuxového agenta](../log-analytics/log-analytics-agent-linux.md#network) a ověřte správnou konfiguraci brány firewall nebo proxy serveru.
+Pokud agent není schopen komunikovat se službou OMS a má nakonfigurovanou komunikaci s internetem prostřednictvím brány firewall nebo proxy serveru, přečtěte si téma věnované [konfigurace sítě pro agenta Windows](../log-analytics/log-analytics-windows-agent.md) nebo [konfigurace sítě pro linuxového agenta](../log-analytics/log-analytics-agent-linux.md) a ověřte správnou konfiguraci brány firewall nebo proxy serveru.
 
 > [!NOTE]
 > Pokud jsou vaše linuxové systémy nakonfigurované pro komunikaci se serverem proxy nebo bránou OMS a zařazujete toto řešení do systému, proveďte aktualizaci oprávnění *proxy.conf*, abyste skupině omiuser udělili oprávnění pro čtení příslušného souboru, a to provedením následujících příkazů:  
