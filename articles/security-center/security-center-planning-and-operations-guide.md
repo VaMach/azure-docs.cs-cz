@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 6ea08dc4a3082ead9e18fb6c0c30f2ed1df765d8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f533afebcb945a5ffe269ad8f21a095a81f54a18
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Průvodce plánováním a provozem služby Azure Security Center
 Tento průvodce je určený odborníkům na informační technologie (IT), IT architektům, analytikům zabezpečení informací a správcům cloudů, jejichž společnosti hodlají začít používat Azure Security Center.
@@ -125,7 +125,7 @@ Zásady zabezpečení definují požadovanou konfiguraci úloh a pomáhají zaji
 
 Zásady Security Center obsahují následující součásti:
 - [Shromažďování dat:](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) Zřizování agentů a nastavení shromažďování dat.
-- [Zásady zabezpečení:](https://docs.microsoft.com/azure/security-center/security-center-policies) [Zásady Azure](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction), které určují, jaké ovládací prvky monitoruje a doporučuje služba Security Center. Případně můžete pomocí zásad Azure vytvářet nové definice, definovat další zásady a přiřazovat zásady napříč skupinami pro správu.
+- [Zásady zabezpečení:](https://docs.microsoft.com/azure/security-center/security-center-policies) [Zásady Azure](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction), které určují, jaké ovládací prvky monitoruje a doporučuje služba Security Center. Případně můžete pomocí zásad Azure vytvářet nové definice, definovat další zásady a přiřazovat zásady napříč skupinami pro správu.
 - [E-mailová oznámení:](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) Kontakty zabezpečení a nastavení oznámení.
 - [Cenová úroveň:](https://docs.microsoft.com/azure/security-center/security-center-pricing) Výběr cenové úrovně Free nebo Standard, která určuje, jaké funkce Security Center jsou k dispozici pro prostředky v oboru (u toho je možné určit předplatná, skupiny prostředků a pracovní prostory).
 

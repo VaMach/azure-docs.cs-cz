@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integrace System Center Configuration Manageru s OMS Update Managementem
 
@@ -41,7 +41,7 @@ To, jak spravujete klienty hostované v Azure IaaS s využitím stávajícího p
 
 Pokud budete nadále spravovat nasazení aktualizace z Configuration Manageru, proveďte následující kroky.  OMS se připojí ke Configuration Manageru a nainstaluje aktualizace do klientských počítačů připojených k pracovnímu prostoru Log Analytics. Obsah aktualizace obsah je dostupný z mezipaměti klientského počítače, stejně jako v případě, kdy nasazení spravoval Configuration Manager.  
 
-1. Na webu nejvyšší úrovně v hierarchii Configuration Manager vytvořte nasazení aktualizace softwaru, a to pomocí postupu popsaného v [procesu nasazení softwarových aktualizací](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  Jediným nastavením, které se musí nakonfigurovat jinak než u standardního nasazení, je možnost **Neinstalovat softwarové aktualizace**, která řídí řízení chování balíčku pro nasazení při stahování. Toto chování spravuje řešení OMS Update Management vytvořením plánovaného nasazení aktualizace v dalším kroku.  
+1. Na webu nejvyšší úrovně v hierarchii Configuration Manager vytvořte nasazení aktualizace softwaru, a to pomocí postupu popsaného v [procesu nasazení softwarových aktualizací](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates).  Jediným nastavením, které se musí nakonfigurovat jinak než u standardního nasazení, je možnost **Neinstalovat softwarové aktualizace**, která řídí řízení chování balíčku pro nasazení při stahování. Toto chování spravuje řešení OMS Update Management vytvořením plánovaného nasazení aktualizace v dalším kroku.  
 
 1. Na portálu OMS otevřete řídicí panel Update Managementu.  Pomocí kroků popsaných v tématu [Vytvoření nasazení aktualizace](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) vytvořte nové nasazení a v rozevíracím seznamu vyberte příslušnou kolekci Configuration Manageru reprezentovanou jako skupina počítačů OMS.  Mějte na paměti následující důležité skutečnosti:
     1. Pokud je u vybrané kolekce zařízení Configuration Manageru definované časové období údržby, členové této kolekce se ho budou držet (a nevyužijí nastavení **Doba trvání** definované pro naplánované nasazení v OMS.

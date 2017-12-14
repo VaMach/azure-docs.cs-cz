@@ -4,7 +4,7 @@ description: "Toto je stránka Vícefaktorového ověřování Azure, která nab
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 2a4f64524f94a782434306f89f6ad1034297c4cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>User Portal pro Azure Multi-Factor Authentication Server
 
@@ -45,7 +45,7 @@ V obou scénářích, pokud sada SDK webové služby Azure Multi-Factor Authenti
 3. Dokončete instalaci s použitím výchozích hodnot, pokud je z nějakého důvodu nepotřebujete změnit.
 4. Vytvořte vazbu certifikátu SSL k webu ve službě IIS.
 
-Pokud máte dotazy ke konfiguraci certifikátu SSL na serveru služby IIS, přečtěte si článek [Nastavení protokolu SSL ve službě IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Pokud máte dotazy ke konfiguraci certifikátu SSL na serveru služby IIS, přečtěte si článek [Nastavení protokolu SSL ve službě IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 Sada SDK webové služby musí být zabezpečená certifikátem SSL. Pro tento účel stačí certifikát podepsaný svým držitelem. Importujte certifikát do úložiště „Důvěryhodné kořenové certifikační autority“ účtu místního počítače na webovém serveru portálu User Portal, aby byl certifikát důvěryhodný při navazování připojení SSL.
 
@@ -73,7 +73,7 @@ Pokud chcete nasadit portál User Portal, postupujte takto:
 
 ![Instalace portálu User Portal pro MFA Server](./media/multi-factor-authentication-get-started-portal/install.png)
 
-Pokud máte dotazy ke konfiguraci certifikátu SSL na serveru služby IIS, přečtěte si článek [Nastavení protokolu SSL ve službě IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Pokud máte dotazy ke konfiguraci certifikátu SSL na serveru služby IIS, přečtěte si článek [Nastavení protokolu SSL ve službě IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Nasazení portálu User Portal na samostatný server
 
@@ -110,7 +110,7 @@ Instalace portálu uživatele na jiném serveru, než je Azure Multi-Factor Auth
 
 6. Na libovolném počítači otevřete webový prohlížeč a přejděte na adresu URL, kam se nainstaloval portál User Portal (příklad: https://mfa.contoso.com/MultiFactorAuth). Ujistěte se, že se nezobrazí žádná varování nebo chyby týkající se certifikátu.
 
-Pokud máte dotazy ke konfiguraci certifikátu SSL na serveru služby IIS, přečtěte si článek [Nastavení protokolu SSL ve službě IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Pokud máte dotazy ke konfiguraci certifikátu SSL na serveru služby IIS, přečtěte si článek [Nastavení protokolu SSL ve službě IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurace nastavení portálu User Portal v Azure Multi-Factor Authentication Serveru
 

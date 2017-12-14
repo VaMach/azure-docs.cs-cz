@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Šifrování virtuálního počítače Azure
 Azure Security Center vás upozorní, pokud máte virtuální počítače, které nejsou šifrované. Tyto výstrahy se zobrazují jako upozornění s vysokou závažností. Doporučuje se tyto virtuální počítače zašifrovat.
@@ -26,7 +26,7 @@ Azure Security Center vás upozorní, pokud máte virtuální počítače, kter�
 ![Doporučení pro šifrování disku](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Informace v tomto dokumentu se vztahují k šifrování virtuálních počítačů bez použití klíčového šifrovacího klíče (který se vyžaduje k zálohování virtuálních počítačů pomocí služby Azure Backup). Informace o použití klíčového šifrovacího klíče k zajištění podpory služby Azure Backup pro šifrované Azure Virtual Machines najdete v článku [Azure Disk Encryption pro Azure Virtual Machines s Windows a Linuxem](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).
+> Informace v tomto dokumentu se vztahují k šifrování virtuálních počítačů bez použití klíčového šifrovacího klíče (který se vyžaduje k zálohování virtuálních počítačů pomocí služby Azure Backup). Informace o použití klíčového šifrovacího klíče k zajištění podpory služby Azure Backup pro šifrované Azure Virtual Machines najdete v článku [Azure Disk Encryption pro Azure Virtual Machines s Windows a Linuxem](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
 >
 >
 
