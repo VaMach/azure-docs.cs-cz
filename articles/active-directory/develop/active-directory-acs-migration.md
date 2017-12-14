@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: 5ce6b19ebe0b7159b6c68fc50d7d47f0479e0c27
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrace ze služby Řízení přístupu Azure
 
@@ -85,7 +85,7 @@ Jednotlivých cloudových služeb společnosti Microsoft, které přijímá toke
 | ------- | -------- |
 | Azure Service Bus | [Migrace na sdílených přístupových podpisů](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Předávání přes Azure Service Bus | [Migrace na sdílených přístupových podpisů](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Redis Cache | [Migrace na Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure Managed Cache | [Migrace na Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Služby Azure DataMarket | [Migrace na rozhraní API kognitivní služby](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Migrace s funkcí Logic Apps služby Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Migrace na ověřování Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
@@ -146,7 +146,7 @@ Na vysoké úrovni *Azure Active Directory je pravděpodobně nejlepší volbou 
 | WS-Trust | Podporuje se | Nepodporuje se |
 | **Token formáty** | | |
 | TOKEN JWT | Podporované ve verzi Beta | Podporuje se |
-| SAML 1.1 | Podporuje se | Podporuje se |
+| SAML 1.1 | Podporuje se | Preview |
 | SAML 2.0 | Podporuje se | Podporuje se |
 | SWT | Podporuje se | Nepodporuje se |
 | **Přizpůsobení** | | |
@@ -226,29 +226,26 @@ Pokud se rozhodnete, že Azure AD B2C je nejlepší cesta migrace k vašim aplik
 - [Ceny služby Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 
-#### <a name="other-migration-options"></a>Další možnosti migrace
+#### <a name="migrate-to-ping-identity-or-auth0"></a>Migrace na příkaz Ping Identity nebo Auth0
 
-Pokud Azure AD a Azure AD B2C nesplňují požadavky webové aplikace, kontaktujte nás. Pomůžeme vám identifikovat nejlepší cestu migrace.
+V některých případech může zjistíte, že Azure AD a Azure AD B2C nejsou dostatečná k nahrazení řízení přístupu ve vaší webové aplikaci bez provedení změn hlavní kódu. Může obsahovat několik běžných příkladů:
 
-<!--
+- Webové aplikace, které používají technologii WIF nebo WS-Federation pro přihlašování pomocí poskytovatelů identit sociálních třeba Google nebo Facebook.
+- Webové aplikace, které provádějí přímé federaci do organizace identifikaci zprostředkovatele přes protokol WS-Federation.
+- Webové aplikace, které vyžadují přístupový token vydán poskytovatele sociálních identit (například Google nebo Facebooku) jako deklarace identity v tokenech vystavený řízení přístupu.
+- Webové aplikace s pravidla komplexní tokenu transformace, které Azure AD ani Azure AD B2C nelze reprodukovat.
+- Víceklientské webové aplikace, které používají služby ACS můžete centrálně spravovat federaci do mnoho poskytovatelů jinou identitu
 
-#### Migrate to Ping Identity or Auth0
+V těchto případech můžete chtít zvažte migraci webovou aplikaci na jinou cloudovou službu ověřování. Doporučujeme, abyste zkoumat následující možnosti. Každý z těchto možností nabízí možnosti podobná řízení přístupu:
 
-In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient to replace Access Control in your web applications without making major code changes. Some common examples might include:
 
-- Web applications that use WIF or WS-Federation for sign-in with social identity providers such as Google or Facebook.
-- Web applications that perform direct federation to an enterprise identify provider over the WS-Federation protocol.
-- Web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by Access Control.
-- Web applications with complex token transformation rules that Azure AD or Azure AD B2C can't reproduce.
 
-In these cases, you might want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
+|     |     | 
+| --- | --- |
+| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) je flexibilní Cloudová služba identity, která si vytvořila [vysoké úrovně migrace pokyny pro zákazníky, řízení přístupu](https://auth0.com/acs)a podporuje téměř každý funkce, která nemá služby ACS. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Příkaz ping Identity](https://www.pingidentity.com) nabízí dvě řešení podobná služby ACS. PingOne je Cloudová služba identity, která podporuje mnoho stejných funkcí jako služby ACS a PingFederate je podobné produktu místní identity, který nabízí větší flexibilitu. Odkazovat na [pokyny vyřazení služby ACS na příkaz Ping](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) pro další podrobnosti o použití těchto produktů.  |
 
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of Access Control](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of Access Control and Auth0.
-- Enterprise customers also should consider [Ping Identity](https://www.pingidentity.com). If you contact us, we can connect you with a representative from Ping who is prepared to help identify potential solutions.
-
-Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
-
--->
+Naše cílem při práci s příkazem Ping Identity a Auth0 je zajistit, aby měly všechny zákazníky využívající řízení přístupu migrace cestu pro své aplikace a služby, která minimalizuje množství práce potřebné k přesunutí z řízení přístupu.
 
 <!--
 
@@ -295,28 +292,22 @@ Pokyny týkající se implementuje scénáře serveru na server najdete v násle
 - [Ukázka kódu démon pomocí jednoduché heslo pověření klienta](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Ukázka kódu démon pomocí pověření certifikátu klienta](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
-#### <a name="other-migration-options"></a>Další možnosti migrace
+#### <a name="migrate-to-ping-identity-or-auth0"></a>Migrace na příkaz Ping Identity nebo Auth0
 
-Pokud Azure AD nevyhovuje potřebám vaší webové služby, nechte komentář. Pomůžeme vám identifikovat nejlepší plán pro váš konkrétní případ.
+V některých případech je možné, že pověření klienta Azure AD a OAuth udělit implementace nejsou dostatečná k nahrazení řízení přístupu ve vaší architektury bez změny hlavní kódu. Může obsahovat několik běžných příkladů:
 
-<!--
+- Ověření serveru na server pomocí tokenu formáty než Jwt.
+- Ověření serveru na server pomocí tokenu vstupní poskytované zprostředkovatele externí identity.
+- Ověření serveru na server s pravidla tokenu transformace, které nelze reprodukovat Azure AD.
 
-#### Migrate to Ping Identity or Auth0
+V těchto případech můžete zvážit migrace webové aplikace do jiné cloudové služby ověřování. Doporučujeme, abyste zkoumat následující možnosti. Každý z těchto možností nabízí možnosti podobná řízení přístupu:
 
-In some cases, you might find that the Azure AD client credentials and the OAuth grant implementation aren't sufficient to replace Access Control in your architecture without major code changes. Some common examples might include:
+|     |     | 
+| --- | --- |
+| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) je flexibilní Cloudová služba identity, která si vytvořila [vysoké úrovně migrace pokyny pro zákazníky, řízení přístupu](https://auth0.com/acs)a podporuje téměř každý funkce, která nemá služby ACS. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Příkaz ping Identity](https://www.pingidentity.com) nabízí dvě řešení podobná služby ACS. PingOne je Cloudová služba identity, která podporuje mnoho stejných funkcí jako služby ACS a PingFederate je podobné produktu místní identity, který nabízí větší flexibilitu. Odkazovat na [pokyny vyřazení služby ACS na příkaz Ping](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) pro další podrobnosti o použití těchto produktů.  |
 
-- Server-to-server authentication using token formats other than JWTs.
-- Server-to-server authentication using an input token provided by an external identity provider.
-- Server-to-server authentication with token transformation rules that Azure AD cannot reproduce.
-
-In these cases, you might consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
-
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of Access Control](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of Access Control and Auth0.
-- Enterprise customers should also consider [Ping Identity](https://www.pingidentity.com). If you contact us, we can connect you with a representative from Ping who is prepared to help identify potential solutions.
-
-Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
-
--->
+Naše cílem při práci s příkazem Ping Identity a Auth0 je zajistit, aby měly všechny zákazníky využívající řízení přístupu migrace cestu pro své aplikace a služby, která minimalizuje množství práce potřebné k přesunutí z řízení přístupu.
 
 ## <a name="questions-concerns-and-feedback"></a>Dotazy, otázky a zpětné vazby
 

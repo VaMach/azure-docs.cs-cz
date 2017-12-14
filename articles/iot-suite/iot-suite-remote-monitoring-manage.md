@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>Správa a konfigurace zařízení
 
@@ -40,13 +40,13 @@ Chcete-li v tomto kurzu, je třeba nasazené instanci řešení vzdáleného mon
 
 Pokud jste nenasadili řešení vzdáleného monitorování ještě by se měla Dokončit [nasadit předkonfigurované řešení vzdáleného monitorování](iot-suite-remote-monitoring-deploy.md) kurzu.
 
-## <a name="provision-a-simulated-device"></a>Zřídit simulovaného zařízení
+## <a name="add-a-simulated-device"></a>Přidání simulovaného zařízení
 
-Přejděte na **zařízení** stránky v řešení a potom zvolte **zřídit**. V **zřídit** panelu, vyberte **Simulovaná**:
+Přejděte na **zařízení** stránky v řešení a potom zvolte **nové zařízení**. V **nové zařízení** panelu, vyberte **Simulovaná**:
 
 ![Zřídit simulovaného zařízení](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Nechte počet zařízení a zajišťují nastavena na **1**. Zvolte **modul** jako **model zařízení**a potom zvolte **použít** vytvořte simulované zařízení:
+Nechte počet zařízení a zajišťují nastavena na **1**. Zvolte **vadný modul** jako **model zařízení**a potom zvolte **použít** vytvořte simulované zařízení:
 
 ![Zřídit modul simulované zařízení](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -68,7 +68,7 @@ Chcete-li zobrazit podrobné diagnostiky, posuňte se dolů a zobrazení **diagn
 
 ## <a name="act-on-a-device"></a>Fungovat na zařízení
 
-Tak, aby fungoval na zařízení, vyberte ho v seznamu zařízení a potom zvolte **plán**. **Modul** model zařízení určuje čtyři metody musí podporovat zařízení:
+Tak, aby fungoval na jeden nebo více zařízení, vyberte je v seznamu zařízení a potom zvolte **plán**. **Modul** model zařízení určuje čtyři metody musí podporovat zařízení:
 
 ![Modul metody](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -76,7 +76,7 @@ Zvolte **restartujte**, nastavte název úlohy na **RestartEngine**a potom zvolt
 
 ![Plán metodu restartování](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-Chcete-li sledovat stav úlohy na **údržby** vyberte **stav systému**:
+Chcete-li sledovat stav úlohy na **údržby** vyberte **úlohy**:
 
 ![Monitorování plány úlohy](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -96,7 +96,7 @@ Chcete-li ke změně, přidat název úlohy, aktualizujte hodnoty vlastností a 
 
 ![Aktualizujte hodnotu vlastnosti zařízení](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-Chcete-li sledovat stav úlohy na **údržby** vyberte **stav systému**.
+Chcete-li sledovat stav úlohy na **údržby** vyberte **úlohy**.
 
 ## <a name="next-steps"></a>Další kroky
 

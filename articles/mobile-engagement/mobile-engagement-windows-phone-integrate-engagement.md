@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 29b18aecff783cebf617995e2a19f16f0b68b51b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72a581643ccde55f8b849c511c3365e029d7cbcb
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Integraci sady Windows Phone Silverlight Engagement SDK
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Pokud chcete zadat za běhu, můžete volat metodu před Engagement inicializaci
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(engagementConfiguration);
 
-Připojovací řetězec pro vaši aplikaci se zobrazí na portálu Azure Classic.
+Připojovací řetězec pro vaši aplikaci se zobrazí na portálu Azure.
 
 ### <a name="engagement-initialization"></a>Inicializace zapojení
 Když vytvoříte nový projekt, `App.xaml.cs` se vygeneruje soubor. Tato třída dědí z `Application` a obsahuje mnoho důležité metody. Je také použije k chybě při inicializaci sady Engagement SDK.

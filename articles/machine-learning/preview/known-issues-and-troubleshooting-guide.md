@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 1d3ba76336701221484d2879f4b28285936aa656
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0f7b90a77ab321ee726245c82ea27635438070c0
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – známé problémy a Průvodce odstraňováním potíží s 
 Tento článek vám pomůže najít a opravy chyb nebo selhání došlo jako součást pomocí aplikace Azure Machine Learning Workbench. 
@@ -113,7 +113,7 @@ Bohužel neexistuje žádný snadný opravy na tomto. Je nutné provést násled
    - odebrat zástupce na ploše, který spouští skript výše
    - stáhnout instalační program https://aka.ms/azureml-wb-msi a znovu nainstalujte.
 
-## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Na obrazovce "Kontrola experimentování účet" uváznout po přihlášení
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Zablokované ve "Kontrola experimentování účet" obrazovky po přihlášení
 Po přihlášení může získat na prázdnou obrazovku zprávou zobrazující "Kontroluje experimentování účet" s roztočený kolem zablokované aplikace Workbench. Chcete-li vyřešit tento problém, proveďte následující kroky:
 1. Vypnutí aplikace
 2. Odstraňte následující soubor:
@@ -147,6 +147,13 @@ Pokud máte Windows 10 patří Creators aktualizace a vytvoření projektu v mí
 
 ## <a name="file-name-too-long-on-windows"></a>Název souboru příliš dlouho v systému Windows
 Pokud používáte Workbench v systému Windows, můžete narazit na výchozí maximální souboru 260 znaků názvu limit délky, která by mohla surface jako chyba "systém nemůže najít zadanou cestu". Můžete upravit nastavení klíče registru a povolit mnohem delší cestu název souboru. Zkontrolujte [v tomto článku](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) další podrobnosti o tom, jak nastavit _hodnotou MAX_PATH_ klíč registru.
+
+## <a name="interrupt-cli-execution-output"></a>Přerušení výstupu spuštění příkazového řádku
+Pokud ji experimentování spouštět s využitím `az ml experiment submit` nebo `az ml notebook start` a chcete přerušení výstup: 
+- V systému Windows pomocí kombinace kláves Ctrl-Break z klávesnice
+- V systému macOS použijte kombinaci kláves Ctrl-c
+
+Upozorňujeme, že pouze přeruší do výstupního datového proudu v okně příkazového řádku. Je ve skutečnosti nezastaví úlohu, která je spouštěna. Pokud chcete zrušit probíhající úlohy, použijte `az ml experiment cancel -r <run_id> -t <target name>` příkaz.
 
 ## <a name="docker-error-read-connection-refused"></a>Chyba docker "číst: odmítl připojení"
 Při provádění proti místní kontejner Docker, v některých případech může zobrazit chybová zpráva: 

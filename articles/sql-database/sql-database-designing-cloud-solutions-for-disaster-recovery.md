@@ -13,21 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
 ms.workload: On Demand
-ms.date: 09/08/2017
 ms.author: sashan
-ms.openlocfilehash: 0fb11ee553685618cc7466d3ad8b07ba01611027
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.reviewer: carlrab
+ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Navrhování služeb s vysokou dostupností pomocí Azure SQL Database
 
 Při vytváření a nasazování služeb s vysokou dostupností v databázi SQL Azure, je použít [převzetí služeb při selhání skupiny a aktivní geografickou replikací](sql-database-geo-replication-overview.md) zajistit odolnost proti místní výpadky a závažné selhání. Taky umožňuje rychlé obnovení do sekundární databáze. Tento článek se zaměřuje na běžných vzorů aplikace a popisuje výhody a kompromis jednotlivých možností. Informace o aktivní geografickou replikaci s elastické fondy najdete v tématu [strategie zotavení po havárii elastický fond](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scénář 1: Použití dvou oblastí Azure pro kontinuitu podnikových procesů s minimálními výpadky
-V tomto scénáři aplikace má následující vlastnosti: 
+V tomto scénáři aplikací mít následující vlastnosti: 
 *   Aplikace je aktivní v jedné oblasti Azure
 *   Všechny relace databáze vyžaduje oprávnění ke čtení a zápisu (RW) na data
 *   Webová vrstva a datové vrstvy musí být společně umístěná, na snížení nákladů na latenci a provoz 
@@ -151,7 +152,7 @@ Ale některé **kompromisy**:
 ## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Plánování kontinuity obchodních: Zvolte návrh aplikace pro zotavení po havárii cloudu
 Strategie zotavení po havárii konkrétní cloudové můžete kombinovat nebo rozšířit tyto vzory návrhu na nejlépe vyhovovat potřebám vaší aplikace.  Jak už bylo zmíněno dříve, strategie, kterou zvolíte je založena na smlouvě SLA můžete chtít nabízet zákazníkům a topologii nasazení aplikace. Chcete-li Průvodce vaše rozhodnutí, následující tabulka porovnává voleb na základě plánovaného bodu obnovení (RPO) a obnovení odhadovanou dobu (Vložit).
 
-| vzor | PLÁNOVANÝ BOD OBNOVENÍ | VLOŽIT |
+| Vzor | PLÁNOVANÝ BOD OBNOVENÍ | VLOŽIT |
 |:--- |:--- |:--- |
 | Aktivní – pasivní nasazení pro zotavení po havárii s přístupem společně umístěné databáze |Přístup pro čtení a zápis < 5 s |Čas detekce selhání + TTL pro DNS |
 | Aktivní aktivní nasazení pro aplikaci služby Vyrovnávání zatížení |Přístup pro čtení a zápis < 5 s |Čas detekce selhání + TTL pro DNS |

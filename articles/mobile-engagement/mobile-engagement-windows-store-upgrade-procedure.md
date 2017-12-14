@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Postupy upgradu systému Windows Universal SDK aplikace
 Pokud již jste spojili starší verze zapojení do své aplikace, je nutné zvážit následující body při upgradu sady SDK.
@@ -294,7 +294,7 @@ Pokud chcete zadat za běhu, můžete volat metodu před Engagement inicializaci
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-Připojovací řetězec pro vaši aplikaci se zobrazí na portálu Azure Classic.
+Připojovací řetězec pro vaši aplikaci se zobrazí na portálu Azure.
 
 ### <a name="items-name-change"></a>Změna názvu položky
 Všechny položky s názvem *capptain* byly pojmenovány *engagement*. Podobně jako pro *Capptain* k *Engagement*.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: 4a796920d5ff76d4ff4d41afe2ec14aa89ae2265
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Sledování aktivity předplatné s protokol činnosti Azure
 **Protokol činnosti Azure** je protokol odběru, který poskytuje přehled o události na úrovni předplatného, k nimž došlo v Azure. To zahrnuje celou řadu dat z provozních dat Azure Resource Manager aktualizací na události stavu služby. Protokol aktivit se dřív označovala jako "Protokoly auditu" nebo "Provozní protokoly," od události administrativní kategorie sestavy rovině řízení pro vaše předplatné. Pomocí protokolu činnosti, můžete určit ', kdo a kdy se pro všechny zápisu operace (PUT, POST, DELETE) na prostředky v rámci vašeho předplatného. Můžete také chápou stav operace a další relevantní vlastnosti. Protokol aktivit nezahrnuje operace čtení (GET) nebo operace pro prostředky, které používají Classic nebo model "RDFE".
@@ -33,7 +33,7 @@ Můžete načíst události z protokolu aktivit pomocí portálu Azure, rozhran�
 
 
 > [!WARNING]
-> Protokol činnosti Azure je určen pro činnosti, které ve službě Správce prostředků Azure. Sledovat prostředky pomocí modelu Classic nebo RDFE. Některé typy prostředků Classic mají proxy poskytovatele prostředků v Azure Resource Manageru (například Microsoft.Network). Při práci s typem prostředku Classic prostřednictvím Správce Azure Resource Manager pomocí těchto poskytovatelů prostředků proxy, operace se objeví v protokolu aktivit. Pokud budete používat klasického typu prostředku v klasickém portálu nebo jinak mimo proxy Azure Resource Manager, vaše akce jenom zaznamenávají v protokolu operací. V protokolu operaci můžete procházet na samostatné části portálu.
+> Protokol činnosti Azure je určen pro činnosti, které ve službě Správce prostředků Azure. Sledovat prostředky pomocí modelu Classic nebo RDFE. Některé typy prostředků Classic mají proxy poskytovatele prostředků v Azure Resource Manageru (například Microsoft.Network). Při práci s typem prostředku Classic prostřednictvím Správce Azure Resource Manager pomocí těchto poskytovatelů prostředků proxy, operace se objeví v protokolu aktivit. Pokud budete používat typ prostředku Classic mimo proxy Azure Resource Manager, vaše akce pouze zaznamenávají v protokolu operací. V protokolu operaci můžete procházet na samostatné části portálu.
 >
 >
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 62d31ed486458245156f7fc832294d662c62991e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Připojení k analýze protokolů nástroje Configuration Manager
 System Center Configuration Manager můžete připojit k analýze protokolů v OMS pro synchronizaci dat kolekce zařízení. Díky data z hierarchie nástroje Configuration Manager k dispozici v OMS.
@@ -28,9 +28,9 @@ System Center Configuration Manager můžete připojit k analýze protokolů v O
 Analýzy protokolů podporuje aktuální větve System Center Configuration Manager verze 1606 a vyšší.  
 
 ## <a name="configuration-overview"></a>Přehled konfigurace
-Následující kroky shrnuje postup připojení k analýze protokolů nástroje Configuration Manager.  
+Následující kroky shrnují proces připojení k analýze protokolů nástroje Configuration Manager.  
 
-1. V portálu pro správu Azure zaregistrujte nástroje Configuration Manager jako webovou aplikaci nebo webové rozhraní API app a ujistěte se, že máte ID klienta a tajný klíč klienta z registraci ze služby Azure Active Directory. V tématu [použití portálu k vytvoření služby Active Directory objekt zabezpečení aplikací a služeb, který mají přístup k prostředkům](../azure-resource-manager/resource-group-create-service-principal-portal.md) podrobné informace o provedení tohoto kroku.
+1. V portálu pro správu Azure zaregistrujte nástroje Configuration Manager jako webovou aplikaci nebo webové rozhraní API app a ujistěte se, že máte ID klienta a tajný klíč klienta z registraci ze služby Azure Active Directory. V tématu [použití portálu k vytvoření služby Active Directory objekt zabezpečení aplikací a služeb, který mají přístup k prostředkům](../azure-resource-manager/resource-group-create-service-principal-portal.md) podrobné informace o tom, jak provést tento krok.
 2. Na portálu správy Azure [nástroje Configuration Manager (registrovaný webové aplikace) poskytnout oprávnění k přístupu k OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. V nástroji Configuration Manager [přidat připojení pomocí Průvodce přidáním připojení OMS](#add-an-oms-connection-to-configuration-manager).
 4. V nástroji Configuration Manager [aktualizujte vlastnosti připojení](#update-oms-connection-properties) Pokud tajný klíč heslo nebo klienta, kdy vyprší platnost nebo dojde ke ztrátě.
@@ -44,33 +44,33 @@ Další informace o připojení nástroje Configuration Manager k OMS na [synchr
 Následující postup poskytuje Azure Management Portal s oprávněními pro přístup k OMS. Konkrétně musí udělit *role Přispěvatel* uživatelům ve skupině prostředků, aby bylo možné povolit portálu pro správu Azure Configuration Manager připojit k OMS.
 
 > [!NOTE]
-> Musíte zadat oprávnění v OMS pro nástroj Configuration Manager. Chybová zpráva jinak, obdržíte při použití Průvodce konfigurací služby v nástroji Configuration Manager.
+> Musíte zadat oprávnění v OMS pro nástroj Configuration Manager. Jinak zobrazí chybová zpráva při použití Průvodce konfigurací služby v nástroji Configuration Manager.
 >
 >
 
-1. Otevřete [portál Azure](https://portal.azure.com/) a klikněte na tlačítko **Procházet** > **analýzy protokolů (OMS)** otevřete okno analýzy protokolů (OMS).  
-2. Na **analýzy protokolů (OMS)** okně klikněte na tlačítko **přidat** otevřete **pracovním prostorem OMS** okno.  
-   ![Okno OMS](./media/log-analytics-sccm/sccm-azure01.png)
-3. Na **pracovním prostorem OMS** okno, zadejte následující informace a potom klikněte na **OK**.
+1. Otevřete [portál Azure](https://portal.azure.com/) a klikněte na tlačítko **Procházet** > **analýzy protokolů (OMS)** otevřete analýzy protokolů (OMS).  
+2. Na **analýzy protokolů (OMS)**, klikněte na tlačítko **přidat** otevřete **pracovním prostorem OMS**.  
+   ![OMS](./media/log-analytics-sccm/sccm-azure01.png)
+3. Na **pracovním prostorem OMS**, zadejte následující informace a pak klikněte na tlačítko **OK**.
 
    * **Pracovní prostor OMS**
    * **Předplatné**
    * **Skupina prostředků**
    * **Umístění**
    * **Cenová úroveň**  
-     ![Okno OMS](./media/log-analytics-sccm/sccm-azure02.png)  
+     ![OMS](./media/log-analytics-sccm/sccm-azure02.png)  
 
      > [!NOTE]
      > Tento příklad vytvoří novou skupinu prostředků. Skupina prostředků slouží pouze k poskytování nástroje Configuration Manager s oprávněními k pracovním prostorem OMS v tomto příkladu.
      >
      >
-4. Klikněte na tlačítko **Procházet** > **skupiny prostředků** otevřete **skupiny prostředků** okno.
-5. V **skupiny prostředků** okno, klikněte na prostředek skupinu, kterou jste vytvořili výše, otevřete &lt;název skupiny prostředků&gt; okno nastavení.  
-   ![okno nastavení skupiny prostředků](./media/log-analytics-sccm/sccm-azure03.png)
-6. V &lt;název skupiny prostředků&gt; okno nastavení, klikněte na řízení přístupu (IAM) Chcete-li otevřít &lt;název skupiny prostředků&gt; oknem uživatelé.  
-   ![okno Uživatelé skupiny prostředků](./media/log-analytics-sccm/sccm-azure04.png)  
-7. V &lt;název skupiny prostředků&gt; oknem uživatelé, klikněte na tlačítko **přidat** otevřete **přidat přístup** okno.
-8. V **přidat přístup** okně klikněte na tlačítko **vyberte roli**a pak vyberte **Přispěvatel** role.  
+4. Klikněte na tlačítko **Procházet** > **skupiny prostředků** otevřete **skupiny prostředků**.
+5. V **skupiny prostředků**, klikněte na skupinu prostředků, kterou jste vytvořili výše, otevřete &lt;název skupiny prostředků&gt; nastavení.  
+   ![nastavení skupiny prostředků](./media/log-analytics-sccm/sccm-azure03.png)
+6. V &lt;název skupiny prostředků&gt; nastavení, klikněte na řízení přístupu (IAM) otevřete &lt;název skupiny prostředků&gt; uživatele.  
+   ![Skupina prostředků uživatele](./media/log-analytics-sccm/sccm-azure04.png)  
+7. V &lt;název skupiny prostředků&gt; uživatele, klikněte na tlačítko **přidat** otevřete **přidat přístup**.
+8. V **přidat přístup**, klikněte na tlačítko **vyberte roli**a pak vyberte **Přispěvatel** role.  
    ![Vybrat roli](./media/log-analytics-sccm/sccm-azure05.png)  
 9. Klikněte na tlačítko **přidat uživatele**, vyberte uživatele nástroje Configuration Manager, klikněte na **vyberte**a potom klikněte na **OK**.  
    ![Přidání uživatelů](./media/log-analytics-sccm/sccm-azure06.png)  
@@ -85,9 +85,9 @@ Chcete-li přidat připojení k OMS, musí mít prostředí nástroje Configurat
    2. Na portálu správy Azure jste vytvořili tajný klíč aplikace pro aplikaci registrovanou v Azure Active Directory.  
    3. V portálu pro správu Azure jste zadali registrované webové aplikace s oprávněním pro přístup k OMS.  
       ![Připojení k stránka průvodce Obecné OMS](./media/log-analytics-sccm/sccm-console-general01.png)
-3. Na **Azure Active Directory** obrazovky, konfigurace nastavení připojení k OMS tím, že poskytuje vaší **klienta** , **ID klienta** , a **tajný klíč klienta**  , pak vyberte **Další**.  
+3. Na **Azure Active Directory** obrazovky, konfigurace nastavení připojení k OMS tím, že poskytuje vaší **klienta**, **ID klienta**, a **tajný klíč klienta** , pak vyberte **Další**.  
    ![Připojení k stránce OMS Průvodce Azure Active Directory](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
-4. Pokud můžete provést všechny postupy úspěšně, pak informace na **konfigurace připojení OMS** obrazovky se automaticky zobrazí na této stránce. Informace o nastavení připojení, které by se měla objevit pro vaše **předplatného Azure** , **skupina prostředků Azure** , a **pracovní prostor služby Operations Management Suite**.  
+4. Pokud můžete provést všechny postupy úspěšně, pak informace na **konfigurace připojení OMS** obrazovky se automaticky zobrazí na této stránce. Informace o nastavení připojení, které by se měla objevit pro vaše **předplatného Azure**, **skupina prostředků Azure**, a **pracovní prostor služby Operations Management Suite**.  
    ![Připojení k stránce OMS Průvodce OMS připojení](./media/log-analytics-sccm/sccm-wizard-configure04.png)
 5. Průvodce se připojí ke službě OMS pomocí informace, které jste vstup. Vyberte kolekce zařízení, které chcete synchronizovat s OMS a pak klikněte na tlačítko **přidat**.  
    ![Vyberte kolekce](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
@@ -103,15 +103,15 @@ Po propojení nástroje Configuration Manager na OMS, můžete přidat nebo odeb
 ## <a name="update-oms-connection-properties"></a>Aktualizovat vlastnosti připojení OMS
 Pokud heslo nebo klienta tajný klíč někdy vyprší platnost nebo dojde ke ztrátě, budete muset ručně aktualizovat vlastnosti připojení OMS.
 
-1. V nástroji Configuration Manager přejděte na **cloudové služby** , pak vyberte **OMS konektor** otevřete **vlastnosti připojení OMS** stránky.
+1. V nástroji Configuration Manager přejděte na **cloudové služby**, pak vyberte **OMS konektor** otevřete **vlastnosti připojení OMS** stránky.
 2. Na této stránce, klikněte na tlačítko **Azure Active Directory** zobrazíte vaše **klienta**, **ID klienta**, **klienta tajný klíč vypršení platnosti**. **Ověřte** vaše **tajný klíč klienta** Pokud vypršela platnost.
 
 ## <a name="download-and-install-the-agent"></a>Stáhněte a nainstalujte agenta
-1. Na portálu OMS [stáhnout instalační soubor agenta z OMS](log-analytics-windows-agents.md#download-the-agent-setup-file-from-oms).
+1. Na portálu OMS [stáhnout instalační soubor agenta z OMS](log-analytics-windows-agent.md).
 2. K instalaci a konfiguraci agenta v počítači se systémem roli systému bodu lokality nástroje Configuration Manager service připojení, použijte jednu z následujících metod:
-   * [Instalace agenta pomocí instalačního programu](log-analytics-windows-agents.md#install-the-agent-using-setup)
-   * [Instalace agenta pomocí příkazového řádku](log-analytics-windows-agents.md#install-the-agent-using-the-command-line)
-   * [Instalace agenta pomocí DSC v Azure Automation.](log-analytics-windows-agents.md#install-the-agent-using-dsc-in-azure-automation)
+   * [Instalace agenta pomocí instalačního programu](log-analytics-windows-agent.md)
+   * [Instalace agenta pomocí příkazového řádku](log-analytics-windows-agent.md)
+   * [Instalace agenta pomocí DSC v Azure Automation.](log-analytics-windows-agent.md)
 
 ## <a name="import-collections"></a>Importovat kolekce
 Po připojení k OMS přidán do nástroje Configuration Manager a nainstalovali agenta na počítači se systémem připojení nástroje Configuration Manager služby role systému lokality bodu, dalším krokem je k importování kolekcí z nástroje Configuration Manager v OMS jako počítač skupiny.

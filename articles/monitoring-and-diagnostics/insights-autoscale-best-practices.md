@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Osvědčené postupy pro automatické škálování
 V tomto článku se dozvíte, jaké osvědčené postupy pro škálování v Azure. Azure monitorování škálování se vztahují pouze na [sady škálování virtuálního počítače](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [cloudové služby](https://azure.microsoft.com/services/cloud-services/), a [služby App Service – webové aplikace](https://azure.microsoft.com/services/app-service/web/). Jinými službami Azure použít různé metody škálování.
@@ -44,9 +44,6 @@ Pokud je ručně aktualizovat na hodnotu vyšší nebo nižší než maximální
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Vždy používejte kombinaci Škálováním na více systémů a škálování pravidla, která provádí zvýšení a snížení
 Pokud používáte pouze jednou ze součástí sady kombinace, automatické škálování škálování in, který jednotné nebo ve, dokud maximální nebo minimální, je dosaženo.
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Při správě škálování není přepínat mezi portálem Azure a portálu Azure classic
-Pro cloudové služby a aplikace služeb (webové aplikace) pomocí portálu Azure (portal.azure.com) vytvořit a spravovat nastavení automatického škálování. Pro sady škálování virtuálního počítače použít k vytváření a správě nastavení automatického škálování prostředí PowerShell, rozhraní příkazového řádku nebo REST API. Není přepínat mezi portálu Azure classic (adresu manage.windowsazure.com) a portálu Azure (portal.azure.com) při správě konfigurace automatického škálování. Portál Azure classic a jeho základní back-end má určitá omezení. Přesuňte se k portálu Azure ke správě škálování pomocí grafického uživatelského rozhraní. Možnosti jsou používat automatické škálování prostředí PowerShell, rozhraní příkazového řádku nebo REST API (pomocí Průzkumníka prostředků Azure).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Zvolte odpovídající statistiky pro vaše metrika diagnostiky
 Diagnostika metriky, můžete vybrat mezi *průměrná*, *minimální*, *maximální* a *celkový* jako škálovat podle metriky. Nejběžnější Statistika je *průměrná*.

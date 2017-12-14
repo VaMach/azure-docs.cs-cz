@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: ba6dc69fa4aca8e0ee03ba97668d8b2ab1191002
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurace mapy služeb v Operations Management Suite
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Můžete ji zobrazit vaše servery co možná z nich – jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy a porty mezi všechny architektura připojení TCP se žádná konfigurace vyžaduje, než instalace agenta.
@@ -35,9 +35,9 @@ Tento článek popisuje podrobnosti konfigurace agentů mapy služeb a registrac
 ## <a name="connected-sources"></a>Připojené zdroje
 Mapa služeb získává data od agenta nástroje Microsoft závislostí. Agent závislostí závisí na agenta OMS pro připojení k Operations Management Suite. To znamená, že server musí mít agenta OMS nainstalovaný a nakonfigurovaný nejprve a pak může být nainstalován Agent závislostí. Následující tabulka popisuje připojených zdrojů, které podporuje řešení mapy služeb.
 
-| Připojené zdroje | Podporuje se | Popis |
+| Připojený zdroj | Podporuje se | Popis |
 |:--|:--|:--|
-| Agenti systému Windows | Ano | Mapa služeb analyzuje a shromažďuje data z počítače se systémem Windows agenta. <br><br>Kromě [agenta OMS](../log-analytics/log-analytics-windows-agents.md), Agent služby Microsoft Dependency vyžadují agentů v systému Windows. Najdete v článku [podporované operační systémy](#supported-operating-systems) úplný seznam verzí operačního systému. |
+| Agenti systému Windows | Ano | Mapa služeb analyzuje a shromažďuje data z počítače se systémem Windows agenta. <br><br>Kromě [agenta OMS](../log-analytics/log-analytics-windows-agent.md), Agent služby Microsoft Dependency vyžadují agentů v systému Windows. Najdete v článku [podporované operační systémy](#supported-operating-systems) úplný seznam verzí operačního systému. |
 | Agenti systému Linux | Ano | Mapa služeb analyzuje a shromažďuje data z počítače se systémem Linux agent. <br><br>Kromě [agenta OMS](../log-analytics/log-analytics-linux-agents.md), agenty Linux vyžadují Microsoft Agent závislostí. Najdete v článku [podporované operační systémy](#supported-operating-systems) úplný seznam verzí operačního systému. |
 | Skupina pro správu nástroje System Center Operations Manager | Ano | Mapa služeb analyzuje a shromažďuje data z agentů systému Windows a Linux v připojeného [skupiny pro správu System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Je nutné přímé připojení z počítače agenta System Center Operations Manager k Operations Management Suite. Do úložiště služby Operations Management Suite se předají data ze skupiny pro správu.|
 | Účet služby Azure Storage | Ne | Mapy služeb shromažďuje data z počítačů agentů, takže není žádná data z něj shromažďovat ze služby Azure Storage. |
@@ -74,7 +74,7 @@ Na počítačích s Windows pomocí InstallDependencyAgent Windows.exe je nainst
 
 Nainstalujte agenta závislost na každém počítači s Windows pomocí následujících kroků:
 
-1.  Nainstalovat agenta OMS pomocí pokynů v [počítače se systémem Windows se připojit ke službě Analýza protokolů v Azure](../log-analytics/log-analytics-windows-agents.md).
+1.  Nainstalovat agenta OMS pomocí pokynů v [počítače se systémem Windows se připojit ke službě Analýza protokolů v Azure](../log-analytics/log-analytics-windows-agent.md).
 2.  Stáhnout agenta pro Windows a spusťte jej pomocí následujícího příkazu: <br>`InstallDependencyAgent-Windows.exe`
 3.  Postupujte podle pokynů průvodce k instalaci agenta.
 4.  Pokud Agent služby Dependency se nepodaří spustit, zkontrolujte protokoly podrobné informace o chybě. Na agenty se systémem Windows k adresáři protokolu není %Programfiles%\Microsoft Agent\logs závislostí. 

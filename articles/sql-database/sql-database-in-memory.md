@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimalizace výkonu pomocí technologie v paměti v databázi SQL
 
@@ -77,9 +77,7 @@ Podrobný videa o technologiích:
 
 OLTP v paměti obsahuje paměťově optimalizované tabulky, které se používají k ukládání dat uživatele. Tyto tabulky musí nevejdou se do paměti. Vzhledem k tomu, že budete spravovat paměti přímo ve službě SQL Database, máme koncept kvótu pro data uživatelů. Toto je vhodné se označuje jako *OLTP v paměti úložiště*.
 
-Každý podporovaný samostatná databáze cenová úroveň a každý elastického fondu cenová úroveň zahrnuje množství OLTP v paměti úložiště. V době psaní získat gigabajt úložiště pro každý 125 jednotky transakcí databáze (Dtu) nebo jednotky transakcí elastické databáze (Edtu).
-
-[Úrovně služeb SQL Database](sql-database-service-tiers.md) článek má oficiální seznam úložiště OLTP v paměti, která je k dispozici pro všechny podporované samostatná databáze a elastického fondu cenová úroveň.
+Každý podporovaný samostatná databáze cenová úroveň a každý elastického fondu cenová úroveň zahrnuje množství OLTP v paměti úložiště. V době psaní získat gigabajt úložiště pro každý 125 jednotky transakcí databáze (Dtu) nebo jednotky transakcí elastické databáze (Edtu). Další informace najdete v tématu [limitů prostředků](sql-database-resource-limits.md).
 
 Následující položky započítávat vašeho úložiště cap OLTP v paměti:
 

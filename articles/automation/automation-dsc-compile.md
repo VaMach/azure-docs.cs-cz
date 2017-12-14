@@ -3,7 +3,7 @@ title: "Kompilování konfigurace v Azure Automation DSC. | Microsoft Docs"
 description: "Tento článek popisuje způsob kompilace konfigurace konfigurace požadovaného stavu (DSC) automatizace Azure."
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilování konfigurace v Azure Automation DSC.
 
@@ -47,7 +47,7 @@ Jakmile jste se rozhodli metodě kompilace, můžete provést následující spu
 1. Z vašeho účtu Automation, klikněte na tlačítko **konfigurace DSC**.
 2. Klikněte na konfiguraci, kterou chcete otevřete její okno.
 3. Klikněte na tlačítko **zkompilovat**.
-4. Pokud konfigurace nemá žádné parametry, vyzve k potvrzení, zda chcete jej zkompilovat. Pokud konfigurace obsahuje parametry, **zkompilování konfigurace** , můžete zadat hodnoty parametrů, otevře se okno. Najdete v článku [ **základních parametrů** ](#basic-parameters) části níže další podrobnosti o parametrech.
+4. Pokud konfigurace nemá žádné parametry, zobrazí se výzva k potvrzení, zda chcete jej zkompilovat. Pokud konfigurace obsahuje parametry, **zkompilování konfigurace** otevře se okno, můžete zadat hodnoty parametrů. Najdete v článku [ **základních parametrů** ](#basic-parameters) části níže další podrobnosti o parametrech.
 5. **Úloha kompilace** otevře se okno, takže můžete sledovat stav úlohy kompilace a konfigurace uzlu (MOF konfigurace dokumenty) se nezdařila z důvodu má být umístěn do Azure Automation DSC pro vyžádání obsahu serveru.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>Kompilaci konfigurace DSC pomocí prostředí Windows PowerShell
@@ -131,16 +131,16 @@ Informace o předávání PSCredentials jako parametry najdete v tématu <a href
 
 ## <a name="composite-resources"></a>Složené prostředky
 
-**Složené prostředky** vám umožní použít konfigurace DSC jako vnořených prostředků v rámci konfigurace.  To umožňuje použít více konfigurací pro jediný zdroj.  V tématu [složené prostředků: pomocí konfigurace DSC jako prostředek](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) Další informace o **složené prostředky**
+**Složené prostředky** vám umožní použít konfigurace DSC jako vnořených prostředků v rámci konfigurace. To umožňuje použít více konfigurací pro jediný zdroj.  V tématu [složené prostředků: pomocí konfigurace DSC jako prostředek](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) Další informace o **složené prostředky**
 
 > [!NOTE]
 > Aby **složené prostředky** pro správnou kompilaci, musíte napřed zajistit, aby veškeré prostředky DSC, které složené spoléhá na prvním nainstalování v úložišti moduly účet Azure Automation nebo nebude správně importovat.
 
-Chcete-li přidat DSC **složené prostředků**, modul prostředků je třeba přidat do archivu (* .zip). Přejděte do úložiště modulů na váš účet Azure Automation.  Klikněte na tlačítko "Přidat modul".
+Chcete-li přidat DSC **složené prostředků**, modul prostředků je třeba přidat do archivu (* .zip). Přejděte do úložiště modulů na váš účet Azure Automation. Klikněte na tlačítko "Přidat modul".
 
 ![Přidání modulu](./media/automation-dsc-compile/add_module.png)
 
-Přejděte do adresáře, kde se nachází vašem archivu.  Vyberte soubor archivu a klikněte na tlačítko OK.
+Přejděte do adresáře, kde se nachází vašem archivu. Vyberte soubor archivu a klikněte na tlačítko OK.
 
 ![Vyberte modul](./media/automation-dsc-compile/select_dscresource.png)
 
@@ -286,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Import konfigurace uzlu
 
-Můžete také importovat configuratons uzlu (soubory MOF), které zkompilujete mimo Azure. Jednou z výhod to je, že může být podepsané konfigurace uzlu.
+Můžete také importovat konfigurace uzlu (soubory MOF), které jste sestavili mimo Azure. Jednou z výhod to je, že může být podepsané konfigurace uzlu.
 Konfigurace podepsaný uzlu je ověřováno místně na spravovaný uzel DSC agenta, zajistíte, že konfigurace aplikované na uzlu pochází z autorizovaná zdrojová.
 
 > [!NOTE]

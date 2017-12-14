@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5c3129a50f456e484bf8af2a866059f494bed1d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Nejčastější dotazy se správou hesel
 
@@ -41,6 +41,11 @@ Tyto nejčastější dotazy je rozdělená do následujících částí:
 * **Otázka: je možné mé uživatelé registrovat svá vlastní data resetování hesla?**
 
   > **Odpověď:** Ano. Jak dlouho, dokud je povoleno obnovení hesla a udělení licence, mohou uživatelé resetování portálu pro registraci hesel (http://aka.ms/ssprsetup) k registraci jejich informace o ověřování. Uživatelé mohou také registrovat prostřednictvím přístupový Panel (http://myapps.microsoft.com). Pokud chcete zaregistrovat prostřednictvím panelu přístup, potřebují k výběru jejich profilový obrázek, vyberte **profil**a pak vyberte **zaregistrovat pro resetování hesla** možnost.
+  >
+  >
+* **Otázka: Pokud lze povolit heslo resetovat pro skupinu a následně se rozhodnete ji zapnout pro každý jsou mé uživatelé požadované znovu zaregistrovat?**
+
+  > **Odpověď:** Ne. Uživatelé, kteří mají vyplní data ověřování není nutné znovu zaregistrovat.
   >
   >
 * **Otázka: je možné definovat data resetování hesel jménem Moje uživatelů?**

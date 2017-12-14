@@ -13,244 +13,153 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 12/12/2017
 ms.author: saurinsh
-ms.openlocfilehash: 649d138a85ca47440e43c00637ee92b86f4eb03e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 345017d4a15f63e12940a8b2d9e55ee777c0e22a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="configure-domain-joined-hdinsight-clusters"></a>Konfigurace clusterů HDInsight připojený k doméně
+# <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Konfigurace prostředí izolovaného prostoru HDInsight připojený k doméně
 
-Zjistěte, jak nastavit cluster Azure HDInsight s Azure Active Directory (Azure AD) a [Apache škálu](http://hortonworks.com/apache/ranger/) využívat výhod silné ověřování a bohaté přístupu podle rolí zásady řízení (RBAC).  HDInsight připojený k doméně se dá nakonfigurovat jenom na clusterech se systémem Linux. Další informace najdete v tématu [clustery HDInsight připojený k doméně zavádět](apache-domain-joined-introduction.md).
+Zjistěte, jak nastavit cluster Azure HDInsight pomocí samostatné služby Active Directory a [Apache škálu](http://hortonworks.com/apache/ranger/) využívat výhod silné ověřování a bohaté přístupu podle rolí zásady řízení (RBAC). Další informace najdete v tématu [clustery HDInsight připojený k doméně zavádět](apache-domain-joined-introduction.md).
+
+Bez clusteru HDInsight připojený k doméně, každý cluster může mít pouze účet uživatele Hadoop HTTP a uživatelský účet SSH.  Ověřování více uživatelů lze dosáhnout pomocí:
+
+-   Samostatné služby Active Directory spuštěné v Azure IaaS
+-   Azure Active Directory
+-   Active Directory spuštěné v místním prostředí zákazníků.
+
+Pomocí samostatné služby Active Directory spuštěné v Azure IaaS je popsaná v tomto článku. Je nejjednodušší architekturu, kterou můžete získat podporu pro více uživatelů v HDInsight podle zákazníka. 
 
 > [!IMPORTANT]
 > Oozie není povoleno v doméně HDInsight.
 
-Tento článek je první kurz řady:
+## <a name="prerequisite"></a>Požadavek
+* Předplatné Azure
 
-* Vytvoření clusteru HDInsight připojené ke službě Azure AD (prostřednictvím funkce Azure Directory Domain Services) s Apache škálu povolena.
-* Vytvořit a použít zásady Hive prostřednictvím Apache škálu a povolit uživatelům (například datových vědců) pro připojení k Hive pomocí rozhraní ODBC nástrojů, například aplikace Excel, Tableau atd. Společnost Microsoft pracuje na přidávání dalších úloh, jako jsou HBase a Storm, k doméně HDInsight brzy.
+## <a name="create-an-active-directory"></a>Vytvoření služby Active Directory
 
-Služba Azure názvy musí být globálně jedinečný. Následující názvy jsou použity v tomto kurzu. Contoso je fiktivní název. Je třeba nahradit *contoso* s jiným názvem při absolvovat kurz. 
+Šablona Azure Resource Manageru usnadňuje vytváření prostředků Azure. V této části můžete použít [šablony Azure QuickStart](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) pro vytvoření nové doménové struktury a domény s dva virtuální počítače. Dva virtuální počítače sloužit jako primární řadič domény a řadičem domény.
 
-**Názvy:**
+**Vytvoření domény s dva řadiče domény**
 
-| Vlastnost | Hodnota |
-| --- | --- |
-| Adresář Azure AD |contosoaaddirectory |
-| Název domény služby Azure AD |společnosti Contoso (contoso.onmicrosoft.com) |
-| Virtuální síť HDInsight |contosohdivnet |
-| Skupina prostředků HDInsight virtuální sítě |contosohdirg |
-| HDInsight cluster |contosohdicluster |
+1. Kliknutím na následující obrázek otevřete šablonu na portálu Azure Portal.
 
-Tento kurz obsahuje kroky pro konfiguraci clusteru HDInsight připojený k doméně. Každá část obsahuje odkazy na další články s podrobnější informace.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="./media/apache-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-## <a name="prerequisite"></a>Předpoklad:
-* Seznamte se s [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) jeho [ceny](https://azure.microsoft.com/pricing/details/active-directory-ds/) struktura.
-* Zajistěte, aby vaše předplatné seznam povolených adres pro tuto verzi public preview. Můžete to provést pomocí e-mailu na hdipreview@microsoft.com s vaším ID předplatného.
-* Certifikát SSL, který je podepsaný podpisový autority nebo certifikát podepsaný svým držitelem pro vaši doménu. Je požadován pro konfiguraci zabezpečený LDAP certifikát.
+    Šablona vypadá takto:
 
-## <a name="procedures"></a>Postupy
-1. Vytvoření virtuální sítě HDInsight v režimu správy prostředků Azure.
-2. Vytvoření a konfigurace Azure AD a Azure AD DS.
-3. Vytvoření clusteru HDInsight.
+    ![Připojené k doméně HDInsight vytvářet virtuální počítače domény doménové struktury](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-arm-template.png)
 
-> [!NOTE]
-> Tento kurz předpokládá, že nemáte Azure AD. Pokud nemáte, můžete tuto část přeskočit.
-> 
-> 
+2. Zadejte následující hodnoty:
 
-## <a name="create-a-resource-manager-vnet-for-hdinsight-cluster"></a>Vytvoření virtuální sítě Resource Manageru pro HDInsight cluster
-V této části vytvoříte o virtuální síť Azure Resource Manager, který se použije pro HDInsight cluster. Další informace o vytváření virtuální sítě Azure pomocí jiných metod najdete v tématu [vytvoření virtuální sítě](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+    - **Předplatné:** Vyberte předplatné Azure.
+    - **Název skupiny prostředků**: Zadejte název skupiny prostředků.  Skupiny prostředků slouží ke správě vašich prostředků Azure, které se vztahují k projektu.
+    - **Umístění**: Vyberte Azure umístění, které je blízko vás.
+    - **Uživatelské jméno správce**: Toto je uživatelské jméno správce domény. Tento uživatel není uživatelský účet HTTP clusteru HDInsight. Toto je účet, který používáte v rámci tohoto kurzu.
+    - **Heslo správce**: Zadejte heslo správce domény.
+    - **Název domény**: název domény musí být dvoudílný název. Například: contoso.com, nebo contoso.local nebo hdinsight.test.
+    - **Předpona DNS**: Zadejte předponu DNS
+    - **Portu RDP primárního řadiče domény**: (použijte výchozí hodnotu v tomto kurzu)
+    - **BDC portu RDP**: (použijte výchozí hodnotu v tomto kurzu)
+    - **umístění artefakty**: (použijte výchozí hodnotu v tomto kurzu)
+    - **token SAS umístění artefakty**: (nevyplňujte pro tento kurz.)
 
-Po vytvoření virtuální sítě, můžete nakonfigurovat služba Azure AD DS použít této virtuální sítě.
+Pro vytvoření prostředků trvá asi 20 minut.
 
-**K vytvoření virtuální sítě Resource Manageru**
+## <a name="setup-ldaps"></a>Instalační program LDAPS
 
-1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Klikněte na tlačítko **nový**, **sítě**a potom **virtuální síť**. 
-3. V **vybrat model nasazení**, vyberte **Resource Manager**a potom klikněte na **vytvořit**.
-4. Zadejte nebo vyberte tyto hodnoty:
-   
-   * **Název**: contosohdivnet
-   * **Adresní prostor**: 10.0.0.0/16.
-   * **Název podsítě**: Subnet1
-   * **Rozsah adres podsítě**: 10.0.0.0/24
-   * **Předplatné**: (vyberte předplatné Azure.)
-   * **Skupina prostředků**: contosohdirg
-   * **Umístění**: (Vybrat stejné umístění jako virtuální sítě Azure AD. Například contosoaadvnet.)
-5. Klikněte na možnost **Vytvořit**.
+Přístup protokolu LDAP (Lightweight Directory) se používá ke čtení z a zapisovat do služby AD.
 
-**Konfigurace služby DNS pro virtuální sítě Resource Manageru**
+**Pro připojení k primární řadič domény pomocí vzdálené plochy**
 
-1. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **další služby** > **virtuální sítě**. Zajistěte, aby klikněte na tlačítko **virtuální sítě (klasické)**.
-2. Klikněte na tlačítko **contosohdivnet**.
-3. Klikněte na tlačítko **servery DNS** z levé strany nové okno.
-4. Klikněte na tlačítko **vlastní**a potom zadejte následující hodnoty:
-   
-   * 10.0.0.4
-   * 10.0.0.5     
-     
-5. Klikněte na **Uložit**.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+2. Otevřete skupinu prostředků a pak otevřete virtuální počítač primárního řadiče domény. Výchozí název primárního řadiče domény je adPDC. 
+3. Klikněte na tlačítko **Connect** pro připojení k primární řadič domény pomocí vzdálené plochy.
 
-## <a name="create-and-configure-azure-ad-ds-for-your-azure-ad"></a>Vytvoření a konfiguraci služby Azure AD DS pro vaši službu Azure AD
-V této části provedete následující:
+    ![Připojené k doméně HDInsight připojení vzdálené plochy primárního řadiče domény](./media/apache-domain-joined-configure/hdinsight-domain-joined-remote-desktop-pdc.png)
 
-1. Vytvořte Azure AD.
-2. Vytvořte uživatele Azure AD. Tito uživatelé jsou uživatele domény. První uživatel se používá pro konfiguraci clusteru HDInsight pomocí Azure AD.  Dva uživatelé jsou volitelné pro účely tohoto kurzu. Bude použita v [Hive nakonfigurovat zásady pro clustery služby HDInsight připojený k doméně](apache-domain-joined-run-hive.md) při konfiguraci zásad Apache škálu.
-3. Vytvoření skupiny Administrators AAD řadič domény a do skupiny přidat uživatele Azure AD. Tento uživatel slouží k vytvoření organizační jednotky.
-4. Povolení služby Azure AD Domain Services (Azure AD DS) pro Azure AD.
-5. Nakonfigurujte LDAPS pro Azure AD. Přístup protokolu LDAP (Lightweight Directory) se používá ke čtení z a zapisovat do služby Azure AD.
 
-Pokud byste radši chtěli použít existující Azure AD, můžete přeskočit kroky 1 a 2.
+**Chcete-li přidat službu Active Directory Certificate services**
 
-**Chcete-li vytvořit Azure AD**
+4. Otevřete **správce serveru** Pokud není otevřen.
+5. Klikněte na tlačítko **spravovat**a potom klikněte na **přidat role a funkce**.
 
-1. Z [portál Azure classic](https://manage.windowsazure.com), klikněte na tlačítko **nový** > **App Services** > **služby Active Directory**  >  **Directory** > **vytvořit vlastní**. 
-2. Zadejte nebo vyberte tyto hodnoty:
-   
-   * **Název**: contosoaaddirectory
-   * **Název domény**: contoso.  Tento název musí být globálně jedinečný.
-   * **Země nebo oblast**: vyberte vaši zemi nebo oblast.
-3. Klikněte na **Dokončit**.
+    ![Připojené k doméně HDInsight přidání rolí a funkcí](./media/apache-domain-joined-configure/hdinsight-domain-joined-add-roles.png)
+5. Z "Než začnete", klikněte na tlačítko **Další**.
+6. Vyberte **instalace na základě rolí nebo na základě funkcí**a potom klikněte na **Další**.
+7. Vyberte primární řadič domény a pak klikněte na tlačítko **Další**.  Výchozí název primárního řadiče domény je adPDC.
+8. Vyberte **služby Active Directory Certificate Services**.
+9. Klikněte na tlačítko **přidat funkce** z tohoto dialogového okna v automaticky otevřeném okně.
+10. Postupujte podle pokynů průvodce, použijte výchozí nastavení pro zbytek postupu.
+11. Průvodce zavřete kliknutím na **Zavřít**.
 
-**Vytvořit uživatele Azure AD**
+**Konfigurovat certifikát služby AD**
 
-1. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **Azure Active Directory** > **contosoaaddirectory** > **uživatelů a skupin**. 
-2. Klikněte na tlačítko **všichni uživatelé** z nabídky.
-3. Klikněte na tlačítko **nového uživatele**.
-4. Zadejte **název** a **uživatelské jméno**a potom klikněte na **Další**. 
-5. Konfigurace profilu uživatele; V **Role**, vyberte **globálního správce**; a potom klikněte na **Další**.  Roli globálního správce je potřeba k vytvoření organizační jednotky.
-6. Vytvořte kopii dočasné heslo.
-7. Klikněte na možnost **Vytvořit**. Později v tomto kurzu použijete k vytvoření clusteru HDInsight tohoto uživatele globální správce.
+1. Ve Správci serveru klikněte na ikonu žlutý oznámení a pak klikněte na tlačítko **konfigurace Active Directory Certificate services**.
 
-Postupujte stejným způsobem, chcete-li vytvořit dva další uživatelé s **uživatele** role, hiveuser1 a hiveuser2. Následující uživatelé se použije v [Hive nakonfigurovat zásady pro clustery služby HDInsight připojený k doméně](apache-domain-joined-run-hive.md).
+    ![HDInsight doméně nakonfigurovat certifikát služby AD](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
 
-**Vytvoření skupiny AAD správce řadiče domény a přidat uživatele Azure AD**
+2. Klikněte na tlačítko ** vyberte služby rolí na levé straně, **certifikační autority**a potom klikněte na **Další**.
+3. Postupujte podle pokynů průvodce, použijte výchozí nastavení pro zbytek procesu (klikněte na tlačítko **konfigurace** na poslední krok).
+4. Průvodce zavřete kliknutím na **Zavřít**.
 
-1. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **Azure Active Directory** > **contosoaaddirectory** > **uživatelů a skupin**. 
-2. Klikněte na tlačítko **všechny skupiny** v hlavní nabídce.
-3. Klikněte na tlačítko **nové skupiny**.
-4. Zadejte nebo vyberte tyto hodnoty:
-   
-   * **Název**: Správci AAD řadič domény.  Neměnit název skupiny.
-   * **Typ členství**: přiřazen.
-5. Klikněte na **Vybrat**.
-6. Klikněte na tlačítko **členy**.
-7. Vyberte první uživatel, který jste vytvořili v předchozím kroku a pak klikněte na tlačítko **vyberte**.
-8. Opakujte stejný postup, jak vytvořit jinou skupinu s názvem **HiveUsers**, a přidejte dva Hive uživatele do skupiny.
+## <a name="optional-create-ad-users-and-groups"></a>(Volitelné) Vytvoření AD uživatelů a skupin
 
-Další informace najdete v tématu [Azure AD Domain Services (Preview) – vytvořit skupinu, správci AAD řadič domény,](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+**Vytvoření uživatelů a skupin ve službě AD**
+1. Připojit k primární řadič domény pomocí vzdálené plochy
+1. Otevřete **uživatelé a počítače Active Directory**.
+2. V levém podokně vyberte název vaší domény.
+3. Klikněte **vytvořte nového uživatele v aktuálním kontejneru** ikonu na horní nabídce.
 
-**Pokud chcete povolit služby Azure AD DS pro vaši službu Azure AD**
+    ![Vytvoření uživatelů připojených k doméně HDInsight](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-ad-user.png)
+4. Postupujte podle pokynů vytvořte několik uživatelů. Například hiveuser1 a hiveuser2.
+5. Klikněte **vytvořit novou skupinu v aktuálním kontejneru** ikonu na horní nabídce.
+6. Postupujte podle pokynů vytvořte skupinu s názvem **HDInsightUsers**.  Tato skupina se používá při vytváření clusteru HDInsight později v tomto kurzu.
 
-1. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **vytvořit prostředek** > **zabezpečení a identita** > **Azure AD Domain Services**  >  **Přidat**. 
-2. Zadejte nebo vyberte tyto hodnoty:
-   * **Název adresáře**: contosoaaddirectory
-   * **Název domény DNS**: Zobrazí název DNS výchozí adresář Azure. Například contoso.onmicrosoft.com.
-   * **Umístění**: Vyberte oblast.
-   * **Sítě**: vyberte virtuální síť a podsíť, které jste vytvořili dříve. Například **contosohdivnet**.
-3. Klikněte na tlačítko **OK** na stránce Souhrn. Zobrazí se **nasazení probíhá...**  pod oznámení.
-4. Počkejte na **nasazení probíhá...**  zmizí, a **IP adresu** získá naplněno. Dvě IP adresy budou obsazeny. Toto jsou IP adresy řadiče domény, který vytváří Domain Services. Po odpovídající řadič domény je zřízený a připravena, budou viditelné každou IP adresu. Poznamenejte si dvě IP adresy. Ty budete potřebovat později.
+> [!IMPORTANT]
+> Před vytvořením clusteru HDInsight připojený k doméně, je nutné restartovat virtuální počítač primárního řadiče domény.
 
-Další informace najdete v tématu [povolit Azure Active Directory Domain Services pomocí webu Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+## <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Vytvoření clusteru HDInsight ve virtuální síti
 
-**Jak synchronizovat heslo**
+V této části použijete k přidání clusteru služby HDInsight do virtuální sítě, které jste vytvořili dříve v tomto kurzu pomocí šablony Resource Manageru na portálu Azure. V tomto článku se vztahuje pouze na konkrétní informace o konfiguraci clusteru připojený k doméně.  Obecné informace najdete v tématu [vytvořit systémem Linux clusterů v HDInsight pomocí portálu Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 
-Pokud budete používat vlastní doménu, budete muset synchronizovat heslo. V tématu [povolení synchronizace hesel do služby Azure AD domain services pro Azure výhradně cloudový adresář AD](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
-
-**Ke konfiguraci LDAPS pro Azure AD**
-
-1. Získejte certifikát SSL, který je podepsaný podpisový autoritou pro vaši doménu.
-2. Z [portál Azure](https://portal.azure.com), klikněte na tlačítko **Azure AD Domain Services** > **contoso.onmicrosoft.com**. 
-3. Povolit **zabezpečený LDAP**.
-6. Postupujte podle pokynů určete soubor certifikátu a heslo.  
-7. Počkejte na **zabezpečení certifikátu LDAP** tu naplněno. To může trvat až 10 minut nebo déle.
-
-> [!NOTE]
-> Pokud některé úlohy na pozadí běží na Azure AD DS, zobrazí chybu při odesílání certifikát – <i>je operace prováděna pro tohoto klienta. Zkuste to prosím znovu později</i>.  V případě, že dojde k této chybě, zkuste to prosím po nějaké době znovu. Druhá IP řadič domény může trvat až 3 hodiny, které se má zřídit.
-> 
-> 
-
-Další informace najdete v tématu [konfigurace zabezpečení protokolu LDAP (LDAPS) pro Azure AD Domain Services spravované domény](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
-
-## <a name="create-hdinsight-cluster"></a>Vytvoření clusteru HDInsight
-V této části vytvoříte clusteru systémem Linux Hadoop v HDInsight pomocí portálu Azure nebo [šablony Azure Resource Manageru](../../azure-resource-manager/resource-group-template-deploy.md). Další metody vytváření clusterů a Principy nastavení, najdete v tématu [Tvorba clusterů HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Další informace o vytvoření clusterů systému Hadoop v HDInsight pomocí šablony Resource Manageru najdete v tématu [vytvoření Hadoop clusterů v HDInsight pomocí šablony Resource Manageru](../hdinsight-hadoop-create-windows-clusters-arm-templates.md)
-
-**K vytvoření clusteru HDInsight se připojený k doméně pomocí portálu Azure**
+**K vytvoření clusteru HDInsight se připojený k doméně**
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
-2. Klikněte na tlačítko **nový**, **Intelligence + analýzy**a potom **HDInsight**.
-3. Z **clusteru HDInsight se nové** okno, zadejte nebo vyberte tyto hodnoty:
-   
-   * **Název clusteru**: Zadejte nový název clusteru pro cluster HDInsight připojený k doméně.
-   * **Předplatné**: Vyberte předplatné Azure použitý k vytvoření tohoto clusteru.
-   * **Konfigurace clusteru**:
-     
-     * **Typ clusteru**: Hadoop. Připojené k doméně HDInsight je aktuálně pouze podporována v Hadoop, Spark a interaktivní dotazu clusterů.
-     * **Operační systém**: Linux.  Připojené k doméně HDInsight je podporována pouze na clusterech HDInsight se systémem Linux.
-     * **Verze**: HDI 3.6. Připojené k doméně HDInsight je podporována pouze na verzi clusteru HDInsight 3.6.
-     * **Typ clusteru**: PREMIUM
-       
-       Klikněte na tlačítko **vyberte** a uložte změny.
-   * **Přihlašovací údaje**: nakonfigurujte pověření pro uživatele clusteru a uživatel SSH.
-   * **Zdroj dat**: Vytvořte nový účet úložiště nebo použijte existující účet úložiště jako výchozí účet úložiště pro HDInsight cluster. Toto umístění musí být stejná jako dvě virtuální sítě.  Umístění je také umístění clusteru HDInsight.
-   * **Ceny**: Vyberte počet uzlů pracovního procesu ve vašem clusteru.
-   * **Pokročilé konfigurace**: 
-     
-     * **Připojení k doméně & virtuální sítě a podsítě**: 
-       
-       * **Nastavení domény**: 
-         
-         * **Název domény**: contoso.onmicrosoft.com
-         * **Uživatelské jméno domény**: Zadejte uživatelské jméno domény. Tato doména musí mít následující oprávnění: připojení počítače k doméně a umístí je do organizační jednotky, které zadáte během vytváření clusteru; Vytvořit objekty služby v rámci organizační jednotka, kterou zadáte během vytváření clusteru; Vytvořte reverzní záznamy DNS. Tento uživatel domény, bude správce tento cluster HDInsight připojený k doméně.
-         * **Heslo domény**: Zadejte heslo uživatele domény.
-         * **Organizační jednotka**: zadejte rozlišující název organizační jednotky, kterou chcete použít s clusterem HDInsight. Například: OU = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com. Pokud tuto organizační jednotku neexistuje, clusteru HDInsight se pokusí vytvořit tuto organizační jednotku. Ujistěte se, že na organizační jednotku již existuje nebo doménový účet má oprávnění k vytvoření nového. Pokud používáte účet domény, který je součástí AADDC správci, bude mít nezbytná oprávnění k vytváření organizační jednotky.
-         * **Adresa URL LDAPS**: ldaps://contoso.onmicrosoft.com:636
-         * **Skupina uživatelů přístup**: Určete skupinu zabezpečení, jejichž uživatelé, které chcete synchronizovat do clusteru. Například HiveUsers.
-           
-           Klikněte na tlačítko **vyberte** a uložte změny.
-           
-           ![Portál HDInsight připojený k doméně nakonfigurovat nastavení domény](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-domain-setting.png)
-       * **Virtuální síť**: contosohdivnet
-       * **Podsíť**: Subnet1
-         
-         Klikněte na tlačítko **vyberte** a uložte změny.        
-         Klikněte na tlačítko **vyberte** a uložte změny.
-   * **Skupina prostředků**: Vyberte skupinu prostředků, použít pro virtuální síť HDInsight (contosohdirg).
-4. Klikněte na možnost **Vytvořit**.  
+2. Otevřete skupinu prostředků, které jste vytvořili dříve v tomto kurzu pomocí šablony Resource Manageru.
+3. Přidejte do skupiny prostředků clusteru služby HDInsight.
+4. Vyberte **vlastní** možnost:
 
-Další možností pro vytvoření clusteru HDInsight se připojený k doméně je pro použití šablony pro správu prostředků Azure. Následující postup ukazuje, jak:
+    ![Možnost vytvořit vlastní připojený k doméně HDInsight](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-custom-configuration-option.png)
 
-**K vytvoření clusteru HDInsight se připojený k doméně pomocí šablony Správa prostředků**
+    Jsou šesti oddíly pomocí možnosti vlastní konfigurace: základy, úložiště, aplikace, velikost clusteru, rozšířená nastavení a souhrn.
+5. V **Základy** části:
 
-1. Kliknutím na následující obrázek otevřete šablonu Resource Manageru na portálu Azure. Šablony Resource Manageru se nachází v kontejneru veřejného objektu blob. 
-   
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/apache-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Z **parametry** okno, zadejte následující hodnoty:
-   
-   * **Předplatné**: (vyberte předplatné Azure).
-   * **Skupina prostředků**: klikněte na tlačítko **použít existující**, a zadejte stejnou skupinu prostředků, které jste dosud používali.  Například contosohdirg. 
-   * **Umístění**: Zadejte umístění skupiny prostředků.
-   * **Název clusteru**: Zadejte název pro cluster Hadoop, který chcete vytvořit. Například contosohdicluster.
-   * **Typ clusteru**: Vyberte typ clusteru.  Výchozí hodnota je **hadoop**.
-   * **Umístění**: Vyberte umístění pro cluster.  Výchozí účet úložiště používá stejné umístění.
-   * **Počet uzlů pracovního procesu clusteru**: Vyberte počet uzlů pracovního procesu.
-   * **Přihlašovací jméno a heslo clusteru**: výchozí přihlašovací jméno je **admin**.
-   * **Uživatelské jméno a heslo SSH**: výchozí uživatelské jméno **sshuser**.  Můžete ho změnit. 
-   * **Id virtuální sítě**: /subscriptions/&lt;SubscriptionID > /resourceGroups/&lt;ResourceGroupName > /providers/Microsoft.Network/virtualNetworks/&lt;VNetName >
-   * **Podsíť virtuální sítě**: /subscriptions/&lt;SubscriptionID > /resourceGroups/&lt;ResourceGroupName > /providers/Microsoft.Network/virtualNetworks/&lt;VNetName >/podsítě/Subnet1
-   * **Název domény**: contoso.onmicrosoft.com
-   * **Rozlišující název organizační jednotky**: OU = HDInsightOU, DC = contoso, DC = onmicrosoft, DC = com
-   * **Skupiny uživatelů clusteru DNs**: [\"HiveUsers\"]
-   * **LDAPUrls**: ["ldaps://contoso.onmicrosoft.com:636"]
-   * **DomainAdminUserName**: (zadejte uživatelské jméno správce domény)
-   * **Skupině**: (zadejte heslo pro uživatele správce domény)
-   * **Souhlasím s podmínkami a ujednáními výše uvedených**: (zkontrolujte, zda)
-   * **Připnout na řídicí panel**: (zkontrolujte, zda)
-3. Klikněte na **Koupit**. Zobrazí se nová dlaždice s názvem **Nasazení šablony**. Vytvoření clusteru trvá přibližně 20 minut. Jakmile je vytvořen cluster, můžete kliknout na okně clusteru na portálu a otevřete jej.
+    - Typ clusteru: Zvolte **PREMIUM**. Aktuálně lze vytvořit pouze premium clusteru s těmito typy clusteru: Hadoop, interaktivní dotazu a Spark.
+
+        ![Doméně HDInsight Premium](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
+    - Uživatelské jméno přihlášení clusteru: Toto je uživatel Hadoop HTTP. Tento účet se liší od účtu správce domény.
+    - Skupina prostředků: Vyberte skupinu prostředků, který jste vytvořili dříve pomocí šablony Resource Manageru.
+    - Umístění: Umístění musí být stejný jako ten, který jste použili při vytváření virtuální sítě a řadiče domény pomocí šablony Resource Manageru.
+
+6. V **upřesňující nastavení** části:
+
+    - Nastavení domény:
+
+        ![Upřesnit nastavení domény připojený k doméně HDInsight](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-advanced-domain-settings.png)
+        
+        - Název domény: Zadejte název domény, kterou jste použili v [vytvoření služby Active Directory](#create-an-active-directory).
+        - Uživatelské jméno domény: Zadejte uživatelské jméno správce AD, kterou jste použili v [vytvoření služby Active Directory](#create-an-active-directory).
+        - Organizační jednotka: Najdete na snímku obrazovky příklad.
+        - Adresa URL LDAPS: Najdete v článku na snímku obrazovky příklad
+        - Přístup skupiny uživatelů: Zadejte název skupiny uživatelů, kterou jste vytvořili v [vytvořit AD Uživatelé a skupiny](#optionally-createad-users-and-groups)
+    - Virtuální sítě: vyberte virtuální síť, kterou jste vytvořili v [vytvoření služby Active Directory](#create-an-active-directory). Výchozí název použité v šabloně je **adVNET**.
+    - Podsítě: Je výchozím názvem používaným v šabloně **adSubnet**.
+
+
 
 Po dokončení tohoto kurzu můžete cluster odstranit. Pomocí HDInsight jsou vaše data uložena v Azure Storage, takže můžete clusteru bezpečně odstranit, pokud není používán. Za cluster služby HDInsight se účtují poplatky, i když se nepoužívá. Vzhledem k tomu, že poplatky za cluster představují několikanásobek poplatků za úložiště, dává ekonomický smysl odstraňovat clustery, které nejsou používány. Postup odstranění clusteru naleznete v tématu [Správa clusterů systému Hadoop v HDInsight pomocí portálu Azure](../hdinsight-administer-use-management-portal.md#delete-clusters).
 

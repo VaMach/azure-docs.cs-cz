@@ -148,7 +148,7 @@ V této části přidáte nový řadič WebAPI back-endu zpracování požadavk�
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Nahraďte `Notifications` definici následujícím kódem třídy a nahraďte zástupné symboly dva připojovací řetězec (s úplným přístupem) pro vaše Centrum oznámení a název centra (k dispozici na [portál Azure classic](http://manage.windowsazure.com)):
+6. Nahraďte `Notifications` definici následujícím kódem třídy a nahraďte zástupné symboly dva připojovací řetězec (s úplným přístupem) pro vaše Centrum oznámení a název centra (k dispozici na [portál Azure](http://portal.azure.com)):
    
         public class Notifications
         {

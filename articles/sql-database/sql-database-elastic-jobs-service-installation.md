@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Instalace úlohy elastické databáze – přehled
 [**Elastické databáze úlohy** ](sql-database-elastic-jobs-overview.md) lze nainstalovat pomocí prostředí PowerShell nebo prostřednictvím portálu Azure. Můžete získat přístup k vytvářet a spravovat úlohy pomocí rozhraní API prostředí PowerShell, pouze v případě, že budete instalovat balíček prostředí PowerShell. Kromě toho rozhraní API prostředí PowerShell poskytuje výrazně víc funkcí než portálu v daném okamžiku.
@@ -155,7 +155,7 @@ Jakmile máte [vytvoření fondu elastické databáze](sql-database-elastic-pool
 
 **Odhadovaný čas dokončení:** 10 minut.
 
-1. Z elastického fondu pomocí zobrazení řídicího panelu [portálu Azure](https://portal.azure.com/#) , klikněte na tlačítko **vytvořit úlohu**.
+1. Z elastického fondu pomocí zobrazení řídicího panelu [portál Azure](https://portal.azure.com/#) , klikněte na tlačítko **vytvořit úlohu**.
 2. Pokud vytváříte úlohu poprvé, musíte nainstalovat **úlohy elastické databáze** kliknutím **podmínky**.
 3. Přijměte podmínky kliknutím na zaškrtávací políčko.
 4. V zobrazení "Instalace služby", klikněte na **úlohy pověření**.

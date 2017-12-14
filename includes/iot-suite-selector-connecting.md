@@ -54,7 +54,7 @@ Chcete-li vyhledat přihlašovacích údajů, které zařízení musí používa
 
 1. Najděte skupinu prostředků, která obsahuje služeb Azure, které používá vaše řešení vzdáleného monitorování. Skupina prostředků má stejný název jako řešení vzdáleného monitorování, kterou jste zřídili.
 
-1. Přejděte do služby IoT hub v této skupině prostředků. Zvolte **zařízení explorer**:
+1. Přejděte do služby IoT hub v této skupině prostředků. Zvolte **zařízení IoT**:
 
     ![Průzkumník zařízení](media/iot-suite-selector-connecting/deviceexplorer.png)
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f0337002bbaf554a6a775464edefc032e6c7bab2
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Časté otázky k Azure Files
 [Soubory Azure](storage-files-introduction.md) nabízí plně spravované sdílené složky v cloudu, které jsou přístupné přes oborových standardů [zpráva bloku protokol Server (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (také označovaný jako systém souborů běžné Internet nebo CIFS). Sdílené složky Azure můžete ke cloudu nebo na místní nasazení systému Windows, Linux a systému macOS připojit současně. Také můžete mezipaměti Azure sdílené složky na počítačích systému Windows Server pomocí synchronizace souboru Azure (preview) pro rychlý přístup blízko kde data se používají.
@@ -80,7 +80,7 @@ Tento článek obsahuje odpovědi na časté otázky týkající se Azure soubor
 
 ## <a name="azure-file-sync"></a>Synchronizace Azure File
 * <a id="afs-region-availability"></a>**Jaké oblasti jsou podporované pro synchronizaci souborů Azure (preview)?**  
-    Synchronizace souboru Azure je v současné době dostupná v západní USA, západní Evropa, Austrálie – východ a jihovýchodní Asie. Podpora pro více oblastí se přidat, protože jsme postupujte k obecné dostupnosti. Další informace najdete v tématu [dostupnost v oblastech](storage-sync-files-planning.md#region-availability).
+    Synchronizace souboru Azure je v současné době dostupná ve východní USA, západ USA, západní Evropa, Austrálie – východ a jihovýchodní Asie. Podpora pro více oblastí se přidat, protože jsme postupujte k obecné dostupnosti. Další informace najdete v tématu [dostupnost v oblastech](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>**Může mít servery připojené k doméně a domény nepřipojená ve stejné skupině synchronizace?**  
     Ano. Synchronizace skupina může obsahovat koncové body serveru, které mají různé členství ve službě Active Directory, i když nejsou připojené k doméně. I když tato konfigurace technicky funguje, nedoporučujeme to jako typické konfigurace protože seznamy řízení přístupu (ACL), které jsou definovány pro soubory a složky na jednom serveru nemusí být možné vynutit jinými servery ve skupině synchronizace. Nejlepších výsledků dosáhnete doporučujeme, abyste synchronizaci mezi servery, které jsou ve stejné doménové struktuře služby Active Directory, mezi servery, které jsou v různých doménových strukturách služby Active Directory, ale které mají mezi sebou vytvořené vztahy důvěryhodnosti nebo mezi servery, které nejsou v doméně. Doporučujeme vyhnout pomocí kombinace těchto konfigurací.

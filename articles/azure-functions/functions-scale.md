@@ -14,21 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure funkce škálování a hostování
 
 Azure Functions můžete spustit ve dvou různých režimech: plánu spotřeby a plán služby Azure App Service. Plánu spotřeby automaticky přiděluje výpočetní výkon, když kód běží, horizontálně navýší kapacitu podle potřeby pro zpracování zatížení a potom škáluje, pokud kód není spuštěna. Nemusí platit pro nečinnosti virtuální počítače a nemusíte předem záložní kapacita. Tento článek se týká plánu spotřeby [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) modelu aplikace. Podrobnosti o tom, jak funguje plán služby App Service najdete v tématu [podrobný přehled plánů služby Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> Hostování Linux je momentálně dostupná jenom na plán služby App Service.
+> [Hostování Linux](functions-create-first-azure-function-azure-cli-linux.md) je aktuálně k dispozici pouze na plán služby App Service.
 
 Pokud se nevyznáte v Azure Functions, přečtěte si téma [přehled Azure Functions](functions-overview.md).
 
@@ -46,7 +46,7 @@ Na plán služby App Service je možné škálovat mezi vrstvami přidělit jino
 Pokud používáte plánu spotřeby, instance hostitele Azure Functions dynamicky přidat nebo odebrat závislosti na počtu příchozích událostí. Tento plán automaticky přizpůsobí a musíte platit za výpočetní prostředky jenom v případě, že funkce běží. V plánu spotřeby funkci můžete používat maximálně 10 minut. 
 
 > [!NOTE]
-> Výchozí hodnota časového limitu pro funkce na plánu spotřeby je 5 minut. Hodnota je možné zvýšit na 10 minut pro aplikaci funkce Změna vlastnosti `functionTimeout` v [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> Výchozí hodnota časového limitu pro funkce na plánu spotřeby je 5 minut. Hodnota je možné zvýšit na 10 minut pro aplikaci funkce Změna vlastnosti `functionTimeout` v [host.json](functions-host-json.md#functiontimeout) souboru projektu.
 
 Fakturace je založena na počet spuštěních, čas spuštění a paměti. Fakturace je agregovat přes všechny funkce v rámci funkce aplikace. Další informace najdete v tématu [Azure Functions stránce s cenami].
 

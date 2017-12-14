@@ -4,7 +4,7 @@ description: "Zjistěte, jak otevřít port / create koncového bodu váš virtu
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Jak otevřít porty, které se virtuální počítač pomocí portálu Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ Vyberte novou skupinu zabezpečení sítě. Vyberte 'příchozí pravidla zabezp
 
 ![Přidat příchozí pravidlo](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Zvolte společného **služby** z rozevírací nabídky, jako například *HTTP*. Můžete také vybrat *vlastní* zajistit konkrétní port, které se má použít. V případě potřeby změňte prioritu nebo název. Prioritu má vliv pořadí, ve kterém jsou použity pravidla - dolní číselnou hodnotu, dříve pravidlo se použije. Můžete také vybrat **Upřesnit** v horní části této obrazovky, zadejte konkrétní rozsah zdrojových IP bloku nebo port, např. Až budete připravení, vyberte **OK** vytvoření pravidla:
+Pokud chcete vytvořit pravidlo, které umožňuje přenos:
+
+- Vyberte **základní** tlačítko. Ve výchozím nastavení **Upřesnit** okno poskytuje některé další možnosti konfigurace, jako třeba definovat rozsah bloku nebo portu IP konkrétního zdroje.
+- Zvolte společného **služby** z rozevírací nabídky, jako například *HTTP*. Můžete také vybrat *vlastní* zajistit konkrétní port, které se má použít. 
+- V případě potřeby změňte prioritu nebo název. Prioritu má vliv pořadí, ve kterém jsou použity pravidla - dolní číselnou hodnotu, dříve pravidlo se použije.
+- Až budete připravení, vyberte **OK** vytvoření pravidla:
 
 ![Vytvoření příchozího pravidla](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Vytvoří funkci, která se integruje se službou Azure Logic Apps
 
@@ -72,28 +72,31 @@ Kognitivní rozhraní API služby jsou dostupné v Azure jako jednotlivé prost�
  
     ![Klíče](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>Vytvoření funkce
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>Vytvoření aplikace – funkce
 
 Funkce nabízí skvělý způsob, jak přesměrování zpracování úloh zpracování v pracovním postupu logiku aplikace. Tento kurz používá funkce protokolu HTTP aktivované ke zpracování tweet postojích skóre z kognitivní služeb a vrátit hodnotu kategorie.  
 
-1. Klikněte **nový** tlačítko a vyberte **výpočetní** > **aplikaci funkce**. Pak použijte nastavení zadané v následující tabulce. Přijměte podmínky a pak vyberte **připnout na řídicí panel**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Vytvoření aplikace Azure – funkce](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>Vytvoření funkce protokolu HTTP aktivované  
 
-    | Nastavení      |  Navrhovaná hodnota   | Popis       |
-    | --- | --- | --- |
-    | **Název** | MyFunctionApp | Zvolte název jedinečný účet. |
-    | **Skupina prostředků** | myResourceGroup | Používejte stejnou skupinu prostředků pro všechny služby v tomto kurzu.|
-    | **Hostování plán** | Plán spotřeba | Definuje vaše náklady a využití přidělení.
-    | **Umístění** | Západní USA | Umístění nejbližší můžete použijte. |
-    | **Úložiště** | Vytvořit nový | Automaticky vytvoří nový účet úložiště.|
-    | **Cenová úroveň** | F0 | Začněte s nejnižší úroveň. Pokud spustíte z volání, škálovat na vyšší úroveň.|
+1. Rozbalte aplikaci Function App a klikněte na tlačítko **+** vedle položky **Funkce**. Pokud jde o první funkci ve vaší aplikaci Function App, vyberte možnost **Vlastní funkce**. Zobrazí se kompletní sada šablon funkcí.
 
-2. Vyberte svou aplikaci funkce z řídicího panelu a rozšířit funkce, klikněte  **+**  vedle položky **funkce**, klikněte **Webhook + API**,  **CSharp**, pak **vytvořit tuto funkci**. Tím se vytvoří funkci pomocí šablony HTTPTrigger C#. Zobrazí se v novém okně jako váš kód`run.csx`
+    ![Stručný úvod do služby Functions na webu Azure Portal](media/functions-twitter-email/add-first-function.png)
 
-    ![Okno aplikace funkce, funkce +](media/functions-twitter-email/add_fun.png)
+2. Do pole hledání zadejte `http` a potom zvolte **C#** šablony aktivace protokolu HTTP. 
 
-3. Nahraďte obsah `run.csx` soubor s následujícím kódem a pak klikněte na **Uložit**:
+    ![Zvolte triggeru protokolu HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Zadejte **název** pro funkce, vyberte `Function` pro  **[úroveň ověřování](functions-bindings-http-webhook.md#http-auth)**a potom vyberte **vytvořit**. 
+
+    ![Vytvoření funkce protokolu HTTP aktivované](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    Tím se vytvoří skript funkce jazyka C# pomocí šablony triggeru protokolu HTTP. Kód zobrazí se v novém okně jako `run.csx`.
+
+4. Nahraďte obsah `run.csx` soubor s následujícím kódem a pak klikněte na **Uložit**:
 
     ```csharp
     using System.Net;

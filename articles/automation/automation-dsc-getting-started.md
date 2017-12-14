@@ -3,7 +3,7 @@ title: "Začínáme s Azure Automation DSC. | Microsoft Docs"
 description: "Vysvětlení a příklady nejběžnější úlohy v Azure Automation požadovaného stavu konfigurace (DSC)"
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2
@@ -13,26 +13,26 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
-ms.author: magoedte;eslesar
-ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: magoedte;gwallace
+ms.openlocfilehash: e8b7d0d38f59589cbe6f82798b4e725af7b20e23
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Začínáme s Azure Automation DSC.
-Toto téma vysvětluje, jak provádět běžné úkoly s Azure Automation požadovaného stavu konfigurace (DSC), jako je například vytváření, importování a kompilování konfigurace, registrace počítače, které chcete spravovat a zobrazování sestav. Přehled co Azure Automation DSC je, najdete v části [přehled Azure Automation DSC](automation-dsc-overview.md). DSC dokumentaci najdete v tématu [Přehled konfigurace prostředí Windows PowerShell požadovaného stavu](https://msdn.microsoft.com/PowerShell/dsc/overview).
+Tento článek vysvětluje, jak provádět běžné úkoly s Azure Automation požadovaného stavu konfigurace (DSC), jako je například vytváření, importování a kompilování konfigurace, registrace počítače, které chcete spravovat a zobrazování sestav. Přehled co Azure Automation DSC je, najdete v části [přehled Azure Automation DSC](automation-dsc-overview.md). DSC dokumentaci najdete v tématu [Přehled konfigurace prostředí Windows PowerShell požadovaného stavu](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Toto téma obsahuje podrobný návod, jak pomocí Azure Automation DSC. Pokud chcete, aby ukázkové prostředí, které jsou již nastaveny bez kroků popsaných v tomto tématu, můžete použít [následující šablony ARM](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Tato šablona nastavuje dokončené prostředí Azure Automation DSC, včetně virtuálního počítače Azure, který je spravovaný nástrojem Azure Automation DSC.
+Tento článek obsahuje podrobný návod, jak pomocí Azure Automation DSC. Pokud chcete ukázkové prostředí, které jsou již nastaveny bez kroků popsaných v tomto článku, můžete použít následující [šablony Resource Manageru](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Tato šablona nastavuje dokončené prostředí Azure Automation DSC, včetně virtuálního počítače Azure, který je spravovaný nástrojem Azure Automation DSC.
 
 ## <a name="prerequisites"></a>Požadavky
-Abyste mohli dokončit příklady v tomto tématu, je potřeba splnit následující nástroje:
+Abyste mohli dokončit příklady v tomto článku, je potřeba splnit následující nástroje:
 
 * Účet Azure Automation. Pokyny k vytvoření účtu Azure Automation Spustit jako najdete v tématu [Účet Spustit jako pro Azure](automation-sec-configure-azure-runas-account.md).
 * Virtuální počítač Azure Resource Manager (ne Classic) systémem Windows Server 2008 R2 nebo novější. Pokyny k vytvoření virtuálního počítače najdete v tématu [Vytvoření vašeho prvního virtuálního počítače s Windows na webu Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
 ## <a name="creating-a-dsc-configuration"></a>Vytvoření konfigurace DSC
-Vytvoříme jednoduchou [konfigurace DSC](https://msdn.microsoft.com/powershell/dsc/configurations) zajistí se tak přítomnosti nebo absenci **Webový Server** Windows funkce (IIS), v závislosti na tom, jak přiřadit uzly.
+Vytvořit jednoduchou [konfigurace DSC](https://msdn.microsoft.com/powershell/dsc/configurations) zajistí se tak přítomnosti nebo absenci **Webový Server** Windows funkce (IIS), v závislosti na tom, jak přiřadit uzly.
 
 1. Spusťte Windows PowerShell ISE (nebo libovolného textového editoru).
 2. Zadejte následující text:
@@ -67,7 +67,7 @@ Vytvoříme jednoduchou [konfigurace DSC](https://msdn.microsoft.com/powershell/
 Tato konfigurace volá jeden prostředek v každém uzlu bloku [WindowsFeature prostředků](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), zajistí se tak přítomnosti nebo absenci **Webový Server** funkce.
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Konfigurace importu do Azure Automation
-V dalším kroku jsme budete importovat konfiguraci do účtu Automation.
+V dalším kroku importu konfigurace do účtu Automation.
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. V nabídce centra klikněte na tlačítko **všechny prostředky** a potom název účtu Automation.
@@ -129,7 +129,7 @@ Po spuštění kompilace, můžete ji v zobrazit **úlohy kompilace** dlaždice 
     ![Snímek obrazovky okna konfigurace uzlu DSC](./media/automation-dsc-getting-started/NodeConfigs.png)
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-dsc"></a>Registrace virtuální počítač Azure pro správu s Azure Automation DSC.
-Azure Automation DSC můžete použít ke správě virtuálních počítačích Azure (Classic i Resource Manager), místní virtuální počítače, Linux počítače, virtuální počítače AWS a místní fyzických počítačů. V tomto tématu se nabídneme postupy zařadit pouze virtuální počítače Azure Resource Manager. Informace o registraci najdete v části Další typy počítačů, [registrace počítačů pro správu Azure Automation DSC](automation-dsc-onboarding.md).
+Azure Automation DSC můžete použít ke správě virtuálních počítačích Azure (Classic i Resource Manager), místní virtuální počítače, Linux počítače, virtuální počítače AWS a místní fyzických počítačů. V tomto článku se dozvíte, jak připojit pouze virtuální počítače Azure Resource Manager. Informace o registraci najdete v části Další typy počítačů, [registrace počítačů pro správu Azure Automation DSC](automation-dsc-onboarding.md).
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Se budou registrovat virtuální počítač Azure Resource Manager pro správu Azure Automation DSC.
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
@@ -151,10 +151,10 @@ Azure Automation DSC můžete použít ke správě virtuálních počítačích 
    
     ![Snímek obrazovky okna registrace](./media/automation-dsc-getting-started/RegisterVM.png)
    
-    Konfigurace uzlu, který jste zadali se použijí pro virtuální počítač v intervalech určeného **frekvence režimu konfigurace**, a virtuální počítač bude vyhledávat aktualizace konfigurace uzlu v intervalech určeného **obnovovací frekvence**. Další informace o tom, jak se používají tyto hodnoty, najdete v části [konfigurace správce místní konfigurace](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
+    Konfigurace uzlu, který jste zadali, se použijí pro virtuální počítač v intervalech určeného **frekvence režimu konfigurace**, a virtuální počítač zkontroluje aktualizace konfigurace uzlu v intervalech určeného **aktualizovat Frekvence**. Další informace o tom, jak se používají tyto hodnoty, najdete v části [konfigurace správce místní konfigurace](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
 9. V **přidat virtuální počítače Azure** okně klikněte na tlačítko **vytvořit**.
 
-Azure se spustí proces registrace virtuálních počítačů. Po dokončení virtuálního počítače se zobrazí v **uzly DSC** okno v účtu Automation.
+Azure spustí proces registrace virtuálních počítačů. Po dokončení virtuálního počítače se zobrazí v **uzly DSC** okno v účtu Automation.
 
 ## <a name="viewing-the-list-of-dsc-nodes"></a>Zobrazení seznamu uzlů DSC
 Můžete zobrazit seznam všech počítačů, které byly zařazený, nemá pro správu ve vašem účtu Automation v **uzly DSC** okno.

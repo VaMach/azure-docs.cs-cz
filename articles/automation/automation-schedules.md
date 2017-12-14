@@ -3,7 +3,7 @@ title: "Plánů ve službě Azure Automation | Microsoft Docs"
 description: "Plány služeb automatizace se používají k plánování sady runbook ve službě Azure Automation na automatické spouštění. Popisuje, jak vytvořit a spravovat plánu v tak, aby může automaticky spustit sadu runbook v určitém čase nebo podle plánu opakování."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 446dc79202938ee96cbb090345d9c191060afe76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Naplánování runbooku v Azure Automation
 Pokud chcete naplánovat spuštění runbooku ve službě Azure Automation spustit v zadanou dobu, můžete ho propojit s jedním nebo víc plány. Plán můžete nakonfigurovat pro spuštění jednou nebo na nadále hodinové nebo denní plán pro sady runbook na portálu Azure classic a pro sady runbook na portálu Azure, můžete také naplánovat je na týdně, měsíčně, konkrétní dny v týdnu nebo dny v měsíci nebo konkrétní den v měsíci.  Sady runbook mohou být spojeny s víc plány a plán může mít víc runbooků.

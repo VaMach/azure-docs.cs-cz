@@ -1,177 +1,230 @@
 ---
 title: "Kurz: Azure Active Directory integrace s TOPdesk - zabezpečené | Microsoft Docs"
-description: "Další informace o použití TOPdesk - zabezpečit pomocí služby Azure Active Directory umožňující jednotné přihlašování, automatického zřizování a další!."
+description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azure Active Directory a TOPdesk - zabezpečené."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
-manager: mtillman
-ms.assetid: 8e149d2d-7849-48ec-9993-31f4ade5fdb4
+manager: femila
+ms.reviewer: joflore
+ms.assetid: 8e06ee33-18f9-4c05-9168-e6b162079d88
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: e165a18c5a24071d52838ca95edbb5e6b39e63a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ca3362bc3f966adaf9940f6eb4bec5235c6ea7d8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Kurz: Azure Active Directory integrace s TOPdesk - zabezpečení
-Cílem tohoto kurzu je zobrazit integraci Azure a TOPdesk - zabezpečené.  
-Scénář uvedených v tomto kurzu se předpokládá, že už máte následující položky:
 
-* Platné předplatné Azure
-* A TOPdesk - zabezpečené jednotné přihlašování povolené předplatné
+V tomto kurzu zjistíte, jak integrovat TOPdesk - zabezpečit pomocí služby Azure Active Directory (Azure AD).
 
-Po dokončení tohoto kurzu, bude moct jednotné přihlašování do aplikace v TOPdesk - zabezpečené podnikové lokality (služba Zprostředkovatel iniciované přihlašování) nebo pomocí uživatele Azure AD, který jste přiřadili k TOPdesk - zabezpečené [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).
+Integrace TOPdesk - zabezpečené s Azure AD poskytuje následující výhody:
 
-Scénář uvedených v tomto kurzu se skládá z následujících stavební bloky:
+- Můžete ovládat ve službě Azure AD, který má přístup k TOPdesk - zabezpečené.
+- Můžete povolit uživatelům, aby automaticky získat přihlášení k TOPdesk - zabezpečené (jednotné přihlášení) s jejich účty Azure AD.
+- Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure.
 
-1. Povolení integrace aplikace pro TOPdesk - zabezpečení
-2. Konfigurace jednotného přihlašování
-3. Konfiguraci zřizování uživatelů
-4. Přiřazení uživatelů
+Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, najdete v části [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Scénář](./media/active-directory-saas-topdesk-secure-tutorial/IC790596.png "scénář")
+## <a name="prerequisites"></a>Požadavky
 
-## <a name="enabling-the-application-integration-for-topdesk---secure"></a>Povolení integrace aplikace pro TOPdesk - zabezpečení
-Cílem této části se popisují postup povolení integrace aplikace pro TOPdesk - zabezpečené.
+Ke konfiguraci integrace služby Azure AD s TOPdesk – zabezpečení, potřebujete následující položky:
 
-### <a name="to-enable-the-application-integration-for-topdesk---secure-perform-the-following-steps"></a>Chcete-li povolit integraci aplikace pro TOPdesk – zabezpečení, proveďte následující kroky:
-1. V portálu Azure classic, v levém navigačním podokně klikněte na **služby Active Directory**.
-   
-    ![Služby Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/IC700993.png "služby Active Directory")
+- Předplatné služby Azure AD
+- A TOPdesk - zabezpečené jednotné přihlašování povolené předplatné
 
-2. Z **Directory** seznamu, vyberte adresář, pro který chcete povolit integraci adresáře.
+> [!NOTE]
+> K testování kroky v tomto kurzu, nedoporučujeme používání provozním prostředí.
 
-3. Chcete-li otevřít zobrazení aplikací, v zobrazení adresáře, klikněte na tlačítko **aplikace** v horní nabídce.
-   
-    ![Aplikace](./media/active-directory-saas-topdesk-secure-tutorial/IC700994.png "aplikace")
+Chcete-li otestovat kroky v tomto kurzu, postupujte podle těchto doporučení:
 
-4. Klikněte na tlačítko **přidat** v dolní části stránky.
-   
-    ![Přidat aplikaci](./media/active-directory-saas-topdesk-secure-tutorial/IC749321.png "přidat aplikaci")
+- Nepoužívejte provozním prostředí, pokud to není nutné.
+- Pokud nemáte prostředí zkušební verze Azure AD, můžete [získat zkušební verzi jeden měsíc](https://azure.microsoft.com/pricing/free-trial/).
 
-5. Na **co chcete udělat** dialogové okno, klikněte na tlačítko **přidat aplikaci z Galerie**.
-   
-    ![Přidání aplikace z gallerry](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "přidat aplikaci z gallerry")
+## <a name="scenario-description"></a>Popis scénáře
+V tomto kurzu můžete otestovat Azure AD jednotné přihlašování v testovacím prostředí. Scénáři uvedeném v tomto kurzu se skládá ze dvou hlavních stavebních bloků:
 
-6. V **vyhledávacího pole**, typ **TOPdesk - zabezpečené**.
-   
-    ![Galerie aplikací](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "galerii aplikací")
+1. Přidání TOPdesk – zabezpečení z Galerie
+2. Konfigurace a testování Azure AD jednotného přihlašování
 
-7. V podokně výsledků vyberte **TOPdesk - zabezpečené**a potom klikněte na **Complete** tuto aplikaci přidat.
-   
-    ![TOPdesk - zabezpečené](./media/active-directory-saas-topdesk-secure-tutorial/IC791933.png "TOPdesk - zabezpečení")
+## <a name="adding-topdesk---secure-from-the-gallery"></a>Přidání TOPdesk – zabezpečení z Galerie
+Konfigurace integrace TOPdesk – zabezpečení do služby Azure AD, budete muset přidat TOPdesk – Secure z Galerie do seznamu spravovaných SaaS aplikace.
 
-## <a name="configuring-single-sign-on"></a>Konfigurace jednotného přihlašování
-Cílem této části se popisují, jak uživatelům povolit ověřování na TOPdesk - zabezpečit pomocí svého účtu ve službě Azure AD využívající federaci na základě protokolu SAML.  
-Konfigurace jednotného přihlašování pro TOPdesk – zabezpečení vyžaduje, abyste nahrát soubor logo ikonu. Chcete-li získat soubor ikony, kontaktujte tým podpory TOPdesk.
+**Chcete-li přidat TOPdesk - zabezpečit z galerie, proveďte následující kroky:**
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Pokud chcete konfigurovat jednotné přihlašování, proveďte následující kroky:
-1. Přihlaste se k vaší **TOPdesk - zabezpečené** společnosti lokality jako správce.
-2. V **TOPdesk** nabídky, klikněte na tlačítko **nastavení**.
-   
-    ![Nastavení](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "nastavení")
+1. V  **[portál Azure](https://portal.azure.com)**, v levém navigačním panelu klikněte na tlačítko **Azure Active Directory** ikonu. 
 
-3. Klikněte na tlačítko **nastavení přihlášení**.
-   
-    ![Nastavení přihlášení](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "nastavení přihlášení")
+    ![Tlačítko Azure Active Directory][1]
 
-4. Rozbalte **nastavení přihlášení** nabídce a pak klikněte na tlačítko **Obecné**.
-   
-    ![Obecné](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "obecné")
+2. Přejděte na **podnikové aplikace, které**. Pak přejděte na **všechny aplikace**.
 
-5. V **zabezpečeného** části **SAML přihlášení** konfigurace části, proveďte následující kroky:
-   
-    ![Technické nastavení](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "technické nastavení")
+    ![V okně podnikové aplikace][2]
+    
+3. Chcete-li přidat novou aplikaci, klikněte na tlačítko **novou aplikaci** tlačítko horní dialogové okno.
+
+    ![Tlačítko nové aplikace][3]
+
+4. Do vyhledávacího pole zadejte **TOPdesk - zabezpečené**, vyberte **TOPdesk - zabezpečené** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
+
+    ![TOPdesk – zabezpečení v seznamu výsledků](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurace a otestování Azure AD jednotné přihlašování
+
+V této části můžete nakonfigurovat a otestovat Azure AD jednotné přihlašování s TOPdesk – zabezpečení podle testovacího uživatele názvem "Britta Simon".
+
+Azure AD pro jednotné přihlašování pro práci, musí vědět, co příslušného uživatele v TOPdesk – zabezpečení je pro uživatele ve službě Azure AD. Jinými slovy odkaz vztah mezi uživatele Azure AD a související uživatelské v TOPdesk – zabezpečení musí být vytvořeno.
+
+V TOPdesk - zabezpečit, přiřadit hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** k navázání vztahu odkazu.
+
+Nakonfigurovat a otestovat Azure AD jednotné přihlašování s TOPdesk - bezpečný, je třeba dokončit následující stavební bloky:
+
+1. **[Konfigurovat Azure AD jednotné přihlašování](#configure-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
+2. **[Vytvořit testovací uživatele Azure AD](#create-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
+3. **[Vytvoření TOPdesk - zabezpečené testovacího uživatele](#create-a-topdesk---secure-test-user)**  – Pokud chcete mít protějšek Britta Simon v TOPdesk - zabezpečeného propojeného s Azure AD reprezentace daného uživatele.
+4. **[Přiřadit testovacího uživatele Azure AD](#assign-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
+5. **[Test jednotného přihlašování](#test-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurovat Azure AD jednotné přihlašování
+
+V této části můžete povolit Azure AD jednotného přihlašování na portálu Azure a nakonfigurovat jednotné přihlašování v vaší TOPdesk - zabezpečené aplikace.
+
+**Ke konfiguraci Azure AD jednotné přihlašování s TOPdesk - zabezpečit, proveďte následující kroky:**
+
+1. Na portálu Azure na **TOPdesk - zabezpečené** stránky integrace aplikací, klikněte na tlačítko **jednotného přihlašování**.
+
+    ![Konfigurace propojení přihlášení][4]
+
+2. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **na základě SAML přihlašování** umožňující jednotného přihlašování.
+ 
+    ![Jediné přihlášení dialogové okno](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_samlbase.png)
+
+3. Na **TOPdesk – zabezpečení domény a adresy URL** část, proveďte následující kroky:
+
+    ![Jednotné přihlašování informace TOPdesk – zabezpečení domény a adresy URL](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_url.png)
+
+    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<companyname>.topdesk.net`
+
+    b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<companyname>.topdesk.net/tas/secure/login/verify`
+
+    c. V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<companyname>.topdesk.net/tas/public/login/saml`
+
+    > [!NOTE] 
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Adresa URL odpovědi se vysvětluje dále v kurzu. Obraťte se na [TOPdesk - tým podpory zabezpečení klienta](http://www.topdesk.com/us/support) k získání těchto hodnot. 
+
+4. Na **SAML podpisový certifikát** klikněte na tlačítko **soubor XML s metadaty** a potom uložte soubor metadat ve vašem počítači.
+
+    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_certificate.png) 
+
+5. Klikněte na tlačítko **Uložit** tlačítko.
+
+    ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_400.png)
+
+6. Na **TOPdesk - zabezpečené konfigurace** klikněte na tlačítko **TOPdesk nakonfigurovat - zabezpečené** otevřete **konfigurovat přihlášení** okno. Kopírování **Sign-Out adresu URL, SAML Entity ID a SAML jeden přihlašování adresa URL služby** z **Stručná referenční příručka části.**
+
+    ![TOPdesk - konfiguraci zabezpečení](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_configure.png)
+    
+7. Přihlaste se k vaší **TOPdesk - zabezpečené** společnosti lokality jako správce.
+
+8. V **TOPdesk** nabídky, klikněte na tlačítko **nastavení**.
+
+    ![Nastavení](./media/active-directory-saas-topdesk-secure-tutorial/ic790598.png "nastavení")
+
+9. Klikněte na tlačítko **nastavení přihlášení**.
+
+    ![Nastavení přihlášení](./media/active-directory-saas-topdesk-secure-tutorial/ic790599.png "nastavení přihlášení")
+
+10. Rozbalte **nastavení přihlášení** nabídce a pak klikněte na tlačítko **Obecné**.
+
+    ![Obecné](./media/active-directory-saas-topdesk-secure-tutorial/ic790600.png "obecné")
+
+11. V **zabezpečeného** části **SAML přihlášení** konfigurace části, proveďte následující kroky:
+
+    ![Technické nastavení](./media/active-directory-saas-topdesk-secure-tutorial/ic790855.png "technické nastavení")
    
     a. Klikněte na tlačítko **Stáhnout** ke stažení souboru metadat veřejné a poté je uložit místně v počítači.
    
     b. Otevřete soubor metadat a vyhledejte **AssertionConsumerService** uzlu.
     
-    ![Kontrolní výraz příjemce služby](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Assertion příjemce služby")
+    ![Kontrolní výraz příjemce služby](./media/active-directory-saas-topdesk-secure-tutorial/ic790856.png "Assertion příjemce služby")
    
-    c. Kopírování **AssertionConsumerService** hodnotu.  
-      
-    > [!NOTE]
-    > Budete potřebovat hodnotu v **konfigurace adresy URL aplikace** později v tomto kurzu.
-    > 
-    > 
+    c. Kopírování **AssertionConsumerService** hodnotu, vložte tuto hodnotu v textovém poli Adresa URL odpovědi v **TOPdesk – zabezpečení domény a adresy URL** části.
 
-6. V okně prohlížeče jiný web, přihlaste se k vaší **portál Azure classic** jako správce.
-
-7. Na **TOPdesk - zabezpečené** stránky integrace aplikací, klikněte na tlačítko **nakonfigurovat jednotné přihlašování** otevřete ** nakonfigurovat jednotné přihlašování ** dialogové okno.
-   
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "nakonfigurovat jednotné přihlašování")
-
-8. Na **jak chcete uživatelům se přihlásit TOPdesk - zabezpečené** vyberte **Microsoft Azure AD Single Sign-On**a potom klikněte na **Další**.
-   
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-topdesk-secure-tutorial/IC790603.png "nakonfigurovat jednotné přihlašování")
-
-9. Na **konfigurace adresy URL aplikace** proveďte následující kroky:
-   
-    ![Konfigurovat adresu URL aplikace](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "konfigurovat adresu URL aplikace")
-   
-    a. V **TOPdesk - zabezpečené přihlašovací adresa URL** textové pole, zadejte adresu URL používají vaši uživatelé pro přihlášení do vaší TOPdesk - zabezpečené aplikace (například: "*https://qssolutions.topdesk.net*").
-   
-    b. V **TOPdesk – veřejná adresa URL odpovědi** textovému poli, Vložit **TOPdesk - zabezpečené URL AssertionConsumerService** (například: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
-   
-    c. Klikněte na **Další**.
-
-10. Na **nakonfigurovat jednotné přihlašování v TOPdesk - zabezpečené** klikněte na stránce pro stažení souboru metadat **stáhnout metadata**a potom uložte soubor místně na vašem počítači.
+12. Pokud chcete vytvořit soubor s certifikátem, proveďte následující kroky:
     
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-topdesk-secure-tutorial/IC790605.png "nakonfigurovat jednotné přihlašování")
+    ![Certifikát](./media/active-directory-saas-topdesk-secure-tutorial/ic790606.png "certifikátu")
+    
+    a. Otevřete soubor metadat stažený z portálu Azure.
 
-11. Pokud chcete vytvořit soubor s certifikátem, proveďte následující kroky:
-    
-    ![Certifikát](./media/active-directory-saas-topdesk-secure-tutorial/IC790606.png "certifikátu")
-    
-    a. Otevřete soubor stažený metadat.
     b. Rozbalte **RoleDescriptor** uzlu, který má **xsi: type** z **dodáni: ApplicationServiceType**.
+
     c. Zkopírujte hodnotu **certifikátu x 509** uzlu.
+
     d. Uložit zkopírovaný **certifikátu x 509** hodnota místně na vašem počítači v souboru.
 
-12. Na vaše TOPdesk – zabezpečení společnosti lokality v **TOPdesk** nabídky, klikněte na tlačítko **nastavení**.
+13. V **veřejné** klikněte na tlačítko **přidat**.
     
-    ![Nastavení](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "nastavení")
+    ![Přidat](./media/active-directory-saas-topdesk-secure-tutorial/ic790607.png "přidat")
 
-13. Klikněte na tlačítko **nastavení přihlášení**.
+14. Na **pomocníka konfigurace SAML** dialogové okno proveďte následující kroky:
     
-    ![Nastavení přihlášení](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "nastavení přihlášení")
-
-14. Rozbalte **nastavení přihlášení** nabídce a pak klikněte na tlačítko **Obecné**.
+    ![Pomocník pro konfigurace SAML](./media/active-directory-saas-topdesk-secure-tutorial/ic790608.png "pomocníka konfigurace SAML")
     
-    ![Obecné](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "obecné")
-
-15. V **veřejné** klikněte na tlačítko **přidat**.
-    
-    ![Přidat](./media/active-directory-saas-topdesk-secure-tutorial/IC790607.png "přidat")
-
-16. Na **pomocníka konfigurace SAML** dialogové okno proveďte následující kroky:
-    
-    ![Pomocník pro konfigurace SAML](./media/active-directory-saas-topdesk-secure-tutorial/IC790608.png "pomocníka konfigurace SAML")
-    
-    a. K odeslání souboru stažené metadata, v části **federačních metadat**, klikněte na tlačítko **Procházet**.
+    a. K odeslání souboru metadat stažený z portálu Azure, v části **federačních metadat**, klikněte na tlačítko **Procházet**.
 
     b. Nahrát soubor certifikátu, v části **certifikát (RSA)**, klikněte na tlačítko **Procházet**.
 
     c. Nahrát soubor logo jste získali od týmu podpory TOPdesk, v části **Logo ikonu**, klikněte na tlačítko **Procházet**.
 
-    d. V **atribut uživatelského jména** textovému poli, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    d. V **atribut uživatelského jména** textovému poli, typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     e. V **zobrazovaný název** textovému poli, zadejte název pro svou konfiguraci.
 
     f. Klikněte na **Uložit**.
 
-17. Na portálu Azure classic, vyberte potvrzení konfigurace přihlášení a pak klikněte na tlačítko **Complete** zavřete **nakonfigurovat jednotné přihlašování** dialogové okno.
-    
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "nakonfigurovat jednotné přihlašování")
+> [!TIP]
+> Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-## <a name="configuring-user-provisioning"></a>Konfiguraci zřizování uživatelů
+### <a name="create-an-azure-ad-test-user"></a>Vytvořit testovací uživatele Azure AD
+
+Cílem této části je vytvoření zkušebního uživatele na portálu Azure, názvem Britta Simon.
+
+   ![Vytvořit testovací uživatele Azure AD][100]
+
+**Vytvoření zkušebního uživatele ve službě Azure AD, proveďte následující kroky:**
+
+1. Na portálu Azure, v levém podokně klikněte **Azure Active Directory** tlačítko.
+
+    ![Tlačítko Azure Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_01.png)
+
+2. Chcete-li zobrazit seznam uživatelů, přejděte na **uživatelů a skupin**a potom klikněte na **všichni uživatelé**.
+
+    !["Uživatelé a skupiny" a "Všichni uživatelé" odkazy](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_02.png)
+
+3. Chcete-li otevřít **uživatele** dialogové okno, klikněte na tlačítko **přidat** v horní části **všichni uživatelé** dialogové okno.
+
+    ![Tlačítko Přidat](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_03.png)
+
+4. V **uživatele** dialogové okno pole, proveďte následující kroky:
+
+    ![Dialogové okno uživatele](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_04.png)
+
+    a. V **název** zadejte **BrittaSimon**.
+
+    b. V **uživatelské jméno** zadejte e-mailovou adresu uživatele Britta Simon.
+
+    c. Vyberte **zobrazit hesla** zaškrtněte políčko a zapište si ji hodnotu, která se zobrazí v **heslo** pole.
+
+    d. Klikněte na možnost **Vytvořit**.
+ 
+### <a name="create-a-topdesk---secure-test-user"></a>Vytvoření TOPdesk - zabezpečené testovacího uživatele
+
 Chcete-li povolit uživatelům Azure AD přihlášení do TOPdesk - bezpečný, se musí být zřízená do TOPdesk - zabezpečené.  
 V případě TOPdesk - zabezpečený a zřizování je ruční úloha.
 
@@ -179,15 +232,15 @@ V případě TOPdesk - zabezpečený a zřizování je ruční úloha.
 1. Přihlaste se k vaší **TOPdesk - zabezpečené** společnosti lokality jako správce.
 2. V nabídce v horní části, klikněte na tlačítko **TOPdesk \> nový \> soubory podpory \> operátor**.
    
-    ![Operátor](./media/active-directory-saas-topdesk-secure-tutorial/IC790610.png "– operátor")
+    ![Operátor](./media/active-directory-saas-topdesk-secure-tutorial/ic790610.png "– operátor")
 
 3. Na **operátor New** dialogové okno, proveďte následující kroky:
    
-    ![Operátor new](./media/active-directory-saas-topdesk-secure-tutorial/IC790611.png "New – operátor")
+    ![Operátor new](./media/active-directory-saas-topdesk-secure-tutorial/ic790611.png "New – operátor")
    
-    a. Klikněte na kartu Obecné.
+    a. Klikněte **Obecné** kartě.
    
-    b. V **Přezdívka** textbox z **Obecné** zadejte příjmení chcete zřídit platný účet služby Azure Active Directory.
+    b. V **Přezdívka** textovému poli, zadejte příjmení uživatele jako **Simon**.
    
     c. Vyberte **lokality** pro účet v **umístění** části.
    
@@ -197,21 +250,60 @@ V případě TOPdesk - zabezpečený a zřizování je ruční úloha.
 
 > [!NOTE]
 > Můžete použít všechny ostatní TOPdesk – rozhraní API poskytované TOPdesk - zabezpečené zřídit AAD uživatelské účty nebo nástroje pro tvorbu účet zabezpečení uživatele.
-> 
-> 
 
-## <a name="assigning-users"></a>Přiřazení uživatelů
-Chcete-li otestovat vaši konfiguraci, přidělte uživatelům Azure AD, že které chcete povolit přístup aplikace k němu pomocí jejich přiřazení.
+### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 
-### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Přiřazení uživatelů k TOPdesk - zabezpečit, proveďte následující kroky:
-1. Na portálu Azure classic vytvořte zkušební účet.
-2. Na ** TOPdesk - zabezpečené ** stránky integrace aplikací, klikněte na tlačítko **přiřazení uživatelů**.
-   
-    ![Přiřazení uživatelů](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "přiřazení uživatelů")
+V této části povolíte Britta Simon používat Azure jednotné přihlašování pomocí udělení přístupu TOPdesk - zabezpečené.
 
-3. Vyberte svého testovacího uživatele, klikněte na **přiřadit**a potom klikněte na **Ano** k potvrzení vaší přiřazení.
-   
-    ![Ano](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Ano")
+![Přiřadit role uživatele][200] 
 
-Pokud chcete testovat vaše nastavení jednotného přihlašování, otevřete Panel přístupu. Další podrobnosti o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).
+**Britta Simon přiřadit TOPdesk - zabezpečit, proveďte následující kroky:**
+
+1. Na portálu Azure otevřete zobrazení aplikací a pak přejděte do zobrazení adresáře a přejděte na **podnikové aplikace, které** klikněte **všechny aplikace**.
+
+    ![Přiřadit uživatele][201] 
+
+2. V seznamu aplikací vyberte **TOPdesk - zabezpečené**.
+
+    ![TOPdesk - zabezpečené připojení v seznamu aplikací](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_app.png)  
+
+3. V nabídce na levé straně klikněte na tlačítko **uživatelů a skupin**.
+
+    ![Odkaz "Uživatelé a skupiny"][202]
+
+4. Klikněte na tlačítko **přidat** tlačítko. Potom vyberte **uživatelů a skupin** na **přidat přiřazení** dialogové okno.
+
+    ![V podokně Přidat přiřazení][203]
+
+5. Na **uživatelů a skupin** dialogovém okně, vyberte **Britta Simon** v seznamu uživatelů.
+
+6. Klikněte na tlačítko **vyberte** tlačítko **uživatelů a skupin** dialogové okno.
+
+7. Klikněte na tlačítko **přiřadit** tlačítko **přidat přiřazení** dialogové okno.
+    
+### <a name="test-single-sign-on"></a>Test jednotného přihlašování
+
+V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci pomocí přístupového panelu.
+
+Po kliknutí na tlačítko TOPdesk - zabezpečené dlaždice na přístupovém panelu jste měli získat automaticky přihlášení k vaší TOPdesk - zabezpečené aplikace.
+Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Další zdroje
+
+* [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_203.png
 

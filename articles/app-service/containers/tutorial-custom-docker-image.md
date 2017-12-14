@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: MT
+ms.openlocfilehash: 6a89db8b93f29c29e935afd94da727d2460af889
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Použít vlastní image Docker pro webovou aplikaci pro kontejnery
 
@@ -294,10 +294,15 @@ SSH umožňuje zabezpečenou komunikaci mezi kontejner a klienta. Aby pro vlastn
 
     ```docker
     EXPOSE 8000 2222
-
-    RUN service ssh start
     ```
 
+* Zajistěte, abyste [spustit služby ssh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) pomocí skriptu prostředí v adresáři/Bin.
+ 
+    ```bash
+    #!/bin/bash
+    service ssh start
+    ```
+     
 ### <a name="open-ssh-connection-to-container"></a>Otevřete připojení SSH do kontejneru
 
 Webové aplikace pro kontejnery neumožňuje externí připojení ke kontejneru. SSH je k dispozici pouze prostřednictvím Kudu lokalitě, která je přístupná na `https://<app_name>.scm.azurewebsites.net`.

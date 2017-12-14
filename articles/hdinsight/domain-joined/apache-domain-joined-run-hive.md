@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 812acea414096880c2b80958cb7c6f410f0d9c98
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Nakonfigurovat zásady Hive v HDInsight připojený k doméně
 Zjistěte, jak nakonfigurovat zásady Apache Rangeru pro Hive. V tomto článku vytvoříte dvě zásady Ranger pro omezení přístupu k hivesampletable. Hivesampletable je součástí clusterů HDInsight. Po nakonfigurování zásad použijete Excel nebo ovladač ODBC a připojíte se k tabulkám Hivu ve službě HDInsight.
@@ -35,7 +35,7 @@ Zjistěte, jak nakonfigurovat zásady Apache Rangeru pro Hive. V tomto článku 
 1. V prohlížeči se připojte k uživatelskému rozhraní správce Ranger. Adresa URL je: https://&lt;název_clusteru>.azurehdinsight.net/Ranger/.
 
    > [!NOTE]
-   > Ranger používá jiné přihlašovací údaje než cluster Hadoop. Abyste zabránili prohlížeči v použití přihlašovacích údajů systému Hadoop uložených v mezipaměti, použijte pro připojení k uživatelskému rozhraní správce Ranger nové okno prohlížeče v režimu InPrivate.
+   > Ranger používá jiné přihlašovací údaje než cluster Hadoop. Aby prohlížeče pomocí pověření uložených v mezipaměti Hadoop, použijte nové okno prohlížeče InPrivate se připojit k rozhraní škálu správce.
    >
    >
 2. Přihlaste se pomocí doménového uživatelského jména a hesla správce clusteru:
@@ -45,10 +45,10 @@ Zjistěte, jak nakonfigurovat zásady Apache Rangeru pro Hive. V tomto článku 
     V současné době Ranger funguje pouze s Yarn a Hivem.
 
 ## <a name="create-domain-users"></a>Vytvoření uživatelů domén
-V tématu [Konfigurace clusterů HDInsight připojených k doméně](apache-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad) jste vytvořili uživatele hiveuser1 a hiveuser2. V tomto kurzu použijete tyto dva uživatelské účty.
+V tématu [Konfigurace clusterů HDInsight připojených k doméně](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) jste vytvořili uživatele hiveuser1 a hiveuser2. V tomto kurzu použijete dvě uživatelský účet.
 
 ## <a name="create-ranger-policies"></a>Vytvoření zásad Ranger
-V této části vytvoříte dvě zásady Ranger pro přistupování k hivesampletable. Udělíte oprávnění Vybrat na různé sady sloupců. Oba uživatelé byli vytvořeni v tématu [Konfigurace clusterů HDInsight připojených k doméně](apache-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).  V další části tyto dvě zásady otestujete v Excelu.
+V této části vytvoříte dvě škálu zásady pro přístup k hivesampletable. Udělíte oprávnění Vybrat na různé sady sloupců. Oba uživatelé byli vytvořeni v tématu [Konfigurace clusterů HDInsight připojených k doméně](apache-domain-joined-configure.md#optional-create-ad-users-and-groups).  V další části tyto dvě zásady otestujete v Excelu.
 
 **Vytvoření zásad Ranger**
 
@@ -105,7 +105,7 @@ V předchozí části jste nakonfigurovali dvě zásady.  Uživatel hiveuser1 m�
     ![Otevřete Průvodce připojením dat][img-hdi-simbahiveodbc.excel.dataconnection]
 3. Jako zdroj dat vyberte **ODBC DSN** a pak klikněte na **Další**.
 4. Ze zdrojů dat ODBC vyberte název zdroje dat, který jste vytvořili v předchozím kroku, a klikněte na **Další**.
-5. V průvodci znovu zadejte heslo pro cluster a pak klikněte na **OK**. Počkejte, než se otevře dialogové okno **Vybrat databázi a tabulku**. Může to trvat několik sekund.
+5. Zadejte znovu heslo pro cluster v průvodci a potom klikněte na **OK**. Počkejte, než se otevře dialogové okno **Vybrat databázi a tabulku**. Může to trvat několik sekund.
 6. Vyberte **hivesampletable** a pak klikněte na **Další**.
 7. Klikněte na **Finish** (Dokončit).
 8. V dialogovém okně **Import dat** můžete změnit, nebo zadat dotaz. To provedete kliknutím na **Vlastnosti**. Může to trvat několik sekund.
@@ -113,17 +113,17 @@ V předchozí části jste nakonfigurovali dvě zásady.  Uživatel hiveuser1 m�
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 
-   Podle zásad Ranger, které jste nadefinovali, má uživatel hiveuser1 oprávnění Vybrat na všech sloupcích.  Takže tento dotaz funguje s přihlašovacími údaji uživatele hiveuser1, ale nefunguje s přihlašovacími údaji uživatele hiveuser2.
+   Podle zásad Ranger, které jste nadefinovali, má uživatel hiveuser1 oprávnění Vybrat na všech sloupcích.  Proto tento dotaz funguje s přihlašovacími údaji na hiveuser1, ale tento dotaz s přihlašovacími údaji na hiveuser2 nefunguje.
 
    ![Vlastnosti připojení][img-hdi-simbahiveodbc-excel-connectionproperties]
 10. Kliknutím na **OK** zavřete dialogové okno Vlastnosti připojení.
 11. Kliknutím na **OK** zavřete dialogové okno **Import Dat**.  
 12. Znovu zadejte heslo uživatele hiveuser1 a pak klikněte na **OK**. Import dat do Excelu trvá několik sekund. Po dokončení importu byste měli vidět 11 sloupců dat.
 
-Testování druhé zásady (read-hivesampletable-devicemake) vytvořené v předchozí části
+K testování druhá zásada (čtení devicemake hivesampletable), jste vytvořili v poslední části
 
 1. Přidejte v Excelu nový list.
-2. K importu dat použijte předchozí postup.  Jediná změna, kterou provedete, bude použití přihlašovacích údajů uživatele hiveuser2 namísto uživatele hiveuser1. To se nezdaří, protože uživatel hiveuser2 má pouze oprávnění k zobrazení dvou sloupců. Měla by se zobrazit následující chyba:
+2. K importu dat použijte předchozí postup.  Použít přihlašovací údaje hiveuser2 na místo na hiveuser1 je pouze změny, které provedete. To se nezdaří, protože hiveuser2 má pouze oprávnění k zobrazení dva sloupce. Měla by se zobrazit následující chyba:
 
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
 3. K importu dat použijte stejný postup. Tentokrát použijte přihlašovací údaje uživatele hiveuser2 a také změňte příkaz SELECT z:
@@ -138,7 +138,7 @@ Testování druhé zásady (read-hivesampletable-devicemake) vytvořené v před
 
 ## <a name="next-steps"></a>Další kroky
 * Pokud chcete konfigurovat cluster HDInsight připojený k doméně, přečtěte si téma [Konfigurace clusterů HDInsight připojených k doméně](apache-domain-joined-configure.md).
-* Pokud chcete spravovat clustery HDInsight připojené k doméně, přečtěte si téma [Správa clusterů HDInsight připojených k doméně](apache-domain-joined-manage.md).
+* Spravovat cluster HDInsight se připojený k doméně, najdete v části [clustery HDInsight spravovat doméně](apache-domain-joined-manage.md).
 * Spuštění dotazů Hive pomocí protokolu SSH v clusterech HDInsight připojený k doméně, najdete v části [použití SSH s HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Pokud se chcete připojit k Hivu pomocí Hive JDBC, přečtěte si téma [Připojení k Hivu ve službě Azure HDInsight pomocí ovladače Hive JDBC](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
 * Pokud chcete připojit Excel k systému Hadoop pomocí rozhraní Hive ODBC, přečtěte si téma [Připojení Excelu k systému Hadoop pomocí ovladače Microsoft Hive ODBC](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
