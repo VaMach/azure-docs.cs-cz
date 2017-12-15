@@ -1,6 +1,6 @@
 ---
-title: "Rychlý úvod: Cassandra rozhraní API pomocí rozhraní .NET - Azure Cosmos DB | Microsoft Docs"
-description: "Tento rychlý start ukazuje, jak používat rozhraní API služby Azure DB Cosmos Cassandra k vytvoření profilu aplikace pomocí portálu Azure a rozhraní .NET"
+title: "Rychlý start: Cassandra API s využitím .NET – Azure Cosmos DB | Dokumentace Microsoftu"
+description: "Tento rychlý start ukazuje, jak použít rozhraní Apache Cassandra API služby Azure Cosmos DB k vytvoření aplikace profilu pomocí webu Azure Portal a technologie .NET."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -11,30 +11,30 @@ ms.custom: quick start connect, mvc
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: ebfe845fa4f695064773a03f6d765da37ab44189
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: MT
+ms.openlocfilehash: c1830d13e759205935fbd769574c1132a8e70d09
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Rychlý úvod: Vytváření Cassandra aplikace pomocí rozhraní .NET a Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Rychlý start: Sestavení aplikace Cassandra pomocí .NET a Azure Cosmos DB
 
-Tento rychlý start ukazuje způsob použití rozhraní .NET a Azure Cosmos DB [Cassandra API](cassandra-introduction.md) k vytvoření profilu aplikace klonováním příklad z Githubu. Tento rychlý start také vás provede procesem vytvoření účtu Azure Cosmos DB pomocí portálu Azure založených na webu.   
+Tento rychlý start ukazuje, jak pomocí .NET a rozhraní Azure Cosmos DB [Cassandra API](cassandra-introduction.md) sestavit aplikaci profilu naklonováním příkladu z GitHubu. Tento rychlý start vás také provede vytvořením účtu Azure Cosmos DB pomocí webu Azure Portal.   
 
-Azure Cosmos DB je globálně distribuované databáze více modelu služby společnosti Microsoft. Můžete rychle vytvořit a dotazovat dokumentu, tabulka, klíč hodnota a graf databází, které těžit z globální distribuci a možnosti vodorovné škálování základem Azure Cosmos DB. 
+Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Můžete rychle vytvořit a dotazovat databáze dokumentů, párů klíč-hodnota a grafů, které tak můžou využívat výhody možnosti globální distribuce a horizontálního škálování v jádru služby Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Požadavky
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Alternativně můžete [zkuste Azure Cosmos DB zdarma](https://azure.microsoft.com/try/cosmosdb/) bez předplatného Azure, bez poplatků a závazky.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Alternativně můžete [vyzkoušet službu Azure Cosmos DB zdarma](https://azure.microsoft.com/try/cosmosdb/) bez předplatného Azure, poplatků a závazků.
 
-Přístup k rozhraní API služby Azure Cosmos DB Cassandra programu preview. Pokud jste ještě nenainstalovali pro přístup k ještě [nyní](cassandra-introduction.md#sign-up-now).
+Přejděte k programu Azure Cosmos DB Cassandra API Preview. Pokud jste ještě nepožádali o přístup, [zaregistrujte se](cassandra-introduction.md#sign-up-now).
 
 Navíc platí: 
-* Pokud ještě nemáte nainstalované Visual Studio 2017, můžete stáhnout a použít **volné** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
-* Nainstalujte [Git](https://www.git-scm.com/) klonovat v příkladu.
+* Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout a použít **bezplatnou verzi** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
+* Nainstalujte [Git](https://www.git-scm.com/) pro klonování příkladu.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
@@ -44,27 +44,27 @@ Navíc platí:
 
 ## <a name="clone-the-sample-application"></a>Klonování ukázkové aplikace
 
-Teď přejděme k práci s kódem. Pojďme klonovat aplikace Cassandra API z Githubu, nastavení připojovacího řetězce a potom ho spusťte. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
+Teď přejděme k práci s kódem. Teď naklonujeme aplikaci rozhraní Cassandra API z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
-1. Otevřete okno terminálu git, jako je například git bash a použít `cd` příkaz Přejít do složky pro instalaci ukázkové aplikace. 
+1. Otevřete okno terminálu Git, například Git Bash, a pomocí příkazu `cd` přejděte do složky, do které chcete nainstalovat ukázkovou aplikaci. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači.
+2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří na vašem počítači kopii ukázkové aplikace.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
     ```
 
-3. Poté otevřete soubor řešení CassandraQuickStartSample v sadě Visual Studio. 
+3. Potom otevřete soubor řešení CassandraQuickStartSample v sadě Visual Studio. 
 
 ## <a name="review-the-code"></a>Kontrola kódu
 
-Tento krok je volitelný. Pokud vás zajímá učení vytváření databázových prostředků v kódu, můžete zkontrolovat následující fragmenty kódu. Fragmenty kódu jsou převzaty z `Program.cs` nainstalován ve složce C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample souboru. Jinak, můžete přeskočit na [aktualizovat připojovací řetězec](#update-your-connection-string).
+Tento krok je volitelný. Pokud chcete zjistit, jak se v kódu vytvářejí prostředky databáze, můžete si prohlédnout následující fragmenty kódu. Všechny fragmenty kódu pocházejí ze souboru `Program.cs` nainstalovaného ve složce C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample. Jinak můžete rovnou přeskočit k části [Aktualizace připojovacího řetězce](#update-your-connection-string).
 
-* Připojte se k koncový bod clusteru Cassandra inicializujte relace. Rozhraní API Cassandra v Azure Cosmos DB podporuje pouze TLSv1.2. 
+* Inicializujte relaci připojením ke koncovému bodu clusteru Cassandra. Cassandra API ve službě Azure Cosmos DB podporuje jenom TLSv1.2. 
 
   ```csharp
    var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
@@ -73,7 +73,7 @@ Tento krok je volitelný. Pokud vás zajímá učení vytváření databázovýc
    ISession session = cluster.Connect();
    ```
 
-* Vytvořte nový keyspace.
+* Vytvořte nový prostor klíčů.
 
     ```csharp
     session.Execute("CREATE KEYSPACE uprofile WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };"); 
@@ -85,13 +85,13 @@ Tento krok je volitelný. Pokud vás zajímá učení vytváření databázovýc
   session.Execute("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)");
    ```
 
-* Vložte entity uživatele pomocí objektu IMapper s novou relací, která se připojuje k uprofile keyspace.
+* Vložte entity uživatelů pomocí objektu IMapper s novou relací, která se připojuje k prostoru klíčů uprofile.
 
     ```csharp
     mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
-* Dotaz pro získání všechny uživatelské informace.
+* Použijte dotaz pro získání informací o všech uživatelích.
 
     ```csharp
    foreach (User user in mapper.Fetch<User>("Select * from user"))
@@ -100,7 +100,7 @@ Tento krok je volitelný. Pokud vás zajímá učení vytváření databázovýc
    }
     ```
     
- * Dotaz se získat informace o jenom jednoho konkrétního uživatele.
+ * Použijte dotaz pro získání informací o jednom uživateli.
 
     ```csharp
     mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
@@ -108,31 +108,31 @@ Tento krok je volitelný. Pokud vás zajímá učení vytváření databázovýc
 
 ## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
-Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. Informace o připojovacím řetězci umožňuje aplikaci ke komunikaci s vaší hostované databází.
+Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. Informace o připojovacím řetězci umožňují aplikaci komunikovat s hostovanou databází.
 
-1. V [portál Azure](http://portal.azure.com/), klikněte na tlačítko **připojovací řetězec**. 
+1. Na webu [Azure Portal](http://portal.azure.com/) klikněte na **Připojovací řetězec**. 
 
-    Použití ![Tlačítko Kopírovat](./media/create-cassandra-dotnet/copy.png) tlačítko na pravé straně obrazovky zkopírujte hodnotu uživatelského jména.
+    Pomocí tlačítka ![Tlačítko pro kopírování](./media/create-cassandra-dotnet/copy.png) na pravé straně obrazovky zkopírujte hodnotu UŽIVATELSKÉ JMÉNO.
 
-    ![Zobrazení a zkopírování přístupového klíče v Azure stránky portálu, připojovací řetězec](./media/create-cassandra-dotnet/keys.png)
+    ![Zobrazení a zkopírování přístupového klíče na webu Azure Portal, stránka Připojovací řetězec](./media/create-cassandra-dotnet/keys.png)
 
-2. V aplikaci Visual Studio 2017 otevřete soubor Program.cs. 
+2. V sadě Visual Studio 2017 otevřete soubor Program.cs. 
 
-3. Vložit hodnotu uživatelského jména z portálu přes `<FILLME>` na řádku 13.
+3. Vložte hodnotu UŽIVATELSKÉ JMÉNO z portálu místo `<FILLME>` na řádku 13.
 
-    Řádek 13 Program.cs by teď měl vypadat podobně jako 
+    Řádek 13 souboru Program.cs by teď měl vypadat nějak takto: 
 
     `private const string UserName = "cosmos-db-quickstart";`
 
-3. Přejděte zpět na portál a zkopírujte hodnotu heslo. Vložte hodnotu HESLA z portálu přes `<FILLME>` na řádku 14.
+3. Přejděte zpátky na portál a zkopírujte hodnotu HESLO. Vložte hodnotu HESLO z portálu místo `<FILLME>` na řádku 14.
 
-    Řádek 14 Program.cs by teď měl vypadat podobně jako 
+    Řádek 14 souboru Program.cs by teď měl vypadat nějak takto: 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
-4. Přejděte zpět na portál a zkopírujte hodnotu obraťte se na bodu. Vložit hodnotu bodu obraťte se na portálu přes `<FILLME>` na řádku 15.
+4. Přejděte zpátky na portál a zkopírujte hodnotu KONTAKTNÍ BOD. Vložte hodnotu KONTAKTNÍ BOD z portálu místo `<FILLME>` na řádku 15.
 
-    Řádek 15 Program.cs by teď měl vypadat podobně jako 
+    Řádek 15 souboru Program.cs by teď měl vypadat nějak takto: 
 
     `private const string CassandraContactPoint = "cosmos-db-quickstarts.documents.azure.com"; //  DnsName`
 
@@ -140,22 +140,22 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
     
 ## <a name="run-the-app"></a>Spuštění aplikace
 
-1. V sadě Visual Studio, klikněte na tlačítko **nástroje** > **Správce balíčků NuGet** > **Konzola správce balíčků**.
+1. V sadě Visual Studio klikněte na **Nástroje**  >  **Správce balíčků NuGet**  >  **Konzola správce balíčků**.
 
-2. Na příkazovém řádku použijte následující příkaz se nainstalovat balíček NuGet ovladačů rozhraní .NET. 
+2. Na příkazovém řádku pomocí následujícího příkazu nainstalujte balíček NuGet ovladače .NET. 
 
     ```cmd
     Install-Package CassandraCSharpDriver
     ```
-3. Spusťte aplikaci stisknutím CTRL+F5. Aplikace se zobrazí v okně konzoly. 
+3. Spusťte aplikaci stisknutím CTRL+F5. Aplikace se zobrazí v okně konzoly. 
 
-    ![Zobrazit a ověřit výstup](./media/create-cassandra-dotnet/output.png)
+    ![Zobrazení a ověření výstupu](./media/create-cassandra-dotnet/output.png)
 
-    Stisknutím kombinace kláves CTRL + C zastavení exection programu a zavřete okno konzoly. 
+    Stisknutím kombinace kláves CTRL + C zastavte provádění programu a zavřete okno konzoly. 
     
-    Nyní lze otevřít Průzkumníku dat na portálu Azure najdete v části dotazu, úpravu a pracovat s Tato nová data. 
+    Teď můžete otevřít Průzkumníka dat na webu Azure Portal a zobrazit dotaz nebo provést úpravy a pracovat s těmito novými daty. 
 
-    ![Zobrazení dat v Průzkumníku dat](./media/create-cassandra-dotnet/data-explorer.png)
+    ![Zobrazení dat v Průzkumníku dat](./media/create-cassandra-dotnet/data-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
 
@@ -170,4 +170,4 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 V tomto rychlém startu jste se seznámili s postupem vytvoření účtu Azure Cosmos DB, vytvoření kolekce pomocí Průzkumníka dat a spuštění webové aplikace. Teď můžete do účtu databáze Cosmos importovat další data. 
 
 > [!div class="nextstepaction"]
-> [Importovat Cassandra data do Azure Cosmos DB](cassandra-import-data.md)
+> [Import dat Cassandra do služby Azure Cosmos DB](cassandra-import-data.md)

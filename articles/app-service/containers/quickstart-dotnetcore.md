@@ -1,7 +1,7 @@
 ---
-title: "Vytvoření webové aplikace .NET Core a nasazení do služby App Service v systému Linux | Microsoft Docs"
-description: "Nasazení první aplikace .NET Core Hello, World do služby App Service v systému Linux v minutách."
-keywords: "služby Azure app service, webové aplikace, dotnet, core, linux, operačních systémů"
+title: "Vytvoření webové aplikace .NET Core a její nasazení do služby App Service v Linuxu | Dokumentace Microsoftu"
+description: "Během několika minut můžete nasadit svou první aplikaci Hello World v .NET Core do služby App Service v Linuxu."
+keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: 
 author: cephalin
@@ -18,13 +18,13 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Vytvoření webové aplikace .NET Core ve službě App Service v systému Linux
+# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Vytvoření webové aplikace .NET Core ve službě App Service v Linuxu
 
-[Aplikační služby v systému Linux](app-service-linux-intro.md) nabízí vysoce škálovatelnou a automatických oprav webové hostitelské služby pomocí operační systém Linux. Tento rychlý start ukazuje, jak vytvořit [.NET Core](https://docs.microsoft.com/aspnet/core/) aplikace v App Service v systému Linux. Vytvořit webovou aplikaci pomocí [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a pomocí Git nasaďte kód .NET Core do webové aplikace.
+[App Service v Linuxu](app-service-linux-intro.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů s využitím operačního systému Linux. V tomto rychlém startu se dozvíte, jak vytvořit aplikaci [.NET Core](https://docs.microsoft.com/aspnet/core/) ve službě App Service v Linuxu. Pomocí [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) vytvoříte webovou aplikaci a pomocí Gitu do této webové aplikace nasadíte kód .NET Core.
 
 ![Ukázková aplikace spuštěná ve službě Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -35,13 +35,13 @@ Následující postup můžete použít v případě počítačů Mac, Windows n
 K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
 * <a href="https://git-scm.com/" target="_blank">Nainstalovat Git</a>.
-* <a href="https://www.microsoft.com/net/download/core" target="_blank">Nainstalujte základní rozhraní .NET SDK</a>
+* <a href="https://www.microsoft.com/net/download/core" target="_blank">Nainstalovat sadu .NET Core SDK</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-app-locally"></a>Vytvoření aplikace místně
+## <a name="create-the-app-locally"></a>Místní vytvoření aplikace
 
-V okně terminálu na váš počítač, vytvořte adresář s názvem `hellodotnetcore` a změně aktuálního adresáře na ni.
+V okně terminálu na svém počítači vytvořte adresář `hellodotnetcore` a přejděte do něj.
 
 ```bash
 md hellodotnetcore
@@ -56,20 +56,20 @@ dotnet new web
 
 ## <a name="run-the-app-locally"></a>Místní spuštění aplikace
 
-Obnovení balíčků NuGet a spusťte aplikaci.
+Obnovte balíčky NuGet a spusťte aplikaci.
 
 ```bash
 dotnet restore
 dotnet run
 ```
 
-Otevřete webový prohlížeč a přejděte na aplikaci ve `http://localhost:5000`.
+Otevřete webový prohlížeč a přejděte do aplikace na adrese `http://localhost:5000`.
 
 Na stránce se zobrazí zpráva **Hello World** z ukázkové aplikace.
 
 ![Testování pomocí prohlížeče](media/quickstart-dotnetcore/dotnet-browse-local.png)
 
-V okně terminálu ukončete webový server stisknutím **Ctrl + C**. Inicializace úložiště Git pro projekt .NET Core.
+V okně terminálu ukončete webový server stisknutím **Ctrl + C**. Inicializujte úložiště Git pro projekt .NET Core.
 
 ```bash
 git init
@@ -89,7 +89,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-Vyhledejte nově vytvořenou webovou aplikaci. Nahraďte  _&lt;název aplikace >_ s názvem vaší webové aplikace.
+Přejděte do vaší nově vytvořené webové aplikace. Nahraďte _&lt;app name>_ názvem vaší webové aplikace.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -136,15 +136,15 @@ V prohlížeči zadejte adresu nasazené aplikace.
 http://<app_name>.azurewebsites.net
 ```
 
-Ukázkový kód Node.js běží ve webové aplikaci s integrovanou bitové kopie.
+Vzorový kód Node.js je spuštěný ve webové aplikaci s použitím integrované image.
 
 ![Ukázková aplikace spuštěná ve službě Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Blahopřejeme!** První aplikaci Node.js jste nasadili do služby App Service v systému Linux.
+**Blahopřejeme!** Nasadili jste svoji první aplikaci Node.js do služby App Service v Linuxu.
 
 ## <a name="update-and-redeploy-the-code"></a>Aktualizace a opětovné nasazení kódu
 
-V místním adresáři, otevřete _Startup.cs_ souboru. Změňte text ve volání metody, které malá `context.Response.WriteAsync`:
+V místním adresáři otevřete soubor _Startup.cs_. Proveďte malou změnu textu ve volání metody `context.Response.WriteAsync`:
 
 ```csharp
 await context.Response.WriteAsync("Hello Azure!");
@@ -180,4 +180,4 @@ Levá nabídka obsahuje odkazy na různé stránky pro konfiguraci vaší aplika
 ## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
-> [Vytvoření webové aplikace .NET Core a databáze SQL ve službě Azure App Service v systému Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Vytvoření webové aplikace .NET Core využívající SQL Database ve službě Azure App Service v Linuxu](tutorial-dotnetcore-sqldb-app.md)

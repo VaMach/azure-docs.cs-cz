@@ -1,7 +1,7 @@
 ---
-title: "Spusťte vlastní image úložiště Docker Hub v Azure Web App pro kontejnery | Microsoft Docs"
-description: "Jak používat vlastní image Docker pro webové aplikace Azure pro kontejnery."
-keywords: "služby Azure app service, webové aplikace, linux, docker, kontejneru"
+title: "Spuštění vlastní image z Docker Hubu v Azure Web App for Containers | Dokumentace Microsoftu"
+description: "Jak používat vlastní image Dockeru pro službu Azure Web App for Containers."
+keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -18,13 +18,13 @@ ms.author: cephalin;wesmc
 ms.custom: mvc
 ms.openlocfilehash: 8e7afd89def170ce756aae9e76daf91d78cc20e0
 ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/03/2017
 ---
-# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Spusťte vlastní image úložiště Docker Hub v Azure Web App pro kontejnery
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Spuštění vlastní image z Docker Hubu v Azure Web App for Containers
 
-Služba App Service poskytuje zásobníky předem definované aplikací v systému Linux s podporou pro konkrétní verze, jako je například PHP 7.0 a Node.js 4.5. Můžete také vlastní image Docker ke spouštění vaší webové aplikace v zásobníku aplikace, které již nejsou definované v Azure. Tento rychlý start ukazuje, jak vytvořit webovou aplikaci a nasadit [oficiální image Nginx Docker](https://hub.docker.com/r/_/nginx/) k němu. Vytvořit webovou aplikaci pomocí [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+App Service poskytuje předdefinované zásobníky aplikací v Linuxu s podporou konkrétních verzí, jako například PHP 7.0 a Node.js 4.5. Můžete také použít vlastní image Dockeru a spouštět webovou aplikaci v zásobníku aplikací, který ještě není v Azure definovaný. Tento rychlý start ukazuje, jak vytvořit webovou aplikaci a nasadit do ní [oficiální image Dockeru Nginx](https://hub.docker.com/r/_/nginx/). Webovou aplikaci vytvoříte pomocí [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 ![Ukázková aplikace spuštěná ve službě Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
@@ -38,15 +38,15 @@ Služba App Service poskytuje zásobníky předem definované aplikací v systé
 
 ## <a name="create-a-web-app-for-container"></a>Vytvoření webové aplikace pro kontejner
 
-Pomocí příkazu [az webapp create](/cli/azure/webapp#create) vytvořte [webovou aplikaci](../app-service-web-overview.md) v plánu služby App Service `myAppServicePlan`. Nezapomeňte nahradit `<app name>` s jedinečným názvem aplikace.
+Pomocí příkazu [az webapp create](/cli/azure/webapp#create) vytvořte [webovou aplikaci](../app-service-web-overview.md) v plánu služby App Service `myAppServicePlan`. Nezapomeňte nahradit `<app name>` jedinečným názvem aplikace.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx
 ```
 
-V předchozím příkazu `--deployment-container-image-name` odkazuje na bitovou kopii veřejného úložiště Docker Hub [https://hub.docker.com/r/_/nginx/](https://hub.docker.com/r/_/nginx/).
+Parametr `--deployment-container-image-name` v předchozím příkazu odkazuje na veřejnou image z Docker Hubu [https://hub.docker.com/r/_/nginx/](https://hub.docker.com/r/_/nginx/).
 
-Po vytvoření webové aplikace Azure CLI ukazuje výstup podobně jako v následujícím příkladu:
+Po vytvoření webové aplikace Azure CLI zobrazí výstup podobný následujícímu příkladu:
 
 ```json
 {
@@ -65,7 +65,7 @@ Po vytvoření webové aplikace Azure CLI ukazuje výstup podobně jako v násle
 
 ## <a name="browse-to-the-app"></a>Přechod do aplikace
 
-Přejděte na následující adresu URL pomocí webového prohlížeče.
+Ve webovém prohlížeči přejděte na následující adresu URL.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -73,9 +73,9 @@ http://<app_name>.azurewebsites.net
 
 ![Ukázková aplikace spuštěná ve službě Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
-**Blahopřejeme!** Vlastní image Docker jste nasadili do webové aplikace pro kontejnery.
+**Blahopřejeme!** Nasadili jste vlastní image Dockeru do služby Web App for Containers.
 
 ## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
-> [Použít vlastní image Docker](tutorial-custom-docker-image.md)
+> [Použití vlastní image Dockeru](tutorial-custom-docker-image.md)

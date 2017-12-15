@@ -1,6 +1,6 @@
 ---
-title: "Zaregistrovat informace o partnerovi CSP pomocí Azure náklady na správu | Microsoft Docs"
-description: "Použijte k registraci s Azure náklady na správu Cloudyn vaše informace o partnerovi CSP."
+title: "Registrace ve službě Azure Cost Management s použitím informací o partnerovi CSP | Dokumentace Microsoftu"
+description: "Použijte své informace o partnerovi CSP k registraci ve službě Azure Cost Management by Cloudyn."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -12,66 +12,66 @@ ms.service: cost-management
 manager: carmonm
 ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
 ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/13/2017
 ---
-# <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Zaregistrovat se program pro partnery zprostředkovatele kryptografických služeb a náklady dat zobrazení
+# <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrace do partnerského programu CSP a zobrazení informací o nákladech
 
-Jako partner zprostředkovatele kryptografických služeb můžete zaregistrovat s Azure náklady na správu Cloudyn. Registrace poskytuje přístup k portálu Cloudyn. Tento rychlý start podrobnosti o procesu registrace potřebné k vytvoření Cloudyn zkušební verzi předplatného a přihlaste se k portálu Cloudyn. Je také ukazuje, jak spustit hned zobrazení dat náklady.
+Jako partner CSP se můžete zaregistrovat ve službě Azure Cost Management by Cloudyn. Registrací získáte přístup k portálu Cloudyn. Tento rychlý start podrobně popisuje proces registrace nezbytný k vytvoření zkušebního předplatného a přihlášení k portálu Cloudyn. Ukazuje také, jak rovnou začít zobrazovat informace o nákladech.
 
 
 >[!NOTE]
 
->Cloudyn registraci může dokončit jenom CSP přímé partnery a nepřímé poskytovatelé CSP.
+>Registraci do Cloudyn můžou dokončit pouze přímí partneři CSP a nepřímí poskytovatelé CSP.
 >
->Konfigurace rozhraní API Center partnera je požadované pro ověřování a přístup k datům. Účet globálního správce partnera Center je potřeba k zajišťují přístup k rozhraní API.
-Další informace najdete v tématu [připojit k rozhraní API Center partnera](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>Pro ověřování a přístup k datům je nezbytná konfigurace rozhraní API partnerského centra. Pro zřízení přístupu k rozhraní API je potřeba účet globálního správce partnerského centra.
+Další informace najdete v tématu [Připojení k rozhraní API partnerského centra](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
 >
->Přístup k Cloudyn můžete přístupná nepřímých prodejce CSP po jejich nepřímých poskytovatele CSP zaregistruje se Cloudyn. Nepřímý prodejce CSP jim pak můžou Cloudyn přístup k Azure zákazníků a předplatných.
+>Nepřímým prodejcům CSP je možné Cloudyn zpřístupnit poté, co se jejich nepřímý poskytovatel CSP zaregistruje u Cloudyn. Nepřímí prodejci CSP pak můžou poskytovat přístup do Cloudyn předplatným a zákazníkům Azure.
 
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 
 - Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Vytvořte zkušební registrace
+## <a name="create-a-trial-registration"></a>Vytvoření registrace zkušební verze
 
-1. Na portálu Azure klikněte na tlačítko **náklady na správu + fakturace** v seznamu služeb.
-2. V části **přehled**, klikněte na tlačítko **náklady na správu**  
-    ![Náklady na stránce Správa](./media/quick-register-csp/cost-mgt-billing-service.png)
-3. Na **náklady na správu** klikněte na **přejít na náklady na správu** chcete otevřít stránku registrace Cloudyn v novém okně.
-4. Na stránce portálu registrace zkušební verze Cloudyn, zadejte název vaší společnosti, vyberte **Microsoft CSP partnera Program Správce**a potom klikněte na **Další**.  
-5. Zadejte **ID aplikace**, **Commerce ID**, **aplikace tajný klíč**a vyberte **výchozí ceny plánování**. Pokud nemáte informace užitečný, přihlaste se k portálu Partnerské centrum na [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) se správcem vaší primární účet a proveďte následující kroky:
-  1. Přejděte na **řídicí panel** > **nastavení účtu** > **správy aplikací**.
-  2. Pokud jste předtím vytvořili webovou aplikaci, tento krok přeskočte. Jinak, klikněte na tlačítko **přidat novou webovou aplikaci** v **webové aplikace** části.
-  3. Kopírování **ID aplikace** GUID z webové aplikace.
-  4. Kopírování **Commerce ID** GUID z webové aplikace.
-  5. Podle potřeby, vyberte jako jeden nebo dva roky, doba platnosti klíče. Vyberte **přidat klíč** a pak zkopírujte a uložte tajná hodnota klíče.  
-    ![Zprostředkovatel kryptografických služeb partnerské Centrum](./media/quick-register-csp/csp-partner-center.png)
-  6. Přejděte zpět na stránku registrace a vložte informace.  
-      ![Přihlašovací údaje účtu zprostředkovatele kryptografických služeb](./media/quick-register-csp/csp-reg.png)
-6. Souhlas s podmínkami použití a ověření vašich informací. Klikněte na tlačítko **Další** k autorizaci Cloudyn ke shromažďování dat prostředků Azure. Data shromážděná zahrnuje využití, výkon, fakturace a značky data z vašich předplatných.  
-7. V části **pozvat ostatní účastníci**, můžete přidat uživatele zadáním jejich e-mailové adresy. Po dokončení klikněte na tlačítko **Další**. Jak dlouho trvá přibližně 2 hodiny pro všechny vaše fakturační údaje, které se přidají do Cloudyn.
-8. Klikněte na tlačítko **přejít na Cloudyn** Cloudyn portál otevřít a pak na **správu cloudu účty** stránky, byste měli vidět registrované informace o účtu CSP.
+1. Na webu Azure Portal klikněte v seznamu služeb na **Cost Management a fakturace**.
+2. V části **Přehled** klikněte na **Cost Management**.  
+    ![Stránka služby Cost Management](./media/quick-register-csp/cost-mgt-billing-service.png)
+3. Na stránce **Cost Management** klikněte na **Přejít do služby Cost Management** a v novém okně se otevře stránka pro registraci do Cloudyn.
+4. Na stránce pro registraci zkušební verze portálu Cloudyn zadejte název vaší společnosti, vyberte **Správce partnerského programu Microsoft CSP** a pak klikněte na **Další**.  
+5. Zadejte **ID aplikace**, **Obchodní ID**, **Tajný klíč aplikace** a vyberte **Výchozí cenový plán**. Pokud tyto informace nemáte po ruce, přihlaste se pomocí svého primárního účtu správce k portálu partnerského centra na adrese [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) a proveďte následující kroky:
+  1. Přejděte do části **Řídicí panel** > **Nastavení účtu** > **Správa aplikací**.
+  2. Pokud jste už dříve vytvořili webovou aplikaci, tento krok přeskočte. Jinak v části **Webová aplikace** klikněte na **Přidat novou webovou aplikaci**.
+  3. Zkopírujte ze své webové aplikace globálně jedinečný identifikátor **ID aplikace**.
+  4. Zkopírujte ze své webové aplikace globálně jedinečný identifikátor **Obchodní ID**.
+  5. Jako délku platnosti klíče vyberte podle potřeby jeden nebo dva roky. Vyberte **Přidat klíč** a pak zkopírujte a uložte hodnotu tajného klíče.  
+    ![Partnerské centrum CSP](./media/quick-register-csp/csp-partner-center.png)
+  6. Vraťte se na registrační stránku a vložte příslušné údaje.  
+      ![Přihlašovací údaje účtu CSP](./media/quick-register-csp/csp-reg.png)
+6. Vyjádřete souhlas s podmínkami použití a ověřte své údaje. Kliknutím na **Další** udělte Cloudyn oprávnění ke shromažďování dat o prostředcích Azure. Mezi shromažďovaná data patří informace o využití, výkonu, fakturaci a značkách z vašich předplatných.  
+7. V části **Pozvat další účastníky** můžete zadáním příslušných e-mailových adres přidat další uživatele. Jakmile budete hotovi, klikněte na **Další**. Přidání všech vašich fakturačních dat do Cloudyn trvá přibližně dvě hodiny.
+8. Kliknutím na **Přejít do Cloudyn** otevřete portál Cloudyn a na stránce **Správa cloudových účtů** by se měly zobrazit informace o vašem zaregistrovaném účtu CSP.
 
-## <a name="configure-indirect-csp-access-in-cloudyn"></a>Nakonfigurujte nepřímý přístup CSP ve Cloudyn
+## <a name="configure-indirect-csp-access-in-cloudyn"></a>Konfigurace přístupu nepřímých poskytovatelů CSP v Cloudyn
 
-Ve výchozím nastavení je rozhraní API Center partnera jenom pro přímé CSP dostupné. Přímé poskytovatele CSP však můžete nakonfigurovat přístup pro jejich nepřímých CSP zákazníky nebo partnery, použití skupin entity v Cloudyn.
+Rozhraní API partnerského centra je ve výchozím nastavení přístupné pouze pro přímé poskytovatele CSP. Přímý poskytovatel CSP však může nakonfigurovat přístup pro své nepřímé zákazníky nebo partnery CSP pomocí skupin entit v Cloudyn.
 
-Pokud chcete povolit přístup pro nepřímou CSP zákazníky nebo partnery, postupujte podle kroků v [vytvořit zkušební registraci](#create-a-trial-registration) nastavit zkušební registrace. Dále proveďte následující kroky k segmentu nepřímých CSP datům pomocí Cloudyn skupiny entit. Pak přiřaďte příslušných uživatelských oprávnění skupinám entity.
+Pokud chcete umožnit přístup nepřímým zákazníkům nebo partnerům CSP, pomocí postupu v části [Vytvoření registrace zkušební verze](#create-a-trial-registration) nastavte registraci zkušební verze. Dále provedením následujících kroků segmentujte data nepřímých poskytovatelů CSP pomocí skupin entit Cloudyn. Potom skupinám entit přiřaďte odpovídající uživatelská oprávnění.
 
-1. Vytvoření skupiny entit s informacemi v [vytvořte entity](tutorial-user-access.md#create-entities).
-2. Postupujte podle kroků v [přiřazování odběry náklady na entity](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Přidružte účet nepřímých CSP zákazníka a jejich předplatná Azure na typ entity, která vytvoříte dříve.
-3. Postupujte podle kroků v [vytvořit uživatele s přístupem správce](tutorial-user-access.md#create-a-user-with-admin-access) vytvoření uživatelského účtu s přístupem správce. Potom zkontrolujte, že uživatelský účet má přístup správce ke konkrétní entity, které jste vytvořili dříve pro nepřímou účet.
+1. Vytvořte skupinu entit s použitím informací v části [Vytvoření entit](tutorial-user-access.md#create-entities).
+2. Postupujte podle kroků v článku [Assigning subscriptions to Cost Entities](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities) (Přiřazování předplatných k entitám nákladů). Přidružte účet nepřímého zákazníka CSP a příslušná předplatná Azure k entitě, kterou jste vytvořili dříve.
+3. Postupujte podle kroků v části [Vytvoření uživatele s přístupem správce](tutorial-user-access.md#create-a-user-with-admin-access) a vytvořte uživatelský účet s přístupem správce. Potom se ujistěte, že má uživatelský účet přístup ke konkrétním entitám, které jste vytvořili dříve pro nepřímý účet.
 
-Nepřímý partnery CSP přihlásit k portálu Cloudyn pomocí účty, které jste vytvořili pro ně.
+Nepřímí partneři CSP se k portálu Cloudyn přihlašují pomocí účtů, které jste pro ně vytvořili.
 
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Další kroky
 
-V tento rychlý start používá vaše informace CSP při registraci s náklady na správu. Můžete také přihlášení k portálu Cloudyn a spuštění zobrazení dat náklady. Další informace o Azure náklady na správu Cloudyn, pokračujte v kurzu pro náklady na správu.
+V tomto rychlém startu jste použili své informace o CSP k registraci ve službě Cost Management. Také jste se přihlásili k portálu Cloudyn a začali jste zobrazovat informace o nákladech. Další informace o službě Azure Cost Management by Cloudyn najdete v kurzu pro službu Cost Management.
 
 > [!div class="nextstepaction"]
-> [Zkontrolujte využití a náklady](./tutorial-review-usage.md)
+> [Kontrola využití a nákladů](./tutorial-review-usage.md)

@@ -1,6 +1,6 @@
 ---
-title: "Škálování clusteru Azure Container Service (AKS) | Microsoft Docs"
-description: "Škálování clusteru Azure Container Service (AKS)."
+title: "Škálování clusteru Azure Container Service (AKS) | Dokumentace Microsoftu"
+description: "Škálujte cluster Azure Container Service (AKS)."
 services: container-service
 documentationcenter: 
 author: gabrtv
@@ -19,17 +19,17 @@ ms.author: gamonroy
 ms.custom: mvc
 ms.openlocfilehash: b2fa3ebb7a22b9d19678d45cc50806627ab80e90
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="scale-an-azure-container-service-aks-cluster"></a>Škálování clusteru Azure Container Service (AKS)
 
-Je snadné škálování clusteru služby AKS na jiný počet uzlů.  Vyberte požadovaný počet uzlů a spusťte `az aks scale` příkaz.  Při zvětšení velikosti, uzly budou pečlivě [cordoned a k nečekaně](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) minimalizovat přerušení spuštěných aplikací.  Při rozšiřování prostředků, `az` příkaz bude čekat, dokud uzly jsou označeny `Ready` Kubernetes cluster.
+Cluster AKS je možné snadno škálovat na různý počet uzlů.  Vyberte požadovaný počet uzlů a spusťte příkaz `az aks scale`.  Během vertikálního snižování kapacity jsou uzly pečlivě [uzavřené a vyprázdněné](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), aby se minimalizovalo přerušení spuštěných aplikací.  Během vertikálního navyšování kapacity `az`příkaz čeká na označení uzlů`Ready` clusterem Kubernetes.
 
-## <a name="scale-the-cluster-nodes"></a>Škálování uzly clusteru
+## <a name="scale-the-cluster-nodes"></a>Škálování uzlů clusteru
 
-Použití `az aks scale` příkaz škálování uzly clusteru. Následující příklad škáluje cluster s názvem *myK8SCluster* do jednoho uzlu.
+Uzly clusteru můžete škálovat pomocí příkazu `az aks scale`. Následující příklad škáluje cluster *myK8SCluster* na jediný uzel.
 
 ```azurecli-interactive
 az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
@@ -93,7 +93,7 @@ Výstup:
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o nasazení a správě AKS s AKS kurzy.
+Další informace o nasazení a správě AKS najdete v kurzech AKS.
 
 > [!div class="nextstepaction"]
 > [Kurz AKS](./tutorial-kubernetes-prepare-app.md)

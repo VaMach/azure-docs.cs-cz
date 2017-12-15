@@ -1,6 +1,6 @@
 ---
-title: "Konfigurace služby Azure App Service Environment být force tunelovým propojením"
-description: "Povolení služby App Service Environment fungovat, když platnost tunelovým propojením je odchozí provoz"
+title: "Konfigurace vynuceného tunelového propojení ve službě Azure App Service Environment"
+description: "Umožňujete fungování služby App Service Environment s vynuceným tunelovým propojením pro odchozí přenosy"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -10,96 +10,97 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/10/2017
 ms.author: ccompy
-ms.openlocfilehash: f5f099042cefe666e22a9d561afeb4584db3d92c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 4caaf0df3f1dd4b2cb9b76283a6beed897531c1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurace služby App Service Environment pomocí vynucené tunelování
+# <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurace vynuceného tunelového propojení ve službě App Service Environment
 
-Služba App Service Environment je nasazení služby Azure App Service v zákazníka instanci Azure Virtual Network. Mnoho zákazníků konfigurovat jejich virtuální sítě na rozšíření své místní sítě VPN nebo Azure ExpressRoute připojení. Z důvodu podnikové zásady nebo jiná omezení zabezpečení je potřeba nakonfigurovat směrování, aby mohl odesílat všechny odchozí přenosy na místě před můžete přejít na Internetu. Změna směrování virtuální sítě tak, aby toky odchozí provoz z virtuální sítě prostřednictvím sítě VPN nebo ExpressRoute připojení k místnímu nazývá vynucené tunelování. 
+App Service Environment je nasazení služby Azure App Service v instanci služby Azure Virtual Network zákazníka. Mnoho zákazníků konfiguruje své virtuální sítě jako rozšíření svých místních sítí pomocí sítí VPN nebo připojení Azure ExpressRoute. Kvůli podnikovým zásadám nebo jiným omezením z důvodu zabezpečení konfigurují trasy pro zasílání veškerých odchozích přenosů do místní sítě, odkud teprve putují na internet. Změna trasy virtuální sítě tak, aby odchozí přenosy z virtuální sítě směřovaly přes síť VPN nebo připojení ExpressRoute do místní sítě, se označuje jako vynucené tunelové propojení. 
 
-Vynucené tunelování, může způsobit problémy pro služby App Service Environment. Služba App Service Environment má počet externí závislosti, které jsou uvedené v [architektura sítě služby App Service Environment] [ network] dokumentu. Služba App Service Environment, ve výchozím nastavení, vyžaduje, aby veškerá odchozí komunikace probíhá prostřednictvím VIP, který je zajištěný s App Service Environment.
+Vynucené tunelové propojení může ve službě App Service Environment způsobit potíže. Služba App Service Environment má řadu externích závislostí uvedených v dokumentu [Architektura sítě služby App Service Environment][network]. Služba App Service Environment ve výchozím nastavení vyžaduje, aby veškerá odchozí komunikace procházela přes virtuální IP adresu zřízenou ve službě App Service Environment.
 
-Trasy jsou zásadní aspekt jaké vynucené tunelování je a o tom, jak nakládat s ním. Ve virtuální síť Azure se provádí směrování podle nejdelší shody předpony (LPM). Pokud existuje víc tras se stejnou shodou LPM, trasa se vybere na základě původu v následujícím pořadí:
+Zásadním aspektem vynuceného tunelového propojení a toho, jak s ním naložit, jsou trasy. Ve virtuální síti Azure se směrování provádí na základě nejdelší shody předpony (LPM). Pokud existuje víc tras se stejnou shodou LPM, trasa se vybere na základě původu v tomto pořadí:
 
-* Trasy definované uživatelem (UDR)
+* Trasa definovaná uživatelem (UDR)
 * Trasa protokolu BGP (pokud se používá služba ExpressRoute)
 * Systémová trasa
 
-Další informace o směrování ve virtuální síti, přečtěte si [trasy definované uživatelem a předávání IP][routes]. 
+Další informace o směrování ve virtuální síti najdete v tématu [Trasy definované uživatelem a předávání IP][routes]. 
 
-Pokud chcete služby App Service Environment provoz ve virtuální síti vynucené tunelu, máte dvě možnosti:
+Pokud chcete, aby služba App Service Environment fungovala ve virtuální síti s vynuceným tunelovým propojením, máte dvě možnosti:
 
-* Povolení služby App Service Environment přímý přístup k Internetu.
-* Změňte výstupní koncový bod pro služby App Service Environment.
+* Umožněte službě App Service Environment přímý přístup k internetu.
+* Změňte výstupní koncový bod služby App Service Environment.
 
-## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>Povolení služby App Service Environment přímý přístup k Internetu
+## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>Povolení přímého přístupu k internetu ve službě App Service Environment
 
-Pro App Service Environment práci, zatímco vaše virtuální síť je konfigurována s připojení ExpressRoute můžete:
+Pokud chcete, aby služba App Service Environment fungovala, když má vaše virtuální síť nakonfigurované připojení ExpressRoute, můžete postupovat takto:
 
-* Konfigurace ExpressRoute a nabídnout 0.0.0.0/0. Ve výchozím nastavení, je vynutit tunely všechny odchozí přenosy na místě.
-* Vytvořte UDR. Použijte ho pro podsítě, která obsahuje App Service Environment se předponu adresy 0.0.0.0/0 a typ dalšího segmentu z Internetu.
+* Nakonfigurujte připojení ExpressRoute, aby inzerovalo adresu 0.0.0.0/0. Ve výchozím nastavení provede vynucené tunelové propojení veškerých odchozích přenosů do místní sítě.
+* Vytvořte trasu UDR. Použijte ji na podsíť, která obsahuje službu App Service Environment s předponou adresy 0.0.0.0/0 a dalším segmentem směrování typu Internet.
 
-Pokud provedete tyto dvě změny, určené internetové komunikaci z podsítě služby App Service Environment není vynucena připojení ExpressRoute a funguje App Service Environment.
+Pokud provedete tyto dvě změny, přenosy mířící na internet a pocházející z podsítě služby App Service Environment nebudou nuceně směřovat do připojení ExpressRoute a služba App Service Environment bude fungovat.
 
 > [!IMPORTANT]
-> Trasy definované v UDR musí být dost konkrétní, aby mají přednost před všechny trasy inzerované konfigurace ExpressRoute. V předchozím příkladu používá 0.0.0.0/0 široký rozsah adres. Se dá potenciálně omylem přepsat inzerování tras, které používají podrobnější rozsahy adres.
+> Trasy definované v trase UDR musí být dost konkrétní, aby měly přednost před všemi trasami inzerovanými konfigurací ExpressRoute. V předchozím příkladu se používá široký rozsah adres 0.0.0.0/0. Může nechtěně dojít k jeho potlačení z důvodu inzerování tras, které používají konkrétnější rozsahy adres.
 >
-> Služby App Service Environment nejsou podporovány s konfigurací ExpressRoute, které mezi Inzerovat trasy z cesty partnerského vztahu veřejný partnerský vztah privátní cestu. Konfigurace ExpressRoute s veřejné partnerské vztahy nakonfigurované dostávat inzerování trasy od Microsoftu. Tato oznámení obsahují velké sady rozsahů adres Microsoft Azure IP. Pokud rozsahy adres ohlášené mezi v cestě k vytvoření soukromého partnerského vztahu, jsou všechny odchozí síťových paketů z podsítě App Service Environment force tunelovým propojením zákazníka místní síťové infrastruktuře. Tento tok sítě není aktuálně podporováno ve výchozím nastavení se prostředí App Service. Jedno řešení tohoto problému se trasy mezi – reklamu z cesty partnerského vztahu veřejné do cesty partnerského vztahu privátní ukončit. Jiným řešením je povolit služby App Service Environment pro práci v konfiguraci vynucené tunelové propojení.
+> Služby App Service Environment nejsou podporované v konfiguracích ExpressRoute, které křížově inzerují trasy z cesty s veřejnými partnerskými uzly do cesty se soukromými partnerskými uzly. Konfigurace ExpressRoute s nakonfigurovanými veřejnými partnerskými uzly přijímají inzerci tras od Microsoftu. Tyto inzerce obsahují velkou sadu rozsahů IP adres Microsoft Azure. Pokud probíhá křížová inzerce rozsahů adres na cestě se soukromými partnerskými uzly, všechny odchozí síťové pakety z podsítě služby App Service Environment procházejí vynuceným tunelovým propojením do místní síťové infrastruktury zákazníka. Služba App Service Environment v současné době tento tok sítí nepodporuje. Jedním řešením tohoto problému je ukončit křížovou inzerci tras z cesty s veřejnými partnerskými uzly do cesty se soukromými partnerskými uzly. Druhým řešením je povolit fungování služeb App Service Environment v konfiguraci s vynuceným tunelovým propojením.
 
-## <a name="change-the-egress-endpoint-for-your-app-service-environment"></a>Změnit výstupní koncový bod pro služby App Service Environment ##
+## <a name="change-the-egress-endpoint-for-your-app-service-environment"></a>Změna výstupního koncového bodu služby App Service Environment ##
 
-Tato část popisuje postup povolení služby App Service Environment pracovat v konfiguraci s vynuceným tunelem změnou výstupní koncový bod používán App Service Environment. Pokud odchozí provoz z App Service Environment je force tunelovým propojením k místní síti, budete muset povolit tento provoz do zdroje z IP adresy než adresy VIP prostředí App Service.
+Tato část popisuje, jak umožnit službě App Service Environment práci v konfiguraci s vynuceným tunelem tím, že změníte výstupní koncový bod používaný službou App Service Environment. Pokud odchozí přenosy ze služby App Service Environment procházejí vynuceným tunelovým propojením do místní sítě, je potřeba povolit původ těchto přenosů z jiných IP adres než z virtuálních IP adres služby App Service Environment.
 
-Služby App Service Environment nejen má externí závislosti, ale také musí příjem příchozích dat a reagovat na takové provoz. Odpovědi nelze odeslat zpět z jiné adresy, protože která dělí TCP. Existují tři kroky potřebné ke změně výstupní koncový bod pro služby App Service Environment:
+Služba App Service Environment má externí závislosti, a navíc musí naslouchat příchozím přenosům a reagovat na ně. Odpovědi se nedají odesílat z jiné adresy, protože by to poškodilo protokol TCP. Ke změně výstupního koncového bodu služby App Service Environment je potřeba provést tři kroky:
 
-1. Nastavte směrovací tabulku zajistit, že provoz správy příchozí můžete přejděte zpět ze stejné IP adresy.
+1. Nastavte směrovací tabulku tak, aby se mohly příchozí přenosy správy vracet ze stejné IP adresy.
 
-2. Přidejte vaší IP adresy, které mají být použita pro odchozí do služby App Service Environment brány firewall.
+2. Přidejte IP adresy, které se budou používat na výstupu, do brány firewall služby App Service Environment.
 
-3. Nastavte trasy pro odchozí provoz z App Service Environment, chcete-li být tunelovým propojením.
+3. Nastavte trasy pro odchozí přenosy ze služby App Service Environment na tunelové propojení.
 
-   ![Vynutit tunelové propojení sítě toku][1]
+   ![Tok sítě s nuceným tunelovým propojením][1]
 
-Služba App Service Environment můžete nakonfigurovat různé odchozí adresy po App Service Environment je již a funkční, nebo lze nastavit během nasazování služby App Service Environment.
+Ve službě App Service Environment můžete nakonfigurovat různé výstupní adresy, když už je služba App Service Environment v provozu, nebo to můžete udělat během nasazení služby App Service Environment.
 
-### <a name="change-the-egress-address-after-the-app-service-environment-is-operational"></a>Změna adresy odchozí po provozní App Service Environment ###
-1. Získáte IP adresy, které chcete použít jako výstupní IP adresy pro App Service Environment. Pokud provádíte vynucené tunelování, tyto adresy pocházet ze zařízení NAT nebo brány IP adresy. Pokud chcete směrovat odchozí komunikaci služby App Service Environment prostřednictvím hodnocení chyb zabezpečení, je adresu odchozí veřejné IP adresy z hodnocení chyb zabezpečení.
+### <a name="change-the-egress-address-after-the-app-service-environment-is-operational"></a>Změna výstupní adresy po uvedení služby App Service Environment do provozu ###
+1. Získejte IP adresy, které chcete použít jako výstupní IP adresy pro službu App Service Environment. Pokud používáte vynucené tunelové propojení, tyto adresy pocházejí z překladu adres nebo IP adres brány. Pokud chcete směrovat odchozí přenosy služby App Service Environment přes virtuální síťové zařízení, výstupní adresou je veřejná IP adresa tohoto virtuálního síťového zařízení.
 
-2. Nastavte na odchozí adresy v vaše informace o konfiguraci služby App Service Environment. Přejděte do resource.azure.com a přejděte na předplatné nebo<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Potom můžete zobrazit formátu JSON, který popisuje služby App Service Environment. Zajistěte, aby se říká **pro čtení a zápis** v horní části. Vyberte **upravit**. Posuňte se dolů a změňte **userWhitelistedIpRanges** z hodnoty **null** něco jako následující. Použijte adresy, které chcete nastavit jako výchozí rozsah adres. 
+2. Nastavte výstupní adresy v konfiguračních informacích služby App Service Environment. Přejděte na resource.azure.com a potom na Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Uvidíte zápis JSON, který popisuje vaši službu App Service Environment. Zkontrolujte, jestli se nahoře píše **Čtení/zápis**. Vyberte **Upravit**. Posuňte se dolů a u položky **userWhitelistedIpRanges** změňte hodnotu **null** na hodnotu podobné následujícímu příkladu. Použijte adresy, které chcete nastavit jako výstupní rozsah adres. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
-   Vyberte **PUT** v horní části. Tato možnost spustí operaci škálování na služby App Service Environment a upraví bránu firewall.
+   V horní části vyberte možnost **PUT**. Tato možnost spustí ve vaší službě App Service Environment operaci škálování a upraví bránu firewall.
  
-3. Vytvořit nebo upravit směrovací tabulku a naplnit pravidel pro povolení přístupu z adresy pro správu, které mapují do umístění služby App Service Environment. Adresy pro správu, najdete v tématu [adresy pro správu služby App Service Environment][management].
+3. Vytvořte nebo upravte tabulku směrování a vyplňte pravidla pro povolení přístupu k adresám správy, které mapují na umístění služby App Service Environment, a z těchto adres. Adresy pro správu najdete v tématu [Adresy pro správu služby App Service Environment][management].
 
-4. Upravte použije na podsíť služby App Service Environment k směrovací tabulce směrování nebo směrování BGP. 
+4. Upravte trasy použité v podsíti služby App Service Environment pomocí směrovací tabulky nebo tras BGP. 
 
-Pokud služba App Service Environment přestane reagovat na portálu, došlo k potížím s vašimi změnami. Tento problém může být seznam odchozí adresy se nedokončila, provoz došlo ke ztrátě nebo byl zablokován provoz. 
+Pokud služba App Service Environment přestane reagovat vůči portálu, znamená to, že vaše změny způsobily potíže. Může se jednat o neúplný seznam výstupních adres, o ztrátu provozu nebo blokování provozu. 
 
-### <a name="create-a-new-app-service-environment-with-a-different-egress-address"></a>Vytvoření nové služby App Service Environment pomocí různých odchozí adresy ###
+### <a name="create-a-new-app-service-environment-with-a-different-egress-address"></a>Vytvoření nové služby App Service Environment s jinou výstupní adresou ###
 
-Pokud virtuální sítě je již nakonfigurován k vynucení tunelu veškerý provoz, budete muset udělat dodatečné kroky k vytvoření služby App Service Environment, aby se můžete úspěšně přijít. Budete muset povolit používání jiným koncovým bodem odchozí během vytváření služby App Service Environment. K tomu potřebujete vytvořit App Service Environment pomocí šablony, která určuje odchozí povolených adres.
+Pokud je už vaše virtuální síť nakonfigurovaná na vynucené tunelové propojení pro všechny přenosy, bude potřeba provést další kroky a vytvořit službu App Service Environment tak, aby mohla úspěšně fungovat. Při vytváření služby App Service Environment je potřeba povolit použití dalšího výstupního koncového bodu. K tomu je potřeba vytvořit službu App Service Environment pomocí šablony, která určuje povolené výstupní adresy.
 
-1. Získáte IP adresy, které má být použit jako odchozí adresy pro App Service Environment.
+1. Získejte IP adresy, které se mají použít jako výstupní adresy pro službu App Service Environment.
 
-2. Předběžné vytvoření podsítě, který se používá služba App Service Environment. Je nutné, aby můžete nastavit trasy a také vzhledem k tomu, že šablona vyžaduje.
+2. Předem vytvořte podsíť, kterou bude služba App Service Environment používat. Potřebujete ji k nastavení tras a vyžaduje ji také šablona.
 
-3. Vytvořte směrovací tabulku se správou IP adres, které jsou mapovány do umístění služby App Service Environment. Přiřaďte ho ke službě App Service Environment.
+3. Vytvořte směrovací tabulku s IP adresami správy, které mapují na vaše umístění služby App Service Environment. Přiřaďte ji ke službě App Service Environment.
 
-4. Postupujte podle pokynů v [vytvoření služby App Service Environment pomocí šablony][template]. Stáhněte dolů příslušné šablony.
+4. Postupujte podle pokynů v tématu [Vytvoření služby App Service Environment pomocí šablony][template]. Stáhněte příslušnou šablonu.
 
-5. Upravte část "zdroje" v souboru azuredeploy.json. Zahrnout řádek pro **userWhitelistedIpRanges** s hodnoty takto:
+5. Upravte část „resources“ v souboru azuredeploy.json. Přidejte řádek pro položku **userWhitelistedIpRanges** s hodnotami, jako jsou tyto:
 
        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
 
-Pokud v této části je správně nakonfigurovaná, App Service Environment začněte bez problémů. 
+Pokud tuto část správně nakonfigurujete, služba App Service Environment by se měla bez problémů spustit. 
 
 
 <!--IMAGES-->

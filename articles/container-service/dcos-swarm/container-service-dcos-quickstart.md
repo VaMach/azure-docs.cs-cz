@@ -1,6 +1,6 @@
 ---
-title: "Kontejner Azure rychlý start služba – nasazení clusteru DC/OS | Microsoft Docs"
-description: "Kontejner Azure rychlý start služba – nasazení clusteru DC/OS"
+title: "Rychlý start pro Azure Container Service – Nasazení clusteru DC/OS | Dokumentace Microsoftu"
+description: "Rychlý start pro Azure Container Service – Nasazení clusteru DC/OS"
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -19,13 +19,13 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 8070d224fe6281e61f67483d4f1dd905a2ab99eb
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-dcos-cluster"></a>Nasazení clusteru DC/OS
 
-DC/OS poskytuje distribuované platformu pro spuštění moderní a kontejnerizované aplikace. S Azure Container Service zřizování provozní připravený cluster DC/OS je jednoduchý a rychlé. Podrobnosti o této úvodní základní kroky potřebné k nasazení DC/OS clusteru a spuštění základní úlohy.
+DC/OS poskytuje distribuovanou platformu pro spouštění moderních a kontejnerizovaných aplikací. Se službou Azure Container Service je zřízení clusteru DC/OS připraveného pro produkční prostředí snadné a rychlé. Tento rychlý start podrobně popisuje základní kroky nezbytné k nasazení clusteru DC/OS a spuštění základní úlohy.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
@@ -51,9 +51,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-dcos-cluster"></a>Vytvoření clusteru DC/OS
 
-Vytvořit cluster DC/OS s [vytvořit acs az](/cli/azure/acs#create) příkaz.
+Vytvořte cluster DC/OS pomocí příkazu [az acs create](/cli/azure/acs#create).
 
-Následující příklad vytvoří cluster DC/OS s názvem *myDCOSCluster* a vytvoří klíče SSH, pokud dosud neexistují. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.  
+Následující příklad vytvoří cluster DC/OS *myDCOSCluster* a vytvoří klíče SSH, pokud ještě neexistují. Chcete-li použít konkrétní sadu klíčů, použijte možnost `--ssh-key-value`.  
 
 ```azurecli
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
@@ -61,39 +61,39 @@ az acs create --orchestrator-type dcos --resource-group myResourceGroup --name m
 
 V některých případech, například s omezenou zkušební verzí, má předplatné Azure omezený přístup k prostředkům Azure. Pokud se nasazení nezdaří kvůli omezenému počtu dostupných jader, snižte výchozí počet agentů přidáním možnosti `--agent-count 1` do příkazu [az acs create](/cli/azure/acs#create). 
 
-Po několika minutách se příkaz dokončí a vrátí informace o nasazení.
+Po několika minutách se příkaz dokončí a vrátí informace o nasazení.
 
 ## <a name="connect-to-dcos-cluster"></a>Připojení ke clusteru DC/OS
 
-Po vytvoření clusteru DC/OS, může být přistupuje prostřednictvím tunelového propojení SSH. Spusťte následující příkaz, který vrátí veřejnou IP adresu hlavního serveru DC/OS. Tato IP adresa je uložené v proměnné a používat v dalším kroku.
+Po vytvoření je cluster DC/OS přístupný prostřednictvím tunelu SSH. Spuštění následujícího příkazu vrátí veřejnou IP adresu hlavního uzlu DC/OS. Tato IP adresa se uloží do proměnné a použije v dalším kroku.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-Vytvoření tunelu SSH, spusťte následující příkaz a postupujte podle na obrazovce pokyny. Pokud port 80 je již používán, příkaz se nezdaří. Aktualizace tunelových port na jedno není ve použití, například `85:localhost:80`. 
+Pokud chcete vytvořit tunel SSH, spusťte následující příkaz a postupujte podle pokynů na obrazovce. Pokud se už používá port 80, příkaz selže. Aktualizujte port tunelu na nějaký, který se nepoužívá, například `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
-Tunelové propojení SSH může být testována procházením `http://localhost`. Pokud port dalších že byl použit 80, nastavit umístění tak, aby odpovídaly. 
+Tunel SSH můžete otestovat přechodem na adresu `http://localhost`. Pokud jste použili jiný port než 80, upravte umístění odpovídajícím způsobem. 
 
-Pokud byl úspěšně vytvořen tunel SSH, je vrácena portálu DC/OS.
+Pokud se úspěšně vytvořil tunel SSH, vrátí se portál DC/OS.
 
-![ORCHESTRÁTORU DC/OS UŽIVATELSKÉHO ROZHRANÍ](./media/container-service-dcos-quickstart/dcos-ui.png)
+![Uživatelské rozhraní DC/OS](./media/container-service-dcos-quickstart/dcos-ui.png)
 
 ## <a name="install-dcos-cli"></a>Instalace rozhraní příkazového řádku DC/OS
 
-Rozhraní příkazového řádku DC/OS se používá ke správě clusteru DC/OS z příkazového řádku. Instalace pomocí rozhraní příkazového řádku DC/OS [az acs orchestrátoru DC/OS instalace rozhraní příkazového řádku](/azure/acs/dcos#install-cli) příkaz. Pokud používáte Azure CloudShell, rozhraní příkazového řádku DC/OS je již nainstalován. 
+Rozhraní příkazového řádku DC/OS slouží ke správě clusteru DC/OS z příkazového řádku. Nainstalujte rozhraní příkazového řádku DC/OS pomocí příkazu [az acs dcos install-cli](/azure/acs/dcos#install-cli). Pokud používáte Azure Cloud Shell, rozhraní příkazového řádku DC/OS je už nainstalované. 
 
-Pokud používáte Azure CLI v systému macOS nebo Linux, může být potřeba spustit příkaz s sudo.
+Pokud používáte Azure CLI v systému macOS nebo Linuxu, možná budete muset příkaz spustit s příkazem sudo.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-Před použitím rozhraní příkazového řádku s clusterem, je nutné nakonfigurovat na použití tunelového propojení SSH. Uděláte to tak, spusťte následující příkaz, nastavení portu, v případě potřeby.
+Než bude možné používat rozhraní příkazového řádku s clusterem, musí se nakonfigurovat pro použití tunelu SSH. To provedete spuštěním následujícího příkazu, ve kterém podle potřeby upravte port.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
@@ -101,7 +101,7 @@ dcos config set core.dcos_url http://localhost
 
 ## <a name="run-an-application"></a>Spuštění aplikace
 
-Výchozí hodnota plánování mechanismus pro cluster služby ACS DC/OS je Marathon. Marathon slouží ke spuštění aplikace a správu stavu aplikace na clusteru DC/OS. Při plánování aplikace přes Marathon, vytvořte soubor s názvem *marathon app.json*a zkopírujte do něj následující obsah. 
+Výchozím plánovacím mechanismem pro cluster DC/OS je Marathon. Marathon slouží ke spouštění aplikace a správě stavu aplikace v clusteru DC/OS. Pokud chcete naplánovat aplikaci přes Marathon, vytvořte soubor *marathon-app.json* a zkopírujte do něj následující obsah. 
 
 ```json
 {
@@ -133,38 +133,38 @@ Výchozí hodnota plánování mechanismus pro cluster služby ACS DC/OS je Mara
 }
 ```
 
-Spusťte následující příkaz, který naplánovat spuštění aplikace v clusteru DC/OS.
+Spuštěním následujícího příkazu v aplikaci naplánujte spouštění v clusteru DC/OS.
 
 ```azurecli
 dcos marathon app add marathon-app.json
 ```
 
-Pokud chcete zobrazit stav nasazení pro aplikaci, spusťte následující příkaz.
+Pokud chcete zobrazit stav nasazení aplikace, spusťte následující příkaz.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Když **čekání na** hodnota sloupce přepíná z *True* k *False*, nasazení aplikace byla dokončena.
+Až se hodnota ve sloupci **WAITING** (ČEKÁNÍ) změní z *True* na *False*, nasazení aplikace je dokončené.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
 
-Získáte veřejnou IP adresu clusteru agentů DC/OS.
+Získejte veřejnou IP adresu agentů clusteru DC/OS.
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Procházení na tuto adresu vrátí výchozí web NGINX.
+Po přechodu na tuto adresu se vrátí výchozí web NGINX.
 
 ![NGINX](./media/container-service-dcos-quickstart/nginx.png)
 
 ## <a name="delete-dcos-cluster"></a>Odstranění clusteru DC/OS
 
-Pokud již nepotřebujete, můžete použít [odstranění skupiny az](/cli/azure/group#delete) příkaz, který má-li odebrat skupinu prostředků, clusteru DC/OS a všechny související prostředky.
+Pokud už je nepotřebujete, můžete k odebrání skupiny prostředků, clusteru DC/OS a všech souvisejících prostředků použít příkaz [az group delete](/cli/azure/group#delete).
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
@@ -172,7 +172,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Další kroky
 
-V této úvodní jste nasadili cluster DC/OS a spustili jednoduché kontejner Docker v clusteru. Další informace o Azure Container Service, i nadále kurzy služby ACS.
+V tomto rychlém startu jste nasadili cluster DC/OS a spustili v něm jednoduchý kontejner Dockeru. Další informace o službě Azure Container Service najdete v kurzech služby ACS.
 
 > [!div class="nextstepaction"]
-> [Správa clusteru služby ACS DC/OS](container-service-dcos-manage-tutorial.md)
+> [Správa clusteru ACS DC/OS](container-service-dcos-manage-tutorial.md)

@@ -18,7 +18,7 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
@@ -51,7 +51,7 @@ Dál vytvoříte v nové aplikaci Function App funkci.
 
     ![Stručný úvod do služby Functions na webu Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Vyberte **WebHook Githubu** šablonu pro požadovaný jazyk. **Pojmenujte funkci** a pak vyberte **Vytvořit**.
+2. Vyberte šablonu **Webhook GitHubu** pro vámi požadovaný jazyk. **Pojmenujte funkci** a pak vyberte **Vytvořit**.
 
      ![Vytvoření funkce aktivované webhookem GitHubu na webu Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 

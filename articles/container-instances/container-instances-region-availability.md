@@ -1,6 +1,6 @@
 ---
-title: "Azure instancí kontejnerů oblasti a dostupnosti zdrojů | Dokumentace Azure"
-description: "Zjistit, které oblasti Azure podporu nasazení kontejner instancí a omezení procesoru a paměti pro tyto instance."
+title: "Dostupnost Azure Container Instances v oblastech a dostupnost prostředků | Dokumentace Azure"
+description: "Zjistěte, které oblasti Azure podporují nasazování instancí kontejnerů a jaká jsou omezení těchto instancí z hlediska procesoru a paměti."
 services: container-instances
 documentationcenter: 
 author: mmacy
@@ -19,25 +19,25 @@ ms.author: marsma
 ms.custom: 
 ms.openlocfilehash: 2b9b1b864bbfd73383759212dd7d91f8e4941544
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="region-availability-for-azure-container-instances"></a>Dostupnost v oblastech Azure kontejner instancí
+# <a name="region-availability-for-azure-container-instances"></a>Dostupnost Azure Container Instances v oblastech
 
-Verzi Preview instancí kontejnerů Azure jsou k dispozici v následujících oblastech s zadaný procesoru a paměti omezení.
+Během období Preview je služba Azure Container Instances dostupná v následujících oblastech s uvedenými omezeními procesoru a paměti.
 
 | Umístění | Operační systém | Procesor | Paměť (GB) |
 | -------- | -- | :---: | :-----------: |
-| Západní Evropa, západní USA, východní USA | Linux | 2 | 7 |
-| Západní Evropa, západní USA, východní USA | Windows | 2 | 3,5 |
+| Západní Evropa, Západní USA, Východní USA | Linux | 2 | 7 |
+| Západní Evropa, Západní USA, Východní USA | Windows | 2 | 3,5 |
 
 ## <a name="resource-availability"></a>Dostupnost prostředků
 
-Kontejner instancí v rámci těchto limitů prostředků vytvořili podléhají dostupnosti v rámci nasazení oblasti. Při oblast je přetížen, může dojít k selhání při nasazování instancí.
+Pro instance kontejnerů vytvořené v mezích těchto omezení prostředků platí určitá omezení z hlediska dostupnosti v rámci oblasti nasazení. V případě velkého zatížení oblasti může při nasazování instancí docházet k selhání.
 
-Pro zmírnění selhání nasazení, zkuste nasazení instancí s nižší procesoru a paměti nastavení, nebo zkuste nasazení později.
+Pokud chcete selhání nasazení zmírnit, zkuste nasazení instancí s nižšími nastaveními procesoru a paměti nebo zkuste nasazení později.
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o řešení potíží s nasazením instance kontejneru najdete v tématu [řešení potíží s nasazením s instancemi Azure kontejneru](container-instances-troubleshooting.md).
+Další informace o řešení potíží s nasazením instance kontejneru najdete v tématu [Řešení potíží s nasazením pomocí Azure Container Instances](container-instances-troubleshooting.md).

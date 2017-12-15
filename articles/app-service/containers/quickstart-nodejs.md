@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření Node.js v Azure App Service v systému Linux | Microsoft Docs"
-description: "Nasazení vaší první Node.js Hello World v Azure App Service v systému Linux v minutách."
+title: "Vytvoření aplikace Node.js ve službě Azure App Service v Linuxu | Dokumentace Microsoftu"
+description: "Během několika minut můžete nasadit svou první aplikaci Node.js Hello World ve službě Azure App Service v Linuxu."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -17,13 +17,13 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Vytvoření webové aplikace Node.js ve službě Azure App Service v systému Linux
+# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Vytvoření webové aplikace Node.js ve službě Azure App Service v Linuxu
 
-[Aplikační služby v systému Linux](app-service-linux-intro.md) nabízí vysoce škálovatelnou a automatických oprav webové hostitelské služby pomocí operační systém Linux. Tento rychlý start ukazuje, jak nasadit aplikace Node.js do služby App Service v systému Linux pomocí předdefinovaných bitové kopie. Vytvořit webovou aplikaci s použitím předdefinované bitové kopie [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a pomocí Git nasaďte kód Node.js do webové aplikace.
+[App Service v Linuxu](app-service-linux-intro.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů s využitím operačního systému Linux. Tento rychlý start ukazuje, jak nasadit aplikaci Node.js do služby App Service v Linuxu s použitím integrované image. Pomocí [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) vytvoříte webovou aplikaci s použitím integrované image a pomocí Gitu do webové aplikace nasadíte kód Node.js.
 
 ![Ukázková aplikace spuštěná ve službě Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -40,7 +40,7 @@ K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
 ## <a name="download-the-sample"></a>Stažení ukázky
 
-V okně terminálu na počítači spusťte následující příkaz klonovat úložiště ukázkové aplikace do místního počítače.
+V okně terminálu na svém počítači naklonujte spuštěním následujícího příkazu úložiště ukázkové aplikace do místního počítače.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
@@ -62,7 +62,7 @@ Aplikaci spustíte místně tak, že otevřete okno terminálu a pomocí skriptu
 npm start
 ```
 
-Otevřete webový prohlížeč a přejděte na ukázkovou aplikaci v `http://localhost:1337`.
+Otevřete webový prohlížeč a přejděte do ukázkové aplikace na adrese `http://localhost:1337`.
 
 Na stránce se zobrazí zpráva **Hello World** z ukázkové aplikace.
 
@@ -82,7 +82,7 @@ V okně terminálu ukončete webový server stisknutím **Ctrl + C**.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Vyhledejte nově vytvořenou webovou aplikaci. Nahraďte  _&lt;název aplikace >_ s názvem vaší webové aplikace.
+Přejděte do vaší nově vytvořené webové aplikace. Nahraďte _&lt;app name>_ názvem vaší webové aplikace.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -134,15 +134,15 @@ V prohlížeči zadejte adresu nasazené aplikace.
 http://<app_name>.azurewebsites.net
 ```
 
-Ukázkový kód Node.js běží ve webové aplikaci s integrovanou bitové kopie.
+Vzorový kód Node.js je spuštěný ve webové aplikaci s použitím integrované image.
 
 ![Ukázková aplikace spuštěná ve službě Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-**Blahopřejeme!** První aplikaci Node.js jste nasadili do služby App Service v systému Linux.
+**Blahopřejeme!** Nasadili jste svoji první aplikaci Node.js do služby App Service v Linuxu.
 
 ## <a name="update-and-redeploy-the-code"></a>Aktualizace a opětovné nasazení kódu
 
-V místním adresáři, otevřete `index.js` souboru v aplikaci Node.js a změňte malá text ve volání `response.end`:
+V místním adresáři otevřete soubor `index.js`, který je součástí aplikace Node.js, a proveďte malou změnu textu u volání `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

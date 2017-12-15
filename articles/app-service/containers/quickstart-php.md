@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření webové aplikace PHP a nasazení do služby App Service v systému Linux | Microsoft Docs"
-description: "Nasazení vaší první PHP Hello, World ve službě App Service v systému Linux v minutách."
+title: "Vytvoření webové aplikace v PHP a její nasazení do služby App Service v Linuxu | Dokumentace Microsoftu"
+description: "Během několika minut můžete nasadit svou první aplikaci Hello World v PHP ve službě App Service v Linuxu."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -17,15 +17,15 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Vytvoření webové aplikace PHP ve službě App Service v systému Linux
+# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Vytvoření webové aplikace v PHP ve službě App Service v Linuxu
 
-[Aplikační služby v systému Linux](app-service-linux-intro.md) nabízí vysoce škálovatelnou a automatických oprav webové hostitelské služby pomocí operační systém Linux. Tento rychlý úvodní kurz ukazuje, jak nasadit aplikace PHP do služby Azure App Service v systému Linux. Vytvořit webovou aplikaci s použitím předdefinované bitové kopie [rozhraní příkazového řádku Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) v prostředí cloudu a můžete pomocí Git nasaďte kód PHP do webové aplikace.
+[App Service v Linuxu](app-service-linux-intro.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů s využitím operačního systému Linux. V tomto kurzu Rychlý start se dozvíte, jak nasadit aplikaci v PHP do služby Azure App Service v Linuxu. Pomocí [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ve službě Cloud Shell vytvoříte webovou aplikaci s použitím integrované image a pomocí Gitu do webové aplikace nasadíte kód PHP.
 
-! [Ukázkové aplikace běžící v Azure]] (media/quickstart-php/hello-world-in-browser.png)
+![Ukázková aplikace spuštěná v Azure]](media/quickstart-php/hello-world-in-browser.png)
 
 Následující postup můžete použít v případě počítačů Mac, Windows nebo Linux.
 
@@ -40,7 +40,7 @@ K provedení kroků v tomto kurzu Rychlý start je potřeba:
 
 ## <a name="download-the-sample"></a>Stažení ukázky
 
-Okno terminálu spusťte následující příkazy a naklonujte ukázkovou aplikaci do místního počítače a přejděte do adresáře, který obsahuje ukázkový kód.
+V okně terminálu naklonujte spuštěním následujících příkazů ukázkovou aplikaci do místního počítače a přejděte do adresáře, který obsahuje vzorový kód.
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -55,7 +55,7 @@ Aplikaci spustíte místně tak, že otevřete okno terminálu a pomocí příka
 php -S localhost:8080
 ```
 
-Otevřete webový prohlížeč a přejděte na ukázkovou aplikaci v `http://localhost:8080`.
+Otevřete webový prohlížeč a přejděte do ukázkové aplikace na adrese `http://localhost:8080`.
 
 Na stránce se zobrazí zpráva **Hello World!** z ukázkové aplikace.
 
@@ -75,7 +75,7 @@ V okně terminálu ukončete webový server stisknutím **Ctrl + C**.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Přejděte na web zobrazíte vaše nově vytvořenou webovou aplikaci s integrovanou bitové kopie. Nahraďte  _&lt;název aplikace >_ s názvem vaší webové aplikace.
+Přejděte na web a zobrazte nově vytvořenou webovou aplikaci s použitím integrované image. Nahraďte _&lt;app name>_ názvem vaší webové aplikace.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -118,15 +118,15 @@ V prohlížeči zadejte adresu nasazené aplikace.
 http://<app_name>.azurewebsites.net
 ```
 
-Ukázkový kód PHP běží ve webové aplikaci s integrovanou bitové kopie.
+Vzorový kód PHP je spuštěný ve webové aplikaci s použitím integrované image.
 
 ![Ukázková aplikace spuštěná ve službě Azure](media/quickstart-php/hello-world-in-browser.png)
 
-**Blahopřejeme!** První aplikace PHP jste nasadili do služby App Service v systému Linux.
+**Blahopřejeme!** Nasadili jste svoji první aplikaci v PHP do služby App Service v Linuxu.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Místní aktualizace a opětovné nasazení kódu
 
-V místním adresáři, otevřete `index.php` souborů v rámci aplikace PHP a změňte malá text v rámci řetězce do `echo`:
+V místním adresáři otevřete soubor `index.php`, který je součástí aplikace v PHP, a proveďte malou změnu textu v řetězci vedle `echo`:
 
 ```php
 echo "Hello Azure!";

@@ -1,6 +1,6 @@
 ---
-title: "Rychlý úvod: Tabulky rozhraní API pomocí Python - Azure Cosmos DB | Microsoft Docs"
-description: "Tento rychlý start ukazuje, jak používat rozhraní API služby Azure DB Cosmos tabulky k vytvoření aplikace pomocí portálu Azure a Python"
+title: "Rychlý start: Table API s využitím Pythonu – Azure Cosmos DB | Dokumentace Microsoftu"
+description: "Tento rychlý start ukazuje, jak použít rozhraní Azure Cosmos DB Table API k vytvoření aplikace pomocí webu Azure Portal a Pythonu."
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,15 +16,15 @@ ms.date: 11/16/2017
 ms.author: mimig
 ms.openlocfilehash: 1c64401a7d0ccfa12232b04cfd57e6beaa1dbca8
 ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/20/2017
 ---
-# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API s Python a Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Rychlý start: Sestavení aplikace Table API pomocí Pythonu a Azure Cosmos DB
 
-Tento rychlý start ukazuje způsob použití Python a Azure Cosmos DB [tabulky API](table-introduction.md) k sestavení aplikace klonováním příklad z Githubu. Tento rychlý start také ukazuje postup vytvoření účtu Azure Cosmos DB a použití Průzkumníku dat k vytvoření tabulky a entity na portálu Azure založených na webu.
+Tento rychlý start ukazuje, jak pomocí Pythonu a rozhraní Azure Cosmos DB [Table API](table-introduction.md) sestavit aplikaci naklonováním příkladu z GitHubu. Tento rychlý start také ukazuje, jak vytvořit účet služby Azure Cosmos DB a jak pomocí Průzkumníku dat vytvářet tabulky a entity na webu Azure Portal.
 
-Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete rychle vytvořit a dotazovat dokumentu, klíč/hodnota, celou sloupce a graf databází, které těžit z globální distribuci a možnosti vodorovné škálování základem Azure Cosmos DB. 
+Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete rychle vytvořit a dotazovat databáze dokumentů, párů klíč-hodnota, širokých sloupců a grafů, které tak můžou využívat výhody možnosti globální distribuce a horizontálního škálování v jádru služby Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -40,7 +40,7 @@ Navíc platí:
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
 > [!IMPORTANT] 
-> Budete muset vytvořit nový účet tabulky rozhraní API pro práci s všeobecně dostupná SDK API tabulky. Tabulka rozhraní API účtů vytvořených během preview nepodporuje všeobecně dostupná sady SDK.
+> Abyste mohli pracovat s obecně dostupnými sadami Table API SDK, musíte si vytvořit nový účet Table API. Obecně dostupné sady SDK nepodporují účty Table API vytvořené během období Preview.
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -56,7 +56,7 @@ Teď můžete přidávat do nové tabulky data pomocí Průzkumníku dat.
 1. V Průzkumníku dat rozbalte **ukázkovou tabulku**, klikněte na **Entity** a potom klikněte na **Přidat entitu**.
 
    ![Vytváření nových entit v Průzkumníku dat na portálu Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Nyní přidejte data PartitionKey hodnota pole a pole hodnota RowKey a klikněte na tlačítko **Přidat entitu**.
+2. Teď přidejte data do hodnoty pole PartitionKey a do hodnoty pole RowKey a klikněte na **Přidat entitu**.
 
    ![Nastavení klíče oddílu a klíče řádku pro novou entitu](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -66,13 +66,13 @@ Teď můžete přidávat do nové tabulky data pomocí Průzkumníku dat.
 
 Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
-1. Otevřete okno terminálu git, jako je například git bash a použít `cd` příkaz Přejít do složky pro instalaci ukázkové aplikace. 
+1. Otevřete okno terminálu Git, například Git Bash, a pomocí příkazu `cd` přejděte do složky, do které chcete nainstalovat ukázkovou aplikaci. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači. 
+2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří na vašem počítači kopii ukázkové aplikace. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-python-getting-started.git
@@ -82,19 +82,19 @@ Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a
 
 ## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
-Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. To umožňuje aplikaci ke komunikaci s vaší hostované databází. 
+Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. Tím aplikaci umožníte komunikovat s hostovanou databází. 
 
-1. V [portál Azure](http://portal.azure.com/), klikněte na tlačítko **připojovací řetězec**. 
+1. Na webu [Azure Portal](http://portal.azure.com/) klikněte na **Připojovací řetězec**. 
 
-    ![Zobrazení a zkopírujte PŘIPOJOVACÍ řetězec v podokně připojovací řetězec](./media/create-table-python/connection-string.png)
+    ![Zobrazení a zkopírování hodnoty PŘIPOJOVACÍ ŘETĚZEC v podokně Připojovací řetězec](./media/create-table-python/connection-string.png)
 
-2. Zkopírujte název účtu, pomocí tlačítka na pravé straně.
+2. Pomocí tlačítka na pravé straně zkopírujte hodnotu NÁZEV ÚČTU.
 
-3. Otevřete soubor config.py a vložte název účtu z portálu do STORAGE_ACCOUNT_NAME hodnotu na řádek 19.
+3. Otevřete soubor config.py a vložte NÁZEV ÚČTU z portálu do hodnoty STORAGE_ACCOUNT_NAME na řádku 19.
 
-4. Přejděte zpět na portál a zkopírujte primární klíč.
+4. Vraťte se na portál a zkopírujte PRIMÁRNÍ KLÍČ.
 
-5. Vložte do STORAGE_ACCOUNT_KEY hodnotu na řádek 20 primární klíč z portálu.
+5. Vložte PRIMÁRNÍ KLÍČ z portálu do hodnoty STORAGE_ACCOUNT_KEY na řádku 20.
 
 3. Uložte soubor config.py.
 
@@ -102,7 +102,7 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 1. V sadě Visual Studio klikněte pravým tlačítkem na projekt v **Průzkumníku řešení**,vyberte aktuální prostředí Python a potom klikněte pravým tlačítkem myši.
 
-2. Vyberte instalovat balíček Python, a pak zadejte v **tabulku úložiště azure**
+2. Vyberte možnost Instalovat balíček Pythonu a pak zadejte **azure-storage-table**.
 
 3. Stisknutím klávesy F5 spusťte aplikaci. Aplikace se zobrazí v prohlížeči. 
 
@@ -121,4 +121,4 @@ Teď se můžete vrátit do Průzkumníku dat a zobrazit dotaz nebo provést ú
 V tomto rychlém startu jste se seznámili s postupem vytvoření databázového účtu Azure Cosmos DB, vytvoření tabulky pomocí Průzkumníka dat a spuštění aplikace.  Teď můžete zadávat dotazy na svá data pomocí rozhraní API tabulky.  
 
 > [!div class="nextstepaction"]
-> [Importovat data tabulky do rozhraní API tabulky](table-import.md)
+> [Import tabulkových dat do rozhraní Table API](table-import.md)

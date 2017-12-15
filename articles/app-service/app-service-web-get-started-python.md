@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/22/2017
 ---
@@ -66,7 +66,7 @@ Aplikaci spustíte místně tak, že otevřete okno terminálu a pomocí příka
 python main.py
 ```
 
-Otevřete webový prohlížeč a přejděte na ukázkovou aplikaci v `http://localhost:5000`.
+Otevřete webový prohlížeč a přejděte do ukázkové aplikace na adrese `http://localhost:5000`.
 
 Na stránce se zobrazí zpráva **Hello World** od ukázkové aplikace.
 
@@ -86,7 +86,7 @@ V okně terminálu ukončete webový server stisknutím **Ctrl + C**.
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-Vyhledejte nově vytvořenou webovou aplikaci. Nahraďte  _&lt;název aplikace >_ s jedinečným názvem aplikace.
+Přejděte do vaší nově vytvořené webové aplikace. Nahraďte _&lt;app name>_ jedinečným názvem aplikace.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -160,7 +160,7 @@ Pomocí místního textového editoru otevřete soubor `main.py` v rámci aplika
 return 'Hello, Azure!'
 ```
 
-V místní okno terminálu potvrdit změny v úložišti Git a potom odešlete změny kódu do Azure.
+V místním okně terminálu potvrďte změny v Gitu a potom nasdílejte změny kódu do Azure.
 
 ```bash
 git commit -am "updated output"

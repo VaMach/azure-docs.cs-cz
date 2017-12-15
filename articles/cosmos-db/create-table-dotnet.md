@@ -1,6 +1,6 @@
 ---
-title: "Rychlý úvod: Tabulky rozhraní API pomocí rozhraní .NET - Azure Cosmos DB | Microsoft Docs"
-description: "Tento rychlý start ukazuje, jak používat rozhraní API služby Azure DB Cosmos tabulky k vytvoření aplikace pomocí portálu Azure a rozhraní .NET"
+title: "Rychlý start: Table API s využitím .NET – Azure Cosmos DB | Dokumentace Microsoftu"
+description: "Tento rychlý start ukazuje, jak použít rozhraní Azure Cosmos DB Table API k vytvoření aplikace pomocí webu Azure Portal a .NET."
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -17,13 +17,13 @@ ms.date: 11/20/2017
 ms.author: mimig
 ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
 ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/20/2017
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API pomocí rozhraní .NET a Azure Cosmos DB 
+# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Rychlý start: Sestavení aplikace Table API pomocí .NET a Azure Cosmos DB 
 
-Tento rychlý start ukazuje způsob použití Java a Azure Cosmos DB [tabulky API](table-introduction.md) k sestavení aplikace klonováním příklad z Githubu. Tento rychlý start také ukazuje postup vytvoření účtu Azure Cosmos DB a použití Průzkumníku dat k vytvoření tabulky a entity na portálu Azure založených na webu.
+Tento rychlý start ukazuje, jak pomocí Javy a rozhraní Azure Cosmos DB [Table API](table-introduction.md) sestavit aplikaci naklonováním příkladu z GitHubu. Tento rychlý start také ukazuje, jak vytvořit účet služby Azure Cosmos DB a jak pomocí Průzkumníku dat vytvářet tabulky a entity na webu Azure Portal.
 
 Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
 
@@ -36,7 +36,7 @@ Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
 > [!IMPORTANT] 
-> Budete muset vytvořit nový účet tabulky rozhraní API pro práci s všeobecně dostupná SDK API tabulky. Tabulka rozhraní API účtů vytvořených během preview nepodporuje všeobecně dostupná sady SDK.
+> Abyste mohli pracovat s obecně dostupnými sadami Table API SDK, musíte si vytvořit nový účet Table API. Obecně dostupné sady SDK nepodporují účty Table API vytvořené během období Preview.
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -52,7 +52,7 @@ Teď můžete přidávat do nové tabulky data pomocí Průzkumníku dat.
 1. V Průzkumníku dat rozbalte **ukázkovou tabulku**, klikněte na **Entity** a potom klikněte na **Přidat entitu**.
 
    ![Vytváření nových entit v Průzkumníku dat na portálu Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Nyní přidejte data PartitionKey hodnota pole a pole hodnota RowKey a klikněte na tlačítko **Přidat entitu**.
+2. Teď přidejte data do hodnoty pole PartitionKey a do hodnoty pole RowKey a klikněte na **Přidat entitu**.
 
    ![Nastavení klíče oddílu a klíče řádku pro novou entitu](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -62,46 +62,46 @@ Teď můžete přidávat do nové tabulky data pomocí Průzkumníku dat.
 
 Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
-1. Otevřete okno terminálu git, jako je například git bash a použít `cd` příkaz Přejít do složky pro instalaci ukázkové aplikace. 
+1. Otevřete okno terminálu Git, například Git Bash, a pomocí příkazu `cd` přejděte do složky, do které chcete nainstalovat ukázkovou aplikaci. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači. 
+2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří na vašem počítači kopii ukázkové aplikace. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
-3. Poté otevřete soubor řešení TableStorage v sadě Visual Studio. 
+3. Potom otevřete soubor řešení TableStorage v sadě Visual Studio. 
 
 ## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
-Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. To umožňuje aplikaci ke komunikaci s vaší hostované databází. 
+Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. Tím aplikaci umožníte komunikovat s hostovanou databází. 
 
-1. V [portál Azure](http://portal.azure.com/), klikněte na tlačítko **připojovací řetězec**. 
+1. Na webu [Azure Portal](http://portal.azure.com/) klikněte na **Připojovací řetězec**. 
 
-    Pomocí tlačítka Kopírovat na pravé straně obrazovky zkopírujte primární PŘIPOJOVACÍ řetězec.
+    Pomocí tlačítka pro kopírování na pravé straně obrazovky zkopírujte PRIMÁRNÍ PŘIPOJOVACÍ ŘETĚZEC.
 
-    ![Zobrazení a zkopírujte primární PŘIPOJOVACÍ řetězec v podokně připojovací řetězec](./media/create-table-dotnet/connection-string.png)
+    ![Zobrazení a zkopírování PRIMÁRNÍHO PŘIPOJOVACÍHO ŘETĚZCE v podokně Připojovací řetězec](./media/create-table-dotnet/connection-string.png)
 
-2. V sadě Visual Studio otevřete soubor App.config. 
+2. V sadě Visual Studio otevřete soubor App.config. 
 
-3. Jako tento kurz nepoužívá emulátor úložiště, zrušte komentář u StorageConnectionString na řádek 8 a Odkomentujte StorageConnectionString na řádku 7. Řádek 7 a 8 by měl nyní vypadat takto:
+3. Vzhledem k tomu, že v tomto kurzu se nepoužívá emulátor úložiště, zrušte komentář u StorageConnectionString na řádku 8 a přidejte komentář u StorageConnectionString na řádku 7. Řádky 7 a 8 by teď měly vypadat takto:
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. PRIMÁRNÍ PŘIPOJOVACÍ řetězec z portálu vložte do StorageConnectionString hodnotu na řádek 8. Vložte řetězec uvnitř uvozovky. 
+4. Vložte PRIMÁRNÍ PŘIPOJOVACÍ ŘETĚZEC z portálu do hodnoty StorageConnectionString na řádku 8. Řetězec vložte do uvozovek. 
 
     > [!IMPORTANT]
-    > Pokud váš koncový bod používá documents.azure.com, která znamená, máte účet preview, a je nutné vytvořit [nový účet rozhraní API tabulky](#create-a-database-account) pro práci s všeobecně dostupná sadu SDK API tabulky. 
+    > Pokud váš koncový bod používá adresu documents.azure.com, znamená to, že máte účet Preview, a pokud chcete pracovat s obecně dostupnou sadou Table API SDK, musíte si vytvořit [nový účet Table API](#create-a-database-account). 
     > 
 
-    Řádek 8 by teď měl vypadat podobně jako:
+    Řádek 8 by teď měl vypadat nějak takto:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -111,33 +111,33 @@ Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připo
 
 Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné ke komunikaci s Azure Cosmos DB. 
 
-## <a name="build-and-deploy-the-app"></a>Sestavení a nasazení aplikace
+## <a name="build-and-deploy-the-app"></a>Sestavení a nasazení aplikace
 
-1. V sadě Visual Studio, klikněte pravým tlačítkem na **TableStorage** projektu v **Průzkumníku řešení** a pak klikněte na **spravovat balíčky NuGet**. 
+1. V sadě Visual Studio klikněte v **Průzkumníku řešení** pravým tlačítkem na projekt **TableStorage** a pak klikněte na **Spravovat balíčky NuGet**. 
 
-2. Nuget **Procházet** zadejte *Microsoft.Azure.CosmosDB.Table*.
+2. Do pole **Procházet** NuGet zadejte *Microsoft.Azure.CosmosDB.Table*.
 
-3. Ve výsledcích nainstalovat **Microsoft.Azure.CosmosDB.Table** knihovny. Tím se nainstaluje balíček rozhraní API služby Azure Cosmos DB tabulky a také všechny závislosti.
+3. Z výsledků nainstalujte knihovnu **Microsoft.Azure.CosmosDB.Table**. Tím se nainstaluje balíček rozhraní Azure Cosmos DB Table API a také všechny závislosti.
 
-4. Otevřete BasicSamples.cs a přidejte zarážku 30 a řádek 52.
+4. Otevřete soubor BasicSamples.cs a přidejte zarážku na řádky 30 a 52.
 
 5. Spusťte aplikaci stisknutím CTRL+F5.
 
-    V okně konzoly zobrazí data tabulky, který se přidává do nové tabulky databáze v Azure Cosmos DB. 
+    V okně konzoly se zobrazí přidávání tabulkových dat do nové databáze tabulek ve službě Azure Cosmos DB. 
     
-    Pokud dojde k chybě, informace o závislostech najdete v části [Poradce při potížích s](table-sdk-dotnet.md#troubleshooting).
+    Pokud dojde k chybě v souvislosti se závislostmi, přečtěte si [Řešení potíží](table-sdk-dotnet.md#troubleshooting).
 
-    Při kliknutí na první zarážky, přejděte zpět na Průzkumníku dat na portálu Azure a rozšířit tabulka ukázku * a klikněte na tlačítko **entity**. **Entity** karty na pravé straně zobrazí nová entita, která byla přidána, poznamenejte si toto telefonní číslo uživatele je 425-555-0101.
+    Až se dostanete k první zarážce, přejděte zpět do Průzkumníku dat na webu Azure Portal, rozbalte tabulku demo* a klikněte na **Entity**. Na kartě **Entity** na pravé straně se zobrazí nově přidaná entita. Všimněte si, že telefonní číslo uživatele je 425-555-0101.
     
-6. Zavřete kartu entity v Průzkumníku dat.
+6. Zavřete kartu Entity v Průzkumníku dat.
     
-7. Pokračujte a spusťte aplikaci na další zarážku.
+7. Pokračujte spuštěním aplikace až k další zarážce.
 
-    Při kliknutí na zarážce, přepněte zpět na portálu, klikněte na entity znovu a otevřete kartu entity a Všimněte si, že telefonní číslo je aktualizovaná tak, aby 425-555-0105.
+    Až se dostanete k zarážce, přejděte zpět na portál, znovu klikněte na Entity a otevřete kartu Entity. Všimněte si, že se telefonní číslo aktualizovalo na 425-555-0105.
 
-8. Zpět v okně konzoly stiskněte kombinaci kláves CTRL + C pro ukončení spuštění aplikace. 
+8. Zpět v okně konzoly stisknutím CTRL + C ukončete aplikaci. 
 
-    Teď můžete přejít zpět do Průzkumníku dat a přidat nebo upravit odeberte a zadávat dotazy na data.
+    Teď můžete přejít zpět do Průzkumníku dat a přidat nebo upravit entity a dotazovat data.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
 
@@ -152,5 +152,5 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 V tomto rychlém startu jste se seznámili s postupem vytvoření databázového účtu Azure Cosmos DB, vytvoření tabulky pomocí Průzkumníka dat a spuštění aplikace.  Teď můžete zadávat dotazy na svá data pomocí rozhraní API tabulky.  
 
 > [!div class="nextstepaction"]
-> [Importovat data tabulky do rozhraní API tabulky](table-import.md)
+> [Import tabulkových dat do rozhraní Table API](table-import.md)
 

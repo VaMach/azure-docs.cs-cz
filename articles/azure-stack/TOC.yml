@@ -107,6 +107,8 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Správa prostředků úložiště
           href: azure-stack-manage-storage-accounts.md
+        - name: Spravovat kapacita úložiště
+          href: azure-stack-manage-storage-shares.md
         - name: Správa virtuálních počítačů se sadou Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
         - name: Výměna hardwaru

@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 09/22/2017
 ms.openlocfilehash: 40108e0c60a60da412ab521d467a07b8f0540140
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL: Použití Pythonu k připojení a dotazování dat
-Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for MySQL pomocí [Pythonu](https://python.org). Používá příkazy jazyka SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi z platforem Mac OS, Ubuntu Linux a Windows. Toto téma předpokládá, že jste obeznámeni s vývojem pomocí Pythonu a že jste novou práce s Azure Database pro databázi MySQL.
+Tento rychlý start ukazuje, jak se připojit ke službě Azure Database for MySQL pomocí [Pythonu](https://python.org). Používá příkazy jazyka SQL k dotazování, vkládání, aktualizaci a odstraňování dat v databázi z platforem Mac OS, Ubuntu Linux a Windows. Toto téma předpokládá, že máte zkušenosti s vývojem pomocí Pythonu a teprve začínáte pracovat se službou Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Požadavky
 Tento rychlý start jako výchozí bod využívá prostředky vytvořené v některém z těchto průvodců:
@@ -26,7 +26,7 @@ Tento rychlý start jako výchozí bod využívá prostředky vytvořené v něk
 - [Vytvoření serveru Azure Database for MySQL pomocí Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Instalace Pythonu a konektoru MySQL
-Nainstalujte na svém počítači [Python](https://www.python.org/downloads/) a [konektor MySQL pro Python](https://dev.mysql.com/downloads/connector/python/). V závislosti na platformě postupujte podle kroků v příslušné části:
+Nainstalujte na svém počítači [Python](https://www.python.org/downloads/) a [konektor MySQL pro Python](https://dev.mysql.com/downloads/connector/python/). V závislosti na vaší platformě postupujte podle kroků v příslušné části:
 
 ### <a name="windows"></a>Windows
 1. Z webu [python.org](https://www.python.org/downloads/windows/) stáhněte a nainstalujte Python 2.7. 
@@ -68,14 +68,14 @@ Získejte informace o připojení potřebné pro připojení ke službě Azure D
 5. Pokud zapomenete přihlašovací údaje pro váš server, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby obnovit heslo.
    
 
-## <a name="run-python-code"></a>Spustit kód Python
-- Vložte kód do textového souboru a pak soubor uložte do složky projektu s .py rozšíření souboru (například C:\pythonmysql\createtable.py nebo /home/username/pythonmysql/createtable.py).
-- Pokud chcete spustit kód, spustit příkazový řádek nebo prostředí Bash. Změňte adresář na složku vašeho projektu pomocí příkazu `cd pythonmysql`. Zadejte příkaz python následovaný názvem souboru (`python createtable.py`) a spusťte aplikaci. V operačním systému Windows Pokud není nalezen python.exe, musíte zadat úplnou cestu ke spustitelnému souboru nebo přidat cestu Python do proměnné prostředí path. `C:\python27\python.exe createtable.py`
+## <a name="run-python-code"></a>Spuštění kódu Pythonu
+- Vložte kód do textového souboru a ten uložte s příponou .py do složky projektu (například C:\pythonmysql\createtable.py nebo /home/username/pythonmysql/createtable.py).
+- Pokud chcete kód spustit, spusťte příkazový řádek nebo prostředí Bash. Změňte adresář na složku vašeho projektu pomocí příkazu `cd pythonmysql`. Zadejte příkaz python následovaný názvem souboru (`python createtable.py`) a spusťte aplikaci. Pokud se v operačním systému Windows nepodaří najít soubor python.exe, možná budete muset zadat úplnou cestu ke spustitelnému souboru nebo přidat cestu k Pythonu do proměnné prostředí PATH. `C:\python27\python.exe createtable.py`
 
 ## <a name="connect-create-table-and-insert-data"></a>Připojení, vytvoření tabulky a vložení dat
-Použít následující kód k připojení k serveru, vytvořit tabulku a načtení dat pomocí **vložit** příkaz jazyka SQL. 
+Pomocí následujícího kódu se připojte k serveru, vytvořte tabulku a nahrajte data s využitím příkazu **INSERT** jazyka SQL. 
 
-V kódu se importuje knihovna mysql.connector. Funkce [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) slouží k připojení ke službě Azure Database for MySQL s použitím [argumentů připojení](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) v kolekci konfigurace. Kód používá kurzor na připojení a metoda [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) provede dotaz SQL na databázi MySQL. 
+V kódu se importuje knihovna mysql.connector. Funkce [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) slouží k připojení ke službě Azure Database for MySQL s použitím [argumentů připojení](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) v kolekci konfigurace. Kód používá kurzor na připojení a metoda [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) provádí příkaz jazyka SQL na databázi MySQL. 
 
 Parametry `host`, `user`, `password` a `database` nahraďte hodnotami, které jste zadali při vytváření serveru a databáze.
 
@@ -129,9 +129,9 @@ else:
 ```
 
 ## <a name="read-data"></a>Čtení dat
-Použít následující kód k připojení a číst data pomocí **vyberte** příkaz jazyka SQL. 
+Pomocí následujícího kódu se připojte a načtěte data s využitím příkazu **SELECT** jazyka SQL. 
 
-V kódu se importuje knihovna mysql.connector. Funkce [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) slouží k připojení ke službě Azure Database for MySQL s použitím [argumentů připojení](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) v kolekci konfigurace. Kód používá kurzor na připojení a metoda [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) jazyka SQL na databázi MySQL. Řádky dat se načítají pomocí metody [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html). Sada výsledků dotazu se uchovává v řádku kolekce a k procházení řádků ve smyčce se používá iterátor for.
+V kódu se importuje knihovna mysql.connector. Funkce [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) slouží k připojení ke službě Azure Database for MySQL s použitím [argumentů připojení](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) v kolekci konfigurace. Kód používá kurzor na připojení a metoda [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) provádí příkaz jazyka SQL na databázi MySQL. Řádky dat se načítají pomocí metody [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html). Sada výsledků dotazu se uchovává v řádku kolekce a k procházení řádků ve smyčce se používá iterátor for.
 
 Parametry `host`, `user`, `password` a `database` nahraďte hodnotami, které jste zadali při vytváření serveru a databáze.
 
@@ -178,9 +178,9 @@ else:
 ```
 
 ## <a name="update-data"></a>Aktualizace dat
-Použít následující kód k připojení a aktualizovat data pomocí **aktualizace** příkaz jazyka SQL. 
+Pomocí následujícího kódu se připojte a aktualizujte data s využitím příkazu **UPDATE** jazyka SQL. 
 
-V kódu se importuje knihovna mysql.connector.  Funkce [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) slouží k připojení ke službě Azure Database for MySQL s použitím [argumentů připojení](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) v kolekci konfigurace. Kód používá kurzor na připojení a metoda [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) jazyka SQL na databázi MySQL. 
+V kódu se importuje knihovna mysql.connector.  Funkce [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) slouží k připojení ke službě Azure Database for MySQL s použitím [argumentů připojení](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) v kolekci konfigurace. Kód používá kurzor na připojení a metoda [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) provádí příkaz jazyka SQL na databázi MySQL. 
 
 Parametry `host`, `user`, `password` a `database` nahraďte hodnotami, které jste zadali při vytváření serveru a databáze.
 
@@ -222,9 +222,9 @@ else:
 ```
 
 ## <a name="delete-data"></a>Odstranění dat
-Použít následující kód k připojení a odebrat data pomocí **odstranit** příkaz jazyka SQL. 
+Pomocí následujícího kódu se připojte a odeberte data s využitím příkazu **DELETE** jazyka SQL. 
 
-V kódu se importuje knihovna mysql.connector.  Funkce [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) slouží k připojení ke službě Azure Database for MySQL s použitím [argumentů připojení](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) v kolekci konfigurace. Kód používá kurzor na připojení a metoda [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) provede dotaz SQL na databázi MySQL. 
+V kódu se importuje knihovna mysql.connector.  Funkce [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) slouží k připojení ke službě Azure Database for MySQL s použitím [argumentů připojení](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) v kolekci konfigurace. Kód používá kurzor na připojení a metoda [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) provádí příkaz jazyka SQL na databázi MySQL. 
 
 Parametry `host`, `user`, `password` a `database` nahraďte hodnotami, které jste zadali při vytváření serveru a databáze.
 

@@ -17,7 +17,7 @@ ms.date: 06/19/2017
 ms.author: mimig
 ms.openlocfilehash: 335c271f3e46d3b6b23e1fcac53e39b89ece796c
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
@@ -27,7 +27,7 @@ Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro
 
 Tento rychlý start popisuje způsob použití stávající aplikace [MongoDB](mongodb-introduction.md) napsané v Node.js a připojení ke službě Azure Cosmos DB, která podporuje připojení klienta MongoDB. Jinými slovy: aplikace Node.js ví pouze to, že se připojuje k databázi pomocí rozhraní API MongoDB. V aplikaci se transparentně zobrazuje, že data jsou uložena ve službě Azure Cosmos DB.
 
-Až skončíte, budete mít střední (MongoDB, Express, úhlová a Node.js) je spuštěna aplikace na [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
+Po dokončení budete mít ve službě [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) spuštěnou aplikaci MEAN (MongoDB, Express, Angular a Node.js). 
 
 ![Aplikace MEAN.js spuštěná v rámci služby Azure App Service](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
@@ -63,7 +63,7 @@ cd mean
 npm install
 npm start
 ```
-Aplikace se pokusí připojit ke zdroji MongoDB a selhání, pokračujte a ukončete aplikaci, když se vrátí výstup "[MongoError: připojit ECONNREFUSED 127.0.0.1:27017]".
+Aplikace se pokusí připojit ke zdroji MongoDB, selže a ukončí se, když se na výstupu vrátí chyba [MongoError: connect ECONNREFUSED 127.0.0.1:27017].
 
 ## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 

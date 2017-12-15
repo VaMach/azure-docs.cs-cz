@@ -1,6 +1,6 @@
 ---
-title: "Rychlý úvod: Tabulky rozhraní API pomocí Java - Azure Cosmos DB | Microsoft Docs"
-description: "Tento rychlý start ukazuje, jak vytvořit aplikaci pomocí portálu Azure a Java pomocí rozhraní API služby Azure DB Cosmos tabulky"
+title: "Rychlý start: Table API s využitím Javy – Azure Cosmos DB | Dokumentace Microsoftu"
+description: "Tento rychlý start ukazuje, jak použít rozhraní Azure Cosmos DB Table API k vytvoření aplikace pomocí webu Azure Portal a Javy."
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -17,13 +17,13 @@ ms.date: 11/20/2017
 ms.author: arramac
 ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
 ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/20/2017
 ---
-# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Rychlý úvod: Sestavení tabulku aplikace API Java a Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Rychlý start: Sestavení aplikace Table API pomocí Javy a Azure Cosmos DB
 
-Tento rychlý start ukazuje způsob použití Java a Azure Cosmos DB [tabulky API](table-introduction.md) k sestavení aplikace klonováním příklad z Githubu. Tento rychlý start také ukazuje postup vytvoření účtu Azure Cosmos DB a použití Průzkumníku dat k vytvoření tabulky a entity na portálu Azure založených na webu.
+Tento rychlý start ukazuje, jak pomocí Javy a rozhraní Azure Cosmos DB [Table API](table-introduction.md) sestavit aplikaci naklonováním příkladu z GitHubu. Tento rychlý start také ukazuje, jak vytvořit účet služby Azure Cosmos DB a jak pomocí Průzkumníku dat vytvářet tabulky a entity na webu Azure Portal.
 
 Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
 
@@ -45,7 +45,7 @@ Navíc platí:
 ## <a name="create-a-database-account"></a>Vytvoření účtu databáze
 
 > [!IMPORTANT] 
-> Budete muset vytvořit nový účet tabulky rozhraní API pro práci s všeobecně dostupná SDK API tabulky. Tabulka rozhraní API účtů vytvořených během preview nepodporuje všeobecně dostupná sady SDK.
+> Abyste mohli pracovat s obecně dostupnými sadami Table API SDK, musíte si vytvořit nový účet Table API. Obecně dostupné sady SDK nepodporují účty Table API vytvořené během období Preview.
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -61,7 +61,7 @@ Teď můžete přidávat do nové tabulky data pomocí Průzkumníku dat.
 1. V Průzkumníku dat rozbalte **ukázkovou tabulku**, klikněte na **Entity** a potom klikněte na **Přidat entitu**.
 
    ![Vytváření nových entit v Průzkumníku dat na portálu Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Nyní přidejte data PartitionKey hodnota pole a pole hodnota RowKey a klikněte na tlačítko **Přidat entitu**.
+2. Teď přidejte data do hodnoty pole PartitionKey a do hodnoty pole RowKey a klikněte na **Přidat entitu**.
 
    ![Nastavení klíče oddílu a klíče řádku pro novou entitu](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -71,13 +71,13 @@ Teď můžete přidávat do nové tabulky data pomocí Průzkumníku dat.
 
 Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
-1. Otevřete okno terminálu git, jako je například git bash a použít `cd` příkaz Přejít do složky pro instalaci ukázkové aplikace. 
+1. Otevřete okno terminálu Git, například Git Bash, a pomocí příkazu `cd` přejděte do složky, do které chcete nainstalovat ukázkovou aplikaci. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači. 
+2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří na vašem počítači kopii ukázkové aplikace. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
@@ -85,27 +85,27 @@ Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a
 
 ## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
-Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. To umožňuje aplikaci ke komunikaci s vaší hostované databází. 
+Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. Tím aplikaci umožníte komunikovat s hostovanou databází. 
 
-1. V [portál Azure](http://portal.azure.com/), klikněte na tlačítko **připojovací řetězec**. 
+1. Na webu [Azure Portal](http://portal.azure.com/) klikněte na **Připojovací řetězec**. 
 
-   ![Zobrazení a zkopírujte řetězec informace o požadované připojení z v podokně připojovací řetězec](./media/create-table-java/connection-string.png)
+   ![Zobrazení a zkopírování požadovaných informací o připojovacím řetězci v podokně Připojovací řetězec](./media/create-table-java/connection-string.png)
 
-2. Zkopírujte primární PŘIPOJOVACÍ řetězec pomocí tlačítko Kopírovat na pravé straně.
+2. Pomocí tlačítka pro kopírování na pravé straně zkopírujte PRIMÁRNÍ PŘIPOJOVACÍ ŘETĚZEC.
 
-3. Config.properties otevřete ve složce C:\git-samples\storage-table-java-getting-started\src\main\resources. 
+3. Otevřete soubor config.properties ze složky C:\git-samples\storage-table-java-getting-started\src\main\resources. 
 
-5. Okomentovat řádek jednu a zrušte komentář u řádku dva. První dva řádky by teď měl vypadat takto.
+5. Okomentujte první řádek a zrušte komentář na druhém řádku. První dva řádky by teď měly vypadat takto.
 
     ```
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```
 
-6. PRIMÁRNÍ PŘIPOJOVACÍ řetězec z portálu vložte do StorageConnectionString hodnoty v řádku 2. 
+6. Vložte PRIMÁRNÍ PŘIPOJOVACÍ ŘETĚZEC z portálu do hodnoty StorageConnectionString na řádku 2. 
 
     > [!IMPORTANT]
-    > Pokud váš koncový bod používá documents.azure.com, která znamená, máte účet preview, a je nutné vytvořit [nový účet rozhraní API tabulky](#create-a-database-account) pro práci s všeobecně dostupná sadu SDK API tabulky.
+    > Pokud váš koncový bod používá adresu documents.azure.com, znamená to, že máte účet Preview, a pokud chcete pracovat s obecně dostupnou sadou Table API SDK, musíte si vytvořit [nový účet Table API](#create-a-database-account).
     >
 
 7. Uložte soubor config.properties.
@@ -114,19 +114,19 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 
 ## <a name="run-the-app"></a>Spuštění aplikace
 
-1. V okně terminálu git `cd` ke složce úložiště tabulky java-getting-started.
+1. V okně terminálu Git přejděte příkazem `cd` do složky storage-table-java-getting-started.
 
     ```git
     cd "C:\git-samples\storage-table-java-getting-started"
     ```
 
-2. Okno terminálu, spusťte následující příkazy ke spuštění v gitu spustit aplikaci Java.
+2. Spuštěním následujících příkazů v okně terminálu Git spusťte aplikaci v Javě.
 
     ```git
     mvn compile exec:java 
     ```
 
-    V okně konzoly zobrazí data tabulky, který se přidává do nové tabulky databáze v Azure Cosmos DB.
+    V okně konzoly se zobrazí přidávání tabulkových dat do nové databáze tabulek ve službě Azure Cosmos DB.
 
     Teď se můžete vrátit do Průzkumníku dat a zobrazit dotaz nebo provést úpravy a pracovat s těmito novými daty. 
 
@@ -143,4 +143,4 @@ Teď jste aktualizovali aplikaci a zadali do ní všechny informace potřebné k
 V tomto rychlém startu jste se seznámili s postupem vytvoření databázového účtu Azure Cosmos DB, vytvoření tabulky pomocí Průzkumníka dat a spuštění aplikace.  Teď můžete zadávat dotazy na svá data pomocí rozhraní API tabulky.  
 
 > [!div class="nextstepaction"]
-> [Importovat data tabulky do rozhraní API tabulky](table-import.md)
+> [Import tabulkových dat do rozhraní Table API](table-import.md)
