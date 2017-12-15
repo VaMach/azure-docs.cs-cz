@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b72bdc546c824515867daa062c4a94f7326d7fb
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Spustit úlohu Apache Hive, Pig nebo Hadoop pomocí Azure Cosmos DB a HDInsight
 V tomto kurzu se dozvíte, jak spustit [Apache Hive][apache-hive], [Apache Pig][apache-pig], a [Apache Hadoop] [ apache-hadoop] úloh MapReduce v Azure HDInsight s konektorem Hadoop Cosmos DB. Cosmos DB Hadoop konektor umožňuje Cosmos DB tak, aby fungoval jako zdroj a jímka pro úlohy Hive, Pig a MapReduce. V tomto kurzu použije Cosmos DB jako zdroj dat i v cílovém pro úlohy Hadoop.
@@ -161,7 +161,7 @@ Zadejte: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
 
     ![Diagram pro prostředí Azure PowerShell][azure-powershell-diagram]
 
-## <a name="RunHive"></a>Krok 3: Spuštění úlohy Hive pomocí Cosmos databáze a HDInsight
+## <a name="RunHive"></a>Krok 3: Spuštění úlohy Hive pomocí Azure Cosmos DB a HDInsight
 > [!IMPORTANT]
 > Všechny proměnné indikován < > musí být zadána pomocí nastavení konfigurace.
 >
@@ -187,7 +187,7 @@ Zadejte: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
 
         '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> The collection names are separated without spaces, using only a single comma.
 
-        # Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
+        # Create a Hive table using data from Azure Cosmos DB. Pass Azure Cosmos DB the query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "drop table DocumentDB_timestamps; "  +
                             "create external table DocumentDB_timestamps(id string, ts BIGINT) "  +
                             "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' "  +
@@ -207,7 +207,7 @@ Zadejte: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
    >
    >
 
-       # Create a Hive table for the output data to DocumentDB.
+       # Create a Hive table for the output data to Azure Cosmos DB.
        $queryStringPart2 = "drop table DocumentDB_analytics; " +
                              "create external table DocumentDB_analytics(Month INT, Day INT, Hour INT, Minute INT, Total INT) " +
                              "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' " +
@@ -286,7 +286,7 @@ Zadejte: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
 
     Dokumenty bude distribuované kruhového dotazování napříč více kolekcí. Batch dokumentů se budou ukládat do jedné kolekce a potom druhý dávky dokumenty se uloží v další kolekce a tak dále.
 
-        # Load data from Cosmos DB. Pass DocumentDB query to filter transferred data to _rid and _ts.
+        # Load data from Cosmos DB. Pass the Azure Cosmos DB query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "DocumentDB_timestamps = LOAD '<DocumentDB Endpoint>' USING com.microsoft.azure.documentdb.pig.DocumentDBLoader( " +
                                                         "'<DocumentDB Primary Key>', " +
                                                         "'<DocumentDB Database Name>', " +
@@ -397,7 +397,7 @@ Máme open source naše konektor Hadoop. Pokud byste chtěli, můžete přispív
 
 Další informace naleznete v následujících článcích:
 
-* [Vývoj aplikace Java pomocí Documentdb][documentdb-java-application]
+* [Vývoj aplikace Java pomocí Azure Cosmos DB][sql-api-java-application]
 * [Vývoj aplikací Java MapReduce pro Hadoop v HDInsight][hdinsight-develop-deploy-java-mapreduce]
 * [Začínáme používat Hadoop s Hive v HDInsight k analýze používání mobilního telefonu][hdinsight-get-started]
 * [Používání nástroje MapReduce s HDInsight][hdinsight-use-mapreduce]
@@ -409,14 +409,14 @@ Další informace naleznete v následujících článcích:
 [apache-hadoop-doc]: http://hadoop.apache.org/docs/current/
 [apache-hive]: http://hive.apache.org/
 [apache-pig]: http://pig.apache.org/
-[getting-started]: documentdb-get-started.md
+[getting-started]: sql-api-get-started.md
 
 [azure-portal]: https://portal.azure.com/
 [azure-powershell-diagram]: ./media/run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
 
 [hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [github]: https://github.com/Azure/azure-documentdb-hadoop
-[documentdb-java-application]: documentdb-java-application.md
+[sql-api-java-application]: sql-api-java-application.md
 [import-data]: import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md

@@ -7,12 +7,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
-ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/13/2017
+ms.openlocfilehash: 57b81dfb2cb58fb43d4c420e8ce58c0c226316df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aerial-image-classification"></a>Klasifikace leteckou bitové kopie
 
@@ -157,14 +157,14 @@ Nyní vytvoříme účet úložiště, že hostitelé projektu souborů, které 
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Očekávají, že přenos souborů trvat až 20 minut. Na popředí, můžete přejít k části: pravděpodobně muset otevřít jiné rozhraní příkazového řádku pomocí Workbench a znovu definovat dočasné proměnné.
+    Očekávejte přenosu souborů na trvat přibližně jednu hodinu. Na popředí, můžete přejít k části: pravděpodobně muset otevřít jiné rozhraní příkazového řádku pomocí Workbench a znovu definovat dočasné proměnné.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>Vytvoření clusteru HDInsight Spark
 
 Naše doporučenou metodu pro vytvoření clusteru HDInsight používá šablonu správce prostředků clusteru HDInsight Spark zahrnuté v podsložce "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" Tento projekt.
 
-1. Šablona clusteru HDInsight Spark je soubor "template.json" v části "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" podsložkou tento projekt. Ve výchozím nastavení vytvoří šablona dílčí clusteru Spark s 40 uzlů pracovního procesu. Pokud toto číslo je nutné upravit, otevřete šablonu ve svém oblíbeném textovém editoru a nahraďte všechny výskyty "40" číslo pracovní uzel podle svého výběru.
-    - Z důvodu nedostatku paměti chyby mohou nastat, pokud je malý počet uzlů pracovního procesu, který zvolíte. Boje proti chybami paměti, může spustit skripty školení a operationalization na podmnožinu dostupných dat, jak je popsáno dále v tomto dokumentu.
+1. Šablona clusteru HDInsight Spark je soubor "template.json" v části "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" podsložkou tento projekt. Ve výchozím nastavení vytvoří šablona dílčí clusteru Spark s 40 uzlů pracovního procesu. Pokud toto číslo je nutné upravit, otevřete šablonu ve svém oblíbeném textovém editoru a nahradit všechny instance "40" číslo pracovní uzel podle svého výběru.
+    - Z důvodu nedostatku paměti chyby mohou nastat později, pokud je menší počet uzlů pracovního procesu, který zvolíte. Boje proti chybami paměti, může spustit skripty školení a operationalization na podmnožinu dostupných dat, jak je popsáno dále v tomto dokumentu.
 2. Vyberte jedinečný název a heslo pro HDInsight clusteru a zapíše je uvedeno v následujícím příkazu: potom vytvořte cluster vydáním příkazů:
 
     ```
@@ -248,12 +248,10 @@ V případě potřeby si můžete ověřit, zda přenos dat proběhl podle plán
 
 #### <a name="create-a-batch-ai-cluster"></a>Vytvoření clusteru s podporou Batch AI
 
-1. Vytvoření clusteru vydáním následujících příkazů:
+1. Vytvoření clusteru po vydání následujícího příkazu:
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Použijte následující příkaz a zkontrolovat, zda že je stav zřizování clusteru:
@@ -304,7 +302,7 @@ Po dokončení vytváření clusteru HDInsight se zaregistrujte takto jako cíl 
 1.  Vydejte následující příkaz z Azure Machine Learning rozhraní příkazového řádku:
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     Tento příkaz přidá dva soubory, `myhdi.runconfig` a `myhdi.compute`, do projektu `aml_config` složky.

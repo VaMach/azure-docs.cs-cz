@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 45169394bed2287896ddc93ad56657f7394366f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Úvod do Azure Cosmos DB: Graph API
 
@@ -113,7 +113,7 @@ V následující tabulce jsou uvedeny oblíbených Gremlin ovladače, které mů
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin JavaScript na Githubu](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin konzoly](https://tinkerpop.apache.org/downloads.html) |[TinkerPop dokumentace](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Také poskytuje knihovny .NET, který má Gremlin rozšiřující metody na Azure Cosmos DB [SDK služby Azure Cosmos DB](documentdb-sdk-dotnet.md) prostřednictvím balíčku NuGet. Tato knihovna nabízí server Gremlin služby "v rámci procesu", který můžete použít pro připojení přímo k datové oddíly.
+Také poskytuje knihovny .NET, který má Gremlin rozšiřující metody na Azure Cosmos DB [SDK služby Azure Cosmos DB](sql-api-sdk-dotnet.md) prostřednictvím balíčku NuGet. Tato knihovna nabízí server Gremlin služby "v rámci procesu", který můžete použít pro připojení přímo k datové oddíly.
 
 | Ke stažení | Dokumentace |
 | --- | --- |

@@ -4,7 +4,7 @@ description: "Další informace o použití cloudu init a Key Vault pro virtuál
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Postup přizpůsobení virtuální počítač s Linuxem na při prvním spuštění
 V předchozích kurzu jste se dozvěděli, jak chcete SSH pro virtuální počítač (VM) a ručně nainstalujte NGINX. Pokud chcete vytvořit virtuální počítače rychlý a konzistentním způsobem, je obvykle potřeby nějaký způsob automatizace. Běžný postup přizpůsobení virtuálního počítače při prvním spuštění počítače se má používat [cloudu init](https://cloudinit.readthedocs.io). V tomto kurzu se naučíte:
@@ -39,7 +39,7 @@ Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místn�
 
 
 
-## <a name="cloud-init-overview"></a>Init cloudu – přehled
+## <a name="cloud-init-overview"></a>Přehled Cloud-init
 [Init cloudu](https://cloudinit.readthedocs.io) je často používaný přístup k přizpůsobení virtuálního počítače s Linuxem, jako při prvním spuštění. Init cloudu můžete použít k instalaci balíčků a zapisovat soubory nebo konfigurace zabezpečení a uživatelů. Init cloudu běží během úvodního spouštění, nejsou žádné další kroky nebo požadované agenty použít konfiguraci.
 
 Init cloudu také funguje v různých distribucí. Například nepoužívejte **výstižný get instalace** nebo **yum nainstalovat** nainstalovat balíček. Místo toho můžete definovat seznam balíčků pro instalaci. Init cloudu automaticky používá nástroj pro správu nativní balíčku pro distro, kterou vyberete.
@@ -51,6 +51,8 @@ Pracujeme s našimi partnery získat cloudu init zahrnuté a práci v bitové ko
 | UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |nejnovější |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |nejnovější |
 | CoreOS |CoreOS |CoreOS |Stable |nejnovější |
+| | OpenLogic | CentOS | 7 CI | nejnovější |
+| | RedHat | RHEL | 7 NEZPRACOVANÁ POLOŽEK KONFIGURACE | nejnovější
 
 
 ## <a name="create-cloud-init-config-file"></a>Vytvoření cloudové init konfiguračního souboru

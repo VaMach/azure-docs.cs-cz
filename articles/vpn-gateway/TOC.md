@@ -75,6 +75,7 @@
 ## Konfigurace zařízení VPN třetích stran
 ### [Přehled a konfigurace Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Ukázka: Zařízení Cisco ASA (IKEv2/bez BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [Migrace z modelu Classic do Resource Manageru](vpn-gateway-classic-resource-manager-migration.md)
 ## Řešení potíží
 ### [Ověření propustnosti sítě VPN do virtuální sítě](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Nastavení zařízení brány firewall nebo VPN navrhované komunitou](vpn-gateway-third-party-settings.md)

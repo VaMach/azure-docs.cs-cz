@@ -1,93 +1,92 @@
 
-## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Použití knihovny ověřování společnosti Microsoft (MSAL) k získání tokenu pro rozhraní Microsoft Graph API
+## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Použít MSAL k získání tokenu pro rozhraní Microsoft Graph API
 
-Tato část ukazuje způsob použití MSAL získat token Microsoft Graph API.
+V této části použijete MSAL k získání tokenu pro rozhraní Microsoft Graph API.
 
-1.  V `MainWindow.xaml.cs`, přidejte odkaz na MSAL knihovny do třídy:
+1.  V *MainWindow.xaml.cs* soubor, přidejte odkaz na pro MSAL do třídy:
 
-```csharp
-using Microsoft.Identity.Client;
-```
+    ```csharp
+    using Microsoft.Identity.Client;
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="2">
-<li>
-Nahraďte <code>MainWindow</code> kódu s použitím třídy:
-</li>
-</ol>
 
-```csharp
-public partial class MainWindow : Window
-{
-    //Set the API Endpoint to Graph 'me' endpoint
-    string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
+2. Nahraďte `MainWindow` kódu pomocí následující třídy:
 
-    //Set the scope for API call to user.read
-    string[] _scopes = new string[] { "user.read" };
-
-
-    public MainWindow()
+    ```csharp
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
-    }
+        //Set the API Endpoint to Graph 'me' endpoint
+        string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
 
-    /// <summary>
-    /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
-    /// </summary>
-    private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
-    {
-        AuthenticationResult authResult = null;
+        //Set the scope for API call to user.read
+        string[] _scopes = new string[] { "user.read" };
 
-        try
+        public MainWindow()
         {
-            authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
+            InitializeComponent();
         }
-        catch (MsalUiRequiredException ex)
+
+        /// <summary>
+        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// </summary>
+        private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
-            // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
-            System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
+            AuthenticationResult authResult = null;
 
             try
             {
-                authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
             }
-            catch (MsalException msalex)
+            catch (MsalUiRequiredException ex)
             {
-                ResultText.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
-            }
-        }
-        catch (Exception ex)
-        {
-            ResultText.Text = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
-            return;
-        }
+                // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
+                System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
-        if (authResult != null)
-        {
-            ResultText.Text = await GetHttpContentWithToken(_graphAPIEndpoint, authResult.AccessToken);
-            DisplayBasicTokenInfo(authResult);
-            this.SignOutButton.Visibility = Visibility.Visible;
+                try
+                {
+                    authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+                }
+                catch (MsalException msalex)
+                {
+                    ResultText.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
+                }
+            }
+            catch (Exception ex)
+            {
+                ResultText.Text = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
+                return;
+            }
+
+            if (authResult != null)
+            {
+                ResultText.Text = await GetHttpContentWithToken(_graphAPIEndpoint, authResult.AccessToken);
+                DisplayBasicTokenInfo(authResult);
+                this.SignOutButton.Visibility = Visibility.Visible;
+            }
         }
     }
-}
-```
+    ```
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Další informace
-#### <a name="getting-a-user-token-interactive"></a>Získávání interaktivní token uživatele
-Volání `AcquireTokenAsync` metoda výsledky v okně výzvy pro uživatele k přihlášení. Aplikace obvykle vyžadují uživatel interaktivní přihlášení při prvním potřebují přístup k chráněnému prostředku nebo když tichou operaci získat token selže (například heslo uživatele jeho platnost).
+#### <a name="get-a-user-token-interactively"></a>Získání tokenu uživatele interaktivně
+Volání `AcquireTokenAsync` metoda výsledky v okně, které vyzve uživatele k přihlášení. Aplikace obvykle vyžadují uživatelům interaktivní přihlášení při prvním potřebují přístup k chráněnému prostředku. Potřebují může také k přihlášení během bezobslužné operace k získání tokenu selže (například pokud vypršela platnost hesla uživatele).
 
-#### <a name="getting-a-user-token-silently"></a>Získání tokenu uživatele bez upozornění
-`AcquireTokenSilentAsync`zpracovává tokenu pořízení a obnovení bez nutnosti zásahu uživatele. Po `AcquireTokenAsync` se spustí poprvé, `AcquireTokenSilentAsync` je obvykle metodu použitou k získat tokeny, použít pro přístup k chráněným prostředkům pro následující volání - volání na vyžádání nebo obnovení tokeny jsou vytvářeny bezobslužně.
-Nakonec `AcquireTokenSilentAsync` selže – např. uživatel má odhlášení, nebo došlo ke změně hesla na jiném zařízení. Když MSAL zjistí, že problém lze vyřešit tím, že vyžaduje interaktivní akce, aktivuje se ho `MsalUiRequiredException`. Aplikace může zpracovat výjimku dvěma způsoby:
+#### <a name="get-a-user-token-silently"></a>Získání tokenu uživatele bez upozornění
+`AcquireTokenSilentAsync` Metoda zpracovává tokenu pořízení a obnovení bez nutnosti zásahu uživatele. Po `AcquireTokenAsync` se spustí poprvé, `AcquireTokenSilentAsync` je obvykle způsob, kterým se získat tokeny, které přístup k chráněným prostředkům pro následující volání, protože k vyžádání nebo obnovení tokeny volání bezobslužně.
 
-1.  Volání proti `AcquireTokenAsync` okamžitě, výsledkem výzvy k přihlášení. Tento vzor se obvykle používá v online aplikace tam, kde není žádná offline v aplikaci k dispozici obsah pro uživatele. Ukázka generované touto s průvodcem instalací používá tento vzor: Zobrazí se v čase akce první spustit ukázku: vzhledem k tomu, že žádný uživatel nikdy použili aplikaci, `PublicClientApp.Users.FirstOrDefault()` bude obsahovat hodnotu null a `MsalUiRequiredException` dojde k výjimce. Kód v ukázce pak ošetří výjimku voláním `AcquireTokenAsync` výsledkem výzvy k přihlášení.
+Nakonec `AcquireTokenSilentAsync` metoda se nezdaří. Příčiny chyby může být, že uživatel má odhlášení nebo změnit své heslo na jiném zařízení. Když MSAL zjistí, že problém lze vyřešit tím, že vyžaduje interaktivní akce, aktivuje se ho `MsalUiRequiredException` výjimka. Aplikace může zpracovat výjimku dvěma způsoby:
 
-2.  Aplikace můžete udělat taky vizuální označení uživateli, které interaktivní přihlášení je povinné, tak, aby si uživatel může vybrat správný čas pro přihlášení, nebo můžete zkusit aplikaci `AcquireTokenSilentAsync` později. To se obvykle používá při uživatel může použít další funkce aplikace bez narušení – například je offline obsah k dispozici v aplikaci. V takovém případě se můžete rozhodnout uživatele, když chtějí přihlášení pro přístup k chráněnému prostředku nebo aktualizovat zastaralé informace, nebo aplikaci můžete rozhodnout opakujte `AcquireTokenSilentAsync` obnovení po síti poté, co byla dočasně nedostupná.
+* Provádět volání proti `AcquireTokenAsync` okamžitě. Toto volání se výsledkem výzvy pro uživatele k přihlášení. Tento vzor se obvykle používá v online aplikace tam, kde není žádná dostupné offline obsah pro uživatele. Ukázka generované touto s průvodcem instalací následuje tento vzor, který se zobrazí v čase akce první spuštění ukázky. 
+    * Vzhledem k tomu, že se žádný uživatel používá aplikaci, `PublicClientApp.Users.FirstOrDefault()` obsahuje hodnotu null a `MsalUiRequiredException` je vyvolána výjimka. 
+    * Kód v ukázce pak ošetří výjimku voláním `AcquireTokenAsync`, výsledkem výzvy pro uživatele k přihlášení.
+
+* Vizuální označení se místo toho může být pro uživatele, kteří interaktivní přihlášení je povinné, tak, aby mohou vybrat správný čas k přihlášení. Nebo můžete zkusit aplikaci `AcquireTokenSilentAsync` později. Tento vzor se často používá, kdy mohou uživatelé používat další funkce aplikace bez přerušení – například, když offline obsah je dostupný v aplikaci. V takovém případě uživatelé mohou rozhodnout, když chtějí Přihlaste se k přístupu k chráněnému prostředku nebo aktualizovat zastaralé informace. Alternativně můžete určit aplikace, aby opakujte `AcquireTokenSilentAsync` obnovení po síti poté, co bylo dočasně nedostupná.
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Volání rozhraní Graph API Microsoft pomocí tokenu, který jste obdrželi
+## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Pro token, který jste obdrželi volání rozhraní Graph API Microsoft
 
-1. Přidejte novou metodu níže do vaší `MainWindow.xaml.cs`. Aby se používá metoda `GET` požadavek na rozhraní Graph API pomocí hlavičku autorizovat:
+Přidejte následující metodu nové do vaší `MainWindow.xaml.cs`. Aby se používá metoda `GET` požadavek na rozhraní Graph API pomocí hlavičku autorizovat:
 
 ```csharp
 /// <summary>
@@ -116,14 +115,14 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 }
 ```
 <!--start-collapse-->
-### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Další informace o volání REST chráněné rozhraní API
+### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Další informace o tom, jak volání REST chráněné rozhraní API
 
-V této ukázkové aplikaci `GetHttpContentWithToken` metoda se používá k zajištění HTTP `GET` požadavku pro chráněný prostředek, který vyžaduje token a pak se vraťte obsah volajícímu. Tato metoda přidá získal token v *HTTP autorizační hlavičky*. Tato ukázka je prostředek Microsoft Graph API *mi* koncového bodu – zobrazí informace o profilu uživatele.
+V této ukázkové aplikaci používáte `GetHttpContentWithToken` metoda aby HTTP `GET` požadavku pro chráněný prostředek, který vyžaduje token a pak se vraťte obsah volajícímu. Tato metoda přidá získal token v hlavičce HTTP autorizace. Tato ukázka je prostředek Microsoft Graph API *mi* koncový bod, který zobrazí informace o profilu uživatele.
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-the-user"></a>Přidání metody se odhlásit uživatele
+## <a name="add-a-method-to-sign-out-a-user"></a>Přidání metody se odhlásit uživatele
 
-1. Přidejte následující metodu do vaší `MainWindow.xaml.cs` se odhlásit uživatele:
+Odhlášení uživatele, přidejte následující metodu do vaší `MainWindow.xaml.cs` souboru:
 
 ```csharp
 /// <summary>
@@ -148,15 +147,16 @@ private void SignOutButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 <!--start-collapse-->
-### <a name="more-info-on-sign-out"></a>Další informace o odhlášení
+### <a name="more-information-about-user-sign-out"></a>Další informace o odhlášení uživatele
 
-`SignOutButton_Click`Odebere uživatele z mezipaměti uživatele MSAL – efektivně se tak dozví MSAL zapomenutí aktuálního uživatele, takže budoucí žádost o získání tokenu bude úspěšné pouze v případě, že je k interaktivní.
-I když aplikace v této ukázce podporuje jenom jednoho konkrétního uživatele, MSAL podporuje scénáře, kde více účtů může být přihlášeného ve stejnou dobu – příklad je e-mailové aplikace, které má uživatel více účtů.
+`SignOutButton_Click` Metoda odstraní uživatele z mezipaměti MSAL uživatele, který efektivně informuje MSAL zapomenutí aktuálního uživatele, aby budoucí žádost o získání tokenu bude úspěšné pouze v případě, že je k interaktivní.
+
+I když aplikace v této ukázce podporuje jednoho uživatele, MSAL podporuje scénáře, kde můžete více účtů přihlášení ve stejnou dobu. Příkladem je e-mailové aplikace, které má uživatel více účtů.
 <!--end-collapse-->
 
 ## <a name="display-basic-token-information"></a>Zobrazit základní informace o tokenu
 
-1. Přidejte následující metodu do k vaší `MainWindow.xaml.cs` zobrazit základní informace o token:
+Chcete-li zobrazit základní informace o tokenu, přidejte následující metodu do vaší *MainWindow.xaml.cs* souboru:
 
 ```csharp
 /// <summary>
@@ -177,6 +177,6 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 <!--start-collapse-->
 ### <a name="more-information"></a>Další informace
 
-Tokeny získaných prostřednictvím *OpenID Connect* také obsahovat malou podmnožinu informace, které jsou relevantní pro uživatele. `DisplayBasicTokenInfo`Zobrazí základních informací obsažených v tokenu: například uživatele zobrazovaný název a ID, a také datum vypršení platnosti tokenu a řetězec představující přístup token sám sebe. Zobrazí se tato informace je zobrazen. Můžete dosáhl *volání Microsoft Graph API* tlačítko víckrát a zjistí, že byl znovu stejný token pro následné požadavky. Zobrazí se také datum vypršení platnosti rozšiřovanou při MSAL rozhodne ho je čas k obnovení tokenu.
+Kromě přístupový token, který se používá k volání rozhraní Graph API Microsoft po uživatel přihlásí MSAL také získá ID token. Tento token obsahovat malou podmnožinu informace, které jsou relevantní pro uživatele. `DisplayBasicTokenInfo` Metoda zobrazí základní informace, které jsou obsaženy v tokenu. Například zobrazí uživatele zobrazovaný název a ID, a také datum vypršení platnosti tokenu a řetězec představující přístupový token, sám sebe. Můžete vybrat *volání Microsoft Graph API* tlačítko víckrát a zjistí, že byl znovu stejný token pro následné požadavky. Zobrazí se také datum vypršení platnosti rozšiřovanou při MSAL rozhodne ho je čas k obnovení tokenu.
 <!--end-collapse-->
 

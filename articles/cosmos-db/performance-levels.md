@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Vyřazení úrovní výkonu S1, S2 a S3
 
@@ -95,7 +95,7 @@ Za předpokladu, že budete mít 10 S1 kolekcí, 1 GB úložiště pro každou, 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Co když je potřeba víc než 10 GB úložiště?
 
-Jestli máte kolekci s úrovní výkonu S1, S2 nebo S3, nebo mít jeden oddíl kolekce, které mají všechny 10 GB úložiště, které jsou k dispozici, můžete migrovat data do oddílů kolekce s prakticky neomezené úložiště nástroj pro migraci dat DB Cosmos. Informace o výhodách dělenou kolekci najdete v tématu [dělení a škálování v Azure Cosmos DB](documentdb-partition-data.md). 
+Jestli máte kolekci s úrovní výkonu S1, S2 nebo S3, nebo mít jeden oddíl kolekce, které mají všechny 10 GB úložiště, které jsou k dispozici, můžete migrovat data do oddílů kolekce s prakticky neomezené úložiště nástroj pro migraci dat DB Cosmos. Informace o výhodách dělenou kolekci najdete v tématu [dělení a škálování v Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
@@ -134,7 +134,7 @@ Můžete migrovat z úrovní výkonu S1, S2 a S3 kolekce tvořené jedním oddí
 
 4. Klikněte na tlačítko **Uložit** uložte provedené změny.
 
-    Pokud zjistíte, že potřebujete další propustnost (větší než 10 000 RU/s) nebo další úložiště (větší než 10 GB) můžete vytvořit kolekci oddílů. K migraci kolekce tvořené jedním oddílem pro dělenou kolekci, najdete v části [migrace z jednoho oddílu do dělené kolekce](documentdb-partition-data.md#migrating-from-single-partition).
+    Pokud zjistíte, že potřebujete další propustnost (větší než 10 000 RU/s) nebo další úložiště (větší než 10 GB) můžete vytvořit kolekci oddílů. K migraci kolekce tvořené jedním oddílem pro dělenou kolekci, najdete v části [migrace z jednoho oddílu do dělené kolekce](sql-api-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
     > Změna z S1, S2 nebo S3 standardního může trvat až dvě minuty.
@@ -143,7 +143,7 @@ Můžete migrovat z úrovní výkonu S1, S2 a S3 kolekce tvořené jedním oddí
 
 **Migrace do kolekce tvořené jedním oddílem pomocí sady .NET SDK**
 
-Další možností pro změnu úrovně výkonu vaší kolekce je prostřednictvím sady SDK Azure Cosmos DB. Tato část se vztahuje pouze změna shromažďování výkonu úrovně pomocí [SQL .NET API](documentdb-sdk-dotnet.md), ale proces je podobný pro naše dalších sadách SDK.
+Další možností pro změnu úrovně výkonu vaší kolekce je prostřednictvím sady SDK Azure Cosmos DB. Tato část se vztahuje pouze změna shromažďování výkonu úrovně pomocí [SQL .NET API](sql-api-sdk-dotnet.md), ale proces je podobný pro naše dalších sadách SDK.
 
 Zde je fragment kódu pro změnu propustnost kolekce do 5 000 jednotek žádosti za sekundu:
     
@@ -177,6 +177,6 @@ Zákazníci EA bude cena chránit až do konce jejich aktuální kontrakt.
 ## <a name="next-steps"></a>Další kroky
 Další informace o cenách a správě dat pomocí Azure Cosmos DB najdete v těchto zdrojích:
 
-1.  [Segmentace dat v databázi Cosmos](documentdb-partition-data.md). Vysvětlení rozdílu kontejneru tvořené jedním oddílem a oddílů kontejnery, jakož i tipy k implementaci strategie dělení bezproblémově škálování.
+1.  [Segmentace dat v databázi Cosmos](sql-api-partition-data.md). Vysvětlení rozdílu kontejneru tvořené jedním oddílem a oddílů kontejnery, jakož i tipy k implementaci strategie dělení bezproblémově škálování.
 2.  [Ceny cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Další informace o náklady na zřizování propustnost a využívání úložiště.
 3.  [Požadované jednotky](request-units.md). Pochopení spotřeby propustnosti na typy jiné operace, například pro čtení, zápisu, dotazů.

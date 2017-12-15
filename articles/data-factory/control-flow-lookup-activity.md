@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: spelluru
-ms.openlocfilehash: e0a1613f2f820f0c108e97c2c15585a581041181
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: f287b0287ad85ffe1654e0d574cd44aa4dd81a0f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Aktivita vyhledávání v Azure Data Factory
 Aktivita vyhledávání slouží ke čtení nebo vyhledání záznamu / názvu tabulky / hodnoty z jakéhokoli externího zdroje. Na tento výstup mohou dále odkazovat následující aktivity. 
@@ -61,7 +61,7 @@ Následující zdroje dat jsou aktuálně podporovány pro vyhledávání:
 Name (Název) | Popis | Typ | Požaduje se
 ---- | ----------- | ---- | --------
 Datové sady | Atribut datové sady je poskytnout odkaz na datovou sadu pro vyhledávání. V současné době jsou typy podporované datové sady:<ul><li>`AzureBlobDataset`pro [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties) jako zdroj</li><li>`FileShareDataset`pro [systém souborů](connector-file-system.md#dataset-properties) jako zdroj</li><li>`AzureSqlTableDataset`pro [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) nebo [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) jako zdroj</li><li>`SqlServerTable`pro [systému SQL Server](connector-sql-server.md#dataset-properties) jako zdroj</li><li>`AzureTableDataset`pro [Azure Table Storage](connector-azure-table-storage.md#dataset-properties) jako zdroj</li> | Dvojice klíč/hodnota | Ano
-Zdroj | Vlastnosti specifické pro datové sady zdroje, stejně jako zdroj kopie aktivity. Další podrobnosti o z části "Zkopírovat vlastnosti aktivity" v každé odpovídající tématu konektor. | Dvojice klíč/hodnota | Ano
+Zdroj | Vlastnosti specifické pro datové sady zdroje, stejně jako zdroj kopie aktivity. Další podrobnosti o z části "Zkopírovat vlastnosti aktivity" v jednotlivých odpovídající konektor článků. | Dvojice klíč/hodnota | Ano
 firstRowOnly | Označuje, jestli se mají vracet pouze první řádek nebo všechny řádky. | Logická hodnota | Ne. Výchozí hodnota je `ture`.
 
 ## <a name="use-lookup-activity-result-in-subsequent-activity"></a>Výsledek vyhledávání aktivity použít následné aktivity
@@ -80,7 +80,7 @@ Výsledek vyhledávání je vrácený v `output` části v rámci aktivity výsl
 }
 ```
 
-**Když `firstRowOnly` je nastaven na `false`** , foramt výstup je následující. A `count` pole určuje, kolik záznamů se vrátí, a podrobné hodnoty jsou v části pevná `value` pole. V takovém případě je vyhledávání aktivity obvykle následuje [Foreach aktivity](control-flow-for-each-activity.md), můžete předat `value` pole pro aktivitu ForEach `items` pole pomocí vzor `@activity('MyLookupActivity').output.value`.
+**Když `firstRowOnly` je nastaven na `false`** , formát výstupu se následujícím způsobem. A `count` pole určuje, kolik záznamů se vrátí, a podrobné hodnoty jsou v části pevná `value` pole. V takovém případě je vyhledávání aktivity obvykle následuje [Foreach aktivity](control-flow-for-each-activity.md), můžete předat `value` pole pro aktivitu ForEach `items` pole pomocí vzor `@activity('MyLookupActivity').output.value`. Přístup k elementům ve `value`, použijte následující syntaxi: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Tady je příklad:`@{activity('lookupActivity').output.value[0].tablename}`
 
 ```json
 {
@@ -101,7 +101,7 @@ Výsledek vyhledávání je vrácený v `output` části v rámci aktivity výsl
 ## <a name="example"></a>Příklad
 V tomto příkladu aktivitě kopírování kopíruje data z tabulky SQL v databázi Azure SQL do Azure Blob Storage. Název tabulky SQL je uložené v souboru JSON ve službě Blob Storage. Aktivita vyhledávání vyhledá název tabulky za běhu. Tento přístup umožňuje JSON má být změněn dynamicky bez opětovného nasazení kanálů nebo datové sady. 
 
-Tento příklad demostrates vyhledat pouze první řádek. Vyhledávání všechny řádky a řetězec s aktivitou ForEach, najdete v části [kurz – hromadné kopírování dat](tutorial-bulk-copy.md) ukázka.
+Tento příklad ukazuje vyhledávání pouze první řádek. Vyhledávání všechny řádky a řetězec s aktivitou ForEach, najdete v části [kurz – hromadné kopírování dat](tutorial-bulk-copy.md) ukázka.
 
 ### <a name="pipeline"></a>Kanál
 Tento kanál obsahuje dvě aktivity: **vyhledat** a **kopie**. 

@@ -4,20 +4,21 @@ description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 773e7f7d-ec31-411b-860d-6a6633335d43
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 12/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 0635b61954461ccf737b073177676d6d2c692f27
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 55479406487bf445c5f449b13663c0bfaee751fd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Kurz: Azure Active Directory integrace s Proofpoint na vyžádání
 
@@ -25,9 +26,9 @@ V tomto kurzu zjistěte, jak integrovat Proofpoint na vyžádání s Azure Activ
 
 Integrace Proofpoint na vyžádání s Azure AD poskytuje následující výhody:
 
-- Můžete řídit ve službě Azure AD, který má přístup k Proofpoint na vyžádání
-- Můžete povolit uživatelům, aby automaticky získat přihlášení k Proofpoint na vyžádání (jednotné přihlášení) s jejich účty Azure AD
-- Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure
+- Můžete ovládat ve službě Azure AD, který má přístup k Proofpoint na vyžádání.
+- Můžete povolit uživatelům, aby automaticky získat přihlášení k Proofpoint na vyžádání (jednotné přihlášení) s jejich účty Azure AD.
+- Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure.
 
 Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, najdete v části [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -44,7 +45,7 @@ Konfigurace integrace Azure AD s Proofpoint na vyžádání, potřebujete násle
 Chcete-li otestovat kroky v tomto kurzu, postupujte podle těchto doporučení:
 
 - Nepoužívejte provozním prostředí, pokud to není nutné.
-- Pokud nemáte prostředí zkušební verze Azure AD, můžete získat zkušební verze jeden měsíc [zde](https://azure.microsoft.com/pricing/free-trial/).
+- Pokud nemáte prostředí zkušební verze Azure AD, můžete [získat zkušební verzi jeden měsíc](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Popis scénáře
 V tomto kurzu můžete otestovat Azure AD jednotné přihlašování v testovacím prostředí. Scénáři uvedeném v tomto kurzu se skládá ze dvou hlavních stavebních bloků:
@@ -59,40 +60,37 @@ Chcete-li nakonfigurovat integraci Proofpoint na vyžádání do služby Azure A
 
 1. V  **[portál Azure](https://portal.azure.com)**, v levém navigačním panelu klikněte na tlačítko **Azure Active Directory** ikonu. 
 
-    ![Active Directory][1]
+    ![Tlačítko Azure Active Directory][1]
 
 2. Přejděte na **podnikové aplikace, které**. Pak přejděte na **všechny aplikace**.
 
-    ![Aplikace][2]
+    ![V okně podnikové aplikace][2]
     
 3. Chcete-li přidat novou aplikaci, klikněte na tlačítko **novou aplikaci** tlačítko horní dialogové okno.
 
-    ![Aplikace][3]
+    ![Tlačítko nové aplikace][3]
 
-4. Do vyhledávacího pole zadejte **Proofpoint na vyžádání**.
+4. Do vyhledávacího pole zadejte **Proofpoint na vyžádání**, vyberte **Proofpoint na vyžádání** z panelu výsledků klikněte **přidat** tlačítko Přidat aplikaci.
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_search.png)
+    ![Proofpoint na vyžádání v seznamu výsledků](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
 
-5. Na panelu výsledků vyberte **Proofpoint na vyžádání**a potom klikněte na **přidat** tlačítko Přidat aplikaci.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurace a otestování Azure AD jednotné přihlašování
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurace a testování Azure AD jednotného přihlašování
-V této části můžete nakonfigurovat a otestovat Azure AD jednotné přihlašování s Proofpoint na vyžádání v testovacího uživatele názvem "Britta Simon."
+V této části konfiguraci a testování Azure AD jednotné přihlašování s Proofpoint na vyžádání v testovacího uživatele názvem "Britta Simon".
 
 Azure AD pro jednotné přihlašování pro práci, musí vědět, co uživatel protějškem v Proofpoint na vyžádání je pro uživatele ve službě Azure AD. Jinými slovy musí navázat vztah propojení mezi uživatele Azure AD a související uživatelské v Proofpoint na vyžádání.
 
-Tento vztah propojení se navazuje se hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** v Proofpoint na vyžádání.
+V Proofpoint na vyžádání, přiřadit hodnotu **uživatelské jméno** ve službě Azure AD jako hodnotu **uživatelské jméno** k navázání vztahu odkazu.
 
 Nakonfigurovat a otestovat Azure AD jednotné přihlašování s Proofpoint na vyžádání, je třeba dokončit následující stavební bloky:
 
-1. **[Konfigurace Azure AD jednotné přihlašování](#configuring-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
-2. **[Vytváření testovacího uživatele Azure AD](#creating-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
-3. **[Vytváření Proofpoint na vyžádání testovacího uživatele](#creating-a-proofpoint-on-demand-test-user)**  – Pokud chcete mít protějšek Britta Simon v Proofpoint na vyžádání, propojené služby Azure AD reprezentace daného uživatele.
-4. **[Přiřazení testovacího uživatele Azure AD](#assigning-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
-5. **[Testování jednotné přihlašování](#testing-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
+1. **[Konfigurovat Azure AD jednotné přihlašování](#configure-azure-ad-single-sign-on)**  – Pokud chcete povolit uživatelům tuto funkci používat.
+2. **[Vytvořit testovací uživatele Azure AD](#create-an-azure-ad-test-user)**  – Pokud chcete otestovat Azure AD jednotné přihlašování s Britta Simon.
+3. **[Vytvoření Proofpoint na vyžádání testovacího uživatele](#create-a-proofpoint-on-demand-test-user)**  – Pokud chcete mít protějšek Britta Simon v Proofpoint na vyžádání, propojené služby Azure AD reprezentace daného uživatele.
+4. **[Přiřadit testovacího uživatele Azure AD](#assign-the-azure-ad-test-user)**  – Pokud chcete povolit Britta Simon používat Azure AD jednotné přihlašování.
+5. **[Test jednotného přihlašování](#test-single-sign-on)**  – Pokud chcete ověřit, zda je funkční konfigurace.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurace Azure AD jednotné přihlašování
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurovat Azure AD jednotné přihlašování
 
 V této části můžete povolit Azure AD jednotného přihlašování na portálu Azure a nakonfigurovat jednotné přihlašování v vaší Proofpoint na vyžádání aplikace.
 
@@ -100,82 +98,83 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
 1. Na portálu Azure na **Proofpoint na vyžádání** stránky integrace aplikací, klikněte na tlačítko **jednotného přihlašování**.
 
-    ![Konfigurovat jednotné přihlašování][4]
+    ![Konfigurace propojení přihlášení][4]
 
 2. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **na základě SAML přihlašování** umožňující jednotného přihlašování.
-  
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_samlbase.png)
+ 
+    ![Jediné přihlášení dialogové okno](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_samlbase.png)
 
 3. Na **Proofpoint na vyžádání domény a adresy URL** část, proveďte následující kroky:
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_url.png)
+    ![Proofpoint na vyžádání adresy URL jeden přihlašování informace o doméně a](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_url.png)
 
-    a.In **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<hostname>.pphosted.com/ppssamlsp_hostname`
+    a. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<hostname>.pphosted.com/ppssamlsp_hostname`
 
     b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<hostname>.pphosted.com/ppssamlsp`
 
-    c.  V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
-     
-    > [!NOTE] 
-    > Tyto hodnoty nejsou reálné. Tyto hodnoty aktualizujte se skutečným identifikátorem, adresa URL odpovědi a přihlašovací adresa URL. Obraťte se na [Proofpoint na tým podpory vyžádání klienta](https://www.proofpoint.com/us/support-services) k získání těchto hodnot. 
-
-4. Na **SAML podpisový certifikát** klikněte na tlačítko **Certificate(Base64)** a potom uložte soubor certifikátu v počítači.
-
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_certificate.png) 
-
-5. Klikněte na tlačítko **Uložit** tlačítko.
-
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_400.png)
+    c. V **adresa URL odpovědi** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
     
-6. Na **Proofpoint konfiguraci na vyžádání** klikněte na tlačítko **Proofpoint konfiguraci na vyžádání** otevřete **konfigurovat přihlášení** okno. Kopírování **SAML Entity ID a SAML jeden přihlašování adresa URL služby** z **Stručná referenční příručka části.**
+    > [!NOTE] 
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte se skutečným identifikátorem, adresa URL odpovědi a přihlašovací adresa URL. Obraťte se na [Proofpoint na tým podpory vyžádání klienta](https://www.proofpoint.com/us/support-services) k získání těchto hodnot.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_configure.png) 
+5. Na **SAML podpisový certifikát** klikněte na tlačítko **Certificate(Base64)** a potom uložte soubor certifikátu v počítači.
 
-7. Konfigurace jednotného přihlašování na **Proofpoint na vyžádání** straně, budete muset odeslat stažené **Certificate(Base64)**,**SAML Entity ID**, a **SAML jeden přihlašování adresa URL služby** k [Proofpoint na tým podpory vyžádání klienta](https://www.proofpoint.com/us/support-services).
+    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_certificate.png) 
+
+6. Klikněte na tlačítko **Uložit** tlačítko.
+
+    ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_400.png)
+    
+7. Na **Proofpoint konfiguraci na vyžádání** klikněte na tlačítko **Proofpoint konfiguraci na vyžádání** otevřete **konfigurovat přihlášení** okno. Kopírování **Sign-Out adresu URL, SAML Entity ID a SAML jeden přihlašování adresa URL služby** z **Stručná referenční příručka části.**
+
+    ![Proofpoint konfiguraci na vyžádání](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_configure.png) 
+
+8. Konfigurace jednotného přihlašování na **Proofpoint na vyžádání** straně, budete muset odeslat stažené **Certificate(Base64)**, **Sign-Out URL, SAML Entity ID a SAML jeden přihlašování adresa URL služby** k [Proofpoint na tým podpory vyžádání](https://www.proofpoint.com/us/support-services). Nastavují toto nastavení tak, aby měl jednotné přihlašování SAML připojení správně nastavena na obou stranách.
 
 > [!TIP]
 > Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="creating-an-azure-ad-test-user"></a>Vytváření testovacího uživatele Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Vytvořit testovací uživatele Azure AD
+
 Cílem této části je vytvoření zkušebního uživatele na portálu Azure, názvem Britta Simon.
 
-![Vytvořit uživatele Azure AD][100]
+   ![Vytvořit testovací uživatele Azure AD][100]
 
 **Vytvoření zkušebního uživatele ve službě Azure AD, proveďte následující kroky:**
 
-1. V **portál Azure**, v levém navigačním podokně klikněte na tlačítko **Azure Active Directory** ikonu.
+1. Na portálu Azure, v levém podokně klikněte **Azure Active Directory** tlačítko.
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_01.png) 
+    ![Tlačítko Azure Active Directory](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_01.png)
 
-2. Tyto hodnoty nejsou reálné. Tyto hodnoty aktualizovat se skutečnou
-    
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_02.png) 
+2. Chcete-li zobrazit seznam uživatelů, přejděte na **uživatelů a skupin**a potom klikněte na **všichni uživatelé**.
 
-3. Chcete-li otevřít **uživatele** dialogové okno, klikněte na tlačítko **přidat** horní dialogové okno.
- 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_03.png) 
+    !["Uživatelé a skupiny" a "Všichni uživatelé" odkazy](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_02.png)
 
-4. Na **uživatele** dialogové okno stránky, proveďte následující kroky:
- 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png) 
+3. Chcete-li otevřít **uživatele** dialogové okno, klikněte na tlačítko **přidat** v horní části **všichni uživatelé** dialogové okno.
 
-    a. V **název** textovému poli, typ **Britta Simon**.
+    ![Tlačítko Přidat](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_03.png)
 
-    b. V **uživatelské jméno** textovému poli, typ **e-mailová adresa** z Britta Simon.
+4. V **uživatele** dialogové okno pole, proveďte následující kroky:
 
-    c. Vyberte **zobrazit hesla** a poznamenejte si hodnotu **heslo**.
+    ![Dialogové okno uživatele](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png)
+
+    a. V **název** zadejte **BrittaSimon**.
+
+    b. V **uživatelské jméno** zadejte e-mailovou adresu uživatele Britta Simon.
+
+    c. Vyberte **zobrazit hesla** zaškrtněte políčko a zapište si ji hodnotu, která se zobrazí v **heslo** pole.
 
     d. Klikněte na možnost **Vytvořit**.
  
-### <a name="creating-a-proofpoint-on-demand-test-user"></a>Vytváření Proofpoint na vyžádání testovacího uživatele
+### <a name="create-a-proofpoint-on-demand-test-user"></a>Vytvoření Proofpoint na vyžádání testovacího uživatele
 
 V této části vytvoříte uživatele volal Britta Simon v Proofpoint na vyžádání. Práce s [Proofpoint na tým podpory vyžádání klienta](https://www.proofpoint.com/us/support-services) pro přidání uživatelů Proofpoint na vyžádání platformě.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Přiřazení testovacího uživatele Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Přiřadit testovacího uživatele Azure AD
 
 V této části povolíte Britta Simon používat Azure jednotné přihlašování pomocí udělení přístupu Proofpoint na vyžádání.
 
-![Přiřadit uživatele][200] 
+![Přiřadit role uživatele][200] 
 
 **Pokud chcete přiřadit Britta Simon Proofpoint na vyžádání, proveďte následující kroky:**
 
@@ -185,15 +184,15 @@ V této části povolíte Britta Simon používat Azure jednotné přihlašován
 
 2. V seznamu aplikací vyberte **Proofpoint na vyžádání**.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_app.png) 
+    ![Proofpoint na vyžádání odkaz v seznamu aplikací](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_app.png)  
 
 3. V nabídce na levé straně klikněte na tlačítko **uživatelů a skupin**.
 
-    ![Přiřadit uživatele][202] 
+    ![Odkaz "Uživatelé a skupiny"][202]
 
 4. Klikněte na tlačítko **přidat** tlačítko. Potom vyberte **uživatelů a skupin** na **přidat přiřazení** dialogové okno.
 
-    ![Přiřadit uživatele][203]
+    ![V podokně Přidat přiřazení][203]
 
 5. Na **uživatelů a skupin** dialogovém okně, vyberte **Britta Simon** v seznamu uživatelů.
 
@@ -201,19 +200,17 @@ V této části povolíte Britta Simon používat Azure jednotné přihlašován
 
 7. Klikněte na tlačítko **přiřadit** tlačítko **přidat přiřazení** dialogové okno.
     
-### <a name="testing-single-sign-on"></a>Testování jednotné přihlašování
+### <a name="test-single-sign-on"></a>Test jednotného přihlašování
 
 V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci pomocí přístupového panelu.
 
-Když kliknete **Proofpoint na vyžádání** dlaždici na přístupový Panel je by měl být automaticky přihlášeni do vaší Proofpoint na vyžádání aplikace.
-Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).  
+Po kliknutí na tlačítko Proofpoint na vyžádání dlaždici na přístupovém panelu, jste měli získat automaticky přihlášení k vaší Proofpoint na vyžádání aplikace.
+Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Další zdroje
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

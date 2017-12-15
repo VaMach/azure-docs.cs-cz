@@ -1,59 +1,59 @@
 
 ## <a name="set-up-your-project"></a>Nastavení projektu
 
-Tato část obsahuje podrobné pokyny pro vytvoření nového projektu do ukazují, jak integrovat aplikace Windows Desktop .NET (XAML) s *přihlášení se společností Microsoft* , se můžete dotazovat webové rozhraní API, která vyžaduje token.
+V této části vytvoříte nový projekt na ukazují, jak integrovat aplikace Windows Desktop .NET (XAML) s *přihlášení se společností Microsoft* tak, aby aplikace můžete dotazovat webovým rozhraním API, které vyžadují token.
 
-Aplikace vytvořené v této příručce zpřístupní tlačítko graf a zobrazit výsledky na obrazovce a odhlášení tlačítko.
+Aplikace, které vytvoříte v této příručce zobrazí tlačítko, které se používá k volání graf, oblast, kterou chcete zobrazit výsledky na obrazovce a odhlášení tlačítko.
 
-> Místo toho stáhněte projekt Visual Studio Tato ukázka dávají přednost? [Stažení projektu](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) a pokračujte [krok konfigurace](#create-an-application-express) před provedením konfigurace ukázka kódu.
+> [!NOTE]
+> Místo toho stáhněte projekt Visual Studio Tato ukázka dávají přednost? [Stažení projektu](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)a pokračujte [krok konfigurace](#create-an-application-express) ke konfiguraci ukázka kódu, než ho provést.
+>
 
+Pokud chcete vytvořit aplikaci, postupujte takto:
+1. V sadě Visual Studio, vyberte **soubor** > **nový** > **projektu**.
+2. V části **šablony**, vyberte **Visual C#**.
+3. Vyberte **aplikace WPF** nebo **aplikaci WPF**, v závislosti na verzi používáte verzi sady Visual Studio.
 
-### <a name="create-your-application"></a>Vytvoření aplikace
-1. V sadě Visual Studio:`File` > `New` > `Project`<br/>
-2. V části *šablony*, vyberte možnost`Visual C#`
-3. Vyberte `WPF App` (nebo *aplikaci WPF* v závislosti na verzi sady Visual Studio)
+## <a name="add-msal-to-your-project"></a>Do projektu přidejte MSAL
+1. V sadě Visual Studio, vyberte **nástroje** > **Správce balíčků NuGet**> **Konzola správce balíčků**.
+2. V okně konzoly Správce balíčků vložte následující příkaz prostředí Azure PowerShell:
 
-## <a name="add-the-microsoft-authentication-library-msal-to-your-project"></a>Do projektu přidejte knihovny ověřování společnosti Microsoft (MSAL)
-1. V sadě Visual Studio:`Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. Zkopírujte a vložte následující v okně konzoly Správce balíčků:
+    ```powershell
+    Install-Package Microsoft.Identity.Client -Pre
+    ```
 
-```powershell
-Install-Package Microsoft.Identity.Client -Pre
-```
-
-> Výše uvedené balíček nainstaluje Microsoft ověřování knihovny (MSAL). MSAL zpracovává získávání, ukládání do mezipaměti a aktualizaci toskens uživatel používá pro přístup k rozhraní API, které jsou chráněné službou Azure Active Directory v2.
+    > [!NOTE] 
+    > Tento příkaz nainstaluje knihovny pro ověřování Microsoft. MSAL zpracovává získávání, ukládání do mezipaměti a aktualizaci uživatele tokeny, které se používají pro přístup k rozhraní API, které jsou chráněné službou Azure Active Directory v2.
+    >
 
 ## <a name="add-the-code-to-initialize-msal"></a>Přidat kód pro inicializaci MSAL
-Tento krok vám pomůže vytvořit třídu pro zpracování interakci s MSAL knihovnu, jako je například zpracování tokenů.
+V tomto kroku vytvoříte třídu pro zpracování interakci s MSAL, jako je například zpracování tokenů.
 
-1. Otevřete `App.xaml.cs` souboru a odkaz na MSAL knihovny přidejte do třídy:
+1. Otevřete *App.xaml.cs* souboru a poté přidejte odkaz na pro MSAL pro třídu:
 
-```csharp
-using Microsoft.Identity.Client;
-```
+    ```csharp
+    using Microsoft.Identity.Client;
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="2">
-<li>
-Aktualizace třídy aplikace takto:
-</li>
-</ol>
 
-```csharp
-public partial class App : Application
-{
-    //Below is the clientId of your app registration. 
-    //You have to replace the below with the Application Id for your app registration
-    private static string ClientId = "your_client_id_here";
+2. Aktualizace třídy aplikace takto:
 
-    public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+    ```csharp
+    public partial class App : Application
+    {
+        //Below is the clientId of your app registration. 
+        //You have to replace the below with the Application Id for your app registration
+        private static string ClientId = "your_client_id_here";
 
-}
-```
+        public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
 
-## <a name="create-your-applications-ui"></a>Vytvoření uživatelského rozhraní aplikace
-Následující části ukazuje, jak aplikaci můžete dotazovat chráněných back-end serveru, jako je Microsoft Graph. Soubor MainWindow.xaml by měl automaticky vytvoří jako součást vaše šablona projektu. Tento soubor otevřít tento soubor a pak postupujte podle pokynů níže:
+    }
+    ```
 
-Nahraďte aplikace `<Grid>` být následující:
+## <a name="create-the-application-ui"></a>Vytvoření aplikace uživatelského rozhraní
+Tato část uvádí, jak můžete aplikaci dotaz na chráněném serveru back-end, jako je například Microsoft Graph. 
+
+A *MainWindow.xaml* soubor by měl být automaticky vytvoří jako součást vaše šablona projektu. Umožňuje otevřít tento soubor a potom můžete nahradit vaší aplikace  *\<mřížky >* uzlu s následujícím kódem:
 
 ```xml
 <Grid>
@@ -69,3 +69,4 @@ Nahraďte aplikace `<Grid>` být následující:
     </StackPanel>
 </Grid>
 ```
+

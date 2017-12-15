@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Enterprise stavu nastavení roamingu windows cloudu, nejčastější dotazy na enterprise stavu roaming"
 documentationcenter: 
 author: tanning
-manager: swadhwa
+manager: mtillman
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f9431a695f2acaa2067e623788a0c3c3b4183c9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="settings-and-data-roaming-faq"></a>Nejčastější dotazy k nastavení a datovému roamingu
 Toto téma odpovědi na některé dotazy, které správci IT mohou mít o nastavení a synchronizaci dat aplikací.
@@ -72,7 +72,7 @@ V listopadu 2015 nebo novější verze Windows 10 Enterprise State Roaming je po
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Nastavení synchronizace pro účty Azure AD od víc klientů?
 Když více Azure AD účty z různých klientů Azure AD jsou na stejném zařízení, musíte aktualizovat registru zařízení ke komunikaci s Azure Rights Management (Azure RMS) pro každý klient Azure AD.  
 
-1. Najdete identifikátor GUID pro každý klient Azure AD. Otevřete portál Azure classic a vyberte klienta Azure AD. Identifikátor GUID pro klienta je v adrese URL na panelu Adresa prohlížeče. Příklad: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. Najdete identifikátor GUID pro každý klient Azure AD. Otevřete portál Azure a vyberte klienta Azure AD. Identifikátor GUID pro klienta je v adrese URL na panelu Adresa prohlížeče. Příklad: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. Až budete mít identifikátor GUID, budete muset přidat klíč registru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<klienta ID GUID >**.
    Z **klienta ID GUID** klíče, vytvořte novou víceřetězcovou hodnotu (REG SZ více) s názvem **AllowedRMSServerUrls**. Pro svá data zadejte distribuční bod adresy URL licencování Azure klientů, které má přístup k zařízení.
 3. Licenční adresy URL distribučního bodu můžete najít spuštěním **Get-AadrmConfiguration** rutiny. Pokud hodnoty **LicensingIntranetDistributionPointUrl** a **LicensingExtranetDistributionPointUrl** se liší, zadat obě hodnoty. Pokud jsou hodnoty stejné, zadejte hodnotu pouze jednou.

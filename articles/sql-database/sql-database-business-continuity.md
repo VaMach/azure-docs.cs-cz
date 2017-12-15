@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
-ms.openlocfilehash: 936f95700cb57325a572e5509334398a724c4986
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Přehled provozní kontinuity se službou Azure SQL Database
 
@@ -129,7 +129,7 @@ Bez ohledu na funkce provozní kontinuity, které používáte, musíte:
 Pokud není připravíte správně, přináší aplikace online po převzetí služeb při selhání nebo obnovení databáze bude vyžadovat čas navíc a pravděpodobně také vyžadují, řešení potíží s v době přízvuk - chybný kombinaci.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Převzetí služeb při selhání do geograficky replikované sekundární databáze
-Pokud se používá aktivní geografickou replikaci a skupiny automatické převzetí služeb při selhání (v preview) jako váš mechanismus obnovení, můžete nakonfigurovat zásady pro automatické převzetí služeb při selhání nebo použít [ruční převzetí služeb při selhání](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-database). Po zahájení převzetí způsobí, že sekundární stane nový primární a připravené k záznamu nové transakce a reagovat na dotazy – s minimálními ztrátami dat dat, ještě nebyl replikován. Informace o navrhování proces převzetí služeb při selhání najdete v tématu [návrhu aplikace pro zotavení po havárii cloudu](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Pokud se používá aktivní geografickou replikaci a skupiny automatické převzetí služeb při selhání (v preview) jako váš mechanismus obnovení, můžete nakonfigurovat zásady pro automatické převzetí služeb při selhání nebo použít [ruční převzetí služeb při selhání](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Po zahájení převzetí způsobí, že sekundární stane nový primární a připravené k záznamu nové transakce a reagovat na dotazy – s minimálními ztrátami dat dat, ještě nebyl replikován. Informace o navrhování proces převzetí služeb při selhání najdete v tématu [návrhu aplikace pro zotavení po havárii cloudu](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Pokud datové centrum přejde do režimu online původní základní barvy automaticky znovu připojit k nové primární a sekundární databáze je k. Pokud potřebujete přemístit primární zpět na původní oblast, můžete spustit plánované převzetí služeb při selhání ručně (navrácení služeb po obnovení). 

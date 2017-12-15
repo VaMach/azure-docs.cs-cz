@@ -21,6 +21,7 @@
 ## [Získání klientských knihoven](analysis-services-data-providers.md)
 ## [Zálohování a obnovení](analysis-services-backup.md)
 ## [Konfigurace škálování na více instancí](analysis-services-scale-out.md)
+## [Konfigurace aliasu názvu souboru](analysis-services-server-alias.md)
 ## [Propojení s Excelem](analysis-services-connect-excel.md)
 ## [Propojení s Power BI](analysis-services-connect-pbi.md)
 ## [Vytvoření souboru .odc](analysis-services-odc.md)

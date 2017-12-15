@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Nasazení aplikace s CI nebo CD pro cluster Service Fabric
 V tomto kurzu je součástí tři řady a popisuje, jak nastavit průběžnou integraci a nasazení pro aplikaci Azure Service Fabric pomocí Visual Studio Team Services.  Je potřeba stávající aplikace Service Fabric, aplikace vytvořené v [sestavení aplikace .NET](service-fabric-tutorial-create-dotnet-app.md) slouží jako příklad.
@@ -44,7 +44,6 @@ Před zahájením tohoto kurzu:
 - Pokud nemáte předplatné Azure, vytvořte [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Nainstalovat Visual Studio 2017](https://www.visualstudio.com/) a nainstalujte **Azure development** a **ASP.NET a webové vývoj** úlohy.
 - [Instalace Service Fabric SDK](service-fabric-get-started.md)
-- Vytvoření aplikace Service Fabric, například pomocí [projdete tímto kurzem](service-fabric-tutorial-create-dotnet-app.md). 
 - Vytvoření clusteru s podporou Windows Service Fabric v Azure, například pomocí [projdete tímto kurzem](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - Vytvoření [účtu Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
@@ -83,39 +82,49 @@ Definice sestavení Team Services popisuje pracovní postup, který se skládá 
 Verze definice Team Services popisuje pracovní postup, který nasadí balíček aplikace do clusteru. Při použití společně, definici sestavení a verze definice spustit celý pracovní postup od zdrojové soubory k konče spuštěné aplikace v clusteru. Další informace o Team Services [verze definice](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-definition"></a>Vytvořit definici sestavení
-Otevřete webový prohlížeč a přejděte do nového týmového projektu v: https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting. 
+Otevřete webový prohlížeč a přejděte do nového týmového projektu v: [https://&lt;stránku Můj účet&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
 Vyberte **sestavení a verze** kartě pak **sestavení**, pak **+ novou definici**.  V **vyberte šablonu**, vyberte **aplikace Azure Service Fabric** šablonu a klikněte na tlačítko **použít**. 
 
 ![Výběr šablony sestavení][select-build-template] 
 
-Hlasovací aplikaci obsahuje projektu .NET Core, proto přidat úloha, která obnoví závislosti. V **úlohy** zobrazit, vyberte možnost **+ přidat úloha** dole vlevo. Vyhledávání v "Příkazový řádek" najít úlohu příkazového řádku a pak klikněte na **přidat**. 
+V **úlohy**, zadejte "Hostované VS2017" jako **fronty agenta**. 
 
-![Přidat úloha][add-task] 
+![Vyberte úlohy][save-and-queue]
 
-Nová úloha, zadejte "Spustit dotnet.exe" v **zobrazovaný název**, "dotnet.exe" v **nástroj**a "obnovení" v **argumenty**. 
+V části **aktivační události**, povolit průběžnou integraci nastavením **aktivovat stav**.  Vyberte **uložte a fronty** ruční spuštění sestavení.  
 
-![Nová úloha][new-task] 
+![Vyberte aktivační události][save-and-queue2]
 
-V **aktivační události** zobrazit, klikněte na tlačítko **povolení této aktivační události** přepínače v rámci **průběžnou integraci**. 
-
-Vyberte **Uložit & fronty** a zadejte "Hostované VS2017" jako **fronty agenta**. Vyberte **fronty** ruční spuštění sestavení.  Vytvoří také aktivační události nabízené nebo vrácení se změnami.
-
-Chcete-li zkontrolovat průběh sestavení, přepněte na **sestavení** kartě.  Jakmile ověříte úspěšně spustí sestavení, definujte definici verze, která nasadí aplikaci do clusteru. 
+Také vytvoří aktivační událost nabízené nebo vrácení se změnami. Chcete-li zkontrolovat průběh sestavení, přepněte na **sestavení** kartě.  Jakmile ověříte úspěšně spustí sestavení, definujte definici verze, která nasadí aplikaci do clusteru. 
 
 ### <a name="create-a-release-definition"></a>Vytvoření definice verze  
 
-Vyberte **sestavení a verze** kartě pak **verze**, pak **+ novou definici**.  V **vytvořit verze definice**, vyberte **Azure Service Fabric nasazení** šablonu ze seznamu a klikněte na tlačítko **Další**.  Vyberte **sestavení** zdroje, zkontrolujte **průběžné nasazování** pole a klikněte na tlačítko **vytvořit**. 
+Vyberte **sestavení a verze** kartě pak **verze**, pak **+ novou definici**.  V **vyberte šablonu**, vyberte **Azure Service Fabric nasazení** šablonu ze seznamu a potom **použít**.  
 
-V **prostředí** zobrazit, klikněte na tlačítko **přidat** napravo od **připojení clusteru**.  Zadejte název připojení "mysftestcluster", koncový bod clusteru z "tcp://mysftestcluster.westus.cloudapp.azure.com:19000" a Azure Active Directory nebo přihlašovací údaje certifikátu pro cluster. Zadání přihlašovacích údajů Azure Active Directory, zadejte pověření, kterou chcete použít pro připojení k clusteru, **uživatelské jméno** a **heslo** pole. Pro ověřování pomocí certifikátů, zadejte kódování Base64 souboru certifikátu klienta v **klientský certifikát** pole.  Naleznete v nápovědě automaticky otevírané okno na toto pole informace o tom, jak získat tuto hodnotu.  Pokud váš certifikát je chráněný heslem, zadejte heslo do **heslo** pole.  Klikněte na tlačítko **Uložit** se uložit definici verze.
+![Výběr šablony verze][select-release-template]
 
-![Přidat připojení clusteru][add-cluster-connection] 
+Vyberte **úlohy**->**prostředí 1** a potom **+ nový** přidat nové připojení clusteru.
 
-Klikněte na tlačítko **spustit na agentovi**, pak vyberte **hostované VS2017** pro **nasazení fronty**. Klikněte na tlačítko **Uložit** se uložit definici verze.
+![Přidat připojení clusteru][add-cluster-connection]
 
-![Spustit u agenta][run-on-agent]
+V **přidat nové připojení prostředků infrastruktury služby** zobrazení vyberte **na základě certifikátů** nebo **Azure Active Directory** ověřování.  Zadejte název připojení "mysftestcluster" a koncový bod clusteru z "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (nebo koncový bod clusteru, který nasazujete). 
 
-Vyberte **+ verze** -> **vytvořit verzi** -> **vytvořit** ručně vytvořit verze.  Ověřte, zda nasazení bylo úspěšné a aplikace běží v clusteru.  Otevřete webový prohlížeč a přejděte do [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Poznámka: verze aplikace, v tomto příkladu je "1.0.0.20170616.3". 
+Pro ověřování na základě certifikátů, přidejte **kryptografický otisk certifikátu serveru** certifikátu serveru se používá k vytvoření clusteru.  V **klientský certifikát**, přidejte kódování base-64 souboru certifikátu klienta. Na toto pole informace o tom, jak získat této kódování base-64 reprezentace kódovaného certifikátu zobrazit automaticky otevírané okno nápovědy. Také přidat **heslo** pro certifikát.  Certifikát serveru nebo clusteru můžete použít, pokud nemáte samostatný klientský certifikát. 
+
+Pro přihlašovací údaje služby Azure Active Directory, přidejte **kryptografický otisk certifikátu serveru** certifikátu serveru použít k vytvoření clusteru a přihlašovací údaje chcete použít pro připojení k clusteru, **uživatelské jméno** a **heslo** pole. 
+
+Klikněte na tlačítko **přidat** pro uložení připojení clusteru.
+
+V dalším kroku přidáte artefaktů sestavení do kanálu, aby definice vydání, můžete najít výstup ze sestavení. Vyberte **kanálu** a **artefakty**->**+ přidat**.  V **zdroj (definice sestavení)**, vyberte definici sestavení, který jste předtím vytvořili.  Klikněte na tlačítko **přidat** pro uložení artefaktů sestavení.
+
+![Přidat artefaktů][add-artifact]
+
+Povolte aktivační událost průběžné nasazování tak, aby verze se automaticky vytvoří při sestavení se dokončí. Klikněte na ikonu v artefaktu, povolit aktivační událost a klikněte na **Uložit** se uložit definici verze.
+
+![Povolit aktivační události][enable-trigger]
+
+Vyberte **+ verze** -> **vytvořit verzi** -> **vytvořit** ručně vytvořit verze.  Ověřte, zda nasazení bylo úspěšné a aplikace běží v clusteru.  Otevřete webový prohlížeč a přejděte do [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Poznámka: verze aplikace, v tomto příkladu je "1.0.0.20170616.3". 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Potvrzení a doručte změny, aktivace vydání verze
 K ověření, že kanál průběžnou integraci funguje kontrolou v některé změny kódu Team Services.    
@@ -134,7 +143,7 @@ Když zavedete změny Team Services automaticky aktivuje build.  Pokud definici 
 
 Chcete-li zkontrolovat průběh sestavení, přepněte na **sestavení** kartě v **Team Explorer** v sadě Visual Studio.  Jakmile ověříte úspěšně spustí sestavení, definujte definici verze, která nasadí aplikaci do clusteru.
 
-Ověřte, zda nasazení bylo úspěšné a aplikace běží v clusteru.  Otevřete webový prohlížeč a přejděte do [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Poznámka: verze aplikace, v tomto příkladu je "1.0.0.20170815.3".
+Ověřte, zda nasazení bylo úspěšné a aplikace běží v clusteru.  Otevřete webový prohlížeč a přejděte do [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Poznámka: verze aplikace, v tomto příkladu je "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 
@@ -168,10 +177,13 @@ Přechodu na další kurz:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
-[add-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddTask.png
-[new-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewTask.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
+[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png
+[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplate.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
+[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddArtifact.png
+[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/EnableTrigger.png
 [sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
 [sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
 [sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
@@ -182,4 +194,3 @@ Přechodu na další kurz:
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
-[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png

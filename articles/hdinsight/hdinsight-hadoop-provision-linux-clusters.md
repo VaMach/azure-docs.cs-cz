@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ee6a91a22d84ba938423c04edc6f8be795b46ebb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Nastavit clusterů v HDInsight Hadoop, Spark, Kafka a dalšími
 
@@ -98,6 +98,10 @@ Další informace najdete v tématu [výchozí velikosti virtuálního počíta�
 
 ### <a name="hdinsight-version"></a>HDInsight verze
 Zvolte verzi HDInsight pro tento cluster. Další informace najdete v tématu [podporované HDInsight verze](hdinsight-component-versioning.md#supported-hdinsight-versions).
+
+### <a name="enterprise-security-package"></a>Balíček zabezpečení Enterprise
+
+Pro typy clusteru Hadoop, Spark a interaktivní dotazu, můžete povolit **balíček zabezpečení Enterprise**. Tento balíček poskytuje možnost bezpečnější nastavení clusteru pomocí Apache škálu a integrace s Azure Active Directory. Další informace najdete v tématu [Enterprise balíček zabezpečení v Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Přihlášení a uživatelské jméno SSH clusteru
 S clustery HDInsight můžete nakonfigurovat dva účty uživatele při vytváření clusteru:

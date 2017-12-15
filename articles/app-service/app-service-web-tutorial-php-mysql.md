@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 08e9f58cc81122ae36db67d916cf2550490ec4ef
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: be3fba0c148cc7ee07fa3d50e0783916790e7cab
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Vytvoření webové aplikace PHP a databáze MySQL v Azure
+
+> [!NOTE]
+> Tento článek nasadí aplikaci do služby App Service v systému Windows. K nasazení do služby App Service na _Linux_, najdete v části [sestavení webové aplikace PHP a databáze MySQL v Azure App Service v systému Linux](./containers/tutorial-php-mysql-app.md).
+>
 
 [Azure Web Apps](app-service-web-overview.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů. Tento kurz ukazuje, jak vytvořit webovou aplikaci PHP v Azure a připojte ho k databázi MySQL. Jakmile budete hotovi, budete mít [Laravel](https://laravel.com/) aplikaci spuštěnou na Azure App Service Web Apps.
 
@@ -158,7 +162,7 @@ V tomto kroku vytvoříte databázi MySQL v [Azure Database pro databázi MySQL 
 
 ### <a name="create-a-mysql-server"></a>Vytvoření databáze MySQL serveru
 
-V prostředí cloudu, vytvoření serveru ve službě Azure Database pro databázi MySQL (Preview) pomocí [az mysql server vytvořit](/cli/azure/mysql/server#create) příkaz.
+V prostředí cloudu, vytvoření serveru ve službě Azure Database pro databázi MySQL (Preview) pomocí [az mysql server vytvořit](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) příkaz.
 
 V následujícím příkazu nahraďte název serveru MySQL, kde uvidíte  _&lt;mysql_server_name >_ zástupný symbol (platnými znaky jsou `a-z`, `0-9`, a `-`). Tento název je součástí názvu hostitele serveru MySQL (`<mysql_server_name>.database.windows.net`), musí být globálně jedinečný.
 
@@ -188,7 +192,7 @@ Při vytvoření serveru MySQL rozhraní příkazového řádku Azure obsahuje i
 
 ### <a name="configure-server-firewall"></a>Konfigurace brány firewall serveru
 
-V prostředí cloudu, vytvořte pravidlo brány firewall pro váš server MySQL a povolíte připojení klienta pomocí [az mysql pravidla brány firewall-vytvořit](/cli/azure/mysql/server/firewall-rule#create) příkaz.
+V prostředí cloudu, vytvořte pravidlo brány firewall pro váš server MySQL a povolíte připojení klienta pomocí [az mysql pravidla brány firewall-vytvořit](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) příkaz.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -341,7 +345,7 @@ V tomto kroku nasadíte aplikaci PHP MySQL připojení do služby Azure App Serv
 
 Jak bylo uvedeno dříve, můžete připojit k vaší databázi Azure MySQL použití proměnných prostředí ve službě App Service.
 
-V prostředí cloudu, můžete nastavit proměnné prostředí jako _nastavení aplikace_ pomocí [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings#set) příkaz.
+V prostředí cloudu, můžete nastavit proměnné prostředí jako _nastavení aplikace_ pomocí [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) příkaz.
 
 Následující příkaz nakonfiguruje nastavení aplikace `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, a `DB_PASSWORD`. Nahraďte zástupné symboly  _&lt;appname >_ a  _&lt;mysql_server_name >_.
 
@@ -372,7 +376,7 @@ V místní okno terminálu, použijte `php artisan` vygenerovat nový klíč apl
 php artisan key:generate --show
 ```
 
-V prostředí cloudu, nastavte klíč aplikace ve službě App Service webové aplikace pomocí [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings#set) příkaz. Nahraďte zástupné symboly  _&lt;appname >_ a  _&lt;outputofphpartisankey: generování >_.
+V prostředí cloudu, nastavte klíč aplikace ve službě App Service webové aplikace pomocí [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) příkaz. Nahraďte zástupné symboly  _&lt;appname >_ a  _&lt;outputofphpartisankey: generování >_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -587,7 +591,7 @@ Pokud jste přidali všechny úlohy, se uchovávají v databázi. Aktualizace sc
 
 Při spuštění aplikace PHP ve službě Azure App Service, můžete získat protokoly konzoly přesměruje do terminálu. Tímto způsobem můžete získat stejné diagnostické zprávy pomoci při ladění chyb aplikace.
 
-Spusťte protokolu streamování pomocí [az webapp protokolu poškozené databáze za](/cli/azure/webapp/log#tail) příkazu v prostředí cloudu.
+Spusťte protokolu streamování pomocí [az webapp protokolu poškozené databáze za](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) příkazu v prostředí cloudu.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

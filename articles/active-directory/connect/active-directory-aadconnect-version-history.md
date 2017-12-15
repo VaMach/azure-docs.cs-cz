@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historie verzí
 Tým služby Azure Active Directory (Azure AD) pravidelně aktualizuje Azure AD Connect s novými funkcemi a funkce. Ne všechny dodatky platí pro všechny cílové skupiny.
@@ -84,11 +84,12 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 kde 
 
-$ObjectDN = účet služby Active Directory, jehož oprávnění musí lze zvýšit.
-$Credential = pověření pro ověření klienta při posuzování do služby Active Directory. Obvykle se jedná o pověření správce podniku použít k vytvoření účtu, jehož oprávnění vyžaduje zpřísnění.
+**$ObjectDN** = účet služby Active Directory, jehož oprávnění musí lze zvýšit.
+
+**$Credential** = přihlašovací údaje správce, který má potřebná oprávnění ke omezit oprávnění pro účet $ObjectDN. Toto je obvykle správce rozlehlé sítě nebo domény. Aby se zabránilo selhání vyhledávání účtu použijte plně kvalifikovaný název domény účtu správce. Příklad: contoso.com\admin.
 
 >[!NOTE] 
->$credential. Uživatelské jméno musí být ve formátu doména\uživatelské_jméno.  
+>$credential. Uživatelské jméno musí být ve formátu FQDN\username. Příklad: contoso.com\admin 
 
 ##### <a name="example"></a>Příklad:
 

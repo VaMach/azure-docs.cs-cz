@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36a2f99b9d5ea4b9e6b313fed79cf7f4dd0e7057
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportu certifikátů emulátoru DB Cosmos Azure pro použití s Java, Python a Node.js
 
@@ -87,11 +87,11 @@ Jednou "CosmosDBEmulatorCertificate" SSL je nainstalován certifikát pro aplika
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Postup použití certifikátu v Pythonu
 
-Ve výchozím nastavení [Python SDK(version 2.0.0 or higher)](documentdb-sdk-python.md) pro rozhraní SQL API nebude zkuste a použít certifikát SSL při připojování k místní emulátor. Pokud ale chcete použít ověřování SSL můžete podle příklady v [Python soketu obálky](https://docs.python.org/2/library/ssl.html) dokumentaci.
+Ve výchozím nastavení [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) pro rozhraní SQL API nebude zkuste a použít certifikát SSL při připojování k místní emulátor. Pokud ale chcete použít ověřování SSL můžete podle příklady v [Python soketu obálky](https://docs.python.org/2/library/ssl.html) dokumentaci.
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Použití certifikátu v Node.js
 
-Ve výchozím nastavení [Node.js SDK(version 1.10.1 or higher)](documentdb-sdk-node.md) pro rozhraní SQL API nebude zkuste a použít certifikát SSL při připojování k místní emulátor. Pokud ale chcete použít ověřování SSL můžete podle příklady v [Node.js dokumentaci](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Ve výchozím nastavení [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) pro rozhraní SQL API nebude zkuste a použít certifikát SSL při připojování k místní emulátor. Pokud ale chcete použít ověřování SSL můžete podle příklady v [Node.js dokumentaci](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Další kroky
 

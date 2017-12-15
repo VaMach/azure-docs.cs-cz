@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 5edaf7197576ac1c0bd1fc6bed21fd65ed135106
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Řešení potíží s skupin zabezpečení sítě pomocí prostředí Azure PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Při tomto příkladu používá TCP port 3389, následující postup slouží k
 ## <a name="detailed-troubleshooting-steps"></a>Podrobné kroky řešení potíží
 Pomocí následujících kroků pro řešení potíží s skupiny Nsg pro virtuální počítač:
 
-1. Spuštění z relace prostředí Azure PowerShell a do Azure. Pokud si nejste obeznámeni s používáním Azure PowerShell, přečtěte si [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview) článku.
+1. Spuštění z relace prostředí Azure PowerShell a do Azure. Pokud si nejste obeznámeni s používáním Azure PowerShell, přečtěte si [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview) článku. Musí mít váš účet přiřazenou *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operace pro síťové rozhraní. Zjistěte, jak přiřadit operations účty, najdete v tématu [vytvářet vlastní role pro řízení přístupu](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Zadejte následující příkaz, který vrátí všechna pravidla NSG použije na síťový adaptér s názvem *VM1 NIC1* ve skupině prostředků *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

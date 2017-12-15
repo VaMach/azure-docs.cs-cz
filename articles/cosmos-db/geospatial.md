@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba6352704dd0d0322746feb0f6970d95ce7db129
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Práce s geoprostorové a GeoJSON umístění dat v Azure Cosmos DB
 Tento článek je úvodem k funkci geoprostorové v [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Po přečtení to, budete moct odpovězte si na následující otázky:
@@ -155,7 +155,7 @@ Pokud nemáte informace o zeměpisné šířky a délky, ale název umístění 
 Teď, když bylo podívejte se na tom, jak vkládání dat geoprostorové, Podívejme se na postup dotazování tato data pomocí Azure DB Cosmos pomocí SQL a LINQ.
 
 ### <a name="spatial-sql-built-in-functions"></a>Prostorové integrované funkce SQL
-Azure Cosmos DB podporuje následující předdefinované funkce otevřete geoprostorové Consortium (OGC) pro geoprostorové dotazování. Další podrobnosti o kompletní sadu integrovaných funkcí v jazyce SQL najdete v tématu [dotazu Azure Cosmos DB](documentdb-sql-query.md).
+Azure Cosmos DB podporuje následující předdefinované funkce otevřete geoprostorové Consortium (OGC) pro geoprostorové dotazování. Další podrobnosti o kompletní sadu integrovaných funkcí v jazyce SQL najdete v tématu [dotazu Azure Cosmos DB](sql-api-sql-query.md).
 
 <table>
 <tr>
@@ -396,6 +396,6 @@ Nolearned, které jste dozvědí o tom, jak začít pracovat s geoprostorové po
 
 * Psaní s [ukázky kódu .NET geoprostorové na Githubu](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Získat rukou na s geoprostorové dotazování na [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
-* Další informace o [Azure Cosmos DB dotazu](documentdb-sql-query.md)
+* Další informace o [Azure Cosmos DB dotazu](sql-api-sql-query.md)
 * Další informace o [Azure Cosmos DB indexování zásady](indexing-policies.md)
 

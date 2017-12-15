@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: e79a63c4316c50a7af0fc7ba0979a772ff5e6a91
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Nejčastější dotazy k Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Základy Azure Cosmos DB
@@ -111,12 +111,12 @@ Když nastavíte oblast, mějte na paměti, že Azure Cosmos DB respektuje suver
 ## <a name="develop-against-the-sql-api"></a>Vývoj rozhraní SQL API
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Jak spustit vývoj proti rozhraní SQL API?
-Nejprve musíte zaregistrovat předplatné Azure. Jakmile si zaregistrujete předplatné Azure, můžete přidat kontejner rozhraní SQL API k předplatnému Azure. Pokyny k přidání účtu Azure Cosmos DB najdete v tématu [vytvoření účtu Azure Cosmos DB databáze](create-documentdb-dotnet.md#create-account). 
+Nejprve musíte zaregistrovat předplatné Azure. Jakmile si zaregistrujete předplatné Azure, můžete přidat kontejner rozhraní SQL API k předplatnému Azure. Pokyny k přidání účtu Azure Cosmos DB najdete v tématu [vytvoření účtu Azure Cosmos DB databáze](create-sql-api-dotnet.md#create-account). 
 
-Pro .NET, Python, Node.js, JavaScript a Javu jsou k dispozici sady [SDK](documentdb-sdk-dotnet.md). Vývojáři mohou použít také [RESTful HTTP API](/rest/api/documentdb/) pracovat s prostředky Azure Cosmos DB z různých platforem a jazyků.
+[Sady SDK](sql-api-sdk-dotnet.md) pro rozhraní .NET, Python, Node.js, JavaScript a Javu jsou k dispozici. Vývojáři mohou použít také [RESTful HTTP API](/rest/api/documentdb/) pracovat s prostředky Azure Cosmos DB z různých platforem a jazyků.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Může přistupovat ke profesionální některé připravených vzorků?
-Ukázky pro rozhraní SQL API [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), a [Python](documentdb-python-samples.md) sady SDK jsou k dispozici na Githubu.
+Ukázky pro rozhraní SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), a [Python](sql-api-python-samples.md) sady SDK jsou k dispozici na Githubu.
 
 
 ### <a name="does-the-sql-api-database-support-schema-free-data"></a>Podporuje rozhraní API pro SQL databáze data bez schémat?
@@ -131,16 +131,16 @@ Kolekce je skupina dokumentů a jejich přidružené logiky Javascriptové aplik
 Kolekce jsou také entitami fakturace pro Azure Cosmos DB. Každá kolekce se fakturuje každou hodinu, podle zřízené propustnosti a využitého prostoru úložiště. Další informace najdete v tématu [Azure Cosmos DB ceny](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Jak vytvořím databázi?
-Databáze můžete vytvořit pomocí [portál Azure](https://portal.azure.com), jak je popsáno v [přidat do kolekce](create-documentdb-dotnet.md#create-collection), jeden z [SDK služby Azure Cosmos DB](documentdb-sdk-dotnet.md), nebo [rozhraní REST API](/rest/api/documentdb/). 
+Databáze můžete vytvořit pomocí [portál Azure](https://portal.azure.com), jak je popsáno v [přidat do kolekce](create-sql-api-dotnet.md#create-collection), jeden z [SDK služby Azure Cosmos DB](sql-api-sdk-dotnet.md), nebo [rozhraní REST API](/rest/api/documentdb/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Jak nastavím uživatele a oprávnění?
-Uživatele a oprávnění můžete vytvořit pomocí jedné z [Cosmos DB rozhraní API sady SDK](documentdb-sdk-dotnet.md) nebo [rozhraní REST API](/rest/api/documentdb/).  
+Uživatele a oprávnění můžete vytvořit pomocí jedné z [Cosmos DB rozhraní API sady SDK](sql-api-sdk-dotnet.md) nebo [rozhraní REST API](/rest/api/documentdb/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>Podporuje rozhraní SQL API SQL?
 Dotazovací jazyk SQL nepodporuje účty rozhraní API pro SQL je vylepšená podmnožina dotazovacích funkcí podporovaným systémem SQL Server. Dotazovací jazyk Azure Cosmos DB SQL nabízí bohaté hierarchické a relační operátory a rozšiřitelnost prostřednictvím bázi jazyka JavaScript, uživatelsky definované funkce (UDF). Gramatika JSON umožňuje modelování dokumentů JSON ve formě stromů ve s popiskem uzly, které jsou používány Azure Cosmos DB automatických technikách indexování a dialektu dotazování SQL v Azure Cosmos DB. Informace o používání gramatiky SQL najdete v tématu [dotazu SQL] [ query] článku.
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>Podporuje rozhraní SQL API funkce agregace SQL?
-Rozhraní SQL API podporuje agregace s nízkou latencí v jakémkoli měřítku prostřednictvím agregační funkce `COUNT`, `MIN`, `MAX`, `AVG`, a `SUM` prostřednictvím gramatiku SQL. Další informace najdete v tématu [agregační funkce](documentdb-sql-query.md#Aggregates).
+Rozhraní SQL API podporuje agregace s nízkou latencí v jakémkoli měřítku prostřednictvím agregační funkce `COUNT`, `MIN`, `MAX`, `AVG`, a `SUM` prostřednictvím gramatiku SQL. Další informace najdete v tématu [agregační funkce](sql-api-sql-query.md#Aggregates).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Jak rozhraní SQL API zajišťuje souběžnost?
 Rozhraní SQL API podporuje optimistické řízení souběžného (přístupu OCC) prostřednictvím značek entit HTTP, neboli Etagů. Každé rozhraní API pro SQL prostředků má ETag a značku ETag je nastaven na serveru pokaždé, když je aktualizován dokument. Všechny zprávy odpovědi jsou součástí hlavičku ETag a aktuální hodnotu. Značky etag binárním rozsáhlým použít s hlavičku If-Match umožňuje serveru se rozhodnout, zda mají být aktualizovány prostředku. Hodnota If-Match je hodnota ETag, která má být zkontrolován. Pokud hodnota ETag odpovídá serveru hodnota ETag, prostředek je aktualizována. Pokud už je ETag aktuální, server odmítne operaci s "HTTP 412 Precondition selhání" kód odpovědi. Klient pak znovu načte prostředek získat aktuální hodnota ETag pro prostředek. Kromě toho značky etag binárním rozsáhlým umožňuje s hlavičku If-None-Match určit, jestli je potřeba znovu načtěte prostředku.
@@ -292,7 +292,7 @@ Ano, je podporováno stejné rozhraní API.
 Ne, můžete vytvořit a používat existující prostředky Azure Table storage bez přerušení jakéhokoli druhu. Ale pokud použijete rozhraní API tabulky, můžete nemohou využívat automatické index, možnost Další konzistence nebo globální distribuční. 
 
 ### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-multiple-regions-of-azure"></a>Jak přidat replikace dat v tabulce API nad několika oblastmi Azure?
-Můžete použít portál Azure Cosmos DB [nastavení globální replikace](tutorial-global-distribution-documentdb.md#portal) přidávání oblastí, které jsou vhodné pro vaši aplikaci. K vývoji globálně distribuované aplikace, měli byste také přidat aplikaci s PreferredLocation informací nastavenou na místní oblast pro zajištění nízkou latenci pro čtení. 
+Můžete použít portál Azure Cosmos DB [nastavení globální replikace](tutorial-global-distribution-sql-api.md#portal) přidávání oblastí, které jsou vhodné pro vaši aplikaci. K vývoji globálně distribuované aplikace, měli byste také přidat aplikaci s PreferredLocation informací nastavenou na místní oblast pro zajištění nízkou latenci pro čtení. 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Změna zápisu primární oblast pro účet v tabulce rozhraní API
 V podokně portálu Azure Cosmos DB globální replikace můžete přidat oblast a potom převzetí služeb při selhání požadované oblasti. Pokyny najdete v tématu [vývoj s více oblast Azure Cosmos DB účty](regional-failover.md). 
@@ -368,7 +368,7 @@ Ze sady SDK rozhraní .NET můžete odeslat v souboru app.config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure DB Cosmos jako platformu zdá se, že máte spoustu možností, jako je například řazení, agregace, hierarchie a další funkce. Můžete přidávat tyto funkce rozhraní API tabulky? 
-Rozhraní API tabulka poskytuje stejné funkce dotazu jako Azure Table storage. Azure Cosmos DB také podporuje řazení, agregace, geoprostorové dotazu, hierarchie a širokou škálu integrované funkce. Poskytujeme další funkce v rozhraní API tabulky v aktualizaci budoucí služby. Další informace najdete v tématu [dotazy SQL](documentdb-sql-query.md).
+Rozhraní API tabulka poskytuje stejné funkce dotazu jako Azure Table storage. Azure Cosmos DB také podporuje řazení, agregace, geoprostorové dotazu, hierarchie a širokou škálu integrované funkce. Poskytujeme další funkce v rozhraní API tabulky v aktualizaci budoucí služby. Další informace najdete v tématu [dotazy SQL](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Kdy je třeba změnit TableThroughput pro rozhraní API tabulky?
 Měli byste změnit TableThroughput, pokud platí některá z následujících podmínek:
@@ -540,4 +540,4 @@ Rozhraní API Cassandra Apache poskytuje stejné funkce jako Apache Cassandra CQ
 Poskytnutí zpětné vazby pomocí [názorů na webu uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: documentdb-sql-query.md
+[query]: sql-api-sql-query.md

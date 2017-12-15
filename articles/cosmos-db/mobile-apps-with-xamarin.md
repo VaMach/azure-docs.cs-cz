@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: c6cfe5c3282064573542050ecc477903ded20467
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 34952fb1cbe5577fa00ed7799d51ba46e7173d7e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Vytváření mobilních aplikací s Xamarin a Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Většina mobilních aplikací potřebovat k ukládání dat v cloudu a Azure Cosmos databáze je databáze cloudu pro mobilní aplikace. Obsahuje všechny objekty, které musí vývojář mobilní. Je plně spravovaná databáze jako služba, která je škálovatelná na vyžádání. Ho můžete Oživte svoje data do vaší aplikace transparentně, bez ohledu na umístění uživatele po celém světě. Pomocí [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md), můžete povolit mobilní aplikace Xamarin pracovat přímo s Azure Cosmos DB bez střední vrstvy.
+Většina mobilních aplikací potřebovat k ukládání dat v cloudu a Azure Cosmos databáze je databáze cloudu pro mobilní aplikace. Obsahuje všechny objekty, které musí vývojář mobilní. Je plně spravovaná databáze jako služba, která je škálovatelná na vyžádání. Ho můžete Oživte svoje data do vaší aplikace transparentně, bez ohledu na umístění uživatele po celém světě. Pomocí [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md), můžete povolit mobilní aplikace Xamarin pracovat přímo s Azure Cosmos DB bez střední vrstvy.
 
 Tento článek obsahuje návod pro vytváření mobilních aplikací s Xamarin a Azure Cosmos DB. Můžete najít úplný zdrojový kód pro tento kurz v [Xamarin a Azure DB Cosmos na Githubu](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin), včetně toho, jak můžete spravovat uživatele a oprávnění.
 
@@ -33,7 +33,7 @@ Azure Cosmos DB poskytuje následující klíčové funkce pro vývojáře mobil
 
 ![Možnosti Azure Cosmos DB pro mobilní aplikace](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
-* Bohaté dotazy nad datovým. Azure Cosmos DB ukládá data jako schemaless dokumenty JSON v heterogenní kolekce. Nabízí [bohatý a rychlé dotazy](documentdb-sql-query.md) bez nutnosti starat o schémata nebo indexů.
+* Bohaté dotazy nad datovým. Azure Cosmos DB ukládá data jako schemaless dokumenty JSON v heterogenní kolekce. Nabízí [bohatý a rychlé dotazy](sql-api-sql-query.md) bez nutnosti starat o schémata nebo indexů.
 * Rychlé propustnost. Jak dlouho trvá jen několik milisekund číst a zapisovat dokumentů s Azure Cosmos DB. Vývojářům můžete určit, které potřebují, propustnosti a Azure Cosmos DB ho ctí s SLA 99,99 % dostupnost pro všechny účty jedné oblasti a všechny oblasti s více účty s volný konzistence a 99.999 % číst dostupnosti pro všechny účty databáze více oblast .
 * Neomezený škálování. Kolekce Azure Cosmos DB [růst s růstem aplikace](partition-data.md). Můžete spustit s malou velikost dat a propustnost stovky požadavků za sekundu. Kolekce můžou růst až po petabajty dat a libovolně velké propustnosti se stovkami miliony požadavků za sekundu.
 * Globálně distribuované. Uživatelé mobilních aplikací jsou na cestách, často po celém světě. Je Azure Cosmos DB [globálně distribuované databáze](distribute-data-globally.md). Klikněte na mapě tak, aby vaše data mají uživatelé přístup.
@@ -49,7 +49,7 @@ Je snadné začít s Azure Cosmos DB. Přejděte na portál Azure a vytvořit no
 
 ![Azure Cosmos DB rychlý start pro mobilní aplikace](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
-Nebo pokud máte existující aplikaci Xamarin, můžete přidat [balíčku NuGet pro Azure Cosmos DB](documentdb-sdk-dotnet-core.md). Podporuje Azure Cosmos DB Xamarin.IOS, Xamarin.Android, a Xamarin Forms sdílené knihovny.
+Nebo pokud máte existující aplikaci Xamarin, můžete přidat [balíčku NuGet pro Azure Cosmos DB](sql-api-sdk-dotnet-core.md). Podporuje Azure Cosmos DB Xamarin.IOS, Xamarin.Android, a Xamarin Forms sdílené knihovny.
 
 ### <a name="work-with-data"></a>Práce s daty
 Záznamy dat jsou uloženy v databázi Azure Cosmos jako schemaless dokumenty JSON v heterogenní kolekce. Dokumenty s jinou struktury můžete uložit ve stejné kolekci:
@@ -103,9 +103,9 @@ Blahopřejeme. Byly dokončeny řešení a mít mobilní aplikaci s Xamarin a Az
 
 ## <a name="next-steps"></a>Další kroky
 * Zobrazit zdrojový kód pro [Xamarin a Azure DB Cosmos na Githubu](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
-* Stažení [Cosmos Azure DB .NET Core SDK](documentdb-sdk-dotnet-core.md).
-* Najít další ukázky kódu pro [aplikací .NET](documentdb-dotnet-samples.md).
-* Další informace o [Azure Cosmos DB bohaté dotazování možnosti](documentdb-sql-query.md).
+* Stažení [Cosmos Azure DB .NET Core SDK](sql-api-sdk-dotnet-core.md).
+* Najít další ukázky kódu pro [aplikací .NET](sql-api-dotnet-samples.md).
+* Další informace o [Azure Cosmos DB bohaté dotazování možnosti](sql-api-sql-query.md).
 * Další informace o [geoprostorové podpory v Azure Cosmos DB](geospatial.md).
 
 

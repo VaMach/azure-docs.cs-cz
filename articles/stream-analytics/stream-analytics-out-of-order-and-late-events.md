@@ -15,115 +15,122 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: b4ce26fbbb2a494004e9c80462881dd754531497
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-stream-analytics-event-order-consideration"></a>Azure Stream Analytics událostí pořadí aspekt
+# <a name="azure-stream-analytics-event-order-considerations"></a>Důležité informace pořadí událostí Azure Stream Analytics
 
-## <a name="understand-arrival-time-and-application-time"></a>Porozumět čas doručení a doba aplikace.
+## <a name="arrival-time-and-application-time"></a>Čas doručení a doba aplikace
 
-V dočasné datovém proudu událostí je přiřazen každé události časového razítka. Azure Stream Analytics přiřadí každé události pomocí čas doručení nebo doba aplikace časové razítko. Sloupce "System.Timestamp" obsahuje časové razítko přiřazené k události. Čas doručení přiřazen za vstupní zdroj, když událost dosáhne zdroji. Čas doručení je EventEnqueuedTime pro vstup centra událostí a [čas poslední změny objektů blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) pro vstup objektů blob. Čas aplikace je přiřazena, když se vygeneruje událost a je součástí datové části. Ke zpracování události doba aplikace, použijte klauzuli "Časové razítko podle" v dotazu select. Chybí-li klauzuli "Časové razítko podle", jsou události zpracovává čas doručení. Čas doručení lze přistupovat pomocí vlastnosti EventEnqueuedTime pro centra událostí a pomocí vlastnosti BlobLastModified pro vstup objektů blob. Azure Stream Analytics vytvoří výstupní v pořadí, časové razítko a poskytuje několik nastavení, jak nakládat s daty mimo pořadí.
+V dočasné datovém proudu událostí je přiřazen každé události časové razítko. Azure Stream Analytics přiřadí časové razítko jednotlivých událostí pomocí buď příchodem času nebo času aplikace. **System.Timestamp** má sloupec časového razítka přiřazené k události. 
+
+Čas doručení přiřazen za vstupní zdroj, když událost dosáhne zdroji. Máte přístup k čas doručení pomocí **EventEnqueuedTime** vlastnost pro událost rozbočovače vstup a použití [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) vlastnost pro vstup objektů blob. 
+
+Čas aplikace je přiřazena, když se vygeneruje událost a je součástí datové části. Ke zpracování události doba aplikace, použijte **časové razítko podle** klauzuli select dotazu. Pokud **časové razítko podle** chybí klauzule, zpracovává události čas doručení. 
+
+Azure Stream Analytics vytvoří výstupní v pořadí, časové razítko a poskytuje nastavení, jak nakládat s daty na více systémů pořadí.
 
 
-## <a name="azure-stream-analytics-handling-of-multiple-streams"></a>Azure Stream Analytics zpracování víc datových proudů
+## <a name="handling-of-multiple-streams"></a>Zpracování víc datových proudů
 
-Úlohy Azure Stream Analytics kombinuje události z více časové osy v několika případech, včetně,
+Úlohu služby Azure Stream Analytics kombinuje události z více časové osy v případech, jako jsou následující:
 
-* Vytváření výstupu z více oddílů. Dotazy, které nemají explicitní "oddílu podle PartitionId" by měla mít kombinovat události ze všech oddílů.
+* Vytváření výstupu z více oddílů. Dotazy, které nemají explicitního **oddílu podle PartitionId** klauzule musíte kombinovat události ze všech oddílů.
 * Sjednocení dvou nebo více různých vstupních zdrojů.
 * Připojení vstupního zdroje.
 
-Ve scénářích, kde jsou kombinovat více časových os, Azure Stream Analytics vytvoří výstupní pro časovým razítkem *t1* až po všechny zdroje, které jsou spojené se minimálně v době *t1*.
-Například, pokud dotaz načte z *centra událostí* oddílu, který má dva oddíly a jeden z oddílu *P1* má událostí až při *t1* a další oddíl  *P2* má událostí až při *t1 + x*, výsledek až při *t1*.
-Ale pokud došlo explicitní *"Oddílu podle PartitionId"* klauzuli oba oddíly hodnoty nezávisle.
-Pozdní příchodem Tolerance nastavení se používá k řešení absenci dat v některé oddíly.
+Ve scénářích, kde jsou kombinovat více časových os, Azure Stream Analytics vytvoří výstupní pro časové razítko *t1* až po všechny zdroje, které jsou spojené se minimálně v době *t1*. Předpokládejme například, že dotaz načte z oddílu centra událostí, která má dva oddíly. Jeden z oddílů, *P1*, má událostí až při *t1*. Další oddíl *P2*, má událostí až při *t1 + x*. Potom výstupu až při *t1*. Ale pokud je explicitního **oddílu podle PartitionId** klauzuli oba oddíly průběhu nezávisle.
+
+Nastavení pro pozdní příchodem tolerance se používá jak nakládat s absenci data v některé oddíly.
 
 ## <a name="configuring-late-arrival-tolerance-and-out-of-order-tolerance"></a>Konfigurace pozdní příchodem proti chybám a tolerance mimo pořadí
 Vstupní datové proudy, které nejsou v pořadí jsou buď:
-* Seřadit (a proto **odložené**).
-* Upraví v systému podle zásad definovaných uživatelem.
+* Seřadit (a proto odložené)
+* Upravit v systému podle zásad definovaných uživatelem
 
-Stream Analytics toleruje pozdní a mimo pořadí událostí při zpracování **doba aplikace**. Následující nastavení jsou k dispozici v **řazení událostí** možnost na portálu Azure: 
+Stream Analytics toleruje pozdní a na více systémů pořadí událostí v případě, že jste zpracování podle času aplikace. Následující nastavení jsou k dispozici v **řazení událostí** možnost na portálu Azure: 
 
 ![Stream Analytics zpracování událostí](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
-**Pozdní příchodem toleranci**
-* Toto nastavení platí jenom v případě, že to tak, že doba aplikace, v opačném případě je ignorován.
-* Toto je maximální rozdíl mezi čas doručení a aplikace. Pokud je aplikace doba před (čas doručení - pozdní příchodem okno), je nastavený na (čas doručení - pozdní příchodem okna)
-* Společně se kombinaci více oddílů ze stejného vstupního datového proudu nebo více vstupní datové proudy, pozdní příchodem tolerance je maximální množství času, které každý oddíl čeká na nová data. 
+### <a name="late-arrival-tolerance"></a>Pozdní příchodem toleranci
+Pozdní tolerance příchodem lze použít pouze v případě, že jste zpracování podle času aplikace. Nastavení, jinak hodnota se ignoruje.
 
-Stručně řečeno pozdní příchodem okno se jako maximální zpoždění mezi vytvořením událostí a přijímání událostí v vstupní zdroj.
-Nejprve provádí úpravu podle pozdní tolerance doručení a mimo pořadí se provádí další. **System.Timestamp** sloupce budou mít poslední časové razítko, které jsou přiřazené k události.
+Pozdní příchodem tolerance je maximální rozdíl mezi čas doručení a aplikace. Pokud události dorazí později než pozdní tolerance příchodem (například doba aplikace *app_t* < čas doručení *arr_t* -pozdní tolerance zásady doručení *late_t*), událost se upraví na maximální tolerance pozdní příchodem (*arr_t* - *late_t*). Okno pozdní příchodem je maximální zpoždění mezi vytvořením událostí a přijetí události v vstupního zdroje. 
 
-**Tolerance mimo pořadí**
-* Události, které přicházejí mimo pořadí, ale v rámci sady "mimo pořadí tolerance okno" **přeuspořádány pomocí časového razítka**. 
-* Události, které přicházejí později než proti chybám jsou **vyřadit nebo upravena**.
-    * **Upraví**: upravený tak, aby se zobrazí určeny na nejnovější přijatelný čas. 
-    * **Vyřadit**: zahozeny.
+Když se kombinuje více oddílů ze stejného vstupního datového proudu nebo více vstupní datové proudy, pozdní tolerance příchodem je maximální množství času, kterou každý oddíl čeká na nová data. 
 
-Chcete-li změnit pořadí událostí přijatých v rámci "mimo pořadí tolerance okno", je výstup dotazu **zpožděn interval tolerance mimo pořadí**.
+Nejprve se stane úpravu podle pozdní příchodem tolerance. Úpravy na tolerance pořadí se na základě bude následovat. **System.Timestamp** sloupce obsahuje poslední časové razítko přiřazené k události.
 
-**Příklad**
+### <a name="out-of-order-tolerance"></a>Tolerance mimo pořadí
+Události, které dorazí mimo pořadí, ale v rámci interval tolerance pořadí se na sadu přeuspořádají podle časového razítka. Jsou události, které přicházejí později než interval tolerance buď:
+* **Upraví**: upravený tak, aby se zobrazí určeny na nejnovější přijatelný čas. 
+* **Vyřadit**: zahozeny.
+
+Když Stream Analytics změní události, které jsou přijaty v rámci interval tolerance pořadí se na více systémů, výstup tohoto dotazu zpožděn interval tolerance mimo pořadí.
+
+### <a name="example"></a>Příklad
 
 * Pozdní tolerance příchodem = 10 minut<br/>
-* Mimo pořadí tolerance = 3 minut<br/>
+* Tolerance mimo pořadí = 3 minut<br/>
 * Zpracování doba aplikace<br/>
 * Události:
-   * Událost 1 _doba aplikace_ = 00:00:00, _čas doručení_ = 00:10:01 _System.Timestamp_ = 00:00:01, upravit, protože (_čas doručení_  -  _Doba aplikace_) je větší než pozdní příchodem tolerance.
-   * Událost 2 _doba aplikace_ = 00:00:01 _čas doručení_ = 00:10:01 _System.Timestamp_ = 00:00:01, není upraven, protože doba aplikace je v rámci pozdní přijetí okno.
-   * Událost 3 _doba aplikace_ = 00:10:00, _čas doručení_ = 00:10:02 _System.Timestamp_ = 00:10:00, není upraven, protože souborů čas je v rámci okna pozdní doručení .
-   * Událost 4 _doba aplikace_ = 00:09:00, _čas doručení_ = 00:10:03 _System.Timestamp_ = 00:09:00, bere s původní časové razítko, jako je doba aplikace v rámci mimo pořadí proti chybám.
-   * Událost 5 _doba aplikace_ = 00:06:00, _čas doručení_ = 00:10:04 _System.Timestamp_ = 00:07:00, upravit, protože doba aplikace je starší než mimo pořadí tolerance.
+   1. **Doba aplikace** = 00:00:00, **čas doručení** = 00:10:01 **System.Timestamp** = 00:00:01, upravit, protože (**čas doručení - doba aplikace**) je více než pozdní příchodem tolerance.
+   2. **Doba aplikace** = 00:00:01 **čas doručení** = 00:10:01 **System.Timestamp** = 00:00:01, není upraven, protože doba aplikace se v okně pozdní doručení.
+   3. **Doba aplikace** = 00:10:00, **čas doručení** = 00:10:02 **System.Timestamp** = 00:10:00, není upraven, protože doba aplikace se v okně pozdní doručení.
+   4. **Doba aplikace** = 00:09:00, **čas doručení** = 00:10:03 **System.Timestamp** = 00:09:00, přijato s původní časové razítko, protože doba aplikace je v rámci na více systémů z pořadí tolerance.
+   5. **Doba aplikace** = 00:06:00, **čas doručení** = 00:10:04 **System.Timestamp** = 00:07:00, upravit, protože doba aplikace je starší než tolerance mimo pořadí.
 
 ### <a name="practical-considerations"></a>Praktické informace
-Jak je uvedeno nahoře, *pozdní tolerance příchodem* je maximální rozdíl mezi aplikací čas a čas doručení.
-Také při zpracování aplikace čas, události, které jsou novější než nakonfigurované *pozdní tolerance příchodem* jsou upravena před *mimo pořadí tolerance* nastavení se použije. Ano platné mimo pořadí je minimálně pozdní příchodem proti chybám a tolerance mimo pořadí.
+Jak už bylo zmíněno dříve, pozdní příchodem tolerance je maximální rozdíl mezi aplikací čas a čas doručení. Při zpracování aplikace doby jsou události, které jsou novější než nakonfigurovanou toleranci pozdní příchodem upraví před použitím nastavení tolerance mimo pořadí. Ano platné mimo pořadí je minimum pozdní příchodem proti chybám a tolerance mimo pořadí.
 
-Události mimo pořadí v rámci datového proudu dojít z důvodů včetně,
-* Hodiny zkosení mezi odesílatelů.
+Pro události mimo pořadí v rámci datového proudu z těchto důvodů:
+* Posun mezi odesílatelé hodin.
 * Variabilní latence mezi odesílatele a zdroj vstupní události.
 
-Z důvodů včetně, se stane opožděné předání
-* Odesílatelé dávky a odesílat události pro časový interval, později, po uplynutí intervalu.
-* Latence mezi událost odesílatel odesílání a příjmu událostí v vstupní zdroj.
+Pro opožděné předání z těchto důvodů:
+* Odesílatelé dávkování a odesílání události pro časový interval, později, po uplynutí intervalu.
+* Latence mezi událost odesílatel odesílání a příjmu událostí v vstupního zdroje.
 
-Při konfiguraci *pozdní tolerance příchodem* a *mimo pořadí tolerance* pro konkrétní úlohy, správnost, požadavky na latenci a vyšší faktory potřeba vzít v úvahu.
+Když konfigurujete pozdní příchodem proti chybám a tolerance mimo pořadí v rámci konkrétní úlohy, zvažte správnost, požadavky na latenci a předchozí faktorů.
 
-Následuje několik příkladů
+Následuje několik příkladů.
 
-#### <a name="example-1"></a>Příklad 1: 
-Dotaz obsahuje klauzuli "Oddílu podle PartitionId" a v rámci jednoho oddílu, události se posílají pomocí metody synchronní odesílání. Synchronní odesílání metody blok dlouho, dokud se neodešle události.
-V takovém případě mimo pořadí totiž nula události jsou zasílány v pořadí s explicitní potvrzení před odesláním další události. Opožděné předání je maximální zpoždění mezi generování události a odesílání událostí + maximální latence mezi odesílatele a vstupní zdroj
+#### <a name="example-1"></a>Příklad 1 
+Dotaz musí **oddílu podle PartitionId** klauzule. V rámci jednoho oddílu jsou odesílány události prostřednictvím metody synchronní odesílání. Synchronní odesílání metody blok dlouho, dokud se neodešle události.
 
-#### <a name="example-2"></a>Příklad 2:
-Dotaz obsahuje klauzuli "Oddílu podle PartitionId" a v rámci jednoho oddílu, události se posílají pomocí metody asynchronní odesílání. Asynchronní odesílání metody můžete spustit více zasílá ve stejnou dobu, což může způsobit události mimo pořadí.
-V takovém případě jsou mimo pořadí a pozdní příchodem alespoň Maximální zpoždění mezi generování události a odesílání událostí + maximální latence mezi odesílatele a vstupní zdroj.
+V takovém případě mimo pořadí totiž nula události jsou zasílány v pořadí s explicitní potvrzení před odesláním následující události. Opožděné předání je maximální zpoždění mezi generování události a odesílá události plus maximální latence mezi odesílateli a vstupního zdroje.
 
-#### <a name="example-3"></a>Příklad 3:
-Dotaz nemá "Oddílu podle PartitionId" a nejsou alespoň dva oddíly.
-Konfigurace je stejné jako příklad 2. Však chybí data v jedné z oddílů zpoždění výstup podle dalších * pozdní příchodem tolerance "okno.
+#### <a name="example-2"></a>Příklad 2
+Dotaz musí **oddílu podle PartitionId** klauzule. V rámci jednoho oddílu jsou odesílány události prostřednictvím metody asynchronní odesílání. Asynchronní odesílání metody můžete spustit více zasílá ve stejnou dobu, což může způsobit události mimo pořadí.
+
+V tomto případě doručení mimo pořadí a pozdní jsou alespoň Maximální zpoždění mezi generování události a odesílá události plus maximální latence mezi odesílateli a vstupního zdroje.
+
+#### <a name="example-3"></a>Příklad 3
+Dotaz nemá **oddílu podle PartitionId** klauzule, a nejsou alespoň dva oddíly.
+
+Konfigurace je stejný jako příklad 2. Neexistence data v jedné z oddílů však zpozdit výstup v závislosti další interval tolerance pozdního.
 
 ## <a name="handling-event-producers-with-differing-timelines"></a>Zpracování událostí producenti s odlišnými časové osy
-Jedna událost vstupní datový proud se často obsahují události pocházející z více událostí producenti (jako jsou například jednotlivé zařízení).  Tyto události může dorazí mimo pořadí z důvodů uvedených dříve. V těchto scénářích při nepořádku napříč producenti události může být velký, nepořádku v rámci událostí od jednoho výrobce bude malé (nebo i neexistující).
-Zatímco Azure Stream Analytics poskytuje obecné mechanismy pro práci s událostmi pořadí se na více systémů, tyto mechanismy výsledek buď prodlevám zpracování (při čekání na straggling události k dosažení systému), vyřadit nebo upravena události nebo obojí.
-Ještě v mnoha scénářích požadovaného dotazu je zpracování události z různých událostí producenti nezávisle.  Například je může být agregování událostí za období licence vázané na zařízení.  V takových případech je potřeba zpoždění výstup odpovídající producent jednu událost při čekání na jiných výrobců událostí k zachycení.  Jinými slovy není třeba řešit čas zkosení mezi producenti a může být jednoduše ignorována.
-Samozřejmě, to znamená, že výstupních událostech sami mimo pořadí s ohledem na jejich časová razítka; podřízené příjemce musí být schopen řešit takové chování.  Všechny události ve výstupu bude ji však správné.
+Datový proud s jedna vstupní událost často obsahují události, které pocházejí z více událostí výrobců, jako jsou například jednotlivých zařízení. Tyto události nemusí být dodány mimo pořadí z důvodů uvedených dříve. V těchto scénářích nepořádku napříč producenti události může být velký, nepořádku v rámci událostí od jednoho výrobce sice malých (nebo i neexistující).
+
+Azure Stream Analytics poskytuje obecné mechanismy pro práci s událostmi mimo pořadí. Tyto mechanismy výsledek zpracování zpoždění (při čekání na straggling události k dosažení systému), vyřadit nebo upravena události nebo obojí.
+
+Ještě v mnoha scénářích požadovaného dotazu je zpracování události z různých událostí producenti nezávisle. Například ho agregování událostí za období, za zařízení. V těchto případech je potřeba zpoždění výstupu, který odpovídá jedné události producent při čekání na jiných výrobců událostí k zachycení. Jinými slovy není třeba řešit zkosení mezi producenti čas. Můžete ji ignorovat.
+
+Samozřejmě to znamená, že jsou mimo pořadí s ohledem na jejich časová razítka výstupních událostech sami. Podřízené příjemce musí být schopen řešit takové chování. Ale každé události ve výstupu je správný.
 
 Azure Stream Analytics implementuje pomocí této funkce [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) klauzule.
 
-
-
-## <a name="to-summarize"></a>Vytváření souhrnů
-* Pozdní příchodem proti chybám a okno mimo pořadí by měl být nakonfigurovaný podle správnost, požadavky na latenci a měli také zvážit, jak jsou odesílány události.
-* Doporučuje se, že mimo pořadí tolerance je menší než pozdní příchodem tolerance.
-* Při kombinování více časových os, nedostatku dat v jednom ze zdroje nebo oddíly zpozdit výstup v závislosti další interval tolerance pozdního.
-* Když pořadí je jenom důležité v rámci časovou osu producent událostí, je možné použít v klauzuli TIMESTAMP BY OVER ke zpracování jednotlivých událostí producent jako nezávislé podproudu vysílání.
+## <a name="summary"></a>Souhrn
+* Nakonfigurujte pozdní příchodem proti chybám a okno mimo pořadí na základě správnost a požadavky na latenci. Také zvážit, jak jsou odesílány události.
+* Doporučujeme vám, že tolerance pořadí se na více systémů je menší než pozdní příchodem tolerance.
+* Když jste kombinování více časových os, nedostatku dat v jednom ze zdroje nebo oddíly zpozdit výstup v závislosti další interval tolerance pozdního.
 
 ## <a name="get-help"></a>Podpora
-Pro další pomoc, vyzkoušejte naše [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+O další pomoc, zkuste [fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Další kroky
 * [Úvod do služby Stream Analytics](stream-analytics-introduction.md)

@@ -6,7 +6,7 @@
 2. Zadejte požadovaný název DNS a potom vyberte **Uložit**.
    
    ![Zadejte popisek názvu DNS pro vaše prostředek veřejné IP](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
- 
+
 
 3. Chcete-li se vrátit do okna Přehled virtuálních počítačů, zavřete *veřejnou IP adresu* okno. Ověřte, zda *název DNS* se nyní zobrazí.
    

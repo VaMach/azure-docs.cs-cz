@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Úvodní příručka pro vývojáře v Azure
 
@@ -108,7 +108,7 @@ Většina aplikací musí ukládání dat, takže bez ohledu na to, jak se rozho
 -   **Azure Cosmos DB**: Služba globálně distribuované a více modelech databáze, která umožňuje Elasticky škálovat propustnost a úložiště napříč libovolný počet zeměpisné oblasti s komplexní SLA. 
     >**Kdy použít:** Pokud aplikace potřebuje dokument, tabulka nebo graf databáze, včetně databáze MongoDB, s více dobře definovaný konzistence modelů. 
 
-    >**Začínáme**: [sestavení webové aplikace Azure Cosmos DB](../../cosmos-db/create-documentdb-dotnet.md). Pokud jste vývojář MongoDB, najdete v části [sestavení MongoDB webovou aplikaci s Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Začínáme**: [sestavení webové aplikace Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Pokud jste vývojář MongoDB, najdete v části [sestavení MongoDB webovou aplikaci s Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Úložiště Azure**: nabízí odolné, vysoce dostupné úložiště pro objekty BLOB, fronty, soubory a jiné druhy nonrelational data. Úložiště nabízí základy úložiště pro virtuální počítače.
 

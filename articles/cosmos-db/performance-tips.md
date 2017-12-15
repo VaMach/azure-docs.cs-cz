@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: ab7448d3f55a921d3fb8c06d54c230d262dbec6a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1f56e7ae96388ff1135017e07771138ebfc5ac33
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Tipy pro zvýšení výkonu pro Azure Cosmos DB
 
@@ -88,7 +88,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
 ## <a name="sdk-usage"></a>Použití sady SDK
 1. **Nainstalujte nejnovější sadu SDK**
 
-    Sady SDK DB Cosmos neustále probíhá lepší zajistit optimální výkon. Najdete v článku [Cosmos DB SDK](documentdb-sdk-dotnet.md) stránky, abyste zjistili nejnovější SDK a zkontrolujte vylepšení.
+    Sady SDK DB Cosmos neustále probíhá lepší zajistit optimální výkon. Najdete v článku [Cosmos DB SDK](sql-api-sdk-dotnet.md) stránky, abyste zjistili nejnovější SDK a zkontrolujte vylepšení.
 2. **Použít klienta Cosmos DB singleton po dobu jeho existence vaší aplikace.**
 
     Všimněte si, že každá instance DocumentClient je bezpečné pro přístup z více vláken a provádí správu efektivní připojení a ukládání adres do mezipaměti v režimu přímého. Povolit správu efektivní připojení a lepší výkon pomocí DocumentClient, doporučujeme použít jednu instanci DocumentClient jednotlivé domény aplikace po dobu jeho existence aplikace.
@@ -99,7 +99,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
     Jsou vytvářeny požadavky cosmos DB přes protokol HTTPS nebo REST při použití režimu brány a podléhají výchozí limit připojení pro hostitele nebo IP adresa. Musíte nastavit MaxConnections na vyšší hodnotu (100-1000) tak, aby klientské knihovny může využívat víc souběžných připojení k databázi Cosmos. V sadě SDK .NET 1.8.0 a vyšší, výchozí hodnota pro [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) je 50 a chcete-li změnit hodnotu, můžete nastavit [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)na vyšší hodnotu.   
 4. **Ladění paralelní dotazy pro dělené kolekce**
 
-     SQL .NET SDK verze 1.9.0 a vyšší paralelní dotazy podpory, které vám umožní dotazovat dělenou kolekci paralelně (najdete v části [práce sady SDK](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) a související [ukázky kódu jsou](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) Další informace). Paralelní dotazy jsou navrženy pro zlepšit latenci dotazů a propustnosti na jejich sériové protějšku. Paralelní dotazy poskytují dva parametry, které uživatelé mohli vyladit vlastní-přizpůsobit jejich požadavků (a) MaxDegreeOfParallelism: řídit maximální počet oddílů pak může být dotazována v paralelní a (b) MaxBufferedItemCount: k řízení počet předem načtených výsledky.
+     SQL .NET SDK verze 1.9.0 a vyšší paralelní dotazy podpory, které vám umožní dotazovat dělenou kolekci paralelně (najdete v části [práce sady SDK](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) a související [ukázky kódu jsou](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) Další informace). Paralelní dotazy jsou navrženy pro zlepšit latenci dotazů a propustnosti na jejich sériové protějšku. Paralelní dotazy poskytují dva parametry, které uživatelé mohli vyladit vlastní-přizpůsobit jejich požadavků (a) MaxDegreeOfParallelism: řídit maximální počet oddílů pak může být dotazována v paralelní a (b) MaxBufferedItemCount: k řízení počet předem načtených výsledky.
 
     (a) ***ladění MaxDegreeOfParallelism\:***  paralelní dotaz funguje dotazováním více oddílů souběžně. Data z shromažďování jednotlivých oddílů je však načtených sériově s ohledem na dotaz. Ano nastavení MaxDegreeOfParallelism na počet oddílů má maximální riziko dosažení většina původce dotazu, zadaná jinými podmínkami systému zůstávají stejné. Pokud si nejste jisti počet oddílů, můžete nastavit MaxDegreeOfParallelism na vysoké číslo, a systém zvolí minimální (počet oddílů, uživatel zadal vstup) jako MaxDegreeOfParallelism.
 
@@ -113,7 +113,7 @@ Takže pokud vás nemůže ověřit "jak vylepšit výkon Moje databáze?" Zvaž
     V některých případech mohou pomoci snížit frekvenci uvolňování paměti. V rozhraní .NET, nastavte [gcserver –](https://msdn.microsoft.com/library/ms229357.aspx) na hodnotu true.
 6. **Implementace omezení rychlosti v intervalech RetryAfter**
 
-    Během testování výkonu měli zvýšit zatížení, dokud malý počet žádostí o získání omezeny. Pokud omezené, klientská aplikace měli omezení rychlosti na omezení pro interval opakování zadaný server. Bere ohledy omezení rychlosti zajišťuje strávený minimální množství času čekat mezi opakovanými pokusy. Podpora zásad opakování je součástí verze 1.8.0 a výše SQL [rozhraní .NET](documentdb-sdk-dotnet.md) a [Java](documentdb-sdk-java.md), verze 1.9.0 a vyšší z [Node.js](documentdb-sdk-node.md) a [Python](documentdb-sdk-python.md), a všechny podporované verze [.NET Core](documentdb-sdk-dotnet-core.md) sady SDK. Další informace najdete v tématu [Exceeding vyhrazené omezení propustnosti](request-units.md#RequestRateTooLarge) a [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Během testování výkonu měli zvýšit zatížení, dokud malý počet žádostí o získání omezeny. Pokud omezené, klientská aplikace měli omezení rychlosti na omezení pro interval opakování zadaný server. Bere ohledy omezení rychlosti zajišťuje strávený minimální množství času čekat mezi opakovanými pokusy. Podpora zásad opakování je součástí verze 1.8.0 a výše SQL [rozhraní .NET](sql-api-sdk-dotnet.md) a [Java](sql-api-sdk-java.md), verze 1.9.0 a vyšší z [Node.js](sql-api-sdk-node.md) a [Python](sql-api-sdk-python.md), a všechny podporované verze [.NET Core](sql-api-sdk-dotnet-core.md) sady SDK. Další informace najdete v tématu [Exceeding vyhrazené omezení propustnosti](request-units.md#RequestRateTooLarge) a [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Horizontální navýšení kapacity vaše úlohy klienta**
 
     Pokud testujete na úrovních vysoké propustnosti (> 50 000 RU/s), klientská aplikace se může stát úzkým místem kvůli počítač omezení se na využití procesoru nebo sítě. Pokud dostanete tento bod, můžete dál tak, aby nabízel další účet Cosmos DB podle škálování klientských aplikací na více serverech.

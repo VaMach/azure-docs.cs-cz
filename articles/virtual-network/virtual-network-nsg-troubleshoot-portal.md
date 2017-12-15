@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Řešení potíží s skupin zabezpečení sítě pomocí portálu Azure
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Pomocí následujících kroků pro řešení potíží s skupiny Nsg pro virtu�
 
 Úplný seznam pravidel efektivní zabezpečení můžete zobrazit na síťový adaptér z virtuálního počítače sám sebe. Můžete také přidat, upravit a odstranit pravidla NSG síťových Adaptérů a podsíť z okna efektivní pravidla, pokud máte oprávnění k provedení těchto operací.
 
-1. Přihlášení k portálu Azure v https://portal.azure.com.
+1. Přihlášení k portálu Azure v https://portal.azure.com s účet Azure. Musí mít váš účet přiřazenou *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operace pro síťové rozhraní. Zjistěte, jak přiřadit operations účty, najdete v tématu [vytvářet vlastní role pro řízení přístupu](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Klikněte na tlačítko **další služby**, pak klikněte na tlačítko **virtuální počítače** v seznamu, který se zobrazí.
 3. Vyberte virtuální počítač ze seznamu, který se zobrazí řešení a zobrazí se okno virtuálních počítačů s možnostmi.
 4. Klikněte na tlačítko **Diagnostikujte & řešení problémů** a pak vyberte častých problémů. V tomto příkladu **nelze se připojit k virtuálnímu počítači s Windows** je vybrána. 

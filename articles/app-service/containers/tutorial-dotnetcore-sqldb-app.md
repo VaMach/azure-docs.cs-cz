@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Vytvoření webové aplikace .NET Core a databáze SQL ve službě Azure App Service v systému Linux
 
@@ -93,7 +93,7 @@ Pro databázi SQL, tento kurz používá [Azure SQL Database](/azure/sql-databas
 
 ### <a name="create-a-sql-database-logical-server"></a>Vytvoření logického serveru SQL Database
 
-V prostředí cloudu, vytvořte logický server databáze SQL se [az sql server vytvořit](/cli/azure/sql/server#create) příkaz.
+V prostředí cloudu, vytvořte logický server databáze SQL se [az sql server vytvořit](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) příkaz.
 
 Nahraďte  *\<název_serveru >* zástupný symbol jedinečný název databáze SQL. Tento název se používá jako součást koncový bod SQL Database, `<server_name>.database.windows.net`, takže název musí být jedinečný v rámci všechny logické servery v Azure. Název musí obsahovat jenom malá písmena, číslice a pomlčky (-) a musí být v rozmezí 3 až 50 znaků. Také nahraďte  *\<db_username >* a  *\<db_password >* uživatelské jméno a heslo, podle vašeho výběru. 
 
@@ -124,7 +124,7 @@ Při vytvoření logického serveru SQL Database rozhraní příkazového řádk
 
 ### <a name="configure-a-server-firewall-rule"></a>Konfigurace pravidla brány firewall serveru
 
-Vytvořte [pravidlo brány firewall na úrovni serveru služby Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) pomocí příkazu [az sql server firewall create](/cli/azure/sql/server#create). Počáteční IP adresu a koncová IP adresa nastaven na hodnotu 0.0.0.0, je pouze otevřít bránu firewall pro ostatní prostředky služby Azure. 
+Vytvořte [pravidlo brány firewall na úrovni serveru služby Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) pomocí příkazu [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Počáteční IP adresu a koncová IP adresa nastaven na hodnotu 0.0.0.0, je pouze otevřít bránu firewall pro ostatní prostředky služby Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Vytvoření databáze
 
-Vytvořte na serveru databázi s [úrovní výkonu S0](../../sql-database/sql-database-service-tiers.md) pomocí příkazu [az sql db create](/cli/azure/sql/db#create).
+Vytvořte na serveru databázi s [úrovní výkonu S0](../../sql-database/sql-database-service-tiers.md) pomocí příkazu [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +166,7 @@ V tomto kroku nasadíte aplikaci .NET Core databázi SQL připojit do služby Ap
 
 ### <a name="configure-an-environment-variable"></a>Nakonfigurujte proměnné prostředí
 
-Pokud chcete nastavit připojovací řetězce pro vaše aplikace Azure, použijte [aktualizovat az webapp konfigurace appsettings](/cli/azure/webapp/config/appsettings#update) příkazu v prostředí cloudu. V následujícím příkazu nahraďte  *\<název aplikace >*, a taky  *\<connection_string >* parametr připojovacím řetězcem, který jste vytvořili dříve.
+Pokud chcete nastavit připojovací řetězce pro vaše aplikace Azure, použijte [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) příkazu v prostředí cloudu. V následujícím příkazu nahraďte  *\<název aplikace >*, a taky  *\<connection_string >* parametr připojovacím řetězcem, který jste vytvořili dříve.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

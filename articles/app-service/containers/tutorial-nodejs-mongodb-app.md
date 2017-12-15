@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9b321fcf8a8d1234989a9433da227142d954cb4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c2087af14ad456c679479334c9391055f6b2e45e
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Vytvoření webové aplikace Node.js a MongoDB ve službě Azure App Service v systému Linux
+
+> [!NOTE]
+> Tento článek nasadí aplikaci do služby App Service v systému Linux. K nasazení do služby App Service na _Windows_, najdete v části [sestavení webové aplikace Node.js a MongoDB v Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
+>
 
 [Aplikační služby v systému Linux](app-service-linux-intro.md) nabízí vysoce škálovatelnou a automatických oprav webové hostitelské služby pomocí operační systém Linux. Tento kurz ukazuje, jak vytvořit webovou aplikaci Node.js, lokálně připojit k databázi MongoDB a pak nasadit do Azure, které jsou připojené k databázi CosmosDB pomocí rozhraní API pro MongoDB. Když jste hotovi, budete mít střední aplikace (MongoDB, Express, AngularJS a Node.js) ve službě App Service systémem Linux. Pro jednoduchost, ukázková aplikace používá [MEAN.js webová architektura](http://meanjs.org/).
 
@@ -126,7 +130,7 @@ Pro MongoDB, tento kurz používá [Azure Cosmos DB](/azure/documentdb/). Cosmos
 
 ### <a name="create-a-cosmos-db-account"></a>Vytvoření účtu Cosmos DB
 
-V prostředí cloudu, vytvořte účet Cosmos DB s [vytvořit az cosmosdb](/cli/azure/cosmosdb#create) příkaz.
+V prostředí cloudu, vytvořte účet Cosmos DB s [vytvořit az cosmosdb](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) příkaz.
 
 V následujícím příkazu nahraďte jedinečný název databáze Cosmos  *\<cosmosdb_name >* zástupný symbol. Tento název se používá jako součást Cosmos DB koncového bodu, `https://<cosmosdb_name>.documents.azure.com/`, takže název musí být jedinečný v rámci všech Cosmos DB účty v Azure. Název musí obsahovat jenom malá písmena, číslice a pomlčky (-) a musí být v rozmezí 3 až 50 znaků.
 
@@ -160,7 +164,7 @@ V tomto kroku připojíte MEAN.js ukázkovou aplikaci do databáze Cosmos datab�
 
 ### <a name="retrieve-the-database-key"></a>Načíst klíč databáze
 
-Pro připojení k databázi Cosmos DB, musíte klíč databáze. V prostředí cloudu, pomocí [az cosmosdb seznamu klíčů](/cli/azure/cosmosdb#list-keys) příkaz načíst primární klíč.
+Pro připojení k databázi Cosmos DB, musíte klíč databáze. V prostředí cloudu, pomocí [az cosmosdb seznamu klíčů](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) příkaz načíst primární klíč.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -252,7 +256,7 @@ V tomto kroku nasadíte aplikace Node.js MongoDB připojení do služby Azure Ap
 
 Ve výchozím projektu MEAN.js udržuje _config/env/local-production.js_ mimo úložiště Git. Proto pro vaše webové aplikace Azure, použijete nastavení aplikace zadat připojovací řetězec MongoDB.
 
-Chcete-li nastavení aplikace, použijte [az webapp konfigurace appsettings aktualizovat](/cli/azure/webapp/config/appsettings#update) příkazu v prostředí cloudu.
+Chcete-li nastavení aplikace, použijte [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) příkazu v prostředí cloudu.
 
 Následující příklad konfiguruje `MONGODB_URI` nastavení aplikace v Azure webové aplikace. Nahraďte  *\<app_name >*,  *\<cosmosdb_name >*, a  *\<primary_master_key >* zástupné symboly.
 

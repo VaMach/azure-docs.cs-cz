@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Úvod do Azure událostí mřížky
 
@@ -20,9 +20,18 @@ Azure mřížky událostí umožňuje snadno vytvářet aplikace, které se na z
 
 Filtry můžete směrovat určité události do různých koncových bodů, vícesměrového vysílání pro několik koncových bodů a ujistěte se, že události se dodávají spolehlivě. Událost mřížky také obsahuje vestavěnou podporou pro třetí strany a vlastní události.
 
-Ve verzi Preview podporuje služba Event Grid umístění **westus2** a **westcentralus**. Přidá jiných oblastí.
+Událost mřížky v současné době podporuje následující oblasti:
 
-Tento článek obsahuje přehled Azure událostí mřížky. Pokud chcete začít pracovat s událostí mřížky, najdete v části [vytvořit a směrování vlastních událostí s Azure událostí mřížky](custom-event-quickstart.md).
+* Střed USA
+*   Východ USA
+*   Východní USA 2
+*   Západní střed USA
+*   Západní USA
+*   Západní USA 2
+
+Přidá jiných oblastí.
+
+Tento článek obsahuje přehled Azure událostí mřížky. Pokud chcete začít pracovat s událostí mřížky, najdete v části [vytvořit a směrování vlastních událostí s Azure událostí mřížky](custom-event-quickstart.md). Následující obrázek ukazuje, jak připojí mřížky události vydavatele a obslužné rutiny, ale neposkytuje úplný seznam podporovaných možností.
 
 ![Funkční model událostí mřížky](./media/overview/event-grid-functional-model.png)
 
@@ -30,11 +39,11 @@ Tento článek obsahuje přehled Azure událostí mřížky. Pokud chcete začí
 
 Následující služby Azure v současné době je integrované vydavatele podpora mřížky událostí:
 
-* Skupiny prostředků (operace správy)
 * Předplatná Azure (operace správy)
-* Event Hubs
-* Objekt Blob úložiště
 * Vlastní témata
+* Event Hubs
+* Skupiny prostředků (operace správy)
+* Objekt Blob úložiště
 
 Jinými službami Azure se přidá tohoto roku.
 
@@ -42,11 +51,12 @@ Jinými službami Azure se přidá tohoto roku.
 
 Následující služby Azure v současné době je podpora předdefinované obslužné rutiny událostí mřížky: 
 
-* Funkce Azure
-* Logic Apps
 * Azure Automation
-* Webhooky
+* Funkce Azure
+* Event Hubs
+* Logic Apps
 * Microsoft toku
+* Webhooky
 
 Jinými službami Azure se přidá tohoto roku.
 

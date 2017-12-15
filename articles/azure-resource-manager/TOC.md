@@ -15,12 +15,11 @@
 #### [Parametry](resource-manager-templates-parameters.md)
 #### [Proměnné](resource-manager-templates-variables.md)
 #### [Prostředky](resource-manager-templates-resources.md)
-### [Osvědčené postupy pro šablony](resource-manager-template-best-practices.md)
+#### [Výstupy](resource-manager-templates-outputs.md)
 ### [Propojení s ostatními šablonami](resource-group-linked-templates.md)
 ### [Definování závislosti mezi prostředky](resource-group-define-dependencies.md)
 ### [Vytvoření víc instancí](resource-group-create-multiple.md)
-### [Aktualizace prostředku](resource-manager-update.md)
-### [Sdílení stavu mezi propojenými šablonami](best-practices-resource-manager-state.md)
+### [Aktualizace prostředku](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [Způsoby navrhování šablon](best-practices-resource-manager-design-templates.md)
 
 

@@ -241,6 +241,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: Správa serverů vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: Správa víceklientského prostředí s využitím CSP
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: Odebrání serverů a zakázání ochrany
           href: site-recovery-manage-registration-and-protection.md
         - name: Odstranění trezoru

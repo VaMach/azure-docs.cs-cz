@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: b596b74f0aec0c561c8ad48647c16cd0f5c58d83
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Cíl Azure Cosmos DB pro výstup JSON ze služby Stream Analytics
 Stream Analytics můžete cílit na [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) pro výstup JSON, povolení archivace a nízkou latencí dotazy dat na nestrukturovaných dat JSON. Tento dokument popisuje některé osvědčené postupy při implementaci této konfigurace.
@@ -48,7 +48,7 @@ Cosmos DB [oddíly kolekce](../cosmos-db/partition-data.md) se o doporučený po
 
 Pro jeden Cosmos DB kolekce Stream Analytics stále umožňuje oddílu vaše data, podle schémat dotazů a požadavkům na výkon vaší aplikace. Každá kolekce může obsahovat až 10GB dat (maximum) a aktuálně neexistuje žádný způsob, jak vertikálně navýšit kapacitu (nebo přetečení) kolekce. Pro škálování, Stream Analytics můžete zapsat do více kolekcí s danou předponu (viz níže podrobnosti o použití). Stream Analytics používá konzistentní [Hash oddílu překladač](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) strategie na základě uživatele zadaný sloupec PartitionKey oddílu svoje záznamy o výstup. Počet kolekcí s danou předponu při spuštění úlohu streamování slouží jako počet oddílů výstup, ke kterému se úloha zapíše do paralelně (Cosmos DB kolekce = výstup oddíly). Pro jednu kolekci s Opožděné indexování to jenom vložení, o 0.4 MB/s zápisu propustnost je možné očekávat. Použití více kolekcí můžete povolit dosáhnout vyšší propustnost a zvýšené kapacity.
 
-Pokud chcete zvýšit počet oddílů v budoucnosti, musíte zastavit úlohu, změnit rozdělení dat z existující kolekce do nové kolekce a potom restartujte úlohu služby Stream Analytics. Další podrobnosti o používání PartitionResolver a opětovné vytváření oddílů společně s ukázkový kód, bude součástí následné post. Článek [dělení a škálování v Cosmos DB](../documentdb/documentdb-partition-data.md) také podrobné informace o to.
+Pokud chcete zvýšit počet oddílů v budoucnosti, musíte zastavit úlohu, změnit rozdělení dat z existující kolekce do nové kolekce a potom restartujte úlohu služby Stream Analytics. Další podrobnosti o používání PartitionResolver a opětovné vytváření oddílů společně s ukázkový kód, bude součástí následné post. Článek [dělení a škálování v Cosmos DB](../cosmos-db/sql-api-partition-data.md) také podrobné informace o to.
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Nastavení cosmos DB pro výstup JSON
 Vytváření Cosmos DB jako výstupu v Stream Analytics generuje řádku informace, jak vidíte níže. Tato část obsahuje vysvětlení definici vlastnosti.

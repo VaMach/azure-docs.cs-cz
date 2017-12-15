@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 42b241affa470d42dfa06eba102a2bce5faccf4a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopírovat data do nebo z Azure SQL Data Warehouse pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -296,7 +296,6 @@ Pokud požadavky nejsou splněny, zkontroluje nastavení Azure Data Factory a au
 
 3. Neexistuje žádné `skipHeaderLineCount` nastavení v části **BlobSource** nebo **AzureDataLakeStore** pro aktivitu kopírování v kanálu.
 4. Neexistuje žádné `sliceIdentifierColumnName` nastavení v části **SqlDWSink** pro aktivitu kopírování v kanálu. (PolyBase zaručuje, že se aktualizuje všechna data nebo nic se aktualizuje v jednom spustit. K dosažení **opakovatelnosti**, můžete použít `sqlWriterCleanupScript`).
-5. Neexistuje žádné `columnMapping` použitá v přidružené v kopie aktivity.
 
 ```json
 "activities":[
@@ -447,7 +446,7 @@ Při kopírování dat z/do Azure SQL Data Warehouse, se používají následuj�
 | time |Časový interval |
 | časové razítko |Byte] |
 | tinyint |Bajtů |
-| Typ UniqueIdentifier |Identifikátor GUID |
+| Typ UniqueIdentifier |Guid |
 | varbinary |Byte] |
 | varchar |Řetězec, Char] |
 | xml |XML |

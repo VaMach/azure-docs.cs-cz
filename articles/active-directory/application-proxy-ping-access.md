@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Ověřování na základě záhlaví pro jednotné přihlašování s Proxy aplikace a PingAccess
 
@@ -73,6 +73,10 @@ Postupujte podle těchto kroků k publikování aplikace. Pro podrobnější ná
 4. Vyberte **místní aplikace**.
 5. Vyplňte požadovaná pole s informacemi o nové aplikace. Použijte následující pokyny pro nastavení:
    - **Interní adresa URL**: normálně zadejte adresu URL, kterou přejdete na přihlašovací stránce aplikace, když jste v podnikové síti. V tomto scénáři musí konektor PingAccess proxy považovat za titulní stránky aplikace. Použijte tento formát: `https://<host name of your PA server>:<port>`. Port je 3000 ve výchozím nastavení, ale můžete ji nakonfigurovat v PingAccess.
+
+    > [!WARNING]
+    > Pro tento typ jednotného přihlašování interní adresa URL musí používat protokol https a nelze používat protokol http.
+
    - **Metoda předběžného ověřování**: Azure Active Directory
    - **Převede adresu URL v hlavičkách**: Ne
 
@@ -135,7 +139,7 @@ Postupujte podle těchto kroků k publikování aplikace. Pro podrobnější ná
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Volitelné – aktualizace GraphAPI odeslat vlastní pole
 
-Seznam tokeny zabezpečení, které odesílá Azure AD pro ověřování najdete v tématu [odkaz tokenu Azure AD](./develop/active-directory-token-and-claims.md). Pokud potřebujete vlastních deklarací identity, který odešle další tokeny, pomocí GraphAPI nastavte pole aplikaci *acceptMappedClaims* k **True**. Chcete-li tuto konfiguraci můžete použít pouze Azure AD Graph Explorer. 
+Seznam tokeny zabezpečení, které odesílá Azure AD pro ověřování najdete v tématu [odkaz tokenu Azure AD](./develop/active-directory-token-and-claims.md). Pokud potřebujete vlastní deklarace identity, který odesílá dalších tokenů, graf můžete pomocí Průzkumníka nebo manifest pro aplikaci na portálu Azure nastavte hodnotu pole aplikace *acceptMappedClaims* k **True**.    
 
 Tento příklad používá Explorer grafu:
 
@@ -146,6 +150,13 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+Tento příklad používá [portál Azure](https://portal.azure.com) k udpate *acceptedMappedClaims* pole:
+1. Přihlaste se k [portál Azure](https://portal.azure.com) jako globální správce.
+2. Vyberte **Azure Active Directory** > **registrace aplikace**.
+3. Vyberte svou aplikaci > **Manifest**.
+4. Vyberte **upravit**, vyhledejte *acceptedMappedClaims* pole a změňte hodnotu na **true**.
+![Manifest aplikace.](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+1. Vyberte **Uložit**.
 
 >[!NOTE]
 >Pokud chcete používat vlastní deklarace identity, musí mít také vlastní zásady definované a přiřazené k aplikaci.  Tyto zásady by měly obsahovat všechny požadované vlastní atributy.

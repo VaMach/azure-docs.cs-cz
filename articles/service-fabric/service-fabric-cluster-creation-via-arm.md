@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 0065874c2f992ad9c18f68303878fb580ee8b391
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 19ad079c58728479a7f39ce7520bd8eaebdff1f5
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Vytvořit cluster Service Fabric pomocí Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -377,7 +377,7 @@ WebApplicationReplyUrl je výchozí koncový bod, který vrátí Azure AD pro u�
 
 https://&lt;cluster_domain&gt;: 19080/Explorer
 
-Zobrazí se výzva k přihlášení k účtu, který má oprávnění správce pro tenanta Azure AD. Po přihlášení vytvoří skript web a nativní aplikace představují cluster Service Fabric. Pokud se podíváte na klienta aplikace v [portál Azure classic][azure-classic-portal], měli byste vidět dvě nové položky:
+Zobrazí se výzva k přihlášení k účtu, který má oprávnění správce pro tenanta Azure AD. Po přihlášení vytvoří skript web a nativní aplikace představují cluster Service Fabric. Pokud se podíváte na klienta aplikace v [portál Azure][azure-portal], měli byste vidět dvě nové položky:
 
    * *Název clusteru*\_clusteru
    * *Název clusteru*\_klienta
@@ -615,7 +615,7 @@ V případě, že potížím a získat zprávy jako nesrozumitelné, potom použ
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>Přiřadit uživatele k rolím
-Po vytvoření aplikace, které chcete představují clusteru přiřadit uživatelům role nepodporuje Service Fabric: jen pro čtení a správce. Můžete přiřadit role pomocí [portál Azure classic][azure-classic-portal].
+Po vytvoření aplikace, které chcete představují clusteru přiřadit uživatelům role nepodporuje Service Fabric: jen pro čtení a správce. Můžete přiřadit role pomocí [portál Azure][azure-portal].
 
 1. Na portálu Azure přejděte ke klientovi a potom vyberte **aplikace**.
 2. Vyberte webové aplikaci, která má název, jako je `myTestCluster_Cluster`.
@@ -693,7 +693,7 @@ V tuto chvíli máte zabezpečené cluster s poskytnete správu ověřování Az
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md

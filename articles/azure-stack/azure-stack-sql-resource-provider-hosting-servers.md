@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Přidání hostitelské servery pro použití adaptérem SQL
 
@@ -28,11 +28,9 @@ Instance SQL můžete použít na virtuální počítače uvnitř vaší [zásob
 * SQL instance musí být vyhrazená pro použití úlohami RP a uživatele. Nelze použít instanci SQL, který se používá jakékoli další příjemce, včetně aplikační služby.
 * Adaptér RP není připojený k doméně a lze připojit pouze pomocí ověřování SQL.
 * Musíte nakonfigurovat účet s náležitými oprávněními pro použití RP.
-* Provoz sítě z RP do SQL používá port 1433 a nelze změnit.
 * RP a uživatelé třeba webové aplikace používat síť uživatele, takže není vyžadována možnost připojení k instanci serveru SQL v této síti. Tento požadavek se obvykle znamená, že IP adresa pro vaše instance SQL musí být ve veřejné síti.
 * Správa instance SQL a jejich hostitelů závisí na vás; RP neobsahuje provedení oprav, zálohování, přihlašovací údaje otočení atd.
 * SKU lze použít k vytvoření různé třídy dalo SQL, jako je například výkonu, vždycky na atd.
-
 
 
 Počet bitové kopie virtuálních počítačů SQL IaaS jsou k dispozici prostřednictvím funkce správy Marketplace. Zajistěte, aby vám vždy stáhnout nejnovější verzi rozšíření IaaS SQL před nasazením virtuálního počítače pomocí příslušné položky Marketplace. Image s SQL serverem jsou stejné jako virtuální počítače SQL, které jsou k dispozici v Azure. Pro virtuální počítače SQL vytvořené z těchto bitových kopií, rozšíření IaaS a odpovídající portálu vylepšení poskytují funkce, jako je automatické opravy a možnosti zálohování.
@@ -73,6 +71,8 @@ Pokud chcete přidat samostatný server, který je již zřízeno hostování, p
 
   ![Nové hostitelské serveru](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    Volitelně můžete zahrnout název instance a číslo portu lze zadat, pokud instance není přiřazen k výchozí port 1433.
+
   > [!NOTE]
   > Tak dlouho, dokud SQL instance může mít přístup uživatele a správce Azure Resource Manager, mohou být umístěny pod kontrolou zprostředkovatele prostředků. SQL instance __musí__ přidělit výhradně RP.
 
@@ -86,10 +86,10 @@ Pokud chcete přidat samostatný server, který je již zřízeno hostování, p
 
     Příklad:
 
-    ![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-SKU může trvat až jednu hodinu, mají být zobrazeny v portálu. Databázi nelze vytvořit, dokud nebude plně vytvořen verze SKU.
+> SKU může trvat až jednu hodinu, mají být zobrazeny v portálu. Uživatele nelze vytvořit databázi, dokud nebude plně vytvořen verze SKU.
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>Zadejte kapacitu pomocí SQL skupin dostupnosti Always On
 Instance SQL Always On konfigurace vyžaduje další kroky a zahrnuje minimálně tři virtuální počítače (nebo fyzického počítače).
@@ -126,7 +126,7 @@ Pokud chcete přidat SQL Always On hostitelskými servery, postupujte takto:
     **Hostování servery SQL** okno je, kde můžete připojit zprostředkovatele prostředků SQL serveru k skutečné instance systému SQL Server, které slouží jako zprostředkovatel prostředků back-end.
 
 
-3. Vyplňte formulář Podrobnosti připojení vaší instance systému SQL Server, je nutné použít plně kvalifikovaný název domény nebo IPv4 adresu vždy na naslouchací proces. Zadejte informace o účtu pro účet, který jste nakonfigurovali s oprávněními správce systému.
+3. Vyplňte formulář Podrobnosti připojení vaší instance systému SQL Server, nezapomeňte použít plně kvalifikovaný název domény nebo IPv4 adresu vždy na naslouchacího procesu (a volitelně také portu číslo). Zadejte informace o účtu pro účet, který jste nakonfigurovali s oprávněními správce systému.
 
 4. Zaškrtnutím tohoto políčka Povolit podporu pro instance vždy na skupiny dostupnosti systému SQL.
 
@@ -137,7 +137,7 @@ Pokud chcete přidat SQL Always On hostitelskými servery, postupujte takto:
 
 ## <a name="making-sql-databases-available-to-users"></a>Zpřístupnění databáze SQL pro uživatele
 
-Vytvořte plány a nabízí chcete zpřístupnit databáze SQL pro uživatele. Přidání služby Microsoft.SqlAdapter k plánu a přidat existující kvótu nebo vytvořte novou. Pokud vytvoříte kvótu, můžete zadat kapacitu uživatelům.
+Vytvořte plány a nabízí chcete zpřístupnit databáze SQL pro uživatele. Přidání služby Microsoft.SqlAdapter k plánu a přidat buď existující kvótu nebo vytvořte novou. Pokud vytvoříte kvótu, zadáte kapacitu uživatelům.
 
 ![Vytvoření plánu a nabídky zahrnout databáze](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 

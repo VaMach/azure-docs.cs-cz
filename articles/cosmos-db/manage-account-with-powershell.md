@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Vytvoření účtu Azure Cosmos DB pomocí prostředí PowerShell
 
-Následující příručka popisuje příkazy, které automatizují správu svých účtů databáze Azure Cosmos DB pomocí Azure Powershell. Zahrnuje také příkazy pro správu klíčů k účtu a priorit převzetí služeb při selhání v [účty databáze více oblast][scaling-globally]. Aktualizace databázového účtu můžete upravit zásady konzistence a přidat nebo odebrat oblasti. Pro různé platformy správy účtu Azure Cosmos DB, můžete použít buď [rozhraní příkazového řádku Azure](cli-samples.md), [rozhraní API REST zprostředkovatele prostředků][rp-rest-api], nebo [portálu Azure ](create-documentdb-dotnet.md#create-account).
+Následující příručka popisuje příkazy, které automatizují správu svých účtů databáze Azure Cosmos DB pomocí Azure Powershell. Zahrnuje také příkazy pro správu klíčů k účtu a priorit převzetí služeb při selhání v [účty databáze více oblast][scaling-globally]. Aktualizace databázového účtu můžete upravit zásady konzistence a přidat nebo odebrat oblasti. Pro různé platformy správy účtu Azure Cosmos DB, můžete použít buď [rozhraní příkazového řádku Azure](cli-samples.md), [rozhraní API REST zprostředkovatele prostředků][rp-rest-api], nebo [portálu Azure ](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Začínáme
 
@@ -194,8 +194,7 @@ Příklad:
 
 ## <a name="next-steps"></a>Další kroky
 
-* Připojení pomocí rozhraní .NET, najdete v části [připojit a zadávat dotazy pomocí .NET](create-documentdb-dotnet.md).
-* Připojení pomocí .NET Core, najdete v části [připojit a zadávat dotazy pomocí .NET Core](create-documentdb-dotnet-core.md).
+* Připojení pomocí rozhraní .NET, najdete v části [připojit a zadávat dotazy pomocí .NET](create-sql-api-dotnet.md).
 * Připojení pomocí Node.js, najdete v části [připojit a zadávat dotazy s Node.js a aplikace pro práci s MongoDB](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
