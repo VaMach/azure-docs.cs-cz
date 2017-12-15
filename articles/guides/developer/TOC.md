@@ -64,8 +64,8 @@
 ## Ukládání dat
 ### [Objekty blob](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [Sdílené složky](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [Páry klíč-hodnota](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [Dokumenty JSON](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Páry klíč-hodnota](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [Dokumenty JSON](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [Relační tabulky](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [Fronty zpráv](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
