@@ -19,11 +19,7 @@
 ### [Propojení s ostatními šablonami](resource-group-linked-templates.md)
 ### [Definování závislosti mezi prostředky](resource-group-define-dependencies.md)
 ### [Vytvoření víc instancí](resource-group-create-multiple.md)
-### [Nastavení umístění](resource-manager-template-location.md)
-### [Přiřazení značek](resource-manager-template-tags.md)
-### [Nastavení názvu a typu podřízeného prostředku](resource-manager-template-child-resource.md)
 ### [Aktualizace prostředku](resource-manager-update.md)
-### [Použití objektů pro parametry](resource-manager-objects-as-parameters.md)
 ### [Sdílení stavu mezi propojenými šablonami](best-practices-resource-manager-state.md)
 ### [Způsoby navrhování šablon](best-practices-resource-manager-design-templates.md)
 
