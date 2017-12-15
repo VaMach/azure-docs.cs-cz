@@ -1,4 +1,4 @@
-Ve službě Cloud Shell pomocí příkazu [az webapp create](/cli/azure/webapp#create) vytvořte [webovou aplikaci](../articles/app-service/app-service-web-overview.md) v plánu služby App Service `myAppServicePlan`. 
+Ve službě Cloud Shell pomocí příkazu [az webapp create](/cli/azure/webapp#az_webapp_create) vytvořte [webovou aplikaci](../articles/app-service/app-service-web-overview.md) v plánu služby App Service `myAppServicePlan`. 
 
 V následujícím příkladu nahraďte *\<app_name>* globálně jedinečným názvem aplikace (platné znaky jsou `a-z`, `0-9` a `-`). 
 

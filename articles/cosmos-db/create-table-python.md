@@ -14,11 +14,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 1c64401a7d0ccfa12232b04cfd57e6beaa1dbca8
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.custom: mvc
+ms.openlocfilehash: 56c52aef2dda899a7f7ce90a26068897781773da
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Rychlý start: Sestavení aplikace Table API pomocí Pythonu a Azure Cosmos DB
 
@@ -66,7 +67,7 @@ Teď můžete přidávat do nové tabulky data pomocí Průzkumníku dat.
 
 Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
-1. Otevřete okno terminálu Git, například Git Bash, a pomocí příkazu `cd` přejděte do složky, do které chcete nainstalovat ukázkovou aplikaci. 
+1. Otevřete okno terminálu Git, třeba Git Bash, a pomocí příkazu `cd` přejděte do složky, do které chcete nainstalovat ukázkovou aplikaci. 
 
     ```bash
     cd "C:\git-samples"
