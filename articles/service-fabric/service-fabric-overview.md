@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 8ff0d38a679b673b148dd808050eda82060cfe80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4aca25f74d3e22911ab5059a8cdec45f189dc8cf
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-azure-service-fabric"></a>Přehled Azure Service Fabric
 Azure Service Fabric je platforma distribuovaných systémů usnadňující balení, nasazování a spravování škálovatelných a spolehlivých mikroslužeb a kontejnerů. Service Fabric se také zaměřuje na problematiku vývoje a správy nativních cloudových aplikací. Vývojáři a správci se můžou vyhnout problémům se složitou infrastrukturou a místo toho se soustředit na implementaci zásadních a náročných úloh, které jsou škálovatelné, spolehlivé a spravovatelné. Service Fabric představuje novou generaci platforem pro vytváření a správu těchto podnikových cloudových aplikací 1. úrovně spouštěných v kontejnerech.
@@ -49,7 +49,7 @@ Service Fabric funguje všude. Clustery pro Service Fabric můžete vytvářet v
 
 ![Platforma Service Fabric][Image1]
 
-Pro účely vývoje ve Windows je v sadě Visual Studio a v PowerShellu integrovaná sada Service Fabric .NET SDK. Viz [Příprava vývojového prostředí ve Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md). Pro účely vývoje v Linuxu je v Eclipse integrovaná sada Service Fabric Java SDK a ke generování šablon pro Javu, .NET Core a aplikace typu kontejner se používá Yeoman. Viz [Příprava vývojového prostředí v Linuxu](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md).
+Pro účely vývoje ve Windows je v sadě Visual Studio a v PowerShellu integrovaná sada Service Fabric .NET SDK. Viz [Příprava vývojového prostředí ve Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md). Pro účely vývoje v Linuxu je v Eclipse integrovaná sada Service Fabric Java SDK a ke generování šablon pro Javu, .NET Core a aplikace typu kontejner se používá Yeoman. Viz [Příprava vývojového prostředí v Linuxu](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started.md).
 
 Další informace o vytváření clusterů najdete v tématu popisujícím [vytvoření clusteru ve Windows Serveru nebo v Linuxu](service-fabric-deploy-anywhere.md) nebo v tématu popisujícím vytvoření clusteru v Azure [prostřednictvím webu Azure Portal](service-fabric-cluster-creation-via-portal.md).
 
