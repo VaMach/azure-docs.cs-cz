@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 69736670068479ce90cc346a163fe27b340cdb0a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Použití emulátoru DB Cosmos Azure pro místní vývoj a testování
 
@@ -136,7 +136,7 @@ Emulátor serveru můžete spustit v místní síti. Pokud chcete povolit přís
 Pokud chcete povolit přístup k síti první uživatel by měl vypnutí emulátoru a odstranit adresář data na emulátoru (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Vývoj v emulátoru
-Jakmile máte emulátoru DB Cosmos Azure spuštěna na pracovní ploše, můžete použít libovolnou podporované [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) nebo [REST API služby Azure Cosmos DB](/rest/api/documentdb/) pro interakci s emulátor. Emulátor DB Cosmos Azure také zahrnuje integrovanou Průzkumníku dat, která umožňuje vytvářet kolekce pro SQL a rozhraní API MongoDB a zobrazení a úpravám dokumentů bez psaní jakéhokoli kódu.   
+Jakmile máte emulátoru DB Cosmos Azure spuštěna na pracovní ploše, můžete použít libovolnou podporované [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) nebo [REST API služby Azure Cosmos DB](/rest/api/documentdb/) pro interakci s emulátor. Emulátor DB Cosmos Azure také zahrnuje integrovanou Průzkumníku dat, která umožňuje vytvářet kolekce pro SQL a rozhraní API MongoDB a zobrazení a úpravám dokumentů bez psaní jakéhokoli kódu.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(

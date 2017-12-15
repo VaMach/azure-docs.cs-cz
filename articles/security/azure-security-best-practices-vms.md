@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1af02c90c6a97bed612903de438b4d8c26be19b6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Doporučené postupy pro zabezpečení virtuálního počítače Azure
 
@@ -51,7 +51,7 @@ Prvním krokem při ochraně virtuálního počítače je zajistit, aby mohly je
 
 Virtuální počítače, které patří do skupiny prostředků přirozeně dědit jejími zásadami. Doporučujeme tuto metodu pro správu virtuálních počítačů, ale můžete taky řídit přístup ke jednotlivé zásady virtuálních počítačů pomocí [řízení přístupu na základě role (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-Když povolíte zásady Resource Manager a RBAC pro řízení přístupu virtuálních počítačů, můžete k vylepšování celkové zabezpečení virtuálních počítačů. Doporučujeme, abyste konsolidovat virtuálních počítačů s stejný životní cyklus do stejné skupiny prostředků. Pomocí skupin prostředků, můžete nasadit, monitorování a souhrnné náklady pro vaše prostředky fakturace. Pokud chcete povolit uživatelům přístup a nastavení virtuálních počítačů, použijte [alespoň oprávnění přístupu](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). A při přiřazení oprávnění pro uživatele, v úmyslu používat následující předdefinované role Azure:
+Když povolíte zásady Resource Manager a RBAC pro řízení přístupu virtuálních počítačů, můžete k vylepšování celkové zabezpečení virtuálních počítačů. Doporučujeme, abyste konsolidovat virtuálních počítačů s stejný životní cyklus do stejné skupiny prostředků. Pomocí skupin prostředků, můžete nasadit, monitorování a souhrnné náklady pro vaše prostředky fakturace. Pokud chcete povolit uživatelům přístup a nastavení virtuálních počítačů, použijte [alespoň oprávnění přístupu](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). A při přiřazení oprávnění pro uživatele, v úmyslu používat následující předdefinované role Azure:
 
 - [Virtuální počítač Přispěvatel](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): můžete spravovat virtuální počítače, ale není virtuální sítě nebo úložiště účet ke kterému jsou připojené.
 - [Classic Přispěvatel virtuálních počítačů](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): můžete spravovat virtuální počítače vytvořené pomocí modelu nasazení classic, ale není virtuální sítě nebo úložiště účet ke kterému jsou připojené virtuální počítače.
@@ -80,7 +80,7 @@ Organizace, které není vynutit omezení přístup k síti na straně Internetu
 
 Můžete použít šifrování disku, což zajistí ochranu dat, aby splňovaly vaše požadavky na dodržování předpisů a zabezpečení organizace. Vaše organizace měli zvážit použití šifrování pro zmírnění rizika data související s neoprávněný přístup. Doporučujeme také šifrování jednotky, než k nim napíšete citlivá data.
 
-Ujistěte se, že šifrování dat svazků virtuálních počítačů k ochraně je uložená v účtu úložiště Azure. Zabezpečit šifrovacích klíčů a tajný klíč pomocí [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
+Ujistěte se, že šifrování dat svazků virtuálních počítačů k ochraně je uložená v účtu úložiště Azure. Zabezpečit šifrovacích klíčů a tajný klíč pomocí [Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/).
 
 Organizace, které není vynuceno šifrování dat se zveřejňují více pro problémy s integritou dat. Například může neoprávněným nebo neautorizovaných serverů uživatelů odcizit data v ohrožené účty nebo získání neoprávněného přístupu k datům programového v ClearFormat. Kromě toho, s ohledem na těchto rizik, pro dosažení souladu s předpisy odvětví, společnosti musí prokázat jejich výkonu opatrností a použití ovládacích prvků správné zabezpečení pro zvýšení zabezpečení svá data.
 
@@ -122,7 +122,7 @@ Organizace, které nevynucují postavení silné zabezpečení pro jejich virtu�
 
 Zneužití prostředku může být problém, když počítač procesy spotřebovávají více prostředků, než by měly. Problémy s výkonem se virtuální počítač může vést k přerušení služby, která porušuje zásadu zabezpečení dostupnosti. Z tohoto důvodu je nutné k monitorování virtuálních počítačů přístupu není pouze reaktivně při problému dochází, ale také proaktivně proti základní výkon naměřenou při běžném provozu.
 
-Analýzou [soubory protokolů Azure diagnostiky](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), můžete sledovat vaše prostředky virtuálních počítačů a identifikovat potenciální problémy, které může dojít k ohrožení výkon a dostupnost. Rozšíření diagnostiky Azure nabízí funkce monitorování a Diagnostika na virtuálních počítačích se systémem Windows. Tyto možnosti můžete povolit jako součást, přiložením rozšíření [šablony Azure Resource Manageru](../virtual-machines/windows/extensions-diagnostics-template.md).
+Analýzou [soubory protokolů Azure diagnostiky](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), můžete sledovat vaše prostředky virtuálních počítačů a identifikovat potenciální problémy, které může dojít k ohrožení výkon a dostupnost. Rozšíření diagnostiky Azure nabízí funkce monitorování a Diagnostika na virtuálních počítačích se systémem Windows. Tyto možnosti můžete povolit jako součást, přiložením rozšíření [šablony Azure Resource Manageru](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Můžete také použít [Azure monitorování](../monitoring-and-diagnostics/monitoring-overview-metrics.md) získat přehled o stavu vaší prostředků.
 

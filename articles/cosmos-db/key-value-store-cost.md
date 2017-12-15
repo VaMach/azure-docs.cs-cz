@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 189f576f9ead5d67b76b3e47c312f3de76df77fe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e6f87cd82ebe31965fcaac1f66d2df03fd58294f
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure DB Cosmos jako hodnota klíče úložiště – přehled nákladů
 
-Azure Cosmos DB je globálně distribuované a více modelech databáze služby pro vytváření aplikací s vysokou dostupností, ve velkém měřítku snadno. Ve výchozím nastavení Azure Cosmos DB automaticky indexuje všechna data, která ingestuje efektivně. To umožňuje rychlou a konzistentní [SQL](documentdb-sql-query.md) (a [JavaScript](programming.md)) dotazy na jakýkoli druh data. 
+Azure Cosmos DB je globálně distribuované a více modelech databáze služby pro vytváření aplikací s vysokou dostupností, ve velkém měřítku snadno. Ve výchozím nastavení Azure Cosmos DB automaticky indexuje všechna data, která ingestuje efektivně. To umožňuje rychlou a konzistentní [SQL](sql-api-sql-query.md) (a [JavaScript](programming.md)) dotazy na jakýkoli druh data. 
 
 Tento článek popisuje náklady na databázi Azure Cosmos pro jednoduché zápis a operace čtení, pokud se používá jako úložiště dvojic klíč/hodnota. Zápisu operace zahrnují vložení, nahradí, odstranění a upserts dokumentů. Kromě toho, která zaručí 99,99 % smlouva SLA o dostupnosti pro všechny účty jedné oblasti a všechny oblasti s více účty s volný konzistence a 99.999 % čtení dostupnosti pro všechny účty databáze více oblast zaručit Azure Cosmos DB nabízí < 10 ms latence pro přečte a < 15-ms latence (indexované), zapíše na 99th percentil. 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe6612e8c3fb557097866b23bad32d7edc45492f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0338fb386fc4da3f34cb4e810dbd57d50b5d5329
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Přesun dat do a z databáze Cosmos Azure pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -489,7 +489,7 @@ Azure Cosmos DB je úložiště typu NoSQL pro dokumenty JSON, kde jsou povoleny
 2. **Otázka:** jak již nemá opakování kopii Azure Cosmos DB věcech zkopírovat záznamy?
 
     **Odpověď:** Pokud záznamy na pole "ID" a kopírování pokusí vložit záznam se stejným ID, operace kopírování vrátí chybu.  
-3. **Otázka:** podporuje služby Data Factory [rozsah nebo dělení dat na základě hodnoty hash](../../cosmos-db/documentdb-partition-data.md)?
+3. **Otázka:** podporuje služby Data Factory [rozsah nebo dělení dat na základě hodnoty hash](../../cosmos-db/sql-api-partition-data.md)?
 
     **Odpověď:** ne.
 4. **Otázka:** můžete zadat více než jednu kolekci Azure Cosmos DB pro tabulku?

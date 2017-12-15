@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 9838f0810f4827df3eb4f9407d4d4fbc1ad0ff4d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: a0e4df0ef0a1c873f1efcac1d8dbfe3cada18218
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-file"></a>Nasazení aplikace do Azure App Service pomocí souboru ZIP
 
@@ -25,7 +25,7 @@ Tento článek ukazuje, jak použít soubor ZIP k nasazení vaší webové aplik
 
 Toto nasazení souboru ZIP používá stejnou službu Kudu nasazení průběžné na základě integrace této zajišťuje. Kudu podporuje následující funkce pro nasazení soubor ZIP: 
 
-- Odstranění souborů pozůstatek předchozího nasazení.
+- Odstraňování souborů zbyly z předchozí nasazení.
 - Možnost Zapnout výchozí proces sestavení, která zahrnuje obnovení balíčků.
 - [Vlastní nastavení nasazení](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), včetně spouštění skriptů nasazení.  
 - Protokoly nasazení. 
@@ -92,7 +92,7 @@ Chcete-li zobrazit seznam nasazení pro tuto aplikaci, musíte použít rozhran�
 
 Pro pokročilejší scénáře nasazení, zkuste [nasazení do Azure s Gitem](app-service-deploy-local-git.md). Na základě Git nasazení do Azure umožňuje verzí, obnovení balíčků, MSBuild a další.
 
-## <a name="more-resources"></a>Další materiály
+## <a name="more-resources"></a>Další zdroje informací
 
 * [Kudu: Nasazení ze souboru zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Přihlašovací údaje pro nasazení služby Azure App Service](app-service-deploy-ftp.md)

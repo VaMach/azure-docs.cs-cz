@@ -1,4 +1,4 @@
-Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#create) vytvořte plán služby App Service.
+Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) vytvořte plán služby App Service.
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 

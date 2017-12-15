@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Správa Azure Cosmos DB v Azure Storage Explorer (Preview)
 
@@ -32,7 +32,7 @@ V tomto článku můžete další informace o použití Průzkumníka úložišt
 
 ## <a name="prerequisites"></a>Požadavky
 
-Účet Azure Cosmos DB pro SQL API nebo rozhraní API MongoDB. Pokud nemáte účet, můžete vytvořit jeden na portálu Azure jak je popsáno v [Cosmos databázi Azure: sestavení rozhraní SQL API webové aplikace pomocí rozhraní .NET a portálu Azure](create-documentdb-dotnet.md).
+Účet Azure Cosmos DB pro SQL API nebo rozhraní API MongoDB. Pokud nemáte účet, můžete vytvořit jeden na portálu Azure jak je popsáno v [Cosmos databázi Azure: sestavení rozhraní SQL API webové aplikace pomocí rozhraní .NET a portálu Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalace
 
@@ -137,7 +137,7 @@ Chcete-li vytvořit nový dokument, otevřete **dokumenty** v levém okně klikn
 #### <a name="delete-a-document"></a>Odstranění dokumentu
 Klikněte **odstranit** tlačítko Odstranit vybraný dokument.
 #### <a name="query-for-documents"></a>Dotaz pro dokumenty
-Upravit filtr dokumentu zadáním [dotazu SQL](documentdb-sql-query.md) a pak klikněte na **použít**.
+Upravit filtr dokumentu zadáním [dotazu SQL](sql-api-sql-query.md) a pak klikněte na **použít**.
 
 ![Filtr](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 

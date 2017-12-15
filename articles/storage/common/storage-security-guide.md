@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-storage-security-guide"></a>Průvodce zabezpečením služby Azure Storage
 ## <a name="overview"></a>Přehled
@@ -295,7 +295,7 @@ Je toto nastavení, která se použije k účtu úložiště celý. Můžete pov
 
 V tomto okamžiku klíče používané k šifrování spravuje Microsoft. Jsme původně generování klíčů a spravovat zabezpečeného úložiště klíčů, jakož i regulární otočení podle definice interní zásady společnosti Microsoft. V budoucnu získat schopnost spravovat šifrovacích klíčů a zadání cesty migrace z klíčů spravovaný společností Microsoft pro klíče spravovaného zákazníkem.
 
-Tato funkce je k dispozici pro Standard a Premium Storage účty, které jsou vytvořené pomocí modelu nasazení Resource Manager. SSE se vztahuje pouze na objekty BLOB, objekty BLOB stránky, bloků a doplňovací objekty BLOB. Jiné typy dat, včetně tabulek, front a soubory, nebudou šifrována.
+Tato funkce je k dispozici pro Standard a Premium Storage účty, které jsou vytvořené pomocí modelu nasazení Resource Manager. SSE platí pro jakýkoli druh dat: bloku, objektů BLOB stránky, doplňovací objekty BLOB, tabulky, fronty a soubory.
 
 Data jsou zašifrována, pouze pokud je zapnuto SSE a budou data zapsána do úložiště objektů Blob. Povolení nebo zakázání SSE nemá negativní vliv na existující data. Jinými slovy Pokud povolíte toto šifrování, se nebude přejděte zpět a šifrovat data, která již existuje; ani se dešifrovat data, která už při zakázání SSE.
 
@@ -380,7 +380,7 @@ Pomocí šifrování na straně klienta můžete šifrovat entity tabulky, front
 #### <a name="storage-service-encryption-sse"></a>Šifrování služby úložiště (SSE)
 SSE spravuje Azure Storage. Pomocí SSE neposkytuje pro zabezpečení přenášených dat, ale šifrování dat, jako je zapsán do úložiště Azure. Neexistuje žádný vliv na výkon, při použití této funkce.
 
-Můžete pouze šifrování objekty BLOB bloku, doplňovací objekty BLOB a objektům BLOB pomocí SSE stránky. Pokud potřebujete k šifrování dat v tabulce nebo data fronty, měli byste zvážit použití šifrování na straně klienta.
+Můžete šifrovat jakýkoli druh data účtu úložiště pomocí SSE (bloku, doplňovací objekty BLOB, objekty BLOB stránky, data tabulky, fronty data a soubory).
 
 Pokud máte archiv nebo knihovna soubory virtuálního pevného disku, které můžete použít jako základ pro vytváření nových virtuálních počítačů, můžete vytvořit nový účet úložiště, povolte SSE a pak nahrajte soubory virtuálního pevného disku k tomuto účtu. Tyto soubory virtuálního pevného disku, bude se šifrovat úložiště Azure.
 

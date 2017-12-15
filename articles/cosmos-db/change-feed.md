@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: e825968981df1aaee4ceb037995209ba48a8f4ec
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Práce se změnami kanálu podpory v Azure Cosmos DB
 
@@ -90,11 +90,11 @@ Aktivační události lze vytvořit na portálu Azure Functions na portálu Azur
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Pomocí sady SDK
 
-[SQL SDK](documentdb-sdk-dotnet.md) pro Azure Cosmos DB vám dává všechny ke čtení a správa změn, kanálu. Ale s skvělé power obsahuje příliš velké množství odpovědnosti. Pokud chcete spravovat kontrolní body, řeší dokumentu pořadová čísla a mít podrobnou kontrolu nad klíče oddílů, pak pomocí sady SDK může mít správný přístup.
+[SQL SDK](sql-api-sdk-dotnet.md) pro Azure Cosmos DB vám dává všechny ke čtení a správa změn, kanálu. Ale s skvělé power obsahuje příliš velké množství odpovědnosti. Pokud chcete spravovat kontrolní body, řeší dokumentu pořadová čísla a mít podrobnou kontrolu nad klíče oddílů, pak pomocí sady SDK může mít správný přístup.
 
 Tato část vás provede jak používat sadu SDK SQL pro práci s změnu informačního kanálu.
 
-1. Nejdříve si přečtěte následující prostředky z appconfig. Pokyny k načítání koncový bod a autorizační klíč jsou k dispozici v [aktualizovat připojovací řetězec](create-documentdb-dotnet.md#update-your-connection-string).
+1. Nejdříve si přečtěte následující prostředky z appconfig. Pokyny k načítání koncový bod a autorizační klíč jsou k dispozici v [aktualizovat připojovací řetězec](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Ano pole kontrolní bod je právě uchovávání pořadové číslo položky pro
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Použití knihovny změnu kanálu procesoru 
 
-[Knihovny Azure Cosmos DB změnu kanálu procesoru](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) můžete snadno distribuovat zpracování událostí napříč více příjemců. Tato knihovna zjednodušuje čtení změny mezi oddílů a paralelně fungujících více vláken.
+[Knihovny Azure Cosmos DB změnu kanálu procesoru](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) můžete snadno distribuovat zpracování událostí napříč více příjemců. Tato knihovna zjednodušuje čtení změny mezi oddílů a paralelně fungujících více vláken.
 
 Hlavní výhodou knihovny změnu kanálu procesoru je, že nemusíte spravovat každý oddíl a token pokračování a vy nemusíte ručně dotazování každou kolekci.
 
@@ -276,11 +276,11 @@ Další informace o databázi Cosmos Azure pomocí Azure Functions najdete v č�
 
 Další informace o použití knihovny změnu kanálu procesoru použijte v následujících zdrojích informací:
 
-* [Stránka informací o](documentdb-sdk-dotnet-changefeed.md) 
+* [Stránka informací o](sql-api-sdk-dotnet-changefeed.md) 
 * [Balíček Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Ukázkový kód zobrazující kroky 1 až 6 výše](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Další ukázky z webu GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Další informace o použití změn kanálu pomocí sady SDK použijte v následujících zdrojích informací:
 
-* [Stránka informace o sadě SDK](documentdb-sdk-dotnet.md)
+* [Stránka informace o sadě SDK](sql-api-sdk-dotnet.md)

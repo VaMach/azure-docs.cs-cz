@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Řešení potíží s postupy pomocí portálu Azure
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Tento příklad používá jenom systémové trasy, stejný postup slouží k ur
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Zobrazit účinné postupy pro virtuální počítač
 Agregace tras, které se použijí k virtuálnímu počítači najdete proveďte následující kroky:
 
-1. Přihlášení k portálu Azure v https://portal.azure.com.
+1. Přihlášení k portálu Azure v https://portal.azure.com. Musí mít váš účet přiřazenou *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operace pro síťové rozhraní. Zjistěte, jak přiřadit operations účty, najdete v tématu [vytvářet vlastní role pro řízení přístupu](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Klikněte na tlačítko **další služby**, pak klikněte na tlačítko **virtuální počítače** v seznamu, který se zobrazí.
 3. Vyberte virtuální počítač ze seznamu, který se zobrazí řešení a zobrazí se okno virtuálních počítačů s možnostmi.
 4. Klikněte na tlačítko **Diagnostikujte & řešení problémů** a pak vyberte častých problémů. V tomto příkladu **nelze se připojit k virtuálnímu počítači s Windows** je vybrána.
@@ -137,7 +137,7 @@ Pokud kontrola seznam tras vrátí mějte na paměti několik akcí:
 
 * Směrování je založena na nejdelší shody předpony (LPM) mezi udr, směrování protokolu BGP a systému. Pokud existuje víc tras se stejnou shodou LPM, pak trasa se vybere na základě původu v následujícím pořadí:
 
-  * Trasy definované uživatelem
+  * Trasa definovaná uživatelem
   * Trasa protokolu BGP
   * Trasy systému (výchozí)
 

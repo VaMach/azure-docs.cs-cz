@@ -12,28 +12,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/13/2017
 ms.author: juluk
-ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 129b43db85a0962005352e0f1e6ad2ad3be2c7d5
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Přehled prostředí cloudu Azure
 Prostředí Azure Cloud je interaktivní, přístupných prohlížeče prostředí pro správu prostředků Azure.
 Nabízí flexibilitu zvolit prostředí shell, které nejlépe vyhovuje způsobu práce.
 Uživatelé Linuxu si mohou vybrat Bash. Uživatelé Windows se mohou rozhodnout pro PowerShell.
 
-Spustit prostřednictvím portálu Azure pomocí ikony prostředí cloudu:
+Zkuste z shell.azure.com pomocí tohoto tlačítka.
+
+[![](https://shell.azure.com/images/launchcloudshell.png "Spusťte prostředí cloudu Azure")](https://shell.azure.com)
+
+Zkuste z portálu Azure pomocí ikony cloudové prostředí.
 
 ![Spuštění portálu](media/overview/portal-launch-icon.png)
-
-Z rozevíracího seznamu pro výběr prostředí využívají Bash nebo prostředí PowerShell:
-
-![Bash v prostředí cloudu](media/overview/overview-bash-pic.png)
-
-![Prostředí PowerShell v prostředí cloudu (Preview)](media/overview/overview-ps-pic.png)
 
 ## <a name="features"></a>Funkce
 ### <a name="browser-based-shell-experience"></a>Prostředí shell založené na prohlížeči
@@ -41,23 +39,29 @@ Cloudové prostředí umožňuje přístup k založené na prohlížeči příka
 Můžete zadat využívání cloudové prostředí pro práci untethered z místního počítače způsobem, jenom do cloudu.
 
 ### <a name="choice-of-preferred-shell-experience"></a>Volba upřednostňované prostředí prostředí
-Azure Cloud Shell vám dává možnost vybrat si prostředí, které nejlépe vyhovuje stylu vaší práce.
-Uživatelé Linux můžete zvolit Bash v prostředí cloudu, zatímco uživatelé s Windows můžete zvolit prostředí PowerShell v prostředí cloudu (Preview).
+Linux uživatelé mohou používat Bash v prostředí cloudu i uživatelé s Windows můžete pomocí prostředí PowerShell v prostředí cloudu (Preview) z rozevíracího seznamu prostředí.
+
+![Bash v prostředí cloudu](media/overview/overview-bash-pic.png)
+
+![Prostředí PowerShell v prostředí cloudu (Preview)](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Ověřený a konfiguraci Azure pracovní stanice
-Cloudové prostředí obsahuje spravované společností Microsoft, tak, aby je předem nainstalovaná pomocí oblíbené nástroje příkazového řádku a podpora jazyků, abyste mohli pracovat rychleji. Kromě toho cloudové prostředí bezpečně ověřuje automaticky pro okamžitý přístup k prostředkům prostřednictvím rutin 2.0 rozhraní příkazového řádku Azure nebo Azure PowerShell.
+Tak se oblíbených nástrojů příkazového řádku a jazyková podpora prostředí cloudu spravovaného společností Microsoft. Cloudové prostředí také bezpečně ověřuje automaticky pro okamžitý přístup k prostředkům prostřednictvím rutin 2.0 rozhraní příkazového řádku Azure nebo Azure PowerShell.
 
 Zobrazit v seznamu úplné nástrojů [prostředí Bash](features.md#tools) a [prostředí PowerShell (Preview).](features-powershell.md#tools)
 
 ### <a name="multiple-access-points"></a>Několik přístupových bodů
-Kromě cloudové prostředí, je k dispozici na portálu Azure je také přístupné:
+Cloudové prostředí je flexibilní nástroj, který lze použít z:
+* [Portal.Azure.com](https://portal.azure.com)
+* [Shell.Azure.com](https://shell.azure.com)
 * [Dokumentace Azure "Vyzkoušet" 2.0 rozhraní příkazového řádku](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 * [Mobilní aplikace Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [Rozšíření sady Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Účet Azure kód rozšíření sady Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Připojení úložiště Microsoft Azure Files
-Cloudové prostředí počítače jsou dočasné a v důsledku vyžadují připojit jako soubory Azure sdílenou složku `clouddrive` udržení adresáře $Home.
-Při prvním spuštění prostředí cloudu vás vyzve k vytvoření skupiny prostředků účet úložiště a soubor Azure sdílet vaším jménem. To je jednorázový krok a bude automaticky připojen pro všechny relace. Jednu sdílenou složku Azure lze mapovat a použije Bash a prostředí PowerShell v prostředí cloudu (Preview).
+Cloudové prostředí počítače jsou dočasné a vyžadují připojit jako soubory Azure sdílenou složku `clouddrive` se zachovat svoje soubory.
+
+Při prvním spuštění prostředí cloudu vás vyzve k vytvoření prostředku skupiny, účet úložiště a Azure Files sdílet vaším jménem. To je jednorázový krok a bude automaticky připojen pro všechny relace. Sdílení souborů lze mapovat a použije Bash a prostředí PowerShell v prostředí cloudu (Preview).
 
 #### <a name="create-new-storage"></a>Vytvoření nového úložiště
 ![](media/overview/basic-storage.png)
@@ -77,7 +81,9 @@ Vaším jménem vytvoří tři zdroje:
 
 Upřesňující možnost je určen k přidružení stávající prostředky pro cloudové prostředí.
 Do příkazového řádku instalace úložiště klikněte na tlačítko "Zobrazit upřesňující nastavení" zobrazte další možnosti.
-Rozevírací seznamy jsou filtrovány přiřazené oblast prostředí cloudu a místně nebo globálně redundantní úložiště účtů.
+
+> [!Note]
+> Rozevírací seznamy jsou filtrovány předem přiřazené cloudové prostředí oblasti a účty úložiště LRS nebo GRS.
 
 [Další informace o prostředí cloudové úložiště, aktualizace sdílené složky Azure a nahrávání nebo stahování souborů.](persisting-shell-storage.md)
 
@@ -87,16 +93,10 @@ Rozevírací seznamy jsou filtrovány přiřazené oblast prostředí cloudu a m
 * Cloudové prostředí vyžaduje sdílenou složku Azure chcete připojit
 * Cloudové prostředí používá stejnou sdílenou složkou Azure pro Bash a prostředí PowerShell
 * Cloudové prostředí je přiřazený jeden počítač na uživatelský účet
+* Bash potrvají $Home pomocí bitové kopie 5 GB uchovávat do sdílené složky
 * Máte nastavená oprávnění jako běžný uživatel Linux v Bash
 
 Další informace o funkcích v [Bash v prostředí cloudu](features.md) a [prostředí PowerShell v prostředí cloudu (Preview)](features-powershell.md).
-
-## <a name="examples"></a>Příklady
-* Použít skripty pro automatizaci úloh správy Azure
-* Současně spravovat prostředky Azure prostřednictvím portálu Azure a nástroje příkazového řádku Azure
-* Test-Drive rutiny 2.0 rozhraní příkazového řádku Azure nebo Azure PowerShell
-
-Vyzkoušejte tyto příklady v quickstarts pro [Bash v prostředí cloudu](quickstart.md) a [prostředí PowerShell v prostředí cloudu (Preview)](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Ceny
 Tento počítač hostování prostředí cloudu je bezplatná s předpoklad připojené sdílené složky Azure Files. Náklady na úložiště regulární použít.

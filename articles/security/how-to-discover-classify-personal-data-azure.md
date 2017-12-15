@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39286104474ae0f91195ab578a58dacdb2f27d18
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Zjistit, identifikovat a klasifikovat osobních údajů v Microsoft Azure
 
@@ -183,9 +183,9 @@ příspěvku na blogu. A zkontrolovat, přečtěte si další odkazy níže uved
 
 Začátku se základy, přejděte [CosmosD databázi Azure: jak dotazovat pomocí SQL](../cosmos-db/tutorial-query-documentdb.md) kurzu. Tento kurz obsahuje ukázkové dokumentu a dva ukázkové dotazy SQL a výsledky.
 
-Další podrobné pokyny k vytváření dotazů SQL, najdete v článku [dotazy SQL pro rozhraní API služby Azure Cosmos DB dokumentu DB.](../cosmos-db/documentdb-sql-query.md)
+Další podrobné pokyny k vytváření dotazů SQL, najdete v článku [dotazy SQL pro rozhraní API služby Azure Cosmos DB dokumentu DB.](../cosmos-db/sql-api-sql-query.md)
 
-Pokud jste pro Azure Cosmos DB nové a chcete se dozvíte, jak k vytvoření databáze, přidejte do kolekce a přidat data, navštivte [Cosmos databázi Azure: sestavení webové aplikace SQL API](../cosmos-db/create-documentdb-dotnet.md) rychlý úvodní kurz. Pokud chcete to udělat v jiném jazyce než v rozhraní .NET, například Java nebo Python, právě vyberte upřednostňovaný jazyk po získání do lokality.
+Pokud jste pro Azure Cosmos DB nové a chcete se dozvíte, jak k vytvoření databáze, přidejte do kolekce a přidat data, navštivte [Cosmos databázi Azure: sestavení webové aplikace SQL API](../cosmos-db/create-sql-api-dotnet.md) rychlý úvodní kurz. Pokud chcete to udělat v jiném jazyce než v rozhraní .NET, například Java nebo Python, právě vyberte upřednostňovaný jazyk po získání do lokality.
 
 ## <a name="next-steps"></a>Další kroky
 

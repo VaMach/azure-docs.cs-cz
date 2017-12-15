@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Vytvoření webové aplikace Docker Python a PostgreSQL v Azure
 
@@ -121,7 +121,7 @@ V tomto kroku vytvoříte databázi PostgreSQL v Azure. Po nasazení aplikace do
 
 ### <a name="log-in-to-azure"></a>Přihlaste se k Azure.
 
-Nyní se chystáte použít 2.0 rozhraní příkazového řádku Azure k vytvoření prostředky potřebné k hostování vaší aplikace Python ve webové aplikaci pro kontejnery.  Přihlaste se k předplatnému Azure pomocí příkazu [az login](/cli/azure/#az_login) a postupujte podle pokynů na obrazovce.
+Nyní se chystáte použít 2.0 rozhraní příkazového řádku Azure k vytvoření prostředky potřebné k hostování vaší aplikace Python ve webové aplikaci pro kontejnery.  Přihlaste se k předplatnému Azure pomocí příkazu [az login](/cli/azure/?view=azure-cli-latest#az_login) a postupujte podle pokynů na obrazovce.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Vytvoření skupiny prostředků
 
-Vytvořte pomocí příkazu [az group create](/cli/azure/group#az_group_create) [skupinu prostředků](../../azure-resource-manager/resource-group-overview.md).
+Vytvořte pomocí příkazu [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create) [skupinu prostředků](../../azure-resource-manager/resource-group-overview.md).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,11 +139,11 @@ Následující příklad vytvoří skupinu prostředků v oblasti západní USA:
 az group create --name myResourceGroup --location "West US"
 ```
 
-Použití [az služby App Service seznamu umístění](/cli/azure/appservice#az_appservice_list_locations) příkaz rozhraní příkazového řádku Azure k seznamu dostupných umístění.
+Použití [az služby App Service seznamu umístění](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) příkaz rozhraní příkazového řádku Azure k seznamu dostupných umístění.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Vytvoření serveru Azure Database for PostgreSQL
 
-Vytvoření serveru PostgreSQL s [az postgres server vytvořit](/cli/azure/postgres/server#az_postgres_server_create) příkaz.
+Vytvoření serveru PostgreSQL s [az postgres server vytvořit](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) příkaz.
 
 V následujícím příkazu nahraďte název jedinečný serveru  *\<postgresql_name >* zástupný symbol a uživatel název  *\<admin_username >* zástupný symbol. Název serveru slouží jako součást váš koncový bod PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), takže název musí být jedinečný v rámci všech serverech v Azure. Uživatelské jméno je pro uživatelský účet správce počáteční databáze. Zobrazí se výzva k vyberte heslo pro tohoto uživatele.
 
@@ -364,7 +364,7 @@ V tomto kroku nasadíte Docker na základě kontejneru aplikace Python Flask do 
 
 ### <a name="create-an-app-service-plan"></a>Vytvoření plánu služby App Service
 
-Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) vytvořte plán služby App Service.
+Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) vytvořte plán služby App Service.
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ Když je vytvořen plán služby App Service, rozhraní příkazového řádku A
 
 ### <a name="create-a-web-app"></a>Vytvoření webové aplikace
 
-Vytvoření webové aplikace v *myAppServicePlan* plán služby App Service pomocí [az webapp vytvořit](/cli/azure/webapp#az_webapp_create) příkaz.
+Vytvoření webové aplikace v *myAppServicePlan* plán služby App Service pomocí [az webapp vytvořit](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) příkaz.
 
 Webová aplikace získáte hostování místa k nasazení kódu a poskytuje adresu URL zobrazení nasazené aplikace. Použijte k vytvoření webové aplikace.
 
@@ -445,7 +445,7 @@ Po vytvoření webové aplikace se v rozhraní příkazového řádku Azure CLI 
 
 V tomto kurzu definované proměnné prostředí pro připojení k vaší databázi PostgreSQL.
 
-Ve službě App Service, můžete nastavit proměnné prostředí jako _nastavení aplikace_ pomocí [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) příkaz.
+Ve službě App Service, můžete nastavit proměnné prostředí jako _nastavení aplikace_ pomocí [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) příkaz.
 
 Následující příklad určuje podrobnosti připojení databáze jako nastavení aplikace. Používá také *PORT* proměnnou mapu PORT 5000 z vaší kontejner Docker pro příjem provozu HTTP na portu 80.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 660c0fbe80af125a840ef9ae324a72261c8adc24
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Běžné případy použití Azure Cosmos DB
 Tento článek obsahuje přehled několik běžné případy použití pro Azure Cosmos DB.  Doporučení v tomto článku sloužit jako výchozí bod, když budete vyvíjet aplikace s Cosmos DB.   
@@ -105,7 +105,7 @@ Formát JSON, formátu nepodporuje Cosmos databáze, je ve formátu efektivní p
 ![Azure Cosmos DB webové aplikace referenční architektura](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>Další kroky
-Chcete-li začít s Azure Cosmos DB, postupujte podle našich [rychlé zahájení](create-documentdb-dotnet.md), který vás provede procesem vytvoření účtu a úvod do Cosmos DB. 
+Chcete-li začít s Azure Cosmos DB, postupujte podle našich [rychlé zahájení](create-sql-api-dotnet.md), který vás provede procesem vytvoření účtu a úvod do Cosmos DB. 
 
 Nebo, pokud vás zajímají další informace o použití Cosmos DB, jsou dostupné následující scénáře zákazníka:
 

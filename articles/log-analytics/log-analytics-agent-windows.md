@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 473b8d1a735f4b6b1dfd0935f9d6950431f3d245
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 35e271f943901091041f7b1e9fad6cb9cd46df5b
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Připojení počítače se systémem Windows do služby analýzy protokolů Azure
 
@@ -32,6 +32,8 @@ Agent může být nainstalovaná pomocí jedné z následujících metod. Větš
 * Služby Azure Automation konfigurace požadovaného stavu (DSC). Pomocí DSC ve službě Azure Automation pomocí skriptu pro počítače s Windows už nasazená ve vašem prostředí.  
 * Skript prostředí PowerShell.
 * Šablony Resource Manageru pro virtuální počítače běžící v Azure zásobníku Windows místní.  
+
+Pochopit požadavky na sítě a systému nasazení agenta systému Windows, přečtěte si [shromažďovat data z prostředí s nástrojem Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
 
 ## <a name="obtain-workspace-id-and-key"></a>Získání ID a klíče pracovního prostoru
 Před instalací Microsoft Monitoring agenta pro Windows, je nutné ID a klíč vašeho pracovního prostoru analýzy protokolů.  Tyto informace jsou nezbytné při instalaci z každé metody instalace správně nakonfigurovat agenta a zajistěte, aby že mohla úspěšně komunikovat s analýzy protokolů.  

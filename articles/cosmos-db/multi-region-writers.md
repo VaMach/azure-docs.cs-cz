@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03000679ef7fc36842b1f55d4d98131dfe400c87
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Více hlavní globálně replikované databáze architektury s Azure Cosmos DB
 Podporuje Azure Cosmos DB připraveného [globální replikace](distribute-data-globally.md), která umožňuje distribuci dat do několika oblastí přístup s nízkou latencí kdekoli v zatížení. Tento model se často používá pro vydavatele nebo příjemce zatížení tam, kde je zapisovač v jedné zeměpisné oblasti a globálně distribuované čtečky v jiných oblastech (čtení). 
@@ -318,6 +318,6 @@ V tomto článku jsme popsané, jak je používat vzory globálně distribuovan�
 * Další informace o tom, jak Azure Cosmos DB podporuje [globální distribuční](distribute-data-globally.md)
 * Další informace o [automatickou a ruční převzetí služeb při selhání v Azure Cosmos DB](regional-failover.md)
 * Další informace o [globální konzistence s Azure Cosmos DB](consistency-levels.md)
-* Vývoj s více oblastí pomocí [Azure Cosmos DB - rozhraní SQL API](tutorial-global-distribution-documentdb.md)
+* Vývoj s více oblastí pomocí [Azure Cosmos DB - rozhraní SQL API](tutorial-global-distribution-sql-api.md)
 * Vývoj s více oblastí pomocí [Azure Cosmos DB - MongoDB rozhraní API](tutorial-global-distribution-MongoDB.md)
 * Vývoj s více oblastí pomocí [Azure Cosmos DB - API tabulky](tutorial-global-distribution-table.md)

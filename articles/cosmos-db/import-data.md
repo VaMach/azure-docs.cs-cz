@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: c22f887f0371f70927d42130b959053ef7a0e5cc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Nástroj pro migraci dat
 
@@ -561,4 +561,4 @@ V tomto kurzu jste provést následující úlohy:
 Teď můžete pokračovat v dalším kurzu a zjistěte, jak zadávat dotazy na data pomocí Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[Postup dotazování dat?](../cosmos-db/tutorial-query-documentdb.md)
+>[Postup dotazování dat?](../cosmos-db/tutorial-query-sql-api.md)

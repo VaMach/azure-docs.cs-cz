@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 560f888776d5b3e5103ee2084b5c3c999f014fad
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Odstraňování běžných chyb nasazení Azure pomocí Azure Resource Manageru
 
@@ -34,7 +34,7 @@ Tento článek popisuje některé běžné chyby nasazení Azure můžete setkat
 | AllocationFailed | Na clusteru nemá k dispozici prostředky nebo nemůže podporovat požadovaná velikost virtuálního počítače. Opakovat požadavek později, nebo požádejte jinou velikost virtuálního počítače. | [Problémy se zřizováním a přidělení Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) a [problémy zřizování a přidělení pro Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Počkejte na dokončení souběžná operace. | |
 | AuthorizationFailed | Váš účet nebo instanční objekt nemá dostatečný přístup k dokončení nasazení. Zkontrolujte roli, kterou váš účet patří do a přístup pro obor nasazení. | [Řízení přístupu Azure na základě rolí](../active-directory/role-based-access-control-configure.md) |
-| Struktura BadRequest | Jste poslali hodnot nasazení, které neodpovídají očekávané pomocí Správce prostředků. Zkontrolujte zprávy vnitřní stav a nápovědu k řešení potíží. | [Odkaz na šablonu](/azure/templates/) a [podporované umístění](resource-manager-template-location.md) |
+| Struktura BadRequest | Jste poslali hodnot nasazení, které neodpovídají očekávané pomocí Správce prostředků. Zkontrolujte zprávy vnitřní stav a nápovědu k řešení potíží. | [Odkaz na šablonu](/azure/templates/) a [podporované umístění](resource-manager-templates-resources.md#location) |
 | Konflikt | Požadujete operace, který není povolen v aktuálním stavu prostředku. Například změna velikosti disku je povolená pouze při vytváření virtuálního počítače, nebo když je virtuální počítač navrácený. | |
 | DeploymentActive | Počkejte, než pro souběžné nasazení do této skupiny prostředků pro dokončení. | |
 | DnsRecordInUse | Název záznamu DNS musí být jedinečný. Buď zadejte jiný název, nebo upravte stávající záznamu. | |
@@ -51,7 +51,7 @@ Tento článek popisuje některé běžné chyby nasazení Azure můžete setkat
 | InvalidTemplate | Zkontrolujte syntaxi šablony chyb. | [Neplatná šablona řešení](resource-manager-invalid-template-errors.md) |
 | LinkedAuthorizationFailed | Zkontrolujte, pokud váš účet patří do stejné klienta jako pro skupinu prostředků, které nasazujete. | |
 | LinkedInvalidPropertyId | ID prostředku pro prostředek není správně řešení. Zkontrolujte, že poskytujete všechny požadované hodnoty pro ID prostředku, včetně ID odběru, název skupiny prostředků, typ prostředku, název nadřazené prostředků (v případě potřeby) a název prostředku. | |
-| LocationRequired | Zadejte umístění prostředku. | [Nastavení umístění](resource-manager-template-location.md) |
+| LocationRequired | Zadejte umístění prostředku. | [Nastavení umístění](resource-manager-templates-resources.md#location) |
 | MissingRegistrationForLocation | Zkontrolujte stav registrace poskytovatele prostředků a podporovaných umístění. | [Vyřešte registrace](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Zaregistrujte své předplatné s poskytovatelem prostředků. | [Vyřešte registrace](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Zkontrolujte stav registrace poskytovatele prostředků. | [Vyřešte registrace](resource-manager-register-provider-errors.md) |

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Data dokumentu pro databáze NoSQL modelování
 Při databází bez schémat, jako je Azure Cosmos databáze, bylo naprosto snadno použít změny do datového modelu byste se měli stále něco některé čas přemýšlení o vaše data. 
@@ -39,7 +39,7 @@ Když spustíte modelování dat v dokumentu úložiště, jako je Azure Cosmos 
 
 Před jsme podrobné informace příliš mnohem dál, dejte nám provést pár kroků zpět a podívejte se na tom, jak něco v relační databázi, předmět, který se řadu nám obeznámeni s může modelu jsme. Následující příklad ukazuje, jak mohou být uloženy osoby v relační databázi. 
 
-![Model relační databáze.](./media/documentdb-modeling-data/relational-data-model.png)
+![Model relační databáze.](./media/sql-api-modeling-data/relational-data-model.png)
 
 Při práci s relačních databází, jsme jste byla výukové let normalizaci, normalizaci, normalizují.
 
@@ -290,7 +290,7 @@ V předchozím příkladu jsme mít vyřadit kolekci bez vazby na vydavatele dok
 ### <a name="how-do-i-model-manymany-relationships"></a>Jak modelu relace m: n?
 V relační databázi *m: n* vztahy jsou často modelován s tabulkami spojení, které právě spojení záznamů z jiných tabulek. 
 
-![Spojování tabulek](./media/documentdb-modeling-data/join-table.png)
+![Spojování tabulek](./media/sql-api-modeling-data/join-table.png)
 
 Můžete mít tendenci replikovat samé použití dokumentů a vytvoření datového modelu, který bude vypadat podobně jako následující.
 
@@ -395,4 +395,4 @@ Stejně, jako je jediný způsob představují část dat na obrazovce, neexistu
 
 Další informace o databázi Cosmos Azure, najdete v tématu služby [dokumentace](https://azure.microsoft.com/documentation/services/cosmos-db/) stránky. 
 
-Abyste pochopili, jak horizontálního oddílu data napříč více oddílů, najdete v tématu [dělení dat v Azure Cosmos DB](documentdb-partition-data.md). 
+Abyste pochopili, jak horizontálního oddílu data napříč více oddílů, najdete v tématu [dělení dat v Azure Cosmos DB](sql-api-partition-data.md). 

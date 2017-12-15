@@ -1,5 +1,5 @@
 
-Pomocí příkazu [az webapp create](/cli/azure/webapp#az_webapp_create) vytvořte aplikaci v plánu služby App Service `myAppServicePlan`. 
+Pomocí příkazu [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) vytvořte aplikaci v plánu služby App Service `myAppServicePlan`. 
 
 Tato webová aplikace poskytuje prostor pro hostování vašeho rozhraní API a adresu URL, na které si můžete nasazenou aplikaci zobrazit.
 

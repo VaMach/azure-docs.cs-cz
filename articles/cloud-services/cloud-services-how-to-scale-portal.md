@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 708b35252429e30b44226030d3d83b928f2a9520
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c2164d36c234309dcd855247cd1c1067de36284c
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Postup konfigurace automatického škálování pro cloudové služby na portálu
 
@@ -39,6 +39,8 @@ Před konfigurací škálování pro vaši aplikaci je třeba zvážit následuj
 * Můžete škálovat také další prostředky spojené s vaším předplatným.
 
 * Povolit vysokou dostupnost vaší aplikace, se ujistěte, že je nasazený s dvěma nebo více instancí role. Další informace najdete v tématu [smlouvy o úrovni služeb](https://azure.microsoft.com/support/legal/sla/).
+
+* Automatické škálování pouze se stane, když jsou všechny role v **připraven** stavu.  
 
 
 ## <a name="where-scale-is-located"></a>Kde se nachází škálování

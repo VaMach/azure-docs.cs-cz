@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Použití vlastních aktivit v kanálu Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,12 +36,11 @@ Existují dva typy aktivit, které můžete použít v kanál služby Azure Data
 
 Pro přesun dat do nebo z úložiště dat, který nepodporuje objekt pro vytváření dat, vytvořit **vlastní aktivity** s vlastní logiky přesun dat a použití aktivity v kanálu. Podobně transformace nebo zpracovat data způsobem, který není podporován službou Data Factory, vytvořte vlastní aktivity s vlastní logikou transformaci dat a použijte aktivitu v kanálu. 
 
-Můžete nakonfigurovat vlastní aktivity ke spuštění na **Azure Batch** fondu virtuálních počítačů nebo systémem Windows **Azure HDInsight** clusteru. Pokud používáte Azure Batch, můžete použít pouze existujícího fondu Azure Batch. Vzhledem k tomu, při použití HDInsight, můžete použít stávající cluster HDInsight nebo clusteru, který se automaticky vytvoří pro můžete na vyžádání za běhu.  
+Můžete nakonfigurovat vlastní aktivity ke spuštění na **Azure Batch** fondu virtuálních počítačů. Pokud používáte Azure Batch, můžete použít pouze existujícího fondu Azure Batch.
 
-Následující postup obsahuje podrobné pokyny pro vytváření vlastních aktivit rozhraní .NET a používání vlastní aktivity v kanálu. Průvodce používá **Azure Batch** propojené služby. Použití Azure HDInsight propojená služba místo, vytvoření propojené služby typu **HDInsight** (vlastní cluster HDInsight) nebo **HDInsightOnDemand** (Data Factory vytvoří cluster služby HDInsight na vyžádání). Potom nakonfigurujte vlastní aktivity používat propojená služba HDInsight. V tématu [použití Azure HDInsight propojené služby](#use-hdinsight-compute-service) část Podrobnosti o použití Azure HDInsight ke spuštění vlastní aktivity.
+Následující postup obsahuje podrobné pokyny pro vytváření vlastních aktivit rozhraní .NET a používání vlastní aktivity v kanálu. Průvodce používá **Azure Batch** propojené služby. 
 
 > [!IMPORTANT]
-> - Vlastní aktivity .NET spustit pouze na clusterech HDInsight se systémem Windows. Alternativní řešení pro toto omezení je pomocí mapy snížit aktivity ke spuštění vlastního kódu Java na clusteru HDInsight se systémem Linux. Další možností je použití fondu virtuálních počítačů služby Azure Batch ke spouštění vlastních aktivit místo použití clusteru HDInsight.
 > - Není možné používat pro přístup k místním zdrojům dat Brána pro správu dat z vlastních aktivit. V současné době [Brána pro správu dat](data-factory-data-management-gateway.md) podporuje pouze aktivity kopírování a aktivity uložené procedury v datové továrně.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Návod: vytvoření vlastní aktivity
@@ -479,8 +478,6 @@ Propojené služby propojují úložiště dat nebo výpočetní služby s objek
 
        Pro **poolName** vlastnost, můžete také zadat ID fondu namísto názvu fondu.
 
-      > [!IMPORTANT]
-      > Služba Data Factory nepodporuje možnost na vyžádání pro Azure Batch, stejně jako pro HDInsight. Vlastní fondu Azure Batch můžete použít pouze v objektu pro vytváření dat Azure.   
     
 
 ### <a name="step-3-create-datasets"></a>Krok 3: Vytvoření datové sady
@@ -786,115 +783,6 @@ V tématu [automatické škálování výpočetních uzlů ve fondu Azure Batch]
 
 Pokud fondu používá výchozí [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), služba Batch může trvat 15 až 30 minut Příprava virtuálního počítače před spuštěním vlastní aktivity.  Pokud fondu používá jiný autoScaleEvaluationInterval, služba Batch může trvat autoScaleEvaluationInterval + 10 minut.
 
-## <a name="use-hdinsight-compute-service"></a>Pomocí HDInsight výpočetní služby
-V tomto návodu jste použili výpočetní Azure Batch pro spuštění vlastní aktivity. Můžete také použít vlastní cluster HDInsight se systémem Windows nebo mít objekt pro vytváření dat vytvořit na vyžádání clusteru HDInsight se systémem Windows a mít vlastní aktivity při spuštění v clusteru HDInsight. Zde jsou základní kroky pro použití clusteru HDInsight.
-
-> [!IMPORTANT]
-> Vlastní aktivity .NET spustit pouze na clusterech HDInsight se systémem Windows. Alternativní řešení pro toto omezení je pomocí mapy snížit aktivity ke spuštění vlastního kódu Java na clusteru HDInsight se systémem Linux. Další možností je použití fondu virtuálních počítačů služby Azure Batch ke spouštění vlastních aktivit místo použití clusteru HDInsight.
- 
-
-1. Vytvoření služby Azure HDInsight propojený.   
-2. Použití HDInsight propojená služba místě **AzureBatchLinkedService** v kódu JSON kanálu.
-
-Pokud chcete otestovat s návodu, změňte **spustit** a **end** časy pro kanál, tak, aby scénáře pomocí služby Azure HDInsight můžete otestovat.
-
-#### <a name="create-azure-hdinsight-linked-service"></a>Vytvoření propojené služby Azure HDInsight
-Služba Azure Data Factory podporuje vytváření clusteru na vyžádání a použít ho ke zpracování vstupu nevytvořila výstupní data. Můžete také vlastní cluster provést stejný. Pokud používáte cluster HDInsight na vyžádání, získá pro každý řez vytvořit cluster. Vzhledem k tomu, pokud chcete použít vlastní cluster HDInsight, cluster je připraven ke zpracování řezu se okamžitě. Proto když používáte cluster na vyžádání, nemusíte vidět výstupní data co když použijete vlastní cluster.
-
-> [!NOTE]
-> V době běhu instance aktivity .NET funguje pouze na jeden uzel pracovního procesu v clusteru HDInsight; nelze ji škálovat ke spuštění na víc uzlů. Více instancí .NET aktivity může běžet paralelně na různých uzlech clusteru HDInsight.
->
->
-
-##### <a name="to-use-an-on-demand-hdinsight-cluster"></a>Na používání clusteru HDInsight na vyžádání
-1. V **portál Azure**, klikněte na tlačítko **vytvořit a nasadit** na domovské stránce objektu pro vytváření dat.
-2. V editoru služby Data Factory, klikněte na tlačítko **nový výpočet** z příkazového řádku a vyberte **clusteru HDInsight na vyžádání** z nabídky.
-3. Skript JSON proveďte následující změny:
-
-   1. Pro **parametr clusterSize** vlastnost, zadejte velikost clusteru HDInsight.
-   2. Pro **timeToLive** vlastnost, zadejte, jak dlouho zákazníka může být nečinnosti, než se odstraní.
-   3. Pro **verze** vlastnost, zadejte verzi HDInsight, kterou chcete použít. Pokud vyloučíte tuto vlastnost, použije se nejnovější verzi.  
-   4. Pro **linkedServiceName**, zadejte **AzureStorageLinkedService**.
-
-        ```JSON
-        {
-           "name": "HDInsightOnDemandLinkedService",
-           "properties": {
-               "type": "HDInsightOnDemand",
-               "typeProperties": {
-                   "clusterSize": 4,
-                   "timeToLive": "00:05:00",
-                   "osType": "Windows",
-                   "linkedServiceName": "AzureStorageLinkedService",
-               }
-           }
-        }
-        ```
-
-    > [!IMPORTANT]
-    > Vlastní aktivity .NET spustit pouze na clusterech HDInsight se systémem Windows. Alternativní řešení pro toto omezení je pomocí mapy snížit aktivity ke spuštění vlastního kódu Java na clusteru HDInsight se systémem Linux. Další možností je použití fondu virtuálních počítačů služby Azure Batch ke spouštění vlastních aktivit místo použití clusteru HDInsight.
-
-4. Propojenou službu nasadíte kliknutím na **Nasadit** na panelu příkazů.
-
-##### <a name="to-use-your-own-hdinsight-cluster"></a>Použití vlastní cluster HDInsight:
-1. V **portál Azure**, klikněte na tlačítko **vytvořit a nasadit** na domovské stránce objektu pro vytváření dat.
-2. V **editoru služby Data Factory**, klikněte na tlačítko **nový výpočet** z příkazového řádku a vyberte **clusteru HDInsight** z nabídky.
-3. Skript JSON proveďte následující změny:
-
-   1. Pro **clusterUri** vlastnost, zadejte adresu URL pro vaše prostředí HDInsight. Příklad: https://<clustername>.azurehdinsight.net/     
-   2. Pro **uživatelské jméno** vlastnost, zadejte uživatelské jméno, který má přístup ke clusteru HDInsight.
-   3. Pro **heslo** vlastnost, zadejte heslo pro uživatele.
-   4. Pro **LinkedServiceName** vlastnost, zadejte **AzureStorageLinkedService**.
-4. Propojenou službu nasadíte kliknutím na **Nasadit** na panelu příkazů.
-
-V tématu [výpočetní propojené služby](data-factory-compute-linked-services.md) podrobnosti.
-
-V **kanálu JSON**, použití HDInsight (na vyžádání nebo vlastní) propojené služby:
-
-```JSON
-{
-  "name": "ADFTutorialPipelineCustom",
-  "properties": {
-    "description": "Use custom activity",
-    "activities": [
-      {
-        "Name": "MyDotNetActivity",
-        "Type": "DotNetActivity",
-        "Inputs": [
-          {
-            "Name": "InputDataset"
-          }
-        ],
-        "Outputs": [
-          {
-            "Name": "OutputDataset"
-          }
-        ],
-        "LinkedServiceName": "HDInsightOnDemandLinkedService",
-        "typeProperties": {
-          "AssemblyName": "MyDotNetActivity.dll",
-          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-          "PackageLinkedService": "AzureStorageLinkedService",
-          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-          "extendedProperties": {
-            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-          }
-        },
-        "Policy": {
-          "Concurrency": 2,
-          "ExecutionPriorityOrder": "OldestFirst",
-          "Retry": 3,
-          "Timeout": "00:30:00",
-          "Delay": "00:00:00"
-        }
-      }
-    ],
-    "start": "2016-11-16T00:00:00Z",
-    "end": "2016-11-16T05:00:00Z",
-    "isPaused": false
-  }
-}
-```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>Vytvoření vlastní aktivity pomocí .NET SDK
 V tomto návodu v tomto článku vytvoříte objekt pro vytváření dat kanál, který používá vlastní aktivity pomocí portálu Azure. Následující kód ukazuje, jak vytvořit objekt pro vytváření dat pomocí .NET SDK. Můžete najít další podrobnosti o použití sady SDK k vytváření prostřednictvím kódu programu kanály v [vytvoření kanálu s aktivitou kopírování pomocí rozhraní API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md) článku. 

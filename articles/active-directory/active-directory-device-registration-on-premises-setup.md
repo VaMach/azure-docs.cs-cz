@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4117414f4605b73d8aab8acc2e788720deff8b99
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Nastavení místního podmíněného přístupu pomocí registrace zařízení služby Azure Active Directory
 Pokud požadujete uživatelům připojení k pracovní ploše svých osobních zařízení pro službu Azure Active Directory (Azure AD) device registration service, můžete svoje zařízení označit jako známé pro vaši organizaci. Toto je podrobný návod k povolení podmíněného přístupu k místním aplikacím pomocí služby Active Directory Federation Services (AD FS) v systému Windows Server 2012 R2.
@@ -101,19 +101,13 @@ Nasazení je nyní dokončen a můžete vyzkoušet některé scénáře. Pomocí
 | Teď, když uživatelé mohou registrovat svá zařízení, můžete vytvořit aplikaci ve službě AD FS, které umožní pouze k registrovaným zařízením zásady přístupu. V této úloze vytvoříte pravidlo přístupu aplikace a vlastní zprávu o odepření přístupu. |[Vytvoření zásad přístupu aplikace a vlastní zprávu při odepření přístupu](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Integraci služby Azure Active Directory s místní služby Active Directory
-Tento krok umožňuje integrovat klientovi Azure AD vaší služby Active Directory v místě pomocí Azure AD Connect. I když kroky jsou k dispozici na portálu Azure classic, poznamenejte si žádné zvláštní pokyny, které jsou uvedené v této části.
 
-1. Přihlaste se k portálu Azure classic pomocí účtu, který je globálním správcem ve službě Azure AD.
-2. V levém podokně vyberte **Active Directory**.
-3. Na kartě **Adresář** vyberte adresář.
-4. Vyberte **integrace adresáře** kartě.
-5. V části **nasadit a spravovat** , postupujte podle kroků 1 až 3 pro integraci místního adresáře služby Azure Active Directory.
-   
-   1. Přidání domény.
-   2. Nainstalujte a spusťte Azure AD Connect pomocí pokynů v [vlastní instalace Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
-   3. Ověření a Správa synchronizace adresářů. Jeden přihlašování pokyny jsou k dispozici v tomto kroku.
-   
-   Kromě toho konfigurace federace se službou AD FS, jak je uvedeno v [vlastní instalace Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
+**Přejděte na téma:**
+
+- [Integrace místních adresářů se službou Azure Active Directory](./connect/active-directory-aadconnect.md) – Chcete-li zkontrolovat koncepční informace.
+
+- [Vlastní instalace Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) – pokyny k instalaci.
+
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Upgradu vašeho schématu Active Directory Domain Services
 > [!NOTE]

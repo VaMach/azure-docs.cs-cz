@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Práce s daty v Azure Cosmos DB
 Azure Cosmos DB nabízí flexibilitu schémat a bohaté indexování prostřednictvím nativní [JSON](http://www.json.org) datového modelu. Všechny prostředky Azure Cosmos DB včetně databází, kolekcí, dokumentů a uložené procedury jsou modelovány a ukládány jako dokumenty JSON. Jako požadavek na vrácení přenosné, JSON (a Azure Cosmos DB) podporuje pouze omezenou sadu základních typů: řetězec, číslo, logickou hodnotu, pole, objekt a hodnotu Null. Ale JSON je flexibilní a umožňují vývojářům a architektury představují složitější typy pomocí těchto primitivních elementů a skládání je jako objekty nebo pole. 
@@ -26,7 +26,7 @@ Azure Cosmos DB nabízí flexibilitu schémat a bohaté indexování prostředni
 Kromě základních typů mnoho aplikace potřebují [data a času](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) typ představují data a časová razítka. Tento článek popisuje, jak mohou vývojáři ukládání, načíst a dotaz na data v databázi Cosmos Azure pomocí sady .NET SDK.
 
 ## <a name="storing-datetimes"></a>Ukládání data a času
-Ve výchozím nastavení [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) serializuje hodnoty DateTime jako [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) řetězce. Většina aplikací můžete použít výchozí řetězcovou reprezentaci pro data a času z následujících důvodů:
+Ve výchozím nastavení [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) serializuje hodnoty DateTime jako [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) řetězce. Většina aplikací můžete použít výchozí řetězcovou reprezentaci pro data a času z následujících důvodů:
 
 * Lze porovnat s hodnotou řetězce a relativní řazení hodnoty DateTime se zachová, i když jsou transformovány na řetězce. 
 * Tento přístup nevyžaduje žádné vlastní kód nebo atributy pro převod z formátu JSON.
@@ -83,11 +83,11 @@ Další informace o tom, jak nakonfigurovat zásady indexování na [Azure Cosmo
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-Další informace o dotazovací jazyk SQL Azure Cosmos DB a poskytovateli LINQ na [dotazování DB Cosmos](documentdb-sql-query.md).
+Další informace o dotazovací jazyk SQL Azure Cosmos DB a poskytovateli LINQ na [dotazování DB Cosmos](sql-api-sql-query.md).
 
 V tomto článku jsme se podívali na postup ukládání, index a dotaz na data a času v Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Další kroky
 * Stažení a spuštění [ukázky kódů v Githubu](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Další informace o [dotazy SQL](documentdb-sql-query.md)
+* Další informace o [dotazy SQL](sql-api-sql-query.md)
 * Další informace o [Azure Cosmos DB indexování zásady](indexing-policies.md)

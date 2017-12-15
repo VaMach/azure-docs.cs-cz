@@ -16,9 +16,9 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6a89db8b93f29c29e935afd94da727d2460af889
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 2580c2109ce33b1ce99aa491f7d0002edf060693
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/14/2017
 ---
@@ -192,7 +192,7 @@ Je možné hostovat nativní Linux aplikací v cloudu pomocí Azure Web Apps. K 
 
 ### <a name="create-a-web-app"></a>Vytvoření webové aplikace
 
-Ve službě Cloud Shell pomocí příkazu [az webapp create](/cli/azure/webapp#create) vytvořte [webovou aplikaci](app-service-linux-intro.md) v plánu služby App Service `myAppServicePlan`. Nezapomeňte nahradit `<app_name>` s jedinečným názvem aplikace a < docker-ID > s ID Docker.
+Ve službě Cloud Shell pomocí příkazu [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) vytvořte [webovou aplikaci](app-service-linux-intro.md) v plánu služby App Service `myAppServicePlan`. Nezapomeňte nahradit `<app_name>` s jedinečným názvem aplikace a < docker-ID > s ID Docker.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -219,7 +219,7 @@ Po vytvoření webové aplikace Azure CLI ukazuje výstup podobně jako v násle
 
 Většina imagí Dockeru mít proměnné prostředí, které musí být nakonfigurované. Pokud používáte stávající image Docker vytvořené někdo jiný, může použít bitovou kopii jiný port než 80. Informuje Azure o port, který používá image pomocí `WEBSITES_PORT` nastavení aplikace. Stránku Githubu [ukázka Pythonu v tomto kurzu](https://github.com/Azure-Samples/docker-django-webapp-linux) ukazuje, které je nutné nastavit `WEBSITES_PORT` k _8000_.
 
-Chcete-li nastavení aplikace, použijte [az webapp konfigurace appsettings aktualizovat](/cli/azure/webapp/config/appsettings#update) příkazu v prostředí cloudu. Nastavení aplikací jsou velká a malá písmena a oddělených mezerami.
+Chcete-li nastavení aplikace, použijte [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) příkazu v prostředí cloudu. Nastavení aplikací jsou velká a malá písmena a oddělených mezerami.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -340,7 +340,7 @@ Blahopřejeme! Vlastní image Docker jste nakonfigurovali pro webovou aplikaci p
 
 V [vytvořit webovou aplikaci](#create-a-web-app), jste zadali bitovou kopii na úložiště Docker Hub v `az webapp create` příkaz. Toto je dostatečně vhodné pro veřejnou bitové kopie. Chcete-li použít privátní bitovou kopii, musíte nakonfigurovat Docker ID účtu a heslo v Azure webové aplikace.
 
-V prostředí cloudu, postupujte podle `az webapp create` s [sadu kontejneru konfigurace webapp az](/cli/azure/webapp/config/container#az_webapp_config_container_set). Nahraďte  *\<app_name >*a také _< docker-id >_ a  _<password>_  pomocí Docker ID a hesla.
+V prostředí cloudu, postupujte podle `az webapp create` s [sadu kontejneru konfigurace webapp az](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Nahraďte  *\<app_name >*a také _< docker-id >_ a  _<password>_  pomocí Docker ID a hesla.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -380,7 +380,7 @@ Azure registru kontejneru je spravovaná služba Docker z Azure pro hostování 
 
 ### <a name="create-an-azure-container-registry"></a>Vytvoření služby Azure Container Registry
 
-V prostředí cloudu, pomocí [az acr vytvořit](https://docs.microsoft.com/cli/azure/acr#az_acr_create) příkazu vytvořte kontejner registru Azure. Předat název skupiny prostředků a `Basic` pro verze SKU. Jsou dostupné edice `Classic`, `Basic`, `Standard`, a `Premium`.
+V prostředí cloudu, pomocí [az acr vytvořit](/cli/azure/acr?view=azure-cli-latest#az_acr_create) příkazu vytvořte kontejner registru Azure. Předat název skupiny prostředků a `Basic` pro verze SKU. Jsou dostupné edice `Classic`, `Basic`, `Standard`, a `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -418,7 +418,7 @@ Use an existing service principal and assign access:
 
 ### <a name="log-in-to-azure-container-registry"></a>Přihlaste se k Azure kontejneru registru
 
-Pro vkládání obrázku do registru, budete muset zadat přihlašovací údaje, takže registru přijímá nabízeného oznámení. Tyto přihlašovací údaje můžete načíst pomocí [az acr zobrazit](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) příkazu v prostředí cloudu. 
+Pro vkládání obrázku do registru, budete muset zadat přihlašovací údaje, takže registru přijímá nabízeného oznámení. Tyto přihlašovací údaje můžete načíst pomocí [az acr zobrazit](/cli/azure/acr?view=azure-cli-latest#az_acr_show) příkazu v prostředí cloudu. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -482,7 +482,7 @@ Výpis bitové kopie v registru potvrdí, že `mydockerimage` je v registru.
 
 Webovou aplikaci pro kontejnery můžete nakonfigurovat tak, aby běžel kontejner uložené v registru kontejner Azure. Pomocí klíče registru kontejner Azure je stejně jako pomocí všechny privátní klíče registru, takže pokud budete muset použít vlastní privátní registru, kroky pro dokončení této úlohy jsou podobné.
 
-V prostředí cloudu, spusťte [az acr pověření zobrazit](/cli/azure/acr/credential#az_acr_credential_show) zobrazíte uživatelské jméno a heslo pro registru kontejner Azure. Zkopírujte uživatelské jméno a jeden z hesla, ve kterém můžete konfigurovat webovou aplikaci v dalším kroku.
+V prostředí cloudu, spusťte [az acr pověření zobrazit](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) zobrazíte uživatelské jméno a heslo pro registru kontejner Azure. Zkopírujte uživatelské jméno a jeden z hesla, ve kterém můžete konfigurovat webovou aplikaci v dalším kroku.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -504,7 +504,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-V prostředí cloudu, spusťte [sadu kontejneru konfigurace webapp az](/cli/azure/webapp/config/container#az_webapp_config_container_set) příkazu přiřaďte vlastní image Docker do webové aplikace. Nahraďte  *\<app_name >*,  *\<docker registru server-url >*,  _\<registru username >_a  _\<heslo >_. Pro kontejner registru Azure  *\<docker registru server-url >* je ve formátu `https://<azure-container-registry-name>.azurecr.io`. 
+V prostředí cloudu, spusťte [sadu kontejneru konfigurace webapp az](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) příkazu přiřaďte vlastní image Docker do webové aplikace. Nahraďte  *\<app_name >*,  *\<docker registru server-url >*,  _\<registru username >_a  _\<heslo >_. Pro kontejner registru Azure  *\<docker registru server-url >* je ve formátu `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

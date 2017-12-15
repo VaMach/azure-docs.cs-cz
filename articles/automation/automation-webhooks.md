@@ -3,7 +3,7 @@ title: "Počínaje webhook, jehož runbook služby Azure Automation | Microsoft 
 description: "Webhook, která umožňuje klientovi spuštění sady runbook ve službě Azure Automation z volání protokolu HTTP.  Tento článek popisuje, jak vytvořit webhook, jehož a postup volání jednoho spuštění runbooku."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: d384a1f6e0f6bf49cf94020265fe5675ffc0029d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1b9b804aa696419b52a03f127c59037c337be66
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Počínaje webhook, jehož runbook služby automatizace Azure
 A *webhooku* umožňuje spustit konkrétní runbook ve službě Azure Automation prostřednictvím jedné žádosti HTTP. To umožňuje externích služeb, jako je například Visual Studio Team Services, GitHub, analýzy protokolů Microsoft Operations Management Suite nebo vlastních aplikací ke spouštění sad runbook bez implementace úplné řešení pomocí rozhraní API služby Azure Automation.  
@@ -85,10 +85,10 @@ Další strategie se se runbook provést některé ověření externí podmínka
 ## <a name="creating-a-webhook"></a>Vytváření webhooku
 Použijte následující postup k vytvoření nové webhooku propojit k sadě runbook na portálu Azure.
 
-1. Z **sady Runbook okno** na portálu Azure klikněte na tlačítko runbook, která webhooku spustí zobrazíte její okno podrobností.
-2. Klikněte na tlačítko **Webhooku** v horní části okna otevřete **přidat Webhooku** okno. <br>
+1. Z **sady Runbook stránky** na portálu Azure klikněte na tlačítko runbook, která webhooku spustí zobrazíte stránku s jeho podrobnostmi.
+2. Klikněte na tlačítko **Webhooku** v horní části stránky otevřete **přidat Webhooku** stránky. <br>
    ![Tlačítko Webhooky](media/automation-webhooks/webhooks-button.png)
-3. Klikněte na tlačítko **vytvořit nové webhooku** otevřete **okno Vytvoření webhooku**.
+3. Klikněte na tlačítko **vytvořit nové webhooku** otevřete **stránka pro vytvoření webhooku**.
 4. Zadejte **název**, **datum vypršení platnosti** webhooku a jestli se má povolit. V tématu [podrobnosti o webhook, jehož](#details-of-a-webhook) pro další informace o těchto vlastností.
 5. Kliknutím na ikonu kopírování a stisknutím Ctrl + C zkopírujte adresu URL webhooku.  Potom zaznamenejte jej na bezpečném místě.  **Po vytvoření webhooku nelze znovu načíst adresu URL.** <br>
    ![Adresa URL Webhooku](media/automation-webhooks/copy-webhook-url.png)

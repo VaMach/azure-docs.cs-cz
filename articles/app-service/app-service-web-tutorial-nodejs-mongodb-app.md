@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c1c18deb41e16ec57eacd8272094dc418503b0fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: 7603625da3f5f54862b2a0ead0ebb68f4fb1cfa8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Vytvoření webové aplikace Node.js a MongoDB v Azure
+
+> [!NOTE]
+> Tento článek nasadí aplikaci do služby App Service v systému Windows. K nasazení do služby App Service na _Linux_, najdete v části [sestavení webové aplikace Node.js a MongoDB ve službě Azure App Service v systému Linux](./containers/tutorial-nodejs-mongodb-app.md).
+>
 
 Azure Web Apps nabízí vysoce škálovatelnou a automatických oprav webové hostitelské služby. Tento kurz ukazuje, jak vytvořit webovou aplikaci Node.js v Azure a připojte ho k databázi MongoDB. Když jste hotovi, budete mít střední aplikace (MongoDB, Express, AngularJS a Node.js) spuštěná v [Azure App Service](app-service-web-overview.md). Pro jednoduchost, ukázková aplikace používá [MEAN.js webová architektura](http://meanjs.org/).
 
@@ -127,7 +131,7 @@ Pro MongoDB, tento kurz používá [Azure Cosmos DB](/azure/documentdb/). Cosmos
 
 ### <a name="create-a-cosmos-db-account"></a>Vytvoření účtu Cosmos DB
 
-V prostředí cloudu, vytvořte účet Cosmos DB s [vytvořit az cosmosdb](/cli/azure/cosmosdb#create) příkaz.
+V prostředí cloudu, vytvořte účet Cosmos DB s [vytvořit az cosmosdb](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) příkaz.
 
 V následujícím příkazu nahraďte jedinečný název databáze Cosmos  *\<cosmosdb_name >* zástupný symbol. Tento název se používá jako součást Cosmos DB koncového bodu, `https://<cosmosdb_name>.documents.azure.com/`, takže název musí být jedinečný v rámci všech Cosmos DB účty v Azure. Název musí obsahovat jenom malá písmena, číslice a pomlčky (-) a musí být v rozmezí 3 až 50 znaků.
 
@@ -161,7 +165,7 @@ V tomto kroku připojíte MEAN.js ukázkovou aplikaci do databáze Cosmos datab�
 
 ### <a name="retrieve-the-database-key"></a>Načíst klíč databáze
 
-Pro připojení k databázi Cosmos DB, musíte klíč databáze. V prostředí cloudu, pomocí [az cosmosdb seznamu klíčů](/cli/azure/cosmosdb#list-keys) příkaz načíst primární klíč.
+Pro připojení k databázi Cosmos DB, musíte klíč databáze. V prostředí cloudu, pomocí [az cosmosdb seznamu klíčů](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) příkaz načíst primární klíč.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -257,7 +261,7 @@ V tomto kroku nasadíte aplikace Node.js MongoDB připojení do služby Azure Ap
 
 Ve výchozím projektu MEAN.js udržuje _config/env/local-production.js_ mimo úložiště Git. Proto pro vaše webové aplikace Azure, použijete nastavení aplikace zadat připojovací řetězec MongoDB.
 
-Chcete-li nastavení aplikace, použijte [az webapp konfigurace appsettings aktualizovat](/cli/azure/webapp/config/appsettings#update) příkazu v prostředí cloudu. 
+Chcete-li nastavení aplikace, použijte [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) příkazu v prostředí cloudu. 
 
 Následující příklad konfiguruje `MONGODB_URI` nastavení aplikace v Azure webové aplikace. Nahraďte  *\<app_name >*,  *\<cosmosdb_name >*, a  *\<primary_master_key >* zástupné symboly.
 
@@ -461,7 +465,7 @@ Pokud jste dříve přidali všechny články, je stále můžete vidíte. Stáv
 
 Při spuštění vaší aplikace Node.js ve službě Azure App Service můžete získat protokoly konzoly přesměruje do terminálu. Tímto způsobem můžete získat stejné diagnostické zprávy pomoci při ladění chyb aplikace.
 
-Spusťte protokolu streamování pomocí [az webapp protokolu poškozené databáze za](/cli/azure/webapp/log#tail) příkazu v prostředí cloudu.
+Spusťte protokolu streamování pomocí [az webapp protokolu poškozené databáze za](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) příkazu v prostředí cloudu.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

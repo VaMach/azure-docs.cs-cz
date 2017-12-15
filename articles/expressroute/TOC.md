@@ -85,6 +85,7 @@
 ## [Aktualizace služeb](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Předplatné a omezení služeb](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+## [ExpressRoute pro poskytovatele Cloud Solution Provider](expressroute-for-cloud-solution-providers.md)
 ## [Videa](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Připojení brány virtuální sítě k okruhu](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Vytvoření virtuální sítě pro ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)

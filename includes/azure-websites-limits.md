@@ -29,7 +29,7 @@
 
 <sup>1</sup>aplikace a kvóty úložišť jsou za plán služby App Service, pokud není uvedeno jinak.  
 <sup>2</sup>skutečný počet aplikací, které je možné hostovat na tyto počítače závisí na aktivitu aplikace, velikost instance počítačů a odpovídající využití prostředků.  
-<sup>3</sup>vyhrazené instance může mít různou velikost. V tématu [App Service – ceny](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) další podrobnosti.  
+<sup>3</sup>vyhrazené instance může mít různou velikost. V tématu [App Service – ceny](https://azure.microsoft.com/pricing/details/app-service/) další podrobnosti.  
 <sup>4</sup>premium úroveň umožňuje až 50 vypočítá instancí (přičemž podléhá dostupnosti) a 500 GB místa na disku při použití prostředí App Service a 20 jinak výpočetní instance a 250 GB úložiště.  
 <sup>5</sup>limitu úložiště je celková velikost obsahu mezi všechny aplikace ve stejném plán služby App Service. Další možnosti úložiště jsou k dispozici v [App Service Environment](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>tyto prostředky jsou omezeny fyzické prostředky v rámci vyhrazenou instancí (velikost instance a číslo instance).  

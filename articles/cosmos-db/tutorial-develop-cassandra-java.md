@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7e1a17517890f8ed738b6afdcbe073a2bf1ebc6f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure CosmosDB: Vývoj pomocí Cassandra rozhraní API v jazyce Java
 
 Azure Cosmos DB je globálně distribuované databáze více modelu služby společnosti Microsoft. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
 
-Tento kurz ukazuje, jak vytvořit účet Azure Cosmos DB pomocí portálu Azure a pak vytvořte Cassandra Table(documentdb-partition-data.md#partition-keys) pomocí [Cassandra API](cassandra-introduction.md). Definováním primární klíč při vytvoření tabulky, vaše aplikace připravena k pak moci bez obtíží škálujte podle rozšiřujícího se vaše data. 
+Tento kurz ukazuje, jak vytvořit účet Azure Cosmos DB pomocí portálu Azure a pak vytvořte Cassandra Table(sql-api-partition-data.md#partition-keys) pomocí [Cassandra API](cassandra-introduction.md). Definováním primární klíč při vytvoření tabulky, vaše aplikace připravena k pak moci bez obtíží škálujte podle rozšiřujícího se vaše data. 
 
 Tento kurz obsahuje následující úlohy pomocí rozhraní API Cassandra:
 

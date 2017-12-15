@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: d9dfd856a95d0b1f925487f4ca9d27e617093405
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Přizpůsobit způsob, jakým připojené vytváření řešení zobrazí data z vašich serverů OPC UA
 
@@ -72,92 +72,7 @@ Můžete použít konfiguračního souboru na:
 - Upravte existující simulované objekty Factory, řádky výroby a stanice.
 - Mapování dat ze skutečné OPC UA serverů, které se připojují k řešení.
 
-Klonovat kopie připojeného objektu pro vytváření řešení sady Visual Studio, použijte následující příkaz git:
-
-`git clone https://github.com/Azure/azure-iot-connected-factory.git`
-
-Soubor **ContosoTopologyDescription.json** definuje mapování z OPC UA serveru datové položky k zobrazení v řídicím panelu řešení připojených objekt pro vytváření. Tento konfigurační soubor můžete najít **Contoso\Topology** složku **WebApp** projekt v sadě Visual Studio řešení.
-
-Obsah souboru JSON jsou uspořádána jako hierarchie objekt pro vytváření, řádek výrobní a uzly stanice. Tato hierarchie definuje hierarchii navigace v řídicím panelu připojené objekt pro vytváření. Hodnoty v každém uzlu hierarchie určují informace zobrazené na řídicím panelu. Například soubor JSON obsahuje následující hodnoty pro objekt pro vytváření Mnichov:
-
-```json
-"Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
-"Name": "Munich",
-"Description": "Braking system",
-"Location": {
-    "City": "Munich",
-    "Country": "Germany",
-    "Latitude": 48.13641,
-    "Longitude": 11.57754
-},
-"Image": "munich.jpg"
-```
-
-Název, popis a umístění se zobrazují v tomto zobrazení v řídicím panelu:
-
-![Mnichov data v řídicím panelu][img-munich]
-
-Každý objekt pro vytváření, řádek výrobní a stanice mít vlastnost bitové kopie. Můžete najít v těchto JPEG – soubory **Content\img** složku **WebApp** projektu. Tyto soubory bitové kopie se zobrazí v řídicím panelu připojené objekt pro vytváření.
-
-Každé stanici zahrnuje několik podrobné vlastnosti, které definují mapování z OPC UA datové položky. Tyto vlastnosti jsou popsány v následujících částech:
-
-### <a name="opcuri"></a>OpcUri
-
-**OpcUri** hodnota je identifikátor URI aplikace OPC UA, který jednoznačně identifikuje OPC UA serveru. Například **OpcUri** hodnota sestavení stanice na řádku výrobní 1 v Mnichově vypadá takto: **urn: scada2194:ua:munich:productionline0:assemblystation**.
-
-Identifikátory URI propojených serverů OPC UA můžete zobrazit v řídicím panelu řešení:
-
-![Zobrazit OPC UA server identifikátory URI][img-server-uris]
-
-### <a name="simulation"></a>Simulace
-
-Informace v **simulace** uzel je specifické pro simulaci OPC UA, který je spuštěn v OPC UA servery, které jsou zřízené ve výchozím nastavení. Pro skutečné serveru OPC UA se nepoužívá.
-
-### <a name="kpi1-and-kpi2"></a>Kpi1 a Kpi2
-
-Tyto uzly popisují, jak se data z stanice přispívá k tyto dvě hodnoty klíčového ukazatele výkonu v řídicím panelu. Ve výchozím nasazení jsou tyto hodnoty klíčového ukazatele výkonu jednotky za hodinu a kWh za hodinu. Řešení vypočítá vales klíčového ukazatele výkonu na úrovni stanice a agreguje je na úrovních objekt pro vytváření a produkční řádku.
-
-Každý ukazatel KPI má minimální, maximální a cílovou hodnotu. Každá hodnota klíčového ukazatele výkonu můžete také definovat akce výstrah pro připojené vytváření řešení k provedení. Následující fragment kódu ukazuje definice klíčového ukazatele výkonu pro sestavení stanice na řádku výrobní 1 v Mnichově:
-
-```json
-"Kpi1": {
-  "Minimum": 150,
-  "Target": 300,
-  "Maximum": 600
-},
-"Kpi2": {
-  "Minimum": 50,
-  "Target": 100,
-  "Maximum": 200,
-  "MinimumAlertActions": [
-    {
-      "Type": "None"
-    }
-  ]
-}
-```
-
-Následující snímek obrazovky ukazuje dat klíčového ukazatele výkonu v řídicím panelu.
-
-![Informace o klíčových ukazatelů výkonu v řídicím panelu][lnk-kpi]
-
-### <a name="opcnodes"></a>OpcNodes
-
-**OpcNodes** uzly identifikaci položek publikovaných dat ze serveru OPC UA a určete, jak zpracovat data.
-
-**NodeId** hodnota identifikuje konkrétní NodeID OPC UA ze serveru OPC UA. První uzel v sestavení stanice pro produkční řádku 1 v Mnichově má hodnotu **ns = 2; i = 385**. A **NodeId** hodnota určuje datové položce číst ze serveru OPC UA a **symbolickou** poskytuje a uživatelské jméno, které se má používat v řídicím panelu pro tato data.
-
-Ostatní hodnoty přidružené k každý uzel jsou shrnuty v následující tabulce:
-
-| Hodnota | Popis |
-| ----- | ----------- |
-| Důležitost  | Klíčový ukazatel výkonu a OEE hodnoty, které tato data přispívá k. |
-| Operační kód     | Jak agregovaná data. |
-| Jednotky      | Jednotky pro použití v řídicím panelu.  |
-| Viditelné    | Jestli se má zobrazit tuto hodnotu na řídicím panelu. Některé hodnoty se používá ve výpočtech ale nezobrazí.  |
-| Maximální počet    | Maximální hodnota, která aktivuje výstrahu v řídicím panelu. |
-| MaximumAlertActions | Akce provést v reakci na výstrahy. Například odeslat příkaz ke stanici. |
-| ConstValue | Konstantní hodnota používá výpočtu. |
+Další informace o mapování a agregace dat podle specifických požadavků najdete v tématu [postup konfigurace objektu pro vytváření připojené předkonfigurované řešení ](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Nasazení změny
 

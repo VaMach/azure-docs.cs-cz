@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 111b6274f4a3633fa4dd367866bf4e4e72d6e2df
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Databáze SQL pro použití v zásobníku Microsoft Azure
 
@@ -47,7 +47,11 @@ Musíte vytvořit jeden (nebo více) serverů SQL nebo poskytovat přístup k ex
 
     a. Instalace Azure zásobníku Development Kit (ASDK) Přihlaste se na fyzickém hostiteli.
 
-    b. V systémech s více uzly hostitele musí být systém, kterým může přistupovat privilegované koncový bod.
+    b. V systémech s více uzly hostitele musí být systém, kterým může přistupovat privilegované koncový bod. 
+    
+    >[!NOTE]
+    > Systém, kde je spuštěn skript *musí* být systém Windows 10 nebo Windows Server 2016 na nejnovější verzi modulu runtime rozhraní .NET nainstalované. Jinak se instalace nepovede. Hostitel ASDK splňuje tato kritéria.
+
 
 3. Zprostředkovatel prostředků SQL binární stažení a spuštění Self-Extractor extrahujte obsah do dočasného adresáře.
 
@@ -56,16 +60,19 @@ Musíte vytvořit jeden (nebo více) serverů SQL nebo poskytovat přístup k ex
 
     | Sestavení Azure zásobníku | Instalační program SQL RP |
     | --- | --- |
-    | 1.0.171122.1 | [SQL RP verze 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171122.1 | [SQL RP verze 1.1.12.0](https://aka.ms/azurestacksqlrp) |
     | 1.0.171028.1 | [SQL RP verze 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
     | 1.0.170928.3 | [SQL RP verze 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
    
 
 4. Kořenový certifikát zásobník Azure se načtou z privilegovaných koncový bod. Pro ASDK se vytvoří certifikát podepsaný svým držitelem v rámci tohoto procesu. Pro více uzly je nutné zadat příslušný certifikát.
 
-    Pokud potřebujete přidat vlastní certifikát, je třeba následující certifikát:
+    Pokud potřebujete přidat vlastní certifikát, je nutné umístit do souboru PFX **DependencyFilesLocalPath** (viz níže) následujícím způsobem:
 
-    Certifikát se zástupným znakem pro \*.dbadapter.\< oblast\>.\< externí plně kvalifikovaný název domény\>. Tento certifikát musí být důvěryhodný, jako by být vydaný certifikační autority. To znamená řetěz certifikátů, musí existovat bez nutnosti zprostředkující certifikáty. Certifikát jedné lokality lze použít s explicitní název virtuálního počítače [sqladapter] použít během instalace.
+    - Certifikát zástupných znaků pro \*.dbadapter.\< oblast\>.\< externí plně kvalifikovaný název domény\> nebo certifikát jedné lokalitě s běžný název sqladapter.dbadapter.\< oblast\>.\< externí plně kvalifikovaný název domény\>
+    - Tento certifikát musí být důvěryhodný, jako by být vydaný certifikační autority. To znamená řetěz certifikátů, musí existovat bez nutnosti zprostředkující certifikáty.
+    - V DependencyFilesLocalPath existuje pouze jeden certifikát souboru.
+    - Název souboru nesmí obsahovat žádné speciální znaky.
 
 
 5. Otevřete **nové** konzolu prostředí PowerShell se zvýšenými oprávněními (správce) a změny adresáře, kam jste extrahovali soubory. Použijte nové okno se pokud chcete vyhnout potížím, které může způsobit nesprávné moduly Powershellu již načtena v systému.

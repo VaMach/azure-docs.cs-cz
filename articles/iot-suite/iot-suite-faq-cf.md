@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: corywink
-ms.openlocfilehash: d4cb452b34ddefc70dc1adcff0e5fead072aa16a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.date: 12/12/2017
+ms.author: dobett
+ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Nejčastější dotazy pro IoT Suite připojené vytváření předkonfigurovaného řešení
 
@@ -42,7 +42,7 @@ OPC Unified architektura (uživatelský Agent), vydané v 2008, je nezávislý n
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Proč Microsoft zvolit OPC UA pro připojené objekt pro vytváření předkonfigurovaného řešení?
 
-Microsoft zvolili OPC UA, protože je otevřený, bez chráněné, platformu nezávislé, oborových rozpoznána a osvědčené standardem. Je požadavek na Industrie 4.0 (RAMI4.0) referenční Architektura řešení zajistit interoperabilitu mezi širokou škálu výrobní procesy a vybavení. Microsoft setkává vyžádání od našich zákazníků k sestavení řešení Industrie 4.0. Podpora OPC UA pomáhá snížit bariéry pro zákazníky, abyste dosáhli svých cílů a poskytuje okamžité obchodní hodnotu k nim.
+Microsoft zvolili OPC UA, protože je otevřený, bez chráněné, platformu nezávislé, oborových rozpoznána a osvědčené standardem. Je požadavek na Industrie 4.0 (RAMI4.0) referenční Architektura řešení zajistit interoperabilitu mezi širokou škálu výrobní procesy a vybavení. Microsoft setkává vyžádání z jeho zákazníci vytvářet řešení Industrie 4.0. Podpora OPC UA pomáhá snížit bariéry pro zákazníky, abyste dosáhli svých cílů a poskytuje okamžité obchodní hodnotu k nim.
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Jak přidat veřejnou IP adresu pro simulaci virtuálního počítače?
 
@@ -143,6 +143,64 @@ Zkontrolujte data odeslaná vydavatele zařízení:
 * Publisher.SEATTLE.corp.contoso
 
 Pokud se žádná data, odeslané do služby IoT Hub, nastane problém s simulace. Jako první krok analysis byste měli provést analýzu souborů protokolu součásti simulace. V tématu [načtení dat protokolu z komponenty simulace?](#how-can-i-get-log-data-from-the-simulation-components) V dalším kroku pokusí zastavit a spustit simulaci a v případě stále nejsou žádná data odesílá, aktualizujte simulaci úplně. V tématu [jak aktualizovat simulace ve virtuálním počítači?](#how-do-i-update-the-simulation-in-the-vm)
+
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Jak povolit interaktivní mapu v mém řešení připojených vytváření?
+
+Pokud chcete povolit interaktivní mapu ve vašem řešení připojených objekt pro vytváření, musí mít existující rozhraní API map Bing pro plán Enterprise. Pokud máte rozhraní API map Bing pro plán Enterprise, když nasadíte řešení připojených factory z www.azureiotsuite.com, je automaticky povoleno interaktivní mapu.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Vytvoření rozhraní API map Bing pro účet Enterprise
+
+Můžete získat bezplatný *vnitřní transakce úroveň 1 mapy Bing pro podniky* plán. Ale pouze přidáním dva z těchto plánů k předplatnému Azure. Pokud nemáte rozhraní API map Bing pro účet Enterprise, vytvořit na portálu Azure kliknutím **+ vytvořit prostředek**. Poté vyhledejte **rozhraní API map Bing pro podniky** a postupujte podle výzev a vytvořte ho.
+
+![Klíč Bing](media/iot-suite-faq-cf/bing.png)
+
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Získání rozhraní API map Bing pro Enterprise QueryKey
+
+Po vytvoření rozhraní API map Bing pro plánu podnikového přidáte do skupiny prostředků vašeho řešení připojených factory na webu Azure portal mapy Bing pro prostředek Enterprise.
+
+1. Na portálu Azure přejděte do skupiny prostředků, která obsahuje vaše rozhraní API map Bing pro plán Enterprise.
+
+1. Klikněte na tlačítko **všechna nastavení**, pak **Správa klíčů**.
+
+1. Existují dva klíče: **MasterKey** a **QueryKey**. Kopírování **QueryKey** hodnotu.
+
+1. Klíč zachyceny pomocí `build.ps1` skriptu, nastavte proměnnou prostředí `$env:MapApiQueryKey` ve vašem prostředí PowerShell a **QueryKey** plánu. Sestavení skript pak automaticky přidá hodnotu nastavení služby App Service.
+
+1. Spusťte místní nebo cloudové nasazení pomocí `build.ps1` skriptu.
+
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Jak povolit interaktivní mapu při ladění místně?
+
+Chcete-li povolit interaktivní mapu při ladění místně, nastavte hodnotu nastavení `MapApiQueryKey` v souborech `local.user.config` a `<yourdeploymentname>.user.config` v kořenu vašeho nasazení na hodnotu **QueryKey** jste zkopírovali, dříve.
+
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Jak použít jinou bitovou kopii na domovské stránce Můj řídicí panel?
+
+Chcete-li změnit statický obrázek ukazuje vstupně-výstupní operace domovské stránky řídicího panelu, nahraďte image `WebApp\Content\img\world.jpg`. Pak znovu sestavili a nasadili webové aplikace.
+
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Jak používat jiný OPC UA zařízení s připojené vytváření?
+
+Chcete-li Neodesílat telemetrická data z jiných OPC UA zařízení k vytváření připojené:
+
+1. [Konfigurace nové stanice v topologii připojené factory](iot-suite-connected-factory-configure.md) v `ContosoTopologyDescription.json` souboru.
+
+1. Ingestování telemetrická data v připojených factory kompatibilní formátu JSON:
+
+    ```json
+    [
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
+    ]
+    ```
+
+1. Formát `<timestamp>` je:`2017-12-08T19:24:51.886753Z`
+
+1. Restartujte připojené objekt pro vytváření služby App Service.
 
 ### <a name="next-steps"></a>Další kroky
 

@@ -71,6 +71,7 @@
 ### [Nasazení brány pro propojenou továrnu](iot-suite-connected-factory-gateway-deployment.md)
 ### [Přizpůsobení propojené továrny](iot-suite-connected-factory-customize.md)
 ### [Použití vydavatele OPC pro propojenou továrnu](iot-suite-connected-factory-publisher.md)
+### [Konfigurace propojené továrny](iot-suite-connected-factory-configure.md)
 ## [Oprávnění na webu azureiotsuite.com](iot-suite-permissions.md)
 
 # Referenční informace

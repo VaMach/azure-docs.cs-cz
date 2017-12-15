@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5979e5e4baa385cc0aaff5f1277f2a0f7492c426
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Zabezpečení Internetu věcí od základů
 Internet věcí (IoT) představuje jedinečné výzvy zabezpečení, ochrany osobních údajů a dodržování předpisů pro firmy po celém světě. Na rozdíl od tradičních internetový technologie, kde tyto problémy základem softwaru a o tom, jak je implementována IoT se vztahuje na co se stane, když internetový a fyzické světů sloučit. Ochrana řešení IoT vyžaduje zajištění zabezpečené zřizování zařízení, zabezpečené připojení mezi tato zařízení a cloudu a ochranu zabezpečení dat v cloudu při zpracování a úložiště. Pracovat se tyto funkce, ale jsou zařízení s omezenými zdroji, geografické rozptýlení nasazení a velký počet zařízení v rámci řešení.
@@ -84,7 +84,7 @@ Z šifrované komunikace pro zpracování dat v cloudu Azure IoT Suite pomáhá 
 
 Jakmile jsou data v cloudu, můžete zpracovat a uložené v pracovním postupu žádné uživatelem definované. Přístup pro každou část dat je řízen s Azure Active Directory, v závislosti na služby úložiště používá.
 
-Všechny klíče používané IoT infrastruktury jsou uložené v cloudu v zabezpečeném úložišti možnost mění v případě, že klíče musí být znovu zřízené. Data se uloží v [Azure Cosmos DB](../documentdb/documentdb-introduction.md) nebo v [databází SQL](../sql-database/sql-database-faq.md), povolení definice úroveň zabezpečení potřeby. Kromě toho Azure poskytuje způsob, jak sledovat a auditování veškerý přístup k datům vás upozorní na jakékoli narušení nebo neoprávněného přístupu.
+Všechny klíče používané IoT infrastruktury jsou uložené v cloudu v zabezpečeném úložišti možnost mění v případě, že klíče musí být znovu zřízené. Data se uloží v [Azure Cosmos DB](../cosmos-db/introduction.md) nebo v [databází SQL](../sql-database/sql-database-faq.md), povolení definice úroveň zabezpečení potřeby. Kromě toho Azure poskytuje způsob, jak sledovat a auditování veškerý přístup k datům vás upozorní na jakékoli narušení nebo neoprávněného přístupu.
 
 ## <a name="conclusion"></a>Závěr
 Internet věcí začíná vaší věcí – věcí, které vás zajímají firmy. IoT může poskytnout úžasné hodnota obchodní nebo snížení nákladů, zvýšit výnosy a transformace firmy. Úspěch této transformace do značné míry závisí na výběr správné zprostředkovatele software a služby IoT. To znamená, hledání zprostředkovatele, který pouze catalyzes Tato transformace požadavky a pochopení obchodních potřeb, ale také poskytuje služeb a softwaru, které jsou vytvořené s nástroji zabezpečení, ochrany osobních údajů, průhlednost a dodržování předpisů jako hlavní faktorů. Společnost Microsoft rozsáhlých zkušeností s vývoj a nasazení zabezpečené softwaru a služeb a nadále vedoucí postavení v této nové stáří Internet věcí. 

@@ -1,6 +1,6 @@
-V prostředí cloudu, vytvoření webové aplikace v `myAppServicePlan` plán služby App Service pomocí [az webapp vytvořit](/cli/azure/webapp#az_webapp_create) příkaz. 
+V prostředí cloudu, vytvoření webové aplikace v `myAppServicePlan` plán služby App Service pomocí [az webapp vytvořit](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) příkaz. 
 
-V následujícím příkladu nahraďte `<app_name>` s globálně jedinečným názvem aplikace (platnými znaky jsou `a-z`, `0-9`, a `-`). Modul runtime je nastaven na `PHP|7.0`. Pokud chcete zobrazit všechny podporované moduly runtime, spusťte [az webapp seznamu runtimes](/cli/azure/webapp#az_webapp_list_runtimes). 
+V následujícím příkladu nahraďte `<app_name>` s globálně jedinečným názvem aplikace (platnými znaky jsou `a-z`, `0-9`, a `-`). Modul runtime je nastaven na `PHP|7.0`. Pokud chcete zobrazit všechny podporované moduly runtime, spusťte [az webapp seznamu runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git

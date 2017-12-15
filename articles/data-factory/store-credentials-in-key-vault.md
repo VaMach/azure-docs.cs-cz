@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Uložení přihlašovacích údajů v Azure Key Vault
 
-Můžete uložit přihlašovací údaje k úložišti dat [Azure Key Vault](../key-vault/key-vault-whatis.md). Při provádění aktivity, která používá úložiště dat, načte Azure Data Factory přihlašovací údaje. V současné době pouze [Dynamics konektor](connector-dynamics-crm-office-365.md) a [konektor služby Salesforce](connector-salesforce.md) tuto funkci podporovat.
+Můžete uložit přihlašovací údaje k úložišti dat [Azure Key Vault](../key-vault/key-vault-whatis.md). Při provádění aktivity, která používá úložiště dat, načte Azure Data Factory přihlašovací údaje.
+
+V současné době [Dynamics konektor](connector-dynamics-crm-office-365.md), [konektor služby Salesforce](connector-salesforce.md) a několik nově povolit konektory podporu této funkce. Očekávají, že další přicházející později. Můžete zkontrolovat každého tématu konektoru na podrobnosti. Pro tajný pole, které tuto funkci podporovat, zobrazí se poznámka v popis informací "*můžete označit toto pole jako SecureString bezpečně uložit v ADF, nebo uložit heslo v Azure Key Vault a nechat vyžádání aktivitu kopírování z ní Při kopírování dat - Další informace z přihlašovací údaje k úložišti v Key Vault.* "
 
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [dokumentace pro objekt pro vytváření dat version1](v1/data-factory-introduction.md).

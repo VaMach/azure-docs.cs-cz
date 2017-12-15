@@ -265,6 +265,7 @@
 #### [Přiřazení rolí správce](active-directory-users-assign-role-azure-portal.md)
 ### [Jednotky pro správu](active-directory-administrative-units-management.md)
 ### [Konfigurace životnosti tokenů](active-directory-configurable-token-lifetimes.md)
+### [Správa účtů pro správu pro nouzový přístup](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Kontroly přístupu
 ### [Přehled kontrol přístupu](active-directory-azure-ad-controls-access-reviews-overview.md)

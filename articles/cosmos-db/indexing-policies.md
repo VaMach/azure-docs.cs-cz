@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a0e19fc9a5ee41dc61c8ced65206e81efe817681
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Jak funguje Azure Cosmos DB data indexu?
 
@@ -229,7 +229,7 @@ Můžete zvolit, jestli chcete kolekci automaticky indexuje všechny dokumenty. 
 
 S automatické indexování, vypnutý, můžete stále selektivně přidat pouze konkrétní dokumentů do indexu. Naopak můžete nechat automatické indexování na a selektivně zvolte vyloučit pouze konkrétní dokumenty. Indexování zapnout nebo vypnout konfigurace jsou užitečné v případě, že máte jenom podmnožinu dokumentů, které je třeba zadat dotaz.
 
-Například následující příklad ukazuje, jak zahrnout dokumentu explicitně pomocí [SQL rozhraní API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) a [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) vlastnost.
+Například následující příklad ukazuje, jak zahrnout dokumentu explicitně pomocí [SQL rozhraní API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) a [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) vlastnost.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -418,5 +418,5 @@ V odkazech dole pro index ukázky správy zásad a další informace o databázi
 
 1. [Ukázky kódu SQL rozhraní API .NET Index Management](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Operace SQL rozhraní API REST kolekce](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [Dotaz s SQL](documentdb-sql-query.md)
+3. [Dotaz s SQL](sql-api-sql-query.md)
 

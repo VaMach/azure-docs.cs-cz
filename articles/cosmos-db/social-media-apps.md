@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Budete sociálních s Azure Cosmos DB
 Žijí v společnosti massively propojeny znamená, že v určitém okamžiku v životnosti stane součástí **sociálních sítí**. Pro komunikaci s kolegy přátel, rodiny nebo někdy nasdílejte naše nadšení pro osoby s společné zájmy používáme sociálních sítí.
@@ -103,7 +103,7 @@ Vytváření informační kanály stačí vytváření dokumenty, které mohou b
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Máme může "posledního" datového proudu s hraniční seřazené podle data vytvoření, "nejprodávanějších" datový proud s těchto příspěvcích s více líbí za posledních 24 hodin, může i implementaci vlastního datového proudu pro každého uživatele na základě logiky jako délky a zájmů a stále je seznam p osts. Bude stačit o tom, jak vytvářet tyto seznamy, ale pořád nerušený výkonu čtení. Jakmile jsme získat jeden z těchto seznamů, jsme vydávat jediný dotaz pomocí Cosmos DB [v operátoru](documentdb-sql-query.md#WhereClause) získat stránky příspěvcích najednou.
+Máme může "posledního" datového proudu s hraniční seřazené podle data vytvoření, "nejprodávanějších" datový proud s těchto příspěvcích s více líbí za posledních 24 hodin, může i implementaci vlastního datového proudu pro každého uživatele na základě logiky jako délky a zájmů a stále je seznam p osts. Bude stačit o tom, jak vytvářet tyto seznamy, ale pořád nerušený výkonu čtení. Jakmile jsme získat jeden z těchto seznamů, jsme vydávat jediný dotaz pomocí Cosmos DB [v operátoru](sql-api-sql-query.md#WhereClause) získat stránky příspěvcích najednou.
 
 Datové proudy informačního kanálu může být postavená pomocí [Azure App Services](https://azure.microsoft.com/services/app-service/) procesy na pozadí: [Webjobs](../app-service/web-sites-create-web-jobs.md). Po vytvoření příspěvku na zpracování na pozadí můžete spustit pomocí [Azure Storage](https://azure.microsoft.com/services/storage/) [fronty](../storage/queues/storage-dotnet-how-to-use-queues.md) a spustí pomocí webové úlohy [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementující POST šíření uvnitř streamů v závislosti na vlastní vlastní logiky. 
 
@@ -237,7 +237,7 @@ Co se stane, když věcí zachovat zlepšuje a uživatelé z jiné oblasti, zem�
 
 Počkejte..., ale brzy zjistíte, své zkušenosti s vaši platformu není optimální; jsou dosavadní od vaší provozní oblasti latence je strašlivých, a samozřejmě nechcete, aby uživatelům ukončit. Pokud jenom došlo snadný způsob **rozšíření globální sítě**... ale!
 
-Cosmos DB umožňuje [replikovat data globálně](../cosmos-db/tutorial-global-distribution-documentdb.md) a transparentně pomocí několika kliknutí a automaticky vybrat mezi dostupné oblasti z vaší [kód klienta](../cosmos-db/tutorial-global-distribution-documentdb.md). To také znamená, že můžete mít [více oblastí převzetí služeb při selhání](regional-failover.md). 
+Cosmos DB umožňuje [replikovat data globálně](../cosmos-db/tutorial-global-distribution-sql-api.md) a transparentně pomocí několika kliknutí a automaticky vybrat mezi dostupné oblasti z vaší [kód klienta](../cosmos-db/tutorial-global-distribution-sql-api.md). To také znamená, že můžete mít [více oblastí převzetí služeb při selhání](regional-failover.md). 
 
 Při replikaci dat globálně, musíte zajistit, že vaši klienti mohou využít výhod ho. Pokud používáte front-endu webové nebo accesing rozhraní API z mobilních klientů, můžete nasadit [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) a klonování Azure App Service na všechny požadované oblasti pomocí konfigurace výkonu pro podporu vašeho rozšířené globální pokrytí. Pokud vaši klienti přístup k rozhraní API nebo front-endu, budou směrovány na nejbližší App Service, který se pak připojí k místní repliky databáze Cosmos.
 

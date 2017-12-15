@@ -1,4 +1,4 @@
-Ve službě Cloud Shell vytvořte přihlašovací údaje nasazení pomocí příkazu [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set). Uživatel nasazení je vyžadován pro nasazení pomocí FTP a místního Gitu do webové aplikace. Uživatelské jméno a heslo jsou na úrovni účtu. _To znamená, že se liší od přihlašovacích údajů předplatného Azure._
+Ve službě Cloud Shell vytvořte přihlašovací údaje nasazení pomocí příkazu [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set). Uživatel nasazení je vyžadován pro nasazení pomocí FTP a místního Gitu do webové aplikace. Uživatelské jméno a heslo jsou na úrovni účtu. _To znamená, že se liší od přihlašovacích údajů předplatného Azure._
 
 V následujícím příkladu nahraďte  *\<uživatelské jméno >* a  *\<heslo >* (včetně závorky) s nové uživatelské jméno a heslo. Uživatelské jméno musí být jedinečné. Heslo musí obsahovat alespoň osm znaků a musí v něm být použity minimálně dva z následujících typů znaků: písmena, číslice a symboly. 
 

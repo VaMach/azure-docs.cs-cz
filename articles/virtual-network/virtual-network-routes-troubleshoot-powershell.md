@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 29823708b2d26a383b76e371499859e57f470c6f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Řešení potíží s postupy pomocí prostředí Azure PowerShell
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Agregace tras, které se použijí k virtuálnímu počítači najdete proveďte
 ### <a name="view-effective-routes-for-a-network-interface"></a>Zobrazit účinné postupy pro rozhraní sítě
 Agregace tras, které se použijí k síťovému rozhraní najdete proveďte následující kroky:
 
-1. Spuštění z relace prostředí Azure PowerShell a do Azure. Pokud si nejste obeznámeni s prostředím Azure PowerShell, přečtěte si [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview) článku.
+1. Spuštění z relace prostředí Azure PowerShell a do Azure. Pokud si nejste obeznámeni s prostředím Azure PowerShell, přečtěte si [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/overview) článku. Musí mít váš účet přiřazenou *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operace pro síťové rozhraní. Zjistěte, jak přiřadit operations účty, najdete v tématu [vytvářet vlastní role pro řízení přístupu](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Následující příkaz vrátí všechny trasy použije k síťovému rozhraní s názvem *VM1 NIC1* ve skupině prostředků *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -122,7 +122,7 @@ Pokud kontrola seznam tras vrátí mějte na paměti několik akcí:
 
 * Směrování je založena na nejdelší shody předpony (LPM) mezi udr, směrování protokolu BGP a systému. Pokud existuje víc tras se stejnou shodou LPM, pak trasa se vybere na základě původu v následujícím pořadí:
   
-  * Trasy definované uživatelem
+  * Trasa definovaná uživatelem
   * Trasa protokolu BGP
   * Trasy systému (výchozí)
     
