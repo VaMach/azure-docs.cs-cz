@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurovat přihlašovací údaje nasazení pro službu Azure App Service
 [Aplikační služba Azure](http://go.microsoft.com/fwlink/?LinkId=529714) podporuje dva typy přihlašovací údaje pro [místní nasazení Git](app-service-deploy-local-git.md) a [nasazení FTP/S](app-service-deploy-ftp.md). To však nejsou stejné, jako přihlašovacích údajů Azure Active Directory.
 
-* **Přihlašovací údaje individuální**: jednu sadu přihlašovacích údajů pro celý účet Azure. Slouží k nasazení do služby App Service pro libovolnou aplikaci v žádné předplatné, který má oprávnění k přístupu k účtu Azure. Jedná se o výchozí sadu přihlašovacích údajů, které nakonfigurujete v **App Services** > **&lt;app_name >** > **přihlašovacíúdajenasazení**. Toto je také výchozí sada, která se zobrazí v grafickém uživatelském rozhraní portálu (například **přehled** a **vlastnosti** vaší aplikace [okna prostředků](../azure-resource-manager/resource-group-portal.md#manage-resources)).
+* **Přihlašovací údaje individuální**: jednu sadu přihlašovacích údajů pro celý účet Azure. Slouží k nasazení do služby App Service pro libovolnou aplikaci v žádné předplatné, který má oprávnění k přístupu k účtu Azure. Jedná se o výchozí sadu přihlašovacích údajů, které nakonfigurujete v **App Services** > **&lt;app_name >** > **přihlašovacíúdajenasazení**. Je také výchozí sada, která se zobrazí v grafickém uživatelském rozhraní portálu (například **přehled** a **vlastnosti** vaší aplikace [prostředků stránky](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
     > [!NOTE]
     > Při delegování přístupu k prostředkům Azure prostřednictvím na základě řízení přístupu Role (RBAC) nebo spolusprávce oprávnění každého Azure uživatele, který obdrží přístup k aplikaci můžete použít jejich osobní údaje individuální, dokud je odvolat přístup. Tyto přihlašovací údaje nasazení by neměly sdílet s jinými uživateli Azure.
@@ -38,14 +38,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="userscope"></a>Nastavit a resetovat přihlašovací údaje uživatele
 
-Přihlašovací údaje uživatele můžete nakonfigurovat v jakékoli aplikaci [okna prostředků](../azure-resource-manager/resource-group-portal.md#manage-resources). Bez ohledu na to v aplikaci, kterou konfigurujete tato pověření, platí pro všechny aplikace a pro všechna předplatná v účtu Azure. 
+Přihlašovací údaje uživatele můžete nakonfigurovat v jakékoli aplikaci [prostředků stránky](../azure-resource-manager/resource-group-portal.md#manage-resources). Bez ohledu na to v aplikaci, kterou konfigurujete tato pověření, platí pro všechny aplikace a pro všechna předplatná v účtu Azure. 
 
 Konfigurace přihlašovacích údajů uživatele:
 
 1. V [portál Azure](https://portal.azure.com), klikněte na aplikační služby >  **&lt;any_app >** > **přihlašovací údaje nasazení**.
 
     > [!NOTE]
-    > Na portálu musí mít aspoň jednu aplikaci, než se dostanete k okno přihlašovací údaje nasazení. Nicméně s [rozhraní příkazového řádku Azure](/cli/azure/webapp/deployment/user#set), můžete nakonfigurovat přihlašovací údaje uživatele bez stávající aplikace.
+    > Na portálu musí mít aspoň jednu aplikaci, než se dostanete k stránce přihlašovací údaje nasazení. Nicméně s [rozhraní příkazového řádku Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), můžete nakonfigurovat přihlašovací údaje uživatele bez stávající aplikace.
 
 2. Nakonfigurujte uživatelské jméno a heslo a potom klikněte na **Uložit**.
 

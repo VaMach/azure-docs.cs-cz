@@ -14,13 +14,13 @@ ms.devlang: azure-cli
 manager: cfowler
 ms.openlocfilehash: 4356d00b2694224f52a9359cd4a57d3a70a34d18
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Vytvoření první funkce pomocí Azure CLI
 
-Toto téma rychlý úvodní kurz vás provede procesem jak používat Azure Functions k vytvoření první funkce. Pomocí rozhraní příkazového řádku Azure k vytvoření aplikace pro funkce, která je [bez serveru](https://azure.microsoft.com/overview/serverless-computing/) infrastruktury, který je hostitelem funkce. Samotný kód funkce se nasadí z ukázkového úložiště Githubu.    
+Toto téma Rychlý start vás provede použitím služby Azure Functions k vytvoření první funkce. Pomocí Azure CLI vytvoříte aplikaci funkcí, což je infrastruktura [bez serveru](https://azure.microsoft.com/overview/serverless-computing/), která je hostitelem funkce. Samotný kód funkce se nasadí z ukázkového úložiště Githubu.    
 
 Následující kroky můžete provést v počítačích se systémem Mac, Windows nebo Linux. 
 
@@ -35,7 +35,7 @@ Před spuštěním této ukázky musíte mít následující:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, v tomto tématu vyžaduje Azure CLI verze 2.0 nebo novější. Spustit `az --version` najít verzi máte. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít verzi Azure CLI 2.0 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
@@ -46,13 +46,13 @@ Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místn�
 
 K hostování provádění funkcí musíte mít aplikaci Function App. Function App poskytuje prostředí pro provádění kódu funkce bez serveru. Umožňuje seskupit funkce jako logickou jednotku pro snadnější správu, nasazování a sdílení prostředků. Aplikaci Function App vytvoříte pomocí příkazu [az functionapp create](/cli/azure/functionapp#create). 
 
-V následujícím příkazu nahraďte název jedinečné funkce aplikace, kde uvidíte `<app_name>` zástupný symbol a účet úložiště název pro `<storage_name>`. Jako výchozí doména DNS pro příslušnou aplikaci Function App se použije `<app_name>`, a proto musí být název mezi všemi aplikacemi v Azure jedinečný. _Adresu url nasazení zdroje_ parametr je ukázka úložiště v Githubu, který obsahuje funkci "Hello, World" HTTP aktivované.
+V následujícím příkazu nahraďte zástupný symbol `<app_name>` jedinečným názvem vaší aplikace funkcí a `<storage_name>` názvem účtu úložiště. Jako výchozí doména DNS pro příslušnou aplikaci Function App se použije `<app_name>`, a proto musí být název mezi všemi aplikacemi v Azure jedinečný. Parametr _deployment-source-url_ představuje ukázkové úložiště na GitHubu, které obsahuje funkci Hello World aktivovanou protokolem HTTP.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --consumption-plan-location westeurope --deployment-source-url https://github.com/Azure-Samples/functions-quickstart
 ```
-Nastavení _umístění spotřeba plán_ parametr znamená, funkce aplikace je hostována v hostitelských plánu spotřeby. V tomto plánu prostředky se přidají dynamicky podle požadavků vaší funkce a platíte jenom při funkce fungují. Další informace najdete v tématu [Výběr správného plánu hostování](functions-scale.md). 
+Nastavení parametru _consumption-plan-location_ znamená, že je aplikace funkcí hostovaná v plánu hostování Consumption. V tomto plánu se prostředky přidávají dynamicky podle potřeb vašich funkcí a vy platíte pouze za spuštěné funkce. Další informace najdete v tématu [Výběr správného plánu hostování](functions-scale.md). 
 
 Po vytvoření aplikace Function App se v Azure CLI zobrazí podobné informace jako v následujícím příkladu:
 

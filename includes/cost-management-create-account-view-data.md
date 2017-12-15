@@ -32,4 +32,4 @@ Klikněte pravým tlačítkem na typ prostředku a výběrem možnosti **Cost en
 
 ![entity nákladů a služby](./media/cost-management-create-account-view-data/actual-cost-05.png)
 
-Podívejte se na kurz video o zobrazení vašeho cloudu fakturace data, najdete v tématu [analýza cloudu fakturace dat pomocí Azure náklady na správu Cloudyn](https://youtu.be/G0pvI3iLH-Y).
+Pokud chcete zhlédnout videokurz k zobrazení informací o fakturaci cloudu, podívejte se na video [Analyzing your cloud billing data with Azure Cost Management by Cloudyn](https://youtu.be/G0pvI3iLH-Y) (Analýza informací o fakturaci cloudu pomocí služby Azure Cost Management by Cloudyn).

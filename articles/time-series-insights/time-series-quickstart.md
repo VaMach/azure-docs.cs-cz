@@ -1,6 +1,6 @@
 ---
-title: "Rychlý start - explorer statistiky Azure řady čas | Microsoft Docs"
-description: "Tento rychlý start se dozvíte, jak začít pracovat s Azure časové řady Statistika explorer ve webovém prohlížeči k vizualizaci velkých objemů dat IoT. Prohlídka klíčové funkce v ukázce prostředí."
+title: "Rychlý start – Průzkumník služby Azure Time Series Insights | Dokumentace Microsoftu"
+description: "V tomto rychlém startu se dozvíte, jak začít s vizualizací velkých objemů dat IoT pomocí průzkumníka služby Azure Time Series Insights ve webovém prohlížeči. Prohlédněte si klíčové funkce v ukázkovém prostředí."
 services: time-series-insights
 ms.service: time-series-insights
 author: MarkMcGeeAtAquent
@@ -14,64 +14,64 @@ ms.custom: mvc
 ms.date: 11/15/2017
 ms.openlocfilehash: b1f2881da21849c3ac09b008640fc9f72dc158dd
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Rychlý úvod: Prozkoumat Statistika Azure časové řady
-Tento rychlý start se dozvíte, jak začít pracovat s explorer Statistika řady čas Azure v prostředí volné ukázka. Další informace o použití je webový prohlížeč vizualizovat velké objemy dat IoT a prohlídka klíčové funkce Průzkumníku Statistika časové řady. 
+# <a name="quickstart-explore-azure-time-series-insights"></a>Rychlý start: Prozkoumání služby Azure Time Series Insights
+V tomto rychlém startu se dozvíte, jak začít s průzkumníkem služby Azure Time Series Insights v bezplatném ukázkovém prostředí. Zjistíte, jak pomocí webového prohlížeče vizualizovat velké objemy dat IoT a prohlédnete si klíčové funkce průzkumníka služby Time Series Insights. 
 
-Azure Time Series Insights je plně spravovaná služba pro analýzy, ukládání a vizualizace, která usnadňuje zkoumání a analýzy miliard událostí IoT současně. Poskytuje globální zobrazení dat, takže můžete rychle ověřit řešení IoT a vyhnout nákladným odstávkám důležité zařízení tím, že můžete zjistit skrytá trendy, pomáhá přímé anomálií a provedení analýzy příčin skoro v reálném čase.  Pokud vytváříte aplikace, která data řady čas úložiště nebo dotaz, je potřeba, můžete vyvíjet pomocí REST API pro přehledy čas řady.
+Azure Time Series Insights je plně spravovaná služba pro analýzy, ukládání a vizualizace, která usnadňuje zkoumání a analýzy miliard událostí IoT současně. Poskytuje globální přehled o datech a umožňuje rychle ověřit vaše řešení IoT a vyhnout se nákladným prostojům důležitých zařízení, protože pomáhá odhalovat skryté trendy, detekovat anomálie a provádět analýzy původních příčin téměř v reálném čase.  Pokud vytváříte aplikaci, která potřebuje ukládat nebo dotazovat data časových řad, můžete při vývoji využít rozhraní REST API služby Time Series Insights.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) před tím, než začnete.
 
-## <a name="explore-time-series-insights-explorer-in-a-demo-environment"></a>Prozkoumejte explorer časové řady statistiky v ukázce prostředí
+## <a name="explore-time-series-insights-explorer-in-a-demo-environment"></a>Průzkumník služby Time Series Insights v ukázkovém prostředí
 
-1. V prohlížeči přejděte na [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
+1. V prohlížeči přejděte na adresu [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
 
-2. Pokud budete vyzváni, přihlaste se do Průzkumníka časové řady statistika pomocí svých přihlašovacích údajů účtu Azure. 
+2. Pokud k tomu budete vyzváni, přihlaste se do průzkumníka služby Time Series Insights pomocí přihlašovacích údajů svého účtu Azure. 
  
-3. Zobrazí se stránka stručný přehled časové řady. Klikněte na tlačítko **Další** zahájíte stručný přehled.
+3. Zobrazí se stránka s krátkou prohlídkou služby Time Series Insights. Zahajte rychlou prohlídku kliknutím na **Další**.
 
-   ![Klikněte na tlačítko Další](media/quickstart/quickstart1.png)
+   ![Kliknutí na Další](media/quickstart/quickstart1.png)
 
-4. **Panel výběru čas** se zobrazí. Pomocí tohoto panelu vyberte časový rámec pro vizualizaci.
+4. Zobrazí se **Panel výběru času**. Pomocí tohoto panelu vyberte časový rámec, který chcete vizualizovat.
 
-   ![Panel výběru čas](media/quickstart/quickstart2.png)
+   ![Panel výběru času](media/quickstart/quickstart2.png)
 
-5. Klikněte na tlačítko a přetáhněte ji v oblasti a pak klikněte na **vyhledávání** tlačítko.
+5. Klikněte na oblast a tažením ji přesuňte do grafu, pak klikněte na tlačítko **Vyhledat**.
  
-   ![Vyberte časový rámec](media/quickstart/quickstart3.png) 
+   ![Výběr časového rámce](media/quickstart/quickstart3.png) 
 
-   Statistika řady čas zobrazí graf vizualizace pro časový rámec, který jste zadali. Různé akce v rámci s spojnicový graf, jako je například filtrování, můžete provést Připnutí, řazení a skládání. 
+   Time Series Insights zobrazí vizualizaci grafu pro zadaný časový rámec. Ve spojnicovém grafu můžete provádět různé akce, jako jsou filtrování, připínání, řazení a vrstvení. 
 
-   Se vrátíte do **panel výběru čas**, klikněte na šipku dolů, jak je znázorněno:
+   Pokud se chcete vrátit na **Panel výběru času**, klikněte na šipku dolů, jak je znázorněno níže:
 
    ![Graf](media/quickstart/quickstart4.png)
 
-6. Klikněte na tlačítko **přidat** v **podmínky panely** přidat nové hledaný termín.
+6. Na **Panelu výrazů** klikněte na **Přidat** a přidejte nový hledaný výraz.
 
-   ![Přidat položku](media/quickstart/quickstart5.png)
+   ![Přidání položky](media/quickstart/quickstart5.png)
 
-7. V grafu, můžete vybrat oblast, klikněte pravým tlačítkem na oblast a vyberte **prozkoumat události**.
+7. V grafu můžete vybrat oblast, kliknout na ni pravým tlačítkem a vybrat **Prozkoumat události**.
  
-   ![Prozkoumejte události](media/quickstart/quickstart6.png)
+   ![Zkoumání událostí](media/quickstart/quickstart6.png)
 
-   Mřížka nezpracovaná data budou zobrazena ze oblast, kterou zkoumáte:
+   Zobrazí se mřížka nezpracovaných dat ze zkoumané oblasti:
 
    ![Zobrazení mřížky](media/quickstart/quickstart7.png)
 
-8. Upravit vaše podmínky ke změně hodnot v grafu a přidejte jiný termín k cross porovnejte různé typy hodnot:
+8. Upravte výrazy, aby se změnily hodnoty v grafu, a přidejte další výraz, aby se provedla vzájemná korelace různých typů hodnot:
 
-   ![Přidejte termín.](media/quickstart/quickstart8.png)
+   ![Přidání výrazu](media/quickstart/quickstart8.png)
 
-9. Zadejte termín filtru v **filtrovat řady...**  pole pro filtrování ad hoc řady. Pro rychlý start, zadejte **Station5** k korelace mezi teploty a přetížení pro příslušné stanici.
+9. Do pole **Filtrovat řady...** zadejte podmínky filtru a proveďte ad hoc filtrování řad. Pro účely tohoto rychlého startu zadejte **Station5**, aby se provedla vzájemná korelace teploty a tlaku pro příslušnou stanici.
  
-   ![Filtr řady](media/quickstart/quickstart9.png)
+   ![Filtrování řad](media/quickstart/quickstart9.png)
 
-Po dokončení rychlé spuštění, můžete experimentovat s datovou sadou ukázka vytvořit různé vizualizace. 
+Po dokončení tohoto rychlého startu můžete experimentovat s ukázkovou sadou dat a vytvářet různé vizualizace. 
 
 ### <a name="next-steps"></a>Další kroky
-Jste připraveni vytvořit prostředí časové řady statistiky:
+Jste připraveni vytvořit vlastní prostředí Time Series Insights:
 > [!div class="nextstepaction"]
-> [Plánování prostředí Statistika časové řady](time-series-insights-environment-planning.md)
+> [Plánování prostředí Time Series Insights](time-series-insights-environment-planning.md)

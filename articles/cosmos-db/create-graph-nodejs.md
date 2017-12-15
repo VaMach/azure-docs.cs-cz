@@ -17,15 +17,15 @@ ms.date: 08/29/2017
 ms.author: denlee
 ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
 ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Databáze Azure Cosmos: Vytvoření aplikace Node.js využitím rozhraní Graph API
 
-Azure Cosmos DB je globálně distribuované multimodel databáze služby společnosti Microsoft. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
+Azure Cosmos DB je globálně distribuovaná databázová služba pro více modelů od Microsoftu. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos. 
 
-Tento rychlý Start článek ukazuje, jak vytvořit účet Azure Cosmos DB pro rozhraní Graph API (preview), databáze a grafu pomocí portálu Azure. Potom sestavíte a spustíte aplikaci konzoly pomocí opensourcového ovladače [Gremlin Node.js](https://www.npmjs.com/package/gremlin).
+Tento článek Rychlý start popisuje způsob vytvoření účtu služby Azure Cosmos DB pro rozhraní Graph API (Preview), databáze a grafu pomocí webu Azure Portal. Potom sestavíte a spustíte aplikaci konzoly pomocí opensourcového ovladače [Gremlin Node.js](https://www.npmjs.com/package/gremlin).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -49,7 +49,7 @@ Teď naklonujeme aplikaci rozhraní Graph API z GitHubu, nastavíme připojovac
 
 1. Otevřete okno terminálu Git, jako je třeba Git Bash, a pomocí příkazu `cd` změňte pracovní adresář.
 
-2. Spusťte následující příkaz, který klonovat úložiště v ukázkové: 
+2. Spusťte následující příkaz a naklonujte ukázkové úložiště: 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
@@ -59,7 +59,7 @@ Teď naklonujeme aplikaci rozhraní Graph API z GitHubu, nastavíme připojovac
 
 ## <a name="review-the-code"></a>Kontrola kódu
 
-Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete `app.js` soubor a najdete v následujícím kódu. 
+Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete soubor `app.js` a uvidíte následující řádky kódu. 
 
 * Vytvoří se klient Gremlin.
 
@@ -75,9 +75,9 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
         });
     ```
 
-  Konfigurace jsou v `config.js`, který jsme upravit v [následující části](#update-your-connection-string).
+  Všechny konfigurace jsou v souboru `config.js`, kterou budeme upravovat v [následující části](#update-your-connection-string).
 
-* Provádět různé operace Gremlin jsou definovány řadu funkcí. Toto je jeden z nich:
+* Definuje se série funkcí pro provádění různých operací Gremlin. Toto je jedna z nich:
 
     ```nodejs
     function addVertex1(callback)
@@ -91,7 +91,7 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
     }
     ```
 
-* Provede jednotlivé funkce `client.execute` metoda s Gremlin parametr řetězce dotazu. Tady je příklad toho, jak `g.V().count()` se spustí:
+* Každá funkce provádí metodu `client.execute` s parametrem řetězce dotazu Gremlin. Tady je příklad provedení metody `g.V().count()`:
 
     ```nodejs
     console.log('Running Count'); 
@@ -102,7 +102,7 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
     });
     ```
 
-* Na konci souboru, jsou všechny metody pak vyvolány pomocí `async.waterfall()` metoda. Tato funkce spustí je jeden za druhým:
+* Na konci souboru se pak pomocí metody `async.waterfall()` vyvolají všechny metody. Ta je provede jednu po druhé:
 
     ```nodejs
     try{
@@ -123,25 +123,25 @@ Ještě jednou se stručně podívejme na to, co se v aplikaci děje. Otevřete
 
 1. Otevřete soubor config.js. 
 
-2. V souboru config.js, vyplňte `config.endpoint` klíč s **Gremlin URI** z hodnoty **přehled** stránce portálu Azure. 
+2. V souboru config.js vyplňte jako klíč `config.endpoint` hodnotu **Gremlin URI** ze stránky **Přehled** na webu Azure Portal. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
     ![Zobrazení a zkopírování přístupového klíče na webu Azure Portal v okně Klíče](./media/create-graph-nodejs/gremlin-uri.png)
 
-   Pokud **Gremlin URI** je hodnota prázdná, můžete vygenerovat hodnotu z **klíče** na portálu. Použití **URI** hodnotu, odeberte https:// a změňte dokumenty grafy.
+   Pokud je hodnota **Gremlin URI** prázdná, můžete hodnotu vygenerovat na stránce **Klíče** na portálu. Použijte hodnotu identifikátoru **URI**, odeberte https:// a změňte documents na graphs.
 
    Koncový bod Gremlin musí být pouze název hostitele bez protokolu / čísla portu, jako je `mygraphdb.graphs.azure.com` (ne `https://mygraphdb.graphs.azure.com` nebo `mygraphdb.graphs.azure.com:433`).
 
-3. V souboru config.js, zadejte hodnotu config.primaryKey s **primární klíč** z hodnoty **klíče** stránce portálu Azure. 
+3. V souboru config.js vyplňte jako hodnotu config.primaryKey hodnotu **Primární klíč** ze stránky **Klíče** na webu Azure Portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![Okno Azure portálu "klíčů.](./media/create-graph-nodejs/keys.png)
+   ![Okno Klíče na webu Azure Portal](./media/create-graph-nodejs/keys.png)
 
 4. Zadejte název databáze a název grafu (kontejneru) pro hodnoty config.database a config.collection. 
 
-Tady je příklad, jak by měla vypadat souboru config.js dokončené:
+Tady je příklad, jak by dokončený soubor config.js měl vypadat:
 
 ```nodejs
 var config = {}
@@ -167,11 +167,11 @@ module.exports = config;
 
 Teď se můžete vrátit do Průzkumníku dat na webu Azure Portal, kde můžete zobrazit, upravit a pracovat s novými daty grafu a zadávat na ně dotazy.
 
-V Průzkumníku dat se nová databáze zobrazí v podokně **Graphs** (Grafy). Rozbalte databázi, za nímž následuje kolekce a potom vyberte **grafu**.
+V Průzkumníku dat se nová databáze zobrazí v podokně **Graphs** (Grafy). Rozbalte databázi, potom kolekci a vyberte **Graph**.
 
-Data generována ukázková aplikace se zobrazí v podokně Další v rámci **grafu** kartě při výběru **použít filtr**.
+Data generovaná ukázkovou aplikací se zobrazí v dalším podokně na kartě **Graph**, když vyberete **Použít filtr**.
 
-Zkuste filtr otestovat provedením metody `g.V()` s hodnotami `.has('firstName', 'Thomas')`. Všimněte si, že hodnota je malá a velká písmena.
+Zkuste filtr otestovat provedením metody `g.V()` s hodnotami `.has('firstName', 'Thomas')`. Nezapomeňte, že se v hodnotě rozlišují malá a velká písmena.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
 
@@ -181,13 +181,13 @@ Zkuste filtr otestovat provedením metody `g.V()` s hodnotami `.has('firstName',
 
 Pokud neplánujete tuto aplikaci dál používat, odstraňte následujícím způsobem všechny prostředky, které jste pomocí tohoto článku vytvořili: 
 
-1. Na portálu Azure v levé navigační nabídce vyberte **skupiny prostředků**. Pak vyberte název prostředku, který jste vytvořili. 
+1. Na webu Azure Portal v navigační nabídce vlevo vyberte **Skupiny prostředků**. Pak vyberte název prostředku, který jste vytvořili. 
 
-2. Na stránce vaší skupiny prostředků vyberte **Odstranit**. Zadejte název prostředku, který chcete odstranit a pak vyberte **odstranit**.
+2. Na stránce vaší skupiny prostředků vyberte **Odstranit**. Zadejte název prostředku k odstranění a vyberte **Odstranit**.
 
 ## <a name="next-steps"></a>Další kroky
 
-V tomto článku jste zjistili, jak vytvořit účet Azure Cosmos DB, vytvořit graf pomocí Průzkumníku dat a spusťte aplikaci. Teď můžete pomocí konzoly Gremlin vytvářet složitější dotazy a implementovat účinnou logiku procházení grafů. 
+V tomto článku jste se seznámili s postupem vytvoření účtu služby Azure Cosmos DB, vytvoření grafu pomocí Průzkumníku dat a spuštění aplikace. Teď můžete pomocí konzoly Gremlin vytvářet složitější dotazy a implementovat účinnou logiku procházení grafů. 
 
 > [!div class="nextstepaction"]
-> [Dotaz s použitím Gremlin](tutorial-query-graph.md)
+> [Dotazování pomocí konzoly Gremlin](tutorial-query-graph.md)

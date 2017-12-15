@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
 ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/06/2017
 ---
@@ -50,23 +50,23 @@ Nainstalujte balíček [psycopg2](http://initd.org/psycopg/docs/install.html) um
 Získejte informace o připojení potřebné pro připojení ke službě Azure Database for PostgreSQL. Potřebujete plně kvalifikovaný název serveru a přihlašovací údaje.
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
-2. Z nabídky na levé straně na portálu Azure, klikněte na tlačítko **všechny prostředky** a vyhledejte **mypgserver 20170401** (server, které jste vytvořili).
+2. V nabídce vlevo na webu Azure Portal klikněte na **Všechny prostředky** a vyhledejte **mypgserver-20170401** (server, který jste vytvořili).
 3. Klikněte na název serveru **mypgserver-20170401**.
 4. Vyberte stránku **Přehled** serveru a potom si poznamenejte **Název serveru** a **Přihlašovací jméno správce serveru**.
  ![Azure Database for PostgreSQL – přihlášení správce serveru](./media/connect-python/1-connection-string.png)
 5. Pokud zapomenete přihlašovací údaje k serveru, přejděte na stránku **Přehled**, kde můžete zobrazit přihlašovací jméno správce serveru a v případě potřeby resetovat heslo.
 
 ## <a name="how-to-run-python-code"></a>Spuštění kódu Pythonu
-Tento článek obsahuje celkem čtyři ukázky kódu, z nichž každý vykonává specifickou funkci. Následující pokyny uvádějí, jak vytvořit textový soubor, vložit do něj blok kódu a pak ho uložit, abyste ho mohli spustit později. Nezapomeňte vytvořit čtyři samostatné soubory – pro každý blok kódu jeden.
+Tento článek obsahuje celkem čtyři vzorové kódy, z nichž každý provádí konkrétní funkci. Následující pokyny uvádějí, jak vytvořit textový soubor, vložit do něj blok kódu a pak ho uložit, abyste ho mohli spustit později. Nezapomeňte vytvořit čtyři samostatné soubory – pro každý blok kódu jeden.
 
 - Pomocí oblíbeného textového editoru vytvořte nový soubor.
 - Zkopírujte a vložte do textového souboru jeden ze vzorových kódů v následujících částech. Nahraďte parametry **host** (hostitel), **dbname** (název databáze), **user** (uživatel) a **password** (heslo) hodnotami, které jste zadali při vytváření serveru a databáze.
-- Uložte soubor s příponou .py (třeba postgres.py) do složky vašeho projektu. Pokud používáte v systému Windows, je nutné vybrat kódování UTF-8 při ukládání souboru. 
-- Spusťte prostředí shell příkazového řádku, Terminálové nebo Bash a potom změňte adresář na složky projektu, například `cd postgres`.
+- Uložte soubor s příponou .py (třeba postgres.py) do složky vašeho projektu. Pokud používáte Windows, nezapomeňte při ukládání souboru vybrat kódování UTF-8. 
+- Spusťte Příkazový řádek, Terminál nebo prostředí Bash a změňte adresář na složku vašeho projektu, například `cd postgres`.
 -  Pokud chcete spustit kód, zadejte příkaz Python následovaný názvem souboru, například `Python postgres.py`.
 
 > [!NOTE]
-> Od Python verze 3 se může zobrazit chyba `SyntaxError: Missing parentheses in call to 'print'` při spuštění následující bloky kódu: Pokud k tomu dojde, nahraďte každé volání příkazu `print "string"` s použitím závorky, jako například volání funkce `print("string")`.
+> Od Pythonu verze 3 se může při spouštění následujících bloků kódu zobrazit chyba `SyntaxError: Missing parentheses in call to 'print'`. Pokud k tomu dojde, nahraďte všechna volání příkazu `print "string"` voláním funkce s použitím závorek, například `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Připojení, vytvoření tabulky a vložení dat
 Pomocí následujícího kódu se připojte a načtěte data s využitím funkce [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) a příkazu **INSERT** jazyka SQL. Funkce [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) se používá k provedení dotazu SQL na databázi PostgreSQL. Nahraďte parametry host (hostitel), dbname (název databáze), user (uživatel) a password (heslo) hodnotami, které jste zadali při vytváření serveru a databáze.

@@ -1,6 +1,6 @@
 ---
-title: "Vytváření a používání vyrovnávání zatížení interní pomocí služby Azure App Service environment"
-description: "Podrobnosti o tom, jak vytvořit a používat Azure App Service environment izolované Internetu"
+title: "Vytvoření a používání interního nástroje pro vyrovnávání zatížení ve službě Azure App Service Environment"
+description: "Podrobnosti o tom, jak vytvořit a používat službu Azure App Service Environment izolované od internetu"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -10,51 +10,52 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cc7bdd7860506c20187dc913b72111824d1737ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Vytvořit a použít vyrovnávání zatížení interní s služby App Service environment #
+# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Vytvoření a používání interního nástroje pro vyrovnávání zatížení ve službě App Service Environment #
 
- Azure App Service Environment je nasazení služby Azure App Service do používanou podsíť virtuální sítě Azure (VNet). Existují dva způsoby, jak nasadit služby App Service environment (App Service Environment): 
+ Azure App Service Environment je nasazení služby Azure App Service do podsítě ve virtuální síti Azure. Služba App Service Environment (ASE) se dá nasadit dvěma způsoby: 
 
-- V VIP na externí IP adresu často označuje jako externí App Service Environment.
-- S virtuální IP adresu na interní IP adresu často říká App Service Environment ILB protože vnitřní koncový bod je vyrovnávání interní zatížení (ILB). 
+- Pomocí virtuální IP adresy na externí IP adresu – často se označuje jako externí služba ASE
+- Pomocí virtuální IP adresy na interní IP adresu – často se označuje jako služba ASE s interním nástrojem pro vyrovnávání zatížení, protože interním koncovým bodem je interní nástroj pro vyrovnávání zatížení. 
 
-Tento článek ukazuje, jak vytvořit App Service Environment ILB. Přehled App Service Environment, najdete v části [Úvod do služby App Service Environment][Intro]. Naučte se vytvářet externí App Service Environment, najdete v tématu [vytvořit externí App Service Environment][MakeExternalASE].
+V tomto článku najdete postup vytvoření interního nástroje pro vyrovnávání zatížení ASE. Přehled služby ASE najdete v tématu [Úvod do služby App Service Environment][Intro]. Informace o vytvoření externí služby ASE najdete v tématu [Vytvoření externí služby ASE][MakeExternalASE].
 
 ## <a name="overview"></a>Přehled ##
 
-App Service Environment se koncový bod přístupné z Internetu nebo IP adresu můžete nasadit ve vaší virtuální síti. Chcete-li nastavit adresu IP adresu virtuální sítě, musí být nasazený App Service Environment s ILB. Při nasazení vaší App Service Environment s ILB, je nutné zadat:
+Můžete nasadit službu ASE s koncovým bodem s přístupem k internetu nebo s IP adresou ve vaší virtuální síti. Pokud chcete nastavit IP adresu na adresu ve virtuální síti, je potřeba nasadit službu ASE s interním nástrojem pro vyrovnávání zatížení. Pokud nasazujete službu ASE s interním nástrojem pro vyrovnávání zatížení, je potřeba splnit tyto požadavky:
 
--   Vlastní domény, který použijete při vytváření aplikace.
--   Certifikát použitý pro protokol HTTPS.
--   Správa služby DNS pro vaši doménu.
+-   Vaše doména, kterou používáte při vytváření aplikací
+-   Certifikát používaný pro protokol HTTPS
+-   Správa služby DNS pro vaši doménu
 
-Naopak může provádět akce, jako:
+Díky tomu budete moct provádět třeba tyto úkony:
 
--   Hostování aplikací intranetu bezpečně v cloudu, což přistupujete přes síť site-to-site nebo Azure ExpressRoute VPN.
--   Aplikace hostitele, v cloudu, které nejsou uvedené v veřejné servery DNS.
--   Vytvořte samostatný internet back-end aplikace, které aplikace front-endu může bezpečně integrovat.
+-   Nabízet v cloudu zabezpečené hostování intranetových aplikací, ke kterým můžete získat přístup pomocí sítě VPN typu site-to-site nebo Azure ExpressRoute
+-   Hostovat v cloudu aplikace, které nejsou uvedené na veřejných serverech DNS
+-   Vytvářet back-endové aplikace izolované od internetu, které umožňují zabezpečenou integraci vašich front-endových aplikací
 
 ### <a name="disabled-functionality"></a>Zakázané funkce ###
 
-Existují některé věci, které nejde dělat, když používáte ILB App Service Environment:
+Služba ASE s interním nástrojem pro vyrovnávání zatížení neumožňuje některé kroky:
 
--   Použijte SSL založenou na protokolu IP.
--   Přiřaďte IP adresy na konkrétní aplikace.
--   Zakoupení a použití certifikátu s aplikací prostřednictvím portálu Azure. Můžete získat certifikáty přímo od certifikační autority a jejich používání s vaší aplikací. Nelze získat je prostřednictvím portálu Azure.
+-   Nemůžete používat zabezpečení SSL založené na protokolu IP.
+-   Nemůžete přiřadit IP adresy konkrétním aplikacím.
+-   Nemůžete zakoupit certifikát prostřednictvím portálu Azure a používat ho s určitou aplikací. Certifikáty můžete získat přímo od certifikační autority a potom je můžete používat ve svých aplikacích. Nemůžete je ale získat na portálu Azure.
 
-## <a name="create-an-ilb-ase"></a>Vytvořit App Service Environment ILB ##
+## <a name="create-an-ilb-ase"></a>Vytvoření služby ASE s interním nástrojem pro vyrovnávání zatížení ##
 
-Chcete-li vytvořit ILB App Service Environment:
+Při vytváření služby ASE s interním nástrojem pro vyrovnávání zatížení postupujte takto:
 
-1. Na portálu Azure vyberte **nový** > **Web + mobilní** > **App Service Environment**.
+1. Na portálu Azure vyberte položky **Nový** > **Web a mobilní zařízení** > **App Service Environment**.
 
 2. Vyberte své předplatné.
 
@@ -62,50 +63,50 @@ Chcete-li vytvořit ILB App Service Environment:
 
 4. Vyberte nebo vytvořte virtuální síť.
 
-5. Pokud vyberete stávající virtuální síť, budete muset vytvořit podsíť pro uložení App Service Environment. Nezapomeňte nastavit velikost podsítě dostatečně velký pro přizpůsobení případnému budoucímu růstu vašeho App Service Environment. Doporučujeme velikost `/25`, která je 128 adresy a dokáže zpracovat App Service Environment maximální velikost. Je minimální velikost, můžete vybrat `/28`. Po infrastruktury potřebuje, tato velikost je možné rozšířit, aby nesmí být delší než 11 instancí.
+5. Pokud vyberete stávající virtuální síť, je potřeba vytvořit podsíť, která bude obsahovat službu ASE. Nezapomeňte nastavit dostatečnou velikost podsítě, aby umožnila budoucí růst služby ASE. Doporučujeme velikost `/25`, která nabízí 128 adres a dokáže pojmout maximální velikost služby ASE. Minimální velikost, kterou můžete vybrat, je `/28`. Podle potřeby infrastruktury se dá tato velikost rozšířit na maximální počet 11 instancí.
 
-    * Překročila maximální výchozí počet instancí 100 v plánu služby App Service.
+    * Ve vašich plánech služby App Service dojde k překročení výchozí maximální hodnoty 100 instancí.
 
-    * Škálování téměř 100, ale s více Rychlé škálování front-endu.
+    * Škálování se přiblíží 100, ale s rychlejším škálováním front-endu.
 
-6. Vyberte **virtuální sítě nebo umístění** > **konfigurace virtuální sítě**. Nastavte **VIP typ** k **interní**.
+6. Vyberte položky **Virtuální síť/Umístění** > **Konfigurace virtuální sítě**. U položky **Typ VIP** nastavte možnost **Interní**.
 
-7. Zadejte název domény. Tato doména je používaný pro aplikace vytvořené v této App Service Environment. Platí určitá omezení. Nemůže být:
+7. Zadejte název domény. Tato doména se bude používat pro aplikace vytvořené v této službě ASE. Platí určitá omezení. Nesmí se používat tyto domény:
 
-    * NET   
+    * net   
 
-    * azurewebsites.NET
+    * azurewebsites.net
 
-    * p.azurewebsites.NET
+    * p.azurewebsites.net
 
-    * &lt;asename&gt;. p.azurewebsites.net
+    * &lt;nazev_ase&gt;.p.azurewebsites.net
 
-   Použít vlastní název domény pro aplikace a název domény používaný vaší App Service Environment se nesmí překrývat. Pro App Service Environment ILB s názvem domény _contoso.com_, nemůžete použít vlastní názvy domén pro vaše aplikace, jako je:
+   Vlastní název domény pro aplikace se nesmí překrývat s názvem domény používaným vaší službou ASE. Pro službu ASE s interním nástrojem pro vyrovnávání zatížení s názvem domény _contoso.com_ není možné použít vlastní názvy domény pro aplikace podobné těmto:
 
     * www.contoso.com
 
-    * Abcd.def.contoso.com
+    * abcd.def.contoso.com
 
-    * Abcd.contoso.com
+    * abcd.contoso.com
 
-   Pokud znáte názvy vlastních domén pro vaše aplikace, zvolte doménu pro App Service Environment ILB, který nebude došlo ke konfliktu s těmito názvy vlastních domén. V tomto příkladu můžete použít něco jako *contoso-internal.com* pro doménu vaší App Service Environment vzhledem k tomu, který nebude v konfliktu s názvy vlastních domén, které končí *. contoso.com*.
+   Pokud znáte vlastní názvy domén pro vaše aplikace, vyberte si pro službu ASE s interním nástrojem pro vyrovnávání zatížení doménu, která nebude s těmito vlastními názvy domén v konfliktu. V tomto příkladu můžete použít pro službu ASE třeba doménu *contoso-internal.com*, ta totiž nebude v konfliktu s vlastními názvy domén, které končí *.contoso.com*.
 
-8. Vyberte **OK**a potom vyberte **vytvořit**.
+8. Vyberte **OK** a potom vyberte **Vytvořit**.
 
     ![Vytvoření služby ASE][1]
 
-Na **virtuální sítě** okna, je **konfigurace virtuální sítě** možnost. Můžete ho vybrat externí VIP nebo interní VIP. Výchozí hodnota je **externí**. Pokud vyberete **externí**, vaše App Service Environment používá přístupné z Internetu VIP. Pokud vyberete **interní**, vaše App Service Environment je nakonfigurován s ILB na IP adresu ve virtuální síti.
+V okně **Virtuální síť** najdete možnost **Konfigurace virtuální sítě**. U ní můžete vybrat virtuální IP adresu typu Externí nebo Interní. Výchozí hodnota je **Externí**. Pokud vyberete možnost **Externí**, vaše služba ASE bude používat virtuální IP adresu s přístupem na internet. Pokud vyberete možnost **Interní**, vaše služba ASE bude mít nakonfigurovaný interní nástroj pro vyrovnávání zatížení s IP adresou v rámci vaší virtuální sítě.
 
-Po výběru **interní**, možnost přidávat další IP adresy k vaší App Service Environment se odebere. Místo toho je třeba zadat doménu App Service Environment. V App Service Environment externí VIP název App Service Environment se používá v doméně pro aplikace vytvořené v této App Service Environment.
+Po výběru možnosti **Interní** nebude možné přidat do služby ASE další IP adresy. Místo toho je potřeba zadat doménu služby ASE. Ve službě ASE s externí virtuální IP adresou se název služby ASE používá v doméně pro aplikace vytvořené v této službě ASE.
 
-Pokud nastavíte **VIP typ** k **interní**, vaše jméno App Service Environment není v doméně používat pro App Service Environment. Zadejte doménu explicitně. Pokud vaše doména je *contoso.corp.net* a vytvoříte aplikaci v tom, že s názvem App Service Environment *timereporting*, adresa URL pro tuto aplikaci je timereporting.contoso.corp.net.
+Pokud u položky **Typ VIP** nastavíte hodnotu **Interní**, váš název služby ASE se nepoužije v názvu domény pro danou službu ASE. Doménu potom zadáte explicitně. Pokud máte doménu *contoso.corp.net* a vytvoříte v této službě ASE aplikaci s názvem *timereporting*, tato aplikace bude mít adresu URL timereporting.contoso.corp.net.
 
 
-## <a name="create-an-app-in-an-ilb-ase"></a>Vytvoření aplikace v App Service Environment ILB ##
+## <a name="create-an-app-in-an-ilb-ase"></a>Vytvoření aplikace ve službě ASE s interním nástrojem pro vyrovnání zatížení ##
 
-Vytvoření aplikace v App Service Environment ILB stejným způsobem, obvykle vytvoříte aplikaci v App Service Environment.
+Aplikaci ve službě ASE s interním nástrojem pro vyrovnání zatížení vytvoříte stejným způsobem jako v běžné službě ASE.
 
-1. Na portálu Azure vyberte **nový** > **Web + mobilní** > **webové** nebo **Mobile** nebo **rozhraní API Aplikace**.
+1. Na portálu Azure vyberte položky **Nový** > **Web + mobilní zařízení** > **Web** nebo **Mobilní** nebo **Aplikace API**.
 
 2. Zadejte název aplikace.
 
@@ -113,30 +114,30 @@ Vytvoření aplikace v App Service Environment ILB stejným způsobem, obvykle v
 
 4. Vyberte nebo vytvořte skupinu prostředků.
 
-5. Vyberte nebo vytvořte plán služby App Service. Pokud chcete vytvořit nový plán aplikační služby, vyberte jako umístění vaší App Service Environment. Vyberte fond pracovních procesů, kam chcete plán služby App Service, který se má vytvořit. Když vytvoříte plán služby App Service, vyberte vaše App Service Environment jako umístění a fondu pracovních procesů. Když zadáte název aplikace, domény v části název vaší aplikace je nahrazena domény pro váš App Service Environment.
+5. Vyberte nebo vytvořte plán služby App Service. Pokud chcete vytvořit nový plán služby App Service, vyberte jako umístění svoji službu ASE. Vyberte fond pracovních procesů, ve kterém chcete plán služby App Service vytvořit. Po vytvoření plánu služby App Service vyberte jako umístění svoji službu ASE a zvolte fond pracovních procesů. Po zadání názvu aplikace dojde k nahrazení domény pod názvem aplikace doménou vaší služby ASE.
 
-6. Vyberte **Vytvořit**. Pokud chcete aplikaci se zobrazují na řídicím panelu, vyberte **připnout na řídicí panel** zaškrtávací políčko.
+6. Vyberte **Vytvořit**. Pokud chcete, aby se aplikace zobrazovala na řídicím panelu, zaškrtněte políčko **Připnout na řídicí panel**.
 
     ![Vytvoření plánu služby App Service][2]
 
-    V části **název aplikace**, název domény se aktualizuje tak, aby odrážela doménu vaší App Service Environment.
+    V části **Název aplikace** se aktualizuje název domény na doménu vaší služby ASE.
 
-## <a name="post-ilb-ase-creation-validation"></a>Ověření vytvoření POST-ILB App Service Environment ##
+## <a name="post-ilb-ase-creation-validation"></a>Ověření po vytvoření služby ASE s interním nástrojem pro vyrovnávání zatížení ##
 
-App Service Environment ILB je trochu jiná než jiných - ILB App Service Environment. Jak je již uvedeno potřebujete spravovat vlastní DNS. Je nutné také zadat svůj vlastní certifikát pro připojení prostřednictvím protokolu HTTPS.
+Služba ASE s interním nástrojem pro vyrovnávání zatížení se trochu liší od služby bez interního nástroje pro vyrovnávání zatížení. Jak už jsme zmínili, je potřeba spravovat vlastní službu DNS. Taky je potřeba poskytnout vlastní certifikát pro připojení HTTPS.
 
-Po vytvoření vaší App Service Environment, název domény zobrazuje doménu, kterou jste zadali. Nová položka se zobrazí v **nastavení** nabídky s názvem **ILB certifikát**. App Service Environment se vytvoří certifikát, který není zadejte doménu ILB App Service Environment. Pokud používáte App Service Environment pomocí certifikátu, prohlížeč informuje, že je neplatný. Tento certifikát usnadňuje testování HTTPS, ale budete muset nahrát vlastní certifikát, který je vázaný na doménu ILB App Service Environment. Tento krok je nutný bez ohledu na to, jestli je vašeho certifikátu podepsaného svým držitelem nebo získali od certifikační autority.
+Po vytvoření vaší služby ASE se v názvu domény zobrazí doména, kterou jste zadali. V nabídce **Nastavení** se objeví nová položka s názvem **Certifikát interního nástroje pro vyrovnávání zatížení**. Služba ASE se vytvoří s certifikátem, který nemá určenou doménu služby ASE s interním nástrojem pro vyrovnávání zatížení. Pokud službu ASE použijete s tímto certifikátem, váš prohlížeč bude hlásit, že je certifikát neplatný. Tento certifikát usnadňuje testování protokolu HTTPS, ale je potřeba nahrát váš vlastní certifikát spojený s vaší doménou služby ASE s interním nástrojem pro vyrovnávání zatížení. Tento krok je nutný bez ohledu na to, jestli máte certifikát podepsaný svým držitelem, nebo jste ho získali od certifikační autority.
 
-![Název domény ILB App Service Environment][3]
+![Název domény služby ASE s interním nástrojem pro vyrovnávání zatížení][3]
 
-Vaše ILB App Service Environment musí platný certifikát SSL. Použít interní certifikační úřady, koupit certifikát od externí vystavitele nebo použít certifikát podepsaný svým držitelem. Bez ohledu na zdroji certifikátu protokolu SSL musí být správně nakonfigurované následující atributy certifikátu:
+Vaše služba ASE s interním nástrojem pro vyrovnávání zatížení potřebuje platný certifikát SSL. Použijte interní certifikační autority, kupte si certifikát od externího vystavitele nebo použijte certifikát podepsaný svým držitelem. Bez ohledu na zdroj certifikátu SSL musí být správně nakonfigurované následující atributy certifikátu:
 
-* **Předmět**: Tento atribut musí být nastaven na *.your kořenové domény sem.
-* **Alternativní název subjektu**: Tento atribut musí obsahovat i **.your kořenové domény sem* a **.scm.your-kořenové-domény-zde*. Připojení SSL k webu SCM/Kudu spojené s každou aplikaci použít adresu ve tvaru *your-app-name.scm.your-root-domain-here*.
+* **Předmět:** Tento atribut musí být nastavený na hodnotu *.vase-zdejsi-korenova-domena.
+* **Alternativní název předmětu:** Tento atribut musí obsahovat hodnotu **.vase-zdejsi-korenova-domena* i **.scm.vase-zdejsi-korenova-domena*. Připojení SSL k webu SCM/Kudu spojenému s každou aplikací používá adresu ve formátu *nazev-vasi-aplikace.scm.vase-zdejsi-korenova-domena*.
 
-Převést nebo uložení certifikátu SSL jako soubor .pfx. Soubor .pfx, musíte zahrnout všechny zprostředkující a kořenové certifikáty. Zabezpečte ji pomocí hesla.
+Převeďte/uložte certifikát SSL jako soubor .pfx. Soubor .pfx musí obsahovat všechny zprostředkující a kořenové certifikáty. Zabezpečte ho pomocí hesla.
 
-Pokud chcete vytvořit certifikát podepsaný svým držitelem, můžete tady použít příkazy prostředí PowerShell. Nezapomeňte použít název domény App Service Environment ILB místo *internal.contoso.com*: 
+Pokud chcete vytvořit certifikát podepsaný svým držitelem, můžete tady použít příkazy prostředí PowerShell. Nezapomeňte použít název domény služby ASE s interním nástrojem pro vyrovnávání zatížení, ne název domény *internal.contoso.com*: 
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
     
@@ -146,81 +147,81 @@ Pokud chcete vytvořit certifikát podepsaný svým držitelem, můžete tady po
     $fileName = "exportedcert.pfx" 
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
 
-Certifikát, který tyto příkazy prostředí PowerShell generovat označen příznakem pomocí prohlížeče, protože certifikát nebyl vytvořen z certifikační autority, který je v prohlížeči řetěz certifikátů. Chcete-li získat certifikát, který váš prohlížeč vztahy důvěryhodnosti, zakoupit od komerční certifikační autority v prohlížeči řetěz certifikátů. 
+Certifikát generovaný těmito příkazy prostředí PowerShell označují prohlížeče příznakem, protože certifikát nevytvořila certifikační autorita, která se nachází v řetězu certifikátů vašeho prohlížeče. Pokud chcete získat certifikát, kterému bude váš prohlížeč důvěřovat, opatřete si ho od komerční certifikační autority v řetězu certifikátů vašeho prohlížeče. 
 
-![Nastavte ILB certifikát][4]
+![Nastavení certifikátu interního nástroje pro vyrovnávání zatížení][4]
 
-Nahrát vlastní certifikáty a otestovat přístup:
+Pokud chcete nahrát vlastní certifikáty a otestovat přístup, postupujte takto:
 
-1. Po vytvoření App Service Environment, přejděte na rozhraní App Service Environment. Vyberte **App Service Environment** > **nastavení** > **ILB certifikát**.
+1. Po vytvoření služby ASE přejděte do uživatelského rozhraní služby ASE. Vyberte položky **ASE** > **Nastavení** > **Certifikát interního nástroje pro vyrovnávání zatížení**.
 
-2. Pokud chcete nastavit certifikát ILB, vyberte soubor .pfx certifikátu a zadejte heslo. Tento krok trvá určitou dobu ke zpracování. Zobrazí se zpráva, že operace nahrávání probíhá.
+2. Pokud chcete nastavit certifikát interního nástroje pro vyrovnávání zatížení, vyberte soubor certifikátu .pfx a zadejte heslo. Zpracování tohoto kroku nějakou dobu trvá. Zobrazí se zpráva s informací, že probíhá operace nahrávání.
 
-3. Získáte adresu ILB pro vaše App Service Environment. Vyberte **App Service Environment** > **vlastnosti** > **virtuální IP adresa**.
+3. Získejte adresu interního nástroje pro vyrovnávání zatížení pro vaši službu ASE. Vyberte položky **ASE** > **Vlastnosti** > **Virtuální IP adresa**.
 
-4. Vytvoření webové aplikace ve vaší App Service Environment, po vytvoření App Service Environment.
+4. Po vytvoření služby ASE vytvořte ve své službě ASE webovou aplikaci.
 
-5. Vytvoření virtuálního počítače, pokud nemáte v této virtuální sítě.
+5. Pokud ještě v dané virtuální síti nemáte virtuální počítač, vytvořte ho.
 
     > [!NOTE] 
-    > Nemáte pokuste se vytvořit tento virtuální počítač ve stejné podsíti jako App Service Environment, protože se nezdaří nebo způsobit problémy.
+    > Nepokoušejte se tento virtuální počítač vytvořit ve stejné podsíti jako službu ASE, protože by došlo k chybě nebo potížím.
     >
     >
 
-6. Nastavení DNS pro doménu služby App Service Environment. Můžete použít zástupný znak s doménou v DNS. Chcete-li provést několik jednoduchých testů, upravte souboru hostitelů na vašem virtuálním počítači nastavit název webové aplikace na virtuální IP adresy IP adresu:
+6. Nastavte službu DNS pro doménu vaší služby ASE. V doméně ve vaší službě DNS můžete použít zástupný znak. Pokud chcete provést několik jednoduchých testů, upravte ve svém virtuálním počítači soubor hostitelů a nastavte název webové aplikace na virtuální IP adresu:
 
-    a. Pokud název domény vaší App Service Environment _. ilbase.com_ a vytvoříte webovou aplikaci s názvem _mytestapp_, je určena v _mytestapp.ilbase.com_. Pak můžete nastavit _mytestapp.ilbase.com_ přeložit na adresu ILB. (V systému Windows, soubor hostitele je v _C:\Windows\System32\drivers\etc\_.)
+    a. Pokud má vaše služba ASE název domény _.ilbase.com_ a vytvoříte webovou aplikaci s názvem _mytestapp_, bude mít adresu _mytestapp.ilbase.com_. Adresu _mytestapp.ilbase.com_ potom nastavíte tak, aby se překládala na adresu interního nástroje pro vyrovnávání zatížení. (Ve Windows je soubor hostitelů v adresáři _C:\Windows\System32\drivers\etc\_.)
 
-    b. Testování nasazení publikování na webu nebo přístup ke konzole rozšířené, vytvořte záznam pro _mytestapp.scm.ilbase.com_.
+    b. Pokud chcete provést test publikování nasazení webu nebo získat přístup k rozšířené konzole, vytvořte záznam pro adresu _mytestapp.scm.ilbase.com_.
 
-7. Použít prohlížeč na tento virtuální počítač a přejděte k http://mytestapp.ilbase.com. (Nebo přejděte na ať je název vaší webové aplikace s vaší domény.)
+7. Otevřete v tomto virtuálním počítači prohlížeč a přejděte na adresu http://mytestapp.ilbase.com. (Nebo přejděte na název vaší webové aplikace ve vaší doméně.)
 
-8. Použít prohlížeč na tento virtuální počítač a přejděte k https://mytestapp.ilbase.com. Pokud používáte certifikát podepsaný svým držitelem, přijměte nedostatek zabezpečení.
+8. Otevřete v tomto virtuálním počítači prohlížeč a přejděte na adresu https://mytestapp.ilbase.com. Pokud používáte certifikát podepsaný svým držitelem, přijměte nedostatek zabezpečení.
 
-    IP adresu pro vaše ILB je uveden v části **IP adresy**. Tento seznam má také IP adres používaných externí virtuální IP adresy a pro správu příchozí přenosy.
+    IP adresa vašeho interního nástroje pro vyrovnávání zatížení je uvedená v seznamu **IP adresy**. Tento seznam obsahuje také IP adresy používané externí virtuální IP adresou a k řízení příchozích přenosů.
 
-    ![ILB IP adresa][5]
+    ![IP adresa interního nástroje pro vyrovnávání zatížení][5]
 
-## <a name="web-jobs-functions-and-the-ilb-ase"></a>Webové úlohy, funkce a App Service Environment ILB ##
+## <a name="web-jobs-functions-and-the-ilb-ase"></a>Webové úlohy, služba Functions a služba ASE s interním nástrojem pro vyrovnávání zatížení ##
 
-Funkce a webové úlohy jsou podporovány v App Service Environment ILB, ale pro tento portál pro práci s nimi musí mít přístup k síti na web SCM.  To znamená, že váš prohlížeč musí být buď na hostitele, který je buď v nebo připojení k virtuální síti.  
+Služba ASE s interním nástrojem pro vyrovnávání zatížení podporuje službu Functions i webové úlohy, ale nepodporuje portál pro práci s nimi, a potřebujete síťový přístup k webu SCM.  To znamená, že váš prohlížeč musí mít hostitele, který buď je ve virtuální síti, nebo je k ní připojený.  
 
-Pokud používáte Azure Functions v App Service Environment ILB, může získat chybovou zprávu, která říká "Nedokážeme teď načíst vaše funkce. Zkuste to prosím znovu později." K této chybě dojde, protože uživatelské rozhraní funkce využívá webu SCM přes protokol HTTPS a kořenový certifikát není v prohlížeči řetěz certifikátů. Webové úlohy je podobný problém. Tento problém můžete provést jednu z těchto možností:
+Pokud ve službě ASE s interním nástrojem pro vyrovnávání zatížení používáte službu Azure Functions, může se vám zobrazit tato chybová zpráva: „V tuto chvíli nedokážeme načíst vaše funkce. Zkuste to prosím znovu později.“ K této chybě dochází, protože uživatelské rozhraní služby Functions používá web SCM přes protokol HTTPS a kořenový certifikát není v řetězu certifikátů prohlížeče. Webové úlohy mají podobné potíže. Pokud se chcete těmto potížím vyhnout, můžete provést jeden z těchto kroků:
 
-- Přidání certifikátu do úložiště důvěryhodných certifikátů. To odblokuje okraj a prohlížeče Internet Explorer.
-- Použijte Chrome a přejděte na web SCM nejprve, přijměte nedůvěryhodný certifikát a potom přejděte na portál.
-- Použijte komerční certifikát, který je v řetězu certifikátů váš prohlížeč.  Toto je nejlepší možnost.  
+- Přidejte certifikát do úložiště důvěryhodných certifikátů. To odblokujete aplikace Edge a Internet Explorer.
+- Otevřete prohlížeč Chrome a nejdřív přejděte na web SCM, potom přijměte nedůvěryhodný certifikát a přejděte na portál.
+- Použijte komerční certifikát, který je v řetězu certifikátů vašeho prohlížeče.  Tato možnost je nejlepší.  
 
-## <a name="dns-configuration"></a>Konfigurace služby DNS ##
+## <a name="dns-configuration"></a>Konfigurace DNS ##
 
-Pokud používáte externí VIP, DNS spravuje Azure. Všechny aplikace vytvořená v vaší App Service Environment se automaticky přidá do Azure DNS, který je veřejném DNS. ILB App Service Environment musí spravovat vlastní DNS. Pro danou doménu, jako _contoso.net_, budete muset vytvořit záznamy DNS A v serveru DNS, které odkazují na vaši adresu ILB pro:
+Pokud používáte externí virtuální IP adresu, službu DNS spravuje Azure. Všechny aplikace vytvořené ve vaší službě ASE se automaticky přidají do Azure DNS, což je veřejná služba DNS. Ve službě ASE s interním nástrojem pro vyrovnávání zatížení musíte spravovat vlastní službu DNS. Pro danou doménu, třeba _contoso.net_, je potřeba vytvořit ve vaší službě DNS záznamy DNS, které odkazují na adresu vašeho interního nástroje pro vyrovnávání zatížení pro tyto domény:
 
-- *. contoso.net
-- *. scm.contoso.net
+- *.contoso.net
+- *.scm.contoso.net
 
-Pokud doménu ILB App Service Environment se používá pro několik věcí mimo tento App Service Environment, může být třeba spravovat DNS na základě názvu na aplikaci. Tato metoda je náročné, protože je nutné přidat každý nový název aplikace do DNS při jeho vytvoření. Z tohoto důvodu doporučujeme používat vyhrazené domény.
+Pokud se vaše doména služby ASE s interním nástrojem pro vyrovnávání zatížení používá mimo tuto službu ASE k víc účelům, může být potřeba spravovat službu DNS pro každý název aplikace zvlášť. Tato metoda je náročná, protože při vytváření každé nové aplikace musíte do služby DNS přidat její název. Z toho důvodu doporučujeme používat vyhrazenou doménu.
 
-## <a name="publish-with-an-ilb-ase"></a>Publikování s ILB App Service Environment ##
+## <a name="publish-with-an-ilb-ase"></a>Publikování pomocí služby ASE s interním nástrojem pro vyrovnávání zatížení ##
 
-Pro každou aplikaci, která je vytvořena jsou dva koncové body. V App Service Environment ILB, máte  *&lt;název aplikace >.&lt; App Service Environment domény ILB >* a  *&lt;název aplikace > .scm.&lt; App Service Environment domény ILB >*. 
+Pro každou vytvořenou aplikaci existují dva koncové body. Ve službě ASE s interním nástrojem pro vyrovnávání zatížení máte body *&lt;název aplikace>.&lt;doména služby ASE s interním nástrojem pro vyrovnávání zatížení>* a *&lt;název aplikace>.scm.&lt;doména služby ASE s interním nástrojem pro vyrovnávání zatížení>*. 
 
-Název lokality SCM přejdete ke konzole Kudu názvem **pokročilé portál**, v rámci portálu Azure. Konzola Kudu umožňuje zobrazení proměnné prostředí, prozkoumejte disku, použijte konzolu a mnoho dalšího. Další informace najdete v tématu [konzoly Kudu pro službu Azure App Service][Kudu]. 
+Pomocí názvu webu SCM se dostanete do konzoly Kudu na portálu Azure s názvem **Rozšířený portál**. Konzola Kudu umožňuje zobrazit proměnné prostředí, prozkoumávat disk, používat konzolu a další možnosti. Další informace najdete v tématu [Konzola Kudu pro službu Azure App Service][Kudu]. 
 
-V víceklientské služby App Service a externí App Service Environment není jednotné přihlašování mezi portálu Azure a Kudu konzoly. Pro ILB App Service Environment budete muset však použít pro přihlášení ke konzole Kudu vaše přihlašovací údaje pro publikování.
+Ve víceklientské službě App Service a externí službě ASE se mezi portálem Azure a konzolou Kudu používá jednotné přihlašování. Pro službu ASE s interním nástrojem pro vyrovnávání zatížení je ale k přihlášení ke konzole Kudu potřeba použít vaše přihlašovací údaje pro publikování.
 
-Internetové systémy položek konfigurace, například Githubu a Visual Studio Team Services, nefungují s ILB App Service Environment, protože publikování koncový bod není dostupný na Internetu. Místo toho musíte použít CI systému, který používá model pull, jako je Dropbox.
+Se službou ASE s interním nástrojem pro vyrovnávání zatížení nefungují internetové systémy kontinuální integrace, jako je GitHub nebo Visual Studio Team Services, protože koncový bod pro publikování nemá přístup k internetu. Místo toho je potřeba použít systém kontinuální integrace, který používá model na vyžádání, jako je Dropbox.
 
-Publikování koncové body pro aplikace v App Service Environment ILB použijte domény, který byl vytvořený App Service Environment ILB. Tuto doménu se zobrazí v profilu publikování aplikace a v okně portálu aplikace (**přehled** > **Essentials** a také **vlastnosti**). Pokud máte App Service Environment ILB s subdoméně *contoso.net* a aplikaci s názvem *test*, použijte *mytest.contoso.net* pro FTP a *mytest.scm.contoso.net* pro nasazení webu.
+Koncové body pro publikování pro aplikace ve službě ASE s interním nástrojem pro vyrovnávání zatížení používají doménu, pomocí které byla služba ASE s interním nástrojem pro vyrovnávání zatížení vytvořená. Tato doména se objevuje v profilu publikování aplikace a v okně portálu aplikace (**Přehled** > **Essentials** a také **Vlastnosti**). Pokud máte službu ASE s interním nástrojem pro vyrovnávání zatížení se subdoménou *contoso.net* a aplikaci s názvem *test*, použijte adresu *mytest.contoso.net* pro službu FTP a adresu *mytest.scm.contoso.net* pro nasazení webu.
 
-## <a name="couple-an-ilb-ase-with-a-waf-device"></a>Spojte ILB App Service Environment se zařízením firewall webových aplikací ##
+## <a name="couple-an-ilb-ase-with-a-waf-device"></a>Spojení služby ASE s interním nástrojem pro vyrovnávání zatížení se zařízením WAF ##
 
-Aplikační služba Azure poskytuje mnoho bezpečnostní opatření, které chrání systém. Mohou také pomoci určit, zda se hacker aplikace. Nejlepší ochrany pro webovou aplikaci je spojte hostující platforma, jako je například Azure App Service pomocí brány firewall webových aplikací (firewall webových aplikací). Protože App Service Environment ILB má koncový bod sítě izolované aplikace, je vhodné pro toto použití.
+Služba Azure App Service poskytuje řadu prvků zabezpečení, které chrání systém. Kromě toho pomáhají určit, jestli některou aplikaci napadl hacker. Nejlepší ochranu webové aplikace poskytuje spojení hostované platformy, jako je Azure App Service, s bránou firewall webových aplikací (WAF). Služba ASE s interním nástrojem pro vyrovnávání zatížení má koncový bod aplikace izolovaný od internetu, takže se je tomuto účelu vhodná.
 
-Další informace o tom, jak nakonfigurovat App Service Environment vaší ILB zařízení firewall webových aplikací najdete v tématu [konfigurace brány firewall webových aplikací pomocí služby App Service environment][ASEWAF]. Tento článek ukazuje, jak používat virtuální zařízení Barracuda s vaší App Service Environment. Další možností je použití Azure Application Gateway. Aplikační brána používá pravidla základní OWASP zabezpečit všechny aplikace se umístí za ho. Další informace o Application Gateway najdete v tématu [Úvod do brány firewall Azure webových aplikací][AppGW].
+Další informace o konfiguraci služby ASE s interním nástrojem pro vyrovnávání zatížení pro zařízení WAF najdete v tématu [Konfigurace brány firewall webových aplikací ve službě App Service Environment][ASEWAF]. Tento článek vysvětluje, jak ve službě ASE používat virtuální zařízení Barracuda. Další možností je použít službu Azure Application Gateway. Služba Application Gateway dokáže pomocí základních pravidel OWASP zabezpečit všechny aplikace, které za ni umístíte. Další informace o službě Application Gateway najdete v tématu [Úvod do brány firewall webových aplikací Azure][AppGW].
 
 ## <a name="get-started"></a>Začínáme ##
 
-* Chcete-li začít pracovat s ASEs, přečtěte si téma [Úvod do služby App Service Environment][Intro].
+* Pokud chcete začít používat službu ASE, prostudujte si téma [Úvod do služby App Service Environment][Intro].
  
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

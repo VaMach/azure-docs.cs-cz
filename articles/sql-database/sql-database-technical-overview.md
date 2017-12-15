@@ -18,7 +18,7 @@ ms.date: 09/20/2017
 ms.author: carlrab
 ms.openlocfilehash: 884935074dd19304f72fc761c89fc7ae8fd5b3a3
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/22/2017
 ---
@@ -84,20 +84,20 @@ Dostupnost služby Azure se smlouvou o úrovní služeb [(SLA)](http://azure.mic
 
 Se službou SQL Database získáte integrované inteligentní funkce, které vám pomůžou výrazně snížit náklady na provoz a správu databází a maximalizovat výkon a zabezpečení aplikace. Během nepřetržitého spouštění milionů zákaznických úloh SQL Database shromažďuje a zpracovává obrovské množství telemetrických dat, přičemž zároveň plně respektuje ochranu osobních údajů zákazníků. Různé algoritmy neustále vyhodnocují telemetrická data, aby se služba mohla učit a přizpůsobovat vaší aplikaci. Na základě této analýzy služba nabízí doporučení pro vylepšení výkonu přizpůsobená pro konkrétní úlohu. 
 
-### <a name="automatic-performance-monitoring-and-tuning"></a>Automatické výkonu sledování a ladění
+### <a name="automatic-performance-monitoring-and-tuning"></a>Automatické monitorování a optimalizace výkonu
 
-SQL Database nabízí podrobné přehledy dotazů, které potřebujete monitorovat. SQL Database zjistí aspekty vaší databáze a umožní vám přizpůsobit schéma databáze vaší úloze. Databáze SQL obsahuje [doporučení ladění výkonu](sql-database-advisor.md), kde můžete zkontrolovat vyladění akce a použít je. 
+SQL Database nabízí podrobné přehledy dotazů, které potřebujete monitorovat. SQL Database zjistí aspekty vaší databáze a umožní vám přizpůsobit schéma databáze vaší úloze. SQL Database poskytuje [doporučení pro optimalizaci výkonu](sql-database-advisor.md), kde můžete zkontrolovat akce optimalizace a použít je. 
 
-Neustálé monitorování databáze je však náročný a zdlouhavý úkol, zejména při práci s mnoha databázemi. [Inteligentní Statistika](sql-database-intelligent-insights.md) neobsahuje tuto úlohu pro vás automaticky sledováním výkonu databáze SQL ve velkém měřítku a informuje o snížení výkonu problémům s výkonem, identifikuje hlavní příčinu problému a poskytuje zlepšení výkonu doporučení, pokud je to možné.
+Neustálé monitorování databáze je však náročný a zdlouhavý úkol, zejména při práci s mnoha databázemi. Služba [Intelligent Insights](sql-database-intelligent-insights.md) dělá tuto práci za vás pomocí automatického monitorování výkonu služby SQL Database a informuje vás o problémech se snižováním výkonu, identifikuje původní příčinu problému a poskytuje doporučení pro vylepšení výkonu, pokud je to možné.
 
-Efektivní správa velkého počtu databází může být nemožná i se všemi dostupnými nástroji a sestavami, které SQL Database a Azure Portal nabízí. Místo sledování a ladění databázi ručně, můžete zvážit delegování některé sledování a ladění akce k databázi SQL pomocí [automatické ladění](sql-database-automatic-tuning.md). SQL Database automaticky aplikuje doporučení a testuje a ověřuje každou z akcí optimalizace pro zajištění stálého vylepšování výkonu. Díky tomu se služba SQL Database může automaticky přizpůsobit vaší úloze řízeným a bezpečným způsobem. Automatická optimalizace znamená, že se výkon vaší databáze pečlivě monitoruje a porovnává před a po každé akci optimalizace, a pokud se výkon nezlepší, akce optimalizace se vrátí zpět.
+Efektivní správa velkého počtu databází může být nemožná i se všemi dostupnými nástroji a sestavami, které SQL Database a Azure Portal nabízí. Místo ručního monitorování a optimalizace databáze můžete zvážit delegování některých akcí monitorování a optimalizace do služby SQL Database pomocí [automatické optimalizace](sql-database-automatic-tuning.md). SQL Database automaticky aplikuje doporučení a testuje a ověřuje každou z akcí optimalizace pro zajištění stálého vylepšování výkonu. Díky tomu se služba SQL Database může automaticky přizpůsobit vaší úloze řízeným a bezpečným způsobem. Automatická optimalizace znamená, že se výkon vaší databáze pečlivě monitoruje a porovnává před a po každé akci optimalizace, a pokud se výkon nezlepší, akce optimalizace se vrátí zpět.
 
 V současné době se mnoho našich partnerů provozujících [víceklientské aplikace SaaS](sql-database-design-patterns-multi-tenancy-saas-applications.md) nad službou SQL Database spoléhá na automatickou optimalizaci výkonu pro zajištění, že jejich aplikace budou mít vždy stabilní a předvídatelný výkon. Tato funkce pro ně výrazně snižuje riziko incidentu výkonu uprostřed noci. Vzhledem k tomu, že část jejich zákazníků také používá SQL Server, můžou navíc s využitím stejných doporučení indexování získaných ze služby SQL Database pomáhat svým zákazníkům s SQL Serverem.
 
-Existují dva automatické ladění aspekty, které jsou [dostupných v databázi SQL](sql-database-automatic-tuning.md):
+Ve službě [SQL Database jsou dostupné](sql-database-automatic-tuning.md) dva aspekty automatické optimalizace:
 
-- **Správa automatického indexu**: identifikuje indexy, které mají být přidány do databáze a indexy, které má být odebrána.
-- **Automatické plán oprava**: identifikuje problematické plány a řeší problémy s výkonem plán SQL (již brzy, již k dispozici v SQL serveru 2017).
+- **Automatická správa indexů:** Identifikuje indexy, které by se měly do databáze přidat nebo z ní naopak odebrat.
+- **Automatická oprava plánů:** Identifikuje problematické plány a řeší problémy s výkonem plánu SQL (již brzy, aktuálně k dispozici v SQL Serveru 2017).
 
 ### <a name="adaptive-query-processing"></a>Adaptivní zpracování dotazů
 
@@ -133,7 +133,7 @@ Služba SQL Database je jediný databázový systém, který nabízí ochranu ci
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integrace s Azure Active Directory a vícefaktorové ověřování
 
-SQL Database umožňuje centrálně spravovat identity uživatele databáze a dalších služeb Microsoft pomocí [integrace s Azure Active Directory](sql-database-aad-authentication.md). Tato možnost zjednodušuje správu oprávnění a zvyšuje zabezpečení. Azure Active Directory podporuje [služby Multi-Factor authentication](sql-database-ssms-mfa-authentication.md) (MFA) a zvýšit zabezpečení dat a aplikací při podpora jeden proces přihlášení.
+SQL Database umožňuje centrálně spravovat identity uživatele databáze a dalších služeb Microsoft pomocí [integrace s Azure Active Directory](sql-database-aad-authentication.md). Tato možnost zjednodušuje správu oprávnění a zvyšuje zabezpečení. Azure Active Directory podporuje [vícefaktorové ověřování (MFA)](sql-database-ssms-mfa-authentication.md) pro zvýšení zabezpečení dat a aplikací při současné podpoře jednotného přihlašování.
 
 ### <a name="compliance-certification"></a>Certifikace dodržování předpisů
 

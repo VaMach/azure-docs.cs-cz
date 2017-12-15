@@ -1,5 +1,5 @@
 ---
-title: "Rychlý start - vytvoření vaší první kontejner instancí kontejnerů Azure pomocí portálu Azure"
+title: "Rychlý start – Vytvoření prvního kontejneru služby Azure Container Instances pomocí webu Azure Portal"
 description: "Nasazení služby Azure Container Instances a zahájení práce"
 services: container-instances
 documentationcenter: 
@@ -19,13 +19,13 @@ ms.author: marsma
 ms.custom: mvc
 ms.openlocfilehash: 0179107ece1e150246ab40836783d810425be3ca
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Vytvoření prvního kontejneru ve službě Azure Container Instances
 
-Azure Container Instances zjednodušuje vytváření a správu kontejnerů v Azure. V tento rychlý start vytvořit kontejner ve službě Azure a umístěte ji do internet s veřejnou IP adresu. Tuto operaci je dokončit pomocí portálu Azure. Pomocí několika kliknutí zobrazí se to v prohlížeči:
+Azure Container Instances zjednodušuje vytváření a správu kontejnerů v Azure. V tomto rychlém startu vytvoříte kontejner v Azure a zveřejníte ho na internetu s použitím veřejné IP adresy. Tuto operaci provedete pomocí webu Azure Portal. Po několika kliknutích uvidíte ve svém prohlížeči toto:
 
 ![Aplikace nasazená pomocí služby Azure Container Instances zobrazená v prohlížeči][aci-app-browser]
 
@@ -35,37 +35,37 @@ Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
 ## <a name="create-a-container-instance"></a>Vytvoření instance kontejneru
 
-Vyberte **nový** > **kontejnery** > **instancí kontejnerů Azure (preview)**.
+Vyberte **Nový** > **Kontejnery** > **Azure Container Instances (Preview)**.
 
-![Zahájit vytvoření nové instance kontejneru na portálu Azure][aci-portal-01]
+![Zahájení vytváření nové instance kontejneru na webu Azure Portal][aci-portal-01]
 
-Zadejte následující hodnoty v **název kontejneru**, **kontejneru image**, a **skupiny prostředků** textových polí. Nechte ostatní hodnoty výchozích hodnot a pak klikněte na **OK**.
+Do textových polí **Název kontejneru**, **Image kontejneru** a **Skupina prostředků** zadejte následující hodnoty. U ostatních hodnot ponechte výchozí nastavení a klikněte na **OK**.
 
-* Název kontejneru:`mycontainer`
-* Obrázek kontejneru:`microsoft/aci-helloworld`
-* Skupina prostředků:`myResourceGroup`
+* Název kontejneru: `mycontainer`
+* Image kontejneru: `microsoft/aci-helloworld`
+* Skupina prostředků: `myResourceGroup`
 
-![Konfigurace základního nastavení pro novou instanci kontejneru na portálu Azure][aci-portal-03]
+![Konfigurace základního nastavení pro novou instanci kontejneru na webu Azure Portal][aci-portal-03]
 
-Kontejnery Windows a Linux můžete vytvořit v Azure kontejner instancí. V tento rychlý start necháme výchozí nastavení **Linux** vzhledem k tomu, že jsme zadali kontejner založených na Linuxu (`microsoft/aci-helloworld`) v předchozím kroku.
+Ve službě Azure Container Instances můžete vytvářet kontejnery Windows i Linuxu. V tomto rychlém startu ponecháme výchozí nastavení pro **Linux**, protože jsme v předchozím kroku zadali kontejner založený na Linuxu (`microsoft/aci-helloworld`).
 
-Ponechejte v nastavení **konfigurace** výchozích hodnot, pak klikněte na tlačítko **OK** ověření konfigurace.
+U ostatních nastavení v části **Konfigurace** ponechte jejich výchozí hodnoty a kliknutím na **OK** ověřte konfiguraci.
 
-![Konfigurace nové instance kontejneru na portálu Azure][aci-portal-04]
+![Konfigurace nové instance kontejneru na webu Azure Portal][aci-portal-04]
 
-Po dokončení ověření se zobrazí souhrn nastavení kontejneru. Vyberte **OK** odešlete žádost nasazení kontejneru.
+Po dokončení ověření se zobrazí souhrn nastavení kontejneru. Vyberte **OK** a odešlete žádost o nasazení kontejneru.
 
-![Souhrn nastavení pro novou instanci kontejneru na portálu Azure][aci-portal-05]
+![Souhrn nastavení pro novou instanci kontejneru na webu Azure Portal][aci-portal-05]
 
-Při spuštění nasazení je umístěn na dlaždici na řídicím panelu portálu označující průběh nasazení. Po dokončení nasazení dlaždici aktualizována na nové **můj_kontejner myc1** skupina kontejneru.
+Po zahájení nasazení se na váš řídicí panel portálu umístí dlaždice oznamující průběh nasazování. Po dokončení nasazení se dlaždice aktualizuje a zobrazí novou skupinu kontejnerů **mycontainer-myc1**.
 
-![Průběh vytváření nové instance kontejneru na portálu Azure][aci-portal-08]
+![Průběh vytváření nové instance kontejneru na webu Azure Portal][aci-portal-08]
 
-Vyberte **můj_kontejner myc1** skupina kontejneru zobrazíte vlastnosti skupiny kontejneru. Poznamenejte si **Ip adresu** kontejner skupiny, a taky **stavu** vašeho kontejneru.
+Vyberte skupinu kontejnerů **mycontainer-myc1** a zobrazte její vlastnosti. Poznamenejte si **IP adresu** skupiny kontejnerů a také **STAV** vašeho kontejneru.
 
-![Přehled skupinových kontejneru na portálu Azure][aci-portal-06]
+![Přehled skupiny kontejnerů na webu Azure Portal][aci-portal-06]
 
-Jakmile kontejneru přesune **systémem** stavu, přejděte na adresu IP, který jste si poznamenali v předchozím kroku k zobrazení aplikace hostované na nový kontejner.
+Jakmile se stav kontejner změní na **Spuštěno**, přejděte na IP adresu, kterou jste si poznamenali v předchozím kroku, a zobrazte aplikaci hostovanou v novém kontejneru.
 
 ![Aplikace nasazená pomocí služby Azure Container Instances zobrazená v prohlížeči][aci-app-browser]
 
@@ -81,7 +81,7 @@ Jakmile kontejneru přesune **systémem** stavu, přejděte na adresu IP, který
 
 ## <a name="next-steps"></a>Další kroky
 
-V tento rychlý start vytvořili kontejner Instance Azure z bitové kopie v veřejného úložiště Docker Hub. Pokud chcete zkuste jej sestavit kontejner sami a nasadíte ho do Azure kontejner instancí pomocí registru kontejner Azure, přejděte k kurzu instancí kontejnerů Azure.
+V tomto rychlém startu jste vytvořili instanci kontejneru Azure z image ve veřejném úložišti Docker Hub. Pokud byste si chtěli sami vyzkoušet sestavení kontejneru a jeho nasazení do služby Azure Container Instances pomocí služby Azure Container Registry, pokračujte na kurz služby Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Kurzy služby Azure Container Instances](./container-instances-tutorial-prepare-app.md)

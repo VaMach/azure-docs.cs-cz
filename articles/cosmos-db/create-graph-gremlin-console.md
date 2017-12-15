@@ -2,7 +2,7 @@
 title: "Kurz ke službě Azure Cosmos DB: Vytváření, zadávání dotazů a procházení v konzole Apache TinkerPops Gremlin | Dokumentace Microsoftu"
 description: "Rychlý start ke službě Azure Cosmos DB vám pomůže s vytvářením vrcholů, okrajů a dotazů pomocí rozhraní Graph API služby Azure Cosmos DB."
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: quickstart
 ms.date: 07/27/2017
-ms.author: denlee
-ms.openlocfilehash: 9755446d2c01313db9fd80b4f2a7f46f8bec500c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.author: lbosq
+ms.openlocfilehash: 59336c23eb322453a7c9a487002de9bdf57da633
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Služba Azure Cosmos DB: Vytváření, zadávání dotazů a procházení grafu v konzole Gremlin
 
@@ -46,7 +46,7 @@ Musíte si také nainstalovat [konzolu Gremlin](http://tinkerpop.apache.org/). P
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Připojení ke službě aplikace
-1. Než začnete používat konzoli Gremlin, vytvoření nebo úpravě vzdálené secure.yaml konfiguračního souboru v `apache-tinkerpop-gremlin-console-3.2.5/conf` adresáře.
+1. Než začnete používat konzolu Gremlin, vytvořte nebo upravte v adresáři `apache-tinkerpop-gremlin-console-3.2.5/conf` konfigurační soubor remote-secure.yaml.
 2. Vyplňte parametry *Hostitel*, *Port*, *Uživatelské jméno*, *Heslo*, *Fond připojení* a *Serializátor*:
 
     Nastavení|Navrhovaná hodnota|Popis
@@ -62,7 +62,7 @@ Musíte si také nainstalovat [konzolu Gremlin](http://tinkerpop.apache.org/). P
 
     Pro hodnotu heslo zkopírujte **Primární klíč** ze stránky **Klíče**: ![Zobrazení a zkopírování primárního klíče na stránce Klíče na webu Azure Portal](./media/create-graph-gremlin-console/keys.png)
 
-Váš soubor vzdálené secure.yaml by měl vypadat takto:
+Váš soubor remote-secure.yaml by měl vypadat nějak takto:
 
 ```
 hosts: [your_database_server.graphs.azure.com]

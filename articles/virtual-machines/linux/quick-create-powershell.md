@@ -18,13 +18,13 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 3b93cdfbfb143c1597d190d87d270b5e6ede9537
 ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Vytvoření virtuálního počítače s Linuxem pomocí PowerShellu
 
-Modul Azure PowerShell slouží k vytváření a správě prostředků Azure z příkazového řádku PowerShellu nebo ve skriptech. Tento rychlý start podrobnosti modulu Azure PowerShell k nasazení virtuálního počítače s Ubuntu server. Po nasazení serveru se vytvoří připojení SSH a nainstaluje se webový server NGINX.
+Modul Azure PowerShell slouží k vytváření a správě prostředků Azure z příkazového řádku PowerShellu nebo ve skriptech. Tento Rychlý start podrobně popisuje nasazení virtuálního počítače se serverem Ubuntu pomocí modulu Azure PowerShell. Po nasazení serveru se vytvoří připojení SSH a nainstaluje se webový server NGINX.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
@@ -139,7 +139,7 @@ Po zobrazení výzvy zadejte uživatelské jméno *azureuser*. Pokud jste při v
 
 ## <a name="install-nginx"></a>Instalace serveru NGINX
 
-Použijte následující příkazy k aktualizaci zdroje balíčků a instalovat nejnovější balíček NGINX. 
+Pomocí následujících příkazů provedete aktualizaci zdrojů balíčku a nainstalujete nejnovější balíček NGINX. 
 
 ```bash 
 # update package source

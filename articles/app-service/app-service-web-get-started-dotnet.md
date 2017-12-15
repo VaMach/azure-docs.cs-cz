@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření webové aplikace ASP.NET ve službě Azure | Dokumentace Microsoftu"
+title: "Vytvoření webové aplikace ASP.NET Core v Azure | Dokumentace Microsoftu"
 description: "Nasazením ukázkové webové aplikace ASP.NET se naučíte, jak spouštět webové aplikace ve službě Azure App Service."
 services: app-service\web
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a6a785b739697a94fcbd7cc8e3163f142887e1b9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 47f8fd97ad3be833e4f86f4bda57b140ce73c5de
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="create-an-aspnet-web-app-in-azure"></a>Vytvoření webové aplikace ASP.NET v Azure
+# <a name="create-an-aspnet-core-web-app-in-azure"></a>Vytvoření webové aplikace ASP.NET Core v Azure
 
-[Azure Web Apps](app-service-web-overview.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.  V tomto kurzu Rychlý start se dozvíte, jak nasadit svoji první webovou aplikaci ASP.NET pomocí služby Azure Web Apps. Po dokončení kurzu budete mít skupinu prostředků, která se bude skládat z plánu služby App Service a webové aplikace Azure s nasazenou webovou aplikací.
+[Azure Web Apps](app-service-web-overview.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů.  V tomto kurzu Rychlý start se dozvíte, jak nasadit svoji první webovou aplikaci ASP.NET Core do služby Azure Web Apps. Po dokončení kurzu budete mít skupinu prostředků, která se bude skládat z plánu služby App Service a webové aplikace Azure s nasazenou webovou aplikací.
 
-Podívejte se na video s tímto rychlým startem v akci a potom sami proveďte příslušné kroky a publikujte svou první aplikaci .NET v Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+> [!NOTE]
+> Pokud hledáte, jak postupovat při sestavování a nasazování webové aplikace v ASP.NET Frameworku, příslušný článek najdete [tady](app-service-web-get-started-dotnet-framework.md). 
+>
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -41,37 +41,41 @@ K provedení kroků v tomto kurzu je potřeba:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-aspnet-web-app"></a>Vytvoření webové aplikace ASP.NET
+## <a name="create-an-aspnet-core-web-app"></a>Vytvoření webové aplikace ASP.NET Core
 
 Ve Visual Studiu vytvořte projekt tak, že vyberete **Soubor > Nový > Projekt**. 
 
-V dialogovém okně **Nový projekt** vyberte **Visual C# > Web > Webová aplikace ASP.NET (.NET Framework)**.
+V dialogovém okně **Nový projekt** vyberte **Visual C# > Web > Webová aplikace ASP.NET Core**.
 
 Aplikaci pojmenujte _myFirstAzureWebApp_ a pak vyberte **OK**.
    
 ![Dialogové okno Nový projekt](./media/app-service-web-get-started-dotnet/new-project.png)
 
-Do Azure můžete nasadit jakýkoli typ webové aplikace ASP.NET. V tomto kurzu Rychlý start vyberte šablonu **MVC** a ujistěte se, že u ověřování je nastavena možnost **Bez ověření**.
+Do Azure můžete nasadit jakýkoli typ webové aplikace ASP.NET Core. V tomto kurzu Rychlý start vyberte šablonu **Webová aplikace** a ujistěte se, že u ověřování je nastavena možnost **Bez ověření**.
       
 Vyberte **OK**.
 
-![Dialogové okno Nový projekt ASP.NET](./media/app-service-web-get-started-dotnet/select-mvc-template.png)
+![Dialogové okno Nový projekt ASP.NET](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
+
+Jakmile se vytvoří projekt ASP.NET Core, zobrazí se úvodní stránka ASP.NET Core s řadou odkazů, které vám pomohou v začátcích. 
+
+![Úvodní stránka](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 V nabídce vyberte **Ladit > Spustit bez ladění** a spusťte tak webovou aplikaci místně.
 
-![Místní spuštění aplikace](./media/app-service-web-get-started-dotnet/local-web-app.png)
+![Místní spuštění aplikace](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
 ## <a name="publish-to-azure"></a>Publikování aplikací do Azure
 
 V **Průzkumníku řešení** klikněte pravým tlačítkem na projekt **myFirstAzureWebApp** a vyberte možnost **Publikovat**.
 
-![Publikování z Průzkumníka řešení](./media/app-service-web-get-started-dotnet/solution-explorer-publish.png)
+![Publikování z Průzkumníka řešení](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
 Zkontrolujte, že je vybrána možnost **Microsoft Azure App Service** a vyberte **Publikovat**.
 
 ![Publikování ze stránky přehledu projektu](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-Tím se otevře dialogové okno **Vytvořit plán Aplikační služby**, které vám pomůže vytvořit všechny prostředky služby Azure potřebné ke spuštění webové aplikace ASP.NET ve službě Azure.
+Tím se otevře dialogové okno **Vytvořit plán App Service**, které vám pomůže vytvořit všechny prostředky Azure potřebné ke spuštění vaší webové aplikace ASP.NET Core v Azure.
 
 ## <a name="sign-in-to-azure"></a>Přihlášení k Azure
 
@@ -118,19 +122,19 @@ Výběrem možnosti **Vytvořit** spustíte vytváření prostředků Azure.
 
 ![Nastavení názvu webové aplikace](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
-Průvodce po dokončení publikuje webovou aplikaci ASP.NET do služby Azure a pak aplikaci spustí ve výchozím prohlížeči.
+Průvodce po dokončení publikuje webovou aplikaci ASP.NET Core do Azure a potom tuto aplikaci spustí ve výchozím prohlížeči.
 
-![Publikovaná webová aplikace ASP.NET v Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
+![Publikovaná webová aplikace ASP.NET v Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
 Název webové aplikace zadaný v [kroku vytvoření a publikování](#create-and-publish-the-web-app) se použije jako předpona adresy URL ve formátu `http://<app_name>.azurewebsites.net`.
 
-Blahopřejeme, vaše webová aplikace ASP.NET je veřejně spuštěná ve službě Azure App Service.
+Blahopřejeme, vaše webová aplikace ASP.NET Core je spuštěná ve službě Azure App Service.
 
 ## <a name="update-the-app-and-redeploy"></a>Aktualizace a opětovné nasazení aplikace
 
-Z **Průzkumníku řešení** otevřete _Views\Home\Index.cshtml_.
+Z **Průzkumníku řešení** otevřete _Pages/Index.cshtml_.
 
-Najděte HTML značku `<div class="jumbotron">` poblíž začátku a nahraďte celý element následujícím kódem:
+Najděte HTML značku `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` poblíž začátku a nahraďte celý element následujícím kódem:
 
 ```HTML
 <div class="jumbotron">
@@ -145,7 +149,7 @@ Na stránce publikování vyberte **Publikovat**.
 
 Po dokončení publikování spustí Visual Studio prohlížeč na adrese URL webové aplikace.
 
-![Aktualizovaná webová aplikace ASP.NET v Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+![Aktualizovaná webová aplikace ASP.NET v Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
 ## <a name="manage-the-azure-web-app"></a>Správa webové aplikace Azure
 

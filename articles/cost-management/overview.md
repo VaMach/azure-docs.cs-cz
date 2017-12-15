@@ -1,5 +1,5 @@
 ---
-title: "Přehled služby Azure náklady správu Cloudyn | Microsoft Docs"
+title: "Přehled služby Azure Cost Management by Cloudyn | Dokumentace Microsoftu"
 description: "Azure Cost Management by Cloudyn je multicloudové řešení správy nákladů, které pomáhá využívat Azure a další cloudové prostředky."
 services: cost-management
 keywords: 
@@ -12,45 +12,45 @@ manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 969340080bfe2b04704367c2225895728773119e
 ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/12/2017
 ---
-# <a name="what-is-azure-cost-management"></a>Co je Azure náklady na správu?
+# <a name="what-is-azure-cost-management"></a>Co je Azure Cost Management?
 
-Azure náklady na správu Cloudyn umožňuje sledovat využití cloudu a výdaje vašich prostředků Azure a jiných poskytovatelů cloudu, včetně AWS a Google. Řídicí panel snadno pochopit hlásí pomoc s přidělení nákladů a showbacks/účtovat také. Cenově Management pomáhá optimalizovat svůj cloud výdaje určením nedostatečně prostředky, které můžete spravovat a upravit.
+Azure Cost Management by Cloudyn umožňuje sledovat využití cloudu a výdaje za prostředky Azure a dalších poskytovatelů cloudu, včetně AWS a Google. Snadno pochopitelné sestavy řídicího panelu pomáhají s přidělováním nákladů i metodami showback a chargeback. Cost Management pomáhá optimalizovat výdaje za cloud díky identifikaci nevyužitých prostředků, které následně můžete spravovat a upravovat.
 
-Podívejte se na úvodní video, najdete v tématu [Úvod do Azure náklady na správu Cloudyn](https://youtu.be/NWIRny6Wpsk).
+Pokud chcete zhlédnout úvodní video, podívejte se na video [Introduction to Azure Cost Management by Cloudyn](https://youtu.be/NWIRny6Wpsk) (Seznámení se službou Azure Cost Management by Cloudyn).
 
-## <a name="monitor-usage-and-spending"></a>Sledování využití a výdaje
+## <a name="monitor-usage-and-spending"></a>Monitorování využití a výdajů
 
-Monitorování vašeho využití a výdaje je zásadní význam pro infrastruktury cloudu, protože organizace platí za prostředky, které budou využívat v čase. Při využití překročí mezní hodnoty smlouvy, může dojít rychle poplatky za použití neočekávané náklady. Několik důležité faktory mohou ztížit ad-hoc monitorování. Promítnutí náklady na základě průměrné využití nejprve předpokládá, že vaší spotřeby konzistentní v daném fakturační období. Druhý když náklady blíží nebo překročit rozpočtem, je důležité, že dostávat oznámení proaktivně k úpravě výdajů. A poskytovatele cloudových služeb nemusí nabízet náklady projekce oproti prahové hodnoty nebo obdobích porovnání sestavy.
+Monitorování využití a výdajů je v případě cloudových infrastruktur mimořádně důležité, protože organizace platí za prostředky, které v průběhu času spotřebují. Když využití překročí prahové hodnoty uvedené ve smlouvě, rychle se můžou začít účtovat neočekávané poplatky za nadlimitní využití. Ad hoc monitorování může ztěžovat několik důležitých faktorů. Za prvé odhadování nákladů na základě průměrného využití předpokládá konzistentní spotřebu v průběhu daného fakturačního období. Za druhé je důležité, abyste aktivně dostávali upozornění v případě, že se náklady blíží stanovenému rozpočtu nebo ho překročí, abyste mohli upravit své výdaje. Poskytovatelé cloudových služeb navíc nemusejí nabízet sestavy odhadu nákladů oproti prahovým hodnotám nebo porovnání jednotlivých období.
 
-Sestavy vám pomůžou sledovat výdaje k analýze a sledovat využití cloudu, náklady a trendy. Sestavy pomocí v čase, můžete zjistit anomálií, které se liší od normální trendy. Umožňuje zvýšit efektivitu ve vašem cloudu nasazení se zobrazí v sestavách optimalizace. Můžete také Všimněte si umožňuje zvýšit efektivitu v sestavách analýzy náklady.
+Sestavy pomáhají s monitorováním výdajů za účelem analýzy a sledování využití cloudu, nákladů a trendů. Pomocí sestav v průběhu času můžete detekovat anomálie, které se odchylují od normálních trendů. Nedostatky vašeho cloudového nasazení se zobrazí v sestavách optimalizace. Můžete si také všimnout nedostatků v sestavách analýzy nákladů.
 
-![Sestava náklady v čase](media\overview\cost-over-time-rpt.png)
+![Sestava nákladů v průběhu času](media\overview\cost-over-time-rpt.png)
 
 
-## <a name="manage-costs"></a>Řízení nákladů
+## <a name="manage-costs"></a>Správa nákladů
 
-Historická data můžou pomoct spravovat náklady, pokud analýza využití a náklady v čase pro identifikaci trendů. Trendy jsou poté použít k předpovídat budoucí výdaje. Náklady na správu také obsahuje užitečné předpokládané náklady sestav.
+Historická data můžou pomoct se správou nákladů při analýze využití a nákladů v průběhu času za účelem identifikace trendů. Trendy se následně použijí k předpovědi budoucích výdajů. Cost Management obsahuje také užitečné sestavy odhadovaných nákladů.
 
-Přidělení nákladů spravuje náklady analýzou náklady na základě vaší označování zásad. Značky můžete použít ve vaší vlastní účty, prostředky a entity k zpřesnění přidělení nákladů. Kategorie Manager slouží k uspořádání značek pomáhají další zásady správného řízení. A použijte přidělení nákladů na kompletní přehled nákladů nebo vrácení peněz pro zobrazení využití prostředků a souvisejících nákladů ovlivnit chování spotřeby nebo účtují klienta zákazníků.
+Přidělování nákladů snižuje náklady díky analýze nákladů na základě zásad označování. Přidělování nákladů můžete upřesnit použitím značek na vlastní účty, prostředky a entity. Správce kategorií vaše značky uspořádává a pomáhá tak zajistit další zásady správného řízení. Přidělování nákladů můžete použít také pro metody showback a chargeback. Můžete tak zobrazit využití prostředků a související náklady a ovlivnit chování spotřeby nebo spotřebu účtovat zákazníkům tenanta.
 
-Řízení přístupu pomáhá spravovat uživatele a týmy přístup jenom náklady na správu data, která potřebovali zajistí náklady. Používáte entity strukturu, Správa uživatelů a plánované sestavy se příjemce seznamy přiřadit přístup.
+Řízení přístupu pomáhá snižovat náklady tím, že zajišťuje, aby uživatelé a týmy měly přístup pouze k datům správy nákladů, která potřebují. Přístup přiřazujete pomocí struktury entit, správy uživatelů a plánovaných sestav se seznamy příjemců.
 
-Zobrazení výstrah pomáhá spravovat náklady oznámení uživateli automaticky, když dojde k neobvyklou výdaje nebo nákladů nad plán. Výstrahy můžete také informovat ostatní účastníci automaticky pro útraty anomálií a nákladů nad plán rizika. Různé sestavy podporují výstrahy založené na nároky a náklady prahové hodnoty. Výstrahy však nejsou aktuálně podporovány pro účty CSP partnera nebo předplatných.
+Upozorňování pomáhá snižovat náklady tím, že vás automaticky upozorňuje na neobvyklé nebo nadměrné výdaje. Upozornění můžou také automaticky informovat ostatní účastníky na anomálie ve výdajích a rizika nadměrných výdajů. Různé sestavy podporují upozornění na základě rozpočtu a prahových hodnot nákladů. Upozornění se však aktuálně nepodporují pro partnerské účty ani předplatná poskytovatele CSP.
 
 ## <a name="improve-efficiency"></a>Zlepšení efektivity
 
-Můžete určit optimální využití virtuálních počítačů a identifikovat nečinnosti virtuálních počítačů nebo odeberte nečinnosti virtuální počítače a odpojit disky s náklady na správu. Pomocí informací na optimalizaci velikosti a v sestavách neefektivnost, můžete vytvořit plán velikost dolů nebo odebrat nečinnosti virtuálních počítačů. Sestavy optimalizace však nejsou aktuálně podporovány pro účty CSP partnera nebo předplatných.
+Pomocí služby Cost Management můžete určit optimální využití virtuálních počítačů a identifikovat nečinné virtuální počítače nebo odebrat nečinné virtuální počítače a nepřipojené disky. Pomocí informací v sestavách optimalizace velikosti a nedostatků můžete vytvořit plán pro zmenšení nebo odebrání nečinných virtuálních počítačů. Sestavy optimalizace se však aktuálně nepodporují pro partnerské účty ani předplatná poskytovatele CSP.
 
-![Změna velikosti doporučení](.\media\overview\sizing.png)
+![Doporučení pro určování velikostí](.\media\overview\sizing.png)
 
-Pokud jste zřídili vyhrazená instance AWS, může zvýšit využití vaší vyhrazenou instancí pomocí sestavy optimalizace, kde můžete zobrazit nákupní doporučení, upravit nepoužívané rezervace a plán zřizování.
+Pokud jste zřídili rezervované instance AWS, můžete využití těchto rezervovaných instancí vylepšit pomocí sestav optimalizace, kde můžete zobrazit doporučení k nákupu, upravit nepoužívané rezervace a plánovat zřizování.
 
 ## <a name="next-steps"></a>Další kroky
 
-Teď, když jste obeznámeni s náklady na správu, dalším krokem je registrace vašeho cloudového prostředí a začněte se seznamovat se vaše data.
+Teď, když jste se seznámili se službou Cost Management, je dalším krokem registrace cloudového prostředí a zahájení prozkoumávání dat.
 
-- [Registraci jednotlivých předplatného Azure](quick-register-azure-sub.md)
+- [Registrace samostatného předplatného Azure](quick-register-azure-sub.md)

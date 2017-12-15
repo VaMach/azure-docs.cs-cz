@@ -17,7 +17,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ee3b53f9e68a739a39478045debbb45dff9d7ed9
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/22/2017
 ---
@@ -99,7 +99,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>Přechod do aplikace
 
-V prohlížeči přejděte na adresu URL Azure webové aplikace: `http://<app_name>.azurewebsites.net`.
+V prohlížeči přejděte na adresu URL webové aplikace Azure: `http://<app_name>.azurewebsites.net`.
 
 Stránka je spuštěná jako webová aplikace služby Azure App Service.
 
@@ -111,7 +111,7 @@ Stránka je spuštěná jako webová aplikace služby Azure App Service.
 
 V textovém editoru otevřete soubor *index.html* a změňte kód. Můžete například změnit nadpis H1 z „Azure App Service - Sample Static HTML Site“ na „Azure App Service“.
 
-V místní okno terminálu potvrdit změny v úložišti Git a potom odešlete změny kódu do Azure.
+V místním okně terminálu potvrďte změny v Gitu a potom nasdílejte změny kódu do Azure.
 
 ```bash
 git commit -am "updated HTML"

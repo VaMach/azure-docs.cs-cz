@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 3639bd568fbad69f65fe933aa871f4effdab9a17
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/22/2017
 ---
@@ -63,7 +63,7 @@ Aplikaci spustíte místně tak, že otevřete okno terminálu a pomocí skriptu
 npm start
 ```
 
-Otevřete webový prohlížeč a přejděte na ukázkovou aplikaci v `http://localhost:1337`.
+Otevřete webový prohlížeč a přejděte do ukázkové aplikace na adrese `http://localhost:1337`.
 
 Na stránce se zobrazí zpráva **Hello World** z ukázkové aplikace.
 
@@ -141,7 +141,7 @@ V textovém editoru otevřete soubor `index.js`, který je součástí aplikace 
 response.end("Hello Azure!");
 ```
 
-V místní okno terminálu potvrdit změny v úložišti Git a potom odešlete změny kódu do Azure.
+V místním okně terminálu potvrďte změny v Gitu a potom nasdílejte změny kódu do Azure.
 
 ```bash
 git commit -am "updated output"

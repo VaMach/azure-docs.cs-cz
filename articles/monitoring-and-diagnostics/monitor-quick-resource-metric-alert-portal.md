@@ -1,6 +1,6 @@
 ---
-title: "Přijímat oznámení, pokud hodnota metriky splňuje podmínku | Microsoft Docs"
-description: "Průvodce rychlým zahájením pomoci uživatelům vytvoření metriky pro aplikace logiky"
+title: "Přijímání oznámení, když hodnota metriky splní určitou podmínku | Dokumentace Microsoftu"
+description: "Úvodní příručka, pomocí které můžou uživatelé vytvořit metriku pro aplikaci logiky."
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -12,15 +12,15 @@ ms.author: ancav
 ms.custom: mvc
 ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Přijímat oznámení, pokud hodnota metriky splňuje podmínku
+# <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Přijímání oznámení, když hodnota metriky splní určitou podmínku
 
-Azure monitorování zpřístupní metriky pro mnoho prostředků Azure. Tyto metriky nesou výkonu a stavu tyto prostředky. V mnoha případech metrika hodnoty může ukazovat na něco se problém se prostředek. Můžete vytvořit metriky výstrahy monitorování neobvyklé chování a upozornění, pokud k němu dojde. Tento postup rychlého spuštění prostřednictvím vytvoření aplikace logiky, vytvoření úlohy a vizualizace metriky pro aplikaci logiky. Pak projde vytváření výstrahu a příjem oznámení pro metriky pro prostředek aplikace logiky.
+Azure Monitor zpřístupňuje metriky pro řadu prostředků Azure. Tyto metriky vyjadřují výkon a stav těchto prostředků. Hodnoty metrik můžou v řadě případů ukazovat na nějaký problém s daným prostředkem. Můžete vytvářet upozornění metrik, která budou monitorovat neobvyklé chování a v případě, že k němu dojde, vás na to upozorní. Tento rychlý start prochází jednotlivé kroky k vytvoření aplikace logiky, vytvoření úlohy a vizualizaci metrik pro aplikaci logiky. Dále prochází kroky k vytvoření upozornění a přijetí oznámení na metriku pro prostředek aplikace logiky.
 
-Další informace o metriky a metriky výstrah najdete v tématu [Přehled monitorování Azure metriky](./monitoring-overview-metrics.md) a [přehled výstrah monitorování Azure](./monitoring-overview-alerts.md). 
+Další informace o metrikách a upozorněních metrik najdete v tématech [Přehled metrik služby Azure Monitor](./monitoring-overview-metrics.md) a [Přehled upozornění služby Azure Monitor](./monitoring-overview-alerts.md). 
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
@@ -32,85 +32,85 @@ Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
 
 1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
 
-2. Vyhledejte a vyberte **aplikace logiky**. Vytvořit novou skupinu prostředků s názvem **myResourceGroup** použít výchozí umístění. Klikněte na tlačítko **Vytvořit**.
+2. Vyhledejte a vyberte **Aplikace logiky**. Vytvořte novou skupinu prostředků **myResourceGroup** a použijte výchozí umístění. Klikněte na tlačítko **Vytvořit**.
 
-3. Zadejte informace o aplikaci logiky a zkontrolujte **připnout na řídicí panel** možnost. Jakmile budete hotovi, klikněte na **Vytvořit**.
+3. Zadejte informace o aplikaci logiky a zaškrtněte možnost **Připnout na řídicí panel**. Jakmile budete hotovi, klikněte na **Vytvořit**.
 
-    ![Zadejte základní informace o aplikaci logiky na portálu](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Zadání základních informací o aplikaci logiky na portálu](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
-4. Aplikace logiky by měl připnuli na řídicí panel. Kliknutím na přejděte do aplikace logiky.
+4. Aplikace logiky by měla být připnutá na řídicím panelu. Kliknutím na aplikaci logiky do ní přejděte.
 
-5. V panelu aplikace logiky, vyberte **návrhář aplikace logiky**
+5. Na panelu aplikace logiky vyberte **Návrhář aplikace logiky**.
 
-     ![Vytvořit aktivační událost opakování v Návrháři logiku aplikace v panelu portálu](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Vytvoření triggeru opakování v návrháři aplikace logiky na panelu portálu](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
-6. Nastavte můžete hodnoty, jak je vidět v následujícím diagramu.
+6. Nastavte hodnoty podle následujícího diagramu.
 
-    ![Konfigurace aktivační událostí aplikace logiky v panelu portálu](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Konfigurace triggeru aplikace logiky na panelu portálu](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
-7. V návrháři, vyberte **opakování** aktivační události.
+7. V návrháři vyberte trigger **Opakování**.
 
-8. Nastavte interval 20 a frekvenci sekundu zajistit svou aplikaci logiky aktivaci každých 20 sekund.
+8. Interval nastavte na 20 a frekvenci na sekundy. Tím zajistíte, že se aplikace logiky bude aktivovat každých 20 sekund.
 
-9. Klikněte **nový krok** tlačítko a vyberte **přidat akci**.
+9. Klikněte na tlačítko **Nový krok** a vyberte **Přidat akci**.
 
-10. Vyberte **HTTP** a vyberte možnost **HTTP HTTP**.
+10. Zvolte možnost **HTTP** a vyberte **HTTP-HTTP**.
 
-11. Nastavte **metoda** jako POST a **Uri** webovou adresu svého výběru.
+11. Nastavte **Metodu** na POST a identifikátor **URI** na libovolnou webovou adresu.
 
 12. Klikněte na **Uložit**.
 
-## <a name="view-metrics-for-your-logic-app"></a>Zobrazit metriky pro svou aplikaci logiky
+## <a name="view-metrics-for-your-logic-app"></a>Zobrazení metrik pro aplikaci logiky
 
-1. Klikněte **monitorování** možnost v levém navigačním podokně.
+1. V levém navigačním podokně klikněte na možnost **Monitorování**.
 
-2. Vyberte **metriky** kartě, vyplňte **předplatné**, **skupiny prostředků**, **typ prostředku** a **prostředků** informace pro svou aplikaci logiky.
+2. Vyberte kartu **Metriky** a jako **Předplatné**, **Skupina prostředků**, **Typ prostředku** a **Prostředek** vyplňte informace o vaší aplikaci logiky.
 
-3. Ze seznamu metriky, vyberte **spustí spuštění**.
+3. Ze seznamu metrik vyberte **Spuštěné běhy**.
 
-4. Změnit **čas rozsah** grafu pro zobrazení dat za poslední hodinu.
+4. Upravte **Časový rozsah** grafu tak, aby zobrazoval data za poslední hodinu.
 
-5. Teď byste měli vidět graf vykreslení celkový počet spuštění aplikace logiky bylo zahájeno přes poslední hodinu.
+5. Nyní byste měli vidět, jak graf vykresluje celkový počet běhů, které vaše aplikace logiky spustila za poslední hodinu.
 
-    ![Vykreslení grafu metriky pro prostředek aplikace logiky](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Vykreslování grafu metrik pro prostředek aplikace logiky](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
-## <a name="create-a-metric-alert-for-your-logic-app"></a>Vytvoření metriky oznámení pro svou aplikaci logiky
+## <a name="create-a-metric-alert-for-your-logic-app"></a>Vytvoření upozornění metriky pro aplikaci logiky
 
-1.  V horní pravé části metriky panelu klikněte **přidat metriky upozornění** tlačítko.
+1.  V pravé horní části panelu metrik klikněte na tlačítko **Přidat upozornění metriky**.
 
-2. Název metriky upozornění "myLogicAppAlert" a zadejte stručný popis výstrahy.
+2. Pojmenujte upozornění metriky myLogicAppAlert a zadejte stručný popis upozornění.
 
-3. Nastavte **podmínku** metriky výstrahy jako větší než, nastavte **prahová hodnota** jako "10" a nastavte **období** jako 'za posledních 5 minut.
+3. Nastavte **Podmínku** pro upozornění metriky na Vetší než, **Prahovou hodnotu** nastavte na 10 a **Období** nastavte na Za posledních 5 minut.
 
-4. Nakonec v části **email(s) další správce** zadejte e-mailovou adresu. Tato výstraha vám zajistí e-mailu v případě, že aplikace logiky má víc než 10 neúspěšných běží v období 5 minut.
+4. Nakonec v části **Další e-maily správce** zadejte svou e-mailovou adresu. Toto upozornění zajišťuje, že obdržíte e-mail v případě, že ve vaší aplikaci logiky dojde během 5 minut k více než 10 běhům, které selžou.
 
-    ![Konfigurace upozornění aplikace logiky v panelu portálu](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![Konfigurace upozornění aplikace logiky na panelu portálu](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
-## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Zobrazí metriky oznámení výstrah pro svou aplikaci logiky
-1. Ve chvíli měli byste obdržet e-mail z 'Microsoft Azure výstrah, o tom, výstrahy, aktivoval'.
+## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Přijímání oznámení na upozornění metrik pro aplikaci logiky
+1. Během chvíle byste měli od odesilatele Microsoft Azure Alerts obdržet e-mail s informací o aktivaci upozornění.
 
-2. Přejděte zpět do aplikace logiky a změnit aktivační událost opakování intervalu 1 a četnost hodinu.
+2. Přejděte zpět do aplikace logiky a v triggeru opakování upravte interval na 1 a frekvenci na hodiny.
 
-3. Během několika minut měli byste obdržet e-mail z "Microsoft Azure 'informačních výstrah výstrahu"vyřešen'.
+3. Během několika minut byste měli od odesilatele Microsoft Azure Alerts obdržet e-mail s informací o vyřešení upozornění.
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Další rychlé zahájení v této kolekci stavět na tento rychlý start. Pokud máte v úmyslu pokračovat v pro práci s několik rychlé spuštění nebo se kurzy, neprovádí vyčištění prostředky vytvořené v tento rychlý start. Pokud pokračovat nechcete, pomocí následujících kroků odstraňte všechny prostředky vytvořené tímto rychlým startem na portálu Azure Portal.
+Další rychlé starty v této kolekci vycházejí z tohoto rychlého startu. Pokud chcete pokračovat v práci s dalšími rychlými starty nebo kurzy, nevyčišťujte prostředky vytvořené v rámci tohoto rychlého startu. Pokud pokračovat nechcete, pomocí následujících kroků odstraňte všechny prostředky vytvořené tímto rychlým startem na portálu Azure Portal.
 
-1. Z nabídky na levé straně na portálu Azure, klikněte na **monitorování**.
+1. V nabídce vlevo na webu Azure Portal klikněte na **Monitorování**.
 
-2. Vyberte **výstrahy** , najít výstrahy, které jste vytvořili v této příručce rychlý start a klikněte na něj.
+2. Vyberte kartu **Upozornění**, vyhledejte upozornění, které jste vytvořili v rámci této úvodní příručky, a klikněte na něj.
 
-3. V panelu metriky výstrah, klikněte na tlačítko **odstranit**.
+3. Na panelu upozornění metriky klikněte na **Odstranit**.
 
-4. Z nabídky na levé straně na portálu Azure, vyhledejte **aplikace logiky** a pak klikněte na **Logic apps**.
+4. V nabídce vlevo na webu Azure Portal vyhledejte **Aplikace logiky** a pak klikněte na **Aplikace logiky**.
 
-5. Na panelu, klikněte na aplikaci logiky, kterou jste vytvořili v tento rychlý start do textového pole a pak klikněte na **odstranit**.
+5. Na panelu klikněte v textovém poli na aplikaci logiky, kterou jste vytvořili v rámci tohoto rychlého startu, a pak klikněte na **Odstranit**.
 
 ## <a name="next-steps"></a>Další kroky
 
-V tento rychlý start když jste se naučili postup vytvoření metriky výstrahy pro vaše prostředky. Další informace o metriky výstrahy kliknutím prostřednictvím našich přehled výstrah.
+V tomto rychlém startu jste zjistili, jak vytvořit upozornění metriky pro vaše prostředky. Další informace o upozorněních metrik najdete po proklikání k našemu přehledu upozornění.
 
 > [!div class="nextstepaction"]
-> [Azure monitorování předplatné akce výstrah](./monitor-quick-audit-notify-action-in-subscription.md )
+> [Upozornění na akce předplatného ve službě Azure Monitor](./monitor-quick-audit-notify-action-in-subscription.md )

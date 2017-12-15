@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření přiřazení zásady k identifikaci nekompatibilní prostředky v prostředí Azure pomocí rozhraní příkazového řádku Azure | Microsoft Docs"
-description: "Pomocí prostředí PowerShell vytvořit přiřazení zásad Azure k identifikaci nekompatibilní prostředky."
+title: "Použití Azure CLI k vytvoření přiřazení zásady pro identifikaci prostředků, které nedodržují předpisy, v prostředí Azure | Dokumentace Microsoftu"
+description: "Použijte Azure CLI k vytvoření přiřazení zásady Azure Policy pro identifikaci prostředků, které nedodržují předpisy."
 services: azure-policy
 keywords: 
 author: bandersmsft
@@ -11,15 +11,15 @@ ms.service: azure-policy
 ms.custom: mvc
 ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
 ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/18/2017
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Vytvoření přiřazení zásady k identifikaci nekompatibilní prostředky v prostředí Azure pomocí Azure CLI
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Vytvoření přiřazení zásady pro identifikaci prostředků, které nedodržují předpisy, v prostředí Azure pomocí Azure CLI
 
-Prvním krokem při pochopení dodržování předpisů v Azure je zároveň budete vědět, kde stát s aktuální prostředky. Tento rychlý start vás provede procesem vytvoření přiřazení zásady můžete identifikovat virtuální počítače, které nepoužívají spravované disky.
+Prvním krokem k porozumění dodržování předpisů v Azure je vědět, jak jste na tom s vašimi stávajícími prostředky. Tento rychlý start vás provede procesem vytvoření přiřazení zásady pro identifikaci virtuálních počítačů, které nepoužívají spravované disky.
 
-Na konci tohoto procesu se úspěšně zjistilo, jaké virtuální počítače nejsou pomocí spravovaných disků a jsou tedy *nevyhovující*.
+Na konci tohoto procesu úspěšně identifikujete virtuální počítače, které nepoužívají spravované disky, a proto *nedodržují předpisy*.
 .
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
@@ -28,69 +28,69 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 
 Pokud se rozhodnete nainstalovat a používat rozhraní příkazového řádku místně, musíte mít rozhraní příkazového řádku Azure ve verzi 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="opt-in-to-azure-policy"></a>Vyjádřit výslovný souhlas Azure zásad
+## <a name="opt-in-to-azure-policy"></a>Přihlášení ke službě Azure Policy
 
-Azure zásad je nyní k dispozici ve verzi Public Preview a je nutné zaregistrovat k požádat o přístup.
+Služba Azure Policy je nyní dostupná ve verzi Public Preview a pro vyžádání přístupu se musíte zaregistrovat.
 
-1. Přejděte do zásad Azure v https://aka.ms/getpolicy a vyberte **zaregistrovat** v levém podokně.
+1. Přejděte do služby Azure Policy na adrese https://aka.ms/getpolicy a v levém podokně vyberte **Zaregistrovat se**.
 
-   ![Vyhledejte zásad](media/assign-policy-definition/sign-up.png)
+   ![Hledání zásad](media/assign-policy-definition/sign-up.png)
 
-2. Vyjádřit výslovný souhlas do zásad Azure tak, že vyberete odběry ve **předplatné** seznamu chcete pracovat. Potom vyberte **zaregistrovat**.
+2. Přihlaste se ke službě Azure Policy tak, že v seznamu **Předplatné** vyberete předplatná, se kterými chcete pracovat. Potom vyberte **Zaregistrovat**.
 
-   ![Výslovný souhlas pomocí zásad Azure](media/assign-policy-definition/preview-opt-in.png)
+   ![Přihlášení k používání služby Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   Vaše žádost je automaticky schváleny pro verzi Preview. Může trvat až 30 minut pro systém ke zpracování registrace.
+   Vaše žádost se pro verzi Preview schválí automaticky. Počkejte, systému může zpracování registrace trvat až 30 minut.
 
 ## <a name="create-a-policy-assignment"></a>Vytvoření přiřazení zásady
 
-V tento rychlý start jsme vytvoří přiřazení zásady a přiřadit auditu virtuální počítače bez definice spravované disky. Definice této zásady určuje prostředky, které nejsou v souladu s podmínkami, nastavte v definici zásady.
+V tomto rychlém startu vytvoříme přiřazení zásady a přiřadíme definici Audit virtuálních počítačů bez spravovaných disků. Tato definice zásady identifikuje prostředky, které nesplňují podmínky nastavené v definici zásady.
 
-Postupujte podle těchto kroků můžete vytvořit nové přiřazení zásad.
+Podle těchto pokynů vytvořte nové přiřazení zásady.
 
-Zobrazení všech definic zásad a nalézt definici zásady "Auditu virtuálních počítačů bez spravovaných disků":
+Zobrazte všechny definice zásad a vyhledejte definici zásady Audit virtuálních počítačů bez spravovaných disků:
 
 ```azurecli
 az policy definition list
 ```
 
-Azure zásad se dodává s již vytvořené v definicích zásady můžete použít. Definice předdefinované zásady se zobrazí jako například:
+Služba Azure Policy obsahuje již integrované definice zásad, které můžete použít. Zobrazí se například následující integrované definice zásad:
 
-- Vynutit značku a její hodnota
-- Použít značku a její hodnota
-- Vyžadovat verze serveru SQL 12.0
+- Vynucovat použití značky a její hodnoty
+- Použít značku a její hodnotu
+- Vyžadovat SQL Server verze 12.0
 
-Potom zadejte následující informace a spusťte následující příkaz přiřadit definice zásady:
+Dále zadejte následující informace a spuštěním následujícího příkazu přiřaďte definici zásady:
 
-- Zobrazení **název** pro přiřazení zásad. V tomto případě použijeme *auditu virtuální počítače bez spravované disků*.
-- **Zásady** – to je definice zásady, na základě vypnout, který používáte k vytvoření přiřazení. V takovém případě je definice zásady – *auditu virtuální počítače bez spravované disků*
-- A **oboru** – obor Určuje, jaké prostředky nebo seskupení prostředků v získá vynucena přiřazení zásad. Může rozsahu z odběru do skupiny prostředků.
+- **Name** – Zobrazovaný název přiřazení zásady. V tomto případě použijeme *Audit virtuálních počítačů bez spravovaných disků*.
+- **Policy** – Toto je definice zásady založená na té, kterou používáte k vytvoření tohoto přiřazení. V tomto případě je to definice zásady *Audit virtuálních počítačů bez spravovaných disků*.
+- **Scope** – Obor určuje, pro které prostředky nebo skupiny prostředků se toto přiřazení zásady bude vynucovat. Může sahat od předplatného až po skupinu prostředků.
 
-  Používat předplatné (nebo skupinu prostředků), jste již dříve zaregistrovali když jste se rozhodli do zásad Azure, v tomto příkladu používáme toto ID předplatného - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** a název skupiny prostředků – **FabrikamOMS**. Ujistěte se, že jste do ID předplatného a název skupiny prostředků, které pracujete s změnit.
+  Použijte předplatné (nebo skupinu prostředků), které jste zaregistrovali dříve při přihlášení ke službě Azure Policy. V tomto příkladu používáme ID předplatného **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** a název skupiny prostředků **FabrikamOMS**. Nezapomeňte tyto hodnoty změnit na ID předplatného a název skupiny prostředků, se kterými pracujete.
 
-Toto je, jak by měla vypadat příkaz:
+Příkaz by měl vypadat nějak takto:
 
 ```azurecli
 az policy assignment create --name Audit Virtual Machines without Managed Disks Assignment --policy Audit Virtual Machines without Managed Disks --scope /subscriptions/
 bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
-Přiřazení zásady je zásada, která byla přiřazena proběhla v rámci konkrétní obor. Tento obor může také rozsahu ze skupiny pro správu do skupiny prostředků.
+Přiřazení zásady je zásada, která byla přiřazena, aby proběhla v rámci zadaného oboru. Tento obor může také sahat od skupiny pro správu až po skupinu prostředků.
 
-## <a name="identify-non-compliant-resources"></a>Určete nekompatibilní prostředky
+## <a name="identify-non-compliant-resources"></a>Identifikace prostředků, které nedodržují předpisy
 
-Chcete-li zobrazit prostředky, které nesplňují předpisy v rámci této nové přiřazení:
+Zobrazení prostředků, které nedodržují předpisy v rámci tohoto nového přiřazení:
 
-1. Přejděte zpět na stránku zásad Azure.
-2. Vyberte **dodržování předpisů** v levém podokně a Hledat **přiřazení zásady** jste vytvořili.
+1. Přejděte zpět na stránku služby Azure Policy.
+2. V levém podokně vyberte **Dodržování předpisů** a vyhledejte **Přiřazení zásady**, které jste vytvořili.
 
-   ![Zásady dodržování předpisů](media/assign-policy-definition/policy-compliance.png)
+   ![Dodržování zásad](media/assign-policy-definition/policy-compliance.png)
 
-   Pokud jsou všechny existující prostředky, které nejsou kompatibilní s toto nové přiřazení, se zobrazí na **nekompatibilní prostředky** kartě, jak je uvedeno výše.
+   Pokud nějaké stávající prostředky nedodržují předpisy tohoto nového přiřazení, zobrazí se na kartě **Neodpovídající prostředky**, jak je znázorněno výše.
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-V této kolekci dalších příručkách stavět na tento rychlý start. Pokud budete chtít pokračovat v práci s další kurzy, neprovádí vyčištění prostředky vytvořené v tento rychlý start. Pokud neplánujete, chcete-li pokračovat, odstraňte přiřazení, které jste vytvořili spuštěním tohoto příkazu:
+Další příručky v této kolekci vycházejí z tohoto rychlého startu. Pokud chcete pokračovat v práci s dalšími kurzy, neprovádějte čištění prostředků vytvořených v rámci tohoto rychlého startu. Pokud pokračovat nechcete, spuštěním následujícího příkazu odstraňte přiřazení, která jste vytvořili:
 
 ```azurecli
 az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
@@ -98,9 +98,9 @@ az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-
 
 ## <a name="next-steps"></a>Další kroky
 
-V tento rychlý start jste přiřadili definici zásady k identifikaci nekompatibilní prostředky v prostředí Azure.
+V tomto rychlém startu jste přiřadili definici zásady pro identifikaci prostředků, které nedodržují předpisy, ve vašem prostředí Azure.
 
-Další informace o přiřazení zásady, a ujistěte se, že prostředky, můžete vytvořit v **budoucí** předpisům, pokračovat v kurzu pro:
+Další informace o přiřazování zásad pro zajištění, aby prostředky vytvořené **v budoucnu** dodržovaly předpisy, najdete v tomto kurzu:
 
 > [!div class="nextstepaction"]
-> [Vytváření a Správa zásad](./create-manage-policy.md)
+> [Vytváření a správa zásad](./create-manage-policy.md)

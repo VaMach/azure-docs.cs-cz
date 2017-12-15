@@ -1,6 +1,6 @@
 ---
-title: "Přehled služby Azure Application Insights pro DevOps | Microsoft Docs"
-description: "Naučte se používat Application Insights v prostředí Ops vývojářů."
+title: "Přehled Azure Application Insights pro DevOps | Dokumentace Microsoftu"
+description: "Zjistěte, jak používat Application Insights v prostředí DevOps."
 author: mrbullwinkle
 services: application-insights
 documentationcenter: 
@@ -16,99 +16,99 @@ ms.date: 06/26/2017
 ms.author: mbullwin
 ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/01/2017
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Přehled Application Insights pro DevOps
 
-S [Application Insights](app-insights-overview.md), můžete rychle zjistit, jaký je výkon aplikace a právě používá, když je za provozu. Pokud dojde k potížím, umožňuje vědět o jeho, pomůže posoudit dopad a pomáhají zjistit příčinu.
+Pomocí [Application Insights](app-insights-overview.md) můžete rychle zjistit, jak vaše aplikace funguje a jak se používá, když je v provozu. Pokud dojde k problému, upozorní vás na něj a pomůže vám posoudit dopad a určit příčinu.
 
-Zde je účet od týmu, který sama vyvinula webových aplikací:
+Tady je zpráva od týmu, který vyvíjí webové aplikace:
 
-* *"Během několika dní před jsme nasadili, vedlejší, opravy hotfix. Jsme nespustily průchodu testu široký, ale bohužel získali některé nečekaným změnám sloučeny do datové části způsobuje nekompatibilitu mezi front-end a back-EndY. Hned aktivováno naše výstrahy výjimek serveru surged a jsme byly provedeny vědět situaci. Pár kliknutí rychle na portálu služby Application Insights, My dostatek informací z callstacks výjimka můžete zúžit problém. Jsme vrácena okamžitě a omezené škody. Application Insights udělal Tato část devops cyklus velmi snadno a níž lze provést akci."*
+* *„Před pár dny jsme nasadili menší opravu hotfix. Neprovedli jsme rozsáhlý test průchodu, ale bohužel se s datovou částí sloučila nějaká neočekávaná změna, která způsobila nekompatibilitu mezi front-endem a back-endem. Okamžitě došlo k nárůstu počtu výjimek serveru, aktivovalo se naše upozornění, a my jsme se dozvěděli o nastalé situaci. Stačilo několik kliknutí na portálu Application Insights a získali jsme dostatek informací ze zásobníků volání výjimek, abychom problém mohli zúžit. Okamžitě jsme vrátili změny a omezili škody. Díky Application Insights byla tato část cyklu DevOps velmi snadná a efektivní.“*
 
-V tomto článku jsme podle týmu v bance společnosti Fabrikam, která sama vyvinula systému online bankovnictví (OBS) chcete zobrazit, jak se pomocí Application Insights rychle reagovat na zákazníky a provádět aktualizace.  
+V tomto článku sledujeme tým v bance Fabrikam, který vyvíjí online bankovní systém (OBS), abychom si ukázali, jak pomocí Application Insights rychle reagují na zákazníky a provádějí aktualizace.  
 
-Tým funguje v cyklu DevOps znázorněný na následujícím obrázku:
+Tým pracuje v cyklu DevOps znázorněném na následujícím obrázku:
 
 ![Cyklus DevOps](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
-Požadavky na informačního kanálu do jejich vývoj nevyřízených položek (seznam úkolů). Tyto funkce fungují v krátkém sprintů, které často poskytovat software pracovní – obvykle ve formě vylepšení a rozšíření stávající aplikace. Pomocí nové funkce je často aktualizována aplikace za provozu. I když je za provozu, monitoruje ho týmem pro výkonu a využití pomocí Application Insights. Tato data APM kanály zpátky na jejich vývoj nevyřízených položek.
+Požadavky proudí do vývojového backlogu (seznam úkolů). Pracují v krátkých sprintech, ve kterých se často dokončí fungující software – obvykle v podobě vylepšení a rozšíření existující aplikace. Živá aplikace se často aktualizuje o nové funkce. Když je aplikace v provozu, tým pomocí Application Insights monitoruje její výkon a využití. Tato data APM proudí zpět do vývojového backlogu.
 
-Tým služby Application Insights používá k monitorování živou webovou aplikaci úzce pro:
+Tým pomocí Application Insights monitoruje v živé webové aplikaci zejména:
 
-* Výkon. Chtějí zjistit, jak se počtu žádostí o; lišit podle doby odezvy kolik procesoru, sítě, disk a další prostředky jsou používány; které aplikace kódu pomaleji výkonu; a kde jsou kritická místa.
-* Selhání. Pokud jsou výjimky nebo neúspěšné požadavky, nebo pokud se čítač výkonu ocitne mimo rozsah jeho možnost, tým musí znát rychle, aby přijaly akce.
-* Využití. Při každém vydání nové funkce, týmem chcete vědět, do jaké míry se používá, a toho, jestli uživatelé mají všechny problémy s ním.
+* Výkon. Chtějí zjistit, jak se s počtem požadavků mění doba odezvy, kolik procesorových, síťových, diskových a dalších prostředků se využívá, jaký kód aplikace snižuje výkon a kde jsou kritické body.
+* Selhání. Pokud dojde k výjimkám nebo neúspěšným požadavkům, nebo pokud je čítač výkonu mimo komfortní rozsah, tým to potřebuje rychle vědět, aby mohl reagovat.
+* Využití. Při každém vydání nové funkce chce tým vědět, do jaké míry se využívá, a jestli s ní uživatelé nemají nějaké problémy.
 
-Umožňuje soustředit na části zpětnou vazbu cyklu:
+Zaměřme se na část cyklu se zpětnou vazbou:
 
-![Rozpoznat, třídění, diagnostikovat](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
+![Zjišťování – určení priorit podle dostupnosti zdrojů – diagnostika](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
-## <a name="detect-poor-availability"></a>Zjištění nízký dostupnosti
-Marcela Markova je vývojář senior OBS týmu a trvá realizace na sledování výkonu online. Jana nastaví několik [testy dostupnosti](app-insights-monitor-web-app-availability.md):
+## <a name="detect-poor-availability"></a>Zjišťování špatné dostupnosti
+Marcela Markova je vedoucí vývojář v týmu OBS a vede monitorování online výkonu. Nastaví několik [testů dostupnosti](app-insights-monitor-web-app-availability.md):
 
-* Testu jedné adresy URL pro hlavní cílová stránka aplikace, http://fabrikambank.com/onlinebanking/. Jana nastaví kritéria kód HTTP 200 a text "Vítejte!". Pokud tento test ale selže, je vážně problém se sítí nebo servery nebo může být problém s nasazení. (Nebo někdo došlo ke změně zobrazení úvodní! zpráva na stránce bez možnosti čtení jeho Přehled.)
-* Hlubší vícekrokového testu, který se přihlásí a získá aktuálního účtu výpis, kontrola pár klíčů podrobnosti na každé stránce. Tento test ověřuje, že odkaz na databázi účty funguje. Použije Jana id fiktivní zákazníka: několik z nich jsou zachována pro účely testování.
+* Test jediné adresy URL hlavní cílové stránky aplikace – http://fabrikambank.com/onlinebanking/. Marcela nastaví kritéria na kód HTTP 200 a text „Welcome!“. Pokud tento test selže, existuje nějaký závažný problém se sítí nebo servery, případně se může jednat o problém s nasazením. (Nebo někdo na stránce změnil zprávu Welcome!, aniž by ji o tom informoval.)
+* Hlubší test s více kroky, který se přihlásí, získá výpis aktuálního účtu a na každé stránce zkontroluje několik klíčových podrobností. Tento test ověřuje fungování odkazu na databázi účtů. Marcela používá fiktivní ID zákazníka – několik se jich udržuje pro účely testování.
 
-Tyto testy nastavit je Marcela jisti, že týmem rychle upozornit všechny výpadku.  
+Díky těmto nastaveným testům si Marcela může být jistá, že se tým rychle dozví o jakémkoli výpadku.  
 
-Selhání zobrazují jako červené tečky na graf webového testu:
+Selhání se zobrazují jako červené tečky v grafu webového testu:
 
-![Zobrazení webové testy, které mají spustit v předchozí období](./media/app-insights-detect-triage-diagnose/04-webtests.png)
+![Zobrazení webových testů, které proběhly v předchozím období](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Ale důležitější, je výstraha o jakákoli chyba e-mailem do vývojového týmu. Tento způsob se vědět o něm před téměř všechny zákazníky.
+Ale co je důležitější, upozornění na jakékoli selhání se odešle e-mailem vývojovému týmu. Tímto způsobem se o tom dozví dříve, než téměř všichni zákazníci.
 
 ## <a name="monitor-performance"></a>Monitorování výkonu
-Na stránce Přehled ve službě Application Insights je graf, který obsahuje celou řadu [klíčové metriky](app-insights-web-monitor-performance.md).
+Na stránce Přehled v Application Insights je graf zobrazující různé [klíčové metriky](app-insights-web-monitor-performance.md).
 
 ![Různé metriky](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-Čas načítání stránky prohlížeče je odvozená od telemetrické zprávy odesílané přímo z webové stránky. Doba odezvy serveru, počtu žádostí o serveru a počet neúspěšných požadavků jsou všechny měří ve webovém serveru a odeslaných do služby Application Insights z ní.
+Čas načtení stránky v prohlížeči se odvozuje z telemetrických dat odesílaných přímo z webových stránek. Dobra odezvy serveru, počet požadavků serveru a počet neúspěšných požadavků se měří na webovém serveru a odtud se odesílají do Application Insights.
 
-Marcela je mírně nevadí graf odpovědi serveru. Tento graf znázorňuje průměrný čas mezi když server obdrží požadavek HTTP z prohlížeče uživatele, a když vrátí odpověď. Není zobrazíte varianta v tomto grafu, jak se liší podle zatížení systému. Ale v takovém případě zdá, že existuje korelace mezi malé přírůstky. počet požadavků a big roste doby odezvy. Který by to znamenat, že je pouze při jeho omezení operačního systému.
+Marcela je mírně znepokojená grafem odezvy serveru. Tento graf ukazuje průměrnou dobu mezi přijetím požadavku HTTP z prohlížeče uživatele na serveru a vrácením odpovědi. Není neobvyklé, že tento graf kolísá, protože zatížení systému se mění. V tomto případě se však zdá, že existuje korelace mezi malými nárůsty počtu požadavků a velkými nárůsty doby odezvy. To by mohlo znamenat, že systém funguje na hranici svých omezení.
 
-Jana otevře grafy servery:
+Marcela otevře grafy serverů:
 
 ![Různé metriky](./media/app-insights-detect-triage-diagnose/06.png)
 
-Nejspíš žádné přihlašovací omezení prostředků existuje, takže možná, že jsou právě shoda hrboly v grafech odpověď serveru.
+Tady se nezdá, že by něco naznačovalo omezení prostředků, takže možná jsou hrboly v grafech odezvy serveru pouze náhodné.
 
-## <a name="set-alerts-to-meet-goals"></a>Nastavit upozornění ke splnění cílů
-Nicméně chce dohlížet na dobu odezvy. Pokud přejde příliš vysoké, chce vědět o něm okamžitě.
+## <a name="set-alerts-to-meet-goals"></a>Nastavení upozornění pro splnění cílů
+Marcela by nicméně stále chtěla dohlížet na dobu odezvy. Pokud dojde k příliš velkému navýšení, chce se o tom okamžitě dozvědět.
 
-Aby Jana nastaví [výstraha](app-insights-metrics-explorer.md), pro větší než typické prahová hodnota doby odezvy. Díky tomu svůj spolehlivosti, které Jana budete vědět o něm, pokud jsou pomalé odezvy.
+Proto nastaví [upozornění](app-insights-metrics-explorer.md) na vyšší dobu odezvy, než je obvyklá prahová hodnota. Díky tomu se může spolehnout, že pokud bude doba odezvy vysoká, dozví se o tom.
 
-![Výstrahy okně Přidat](./media/app-insights-detect-triage-diagnose/07-alerts.png)
+![Okno přidání upozornění](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
-Výstrahy můžete nastavit na širokou škálu jiné metriky. Například může přijímat e-mailů, pokud zvýší počet výjimky nebo přejde nízkou dostupnou paměť, nebo pokud je v klientských požadavků ve špičce.
+Upozornění je možné nastavit na celou řadu dalších metrik. Můžete například dostávat e-maily v případě nárůstu počtu výjimek, snížení velikosti dostupné paměti nebo když požadavky klientů dosáhnou špičky.
 
-## <a name="stay-informed-with-smart-detection-alerts"></a>Udržení informovanosti s výstrahami Inteligentní detekce
-Další den výstrahy e-mailu přicházejí z Application Insights. Ale když uživatel otevře, Jana zjistí, že není oznámení čas odezvy, které Jana nastavit. Místo toho se sdělením, že došlo nečekané zvýšení neúspěšných požadavků – to znamená, požadavků, které vráceno selhání kódy 500 nebo víc.
+## <a name="stay-informed-with-smart-detection-alerts"></a>Udržování přehledu pomocí upozornění inteligentního zjišťování
+Další den skutečně přijde e-mail z Application Insights. Když ho ale Marcela otevře, zjistí, že se nejedná o upozornění na dobu odezvy, které nastavila. Místo toho e-mail obsahuje sdělení o náhlém nárůstu počtu neúspěšných požadavků – to znamená požadavků, které vrátily kód selhání 500 nebo vyšší.
 
-Neúspěšné požadavky jsou, odkud mají uživatelé vidět chybu – obvykle následující výjimka vyvolána v kódu. Možná zobrazí zpráva s oznámením "Bohužel jsme nelze nyní aktualizovat podrobností o." Nebo na absolutní to nepříjemné nejhorší, výpisu zásobníku se zobrazí na obrazovce uživatele s laskavým svolením webového serveru.
+Při neúspěšných požadavcích se uživatelům zobrazí chyba – ta obvykle následuje po výjimce vyvolané v kódu. Může se jim zobrazit zpráva „Sorry we couldn't update your details right now“ (Omlouváme se, právě teď nemůžete aktualizovat vaše podrobnosti). Nebo, a to je absolutně nejhorší, webový server na obrazovce uživatele zobrazí výpis zásobníku.
 
-Tato výstraha je neočekávaném, protože čas posledního Jana zvážení, byl encouragingly nízkou počet chybných požadavků. Malý počet selhání je očekáváno v zaneprázdněný server.
+Toto upozornění je překvapením, protože když se Marcela koukala naposledy, počet neúspěšných požadavků byl povzbudivě nízký. Na zaneprázdněném serveru se dá očekávat malý počet selhání.
 
-Bylo rovněž kousek neočekávaném pro ní protože Jana neměly ke konfiguraci této výstrahy. Application Insights zahrnují inteligentní zjišťování. Je automaticky přizpůsobí obvyklé selhání vzor vaší aplikace a selhání "získá se používá pro" na konkrétní stránky, nebo vysoké zatížení, nebo spojených s další metriky. Pouze v případě, že je zvýšení výše pochází očekávat vyvolá upozornění.
+Trochu překvapením pro ni také bylo, že toto upozornění nemusela konfigurovat. Application Insights zahrnuje inteligentní zjišťování. To se automaticky přizpůsobuje obvyklému vzoru selhání vaší aplikace a „zvyká si“ na selhání na konkrétní stránce, v případě velkého zatížení nebo v souvislosti s dalšími metrikami. Upozorňuje pouze na nárůst nad rámec očekávaných hodnot.
 
-![e-mailu proaktivní diagnostiky](./media/app-insights-detect-triage-diagnose/21.png)
+![e-mail proaktivní diagnostiky](./media/app-insights-detect-triage-diagnose/21.png)
 
-To je velmi užitečná e-mailu. Právě se nepodporuje vyvolat alarm. Příliš mnoho třídění a diagnostiky pracovní dělá.
+Tento e-mail je velmi užitečný. Není to pouhé upozornění. Provádí také určení priorit podle dostupnosti zdrojů a hodně diagnostické práce.
 
-Zobrazuje jak mnoho zákazníků pocítí důsledky a které webové stránky nebo operace. Marcela můžete rozhodnout, jestli Jana potřebuje získat celý tým práce na tomto jako protipožární cvičení, nebo jestli se můžete ignorovat až do příštího týdne.
+Ukazuje, kolika uživatelů a kterých webových stránek a operací se problém týká. Marcela se může rozhodnout, jestli potřebuje, aby na tom začal pracovat celý tým v rámci cvičení, nebo jestli se to dá ignorovat až do příštího týdne.
 
-E-mailu také ukazuje, že určité výjimky došlo k chybě a - i další zajímavé – selhání volání se nezdařilo pro konkrétní databázi přidružen. Tato část popisuje, proč selhání najednou zobrazovaly i v případě, že aktualizace nebyla nasazena nedávno Marcela na tým.
+E-mail také ukazuje, že došlo ke konkrétní výjimce a, co je ještě zajímavější, že selhání souvisí s neúspěšnými voláními konkrétní databáze. Tím se vysvětluje, proč náhle došlo k selhání, přestože Marcelin tým v nedávné době nenasazoval žádné aktualizace.
 
-Marcella odešle příkaz ping vedoucí týmu databáze založené na tento e-mail. Jana zjišťuje, že se vydaná oprava hotfix v posledních půl hodiny; a bohužel se možná pravděpodobně změnu menší schématu...
+Marcela na základě tohoto e-mailu zavolá vedoucímu databázového týmu. Zjistí, že během poslední půlhodiny vydali opravu hotfix a pravděpodobně došlo k menší změně schématu.
 
-Problém je proto na cestě k odstraněna, i před příčin protokoly a do 15 minut od jeho použití. Ale Marcela klikne na odkaz otevřete Application Insights. Otevře se přímo na chybné žádosti a tak může vidět databázi se nezdařilo volání v seznamu přidružené závislosti volání.
+Takže řešení problému už je na cestě, a to dokonce před zkoumáním protokolů a během 15 minut od jeho vzniku. Nicméně Marcela klikne na odkaz a otevře Application Insights. Otevře se přímo se zobrazením neúspěšného požadavku a Marcela vidí neúspěšné volání databáze v přidruženém seznamu volání závislostí.
 
-![neúspěšných žádostí.](./media/app-insights-detect-triage-diagnose/23.png)
+![neúspěšný požadavek](./media/app-insights-detect-triage-diagnose/23.png)
 
-## <a name="detect-exceptions"></a>Zjištění výjimek
-S chvilku instalačního programu [výjimky](app-insights-asp-net-exceptions.md) hlášení Application Insights automaticky. Se také dají zachytit explicitně vložením volání [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) do kódu:  
+## <a name="detect-exceptions"></a>Zjišťování výjimek
+Stačí nepatrné nastavení a [výjimky](app-insights-asp-net-exceptions.md) se hlásí do Application Insights automaticky. Můžete je zachycovat také explicitně vložením volání metody [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) do kódu:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -129,9 +129,9 @@ S chvilku instalačního programu [výjimky](app-insights-asp-net-exceptions.md)
     }
 
 
-Týmem Fabrikam Bank má vyvinuly postup vždy odesílat telemetrii na výjimku, pokud je zřejmé obnovení.  
+Tým banky Fabrikam vyvinul postup spočívající v tom, že se telemetrie vždy odesílá jako výjimka, pokud nejde o zřejmé obnovení.  
 
-Ve skutečnosti je i širší než jejich strategie: odesílání telemetrických dat ve všech případech, kde je zákazník frustrovaní v co chtěli provést, jestli odpovídá výjimku v kódu nebo ne. Například pokud externí přenos mezi bank systém vrátí zprávu "nelze dokončit tuto transakci" nějakého důvodu provozní (žádné chyby zákazníka) pak budou sledovat tuto událost.
+Jejich strategie je ve skutečnosti ještě širší – odesílají telemetrii ve všech případech, kdy zákazník může být frustrovaný něčím, co se snaží udělat, ať už to odpovídá výjimce v kódu nebo ne. Můžou sledovat i události, kdy například externí systém mezibankovních přenosů vrátí zprávu o nemožnosti dokončení transakce z nějakých provozních důvodů (bez chyby na straně zákazníka).
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
@@ -143,96 +143,96 @@ Ve skutečnosti je i širší než jejich strategie: odesílání telemetrickýc
        telemetry.TrackEvent("transfer failed", properties, measurements);
     }
 
-TrackException se používají k hlášení výjimky, protože odešle kopii zásobníku. TrackEvent se používají k hlášení další události. Všechny vlastnosti, které mohou být užitečné při diagnostiku můžete připojit.
+K hlášení výjimek se používá TrackException, protože odesílá kopii zásobníku. K hlášení ostatních událostí se používá TrackEvent. Můžete zachytávat jakékoli vlastnosti, které můžou být užitečně pro účely diagnostiky.
 
-Výjimky a události v se zobrazují [diagnostické vyhledávání](app-insights-diagnostic-search.md) okno. Můžete zobrazit další podrobnosti do mají najdete v části Další vlastnosti a trasováním zásobníku.
+Výjimky a události se zobrazují v okně [Diagnostické vyhledávání](app-insights-diagnostic-search.md). Můžete je blíže prozkoumat a zobrazit další vlastnosti a trasování zásobníku.
 
-![Ve vyhledávání diagnostiky použijte filtry pro zobrazení konkrétní typy dat](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
+![Použití filtrů v diagnostickém vyhledávání k zobrazení konkrétních typů dat](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 
 ## <a name="monitor-proactively"></a>Proaktivní monitorování
-Marcela není právě nacházejí kolem čekání výstrahy. Krátce po každé nové nasazení, která se podíváme na [odezvy](app-insights-web-monitor-performance.md) -celkový obrázek a tabulka nejpomalejší požadavky a také počty výjimka.  
+Marcela jen tak nesedí a nečeká na upozornění. Krátce po každém nasazení si prohlédne [dobu odezvy](app-insights-web-monitor-performance.md), a to jak celkové číslo a tabulku nejpomalejších požadavků, tak i počty výjimek.  
 
-![Graf čas odpovědi a mřížky doby odezvy serveru.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Graf doby odezvy a mřížka doby odezvy serveru](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
-Jana můžete vyhodnotit vliv výkon každé nasazení obvykle porovnávání každý týden s poslední. Pokud je nečekané zhoršování, se vyvolá, s vývojáři relevantní.
+Marcela může posoudit vliv každého nasazení na výkon, obvykle porovnáním s předchozím týdnem. Pokud dojde k náhlému zhoršení, upozorní na to příslušné vývojáře.
 
-## <a name="triage-issues"></a>Problémy třídění
-Třídění - hodnocení závažnosti a rozsah problém – jde o první krok po zjišťování. Měli jsme vyvolávající týmem půlnoci? Nebo může být až další pohodlný mezery v nevyřízené položky ponecháno? Existují některé klíčové otázky v třídění.
+## <a name="triage-issues"></a>Problémy s určováním priorit podle dostupnosti zdrojů
+Určení priorit podle dostupnosti zdrojů, tedy posouzení závažnosti a rozsahu problému, je prvním krokem po zjištění. Měli bychom tým svolat o půlnoci? Nebo s tím můžeme počkat na další příhodnou mezeru v backlogu? S určováním priorit podle dostupnosti zdrojů souvisí několik klíčových otázek.
 
-Jak často se se děje? Grafy v okně Přehled poskytnout některé perspektivy k problému. Například společnost Fabrikam aplikace generuje čtyři webového testu výstrahy jednu noc. Prohlížení grafu ráno, tým by mohli zobrazit, aby byly skutečně některé červené tečky, i když stále většinu testů byly zelená. Podrobnostem grafu dostupnosti, bylo naprosto jasné, že všechny tyto přerušované problémy byly z umístění jeden test. To se samozřejmě potíže se sítí, které mají vliv jenom jeden postup a sám s největší pravděpodobností zrušte.  
+Jak často se to děje? Z grafů v okně Přehled můžete získat určitou představu o problému. Například aplikace Fabrikam jednu noc vygenerovala čtyři upozornění webových testů. Když se tým na graf podíval ráno, skutečně obsahoval několik červených teček, přestože většina testů stále byla zobrazena zeleně. Při bližším pohledu na graf dostupnosti bylo zřejmé, že všechny tyto přerušované problémy pocházely z jednoho testovacího umístění. Toto byl samozřejmě problém sítě, který ovlivnil pouze jednu trasu, a pravděpodobně by se sám opravil.  
 
-Naopak stabilní a výrazné zvýšení v grafu počet výjimka počty nebo odpovědi je samozřejmě něco mít obavy o.
+Naopak výrazný a stabilní růst v grafu počtu výjimek nebo doby odezvy je samozřejmě důvodem k panice.
 
-Užitečné třídění cílem je, zkuste ho sami. Pokud spustíte ke stejnému problému, víte, že je skutečné.
+Užitečnou taktikou určení priorit podle dostupnosti zdrojů je: zkuste si to sami. Pokud narazíte na stejný problém, víte, že je skutečný.
 
-Jaké podíl uživatelů ovlivněných? Chcete-li získat hrubý odpovědí, vydělte je míra selhání počet relací.
+Jak velká část uživatelů je ovlivněná? Přibližnou odpověď získáte, když vydělíte míru selhání počtem relací.
 
 ![Grafy neúspěšných požadavků a relací](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
-Po pomalé odezvy se porovnejte v tabulce nejpomalejší neodpovídá požadavků s četností využití každé stránky.
+Pokud existují pomalé odezvy, porovnejte na každé stránce tabulku požadavků s nejpomalejší odezvou s frekvencí použití.
 
-Jak důležité je blokované scénář? Pokud je to funkčního problému blokování konkrétní uživatelský scénář, záleží mnohem? Pokud zákazníci nelze platit svými účty, je to závažné; Pokud nemohou změnit svoje předvolby barvy obrazovky, možná ho můžete počkat. Podrobnosti o události nebo výjimky nebo identita stránce pomalé poznáte, kde mají zákazníci potíže s.
+Jak důležitý je blokovaný scénář? Jedná se o funkční problém blokující konkrétní uživatelský scénář a záleží na tom hodně? Pokud zákazníci nemůžou platit své účty, je to vážné; pokud si nemůžou změnit předvolby barvy obrazovky, pravděpodobně to může počkat. Pomocí podrobností o události nebo výjimce nebo identity pomalé stránky zjistíte, kde mají zákazníci potíže.
 
-## <a name="diagnose-issues"></a>Diagnostikovat problémy
-Diagnostika není poměrně stejná jako ladění. Než začnete sledování v kódu, byste měli mít hrubý představu o tom, proč, kde a kdy dochází k problému.
+## <a name="diagnose-issues"></a>Diagnostika problémů
+Diagnostika není to samé jako ladění. Než začnete s trasováním kódem, měli byste mít přibližnou představu o tom, proč, kde a kdy k problému dochází.
 
-**Pokud k tomu dojít?** Historický přehled poskytované grafy události a metriky usnadňuje korelovat důsledky s možné příčiny. Pokud jsou v odpovědi čas nebo výjimky sazby přerušované vrcholů, podívejte se na počtu žádostí o: Pokud je nejlepší při ve stejnou dobu, pak to vypadá problém prostředků. Je třeba přiřadit více procesorů nebo paměti? Nebo je závislost, která nemůže spravovat zatížení?
+**Kdy k problému dochází?** Historické zobrazení, které poskytují grafy událostí a metrik, usnadňuje korelaci důsledků s možnými příčinami. Pokud jsou v době odezvy nebo frekvenci výjimek přerušované vrcholy, podívejte se na počet požadavků: pokud dosahuje vrcholů ve stejnou dobu, vypadá to na problém s prostředky. Je potřeba přiřadit další procesor nebo paměť? Nebo zátěž nezvládá nějaká závislost?
 
-**Je nám?**  Pokud máte nečekané pokles výkonu konkrétní typ požadavku – například když zákazník chce stavu účtu - pak je možné, může to být externí subsystému spíše než webové aplikace. V Průzkumníku metrik vyberte míra selhání závislostí a doby trvání závislosti sazby a porovnání jejich historií po posledních několik hodin nebo dnů s problémem, který jste rozpoznali. Pokud jsou existuje korelace změny, může být na straně zmocnitele externí subsystému.  
+**Je problém u nás?**  Pokud dochází k náhlému poklesu výkonu u určitého typu požadavku, například když uživatel chce výpis z účtu, pak je možná problém v externím subsystému, a ne ve vaší webové aplikaci. V Průzkumníku metrik vyberte míru chyb závislostí a míry doby trvání a porovnejte jejich historie za několik posledních hodin nebo dnů se zjištěným problémem. Pokud zjistíte korelaci změn, pak je problém pravděpodobně v externím subsystému.  
 
 
-![Grafy závislostí selhání a trvání volání k závislosti](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
+![Grafy chyb závislostí a doby trvání volání závislostí](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
-Některé pomalé závislosti jsou problémy, které informace o zeměpisné poloze. Společnost Fabrikam Bank používá virtuální počítače Azure a zjistit, že jejich měl nechtěně umístění jejich webový server a server poskytující účty v různých zemí. Představují výrazné zlepšení byl způsobené migrace jeden z nich.
+Některé problémy s pomalými závislostmi jsou problémy geografické polohy. Banka Fabrikam používá virtuální počítače Azure a zjistilo se, že nedopatřením umístila webový server a server účtů do jiných zemí. Migrací jednoho z nich došlo k výraznému zlepšení.
 
-**Co jsme?** Pokud tento problém se nezobrazí v závislost a nebyl vždy existuje, je pravděpodobně způsobena změnou poslední. Historický přehled poskytované grafy metriky a události lze snadno ke korelaci změny nečekané s nasazením. Který zužuje hledat problém. Chcete-li zjistit, které řádky v kódu aplikace ke zpomalení výkonu, povolte profileru Application Insights. Naleznete [profilování za provozu Azure web apps s Application Insights](./app-insights-profiler.md). Po povolení profileru, zobrazí se podobné následujícímu trasování. V tomto příkladu je snadno patrné, metoda *GetStorageTableData* příčinou problému.  
+**Co jsme udělali?** Pokud se nezdá, že by problém byl v závislosti, a pokud závislost neexistovala vždy, problém je pravděpodobně způsobený nedávnou změnou. Historická perspektiva, kterou poskytují grafy metrik a událostí, usnadňuje korelaci jakýchkoli náhlých změn s nasazeními. Tím se může zúžit oblast hledání problému. Pokud chcete identifikovat, které řádky v kódu aplikace zpomalily výkon, povolte Application Insights Profiler. Další informace najdete v tématu [Profilace živých webových aplikací Azure pomocí Application Insights](./app-insights-profiler.md). Po povolení profileru se zobrazí trasování podobné následujícímu. V tomto příkladu si snadno můžete všimnout, že problém způsobila metoda *GetStorageTableData*.  
 
-![App Insights profileru trasování](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
+![Trasování nástroje Application Insights Profiler](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
-**Co se děje?** Některé problémy dojít pouze zřídka a může být obtížné sledovat testování do offline režimu. Všechny, které může provádět jsme se pokusí zaznamenat chybě, když dojde k za provozu. Si můžete prohlédnout výpisy zásobníku v sestavách výjimka. Kromě toho můžete zapsat trasování volání, buď vašeho oblíbeného rozhraní protokolování, nebo TrackTrace() nebo TrackEvent().  
+**Co se děje?** K některým problémům dochází jenom zřídka a může být složité je vysledovat při offline testování. Vše, co můžeme udělat, je pokusit se zachytit chybu, když k ní dojde za provozu. Můžete si prohlédnout výpisy zásobníku v sestavách výjimek. Kromě toho můžete psát volání trasování pomocí svého oblíbeného protokolovacího rozhraní nebo s použitím metod TrackTrace() nebo TrackEvent().  
 
-Společnost Fabrikam měl občasný problém s přenosy mezi společnostmi, ale pouze s určitými typy účtu. Lépe pochopit, co se děje, budou vloženy TrackTrace() volání na klíčové body kód připojení typ účtu jako vlastnost pro každé volání. Který usnadnit filtrovat pouze tyto trasování ve vyhledávání diagnostiky. Také se parametr hodnoty jako vlastnosti a míry připojený k trasování volání.
+Ve společnosti Fabrikam přerušovaně docházelo k problému s přenosy mezi účty, ale pouze u určitých typů účtů. Za účelem lepšího pochopení, co se děje, vložili do kódu volání TrackTrace() jako klíčové body a ke každému volání připojili jako vlastnost typ účtu. Tím umožnil snadné vyfiltrování pouze těchto trasování v diagnostickém vyhledávání. K voláním trasování připojili také hodnoty parametrů jako vlastnosti a míry.
 
 ## <a name="respond-to-discovered-issues"></a>Reakce na zjištěné problémy
-Jakmile jste diagnostikovat problém, můžete nastavit plán a opravte ji. Možná budete muset vrátit zpět ke změnám, nebo může být můžete právě pokračujte a opravte ho. Po dokončení opravu Application Insights poznáte, jestli byla úspěšná.  
+Jakmile problém diagnostikujete, můžete vytvořit plán k jeho opravení. Možná budete muset vrátit nedávnou změnu nebo možná bude stačit ji prostě opravit. Po dokončení opravy vám Application Insights sdělí, jestli jste byli úspěšní.  
 
-Společnost Fabrikam Bank vývojový tým trvat více strukturovanými přístup k měření výkonu než používají k před používají Application Insights.
+Vývojový tým banky Fabrikam přistupuje k měření výkonu strukturovaněji než dříve, kdy nepoužíval Application Insights.
 
-* Na stránce Přehled služby Application Insights nastavují výkonnostní cíle z hlediska konkrétní míry.
-* Jejich návrh měření výkonu do aplikace od začátku, jako je například metriky, které měření postupu uživatele prostřednictvím nálevky.  
+* Nastavují cíle výkonu z hlediska konkrétních měřítek na stránce Přehled služby Application Insights.
+* Od samého začátku zahrnují do návrhu aplikace i měřítka výkonu, například metriky měřící postup uživatelů trychtýři.  
 
 
 ## <a name="monitor-user-activity"></a>Monitorování aktivity uživatelů
-Když je trvale dobré doba odezvy a existuje několik výjimek, týmem vývojářů můžete přesunout k použitelnost. Se dá chápat jak k vylepšení zkušeností uživatelů a jak podporovat více uživatelů k dosažení požadovaných cílů.
+Když je doba odezvy konzistentně dobrá a s malým množstvím výjimek, může se vývojový tým přesunout k použitelnosti. Můžou se zamyslet nad tím, jak vylepšit uživatelské prostředí a jak umožnit více uživatelům dosáhnout požadovaných cílů.
 
-Application Insights můžete použít také se dozvíte, co uživatelé dělají s aplikací. Jakmile je plynulý chod, týmem chcete vědět, funkce, které jsou nejčastěji používané, co uživatelé jako nebo mít potíže s a jak často se vrátí. Které budou pomoci určit priority nadcházející práci. A můžete naplánovat měření úspěchu každé funkce jako součást cyklu vývoje.
+Application Insights je také možné použít ke zjištění, co uživatelé s aplikací dělají. Jakmile aplikace plynule běží, tým by chtěl zjistit, které funkce jsou nejoblíbenější, co mají uživatelé rádi nebo s čím mají potíže, a jak často se vracejí. To jim pomůže určit prioritu další práce. Zároveň můžou plánovat měření úspěchu jednotlivých funkcí jako součást vývojového cyklu.
 
-Například běžný uživatel cesty přes webu má zrušte "trychtýřového grafu." Podívejte se na kurzy různých typů úvěr mnoho zákazníků. Zmenšete počet přejděte na vyplňte formulář uvozovek. Několik z nich, kteří získat nabídky, pokračujte a vyjměte úvěr.
+Například cesta typického uživatele webem má jasnou podobu trychtýře. Mnoho zákazníků si prohlédne sazby různých typů půjček. Méně jich vyplní poptávkový formulář. Z těch, kteří získají nabídku, si jich jenom pár vezme půjčku.
 
-![Spočítá počet zobrazení stránky](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Počty zobrazení stránek](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Vzhledem k tomu kde největší množství zákazníků vyřadit, firmu pracovat na to, jak získat více uživatelů prostřednictvím v dolní části trychtýřového grafu. V některých případech může být selhání uživatelské rozhraní (UX) – například tlačítka 'Další' je obtížné najít, nebo nejsou zřejmé pokynů. Existuje více pravděpodobně větších obchodní důvody pro rozevírací li: možná jsou příliš vysoké míry úvěr.
+Na základě informací o tom, kde předčasně odchází největší počet zákazníků, můžou podniky vypracovat plán, aby trychtýřem propadlo více uživatelů. V některých případech může být chyba v uživatelském rozhraní (UX) – například je obtížné najít tlačítko Další nebo jsou nejasné pokyny. Pro předčasný odchod však pravděpodobně existují významnější obchodní důvody – možná jsou úrokové sazby příliš vysoké.
 
-Ať důvodům, data pomáhá týmem vycházejí co uživatelé dělají. Další volání sledování jde vložit pro práci se podrobněji. TrackEvent() slouží k určení počtu žádné akce uživatele, z dobře podrobností kliknutí na jednotlivé tlačítko, k významné herních bonusů, jako je například platícího vypnout úvěr.
+Ať jsou důvody jakékoli, data pomáhají týmu porozumět chování uživatelů. Je možné vložit další sledovací volání a získat tak podrobnější přehled. Metodu TrackEvent() je možné použít k počítání jakýchkoli akcí uživatelů, od úplných podrobností o kliknutích na jednotlivá tlačítka až po důležité úspěchy, jako je splacení půjčky.
 
-Tým získávání slouží k s údaji o činnosti uživatelů. V současné době vždy, když se navrhnout novou funkci, pracují na tom, jak bude získání zpětné vazby o jeho používání. Jejich návrh sledování volání do funkce od začátku. Zpětnou vazbu používají ke zlepšení funkci v každém cyklu vývoje.
+Tým si postupně zvyká na to, že má k dispozici informace o aktivitách uživatelů. V současné době vždy, když navrhují novou funkci, vypracují plán na získání zpětné vazby o jejím využití. Od samého začátku zahrnují do návrhu funkce i sledovací volání. Zpětnou vazbu využívají v každém vývojovém cyklu ke zlepšení funkce.
 
 [Další informace o sledování využití](app-insights-usage-overview.md).
 
-## <a name="apply-the-devops-cycle"></a>Použít DevOps cyklu
-Proto je jak jedno použití team Application Insights, nikoli pouze na jednotlivé problémy, ale ke zlepšení jejich životního cyklu. Snad že ho udělil některé nápady o tom, jak Application Insights vám může pomoct se správou výkonu aplikací v aplikaci.
+## <a name="apply-the-devops-cycle"></a>Použití cyklu DevOps
+Toto byla ukázka jednoho týmu, který pomocí Application Insights nejen řeší jednotlivé problémy, ale také zlepšuje životní cyklus vývoje. Doufám, že jste získali představu o tom, jak vám Application Insights může pomoct se správou výkonu vašich vlastních aplikací.
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Další kroky
-Můžete začít používat několika způsoby v závislosti na vlastnosti aplikace. Vyberte, co vám nejvíc vyhovuje:
+V závislosti na vlastnostech vaší aplikace můžete začít několika způsoby. Vyberte si, co vám nejvíce vyhovuje:
 
-* [Webové aplikace ASP.NET](app-insights-asp-net.md)
-* [Webové aplikace Java](app-insights-java-get-started.md)
-* [Webové aplikace Node.js](app-insights-nodejs.md)
-* Nasazené aplikace, které jsou hostované na [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), nebo [Azure](app-insights-azure.md).
-* [Webové stránky](app-insights-javascript.md) -jedné stránky aplikace nebo obyčejnou webová stránka – použít samostatně nebo v přidání do některé z možností serveru.
-* [Testy dostupnosti](app-insights-monitor-web-app-availability.md) k testování aplikace z veřejného Internetu.
+* [Webová aplikace ASP.NET](app-insights-asp-net.md)
+* [Webová aplikace Java](app-insights-java-get-started.md)
+* [Webová aplikace Node.js](app-insights-nodejs.md)
+* Již nasazené aplikace hostované ve [službě IIS](app-insights-monitor-web-app-availability.md), na platformě [J2EE](app-insights-java-live.md) nebo v [Azure](app-insights-azure.md).
+* [Webové stránky](app-insights-javascript.md) – Samostatná webová stránka nebo obyčejná webová stránka – tuto možnost můžete použít samotnou nebo společně s jakoukoli z možností serveru.
+* [Testy dostupnosti](app-insights-monitor-web-app-availability.md) pro účely testování aplikace z veřejného internetu.

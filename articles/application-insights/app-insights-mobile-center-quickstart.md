@@ -1,6 +1,6 @@
 ---
 title: "Rychlý start pro Azure Application Insights | Dokumentace Microsoftu"
-description: "Poskytuje pokyny se rychle nastavit mobilní aplikace pro monitorování pomocí Application Insights a Center aplikace"
+description: "Pokyny pro rychlé nastavení mobilní aplikace pro monitorování s využitím Application Insights a App Center"
 services: application-insights
 keywords: 
 author: numberbycolors
@@ -12,105 +12,105 @@ ms.topic: quickstart
 manager: carmonm
 ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Začněte analyzovat mobilní aplikaci s Center aplikace a služby Application Insights
+# <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Začínáme s analýzou mobilní aplikace pomocí App Center a Application Insights
 
-Tento rychlý start vás provede připojením instance aplikace Center vaší aplikace do služby Application Insights. S nástrojem Application Insights, můžete dotazovat, segmentovat, filtrovat a analyzovat telemetrie s více výkonné nástroje, než je k dispozici z [Analytics](https://docs.microsoft.com/mobile-center/analytics/) služby středu aplikace.
+Tento rychlý start vás provede propojením instance App Center vaší aplikace s Application Insights. S Application Insights můžete dotazovat, segmentovat, filtrovat a analyzovat telemetrická data pomocí výkonnějších nástrojů, které jsou dostupné ve službě [Analytics](https://docs.microsoft.com/mobile-center/analytics/) v App Center.
 
 ## <a name="prerequisites"></a>Požadavky
 
 K dokončení tohoto rychlého startu je potřeba:
 
 - Předplatné Azure.
-- Aplikace iOS, Android, Xamarin, Universal Windows nebo reagovat nativní aplikaci.
+- Aplikace pro iOS nebo Android, aplikace Xamarin, univerzální aplikace pro Windows nebo aplikace React Native.
  
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/) před tím, než začnete.
 
-## <a name="onboard-to-app-center"></a>Připojit k aplikaci Center
+## <a name="onboard-to-app-center"></a>Připojení k App Center
 
-Před Application Insights můžete použít s mobilní aplikace, budete muset připojit aplikaci [aplikace Center](https://docs.microsoft.com/mobile-center/). Application Insights neobdrží telemetrie ze své mobilní aplikace přímo. Místo toho vaše aplikace odesílá telemetrii vlastní události do centra aplikace. Potom Center aplikaci nepřetržitě exportuje kopie těchto vlastních událostí do Application Insights, jako při přijetí události.
+Než budete ve své mobilní aplikaci moct použít Application Insights, musíte svou aplikaci připojit k [App Center](https://docs.microsoft.com/mobile-center/). Application Insights nepřijímá telemetrii z mobilní aplikace přímo. Místo toho aplikace odesílá vlastní telemetrii událostí do App Center. App Center pak s přijímáním událostí průběžně exportuje kopie těchto vlastních událostí do Application Insights.
 
-Zařadit do vaší aplikace využít postup rychlého spuštění aplikace Centrum pro každou platformu vaše aplikace podporuje. Vytvoření samostatné instance aplikace Center pro každou platformu:
+Pokud chcete připojit svou aplikaci, postupujte podle rychlého startu pro App Center, a to pro všechny platformy, které vaše aplikace podporuje. Vytvoření samostatných instancí App Center pro jednotlivé platformy:
 
-* [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios).
-* [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android).
-* [Xamarin](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin).
-* [Universal Windows](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp).
-* [Reagovat nativní](https://docs.microsoft.com/mobile-center/sdk/getting-started/react-native).
+* [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios)
+* [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android)
+* [Xamarin](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin)
+* [Univerzální platforma Windows](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp)
+* [React Native](https://docs.microsoft.com/mobile-center/sdk/getting-started/react-native)
 
 ## <a name="track-events-in-your-app"></a>Sledování událostí v aplikaci
 
-Zařazený, nemá k aplikaci Center po aplikace potřebuje upravit tak, aby odeslání telemetrie vlastní události pomocí sady SDK Center aplikace. Vlastní události jsou pouze typ telemetrie Center aplikace, který je exportován do služby Application Insights.
+Po připojení vaší aplikace k App Center je potřeba ji upravit pro odesílání vlastní telemetrie událostí pomocí sady App Center SDK. Vlastní události jsou jediným typem telemetrie App Center, která se exportuje do Application Insights.
 
-Chcete-li odeslat vlastní události z aplikace pro iOS, použijte `trackEvent` nebo `trackEvent:withProperties` metody v sadě SDK aplikace Center. [Další informace o sledování událostí z aplikací pro iOS.](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
+K odesílání vlastních události z aplikací pro iOS použijte metodu `trackEvent` nebo `trackEvent:withProperties` v sadě App Center SDK. [Další informace o sledování událostí z aplikací pro iOS.](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
 
 ```Swift
 MSAnalytics.trackEvent("Video clicked")
 ```
 
-Chcete-li odeslat vlastní události z aplikace pro Android, použijte `trackEvent` metoda v sadě SDK aplikace Center. [Další informace o sledování událostí z aplikace pro Android.](https://docs.microsoft.com/mobile-center/sdk/analytics/android)
+K odesílání vlastních události z aplikací pro Android použijte metodu `trackEvent` v sadě App Center SDK. [Další informace o sledování událostí z aplikací pro Android.](https://docs.microsoft.com/mobile-center/sdk/analytics/android)
 
 ```Java
 Analytics.trackEvent("Video clicked")
 ```
 
-Chcete-li odeslat vlastních událostí z jiných platformách, aplikace, použijte `trackEvent` metody v jejich Center SDK aplikace.
+K odesílání vlastních událostí z jiných platforem aplikací použijte metody `trackEvent` v příslušných sadách App Center SDK.
 
-Ujistěte se, přijímání vlastních událostí, přejděte na **události** v části **Analytics** oddílu centra aplikace. Může trvat několik minut pro události se objeví z, když se odešlou z vaší aplikace.
+Pokud chcete ověřit přijímání vlastních událostí, přejděte v App Center v části **Analytics** na kartu **Události**. Zobrazení událostí může od odeslání z aplikace několik minut trvat.
 
 ## <a name="create-an-application-insights-resource"></a>Vytvořte prostředek Application Insights
 
-Jakmile vaše aplikace odesílá vlastní události a tyto události jsou přijímá Center aplikace, budete muset vytvořit prostředek Application Insights Center typ aplikace na portálu Azure:
+Jakmile vaše aplikace odesílá vlastní události a App Center tyto události přijímá, je potřeba na webu Azure Portal vytvořit prostředek Application Insights typu App Center:
 
 1. Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 2. Vyberte **Nový** > **Monitorování a správa** > **Application Insights**.
 
     ![Přidání prostředku Application Insights](./media/app-insights-mobile-center-quickstart/add.png)
 
-    Zobrazí se pole konfigurace. Následující tabulku použijte k vyplnění vstupních polí.
+    Zobrazí se konfigurační pole. K vyplnění vstupních polí použijte následující tabulku.
 
     | Nastavení        |  Hodnota           | Popis  |
    | ------------- |:-------------|:-----|
-   | **Název**      | Některé globálně jedinečná hodnota jako "Moje aplikace systému iOS" | Název identifikující aplikaci, kterou monitorujete |
-   | **Typ aplikace** | Aplikace Centrum aplikace | Typ aplikace, kterou monitorujete |
-   | **Skupina prostředků**     | Novou skupinu prostředků nebo stávající z nabídky | Skupinu prostředků, ve které chcete vytvořit nový prostředek Application Insights |
-   | **Umístění** | Umístění v nabídce | Vyberte umístění ve vaší blízkosti nebo v blízkosti místa, kde se vaše aplikace hostuje. |
+   | **Název**      | Nějaká globálně jedinečná hodnota, například myApp-iOS | Název identifikující aplikaci, kterou monitorujete |
+   | **Typ aplikace** | Aplikace App Center | Typ aplikace, kterou monitorujete |
+   | **Skupina prostředků**     | Nová skupina prostředků nebo existující skupina prostředků z nabídky | Skupina prostředků, ve které se má vytvořit nový prostředek Application Insights |
+   | **Umístění** | Umístění z nabídky | Vyberte umístění ve vaší blízkosti nebo v blízkosti místa, kde se vaše aplikace hostuje. |
 
 3. Klikněte na možnost **Vytvořit**.
 
-Pokud vaše aplikace podporuje víc platforem (iOS, Android, atd), je vhodné vytvořit samostatnou prostředky Application Insights, jeden pro každou platformu.
+Pokud vaše aplikace podporuje více platforem (iOS, Android atd.), je vhodné vytvořit pro každou platformu samostatný prostředek Application Insights.
 
-## <a name="export-to-application-insights"></a>Export do služby Application Insights
+## <a name="export-to-application-insights"></a>Export do Application Insights
 
-Ve vašem nový prostředek Application Insights na **přehled** stránku **Essentials** v horní části, zkopírujte klíč instrumentace pro tento prostředek.
+Ve vašem novém prostředku Application Insights na stránce **Přehled** v části **Základy** v horní části zkopírujte instrumentační klíč pro tento prostředek.
 
-V aplikaci Centrum instanci pro vaši aplikaci:
+V instanci App Center pro vaši aplikaci:
 
-1. Na **nastavení** klikněte na tlačítko **exportovat**.
-2. Zvolte **nové exportovat**, vyberte **Application Insights**, pak klikněte na tlačítko **přizpůsobit**.
-3. Vložte klíč instrumentace Application Insights do pole.
-4. Zvýšení využití předplatného Azure obsahující prostředku Application Insights svůj souhlas. Každý prostředek Application Insights je zdarma pro první 1 GB dat přijatých za měsíc. [Další informace o cenách služby Application Insights.](https://azure.microsoft.com/pricing/details/application-insights/)
+1. Na stránce **Nastavení** klikněte na **Export**.
+2. Zvolte **Nový export**, vyberte **Application Insights** a pak klikněte na **Přizpůsobit**.
+3. Vložte do pole váš instrumentační klíč Application Insights.
+4. Vyjádřete souhlas s navýšením využití předplatného Azure, které obsahuje váš prostředek Application Insights. Pro každý prostředek Application Insights je první 1 GB přijatých dat za měsíc zdarma. [Další informace o cenách Application Insights.](https://azure.microsoft.com/pricing/details/application-insights/)
 
-Nezapomeňte tento postup opakujte pro každou platformu vaše aplikace podporuje.
+Nezapomeňte tento postup zopakovat pro každou platformu, kterou vaše aplikace podporuje.
 
-Jednou [exportovat](https://docs.microsoft.com/mobile-center/analytics/export) nastavena až, každý vlastní událostí přijatých aplikace Center zkopírována do Application Insights. Ho může trvat několik minut, aby události dosáhnout Application Insights, takže pokud nezobrazovaly okamžitě, čekat trochu další diagnostice.
+Po nastavení [exportu](https://docs.microsoft.com/mobile-center/analytics/export) se každá vlastní událost přijatá v App Center zkopíruje do Application Insights. Přijetí událostí v Application Insights může několik minut trvat, takže pokud se hned nezobrazí, před další diagnostikou chvíli počkejte.
 
-Tak, abyste získali další data při prvním připojení, poslední 48 hodin vlastních událostí v aplikaci Centrum automaticky exportovány do služby Application Insights.
+Abyste při prvním připojení měli k dispozici více dat, do Application Insights se automaticky vyexportují události v App Center za posledních 48 hodin.
 
-## <a name="start-monitoring-your-app"></a>Spuštění monitorování aplikace
+## <a name="start-monitoring-your-app"></a>Zahájení monitorování aplikace
 
-Application Insights můžete dotazovat, segmentovat, filtrovat a analyzovat vlastní události telemetrii z vašich aplikací, nad rámec nástroje analýzy, které poskytuje aplikace Center.
+Nad rámec analytických nástrojů, které poskytuje App Center, může Application Insights dotazovat, segmentovat, filtrovat a analyzovat vlastní telemetrii událostí z vašich aplikací.
 
-1. **Dotaz telemetrie vlastní události.** Ze služby Application Insights **přehled** vyberte **Analytics**. 
+1. **Dotazování vlastní telemetrie událostí.** Na stránce **Přehled** Application Insights zvolte **Analytics**. 
 
-   ![Tlačítko Analytics ve službě Application Insights](./media/app-insights-mobile-center-quickstart/analytics.png)
+   ![Tlačítko Analytics v Application Insights](./media/app-insights-mobile-center-quickstart/analytics.png)
 
-   Otevře se na portálu analýza Statistika aplikace přidružené k prostředku Application Insights. Na portálu analýza umožňuje přímo dotazování na data pomocí dotazu jazyka analýzy protokolů, takže libovolně komplexní dotazy můžete požádat o aplikaci a její uživatele.
+   Otevře se portál Application Insights Analytics přidružený k vašemu prostředku Application Insights. Portál Analytics umožňuje přímo dotazovat data pomocí dotazovacího jazyka Log Analytics, takže můžete pokládat libovolně složité dotazy na vaši aplikaci a její uživatele.
    
-   Otevřete novou kartu na portálu analýza potom vložte následující dotaz. Vrátí počet počet jedinečných uživatelů, kteří odeslali všechny vlastní události z vaší aplikace za posledních 24 hodin, seřazené podle tyto odlišné počty.
+   Otevřete novou kartu na portálu Analytics a vložte do ní následující dotaz. Dotaz vrátí počet jedinečných uživatelů, kteří z vaší aplikace odeslali jednotlivé vlastní události za posledních 24 hodin, a výpis seřadí podle tohoto počtu jedinečných uživatelů.
 
    ```AIQL
    customEvents
@@ -119,52 +119,52 @@ Application Insights můžete dotazovat, segmentovat, filtrovat a analyzovat vla
    | order by dcount_user_Id desc 
    ```
 
-   ![Portálu analýza](./media/app-insights-mobile-center-quickstart/analytics-portal.png)
+   ![Portál Analytics](./media/app-insights-mobile-center-quickstart/analytics-portal.png)
 
-   1. Vyberte dotaz klepnutím na libovolné místo v dotazu v textovém editoru.
-   2. Pak klikněte na tlačítko **přejděte** spusťte dotaz. 
+   1. Vyberte dotaz kliknutím na libovolnou část dotazu v textovém editoru.
+   2. Pak dotaz spusťte kliknutím na **Přejít**. 
 
-   Další informace o [Application Insights Analytics](app-insights-analytics.md) a [analýzy protokolů dotazu jazyka](https://docs.loganalytics.io/docs/Language-Reference).
+   Další informace o [Application Insights Analytics](app-insights-analytics.md) a [dotazovacím jazyku Log Analytics](https://docs.loganalytics.io/docs/Language-Reference).
 
 
-2. **Segment a filtrovat telemetrie vlastní události.** Ze služby Application Insights **přehled** vyberte **uživatelé** v obsahu.
+2. **Segmentace a filtrování vlastní telemetrie událostí.** Na stránce **Přehled** Application Insights zvolte v obsahu **Uživatelé**.
 
-   ![Ikona nástroj uživatelů](./media/app-insights-mobile-center-quickstart/users-icon.png)
+   ![Ikona nástroje Uživatelé](./media/app-insights-mobile-center-quickstart/users-icon.png)
 
-   Nástroj Uživatelé ukazuje, kolik uživatelů vaší aplikace kliknutí na určité tlačítka, navštívené některé obrazovky nebo provést jiné akce, která jsou sledování jako událost s Center App SDK. Pokud jste byla hledá způsob, jak segmentovat a filtrování vaší aplikace Center událostí, je nástroj Uživatelé je služba skvělou volbou.
+   Nástroj Uživatelé ukazuje, kolik uživatelů vaší aplikace kliklo na určitá tlačítka, navštívilo určité obrazovky nebo provedlo jakoukoli jinou akci, kterou sledujete jako událost pomocí sady App Center SDK. Pokud jste hledali způsob, jak segmentovat a filtrovat události App Center, nástroj Uživatelé je skvělou volbou.
 
-   ![Nástroj pro uživatele](./media/app-insights-mobile-center-quickstart/users.png) 
+   ![Nástroj Uživatelé](./media/app-insights-mobile-center-quickstart/users.png) 
 
-   Například segmentovat vaše využití podle Geografie výběrem **zemi nebo oblast** v **rozdělit** rozevírací nabídce.
+   Například můžete segmentovat využití podle zeměpisné oblasti tím, že v rozevírací nabídce **Rozdělit podle** zvolíte **Země nebo oblast**.
 
-3. **Analýza vzory převodu, uchovávání a navigace ve vaší aplikaci.** Ze služby Application Insights **přehled** vyberte **uživatele toky** v obsahu.
+3. **Analýza vzorů konverze, udržení a navigace ve vaší aplikaci.** Na stránce **Přehled** Application Insights zvolte v obsahu **Toky uživatelů**.
 
-   ![Nástroj toky uživatele](./media/app-insights-mobile-center-quickstart/user-flows.png)
+   ![Nástroj Toky uživatelů](./media/app-insights-mobile-center-quickstart/user-flows.png)
 
-   Nástroj uživatele toků vizualizuje události, které uživatelé posílat po některé počáteční události. Je vhodné pro získávání přehled o tom, jak uživatelé přecházejí mezi vaší aplikace. Může také odhalit míst, kde jsou mnoho uživatelů stloukání z vaší aplikace, nebo s opakováním stejné akce opakovaně.
+   Nástroj Toky uživatelů vizualizuje, jaké události uživatelé odesílají po nějaké počáteční události. To je užitečné k získání celkového přehledu o způsobu, jakým uživatelé procházejí vaši aplikaci. Nástroj může také odhalit některá místa, kde mnoho uživatelů z vaší aplikace odchází nebo kde opakované provádějí stejné akce.
 
-   Kromě toků uživatele Application Insights obsahuje několik nástrojů analytics další využití zodpovědět konkrétní otázky:
+   Kromě nástroje Toky uživatelů obsahuje Application Insights několik dalších nástrojů pro analýzu využití, které řeší konkrétní otázky:
 
-   * **Nálevky** pro analýzu a převod sazby monitorování.
-   * **Uchování** pro analýzu, jak dobře aplikace uchovává uživatele v čase.
-   * **Sešity** pro kombinace vizualizace a text do sestavy ke sdílení.
-   * **Kohorty** pro pojmenování a uložení konkrétních skupin uživatelů nebo události, může být snadno odkazován z dalších nástrojů analytics.
+   * **Trychtýře** pro analýzy a monitorování konverzního poměru.
+   * **Udržení** pro analýzy toho, jak dobře vaše aplikace udržuje uživatele v průběhu času.
+   * **Sešity** pro kombinaci vizualizací a textu do sestavy s možností sdílení.
+   * **Kohorty** pro pojmenování a ukládání konkrétních skupin uživatelů nebo událostí, aby se na ně dalo snadno odkazovat v jiných analytických nástrojích.
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 
-Pokud nechcete pokračovat pomocí aplikace Center Application Insights, vypněte exportu v centru aplikace a odstranit prostředek Application Insights. To vám zabrání v účtovány další pomocí Application Insights pro tento prostředek.
+Pokud už nechcete pokračovat v používání Application Insights s App Center, vypněte export v App Center a odstraňte prostředek Application Insights. Tím se vyhnete dalšímu účtování Application Insights za tento prostředek.
 
-Chcete-li vypnout exportu v centru aplikace:
+Vypnutí exportu v App Center:
 
-1. V aplikaci centrum, přejděte do **nastavení** a zvolte **exportovat**.
-2. Klikněte na tlačítko Application Insights export, které chcete odstranit a pak klikněte na **odstranit export** v dolní části a potvrďte.
+1. V App Center přejděte do **Nastavení** a zvolte **Export**.
+2. Klikněte na export do Application Insights, který chcete odstranit, pak klikněte na **Odstranit export** v dolní části a potvrďte volbu.
 
 Odstranění prostředku Application Insights:
 
-1. V levé nabídce portálu Azure, klikněte na tlačítko **skupiny prostředků** a potom vyberte skupinu prostředků, ve kterém byla vytvořena prostředku Application Insights.
-2. Otevřete prostředek Application Insights, který chcete odstranit. Pak klikněte na tlačítko **odstranit** v horní nabídce prostředku a potvrďte. Tím se trvale odstraní kopii dat, který jste exportovali do Application Insights.
+1. V nabídce vlevo na webu Azure Portal klikněte na **Skupiny prostředků** a vyberte skupinu prostředků, ve které se vytvořil váš prostředek Application Insights.
+2. Otevřete prostředek Application Insights, který chcete odstranit. Pak v horní nabídce prostředku klikněte na **Odstranit** a potvrďte volbu. Tím se trvale odstraní kopie dat exportovaných do Application Insights.
 
 ## <a name="next-steps"></a>Další kroky
 
 > [!div class="nextstepaction"]
-> [Pochopit, jak zákazníci používají vaši aplikaci](app-insights-usage-overview.md)
+> [Porozumění způsobu, jakým zákazníci používají vaši aplikaci](app-insights-usage-overview.md)

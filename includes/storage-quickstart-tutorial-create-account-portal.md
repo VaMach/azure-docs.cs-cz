@@ -1,20 +1,20 @@
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Vytvořit účet úložiště pomocí portálu Azure
+## <a name="create-a-storage-account-using-the-azure-portal"></a>Vytvoření účtu úložiště pomocí webu Azure Portal
 
-Nejdřív vytvořte nový účet úložiště pro obecné účely pro tento rychlý start. 
+Nejprve vytvořte nový účet úložiště pro obecné účely, který použijete v tomto rychlém startu. 
 
-1. Přejděte na [portál Azure](https://portal.azure.com) a přihlaste se pomocí účtu Azure. 
-2. V nabídce centra vyberte **nový** > **úložiště** > **účet úložiště – objekt blob, soubor, tabulka, fronta**. 
-3. Zadejte jedinečný název pro účet úložiště. Tato pravidla mějte na paměti pro pojmenování účtu úložiště:
-    - Název musí být 3 až 24 znaků.
-    - Název může obsahovat jenom číslice a malá písmena.
-4. Ujistěte se, že následující výchozí hodnoty jsou nastavené: 
-    - **Model nasazení** je nastaven na **správce prostředků**.
-    - **Účet druhu** je nastaven na **obecné účely**.
-    - **Výkon** je nastaven na **standardní**.
-    - **Replikace** je nastaven na **místně redundantní úložiště (LRS)**.
+1. Přejděte na [Azure Portal](https://portal.azure.com) a přihlaste se pomocí svého účtu Azure. 
+2. V nabídce centra vyberte **Nový** > **Úložiště** > **Účet úložiště – Blob, File, Table, Queue**. 
+3. Zadejte jedinečný název účtu úložiště. Při pojmenování účtu úložiště mějte na paměti tato pravidla:
+    - Název musí být dlouhý 3 až 24 znaků.
+    - Název může obsahovat pouze číslice a malá písmena.
+4. Ujistěte se, že jsou nastavené následující výchozí hodnoty: 
+    - **Model nasazení** je nastavený na **Resource Manager**.
+    - **Druh účtu** je nastavený na **Pro obecné účely**.
+    - **Výkon** je nastavená na úroveň **Standard**.
+    - **Replikace** je nastavená na **Místně redundantní úložiště (LRS)**.
 5. Vyberte své předplatné. 
-6. Pro **skupiny prostředků**, vytvořte novou a zadat jedinečný název. 
-7. Vyberte **umístění** pro váš účet úložiště.
-8. Zkontrolujte **připnout na řídicí panel** a klikněte na tlačítko **vytvořit** k vytvoření účtu úložiště. 
+6. V části **Skupina prostředků** vytvořte novou skupinu prostředků s jedinečným názvem. 
+7. Vyberte **Umístění**, které se použije pro účet úložiště.
+8. Zaškrtněte políčko **Připnout na řídicí panel** a kliknutím na **Vytvořit** vytvořte účet úložiště. 
 
-Po vytvoření účtu úložiště je připnutá na řídicí panel. Klikněte na ho otevřete. V části **nastavení**, klikněte na tlačítko **přístupové klíče**. Vyberte primární klíč a zkopírujte přidruženého **připojovací řetězec** do schránky, vložte jej do textového editoru pro pozdější použití.
+Účet úložiště se po vytvoření připne na řídicí panel. Klikněte na něj a otevřete ho. V části **Nastavení** klikněte na **Přístupové klíče**. Vyberte primární přístupový klíč, zkopírujte do schránky přidružený **Připojovací řetězec** a vložte ho do textového editoru pro pozdější použití.

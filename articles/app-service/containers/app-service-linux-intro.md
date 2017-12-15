@@ -1,7 +1,7 @@
 ---
-title: "Úvod do služby App Service v systému Linux | Microsoft Docs"
-description: "Další informace o Azure App Service v systému Linux."
-keywords: "služby Azure app service, linux, operačních systémů"
+title: "Seznámení se službou App Service v Linuxu | Dokumentace Microsoftu"
+description: "Seznamte se se službou Azure App Service v Linuxu."
+keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: 
 author: naziml
@@ -18,21 +18,21 @@ ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
 ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/25/2017
 ---
-# <a name="introduction-to-azure-app-service-on-linux"></a>Úvod do Azure App Service v systému Linux
+# <a name="introduction-to-azure-app-service-on-linux"></a>Seznámení se službou Azure App Service v Linuxu
 
-[Webová aplikace](../app-service-web-overview.md) je plně spravovaná výpočetní platforma, která je optimalizována pro hostování webů a webových aplikací. Zákazníci mohou pomocí služby App Service v systému Linux do hostitele webové aplikace v systému Linux nativně pro zásobníky podporovaných aplikací. V následujících částech jsou uvedené zásobníky aplikace, které jsou aktuálně podporovány.
+[Web App](../app-service-web-overview.md) je plně spravovaná výpočetní platforma, která je optimalizována pro hostování webů a webových aplikací. V případě podporovaných zásobníků aplikací můžou zákazníci službu App Service v Linuxu použít k nativnímu hostování webových aplikací v Linuxu. Následující části obsahují seznam aktuálně podporovaných zásobníků aplikací.
 
 ## <a name="languages"></a>Jazyky
 
-Aplikační služby v systému Linux podporuje několik předdefinovaných obrázků zvýšení produktivity. Pokud vaše aplikace vyžaduje modul runtime není podporován v předdefinované bitové kopie, jsou k dispozici pokyny o tom, jak [sestavení vlastní image Docker](tutorial-custom-docker-image.md) k nasazení do webové aplikace pro kontejnery.
+App Service v Linuxu podporuje řadu integrovaných imagí za účelem zvýšení produktivity vývojářů. Pokud modul runtime, který vaše aplikace vyžaduje, není v integrovaných imagích podporovaný, tady najdete pokyny k [sestavení vlastní image Dockeru](tutorial-custom-docker-image.md) pro nasazení do služby Web App for Containers.
 
 | Jazyk | Podporované verze |
 |---|---|
-| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9–6.11, 8.0, 8.1 |
 | PHP | 5.6, 7.0 |
 | .NET Core | 1.0, 1.1 |
 | Ruby | 2.3 |
@@ -47,56 +47,56 @@ Aplikační služby v systému Linux podporuje několik předdefinovaných obrá
 ## <a name="devops"></a>DevOps
 
 * Přípravná prostředí
-* [Kontejner Azure registru](https://docs.microsoft.com/azure/container-registry/container-registry-intro) a DockerHub CI/CD
+* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) a DockerHub CI/CD
 
 ## <a name="console-publishing-and-debugging"></a>Konzola, publikování a ladění
 
 * Prostředí
 * Nasazení
-* Základní konzoly
+* Základní konzola
 * SSH
 
 ## <a name="scaling"></a>Škálování
 
-* Zákazníci mohou nahoru a dolů škálování webové aplikace tak, že změníte úroveň služby jejich [plán služby App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
+* Zákazníci můžou vertikálně navyšovat nebo snižovat kapacitu aplikací změnou úrovně [plánu služby App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json).
 
 ## <a name="locations"></a>Umístění
 
-Zkontrolujte [řídicí panel Azure stav](https://azure.microsoft.com/status).
+Podívejte se na [řídicí panel stavu Azure](https://azure.microsoft.com/status).
 
 ## <a name="limitations"></a>Omezení
 
-Portál Azure zobrazuje pouze funkce, které aktuálně fungují pro webovou aplikaci pro kontejnery. Jak jsme povolit další funkce, se bude zobrazovat na portálu.
+Na webu Azure Portal se zobrazují pouze funkce, které jsou aktuálně funkční pro službu Web App for Containers. Další funkce se na portálu budou zobrazovat s tím, jak je budeme povolovat.
 
-Některé funkce, například integrace virtuální sítě, ověřování Azure Active Directory nebo třetích stran nebo rozšíření lokality Kudu, ještě nejsou k dispozici. Jakmile se tyto funkce jsou k dispozici, budeme aktualizovat naší dokumentaci a blog o změnách.
+Některé funkce, například integrace virtuálních sítí, ověřování pomocí Azure Active Directory nebo prostřednictvím třetí strany nebo rozšíření webu Kudu, ještě nejsou dostupné. Jakmile budou tyto funkce dostupné, aktualizujeme naši dokumentaci a blog, abychom vás informovali o změnách.
 
-Aplikační služby v systému Linux je podporována pouze s [Basic a Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) plány služby app service a nemá [volné nebo sdílené](https://azure.microsoft.com/pricing/details/app-service/plans/) vrstvy. Toto jsou také důležité omezení pro službu App Service v systému Linux:
+Služba App Service v Linuxu se podporuje pouze s plány služby úrovně [Basic a Standard](https://azure.microsoft.com/pricing/details/app-service/plans/), a neobsahuje úroveň [Free ani Shared](https://azure.microsoft.com/pricing/details/app-service/plans/). Toto jsou další důležitá omezení služby App Service v Linuxu:
 
-* Nelze vytvořit webovou aplikaci pro kontejnery v plán služby App Service již hostitelem jiných Linux webové aplikace.
-* Při vytváření webové aplikace pro kontejnery ve skupině prostředků obsahující bez Linux webové aplikace, musíte vytvořit plán služby App Service v jiné oblasti než existující plán služby App Service.
+* Službu Web App for Containers nemůžete vytvořit v plánu služby App Service, který už je hostitelem služby Web Apps mimo Linux.
+* Při vytváření služby Web App for Containers ve skupině prostředků, která obsahuje službu Web Apps mimo Linux, musíte vytvořit plán služby App Service v jiné oblasti než stávající plán služby App Service.
 
 ## <a name="troubleshooting"></a>Řešení potíží
 
-Pokud vaše aplikace se nepodaří spustit nebo chcete provést kontrolu protokolování z vaší aplikace, zkontrolujte, že že docker protokolů v adresáři LogFiles. Buď prostřednictvím webu SCM nebo FTP, můžete přístup k tomuto adresáři.
-Do protokolu `stdout` a `stderr` z kontejneru, je nutné povolit **kontejner Docker protokolování** pod **protokolů diagnostiky**.
+Pokud se aplikaci nepodaří spustit nebo pokud chcete zkontrolovat protokolování z aplikace, zkontrolujte protokoly Dockeru v adresáři LogFiles. Přístup k tomuto adresáři získáte prostřednictvím webu SCM nebo přes protokol FTP.
+Pokud chcete protokolovat výstupy `stdout` a `stderr` z vašeho kontejneru, musíte povolit **Protokolování kontejneru Dockeru** v části **Diagnostické protokoly**.
 
 ![Povolení protokolování][2]
 
-![Pokud chcete zobrazit protokoly Docker pomocí modulu Kudu][1]
+![Zobrazení protokolů Dockeru pomocí Kudu][1]
 
-Můžete získat přístup k webu SCM z **Rozšířené nástroje** v **nástroje pro vývoj** nabídky.
+Na web SCM můžete přejít přes možnost **Rozšířené nástroje** v nabídce **Vývojové nástroje**.
 
 ## <a name="next-steps"></a>Další kroky
 
-V následujících tématech začít pracovat s App Service v systému Linux. Otázky a aspekty můžete zveřejnit na [našem fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Následující odkazy vám pomůžou začít se službou App Service v Linuxu. Otázky a připomínky můžete publikovat na [našem fóru](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Jak používat vlastní image Docker pro webovou aplikaci pro kontejnery](quickstart-custom-docker-image.md)
-* [Pomocí .NET Core v Azure App Service v systému Linux](quickstart-dotnetcore.md)
-* [Pomocí Ruby v Azure App Service v systému Linux](quickstart-ruby.md)
-* [Webové aplikace Azure App Service pro kontejnery – nejčastější dotazy](app-service-linux-faq.md)
-* [Podpora SSH pro Azure App Service v systému Linux](app-service-linux-ssh-support.md)
-* [Nastavení přípravných prostředí v Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Docker Hub průběžné nasazování pomocí webové aplikace pro kontejnery](./app-service-linux-ci-cd.md)
+* [Jak používat vlastní image Dockeru pro službu Web App for Containers](quickstart-custom-docker-image.md)
+* [Použití .NET Core ve službě Azure App Service v Linuxu](quickstart-dotnetcore.md)
+* [Použití Ruby ve službě Azure App Service v Linuxu](quickstart-ruby.md)
+* [Azure App Service Web App for Containers – Nejčastější dotazy](app-service-linux-faq.md)
+* [Podpora SSH pro službu Azure App Service v Linuxu](app-service-linux-ssh-support.md)
+* [Nastavení přípravných prostředí ve službě Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Průběžné nasazování z Docker Hubu pomocí služby Web App for Containers](./app-service-linux-ci-cd.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

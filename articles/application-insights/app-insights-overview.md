@@ -16,12 +16,12 @@ ms.date: 05/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 2e2a9e8491ad56bcbc42be64729715016f7ed17b
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-application-insights"></a>Co je Application Insights?
-Application Insights je rozšiřitelná služba pro správu výkonu aplikací (APM). Je určena webovým vývojářům na více platformách. Slouží k monitorování živé webové aplikace. Automaticky zjišťuje anomálie ve výkonu. Obsahuje výkonné analytické nástroje pro diagnostiku problémů a pomáhá porozumět, jak vlastně uživatelé vaši aplikaci používají.  Je navržená tak, aby pomáhala průběžně vylepšovat výkon a možnosti využití. Funguje u aplikací na široké škále platforem, jako jsou .NET, Node.js a J2EE, a to hostovaných lokálně i v cloudu. Se integruje s váš proces DevOps a má spojovací body na celou řadu nástrojů pro vývoj. Je-li monitorovat a analyzovat telemetrická data z mobilních aplikací díky integraci se Centrum aplikace Visual Studio a HockeyApp.
+Application Insights je rozšiřitelná služba pro správu výkonu aplikací (APM). Je určena webovým vývojářům na více platformách. Slouží k monitorování živé webové aplikace. Automaticky zjišťuje anomálie ve výkonu. Obsahuje výkonné analytické nástroje pro diagnostiku problémů a pomáhá porozumět, jak vlastně uživatelé vaši aplikaci používají.  Je navržená tak, aby pomáhala průběžně vylepšovat výkon a možnosti využití. Funguje u aplikací na široké škále platforem, jako jsou .NET, Node.js a J2EE, a to hostovaných lokálně i v cloudu. Integruje se s vaším procesem DevOps a obsahuje body připojení k celé řadě dalších vývojářských nástrojů. Díky integraci s Visual Studio App Center a HockeyApp může monitorovat a analyzovat telemetrii z mobilních aplikací.
 
 ![Vytvořte statistický graf uživatelských aktivit nebo se na konkrétní události podívejte podrobněji.](./media/app-insights-overview/00-sample.png)
 
@@ -117,7 +117,7 @@ Existuje několik způsobů, jak začít. Použijte ten, který vám nejvíce vy
   * [Node.js](app-insights-nodejs.md)
   * [Jiné platformy](app-insights-platforms.md)
 * **[Instrumentace webových stránek](app-insights-javascript.md)** pro zobrazení stránek, AJAX a další telemetrii na straně klienta.
-* **[Analýza využití mobilní aplikace](app-insights-mobile-center-quickstart.md)**  integrací s Centrum aplikace Visual Studio.
+* **[Analýza využití mobilních aplikací](app-insights-mobile-center-quickstart.md)** díky integraci s Visual Studio App Center.
 * **[Testy dostupnosti](app-insights-monitor-web-app-availability.md)** – Příkazem ping z našich serverů pravidelně testujte váš web.
 
 

@@ -1,23 +1,23 @@
 Teď můžete pomocí nástroje Průzkumník dat na webu Azure Portal vytvořit databázi a kolekci. 
 
-1. Klikněte na tlačítko **Průzkumníku dat** > **nové kolekce**. 
+1. Klikněte na **Průzkumník dat** > **Nová kolekce**. 
     
-    **Přidat kolekce** oblasti se zobrazí v pravém, budete muset přejděte přímo k jeho zobrazení.
+    Úplně vpravo se zobrazí oblast **Přidat kolekci**. Pokud ji nevidíte, možná se budete muset posunout doprava.
 
-    ![Portál Azure Průzkumníku dat, okno Přidat kolekce](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    ![Průzkumník dat na webu Azure Portal – okno Přidat kolekci](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
-2. V **Přidání kolekce** zadejte nastavení pro nové kolekce.
+2. Na stránce **Přidat kolekci** zadejte nastavení pro novou kolekci.
 
     Nastavení|Navrhovaná hodnota|Popis
     ---|---|---
-    ID databáze|Úlohy|Zadejte *úlohy* jako název nové databáze. Názvy databází musí mít délku 1 až 255 znaků a nesmí obsahovat znaky /, \\, #, ? ani koncové mezery.
-    ID kolekce|Items|Zadejte *položky* jako název nové kolekce. ID kolekce mají stejné požadavky znak jako názvy databází.
-    Kapacita úložiště| Pevná (10 GB)|Změňte hodnotu na **Fixed (10 GB)**. Tato hodnota je kapacita úložiště databáze.
-    Propustnost|400 RU|Změňte propustnosti na 400 jednotek žádosti za sekundu (RU/s). Kapacita úložiště musí být nastavena na **Fixed (10 GB)** Chcete-li nastavit propustnost 400 RU/s. Pokud budete chtít snížit latenci, můžete propustnost později navýšit. 
-    Klíč oddílu|/kategorie|Zadejte */category* jako klíč oddílu. Klíč oddílu distribuuje data rovnoměrně pro každý oddíl v databázi. Další informace o oddílech najdete v tématu [návrh a vytváření oddílů](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    ID databáze|Úlohy|Jako název nové databáze zadejte *Tasks*. Názvy databází musí mít délku 1 až 255 znaků a nesmí obsahovat znaky /, \\, #, ? ani koncové mezery.
+    ID kolekce|Items|Jako název nové kolekce zadejte *Items*. ID kolekcí mají stejné požadavky na znaky jako názvy databází.
+    Kapacita úložiště| Pevná (10 GB)|Změňte hodnotu na **Pevná (10 GB)**. Tato hodnota je kapacita úložiště databáze.
+    Propustnost|400 RU|Změňte propustnost na 400 jednotek žádostí za sekundu (RU/s). Abyste mohli propustnost nastavit na 400 RU/s, kapacita úložiště musí být nastavená na **Pevná (10 GB)**. Pokud budete chtít snížit latenci, můžete propustnost později navýšit. 
+    Klíč oddílu|/kategorie|Jako klíč oddílu zadejte */category*. Klíč oddílu rovnoměrně distribuuje data do jednotlivých oddílů v databázi. Další informace o dělení najdete v tématu [Návrh a vytváření oddílů](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
     Klikněte na **OK**.
 
-    Průzkumník dat zobrazí nové databáze a kolekce.
+    Průzkumník dat zobrazí novou databázi a kolekci.
 
-    ![Portál Azure Průzkumníku dat znázorňující nové databáze a kolekce.](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)
+    ![Průzkumník dat na webu Azure Portal zobrazující novou databázi a kolekci](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)
