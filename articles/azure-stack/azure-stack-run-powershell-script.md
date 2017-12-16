@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7c320c6ba51ae0800407aab7aee92c42b2b441a7
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Nasazení Azure zásobníku Development Kit
 
@@ -104,7 +104,7 @@ Jakmile připravíte ASDK hostitelský počítač, se dá nasadit ASDK do bitov�
 1. Po hostitelský počítač úspěšně spustí do bitové kopie CloudBuilder.vhdx, přihlaste se pomocí přihlašovacích údajů správce, který je zadán v předchozích krocích. 
 2. Otevřete konzolu prostředí PowerShell se zvýšenými oprávněními a spusťte **\AzureStack_Installer\asdk-installer.ps1** skript (který může být nyní na jinou jednotku v bitové kopii CloudBuilder.vhdx). Klikněte na **Nainstalovat**.
 3. V **typ** rozevíracího seznamu vyberte **cloudu Azure** nebo **služby AD FS**.
-    - **Azure Cloud**: nakonfiguruje Azure Active Directory (Azure AD) jako zprostředkovatele identity. Chcete-li použít tuto možnost, budete potřebovat připojení k Internetu, celý název Azure AD directory klienta ve formě *domainname*. onmicrosoft.com a přihlašovací údaje globálního správce pro zadaný adresář. 
+    - **Azure Cloud**: nakonfiguruje Azure Active Directory (Azure AD) jako zprostředkovatele identity. Chcete-li použít tuto možnost, budete potřebovat připojení k Internetu, celý název Azure AD directory klienta ve formě *domainname*. onmicrosoft.com nebo Azure AD ověřit přihlašovací údaje správce název a globální vlastní doménu pro Zadaný adresář. 
     - **Služba AD FS**: výchozí razítko adresářové služby se použije jako zprostředkovatele identity. Je výchozí účet pro přihlášení s azurestackadmin@azurestack.local, a k použití hesla je zadaný jako součást instalace.
 4. V části **heslo místního správce**v **heslo** zadejte heslo místního správce (který musí odpovídat aktuální heslo místního správce nakonfigurované) a pak klikněte na tlačítko **Další**.
 5. Vyberte síťový adaptér používat pro development kit a potom klikněte na **Další**.
@@ -206,7 +206,7 @@ Pokud Azure AD identity přidružen **větší než jedna** adresář Azure AD:
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 Pokud vaše prostředí **nemá** mít DHCP povoleno, musí zahrnovat následující další parametry, které chcete jednu z možností výše (příklad použití zadané): 
@@ -219,7 +219,7 @@ Pokud vaše prostředí **nemá** mít DHCP povoleno, musí zahrnovat následuj�
 |Parametr|Požadované a volitelné|Popis|
 |-----|-----|-----|
 |AdminPassword|Požaduje se|Nastaví účet místního správce a všechny další uživatelské účty pro všechny virtuální počítače vytvořené jako součást nasazení development kit. Toto heslo se musí shodovat aktuální heslo místního správce na hostiteli.|
-|InfraAzureDirectoryTenantName|Požaduje se|Nastaví adresář tenanta. Tento parametr použijte k určení konkrétního adresáře kde AAD účet má oprávnění ke správě více adresářů. Úplný název klienta služby AAD Directory ve formátu. onmicrosoft.com.|
+|InfraAzureDirectoryTenantName|Požaduje se|Nastaví adresář tenanta. Tento parametr použijte k určení konkrétního adresáře kde AAD účet má oprávnění ke správě více adresářů. Úplný název klienta služby AAD Directory ve formátu. onmicrosoft.com nebo Azure AD ověřit vlastní název domény.|
 |TimeServer|Požaduje se|Tento parametr použijte k určení serveru určitý čas. Tento parametr je zadat jako IP adresa serveru doby platnosti. Názvy serverů nejsou podporovány.|
 |InfraAzureDirectoryTenantAdminCredential|Nepovinné|Nastaví Azure Active Directory uživatelské jméno a heslo. Tyto přihlašovací údaje Azure musí být identifikátor organizace.|
 |InfraAzureEnvironment|Nepovinné|Vyberte prostředí Azure, pro který chcete zaregistrovat toto nasazení Azure zásobníku. Mezi možnosti patří veřejný Azure, Azure – Čína, Azure - US Government.|

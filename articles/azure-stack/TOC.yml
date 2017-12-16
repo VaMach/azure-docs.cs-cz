@@ -4,6 +4,16 @@
   items:
     - name: Co je Azure Stack?
       href: azure-stack-poc.md
+    - name: "Poznámky k\_verzi"
+      items:
+        - name: Poznámky k verzi Development kit
+          href: azure-stack-asdk-release-notes.md
+        - name: Poznámky k verzi integrované systémy
+          items:
+            - name: aktualizace 1711
+              href: azure-stack-update-1711.md
+            - name: aktualizace 1710
+              href: azure-stack-update-1710.md
 - name: Šablony Rychlý start
   expanded: true
   items:
@@ -23,16 +33,6 @@
       href: azure-stack-planning-considerations.md
     - name: Zásady obsluhy
       href: azure-stack-servicing-policy.md
-    - name: "Poznámky k\_verzi"
-      items:
-        - name: Poznámky k verzi Development kit
-          href: azure-stack-asdk-release-notes.md
-        - name: Poznámky k verzi integrované systémy
-          items:
-            - name: aktualizace 1711
-              href: azure-stack-update-1711.md
-            - name: aktualizace 1710
-              href: azure-stack-update-1710.md
     - name: Klíčové funkce a koncepty
       href: azure-stack-key-features.md
     - name: Architektura Development kit
