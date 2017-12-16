@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ceac2897e7b584c90945f3f556afc12891bf8a25
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Kopírování dat do a z Data Lake Store pomocí objektu pro vytváření dat
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,9 +86,9 @@ Pokud chcete použít ověřování hlavní služby, zaregistrujte entitu aplika
 
 > [!IMPORTANT]
 > Ujistěte se, že udělíte hlavní správné oprávnění služby v Azure Data Lake Store:
->- Pokud chcete použít jako zdroj Data Lake Store, udělte alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu.
->- Pokud chcete používat Data Lake Store jako jímku, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure Reakcí na základě kterých kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud chcete, aby se zabránilo této role IAM [zadejte executionLocation](data-factory-data-movement-activities.md#global) s umístěním Data Lake Store v aktivitě kopírování.
->- Pokud použijete Průvodce kopírováním vytvářet kanály, udělit alespoň **čtečky** role v účtu řízení přístupu (IAM). Navíc udělit alespoň **čtení + Execute** oprávnění kořenového adresáře Data Lake Store ("/") a její podřízené položky. V opačném případě může zobrazí se zpráva "zadané přihlašovací údaje jsou neplatné."
+>- **Jako zdroj použít Data Lake Store**, udělit alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu.
+>- **Použití Data Lake Store jako jímku**, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure Reakcí na základě kterých kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud chcete, aby se zabránilo této role IAM [zadejte executionLocation](data-factory-data-movement-activities.md#global) s umístěním Data Lake Store v aktivitě kopírování.
+>- Pokud jste **vytvářet kanály pomocí Průvodce kopírováním**, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Navíc udělit alespoň **čtení + Execute** oprávnění kořenového adresáře Data Lake Store ("/") a její podřízené položky. V opačném případě může zobrazí se zpráva "zadané přihlašovací údaje jsou neplatné."
 
 Použijte objekt zabezpečení ověřování služby tak, že zadáte následující vlastnosti:
 
@@ -126,9 +126,9 @@ Alternativně můžete ověření přihlašovacích údajů uživatele ke kopír
 
 > [!IMPORTANT]
 > Ujistěte se, že udělíte správné oprávnění uživatele v Azure Data Lake Store:
->- Pokud chcete použít jako zdroj Data Lake Store, udělte alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu.
->- Pokud chcete používat Data Lake Store jako jímku, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure Reakcí na základě kterých kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud chcete, aby se zabránilo této role IAM [zadejte executionLocation](data-factory-data-movement-activities.md#global) s umístěním Data Lake Store v aktivitě kopírování.
->- Pokud použijete Průvodce kopírováním vytvářet kanály, udělit alespoň **čtečky** role v účtu řízení přístupu (IAM). Navíc udělit alespoň **čtení + Execute** oprávnění kořenového adresáře Data Lake Store ("/") a její podřízené položky. V opačném případě může zobrazí se zpráva "zadané přihlašovací údaje jsou neplatné."
+>- **Jako zdroj použít Data Lake Store**, udělit alespoň **čtení + Execute** oprávnění k seznamu a zkopírujte obsah složky, přístup k datům nebo **čtení** oprávnění zkopírovat jeden soubor. Žádný požadavek na řízení úrovně přístupu účtu.
+>- **Použití Data Lake Store jako jímku**, udělte alespoň **zápisu + provést** oprávnění k vytváření podřízených položek ve složce přístup k datům. A pokud používáte Azure Reakcí na základě kterých kopírování (zdroj a jímka mají v cloudu), aby mohli zjistit Data Lake Store oblasti služby Data Factory, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Pokud chcete, aby se zabránilo této role IAM [zadejte executionLocation](data-factory-data-movement-activities.md#global) s umístěním Data Lake Store v aktivitě kopírování.
+>- Pokud jste **vytvářet kanály pomocí Průvodce kopírováním**, udělte alespoň **čtečky** role v účtu řízení přístupu (IAM). Navíc udělit alespoň **čtení + Execute** oprávnění kořenového adresáře Data Lake Store ("/") a její podřízené položky. V opačném případě může zobrazí se zpráva "zadané přihlašovací údaje jsou neplatné."
 
 **Příklad: Ověření pověření uživatele**
 ```json
@@ -189,6 +189,49 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 Podrobnosti o třídách objekt pro vytváření dat používá v kódu najdete v tématu [azuredatalakestorelinkedservice třída](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService třída](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), a [AuthorizationSessionGetResponse třída](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) témata. Přidat odkaz na verzi `2.9.10826.1824` z `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` pro `WindowsFormsWebAuthenticationDialog` třída používaná v kódu.
+
+## <a name="troubleshooting-tips"></a>Rady pro řešení potíží
+
+**Příznak:** při kopírování dat **do** Azure Data Lake Store, pokud vaše aktivity kopírování došlo k následující chybě:
+
+  ```
+  Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
+  ```
+
+**Hlavní příčina:** 2 příčin:
+
+1. `resourceGroupName` Nebo `subscriptionId` zadaný v Azure Data Lake Store propojené služby není správné.
+2. Uživatel nebo objekt služby nemá potřebná oprávnění.
+
+**Řešení:**
+
+1. Zajistěte, aby `subscriptionId` a `resourceGroupName` zadáte v propojené službě `typeProperties` skutečně jsou ty, které váš účet data lake patří do.
+
+2. Zajistěte, aby aspoň udělíte "**čtečky**" role pro uživatele nebo instančního objektu v účtu data lake. Chcete-li nastavit jej:
+
+    1. Přejděte na portálu Azure -> váš účet Data Lake Store
+    2. V okně Data Lake Store klikněte na tlačítko "řízení přístupu (IAM)"
+    3. Klikněte na tlačítko "Přidat" v okně z "přístup k řízení (IAM)"
+    4. Nastavte "Role" jako "Čtečky" a vyberte uživatele nebo instanční objekt, který použijete pro kopírování k udělení přístupu
+
+3. Pokud nechcete, aby udělit "Čtečky" role pro uživatele nebo instančního objektu, alernative je [explicitně zadat umístění provádění](data-factory-data-movement-activities.md#global) v kopie activitywith umístění Data Lake Store. Příklad:
+
+    ```json
+    {
+      "name": "CopyToADLS",
+      "type": "Copy",
+      ......
+      "typeProperties": {
+        "source": {
+          "type": "<source type>"
+        },
+        "sink": {
+          "type": "AzureDataLakeStoreSink"
+        },
+        "exeuctionLocation": "West US"
+      }
+    }
+    ```
 
 ## <a name="dataset-properties"></a>Vlastnosti datové sady
 Pokud chcete zadat datové sady představují vstupní data v Data Lake Store, nastavíte **typ** vlastnosti datové sady, která **AzureDataLakeStore**. Nastavte **linkedServiceName** vlastnosti datové sady, která název Data Lake Store propojené služby. Úplný seznam části JSON a vlastnosti, které jsou k dispozici pro definování datové sady, najdete v článku [vytváření datových sad](data-factory-create-datasets.md) článku. Části datové sady ve formátu JSON, jako například **struktura**, **dostupnosti**, a **zásad**, jsou podobné pro všechny typy datovou sadu (Azure SQL Azure blob, databáze a tabulky Azure, např.). **Rámci typeProperties** oddílu se liší pro jednotlivé typy datovou sadu a informace, jako je například umístění a formát dat v úložišti dat. 

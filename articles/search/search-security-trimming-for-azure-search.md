@@ -1,6 +1,6 @@
 ---
-title: "Oříznutí zabezpečení s Azure Search"
-description: "Oříznutí zabezpečení implementace pomocí filtrů Azure Search."
+title: "Filtry zabezpečení pro výsledky oříznutí ve službě Azure Search | Microsoft Docs"
+description: "Řízení přístupu na obsahu Azure Search pomocí filtrů zabezpečení a identity uživatele."
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Oříznutí zabezpečení s Azure Search
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtry zabezpečení pro výsledky oříznutí ve službě Azure Search
 
-Filtry zabezpečení můžete použít na výsledky hledání k omezení přístupu k dokumentům na základě identity uživatele. Toto prostředí vyhledávání obvykle vyžaduje porovnávání identitu kdo požadavky hledání proti pole obsahující se zásadami, kteří mají oprávnění k dokumentu. Pokud je nalezena shoda, uživatele nebo objekt zabezpečení (například skupiny nebo role) má přístup k dokumentu.
+Můžete použít filtry zabezpečení oříznout výsledky hledání ve službě Azure Search na základě identity uživatele. Toto prostředí vyhledávání obvykle vyžaduje porovnávání identitu kdo požadavky hledání proti pole obsahující se zásadami, kteří mají oprávnění k dokumentu. Pokud je nalezena shoda, uživatele nebo objekt zabezpečení (například skupiny nebo role) má přístup k dokumentu.
 
 Jeden ze způsobů, jak dosáhnout zabezpečení filtrování je prostřednictvím složitá disjunkce výrazů rovnosti: například `Id eq 'id1' or Id eq 'id2'`, a tak dále. Tento přístup je k chybám, obtížné spravovat a v případech, kde seznam obsahuje stovkami nebo tisíci hodnoty, zpomaluje doba odezvy dotaz podle počet sekund. 
 
@@ -155,3 +155,8 @@ Měli byste obdržet dokumenty zpět, kde `group_ids` obsahuje "group_id1" nebo 
 
 Toto je, jak můžete filtrovat výsledky podle identity uživatele a Azure Search `search.in()` funkce. Tuto funkci můžete předat hlavní identifikátory pro žádajícího uživatele tak, aby odpovídala hlavní identifikátory spojené s každou cílovém dokumentu. Pokud je žádost o vyhledávání, `search.in` funkce filtruje výsledky hledání, pro které žádný z objekty uživatele nemá přístup pro čtení. Identifikátory hlavního může představovat věcmi, jako jsou skupiny zabezpečení, role nebo i vlastní identitu uživatele.
  
+## <a name="see-also"></a>Viz také
+
++ [Řízení přístupu na základě identity Active Directory, které jsou pomocí filtrů Azure Search](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtry ve službě Azure Search](search-filters.md)
++ [Řízení přístupu a zabezpečení a data v operacích Azure Search](search-security-overview.md)

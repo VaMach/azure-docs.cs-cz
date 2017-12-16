@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d1e6dc7899a9f3367c8aa05d862a863f1f88135
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Vytváření prognóz energie vyžádání časové řady
 
@@ -56,13 +56,11 @@ Tento scénář podrobné informace o vytváření strojového učení na energi
 - [Účet Azure](https://azure.microsoft.com/free/) (bezplatné zkušební verze jsou k dispozici).
 - Nainstalovaná kopie produktu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) následující [Průvodce instalací úvodní](./quickstart-installation.md) k instalaci programu a vytvořit pracovní prostor.
 - Tato ukázka předpokládá, že používáte Azure ML Workbench ve Windows 10 s [modulu Docker](https://www.docker.com/) místně nainstalován. Pokud používáte systému macOS, tyto pokyny jsou z velké části stejný.
-- Azure Machine Learning Operationalization nainstalované s nastavit prostředí pro místní nasazení a správu účet modelu vytvořit, jak je popsáno v tomto [průvodce](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Azure Machine Learning Operationalization nainstalované s nastavit prostředí pro místní nasazení a správu účet modelu vytvořit, jak je popsáno v tomto [průvodce](./model-management-configuration.md).
 - Tato ukázka je nutné aktualizovat instalace Pandas verzi 0.20.3 nebo vyšší a nainstalujte matplotlib. Klikněte na tlačítko *spusťte příkazový řádek* z *souboru* nabídky na Workbench a spusťte následující příkazy pro instalaci tyto závislosti:
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## <a name="create-a-new-workbench-project"></a>Vytvoření nového projektu Workbench
@@ -77,7 +75,7 @@ Vytvořte nový projekt v tomto příkladu jako šablona:
 
 ## <a name="data-description"></a>Popis dat
 
-Existují dvě datové sady: `nyc_demand.csv` a `nyc_weather.csv`:
+Dvě datové sady jsou k dispozici s Tato ukázka a staženy pomocí `1-data-preparation.ipynb` Poznámkový blok: `nyc_demand.csv` a `nyc_weather.csv`.
 
 **nyc_demand.csv** obsahuje každou hodinu na energii na vyžádání hodnoty pro New Yorku let 2012 2017. Data má následující jednoduché strukturu:
 

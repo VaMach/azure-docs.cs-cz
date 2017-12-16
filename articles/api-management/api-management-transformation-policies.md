@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 18b0a7d15c50ee147690063ac251f815c7fa34be
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="api-management-transformation-policies"></a>Transformace zásady služby API Management
 Toto téma obsahuje odkaz pro následující zásady služby API Management. Informace o přidávání a konfiguraci zásad najdete v tématu [zásady ve službě API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -264,6 +264,7 @@ V tomto příkladu zásady přesměruje požadavek na služby prostředků infra
 |Typ SF repliky|Platí jenom při back-end je služba Service Fabric a je určen pomocí back-end id. Ovládací prvky, pokud požadavek by měli přejít na primární nebo sekundární replice oddílu. |Ne|Není k dispozici|    
 |SF. vyřešte podmínek|Platí jenom při back-end je služba Service Fabric. Podmínka vyhodnocena jako identifikace, pokud volání back-end Service Fabric se musí opakovat s nové řešení.|Ne|Není k dispozici|    
 |SF-service-instance-name|Platí jenom při back-end je služba Service Fabric. Umožňuje změnit instance služby za běhu. |Ne|Není k dispozici|    
+|Název naslouchacího procesu SF|Platí jenom při back-end je služba Service Fabric a je určen pomocí back-end id. Spolehlivé služby prostředků infrastruktury služby vám umožní vytvořit více naslouchací procesy ve službě. Tento atribut slouží k výběru konkrétním posluchačem, když back-end spolehlivá služba má více než jeden naslouchací proces. Pokud se tento atribut nezadá, API Management se pokusí použít naslouchací proces bez názvu. Naslouchací proces bez názvu je typické pro spolehlivé služby, které mají jenom jeden naslouchací proces. |Ne|Není k dispozici|  
 
 ### <a name="usage"></a>Využití  
  Tuto zásadu lze použít v tyto zásady [části](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) a [obory](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

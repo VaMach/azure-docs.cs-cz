@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3d8dde74687154eaf173f3ca7316262e5c1a871c
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problémy se správou a konfigurace pro Azure Cloud Services: Časté otázky (FAQ)
 
@@ -98,7 +98,7 @@ Pokud chcete nastavit statickou IP adresu, musíte vytvořit vyhrazenou IP adres
 V tématu [omezuje specifickou pro službu](../azure-subscription-service-limits.md#subscription-limits).
 
 ## <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Proč jednotku, na můj virtuální počítač cloudové služby zobrazit velmi málo volného místa na disku?
-Toto chování je očekávané a jeho by nemělo způsobit jakýkoli problém do vaší aplikace. Pro % uproot % jednotky ve virtuálních počítačích PaaS Azure, která v podstatě využívá double množství místa, která obvykle zabírají soubory deníku zapnutý. Ale existuje několik věcí zajímat, v podstatě to změnit na jiný problém.
+Toto chování je očekávané a jeho by nemělo způsobit jakýkoli problém do vaší aplikace. Pro jednotku % approot % ve virtuálních počítačích PaaS Azure, která v podstatě využívá double množství místa, které soubory obvykle zabírají zapnutý deníku. Ale existuje několik věcí zajímat, v podstatě to změnit na jiný problém.
 
 Velikost disku % approot % se počítá jako < .cspkg + velikost deníku maximální velikost > + okraj volného místa, nebo 1,5 GB, podle toho, která je větší. Velikost virtuálního počítače nemá žádný vliv na tohoto výpočtu. (Velikost virtuálního počítače pouze ovlivňuje velikost dočasné jednotce C:.) 
 

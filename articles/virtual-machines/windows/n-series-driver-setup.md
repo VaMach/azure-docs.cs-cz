@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b16e57e06d5055fc0c2750385630a908e10bd217
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 58ca4ea85b6097f7210a21db45791bb43b0e99ea
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Nastavení GPU ovladače pro N-series virtuální počítače se systémem Windows Server
 Abyste mohli využívat možnosti GPU Azure N-series virtuální počítače se systémem Windows Server 2016 nebo Windows Server 2012 R2, nainstalujte podporované NVIDIA grafické ovladače. Tento článek obsahuje kroky instalace ovladačů po nasadit virtuální počítač s N-series. Informace o instalaci ovladačů je také k dispozici pro [virtuální počítače s Linuxem](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -54,12 +54,12 @@ K dotazování na stav zařízení GPU, spusťte [nvidia smi](https://developer.
 
 ![Stav zařízení NVIDIA](./media/n-series-driver-setup/smi.png)  
 
-## <a name="rdma-network-for-nc24r-vms"></a>RDMA sítě pro virtuální počítače NC24r
+## <a name="rdma-network-connectivity"></a>Připojení k síti RDMA
 
-Připojení k síti RDMA, můžete povolit pro NC24r virtuální počítače nasazené ve stejné sadě dostupnosti. Rozšíření HpcVmDrivers musí být přidaný do nainstalovat ovladače zařízení sítě systému Windows, které umožňují připojení RDMA. Chcete-li přidat rozšíření virtuálního počítače na virtuální počítač NC24r, použijte [prostředí Azure PowerShell](/powershell/azure/overview) rutiny pro Azure Resource Manager.
+Připojení k síti RDMA můžete povolit pro přístup RDMA povolený N-series virtuálních počítačů, jako je NC24r nasazené ve stejné sadě dostupnosti. Rozšíření HpcVmDrivers musí být přidaný do nainstalovat ovladače zařízení sítě systému Windows, které umožňují připojení RDMA. Chcete-li přidat rozšíření virtuálního počítače na virtuální počítač N-series podporou RDMA, použijte [prostředí Azure PowerShell](/powershell/azure/overview) rutiny pro Azure Resource Manager.
 
 > [!NOTE]
-> V současné době pouze Windows Server 2012 R2 podporuje RDMA síť na virtuálních počítačích NC24r.
+> V současné době pouze Windows Server 2012 R2 podporuje RDMA síť na virtuálních počítačích N-series.
 > 
 
 Chcete-li nainstalovat nejnovější verze 1.1 HpcVMDrivers rozšíření na existující virtuální počítač podporuje RDMA s názvem Můjvp v oblasti západní USA:
@@ -73,10 +73,6 @@ Síť RDMA podporuje rozhraní MPI (Message Passing) provozu pro aplikace spušt
 
 ## <a name="next-steps"></a>Další kroky
 
-* Další informace o grafickými procesory NVIDIA na virtuálních počítačích N-series najdete v tématu:
-    * [Tesla – měrná K80 NVIDIA](http://www.nvidia.com/object/tesla-k80.html) (pro virtuální počítače Azure NC)
-    * [Tesla – měrná M60 NVIDIA](http://www.nvidia.com/object/tesla-m60.html) (pro virtuální počítače Azure vs)
-
-* Můžete také stáhnout a nainstalovat 8 Toolkit CUDA pro vývojářům tvorbu GPU accelerated aplikací pro grafickými procesory tesla – měrná NVIDIA [systému Windows Server 2016](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_win10-exe) nebo [Windows Server 2012 R2](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_windows-exe). Další informace najdete v tématu [Průvodce instalací CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Vývojářům tvorbu GPU accelerated aplikací pro grafickými procesory tesla – měrná NVIDIA můžete také stáhnout a nainstalovat [CUDA Toolkit 9.1](https://developer.nvidia.com/cuda-downloads). Další informace najdete v tématu [Průvodce instalací CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

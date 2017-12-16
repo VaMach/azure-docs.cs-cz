@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: e070dfad6ca51b941f1af60f85463f4534493dff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurace zabezpečeného LDAP (LDAPS) pro spravované doméně služby Azure AD Domain Services
 
@@ -117,6 +117,7 @@ Pokud máte potíže s připojením k spravované doméně pomocí zabezpečený
 * Ověřte, že klienta LDAP (například ldp.exe) připojí k zabezpečení koncového bodu protokolu LDAP pomocí názvu DNS, ne IP adresy.
 * Ověřte název DNS, který klient LDAP připojí k překládá se na veřejnou IP adresu pro zabezpečený LDAP na spravované domény.
 * Ověřte, že zabezpečený LDAP certifikát pro vaší spravované domény má název DNS v subjektu nebo alternativní názvy subjektu atribut.
+* Pokud se připojujete přes zabezpečený LDAP přes internet, ověřte, že skupina NSG nastavení pro virtuální síť povolit provoz na port 636 z Internetu.
 
 Pokud máte potíže s připojením k spravované doméně pomocí zabezpečený LDAP [obraťte se na tým produktu](active-directory-ds-contact-us.md) nápovědu. Zahrnout tyto informace pomohou lépe diagnostikovat potíže:
 * Snímek obrazovky ldp.exe provedením připojení a selhání.

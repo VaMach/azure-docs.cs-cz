@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Přístup k diagnostickým protokolům pro Azure Data Lake Store
 Informace o povolení protokolování pro váš účet Data Lake Store a postup zobrazení shromážděné pro váš účet protokoly diagnostiky.
@@ -177,7 +177,7 @@ Zde je vzorového vstupu v protokolu auditování formátu JSON. Každý objekt 
 | StreamName |Řetězec |Cesta k operaci byla provedena na |
 
 ## <a name="samples-to-process-the-log-data"></a>Ukázky ke zpracování dat protokolu
-Při odesílání protokolů z Azure Data Lake Store k monitorování Azure (viz [zobrazení a analyzovat data shromážděná pomocí hledání protokolů analýzy protokolů](../log-analytics/log-analytics-tutorial-viewdata.md) podrobnosti o použití analýzy protokolů), následující dotaz vrátí tabulku obsahující seznam uživatelů, zobrazte názvy, čas události a počet událostí dobu události společně s visual grafu. Můžete ho snadno upravit tak, aby zobrazit GUID uživatele, nebo dalšími atributy:
+Při odesílání protokolů z Azure Data Lake Store k analýze protokolů Azure (viz [zobrazení a analyzovat data shromážděná pomocí hledání protokolů analýzy protokolů](../log-analytics/log-analytics-tutorial-viewdata.md) podrobnosti o použití analýzy protokolů), následující dotaz vrátí tabulku obsahující seznam uživatelů zobrazte názvy, čas události a počet událostí dobu události společně s visual grafu. Můžete ho snadno upravit tak, aby zobrazit GUID uživatele, nebo dalšími atributy:
 
 ```
 search *

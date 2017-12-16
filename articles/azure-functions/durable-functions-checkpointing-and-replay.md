@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrolní body a opětovného přehrání trvanlivý funkcí (Azure Functions)
 
@@ -90,7 +90,7 @@ Několik poznámky na hodnoty ve sloupcích:
     * **TaskScheduled**: byla naplánována funkce aktivity. Název funkce aktivity zachytí ve `Name` sloupce.
     * **TaskCompleted**: aktivita funkce byla dokončena. Výsledek funkce je v `Result` sloupce.
     * **TimerCreated**: byl vytvořen trvanlivý časovač. `FireAt` Sloupec obsahuje plánovaným časem UTC, kdy vyprší platnost časovač.
-    * **TimerFired**: trvanlivý vypršela.
+    * **TimerFired**: trvanlivý časovač aktivováno.
     * **EventRaised**: externí událost byla odeslána do orchestration instance. `Name` Sloupec zachytí název události a `Input` sloupec zaznamená datové části události.
     * **OrchestratorCompleted**: funkce orchestrator očekáváno.
     * **ContinueAsNew**: funkce orchestrator dokončit a restartuje samotné s nový stav. `Result` Sloupec obsahuje hodnotu, která se používá jako vstup v restartovat instanci.
@@ -98,7 +98,7 @@ Několik poznámky na hodnoty ve sloupcích:
 * **Časové razítko**: časové razítko UTC Historie událostí.
 * **Název**: název funkce, která byla vyvolána.
 * **Vstupní**: vstup funkce s formátem JSON.
-* **Výstup**: výstup funkce; to znamená, hodnoty.
+* **Výsledek**: výstup funkce; to znamená, hodnoty.
 
 > [!WARNING]
 > I když je užitečný jako nástroj pro ladění, nemusíte vytvářet žádné závislosti v této tabulce. Se může změnit při zpracovaní rozšíření trvanlivý funkce.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Nasazení více instancí prostředek nebo vlastnost v šablonách Azure Resource Manager
 Tento článek ukazuje, jak podmíněně nasazení prostředku a jak k iteraci v šablony Azure Resource Manager vytvořit více instancí prostředku.
@@ -395,140 +395,19 @@ Následující příklad ukazuje implementaci:
 }]
 ```
 
-## <a name="deploy-example-templates"></a>Příklad šablony nasazení
+## <a name="example-templates"></a>Příklad šablony
 
-### <a name="resource-iteration"></a>Iterace prostředků
+Následující příklady ukazují běžné scénáře pro vytvoření více prostředků nebo vlastnosti.
 
-[Zkopírujte úložiště](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) šablony nasadí více účtů úložiště s číslem indexu v názvu.
-
-Pokud používáte PowerShell, použijte:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
-```
-
-Pokud používáte Azure CLI, použijte:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
-```
-
-### <a name="serial-resource-iteration"></a>Sériové prostředků iterace
-
-[Úložiště sériové kopie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) šablony nasadí více účtů úložiště jeden v čase. Název obsahuje číslo indexu.
-
-Pokud používáte PowerShell, použijte:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
-```
-
-Pokud používáte Azure CLI, použijte:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
-```
-
-### <a name="resource-iteration-from-array"></a>Iterace prostředků z pole
-
-[Zkopírujte úložiště s polem](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) šablony nasadí více účtů úložiště. Název obsahuje hodnotu z pole.
-
-Pokud používáte PowerShell, použijte:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
-```
-
-Pokud používáte Azure CLI, použijte:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
-```
-
-### <a name="conditionally-deploy-resources"></a>Podmíněná nasazení prostředků
-
-[Virtuální počítač s nový nebo existující virtuální sítě, úložiště a veřejnou IP adresu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) šablony nasadí nový nebo existující prostředky s virtuálním počítačem.
-
-Pokud používáte PowerShell, použijte:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
-```
-
-Pokud používáte Azure CLI, použijte:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
-```
-
-### <a name="property-iteration"></a>Vlastnost iterace
-
-[Nasazení virtuálního počítače s proměnný počet datových disků](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) šablony nasadí více datových disků s virtuálním počítačem.
-
-Pokud používáte PowerShell, použijte:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
-```
-
-Pokud používáte Azure CLI, použijte:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
-```
-
-### <a name="variable-iteration"></a>Proměnné iterace
-
-[Zkopírujte proměnné](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) šablony ukazuje různé způsoby iterace v proměnné.
-
-Pokud používáte PowerShell, použijte:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
-```
-
-Pokud používáte Azure CLI, použijte:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
-```
-
-### <a name="variable-iteration-to-create-resources"></a>Proměnné iterace vytvořit prostředky
-
-[Víc pravidel zabezpečení](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) šablony nasadí víc pravidel zabezpečení do skupiny zabezpečení sítě. Vytvoří z parametr pravidla zabezpečení.
-
-Pokud používáte PowerShell, použijte:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
-  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
-```
+|Šablona  |Popis  |
+|---------|---------|
+|[Zkopírujte úložiště](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Nasadí více účtů úložiště s číslem indexu v názvu. |
+|[Úložiště sériové kopie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Nasadí více účtů úložiště jeden v čase. Název obsahuje číslo indexu. |
+|[Zkopírujte úložiště s polem.](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Nasadí více účtů úložiště. Název obsahuje hodnotu z pole. |
+|[Virtuální počítač s nový nebo existující virtuální sítě, úložiště a veřejné IP adresy](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Podmíněná nasadí nový nebo existující prostředky s virtuálním počítačem. |
+|[Nasazení virtuálního počítače s proměnný počet datových disků](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Nasadí více datových disků s virtuálním počítačem. |
+|[Zkopírujte proměnné](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Ukazuje různé způsoby iterace v proměnné. |
+|[Víc pravidel zabezpečení](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Nasadí víc pravidel zabezpečení do skupiny zabezpečení sítě. Vytvoří z parametr pravidla zabezpečení. |
 
 ## <a name="next-steps"></a>Další kroky
 * Pokud chcete další informace o části šablony, najdete v části [vytváření šablon Azure Resource Manager](resource-group-authoring-templates.md).

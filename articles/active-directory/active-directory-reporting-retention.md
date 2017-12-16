@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 12/06/2017
+ms.date: 12/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 943320c512212c6a51666ea2252db44f9c174c52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Zásady uchování sestav Azure Active Directory
 
@@ -60,7 +60,7 @@ Toto téma poskytuje odpovědi na nejčastější dotazy ve spojení s uchováv�
 | :--                    | :--           | :--                 | :--                 |
 | Audit adresáře        | 7 dní        | 30 dní             | 30 dní             |
 | Přihlašovací aktivita       | Není k dispozici           | 30 dní             | 30 dní             |
-| Použití Azure MFA        | 90 dnů       | 90 dnů             | 90 dnů             |
+| Použití Azure MFA        | 30 dní       | 30 dní             | 30 dní             |
 
 **Signály zabezpečení**
 

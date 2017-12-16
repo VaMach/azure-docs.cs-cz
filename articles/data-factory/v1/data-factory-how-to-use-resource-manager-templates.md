@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c80281a520159965066c6cd166f47ecac66e552b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Pomocí šablony můžete vytvořit entit služby Azure Data Factory
 > [!NOTE]
@@ -231,7 +231,7 @@ Odkazovat na [definování kanály](data-factory-create-pipelines.md#pipeline-js
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Parametrizace šablony služby Data Factory
-Osvědčené postupy v Parametrizace, najdete v části [osvědčené postupy pro vytváření šablon Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md#parameters) článku. Obecně platí, použití parametrů by měl být minimalizován, zejména v případě, že proměnné lze použít místo. Jenom zadejte parametry v následujících scénářích:
+Osvědčené postupy v Parametrizace, najdete v části [osvědčené postupy pro vytváření šablon Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). Obecně platí, použití parametrů by měl být minimalizován, zejména v případě, že proměnné lze použít místo. Jenom zadejte parametry v následujících scénářích:
 
 * Nastavení se liší podle prostředí (Příklad: vývoj, testování a provozním)
 * Tajné klíče (jako jsou hesla)

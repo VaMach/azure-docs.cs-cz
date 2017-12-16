@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure zásobníku diagnostické nástroje
 
@@ -29,11 +29,11 @@ Naše diagnostické nástroje pomoci, ujistěte se, že kolekce mechanismu proto
  
 ## <a name="trace-collector"></a>Kolekce trasování
  
-Kolektor trasování je ve výchozím nastavení povolené a nepřetržitě běží na pozadí shromažďovat všechny protokoly trasování událostí pro Windows (ETW) ze služby komponent Azure zásobníku. Protokoly trasování událostí pro Windows jsou uloženy v běžné místní sdílené složky s maximální stáří pět den. Po dosažení tohoto limitu jsou nejstarší soubory odstranit, protože se vytvářejí nové. Výchozí maximální velikost povolenou pro každý soubor je 200MB. Zkontrolujte velikost dochází pravidelně (každých 2 minut) a pokud je aktuální soubor > = 200 MB, uloží a je generována nový soubor. Je také omezení 8GB na celkové velikosti generovaný podle relace události. 
+Kolektor trasování je ve výchozím nastavení povolené a nepřetržitě běží na pozadí shromažďovat všechny protokoly trasování událostí pro Windows (ETW) ze služby komponent Azure zásobníku. Protokoly trasování událostí pro Windows jsou uloženy v běžné místní sdílené složky s maximální stáří pět den. Po dosažení tohoto limitu jsou nejstarší soubory odstranit, protože se vytvářejí nové. Výchozí maximální velikost povolenou pro každý soubor je 200 MB. Zkontrolujte velikost dojde každé dvě minuty, a pokud je aktuální soubor > = 200 MB, bude uložený a se generuje nový soubor. Je také omezení 8 GB na celkové velikosti generovaný podle relace události. 
 
 ## <a name="log-collection-tool"></a>Nástroj pro shromažďování protokolů
  
-Rutiny prostředí PowerShell **Get-AzureStackLog** slouží k shromažďování protokolů ze všech komponent v prostředí Azure zásobníku. Ukládá je do zip soubory v umístění definovaný uživatelem. Pokud náš tým technické podpory potřebuje vaše protokoly, které pomůžou vyřešit nějaký problém, se může požádat o spuštění tohoto nástroje.
+Rutiny prostředí PowerShell **Get-AzureStackLog** slouží k shromažďování protokolů ze všech komponent v prostředí Azure zásobníku. Ukládá je do zip soubory v umístění definovaný uživatelem. Pokud tým technické podpory zásobník Azure potřebuje vaše protokoly, které pomůžou vyřešit nějaký problém, se může požádat o spuštění tohoto nástroje.
 
 > [!CAUTION]
 > Tyto soubory protokolu může obsahovat identifikovatelné osobní údaje (PII). Vzít v úvahu před veřejně post všechny soubory protokolů.
@@ -136,11 +136,11 @@ if($s)
 
 
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>Shromažďování protokolů pomocí grafického uživatelského rozhraní
-Místo poskytuje požadované parametry pro rutinu Get-AzureStackLog získat protokoly zásobník Azure, můžete využít i nástroje zásobník Azure k dispozici s otevřeným zdrojem, který je umístěný v úložišti GitHub nástroje hlavní zásobník Azure v http://aka.ms/AzureStackTools.
+Místo poskytuje požadované parametry pro rutinu Get-AzureStackLog získat protokoly zásobník Azure, můžete využít i nástroje zásobník Azure k dispozici s otevřeným zdrojem umístěný v hlavní zásobník Azure nástrojů nástroje úložiště GitHub v http://aka.ms/AzureStackTools.
 
-**ERCS_AzureStackLogs.ps1** skript prostředí PowerShell je uložen v úložišti GitHub nástroje a se aktualizuje v pravidelných intervalech. Skript spustit z relace prostředí PowerShell pro správu, připojí k privilegované koncového bodu a spustí Get-AzureStackLog pomocí zadaných parametrů. Pokud jsou zadány žádné parametry, skript bude použita výchozí výzvy pro parametry přes grafické uživatelské rozhraní.
+**ERCS_AzureStackLogs.ps1** skript prostředí PowerShell je uložen v úložišti GitHub nástroje a se aktualizuje v pravidelných intervalech. K zajištění, že máte k dispozici nejnovější verzi, by ho stáhnout přímo z http://aka.ms/ERCS. Skript spustit z relace prostředí PowerShell pro správu, připojí k privilegované koncového bodu a spustí Get-AzureStackLog pomocí zadaných parametrů. Pokud jsou zadány žádné parametry, skript výchozí výzvy pro parametry přes grafické uživatelské rozhraní.
 
-Další informace o prostředí PowerShell ERCS_AzureStackLogs.ps1 skript jste mohli sledovat [krátké video](https://www.youtube.com/watch?v=Utt7pLsXEBc) nebo zobrazit tento skript [souboru readme](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) umístěný v úložišti GitHub nástroje Azure zásobníku. 
+Další informace o skriptu prostředí PowerShell ERCS_AzureStackLogs.ps1, můžete sledovat [krátké video](https://www.youtube.com/watch?v=Utt7pLsXEBc) nebo zobrazit tento skript [souboru readme](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) umístěný v úložišti GitHub nástroje Azure zásobníku. 
 
 ### <a name="additional-considerations"></a>Další aspekty
 

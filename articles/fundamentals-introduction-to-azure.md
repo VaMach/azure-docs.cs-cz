@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Úvod do Microsoft Azure
 Microsoft Azure je platforma aplikace společnosti Microsoft pro veřejný cloud.  Cílem tohoto článku je poskytují základ pro pochopení základy Azure, i v případě, že bez znalosti o cloud computing.
@@ -534,6 +534,6 @@ Rozdíl mezi nimi je Marketplace je mimo Azure Management Portal, že Windows St
 Sendgrid vám umožňuje je aplikace v úložišti Azure, který umožňuje odeslat e-mailu. Nabízí další funkce, jako je spolehlivé doručení a statistiky.  Můžete zakoupit této aplikace a související služby místo pokusit vytvořit takové infrastruktury sami.  
 
 ## <a name="getting-started"></a>Začínáme
-Teď, když máte velký obrázek, dalším krokem je zápis vaší první aplikace Azure. Vyberte si jazyk [příslušnou sadu SDK získejte](/downloads/)a pak použijte pro něj. Cloud computing je nový výchozí--začít nyní.
+Teď, když máte velký obrázek, dalším krokem je zápis vaší první aplikace Azure. Vyberte si jazyk [příslušnou sadu SDK získejte](https://azure.microsoft.com/en-us/downloads/)a pak použijte pro něj. Cloud computing je nový výchozí--začít nyní.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/

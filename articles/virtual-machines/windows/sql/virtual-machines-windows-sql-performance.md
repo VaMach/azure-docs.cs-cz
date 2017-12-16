@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Osvědčené postupy z hlediska výkonu pro SQL Server na Azure Virtual Machines
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/15/2017
 
 Toto téma obsahuje osvědčené postupy pro optimalizaci výkonu systému SQL Server na virtuálním počítači Microsoft Azure. Při spuštění systému SQL Server v Azure Virtual Machines, doporučujeme pokračovat pomocí stejného výkonu databáze ladění možnosti, které se vztahují k systému SQL Server v prostředí místní server. Výkon relační databáze ve veřejném cloudu však závisí na mnoha faktorech, například velikost virtuálního počítače a konfiguraci datových disků.
 
-Při vytváření bitové kopie systému SQL Server, [zvažte zřizování virtuálních počítačů na portálu Azure](virtual-machines-windows-portal-sql-server-provision.md). Zřízené v portálu s Resource Managerem virtuálním počítačům systému SQL Server implementovat všechny tyto osvědčené postupy, včetně konfigurace úložiště.
+Při vytváření bitové kopie systému SQL Server, [zvažte zřizování virtuálních počítačů na portálu Azure](virtual-machines-windows-portal-sql-server-provision.md). Zřízené v portálu s Resource Managerem virtuálním počítačům systému SQL Server dodržujte doporučené postupy.
 
 Tento článek se zaměřuje na získávání *nejlepší* výkonu pro SQL Server na virtuálních počítačích Azure. Pokud vaše úlohy je méně náročné, nemusejí být nutné každých optimalizace uvedené níže. Zvažte požadavkům na výkon a vzory úlohy, jak vyhodnotit tato doporučení.
 
@@ -90,6 +90,9 @@ Pro virtuální počítače, které podporují službu Premium Storage (DS-serie
 ### <a name="data-disks"></a>Datové disky
 
 * **Použití datových disků pro soubory protokolu a data**: minimálně používat 2 úložiště úrovně Premium [P30 disky](../premium-storage.md#scalability-and-performance-targets) kde jeden disk obsahuje soubory protokolu a dalších obsahuje data a soubory databáze TempDB. Každý disk úložiště Premium poskytuje řadu IOPs a šířky pásma (MB/s) v závislosti na jeho velikosti, jak je popsáno v následujícím článku: [pomocí úložiště Premium pro disky](../premium-storage.md).
+
+   > [!NOTE]
+   > Při zřizování virtuálního počítače s SQL serverem na portálu, máte možnost úpravy konfigurace úložiště. V závislosti na konfiguraci nakonfiguruje Azure jeden nebo více disků. Více disků jsou sloučeny do jednoho úložiště fondu s proložení. Soubory protokolu a data jsou společně umístěny v této konfiguraci, nikoli dvou samostatných disků. Další informace najdete v tématu [konfiguraci úložiště pro virtuální počítače serveru SQL](virtual-machines-windows-sql-server-storage-configuration.md).
 
 * **Disk proložení**: pro další propustnosti, můžete přidat další datové disky a používat prokládání disků. Pokud chcete určit počet datových disků, potřebujete analyzovat počtu IOPS a šířky pásma požadované pro soubory protokolu a pro data a soubory databáze TempDB. Všimněte si, že různé velikosti virtuálních počítačů mají různé limity počtu IOPs a šířky pásma, které jsou podporovány, podívejte se na tabulky na IOPS na [velikost virtuálního počítače](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Pomocí následujících pokynů:
 

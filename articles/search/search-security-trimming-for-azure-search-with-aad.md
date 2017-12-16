@@ -1,6 +1,6 @@
 ---
-title: "Oříznutí ve službě Azure Search v Azure Active Directory zabezpečení | Microsoft Docs"
-description: "Implementovat oříznutí zabezpečení pomocí filtru Azure Search a Azure Active Directory."
+title: "Filtry zabezpečení pro oříznutí výsledky hledání Azure pomocí služby Active Directory identit | Microsoft Docs"
+description: "Řízení přístupu na obsahu Azure Search pomocí filtrů zabezpečení a identity služby Active Directory."
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 8d277ff43aa0d5d14471426632b5aa369df0e316
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-in-azure-search-with-azure-active-directory"></a>Oříznutí zabezpečení ve službě Azure Search v Azure Active Directory
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtry zabezpečení pro ořezávání výsledky Azure Search pomocí identit služby Active Directory
 
-Tento článek ukazuje, jak pomocí Azure Active Directory (AAD) společně s Azure Search můžete omezit přístup k dokumentu, které jsou založené na členství ve skupině uživatelů.
+Tento článek ukazuje, jak používat identity zabezpečení Azure Active Directory (AAD) společně s filtry ve službě Azure Search oříznout výsledky vyhledávání založené na členství ve skupině uživatelů.
 
 Tento článek obsahuje následující úlohy:
 > [!div class="checklist"]
@@ -187,5 +187,6 @@ V tomto návodu jste se dozvěděli techniky pro filtrování dokumenty ve výsl
 
 ## <a name="see-also"></a>Viz také
 
-+ [Oříznutí zabezpečení s Azure Search](search-security-trimming-for-azure-search.md)
++ [Řízení přístupu na základě identit pomocí filtrů Azure Search](search-security-trimming-for-azure-search.md)
 + [Filtry ve službě Azure Search](search-filters.md)
++ [Řízení přístupu a zabezpečení a data v operacích Azure Search](search-security-overview.md)

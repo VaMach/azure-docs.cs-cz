@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 12/14/2017
 ms.author: barbkess
-ms.openlocfilehash: d736ad0dbfb109500a150d2bc3f7c40b16206fdb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Přehled tabulek v SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Statistiky jsou velmi důležité pro získávání nejlepší výkon z SQL Data
 Dočasné tabulky jsou tabulky, které pouze existovat po dobu trvání vaše přihlašovací jméno a ostatní uživatelé je nemohou vidět.  Dočasné tabulky může být dobrým způsobem, jak zakázat ostatním zobrazit dočasné výsledky a také snížit nutnost čištění.  Vzhledem k tomu, že dočasných tabulek také používat místní úložiště, můžete nabízí vyšší výkon pro některé operace.  Najdete v článku [dočasné tabulky] [ Temporary] články pro další podrobnosti o dočasné tabulky.
 
 ## <a name="external-tables"></a>Externí tabulky
-Externí tabulky, také známé jako Polybase tabulky, jsou tabulky, které můžete zadat dotaz na externí data z SQL Data Warehouse z SQL Data Warehouse, ale bodu.  Můžete například vytvořit externí tabulku které body k souborům na Azure Blob Storage.  Další podrobnosti o tom, jak vytvořit a dotaz na externí tabulky najdete v tématu [načtení dat pomocí funkce Polybase][Load data with Polybase].  
+Externí tabulky, také známé jako Polybase tabulky, jsou tabulky, které můžete zadat dotaz na externí data z SQL Data Warehouse z SQL Data Warehouse, ale bodu.  Můžete například vytvořit externí tabulku které body k souborům na Azure Blob Storage nebo Azure Data Lake Store.  Další podrobnosti o tom, jak vytvořit a dotaz na externí tabulky najdete v tématu [načtení dat pomocí funkce Polybase][Load data with Polybase].  
 
 ## <a name="unsupported-table-features"></a>Funkce nepodporované tabulky
 Zatímco SQL Data Warehouse obsahuje mnoho stejných funkcí tabulky nabízené jiných databází, nejsou některé funkce, které ještě nejsou podporovány.  Níže je seznam některých funkcí tabulky, které ještě nejsou podporovány.
