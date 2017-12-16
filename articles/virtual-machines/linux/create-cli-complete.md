@@ -4,7 +4,7 @@ description: "Vytvoření úložiště, virtuální počítač s Linuxem, virtu�
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: e5c4785428b2150e951923e98079e00808a82d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Vytvoření kompletní virtuální počítač Linux pomocí rozhraní příkazového řádku Azure
 Rychle vytvořit virtuální počítač (VM) v Azure, můžete jeden příkaz rozhraní příkazového řádku Azure, kterou použije výchozí hodnoty pro vytvoření všechny požadované podpůrné prostředky. Prostředky, jako je například virtuální sítě, veřejnou IP adresu a pravidel skupiny zabezpečení sítě se vytvářejí automaticky. Pro další ovládací prvek v provozním prostředí použít, můžete vytvořit tyto prostředky předem a pak do nich přidat virtuální počítače. Tento článek vás provede postup vytvoření virtuálního počítače a každý z doprovodné materiály po jednom.
@@ -61,7 +61,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Výstup ukazuje podsíť jako logicky vytvořená ve virtuální síti:
+Výstup se zobrazí logicky vytvořené podsíť ve virtuální síti:
 
 ```json
 {
@@ -102,7 +102,7 @@ Výstup ukazuje podsíť jako logicky vytvořená ve virtuální síti:
 
 
 ## <a name="create-a-public-ip-address"></a>Vytvoření veřejné IP adresy
-Nyní vytvoříme veřejnou IP adresu s [vytvoření veřejné sítě az-ip](/cli/azure/network/public-ip#create). Tato veřejná IP adresa umožňuje připojení k virtuální počítače z Internetu. Protože výchozí adresa je dynamická, jsme také vytvořit položku DNS s názvem s `--domain-name-label` možnost. Následující příklad vytvoří veřejnou IP adresu s názvem *myPublicIP* s názvem DNS *mypublicdns*. Vzhledem k tomu, že název DNS musí být jedinečný, zadejte svůj vlastní jedinečný název DNS:
+Nyní vytvoříme veřejnou IP adresu s [vytvoření veřejné sítě az-ip](/cli/azure/network/public-ip#create). Tato veřejná IP adresa umožňuje připojení k virtuální počítače z Internetu. Protože výchozí adresa je dynamická, vytvořit záznam DNS s názvem s `--domain-name-label` parametr. Následující příklad vytvoří veřejnou IP adresu s názvem *myPublicIP* s názvem DNS *mypublicdns*. Vzhledem k tomu, že název DNS musí být jedinečný, zadejte svůj vlastní jedinečný název DNS:
 
 ```azurecli
 az network public-ip create \
@@ -140,8 +140,8 @@ Výstup:
 ```
 
 
-## <a name="create-a-network-security-group"></a>Vytvořit skupinu zabezpečení sítě
-K řízení toku provozu do a z virtuálních počítačů, vytvořte skupinu zabezpečení sítě. Skupina zabezpečení sítě je použít pro síťový adaptér nebo podsíť. Následující příklad používá [vytvořit az sítě nsg](/cli/azure/network/nsg#create) vytvoříte skupinu zabezpečení sítě s názvem *myNetworkSecurityGroup*:
+## <a name="create-a-network-security-group"></a>Vytvoření skupiny zabezpečení sítě
+K řízení toku provozu do a z virtuálních počítačů, použijete skupinu zabezpečení sítě pro virtuální síťový adaptér nebo podsítě. Následující příklad používá [vytvořit az sítě nsg](/cli/azure/network/nsg#create) vytvoříte skupinu zabezpečení sítě s názvem *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Můžete definovat pravidla, která povolují nebo odepírají konkrétní přenosy. Povolit příchozí připojení na portu 22 (pro podporu SSH), vytvoření příchozího pravidla pro skupinu zabezpečení sítě s [vytvořit pravidla nsg sítě az](/cli/azure/network/nsg/rule#create). Následující příklad vytvoří pravidlo s názvem *myNetworkSecurityGroupRuleSSH*:
+Můžete definovat pravidla, která povolují nebo odepírají konkrétní přenosy. Chcete-li povolit příchozí připojení na portu 22 (pro povolení přístupu SSH), vytvořte příchozí pravidlo s [vytvořit pravidla nsg sítě az](/cli/azure/network/nsg/rule#create). Následující příklad vytvoří pravidlo s názvem *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -162,7 +162,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Chcete-li povolit příchozí připojení na portu 80 (pro podporu webový provoz), přidejte jiná pravidla skupiny zabezpečení sítě. Následující příklad vytvoří pravidlo s názvem *myNetworkSecurityGroupRuleHTTP*:
+Chcete-li povolit příchozí připojení na portu 80 (pro webový provoz), přidejte další pravidla skupiny zabezpečení sítě. Následující příklad vytvoří pravidlo s názvem *myNetworkSecurityGroupRuleHTTP*:
 
 ```azurecli
 az network nsg rule create \
@@ -332,7 +332,7 @@ Výstup:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Vytvořit virtuální síťovou kartu
-Virtuální síťové adaptéry (NIC) jsou prostřednictvím kódu programu k dispozici, protože pravidla můžete použít pro jejich použití. Také můžete mít více než jednu. V následujícím [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#create) příkazu vytvoříte síťový adaptér s názvem *myNic* a přidružte ji k skupinu zabezpečení sítě. Veřejná IP adresa *myPublicIP* je taky přiřazený virtuální síťový adaptér.
+Virtuální síťové adaptéry (NIC) jsou prostřednictvím kódu programu k dispozici, protože pravidla můžete použít pro jejich použití. V závislosti na tom [velikost virtuálního počítače](sizes.md), víc virtuálních síťových karet můžete připojit k virtuálnímu počítači. V následujícím [vytvořit síťových adaptérů sítě az](/cli/azure/network/nic#create) příkazu vytvoříte síťový adaptér s názvem *myNic* a přidružit ho ke skupině zabezpečení sítě. Veřejná IP adresa *myPublicIP* je taky přiřazený virtuální síťový adaptér.
 
 ```azurecli
 az network nic create \
@@ -476,12 +476,12 @@ Výstup domén selhání poznámky a aktualizace domény:
 ```
 
 
-## <a name="create-the-linux-vms"></a>Vytvořit virtuální počítače Linux
-Jste vytvořili síťovým prostředkům pro podporu přístupné z Internetu virtuálních počítačů. Teď vytvořte virtuální počítač a zabezpečte ji pomocí klíče SSH. V tomto případě vytvoříme vytvořit Ubuntu podle nejnovější LTS virtuálních počítačů. Můžete najít další Image s [seznamu obrázků virtuálních počítačů az](/cli/azure/vm/image#list), jak je popsáno v [hledání Image virtuálního počítače Azure](cli-ps-findimage.md).
+## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
+Jste vytvořili síťovým prostředkům pro podporu přístupné z Internetu virtuálních počítačů. Teď vytvořte virtuální počítač a zabezpečte ji pomocí klíče SSH. V tomto příkladu vytvoříme Ubuntu podle nejnovější LTS virtuálních počítačů. Můžete najít další Image s [seznamu obrázků virtuálních počítačů az](/cli/azure/vm/image#list), jak je popsáno v [hledání Image virtuálního počítače Azure](cli-ps-findimage.md).
 
-Můžeme také zadejte klíč SSH pro ověřování. Pokud nemáte páru veřejného klíče SSH, můžete [jejich vytvoření](mac-create-ssh-keys.md) nebo použít `--generate-ssh-keys` parametr, aby pro vás vytvořil. Pokud jste již pár klíčů, tento parametr používá existující klíče v `~/.ssh`.
+Zadejte klíč SSH pro ověřování. Pokud nemáte páru veřejného klíče SSH, můžete [jejich vytvoření](mac-create-ssh-keys.md) nebo použít `--generate-ssh-keys` parametr, aby pro vás vytvořil. Pokud již máte pár klíčů, tento parametr používá existující klíče v `~/.ssh`.
 
-Vytvoření virtuálního počítače tak, že převedou všechny naše prostředky a informace o společně s [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz. Následující příklad vytvoří virtuální počítač s názvem *Můjvp*:
+Vytvoření virtuálního počítače tak, že převedou všechny prostředky a informace o společně s [vytvořit virtuální počítač az](/cli/azure/vm#create) příkaz. Následující příklad vytvoří virtuální počítač s názvem *Můjvp*:
 
 ```azurecli
 az vm create \
@@ -521,7 +521,7 @@ The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' 
 ECDSA key fingerprint is SHA256:SylINP80Um6XRTvWiFaNz+H+1jcrKB1IiNgCDDJRj6A.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added 'mypublicdns.eastus.cloudapp.azure.com,13.90.94.252' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic x86_64)
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com

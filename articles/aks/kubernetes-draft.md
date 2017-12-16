@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 312f8d6038718991a563dcf6214aaab4c5f2cd9a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Použít koncept s Azure Container Service (AKS)
 
@@ -25,7 +25,7 @@ Tento dokument údaje pomocí clusteru Kubernetes AKS koncept.
 
 Podrobně popsané kroky v tomto dokumentu předpokládají, že jste vytvořili cluster AKS a navázali s ním připojení přes kubectl. Pokud budete potřebovat tyto položky, najdete v článku [rychlý start AKS][aks-quickstart].
 
-Budete také potřebovat privátní registru Docker v registru kontejner Azure (ACR). Pokyny pro nasazení ACR instance najdete v tématu [Azure kontejneru registru rychlý start] [acr rychlý start].
+Budete také potřebovat privátní registru Docker v registru kontejner Azure (ACR). Pokyny pro nasazení ACR instance najdete v tématu [Azure kontejneru registru Quickstart][acr-quickstart].
 
 ## <a name="install-helm"></a>Nainstalujte Helm
 
@@ -312,5 +312,5 @@ Další informace o používání koncept naleznete v dokumentaci k koncept na G
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
-[acr-quicstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

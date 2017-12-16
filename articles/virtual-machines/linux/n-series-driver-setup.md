@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 11415f416bf101e7f30a9d85b8e344ab40200760
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalace ovladačů NVIDIA GPU v N-series virtuální počítače se systémem Linux
 
@@ -32,6 +32,150 @@ Virtuální počítač N-series specifikace, kapacity úložiště a disku podro
 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+
+## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Instalace ovladačů CUDA NC, NCv2 a ND virtuální počítače
+
+Tady jsou kroky pro instalaci ovladače NVIDIA na virtuální počítače s Linuxem NC z NVIDIA CUDA Toolkit. 
+
+Jazyk C a C++ vývojáři Volitelně můžete nainstalovat úplnou sadu nástrojů k vytváření aplikací GPU accelerated. Další informace najdete v tématu [Průvodce instalací CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+
+
+> [!NOTE]
+> Tady jsou aktuální v době publikace k dispozici odkazy stahování ovladačů CUDA. Nejnovější ovladače CUDA, najdete v článku [NVIDIA](https://developer.nvidia.com/cuda-zone) webu.
+>
+
+K instalaci nástrojů CUDA, zkontrolujte připojení SSH pro každý virtuální počítač. Pokud chcete ověřit, že systém má podporující CUDA grafického procesoru, spusťte následující příkaz:
+
+```bash
+lspci | grep -i NVIDIA
+```
+Zobrazí se výstup podobný v následujícím příkladu (zobrazující pomocí karty NVIDIA tesla – měrná K80):
+
+![výstup příkazu lspci](./media/n-series-driver-setup/lspci.png)
+
+Potom spusťte instalaci příkazy, které jsou specifické pro distribuční.
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+1. Stáhněte a nainstalujte CUDA ovladače.
+  ```bash
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+
+  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+
+  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-get update
+
+  sudo apt-get install cuda-drivers
+
+  ```
+
+  Instalace může trvat několik minut.
+
+2. Volitelně můžete nainstalovat úplnou sadu CUDA, zadejte:
+
+  ```bash
+  sudo apt-get install cuda
+  ```
+
+3. Restartujte virtuální počítač a přejděte k ověření instalace.
+
+#### <a name="cuda-driver-updates"></a>Aktualizace ovladačů CUDA
+
+Doporučujeme pravidelně aktualizovat ovladače CUDA po nasazení.
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
+### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na základě centOS 7.3 nebo Red Hat Enterprise Linux 7.3
+
+1. Nainstalujte nejnovější integrační služby Linuxu pro Hyper-V.
+
+  > [!IMPORTANT]
+  > Pokud jste nainstalovali bitovou kopii na základě CentOS HPC ve virtuálním počítači NC24r, přejděte ke kroku 3. Vzhledem k tomu, že Azure RDMA ovladače a integrační služby Linuxu jsou předem nainstalovaná v bitovou kopii prostředí HPC, by neměl být upgradovány LIS a jádra aktualizace jsou ve výchozím nastavení zakázané.
+  >
+
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+3. Připojení k virtuálnímu počítači a pokračujte v instalaci pomocí následujících příkazů:
+
+  ```bash
+  sudo yum install kernel-devel
+
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+  sudo yum install dkms
+
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+
+  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo yum install cuda-drivers
+  ```
+
+  Instalace může trvat několik minut. 
+
+4. Volitelně můžete nainstalovat úplnou sadu CUDA, zadejte:
+
+  ```bash
+  sudo yum install cuda
+  ```
+
+5. Restartujte virtuální počítač a přejděte k ověření instalace.
+
+
+### <a name="verify-driver-installation"></a>Ověření instalace ovladačů
+
+
+K dotazování na GPU zařízení stav, SSH pro virtuální počítač a spusťte [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) pomocí ovladače nainstalovaný nástroj příkazového řádku. 
+
+Pokud je nainstalovaný ovladač, zobrazí se výstup podobný následujícímu. Všimněte si, že **GPU Util** ukazuje 0 %, pokud aktuálně používáte zatížení grafického procesoru na virtuálním počítači. Verze ovladače a GPU podrobnosti se může lišit od těch vidět.
+
+![Stav zařízení NVIDIA](./media/n-series-driver-setup/smi.png)
+
+
+
+## <a name="rdma-network-connectivity"></a>Připojení k síti RDMA
+
+Síťové připojení RDMA se dá nastavit na virtuálních počítačích podporující RDMA N-series, jako je NC24r nasazené ve stejné sadě dostupnosti. Síť RDMA podporuje rozhraní MPI (Message Passing) provozu pro aplikace spuštěné s Intel MPI 5.x nebo novější. Následují další požadavky:
+
+### <a name="distributions"></a>Distribuce
+
+Nasazení podporující RDMA N-series virtuální počítače z jednoho z následujících bitových kopií v Azure Marketplace, která podporuje připojení RDMA:
+  
+* **Ubuntu** -Ubuntu Server 16.04 LTS. Konfigurace ovladače RDMA na virtuálním počítači a zaregistrovat Intel ke stažení Intel MPI:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+
+* **Na základě centOS HPC** – na základě CentOS 7.3 HPC. RDMA ovladače a Intel MPI 5.1 jsou nainstalovány ve virtuálním počítači. 
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>Instalace ovladačů mřížky pro virtuální počítače vs
 
@@ -95,10 +239,6 @@ Instalace ovladačů NVIDIA mřížky na virtuálních počítačích vs, prove�
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na základě centOS 7.3 nebo Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Nespouštějte `sudo yum update` aktualizaci verze jádra na CentOS 7.3 nebo Red Hat Enterprise Linux 7.3. V současné době instalace ovladače a aktualizace nefungují při aktualizaci jádra.
->
-
 1. Aktualizace jádra a DKMS.
  
   ```bash  
@@ -122,9 +262,9 @@ Instalace ovladačů NVIDIA mřížky na virtuálních počítačích vs, prove�
 3. Restartovat virtuální počítač, připojte se znovu a nainstalujte nejnovější integrační služby Linuxu pro Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
 
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
 
   cd LISISO
 
@@ -165,7 +305,7 @@ Instalace ovladačů NVIDIA mřížky na virtuálních počítačích vs, prove�
 
 K dotazování na GPU zařízení stav, SSH pro virtuální počítač a spusťte [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) pomocí ovladače nainstalovaný nástroj příkazového řádku. 
 
-Zobrazí se výstup podobný následujícímu. Verze ovladače a GPU podrobnosti se může lišit od těch vidět.
+Pokud je nainstalovaný ovladač, zobrazí se výstup podobný následujícímu. Všimněte si, že **GPU Util** ukazuje 0 %, pokud aktuálně používáte zatížení grafického procesoru na virtuálním počítači. Verze ovladače a GPU podrobnosti se může lišit od těch vidět.
 
 ![Stav zařízení NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  
@@ -202,163 +342,13 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 
 Tento soubor nelze vyvolat jako kořenová na spouštěcí tak, že vytvoříte položku pro něj v `/etc/rc.d/rc3.d`.
 
-
-## <a name="install-cuda-drivers-for-nc-vms"></a>Instalace ovladačů CUDA NC virtuálních počítačů
-
-Tady jsou kroky pro instalaci ovladače NVIDIA na virtuální počítače s Linuxem NC z NVIDIA CUDA Toolkit. 
-
-Jazyk C a C++ vývojáři Volitelně můžete nainstalovat úplnou sadu nástrojů k vytváření aplikací GPU accelerated. Další informace najdete v tématu [Průvodce instalací CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
-
-> [!NOTE]
-> Tady jsou aktuální v době publikace k dispozici odkazy stahování ovladačů CUDA. Nejnovější ovladače CUDA, najdete v článku [NVIDIA](https://developer.nvidia.com/cuda-zone) webu.
->
-
-K instalaci nástrojů CUDA, zkontrolujte připojení SSH pro každý virtuální počítač. Pokud chcete ověřit, že systém má podporující CUDA grafického procesoru, spusťte následující příkaz:
-
-```bash
-lspci | grep -i NVIDIA
-```
-Zobrazí se výstup podobný v následujícím příkladu (zobrazující pomocí karty NVIDIA tesla – měrná K80):
-
-![výstup příkazu lspci](./media/n-series-driver-setup/lspci.png)
-
-Potom spusťte instalaci příkazy, které jsou specifické pro distribuční.
-
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-
-1. Stáhněte a nainstalujte CUDA ovladače.
-  ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
-
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
-
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-get update
-
-  sudo apt-get install cuda-drivers
-
-  ```
-
-  Instalace může trvat několik minut.
-
-2. Volitelně můžete nainstalovat úplnou sadu CUDA, zadejte:
-
-  ```bash
-  sudo apt-get install cuda
-  ```
-
-3. Restartujte virtuální počítač a přejděte k ověření instalace.
-
-#### <a name="cuda-driver-updates"></a>Aktualizace ovladačů CUDA
-
-Doporučujeme pravidelně aktualizovat ovladače CUDA po nasazení.
-
-```bash
-sudo apt-get update
-
-sudo apt-get upgrade -y
-
-sudo apt-get dist-upgrade -y
-
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na základě centOS 7.3 nebo Red Hat Enterprise Linux 7.3
-
-1. Nainstalujte nejnovější integrační služby Linuxu pro Hyper-V.
-
-  > [!IMPORTANT]
-  > Pokud jste nainstalovali bitovou kopii na základě CentOS HPC ve virtuálním počítači NC24r, přejděte ke kroku 3. Vzhledem k tomu, že Azure RDMA ovladače a integrační služby Linuxu jsou předem nainstalovaná v bitovou kopii prostředí HPC, by neměl být upgradovány LIS a jádra aktualizace jsou ve výchozím nastavení zakázané.
-  >
-
-  ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
- 
-  tar xvzf lis-rpms-4.2.3-1.tar.gz
- 
-  cd LISISO
- 
-  sudo ./install.sh
- 
-  sudo reboot
-  ```
- 
-3. Připojení k virtuálnímu počítači a pokračujte v instalaci pomocí následujících příkazů:
-
-  ```bash
-  sudo yum install kernel-devel
-
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
-  sudo yum install dkms
-
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
-
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo yum install cuda-drivers
-  ```
-
-  Instalace může trvat několik minut. 
-
-4. Volitelně můžete nainstalovat úplnou sadu CUDA, zadejte:
-
-  ```bash
-  sudo yum install cuda
-  ```
-
-5. Restartujte virtuální počítač a přejděte k ověření instalace.
-
-
-### <a name="verify-driver-installation"></a>Ověření instalace ovladačů
-
-
-K dotazování na GPU zařízení stav, SSH pro virtuální počítač a spusťte [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) pomocí ovladače nainstalovaný nástroj příkazového řádku. 
-
-Zobrazí se výstup podobný následujícímu:
-
-![Stav zařízení NVIDIA](./media/n-series-driver-setup/smi.png)
-
-
-
-## <a name="rdma-network-for-nc24r-vms"></a>RDMA sítě pro virtuální počítače NC24r
-
-Připojení k síti RDMA, můžete povolit pro NC24r virtuální počítače nasazené ve stejné sadě dostupnosti. Síť RDMA podporuje rozhraní MPI (Message Passing) provozu pro aplikace spuštěné s Intel MPI 5.x nebo novější. Následují další požadavky:
-
-### <a name="distributions"></a>Distribuce
-
-Nasaďte virtuální počítače NC24r z jednoho z následujících bitových kopií v Azure Marketplace, která podporuje připojení RDMA:
-  
-* **Ubuntu** -Ubuntu Server 16.04 LTS. Konfigurace ovladače RDMA na virtuálním počítači a zaregistrovat Intel ke stažení Intel MPI:
-
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
-
-* **Na základě centOS HPC** – na základě CentOS 7.3 HPC. RDMA ovladače a Intel MPI 5.1 jsou nainstalovány ve virtuálním počítači. 
-
-
 ## <a name="troubleshooting"></a>Řešení potíží
 
 * Je známý problém s ovladači CUDA na virtuálních počítačích Azure N-series systémem Ubuntu 16.04 LTS Linux jádra 4.4.0-75. Pokud provádíte upgrade ze starší verze jádra, upgradujte alespoň 4.4.0-77 verze jádra.
 
-* Můžete nastavit pomocí režimu trvalost `nvidia-smi` tak výstup příkazu je rychlejší, když potřebujete karty dotazu. Nastavení režimu trvalost, provést `nvidia-smi -pm 1`. Všimněte si, že pokud restartování virtuálního počítače s nastavením režimu zmizí. Vždy můžete skript režim provést při spuštění.
+* Můžete nastavit pomocí režimu trvalost `nvidia-smi` tak výstup příkazu je rychlejší, když potřebujete karty dotazu. Nastavení režimu trvalost, provést `nvidia-smi -pm 1`. Všimněte si, že pokud restartování virtuálního počítače s nastavením režimu Vyčkat. Vždy můžete skript režim provést při spuštění.
 
 
 ## <a name="next-steps"></a>Další kroky
-
-* Další informace o grafickými procesory NVIDIA na virtuálních počítačích N-series najdete v tématu:
-    * [Tesla – měrná K80 NVIDIA](http://www.nvidia.com/object/tesla-k80.html) (pro virtuální počítače Azure NC)
-    * [Tesla – měrná M60 NVIDIA](http://www.nvidia.com/object/tesla-m60.html) (pro virtuální počítače Azure vs)
 
 * K zachycení bitové kopie virtuálního počítače s Linuxem s vaší nainstalované ovladače NVIDIA, najdete v části [generalize a zachycení virtuální počítač s Linuxem](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

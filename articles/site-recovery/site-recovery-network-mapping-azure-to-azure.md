@@ -4,7 +4,7 @@ description: "Azure Site Recovery koordinuje replikaci, převzetí služeb při 
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
-manager: gauravd
+manager: rochakm
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: manayar
-ms.openlocfilehash: 85baa829020529b628dfaa5578e5d76724834b33
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: bf3d557c77e3cb6ade6f1bb3773c807f9c8b43f6
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Mapování sítě mezi dvěma oblastmi Azure
 
 
-Tento článek popisuje, jak k mapování virtuální sítě Azure dvou oblastí Azure mezi sebou. Mapování sítě zajišťuje, když replikovaného virtuálního počítače je vytvořen v cílové oblasti Azure, je vytvořený ve virtuální síti, který je namapovaný na virtuální sítě zdrojového virtuálního počítače.  
+Tento článek popisuje, jak k mapování virtuální sítě Azure dvou oblastí Azure mezi sebou. Mapování sítě zajišťuje, když replikovaného virtuálního počítače je vytvořen v cílové oblasti Azure, je vytvořený ve virtuální síti, který je namapovaný na virtuální síť zdrojového virtuálního počítače.  
 
 ## <a name="prerequisites"></a>Požadavky
-Předtím, než je mapovat sítě, ujistěte se, jste vytvořili [virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md) v obou zdroje a cíle oblastech Azure.
+Předtím, než je mapovat sítě, ujistěte se, že jste vytvořili [virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md) v obou zdroje a cíle oblastech Azure.
 
 ## <a name="map-networks"></a>Mapování sítě
 
@@ -37,18 +37,19 @@ Chcete-li jinou virtuální sítí v jiné oblasti mapovat virtuální síť Azu
 
 Virtuální počítač v následujícím příkladu je spuštěná ve východní Asie oblasti a je právě replikován pro jihovýchodní Asie.
 
-Vyberte zdrojové a cílové sítě a potom klikněte na tlačítko OK vytvoření mapování sítě z východní Asie k jihovýchodní Asie.
+Vyberte zdroj a cíl sítě a klikněte na tlačítko OK vytvoření mapování sítě z východní Asie k jihovýchodní Asie.
 
 ![Mapování sítě](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
-To samé vytvoření mapování sítě z jihovýchodní Asie k východní Asie.  
+Výše uvedený postup vytvoření mapování sítě z jihovýchodní Asie k východní Asie opakujte.
+
 ![Mapování sítě](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
 ## <a name="mapping-network-when-enabling-replication"></a>Mapování sítě při povolení replikace
 
-Pokud mapování sítě neuděláte, když se replikace virtuálního počítače první z jedné oblasti Azure do jiného, můžete cílové sítě v rámci stejného procesu. Site Recovery vytvoří mapování sítě z oblasti zdrojové do cílové oblasti a cílová oblast zdroj oblasti založené na tomto výběru.   
+Pokud mapování sítě nebylo provedeno, když se replikace virtuálního počítače první z jedné oblasti Azure do jiného, můžete vybrat cílovou síť v rámci stejného procesu. Site Recovery vytvoří mapování sítě z oblasti zdrojové do cílové oblasti a cílová oblast zdroj oblasti založené na tomto výběru.   
 
 ![Mapování sítě](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
@@ -70,7 +71,7 @@ Pokud již probíhá mapování sítě, nelze změnit cíl virtuální síť př
 
 
 ## <a name="subnet-selection"></a>Výběr podsítě
-Podsíť cílového virtuálního počítače je vybrána na základě názvu podsíti zdrojového virtuálního počítače. Pokud je k dispozici v cílové síti podsíť se stejným názvem jako zdrojový virtuální počítač, pak, je zvolen pro cílový virtuální počítač. Pokud neexistuje žádná podsíť s tímto názvem v cílové síti, pak abecedně první podsíť je zvolen jako cílové podsíti. Tato podsíť můžete upravit tak, že přejdete na výpočty a síť nastavení virtuálního počítače.
+Podsíť cílového virtuálního počítače je vybrána na základě názvu podsíti zdrojového virtuálního počítače. Pokud je k dispozici v cílové síti podsíť se stejným názvem jako u zdrojového virtuálního počítače, je pro cílový virtuální počítač vybrali této podsíti. Pokud není k dispozici žádná podsíť s tímto názvem v cílové síti, pak abecedně první podsíť je zvolen jako cílové podsíti. Tato podsíť můžete upravit tak, že přejdete na výpočty a síť nastavení virtuálního počítače.
 
 ![Upravit podsíť](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
@@ -87,14 +88,14 @@ Pokud síťové rozhraní zdrojový virtuální počítač používá statickou 
 
 #### <a name="same-address-space"></a>Stejné adresní prostor
 
-Podsíť zdrojové a cílové podsíti mají stejné adresní prostor, cílová IP adresa je nastavit stejné jako IP adresa síťového rozhraní zdrojového virtuálního počítače. Pokud není k dispozici stejnou IP Adresou, některé dostupnou IP adresu nastavena jako cílová IP adresa.
+Pokud podsíť zdrojové a cílové podsíti stejnému adresnímu prostoru adres, IP adresu síťového rozhraní zdrojového virtuálního počítače je nastavena jako cílová IP adresa. Pokud není k dispozici stejnou IP adresu, další dostupnou IP adresu nastavena jako cílová IP adresa.
 
 #### <a name="different-address-space"></a>Jiným adresním prostorem
 
-Pokud podsíť zdrojové a cílové podsíti jiným adresním prostorem, cílová IP adresa je nastaven jako dostupnou IP adresu v cílové podsíti.
+Pokud podsíť zdrojové a cílové podsíti různých adresní prostory, další dostupnou IP adresu v cílové podsíti nastavena jako cílová IP adresa.
 
 Cílová IP adresa na každé rozhraní sítě můžete upravit tak, že přejdete do nastavení výpočty a síť virtuálního počítače.
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o [sítě pokyny pro replikaci virtuálních počítačů Azure](site-recovery-azure-to-azure-networking-guidance.md).
+Další informace o [sítě pokyny pro replikaci virtuálních počítačů Azure](site-recovery-azure-to-azure-networking-guidance.md).

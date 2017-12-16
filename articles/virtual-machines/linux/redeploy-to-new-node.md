@@ -4,7 +4,7 @@ description: "Jak znovu nasadit virtuální počítače s Linuxem v Azure a zmí
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 7bf69b2a3c006faa0dc0144313e5ebb64e941e2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a07dfc46855d69a9d21083b2c712c581fdd48e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Znovu nasaďte virtuální počítač s Linuxem do nového uzlu Azure
 Pokud čelí potíží při řešení potíží s SSH nebo mohou pomoci přístup k aplikaci pro systém Linux virtuálního počítače (VM) v Azure, opětovného nasazení virtuálního počítače. Při opětovném nasazování virtuálního počítače, virtuální počítač přesune do nového uzlu v rámci infrastruktury Azure a pak ho znovu zapne. Možnosti konfigurace a přidružené prostředky zůstanou zachovány. Tento článek ukazuje, jak znovu nasadit virtuální počítač pomocí rozhraní příkazového řádku Azure nebo portálu Azure.
@@ -33,7 +33,7 @@ Můžete znovu nasadit virtuální počítač pomocí jedné z následujících 
 - [Azure Portal](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Použití Azure CLI 2.0
-Nainstalujte si nejnovější verzi [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se k Azure účet pomocí [az přihlášení](/cli/azure/#login).
+Nainstalujte si nejnovější verzi [Azure CLI 2.0](/cli/azure/install-az-cli2) a přihlaste se do vaší Azure účet pomocí [az přihlášení](/cli/azure/#login).
 
 Opětovné nasazení virtuálního počítače s [az virtuálního počítače znovu ho zaveďte](/cli/azure/vm#redeploy). Následující příklad opětovně nasadí virtuální počítač s názvem *Můjvp* ve skupině prostředků s názvem *myResourceGroup*:
 
@@ -42,7 +42,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="use-the-azure-cli-10"></a>Použití Azure CLI 1.0
-Nainstalujte [nejnovější Azure CLI 1.0](../../cli-install-nodejs.md), přihlaste se k účtu Azure a ujistěte se, že jste v režimu Resource Manager (`azure config mode arm`).
+Nainstalujte [nejnovější Azure CLI 1.0](../../cli-install-nodejs.md) a přihlaste se k účtu Azure. Ujistěte se, že jste v režimu Resource Manager (`azure config mode arm`).
 
 Následující příklad opětovně nasadí virtuální počítač s názvem *Můjvp* ve skupině prostředků s názvem *myResourceGroup*:
 

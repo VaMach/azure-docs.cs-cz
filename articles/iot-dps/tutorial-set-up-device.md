@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Nastavení zařízení ke zřízení pomocí služby Azure IoT Hub zařízení zřizování Service
 
@@ -55,17 +55,17 @@ SDK klienta služby pro zřizování zařízení pomůže implementovat vybrané
 1. Sestavení sady SDK pro typ modulu hardwarového zabezpečení, které jste vybrali pro vaše zařízení pomocí jedné z následujících příkazů na příkazovém řádku:
     - Pro zařízení s TPM:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
     - Pro TPM simulátoru:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm_simulator ..
+        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
     - Pro zařízení X.509 a simulátoru:
         ```cmd/sh
-        cmake -Ddps_auth_type=x509 ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
 1. Sada SDK poskytuje výchozí podporu pro zařízení se systémem Windows nebo Ubuntu implementace čip TPM a X.509 moduly hardwarového zabezpečení. Tyto podporované moduly hardwarového zabezpečení, přejděte k části s názvem [extrahovat artefakty zabezpečení](#extractsecurity) níže. 
@@ -76,27 +76,25 @@ SDK klienta systému pro zřizování zařízení neposkytuje podporu výchozí 
 
 ### <a name="develop-your-custom-repository"></a>Vývoj vlastní úložiště
 
-1. Vytvořte úložiště GitHub pro přístup k vaší HSM. Tento projekt je potřeba vytvořit statickou knihovnu pro SDK zřizování zařízení a využívat.
-1. Vaše knihovna musí implementovat funkce definované v následující soubor hlaviček:. Pro vlastní TPM implementovat funkcí definovaných v `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_tpm_impl.h`.
-    b. Pro vlastní X.509 implementovat funkcí definovaných v `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_x509_impl.h`. 
-1. Úložiště modulu hardwarového zabezpečení, musí také obsahovat `CMakeLists.txt` soubor v kořenovém adresáři úložiště, který by měly být vytvořeny.
+1. Vytvořte knihovnu pro přístup k vaší HSM. Tento projekt je potřeba vytvořit statickou knihovnu pro SDK zřizování zařízení a využívat.
+1. Vaše knihovna musí implementovat funkce definované v následující soubor hlaviček:. Pro vlastní TPM implementovat funkcí definovaných v [vlastní HSM dokumentu](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
+    b. Pro vlastní X.509 implementovat funkcí definovaných v [vlastní HSM dokumentu](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
 
 ### <a name="integrate-with-the-device-provisioning-service-client"></a>Integrovat zařízení zřizování klienta služby
 
-Jakmile vaše knihovna úspěšně staví na svůj vlastní, můžete přesunout k IoThub C-SDK a ve svém úložišti pro vyžádání obsahu:
+Jakmile vaše knihovna úspěšně staví na svůj vlastní, můžete přesunout k IoThub C-SDK a odkaz na knihovnu:
 
 1. Zadejte vlastní úložiště HSM GitHub, danou cestu knihovny a jeho název v následujícím příkazu cmake:
     ```cmd/sh
-    cmake -Ddps_auth_type=<custom_hsm> -Ddps_hsm_custom_repo=<github_repo_name> -Ddps_hsm_custom_lib=<path_and_name_of library> <PATH_TO_AZURE_IOT_SDK>
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
-   Nahraďte `<custom_hsm>` v tomto příkazu se buď `tpm` nebo `x509`. Tento příkaz vytvoří značku pro vlastní modul hardwarového zabezpečení úložiště uvnitř `cmake` adresáře. Všimněte si, že vlastní modul hardwarového zabezpečení by měl být založené na čipu TPM nebo X.509 mechanismy zabezpečení.
-
+   
 1. Otevřete v sadě visual studio SDK a sestavte jej. 
 
-    - Proces sestavení provede klonování vlastního úložiště a vytvoří knihovny.
+    - Proces sestavení zkompiluje knihovny sady SDK.
     - Sada SDK se pokusí o propojení pro vlastní modul hardwarového zabezpečení definované v příkazu cmake.
 
-1. Spustit `\azure-iot-sdk-c\dps_client\samples\dps_client_sample\dps_client_sample.c` Ukázka ověření, pokud vaše modulu hardwarového zabezpečení je implementovaná správně.
+1. Spustit `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` Ukázka ověření, pokud vaše modulu hardwarového zabezpečení je implementovaná správně.
 
 <a id="extractsecurity"></a>
 ## <a name="extract-the-security-artifacts"></a>Extrahování artefakty zabezpečení
@@ -116,21 +114,30 @@ Když se zařízení spustí poprvé, klient SDK komunikuje s vaší čip TPM k 
 Poslední krok v zařízení výrobní proces je psát aplikace, které používá služba zřizování zařízení klienta SDK k registraci zařízení se službou. Tato sada SDK obsahuje následující rozhraní API pro vaše aplikace používat:
 
 ```C
-typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
-DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
-void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub Device Provisioning Service module.
-DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, DPS_CLIENT_REGISTER_STATUS_CALLBACK status_cb, void* status_ctx); // Registers a device that has been previously registered with Device Provisioning Service
-void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the Device Provisioning Service and calls any user callbacks that are required.
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
+
+// Disposes of resources allocated by the provisioning Client.
+void Prov_Device_LL_Destroy(PROV_DEVICE_LL_HANDLE handle)
+
+// Asynchronous call initiates the registration of a device.
+PROV_DEVICE_RESULT Prov_Device_LL_Register_Device(PROV_DEVICE_LL_HANDLE handle, PROV_DEVICE_CLIENT_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, PROV_DEVICE_CLIENT_REGISTER_STATUS_CALLBACK reg_status_cb, void* status_user_ctext)
+
+// Api to be called by user when work (registering device) can be done
+void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
+
+// API sets a runtime option identified by parameter optionName to a value pointed to by value
+PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-Mějte na paměti, k chybě při inicializaci proměnné `dps_uri` a `dps_scope_id` jak je uvedeno v [simulovat první pořadí spouštění pro části zařízení této úvodní](./quick-create-simulated-device.md#firstbootsequence), než je použijete. Registrace zařízení zřizování klienta rozhraní API `DPS_Client_LL_Create` připojí ke službě globální zřizování zařízení. *ID oboru* je vygenerované službou a zaručí jedinečnosti. Je neměnné a slouží k jednoznačné identifikaci ID registrace. `iothub_uri` Umožňuje registraci klienta služby IoT Hub rozhraní API `IoTHubClient_LL_CreateFromDeviceAuth` připojit ke správné služby IoT hub. 
+Mějte na paměti, k chybě při inicializaci proměnné `uri` a `id_scope` jak je uvedeno v [simulovat první pořadí spouštění pro části zařízení této úvodní](./quick-create-simulated-device.md#firstbootsequence), než je použijete. Registrace zařízení zřizování klienta rozhraní API `Prov_Device_LL_Create` připojí ke službě globální zřizování zařízení. *ID oboru* je vygenerované službou a zaručí jedinečnosti. Je neměnné a slouží k jednoznačné identifikaci ID registrace. `iothub_uri` Umožňuje registraci klienta služby IoT Hub rozhraní API `IoTHubClient_LL_CreateFromDeviceAuth` připojit ke správné služby IoT hub. 
 
 
-Tato rozhraní API pomoci zařízení pro připojení a registrace pomocí služby zřizování zařízení, když ji spustí, získat informace o službě IoT hub a připojte se k němu. Soubor `dps_client/samples/dps_client_sample/dps_client_sample.c` ukazuje, jak použijte tato rozhraní API. Obecně platí musíte vytvořit následující rozhraní pro registrace klienta:
+Tato rozhraní API pomoci zařízení pro připojení a registrace pomocí služby zřizování zařízení, když ji spustí, získat informace o službě IoT hub a připojte se k němu. Soubor `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` ukazuje, jak použijte tato rozhraní API. Obecně platí musíte vytvořit následující rozhraní pro registrace klienta:
 
 ```C
-static const char* dps_uri = "global.azure-devices-provisioning.net";
-static const char* dps_scope_id = "[ID scope for your provisioning service]";
+static const char* global_uri = "global.azure-devices-provisioning.net";
+static const char* id_scope = "[ID scope for your provisioning service]";
 ...
 static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
 {
@@ -143,18 +150,23 @@ static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_co
 }
 int main()
 {
-    ...    
-    security_device_init(); // initialize your HSM 
+    ...
+    SECURE_DEVICE_TYPE hsm_type;
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    prov_dev_security_init(hsm_type); // initialize your HSM 
 
-    DPS_CLIENT_LL_HANDLE handle = DPS_Client_LL_Create(dps_uri, dps_scope_id, dps_transport, on_dps_error_callback, &user_info); // Create your DPS client
+    prov_transport = Prov_Device_HTTP_Protocol;
+    
+    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
 
-    if (DPS_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
+    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
         do {
-            // The dps_register_callback is called when registration is complete or fails
-            DPS_Client_LL_DoWork(handle);
+        // The register_callback is called when registration is complete or fails
+            Prov_Client_LL_DoWork(handle);
         } while (user_info.reg_complete == 0);
     }
-    DPS_Client_LL_Destroy(handle); // Clean up the DPS client
+    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
     ...
     iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
     ...

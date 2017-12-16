@@ -9,18 +9,17 @@ editor:
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: a7abba87035016eee05b4ab663404f10127bba1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf8a3eb502a808945e97822e10e44d38137d1161
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurace názvu vlastní domény 
 
 Při vytvoření instance API Management (APIM) se Azure přiřadí subdoména azure api.net (například `apim-service-name.azure-api.net`). Ale můžou zpřístupnit APIM koncové body pomocí svůj vlastní název domény, jako třeba **contoso.com**. V tomto kurzu se dozvíte, jak mapovat existující vlastní název DNS koncové body vystavené instance služby Azure API Management.
-
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -57,6 +56,8 @@ K provedení kroků popsaných v tomto článku, musíte mít:
 
     >[!NOTE]
     >Proces přiřazení certifikátu může trvat 15 minut.
+
+[!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
 ## <a name="next-steps"></a>Další kroky
 

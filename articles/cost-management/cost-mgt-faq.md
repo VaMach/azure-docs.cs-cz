@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Nejčastější dotazy pro Azure náklady na správu
 
@@ -46,6 +46,29 @@ Než můžete vygenerovat klíč rozhraní API smlouvy Enterprise Azure nastavit
 
 Také možná budete muset poskytnout správci oddělení, účet vlastníků a enterprise administrators oprávnění k _zobrazit poplatky_ s rozhraním API fakturace.
 
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Proč nevidím doporučení pro optimalizaci?
+
+Informace o doporučení je dostupná jenom pro účty, které jsou aktivované. Neuvidíte žádné informace doporučení v **Optimalizátor** sestavy kategorie pro účty, které jsou *neaktivovaných*, včetně:
+
+- Optimalizace Manager
+- Změna velikosti optimalizace
+- Umožňuje zvýšit efektivitu
+
+Pokud nelze zobrazit žádná data Optimalizátor doporučení, pravděpodobně máte účty, které neaktivovaných. Chcete-li aktivovat účet, zaregistrovat ji pomocí přihlašovacích údajů Azure.
+
+Aktivovat účet:
+
+1.  Na portálu Cloudyn, klikněte na tlačítko **nastavení** v horním pravém rohu a vyberte **cloudové účty**.
+2.  Na kartě účty Microsoft Azure vyhledejte účty, které mají **neaktivovaných** předplatné.
+3.  Napravo od neaktivovaných účet, klikněte **upravit** symbol, který vypadá takto: tužky.
+4.  ID a rychlost ID klienta je automaticky zjištěna. Klikněte na **Další**.
+5.  Budete přesměrováni na portálu Azure. Přihlaste se k portálu a autorizaci Cloudyn kolekce pro přístup k datům v Azure.
+6.  V dalším kroku budete přesměrováni na stránku správy Cloudyn účty a předplatného je aktualizováno **active** stav účtu. Zobrazuje symbol zelená značka zaškrtnutí.
+7.  Pokud nevidíte symbol zeleného zaškrtnutí pro jeden nebo více odběrů, znamená to, že nemáte oprávnění k vytvoření čtečky aplikace (CloudynCollector) pro předplatné. Uživatel s vyšší oprávnění pro odběr je potřeba zopakujte kroky 3 a 4.  
+
+Po dokončení předchozího postupu můžete zobrazit doporučení pro optimalizaci do jedné nebo dvou dnů. Však může trvat až pět dní před úplná optimalizace data nejsou k dispozici.
+
+
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Jak povolit odloženou nebo zamčený uživatelů?
 
 Pokud obdržíte výstrahu s požadavkem pro povolení přístupu pro uživatele, musíte aktivovat uživatelský účet.
@@ -66,10 +89,7 @@ Pokud změníte e-mailovou adresu v Cloudyn z výchozí adresu v Azure, můžete
 
 Doporučujeme vytvořit aspoň dva účty správců Cloudyn, v případě, že jeden z účtů získá uzamčen.
 
-Pokud nemůžete se přihlásit k portálu Cloudyn, ujistěte se, že používáte správnou adresu URL Azure náklady na správu pro přihlášení k Cloudyn. Použijte jednu z těchto adres URL:
-
-- https://Azure.cloudyn.com
-- https://MS.Portal.Azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+Pokud nemůžete se přihlásit k portálu Cloudyn, ujistěte se, že používáte správnou adresu URL Azure náklady na správu pro přihlášení k Cloudyn. Použití [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Adresa URL https://app.cloudyn.com přímé Cloudyn nepoužívejte.
 

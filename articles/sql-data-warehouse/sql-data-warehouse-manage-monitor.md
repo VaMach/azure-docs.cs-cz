@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: joeyong;barbkess;kevin
+ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitorování vaší úlohy pomocí DMV
 Tento článek popisuje, jak sledovat vaše úlohy a prozkoumat provádění dotazů v Azure SQL Data Warehouse pomocí zobrazení dynamické správy (zobrazení dynamické správy).
@@ -174,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Pokud dotaz aktivně čeká na prostředky z jiného dotazu, pak bude stav **AcquireResources**.  Pokud dotaz obsahuje všechny požadované prostředky, pak bude stav **udělit**.
 
 ## <a name="monitor-tempdb"></a>Databáze tempdb monitorování
-Databáze tempdb vysoké využití může být hlavní příčinou nízký výkon a mimo problémy s pamětí. Zkontrolujte nejprve Pokud máte rowgroups kvality zkosení nebo nízký dat a proveďte příslušné akce. Vezměte v úvahu škálování datového skladu, pokud zjistíte, tempdb dosažení jeho omezení během provádění dotazu. Následující část popisuje postup identifikovat využití databáze tempdb na jeden dotaz na každém uzlu. 
+Databáze tempdb vysoké využití může být hlavní příčinou nízký výkon a mimo problémy s pamětí. Vezměte v úvahu škálování datového skladu, pokud zjistíte, tempdb dosažení jeho omezení během provádění dotazu. Následující část popisuje postup identifikovat využití databáze tempdb na jeden dotaz na každém uzlu. 
 
 Vytvořte následující zobrazení přidružit id odpovídající uzlu pro sys.dm_pdw_sql_requests. To vám umožní využít další průchozí zobrazení dynamické správy a zapojit tyto tabulky s sys.dm_pdw_sql_requests.
 
@@ -233,7 +233,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>Sledování paměti
 
-Paměť může být hlavní příčinou nízký výkon a mimo problémy s pamětí. Zkontrolujte nejprve Pokud máte rowgroups kvality zkosení nebo nízký dat a proveďte příslušné akce. Zvažte, pokud zjistíte, využití paměti systému SQL Server během provádění dotazu dosažení jeho omezení škálování datového skladu.
+Paměť může být hlavní příčinou nízký výkon a mimo problémy s pamětí. Zvažte, pokud zjistíte, využití paměti systému SQL Server během provádění dotazu dosažení jeho omezení škálování datového skladu.
 
 Následující dotaz vrátí přetížení využití a paměti paměti systému SQL Server na každém uzlu:   
 ```sql
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Velikost protokolu transakcí monitorování
-Následující dotaz vrátí velikost protokolu transakcí v každém distribučním. Zkontrolujte, pokud máte rowgroups kvality zkosení nebo nízký dat a proveďte příslušné akce. Pokud jeden ze souborů protokolu dosahuje 160GB, měli byste zvážit vertikálním navýšení kapacity instanci nebo omezíte velikost vašeho transakce. 
+Následující dotaz vrátí velikost protokolu transakcí v každém distribučním. Pokud jeden ze souborů protokolu dosahuje 160GB, měli byste zvážit vertikálním navýšení kapacity instanci nebo omezíte velikost vašeho transakce. 
 ```sql
 -- Transaction log size
 SELECT

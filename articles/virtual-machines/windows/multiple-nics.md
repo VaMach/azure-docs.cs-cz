@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Vytvoření a Správa virtuálního počítače s Windows, který má několik síťových adaptérů
 Virtuální počítače (VM) v Azure může mít několik virtuálních síťových karet (NIC) připojené k nim. Obvyklým scénářem je mít různé podsítě pro připojení front-end a back-end nebo síť vyhrazený pro řešení monitorování nebo zálohování. Tento článek popisuje, jak vytvořit virtuální počítač, který má několik síťových adaptérů, které jsou k němu připojen. Můžete také zjistěte, jak přidat nebo odebrat síťové adaptéry ze stávajícího virtuálního počítače. Různé [velikosti virtuálních počítačů](sizes.md) podporu různých počet síťových adaptérů, takže odpovídajícím způsobem upravit velikost virtuálního počítače.
@@ -232,6 +232,60 @@ Můžete také použít `copyIndex()` číslo připojit k názvu zdroje. Potom m
 ```
 
 Kompletní příklad, jak si můžete přečíst [vytvoření několik síťových adaptérů pomocí šablony Resource Manageru](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+## <a name="configure-guest-os-for-multiple-nics"></a>Konfigurace hostovaný operační systém pro několik síťových adaptérů
+
+Azure přiřadí výchozí bránu na první (primární) síťové rozhraní připojené k virtuálnímu počítači. Azure nepřiřazuje výchozí bránu dalším (sekundárním) síťovým rozhraním připojeným k virtuálnímu počítači. Proto ve výchozím nastavení nemůžete komunikovat s prostředky mimo podsíť, ve které sekundární síťové rozhraní je. Sekundární síťová rozhraní může, ale komunikovat s prostředky mimo jejich podsíť, když postup povolení komunikace se liší pro různé operační systémy.
+
+1. Z příkazového řádku Windows, spusťte `route print` příkaz, který vrátí výstup podobný následujícímu výstupu pro virtuální počítač s dvě rozhraní připojené síti:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    V tomto příkladu **Microsoft Hyper-V síťový adaptér č. 4** (rozhraní 7) je sekundární síťové rozhraní, který nemá přiřazen výchozí bránu.
+
+2. Z příkazového řádku, spusťte `ipconfig` příkazu zobrazte IP adresu, která je přiřazena k sekundární síťové rozhraní. V tomto příkladu je 192.168.2.4 přiřazená rozhraní 7. Pro sekundární síťové rozhraní je vrácena žádná adresu výchozí brány.
+
+3. Směrovat všechny přenosy určené pro adresy mimo podsíť sekundární síťové rozhraní k bráně pro podsíť, spusťte následující příkaz:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    Adresa brány podsítě je první IP adresa (končící na.1) do rozsahu adres, které jsou definované pro podsíť. Pokud nechcete, aby směrovat všechny přenosy mimo podsítě, můžete přidat jednotlivých tras místo toho k určitým příjemcům. Například, pokud chcete směrovat přenosy z sekundární síťové rozhraní 192.168.3.0 síť, zadejte příkaz:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. Pro potvrzení úspěšné komunikace s k prostředku 192.168.3.0 sítě, například zadejte následující příkaz k otestování příkazem ping 192.168.3.4 pomocí rozhraní 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Budete muset otevřít ICMP přes bránu Windows firewall, zařízení, které jste otestováním pomocí následujícího příkazu:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Pokud chcete potvrdit, cesta přidala je v tabulce směrování, zadejte `route print` příkaz, který vrátí výstup podobný následujícímu:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    Trasy označené *192.168.1.1* pod **brány**, je trasy, která je k dispozici ve výchozím nastavení pro primární síťové rozhraní. Trasa *192.168.2.1* pod **brány**, je trasy, které jste přidali.
 
 ## <a name="next-steps"></a>Další kroky
 Zkontrolujte [velikosti virtuálních počítačů Windows](sizes.md) při pokusu o vytvoření virtuálního počítače, který má několik síťových adaptérů. Věnujte pozornost maximální počet síťových adaptérů, které podporuje každý velikost virtuálního počítače. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: trinadhk; jimpark;
-ms.openlocfilehash: 5f6e5dd9d4fb96376762300856b594d772d84af8
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.author: cwatson
+ms.openlocfilehash: 08edd8981a8230848c97a86e752ef3fdb28ca330
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="restore-virtual-machines-in-azure"></a>Obnovení virtuálních počítačů v Azure
 > [!div class="op_single_selector"]
@@ -73,15 +73,15 @@ Obnovení virtuálního počítače na nový virtuální počítač ze záloh ul
 
     Pokud nejsou žádné účty úložiště s podporovanou konfiguraci, vytvořte účet úložiště podporované konfigurace před zahájením operace obnovení.
 
-    ![Vyberte virtuální síť.](./media/backup-azure-restore-vms/restore-sa.png)
+    ![Vyberte virtuální síť](./media/backup-azure-restore-vms/restore-sa.png)
 3. Vyberte virtuální síť: při vytváření virtuálního počítače je nutné vybrat virtuální síť (VNET) pro virtuální počítač. Obnovení uživatelského rozhraní obsahuje všechny virtuální sítě v rámci tohoto předplatného, který lze použít. Není to povinné k výběru virtuální sítě pro virtuální počítač obnovený – bude moct připojit k obnovený virtuální počítač přes internet, i v případě, že není použita virtuální sítě.
 
     Pokud vybraná cloudové služby je přidružený k virtuální síti, nelze změnit virtuální sítě.
 
-    ![Vyberte virtuální síť.](./media/backup-azure-restore-vms/restore-cs-vnet.png)
+    ![Vyberte virtuální síť](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 4. Vyberte podsíť: V případě, že virtuální sítě má podsítě, ve výchozím nastavení bude vybrána první podsíť. Z možností rozevíracího seznamu vyberte podsíť podle svého výběru. Podrobnosti podsíť, přejděte na rozšíření sítě [domovské stránky portálu](https://manage.windowsazure.com/), přejděte na **virtuální sítě** a vyberte virtuální síť a k podrobnostem konfigurovat zobrazíte podrobnosti o podsíti.
 
-    ![Vyberte podsíť.](./media/backup-azure-restore-vms/select-subnet.png)
+    ![Vyberte podsíť](./media/backup-azure-restore-vms/select-subnet.png)
 5. Klikněte **odeslání** ikona v průvodci a odešlete podrobnosti a vytvořit úlohu obnovení.
 
 ## <a name="track-the-restore-operation"></a>Sledování operací obnovení

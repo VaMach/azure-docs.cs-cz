@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
-ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32f622c39583a25a7bc53ffcb6d9be779459badc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Šifrování služby Azure Storage pro neaktivní uložená data
 Azure Storage Service šifrování (SSE) pro Data v klidovém stavu pomáhá chránit a ochranu dat, aby splňovaly vaše organizace zabezpečení a dodržování předpisů závazky. Pomocí této funkce Azure Storage automaticky šifruje vaše data před uložením do úložiště a dešifruje před načtení. Šifrování, dešifrování a správu klíčů jsou pro uživatele zcela transparentní.
@@ -159,7 +159,7 @@ Odpověď: není v tuto chvíli; klíče jsou plně spravované microsoftem.
 
 **Otázka: je SSE ve výchozím nastavení povolené, po vytvoření nového účtu úložiště?**
 
-Odpověď: SSE není povoleno ve výchozím nastavení; na portálu Azure můžete ji povolit. Můžete také prostřednictvím kódu programu povolit tuto funkci pomocí rozhraní REST API poskytovatele prostředků úložiště.
+Odpověď: týmu Azure Storage je probíhá povolení šifrování ve výchozím nastavení pomocí Microsoft spravovat klíče pro všechna data, která je zapsán do služby Azure Storage (úložiště objektů Blob, soubor, tabulky a fronty) a pro všechny účty úložiště (Azure Resource Manager a klasický úložiště účty), nové i stávající.
 
 **Otázka: jak se to liší od Azure Disk Encryption?**
 

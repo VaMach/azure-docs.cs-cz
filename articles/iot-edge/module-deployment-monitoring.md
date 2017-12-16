@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 54c92937c507cabd9053920baef97e745c2300f6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Pochopení IoT Edge nasazení jednoho zařízení nebo ve velkém měřítku – náhled
 
@@ -62,7 +62,7 @@ Cílovou podmínku nepřetržitě vyhodnotí zahrnout všechny nová zařízení
 Všechny logické podmínku můžete použijte na značky dvojčata zařízení nebo deviceId k výběru cílových zařízení. Pokud chcete použít podmínku s značkami, budete muset přidat "značky" kapitoly :{} dvojče zařízení v rámci stejné úrovni jako vlastnosti. [Další informace o značkách v dvojče zařízení](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
 
 Příklady podmínek cíl:
-* deviceId ='linuxprod1
+* deviceId = 'linuxprod1.
 * Tags.Environment = 'produkčního.
 * Tags.Environment = produkčního a tags.location = 'westus.
 * Tags.Environment = produkčního nebo tags.location = 'westus.

@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 413bc8a0e0347498c004b93fb37f51d86ad029f5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 93acec3bada30364b6e3338e037b442d7e6cd309
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Podporované matice pro tuto verzi 
 Pokud váš kód načte data pomocí Azure Machine Learning Data zdroje nebo Azure Machine Learning Data přípravy, získávání buď Pandas nebo dataframe Spark, následující kombinace experimentu výpočetní prostředí a data umístění jsou podporovány:
@@ -37,4 +37,4 @@ Azure Data Lake Store se aktuálně nepodporuje pro všechny výpočetní cíl.
 
 ** Používá Maven JDBC SQL Server ovladač 6.2.1. Je nutné zajistit, že tento balíček (nebo kompatibilní jeden) je součástí souboru spark_dependencies.yml pro výpočetní prostředí.
 
-Podporuje Azure SQL Database, Azure SQL Data Warehouse nebo SQL Server, pokud že databázi lze přejít z výpočetním prostředí. 
+Podporuje Azure SQL Database nebo SQL Server, pokud že databázi lze přejít z výpočetním prostředí. 

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 939ae243c02eb375251cc4d959ab5d46dc41c040
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4701891600ab0f3eb6105bec26ca4b911568c4ee
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/15/2017
@@ -30,10 +30,13 @@ Je třeba stáhnout tyto vždy, když nejsou k dispozici aktualizace pro rozší
 
 |  | Název položky | Popis | Vydavatel | OS Type |
 | --- | --- | --- | --- | --- |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření IaaS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Toto rozšíření nasazení žádné systému SQL Server, na položku Windows Marketplace stáhnout – to je potřeba.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření vlastních skriptů](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Tuto aktualizaci můžete stáhněte na verzi v poli vlastní skript rozšíření pro Windows.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/dsc.png) | [Rozšíření DSC prostředí PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Tuto aktualizaci můžete stáhněte na integrované verzi rozšíření DSC prostředí PowerShell.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Rozšíření Microsoft Antimalware](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Antimalware od Microsoftu pro Azure je řešení jednoho agenta pro aplikace a prostředí klientovi, určený ke spouštění na pozadí bez lidského zásahu. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Docker rozšíření pro virtuální počítače s Linuxem. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Rozšíření IaaS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Toto rozšíření nasazení žádné systému SQL Server, na položku Windows Marketplace stáhnout – to je potřeba.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozšíření Acronis zálohování pro Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis zálohování rozšíření pro Microsoft Azure je součástí rodiny Acronis zálohování dat ochrany produktů. | Mezinárodní GmbH Acronis. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozšíření zálohování Acronis pro Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Acronis zálohování rozšíření pro Microsoft Azure je součástí rodiny Acronis zálohování dat ochrany produktů. | Mezinárodní GmbH Acronis. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozšíření Acronis zálohování pro Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis zálohování rozšíření pro Microsoft Azure je součástí rodiny Acronis zálohování dat ochrany produktů. | Mezinárodní GmbH Acronis. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Hloubkové zabezpečení agenta pro Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Trend Micro hluboké Security rozšíření pro Linux. | Trend Micro | Linux |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agent hloubkové zabezpečení pro Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Trend Micro hluboké Security rozšíření pro Windows. | Trend Micro | Windows |
 

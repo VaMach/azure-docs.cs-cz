@@ -1,0 +1,10 @@
+## <a name="how-apim-proxy-server-responds-with-ssl-certificates-in-the-tls-handshake"></a>Jak APIM Proxy Server odpoví certifikáty SSL v TLS handshake
+
+### <a name="clients-calling-with-sni-header"></a>Klienti s hlavičkou SNI volání
+Pokud zákazník má jeden nebo více vlastních domén, které jsou nakonfigurované pro proxy server, APIM může reagovat na požadavky HTTPS z vlastní doménách (například contoso.com) a také výchozí doméně (například apim služby name.azure api.net). Na základě informací v hlavičce indikace názvu serveru (SNI), APIM odpoví certifikát příslušného serveru.
+
+### <a name="clients-calling-without-sni-header"></a>Klienti volání bez hlavičky SNI
+Pokud zákazník používá klient, který neodesílá [SNI](https://tools.ietf.org/html/rfc6066#section-3) záhlaví, APIM vytvoří odpovědi na základě logiky následující:
+
+* Pokud služba má jenom jeden vlastní domény nakonfigurované pro proxy server, výchozí certifikát je certifikát, který byl vydán pro vlastní domény proxy serveru.
+* Pokud službu pro proxy server nakonfigurován více vlastních domén (podporováno pouze v **Premium** vrstvy), Zákazník můžete určit, který certifikát by měl být výchozí certifikát. Chcete-li nastavit výchozí certifikát [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/createorupdate#definitions_hostnameconfiguration) musí být vlastnost nastavena na hodnotu true ("defaultSslBinding": "PRAVDA"). Pokud zákazník není nastavena vlastnost, je výchozí certifikát certifikát vydaný pro výchozí Proxy domény hostovanou na *.azure api.net.

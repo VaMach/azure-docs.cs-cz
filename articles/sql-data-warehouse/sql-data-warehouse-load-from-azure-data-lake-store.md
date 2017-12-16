@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 09/15/2017
+ms.date: 12/14/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 4c3ca2a26fe47a8f0831a1ce4edf2c35911f3fc1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Načtení dat z Azure Data Lake Store do SQL Data Warehouse
-Tento dokument poskytuje všechny kroky, které je třeba načíst z Azure Data Lake Store (ADLS) svoje vlastní data do SQL Data Warehouse pomocí PolyBase.
+Tento dokument poskytuje všechny kroky nutné k načtení dat z Azure Data Lake Store (ADLS) do SQL Data Warehouse pomocí PolyBase.
 Zatímco budete moci spouštět dotazy ad hoc přes data uložená v ADLS pomocí externí tabulky, jako osvědčený postup doporučujeme importu dat do SQL Data Warehouse.
 
 V tomto kurzu se dozvíte, jak:
@@ -42,15 +42,9 @@ Chcete-li spustit tento kurz, je třeba:
 
 * SQL Server Management Studio nebo SQL Server Data Tools a stáhnout aplikaci SSMS připojení najdete v části [dotazu SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Azure SQL Data Warehouse, chcete-li vytvořit jeden postupujte podle: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* Azure SQL Data Warehouse, chcete-li vytvořit jeden postupujte podle: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision _
 
-* Azure Data Lake Store, s nebo bez šifrování povolené. Chcete-li vytvořit jeden postupujte podle: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
-
-
-
-
-## <a name="configure-the-data-source"></a>Nakonfigurujte zdroj dat
-PolyBase používá externí objekty T-SQL zadat umístění a atributy externí data. Externí objekty jsou uložené v SQL Data Warehouse a odkazovat na data, která je tý uložených externě.
+* Azure Data Lake Store, vytvoření jeden postupujte podle: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 ###  <a name="create-a-credential"></a>Vytvoření přihlašovacích údajů
@@ -88,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>Vytvoření externího zdroje dat.
-Použít [vytvořit externí zdroj dat] [ CREATE EXTERNAL DATA SOURCE] příkazu umístění dat a typu dat úložiště. Chcete-li najít identifikátor URI ADL na portálu Azure, přejděte do Azure Data Lake Store a podívejte se na panelu Essentials.
+Použít [vytvořit externí zdroj dat] [ CREATE EXTERNAL DATA SOURCE] příkazu umístění dat úložiště. Chcete-li najít identifikátor URI ADL na portálu Azure, přejděte do Azure Data Lake Store a podívejte se na panelu Essentials.
 
 ```sql
 -- C: Create an external data source
@@ -104,11 +98,8 @@ WITH (
 );
 ```
 
-
-
 ## <a name="configure-data-format"></a>Konfigurovat formát dat
-Pro import dat z ADLS, budete muset zadat formát externích souborů. Tento příkaz má formát specifické možnosti popisují vaše data.
-Dole je příklad formát běžně používané souboru, který je oddělený kanálu textový soubor.
+Pro import dat z ADLS, budete muset zadat External File Format. Tento příkaz má formát specifické možnosti popisují vaše data.
 Podívejte se na dokumentaci T-SQL pro úplný seznam [vytvořit EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
@@ -116,7 +107,7 @@ Podívejte se na dokumentaci T-SQL pro úplný seznam [vytvořit EXTERNAL FILE F
 -- FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text file
 -- STRING_DELIMITER: Specifies the field terminator for data of type string in the text-delimited file.
 -- DATE_FORMAT: Specifies a custom format for all date and time data that might appear in a delimited text file.
--- Use_Type_Default: Store all Missing values as NULL
+-- Use_Type_Default: Store missing values as default for datatype.
 
 CREATE EXTERNAL FILE FORMAT TextFileFormat
 WITH
@@ -130,7 +121,7 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>Vytvoření externí tabulky
-Formát dat zdroje a soubor jste zadali, jste připraveni k vytvoření externí tabulky. Externí tabulky se, jak pracovat s externí data. PolyBase používá rekurzivní directory traversal číst všechny soubory v všechny podadresáře zadaný v parametru umístění adresáře. Navíc následující příklad ukazuje, jak vytvořit objekt. Budete muset přizpůsobit příkaz pracovat s daty, které máte v ADLS.
+Formát dat zdroje a soubor jste zadali, jste připraveni k vytvoření externí tabulky. Externí tabulky se, jak pracovat s externí data. Parametr umístění můžete určit soubor nebo adresář. Pokud Určuje adresář, budou načteny všechny soubory v adresáři.
 
 ```sql
 -- D: Create an External Table
@@ -161,18 +152,15 @@ WITH
 ## <a name="external-table-considerations"></a>Aspekty externí tabulky
 Vytvoření externí tabulky je jednoduché, ale existují některé drobné odlišnosti, které musí být popsané.
 
-Načítání dat pomocí funkce PolyBase je silného typu. To znamená, že každý řádek dat probíhá požity musí splňovat definice schématu tabulky.
-Pokud daný řádek neodpovídá definici schématu, řádek byl odmítnut z zatížení.
+Externí tabulky jsou silného typu. To znamená, že každý řádek dat probíhá požity musí splňovat definice schématu tabulky.
+Pokud řádek neodpovídá definici schématu, řádek byl odmítnut z zatížení.
 
-Možnosti REJECT_TYPE a REJECT_VALUE umožňují definovat, kolik řádků nebo jaké procento dat musí být v posledním tabulce.
-Během procesu načítání Pokud je dosaženo hodnoty odmítněte, zatížení se nezdaří. Nejčastější příčinou odmítnutých řádků je neshody definice schématu.
-Například pokud sloupec je nesprávně zadána schéma int, když jsou data v souboru řetězec, každý řádek nebude možné načíst.
+Možnosti REJECT_TYPE a REJECT_VALUE umožňují definovat, kolik řádků nebo jaké procento dat musí být v posledním tabulce. Během procesu načítání Pokud je dosaženo hodnoty odmítněte, zatížení se nezdaří. Nejčastější příčinou odmítnutých řádků je neshody definice schématu. Například pokud sloupec je nesprávně zadána schéma int, když jsou data v souboru řetězec, každý řádek nebude možné načíst.
 
-Umístění určuje nejhornější adresáře, který chcete číst data z.
-V takovém případě pokud byly nějaké podadresářů /DimProduct/ PolyBase k importu všech dat v rámci podadresářů. Azure Data Lake store využívá k řízení přístupu k datům na základě řízení přístupu Role (RBAC). To znamená, že objekt služby musí mít oprávnění ke čtení adresáře definované v parametru umístění a podřízené objekty daného konečné adresář a soubory. To umožňuje PolyBase k ověřování a spouštění číst data. 
+ Azure Data Lake store využívá k řízení přístupu k datům na základě řízení přístupu Role (RBAC). To znamená, že objekt služby musí mít oprávnění ke čtení adresáře definované v parametru umístění a podřízené objekty daného konečné adresář a soubory. To umožňuje PolyBase k ověřování a spouštění číst data. 
 
 ## <a name="load-the-data"></a>Načtení dat
-Načtení dat z Azure Data Lake Store pomocí [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] příkaz. Načítání se funkce CTAS používá silného typu externí tabulky, které jste vytvořili.
+Načtení dat z Azure Data Lake Store pomocí [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] příkaz. 
 
 Funkce CTAS vytvoří novou tabulku a naplní s výsledky příkazu select. Funkce CTAS definuje novou tabulku tak, aby měl stejné sloupce a typy dat jako výsledky příkazu select. Pokud vyberete všechny sloupce z externí tabulky, je nová tabulka repliku sloupce a typy dat v externí tabulky.
 

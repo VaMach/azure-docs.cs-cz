@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Spravovat prostředky pro jednu databázi v databázi SQL Azure
 
@@ -35,6 +35,10 @@ Chcete-li nastavit nebo změnit úroveň služby, úroveň výkonu nebo množstv
 
 ![Konfigurace úrovně služeb a výkonu](./media/sql-database-single-database-resources/change-service-tier.png)
 
+Klikněte na tlačítko **přehled** monitorování nebo zrušte probíhající operaci.
+
+![Operace zrušení](./media/sql-database-single-database-resources/cancel-operation.png)
+
 > [!IMPORTANT]
 > Zkontrolujte [aktuální omezení P11 a P15 databází s maximální velikost 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) při výběru P11 nebo P15 vrstvy služeb.
 >
@@ -48,6 +52,8 @@ Chcete-li nastavit nebo změnit úrovních služby databáze Azure SQL, úrovně
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Vytvoří databázi |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Získá jednu nebo více databází|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Nastaví vlastnosti pro databázi nebo přesune existující databáze do pružného fondu. Například použít **MaxSizeBytes** vlastnost nastavení maximální velikosti pro databázi.|
+|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Získá stav databázových operací. |
+|[Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Zruší asynchronní aktualizace operaci v databázi.|
 
 
 > [!TIP]
@@ -64,7 +70,8 @@ Nastavit nebo změnit databáze Azure SQL úrovně služeb, úrovně výkonu a m
 |[Zobrazit pravidlo brány firewall serveru sql az](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Zobrazí podrobnosti pravidla brány firewall|
 |[aktualizace pravidla brány firewall az sql server](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Aktualizace pravidla brány firewall|
 |[Odstranit pravidlo brány firewall serveru sql az](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Odstraní pravidlo brány firewall|
-
+|[AZ sql db op seznamu](/cli/azure/sql/db/op?#az_sql_db_op_list)|Získá seznam operací provedených v databázi.|
+|[AZ sql db op Storno](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Zruší asynchronní operaci v databázi.|
 
 > [!TIP]
 > Ukázkový skript příkazového řádku Azure CLI, která je škálovatelná jedné databáze Azure SQL na úroveň výkonu různých po dotaz na informace o velikosti databáze, najdete v části [použití rozhraní příkazového řádku pro sledování a škálování jedné databáze SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -102,6 +109,7 @@ Nastavit nebo změnit databáze Azure SQL úrovně služeb, úrovně výkonu a m
 |[Databáze – seznam podle doporučených elastického fondu](/rest/api/sql/databases/listbyrecommendedelasticpool)|Vrátí seznam databází uvnitř recommented elastického fondu.|
 |[Databáze - seznamu serverem](/rest/api/sql/databases/listbyserver)|Vrátí seznam databází na serveru.|
 |[Databáze - aktualizace](/rest/api/sql/databases/update)|Aktualizuje existující databázi.|
+|[Operace – seznam](/rest/api/sql/Operations/List)|Zobrazí seznam všech dostupných operací SQL Rest API.|
 
 
 

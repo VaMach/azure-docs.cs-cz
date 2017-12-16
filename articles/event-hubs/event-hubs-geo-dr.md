@@ -3,7 +3,7 @@ title: "Obnovení geograficky havárie Azure Event Hubs | Microsoft Docs"
 description: "Jak používat zeměpisné oblasti převzetí služeb při selhání a proveďte obnovení po havárii v Azure Event Hubs"
 services: event-hubs
 documentationcenter: 
-author: ShubhaVijayasarathy
+author: sethmanheim
 manager: timlt
 editor: 
 ms.service: event-hubs
@@ -11,103 +11,94 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 94c2782b3166fbc65ae755291a82a2a14556b96f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="azure-event-hubs-geo-disaster-recovery-preview"></a>Azure Event Hubs havárii geografické obnovení (preview)
+# <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs Geo-havárii
 
-Regionální datová centra dojde k výpadku, je důležité pro zpracování dat pro i nadále fungovat v jiné oblasti nebo datového centra. Jako takový *geograficky havárii* a *geografická replikace* jsou důležité funkce pro všechny organizace. Azure Event Hubs podporuje havárii geografické obnovení a geografická replikace, na úrovni oboru názvů. 
+Při celý oblastí Azure nebo datových centrech (Pokud žádné [dostupnost zóny](../availability-zones/az-overview.md) se používají) dojít k výpadku, je důležité pro zpracování dat pro i nadále fungovat v jiné oblasti nebo datového centra. Jako takový *geograficky havárii* a *geografická replikace* jsou důležité funkce pro všechny organizace. Azure Event Hubs podporuje havárii geografické obnovení a geografická replikace, na úrovni oboru názvů. 
 
-Funkce obnovení geograficky havárii služby Azure Event Hubs je řešení zotavení po havárii. Koncepty a pracovní postup popsaný v tomto článku použít po havárii scénáře a nikoli výpadků přechodný nebo dočasné.
+Funkce obnovení Geo-po havárii je globálně dostupnou pro standardní SKU centra událostí.
 
-Podrobnou diskuzi o zotavení po havárii v Microsoft Azure, najdete v části [v tomto článku](/azure/architecture/resiliency/disaster-recovery-azure-applications). 
+## <a name="outages-and-disasters"></a>Výpadky a havárií
 
-## <a name="terminology"></a>Terminologie
+Je důležité si uvědomit rozdíl mezi "výpadky" a "havárie." *Výpadku* je dočasné nedostupnosti Azure Event Hubs a může mít vliv na některé součásti služby, jako je zasílání zpráv úložiště nebo i celého datového centra. Ale po opravení problému Event Hubs opět k dispozici. Výpadek obvykle nezpůsobí ztrátu zprávy nebo jiná data. Příkladem takových výpadku může být výpadku napájení v datovém centru. Některé výpadků jsou jenom krátké připojení ztráty způsobené přechodná nebo síťové problémy. 
 
-**Párování**: primární obor názvů se označuje jako *active* a přijímá zprávy. Obor názvů převzetí služeb při selhání je *pasivní* a nepřijímá zprávy. Metadata mezi oběma se synchronizace, tak i může bezproblémově přijmout zprávy beze změn kódu aplikace. Vytvoření konfigurace obnovení po havárii mezi oblast aktivní a pasivní oblasti se označuje jako *párování* ty oblasti.
+A *po havárii* je definován jako trvalé, nebo dlouhodobější ztrátu clusteru služby Event Hubs, oblast Azure nebo datacenter. Oblast nebo datacenter může nebo nemusí opět k dispozici nebo může být mimo provoz pro hodin nebo dnů. Příkladem takových havárie jsou ještě efektivněji, zahlcení nebo zemětřesení. Po havárii, který se stane trvalé může způsobit ztrátu některé zprávy, události nebo jiná data. Ale ve většině případů by měla být nedošlo ke ztrátě dat a zprávy lze obnovit po zálohování datového centra.
 
-**Alias**: název konfigurace obnovení po havárii, které jste nastavili. Alias poskytuje jeden stabilní připojovací řetězec plně kvalifikovaný název domény (FQDN). Aplikace použít tento připojovací řetězec aliasu se připojit k oboru názvů.
+Funkce obnovení geograficky havárii služby Azure Event Hubs je řešení zotavení po havárii. Koncepty a pracovní postup popsaný v tomto článku použít po havárii scénáře a nikoli výpadků přechodný nebo dočasné. Podrobnou diskuzi o zotavení po havárii v Microsoft Azure, najdete v části [v tomto článku](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
-**Metadata**: odkazuje na názvy centra událostí, skupiny uživatelů, oddíly, jednotky propustnosti, entit a vlastnosti, které jsou spojeny s oborem názvů.
+## <a name="basic-concepts-and-terms"></a>Základními koncepcemi a termíny
 
-## <a name="enable-geo-disaster-recovery"></a>Povolit obnovení geo-po havárii
+Funkce obnovení po havárii implementuje zotavení po havárii metadata a spoléhá na obory názvů pro zotavení po havárii primární a sekundární. Upozorňujeme, že je k dispozici pro funkci obnovení Geo-po havárii [standardní SKU](https://azure.microsoft.com/pricing/details/event-hubs/) pouze. Není nutné žádné změny připojovací řetězec, jako je připojení přes alias.
 
-Povolíte služby Event Hubs havárii geografické obnovení 3 kroků: 
+V tomto článku se používají následující termíny:
 
-1. Vytvořte geo párování, který vytvoří řetězec připojení alias a poskytuje za provozu metadata replikace. 
-2. Aktualizujte existující připojovací řetězce klienta na alias vytvořili v kroku 1.
-3. Zahájit převzetí: párování geograficky je poškozený a alias odkazuje na sekundární oboru názvů jako jeho nový primární obor názvů.
+-  *Alias*: název pro konfiguraci obnovení po havárii, které jste nastavili. Alias poskytuje jeden stabilní připojovací řetězec plně kvalifikovaný název domény (FQDN). Aplikace použít tento připojovací řetězec aliasu se připojit k oboru názvů. 
 
-Následující obrázek ukazuje tento pracovní postup:
+-  *Obor názvů primární a sekundární*: obory názvů, které odpovídají alias. Primární obor názvů "aktivní" a přijímá zprávy (může to být i na obor názvů existující nebo nové). Sekundární obor názvů je "pasivní" a nepřijímá zprávy. Metadata mezi oběma se synchronizace, tak i může bezproblémově přijmout zprávy beze změn aplikace kód nebo připojovací řetězec. Aby se zajistilo, že pouze aktivní obor názvů přijímá zprávy, musíte použít alias. 
 
-![Párování geograficky toku][1] 
+-  *Metadata*: entity, jako je například služba event hubs a skupiny uživatelů; a jejich vlastnosti služby, které jsou spojeny s oborem názvů. Všimněte si, že se automaticky replikují jenom entity a jejich nastavení. Zprávy a události nejsou replikovány. 
 
-### <a name="step-1-create-a-geo-pairing"></a>Krok 1: vytvoření geograficky párování
+-  *Převzetí služeb při selhání*: proces aktivace sekundární obor názvů.
 
-Pokud chcete vytvořit párování mezi dvou oblastí, musíte jmenného prostoru primární a sekundární oboru názvů. Pak vytvoříte na formuláři geo pár alias. Jakmile jsou obory názvů spárovat s aliasem, metadata se pravidelně replikují v oba obory názvů. 
+## <a name="setup-and-failover-flow"></a>Instalační program a převzetí služeb při selhání toku
 
-Následující kód ukazuje, jak to udělat:
+V následující části je přehled procesu převzetí služeb při selhání a vysvětluje, jak nastavit počáteční převzetí služeb při selhání. 
 
-```csharp
-ArmDisasterRecovery adr = await client.DisasterRecoveryConfigs.CreateOrUpdateAsync(
-                                    config.PrimaryResourceGroupName,
-                                    config.PrimaryNamespace,
-                                    config.Alias,
-                                    new ArmDisasterRecovery(){ PartnerNamespace = config.SecondaryNamespace});
-```
+![1][]
 
-### <a name="step-2-update-existing-client-connection-strings"></a>Krok 2: aktualizovat existující klient připojovací řetězce
+### <a name="setup"></a>Nastavení
 
-Po dokončení párování geograficky připojovací řetězce, které odkazují na primární obory názvů musí být aktualizovány tak, aby odkazoval na alias připojovací řetězec. Získejte připojovací řetězce, jak je znázorněno v následujícím příkladu:
+Můžete nejprve vytvořit nebo použijte existujícího oboru názvů primární a sekundární nový obor názvů, a spárujte dva. Tato párování vám dává alias, který můžete použít pro připojení. Vzhledem k tomu, že používáte alias, nemáte změnit připojovací řetězce. Pouze nové obory názvů mohou být přidány do vaší párování převzetí služeb při selhání. Nakonec je nutné přidat, některá monitorování pro zjištění, pokud je nutné použít převzetí služeb při selhání. Ve většině případů služby je jednou ze součástí velké ekosystému, proto jsou automatické převzetí služeb při selhání zřídka možné, jako je velmi často převzetí služeb při selhání musíte provádět synchronizována s zbývající subsystému nebo infrastruktury.
 
-```csharp
-var accessKeys = await client.Namespaces.ListKeysAsync(config.PrimaryResourceGroupName,
-                                                       config.PrimaryNamespace, "RootManageSharedAccessKey");
-var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-```
+### <a name="example"></a>Příklad
 
-### <a name="step-3-initiate-a-failover"></a>Krok 3: zahájení převzetí služeb při selhání
+V příkladem tohoto scénáře zvažte bodu prodej (POS) řešení, které vysílá zprávy nebo události. Služba Event Hubs předává tyto události některé mapování nebo přeformátování řešení, které pak předá namapované data do jiného systému pro další zpracování. V tomto bodě všech těchto systémech může být hostovaná ve stejné oblasti Azure. Rozhodnutí o a jaká část k převzetí služeb při selhání závisí na toku dat ve vaší infrastruktuře. 
 
-Pokud dojde k havárii, nebo pokud se rozhodnete k zahájení převzetí služeb při selhání do sekundárního oboru názvů, budou metadat a dat odesílaných do oboru názvů sekundární spustit. Protože aplikace použijte řetězce připojení s alias, není nutné, žádná další akce, protože automatické spuštění čtení a zápis do centra událostí v sekundární oboru názvů. 
+Je možné automatizovat převzetí služeb při selhání s monitorováním systémů nebo s uživatelské řešení monitorování. Takové automatizace však trvá navíc plánování a činnosti, což je mimo rámec tohoto článku.
 
-Následující kód ukazuje, jak aktivovat převzetí služeb:
+### <a name="failover-flow"></a>Tok převzetí služeb při selhání
 
-```csharp
-await client.DisasterRecoveryConfigs.FailOverAsync(config.SecondaryResourceGroupName,
-                                                   config.SecondaryNamespace, config.Alias);
-```
+Pokud spustíte převzetí služeb při selhání, dva kroky jsou povinné:
 
-Po dokončení převzetí a potřebujete data, která je obsažená v primární oboru názvů, jak extrahovat data je nutné použít explicitní připojovací řetězec do centra událostí v primární oboru názvů.
+1. Pokud jiný výpadku, chcete mít možnost převzetí služeb při selhání znovu. Proto nastavit jiný obor názvů pasivní a aktualizujte párování. 
 
-### <a name="other-operations-optional"></a>Jiné operace (volitelné)
+2. Jakmile je opět k dispozici pro vyžádání obsahu zprávy z předchozí primární oboru názvů. Potom použít tento obor názvů pro regulární zasílání zpráv mimo vašeho nastavení geografické obnovení nebo odstraňte starý primární oboru názvů.
 
-Můžete také rozdělit párování geograficky nebo odstranit alias, jak je znázorněno v následujícím kódu. Všimněte si, že pokud chcete odstranit připojení řetězec aliasu, musíte nejprve zrušit geo parkovací:
+> [!NOTE]
+> Jsou podporovány pouze dopředného sémantiku selhání. V tomto scénáři převzetí služeb při selhání a pak znovu spárovat s nový obor názvů. Navrácení služeb po obnovení není podporována; například v clusteru serveru SQL. 
 
-```csharp
-// Break pairing
-await client.DisasterRecoveryConfigs.BreakPairingAsync(config.PrimaryResourceGroupName,
-                                                       config.PrimaryNamespace, config.Alias);
+![2][]
 
-// Delete alias connection string
-// Before the alias is deleted, pairing must be broken
-await client.DisasterRecoveryConfigs.DeleteAsync(config.PrimaryResourceGroupName,
-                                                 config.PrimaryNamespace, config.Alias);
-```
+## <a name="management"></a>Správa
 
-## <a name="considerations-for-public-preview"></a>Důležité informace pro verzi public preview
+Pokud se jedná o chybu; například spárovat nesprávné oblasti během počáteční instalace, můžete zrušit párování dva obory názvů kdykoli. Pokud chcete použít jako regulární obory názvů spárované obory názvů, odstraňte alias.
 
-Pozorně si projděte následující informace pro tuto verzi:
+## <a name="samples"></a>Ukázky
 
-1. Funkce obnovení geo-po havárii je dostupná jenom v oblastech severní jihu USA a Jižní střední USA. 
-2. Tato funkce je podporována pouze pro nově vytvořené obory názvů.
-3. Ve verzi preview je povolená pouze metadata replikace. Skutečná data se nereplikují.
-4. Ve verzi preview je bez nákladů pro povolení funkce. Ale primární i sekundární obory názvů bude platit poplatky pro jednotky vyhrazenou propustností.
+[Ukázku na Githubu](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) ukazuje, jak nastavit a zahájit převzetí služeb při selhání. Tento příklad znázorňuje následující koncepty:
+
+- Nastavení použití Azure Resource Manageru službou Event Hubs vyžaduje v Azure Active Directory. 
+- Kroky potřebné k provedení ukázkový kód. 
+- Odesílat a přijímat z aktuální primární oboru názvů. 
+
+## <a name="considerations"></a>Požadavky
+
+Pozorně si projděte následující informace v této verzi nezapomeňte:
+
+1. Při plánování převzetí služeb při selhání, měli byste také zvážit Multi-Factor čas. Například pokud ztratíte připojení po dobu delší než 15-20 minut, můžete se rozhodnout zahájíte převzetí služeb při selhání. 
+ 
+2. Fakt, že žádná data se replikují znamená, že aktuálně nejsou replikovány aktivních relací. Kromě toho nemusí fungovat detekce duplicitních a naplánované zprávy. Nové relace, naplánované zprávy a nové duplikáty bude fungovat. 
+
+3. Při přechodu komplexní distribuované infrastruktury by měla být [vyzkoušená](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) alespoň jednou. 
+
+4. Synchronizace entit může trvat delší dobu, přibližně 50 až 100 entit za minutu.
 
 ## <a name="next-steps"></a>Další kroky
 
@@ -120,5 +111,5 @@ Další informace o službě Event Hubs naleznete pod těmito odkazy:
 * [Nejčastější dotazy k Event Hubs](event-hubs-faq.md)
 * [Ukázkové aplikace, které používají službu Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-[1]: ./media/event-hubs-geo-dr/eh-geodr1.png
-
+[1]: ./media/event-hubs-geo-dr/geo1.png
+[2]: ./media/event-hubs-geo-dr/geo2.png

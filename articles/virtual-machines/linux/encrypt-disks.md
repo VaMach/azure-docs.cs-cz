@@ -4,7 +4,7 @@ description: "Postup zašifrování virtuální disky na virtuální počítač 
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
@@ -13,16 +13,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/05/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Postup zašifrování virtuální disky na virtuální počítač s Linuxem
-Pro lepší virtuální počítač (VM) zabezpečení a dodržování předpisů je možné zašifrovat virtuální disky v Azure. Disky jsou šifrované pomocí kryptografických klíčů, které jsou zabezpečené v Azure Key Vault. Řízení těchto kryptografické klíče a můžete auditovat jejich použití. Tento článek podrobně popisují zašifrovat virtuální disky na virtuální počítač s Linuxem pomocí Azure CLI 2.0. K provedení těchto kroků můžete také využít [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pro lepší virtuální počítač (VM) zabezpečení a dodržování předpisů se můžou šifrovat virtuální disky a virtuální počítač. Virtuální počítače jsou šifrované pomocí kryptografických klíčů, které jsou zabezpečené v Azure Key Vault. Řízení těchto kryptografické klíče a můžete auditovat jejich použití. Tento článek podrobně popisují zašifrovat virtuální disky na virtuální počítač s Linuxem pomocí Azure CLI 2.0. K provedení těchto kroků můžete také využít [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Rychlé příkazy
 Pokud potřebujete rychle provedení úlohy, následující část podrobně popisuje základní příkazy pro zašifrování virtuální disky na virtuální počítač. Podrobnější informace a kontext pro každý krok naleznete zbývající části dokumentu, [od zde](#overview-of-disk-encryption).
@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 Vytvoření Azure Key Vault s [vytvořit az keyvault](/cli/azure/keyvault#create) a povolte Key Vault pro použití s šifrování disku. Zadejte jedinečný název pro Key Vault *keyvault_name* následujícím způsobem:
 
 ```azurecli
-keyvault_name=mykeyvaultikf
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -53,7 +53,7 @@ Vytvoření kryptografické klíče v Key Vault s [vytvořit klíč keyvault az]
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-Vytvořit objekt služby pomocí služby Azure Active Directory s [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#create-for-rbac). Objekt služby zpracovává ověřování a výměnu kryptografických klíčů z Key Vault. Následující příklad načte v hodnoty pro objekt služby Id a heslo pro použití v novější příkazy:
+Vytvořit objekt služby pomocí služby Azure Active Directory s [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#create-for-rbac). Objekt služby zpracovává ověřování a výměnu kryptografických klíčů z Key Vault. Následující příklad načte v hodnoty pro ID objektu zabezpečení služby a heslo pro použití v novější příkazy:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-Vytvoření virtuálního počítače s [vytvořit virtuální počítač az](/cli/azure/vm#create) a připojit datový disk 5 Gb. Pouze některé bitové kopie marketplace podporují šifrování disku. Následující příklad vytvoří virtuální počítač s názvem `myVM` pomocí **CentOS 7.2n** bitové kopie:
+Vytvoření virtuálního počítače s [vytvořit virtuální počítač az](/cli/azure/vm#create) a připojit datový disk 5 Gb. Pouze některé bitové kopie marketplace podporují šifrování disku. Následující příklad vytvoří virtuální počítač s názvem *Můjvp* pomocí *CentOS 7.2n* bitové kopie:
 
 ```azurecli
 az vm create \
@@ -81,9 +81,9 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-SSH pro virtuální počítač pomocí `publicIpAddress` zobrazené ve výstupu předchozí příkaz. Vytvořit oddíl a systému souborů a pak připojit datový disk. Další informace najdete v tématu [připojit k virtuální počítač s Linuxem připojit nový disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Ukončení relace SSH.
+SSH pro virtuální počítač pomocí *publicIpAddress* zobrazené ve výstupu předchozí příkaz. Vytvořit oddíl a systému souborů a pak připojit datový disk. Další informace najdete v tématu [připojit k virtuální počítač s Linuxem připojit nový disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Ukončení relace SSH.
 
-Šifrování virtuálního počítače s [povolit šifrování virtuálních počítačů az](/cli/azure/vm/encryption#enable). Následující příklad používá `$sp_id` a `$sp_password` proměnné z předchozí `ad sp create-for-rbac` příkaz:
+Šifrování virtuálního počítače s [povolit šifrování virtuálních počítačů az](/cli/azure/vm/encryption#enable). Následující příklad používá *$sp_id* a *$sp_password* proměnné z předchozí `ad sp create-for-rbac` příkaz:
 
 ```azurecli
 az vm encryption enable \
@@ -108,13 +108,14 @@ Zobrazuje stav **EncryptionInProgress**. Počkejte, dokud stav operačního syst
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-Proces šifrování disku je dokončené během spouštění, proto Počkejte několik minut před zaškrtnutím stav šifrování znovu s **zobrazit šifrování virtuálních počítačů az**:
+Proces šifrování disku je dokončené během spouštění, proto Počkejte několik minut před zaškrtnutím stav šifrování znovu s [zobrazit šifrování virtuálních počítačů az](/cli/azure/vm/encryption#show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
 Stav má teď disk operačního systému i datový disk jako **šifrovaný**.
+
 
 ## <a name="overview-of-disk-encryption"></a>Přehled šifrování disku
 Virtuální disky na virtuální počítače s Linuxem se šifrují pomocí rest [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Není nijak zpoplatněn pro šifrování virtuálních disků v Azure. Kryptografické klíče ukládají v Azure Key Vault pomocí ochrany proti softwaru, nebo můžete importovat nebo generovat klíče v modulech hardwarového zabezpečení (HSM) certifikovány pro FIPS 140-2 úroveň 2 standardů. Uchování kontroly nad těchto kryptografické klíče a můžete auditovat jejich použití. Tyto klíče se používají k šifrování a dešifrování virtuálních disků připojených k virtuálnímu počítači. Hlavní služby Azure Active Directory poskytuje zabezpečené mechanismus pro vydávání tyto kryptografické klíče jako virtuální počítače jsou zapnuté zapnout a vypnout.
@@ -143,14 +144,18 @@ Podporované scénáře a požadavky na šifrování disku:
 
 * Následující server Linux SKU - Ubuntu, CentOS, SUSE a SUSE Linux Enterprise Server (SLES) a Red Hat Enterprise Linux.
 * Všechny prostředky (například Key Vault, účet úložiště a virtuálních počítačů) musí být ve stejné oblasti Azure a předplatné.
-* Standardní A, D, DS, G a GS řada virtuálních počítačů.
+* Standardní A, D, DS, G, GS, atd, virtuální počítače řady.
+* Aktualizuje se kryptografické klíče na virtuální počítač již šifrované Linux.
 
 Šifrování disku není aktuálně podporováno v následujících scénářích:
 
 * Úroveň Basic virtuálních počítačů.
 * Virtuální počítače vytvořené pomocí modelu nasazení Classic.
 * Zakázáním šifrování disku operačního systému na virtuální počítače s Linuxem.
-* Aktualizuje se kryptografické klíče na virtuální počítač již šifrované Linux.
+* Použití vlastních bitových kopií systému Linux.
+
+Další informace o podporovaných scénářích a omezeních najdete v tématu [Azure Disk Encryption pro virtuální počítače IaaS](../../security/azure-security-disk-encryption.md)
+
 
 ## <a name="create-azure-key-vault-and-keys"></a>Vytvoření Azure Key Vault a klíče
 Budete potřebovat nejnovější [Azure CLI 2.0](/cli/azure/install-az-cli2) nainstalován a přihlášení k účtu Azure pomocí [az přihlášení](/cli/azure/#login). V následujících příkladech nahraďte názvy parametrů příklad vlastní hodnoty. Zahrnout názvy parametrů příklad *myResourceGroup*, *myKey*, a *Můjvp*.
@@ -167,7 +172,7 @@ az group create --name myResourceGroup --location eastus
 Azure Key Vault, který obsahuje kryptografické klíče a přidružené výpočetní prostředky, jako je například úložiště a virtuální počítač se musí nacházet ve stejné oblasti. Vytvoření Azure Key Vault s [vytvořit az keyvault](/cli/azure/keyvault#create) a povolte Key Vault pro použití s šifrování disku. Zadejte jedinečný název pro Key Vault *keyvault_name* následujícím způsobem:
 
 ```azurecli
-keyvault_name=myUniqueKeyVaultName
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -175,7 +180,7 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-Můžete uložit kryptografické klíče pomocí softwaru nebo ochrany modelu hardwarového zabezpečení (HSM). Použití modulu hardwarového zabezpečení vyžaduje premium Key Vault. Není dalších nákladů na vytváření premium Key Vault, nikoli standardní Key Vault, který ukládá klíče chráněné softwarem. Chcete-li vytvořit premium Key Vault, v předchozím kroku přidejte `--sku Premium` k příkazu. Následující příklad používá klíče chráněné softwarem, protože jsme vytvořili standardní Key Vault.
+Můžete uložit kryptografické klíče pomocí softwaru nebo ochrany modelu hardwarového zabezpečení (HSM). Použití modulu hardwarového zabezpečení vyžaduje premium Key Vault. Není dalších nákladů na vytváření premium Key Vault, nikoli standardní Key Vault, který ukládá klíče chráněné softwarem. Chcete-li vytvořit premium Key Vault, v předchozím kroku přidejte `--sku Premium` k příkazu. Následující příklad používá klíče chráněné softwarem vzhledem k tomu, že jste vytvořili standardní Key Vault.
 
 Pro oba modely ochrany musí mít udělen přístup k žádosti o kryptografických klíčů, když se virtuální počítač spustí do dešifrovat virtuální disky platformy Azure. Vytvoření kryptografické klíče v Key Vault s [vytvořit klíč keyvault az](/cli/azure/keyvault/key#create). Následující příklad vytvoří klíč s názvem *myKey*:
 
@@ -205,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
-Ve skutečnosti šifrování některé virtuální disky, umožňuje vytvoření virtuálního počítače a přidat datový disk. Vytvoření virtuálního počítače k šifrování s [vytvořit virtuální počítač az](/cli/azure/vm#create) a připojit datový disk 5 Gb. Pouze některé bitové kopie marketplace podporují šifrování disku. Následující příklad vytvoří virtuální počítač s názvem *Můjvp* pomocí **CentOS 7.2n** bitové kopie:
+Vytvoření virtuálního počítače k šifrování s [vytvořit virtuální počítač az](/cli/azure/vm#create) a připojit datový disk 5 Gb. Pouze některé bitové kopie marketplace podporují šifrování disku. Následující příklad vytvoří virtuální počítač s názvem *Můjvp* pomocí *CentOS 7.2n* bitové kopie:
 
 ```azurecli
 az vm create \
@@ -217,7 +222,7 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-SSH pro virtuální počítač pomocí `publicIpAddress` zobrazené ve výstupu předchozí příkaz. Vytvořit oddíl a systému souborů a pak připojit datový disk. Další informace najdete v tématu [připojit k virtuální počítač s Linuxem připojit nový disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Ukončení relace SSH.
+SSH pro virtuální počítač pomocí *publicIpAddress* zobrazené ve výstupu předchozí příkaz. Vytvořit oddíl a systému souborů a pak připojit datový disk. Další informace najdete v tématu [připojit k virtuální počítač s Linuxem připojit nový disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Ukončení relace SSH.
 
 
 ## <a name="encrypt-virtual-machine"></a>Šifrování virtuálního počítače
@@ -228,7 +233,7 @@ Pokud chcete zašifrovat virtuální disky, přepnutím společně předchozí k
 3. Zadejte kryptografické klíče k použití pro skutečné šifrování a dešifrování.
 4. Zadejte, jestli chcete šifrovat disk operačního systému, datových disků nebo všechny.
 
-Šifrování virtuálního počítače s [povolit šifrování virtuálních počítačů az](/cli/azure/vm/encryption#enable). Následující příklad používá `$sp_id` a `$sp_password` proměnné z předchozí `ad sp create-for-rbac` příkaz:
+Šifrování virtuálního počítače s [povolit šifrování virtuálních počítačů az](/cli/azure/vm/encryption#enable). Následující příklad používá *$sp_id* a *$sp_password* proměnné z předchozí [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#create-for-rbac) příkaz:
 
 ```azurecli
 az vm encryption enable \

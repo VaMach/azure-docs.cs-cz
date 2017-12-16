@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/16/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Úvod k serveru R a možnosti R open source v HDInsight
 
 Microsoft R Server je k dispozici jako možnost nasazení, při vytváření clusterů HDInsight v Azure. Tato nová funkce poskytuje datových vědců statistikami a programátory v jazyce R na vyžádání přístup k škálovatelné, distribuované metody analýz v HDInsight.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 Clustery můžete odpovídající velikost projekty a úkoly v ručně a pak bylo odstraněno. Pokud jste už nepotřebují. Vzhledem k tomu, že jsou součástí Azure HDInsight, tyto clustery se dodávají s podporu 24 hodin denně 7 podnikové úrovni, SLA 99,9 % doby provozu a možnost integrace s dalšími součástmi v ekosystému Azure.
 
@@ -96,7 +98,7 @@ Další úplné IDE možností je instalace klientů IDE a použít ho pro pří
 Nakonec získat přístup ke konzole serveru R na uzlu edge tak, že zadáte **R** na příkazovém řádku Linux po připojení prostřednictvím protokolu SSH nebo PuTY. Pokud používáte rozhraní konzoly, je vhodné spustit v jiném okně, textový editor pro vývoj skriptu R a kopírování a vkládání části souboru skriptu do konzoly R podle potřeby.
 
 ## <a name="learn-about-pricing"></a>Další informace o cenách
-Poplatky, které jsou přidruženy clusteru HDInsight bez R Server jsou strukturovaná podobně jako poplatky za standardní clusterů HDInsight. Mezi název, data a uzly okraj, a uveďte základní hodinu zdvih jsou založené na velikost základní virtuálních počítačů. Další informace o cenách prostředí HDInsight a dostupnost 30denní bezplatné zkušební verze najdete v tématu [HDInsight ceny](https://azure.microsoft.com/pricing/details/hdinsight/).
+Poplatky, které jsou přidruženy clusteru HDInsight bez R Server jsou strukturovaná podobně jako poplatky za standardní clusterů HDInsight. Mezi název, data a uzly okraj, a uveďte základní hodinu zdvih jsou založené na velikost základní virtuálních počítačů. Další informace o cenách prostředí HDInsight naleznete v části [HDInsight ceny](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o tom, jak používat R Server s clustery HDInsight, naleznete v následujících tématech:

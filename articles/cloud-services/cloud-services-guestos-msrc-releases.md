@@ -12,16 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 435aca91fa7b46fd47d5031290028b93bfadde48
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-guest-os"></a>Azure hostovaného operačního systému
 Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačního systému Azure v následujících tabulkách. Vyhledávání, zjistěte, pokud konkrétní aktualizace se týká hostovaného operačního systému, kterou používáte. Aktualizace vždy obsahují dál pro konkrétní [rodiny] [ family-explain] byly zavedeny v.
+
+## <a name="november-guest-os"></a>Listopad hostovaného operačního systému
+| Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
+| --- | --- | --- | --- | --- |
+| Relativní 17 10 | [4048953] |Aktualizace Windows 10. |5.13 |14. listopadu 2017 |
+| Relativní 17 10 | [4048960], [4048962], [4048961] |Pouze zabezpečení systému Windows |2.68, 3.55, 4.48 |14. listopadu 2017 |
+| Relativní 17 10 | [4047206] |Aplikace Internet explorer |2.68, 3.55, 4.48 |14. listopadu 2017 |
+| Relativní 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14. listopadu 2017 |
+| Není k dispozici | [4041681] |Souhrn bez zabezpečení říjen |2.67 |10. října 2017 |
+| Není k dispozici | [4041690] |Souhrn bez zabezpečení říjen |3.55 |10. října 2017 |
+| Není k dispozici | [4041693] |Souhrn bez zabezpečení říjen |4.48 |10. října 2017 |
+| Není k dispozici | [3191565] |Aktualizace pro Windows Management Framework 5.1  |3.55 |12. září 2017 |
+| Není k dispozici | [3191564] |Aktualizace pro Windows Management Framework 5.1  |4.48 |12. září 2017 |
 
 ## <a name="october-guest-os"></a>Říjen hostovaného operačního systému
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -548,6 +561,19 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | Není k dispozici |[3007054] |Chráněný PIN KÓDEM tisk možnost vždy zobrazí při tisku dokumentu v aplikaci Windows Store ve Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Není k dispozici |[2999802] |Plné čáry místo čáry s koncovými body jsou vytištěn v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Není k dispozici |[2896881] |Dlouhé doby přihlášení při použití příkazu AddPrinterConnection VBScript mapovat tiskárny pro uživatele během procesu přihlášení v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4048953]: http://support.microsoft.com/kb/4048953
+[4048960]: http://support.microsoft.com/kb/4048960 
+[4048962]: http://support.microsoft.com/kb/4048962
+[4048961]: http://support.microsoft.com/kb/4048961
+[4047206]: http://support.microsoft.com/kb/4047206
+[4048951]: http://support.microsoft.com/kb/4048951
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041693]: http://support.microsoft.com/kb/4041693
+[4041690]: http://support.microsoft.com/kb/4041690
+[3191565]: http://support.microsoft.com/kb/3191565
+[3191564]: http://support.microsoft.com/kb/3191564
+
 
 [4041691]: http://support.microsoft.com/kb/4041691 
 [4041678]: http://support.microsoft.com/kb/4041678 
