@@ -32,10 +32,10 @@
       href: how-to-deploy-monitor.md
     - name: Zřízení zařízení IoT Core
       href: how-to-install-iot-core.md
+    - name: Řešení potíží
+      href: troubleshoot.md
 - name: Koncepty
   items:
-    - name: Glosář IoT Edge
-      href: iot-edge-glossary.md
     - name: Moduly IoT Edge
       href: iot-edge-modules.md
       items:
@@ -51,6 +51,8 @@
       href: iot-edge-as-gateway.md
     - name: Zabezpečení
       href: security.md
+    - name: Glosář IoT Edge
+      href: iot-edge-glossary.md
 - name: Zdroje
   items:
     - name: Katalog zařízení Azure Certified for IoT

@@ -26,7 +26,6 @@
 
 ## Migrace do služby SQL Data Warehouse
 ### [Přehled](sql-data-warehouse-overview-migrate.md)
-### [Nástroj pro migraci](sql-data-warehouse-migrate-migration-utility.md)
 ### [Migrace schématu](sql-data-warehouse-migrate-schema.md)
 ### [Migrace kódu](sql-data-warehouse-migrate-code.md)
 ### [Migrace dat](sql-data-warehouse-migrate-data.md)
