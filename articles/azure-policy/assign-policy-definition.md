@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Vytvoření přiřazení zásady pro identifikaci prostředků, které nedodržují předpisy, v prostředí Azure
 Prvním krokem k porozumění dodržování předpisů v Azure je vědět, jak jste na tom s vašimi stávajícími prostředky. Tento rychlý start vás provede procesem vytvoření přiřazení zásady pro identifikaci virtuálních počítačů, které nepoužívají spravované disky.
@@ -21,20 +21,6 @@ Prvním krokem k porozumění dodržování předpisů v Azure je vědět, jak j
 Na konci tohoto procesu úspěšně identifikujete virtuální počítače, které nepoužívají spravované disky, a proto *nedodržují předpisy*.
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
-
-## <a name="opt-in-to-azure-policy"></a>Přihlášení ke službě Azure Policy
-
-Služba Azure Policy je nyní dostupná ve verzi Public Preview a pro vyžádání přístupu se musíte zaregistrovat.
-
-1. Přejděte do služby Azure Policy na adrese https://aka.ms/getpolicy a v levém podokně vyberte **Zaregistrovat se**.
-
-   ![Hledání zásad](media/assign-policy-definition/sign-up.png)
-
-2. Přihlaste se ke službě Azure Policy tak, že v seznamu **Předplatné** vyberete předplatná, se kterými chcete pracovat. Potom vyberte **Zaregistrovat**.
-
-   ![Přihlášení k používání služby Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Vaše žádost se pro verzi Preview schválí automaticky. Počkejte, systému může zpracování registrace trvat až 30 minut.
 
 ## <a name="create-a-policy-assignment"></a>Vytvoření přiřazení zásady
 
@@ -65,7 +51,7 @@ V tomto rychlém startu vytvoříme přiřazení zásady a přiřadíme definici
    V rámci služby Azure Policy existují dvě cenové úrovně – *Free* a *Standard*. S úrovní Free můžete vynucovat zásady pouze u budoucích prostředků, zatímco s úrovní Standard je můžete vynucovat také u stávajících prostředků, abyste lépe porozuměli vašemu stavu dodržování předpisů. Vzhledem k tomu, že jsme ve verzi Limited Preview, ještě jsme nezveřejnili cenový model, takže za výběr úrovně *Standard* neobdržíte žádnou fakturu. Další informace o cenách najdete v tématu [Ceny služby Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Vyberte **Obor**, na který chcete zásadu použít.  Obor určuje, pro které prostředky nebo skupiny prostředků se toto přiřazení zásady bude vynucovat. Může sahat od předplatného až po skupinu prostředků.
-8. Vyberte předplatné (nebo skupinu prostředků), které jste zaregistrovali dříve při přihlášení ke službě Azure Policy. V tomto příkladu používáme předplatné **Azure Analytics Capacity Dev**, ale vaše možnosti se budou lišit.
+8. Vyberte předplatné (nebo skupinu prostředků), které jste dříve zaregistrovali. V tomto příkladu používáme předplatné **Azure Analytics Capacity Dev**, ale vaše možnosti se budou lišit.
 
    ![Vyhledání správné definice zásady](media/assign-policy-definition/assign-policy.png)
 
