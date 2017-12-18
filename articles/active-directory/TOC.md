@@ -58,6 +58,7 @@
 #### [Přidání uživatele B2B do role](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamické skupiny a uživatelé B2B](active-directory-b2b-dynamic-groups.md)
 #### [Auditování a sestavy](active-directory-b2b-auditing-and-reporting.md)
+#### [B2B pro hybridní organizace](active-directory-b2b-hybrid-organizations.md)
 #### [B2B a externí sdílení Office 365](active-directory-b2b-o365-external-user.md)
 #### [Licencování B2B](active-directory-b2b-licensing.md)
 #### [Aktuální omezení](active-directory-b2b-current-limitations.md)

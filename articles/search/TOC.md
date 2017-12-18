@@ -33,6 +33,10 @@
 ### [Omezení služby](search-limits-quotas-capacity.md)
 ### [Škálovatelnost služby](search-capacity-planning.md)
 ### [Způsoby návrhu pro architekturu s více tenanty](search-modeling-multitenant-saas-applications.md)
+## Zabezpečení
+### [Zabezpečení dat a provozní zabezpečení](search-security-overview.md)
+### [Zabezpečení s využitím filtrů identit](search-security-trimming-for-azure-search.md)
+### [Zabezpečení s využitím služby Active Directory](search-security-trimming-for-azure-search-with-aad.md)
 ## Vývoj
 ### [Verze rozhraní API](search-api-versions.md)
 ### [Vývoj v Node.js](search-get-started-nodejs.md)
@@ -42,13 +46,6 @@
 ### [Modelování komplexních datových typů](search-howto-complex-data-types.md)
 ### [Zpracování souběžných aktualizací](search-howto-concurrency.md)
 ### [Ukázky kódu](https://azure.microsoft.com/resources/samples/?service=search)
-## Spravovat
-### Správa Azure Search
-#### [Azure Portal](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [Monitorování využití a statistiky](search-monitor-usage.md)
-### [Prohledání analýzy provozu](search-traffic-analytics.md)
-### [Výkon a optimalizace](search-performance-optimization.md)
 ## Načtení dat
 ### [Přehled indexeru](search-indexer-overview.md)
 ### [Indexer pro Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
@@ -73,8 +70,6 @@
 #### [Přehled](search-filters.md)
 #### [Filtry omezující vlastnost](search-filters-facets.md)
 #### [Filtry jazyka](search-filters-language.md)
-#### [Filtry zabezpečení (obecné)](search-security-trimming-for-azure-search.md)
-#### [Filtry zabezpečení (AAD)](search-security-trimming-for-azure-search-with-aad.md)
 #### [Reference k syntaxi výrazů](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Výsledky stránkování](search-pagination-page-layout.md)
 ### [Vyhodnocování](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -82,6 +77,12 @@
 ### [Fasetová navigace](search-faceted-navigation.md)
 ### [Náhled synonym](search-synonyms.md)
 ### [moreLikeThis preview](search-more-like-this.md)
+## Správa a analýzy
+### [Správa s využitím webu Azure Portal](search-manage.md)
+### [Správa s využitím PowerShellu](search-manage-powershell.md)
+### [Monitorování využití a statistiky](search-monitor-usage.md)
+### [Prohledání analýzy provozu](search-traffic-analytics.md)
+### [Výkon a optimalizace](search-performance-optimization.md)
 
 # Referenční informace
 

@@ -6,13 +6,13 @@ author: sewatson
 manager: lwelicki
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 12/13/2017
 ms.author: sewatson
-ms.openlocfilehash: 30ffaff9c4a7bacbda1f6b973f328a345eb5d5b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9644a587d72973239e34073188ad2cd37eaab5dc
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-documentation"></a>Dokumentace k databázi Azure Cosmos
 
@@ -22,12 +22,12 @@ Databáze Azure Cosmos je globálně distribuovaná databázová služba navrže
 
 Zjistěte, jak pomocí služby Azure Cosmos DB vytvořit globálně distribuovanou databázi s použitím jednoho z rozhraní API s více modely:
 
-### <a name="documentdb-api"></a>Rozhraní DocumentDB API
+### <a name="sql-api"></a>SQL API
 
-- [.NET](/azure/cosmos-db/create-documentdb-dotnet)
-- [Java](/azure/cosmos-db/create-documentdb-java)
-- [Node.js](/azure/cosmos-db/create-documentdb-nodejs)
-- [Python](/azure/cosmos-db/create-documentdb-python)
+- [.NET](/azure/cosmos-db/create-sql-api-dotnet)
+- [Java](/azure/cosmos-db/create-sql-api-java)
+- [Node.js](/azure/cosmos-db/create-sql-api-nodejs)
+- [Python](/azure/cosmos-db/create-sql-api-python)
 
 ### <a name="mongodb-api"></a>Rozhraní MongoDB API
 
@@ -50,11 +50,11 @@ Zjistěte, jak pomocí služby Azure Cosmos DB vytvořit globálně distribuovan
 
 Zjistěte, jak vyvíjet aplikace s využitím služby Azure Cosmos DB:
 
-- Vývoj aplikace s využitím služby Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
-- Import dat do služby Cosmos DB: [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
-- Dotazování dat pomocí služby Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
-- Globální replikace databáze pomocí služby Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table](/azure/cosmos-db/tutorial-global-distribution-table) | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
-- [Lokální vývoj aplikace pomocí emulátoru](/azure/documentdb/documentdb-nosql-local-emulator)
+- Vývoj aplikace s využitím služby Cosmos DB: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Import dat do služby Cosmos DB: [SQL](/azure/cosmos-db/sql-api-import-data) | [MongoDB](/azure/cosmos-db/mongodb-migrate) 
+- Dotazování dat pomocí služby Cosmos DB: [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
+- Globální replikace databáze pomocí služby Cosmos DB: [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table](/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
+- [Lokální vývoj aplikace pomocí emulátoru](/azure/cosmos-db/local-emulator)
 
 ## <a name="samples"></a>Ukázky
 
