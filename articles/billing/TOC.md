@@ -27,17 +27,17 @@
 ### [Vysvětlení využití rezervovaných instancí pro podniky](billing-understand-reserved-instance-usage-ea.md)
 
 ## Správa předplatných
+### [Vyhledání předplatného nebo skupiny pro správu](billing-enterprise-mgmt-grp-find.md)
 ### [Správa rolí správce](billing-add-change-azure-subscription-administrator.md)
 ### [Převod vlastnictví předplatného](billing-subscription-transfer.md)
 ### [Nová aktivace deaktivovaného předplatného](billing-subscription-become-disable.md)
 ### [Upgrade bezplatného předplatného](billing-upgrade-azure-subscription.md)
 ### [Přepnutí nabídky předplatného](billing-how-to-switch-azure-offer.md)
+### [Propojení tenanta Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Zrušení předplatného](billing-how-to-cancel-azure-subscription.md)
-### [Vyhledání předplatného nebo skupiny pro správu](billing-enterprise-mgmt-grp-find.md)
 ## Správa účtu
 ### [Úprava profilu](billing-how-to-change-azure-account-profile.md)
 ### [Aktualizace platebních informací](billing-how-to-change-credit-card.md)
-### [Propojení tenanta Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Úhrada předplatných pomocí faktury](billing-how-to-pay-by-invoice.md)
 ## [Správa rezervovaných instancí virtuálních počítačů](billing-manage-reserved-vm-instance.md)
 ## Řešení potíží
