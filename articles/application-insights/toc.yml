@@ -51,6 +51,8 @@
           href: app-insights-windows-desktop.md
         - name: Jádro ASP.NET
           href: app-insights-asp-net-core.md
+        - name: Konzola
+          href: application-insights-console.md
     - name: Monitorování aplikací v Javě
       items:
         - name: Webové aplikace
