@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Co je služba Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ Pokud se o službě Azure Security chcete dozvědět víc, podívejte se na [Mic
 ## <a name="supports-the-latest-client-tools"></a>Podporuje nejnovější nástroje klienta
 ![Vizualizace dat](./media/analysis-services-overview/aas-overview-clients.png)
 
-Moderní nástroje pro zkoumání a vizualizaci dat, jako jsou Power BI, Excel a nástroje třetích stran, poskytují uživatelům vysoce interaktivní a vizuálně bohaté přehledy o datech modelu.
+Podporují se všechny moderní nástroje pro zkoumání a vizualizaci dat, jako jsou Power BI, Excel, SQL Server 2017 Reporting Services a nástroje třetích stran, které poskytují uživatelům vysoce interaktivní a vizuálně bohaté přehledy dat modelu. 
 
 Klienti pro připojení k serverům služby Analysis Services používají [klientské knihovny](analysis-services-data-providers.md) MSOLAP, AMO nebo ADOMD. Klientské aplikace Microsoftu jako Power BI Desktop a Excel instalují všechny tři klientské knihovny. Mějte však na paměti, že v závislosti na verzi nebo četnosti aktualizací nemusí klientské knihovny být nejnovější verze, kterou vyžaduje služba Azure Analysis Services. To samé platí pro vlastní aplikace a další rozhraní, jako jsou AsCmd, Tom nebo ADOMD.NET. Tyto aplikace obvykle vyžadují ruční instalaci těchto knihoven jako součást balíčku.
 

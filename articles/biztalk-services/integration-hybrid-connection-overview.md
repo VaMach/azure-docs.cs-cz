@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 992c438ab2dac8dc20ba284bd095afbcd801a62f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="hybrid-connections-overview"></a>Přehled hybridních připojení
 
@@ -90,12 +90,12 @@ Hybridní připojení používají tyto porty TCP:
 | 80, 443 |Tyto porty se používají při některých žádostech o data zasílaných do Azure. Kromě toho platí, že pokud porty 9352 a 5671 nejsou použitelné, *potom* se pro přenos dat a jako řídicí kanál použijí záložní porty 80 a 443.<br/><br/>Povolte odchozí připojení k těmto portům. <br/><br/>**Poznámka:** Tyto porty nedoporučujeme používat jako záložní porty pro jiné porty TCP. Jako protokol pro datové kanály se místo nativního protokolu TCP používá HTTP/WebSocket. To může způsobit snížení výkonu. |
 
 ## <a name="next-steps"></a>Další kroky
-[Vytváření a správa hybridních připojení](integration-hybrid-connection-create-manage.md)<br/>
+[Vytváření a správa hybridních připojení](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Viz také
-[Rozhraní API REST pro správu služby BizTalk Services v Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
-[BizTalk Services: Tabulka edic](biztalk-editions-feature-chart.md)<br/>
-[Vytvoření služby BizTalk pomocí webu Azure Portal](biztalk-provision-services.md)<br/>
-[BizTalk Services: Karty Řídicí panel, Sledování a Škálování](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[Rozhraní REST API pro správu služby BizTalk Services v Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[BizTalk Services: Tabulka edic](biztalk-editions-feature-chart.md)  
+[Vytvoření služby BizTalk](biztalk-provision-services.md)  
+[BizTalk Services: Karty Řídicí panel, Sledování a Škálování](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

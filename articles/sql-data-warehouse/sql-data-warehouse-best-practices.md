@@ -15,16 +15,18 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: f24dc2600bec8b7086ee34a960e777a8a1b288ad
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Osvědčené postupy pro službu Azure SQL Data Warehouse
 Tento článek je kolekcí mnoha osvědčených postupů, které vám pomohou dosáhnout optimálního výkonu vaší služby Azure SQL Data Warehouse.  Některé koncepty v tomto článku jsou základní a snadno se vysvětlují, další koncepty jsou pokročilejší a v tomto článku se jich jenom lehce dotýkáme.  Účelem tohoto článku je poskytnout vám základní pokyny a zvýšit povědomí o důležitých oblastech, na které byste se měli zaměřit, když budete sestavovat svůj datový sklad.  Každá část vám představí nějaký koncept a odkáže vás na podrobnější články, které se danému konceptu věnují více do hloubky.
 
 Pokud se službou Azure SQL Data Warehouse teprve začínáte, nenechte se tímto článkem zahltit.  Témata jsou uspořádaná především podle důležitosti.  Pokud se zpočátku zaměříte na prvních pár konceptů, bude vám to úplně stačit.  Až budete o službě SQL Data Warehouse vědět víc a budete si jistější, vraťte se a prozkoumejte pár dalších konceptů.  Nebude to trvat dlouho a všechno začne dávat smysl.
+
+Pokyny k načítání najdete v tématu [Doprovodné materiály k načítání dat](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Snižte náklady pomocí pozastavení a škálování
 Klíčovou funkcí služby SQL Data Warehouse je schopnost pozastavit se, když ji zrovna nepoužíváte, a zastavit tak účtování výpočetních prostředků.  Další klíčovou funkcí je schopnost škálovat prostředky.  Pozastavení a škálování můžete provádět přes Azure Portal nebo prostřednictvím příkazů prostředí PowerShell.  S těmito funkcemi se důkladně seznamte, protože mohou výrazně snížit náklady na datový sklad, když se zrovna nevyužívá.  Pokud chcete, aby váš datový sklad byl neustále přístupný, můžete zvážit vertikální snížení jeho kapacity na nejmenší možnou velikost DW100 místo jeho pozastavení.
@@ -52,7 +54,7 @@ SQL Data Warehouse podporuje načítání a export dat prostřednictvím různý
 Viz také [Načtení dat][Load data], [Průvodce používáním funkce PolyBase][Guide for using PolyBase], [Vzory a strategie načítání služby Azure SQL Data Warehouse][Azure SQL Data Warehouse loading patterns and strategies], [Načtení dat pomocí služby Azure Data Factory][Load Data with Azure Data Factory], [Přesun dat pomocí služby Azure Data Factory][Move data with Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [CREATE TABLE AS SELECT (CTAS)][Create table as select (CTAS)].
 
 ## <a name="load-then-query-external-tables"></a>Načtěte a následně dotazujte externí tabulky
-Přestože lze PolyBase (také označovanou jako externí tabulky) považovat za nejrychlejší způsob načítání dat, není ideální pro dotazy. Tabulky PolyBase služby SQL Data Warehouse aktuálně podporují pouze soubory Azure blob. Tyto soubory nemají podporu v žádných výpočetních prostředcích.  Z toho důvodu služba SQL Data Warehouse nemůže tuto práci přesměrovat a proto musí číst celý soubor. Aby mohla data číst, načte celý soubor do dočasné tabulky tepmdb.  Proto pokud máte několik dotazů, které budou tato data dotazovat, je lepší data jednou nahrát a nastavit dotazy, aby používaly místní tabulku.
+Přestože lze PolyBase (také označovanou jako externí tabulky) považovat za nejrychlejší způsob načítání dat, není ideální pro dotazy. Tabulky PolyBase služby SQL Data Warehouse aktuálně podporují pouze soubory Azure blob a úložiště Azure Data Lake. Tyto soubory nemají podporu v žádných výpočetních prostředcích.  Z toho důvodu služba SQL Data Warehouse nemůže tuto práci přesměrovat a proto musí číst celý soubor. Aby mohla data číst, načte celý soubor do dočasné tabulky tepmdb.  Proto pokud máte několik dotazů, které budou tato data dotazovat, je lepší data jednou nahrát a nastavit dotazy, aby používaly místní tabulku.
 
 Viz také [Průvodce používáním funkce PolyBase][Guide for using PolyBase].
 
@@ -127,8 +129,8 @@ Nakonec můžete použít stránku [Zpětná vazba k službě Azure SQL Data War
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[Load data]: ./sql-data-warehouse-overview-load.md
+[Guide for using PolyBase]: ./guidance-for-loading-data.md
+[Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md

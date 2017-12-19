@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Představení Apache Kafka ve službě HDInsight
 
@@ -62,6 +62,8 @@ Kafka pro HDInsight poskytuje následující funkce:
 ![Konfigurace clusteru Kafka](./media/apache-kafka-introduction/kafka-cluster.png)
 
 Tento diagram ukazuje obvyklou konfiguraci Kafka s využitím skupin příjemců, dělení a replikace. Díky tomu nabízí paralelní čtení událostí s odolností proti chybám. Apache ZooKeeper spravuje stav clusteru Kafka a proto je postaven pro souběžné a odolné transakce s nízkou latencí. Kafka ukládá záznamy v *tématech*. Záznamy jsou vytvářeny *producenty* a spotřebovávány *konzumenty*. Producenti načítají záznamy ze *zprostředkovatelů* Kafka. Každý pracovní uzel v clusteru HDInsight je zprostředkovatelem Kafka. Pro každého příjemce se vytvoří jeden oddíl, což umožňuje paralelní zpracování streamovaných dat. K rozprostření oddílů mezi uzly se využívá replikace, která zajišťuje ochranu před výpadky uzlů (zprostředkovatelé). Oddíl s označením *(L)* je vedoucím daného uzlu. Provoz producenta se směruje do vedoucích jednotlivých uzlů pomocí stavu, který spravuje ZooKeeper.
+
+Všichni zprostředkovatelé Kafka používají službu Azure Managed Disks. Počet disků je definovaný uživatelem a pro jednoho zprostředkovatele můžou poskytovat až 16 GB úložiště.
 
 > [!IMPORTANT]
 > Kafka nemá žádné informace o podkladovém hardwaru (rack) v datovém centru Azure. Pokud chcete zajistit správné rozmístění oddílů napříč podkladovým hardwarem, přečtěte si téma věnované [konfiguraci vysoké dostupnosti dat (Kafka)](apache-kafka-high-availability.md).

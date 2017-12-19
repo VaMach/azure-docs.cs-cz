@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Spouštění kanálů a aktivační události v Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 ## <a name="triggers"></a>Triggery
 Aktivační události představují druhý způsob provedení spuštění kanálu. Aktivační události jsou jednotkou zpracování, která určuje, kdy se má zahájit provádění kanálu. Data Factory v současné době podporuje aktivační událost, která volá kanál podle hodinového plánu. Její název je **aktivační událost plánovače**. Data Factory v současné době nepodporuje aktivační události na základě událostí, jako například aktivační událost spuštění kanálu v případě přijetí souboru.
 
-Mezi kanály a aktivačními událostmi existuje vztah „n-m“. Víc aktivačních událostí může aktivovat jeden kanál a jedna aktivační událost může aktivovat víc kanálů. V následující definici JSON aktivační události vlastnost **pipelines** odkazuje na seznam kanálů aktivovaných určitou aktivační událostí a hodnoty parametrů kanálu.
+Mezi kanály a aktivačními událostmi existuje vztah n-m. Více aktivačních událostí může aktivovat jeden kanál a jedna aktivační událost může aktivovat více kanálů. V následující definici JSON aktivační události vlastnost **pipelines** odkazuje na seznam kanálů aktivovaných určitou aktivační událostí a hodnoty parametrů kanálu.
 
 ### <a name="basic-trigger-definition"></a>Definice základní aktivační události: 
 ```json
@@ -165,7 +165,7 @@ Aktivační událost plánovače spouští kanály podle hodinového plánu. Tat
 ### <a name="scheduler-trigger-json-definition"></a>Definice JSON aktivační události plánovače
 Když vytvoříte aktivační událost plánovače, můžete zadat plánování a opakování pomocí formátu JSON, jak znázorňuje příklad v této části. 
 
-Pokud chcete, aby aktivační událost plánovače aktivovala spuštění kanálu, zahrňte do definice aktivační události odkaz na příslušný kanál. Mezi kanály a aktivačními událostmi existuje vztah „n-m“. Víc aktivačních událostí může aktivovat jeden kanál. Jedna aktivační událost může aktivovat víc kanálů.
+Pokud chcete, aby aktivační událost plánovače aktivovala spuštění kanálu, zahrňte do definice aktivační události odkaz na příslušný kanál. Mezi kanály a aktivačními událostmi existuje vztah n-m. Víc aktivačních událostí může aktivovat jeden kanál. Jedna aktivační událost může aktivovat více kanálů.
 
 ```json
 {

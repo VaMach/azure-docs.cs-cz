@@ -3,7 +3,7 @@ title: "Vytvoření samostatného účtu Azure Automation | Dokumentace Microsof
 description: "Kurz vás provede vytvořením, otestováním a ukázkovým použitím ověření objektu zabezpečení ve službě Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Vytvoření samostatného účtu Azure Automation
 Toto téma ukazuje, jak vytvořit účet Automation z webu Azure Portal, pokud se chcete seznámit se službou Azure Automation a vyzkoušet si ji bez zahrnutí dalších řešení pro správu nebo integrace s OMS Log Analytics k poskytování pokročilého monitorování úloh runbooků.  Tato řešení pro správu nebo integraci s Log Analytics můžete přidat kdykoli v budoucnu.  S účtem Automation můžete ověřit runbooky, které spravují prostředky buď v Azure Resource Manageru, nebo v nasazení Azure Classic.
@@ -43,7 +43,7 @@ V této části provedete následující kroky a vytvoříte účet Azure Automa
 
 1. Přihlaste se k webu Azure Portal pomocí účtu, který je členem role správců předplatného a spolusprávcem předplatného.
 2. Klikněte na možnost **Nové**.<br><br> ![Výběr možnosti Nové na webu Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
-3. Vyhledejte **Automation** a potom ve výsledcích hledání vyberte **Automation and Control***.<br><br> ![Hledání a výběr Automation na Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
+3. Vyhledejte **Automation** a potom ve výsledcích hledání vyberte **Automation and Control***.<br><br> ![Vyhledání a výběr služby Automation na Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 3. V okně Účty Automation klikněte na **Přidat**.<br><br>![Přidání účtu Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
 

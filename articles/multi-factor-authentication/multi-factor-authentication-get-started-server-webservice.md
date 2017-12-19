@@ -4,7 +4,7 @@ description: "Aplikace Microsoft Authenticator nabízí možnost dalšího ově�
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 3d1e8d62127a3c5c888804278fbcd9a4fe81e33f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Povolení ověření přes mobilní aplikaci se serverem Azure Multi-Factor Authentication
 
@@ -63,7 +63,7 @@ V obou scénářích, pokud sada SDK webové služby Azure Multi-Factor Authenti
 3. Dokončete instalaci s použitím výchozích hodnot, pokud je z nějakého důvodu nepotřebujete změnit.
 4. Vytvořte vazbu certifikátu SSL k webu ve službě IIS.
 
-Pokud máte dotazy ke konfiguraci certifikátu SSL na serveru služby IIS, přečtěte si článek [Nastavení protokolu SSL ve službě IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Pokud máte dotazy ke konfiguraci certifikátu SSL na serveru služby IIS, přečtěte si článek [Nastavení protokolu SSL ve službě IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 Sada SDK webové služby musí být zabezpečená certifikátem SSL. Pro tento účel stačí certifikát podepsaný svým držitelem. Importujte certifikát do úložiště „Důvěryhodné kořenové certifikační autority“ účtu místního počítače na webovém serveru portálu User Portal, aby byl certifikát důvěryhodný při navazování připojení SSL.
 
@@ -88,6 +88,7 @@ Sada SDK webové služby musí být zabezpečená certifikátem SSL. Pro tento �
 
 7. Pokud web, na který byla nainstalována webová služba mobilní aplikace, nebyl dosud navázaný na veřejně podepsaný certifikát, nainstalujte certifikát na server, otevřete Správce služby IIS a vytvořte vazbu certifikátu k webu.
 8. Na libovolném počítači otevřete webový prohlížeč a přejděte na adresu URL, kam byla nainstalována webová služba mobilní aplikace (příklad: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Ujistěte se, že se nezobrazí žádná varování nebo chyby týkající se certifikátu.
+9. Další informace o metodách dostupných v sadě SDK pro webové služby najdete v souboru nápovědy pro MFA Server.
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurace serveru Azure Multi-Factor Authentication
 

@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Připojená služba sady Visual Studio (Preview)
 
@@ -119,8 +119,8 @@ V tomto dokumentu jste se naučili následující:
 
 Když teď máte zprovozněné připojené služby se svým účtem služby Azure Cosmos DB, pokračujte na některý z kurzů a začněte s vývojem svého řešení:
 
-* [Vývoj pomocí rozhraní DocumentDB API v .NET](tutorial-develop-documentdb-dotnet.md)
-* [Azure Cosmos DB: Úvodní kurz k rozhraní DocumentDB API](documentdb-get-started.md)
+* [Vývoj pomocí rozhraní SQL API v .NET](tutorial-develop-documentdb-dotnet.md)
+* [Azure Cosmos DB: Úvodní kurz k rozhraní SQL API](documentdb-get-started.md)
 * Chcete testovat škálování a výkon pomocí služby Azure Cosmos DB? Viz [Testování výkonu a škálování pomocí služby Azure Cosmos DB](performance-testing.md).
 * Zjistěte, jak [monitorovat účet služby Azure Cosmos DB](monitor-accounts.md).
 

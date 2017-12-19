@@ -3,7 +3,7 @@ title: "Začínáme s Azure Automation | Dokumentace Microsoftu"
 description: "Tento článek obsahuje přehled služby Azure Automation. Najdete tu popis návrhu a podrobnosti implementace v rámci přípravy na zprovoznění nabídky z Azure Marketplace."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Začínáme s Azure Automation
 
@@ -112,7 +112,7 @@ Následující tabulka shrnuje různé metody ověřování pro jednotlivá pros
 V části **Postupy\Ověřování a zabezpečení** najdete doprovodné články s přehledem a postupem implementace pro konfiguraci ověřování v těchto prostředích, a to buď pomocí stávajícího účtu, nebo nového účtu, který vyhradíte pro příslušné prostředí.  Pro účty Spustit jako pro Azure a Spustit jako pro Azure Classic téma [Aktualizace účtu Automation Spustit jako](automation-create-runas-account.md) popisuje, jak aktualizovat stávající účet Automation s účty Spustit jako z portálu nebo pomocí PowerShellu, pokud původně nebyl s účtem Spustit jako pro Azure nebo Spustit jako pro Azure Classic nakonfigurovaný. Pokud chcete vytvořit účet Spustit jako a účet Spustit jako pro Azure Classic s využitím certifikátu vydaného certifikační autoritou (CA) vaší organizace, přečtěte si tento článek, ve kterém zjistíte, jak vytvořit účty s touto konfigurací.     
  
 ## <a name="network-planning"></a>Plánování sítě
-Aby se Hybrid Runbook Worker připojil k sadě Microsoft Operations Management Suite (OMS) a registroval, musí mít přístup k portu a adresám URL, které jsou uvedené dál.  To je navíc k [portům a adresám URL požadovaným pro agenta MMA (Microsoft Monitoring Agent)](../log-analytics/log-analytics-windows-agents.md#network) pro připojení k OMS. Pokud ke komunikaci mezi agentem a službou OMS používáte proxy server, budete se muset ujistit, že jsou dostupné příslušné prostředky. Pokud používáte k omezení přístupu k internetu bránu firewall, je nutné ji nakonfigurovat tak, aby povolovala přístup.
+Aby se Hybrid Runbook Worker připojil k sadě Microsoft Operations Management Suite (OMS) a registroval, musí mít přístup k portu a adresám URL, které jsou uvedené dál.  To je navíc k [portům a adresám URL požadovaným pro agenta MMA (Microsoft Monitoring Agent)](../log-analytics/log-analytics-windows-agent.md) pro připojení k OMS. Pokud ke komunikaci mezi agentem a službou OMS používáte proxy server, budete se muset ujistit, že jsou dostupné příslušné prostředky. Pokud používáte k omezení přístupu k internetu bránu firewall, je nutné ji nakonfigurovat tak, aby povolovala přístup.
 
 Dál jsou uvedené informace o portu a adresách URL, které jsou potřeba k tomu, aby Hybrid Runbook Worker mohl komunikovat se službou Automation.
 
@@ -161,7 +161,7 @@ Doporučenou metodou připojení služby Automation je výběr nabídky Automati
 
 2. Klikněte na možnost **Nové**.<br><br> ![Výběr možnosti Nové na webu Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. Vyhledejte **Automation** a potom ve výsledcích hledání vyberte **Automation and Control***.<br><br> ![Hledání a výběr Automation &amp; Control na Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png)<br>   
+3. Vyhledejte **Automation** a potom ve výsledcích hledání vyberte **Automation and Control***.<br><br> ![Vyhledání a výběr Automation & Control na Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png)<br>   
 
 4. Přečtěte si popis této nabídky a klikněte na **Vytvořit**.  
 

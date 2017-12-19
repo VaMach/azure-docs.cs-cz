@@ -1,6 +1,6 @@
 ---
 title: "Vyloučení disků z ochrany pomocí Azure Site Recovery | Dokumentace Microsoftu"
-description: "Tento článek popisuje, proč a jak vyloučit disky virtuálních počítačů z replikace pro scénáře z VMware do Azure."
+description: "Tento článek popisuje, proč a jak vyloučit disky virtuálních počítačů z replikace pro scénáře z Hyper-V do Azure."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,24 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/12/2017
 ms.author: nisoneji
-ms.openlocfilehash: af3f934c0572b50b22cdfb99a8a94bb856042b1b
+ms.openlocfilehash: 17a7f8032cc40b8b4a18240e7d20570d73ec9c49
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/13/2017
 ---
-# <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Vyloučení disků z replikace pro scénář VMware do Azure
-Tento článek popisuje, jak vyloučit disky z replikace. Takové vyloučení může optimalizovat jak využití šířky pásma potřebné pro replikaci, tak i prostředků využívaných na cílové straně těmito disky. 
+# <a name="exclude-disks-from-replication"></a>Vyloučení disků z replikace
+Tento článek popisuje, jak vyloučit disky z replikace. Takové vyloučení může optimalizovat jak využití šířky pásma potřebné pro replikaci, tak i prostředků využívaných na cílové straně těmito disky.
 
 ## <a name="supported-scenarios"></a>Podporované scénáře
 **Funkce** | **Z VMware do Azure** | **Z Hyper-V do Azure** | **Z Azure do Azure**| **Z Hyper-V do Hyper-V** 
 --|--|--|--|--
 Vyloučení disku | Ano | Ano | Ne | Ne
-
-## <a name="prerequisites"></a>Požadavky
-
-Ve výchozím nastavení se replikují všechny disky virtuálního počítače. Chcete-li některý disk z replikace vyloučit, je třeba na virtuální počítač ručně nainstalovat službu Mobility ještě předtím, než povolíte replikaci z VMware do Azure.
-
 
 ## <a name="why-exclude-disks-from-replication"></a>Proč vylučovat disky z replikace?
 Vyloučení disků z replikace je často nutné z těchto důvodů:
@@ -51,23 +46,17 @@ Podobně můžete pomocí následujícího postupu optimalizovat disk, který ob
 1. Systémovou databázi a databázi tempdb budete uchovávat na dvou různých discích.
 2. Disk s databází tempdb vyloučíte z replikace.
 
-## <a name="how-to-exclude-disks-from-replication"></a>Jak vyloučit disky z replikace?
+## <a name="how-to-exclude-disks"></a>Vyloučení disků
+Pokud chcete chránit virtuální počítač z portálu Azure Site Recovery, postupujte podle pracovního postupu pro [povolení replikace](site-recovery-hyper-v-site-to-azure.md). Ve čtvrtém kroku pracovního postupu můžete pomocí sloupce **DISK TO REPLICATE** vyloučit disky z replikace. Ve výchozím nastavení jsou pro replikaci vybrány všechny disky. Zrušte výběr disků, které chcete vyloučit z replikace, a potom dokončete postup povolení replikace.
 
-Pokud chcete chránit virtuální počítač z portálu Azure Site Recovery, postupujte podle pracovního postupu pro [povolení replikace](site-recovery-vmware-to-azure.md). Ve čtvrtém kroku pracovního postupu můžete pomocí sloupce **DISK TO REPLICATE** vyloučit disky z replikace. Ve výchozím nastavení jsou pro replikaci vybrány všechny disky. Zrušte výběr disků, které chcete vyloučit z replikace, a potom dokončete postup povolení replikace.
-
-![Vyloučení disků z replikace a povolení replikace pro navrácení služeb po obnovení z VMware do Azure](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
-
+![Vyloučení disků z replikace a povolení replikace pro navrácení služeb po obnovení z Hyper-V do Azure](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
 >[!NOTE]
 >
-> * Můžete vyloučit jenom disky, na kterých už je nainstalovaná služba Mobility. Službu Mobility musíte nainstalovat ručně, protože se jinak instaluje pomocí mechanismu nabízených instalací až po povolení replikace.
-> * Z replikace můžete vyloučit pouze běžné disky. Nemůžete vyloučit disk operačního systému ani dynamické disky.
+> * Z replikace můžete vyloučit pouze běžné disky. Nemůžete vyloučit disky operačního systému. Doporučujeme, abyste nevylučovali dynamické disky. Azure Site Recovery nemůže zjistit, který virtuální pevný disk (VHD) je v hostovaném virtuálním počítači běžný a který dynamický.  Pokud nejsou vyloučeny všechny disky se závislými dynamickými svazky, z chráněného dynamického disku se na virtuálním počítači po převzetí služeb při selhání stane chybný disk a data na takovém disku budou nepřístupná.
 > * Po povolení replikace už není možné přidávat nebo odebírat disky pro replikaci. Pokud chcete přidat nebo vyloučit disk, budete muset zakázat ochranu virtuálního počítače a potom ji znovu povolit.
 > * Pokud vyloučíte disk, který je nezbytný pro provoz aplikace, po převzetí služeb při selhání do Azure budete muset v Azure disk znovu ručně vytvořit, aby se replikovaná aplikace mohla spustit. Alternativně můžete do plánu obnovení integrovat službu Azure Automation, která disk vytvoří během převzetí služeb při selhání počítače.
-> * Virtuální počítače s Windows: Disky, které ručně vytvoříte v Azure, nebude možné po navrácení služeb obnovit. Například když při selhání převezmete tři disky a pak přímo ve službě Azure Virtual Machines vytvoříte další dva, při navrácení služeb po obnovení se přenesou jen tři disky replikované při selhání. Ručně vytvořené disky není možné zahrnout do navrácení služeb po obnovení ani do zpětné replikace z místního počítače do Azure.
-> * Virtuální počítače s Linuxem: Disky, které ručně vytvoříte v Azure, se po navrácení služeb obnoví. Například když při selhání převezmete tři disky a pak přímo ve službě Azure Virtual Machines vytvoříte další dva, při navrácení služeb se obnoví všech pět. Ručně vytvořené disky nemůžete vyloučit z navrácení služeb po obnovení.
->
-
+> * Disky, které ručně vytvoříte v Azure, nebude možné po obnovení navrátit. Například pokud provedete převzetí služeb při selhání u tří disků a dva disky vytvoříte přímo ve službě Azure Virtual Machines, po obnovení z Azure do Hyper-V se navrátí pouze tři disky, u nichž se provedlo převzetí služeb při selhání. Ručně vytvořené disky není možné zahrnout do navrácení služeb po obnovení ani do zpětné replikace z Hyper-V do Azure.
 
 ## <a name="end-to-end-scenarios-of-exclude-disks"></a>Úplné scénáře vyloučení disků
 Pojďme se podívat na dva scénáře, abychom porozuměli funkci vyloučení disku:
@@ -75,7 +64,7 @@ Pojďme se podívat na dva scénáře, abychom porozuměli funkci vyloučení di
 - Disk s databází tempdb systému SQL Server
 - Disk se stránkovacím souborem (pagefile.sys)
 
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Příklad 1: Vyloučení disku s databází tempdb systému SQL Server
+## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Příklad 1: Vyloučení disku s databází tempdb systému SQL Server
 Uvažujme virtuální počítač se systémem SQL Server, který používá databázi tempdb, kterou chcete vyloučit z replikace.
 
 Název virtuálního disku je SalesDB.
@@ -153,7 +142,7 @@ Seznamte se s následujícími pravidly Azure pro dočasné disky úložiště:
 * [Osvědčené postupy z hlediska výkonu pro SQL Server na Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
 ## <a name="failback-from-azure-to-an-on-premises-host"></a>Navrácení služeb po obnovení (z Azure na místního hostitele)
-Nyní se pojďme podívat na to, které disky se budou replikovat při převzetí služeb při selhání z Azure do VMware v místním prostředí. Disky, které vytvoříte v Azure ručně, se replikovat nebudou. Například když při selhání převezmete tři disky a pak přímo ve službě Azure Virtual Machines vytvoříte další dva, při navrácení služeb po obnovení se přenesou jen tři disky replikované při selhání. Ručně vytvořené disky není možné zahrnout do navrácení služeb po obnovení ani do zpětné replikace z místního počítače do Azure. Také se nereplikují disky s dočasným úložištěm na místní hostitele.
+Nyní se pojďme podívat na to, které disky se budou replikovat při převzetí služeb při selhání z Azure na místního hostitele Hyper-V. Disky, které vytvoříte v Azure ručně, se replikovat nebudou. Například když při selhání převezmete tři disky a pak přímo ve službě Azure Virtual Machines vytvoříte další dva, při navrácení služeb po obnovení se přenesou jen tři disky replikované při selhání. Ručně vytvořené disky není možné zahrnout do navrácení služeb po obnovení ani do zpětné replikace z místního počítače do Azure. Také se nereplikují disky s dočasným úložištěm na místní hostitele.
 
 ### <a name="failback-to-original-location-recovery"></a>Navrácení služeb po obnovení do původního umístění
 
@@ -166,15 +155,17 @@ Disk1 | E:\ | Dočasné úložiště</br /> </br />Azure tento disk přidá a p�
 Disk2 | D:\ | Databáze systému SQL a uživatelská databáze 1
 Disk3 | G:\ | Uživatelská databáze 2
 
-Po dokončení navrácení služeb po obnovení do původního umístění neobsahuje konfigurace disků obnoveného virtuálního počítače vyloučené disky. Disky vyloučené z replikace z VMware do Azure nebudou po navrácení služeb po obnovení virtuálního počítače dostupné.
+Pokud se navrácení služeb po obnovení provádí do původního umístění, zůstává konfigurace disků virtuálního počítače stejná jako konfigurace disků původního virtuálního počítače Hyper-V. Disky vyloučené z replikace z Hyper-V do Azure budou dostupné po navrácení služeb po obnovení virtuálního počítače.
 
-Po naplánovaném převzetí služeb při selhání z Azure do místního počítače VMware budou disky na virtuálním počítači VMWare (v původním umístění) následující:
+Po naplánovaném převzetí služeb při selhání z Azure do místního počítače Hyper-V budou disky na virtuálním počítači Hyper-V (v původním umístění) následující:
 
-**Označení disku v hostovaném operačním systému** | **Písmeno jednotky** | **Typ dat na disku**
---- | --- | ---
-DISK0 | C:\ | Disk operačním systému
-Disk1 | D:\ | Databáze systému SQL a uživatelská databáze 1
-Disk2 | G:\ | Uživatelská databáze 2
+**Název disku** | **Označení disku v hostovaném operačním systému** | **Písmeno jednotky** | **Typ dat na disku**
+--- | --- | --- | ---
+DB-Disk0-OS | DISK0 |   C:\ | Disk operačním systému
+DB-Disk1 | Disk1 | D:\ | Databáze systému SQL a uživatelská databáze 1
+DB-Disk2 (vyloučený disk) | Disk2 | E:\ | Dočasné soubory
+DB-Disk3 (vyloučený disk) | Disk3 | F:\ | SQL databáze tempdb (cesta ke složce (F:\MSSQL\Data\)
+DB Disk4 | Disk4 | G:\ | Uživatelská databáze 2
 
 ## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Příklad 2: Vyloučení disku se stránkovacím souborem (pagefile.sys)
 
@@ -195,8 +186,7 @@ Tady je nastavení stránkovacího souboru na zdrojovém virtuálním počítač
 
 ![Nastavení stránkovacího souboru na zdrojovém virtuálním počítači](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
-
-Po převzetí služeb virtuálního počítače při selhání z VMware do Azure budou disky na virtuálním počítači Azure následující:
+Po převzetí služeb virtuálního počítače při selhání z Hyper-V do Azure budou disky na virtuálním počítači Azure následující:
 
 **Název disku** | **Označení disku v hostovaném operačním systému** | **Písmeno jednotky** | **Typ dat na disku**
 --- | --- | --- | ---
@@ -226,7 +216,7 @@ Tady je nastavení stránkovacího souboru na místním virtuálním počítači
 
 ![Nastavení stránkovacího souboru na místním virtuálním počítači](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-Po převzetí služeb virtuálního počítače při selhání z VMware do Azure budou disky na virtuálním počítači Azure následující:
+Po převzetí služeb virtuálního počítače při selhání z Hyper-V do Azure budou disky na virtuálním počítači Azure následující:
 
 **Název disku**| **Označení disku v hostovaném operačním systému**| **Písmeno jednotky** | **Typ dat na disku**
 --- | --- | --- | ---

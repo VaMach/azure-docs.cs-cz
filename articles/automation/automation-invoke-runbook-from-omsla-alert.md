@@ -3,7 +3,7 @@ title: "Volání runbooku Azure Automation z upozornění Log Analytics | Dokume
 description: "Tento článek obsahuje přehled způsobů, jak vyvolat runbook Automation z upozornění Microsoft OMS Log Analytics."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 10b445f8fcaa80182119e47f37ffb11240a46869
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Volání runbooku Azure Automation z upozornění OMS Log Analytics
 
@@ -43,7 +43,7 @@ Pokud máte ve svém pracovním prostoru OMS nainstalovanou a nakonfigurovanou n
 
 ## <a name="characteristics-of-a-runbook-for-both-options"></a>Vlastnosti runbooku (pro obě možnosti)
 
-Obě metody volání runbooku z upozornění Log Analytics mají charakteristiky, kterým je nutné porozumět před konfigurací pravidel upozornění.
+Obě metody volání runbooku z upozornění Log Analytics mají charakteristiky, kterým je nutné porozumět před konfigurací pravidel upozornění. Data upozornění jsou ve formátu JSON v jedné vlastnosti **SearchResult**. Tento formát platí pro akce runbooku a webhooku se standardní datovou částí. Pro akce webhooku s vlastními datovými částmi, které v **textu žádosti** zahrnují **IncludeSearchResults:True**, je tato vlastnost **SearchResults**.
 
 * Musíte mít vstupní parametr runbooku s názvem **WebhookData**, který je typu **Objekt**. Může být povinný nebo volitelný. Upozornění předává výsledky hledání do runbooku pomocí tohoto vstupního parametru.
 
@@ -61,6 +61,7 @@ Obě metody volání runbooku z upozornění Log Analytics mají charakteristiky
     ```
 
     *$SearchResult* je pole objektů, z nichž každý obsahuje pole s hodnotami z jednoho výsledku hledání.
+
 
 ## <a name="example-walkthrough"></a>Ukázka podrobného postupu
 
@@ -80,6 +81,9 @@ $SearchResult.SvcDisplayName_CF
 Když se služba zastaví, pravidlo upozornění v Log Analytics zjistí shodu a aktivuje runbook, do kterého odešle kontext upozornění. Runbook provede ověření, jestli je služba zastavená, a pokud ano, pokusí se službu restartovat, ověří, že se spustila správně a vypíše výsledky.     
 
 Pokud by váš účet Automation nebyl propojený s pracovním prostorem OMS, nakonfigurovali byste pravidlo upozornění s akcí webhooku aktivující runbook a runbook byste nakonfigurovali pro převod řetězce ve formátu JSON a filtrování položky \*.SearchResult\* podle pokynů uvedených výše.    
+
+>[!NOTE]
+> Pokud byl váš pracovní prostor upgradován na [nový dotazovací jazyk Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), pak se datová část webhooku změnila.  Podrobnosti o formátu najdete v tématu [Rozhraní REST API služby Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).
 
 ## <a name="next-steps"></a>Další kroky
 

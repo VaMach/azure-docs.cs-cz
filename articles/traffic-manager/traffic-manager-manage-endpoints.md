@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80d104fc456849f8bfd5169dd8ce1361d906a65
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Přidávání, zakazování, povolování nebo odstraňování koncových bodů
 
@@ -39,7 +39,7 @@ Můžete také zakázat jednotlivé koncové body, které jsou součástí profi
     1. V části **Typ** klikněte na **Koncový bod Azure**.
     2. Zadejte **Název**, podle kterého tento koncový bod rozpoznáte.
     3. V části **Typ cílového prostředku** zvolte z rozevírací nabídky vhodný typ prostředku.
-    4. V části **Cílový prostředek** zvolte z rozevírací nabídky vhodný cílový prostředek a v **okně Prostředky** se zobrazí výpis prostředků ve stejném předplatném. V zobrazeném okně **Prostředek** vyberte službu, kterou chcete přidat jako první koncový bod.
+    4. V části **Cílový prostředek** klikněte na selektor **Zvolit...** a v **okně Prostředky** se zobrazí výpis prostředků v rámci stejného předplatného. V zobrazeném okně **Prostředek** vyberte službu, kterou chcete přidat jako první koncový bod.
     5. V části **Priorita** vyberte **1**. Výsledkem bude, že veškerý provoz bude přicházet do tohoto koncového bodu, pokud bude v pořádku.
     6. Políčko **Přidat jako zakázaný** ponechte nezaškrtnuté.
     7. Klikněte na tlačítko **OK**.
