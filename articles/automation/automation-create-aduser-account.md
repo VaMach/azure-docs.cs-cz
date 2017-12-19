@@ -3,7 +3,7 @@ title: "Vytvoření účtu uživatele Azure AD | Dokumentace Microsoftu"
 description: "Tento článek popisuje způsob vytvoření přihlašovacích údajů účtu uživatele Azure AD pro runbooky ve službě Azure Automation za účelem ověřování v Azure a Azure Classic."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: "uživatel azure active directory, správa služby azure, uživatelský účet azure ad"
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Ověření runbooků pomocí nasazení Azure Classic a Resource Manager
 Tento článek popisuje kroky, které musíte provést při konfiguraci uživatelského účtu Azure AD pro runbooky Azure Automation, které běží s modelem nasazení Azure Classic nebo prostředky Azure Resource Manageru.  I když toto zůstává podporovanou identitou ověřování pro runbooky založené na Azure Resource Manageru, doporučujeme používat účet Azure Spustit jako.       
@@ -42,7 +42,7 @@ Tento článek popisuje kroky, které musíte provést při konfiguraci uživate
 V této části provedete následující kroky, abyste na webu Azure Portal vytvořili účet Azure Automation, který budete spolu s runbooky používat ke správě prostředků v nasazení Azure Classic.  
 
 > [!NOTE]
-> Účty Automation vytvořené na portálu Azure Classic můžete spravovat pomocí portálu Azure Classic i pomocí webu Azure Portal nebo pomocí sady rutin. Po vytvoření účtu už nezáleží na způsobu vytváření a správy prostředků v rámci účtu. Pokud máte v úmyslu pokračovat v používání portálu Azure Classic, doporučujeme, abyste ho používali k vytváření účtů Automation místo webu Azure Portal.
+> Účty Automation vytvořené na portálu Azure Classic můžete spravovat pomocí portálu Azure Classic i pomocí webu Azure Portal nebo pomocí sady rutin. Po vytvoření účtu už nezáleží na způsobu vytváření a správy prostředků v rámci účtu. Pokud máte v úmyslu pokračovat v používání portálu Azure Classic, doporučujeme, abyste ho používali k vytváření účtů Automation místo portálu Azure.
 > 
 > 
 

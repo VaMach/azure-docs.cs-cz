@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 12/13/2017
 ms.author: yurid
-ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Adaptivní řízení aplikací v Azure Security Center (Preview)
 Pomocí tohoto názorného postupu zjistíte, jak nakonfigurovat řízení aplikací v Azure Security Center.
@@ -32,9 +32,6 @@ Adaptivní řízení aplikací pomáhá řídit, které aplikace se můžou spou
 - Zamezit spouštění starých a nepodporovaných aplikací.
 - Zabránit používání konkrétních softwarových nástrojů, které nejsou ve vaší organizaci povolené.
 - Umožnit IT oddělení řídit přístup k citlivým datům prostřednictvím používání aplikace.
-
-> [!NOTE]
-> Adaptivní řízení aplikací je dostupné jako omezená verze Public Preview pro zákazníky využívající Azure Security Center Standard. Pokud se chcete připojit k verzi Preview, zašlete [nám](mailto:ASC_appcontrol@microsoft.com) e-mail s ID vašich předplatných.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Jak povolit adaptivní řízení aplikací?
 Adaptivní řízení aplikací pomáhá definovat sadu aplikací, které mají povoleno spouštění v nakonfigurovaných skupinách prostředků. Tato funkce je dostupná pouze pro počítače s Windows (všechny verze, Classic nebo Azure Resource Manager). Pokud chcete ve službě Security Center nakonfigurovat přidávání aplikací na seznam povolených, můžete postupovat podle následujících kroků:
@@ -72,7 +69,7 @@ V části **Vybrat virtuální počítače** zkontrolujte seznam doporučených 
 
 - **NÁZEV:** Úplná cesta aplikace.
 - **PROCESY:** Počet aplikací, které se nacházejí v jednotlivých cestách.
-- **BĚŽNÉ:** Hodnota true značí, že se tyto procesy spustily na většině virtuálních počítačů v této skupině prostředků.
+- **BĚŽNÉ:** Hodnota Ano značí, že se tyto procesy spustily na většině virtuálních počítačů v této skupině prostředků.
 - **ZNEUŽITELNÉ:** Ikona upozornění značí, jestli by útočník mohl aplikace využít k obejití seznamu povolených aplikací. Tyto aplikace doporučujeme před schválením zkontrolovat. 
 
 Jakmile budete s výběry hotovi, klikněte na tlačítko **Vytvořit**. Služba Security Center ve výchozím nastavení vždy povoluje řízení aplikací v režimu *Audit*. Až zkontrolujete, že seznam povolených aplikací nemá žádný nepříznivý vliv na vaši sadu funkcí, můžete režim změnit na *Vynucení*.

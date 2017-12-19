@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb4e9150c1069d48399fb217f865b294ccd317dc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="oms-architecture"></a>Architektura OMS
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) je kolekce cloudových služeb pro správu vašich místních a cloudových prostředí.  Tento článek popisuje různé místní a cloudové komponenty OMS a jejich základní cloudovou výpočetní architekturu.  Další podrobnosti najdete v dokumentaci k jednotlivým službám.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="log-analytics"></a>Log Analytics
 Všechna data shromážděná službou [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) se ukládají v úložišti OMS hostovaném v Azure.  Připojené zdroje generují data, která se shromažďují v úložišti OMS.  V současné době jsou podporované tři typy připojených zdrojů.
 
-* Agent nainstalovaný na počítači s [Windows](../log-analytics/log-analytics-windows-agents.md) nebo [Linuxem](../log-analytics/log-analytics-linux-agents.md), který je připojený přímo k OMS.
+* Agent nainstalovaný na počítači s [Windows](../log-analytics/log-analytics-windows-agent.md) nebo [Linuxem](../log-analytics/log-analytics-linux-agents.md), který je připojený přímo k OMS.
 * Skupina pro správu nástroje System Center Operations Manager (SCOM), která je [připojená k Log Analytics](../log-analytics/log-analytics-om-agents.md).  Agenti nástroje SCOM nadále komunikují se servery pro správu, které přeposílají události a data o výkonu do Log Analytics.
 * [Účet služby Azure Storage](../log-analytics/log-analytics-azure-storage.md), který shromažďuje data [Diagnostiky Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) z role pracovního procesu, webové role nebo virtuálního počítače v Azure.
 
@@ -50,9 +50,9 @@ Chráněná data ve službě [Azure Backup](http://azure.microsoft.com/documenta
 
 Azure Backup obsahuje tři základní scénáře.
 
-* Počítač s Windows a agentem služby Azure Backup.  To vám umožňuje zálohovat soubory a složky z jakéhokoli klienta nebo serveru s Windows přímo do svého trezoru záloh Azure.  
-* Server System Center Data Protection Manageru (DPM) nebo server Microsoft Azure Backup. To vám umožňuje využít server DPM nebo Microsoft Azure Backup kromě zálohování úloh aplikací, jako jsou SQL a SharePoint, i k zálohování souborů a složek do místního úložiště a jejich následné replikaci do vašeho trezoru záloh Azure.
-* Rozšíření virtuálního počítače Azure.  To vám umožňuje zálohovat virtuální počítače Azure do svého trezoru záloh Azure.
+* Počítač s Windows a agentem služby Azure Backup.  Tento scénář vám umožňuje zálohovat soubory a složky z jakéhokoli klienta nebo serveru s Windows přímo do svého trezoru záloh Azure.  
+* Server System Center Data Protection Manageru (DPM) nebo server Microsoft Azure Backup. Tento scénář vám umožňuje využít server DPM nebo Microsoft Azure Backup Server kromě zálohování úloh aplikací, jako jsou SQL a SharePoint, i k zálohování souborů a složek do místního úložiště a jejich následné replikaci do vašeho trezoru záloh Azure.
+* Rozšíření virtuálního počítače Azure.  Tento scénář vám umožňuje zálohovat virtuální počítače Azure do svého trezoru záloh Azure.
 
 Azure Backup obsahuje řešení OMS, které pro všechny operace zobrazuje statistiku a odkaz na otevření webu Azure Portal.
 

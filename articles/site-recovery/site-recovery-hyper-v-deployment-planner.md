@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Plánovač nasazení služby Azure Site Recovery pro nasazení Hyper-V do Azure
 Tento článek představuje uživatelskou příručku k Plánovači nasazení služby Azure Site Recovery pro produkční nasazení Hyper-V do Azure.
@@ -40,6 +40,9 @@ Nástroj poskytuje následující podrobnosti:
 
 * Odhadovaná šířka pásma sítě potřebná pro rozdílovou replikaci
 * Propustnost z místního prostředí do Azure, které Azure Site Recovery může dosáhnout
+* Cíl bodu obnovení, kterého je možné dosáhnout pro danou šířku pásma
+* Dopad na požadovaný cíl bodu obnovení při zřízení menší šířky pásma.
+
     
 **Požadavky na infrastrukturu Azure**
 
@@ -52,6 +55,7 @@ Nástroj poskytuje následující podrobnosti:
 
 **Požadavky na místní infrastrukturu**
 * Vyžadovaný volný prostor úložiště na každém svazku úložiště Hyper-V k zajištění úspěšné počáteční replikace a rozdílové replikace, které zajistí, že replikace virtuálních počítačů nebude způsobovat nežádoucí výpadky pro produkční aplikace
+* Maximální frekvence kopírování, která se má nastavit pro replikaci Hyper-V
 
 **Pokyny k rozdělení počáteční replikace do dávek** 
 * Počet dávek virtuálních počítačů použitých k ochraně

@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Úspěšné zavedení samoobslužného resetování hesla
 
@@ -37,6 +37,10 @@ K zajištění hladkého zavedení funkce samoobslužného resetování hesla (S
 9. Určete, jestli se registrace má vynucovat. K vynucení registrace se můžete rozhodnout kdykoli. Můžete také po uživatelích požadovat, aby po určité době znovu potvrdili svoje ověřovací informace.
 10. Využijte možnosti vytváření sestav. V průběhu času můžete zkontrolovat registraci uživatelů a využití pomocí [možností vytváření sestav, které poskytuje Azure AD](active-directory-passwords-reporting.md).
 11. Povolte resetování hesla. Až budete připravení, povolte resetování hesla pro všechny uživatele tak, že nastavíte přepínač **Samoobslužné resetování hesla povoleno** na **Všichni**. 
+
+   > [!NOTE]
+   > Změnou této možnosti z vybrané skupiny na Všichni nedojde k zneplatnění stávajících ověřovacích dat, která uživatel zaregistroval jako součást testovací skupiny. Nakonfigurovaní uživatelé se zaregistrovanými platnými ověřovacími daty budou fungovat i nadále.
+
 12. [Povolte uživatelům Windows 10 resetování hesla na přihlašovací obrazovce](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ Nejjednodušším způsobem, jak uživatele přimět používat samoobslužné r
 
 Řada zákazníku volí hostování webové stránky a vytvoření kořenového záznamu DNS, například https://passwords.contoso.com. Tuto stránku naplní odkazy na následující informace:
 
-* [Portál pro resetování hesel Azure AD](https://aka.ms/sspr)
-* [Portál pro registraci k resetování hesel Azure AD](http://aka.ms/ssprsetup)
-* [Portál pro změnu hesel Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Portál pro resetování hesel Azure AD – https://aka.ms/sspr](https://aka.ms/sspr)
+* [Portál pro registraci k resetování hesel Azure AD – http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portál pro změnu hesel Azure AD – https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Další informace pro konkrétní organizaci
 
 Do e-mailů nebo letáků, které rozesíláte, můžete vložit zapamatovatelnou adresu URL obsahující značku, na kterou uživatelé mohou přejít v případě, že tyto služby potřebují využít. Vytvořili jsme pro vás [ukázkovou stránku pro resetování hesla](https://github.com/ajamess/password-reset-page), kterou můžete použít a přizpůsobit potřebám vaší organizace.

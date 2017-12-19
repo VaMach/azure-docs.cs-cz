@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d8b7d5830684b5e19eadd1b145a933527c2aa9fd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Začínáme s Apache Storm v HDInsight pomocí příkladů topologie Storm Starter
 
@@ -47,7 +47,7 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
     ![Vytvoření clusteru HDInsight](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
-2. V okně **Základy** zadejte následující informace:
+2. V části **Základy** zadejte následující informace:
 
     * **Název clusteru:** Název clusteru HDInsight.
     * **Předplatné:** Vyberte předplatné, které chcete použít.
@@ -58,7 +58,7 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
    ![Výběr předplatného](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
-3. Vyberte **Typ clusteru** a pak v okně **Konfigurace clusteru** zadejte tyto hodnoty:
+3. Vyberte **Typ clusteru** a pak v části **Konfigurace clusteru** zadejte následující hodnoty:
 
     * **Typ clusteru:** Storm
 
@@ -74,11 +74,11 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
 4. Po výběru typu clusteru použijte tlačítko __Vybrat__ k výběru typu clusteru. Dále stisknutím tlačítka __Další__ dokončete základní konfiguraci.
 
-5. V okně **Úložiště** vyberte nebo vytvořte účet úložiště. Pro ukázkový postup v tomto dokumentu ponechte všechna ostatní pole v tomto okně na výchozích hodnotách. Stisknutím tlačítka __Další__ uložte konfiguraci úložiště.
+5. V části **Úložiště** vyberte nebo vytvořte účet úložiště. Pro ukázkový postup v tomto dokumentu ponechte všechna ostatní pole v této části na výchozích hodnotách. Stisknutím tlačítka __Další__ uložte konfiguraci úložiště.
 
     ![Nastavení účtu úložiště pro HDInsight](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. V okně **Souhrn** zkontrolujte konfiguraci clusteru. Pomocí odkazů __Upravit__ opravte případná chybná nastavení. Nakonec pomocí tlačítka __Vytvořit__ cluster vytvořte.
+6. V části **Souhrn** zkontrolujte konfiguraci clusteru. Pomocí odkazů __Upravit__ opravte případná chybná nastavení. Nakonec pomocí tlačítka __Vytvořit__ cluster vytvořte.
 
     ![Souhrn konfigurace clusteru](./media/apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -95,7 +95,7 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
     > Váš klient SSH může hlásit nemožnost potvrzení pravosti hostitele. V takovém případě zadejte `yes` a pokračujte.
 
     > [!NOTE]
-    > Pokud jste použili heslo k zabezpečení uživatelského účtu SSH, zobrazí se výzva k jeho zadání. Pokud jste použili veřejný klíč, bude pravděpodobně muset použít parametr `-i` k určení odpovídajícího privátního klíče. Například, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    > Pokud jste použili heslo k zabezpečení uživatelského účtu SSH, zobrazí se výzva k jeho zadání. Pokud jste použili veřejný klíč, možná budete muset použít parametr `-i` k zadání odpovídajícího privátního klíče. Například, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Další informace najdete v tématu [Použití SSH se službou HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -103,10 +103,7 @@ Pomocí následujících kroků můžete vytvořit Storm na clusteru HDInsight:
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
 
-    > [!NOTE]
-    > V dřívějších verzích služby HDInsight je název třídy topologie `storm.starter.WordCountTopology` místo `org.apache.storm.starter.WordCountTopology`.
-
-    Tento příkaz spustí ukázkovou topologii WordCount v clusteru s popisným názvem „wordcount“. Bude náhodně generovat věty a počítat výskyt jednotlivých slov v těchto větách.
+    Tento příkaz v clusteru spustí ukázkovou topologii WordCount. Tato topologie generuje náhodné věty a počítá výskyty slov. Popisný název topologie je `wordcount`.
 
     > [!NOTE]
     > Při odesílání vlastních topologií do clusteru je před použitím příkazu `storm` nutné nejprve zkopírovat soubor jar obsahující cluster. Ke zkopírování tohoto souboru použijte příkaz `scp`. Například `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`.
@@ -199,7 +196,7 @@ Pokud narazíte na problém s vytvářením clusteru HDInsight, podívejte se na
 
 V tomto kurzu Apache Storm jste se naučili základy práce se Stormem v HDInsightu. Dále se naučíte, jak [Vyvíjet topologie založené na jazyce Java pomocí nástroje Maven](apache-storm-develop-java-topology.md).
 
-Pokud jste již obeznámeni s vývojem topologií založených na jazyce Java a chcete nasadit existující topologie do HDInsight, naleznete postup v části [Nasazení a správa topologií Apache Storm v HDInsight](apache-storm-deploy-monitor-topology-linux.md).
+Pokud jste již obeznámeni s vývojem topologií založených na jazyce Java, přečtěte si dokument [Nasazení a správa topologií Apache Storm v HDInsight](apache-storm-deploy-monitor-topology-linux.md).
 
 Pokud jste vývojář .NET, můžete s použitím sady Visual Studio vytvořit topologie C# nebo hybridní topologie C#/Java. Další informace najdete v tématu [Vývoj topologií C# pro Apache Storm ve službě HDInsight pomocí nástrojů Hadoop pro Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 

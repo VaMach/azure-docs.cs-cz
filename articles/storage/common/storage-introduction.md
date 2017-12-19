@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: cdd457dbe6802f58f0167efb97d60628c17a97af
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Úvod do Microsoft Azure Storage
 
-Microsoft Azure Storage je cloudová služba spravovaná Microsoftem, která poskytuje vysoce dostupné, zabezpečené, odolné, škálovatelné a redundantní úložiště. Microsoft se stará o údržbu a řeší za vás kritické problémy. 
+Microsoft Azure Storage je cloudová služba spravovaná Microsoftem, která poskytuje vysoce dostupné, zabezpečené, odolné, škálovatelné a redundantní úložiště. Microsoft se stará o údržbu a řeší za vás kritické problémy.
 
 Azure Storage se skládá ze tří datových služeb: Blob Storage, File Storage a Queue Storage. Blob Storage podporuje Storage úrovně Standard i Premium a Storage úrovně Premium využívají jenom SSD pro zajištění nejvyššího možného výkonu. Další funkcí je studené úložiště, které umožňuje ukládat velké objemy zřídka využívaných dat s nižšími náklady.
 
@@ -31,9 +31,9 @@ V tomto článku jsou probrána následující témata:
 * typy účtů úložiště
 * přístup k objektům blob, frontám a souborům
 * šifrování
-* replikace 
+* replikace
 * přenos dat do nebo z úložiště
-* velký počet dostupných klientských knihoven pro úložiště 
+* velký počet dostupných klientských knihoven pro úložiště
 
 Pokud chcete rychle zprovoznit Azure Storage, podívejte se na některý z následujících rychlých startů:
 * [Vytvoření účtu úložiště pomocí PowerShellu](storage-quickstart-create-storage-account-powershell.md)
@@ -41,28 +41,28 @@ Pokud chcete rychle zprovoznit Azure Storage, podívejte se na některý z násl
 
 ## <a name="introducing-the-azure-storage-services"></a>Seznámení se službami Azure Storage
 
-Pokud chcete použít některou ze služeb, které poskytuje Azure Storage (Blob Storage, File Storage nebo Queue Storage), musíte nejdřív vytvořit účet úložiště. Potom v tomto účtu úložiště můžete přenést data do nebo z konkrétní služby. 
+Pokud chcete použít některou ze služeb, které poskytuje Azure Storage (Blob Storage, File Storage nebo Queue Storage), musíte nejdřív vytvořit účet úložiště. Potom v tomto účtu úložiště můžete přenést data do nebo z konkrétní služby.
 
 ## <a name="blob-storage"></a>Blob Storage
 
-Bloby jsou v podstatě soubory podobné těm, které ukládáte ve svém počítači (nebo tabletu, mobilním zařízení atd.). Mohou to být obrázky, soubory Microsoft Excelu, soubory HTML, virtuální pevné disky (VHD), velké objemy dat, jako jsou protokoly nebo zálohy databází – prakticky cokoli. Objekty blob se ukládají v kontejnerech, které jsou obdobou složek. 
+Bloby jsou v podstatě soubory podobné těm, které ukládáte ve svém počítači (nebo tabletu, mobilním zařízení atd.). Mohou to být obrázky, soubory Microsoft Excelu, soubory HTML, virtuální pevné disky (VHD), velké objemy dat, jako jsou protokoly nebo zálohy databází – prakticky cokoli. Objekty blob se ukládají v kontejnerech, které jsou obdobou složek.
 
-Když uložíte soubory ve službě Blob Storage, můžete k nim přistupovat z libovolného místa na světě pomocí adres URL, rozhraní REST nebo některé z klientských knihoven pro úložiště Azure SDK. Klientské knihovny pro úložiště jsou dostupné pro řadu jazyků, včetně Node.js, Javy, PHP, Ruby, Pythonu a .NET. 
+Když uložíte soubory ve službě Blob Storage, můžete k nim přistupovat z libovolného místa na světě pomocí adres URL, rozhraní REST nebo některé z klientských knihoven pro úložiště Azure SDK. Klientské knihovny pro úložiště jsou dostupné pro řadu jazyků, včetně Node.js, Javy, PHP, Ruby, Pythonu a .NET.
 
 Existují tři typy objektů blob – objekty blob bloku, objekty blob stránky (používané pro soubory VHD) a doplňovací objekty blob.
 
-* Objekty blob bloku se používají k uložení obyčejných souborů až do velikosti 4,7 TB. 
+* Objekty blob bloku se používají k uložení obyčejných souborů až do velikosti 4,7 TB.
 * Objekty blob stránky se používají k uložení souborů s náhodným přístupem až do velikosti 8 TB. Používají se pro soubory VHD, které zálohují virtuální počítače.
 * Doplňovací objekty blob jsou tvořené bloky podobně jako objekty blob bloku, ale jsou optimalizované pro doplňovací operace. Využívají se k takovým věcem, jako je protokolování informací z několika virtuálních počítačů do stejného objektu blob.
 
 V případě velkých datových sad, kde stahování nebo ukládání dat do Blob Storage přes internet není vzhledem k síťovým omezením reálné, můžete sadu pevných disků zaslat společnosti Microsoft, která data exportuje nebo importuje přímo v datovém centru. Další informace najdete v tématu [Přenos dat do Blob Storage pomocí služby Microsoft Azure Import/Export](../storage-import-export-service.md).
 
 ## <a name="azure-files"></a>Soubory Azure
-Služba [Soubory Azure](../files/storage-files-introduction.md) umožňuje nastavit vysoce dostupné sdílené složky souborů sítě, ke kterým je možný přístup pomocí standardního protokolu SMB (Server Message Block). To znamená, že několik virtuálních počítačů může sdílet stejné soubory s oprávněním ke čtení i zápisu. Soubory můžete číst také pomocí rozhraní REST nebo klientských knihoven pro úložiště. 
+Služba [Soubory Azure](../files/storage-files-introduction.md) umožňuje nastavit vysoce dostupné sdílené složky souborů sítě, ke kterým je možný přístup pomocí standardního protokolu SMB (Server Message Block). To znamená, že několik virtuálních počítačů může sdílet stejné soubory s oprávněním ke čtení i zápisu. Soubory můžete číst také pomocí rozhraní REST nebo klientských knihoven pro úložiště.
 
-Jednou z věcí, která odlišuje Soubory Azure od souborů v podnikové sdílené složce je, že k souborům můžete přistupovat odkudkoli na světě pomocí adresy URL, která odkazuje na soubor a zahrnuje token sdíleného přístupového podpisu (SAS). Můžete generovat tokeny SAS, které po určitou dobu umožňují specifický přístup k privátním prostředkům. 
+Jednou z věcí, která odlišuje Soubory Azure od souborů v podnikové sdílené složce je, že k souborům můžete přistupovat odkudkoli na světě pomocí adresy URL, která odkazuje na soubor a zahrnuje token sdíleného přístupového podpisu (SAS). Můžete generovat tokeny SAS, které po určitou dobu umožňují specifický přístup k privátním prostředkům.
 
-Sdílené složky můžete použít pro řadu běžných scénářů: 
+Sdílené složky můžete použít pro řadu běžných scénářů:
 
 * Mnoho místních aplikací používá sdílené složky. Tato funkce usnadňuje migraci aplikací sdílejících data do Azure. Pokud připojíte sdílenou složku ke stejnému písmenu jednotky, které používá místní aplikace, část aplikace pro přístup ke sdílené složce by měla fungovat s minimálními, pokud vůbec nějakými, změnami.
 
@@ -74,7 +74,7 @@ V současné době se nepodporuje ověřování založené na Active Directory a
 
 ## <a name="queue-storage"></a>Queue Storage
 
-Služba front Azure se využívá k ukládání a načítání zpráv. Fronty zprávy mohou mít velikost až 64 kB a jedna fronta může obsahovat miliony zpráv. Fronty se obecně používají k ukládání seznamů zpráv, které mají být zpracovány asynchronně. 
+Služba front Azure se využívá k ukládání a načítání zpráv. Fronty zprávy mohou mít velikost až 64 kB a jedna fronta může obsahovat miliony zpráv. Fronty se obecně používají k ukládání seznamů zpráv, které mají být zpracovány asynchronně.
 
 Řekněme například, že chcete zákazníkům umožnit odesílání obrázků a pro každý obrázek chcete vytvořit miniatury. Můžete nechat zákazníky při odesílání obrázků čekat na to, až tyto miniatury vytvoříte. Alternativou může být použití fronty. Když zákazník dokončí nahrávání, zapište zprávu do fronty. Potom nechte funkci Azure Functions, aby načetla tuto zprávu z fronty a vytvořila miniatury. Jednotlivé části tohoto zpracování je možné škálovat samostatně. Získáte tak větší kontrolu při jeho vylaďování pro vaše využití.
 
@@ -86,7 +86,7 @@ Azure Table Storage je teď součástí služby Azure Cosmos DB. Dokumentaci ke 
 
 Azure Storage také zahrnuje funkce spravovaných a nespravovaných disků využívaných virtuálními počítači. Další informace o těchto funkcích najdete v [dokumentaci ke Compute Services](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
-## <a name="types-of-storage-accounts"></a>Typy účtů úložiště 
+## <a name="types-of-storage-accounts"></a>Typy účtů úložiště
 
 Tato tabulka uvádí různé typy účtů úložiště a to, které objekty je pro ně možné využít.
 
@@ -97,9 +97,9 @@ Tato tabulka uvádí různé typy účtů úložiště a to, které objekty je p
 
 ### <a name="general-purpose-storage-accounts"></a>Účty úložiště pro obecné účely
 
-Existují dva typy účtů úložiště pro obecné účely. 
+Existují dva typy účtů úložiště pro obecné účely.
 
-#### <a name="standard-storage"></a>Storage úrovně Standard 
+#### <a name="standard-storage"></a>Storage úrovně Standard
 
 Nejčastěji používanými účty úložiště jsou standardní účty, které je možné použít pro všechny typy dat. Účty úložiště úrovně Standard k ukládání dat používají magnetická média.
 
@@ -109,39 +109,39 @@ Storage úrovně Premium poskytuje vysoce výkonné úložiště pro objekty blo
 
 ### <a name="blob-storage-accounts"></a>Účty služby Blob Storage
 
-Účet služby Blob Storage je specializovaný účet úložiště používaný k ukládání objektů blob bloku a doplňovacích objektů blob. V těchto účtech nejde ukládat objekty blob stránky, a proto nemůžete ukládat soubory VHD. Tyto účty umožňují nastavit horkou nebo studenou vrstvu přístupu. Tuto vrstvu můžete kdykoli změnit. 
+Účet služby Blob Storage je specializovaný účet úložiště používaný k ukládání objektů blob bloku a doplňovacích objektů blob. V těchto účtech nejde ukládat objekty blob stránky, a proto nemůžete ukládat soubory VHD. Tyto účty umožňují nastavit horkou nebo studenou vrstvu přístupu. Tuto vrstvu můžete kdykoli změnit.
 
 Horká vrstva přístupu se používá pro soubory, ke kterým se přistupuje často – platíte vyšší náklady na úložiště, ale náklady na přístup k objektům blob jsou mnohem nižší. U objektů blob uložených ve studené vrstvě přístupu platíte vyšší náklady na přístup, ale náklady na úložiště jsou mnohem nižší.
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Přístup k objektům blob, frontám a souborům
 
-Každý účet úložiště má dva ověřovací klíče a každý z nich je možné použít pro libovolnou operaci. Dva klíče se používají proto, abyste je mohli příležitostně prohodit pro zvýšení zabezpečení. Je velmi důležité, aby tyto klíče byly zabezpečené, protože jejich vlastnictví spolu s názvem účtu umožňuje neomezený přístup ke všem datům v účtu úložiště. 
+Každý účet úložiště má dva ověřovací klíče a každý z nich je možné použít pro libovolnou operaci. Dva klíče se používají proto, abyste je mohli příležitostně prohodit pro zvýšení zabezpečení. Je velmi důležité, aby tyto klíče byly zabezpečené, protože jejich vlastnictví spolu s názvem účtu umožňuje neomezený přístup ke všem datům v účtu úložiště.
 
 V této části se probírají dva způsoby, jak zabezpečit účet úložiště a jeho data. Podrobné informace o zabezpečení vašeho účtu úložiště a vašich dat najdete v [průvodci zabezpečením Azure Storage](storage-security-guide.md).
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Zabezpečení přístupu k účtům úložiště pomocí služby Azure AD
 
-Jedním ze způsobů zabezpečení přístupu k datům úložiště je řízení přístupu ke klíčům účtu úložiště. Pomocí řízení přístupu na základě role (RBAC) Resource Manageru můžete přiřazovat role uživatelů, skupinám nebo aplikacím. Tyto role jsou svázané s konkrétní sadou akcí, které jsou povolené nebo zakázané. Použití RBAC pro udělení přístupu k účtu úložiště zajišťuje pro daný účet úložiště jenom operace správy, jako je třeba změna vrstvy přístupu. RBAC se nedá použít pro udělení přístupu k datovým objektům, jako je třeba konkrétní kontejner nebo sdílená složka. Můžete ho ale použít pro udělení přístupu ke klíčům účtu úložiště, které se potom dají využít ke čtení datových objektů. 
+Jedním ze způsobů zabezpečení přístupu k datům úložiště je řízení přístupu ke klíčům účtu úložiště. Pomocí řízení přístupu na základě role (RBAC) Resource Manageru můžete přiřazovat role uživatelů, skupinám nebo aplikacím. Tyto role jsou svázané s konkrétní sadou akcí, které jsou povolené nebo zakázané. Použití RBAC pro udělení přístupu k účtu úložiště zajišťuje pro daný účet úložiště jenom operace správy, jako je třeba změna vrstvy přístupu. RBAC se nedá použít pro udělení přístupu k datovým objektům, jako je třeba konkrétní kontejner nebo sdílená složka. Můžete ho ale použít pro udělení přístupu ke klíčům účtu úložiště, které se potom dají využít ke čtení datových objektů.
 
-### <a name="securing-access-using-shared-access-signatures"></a>Zabezpečení přístupu pomocí sdílených přístupových podpisů 
+### <a name="securing-access-using-shared-access-signatures"></a>Zabezpečení přístupu pomocí sdílených přístupových podpisů
 
 K zabezpečení vašich datových objektů můžete využít sdílené přístupové podpisy a uložené zásady přístupu. Sdílený přístupový podpis (SAS) je řetězec obsahující token zabezpečení, který je možné připojit k identifikátoru URI pro určitý prostředek, který umožňuje delegovat přístup ke konkrétním objektům úložiště a zadat omezení, jako je třeba oprávnění a datový/časový rozsah přístupu. Tato funkce má rozsáhlé možnosti. Podrobné informace najdete v tématu [Použití sdílených přístupových podpisů (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 ### <a name="public-access-to-blobs"></a>Veřejný přístup k objektům blob
 
-Služba objektů blob umožňuje poskytnout veřejný přístup ke kontejneru a jeho objektům blob nebo ke konkrétnímu objektu blob. Když nějaký kontejner nebo objekt blob označíte jako veřejně přístupný, kdokoli si ho může anonymně přečíst bez nutnosti ověření. Příkladem, kdy se to může hodit, je situace, kdy máte web využívající obrázky, video nebo dokumenty ze služby Blob Storage. Další informace najdete v tématu [Správa anonymního přístupu pro čtení ke kontejnerům a objektům blob](../blobs/storage-manage-access-to-resources.md). 
+Služba objektů blob umožňuje poskytnout veřejný přístup ke kontejneru a jeho objektům blob nebo ke konkrétnímu objektu blob. Když nějaký kontejner nebo objekt blob označíte jako veřejně přístupný, kdokoli si ho může anonymně přečíst bez nutnosti ověření. Příkladem, kdy se to může hodit, je situace, kdy máte web využívající obrázky, video nebo dokumenty ze služby Blob Storage. Další informace najdete v tématu [Správa anonymního přístupu pro čtení ke kontejnerům a objektům blob](../blobs/storage-manage-access-to-resources.md).
 
 ## <a name="encryption"></a>Šifrování
 
-Pro služby Storage je dostupných několik základních druhů šifrování. 
+Pro služby Storage je dostupných několik základních druhů šifrování.
 
-### <a name="encryption-at-rest"></a>Šifrování v klidovém stavu 
+### <a name="encryption-at-rest"></a>Šifrování v klidovém stavu
 
-Šifrování služby Storage (Storage Service Encryption, SSE) můžete povolit buď ve službě Soubory (Preview), nebo ve službě Blob pro účet úložiště Azure. Pokud je povolené, všechna data zapsaná do konkrétní služby se před zápisem zašifrují. Když tato data čtete, před vrácením se dešifrují. 
+Šifrování služby Storage (Storage Service Encryption, SSE) můžete povolit buď ve službě Soubory (Preview), nebo ve službě Blob pro účet úložiště Azure. Pokud je povolené, všechna data zapsaná do konkrétní služby se před zápisem zašifrují. Když tato data čtete, před vrácením se dešifrují.
 
 ### <a name="client-side-encryption"></a>Šifrování na straně klienta
 
-Klientské knihovny pro úložiště nabízejí metody, jejichž voláním můžete programově zašifrovat data, než je odešlete sítí z klienta do Azure. Uloží se zašifrovaná a to znamená, že jsou zašifrovaná, i když jsou neaktivní. Při načítání dat zpět informace po přijetí dešifrujete. 
+Klientské knihovny pro úložiště nabízejí metody, jejichž voláním můžete programově zašifrovat data, než je odešlete sítí z klienta do Azure. Uloží se zašifrovaná a to znamená, že jsou zašifrovaná, i když jsou neaktivní. Při načítání dat zpět informace po přijetí dešifrujete.
 
 ### <a name="encryption-in-transit-with-azure-file-shares"></a>Šifrování během přenosu s využitím sdílených složek Azure
 
@@ -151,27 +151,27 @@ Další informace o zabezpečení vašeho účtu úložiště a šifrování naj
 
 ## <a name="replication"></a>Replikace
 
-Aby se zajistila odolnost dat, má služba Azure Storage schopnost zachovat (a spravovat) několik kopií vašich dat. Označuje se jako replikace, nebo někdy také redundance. Když nastavujete účet úložiště, vybíráte typ replikace. Ve většině případů toto nastavení můžete po vytvoření účtu úložiště změnit. 
+Aby se zajistila odolnost dat, má služba Azure Storage schopnost zachovat (a spravovat) několik kopií vašich dat. Označuje se jako replikace, nebo někdy také redundance. Když nastavujete účet úložiště, vybíráte typ replikace. Ve většině případů toto nastavení můžete po vytvoření účtu úložiště změnit.
 
-Všechny účty úložiště mají **místně redundantní úložiště (LRS)**. To znamená, že Azure Storage spravuje tři kopie vašich dat v datovém centru, které bylo zadané při vytvoření účtu úložiště. Když se změny potvrdí do jedné kopie, další dvě kopie se aktualizují a teprve potom se informuje o úspěchu. To znamená, že tyto tři repliky jsou vždy synchronizované. Kromě se tyto tři kopie se nacházejí v samostatných doménách selhání. To znamená, že vaše data jsou dostupná, i když selže uzel úložiště, ve kterém jsou tato data uložená, nebo když se tento uzel převede z důvodů aktualizace do režimu offline. 
+Všechny účty úložiště zahrnují **místně redundantní úložiště (LRS)** navržené pro poskytování alespoň 99,999999999% (11 devítek) odolnosti objektů v průběhu daného roku. To znamená, že služba Azure Storage spravuje několik kopií vašich dat v data centru, které bylo zadané při vytváření účtu úložiště. Při potvrzení změn se aktualizují všechny kopie a teprve potom se informuje o úspěchu. To znamená, že tyto repliky jsou vždy synchronizované. Kromě toho se tyto kopie nacházejí v samostatných doménách selhání a upgradovacích doménách. To znamená, že vaše data jsou dostupná, i když selže uzel úložiště, ve kterém jsou tato data uložená, nebo když se tento uzel převede z důvodů aktualizace do režimu offline.
 
 **Místně redundantní úložiště (LRS)**
 
-Jak jsme vysvětlili výše, při použití LRS máte tři kopie vašich dat v jednom datovém centru. To řeší problém s případnou nedostupností dat, když selže uzel úložiště nebo když se tento uzel převede do režimu offline. Nedostupnost celého datového centra se tím ale nevyřeší.
+Jak jsme vysvětlili výše, při použití úložiště LRS máte v jednom datacentru několik kopií vašich dat. To řeší problém s případnou nedostupností dat, když selže uzel úložiště nebo když se tento uzel převede do režimu offline. Nedostupnost celého datového centra se tím ale nevyřeší.
 
 **Zónově redundantní úložiště (ZRS)**
 
-Zónově redundantní úložiště (ZRS) spravuje tři místní kopie vašich dat a navíc další sadu tří kopií těchto dat. Druhá sada tří kopií se asynchronně replikuje napříč datovými centry v jedné nebo dvou oblastech. Nezapomeňte, že zónově redundantní úložiště je dostupné jenom pro objekty blob bloku v účtech úložiště pro obecné účely. Pokud vytvoříte účet úložiště a vyberete ZRS, nemůžete později přejít na jiný typ replikace, stejně tak nemůžete z jiného typu replikace přejít na ZRS.
+Zónově redundantní úložiště (ZRS) je navržené pro poskytování alespoň 99,9999999999% (12 devítek) odolnosti objektů v průběhu daného roku. Dosahuje toho díky udržování místních kopií vašich dat a zároveň další sady kopií těchto dat. Druhá sada kopií se asynchronně replikuje napříč datacentry v jedné nebo dvou oblastech. Nezapomeňte, že zónově redundantní úložiště je dostupné jenom pro objekty blob bloku v účtech úložiště pro obecné účely. Pokud vytvoříte účet úložiště a vyberete ZRS, nemůžete později přejít na jiný typ replikace, stejně tak nemůžete z jiného typu replikace přejít na ZRS.
 
-Účty ZRS poskytují větší odolnost než LRS, ale nemají možnosti protokolování nebo metrik. 
+Účty ZRS poskytují větší odolnost než LRS, ale nemají možnosti protokolování nebo metrik.
 
 **Geograficky redundantní úložiště (GRS)**
 
-Geograficky redundantní úložiště (GRS) spravuje tři místní kopie vašich dat v primární oblasti a navíc další sadu tří kopií těchto dat v sekundární oblasti, která je od primární oblasti vzdálená stovky kilometrů. V případě selhání primární oblasti převezme služby pro Azure Storage sekundární oblast. 
+Geograficky redundantní úložiště (GRS) je navržené pro poskytování 99,99999999999999%(16 devítek) odolnosti objektů v průběhu daného roku. Dosahuje toho díky udržování místních kopií vašich dat v primární oblasti a navíc další sady kopií těchto dat v sekundární oblasti, která je od primární oblasti vzdálená stovky kilometrů. V případě selhání primární oblasti převezme služby pro Azure Storage sekundární oblast.
 
-**Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS)** 
+**Geograficky redundantní úložiště s přístupem pro čtení (RA-GRS)**
 
-Geograficky redundantní úložiště s přístupem čtení je úplně stejně jako GRS, s výjimkou toho, že k datům v sekundárním umístění máte přístup pro čtení. Když je primární datové centrum dočasně nedostupné, můžete dál číst data ze sekundárního umístění. To může být velmi užitečné. Můžete například mít webovou aplikaci, která přejde do režimu jen pro čtení, odkazuje na sekundární kopii a povoluje určitý přístup, i když nejsou dostupné aktualizace. 
+Geograficky redundantní úložiště s přístupem čtení je úplně stejně jako GRS, s výjimkou toho, že k datům v sekundárním umístění máte přístup pro čtení. Když je primární datové centrum dočasně nedostupné, můžete dál číst data ze sekundárního umístění. To může být velmi užitečné. Můžete například mít webovou aplikaci, která přejde do režimu jen pro čtení, odkazuje na sekundární kopii a povoluje určitý přístup, i když nejsou dostupné aktualizace.
 
 > [!IMPORTANT]
 > Pokud jste při vytváření účtu nezvolili replikaci ZRS, můžete způsob replikace později změnit. Pokud ale z LRS přejdete na GRS nebo RA-GRS, může se vám účtovat jednorázový poplatek za přenos dat.

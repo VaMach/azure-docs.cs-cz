@@ -15,45 +15,42 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 12/08/2017
 ms.author: larryfr
-ms.openlocfilehash: c978a9ba97ecb9b8facaf32cbefbdd06cab8df67
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2232ae8a838ae2d7feb9a66e0953f006bf45c644
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Co je Apache Storm ve službě Azure HDInsight?
 
 [Apache Storm](http://storm.apache.org/) je distribuovaný výpočetní systém typu open source a je odolný vůči poruchám. Prostřednictvím Stormu můžete zpracovávat proudy dat v reálném čase s použitím Hadoopu. Řešení Storm také zajišťují garantované zpracování data se schopností opakování dat, která nebyla úspěšně zpracována na první pokus.
 
-Storm pro HDInsight poskytuje následující klíčové výhody:
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-* Funguje jako spravovaná služby se smlouvou SLA s 99,9% dostupností.
+## <a name="why-use-storm-on-hdinsight"></a>Proč používat Storm v HDInsight?
+
+Storm v HDInsight poskytuje následující funkce:
+
+* __Smlouva o úrovni služeb (SLA) zajišťující 99,9% dostupnost Stormu:__ Další informace najdete v tématu [Informace o smlouvě SLA pro HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
 * Podporuje snadné přizpůsobení prostřednictvím spouštění skriptů v clusteru Storm během nebo po jeho vytvoření. Další informace obsahuje článek [Přizpůsobení clusterů HDInsight pomocí skriptových akcí](../hdinsight-hadoop-customize-cluster-linux.md).
 
-* Využívá různé jazyky. Součásti Stormu můžete psát v jazyce, který vám vyhovuje, například Java, C# nebo Python.
+* **Vytváření řešení v různých jazycích:** Komponenty pro Storm můžete psát v jazyce, který vám vyhovuje, například Java, C# nebo Python.
 
     * Integruje Visual Studio a HDInsight pro vývoj, správu a monitorování topologií C#. Další informace naleznete v tématu [Vývoj topologií C# Storm pomocí sady HDInsight Tools pro Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
     * Podporuje rozhraní Java Trident. Můžete vytvářet topologie Storm, které podporují právě jedno zpracování zpráv, transakční trvalé uchovávání datového skladu a sadu běžných operací pro analýzy datového proudu.
 
-*  Kapacita clusterů Storm se snadno vertikálně snižuje i zvyšuje. Můžete přidávat a odebírat pracovní uzly bez jakéhokoli dopadu na činnost topologií Storm.
+* **Dynamické škálování:** Můžete přidávat a odebírat pracovní uzly bez jakéhokoli dopadu na činnost topologií Storm.
 
-* Umožňuje integraci s následujícími službami Azure:
+    > [!NOTE]
+    > Abyste mohli využít nové uzly přidané prostřednictvím operací škálování, musíte deaktivovat a znovu aktivovat spuštěné topologie.
 
-    * Azure Event Hubs
+* **Vytváření streamovacích kanálů s využitím různých služeb Azure:** Storm v HDInsight se integruje s dalšími službami Azure, jako jsou Event Hubs, SQL Database, Azure Storage a Azure Data Lake Store.
 
-    * Azure Virtual Network
-
-    * Azure SQL Database
-
-    * Azure Storage
-
-    * Azure Cosmos DB
-
-* Bezpečně kombinuje možnosti více clusterů HDInsight s použitím virtuální sítě. Můžete vytvářet analytické kanály, které používají clustery Storm, Kafka, Spark, HBase nebo Hadoop.
+    Příklad řešení, které se integruje se službami Azure, najdete v tématu [Zpracování událostí ze služby Event Hubs pomocí Stormu v HDInsight](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 Seznam společností, které používají pro svá řešení pro analýzu v reálném čase Apache Storm, najdete v tématu [Společnosti využívající Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
@@ -68,6 +65,16 @@ Storm spouští topologie místo úloh MapReduce, které možná už znáte. Top
 * Součásti spout přenášejí data do topologie. Vysílají do topologie jeden nebo více datových proudů.
 
 * Součásti bolt zpracovávají datové proudy vyslané ze spoutů nebo z jiných boltů. Bolty mohou volitelně vysílat do topologie datové streamy. Bolty také odpovídají za zápis dat do externích služeb nebo úložiště, například HDFS, Kafka nebo HBase.
+
+## <a name="reliability"></a>Spolehlivost
+
+Apache Storm zaručuje, že příchozí zprávy budou vždy plně zpracovány, i když je analýza dat rozdělena do stovek uzlů.
+
+Uzel Nimbus poskytuje funkce podobné Hadoop JobTracker a přiřazuje úlohy jiným uzlům v clusteru prostřednictvím nástroje Zookeeper. Uzly Zookeeper poskytují koordinaci pro cluster a usnadňují komunikaci mezi procesy Nimbus a Supervisor v pracovních uzlech. Pokud dojde k selhání jednoho uzlu zpracování, uzel Nimbus je informován a přiřadí úlohu a přidružená data do jiného uzlu.
+
+Výchozí konfigurace pro clustery Apache Storm může obsahovat pouze jeden uzel Nimbus. Storm v HDInsight poskytuje dva uzly Nimbus. V případě selhání primárního uzlu se cluster Storm přepne na sekundární uzel a primární uzel se obnoví. Následující diagram znázorňuje tok konfigurace úlohy pro Storm v HDInsight:
+
+![Graf nimbusu, zookeeper a supervisor](./media/apache-storm-overview/nimbus.png)
 
 ## <a name="ease-of-creation"></a>Snadné vytvoření
 
@@ -100,23 +107,6 @@ V HDInsight můžete vytvořit nový cluster Storm během několika minut. Dalš
     * [Zpracování událostí z Azure Event Hubs se Stormem v HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
 * __SQL Database__, __Azure Cosmos DB__, __Event Hubs__ a __HBase__: Příklady šablon jsou součástí nástrojů Data Lake pro Visual Studio. Další informace najdete v článku [Vývoj topologií v jazyce C# pro Storm v HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
-
-## <a name="reliability"></a>Spolehlivost
-
-Apache Storm zaručuje, že příchozí zprávy budou vždy plně zpracovány, i když je analýza dat rozdělena do stovek uzlů.
-
-Uzel Nimbus poskytuje funkce podobné Hadoop JobTracker a přiřazuje úlohy jiným uzlům v clusteru prostřednictvím nástroje Zookeeper. Uzly Zookeeper poskytují koordinaci pro cluster a usnadňují komunikaci mezi procesy Nimbus a Supervisor v pracovních uzlech. Pokud dojde k selhání jednoho uzlu zpracování, uzel Nimbus je informován a přiřadí úlohu a přidružená data do jiného uzlu.
-
-Výchozí konfigurace pro clustery Apache Storm může obsahovat pouze jeden uzel Nimbus. Storm v HDInsight poskytuje dva uzly Nimbus. V případě selhání primárního uzlu se cluster Storm přepne na sekundární uzel a primární uzel se obnoví. Následující diagram znázorňuje tok konfigurace úlohy pro Storm v HDInsight:
-
-![Graf nimbusu, zookeeper a supervisor](./media/apache-storm-overview/nimbus.png)
-
-## <a name="scale"></a>Měřítko
-
-Kapacitu clusterů HDInsight je možné dynamicky měnit přidáváním nebo odebíráním pracovních uzlů. Tato operace může běžet i během zpracovávání dat.
-
-> [!IMPORTANT]
-> Abyste mohli využívat nové uzly přidané při změně velikosti, budete muset vyrovnat topologie Storm spuštěné před zvýšením velikosti clusteru.
 
 ## <a name="support"></a>Podpora
 

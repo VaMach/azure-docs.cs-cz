@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/31/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: f0be787ba1ccee067fb1d7e6a6554be32f886089
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c66488ce4381a3c5f796aa9826810195b2738769
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Začínáme s doručováním obsahu na vyžádání pomocí sady SDK pro .NET
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -86,22 +86,26 @@ Pokud chcete spustit koncový bod streamování, postupujte takto:
 
 Když službu Media Services používáte s rozhraním .NET, musíte třídu **CloudMediaContext** používat pro většinu programovacích úloh: připojení k účtu Media Services, vytváření, aktualizace, otevírání a odstraňování následujících objektů: prostředky, soubory prostředků, úlohy, zásady přístupu, lokátory atd.
 
-Přepište výchozí třídu Program následujícím kódem. Kód ukazuje, jak číst hodnoty připojení ze souboru App.config a jak vytvořit objekt **CloudMediaContext**, abyste se mohli připojit ke službě Media Services. Další informace najdete v tématu popisujícím [připojení k rozhraní API služby Media Services](media-services-use-aad-auth-to-access-ams-api.md).
+Výchozí třídu Program přepište následujícím kódem: Kód ukazuje, jak číst hodnoty připojení ze souboru App.config a jak vytvořit objekt **CloudMediaContext**, abyste se mohli připojit ke službě Media Services. Další informace najdete v tématu popisujícím [připojení k rozhraní API služby Media Services](media-services-use-aad-auth-to-access-ams-api.md).
 
 Nezapomeňte aktualizovat název souboru a cestu podle umístění multimediálního souboru.
 
 Funkce **Main** volá metody, které si definujeme v této části.
 
 > [!NOTE]
-> Dokud nepřidáte definice pro všechny funkce, budou se vám zobrazovat chyby kompilace.
+> Dokud nepřidáte definice pro všechny funkce definované dále v tomto článku, budou se vám zobrazovat chyby kompilace.
 
     class Program
     {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
@@ -109,7 +113,11 @@ Funkce **Main** volá metody, které si definujeme v této části.
         {
         try
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -137,7 +145,7 @@ Funkce **Main** volá metody, které si definujeme v této části.
             Console.ReadLine();
         }
         }
-    }
+    
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Vytvoření nového prostředku a odeslání videosouboru
 
@@ -145,7 +153,7 @@ Ve službě Media Services můžete digitální soubory nahrát (nebo ingestovat
 
 Metoda **UploadFile** definovaná níže volá metodu **CreateFromFile** (definovanou v rozšíření sady SDK pro .NET). **CreateFromFile** vytvoří nový prostředek, do kterého se zadaný zdrojový soubor odešle.
 
-Metoda **CreateFromFile** přijímá metodu **AssetCreationOptions**, která vám umožňuje určit jednu z následujících možností vytvoření prostředku:
+Metoda **CreateFromFile** přijímá parametr AssetCreationOptions, který vám umožňuje určit jednu z následujících možností vytvoření prostředku:
 
 * **Žádné** – nepoužívá se žádné šifrování. Toto je výchozí hodnota. Pamatujte, že při použití této možnosti není váš obsah chráněný během přenosu ani při umístění v úložišti.
   Pokud chcete pomocí progresivního stahování dodávat obsah ve formátu MP4, použijte tuto možnost.
@@ -228,7 +236,7 @@ Pokud chcete prostředek streamovat nebo stáhnout, musíte ho nejdřív „publ
 
 ### <a name="some-details-about-url-formats"></a>Podrobnosti o formátech adres URL
 
-Po vytvoření lokátorů můžete sestavit adresy URL, které budou sloužit ke streamování a stahování souborů. Ukázka v tomto kurzu budou výstupy adresy URL, které můžete vložit do příslušných prohlížečů. V této části je pár příkladů, jak vypadají jiné formáty.
+Po vytvoření lokátorů můžete sestavit adresy URL, které budou sloužit ke streamování a stahování souborů. Ukázka v tomto kurzu zobrazí na výstupu adresy URL, které můžete vložit do příslušných prohlížečů. V této části je pár příkladů, jak vypadají jiné formáty.
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Streamovací adresa URL pro MPEG DASH má následující formát:
 
@@ -363,7 +371,7 @@ Další informace najdete v následujících tématech:
 
 - [Přehrávání obsahu ve stávajících přehrávačích](media-services-playback-content-with-existing-players.md)
 - [Vývoj aplikací videopřehrávače](media-services-develop-video-players.md)
-- [Vložení videa adaptivního streamování MPEG-DASH do aplikace HTML5 se souborem DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+- [Vložení videa adaptivního streamování MPEG-DASH do aplikace HTML5 využívající DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>Stažení ukázky
 Následující ukázka kódu obsahuje kód, který jste vytvořili v tomto kurzu: [ukázka](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).

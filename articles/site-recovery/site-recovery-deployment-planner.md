@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 665bb65d17e9abec98262b92afffba008ed6c891
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Plánovač nasazení služby Azure Site Recovery pro nasazení VMware do Azure
 Tento článek představuje uživatelskou příručku k nástroji Azure Site Recovery Deployment Planner pro produkční nasazení VMware do Azure.
@@ -42,6 +42,8 @@ Nástroj poskytuje následující podrobnosti:
 * Odhadovaná šířka pásma sítě potřebná pro rozdílovou replikaci
 * Propustnost z místního prostředí do Azure, které Site Recovery může dosáhnout
 * Počet virtuálních počítačů pro dávku na základě odhadované šířky pásma pro dokončení prvotní replikace v daném čase
+* Cíl bodu obnovení, kterého je možné dosáhnout pro danou šířku pásma
+* Dopad na požadovaný cíl bodu obnovení při zřízení menší šířky pásma.
 
 **Požadavky na infrastrukturu Azure**
 
@@ -55,7 +57,7 @@ Nástroj poskytuje následující podrobnosti:
 **Požadavky na místní infrastrukturu**
 * Požadovaný počet konfiguračních serverů a procesových serverů, které se mají místně nasadit
 
-**Odhadované náklady na zotavení po havárii do Azure** 
+**Odhadované náklady na zotavení po havárii do Azure**
 * Odhadované celkové náklady na zotavení po havárii do Azure: náklady na licence pro Azure Site Recovery, výpočty, úložiště a síť
 * Podrobná analýza nákladů na virtuální počítač
 
