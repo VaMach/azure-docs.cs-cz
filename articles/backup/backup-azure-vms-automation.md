@@ -15,18 +15,13 @@ ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd45dfb1f9e08add7a61a42e4f9b570dc25495d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: b873337cf69ea1dda956ebf8c004754a7737e79c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Pomocí rutin AzureRM.RecoveryServices.Backup zálohování virtuálních počítačů
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-vms-automation.md)
-> * [Classic](backup-azure-vms-classic-automation.md)
->
->
 
 Tento článek ukazuje, jak používat rutiny prostředí Azure PowerShell k zálohování a obnovení z trezoru služeb zotavení Azure virtuální počítač (VM). Trezor služeb zotavení je prostředek Azure Resource Manager a slouží k ochraně dat a prostředků služby Azure Backup a Azure Site Recovery. Trezor služeb zotavení můžete použít k ochraně virtuálních počítačů nasazených Azure Service Manager a virtuální počítače nasazené Azure Resource Manager.
 
@@ -169,7 +164,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-Zásady zálohování ochrany je přidružen alespoň jeden zásady uchovávání informací. Zásady uchovávání informací definuje, jak dlouho bod obnovení je udržováno před odstraněním. Použití  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  zobrazení výchozí zásady uchovávání informací.  Podobně můžete použít  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  získat výchozí plán zásady. **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  rutina vytvoří objekt prostředí PowerShell, který obsahuje informace zásady zálohování. Objekty zásad plán a uchovávání dat se používají jako vstupy pro  **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  rutiny. Následující příklad ukládá v proměnné plán zásad a zásad uchovávání informací. V příkladu používá k definici parametrů při vytváření zásady ochrany, tyto proměnné *NewPolicy*.
+Zásady zálohování ochrany je přidružen alespoň jeden zásady uchovávání informací. Zásady uchovávání informací definuje, jak dlouho bod obnovení je udržováno před odstraněním. Použití  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  zobrazení výchozí zásady uchovávání informací.  Podobně můžete použít  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  získat výchozí plán zásady.  **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  rutina vytvoří objekt prostředí PowerShell, který obsahuje informace zásady zálohování. Objekty zásad plán a uchovávání dat se používají jako vstupy pro  **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  rutiny. Následující příklad ukládá v proměnné plán zásad a zásad uchovávání informací. V příkladu používá k definici parametrů při vytváření zásady ochrany, tyto proměnné *NewPolicy*.
 
 ```
 PS C:\> $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"

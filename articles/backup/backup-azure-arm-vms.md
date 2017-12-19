@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Zálohování virtuálních počítačů Azure do trezoru služby Recovery Services
-> [!div class="op_single_selector"]
-> * [Zálohování virtuálních počítačů do trezoru služeb zotavení](backup-azure-arm-vms.md)
-> * [Zálohování virtuálních počítačů do trezoru zálohování](backup-azure-vms.md)
->
->
 
 Tento článek podrobné informace o tom, jak zálohovat virtuální počítače Azure (nasazení Resource Manager i nasazení Classic) do trezoru služeb zotavení. Většina práce pro zálohování virtuálních počítačů je přípravy. Před zahájením zálohování nebo chránit virtuální počítač, musíte provést [požadavky](backup-azure-arm-vms-prepare.md) při přípravě svého prostředí pro ochranu virtuálních počítačů. Po dokončení požadavky, můžete spustit zálohování udělat snímky virtuálního počítače.
 

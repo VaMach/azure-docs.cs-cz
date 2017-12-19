@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 04c015a6fb6f9398e83b8717e869ba1d8e32a702
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: fd90c63baaf254f5086cbc99a2a22d61587ee365
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Použití dynamické šifrování AES-128 a doručení klíče služby
 > [!div class="op_single_selector"]
@@ -26,6 +26,10 @@ ms.lasthandoff: 12/07/2017
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
+
+> [!NOTE]
+> Získat nejnovější verzi sady Java SDK a začít s vývojem v jazyce Java, najdete v tématu [Začínáme s klientem nástroje Java SDK pro Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Chcete-li stáhnout nejnovější PHP SDK pro Media Services, vyhledejte verze 0.5.7 balíčku Microsoft/WindowAzure v [Packagist úložiště](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Přehled
 > [!NOTE]

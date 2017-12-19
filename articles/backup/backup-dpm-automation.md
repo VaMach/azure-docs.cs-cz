@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 6e88e8f5d385d63d491415583e1d8c7f89324cc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Nasazení a správa zálohování do Azure pro servery DPM (Data Protection Manager) pomocí PowerShellu
-> [!div class="op_single_selector"]
-> * [ARM](backup-dpm-automation.md)
-> * [Classic](backup-dpm-automation-classic.md)
->
->
-
 Tento článek ukazuje, jak pomocí prostředí PowerShell instalační program Azure Backup na serveru DPM a ke správě zálohování a obnovení.
 
 ## <a name="setting-up-the-powershell-environment"></a>Nastavení prostředí PowerShell

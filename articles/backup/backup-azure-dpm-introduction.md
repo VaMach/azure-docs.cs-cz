@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Příprava zálohování úloh do Azure pomocí DPM
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Server Azure Backup (klasické)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (klasické)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -113,7 +111,7 @@ Přihlašovací údajů úložiště se používají pouze během pracovního po
 Soubor s přihlašovacími údaji trezoru je stažen prostřednictvím zabezpečeného kanálu z portálu Azure. Služba Azure Backup nezaznamená privátní klíč certifikátu, a privátní klíč není trvalý v portálu nebo službu. Pomocí následujících kroků stáhněte soubor s přihlašovacími údaji trezoru do místního počítače.
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com/).
-2. Otevřený trezor služeb zotavení, do které počítač na který chcete zaregistrovat aplikaci DPM.
+2. Otevřete trezor služeb zotavení, který chcete zaregistrovat počítač aplikace DPM.
 3. Otevře se okno nastavení ve výchozím nastavení. Pokud je zavřený, klikněte na **nastavení** na řídicím panelu trezoru otevřete okno nastavení. V okně nastavení klikněte na **vlastnosti**.
 
     ![Otevřené okno trezoru](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -131,7 +129,7 @@ Na portálu vygeneruje přihlašovací údaje úložiště pomocí kombinace ná
 ### <a name="3-install-backup-agent"></a>3. Instalace agenta zálohování
 Po vytvoření trezoru zálohování Azure, je třeba nainstalovat agenta na všechny vaše Windows počítače (Windows Server, klient systému Windows, server System Center Data Protection Manager nebo počítače serveru Azure Backup), které povoluje zálohování dat a aplikací do Azure.
 
-1. Otevřený trezor služeb zotavení, do které počítač na který chcete zaregistrovat aplikaci DPM.
+1. Otevřete trezor služeb zotavení, který chcete zaregistrovat počítač aplikace DPM.
 2. Otevře se okno nastavení ve výchozím nastavení. Pokud je zavřený, klikněte na **nastavení** otevřete okno nastavení. V okně nastavení klikněte na **vlastnosti**.
 
     ![Otevřené okno trezoru](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -139,7 +137,7 @@ Po vytvoření trezoru zálohování Azure, je třeba nainstalovat agenta na vš
 
     ![Ke stažení](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   Jakmile je stáhnout agenta, poklikejte na MARSAgentInstaller.exe spustíte instalaci agenta Azure Backup agent. Vyberte instalační složku a pomocné složky, které jsou potřebné pro agenta. Zadané umístění mezipaměti musí mít volné místo, který je nejméně 5 % zálohovaná data.
+   Po stažení agenta spusťte MARSAgentInstaller.exe spustíte instalaci agenta Azure Backup agent. Vyberte instalační složku a pomocné složky, které jsou potřebné pro agenta. Zadané umístění mezipaměti musí mít volné místo, který je nejméně 5 % zálohovaná data.
 4. Pokud používáte proxy server pro připojení k Internetu, v **konfiguraci proxy serveru** obrazovky, zadejte podrobnosti o proxy serveru. Pokud používáte ověřený server proxy, zadejte uživatelské jméno a heslo podrobnosti na této obrazovce.
 5. Agent Azure Backup nainstaluje rozhraní .NET Framework 4.5 a prostředí Windows PowerShell (Pokud není k dispozici již) pro dokončení instalace.
 6. Po instalaci agenta **Zavřít** okna.

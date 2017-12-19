@@ -61,6 +61,9 @@
 
 ## [Škálování testovacího prostředí](devtest-lab-scale-lab.md)
 
+## Integrace s CI/CD
+### [Integrace testovacího prostředí do kanálu CI/CD VSTS](devtest-lab-integrate-ci-cd-vsts.md)
+
 # Referenční informace
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)

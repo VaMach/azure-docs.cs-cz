@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorování a Správa kanálů služby Azure Data Factory pomocí portálu Azure a prostředí PowerShell
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Tato část také popisuje, jak se řez datovou sadu přechází z jednoho stavu
    ![Procházet všechny > datové továrny](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Na **datové továrny** okně vyberte služby data factory, která vás zajímá.
 
-    ![Vyberte objekt pro vytváření dat](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+    ![Výběr datové továrny](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
    Měli byste vidět domovské stránce služby data Factory.
 
@@ -98,13 +98,13 @@ Dvojitým kliknutím **OutputBlobTable** v **Diagram**, zobrazí se všechny dat
 <td>ComputeResources</td><td>Výpočetní prostředky nejsou k dispozici.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Všechny instance aktivit právě zpracovávají jiné řezy.</td>
+<td>ConcurrencyLimit</td> <td>Jsou všechny instance aktivit právě zpracovávají jiné řezy.</td>
 </tr>
 <tr>
 <td>ActivityResume</td><td>Aktivita je pozastavená a zpracování řezů nejde spustit, dokud je obnoveno aktivity.</td>
 </tr>
 <tr>
-<td>Opakování</td><td>Probíhá pokus o spuštění aktivity je zopakován.</td>
+<td>Retry</td><td>Probíhá pokus o spuštění aktivity je zopakován.</td>
 </tr>
 <tr>
 <td>Ověření</td><td>Ověření se ještě nespustilo.</td>

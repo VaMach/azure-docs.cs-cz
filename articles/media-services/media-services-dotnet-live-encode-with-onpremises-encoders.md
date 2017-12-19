@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
 ms.openlocfilehash: 49246df64372939288354acce768cdc366a85440
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Jak provést živé streamování s místními kodéry, pomocí rozhraní .NET
 > [!div class="op_single_selector"]

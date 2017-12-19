@@ -15,19 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b659d5dc894afd2beef529c6b4f736e888b4540e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Obnovení virtuálních počítačů pomocí portálu Azure
-> [!div class="op_single_selector"]
-> * [Obnovení virtuálních počítačů na portálu classic](backup-azure-restore-vms.md)
-> * [Obnovení virtuálních počítačů na portálu Azure](backup-azure-arm-restore-vms.md)
->
->
-
 Ochrana dat pomocí snímky dat na definovaných intervalech. Tyto snímky jsou známé jako body obnovení a byly uloženy do trezory služeb zotavení. Pokud je nutné opravit nebo znovu vytvořit virtuální počítač (VM), můžete obnovit virtuální počítač z jakýchkoli bodů obnovení uložené. Pokud obnovíte bod obnovení, můžete:
 
 * Vytvořte nový virtuální počítač, který je reprezentace v okamžiku zálohy virtuálního počítače.

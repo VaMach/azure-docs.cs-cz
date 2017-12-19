@@ -16,10 +16,10 @@ ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fb6937cc0fc744d6e3a783d77b2a16b6fc09f3bf
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK pro rozhraní API pro SQL: stažení a poznámky k verzi
 > [!div class="op_single_selector"]
@@ -202,28 +202,28 @@ ms.lasthandoff: 12/14/2017
 * Implementovat [oddíly kolekce](partition-data.md) a [úrovně výkonu uživatelem definované](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Pevné] ** Vyvolá dotaz na databázi Azure Cosmos koncový bod: ' System.Net.Http.HttpRequestException: Při kopírování obsahu do datového proudu došlo k chybě ".
+* **[Pevné]**  Vyvolá dotaz na databázi Azure Cosmos koncový bod: ' System.Net.Http.HttpRequestException: Při kopírování obsahu do datového proudu došlo k chybě ".
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * LINQ rozšířené podpory, včetně nových operátorů pro stránkování, podmíněné výrazy a rozsahu porovnání.
   * Take – operátor povolit vyberte horní chování v LINQ
   * Operátor CompareTo povolit rozsah porovnání řetězců
   * Podmíněné (?) a slučovat operátory (?)
-* **[Pevné] ** Výjimka ArgumentOutOfRangeException při kombinování modelu projekce s Where-v v dotazu LINQ. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+* **[Pevné]**  Výjimka ArgumentOutOfRangeException při kombinování modelu projekce s Where-v v dotazu LINQ. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
-* **[Pevné] ** Pokud vyberte není poslední výrazu LINQ zprostředkovatele předpokládá, že žádná projekce a vytváří vyberte * nesprávně.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
+* **[Pevné]**  Pokud vyberte není poslední výrazu LINQ zprostředkovatele předpokládá, že žádná projekce a vytváří vyberte * nesprávně.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 * Implementovaná Upsert, přidat UpsertXXXAsync metody
 * Vylepšení výkonu pro všechny požadavky
 * Podpora zprostředkovatele LINQ pro podmíněného, sloučení a metody CompareTo pro řetězce
-* **[Pevné] ** LINQ zprostředkovatele--> obsahuje implementujte metodu na seznamu generovat stejný SQL na rozhraní IEnumerable a pole
-* **[Pevné] ** BackoffRetryUtility používá stejnou hodnotu HttpRequestMessage znovu místo vytvoření nové při opakování
-* **[Zastaralé] ** --> UriFactory.CreateCollection nyní využít UriFactory.CreateDocumentCollection
+* **[Pevné]**  LINQ zprostředkovatele--> obsahuje implementujte metodu na seznamu generovat stejný SQL na rozhraní IEnumerable a pole
+* **[Pevné]**  BackoffRetryUtility používá stejnou hodnotu HttpRequestMessage znovu místo vytvoření nové při opakování
+* **[Zastaralé]**  --> UriFactory.CreateCollection nyní využít UriFactory.CreateDocumentCollection
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
-* **[Pevné] ** Lokalizace problémy při použití jiných en informace o jazykové nl-NL, např. 
+* **[Pevné]**  Lokalizace problémy při použití jiných en informace o jazykové nl-NL, např. 
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 * Přidat na základě ID směrování
@@ -244,7 +244,7 @@ ms.lasthandoff: 12/14/2017
 * Byla přidána podpora pro prostorových indexování a dotazu.
   * Nový obor názvů Microsoft.Azure.Documents.Spatial pro serializaci nebo deserializaci prostorové typy jako bod a mnohoúhelníku
   * Nová třída SpatialIndex pro indexování dat GeoJSON uloženy v databázi systému Cosmos
-* **[Pevné] ** Dotazu nesprávný SQL vygenerovat z výrazu LINQ [#38](https://github.com/Azure/azure-documentdb-net/issues/38).
+* **[Pevné]**  Dotazu nesprávný SQL vygenerovat z výrazu LINQ [#38](https://github.com/Azure/azure-documentdb-net/issues/38).
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Přidat závislost na Newtonsoft.Json v5.0.7.
