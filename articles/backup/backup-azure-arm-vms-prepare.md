@@ -15,27 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 9b3584a93766be6052c822f40328169910de26c7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Příprava prostředí pro zálohování virtuálních počítačů s nasazením Resource Manageru
-> [!div class="op_single_selector"]
-> * [Model Resource Manager](backup-azure-arm-vms-prepare.md)
-> * [Klasického modelu](backup-azure-vms-prepare.md)
->
->
 
 Tento článek obsahuje kroky pro přípravu prostředí zálohování nasazených Resource Managerem virtuálního počítače (VM). Postupy v postupech pomocí portálu Azure.  
 
 Služby zálohování Azure má dva typy trezorů (zálohování trezory a trezory služeb zotavení) pro ochranu virtuálních počítačů. Trezor záloh chrání virtuální počítače nasazené pomocí modelu nasazení Classic. Trezor služeb zotavení chrání **nasazení Classic i Resource Manager nasazené virtuální počítače**. Trezor služeb zotavení je nutné použít k ochraně virtuálních počítačů nasazených Resource Managerem.
 
 > [!NOTE]
-> Azure obsahuje dva modely nasazení pro vytváření a práci s prostředky: [Resource Manager a Classic](../azure-resource-manager/resource-manager-deployment-model.md). V tématu [Příprava prostředí pro zálohování virtuálních počítačů Azure](backup-azure-vms-prepare.md) podrobnosti o práci s klasického nasazení modelu virtuálních počítačů.
->
->
+> Azure obsahuje dva modely nasazení pro vytváření a práci s prostředky: [Resource Manager a Classic](../azure-resource-manager/resource-manager-deployment-model.md). 
 
 Chcete-li chránit nebo zálohovat nasazených Resource Managerem virtuálního počítače (VM), zkontrolujte, zda že existují tyto požadavky:
 
@@ -45,7 +38,7 @@ Chcete-li chránit nebo zálohovat nasazených Resource Managerem virtuálního 
 * Zkontrolujte připojení k síti
 * Pro virtuální počítače s Linuxem, v případě, že chcete přizpůsobit zálohování prostředí pro aplikace, které jsou konzistentní zálohování prosím postupujte podle kroků [postup skripty snímek před a po pořízení snímku konfigurace](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
-Pokud znáte tyto podmínky již neexistuje ve vašem prostředí poté pokračujte [zálohování váš článek virtuálních počítačů](backup-azure-vms.md). Pokud potřebujete nastavit, nebo zkontrolovat, žádný z těchto požadavků, tento článek vás provede kroky při přípravě splnění tohoto požadavku.
+Pokud znáte tyto podmínky již neexistuje ve vašem prostředí poté pokračujte [zálohování váš článek virtuálních počítačů](backup-azure-arm-vms.md). Pokud potřebujete nastavit, nebo zkontrolovat, žádný z těchto požadavků, tento článek vás provede kroky při přípravě splnění tohoto požadavku.
 
 ##<a name="supported-operating-system-for-backup"></a>Podporovaný operační systém pro zálohování
  * **Linux**: Azure Backup podporuje [seznam distribucí schválených pro Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), kromě základního OS Linux. _Další přineste-vaše – vlastní-Linuxových distribucích také může fungovat, dokud agent virtuálního počítače je k dispozici na virtuálním počítači a podpora pro Python existuje. Jsme však není neschvaluje těchto distribuce pro zálohování._
@@ -58,7 +51,7 @@ Než se připravíte prostředí, prosím vědět o omezeních.
 * Nepodporuje zálohování virtuálních počítačů s daty velikosti disku je větší než 1023GB.
 
 > [!NOTE]
-> Máme privátní Preview verzi pro podporu zálohování pro virtuální počítače s > 1TB nespravované disky. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Máme verzi Private Preview pro podporu záloh pro virtuální počítače s nespravovanými disky většími než 1 TB. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -69,8 +62,9 @@ Než se připravíte prostředí, prosím vědět o omezeních.
 * Nahrazení existujícího virtuálního počítače během obnovení se nepodporuje. Pokud se pokusíte obnovit virtuální počítač, když virtuální počítač existuje, operaci obnovení se nezdaří.
 * Mezi oblastmi zálohování a obnovení nejsou podporovány.
 * Můžete zálohovat virtuální počítače ve všech veřejných oblastí ve službě Azure (viz [kontrolní seznam](https://azure.microsoft.com/regions/#services) z podporovaných oblastí). Pokud oblast, kterou hledáte, není podporován dnes, nezobrazí se v rozevíracím seznamu při vytváření trezoru.
-* Obnovení řadiče domény (DC) virtuálního počítače, který je součástí konfigurace více – řadič domény je možné pouze pomocí prostředí PowerShell. Další informace o [obnovení řadiče domény, řadiče domény služby více](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-* Obnovení virtuálních počítačů, které mají následující zvláštní síťové konfigurace je podporována pouze pomocí prostředí PowerShell. Po dokončení operace obnovení, nebude mít virtuální počítače vytvořené pomocí pracovního postupu obnovení v uživatelském rozhraní tyto konfigurace sítě. Další informace najdete v tématu [obnovení virtuálních počítačů s konfigurací speciální síťových](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+* Obnovení řadiče domény (DC) virtuálního počítače, který je součástí konfigurace více – řadič domény je možné pouze pomocí prostředí PowerShell. Další informace o [obnovení řadiče domény, řadiče domény služby více](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Obnovení virtuálních počítačů, které mají následující zvláštní síťové konfigurace je podporována pouze pomocí prostředí PowerShell. Po dokončení operace obnovení, nebude mít virtuální počítače vytvořené pomocí pracovního postupu obnovení v uživatelském rozhraní tyto konfigurace sítě. Další informace najdete v tématu [obnovení virtuálních počítačů s konfigurací speciální síťových](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
+
   * Virtuální počítače v části Konfigurace služby Vyrovnávání zatížení (interních a externích)
   * Virtuální počítače s více vyhrazené IP adresy
   * Virtuální počítače s více síťových adaptérů
@@ -232,8 +226,6 @@ Následující příklad obrázek ukazuje tři konfiguračních kroků nezbytný
 * Proxy virtuálních počítačů umožňuje příchozí provoz z virtuálních počítačů ve virtuální síti.
 * Skupina zabezpečení sítě (NSG), s názvem NFP uzamčení musí zabezpečení pravidlo povolení odchozí internetové přenosy z virtuálního počítače proxy serveru.
 
-![Skupina NSG s diagram nasazení proxy serveru HTTP](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
-
 Proxy server HTTP komunikaci do veřejného Internetu, postupujte podle těchto kroků:
 
 #### <a name="step-1-configure-outgoing-network-connections"></a>Krok 1. Konfigurace odchozích síťových připojení
@@ -285,16 +277,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Krok 2. Povolit příchozí připojení na proxy serveru:
 1. Na serveru proxy otevřete bránu Windows Firewall. Nejjednodušší způsob, jak získat přístup k bráně firewall je pro vyhledávání pro bránu Windows Firewall s pokročilým zabezpečením.
-
-    ![Otevření brány Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 2. V dialogovém okně brány Windows Firewall, klikněte pravým tlačítkem na **příchozí pravidla** a klikněte na tlačítko **nové pravidlo...** .
-
-    ![Vytvořit nové pravidlo](./media/backup-azure-vms-prepare/firewall-02.png)
 3. V **pravidla Průvodce vytvořením nového příchozího**, vyberte **vlastní** možnost **typ pravidla** a klikněte na tlačítko **Další**.
 4. Na stránce vybrat **programu**, zvolte **všechny programy** a klikněte na tlačítko **Další**.
 5. Na **protokol a porty** stránky, zadejte následující informace a klikněte na **Další**:
-
-    ![Vytvořit nové pravidlo](./media/backup-azure-vms-prepare/firewall-03.png)
 
    * pro *protokolu typ* zvolte *TCP*
    * pro *místního portu* zvolte *specifické porty*, do následujícího pole zadejte ```<Proxy Port>``` který byl nakonfigurovaný.
@@ -323,6 +309,6 @@ Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [ode�
 ## <a name="next-steps"></a>Další kroky
 Teď, když připravíte prostředí pro zálohování virtuálního počítače, vaše další logické krokem je vytvoření zálohy. Plánování článek poskytuje podrobnější informace o zálohování virtuálních počítačů.
 
-* [Zálohování virtuálních počítačů](backup-azure-vms.md)
+* [Zálohování virtuálních počítačů](backup-azure-arm-vms.md)
 * [Plánování vaší infrastruktury zálohování virtuálních počítačů](backup-azure-vms-introduction.md)
 * [Správa záloh virtuálních počítačů](backup-azure-manage-vms.md)

@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 231dd61f95267b3a504ed70e9b3a5abc470b69b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Obnovení souborů na serveru Windows nebo klientském počítači s využitím modelu nasazení Resource Manager
-> [!div class="op_single_selector"]
-> * [Azure Portal](backup-azure-restore-windows-server.md)
-> * [Portál Classic](backup-azure-restore-windows-server-classic.md)
->
->
 
 Tento článek vysvětluje, jak obnovit data z úložiště záloh. Chcete-li obnovit data, použijte Průvodce obnovení dat v agentovi nástroje Microsoft Azure Recovery Services (MARS). Při obnovování dat, je možné:
 

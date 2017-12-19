@@ -33,6 +33,10 @@
           href: monitoring-overview-metrics.md
         - name: Výstrahy
           href: monitoring-overview-alerts.md
+        - name: Upozornění (Preview)
+          href: monitoring-overview-unified-alerts.md
+        - name: Výstrahy protokolu
+          href: monitor-alerts-unified-log.md
         - name: Automatické škálování
           href: monitoring-overview-autoscale.md
         - name: Protokol aktivit
@@ -74,6 +78,8 @@
           href: monitoring-near-real-time-metric-alerts.md
         - name: Konfigurace upozornění na webu Azure Portal
           href: insights-alerts-portal.md
+        - name: Konfigurace výstrah protokolu nebo metriky v upozorněních (Preview) na webu Azure Portal
+          href: monitor-alerts-unified-usage.md
         - name: Konfigurace upozornění pomocí rozhraní příkazového řádku
           href: insights-alerts-command-line-interface.md
         - name: Konfigurace upozornění pomocí Azure PowerShellu

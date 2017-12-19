@@ -6,11 +6,11 @@
       href: overview.md
 - name: Šablony Rychlý start
   items:
-    - name: Vytvoření spravované aplikace pomocí rozhraní příkazového řádku Azure
+    - name: Vytvoření spravované aplikace
       href: managed-apps-quickstart-cli.md
 - name: Kurzy
   items:
-    - name: Vytvoření aplikace katalogu služeb
+    - name: Vytvoření souborů spravované aplikace
       href: publish-service-catalog-app.md
 - name: Ukázky
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: Aktualizace spravovaných prostředků
       href: update-managed-resources.md
-    - name: Publikování aplikace katalogu služeb – portál
+    - name: Použití portálu k publikování
       href: publish-portal.md
 - name: Referenční informace
   items:

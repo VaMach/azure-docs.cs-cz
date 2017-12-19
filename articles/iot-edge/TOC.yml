@@ -32,6 +32,12 @@
       href: how-to-deploy-monitor.md
     - name: Zřízení zařízení IoT Core
       href: how-to-install-iot-core.md
+    - name: Použití VS Code pro vývoj řešení IoT Edge
+      items:
+        - name: 'Vývoj a nasazení modulu C#'
+          href: how-to-vscode-develop-csharp-module.md
+        - name: 'Ladění modulu C#'
+          href: how-to-vscode-debug-csharp-module.md
     - name: Řešení potíží
       href: troubleshoot.md
 - name: Koncepty

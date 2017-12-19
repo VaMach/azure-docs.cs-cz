@@ -54,6 +54,8 @@
 #### [Dodržování předpisů – oficiální pro Spojené království](uk-official-three-tier-applications-overview.md)
 ##### [Přehled](uk-official-three-tier-applications-overview.md)
 ##### [Přehled principů](uk-official-three-tier-applications-principles-overview.md)
+#### [Dodržování předpisů – finanční služby](financial-services-regulated-workloads.md)
+##### [Finanční služby pro regulované úlohy](financial-services-regulated-workloads.md)
 
 # Začínáme
 ## [Začínáme se zabezpečením Azure](../azure-security-getting-started.md)

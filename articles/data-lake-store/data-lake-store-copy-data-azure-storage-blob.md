@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Kopírování dat z Azure Storage Blob do služby Data Lake Store
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Parametry v syntaxi jsou následující:
 | SourceKey |Určuje přístupový klíč úložiště pro zdrojový objekt blob úložiště Azure. To je potřeba, pouze pokud je zdroj kontejner objektů blob nebo objekt blob. |
 | Účet |**Volitelné**. Použijte, pokud chcete spustit úlohu kopírování pomocí účtu Azure Data Lake Analytics. Pokud použijete možnost /Account v syntaxi, ale nezadávejte účet Data Lake Analytics, AdlCopy používá výchozí účet pro spuštění úlohy. Navíc pokud použijete tuto možnost, musíte přidat zdroj (Azure Storage Blob) a cíl (Azure Data Lake Store) jako zdroje dat pro váš účet Data Lake Analytics. |
 | Jednotky |Určuje počet jednotek Data Lake Analytics, které se použijí pro úlohu kopírování. Tato možnost je povinná, pokud použijete **/účet** možnost zadat účet Data Lake Analytics. |
-| vzor |Určuje vzor regulárního výrazu, která určuje, které objekty BLOB nebo připojené soubory. AdlCopy používá odpovídající malá a velká písmena. Výchozím způsobem používaným při zadat žádné vzor je zkopírujte všechny položky. Zadání více vzorů souborů není podporováno. |
+| Vzor |Určuje vzor regulárního výrazu, která určuje, které objekty BLOB nebo připojené soubory. AdlCopy používá odpovídající malá a velká písmena. Výchozím způsobem používaným při zadat žádné vzor je zkopírujte všechny položky. Zadání více vzorů souborů není podporováno. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>Použít AdlCopy (jako samostatná) ke zkopírování dat z objektu blob Azure Storage
 1. Otevřete příkazový řádek a přejděte do adresáře, kde AdlCopy je nainstalován, obvykle `%HOMEPATH%\Documents\adlcopy`.
@@ -72,7 +72,7 @@ Parametry v syntaxi jsou následující:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE] Syntaxi výše Určuje soubor, který se má zkopírovat do složky v účtu Data Lake Store. Nástroj AdlCopy vytvoří složku, pokud zadaný název složky neexistuje.
+    >[AZURE.NOTE]Syntaxi výše Určuje soubor, který se má zkopírovat do složky v účtu Data Lake Store. Nástroj AdlCopy vytvoří složku, pokud zadaný název složky neexistuje.
 
     Zobrazí se výzva k zadání přihlašovacích údajů pro předplatné Azure, ve kterém máte účtu Data Lake Store. Zobrazí se výstup podobný následujícímu:
 

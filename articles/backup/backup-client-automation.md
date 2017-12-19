@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: d3f165c749af0553c4918b33b0d24cc1e21af2a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Nasazení a správa zálohování do Azure pro servery Windows / klienty Windows pomocí PowerShellu
-> [!div class="op_single_selector"]
-> * [ARM](backup-client-automation.md)
-> * [Classic](backup-client-automation-classic.md)
->
->
-
 Tento článek ukazuje, jak pomocí prostředí PowerShell pro nastavení služby Azure Backup na Windows serveru nebo klienta Windows a Správa zálohování a obnovení.
 
 ## <a name="install-azure-powershell"></a>Instalace prostředí Azure PowerShell
@@ -204,7 +198,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Zachování informací o přístupové heslo bezpečném, po nastavení. Není možné obnovit data ze služby Azure bez tohoto hesla.
+> Zachování informací o přístupové heslo bezpečném, po nastavení. Nelze obnovit data ze služby Azure bez tohoto hesla.
 >
 >
 
@@ -425,7 +419,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Můžete zobrazit podrobnosti o existující zásady zálohování pomocí [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) rutiny. Vám může procházení další pomocí [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) rutina pro plán zálohování a [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) rutina pro zásady uchovávání informací
+Můžete zobrazit podrobnosti o existující zásady zálohování pomocí [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) rutiny. Podrobnostem další pomocí [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) rutina pro plán zálohování a [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) rutina pro zásady uchovávání informací
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -465,8 +459,8 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>Provádění zálohu ad-hoc
-Jakmile byla nastavena zásada zálohování dojde k zálohování podle plánu. Aktivuje zálohu ad-hoc je také možné pomocí [Start-OBBackup](https://technet.microsoft.com/library/hh770426) rutiny:
+### <a name="performing-an-ad-hoc-backup"></a>Provádění ad hoc zálohy
+Jakmile byla nastavena zásada zálohování dojde k zálohování podle plánu. Aktivuje ad hoc zálohy je také možné pomocí [Start-OBBackup](https://technet.microsoft.com/library/hh770426) rutiny:
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
@@ -506,7 +500,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Výběr bodu zálohy pro obnovení
-Načíst seznam body zálohy spuštěním [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) rutiny s příslušnými parametry. V našem příkladu jsme vybrali nejnovější bod zálohy pro zdrojový svazek *D:* a použít ho k obnovení konkrétní soubor.
+Načtení seznamu body zálohy spuštěním [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) rutiny s příslušnými parametry. V našem příkladu jsme vybrali nejnovější bod zálohy pro zdrojový svazek *D:* a použít ho k obnovení konkrétní soubor.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]

@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Odstraňování potíží se zálohováním virtuálních počítačů Azure
-> [!div class="op_single_selector"]
-> * [Trezor služeb zotavení](backup-azure-vms-troubleshoot.md)
-> * [Úložiště záloh](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 Řešení potíží s chyb zjištěných při pomocí Azure Backup informace uvedené v následující tabulce.
 
 ## <a name="backup"></a>Zálohování
@@ -34,15 +28,15 @@ ms.lasthandoff: 12/08/2017
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Chyba: Zadaný konfigurace disku nejsou podporovány.
 
 > [!NOTE]
-> Máme privátní Preview verzi pro podporu zálohování pro virtuální počítače s > 1TB nespravované disky. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Máme verzi Private Preview pro podporu záloh pro virtuální počítače s nespravovanými disky většími než 1 TB. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 V současné době zálohování Azure nepodporuje velikosti disků [větší než 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Pokud máte disky, které jsou větší než 1 TB, [připojte nové disky](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) , které jsou menší než 1 TB <br>
-- Potom zkopírujte data z disku větší než 1TB do nově vytvořené disky o velikosti menší než 1 TB. <br>
-- Ujistěte se, že byl zkopírován všechna data a odebírat disky, které jsou větší než 1TB
-- Spustit zálohování.
+- Pokud máte disky větší než 1 TB, [připojte nové disky](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal), které jsou menší než 1 TB. <br>
+- Potom zkopírujte data z disku většího než 1 TB na nově vytvořené disky s velikostí menší než 1 TB. <br>
+- Zkontrolujte, že se všechna data zkopírovala, a potom disky větší než 1 TB odeberte.
+- Zahajte zálohování.
 
 | Podrobnosti o chybě | Alternativní řešení |
 | --- | --- |
@@ -137,7 +131,7 @@ Jak zjistit, jestli verze agenta virtuálního počítače na virtuálních poč
 Zálohování virtuálních počítačů spoléhá na vystavení snímku příkazy pro základní úložiště. Nemá přístup k úložišti nebo zpoždění při provádění úloh snímku může způsobit selhání úlohy zálohování. Následující může způsobit selhání úkolů snímku.
 
 1. Přístup k síti do úložiště je blokován pomocí NSG<br>
-    Další informace o tom, jak [povolit přístup k síti](backup-azure-vms-prepare.md#network-connectivity) do úložiště pomocí buď povolených IP nebo prostřednictvím proxy serveru.
+    Další informace o tom, jak [povolit přístup k síti](backup-azure-arm-vms-prepare.md#network-connectivity) do úložiště pomocí buď povolených IP nebo prostřednictvím proxy serveru.
 2. Virtuální počítače pomocí zálohování serveru Sql Server nakonfigurován může způsobit zpoždění úloha snímku <br>
    Ve výchozím nastavení virtuálního počítače zálohování problémů služby Stínová kopie svazku úplné zálohování na virtuální počítače Windows. Na virtuálních počítačích se systémem Sql Server a jestli je nakonfigurovaná zálohování serveru Sql Server to může způsobit zpoždění při provádění snímku. Nastavte následující klíč registru, pokud dochází k chybám zálohování z důvodu problémů s snímku.
 
@@ -169,7 +163,7 @@ Jakmile se provádí překlad IP adresy, přístup k IP adres Azure také je tř
    * Odblokování pomocí IP adresy [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) rutiny. Tato rutina v rámci virtuálního počítače Azure, spusťte v okně prostředí PowerShell zvýšenými oprávněními (Spustit jako správce).
    * K této skupině přidáte pravidla, (Pokud nemáte na místě) pro povolení přístupu k IP adresy.
 2. Vytvoření cesty pro tok provozu HTTP
-   * Pokud máte nějaké omezení sítě na místě (skupina zabezpečení sítě, například) nasadit proxy server HTTP směrovat provoz. Kroky k nasazení serveru Proxy protokolu HTTP lze nalézt [zde](backup-azure-vms-prepare.md#network-connectivity).
+   * Pokud máte nějaké omezení sítě na místě (skupina zabezpečení sítě, například) nasadit proxy server HTTP směrovat provoz. Kroky k nasazení serveru Proxy protokolu HTTP lze nalézt [zde](backup-azure-arm-vms-prepare.md#network-connectivity).
    * K této skupině přidáte pravidla, (Pokud nemáte na místě) povolit přístup k Internetu z proxy serveru HTTP.
 
 > [!NOTE]

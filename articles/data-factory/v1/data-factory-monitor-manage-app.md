@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorování a Správa kanálů služby Azure Data Factory pomocí monitorování a správy aplikace
 > [!div class="op_single_selector"]
@@ -179,7 +179,7 @@ Okna aktivity může být v jednom z následujících stavů:
 <td>ActivityResume</td><td>Aktivita je pozastavená a aktivity windows nelze spustit, dokud nebude obnovená.</td>
 </tr>
 <tr>
-<td>Opakování</td><td>Probíhá pokus o spuštění aktivity je zopakován.</td>
+<td>Retry</td><td>Probíhá pokus o spuštění aktivity je zopakován.</td>
 </tr>
 <tr>
 <td>Ověření</td><td>Ověření se ještě nespustilo.</td>

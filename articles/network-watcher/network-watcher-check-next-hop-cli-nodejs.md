@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: e849f7952962d177f40ce99307ef1c305e089827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>Zjistěte, co typ dalšího směrování je pomocí funkce další směrování v sledovací proces sítě Azure pomocí Azure CLI 1.0
 
@@ -55,7 +55,7 @@ azure network watcher next-hop -g resourceGroupName -n networkWatcherName -t tar
 > [!NOTE]
 Pokud virtuální počítač má několik síťových adaptérů a předávání IP je povolena na žádném síťové karty, pak parametr síťový adaptér (-i síťový adaptér id) musí být zadán. V opačném případě je volitelný.
 
-## <a name="review-results"></a>Zkontrolujte výsledky
+## <a name="review-results"></a>Kontrola výsledků
 
 Po dokončení, jsou uvedené výsledky. IP adresa dalšího směrování je vrácen a také typ prostředku, který je.
 
