@@ -197,7 +197,7 @@
         - name: HDInsight ve virtuální síti Azure
           href: ../hdinsight-extend-hadoop-virtual-network.md
           maintainContext: true
-        - name: Připojení HDInsightu k místní síti
+        - name: Připojení služby HDInsight k místní síti
           href: ../connect-on-premises-network.md
           maintainContext: true
         - name: Vytvoření clusteru HBase ve virtuální síti Azure
@@ -270,9 +270,6 @@
           maintainContext: true
         - name: Přístup k protokolům aplikace YARN
           href: ../hdinsight-hadoop-access-yarn-app-logs.md
-          maintainContext: true
-        - name: Použití Apache Phoenix a SQuirreL
-          href: ../hdinsight-hbase-phoenix-squirrel.md
           maintainContext: true
         - name: Generování filmových doporučení pomocí Mahout
           href: ../hdinsight-mahout.md

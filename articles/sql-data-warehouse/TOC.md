@@ -32,7 +32,7 @@
 
 ## Načítání a přesun dat
 ### [Přehled](design-elt-data-loading.md)
-### [Doprovodné materiály](guidance-for-loading-data.md)
+### [Osvědčené postupy](guidance-for-loading-data.md)
 
 
 ## Integrace

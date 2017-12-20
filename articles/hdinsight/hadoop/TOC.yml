@@ -338,10 +338,10 @@
         - name: Plán pro podnikové zabezpečení
           href: ../domain-joined/apache-domain-joined-architecture.md
           maintainContext: true
-        - name: Konfigurace podnikového zabezpečení v HDInsightu
+        - name: Konfigurace podnikového zabezpečení ve službě HDInsight
           href: ../domain-joined/apache-domain-joined-configure.md
           maintainContext: true
-        - name: Konfigurace podnikového zabezpečení v HDInsightu s využitím Azure AD DS
+        - name: Konfigurace podnikového zabezpečení ve službě HDInsight s využitím Azure AD DS
           href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
           maintainContext: true
         - name: Konfigurace zásad Hivu
@@ -427,9 +427,6 @@
           maintainContext: true
         - name: Přístup k protokolům aplikace YARN
           href: ../hdinsight-hadoop-access-yarn-app-logs.md
-          maintainContext: true
-        - name: Použití Apache Phoenix a SQuirreL
-          href: ../hdinsight-hbase-phoenix-squirrel.md
           maintainContext: true
         - name: Generování filmových doporučení pomocí Mahout
           href: ../hdinsight-mahout.md
