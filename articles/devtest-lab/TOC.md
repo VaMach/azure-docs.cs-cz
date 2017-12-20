@@ -32,6 +32,7 @@
 ### [Povolení licencované image](devtest-lab-enable-licensed-images.md)
 ### [Přidání značek do testovacího prostředí](devtest-lab-add-tag.md)
 ### [Zveřejnění oznámení v testovacím prostředí](devtest-lab-announcements.md)
+### [Přidání informací o podpoře do testovacího prostředí](devtest-lab-internal-support-message.md)
 
 ## [Výběr vlastní image nebo vzorce](devtest-lab-comparing-vm-base-image-types.md)
 
