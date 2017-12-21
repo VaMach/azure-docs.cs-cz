@@ -3,7 +3,7 @@ Pokud chcete aplikaci Mobile Engagement povolit, aby vaším jménem odesílala 
 
 1. Přejděte na portál Mobile Engagement. Zkontrolujte, jestli pracujete ve správné aplikaci, a potom klikněte na tlačítko **Engage** (Zpřístupnit), které najdete dole:
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. Klikněte na stránku **Nastavení** na portálu Engagement. Tam klikněte do části **Nativní oznámení**, abyste mohli nahrát svůj certifikát .p12:
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
