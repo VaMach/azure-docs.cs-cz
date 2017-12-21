@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrace zásad zabezpečení ve službě Security Center se službou Azure Policy
 Tento článek vám pomůže s konfigurací zásad zabezpečení ve službě Azure Security Center, které využívají službu Azure Policy. 
@@ -39,14 +39,14 @@ Ve službě Security Center můžete upravit výchozí zásady zabezpečení pro
 
 2. Na řídicím panelu **Security Center** v části **Obecné** vyberte **Zásady zabezpečení**.
 
-    ![Okno Správa zásad](./media/security-center-policies/security-center-policies-fig10.png)
+    ![Okno Správa zásad](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Vyberte předplatné, pro které chcete povolit zásady zabezpečení.  
 
 4. V části **Součásti zásad** vyberte **Zásady zabezpečení**.  
     Otevře se okno **Základy**.
 
-    ![Součásti zásad](./media/security-center-policies/security-center-policies-fig12.png)
+    ![Součásti zásad](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. Pokud chcete odstranit definici zásad, v části **Policies and Parameters** (Zásady a parametry) vedle definice, kterou chcete odstranit, vyberte **Odstranit**.
 
@@ -57,12 +57,12 @@ Ve službě Security Center můžete upravit výchozí zásady zabezpečení pro
 
     * Pokud chcete přidat definici zásady, vyberte znaménko plus (+) vedle definice.
 
-    ![Dostupné definice zásad](./media/security-center-policies/security-center-policies-fig11.png)
+    ![Dostupné definice zásad](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * Pokud chcete zobrazit podrobné vysvětlení zásady, vyberte ji.  
     Otevře se okno s **náhledem** definice. Zobrazuje popis definice a odkaz na kód JSON, který poskytuje strukturu [definice zásady](../azure-policy/policy-definition.md).
 
-    ![Okno s náhledem definice](./media/security-center-policies/security-center-policies-fig14.png)
+    ![Okno s náhledem definice](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. Až budete s úpravami hotovi, klikněte na **Uložit**.
 

@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Připojená služba sady Visual Studio (Preview)
 
@@ -33,7 +33,7 @@ Průzkumník dat v připojené službě můžete použít také k vytváření u
 Ujistěte se, že máte následující položky:
 
 * Aktivní účet Azure. Pokud žádný nemáte, můžete si zaregistrovat [bezplatný účet](https://azure.microsoft.com/free/). 
-* Účet služby Azure Cosmos DB. Pokud ještě žádný nemáte, vytvořte si jej na webu Azure Portal pomocí postupu v tématu popisujícím [vytvoření účtu služby Azure Cosmos DB](create-documentdb-dotnet.md) nebo si přečtěte část [Vytvoření účtu služby Azure Cosmos DB v nástroji připojené služby](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
+* Účet služby Azure Cosmos DB. Pokud ještě žádný nemáte, vytvořte si jej na webu Azure Portal pomocí postupu v tématu popisujícím [vytvoření účtu služby Azure Cosmos DB](create-sql-api-dotnet.md) nebo si přečtěte část [Vytvoření účtu služby Azure Cosmos DB v nástroji připojené služby](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
 * Pokud pro účely vývoje chcete používat místní prostředí, můžete použít [Emulátor služby Azure Cosmos DB](local-emulator.md). Prostředí emuluje službu Azure Cosmos DB.
 * Sadu [Visual Studio](http://www.visualstudio.com/).
 * Nejnovější součásti připojené služby Azure Cosmos DB. Připojenou službu Azure Cosmos DB můžete stáhnout z Visual Studio Marketplace, jak je znázorněno na následujícím snímku obrazovky. Otevřete na svém počítači sadu **Visual Studio**. V nabídce **Nástroje** vyberte **Rozšíření a aktualizace...** a pak zvolte **Online** / **Visual Studio Marketplace**. Zadejte **cosmosdb** pro vyhledání souborů.
@@ -119,8 +119,8 @@ V tomto dokumentu jste se naučili následující:
 
 Když teď máte zprovozněné připojené služby se svým účtem služby Azure Cosmos DB, pokračujte na některý z kurzů a začněte s vývojem svého řešení:
 
-* [Vývoj pomocí rozhraní SQL API v .NET](tutorial-develop-documentdb-dotnet.md)
-* [Azure Cosmos DB: Úvodní kurz k rozhraní SQL API](documentdb-get-started.md)
+* [Vývoj pomocí rozhraní SQL API v .NET](tutorial-develop-sql-api-dotnet.md)
+* [Azure Cosmos DB: Úvodní kurz k rozhraní SQL API](sql-api-get-started.md)
 * Chcete testovat škálování a výkon pomocí služby Azure Cosmos DB? Viz [Testování výkonu a škálování pomocí služby Azure Cosmos DB](performance-testing.md).
 * Zjistěte, jak [monitorovat účet služby Azure Cosmos DB](monitor-accounts.md).
 

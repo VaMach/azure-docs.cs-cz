@@ -19,7 +19,7 @@ Jsou dva druhy účtů úložiště:
 * **Horká** úroveň přístupu, která znamená, že k objektům v účtu úložiště budete přistupovat častěji. Tato možnost nabízí ukládání dat s nižšími přístupovými náklady.
 * **Studená** úroveň přístupu, která znamená, že k objektům v účtu úložiště nebudete přistupovat tak často. Tato možnost nabízí ukládání dat s nižšími náklady na úložiště dat.
 
-Mezi úrovněmi přístupu můžete kdykoli přepnout, třeba pokud pro vaše data existuje vzor používání. Se změnou úrovně přístupu můžou být spojené další poplatky. Další podrobnosti najdete v článku [Účty služby Blob Storage – ceny a fakturace](../articles/storage/blobs/storage-account-options.md#pricing-and-billing).
+Mezi úrovněmi přístupu můžete kdykoli přepnout, třeba pokud pro vaše data existuje vzor používání. Se změnou úrovně přístupu můžou být spojené další poplatky. Další podrobnosti najdete v článku [Účty služby Blob Storage – ceny a fakturace](../articles/storage/common/storage-account-options.md#pricing-and-billing).
 
 Další podrobnosti najdete v článku [Azure Blob Storage: úrovně Cool a Hot](../articles/storage/blobs/storage-blob-storage-tiers.md).
 

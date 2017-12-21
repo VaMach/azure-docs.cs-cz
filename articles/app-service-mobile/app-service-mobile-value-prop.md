@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started"></a>Informace o funkci Mobile Apps v Azure App Service
 Azure App Service nabízí plně spravovanou [platformu jako službu](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) pro profesionální vývojáře. Tato služba přináší bohatou sadu možností pro webové, mobilní a integrační scénáře. 
@@ -88,7 +88,7 @@ Další informace o platformě Azure App Service najdete v článku [Azure App S
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [úvodní]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
-[Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
+[Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
 [funkcích ověřování]: ./app-service-mobile-auth.md
 [datových funkcích]: ./app-service-mobile-offline-data-sync.md
 [funkcích pro nabízená oznámení]: ../notification-hubs/notification-hubs-push-notification-overview.md
