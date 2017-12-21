@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Začínáme se sadou SDK služby Batch pro Python
 
@@ -280,7 +280,7 @@ Sdílené přístupové podpisy jsou řetězce, které zajišťují zabezpečen�
 >
 
 ## <a name="step-3-create-batch-pool"></a>Krok 3: Vytvoření fondu služby Batch
-![Vytvoření fondu Batch][3]
+![Vytvořte fond Batch.][3]
 <br/>
 
 **Fond** Batch je kolekce výpočetních uzlů (virtuálních počítačů), na kterých služba Batch provádí úkoly z úlohy.
@@ -420,7 +420,7 @@ Po vytvoření úlohy budou přidány úkoly, které budou provádět práci.
 
 ## <a name="step-5-add-tasks-to-job"></a>Krok 5: Přidání úkolů do úlohy
 ![Přidání úkolů do úlohy][5]<br/>
-*(1) Úkoly jsou přidány do úlohy, (2) úkoly jsou naplánovány ke spuštění na uzlech a (3) úkoly stahují datové soubory ke zpracování*
+*(1) Úkoly jsou přidány do úlohy, (2) úkoly jsou naplánovány ke spuštění na uzlech a (3) úkoly stahují datové soubory ke zpracování.*
 
 **Úkoly** Batch jsou jednotlivé jednotky práce, které se spouští na výpočetních uzlech. Úkol má příkazový řádek a spouští skripty nebo spustitelné soubory, které jste v takovém příkazovém řádku určili.
 
