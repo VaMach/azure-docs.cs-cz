@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Použití automatického škálování
       items:
+        - name: Vysvětlení nastavení automatického škálování
+          href: monitoring-understanding-autoscale-settings.md
         - name: Osvědčené postupy
           href: insights-autoscale-best-practices.md
         - name: Běžné metriky

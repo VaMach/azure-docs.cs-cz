@@ -17,6 +17,7 @@
 ### [Stream Analytics na hraničních zařízeních IoT (Preview)](stream-analytics-edge.md)
 ### [Detekce anomálií v příručce využití Azure (Preview)](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Simulace vysokofrekvenčního obchodování pomocí Stream Analytics](stream-analytics-high-frequency-trading.md)
+### [Azure Functions se službou Azure Stream Analytics](stream-analytics-with-azure-functions.md)
 
 ## Vytváření úloh
 ### [Vytváření vstupů](stream-analytics-define-inputs.md)

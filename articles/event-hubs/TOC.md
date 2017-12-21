@@ -22,6 +22,8 @@
 
 # Postup
 ## Plánování a návrh
+### [Identita spravované služby (Preview)](event-hubs-managed-service-identity.md)
+### [Řízení přístupu na základě rolí (Preview)](event-hubs-role-based-access-control.md)
 ### [Geografické zotavení po havárii a geografická replikace](event-hubs-geo-dr.md)
 ### [Vyhrazené služby Event Hubs](event-hubs-dedicated-overview.md)
 ### [Přehled ověřování a modelu zabezpečení](event-hubs-authentication-and-security-model-overview.md)

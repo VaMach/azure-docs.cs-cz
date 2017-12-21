@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 10/02/2017
 ms.author: jroth
-ms.openlocfilehash: 787e696edd2a446bec280b763fe5ac591782c8ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Přehled SQL Serveru na virtuálních počítačích Azure (Linux)
 
@@ -37,7 +37,7 @@ Existuje mnoho důvodů, kvůli kterým byste se mohli rozhodnout, že jako host
 
 SQL Server běžící na virtuálních počítačích Azure je jednou z možností, jak ukládat relační data v Azure. Můžete také použít službu Azure SQL Database. Další informace o výběru mezi SQL Serverem na virtuálních počítačích a službou Azure SQL Database najdete v tématu [Výběr možnosti cloudového SQL Serveru: Azure SQL Database (PaaS) nebo SQL Server na virtuálních počítačích Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
-## <a name="create-a-new-sql-vm"></a>Vytvoření nového virtuálního počítače s SQL Serverem
+## <a id="create"></a>Vytvoření nového virtuálního počítače s SQL Serverem
 
 Podrobné pokyny k vytvoření nového virtuálního počítače SQL najdete v kurzu [Zřízení virtuálního počítače s Linuxem a SQL Serverem v Azure](provision-sql-server-linux-virtual-machine.md).
 

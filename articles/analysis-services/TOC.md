@@ -13,18 +13,21 @@
 ## [Vytvoření modelu na webu Azure Portal (Preview)](analysis-services-create-model-portal.md)
 
 # Postupy 
-## [Správa serveru](analysis-services-manage.md)
-## [Správa uživatelů databáze](analysis-services-database-users.md)
-## [Správa správců serveru](analysis-services-server-admins.md)
-## [Monitorování metrik serveru](analysis-services-monitor.md)
 ## [Instalace a konfigurace místní brány dat](analysis-services-gateway-install.md)
-## [Získání klientských knihoven](analysis-services-data-providers.md)
 ## [Zálohování a obnovení](analysis-services-backup.md)
+## [Aktualizace pomocí REST API](analysis-services-async-refresh.md)
 ## [Konfigurace škálování na více instancí](analysis-services-scale-out.md)
-## [Konfigurace aliasu názvu souboru](analysis-services-server-alias.md)
-## [Propojení s Excelem](analysis-services-connect-excel.md)
-## [Propojení s Power BI](analysis-services-connect-pbi.md)
-## [Vytvoření souboru .odc](analysis-services-odc.md)
+## Správa serverů
+### [Konfigurace aliasu názvu souboru](analysis-services-server-alias.md)
+### [Správa serveru](analysis-services-manage.md)
+### [Správa uživatelů databáze](analysis-services-database-users.md)
+### [Správa správců serveru](analysis-services-server-admins.md)
+### [Monitorování metrik serveru](analysis-services-monitor.md)
+## Připojení
+### [Získání klientských knihoven](analysis-services-data-providers.md)
+### [Propojení s Excelem](analysis-services-connect-excel.md)
+### [Propojení s Power BI](analysis-services-connect-pbi.md)
+### [Vytvoření souboru .odc](analysis-services-odc.md)
 ## Kurzy
 ### [Kurz Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Lekce 1: Vytvoření nového projektu s tabelárním modelem](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)

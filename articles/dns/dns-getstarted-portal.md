@@ -3,8 +3,8 @@ title: "Začínáme s DNS Azure pomocí webu Azure Portal | Dokumentace Microsof
 description: "Naučíte se vytvořit zónu a záznam DNS v DNS Azure. Pomocí tohoto podrobného průvodce můžete vytvořit a spravovat první zónu a záznam DNS pomocí webu Azure Portal."
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Začínáme s DNS Azure pomocí webu Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
 Tento článek vás provede kroky k vytvoření první zóny a záznamu DNS pomocí webu Azure Portal. Tyto kroky můžete provést také pomocí Azure PowerShellu nebo Azure CLI pro různé platformy.
@@ -36,11 +35,11 @@ K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud c
 ## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
 1. Přihlášení k webu Azure Portal
-2. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete okno Vytvořit zónu DNS.
+2. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete stránku **Vytvořit zónu DNS**.
 
     ![Zóna DNS](./media/dns-getstarted-portal/openzone650.png)
 
-4. V okně **Vytvořit zónu DNS** zadejte následující hodnoty a pak klikněte na **Vytvořit**:
+4. Na stránce **Vytvořit zónu DNS** zadejte následující hodnoty a pak klikněte na **Vytvořit**:
 
 
    | **Nastavení** | **Hodnota** | **Podrobnosti** |
@@ -57,11 +56,11 @@ K hostování záznamů DNS v určité doméně se používá zóna DNS. Pokud c
 
 Následující příklad vás provede procesem vytvoření nového záznamu A. Informace o dalších typech záznamů a úpravě existujících záznamů najdete v tématu [Správa záznamů a sad záznamů DNS pomocí webu Azure Portal](dns-operations-recordsets-portal.md). 
 
-1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. V okně Všechny prostředky klikněte na zónu DNS **contoso.com**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **contoso.com** do pole **Filtrovat podle názvu...** pro snadný přístup k zóně DNS.
+1. Když máte vytvořenou zónu DNS, na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. Na stránce Všechny prostředky klikněte na zónu DNS **contoso.com**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **contoso.com** do pole **Filtrovat podle názvu...** pro snadný přístup k zóně DNS.
 
-1. V horní části okna **Zóna DNS** vyberte **Sada záznamů**. Otevře se okno **Přidat sadu záznamů**.
+1. V horní části stránky **Zóna DNS** vyberte **Sada záznamů**. Otevře se stránka **Přidat sadu záznamů**.
 
-1. V okně **Přidat sadu záznamů** zadejte následující hodnoty a klikněte na **OK**. V tomto příkladu vytváříte záznam A.
+1. Na stránce **Přidat sadu záznamů** zadejte následující hodnoty a klikněte na **OK**. V tomto příkladu vytváříte záznam A.
 
    |**Nastavení** | **Hodnota** | **Podrobnosti** |
    |---|---|---|
@@ -73,7 +72,7 @@ Následující příklad vás provede procesem vytvoření nového záznamu A. I
 
 ## <a name="view-records"></a>Zobrazení záznamů
 
-V dolní části okna zóny DNS se zobrazí záznamy pro zónu DNS. Měli byste vidět výchozí záznamy DNS a SOA, které se vytvoří v každé zóně, a nové záznamy, které jste vytvořili.
+V dolní části stránky Zóna DNS se zobrazí záznamy pro příslušnou zónu DNS. Měli byste vidět výchozí záznamy DNS a SOA, které se vytvoří v každé zóně, a nové záznamy, které jste vytvořili.
 
 ![zóna](./media/dns-getstarted-portal/viewzone500.png)
 
@@ -92,8 +91,8 @@ Tyto názvové servery by měly být nakonfigurované u registrátora názvu dom
 
 Pokud chcete odstranit všechny prostředky vytvořené v rámci tohoto článku, proveďte následující kroky:
 
-1. Na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. V okně Všechny prostředky klikněte na skupinu prostředků **MyResourceGroup**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **MyResourceGroup** do pole **Filtrovat podle názvu...** pro snadný přístup ke skupině prostředků.
-1. V okně **MyResourceGroup** klikněte na tlačítko **Odstranit**.
+1. Na webu Azure Portal v podokně **Oblíbené** klikněte na **Všechny prostředky**. Na stránce Všechny prostředky klikněte na skupinu prostředků **MyResourceGroup**. Pokud předplatné, které jste vybrali, již obsahovalo nějaké prostředky, můžete zadat **MyResourceGroup** do pole **Filtrovat podle názvu...** pro snadný přístup ke skupině prostředků.
+1. Na stránce **MyResourceGroup** klikněte na tlačítko **Odstranit**.
 1. Portál požaduje, abyste zadali název skupiny prostředků pro potvrzení, že ji skutečně chcete odstranit. Klikněte na **Odstranit**, jako název skupiny prostředků zadejte *MyResourceGroup*, a pak klikněte na **Odstranit**. Odstraněním skupiny prostředků se odstraní všechny prostředky v rámci dané skupiny prostředků. Proto nikdy nezapomeňte před odstraněním skupiny prostředků zkontrolovat její obsah. Portál odstraní všechny prostředky v rámci skupiny prostředků a potom odstraní samotnou skupinu prostředků. Tento proces trvá několik minut.
 
 

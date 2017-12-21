@@ -26,6 +26,8 @@
 
 # Postup
 ## Plánování a návrh
+### [Identita spravované služby (Preview)](service-bus-managed-service-identity.md)
+### [Řízení přístupu na základě rolí (Preview)](service-bus-role-based-access-control.md)
 ### [Zasílání zpráv úrovně Premium](service-bus-premium-messaging.md)
 ### [Srovnání front Azure a front Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimalizace výkonu](service-bus-performance-improvements.md)

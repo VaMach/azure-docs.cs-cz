@@ -34,8 +34,6 @@
 ### [3. Upgrade modulu runtime clusteru](service-fabric-tutorial-upgrade-cluster.md)
 ### [4. Nasazení API Managementu s využitím Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-
-
 # Ukázky
 ## [Ukázky kódu](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [Azure PowerShell](service-fabric-powershell-samples.md)
@@ -49,66 +47,61 @@
 ## [Architektura](service-fabric-architecture.md)
 ## [Terminologie](service-fabric-technical-overview.md)
 
-## Sestavení aplikací a služeb
-### [Podporované programovací modely](service-fabric-choose-framework.md)
-#### [Kontejnery](service-fabric-containers-overview.md)
-##### [Docker Compose (Preview)](service-fabric-docker-compose.md)
-##### [Zásady správného řízení prostředků](service-fabric-resource-governance.md)
-#### [Reliable Services](service-fabric-reliable-services-introduction.md)
-##### [Životní cyklus Reliable Services – C#](service-fabric-reliable-services-lifecycle.md)
-##### [Životní cyklus Reliable Services – Java](service-fabric-reliable-services-lifecycle-java.md)
-##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-##### [Pokyny a doporučení k Reliable Collection](service-fabric-reliable-services-reliable-collections-guidelines.md)
-##### [Práce s Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Transakce a zámky](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-##### [Spolehlivá souběžná fronta](service-fabric-reliable-services-reliable-concurrent-queue.md)
-##### [Spolehlivá serializace kolekcí](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Interní informace Reliable State Manager a Reliable Collection](service-fabric-reliable-services-reliable-collections-internals.md)
-##### [Pokročilé využití](service-fabric-reliable-services-advanced-usage.md)
+## [Podporované programovací modely](service-fabric-choose-framework.md)
+### [Kontejnery](service-fabric-containers-overview.md)
+#### [Docker Compose (Preview)](service-fabric-docker-compose.md)
+#### [Zásady správného řízení prostředků](service-fabric-resource-governance.md)
+### [Reliable Services](service-fabric-reliable-services-introduction.md)
+#### [Životní cyklus Reliable Services – C#](service-fabric-reliable-services-lifecycle.md)
+#### [Životní cyklus Reliable Services – Java](service-fabric-reliable-services-lifecycle-java.md)
+#### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+#### [Pokyny a doporučení k Reliable Collection](service-fabric-reliable-services-reliable-collections-guidelines.md)
+#### [Práce s Reliable Collections](service-fabric-work-with-reliable-collections.md)
+#### [Transakce a zámky](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+#### [Spolehlivá souběžná fronta](service-fabric-reliable-services-reliable-concurrent-queue.md)
+#### [Spolehlivá serializace kolekcí](service-fabric-reliable-services-reliable-collections-serialization.md)
+#### [Interní informace Reliable State Manager a Reliable Collection](service-fabric-reliable-services-reliable-collections-internals.md)
+#### [Pokročilé využití](service-fabric-reliable-services-advanced-usage.md)
 
-#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-##### [Architektura](service-fabric-reliable-actors-platform.md)
-##### [Životní cyklus a uvolňování paměti](service-fabric-reliable-actors-lifecycle.md)
-##### [Správa stavu](service-fabric-reliable-actors-state-management.md)
-##### [Polymorfismus](service-fabric-reliable-actors-polymorphism.md)
-##### [Vícenásobný přístup](service-fabric-reliable-actors-reentrancy.md)
-##### [Serializace typu](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+#### [Architektura](service-fabric-reliable-actors-platform.md)
+#### [Životní cyklus a uvolňování paměti](service-fabric-reliable-actors-lifecycle.md)
+#### [Správa stavu](service-fabric-reliable-actors-state-management.md)
+#### [Polymorfismus](service-fabric-reliable-actors-polymorphism.md)
+#### [Vícenásobný přístup](service-fabric-reliable-actors-reentrancy.md)
+#### [Serializace typu](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
+## Aplikace a služby
 ### [Aplikační model](service-fabric-application-model.md)
 ### [Manifesty služby a aplikace](service-fabric-application-and-service-manifests.md)
 ### [Model hostingu](service-fabric-hosting-model.md)
 
-### Služby
-#### [Prostředky služby](service-fabric-service-manifest-resources.md)
-#### [Stav služby](service-fabric-concepts-state.md)
-#### [Dělení služby](service-fabric-concepts-partitioning.md)
-#### [Dostupnost služeb](service-fabric-availability-services.md)
-#### [Životní cyklus replik a instancí](service-fabric-concepts-replica-lifecycle.md)
-#### [Rekonfigurace](service-fabric-concepts-reconfiguration.md)
-#### [Komunikace služeb](service-fabric-connect-and-communicate-with-services.md)
-##### [Služba DNS](service-fabric-dnsservice.md)
-##### [Reverzní proxy server](service-fabric-reverseproxy.md)
-##### [Konfigurace reverzního proxy serveru pro zabezpečenou komunikaci](service-fabric-reverseproxy-configure-secure-communication.md)
-##### [Diagnostika reverzního proxy serveru](service-fabric-reverse-proxy-diagnostics.md)
+### [Stav služby](service-fabric-concepts-state.md)
+### [Dělení služby](service-fabric-concepts-partitioning.md)
 ### [Škálovatelnost aplikací](service-fabric-concepts-scalability.md)
-### [Jádro ASP.NET](service-fabric-reliable-services-communication-aspnetcore.md)
+### [Dostupnost služeb](service-fabric-availability-services.md)
+### [Životní cyklus replik a instancí](service-fabric-concepts-replica-lifecycle.md)
+### [Rekonfigurace](service-fabric-concepts-reconfiguration.md)
 
-### [Plánování kapacity aplikace](service-fabric-capacity-planning.md)
+### [Komunikace služeb](service-fabric-connect-and-communicate-with-services.md)
+#### [Služba DNS](service-fabric-dnsservice.md)
+#### [Reverzní proxy server](service-fabric-reverseproxy.md)
+#### [Konfigurace reverzního proxy serveru pro zabezpečenou komunikaci](service-fabric-reverseproxy-configure-secure-communication.md)
+#### [Diagnostika reverzního proxy serveru](service-fabric-reverse-proxy-diagnostics.md)
+#### [Jádro ASP.NET](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## [Správa aplikací](service-fabric-application-lifecycle.md)
-### [Upgrade aplikací](service-fabric-application-upgrade.md)
-#### [Konfigurace](service-fabric-visualstudio-configure-upgrade.md)
-#### [Parametry upgradu aplikace](service-fabric-application-upgrade-parameters.md)
-#### [Serializace dat v upgradech aplikací](service-fabric-application-upgrade-data-serialization.md)
-#### [Pokročilá témata týkající se upgradů aplikací](service-fabric-application-upgrade-advanced.md)
-### [Přehled analýzy chyb](service-fabric-testability-overview.md)
-### [Nastavení ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
+### [Životní cyklus aplikace](service-fabric-application-lifecycle.md)
+#### [Upgrade aplikací](service-fabric-application-upgrade.md)
+##### [Konfigurace](service-fabric-visualstudio-configure-upgrade.md)
+##### [Parametry upgradu aplikace](service-fabric-application-upgrade-parameters.md)
+##### [Serializace dat v upgradech aplikací](service-fabric-application-upgrade-data-serialization.md)
+##### [Pokročilá témata týkající se upgradů aplikací](service-fabric-application-upgrade-advanced.md)
+#### [Testování aplikací pomocí analýzy chyb](service-fabric-testability-overview.md)
+#### [Nastavení ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
-## [Vytvoření a správa clusterů](service-fabric-deploy-anywhere.md)
-### Plánování a příprava
-#### [Plánování kapacity](service-fabric-cluster-capacity.md)
-#### [Zotavení po havárii](service-fabric-disaster-recovery.md)
-### [Popis clusteru](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Prostředky služby](service-fabric-service-manifest-resources.md)
+
+## [Clustery](service-fabric-deploy-anywhere.md)
 ### [Zabezpečení clusteru](service-fabric-cluster-security.md)
 ### [Rozdíly ve funkcích mezi systémy Linux a Windows](service-fabric-linux-windows-differences.md)
 ### Clustery v Azure
@@ -128,7 +121,7 @@
 #### [Omezování](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Přesun služeb](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Monitorování a diagnóza
+## Monitorování a diagnostika
 ### [Monitorování a diagnostika aplikací](service-fabric-diagnostics-overview.md)
 ### Generování událostí
 #### [Generování událostí na úrovni platformy](service-fabric-diagnostics-event-generation-infra.md)
@@ -163,15 +156,30 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 ### [Nastavení rozhraní příkazového řádku Service Fabric](service-fabric-cli.md)
 
+## Plánování a příprava
+### [Plánování kapacity clusteru](service-fabric-cluster-capacity.md)
+### [Plán pro samostatné nasazení clusteru](service-fabric-cluster-standalone-deployment-preparation.md)
+### [Příprava na zotavení po havárii](service-fabric-disaster-recovery.md)
+### [Plánování kapacity aplikace](service-fabric-capacity-planning.md)
+
+## První vytvoření...
+### [Aplikace v C# v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+### [Aplikace typu kontejner pro Windows](service-fabric-get-started-containers.md)
+### [Aplikace typu kontejner pro Linux](service-fabric-get-started-containers-linux.md)
+### [Aplikace Reliable Services v C# ve Windows](service-fabric-reliable-services-quick-start.md)
+### [Aplikace Reliable Services v Javě v Linuxu](service-fabric-reliable-services-quick-start-java.md)
+### [Aplikace Reliable Services v C# v Linuxu](service-fabric-create-your-first-linux-application-with-csharp.md)
+### [Aplikace Reliable Actors v C# ve Windows](service-fabric-reliable-actors-get-started.md)
+### [Aplikace Reliable Actors v Javě v Linuxu](service-fabric-create-your-first-linux-application-with-java.md)
+### [Aplikace spustitelná hostem ve Windows](quickstart-guest-app.md)
+### [Samostatný cluster](service-fabric-get-started-standalone-cluster.md)
+
 ## Sestavení aplikace
-### [Vytvoření první aplikace C# v sadě Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+
 ### Sestavení služby spustitelné hostem
-#### [Hostování aplikace Node.js ve Windows](quickstart-guest-app.md)
 #### [Nasazení hostujícího spustitelného souboru](service-fabric-deploy-existing-app.md)
 #### [Nasazení několika hostujících spustitelných souborů](service-fabric-deploy-multiple-apps.md)
 ### Sestavení služby kontejneru
-#### [Vytvoření aplikace typu kontejner pro Windows](service-fabric-get-started-containers.md)
-#### [Vytvoření aplikace typu kontejner pro Linux](service-fabric-get-started-containers-linux.md)
 #### [Zabezpečení kontejneru](service-fabric-securing-containers.md)
 #### [Docker Compose (Preview)](service-fabric-docker-compose.md)
 #### [Zásady správného řízení prostředků pro kontejnery a služby](service-fabric-resource-governance.md)
@@ -185,10 +193,6 @@
 ##### [Spolehlivá souběžná fronta](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Spolehlivá serializace kolekcí](service-fabric-reliable-services-reliable-collections-serialization.md)
 
-#### Začínáme
-##### [C# v systému Windows](service-fabric-reliable-services-quick-start.md)
-##### [Java v Linuxu](service-fabric-reliable-services-quick-start-java.md)
-##### [Vytvoření aplikace C# v Linuxu](service-fabric-create-your-first-linux-application-with-csharp.md)
 #### Komunikace se službami
 ##### [Komunikace s Reliable Services](service-fabric-reliable-services-communication.md)
 
@@ -203,9 +207,6 @@
 #### [Zálohování a obnovení](service-fabric-reliable-services-backup-restore.md)
 
 ### Sestavení služby s modelem Reliable Actors
-#### Začínáme
-##### [C# v systému Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java Actor v Linuxu](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Odeslání oznámení](service-fabric-reliable-actors-events.md)
 #### [Nastavení časovačů a připomenutí](service-fabric-reliable-actors-timers-reminders.md)
 #### [Konfigurace KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
@@ -285,9 +286,7 @@
 #### [Odstranění](service-fabric-cluster-delete.md)
 
 ### Samostatné clustery
-#### [Plánování a příprava nasazení](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Vytvořit
-##### [Vytvoření vašeho prvního samostatného clusteru](service-fabric-get-started-standalone-cluster.md)
 ##### [Místní vytvoření](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Zabezpečení pomocí certifikátů](service-fabric-windows-cluster-x509-security.md)  
 ##### [Zabezpečení pomocí zabezpečení systému Windows](service-fabric-windows-cluster-windows-security.md)

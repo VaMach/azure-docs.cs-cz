@@ -48,6 +48,10 @@
 ### [Přehled řešení propojené továrny](iot-suite-connected-factory-overview.md)
 ### [Názorný postup řešení propojené továrny](iot-suite-connected-factory-sample-walkthrough.md)
 
+## Simulace zařízení
+### [Nasazení simulace zařízení](iot-suite-device-simulation-deploy.md)
+### [Prozkoumání simulace zařízení](iot-suite-device-simulation-explore.md)
+
 # Návody
 ## Vzdálené monitorování
 ### [Realizace pokročilého monitorování](iot-suite-remote-monitoring-monitor.md)
