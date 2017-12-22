@@ -1,6 +1,7 @@
 # Přehled
 
 ## [Informace o službě SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Tahák](cheat-sheet.md)
 
 # Šablony Rychlý start
 
