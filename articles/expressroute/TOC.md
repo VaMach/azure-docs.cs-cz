@@ -59,6 +59,7 @@
 
 ## Řešení potíží
 ### [Ověření připojení ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
+### [Řešení problémů s výkonem sítě](expressroute-troubleshooting-network-performance.md)
 ### [Resetování okruhu, který selhal](reset-circuit.md)
 ### [Získání tabulek protokolu ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Získání tabulek protokolu ARP (Classic)](expressroute-troubleshooting-arp-classic.md)

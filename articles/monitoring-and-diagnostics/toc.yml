@@ -164,6 +164,8 @@
       href: monitoring-metric-charts.md
     - name: Odeslání metrik do Grafany
       href: monitor-send-to-grafana.md
+    - name: Odeslání dat monitorování do centra událostí
+      href: monitor-stream-monitoring-data-event-hubs.md
 - name: Referenční informace
   items:
     - name: Azure CLI
