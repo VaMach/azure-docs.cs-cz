@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: Nastavení přidělování IP adres pro přístup k sekundární lokalitě po převzetí služeb při selhání
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Správa síťového rozhraní ve scénářích přechodu z místního nasazení do Azure
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Zotavení po havárii
       items:
         - name: Virtuální počítače Hyper-V do Azure
