@@ -1,5 +1,5 @@
 ---
-title: "Přehled služby Azure Relay a důvodů pro její používání | Dokumentace Microsoftu"
+title: "Přehled služby Azure Relay a důvodů pro její používání | Microsoft Docs"
 description: "Přehled služby Azure Relay"
 services: service-bus-relay
 documentationcenter: .net
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="what-is-azure-relay"></a>Co je Azure Relay?
 
@@ -54,11 +54,12 @@ Schopnost zabezpečených [hybridních připojení služby Azure Relay](relay-hy
 
 Hybridní připojení nahrazuje starší funkci služby BizTalk Services s podobným názvem, která byla postavená na službě Azure Service Bus WCF Relay. Nová schopnost Hybrid Connections doplňuje stávající funkci WCF Relay a tyto dvě schopnosti existují ve službě Azure Relay vedle sebe. Sdílejí sice společnou bránu, jinak se ale jedná o rozdílné implementace.
 
-## <a name="wcf-relays"></a>Přenosy WCF
+## <a name="wcf-relay"></a>WCF Relay
 
-Služba WCF Relay funguje s celým rozhraním .NET Framework (NETFX) i s technologií WCF. Propojení místní služby se službou Relay vytvoříte pomocí skupiny „předávacích“ vazeb WCF. Na pozadí se děje to, že předávací vazby mapují do nových elementů přenosové vazby určené k vytvoření komponentů kanálu WCF, které se integrují se službou Service Bus v cloudu.
+Přenos WCF funguje v celém rozhraní .NET Framework (NETFX) a funguje i s technologií WCF. Propojení místní služby se službou Relay vytvoříte pomocí skupiny „předávacích“ vazeb WCF. Na pozadí se děje to, že předávací vazby mapují do nových elementů přenosové vazby určené k vytvoření komponentů kanálu WCF, které se integrují se službou Service Bus v cloudu. Další informace najdete v článku [Začínáme s přenosy WCF](relay-wcf-dotnet-get-started.md).
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Architektura: Zpracování příchozích požadavků na předání
+
 Když klient odešle požadavek do služby [Azure Relay](/azure/service-bus-relay/), nástroj pro vyrovnávání zatížení Azure ho přesměruje do některého z uzlů brány. Pokud se jedná o požadavek na poslech, uzel brány vytvoří nové propojení. Pokud se jedná o požadavek na připojení ke konkrétnímu propojení, uzel brány předá požadavek na spojení uzlu brány, který vlastní požadované propojení. Uzel brány, který vlastní požadované propojení, pošle čekajícímu klientovi požadavek na setkání a pokyn, aby klient vytvořil dočasný kanál pro uzel brány, který obdržel požadavek na připojení.
 
 Když se vytvoří předávací spojení, klienti si můžou vyměňovat zprávy přes uzel brány, který se používá pro setkání.

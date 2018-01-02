@@ -1,5 +1,5 @@
 ---
-title: Funkce Azure Active Directory Terms of Use | Dokumentace Microsoftu
+title: Funkce Azure Active Directory Terms of Use | Microsoft Docs
 description: "Funkce Azure AD Terms of Use umožní vám a vaší společnosti poskytnout podmínky použití uživatelům služby Azure AD."
 services: active-directory
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funkce Azure Active Directory Terms of Use (Preview)
 Azure AD Terms of Use poskytuje organizacím jednoduchý způsob předkládání informací koncovým uživatelům.  Zajistí, že se uživatelům zobrazí příslušná právní omezení pro zákonné požadavky nebo požadavky dodržování předpisů.
@@ -52,14 +52,16 @@ Jakmile dokončíte vaše podmínky použití, přidejte je pomocí následujíc
 ### <a name="to-add-terms-of-use"></a>Přidání podmínek použití
 1. Přejděte na řídicí panel na [https://aka.ms/catou](https://aka.ms/catou).
 2. Klikněte na Přidat.</br>
-![Přidání podmínek použití](media/active-directory-tou/tou2.png)
+![Přidání podmínek použití](media/active-directory-tou/tou12.png)
 3. Zadejte **název** pro podmínky použití.
 4. Zadejte **zobrazovaný název**.  Tato hlavička se uživatelům zobrazí při přihlášení.
 5. Pomocí **Procházet** přejděte k souboru PDF s finálními podmínkami použití a vyberte ho.  Doporučená velikost písma je 24.
-6. Nahrané podmínky můžete **vynutit** použitím šablony nebo vlastních zásad podmíněného přístupu.  Vlastní zásady podmíněného přístupu umožňují využít detailní podmínky použití (až na úroveň konkrétních cloudových aplikací nebo skupin uživatelů).  Další informace najdete v tématu o [konfiguraci zásad podmíněného přístupu](active-directory-conditional-access-best-practices.md).
-7. Klikněte na možnost **Vytvořit**.
-8. Pokud jste vybrali vlastní šablonu podmíněného přístupu, zobrazí se nová obrazovka, která vám umožní přizpůsobit zásady CA.
-7. Teď byste měli vidět vaše nové podmínky použití.</br>
+6. **Vyberte** jazyk podmínek použití.  Volba jazyka vám umožní nahrát různé jazykové verze podmínek použití.  Verze podmínek použití, která se zobrazí koncovému uživateli, závisí na jeho předvolbách prohlížeče.
+7. Vyberte, zda chcete **vyžadovat, aby uživatelé rozbalili podmínky použití**.  Pokud je tato volba zapnutá, než uživatelé přijmou podmínky použití, budou je muset zobrazit.
+8. V části **Podmíněný přístup** můžete nahrané podmínky **vynutit** použitím šablony nebo vlastních zásad podmíněného přístupu.  Vlastní zásady podmíněného přístupu umožňují využít detailní podmínky použití (až na úroveň konkrétních cloudových aplikací nebo skupin uživatelů).  Další informace najdete v tématu o [konfiguraci zásad podmíněného přístupu](active-directory-conditional-access-best-practices.md).
+9. Klikněte na možnost **Vytvořit**.
+10. Pokud jste vybrali vlastní šablonu podmíněného přístupu, zobrazí se nová obrazovka, která vám umožní přizpůsobit zásady CA.
+11. Teď byste měli vidět vaše nové podmínky použití.</br>
 
 ![Přidání podmínek použití](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Příslušným uživatelům se po vytvoření a vynucení podmínek použití zo
 ![Událost auditu](media/active-directory-tou/tou10.png)
 -   Takto se tato obrazovka zobrazí na mobilních zařízeních:</br></br>
 ![Událost auditu](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>Přečtení podmínek použití
+Uživatelé si můžou zobrazit a přečíst podmínky použití, které přijali.  To lze provést následujícím způsobem:
+
+1. Přejděte na stránku [https://myapps.microsoft.com](https://myapps.microsoft.com) a přihlaste se.
+2. V pravém horním rohu klikněte na své jméno a z rozevírací nabídky vyberte **Profil**.
+![Profil](media/active-directory-tou/tou14.png)
+
+3. Na svém profilu klikněte na **Přečíst podmínky použití**.
+![Událost auditu](media/active-directory-tou/tou13a.png)
+
+4.  Tady si můžete přečíst podmínky použití, které jste přijali. 
+
 
 ## <a name="additional-information"></a>Další informace
 Následující informace byste měli znát. Mohou vám být při používání podmínek použití užitečné.

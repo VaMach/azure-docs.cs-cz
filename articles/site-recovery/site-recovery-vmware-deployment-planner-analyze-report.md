@@ -1,5 +1,5 @@
 ---
-title: "Azure Site Recovery Deployment Planner pro nasazení VMware do Azure | Dokumentace Microsoftu"
+title: "Azure Site Recovery Deployment Planner pro nasazení VMware do Azure | Microsoft Docs"
 description: "Tento článek popisuje analýzu vygenerované sestavy Plánovače nasazení služby Azure Site Recovery pro scénář nasazení VMware do Azure."
 services: site-recovery
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 1eddd18e9b5ac0b4cb174e635f0f3cfd2f41059d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Sestava Plánovače nasazení služby Azure Site Recovery
 Vygenerovaná sestava aplikace Microsoft Excel obsahuje následující listy:
@@ -234,8 +234,8 @@ Pokud se například díky charakteristikám úloh disk umístil do kategorie P2
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB) (Celková velikost virtuálního počítače (replikace + testovací převzetí služeb při selhání) překračuje omezení podporované velikosti účtu úložiště (35 TB)). K této nekompatibilitě obvykle dochází, když je ve virtuálním počítači jeden disk, jehož některé charakteristiky výkonu překračují maximální podporovaná omezení systému Azure nebo Site Recovery pro účet služby Storage úrovně Standard. V takové situaci se virtuální počítač dostává do zóny účtu služby Storage úrovně Premium. Nicméně maximální podporovaná velikost účtu služby Storage úrovně Premium je 35 TB a jeden virtuální počítač nemůže být chráněn v rámci několika účtů úložiště. Všimněte si také, že testovací převzetí služeb při selhání spuštěné na chráněném virtuálním počítači poběží v rámci stejného účtu úložiště, ve kterém probíhá replikace. V takovém případě nastavte dvojnásobnou velikost disku, aby paralelně mohla probíhat replikace a úspěšné testovací převzetí služeb při selhání.
 * Source IOPS exceeds supported storage IOPS limit of 5000 per disk (Počet zdrojových IOPS překračuje podporované omezení úložiště – 5 000 IOPS na disk).
 * Source IOPS exceeds supported storage IOPS limit of 80,000 per VM (Počet zdrojových IOPS překračuje podporované omezení úložiště – 80 000 IOPS na virtuální počítač).
-* Average data churn exceeds supported Site Recovery data churn limit of 10 MBps for average I/O size for the disk (Průměrná četnost změn dat překračuje podporované omezení Site Recovery pro četnost změn dat – průměrná velikost vstupně-výstupních operací disku 10 Mb/s).
-* Total data churn across all disks on the VM exceeds the maximum supported Site Recovery data churn limit of 54 MBps per VM (Celková četnost změn dat na všech discích virtuálního počítače překračuje maximální podporované omezení Site Recovery pro četnost změn dat – 54 Mb/s na virtuální počítač).
+* Average data churn exceeds supported Site Recovery data churn limit of 10 MB/s for average I/O size for the disk (Průměrná četnost změn dat překračuje podporované omezení Site Recovery pro četnost změn dat – průměrná velikost vstupně-výstupních operací disku 10 MB/s).
+* Total data churn across all disks on the VM exceeds the maximum supported Site Recovery data churn limit of 54 MB/s per VM (Celková četnost změn dat na všech discích virtuálního počítače překračuje maximální podporované omezení Site Recovery pro četnost změn dat – 54 MB/s na virtuální počítač).
 * Average effective write IOPS exceeds the supported Site Recovery IOPS limit of 840 for disk (Průměrný počet efektivních vstupně-výstupních operací zápisu za sekundu překračuje podporované omezení Site Recovery pro počet IOPS – 840 na disk).
 * Calculated snapshot storage exceeds the supported snapshot storage limit of 10 TB (Vypočtená velikost úložiště snímků překračuje podporované omezení velikosti úložiště snímků – 10 TB).
 
@@ -263,12 +263,12 @@ Následující tabulka obsahuje omezení služby Azure Site Recovery. Tato omeze
  
 **Cíl ukládání replikace** | **Průměrná velikost vstupně-výstupních operací zdrojového disku** |**Průměrná četnost změn dat zdrojového disku** | **Celková denní četnost změn dat zdrojového disku**
 ---|---|---|---
-Storage úrovně Standard | 8 kB | 2 Mb/s | 168 GB na disk
-Disk úrovně Premium P10 nebo P15 | 8 kB  | 2 Mb/s | 168 GB na disk
-Disk úrovně Premium P10 nebo P15 | 16 kB | 4 Mb/s |  336 GB na disk
-Disk úrovně Premium P10 nebo P15 | 32 kB nebo větší | 8 Mb/s | 672 GB na disk
-Disk úrovně Premium P20 nebo P30 nebo P40 nebo P50 | 8 kB    | 5 Mb/s | 421 GB na disk
-Disk úrovně Premium P20 nebo P30 nebo P40 nebo P50 | 16 kB nebo větší |10 Mb/s | 842 GB na disk
+Storage úrovně Standard | 8 kB | 2 MB/s | 168 GB na disk
+Disk úrovně Premium P10 nebo P15 | 8 kB  | 2 MB/s | 168 GB na disk
+Disk úrovně Premium P10 nebo P15 | 16 kB | 4 MB/s |  336 GB na disk
+Disk úrovně Premium P10 nebo P15 | 32 kB nebo větší | 8 MB/s | 672 GB na disk
+Disk úrovně Premium P20 nebo P30 nebo P40 nebo P50 | 8 kB    | 5 MB/s | 421 GB na disk
+Disk úrovně Premium P20 nebo P30 nebo P40 nebo P50 | 16 kB nebo větší |10 MB/s | 842 GB na disk
 
 Toto jsou průměrné hodnoty za předpokladu, že se vstupně-výstupní operace z 30 % překrývají. Služba Site Recovery je schopna zpracovávat větší propustnost v závislosti na poměru překrývání, větší velikosti zápisů a skutečného chování vstupně-výstupních operací úloh. Předchozí čísla předpokládají typický backlog přibližně 5 minut. To znamená, že zpracování nahrávaných dat a vytvoření bodu obnovení proběhne do pěti minut od nahrání.
 

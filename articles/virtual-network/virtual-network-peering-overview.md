@@ -1,5 +1,5 @@
 ---
-title: "Partnerské vztahy virtuálních sítí v Azure | Dokumentace Microsoftu"
+title: "Partnerské vztahy virtuálních sítí v Azure | Microsoft Docs"
 description: "Seznamte se s partnerskými vztahy virtuálních sítí v Azure."
 services: virtual-network
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="virtual-network-peering"></a>Partnerské vztahy virtuálních sítí
 
@@ -35,7 +35,7 @@ Mezi výhody použití partnerských vztahů virtuálních sítí patří:
 
 ## <a name="requirements-constraints"></a>Požadavky a omezení
 
-* Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Vytváření partnerských vztahů virtuálních sítí v různých oblastech je aktuálně ve verzi Preview v oblastech USA – středozápad, Střední Kanada a USA – západ 2. Před vytvořením partnerského vztahu virtuálních sítí v různých oblastech musíte nejprve [zaregistrovat své předplatné](virtual-network-create-peering.md#register) pro verzi Preview. Pokus o vytvoření partnerského vztahu mezi virtuálními sítěmi v různých oblastech selže, pokud nedokončíte registraci verze Preview.
+* Vytváření partnerských vztahů virtuálních sítí ve stejné oblasti je všeobecně dostupné. Vytváření partnerských vztahů virtuálních sítí v různých oblastech je aktuálně ve verzi Preview v oblastech USA – středozápad, Střední Kanada a USA – západ 2. Před vytvořením partnerského vztahu virtuálních sítí v různých oblastech musíte nejprve [zaregistrovat své předplatné](virtual-network-create-peering.md#register) pro verzi Preview. Pokud nedokončíte registraci verze Preview, nebude pokus o vytvoření partnerského vztahu virtuálních sítí v různých oblastech úspěšný.
     > [!WARNING]
     > Partnerské vztahy virtuálních sítí vytvořené mezi oblastmi nemusí dosahovat stejné úrovně dostupnosti a spolehlivosti jako partnerské vztahy ve verzi všeobecné dostupnosti. Partnerské vztahy virtuálních sítí můžou mít omezené možnosti a nemusí být dostupné ve všech oblastech Azure. Nejaktuálnější oznámení o dostupnosti a stavu této funkce najdete na stránce [Aktualizace služby Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -63,13 +63,15 @@ Při konfiguraci partnerského vztahu virtuálních sítí můžete otevřít ne
 
 ## <a name="service-chaining"></a>Řetězení služeb
 
-Můžete nakonfigurovat uživatelsky definované trasy, které jsou směrované na virtuální počítače v partnerských virtuálních sítích jako na IP adresy pro další směrování, a povolit tak řetězení služeb. Řetězení služeb vám umožní směrovat přenos dat z jedné virtuální sítě do virtuálního zařízení v partnerské virtuální síti s použitím uživatelsky definovaných tras.
+Pokud chcete povolit řetězení služeb, nakonfigurujte uživatelsky definované trasy, které míří k virtuálním počítačům v partnerských virtuálních sítích (jako IP adresy *dalšího směrování*) nebo k jejich branám. Řetězení služeb umožňuje směrovat přenos dat z jedné virtuální sítě do virtuálního zařízení nebo brány virtuální sítě v partnerské virtuální síti prostřednictvím uživatelsky definovaných tras.
 
-Můžete také fakticky vytvářet prostředí hvězdicovitého typu, kde centrální síť může být hostitelem komponent infrastruktury, například síťového virtuálního zařízení. Všechny uvedené virtuální sítě pak můžou vytvořit partnerský vztah s centrální virtuální sítí. Provoz může probíhat přes virtuální síťová zařízení, která běží v centrální virtuální síti. Partnerské vztahy virtuálních sítí tedy umožňují, aby IP adresou dalšího směrování v uživatelsky definované trase byla IP adresa virtuálního počítače v partnerské virtuální síti. Další informace o uživatelem definovaných trasách najdete v tématu s [přehledem uživatelem definovaných tras](virtual-networks-udr-overview.md). Informace o vytvoření hvězdicové síťové topologie najdete v tématu věnovaném [hvězdicové síťové topologii](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+Hvězdicové sítě můžete nasadit, když centrální virtuální síť hostuje součásti infrastruktury, jako je virtuální síťové zařízení nebo služba VPN Gateway. Všechny uvedené virtuální sítě pak můžou vytvořit partnerský vztah s centrální virtuální sítí. Provoz v centrální virtuální síti probíhá přes virtuální síťové zařízení nebo brány VPN. 
+
+Partnerské vztahy virtuálních sítí umožňují, aby další segment směrování v uživatelsky definované trase byl IP adresou virtuálního počítače v partnerské virtuální síti nebo branou VPN. K vytvoření trasy mezi virtuálními sítěmi ale nemůžete použít uživatelsky definovanou trasu, ve které jako další typ segmentu směrování použijete bránu ExpressRoute. Další informace o uživatelsky definovaných trasách najdete v [přehledu uživatelsky definovaných tras](virtual-networks-udr-overview.md#user-defined). Informace o vytvoření hvězdicové síťové topologie najdete v tématu věnovaném [hvězdicové síťové topologii](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Brány a místní připojení
 
-Každá virtuální síť, bez ohledu na to, jestli má navázaný partnerský vztah s jinou virtuální sítí, může mít stále svou vlastní bránu a používat ji pro připojení k místní síti. Můžete také nakonfigurovat [připojení mezi virtuálními sítěmi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) pomocí bran, a to i v situaci, kdy jsou tyto virtuální sítě v partnerském vztahu.
+Každá virtuální síť, bez ohledu na to, jestli má navázaný partnerský vztah s jinou virtuální sítí, může mít stále svou vlastní bránu a používat ji pro připojení k místní síti. Můžete také nakonfigurovat [připojení mezi virtuálními sítěmi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pomocí bran, a to i v situaci, kdy jsou tyto virtuální sítě v partnerském vztahu.
 
 Když jsou nakonfigurovány obě možnosti pro propojení virtuálních sítí, přenos dat mezi těmito sítěmi probíhá s použitím konfigurace partnerského vztahu (t.j. přes páteřní síť Azure).
 
@@ -98,20 +100,17 @@ Pokud jste například navazovali partnerský vztah mezi virtuálními sítěmi 
 
 ## <a name="monitor"></a>Monitorování
 
-Pokud navazujete partnerský vztah mezi dvěma virtuálními sítěmi vytvořenými prostřednictvím Resource Manageru, v partnerském vztahu musí být nakonfigurován partnerský vztah pro každou virtuální síť.
-Stav partnerského propojení můžete monitorovat. Partnerský vztah může být v jednom z následujících stavů:
+Pokud navazujete partnerský vztah mezi dvěma virtuálními sítěmi vytvořenými prostřednictvím Resource Manageru, v partnerském vztahu musí být nakonfigurován partnerský vztah pro každou virtuální síť. Stav partnerského propojení můžete monitorovat. Partnerský vztah může být v jednom z následujících stavů:
 
-* **Zahájeno:** Když vytvoříte partnerské připojení z první virtuální sítě k druhé virtuální síti, stav partnerského vztahu je Zahájeno.
-
-* **Připojeno:** Když vytvoříte partnerské připojení z druhé virtuální sítě k první virtuální síti, stav partnerského vztahu je Připojeno. Pokud zobrazíte stav partnerského vztahu pro první virtuální síť, uvidíte, že se stav změnil ze Zahájeno na Připojeno. Partnerský vztah není úspěšně navázán, dokud stav partnerského vztahu pro obě virtuální sítě není Připojeno.
-
-* **Odpojeno:** Pokud se po navázání připojení jedno z partnerských propojení odstraní, stav partnerského vztahu je Odpojeno.
+* **Zahájeno:** Stav se zobrazí po vytvoření partnerského připojení z první virtuální sítě do druhé.
+* **Připojeno:** Stav se zobrazí po vytvoření partnerského připojení z druhé virtuální sítě do první. Stav připojení první virtuální sítě se změní ze *Zahájeno* na *Připojeno*. Partnerský vztah virtuálních sítí není úspěšně navázán, dokud stav partnerského vztahu obou virtuálních sítí není *Připojeno*.
+* **Odpojeno:** Stav se zobrazí, pokud po navázání partnerského vztahu mezi dvěma virtuálními sítěmi dojde k odstranění partnerského vztahu jedné virtuální sítě k druhé.
 
 ## <a name="troubleshoot"></a>Řešení potíží
 
-Pokud chcete řešit potíže s tokem provozu v rámci partnerského propojení, můžete [zkontrolovat efektivní trasy](virtual-network-routes-troubleshoot-portal.md).
+Pokud chcete partnerský vztah virtuální sítě potvrdit, musíte [zkontrolovat platné trasy](virtual-network-routes-troubleshoot-portal.md) síťového rozhraní v každé podsíti virtuální sítě. Pokud partnerský vztah virtuální sítě existuje, mají všechny podsítě virtuální sítě trasy s typem dalšího přechodu *VNet peering*, a to u každého adresního prostoru v každé partnerské virtuální síti.
 
-Pomocí [kontroly připojení](../network-watcher/network-watcher-connectivity-portal.md) ve službě Network Watcher můžete také řešit potíže s připojením k virtuálnímu počítači v partnerské virtuální síti. Kontrola připojení umožňuje zobrazit směrování přímo ze síťového rozhraní zdrojového virtuálního počítače do síťového rozhraní cílového virtuálního počítače.
+K řešení problémů s připojením k virtuálnímu počítači v partnerské virtuální síti také můžete použít [kontrolu připojení](../network-watcher/network-watcher-connectivity-portal.md) ve službě Network Watcher. Kontrola připojení zobrazí směrování provozu od síťového rozhraní zdrojového virtuálního počítače k síťovému rozhraní cílového virtuálního počítače.
 
 ## <a name="limits"></a>Omezení
 

@@ -1,6 +1,6 @@
 ---
-title: "Přírůstkové kopírování dat pomocí Azure Data Factory | Dokumentace Microsoftu"
-description: "Tyto kurzy vám ukážou jak přírůstkově kopírovat data ze zdrojového úložiště dat do cílového úložiště dat. První zkopíruje data z jedné tabulky. "
+title: "Přírůstkové kopírování dat pomocí Azure Data Factory | Microsoft Docs"
+description: "Tyto kurzy vám ukážou, jak přírůstkově kopírovat data ze zdrojového úložiště dat do cílového úložiště dat. První zkopíruje data z jedné tabulky."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,40 +13,40 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/05/2017
 ms.author: shlo
-ms.openlocfilehash: 2ae6cb42685dfb227bd75f83e73dfdf646ab909f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: f23ca6862d0a0e67245f02dc723f61da8f41b6a0
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Přírůstkové načtení dat ze zdrojového úložiště dat do cílového úložiště dat
 
 V řešení integrace dat je přírůstkové (nebo rozdílové) načítání dat po počátečním úplném načtení dat často používaný scénář. Kurzy v této části vám ukážou různé způsoby načítání dat přírůstkově pomocí Azure Data Factory verze 2.
 
-## <a name="delta-data-loading-using-a-watermark"></a>Rozdílové načítání dat pomocí meze
+## <a name="delta-data-loading-by-using-a-watermark"></a>Rozdílové načítání dat pomocí meze
 V tomto případě definujete mez ve zdrojové databázi. Mez je sloupec, který obsahuje časové razítko poslední aktualizace nebo narůstající klíč. Řešení rozdílového načítání načte změněná data mezi původní mezí a novou mezí. Pracovní postup pro tento přístup je znázorněn v následujícím diagramu: 
 
 ![Pracovní postup pro použití meze](media/tutorial-incremental-copy-overview/workflow-using-watermark.png)
 
 Podrobné pokyny najdete v následujících kurzech: 
 
-- [Přírůstkové kopírování dat z jedné tabulky v Azure SQL Database do Azure Blob Storage](tutorial-incremental-copy-powershell.md)
-- [Přírůstkové kopírování dat z více tabulek v místním SQL Serveru do Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+- [Přírůstkové kopírování dat z jedné tabulky ve službě Azure SQL Database do úložiště Azure Blob Storage](tutorial-incremental-copy-powershell.md)
+- [Přírůstkové kopírování dat z více tabulek v místním SQL Serveru do služby Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
-## <a name="delta-data-loading-using-the-change-tracking-technology"></a>Rozdílové načítání dat pomocí technologie Change Tracking
-Technologie Change Tracking je jednoduché řešení na SQL Serveru a v Azure SQL Database, které poskytuje mechanismus efektivního sledování změn pro aplikace. Umožňuje aplikaci snadno identifikovat data, která byla vložena, aktualizována nebo odstraněna. 
+## <a name="delta-data-loading-by-using-the-change-tracking-technology"></a>Rozdílové načítání dat pomocí technologie Change Tracking
+Technologie Change Tracking je jednoduché řešení na SQL Serveru a ve službě Azure SQL Database, které poskytuje mechanismus efektivního sledování změn pro aplikace. Umožňuje aplikaci snadno identifikovat data, která byla vložena, aktualizována nebo odstraněna. 
 
 Pracovní postup pro tento přístup je znázorněn v následujícím diagramu:
 
 ![Pracovní postup pro použití Change Tracking](media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png)
 
 Podrobné pokyny najdete v následujícím kurzu: <br/>
-[Přírůstkové kopírování dat z Azure SQL Database do Azure Blob Storage pomocí technologie Change Tracking](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+[Přírůstkové kopírování dat ze služby Azure SQL Database do úložiště Azure Blob Storage pomocí technologie Change Tracking](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 
 ## <a name="next-steps"></a>Další kroky
 Přejděte k následujícímu kurzu: 
 
 > [!div class="nextstepaction"]
->[Přírůstkové kopírování dat z jedné tabulky v Azure SQL Database do Azure Blob Storage](tutorial-incremental-copy-powershell.md)
+>[Přírůstkové kopírování dat z jedné tabulky ve službě Azure SQL Database do úložiště Azure Blob Storage](tutorial-incremental-copy-powershell.md)

@@ -1,5 +1,5 @@
 ---
-title: "Přehled SQL Serveru na virtuálních počítačích Azure s Windows | Dokumentace Microsoftu"
+title: "Přehled SQL Serveru na virtuálních počítačích Azure s Windows | Microsoft Docs"
 description: "Můžete se dozvědět, jak spouštět úplné edice SQL Serveru virtuálních počítačích Azure."
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: jroth
-ms.openlocfilehash: 140e59b971da379d7475097bf3e26d5b070fa610
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 95a18e4b2437ca628e84f6d6f580e12f2f26e111
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Co je SQL Server na virtuálních počítačích Azure? (Windows)
 
@@ -42,12 +42,19 @@ Virtuální počítače Azure s SQL Serverem mohou využívat výhod [automatizo
 
 Pokud požadujete vysokou dostupnost, doporučujeme nakonfigurovat skupiny dostupnosti SQL Serveru. Znamená to využívat více virtuálních počítačů Azure s SQL Serverem ve virtuální síti. Řešení vysoké dostupnosti můžete nakonfigurovat ručně, nebo můžete použít šablony na webu Azure Portal pro automatickou konfiguraci. Přehled možností vysoké dostupnosti najdete v tématu [Vysoká dostupnost a zotavení po havárii pro SQL Server v Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
+## <a name="performance"></a>Výkon
+
+Virtuální počítače Azure nabízejí různé kapacity, takže splňují různé požadavky na pracovní zatížení. Virtuální počítače SQL také poskytují automatickou konfiguraci úložiště, která je optimalizovaná pro vaše požadavky na výkon. Další informace o konfiguraci úložiště pro virtuální počítače na serveru SQL najdete v tématu [Konfigurace úložiště pro virtuální počítače SQL Serveru](virtual-machines-windows-sql-server-storage-configuration.md). Pokud budete chtít ladit výkon, přečtěte si [Osvědčené postupy z hlediska výkonu pro SQL Server na Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+
 ## <a name="get-started-with-sql-vms"></a>Začínáme s virtuálními počítači SQL
 
 Chcete-li začít, zvolte image virtuálního počítače s SQL Serverem s požadovanou verzí, vydáním a operačním systémem. Následující oddíly poskytují přímé odkazy na image v galerii virtuálních počítačů s SQL Serverem na webu Azure Portal.
 
 > [!TIP]
 > Pro lepší pochopení cen virtuálních počítačů a SQL si přečtěte [doprovodné materiály k cenám pro virtuální počítače Azure s SQL Serverem](virtual-machines-windows-sql-server-pricing-guidance.md).
+
+> [!TIP]
+> Informace o postupech pro aktualizaci a podporu Image Galerie virtuálních počítačů na SQL Serveru najdete v tématu [Nejčastější dotazy pro SQL Server na virtuálních počítačích Windows Azure](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ### <a id="payasyougo"></a> Průběžné platby
 Následující tabulka obsahuje matici imagí SQL Serveru s průběžnými platbami.

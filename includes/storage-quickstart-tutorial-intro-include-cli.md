@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>vytvořit účet úložiště
 
-Vytvořte pomocí příkazu [az storage account create](/cli/azure/storage/account#create) účet úložiště úrovně Standard pro obecné účely. Účet úložiště úrovně Standard pro obecné účely lze použít pro všechny čtyři služby: Blobs, Files, Tables a Queues. 
+Účet úložiště pro obecné účely vytvoříte příkazem [az storage account create](/cli/azure/storage/account#create). Účet úložiště pro obecné účely můžete použít pro všechny čtyři služby: objekty blob, soubory, tabulky a fronty. 
 
 ```azurecli-interactive
 az storage account create \
@@ -23,7 +23,7 @@ az storage account create \
 
 ## <a name="specify-storage-account-credentials"></a>Zadání přihlašovacích údajů účtu úložiště
 
-Azure CLI pro většinu příkazů v tomto kurzu potřebuje přihlašovací údaje účtu úložiště. Existuje několik možností, jak to udělat. Jedním z nejjednodušších způsobů, jak je poskytnout, je nastavit proměnné prostředí `AZURE_STORAGE_ACCOUNT` a `AZURE_STORAGE_ACCESS_KEY`.
+Azure CLI pro většinu příkazů v tomto kurzu potřebuje přihlašovací údaje účtu úložiště. Existuje několik možností, jak to udělat. Jeden z nejjednodušších způsobů je nastavit proměnné prostředí `AZURE_STORAGE_ACCOUNT` a `AZURE_STORAGE_ACCESS_KEY`.
 
 Nejprve zobrazte klíče účtu úložiště pomocí příkazu [az storage account keys list](/cli/azure/storage/account/keys#list):
 

@@ -1,5 +1,5 @@
 ---
-title: "Připojení k Azure SQL Data Warehouse | Dokumentace Microsoftu"
+title: "Připojení k Azure SQL Data Warehouse | Microsoft Docs"
 description: "Postup vyhledání názvu serveru a připojovacího řetězce pro Azure SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: NA
@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Připojení k Azure SQL Data Warehouse
 Tento článek vám pomůže s prvním připojením k SQL Data Warehouse.
 
 ## <a name="find-your-server-name"></a>Vyhledání názvu serveru
-Prvním krokem při připojení k SQL Data Warehouse je vědět, jak najít název serveru.  Například název serveru v následujícím příkladu je sample.database.windows.net. Plně kvalifikovaný název serveru zjistíte následujícím způsobem:
+Prvním krokem při připojení k SQL Data Warehouse je vědět, jak najít název serveru.  Například název serveru v následujícím příkladu je samplesvr.database.windows.net. Plně kvalifikovaný název serveru zjistíte následujícím způsobem:
 
 1. Přejděte na web [Azure Portal][Azure portal].
-2. Klikněte na **Databáze SQL**. 
-3. Klikněte na databázi, ke které se chcete připojit.
+2. Klikněte na **Datové sklady SQL**.
+3. Klikněte na datový sklad, ke kterému se chcete připojit.
 4. Vyhledejte úplný název serveru.
    
     ![Úplný název serveru][1]
@@ -93,6 +93,6 @@ Informace o připojení a dotazování pomocí sady Visual Studio najdete v odd�
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

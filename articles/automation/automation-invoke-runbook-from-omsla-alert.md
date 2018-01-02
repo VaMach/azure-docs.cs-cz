@@ -1,6 +1,6 @@
 ---
-title: "Volání runbooku Azure Automation z upozornění Log Analytics | Dokumentace Microsoftu"
-description: "Tento článek obsahuje přehled způsobů, jak vyvolat runbook Automation z upozornění Microsoft OMS Log Analytics."
+title: "Volání runbooku Azure Automation z upozornění Log Analytics | Microsoft Docs"
+description: "Tento článek obsahuje přehled způsobů, jak vyvolat runbook Automation z upozornění Log Analytics v prostředí Operations Management Suite."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,76 +14,92 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 76d5ab23ef1962733ccb3b36640facdba9ab8acb
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Volání runbooku Azure Automation z upozornění OMS Log Analytics
+# <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Volání runbooku Azure Automation z upozornění Log Analytics
 
-Pokud je v Log Analytics nakonfigurované upozornění tak, aby v případě, že výsledky odpovídají kritériím (jako je například dlouhotrvající špička využití procesoru nebo selhání konkrétního procesu aplikace důležitého pro fungování podnikové aplikace), vytvořilo záznam o upozornění a zapsalo odpovídající událost do protokolu událostí Windows, může takové upozornění automaticky spouštět runbook Automation ve snaze automaticky napravit problém.  
+Ve službě Azure Log Analytics můžete nakonfigurovat upozornění, které vytvoří záznam upozornění, když výsledky odpovídají zadaným kritériím. Upozornění pak ve snaze automaticky napravit problém může automaticky spustit runbook Azure Automation. 
+
+Upozornění může například signalizovat dlouhodobý prudký nárůst zatížení procesoru. Nebo může značit, že selhal proces, který je klíčový pro fungování některé firemní aplikace. Runbook pak může zapsat příslušnou událost do protokolu událostí Windows.  
 
 V konfiguraci upozornění existují dvě možnosti volání runbooku:
 
-1. Pomocí webhooku.
-   * Toto je jediná dostupná možnost, pokud váš pracovní prostor OMS není propojený s účtem Automation.
-   * Tato možnost je k dispozici i v případě, že již máte účet Automation propojený s pracovním prostorem OMS.  
+* Pomocí webhooku.
+   * Toto je jediná dostupná možnost, pokud váš pracovní prostor Operations Management Suite není propojený s účtem Automation.
+   * Tato možnost je k dispozici i v případě, že již máte účet Automation propojený s pracovním prostorem Operations Management Suite.  
 
-2. Přímým výběrem runbooku.
-   * Tato možnost je dostupná, pouze pokud je pracovní prostor OMS propojený s účtem Automation.
+* Přímým výběrem runbooku.
+   * Tato možnost je dostupná, pouze pokud je pracovní prostor Operations Management Suite propojený s účtem Automation.
 
-## <a name="calling-a-runbook-using-a-webhook"></a>Volání runbooku pomocí webhooku
+## <a name="calling-a-runbook-by-using-a-webhook"></a>Volání runbooku pomocí webhooku
 
-Webhook umožňuje spuštění konkrétního runbooku v Azure Automation prostřednictvím jednoho požadavku HTTP. Před konfigurací [upozornění Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules), aby jako akci upozornění volalo runbook pomocí webhooku, je potřeba nejprve vytvořit webhook pro runbook, který je touto metodou volán. Proveďte kroky v článku popisujícím [vytvoření webhooku](automation-webhooks.md#creating-a-webhook) a nezapomeňte si poznamenat adresu URL webhooku, abyste na něj mohli odkazovat při konfiguraci pravidla upozornění.   
+Webhook můžete použít ke spuštění konkrétního runbooku v Azure Automation prostřednictvím jednoho požadavku HTTP. Než nakonfigurujete [upozornění Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules), aby jako akci upozornění volalo runbook pomocí webhooku, je potřeba nejprve [vytvořit webhook](automation-webhooks.md#creating-a-webhook) pro runbook, který bude touto metodou volán. Nezapomeňte si poznamenat adresu URL webhooku, abyste na něj mohli odkazovat při konfiguraci pravidla upozornění.   
 
 ## <a name="calling-a-runbook-directly"></a>Přímé volání runbooku
 
-Pokud máte ve svém pracovním prostoru OMS nainstalovanou a nakonfigurovanou nabídku Automation & Control, při konfiguraci možnosti akcí runbooku pro upozornění můžete všechny runbooky zobrazit v rozevíracím seznamu **Vybrat runbook** a vybrat konkrétní runbook, který chcete v reakci na upozornění spustit. Vybraný runbook se může spustit v pracovním prostoru v cloudu Azure nebo v procesu Hybrid Runbook Worker. Po vytvoření upozornění s možností runbooku se pro tento runbook vytvoří webhook. Webhook zobrazíte tak, že přejdete do účtu Automation a pak do podokna webhooku vybraného runbooku. Pokud odstraníte upozornění, webhook se neodstraní, ale uživatel může webhook odstranit ručně. Není problém, když se webhook neodstraní, je to jenom osiřelá položka, kterou časem budete muset odstranit pro zachování organizovaného účtu Automation.  
+V pracovním prostoru Operations Management Suite můžete nainstalovat a nakonfigurovat nabídku Automation and Control. Při konfiguraci možnosti akcí runbooku pro upozornění můžete všechny runbooky zobrazit v rozevíracím seznamu **Vybrat sadu runbook** a zvolit konkrétní runbook, který chcete v reakci na upozornění spustit. Vybraný runbook se může spustit v pracovním prostoru Azure nebo v procesu Hybrid Runbook Worker. 
 
-## <a name="characteristics-of-a-runbook-for-both-options"></a>Vlastnosti runbooku (pro obě možnosti)
+Když vytvoříte upozornění s možností runbooku, pro tento runbook se vytvoří webhook. Webhook zobrazíte tak, že přejdete do účtu Automation a pak otevřete podokno webhooku vybraného runbooku. 
 
-Obě metody volání runbooku z upozornění Log Analytics mají charakteristiky, kterým je nutné porozumět před konfigurací pravidel upozornění. Data upozornění jsou ve formátu JSON v jedné vlastnosti **SearchResult**. Tento formát platí pro akce runbooku a webhooku se standardní datovou částí. Pro akce webhooku s vlastními datovými částmi, které v **textu žádosti** zahrnují **IncludeSearchResults:True**, je tato vlastnost **SearchResults**.
+Pokud odstraníte dané upozornění, webhook zůstane zachovaný. To nepředstavuje žádný problém. Webhook se změní jen na osamocenou položku, kterou byste měli nakonec odstranit ručně, abyste účet Automation udržovali v pořádku.  
 
-* Musíte mít vstupní parametr runbooku s názvem **WebhookData**, který je typu **Objekt**. Může být povinný nebo volitelný. Upozornění předává výsledky hledání do runbooku pomocí tohoto vstupního parametru.
+## <a name="characteristics-of-a-runbook"></a>Vlastnosti runbooku
 
-    ```powershell
-    param  
-        (  
-        [Parameter (Mandatory=$true)]  
-        [object] $WebhookData  
-        )
-    ```
-*  Musíte mít kód, který převede WebhookData na objekt prostředí PowerShell.
+Obě metody volání runbooku z upozornění Log Analytics mají charakteristiky, kterým musíte před konfigurací pravidel upozornění porozumět. 
 
-    ```powershell
-    $SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
-    ```
+Data upozornění jsou ve formátu JSON v jedné vlastnosti **SearchResult**. Tento formát platí pro akce runbooku a webhooku se standardní datovou částí. Pro akce webhooku s vlastními datovými částmi, které v **textu žádosti** zahrnují **IncludeSearchResults:True**, je tato vlastnost **SearchResults**.
 
-    *$SearchResult* je pole objektů, z nichž každý obsahuje pole s hodnotami z jednoho výsledku hledání.
+Musíte mít vstupní parametr runbooku s názvem **WebhookData**, který je typu **Objekt**. Může být povinný nebo volitelný. Upozornění předává výsledky hledání do runbooku pomocí tohoto vstupního parametru.
+
+```powershell
+param  
+    (  
+    [Parameter (Mandatory=$true)]  
+    [object] $WebhookData  
+    )
+```
+Také musíte mít kód, který převede **WebhookData** na objekt prostředí PowerShell.
+
+```powershell
+$SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
+```
+
+**$SearchResult** představuje pole objektů. Každý z nich obsahuje pole s hodnotami z jednoho výsledku hledání.
 
 
 ## <a name="example-walkthrough"></a>Ukázka podrobného postupu
 
-Na následujícím příkladu grafického runbooku, který spouští službu pro Windows, ukazujeme, jak proces funguje.<br><br> ![Spuštění grafického runbooku služby pro Windows](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
+Následující ukázka grafického runbooku předvede, jak tento proces funguje. Spustí službu pro Windows.
 
-Runbook má jeden vstupní parametr typu **Objekt** s názvem **WebhookData**, který zahrnuje data webhooku předaná z upozornění a obsahuje \*.SearchResult\*.<br><br> ![Vstupní parametry runbooku](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)<br>
+![Grafický runbook pro spouštění služby systému Windows](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)
 
-V tomto příkladu jsme v Log Analytics vytvořili dvě vlastní pole, \*SvcDisplayName\_CF\* a \*SvcState\_CF\*, pro extrakci zobrazovaného názvu a stavu služby (tj. spuštěná nebo zastavená) z události zapsané do protokolu událostí systému. Následně vytvoříme pravidlo upozornění s tímto vyhledávacím dotazem: `Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"`. Díky tomu můžeme detekovat zastavení služby zařazování tisku v systému Windows. Může se jednat o libovolnou službu, která vás zajímá, ale pro tento příklad používáme jednu z již existujících služeb, které jsou součástí operačního systému Windows. Akce upozornění je nakonfigurována ke spouštění runbooku použitého v tomto příkladu v procesu Hybrid Runbook Worker, který je na cílovém systému povolený.   
+Runbook má jeden vstupní parametr typu **Objekt** s názvem **WebhookData**. Zahrnuje data webhooku předaná z výstrahy, která obsahuje vlastnost **SearchResult**.
 
-Aktivita runbooku s kódem **Get Service Name from LA** (Získání názvu služby z Log Analytics) převede řetězec ve formátu JSON na objekt a filtrováním podle položky \*SvcDisplayName\_CF\* extrahuje zobrazovaný název služby pro Windows a předá tuto hodnotu do další aktivity. Ta před pokusem o restartování služby ověří, jestli je zastavená. *SvcDisplayName_CF* je [vlastní pole](../log-analytics/log-analytics-custom-fields.md) vytvořené v Log Analytics pro účely tohoto příkladu.
+![Vstupní parametry runbooku](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)
+
+V našem příkladu jsme v Log Analytics vytvořili dvě vlastní pole: **SvcDisplayName_CF** a **SvcState_CF**. Tato pole extrahují zobrazovaný název služby a stav služby (jestli je spuštěná, nebo zastavená) z události zapsané do protokolu událostí systému. Následně vytvoříme pravidlo upozornění s následujícím vyhledávacím dotazem, abychom mohli detekovat zastavení služby zařazování tisku v systému Windows:
+
+`Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"` 
+
+Může se jednat o jakoukoliv službu, která vás zajímá. Pro tento příklad používáme jednu z již existujících služeb, které jsou součástí operačního systému Windows. Akce upozornění je nakonfigurována ke spouštění runbooku použitého v tomto příkladu v procesu Hybrid Runbook Worker, který je na cílovém systému povolený.   
+
+Aktivita kódu runbooku **Get Service Name from LA** (Načíst název služby z LA) konvertuje řetězec ve formátu JSON na typ objektu a vyfiltrujte položku **SvcDisplayName_CF**. Extrahuje zobrazovaný název služby systému Windows a tuto hodnotu předá následující aktivitě, která ověří, zda je služba zastavená, a potom se ji pokusí restartovat. **SvcDisplayName_CF** je [vlastní pole](../log-analytics/log-analytics-custom-fields.md), které jsme vytvořili v Log Analytics pro účely tohoto příkladu.
 
 ```powershell
 $SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
 $SearchResult.SvcDisplayName_CF  
 ```
 
-Když se služba zastaví, pravidlo upozornění v Log Analytics zjistí shodu a aktivuje runbook, do kterého odešle kontext upozornění. Runbook provede ověření, jestli je služba zastavená, a pokud ano, pokusí se službu restartovat, ověří, že se spustila správně a vypíše výsledky.     
+Když se služba zastaví, pravidlo upozornění v Log Analytics zjistí shodu a aktivuje runbook, do kterého odešle kontext upozornění. Runbook se pokusí ověřit, že je služba zastavená. Pokud ano, runbook se ji pokusí restartovat, ověří, zda se spustila správně, a zobrazí výsledky.     
 
-Pokud by váš účet Automation nebyl propojený s pracovním prostorem OMS, nakonfigurovali byste pravidlo upozornění s akcí webhooku aktivující runbook a runbook byste nakonfigurovali pro převod řetězce ve formátu JSON a filtrování položky \*.SearchResult\* podle pokynů uvedených výše.    
+Pokud případně nemáte účet Automation propojený s pracovním prostředím Operations Management Suite, pravidlo výstrahy můžete nakonfigurovat pomocí akce webhooku. Akce webhooku spustí runbook. Také nakonfiguruje runbook tak, aby podle kroků uvedených výše konvertoval řetězec ve formátu JSON a vyfiltroval hodnotu **SearchResult**.    
 
 >[!NOTE]
-> Pokud byl váš pracovní prostor upgradován na [nový dotazovací jazyk Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), pak se datová část webhooku změnila.  Podrobnosti o formátu najdete v tématu [Rozhraní REST API služby Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).
+> Pokud byl váš pracovní prostor upgradován na [nový dotazovací jazyk Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), datová část webhooku se změnila. Podrobnosti o formátu najdete v tématu [Rozhraní REST API služby Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).
 
 ## <a name="next-steps"></a>Další kroky
 

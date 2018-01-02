@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Instanční objekty se službou Azure Container Service (AKS)
 
@@ -83,7 +83,7 @@ Při práci s instančními objekty služeb Azure AD a AKS mějte na paměti ná
 * Při zadávání **ID klienta** instančního objektu můžete použít hodnotu `appId` (jak je ukázáno v tomto článku) nebo odpovídající `name` instančního objektu (například `https://www.contoso.org/example`).
 * Na hlavním virtuálním počítači a virtuálních počítačích uzlů v clusteru Kubernetes jsou pověření instančního objektu uložená v souboru `/etc/kubernetes/azure.json`.
 * Pokud použijete příkaz `az aks create` k automatickému vygenerování instančního objektu, zapíší se přihlašovací údaje instančního objektu do souboru `~/.azure/acsServicePrincipal.json` na počítači, který jste ke spuštění příkazu použili.
-* Pokud použijete příkaz `az aks create` k automatickému vygenerování instančního objektu, bude se tento instanční objekt moci ověřovat také pomocí služby [Azure Container Registry][acr-into] vytvořené ve stejném předplatném.
+* Pokud použijete příkaz `az aks create` k automatickému generování instančního objektu, může tento instanční objekt k ověřování také použít službu [Azure Container Registry][acr-intro] vytvořenou ve stejném předplatném.
 * Při odstraňování clusteru AKS vytvořeného příkazem `az aks create` se instanční objekt, který se vytvořil automaticky, neodstraní. K jeho odstranění můžete použít příkaz `az ad sp delete --id $clientID`.
 
 ## <a name="next-steps"></a>Další kroky

@@ -1,9 +1,9 @@
 ---
-title: "Ověření konfigurace účtu Azure Automation | Dokumentace Microsoftu"
+title: "Ověření konfigurace účtu Azure Automation | Microsoft Docs"
 description: "Tento článek popisuje způsob ověření, že konfigurace vašeho účtu Automation je nastavená správně."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 55f5d5524019ac63565e5ddd1f47dbdd65f05065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72be69b8d48abdcb15f4a89949edc3083ce85eee
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Test ověření účtu Azure Automation Spustit jako
 Po úspěšném vytvoření účtu Automation můžete provést jednoduchý test a zkontrolovat, že se jde úspěšně ověřit v nasazení Azure Resource Manager nebo Azure Classic pomocí nově vytvořeného nebo aktualizovaného účtu Automation Spustit jako.    
@@ -68,7 +68,7 @@ Všimněte si, že rutina používaná pro ověřování v runbooku – **Add-Az
 
 Když [spustíte runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) pro ověření účtu Spustit jako, vytvoří se [úloha runbooku](automation-runbook-execution.md), zobrazí se okno Úloha a na dlaždici **Souhrn úlohy** se zobrazí stav úlohy. Počáteční stav úlohy bude *Zařazeno ve frontě*. To označuje, že čekáte na zpřístupnění pracovního procesu runbooku v cloudu. Když pracovní proces úlohu přijme, změní se stav na *Spouštění*, a když se runbook skutečně spustí, změní se na *Spuštěno*.  Po dokončení úlohy runbooku by se měla zobrazit zpráva **Dokončeno**.
 
-Pokud chcete zobrazit podrobné výsledky runbooku, klikněte na dlaždici **Výstup**.  V okně **Výstup** byste měli vidět, že se úspěšně ověřil a vrátil seznam všech prostředků ve všech skupinách prostředků v rámci vašeho předplatného.  
+Pokud chcete zobrazit podrobné výsledky runbooku, klikněte na dlaždici **Výstup**.  Na stránce **Výstup** byste měli vidět, že se úspěšně ověřil a vrátil seznam všech prostředků ve všech skupinách prostředků v rámci vašeho předplatného.  
 
 Jenom nezapomeňte odebrat blok kódu začínající komentářem `#Get all ARM resources from all resource groups`, pokud kód znovu použijete pro vlastní runbooky.
 
@@ -102,9 +102,9 @@ Pomocí níže uvedeného ukázkového kódu [vytvořte powershellový runbook](
     #Get all VMs in the subscription and return list with name of each
     Get-AzureVM | ft Name
 
-Když [spustíte runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) pro ověření účtu Spustit jako, vytvoří se [úloha runbooku](automation-runbook-execution.md), zobrazí se okno Úloha a na dlaždici **Souhrn úlohy** se zobrazí stav úlohy. Počáteční stav úlohy bude *Zařazeno ve frontě*. To označuje, že čekáte na zpřístupnění pracovního procesu runbooku v cloudu. Když pracovní proces úlohu přijme, změní se stav na *Spouštění*, a když se runbook skutečně spustí, změní se na *Spuštěno*.  Po dokončení úlohy runbooku by se měla zobrazit zpráva **Dokončeno**.
+Když [spustíte runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) pro ověření účtu Spustit jako, vytvoří se [úloha runbooku](automation-runbook-execution.md), zobrazí se stránka Úloha a na dlaždici **Souhrn úlohy** se zobrazí stav úlohy. Počáteční stav úlohy bude *Zařazeno ve frontě*. To označuje, že čekáte na zpřístupnění pracovního procesu runbooku v cloudu. Když pracovní proces úlohu přijme, změní se stav na *Spouštění*, a když se runbook skutečně spustí, změní se na *Spuštěno*.  Po dokončení úlohy runbooku by se měla zobrazit zpráva **Dokončeno**.
 
-Pokud chcete zobrazit podrobné výsledky runbooku, klikněte na dlaždici **Výstup**.  V okně **Výstup** byste měli vidět, že se úspěšně ověřil a vrátil seznam všech virtuálních počítačů Azure nasazených ve vašem předplatném podle názvu.  
+Pokud chcete zobrazit podrobné výsledky runbooku, klikněte na dlaždici **Výstup**.  Na stránce **Výstup** byste měli vidět, že se úspěšně ověřil a vrátil seznam všech virtuálních počítačů Azure nasazených ve vašem předplatném podle názvu.  
 
 Jenom nezapomeňte odebrat rutinu **Get-AzureVM**, pokud kód znovu použijete pro vlastní runbooky.
 

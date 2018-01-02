@@ -1,5 +1,5 @@
 ---
-title: "Nastavení služby Device Provisioning na webu Azure Portal | Dokumentace Microsoftu"
+title: "Nastavení služby Device Provisioning na webu Azure Portal | Microsoft Docs"
 description: "Rychlý start Azure – Nastavení služby Azure IoT Hub Device Provisioning na webu Azure Portal"
 services: iot-dps
 keywords: 
@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 59acc48870adf15f59391de1cba9596744a747a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Nastavení služby Azure IoT Hub Device Provisioning pomocí webu Azure Portal
 
@@ -65,7 +65,7 @@ Přihlaste se k portálu [Azure Portal](https://portal.azure.com/).
 
     ![Propojení názvu centra s instancí služby Device Provisioning v okně portálu](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
-3. Vybrané centrum by se teď mělo zobrazit v okně **Propojená centra IoT**. 
+3. Vybrané centrum by se teď mělo zobrazit v okně **Propojená centra IoT**. Možná budete muset kliknout na tlačítko **Aktualizovat**, aby se okno **Propojená centra IoT Hub** zobrazilo.
 
 
 

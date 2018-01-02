@@ -1,5 +1,5 @@
 ---
-title: "Sdílení vlastních zobrazení Azure Time Series Insights pomocí parametrizovaných adres URL | Dokumentace Microsoftu"
+title: "Sdílení vlastních zobrazení Azure Time Series Insights pomocí parametrizovaných adres URL | Microsoft Docs"
 description: "Tento článek popisuje vývoj parametrizovaných adres URL ve službě Azure Time Series Insights za účelem snadného sdílení zobrazení zákazníka."
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: ac48969a9166080384dccf606f0401a82016a60a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Sdílení vlastního zobrazení pomocí parametrizovaných adres URL
 
@@ -72,6 +72,22 @@ Parametr `timeSeriesDefinitions=<collection of term objects>` určuje podmínky 
 - `predicate=<string>`
   - Klauzule *kde* pro filtrování na straně serveru.
 
+Parametr 'multiChartStack=<true/false>' povoluje umístění grafu do zásobníku a parametr 'multiChartSameScale=<true/false>' umožňuje stejné měřítko osy Y v podmínkách volitelného parametru.  
+
+- 'multiChartStack=false'
+  - Ve výchozím nastavení je použita hodnota „true“. Pokud chcete graf umístit do zásobníku, nastavte „false“.
+- 'multiChartStack=false&multiChartSameScale=true' 
+  - Pokud chcete ve všech podmínkách použít stejné měřítko osy Y, musíte povolit umísťování do zásobníku.  Výchozí hodnotou je „false“. Pokud chcete tuto funkci povolit, nastavte hodnotu „true“.  
+  
+Parametr 'timeBucketUnit=<Unit>&timeBucketSize=<integer>' umožňuje upravit interval posuvníku tak, aby poskytoval podrobnější nebo plynulejší (agregovanější) zobrazení grafu.  
+- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+  - Jednotky = dny, hodiny, minuty, sekundy a milisekundy.  Pro jednotku použijte vždy velká písmena.
+  - Počet jednotek se definuje předáním požadované celočíselné hodnoty parametru timeBucketSize.  Plynulost je možné nastavit až na 7 dnů.  
+  
+Parametr 'timezoneOffset=<integer>' umožňuje nastavit časové pásmo grafu tak, aby bylo možné ho zobrazit jako posun oproti času UTC.  
+  - 'timezoneOffset=-<integer>'
+    - Celočíselná hodnota je vždy v milisekundách.  
+    - Tato funkce se trochu liší od možností povolených v průzkumníku TSI, kde můžete vybrat místní čas prohlížeče nebo čas UTC.  
  
 ### <a name="examples"></a>Příklady
 

@@ -1,5 +1,5 @@
 ---
-title: "Úvod do služby Stream Analytics | Dokumentace Microsoftu"
+title: "Úvod do služby Stream Analytics | Microsoft Docs"
 description: "Přečtěte si o službě Stream Analytics, která umožňuje v reálném čase analyzovat data streamovaná z platformy Internet věcí (IOT)."
 keywords: "analytics jako služba, spravované služby, zpracování datového proudu, streamování analytics, co je datový proud analytics"
 services: stream-analytics
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/17/2017
 ms.author: samacha
-ms.openlocfilehash: 889aaa697a04a81075b85c834d534bfeb4faf79b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5747f2f1d3eed3905e0ae3123dab74287beccf66
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-is-stream-analytics"></a>Co je služba Stream Analytics?
 
@@ -42,7 +42,7 @@ Tento diagram znázorňuje kanál Stream Analytics a ukazuje, jak jsou data inge
 
 Stream Analytics začíná zdrojem streamovaných dat. Dat je možné ingestovat v Azure ze zařízení pomocí centra událostí Azure nebo centra IoT. Data je také možné získávat z úložišť dat, například z Blob Storage. 
 
-Pokud chcete prozkoumat datový proud, vytvořte *úlohu* Stream Analytics, která bude určovat, odkud data pocházejí. Úloha také definuje *transformaci* – to, jak se mají vyhledávat data, vzory nebo vztahy. Stream Analytics podporuje pro tuto úlohu dotazovací jazyk typu SQL, který umožňuje filtrovat, řadit, agregovat a spojovat streamovaná data za určité časové období.
+Pokud chcete prozkoumat datový proud, vytvořte *úlohu* Stream Analytics, která bude určovat, odkud data pocházejí. Úloha také definuje *transformaci*, tzn. jak vyhledávat data, vzory nebo relace. Stream Analytics podporuje pro tuto úlohu dotazovací jazyk typu SQL, který umožňuje filtrovat, řadit, agregovat a spojovat streamovaná data za určité časové období.
 
 Úloha pak také definuje výstup těchto transformovaných dat. Můžete řídit, jaké akce se mají provádět v návaznosti na informace, které jste analyzovali. V návaznosti na analýzu můžete například:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 3917984e4d7567fb70a34497cc1dd68a8e8c32b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bf56ff167a988acd5f1163ff78beec281a654eb8
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Vysvětlení architektury Azure Active Directory
 Azure Active Directory (Azure AD) umožňuje zabezpečeně spravovat přístup k prostředkům a službám Azure pro vaše uživatele. Součástí Azure AD je kompletní sada funkcí pro správu identit. Informace o funkcích služby Azure AD najdete v tématu [Co je Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
@@ -37,7 +37,7 @@ Tento článek se zabývá následujícími prvky návrhu:
 ### <a name="service-architecture-design"></a>Návrh architektury služeb
 Nejběžnější způsob, jak vytvořit škálovatelný vysoce dostupný systém bohatý na data, je prostřednictvím nezávislých stavebních bloků nebo jednotek škálování pro datovou vrstvu služby Azure AD. Pro jednotky škálování se používá označení *oddíly*. 
 
-Datová vrstva obsahuje několik front-endových služeb, které poskytují funkce pro čtení a zápis. Následující diagram ukazuje, jak jsou součásti adresáře oddílu s jedním adresářem distribuované v rámci geograficky distribuovaných datových center. 
+Datová vrstva obsahuje několik front-endových služeb, které poskytují funkce pro čtení a zápis. Následující diagram znázorňuje rozdělení součástí oddílu s jedním adresářem mezi geograficky rozdělená datová centra. 
 
   ![Oddíly s jedním adresářem](./media/active-directory-architecture/active-directory-architecture.png)
 

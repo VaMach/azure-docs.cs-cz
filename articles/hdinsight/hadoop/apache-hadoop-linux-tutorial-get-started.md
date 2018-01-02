@@ -1,5 +1,5 @@
 ---
-title: "Začínáme používat Hadoop a Hive v Azure HDInsight | Dokumentace Microsoftu"
+title: "Začínáme používat Hadoop a Hive v Azure HDInsight | Microsoft Docs"
 description: "Naučte se vytvářet clustery HDInsight a dotazy na data pomocí Hive."
 keywords: "začínáme používat hadoop, hadoop linux, hadoop rychlý start, hive začínáme, hive rychlý start"
 services: hdinsight
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: jgao
-ms.openlocfilehash: 983c7d1f7e3b562a8b89f6afaf52a3289ab33f17
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 833ac053b3ad23a60b84adce1dfa9015bee99046
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Kurz Hadoopu: Začínáme používat Hadoop v HDInsight
 
@@ -58,7 +58,7 @@ Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte ně
     Některé vlastnosti jsou v šabloně pevně kódované.  Takové hodnoty můžete konfigurovat v šabloně.
 
     * **Umístění**: Umístění clusteru a závislý účet úložiště používají stejné umístění jako skupina prostředků.
-    * **Verze clusteru:** 3.5
+    * **Verze clusteru**: 3.6
     * **Typ operačního systému**: Linux
     * **Počet pracovních uzlů**: 2
 
@@ -66,11 +66,11 @@ Většina úloh Hadoop jsou dávkové úlohy. Vytvoříte cluster, spustíte ně
      
      Podrobnější vysvětlení těchto vlastností naleznete v tématu [Vytváření clusterů Hadoop ve službě HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-3. Vyberte **Souhlasím s podmínkami a ujednáními uvedenými nahoře** a **Připnout na řídicí panel** a pak klikněte na **Koupit**. Na řídicím panelu portálu by se měla zobrazit nová dlaždice s názvem **Nasazení šablony**. Vytvoření clusteru trvá přibližně 20 minut. Jakmile je cluster vytvořen, popis dlaždice se změní na zadaný název skupiny prostředků. Na portálu se v novém okně automaticky otevře skupina prostředků. V seznamu bude uvedený cluster i výchozí úložiště.
+3. Vyberte **Souhlasím s podmínkami a ujednáními uvedenými nahoře** a **Připnout na řídicí panel** a pak klikněte na **Koupit**. Na řídicím panelu portálu by se měla zobrazit nová dlaždice s názvem **Nasazení šablony**. Vytvoření clusteru trvá přibližně 20 minut. Jakmile je cluster vytvořen, popis dlaždice se změní na zadaný název skupiny prostředků. Portál automaticky otevře skupinu prostředků. V seznamu bude uvedený cluster i výchozí úložiště.
    
     ![Počáteční skupina prostředků HDInsight Linux](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Skupina prostředků clusteru Azure HDInsight").
 
-4. Kliknutím na název clusteru otevřete cluster v novém okně.
+4. Cluster otevřete tak, že kliknete na jeho název.
 
    ![Počáteční nastavení clusteru HDInsight Linux](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "Vlastnosti clusteru HDInsight")
 
@@ -120,7 +120,7 @@ Po dokončení kurzu můžete cluster odstranit. Pomocí HDInsight jsou vaše da
 
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
 2. V ovládacím panelu portálu klikněte na dlaždici s názvem skupiny prostředků, které jste použili při vytvoření clusteru.
-3. V okně prostředků klikněte na tlačítko **Odstranit** a odstraňte skupinu prostředků, která obsahuje cluster a výchozí účet úložiště, nebo klikněte na název clusteru v dlaždici **Prostředky** a pak v okně clusteru klikněte na **Odstranit**. Upozorňujeme, že odstraněním skupiny prostředků odstraníte účet úložiště. Pokud chcete zachovat účet úložiště, zvolte odstranění samotného clusteru.
+3. Pokud chcete odstranit skupinu prostředků, která obsahuje cluster a výchozí účet úložiště, klikněte na **Odstranit**. Můžete také kliknout na název clusteru na dlaždici **Prostředky** a pak kliknout na **Odstranit**. Upozorňujeme, že odstraněním skupiny prostředků odstraníte účet úložiště. Pokud chcete zachovat účet úložiště, zvolte odstranění samotného clusteru.
 
 ## <a name="troubleshoot"></a>Řešení potíží
 
@@ -136,12 +136,12 @@ Další informace o analýze dat pomocí HDInsight naleznete v následujících 
 * Další informace o MapReduce, způsobu psaní programů, které zpracovávají data v Hadoopu, najdete v tématu [Použití MapReduce se službou HDInsight](hdinsight-use-mapreduce.md).
 * Další informace o použití nástrojů HDInsight pro Visual Studio k analýze dat na HDInsight naleznete v části [Začněte používat nástroje Visual Studio Hadoop pro HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
 
-Pokud jste připraveni začít pracovat s vlastními daty a potřebujete vědět více o způsobu, jakým HDInsight ukládá data nebo jak načítá data do HDInsight, projděte si následující témata:
+Pokud chcete začít pracovat s vlastními daty a potřebujete další informace o ukládání dat službou HDInsight nebo o tom, jak data do této služby nahrát, přečtěte si následující články:
 
 * Informace o tom, jak HDInsight používá Azure Storage, najdete v tématu [Používání Azure Storage s HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 * Informace o tom, jak nahrát data do služby HDInsight, najdete v tématu [Nahrání dat do služby HDInsight](../hdinsight-upload-data.md).
 
-Pokud chcete získat další informace o vytváření a správě clusteru služby HDInsight, projděte si následující témata:
+Pokud potřebujete další informace o vytváření a správě clusteru HDInsight, přečtěte si následující články:
 
 * Další informace o správě clusteru HDInsight se systémem Linux naleznete v části [Správa clusterů HDInsight pomocí Ambari](../hdinsight-hadoop-manage-ambari.md).
 * Další informace o možnostech, které můžete vybrat při vytváření clusteru služby HDInsight, naleznete v tématu [Vytváření HDInsight na Linuxu pomocí vlastních možností](../hdinsight-hadoop-provision-linux-clusters.md).

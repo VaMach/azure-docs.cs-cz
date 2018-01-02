@@ -1,12 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: Registrace aplikace | Dokumentace Microsoftu'
+title: "Registrace aplikace – Azure Active Directory B2C"
 description: "Postup registrace aplikace pomocí Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
+editor: parakhj
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Registrace vaší aplikace
 
@@ -28,7 +27,7 @@ Tento rychlý start vám pomůže zaregistrovat aplikaci v tenantovi Microsoft A
 
 Chcete-li sestavit aplikaci, která podporuje registrace a přihlašování uživatelů, musíte aplikaci nejprve zaregistrovat pomocí klienta Azure Active Directory B2C. Vlastního klienta získáte pomocí návodu v tématu [Vytvoření klienta Azure AD B2C](active-directory-b2c-get-started.md).
 
-Aplikace vytvořené z okna Azure AD B2C na webu Azure Portal se musí spravovat ze stejného místa. Pokud upravíte aplikace B2C pomocí PowerShellu nebo jiného portálu, stanou se nepodporované a nebudou s Azure AD B2C pracovat. Podrobnosti najdete v části věnující se [chybným aplikacím](#faulted-apps). 
+Aplikace vytvořené na webu Azure Portal se musí spravovat ze stejného místa. Pokud upravíte aplikace Azure AD B2C pomocí PowerShellu nebo jiného portálu, stanou se nepodporované a nebudou s Azure AD B2C pracovat. Podrobnosti najdete v části věnující se [chybným aplikacím](#faulted-apps). 
 
 V tomto článku se používají příklady, které vám pomůžou začít s našimi ukázkami. Více informací o těchto ukázkách najdete v dalších článcích.
 
@@ -126,16 +125,16 @@ Ujistěte se, že identifikátor URI přesměrování neobsahuje žádné speci�
 
 Aplikace B2C se NESMÍ upravovat:
 
-* Na jiných portálech pro správu aplikací, jako je [portál Azure Classic](https://manage.windowsazure.com/) a [Portál pro registraci aplikací](https://apps.dev.microsoft.com/).
+* Na jiných portálech pro správu aplikací, jako je [Portál pro registraci aplikací](https://apps.dev.microsoft.com/).
 * Pomocí rozhraní Graph API nebo PowerShellu.
 
-Pokud aplikaci B2C upravíte výše popsaným způsobem a pokusíte se ji znovu upravit v okně funkcí Azure AD B2C na webu Azure Portal, stane se chybnou aplikací a už ji nebude možné použít s Azure AD B2C. Je nutné aplikaci odstranit a znovu ji vytvořit.
+Pokud aplikaci Azure AD B2C upravíte popsaným způsobem a pokusíte se ji znovu upravit v okně funkcí Azure AD B2C na webu Azure Portal, stane se chybnou aplikací a už ji nebude možné použít s Azure AD B2C. Je nutné aplikaci odstranit a znovu ji vytvořit.
 
 Pokud chcete aplikaci odstranit, přejděte na [Portál pro registraci aplikací](https://apps.dev.microsoft.com/) a tam ji odstraňte. Aby byla aplikace viditelná, musíte být vlastníkem aplikace (nestačí být pouze správcem tenanta).
 
 ## <a name="next-steps"></a>Další kroky
 
-Nyní, když máte aplikaci registrovanou pomocí Azure AD B2C, můžete dokončit jeden z [našich kurzů pro rychlý start](active-directory-b2c-overview.md#get-started) pro uvedení do provozu.
+Jakmile budete mít aplikaci registrovanou pomocí Azure AD B2C, můžete absolvovat jeden z [našich kurzů pro rychlý start](active-directory-b2c-overview.md#get-started), který vám pomůže uvést ji do provozu.
 
 > [!div class="nextstepaction"]
 > [Vytvoření webové aplikace ASP.NET s registrací, přihlášením a resetováním hesla](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
