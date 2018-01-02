@@ -78,7 +78,7 @@ Tato část vás provede připojení k Githubu uživatelský účet zřizování
 
     ![Dialogové okno autorizace](./media/active-directory-saas-github-provisioning-tutorial/GitHub2.png)
 
-7. Na portálu Azure vstupní **URL klienta** a klikněte na tlačítko **Test připojení** zajistit Azure AD může připojit k aplikaci Githubu. Pokud se nepovede připojit, ujistěte se, váš účet GitHub má oprávnění správce a **URl klienta** je správně zadané hodnoty, a akci opakujte krok "Ověřit" (mohou představovat **URL klienta** pravidlem: "https:// API.github.com/scim/v2/Organizations/ + < Organizations_name > ", vaší organizace můžete najít v rámci účtu GitHub: **nastavení** > **organizace**).
+7. Na portálu Azure vstupní **URL klienta** a klikněte na tlačítko **Test připojení** zajistit Azure AD může připojit k aplikaci Githubu. Pokud se nepovede připojit, ujistěte se, váš účet GitHub má oprávnění správce a **URl klienta** je správně zadané hodnoty, a akci opakujte krok "Ověřit" (mohou představovat **URL klienta** pravidlem: "https://api.github.com/scim/v2/organizations/ + <Organizations_name>", vaší organizace můžete najít v rámci účtu GitHub: **nastavení** > **organizace**).
 
     ![Dialogové okno autorizace](./media/active-directory-saas-github-provisioning-tutorial/GitHub3.png)
 
