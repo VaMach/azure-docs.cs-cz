@@ -3,7 +3,7 @@
 2. Klikněte na **Nový**, pak na **Web + mobilní zařízení** a potom na **Mobile Engagement**.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)
-3. V zobrazeném okně **Nová kolekce aplikací Mobile Engagement** budete vytvářet kolekce aplikací, místo aplikací jako na portálu Azure Classic. Zadejte následující informace:
+3. V zobrazeném okně **Nová kolekce aplikací Mobile Engagement** budete vytvářet kolekce aplikací. Zadejte následující informace:
    
     ![](./media/mobile-engagement-create-app-in-portal-new/new-azme-app.png)
    

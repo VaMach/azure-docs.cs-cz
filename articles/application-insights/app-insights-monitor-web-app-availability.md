@@ -1,5 +1,5 @@
 ---
-title: "Sledování dostupnosti a odezvy libovolných webů | Dokumentace Microsoftu"
+title: "Sledování dostupnosti a odezvy libovolných webů | Microsoft Docs"
 description: "Nastavení testů webu ve službě Application Insights. Zasílání upozornění, pokud web přestane být k dispozici nebo reaguje pomalu."
 services: application-insights
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Sledování dostupnosti a odezvy libovolných webů
 Po nasazení webové aplikace nebo webu na libovolném serveru můžete nastavit testy ke sledování dostupnosti a odezvy. [Azure Application Insights](app-insights-overview.md) odesílá do vaší aplikace webové požadavky v pravidelných intervalech z bodů po celém světě. Upozorní vás v případě, že vaše aplikace reaguje pomalu nebo nereaguje vůbec.
@@ -31,7 +31,7 @@ Existují dva typy testů dostupnosti:
 
 Pro každý prostředek aplikace můžete vytvořit až 100 testů dostupnosti.
 
-## <a name="create"></a>1. Otevření prostředku pro sestavy testů dostupnosti
+## <a name="create"></a>Otevření prostředku pro sestavy testů dostupnosti
 
 **Pokud jste již nakonfigurovali Application Insights** pro webovou aplikaci, otevřete její prostředek Application Insights na webu [Azure Portal](https://portal.azure.com).
 
@@ -41,7 +41,7 @@ Pro každý prostředek aplikace můžete vytvořit až 100 testů dostupnosti.
 
 Kliknutím na možnost **Všechny prostředky** otevřete okno Přehled pro nový prostředek.
 
-## <a name="setup"></a>2. Vytvoření testu adresy URL pomocí příkazu Ping
+## <a name="setup"></a>Vytvoření testu adresy URL pomocí příkazu Ping
 Otevřete okno Dostupnost a přidejte test.
 
 ![Vyplňte alespoň adresu URL webu](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ Otevřete okno Dostupnost a přidejte test.
 Přidat další testy Vedle testování domovské stránky si můžete ověřit spuštění databáze taky tím, že provedete test adresy URL pro hledání.
 
 
-## <a name="monitor"></a>3. Zobrazení výsledků testu dostupnosti
+## <a name="monitor"></a>Zobrazení výsledků testu dostupnosti
 
 Po pár minutách kliknutím na **Aktualizovat** zobrazíte výsledky testů. 
 
@@ -102,14 +102,11 @@ Klikněte na červenou tečku.
 Výsledek testu dostupnosti umožňuje:
 
 * Kontrolovat odpověď přijatou ze serveru.
-* Otevřít telemetrii zaslanou aplikací serveru při zpracovávání instance neúspěšné žádosti.
+* Diagnostikovat selhání pomocí telemetrie na straně serveru získané při zpracování instance neúspěšného požadavku.
 * Zaznamenat problém nebo pracovní položku do Gitu nebo VSTS kvůli sledování problému. Chyba bude obsahovat odkaz na tuto událost.
 * Otevřít výsledek webového testu v sadě Visual Studio.
 
-
-*Zdá se, že všechno je v pořádku, ale přesto je hlášena chyba.* Zkontrolujte všechny image, skripty, šablony stylů a všechny další soubory, které stránka načetla. Pokud některý z nich selže, test se ohlásí jako neúspěšný i v případě, že se hlavní html stránka načte bez problémů.
-
-*Žádné související položky?* Pokud máte pro aplikaci na straně serveru nastavenou službu Application Insights, může být důvodem to, že právě probíhá [vzorkování](app-insights-sampling.md). 
+*Zdá se, že všechno je v pořádku, ale přesto je hlášena chyba.* Informace o tom, jak snížit šum, najdete v [Častých otázkách](#qna).
 
 ## <a name="multi-step-web-tests"></a>Vícekrokové webové testy
 Je možné sledovat scénář, který zahrnuje posloupnost adres URL. Například pokud sledujete prodejní web, můžete otestovat, zda správně funguje přidávání položek do nákupního košíku.
@@ -256,6 +253,20 @@ Po dokončení testu se zobrazí časy odezvy a míra úspěšnosti.
 * Nastavení [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md), který je volán při vydání výstrahy.
 
 ## <a name="qna"></a>Máte dotazy? Problémy?
+* *Občasné selhání testu s chybou porušení protokolu*
+
+    Chyba („Porušení protokolu... Znak CR musí být následován znakem LF.“) značí problémy se serverem (nebo závislostmi). To se stává, když jsou v odpovědi nastavena chybně vytvořená záhlaví. Příčinou mohou být nástroje pro vyrovnávání zatížení nebo CDN. Konkrétně se jedná o to, že některá záhlaví možná nepoužívají znaky CRLF k označení konce řádku. Tím porušují specifikaci protokolu HTTP, což má za následek neúspěšné ověření na úrovni třídy .NET WebRequest. Zkontrolujte odpovědi, zda obsahují chybná záhlaví.
+    
+    Poznámka: Adresa URL nemusí selhat v prohlížečích, které mají rozvolněné ověřování záhlaví HTTP. Podrobné vysvětlení tohoto problému najdete v blogovém příspěvku na adrese http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/.  
+* *Web vypadá v pořádku, ale vidím selhání testu*
+
+    * Zkontrolujte všechny image, skripty, šablony stylů a všechny další soubory, které stránka načetla. Pokud některý z nich selže, test se ohlásí jako neúspěšný i v případě, že se hlavní html stránka načte bez problémů. Pokud chcete snížit citlivost testu vůči selháním těchto prostředků, v konfiguraci testu jednoduše zrušte zaškrtnutí možnosti „Analyzovat závislé požadavky“. 
+
+    * Abyste snížili riziko výskytu krátkodobých síťových výkyvů apod., zkontrolujte, zda je v konfiguraci zaškrtnutá možnost „Povolit opakované pokusy pro neúspěšné testy“. Můžete také provádět testy z více umístění a vhodným způsobem upravovat prahovou hodnotu pravidla pro výstrahy. Tím zabráníte zbytečným výstrahám, které by byly způsobeny potížemi v konkrétním umístění.
+    
+* *Nevidím žádnou telemetrii na straně serveru, která by diagnostikovala neúspěšné testy*
+    
+    Pokud máte pro aplikaci na straně serveru nastavenou službu Application Insights, může být důvodem to, že právě probíhá [vzorkování](app-insights-sampling.md).
 * *Můžu z webového testu volat kód?*
 
     Ne. Kroky testu musí být v souboru .webtest. A nemůžete volat jiné webové testy nebo používat smyčky. Existují různé zásuvné moduly, které se vám můžou hodit.

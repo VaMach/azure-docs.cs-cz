@@ -1,5 +1,5 @@
 ---
-title: "Delegování domény do Azure DNS | Dokumentace Microsoftu"
+title: "Delegování domény do Azure DNS | Microsoft Docs"
 description: "Zjistěte, jak změnit delegování domény a pomocí názvových serverů Azure DNS umožněte hosting domén."
 services: dns
 documentationcenter: na
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cb1a70835b5fa2b615f4adac4b0d9ae31074bce
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegování domény do Azure DNS
 
@@ -29,8 +29,8 @@ Předpokládejme například, že zakoupíte doménu contoso.net a v Azure DNS v
 
 ## <a name="create-a-dns-zone"></a>Vytvoření zóny DNS
 
-1. Přihlášení k webu Azure Portal
-1. V nabídce centra klikněte na **Nový > Sítě >** a potom kliknutím na **Zóna DNS** otevřete stránku Vytvořit zónu DNS.
+1. Přihlaste se k portálu Azure.
+1. Klikněte v nabídce centra a pak klikněte na **Nový > Sítě >** a pak klikněte na **Zóna DNS**. Otevře se stránka **vytvoření zóny DNS**.
 
     ![Zóna DNS](./media/dns-domain-delegation/dns.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Plánovač nasazení služby Azure Site Recovery pro nasazení Hyper-V do Azure| Dokumentace Microsoftu"
+title: "Plánovač nasazení služby Azure Site Recovery pro nasazení Hyper-V do Azure| Microsoft Docs"
 description: "Tento článek popisuje analýzu vygenerované sestavy Plánovače nasazení služby Azure Site Recovery pro scénář nasazení Hyper-V do Azure."
 services: site-recovery
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analýza sestavy Plánovače nasazení služby Azure Site Recovery
 Vygenerovaná sestava aplikace Microsoft Excel obsahuje následující listy:
@@ -188,7 +188,7 @@ Pokud se například díky charakteristikám úloh disk umístil do kategorie P2
 
 **Peak R/W IOPS (with Growth Factor):** Počet R/W IOPS na disku ve špičce (výchozí 95. percentil), včetně faktoru budoucího růstu (výchozí hodnota je 30 %). Všimněte si, že celkový počet R/W IOPS virtuálního počítače nebude vždy odpovídat součtu R/W IOPS jednotlivých disků virtuálního počítače, protože počet R/W IOPS virtuálního počítače ve špičce je maximální hodnota součtu R/W IOPS jeho jednotlivých disků v každé minutě období profilace.
 
-**Peak Data Churn in Mbps (with Growth Factor):** Četnost změn dat na disku ve špičce (výchozí 95. percentil), včetně faktoru budoucího růstu (výchozí hodnota je 30 %). Všimněte si, že celková četnost změn dat virtuálního počítače nebude vždy odpovídat součtu četností změn dat jednotlivých disků virtuálního počítače, protože četnost změn dat virtuálního počítače ve špičce je maximální hodnota součtu četností změn jeho jednotlivých disků v každé minutě období profilace.
+**Peak Data Churn in MB/s (with Growth Factor):** Četnost změn dat na disku ve špičce (výchozí 95. percentil), včetně faktoru budoucího růstu (výchozí hodnota je 30 %). Všimněte si, že celková četnost změn dat virtuálního počítače nebude vždy odpovídat součtu četností změn dat jednotlivých disků virtuálního počítače, protože četnost změn dat virtuálního počítače ve špičce je maximální hodnota součtu četností změn jeho jednotlivých disků v každé minutě období profilace.
 
 **Azure VM Size:** Ideální velikost mapovaného virtuálního počítače Azure Cloud Services pro tento místní virtuální počítač. Mapování vychází z velikosti paměti, počtu disků, jader nebo síťových adaptérů a počtu R/W IOPS místního virtuálního počítače. Doporučení vždy představuje nejmenší velikost virtuálního počítače Azure, která odpovídá všem charakteristikám místního virtuálního počítače.
 
@@ -235,15 +235,15 @@ Sestava v Microsoft Excelu, kterou vygeneroval Plánovač nasazení služby Azur
 
 * Source IOPS exceeds supported storage IOPS limit of 80,000 per VM (Počet zdrojových IOPS překračuje podporované omezení úložiště – 80 000 IOPS na virtuální počítač).
 
-* Average data churn exceeds supported Azure Site Recovery data churn limit of 10 MBps for average I/O size for the disk (Průměrná četnost změn dat překračuje podporované omezení Azure Site Recovery pro četnost změn dat – průměrná velikost vstupně-výstupních operací disku 10 Mb/s).
+* Source VM average data churn exceeds supported Azure Site Recovery data churn limit of 10 MB/s for average I/O size (Průměrná četnost změn dat na zdrojovém virtuálním počítači překračuje podporované omezení Azure Site Recovery pro četnost změn dat – průměrná velikost vstupně-výstupních operací 10 MB/s).
 
-* Average effective write IOPS exceeds supported Azure Site Recovery IOPS limit of 840 for disk (Průměrný počet efektivních vstupně-výstupních operací zápisu za sekundu překračuje podporované omezení Azure Site Recovery pro počet IOPS – 840 na disk).
+* Source VM average effective write IOPS exceeds the supported Azure Site Recovery IOPS limit of 840 (Průměrný počet efektivních vstupně-výstupních operací zápisu za sekundu na zdrojovém virtuálním počítači překračuje podporované omezení Azure Site Recovery pro počet IOPS – 840).
 
 * Calculated snapshot storage exceeds the supported snapshot storage limit of 10 TB (Vypočtená velikost úložiště snímků překračuje podporované omezení velikosti úložiště snímků – 10 TB).
 
 **Peak R/W IOPS (with Growth Factor):** Počet IOPS na disku ve špičce (výchozí 95. percentil), včetně faktoru budoucího růstu (výchozí hodnota je 30 %). Všimněte si, že celkový počet R/W IOPS virtuálního počítače nebude vždy odpovídat součtu R/W IOPS jednotlivých disků virtuálního počítače, protože počet R/W IOPS virtuálního počítače ve špičce je maximální hodnota součtu R/W IOPS jeho jednotlivých disků v každé minutě období profilace.
 
-**Peak Data Churn in Mbps (with Growth Factor):** Četnost změn dat na disku ve špičce (výchozí 95. percentil), včetně faktoru budoucího růstu (výchozí hodnota je 30 %). Všimněte si, že celková četnost změn dat virtuálního počítače nebude vždy odpovídat součtu četností změn dat jednotlivých disků virtuálního počítače, protože četnost změn dat virtuálního počítače ve špičce je maximální hodnota součtu četností změn jeho jednotlivých disků v každé minutě období profilace.
+**Peak Data Churn in MB/s (with Growth Factor)**: Četnost změn dat na disku ve špičce (výchozí 95. percentil), včetně faktoru budoucího růstu (výchozí hodnota je 30 %). Všimněte si, že celková četnost změn dat virtuálního počítače nebude vždy odpovídat součtu četností změn dat jednotlivých disků virtuálního počítače, protože četnost změn dat virtuálního počítače ve špičce je maximální hodnota součtu četností změn jeho jednotlivých disků v každé minutě období profilace.
 
 **Number of Disks:** Celkový počet virtuálních pevných disků ve virtuálním počítači.
 
@@ -260,14 +260,11 @@ Sestava v Microsoft Excelu, kterou vygeneroval Plánovač nasazení služby Azur
 ## <a name="azure-site-recovery-limits"></a>Omezení Azure Site Recovery
 Následující tabulka obsahuje omezení služby Azure Site Recovery. Tato omezení se zakládají na našich testováních, nemůžou však pokrýt všechny možné kombinace vstupně-výstupních operací aplikace. Skutečné výsledky se můžou lišit v závislosti na kombinaci vstupně-výstupních operací vaší aplikace. Pro dosažení co nejlepších výsledků, a to i po naplánování nasazení, vždy doporučujeme provádět rozsáhlé testování aplikace pomocí testovacího převzetí služeb při selhání, abyste získali skutečnou představu o výkonu aplikace.
  
-**Cíl ukládání replikace** | **Průměrná velikost vstupně-výstupních operací zdrojového disku** |**Průměrná četnost změn dat zdrojového disku** | **Celková denní četnost změn dat zdrojového disku**
+**Cíl ukládání replikace** | **Průměrná velikost vstupně-výstupní operace na zdrojovém virtuálním počítači** |**Průměrná četnost změn dat na zdrojovém virtuálním počítači** | **Celková denní četnost změn dat na zdrojovém virtuálním počítači**
 ---|---|---|---
-Storage úrovně Standard | 8 kB | 2 Mb/s | 168 GB na disk
-Disk úrovně Premium P10 nebo P15 | 8 kB  | 2 Mb/s | 168 GB na disk
-Disk úrovně Premium P10 nebo P15 | 16 kB | 4 Mb/s |  336 GB na disk
-Disk úrovně Premium P10 nebo P15 | 32 kB nebo větší | 8 Mb/s | 672 GB na disk
-Disk úrovně Premium P20 nebo P30 nebo P40 nebo P50 | 8 kB    | 5 Mb/s | 421 GB na disk
-Disk úrovně Premium P20 nebo P30 nebo P40 nebo P50 | 16 kB nebo větší |10 Mb/s | 842 GB na disk
+Storage úrovně Standard | 8 kB | 2 MB/s na virtuální počítač | 168 GB na virtuální počítač
+Storage úrovně Premium | 8 kB  | 5 MB/s na virtuální počítač | 421 GB na virtuální počítač
+Storage úrovně Premium | 16 kB nebo větší| 10 MB/s na virtuální počítač | 842 GB na virtuální počítač
 
 Tato omezení jsou průměrné hodnoty za předpokladu, že se vstupně-výstupní operace z 30 % překrývají. Služba Azure Site Recovery je schopna zpracovávat větší propustnost v závislosti na poměru překrývání, větší velikosti zápisů a skutečného chování vstupně-výstupních operací úloh. Předchozí čísla předpokládají typický backlog přibližně 5 minut. To znamená, že zpracování nahrávaných dat a vytvoření bodu obnovení proběhne do pěti minut od nahrání.
 

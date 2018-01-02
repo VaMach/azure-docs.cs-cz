@@ -1,5 +1,5 @@
 ---
-title: "Získání klienta Azure AD | Dokumentace Microsoftu"
+title: "Získání klienta Azure AD | Microsoft Docs"
 description: "Získání klienta Azure Active Directory pro registraci a vytváření aplikací."
 services: active-directory
 documentationcenter: 
@@ -15,18 +15,18 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b45e9479fa2e06f2c15ace9138e48ced94bacbda
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Získání klienta Azure Active Directory
 V Azure Active Directory (Azure AD) představuje [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) zástupce organizace.  Je vyhrazenou instancí služby Azure AD, kterou obdrží a vlastní organizace, když si zaregistruje cloudovou službu společnosti Microsoft, například Azure, Microsoft Intune nebo Office 365.  Každý klient Azure AD se odlišuje a je oddělený od ostatních klientů Azure AD.  
 
 V klientovi se nachází uživatelé a společnosti a informace o nich – hesla, data uživatelského profilu, oprávnění atd.  Obsahuje také skupiny, aplikace a další informace týkající se organizace a jejího zabezpečení.
 
-Pokud chcete uživatelům Azure AD povolit přihlášení do aplikace, je třeba aplikaci zaregistrovat do vašeho klienta.  Publikování aplikace v klientovi Azure AD je **zcela zdarma**.  Většina vývojářů dokonce pro účely experimentování, vývoje, přípravy a testování vytváří několik klientů a aplikací.  Organizace, které si zaregistrují a používají vaši aplikaci, si mohou volitelně vybrat nákup licencí, pokud si přejí využívat výhod pokročilých funkcí adresáře.
+Pokud chcete uživatelům Azure AD povolit přihlášení do aplikace, je třeba aplikaci zaregistrovat do vašeho klienta.  Publikování aplikace v klientovi Azure AD je **zcela zdarma**.  Většina vývojářů pro účely experimentování, vývoje, přípravy a testování vytváří několik klientů a aplikací.  Organizace, které si zaregistrují a používají vaši aplikaci, si mohou volitelně vybrat nákup licencí, pokud si přejí využívat výhod pokročilých funkcí adresáře.
 
 Jak tedy můžete získat klienta Azure AD?  Proces se může mírně lišit, pokud:
 
@@ -39,7 +39,7 @@ Jak tedy můžete získat klienta Azure AD?  Proces se může mírně lišit, po
 Pokud máte stávající předplatné Office 365, již tenanta služby Azure AD máte! Můžete se přihlásit na webu [Azure Portal](https://portal.azure.com) pomocí svého účtu O365 a začít používat službu Azure AD.
 
 ## <a name="use-an-msa-azure-subscription"></a>Použití předplatného MSA Azure
-Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí svého individuálního účtu Microsoft, již klienta máte!  Při přihlášení na webu [Azure Portal](https://portal.azure.com) budete automaticky přihlášeni ke svému výchozímu tenantu. Tohoto klienta můžete klidně používat podle svých potřeb – ale možná si budete chtít vytvořit účet správce organizace.
+Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí svého individuálního účtu Microsoft, již klienta máte!  Při přihlášení na webu [Azure Portal](https://portal.azure.com) budete automaticky přihlášeni ke svému výchozímu klientovi. Tohoto klienta můžete klidně používat podle svých potřeb – ale možná si budete chtít vytvořit účet správce organizace.
 
 To provedete podle těchto kroků.  Případně můžete vytvořit nového klienta a vytvořit v něm správce podle podobného postupu.
 
@@ -58,9 +58,7 @@ To provedete podle těchto kroků.  Případně můžete vytvořit nového klien
 8. Pokud chcete dočasné heslo změnit, přihlaste se na adrese [https://login.microsoftonline.com](https://login.microsoftonline.com) pomocí tohoto nového uživatelského účtu a po výzvě heslo změňte.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Použití organizačního předplatného Azure
-Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí účtu organizace, již klienta máte!  Na webu [Azure Portal](https://portal.azure.com) byste měli tenanta najít v části Další služby a Azure Active Directory.  Tohoto klienta můžete volně používat podle svých potřeb.
+Pokud jste si již dříve zaregistrovali předplatné služby Azure pomocí účtu organizace, již klienta máte!  Na webu [Azure Portal](https://portal.azure.com) byste měli klienta najít v části Další služby a Azure Active Directory.  Tohoto klienta můžete volně používat podle svých potřeb.
 
 ## <a name="start-from-scratch"></a>Začátek od nuly
-Pokud vám výše uvedené informace připadají nesrozumitelné, nemusíte si dělat starosti.  Navštivte stránku [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) a zaregistrujte se do služby Azure s novou organizací.  Jakmile proces dokončíte, bude mít svého vlastního klienta Azure AD s názvem domény, který jste zvolili při registraci.  Na webu [Azure Portal](https://portal.azure.com) tenanta najdete v části Azure Active Directory v nabídce vlevo.
-
-Součástí registrace do služby Azure je zadání údajů z platební karty.  Můžete bez obav pokračovat – za publikování aplikací v Azure AD ani vytváření nových klientů vám nebude nic účtováno.
+Pokud vám výše uvedené informace připadají nesrozumitelné, nemusíte si dělat starosti. Jednoduše navštivte web [Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) a vytvořte nový adresář služby Azure AD. Jakmile proces dokončíte, získáte vlastního klienta Azure AD s názvem domény, který jste zvolili při registraci.  Na webu [Azure Portal](https://portal.azure.com) najdete klienta v části **Azure Active Directory** v nabídce vlevo.

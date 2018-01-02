@@ -1,5 +1,5 @@
 ---
-title: "Jak vytvořit lístek podpory pro SQL Data Warehouse | Dokumentace Microsoftu"
+title: "Jak vytvořit lístek podpory pro SQL Data Warehouse | Microsoft Docs"
 description: "Jak vytvořit lístek podpory v Azure SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,67 +15,50 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 058ff1229acee5d03db7c0305c5565ae95a85758
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66aa12431e39ce295ce76411693bd20535a5c70c
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Jak vytvořit lístek podpory pro SQL Data Warehouse
-Pokud máte se službou SQL Data Warehouse nějaké problémy, můžete si vytvořit lístek podpory, aby vám mohl náš technický tým pomoct.
-
-> [!NOTE] 
-> Od 20. 12. 2016 je kontrola stavu prostředků na webu Azure Portal nepřesná. Na vyřešení tohoto problému aktivně pracujeme. 
-
+Pokud máte se službou SQL Data Warehouse problémy, vytvořte si lístek podpory, aby vám mohl náš technický tým pomoct.
 
 ## <a name="create-a-support-ticket"></a>Vytvoření lístku podpory
 1. Otevřete [Azure Portal][Azure portal].
-2. Na domovské obrazovce klikněte na dlaždici **Nápovědy a podpora**.
+2. Na domovské obrazovce klikněte na dlaždici **Nápověda a podpora**.
    
-    ![Nápověda a podpora](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
-3. V okně Nápověda a podpora klikněte na **Vytvořit žádost o podporu**.
+    ![Nápověda a podpora](./media/sql-data-warehouse-get-started-create-support-ticket/MainPage.PNG)
+3. Na dlaždici Nápověda a podpora klikněte na možnost **Nová žádost o podporu** a vyplňte okno **Základní informace**.
+
+   Vyberte svůj [plán podpory Azure][Azure support plan].
    
-    ![Nová žádost o podporu](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
-   
-    <a name="request-quota-change"></a> 
-4. Vyberte **Typ žádosti**.
-   
-    ![Typ žádosti](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
+   * **Podpora k fakturaci, správě kvót a předplatného** je k dispozici na všech úrovních podpory.
+   * **Podpora k problémům vyžadujícím opravu** se poskytuje prostřednictvím podpory[Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] nebo [Premier][Premier]. Problémy vyžadující opravu jsou problémy, které mají zákazníci při používání Azure a u kterých se dá předpokládat, že je způsobila společnosti Microsoft.
+   * V rámci podpory na úrovni plánů [Professional Direct][Professional Direct] a [Premier Support][Premier] jsou k dispozici služby **mentorování vývojářů** a **poradenské služby**. 
+     
+     Pokud máte plán podpory Premier Support, můžete také problémy týkající se služby SQL Data Warehouse nahlásit na [online portálu Microsoft Premier][Microsoft Premier online portal].  Další informace o různých plánech podpory, včetně rozsahu, doby odezvy, cen atd. najdete v tématu věnovaném [plánům podpory Azure][Azure support plan].  Nejčastější dotazy týkající se podpory Azure najdete v [nejčastějších dotazech týkajících se podpory k Azure][Azure support FAQs].  
+        
+    ![Okno Základní informace](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
+    ![Okno Základní informace1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
+4. Vyplňte okno **Problém**.
+    ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
    > [!NOTE]
    > Ve výchozím nastavení obsahuje každý server SQL (např. myserver.database.windows.net) **kvóty DTU** o hodnotě 45 000. Tato kvóta je jednoduše bezpečnostní omezení. Kvótu můžete zvýšit vytvořením lístku podpory a výběrem *kvóty* jako typu požadavku. Chcete-li vypočítat potřebné DTU, vynásobte celkové potřebné [DWU][DWU] číslem 7,5. Pokud například chcete hostovat dvě DW6000 na jednom serveru SQL, měli byste požadovat kvóty DTU o hodnotě 90 000.  Vaši aktuální spotřebu DTU z okna serveru SQL můžete zobrazit na portálu. Pozastavené i nepozastavené databáze se započítávají do kvóty DTU. 
    > 
    > 
-5. Vyberte **předplatné**, pod které spadá databáze s problémem, který chcete nahlásit.
    
-    ![Předplatné](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
-6. Jako prostředek vyberte **SQL Data Warehouse**.
-   
-    ![Prostředek](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
-7. Vyberte svůj [plán podpory Azure][Azure support plan].
-   
-   * **Podpora k fakturaci, správě kvót a předplatného** je k dispozici na všech úrovních podpory.
-   * Podpora k problémům vyžadujícím **opravu** je poskytována prostřednictvím plánů podpory [Developer Support][Developer], [Standard Support][Standard], [Professional Direct][Professional Direct] nebo [Premier Support][Premier]. Problémy vyžadující opravu jsou problémy, které mají zákazníci při používání Azure a u kterých se dá předpokládat, že je způsobila společnosti Microsoft.
-   * V rámci podpory na úrovni plánů [Professional Direct][Professional Direct] a [Premier Support][Premier] jsou k dispozici služby **mentorování vývojářů** a **poradenské služby**. 
-     
-     Pokud máte plán podpory Premier Support, můžete také problémy týkající se služby SQL Data Warehouse nahlásit na [online portálu Microsoft Premier][Microsoft Premier online portal].  Další informace o různých plánech podpory, včetně rozsahu, doby odezvy, cen atd. najdete v tématu věnovaném [plánům podpory Azure][Azure support plan].  Nejčastější dotazy týkající se podpory Azure najdete v [nejčastějších dotazech týkajících se podpory k Azure][Azure support FAQs].  
-     
-     ![Plán podpory](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Vyberte **typ problému** a **kategorii**. V tomto příkladu jsme vybrali typ problému „Nástroje“ a kategorii „Klientské nástroje“. 
-   
-    ![Kategorie typu problému](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
-9. Popište problém a zvolte úroveň dopadu na chod firmy.
-   
-    ![Popis problému](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
-10. Předvyplní se vaše **kontaktní údaje** pro tento lístek podpory. V případě potřeby je aktualizujte.
+5. Vyplňte své **Kontaktní informace**.
+![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
+
     
-    ![Kontaktní údaje](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
-11. Kliknutím na **Vytvořit** odešlete žádost o podporu.
+6. Kliknutím na **Vytvořit** odešlete žádost o podporu.
 
 ## <a name="monitor-a-support-ticket"></a>Monitorování lístku podpory
-Po odeslání žádosti o podporu vás bude kontaktovat tým podpory Azure. Pokud chcete zkontrolovat stav a podrobnosti žádosti, klikněte na řídicím panelu na **Spravovat žádosti o podporu**.
+Po odeslání žádosti o podporu vás bude kontaktovat tým podpory Azure. Pokud chcete zkontrolovat stav a podrobnosti žádosti, klikněte na řídicím panelu na **Všechny žádosti o podporu**.
 
-![Zkontrolování stavu](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
+![Zkontrolování stavu](./media/sql-data-warehouse-get-started-create-support-ticket/Monitor_ticket.PNG)
 
 ## <a name="other-resources"></a>Další prostředky
 Kromě toho se můžete spojit s komunitou SQL Data Warehouse na [Stack Overflow][Stack Overflow] nebo na [fóru pro Azure SQL Data Warehouse na webu MSDN][Azure SQL Data Warehouse MSDN forum].

@@ -1,5 +1,5 @@
 ---
-title: "Přidání existujícího předplatného Azure do adresáře služby Azure AD | Dokumentace Microsoftu"
+title: "Přidání existujícího předplatného Azure do adresáře služby Azure AD | Microsoft Docs"
 description: "Přidání existujícího předplatného do adresáře služby Azure AD"
 services: active-directory
 documentationcenter: 
@@ -12,36 +12,53 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2017
+ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e14d1c54a084a66bd33904b8c90e2973c0f7d6fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="how-to-add-an-azure-subscription-to-azure-active-directory"></a>Přidání předplatného Azure do služby Azure Active Directory
+# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Přiřazení nebo přidání předplatného Azure do služby Azure Active Directory
+
 V tomto článku najdete informace o vztahu mezi předplatným Azure a službou Azure Active Directory (Azure AD) a zjistíte, jak do svého adresáře služby Azure AD přidat existující předplatné. Vaše předplatné Azure má s Azure AD vztah důvěryhodnosti. To znamená, že adresáři svěřuje ověřování uživatelů, služeb a zařízení. Několik předplatných může důvěřovat stejnému adresáři, ale každé předplatné důvěřuje jenom jednomu adresáři. 
 
 Vztah důvěryhodnosti, který má předplatné s adresářem, se liší od vztahu, který má předplatné se ostatními prostředky v Azure (webové stránky, databáze apod.). Pokud platnost předplatného vyprší, zastaví se i přístup k těmto dalším prostředkům přidruženým k předplatnému. Adresář služby Azure AD ale v Azure zůstane a vy k němu můžete přidružit jiné předplatné a spravovat adresář pomocí tohoto nového předplatného.
 
 Všichni uživatelé mají jeden domovský adresář, který je ověřuje, ale mohou být také hosty v dalších adresářích. Ve službě Azure AD se vám zobrazí adresáře, kterých je váš uživatelský účet členem nebo hostem.
 
-## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Přidání existujícího předplatného do adresáře služby Azure AD
-Musíte se přihlásit pomocí účtu, který existuje v aktuálním adresáři, ke kterému je předplatné přidruženo, i v adresáři, do kterého chcete předplatné přidat. 
+## <a name="before-you-begin"></a>Než začnete
 
-1. Přihlaste se k [Centru účtů Azure](https://account.azure.com/Subscriptions) pomocí účtu, který je správcem účtu předplatného, jehož vlastnictví chcete převést.
-2. Zkontrolujte, že uživatel, který se má stát vlastníkem předplatného, je v cílovém adresáři.
-3. Klikněte na **Převod vlastnictví předplatného**.
-4. Zadejte příjemce. Příjemce automaticky dostane e-mail s odkazem pro akceptaci.
-5. Příjemce klikne na odkaz a postupuje podle pokynů, včetně zadání platebních údajů. Pokud je příjemce úspěšný, předplatné je převedeno. 
-6. Výchozím adresářem předplatného se stane adresář, ve kterém je příslušný uživatel.
+* Abyste měli přístup k příslušnému předplatnému, musíte se přihlásit pomocí účtu, který má přiřazenou roli vlastníka předplatného RBAC.
+* Musíte se přihlásit pomocí účtu, který existuje v aktuálním adresáři, ke kterému je předplatné přidruženo, i v adresáři, do kterého chcete předplatné přidat. Další informace o tom, jak získat přístup k jinému adresáři, najdete v tématu [Jak správci služby Azure Active Directory přidávají uživatele s možností B2B spolupráce?](active-directory-b2b-admin-add-users.md)
 
+## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Přiřazení existujícího předplatného do adresáře služby Azure AD
+
+1. Přihlaste se a na stránce [Předplatná na webu Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) vyberte předplatné.
+2. Klikněte na **Změnit adresář**.
+
+    ![Snímek obrazovky s tlačítkem Změnit adresář](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
+3. Přečtěte si upozornění. Jakmile se adresář předplatného změní, všichni uživatelé předplatného [Role-Based Access Control (RBAC)](role-based-access-control-configure.md) (Řízení přístupu na základě role), kteří k němu mají povolený přístup, a všichni správci předplatného k němu ztratí přístup.
+4. Vyberte adresář.
+
+    ![Snímek obrazovky s uživatelským rozhraním pro změnu adresáře](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
+5. Klikněte na **Změnit**.
+6. Výborně! Pomocí přepínače adresářů přejděte do nového adresáře.
+
+    ![Snímek obrazovky s oznámením o úspěšné změně adresáře](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
+
+    ![Snímek obrazovky s přepínačem](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
+
+
+Změna adresáře předplatného představuje operaci na úrovni služby. Neovlivní vlastnictví fakturace předplatného a správce účtu bude stále moct změnit správce služby pomocí [Centra účtů](https://account.azure.com/subscriptions). Pokud chcete odstranit původní adresář, vlastnictví fakturace předplatného musíte převést na nového správce účtu. Další informace o tom, jak převést vlastnictví fakturace, najdete v tématu [Převod vlastnictví předplatného Azure na jiný účet](../billing/billing-subscription-transfer.md). 
 
 ## <a name="next-steps"></a>Další kroky
-* Další informace o postupu při změně správců pro předplatné Azure najdete v tématu [Přenos vlastnictví předplatného služby Azure na jiný účet](../billing/billing-subscription-transfer.md)
+
+* Další informace o tom, jak zdarma vytvořit nový adresář služby Azure AD, najdete v tématu [Jak získat klienta služby Azure Active Directory](develop/active-directory-howto-tenant.md).
+* Další informace o tom, jak převést vlastnictví fakturace předplatného Azure, najdete v tématu [Převod vlastnictví předplatného Azure na jiný účet](../billing/billing-subscription-transfer.md).
 * Další informace o tom, jak se přístup k prostředkům řídí ve službě Microsoft Azure, najdete v části [Principy přístupu k prostředkům ve službě Azure](active-directory-understanding-resource-access.md)
 * Další informace o tom, jak přiřadit role ve službě Azure AD, najdete v tématu [Přiřazení rolí správce ve službě Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 

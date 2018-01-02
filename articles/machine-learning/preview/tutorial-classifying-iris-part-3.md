@@ -1,5 +1,5 @@
 ---
-title: "Nasazení modelu pro služby Azure Machine Learning (Preview) | Dokumentace Microsoftu"
+title: "Nasazení modelu pro služby Azure Machine Learning (Preview) | Microsoft Docs"
 description: "V tomto kurzu na pokračování se dozvíte, jak komplexně používat služby Azure Machine Learning (Preview). Toto je třetí část, ve které se probírá nasazení modelu."
 services: machine-learning
 author: raymondl
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/29/2017
-ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasifikace Iris – část 3: Nasazení modelu
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce. Datoví vědci pomocí nich můžou připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
@@ -206,7 +206,7 @@ Teď můžete vytvořit webovou službu v reálném čase.
 1. K vytvoření webové služby v reálném čase použijte následující příkaz:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
    ```
    Tento příkaz vygeneruje ID webové služby, které můžete použít později.
 
@@ -216,6 +216,7 @@ Teď můžete vytvořit webovou službu v reálném čase.
    * `--model-file`: Soubor modelu. V tomto případě je to soubor pickle model.pkl.
    * `-r`: Typ modelu. V tomto případ je to model Python.
    * `--collect-model-data true`: Tento přepínač povoluje shromažďování dat.
+   * `-c`: Cesta k souboru závislostí systému Conda se zadanými dalšími balíčky.
 
    >[!IMPORTANT]
    >Název služby, který je zároveň názvem nové image Dockeru, musí obsahovat jenom malá písmena. Jinak dojde k chybě. 
@@ -254,10 +255,10 @@ Nejprve zaregistrujte model. Potom vygenerujte manifest, sestavte image Dockeru 
 
 3. Vytvořte image Dockeru.
 
-   K vytvoření image Dockeru použijte následující příkaz a zadejte hodnotu výstupu ID manifestu z předchozího kroku:
+   K vytvoření image Dockeru použijte následující příkaz a zadejte hodnotu ID manifestu, která je výsledkem předchozího kroku. Pokud chcete také zahrnout závislosti systému Conda, použijte přepínač `-c`.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    Tento příkaz vygeneruje ID image Dockeru.
    

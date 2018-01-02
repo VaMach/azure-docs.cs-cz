@@ -1,5 +1,5 @@
 ---
-title: "Povolení funkce Azure Event Hubs Capture prostřednictvím portálu | Dokumentace Microsoftu"
+title: "Povolení funkce Azure Event Hubs Capture prostřednictvím portálu | Microsoft Docs"
 description: "K povolení funkce Event Hubs Capture použijte web Azure Portal."
 services: event-hubs
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39fbdba404bda9383c9164dd1ecd9cb23bfb5cd7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Povolení funkce Event Hubs Capture prostřednictvím webu Azure Portal
 
@@ -55,7 +55,7 @@ Pro zachytávání dat do služby Azure Data Lake Store vytvoříte účet Data 
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>Přidání nebo konfigurace funkce Capture v existujícím centru událostí
 
-Funkci Capture můžete nakonfigurovat v existujících centrech událostí, která jsou v oborech názvů služby Event Hubs. Pokud chcete funkci Capture povolit v existujícím centru událostí nebo chcete změnit její nastavení, klikněte na příslušný obor názvů, aby se načetla obrazovka **Základy**, a potom klikněte na centrum událostí, pro které chcete povolit funkci Capture nebo změnit její nastavení. Nakonec na otevřené stránce klikněte na část **Vlastnosti** a pak upravte nastavení funkce Capture, jak je znázorněno na následujících obrázcích:
+Funkci Capture můžete nakonfigurovat v existujících centrech událostí, která jsou v oborech názvů služby Event Hubs. Pokud chcete funkci Capture povolit ve stávajícím centru událostí nebo chcete změnit její nastavení, klikněte na obor názvů, aby se načetla obrazovka s přehledem, a pak klikněte na centrum událostí, kterému chcete povolit funkci Capture nebo změnit její nastavení. Nakonec na levé straně otevřené stránky klikněte na možnost **Zachycení** a upravte nastavení podle následujících obrázků:
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 

@@ -1,10 +1,10 @@
 ---
-title: "Síťové služby pro škálovací sady virtuálních počítačů Azure | Dokumentace Microsoftu"
+title: "Síťové služby pro škálovací sady virtuálních počítačů Azure | Microsoft Docs"
 description: "Konfigurace síťových vlastností pro škálovací sady virtuálních počítačů Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: guybo
-ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: negat
+ms.openlocfilehash: 21585717609a692d55ba60f74e39f3bccc0bc727
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Síťové služby pro škálovací sady virtuálních počítačů Azure
 
@@ -138,7 +138,7 @@ Pokud chcete zobrazit seznam veřejných IP adres škálovací sady pomocí Powe
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-Veřejné IP adresy můžete dotazovat také přímým odkazováním na ID prostředku konfigurace veřejné IP adresy. Například:
+Veřejné IP adresy můžete také zjistit přímo z ID prostředku nakonfigurované veřejné IP adresy. Například:
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -306,4 +306,4 @@ Například:
 ```
 
 ## <a name="next-steps"></a>Další kroky
-Další informace o virtuálních sítích Azure najdete v [této dokumentaci](../virtual-network/virtual-networks-overview.md).
+Další informace o virtuálních sítích Azure najdete v [přehledu virtuálních sítí Azure](../virtual-network/virtual-networks-overview.md).

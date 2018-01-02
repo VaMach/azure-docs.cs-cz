@@ -1,5 +1,5 @@
 ---
-title: "Větvení v kanálu Azure Data Factory | Dokumentace Microsoftu"
+title: "Větvení v kanálu Azure Data Factory | Microsoft Docs"
 description: "Zjistěte, jak řídit tok dat v Azure Data Factory prostřednictvím větvení a řetězení aktivit."
 services: data-factory
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Větvení a řetězení aktivit v kanálech Data Factory
 V tomto kurzu vytvoříte kanál služby Data Factory, který prezentuje některé funkce řízení toku. Tento kanál provádí jednoduché kopírování z kontejneru ve službě Azure Blob Storage do jiného kontejneru ve stejném účtu úložiště. Pokud aktivita kopírování proběhne úspěšně, chcete podrobnosti o úspěšném kopírování (jako je například množství zapsaných dat) poslat v e-mailu informujícím o úspěchu. Pokud aktivita kopírování selže, chcete podrobnosti o neúspěšném kopírování (jako je například chybová zpráva) poslat v e-mailu informujícím o selhání. V rámci tohoto kurzu se dozvíte, jak předávat parametry.
@@ -452,7 +452,7 @@ První část našeho kanálu definuje parametry.
 
 - sourceBlobContainer – parametr kanálu využívaný zdrojovou datovou sadou objektů blob
 - sinkBlobContainer – parametr kanálu využívaný datovou sadou objektů blob pro jímku
-- receiver – parametr kanálu využívaný dvěma webovými aktivitami, u kterých e-mailová adresa přijímá e-mail
+- receiver – tento parametr používají dvě aktivity webu v kanálu, které odesílají e-maily s oznámením o úspěchu nebo selhání příjemci, jehož e-mailová adresa je zadána tímto parametrem.
 
 
 ```csharp
