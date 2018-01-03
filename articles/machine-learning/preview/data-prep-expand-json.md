@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 57f461f9a39e8069654985d86bfe3ae23dd0855a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614f4422aa987fc32dcce62826bb2477473fdc32
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="expand-json-transformation"></a>Rozbalte JSON transformace
 **Rozbalte JSON** transformace umožňuje uživatelům rozbalte jako existující sloupec, který obsahuje platný text JSON do více sloupců.
@@ -33,7 +33,7 @@ Vedle zdrojového sloupce jsou přidány sloupce. Tyto sloupce obsahují vlastno
 
 Zdroj požadován *zákazníka* je rozšířena do dvou sloupců *Customer.Name* a *Customer.Phone*.
 
-| Zákazníka                                                | Customer.Name   | Customer.Phone |
+| Zákazník                                                | Customer.Name   | Customer.Phone |
 |---------------------------------------------------------|-----------------|----------------|
 | {"Název": "Carrie Dodson", "Phone": "123-4567-890"}   | Carrie Dodson   | 123-4567-890   |
 | {"Název": "Leonardem Robledo", "Phone": "456 7890 123"} | Leonardem Robledo | 456-7890-123   |

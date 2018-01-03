@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Vytvoření služby application gateway pro hostování několika webových aplikací
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-multisite-portal.md)
+> * [portál Azure Portal](application-gateway-create-multisite-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 
 Hostování více lokalitu umožňuje nasadit více než jednu webovou aplikaci ve stejném application gateway. Přitom spoléhá na přítomnost Hlavička hostitele v příchozím požadavku HTTP, chcete-li zjistit, který naslouchací proces by přijímat přenosy. Naslouchací proces pak přesměruje přenosy na příslušné back-end fondu podle konfigurace v definici pravidla brány. V protokolu SSL povoleno webových aplikací Aplikační brána spoléhá na toto rozšíření indikace názvu serveru (SNI) vyberte správné naslouchací proces pro webový provoz. Běžně používá pro více hostování lokality je načíst vyrovnávat požadavky na jiných webových domén na jiný server back endové fondy. Více subdomény stejné kořenové domény podobně také může být hostovaný na stejné aplikační brány.
@@ -62,7 +62,7 @@ Ujistěte se, že používáte nejnovější verzi prostředí Azure PowerShell.
 
 ### <a name="step-1"></a>Krok 1
 
-Přihlaste se k Azure.
+Přihlášení k Azure
 
 ```powershell
 Login-AzureRmAccount

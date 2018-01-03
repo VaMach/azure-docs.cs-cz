@@ -1,6 +1,6 @@
 ---
-title: "Shromažďovat vlastní protokoly v OMS Log Analytics | Microsoft Docs"
-description: "Analýzy protokolů můžete shromažďovat události z textových souborů v počítačích Windows a Linux.  Tento článek popisuje, jak definovat nový vlastní protokol a podrobnosti záznamů, které vytvoří v úložišti OMS."
+title: "Shromažďovat vlastní protokoly v Azure Log Analytics | Microsoft Docs"
+description: "Analýzy protokolů můžete shromažďovat události z textových souborů v počítačích Windows a Linux.  Tento článek popisuje, jak můžete definovat podrobnosti záznamů, které vytvoří v pracovním prostoru analýzy protokolů a nový vlastní protokol."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Vlastní protokoly v analýzy protokolů
-Zdroj dat vlastní protokoly ve analýzy protokolů umožňuje shromažďování událostí z textových souborů v počítačích Windows a Linux. Mnoho aplikací protokolování informací k textovým souborům místo standardní protokolování služby, jako je například protokol událostí systému Windows nebo Syslog.  Jakmile se shromažďují, můžete analyzovat každý záznam v protokolu v jednotlivých polí pomocí [vlastní pole](log-analytics-custom-fields.md) funkce analýzy protokolů.
+Zdroj dat vlastní protokoly ve analýzy protokolů umožňuje shromažďování událostí z textových souborů v počítačích Windows a Linux. Mnoho aplikací protokolování informací k textovým souborům místo standardní protokolování služby, jako je například protokol událostí systému Windows nebo Syslog.  Jakmile se shromažďují, můžete analyzovat každý záznam v přihlášení do jednotlivých polí pomocí [vlastní pole](log-analytics-custom-fields.md) funkce analýzy protokolů.
 
 ![Vlastní protokol kolekce](media/log-analytics-data-sources-custom-logs/overview.png)
 
@@ -42,10 +42,10 @@ Soubory protokolů, které se mají shromažďovat musí splňují následujíc�
 Následující postup použijte k definování vlastní soubor protokolu.  Přejděte na konci tohoto článku podrobný ukázkové přidání vlastního protokolu.
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Krok 1. Otevřete Průvodce vlastního protokolu
-Vlastní Průvodce protokolu běží na portálu OMS a umožňuje definovat vlastní nový protokol ke shromažďování.
+Vlastní Průvodce protokolu běží na portálu Azure a umožňuje definovat vlastní nový protokol ke shromažďování.
 
-1. Na portálu OMS, přejděte na **nastavení**.
-2. Klikněte na **Data** a potom **vlastní protokoly**.
+1. Na portálu Azure vyberte **analýzy protokolů** > pracovního prostoru > **Upřesnit nastavení**.
+2. Klikněte na **Data** > **vlastní protokoly**.
 3. Ve výchozím nastavení všechny změny konfigurace automaticky odesílají na všechny agenty.  Pro agenty Linux konfigurační soubor posílá kolekcí dat Fluentd.  Pokud chcete upravit soubor ručně na každý agenta systému Linux, poté zrušte zaškrtnutí políčka *použít dole uvedenou konfiguraci u mých Linuxových počítačů*.
 4. Klikněte na tlačítko **přidat +** otevřete Průvodce vlastní protokol.
 
@@ -54,7 +54,7 @@ Můžete začít odesílání vzorku vlastního protokolu.  Průvodce analyzovat
 
 **Nový řádek** oddělovač výchozí a slouží pro soubory protokolů, které mají jednu položku na každý řádek.  Pokud řádek začíná datum a čas v jednom z formátů k dispozici, pak můžete zadat **časové razítko** oddělovač, který podporuje položky, které jsou rozmístěny více než jeden řádek.
 
-Pokud se používá oddělovač časové razítko, bude vlastnost TimeGenerated každý záznam uložený v OMS vyplňovat datum a čas zadaný pro tuto položku v souboru protokolu.  Pokud se používá nový řádek oddělovač, pak TimeGenerated naplněný datum a čas, analýzy protokolů shromážděných položku.
+Pokud se používá oddělovač časové razítko, bude vlastnost TimeGenerated sestavy analýzy protokolů vyplňovat datum a čas zadaný pro tuto položku v souboru protokolu.  Pokud se používá nový řádek oddělovač, pak TimeGenerated naplněný datum a čas, analýzy protokolů shromážděných položku.
 
 
 1. Klikněte na tlačítko **Procházet** a přejděte do ukázkový soubor.  Všimněte si, že to může tlačítko může být označeno jako **zvolit soubor** v některé prohlížeče.
@@ -84,7 +84,7 @@ Následující tabulka obsahuje příklady platných vzorů k určení různých
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Krok 4. Zadejte název a popis pro protokol
 Název, který zadáte, se použije pro typ protokolu, jak je popsáno výše.  Bude vždy končit _CL odlišující jej jako vlastní protokol.
 
-1. Zadejte název pro protokol.  **\_CL** automaticky zajištěna příponu.
+1. Zadejte název pro protokol.   **\_CL** automaticky zajištěna příponu.
 2. Přidejte volitelné **popis**.
 3. Klikněte na tlačítko **Další** se uložit definici vlastního protokolu.
 
@@ -103,13 +103,12 @@ Záznam celý protokolu bude uložen v jedné vlastnost s názvem **RawData**.  
 
 Podrobné kroky k analýze záznam vlastní protokolu nejsou uvedeny zde.  Podrobnosti najdete [vlastní pole](log-analytics-custom-fields.md) dokumentaci pro tyto informace.
 
-## <a name="disabling-a-custom-log"></a>Zakázání vlastního protokolu
-Definice vlastního protokolu nelze odebrat, jakmile je byla vytvořena, ale můžete ji zakázat odebráním všech jeho cesty ke kolekcím.
+## <a name="removing-a-custom-log"></a>Odebrání vlastního protokolu
+Odebrat vlastní protokol, který jste dřív zadali, použijte tento postup na portálu Azure.
 
-1. Na portálu OMS, přejděte na **nastavení**.
-2. Klikněte na **Data** a potom **vlastní protokoly**.
-3. Klikněte na tlačítko **podrobnosti** vedle definici vlastní protokol zakázat.
-4. Odeberte všechny cesty ke kolekcím pro definice vlastního protokolu.
+1. Z **Data** v nabídce **Upřesnit nastavení** vašeho pracovního prostoru, vyberte **vlastní protokoly** seznam všechny vlastní protokoly.
+2. Klikněte na tlačítko **odebrat** vedle vlastní protokolu, který chcete odebrat.
+
 
 ## <a name="data-collection"></a>Shromažďování dat
 Analýzy protokolů bude shromažďovat nové položky z každé vlastní protokolu přibližně každých 5 minut.  Agent zaznamená v jednotlivých souborů protokolu, který shromáždí z jeho místo.  Pokud agenta přejde do režimu offline dobu, bude položky od posledního místa vypnutý, shromažďovat analýzy protokolů i v případě, že tyto položky byly vytvořeny v době, kdy agent offline.
@@ -127,7 +126,7 @@ Vlastní protokol záznamů mít typ s názvem protokolu, které poskytujete a v
 | ManagementGroupName |Název skupiny pro správu pro System Center Operations spravovat agenty.  Pro jiné agenty jde AOI -\<ID pracovního prostoru\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Protokol hledání se záznamy vlastního protokolu
-V úložišti OMS stejně jako záznamy z jiného zdroje dat jsou uloženy záznamy ze vlastní protokoly.  Budou mít typ odpovídající název, který zadáte, když definujete protokol, abyste mohli používat vlastnost Type v hledání pro načtení záznamů shromážděné z konkrétní protokolu.
+V pracovním prostoru analýzy protokolů stejně jako záznamy z jiného zdroje dat jsou uloženy záznamy ze vlastní protokoly.  Budou mít typ odpovídající název, který zadáte, když definujete protokol, abyste mohli používat vlastnost Type v hledání pro načtení záznamů shromážděné z konkrétní protokolu.
 
 Následující tabulka obsahuje různé příklady vyhledávání protokolu, které načtení záznamů z vlastní protokoly.
 
@@ -172,5 +171,5 @@ Používáme vlastní pole definovat *EventTime*, *kód*, *stav*, a *zpráva* po
 ![Protokol dotazu s vlastními poli](media/log-analytics-data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Další kroky
-* Použití [vlastní pole](log-analytics-custom-fields.md) analyzovat položky vlastní protokolu v jednotlivých polí.
+* Použití [vlastní pole](log-analytics-custom-fields.md) analyzovat položky ve vlastních přihlášení do jednotlivých polí.
 * Další informace o [protokolu hledání](log-analytics-log-searches.md) analyzovat data shromážděná ze zdrojů dat a řešení.

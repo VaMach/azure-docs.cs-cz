@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-powerapps"></a>Volání funkce z PowerApps
 [PowerApps](https://powerapps.microsoft.com) platformy je určená pro obchodní specialisté můžete vytvářet aplikace, bez kódu tradiční aplikace. Profesionální vývojáře můžete použít Azure Functions k rozšíření možností PowerApps, při stínění Tvůrce aplikací PowerApps z technické podrobnosti.
@@ -45,34 +45,8 @@ V tomto tématu se dozvíte, jak:
 ## <a name="prerequisites"></a>Požadavky
 
 + Aktivní [PowerApps účet](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) s stejné přihlašovací údaje jako účet Azure. 
-+ V aplikaci Excel, protože aplikace Excel bude používat jako zdroj dat pro vaši aplikaci.
++ Aplikace Excel a [ukázkový soubor aplikace Excel](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) , kterou použijete jako zdroj dat pro vaši aplikaci.
 + Dokončení tohoto kurzu [vytvořit definici OpenAPI pro funkci](functions-openapi-definition.md).
-
-
-## <a name="prepare-sample-data-in-excel"></a>Příprava ukázkových dat v aplikaci Excel
-Můžete začít tak, že Příprava ukázkových dat, který používáte v aplikaci. Zkopírujte následující tabulku do aplikace Excel. 
-
-| Název      | Zeměpisná šířka  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
-|------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
-| Turbína 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | Ano             | 6               | Toto je druhý problém tohoto měsíce.       |
-| Turbína 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | Ano             | 6               |                                            |
-| Turbína 33 | 47.428229 | -121.404641 | 6/20/2017       | 2800      |                 |                 |                                            |
-| Turbína 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | Ano             | 7               |                                            |
-| Turbína 46 | 47.471993 | -121.298949 | 3/2/2017        | 1200      |                 |                 |                                            |
-| Turbína 47 | 47.484059 | -121.311171 | 8/2/2016        | 3350      |                 |                 |                                            |
-| Turbína 55 | 47.438403 | -121.383767 | 10/2/2016       | 2400      | Ano             | 40               | Máme některé části brzo pro tento z nich. |
-
-1. V aplikaci Excel, vyberte data a na **Domů** , klikněte na **formátovat jako tabulku**.
-
-    ![Formátovat jako tabulku](media/functions-powerapps-scenario/format-table.png)
-
-1. Vyberte libovolný styl a klikněte na **OK**.
-
-1. S tabulkou vybrali, na **návrhu** zadejte `Turbines` pro **název tabulky**.
-
-    ![Název tabulky](media/functions-powerapps-scenario/table-name.png)
-
-1. Uložte sešit aplikace Excel.
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
@@ -97,35 +71,35 @@ Vlastní rozhraní API (také označované jako vlastní konektor) je k dispozic
 ## <a name="create-an-app-and-add-data-sources"></a>Vytvořte aplikaci a přidejte zdroje dat
 Nyní jste připraveni vytvořit aplikaci v PowerApps a přidejte data z aplikace Excel a vlastní rozhraní API jako zdroje dat pro aplikaci.
 
-1. V [web.powerapps.com](https://web.powerapps.com), v levém podokně klikněte na **novou aplikaci**.
+1. V [web.powerapps.com](https://web.powerapps.com), zvolte **zahájení z prázdné** > ![ikonu telefonní aplikace](media/functions-powerapps-scenario/icon-phone-app.png) (telefon) > **zkontrolujte tuto aplikaci**.
 
-1. V části **prázdnou aplikaci**, klikněte na tlačítko **rozložení pro telefony**.
+    ![Spuštění z prázdné - telefonní aplikace](media/functions-powerapps-scenario/create-phone-app.png)
 
-    ![Vytvoření aplikace pro tablety](media/functions-powerapps-scenario/create-phone-app.png)
-
-    Aplikace se otevře v PowerApps Studio pro web. Následující obrázek ukazuje různé části PowerApps Studio. Tento image je pro dokončení aplikaci; prázdná obrazovka nejprve v prostředním podokně se zobrazí.
+    Aplikace se otevře v PowerApps Studio pro web. Následující obrázek ukazuje různé části PowerApps Studio.
 
     ![PowerApps Studio](media/functions-powerapps-scenario/powerapps-studio.png)
 
-    **(1) levém navigačním panelu**, ve které zobrazí hierarchické zobrazení všech ovládacích prvků na každý obrazovky
+    **(A) levém navigačním panelu**, ve které zobrazí hierarchické zobrazení všech ovládacích prvků na každý obrazovky
 
-    **(2) prostředním podokně**, který ukazuje na obrazovce pracujete na
+    **(B) prostředním podokně**, který ukazuje na obrazovce pracujete na
 
-    **(3) pravém podokně**, kde nastavíte možnosti například rozložení a zdroje dat.
+    **(C) v pravém podokně**, kde nastavíte možnosti například rozložení a zdroje dat.
 
-    **(4) vlastnost** rozevíracího seznamu, kde můžete vybrat vlastnosti, která se týkají vzorce
+    **(D) vlastnost** rozevíracího seznamu, kde můžete vybrat vlastnosti, která se týkají vzorce
 
-    **(5) řádek vzorců**, kde můžete přidat vzorce (jako v aplikaci Excel), které definují chování aplikace
+    **(E) řádek vzorců**, kde můžete přidat vzorce (jako v aplikaci Excel), které definují chování aplikace
     
-    **(6) pás karet**, kde můžete přidat ovládací prvky a přizpůsobit prvky návrhu
+    **(F) pás karet**, kde můžete přidat ovládací prvky a přizpůsobit prvky návrhu
 
 1. Jako zdroj dat přidáte soubor aplikace Excel.
 
-    1. V pravém podokně klikněte na **Data** , klikněte na **přidat zdroj dat**.
+    Data, která budete importovat vypadá takto:
 
-        ![Přidání zdroje dat](media/functions-powerapps-scenario/add-data-source.png)
+    ![Chcete-li importovat data z Excelu.](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Klikněte na tlačítko **přidání statických dat do aplikace**.
+    1. Na plátně aplikace, vyberte **připojit k datům**.
+
+    1. Na **Data** panelu, klikněte na tlačítko **přidání statických dat do aplikace**.
 
         ![Přidání zdroje dat](media/functions-powerapps-scenario/add-static-data.png)
 
@@ -135,9 +109,10 @@ Nyní jste připraveni vytvořit aplikaci v PowerApps a přidejte data z aplikac
 
         ![Přidání zdroje dat](media/functions-powerapps-scenario/choose-table.png)
 
+
 1. Jako zdroj dat přidáte vlastní rozhraní API.
 
-    1. Na **Data** , klikněte na **přidat zdroj dat**.
+    1. Na **Data** panelu, klikněte na tlačítko **přidat zdroj dat**.
 
     1. Klikněte na tlačítko **turbína Repair**.
 
@@ -156,17 +131,21 @@ Teď, když zdroji dat jsou k dispozici v aplikaci, přidáte obrazovky do vaš�
 
     ![Změnit název a změňte velikost Galerie](media/functions-powerapps-scenario/gallery-title.png)
 
-1. S vybraným v pravém podokně klikněte v galerii **Data** změňte zdroj dat z **CustomGallerySample** k **turbín**.
+1. V aplikaci gallery vybrali, v pravém podokně v části **vlastnosti**, klikněte na tlačítko **CustomGallerySample**.
 
     ![Zdroj dat změny](media/functions-powerapps-scenario/change-data-source.png)
 
+1. V **Data** panel, vyberte **turbín** ze seznamu.
+
+    ![Vyberte zdroj dat](media/functions-powerapps-scenario/select-data-source.png)
+
     Datová sada neobsahuje bitovou kopii, takže teď že můžete změnit rozložení, aby lépe vyhovoval data. 
 
-1. Stále v pravém podokně změňte **rozložení** k **nadpisu, podnadpisu a textu**.
+1. Pořád ještě v **Data** panelu, změňte **rozložení** k **nadpisu, podnadpisu a textu**.
 
     ![Změna rozložení galerie](media/functions-powerapps-scenario/change-layout.png)
 
-1. Jako poslední krok v pravém podokně změňte pole, které jsou zobrazeny v galerii.
+1. Jako poslední krok v **Data** panelu, změňte pole, které jsou zobrazeny v galerii.
 
     ![Změňte pole galerie](media/functions-powerapps-scenario/change-fields.png)
     
@@ -185,6 +164,8 @@ Teď, když zdroji dat jsou k dispozici v aplikaci, přidáte obrazovky do vaš�
 1. Nepotřebujete původní obrazovky v aplikaci. V levém podokně, najeďte myší na **Screen1**, klikněte na tlačítko **...** , a **odstranit**.
 
     ![Odstranit obrazovky](media/functions-powerapps-scenario/delete-screen.png)
+
+1. Klikněte na tlačítko **souboru**a název aplikace. Klikněte na tlačítko **Uložit** v nabídce vlevo klikněte **Uložit** v pravém horním rohu.
 
 Existuje mnoho dalších formátování, které by obvykle provést v produkční aplikace, ale přesunete k důležitou roli v tomto scénáři - volání funkce.
 

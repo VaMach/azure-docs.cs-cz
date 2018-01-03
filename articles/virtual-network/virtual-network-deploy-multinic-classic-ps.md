@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 37f1f5bbd5f39290121414a4c5532abdb2b6f9ae
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 824af3f0f5f6d42341f6f1dc94104f6009b568b8
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Vytvoření virtuálního počítače (klasické) s více síťovými kartami pomocí prostředí PowerShell
 
@@ -198,4 +198,4 @@ Teď, když jste stáhli a změnit skript na základě potřeb, o skript k vytvo
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Krok 5: Konfigurace směrování v rámci operačního systému Virtuálního počítače
 
-Azure DHCP přiřadí výchozí bránu na první (primární) síťové rozhraní připojené k virtuálnímu počítači. Azure nepřiřazuje výchozí bránu pro další (sekundární) síťových rozhraní připojených k virtuálnímu počítači. Jste tedy nemůže komunikovat s prostředky mimo podsítě, která je sekundární síťové rozhraní, ve výchozím nastavení. Sekundární síťová rozhraní může, ale komunikovat s prostředky mimo jejich podsítě. Konfigurace směrování pro sekundární síťová rozhraní najdete v tématu [směrování v rámci operačního systému virtuálního počítače s více síťovými rozhraními](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).
+Azure DHCP přiřadí výchozí bránu na první (primární) síťové rozhraní připojené k virtuálnímu počítači. Azure nepřiřazuje výchozí bránu dalším (sekundárním) síťovým rozhraním připojeným k virtuálnímu počítači. Proto ve výchozím nastavení nemůžete komunikovat s prostředky mimo podsíť, ve které sekundární síťové rozhraní je. Sekundární síťová rozhraní může, ale komunikovat s prostředky mimo jejich podsítě. Konfigurace směrování pro sekundární síťová rozhraní najdete v tématu [směrování v rámci operačního systému virtuálního počítače s více síťovými rozhraními](virtual-network-network-interface-vm.md).

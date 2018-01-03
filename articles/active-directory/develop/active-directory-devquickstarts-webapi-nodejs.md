@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory Node.js Začínáme"
+title: "Azure AD Node.js webového rozhraní API Začínáme | Microsoft Docs"
 description: "Jak sestavit webové Node.js REST API, které se integruje se službou Azure AD pro ověřování."
 services: active-directory
 documentationcenter: nodejs
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: c882f717635bef38d15fefef2f4ff6a5c30490b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Zabezpečení Node.js webového rozhraní API v Azure Active Directory
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js webového rozhraní API Začínáme
 
 Tento článek ukazuje, jak zabezpečit [Restify](http://restify.com/) koncový bod rozhraní API s [Passport](http://passportjs.org/) pomocí [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) modulu pro zpracování komunikace se službou Azure Active Directory (AAD). 
 
@@ -73,7 +73,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Před připojením ke službě Azure Active Directory, je třeba následující informace:
 
-| Name (Název)  | Popis | Název proměnné v konfiguračním souboru |
+| Název  | Popis | Název proměnné v konfiguračním souboru |
 | ------------- | ------------- | ------------- |
 | Název klienta  | [Název klienta](active-directory-howto-tenant.md) chcete použít pro ověřování | `tenantName`  |
 | ID klienta  | ID klienta je název OAuth použitý pro AAD _ID aplikace_. |  `clientID`  |
@@ -187,7 +187,7 @@ Nakonec serveru je nastavena tak, aby naslouchala na konfigurovaném portu volá
 server.listen(serverPort);
 ```
 
-## <a name="run-the-sample"></a>Spustit ukázku
+## <a name="run-the-sample"></a>Spuštění ukázky
 
 Teď, když se implementuje na server, můžete spustit server tak, že otevřete příkazový řádek a zadejte:
 

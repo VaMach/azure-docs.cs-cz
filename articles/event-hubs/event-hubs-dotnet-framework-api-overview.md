@@ -12,23 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Přehled služby Event Hubs rozhraní .NET Framework API
+
 Tento článek shrnuje některé klíče rozhraní API klienta rozhraní .NET Framework centra událostí. Existují dvě kategorie: Správa a rozhraní API pro spuštění. Spuštění rozhraní API obsahovat všechny operace, které jsou potřebné k odesílat a přijímat zprávy. Operace správy umožňují spravovat stav entity Event Hubs vytváření, aktualizaci a odstraňování entit.
 
-Scénáře monitorování span, správu a spuštění. Podrobné referenční dokumentaci k rozhraní API .NET, najdete v článku [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) a [rozhraní API třídy EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) odkazy.
+[Scénáře monitorování](event-hubs-metrics-azure-monitor.md) span správy a spuštění. Podrobné referenční dokumentaci k rozhraní API .NET, najdete v článku [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) a [rozhraní API třídy EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) odkazy.
 
 ## <a name="management-apis"></a>Rozhraní API pro správu
+
 Chcete-li provádět následující operace správy, musíte mít **spravovat** oprávnění v oboru názvů služby Event Hubs:
 
 ### <a name="create"></a>Vytvořit
+
 ```csharp
 // Create the event hub
 var ehd = new EventHubDescription(eventHubName);
@@ -37,6 +40,7 @@ await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
 ### <a name="update"></a>Aktualizace
+
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
@@ -49,18 +53,21 @@ await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
 ### <a name="delete"></a>Odstranění
+
 ```csharp
-await namespaceManager.DeleteEventHubAsync("Event Hub name");
+await namespaceManager.DeleteEventHubAsync("event hub name");
 ```
 
 ## <a name="run-time-apis"></a>Run-time rozhraní API
 ### <a name="create-publisher"></a>Vytvořit vydavatele
+
 ```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-var eventHubClient = EventHubClient.Create("Event Hub name");
+var eventHubClient = EventHubClient.Create("event hub name");
 ```
 
 ### <a name="publish-message"></a>Publikování zpráv
+
 ```csharp
 // Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
@@ -79,6 +86,7 @@ await client.SendAsync(data);
 ```
 
 ### <a name="create-consumer"></a>Vytvoření příjemce
+
 ```csharp
 // Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
@@ -97,6 +105,7 @@ var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index
 ```
 
 ### <a name="consume-message"></a>Zpracovat zprávu
+
 ```csharp
 var message = await consumer.ReceiveAsync();
 
@@ -109,6 +118,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## <a name="event-processor-host-apis"></a>Rozhraní API hostitele procesor událostí
+
 Tato rozhraní API poskytují odolnost pro pracovní procesy, které mohly být nedostupné, a to distribucí oddíly mezi dostupné pracovních procesů.
 
 ```csharp

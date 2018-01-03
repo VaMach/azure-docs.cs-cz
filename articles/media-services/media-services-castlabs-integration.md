@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Distribuce licencí Widevine pro Azure Media Services pomocí castLabs
 > [!div class="op_single_selector"]
@@ -55,13 +55,13 @@ Následující tabulka popisuje token JWT v AMS.
 | Cílová skupina |Cílová skupina řetězec z použité služby tokenů zabezpečení |
 | Deklarace identity |Sadu deklarací identity |
 | Neplatí před |Zahájení platnosti tokenu |
-| Vypršení platnosti |End platnosti tokenu |
+| Platí do |End platnosti tokenu |
 | SigningCredentials |Klíč, který je sdílen PlayReady licenční Server castLabs licenční Server a službu tokenů zabezpečení, to může být buď symetrický, nebo asymetrický klíč. |
 
 ### <a name="jwt-token-in-castlabs"></a>Token JWT v castLabs
 Následující tabulka popisuje token JWT v castLabs. 
 
-| Name (Název) | Popis |
+| Název | Popis |
 | --- | --- |
 | optData |Řetězec formátu JSON, který obsahuje informace o vás. |
 | CRT |Řetězec formátu JSON, který obsahuje informace o prostředku, jeho licenční informace a přehrávání práva. |

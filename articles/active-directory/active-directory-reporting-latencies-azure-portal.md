@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latence sestav Azure Active Directory.
 
@@ -37,27 +37,27 @@ Existují dvě oblasti aktivity generování sestav:
 
 Následující tabulka uvádí informace o protokolování aktivit latenci.
 
-| Sestava | Minimální | Průměr |
-| :-- | --- | --- |
-| Protokoly auditu | 30 minut  | 1 hodina  |
-| Přihlášení | 15 minut  | 2 hodiny |
+| Sestava | Minimální | Průměr | Poznámky |
+| :-- | --- | --- | :-- |
+| Protokoly auditu | 30 minut  | 1 hodina  |V některých případech může trvat až 2 hodiny pro audit aktivity data objeví.|
+| Přihlášení | 15 minut  | 2 hodiny |V některých případech může trvat až 24 hodin pro přihlašovací aktivita data objeví. To zahrnuje přihlášení aktivity dat pocházejících z aplikací office starší verze. |
 
-V některých případech edge může trvat:
 
-- 2 hodiny pro audit aktivity dat zobrazení.
-- 24 hodin pro přihlašovací aktivita data objeví. To zahrnuje přihlášení aktivity dat pocházejících z aplikací office starší verze. 
+
+
+
 
 
 ## <a name="security-reports"></a>Sestavy zabezpečení
 
 Existují dvě oblasti generování sestav zabezpečení:
 
-- **Riziková přihlášení** – Rizikové přihlášení je indikátorem pokusu o přihlášení, který mohl provést někdo, kdo není legitimním vlastníkem uživatelského účtu. 
+- **Riziková přihlášení** –Rizikové přihlášení je indikátorem pokusu o přihlášení, který mohl provést někdo, kdo není legitimním vlastníkem uživatelského účtu. 
 - **Uživatelé označení příznakem rizika** – Rizikový uživatel je indikátorem uživatelského účtu, který mohl být ohrožený. 
 
 Následující tabulka uvádí informace o zabezpečení sestavy latenci.
 
-| Sestava | Minimální | Průměr | Maximální počet |
+| Sestava | Minimální | Průměr | Maximum |
 | :-- | --- | --- | --- |
 | Ohrožených uživatelích          | 5 minut   | 15 minut  | 2 hodiny  |
 | Rizikové přihlášení         | 5 minut   | 15 minut  | 2 hodiny  |
@@ -68,7 +68,7 @@ Azure Active Directory používá algoritmy adaptivní strojového učení a heu
 
 Následující tabulka uvádí informace o rizikových událostech latenci.
 
-| Sestava | Minimální | Průměr | Maximální počet |
+| Sestava | Minimální | Průměr | Maximum |
 | :-- | --- | --- | --- |
 | Přihlášení z anonymních IP adres |5 minut |15 minut |2 hodiny |
 | Přihlášení z neznámých míst |5 minut |15 minut |2 hodiny |

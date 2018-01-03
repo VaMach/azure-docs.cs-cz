@@ -17,10 +17,10 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Verze 2 rutiny služby Azure Active Directory pro správu skupin
 > [!div class="op_single_selector"]
@@ -162,13 +162,13 @@ Nyní když jsme najít skupinu vidíme, že je vlastnost Popis aktualizovat tak
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-## <a name="delete-groups"></a>Odstranění skupin
+## <a name="delete-groups"></a>Odstranit skupiny
 Pokud chcete odstranit skupiny z adresáře, použijte rutinu Remove-AzureADGroup následujícím způsobem:
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="manage-group-membership"></a>Správa členství ve skupině 
-### <a name="add-members"></a>Přidání členů
+## <a name="manage-group-membership"></a>Spravovat členství ve skupinách 
+### <a name="add-members"></a>Přidat členy
 Chcete-li přidat nové členy do skupiny, použijte rutinu Add-AzureADGroupMember. Tento příkaz přidá členem skupiny Intune Administrators, které jsme použili v předchozím příkladu:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -252,7 +252,7 @@ Pokud chcete odebrat vlastníka ze skupiny, použijte rutinu Remove-AzureADGroup
 Pokud skupinu je vytvořen, určité koncové body umožňují koncovému uživateli umožňují zadat mailNickname nebo alias, který se má použít jako součást e-mailovou adresu skupiny. Skupiny s následující aliasy vysoce privilegované e-mailu lze vytvořit pouze globální správce Azure AD. 
   
 * zneužití 
-* Správce 
+* správce 
 * Správce 
 * hostmaster 
 * majordomo 

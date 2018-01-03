@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Výměna zpráv AS2 pro podnikové integrace s logic apps
 
@@ -45,7 +45,7 @@ Po jste [vytvoření účtu integrace](../logic-apps/logic-apps-enterprise-integ
     > [!TIP]
     > Pokud nevidíte **další služby**, možná budete muset nejdřív rozbalte nabídku. V horní nabídce sbalené, vyberte **nabídky Zobrazit**.
 
-    ![Vyberte další služby, filtr na "integraci", "Účty pro integraci"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+    ![Vyberte další služby, filtr na "integraci", "Účty pro integraci"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. V **účty pro integraci** okno, které se otevře, vyberte účet integrace, kde chcete vytvořit smlouvu.
 Pokud nevidíte žádné účty pro integraci, [vytvořit první](../logic-apps/logic-apps-enterprise-integration-accounts.md "všechny informace o účtech integrace").  
@@ -54,19 +54,19 @@ Pokud nevidíte žádné účty pro integraci, [vytvořit první](../logic-apps/
 
 4. Vyberte **smlouvy** dlaždici. Pokud nemáte dlaždici smlouvy, přidejte nejprve dlaždici.
 
-    ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. V okně smlouvy, které se otevře, zvolte **přidat**.
 
-    ![Zvolte "Přidat"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+    ![Zvolte "Přidat"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. V části **přidat**, zadejte **název** pro vaše smlouvy. Pro **typ smlouvy**, vyberte **AS2**. Vyberte **hostitele partnera**, **identitu hostitele**, **hosta partnera**, a **hosta Identity** pro vaše smlouvy.
 
-    ![Zadejte podrobnosti o smlouvě](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![Zadejte podrobnosti o smlouvě](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
     | Vlastnost | Popis |
     | --- | --- |
-    | Name (Název) |Název smlouvy |
+    | Název |Název smlouvy |
     | Typ smlouvy | Musí být AS2 |
     | Hostitele partnera |Smlouvu musí hostitelské i hostované partnera. Partner hostitele představuje organizace, která nakonfiguruje smlouvu. |
     | Identitu hostitele |Identifikátor pro hostitele partnera |
@@ -82,7 +82,7 @@ Teď, když jste nastavili vlastnosti smlouvy, můžete nakonfigurovat, jak tato
 1.  V části **přidat**, vyberte **přijímat nastavení**.
 Konfigurujte tyto vlastnosti závislosti na vaší smlouvě se partnera, výměny zpráv s vámi. Popisy vlastností najdete v tabulce v této části.
 
-    ![Konfigurace "Obdrží nastavení"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+    ![Konfigurace "Obdrží nastavení"](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. Volitelně můžete přepsat vlastnosti příchozí zprávy výběrem **přepsat vlastnosti zprávy**.
 
@@ -105,15 +105,15 @@ Nyní je připraven pro zpracování příchozích zpráv, které v souladu s v�
 | Vlastnost | Popis |
 | --- | --- |
 | Přepsání vlastností zpráv |Označuje, že je možné přepsat vlastnosti v přijatých zpráv. |
-| Zprávu je nutné podepsat. |Vyžaduje zpráv, které mají být digitálně podepsané. Nakonfigurujte hosta partnera veřejný certifikát pro ověření podpisu.  |
-| Zprávu je nutné zašifrovat. |Vyžaduje šifrování zprávy. Bez šifrované zprávy budou odmítnuty. Nakonfigurujte privátní certifikát hostitele partnera pro dešifrování zprávy.  |
-| Zprávu je nutné zkomprimovat. |Vyžaduje zpráv, které mají být komprimovány. Non komprimovanou zprávy budou odmítnuty. |
+| Zpráva by měla být podepsána. |Vyžaduje zpráv, které mají být digitálně podepsané. Nakonfigurujte hosta partnera veřejný certifikát pro ověření podpisu.  |
+| Zpráva by šifrovat. |Vyžaduje šifrování zprávy. Bez šifrované zprávy budou odmítnuty. Nakonfigurujte privátní certifikát hostitele partnera pro dešifrování zprávy.  |
+| Zpráva by měla být komprimované |Vyžaduje zpráv, které mají být komprimovány. Non komprimovanou zprávy budou odmítnuty. |
 | MDN Text |Výchozí zprávu dispozice oznámení (MDN) k odeslání do odesílatele zprávy. |
 | Odeslat MDN |Vyžaduje MDNs k odeslání. |
 | Odeslat podepsaný MDN |Vyžaduje MDNs k podepsání. |
 | Algoritmus povinná kontrola úrovně Důvěryhodnosti |Vyberte algoritmus použitý k podepisování zpráv. |
 | Odesílat asynchronní MDN | Vyžaduje asynchronně odesílání zpráv. |
-| ADRESA URL | Zadejte adresu URL, kam má posílat MDNs. |
+| Adresa URL | Zadejte adresu URL, kam má posílat MDNs. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Nakonfigurujte, jak vaše smlouvy odešle zprávy
 
@@ -122,7 +122,7 @@ Můžete nakonfigurovat, jak tato smlouva identifikuje a zpracovává odchozích
 1.  V části **přidat**, vyberte **odeslat nastavení**.
 Konfigurujte tyto vlastnosti závislosti na vaší smlouvě se partnera, výměny zpráv s vámi. Popisy vlastností najdete v tabulce v této části.
 
-    ![Nastavit vlastnosti "Odeslat nastavení"](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
+    ![Nastavit vlastnosti "Odeslat nastavení"](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. Chcete-li odeslat podepsaný zprávy do svého partnera, vyberte **povolit podepisování zpráv**. K podepisování zpráv, v **povinná kontrola úrovně Důvěryhodnosti algoritmus** seznamu, vyberte *privátní certifikát hostitele partnera povinná kontrola úrovně Důvěryhodnosti algoritmus*. A v **certifikát** vyberte existující [privátní certifikát hostitele partnera](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
@@ -160,7 +160,7 @@ Nyní je připraven pro zpracování odchozích zpráv, které v souladu s vámi
 | Žádost o MDN |Vyžaduje MDN pro všechny zprávy odeslané z této smlouvy. |
 | Žádost o podepsané MDN |Vyžaduje všechny MDNs, které se odesílají do této smlouvy k podepsání. |
 | Asynchronní MDN požadavku |Vyžaduje asynchronní MDNs k odeslání do této smlouvy. |
-| ADRESA URL |Zadejte adresu URL, kam má posílat MDNs. |
+| Adresa URL |Zadejte adresu URL, kam má posílat MDNs. |
 | Povolit NRR |Vyžaduje neodvolatelnost příjmu (NRR), komunikace atribut, který poskytuje důkaz, tato data byla přijata, jak je řešit. |
 | Algoritmus SHA2 formátu |Vyberte formát algoritmus pro použití v povinná kontrola úrovně Důvěryhodnosti nebo podepisování v hlavičkách odchozí MDN nebo AS2 zpráv |
 
@@ -172,7 +172,7 @@ Nyní je připraven pro zpracování odchozích zpráv, které v souladu s vámi
 
 2.  Můžete také zobrazit vaše smlouvy v váš účet Přehled integrace. V okně účtu vaší integrace, zvolte **přehled**, vyberte **smlouvy** dlaždici. 
 
-    ![Vyberte že dlaždici "Smlouvy" Chcete-li zobrazit všechny smlouvy](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+    ![Vyberte že dlaždici "Smlouvy" Chcete-li zobrazit všechny smlouvy](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Zobrazení swagger
 Najdete v článku [swagger podrobnosti](/connectors/as2/). 

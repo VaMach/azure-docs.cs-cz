@@ -1,12 +1,11 @@
 ---
-title: "Nejčastější dotazy (FAQ) – Azure AD B2C | Microsoft Docs"
-description: "Časté otázky k Azure Active Directory B2C"
+title: "Nejčastější dotazy – Azure Active Directory B2C"
+description: "Časté otázky (FAQ) k Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
+author: PatAltimore
 manager: mtillman
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Nejčastější dotazy (FAQ) 
 Tato stránka odpovědi časté otázky o Azure Active Directory (Azure AD) B2C. Kontrolovat zpět aktualizací.
@@ -64,9 +63,9 @@ Můžete použít [firemního brandingu funkce](../active-directory/customize-br
 
     ![Snímek obrazovky vlastní ověřovací e-mail](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-Podpis e-mailu obsahuje název klienta B2C, který jste zadali při prvním vytvoření klienta B2C. Můžete změnit název podle těchto pokynů:
+Podpis e-mailu obsahuje název klienta Azure AD B2C, který jste zadali při prvním vytvoření klienta Azure AD B2C. Můžete změnit název podle těchto pokynů:
 
-1. Přihlaste se k [portál Azure](https://portal.azure.com/) jako správce předplatného.
+1. Přihlaste se k [portál Azure](https://portal.azure.com/) jako globální správce.
 1. Otevřete **Azure Active Directory** okno.
 1. Klikněte **vlastnosti** kartě.
 1. Změna **název** pole.
@@ -113,15 +112,15 @@ Použijte následující postup odstranění vašeho klienta Azure AD B2C:
 
 1. Postupujte podle těchto kroků [přejděte do nastavení Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) na portálu Azure.
 1. Přejděte na **aplikace**, **zprostředkovatelů Identity**, a **všechny zásady** a odstraňte všechny položky v každé z nich.
-1. Nyní se přihlásit k [portál Azure classic](https://manage.windowsazure.com/) jako správce předplatného. (Použijte stejný pracovní nebo školní účet nebo stejný účet Microsoft, který jste použili při registraci k Azure.)
-1. Přejděte na rozšíření Active Directory na levé straně a klikněte na svého klienta B2C.
-1. Klikněte **uživatelé** kartě.
-1. Vyberte každého uživatele v zapnout (vyloučení, který jste přihlášeni jako správce předplatného uživatele). Klikněte na tlačítko **odstranit** v dolní části stránky a klikněte na tlačítko **Ano** po zobrazení výzvy.
-1. Klikněte **aplikace** kartě.
-1. Vyberte **aplikace Moje společnost vlastní** v **zobrazit** pole rozevíracího seznamu a klikněte na označit kontroly.
-1. Volá se aplikace **aplikace b2c rozšíření**. Klikněte na tlačítko **odstranit** v dolní části stránky a klikněte na tlačítko **Ano** po zobrazení výzvy.
-1. Znovu přejděte do rozšíření Active Directory a vyberte svého klienta B2C.
-1. Klikněte na tlačítko **odstranit** v dolní části stránky. Dokončete proces, postupujte podle pokynů na obrazovce.
+1. Nyní se přihlásit k [portál Azure](https://portal.azure.com/) jako správce předplatného. (Použijte stejný pracovní nebo školní účet nebo stejný účet Microsoft, který jste použili při registraci k Azure.)
+1. Přepínač klienta Azure AD B2C chcete odstranit.
+2. Přejděte do nabídky služby Active Directory na levé straně.
+3. Vyberte **uživatelů a skupin**.
+4. Vyberte každého uživatele v zapnout (vyloučení, který jste přihlášeni jako správce předplatného uživatele). Klikněte na tlačítko **odstranit** v dolní části stránky a klikněte na tlačítko **Ano** po zobrazení výzvy.
+5. Klikněte **registrace aplikace**.
+6. Vyberte aplikaci s názvem **aplikace b2c rozšíření**. Klikněte na tlačítko **odstranit** a klikněte na tlačítko **Ano** po zobrazení výzvy.
+7. Vyberte **přehled**.
+8. Klikněte na tlačítko **odstranění adresáře**. Dokončete proces, postupujte podle pokynů na obrazovce.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Můžete získat Azure AD B2C jako součást sady Enterprise Mobility Suite?
 Ne, Azure AD B2C je průběžnými platbami služby Azure a není součástí sady Enterprise Mobility Suite.

@@ -1,24 +1,16 @@
 ---
-title: "Zkontrolujte architekturu pro fyzický server replikaci do Azure | Microsoft Docs"
+title: "Fyzický server do architektury Azure replikace v Azure Site Recovery | Microsoft Docs"
 description: "Tento článek obsahuje přehled součásti a architektura používá při replikace místní fyzických serverů do Azure se službou Azure Site Recovery"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: aac3450e-dfac-4e20-b377-1a6cd39d04ca
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Fyzický server do architektury Azure replikace
 
@@ -63,22 +55,18 @@ Následující obrázek a tabulka poskytují souhrnné zobrazení komponenty pou
 Po nastavení replikace a spustíte postupu zotavení po havárii (převzetí služeb při selhání), a zkontrolovat, zda že vše funguje podle očekávání, můžete spustit převzetí služeb při selhání a navrácení služeb po obnovení je potřeba pro. Poznámky:
 
 - Plánované převzetí služeb není podporované.
-- Musí selhat, vrátit na VMware místní počítač. To znamená, že potřebujete místní infrastrukturu VMware, i když místní fyzické servery replikujete do Azure.
-
-
-1. Selhání v jednom počítači, nebo vytvořit plány obnovení, pro převzetí služeb při selhání více počítačů současně.
-2. Při spuštění převzetí služeb při selhání se virtuální počítače Azure vytvořené z replikovaná data v úložišti Azure.
-3. Po spuštění počáteční převzetí služeb při selhání, můžete provést tak, aby přístup k zatížení z virtuálního počítače Azure.
-
-Až bude vaše místní lokalita opět dostupná, můžete službu navrátit.
-
-1. Budete muset nastavit infrastrukturu navrácení služeb po obnovení, včetně:
+- Musí selhat, vrátit na VMware místní počítač. To znamená, že potřebujete místní infrastruktury VMware, i v případě, že replikace místní fyzických serverů do Azure.
+- Selhání v jednom počítači, nebo vytvořit plány obnovení, pro převzetí služeb při selhání více počítačů současně.
+- Při spuštění převzetí služeb při selhání se virtuální počítače Azure vytvořené z replikovaná data v úložišti Azure.
+- Po spuštění počáteční převzetí služeb při selhání, můžete provést tak, aby přístup k zatížení z virtuálního počítače Azure.
+- Až bude vaše místní lokalita opět dostupná, můžete službu navrátit.
+- Budete muset nastavit infrastrukturu navrácení služeb po obnovení, včetně:
     - **Dočasný procesní server v Azure**: při selhání zpátky do Azure, musíte nastavit virtuální počítač Azure tak, aby fungoval jako server proces pro zpracování replikace z Azure. Tento virtuální počítač je možné po navrácení služeb po obnovení odstranit.
     - **Připojení k síti VPN**: pro navrácení služeb po obnovení, musíte připojení VPN (nebo Azure ExpressRoute) ze sítě Azure k místní lokalitě.
     - **Samostatné hlavní cílový server**: ve výchozím nastavení, hlavní cílový server, který byl nainstalován pomocí konfigurační server, na místní VMware virtuálních počítačů, zpracovává navrácení služeb po obnovení. Ale pokud budete potřebovat nezdaří zpět velké objemy přenosů, měli byste nastavit samostatný místní hlavní cílový server pro tento účel.
     - **Zásady navrácení služeb po obnovení:** Pro zpětnou replikaci do vaší místní lokality budete potřebovat zásady navrácení služeb. Byl automaticky vytvořen při vytváření zásady vaší replikace z místního do Azure.
     - **Infrastruktury VMware**: pro navrácení služeb po obnovení musíte infrastruktury VMware. Nelze navrátit služby po obnovení v případě fyzického serveru.
-2. Jakmile jsou součástí na místě, dojde k navrácení služeb po obnovení ve třech fázích:
+- Jakmile jsou součástí na místě, dojde k navrácení služeb po obnovení ve třech fázích:
     - Fáze 1: Nastavte znovu virtuální počítače Azure tak, aby se replikace z Azure zpátky na virtuální počítače VMware na místě.
     - Fáze 2: Spuštění převzetí služeb při selhání k místní lokalitě.
     - Fáze 3: Po úlohy se nezdařilo zpět, je-li znovu povolit replikaci.
@@ -90,5 +78,4 @@ Až bude vaše místní lokalita opět dostupná, můžete službu navrátit.
 
 ## <a name="next-steps"></a>Další kroky
 
-Podívat se na matici podpory postupujte podle kurzu povolit VMware do Azure replikace.
-Spusťte převzetí služeb při selhání a navrácení služeb po obnovení.
+Postupujte podle [v tomto kurzu](tutorial-physical-to-azure.md) k povolení fyzického serveru a Azure replikace.

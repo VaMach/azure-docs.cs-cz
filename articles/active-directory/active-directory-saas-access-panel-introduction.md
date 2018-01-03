@@ -1,5 +1,5 @@
 ---
-title: "Co je na přístupovém panelu v Azure Active Directory? | Dokumentace Microsoftu"
+title: "Co je na přístupovém panelu v Azure Active Directory? | Dokumenty Microsoft"
 description: "Další informace o použití variace přístupový panel (webový prohlížeč, aplikace pro Android, aplikace iPhone a iPad) pro přístup k aplikacím SaaS."
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d40f67c354e29f3a58c9d0f1967e0154b5b998d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-is-the-access-panel"></a>Co je na přístupovém panelu?
 
@@ -62,7 +62,7 @@ Budete muset distribuovat adresu URL pro všechny uživatele, kteří se přihla
 
 Pokud chcete dostat na přístupovém panelu, musíte být ověřeni přes pracovní nebo školní účet ve službě Azure AD. Vám mohou být ověřeni pro Azure AD přímo. Případně pokud organizace nakonfiguroval federace pomocí služby Active Directory Federation Services (AD FS) nebo jiných technologií, vám může být ověřen pomocí Windows Server Active Directory.
 
-Pokud máte předplatné Azure nebo Office 365 a používáte portál Azure nebo aplikace Office 365, zobrazí se seznam aplikací bez přihlášení znovu. Pokud jste nejsou ověřené. zobrazí se výzva k přihlášení pomocí uživatelského jména a hesla pro váš účet ve službě Azure AD. Pokud vaše organizace má nakonfigurovali federaci, zadejte uživatelské jméno je dostačující.
+Pokud máte předplatné Azure nebo Office 365 a používáte portál Azure nebo aplikace Office 365, zobrazí se seznam aplikací bez přihlášení znovu. Pokud nejsou ověřené. zobrazí se výzva k přihlášení pomocí uživatelského jména a hesla pro váš účet ve službě Azure AD. Pokud vaše organizace má nakonfigurovali federaci, zadejte uživatelské jméno je dostačující.
 
 Pokud jste se ověřili, můžete pracovat s aplikacemi, které správce má integrované s adresářem. Informace o integraci aplikací s Azure AD najdete v tématu [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 

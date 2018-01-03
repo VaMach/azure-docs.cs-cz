@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f9dabe2644553ab1f4ed02ae026c7dbf1a0db264
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="durable-functions-overview-preview"></a>Trvanlivý přehled funkcí (preview)
 
@@ -235,7 +235,7 @@ Na pozadí rozšíření trvanlivý funkce je postavený na [trvanlivý Framewor
 
 Funkce Orchestrator spolehlivě zachovat jejich stavu spuštění pomocí vzoru návrhu cloudu známé jako [Sourcing událostí](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Místo ukládání přímo *aktuální* stav orchestration, trvanlivý rozšíření používá k zaznamenání úložišti připojovacím *úplné sérii akcí* provedenou funkce orchestration. To má mnoho výhod, jako třeba vylepšení výkonu, škálovatelnosti a odezvy ve srovnání s "vypsání" stav úplné modulu runtime. Mezi další výhody patří konzistence typu případné poskytuje pro transakční data a údržbu úplných a historie. Záznamy auditu, sami povolení spolehlivé zušlechtěných akcí.
 
-Použití událostí Sourcing toto rozšíření je transparentní. V pozadí `await` operátor v funkci orchestrator vypočítá kontrolu nad vlákno orchestrator zpět do dispečera trvanlivý Framework úloh. Dispečer pak potvrdí všechny nové akce, které funkce orchestrator naplánované (například volání funkcí jeden nebo více podřízených nebo plánování trvanlivý časovač) do úložiště. Tato akce transparentní potvrzení připojí k *historie provádění* instance orchestration. V historii jsou uloženy v odolné úložiště. Akce zápisu pak přidá zprávy do fronty při plánování samotnou práci. V tomto okamžiku funkce orchestrator může být uvolněn z paměti. Fakturace pro něj zastaví, pokud používáte plánování využívání funkce Azure.  Pokud existuje další práci udělat, je funkce restartování a její stav je znovu vytvořena.
+Použití událostí Sourcing toto rozšíření je transparentní. V pozadí `await` operátor v funkci orchestrator vypočítá kontrolu nad vlákno orchestrator zpět do dispečera trvanlivý Framework úloh. Dispečer pak potvrdí všechny nové akce, které funkce orchestrator naplánované (například volání funkcí jeden nebo více podřízených nebo plánování trvanlivý časovač) do úložiště. Tato akce transparentní potvrzení připojí k *historie provádění* instance orchestration. Historie je uložena v tabulce úložiště. Akce zápisu pak přidá zprávy do fronty při plánování samotnou práci. V tomto okamžiku funkce orchestrator může být uvolněn z paměti. Fakturace pro něj zastaví, pokud používáte plánování využívání funkce Azure.  Pokud existuje další práci udělat, je funkce restartování a její stav je znovu vytvořena.
 
 Jakmile funkce orchestration je zadána více práce uděláte (například je přijatá zpráva odpovědi nebo trvanlivý vyprší), orchestrator probudí se znovu a aby bylo možné znovu sestavit místní stav znovu spustí celý funkce od začátku. Pokud během tohoto opětovného přehrání kód pokusí volat funkci (nebo provést jiné asynchronní pracovní), rozhraní trvanlivý úloh zajímají s *historie provádění* aktuální Orchestrace. Pokud zjistí, že už provedena funkce aktivitu a poskytuje některé výsledek, replays výsledku této funkce a kód orchestrator běžet dál. Tento stav bude trvat děje, dokud funkce kód získá do bodu, kde buď dokončení nebo má naplánovanou práci nový asynchronní.
 
@@ -247,9 +247,9 @@ Chování opětovného přehrání vytvoří omezení na typu kód, který můž
 
 C# se v současné době pouze podporovaných jazycích pro odolná funkce. To zahrnuje orchestrator funkce a funkce aktivity. V budoucnu přidáme podpora pro všechny jazyky, které podporuje Azure Functions. Azure Functions najdete v části [seznam problémů úložiště GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) chcete zobrazit nejnovější stav naše další jazyková podpora práce.
 
-## <a name="monitoring-and-diagnostics"></a>Monitorování a Diagnostika
+## <a name="monitoring-and-diagnostics"></a>Monitorování a diagnostika
 
-Trvanlivý funkce rozšíření automaticky vysílá sledování strukturovaných dat [Application Insights](functions-monitoring.md) když je funkce aplikace nakonfigurovaná s klíčem Application Insights. Tato data sledování můžete použít ke sledování chování a průběh vaší orchestrations.
+Trvanlivý funkce rozšíření automaticky vysílá sledování strukturovaných dat [Application Insights](functions-monitoring.md) když je funkce aplikace nakonfigurovaná s klíčem instrumentace Application Insights. Tato data sledování můžete použít ke sledování chování a průběh vaší orchestrations.
 
 Tady je příklad vzhled trvanlivý funkce sledování událostí v portálu Application Insights pomocí [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 

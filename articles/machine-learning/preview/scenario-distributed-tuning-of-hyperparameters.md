@@ -4,15 +4,17 @@ description: "Tento scénář popisuje, jak to provést, distribuované ladění
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuované ladění z hyperparameters pomocí Azure Machine Learning Workbench
 
@@ -26,7 +28,7 @@ Toto je odkaz na veřejné úložiště GitHub:
 ## <a name="use-case-overview"></a>Přehled případu použití
 
 Mnoho algoritmy strojového učení mít jeden nebo více knoflíky, názvem hyperparameters. Tyto knoflíky povolit ladění algoritmů k optimalizaci výkonu přes budoucí data, měří podle metriky definované uživatelem (například přesnost AUC, RMSE). Data vědecký pracovník musí zajistit hodnoty hyperparameters při sestavování model přes Cvičná data a před zobrazuje budoucí testovacích datech. Jak podle může data známé školení jsme nastavit hodnoty hyperparameters, aby model má dobrý výkon přes neznámé testovací data? 
-
+    
 Oblíbené technika pro ladění hyperparameters je *mřížky vyhledávání* v kombinaci s *křížové ověření*. Křížového ověření je technika, který vyhodnocuje, jak dobře model trénink na sadu školení předpovídá přes testovací sada. Touto technikou jsme nejprve rozdělení datovou sadu na tisíc složení a pak cvičení časy tisíc algoritmus v kruhového dotazování. Provedeme to na všech ale jeden z složení nazývá "násobek uchovávat out". Průměrná hodnota metriky modelů tisíc jsme výpočetním přes složení tisíc uchovávat na více systémů. Tato průměrná hodnota volána *odhad výkonu ověřit mezi*, závisí na hodnotách hyperparameters použít při vytváření modelů kB. Při ladění hyperparameters, budeme prohledávat prostor candidate hyperparameter hodnoty a zjistit, že ty, které optimalizace výkonu křížové ověření odhad. Hledání mřížky je běžné technika vyhledávání. V mřížce hledání je místo hodnoty candidate více hyperparameters smíšený produkt sady candidate hodnoty jednotlivých hyperparameters. 
 
 Mřížky vyhledávání pomocí křížového ověření může být časově náročná. Pokud algoritmus má pět hyperparameters každý s pěti hodnot candidate, použijeme složení tisíc = 5. Jsme dokončete vyhledávání mřížky podle cvičení 5<sup>6</sup>= 15625 modelů. Naštěstí mřížky vyhledávání pomocí křížového ověření je jednoduše paralelně zpracovatelné postupu a všechny tyto modely můžete Trénink paralelně.
@@ -37,13 +39,15 @@ Mřížky vyhledávání pomocí křížového ověření může být časově n
 * Nainstalovaná kopie produktu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) následující [instalace a vytvoření rychlý Start](./quickstart-installation.md) k instalaci nástroje Workbench a vytvořte účty.
 * Tento scénář předpokládá, že jsou spuštěny Azure ML Workbench na Windows 10 nebo systému MacOS s modulu Docker místně nainstalován. 
 * Pokud chcete spustit tento scénář s vzdálené kontejner Docker, zřídit Ubuntu datové vědy virtuálního počítače (DSVM) podle následujících [pokyny](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Doporučujeme použít virtuální počítač s minimálně 8 jader a 28 Gb paměti. D4 instance virtuálních počítačů mají takové kapacity. 
-* Pokud chcete spustit tento scénář s clusterem Spark, zřídit cluster Azure HDInsight pomocí následujících tyto [pokyny](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Doporučujeme vám, že má cluster s nejméně 
-- šesti uzlů pracovního procesu
-- osm jader
-- 28 Gb paměti v záhlaví a pracovní uzly. D4 instance virtuálních počítačů mají takové kapacity. Doporučujeme, abyste změna následující parametry, které chcete maximalizovat výkon clusteru.
-- Spark.executor.Instances
-- Spark.executor.cores
-- Spark.executor.Memory 
+* Pokud chcete spustit tento scénář s clusterem Spark, zřídit cluster Azure HDInsight pomocí následujících tyto [pokyny](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+Doporučujeme mít cluster s alespoň:
+    - šesti uzlů pracovního procesu
+    - osm jader
+    - 28 Gb paměti v záhlaví a pracovní uzly. D4 instance virtuálních počítačů mají takové kapacity.       
+    - Doporučujeme změnit následující parametry, které chcete maximalizovat výkon clusteru:
+        - Spark.executor.Instances
+        - Spark.executor.cores
+        - Spark.executor.Memory 
 
 Můžete postupovat podle těchto [pokyny](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) a upravovat definice v části "vlastní spark je výchozí".
 
@@ -290,7 +294,7 @@ Potom jsme nahradit
 
     from sklearn.model_selection import GridSearchCV
 
-S 
+with 
 
     from spark_sklearn import GridSearchCV
 

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Vytvoření Azure portálu uživatelského rozhraní pro spravované aplikace
 Tento dokument uvádí základní koncepty createUiDefinition.json souboru. Portál Azure tento soubor používá ke generování uživatelského rozhraní pro vytváření spravované aplikace.
@@ -38,7 +38,7 @@ Tento dokument uvádí základní koncepty createUiDefinition.json souboru. Port
 CreateUiDefinition vždy obsahuje tři vlastnosti: 
 
 * obslužné rutiny
-* Verze
+* verze
 * parameters
 
 Pro spravované aplikace, musí být vždy obslužná rutina `Microsoft.Compute.MultiVm`, a nejnovější podporovaná verze je `0.1.2-preview`.
@@ -58,6 +58,18 @@ Vlastnost kroky může obsahovat nula nebo více další kroky k zobrazení po z
 ## <a name="outputs"></a>Výstupy
 Používá portál Azure `outputs` vlastnost pro mapování elementů od `basics` a `steps` na parametry šablony nasazení Azure Resource Manager. Názvy parametrů šablony jsou klíče tohoto slovníku a hodnoty jsou vlastnosti objektů výstup z odkazované elementy.
 
+Pokud chcete nastavit název prostředku spravované aplikace, musí obsahovat hodnotu s názvem `applicationResourceName` ve vlastnosti výstupy. Pokud tuto hodnotu nenastavíte, aplikace přiřadí identifikátor GUID pro název. Můžete zahrnout do textového pole v uživatelském rozhraní, který vyžaduje název od uživatele.
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
+
 ## <a name="functions"></a>Funkce
 Podobně jako funkce šablon v Azure Resource Manager (jak v syntaxi a funkce), CreateUiDefinition poskytuje funkce pro práci s prvky vstupy a výstupy, a také funkce, jako je podmíněné příkazy.
 
@@ -67,6 +79,6 @@ Samotný soubor createUiDefinition.json má jednoduché schéma. Skutečné hlou
 - [Elementy](create-uidefinition-elements.md)
 - [Functions](create-uidefinition-functions.md)
 
-Zde jsou k dispozici aktuální schéma JSON pro createUiDefinition: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
+Zde jsou k dispozici aktuální schéma JSON pro createUiDefinition: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Novější verze bude k dispozici ve stejném umístění. Nahraďte `0.1.2-preview` část adresy URL a `version` hodnotu s identifikátor verze, který chcete použít. Identifikátory aktuálně podporované verze jsou `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, a `0.1.2-preview`.
+Příklad uživatelské rozhraní souboru, najdete v části [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

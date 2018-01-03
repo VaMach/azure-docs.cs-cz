@@ -3,8 +3,8 @@ title: "Konektor obecné SQL | Microsoft Docs"
 description: "Tento článek popisuje postup při konfiguraci konektoru SQL obecné společnosti Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: mtillman
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Technické informace o obecné konektor SQL
 Tento článek popisuje obecný konektor SQL. Se článek vztahuje následující produkty:
@@ -231,7 +231,11 @@ Obecné konektor SQL podporu úplné a rozdílový Import pomocí těchto metod:
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Tabulka/zobrazení**  
-K importu více hodnot atributů pro objekt, je nutné zadat název tabulky či zobrazení textový soubor s oddělovači v **název vícehodnotových tabulky nebo zobrazení** a podmínky pro příslušné připojení v **podmínka spojení** s nadřazenou tabulkou.
+K importu více hodnot atributů pro objekt, je nutné zadat název tabulky či zobrazení v **název vícehodnotových tabulky nebo zobrazení** a podmínky pro příslušné připojení v **podmínka spojení** s nadřazenou tabulkou . Pokud existuje více než jedné více hodnot tabulky ve zdroji dat, můžete použít sjednocení pro jedno zobrazení.
+
+>[!IMPORTANT]
+Agent pro správu obecné SQL můžete pracovat pouze s více hodnotami jedna tabulka. Nevkládejte do název více hodnot tabulky nebo zobrazení více než jeden název tabulky. Je omezení obecné SQL.
+
 
 Příklad: Chcete importovat objekt zaměstnanců a všech jeho více hodnot atributů. Existují dvě tabulky, s názvem zaměstnanec (hlavní tabulka) a oddělení (více hodnot).
 Udělejte toto:

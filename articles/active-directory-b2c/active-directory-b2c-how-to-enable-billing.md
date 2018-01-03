@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: d6b25d6b9a0d5b3bcf613046a82a9c6c99475d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Propojování předplatné Azure klienta Azure AD B2C
 
@@ -58,7 +58,7 @@ Na obrazovce vytváření prostředků vyberte **odkaz existující Azure AD B2C
 
 ## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Vytvořit prostředek služby Azure AD B2C v rámci předplatného Azure
 
-V dialogovém okně vytváření prostředků vyberte z rozevíracího seznamu tenanta Azure AD B2C. Zobrazí se všechny klienty, kteří jsou globální správce a ty, které již nejsou připojeny k odběru.
+V dialogovém okně vytváření prostředků vyberte z rozevíracího seznamu klienta Azure AD B2C. Zobrazí se všechny klienty, kteří jsou globální správce a ty, které již nejsou připojeny k odběru.
 
 Název prostředku Azure AD B2C bude být předvoleno podle názvu domény klienta Azure AD B2C.
 
@@ -68,9 +68,9 @@ Vyberte skupinu prostředků a umístění skupiny prostředků. Výběr zde nem
 
 ![Vytvořte prostředek B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Spravovat prostředky tenanta Azure AD B2C
+## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Spravovat prostředky klienta Azure AD B2C
 
-Po úspěšném vytvoření prostředek služby Azure AD B2C v rámci předplatného Azure, měli byste vidět nový prostředek typu "B2C tenanta" přidat spolu s vašich prostředků Azure.
+Po úspěšném vytvoření prostředek služby Azure AD B2C v rámci předplatného Azure, měli byste vidět nový prostředek typu "Klienta B2C" přidat spolu s vašich prostředků Azure.
 
 Můžete použít tento prostředek na:
 

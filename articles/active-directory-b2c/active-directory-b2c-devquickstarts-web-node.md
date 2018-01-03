@@ -1,30 +1,29 @@
 ---
-title: "Přidání přihlašování do webové aplikace Node.js pro Azure B2C | Dokumentace Microsoftu"
-description: "Jak sestavit webovou aplikaci Node.js s přihlašováním uživatelů pomocí klienta B2C."
+title: "Přidání přihlášení do webové aplikace Node.js – Azure Active Directory B2C"
+description: "Jak vytvořit webovou aplikaci Node.js s přihlašováním uživatelů s Azure Active Directory B2C."
 services: active-directory-b2c
-documentationcenter: 
-author: dstrockis
+author: PatAltimore
 manager: mtillman
-editor: 
-ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
+editor: dstrockis
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.openlocfilehash: b306a79d0daa1c6d51557b6abad617182c76e9ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: HT
+ms.openlocfilehash: b4a5db7e6769d7ebb0bcf0287b3a1bfb7932984a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Přidání přihlašování do webové aplikace Node.js
 
-**Passport** je ověřovací middleware pro Node.js. Passport je velmi flexibilní a modulární a lze ho snadno nainstalovat v jakékoli webové aplikaci využívající Express nebo Restify. Komplexní sada strategií podporuje ověřování pomocí uživatelského jména a hesla, Facebooku, Twitteru a dalších.
+**Passport** je ověřovací middleware pro Node.js. Passport je flexibilní a modulární a lze ho snadno nainstalovat v jakékoli webové aplikaci využívající Express nebo Restify. Komplexní sada strategií podporuje ověřování pomocí uživatelského jména a hesla, Facebooku, Twitteru a dalších.
 
-Vyvinuli jsme strategii pro Azure Active Directory (Azure AD). Nainstalujete tento modul a poté přidáte modul plug-in Azure AD `passport-azure-ad`.
+Pro Azure Active Directory (Azure AD), nainstalujete tento modul a poté přidejte Azure AD `passport-azure-ad` modulu plug-in.
 
 Budete muset:
 
@@ -51,8 +50,6 @@ Dále musíte vytvořit aplikaci v adresáři B2C. Azure AD díky tomu získá i
 - Jste do pole **Adresa URL odpovědi** vyplnili `http://localhost:3000/auth/openid/return`. To je výchozí URL pro tento příklad.
 - Vytvořte pro aplikaci **tajný klíč aplikace** a poznamenejte si ho. Budete ho potřebovat později. Před tím, než tuto hodnotu použijete, musí být [uvozena v XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 - Poznamenejte si **ID aplikace** přiřazené vaší aplikaci. To také budete potřebovat později.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Vytvořte svoje zásady
 
@@ -104,7 +101,7 @@ V kořenovém adresáři projektu otevřete soubor `config.js` a v oddílu `expo
 Otevřete soubor `app.js` umístěný v kořenovém adresáři projektu. Přidejte následující volání pro vyvolání strategie `OIDCStrategy`, která přichází s `passport-azure-ad`.
 
 
-```JavaScript
+```javascript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
@@ -115,7 +112,7 @@ var log = bunyan.createLogger({
 
 Použijte právě přidanou strategii pro zpracování požadavků na přihlášení.
 
-```JavaScript
+```javascript
 // Use the OIDCStrategy in Passport (Section 2).
 //
 //   Strategies in Passport require a "validate" function that accepts
@@ -158,7 +155,7 @@ Předchozí kód přijme všechny uživatele, ověřené serverem. To je automat
 
 Přidejte metody, které vám umožní sledovat přihlášené uživatele, jak vyžaduje Passport. To zahrnuje serializaci a deserializaci informací o uživateli:
 
-```JavaScript
+```javascript
 
 // Passport session setup. (Section 2)
 
@@ -194,7 +191,7 @@ var findByEmail = function(email, fn) {
 
 Přidejte kód pro načtení modulu Express. V následujícím příkladu vidíte, že používáme výchozí `/views` a vzor `/routes` poskytované modulem Express.
 
-```JavaScript
+```javascript
 
 // configure Express (Section 2)
 
@@ -221,7 +218,7 @@ app.configure(function() {
 
 Přidání tras `POST`, které přebírají vlastní požadavky na přihlášení do modulu `passport-azure-ad`:
 
-```JavaScript
+```javascript
 
 // Our Auth routes (Section 3)
 
@@ -271,7 +268,7 @@ Vaše aplikace je nyní správně nastavená pro komunikaci s koncovým bodem v2
 
 Nejprve do souboru `app.js` přidejte metody výchozí, přihlášení, účet a odhlášení:
 
-```JavaScript
+```javascript
 
 //Routes (Section 4)
 
@@ -306,7 +303,7 @@ Chcete-li si tyto metody prohlédnout podrobně:
 
 V poslední části `app.js` přidejte metodu `EnsureAuthenticated`, která je použitá v trase `/account`.
 
-```JavaScript
+```javascript
 
 // Simple route middleware to ensure that the user is authenticated. (Section 4)
 
@@ -323,7 +320,7 @@ function ensureAuthenticated(req, res, next) {
 
 Nakonec v `app.js` vytvořte samotný server.
 
-```JavaScript
+```javascript
 
 app.listen(3000);
 
@@ -336,7 +333,7 @@ Vaše `app.js` je nyní hotová. Potřebujete pouze přidat trasy a zobrazení, 
 
 V kořenovém adresáři vytvořte trasu `/routes/index.js`.
 
-```JavaScript
+```javascript
 
 /*
  * GET home page.
@@ -349,7 +346,7 @@ exports.index = function(req, res){
 
 V kořenovém adresáři vytvořte trasu `/routes/user.js`.
 
-```JavaScript
+```javascript
 
 /*
  * GET users listing.
@@ -364,7 +361,7 @@ Tyto jednoduché trasy předávají požadavky zobrazením. Obsahují i uživate
 
 V kořenovém adresáři vytvořte zobrazení `/views/index.ejs`. Toto je jednoduchá stránka, která volá zásady pro přihlášení a odhlášení. Můžete ji také použít ke sběru informací o účtu. Všimněte si, že můžete využít podmínku `if (!user)` při předávání uživatele v požadavku pro prokázání, že je přihlášen.
 
-```JavaScript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login/?p=your facebook policy">Sign in with Facebook</a>
@@ -379,7 +376,7 @@ V kořenovém adresáři vytvořte zobrazení `/views/index.ejs`. Toto je jednod
 
 V kořenovém adresáři vytvořte zobrazení `/views/account.ejs` pro zobrazení dodatečných informací, které `passport-azure-ad` vložil do uživatelského požadavku.
 
-```Javascript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login">Sign in</a>

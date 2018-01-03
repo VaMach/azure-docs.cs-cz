@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 37fc6a737bd1cfb09caf69ea2c6d81ea0b7d8693
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 71abceb1afe315a09ea88b593f9806e9e8b31f16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Používání databází MySQL v zásobníku Microsoft Azure
 
@@ -264,6 +264,73 @@ Vytvořte plány a nabízí databází MySQL zpřístupnit pro klienty. Přidán
 Heslo můžete upravit tak, že první změníte na instanci serveru MySQL. Přejděte do **prostředky pro správu** &gt; **MySQL hostování servery** &gt; a klikněte na hostitelském serveru. V panelu nastavení klikněte na heslo.
 
 ![Aktualizovat heslo správce](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
+
+## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Aktualizace adaptéru pro zprostředkovatele prostředků MySQL (více uzly jen sestavení 1710 a novější)
+Při každé aktualizaci sestavení zásobník Azure, budou vydané nový adaptér zprostředkovatele prostředků MySQL. Zatímco existující adaptér může pokračovat v práci, se doporučuje aktualizovat na nejnovější verzi co nejdříve po aktualizaci zásobník Azure. Proces aktualizace je velmi podobný procesu instalace popsané výše. Vytvoří se nový virtuální počítač s nejnovější kód RP a nastavení se budou migrovat do této nové instance, včetně databáze a hostování informace o serveru, jakož i potřeby záznam DNS.
+
+Pomocí skriptu UpdateMySQLProvider.ps1 s stejné argumenty jako výše. Také je nutné zadat certifikát zde.
+
+> [!NOTE]
+> Aktualizace je podporována pouze v systémech s více uzly.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
+ ```
+
+### <a name="updatemysqlproviderps1-parameters"></a>Parametry UpdateMySQLProvider.ps1
+Tyto parametry můžete zadat na příkazovém řádku. Pokud ho použít nechcete, nebo jakékoli parametr ověření nezdaří, zobrazí se výzva k poskytování požadované těm, které jsou.
+
+| Název parametru | Popis | Komentář nebo výchozí hodnotu |
+| --- | --- | --- |
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu potřebné pro přístup k privilegované koncový bod. | _požadované_ |
+| **AzCredential** | Zadejte pověření pro účet správce služby Azure zásobníku. Pomocí stejných přihlašovacích údajů jako používat pro nasazování zásobník Azure). | _požadované_ |
+| **VMLocalCredential** | Zadejte pověření pro účet místního správce zprostředkovatele prostředků SQL virtuálních počítačů. | _požadované_ |
+| **PrivilegedEndpoint** | Zadejte IP adresu nebo název DNS Privleged koncového bodu. |  _požadované_ |
+| **DependencyFilesLocalPath** | Soubor PFX certifikátu musí být umístěny v tomto adresáři také. | _volitelné_ (_povinné_ pro více uzly) |
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát .pfx | _požadované_ |
+| **MaxRetryCount** | Definujte kolikrát chcete každou operaci opakovat, pokud dojde k chybě.| 2 |
+| **RetryDuration** | Definujte časový limit mezi opakovanými pokusy, v sekundách. | 120 |
+| **Odinstalace** | Odebrat zprostředkovatele prostředků a všechny přidružené prostředky (viz poznámky níže) | Ne |
+| **Režim DebugMode** | Brání automatické čištění při selhání | Ne |
+| **AcceptLicense** | Přeskočí řádku tak, aby přijímal GPL licence (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Odeberte adaptér zprostředkovatele prostředků MySQL
 

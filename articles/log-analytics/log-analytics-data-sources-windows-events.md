@@ -1,6 +1,6 @@
 ---
-title: "Shromažďovat a analyzovat protokoly událostí systému Windows v OMS Log Analytics | Microsoft Docs"
-description: "Protokoly událostí systému Windows jsou jedním z nejčastějších zdroje dat používané analýzy protokolů.  Tento článek popisuje postup konfigurace shromažďování protokolů událostí systému Windows a podrobnosti záznamů, které vytvoří v úložišti OMS."
+title: "Shromažďovat a analyzovat protokoly událostí systému Windows v Azure Log Analytics | Microsoft Docs"
+description: "Protokoly událostí systému Windows jsou jedním z nejčastějších zdroje dat používané analýzy protokolů.  Tento článek popisuje postup konfigurace shromažďování protokolů událostí systému Windows a podrobnosti záznamů, které vytvoří v pracovním prostoru analýzy protokolů."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Zdroje dat protokolu událostí systému Windows v analýzy protokolů
 Protokoly událostí systému Windows jsou jedním z většiny běžných [zdroje dat](log-analytics-data-sources.md) pro shromažďování dat pomocí agentů v systému Windows, vzhledem k tomu, že řada aplikací pro zápis do protokolu událostí systému Windows.  Kromě určení žádné vlastní protokoly, které jsou vytvořené pomocí aplikací, které potřebujete k monitorování může shromažďovat události z standardní protokoly, jako je například systém a aplikace.
