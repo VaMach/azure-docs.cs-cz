@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1fbfbbc79a415af5e874c304412854849e134eb7
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Automatické škálování škálování virtuálních počítačů, nastavit pomocí prostředí Azure PowerShell
 Když vytvoříte sadu škálování, definujete se počet instancí virtuálního počítače, které chcete spustit. Podle požadavků vaší aplikaci změní, můžete automaticky zvýšit nebo snížit počet instancí virtuálního počítače. Schopnost škálování umožňuje udržovat tempo s poptávku zákazníků nebo odpověď na změny výkonu aplikace v průběhu cyklu vaší aplikace.
@@ -28,7 +28,7 @@ Tento článek ukazuje, jak vytvořit pravidla škálování pomocí prostředí
 
 
 ## <a name="prerequisites"></a>Požadavky
-K vytvoření pravidla automatického škálování, budete potřebovat existujícího virtuálního počítače sady škálování. Můžete vytvořit s měřítkem [portál Azure](virtual-machine-scale-sets-portal-create.md), [prostředí Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell), nebo [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+K vytvoření pravidla automatického škálování, budete potřebovat existujícího virtuálního počítače sady škálování. Můžete vytvořit s měřítkem [portál Azure](virtual-machine-scale-sets-create-portal.md), [prostředí Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), nebo [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
 
 Aby bylo snazší pro vytvoření pravidel škálování, definujte některé proměnné pro škálovací sadu. V následujícím příkladu definuje proměnné s názvem sad škálování *myScaleSet* ve skupině prostředků s názvem *myResourceGroup* a v *východní USA* oblast. Vaše předplatné se získat ID s [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Pokud máte více předplatných, které jsou spojené s vaším účtem, vrátí se pouze první předplatné. Názvy a ID předplatného upravte takto:
 
@@ -49,13 +49,13 @@ Pro toto pravidlo se používají tyto parametry:
 
 | Parametr               | Vysvětlení                                                                                                         | Hodnota          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-| *-MetricName*           | Metrika výkonu ke sledování a škálování použít na nastavit akce.                                                   | Procento využití procesoru |
+| *-MetricName*           | Metrika výkonu ke sledování a škálování použít na nastavit akce.                                                   | Procento CPU |
 | *-Časovými úseky*            | Jak často metriky se shromažďují pro analýzu.                                                                   | 1 minuta       |
 | *-MetricStatistic*      | Definuje, jak by měla být agregován shromažďovat metriky pro analýzu.                                                | Průměr        |
 | *-Hodnota TimeWindow*           | Množství času, které jsou monitorovány před porovnání hodnot metriky a prahová hodnota.                                   | 10 minut      |
 | *-– Operátor*             | Operátor použit k porovnání metriky data před prahovou hodnotu.                                                     | Větší než   |
 | *-Prahová hodnota*            | Hodnota, která způsobí, že pravidlo škálování akci aktivovat.                                                      | 70%            |
-| *-ScaleActionDirection* | Určuje, zda byly sadou škálování by měl škálovat nahoru nebo dolů, když se pravidlo vztahuje.                                             | Zvýšení       |
+| *-ScaleActionDirection* | Určuje, zda byly sadou škálování by měl škálovat nahoru nebo dolů, když se pravidlo vztahuje.                                             | Zvětšit       |
 | *– ScaleActionScaleType* | Označuje, že se počet instancí virtuálního počítače by měli měnit procentuální hodnota.                                 | Procentuální změnu |
 | *-ScaleActionValue*     | Procento instancí virtuálních počítačů by mělo být změněno, když se pravidlo spustí.                                            | 20             |
 | *-ScaleActionCooldown*  | Množství času, který se má čekat před pravidlo se použije znovu tak, aby akce škálování čas vstoupily v platnost. | 5 minut      |
@@ -139,7 +139,7 @@ V předchozích příkladech automaticky škálovat škálování nastavit pří
 K vytvoření pravidel škálování podle plánu, nikoli hostitele metriky, použijte portál Azure. Pravidla na základě plánu aktuálně nejde vytvořit v prostředí Azure PowerShell.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste zjistili, jak používat automatické škálování pravidla můžete škálovat horizontálně a zvýšit nebo snížit *číslo* instance virtuálních počítačů ve vaší škálování nastavit. Můžete taky škálovat svisle zvýšení nebo snížení instance virtuálního počítače *velikost*. Další informace najdete v tématu [svislé škálování s sady škálování virtuálního počítače](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Informace o tom, jak spravovat instancím virtuálních počítačů najdete v tématu [sadách škálování virtuálních počítačů spravovat pomocí prostředí Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).

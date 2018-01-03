@@ -3,7 +3,7 @@ title: "Nahrání souboru virtuálního pevného disku do Azure DevTest Labs pom
 description: "Nahrání souboru virtuálního pevného disku do testovacího prostředí na účtu úložiště pomocí Microsoft Azure Storage Explorer"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: 502e2536fb0fd2e9dfc4c7b85a6fb4e18202f38f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 25675aae77fbe2610fe416210de9a306c1c09f3d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Nahrání souboru virtuálního pevného disku do testovacího prostředí na účtu úložiště pomocí Microsoft Azure Storage Explorer
 
@@ -100,13 +100,13 @@ Následující kroky vás provedou nahrání souboru virtuálního pevného disk
 
     1. V pravém podokně Storage Exploreru, byste měli vidět seznam objektů BLOB v **odešle** kontejner objektů blob z účtu úložiště v prostředí. Na panelu nástrojů editoru objektů blob, vyberte **nahrát** 
         
-        ![Tlačítko Odeslat][6]
+        ![Tlačítko Nahrát][6]
     
     1. Z **nahrát** rozevírací nabídky vyberte **nahrání souborů...** .
     
     1. Na **nahrání souborů** dialogovém okně, vyberte se třemi tečkami.
         
-        ![Vyberte soubor][8]  
+        ![Výběr souboru][8]  
 
     1. Na **vyberte soubory, které chcete nahrát** dialogové okno, přejděte na požadovaný soubor virtuálního pevného disku, vyberte ho a potom vyberte **otevřete**.
     
@@ -114,13 +114,13 @@ Následující kroky vás provedou nahrání souboru virtuálního pevného disk
     
     1. Vyberte **Nahrát**.
 
-        ![Vyberte soubor][9]  
+        ![Výběr souboru][9]  
     
     1. Storage Explorer **protokol aktivit** podokně se zobrazí stav stahování (spolu s odkazy na Zrušit odesílání). Proces odesílání soubor virtuálního pevného disku může být náročná v závislosti na velikosti souboru virtuálního pevného disku a rychlost připojení. 
 
         ![Stav nahrávání souboru][10]  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Vytvoření vlastní image v Azure DevTest Labs ze souboru virtuálního pevného disku pomocí portálu Azure](devtest-lab-create-template.md)
 - [Vytvoření vlastní image v Azure DevTest Labs ze souboru virtuálního pevného disku pomocí prostředí PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

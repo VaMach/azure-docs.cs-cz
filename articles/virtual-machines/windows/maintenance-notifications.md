@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Zpracování plánované údržby oznámení pro virtuální počítače s Windows
 
@@ -56,9 +56,7 @@ Následující pokyny by měly pomoci můžete se rozhodnout, zda by měl použ�
 
 Samoobslužné služby údržby se nedoporučuje pro nasazení pomocí **skupiny dostupnosti** vzhledem k tomu, že toto jsou vysoce dostupná nastavení, kde ovlivní pouze jednu aktualizaci domény v každém okamžiku. 
     - Umožní Azure aktivační události údržby, ale mějte na paměti, že pořadí aktualizace domén ovlivněný neodehrává nutně postupně a že je 30 minut pozastavení mezi doménami aktualizace.
-    - Pokud vám záleží hlavně k dočasné ztrátě některých vaše kapacita (počet domén 1 nebo update), je lze snadno kompenzovat přidělí přidání instance během údržby. 
-
-**Nemáte** použít samoobslužné služby údržby v následujících scénářích: 
+    - Pokud vám záleží hlavně k dočasné ztrátě některých vaše kapacita (počet domén 1 nebo update), je lze snadno kompenzovat přidělí přidání instance během údržby **není** použít samoobslužné služby údržby v následujícím scénáře: 
     - Pokud vypnete virtuální počítače často, buď ručně, používá DevTest labs, pomocí automatického vypnutí nebo následující plánu, se může vrátit stav údržby a proto způsobit další výpadku.
     - Na krátkodobou virtuálních počítačích, které znáte, se odstraní před koncem wave údržby. 
     - Pro úlohy se stavem velké uložené v místní disk (dočasné), který je žádoucí, aby nakládat při aktualizaci. 
@@ -93,8 +91,8 @@ V části MaintenanceRedeployStatus se vrátí následující vlastnosti:
 | IsCustomerInitiatedMaintenanceAllowed | Určuje, zda můžete spustit údržby pro virtuální počítač v tuto chvíli ||
 | PreMaintenanceWindowStartTime         | Na začátek samoobslužné služby okno údržby při údržby můžete spustit na vašem virtuálním počítači ||
 | PreMaintenanceWindowEndTime           | Konec samoobslužné služby okno údržby při údržby můžete spustit na vašem virtuálním počítači ||
-| MaintenanceWindowStartTime            | Na začátek okno plánované údržby při údržby můžete spustit na vašem virtuálním počítači ||
-| MaintenanceWindowEndTime              | Konec období naplánované údržby když iniciujete údržby na vašem virtuálním počítači ||
+| MaintenanceWindowStartTime            | Začátek naplánované údržby, ve kterém Azure zahájí údržby na vašem virtuálním počítači ||
+| MaintenanceWindowEndTime              | Konec okno plánované údržby, ve kterém Azure zahájí údržby na vašem virtuálním počítači ||
 | LastOperationResultCode               | Výsledek poslední pokus o inicializaci údržby ve virtuálním počítači ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -184,7 +183,7 @@ Další informace o vysoké dostupnosti najdete v tématu [oblastech a dostupnos
 
 **Otázka: jak dlouho bude to trvat restartování virtuální počítač?**
 
-**Odpověď:** v závislosti na velikosti virtuálního počítače, restartování může trvat několik minut. Všimněte si, že v případě, že používáte cloudové služby (Role Web nebo Worker), nastaví škálování virtuálního počítače nebo skupiny dostupnosti, budete mít 30 minut mezi každou skupinu virtuálních počítačů (UD). 
+**Odpověď:** v závislosti na velikosti virtuálního počítače, restartování může trvat několik minut během časového období údržby samoobslužné služby. Během Azure inicioval restartování počítače v okně plánované údržby, proveďte restartování bude typicall asi 25 minut. Všimněte si, že v případě, že používáte cloudové služby (Role Web nebo Worker), nastaví škálování virtuálního počítače nebo skupiny dostupnosti, budete mít 30 minut mezi každou skupinou z virtuálních počítačů (UD) během plánované údržby. 
 
 **Otázka: co je prostředí v případě cloudové služby (Role Web nebo Worker), Service Fabric a sady škálování virtuálního počítače?**
 
@@ -215,6 +214,6 @@ Další informace o vysoké dostupnosti najdete v tématu [oblastech a dostupnos
 **Odpověď:** Pokud jste klikli na aktualizace více instancí ve skupině dostupnosti nastavit krátký po sobě, Azure bude ve frontě pro tyto požadavky a spustí se aktualizovat jenom virtuální počítače v jedné aktualizace domény (UD) v čase. Ale vzhledem k tomu může být pozastavení mezi doménami aktualizace, aktualizace může vypadat trvá déle. Když aktualizace fronty trvá déle než 60 minut, zobrazí se některé instance **přeskočen** stavu i v případě, že bylo úspěšně aktualizováno. Abyste se vyhnuli tento nesprávný stav, aktualizaci, kterou vaše dostupnosti nastaví kliknutím pouze na instance v rámci jednoho dostupnosti nastavit a počkat na aktualizaci na tento virtuální počítač pro dokončení před kliknutím na další virtuální počítač v doméně jiné aktualizace.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zjistěte, jak můžete zaregistrovat pro události údržby z v rámci virtuálního počítače pomocí [naplánované události](scheduled-events.md).

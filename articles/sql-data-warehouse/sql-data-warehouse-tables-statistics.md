@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 11/06/2017
 ms.author: barbkess
-ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 4d5777e69b7ea3fa206bf8909c255b998be69e8a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Správa statistiky u tabulek v SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,32 +33,30 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-Čím SQL Data Warehouse ví o vašich dat, tím rychleji se spouštět dotazy na data.  Způsobem říct SQL Data Warehouse o vašich dat je shromažďování statistických údajů o vaše data.  S statistické údaje o vašich dat je jedním z nejdůležitějších kroků, které můžete provést za účelem optimalizace své dotazy.  Statistiky pomoci vytvořit optimální plán pro své dotazy SQL Data Warehouse.  Je to proto, že je pro optimalizaci nákladů na základě Optimalizátor dotazů SQL Data Warehouse.  To znamená porovná náklady na různé plány dotazů a potom vybere plán s nejnižší náklady, které by se měly také plán, který provede nejrychlejší.
+Čím SQL Data Warehouse ví o vašich dat, tím rychleji se spouštět dotazy na data.  Způsobem říct SQL Data Warehouse o vašich dat je shromažďování statistických údajů o vaše data. S statistické údaje o vašich dat je jedním z nejdůležitějších kroků, které můžete provést za účelem optimalizace své dotazy. Je to proto Optimalizátor dotazů SQL Data Warehouse je na základě nákladů pro optimalizaci. Porovnává náklady na různé plány dotazů a potom vybere plán s nejnižší náklady, které by se měly také plán, který provede nejrychlejší. Například pokud okně Optimalizace odhadne, že data jsou filtrování v dotazu vrátí 1 řádek, může vybrat, velmi jiné plánování než v případě ji odhadne jejich datum, na které jste vybrali bude vracet 1 milionu řádků.
 
-Statistiku lze vytvořit na jeden sloupec, více sloupců nebo index tabulky.  Statistiky jsou uloženy v histogram, který zachycuje rozsah a selektivitu hodnot.  Toto je zajímají hlavně o, když Optimalizátor potřebuje k vyhodnocení spojení, GROUP BY, HAVING a klauzule WHERE v dotazu.  Například pokud okně Optimalizace odhadne, že data jsou filtrování v dotazu vrátí 1 řádek, může vybrat, velmi jiné plánování než v případě ji odhadne jejich datum, na které jste vybrali bude vracet 1 milionu řádků.  Při vytváření statistik je velmi důležité, je stejně důležité této statistiky *přesně* odráží aktuální stav tabulky.  S aktuální statistiky zajistí, že je kvalitní plán vybrány pomocí pro optimalizaci.  Plány vytvořené Optimalizátor jsou pouze jako vhodné jako statistiku na vaše data.
-
-Proces vytváření a aktualizaci statistiky je aktuálně ruční proces, ale je velmi jednoduchý udělat.  To je rozdíl oproti systému SQL Server, který automaticky vytvoří a aktualizuje statistické údaje o jednoho sloupce a indexy.  Pomocí následujících informací můžete výrazně automatizovat správu statistiku na vaše data. 
+Proces vytváření a aktualizaci statistiky je aktuálně ruční proces, ale je velmi jednoduchý udělat.  Youw bude možné brzy vytvářet a aktualizovat statistiku jednoho sloupce a indexy automaticky.  Pomocí následujících informací můžete výrazně automatizovat správu statistiku na vaše data. 
 
 ## <a name="getting-started-with-statistics"></a>Začínáme s statistiky
- Vytvoření jen Vzorkovaná statistiku pro každý sloupec je snadný způsob, jak začít pracovat s statistiky.  Vzhledem k tomu, že je stejně důležité k zachování aktualizovaného stavu statistiky, může být konzervativní přístup k aktualizaci statistice denně nebo po každé zatížení. Vždy existují kompromisy mezi výkonem a náklady na vytvoření a aktualizaci statistik.  Pokud si myslíte, že údržba všech vašich statistik trvá příliš dlouho, možná byste měli pečlivěji vybírat sloupce, které mají statistiky, nebo sloupce, které vyžadují časté aktualizace.  Například můžete chtít aktualizovat sloupců s kalendářními daty denně, jak lze přidat nové hodnoty spíše než po každé zatížení. Znovu, budou co nejvíce výhod získáte tak, že statistiky na sloupce použité ve spojení, GROUP BY, HAVING a klauzule WHERE.  Pokud máte tabulku s velkým množstvím sloupce, které se používají jenom v klauzuli SELECT, nemusí být úspěšná statistiky pro tyto sloupce a výdaje trochu další úsilí k identifikaci pouze sloupce, které vám umožní statistiky, můžete snížit čas k udržování statistice.
+Vytvoření jen Vzorkovaná statistiku pro každý sloupec je snadný způsob, jak začít pracovat s statistiky. Zastaralé statistiky povede k dotazu optimální výkon. Ale spotřebovat paměti aktualizovat statistiku pro všechny sloupce, jelikož vaše data. 
 
-## <a name="multi-column-statistics"></a>Statistiky více sloupce
-Kromě vytvoření statistiky pro jednoho sloupce, můžete zjistit, vaše dotazy bude využívat více sloupci statistiky.  Statistiky více sloupce jsou statistiky vytvořena na seznam sloupců.  Obsahují jeden sloupec statistiky na první sloupec v seznamu a některé informace korelace mezi sloupci názvem densities –.  Například pokud máte tabulka, která se připojí k jiné na dva sloupce, můžete zjistit, že SQL Data Warehouse můžete lépe optimalizovat plánu v případě, že rozumí relaci mezi dvěma sloupci.   Statistiky více sloupce můžete zlepšit výkon dotazu pro některé operace, jako je například složené spojení a seskupit podle.
+Zde jsou některé doporučení pro různé scénáře:
+| **Scénáře** | Doporučení |
+|:--- |:--- |
+| **Začínáme** | Aktualizovat všechny sloupce po migraci datového skladu SQL |
+| **Nejdůležitější sloupec pro statistiky** | Distribuční klíč s algoritmem hash |
+| **Druhý nejdůležitější sloupec pro statistiky** | Klíč oddílu |
+| **Další důležité sloupce pro statistiky** | Datum, často spojení, GROUP BY, HAVING a kde |
+| **Četnosti aktualizací statistik**  | Konzervativní: denně <br></br> Poté, co načítání nebo transformace dat |
+| **Vzorkování** |  Pod 1 B řádky použijte výchozí vzorkování (20 %) <br></br> S více než 1 B řádky tabulky je dobré statistiky v rozsahu 2 % |
 
 ## <a name="updating-statistics"></a>Aktualizuje statistické údaje
-Aktualizuje statistické údaje, je důležitou součástí rutiny správy vaší databáze.  Když se změní distribuci dat v databázi, je potřeba aktualizovat statistiku.  Zastaralé statistiky povede k dotazu optimální výkon.
 
-Jeden osvědčeným postupem je aktualizovat statistiku sloupců s kalendářními daty každý den při přidávání nová data.  Každé nové řádky času jsou načtená do datového skladu, nové zatížení kalendářní data nebo data transakcí se přidají. Tyto změnit distribuci dat a proveďte statistiku zastaralé. Naopak statistiky země sloupec v tabulce zákazníka může být nikdy potřeba aktualizovat, jako rozdělení hodnot nemění obecně. Za předpokladu, že distribuce je konstantní mezi odběrateli, přidávání nových řádků do tabulky variace není chystáte změnit rozdělení data. Ale pokud váš datový sklad obsahuje pouze jeden země a připojte ve data z nové země, výsledkem data z několika zemích, které ukládají, pak výborný musíte aktualizovat statistiku na sloupci země.
+Jeden osvědčeným postupem je aktualizovat statistiku sloupců s kalendářními daty každý den při přidávání nová data. Každé nové řádky času jsou načtená do datového skladu, nové zatížení kalendářní data nebo data transakcí se přidají. Tyto změnit distribuci dat a proveďte statistiku zastaralé. Naopak statistiky země sloupec v tabulce zákazníka může být nikdy potřeba aktualizovat, jako rozdělení hodnot nemění obecně. Za předpokladu, že distribuce je konstantní mezi odběrateli, přidávání nových řádků do tabulky variace není chystáte změnit rozdělení data. Ale pokud váš datový sklad obsahuje pouze jeden země a připojte ve data z nové země, výsledkem data z několika zemích, které ukládají, pak výborný musíte aktualizovat statistiku na sloupci země.
 
-Jedním z první otázky při řešení potíží s dotazu je "Jsou aktuální statistiky?"
+Jeden z první otázky při řešení potíží s dotazu se **"Jsou statistiku aktuální?"**
 
-Tento dotaz není ten, který může odpovídat stáří data. Aktuální statistiku objektu může být velmi staré, pokud byl žádné závažné změny v základních datech. Pokud počet řádků, došlo ke změně podstatně nebo dojde ke změně podstatným v distribuci hodnot pro daný sloupec *pak* je třeba aktualizovat statistiku.  
-
-Pro referenci **systému SQL Server** (ne SQL Data Warehouse) automaticky aktualizuje statistické údaje o těchto situacích:
-
-* Pokud máte nulový počet řádků v tabulce, při přidání řádků, získáte automatickou aktualizaci statistik
-* Když přidáte více než 500 řádků do tabulky spuštění s menší než 500 řádky (například při spuštění máte 499 a pak přidejte 500 řádků do celkem 999 řádků), získáte automatických aktualizací 
-* Jakmile jste více než 500 řádků, budete muset přidat 500 dodatečné řádky + 20 % velikosti tabulky předtím, než se zobrazí na statistiky automatických aktualizací
+Tento dotaz není ten, který může odpovídat stáří data. Aktuální statistiku objektu může být velmi staré, pokud byl žádné závažné změny v základních datech. Pokud počet řádků, došlo ke změně podstatně nebo dojde ke změně podstatným v distribuci hodnot pro daný sloupec *pak* je třeba aktualizovat statistiku.
 
 Vzhledem k tomu, že neexistuje žádná DMV k určení, jestli data v tabulce se změnil od posledního statistiku časových údajů byly aktualizovány, znalost stáří statistice můžete nabízejí část obrázku.  Následující dotaz můžete použít k určení poslední statistice tam, kde na každou tabulku aktualizovat.  
 
@@ -94,7 +92,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Sloupců s kalendářními daty v datovém skladu, například třeba často aktualizace statistiky. Každé nové řádky času jsou načtená do datového skladu, nové zatížení kalendářní data nebo data transakcí se přidají. Tyto změnit distribuci dat a proveďte statistiku zastaralé.  Naopak statistiky o pohlaví sloupec v tabulce zákazníka může být nikdy potřeba aktualizovat. Za předpokladu, že distribuce je konstantní mezi odběrateli, přidávání nových řádků do tabulky variace není chystáte změnit rozdělení data. Ale pokud váš datový sklad obsahuje pouze jeden pohlaví a nový požadavek výsledkem více pohlaví výborný musíte aktualizovat statistiku na sloupci pohlaví.
+**Datum sloupce** v datovém skladu, například obvykle třeba často aktualizace statistiky. Každé nové řádky času jsou načtená do datového skladu, nové zatížení kalendářní data nebo data transakcí se přidají. Tyto změnit distribuci dat a proveďte statistiku zastaralé.  Naopak statistiky o pohlaví sloupec v tabulce zákazníka může být nikdy potřeba aktualizovat. Za předpokladu, že distribuce je konstantní mezi odběrateli, přidávání nových řádků do tabulky variace není chystáte změnit rozdělení data. Ale pokud váš datový sklad obsahuje pouze jeden pohlaví a nový požadavek výsledkem více pohlaví výborný musíte aktualizovat statistiku na sloupci pohlaví.
 
 Další informace naleznete v části [statistiky] [ Statistics] na webu MSDN.
 
@@ -122,13 +120,13 @@ Tyto příklady ukazují, jak používat různé možnosti pro vytvoření stati
 ### <a name="a-create-single-column-statistics-with-default-options"></a>A. Vytvoření statistiky jednoho sloupce s výchozími možnostmi
 Chcete-li vytvoření statistiky pro sloupec, stačí zadáte název pro objekt statistiky a název sloupce.
 
-Tuto syntaxi používá všechny výchozí možnosti. Ve výchozím nastavení ukázky SQL Data Warehouse 20 procent tabulky při vytváření statistik.
+Tuto syntaxi používá všechny výchozí možnosti. Ve výchozím nastavení SQL Data Warehouse **ukázky 20 procent** tabulky při vytváření statistik.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Například:
+Příklad:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -143,7 +141,7 @@ Chcete-li ukázkové úplné tabulky, použijte následující syntaxi:
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Například:
+Příklad:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -189,7 +187,7 @@ Vytvoření statistiky vícesloupcového, jednoduše použijte v předchozích p
 > 
 > 
 
-V tomto příkladu je histogramu na *produktu\_kategorie*. Statistiky mezi sloupce jsou vypočítány na *produktu\_kategorie* a *produktu\_sub_c\ategory*:
+V tomto příkladu je histogramu na *produktu\_kategorie*. Statistiky mezi sloupce jsou vypočítány na *produktu\_kategorie* a *produktu\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -323,7 +321,7 @@ Aktualizovat objekt konkrétní statistiku použijte následující syntaxi:
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Například:
+Příklad:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -338,7 +336,7 @@ Ukazuje to jednoduše aktualizace všechny statistiky objektů v tabulce.
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Například:
+Příklad:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -434,7 +432,7 @@ Tento jednoduchý příklad ukazuje všechny tři částí objektu statistiky.
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Například:
+Příklad:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -447,7 +445,7 @@ Pokud vás zajímá pouze v zobrazení konkrétní části, použijte `WITH` kla
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Například:
+Příklad:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
@@ -464,7 +462,7 @@ Příkaz DBCC SHOW_STATISTICS() je implementováno více výhradně v SQL Data W
 6. Názvy sloupců nelze použít k identifikaci objektů statistiky
 7. Vlastní chyba 2767 není podporovaná.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další podrobnosti najdete v tématu [DBCC SHOW_STATISTICS] [ DBCC SHOW_STATISTICS] na webu MSDN.  Další informace najdete v článcích na [tabulky přehled][Overview], [tabulky datové typy][Data Types], [distribuci tabulku] [ Distribute], [Indexování tabulku][Index], [vytváření oddílů tabulky] [ Partition] a [Dočasných tabulek][Temporary].  Další informace o osvědčených postupech najdete v tématu [SQL Data Warehouse osvědčené postupy][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->

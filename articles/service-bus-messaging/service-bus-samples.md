@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 88851ed3ee5757f1ba635683fc00a5dde8b3b846
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bdb336b8aad0031412a31b58a10296242e7da18
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-messaging-samples"></a>Ukázky pro zasílání zpráv Service Bus
 
@@ -31,7 +31,7 @@ Ukázky pro zasílání zpráv Service Bus ukazují klíčové funkce v [zasíl�
 
 Kromě toho [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) je ukázka hostované na Githubu, která umožňuje připojit k oboru názvů služby Service Bus a snadno spravovat entit pro zasílání zpráv. Tento nástroj nabízí pokročilé funkce, jako je například funkce importu/exportu a možnost otestovat entit pro zasílání zpráv a služby předávání. Úplné Service Bus Explorer zdroje a dokumentaci můžete najít na [Githubu](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Ukázka umístění jsou tady:
 

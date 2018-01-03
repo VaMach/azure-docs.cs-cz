@@ -14,19 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: c22874facd43b784f02d2df553f74697e4c87c4e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f6173fed78345a2339e9bf40f414202c0ce62c0b
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>Odesílání úloh Hadoopu do HDInsight
 
 Můžete odeslat úloh Hadoop v prostředí Azure HDInsight pomocí rozhraní Microsoft .NET SDK pro HDInsight, curl nebo Azure PowerShell.
 
-## <a name="resources"></a>Zdroje
+## <a name="resources"></a>Zdroje a prostředky
 
 - **.NET SDK**:
 
@@ -50,6 +50,6 @@ Můžete odeslat úloh Hadoop v prostředí Azure HDInsight pomocí rozhraní Mi
   - [Použití nástroje Sqoop se systémem Hadoop v HDInsight](apache-hadoop-use-sqoop-powershell.md)
   - [Spuštění úloh MapReduce s Hadoop v HDInsight pomocí prostředí PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 
 - [Dokumentace k Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a661aa5a555dacac5c94c3feb8c6b88bb5033f83
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Spravovat škálování virtuálních počítačů, nastavit pomocí prostředí Azure PowerShell
 V průběhu cyklu škálovací sadu virtuálních počítačů můžete spustit jeden nebo více úloh správy. Kromě toho můžete vytvořit skripty, které automatizují různé úlohy životního cyklu. Tento článek podrobně popisuje některé běžné rutin prostředí Azure PowerShell, které umožňují provádět tyto úlohy.
 
-K dokončení těchto úloh správy, je třeba nejnovější modul Azure PowerShell. Informace o tom, jak nainstalovat a použít nejnovější verzi najdete v tématu [Začínáme s Azure Powershellem](/powershell/azure/get-started-azureps). Pokud potřebujete vytvořit škálovací sadu virtuálních počítačů, můžete [vytvořit měřítko nastavit na portálu Azure](virtual-machine-scale-sets-portal-create.md).
+K dokončení těchto úloh správy, je třeba nejnovější modul Azure PowerShell. Informace o tom, jak nainstalovat a použít nejnovější verzi najdete v tématu [Začínáme s Azure Powershellem](/powershell/azure/get-started-azureps). Pokud potřebujete vytvořit škálovací sadu virtuálních počítačů, můžete [vytvořit měřítko nastavit na portálu Azure](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Zobrazit informace o sadě škálování
@@ -108,5 +108,5 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Zahrnout další běžné úlohy pro sady škálování postup [nasazení aplikace](virtual-machine-scale-sets-deploy-app.md), a [upgrade instance virtuálních počítačů](virtual-machine-scale-sets-upgrade-scale-set.md). Můžete taky prostředí Azure PowerShell [konfigurace pravidel automatického škálování](virtual-machine-scale-sets-autoscale-overview.md).

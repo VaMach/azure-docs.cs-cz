@@ -6,28 +6,26 @@ author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dc1bd6502a5362bebd845f3938ab6502e0d91c74
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="deploy-a-container-group"></a>Nasazení kontejneru skupiny
 
-Azure instancí kontejnerů podporu nasazení několika kontejnerů do jednoho hostitele pomocí *skupina kontejneru*. To je užitečné při sestavování něho aplikace pro protokolování, sledování nebo jakoukoli jinou konfiguraci, které služba potřebuje druhý připojené procesu.
+Podporuje nasazení několika kontejnerů do jednoho hostitele pomocí Azure instancí kontejnerů *skupina kontejneru*. To je užitečné při sestavování něho aplikace pro protokolování, sledování nebo jakoukoli jinou konfiguraci, které služba potřebuje druhý připojené procesu.
 
-Tento dokument vás provede spuštění jednoduché něho více kontejneru konfigurace pomocí šablony Azure Resource Manager.
+Tento dokument vás provede službou Jednoduché něho více kontejneru konfigurace a nasazení šablonu Azure Resource Manager.
 
 ## <a name="configure-the-template"></a>Konfigurace šablony
 
-Vytvořte soubor s názvem `azuredeploy.json` a zkopírujte do ní následující kód json.
+Vytvořte soubor s názvem `azuredeploy.json` a zkopírujte do ní následující kód JSON.
 
-V této ukázce je definována kontejner skupiny s dvěma kontejnery a veřejnou IP adresu. První kontejner skupiny spustí internetovou přístupných aplikaci. Druhý kontejneru něho, zašle požadavek HTTP do hlavní webové aplikace prostřednictvím místní sítě skupiny.
-
-Tento příklad něho může rozšířit, aby spuštění výstrahy v případě obdržel kódu odpovědi HTTP než 200 OK.
+V této ukázce je definována kontejner skupiny s dvěma kontejnery a veřejnou IP adresu. První kontejner ve skupině běží Internetové aplikace. Druhý kontejneru něho, zašle požadavek HTTP do hlavní webové aplikace prostřednictvím místní sítě skupiny.
 
 ```json
 {
@@ -101,7 +99,7 @@ Tento příklad něho může rozšířit, aby spuštění výstrahy v případě
   }
 ```
 
-Použít privátní kontejneru registru bitovou kopii, přidáte objekt v dokumentu json v následujícím formátu.
+Použít privátní kontejneru registru bitovou kopii, přidáte objekt v dokumentu JSON v následujícím formátu.
 
 ```json
 "imageRegistryCredentials": [
@@ -115,81 +113,90 @@ Použít privátní kontejneru registru bitovou kopii, přidáte objekt v dokume
 
 ## <a name="deploy-the-template"></a>Nasazení šablony
 
-Vytvořte skupinu prostředků pomocí příkazu [az group create](/cli/azure/group#create).
+Vytvořte skupinu prostředků pomocí příkazu [az group create][az-group-create].
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Nasazení šablony s [vytvořit nasazení skupiny az](/cli/azure/group/deployment#create) příkaz.
+Nasazení šablony s [vytvořit nasazení skupiny az] [ az-group-deployment-create] příkaz.
 
 ```azurecli-interactive
-az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
+az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
 ```
 
-Během pár sekund zobrazí se první odpověď z Azure.
+Během pár sekund měli byste obdržet počáteční reakce z Azure.
 
 ## <a name="view-deployment-state"></a>Zobrazení stavu nasazení
 
-Chcete-li zobrazit stav nasazení, použijte `az container show` příkaz. Tento příkaz vrátí zřízené veřejnou IP adresu přes která je přístupná aplikace.
+Chcete-li zobrazit stav nasazení, použijte [az kontejneru zobrazit] [ az-container-show] příkaz. Tento příkaz vrátí zřízené veřejnou IP adresu pomocí kterého můžete s aplikací pracovalo.
 
 ```azurecli-interactive
-az container show --name myContainerGroup --resource-group myResourceGroup -o table
-```
-
-Výstup:
-
-```azurecli
-Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
-----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
-myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
-```
-
-## <a name="view-logs"></a>Zobrazit protokoly
-
-Zobrazit výstup protokolu kontejneru pomocí `az container logs` příkaz. `--container-name` Argument určuje kontejner, ze kterého protokoly pro vyžádání obsahu. V tomto příkladu je zadána první kontejneru.
-
-```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
+az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
 Výstup:
 
 ```bash
-istening on port 80
-::1 - - [27/Jul/2017:17:35:29 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:32 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:35 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
+----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
+myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
+```
+
+## <a name="view-logs"></a>Zobrazit protokoly
+
+Zobrazit výstup protokolu kontejneru pomocí [az kontejneru protokoly] [ az-container-logs] příkaz. `--container-name` Argument určuje kontejner, ze kterého protokoly pro vyžádání obsahu. V tomto příkladu je zadána první kontejneru.
+
+```azurecli-interactive
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
+```
+
+Výstup:
+
+```bash
+listening on port 80
+::1 - - [18/Dec/2017:21:31:08 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:11 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:15 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Pokud chcete zobrazit protokoly pro kontejner straně car, spusťte stejný příkaz zadání druhý název kontejneru.
 
 ```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
 Výstup:
 
 ```bash
-Every 3.0s: curl -I http://localhost                                                                                                                       Mon Jul 17 11:27:36 2017
+Every 3s: curl -I http://localhost                          2017-12-18 23:19:34
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 HTTP/1.1 200 OK
+X-Powered-By: Express
 Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
+ETag: W/"67f-16006818640"
+Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Content-Type: text/html; charset=utf-8
-Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
-Date: Mon, 17 Jul 2017 18:27:36 GMT
+Date: Mon, 18 Dec 2017 23:19:34 GMT
+Connection: keep-alive
 ```
 
-Jak můžete vidět, je něho pravidelně zajistit požadavek HTTP je hlavní webové aplikace prostřednictvím místní sítě skupiny zkontrolujte, zda je spuštěn.
+Jak můžete vidět, je něho pravidelně zajistit požadavek HTTP je hlavní webové aplikace prostřednictvím místní sítě skupiny zkontrolujte, zda je spuštěn. Tento příklad něho může rozšířit, aby spuštění výstrahy v případě obdržel kódu odpovědi HTTP než 200 OK.
 
 ## <a name="next-steps"></a>Další kroky
 
-Tento dokument popsané kroky potřebné pro nasazení s více kontejnerů Azure container instance. Koncová instancí kontejnerů Azure prostředí najdete v kurzu instancí kontejnerů Azure.
+Tento článek popsané kroky potřebné pro nasazení s více kontejnerů Azure container instance. Prostředí Azure kontejner instancí začátku do konce naleznete v kurzu instancí kontejnerů Azure.
 
 > [!div class="nextstepaction"]
-> [Azure instancí kontejnerů kurzu]:./container-instances-tutorial-prepare-app.md
+> [Azure instancí kontejnerů kurzu]: container-instances-tutorial-prepare-app.md
+
+<!-- LINKS - Internal -->
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create

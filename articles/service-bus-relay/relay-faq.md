@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-faqs"></a>Nejčastější dotazy k Azure předávání
 
@@ -32,7 +32,7 @@ Tento článek obsahuje odpovědi na některé nejčastější dotazy (FAQ) o [p
 A [obor názvů](relay-create-namespace-portal.md) je kontejner oboru, který můžete použít pro adresování prostředků předávání v rámci vaší aplikace. Musíte vytvořit obor názvů používat předávání. Toto je jedna z první kroky v části Začínáme.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Co se stalo službě předávání přes Service Bus?
-Dříve pojmenované služby předávání přes Service Bus se nyní nazývá předávání WCF. Můžete tuto službu využívat jako obvykle. Funkce hybridní připojení je aktualizovaná verze služby, která je byla transplantované ze služby Azure BizTalk Services. Předávání WCF a hybridní připojení i nadále podporována.
+Dříve pojmenované služby předávání přes Service Bus se nyní označuje jako [WCF předávání](relay-wcf-dotnet-get-started.md). Můžete tuto službu využívat jako obvykle. Funkce hybridní připojení je aktualizovaná verze služby, která je byla transplantované ze služby Azure BizTalk Services. Předávání WCF a hybridní připojení i nadále podporována.
 
 ## <a name="pricing"></a>Ceny
 Tato část odpovídá na některé nejčastější dotazy týkající se předávání cenové struktury. Můžete také zobrazit [Azure podporu nejčastější dotazy k](http://go.microsoft.com/fwlink/?LinkID=185083) pro obecné Azure informace o cenách. Úplné informace o cenách předávání najdete v tématu [Service Bus podrobnosti o cenách][Pricing overview].
@@ -101,7 +101,7 @@ Název oboru názvů předávání musí být mezi 6 až 50 znaků.
 
 Pro přesun oboru názvů z jedno předplatné do jiného předplatného, můžete použít [portál Azure](https://portal.azure.com) nebo použít příkazy prostředí PowerShell. Obor názvů přesunout do jiného předplatného, musí být obor názvů již aktivní. Uživatel s oprávněním správce na zdrojovém i cílovém odběry musí být uživatel, který spouští příkazy.
 
-#### <a name="azure-portal"></a>portál Azure
+#### <a name="azure-portal"></a>Azure Portal
 
 Pomocí portálu Azure pro migraci oborů názvů předávání přes Azure z jedno předplatné do jiného předplatného naleznete v části [přesunutím prostředků do nové skupiny prostředků nebo předplatného](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
 
@@ -130,7 +130,7 @@ Podpisy sdíleného přístupu (SAS) se mechanismus ověřování na základě z
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Je možné do seznamu povolených IP adres předávání koncových bodů?
 Ano. Přenosový klient vytvoří připojení ke službě předávání přes Azure pomocí plně kvalifikovaných názvů domény. Zákazníci můžete přidat záznam pro `*.servicebus.windows.net` na brány firewall, které podporují vytvoření seznamu povolených DNS.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Vytvoření oboru názvů](relay-create-namespace-portal.md)
 * [Začínáme s .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Začínáme s aplikací Node](relay-hybrid-connections-node-get-started.md)

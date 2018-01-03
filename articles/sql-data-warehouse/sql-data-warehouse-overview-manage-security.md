@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 12/14/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aa0d6cb03196167ec077b0ed4bbbb9d118951219
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Zabezpečení databáze v SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Tento článek vás provede základy zabezpečení databáze Azure SQL Data Ware
 ## <a name="connection-security"></a>Zabezpečení připojení
 Zabezpečení připojení spočívá v použití pravidel brány firewall a šifrovaného připojení k omezení a zabezpečení připojení k databázi.
 
-Server i databáze používají pravidla brány firewall k zamítnutí pokusů o připojení z IP adres, které nejsou výslovně povolené. Povolit připojení z vaší aplikace nebo klientský počítač veřejnou IP adresu, musíte nejprve vytvořit pravidlo brány firewall na úrovni serveru pomocí portálu Azure, rozhraní API REST nebo PowerShell. Doporučujeme co nejvíce omezit rozsah IP adres povolených v serverové bráně firewall.  Pro přístup k Azure SQL Data Warehouse z místního počítače, zkontrolujte, zda že v bráně firewall na vaší sítí a místním počítači umožňuje odchozí komunikaci na portu TCP 1433.  Další informace najdete v tématu [brány firewall databáze Azure SQL Database][Azure SQL Database firewall], [příkaz sp_set_firewall_rule][sp_set_firewall_rule], a [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
+Server i databáze používají pravidla brány firewall k zamítnutí pokusů o připojení z IP adres, které nejsou výslovně povolené. Povolit připojení z vaší aplikace nebo klientský počítač veřejnou IP adresu, musíte nejprve vytvořit pravidlo brány firewall na úrovni serveru pomocí portálu Azure, rozhraní API REST nebo PowerShell. Doporučujeme co nejvíce omezit rozsah IP adres povolených v serverové bráně firewall.  Pro přístup k Azure SQL Data Warehouse z místního počítače, zkontrolujte, zda že v bráně firewall na vaší sítí a místním počítači umožňuje odchozí komunikaci na portu TCP 1433.  Další informace najdete v tématu [brány firewall databáze Azure SQL Database][Azure SQL Database firewall], [příkaz sp_set_firewall_rule][sp_set_firewall_rule].
 
 Ve výchozím nastavení jsou šifrované připojení k SQL Data Warehouse.  Změny nastavení připojení můžete zakázat šifrování se ignorují.
 
@@ -73,11 +73,17 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Účet správce serveru, který používáte k připojení, je členem skupiny db_owner. Tato skupina může s databází provádět všechny operace. Tento účet uložte kvůli nasazení upgradovaných schémat a dalším možnostem správy. Použijte účet „ApplicationUser“, který má omezenější oprávnění a umožňuje připojit se z aplikace k databázi s nejnižšími oprávněními, jaké aplikace potřebuje.
 
-Existují i další způsoby, jak ještě více omezit možnosti uživatele služby Azure SQL Database:
+Způsoby dál omezit, co dělat s Azure SQL Data Warehouse uživatele:
 
-* Podrobné [oprávnění] [ Permissions] umožňují řízení operací, které můžete u jednotlivých sloupců tabulky, zobrazení, procedury a další objekty v databázi. Pomocí oprávnění na podrobné úrovni mít většina řízení a přidělte minimální oprávnění, které jsou nezbytné. Systém granulární oprávnění je poněkud složité a bude vyžadovat některé studie efektivně používat.
+* Podrobné [oprávnění] [ Permissions] umožňují řízení operací, které můžete u jednotlivých sloupců tabulky, zobrazení, schémata, postupy a další objekty v databázi. Pomocí oprávnění na podrobné úrovni mít většina řízení a přidělte minimální oprávnění, které jsou nezbytné. Systém granulární oprávnění je poněkud složité a bude vyžadovat některé studie efektivně používat.
 * [Rolí databáze] [ Database roles] jiného, než db_datareader a db_datawriter lze použít k vytvoření výkonnější aplikace uživatelské účty nebo méně výkonná účty pro správu. Předdefinované pevné databázové role poskytují snadný způsob, jak udělit oprávnění, ale může mít za následek přidělení více oprávnění, než je potřeba.
 * [Uložené procedury] [ Stored procedures] umožňují omezit akce, které můžete provést na databázi.
+
+Níže je příklad k udělení přístupu pro čtení k uživatelem definované schéma.
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
 
 Správa databází a logické servery z portálu Azure nebo pomocí rozhraní API služby Azure Resource Manager řídí přiřazení rolí portálu uživatelského účtu. Další informace v tomto tématu najdete v tématu [řízení přístupu na základě Role v Azure Portal][Role-based access control in Azure Portal].
 
@@ -86,7 +92,7 @@ Azure SQL Data Warehouse transparentní dat šifrování (TDE) pomáhá chránit
 
 Můžete šifrovat databázi pomocí [portálu Azure] [ Encryption with Portal] nebo [T-SQL][Encryption with TSQL].
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Podrobnosti a příklady o připojení k SQL Data Warehouse pomocí různých protokolů, najdete v tématu [připojit k SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 <!--Image references-->

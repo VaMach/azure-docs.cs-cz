@@ -2,30 +2,23 @@
 title: "Tvorba zdrojů pro použití s Azure Site Recovery | Microsoft Docs"
 description: "Zjistěte, jak připravit Azure pro replikaci lokálních počítačů pomocí služby Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 321e304f-b29e-49e4-aa64-453878490ea7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 12/31/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2fa7e731a05e19697603058829f130074bb5b522
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Příprava prostředků Azure pro replikaci počítačů na místě
 
 [Azure Site Recovery](site-recovery-overview.md) služby přispívá ke strategii obchodní kontinuitu a po havárii (BCDR) obnovení ponechat obchodních aplikací stále a spuštěním dostupné během plánovaných a neplánovaných výpadků. Site Recovery spravuje a orchestruje zotavení po havárii místní počítače a virtuální počítače Azure (VM), včetně replikace, převzetí služeb při selhání a obnovení.
 
-V tomto kurzu se dozvíte, jak připravit Azure součásti, pokud chcete replikovat místní virtuální počítače a fyzické servery do Azure. V tomto kurzu se naučíte:
+V tomto kurzu se dozvíte, jak připravit Azure součásti, pokud chcete replikovat místní virtuální počítače (Hyper-V nebo VMware) nebo fyzických serverů Windows nebo Linuxem do Azure. V tomto kurzu se naučíte:
 
 > [!div class="checklist"]
 > * Ověřte, že váš účet nemá oprávnění k replikaci
@@ -34,13 +27,13 @@ V tomto kurzu se dozvíte, jak připravit Azure součásti, pokud chcete repliko
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/pricing/free-trial/) před tím, než začnete.
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
 Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
 ## <a name="verify-account-permissions"></a>Ověřte oprávnění pro uživatelský účet
 
-Pokud jste právě vytvořili účet Azure zdarma jste správcem předplatného. Pokud nejste správci předplatného, spolupracovat se správcem přiřadit oprávnění, která potřebujete. Pokud chcete povolit replikaci pro nový virtuální počítač, musíte mít:
+Pokud jste právě vytvořili vaší bezplatný účet Azure, jsou správce předplatného. Pokud nejste správci předplatného, spolupracovat se správcem přiřadit oprávnění, která potřebujete. Pokud chcete povolit replikaci pro nový virtuální počítač, musíte mít:
 
 - Oprávnění k vytvoření virtuálního počítače ve vybrané skupině prostředků
 - Oprávnění k vytvoření virtuálního počítače ve vybrané virtuální síti
@@ -53,13 +46,13 @@ Předdefinovaná role, Přispěvatel virtuálních počítačů, má tato opráv
 Bitové kopie replikovaných počítačů jsou uložené v úložišti Azure. Virtuální počítače Azure se vytvářejí z úložiště při selhání z místního do Azure.
 
 1. V [portál Azure](https://portal.azure.com) nabídky, klikněte na tlačítko **nový** -> **úložiště** -> **účet úložiště**.
-2. Zadejte název účtu úložiště. Tyto kurzy použijeme název **contosovmsacct1910171607**. Název musí být jedinečné v rámci Azure a musí být v rozmezí 3 až 24 znaků, číslic witn a jenom malá písmena.
+2. Zadejte název účtu úložiště. Tyto kurzy použijeme název **contosovmsacct1910171607**. Název musí být jedinečné v rámci Azure a musí být v rozmezí 3 až 24 znaků s jenom číslice a malá písmena.
 3. Použití **Resource Manager** modelu nasazení.
 4. Vyberte **obecné účely** > **standardní**.
 5. Vyberte výchozí **RA-GRS** redundance úložiště.
 6. Vyberte předplatné, ve kterém chcete vytvořit nový účet úložiště.
 7. Zadejte novou skupinu prostředků. Skupina prostředků Azure je logický kontejner, ve kterém se nasazují a spravují prostředky Azure. Tyto kurzy používáme název **ContosoRG**.
-8. Vyberte zeměpisné umístění účtu úložiště. Účet úložiště musí být ve stejné oblasti jako trezor služeb zotavení. Tyto kurzy používáme umístění **západní Evropa**.
+8. Vyberte zeměpisné umístění účtu úložiště. Účet úložiště musí být ve stejné oblasti jako trezor služeb zotavení. Tyto kurzy používáme **západní Evropa** oblast.
 
    ![Vytvoření storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -71,7 +64,7 @@ Bitové kopie replikovaných počítačů jsou uložené v úložišti Azure. Vi
     **zálohování a obnovení lokality**.
 2. Do pole **Název** zadejte popisný název pro identifikaci trezoru. V tomto kurzu používáme **ContosoVMVault**.
 3. Vyberte existující skupinu prostředků s názvem **contosoRG**.
-4. Zadejte oblast Azure **západní Evropa**.
+4. Zadejte oblast Azure **západní Evropa**, který používáme v této sadě kurzy.
 5. Chcete-li rychle získat přístup k úložišti z řídicího panelu, klikněte na tlačítko **připnout na řídicí panel** > **vytvořit**.
 
    ![Nový trezor](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -97,7 +90,7 @@ Virtuální počítače Azure vytvořené z úložiště po převzetí služeb p
 
    Virtuální síť trvá několik sekund k vytvoření. Po vytvoření zobrazení v řídicím panelu portálu Azure.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Příprava na místní infrastrukturu VMware pro zotavení po havárii do Azure](tutorial-prepare-on-premises-vmware.md)

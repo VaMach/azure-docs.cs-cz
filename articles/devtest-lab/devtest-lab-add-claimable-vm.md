@@ -3,7 +3,7 @@ title: "Vytvoření a správa vymahatelných virtuálních počítačů v testov
 description: "Informace o postupu přidání vymahatelných virtuálního počítače do testovacího prostředí v Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: f671e66e-9630-4e30-a131-a6bad9ed9c11
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: tarcher
-ms.openlocfilehash: 17ddf920dbed6b561c657495b2554d8c1450831c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: v-craic
+ms.openlocfilehash: a27423a75cb2b5063156109ea9ee3a45fa036c07
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Vytvoření a správa vymahatelných virtuálních počítačů v Azure DevTest Labs
 Přidat vymahatelných virtuálního počítače do testovacího prostředí podobným způsobem, jak můžete [přidat standardní virtuální počítač](devtest-lab-add-vm.md) – z *základní* to znamená buď [vlastní image](devtest-lab-create-template.md), [vzorec](devtest-lab-manage-formulas.md), nebo [Marketplace image](devtest-lab-configure-marketplace-images.md). V tomto kurzu vás provede pomocí portálu Azure pro přidání do testovacího prostředí v DevTest Labs vymahatelných virtuálního počítače a zobrazuje procesy že uživatel bude postupovat pro deklarace identity a unclaim virtuálního počítače.
@@ -94,6 +94,6 @@ To se označuje jako "přenosu datový disk". Datový disk se pak stane k dispoz
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Jakmile je vytvořen, se můžete připojit k virtuálnímu počítači pomocí výběr **Connect** na jeho podokně Správa.
 * Prozkoumejte [šablony galerii pro rychlý start DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

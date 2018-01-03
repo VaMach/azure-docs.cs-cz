@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Přehled zpětné DNS a podpory v Azure
 
@@ -34,7 +34,7 @@ Zpětné záznamy DNS jsou hostované v speciální zóny DNS, označuje jako 'A
 
 Například DNS záznam "www.contoso.com" je implementovaná pomocí záznam DNS "A" s název "www" v zóně "contoso.com".  Tento záznam A odkazuje na odpovídající IP adresu v tomto případě 64.4.6.100.  Zpětného vyhledávání je implementovaná samostatně pomocí záznamu, PTR, s názvem '100' v zóně '6.4.64.in-addr.arpa' (Upozorňujeme, že jsou v zóny ARPA obrácený IP adresy.)  Tento záznam PTR, pokud byla nakonfigurována správně, odkazuje na název www.contoso.com.
 
-Pokud organizace přiřazen blok IP adres, budou také získat právo spravovat odpovídající zóny ARPA. Zóny ARPA odpovídající bloky IP adres, používají v Azure jsou hostované a spravované společností Microsoft. Poskytovatel internetových služeb může hostitel zóny ARPA pro vlastní IP adresy pro vás, nebo může povolit hostitel zóny ARPA ve službě DNS podle vaší volby, například Azure DNS.
+Pokud organizace přiřazen blok IP adres, budou také získat právo spravovat odpovídající zóny ARPA. Zóny ARPA odpovídající bloky IP adres, používají v Azure jsou hostované a spravované společností Microsoft. Poskytovatel internetových služeb může hostitel zóny ARPA pro vlastní IP adresy pro vás nebo vám jako hostitel zóny ARPA ve službě DNS podle vaší volby, například Azure DNS.
 
 > [!NOTE]
 > Dopředného vyhledávání DNS a zpětného vyhledávání DNS jsou implementované v samostatné, paralelní hierarchiích DNS. Zpětné vyhledávání pro "www.contoso.com" je **není** hostované v zóně "contoso.com", spíše je hostovaná v zóny ARPA pro odpovídající blok IP adres. Samostatné zóny jsou používány pro bloky adres IPv4 a IPv6.
@@ -106,7 +106,7 @@ Azure DNS lze provádět [hostování vaší zóny zpětného vyhledávání a s
 
 **Konfigurace zpětné záznam DNS pro adresu IP přiřazenou k vaší službě Azure.** Azure vám umožní [konfigurace zpětného vyhledávání pro IP adresy přidělené k službě Azure](dns-reverse-dns-for-azure-services.md).  Tato zpětného vyhledávání je nakonfigurovaný v Azure jako záznam PTR v odpovídající zóny ARPA.  Tyto zóny ARPA odpovídající všechny rozsahy IP používají v Azure, jsou hostovaná společností Microsoft
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o zpětné DNS najdete v tématu [zpětného vyhledávání DNS na webu Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>

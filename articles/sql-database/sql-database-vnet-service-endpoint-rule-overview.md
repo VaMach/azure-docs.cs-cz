@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 66dbc9c2c3ba9b9f0c7eb405dbafbd002ce50fbc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Použít koncové body služby virtuální sítě a pravidla pro databázi SQL Azure
 
@@ -65,7 +65,7 @@ Pravidlo pro virtuální sítě informuje server služby SQL Database tak, aby p
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Výhody pravidlo virtuální sítě
 
-Dokud provedení akce, virtuální počítače na podsítě nemůže komunikovat s vaší databázi SQL. Při výběru virtuální sítě pravidlo přístupu povolení komunikace vyžaduje se zabývat porovnání a kontrast zahrnující konkurenční možnosti zabezpečení nabízené bránou firewall.
+Dokud provedení akce, virtuální počítače na podsítě nemůže komunikovat s vaší databázi SQL. Jedna akce, který stanoví komunikace je vytvoření pravidla virtuální sítě. Při výběru virtuální sítě pravidlo přístupu vyžaduje se zabývat porovnání a kontrast zahrnující konkurenční možnosti zabezpečení nabízené bránou firewall.
 
 #### <a name="a-allow-access-to-azure-services"></a>A. Povolit přístup ke službám Azure
 
@@ -115,16 +115,16 @@ Je oddělení rolí zabezpečení v části Správa koncových bodů služby vir
 - **Správce sítě:** &nbsp; zapnout koncový bod.
 - **Správce databáze:** &nbsp; aktualizace seznamu řízení přístupu (ACL) pro přidání do databáze SQL serveru dané podsíti.
 
-*Alternativní RBAC:* 
+*Alternativní RBAC:*
 
 Správce sítě a správce databáze mají další možnosti, než jsou potřeba ke správě pravidel virtuální sítě. Je potřeba jenom podmnožinu jejich možnosti.
 
 Máte možnost použití [řízení přístupu na základě role (RBAC)] [ rbac-what-is-813s] v Azure vytvořit jednu vlastní roli, která má pouze nezbytné podmnožinu funkcí. Vlastní role může místo zahrnující správce sítě nebo správce databáze. Možnosti útoku vaší ohrožení zabezpečení je nižší, pokud přidáte vlastní roli, a přidáním uživatele do jiných dvě hlavní správce role uživatele.
 
-
-
-
-
+> [!NOTE]
+> V některých případech databáze SQL Azure a podsíť virtuální sítě jsou v různých předplatných. V těchto případech je nutné zajistit následující konfigurace:
+> - Oba odběry musí být ve stejném klientovi služby Azure Active Directory.
+> - Uživatel nemá potřebná oprávnění k zahájení operace, například povolení koncové body služby a přidáte podsíť virtuální sítě na daný Server.
 
 ## <a name="limitations"></a>Omezení
 
@@ -158,8 +158,32 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
+## <a name="impact-of-removing-allow-all-azure-services"></a>Dopad odebrání "Povolit všechny služby Azure.
+
+Řada uživatelů chcete odebrat **povolit všechny služby Azure** ze svých serverů SQL Azure a nahraďte ji metodou pravidlo brány Firewall virtuální sítě.
+Ale odebrání to ovlivní následující funkce Azure SQLDB:
+
+#### <a name="import-export-service"></a>Import Export služby
+Služba Azure SQLDB Import Export běží na virtuálních počítačích v Azure. Tyto virtuální počítače nejsou ve vaší virtuální síti a proto získat IP adresy Azure při připojování k databázi. Na odebrání **povolit všechny služby Azure** tyto virtuální počítače nebudou mít přístup k vaší databáze.
+Problém můžete vyřešit. Spuštění souboru BACPAC importu nebo exportu přímo v kódu pomocí rozhraní API DACFx. Zajistěte, aby to byl nasazen ve virtuálním počítači, který je v podsíti virtuální sítě, pro které jste nastavili pravidlo brány firewall.
+
+#### <a name="sql-database-query-editor"></a>Editor dotazů databáze SQL
+Editoru dotazů databáze SQL Azure je nasazen na virtuálních počítačů v Azure. Tyto virtuální počítače nejsou ve vaší virtuální síti. Proto získat virtuální počítače Azure IP při připojování k databázi. Na odebrání **povolit všechny služby Azure**, tyto virtuální počítače nebudou mít přístup k vaší databáze.
+
+#### <a name="table-auditing"></a>Tabulka auditování
+V současné době jsou dva způsoby, jak povolit auditování ve vaší databázi SQL. Auditování tabulka selže po povolení koncové body služby na serveru SQL Azure. Zmírnění dopadů tady je přesunout do auditování objektů Blob.
 
 
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Dopad pomocí koncových bodů služby virtuální síť s Azure storage
+
+Úložiště Azure implementovala stejné funkce, která vám umožní omezit připojení k účtu úložiště.
+Pokud se rozhodnete tuto funkci používat s účtem úložiště, který používá Azure SQL Server, můžete spustit na problémy. Následuje seznam a diskuzi o Azure SQLDB funkce, které jsou ovlivněny to.
+
+#### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
+PolyBase se běžně používá k načtení dat do Azure SQLDW z úložiště účtů. Pokud účet úložiště, který se načítání dat z omezuje přístup pouze na sadu podsítí virtuální sítě, dojde k přerušení připojení k z PolyBase k účtu.
+
+#### <a name="azure-sqldb-blob-auditing"></a>Objekt Blob Azure SQLDB auditování
+Auditování objektů BLOB doručí protokolů auditu na účtu úložiště. Pokud tento účet úložiště používá funkce koncové body služby ECYKLACI dojde k přerušení připojení z Azure SQLDB k účtu úložiště.
 
 
 ## <a name="errors-40914-and-40615"></a>Chyby 40914 a 40615
@@ -217,16 +241,17 @@ Již musí mít podsíť, která je označené konkrétní koncový bod služby 
 3. Nastavte **povolit přístup ke službám Azure** ovládacího prvku na hodnotu OFF.
 
     > [!IMPORTANT]
-    > Pokud necháte ovládacího prvku na hodnotu ON, pak serveru Azure SQL Database akceptující komunikaci z jakoukoli podsíť, který může být příliš přístupu z hlediska zabezpečení. Funkce koncový bod služby Microsoft Azure Virtual Network v koordinaci s funkcí pravidlo virtuální sítě SQL Database, můžete snížit společně zabezpečení útoku.
+    > Pokud necháte ovládacího prvku na hodnotu ON, server služby Azure SQL Database přijímá komunikaci z žádné podsítě. Opouštění ovládacího prvku na hodnotu ON, může být příliš přístupu z hlediska zabezpečení. Funkce koncový bod služby Microsoft Azure Virtual Network v koordinaci s funkcí pravidlo virtuální sítě SQL Database, můžete snížit společně zabezpečení útoku.
 
 4. Klikněte **+ přidat existující** řídit, v **virtuální sítě** části.
 
     ![Klikněte na tlačítko Přidat existující (podsíť koncový bod, jako pravidlo SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
 5. V novém **vytvořit nebo aktualizovat** podokně, vyplňte ovládacích prvků s názvy prostředků Azure.
- 
+
     > [!TIP]
-    > Je nutné zahrnout správný **předpona adresy** pro podsíť. Hodnota můžete najít na portálu. Přejděte **všechny prostředky** &gt; **všechny typy** &gt; **virtuální sítě**. Filtr zobrazí virtuálních sítí. Klikněte na virtuální síti a potom klikněte na **podsítě**. **Rozsah adres** sloupec má předpona adresy je nutné.
+    > Je nutné zahrnout správný **předpona adresy** pro podsíť. Hodnota můžete najít na portálu.
+    > Přejděte **všechny prostředky** &gt; **všechny typy** &gt; **virtuální sítě**. Filtr zobrazí virtuálních sítí. Klikněte na virtuální síti a potom klikněte na **podsítě**. **Rozsah adres** sloupec má předpona adresy je nutné.
 
     ![Vyplňte pole pro nové pravidlo.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -237,22 +262,26 @@ Již musí mít podsíť, která je označené konkrétní koncový bod služby 
     ![Nové pravidlo, najdete v podokně brány firewall.][image-portal-firewall-vnet-result-rule-30-png]
 
 
-
-
+> [!NOTE]
+> Následující stavy nebo stavy, které platí pro pravidla:
+> - **Připravené:** označuje, že operace, které jste spustili proběhla úspěšně.
+> - **Se nezdařilo:** označuje, že operace, které jste spustili se nezdařila.
+> - **Odstranit:** pouze platí pro operace odstranění a označuje, že pravidlo byl odstraněn a už neplatí.
+> - **InProgress:** označuje, že probíhá operace. Původní pravidlo se použije při operaci v tomto stavu.
 
 
 <a name="anchor-how-to-links-60h" />
 
 ## <a name="related-articles"></a>Související články
 
-- [Vytvoření koncového bodu služby virtuální sítě a potom pravidlo virtuální sítě pro Azure SQL Database pomocí prostředí PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Koncové body služby virtuální síť Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Azure pravidla brány firewall serveru úroveň a databáze SQL Database][sql-db-firewall-rules-config-715d]
 
-Funkce koncové body služby Microsoft Azure Virtual Network a pravidlo virtuální sítě funkci pro databázi SQL Azure, jak jsou k dispozici v pozdní září 2017.
+Funkce pravidlo virtuální sítě pro databázi SQL Azure jsou k dispozici v pozdní září 2017.
 
+## <a name="next-steps"></a>Další postup
 
-
+- [Vytvoření koncového bodu služby virtuální sítě a potom pravidlo virtuální sítě pro Azure SQL Database pomocí prostředí PowerShell.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 
 
 <!-- Link references, to images. -->
@@ -304,4 +333,3 @@ Funkce koncové body služby Microsoft Azure Virtual Network a pravidlo virtuál
 
 - ARM templates
 -->
-

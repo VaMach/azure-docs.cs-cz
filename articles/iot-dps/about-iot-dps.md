@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4a2ac24442c425e1c2f2e81badef5dbd3a8dcf5e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 108ae4a66d2c13906cd0892b6c8ee5b20c3ca605
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Zřizování zařízení službou Azure IoT Hub zařízení zřizování (preview)
+# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Zřizování zařízení službou Azure IoT Hub zařízení zřizování
 Microsoft Azure poskytuje bohatou sadu integrovaných veřejné cloudové služby pro všechny vaše potřeby řešení IoT. Zřizování služby zařízení IoT Hub je služba Pomocník pro IoT Hub, která umožňuje nula touch, za běhu zřizování do správné služby IoT hub bez nutnosti lidského zásahu povolení zákazníkům zřídit miliony zařízení zabezpečený a škálovatelné způsobem.
 
 ## <a name="when-to-use-device-provisioning-service"></a>Kdy použít službu zřizování zařízení
@@ -111,14 +111,14 @@ Uchováváme 99,9 % Smlouvy o úrovni služeb pro službu zřizování zařízen
 ## <a name="quotas"></a>Kvóty
 Každé předplatné Azure má výchozí kvótami v místě, ke kterému by mohlo mít vliv oboru řešení IoT. Aktuální limit na základě za předplatné je 10 zařízení zřizování služeb podle předplatného.
 
-Další informace o omezení kvót:
+Další podrobnosti o limitech kvót:
 
-* [Omezení služby předplatného Azure](../azure-subscription-service-limits.md)
+* [Omezení služeb v předplatném Azure](../azure-subscription-service-limits.md)
 
-## <a name="related-azure-components"></a>Související Azure součásti
+## <a name="related-azure-components"></a>Související komponenty Azure
 Službu zřizování zařízení automatizuje zřizování zařízení s Azure IoT Hub. Další informace o [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď máte přehled o zřizování zařízení IoT v Azure. Dalším krokem je můžete vyzkoušet na scénář IoT od začátku do konce.
 > [!div class="nextstepaction"]
 > [Nastavení služby zřizování zařízení IoT Hub pomocí portálu Azure](quick-setup-auto-provision.md)

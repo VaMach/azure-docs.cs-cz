@@ -4,13 +4,13 @@ description: "Popisuje, jak zjišťovat a vyhodnocení místní virtuální poč
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/12/2017
+ms.date: 12/20/2017
 ms.author: raynew
-ms.openlocfilehash: c090605619afbaa1302932cbf9e73dbe52f5573b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e2806486ffb76fa7c210c3d0ef0b8bb3f86b7cd4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Zjišťovat a vyhodnocení místní virtuální počítače VMware pro migraci na Azure
 
@@ -41,13 +41,13 @@ Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https
 ## <a name="log-in-to-the-azure-portal"></a>Přihlášení k portálu Azure Portal
 Přihlaste se k portálu [Azure Portal](https://portal.azure.com).
 
-## <a name="create-a-project"></a>Vytvoření projektu
+## <a name="create-a-project"></a>Vytvořit projekt
 
 1. Na portálu Azure klikněte na tlačítko **vytvořit prostředek**.
-2. Vyhledejte **Azure migrovat**a vyberte službu (**migrovat Azure (preview)** ve výsledcích hledání. Poté klikněte na **Vytvořit**.
+2. Vyhledejte **Azure migrovat**a vyberte službu **migrovat Azure (preview)** ve výsledcích hledání. Poté klikněte na **Vytvořit**.
 3. Zadejte název projektu a předplatné Azure pro projekt.
 4. Vytvořte novou skupinu prostředků.
-5. Zadejte oblast, ve kterém vytvořte projekt a pak klikněte na **vytvořit**. Metadata získané z virtuálních počítačů na místě, se uloží v této oblasti. Projekt migrovat Azure můžete vytvořit pouze v oblasti západní centrální USA pro tuto verzi preview. Stále však můžete naplánovat migraci pro všechny cílové umístění Azure. 
+5. Zadejte umístění, v němž vytvořte projekt a pak klikněte na **vytvořit**. Projekt migrovat Azure můžete vytvořit pouze v oblasti západní centrální USA pro tuto verzi preview. Stále však můžete naplánovat migraci pro všechny cílové umístění Azure. K umístění zadanému pro projekt slouží pouze k ukládání metadat získané z virtuálních počítačů na místě. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -76,14 +76,14 @@ Zkontrolujte, zda. Soubor vajíčka se zabezpečení, před nasazením.
     Pro verzi vajíčka 1.0.8.38
     **Algoritmus** | **Hodnota hash**
     --- | ---
-    ALGORITMUS MD5 | dd27dd6ace28f9195a2b5d52a4003067 
+    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
     SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
     SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
 
     Pro verzi vajíčka 1.0.8.40
     **Algoritmus** | **Hodnota hash**
     --- | ---
-    ALGORITMUS MD5 | afbae5a2e7142829659c21fd8a9def3f
+    MD5 | afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
@@ -112,15 +112,20 @@ Stažený soubor importujte do systému vCenter Server.
     - Přijměte licenční podmínky a číst informace o jiných výrobců.
     - Kolekce kontroluje, zda virtuální počítač má přístup k Internetu.
     - Pokud virtuální počítač získá přístup k Internetu prostřednictvím proxy serveru, klikněte na tlačítko **nastavení proxy serveru**a zadat adresu proxy serveru a port naslouchání. Pokud proxy server vyžaduje ověřování, zadejte přihlašovací údaje.
-    - Kolekce kontroluje, zda je spuštěna služba systému Windows profileru. Služba je nainstalovaná ve výchozím nastavení v kolekci virtuálních počítačů.
+
+    > [!NOTE]
+    > Adresu proxy serveru musí být zadány ve tvaru http://ProxyIPAddress nebo http://ProxyFQDN. Je podporován pouze server proxy protokolu HTTP.
+
+    - Kolekce kontroluje, zda je spuštěna collectorservice. Služba je nainstalovaná ve výchozím nastavení v kolekci virtuálních počítačů.
     - Stáhněte a nainstalujte VMware PowerCLI.
-. V **zjišťovat počítače**, postupujte takto:
+
+5. V **zadejte podrobnosti o serveru vCenter**, postupujte takto:
     - Zadejte název (FQDN) nebo IP adresa serveru vCenter.
     - V **uživatelské jméno** a **heslo**, zadejte pověření účtu jen pro čtení, které kolekce použije k vyhledání virtuálních počítačů na serveru vCenter server.
     - V **kolekce oboru**, vyberte obor pro zjišťování virtuálních počítačů. Kolekce může zjistit pouze virtuální počítače v zadaném oboru. Obor lze nastavit na konkrétní složce, datacenter nebo clusteru. Měl by neměl obsahovat více než 1 000 virtuálních počítačů. 
     - V **značky kategorii pro seskupení**, vyberte **žádné**.
-1. V **vyberte projekt**, zadejte ID projektu Azure migrovat a klíče, že jste zkopírovali z portálu. Pokud nebylo je zkopírovat, otevřete portál Azure z kolekce virtuálních počítačů. V projektu **přehled** klikněte na tlačítko **zjišťovat počítače**a zkopírujte hodnoty.  
-2. V **dokončení zjišťování**, monitorování zjišťování a zkontrolujte, že metadata shromážděných z virtuálních počítačů jsou v oboru. Kolekce poskytuje čas přibližnou zjišťování.
+6. V **zadejte migrace projektu**, zadejte ID projektu Azure migrovat a klíče, že jste zkopírovali z portálu. Pokud nebylo je zkopírovat, otevřete portál Azure z kolekce virtuálních počítačů. V projektu **přehled** klikněte na tlačítko **zjišťovat počítače**a zkopírujte hodnoty.  
+7. V **sledovat průběh kolekce**, monitorování zjišťování a zkontrolujte, že metadata shromážděných z virtuálních počítačů jsou v oboru. Kolekce poskytuje čas přibližnou zjišťování.
 
 > [!NOTE]
 > Kolekce podporuje pouze "Angličtina (Spojené státy)" jako jazyk operačního systému a collector jazyk rozhraní. Podpora více jazyků bude brzo.
@@ -152,7 +157,7 @@ Tady je příklad hodnotící zprávu. Obsahuje informace o tom, jestli jsou kom
 
 ![Zprávy o hodnocení](./media/tutorial-assessment-vmware/assessment-report.png)
 
-#### <a name="azure-readiness"></a>Azure připravenosti
+#### <a name="azure-readiness"></a>Připravenost pro Azure
 
 Toto zobrazení uvádí stav připravenosti pro každý počítač.
 
@@ -162,7 +167,7 @@ Toto zobrazení uvádí stav připravenosti pro každý počítač.
 
   ![Vyhodnocení připravenosti](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
-#### <a name="monthly-cost-estimate"></a>Měsíční náklady na odhad
+#### <a name="monthly-cost-estimate"></a>Odhad měsíčních nákladů
 
 Toto zobrazení uvádí celkový počet výpočetních a náklady na úložiště spuštěných virtuálních počítačů v Azure společně s podrobnosti pro každý počítač. Odhadované náklady se počítají pomocí doporučení na základě výkonu velikost na počítač a hodnocení vlastností a jeho disky. 
 
@@ -177,8 +182,8 @@ Můžete přejít na najdete v podrobnostech pro konkrétní počítač.
 
 ![Hodnocení virtuálního počítače náklady.](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-- [Další informace](how-to-scale-assessment.md) jak nastavit posouzení pro velký počet počítačů v místě.
-- Naučte se vytvořit podrobnější hodnocení skupiny pomocí [mapování závislostí počítače](how-to-create-group-machine-dependencies.md)
+- [Další informace](how-to-scale-assessment.md) postup zjišťování a vyhodnocení velké prostředí VMware.
+- Naučte se vytvářet skupiny vysokou spolehlivostí assessment pomocí [mapování závislostí počítače](how-to-create-group-machine-dependencies.md)
 - [Další informace](concepts-assessment-calculation.md) o tom, jak jsou vypočítávány vyhodnocování.

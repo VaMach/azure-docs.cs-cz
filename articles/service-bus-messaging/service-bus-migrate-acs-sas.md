@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrace ze služby Řízení přístupu Azure ve službě Active Directory do sdíleného přístupového podpisu autorizace
 
-Aplikace služby Service Bus v minulosti měl možnost použití dvou různých autorizace modely: [sdíleného přístupového podpisu (SAS)](service-bus-sas.md) tokenu modelu poskytované služby Service Bus a federované model kde správy autorizační pravidla spravuje uvnitř [Azure Active Directory](/azure/active-directory/) služby Řízení přístupu (ACS) a tokeny získat ze serveru ACS se předávají do sběrnice pro autorizaci přístupu k požadované funkce.
+Service Bus aplikace měly možnost použití dvou různých autorizace modely: [sdíleného přístupového podpisu (SAS)](service-bus-sas.md) tokenu modelu poskytované služby Service Bus a federované model kde správy autorizační pravidla spravuje uvnitř [Azure Active Directory](/azure/active-directory/) služby Řízení přístupu (ACS) a tokeny získat ze serveru ACS se předávají do sběrnice pro autorizaci přístupu k požadované funkce.
 
 Modelu autorizace služby ACS dlouho byla nahrazena [autorizace SAS](service-bus-authentication-and-authorization.md) jako preferovaným modelem a veškerá dokumentace, pokyny a ukázky výhradně pomocí SAS ještě dnes. Kromě toho je již nebude možné vytvořit nové obory názvů Service Bus, které jsou spárovaný s služby ACS.
 
@@ -59,7 +59,7 @@ Tento nový a další konfigurace SAS na místě můžete provést v jakékoli e
 
 Pravidla SAS nejsou určeny jako účty, ale jsou pojmenované podpisové klíče související s právy. Jako takový scénáře, ve kterých aplikace vytvoří mnoho identit služby a jim udělí oprávnění pro několik entit nebo celý obor názvů stále vyžadují vydání tokenu prostředník. Můžete získat pokyny pro takové prostředník podle [obrátíte na podporu](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o ověřování služby Service Bus, najdete v následujících tématech:
 

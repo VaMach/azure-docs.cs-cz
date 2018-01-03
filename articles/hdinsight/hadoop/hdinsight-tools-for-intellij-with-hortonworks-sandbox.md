@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 8e63499258da7cfbdd288419d262ce41d9de4559
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6bb29dc4e231bc859be620e56a606fbbfade102b
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Použití nástroje HDInsight pro IntelliJ s Hortonworks karanténě
 
@@ -153,7 +153,7 @@ K odeslání projektu na emulátoru:
 
 3. Vyberte **odeslání**. Protokoly odeslání úlohy se zobrazí v okně Nástroj odeslání Spark.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Zjistěte, jak [vytvoření aplikací Spark pro cluster služby HDInsight Spark Linux pomocí nástroje HDInsight v Azure nástrojů pro IntelliJ](../spark/apache-spark-intellij-tool-plugin.md).
 

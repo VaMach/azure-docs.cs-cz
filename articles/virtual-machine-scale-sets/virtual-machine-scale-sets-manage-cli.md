@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 6ae05dc8faf950f584806d9b4a3e7e1466ded652
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Spravovat škálování virtuálních počítačů, nastavit pomocí Azure CLI 2.0
 V průběhu cyklu škálovací sadu virtuálních počítačů můžete spustit jeden nebo více úloh správy. Kromě toho můžete vytvořit skripty, které automatizují různé úlohy životního cyklu. Tento článek podrobně popisuje některé běžné příkazy Azure CLI 2.0, které umožňují provádět tyto úlohy.
 
-K dokončení těchto úloh správy, musíte na nejnovější verzi 2.0 rozhraní příkazového řádku Azure. Informace o tom, jak nainstalovat a použít nejnovější verzi najdete v tématu [nainstalovat Azure CLI 2.0](/cli/azure/install-azure-cli). Pokud potřebujete vytvořit škálovací sadu virtuálních počítačů, můžete [vytvořit měřítko nastavit na portálu Azure](virtual-machine-scale-sets-portal-create.md).
+K dokončení těchto úloh správy, musíte na nejnovější verzi 2.0 rozhraní příkazového řádku Azure. Informace o tom, jak nainstalovat a použít nejnovější verzi najdete v tématu [nainstalovat Azure CLI 2.0](/cli/azure/install-azure-cli). Pokud potřebujete vytvořit škálovací sadu virtuálních počítačů, můžete [vytvořit měřítko nastavit na portálu Azure](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Zobrazit informace o sadě škálování
@@ -127,7 +127,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Odebrat ze sady škálování virtuálních počítačů
-Chcete-li odebrat jeden nebo více virtuálních počítačů v sadě škálování, použijte [az vmss delete instance](/cli/azure/vmss#delete-instances). ' – ID instance hodnotu parametru můžete zadat jednu nebo více virtuálních počítačů k odebrání. Pokud zadáte * pro instanci jsou odebrány ID, všechny virtuální počítače v sadě škálování. Odebrat víc virtuálních počítačů, každý ID instance oddělte mezerou.
+Chcete-li odebrat jeden nebo více virtuálních počítačů v sadě škálování, použijte [az vmss delete instance](/cli/azure/vmss#delete-instances). `--instance-ids` Parametru můžete zadat jednu nebo více virtuálních počítačů k odebrání. Pokud zadáte * pro instanci jsou odebrány ID, všechny virtuální počítače v sadě škálování. Odebrat víc virtuálních počítačů, každý ID instance oddělte mezerou.
 
 Následující příklad odebere instanci *0* v pojmenované sad škálování *myScaleSet* a *myResourceGroup* skupinu prostředků. Zadejte hodnoty takto:
 
@@ -136,5 +136,5 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Zahrnout další běžné úlohy pro sady škálování postup [nasazení aplikace](virtual-machine-scale-sets-deploy-app.md), a [upgrade instance virtuálních počítačů](virtual-machine-scale-sets-upgrade-scale-set.md). Můžete také použít rozhraní příkazového řádku Azure pro [konfigurace pravidel automatického škálování](virtual-machine-scale-sets-autoscale-overview.md).

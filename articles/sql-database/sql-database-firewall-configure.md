@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: e18645667cfb126ae2f2f9c8074fdcff5a6ade1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure pravidla brány firewall serveru úroveň a databáze SQL Database 
 
@@ -45,6 +45,10 @@ Pokusy o připojení z internetu a z Azure musí nejdříve projít přes bránu
 * **Pravidla brány firewall na úrovni databáze:** tato pravidla povolit klientům přístup k určité (zabezpečení) databází v rámci stejného logického serveru. Můžete vytvořit tato pravidla pro každou databázi (včetně **hlavní** databáze) a jsou uložené v jednotlivých databázích. Pravidla brány firewall na úrovni databáze pro hlavní a uživatele databáze lze pouze vytvořit a spravovat pomocí příkazů Transact-SQL a až po nakonfigurování první brány firewall na úrovni serveru. Pokud v pravidlu brány firewall na úrovni databáze zadáte rozsah IP adres, který je mimo rozsah zadaný v pravidlu brány firewall na úrovni serveru, budou mít k dané databázi přístup pouze klienti, jejichž IP adresa je v rozsahu na úrovni databáze. Pro jednu databázi můžete mít maximálně 128 pravidel brány firewall na úrovni databáze. Další informace o konfiguraci pravidla brány firewall na úrovni databáze, podívejte se na příklad později v tomto článku a v tématu [sp_set_database_firewall_rule (databáze SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Doporučení:** Společnost Microsoft doporučuje pro zvýšení zabezpečení a přenositelnosti databází používat pravidla brány firewall na úrovni databáze kdykoli je to možné. Použijte pravidla brány firewall na úrovni serveru pro správce a pokud máte mnoho databází se stejnými požadavky na přístup a nechcete ztrácet čas konfigurací jednotlivých databází.
+
+> [!Important]
+> Windows Azure SQL Database podporuje maximálně 128 pravidel brány firewall.
+>
 
 > [!Note]
 > Informace o přenosných databázích v kontextu kontinuity podnikových procesů najdete v tématu [Požadavky na ověřování pro zotavení po havárii](sql-database-geo-replication-security-config.md).
@@ -217,7 +221,7 @@ Pokud se přístup ke službě Microsoft Azure SQL Database nechová podle oček
   * Požádejte svého poskytovatele internetových služeb (ISP) o rozsah IP adres přidělený vašim klientským počítačům, které přistupují k serveru služby Azure SQL Database, a následně přidejte tento rozsah IP adres jako pravidlo brány firewall.
   * Získejte pro své klientské počítače statické přidělování IP adres a následně přidejte tyto IP adresy jako pravidla brány firewall.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Rychlý start na vytváření databáze a pravidlo brány firewall na úrovni serveru, najdete v části [vytvoření Azure SQL database](sql-database-get-started-portal.md).
 - S připojováním k databázi SQL Azure z open source aplikací nebo aplikací třetích stran vám pomůžou [Ukázky kódu pro rychlý start klientů se službou SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).

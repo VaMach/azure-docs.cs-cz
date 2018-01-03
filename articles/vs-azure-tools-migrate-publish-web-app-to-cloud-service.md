@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: d5d41ab47c17a024900efc88ba0a006da63ab246
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Postupy: migrace a publikovat webovou aplikaci pro cloudové služby Azure ze sady Visual Studio
 
@@ -29,7 +29,7 @@ Pokud chcete využít výhod hostitelských služeb a schopnost škálování Az
 
 ## <a name="migrate-a-project-to-cloud-services"></a>Migrace projektu do cloudové služby
 
-1. Klikněte pravým tlačítkem na projekt webové aplikace a vyberte **převést > převést na projekt cloudové služby Microsoft Azure**. (Aby tento příkaz nezobrazí Pokud už máte projekt webové role v řešení.)
+1. Klikněte pravým tlačítkem na projekt webové aplikace a vyberte **převést > převést na projekt cloudové služby Microsoft Azure**. (Všimněte si, že tento příkaz nezobrazí, pokud už máte projekt webové role v řešení.)
 1. Visual Studio vytvoří projekt cloudové služby v řešení, který obsahuje požadované webovou roli. Název tohoto projektu je stejný jako projekt aplikace pomocí plus přípona `.Azure`.
 1. Visual Studio také nastaví **místní kopie** vlastnost na hodnotu true pro všechny sestavení, které jsou požadovány pro MVC 2, MVC 3, MVC 4 a Silverlight obchodních aplikací. Tato vlastnost přidá do balíčku služby, který se používá pro nasazení těchto sestavení.
 
@@ -124,7 +124,7 @@ Aplikace, které můžete migrovat a publikované na cloudové služby musí pou
 | WCF | Aplikace služby pracovního postupu WCF |
 | Pracovní postup | Aplikace služby pracovního postupu WCF |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Příprava na publikování nebo nasadit aplikaci Azure ze sady Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)
 - [Nastavení s názvem pověření pro ověření](vs-azure-tools-setting-up-named-authentication-credentials.md).

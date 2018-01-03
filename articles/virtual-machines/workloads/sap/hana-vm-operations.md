@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8ddfd5e2ee57d79fecacdc648af9264b6c95240
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 1d6991d40b9bb8543898bbbdc9d7c905dfe11536
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA na Azure provozní příručky
 Tento dokument obsahuje pokyny pro operační systémy SAP HANA, které jsou nasazeny na Azure nativní virtuální počítače (VM). Tento dokument není určen k nahrazení standardní SAP dokumentace, která zahrnuje následující obsah:
@@ -80,16 +80,23 @@ Azure prémiové disky se doporučuje pro /hana/data a /hana/log svazky. Můžet
 
 Následující tabulka uvádí konfigurací typy virtuálních počítačů, které zákazníci běžně používají k hostiteli SAP HANA na virtuálních počítačích Azure:
 
-| VIRTUÁLNÍ POČÍTAČ SKU | Paměť RAM | / hana/protokolu a/hana/data<br /> rozdělená s LVM nebo MDADM | / hana/sdílené | / root svazku | / usr/sap | Hana/zálohování |
-| --- | --- | --- | --- | --- | --- | -- |
-| E16v3 | 128 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
-| E32v3 | 256 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| GS5 | 448 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M64s | 1 TB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
-| M64ms | 1.7 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128ms | 3.8 TB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 5 x S30 |
+| VIRTUÁLNÍ POČÍTAČ SKU | Paměť RAM | Max. VIRTUÁLNÍ POČÍTAČ VSTUPNĚ-VÝSTUPNÍCH OPERACÍ<br /> Propustnost | / hana/protokolu a/hana/data<br /> rozdělená s LVM nebo MDADM | / hana/sdílené | / root svazku | / usr/sap | Hana/zálohování |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| E16v3 | 128 GiB | 384 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| E32v3 | 256 giB | 768 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| E64v3 | 443 giB | 1 200 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| GS5 | 448 giB | 2 000 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| M64s | 1000 giB | 1000 GB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
+| M64ms | 1 750 giB | 1000 GB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
+| M128s | 2000 giB | 2 000 GB |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
+| M128ms | 3800 giB | 2 000 GB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
+
+
+> [!NOTE]
+> Disky doporučeno pro typy menší virtuální počítač s 3 x P20 oversize svazky týkající se podle doporučení místa [SAP TDI úložiště dokument White Paper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Ale volba, zobrazovat v tabulce byl proveden zajistit dostatek propustnost disku pro SAP HANA. Pokud budete potřebovat méně propustnost vstupu/výstupu, můžete upravit volba disky úložiště Premium pro /hana/data a /hana/log. Totéž platí pro nastavení velikosti /hana/backup svazku, který byl dimenzované pro zálohování, které představují dvakrát svazku paměti. Pokud budete potřebovat méně místa, potom můžete upravit. Mějte celkovou propustnost vstupně-výstupních operací na virtuální počítač při změně velikosti nebo rozhodování pro virtuální počítač. Celkové propustnost virtuálního počítače je popsána v článku [paměťově optimalizované velikosti virtuálních počítačů](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)  
+
+> [!NOTE]
+> Pokud chcete využívat [jeden virtuální počítač Azure SLA k Virtuálním počítačům](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) budete muset změnit všechny virtuální pevné disky, které jsou uvedeny jako standardní úložiště (Sxx) do úložiště úrovně Premium (Pxx). 
 
 
 ### <a name="set-up-azure-virtual-networks"></a>Nastavení virtuální sítě Azure

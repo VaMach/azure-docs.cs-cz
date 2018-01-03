@@ -17,15 +17,15 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/23/2017
 ms.author: rickbyh
-ms.openlocfilehash: 0e66eec6c1843df49d3dc323cd109fb9eeb708c3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 78c26ee46ea7847cf78a7f3829c0f5b7a931f2d7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Řízení a udělování přístupu k databázi
 
-Když jsou nakonfigurovaná pravidla brány firewall, je možné se k SQL Database připojit jako jeden z účtů správce, jako vlastník databáze nebo jako uživatel příslušné databáze.  
+Po nakonfigurovaná pravidla brány firewall, osoby můžete připojit k databázi SQL jako jeden z účtů správce, jako vlastník databáze nebo jako uživatel databáze v databázi.  
 
 >  [!NOTE]  
 >  Toto téma se týká k Azure SQL serveru a databází SQL Database a SQL Data Warehouse, které jsou vytvořené na serveru Azure SQL. Pro zjednodušení se SQL Database používá k označení SQL Database i SQL Data Warehouse. 
@@ -185,7 +185,7 @@ Při správě přihlášení a uživatelů ve službě SQL Database mějte na pa
 * Pokud se vlastník databázové role pokusí přidat do této role jiného uživatele databáze (nebo ho z ní odebrat), může dojít k následující chybě: **Uživatel nebo role „Jméno“ v této databázi neexistuje.** Chyba je způsobená tím, že vlastník role daného uživatele nevidí. Problém vyřešíte tak, že vlastníkovi role udělíte oprávnění `VIEW DEFINITION` pro daného uživatele. 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o pravidlech brány firewall najdete v tématu [Brána firewall služby Azure SQL Database](sql-database-firewall-configure.md).
 - Přehled všech funkcí zabezpečení služby SQL Database najdete v [přehledu zabezpečení SQL](sql-database-security-overview.md).

@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Nasazení do Azure App Service pomocí modulu plug-in volaných 
 
@@ -64,7 +64,7 @@ Budete potřebovat objektu zabezpečení služby Azure k nasazení do Azure.
 3. Chcete-li přidat hlavní název služby Microsoft Azure, vyberte **přidat přihlašovací údaje**. Zadejte hodnoty pro **ID předplatného**, **ID klienta**, **tajný klíč klienta**, a **koncový bod tokenu OAuth 2.0** pole. Nastavte **ID** do **mySp**. Toto ID použít v následných kroků v tomto článku.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>Konfigurace volaných jak nasadit webové aplikace prostřednictvím Git a FTP
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Konfigurace volaných nasazování webových aplikací s nahrávání souborů
 
 K nasazení projektu do webové aplikace, můžete nahrát artefaktů sestavení (například soubor WAR v jazyce Java) pomocí Git a FTP.
 
@@ -104,7 +104,7 @@ Před nastavením pro úlohu ve volaných potřebujete plán aplikační služby
 8. Pokud chcete nasadit do přihrádky než produkční, můžete také nastavit **slotu** název.
 9. Uložte projekt a sestavte jej. Webové aplikace se nasadí do Azure, po dokončení sestavení.
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>Nasazení webové aplikace pomocí služby FTP pomocí volaných kanálu
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Nahrávání souborů pomocí kanálu volaných nasadit webové aplikace
 
 Modul plug-in Azure App Service volaných je připravené pro kanál. Najdete v následujícím příkladu v úložišti GitHub.
 
@@ -227,7 +227,7 @@ Pro **Docker registru URL** hodnotu, zadejte adresu URL pomocí formátu https:/
 
 3. Přejděte na http://&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Nahraďte &lt;x > a &lt;y > s všechna čísla získat součet hodnot x a y.
     
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu použít modul plug-in Azure App Service volaných k nasazení do Azure.
 

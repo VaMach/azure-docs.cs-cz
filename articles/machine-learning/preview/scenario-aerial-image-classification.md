@@ -3,16 +3,18 @@ title: Klasifikace leteckou Image | Microsoft Docs
 description: "Poskytuje pokyny pro scénář skutečných na klasifikaci leteckou bitové kopie"
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
+ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 57b81dfb2cb58fb43d4c420e8ce58c0c226316df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="aerial-image-classification"></a>Klasifikace leteckou bitové kopie
 
@@ -44,7 +46,7 @@ V tomto příkladu jsou data obrázku a pretrained modely umístěny v účtu ú
 
 ![Schéma pro scénář skutečných klasifikace leteckou bitové kopie](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-[Podrobné pokyny](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) začněte tím, že provede vytváření a Příprava účtu úložiště Azure a cluster Spark, včetně instalace dat přenosu a závislostí. Potom popisují způsob spuštění úlohy školení a porovnejte výkon výsledné modelů. Nakonec se ukazují, jak použít zvolený model pro sadu velký obrázek na clusteru Spark a analyzujte výsledky předpovědi místně.
+Tyto podrobné pokyny, začněte tím, že provede vytváření a Příprava účtu úložiště Azure a cluster Spark, včetně instalace dat přenosu a závislostí. Potom popisují způsob spuštění úlohy školení a porovnejte výkon výsledné modelů. Nakonec se ukazují, jak použít zvolený model pro sadu velký obrázek na clusteru Spark a analyzujte výsledky předpovědi místně.
 
 
 ## <a name="set-up-the-execution-environment"></a>Nastavení prostředí pro spuštění
@@ -52,7 +54,7 @@ V tomto příkladu jsou data obrázku a pretrained modely umístěny v účtu ú
 Následující pokyny vás provede procesem nastavení prostředí pro spuštění v tomto příkladu.
 
 ### <a name="prerequisites"></a>Požadavky
-- [Účet Azure](https://azure.microsoft.com/en-us/free/) (bezplatné zkušební verze jsou k dispozici)
+- [Účet Azure](https://azure.microsoft.com/free/) (bezplatné zkušební verze jsou k dispozici)
     - Vytvoříte clusteru služby HDInsight Spark s 40 uzlů pracovního procesu (celkový počet 168 jádra). Zkontrolujte, zda má váš účet dostatek dostupné jader kontrolou "využití + kvóty" karta pro vaše předplatné na portálu Azure.
        - Pokud máte menší počet jader, které jsou k dispozici, můžete upravovat snížit počet pracovních procesů, které jsou zřízené pro šablonu clusteru HDInsight. Pokyny k tomuto vyskytovat v části "Vytvoření clusteru HDInsight Spark".
     - Tato ukázka vytvoří cluster školení AI dávky s dva NC6 (GPU 1, 6 virtuální procesory) virtuálních počítačů. Zajistěte, aby váš účet dostatek dostupné jader v oblasti Východ USA kontrolou "využití + kvóty" karta pro vaše předplatné na portálu Azure.
@@ -68,7 +70,7 @@ Následující pokyny vás provede procesem nastavení prostředí pro spuštěn
     - Záznam ID klienta, tajný klíč a ID klienta aplikace Azure Active Directory, který jste dostali pokyn k vytvoření. Tyto přihlašovací údaje použijete později v tomto kurzu.
     - Době psaní tohoto textu pomocí Azure Machine Learning Workbench a Azure Batch AI samostatné větve 2.0 rozhraní příkazového řádku Azure. Pro přehlednost označujeme nástroje Workbench verzi rozhraní příkazového řádku jako "rozhraní příkazového řádku spustit z Azure Machine Learning Workbench" a obecné verzi, (která zahrnuje Batch AI) jako "Azure CLI 2.0."
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), uvolněte nástroj pro spolupráci přenos souborů mezi účty úložiště Azure
-    - Zajistěte, aby byl ve složce obsahující AzCopy spustitelný soubor na proměnné prostředí PATH vašeho systému. (Informace o úpravě proměnné prostředí jsou k dispozici [zde](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
+    - Zajistěte, aby byl ve složce obsahující AzCopy spustitelný soubor na proměnné prostředí PATH vašeho systému. (Informace o úpravě proměnné prostředí jsou k dispozici [zde](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Klientem SSH; Doporučujeme, abyste [PuTTY](http://www.putty.org/).
 
 V tomto příkladu byla testována v počítačích s Windows 10; byste měli být schopni spustit z libovolného počítače systému Windows, včetně virtuálních počítačů Azure dat vědecké účely. Azure CLI 2.0 nainstalovala ze souboru MSI podle [tyto pokyny](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Méně závažné změny mohou být vyžadovány (například změny filepaths) v systému macOS při spuštění v tomto příkladu.
@@ -416,7 +418,7 @@ Po dokončení v příkladu doporučujeme odstranit všechny prostředky, které
 
 Azure Machine Learning Workbench pomáhá datových vědců snadno nasadit svůj kód na vzdálené výpočetní cíle. V tomto příkladu místní znakové školení MMLSpark nasazená pro vzdálené spuštění v clusteru HDInsight a místní skript spustí úlohu školení na clusteru služby Azure Batch AI GPU. Funkce historie spouštění Azure Machine Learning Workbench je sledovat výkon více modelů a pomohl nám určit nejpřesnější modelu. Funkce poznámkové bloky Jupyter na Workbench pomohl vizualizovat předpovědi naše modely v interaktivní, grafické prostředí.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Se můžete ponořit hlouběji do tento příklad:
 - V Azure Machine Learning Workbench je funkce historie spustit klikněte na ozubené kolečko symboly, které mají vybrat, které grafy a metriky se.
 - Prozkoumat ukázkové skripty pro příkazy volání `run_logger`. Zkontrolujte, že chápete, jak se nahrává jednotlivé metriky.

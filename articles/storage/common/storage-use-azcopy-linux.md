@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: seguler
-ms.openlocfilehash: 1cf1ce1cb739d8958767f0e84380ff6ba57eb1b6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Přenos dat pomocí nástroje AzCopy v systému Linux
-V systému Linux AzCopy je nástroj příkazového řádku pro kopírování dat do a z úložiště objektů Blob v Microsoft Azure a soubor pomocí jednoduchých příkazů optimální výkon. V rámci účtu úložiště nebo mezi účty úložiště, můžete také zkopírovat data z jednoho objektu na jiný.
+
+AzCopy je nástroj příkazového řádku pro kopírování dat z úložiště Microsoft Azure Blob, soubor a tabulky, jednoduché příkazy určené pro optimální výkon. Může kopírovat data mezi systém souborů a účet úložiště nebo mezi účty úložiště.  
 
 Existují dvě verze nástroje AzCopy, které si můžete stáhnout. AzCopy v systému Linux je sestaven pomocí rozhraní .NET Framework Core, které cílí platformy Linux nabídky stylu POSIX možnosti příkazového řádku. [AzCopy v systému Windows](../storage-use-azcopy.md) je obsažena v rozhraní .NET Framework a nabízí možnosti příkazového řádku Windows stylu. Tento článek se zabývá AzCopy v systému Linux.
 
@@ -620,12 +621,12 @@ Pokud nelze zabránit jiné aplikace z zápis do objektů BLOB nebo soubory, kdy
 ### <a name="run-one-azcopy-instance-on-one-machine"></a>Jedna instance nástroje AzCopy spusťte na jednom počítači.
 AzCopy je navržen chcete maximalizovat využití prostředků vašeho počítače urychlit přenos dat, doporučujeme spustit pouze jedna instance nástroje AzCopy na jednom počítači a zadejte možnost `--parallel-level` Pokud potřebujete více souběžných operací. Další podrobnosti, zadejte `AzCopy --help parallel-level` na příkazovém řádku.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o Azure Storage a AzCopy najdete v následujících zdrojích informací:
 
 ### <a name="azure-storage-documentation"></a>Dokumentace k Azure Storage:
 * [Úvod do Azure Storage](../storage-introduction.md)
-* [Vytvoření účtu úložiště](../storage-create-storage-account.md)
+* [vytvořit účet úložiště](../storage-create-storage-account.md)
 * [Spravovat objekty BLOB pomocí Průzkumníka úložiště](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Použití Azure CLI 2.0 s Azure Storage](../storage-azure-cli.md)
 * [Používání úložiště Blob z jazyka C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)

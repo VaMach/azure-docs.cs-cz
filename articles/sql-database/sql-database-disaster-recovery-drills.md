@@ -16,11 +16,11 @@ ms.date: 10/20/2016
 ms.workload: Inactive
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 55f73c30db96d91a642daee98832b1e1c9a38035
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 73c2cbe978c980cbe1269b34cdb9f5ff86113e61
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Provedením postupu zotavení po havárii
 Doporučujeme, aby se pravidelně provádí ověřování připravenosti aplikace pro pracovní postup obnovení. Ověření chování aplikace a dopad ztráty dat nebo přerušení zahrnuje tento převzetí služeb při selhání je dobrým zvykem engineering. Je také požadavek ve většině oborové standardy jako součást Certifikační kontinuity firmy.
@@ -37,7 +37,7 @@ V závislosti na tom, jak můžete [určená aplikace pro kontinuitu podnikovýc
 Aby se zabránilo potenciální ztrátě dat při provádění postupu zotavení po havárii, proveďte procházení testovacím prostředí pomocí vytvořit kopii produkčního prostředí a používat jej ověření pracovní postup převzetí služeb při selhání aplikace.
 
 #### <a name="outage-simulation"></a>Simulace výpadku
-Pro simulaci se výpadek, můžete odstranit nebo přejmenovat zdrojové databáze. To způsobí selhání připojení aplikace.
+Pro simulaci se výpadek, můžete přejmenovat zdrojové databáze. To způsobí selhání připojení aplikace.
 
 #### <a name="recovery"></a>Obnovení
 * Provést geografické obnovení databáze do jiného serveru, jak se popisuje [zde](sql-database-disaster-recovery.md).
@@ -60,7 +60,7 @@ Pro simulaci se výpadek, můžete zakázat webové aplikace nebo virtuální po
 #### <a name="validation"></a>Ověření
 Dokončete podrobné sestavy pomocí ověření obnovení post integrity aplikace (včetně připojení, testování základní funkce nebo další ověření požadované pro procházení signoffs).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Další informace o obchodních scénářů kontinuity najdete v tématu [kontinuity scénáře](sql-database-business-continuity.md).
 * Další informace o Azure SQL Database automatizované zálohování najdete v tématu [automatizované zálohování SQL Database](sql-database-automated-backups.md)
 * Další informace o použití automatizované zálohování pro obnovení, najdete v části [obnovit databázi ze zálohy spouštěná služba](sql-database-recovery-using-backups.md).

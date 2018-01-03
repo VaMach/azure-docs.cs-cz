@@ -3,7 +3,7 @@ title: "Vytvoření vlastních artefaktů pro virtuální počítač DevTest Lab
 description: "Naučte se vytvářet vlastní artefaktů pro použití s Azure DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: tarcher
-ms.openlocfilehash: 679819618452d65847c6163569e04945ba8a414d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 7766227d66df94eca72072f52ff02928f8ee277b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Vytvoření vlastních artefaktů pro virtuální počítač DevTest Labs
 
@@ -55,7 +55,7 @@ Následující příklad ukazuje oddíly, které tvoří základní strukturu de
 | Název elementu | Povinné? | Popis |
 | --- | --- | --- |
 | $schema |Ne |Umístění souboru schématu JSON. Soubor schématu JSON můžete otestovat platnost souboru definice. |
-| Název |Ano |Název artefaktů zobrazí v testovacím prostředí. |
+| název |Ano |Název artefaktů zobrazí v testovacím prostředí. |
 | description |Ano |Popis artefaktu zobrazí v testovacím prostředí. |
 | iconUri |Ne |Identifikátor URI na ikonu se zobrazí v testovacím prostředí. |
 | targetOsType |Ano |Operační systém virtuálního počítače, kde je nainstalován artefaktů. Podporované možnosti patří Windows a Linux. |
@@ -129,6 +129,6 @@ Následující příklad ukazuje, jak vytvořit hodnotu pomocí výrazy a funkce
 * [Diagnostika chyb artefaktů v DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
 * [Připojení virtuálního počítače do existující domény služby Active Directory pomocí šablony Resource Manageru v DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Zjistěte, jak [přidat artefaktů úložiště Git do testovacího prostředí](devtest-lab-add-artifact-repo.md).
 

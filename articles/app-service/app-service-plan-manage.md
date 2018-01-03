@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Spravovat plán služby App Service v Azure
 
-[Plán služby App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) poskytuje prostředky aplikace služby App Service je potřeba spustit. Tento postup ukazuje, jak spravovat plán služby App Service. 
+[Plán služby App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) poskytuje prostředky aplikace služby App Service je potřeba spustit. Tento postup ukazuje, jak spravovat plán služby App Service.
 
 ## <a name="create-an-app-service-plan"></a>Vytvoření plánu služby App Service
 
@@ -69,6 +69,8 @@ Vyberte **plán služby App Service změnu** ke spuštění procesu.
 
 ![Selektor plán služby App Service.][change]
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 Každý plán má svou vlastní cenová úroveň. Například přesun lokalitu **volné** vrstvy do **standardní** vrstvy, umožňuje všechny aplikace, které jsou přiřazené použití funkcí a prostředky **standardní** vrstvy. Přesunutí aplikace z plánu vrstvené vyšší do nižší vrstvené plán však znamená, že už máte přístup k určité funkce. Pokud vaše aplikace používá funkce, která není k dispozici v cílové plánu, dojde k chybě, která zobrazuje funkce, které se používá, který není k dispozici. Například pokud některé z aplikací používá certifikáty protokolu SSL, mohou se zobrazit chybová zpráva: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`v takovém případě budete muset škálování cenové úrovně plánu cíl na **základní** nebo vyšší, nebo je třeba odebrat všechny připojení SSL k aplikace, než aplikace můžete přesunout do cílového plánu.
 
 ## <a name="move-an-app-to-a-different-region"></a>Přesunutí aplikace v jiné oblasti
@@ -95,7 +97,7 @@ Abyste předešli neočekávané poplatky, když odstraníte poslední aplikace 
 > [!IMPORTANT]
 > **Plánů služby App Service** mají žádné aplikace přidružené k je stále platit poplatky vzhledem k tomu, že budou nadále rezervovat nakonfigurované instance virtuálních počítačů.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Škálování aplikace v Azure](web-sites-scale.md)

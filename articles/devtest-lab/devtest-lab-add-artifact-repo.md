@@ -3,7 +3,7 @@ title: "Přidání úložiště Git do testovacího prostředí v Azure DevTest 
 description: "Informace o postupu přidání úložiště GitHub nebo Visual Studio Team Services Git pro váš vlastní artefakty zdroj v Azure DevTest Labs."
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 01b459f7-eaf2-45a8-b4b5-2c0a821b33c8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 345d095762b75b7a177bf4c6e7a07360a9c14068
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Přidejte úložiště Git pro uložení vlastních artefaktů a šablony Resource Manageru
 
@@ -92,7 +92,7 @@ Pokud chcete přidat úložiště do testovacího prostředí, nejprve získáte
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po vytvoření privátní úložiště Git, můžete podle potřeby proveďte jednu nebo obě z následujících:
 * Úložiště vaše [vlastních artefaktů](devtest-lab-artifact-author.md). Můžete později použít k vytvoření nové virtuální počítače.
 * [Vytvoření prostředí více virtuálních počítačů a PaaS prostředky pomocí šablony Resource Manageru](devtest-lab-create-environment-from-arm.md). Pak můžete uložit šablony ve vaší privátní úložiště.

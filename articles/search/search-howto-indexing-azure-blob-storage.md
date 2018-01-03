@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexování dokumentů v úložišti objektů Blob v Azure s Azure Search
 Tento článek ukazuje, jak používat Azure Search k indexování dokumentů (například soubory PDF, dokumentů Microsoft Office a několik dalších běžných formátů) uložené v úložišti objektů Blob Azure. Nejprve vysvětluje základní informace o nastavení a konfiguraci indexer objektů blob. Poté nabízí podrobnější zkoumání chování, a scénáře, můžete se setkat.
@@ -31,7 +31,7 @@ Indexer objektů blob můžete rozbalte text z následujících formátů dokume
 ## <a name="setting-up-blob-indexing"></a>Nastavení indexování objektů blob
 Můžete nastavit indexer Azure Blob Storage pomocí:
 
-* [Azure Portal](https://ms.portal.azure.com)
+* [portál Azure Portal](https://ms.portal.azure.com)
 * Služba Azure Search [rozhraní REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Služba Azure Search [sady .NET SDK](https://aka.ms/search-sdk)
 
@@ -225,28 +225,6 @@ Objekty BLOB s konkrétní přípony názvů souborů můžete vyloučit z index
 
 Pokud oba `indexedFileNameExtensions` a `excludedFileNameExtensions` dostupné parametry, Azure Search nejdřív zjistí `indexedFileNameExtensions`, pak na `excludedFileNameExtensions`. To znamená, že pokud stejnou příponu souboru nachází v obou seznamů, bude vyloučena z indexu.
 
-### <a name="dealing-with-unsupported-content-types"></a>Práci s nepodporované typy obsahu
-
-Ve výchozím nastavení zastaví indexeru objektů blob při výskytu objekt blob se nepodporovaný typ obsahu (například obrázek). Samozřejmě můžete použít `excludedFileNameExtensions` parametr tak, aby přeskočil určité typy obsahu. Může ale muset objekty BLOB index bez znalosti všechny možné typy obsahu předem. Chcete-li pokračovat, indexování při zjistil se nepodporovaný typ obsahu, nastavte `failOnUnsupportedContentType` konfigurace parametru `false`:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### <a name="ignoring-parsing-errors"></a>Ignorování chyb analýzy
-
-Azure Search dokumentu extrakce logiku není úplně bez chyby a někdy nebude analyzovat dokumenty podporovaného typu obsahu, jako například. DOCX nebo. PDF. Pokud nechcete pro přerušení indexování v takovém případě nastavte `maxFailedItems` a `maxFailedItemsPerBatch` parametry konfigurace pro některé přiměřené hodnoty. Například:
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
-
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Řízení, které části objektu blob jsou uloženy.
 
@@ -275,6 +253,31 @@ Výše uvedených parametrů konfigurace platí pro všechny objekty BLOB. V ně
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |Dá pokyn indexeru blob zcela přeskočit objektu blob. Extrakce metadat ani obsahu dojde k pokusu o. To je užitečné, když konkrétní objekt blob opakovaně a přerušení proces indexování. |
 | AzureSearch_SkipContent |"true" |Toto je ekvivalentní `"dataToExtract" : "allMetadata"` nastavení popsané [výše](#PartsOfBlobToIndex) omezená na konkrétní objekt blob. |
+
+<a name="DealingWithErrors"></a>
+## <a name="dealing-with-errors"></a>Plánování práce s chybami
+
+Ve výchozím nastavení zastaví indexeru objektů blob při výskytu objekt blob se nepodporovaný typ obsahu (například obrázek). Samozřejmě můžete použít `excludedFileNameExtensions` parametr tak, aby přeskočil určité typy obsahu. Může ale muset objekty BLOB index bez znalosti všechny možné typy obsahu předem. Chcete-li pokračovat, indexování při zjistil se nepodporovaný typ obsahu, nastavte `failOnUnsupportedContentType` konfigurace parametru `false`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+Pro některé objekty BLOB Azure Search nelze určit typ obsahu nebo se nepodařilo zpracovat doklad o jinak podporovaná typ obsahu. Chcete-li tento režim selhání ignorovat, nastavte `failOnUnprocessableDocument` konfiguračního parametru na hodnotu false:
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Můžete také pokračovat indexování Pokud chyby v libovolném bodě zpracování, při analýze objektů BLOB nebo při přidávání dokumentů do indexu. Chcete-li ignorovat konkrétní počet chyb, nastavte `maxFailedItems` a `maxFailedItemsPerBatch` parametry konfigurace pro požadované hodnoty. Příklad:
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Přírůstkové indexování a odstranění duplicit
 Při nastavování objektu blob indexer spouštět podle plánu, znovu indexovat pouze změněné objekty BLOB, určeného objektu blob `LastModified` časové razítko.

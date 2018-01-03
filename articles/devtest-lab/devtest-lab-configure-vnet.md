@@ -3,7 +3,7 @@ title: "Konfigurace virtuální sítě v Azure DevTest Labs | Microsoft Docs"
 description: "Zjistěte, jak nakonfigurovat existující virtuální síť a podsíť a využít ve virtuálním počítači s Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 6cda99c2-b87e-4047-90a0-5df10d8e9e14
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
-ms.author: tarcher
-ms.openlocfilehash: 7048d5d1054906d712ac0422dacfe1ccca97fcc0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: v-craic
+ms.openlocfilehash: 21daa8ff756ee30c6d454d49af7db20afe488c47
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Konfigurace virtuální sítě v Azure DevTest Labs
 Jak je popsáno v článku [přidat virtuální počítač do testovacího prostředí](devtest-lab-add-vm.md), při vytváření virtuálních počítačů v testovacím prostředí, můžete zadat nakonfigurované virtuální sítě. Například může potřebujete přístup k prostředkům corpnet z virtuálních počítačů pomocí virtuální sítě, která byla konfigurovaná s ExpressRoute nebo VPN typu site-to-site.
@@ -58,12 +58,12 @@ Následující postup vás provede procesem přidání existující virtuální 
 1. Vyberte **OK** zavřete podokno podsíť testovacího prostředí.
 1. Vyberte **Uložit** zavřete podokně virtuální sítě.
 
-Teď, když je nakonfigurovaný virtuální sítě, můžete vybrat při vytváření virtuálního počítače. Informace o tom, jak vytvořit virtuální počítač a zadejte virtuální síť, naleznete v článku [Přidání virtuálního počítače s artefakty do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md). 
+Teď, když je nakonfigurovaný virtuální sítě, můžete vybrat při vytváření virtuálního počítače. Informace o tom, jak vytvořit virtuální počítač a zadejte virtuální síť, naleznete v článku [přidat virtuální počítač do testovacího prostředí](devtest-lab-add-vm.md). 
 
 Azure [dokumentace k virtuálním sítím](https://docs.microsoft.com/azure/virtual-network) poskytuje další informace o tom, jak používat virtuální sítě, včetně toho, jak nastavit a spravovat virtuální sítě a připojení k síti na pracovišti.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Další kroky
-Po přidání požadované virtuální sítě do vašeho testovacího prostředí, dalším krokem je [přidat virtuální počítač do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md).
+## <a name="next-steps"></a>Další postup
+Po přidání požadované virtuální sítě do vašeho testovacího prostředí, dalším krokem je [přidat virtuální počítač do testovacího prostředí](devtest-lab-add-vm.md).
 

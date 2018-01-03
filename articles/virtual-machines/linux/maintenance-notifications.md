@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: bb231b4a5210019b36bb4bb123795b4762374c66
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Zpracování plánované údržby oznámení pro virtuální počítače s Linuxem
 
@@ -30,9 +30,9 @@ Azure pravidelně provádí aktualizace ke zlepšení spolehlivosti, výkonu a z
 - Pokud údržby vyžaduje restartování, zobrazí oznámení o při plánované údržby. V těchto případech jsou zadané časové okno, kde můžete spustit údržby sami, pokud vám vyhovuje.
 
 
-Plánované údržby, která vyžaduje restartování, je naplánováno témata. Každý wave má jiný rozsah (oblastí).
+Plánované údržby, která vyžaduje restartování je naplánováno témata. Každý wave má jiný rozsah (oblastí).
 
-- Nejrůznější začíná oznámení pro zákazníky. Ve výchozím nastavení se vlastník předplatného a spoluvlastníci odesílány oznámení. Můžete přidat další možnosti zasílání zpráv jako e-mailu, SMS a pomocí Webhooků a příjemce k oznámení pomocí Azure [aktivity protokolu výstrahy](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- Nejrůznější začíná oznámení pro zákazníky. Ve výchozím nastavení se vlastník předplatného a spoluvlastníci odesílány oznámení. Můžete přidat další možnosti zasílání zpráv jako e-mailu, SMS a pomocí webhooků a příjemce k oznámení pomocí Azure [aktivity protokolu výstrahy](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
 - V době oznámení *samoobslužné služby okno* je k dispozici. Během této doby můžete najít, které virtuální počítače jsou uvedeny v této wave a proaktivní údržby spustit podle vlastních potřeb plánování.
 - Po okno samoobslužné služby *plánované údržby* začne. V určitém okamžiku během této doby Azure plány a může požadovaná údržba se vztahují k virtuálnímu počítači. 
 
@@ -92,8 +92,8 @@ V části MaintenanceRedeployStatus se vrátí následující hodnoty:
 | IsCustomerInitiatedMaintenanceAllowed | Určuje, zda můžete spustit údržby pro virtuální počítač v tuto chvíli ||
 | PreMaintenanceWindowStartTime         | Na začátek samoobslužné služby okno údržby při údržby můžete spustit na vašem virtuálním počítači ||
 | PreMaintenanceWindowEndTime           | Konec samoobslužné služby okno údržby při údržby můžete spustit na vašem virtuálním počítači ||
-| MaintenanceWindowStartTime            | Na začátek okno plánované údržby při údržby můžete spustit na vašem virtuálním počítači ||
-| MaintenanceWindowEndTime              | Konec období naplánované údržby když iniciujete údržby na vašem virtuálním počítači ||
+| MaintenanceWindowStartTime            | Na začátek okno plánované údržby, ve kterém Azure zahájí údržby na vašem virtuálním počítači ||
+| MaintenanceWindowEndTime              | Konec okno plánované údržby, ve kterém Azure zahájí údržby na vašem virtuálním počítači ||
 | LastOperationResultCode               | Výsledek poslední pokus o inicializaci údržby ve virtuálním počítači ||
 
 
@@ -159,7 +159,7 @@ Další informace o vysoké dostupnosti najdete v tématu [oblastech a dostupnos
 
 **Otázka: jak dlouho bude to trvat restartování virtuální počítač?**
 
-**Odpověď:** v závislosti na velikosti virtuálního počítače, restartování může trvat několik minut. Všimněte si, že v případě, že používáte cloudové služby (Role Web nebo Worker), nastaví škálování virtuálního počítače nebo skupiny dostupnosti, budete mít 30 minut mezi každou skupinu virtuálních počítačů (UD). 
+**Odpověď:** v závislosti na velikosti virtuálního počítače, restartování může trvat několik minut během časového období údržby samoobslužné služby. Během Azure inicioval restartování počítače v okně plánované údržby restartování obvykle trvat asi 25 minut. Všimněte si, že v případě, že používáte cloudové služby (Role Web nebo Worker), nastaví škálování virtuálního počítače nebo skupiny dostupnosti, budete mít 30 minut mezi každou skupinou z virtuálních počítačů (UD) během plánované údržby.
 
 **Otázka: co je prostředí v případě cloudové služby (Role Web nebo Worker), Service Fabric a sady škálování virtuálního počítače?**
 

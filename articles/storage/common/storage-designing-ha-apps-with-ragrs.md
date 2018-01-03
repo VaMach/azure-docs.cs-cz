@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 68986f1c8a8d3a2c4c763958e141bc3830c6b5bb
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Navrhování pomocí RA-GRS vysoce dostupných aplikací.
 
@@ -26,7 +26,7 @@ Běžné funkce cloudové infrastruktury, jako je Azure Storage je, že poskytuj
 
 Úložiště Azure nabízí čtyři volby pro redundanci dat ve vašem účtu úložiště:
 
-– LRS (místně redundantní úložiště)
+- LRS (místně redundantní úložiště)
 - ZRS (zóny redundantní úložiště) 
 - GRS (geograficky redundantní úložiště)
 - RA-GRS (geograficky redundantní úložiště s přístupem pro čtení). 

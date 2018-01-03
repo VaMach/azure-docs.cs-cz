@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0f7b90a77ab321ee726245c82ea27635438070c0
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – známé problémy a Průvodce odstraňováním potíží s 
 Tento článek vám pomůže najít a opravy chyb nebo selhání došlo jako součást pomocí aplikace Azure Machine Learning Workbench. 
@@ -28,7 +28,7 @@ Máme fóru MSDN, že můžete účtovat otázky. Produktový tým aktivně sled
 ## <a name="gather-diagnostics-information"></a>Shromážděte diagnostické informace
 V některých případech může být užitečné, pokud zajistíte diagnostické informace, žádostí o pomoc. Tady je bydlišti soubory protokolů:
 
-### <a name="installer"></a>Instalační program
+### <a name="installer-log"></a>Instalační program protokolu
 Pokud narazíte na problém během instalace, instalační soubory protokolu jsou tady:
 
 ```
@@ -40,18 +40,7 @@ Pokud narazíte na problém během instalace, instalační soubory protokolu jso
 ```
 Můžete si obsah tyto adresáře zip a odeslat do us pro diagnostiku.
 
-### <a name="app-update"></a>Aktualizace aplikace 
-#### <a name="no-update-notification-on-windows-desktop"></a>Žádná aktualizace oznámení na ploše systému Windows 
-Tento problém bude vyřešen v aktualizaci nadcházející. Řešením je do té doby, aby se zabránilo spouštění aplikace pomocí zástupce připnuté na hlavním panelu. Místo toho spusťte aplikaci pomocí nabídky Start nebo vyhledávání řádek Start nebo zástupce na ploše (pokud nějaký máte). 
-
-#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Žádná aktualizace oznámení na Ubuntu Data Sciece virtuálního počítače (DSVM)
-Proveďte následující kroky, chcete-li stáhnout nejnovější aplikace:   
-   - odebrat \Users\AppData\Local\amlworkbench složky
-   - odebrat skriptu`c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
-   - odebrat zástupce na ploše, který spouští skript výše
-   - Instalace ještě jednou s [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
-
-### <a name="workbench-desktop-app"></a>Aplikace na ploše Workbench
+### <a name="workbench-desktop-app-log"></a>Workbench protokolu aplikace na ploše
 Pokud máte potíže s přihlášením nebo pokud dojde k chybě plochy Workbench, najdete tady soubory protokolu:
 ```
 # Windows
@@ -62,7 +51,7 @@ Pokud máte potíže s přihlášením nebo pokud dojde k chybě plochy Workbenc
 ``` 
 Můžete si obsah tyto adresáře zip a odeslat do us pro diagnostiku.
 
-### <a name="experiment-execution"></a>Spuštění experimentu
+### <a name="experiment-execution-log"></a>Protokolu spuštění experimentu
 Pokud konkrétní skript selže při odeslání z plochy aplikace, zkuste odeslat znovu ji prostřednictvím rozhraní příkazového řádku `az ml experiment submit` příkaz. To měl dát celý text chybové zprávy ve formátu JSON a co je nejdůležitější obsahuje **ID operace** hodnotu. Pošlete nám, včetně soubor JSON **ID operace** a jsme může pomoci diagnostikovat. 
 
 Pokud konkrétní skript v odesílání úspěšné, ale v provádění selže, by měl vytiskněte **spustit ID** k identifikaci této konkrétní spustit. Můžete zabalit příslušných protokolových souborů pomocí následujícího příkazu:
@@ -95,6 +84,8 @@ Když pracujete v Azure ML Workbench, můžete také odeslat nám zamračeného 
 - Text, který clustering transformací nejsou podporovány na macu.
 
 - Knihovna RevoScalePy je podporována pouze v systému Windows a Linux (v kontejnerech Docker). Není podporována v systému macOS.
+
+- Poznámkové bloky Jupyter mají maximální velikost maximálně 5 MB při jejich otevření z aplikace Workbench. Velké poznámkových bloků můžete otevřít z příkazového řádku pomocí poznámkového bloku ml az spuštění příkazu a vyčištění buňky výstupy ke snížení velikosti souboru.
 
 ## <a name="cant-update-workbench"></a>Nelze aktualizovat Workbench
 Když je k dispozici nové aktualizace, domovskou stránku aplikace Workbench zobrazí zprávu informující o nové aktualizace. Měli byste vidět aktualizaci oznámení "BADGE" zobrazovaných v levém dolním rohu aplikace na ikonu zvonku. Klikněte na oznámení "BADGE" a postupujte podle pokynů Průvodce instalační program pro instalaci aktualizace. 
@@ -207,7 +198,18 @@ $ docker system prune -a
 
 Můžete také přidat datový disk a nakonfigurovat modul Docker použít datový disk pro ukládání bitových kopií. Tady je [jak přidat datový disk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Pak můžete [změnu kde Docker ukládá bitové kopie](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Případně můžete rozšířit disk operačního systému a nemáte přístup ke konfiguraci modulu Docker. Tady je [jak můžete rozšířit disk operačního systému](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+Případně můžete rozšířit disk operačního systému a nemáte přístup ke konfiguraci modulu Docker. Tady je [jak můžete rozšířit disk operačního systému](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+
+```azure-cli
+#Deallocate VM (stopping will not work)
+$ az vm deallocate --resource-group myResourceGroup  --name myVM
+
+# Update Disc Size
+$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+    
+# Start VM    
+$ az vm start --resource-group myResourceGroup  --name myVM
+```
 
 ## <a name="sharing-c-drive-on-windows"></a>Sdílení jednotka C v systému Windows
 Pokud jsou prováděny v místní kontejner Docker v systému Windows, nastavení `sharedVolumes` k `true` v `docker.compute` souboru pod `aml_config` může zlepšit výkon provádění. To však vyžaduje sdílet jednotce C _Docker pro nástroj Windows_. Pokud si nejste moci sdílet jednotku C, zkuste následující tipy:
@@ -220,6 +222,18 @@ Pokud jsou prováděny v místní kontejner Docker v systému Windows, nastaven�
 * Při sdílení jednotka C pomocí přihlašovacích údajů do domény, sdílení může přestat pracovat v sítích, kde je řadič domény není dostupný (pro například domácí sítě, veřejnou Wi-Fi atd.). Další informace najdete v tématu [tento příspěvek](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
 
 Také se můžete vyhnout sdílení problém, na malé výkonu náklady, nastavení `sharedVolumne` k `false` v `docker.compute` souboru.
+
+## <a name="wipe-clean-workbench-installation"></a>Vymazání čistou instalaci Workbench
+Obecně nemusíte to udělat. Ale v případě, že je zapotřebí vymazat čisté instalace, tady jsou kroky:
+
+- V systému Windows:
+  - Nejdříve se ujistěte, používáte _přidat nebo odebrat programy_ aplet v _ovládací panely_ odebrat _Azure Machine Learning Workbench_ aplikaci.  
+  - Potom můžete stáhnout a spustit některý z následujících skriptů:
+    - [Skript příkazového řádku Windows](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
+    - [Skript prostředí Windows PowerShell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Možná budete muset spustit `Set-ExecutionPolicy Unrestricted` v okně prostředí PowerShell oprávněními zvýšenými na úroveň oprávnění před spuštěním skriptu.)
+- V systému macOS:
+  - Právě stažení a spuštění [skript prostředí bash systému macOS](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
 
 ## <a name="some-useful-docker-commands"></a>Některé užitečné příkazy Docker
 

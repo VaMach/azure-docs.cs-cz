@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Rady pro pochopení a volat přímé metody ze služby IoT Hub
 Centrum IoT vám dává možnost vyvolat přímé metody na zařízení z cloudu. Přímé metody představuje požadavek odpověď interakci s zařízení podobné volání protokolu HTTP v, které budou úspěch nebo neúspěch okamžitě (po časový limit definované uživatelem). Tento přístup je užitečné v případech, kde se liší v závislosti na tom, jestli se zařízení schopné reagovat, například odeslání služby SMS funkce wake-up do zařízení, pokud je zařízení offline (Probíhá dražší než volání metody SMS) během okamžitý zásah.
@@ -33,7 +33,7 @@ Přímé metody postupujte podle vzoru požadavků a odpovědí a jsou určené 
 Odkazovat na [Cloud zařízení komunikace pokyny] [ lnk-c2d-guidance] v případě pochybností mezi použitím požadované vlastnosti přímé metody nebo zprávy typu cloud zařízení.
 
 ## <a name="method-lifecycle"></a>Životní cyklus – metoda
-Přímé metody jsou implementované v zařízení a může vyžadovat nula nebo více vstupů v datové části Metoda správně vytvořit instanci. Vyvolání přímá metoda prostřednictvím identifikátoru URI služby přístupem (`{iot hub}/twins/{device id}/methods/`). Zařízení obdrží přímé metod v tématu MQTT konkrétní zařízení (`$iothub/methods/POST/{method name}/`). Přímé metody na dalších síťových protokolech straně zařízení jsme může podporovat v budoucnu.
+Přímé metody jsou implementované v zařízení a může vyžadovat nula nebo více vstupů v datové části Metoda správně vytvořit instanci. Vyvolání přímá metoda prostřednictvím identifikátoru URI služby přístupem (`{iot hub}/twins/{device id}/methods/`). Zařízení obdrží přímé metod v tématu MQTT konkrétní zařízení (`$iothub/methods/POST/{method name}/`) nebo prostřednictvím protokolu AMQP odkazů (`IoThub-methodname` a `IoThub-status` vlastnosti aplikace). 
 
 > [!NOTE]
 > Při vyvolání přímá metoda na zařízení, názvů a hodnot vlastností mohou obsahovat pouze US-ASCII tisknutelná alfanumerické znaky, s výjimkou těch následující sady: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -75,8 +75,7 @@ Back-end aplikace obdrží odpověď, který zahrnuje:
 * *Hlavičky* , obsahovat značku ETag, žádat o ID, typu obsahu a kódování obsahu
 * JSON *textu* v následujícím formátu:
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -85,7 +84,8 @@ Back-end aplikace obdrží odpověď, který zahrnuje:
    Obě `status` a `body` je poskytovanému zařízením a používá odešle odpověď se stavovým kódem zařízení vlastní nebo popis.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Popisovač přímá metoda na zařízení
-### <a name="method-invocation"></a>Volání metody
+### <a name="mqtt"></a>MQTT
+#### <a name="method-invocation"></a>Volání metody
 Zařízení obdrží přímá metoda žádosti k tématu MQTT:`$iothub/methods/POST/{method name}/?$rid={request id}`
 
 Text, který zařízení obdrží je v následujícím formátu:
@@ -99,13 +99,30 @@ Text, který zařízení obdrží je v následujícím formátu:
 
 Požadavky metod jsou QoS 0.
 
-### <a name="response"></a>Odpověď
+#### <a name="response"></a>Odpověď
 Zařízení odesílá odpovědí `$iothub/methods/res/{status}/?$rid={request id}`, kde:
 
 * `status` Vlastnost je stav zařízení zadaná metoda spouštění.
 * `$rid` Vlastnost je ID žádosti z volání metody přijatých ze služby IoT Hub.
 
 Text se nastavuje pomocí zařízení a může být jakékoli stavu.
+
+### <a name="amqp"></a>AMQP
+#### <a name="method-invocation"></a>Volání metody
+Zařízení přijímá požadavky přímá metoda vytvořením receive odkaz na adresu`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+AMQP zpráva dorazí na tento odkaz receive, který představuje požadavek metody. Obsahuje následující:
+* Vlastnost ID korelace, který obsahuje ID žádosti, které mají být předány zpět s odpovídající reakce – metoda
+* Vlastnost aplikací s názvem `IoThub-methodname`, který obsahuje název metody volané
+* Tělo zprávy AMQP obsahující datové části Metoda jako JSON
+
+#### <a name="response"></a>Odpověď
+Zařízení vytvoří propojení odesílání vrátit odpověď metody na adrese`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+Metoda odpověď se vrátí na odesílání odkaz a struktura je následující:
+* Vlastnost ID korelace, který obsahuje ID požadavku předán ve zprávě požadavku metoda
+* Vlastnost aplikací s názvem `IoThub-status`, která obsahuje uživatele zadaná metoda stav
+* AMQP tělo zprávy s odpovědí metoda jako JSON
 
 ## <a name="additional-reference-material"></a>Odkaz na další materiály
 Další témata referenční příručka vývojáře IoT Hub patří:
@@ -116,7 +133,7 @@ Další témata referenční příručka vývojáře IoT Hub patří:
 * [IoT Hub dotazovacího jazyka pro dvojčata zařízení, úlohy a směrování zpráv] [ lnk-query] popisuje dotazovací jazyk Centrum IoT, můžete použít k načtení informací ze služby IoT Hub o úlohách a dvojčata zařízení.
 * [Podpora IoT Hub MQTT] [ lnk-devguide-mqtt] poskytuje další informace o podpoře služby IoT Hub pro protokol MQTT.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Nyní jste se naučili použití přímé metod, může zajímat v následujícím článku Příručka vývojáře IoT Hub:
 
 * [Plánování úloh na několika zařízeních][lnk-devguide-jobs]

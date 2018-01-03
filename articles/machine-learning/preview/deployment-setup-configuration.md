@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="model-management-setup"></a>Nastavení modelu správce
 
@@ -84,10 +84,12 @@ Po dokončení instalace prostředí:
 - Během procesu ověřování budete vyzváni k účtu k ověření. Důležité: Vyberte účet, který má platné předplatné Azure a dostatečná oprávnění k vytváření prostředků v účtu. - po protokolu v dokončení se zobrazí informace o vašem předplatném a zobrazí se výzva, jestli chcete pokračovat vybraný účet.
 
 ### <a name="environment-setup"></a>Nastavení prostředí
-K zahájení procesu instalace, budete muset registraci poskytovatele prostředí tak, že zadáte následující příkaz:
+K zahájení procesu instalace, musíte zaregistrovat několik poskytovatelů prostředí zadáním následujících příkazů:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Místní nasazení
 Nasaďte a otestujte webovou službu v místním počítači, nastavte místní prostředí pomocí následujícího příkazu. Název skupiny prostředků je volitelné.
@@ -169,5 +171,5 @@ Nyní jste připraveni k nasazení uložené model jako webovou službu.
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Použijte jeden z mnoha ukázek v galerii.

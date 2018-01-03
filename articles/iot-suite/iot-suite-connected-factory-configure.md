@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5a4a57f50b0485b178b01c55bc3a71fcc288bd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="how-to-configure-the-connected-factory-preconfigured-solution"></a>Postup konfigurace objektu pro vytváření připojené předkonfigurované řešení
+# <a name="configure-the-connected-factory-preconfigured-solution"></a>Nakonfigurujte připojené objekt pro vytváření předkonfigurovaného řešení
 
 Připojené objekt pro vytváření předkonfigurovaného řešení zobrazuje simulované řídicí panel pro fiktivní společnost Contoso. Tuto společnost má objekty Factory globálně v mnoha globální umístění.
 
@@ -269,7 +269,7 @@ Všechny vlastnosti používané v konfiguračním souboru je možné seskupit d
 
 Vlastnosti v této kategorii definujte vzhled připojené vytváření řídicího panelu. Příklady obsahují:
 
-* Name (Název)
+* Název
 * Popis
 * Image
 * Umístění
@@ -295,7 +295,7 @@ OPC UA uzlu objekty v stanice povolit označování pro použití v výpočet OE
 
 Připojené factory podporuje mechanismus jednoduché minima a maxima na základě prahové hodnoty generování výstrah. Existuje několik předdefinovaných akcí, které můžete konfigurovat v reakci na tyto výstrahy. Následující vlastnosti řídit tento mechanismus:
 
-* Maximální počet
+* Maximum
 * Minimální
 * MaximumAlertActions
 * MinimumAlertActions
@@ -343,6 +343,6 @@ Jeden vlastnosti **NumberOfManufactureredProducts** hodnota uzlu je, že jenom z
 
 **OpCode** v konfiguraci nakonfiguruje logice výpočetní vypočítat výsledek rozdíl maximální a minimální hodnoty. Tyto výsledky jsou pak nahromadění dolní až kořenové úrovni (globální) a na řídicím panelu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Navrhované A dalším krokem je další postup [nasazení brány v systému Windows nebo Linux připojené objekt pro vytváření předkonfigurovaného řešení](iot-suite-connected-factory-gateway-deployment.md).

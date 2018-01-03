@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Azure služba stavu poskytuje informace o včas a přizpůsobené, při problémy na portálu služby Azure vliv na vaše služby.  Pomáhá také můžete připravit na nadcházející plánované údržby.
@@ -57,5 +57,4 @@ Filtrujte stavu služby pro zobrazení vaší důležitých odběry, oblasti a t
 ## <a name="configure-service-health-alerts"></a>Konfigurace výstrah stavu služby
 Azure stavu služby se integruje s Azure monitorování k upozornění prostřednictvím e-mailů, textové zprávy a webhooku oznámení, když dopad na vaše podnikové prostředky. Nastavte výstrahy protokolu aktivit pro příslušné události stavu služby. Výstrahy směrujte na příslušné osoby ve vaší organizaci pomocí akce skupin. Další informace najdete v tématu [konfigurovat výstrahy pro stav služby](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
 
-# <a name="next-steps"></a>Další kroky
-Nastavení výstrah, takže je znázorněna problémy v oblasti stavu. Další informace najdete v tématu [konfigurovat výstrahy pro stav služby](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+ 

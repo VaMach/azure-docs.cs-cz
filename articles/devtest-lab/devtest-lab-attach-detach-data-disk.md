@@ -3,7 +3,7 @@ title: "Připojit nebo odpojit datový disk k virtuálnímu počítači v Azure 
 description: "Zjistěte, jak připojit nebo odpojit datový disk k virtuálnímu počítači v Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 9616bf38-7db8-4915-a32a-e4f40a7a56ad
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: tarcher
-ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Připojit nebo odpojit datový disk k virtuálnímu počítači v Azure DevTest Labs
 [Disky systému Azure spravované](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) spravuje účty úložiště přidružené ke datových disků virtuálního počítače. Uživatel připojí, nová data na disku k virtuálnímu počítači, určuje typ a velikost disku, který je potřeba, a Azure vytváří a spravuje disku automaticky. Z virtuálního počítače lze poté odpojit datový disk a buď znovu připojit později na stejný virtuální počítač nebo připojené k jiné virtuální počítač, který patří do stejného uživatele.
@@ -104,6 +104,6 @@ Pokud chcete upgradovat nespravované datový disk, postupujte podle kroků uved
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Zjistěte, jak spravovat datové disky pro [vymahatelných virtuálních počítačů](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
 

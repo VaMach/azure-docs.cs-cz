@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 664c900bae580f4eb7421e3dffdfef8c9a29b720
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 713e9ad7a76c15cbde912954e00991a80b995683
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Vyvolání balíčku služby SSIS pomocí aktivity uložené procedury v Azure Data Factory
 Tento článek popisuje, jak má být vyvolán balíčku služby SSIS z kanál služby Azure Data Factory pomocí aktivity uložené procedury. 
@@ -34,7 +34,7 @@ Návod v tomto článku používá databázi Azure SQL, který je hostitelem slu
 Vytvoření modulu runtime integrace Azure SSIS, pokud nemáte dodržením podrobných pokynů v [kurz: balíčky nasazení SSIS](tutorial-deploy-ssis-packages-azure.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Instalace nejnovější modulů prostředí Azure PowerShell podle pokynů v [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Nainstalujte nejnovější moduly Azure PowerShellu podle pokynů v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azure/install-azurerm-ps). 
 
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
 Můžete buď použijte stejné data factory, který má IR Azure SSIS nebo vytvoření samostatné data factory. Následující postup popisuje kroky k vytvoření služby data factory. Vytvoření kanálu s aktivitou uložené procedury v této datové továrně. Aktivita uložené procedury spustí uloženou proceduru v databázi SSISDB ke spuštění vašeho balíčku služby SSIS. 
@@ -80,10 +80,10 @@ Je třeba počítat s následujícím:
 ### <a name="create-an-azure-sql-database-linked-service"></a>Vytvoření propojené služby Azure SQL Database
 Vytvoření propojené služby propojení Azure SQL database, který je hostitelem služby SSIS katalogu datovou továrnu. Objekt pro vytváření dat používá informace v rámci této propojené služby pro připojení k databázi SSISDB a spustí uloženou proceduru spustit balíčku služby SSIS. 
 
-1. Vytvořte soubor JSON s názvem **AzureSqlDatabaseLinkedService.json** v **C:\ADF\RunSSISPackage** složku s následujícím obsahem: (pokud ještě neexistuje, vytvořit složku ADFv2TutorialBulkCopy.)
+1. Vytvořte soubor JSON s názvem **AzureSqlDatabaseLinkedService.json** v **C:\ADF\RunSSISPackage** složku s následujícím obsahem: 
 
     > [!IMPORTANT]
-    > Nahraďte &lt;servername&gt;, &lt;databasename&gt;, &lt;uživatelské jméno&gt;,&lt;servername&gt;, a &lt;heslo&gt; s hodnoty vaší databázi SQL Azure před uložením souboru.
+    > Nahraďte &lt;servername&gt;, &lt;uživatelské jméno&gt;, a &lt;heslo&gt; s hodnotami vaší databázi SQL Azure před uložením souboru.
 
     ```json
     {
@@ -93,7 +93,7 @@ Vytvoření propojené služby propojení Azure SQL database, který je hostitel
             "typeProperties": {
                 "connectionString": {
                     "type": "SecureString",
-                    "value": "Server=tcp:<AZURE SQL SERVER NAME>.database.windows.net,1433;Database=SSISDB;User ID=<USER ID>;Password=<PASSWORD>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
                 }
             }
         }
@@ -163,7 +163,7 @@ V tomto kroku vytvoříte kanál s aktivitou uložené procedury. Aktivity vyvol
 Použití **Invoke-AzureRmDataFactoryV2Pipeline** můžete spustit kanál. Tato rutina vrací ID spuštění kanálu pro budoucí monitorování.
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name -ParameterFile .\PipelineParameters.json
+$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name
 ```
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorování spuštění kanálu
@@ -217,17 +217,17 @@ V předchozím kroku vyvolá kanál na vyžádání. Můžete také vytvořit ak
     }    
     ```
 2. V **prostředí Azure PowerShell**, přepnout **C:\ADF\RunSSISPackage** složky.
-3. Spustit **Set-AzureRmDataFactoryV2LinkedService** rutiny vytvořit aktivační událost. 
+3. Spustit **Set-AzureRmDataFactoryV2Trigger** rutiny vytvořit aktivační událost. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
     ```
-4. Ve výchozím nastavení aktivační událost je v zastaveném stavu. Spuštěním rutiny Start-AzureRmDataFactoryV2Trigger spusťte aktivační událost. 
+4. Ve výchozím nastavení aktivační událost je v zastaveném stavu. Spusťte aktivační událost spuštěním **Start-AzureRmDataFactoryV2Trigger** rutiny. 
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" 
     ```
-5. Zkontrolujte, zda je spuštěná aktivační událost spuštěním rutiny Get-AzureRmDataFactoryV2TriggerRun. 
+5. Zkontrolujte, zda je spuštěná aktivační událost spuštěním **Get-AzureRmDataFactoryV2Trigger** rutiny. 
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"     
@@ -244,5 +244,5 @@ V předchozím kroku vyvolá kanál na vyžádání. Můžete také vytvořit ak
     select * from catalog.executions
     ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Také můžete monitorovat kanál pomocí portálu Azure. Podrobné pokyny najdete v tématu [kanál monitorovat](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

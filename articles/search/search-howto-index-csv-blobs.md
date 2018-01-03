@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 60ca696a6fa8f277a13875c39b44577c4b38c92a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexování CSV objekty BLOB se indexer objektu blob Azure Search
 Ve výchozím nastavení [indexer objektu blob Azure Search](search-howto-indexing-azure-blob-storage.md) analyzuje oddělený text objekty BLOB jako jeden blok textu. Nicméně s objekty BLOB obsahující data ve formátu CSV, často chcete považovat každý řádek v objektu blob jako samostatný dokument. Například následující text oddělený uděleno: 
@@ -32,7 +32,7 @@ můžete k analýze do 2 dokumenty, každý obsahující pole "značky", "datePu
 V tomto článku se dozvíte, jak analyzovat CSV objekty BLOB se indexer Azure Search objektů blob. 
 
 > [!IMPORTANT]
-> Tato funkce je aktuálně ve verzi preview. Je k dispozici pouze v rozhraní REST API pomocí verze **2015-02-28-Preview**. Prosím mějte na paměti, verzi preview rozhraní API jsou určené pro testování a vyhodnocení a neměl by se používat v produkčním prostředí. 
+> Tato funkce je aktuálně ve verzi Preview. Je k dispozici pouze v rozhraní REST API pomocí verze **2015-02-28-Preview**. Prosím mějte na paměti, verzi preview rozhraní API jsou určené pro testování a vyhodnocení a neměl by se používat v produkčním prostředí. 
 > 
 > 
 
@@ -52,7 +52,12 @@ Pokud objekty BLOB neobsahují řádku s počáteční záhlaví, musí být zad
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-V současné době je podporován pouze kódování UTF-8. Navíc jenom čárkou `','` znak je podporovaný jako oddělovače. Pokud potřebujete podporu pro další kódování nebo oddělovače, dejte nám vědět, na [našeho webu UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Můžete přizpůsobit pomocí znak oddělovače `delimitedTextDelimiter` nastavení konfigurace. Příklad:
+
+    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
+
+> [!NOTE]
+> V současné době je podporován pouze kódování UTF-8. Pokud potřebujete podporu pro jiné kódování, dejte nám vědět, na [našeho webu UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
 > Pokud používáte oddělený text analýza režimu, Azure Search předpokládá, že všechny objekty BLOB ve zdroji dat bude sdílený svazek clusteru. Pokud potřebujete podporovat směs CSV a jiné než CSV objekty BLOB ve stejném datovém zdroji, dejte nám vědět, na [našeho webu UserVoice](https://feedback.azure.com/forums/263029-azure-search).
