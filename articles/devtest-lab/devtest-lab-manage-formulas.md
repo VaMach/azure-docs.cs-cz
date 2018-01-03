@@ -3,7 +3,7 @@ title: "Spravovat vzorce v Azure DevTest Labs pro vytvoření virtuálních poč
 description: "Zjistěte, jak aktualizovat a odebírat vzorce Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Správa Azure DevTest Labs vzorce
 
@@ -64,7 +64,7 @@ Následující postup vás provede procesem vytvoření vzorec z vlastní image,
     * **Heslo** – zadejte - nebo vyberte z rozevíracího seznamu - hodnotu, která souvisí s tajný klíč (heslo), který chcete použít pro zadaného uživatele. Další informace o těchto tajných klíčů najdete v tématu [Azure DevTest Labs: osobním úložišti tajný](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
     * **Typ disku virtuálního počítače** – zadejte buď HDD (jednotku pevného disku) nebo SSD (jednotka SSD) k označení disku typů úložiště, které je povoleno pro virtuální počítače zřízené tuto základní image používá.
     * ** Virtuální počítač velikost ** – vyberte jednu z předdefinovaných položky, které zadejte jader procesoru, velikosti paměti RAM a velikost pevného disku pro vytvoření virtuálního počítače. 
-    * **Artefakty** – vyberte, chcete-li otevřít **přidat artefakty** okno, ve kterém můžete vybrat a nakonfigurovat artefaktů, které chcete přidat do základní bitové kopie. Další informace o artefakty najdete v tématu [artefakty Správa virtuálních počítačů v Azure DevTest Labs](./devtest-lab-add-vm-with-artifacts.md).
+    * **Artefakty** – vyberte, chcete-li otevřít **přidat artefakty** okno, ve kterém můžete vybrat a nakonfigurovat artefaktů, které chcete přidat do základní bitové kopie. Další informace o artefakty najdete v tématu [vytvoření vlastních artefaktů pro virtuální počítač Azure DevTest Labs](devtest-lab-artifact-author.md).
     * **Upřesňující nastavení** – vyberte, chcete-li otevřít **Upřesnit** okno, kde můžete nakonfigurovat následující nastavení:
         * **Virtuální síť** -zadejte požadované virtuální síť.
         * **Podsíť** -zadejte požadovanou podsíť.    
@@ -134,6 +134,6 @@ Pokud chcete odstranit vzorec, postupujte takto:
 ## <a name="related-blog-posts"></a>Příspěvky blogu související
 * [Vlastní Image nebo vzorce?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>Další kroky
-Po vytvoření vzorec pro použití při vytváření virtuálního počítače, dalším krokem je [přidat virtuální počítač do testovacího prostředí](devtest-lab-add-vm-with-artifacts.md).
+## <a name="next-steps"></a>Další postup
+Po vytvoření vzorec pro použití při vytváření virtuálního počítače, dalším krokem je [přidat virtuální počítač do testovacího prostředí](devtest-lab-add-vm.md).
 

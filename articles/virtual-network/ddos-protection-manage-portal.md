@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 019d4ba9124173a7de555c46d32881ecf639a34c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Správa Azure DDoS ochrany standardní pomocí portálu Azure
 
@@ -31,21 +31,21 @@ Zjistěte, jak povolit a zakázat distribuovaná útok na dostupnost služby (De
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Povolit DDoS ochrany Standard - nové virtuální sítě
 
 1. Přihlaste se k webu Azure Portal na adrese http://portal.azure.com. Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
-2. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+2. Klikněte na tlačítko **vytvořit prostředek** v levém horním rohu portálu Azure.
 3. Vyberte **sítě**a potom vyberte **virtuální sítě**.
-4. Vytvoření virtuální sítě s zvolené nastavení. Další informace o vytváření virtuální sítě najdete v tématu [vytvořit virtuální síť](virtual-networks-create-vnet-arm-pportal.md). V části *ochrana proti útoku DDoS*, klikněte na tlačítko **povoleno**a potom klikněte na **vytvořit**.
+4. Vytvoření virtuální sítě s zvolené nastavení. Další informace o vytváření virtuální sítě najdete v tématu [vytvořit virtuální síť](virtual-networks-create-vnet-arm-pportal.md). V části **ochrana proti útoku DDoS**, klikněte na tlačítko **povoleno**a potom klikněte na **vytvořit**. Pokud nevidíte **ochrana proti útoku DDoS**, pravděpodobnou příčinou je, že vaše předplatné není zaregistrované pro funkci. Je třeba provést [registrace](http://aka.ms/ddosprotection)a přijímat oznámení, že vaše předplatné bylo povoleno pro funkci, před **ochrana proti útoku DDoS** se zobrazí.
 
     ![Vytvoření virtuální sítě](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > Když vyberete oblast, zvolte ze seznamu v podporované oblasti [Azure DDoS ochrany standardní přehled](ddos-protection-overview.md).
+    > Když vyberete oblast, zvolte ze seznamu v podporované oblasti [Azure DDoS ochrany standardní přehled](ddos-protection-overview.md). Pokud nevyberete podporovanou oblast, vytvoření virtuální sítě se nezdaří.
 
     Upozornění s oznámením, že povolení ochrana proti útoku DDoS budou vám účtovány poplatky. Během preview se vám neúčtují žádné poplatky za ochrana proti útoku DDoS. Poplatky za zpoplatněná při obecné dostupnosti. Zobrazí se oznámení 30 dní, před začátek poplatky a obecné dostupnosti.
 
 ## <a name="enable-ddos-protection-standard---existing-virtual-network"></a>Povolit DDoS ochrany Standard - existující virtuální síť 
 
 1. Klikněte na tlačítko **virtuální sítě** v nabídce portálu Azure a potom vyberte virtuální síť.
-2. Klikněte na tlačítko **ochrana proti útoku DDoS**, klikněte na tlačítko **povoleno** na *ochrana proti útoku DDoS* obrazovky a pak klikněte na tlačítko **Uložit**. 
+2. Klikněte na tlačítko **ochrana proti útoku DDoS**, klikněte na tlačítko **povoleno** na *ochrana proti útoku DDoS* obrazovky a pak klikněte na tlačítko **Uložit**. Pokud nevidíte **ochrana proti útoku DDoS**, pravděpodobnou příčinou je, že vaše předplatné není zaregistrované pro funkci. Je třeba provést [registrace](http://aka.ms/ddosprotection)a přijímat oznámení, že vaše předplatné bylo povoleno pro funkci, před **ochrana proti útoku DDoS** se zobrazí. 
 
     > [!WARNING]
     > Virtuální síť musí existovat v podporované oblasti. Seznam podporovaných oblastí najdete v tématu [Azure DDoS ochrany standardní přehled](ddos-protection-overview.md).
@@ -99,7 +99,7 @@ Metriky názvy představovat různých typů paketů a bajtů oproti paketů, z�
 - **Název značky předané (např: příchozí pakety předají DDoS)**: počet paketů, které jsou předávány DDoS systému do cílového umístění VIP – provoz, který nebyl nefiltruje.
 - **Žádný název značky (např: příchozí pakety DDoS):** celkový počet paketů, které byly dodány do čištění dat systému – představující součet pakety vyřazen a předávat.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Další informace o diagnostických protokolů Azure.](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Analýza protokolů z úložiště Azure s analýzy protokolů](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

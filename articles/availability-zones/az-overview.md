@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 3c8be3b1bc56697d42f2f280af756ed61533d1ef
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Přehled dostupnosti zón v Azure (Preview)
 
@@ -45,13 +45,6 @@ Služby Azure, které podporují dostupnost zóny jsou:
 - Load Balancer
 - Veřejná IP adresa
 
-## <a name="supported-virtual-machine-size-families"></a>Podporované virtuální počítač velikost řady
-
-- Av2
-- Dv2
-- DSv2
-
-
 ## <a name="get-started-with-the-availability-zones-preview"></a>Začínáme s preview dostupnost zóny
 
 Dostupnost zóny náhled je dostupný ve východní USA 2, západní Evropa a Francie centrální oblasti pro konkrétní služby Azure. 
@@ -65,5 +58,5 @@ Dostupnost zóny náhled je dostupný ve východní USA 2, západní Evropa a Fr
     - [Přidejte Disk spravované pomocí prostředí PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Load Balancer](../load-balancer/load-balancer-standard-overview.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Šablony Rychlý start](http://aka.ms/azqs)

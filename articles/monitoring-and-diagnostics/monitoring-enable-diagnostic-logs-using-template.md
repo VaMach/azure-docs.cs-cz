@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/30/2017
+ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: 2f764bc14e882f71957299b833d5bc1a6765622a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee9f4d8846f7549d0a4cd0be1d6f726293716a69
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Automaticky povolte nastavení pro diagnostiku při vytváření prostředků pomocí šablony Resource Manageru
 V tomto článku jsme ukazují, jak můžete použít [šablony Azure Resource Manageru](../azure-resource-manager/resource-group-authoring-templates.md) ke konfiguraci nastavení pro diagnostiku na prostředku při jeho vytvoření. To umožňuje automatické spuštění streamování diagnostické protokoly a metriky do centra událostí, archivaci je v účtu úložiště nebo jejich odeslání k analýze protokolů při vytváření prostředku.
@@ -40,19 +40,31 @@ Níže nás dostanete příklad soubor JSON šablony, které potřebujete k vyge
 ## <a name="non-compute-resource-template"></a>Bez výpočetních prostředků šablony
 Pro jiné výpočetní prostředky budete muset udělat dvě věci:
 
-1. Přidání parametrů do objektu blob parametry pro název účtu úložiště, ID pravidla service bus nebo ID pracovního prostoru analýzy protokolů OMS (povolení archivace diagnostických protokolů v účtu úložiště, datové proudy protokoluje události do centra událostí a odesílání protokolů k analýze protokolů).
+1. Přidání parametrů do objektu blob parametry pro název účtu úložiště, ID události rozbočovače autorizační pravidlo nebo ID pracovního prostoru analýzy protokolů OMS (povolení archivace diagnostických protokolů v účtu úložiště, datové proudy protokoluje události do centra událostí a odesílání protokolů do protokolu Analýza).
    
     ```json
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting."
+      }
+    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID of the Service Bus Rule for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId":{
@@ -72,10 +84,12 @@ Pro jiné výpočetní prostředky budete muset udělat dvě věci:
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2017-05-01-preview",
         "properties": {
+          "name": "[parameters('settingName')]",
           "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-          "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+          "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+          "eventHubName": "[parameters('eventHubName')]",
           "workspaceId": "[parameters('workspaceId')]",
           "logs": [ 
             {
@@ -89,7 +103,7 @@ Pro jiné výpočetní prostředky budete muset udělat dvě věci:
           ],
           "metrics": [
             {
-              "timeGrain": "PT1M",
+              "category": "AllMetrics",
               "enabled": true,
               "retentionPolicy": {
                 "enabled": false,
@@ -102,7 +116,7 @@ Pro jiné výpočetní prostředky budete muset udělat dvě věci:
     ]
     ```
 
-Odpovídá vlastnosti objektu blob pro nastavení diagnostiky [formát popsaný v tomto článku](https://msdn.microsoft.com/library/azure/dn931931.aspx). Přidávání `metrics` vlastnost vám umožní také odeslat metrika prostředků tyto stejné výstupů za předpokladu, že [prostředek podporuje Azure monitorování metriky](monitoring-supported-metrics.md).
+Odpovídá vlastnosti objektu blob pro nastavení diagnostiky [formát popsaný v tomto článku](https://docs.microsoft.com/en-us/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Přidávání `metrics` vlastnost vám umožní také odeslat metrika prostředků tyto stejné výstupů za předpokladu, že [prostředek podporuje Azure monitorování metriky](monitoring-supported-metrics.md).
 
 Zde je úplný příklad, který vytvoří aplikace logiky a zapne streamování centrům událostí a úložiště v účtu úložiště.
 
@@ -122,16 +136,28 @@ Zde je úplný příklad, který vytvoří aplikace logiky a zapne streamování
       "type": "string",
       "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
     },
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting."
+      }
+    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId": {
@@ -188,10 +214,12 @@ Zde je úplný příklad, který vytvoří aplikace logiky a zapne streamování
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
-          "apiVersion": "2015-07-01",
+          "apiVersion": "2017-05-01-preview",
           "properties": {
+            "name": "[parameters('settingName')]",
             "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-            "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+            "eventHubName": "[parameters('eventHubName')]",
             "workspaceId": "[parameters('workspaceId')]",
             "logs": [
               {

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 94f1f64a57784254912cb6cf568fafc15c8e74ec
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 990b84cf0df74b7b08a5fa105c2c2213aa251f9d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Element Microsoft.Network.PublicIpAddressCombo uživatelského rozhraní
 Skupina ovládacích prvků pro výběr nový nebo existující veřejnou IP adresu. Pomocí tohoto prvku při [vytváření spravovaných aplikací Azure](publish-service-catalog-app.md).
@@ -80,13 +80,14 @@ Pokud uživatel vybere nový nebo existující IP adresu, se předpokládá, že
   "name": "ip01",
   "resourceGroup": "rg01",
   "domainNameLabel": "foobar",
+  "publicIPAllocationMethod": "Dynamic",
   "newOrExistingOrNone": "new"
 }
 ```
 - Když `options.hideNone` je zadán jako **true**, `newOrExistingOrNone` budou mít pouze hodnotu **nové** nebo **existující**.
 - Když `options.hideDomainNameLabel` je zadán jako **true**, `domainNameLabel` není deklarován.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Úvod do spravovaných aplikací, najdete v části [Azure spravovaných aplikací – přehled](overview.md).
 * Úvod do vytváření definic uživatelského rozhraní, najdete v části [Začínáme s CreateUiDefinition](create-uidefinition-overview.md).
 * Popis společných vlastností v prvky uživatelského rozhraní najdete v tématu [CreateUiDefinition elementy](create-uidefinition-elements.md).

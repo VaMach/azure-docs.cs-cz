@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Úrovně výkonu Azure SQL Data Warehouse (Preview)
 SQL Data Warehouse nabízí dvě úrovně výkonu, které jsou optimalizované pro analytické úlohy. Tento článek vysvětluje koncepty úrovně výkonu, které vám pomohou zvolit nejvhodnější úroveň výkonu pro úlohy. 
@@ -60,7 +60,7 @@ WITH
 
 Úrovně služeb pro optimalizovaný pro pružnost výkonu vrstvy v rozmezí od DW100 až DW6000. 
 
-| Úrovně služeb | Maximální počet souběžných dotazů | Výpočetní uzly | Distribuce na výpočetním uzlu | Maximální paměť na distribuce (MB) | Maximální paměť na datového skladu (GB) |
+| Úroveň služby | Maximální počet souběžných dotazů | Výpočetní uzly | Distribuce na výpočetním uzlu | Maximální paměť na distribuce (MB) | Maximální paměť na datového skladu (GB) |
 |:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
 | OD DW100         | 4                      | 1             | 60                             | 400                              |  24                                |
 | DW200         | 8                      | 2             | 30                             | 800                              |  48                                |
@@ -79,7 +79,7 @@ WITH
 
 Úrovně služeb pro optimalizovaný pro výpočetní výkon vrstvy v rozsahu od DW1000c DW30000c. 
 
-| Úrovně služeb | Maximální počet souběžných dotazů | Výpočetní uzly | Distribuce na výpočetním uzlu | Maximální paměť na distribuce (GB) | Maximální paměť na datového skladu (GB) |
+| Úroveň služby | Maximální počet souběžných dotazů | Výpočetní uzly | Distribuce na výpočetním uzlu | Maximální paměť na distribuce (GB) | Maximální paměť na datového skladu (GB) |
 |:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
 | DW1000c       | 32                     | 2             | 30                             |  10                              |   600                              |
 | DW1500c       | 32                     | 3             | 20                             |  15                              |   900                              |
@@ -154,7 +154,7 @@ Následující tabulka uvádí maximální počet souběžných dotazů a soubě
 
 **Dynamické prostředků třídy**
 
-| Úrovně služeb | Maximální počet souběžných dotazů | Concurrency sloty, které jsou k dispozici | smallrc | mediumrc | largerc | xlargerc |
+| Úroveň služby | Maximální počet souběžných dotazů | Concurrency sloty, které jsou k dispozici | smallrc | mediumrc | largerc | xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | OD DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |
@@ -162,16 +162,16 @@ Následující tabulka uvádí maximální počet souběžných dotazů a soubě
 | DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
 | DW500         | 20                         |  20                         | 1       |  4       |  8      |  16      |
 | DW600         | 24                         |  24                         | 1       |  4       |  8      |  16      |
-| DW1000        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1200        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1500        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW2000        | 32                         |  48                         | 1       | 16       | 32      |  64      |
-| DW3000        | 32                         |  64                         | 1       | 16       | 32      |  64      |
-| DW6000        | 32                         | 128                         | 1       | 32       | 64      | 128      |
+| DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
+| DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
+| DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
+| DW2000        | 32                         |  80                         | 1       | 16       | 32      |  64      |
+| DW3000        | 32                         | 120                         | 1       | 16       | 32      |  64      |
+| DW6000        | 32                         | 240                         | 1       | 32       | 64      | 128      |
 
 **Statické prostředků třídy** následující tabulka uvádí maximální počet souběžných dotazů a souběžnosti sloty pro každou [Třída prostředků se statickou](resource-classes-for-workload-management.md).  Toto platí pro optimalizovaný pro úroveň výkonu pružnost.
 
-| Úrovně služeb | Maximální počet souběžných dotazů | Sloty maximální souběžnosti |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Úroveň služby | Maximální počet souběžných dotazů | Sloty maximální souběžnosti |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | OD DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -188,7 +188,7 @@ Následující tabulka uvádí maximální počet souběžných dotazů a soubě
 
 Když je splněna jedna z těchto prahových hodnot, nové dotazy jsou zařazeny do fronty a jsou prováděny na základě ven first-in.  Dokončení dotazy a počet dotazů a sloty klesnou pod omezení, uvolní datový sklad SQL ve frontě dotazů. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o tom, jak využít prostředků třídy za účelem optimalizace zkontrolujte další úlohy v následujících článcích:
 * [Třídy prostředků pro úlohy správy](resource-classes-for-workload-management.md)

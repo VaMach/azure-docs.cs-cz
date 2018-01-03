@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/20/2017
 ms.author: sethm;clemensv
-ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfe7b95236c1a5336c1bb3a93d0eb5ca880adabf
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Ověřování a zabezpečení modelu přehled služby Event Hubs
 
@@ -106,7 +106,7 @@ Aktuální verze služby Service Bus nepodporuje SAS pravidla pro jednotlivé od
 
 Chybí ověřování SAS pro jednotlivé příjemce skupiny můžete zabezpečit všechny skupiny příjemců běžné klíčem klíče SAS. Tento přístup umožňuje aplikaci využívat data ze všech skupin uživatelů centra událostí.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o službě Event Hubs naleznete v následujících tématech:
 

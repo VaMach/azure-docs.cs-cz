@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: a6f9b300cd832c5f9615f70ee297e3c5ad728e44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Konfigurace projektu Azure v sadě Visual Studio používat více konfigurace služby
 
@@ -77,7 +77,7 @@ Pro nové nebo existující připojovací řetězce, vyberte **...** * na pravé
 
 1. V části **připojit pomocí**, vyberte **vaše předplatné** možnost zvolit účet úložiště z odběru. Visual Studio pak získá přihlašovací údaje účtu úložiště automaticky z `.publishsettings` souboru.
 1. Výběr **ručně zadali přihlašovací údaje** umožňuje zadat název účtu a klíče přímo pomocí informací z portálu Azure. Zkopírovat klíč účtu:. Přejděte na účet úložiště v Azure portálu a vyberte možnost **Správa klíčů**.
-    2. Na **spravovat přístup klíče** vyberte text primární přístupový klíč a stiskněte klávesu Ctrl + C zkopírujte.
+    2. Pokud chcete zkopírovat klíč účtu, přejděte na účet úložiště na portálu Azure, vyberte **Nastavení > přístupové klíče**, potom použijte tlačítko Kopírovat, pokud primární přístupový klíč zkopírujte do schránky.
 1. Vyberte jednu z možností připojení. **Zadejte vlastní koncové body** požádá, abyste zadali konkrétní adresy URL pro objekty BLOB, tabulek a fronty. Vlastní koncové body umožňují používat [vlastní domény](storage/blobs/storage-custom-domain-name.md) a k řízení přístupu více přesně. V tématu [konfiguraci připojovacích řetězců Azure Storage](./storage/common/storage-configure-connection-string.md).
 1. Vyberte **OK**, pak **soubor > Uložit** se aktualizovat konfiguraci s nový připojovací řetězec.
 

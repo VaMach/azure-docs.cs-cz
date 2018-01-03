@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/19/2017
 ms.author: sethm;darosa
-ms.openlocfilehash: c4fd365ec8eeb389f0df9f53cd2f2a18f4c9b52a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81614f8061fdf15c55e61ee06eec54fa6a6a02f0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Zachycení Azure Event Hubs
 
@@ -39,7 +39,13 @@ Zaznamenaná data je napsána v [Apache Avro] [ Apache Avro] formátu: compact, 
 Zaznamenat centra událostí můžete nastavit okno k řízení zaznamenávání. Toto okno je minimální velikost a konfigurace času zásadám"první wins," znamená, že první aktivační události došlo způsobí, že operace zachycení. Pokud máte 15 minut, 100 MB okna Sběr a odeslat 1 MB za sekundu, aktivačních událostí velikost okna před časový interval. Každý oddíl zaznamená nezávisle a zapíše objekt blob bloku dokončené v době zachycení, s názvem dobu, kdy došlo k zachycení intervalu. Zásady vytváření názvů úložiště je následující:
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+Všimněte si, že se hodnoty data vyplní nulami; Název souboru příkladu může být:
+
+```
+https://mynamespace.blob.core.windows.net/mycapturehub/mypartition/mysecondhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Škálování jednotky propustnosti
@@ -98,7 +104,7 @@ Dokončení Průvodce Začínáme pro má Apache Avro [Java] [ Java] a [Python][
 
 Zaznamenat centra událostí je podobně měřeného na jednotky propustnosti: jako poplatek po hodinách. Zřizování je přímo úměrná počtu jednotek propustnosti zakoupili pro obor názvů. Jednotky propustnosti jsou vyšší a zmenšit, zachycení událostí centra měřidla zvýšit nebo snížit zajistit odpovídající výkon. Měřidla nastat současně. Podrobnosti o cenách najdete v části [cenách služby Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Zaznamenat centra událostí je nejjednodušší způsob, jak načíst data do Azure. Pomocí Azure Data Lake, Azure Data Factory a Azure HDInsight, můžete provést dávkové zpracování a dalších analytics pomocí známých nástrojů a platformy dle vlastního výběru, v jakémkoli měřítku potřebujete.
 

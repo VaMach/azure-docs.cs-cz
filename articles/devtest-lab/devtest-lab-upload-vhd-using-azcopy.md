@@ -3,7 +3,7 @@ title: "Nahrání souboru virtuálního pevného disku do Azure DevTest Labs pom
 description: "Nahrání souboru virtuálního pevného disku do testovacího prostředí na účtu úložiště pomocí nástroje AzCopy"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: a4f43354740d9f17570932b0b9c753f46d67dc33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 11a9d03e62c674c4311c74f78e4cb2e709940941
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Nahrání souboru virtuálního pevného disku do testovacího prostředí na účtu úložiště pomocí nástroje AzCopy
 
@@ -78,7 +78,7 @@ Následující kroky vás provedou nahrání souboru virtuálního pevného disk
     AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
     ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Vytvoření vlastní image v Azure DevTest Labs ze souboru virtuálního pevného disku pomocí portálu Azure](devtest-lab-create-template.md)
 - [Vytvoření vlastní image v Azure DevTest Labs ze souboru virtuálního pevného disku pomocí prostředí PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

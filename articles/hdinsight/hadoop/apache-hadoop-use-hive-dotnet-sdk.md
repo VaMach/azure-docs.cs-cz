@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: e9ac97aa31e9909584bfc5debdfba927d4884114
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 642b02b06caaa7f2c5df71227d75281c0778a483
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Spouštění dotazů Hive pomocí sady .NET SDK HDInsight
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -140,7 +140,7 @@ Výstup aplikace musí být podobně jako:
 
 ![HDInsight Hadoop Hive výstup úlohy](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste se naučili několik způsobů, jak vytvořit cluster služby HDInsight. Další informace naleznete v následujících článcích:
 
 * [Začínáme s Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)

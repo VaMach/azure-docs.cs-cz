@@ -138,7 +138,7 @@ Pomocí následujících kroků k povolení zálohování virtuálních počíta
 
 4.  Zkontrolujte, zda že je nainstalovaný na Virtuálním počítači agenta zálohování. Pokud váš virtuální počítač je vytvořen pomocí image Galerie Azure, Backup Agent již nainstalován. Jinak (tj. Pokud používáte vlastní image), postupujte podle pokynů k [nainstalujte agenta virtuálního počítače na virtuálním počítači](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Ujistěte se, že virtuální počítač umožňuje připojení k síti pro službu zálohování funkce. Postupujte podle pokynů pro [připojení k síti](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.  Ujistěte se, že virtuální počítač umožňuje připojení k síti pro službu zálohování funkce. Postupujte podle pokynů pro [připojení k síti](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.  Po dokončení předchozích kroků, zálohování se spustí v pravidelných intervalech podle zásady zálohování. V případě potřeby můžete aktivovat první zálohy ručně na řídicím panelu trezoru na portálu Azure.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo
-ms.openlocfilehash: 047dfd35cfef53d323774508121e22fbf47b2acf
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Odeslání souborů ze zařízení do cloudu s centrem IoT
 
@@ -29,7 +29,7 @@ V tomto kurzu vychází kód [odesílání zpráv typu Cloud-zařízení s centr
 - Bezpečně zadejte zařízení s Azure blob identifikátor URI pro nahrání souboru.
 - Oznámení o odeslání souboru IoT Hub použijte k aktivaci zpracování souboru ve vaší aplikaci back-end.
 
-[Začínáme se službou IoT Hub](iot-hub-node-node-getstarted.md) a [odesílání zpráv typu Cloud-zařízení s centrem IoT](iot-hub-node-node-c2d.md) kurzy zobrazit základních funkcí zařízení cloud a z cloudu do zařízení zasílání zpráv služby IoT Hub. Ale v některých scénářích nelze mapovat snadno data, která vaše zařízení odesílají do poměrně malý zprávy typu zařízení cloud, které IoT Hub přijímá. Například:
+[Začínáme se službou IoT Hub](iot-hub-node-node-getstarted.md) a [odesílání zpráv typu Cloud-zařízení s centrem IoT](iot-hub-node-node-c2d.md) kurzy zobrazit základních funkcí zařízení cloud a z cloudu do zařízení zasílání zpráv služby IoT Hub. Ale v některých scénářích nelze mapovat snadno data, která vaše zařízení odesílají do poměrně malý zprávy typu zařízení cloud, které IoT Hub přijímá. Příklad:
 
 * Velkých souborů, které obsahují Image
 * Videa
@@ -213,7 +213,7 @@ Na portálu můžete použít k zobrazení nahrávaný soubor v kontejneru úlo�
 
 ![Nahrávaný soubor](./media/iot-hub-node-node-file-upload/uploaded-file.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste zjistili, jak používat funkce nahrávání souboru služby IoT Hub pro zjednodušení nahrávání souborů ze zařízení. Můžete dál prozkoumat funkcí služby IoT hub a scénáře v následujících článcích:
 
@@ -222,7 +222,7 @@ V tomto kurzu jste zjistili, jak používat funkce nahrávání souboru služby 
 * [Sady SDK služby Azure IoT][lnk-sdks]
 
 <!-- Links -->
-[Azure střediska pro vývojáře IoT]: http://www.azure.com/develop/iot
+[Azure střediska pro vývojáře IoT]: http://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

@@ -3,7 +3,7 @@ title: "Přidat značky do testovacího prostředí v Azure DevTest Labs | Micro
 description: "Zjistěte, jak přidat značky do testovacího prostředí v Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: dc5b327a-62e4-41bc-80ef-deb3c23d51b2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
-ms.author: tarcher
-ms.openlocfilehash: c268c1a10e4a313d0520f96e452ef978b6201115
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.author: v-craic
+ms.openlocfilehash: 38b6612bc33326b758b357dca09081c02d294e5d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Přidat značky do testovacího prostředí v Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Můžete vytvořit vlastní značky a použít je pro vaše prostředky DevTest 
 Prostředky, které jsou podporovány podle značky patří
 
 * Výpočetní virtuální počítače
-* Síťové adaptéry
+* Síťové karty
 * IP adresy
 * Nástroje pro vyrovnávání zatížení
 * Účty úložiště
@@ -63,6 +63,6 @@ Na značky se vztahují následující omezení:
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Pomocí vlastních zásad, můžete použít omezení a pravidla týkající se vašeho předplatného. Zásady, které definujete může vyžadovat, že všechny prostředky obsahovat hodnotu pro konkrétní značku. Další informace najdete v tématu [nastavit zásady a plány](devtest-lab-set-lab-policy.md).
 * Prozkoumejte [Galerie šablon DevTest Labs Azure Resource Manager QuickStart](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: pratshar
-ms.openlocfilehash: 04fb9ebc8a235dd15817fbb5efd08922ae287aa1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7981173b419632683a40a54bc07f51f0fccab531
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Ochrana systému SQL Server pomocí zotavení po havárii serveru SQL a Azure Site Recovery
 
@@ -66,7 +66,7 @@ Obnovení lokality lze integrovat s nativní technologiemi BCDR serveru SQL shrn
 
 **Funkce** | **Podrobnosti** | **SQL Server** |
 --- | --- | ---
-**Skupiny dostupnosti Always On** | Více samostatných instancí systému SQL Server spustit v clusteru s podporou převzetí služeb při selhání, který má více uzly.<br/><br/>Databáze je možné seskupit do skupin převzetí služeb při selhání, které je možné zkopírovat (zrcadlení) na instance systému SQL Server tak, že je potřeba žádné sdílené úložiště.<br/><br/>Poskytuje zotavení po havárii mezi primární lokalitou a jeden nebo více sekundárních lokalit. Dva uzly lze nastavit v sdílenou nic cluster s databází serveru SQL Server nakonfigurován ve skupině dostupnosti s synchronní replikace a automatické převzetí služeb při selhání. | SQL Server 2014 & 2012 Enterprise edition
+**Skupiny dostupnosti Always On** | Více samostatných instancí systému SQL Server spustit v clusteru s podporou převzetí služeb při selhání, který má více uzly.<br/><br/>Databáze je možné seskupit do skupin převzetí služeb při selhání, které je možné zkopírovat (zrcadlení) na instance systému SQL Server tak, že je potřeba žádné sdílené úložiště.<br/><br/>Poskytuje zotavení po havárii mezi primární lokalitou a jeden nebo více sekundárních lokalit. Dva uzly lze nastavit v sdílenou nic cluster s databází serveru SQL Server nakonfigurován ve skupině dostupnosti s synchronní replikace a automatické převzetí služeb při selhání. | SQL Server 2016, SQL Server 2014 a SQL Server 2012 Enterprise edition
 **Převzetí služeb clusteringu (vždy na FCI)** | SQL Server využívá Windows převzetí služeb při selhání clusteringu pro vysokou dostupnost úloh, místní systém SQL Server.<br/><br/>Instance systému SQL Server s sdílené disky uzly konfigurované v clusteru s podporou převzetí služeb při selhání. Pokud instance je mimo provoz clusteru převezme jiný.<br/><br/>Clusteru nepodporuje ochranu proti výpadkům ve sdíleném úložišti nebo selhání. Sdílený disk může být implementováno s rozhraní iSCSI, fiber channel, nebo sdílené soubory Vhdx. | SQL Server Enterprise Edition<br/><br/>SQL Server Standard edition (omezeným na pouze dva uzly)
 **Databáze zrcadlení (vysokou bezpečnost režim)** | Chrání jeden sekundární kopie pro jednu databázi. K dispozici v obou vysokou bezpečnost (synchronní) a vysoký výkon (asynchronní) replikaci režimy. Nevyžaduje clusteru s podporou převzetí služeb při selhání. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise všechny edice
 **Samostatný systém SQL Server** | SQL Server a databáze jsou hostované na jednom serveru (fyzické nebo virtuální). Clustering hostitele se používá pro vysokou dostupnost, pokud je virtuální server. Žádné úrovni hosta vysokou dostupnost. | Standard nebo Enterprise edition
@@ -118,7 +118,7 @@ Zde je, co musíte udělat:
 
 SQL Always On nenabízí nativní podporu převzetí služeb při selhání. Proto doporučujeme následující:
 
-1. Nastavit [Azure Backup](../backup/backup-azure-vms.md) na virtuálním počítači, který je hostitelem repliky skupiny dostupnosti v Azure.
+1. Nastavit [Azure Backup](../backup/backup-azure-arm-vms.md) na virtuálním počítači, který je hostitelem repliky skupiny dostupnosti v Azure.
 
 1. Před spuštěním testu převzetí služeb při selhání plánu obnovení, obnovení virtuálního počítače ze zálohy pořízené v předchozím kroku.
 
@@ -201,5 +201,5 @@ Site Recovery neposkytuje hostovaného clusteru podporu při replikaci do Azure.
 
 Navrácení služeb po obnovení po neplánovaném převzetí služeb při selhání pro SQL Server Standard clusterů, vyžaduje zálohování systému SQL server a obnovení ze instanci zrcadlového původní cluster, se reestablishment zrcadlení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace](site-recovery-components.md) o architektuře Site Recovery.

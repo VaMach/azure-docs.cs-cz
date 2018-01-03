@@ -11,130 +11,181 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Používat pro přístup k rozhraní API Azure Media Services se zbytkem ověřování Azure AD
 
-Tým služby Azure Media Services vydala Podpora ověřování Azure Active Directory (Azure AD) pro přístup k Azure Media Services. Oznámeno také plány přestat používat ověřování služby Řízení přístupu Azure pro Media Services přístup. Protože každé předplatné služby Azure a každý účet Media Services je připojený k klient služby Azure AD, Azure AD Podpora ověřování přináší spoustu výhod, zabezpečení. Podrobnosti o této změny a migrace (Pokud používáte sadu Media Services .NET SDK pro aplikaci) naleznete v následujících příspěvcích na blogu a články:
+Pokud používáte ověřování Azure AD pomocí služby Azure Media Services, můžete ověřovat v jednom ze dvou způsobů:
 
-- [Azure Media Services ohlášen podpory pro Azure AD a vyřazení ověřování řízení přístupu](https://azure.microsoft.com/blog/azure%20media%20service%20aad%20auth%20and%20acs%20deprecation)
-- [Přístup k Azure Media Services API pomocí ověřování Azure AD](media-services-use-aad-auth-to-access-ams-api.md)
-- [Používat ověřování Azure AD pro přístup k rozhraní API služby Azure Media Services pomocí rozhraní Microsoft .NET](media-services-dotnet-get-started-with-aad.md)
-- [Začínáme s ověřováním Azure AD pomocí portálu Azure](media-services-portal-get-started-with-aad.md)
+- **Ověření uživatele** ověřuje osoba, která používá aplikace komunikovat s prostředky Azure Media Services. Interaktivní aplikace by měla nejprve vyzvou uživatele k zadání přihlašovacích údajů. Příkladem je konzolovou aplikaci správy, která se používá Autorizovaní uživatelé k monitorování kódování úloh nebo živé streamování. 
+- **Objekt zabezpečení ověřování služby** ověřuje služby. Aplikace, které běžně používají tuto metodu ověřování jsou aplikace, které běží služby démon, střední vrstvy služby nebo naplánované úlohy, jako jsou webové aplikace, funkce aplikací, aplikace logiky, rozhraní API nebo mikroslužeb.
 
-Někteří zákazníci potřebovat pro vývoj řešení pro jejich Media Services v seznamu následující omezení:
+    V tomto kurzu se dozvíte, jak používat Azure AD **instanční objekt** ověřování pro přístup k rozhraní API AMS pomocí REST. 
 
-*   Používají programovací jazyk, který není rozhraní Microsoft .NET nebo C# nebo běhové prostředí není systému Windows.
-*   Knihovny Azure AD, jako je například knihovny ověřování služby Active Directory nejsou k dispozici pro programovací jazyk nebo nelze použít pro jejich prostředí runtime.
+    > [!NOTE]
+    > **Instanční objekt** je doporučené doporučený postup pro většinu aplikací připojení k Azure Media Services. 
 
-Někteří zákazníci mají aplikace vyvinuté pomocí rozhraní REST API pro řízení přístupu, ověřování a přístup k Azure Media Services. U těchto zákazníků potřebujete způsob, jak používat pouze rozhraní REST API pro ověřování Azure AD a následné přístup k Azure Media Services. Budete muset není závislý na žádném z knihovny Azure AD nebo na sadu Media Services .NET SDK. V tomto článku jsme popisují řešení a poskytují ukázkový kód pro tento scénář. Protože kód je všech voláních REST API s žádná závislost na všechny Azure AD nebo knihovny Azure Media Services, kód lze snadno přeložit do dalších programovacích jazyků.
+V tomto kurzu se naučíte:
+
+> [!div class="checklist"]
+> * Získání informací o ověřování z portálu Azure
+> * Získání tokenu přístupu pomocí Postman
+> * Testovací **prostředky** rozhraní API pomocí přístupového tokenu
+
 
 > [!IMPORTANT]
-> V současné době Media Services podporuje model řízení přístupu Azure služby ověřování. Řízení přístupu ověřování však bude zastaralá 1. června 2018. Doporučujeme, abyste přenést do Azure AD authentication modelu co nejdříve.
+> V současné době Media Services podporuje model řízení přístupu Azure služby ověřování. Řízení přístupu ověřování však bude zastaralá 1. června 2018. Doporučujeme, abyste na model ověřování Azure AD migrovali co nejdříve.
 
+## <a name="prerequisites"></a>Požadavky
 
-## <a name="design"></a>Návrh
+- Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) před tím, než začnete.
+- [Vytvoření účtu Azure Media Services pomocí webu Azure portal](media-services-portal-create-account.md).
+- Zkontrolujte [přístup k Azure Media Services API s Přehled ověřování AAD](media-services-use-aad-auth-to-access-ams-api.md) článku.
+- Nainstalujte [Postman](https://www.getpostman.com/) klienta REST provést rozhraní REST API uvedené v tomto článku. 
 
-V tomto článku používáme následující návrhu ověřování a autorizace:
+    V tomto kurzu jsme jsou naplánovaném **Postman** ale jakéhokoli REST nástroje bude vhodné. Další možnosti jsou: **Visual Studio Code** pomocí modulu plug-in REST nebo **webu Telerik Fiddler**. 
 
-*  Povolení protokolu: OAuth 2.0. OAuth 2.0 je standard zabezpečení webové, které pokrývá ověřování a autorizace. Podporuje Google, Microsoft, Facebook a PayPal. Ho byl ratifikován říjen 2012. Společnost Microsoft podporuje pevně OAuth 2.0 a OpenID Connect. Obě tyto standardy jsou podporovány více služeb a knihovny klienta, včetně Azure Active Directory, Open Web Interface pro .NET (OWIN) Katana a knihovny Azure AD.
-*  Udělit typu: Typ udělení pověření klienta. Pověření klienta je jeden z typů čtyři grant v OAuth 2.0. Často se používá pro přístup k Azure AD Microsoft Graph API.
-*  Režim ověřování: instanční objekt. Další režim ověřování je uživatele nebo interaktivního ověřování.
+## <a name="get-the-authentication-information-from-the-azure-portal"></a>Získání informací o ověřování z portálu Azure
 
-Celkem čtyři služby nebo aplikace jsou součástí Azure AD ověřování a autorizace tok pro pomocí služby Media Services. Aplikace a služby a toku, jsou popsané v následující tabulce:
+### <a name="overview"></a>Přehled
 
-|Typ aplikace |Aplikace |Tok|
-|---|---|---|
-|Klient | Zákazník aplikace nebo řešení | Tuto aplikaci (ve skutečnosti, jeho proxy) je zaregistrován v klientovi Azure AD, ve kterém jsou umístěny předplatné Azure a účet služby média. Objekt služby registrovaná aplikace se pak udělí s vlastníkem nebo přispěvatelem rolí v přístupu k řízení (IAM) účtu služby media. Objekt služby je reprezentována app ID a klienta tajný klíč klienta. |
-|Zprostředkovatel identity (IDP) | Azure AD jako poskytovatel identity | Ověření Azure AD jako rozšíření IDP registrované app service hlavní (ID klienta a tajný klíč klienta). Toto ověřování se provádí interně a implicitně. Jako tok přihlašovacích údajů klienta nikoli na uživatele ověření klienta. |
-|Zabezpečení tokenu služby (STS) nebo OAuth server | Azure AD jako služba tokenů zabezpečení | Po ověření IDP (nebo OAuth serveru v podmínkách OAuth 2.0) na přístupový token nebo Token pro webové JSON (JWT) vydává Azure AD jako Server služby tokenů zabezpečení nebo OAuth pro přístup k prostředku střední vrstvy: v našem případě koncový bod Media Services REST API. |
-|Prostředek | Rozhraní REST API služby Media Services | Každé volání Media Services REST API je autorizovat přístupový token, který je vydán Azure AD jako služba tokenů zabezpečení nebo OAuth server. |
+Pro přístup k rozhraní API Media Services, která potřebujete shromáždit těchto datových bodů.
 
-Pokud spustíte ukázkový kód a zachycení token JWT nebo přístupový token, token JWT má následující atributy:
+|Nastavení|Příklad:|Popis|
+|---|-------|-----|
+|Doména tenanta služby Azure Active Directory|Microsoft.onmicrosoft.com|Azure AD jako koncový bod zabezpečení tokenu služby (STS) je vytvořen v následujícím formátu: https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD vydá token JWT pro zpřístupnění prostředků (přístupový token).|
+|Koncový bod rozhraní REST API|https://amshelloworld.restv2.westus.Media.Azure.NET/API/|Toto je koncový bod, na které všechny Media Services REST API v aplikaci volání.|
+|ID klienta (ID aplikace)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD ID aplikace (klient). ID klienta se používá k získání tokenu přístupu. |
+|Tajný klíč klienta|+ mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD klíče aplikace (tajný klíč klienta). Tajný klíč klienta se používá k získání tokenu přístupu.|
 
-    aud: "https://rest.media.azure.net",
+### <a name="get-aad-auth-info-from-the-azure-portal"></a>Získání informací o ověřování AAD na portálu Azure
 
-    iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+Získání informací o, postupujte takto:
 
-    iat: 1497146280,
+1. Přihlaste se k portálu [Azure Portal](http://portal.azure.com).
+2. Přejděte k vaší instanci AMS.
+3. Vyberte **přístup pomocí rozhraní API**.
+4. Klikněte na **připojit k rozhraní API služby Azure Media Services s instanční objekt**.
 
-    nbf: 1497146280,
-    exp: 1497150180,
+    ![Přístup přes rozhraní API](./media/connect-with-rest/connect-with-rest01.png)
 
-    aio: "Y2ZgYDjuy7SptPzO/muf+uRu1B+ZDQA=",
+5. Vyberte existující **aplikaci Azure AD** nebo vytvořte novou (zobrazené dole).
 
-    appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6",
+    > [!NOTE]
+    > Pro úspěšné požadavku Azure Media REST volání uživatel musí mít **Přispěvatel** nebo **vlastníka** role pro účet Media Services, se pokouší o přístup. Pokud dojde k výjimce, která uvádí, že "vzdálený server vrátil chybu: (401) Neautorizováno" v tématu [řízení přístupu](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
-    appidacr: "1",
+    Pokud potřebujete vytvořit novou aplikaci AD, postupujte podle těchto kroků:
+    
+    1. Stiskněte klávesu **vytvořit nový**.
+    2. Zadejte název.
+    3. Stiskněte klávesu **vytvořit nový** znovu.
+    4. Stiskněte klávesu **Uložit**.
 
-    idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+    ![Přístup přes rozhraní API](./media/connect-with-rest/new-app.png)
 
-    oid: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+    Nová aplikace se zobrazí na stránce.
 
-    sub: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+6. Získat **ID klienta** (ID aplikace).
+    
+    1. Vyberte aplikaci.
+    2. Získat **ID klienta** z okna na pravé straně. 
 
-    tid: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ![Přístup přes rozhraní API](./media/connect-with-rest/existing-client-id.png).
 
-Zde jsou mapování mezi atributy v token JWT a čtyři aplikace nebo služby v předchozí tabulce:
+7.  Získat aplikace **klíč** (tajný klíč klienta). 
 
-|Typ aplikace |Aplikace |Atribut JWT |
-|---|---|---|
-|Klient |Zákazník aplikace nebo řešení |AppID: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6". ID klienta aplikace zaregistrujete do služby Azure AD v další části. |
-|Zprostředkovatel identity (IDP) | Azure AD jako poskytovatel identity |rozšíření IDP: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/" GUID je klient ID společnosti Microsoft (microsoft.onmicrosoft.com). Každý klient má svou vlastní, jedinečné ID. |
-|Zabezpečení tokenu služby (STS) nebo OAuth server |Azure AD jako služba tokenů zabezpečení | iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/". Identifikátor GUID je klient ID společnosti Microsoft (microsoft.onmicrosoft.com). |
-|Prostředek | Rozhraní REST API služby Media Services |oblast: "https://rest.media.azure.net". K příjemce nebo cílovou skupinu přístupového tokenu. |
+    1. Klikněte **správě aplikace** tlačítko (Všimněte si, že informace ID klienta je pod **ID aplikace**). 
+    2. Stiskněte klávesu **klíče**.
+    
+        ![Přístup přes rozhraní API](./media/connect-with-rest/manage-app.png)
+    3. Vygenerování klíče aplikace (tajný klíč klienta) vyplněním **popis** a **EXPIRES** a stisknutím klávesy **Uložit**.
+    
+        Jednou **Uložit** stisknutí tlačítka, zobrazí se hodnota klíče. Zkopírujte hodnotu klíče před opuštěním okna.
 
-## <a name="steps-for-setup"></a>Kroky pro instalaci
+    ![Přístup přes rozhraní API](./media/connect-with-rest/connect-with-rest03.png)
 
-K registraci a nastavit aplikaci Azure Active Directory (AAD) a získat klíče pro volání koncový bod REST API služby Azure Media Services, naleznete v článku [Začínáme s ověřováním Azure AD pomocí portálu Azure](media-services-portal-get-started-with-aad.md)
+Přidáním hodnoty pro parametry připojení AD do souboru web.config nebo app.config pro pozdější použití v kódu.
 
+> [!IMPORTANT]
+> **Klíč klienta** je důležité tajný klíč a by měla být správně zabezpečená trezoru klíčů nebo šifrované v produkčním prostředí.
 
-## <a name="info-to-collect"></a>Informace o shromažďování
+## <a name="get-the-access-token-using-postman"></a>Získání tokenu přístupu pomocí Postman
 
-Příprava kódování REST, shromažďování těchto datových bodů pro zahrnutí do kódu:
+Tato část ukazuje způsob použití **Postman** provést REST API, která vrací nosného tokenu JWT (přístupový token). Volat jakékoli Media Services REST API, budete muset přidat hlavičku "Autorizace" k volání a přidejte hodnotu "nosiče *your_access_token*" pro každé volání (jak je znázorněno v následující části tohoto kurzu). 
 
-*   Azure AD jako koncový bod služby tokenů zabezpečení: https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token. Z tohoto koncového bodu se požaduje přístupový token JWT. Kromě slouží jako IDP, Azure AD slouží také jako služby tokenů zabezpečení. Azure AD vydá token JWT pro přístup k prostředkům (přístupový token). JWT token má různé deklarace identity.
-*   Azure Media Services REST API jako prostředek nebo cílové skupiny: https://rest.media.azure.net.
-*   ID klienta: Viz krok 2 v [kroky pro instalaci](#steps-for-setup).
-*   Tajný klíč klienta: viz krok 2 v [kroky pro instalaci](#steps-for-setup).
-*   Účet Media Services koncový bod REST API v následujícím formátu:
+1. Otevřete **Postman**.
+2. Vyberte **POST**.
+3. Zadejte adresu URL, která zahrnuje název vašeho klienta v následujícím formátu: název klienta musí končit **. onmicrosoft.com** a adresa URL musí končit **tokenuoauth2/**: 
 
-    https://[media_service_account_name].restv2. [data_center].media.azure.net/API 
+    https://Login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
-    Toto je koncový bod, na které všechny Media Services REST API v aplikaci volání. Například https://willzhanmswjapan.restv2.japanwest.media.azure.net/API.
+4. Vyberte **hlavičky** kartě.
+5. Zadejte **hlavičky** informací pomocí datové mřížce "Klíč/hodnota". 
 
-Těchto pět parametrů můžete pak umístit do souboru web.config nebo app.config pro použití v kódu.
+    ![Datové mřížky](./media/connect-with-rest/headers-data-grid.png)
 
-## <a name="sample-code"></a>Ukázka kódu
+    Případně, kliknutím na tlačítko **hromadně upravovat** odkaz na pravé straně okna Postman a vložte následující kód.
 
-Můžete najít ukázkový kód v [ověřování Azure AD pro Azure Media Services přístup: I přes REST API](https://github.com/willzhan/WAMSRESTSoln).
+        Content-Type:application/x-www-form-urlencoded
+        Keep-Alive:true
 
-Ukázkový kód má dvě části:
+6. Stiskněte **textu** kartě.
+7. Zadejte informace o obsahu pomocí datové mřížce "Klíč/hodnota" (nahraďte ID klienta a tajný hodnoty). 
 
-*   Projekt knihovny DLL, který má kód rozhraní REST API pro Azure AD ověřování a autorizaci. Je také metodu pro volání rozhraní REST API Media Services REST API koncový bod s tímto tokenem přístupu.
-*   Klient test, konzoly, která zahájí ověřování Azure AD a volá jinou Media Services REST API.
+    ![Datové mřížky](./media/connect-with-rest/data-grid.png)
 
-Ukázkový projekt má tři funkce:
+    Případně, kliknutím na tlačítko **hromadně upravovat** na pravé straně okna Postman a vložte následující text (nahraďte ID klienta a tajný hodnoty):
 
-*   Ověření Azure AD pomocí pověření klienta udělit pomocí REST API.
-*   Azure Media Services přístup pomocí REST API.
-*   Azure přístup k úložišti pomocí pouze REST API (jak je použita k vytvoření účtu Media Services, pomocí rozhraní REST API).
+        grant_type:client_credentials
+        client_id:{Your Client ID that you got from your AAD Application}
+        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        resource:https://rest.media.azure.net
 
+8. Stiskněte **Odeslat**.
 
-## <a name="where-is-the-refresh-token"></a>Kde je token obnovení?
+    ![Získání tokenu](./media/connect-with-rest/connect-with-rest04.png)
 
-Může požádat některé čtečky: kde je token obnovení? Proč není zde použít token obnovení?
+Vrácená odpověď obsahuje **přístupový token** , budete muset použít pro přístup k žádné rozhraní API pro AMS.
 
-Účelem token obnovení je nechcete aktualizovat přístupový token. Je určený obejít ověřování koncového uživatele a stále získat token platný přístup, když vyprší platnost tokenu starší. Lepší název tokenu obnovení může být něco jako "Nepoužívat zpětný-registrace v token uživatele."
+## <a name="test-the-assets-api-using-the-access-token"></a>Testovací **prostředky** rozhraní API pomocí přístupového tokenu
 
-Pokud používáte OAuth 2.0 autorizace udělit tok (uživatelské jméno a heslo, které jednají jménem uživatele), umožňuje obnovovací token získání tokenu pro přístup k obnovené bez zásahu uživatele. Pro tok, který je popsaný v tomto článku poskytování pověření klienta OAuth 2.0 však klient funguje na vlastní účet. Nepotřebujete zásahu uživatele vůbec, a server ověřování není nutné získáte token obnovení. Pokud ladíte **GetUrlEncodedJWT** metoda, zjistíte, že odpověď z koncový bod token má přístupový token, ale žádné token obnovení.
+V této části ukazuje, jak získat přístup **prostředky** rozhraní API pomocí **Postman**.
 
-## <a name="next-steps"></a>Další kroky
+1. Otevřete **Postman**.
+2. Vyberte **GET**.
+3. Vložte koncový bod REST API (například https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+4. Vyberte **autorizace** kartě. 
+5. Vyberte **tokenu nosiče**.
+6. Vložte token, který byl vytvořen v předchozí části.
 
-Začínáme s [nahrávání souborů do účtu](media-services-dotnet-upload-files.md).
+    ![Získání tokenu](./media/connect-with-rest/connect-with-rest05.png)
+
+    > [!NOTE]
+    > Postman UX může být Mac a počítače liší. Pokud verze Mac nemá možnost "Nosného tokenu" v **ověřování** části rozevírací, měli byste přidat **autorizace** záhlaví na klienta se systémem Mac ručně.
+
+   ![Hlavička ověření](./media/connect-with-rest/auth-header.png)
+
+7. Vyberte **hlavičky**.
+5. Klikněte na tlačítko **hromadně upravovat** odkaz na pravé straně okna Postman.
+6. Vložte následující hlavičky:
+
+        x-ms-version:2.15
+        Accept:application/json
+        Content-Type:application/json
+        DataServiceVersion:3.0
+        MaxDataServiceVersion:3.0
+
+7. Stiskněte **Odeslat**.
+
+Odpověď vrácená obsahuje prostředky, které jsou ve vašem účtu.
+
+## <a name="next-steps"></a>Další postup
+
+* Zkuste tento ukázkový kód v [ověřování Azure AD pro Azure Media Services přístup: I přes REST API](https://github.com/willzhan/WAMSRESTSoln)
+* [Nahrání souborů s rozhraním .NET](media-services-dotnet-upload-files.md)

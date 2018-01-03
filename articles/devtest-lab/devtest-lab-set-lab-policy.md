@@ -3,7 +3,7 @@ title: "Správa zásad testovacího prostředí v Azure DevTest Labs | Microsoft
 description: "Naučte se definovat zásady testovacího prostředí, například velikosti virtuálních počítačů, maximální virtuálních počítačů na uživatele a vypnutí automatizace."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 7756aa64-49ca-45a0-9f90-0fd101c7be85
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c2b71fa5ec2935a25b5fb37770dfb5163a286ded
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Správa všech zásad pro testovací prostředí v Azure DevTest Labs
 
@@ -107,7 +107,7 @@ Můžete nastavit vypršení platnosti datum, kdy jste [vytvořit virtuální po
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Jakmile jste definovaný a použít různá nastavení zásad virtuálních počítačů pro testovací prostředí, zde jsou další vyzkoušejte:
 
 * [Pochopení sdílené IP adresy](devtest-lab-shared-ip.md) -vysvětluje, jak sdílené IP adresy se používají v DevTest Labs, chcete-li minimalizovat počet veřejných IP adres, které jsou požadované pro připojení k testovacího prostředí virtuálních počítačů.
@@ -115,5 +115,5 @@ Jakmile jste definovaný a použít různá nastavení zásad virtuálních poč
   Chcete-li zobrazit aktuální měsíc je odhadované náklady na začátku a předpokládané náklady na koncový měsíc.
 * [Vytvořit vlastní image](devtest-lab-create-template.md) – při vytváření virtuálního počítače, zadejte základ, který může být buď vlastní image nebo image pořízenou prostřednictvím Marketplace. Tento článek ukazuje, jak vytvořit vlastní obrázek ze souboru virtuálního pevného disku.
 * [Konfigurace Marketplace image](devtest-lab-configure-marketplace-images.md) – Azure DevTest Labs podporuje vytváření virtuálních počítačů založené na imagích Azure Marketplace. Tento článek ukazuje, jak určit, které, pokud existuje, může být Azure Marketplace Image používá při vytváření virtuálních počítačů v testovacím prostředí.
-* [Vytvoření virtuálního počítače v testovacím prostředí](devtest-lab-add-vm-with-artifacts.md) -znázorňuje, jak vytvořit virtuální počítač z bitové kopie základní (buď vlastní nebo Marketplace) a postup práce s artefakty ve vašem virtuálním počítači.
+* [Vytvoření virtuálního počítače v testovacím prostředí](devtest-lab-add-vm.md) -znázorňuje, jak vytvořit virtuální počítač z bitové kopie základní (buď vlastní nebo Marketplace) a postup práce s artefakty ve vašem virtuálním počítači.
 

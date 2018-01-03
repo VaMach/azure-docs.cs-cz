@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: fb0dad84fc8d35a71bdc2f002d7ea570ea1371bf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: b6e1ef5a5b3f9298134a7c312ac7d1927cf41a7f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Odeslání souborů ze zařízení do cloudu s centrem IoT
 
@@ -29,7 +29,7 @@ V tomto kurzu vychází kód [odesílání zpráv typu Cloud-zařízení s centr
 - Bezpečně zadejte zařízení s Azure blob identifikátor URI pro nahrání souboru.
 - Oznámení o odeslání souboru IoT Hub použijte k aktivaci zpracování souboru ve vaší aplikaci back-end.
 
-[Začínáme se službou IoT Hub](iot-hub-java-java-getstarted.md) a [odesílání zpráv typu Cloud-zařízení s centrem IoT](iot-hub-java-java-c2d.md) kurzy zobrazit základních funkcí zařízení cloud a z cloudu do zařízení zasílání zpráv služby IoT Hub. [Zprávy procesu zařízení-Cloud](iot-hub-java-java-process-d2c.md) kurz popisuje způsob, jak spolehlivě ukládat zprávy typu zařízení cloud do úložiště objektů blob v Azure. Ale v některých scénářích nelze mapovat snadno data, která vaše zařízení odesílají do poměrně malý zprávy typu zařízení cloud, které IoT Hub přijímá. Například:
+[Začínáme se službou IoT Hub](iot-hub-java-java-getstarted.md) a [odesílání zpráv typu Cloud-zařízení s centrem IoT](iot-hub-java-java-c2d.md) kurzy zobrazit základních funkcí zařízení cloud a z cloudu do zařízení zasílání zpráv služby IoT Hub. [Zprávy procesu zařízení-Cloud](iot-hub-java-java-process-d2c.md) kurz popisuje způsob, jak spolehlivě ukládat zprávy typu zařízení cloud do úložiště objektů blob v Azure. Ale v některých scénářích nelze mapovat snadno data, která vaše zařízení odesílají do poměrně malý zprávy typu zařízení cloud, které IoT Hub přijímá. Příklad:
 
 * Velkých souborů, které obsahují Image
 * Videa
@@ -260,7 +260,7 @@ Na portálu můžete použít k zobrazení nahrávaný soubor v kontejneru úlo�
 
 ![Nahrávaný soubor](media/iot-hub-java-java-upload/uploaded-file.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste zjistili, jak používat funkce nahrávání souboru služby IoT Hub pro zjednodušení nahrávání souborů ze zařízení. Můžete dál prozkoumat funkcí služby IoT hub a scénáře v následujících článcích:
 
@@ -283,7 +283,7 @@ Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 
 
 
-[Azure střediska pro vývojáře IoT]: http://www.azure.com/develop/iot
+[Azure střediska pro vývojáře IoT]: http://azure.microsoft.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account

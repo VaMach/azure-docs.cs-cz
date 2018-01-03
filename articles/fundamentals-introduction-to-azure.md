@@ -14,35 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Úvod do Microsoft Azure
 Microsoft Azure je platforma aplikace společnosti Microsoft pro veřejný cloud.  Cílem tohoto článku je poskytují základ pro pochopení základy Azure, i v případě, že bez znalosti o cloud computing.
 
 **Jak si tento článek**
 
-Azure roste vždy, takže můžete snadno získat přetížený.  Začněte základní služby, které jsou uvedeny jako první v tomto článku a potom přejděte k další služby. Který neznamená právě další služby nelze použít samy o sobě, ale základní služby tvoří základní aplikace běžící v Azure.
+Azure roste vždy, takže můžete snadno získat přetížený.  Začněte základní služby, které jsou uvedeny jako první v tomto článku a potom přejděte k další služby. Který neznamená, že právě další služby nelze použít samostatně. Ale základní služby tvoří základní aplikaci, která běží v Azure.
 
 **Váš názor**
 
 Vaše zpětná vazba je důležité. Tento článek měl dát efektivní Přehled služby Azure. Pokud ne, řekněte nám v sekci komentáře v dolní části stránky. Poskytněte některé podrobnosti o očekává zobrazíte a jak ke zlepšení článek.  
 
 ## <a name="the-components-of-azure"></a>Součástí Azure
-Azure skupiny služeb do kategorií v portálu pro správu a v různých vizuální pomůcky, jako [co je Azure Infografice](https://azure.microsoft.com/documentation/infographics/azure/) . Portálu pro správu je použít ke správě služby většinu (ale ne všechny) v Azure.
+Azure skupiny služeb do kategorií na portálu Azure a v různých vizuální pomůcky, jako [co je Azure Infografice](https://azure.microsoft.com/documentation/infographics/azure/). [Portál Azure](http://portal.azure.com) se používá ke správě služeb v Azure.
 
-Tento článek se použije **jiné organizaci** mluvit o služeb na základě podobné funkce a volání na důležité dílčí služby, které jsou součástí větší ty.  
+Tento článek používá **jiné organizaci** mluvit o služeb na základě podobné funkce a volání na důležité dílčí služby, které jsou součástí větší ty.  
 
 ![Azure součásti](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png)   
  *Obrázek: Azure poskytuje přístupné z Internetu aplikačních služeb běžících v datových centrech Azure.*
 
-## <a name="management-portal"></a>Portál pro správu
-Azure je webové rozhraní s názvem [portálu pro správu](http://manage.windowsazure.com) umožňuje správcům přístup a spravovat většinu, ale všechny Azure funkce.  Společnost Microsoft obvykle vydává novější uživatelského rozhraní portálu ve verzi beta před vyřazením z provozu starší. Je volána novější jeden ["Azure Portal"](https://portal.azure.com/).
-
-Je to obvykle dlouhé překrývají oba Portály jsou aktivní. Zatímco základní služby se zobrazí v obou portálů, ne všechny funkce mohou být k dispozici v obou. Novější služby může zobrazí v novější portálu první a starší služby a funkce může existovat pouze v ta starší.  Zpráva tady je, že Pokud nenajdete něco v portálu starší kontrolují novější jednu a naopak.
+## <a name="azure-portal"></a>Azure Portal
+Azure je webové rozhraní s názvem [portál Azure](http://portal.azure.com) umožňuje správcům přístup a funkce Azure a služby.  
 
 ## <a name="compute"></a>Compute
 Jedním z nejzákladnější věcí, které nemá cloudové platformy je spuštění aplikace. Každý výpočetní modely má svou vlastní úlohu.
@@ -75,7 +73,7 @@ Tento poměrně obecné přístup do cloudu computing můžete používat k adre
 
 Mezi nejběžnější činností, které uživatelé provádějí v cloudu běží webů a webových aplikací. To umožňuje virtuální počítače Azure, ale je stále vám zůstane je zodpovědností správě jednoho nebo více virtuálních počítačů a základní operační systémy. Cloudové služby webové role můžete to provést, ale nasazení a údržbu, je stále trvá administrativy.  Co dělat, když chcete web kde někdo jiný kód má na starosti správu činností, které pro vás?
 
-Toto je přesně co nabízí webové aplikace. Tento model výpočetní nabízí prostředí spravované webové pomocí portálu pro správu Azure, jakož i rozhraní API. Existující aplikaci Web můžete přesunout do webové aplikace beze změny, nebo můžete vytvořit novou přímo v cloudu. Jakmile je spuštěn web, můžete přidat nebo odebrat instancí dynamicky, spoléhat na Azure Web Apps načíst vyrovnávat požadavky mezi nimi. Aplikace Azure nabízí sdílené možnost, kde webu běží ve virtuálním počítači s jinými weby, a standardní možnost, která umožňuje serveru pro spuštění ve vlastním virtuálním počítači. Standardní možnost také umožňuje zvýšit velikost vaše instance (computing power) v případě potřeby.
+Toto je přesně co nabízí webové aplikace. Tento model výpočetní nabízí prostředí spravované webové pomocí portálu Azure, jakož i rozhraní API. Existující aplikaci Web můžete přesunout do webové aplikace beze změny, nebo můžete vytvořit novou přímo v cloudu. Jakmile je spuštěn web, můžete přidat nebo odebrat instancí dynamicky, spoléhat na Azure Web Apps načíst vyrovnávat požadavky mezi nimi. Aplikace Azure nabízí sdílené možnost, kde webu běží ve virtuálním počítači s jinými weby, a standardní možnost, která umožňuje serveru pro spuštění ve vlastním virtuálním počítači. Standardní možnost také umožňuje zvýšit velikost (computing power) vaší instance.
 
 Pro vývoj webové aplikace podporuje rozhraní .NET, PHP, Node.js, Java a Python spolu s SQL Database a Azure Database pro databázi MySQL pro relační úložiště. Také poskytuje integrovanou podporu pro několik oblíbených aplikací, včetně WordPress, Joomla nebo Drupal. Cílem je zajistit nízkonákladové, škálovatelné a široce užitečné platforma pro vytváření webů a webových aplikací ve veřejném cloudu.
 
@@ -87,9 +85,9 @@ Webové aplikace slouží jako vhodný pro společnosti, vývojáři, webové n�
 ![Cloudové služby Azure](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Obrázek: Azure Cloud Services poskytuje místo, kde můžete spustit na platforma jako služba (PaaS) prostředí vysoce škálovatelné vlastní kód*
 
-Předpokládejme, že chcete vytvořit cloudovou aplikaci, která může podporovat velký počet současně připojených uživatelů, nevyžaduje mnoho správy a nikdy ocitne mimo provoz. Je navázané dodavatelem například, který se rozhodla zapojení Software jako služba (SaaS) ve verzi jednu z vašich aplikací v cloudu. Nebo může být Startup vytváření aplikace příjemce, které očekáváte, že se rychle zvětšovat. Pokud vytváříte v Azure, které model spouštění mám použít?
+Předpokládejme, že chcete vytvořit cloudovou aplikaci, která může podporovat velký počet současně připojených uživatelů, nevyžaduje mnoho správy a nikdy ocitne mimo provoz. Je navázané dodavatelem například, který se rozhodla zapojení Software jako služba (SaaS) ve verzi jednu z vašich aplikací v cloudu. Nebo může být Startup vytváření příjemce aplikace, která chcete rychle zvětšovat. Pokud vytváříte v Azure, které model spouštění mám použít?
 
-Azure Web Apps umožňuje vytváření tento druh webové aplikace, ale existují některá omezení. Nemáte přístup pro správu, například, což znamená, že libovolný software nelze nainstalovat. Virtuální počítače Azure nabízí pružné, včetně přístup pro správu a určitě můžete ho vytvořit velmi škálovatelné aplikaci, ale budete mít mnoho aspektů spolehlivosti a správy zpracování sami. Jakým způsobem je možnost, která vám dává kontrolu potřebujete ale také obstará většinu práce potřebné pro spolehlivosti a správy.
+Azure Web Apps umožňuje vytváření tento druh webové aplikace, ale existují některá omezení. Nemáte přístup pro správu, například, což znamená, že libovolný software nelze nainstalovat. Virtuální počítače Azure nabízí pružné, včetně přístup pro správu. Můžete ji použít k vytvoření velmi škálovatelné aplikace. Ale je potřeba zpracovat mnoho aspektů spolehlivosti a správy sami. Jakým způsobem je možnost, která vám dává kontrolu potřebujete ale také obstará většinu práce potřebné pro spolehlivosti a správy.
 
 Toto je přesně poskytuje Azure Cloud Services. Tato technologie je výslovně navržený pro podporu škálovatelný, spolehlivý a nízká Správce aplikací ale je příkladem co má označovaného jako platforma jako služba (PaaS). Chcete-li použít, vytvořte aplikaci pomocí technologie, kterou zvolíte, například C#, Java, PHP, Python, Node.js nebo něco jiného. Váš kód pak provede ve virtuálních počítačích (označované jako instance) s verzí systému Windows Server.
 
@@ -162,7 +160,7 @@ Někdy budete chtít přesunout velké množství dat do Azure. Který by trvat 
 **Scénáře pro Import / Export**
 
 * **Velké migrace dat** -pokaždé, když máte velké objemy dat (terabajtů), který chcete nahrát do Azure, službu Import/Export je často mnohem rychlejší a případně levnější než přenos přes internet. Jakmile jsou data do objektů BLOB, můžete ji zpracovat do jiných formulářů, jako je například úložiště Table nebo databázi SQL.
-* **Obnovení dat archivovat** -Import/Export můžete mít Microsoft přenos velkých objemů dat uložené v Azure Blob Storage do zařízení úložiště které odešlete a pak mít toto zařízení doručit zpět do umístění, kterou si přejete. Protože to bude trvat delší dobu, není vhodný pro zotavení po havárii. Je nejvhodnější pro archivovaná data, která nepotřebujete rychlý přístup k.
+* **Obnovení dat archivovat** -Import/Export můžete mít Microsoft přenos velkých objemů dat uložené v Azure Blob Storage do zařízení úložiště které odešlete a pak mít toto zařízení doručit zpět do umístění, kterou si přejete. Protože tato akce trvá delší dobu, není vhodný pro zotavení po havárii. Je nejvhodnější pro archivovaná data, která nepotřebujete rychlý přístup k.
 
 ### <a name="file-service"></a>Služba File
 ![Služba Azure souborů](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
@@ -211,7 +209,7 @@ Další informace o ExpressRoute najdete v tématu [technický přehled ExpressR
 
 Pokud vaše aplikace Azure běží v několik datových center, můžete použít Azure Traffic Manager inteligentně směrovat požadavky od uživatelů napříč instancí aplikace. Můžete také odeslání dat na služby nejsou spuštěny v Azure, dokud jsou přístupné z Internetu.  
 
-Aplikaci Azure s uživateli v právě jedné součásti na světě mohou být spuštěny v pouze jednoho datového centra Azure. Aplikace s uživateli na různých po celém světě, je ale pravděpodobnější ke spuštění v několika datových centrech, může být i všechny. V této druhé situaci čelit problému: jak inteligentně nasměrujete uživatelům instancí aplikace? Ve většině případů, budete ho zřejmě chtít každého uživatele pro přístup k datacenter nejblíže k mu, protože je pravděpodobně získáte jí nejlepší doba odezvy. Ale co když je dané instance aplikace přetížené nebo není k dispozici? V takovém případě je dobrý směrovat své žádosti automaticky k jinému datovému centru. Toto je přesně co se provádí pomocí Azure Traffic Manager.
+Aplikaci Azure s uživateli v právě jedné součásti na světě mohou být spuštěny v pouze jednoho datového centra Azure. Aplikace s uživateli na různých po celém světě, je ale pravděpodobnější ke spuštění v několika datových centrech, může být i všechny. V této druhé situaci čelit problému: jak inteligentně nasměrujete uživatelům instancí aplikace? Ve většině případů, budete ho zřejmě chtít každého uživatele pro přístup k datacenter nejbližšího, protože v takovém případě je nejlepší doba odezvy. Ale co když je dané instance aplikace přetížené nebo není k dispozici? V takovém případě je dobrý směrovat své žádosti automaticky k jinému datovému centru. Toto je přesně co se provádí pomocí Azure Traffic Manager.
 
 Vlastník aplikace definuje pravidla, které určují, jak se mají směrovat požadavky od uživatelů k datovým centrům a spoléhá na Traffic Manager slouží k provádění těchto pravidel. Například uživatelé mohou být normálně přesměrovány na nejbližší datové centrum Azure, ale získat posílá jiný, pokud doba odezvy z jejich výchozí datového centra překročí doba odezvy z jiných datových center. Pro globálně distribuované aplikace s mnoha uživateli s integrovanou službu pro zpracování problémy, jako to je užitečné.
 
@@ -234,7 +232,7 @@ Aby nedocházelo k záměně - neposkytuje hostované nebo webové verzi sady Vi
 
 Nepodporuje, obsahuje systému správy hostované zdrojového názvem Team Foundation Service, který nabízí verzí a sledování pracovních položek.  Pokud dáváte přednost, který, můžete použít i Git pro správu verzí. A můžete měnit, které můžete použít projektu správy zdrojového kódu. Můžete vytvořit neomezená privátní týmové projekty přístupné z kdekoliv na světě.  
 
-Visual Studio Team Services poskytuje službu, testování zatížení. Můžete provést zátěžové testy vytvořit v sadě Visual Studio na virtuálních počítačích v cloudu. Zadejte celkový počet uživatelů, kterou chcete zátěžový test pomocí a Visual Studio Team Services automaticky určit, kolik agenti jsou potřeba, začne pracovat požadované virtuální počítače a spustit zátěžové testy. Pokud jste odběratel MSDN, získáváte tisíce volné minut uživatele zatížení testování každý měsíc.
+Visual Studio Team Services poskytuje službu, testování zatížení. Můžete provést zátěžové testy vytvořit v sadě Visual Studio na virtuálních počítačích v cloudu. Určíte, že celkový počet uživatelů, které chcete automaticky zatížení test s a Visual Studio Team Services určuje, kolik agenti jsou potřeba, začne pracovat požadované virtuální počítače a spustit zátěžové testy. Pokud jste odběratel MSDN, získáváte tisíce volné minut uživatele zatížení testování každý měsíc.
 
 Visual Studio Team Services také poskytuje podporu pro agilní vývoj s funkcí jako sestavení průběžnou integraci, kanbanové karty a virtuální týmové místnosti.
 
@@ -249,7 +247,7 @@ Ale organizace, které už máte v místním systému můžete otestovat nových
 
 *Obrázek: Application Insights monitorování výkonu a využití vaší živé aplikace web nebo zařízení.*
 
-Po publikování aplikace – jestli běží na mobilních zařízeních, stolní počítače nebo webových prohlížečů - Application Insights se dozvíte, jak je její výkon a co uživatelé dělají s ním. Ponechá počet havárií a pomalé odezvy, výstrahy, je-li údaje mezi nepřijatelné prahové hodnoty a vám pomohou diagnostikuje problémy.
+Po publikování aplikace – jestli běží na mobilních zařízeních, stolní počítače nebo webových prohlížečů - Application Insights se dozvíte, jak je její výkon a co uživatelé dělají s ním. Udržuje počet havárií a pomalé odezvy, výstrahy, je-li údaje mezi nepřijatelné prahové hodnoty a vám pomohou diagnostikuje problémy.
 
 Při vývoji novou funkci, naplánujte měřit její úspěšnost s uživateli. Analýzou vzorce používání pochopit, co nejlépe vyhovuje vašim zákazníkům a vylepšení v každé cyklu vývoje aplikace.
 
@@ -281,9 +279,9 @@ Azure API Management usnadňuje organizacím bezpečně a škálované publikova
 
 **Scénáře správy rozhraní API**
 
-Řekněme, že má vaše společnost skupině zařízení, že všechny potřeba centrální službu a získat data – například zpětné volání přesouvání společnost, která má zařízení v každé vůz na cestách.  Společnost jistě budou chtít nastavit sledování vlastní dodávky tak, aby ho spolehlivě předpovědi a doručení časy aktualizace systému. Může vědět, kolik dodávky má a plánování správně.  Každý vůz bude nutné zařízení, která volá zpět do centrálního umístění s jeho umístění a rychlost daty a případně více.
+Řekněme, že má vaše společnost skupině zařízení, že všechny potřeba centrální službu a získat data – například zpětné volání přesouvání společnost, která má zařízení v každé vůz na cestách.  Určitě společnost chce nastavit sledování vlastní dodávky tak, aby ho spolehlivě předpovědi a doručení časy aktualizace systému. Může vědět, kolik dodávky má a plánování správně.  Každý vůz musí zařízení, která volá zpět do centrálního umístění s jeho umístění a rychlost daty a případně více.
 
-Zákazník přesouvání společnosti by pravděpodobně také těžit z získávání tato umísťovací data.  Zákazník může použít k vědět, jak daleko je nutné produkty cestují, kde se zablokuje, kolik jejich platícího podél určité trasy (Pokud je v kombinaci s jejich placené dodávat). Pokud společnost přesouvání agreguje tato data již, může pro něj platí mnoho zákazníků.  Ale přesouvání společnosti musí poskytnout způsob, jak poskytnout zákazníkům data. Po poskytnou přístup zákazníkům, se nemusí mít kontrolu nad jak často je dotazován data. Budou muset zadat pravidla o tom, kdo má přístup k jaká data. Všechna tato pravidla se musel jde integrovat přímo do jejich externí rozhraní API. Toto je, kde může pomoci API Management.  
+Zákazník přesouvání společnosti by pravděpodobně také těžit z získávání tato umísťovací data.  Zákazník může použít k vědět, jak daleko je nutné produkty cestují, kde se zablokuje, kolik jejich platícího podél určité trasy (Pokud je v kombinaci s jejich placené dodávat). Pokud společnost přesouvání agreguje tato data již, může pro něj platí mnoho zákazníků.  Ale přesouvání společnosti musí poskytnout způsob, jak poskytnout zákazníkům data. Po poskytnou přístup zákazníkům, se nemusí mít kontrolu nad jak často je dotazován data. Mají zajistit pravidla o tom, kdo má přístup k jaká data. Všechna tato pravidla se musel jde integrovat přímo do jejich externí rozhraní API. Toto je, kde může pomoci API Management.  
 
 ## <a name="identity-and-access"></a>Identita a přístup
 Práce s identitou je součástí většinu aplikací. Zjištěním je uživatel umožňuje aplikaci rozhodnout, jak by měla spolupracovat s tímto uživatelem. Azure poskytuje služby k usnadnění sledování identity a také integrovat do úložiště identit, které už používáte.
@@ -380,7 +378,7 @@ Bez ohledu na to, co je to kód často potřebuje komunikovat s jiným kódem.  
 
 Služba Řízení front je jednoduchý: jednu aplikaci umístí zprávu do fronty a zprávy je nakonec pro čtení, jiná aplikace. Pokud aplikace potřebuje pouze této přehledné služby, fronty Azure může být nejlepším řešením.
 
-Kvůli způsobu, kterým Azure vzrostla v čase fronty úložiště Azure a fronty služby Service Bus poskytuje podobné služby Řízení front služby. Z důvodů, proč byste měli použít jeden z nich jsou popsané v dokumentu poměrně technické [fronty Azure a fronty služby Service Bus - porovnání a na rozdíl od aktualizovaného](http://msdn.microsoft.com/library/azure/hh767287.aspx).  V mnoha scénářích buď pracovat.
+Kvůli způsobu, kterým Azure vzrostla v čase fronty úložiště Azure a fronty služby Service Bus poskytuje podobné služby Řízení front služby. Z důvodů, proč byste měli použít jeden z nich jsou popsané v dokumentu poměrně technické [fronty Azure a fronty služby Service Bus - porovnání a na rozdíl od aktualizovaného](http://msdn.microsoft.com/library/azure/hh767287.aspx).  V mnoha scénářích buď funguje.
 
 **Scénáře fronty**
 
@@ -461,7 +459,7 @@ Přístup k datům uloženým v některém z Azure, je Správa dat služby SQL D
 
 Cloudové služby aplikace můžete ukládat data do mezipaměti, a pak načíst přímo bez nutnosti přístupu trvalého úložiště. Mezipaměť je možné udržovat uvnitř vaší aplikace virtuálních počítačů nebo poskytovaný virtuální počítače vyhrazený pro ukládání do mezipaměti. V obou případech mohou být distribuovány do mezipaměti, s daty obsahuje šíření mezi více virtuálních počítačů v datovém centru Azure.
 
-Azure má několik různých mezipaměti technologie, které mají zapuštěno v čase. V pořadí, že byly zavedeny, je sdílený, v roli, spravovat a Redis cache. Sdílené ukládání do mezipaměti je technologie starší a byste je neměli vytvářet nové implementace s ním. Spravované mezipaměti má stejné funkce mezipaměť hostovaná v instanci Role, ale služba se spravuje mimo Azure Management Portal. Redis Cache je ve verzi preview. Implementace Redis má největší počet funkcí a doporučuje se při psaní nový kód pro ukládání do mezipaměti.
+Azure má několik různých mezipaměti technologie, které mají zapuštěno v čase. V pořadí, že byly zavedeny, je sdílený, v roli, spravovat a Redis cache. Sdílené ukládání do mezipaměti je technologie starší a byste je neměli vytvářet nové implementace s ním. Spravované mezipaměti má stejné funkce mezipaměť hostovaná v instanci Role, ale služba se spravuje mimo portál Azure. Implementace Redis má největší počet funkcí a doporučuje se při psaní nový kód pro ukládání do mezipaměti.
 
 **Scénáře Azure Cache**
 
@@ -527,7 +525,7 @@ Zvýšení softwaru jako služby je transformace, jak jsme vytvořit aplikace. J
 ![Azure Commerce](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
  **Obrázek: Azure Marketplace a úložiště Azure vám umožní najít a zakoupit aplikace Azure a komerční datové sady a používat jako součást aplikace Azure.**
 
-Rozdíl mezi nimi je Marketplace je mimo Azure Management Portal, že Windows Store je přístupná z uvnitř portálu. Potenciální zákazníky můžete hledat aplikace Azure, které podle jejich potřeb. Zákazníci můžete vyhledat taky komerční datové sady včetně demografické údaje, finanční údaje, zeměpisné údaje a další. Když najít něco, co se jako, že k němu přístup buď od dodavatele, přímo prostřednictvím webových umístění Marketplace nebo úložiště, nebo v některých případech z portálu pro správu. Aplikace můžete také použít rozhraní API služby Bing Search přes Marketplace, bude mít přístup k výsledky vyhledávání na webu.
+Rozdíl mezi nimi je Marketplace je mimo portál Azure, že Windows Store je přístupná z uvnitř portálu. Potenciální zákazníky můžete hledat aplikace Azure, které podle jejich potřeb. Zákazníci můžete vyhledat taky komerční datové sady včetně demografické údaje, finanční údaje, zeměpisné údaje a další. Když najít něco, co se jako, můžete přístup od dodavatele, buď přímo pomocí webových umístění Marketplace nebo úložiště, nebo v některých případech z portálu Azure. Aplikace můžete také použít rozhraní API služby Bing Search přes Marketplace, bude mít přístup k výsledky vyhledávání na webu.
 
 **Scénáře Commerce**
 

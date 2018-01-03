@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: c32872a79cc87fe0ecfff269f941b29730266110
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 96faa0cf518e4b02b5ba9fd8aedaf21bd6288b02
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Zpracovávat a analyzovat dokumenty JSON pomocí Apache Hive v Azure HDInsight
 
@@ -144,7 +144,7 @@ SerDe je nejlepší volbou pro analýzu vnořených dokumentů JSON. Umožňuje 
 ## <a name="summary"></a>Souhrn
 Na závěr typ operátor JSON v Hive, který zvolíte, závisí na váš scénář. Pokud máte jednoduchý dokumentu JSON a máte pouze jedno pole pro vyhledávání, můžete použít get_json_object Hive UDF. Pokud máte více než jeden klíč k vyhledání, můžete použít json_tuple. Pokud máte vnořené dokumentu, měli byste použít JSON SerDe.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Související články najdete v části:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 6a5f14f411c2ec82478fef6d20d22f8b8dc8d7bf
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 0c94b627ad80a1cc32bc0084d3792a917225d9c7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Odesílání zpráv typu cloud zařízení službou IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -192,7 +192,7 @@ Nyní můžete spustit aplikace.
 
     ![Spusťte příkaz k odeslání zprávy typu cloud zařízení][img-send-command]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste zjistili, jak odesílat a přijímat zprávy typu cloud zařízení. 
 
@@ -208,7 +208,7 @@ Další informace o vývoji řešení službou IoT Hub, najdete v článku [Př�
 [Začínáme se službou IoT Hub]: iot-hub-java-java-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [Příručka vývojáře pro službu IoT Hub]: iot-hub-devguide.md
-[Azure střediska pro vývojáře IoT]: http://www.azure.com/develop/iot
+[Azure střediska pro vývojáře IoT]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [přechodných chyb]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

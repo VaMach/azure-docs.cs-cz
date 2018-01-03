@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profil za provozu Azure web apps s Application Insights
 
@@ -227,6 +227,82 @@ Když konfigurujete profileru, jsou provedeny aktualizace nastavení webové apl
 7. Na webu Kudu vyberte **lokality rozšíření**.
 8. Nainstalujte __Application Insights__ z Galerie Azure webové aplikace.
 9. Restartování webové aplikace.
+
+## <a id="profileondemand"></a>Aktivovat ručně profileru
+Když profileru Vyvinuli jsme přidali rozhraní příkazového řádku, abychom může otestovat profileru na aplikační služby. Pomocí této stejným uživatelům rozhraní můžete také upravit způsob spuštění profileru. Na vysoké úrovni profileru používá systém Kudu služby App Service spravovat profilace na pozadí. Při instalaci rozšíření Application Insights vytvoříme nepřetržité webové úlohy, který hostuje profileru. Tato technologie použijeme k vytvoření nové webové úlohy, kterou si můžete přizpůsobit svým potřebám.
+
+Tato část vysvětluje, jak:
+
+1.  Vytvoříte webovou úlohu, která můžete spustit profileru pro dvě minuty. stisknutím tlačítka.
+2.  Vytvoříte webovou úlohu, která můžete naplánovat profileru ke spuštění.
+3.  Nastavit argumenty profileru.
+
+
+### <a name="set-up"></a>Nastavení
+První umožňuje Seznamte se s řídicího panelu webové úlohy. V části nastavení klikněte na kartu webové úlohy.
+
+![okno webové úlohy](./media/app-insights-profiler/webjobs-blade.png)
+
+Jak vidíte, že tento řídicí panel jsou zobrazeny všechny webové úlohy, které jsou aktuálně nainstalovány na váš web. Můžete zobrazit ApplicationInsightsProfiler2 webovou úlohu, která je spuštěná úloha profileru. Toto je, kde jsme dojdete k vytvoření naší nové webové úlohy pro ruční a naplánované profilace.
+
+První Pojďme binární soubory, je nutné zadat.
+
+1.  Přejděte na web kudu. V části vývoj klikněte na kartu Nástroje na kartě "Rozšířené nástroje" s logem Kudu. Klikněte na "Přejděte". Tím můžete přejít k novému webu a automaticky vás přihlásit.
+2.  Další musíme binární soubory stahovány profileru. Přejděte do Průzkumníka souborů prostřednictvím konzoly Ladění -> CMD nachází v horní části stránky.
+3.  Kliknutím na lokality -> wwwroot -> App_Data -> úlohy -> průběžné. Měli byste vidět do složky "ApplicationInsightsProfiler2". Klikněte na ikonu stahování nalevo od složce. To se stáhnout soubor "ApplicationInsightsProfiler2.zip".
+4.  To stáhne všechny soubory, které budete potřebovat postoupíte. I doporučujeme vytvářet vyčistit adresář přesunout archivu zip do než budete pokračovat.
+
+### <a name="setting-up-the-web-job-archive"></a>Nastavení webové úlohy archivu
+Když přidáte novou webovou úlohu do webu azure v podstatě můžete vytvořit archivu zip s run.cmd uvnitř. Run.cmd říká systému webové úlohy, jak postupovat při spuštění webové úlohy. Existují další možnosti, které si můžete přečíst v dokumentaci k webové úlohy, ale pro naše účel jsme není nutné nic jiného.
+
+1.  Spuštění vytvoření nové složky, I s názvem dolování "RunProfiler2Minutes".
+2.  Zkopírujte soubory ve složce extrahované ApplicationInsightProfiler2 do této nové složky.
+3.  Vytvořte nový soubor run.cmd. (Po otevření této pracovní složky v produktu vs code před zahájením pro usnadnění práce)
+4.  Příkaz Přidat `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`a soubor uložte.
+a.  `start` Příkaz zjistí profileru ke spuštění.
+b.  `--engine-mode immediate`profileru informuje, že chceme okamžitě spustit profilování.
+c.  `--single`způsob, jak spustit a pak ukončete automaticky d.  `--immediate-profiling-duration 120`znamená mít profileru spustit 120 sekund nebo 2 minut.
+5.  Uložte tento soubor.
+6.  Tuto složku archivovat, můžete klikněte pravým tlačítkem na složku a zvolte odeslat do složky komprimované (ZIP) ->. Tím se vytvoří soubor .zip pomocí názvu složky.
+
+![spuštění příkazu profileru](./media/app-insights-profiler/start-profiler-command.png)
+
+Nyní je k dispozici ZIP webové úlohy, které používáme můžete nastavit webové úlohy na našem webu.
+
+### <a name="add-a-new-web-job"></a>Přidejte novou webovou úlohu
+Další přidáme nové webové úlohy na našem webu. Tento příklad vám ukáže, jak přidat ruční spouštěná webovou úlohu. Až budete moci provést proces je téměř úplně stejné pro naplánovanou. Další informace o naplánovaných úlohách spouštěná sami.
+
+1.  Přejděte na řídicí panel webové úlohy.
+2.  Klikněte na příkaz přidat na panelu nástrojů.
+3.  Pojmenujte webovou úlohu, aby odpovídal názvu archivu pro přehlednost a otevřete až s různými verzemi run.cmd vybrali jste.
+4.  V souboru nahrát části formuláře klikněte na ikonu otevřít soubor a vyhledejte soubor .zip, který jste přidali výše.
+5.  Pro typ zvolte aktivované.
+6.  Zvolte ruční aktivačních událostí.
+7.  Stiskněte tlačítko OK uložíte.
+
+![spuštění příkazu profileru](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>Spustit profileru
+
+Teď, když máme nové webovou úlohu, která jsme můžete spouštět ručně jsme můžete zkusit spustit.
+
+1.  Návrh může mít pouze jeden ApplicationInsightsProfiler.exe proces, který běží na počítači v daném okamžiku. Proto kvůli začít s Ujistěte se, že chcete zakázat nepřetržité webové úlohy z tohoto řídicího panelu. Klikněte na řádek a stiskněte klávesu "Stop". Obnovení na panelu nástrojů a potvrďte, že stav potvrdí, že je úloha zastavena.
+2.  Klikněte na řádek s novou webovou úlohu, která jste přidali a stiskněte klávesu spustit.
+3.  Řádek stále vybrané kliknutím na příkaz protokoly na panelu nástrojů tím přejdete na řídicí panel webové úlohy pro tuto webovou úlohu, kterou jste spustili. Se zobrazí seznam nejnovější spustí a jejich výsledek.
+4.  Klikněte na spustit, kterou jste právě spuštěna.
+5.  Pokud všechny se i byste měli vidět některé diagnostické protokoly pocházejících z profileru potvrzení, že jsme spustili profilace.
+
+### <a name="things-to-consider"></a>Co je třeba zvážit
+
+I když tato metoda je relativně jednoduché existují některé věci vzít v úvahu.
+
+1.  Protože to není spravován nástrojem naši službu máme žádným způsobem aktualizace binárních souborů agenta pro webové úlohy. Jsme nyní není k dispozici na stránce stabilní stahování pro naše binární soubory tak, aby jediný způsob, jak získat všechny nejnovější aktualizace rozšíření a metodou ve složce průběžné jako jsme provedli výše.
+2.  Jak je to využitím argumenty příkazového řádku, které byly původně navrženy s použít developer, nikoli pomocí koncového uživatele, tyto argumenty může změnit v budoucnu, takže jen znát, při upgradu. Protože můžete přidat webovou úlohu, spuštění a test, který funguje ho by neměl být mnohem na problém. Nakonec vytvoříme uživatelského rozhraní k tomu bez proces ručního nastavení, ale je něco vzít v úvahu.
+3.  Funkce webové úlohy pro aplikační služby je jedinečný, v tom, že při spuštění webové úlohy zajišťuje, že má váš proces stejné proměnné prostředí a nastavení aplikace, které webový server se ukončí tím, že mají. To znamená, že není potřeba předat klíč instrumentace pomocí příkazového řádku profileru, ho měli právě vyzvedávat klíč instrumentace z prostředí. Ale pokud chcete spustit profileru na vaše dev pole nebo na počítač mimo App Services budete muset zadat kód instrumentace. Můžete k tomu předáním v argumentu `--ikey <instrumentation-key>`. Všimněte si, že tato hodnota musí odpovídat klíč instrumentace, který vaše aplikace používá. Ve výstupu protokolu profileru jsou profilace oznámí, které ikey profileru začít s a pokud jsme zjistili aktivitu z tohoto klíč instrumentace při jsme.
+4.  Ručně aktivované webové úlohy můžete spustit ve skutečnosti prostřednictvím háku Web. Tuto adresu url můžete získat z kliknete pravým tlačítkem na webovou úlohu z řídicího panelu a zobrazení vlastností nebo výběrem položky vlastnosti na panelu nástrojů po výběru webovou úlohu z tabulky. Je celá řada články, které můžete najít online o tom, nebude přejít do množství podrobností o něm, ale to otevře možnost spuštění profileru z vašeho kanálu CI/CD (např. služby VSTS) nebo něco podobného jako Microsoft Flow (https://flow.microsoft.com/en-us/). V závislosti na tom, jak zvláštní chcete nastavit vaše run.cmd, kterým tím, jak může být run.ps1, jsou rozsáhlé možnosti.  
+
+
+
 
 ## <a id="aspnetcore"></a>Podpora jádra ASP.NET
 

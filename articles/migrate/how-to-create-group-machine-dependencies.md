@@ -4,22 +4,21 @@ description: "Popisuje postup vytvoření posouzení závislosti počítače pom
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 12/25/2017
 ms.author: raynew
-ms.openlocfilehash: 769c05916de4e7ad5b14812c2c8dbcf69e91320c
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 720380fd14d9eaf4856ad75269a80f2b63a4725f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Skupina počítačů pomocí mapování závislostí počítače
 
-Tento článek popisuje, jak vytvořit skupiny počítačů pro [Azure migrovat](migrate-overview.md) assessment pomocí mapování závislostí počítače. Obvykle použijete tuto metodu, když chcete posoudit skupiny virtuálních počítačů s vyšší úrovní spolehlivosti kontrola mezi závislostmi počítač, před spuštěním posouzení.
-
+Tento článek popisuje, jak vytvořit skupiny počítačů pro [Azure migrovat](migrate-overview.md) assessment vizualizací závislosti počítačů. Obvykle použijete tuto metodu, když chcete posoudit skupiny virtuálních počítačů s vyšší úrovní spolehlivosti kontrola mezi závislostmi počítač, před spuštěním posouzení. Vizualizace závislostí můžete efektivně plánování migrace do Azure. Pomáhá zajistit, aby nic je ponecháno a výpadky při neočekávaném nedojde, pokud provádíte migraci na Azure. Můžete zjistit všechny konkrétní systémy, které je potřeba migrovat společně a zjistit, jestli je spuštěný systém stále obsluhuje uživatelé nebo dojít k vyřazení z provozu místo migrace. 
 
 
 ## <a name="prepare-machines-for-dependency-mapping"></a>Příprava počítače pro mapování závislostí
-Mapování závislostí zahrnout počítače, musíte stáhnout a nainstalovat agenty na každý místní počítač, který chcete vyhodnotit. Kromě toho, pokud máte počítače bez připojení k Internetu, musíte stáhnout a nainstalovat [OMS brány](../log-analytics/log-analytics-oms-gateway.md) na ně.
+Chcete-li zobrazit závislosti počítačů, musíte stáhnout a nainstalovat agenty na každý místní počítač, který chcete vyhodnotit. Kromě toho, pokud máte počítače bez připojení k Internetu, musíte stáhnout a nainstalovat [OMS brány](../log-analytics/log-analytics-oms-gateway.md) na ně.
 
 ### <a name="download-and-install-the-vm-agents"></a>Stáhněte a nainstalujte agenty virtuálních počítačů
 1. V **přehled**, klikněte na tlačítko **spravovat** > **počítače**a vyberte požadovaný počítač.
@@ -32,7 +31,7 @@ Mapování závislostí zahrnout počítače, musíte stáhnout a nainstalovat a
 Instalace agenta na počítači s Windows:
 
 1. Poklikejte na stažený agenta.
-2. Na **úvodní** klikněte na tlačítko **Další**. Na **licenční podmínky** klikněte na tlačítko **souhlasím** tak, aby přijímal licence.
+2. Na **úvodní** stránce klikněte na **Další**. Na **licenční podmínky** klikněte na tlačítko **souhlasím** tak, aby přijímal licence.
 3. V **cílovou složku**, zachovat, nebo upravit výchozí instalační složku > **Další**. 
 4. V **možnosti instalace agenta**, vyberte **Azure Log Analytics (OMS)** > **Další**. 
 5. Klikněte na tlačítko **přidat** přidat nový pracovní prostor OMS. Vložte ID a klíč, který jste zkopírovali z portálu. Klikněte na **Další**.
@@ -54,25 +53,33 @@ Instalace agenta na počítač s Linuxem:
 
 [Další informace](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) o operačních systémech podporovaných produktem agenta závislostí. 
 
-## <a name="create-a-group"></a>Vytvoření skupiny
+## <a name="create-a-group"></a>Vytvořit skupinu
 
 1. Po instalaci agentů, přejděte na portál a klikněte na tlačítko **spravovat** > **počítače**.
-2. **Závislosti** sloupec by měl nyní zobrazovat jako **zobrazení závislostí**. Klikněte na sloupec zobrazení závislostí.
-3. Pro každý počítač můžete ověřit:
-    - Zda jsou nainstalovány MMA a závislostí agent a zda na počítači byla zjištěna.
-    - Hostovaný operační systém běžící v počítači.
-    - Příchozí a odchozí připojení, IP a porty.
-    - Procesy spuštěné na počítačích.
-    - Závislosti mezi počítači.
+2. Vyhledávání pro počítače, kam jste nainstalovali agenty.
+3. **Závislosti** sloupec pro počítač by měl nyní zobrazovat jako **zobrazení závislostí**. Klikněte na sloupec zobrazení závislostí počítače.
+4. Mapa závislostí pro počítač obsahuje následující podrobnosti:
+    - Příchozí (klientů) a odchozí připojení TCP (servery) do nebo z počítače
+        - Závislé počítače, které nemají nainstalovaného agenta MMA a závislosti jsou seskupené podle čísla portů
+        - Dependenct počítače, které mají MMA a instalaci agenta závislostí se zobrazí jako samostatné pole 
+    - Procesy uvnitř počítače, můžete rozšířit každého pole počítač k zobrazení procesů
+    - Vlastnosti, například plně kvalifikovaný název domény, operační systém, atd. adresa MAC každého počítače, můžete kliknutím na každého pole počítače chcete zobrazit podrobnosti
 
-4. Podrobnější závislosti klikněte na tlačítko časový rozsah a upravit ho. Ve výchozím nastavení je rozsahu jednu hodinu. Můžete upravit časové rozmezí, nebo zadejte počáteční a koncová data a doby trvání.
-5. Když jste zformulovali závislé počítače, které chcete seskupit, vyberte počítače, na mapě a klikněte na **skupiny počítačů**.
-6. Zadejte název skupiny. Ověřte, že je počítač rozpozná migraci Azure. Pokud zjišťování procesu místní ho není spustit znovu. Posouzení můžete spustit okamžitě, pokud chcete.
-7. Klikněte na tlačítko **OK** uložte skupinu.
+ ![Zobrazení závislostí počítače](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
-    ![Vytvořte skupinu s počítač závislosti](./media/how-to-create-group-machine-dependencies/create-group.png)
+4. Kliknutím na doby trvání v popisek rozsahu čas můžete prohlédnout závislosti pro různých dobách trvání. Ve výchozím nastavení je rozsahu jednu hodinu. Můžete upravit časové rozmezí, nebo zadejte počáteční a koncová data a doby trvání.
+5. Poté, co jste označený závislé počítače, které chcete seskupit, použijte kombinaci kláves Ctrl + kliknutí vyberte více počítačů na mapě, a klikněte na **skupiny počítačů**.
+6. Zadejte název skupiny. Ověřte, že závislé počítače zjistí migraci Azure. 
 
-## <a name="next-steps"></a>Další kroky
+    > [!NOTE]
+    > Pokud závislé počítač není zjištěn Azure migraci, nelze ji přidat do skupiny. Přidat tyto počítače do skupiny, musíte znovu spustit proces zjišťování vpravo oboru v systému vCenter Server a ujistěte se, že je počítač rozpozná migraci Azure.  
 
-- [Zjistěte, jak](how-to-create-group-dependencies.md) upřesněte skupině kontrolou skupiny závislosti
+7. Pokud chcete vytvořit posouzení pro tuto skupinu, zaškrtněte políčko Vytvořit nové vyhodnocení pro skupinu.
+8. Klikněte na tlačítko **OK** uložte skupinu.
+
+Jakmile je skupina vytvořená, se doporučuje nainstalovat agenty na všechny počítače skupiny a upřesněte skupině vizualizací závislost celé skupiny.
+
+## <a name="next-steps"></a>Další postup
+
+- [Zjistěte, jak](how-to-create-group-dependencies.md) upřesněte skupině vizualizací skupiny závislosti
 - [Další informace](concepts-assessment-calculation.md) o tom, jak jsou vypočítávány vyhodnocování.

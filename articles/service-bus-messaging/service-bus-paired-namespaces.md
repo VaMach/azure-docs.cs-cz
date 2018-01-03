@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Spárovat podrobnosti implementace obor názvů a náklady dopad
+
 [PairNamespaceAsync] [ PairNamespaceAsync] metoda, použití [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instance, provádí viditelné úlohy vaším jménem. Vzhledem k tomu, že jsou náklady aspekty při použití funkce, je vhodné pochopit tyto úlohy tak, aby očekávané chování při Odehrává se. Rozhraní API zapojí následující automatické chování vaším jménem:
 
 * Vytvoření nevyřízených položek fronty.
@@ -60,8 +61,8 @@ Zbývající část tohoto tématu popisuje konkrétní podrobnosti o fungován�
 | DefaultMessageTimeToLive |TimeSpan.MaxValue, což |
 | AutoDeleteOnIdle |TimeSpan.MaxValue, což |
 | Trvání uzamčení |1 minuta |
-| EnableDeadLetteringOnMessageExpiration |Hodnota TRUE |
-| EnableBatchedOperations |Hodnota TRUE |
+| EnableDeadLetteringOnMessageExpiration |true (pravda) |
+| EnableBatchedOperations |true (pravda) |
 
 Například vytvořit první nevyřízených položek fronty pro obor názvů **contoso** jmenuje `contoso/x-servicebus-transfer/0`.
 
@@ -97,7 +98,7 @@ Alespoň jeden spustitelný program v aplikaci by měl být aktivně běžícím
 ## <a name="closefault-behavior"></a>Zavřít nebo selhání chování
 V rámci aplikace, který je hostitelem Trativod, jednou primární nebo sekundární [MessagingFactory] [ MessagingFactory] chyb nebo je uzavřena bez svým partnerem také se s chybou nebo, zavře a Trativod zjistí tento stav Trativod funguje. Pokud dalších [MessagingFactory] [ MessagingFactory] není uzavřený během 5 sekund Trativod závady stále otevřete [MessagingFactory][MessagingFactory].
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tématu [asynchronní vzory a vysoká dostupnost pro zasílání zpráv] [ Asynchronous messaging patterns and high availability] pro podrobnou diskuzi o asynchronní zasílání zpráv Service Bus. 
 
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_

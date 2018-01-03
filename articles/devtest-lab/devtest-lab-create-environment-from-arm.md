@@ -3,7 +3,7 @@ title: "Vytvoření prostředí více virtuálních počítačů a PaaS prostře
 description: "Naučte se vytvořit prostředí více virtuálních počítačů a PaaS prostředky v Azure DevTest Labs z šablony Azure Resource Manager"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: tarcher
-ms.openlocfilehash: 381b3e5cc82e71dde4fe3a4266678dbd5919290d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: 3fd0f15c695bcd22a51233846ace8711a4fcd635
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Vytvoření prostředí více virtuálních počítačů a PaaS prostředky pomocí šablony Azure Resource Manager
 
@@ -126,7 +126,7 @@ Po byl nakonfigurován jako úložiště šablony Azure Resource Manager v testo
 
     ![Akce prostředí](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Po vytvoření virtuálního počítače, můžete připojit k virtuálnímu počítači tak, že vyberete **Connect** v okně Virtuálního počítače.
 * Zobrazit a spravovat prostředky v prostředí s výběrem prostředí v **Můj virtuální počítače** seznamu ve svém testovacím prostředí. 
 * Prozkoumejte [šablon Azure Resource Manageru z Galerie šablon Azure rychlý start](https://github.com/Azure/azure-quickstart-templates)

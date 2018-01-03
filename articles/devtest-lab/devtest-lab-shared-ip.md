@@ -3,7 +3,7 @@ title: "Pochopení sdílené IP adresy v Azure DevTest Labs | Microsoft Docs"
 description: "Zjistěte, jak Azure DevTest Labs využívá sdílené IP adresy, chcete-li minimalizovat veřejné IP adresy, které jsou nutné pro přístup k testovacího prostředí virtuálních počítačů."
 services: devtest-lab
 documentationcenter: na
-author: camsoper
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: casoper
-ms.openlocfilehash: 9f6e1980bf5ea5b41da98a135d89f1c5159921a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 921db397a9a30a102d47d5e6c379e98daba6e5c5
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Pochopení sdílené IP adresy v Azure DevTest Labs
 
@@ -50,7 +50,7 @@ Vždy, když je virtuální počítač s sdílené IP protokol povolen přidány
 
 - **Uživatelé systému Windows:** vyberte **Connect** tlačítko na portálu Azure ke stažení předem nakonfigurovaný soubor RDP a přístup k virtuálnímu počítači.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Definovat zásady testovacího prostředí v Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 * [Konfigurace virtuální sítě v Azure DevTest Labs](devtest-lab-configure-vnet.md)

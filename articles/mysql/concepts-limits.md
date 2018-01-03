@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 12/09/2017
-ms.openlocfilehash: 65dc158a3a8c88a02d66bff7abe34d457cfef10a
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Omezení v Azure databáze pro databázi MySQL
 Databáze Azure pro službu MySQL je ve verzi public preview. Následující části popisují kapacity, modul úložiště s podporou, oprávnění podpory, podpora příkaz manipulaci dat a funkční omezení ve službě databázového. Viz také [obecná omezení](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) vztahuje k modulu databáze MySQL.
@@ -27,7 +27,7 @@ Je maximální počet připojení, výpočetní jednotky a úložiště v jednot
 | :------------------------- | :---------------- |
 | **Maximální počet připojení**        |                   |
 | Základní 50 výpočetní jednotky     | 50 připojení    |
-| Základní 100 výpočetní jednotky    | připojení 100   |
+| Základní 100 výpočetní jednotky    | 100 připojení   |
 | Standardní 100 výpočetní jednotky | 200 připojení   |
 | Standardní 200 výpočetní jednotky | 400 připojení   |
 | Standardní 400 výpočetní jednotky | 800 připojení   |
@@ -44,11 +44,11 @@ Když se dosáhne příliš mnoha připojení, může se zobrazit chybová zprá
 
 ## <a name="storage-engine-support"></a>Podpora modulu úložiště
 
-### <a name="supported"></a>Podporuje se
+### <a name="supported"></a>Podporováno
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
 - [PAMĚŤ](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
-### <a name="unsupported"></a>Nepodporované
+### <a name="unsupported"></a>Nepodporováno
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
 - [SMĚROVAČE BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
 - [ARCHIV](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
@@ -56,15 +56,16 @@ Když se dosáhne příliš mnoha připojení, může se zobrazit chybová zprá
 
 ## <a name="privilege-support"></a>Podpora oprávnění
 
-### <a name="unsupported"></a>Nepodporované
-- [SUPER oprávnění](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+### <a name="unsupported"></a>Nepodporováno
+- DBA role mnoho severu parametry a nastavení nechtěně snížit výkon serveru nebo negate ACID vlastnosti databázového systému. Jako takový zachování naše služby integrity a SLA na úrovni produktu není zveřejňujeme roli DBA zákazníkům. Výchozí uživatelský účet, který je vytvořený, když je vytvořena nová instance databáze, umožňuje zákazníkům provést většinu příkazy DDL a jazyk DML instance spravované databáze. 
+- Podobně SUPER oprávnění [SUPER oprávnění](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) je také omezen.
 
 ## <a name="data-manipulation-statement-support"></a>Podpora příkaz manipulace dat
 
-### <a name="supported"></a>Podporuje se
+### <a name="supported"></a>Podporováno
 - DATA VSTUPNÍ_SOUBOR zatížení - podporována, ale musíte zadat parametr [místní], který směřuje na cestu UNC (úložiště Azure připojené prostřednictvím XSMB).
 
-### <a name="unsupported"></a>Nepodporované
+### <a name="unsupported"></a>Nepodporováno
 - VYBERTE... DO VÝSTUPNÍ_SOUBOR
 
 ## <a name="preview-functional-limitations"></a>Funkční omezení verze Preview
@@ -86,6 +87,9 @@ Když se dosáhne příliš mnoha připojení, může se zobrazit chybová zprá
 ### <a name="subscription-management"></a>Správa předplatného
 - Dynamicky přesunutí předem vytvořené serverů mezi předplatné a skupina prostředků není aktuálně podporováno.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="current-known-issues"></a>Aktuální známé problémy:
+- Instance serveru MySQL zobrazí verze nesprávný serveru po navázání připojení. Správný server verze instance, použijte vyberte version(); příkaz příkazového řádku MySQL.
+
+## <a name="next-steps"></a>Další postup
 - [Co je dostupné na jednotlivých úrovních služby](concepts-service-tiers.md)
 - [Podporované verze databáze MySQL](concepts-supported-versions.md)

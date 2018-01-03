@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7d8eb900bdc90a391d4121b7bfb863fc274fc564
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Najít trasy pro různé režimy cesta pomocí služeb na základě umístění Azure
 
@@ -209,9 +209,9 @@ Tato část ukazuje způsob použití rozhraní API služby trasy Azure na zákl
     ```
     Vytvoří tento fragment kódu [XMLHttpRequest](https://xhr.spec.whatwg.org/), a přidá obslužnou rutinu události analyzovat příchozí odpověď. Pro úspěšné odpovědi, vytvoří pole souřadnice trasy, která vrátí a přidá ho mapu `truckRouteLayerName` vrstvy. 
     
-    Tento fragment kódu rovněž odesílá dotaz službě trasy, k získání trasy pro zadaný počáteční a koncový bod pro váš účet klíč předplatného. Následující volitelné parametry, které se používají k označení trasy pro velkou vůz:-Parametr `travelMode=truck` Určuje režim cesta jako *vůz*. Další režimy cesta podporována jsou *taxíkem*, *sběrnice*, *van*, *motorky*a ve výchozím nastavení *car* . 
-        -Parametry `vehicleWidth`, `vehicleHeight`, a `vehicleLength` zadejte dimenze nástroj v měřidla a jsou považovány za pouze pokud je režim cesta *vůz*. 
-        -Na `vehicleLoadType` klasifikuje nákladní jako nebezpečných a na některých cestách s omezeným přístupem. Je také aktuálně to jenom pro *vůz* režimu. 
+    Tento fragment kódu rovněž odesílá dotaz službě trasy, k získání trasy pro zadaný počáteční a koncový bod pro váš účet klíč předplatného. Následující volitelné parametry, které se používají k označení trasy pro velkou vůz:-Parametr `travelMode=truck` Určuje režim cesta jako *vůz*. Další režimy cesta podporována jsou *taxíkem*, *sběrnice*, *van*, *motorky*a ve výchozím nastavení *car* .  
+        -Parametry `vehicleWidth`, `vehicleHeight`, a `vehicleLength` zadejte dimenze nástroj v měřidla a jsou považovány za pouze pokud je režim cesta *vůz*.  
+        -Na `vehicleLoadType` klasifikuje nákladní jako nebezpečných a na některých cestách s omezeným přístupem. Je také aktuálně to jenom pro *vůz* režimu.  
 
 2. Přidejte následující kód v JavaScriptu získat trasy pro automobilu pomocí služby trasy:
 
@@ -255,7 +255,7 @@ Tato část ukazuje způsob použití rozhraní API služby trasy Azure na zákl
 
     Všimněte si, že vůz trasy, která je v modrou barvu, zatímco trasy car je fialové.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]

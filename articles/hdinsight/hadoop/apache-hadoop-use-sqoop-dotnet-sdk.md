@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 27bd93896718bf54ea3d483671b11070e8c274ec
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 41a1c7c0b7c0ad00746508bbf341eff448690725
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Spuštění úloh Sqoop pomocí .NET SDK pro Hadoop v HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -121,7 +121,7 @@ HDInsight se systémem Linux představuje následující omezení:
 
 * Dávkování: pomocí `-batch` přepínače, když provádí vložení, Sqoop provádí více vloží místo dávkování operace insert.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Nyní jste se naučili postup použití nástroje Sqoop. Další informace naleznete v tématu:
 
 * [Použijte Oozie s HDInsight](../hdinsight-use-oozie.md): použití Sqoop akce v pracovním postupu Oozie.

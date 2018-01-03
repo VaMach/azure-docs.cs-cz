@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Úvod do rozšíření obslužné rutiny konfigurace požadovaného stavu Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,11 +37,9 @@ Tento článek představuje rozšíření prostředí PowerShell požadovaného 
 ## <a name="terms-and-concepts"></a>Podmínky a koncepty
 Tato příručka předpokládá znalost následující koncepty:
 
-Konfigurace – dokumentu konfigurace DSC. 
-
-Uzel - cíle pro konfigurace DSC. V tomto dokumentu vždy "uzel" odkazuje na virtuální počítač Azure.
-
-Konfigurační Data - .psd1 soubor obsahující data prostředí pro konfiguraci
+* **Konfigurace** -dokumentu konfigurace A DSC. 
+* **Uzel** -cíle pro konfigurace DSC. V tomto dokumentu vždy "uzel" odkazuje na virtuální počítač Azure.
+* **Konfigurační Data** – .psd1 soubor obsahující data prostředí pro konfiguraci
 
 ## <a name="architectural-overview"></a>Přehled architektury
 Rozšíření Azure DSC používá rozhraní agenta virtuálního počítače Azure, aby doručily, uplatní a sestav o konfiguracích DSC běžící na virtuálních počítačích Azure. Rozšíření DSC očekává, že soubor ZIP obsahující alespoň dokumentu konfigurace a sadu parametrů zadaných prostřednictvím sady SDK Azure PowerShell nebo prostřednictvím portálu Azure.
@@ -146,9 +144,11 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Protokolování
 Protokoly jsou umístěny ve:
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.PowerShell.DSC\[číslo verze]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o DSC Powershellu [přejděte do centra dokumentace k prostředí PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 
 Zkontrolujte [šablony Azure Resource Manageru pro rozšíření DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

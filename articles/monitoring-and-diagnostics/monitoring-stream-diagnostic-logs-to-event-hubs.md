@@ -1,6 +1,6 @@
 ---
-title: "Stream Azure diagnostické protokoly na Namespace centra událostí | Microsoft Docs"
-description: "Zjistěte, jak k vysílání datového proudu Azure diagnostické protokoly na obor názvů služby Event Hubs."
+title: "Stream diagnostických protokolů Azure do centra událostí | Microsoft Docs"
+description: "Zjistěte, jak k vysílání datového proudu do centra událostí Azure diagnostické protokoly."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Stream Azure diagnostické protokoly na Namespace centra událostí
-**[Azure diagnostické protokoly](monitoring-overview-of-diagnostic-logs.md)**  Streamovat skoro v reálném čase pro všechny aplikace pomocí předdefinované možnosti "Export do služby Event Hubs" na portálu nebo povolením ID Service Bus pravidla v nastavení diagnostiky prostřednictvím rutin prostředí Azure PowerShell nebo rozhraní příkazového řádku Azure.
+# <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Datový proud Azure diagnostických protokolů do centra událostí
+**[Azure diagnostické protokoly](monitoring-overview-of-diagnostic-logs.md)**  Streamovat skoro v reálném čase pro žádnou aplikaci pomocí předdefinované možnosti "Export do služby Event Hubs" na portálu nebo povolením ID události rozbočovače autorizační pravidla v nastavení diagnostiky prostřednictvím Azure Rutiny prostředí PowerShell nebo Azure CLI.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Co můžete dělat s protokolů diagnostiky a Event Hubs
 Můžete použít k diagnostickým protokolům streamování schopností několika způsoby:
 
-* **Stream protokoluje události do 3. stran protokolování a telemetrie systémy** – v čase, streamování Event Hubs se stane mechanismus kanálem k diagnostickým protokolům v jiných systémů Siem a řešení pro analýzu protokolu.
+* **Stream protokoluje události do 3. stran protokolování a telemetrie systémy** – dá Streamovat všechny k diagnostickým protokolům k rozbočovači jedna událost tak, aby data protokolu kanálu nástroje třetích stran SIEM nebo log analytics.
 * **Zobrazit stav služby streamování "aktivní cesta" dat do PowerBI** – pomocí služby Event Hubs, Stream Analytics a PowerBI, můžete snadno transformovat data diagnostiky v poblíž přehledy v reálném čase na služeb Azure. [V tomto článku dokumentace podává přehled o tom, jak nastavit službu Event Hubs, zpracování dat pomocí služby Stream Analytics a použít PowerBI jako výstup](../stream-analytics/stream-analytics-power-bi-dashboard.md). Zde je několik tipů pro získání nastavení diagnostické protokoly.
   
   * Centra událostí pro kategorii diagnostické protokoly se vytvoří automaticky, když zaškrtnutí políčka na portálu nebo povolit pomocí prostředí PowerShell, kterou chcete vybrat centra událostí v oboru názvů s názvem, který začíná **insights -**.
@@ -52,7 +52,7 @@ Můžete povolit vysílání datového proudu diagnostické protokoly prostředn
 > 
 > 
 
-Obor názvů Service Bus nebo Event Hubs nemusí být ve stejném předplatném jako prostředek emitování protokoly tak dlouho, dokud uživatel, který konfiguruje nastavení, má odpovídající přístup RBAC do oba odběry.
+Obor názvů služby Event Hubs nemusí být ve stejném předplatném jako prostředek emitování protokoly tak dlouho, dokud uživatel, který konfiguruje nastavení, má odpovídající přístup RBAC do oba odběry.
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Diagnostické protokoly datového proudu pomocí portálu
 1. Na portálu, přejděte do monitorování Azure a klikněte na **nastavení diagnostiky**
@@ -73,11 +73,11 @@ Obor názvů Service Bus nebo Event Hubs nemusí být ve stejném předplatném 
    
    ![Přidat nastavení diagnostiky - stávající nastavení](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
     
-   Obor názvů vybrané bude kde vytvoření (pokud to vaše první čas diagnostické protokoly streamování) nebo prostřednictvím datového proudu do centra událostí (Pokud již existují prostředky, které jsou streamování této kategorie protokolu na tento obor názvů), a definuje zásady oprávnění, která má streamování mechanismus. V současné době streamování do centra událostí vyžadují oprávnění spravovat, odeslání a naslouchání. Můžete vytvářet nebo upravovat Event Hubs obor názvů sdílených zásad přístupu na portálu na kartě Konfigurace oboru názvů. Pokud chcete aktualizovat jednu z těchto nastavení diagnostiky, klient musí mít oprávnění ListKey na autorizační pravidlo Event Hubs.
+   Obor názvů vybrané bude kde vytvoření (pokud to vaše první čas diagnostické protokoly streamování) nebo prostřednictvím datového proudu do centra událostí (Pokud již existují prostředky, které jsou streamování této kategorie protokolu na tento obor názvů), a definuje zásady oprávnění, která má streamování mechanismus. V současné době streamování do centra událostí vyžadují oprávnění spravovat, odeslání a naslouchání. Můžete vytvářet nebo upravovat Event Hubs obor názvů sdílených zásad přístupu na portálu na kartě Konfigurace oboru názvů. Pokud chcete aktualizovat jednu z těchto nastavení diagnostiky, klient musí mít oprávnění ListKey na autorizační pravidlo Event Hubs. Volitelně můžete zadat název centra událostí. Pokud zadáte název centra událostí, protokoly jsou směrovány do tohoto centra událostí a nikoli k rozbočovači nově vytvořený událostí podle kategorie protokolu.
 
 4. Klikněte na **Uložit**.
 
-Po chvíli se nové nastavení se zobrazí v seznamu nastavení pro tento prostředek a diagnostické protokoly jsou datového proudu k tomuto účtu úložiště, také se vygeneruje nová data události.
+Po chvíli se nové nastavení se zobrazí v seznamu nastavení pro tento prostředek a diagnostické protokoly jsou datového proudu do tohoto centra událostí, také se vygeneruje nová data událostí.
 
 ### <a name="via-powershell-cmdlets"></a>Pomocí rutin prostředí PowerShell
 Povolit vysílání datového proudu prostřednictvím [rutin prostředí Azure PowerShell](insights-powershell-samples.md), můžete použít `Set-AzureRmDiagnosticSetting` rutiny s těmito parametry:
@@ -86,7 +86,7 @@ Povolit vysílání datového proudu prostřednictvím [rutin prostředí Azure 
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
 ```
 
-ID pravidla Service Bus je řetězec s Tento formát: `{Service Bus resource ID}/authorizationrules/{key name}`, například `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`.
+ID pravidla Service Bus je řetězec s Tento formát: `{Service Bus resource ID}/authorizationrules/{key name}`, například `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. Nelze vybrat aktuálně název rozbočovače určitá událost pomocí prostředí PowerShell.
 
 ### <a name="via-azure-cli"></a>Prostřednictvím rozhraní příkazového řádku Azure
 Povolit vysílání datového proudu prostřednictvím [rozhraní příkazového řádku Azure](insights-cli-samples.md), můžete použít `insights diagnostic set` příkaz takto:
@@ -95,7 +95,7 @@ Povolit vysílání datového proudu prostřednictvím [rozhraní příkazového
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Jak je popsáno pro rutinu prostředí PowerShell, použijte stejný formát pro ID pravidla Service Bus.
+Jak je popsáno pro rutinu prostředí PowerShell, použijte stejný formát pro ID pravidla Service Bus. Nelze vybrat aktuálně název rozbočovače určitá událost pomocí Azure CLI.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Způsob, jakým využívají data protokolu ze služby Event Hubs?
 Zde je ukázka výstupní data ze služby Event Hubs:
@@ -176,7 +176,7 @@ Můžete zobrazit seznam všech poskytovatelů prostředků, které podporují s
 ## <a name="stream-data-from-compute-resources"></a>Datový proud dat z výpočetní prostředky
 Můžete také stream diagnostických protokolů z výpočetní prostředky pomocí agenta Windows Azure Diagnostics. [Najdete v článku](../event-hubs/event-hubs-streaming-azure-diags-data.md) jak k tomuto nastavení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Další informace o diagnostických protokolů Azure.](monitoring-overview-of-diagnostic-logs.md)
 * [Začínáme s Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 

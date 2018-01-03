@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Vysvětlení výstrah v analýzy protokolů
 
@@ -80,13 +80,13 @@ Například, pokud chcete upozornit, když procesor běží víc než 90 %, byst
 
     
 
-Pokud chcete upozornit, když procesor průměrem více než 90 % pro konkrétní časové okno, byste použili dotazu pomocí [měření příkaz](log-analytics-search-reference.md#commands) jako na následujícím obrázku se prahová hodnota pro pravidlo výstrahy **větší než 0**.
+Pokud chcete upozornit, když procesor průměrem více než 90 % pro konkrétní časové okno, by použití dotazu jako následující s prahovou hodnotou pro pravidlo výstrahy **větší než 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
 
     
 >[!NOTE]
-> Pokud pracovního prostoru ještě nebyla upgradována na [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak by výše dotazy změnit na následující:`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> Pokud pracovního prostoru ještě nebyla upgradována na [nové analýzy protokolů dotazu jazyka](log-analytics-log-search-upgrade.md), pak výše dotazy by změnit na následující pozdější prostřednictvím [měření příkaz](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
@@ -107,14 +107,14 @@ I když můžete používat pro jakýkoli dotaz **počet výsledků** pravidlo v
 #### <a name="threshold"></a>Prahová hodnota
 Prahová hodnota pro pravidla výstrah metriky měření je definována agregovaná hodnota a celou řadu.  Pokud žádné datového bodu v hledání protokolů překročí tuto hodnotu, považuje za porušení.  Pokud počet porušení v u všech objektů ve výsledcích překročí zadanou hodnotu, se vytvoří výstraha pro tento objekt.
 
-#### <a name="example"></a>Příklad
+#### <a name="example"></a>Příklad:
 Vezměte v úvahu scénář, kde jste chtěli výstrahu překračování libovolného počítače využití procesoru 90 % třikrát více než 30 minut.  Vytvoříte pravidlo výstrahy s následujícími podrobnostmi.  
 
 **Dotaz:** výkonu | kde ObjectName == "Procesor" a název_čítače == "% času procesoru" | shrnout AggregatedValue = avg(CounterValue) podle bin (TimeGenerated, 5 m), počítač<br>
 **Časový interval:** 30 minut<br>
 **Frekvence výstrah:** 5 minut<br>
-**Agregace hodnota:** skvělé než 90<br>
-**Aktivační událost upozornění na základě:** celkem poruší větší než 5<br>
+**Agregace hodnota:** větší než 90<br>
+**Aktivační událost upozornění na základě:** celkem poruší větší než 2<br>
 
 Dotaz by vytvořit průměrnou hodnotu pro každý počítač v intervalech 5 minut.  Tento dotaz by spustit každých 5 minut datech shromážděných za předchozí 30 minut.  Ukázková data jsou uvedené dole pro tři počítače.
 
@@ -143,7 +143,7 @@ Mít výstrahy záznamy vytvořené pravidla výstrah v analýzy protokolů **ty
 Existují jiné typy záznamů výstrahy vytvořené [řešení pro správu výstrahu](log-analytics-solution-alert-management.md) a [Power BI exportuje](log-analytics-powerbi.md).  Tyto jsou vybavené **typ** z **výstrahy** , ale jsou rozlišené jejich **SourceSystem**.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Nainstalujte [řešení pro správu výstrah](log-analytics-solution-alert-management.md) k analýze výstrahy vytvořené v analýzy protokolů společně s výstrahy shromážděných z System Center Operations Manager.
 * Další informace o [protokolu hledání](log-analytics-log-searches.md) , mohou generovat výstrahy.
 * Dokončete průvodce pro [konfigurace webhook, jehož](log-analytics-alerts-webhooks.md) s pravidlo výstrahy.  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: acc599c1fbe13b2739fc5480d6204f90e59b0242
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 4362512121ca426fcae6716c74e1f8effa0986f1
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Odeslání souborů ze zařízení do cloudu službou IoT Hub pomocí rozhraní .NET
 
@@ -29,7 +29,7 @@ V tomto kurzu vychází kód [odesílání zpráv typu Cloud-zařízení s centr
 - Bezpečně zadejte zařízení s Azure blob identifikátor URI pro nahrání souboru.
 - Oznámení o odeslání souboru IoT Hub použijte k aktivaci zpracování souboru ve vaší aplikaci back-end.
 
-[Začínáme se službou IoT Hub](iot-hub-csharp-csharp-getstarted.md) a [odesílání zpráv typu Cloud-zařízení s centrem IoT](iot-hub-csharp-csharp-c2d.md) kurzy zobrazit základních funkcí zařízení cloud a z cloudu do zařízení zasílání zpráv služby IoT Hub. [Zprávy procesu zařízení-Cloud](iot-hub-csharp-csharp-process-d2c.md) kurz popisuje způsob, jak spolehlivě ukládat zprávy typu zařízení cloud do úložiště objektů blob v Azure. Ale v některých scénářích nelze mapovat snadno data, která vaše zařízení odesílají do poměrně malý zprávy typu zařízení cloud, které IoT Hub přijímá. Například:
+[Začínáme se službou IoT Hub](iot-hub-csharp-csharp-getstarted.md) a [odesílání zpráv typu Cloud-zařízení s centrem IoT](iot-hub-csharp-csharp-c2d.md) kurzy zobrazit základních funkcí zařízení cloud a z cloudu do zařízení zasílání zpráv služby IoT Hub. [Zprávy procesu zařízení-Cloud](iot-hub-csharp-csharp-process-d2c.md) kurz popisuje způsob, jak spolehlivě ukládat zprávy typu zařízení cloud do úložiště objektů blob v Azure. Ale v některých scénářích nelze mapovat snadno data, která vaše zařízení odesílají do poměrně malý zprávy typu zařízení cloud, které IoT Hub přijímá. Příklad:
 
 * Velkých souborů, které obsahují Image
 * Videa
@@ -170,7 +170,7 @@ Nyní můžete spustit aplikace.
 
     ![][50]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste zjistili, jak používat funkce nahrávání souboru služby IoT Hub pro zjednodušení nahrávání souborů ze zařízení. Můžete dál prozkoumat funkcí služby IoT hub a scénáře v následujících článcích:
 
@@ -180,7 +180,7 @@ V tomto kurzu jste zjistili, jak používat funkce nahrávání souboru služby 
 
 Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 
-* [Nasazení AI do hraniční zařízení s Azure IoT Edge][lnk-iotedge]
+* [Nasazení AI do hraničních zařízení s použitím Azure IoT Edge][lnk-iotedge]
 
 <!-- Images. -->
 
@@ -192,7 +192,7 @@ Pokud chcete prozkoumat další možnosti IoT Hub, najdete v části:
 
 [portál Azure]: https://portal.azure.com/
 
-[Azure střediska pro vývojáře IoT]: http://www.azure.com/develop/iot
+[Azure střediska pro vývojáře IoT]: http://azure.microsoft.com/develop/iot
 
 [přechodných chyb]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [balíček NuGet sady SDK služby Azure IoT]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

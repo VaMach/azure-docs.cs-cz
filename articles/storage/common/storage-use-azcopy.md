@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
-ms.openlocfilehash: 1a4c52babe76e59eacb30e8be91ed934cdbe305b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Přenos dat pomocí AzCopy v systému Windows
-AzCopy je nástroj příkazového řádku pro kopírování dat do a z úložiště objektů Blob v Microsoft Azure, souboru a tabulky pomocí jednoduchých příkazů optimální výkon. Data můžete zkopírovat z jednoho objektu do druhého v rámci účtu úložiště nebo mezi účty úložiště.
+AzCopy je nástroj příkazového řádku pro kopírování dat z úložiště Microsoft Azure Blob, soubor a tabulky, jednoduché příkazy určené pro optimální výkon. Může kopírovat data mezi systém souborů a účet úložiště nebo mezi účty úložiště.  
 
 Existují dvě verze nástroje AzCopy, které si můžete stáhnout. AzCopy v systému Windows je obsažena v rozhraní .NET Framework a nabízí možnosti příkazového řádku Windows styl. [AzCopy v systému Linux](storage-use-azcopy-linux.md) sestavena pomocí rozhraní .NET Framework Core, které cílí platformy Linux nabídky stylu POSIX možnosti příkazového řádku. Tento článek se zabývá AzCopy v systému Windows.
 
@@ -967,7 +967,7 @@ Pro vlastnost "AzureStorageUseV1MD5":
 
 Kompatibilní se standardem FIPS algoritmy jsou zakázané ve výchozím nastavení v systému Windows. Nastavení této zásady můžete změnit na váš počítač. V okně Spustit (Windows + R) zadejte secpol.msc otevřete **místní zásady zabezpečení** okno. V **nastavení zabezpečení** okno, přejděte na **nastavení zabezpečení** > **místní zásady** > **možnosti zabezpečení**. Vyhledejte **kryptografie systému: použití kompatibilní se standardem FIPS algoritmy pro šifrování, hašování a podpisování** zásad. Dvakrát klikněte na zásadu zobrazíte hodnota zobrazená v **nastavení zabezpečení** sloupce.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o Azure Storage a AzCopy najdete v následujících zdrojích informací:
 

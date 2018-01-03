@@ -1,4 +1,4 @@
-| Prostředek | cíl | Pevný limit |
+| Prostředek | Cíl | Pevný limit |
 |----------|--------------|------------|
 | Synchronizace služby úložiště na předplatné | 15 synchronizační služby úložiště | Ne |
 | Synchronizace skupiny pro službu synchronizace úložiště | 30 skupiny pro synchronizaci | Ano |
@@ -8,3 +8,4 @@
 | Velikost koncového bodu | 4 TiB | Ne |
 | Objekty systému (adresářů a souborů) na skupinu synchronizace souborů | 6 miliónů objektů | Ne |
 | Velikost souboru | 100 giB | Ne |
+| Minimální velikost souboru pro soubor, který chcete být rozvrstvena | 64 KiB | Ano |

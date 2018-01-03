@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure aktualizace 1711 zásobníku
 
@@ -51,6 +51,7 @@ Tato aktualizace zahrnuje následující vylepšení a opravy pro Azure zásobn�
 - Uživatelé můžou teď aktivovat virtuálních počítačů Windows automaticky
 - Přidání privilegované koncový bod rutiny prostředí PowerShell k načtení klíčů pro obnovení nástroje BitLocker pro účely uchování
 - Podpora aktualizace offline image při aktualizaci infrastruktury
+- Povolit zálohování infrastruktury pomocí služby zálohování povolit
 
 #### <a name="fixes"></a>Opravy
 
@@ -139,6 +140,17 @@ V Azure Active Directory Federation Services (ADFS) nasazené prostředí, **azu
 > [!IMPORTANT]
 > I když **azurestack\cloudadmin** účet je vlastníkem předplatného poskytovatele výchozí v prostředí služby AD FS nasadit, nemá oprávnění pro připojení RDP na hostiteli. Nadále používat **azurestack\azurestackadmin** účet nebo účet místního správce pro přihlášení, přístup a spravovat hostitele, podle potřeby.
 
+#### <a name="infrastructure-backup-sevice"></a>Zálohování adresářové infrastruktury
+<!-- 1974890-->
+
+- **Před 1711 zálohy nejsou podporovány pro obnovení cloudu.**  
+  Před 1711 záloh nejsou kompatibilní s obnovení cloudu. Musíte nejdřív aktualizovat 1711 a povolení zálohování. Pokud jste nepovolili zálohy, ujistěte se, že jste po aktualizaci 1711 provedení zálohy. Před 1711 zálohy, měla by být odstraněna.
+
+- **Povolení zálohování infrastruktury na ASDK je jenom pro účely testování.**  
+  Infrastruktura zálohování můžete použít k obnovení několika uzly řešení. Můžete povolit zálohování infrastruktury na ASDK, ale neexistuje žádný způsob, jak otestovat obnovení.
+
+Další informace najdete v části [zálohování a data obnovení pro zásobník Azure pomocí služby Backup infrastruktury](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+
 ## <a name="download-the-update"></a>Stažení aktualizace
 
 Můžete si stáhnout balíček aktualizace 1711 zásobník Azure z [zde](https://aka.ms/azurestackupdatedownload).
@@ -149,7 +161,7 @@ Společnost Microsoft poskytuje způsob, jak sledovat a pokračovat v použití 
 
 - Najdete v článku [monitorování aktualizací v zásobníku Azure pomocí dokumentace privilegované koncový bod](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 
 - V tématu [správě aktualizací v přehledu Azure zásobníku](azure-stack-updates.md) přehled správy aktualizací v zásobníku Azure.
 - V tématu [aktualizace v zásobníku Azure](azure-stack-apply-updates.md) Další informace o tom, jak používat aktualizace s zásobník Azure.

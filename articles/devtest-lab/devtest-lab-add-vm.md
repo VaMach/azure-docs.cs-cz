@@ -3,7 +3,7 @@ title: "Přidat virtuální počítač do testovacího prostředí v Azure DevTe
 description: "Zjistěte, jak přidat virtuální počítač do testovacího prostředí v Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
-ms.author: tarcher
-ms.openlocfilehash: 449bffb040dafc8edd0b8b0afd80dbea35cd28ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 5d9fb235eae381003d96895eae9eff86c711e372
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Přidat virtuální počítač do testovacího prostředí v Azure DevTest Labs
 Pokud už máte [vytvoření vaší první virtuální počítač](devtest-lab-create-first-vm.md), pravděpodobně jste to v předem načtený [marketplace image](devtest-lab-configure-marketplace-images.md). Nyní, pokud chcete přidat další virtuální počítače do testovacího prostředí, můžete také *základní* to znamená buď [vlastní image](devtest-lab-create-template.md) nebo [vzorec](devtest-lab-manage-formulas.md). Tento kurz vás provede procesem přidání virtuálního počítače do testovacího prostředí v DevTest Labs pomocí portálu Azure.
@@ -111,7 +111,7 @@ Po uložení, můžete použít šablonu Azure Resource Manager [nasadit nové v
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-### <a name="next-steps"></a>Další kroky
+### <a name="next-steps"></a>Další postup
 * Po vytvoření virtuálního počítače, můžete připojit k virtuálnímu počítači tak, že vyberete **Connect** v okně Virtuálního počítače.
 * Zjistěte, jak [vytvoření vlastních artefaktů pro virtuální počítač DevTest Labs](devtest-lab-artifact-author.md).
 * Prozkoumejte [Galerie šablon DevTest Labs Azure Resource Manager QuickStart](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

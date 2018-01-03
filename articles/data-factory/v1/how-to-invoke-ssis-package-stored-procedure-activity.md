@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ff0d1e5d644926864641ceb3e3c3a102167c1fd2
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 8aabe45a1627b1a897ca9fe4bda581c7a3f6bc03
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Vyvolání balíčku služby SSIS pomocí aktivity uložené procedury v Azure Data Factory
 Tento článek popisuje, jak má být vyvolán balíčku služby SSIS z kanál služby Azure Data Factory pomocí aktivity uložené procedury. 
@@ -34,7 +34,7 @@ Návod v tomto článku používá databázi Azure SQL, který je hostitelem slu
 Vytvoření modulu runtime integrace Azure SSIS, pokud nemáte dodržením podrobných pokynů v [kurz: balíčky nasazení SSIS](../tutorial-deploy-ssis-packages-azure.md). Je nutné vytvořit objekt pro vytváření dat verze 2: vytvoření modulu runtime integrace Azure SSIS. 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Instalace nejnovější modulů prostředí Azure PowerShell podle pokynů v [postup instalace a konfigurace prostředí Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Nainstalujte nejnovější moduly Azure PowerShellu podle pokynů v tématu [Instalace a konfigurace Azure PowerShellu](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Vytvoření datové továrny
 Následující postup popisuje kroky k vytvoření služby data factory. Vytvoření kanálu s aktivitou uložené procedury v této datové továrně. Aktivita uložené procedury spustí uloženou proceduru v databázi SSISDB ke spuštění vašeho balíčku služby SSIS.
@@ -65,7 +65,6 @@ Následující postup popisuje kroky k vytvoření služby data factory. Vytvoř
     
     ```powershell       
     $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
-    $df 
     ```
 
 Je třeba počítat s následujícím:
@@ -76,15 +75,14 @@ Je třeba počítat s následujícím:
     The specified Data Factory name 'ADFTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Pro vytvoření instancí Data Factory musí být uživatelský účet, který použijete pro přihlášení k Azure, členem rolí **přispěvatel** nebo **vlastník** nebo **správcem** předplatného Azure.
-* Data Factory verze 2 v současné době umožňuje vytváření datových továren jenom v oblastech Východní USA, Východní USA 2 a Západní Evropa. Úložiště dat (Azure Storage, Azure SQL Database atd.) a výpočetní prostředí (HDInsight atd.) používané datovou továrnou mohou být v jiných oblastech.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Vytvoření propojené služby Azure SQL Database
 Vytvoření propojené služby propojení Azure SQL database, který je hostitelem služby SSIS katalogu datovou továrnu. Objekt pro vytváření dat používá informace v rámci této propojené služby pro připojení k databázi SSISDB a spustí uloženou proceduru spustit balíčku služby SSIS. 
 
-1. Vytvořte soubor JSON s názvem **AzureSqlDatabaseLinkedService.json** v **C:\ADF\RunSSISPackage** složku s následujícím obsahem: (pokud ještě neexistuje, vytvořit složku ADFv2TutorialBulkCopy.)
+1. Vytvořte soubor JSON s názvem **AzureSqlDatabaseLinkedService.json** v **C:\ADF\RunSSISPackage** složku s následujícím obsahem: 
 
     > [!IMPORTANT]
-    > Před uložením tohoto souboru položky &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; a &lt;password&gt; nahraďte odpovídajícími hodnotami pro Azure SQL Database.
+    > Nahraďte &lt;servername&gt;, &lt;uživatelské jméno&gt;@&lt;servername&gt; a &lt;heslo&gt; s hodnotami před databázi SQL Azure ukládání souboru.
 
     ```json
     {
@@ -92,7 +90,7 @@ Vytvoření propojené služby propojení Azure SQL database, který je hostitel
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": "Server=tcp:<AZURE SQL SERVER NAME>.database.windows.net,1433;Database=SSISDB;User ID=<USERNAME>;Password=<PASSWORD>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
         }
@@ -135,7 +133,7 @@ V tomto kroku vytvoříte kanál s aktivitou uložené procedury. Aktivity vyvol
 1. Vytvořte soubor JSON s názvem **MyPipeline.json** v **C:\ADF\RunSSISPackage** složku s následujícím obsahem:
 
     > [!IMPORTANT]
-    > Nahraďte &lt;název složky&gt;, &lt;název projektu&gt;, &lt;název balíčku&gt; s názvy složek, projekt a balíčku v katalogu služby SSIS před uložením souboru. 
+    > Nahraďte &lt;název složky&gt;, &lt;název projektu&gt;, &lt;název balíčku&gt; s názvy složek, projekt a balíčku v katalogu služby SSIS před uložením souboru.
 
     ```json
     {
@@ -147,7 +145,7 @@ V tomto kroku vytvoříte kanál s aktivitou uložené procedury. Aktivity vyvol
                 "typeProperties": {
                     "storedProcedureName": "sp_executesql",
                     "storedProcedureParameters": {
-                        "stmt": "DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'SsisAdfTest', @project_name=N'MyProject', @package_name=N'Package.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END"
+                        "stmt": "DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<folder name>', @project_name=N'<project name>', @package_name=N'<package name>', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END"
                     }
                 },
                 "outputs": [{
@@ -165,18 +163,11 @@ V tomto kroku vytvoříte kanál s aktivitou uložené procedury. Aktivity vyvol
     }    
     ```
 
-2. K vytvoření kanálu: **RunSSISPackagePipeline**spusťte **Set-AzureRmDataFactoryPipeline** rutiny.
+2. K vytvoření kanálu: **RunSSISPackagePipeline**spusťte **New-AzureRmDataFactoryPipeline** rutiny.
 
     ```powershell
     $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
-
-## <a name="create-a-pipeline-run"></a>Vytvoření spuštění kanálu
-Použití **Invoke-AzureRmDataFactoryPipeline** můžete spustit kanál. Tato rutina vrací ID spuštění kanálu pro budoucí monitorování.
-
-```powershell
-$RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
-```
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorování spuštění kanálu
 
@@ -192,7 +183,7 @@ $RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
     Get-AzureRmDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
-    Rutinu můžete spouštět opakovaně, dokud se u řezu neobjeví stav **Připraveno** nebo **Nezdařilo se**. Pokud je řez ve stavu Připraveno, zkontrolujte, jestli se ve složce **partitioneddata** v kontejneru **adfgetstarted** ve službě Blob Storage nachází výstupní data.  Vytváření clusteru HDInsight na vyžádání většinou nějakou dobu trvá.
+    Rutinu můžete spouštět opakovaně, dokud se u řezu neobjeví stav **Připraveno** nebo **Nezdařilo se**. 
 
     Můžete spustit následující dotaz na databázi SSISDB v serveru Azure SQL ověřit, jestli balíček provést. 
 
@@ -200,6 +191,6 @@ $RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
     select * from catalog.executions
     ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Podrobnosti o aktivitě uložené procedury najdete v tématu [aktivity uložené procedury](data-factory-stored-proc-activity.md) článku.
 

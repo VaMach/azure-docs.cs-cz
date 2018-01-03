@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 286013aaa5335689206514027bef80b250643be1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Zajistit vysokou dostupnost s Azure storage data aplikací
 
@@ -83,7 +83,7 @@ Obsahuje ukázkový projekt konzolové aplikace.
 
 ## <a name="set-the-connection-string"></a>Nastavení připojovacího řetězce
 
-V aplikaci je nutné zadat připojovací řetězec pro váš účet úložiště. Doporučujeme uložit tento připojovací řetězec v rámci proměnné prostředí v místním počítači spuštění aplikace. Proveďte jeden z příkladů níže v závislosti na operačním systému vytvořte proměnnou prostředí.
+V aplikaci je potřeba zadat připojovací řetězec pro váš účet úložiště. Doporučujeme uložit tento připojovací řetězec v rámci proměnné prostředí v místním počítači spuštění aplikace. Proveďte jeden z příkladů níže v závislosti na operačním systému vytvořte proměnnou prostředí.
 
 Na portálu Azure přejděte do účtu úložiště. Vyberte **přístupové klíče** pod **nastavení** ve vašem účtu úložiště. Kopírování **připojovací řetězec** z primární nebo sekundární klíč. Nahraďte \<yourconnectionstring\> s samotný připojovací řetězec spuštěním jednoho z následujících příkazů podle operačního systému. Tento příkaz uloží proměnné prostředí v místním počítači. V systému Windows, není dostupná, dokud nebude znovu načíst proměnnou prostředí **příkazového řádku** nebo prostředí používáte. Nahraďte  **\<storageConnectionString\>**  následující ukázka:
 
@@ -113,7 +113,7 @@ V ukázkovém kódu `RunCircuitBreakerAsync` úloh v `Program.cs` souboru se pou
 
 ### <a name="retry-event-handler"></a>Opakujte obslužné rutiny události
 
-`OperationContextRetrying` Obslužné rutiny události je volána, když stažení bitové kopie selže a je nastavený na rety. Pokud se dosáhne maximálního počtu opakování pokusů, které jsou definovány v aplikaci, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) požadavku se změní na `SecondaryOnly`. Toto nastavení vynutí se aplikace pokusí stáhnout bitovou kopii z sekundární koncový bod. Tato konfigurace snižuje čas potřebný k požadují bitovou kopii jako primární koncový bod není opakovat po neomezenou dobu.
+`OperationContextRetrying` Obslužné rutiny události je volána, když stažení bitové kopie selže a je nastavený na opakujte. Pokud se dosáhne maximálního počtu opakování pokusů, které jsou definovány v aplikaci, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) požadavku se změní na `SecondaryOnly`. Toto nastavení vynutí se aplikace pokusí stáhnout bitovou kopii z sekundární koncový bod. Tato konfigurace snižuje čas potřebný k požadují bitovou kopii jako primární koncový bod není opakovat po neomezenou dobu.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -160,7 +160,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V rámci jedna řada jste se dozvěděli o tom, jak aplikaci vysokou dostupností s účty úložiště RA-GRS, jako například:
 

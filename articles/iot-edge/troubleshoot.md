@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cb998caf35a9a55ea737cc1a24fbce38aac8abc4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3f61f0bf8234e747ae38146d1a5ea030e3163fa3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Běžné problémy a řešení Azure IoT Edge
 
@@ -24,7 +24,7 @@ Pokud máte problémy s Azure IoT Edge ve vašem prostředí, použijte tento č
 
 Pokud narazíte na problém, další informace o stavu zařízení IoT hraniční kontrolou kontejneru protokoly a zprávy, které předat do a ze zařízení. Pomocí nástrojů pro příkazy a v této části můžete získat informace. 
 
-* Podívejte se na protokoly kontejnery docker rozpoznat problémy. Začínat nasazené kontejnerů, potom si prohlédněte kontejnerů, které tvoří runtime hraniční IoT: Agent okraj a okraj rozbočovače. Protokoly Edge agenta obvykle poskytují informace na lifecylce každý kontejneru. Protokoly Edge rozbočovače poskytují informace o zasílání zpráv a směrování. 
+* Podívejte se na protokoly kontejnery docker rozpoznat problémy. Začínat nasazené kontejnerů, potom si prohlédněte kontejnerů, které tvoří runtime hraniční IoT: Agent okraj a okraj rozbočovače. Protokoly Edge agenta obvykle poskytují informace na životní cyklus každý kontejner. Protokoly Edge rozbočovače poskytují informace o zasílání zpráv a směrování. 
 
    ```cmd
    docker logs <container name>
@@ -69,7 +69,7 @@ Síťové konfigurace v síti hostitele brání dosažení sítě hraniční age
 Modul runtime IoT Edge nastaví sítě pro každou z modulů komunikovat na. V systému Linux je tato síť síťový most? víc informací. V systému Windows používá adres (NAT) Tento problém je dnes běžné na zařízeních s Windows pomocí Windows kontejnery, které NAT sítě. 
 
 ### <a name="resolution"></a>Řešení
-Zkontrolujte, zda je trasa k Internetu pro IP adresy přiřazené k této síti most/NAT. Byly případy, kdy konfigurace VPN na hostiteli přepsání IoT hraniční síti. 
+Zkontrolujte, zda je trasa k Internetu pro IP adresy přiřazené k této síti most/NAT. Konfigurace sítě VPN na hostiteli někdy přepíše IoT hraniční síti. 
 
 ## <a name="edge-hub-fails-to-start"></a>Hraniční rozbočovače nepodaří spustit
 
@@ -83,7 +83,7 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 ```
 
 ### <a name="root-cause"></a>Příčiny
-Jiný proces na hostitelském počítači má vázán port 443. Mapuje rozbočovače Edge porty 5671 a 443 pro použití v scénáře brány. Toto mapování portů se nezdaří, pokud jiný proces je již vázána na tento port. 
+Jiný proces na hostitelském počítači má vázán port 443. Mapuje rozbočovače Edge porty 5671 a 443 pro použití v scénáře brány. Toto mapování portů selže, pokud jiný proces je již vázána na tento port. 
 
 ### <a name="resolution"></a>Řešení
 Najděte a zastavit proces, který používá port 443. Tento proces je obvykle webový server.
@@ -97,5 +97,5 @@ Hraniční Agent nemá oprávnění pro přístup k bitové kopie modul.
 ### <a name="resolution"></a>Řešení
 Pokuste se o spuštění `iotedgectl login` příkaz znovu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Myslíte nalezen chyby v platformy IoT okraj? [Ohlásit problém](https://github.com/Azure/iot-edge/issues) tak, aby abychom mohli pokračovat ke zlepšení. 
