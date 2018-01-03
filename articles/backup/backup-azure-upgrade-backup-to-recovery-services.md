@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Upgrade trezor Backup do trezoru služeb zotavení
 
@@ -34,7 +34,7 @@ Při upgradu trezor Backup do trezoru služeb zotavení, neexistuje žádný vli
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Změny nástroj po upgradu a automatizace
 
 Během přípravy infrastruktury v trezoru upgradu, musíte aktualizovat existující automatizace nebo nástrojů pro zajištění, že nadále fungovat po upgradu.
-Najdete odkazy na rutiny prostředí PowerShell pro [modelu nasazení portálu Service Manager](backup-client-automation-classic.md) a [modelu nasazení Resource Manager](backup-client-automation.md).
+Najdete odkazy na rutiny prostředí PowerShell pro [modelu nasazení Resource Manager](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Před upgradem

@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Jak vytvořit filtr omezující vlastnosti ve službě Azure Search 
 
@@ -33,7 +33,7 @@ Fasetové navigace se používá pro řízené samotným filtrování výsledků
 
 Omezující vlastnosti jsou dynamické a vrácený na dotazu. Hledání odpovědi, aby s nimi kategorie faset pro pohyb výsledky. Pokud nejste obeznámeni s omezujícími vlastnostmi, v následujícím příkladu je ilustraci ve struktuře Fasetové navigace.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 Nový Fasetové navigace a chcete víc podrobností? V tématu [implementaci Fasetové navigace ve službě Azure Search](search-faceted-navigation.md).
 
@@ -127,7 +127,7 @@ Jedním z problémů s omezující vlastnosti navigace ve službě Azure Search 
 
 Přestože je toto běžně používá, není něco struktuře Fasetové navigace aktuálně poskytuje se na pole. Vývojáře, kteří chtějí statické omezující vlastnosti obvykle obejít omezený výběr vydáním dva filtrované dotazy: jeden rozsah výsledků, druhé používá k vytvoření statických seznam omezující vlastnosti pro účely navigace.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 
 + [Filtry ve službě Azure Search](search-filters.md)
 + [Vytvoření indexu REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)

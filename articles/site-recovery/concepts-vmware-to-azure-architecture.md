@@ -1,24 +1,16 @@
 ---
-title: Zkontrolujte architekturu replikace VMware do Azure | Microsoft Docs
+title: VMware do Azure replikace architektury v Azure Site Recovery | Microsoft Docs
 description: "Tento článek obsahuje přehled součásti a architektura použít při replikaci místní virtuální počítače VMware do Azure se službou Azure Site Recovery"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Z VMware do Azure replikace architektura
 
@@ -85,5 +77,4 @@ Až bude vaše místní lokalita opět dostupná, můžete službu navrátit.
 
 ## <a name="next-steps"></a>Další kroky
 
-Podívat se na matici podpory postupujte podle kurzu povolit VMware do Azure replikace.
-Spusťte převzetí služeb při selhání a navrácení služeb po obnovení.
+Postupujte podle [v tomto kurzu](tutorial-vmware-to-azure.md) povolit VMware do Azure replikace.

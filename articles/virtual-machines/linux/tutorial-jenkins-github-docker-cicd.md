@@ -4,7 +4,7 @@ description: "Naučte se vytvořit virtuální počítač volaných v Azure, kte
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52408184c8cff53f8bb7006fa940b0db4b900db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Postup vytvoření vývoj infrastruktury na virtuální počítač s Linuxem v Azure pomocí volaných Githubu a Docker
 K automatizaci fázi sestavení a testování pro vývoj aplikací, můžete použít průběžnou integraci a nasazení (CI/CD) kanálu. V tomto kurzu vytvoříte kanál CI/CD na virtuální počítač Azure včetně postup:
@@ -36,12 +36,12 @@ K automatizaci fázi sestavení a testování pro vývoj aplikací, můžete pou
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tento kurz vyžaduje, že používáte Azure CLI verze verze 2.0.4 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Pokud si zvolíte instalaci a použití rozhraní příkazového řádku místně, tento kurz vyžaduje, že používáte Azure CLI verze 2.0.22 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Vytvoření instance volaných
 V předchozích kurz [postup přizpůsobení virtuální počítač s Linuxem na při prvním spuštění](tutorial-automate-vm-deployment.md), jste se dozvěděli, jak automatizovat přizpůsobení virtuálního počítače s inicializací cloudu. Tento kurz používá soubor cloudu init volaných a Docker nainstalujete na virtuální počítač. Volaných je server automatizace populární open source, který se bezproblémově integruje se Azure povolit průběžnou integraci (CI) a nastavené průběžné doručování (CD). Další kurzy o tom, jak používat volaných, najdete v článku [volaných v centru Azure](https://docs.microsoft.com/azure/jenkins/).
 
-V aktuálním prostředí, vytvořte soubor s názvem *cloudu init.txt* a vložte následující konfigurace. Například vytvoření souboru v prostředí cloudu není na místním počítači. Zadejte `sensible-editor cloud-init-jenkins.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
+V aktuálním prostředí, vytvořte soubor s názvem *cloudu. init jenkins.txt* a vložte následující konfigurace. Například vytvoření souboru v prostředí cloudu není na místním počítači. Zadejte `sensible-editor cloud-init-jenkins.txt` k vytvoření tohoto souboru a zobrazit seznam dostupných editory. Ujistěte se, že je soubor celou cloudu init zkopírován správně, obzvláště první řádek:
 
 ```yaml
 #cloud-config
@@ -117,11 +117,10 @@ Pokud se soubor ještě není k dispozici, počkejte několik minut cloudu init 
 
 Nyní otevřete webový prohlížeč a přejděte na `http://<publicIps>:8080`. Dokončete počáteční nastavení volaných následujícím způsobem:
 
-- Zadejte *initialAdminPassword* získané z virtuálního počítače v předchozím kroku.
-- Zvolte **vyberte modulů plug-in pro instalaci**
-- Vyhledejte *Githubu* do textového pole v horní části, vyberte *modulu plug-in Githubu*, pak vyberte **instalace**
-- Pokud chcete vytvořit uživatelský účet volaných, vyplňte formulář podle potřeby. Z hlediska zabezpečení byste měli vytvořit tohoto prvního uživatele volaných spíše než budete pokračovat, jako výchozí účet správce.
-- Po dokončení vyberte **začít používat volaných**
+- Zadejte uživatelské jméno **správce**, zadejte *initialAdminPassword* získané z virtuálního počítače v předchozím kroku.
+- Vyberte **spravovat volaných**, pak **Správa modulů plug-in**.
+- Zvolte **dostupné**, vyhledejte *Githubu* do textového pole v horní části. Zaškrtněte políčko pro *modulu plug-in Githubu*, pak vyberte **stáhnout a nainstalovat po restartování**.
+- Zaškrtněte políčko pro **volaných restartovat po dokončení instalace a nebudou spuštěny žádné úlohy**, potom počkejte, až postup instalace modulu plug-in dokončení.
 
 
 ## <a name="create-github-webhook"></a>Vytvoření webhook Githubu
@@ -168,7 +167,7 @@ Ve volaných, spustí nového sestavení v části **sestavení historie** čás
 ## <a name="define-docker-build-image"></a>Definujte image Docker sestavení
 Umožňuje zobrazit spuštěné na základě na vaše potvrzení Githubu aplikace Node.js sestavení Docker bitové kopie a spusťte aplikaci. Obrázek je sestaven z soubor Docker, která definuje konfiguraci kontejneru, který spouští aplikaci. 
 
-Ze SSH připojení k virtuálnímu počítači přejděte do adresáře prostoru volaných s názvem po úkol, který jste vytvořili v předchozím kroku. V našem příkladu, který byl s názvem *HelloWorld*.
+Ze SSH připojení k virtuálnímu počítači přejděte do adresáře prostoru volaných s názvem po úkol, který jste vytvořili v předchozím kroku. V tomto příkladu, který byl název *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld

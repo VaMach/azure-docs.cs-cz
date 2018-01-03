@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist
 ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Vytvoření indexu Azure Search pomocí portálu Azure
 > [!div class="op_single_selector"]
@@ -106,7 +106,7 @@ Po vytvoření indexu Azure Search, můžete přesunout na další krok: [nahrá
 
 Alternativně může trvat i hlubší pohled na indexy. Kromě kolekce polí indexu také určuje analyzátorů, trochu, vyhodnocování profily a nastavení CORS. Na portálu pro definování běžných prvků poskytuje stránky s kartami: polí, analyzátorů a trochu. K vytvoření nebo úpravě další prvky, můžete použít rozhraní API REST nebo .NET SDK.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 
  [Jak funguje fulltextové vyhledávání](search-lucene-query-architecture.md)  
  [Rozhraní API REST služby vyhledávání](https://docs.microsoft.com/rest/api/searchservice/) [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

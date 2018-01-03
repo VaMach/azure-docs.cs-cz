@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
 ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Řešení potíží s brány virtuální sítě a připojení pomocí prostředí PowerShell sledovací proces sítě Azure
 
@@ -66,7 +66,7 @@ V **podrobnosti** části okna, **stav** kartě se zobrazují stav poslední Por
 |Cestu k úložišti     |  Cesta k účtu úložiště a kontejneru, které obsahují protokolů (Pokud žádné byly vytvořeny během spuštění). Toto nastavení není zachována po opuštění portálu.        |
 |Souhrn     | Shrnutí stavu prostředků.        |
 |Podrobnosti     | Podrobné informace o stavu prostředků.        |
-|Poslední spuštění     | Čas poslední čas Poradce při potížích se spustil.        |
+|Naposledy spuštěno     | Čas poslední čas Poradce při potížích se spustil.        |
 
 
 **Akce** karta obsahuje obecné pokyny o tom, jak problém vyřešit. Pokud může být akce pro tento problém, je k dispozici odkaz s další pokyny. V případě, že tam, kde není žádná další pokyny, odpověď obsahuje adresu url pro otevření případu podpory.  Další informace o vlastnostech odpovědi a co je součástí najdete v článku [řešení sledovací proces sítě – přehled](network-watcher-troubleshoot-overview.md)

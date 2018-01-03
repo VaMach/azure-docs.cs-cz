@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Pochopení modulu runtime Azure IoT okraj a jeho architektura – náhled
 
@@ -21,13 +21,13 @@ Modul runtime IoT okraj je kolekce programy, které je potřeba nainstalovat na 
 
 Modul runtime IoT Edge provádí následující funkce na IoT hraniční zařízení:
 
-* Instalaci a aktualizaci úlohy na zařízení.
-* Udržuje standardy zabezpečení Azure IoT Edge na zařízení.
+* Instaluje a aktualizuje na zařízení úlohy.
+* Udržuje na zařízení standardy zabezpečení Azure IoT Edge.
 * Zajišťuje, že [IoT Edge moduly][lnk moduly] vždy běží.
-* Do cloudu pro vzdálené monitorování hlásí stav modulu.
-* Usnadňuje komunikaci mezi zařízeními podřízené listu a IoT hraniční zařízení.
-* Usnadňuje komunikaci mezi moduly na IoT hraniční zařízení.
-* Usnadňuje komunikaci mezi IoT hraničním zařízením a cloudem.
+* Hlásí do cloudu stav modulů pro účely vzdáleného monitorování.
+* Usnadňuje komunikaci mezi podřízenými zařízeními typu list a příslušným hraničním zařízením IoT.
+* Usnadňuje komunikaci mezi moduly v příslušném hraničním zařízení IoT.
+* Usnadňuje komunikaci mezi příslušným hraničním zařízením IoT a cloudem.
 
 ![Okraj IoT runtime komunikuje stav modulu do služby IoT Hub a Statistika][1]
 
@@ -90,16 +90,24 @@ Každá položka ve slovníku moduly obsahuje konkrétní informace o modulu a j
 * **settings.createOptions** – řetězec, který je předán přímo démon Docker při spouštění modulu kontejneru. Přidání možnosti Docker v této vlastnosti umožňuje rozšířené možnosti, jako je port, předávání nebo připojení svazků do kontejneru modulu.  
 * **Stav** – stavu, ve kterém Edge agent umístí modul. Tato hodnota se obvykle nastavuje *systémem* jako většina lidí má agent Edge k okamžitému spuštění všech modulů na zařízení. Můžete však zadat počáteční stav modulu do zastaveny a čekat na datum v budoucnosti říct Edge agenta spusťte modul. Edge agent hlásí stav každého modulu zpět cloudu ve vlastnostech hlášené. Rozdíl mezi požadovanou vlastnost a vlastnost hlášené je slouží jako ukazatel nebo identifikovala zařízení. Jsou podporované stavy:
    * Stahování
-   * Běžící (Spuštěno)
+   * Běží
    * Není v pořádku
-   * Se nezdařilo
+   * Neúspěch
    * Zastaveno
 * **restartPolicy** – jak agenta Edge restartuje modul. Možné hodnoty:
    * – Agenta Edge nikdy nerestartuje modul.
    * onFailure – Pokud dojde k chybě v modulu, Edge agent restartuje ho. Modul ukončí řádně, Edge agent se nerestartuje.
    * Není v pořádku – Pokud je modul dojde k chybě nebo považovat za chybný, Edge agent restartuje ho.
    * Vždy – pokud modul dojde k chybě, se považují za není v pořádku nebo ukončí žádným způsobem, Edge agent restartuje ho. 
-   
+
+Okraj IoT agent odešle odpověď runtime do služby IoT Hub. Tady je seznam možných odpovědí:
+  * 200 – OK
+  * 400 - konfigurace nasazení je chybný nebo není platný.
+  * 417 – zařízení nemá nastavit konfiguraci nasazení.
+  * 412 – verze schématu v konfiguraci nasazení je neplatný.
+  * 406 - hraniční zařízení je offline nebo není odesílání stav sestavy.
+  * 500 - došlo k chybě v modulu runtime okraj.
+
 ### <a name="security"></a>Zabezpečení
 
 Agenta IoT Edge hraje důležitou roli v zabezpečení IoT hraniční zařízení. Například provede akce, jako je ověření bitové kopie modul před jeho spuštění. Tyto funkce budou přidány po zavedení obecné dostupnosti V2 funkcí. 

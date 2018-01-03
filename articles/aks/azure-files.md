@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c0aded35066b4dd819a754a663fdbbf0b0bf6feb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b6267dd2bc1b29229b2e8016e2429ed88b7bf676
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Soubory Azure pomocí Kubernetes
 
@@ -66,7 +66,7 @@ V dalším kroku kódování klíč účtu úložiště. V případě potřeby n
 echo -n $STORAGE_KEY | base64
 ```
 
-Vytvořte soubor s názvem `azure-secret.yml` a zkopírujte následující YAML. Aktualizace `azurestorageaccountname` a `azurestorageaccountkey` kódováním base64, pomocí hodnoty hodnoty získané v předchozím kroku.
+Vytvořte soubor s názvem `azure-secret.yaml` a zkopírujte následující YAML. Aktualizace `azurestorageaccountname` a `azurestorageaccountkey` kódováním base64, pomocí hodnoty hodnoty získané v předchozím kroku.
 
 ```yaml
 apiVersion: v1
@@ -82,12 +82,12 @@ data:
 Použití [kubectl vytvořit] [ kubectl-create] příkaz pro vytvoření tajný klíč.
 
 ```azurecli-interactive
-kubectl create -f azure-secret.yml
+kubectl create -f azure-secret.yaml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Připojení sdílené složky jako svazek
 
-Do sdílené složky souborů Azure můžete připojit do vaší pod nakonfigurováním svazek v jeho specifikace. Vytvořte nový soubor s názvem `azure-files-pod.yml` s tímto obsahem. Aktualizace `aksshare` s názvem uvedeným k Azure Files sdílet.
+Do sdílené složky souborů Azure můžete připojit do vaší pod nakonfigurováním svazek v jeho specifikace. Vytvořte nový soubor s názvem `azure-files-pod.yaml` s tímto obsahem. Aktualizace `aksshare` s názvem uvedeným k Azure Files sdílet.
 
 ```yaml
 apiVersion: v1
@@ -112,7 +112,7 @@ spec:
 K vytvoření pod použijte kubectl.
 
 ```azurecli-interactive
-kubectl apply -f azure-files-pod.yml
+kubectl apply -f azure-files-pod.yaml
 ```
 
 Nyní máte kontejner spuštěné s Azure sdílené složky připojené `/mnt/azure` adresáře. Zobrazí připojení při kontrole vaší pod prostřednictvím svazku `kubectl describe pod azure-files-pod`.

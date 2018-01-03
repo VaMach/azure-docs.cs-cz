@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6fa6d3099d8427a186e6095fdcbbc327d1acab7f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 66a7cef250890f1b6940f7bc7f3c5ae0ec6340f0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Zachycení image virtuálního počítače Azure s Windows vytvořeného pomocí modelu klasického nasazení
 > [!IMPORTANT]
@@ -42,7 +42,7 @@ Tento postup předpokládá, že jste vytvořili virtuální počítač Azure a 
 >
 >
 
-Před zachycením bitové kopie virtuálního počítače Azure, se doporučuje zálohovat cílového virtuálního počítače. Virtuální počítače Azure můžete zálohovat pomocí služby Azure Backup. Podrobnosti najdete v článku [Zálohování virtuálních počítačů Azure](../../../backup/backup-azure-vms.md). Další řešení jsou k dispozici od certifikovaných partnerů. Pokud chcete zjistit, co je právě k dispozici, prohledejte web Azure Marketplace.
+Před zachycením bitové kopie virtuálního počítače Azure, se doporučuje zálohovat cílového virtuálního počítače. Virtuální počítače Azure můžete zálohovat pomocí služby Azure Backup. Podrobnosti najdete v článku [Zálohování virtuálních počítačů Azure](../../../backup/backup-azure-arm-vms.md). Další řešení jsou k dispozici od certifikovaných partnerů. Pokud chcete zjistit, co je právě k dispozici, prohledejte web Azure Marketplace.
 
 ## <a name="capture-the-virtual-machine"></a>Zachytit virtuální počítač
 1. V [portál Azure](http://portal.azure.com), **Connect** k virtuálnímu počítači. Pokyny najdete v tématu [jak se přihlásit k virtuálnímu počítači s Windows serverem][How to sign in to a virtual machine running Windows Server].

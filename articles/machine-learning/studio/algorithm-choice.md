@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 04/25/2017
+ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 822bed8ffc43459dd053fda5b68f62f839b7d94b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Jak vybrat algoritmy pro službu Microsoft Azure Machine Learning
 Odpověď na otázku "Co algoritmus strojového učení mám použít?" je vždy "Závisí." To závisí na velikosti, kvality a povaha data. To závisí na co chcete udělat s odpověď. To závisí na tom, jak byl výpočty algoritmu přeložit na pokyny k počítači, který používáte. A závisí na tom, jak dlouho je k dispozici. I nejvíce zkušeného datových vědců nelze zjistit, který algoritmus provede než to zkusíte je nejvhodnější.

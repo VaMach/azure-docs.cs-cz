@@ -1,5 +1,5 @@
 ---
-title: "Začínáme s Azure AD, přihlašování a odhlašování pomocí Node.js | Microsoft Docs"
+title: "Webové aplikace Azure AD Node.js Začínáme | Microsoft Docs"
 description: "Naučte se vytvářet webové aplikace Node.js Express MVC, která se integruje se službou Azure AD pro přihlášení."
 services: active-directory
 documentationcenter: nodejs
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 3a9bc44ec9fc5a7c5e18139070bac837421efff5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Webové aplikace Node.js přihlášení a odhlášení s Azure AD
+# <a name="azure-ad-nodejs-web-app-getting-started"></a>Začínáme se službou Azure AD Node.js webové aplikace
 Tady používáme Passport:
 
 * Uživatele přihlaste k aplikaci pomocí Azure Active Directory (Azure AD).

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Poznámky k verzi Azure Media Services
 Tyto poznámky k verzi shrnout změny z předchozích verzí a známé problémy.
@@ -28,8 +28,9 @@ Tyto poznámky k verzi shrnout změny z předchozích verzí a známé problémy
 > 
 > 
 
-## <a id="issues"></a>Aktuálně známé problémy
-### <a id="general_issues"></a>Obecné problémy služby Media Services
+## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Aktuálně známé problémy
+### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Obecné problémy služby Media Services
+
 | Problém | Popis |
 | --- | --- |
 | Několik běžných hlaviček protokolu HTTP nejsou k dispozici v rozhraní REST API. |Pokud vyvíjíte aplikace Media Services pomocí rozhraní REST API, zjistíte, že některé běžné pole hlavičky protokolu HTTP (včetně CLIENT-REQUEST-ID, ID žádosti a vrátit-CLIENT-REQUEST-ID) nejsou podporovány. Hlavičky bude přidána v budoucí aktualizaci. |
@@ -41,7 +42,7 @@ Tyto poznámky k verzi shrnout změny z předchozích verzí a známé problémy
 | Azure Media Services .NET SDK objektů nelze serializovat a v důsledku nefungují s ukládáním do mezipaměti Azure. |Pokud se pokusíte serializaci objektu SDK AssetCollection tím ho přidáte do ukládání do mezipaměti Azure, je vyvolána výjimka. |
 
 
-## <a id="rest_version_history"></a>Historie verzí rozhraní API REST
+## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Historie verzí rozhraní API REST
 Informace o historii verze Media Services REST API najdete v tématu [Azure Media Services REST API – referenční informace].
 
 ## <a name="october-2017-release"></a>Říjen 2017 verze
@@ -89,7 +90,6 @@ Teď můžete použít Azure Media Standard na [automaticky generovat žebříku
 
 Teď můžete použít Azure Media Standard nebo Media Encoder Premium pracovní postup [vytvořit kódování úkol, který generuje fMP4 bloky](media-services-generate-fmp4-chunks.md). 
 
-
 ## <a name="february-2017-release"></a>2017 února verze
 
 Od 1. dubna 2017 se automaticky odstraní libovolný záznam úlohy ve vašem účtu, který je starší než 90 dní. Spolu s ním se odstraní přidružené záznamy úkolů, a to i v případě, že celkový počet záznamů je nižší než maximální kvóta. Pokud potřebujete informace o úlohách/úkolech archivovat, můžete použít kód popsaný [tady](media-services-dotnet-manage-entities.md).
@@ -102,9 +102,9 @@ Kromě toho od 2.15 verze služby Azure Media Services přidali následující v
 
 ## <a name="december-2016-release"></a>Verze prosinec 2016
 
-Azure Media Services nyní umožňuje přístup k datům telemetrie/metriky pro jeho služby. Aktuální verze AMS umožňuje shromažďovat telemetrická data pro kanál za provozu, StreamingEndpoint, a za chodu archivu entity. Další informace najdete v tématu [to](media-services-telemetry-overview.md) článku.
+Azure Media Services nyní umožňuje přístup k datům telemetrie/metriky pro jeho služby. Aktuální verze AMS umožňuje shromažďovat telemetrická data pro kanál za provozu, StreamingEndpoint, a za chodu archivu entity. Další informace najdete v [tomto](media-services-telemetry-overview.md) článku.
 
-## <a id="july_changes16"></a>Verze července 2016
+## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Verze července 2016
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>Aktualizace souboru manifestu (*. ISM) generované úlohy kódování
 Při odeslání kódování úloh pro Media Encoder Standard nebo Azure Media Encoder, generuje úlohu kódování [streamování souboru manifestu](media-services-deliver-content-overview.md) (* .ism) souboru ve výstupu Asset. Pomocí nejnovější verze služby je aktualizovaná syntaxe tohoto streamování souboru manifestu.
 

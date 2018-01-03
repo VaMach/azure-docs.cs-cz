@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
 ms.openlocfilehash: 996fe0ef31a5bea9111324a661b714e77dffff64
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Zkontrolujte připojení s sledovací proces sítě Azure pomocí Azure CLI 2.0
 
@@ -74,7 +74,7 @@ Pokud funkci byla správně zaregistrovány, by měl odpovídat následující v
 
 Tento příklad zkontroluje připojení k cílovému virtuálnímu počítači přes port 80.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
@@ -155,7 +155,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 V příkladu ověří připojení mezi virtuálním počítačem a vzdálený koncový bod.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
@@ -213,7 +213,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 Následující příklad zkontroluje připojení k webu.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
@@ -259,7 +259,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 Následující příklad ověří připojení z virtuálního počítače k účtu úložiště blogu.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/

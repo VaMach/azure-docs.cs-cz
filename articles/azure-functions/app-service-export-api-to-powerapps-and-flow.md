@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Export rozhraní API Azure hostovaná PowerApps a Microsoft toku
 
@@ -95,21 +95,25 @@ Chcete-li dokončit export v **ruční** režimu, postupujte takto:
 
     Tento příklad ukazuje definici klíče zabezpečení rozhraní API, která byla součástí definice OpenAPI.
 
-Teď, když jste exportovali definice rozhraní API, importujete ho a vytvořte vlastní konektor v PowerApps a Flow společnosti Microsoft. Následující příklad používá PowerApps, ale vlastní konektory jsou sdílené mezi dvě služby, takže potřebujete importovat definici jednou.
+Teď, když jste exportovali definice rozhraní API, importujete ho a vytvořte vlastní konektor v PowerApps a Flow společnosti Microsoft. Vlastní konektory jsou sdílené mezi dvě služby, takže potřebujete importovat definici jednou.
 
 Import definice rozhraní API do PowerApps a Flow Microsoft, postupujte takto:
 
-1. Přihlaste se k [web.powerapps.com](https://web.powerapps.com) nebo [flow.microsoft.com](https://flow.microsoft.com/). 
+1. Přejděte na [powerapps.com](https://web.powerapps.com) nebo [flow.microsoft.com](https://flow.microsoft.com).
 
-2. Klikněte **nastavení** tlačítko (ikona ozubené kolečko) v pravém horním rohu stránky na stránku a vyberte **vlastní konektory**.
+2. V pravém horním rohu klikněte na ikonu zařízení a pak klikněte na **vlastní konektory**.
 
-    ![vlastní konektory](media/app-service-export-api-to-powerapps-and-flow/custom-connectors.png)
+   ![Ikona zařízení ve službě](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. Klikněte na tlačítko **vytvořte vlastní konektor**.
+3. Klikněte na tlačítko **vytvořte vlastní konektor**, pak klikněte na tlačítko **importovat definici OpenAPI**.
 
-4. Na **Obecné** kartě, zadejte název pro rozhraní API a potom odeslat definici OpenAPI nebo vložte adresu URL metadat. Klikněte na tlačítko **nahrát**, pak **pokračovat**.
+   ![Vytvořte vlastní konektor](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-    ![Karta Obecné](media/app-service-export-api-to-powerapps-and-flow/tab-general.png)
+4. Zadejte název pro vlastní konektor, pak přejděte k definici OpenAPI, který jste exportovali a klikněte na tlačítko **pokračovat**.
+
+   ![Nahrát OpenAPI definice](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+
+4. Na **Obecné** zkontrolujte informace, které pochází z definice OpenAPI.
 
 5. Na **zabezpečení** kartě, pokud se zobrazí výzva k zadejte podrobnosti o ověřování, zadejte hodnoty, které jsou vhodné pro typ ověřování. Klikněte na tlačítko **pokračovat**.
 

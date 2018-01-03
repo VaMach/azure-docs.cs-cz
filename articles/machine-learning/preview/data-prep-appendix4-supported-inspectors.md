@@ -5,23 +5,23 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Podporované inspektoři Azure Machine Learning datový přípravy ve verzi Preview
 Tento dokument popisuje sadu kontroly, které jsou k dispozici v této verzi preview.
 
-## <a name="the-halo-effect"></a>Účinek bylo 
+## <a name="the-halo-effect"></a>Haló efekt 
 Některé inspektoři podporovat bylo účinek. Tento efekt pomocí dvou různých barev okamžitě zobrazit změnu vizuálně z transformace. Šedá představuje hodnotu před nejnovější transformace a modrý zobrazuje aktuální hodnotu. Tento efekt lze povolit a zakázat v možnostech.
 
 ## <a name="graphical-filtering"></a>Grafické filtrování 
@@ -33,13 +33,13 @@ Tato kontrola pro číselné sloupce, poskytuje celou řadu různých statistiky
 - Nižší QUARTIL
 - Medián
 - Horní QUARTIL
-- Maximální počet
+- Maximum
 - Průměr
 - Směrodatná odchylka
 
 
 ### <a name="options"></a>Možnosti 
-- Žádný
+- Žádné
 
 ## <a name="histogram"></a>Histogram 
 Vypočítá a zobrazí histogram jednoho číselné sloupce. Výchozí počet kbelíků se počítá pomocí Scott na pravidla. Pravidlo však lze přepsat pomocí možnosti.

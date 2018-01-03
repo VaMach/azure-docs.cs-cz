@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
 ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Zkontrolujte připojení s sledovací proces sítě Azure pomocí prostředí PowerShell
 
@@ -69,7 +69,7 @@ AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
 
 Tento příklad zkontroluje připojení k cílovému virtuálnímu počítači přes port 80. Tento příklad vyžaduje, abyste měli sledovací proces sítě povolené v oblasti obsahující zdrojového virtuálního počítače.  
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```powershell
 $rgName = "ContosoRG"
@@ -164,7 +164,7 @@ Hops             : [
 
 V příkladu ověří připojení mezi virtuálním počítačem a vzdálený koncový bod. Tento příklad vyžaduje, abyste měli sledovací proces sítě povolené v oblasti obsahující zdrojového virtuálního počítače.  
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```powershell
 $rgName = "ContosoRG"
@@ -228,7 +228,7 @@ Hops             : [
 
 Následující příklad zkontroluje připojení k webu. Tento příklad vyžaduje, abyste měli sledovací proces sítě povolené v oblasti obsahující zdrojového virtuálního počítače.  
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```powershell
 $rgName = "ContosoRG"
@@ -281,7 +281,7 @@ Hops             : [
 
 Následující příklad Otestuje připojení z virtuálního počítače na účet úložiště blogu. Tento příklad vyžaduje, abyste měli sledovací proces sítě povolené v oblasti obsahující zdrojového virtuálního počítače.  
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```powershell
 $rgName = "ContosoRG"

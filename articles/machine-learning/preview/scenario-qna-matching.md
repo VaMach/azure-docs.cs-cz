@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Q & párování pomocí Azure Machine Learning workbench
 Když otevřete zakončeno otázky odpovíte je obtížné a často vyžaduje úsilí od odborníků (malé a střední podniky). Chcete-li snížit požadavky na interní malé a střední podniky, společnosti často vytvořit seznam – nejčastější dotazy (FAQ) jako prostředek, které uživatelé. Tento příklad umožňující prezentovat různé metody efektivní machine learning tak, aby odpovídaly otevřete zakončeno dotazy na existující nejčastější dotazy k odpovědi na otázky nebo páry. Tento příklad ukazuje o snadný vývoj proces pro sestavování řešení pomocí nástroje Azure Machine Learning Workbench. 
@@ -83,12 +84,12 @@ Schéma dat a odkazy na stažení přímé tři datových sad naleznete v násle
 | ----------|------------|------------|--------
 | [otázky](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | ID | Řetězec | Otázka jedinečné ID (primární klíč)
 |  | AnswerId | Řetězec | ID jedinečný odpověď na otázku
-|  | Text0 | Řetězec | Nezpracovaný text data, včetně nadpis a text na otázku
-|  | Datum vytvoření | časové razítko | Pokud byla požádána otázka časové razítko
+|  | text0 | Řetězec | Nezpracovaný text data, včetně nadpis a text na otázku
+|  | Datum vytvoření | Časové razítko | Pokud byla požádána otázka časové razítko
 | [duplicitní](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | ID | Řetězec | Duplikace jedinečné ID (primární klíč)
 |  | AnswerId | Řetězec | ID odpovědí spojené s duplikace
-|  | Text0 | Řetězec | Nezpracovaný text data, včetně duplikace na nadpis a text
-|  | Datum vytvoření | časové razítko | Pokud byla požádána duplikace časové razítko
+|  | text0 | Řetězec | Nezpracovaný text data, včetně duplikace na nadpis a text
+|  | Datum vytvoření | Časové razítko | Pokud byla požádána duplikace časové razítko
 | [odpovědi](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | ID | Řetězec | Odpověď jedinečné ID (primární klíč)
 |  | text0 | Řetězec | Data nezpracovaný text odpovědi
 

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 9a4e0b5a400668cb9ec96000d274f43739139a03
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Plánování infrastruktury zálohování virtuálních počítačů v Azure
-Tento článek obsahuje výkonu a prostředků návrhy vám pomohou naplánovat zálohování infrastrukturu virtuálních počítačů. Definuje také klíčových aspektů služby zálohování; Tyto aspekty může být velmi důležité při určování vaší architektury plánování kapacity a plánování. Pokud jste [připravit vaše prostředí](backup-azure-vms-prepare.md), plánování je dalším krokem, než začnete [k zálohování virtuálních počítačů](backup-azure-vms.md). Pokud potřebujete další informace o virtuálních počítačích Azure, najdete v článku [virtuální počítače dokumentaci](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Tento článek obsahuje výkonu a prostředků návrhy vám pomohou naplánovat zálohování infrastrukturu virtuálních počítačů. Definuje také klíčových aspektů služby zálohování; Tyto aspekty může být velmi důležité při určování vaší architektury plánování kapacity a plánování. Pokud jste [připravit vaše prostředí](backup-azure-arm-vms-prepare.md), plánování je dalším krokem, než začnete [k zálohování virtuálních počítačů](backup-azure-arm-vms.md). Pokud potřebujete další informace o virtuálních počítačích Azure, najdete v článku [virtuální počítače dokumentaci](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Jak funguje Azure zálohuje virtuální počítače?
 Když služba Azure Backup zahájí úlohu zálohování v naplánovaném čase, aktivuje rozšíření zálohování k pořízení snímku v daném okamžiku. Použití služby Azure Backup _VMSnapshot_ rozšíření v systému Windows a _VMSnapshotLinux_ rozšíření v systému Linux. Rozšíření je nainstalován během první zálohování virtuálních počítačů. Jak rozšíření nainstalovat, musí být virtuální počítač spuštěný. Pokud virtuální počítač není spuštěný, služba zálohování pořídí snímek podkladové úložiště (protože žádné aplikace zápisy dojít při zastavení virtuálního počítače).
@@ -97,7 +97,7 @@ Pro každý disk zálohovaných Azure Backup čte bloky na disku a ukládá jeno
 ## <a name="total-vm-backup-time"></a>Celkový čas zálohování virtuálních počítačů
 Při čtení a kopírování dat je využita pro práci ve většině případů zálohování, jiné operace přispívat do celkový čas potřebný k zálohování virtuálního počítače:
 
-* Doba potřebná pro [instalovat nebo aktualizovat rozšíření zálohování](backup-azure-vms.md).
+* Doba potřebná pro [instalovat nebo aktualizovat rozšíření zálohování](backup-azure-arm-vms.md).
 * Čas snímek, což je čas potřebný k aktivaci snímku. Snímky jsou aktivované blízko naplánovaný čas zálohování.
 * Doba čekání ve frontě. Vzhledem k tomu, že služba zálohování je zpracování záloh z více zákazníků, kopírování zálohování dat ze snímku do zálohování nebo trezor služeb zotavení nemusí spustit okamžitě. V dobu ve špičce zatížení, čekání lze roztáhnout až osm hodin z důvodu počet záloh zpracovává. Celkový čas zálohování virtuálních počítačů je však méně než 24 hodin pro denní zásady zálohování.
 * Doba přenosu dat, čas potřebný k trezoru úložiště služby zálohování výpočetní přírůstkové změny z předchozí zálohy a přenést tyto změny.
@@ -148,7 +148,7 @@ Fakturace zastaví zadaný virtuální počítač jenom v případě, že ochran
 Máte-li nějaké dotazy nebo pokud víte o funkci, kterou byste uvítali, [odešlete nám svůj názor](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Další kroky
-* [Zálohování virtuálních počítačů](backup-azure-vms.md)
+* [Zálohování virtuálních počítačů](backup-azure-arm-vms.md)
 * [Správa zálohování virtuálních počítačů](backup-azure-manage-vms.md)
-* [Obnovení virtuálních počítačů](backup-azure-restore-vms.md)
+* [Obnovení virtuálních počítačů](backup-azure-arm-restore-vms.md)
 * [Řešení problémů zálohování virtuálních počítačů](backup-azure-vms-troubleshoot.md)

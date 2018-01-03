@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Dočasné tabulky v SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Dočasné tabulky jsou užitečné při zpracování dat – zejména při trans
 Tento článek obsahuje základní pokyny pro používání dočasných tabulek a zvýrazní se zásadami relace úrovni dočasných tabulek. Pomocí informací v tomto článku vám může pomoct rozčlenění kódu, vylepšení – opětovné použití a usnadnění údržby kódu na moduly.
 
 ## <a name="create-a-temporary-table"></a>Vytvořit dočasnou tabulku.
-Dočasné tabulky se vytváří pomocí prefixu názvem tabulky `#`.  Například:
+Dočasné tabulky se vytváří pomocí prefixu názvem tabulky `#`.  Příklad:
 
 ```sql
 CREATE TABLE #stats_ddl

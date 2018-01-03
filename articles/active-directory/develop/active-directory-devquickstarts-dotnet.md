@@ -1,5 +1,5 @@
 ---
-title: "Začínáme se službou Azure AD .NET | Microsoft Docs"
+title: "Azure AD .NET Desktop (WPF) Začínáme | Microsoft Docs"
 description: "Jak vytvořit aplikaci .NET Windows Desktop, který se integruje s Azure AD pro přihlašování a volá Azure AD chráněné rozhraní API pomocí metody OAuth."
 services: active-directory
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 41abe20d778a8c51c6b19733ddf5426d12d8751e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e21af66f91835919b67af3492f55f113a00910e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Integrace Azure AD do aplikace Windows Desktop WPF
+# <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET Desktop (WPF) Začínáme
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

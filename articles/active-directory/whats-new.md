@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: febb00cb6d1b28e1166562c53e2d05c3e7aba36b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 408e1680e7aee13663bb6511e65fd5685eb7d518
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co je nového ve službě Azure Active Directory?
 
@@ -41,6 +41,163 @@ Budeme průběžně zlepšují Azure Active Directory. Aby vám nedovolí zůsta
 
 Pokroku prosím tuto stránku pravidelně aktualizujeme ho měsíčně.
 
+
+## <a name="december-2017"></a>2017 prosinec
+ 
+
+### <a name="terms-of-use-in-the-access-panel-for-end-users"></a>Podmínky použití na přístupovém panelu pro koncové uživatele
+
+**Typ:** nová funkce  
+**Kategorie služby:** podmínky použití  
+**Schopnosti produktu:** zásad správného řízení nebo dodržování předpisů
+ 
+Koncoví uživatelé nyní mají možnost Přejít na panel přístupu a zobrazit podmínky použití, který jste dříve přijali.
+
+Uživatelé si můžou zobrazit a přečíst podmínky použití, které přijali. To lze provést následujícím způsobem:
+
+1. Přejděte a přihlaste se do [MyApps portál](https://myapps.microsoft.com).
+
+2. V pravém horním rohu klikněte na své jméno a z rozevírací nabídky vyberte **Profil**. 
+
+3. Na svém profilu klikněte na **Přečíst podmínky použití**. 
+
+4. Tady si můžete přečíst podmínky použití, které jste přijali. 
+
+Další informace najdete v tématu [funkce Azure Active Directory podmínky použití (Preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
+ 
+---
+ 
+
+### <a name="new-azure-ad-sign-in-experience"></a>Nové přihlašovací prostředí Azure AD
+
+**Typ:** nová funkce  
+**Kategorie služby:** Azure AD  
+**Schopnosti produktu:** ověření uživatele
+ 
+Jako součást cesty a umožňuje konvergovat Azure AD a identity systémů účtu Microsoft jsme mít přepracovali uživatelského rozhraní na obou systémů, aby měli konzistentní vzhled a chování. Kromě toho jsme mít čísla stránek vložena na přihlašovací stránku služby Azure AD, aby shromažďujeme uživatelské jméno nejprve následuje přihlašovací údaje na druhý obrazovky.
+
+Další informace najdete v tématu [nové prostředí Azure AD přihlášení je nyní ve verzi Public Preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/)
+ 
+---
+ 
+
+### <a name="fewer-login-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-login"></a>Menší počet výzev k přihlášení: V nové "zůstat přihlášeni" rozhraní pro přihlášení k Azure AD
+
+**Typ:** nová funkce  
+**Kategorie služby:** Azure AD  
+**Schopnosti produktu:** ověření uživatele
+ 
+Jsme nahradit **zůstat přihlášeni** zaškrtávací políčko je na přihlašovací stránku služby Azure AD s nového řádku, který se zobrazí poté, co uživatel úspěšně ověří. 
+
+Pokud uživatel odpoví **Ano** na tuto výzvu služby jim poskytne trvalé obnovovací token. Toto je stejné chování jako kontroluje, když uživatel **zůstat přihlášeni** políčko ve starší verzi uživatelského rozhraní. U federovaných klientů tato výzva se zobrazí po úspěšně ověří uživatele federované služby.
+
+Další informace najdete v tématu [méně výzev k přihlášení: je nové prostředí "Zůstat přihlášeni" pro Azure AD ve verzi preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/) 
+
+---
+ 
+
+### <a name="add-configuration-to-require-the-tou-to-be-expanded-prior-to-accepting"></a>Přidáte konfiguraci tak, aby vyžadovala podmínky, které mají být rozbaleny před přijetím.
+
+**Typ:** nová funkce  
+**Kategorie služby:** podmínky použití  
+**Schopnosti produktu:** zásad správného řízení
+ 
+Jsme přidali nyní možnost pro správce tak, aby vyžadovala své koncové uživatele rozšíření podmínky použití před vyjádření souhlasu s podmínkami.
+
+Vyberte buď možnost zapnout nebo vypnout pro vyžadovat, aby podmínky použití rozbalte položku uživatelé. Pokud je tato volba zapnutá, než uživatelé přijmou podmínky použití, budou je muset zobrazit.
+
+Další informace najdete v tématu [funkce Azure Active Directory podmínky použití (Preview)](active-directory-tou.md)
+ 
+---
+ 
+
+### <a name="scoped-activation-for-eligible-role-assignments"></a>Vymezená aktivace pro přiřazení oprávněné rolí
+
+**Typ:** nová funkce  
+**Kategorie služby:** Privileged Identity Management  
+**Schopnosti produktu:** Privileged Identity Management
+ 
+Vymezená aktivace umožňuje aktivovat přiřazení rolí oprávněné prostředků Azure s menší nezávislé než původní přiřazení výchozí hodnoty. Vlastník předplatného jsou například přiřazeny ve vašem klientovi. Vymezená aktivace, můžete aktivovat vlastníka pro až pět prostředky obsažené v rámci předplatného (vezměte v úvahu skupin prostředků, virtuální počítače, např...). Obor aktivací může omezit možnost provádění nežádoucí změny k důležitým prostředkům Azure.
+
+Další informace najdete v tématu [co je Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+ 
+---
+ 
+
+### <a name="new-federated-apps-in-azure-ad-app-gallery"></a>Nové federované aplikace v galerii aplikací Azure AD
+
+**Typ:** nová funkce  
+**Kategorie služby:** podnikové aplikace  
+**Schopnosti produktu:** 3. stran integrace
+ 
+V prosinec 2017 jsme přidali následující nové aplikace v naší Galerie aplikace s federací podporu:
+
+|Název|Typ integrace|Popis|
+|:-- |----------------|:----------|
+|Digitální výkladní skříň EFI|SAML 2.0|[Webové 2 tiskových aplikace](https://go.microsoft.com/fwlink/?linkid=861685)|
+|Vodeclic|SAML 2.0|[Pomocí Azure AD můžete spravovat přístup uživatelů a povolit jednotné přihlašování s Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522).  Vyžaduje existující účet Vodeclic.|
+|Accredible|SAML 2.0|[Vytvoření, správě a poskytování certifikáty, odznaky a blockchain pověření](https://go.microsoft.com/fwlink/?linkid=863523)|
+|FactSet|SAML 2.0|[Jednotné přihlašování k aplikaci na FactSet FDSWeb](https://go.microsoft.com/fwlink/?linkid=863525)|
+|Integrace se službou AD MobileIron Azure|SAML 2.0|[MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) zvláště je umožnit moderní podniky k zabezpečení a spravovat informace o při jejich přesunu do mobile a cloudu, při zachování ochrany osobních údajů koncového uživatele a vztah důvěryhodnosti.|
+|OBRÁZEK FUNGUJE|SAML 2.0|Pomocí Azure AD můžete spravovat přístup uživatelů, zřízení uživatelských účtů a povolit jednotné přihlašování s [IMAGE FUNGUJE](https://go.microsoft.com/fwlink/?linkid=863517). Vyžaduje předplatné existující FUNGUJE bitové kopie.|
+|Jednotné přihlašování SAML pro Bitbucket podle řešení GmbH|SAML 2.0|[Jednotné přihlašování Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) delegáti ověřování do služby Azure AD, uživatelé již přihlášeni k Azure AD přímý přístup Bitbucket. Uživatelé mohou být vytvořeny a aktualizovat na průběžně s daty z SAML atributy.|
+|Jednotné přihlašování SAML pro bambus podle řešení GmbH|SAML 2.0|[Jednotné přihlašování bambus](https://go.microsoft.com/fwlink/?linkid=863520) delegáti ověřování do služby Azure AD, uživatelé již přihlášeni k Azure AD můžete bambus přímý přístup.|
+|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) je vaše moderní, plně funkční sociálních intranetu software, který podporuje vaši zaměstnanci a vaší firmy.|
+|MOBI|SAML 2.0|[Centralizovat, pochopit a ovládat vaše zařízení celý ekosystém](https://go.microsoft.com/fwlink/?linkid=863521).|
+|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) je moderní platforma pro správu výkonu, zpětné vazby v reálném čase a nastavení cílů. Jsme umožnit zaměstnancům jednotky vlastní vývoj, může být více strategické.|
+|CybSafe|OpenID Connect & OAuth|CybSafe je platforma pro certifikaci GCHQ internetový sledování. Pokročilé technologie a analýzy dat používá ke snížení prokazatelně lidského aspektů zabezpečení internetový a riziko ochrany dat.|
+|WebHR|OpenID Connect & OAuth|Všech uživatelů oblíbených sociálních HR vše v jednom Software. Důvěryhodná přes 20 000 společnosti 197 zemí|
+ |Integrace se službou AD Zenegy Azure|OpenID Connect & OAuth|S touto aplikací slouží k přihlášení do Zenegy přihlašovacích údajů Azure Active Directory vaší společnosti.|
+|Adobe činnost správce|SAML 2.0|Adobe prostředí správce (AEM) je řešení komplexní správu obsahu platforma pro vytváření webů, mobilní aplikace a formulářů – což usnadňuje správu marketing obsah a prostředky.|
+
+ 
+---
+ 
+
+### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Pracovní postupy schválení pro role adresář Azure AD
+
+**Typ:** změněné funkce  
+**Kategorie služby:** Privileged Identity Management  
+**Schopnosti produktu:** Privileged Identity Management
+ 
+Pracovní postup schválení pro role adresář Azure AD je všeobecně dostupná.
+
+S pracovní postup schválení privilegované role správců může vyžadovat, že členy role oprávněné žádosti o aktivaci role předtím, než můžete používat privilegované role.
+Několik uživatelů a skupin může být delegované schválení odpovědnosti členy role vhodné dostávat oznámení po dokončení a jejich role je aktivní schválení
+
+---
+ 
+
+### <a name="pass-through-authentication---skype-for-business-support"></a>Předávací ověřování – Skype pro firmy podpory
+
+**Typ:** změněné funkce  
+**Kategorie služby:** ověřování (přihlášení)  
+**Schopnosti produktu:** ověření uživatele
+
+
+Předávací ověřování nyní podporuje uživatelská přihlášení ke Skypu pro firmy klientských aplikací, které podporují moderní ověřování, včetně Online a hybridní topologie. 
+
+Další informace najdete v tématu [Skype pro firmy topologie podporována s moderním ověřováním](https://technet.microsoft.com/library/mt803262.aspx).
+ 
+---
+ 
+
+### <a name="updates-to-azure-active-directory-privileged-identity-management-pim-for-azure-rbac-preview"></a>Aktualizace k Azure Active Directory Privileged Identity Management (PIM) pro RBAC Azure (preview)
+
+**Typ:** změněné funkce  
+**Kategorie služby:** PIM  
+**Schopnosti produktu:** Privileged Identity Management
+ 
+S naše veřejné Preview aktualizovat z Azure Active Directory Privileged Identity Management (PIM) pro Azure RBAC, můžete provádět následující akce:
+
+Dostatečně Správa právě vyžadovat schválení použijte k aktivaci role prostředků naplánovat budoucí aktivace role, který vyžaduje schválení pro obě AAD a role RBAC Azure
+
+ 
+Další informace najdete v tématu [PIM pro prostředky Azure (Preview)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+
+ 
+---
+ 
 ## <a name="november-2017"></a>2017 listopadu
  
 ### <a name="retiring-acs"></a>Vyřazení služby ACS
@@ -513,6 +670,6 @@ Balíčku kumulativní opravy hotfix (sestavení 4.4.1642.0) je k dispozici od 2
 - Je kumulativní aktualizace, který nahrazuje všechny aktualizace MIM 2016 SP1 až 4.4.1459.0 sestavení pro Microsoft Identity Manager 2016. 
 - Vyžaduje, abyste měli **4.4.1302.0 sestavení Microsoft Identity Manager 2016.** 
 
-Další informace najdete v tématu [balíčku kumulativní opravy Hotfix (sestavení 4.4.1642.0) je k dispozici pro Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/en-us/help/4021562). 
+Další informace najdete v tématu [balíčku kumulativní opravy Hotfix (sestavení 4.4.1642.0) je k dispozici pro Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/help/4021562). 
 
 ---

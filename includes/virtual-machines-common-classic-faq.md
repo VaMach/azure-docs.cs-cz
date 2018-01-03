@@ -96,7 +96,7 @@ Azure nabízí několik možností antivirových řešení, ale jejich správa j
 * [Nasazování antimalwarových řešení na virtuálních počítačích Azure](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Jaké mám možnosti zálohování a obnovení?
-V určitých oblastech je dostupná služba Azure Backup jako verze Preview. Podrobnosti najdete v článku [Zálohování virtuálních počítačů Azure](../articles/backup/backup-azure-vms.md). Další řešení jsou k dispozici od certifikovaných partnerů. Pokud chcete zjistit, co je právě k dispozici, prohledejte web Azure Marketplace.
+V určitých oblastech je dostupná služba Azure Backup jako verze Preview. Podrobnosti najdete v článku [Zálohování virtuálních počítačů Azure](../articles/backup/backup-azure-arm-vms.md). Další řešení jsou k dispozici od certifikovaných partnerů. Pokud chcete zjistit, co je právě k dispozici, prohledejte web Azure Marketplace.
 
 Další možností je využít možnosti snímků úložiště objektů blob. Pokud to chcete provést, před každou operací, která se spoléhá na snímek objektu blob, budete muset vypnout virtuální počítač. Tím se uloží probíhající zápisy dat a systém souborů přejde do konzistentního stavu.
 
@@ -122,7 +122,7 @@ Také můžete portál Azure nebo Azure PowerShell k zobrazení protokolů resta
 
 Pokud chcete zajistit redundanci, umístěte do stejné skupiny dostupnosti dva nebo více podobně nakonfigurovaných virtuálních počítačů. Tím pomůžete zajistit, že během plánované nebo neplánované údržby bude dostupný alespoň jeden virtuální počítač. Azure pro tuto konfiguraci zaručuje určité úrovně dostupnosti virtuálních počítačů. Podrobnosti najdete v článku [Správa dostupnosti virtuálních počítačů](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 [Informace o virtuálních počítačích Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
 
 [Vytvoření a správa virtuálních počítačů s Linuxem pomocí Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

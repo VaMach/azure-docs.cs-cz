@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Vytvoření metriky výstrah v monitorování Azure pro služby Azure – portál Azure
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Můžete nakonfigurovat metriky výstrahu při aktivaci, proveďte následujíc�
 
 Můžete nakonfigurovat a získat informace o použití metriky pravidla výstrah
 
-* [Azure Portal](insights-alerts-portal.md)
+* [portál Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [rozhraní příkazového řádku (CLI)](insights-alerts-command-line-interface.md)
 * [Rozhraní API REST Azure monitorování](https://msdn.microsoft.com/library/azure/dn931945.aspx)

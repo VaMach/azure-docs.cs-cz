@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
 ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Spravovat konec platnosti úložiště objektů Azure Blob v Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Nastavení mezipaměti na portálu Azure můžete také ovládat nastavením [CD
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Nastavení hlavičky Cache-Control pomocí prostředí Azure PowerShell
 [Prostředí Azure PowerShell](/powershell/azure/overview) je jedním z nejrychlejší a nejúčinnějších způsobů, jak spravovat služeb Azure. Použití `Get-AzureStorageBlob` rutiny odkazovat na objekt blob, nastavte `.ICloudBlob.Properties.CacheControl` vlastnost. 
 
-Například:
+Příklad:
 
 ```powershell
 # Create a storage context
@@ -66,7 +66,7 @@ $blob.ICloudBlob.SetProperties()
 ## <a name="setting-cache-control-headers-by-using-net"></a>Nastavení hlavičky Cache-Control pomocí rozhraní .NET
 Nastavit objekt blob `Cache-Control` záhlaví pomocí rozhraní .NET kódu, použijte [Klientská knihovna pro úložiště Azure pro .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) nastavit [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) vlastnost.
 
-Například:
+Příklad:
 
 ```csharp
 class Program

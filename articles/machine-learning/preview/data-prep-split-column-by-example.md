@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="split-column-by-example-transformation"></a>Rozdělit sloupec podle příkladu transformace
 Tato transformace predictively rozdělí obsah sloupce na smysluplný hranicích bez zásahu uživatele. Algoritmus rozdělení vybere hranice po analýze obsahu sloupce. Může být definovaná tyto hranice
@@ -97,16 +97,16 @@ Hodnoty v následujícím *časování* sloupec získat predictively rozdělit n
 
 |Timings_1|Timings_2|Timings_3|Timings_4|Timings_5|Timings_6|Timings_7|Timings_8|Timings_9|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
-|Pondělí|Pátek|7:00:00|18:00:00|Sobota|9:00|17:00:00|Neděle|uzavřený|
-|Pondělí|Pátek|9:00|18:00:00|Sobota|4:00:00|4:00 pm|Neděle|uzavřený|
-|Pondělí|Pátek|8:30:00|19:00:00|Sobota|3:00:00|14:30:00|Neděle|uzavřený|
-|Pondělí|Pátek|8:00:00|18:00:00|Sobota|2:00:00|3:00 pm|Neděle|uzavřený|
-|Pondělí|Pátek|4:00:00|19:00:00|Sobota|9:00|4:00 pm|Neděle|uzavřený|
-|Pondělí|Pátek|8:30:00|4:30 pm|Sobota|9:00|17:00:00|Neděle|uzavřený|
-|Pondělí|Pátek|5:30:00|18:30:00|Sobota|5:00:00|4:00 pm|Neděle|uzavřený|
-|Pondělí|Pátek|8:30:00|20:30:00|Sobota|6:00:00|17:00:00|Neděle|uzavřený|
-|Pondělí|Pátek|8:00:00|21:00:00|Sobota|9:00|8:00 pm|Neděle|uzavřený|
-|Pondělí|Pátek|10:00 am|9:30 pm|Sobota|9:30:00|3:00 pm|Neděle|uzavřený|
+|Pondělí|Pátek|7:00:00|18:00:00|Sobota|9:00|17:00:00|Neděle|Uzavřeno|
+|Pondělí|Pátek|9:00|18:00:00|Sobota|4:00:00|4:00 pm|Neděle|Uzavřeno|
+|Pondělí|Pátek|8:30:00|19:00:00|Sobota|3:00:00|14:30:00|Neděle|Uzavřeno|
+|Pondělí|Pátek|8:00:00|18:00:00|Sobota|2:00:00|3:00 pm|Neděle|Uzavřeno|
+|Pondělí|Pátek|4:00:00|19:00:00|Sobota|9:00|4:00 pm|Neděle|Uzavřeno|
+|Pondělí|Pátek|8:30:00|4:30 pm|Sobota|9:00|17:00:00|Neděle|Uzavřeno|
+|Pondělí|Pátek|5:30:00|18:30:00|Sobota|5:00:00|4:00 pm|Neděle|Uzavřeno|
+|Pondělí|Pátek|8:30:00|20:30:00|Sobota|6:00:00|17:00:00|Neděle|Uzavřeno|
+|Pondělí|Pátek|8:00:00|21:00:00|Sobota|9:00|8:00 pm|Neděle|Uzavřeno|
+|Pondělí|Pátek|10:00 am|9:30 pm|Sobota|9:30:00|3:00 pm|Neděle|Uzavřeno|
 
 ### <a name="splitting-iis-log"></a>Rozdělení protokolu služby IIS
 

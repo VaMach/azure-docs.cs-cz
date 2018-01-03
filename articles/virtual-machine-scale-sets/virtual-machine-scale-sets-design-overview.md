@@ -5,7 +5,7 @@ keywords: "virtuální počítač Linux, sadách škálování virtuálních po�
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
@@ -16,21 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 0b05359938f4da544c4cb2a6fe60cfaf228478e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="design-considerations-for-scale-sets"></a>Aspekty návrhu pro sady škálování
-Toto téma popisuje aspekty návrhu pro sady škálování virtuálního počítače. Informace o tom, co jsou sady škálování virtuálního počítače, najdete v části [Přehled sady škálování virtuálních počítačů](virtual-machine-scale-sets-overview.md).
+Tento článek popisuje aspekty návrhu pro sady škálování virtuálního počítače. Informace o tom, co jsou sady škálování virtuálního počítače, najdete v části [Přehled sady škálování virtuálních počítačů](virtual-machine-scale-sets-overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Kdy použít měřítko nastaví místo virtuální počítače?
-Obecně platí škálovatelné sady jsou užitečné pro nasazení infrastruktury s vysokou dostupností kde sada počítačů mají podobné konfigurace. Ale některé funkce jsou k dispozici pouze v sadách škálování při další funkce jsou dostupné jen ve virtuálních počítačích. Chcete-li provést informované rozhodnutí o tom, kdy používat jednotlivé technologie, jsme měli nejdřív podívejte se na některé z běžně používané funkcí, které jsou k dispozici v sady škálování, ale není virtuální počítače:
+Obecně platí škálovatelné sady jsou užitečné pro nasazení infrastruktury s vysokou dostupností kde sada počítačů mají podobné konfigurace. Ale některé funkce jsou k dispozici pouze v sadách škálování při další funkce jsou dostupné jen ve virtuálních počítačích. Chcete-li provést informované rozhodnutí o tom, kdy používat jednotlivé technologie, byste měli vzít první podívejte se na některé z běžně používané funkcí, které jsou k dispozici v sady škálování, ale není virtuální počítače:
 
 ### <a name="scale-set-specific-features"></a>Funkce specifické pro sadu škálování
 
-- Jakmile určíte, že měřítka nastavit konfiguraci, můžete jednoduše aktualizovat vlastnost "kapacitou" nasadit více virtuálních počítačů současně. Toto je mnohem jednodušší než psaní skriptu k orchestraci nasazení hodně jednotlivých virtuálních počítačů současně.
+- Jakmile určíte, že měřítka nastavit konfiguraci, můžete aktualizovat vlastnost "kapacitou" nasadit více virtuálních počítačů současně. Toto je mnohem jednodušší než psaní skriptu k orchestraci nasazení hodně jednotlivých virtuálních počítačů současně.
 - Můžete [používat automatické škálování Azure automaticky škálovat škálovací sadu](./virtual-machine-scale-sets-autoscale-overview.md) , ale ne jednotlivé virtuální počítače.
 - Můžete [obnovení z Image škálovací sady virtuálních počítačů](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) ale [není jednotlivé virtuální počítače](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 - Můžete [overprovision](./virtual-machine-scale-sets-design-overview.md) sady škálování virtuálních počítačů pro větší spolehlivost a rychlejší nasazení časy. Provést nelze s jednotlivé virtuální počítače Pokud psát vlastní kód, chcete-li to provést.
@@ -38,14 +38,14 @@ Obecně platí škálovatelné sady jsou užitečné pro nasazení infrastruktur
 
 ### <a name="vm-specific-features"></a>Funkce specifické pro virtuální počítač
 
-Na druhé straně, některé funkce jsou k dispozici pouze ve virtuálních počítačích (alespoň prozatím):
+Některé funkce jsou aktuálně k dispozici pouze ve virtuálních počítačích:
 
 - Datové disky můžete přiřadit konkrétní jednotlivé virtuální počítače, ale připojené datové disky jsou nakonfigurovány pro všechny virtuální počítače ve škálovací sadě.
 - Neprázdný datových disků můžete připojit k jednotlivé virtuální počítače, ale není virtuální počítače ve škálovací sadě.
 - Můžete snímek konkrétního virtuálního počítače, ale ne virtuální počítač ve škálovací sadě.
 - Můžete zaznamenat bitovou kopii z konkrétního virtuálního počítače, ale ne z virtuálního počítače ve škálovací sadě.
 - Konkrétního virtuálního počítače můžete migrovat z nativních discích spravovaných disky, ale provést nelze pro virtuální počítače ve škálovací sadě.
-- Můžete přiřadit veřejné IP adresy IPv6 pro jednotlivé síťové adaptéry virtuálních počítačů, ale nelze učinit pro virtuální počítače ve škálovací sadě. Všimněte si, že je možné přiřadit IPv6 veřejné IP adresy pro před buď jednotlivé virtuální počítače Vyrovnávání zatížení nebo škálovací sady virtuálních počítačů.
+- Můžete přiřadit veřejné IP adresy IPv6 pro jednotlivé síťové adaptéry virtuálních počítačů, ale nelze učinit pro virtuální počítače ve škálovací sadě. Je možné přiřadit IPv6 veřejné IP adresy pro před buď jednotlivé virtuální počítače Vyrovnávání zatížení nebo škálovací sady virtuálních počítačů.
 
 ## <a name="storage"></a>Úložiště
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
 ms.openlocfilehash: fd90c63baaf254f5086cbc99a2a22d61587ee365
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Použití dynamické šifrování AES-128 a doručení klíče služby
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ ms.lasthandoff: 12/18/2017
 > 
 
 > [!NOTE]
-> Získat nejnovější verzi sady Java SDK a začít s vývojem v jazyce Java, najdete v tématu [Začínáme s klientem nástroje Java SDK pro Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Chcete-li stáhnout nejnovější PHP SDK pro Media Services, vyhledejte verze 0.5.7 balíčku Microsoft/WindowAzure v [Packagist úložiště](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Pokud chcete získat nejnovější verzi sady Java SDK a začít s vývojem v jazyce Java, přečtěte si článek [Začínáme s klientskou sadou Java SDK pro Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Pokud si chcete stáhnout nejnovější sadu PHP SDK pro službu Media Services, najděte si v [úložišti Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7) balíček Microsoft/WindowsAzure verze 0.5.7.  
 
 ## <a name="overview"></a>Přehled
 > [!NOTE]
@@ -69,7 +69,7 @@ Následující obrázek znázorňuje pracovní postup popsaný výše. Zde se k 
 
 ![Ochrana pomocí AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
-Zbývající část tohoto článku poskytuje podrobné vysvětlení, ukázky kódu a odkazy na témata, které ukazují, jak dokončit výše popsané úlohy.
+Zbývající část tohoto článku poskytuje podrobné vysvětlení, příklady kódu a odkazy na témata, která ukazují, jak dokončit výše popsané úlohy.
 
 ## <a name="current-limitations"></a>Aktuální omezení
 Pokud přidáte nebo aktualizujete zásady pro doručení assetu, musíte odstranit stávající lokátor (pokud existuje) a vytvořit nový.
@@ -80,7 +80,7 @@ Aby bylo možné spravovat, kódovat a streamovat videa, musíte nejprve nahrát
 Podrobné informace najdete v článku o [nahrání souborů do účtu služby Media Services](media-services-dotnet-upload-files.md).
 
 ## <a id="encode_asset"></a>Zakódujte asset obsahující soubor s adaptivní přenosovou rychlostí sady souborů MP4
-V případě dynamického šifrování všech, musíte je vytvořit asset, který obsahuje sadu souborů MP4 s více přenosovými rychlostmi nebo zdrojové soubory technologie Smooth Streaming více přenosovými rychlostmi. Pak na základě zadaného formátu v požadavku manifest nebo fragmentu streamingu na vyžádání serveru zajistí datový proud obdrželi v protokolu, kterou jste vybrali. Díky tomu pak stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services bude sestavovat a dodávat vhodný formát streamování v reakci na požadavky klientů. Další informace najdete v tématu [přehled dynamického balení](media-services-dynamic-packaging-overview.md) článku.
+V případě dynamického šifrování je třeba pouze vytvořit asset, který obsahuje sadu souborů MP4 s více přenosovými rychlostmi nebo zdrojové soubory technologie Smooth Streaming s více přenosovými rychlostmi. Pak na základě zadaného formátu v požadavku manifest nebo fragmentu streamingu na vyžádání serveru zajistí datový proud obdrželi v protokolu, kterou jste vybrali. Díky tomu pak stačí uložit (a platit) soubory pouze v jednom úložném formátu a služba Media Services bude sestavovat a dodávat vhodný formát streamování v reakci na požadavky klientů. Další informace najdete v článku [Přehled dynamického balení](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
 >Po vytvoření účtu AMS se do vašeho účtu přidá **výchozí** koncový bod streamování ve stavu **Zastaveno**. Pokud chcete spustit streamování vašeho obsahu a využít výhod dynamického balení a dynamického šifrování, musí koncový bod streamování, ze kterého chcete streamovat obsah, být ve stavu **Spuštěno**. 
@@ -242,7 +242,7 @@ Následující kód ukazuje, jak odeslat žádost o doručení klíče službě 
 Přepište kód v souboru Program.cs kódem zobrazeným v této části.
  
 >[!NOTE]
->Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v tématu [to](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
+>Je stanovený limit 1 000 000 různých zásad AMS (třeba zásady lokátoru nebo ContentKeyAuthorizationPolicy). Pokud vždy používáte stejné dny / přístupová oprávnění, například zásady pro lokátory, které mají zůstat na místě po dlouhou dobu (zásady bez odeslání), měli byste použít stejné ID zásad. Další informace najdete v [tomto](media-services-dotnet-manage-entities.md#limit-access-policies) článku.
 
 Nezapomeňte aktualizovat proměnné tak, aby odkazovaly do složek, ve kterých jsou umístěné vaše vstupní soubory.
 

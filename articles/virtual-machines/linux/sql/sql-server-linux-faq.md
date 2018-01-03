@@ -13,10 +13,10 @@ ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
 ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Nejčastější dotazy pro SQL Server na virtuálních počítačích Linux Azure
 
@@ -91,7 +91,7 @@ Tento článek obsahuje odpovědi na některé nejčastější dotazy o spuště
 
    V tuto chvíli to není možné. Skupiny dostupnosti Always On i Clustering převzetí služeb při selhání vyžadují clustering řešení v systému Linux, jako je například kardiostimulátor. Podporované distribuce systému Linux pro SQL Server nepodporují jejich doplňky vysoké dostupnosti v cloudu.
 
-## <a name="resources"></a>Zdroje
+## <a name="resources"></a>Zdroje a prostředky
 
 **Virtuální počítače s Linuxem**:
 

@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Vytvoření clusterů HDInsight s Data Lake Store pomocí portálu Azure
 > [!div class="op_single_selector"]
@@ -205,7 +205,7 @@ Spark cluster můžete použít ke spuštění úloh Spark na data, která je ul
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Použití Data Lake Store v topologii Storm
 Data Lake Store můžete použít k zápisu dat ze topologie Storm. Pokyny o tom, jak dosáhnout tento scénář naleznete v tématu [pomocí Azure Data Lake Store s Apache Storm v prostředí HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Použití Data Lake Store s clustery Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Prostředí PowerShell: Vytvoření clusteru HDInsight používat Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: c5257ef5c635080f5eaca371e1882b13cc37e0fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalace a konfigurace Ansible ke správě virtuálních počítačů v Azure
 Tento článek podrobně popisuje postup instalace Ansible a požadované moduly Azure Python SDK pro některé z nejběžnějších distribucích systému Linux. Ansible můžete nainstalovat na jiné distribucích úpravou nainstalované balíčky podle vaší konkrétní platformu. Vytváření prostředků Azure zabezpečeným způsobem, můžete také zjistěte, jak vytvořit a definovat přihlašovací údaje pro Ansible používat. 
@@ -34,7 +34,7 @@ Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/group
 az group create --name myResourceGroupAnsible --location eastus
 ```
 
-Teď vytvořte virtuální počítač a nainstalujte Ansible pro jednu z následujících distribucích:
+Nyní vytvořte virtuální počítač a nainstalujte Ansible pro jednu z následujících distribucích podle vašeho výběru:
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
@@ -43,7 +43,7 @@ Teď vytvořte virtuální počítač a nainstalujte Ansible pro jednu z násled
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#create). Následující příklad vytvoří virtuální počítač s názvem *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -74,7 +74,7 @@ Nyní se přesunout na [přihlašovací údaje Azure vytvořit](#create-azure-cr
 ### <a name="centos-73"></a>CentOS 7.3
 Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#create). Následující příklad vytvoří virtuální počítač s názvem *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -106,7 +106,7 @@ Nyní se přesunout na [přihlašovací údaje Azure vytvořit](#create-azure-cr
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 Vytvořte virtuální počítač pomocí příkazu [az vm create](/cli/azure/vm#create). Následující příklad vytvoří virtuální počítač s názvem *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -125,11 +125,14 @@ Na vašem virtuálním počítači nainstalujte požadované balíčky pro modul
 
 ```bash
 ## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
-    libopenssl-devel libtool python-pip python-setuptools
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
+    python-devel libopenssl-devel libtool python-pip python-setuptools
 
 ## Install Ansible and Azure SDKs via pip
 sudo pip install ansible[azure]
+
+# Remove conflicting Python cryptography package
+sudo pip uninstall -y cryptography
 ```
 
 Nyní se přesunout na [přihlašovací údaje Azure vytvořit](#create-azure-credentials).
@@ -138,26 +141,26 @@ Nyní se přesunout na [přihlašovací údaje Azure vytvořit](#create-azure-cr
 ## <a name="create-azure-credentials"></a>Vytvořit přihlašovací údaje Azure
 Ansible komunikuje se službou Azure pomocí uživatelského jména a hesla nebo hlavní název služby. Objektu zabezpečení služby Azure je identita zabezpečení, která můžete použít s aplikací, služeb a automatizace nástroje, například Ansible. Můžete řídit a definovat oprávnění, jaké operace objektu služby můžete provádět v Azure. Pokud chcete zvýšit zabezpečení přes právě poskytnutí uživatelského jména a hesla, tento příklad vytvoří základní služby hlavní.
 
-Vytvoření služby hlavní s [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#create-for-rbac) a výstupní přihlašovací údaje, které potřebuje Ansible:
+Vytvoření instančního objektu v hostitelském počítači s [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#create-for-rbac) a výstupní přihlašovací údaje, které potřebuje Ansible:
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
 ```
 
 Příklad výstupu z předchozích příkazů vypadá takto:
 
 ```json
-[
-  "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "72f988bf-86f1-41af-91ab-2d7cd011db47"
-]
+{
+  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
+  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 K ověření do Azure, musíte také získat svoje ID předplatného Azure s [az účet zobrazit](/cli/azure/account#show):
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 V dalším kroku použijete výstup z těchto dvou příkazů.
@@ -173,7 +176,7 @@ mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-*Pověření* samotný soubor kombinuje ID předplatného s výstupem vytvoření objektu služby. Výstup z předchozí [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#create-for-rbac) příkaz je stejné pořadí podle potřeby pro *client_id*, *tajný klíč*, a *klienta*. Následující příklad *pověření* soubor znázorňuje tyto hodnoty odpovídající předchozí výstup. Zadejte vlastní hodnoty následujícím způsobem:
+*Pověření* samotný soubor kombinuje ID předplatného s výstupem vytvoření objektu služby. Výstup z předchozí [az ad sp vytvořit pro rbac](/cli/azure/ad/sp#create-for-rbac) příkaz je stejný jako potřebné pro *client_id*, *tajný klíč*, a *klienta*. Následující příklad *pověření* soubor znázorňuje tyto hodnoty odpovídající předchozí výstup. Zadejte vlastní hodnoty následujícím způsobem:
 
 ```bash
 [default]

@@ -4,7 +4,7 @@ description: "Zjistěte, jak přidat vlastní image do stávající šablony sad
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Přidat vlastní image na šablonu sady Azure škálování
 
@@ -27,13 +27,13 @@ Tento článek ukazuje, jak upravit [minimální přijatelná měřítko nastavi
 
 ## <a name="change-the-template-definition"></a>Změna definice šablony
 
-Nakonfigurujte šablonu naše minimální přijatelná škálování si můžete prohlédnout [sem](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), a naše šablony pro nasazení měřítka, nastavte z vlastní image můžete vidět [zde](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Podívejme se na rozdílové použít k vytvoření této šablony (`git diff minimum-viable-scale-set custom-image`) část podle část:
+Nakonfigurujte šablonu minimální přijatelná škálování si můžete prohlédnout [sem](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), a šablony pro nasazení měřítka, nastavte z vlastní image můžete vidět [zde](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Podívejme se na rozdílové použít k vytvoření této šablony (`git diff minimum-viable-scale-set custom-image`) část podle část:
 
 ### <a name="creating-a-managed-disk-image"></a>Vytvoření image spravovaných disků
 
 Pokud již máte vlastní spravovaných disků na obrázku (prostředek typu `Microsoft.Compute/images`), potom můžete tuto část přeskočit.
 
-Nejprve přidáme `sourceImageVhdUri` parametr, který je identifikátor URI pro zobecněný objektu blob ve službě Azure Storage, který obsahuje vlastní image pro nasazení.
+Nejprve přidejte `sourceImageVhdUri` parametr, který je identifikátor URI pro zobecněný objektu blob ve službě Azure Storage, který obsahuje vlastní image pro nasazení.
 
 
 ```diff
@@ -51,7 +51,7 @@ Nejprve přidáme `sourceImageVhdUri` parametr, který je identifikátor URI pro
    "variables": {},
 ```
 
-Potom přidáme prostředek typu `Microsoft.Compute/images`, které je založené na zobecněný umístěné v identifikátoru URI objektu blob bitové kopie spravovaného disku `sourceImageVhdUri`. Tato bitová kopie musí být ve stejné oblasti jako sada škálování, která jej používá. Ve vlastnostech bitovou kopii, určíme typ operačního systému, umístění objektu blob (z `sourceImageVhdUri` parametr) a typ účtu úložiště:
+V dalším kroku přidejte prostředek typu `Microsoft.Compute/images`, které je založené na zobecněný umístěné v identifikátoru URI objektu blob bitové kopie spravovaného disku `sourceImageVhdUri`. Tato bitová kopie musí být ve stejné oblasti jako sada škálování, která jej používá. Vlastnosti bitové kopie, zadejte typ operačního systému, umístění objektu blob (z `sourceImageVhdUri` parametr) a typ účtu úložiště:
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ Potom přidáme prostředek typu `Microsoft.Compute/images`, které je založen�
 
 ```
 
-V měřítka nastavení prostředku, přidáme `dependsOn` klauzule odkazující na vlastní obrázek, který má zkontrolujte, zda se vytvoří před měřítka pokusí nasazení z této bitové kopie:
+V měřítka nastavení prostředku, přidejte `dependsOn` klauzule odkazující na vlastní obrázek, který má zkontrolujte, zda se vytvoří před měřítka pokusí nasazení z této bitové kopie:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -95,7 +95,7 @@ V měřítka nastavení prostředku, přidáme `dependsOn` klauzule odkazující
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Změna měřítka nastavit vlastnosti používat bitovou kopii, spravovaný disku
 
-V `imageReference` měřítka nastavit `storageProfile`, místo zadání vydavatele, nabídky, sku a verzi image platformy, určíme `id` z `Microsoft.Compute/images` prostředků:
+V `imageReference` měřítka nastavit `storageProfile`, místo zadání vydavatele, nabídky, sku, a zadejte verzi image platformy, `id` z `Microsoft.Compute/images` prostředků:
 
 ```diff
          "virtualMachineProfile": {
@@ -111,7 +111,7 @@ V `imageReference` měřítka nastavit `storageProfile`, místo zadání vydavat
            "osProfile": {
 ```
 
-V tomto příkladu používáme `resourceId` funkce získat ID prostředku bitové kopie vytvořené v stejné šablony. Pokud jste vytvořili bitové kopie disku spravované předem, měli byste poskytnout id této bitové kopie. Toto id musí být ve tvaru: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+V tomto příkladu použijte `resourceId` funkce získat ID prostředku bitové kopie vytvořené v stejné šablony. Pokud jste vytvořili bitové kopie disku spravované předem, měli byste poskytnout ID této bitové kopie. Toto ID musí být ve tvaru: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## <a name="next-steps"></a>Další kroky

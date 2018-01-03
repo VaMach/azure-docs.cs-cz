@@ -11,14 +11,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
+ms.topic: reference
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 54bef3e257363300ee1a13f7f45fc983e465ddbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e68e9b4e6432d14c403e3532b934bfad58b35b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Průvodce jazyk specifikace neuronové sítě Net # pro Azure Machine Learning
 ## <a name="overview"></a>Přehled
@@ -86,16 +86,16 @@ Například následující příkaz definuje konstanta **x**:
 
     Const X = 28;  
 
-K definování dvou nebo více konstant současně, uzavřete identifikátor názvy a hodnoty do složených závorek a oddělte je středníky. Například:  
+K definování dvou nebo více konstant současně, uzavřete identifikátor názvy a hodnoty do složených závorek a oddělte je středníky. Příklad:  
 
     Const { X = 28; Y = 4; }  
 
-Na pravé straně každý přiřazení výraz může být celé číslo, reálné číslo, logickou hodnotu (True nebo False) nebo matematickém výrazu. Například:  
+Na pravé straně každý přiřazení výraz může být celé číslo, reálné číslo, logickou hodnotu (True nebo False) nebo matematickém výrazu. Příklad:  
 
     Const { X = 17 * 2; Y = true; }  
 
 ## <a name="layer-declaration"></a>Deklarace vrstvy
-Je nutná deklarace vrstvy. Určuje velikost a zdroj vrstvy, včetně sady připojení a atributy. Příkaz deklarace začíná název vrstvy (vstup, skrytá nebo výstupní), za nímž následuje dimenze vrstvy (řazená kolekce členů kladná celá čísla). Například:  
+Je nutná deklarace vrstvy. Určuje velikost a zdroj vrstvy, včetně sady připojení a atributy. Příkaz deklarace začíná název vrstvy (vstup, skrytá nebo výstupní), za nímž následuje dimenze vrstvy (řazená kolekce členů kladná celá čísla). Příklad:  
 
     input Data auto;
     hidden Hidden[5,20] from Data all;

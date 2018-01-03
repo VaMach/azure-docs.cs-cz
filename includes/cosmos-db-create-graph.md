@@ -4,14 +4,13 @@ Teď můžete pomocí nástroje Průzkumník dat na webu Azure Portal vytvořit 
 
 2. V části **Data Explorer (Preview)**, vyberte **nový graf**. Pak zadejte na stránce pomocí následující informace:
 
-    ![Průzkumník dat na webu Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+    ![Průzkumník dat na portálu Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
     Nastavení|Navrhovaná hodnota|Popis
     ---|---|---
-    ID databáze|sample-database|Zadejte *ukázkové databáze* jako název nové databáze. Názvy databází musí být v rozmezí 1 až 255 znaků a nesmí obsahovat `/ \ # ?` nebo koncové mezery.
-    ID grafu|sample-graph|Zadejte *Ukázka grafu* jako název nové kolekce. Názvy grafu mají stejné požadavky znak jako ID databáze.
+    ID databáze|sample-database|Jako název nové databáze zadejte *sample-database*. Názvy databází musí být v rozmezí 1 až 255 znaků a nesmí obsahovat `/ \ # ?` nebo koncové mezery.
+    ID grafu|sample-graph|Jako název nové kolekce zadejte *sample-graph*. Názvy grafů mají stejné požadavky na znaky jako ID databází.
     Kapacita úložiště| 10 GB|Nechte zadanou výchozí hodnotu. Tohle je kapacita úložiště databáze.
     Propustnost|400 RU/s|Nechte zadanou výchozí hodnotu. Propustnost můžete později navýšit, pokud budete chtít snížit latenci.
-    Klíč oddílu|/FirstName|Klíč oddílu, který rovnoměrně distribuuje data do jednotlivých oddílů. Výběr klíč správné oddílu je důležité při vytváření původce grafu. Další informace najdete v tématu [návrh a vytváření oddílů](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
 3. Když je formulář vyplnit, vyberte **OK**.

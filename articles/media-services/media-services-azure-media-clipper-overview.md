@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Vytvoření klipů pomocí Azure Media výřez
 Azure Media výřez je volné knihovna JavaScript, která umožňuje vývojářům webů jejich uživatelům poskytnout rozhraní pro vytváření klipů média. Tento nástroj lze integrovat do žádné webové stránce a poskytuje rozhraní API pro načítání prostředků a odesílání úloh výstřižek.
@@ -29,7 +29,7 @@ Azure Media výřez umožňuje:
 
 Chcete-li požádat o nové funkce, zadejte nápady nebo připomínky, odeslání [UserVoice pro službu Azure Media Services](http://aka.ms/amsvoice/). Pokud máte a konkrétní problémy, dotazy nebo najít žádné chyby, vyřaďte Media Services team řádek v amcinfo@microsoft.com.
 
-Následující obrázek ukazuje rozhraní výřez: ![výřez médií Azure](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+Následující obrázek ukazuje rozhraní výřez: ![výřez médií Azure](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)
 
 ## <a name="release-notes"></a>Poznámky k verzi
 Najdete v příspěvku blogu výřez různé známé problémy a protokol změn pro nejnovější verzi výřez v následujícím seznamu:
@@ -53,20 +53,20 @@ Azure Media výřez je sestaven pomocí moderní technologie HTML5 a podporuje n
 Pomůcka výřez je k dispozici v těchto jazycích 18:
 - Čínština (zjednodušená)
 - Čínština (tradiční)
-- čeština
+- Čeština
 - Holandština Vlamska verze
 - Angličtina
-- francouzština
-- němčina
-- maďarština
+- Francouzština
+- Němčina
+- Maďarština
 - italština
-- japonština
-- korejština
+- Japonština
+- Korejština
 - polština
 - Portugalština (Brazílie)
 - Portugalština (Portugalsko)
 - ruština
-- španělština
+- Španělština
 - švédština
 - turečtina
 

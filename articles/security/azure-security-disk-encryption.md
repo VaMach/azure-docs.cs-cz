@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: 4c2d3ba72b768e21a027478dfe912689457049fd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0ed575283807137f60eca005262cff27388c140f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption pro systém Windows a virtuálních počítačů Linux IaaS
 Microsoft Azure se důrazně zaměřuje na zajištění ochrany osobních údajů, suverenity data a umožňuje vám řízení vaší Azure hostované data prostřednictvím řadu pokročilých technologiích k šifrování, řídit a spravovat šifrovací klíče, řízení a audit přístupu k datům. To poskytuje Azure zákazníkům flexibilitu zvolit si řešení, které nejlépe vyhovuje potřebám své firmy. V tomto dokumentu jsme vás seznámí s nové řešení technologie "Azure Disk Encryption pro systém Windows a Linux IaaS virtuálního počítače je" k ochraně a ochranu dat, aby splňovaly vaše organizace zabezpečení a dodržování předpisů závazky. Dokumentu poskytuje podrobné pokyny k použití funkcí Azure disk encryption, včetně Podporované scénáře a uživatel dojde.
@@ -851,7 +851,7 @@ Použití [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx) 
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-Než restartujete, doporučujeme, abyste uložili [spouštění diagnostiky](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/) virtuálního počítače.
+Než restartujete, doporučujeme, abyste uložili [spouštění diagnostiky](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) virtuálního počítače.
 
 #### <a name="monitoring-os-encryption-progress"></a>Sledování průběhu šifrování operačního systému
 Můžete sledovat průběh šifrování OS třemi způsoby:
@@ -885,7 +885,7 @@ Můžete sledovat průběh šifrování OS třemi způsoby:
 
  ![Zobrazení Instance virtuálního počítače](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-* Podívejte se na [spouštění diagnostiky](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/). Zprávy z rozšíření ADE by měla obsahovat předponu s `[AzureDiskEncryption]`.
+* Podívejte se na [spouštění diagnostiky](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Zprávy z rozšíření ADE by měla obsahovat předponu s `[AzureDiskEncryption]`.
 
 * Přihlaste se k virtuálnímu počítači pomocí protokolu SSH a získat rozšíření protokolu z:
 
@@ -917,7 +917,7 @@ Konfigurace šifrování během instalace distribučního následujícím způso
 
  ![Instalační program Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Příprava virtuálního počítače pro odesílání do Azure pomocí [tyto pokyny](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Nespouštějte poslední krok (zrušení zřízení virtuálního počítače) ještě.
+6. Příprava virtuálního počítače pro odesílání do Azure pomocí [tyto pokyny](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Nespouštějte poslední krok (zrušení zřízení virtuálního počítače) ještě.
 
 Konfigurace šifrování pro práci s Azure následujícím způsobem:
 
@@ -995,7 +995,7 @@ Pokud chcete konfigurovat šifrování během instalace distribučního, postupu
 
  ![Instalační program openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Příprava virtuálního počítače chcete nahrát do Azure podle pokynů v [Příprava virtuálního počítače, SLES nebo openSUSE pro Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Nespouštějte poslední krok (zrušení zřízení virtuálního počítače) ještě.
+3. Příprava virtuálního počítače chcete nahrát do Azure podle pokynů v [Příprava virtuálního počítače, SLES nebo openSUSE pro Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Nespouštějte poslední krok (zrušení zřízení virtuálního počítače) ještě.
 
 Konfigurace šifrování pro práci s Azure, postupujte takto:
 1. Upravit /etc/dracut.conf a přidejte následující řádek:
@@ -1071,7 +1071,7 @@ Pokud chcete konfigurovat šifrování během instalace distribučního, postupu
 
  ![Instalační program centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5. Příprava virtuálního počítače pro odesílání do Azure podle pokynů "CentOS 7.0 +" v [Příprava virtuálního počítače, na základě CentOS pro Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Nespouštějte poslední krok (zrušení zřízení virtuálního počítače) ještě.
+5. Příprava virtuálního počítače pro odesílání do Azure podle pokynů "CentOS 7.0 +" v [Příprava virtuálního počítače, na základě CentOS pro Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Nespouštějte poslední krok (zrušení zřízení virtuálního počítače) ještě.
 
 6. Teď můžete zrušení zřízení virtuálního počítače a [nahrát svůj disk VHD](#upload-encrypted-vhd-to-an-azure-storage-account) do Azure.
 

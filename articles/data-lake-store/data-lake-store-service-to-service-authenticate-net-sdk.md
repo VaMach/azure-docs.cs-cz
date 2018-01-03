@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: c336cda6f3af4e2a4647371458b2db3e97917105
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Service-to-service ověřování s Data Lake Store pomocí sady .NET SDK
 > [!div class="op_single_selector"]
@@ -47,8 +47,8 @@ V tomto článku se dozvíte o tom, jak používat sadu .NET SDK udělat service
    | --- | --- |
    | Kategorie |Šablony/Visual C#/Windows |
    | Šablona |Konzolová aplikace |
-   | Name (Název) |VytvořeníAplikaceADL |
-4. Kliknutím na tlačítko **OK** vytvořte projekt.
+   | Název |VytvořeníAplikaceADL |
+4. Projekt vytvoříte kliknutím na **OK**.
 
 5. Přidejte do projektu balíčky NuGet.
 

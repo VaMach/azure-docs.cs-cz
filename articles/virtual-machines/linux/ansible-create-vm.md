@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Vytvoření základního virtuálního počítače v Azure pomocí Ansible
 Ansible umožňuje automatizovat nasazení a konfigurace prostředků ve vašem prostředí. Ansible můžete použít ke správě virtuálních počítačů (VM) v Azure, stejně jako jiný prostředek. Tento článek ukazuje, jak vytvořit základní virtuální počítač s Ansible. Můžete si také přečíst postup [vytvořit úplný prostředí virtuálních počítačů s Ansible](ansible-create-complete-vm.md).
@@ -37,7 +37,7 @@ Ke správě prostředků Azure s Ansible, budete potřebovat následující:
 
 
 ## <a name="create-supporting-azure-resources"></a>Vytvoření Podpora prostředků Azure
-V tomto příkladu vytvoříme sadu runbook, která nasadí virtuální počítač do existující infrastruktury. Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/vm#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *eastus* umístění:
+V tomto příkladu vytvoříte sadu runbook, která nasadí virtuální počítač do existující infrastruktury. Nejprve vytvořte skupinu prostředků s [vytvořit skupinu az](/cli/azure/vm#create). Následující příklad vytvoří skupinu prostředků s názvem *myResourceGroup* v *eastus* umístění:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -56,7 +56,7 @@ az network vnet create \
 
 
 ## <a name="create-and-run-ansible-playbook"></a>Vytvoření a spuštění Ansible playbook
-Vytvoření Ansible playbook s názvem **azure_create_vm.yml** a vložte následující obsah. Tento příklad vytvoří jeden virtuální počítač a nakonfiguruje pověření SSH. Zadejte svoje vlastní veřejného klíče data v *key_data* spárujte následujícím způsobem:
+Vytvoření Ansible playbook s názvem *azure_create_vm.yml* a vložte následující obsah. Tento příklad vytvoří jeden virtuální počítač a nakonfiguruje pověření SSH. Zadejte svoje vlastní dokončení veřejného klíče data v *key_data* spárujte následujícím způsobem:
 
 ```yaml
 - name: Create Azure VM

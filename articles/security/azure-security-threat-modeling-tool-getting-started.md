@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Začínáme s nástrojem modelování hrozeb
 
@@ -29,13 +29,13 @@ Tento článek je založený na stávajících znalostí threat SDL modelování
 
 Rychle Shrneme, přístupu vyžaduje vytváření diagram, identifikace hrozeb, jejich zmírnění a ověření každého zmírnění dopadů. Zde je diagram, který označuje tento proces:
 
-![Proces SDL](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![Proces SDL](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>Spouštění riziko, že proces modelování
 
 Když spustíte nástroj modelování hrozeb, můžete si všimnout pár věcí, jak je vidět na obrázku:
 
-![Prázdné úvodní stránky](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Prázdné úvodní stránky](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>Část model hrozeb
 
@@ -70,7 +70,7 @@ Se budou prostřednictvím procesu vývoje jejich první model hrozeb.
 > Cristina: absolutně. Podívejme se.
 > Richard otevře nástroj a sdílí s Cristina jeho obrazovka.
 
-![Model základní hrozeb](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Model základní hrozeb](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: Ok, vypadá jasné, ale můžete je provede mi ji?
 > Richard: zda! Tady je rozdělení:
@@ -89,17 +89,17 @@ Jakmile klikne na pohledu analýzy z výběru nabídky ikona (soubor s ikonou lu
 
 Tento přístup je jako zabezpečení domu tím zajistí každé dveře a okna Blokovací mechanizmus má zavedené před přidáním poplašný systém nebo následné dotazy po zloděj.
 
-![Základní hrozeb](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![Základní hrozeb](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Richard začne výběrem první položku v seznamu. Stane se toto:
 
 Nejprve je vylepšená interakce mezi dvěma vzorníky
 
-![Interakce](./media/azure-security-threat-modeling-tool/interaction.png)
+![Interakce](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 Druhý, další informace o riziko, že se zobrazí v okně vlastností hrozeb
 
-![Informace o interakci](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![Informace o interakci](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 Riziko, že generovaný pomůže mu pochopit potenciální chyby v návrhu. STRIDE kategorizaci mu poskytuje představu na potenciální Vektorům útoku, zatímco další popis mu říkají, přesně co je nesprávný, společně s možné způsoby, jak ji zmírnit. Upravitelné pole kterou může použít k zápisu poznámky v podrobnostech zarovnání do bloku nebo změnit prioritu hodnocení v závislosti na jeho organizace chyb panelu.
 
@@ -116,7 +116,7 @@ Nevztahuje se na návrhu z důvodu zabezpečení nebo existující jejich zmírn
 
 Jakmile Richard prochází seznam s Cristina a přidá důležité poznámky, jejich zmírnění nebo důkazy, prioritu a změny stavu, he vybere sestavy -> vytvořit úplná sestava -> Uložit sestavu, která vytiskne sestavu dobrý pro mu projít s kolegy aby fungoval správně zabezpečeny je implementováno.
 
-![Informace o interakci](./media/azure-security-threat-modeling-tool/report.png)
+![Informace o interakci](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 Pokud Richard chce sdílet souboru místo toho, mohl snadno to provedete lze uložit v účtu OneDrive jeho organizace. Jakmile se provede, který, mohl zkopírujte odkaz dokumentu a sdílet s jeho kolegové. 
 

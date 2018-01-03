@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 1c9e100b4a0e7781f0782a49835d50492895ded1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Použití Distcp ke kopírování dat mezi objekty blob Azure Storage a službou Data Lake Store
 > [!div class="op_single_selector"]
@@ -114,7 +114,7 @@ Pokud je velikost datové sady se přesune velké (například > 1 TB) nebo poku
  
 * Pokud kopírujete z účtu úložiště objektů Blob Azure, může vaše úlohu kopírování omezeny na straně úložiště objektů blob. To snižuje výkon kopírování úlohy. Další informace o omezení Azure Blob Storage najdete v tématu omezení Azure Storage v [předplatného Azure a omezení služby](../azure-subscription-service-limits.md).
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Kopírování dat z úložiště objektů BLOB Azure do Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Zabezpečení dat ve službě Data Lake Store](data-lake-store-secure-data.md)
 * [Použití Azure Data Lake Analytics se službou Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-samples"></a>Ukázky centra událostí 
 
@@ -29,7 +29,7 @@ V době psaní tohoto textu Event Hubs ukázky umístěny v několika různých 
 - [Ukázky kódu vývojáře MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
 - [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-Další informace o různých verzích rozhraní .NET Framework najdete v tématu [architektury a cíle](/dotnet/articles/standard/frameworks).
+Další informace o různé verze rozhraní .NET Framework najdete v tématu [architektury a cíle](/dotnet/articles/standard/frameworks).
 
 Další ukázky bude přidán v čase, tak zkontrolujte, vraťte se sem často aktualizací.
 

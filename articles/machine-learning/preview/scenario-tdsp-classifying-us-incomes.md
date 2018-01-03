@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Klasifikace příjem s projektem tým datové vědy procesu (TDSP)
 
@@ -107,7 +108,7 @@ Vytvoření projektu podle pokynů [zde](https://aka.ms/how-to-use-tdsp-in-aml).
 
 <img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
 
-### <a name="execution"></a>Provádění
+### <a name="execution"></a>Provedení
 V tomto příkladu jsme spouštění kódu v **místní výpočetním prostředí**. Azure Machine Learning dokumenty, kde najdete další podrobnosti naleznete v [možnosti provedení](experimentation-service-configuration.md).
 
 Provádění skriptu jazyka Python v místní modul Python runtime je snadné:

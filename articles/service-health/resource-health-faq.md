@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health – nejčastější dotazy
 Přečtěte si odpovědi na časté otázky týkající se stavu prostředků Azure.
@@ -80,8 +80,6 @@ Stav prostředku je k dispozici v napříč všech oblastech Azure s výjimkou n
 - US DoD – střed
 - Německo – střed
 - Německo – severovýchod
-- Čína – východ
-- Čína – sever
 
 ## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>Jak se liší od řídicím panelu stavu služeb nebo oznámení portálu služby Azure stav prostředku?
 Informace poskytované stav prostředku je specifičtější než co je poskytováno řídicím panelu stavu služeb Azure.

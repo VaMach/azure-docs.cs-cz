@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rajanaki
 ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Replikace virtuálních počítačů technologie Hyper-V v cloudech VMM do Azure pomocí prostředí PowerShell a Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Ujistěte se, že máte zavedenou tyto požadavky:
 
 ### <a name="hyper-v-prerequisites"></a>Požadavky technologie Hyper-V
 * Servery hostitele technologie Hyper-V musí používat alespoň **systému Windows Server 2012** s rolí Hyper-V nebo **Microsoft Hyper-V Server 2012** a mít nainstalované nejnovější aktualizace.
-* Pokud používáte technologii Hyper-V v clusteru, je důležité vědět, že zprostředkovatel clusteru se nevytvoří automaticky, pokud máte clustery založené na statických IP adresách. Budete ho muset nakonfigurovat ručně. Pro
+* Pokud používáte technologii Hyper-V v clusteru, je důležité vědět, že zprostředkovatel clusteru se nevytvoří automaticky, pokud máte clustery založené na statických IP adresách. Budete ho muset nakonfigurovat ručně. Za
 * Pokyny naleznete v části [postup konfigurace zprostředkovatele replik technologie Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 * Libovolný server hostitele technologie Hyper-V nebo clusteru, pro který chcete spravovat ochranu musí být součástí cloudu VMM.
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 12/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: 560f888776d5b3e5103ee2084b5c3c999f014fad
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Odstraňování běžných chyb nasazení Azure pomocí Azure Resource Manageru
 
@@ -38,7 +38,7 @@ Tento článek popisuje některé běžné chyby nasazení Azure můžete setkat
 | Konflikt | Požadujete operace, který není povolen v aktuálním stavu prostředku. Například změna velikosti disku je povolená pouze při vytváření virtuálního počítače, nebo když je virtuální počítač navrácený. | |
 | DeploymentActive | Počkejte, než pro souběžné nasazení do této skupiny prostředků pro dokončení. | |
 | DnsRecordInUse | Název záznamu DNS musí být jedinečný. Buď zadejte jiný název, nebo upravte stávající záznamu. | |
-| ImageNotFound | Zkontrolujte nastavení bitové kopie virtuálního počítače. | [Řešení potíží s obrázky Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) a [Image pro řešení potíží s Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | Zkontrolujte nastavení bitové kopie virtuálního počítače. |  |
 | InUseSubnetCannotBeDeleted | Této chybě může dojít při pokusu o aktualizaci prostředek, ale je požadavek zpracován odstranit a vytvoření prostředku. Nezapomeňte zadat všechny hodnoty beze změny. | [Aktualizace prostředku](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Získání tokenu přístupu pro příslušné klienta. Pouze můžete získat token z klienta, který váš účet patří do. | |
 | InvalidContentLink | Pokusili jste s největší pravděpodobností propojení vnořené šablony, která není k dispozici. Překontrolujte identifikátor URI, který jste zadali pro vnořené šablonu. Pokud šablona již existuje v účtu úložiště, zkontrolujte, zda že identifikátor URI je přístupný. Potřebujete předat SAS token. | [Propojených šablon](resource-group-linked-templates.md) |
@@ -55,7 +55,7 @@ Tento článek popisuje některé běžné chyby nasazení Azure můžete setkat
 | MissingRegistrationForLocation | Zkontrolujte stav registrace poskytovatele prostředků a podporovaných umístění. | [Vyřešte registrace](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Zaregistrujte své předplatné s poskytovatelem prostředků. | [Vyřešte registrace](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Zkontrolujte stav registrace poskytovatele prostředků. | [Vyřešte registrace](resource-manager-register-provider-errors.md) |
-| notFound | Může se pokoušíte nasadit závislý prostředek paralelně s nadřazený prostředek. Zkontrolujte, pokud potřebujete přidat závislost. | [Vyřešte závislosti](resource-manager-not-found-errors.md) |
+| Nenalezeno | Může se pokoušíte nasadit závislý prostředek paralelně s nadřazený prostředek. Zkontrolujte, pokud potřebujete přidat závislost. | [Vyřešte závislosti](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | Nasazení se pokouší operace, která překračuje kvótu pro předplatné, skupinu prostředků nebo oblasti. Pokud je to možné zkontrolovat, jestli vaše nasazení zůstane v rámci kvóty. Zvažte, jinak hodnota požadavku na změnu vaší kvóty. | [Vyřešte kvóty](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Ujistěte se, že nadřazený prostředek existuje před vytvořením podřízené prostředky. | [Vyřešte nadřazený prostředek](resource-manager-parent-resource-errors.md) |
 | PrivateIPAddressInReservedRange | Zadaná IP adresa obsahuje rozsah adres, vyžaduje Azure. Změna IP adresy, aby se zabránilo vyhrazený rozsah. | [IP adresy](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |

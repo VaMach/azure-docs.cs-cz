@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Obnovení virtuálních počítačů pomocí portálu Azure
 Ochrana dat pomocí snímky dat na definovaných intervalech. Tyto snímky jsou známé jako body obnovení a byly uloženy do trezory služeb zotavení. Pokud je nutné opravit nebo znovu vytvořit virtuální počítač (VM), můžete obnovit virtuální počítač z jakýchkoli bodů obnovení uložené. Pokud obnovíte bod obnovení, můžete:
@@ -42,7 +42,7 @@ Obnovení virtuálního počítače nebo všechny disky z virtuálního počíta
 * Vyberte typ obnovení, vytvoření nového virtuálního počítače nebo obnovení disků a zadejte požadované parametry. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Vyberte bod obnovení pro obnovení
-1. Přihlaste se k webu [Azure Portal](http://portal.azure.com/).
+1. Přihlaste se k [portálu Azure](http://portal.azure.com/).
 
 2. V nabídce Azure vyberte **Procházet**. V seznamu služeb, zadejte **služeb zotavení**. Seznam služeb přizpůsobí co zadáte. Až se zobrazí **trezory služeb zotavení**, vyberte ho.
 
