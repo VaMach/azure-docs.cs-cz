@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Vazby Mobile Apps pro Azure Functions 
 
@@ -37,8 +37,7 @@ Vstupní vazba Mobile Apps načte záznam z koncového bodu mobilní tabulky a p
 
 Podívejte se na konkrétní jazyk příklad:
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [Skript jazyka C#](#input---c-script-example)
+* [C# skript (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>(Vstup) – příklad skriptu jazyka C#
@@ -129,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>(Vstup) – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Informace o vlastnostech atributů, které můžete konfigurovat, najdete v tématu [následující konfigurační oddíl](#input---configuration).
 
@@ -168,13 +167,13 @@ Použijte výstup Mobile Apps vazby k zápisu nového záznamu do tabulky mobiln
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#output---c-example)
-* [Skript jazyka C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# skript (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Výstup – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) které se aktivuje zprávu fronty a vytvoří záznam v tabulce mobilní aplikace.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) které se aktivuje zprávu fronty a vytvoří záznam v tabulce mobilní aplikace.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -275,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Výstup – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Informace o vlastnostech atributů, které můžete konfigurovat, najdete v tématu [výstup - konfigurace](#output---configuration). Tady je `MobileTable` atribut příkladu podpis metody:
 
@@ -290,7 +289,7 @@ public static object Run(
 }
 ```
 
-Úplný příklad najdete v tématu [výstup - předkompilovaných C# příklad](#output---c-example).
+Úplný příklad najdete v tématu [výstup - C# příklad](#output---c-example).
 
 ## <a name="output---configuration"></a>Výstup – konfigurace
 
@@ -312,7 +311,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 ## <a name="output---usage"></a>Výstup – použití
 
-V C# skript funkce, použijte parametr s názvem výstup typu `out object` pro přístup k výstupu záznamu. Předkompilované C# funkcí `MobileTable` atribut lze použít s žádným z následujících typů:
+V C# skript funkce, použijte parametr s názvem výstup typu `out object` pro přístup k výstupu záznamu. V jazyce C# knihovny tříd `MobileTable` atribut lze použít s žádným z následujících typů:
 
 * `ICollector<T>`nebo `IAsyncCollector<T>`, kde `T` je buď `JObject` nebo jakýkoli typ s `public string Id` vlastnost.
 * `out JObject`
@@ -320,7 +319,7 @@ V C# skript funkce, použijte parametr s názvem výstup typu `out object` pro p
 
 Ve funkcích Node.js, použijte `context.bindings.<name>` pro přístup k výstupu záznamu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)

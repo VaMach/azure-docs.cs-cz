@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
-ms.openlocfilehash: 14161a0747add43a99e301eacf700ab79c77c767
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Postup odesílání e-mailu pomocí sendgrid vám umožňuje pomocí Azure
 ## <a name="overview"></a>Přehled
@@ -108,7 +108,7 @@ Tyto přihlašovací údaje prostřednictvím portálu Azure může uložit klik
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
     var client = new SendGridClient(apiKey);
 
-Následující příklady ukazují, jak odeslat zprávu pomocí webového rozhraní API.
+Následující příklady ukazují, jak k odesílání e-mailovou zprávu pomocí webového rozhraní API sendgrid vám umožňuje pomocí konzolové aplikace.
 
     using System;
     using System.Threading.Tasks;
@@ -140,7 +140,83 @@ Následující příklady ukazují, jak odeslat zprávu pomocí webového rozhra
             }
         }
     }
+    
+## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Postupy: odeslání e-mailu z ASP .NET Core API pomocí MailHelper – třída
 
+Následujícím příkladu lze poslat jednu e-mailovou více osob z ASP .NET Core API pomocí `MailHelper` třídu `SendGrid.Helpers.Mail` oboru názvů. V tomto příkladu používáme ASP .NET Core 1.0. 
+
+V tomto příkladu klíč rozhraní API byla uložena v `appsettings.json` souboru, který může být přepsáno z portálu Azure, jak je znázorněno v předchozích příkladech.
+
+Obsah `appsettings.json` soubor by měl vypadat podobně jako:
+
+    {
+       "Logging": {
+       "IncludeScopes": false,
+       "LogLevel": {
+       "Default": "Debug",
+       "System": "Information",
+       "Microsoft": "Information"
+         }
+       },
+     "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+
+Nejdřív je potřeba přidat níže uvedeného kódu v `Startup.cs` souboru projektu rozhraní API .NET Core. To je potřeba, takže jsme získat přístup `SENDGRID_API_KEY` z `appsettings.json` souboru pomocí vkládání závislostí do kontroleru rozhraní API. `IConfiguration` Rozhraní může vložit v konstruktoru řadiče po přidání do `ConfigureServices` metoda níže. Obsah `Startup.cs` souboru vypadá jako následující po přidání požadovaných kódu:
+
+        public IConfigurationRoot Configuration { get; }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // Add mvc here
+            services.AddMvc();
+            services.AddSingleton<IConfiguration>(Configuration);
+        }
+
+V řadiči po vložení `IConfiguration` rozhraní, můžeme použít `CreateSingleEmailToMultipleRecipients` metodu `MailHelper` třída k odesílání několika příjemcům jednu e-mailovou. Metoda přijímá jeden další logickým parametrem s názvem `showAllRecipients`. Tento parametr můžete slouží ke kontrole, jestli příjemců e-mailu bude moci zobrazit všechny ostatní e-mailovou adresu v části na hlavičky e-mailu. Ukázkový kód pro řadič by měla být jako níže 
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using SendGrid;
+    using SendGrid.Helpers.Mail;
+    using Microsoft.Extensions.Configuration;
+
+    namespace SendgridMailApp.Controllers
+    {
+        [Route("api/[controller]")]
+        public class NotificationController : Controller
+        {
+           private readonly IConfiguration _configuration;
+
+           public NotificationController(IConfiguration configuration)
+           {
+             _configuration = configuration;
+           }      
+        
+           [Route("SendNotification")]
+           public async Task PostMessage()
+           {
+              var apiKey = _configuration.GetSection("SENDGRID_API_KEY").Value;
+              var client = new SendGridClient(apiKey);
+              var from = new EmailAddress("test1@example.com", "Example User 1");
+              List<EmailAddress> tos = new List<EmailAddress>
+              {
+                  new EmailAddress("test2@example.com", "Example User 2"),
+                  new EmailAddress("test3@example.com", "Example User 3"),
+                  new EmailAddress("test4@example.com","Example User 4")
+              };
+            
+              var subject = "Hello world email from Sendgrid ";
+              var htmlContent = "<strong>Hello world with HTML content</strong>";
+              var displayRecipients = false; // set this to true if you want recipients to see each others mail id 
+              var msg = MailHelper.CreateSingleEmailToMultipleRecipients(from, tos, subject, "", htmlContent, false);
+              var response = await client.SendEmailAsync(msg);
+          }
+       }
+    }
+    
 ## <a name="how-to-add-an-attachment"></a>Postupy: Přidání přílohy
 Přílohy mohou být přidány do zprávy voláním **AddAttachment** metoda a minimálně zadáte název souboru a kódováním Base64 obsahu, které chcete připojit. Může obsahovat více přiložených, po pro každý soubor chcete připojit, a to voláním této metody nebo pomocí **AddAttachments** metoda. Následující příklad ukazuje, přidání přílohu zprávu:
 
@@ -173,7 +249,7 @@ Následující příklady ukazují zápatí a klikněte na tlačítko Sledován�
 ## <a name="how-to-use-additional-sendgrid-services"></a>Postupy: použití služeb další sendgrid vám umožňuje
 Sendgrid vám umožňuje nabízí několik rozhraní API a pomocí webhooků, které můžete využít další funkcionalitu v rámci aplikace Azure. Další podrobnosti najdete v tématu [referenční dokumentace rozhraní API sendgrid vám umožňuje][SendGrid API documentation].
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď, když jste se naučili základy služby sendgrid vám umožňuje e-mailu, postupujte podle následujících odkazech na další informace.
 
 * C sendgrid vám umožňuje\# knihovny úložišti: [sendgrid vám umožňuje csharp][sendgrid-csharp]

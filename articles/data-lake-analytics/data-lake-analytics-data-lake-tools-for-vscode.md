@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: jejiang
-ms.openlocfilehash: 60307b8b16718fdc947bde7616532fa6a0920cf0
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: c70cfc309fe60f0641c89b4a341e3364af74771a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Pomocí nástroje Azure Data Lake pro Visual Studio Code
 
@@ -116,8 +116,18 @@ Po odeslání úlohy U-SQL, odeslání protokolů se objeví v **výstup** okno 
 
 Chcete-li povolit výstup podrobnosti úlohy, nastavte **jobInformationOutputPath** v **vs kód u-sql_settings.json** souboru.
  
+**Ignorovat sadu Git**
+
+1. Vyberte Ctrl + Shift + P otevřete paletu příkaz. 
+2. Zadejte **ADL: Sada Git Ignorovat**.
+
+    - Pokud nemáte **.gitIgnore** souboru v VSCode pracovní složka, soubor s názvem **.gitIgnor** se vytvoří ve složce. Čtyři položky (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) jsou přidány do souboru ve výchozím nastavení. Aktualizace můžete nastavit další v případě potřeby.
+    - Pokud již máte **.gitIgnore** souboru v VSCode pracovní složky, nástroj přidá čtyři položky (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) do vaší **.gitIgnore** souboru pokud čtyři položky nebyly zahrnuty v souboru.
+
+  ![Nástroje data Lake pro Visual Studio Code konfiguračního souboru](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
+
 ## <a name="use-python-r-and-csharp-code-behind-file"></a>Použít Python, R a CSharp souboru kódu na pozadí
-Azure Data Lake nástroj podporuje více vlastní kód, podle pokynů v tématu [vyvíjet U-SQL s Python, R a CSharp pro Azure Data Lake Analytics v VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
+Azure Data Lake nástroj podporuje víc vlastní kódů, podle pokynů v tématu [vyvíjet U-SQL s Python, R a CSharp pro Azure Data Lake Analytics v VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
 ## <a name="use-assemblies"></a>Použití sestavení
 
@@ -193,17 +203,19 @@ Předtím, než můžete zkompilování a spuštění skriptů U-SQL v Data Lake
 **Pro připojení k Azure**
 
 1.  Vyberte Ctrl + Shift + P otevřete paletu příkaz. 
-2.  Zadejte **ADL: přihlášení**. Přihlašovací údaje se zobrazí v **výstup** podokně.
+2.  Zadejte **ADL: přihlášení**. Hlavní oblasti, zobrazí se přihlašovací údaje.
 
     ![Nástroje data Lake pro Visual Studio Code příkaz palety](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
     ![nástroje Data Lake pro Visual Studio Code zařízení přihlašovací informace](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3. Vyberte Ctrl + klikněte na adresu URL pro přihlášení: https://aka.ms/devicelogin otevřete webovou stránku přihlášení. Zadejte kód **G567LX42V** do textového pole a pak vyberte **pokračovat**.
+3.  Klikněte na tlačítko **zkopírujte & Otevřít** otevřete přihlašovací webovou stránku s adresou URL: https://aka.ms/devicelogin. Vložte kód **G567LX42V** do textového pole a pak vyberte **pokračovat**.
 
    ![Nástroje data Lake pro Visual Studio Code přihlášení vložte kód](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
 4.  Postupujte podle pokynů se přihlásit z webové stránky. Když jste připojení, název účtu Azure se zobrazí na stavovém řádku v levém horním rohu **VS Code** okno. 
 
     > [!NOTE] 
-    > Pokud váš účet má dvě úrovně povoleno, doporučujeme použít ověřování phone místo pomocí PIN kódu.
+    >- Nástroje data Lake příště přihlásí automaticky, pokud jste se zaregistrovali před, ale nebyly protokolují ještě.
+    >- Pokud váš účet má dvě úrovně povoleno, doporučujeme použít ověřování phone místo pomocí PIN kódu.
+
 
 Chcete-li odhlásit, zadejte příkaz **ADL: odhlášení**.
 
@@ -289,7 +301,7 @@ Jiný způsob, jak zobrazit náhled souboru je prostřednictvím v místní nab�
 Jako současně, můžete sledovat [odesílání stav](#check-storage-tasks-status).
 
 
-## <a name="download-file"></a>Stažení souboru 
+## <a name="download-file"></a>Stáhnout soubor 
 Soubory si můžete stáhnout tak, že zadáte příkazy **ADL: stáhnout soubor** nebo **ADL: Stažení souboru (Upřesnit)**.
 
 **Chcete-li stáhnout soubory, když ADL: Stažení souboru (Upřesnit)**
@@ -324,15 +336,38 @@ Stav se zobrazí v dolní části stavový řádek po dokončení stahování a 
    ![Nástroje data Lake pro Visual Studio Code zkontrolujte úložiště stavu](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
 ## <a name="vscode-explorer-integration-with-azure-data-lake"></a>Průzkumník VSCode integraci s Azure Data Lake
-1. Po přihlášení, zobrazí se v levém panelu jsou uvedeny všechny účty Azure **DataLake Explorer**. Rozbalte jednu databázi, můžete zobrazit **schémata**, **tabulky**, **sestavení** pod uzlem a tak dále.
+
+**Integrace se službou Azure** 
+
+- Před přihlášení k Azure, můžete vždy rozšířit **DATALAKE EXPLORER**, pak klikněte na tlačítko **Přihlaste se k Azur** k přihlášení k Azure. Po přihlášení, zobrazí se všechny odběry v rámci účtu Azure, jsou uvedeny v levém panelu **DATALAKE EXPLORER**. 
+
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-2. Můžete provést příkaz **registrace sestavení** kliknutím pravým tlačítkem na **sestavení** uzlu.
+**Navigační ADLA metadat** 
+
+- Rozbalte vašeho předplatného Azure, můžete přejít U-SQL databáze, zobrazení **schémata**, **pověření**, **sestavení**, **tabulky**, **Index**a tak dále pod uzlem U-SQL databáze.
+
+**Správa entit Metadata ADLA**
+
+- Rozbalte položku **U-SQL databáze**, můžete vytvořit novou databázi, schéma, tabulka, typů tabulek, index, Statistika kliknutím pravým tlačítkem myši **skript pro vytvoření** kontextovou nabídku odpovídající uzlu. Na stránce otevřenou skript upravte skript podle vašich potřeb a potom odeslání úlohy kliknutím pravým tlačítkem na kontextovou nabídku **ADL: odeslat úlohu**. Po dokončení její vytvoření, klikněte na tlačítko kontextovou nabídku **aktualizovat** zobrazíte nové položky vytvořili. Můžete také odstranit položku kliknutím pravým tlačítkem myši v místní nabídce **odstranit**.
+
+   ![Průzkumník DataLake vytvoří nové položky nabídky](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
+
+   ![Průzkumník DataLake vytvoří nový skript položky](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
+
+**Registrace sestavení ADLA**
+
+ - Můžete **registrace sestavení** do příslušné databáze kliknutím pravým tlačítkem na **sestavení** uzlu.
 
     ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
-3. Přejděte na **účet úložiště**, můžete odeslání nebo stažení souboru kliknutím pravým tlačítkem na soubor nebo složku. A také **Preview** soubor **Stáhnout**, **relativní cesta kopie**, **Kopírovat úplnou cestu** pomocí místní nabídky.
+**Integrace ADLS** 
+
+ - Přejděte na **účet úložiště**, můžete **Preview**, **Stáhnout**, **odstranit**, **kopírovat relativní cestu**, **Kopírovat úplnou cestu** pomocí místní nabídky na uzlu souboru. Můžete **aktualizovat**, **nahrát**, **nahrát složky**, **odstranit** kliknutím pravým tlačítkem myši v místní nabídce uzlu složky.
+
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
 
@@ -344,7 +379,7 @@ Stav se zobrazí v dolní části stavový řádek po dokončení stahování a 
 Nástroje data Lake otevře cesta k úložišti Azure na portálu Azure. Můžete najít cestu a náhled souboru z webu.
 
 ## <a name="local-run-and-local-debug-for-windows-users"></a>Místní spuštění a místní ladění pro systém Windows uživatele
-U-SQL místní spuštění testů místní data a ověří váš skript místně, než kódu je publikována ve službě Data Lake Analytics. Místní ladění funkce umožňuje než kódu je odeslána do Data Lake Analytics dokončit následující úlohy: 
+U-SQL místní spuštění testů místní data a ověří váš skript místně před kódu je publikována ve službě Data Lake Analytics. Místní ladění funkce umožňuje než kódu je odeslána do Data Lake Analytics dokončit následující úlohy: 
 - Ladění vaší C# kódu. 
 - Krokovat kód. 
 - Ověřte váš skript místně.
@@ -377,7 +412,7 @@ Nástroje data Lake pro VS Code podporuje následující funkce:
 
     ![Nástroje data Lake pro Visual Studio Code syntaxe označuje](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Vývoj U-SQL s Python, R a CSharp pro Azure Data Lake Analytics v VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [U-SQL místní spuštění a místní ladění s kódem jazyka Visual Studio](data-lake-tools-for-vscode-local-run-and-debug.md)
 - [Kurz: Začínáme s Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)

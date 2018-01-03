@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Odstraňování potíží se zálohováním virtuálních počítačů Azure
 Řešení potíží s chyb zjištěných při pomocí Azure Backup informace uvedené v následující tabulce.
 
-## <a name="backup"></a>Zálohování
+## <a name="backup"></a>Backup
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Chyba: Zadaný konfigurace disku nejsou podporovány.
 
@@ -38,7 +38,7 @@ V současné době zálohování Azure nepodporuje velikosti disků [větší ne
 - Zkontrolujte, že se všechna data zkopírovala, a potom disky větší než 1 TB odeberte.
 - Zahajte zálohování.
 
-| Podrobnosti o chybě | Alternativní řešení |
+| Detaily chyby | Alternativní řešení |
 | --- | --- |
 | Operace se nedá provést, protože virtuální počítač už neexistuje. -Zastavení ochrany virtuálního počítače bez odstraňují se záložní data. Další podrobnosti o http://go.microsoft.com/fwlink/?LinkId=808124 |To se stane, když primární virtuální počítač odstraněn, ale zásady zálohování pokračuje v hledání pro virtuální počítač k zálohování. Chcete-li vyřešit tuto chybu: <ol><li> Znovu vytvořte virtuální počítač se stejným názvem a stejný název skupiny prostředků [název cloudové služby],<br>(NEBO)</li><li> Zastavte ochranu virtuálního počítače s nebo bez odstranění zálohovaná data. [Další informace](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Snímku operace se nezdařila z důvodu žádné připojení k síti na virtuálním počítači - zkontrolujte, zda má počítač přístup k síti. Pro vytvoření snímku proběhla úspěšně buď rozsahy IP seznamu povolených IP adres Azure datacenter nebo nastavení proxy serveru pro přístup k síti. Další podrobnosti najdete v části http://go.microsoft.com/fwlink/?LinkId=800034. Pokud už používáte proxy server, ujistěte se, že jsou správně nakonfigurované nastavení proxy serveru | Tato chyba se vyvolá, když odepřete odchozí připojení k Internetu na virtuálním počítači. Připojení k Internetu je vyžadována pro rozšíření snímek virtuálního počítače k pořízení snímku základní disky virtuálního počítače. [Další informace](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) o tom, jak opravit snímku selhání kvůli přístupu k síti blokované. |
@@ -70,25 +70,25 @@ V současné době zálohování Azure nepodporuje velikosti disků [větší ne
 
 
 ## <a name="jobs"></a>Úlohy
-| Podrobnosti o chybě | Alternativní řešení |
+| Detaily chyby | Alternativní řešení |
 | --- | --- |
-| Zrušení není podporován pro tento typ úlohy – počkejte na dokončení úlohy. |Žádný |
+| Zrušení není podporován pro tento typ úlohy – počkejte na dokončení úlohy. |Žádné |
 | Úloha není ve stavu, možné zrušit – počkejte na dokončení úlohy. <br>NEBO<br> Vybraná úloha není ve stavu, možné zrušit – počkejte na dokončení úlohy. |Ve všech pravděpodobnost téměř dokončení úlohy. Počkejte prosím na dokončení úlohy.|
 | Nelze zrušit úlohu, protože není v průběhu – zrušení je podporována pouze pro úlohy, které jsou v průběhu. Prosím pokus o zrušení na v průběhu úlohy. |K tomu dochází z důvodu přechodné stavu. Počkejte několik minut a opakujte operaci zrušit. |
-| Nepodařilo se zrušit úlohy – prosím počkejte na dokončení úlohy. |Žádný |
+| Nepodařilo se zrušit úlohy – prosím počkejte na dokončení úlohy. |Žádné |
 
 ## <a name="restore"></a>Obnovení
-| Podrobnosti o chybě | Alternativní řešení |
+| Detaily chyby | Alternativní řešení |
 | --- | --- |
 | Obnovení se nezdařilo s cloudu vnitřní chyba |<ol><li>Cloudové služby, ke kterému se pokoušíte obnovit je nakonfigurováno nastavení DNS. Můžete zkontrolovat <br>$deployment = get-AzureDeployment - ServiceName "ServiceName"-slotu "Výroba" Get-AzureDns - DnsSettings $deployment. DnsSettings<br>Pokud je nakonfigurovanou adresu, znamená to, zda jsou nakonfigurovány nastavení DNS.<br> <li>Cloudové služby, ke kterému chcete se pokoušíte obnovit je nakonfigurován s vyhrazené IP adresy a stávající virtuální počítače v rámci cloudové služby jsou v zastaveném stavu.<br>Můžete zkontrolovat, že cloudové služby má vyhrazená IP adresa pomocí následující rutiny prostředí powershell:<br>$deployment = get-AzureDeployment - ServiceName "servicename"-slotu $ "Výroba" dep. ReservedIPName <br><li>Pokoušíte se virtuální počítač s následující zvláštní síťové konfigurace v obnovit do stejné cloudové služby. <br>-Virtuální počítače v části Konfigurace služby Vyrovnávání zatížení (interní a externí)<br>-Virtuální počítače s víc vyhrazených IP adres<br>-Virtuální počítače s více síťovými kartami<br>Vyberte novou cloudovou službu v uživatelském rozhraní nebo prostudujte si prosím [obnovit aspekty](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) u virtuálních počítačů s zvláštní síťové konfigurace.</ol> |
 | Vybraný název DNS už je zabraný – Zadejte prosím jiný název DNS a zkuste to znovu. |Název DNS odkazuje na název cloudové služby (obvykle konče. cloudapp.net). Toto musí být jedinečný. Pokud dojde k této chybě, budete muset zvolit jiný název virtuálního počítače během obnovení. <br><br> Tato chyba se zobrazí pouze uživatelům na portálu Azure. Operace obnovení pomocí prostředí PowerShell bude úspěšné, protože pouze obnoví disky a nepodporuje vytvoření virtuálního počítače. Chyba se potýkají, když virtuální počítač je explicitně vytvořený můžete po operaci obnovení na disku. |
-| Zadaný virtuální síťový konfigurace není správná – zadejte konfiguraci s jinou virtuální síť a zkuste to znovu. |Žádný |
+| Zadaný virtuální síťový konfigurace není správná – zadejte konfiguraci s jinou virtuální síť a zkuste to znovu. |Žádné |
 | Zadaná Cloudová služba používá vyhrazenou IP adresu, která nebude odpovídat konfiguraci virtuálního počítače, který se má obnovit – zadejte jinou cloudovou službu, která není pomocí vyhrazené IP adresy nebo zvolte jiný bod obnovení pro obnovení z. |Žádný |
-| Cloudové služby bylo dosaženo limitu počtu vstupní koncové body – zkuste operaci zopakovat zadáním jiné cloudové služby nebo pomocí existující koncový bod. |Žádný |
+| Cloudové služby bylo dosaženo limitu počtu vstupní koncové body – zkuste operaci zopakovat zadáním jiné cloudové služby nebo pomocí existující koncový bod. |Žádné |
 | Zálohování úložiště a cílový účet úložiště jsou ve dvou různých oblastech – zajistěte, aby byl účet úložiště zadaný v operaci obnovení ve stejné oblasti Azure jako úložiště záloh. |Žádný |
-| Účet úložiště, zadaný pro operaci obnovení není podporována – účty úložiště pouze Basic nebo Standard s místně redundantní nebo geograficky redundantní replikaci nastavení nejsou podporovány. Vyberte prosím účet podporované úložiště |Žádný |
+| Účet úložiště, zadaný pro operaci obnovení není podporována – účty úložiště pouze Basic nebo Standard s místně redundantní nebo geograficky redundantní replikaci nastavení nejsou podporovány. Vyberte prosím účet podporované úložiště |Žádné |
 | Typ zadaný pro operaci obnovení účtu úložiště není online – Ujistěte se, že je účet úložiště zadaný v operaci obnovení online |K tomu může dojít z důvodu přechodné chyby ve službě Azure Storage nebo kvůli výpadku. Zvolte prosím jiný účet úložiště. |
-| Bylo dosaženo kvóty skupina prostředků – prosím odstraňte některé skupiny prostředků pomocí portálu Azure, nebo požádejte podporu Azure o navýšení limitů. |Žádný |
+| Bylo dosaženo kvóty skupina prostředků – prosím odstraňte některé skupiny prostředků pomocí portálu Azure, nebo požádejte podporu Azure o navýšení limitů. |Žádné |
 | Vybraná podsíť neexistuje – vyberte podsíť, která již existuje |Žádný |
 | Služba zálohování nemá oprávnění pro přístup k prostředkům ve vašem předplatném. |Tento problém vyřešíte tak, první obnovení disků pomocí kroků uvedených v části **obnovení zálohovaných disky** v [konfigurace obnovení výběru virtuálního počítače](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Potom pomocí prostředí PowerShell kroků uvedených v [vytvoření virtuálního počítače z obnovené disků](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) pro vytvoření úplné virtuálního počítače z obnovené disků. |
 
@@ -131,7 +131,7 @@ Jak zjistit, jestli verze agenta virtuálního počítače na virtuálních poč
 Zálohování virtuálních počítačů spoléhá na vystavení snímku příkazy pro základní úložiště. Nemá přístup k úložišti nebo zpoždění při provádění úloh snímku může způsobit selhání úlohy zálohování. Následující může způsobit selhání úkolů snímku.
 
 1. Přístup k síti do úložiště je blokován pomocí NSG<br>
-    Další informace o tom, jak [povolit přístup k síti](backup-azure-arm-vms-prepare.md#network-connectivity) do úložiště pomocí buď povolených IP nebo prostřednictvím proxy serveru.
+    Další informace o tom, jak [povolit přístup k síti](backup-azure-arm-vms-prepare.md#establish-network-connectivity) do úložiště pomocí buď povolených IP nebo prostřednictvím proxy serveru.
 2. Virtuální počítače pomocí zálohování serveru Sql Server nakonfigurován může způsobit zpoždění úloha snímku <br>
    Ve výchozím nastavení virtuálního počítače zálohování problémů služby Stínová kopie svazku úplné zálohování na virtuální počítače Windows. Na virtuálních počítačích se systémem Sql Server a jestli je nakonfigurovaná zálohování serveru Sql Server to může způsobit zpoždění při provádění snímku. Nastavte následující klíč registru, pokud dochází k chybám zálohování z důvodu problémů s snímku.
 
@@ -163,7 +163,7 @@ Jakmile se provádí překlad IP adresy, přístup k IP adres Azure také je tř
    * Odblokování pomocí IP adresy [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) rutiny. Tato rutina v rámci virtuálního počítače Azure, spusťte v okně prostředí PowerShell zvýšenými oprávněními (Spustit jako správce).
    * K této skupině přidáte pravidla, (Pokud nemáte na místě) pro povolení přístupu k IP adresy.
 2. Vytvoření cesty pro tok provozu HTTP
-   * Pokud máte nějaké omezení sítě na místě (skupina zabezpečení sítě, například) nasadit proxy server HTTP směrovat provoz. Kroky k nasazení serveru Proxy protokolu HTTP lze nalézt [zde](backup-azure-arm-vms-prepare.md#network-connectivity).
+   * Pokud máte nějaké omezení sítě na místě (skupina zabezpečení sítě, například) nasadit proxy server HTTP směrovat provoz. Kroky k nasazení serveru Proxy protokolu HTTP lze nalézt [zde](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    * K této skupině přidáte pravidla, (Pokud nemáte na místě) povolit přístup k Internetu z proxy serveru HTTP.
 
 > [!NOTE]

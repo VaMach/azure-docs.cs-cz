@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Práce s Azure Functions proxy
 
@@ -50,13 +50,13 @@ S funkcí proxy Azure můžete upravit žádostí a odpovědí z back-end. Tyto 
 
 Ve výchozím nastavení je požadavek back-end inicializován jako kopii původního požadavku. Kromě nastavení adresy URL back-end, můžete provést změny metoda HTTP, hlaviček a parametrů řetězce dotazu. Změny hodnot, můžete odkazovat [nastavení aplikace] a [parametry z původního požadavku klienta].
 
-V současné době není k dispozici žádné portálu prostředí pro úpravy požadavky back-end. Zjistěte, jak použít tuto možnost z proxies.json, najdete v tématu [definovat objekt requestOverrides].
+V současné době není k dispozici žádné portálu prostředí pro úpravy požadavky back-end. Další informace o použití této možnosti *proxies.json*, najdete v části [definovat objekt requestOverrides].
 
 ### <a name="modify-response"></a>Upravit odpověď
 
 Ve výchozím nastavení je odpověď klienta jako kopii odpovědi na back-end inicializován. Můžete změnit stavový kód, frázi důvodu, hlavičky a text z odpovědi. Změny hodnot, můžete odkazovat [nastavení aplikace], [parametry z původního požadavku klienta], a [parametry z back-end odpovědi].
 
-V současné době není k dispozici žádné portálu prostředí pro úpravy odpovědi. Zjistěte, jak použít tuto možnost z proxies.json, najdete v tématu [definovat objekt responseOverrides].
+V současné době není k dispozici žádné portálu prostředí pro úpravy odpovědi. Další informace o použití této možnosti *proxies.json*, najdete v části [definovat objekt responseOverrides].
 
 ## <a name="using-variables"></a>Použití proměnných
 
@@ -84,7 +84,7 @@ Odpověď parametry můžete použít jako součást úprava odpověď klientovi
 
 * **{backend.response.statusCode}** : Stavový kód protokolu HTTP, která je vrácena v odpovědi back-end.
 * **{backend.response.statusReason}** : Frázi důvodu protokolu HTTP, která je vrácena v odpovědi back-end.
-* **{backend.response.headers. \<HeaderName\>}**: hlavičku, který může číst z back-end odpovědi. Nahraďte  *\<HeaderName\>*  s názvem hlavičky, která si chcete přečíst. Pokud není k dispozici hlavičky v požadavku, bude hodnota prázdný řetězec.
+* **{backend.response.headers. \<HeaderName\>}**: hlavičku, který může číst z back-end odpovědi. Nahraďte  *\<HeaderName\>*  s názvem hlavičky, která si chcete přečíst. Pokud hlavička není zahrnut v odpovědi, bude hodnota prázdný řetězec.
 
 ### <a name="use-appsettings"></a>Odkaz nastavení aplikace
 
@@ -97,12 +97,12 @@ Například adresu URL back-end z *https://%ORDER_PROCESSING_HOST%/api/orders* b
 
 ## <a name="advanced-configuration"></a>Pokročilá konfigurace
 
-Proxy servery, které nakonfigurujete jsou uloženy v souboru proxies.json, který se nachází v kořenovém adresáři aplikace funkce. Můžete ručně upravit tento soubor a nasadit jako součást aplikace, když použijete některou z [metody nasazení](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) této funkce podporuje. Tato funkce musí být [povoleno](#enable) pro soubor, který má být zpracována. 
+Proxy servery, které nakonfigurujete jsou uložené v *proxies.json* souboru, který se nachází v kořenovém adresáři aplikace funkce. Můžete ručně upravit tento soubor a nasadit jako součást aplikace, když použijete některou z [metody nasazení](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) této funkce podporuje. Funkce Azure funkce proxy musí být [povoleno](#enable) pro soubor, který má být zpracována. 
 
 > [!TIP] 
-> Pokud jste nenastavili jednu z metod nasazení, můžete také pracovat se soubor proxies.json na portálu. Přejděte do funkce aplikace, vyberte **funkce**a potom vyberte **App Service Editor**. Díky tomu můžete zobrazit celý soubor strukturu funkce aplikace a proveďte změny.
+> Pokud jste nenastavili jednu z metod nasazení, můžete také pracovat *proxies.json* souboru na portálu. Přejděte do funkce aplikace, vyberte **funkce**a potom vyberte **App Service Editor**. Díky tomu můžete zobrazit celý soubor strukturu funkce aplikace a proveďte změny.
 
-Proxies.JSON je definován objekt proxy, který se skládá z pojmenované proxy serverů a jejich definice. Případně, pokud vaše editor podporuje, můžete odkazovat [schématu JSON](http://json.schemastore.org/proxies) pro doplňování kódu. Příklad souboru může vypadat následovně:
+*Proxies.JSON* je definovaný objekt proxy, který se skládá z pojmenované proxy serverů a jejich definice. Případně, pokud vaše editor podporuje, můžete odkazovat [schématu JSON](http://json.schemastore.org/proxies) pro doplňování kódu. Příklad souboru může vypadat následovně:
 
 ```json
 {
@@ -129,7 +129,7 @@ Každý proxy má popisný název, například *proxy1* v předchozím příklad
 * **responseOverrides**: objekt, který definuje transformace na odpověď klienta. V tématu [definovat objekt responseOverrides].
 
 > [!NOTE] 
-> Vlastnost trasy proxy funkce Azure nectí vlastnost routePrefix konfigurace hostitele funkce. Pokud chcete zahrnout předpona například /api, musí být zahrnut ve vlastnosti trasy.
+> *Trasy* vlastnost v Azure funkce proxy nectí *routePrefix* vlastnost konfigurace hostitele aplikaci funkce. Pokud chcete zahrnout, jako předponu `/api`, musí být zahrnut v *trasy* vlastnost.
 
 ### <a name="requestOverrides"></a>Definování objekt requestOverrides
 
@@ -193,7 +193,7 @@ Příklad konfigurace může vypadat následovně:
 }
 ```
 > [!NOTE] 
-> V tomto příkladu text se nastavuje přímo, takže ne `backendUri` vlastnost je vyžadována. Příklad ukazuje, jak je možné použít Azure funkce proxy pro mocking rozhraní API.
+> V tomto příkladu text odpovědi nastavena přímo, takže ne `backendUri` vlastnost je vyžadována. Příklad ukazuje, jak je možné použít Azure funkce proxy pro mocking rozhraní API.
 
 ## <a name="enable"></a>Povolit proxy Azure Functions
 

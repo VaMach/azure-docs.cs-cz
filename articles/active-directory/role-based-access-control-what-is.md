@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 12/19/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 7df1ebcc65998a2078f5f215277eef351e48ca1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0eaa54252885cee8f90e65f299869216ca1b2144
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Začínáme s řízením přístupu na základě rolí na portálu Azure
 Zaměřené na zabezpečení společnosti by měla soustředit na poskytnutí zaměstnanci přesný oprávnění, které potřebují. Účet, který se útočníci můžou zpřístupnit příliš mnoho oprávnění. Příliš málo oprávnění znamená, že zaměstnanci nelze práci efektivně. Azure na základě rolí řízení přístupu (RBAC) pomáhá vyřešit tento problém tak, že nabídka vyladění správy přístupu pro Azure.
@@ -50,15 +50,15 @@ Zbytek role RBAC v Azure povolit správu konkrétních prostředků Azure. Např
 * Každý **skupiny prostředků** patří do jenom jedno předplatné.
 * Každý **prostředků** patří do skupiny jen jeden prostředek.
 
-V podřízené obory dědí přístup, který udělíte na nadřazené rozsahy. Například:
+V podřízené obory dědí přístup, který udělíte na nadřazené rozsahy. Příklad:
 
 * Role čtenáře přiřadíte skupiny v oboru předplatné služby Azure AD. Členové této skupiny můžete zobrazit všechny skupiny prostředků a prostředků v předplatném.
 * Role Přispěvatel přiřadíte k aplikaci v oboru skupiny prostředků. Umožňuje spravovat prostředky všechny typy v příslušné skupině prostředků, ale ne další skupiny zdrojů v rámci předplatného.
 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC oproti správci classic předplatného
-Classic předplatné správci a pomocní Správci mají úplný přístup k předplatnému Azure. Můžou spravovat prostředky pomocí [portál Azure](https://portal.azure.com) pomocí rozhraní API Správce Azure Resource Manager, nebo [portál Azure classic](https://manage.windowsazure.com) a modelu nasazení Azure classic. V modelu RBAC klasických správců přiřazené roli vlastníka na obor předplatného.
+[Správci Classic předplatného a spolusprávci](../billing/billing-add-change-azure-subscription-administrator.md) mají úplný přístup k předplatnému Azure. Můžou spravovat prostředky pomocí [portál Azure](https://portal.azure.com), rozhraní API Správce Azure Resource Manager a modelu nasazení classic rozhraní API. V modelu RBAC klasických správců přiřazené roli vlastníka na obor předplatného.
 
-Azure RBAC podporují pouze na portálu Azure a nových rozhraní API Správce Azure Resource Manager. Uživatelé a aplikace, které jsou přiřazené role RBAC nelze pomocí portálu pro správu classic a modelu nasazení Azure classic.
+Azure RBAC podporují pouze na portálu Azure a nových rozhraní API Správce Azure Resource Manager. Uživatelé a aplikace, které jsou přiřazené role RBAC nelze použít modelu nasazení Azure classic rozhraní API.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Oprávnění pro správu oproti operace dat
 Azure RBAC podporuje pouze operace správy prostředků Azure v portálu Azure a rozhraní API Správce Azure Resource Manager. Všechny operace úrovně dat pro prostředky Azure se nejde autorizovat. Například může autorizovat někdo chcete spravovat účty pro úložiště, ale ne na objekty BLOB nebo tabulky v rámci účtu úložiště. Podobně databáze SQL je možné spravovat, ale nikoli tabulky v něm.

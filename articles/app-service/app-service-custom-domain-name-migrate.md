@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrovat název DNS active do služby Azure App Service
 
@@ -50,7 +50,7 @@ Při migraci nakonec váš vlastní název DNS ze staré lokality do aplikace sl
 
 Pokud chcete ověřit vlastnictví domény, přidejte záznam TXT. Záznam TXT mapuje z _awverify.&lt; subdoména >_ k  _&lt;appname >. azurewebsites.net_. 
 
-Záznam TXT, které potřebujete, závisí na záznam DNS, kterou chcete migrovat. Příklady, najdete v následující tabulce (`@` obvykle představuje kořenové domény):  
+Záznam TXT, které potřebujete, závisí na záznam DNS, kterou chcete migrovat. Příklady, najdete v následující tabulce (`@` obvykle představuje kořenové domény):
 
 | Příklad záznamu DNS | TXT hostitele | Hodnota TXT |
 | - | - | - |
@@ -122,7 +122,7 @@ Uložte nastavení.
 
 Dotazy DNS by se měl spustit řešení do aplikace služby App Service hned se stane šíření záznamů DNS.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Naučte se vytvořit vazbu vlastní certifikát SSL služby App Service.
 

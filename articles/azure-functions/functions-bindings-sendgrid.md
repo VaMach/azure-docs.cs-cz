@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: f24c2aecf44dd44fec05dc9a4d156ff408b0c953
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: aa64bbc764fe96d7c15d62660114222458e5acf4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure sendgrid vám umožňuje funkce vazby
 
@@ -24,17 +24,17 @@ Tento článek vysvětluje postup odesílání e-mailu pomocí [sendgrid vám um
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="example"></a>Příklad
+## <a name="example"></a>Příklad:
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#c-example)
-* [Skript jazyka C#](#c-script-example)
+* [C#](#c-example)
+* [C# skript (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>Příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) , používá fronty Service Bus aktivovat a sendgrid vám umožňuje výstupní vazby.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) , používá fronty Service Bus aktivovat a sendgrid vám umožňuje výstupní vazby.
 
 ```cs
 [FunctionName("SendEmail")]
@@ -155,7 +155,7 @@ module.exports = function (context, input) {
 
 ## <a name="attributes"></a>Atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [sendgrid vám umožňuje](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [sendgrid vám umožňuje](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
 
 Informace o vlastnostech atributů, které můžete konfigurovat, najdete v tématu [konfigurace](#configuration). Tady je `SendGrid` atribut příkladu podpis metody:
 
@@ -169,7 +169,7 @@ public static void Run(
 }
 ```
 
-Úplný příklad najdete v tématu [příklad předkompilovaných jazyka C#](#c-example).
+Úplný příklad najdete v tématu [příklad jazyka C#](#c-example).
 
 ## <a name="configuration"></a>Konfigurace
 
@@ -188,7 +188,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)

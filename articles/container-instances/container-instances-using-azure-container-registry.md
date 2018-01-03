@@ -6,34 +6,34 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 9667a5b840d6c1fab5087cfcf3ede34a732fbe01
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Nasazení do Azure kontejner instancí z registru kontejner Azure
 
 Registr kontejner Azure je založené na Azure, privátní registru, pro kontejner Docker bitové kopie. Tento článek vysvětluje postup nasazení bitových kopií kontejneru uložené v registru kontejner Azure do Azure kontejner instancí.
 
-## <a name="using-the-azure-cli"></a>Použití Azure CLI
+## <a name="deploy-with-azure-cli"></a>Nasazení pomocí rozhraní příkazového řádku Azure
 
-Rozhraní příkazového řádku Azure obsahuje příkazy pro vytváření a Správa kontejnerů v Azure kontejner instancí. Pokud zadáte privátní bitové kopie v `create` příkazu, můžete také zadat heslo registru image vyžadovaný k ověření s registrem kontejneru.
+Rozhraní příkazového řádku Azure obsahuje příkazy pro vytváření a Správa kontejnerů v Azure kontejner instancí. Pokud zadáte privátní bitové kopie v [vytvořit kontejner az] [ az-container-create] příkazu, můžete také zadat heslo registru image vyžadovaný k ověření s registrem kontejneru.
 
 ```azurecli-interactive
-az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword --resource-group myresourcegroup
+az container create --resource-group myResourceGroup --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword
 ```
 
-`create` Příkaz také podporuje určení `registry-login-server` a `registry-username`. Však server přihlášení pro registru kontejner Azure, je vždycky *registryname*. azurecr.io a výchozí uživatelské jméno je *registryname*, takže pokud není, jsou tyto hodnoty odvodit z název bitové kopie explicitně zadat.
+[Vytvořit kontejner az] [ az-container-create] příkaz také podporuje určení `--registry-login-server` a `--registry-username`. Však server přihlášení pro registru kontejner Azure, je vždycky *registryname*. azurecr.io a výchozí uživatelské jméno je *registryname*, takže pokud není, jsou tyto hodnoty odvodit z název bitové kopie explicitně zadat.
 
-## <a name="using-an-azure-resource-manager-template"></a>Pomocí šablony Azure Resource Manager
+## <a name="deploy-with-azure-resource-manager-template"></a>Nasazení pomocí šablony Azure Resource Manageru
 
 Můžete zadat vlastnosti registr kontejner Azure v šablonu Azure Resource Manager včetně `imageRegistryCredentials` vlastnost v definici skupiny kontejneru:
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "imageRegistryLoginServer",
@@ -45,39 +45,32 @@ Můžete zadat vlastnosti registr kontejner Azure v šablonu Azure Resource Mana
 
 Abyste se vyhnuli ukládání heslo registru kontejneru přímo v šabloně, doporučujeme uložit jako tajný klíč v [Azure Key Vault](../key-vault/key-vault-manage-with-cli2.md) a odkazovat pomocí šablony [nativní integrace mezi službou Azure Resource Manager a trezoru klíčů](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-## <a name="using-the-azure-portal"></a>Použití webu Azure Portal
+## <a name="deploy-with-azure-portal"></a>Nasazení pomocí portálu Azure
 
 Pokud chcete zachovat kontejneru bitové kopie v registru kontejner Azure, můžete snadno vytvořit kontejner v instancí kontejneru Azure pomocí portálu Azure.
 
 1. Na portálu Azure přejděte do kontejneru registr.
 
-2. Vyberte úložiště.
+2. Vyberte **úložiště**, pak vyberte úložiště, který chcete nasadit, klikněte pravým tlačítkem na značce pro kontejner bitovou kopii, kterou chcete nasadit a vyberte **spustí instanci**.
 
-    ![V nabídce registru kontejner Azure na portálu Azure][acr-menu]
+    !["Spustit instance" v registru kontejner Azure na portálu Azure][acr-runinstance-contextmenu]
 
-3. Vyberte, kterou chcete nasadit z úložiště.
-
-4. Klikněte pravým tlačítkem na značce pro kontejner bitovou kopii, kterou chcete nasadit.
-
-    ![Kontextové nabídky pro spuštění kontejner s instancemi Azure kontejneru][acr-runinstance-contextmenu]
-
-5. Zadejte název kontejneru a název skupiny prostředků. Pokud chcete můžete taky změnit výchozí hodnoty.
+3. Zadejte název kontejneru a název skupiny prostředků. Pokud chcete můžete taky změnit výchozí hodnoty.
 
     ![Vytvořit nabídku pro instance kontejner Azure][acr-create-deeplink]
 
-6. Po dokončení nasazení můžete přejít do kontejneru skupiny z podokna oznámení najít IP adresu a další vlastnosti.
+4. Po dokončení nasazení můžete přejít do kontejneru skupiny z podokna oznámení najít IP adresu a další vlastnosti.
 
     ![Zobrazení podrobností pro skupinu kontejner instancí kontejnerů Azure][aci-detailsview]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Naučte se vytvářet kontejnery, vložit je privátní kontejneru registru a jejich nasazení do instance kontejner Azure podle [dokončení tohoto kurzu](container-instances-tutorial-prepare-app.md).
 
 <!-- IMAGES -->
-[acr-menu]: ./media/container-instances-using-azure-container-registry/acr-menu.png
-
+[acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
+[aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
 [acr-runinstance-contextmenu]: ./media/container-instances-using-azure-container-registry/acr-runinstance-contextmenu.png
 
-[acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
-
-[aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create

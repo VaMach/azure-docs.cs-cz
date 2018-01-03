@@ -1,44 +1,46 @@
 ---
 title: "Kurz pro Azure instancí kontejnerů – Příprava aplikace"
-description: "Příprava aplikace pro nasazení do služby Azure Container Instances"
+description: "Azure instancí kontejnerů kurz část 1 ze 3 – Příprava aplikace pro nasazení do Azure kontejner instancí"
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6555b41f2debdfe46ec2d4ece8e3281155099a77
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: fc16be80e776d1472be775fa32354ba157d16545
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Vytvoření kontejneru pro nasazení do služby Azure Container Instances
 
-Azure Container Instances umožňuje nasazení kontejnerů Dockeru na infrastrukturu Azure bez zřizování virtuálních počítačů nebo využívání služby vyšší úrovně. V tomto kurzu sestavíte malé webové aplikace v Node.js a balíčku v kontejneru, který lze spouštět s využitím Azure kontejner instancí. Kurz zahrnuje:
+Azure Container Instances umožňuje nasazení kontejnerů Dockeru na infrastrukturu Azure bez zřizování virtuálních počítačů nebo využívání služby vyšší úrovně. V tomto kurzu sestavíte malé webové aplikace v Node.js a balíčku v kontejneru, který lze spouštět s využitím Azure kontejner instancí.
+
+V tomto článku část jedna řada, můžete:
 
 > [!div class="checklist"]
-> * Klonování zdroje aplikace z GitHubu
-> * Vytváření imagí kontejnerů ze zdroje aplikace
-> * Testování imagí v místním prostředí Dockeru
+> * Klonování zdrojovému kódu aplikace z webu GitHub
+> * Vytvořit bitovou kopii kontejneru z aplikace zdroje.
+> * Testování bitovou kopii v místním prostředí Docker
 
 V následujících kurzech odeslání image do registru kontejneru služby Azure a poté ji nasadit do Azure kontejner instancí.
 
 ## <a name="before-you-begin"></a>Než začnete
 
-Tento kurz vyžaduje, že používáte Azure CLI verze 2.0.21 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud potřebujete instalaci nebo upgrade, přečtěte si téma [Instalace Azure CLI 2.0](/cli/azure/install-azure-cli).
+Tento kurz vyžaduje, že používáte Azure CLI verze 2.0.23 nebo novější. Verzi zjistíte spuštěním příkazu `az --version`. Pokud je potřeba nainstalovat nebo upgradovat najdete v tématu [nainstalovat Azure CLI 2.0][azure-cli-install].
 
-Tento kurz předpokládá základní znalosti o základní koncepty Docker jako kontejnery, kontejner bitové kopie a basic `docker` příkazy. V případě potřeby najdete základní informace o kontejnerech v článku [Get started with Docker]( https://docs.docker.com/get-started/) (Začínáme s Dockerem).
+Tento kurz předpokládá základní znalosti o základní koncepty Docker jako kontejnery, kontejner bitové kopie a basic `docker` příkazy. V případě potřeby, najdete v části [začít pracovat s Docker] [ docker-get-started] pro úvod do na základní informace o kontejneru.
 
-K dokončení tohoto kurzu potřebujete vývojové prostředí pro Docker. Docker nabízí balíčky pro snadnou konfiguraci Dockeru na jakémkoli systému [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) nebo [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+K dokončení tohoto kurzu potřebujete prostředí pro vývoj Docker nainstalovány místně. Docker poskytuje balíčky, které můžete snadno konfigurovat Docker na žádném [Mac][docker-mac], [Windows][docker-windows], nebo [Linux] [ docker-linux] systému.
 
-Prostředí Azure Cloud neobsahuje součásti Docker nutné pro dokončení každý krok v tomto kurzu. Proto doporučujeme místní instalace rozhraní příkazového řádku Azure a nástrojem Docker vývojového prostředí.
+Prostředí Azure Cloud neobsahuje součásti Docker nutné pro dokončení každý krok v tomto kurzu. Je nutné nainstalovat rozhraní příkazového řádku Azure a nástrojem Docker vývojového prostředí v místním počítači k dokončení tohoto kurzu.
 
 ## <a name="get-application-code"></a>Získání kódu aplikace
 
-Ukázka v tomto kurzu zahrnuje jednoduchou webovou aplikaci vytvořenou v [Node.js](http://nodejs.org). Tato aplikace slouží jako statická stránka HTML a vypadá takto:
+Ukázka v tomto kurzu zahrnuje jednoduchou webovou aplikaci součástí [Node.js][nodejs]. Tato aplikace slouží jako statická stránka HTML a vypadá takto:
 
 ![Ukázková aplikace zobrazená v prohlížeči][aci-tutorial-app]
 
@@ -50,7 +52,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## <a name="build-the-container-image"></a>Sestavení image kontejneru
 
-Soubor Dockerfile, který je součástí ukázkového úložiště, ukazuje postup sestavení kontejneru. Začíná od [oficiální image Node.js][dockerhub-nodeimage] založené na systému [Alpine Linux](https://alpinelinux.org/), malé distribuci vhodné pro použití s kontejnery. Potom zkopíruje soubory aplikace do kontejneru, nainstaluje závislosti pomocí Node Package Manageru a nakonec aplikaci spustí.
+Soubor Dockerfile, který je součástí ukázkového úložiště, ukazuje postup sestavení kontejneru. Spuštění z [oficiální Node.js image] [ docker-hub-nodeimage] na základě [Alpine Linux][alpine-linux], malé distribuce, která dobře hodí pro použití s kontejnery. Potom zkopíruje soubory aplikace do kontejneru, nainstaluje závislosti pomocí Node Package Manageru a nakonec aplikaci spustí.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -61,13 +63,13 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Pomocí příkazu `docker build` vytvořte image kontejneru a označte ji jako *aci-tutorial-app*:
+Použití [docker sestavení] [ docker-build] příkaz pro vytvoření bitové kopie kontejneru, označování jej jako *aci – kurz aplikace*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-Výstup z `docker build` příkaz je podobný následujícímu (zkrácená čitelnější):
+Výstup z [docker sestavení] [ docker-build] příkaz je podobný následujícímu (zkrácená čitelnější):
 
 ```bash
 Sending build context to Docker daemon  119.3kB
@@ -88,7 +90,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Pomocí příkazu `docker images` zobrazte sestavenou image:
+Použití [imagí dockeru] [ docker-images] příkazu zobrazte vytvořené bitové kopie:
 
 ```bash
 docker images
@@ -113,7 +115,7 @@ Otevřete v prohlížeči adresu http://localhost:8080 a ověřte, že je kontej
 
 ![Místní spuštění aplikace v prohlížeči][aci-tutorial-app-local]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste vytvořili image kontejneru, kterou je možné nasadit do služby Azure Container Instances. Dokončili jste následující kroky:
 
@@ -127,9 +129,23 @@ Přejděte k dalšímu kurzu, ve kterém se seznámíte s ukládáním imagí ko
 > [!div class="nextstepaction"]
 > [Nahrávání imagí do služby Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
 
-<!-- LINKS -->
-[dockerhub-nodeimage]: https://store.docker.com/images/node
-
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
 [aci-tutorial-app-local]: ./media/container-instances-tutorial-prepare-app/aci-app-browser-local.png
+
+<!-- LINKS - External -->
+[alpine-linux]: https://alpinelinux.org/
+[docker-build]: https://docs.docker.com/engine/reference/commandline/build/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-hub-nodeimage]: https://store.docker.com/images/node
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+[nodejs]: http://nodejs.org
+
+<!-- LINKS - Internal -->
+[azure-cli-install]: /cli/azure/install-azure-cli

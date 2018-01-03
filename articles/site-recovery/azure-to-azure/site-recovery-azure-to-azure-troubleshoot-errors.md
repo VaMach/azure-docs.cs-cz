@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Řešení problémů replikace virtuálního počítače Azure do Azure
 
@@ -131,6 +131,20 @@ Pokud nevidíte svého virtuálního počítače Azure pro výběr Když aktivuj
 
 Můžete použít [odebrat zastaralé konfigurační skript automatické obnovení systému](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) a odebrat zastaralé konfiguraci Site Recovery na virtuálním počítači Azure. Když aktivujete replikaci po odebrání stálou konfiguraci, měli byste vidět virtuálního počítače.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Stav zřizování Virtuálního počítače je neplatný (kód chyby 150019)
 
-## <a name="next-steps"></a>Další kroky
+Pokud chcete povolit replikaci na virtuálním počítači, musí být stav zřizování **úspěšné**. Pomocí následujícího postupu můžete zkontrolovat stav virtuálního počítače.
+
+1.  Vyberte **Průzkumníka prostředků** z **všechny služby** na portálu Azure.
+2.  Rozbalte **odběry** seznam a vyberte své předplatné.
+3.  Rozbalte **Skupinyprostředků** seznam a vyberte skupinu prostředků virtuálního počítače.
+4.  Rozbalte **prostředky** seznamu a vyberte virtuální počítač
+5.  Zkontrolujte **provisioningState** pole v zobrazení Instance na pravé straně.
+
+### <a name="fix-the-problem"></a>Opravte problém
+
+- Pokud **provisioningState** je **se nezdařilo**, obraťte se na podporu s podrobnostmi o řešení.
+- Pokud **provisioningState** je **aktualizace**, jiné rozšíření pro získávání může nasadit. Zkontrolujte, zda jsou všechny probíhající operace na virtuálním počítači, počkejte na jejich dokončení, a opakujte obnovení lokality se nezdařilo **povolit replikaci** úlohy.
+
+## <a name="next-steps"></a>Další postup
 [Replikace virtuálních počítačů Azure](azure-to-azure-quickstart.md)

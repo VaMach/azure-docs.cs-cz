@@ -1,29 +1,21 @@
 ---
-title: "Zkontrolujte architekturu pro replikaci virtuálních počítačů Azure mezi oblastmi Azure | Microsoft Docs"
+title: "Architektura replikace Azure do Azure ve službě Azure Site Recovery | Microsoft Docs"
 description: "Tento článek obsahuje přehled součásti a architektura použít při replikaci virtuálních počítačů Azure mezi oblastmi Azure pomocí služby Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/08/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 8251534b2e1e0d223f5e1df5dbd33831604615cb
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b37af3462a58f4418653d0e1b2300b5805e0a864
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architektura replikace Azure do Azure
 
 
-Tento článek popisuje architektuře a procesech používá při replikaci, převzetí služeb při selhání a obnovení virtuálních počítačů Azure (VM) mezi oblastí Azure, pomocí [Azure Site Recovery](site-recovery-overview.md) služby.
+Tento článek popisuje architekturu používá při replikaci, převzetí služeb při selhání a obnovení virtuálních počítačů Azure (VM) mezi oblastí Azure, pomocí [Azure Site Recovery](site-recovery-overview.md) služby.
 
 >[!NOTE]
 >Azure replikace virtuálního počítače se službou Site Recovery je aktuálně ve verzi preview.
@@ -45,7 +37,7 @@ Následující obrázek poskytuje podrobný pohled prostředí virtuálního po�
 
 ### <a name="step-1"></a>Krok 1
 
-Když povolíte replikaci virtuálního počítače Azure, prostředky vidíte níže se automaticky vytvoří v cílová oblast na základě nastavení oblasti zdroje. Můžete přizpůsobit nastavení cílové prostředky podle potřeby. 
+Když povolíte replikaci virtuálního počítače Azure, v následujících zdrojích informací jsou automaticky vytvořen ve cílová oblast na základě nastavení oblasti zdroje. Můžete přizpůsobit nastavení cílové prostředky podle potřeby.
 
 ![Povolit replikaci proces, krok 1](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
@@ -53,7 +45,7 @@ Když povolíte replikaci virtuálního počítače Azure, prostředky vidíte n
 --- | ---
 **Cílová skupina prostředků** | Skupinu prostředků, do které patří replikované virtuální počítače po převzetí služeb při selhání.
 **Cílová virtuální síť** | Virtuální síť, ve kterém jsou replikované virtuální počítače umístěné po převzetí služeb při selhání. Mapování sítě se vytvoří mezi zdrojovými a cílovými virtuální sítě a naopak.
-**Účty úložiště mezipaměti** | Předtím, než změny zdrojů virtuální počítače jsou replikovány do cílového účtu úložiště, jsou sledovány a odešle na účet úložiště mezipaměti v cílovém umístění. Tím se zajistí minimální dopad na produkční aplikace běžící na virtuálním počítači.
+**Účty úložiště mezipaměti** | Předtím, než změny zdrojů virtuálního počítače jsou replikovány do cílového účtu úložiště, jsou sledovány a odešle na účet úložiště mezipaměti v umístění zdroje. Tento krok zajistí minimální dopad na produkční aplikace běžící na virtuálním počítači.
 **Cílové úložiště účty**  | Účty úložiště v cílovém umístění, do které se replikují data.
 **Cílové skupiny dostupnosti**  | Sady dostupnosti, které jsou replikované virtuální počítače umístěné po převzetí služeb při selhání.
 
@@ -67,8 +59,17 @@ Jak je zapnutá replikace, rozšíření Site Recovery Mobility service se autom
 
    ![Povolit replikaci proces, krok 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
-  
- Site Recovery nikdy potřebuje příchozí připojení k virtuálnímu počítači. Pouze odchozí připojení je nutná k obnovení lokality služby adresy URL nebo IP adresy, Office 365 ověřování adresy URL nebo IP adresy a mezipaměti úložiště účet IP adresy.
+
+ Site Recovery nikdy potřebuje příchozí připojení k virtuálnímu počítači. Pro následující je potřeba jenom odchozí připojení.
+
+ - Adresy URL nebo IP adresy služby Obnovení lokality
+ - Office 365 ověřování adresy URL nebo IP adresy
+ - Mezipaměť úložiště účet IP adresy
+
+Po povolení konzistence pro víc Virtuálních počítačů v replikační skupině vzájemně komunikovat přes port 20004. Ujistěte se, že neexistuje žádné zařízení brány firewall interní komunikaci mezi virtuálními počítači přes port 20004 blokování.
+
+> [!IMPORTANT]
+Pokud chcete virtuální počítače s Linuxem jako součást skupiny replikace, zajistěte, aby že odchozí přenosy na portu 20004 je otevřen ručně podle pokynů na konkrétní verzi systému Linux.
 
 ### <a name="step-3"></a>Krok 3
 
@@ -80,7 +81,6 @@ Při zahájení převzetí služeb při selhání, virtuální počítače vytvo
 
 ![Proces převzetí služeb při selhání](./media/concepts-azure-to-azure-architecture/failover.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
-Podívat se na matici podpory postupujte podle kurzu k povolení replikace virtuálních počítačů Azure v sekundární oblasti.
-Spusťte převzetí služeb při selhání a navrácení služeb po obnovení.
+[Rychle replikovat](azure-to-azure-quickstart.md) virtuálního počítače Azure v sekundární oblasti.

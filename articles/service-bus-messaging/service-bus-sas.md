@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Ověřování služby Service Bus s podpisy sdíleného přístupu
 
@@ -128,7 +128,7 @@ Koncový bod pro přístup k sdíleného přístupu autorizační pravidla na ob
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-Chcete-li vytvořit [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) objekt v oboru názvů Service Bus, provést operaci POST na tento koncový bod s informace o pravidle serializovanou jako XML nebo JSON. Například:
+Chcete-li vytvořit [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) objekt v oboru názvů Service Bus, provést operaci POST na tento koncový bod s informace o pravidle serializovanou jako XML nebo JSON. Příklad:
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
@@ -344,7 +344,7 @@ V následující tabulce jsou uvedeny přístupová práva potřebná pro různ�
 | Odeslat do tématu |Odeslat |Každou adresu, platný tématu |
 | **Předplatné** | | |
 | Vytvoření odběru |Spravovat |Každou adresu, obor názvů |
-| Odstranit odběr |Spravovat |.. /myTopic/Subscriptions/mySubscription |
+| Odstranit předplatné |Spravovat |.. /myTopic/Subscriptions/mySubscription |
 | Zobrazení výčtu odběrů |Spravovat |.. / myTopic/odběrů |
 | Získat předplatné popis |Spravovat |.. /myTopic/Subscriptions/mySubscription |
 | Chyby nebo celé zprávy po přijetí zprávy v režimu zamknutí funkce Náhled |Naslouchání |.. /myTopic/Subscriptions/mySubscription |
@@ -357,7 +357,7 @@ V následující tabulce jsou uvedeny přístupová práva potřebná pro různ�
 | Odstranění pravidla |Spravovat |.. /myTopic/Subscriptions/mySubscription |
 | Zobrazení výčtu pravidel |Spravovat nebo naslouchání |.. /myTopic/Subscriptions/mySubscription/Rules 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokud se o přenosu zpráv přes Service Bus chcete dozvědět víc, pročtěte si následující témata.
 

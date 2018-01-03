@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Postupy: monitorování aplikací v Azure App Service
 [Služby App Service](http://go.microsoft.com/fwlink/?LinkId=529714) poskytuje integrované monitorování funkce v [portál Azure](https://portal.azure.com).
@@ -29,6 +29,8 @@ Portál Azure obsahuje schopnost zkontrolujte **kvóty** a **metriky** pro aplik
 ## <a name="understanding-quotas-and-metrics"></a>Principy kvóty a metriky
 ### <a name="quotas"></a>Kvóty
 Aplikace hostované ve službě App Service se vztahují určité *omezení* s prostředky, které mohou používat. Omezení jsou definovány **plán služby App Service** přidružené aplikaci.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Pokud je aplikace hostovaná v **volné** nebo **sdílené** plánu, a omezení pro aplikace může používat prostředky jsou definovány **kvóty**.
 
@@ -152,7 +154,7 @@ Metriky pro plán aplikace nebo služby App Service může být připojených k 
 Aplikace služby App Service hostované v basic, standard nebo premium podporu plány služby App Service **škálování**. Škálování umožňuje konfigurovat pravidla, která monitorování metriky plánu služby App Service. Pravidla můžete zvýšit nebo snížit počet instancí, že poskytuje další zdroje informací, podle potřeby. Pravidla také můžete ušetřit peníze při přepsání je zřizování aplikace. Další informace o automatické škálování zde: [postup škálování](../monitoring-and-diagnostics/insights-how-to-scale.md) a zde [osvědčené postupy pro automatické škálování Azure monitorování](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
-> Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](https://azure.microsoft.com/try/app-service/), kde si můžete hned vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není vyžadována platební karta a nevzniká žádný závazek.
 > 
 > 
 

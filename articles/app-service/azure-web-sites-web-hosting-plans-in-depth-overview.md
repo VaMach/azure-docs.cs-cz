@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Přehled služby Azure plán služby App Service
 
-Ve službě App Service spouští aplikace _plán služby App Service_. Plán služby App Service definuje sadu výpočetní prostředky pro spuštění webové aplikace. Tyto výpočetní prostředky jsou obdobou [ _serverové farmy_ ](https://wikipedia.org/wiki/Server_farm) v hostování konvenční webů. Jeden nebo více aplikací může být nakonfigurována pro spuštění na stejné výpočetní prostředky (nebo stejný plán služby App Service). 
+Ve službě App Service spouští aplikace _plán služby App Service_. Plán služby App Service definuje sadu výpočetní prostředky pro spuštění webové aplikace. Tyto výpočetní prostředky jsou obdobou [ _serverové farmy_ ](https://wikipedia.org/wiki/Server_farm) v hostování konvenční webů. Jeden nebo více aplikací může být nakonfigurována pro spuštění na stejné výpočetní prostředky (nebo stejný plán služby App Service).
 
 Když vytvoříte plán služby App Service v určité oblasti (například západní Evropa), je pro tento plán v této oblasti vytvořit sadu výpočetní prostředky. Ať aplikace vložíte do tento plán služby App Service, spusťte na tyto výpočetní prostředky podle definice plán služby App Service. Definuje každý plán služby App Service:
 
@@ -38,6 +38,8 @@ _Cenová úroveň_ služby App Service určuje plán, jaké funkce služby App S
 - **Vyhrazený výpočetní**: **základní**, **standardní**, **Premium**, a **PremiumV2** vrstev spouštět aplikace na vyhrazené Azure Virtuální počítače. Jenom aplikace ve stejném plán služby App Service sdílet stejnou výpočetní prostředky. Čím vyšší vrstvě, další instance virtuálních počítačů jsou dostupné pro Škálováním na více systémů.
 - **Izolované**: Tato úroveň běží vyhrazených virtuálních počítačích Azure na vyhrazených virtuálních sítí Azure, která poskytuje izolace sítě nad výpočetní izolace pro vaše aplikace. Poskytuje maximální možnosti škálování.
 - **Spotřeba**: Tato úroveň je k dispozici pouze [funkce aplikace](../azure-functions/functions-overview.md). Se škáluje funkce dynamicky v závislosti na zatížení. Další informace najdete v tématu [hostování na Azure Functions plány porovnání](../azure-functions/functions-scale.md).
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Každá úroveň také poskytuje určitou podmnožinu funkcí služby App Service. Tyto funkce patří vlastní domény a certifikáty protokolu SSL, automatické škálování, nasazovací sloty, zálohování, integrace Traffic Manager a další. Čím vyšší vrstvě, jsou k dispozici další funkce. Funkce, které jsou podporovány v jednotlivých cenových úrovní najdete v tématu [podrobnosti plánu služby App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: owend
-ms.openlocfilehash: f9b32029f0a7065fff73ddb6417fc5c1c7e658a5
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d19f2d29673364c50cb481e375f2c1b5e027467
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="monitor-server-metrics"></a>Monitorování serveru metriky
 
@@ -38,6 +38,7 @@ Pokud chcete provést další podrobné diagnostiky, sledovat výkon a identifik
 
     ![Monitorování grafu](./media/analysis-services-monitor/aas-monitor-chart.png)
 
+<a id="#server-metrics"></a>
 ## <a name="server-metrics"></a>Metriky serveru
 Pomocí této tabulky můžete určit, které metriky jsou vhodné pro váš scénář monitorování. Na stejném grafu lze zobrazit pouze metriky stejné jednotky.
 
@@ -46,22 +47,22 @@ Pomocí této tabulky můžete určit, které metriky jsou vhodné pro váš sc�
 |CommandPoolJobQueueLength|Příkaz délku fronty úloh|Počet|Průměr|Počet úloh ve frontě příkaz fondu vláken.|
 |CurrentConnections|Připojení: Aktuální připojení|Počet|Průměr|Aktuální počet připojení klienta.|
 |CurrentUserSessions|Aktuální relace uživatele|Počet|Průměr|Aktuální počet uživatelských relací navázat.|
-|mashup_engine_memory_metric|M modul paměti|Bajty|Průměr|Využití paměti procesy modul hybridní webové aplikace|
+|mashup_engine_memory_metric|M modul paměti|B|Průměr|Využití paměti procesy modul hybridní webové aplikace|
 |mashup_engine_qpu_metric|Modul M QPU|Počet|Průměr|Využití QPU procesy modul hybridní webové aplikace|
-|memory_metric|Memory (Paměť)|Bajty|Průměr|Paměť. V rozsahu 0-25 GB pro S1, 0 – 50 GB pro S2 a 0 – 100 GB pro S4|
+|memory_metric|Memory (Paměť)|B|Průměr|Paměť. V rozsahu 0-25 GB pro S1, 0 – 50 GB pro S2 a 0 – 100 GB pro S4|
 |memory_thrashing_metric|Zahlcení paměti|Procento|Průměr|Průměrná paměti zahlcení.|
 |CleanerCurrentPrice|Paměť: Čisticí aktuální cena|Počet|Průměr|Aktuální cena paměti, $a bajtů/čas, normalizovány na 1000.|
-|CleanerMemoryNonshrinkable|Paměť: Čisticí nonshrinkable paměti|Bajty|Průměr|Množství paměti v bajtech, není v souladu čisticí vyprazdňování pozadím.|
-|CleanerMemoryShrinkable|Paměť: Čisticí paměti vypočítat|Bajty|Průměr|Množství paměti v bajtech, podstoupí čisticí vyprazdňování pozadím.|
-|MemoryLimitHard|Paměti: Pevný Limit paměti|Bajty|Průměr|Omezení pevné paměti z konfiguračního souboru.|
-|MemoryLimitHigh|Paměť: Omezení paměti vysoká|Bajty|Průměr|Limit velkého množství paměti, z konfiguračního souboru.|
-|MemoryLimitLow|Paměti: Nízká Limit paměti|Bajty|Průměr|Limit nedostatek paměti z konfiguračního souboru.|
-|MemoryLimitVertiPaq|Paměti: VertiPaq Limit paměti|Bajty|Průměr|Omezení v paměti z konfiguračního souboru.|
-|Parametru MemoryUsage|Paměti: Využití paměti|Bajty|Průměr|Využití paměti procesem serveru v rámci výpočet ceny čisticí paměti. Rovná se čítač Process\PrivateBytes plus velikost dat mapované paměti, ignoruje všechny paměti, které bylo namapované nebo přidělené stroj v paměti analytics (VertiPaq) překračující modul Limit paměti.|
-|Kvóta|Paměť: kvóty|Bajty|Průměr|Aktuální kvótu paměti, v bajtech. Kvótu paměti se také označuje jako rezervace paměti grant nebo paměti.|
+|CleanerMemoryNonshrinkable|Paměť: Čisticí nonshrinkable paměti|B|Průměr|Množství paměti v bajtech, není v souladu čisticí vyprazdňování pozadím.|
+|CleanerMemoryShrinkable|Paměť: Čisticí paměti vypočítat|B|Průměr|Množství paměti v bajtech, podstoupí čisticí vyprazdňování pozadím.|
+|MemoryLimitHard|Paměti: Pevný Limit paměti|B|Průměr|Omezení pevné paměti z konfiguračního souboru.|
+|MemoryLimitHigh|Paměť: Omezení paměti vysoká|B|Průměr|Limit velkého množství paměti, z konfiguračního souboru.|
+|MemoryLimitLow|Paměti: Nízká Limit paměti|B|Průměr|Limit nedostatek paměti z konfiguračního souboru.|
+|MemoryLimitVertiPaq|Paměti: VertiPaq Limit paměti|B|Průměr|Omezení v paměti z konfiguračního souboru.|
+|Parametru MemoryUsage|Paměti: Využití paměti|B|Průměr|Využití paměti procesem serveru v rámci výpočet ceny čisticí paměti. Rovná se čítač Process\PrivateBytes plus velikost dat mapované paměti, ignoruje všechny paměti, které bylo namapované nebo přidělené stroj v paměti analytics (VertiPaq) překračující modul Limit paměti.|
+|Kvóta|Paměť: kvóty|B|Průměr|Aktuální kvótu paměti, v bajtech. Kvótu paměti se také označuje jako rezervace paměti grant nebo paměti.|
 |QuotaBlocked|Paměti: Blokované kvótu|Počet|Průměr|Aktuální počet požadavků kvóty, které jsou blokovaný, dokud jsou uvolněny kvóty další paměť.|
-|VertiPaqNonpaged|Paměť: VertiPaq nestránkovaného fondu|Bajty|Průměr|Bajtů paměti uzamčena v pracovní sadě pro použití stroj v paměti.|
-|VertiPaqPaged|Paměť: VertiPaq stránkovaného fondu|Bajty|Průměr|Bajty stránkovaného paměti používané pro data v paměti.|
+|VertiPaqNonpaged|Paměť: VertiPaq nestránkovaného fondu|B|Průměr|Bajtů paměti uzamčena v pracovní sadě pro použití stroj v paměti.|
+|VertiPaqPaged|Paměť: VertiPaq stránkovaného fondu|B|Průměr|Bajty stránkovaného paměti používané pro data v paměti.|
 |ProcessingPoolJobQueueLength|Délka fronty úloh zpracování fondu|Počet|Průměr|Počet úloh jiný I/O ve frontě fondu zpracování vláken.|
 |RowsConvertedPerSec|Zpracování: Řádky převést za sekundu|CountPerSecond|Průměr|Počet řádků převést během zpracování.|
 |RowsReadPerSec|Zpracování: Řádky čtení za sekundu|CountPerSecond|Průměr|Počet řádků přečíst ze všech relačních databází.|
@@ -87,7 +88,7 @@ Pomocí této tabulky můžete určit, které metriky jsou vhodné pro váš sc�
 |TotalConnectionFailures|Chyby připojení (celkem)|Počet|Průměr|Celkový počet neúspěšných pokusů o připojení.|
 |TotalConnectionRequests|Žádosti o připojení (celkem)|Počet|Průměr|Požadavky na celkový počet připojení. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Monitorování v Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Metriky v Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Metriky v Azure monitorování rozhraní REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)

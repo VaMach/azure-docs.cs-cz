@@ -14,14 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f961ef253fd090d3f064c9da5950d5eab6547e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Historie vydaných verzí
 Tým služby Azure Active Directory pravidelně aktualizuje Azure AD Connect Health se nové funkce a funkce. V tomto článku jsou uvedené verze a funkce, které byly vydány.
+
+## <a name="december-2017"></a>2017 prosinec
+**Aktualizace agenta:**
+
+*   Agent Azure AD Connect Health pro službu AD DS (verze 3.0.145.0)
+  1. Vylepšení dostupnost agenta 
+  2. Přidání nové řešení problémů s příkazy agenta
+  3. Obecné vylepšení a opravy chyb
+*   Agent Azure AD Connect Health pro službu AD FS (verze 3.0.145.0)
+  1. Přidání nové řešení problémů s příkazy agenta
+  2. Vylepšení dostupnost agenta 
+  3. Obecné vylepšení a opravy chyb
+
+## <a name="july-2017"></a>2017 července
+**Aktualizace agenta:**
+
+*   Agent Azure AD Connect Health pro službu AD DS (verze 3.0.68.0)
+  1. Obecné vylepšení a opravy chyb
+  2. Podpora svrchovaných cloudu
+*   Agent Azure AD Connect Health pro službu AD FS (verze 3.0.68.0)
+  1. Obecné vylepšení a opravy chyb
+  2. Podpora svrchovaných cloudu
+
+## <a name="april-2017"></a>Dubna 2017      
+**Aktualizace agenta:**
+
+*   Agent Azure AD Connect Health pro službu AD FS (verze 3.0.12.0)
+  1. Obecné vylepšení a opravy chyb
+*   Agent Azure AD Connect Health pro službu AD DS (verze 3.0.12.0)
+  1. Čítače výkonu nahrát vylepšení
+  2. Obecné vylepšení a opravy chyb
 
 ## <a name="october-2016"></a>Října 2016
 **Aktualizace agenta:**
@@ -94,6 +125,6 @@ Tým služby Azure Active Directory pravidelně aktualizuje Azure AD Connect Hea
 * Trendy v chybných požadavků na serverech služby AD FS, které jsou seskupené podle aplikací, chyba typy atd.
 * Jednodušší nasazení agenta pomocí přihlašovacích údajů Azure AD globálního správce.  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o [monitorování vaší místní infrastruktury identit a synchronizaci služeb v cloudu](active-directory-aadconnect-health.md).
 

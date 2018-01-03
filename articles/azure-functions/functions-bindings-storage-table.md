@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table úložiště vazby pro Azure Functions
 
@@ -35,8 +35,8 @@ Tento článek vysvětluje, jak pracovat s Azure Table storage vazeb v Azure Fun
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C# načíst jednu entitu](#input---c-example-1)
-* [Předkompilované C# přečíst více entit](#input---c-example-2)
+* [Načíst jednu entitu C#](#input---c-example-1)
+* [Přečtěte si více entit C#](#input---c-example-2)
 * [C# skript - načíst jednu entitu](#input---c-script-example-1)
 * [C# skript – přečtěte si více entit](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ Podívejte se na konkrétní jazyk příklad:
 
 ### <a name="input---c-example-1"></a>Vstup - C# příklad 1
 
-Následující příklad ukazuje [předkompilovaných C#](functions-dotnet-class-library.md) kód, který čte řádek jednu tabulku. 
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) jedné tabulky řádek, který čte. 
 
 Hodnota klíče na řádek "{queueTrigger}" označuje, že klíč řádku pochází z řetězec zprávy fronty.
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>Vstup - C# příklad 2
 
-Následující příklad ukazuje [předkompilovaných C#](functions-dotnet-class-library.md) kód, který čte více řádků tabulky. Všimněte si, že `MyPoco` třída odvozená z `TableEntity`.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) více řádků tabulky, který čte. Všimněte si, že `MyPoco` třída odvozená z `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>(Vstup) – atributy
  
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje konfigurovat vstupní vazbu tabulky následující atributy:
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte následující atributy ke konfiguraci vazbu vstupní tabulky:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -316,7 +316,7 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
   }
   ```
 
-  Úplný příklad najdete v tématu [(vstup) – příklad předkompilovaných jazyka C#](#input---c-example).
+  Úplný příklad najdete v tématu [(vstup) – příklad jazyka C#](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definované v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -389,14 +389,14 @@ Pomocí Azure Table storage výstup vazby k zápisu entity do tabulky v účtu A
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#output---c-example)
-* [Skript jazyka C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# skript (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Výstup – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C#](functions-dotnet-class-library.md) kód, který používá aktivační procedury HTTP zapsat řádek jednu tabulku. 
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) používající aktivační procedury HTTP zapsat řádek jednu tabulku. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Výstup – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Konstruktoru atributu přebírá název tabulky. Je možné použít s `out` parametr nebo na základě návratové hodnoty funkce, jak je znázorněno v následujícím příkladu:
 
@@ -597,9 +597,9 @@ public static MyPoco TableOutput(
 }
 ```
 
-Úplný příklad najdete v tématu [výstup - předkompilovaných C# příklad](#output---c-example).
+Úplný příklad najdete v tématu [výstup - C# příklad](#output---c-example).
 
-Můžete použít `StorageAccount` atribut určete účet úložiště na úrovni třídy, metoda nebo parametr. Další informace najdete v tématu [(vstup) – atributy](#input---attributes-for-precompiled-c).
+Můžete použít `StorageAccount` atribut určete účet úložiště na úrovni třídy, metoda nebo parametr. Další informace najdete v tématu [(vstup) – atributy](#input---attributes).
 
 ## <a name="output---configuration"></a>Výstup – konfigurace
 
@@ -635,7 +635,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
   V funkce jazyka JavaScript, přístup k tabulce výstup pomocí `context.bindings.<name>`.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)

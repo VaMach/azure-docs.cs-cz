@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: db92fdcdad6f6a81d749fd7648d48da53c21479f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ad98262af8ccebcc71013f1aac24eaa0b80a7c3b
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Řešení potíží s Azure Backup selhání: problémy s agenta nebo rozšíření
 
@@ -70,14 +70,14 @@ Po registraci a naplánovat virtuálního počítače pro službu Azure zálohov
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Zadaná konfigurace disku nejsou podporovány
 
 > [!NOTE]
-> Máme privátní Preview verzi pro podporu zálohování pro virtuální počítače s > 1TB nespravované disky. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Máme verzi Private Preview pro podporu záloh pro virtuální počítače s nespravovanými disky většími než 1 TB. Podrobnosti najdete na [privátní Preview verzi pro podporu zálohování velkých disků virtuálních počítačů](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 V současné době zálohování Azure nepodporuje velikosti disků [větší než 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Pokud máte disky, které jsou větší než 1 TB, [připojte nové disky](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) , které jsou menší než 1 TB <br>
-- Potom zkopírujte data z disku větší než 1TB do nově vytvořené disky o velikosti menší než 1 TB. <br>
-- Ujistěte se, že byl zkopírován všechna data a odebírat disky, které jsou větší než 1TB
+- Pokud máte disky větší než 1 TB, [připojte nové disky](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal), které jsou menší než 1 TB. <br>
+- Potom zkopírujte data z disku většího než 1 TB na nově vytvořené disky s velikostí menší než 1 TB. <br>
+- Zkontrolujte, že se všechna data zkopírovala, a potom disky větší než 1 TB odeberte.
 - Spustit zálohování
 
 ## <a name="causes-and-solutions"></a>Příčiny a řešení
@@ -100,7 +100,7 @@ Chcete-li problém vyřešit, zkuste jednu z metod, které jsou zde uvedeny.
 1. Pokud máte omezení síťového na místě (například skupinu zabezpečení sítě), nasazení proxy server HTTP směrovat provoz.
 2. Povolit přístup k Internetu prostřednictvím serveru proxy protokolu HTTP, přidejte pravidla na skupinu zabezpečení sítě, pokud nemáte.
 
-Další informace o nastavení proxy serveru HTTP pro zálohování virtuálních počítačů naleznete v tématu [Příprava prostředí pro zálohování virtuálních počítačů Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Další informace o nastavení proxy serveru HTTP pro zálohování virtuálních počítačů naleznete v tématu [Příprava prostředí pro zálohování virtuálních počítačů Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 V případě, že používáte spravované disků, může být nutné další port (8443) otevírání na bránu firewall.
 

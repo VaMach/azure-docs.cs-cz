@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 12/20/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 27056d5be99a6d2737e5583b0cda6f2e24895901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Vytvořit a spravovat zásady na vynucování dodržování shody
 
@@ -33,31 +33,31 @@ Prvním krokem při vynucování souladu se zásadami Azure je přiřadit defini
 
 1. Spusťte službu zásad Azure na portálu Azure hledání a výběrem **zásad** v levém podokně.
 
-   ![Vyhledejte zásad](media/assign-policy-definition/search-policy.png)
+   ![Hledání zásad](media/assign-policy-definition/search-policy.png)
 
-2. Vyberte **přiřazení** v levém podokně stránky zásad Azure. Přiřazení je zásadu, která byla přiřazena proběhla v rámci konkrétní obor.
-3. Vyberte **přiřadit zásady** z horní části **přiřazení** podokně.
+2. V levém podokně stránky služby Azure Policy vyberte **Přiřazení**. Přiřazení je zásadu, která byla přiřazena proběhla v rámci konkrétní obor.
+3. V horní části podokna **Přiřazení** vyberte **Přiřadit zásadu**.
 
-   ![Přiřadit definici zásady](media/create-manage-policy/select-assign-policy.png)
+   ![Přiřazení definice zásady](media/create-manage-policy/select-assign-policy.png)
 
-4. Na **přiřadit zásady** klikněte na tlačítko ![tlačítko definice zásady](media/assign-policy-definition/definitions-button.png) vedle **zásad** pole otevřete seznam dostupných definice.
+4. Na stránce **Přiřadit zásadu** kliknutím na ![tlačítko Definice zásady](media/assign-policy-definition/definitions-button.png) vedle pole **Zásada** otevřete seznam dostupných definic.
 
-   ![Definice zásad otevřete k dispozici](media/create-manage-policy/open-policy-definitions.png)
+   ![Otevření dostupných definic zásad](media/create-manage-policy/open-policy-definitions.png)
 
 5. Vyberte **vyžadují SQL Server verze 12.0**.
 
    ![Vyhledejte zásadu](media/create-manage-policy/select-available-definition.png)
 
-6. Slouží k zobrazení **název** pro přiřazení zásad. V tomto případě použijeme *vyžadují SQL Server verze 12.0*. Můžete také přidat volitelný **popis**. Popis poskytuje podrobnosti o tom, jak toto přiřazení zásad zajistí všechny servery SQL, které jsou vytvořené v tomto prostředí jsou verze 12.0.
-7. Změnit cenovou úroveň na **standardní** zajistit, že získá zásada se stávajícími prostředky.
+6. Zadejte zobrazovaný **Název** tohoto přiřazení zásady. V tomto případě použijeme *vyžadují SQL Server verze 12.0*. Volitelně můžete přidat také **Popis**. Popis poskytuje podrobnosti o tom, jak toto přiřazení zásad zajistí všechny servery SQL, které jsou vytvořené v tomto prostředí jsou verze 12.0.
+7. Změnou cenové úrovně na **Standard** zajistěte, že se zásada použije na stávající prostředky.
 
-   Existují dvě cenové úrovně v rámci zásad Azure – *volné* a *standardní*. S úroveň Free, můžete pouze vynutit zásady na budoucí prostředky, zatímco s Standard, můžete taky vynutit je na stávajících prostředcích pro lepší pochopení vašeho stavu dodržování předpisů. Jsme jsou umístěny v omezené Preview, jsme ještě uvolněny cenový model, takže nebudete dostávat faktury pro výběr *standardní*. Další informace o cenách, podívejte se na: [zásad Azure ceny](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   V rámci služby Azure Policy existují dvě cenové úrovně – *Free* a *Standard*. S úrovní Free můžete vynucovat zásady pouze u budoucích prostředků, zatímco s úrovní Standard je můžete vynucovat také u stávajících prostředků, abyste lépe porozuměli vašemu stavu dodržování předpisů. Vzhledem k tomu, že jsme ve verzi Limited Preview, ještě jsme nezveřejnili cenový model, takže za výběr úrovně *Standard* neobdržíte žádnou fakturu. Další informace o cenách najdete v tématu [Ceny služby Azure Policy](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Vyberte **oboru** -předplatné (nebo skupinu prostředků) dříve registrován. Obor určuje, jaké prostředky nebo seskupení prostředků v získá vynucena přiřazení zásad. Může rozsahu z odběru do skupiny prostředků.
+8. Vyberte **oboru** -předplatné (nebo skupinu prostředků) dříve registrován. Obor určuje, pro které prostředky nebo skupiny prostředků se toto přiřazení zásady bude vynucovat. Může sahat od předplatného až po skupinu prostředků.
 
    V tomto příkladu používáme toto předplatné - **Azure analýzy kapacity Dev**. Vaše předplatné se budou lišit.
 
-10. Vyberte **přiřadit**.
+10. Vyberte **Přiřadit**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implementovat nové vlastní zásady
 
@@ -73,12 +73,12 @@ Teď, když přiřadili jsme definice zásady, vytvoříme k vytvoření nové z
    - Název definice zásady - *vyžadují virtuálních počítačů SKU menší než G řady*
    - Popis definice zásady cílem – tuto definici zásady vynutí, že všechny virtuální počítače vytvořené v tomto rozsahu mají SKU menší než řady G na snížení nákladů.
    - Předplatné, ve kterém bude live definice zásady – v takovém případě bude live naše definice zásady **Advisor analýzy kapacity Dev**. Seznam odběrů se budou lišit.
-   - Psaní kódu json s:
+   - Zkopírujte následující kód json a pak aktualizujte pro vaše potřeby pomocí:
       - Parametry zásad.
       - Zásady pravidla nebo podmínky, v takovém případě – velikost virtuálního počítače SKU rovna G řady
       - Účinek zásady, v takovém případě – **Odepřít**.
 
-    Zde je, jak by měla vypadat json
+    Zde je, jak by měla vypadat json. Revidovaný kód vložte do portálu Azure.
 
     ```json
 {
@@ -335,7 +335,7 @@ Iniciativy definicí můžete seskupit několik definice zásady pro dosažení 
 
    V tomto příkladu chceme zkontrolujte, zda jsou v souladu s definice zásady o získání zabezpečené prostředky, název iniciativy by měl být **získat zabezpečený**, a bude popis: **byl tento initiative k vytvoření, která zpracovává všechny definice zásady, které jsou přidružené k zabezpečení prostředků**.
 
-   ![Iniciativy definice](media/create-manage-policy/initiative-definition.png)
+   ![Definice iniciativy](media/create-manage-policy/initiative-definition.png)
 
 4. Procházet seznam **dostupné definice** a vyberte definice zásad chcete přidat do této initiative. Pro naše **získat zabezpečený** iniciativa, přidejte následující součástí definice zásady:
    - Vyžaduje systém SQL Server verze 12.0
@@ -364,13 +364,13 @@ Iniciativy definicí můžete seskupit několik definice zásady pro dosažení 
    - cenová úroveň: standardní
    - Chcete toto přiřazení u oboru: **Azure Advisor kapacity vývojářů**
 
-5. Vyberte **přiřadit**.
+5. Vyberte **Přiřadit**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Vyřešte nevyhovující nebo odepření prostředek
 
 V následujícím příkladu výše, po přiřazení definice zásady tak, aby vyžadovala SQL server verze 12.0 by získat odepřena vytvořen v jiné verzi systému SQL server. V této části jsme se s návodem řešení odepření pokus o vytvoření jiné verzi systému SQL server tím, že požádá vyloučení.
 
-1. Vyberte **přiřazení** v levém podokně.
+1. V levém podokně vyberte **Přiřazení**.
 2. Procházet všechna přiřazení zásad a spusťte *vyžadují SQL Server verze 12.0* přiřazení.
 3. Požádat o výjimku pro skupiny prostředků, ve kterých chcete vytvořit systému SQL server. V takovém případě jsme se s výjimkou Microsoft.Sql/servers/databases: *baconandbeer/Cheetos* a *baconandbeer/Chorizo*.
 
@@ -390,7 +390,7 @@ Pokud budete chtít pokračovat v práci s další kurzy, neprovádí vyčiště
 2. Hledání pro nové initiative nebo zásady definice (nebo přiřazení), který jste právě vytvořili.
 3. Vyberte tři tečky na konci definice nebo přiřazení a vyberte **odstranit definice** (nebo **odstranit přiřazení**).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste úspěšně provést následující:
 

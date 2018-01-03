@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Nejčastější dotazy k Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Základy Azure Cosmos DB
@@ -38,7 +38,7 @@ Pokud jste měli účet DocumentDB API před, nyní máte účet rozhraní API p
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Co se stalo s Azure DocumentDB jako službu?
 
-Služba Azure DocumentDB je nyní součástí služby Azure Cosmos DB a se projevuje ve formě rozhraní SQL API. Aplikace sestavené s Azure DocumentDB se spustí bez uložení změn rozhraní API Azure Cosmos databáze SQL. Kromě toho Azure Cosmos DB podporuje rozhraní Graph API (Preview), rozhraní API tabulky, MongoDB rozhraní API a rozhraní API Cassandra (Preview).
+Služba Azure DocumentDB je nyní součástí služby Azure Cosmos DB a se projevuje ve formě rozhraní SQL API. Aplikace sestavené s Azure DocumentDB se spustí bez uložení změn rozhraní API Azure Cosmos databáze SQL. Kromě toho Azure Cosmos DB podporuje rozhraní Graph API, rozhraní API tabulky, MongoDB rozhraní API a rozhraní API Cassandra (Preview).
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Jaké jsou typické použití případů pro Azure Cosmos DB?
 Azure Cosmos DB je dobrou volbou pro nové webové, mobilní a herní, a je důležité, aplikace či aplikace IoT kde automatické škálování, předvídatelný výkon, rychlé pořadí doby odezvy milisekund a schopnost dotazovat přes data bez schémat. Azure Cosmos DB slouží k rychlému vývoji a podpoře nepřetržitých iterací modelů dat aplikace. Aplikace, které spravují uživatelem generovaný obsah a data jsou [běžné případy použití pro Azure Cosmos DB](use-cases.md). 
@@ -95,7 +95,7 @@ Tyto podmínky platí pro odběry zkuste Cosmos databázi Azure:
 
 ## <a name="set-up-azure-cosmos-db"></a>Nastavení Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Jak přihlásím Azure Cosmos DB?
-Azure Cosmos DB je k dispozici na portálu Azure. První zaregistrujte si předplatné Azure. Po jste zaregistrovali, můžete přidat rozhraní SQL API, rozhraní Graph API (Preview), tabulka rozhraní API, rozhraní API MongoDB nebo Cassandra API účtu k předplatnému Azure.
+Azure Cosmos DB je k dispozici na portálu Azure. První zaregistrujte si předplatné Azure. Poté, co jste se přihlásili, můžete přidat rozhraní API pro SQL, rozhraní Graph API, rozhraní API tabulky, MongoDB API nebo rozhraní API Cassandra účtu k předplatnému Azure.
 
 ### <a name="what-is-a-master-key"></a>Co je hlavní klíč?
 Hlavní klíč je token zabezpečení pro přístup ke všem prostředkům účtu. Uživatelé, kteří mají klíč čtení a zápisu přístup ke všem prostředkům v databázovém účtu. Při distribuci hlavního klíče buďte opatrní. Primární hlavní klíč nebo sekundární hlavní klíč jsou k dispozici na **klíče** okno [portál Azure][azure-portal]. Další informace o klíčích najdete v tématu [zobrazení, kopírování a opětovné vytváření přístupových klíčů](manage-account.md#keys).
@@ -217,7 +217,7 @@ Zatímco Azure Cosmos DB podporuje sdíleného přístupu podpisy (SAS) existuj�
 
 Pro .NET SDK konkrétně, existují některé třídy a metody, které databázi Cosmos Azure v současné době nepodporuje.
 
-| – Třída | Nepodporované – metoda |
+| Třída | Nepodporované – metoda |
 |-------|-------- |
 | CloudTableClient | \*ServiceProperties * |
 |                  | \*ServiceStats * |
@@ -414,14 +414,14 @@ Azure Table storage a rozhraní API služby Azure Cosmos DB tabulky pomocí stej
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Proč I získat omezeny při pokusu vytvořit mnoho tabulek jedna po druhé v rozhraní API tabulky?
 Azure Cosmos DB je systém na základě smlouvy o úrovni služeb, který poskytuje latence, propustnost, dostupnost a konzistence záruky. Protože je zřízená systému, si vyhrazuje prostředky k zajištění těchto požadavků. Rychlé rychlost vytváření tabulek je zjištěna a omezení. Doporučujeme podívat rychlost vytváření tabulek a snížit na méně než 5 za minutu. Mějte na paměti, že rozhraní API tabulky je zřízená systém. V okamžiku, zřídíte začne platit pro ni. 
 
-## <a name="develop-against-the-graph-api-preview"></a>Vývoj proti Graph API (Preview)
-### <a name="how-can-i-apply-the-functionality-of-graph-api-preview-to-azure-cosmos-db"></a>Jak můžete použít funkci rozhraní Graph API (Preview) pro Azure Cosmos DB?
-Rozšíření knihovny můžete použít funkci rozhraní Graph API (Preview). V této knihovně se nazývá grafy Microsoft Azure a je k dispozici na NuGet. 
+## <a name="develop-against-the-graph-api"></a>Vývoj proti Graph API
+### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Tom, jak můžete použít funkci rozhraní Graph API k databázi Cosmos Azure?
+Rozšíření knihovny můžete použít funkci rozhraní Graph API. V této knihovně se nazývá grafy Microsoft Azure a je k dispozici na NuGet. 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Zdá se, podporu jazyka traversal Gremlin grafu. Máte v plánu přidat další formuláře dotazu?
 Ano, plánujeme přidat v budoucnu další mechanismy pro dotaz. 
 
-### <a name="how-can-i-use-the-new-graph-api-preview-offering"></a>Jak můžete použít novou nabídku rozhraní Graph API (Preview)? 
+### <a name="how-can-i-use-the-new-graph-api-offering"></a>Jak můžete použít novou nabídku rozhraní Graph API? 
 Chcete-li začít, proveďte [rozhraní Graph API](../cosmos-db/create-graph-dotnet.md) úvodní článek.
 
 <a id="cassandra"></a> 

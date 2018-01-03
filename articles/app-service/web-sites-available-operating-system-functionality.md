@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18ff5c81d0aa5e8a28ed8a11dad19811d2fa1d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funkce operačního systému v Azure App Service
 Tento článek popisuje běžné funkce operačního systému standardních hodnot, které jsou k dispozici pro všechny aplikace běžící na [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Tato funkce zahrnuje soubor, sítě a přístup k registru a diagnostické protokoly a události. 
@@ -27,6 +27,8 @@ Tento článek popisuje běžné funkce operačního systému standardních hodn
 
 ## <a name="app-service-plan-tiers"></a>Úrovně plánu služby App Service
 Služby App Service zákazníka aplikace běží v hostitelských prostředí s více klienty. Aplikace nasazené v **volné** a **sdílené** vrstev spustit v pracovních procesů na sdílených virtuálních počítačích, zatímco aplikace nasazené v **standardní** a **Premium** vrstev spustit na virtuální počítače vyhrazené speciálně pro aplikace přidružené k jednoho zákazníka.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Protože služby App Service podporuje bezproblémové škálování prostředí mezi různých vrstev, konfigurace zabezpečení pro aplikace služby App Service vynucený zůstává stejná. Tím se zajistí, že aplikace není chovat najednou jinak, selhání neočekávané způsoby, když se plán služby App Service přepne z jedné vrstvy do jiného.
 
@@ -76,7 +78,7 @@ Domovský adresář je obsah aplikace a kód aplikace může do něj zapisovat. 
 
 <a id="NetworkAccess"></a>
 
-## <a name="network-access"></a>Přístup k síti
+## <a name="network-access"></a>Síťový přístup
 Kód aplikace můžete použít protokol TCP/IP a UDP, na základě protokolů, aby odchozí síťová připojení přístupné koncových bodů Internet, které zveřejňují externích služeb. Aplikace můžete použít tyto stejné protokoly pro připojení ke službám v rámci Azure &#151; například při navazování připojení prostřednictvím protokolu HTTPS k databázi SQL.
 
 Je také omezené funkce pro aplikace k připojení jeden místní smyčky a aplikace naslouchání že soketem místní smyčky. Tato funkce existuje především k aplikacím, které čekají na místní smyčky sockets jako součást jejich funkce. Všimněte si, že každá aplikace uvidí připojení "privátní" zpětné smyčky; aplikace "A" nemůže naslouchat na soket místní smyčky navázat aplikací "B".
@@ -115,7 +117,7 @@ Zápis do registru je blokovaný, včetně přístupu k žádné klíče registr
 [Azure izolovaného prostoru webové aplikace](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) – nejnovější informace o prostředí pro spuštění služby App Service. Tato stránka se spravuje přímo pomocí vývojový tým služby App Service.
 
 > [!NOTE]
-> Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service](https://azure.microsoft.com/try/app-service/), kde si můžete hned vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service](https://azure.microsoft.com/try/app-service/), kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není vyžadována platební karta a nevzniká žádný závazek.
 > 
 > 
 

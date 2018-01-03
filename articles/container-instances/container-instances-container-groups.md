@@ -6,33 +6,33 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 568a99d44a5a32339d438ed1025670d12ecce791
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Skupiny kontejnerů v Azure kontejner instancí
 
-Nejvyšší úrovně prostředků v Azure kontejner instancí je skupina kontejneru. Tento článek popisuje, jaké jsou skupiny kontejnerů a jaké druhy scénářů umožňují.
+Je nejvyšší úrovně prostředků v Azure kontejner instancí *skupina kontejneru*. Tento článek popisuje, jaké jsou skupiny kontejnerů a typy scénáře, které umožňují.
 
 ## <a name="how-a-container-group-works"></a>Jak funguje skupina kontejneru
 
-Skupina kontejneru je kolekce kontejnery, které získat naplánovat na stejném hostitelském počítači a sdílet životního cyklu, místní sítě a svazky úložiště. Je podobný koncept *pod* v [Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/) a [DC/OS](https://dcos.io/docs/1.9/deploying-services/pods/).
+Skupina kontejneru je kolekce kontejnery, které získat naplánovat na stejném hostitelském počítači. Kontejnery v kontejneru skupiny sdílet životního cyklu, místní sítí a svazky úložiště. Je podobný koncept *pod* v [Kubernetes] [ kubernetes-pod] a [DC/OS][dcos-pod].
 
 Následující diagram ukazuje příklad skupinou kontejneru, která obsahuje více kontejnerů.
 
-![Příklad skupiny kontejneru][container-groups-example]
+![Diagram skupiny kontejneru][container-groups-example]
 
-Poznámky:
+Tato skupina kontejneru příklad:
 
-- Skupiny je naplánováno na jeden hostitelský počítač.
-- Skupiny zpřístupní jednu veřejnou IP adresu, s zveřejněné jeden port.
-- Skupiny je tvořen dvěma kontejnery. Jeden kontejner naslouchá na portu 80, při dalších sleduje na port 5000.
-- Skupiny obsahuje dvě sdílené složky Azure jako svazek připojení zařízení a každý kontejner připojí některé sdílené složky místně.
+* Je naplánován na jeden hostitelský počítač.
+* Zpřístupní jednu veřejnou IP adresu, s zveřejněné jeden port.
+* Se skládá ze dvou kontejnery. Jeden kontejner naslouchá na portu 80, při dalších sleduje na port 5000.
+* Zahrnuje dvě Azure sdílené složky jako svazek připojení zařízení a každý kontejner připojí některé sdílené složky místně.
 
 ### <a name="networking"></a>Sítě
 
@@ -44,16 +44,21 @@ Můžete zadat externí svazky připojit v rámci skupiny kontejneru. Můžete n
 
 ## <a name="common-scenarios"></a>Obvyklé scénáře
 
-Více kontejner skupiny jsou užitečné v případech, ve které chcete rozdělit jeden úkol funkční do malý počet kontejneru Image, které mohou být dodány pomocí různými týmy a obsahují požadavky samostatné prostředků. Příklad použití můžou zahrnovat:
+Více kontejner skupiny jsou užitečné v případech, ve které chcete rozdělit jeden úkol funkční do malý počet kontejneru Image, které mohou být dodány pomocí různými týmy a obsahují požadavky samostatné prostředků.
 
-- Kontejner aplikace a kontejner protokolování. Kontejner protokolování shromažďuje protokoly a metriky výstup v hlavní aplikaci a zapíše do dlouhodobého úložiště.
-- Aplikace a kontejner monitorování. Monitorování kontejneru pravidelně odešle požadavek na aplikaci zkontrolujte, zda je spuštěná a správně reagovat a vyvolá výstrahu, pokud není.
-- Kontejner obsluhující webové aplikace a kontejner stahování nejnovější obsah od správy zdrojového kódu.
+Příklad použití můžou zahrnovat:
 
-## <a name="next-steps"></a>Další kroky
+* Kontejner aplikace a kontejner protokolování. Kontejner protokolování shromažďuje protokoly a metriky výstup v hlavní aplikaci a zapíše do dlouhodobého úložiště.
+* Aplikace a kontejner monitorování. Monitorování kontejneru pravidelně vytváří požadavek na aplikaci zkontrolujte, zda je spuštěná a správně reagovat a vyvolá výstrahu, pokud není.
+* Kontejner obsluhující webové aplikace a kontejner stahování nejnovější obsah od správy zdrojového kódu.
+
+## <a name="next-steps"></a>Další postup
 
 Zjistěte, jak [nasazení s více kontejner skupiny](container-instances-multi-container-group.md) pomocí šablony Azure Resource Manager.
 
 <!-- IMAGES -->
-
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png
+
+<!-- LINKS - External -->
+[dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/
+[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

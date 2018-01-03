@@ -137,7 +137,7 @@ Ano, můžete k převzetí služeb při selhání pro virtuální počítač s s
 
 **Je k dispozici žádný vliv migrace na virtuálních počítačích Azure, které jsou chráněné pomocí Azure lokality Recovery (ASR) prostřednictvím replikace Azure do Azure?**
 
-Ano. Automatické obnovení systému Azure do Azure ochrany není podporováno pro virtuální počítače s spravované disky. Se bude na konci CY2018 podporovat. 
+Ano. Automatické obnovení systému Azure do Azure ochrany není podporováno pro virtuální počítače s spravované disky. Chce podporovat na konci CY2018 Otázka č. 1. 
 
 **Můžete migrovat virtuální počítače s nespravované disky, které se nacházejí na účtech úložiště, které jsou nebo byly dříve šifrovaná na spravované disky?**
 

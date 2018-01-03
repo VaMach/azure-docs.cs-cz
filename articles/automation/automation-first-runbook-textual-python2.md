@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0399719e5f80869f0131691b89a9dc48b3fc48d7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="my-first-python-runbook"></a>Můj první runbook Python
 
@@ -147,7 +147,7 @@ Ke správě prostředků Azure, skript má k ověření pomocí přihlašovacíc
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Přidejte kód pro vytvoření klienta Python výpočetní a spuštění virtuálního počítače
 
-Pro práci s virtuálními počítači Azure, vytvořte instanci [Azure Compute klienta pro jazyk Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.compute.computemanagementclient?view=azure-python).
+Pro práci s virtuálními počítači Azure, vytvořte instanci [Azure Compute klienta pro jazyk Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
 
 Pomocí klienta výpočetní spusťte virtuální počítač. Přidejte následující kód do sady runbook:
 
@@ -207,7 +207,7 @@ Zadejte název vaší skupiny prostředků jako hodnotu pro první parametr a n�
 
 Klikněte na tlačítko **OK** pro spuštění sady runbook. Sada runbook spuštěna a spouští se virtuální počítač, který jste zadali.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * První kroky s powershellovými runbooky najdete v článku [Můj první powershellový runbook](automation-first-runbook-textual-powershell.md).
 * První kroky s grafickými runbooky najdete v článku [Můj první grafický runbook](automation-first-runbook-graphical.md).

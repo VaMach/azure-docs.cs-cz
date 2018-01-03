@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 93f3912e2405a4ebeee26e3741d6412a75410b7f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Kurz: Konfigurace služby Salesforce pro zřizování automatické uživatelů
 
@@ -65,7 +65,7 @@ Cílem této části se popisují postup povolení zřizování uživatelů slu�
 
 4. Nastavte **režimu zřizování** k **automatické**.
 
-    ![Zřizování](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+    ![zřizování](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
 5. V části **přihlašovací údaje správce** části, zadejte následující nastavení konfigurace:
    
@@ -89,25 +89,27 @@ Cílem této části se popisují postup povolení zřizování uživatelů slu�
 
 10. Zkopírujte token, přejděte do okna vaší služby Azure AD a vložte ji do **tajný klíč tokenu** pole.
 
-11. Na portálu Azure klikněte na tlačítko **Test připojení** zajistit Azure AD může připojit k aplikaci Salesforce.
+11. **URL klienta** musí být zadán, pokud je instance služby Salesforce na Cloud vlády Salesforce. Jinak je volitelné. Zadejte URL klienta formátu https://your-instance.my.salesforce.com, nahraďte názvem vaší instance služby Salesforce vaše instance.
 
-12. V **e-mailové oznámení** pole, zadejte e-mailovou adresu uživatele nebo skupiny, který by měl zřizování chyba oznámení dostávat a zaškrtněte políčko níže.
+12. Na portálu Azure klikněte na tlačítko **Test připojení** zajistit Azure AD může připojit k aplikaci Salesforce.
 
-13. Klikněte na tlačítko **uložit.**  
+13. V **e-mailové oznámení** pole, zadejte e-mailovou adresu uživatele nebo skupiny, který by měl zřizování chyba oznámení dostávat a zaškrtněte políčko níže.
+
+14. Klikněte na tlačítko **uložit.**  
     
-14.  V části mapování vyberte **synchronizaci Azure Active Directory Users do služby Salesforce.**
+15.  V části mapování vyberte **synchronizaci Azure Active Directory Users do služby Salesforce.**
 
-15. V **mapování atributů** , projděte si uživatelské atributy, které jsou synchronizované z Azure AD do služby Salesforce. Všimněte si, že atributy vybrán jako **párování** vlastnosti se používají tak, aby odpovídaly uživatelské účty v Salesforce pro operace aktualizace. Kliknutím na tlačítko Uložit potvrzení změny.
+16. V **mapování atributů** , projděte si uživatelské atributy, které jsou synchronizované z Azure AD do služby Salesforce. Všimněte si, že atributy vybrán jako **párování** vlastnosti se používají tak, aby odpovídaly uživatelské účty v Salesforce pro operace aktualizace. Kliknutím na tlačítko Uložit potvrzení změny.
 
-16. Povolit Azure AD zřizování služby pro služby Salesforce, změňte **Stav zřizování** k **na** v části Nastavení
+17. Povolit Azure AD zřizování služby pro služby Salesforce, změňte **Stav zřizování** k **na** v části Nastavení
 
-17. Klikněte na tlačítko **uložit.**
+18. Klikněte na tlačítko **uložit.**
 
 Tím se spustí počáteční synchronizaci všech uživatelů a skupiny přiřazené do služby Salesforce v části Uživatelé a skupiny. Všimněte si, že počáteční synchronizace trvá déle než následné synchronizace, ke kterým dochází přibližně každých 20 minut, dokud se službou provést. Můžete použít **podrobnosti synchronizace** části monitorovat průběh a odkazech zřízení sestavy aktivity, které popisují všechny akce prováděné při zřizování služby ve vaší aplikaci Salesforce.
 
 Nyní můžete vytvořit testovací účet. Chcete-li ověřit, že účet umístění byl synchronizován do služby Salesforce Počkejte až 20 minut.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Správa uživatelů zřizování účtu pro podnikové aplikace](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

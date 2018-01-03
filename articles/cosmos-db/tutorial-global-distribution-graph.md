@@ -13,24 +13,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 12e1ab5f57d217537ba14183500efb099985ff1e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Jak nastavit globální distribuční databázi Cosmos Azure pomocí rozhraní Graph API
 
-V tomto článku jsme ukazují, jak pomocí portálu Azure do instalačního programu globální distribuční databázi Cosmos Azure a potom se připojte pomocí rozhraní Graph API (preview).
+V tomto článku jsme ukazují, jak pomocí portálu Azure nastavit globální distribuční databázi Cosmos Azure a potom se připojte pomocí rozhraní Graph API.
 
 Tento článek obsahuje následující úlohy: 
 
 > [!div class="checklist"]
 > * Nakonfigurujte globální distribuci pomocí portálu Azure
-> * Nakonfigurujte globální distribuční pomocí [rozhraní Graph API](graph-introduction.md) (preview)
+> * Nakonfigurujte globální distribuční pomocí [rozhraní Graph API](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
@@ -43,10 +43,10 @@ Aby bylo možné využít výhod [globální distribuční](distribute-data-glob
 
 Tento seznam předvoleb je zadána při inicializaci připojení pomocí sady SDK. Sady SDK přijmout volitelný parametr "PreferredLocations" tedy uspořádaný seznam oblastí Azure.
 
-* **Zapíše**: Sada SDK bude automaticky posílat zápis všech zápisů na aktuální oblasti.
-* **Přečte**: všechny operace čtení odešle první oblasti k dispozici v seznamu PreferredLocations. Pokud se požadavek nezdaří, klient se nezdaří dolů v seznamu další oblasti a tak dále. Sady SDK se pouze pokusí číst z oblastí, zadaný v PreferredLocations. Ano například pokud Cosmos DB účet je k dispozici v tři oblasti, ale klient pouze určuje pro PreferredLocations dvou oblastí bez zápisu, pak žádné čtení se zpracuje mimo oblast zápisu, i v případě převzetí služeb při selhání.
+* **Zapíše**: Sada SDK automaticky odesílá všech zápisů do aktuální oblasti zápisu.
+* **Přečte**: všechny operace čtení jsou odesílány první dostupné oblasti v seznamu PreferredLocations. Pokud se požadavek nezdaří, dojde k selhání klienta dolů v seznamu k další oblasti a tak dále. Sady SDK pouze pokus o čtení z oblastí, zadaný v PreferredLocations. Ano například pokud Cosmos DB účet je k dispozici v tři oblasti, ale klient určuje pouze dva z oblasti bez zápisu pro PreferredLocations, pak žádný čtení se zpracovávají mimo oblast zápisu, i v případě převzetí služeb při selhání.
 
-Aplikace můžete ověřit aktuální koncový bod zápisu a čtení koncový bod vybrali SDK kontrolou dvě vlastnosti WriteEndpoint a ReadEndpoint dostupné ve verzi sady SDK 1.8 a výše. Pokud není nastavena vlastnost PreferredLocations, bude z oblasti aktuální zápisu zpracovat všechny požadavky.
+Aplikace můžete ověřit aktuální koncový bod zápisu a čtení koncový bod vybrali SDK kontrolou dvě vlastnosti WriteEndpoint a ReadEndpoint dostupné ve verzi sady SDK 1.8 a výše. Pokud není nastavena vlastnost PreferredLocations, jsou z oblasti aktuální zápisu zpracovat všechny požadavky.
 
 ### <a name="using-the-sdk"></a>Pomocí sady SDK
 
@@ -81,7 +81,7 @@ await docClient.OpenAsync().ConfigureAwait(false);
 
 Je to, že dokončení tohoto kurzu. Můžete naučit ke správě konzistence účtu globálně replikované načtením [úrovně konzistence v Azure Cosmos DB](consistency-levels.md). A další informace o tom, jak globální replikace databáze v Azure Cosmos DB funguje, najdete v části [distribuci dat globálně pomocí Azure Cosmos DB](distribute-data-globally.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste provést následující:
 

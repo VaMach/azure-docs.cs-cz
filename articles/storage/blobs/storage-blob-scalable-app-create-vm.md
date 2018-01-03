@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 011812f5e32537321301dad0c654bca341b3606d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Vytvoření virtuálního počítače a účet úložiště pro škálovatelná aplikace
 
@@ -117,7 +117,7 @@ V tomto kurzu jsou předpoklady, které je třeba nainstalovat na virtuální po
 Spusťte následující rutinu pro dokončení konfigurace virtuálního počítače. Tento krok bude dokončeno 5 až 15 minut.
 
 ```azurepowershell-interactive
-# Start a CustomScript extension to use a simple PowerShell script to instal .NET core, dependancies, and pre-create the files to upload.
+# Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
 Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location EastUS `
@@ -126,7 +126,7 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -Name DemoScriptExtension
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V rámci jedna řada jste se dozvěděli o vytvoření účtu úložiště, nasazení virtuálního počítače a konfigurace virtuálního počítače s požadované požadavky například jak:
 

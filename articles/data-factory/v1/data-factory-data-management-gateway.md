@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a1b5346b590081c703ccdc5197e08f35bcaf76e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-management-gateway"></a>Brána správy dat
 > [!NOTE]
@@ -323,6 +323,9 @@ Stránka nastavení umožňuje provádět následující akce:
 * **Stav** koncového bodu
 * Zobrazení **certifikát SSL** se používá pro komunikaci prostřednictvím protokolu SSL mezi portálem a bránu a nastavte přihlašovací údaje pro zdroje dat.  
 
+### <a name="remote-access-from-intranet"></a>Vzdálený přístup z intranetu  
+Tato funkce bude v budoucnu povolena. V budoucích aktualizacích (v3.4 nebo novější) jsme vám umožní povolit / zakázat žádné vzdálené připojení, které dnes dochází při používání aplikace prostředí PowerShell nebo správce přihlašovacích údajů pro šifrování přihlašovacích údajů pomocí portu 8050 (viz část výše). 
+
 ### <a name="diagnostics-page"></a>Stránku diagnostiky
 Stránka Diagnostika umožňuje provádět následující akce:
 
@@ -356,7 +359,7 @@ Následující tabulka obsahuje popisy sloupců **uzly brány** seznamu:
 
 Vlastnost monitorování | Popis
 :------------------ | :---------- 
-Name (Název) | Název logické brány a uzly asociovaným s bránou. Uzel je místní počítač Windows, který je brána nainstalovaná na něm. Informace na s více než jeden uzel (až čtyř uzlů) v jedné logické brány najdete v tématu [Brána pro správu dat – vysokou dostupnost a škálovatelnost](data-factory-data-management-gateway-high-availability-scalability.md).    
+Název | Název logické brány a uzly asociovaným s bránou. Uzel je místní počítač Windows, který je brána nainstalovaná na něm. Informace na s více než jeden uzel (až čtyř uzlů) v jedné logické brány najdete v tématu [Brána pro správu dat – vysokou dostupnost a škálovatelnost](data-factory-data-management-gateway-high-availability-scalability.md).    
 Status | Stav logické brány a uzly brány. Příklad: Online nebo Offline nebo Limited/atd. Informace o těchto stavů najdete v tématu [stav brány](#gateway-status) části. 
 Verze | Zobrazuje verzi logické brány a každý uzel brány. Verze logické brány je určen na základě verze Většina uzlů ve skupině. Pokud nejsou správně uzly s různými verzemi v nastavení logické brány, pouze uzly se číslo verze jako funkce logické brány. Ostatní jsou v režimu omezené a je nutné ručně aktualizovat (pouze v případě automatické aktualizace nezdaří). 
 Dostupná paměť | Dostupná paměť na uzel brány. Tato hodnota je snímku near v reálném čase. 
@@ -373,7 +376,7 @@ Následující tabulka obsahuje možné stavy z **uzel brány**:
 Status  | Komentáře nebo scénáře
 :------- | :------------------
 Online | Uzel připojen ke službě Data Factory.
-V režimu offline | Uzel je offline.
+Offline | Uzel je offline.
 Upgrade | Uzel, která má být automaticky aktualizován.
 Omezená | Problém s připojením. Může být kvůli problému 8050 portu HTTP, problém s připojením služby sběrnice nebo problémům synchronizace přihlašovacích údajů. 
 Neaktivní | Uzel je v konfiguraci se liší od konfigurace jiných Většina uzlů.<br/><br/> Uzlem může být neaktivní, když se nemůže připojit k jiné uzly. 
@@ -385,7 +388,7 @@ Status | Komentáře
 :----- | :-------
 Nutná registrace | K této logické brány je ještě zaregistrován žádný uzel.
 Online | Brána uzly jsou online
-V režimu offline | Žádný uzel ve stavu online.
+Offline | Žádný uzel ve stavu online.
 Omezená | Ne všechny uzly v této brány jsou v dobrém stavu. Tento stav se upozornění, že některé uzel může být mimo provoz! <br/><br/>Může být kvůli problémům synchronizace přihlašovacích údajů na dispečera nebo pracovního uzlu. 
 
 ## <a name="scale-up-gateway"></a>Škálování brány
@@ -537,5 +540,5 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * V tématu [přesun dat mezi místní a cloudové úložiště dat](data-factory-move-data-between-onprem-and-cloud.md) článku. V tomto návodu vytvoříte kanál, který používá bránu pro přesun dat z databáze SQL serveru místně do objektu blob Azure.  

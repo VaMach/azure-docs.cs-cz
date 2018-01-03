@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Spuštění kontejnerizované úlohy v Azure kontejner instancí
 
@@ -20,7 +20,7 @@ Snadné a rychlost nasazení kontejnerů v Azure kontejner instancí poskytuje p
 
 Zásadám Konfigurovat restartování můžete určit, že po dokončení všech jejich procesy, zastaví se kontejnerů. Protože kontejner instancí se účtují druhou, se vám účtovat pouze pro výpočetní prostředky používá, když běží kontejneru provádění úkolu.
 
-Příklady uvedené v tomto článku rozhraní příkazového řádku Azure. Musíte mít Azure CLI verze 2.0.21 nebo větší [nainstalovány místně](/cli/azure/install-azure-cli), nebo pomocí rozhraní příkazového řádku v [prostředí cloudu Azure](../cloud-shell/overview.md).
+Příklady uvedené v tomto článku rozhraní příkazového řádku Azure. Musíte mít Azure CLI verze 2.0.21 nebo větší [nainstalovány místně][azure-cli-install], nebo pomocí rozhraní příkazového řádku v [prostředí cloudu Azure](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Zásada restartu kontejneru
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Spustit příkladu dokončení
 
-Pokud chcete zobrazit zásady restartování v akci, vytvořte instanci kontejneru z [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) bitovou kopii a určete `OnFailure` začít znovu. Tento příklad kontejner spustí skript v jazyce Python, která ve výchozím nastavení, analyzuje text na Shakespeare [obce](http://shakespeare.mit.edu/hamlet/full.html), zapíše 10 nejčastější slova do STDOUT a bude ukončen.
+Pokud chcete zobrazit zásady restartování v akci, vytvořte instanci kontejneru z [microsoft/aci-wordcount] [ aci-wordcount-image] bitovou kopii a určete `OnFailure` začít znovu. Tento příklad kontejner spustí skript v jazyce Python, která ve výchozím nastavení, analyzuje text na Shakespeare [obce](http://shakespeare.mit.edu/hamlet/full.html), zapíše 10 nejčastější slova do STDOUT a bude ukončen.
 
 Spusťte kontejner příklad s následující [vytvořit kontejner az] [ az-container-create] příkaz:
 
@@ -162,13 +162,17 @@ Výstup:
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 ### <a name="persist-task-output"></a>Zachovat výstup úlohy
 
 Podrobnosti o tom, jak zachovat výstup vaše kontejnery, které dokončit najdete v tématu [připojení sdílenou složku Azure s Azure kontejner instancí](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

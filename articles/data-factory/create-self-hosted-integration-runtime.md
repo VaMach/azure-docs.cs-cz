@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Jak vytvořit a nakonfigurovat Self-hosted integrace Runtime
 Integrační modul Runtime (IR) je na výpočetní infrastruktuře používá k zajištění funkce integrace dat různých prostředích sítě Azure Data Factory. Podrobnosti o IR najdete v tématu [Přehled integrace modulu Runtime](concepts-integration-runtime.md).
@@ -110,7 +110,20 @@ Modul Runtime Self-hosted integrace může být přidružena k několika místn�
 Jednoduše instalací softwaru Self-hosted integrace Runtime z můžete přidružit více uzlů [centra stahování softwaru společnosti](https://www.microsoft.com/download/details.aspx?id=39717) a její registrací a to buď ověřovací klíče získané z Nové AzureRmDataFactoryV2IntegrationRuntimeKey rutiny, jak je popsáno v [kurzu](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> Není nutné k vytvoření nových Self-hosted integrace Runtime pro přidružení každý uzel.
+> Není nutné k vytvoření nových Self-hosted integrace Runtime pro přidružení každý uzel. Můžete nainstalovat modul runtime vlastním hostováním integrace na jiném počítači a zaregistrovat ji pomocí stejného klíče ověřování. 
+
+> [!NOTE]
+> Před přidáním jiný uzel pro **vysokou dostupnost a škálovatelnost**, zkontrolujte, zda **'vzdálený přístup k intranetu,** možnost je **povoleno** na uzlu 1 (Microsoft Integrační modul Runtime Configuration Manager -> Nastavení -> vzdáleného přístupu k intranetu). 
+
+### <a name="tlsssl-certificate-requirements"></a>Požadavky na certifikát protokolu TLS/SSL
+Tady jsou požadavky na certifikát TLS/SSL, který se používá k zabezpečení komunikace mezi integrace modulu runtime uzly:
+
+- Certifikát musí být veřejně důvěryhodné X509 v3 certifikátu. Doporučujeme vám, že používáte certifikáty vydané veřejnou (třetích stran) certifikační autoritou (CA).
+- Tento certifikát musí důvěřovat každý uzel integrace modulu runtime.
+- Zástupný znak certifikáty jsou podporovány. Pokud je název vaší plně kvalifikovaný název domény **node1.domain.contoso.com**, můžete použít ***. domain.contoso.com** jako název subjektu certifikátu.
+- Vzhledem k tomu, že se použije pouze poslední položky alternativní názvy subjektu a všechny ostatní bude ignorován kvůli aktuálním omezením, nedoporučuje se používat certifikátů SAN. Například máte certifikát SAN, jejichž SAN jsou **node1.domain.contoso.com** a **node2.domain.contoso.com**, můžete použít pouze tohoto certifikátu na počítače, jejichž plně kvalifikovaný název domény **node2.domain.contoso.com**.
+- Podporuje všechny klíče velikost podporovaná technologií Windows Server 2012 R2 pro certifikáty SSL.
+- Certifikát pomocí CNG klíče nejsou podporovány. Doesrted DoesDoes nepodporuje certifikáty, které používají klíči CNG.
 
 ## <a name="system-tray-icons-notifications"></a>Systémové ikony oznamovací oblasti nebo oznámení
 Pokud přesuňte ukazatel na systému panelu ikonu nebo oznámení, můžete najít podrobnosti o stavu vlastním hostováním integrace modulu runtime.
@@ -225,17 +238,23 @@ Pokud narazíte na chyby, které jsou podobné těm, které jsou následující,
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>Otevřete port 8060 pro šifrování přihlašovacích údajů.
-**Nastavení pověření** aplikace (aktuálně není podporována) používá příchozí port 8060 předávání přes přihlašovací údaje k vlastním hostováním integrace modulu runtime, při nastavování služby místní propojené na portálu Azure. Během instalace modulu runtime vlastním hostováním integrace ve výchozím nastavení, instalace vlastním hostováním integrace modulu CLR ho otevře v počítači vlastním hostováním integrace modulu runtime.
+### <a name="enable-remote-access-from-intranet"></a>Povolte vzdálený přístup z intranetu  
+V případě, pokud používáte **prostředí PowerShell** nebo **aplikace Správce přihlašovacích údajů** k šifrování přihlašovacích údajů z jiného počítače (v síti) než runtime vlastním hostováním integrace nainstalovanou, pak by vyžadovaly **'vzdálený přístup z intranetu,** možnost povolit. Pokud spustíte **prostředí PowerShell** nebo **aplikace Správce přihlašovacích údajů** k šifrování přihlašovacích údajů ve stejném počítači, kde runtime vlastním hostováním integrace je nainstalován, pak **' vzdáleného přístupu z intranetu,** možná není zapnuté.
 
-Pokud používáte bránu firewall jiného výrobce, můžete ručně otevřete port 8050. Pokud narazíte na problém brány firewall během instalace modulu runtime vlastním hostováním integrace, můžete zkusit pomocí následujícího příkazu k instalaci modulu runtime vlastním hostováním integraci bez konfiguraci brány firewall.
+Vzdálený přístup z intranetu by měla být **povoleno** před přidáním jiný uzel pro **vysokou dostupnost a škálovatelnost**.  
+
+Během integrace s vlastním hostováním runtime instalace (v 3.3.xxxx.x a vyšší), ve výchozím nastavení, instalaci modulu runtime vlastním hostováním integrace zakáže **'vzdálený přístup z intranetu,** na počítači vlastním hostováním integrace modulu runtime.
+
+Pokud používáte bránu firewall jiného výrobce, můžete ručně otevřete port 8060 (nebo uživateli nakonfigurovanému port). Pokud narazíte na problém brány firewall během instalace modulu runtime vlastním hostováním integrace, můžete zkusit pomocí následujícího příkazu k instalaci modulu runtime vlastním hostováním integraci bez konfiguraci brány firewall.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> **Aplikace Správce přihlašovacích údajů** dosud nejsou k dispozici pro šifrování přihlašovacích údajů v ADFv2. Tato podpora přidáme později.  
 
 Pokud se rozhodnete, že není otevřete port 8060 na počítači vlastním hostováním integrace modulu runtime, použijte mechanismy pro než pomocí ** nastavení pověření ** aplikace nakonfigurovat přihlašovací údaje k úložišti dat. Například můžete použít rutinu New-AzureRmDataFactoryV2LinkedServiceEncryptCredential prostředí PowerShell. Najdete v části Nastavení přihlašovacích údajů a zabezpečení na tom, jak přihlašovací údaje úložiště dat může být nastavena.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Projděte si následující kurz pro podrobné pokyny: [kurz: kopírování místně data do cloudu](tutorial-hybrid-copy-powershell.md).

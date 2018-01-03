@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Předdefinované role pro řízení přístupu Azure na základě rolí
 Azure na základě rolí řízení přístupu (RBAC) obsahuje následující předdefinované role, které lze přiřadit uživatelům, skupinám a službám. Definice předdefinované role se nedá změnit. Můžete však vytvořit [vlastní role v Azure RBAC](role-based-access-control-custom-roles.md) podle konkrétních potřeb vaší organizace.
@@ -28,7 +28,7 @@ Azure na základě rolí řízení přístupu (RBAC) obsahuje následující př
 ## <a name="roles-in-azure"></a>Role v Azure
 Následující tabulka obsahuje stručný popis předdefinovaných rolí. Klikněte na název role, které chcete zobrazit podrobný seznam **akce** a **notactions** pro roli. **Akce** vlastnost určuje povolené akce u prostředků Azure. Řetězce akce můžete použít zástupné znaky. **Notactions** vlastnost určuje akce, které jsou vyloučeny z povolených akcí.
 
-Akce definuje, jaký typ operace můžete provádět na typ daného prostředku. Například:
+Akce definuje, jaký typ operace můžete provádět na typ daného prostředku. Příklad:
 - **Zápis** umožňuje provádět operace PUT, POST, PATCH a DELETE.
 - **Čtení** umožňuje provádět operace GET.
 
@@ -43,7 +43,7 @@ V tomto článku pouze adresy různé role, které existují ještě dnes. Když
 | [Rozhraní API správy služby přispěvatele](#api-management-service-contributor) |Můžete spravovat služba API Management a rozhraní API |
 | [Role operátora služby API Management](#api-management-service-operator-role) | Můžete spravovat služba API Management, ale není sami rozhraní API |
 | [Role čtenáře služby API Management](#api-management-service-reader-role) | Přístup jen pro čtení k služba API Management a rozhraní API |
-| [Application Insights součást Přispěvatel](#application-insights-component-contributor) |Můžete spravovat součásti Application Insights |
+| [Application Insights součást Přispěvatel](#application-insights-component-contributor) |Může spravovat součásti Application Insights. |
 | [Operátor automatizace](#automation-operator) |Možnost spuštění, zastavení, pozastavení a obnovení úlohy |
 | [Zálohování přispěvatele](#backup-contributor) | Můžete spravovat zálohy v trezoru služeb zotavení |
 | [Operátor zálohování](#backup-operator) | Můžete spravovat zálohování, vyjma případu odebírání zálohování, v trezoru služeb zotavení |
@@ -88,7 +88,7 @@ V tomto článku pouze adresy různé role, které existují ještě dnes. Když
 ## <a name="role-permissions"></a>Oprávnění role
 Následující tabulky popisují konkrétní oprávnění na každou roli. To může zahrnovat **akce**, který udělit oprávnění, a **NotActions**, což je omezit.
 
-### <a name="api-management-service-contributor"></a>Rozhraní API správy služby přispěvatele
+### <a name="api-management-service-contributor"></a>Přispěvatel služby API Management
 Můžete spravovat služby API Management
 
 | **Akce** |  |
@@ -101,7 +101,7 @@ Můžete spravovat služby API Management
 | Microsoft.Resources/subscriptions/resourceGroups/read |Čtení rolí a přiřazení rolí |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="api-management-service-operator-role"></a>Role operátora služby API Management
+### <a name="api-management-service-operator-role"></a>Role Operátor služby API Management
 Můžete spravovat služby API Management
 
 | **Akce** |  |
@@ -121,7 +121,7 @@ Můžete spravovat služby API Management
 | Microsoft.Resources/subscriptions/resourceGroups/read |Čtení rolí a přiřazení rolí |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="api-management-service-reader-role"></a>Role čtenáře služby API Management
+### <a name="api-management-service-reader-role"></a>Role Čtenář služby API Management
 Můžete spravovat služby API Management
 
 | **Akce** |  |
@@ -135,8 +135,8 @@ Můžete spravovat služby API Management
 | Microsoft.Resources/subscriptions/resourceGroups/read |Čtení rolí a přiřazení rolí |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="application-insights-component-contributor"></a>Application Insights součást Přispěvatel
-Můžete spravovat součásti Application Insights
+### <a name="application-insights-component-contributor"></a>Přispěvatel součástí Application Insights
+Může spravovat součásti Application Insights.
 
 | **Akce** |  |
 | --- | --- |
@@ -173,7 +173,7 @@ Možnost spuštění, zastavení, pozastavení a obnovení úlohy
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="backup-contributor"></a>Zálohování přispěvatele
+### <a name="backup-contributor"></a>Přispěvatel zálohování
 Můžete spravovat všechny akce správy zálohování, s výjimkou vytvoření trezoru služeb zotavení a udělení přístupu ke ostatními
 
 | **Akce** | |
@@ -238,7 +238,7 @@ Můžete spravovat všechny akce správy zálohování kromě vytváření trezo
 | Microsoft.Storage/storageAccounts/read | Účty úložiště pro čtení |
 | Microsoft.Support/* | Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="backup-reader"></a>Zálohování čtečky
+### <a name="backup-reader"></a>Čtenář záloh
 Můžete monitorovat správu záloh v trezoru služeb zotavení
 
 | **Akce** | |
@@ -265,7 +265,7 @@ Můžete monitorovat správu záloh v trezoru služeb zotavení
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Číst registrované položky trezoru |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Přečtěte si využití trezor služeb zotavení |
 
-### <a name="billing-reader"></a>Čtečka fakturace
+### <a name="billing-reader"></a>Čtenář fakturace
 Můžete zobrazit všechny informace o fakturaci
 
 | **Akce** |  |
@@ -274,7 +274,7 @@ Můžete zobrazit všechny informace o fakturaci
 | Microsoft.Billing/*/read |Číst informace o fakturaci |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="biztalk-contributor"></a>BizTalk přispěvatele
+### <a name="biztalk-contributor"></a>Přispěvatel BizTalk
 Můžete spravovat služby BizTalk services
 
 | **Akce** |  |
@@ -287,7 +287,7 @@ Můžete spravovat služby BizTalk services
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="cleardb-mysql-db-contributor"></a>Databáze MySQL cleardb – DB přispěvatele
+### <a name="cleardb-mysql-db-contributor"></a>Přispěvatel databází ClearDB MySQL
 Můžete spravovat databáze MySQL cleardb –
 
 | **Akce** |  |
@@ -312,7 +312,7 @@ Můžou spravovat všechno kromě přístupu
 | Microsoft.Authorization/*/Delete |Nelze odstranit role a přiřazení rolí |
 | Microsoft.Authorization/*/Write |Nelze vytvořit role a přiřazení rolí |
 
-### <a name="data-factory-contributor"></a>Přispěvatel objekt pro vytváření dat
+### <a name="data-factory-contributor"></a>Přispěvatel Data Factory
 Vytvořit a spravovat datové továrny a podřízené prostředky v nich.
 
 | **Akce** |  |
@@ -325,7 +325,7 @@ Vytvořit a spravovat datové továrny a podřízené prostředky v nich.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="devtest-labs-user"></a>Uživatel DevTest Labs
+### <a name="devtest-labs-user"></a>Uživatel služby DevTest Labs
 Můžete zobrazit vše, co a připojit, spuštění, restart a vypnutí virtuálního počítače
 
 | **Akce** |  |
@@ -371,7 +371,7 @@ Můžete spravovat zóny DNS a záznamy.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/\* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="documentdb-account-contributor"></a>Přispěvatel účtu DocumentDB
+### <a name="documentdb-account-contributor"></a>Přispěvatel účtů DocumentDB
 Ke správě účtů Azure Cosmos DB. Azure Cosmos DB je dříve označované jako DocumentDB.
 
 | **Akce** |  |
@@ -384,7 +384,7 @@ Ke správě účtů Azure Cosmos DB. Azure Cosmos DB je dříve označované jak
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="intelligent-systems-account-contributor"></a>Přispěvatel účet inteligentních systémů
+### <a name="intelligent-systems-account-contributor"></a>Přispěvatel účtů Inteligentních systémů
 Můžete spravovat účty inteligentních systémů
 
 | **Akce** |  |
@@ -397,7 +397,7 @@ Můžete spravovat účty inteligentních systémů
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="monitoring-reader"></a>Monitorování čtečky
+### <a name="monitoring-reader"></a>Čtenář monitorování
 Může číst veškerá monitorování data (metriky, protokoly, atd.). Viz také [začít pracovat s rolí, oprávnění a zabezpečení pomocí Azure monitorování](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Akce** |  |
@@ -406,7 +406,7 @@ Může číst veškerá monitorování data (metriky, protokoly, atd.). Viz tak�
 | Microsoft.OperationalInsights/workspaces/search/action |Vyhledávání dat analýzy protokolů |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="monitoring-contributor"></a>Monitorování přispěvatele
+### <a name="monitoring-contributor"></a>Přispěvatel monitorování
 Můžete načíst všechna data monitorování a upravit nastavení monitorování. Viz také [začít pracovat s rolí, oprávnění a zabezpečení pomocí Azure monitorování](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Akce** |  |
@@ -440,7 +440,7 @@ Můžete spravovat všechny síťové prostředky
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="new-relic-apm-account-contributor"></a>Nový přispěvatel účet New Relic APM
+### <a name="new-relic-apm-account-contributor"></a>Přispěvatel účtů New Relic APM
 Můžete spravovat novou Správa výkonu aplikací New Relic účty a aplikace
 
 | **Akce** |  |
@@ -467,7 +467,7 @@ Můžou zobrazit všechno, ale nelze provádět změny
 | --- | --- |
 | * / Číst |Přečtěte si prostředky všech typů, s výjimkou tajných klíčů. |
 
-### <a name="redis-cache-contributor"></a>Přispěvatel mezipaměti redis
+### <a name="redis-cache-contributor"></a>Přispěvatel služby Redis Cache
 Můžete spravovat mezipaměti Redis
 
 | **Akce** |  |
@@ -480,7 +480,7 @@ Můžete spravovat mezipaměti Redis
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="scheduler-job-collections-contributor"></a>Přispěvatel kolekce úloh plánovače
+### <a name="scheduler-job-collections-contributor"></a>Přispěvatel kolekcí úloh Scheduleru
 Můžete spravovat kolekce úloh plánovače
 
 | **Akce** |  |
@@ -493,7 +493,7 @@ Můžete spravovat kolekce úloh plánovače
 | Microsoft.Scheduler/jobcollections/* |Vytvoření a správa kolekcí úloh |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="search-service-contributor"></a>Přispěvatel služby vyhledávání
+### <a name="search-service-contributor"></a>Přispěvatel služby Search
 Můžete spravovat služby vyhledávání
 
 | **Akce** |  |
@@ -522,7 +522,7 @@ Můžete spravovat součásti zabezpečení, zásady zabezpečení a virtuální
 | Microsoft.Security/* |Vytvořit a spravovat zabezpečení komponenty a zásady |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="site-recovery-contributor"></a>Přispěvatel obnovení lokality
+### <a name="site-recovery-contributor"></a>Přispěvatel Site Recovery
 Můžete spravovat všechny akce správy Site Recovery, s výjimkou vytvoření trezoru služeb zotavení a přiřazení přístupová práva jiným uživatelům
 
 | **Akce** | |
@@ -552,7 +552,7 @@ Můžete spravovat všechny akce správy Site Recovery, s výjimkou vytvoření 
 | Microsoft.Storage/storageAccounts/read | Účty úložiště pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="site-recovery-operator"></a>Operátor obnovení lokality
+### <a name="site-recovery-operator"></a>Operátor Site Recovery
 Můžete převzetí služeb při selhání a navrácení služeb po obnovení, ale nemůže provádět další akce správy Site Recovery nebo přiřadit přístup ostatním uživatelům
 
 | **Akce** | |
@@ -612,7 +612,7 @@ Můžete převzetí služeb při selhání a navrácení služeb po obnovení, a
 | Microsoft.Storage/storageAccounts/read | Účty úložiště pro čtení |
 | Microsoft.Support/* | Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="site-recovery-reader"></a>Čtečka obnovení lokality
+### <a name="site-recovery-reader"></a>Čtenář Site Recovery
 Můžete sledovat stav obnovení lokality v trezoru služeb zotavení a zvýšit lístky žádostí o podporu
 
 | **Akce** | |
@@ -698,12 +698,12 @@ Můžete spravovat zásady vztahující se k zabezpečení serverů SQL a datab�
 | Microsoft.Sql/servers/securityAlertPolicies/* |Vytvoření a Správa výstrah zásady zabezpečení SQL serveru |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="sql-server-contributor"></a>Přispěvatel serveru SQL
+### <a name="sql-server-contributor"></a>Přispěvatel SQL Serveru
 Můžete spravovat servery SQL Server a databáze, ale není jejich zásady zabezpečení
 
 | **Akce** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Autorizace pro čtení |
+| Microsoft.Authorization/*/read |Čtení rolí a přiřazení rolí |
 | Microsoft.Insights/alertRules/* |Vytvářet a spravovat pravidla výstrah statistiky |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Načíst stav prostředků |
 | Microsoft.Resources/deployments/* |Vytvářet a spravovat nasazení skupiny prostředků |
@@ -724,7 +724,7 @@ Můžete spravovat servery SQL Server a databáze, ale není jejich zásady zabe
 | Microsoft.Sql/servers/databases/securityMetrics/* |Nelze upravit metriky zabezpečení databáze serveru SQL |
 | Microsoft.Sql/servers/securityAlertPolicies/* |Nelze upravit výstrahy zásady zabezpečení SQL serveru |
 
-### <a name="classic-storage-account-contributor"></a>Přispěvatel účet úložiště Classic
+### <a name="classic-storage-account-contributor"></a>Přispěvatel klasických účtů úložiště
 Můžete spravovat klasických účtů úložiště
 
 | **Akce** |  |
@@ -737,7 +737,7 @@ Můžete spravovat klasických účtů úložiště
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="storage-account-contributor"></a>Přispěvatel účtu úložiště
+### <a name="storage-account-contributor"></a>Přispěvatel účtů úložiště
 Můžete spravovat účty úložiště, ale ne přístup k nim.
 
 | **Akce** |  |
@@ -751,7 +751,7 @@ Můžete spravovat účty úložiště, ale ne přístup k nim.
 | Microsoft.Storage/storageAccounts/* |Vytváření a správě účtů úložiště |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="support-request-contributor"></a>Přispěvatel žádosti o podporu
+### <a name="support-request-contributor"></a>Přispěvatel žádostí o podporu
 Můžete vytvořit a spravovat lístky žádostí o podporu na obor předplatného
 
 | **Akce** |  |
@@ -769,7 +769,7 @@ Můžete spravovat přístup uživatelů k prostředkům Azure
 | Microsoft.Authorization/* |Spravovat autorizace |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="classic-virtual-machine-contributor"></a>Přispěvatel Classic virtuálních počítačů
+### <a name="classic-virtual-machine-contributor"></a>Přispěvatel klasických virtuálních počítačů
 Můžete spravovat klasické virtuální počítače, ale není virtuální sítě nebo úložiště účet ke kterému jsou připojeny
 
 | **Akce** |  |
@@ -823,7 +823,7 @@ Můžete spravovat virtuální počítače, ale není virtuální sítě nebo ú
 | Microsoft.Storage/storageAccounts/read |Účty úložiště pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="classic-network-contributor"></a>Přispěvatel sítě Classic
+### <a name="classic-network-contributor"></a>Přispěvatel klasických sítí
 Můžete spravovat klasické virtuální sítě a vyhrazené IP adresy
 
 | **Akce** |  |
@@ -836,7 +836,7 @@ Můžete spravovat klasické virtuální sítě a vyhrazené IP adresy
 | Microsoft.Resources/subscriptions/resourceGroups/read |Skupiny prostředků pro čtení |
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 
-### <a name="web-plan-contributor"></a>Plán přispěvatelů webu
+### <a name="web-plan-contributor"></a>Přispěvatel webových plánů
 Můžete spravovat plány web
 
 | **Akce** |  |
@@ -849,7 +849,7 @@ Můžete spravovat plány web
 | Microsoft.Support/* |Vytvářet a spravovat lístky žádostí o podporu |
 | Microsoft.Web/serverFarms/* |Vytvoření a správa serverové farmy |
 
-### <a name="website-contributor"></a>Přispěvatel webu
+### <a name="website-contributor"></a>Přispěvatel webů
 Můžete spravovat weby, ale není webové plány, na které jsou připojeny
 
 | **Akce** |  |
@@ -867,7 +867,7 @@ Můžete spravovat weby, ale není webové plány, na které jsou připojeny
 | Microsoft.Web/serverFarms/read |Přečtěte si serverové farmy |
 | Microsoft.Web/sites/* |Vytvoření a správa webů (vytváření webu taky vyžaduje oprávnění k zápisu do přidružené plán služby App Service) |
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 * [Řízení přístupu na základě role](role-based-access-control-configure.md): Začínáme s RBAC na portálu Azure.
 * [Vlastní role v Azure RBAC](role-based-access-control-custom-roles.md): Naučte se vytvářet vlastní role podle vašich potřeb přístup.
 * [Vytvoření sestavy historie změn přístupu](role-based-access-control-access-change-history-report.md): udržování přehledu o změně přiřazení rolí v RBAC.
