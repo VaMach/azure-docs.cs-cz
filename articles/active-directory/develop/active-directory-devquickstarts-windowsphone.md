@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5edaee6a4adedc440b16e936462df5e224fe8609
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Integrace Azure AD a aplikaci pro Windows Phone
+# <a name="azure-ad-windows-phone-getting-started"></a>Azure AD na Windows Phone Začínáme
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -156,7 +156,7 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* Můžete také `AuthenticationResult` objekt, který chcete zobrazit informace o uživateli ve vaší aplikaci. V `QueryGraph(...)` metoda, použijte výsledek pro zobrazení id uživatele na stránce:
+* Můžete také `AuthenticationResult` objekt, který chcete zobrazit informace o uživateli ve vaší aplikaci. V `QueryGraph(...)` metoda, použijte výsledek pro zobrazení ID uživatele na stránce:
 
 ```C#
 // Update the Page UI to represent the signed in user

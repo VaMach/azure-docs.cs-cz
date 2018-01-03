@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 5491548885709c1c1048e45d699ef385a7c49a74
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9139866b0dffd102f9b7c34835443d6337e7d39a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Ukázka vlastních dat toku transformací (Python) 
 Je název transformace v nabídce **transformace toku dat (skript)**. Před čtením této příloha, přečtěte si [Python rozšiřitelnost přehled](data-prep-python-extensibility-overview.md).
@@ -53,7 +53,7 @@ Výplně dolů vyžaduje dva transformací. Předpokládá data, která vypadá 
 |              |Seattle    |
 |Kalifornie    |Los Angeles|
 |              |Síť San Diego  |
-|              |Síť San Jose   |
+|              |San Jose   |
 |Texas         |Dallas     |
 |              |Síť SAN Antonio|
 |              |Houston    |
@@ -77,7 +77,7 @@ Data nyní vypadá takto:
 |              |Washington    |Seattle    |
 |Kalifornie    |Kalifornie    |Los Angeles|
 |              |Kalifornie    |Síť San Diego  |
-|              |Kalifornie    |Síť San Jose   |
+|              |Kalifornie    |San Jose   |
 |Texas         |Texas         |Dallas     |
 |              |Texas         |Síť SAN Antonio|
 |              |Texas         |Houston    |

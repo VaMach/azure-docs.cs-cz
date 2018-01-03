@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
 ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Příručka vývojáře Azure funkce Java
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ Java poznámky jsou součástí `azure-functions-java-core` balíček, který ch
 
 Vazba | Poznámky
 ---|---
-CosmosDB | Není k dispozici
+CosmosDB | neuvedeno
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | Není k dispozici
-Notification Hubs | Není k dispozici
+Mobile Apps | neuvedeno
+Notification Hubs | neuvedeno
 Objekt Blob úložiště | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Fronty úložiště | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabulka úložiště | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Časovač | <ul><li>`TimerTrigger`</li></ul>
-Twilio | Není k dispozici
+Twilio | neuvedeno
 
 Aktivační událost vstupy a výstupy lze také definovat v [function.json](/azure/azure-functions/functions-reference#function-code) pro vaši aplikaci.
 
@@ -270,7 +270,7 @@ které měli definovat vazby výstup v `function.json`:
 
 Někdy funkce musí mít podrobnou kontrolu nad vstupy a výstupy. Typy v specializuje `azure-functions-java-core` balíček jsou k dispozici pro manipulaci s informace o požadavku a přizpůsobit návratový stav triggeru protokolu HTTP:
 
-| Speciálním typem      |       cíl        | Typická využití                  |
+| Speciálním typem      |       Cíl        | Typická využití                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Aktivace protokolu HTTP     | Získat metoda, hlavičky nebo dotazy |
 | `HttpResponseMessage<T>` | Vazba výstupu protokolu HTTP | Návratový stav než 200   |

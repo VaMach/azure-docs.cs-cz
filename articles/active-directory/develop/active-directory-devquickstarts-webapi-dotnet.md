@@ -1,5 +1,5 @@
 ---
-title: "Azure AD .NET webové rozhraní API Začínáme | Microsoft Docs"
+title: "Azure AD webového rozhraní API .NET Začínáme | Microsoft Docs"
 description: "Postup sestavení .NET MVC webového rozhraní API, který se integruje s Azure AD pro ověřování a autorizaci."
 services: active-directory
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 096beac3a1acae312ccddc6cbd88378370feed39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Pomoc při ochraně webového rozhraní API pomocí nosných tokenů z Azure AD
+# <a name="azure-ad-net-web-api-getting-started"></a>Azure AD webového rozhraní API .NET Začínáme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Pokud vytváříte aplikace, která poskytuje přístup k chráněným prostředkům, musíte vědět, jak zabránit bude vyplacena neoprávněně přístupu na tyto prostředky.

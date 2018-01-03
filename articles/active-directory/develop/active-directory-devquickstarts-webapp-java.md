@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e849f99edfc80f7f175c0829552f39da456a204
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Webové aplikace v jazyce Java přihlášení a odhlášení s Azure AD
+# <a name="azure-ad-java-web-app-getting-started"></a>Začínáme se službou Azure AD Java webové aplikace
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Tím, že poskytuje jeden přihlášení a odhlášení jenom pár řádků kódu, Azure Active Directory (Azure AD) umožňuje snadno můžete využít Správa identit pro webové aplikace k. Uživatelé a deaktivovat webové aplikace Java můžete podepsat pomocí implementaci společnosti Microsoft základě komunity Azure Active Directory Authentication Library pro jazyk Java (ADAL4J).

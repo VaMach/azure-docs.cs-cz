@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/09/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Vytvořit definici OpenAPI pro funkci
 Rozhraní REST API popsané často pomocí definici OpenAPI (dříve označovaný jako [Swagger](http://swagger.io/) souboru). Tato definice obsahuje informace o jaké operace jsou k dispozici v rozhraní API a jak by měla strukturovaná data požadavku a odpovědi pro rozhraní API.
@@ -125,7 +125,7 @@ Nyní můžete generovat definici OpenAPI. Tuto definici mohou být využita jin
 
     1. Na **integrací** kartě novou funkci triggeru protokolu HTTP, změna **metody HTTP povoleno** k **vybrané metody**
 
-    1. V **metody HTTP vybrané**, zrušte zaškrtnutí políčka, každý s výjimkou **POST**.
+    1. V **metody HTTP vybrané**, zrušte zaškrtnutí políčka, každý s výjimkou **POST**, pak klikněte na tlačítko **Uložit**.
 
         ![Vybrané metody HTTP](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -272,7 +272,7 @@ Než použijete definice rozhraní API, je vhodné pro testování v uživatelsk
 
 1. Přejděte zpět na definici rozhraní API: **funkce. ukázku energie** > **funkce** > **definice rozhraní API**.
 
-1. V pravém podokně klikněte na **změna ověřování**, zadejte klíč rozhraní API, který jste zkopírovali a klikněte na tlačítko **ověřit**.
+1. V pravém podokně klikněte na **ověřit**, zadejte klíč rozhraní API, který jste zkopírovali a klikněte na tlačítko **ověřit**.
 
     ![Ověření s klíčem rozhraní API](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -286,7 +286,7 @@ Než použijete definice rozhraní API, je vhodné pro testování v uživatelsk
 
     Všimněte si, jak rozhraní používá popisy z definice rozhraní API.
 
-1. Klikněte na tlačítko **poslat žádost o**, klikněte **poměrně** karta výstup zobrazíte.
+1. Klikněte na tlačítko **odeslat požadavek**, klikněte **poměrně** karta výstup zobrazíte.
 
     ![Odeslání požadavku](media/functions-openapi-definition/send-request.png)
 

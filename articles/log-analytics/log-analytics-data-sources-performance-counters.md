@@ -1,6 +1,6 @@
 ---
 title: "Shromažďovat a analyzovat čítače výkonu v Azure Log Analytics | Microsoft Docs"
-description: "Čítače výkonu jsou shromážděny prostřednictvím analýzy protokolů pro analýzu výkonu na agentů systému Windows a Linux.  Tento článek popisuje postup konfigurace shromažďování čítačů výkonu pro systému Windows a Linux agentů, podrobnosti o jejich jsou uloženy v úložišti OMS a jak analyzovat je na portálu OMS."
+description: "Čítače výkonu jsou shromážděny prostřednictvím analýzy protokolů pro analýzu výkonu na agentů systému Windows a Linux.  Tento článek popisuje postup konfigurace shromažďování čítačů výkonu pro systému Windows a Linux agentů, podrobnosti o jejich jsou uložené v pracovním prostoru a jak analyzovat je na portálu Azure."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Systém Windows a Linux zdroje dat výkonu v analýzy protokolů
 Čítače výkonu v systému Windows a Linux získat přehled o výkonu hardwarové součásti, operačních systémů a aplikací.  Analýzy protokolů můžete shromáždit čítače výkonu v pravidelných intervalech pro analýzu téměř reálném čase (NRT) kromě agregování dat výkonu pro delší období analýzu a vytváření sestav.
@@ -26,9 +26,9 @@ ms.lasthandoff: 10/16/2017
 ![Čítače výkonu](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Konfigurace čítačů výkonu
-Konfigurovat na portálu OMS z čítače výkonu [nabídce Data v nastavení analýzy protokolů](log-analytics-data-sources.md#configuring-data-sources).
+Čítače výkonu z konfigurace [nabídce Data v nastavení analýzy protokolů](log-analytics-data-sources.md#configuring-data-sources).
 
-Při první konfiguraci systému Windows nebo Linux výkonu čítače pro nový pracovní prostor OMS, budete mít možnost rychle vytvořit několik běžných čítačů.  Jsou uvedeny s zaškrtávací políčko vedle každého.  Zajistěte, aby všechny čítače, které chcete vytvořit původně jsou zaškrtnutá políčka a pak klikněte na tlačítko **přidat vybrané čítače výkonu**.
+Při první konfiguraci systému Windows nebo Linux výkonu čítače pro nový pracovní prostor analýzy protokolů, budete mít možnost rychle vytvořit několik běžných čítačů.  Jsou zobrazené v seznamu a vedle každého je zaškrtávací políčko.  Zajistěte, aby všechny čítače, které chcete vytvořit původně jsou zaškrtnutá políčka a pak klikněte na tlačítko **přidat vybrané čítače výkonu**.
 
 Pro čítače výkonu systému Windows můžete konkrétní instance jednotlivých čítačů výkonu. Pro čítače výkonu systému Linux instanci jednotlivé čítače, který zvolíte, se vztahuje na všechny podřízené čítače nadřazené čítače. V následující tabulce jsou uvedeny běžné instancí, které jsou k dispozici pro Linux a Windows čítače výkonu.
 
@@ -65,7 +65,7 @@ Pomocí následujícího postupu přidejte nový čítač výkonu Linux shromaž
 5. Po dokončení přidávání čítače, klikněte **Uložit** tlačítka v horní části obrazovky, čímž konfiguraci uložíte.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Konfigurovat čítačů výkonu systému Linux v konfiguračním souboru
-Namísto konfigurace čítače výkonu systému Linux pomocí portálu OMS, máte možnost úprav konfiguračních souborů na agenta systému Linux.  Metriky výkonu ke shromažďování jsou řízeny konfigurace v **/etc/opt/microsoft/omsagent/\<id pracovního prostoru\>/conf/omsagent.conf**.
+Namísto konfigurace čítače výkonu systému Linux pomocí portálu Azure, máte možnost úprav konfiguračních souborů na agenta systému Linux.  Metriky výkonu ke shromažďování jsou řízeny konfigurace v **/etc/opt/microsoft/omsagent/\<id pracovního prostoru\>/conf/omsagent.conf**.
 
 Každý objekt nebo kategorie metrik výkonu ke shromažďování by měl být definována v konfiguračním souboru jako jeden `<source>` elementu. Syntaxe následující níže.
 
@@ -182,7 +182,7 @@ Toto je výchozí konfigurace pro metriku výkonu.
     </source>
 
 ## <a name="data-collection"></a>Shromažďování dat
-Analýzy protokolů shromažďuje všechny čítače výkonu zadaný v jejich zadaný vzorek intervalu na všech agentů, kteří mají nainstalovaných čítač.  Data nejsou agregovány a dobu trvání určeného předplatného OMS je k dispozici ve všech zobrazeních vyhledávání protokolu nezpracovaná data.
+Analýzy protokolů shromažďuje všechny čítače výkonu zadaný v jejich zadaný vzorek intervalu na všech agentů, kteří mají nainstalovaných čítač.  Data nejsou agregovány a nezpracovaných dat je k dispozici ve všech zobrazeních vyhledávání protokolu dobu trvání určeného vašeho předplatného.
 
 ## <a name="performance-record-properties"></a>Vlastnosti záznamu výkonu
 Zaznamenává výkonu mít typ **výkonu** a mít vlastnosti v následující tabulce.
@@ -220,12 +220,7 @@ Následující tabulka obsahuje různé příklady vyhledávání protokolu, kte
 | Výkonu &#124; kde CounterName == "% času procesoru" a InstanceName == "_Total" a počítač == "Tento počítač" &#124; shrnout ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentilu (přepočtené, 75), ["max(CounterValue)"] = max(CounterValue) podle bin (TimeGenerated, 1 hod), počítač |Hodinové průměr, minimální, maximální a 75 percentilu využití procesoru pro určitý počítač |
 | Výkonu &#124; kde ObjectName == "MSSQL$ INST2: databáze" a InstanceName == "hlavní" | Všechny údaje o výkonu z objektu výkonu databáze pro hlavní databázi z pojmenované instance systému SQL Server INST2.  
 
-## <a name="viewing-performance-data"></a>Zobrazení dat výkonu
-Při spuštění vyhledávání protokolu pro data o výkonu, **seznamu** zobrazení se zobrazí ve výchozím nastavení.  Chcete-li zobrazit data v grafických formulářů, klikněte na tlačítko **metriky**.  Podrobné grafické zobrazení, klikněte na  **+**  vedle čítače.  
 
-![Zobrazení metriky sbalené](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
-
-Agregovat data o výkonu v hledání protokolů, najdete v článku [metriky agregace na vyžádání a vizualizace v OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 
 ## <a name="next-steps"></a>Další kroky

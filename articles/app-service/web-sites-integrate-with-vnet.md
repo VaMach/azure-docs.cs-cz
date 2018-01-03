@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrace aplikace pomocí virtuální sítě Azure
 Tento dokument popisuje funkci integrace virtuální sítě Azure App Service a ukazuje, jak ho nastavit s aplikacemi ve [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Pokud jste obeznámeni s virtuální sítí Azure (virtuální sítě), toto je funkce, která umožňuje umístit mnoho vašich prostředků Azure v Internetu jiných routeable síti, která můžete řídit přístup ke. Tyto sítě můžete pak připojené k vaší místní sítě pomocí různých technologií, sítě VPN. Další informace o virtuálních sítí Azure, spusťte s informacemi, zde: [Přehled virtuálních sítí Azure][VNETOverview]. 
@@ -258,6 +258,10 @@ Teď Pokud hostované virtuální sítě virtuálních počítačů dosáhnout v
 * vaše místní brány firewall, blokují přenosy z bodu na rozsah IP lokality
 * Máte Route(UDR) definované uživatele ve vaší virtuální síti, která zabraňuje váš bod pro provoz lokality na základě přístup do místní sítě
 
+## <a name="powershell-automation"></a>Automatizace prostředí PowerShell
+
+Služby App Service můžete integrovat s virtuální síť Azure pomocí prostředí PowerShell. Připraveno ke spuštění skriptu, najdete v části [aplikaci v Azure App Service připojit k virtuální síti Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+
 ## <a name="hybrid-connections-and-app-service-environments"></a>Hybridní připojení a služby App Service Environment
 Existují tři funkce, které umožňují přístup k prostředkům hostované virtuální sítě. Jsou:
 
@@ -269,7 +273,7 @@ Hybridní připojení vyžaduje, abyste nainstalujte přenosového agenta názve
 
 Funkce služby App Service Environment umožňuje spustit instanci služby Azure App Service ve vaší virtuální síti. To umožňuje vaší aplikace přístup k prostředkům ve vaší virtuální síti bez jakékoli dodatečné kroky. Některé z dalších výhod služby App Service Environment jsou, které můžete použít na základě Dv2 pracovníci s až 14 GB paměti RAM. Další výhodou je, že je možné škálovat systému podle svých potřeb. Na rozdíl od více klientů prostředích, kde je omezený na 20 instancí vaší ASP v App Service Environment můžete škálovat instance až 100 ASP. Jednou z věcí, kterou poskytuje App Service Environment, který není v rámci integrace virtuální sítě je, že služby App Service Environment může fungovat s připojení VPN pomocí ExpressRoute. 
 
-Zatímco je, že některé použít případu překrývají, žádný z těchto funkcí můžete nahradit všechny ostatní. Zároveň budete vědět, jaké funkci používat, je vázaný na vašim potřebám. Například:
+Zatímco je, že některé použít případu překrývají, žádný z těchto funkcí můžete nahradit všechny ostatní. Zároveň budete vědět, jaké funkci používat, je vázaný na vašim potřebám. Příklad:
 
 * Pokud jste vývojář a jednoduše chcete spustit lokalitu v Azure a jeho přístup k databázi na pracovní stanici v rámci svého stolu, je ta nejjednodušší cesta používat hybridní připojení. 
 * Pokud jsou velké organizace, která chce velký počet webových vlastností v veřejnosti cloud a spravovat ve vlastní síti a potom chcete pomocí služby App Service Environment. 

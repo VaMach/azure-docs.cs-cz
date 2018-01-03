@@ -5,13 +5,13 @@ author: rayne-wiselman
 ms.service: azure-migrate
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 429a9150d1fbf50c0e3fa2046eb64affc8db8e5d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: f42b184cddb3274d7ee0163c10cac002ccfbef62
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="group-machines-for-assessment"></a>Skupiny počítačů pro vyhodnocení
 
@@ -20,7 +20,7 @@ Tento článek popisuje, jak vytvořit skupiny počítačů pro vyhodnocení pod
 
 ## <a name="create-a-group"></a>Vytvoření skupiny
 
-1. V **řídicí panel** projektu Azure migrovat, klikněte na tlačítko **skupiny** > **+ skupiny**a zadejte název skupiny.
+1. V **přehled** projektu Azure migrace, v části Správa, klikněte na tlačítko **skupiny** > **+ skupiny**a zadejte název skupiny.
 2. Přidejte jeden nebo více počítačů do skupiny a klikněte na **vytvořit**. 
 3. Volitelně můžete vybrat spustit nové vyhodnocení pro skupinu. 
 
@@ -30,5 +30,5 @@ Po vytvoření skupiny, můžete ho upravit tak, že vyberete skupinu na **skupi
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o použití [mapování závislostí počítač](how-to-create-group-machine-dependencies.md) vytvořit podrobnější skupiny.
+- Další informace o použití [mapování závislostí počítače](how-to-create-group-machine-dependencies.md) k vytvoření vysoce důvěryhodných skupin.
 - [Další informace](concepts-assessment-calculation.md) o tom, jak jsou vypočítávány vyhodnocování.

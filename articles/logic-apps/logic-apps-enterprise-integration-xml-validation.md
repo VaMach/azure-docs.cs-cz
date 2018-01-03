@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b2c1b2fdd9bf70775e5fd4369d1633258ae2a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>Ověření XML pro integraci enterprise
 
@@ -30,29 +30,29 @@ ms.lasthandoff: 10/11/2017
 
 2. Přidat **požadavku - obdrží žádost HTTP při** aktivační svou aplikaci logiky.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
 
 3. Chcete-li přidat **ověření XML** akce, zvolte **přidat akci**.
 
 4. Chcete-li všechny akce, které ten, který chcete filtrovat, zadejte *xml* do vyhledávacího pole. Zvolte **ověření XML**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
 
 5. Chcete-li určit obsah XML, který chcete ověřit, vyberte **obsah**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
 
 6. Vyberte značky body jako obsah, který chcete ověřit.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
 
 7. K určení schématu, kterou chcete použít pro ověření předchozí *obsah* vstup, zvolte **název schématu**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
 
 8. Uložte si práci  
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 
 Nyní jste hotovi s nastavením vašeho konektoru ověření. V reálné aplikaci můžete chtít uložit ověřená data v aplikaci obchodní (LOB) jako SalesForce. Chcete-li odeslat ověřené výstup do služby Salesforce, přidáte akci.
 

@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
 ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Vytvoření služby application gateway pomocí brány firewall webových aplikací pomocí portálu
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-web-application-firewall-portal.md)
+> * [portál Azure Portal](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Azure CLI](application-gateway-web-application-firewall-cli.md)
 
@@ -95,7 +95,7 @@ Tento scénář se:
    | **Nastavení** | **Hodnota** | **Podrobnosti**
    |---|---|---|
    |**Název**|AdatumAppGateway|Název služby application gateway.|
-   |**Vrstvy**|FIREWALL WEBOVÝCH APLIKACÍ|Dostupné jsou hodnoty Standard a firewall webových aplikací. Další informace o firewall webových aplikací najdete v tématu [brány firewall webových aplikací](application-gateway-web-application-firewall-overview.md).|
+   |**Vrstvy**|WAF|Dostupné jsou hodnoty Standard a firewall webových aplikací. Další informace o firewall webových aplikací najdete v tématu [brány firewall webových aplikací](application-gateway-web-application-firewall-overview.md).|
    |**Velikost SKU**|Střednědobé používání|Možnosti úrovně Standard jsou **malé**, **střední**, a **velké**. Možnosti vrstvy firewall webových aplikací jsou **střední** a **velké** pouze.|
    |**Počet instancí**|2|Počet instancí služby application gateway pro vysokou dostupnost. Počty instancí 1 použijte jenom pro účely testování.|
    |**Předplatné**|[Vaše předplatné]|Vyberte předplatné sloužící k vytvoření aplikační brány.|

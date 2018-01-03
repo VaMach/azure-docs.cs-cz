@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Kurz: Azure Active Directory integrace s Benefitsolver
 
@@ -142,7 +142,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     
     d. Klikněte na tlačítko **OK**.
 
-6. Na **SAML podpisový certifikát** klikněte na tlačítko **Metadta XML** a potom uložte soubor metadat ve vašem počítači.
+6. Na **SAML podpisový certifikát** klikněte na tlačítko **soubor XML s metadaty** a potom uložte soubor metadat ve vašem počítači.
 
     ![Odkaz ke stažení certifikátu](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
 
@@ -150,7 +150,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. Konfigurace jednotného přihlašování na **Benefitsolver** straně, budete muset odeslat stažené **Metadta XML** k [tým podpory Benefitsolver](https://www.businessolver.com/contact).
+8. Konfigurace jednotného přihlašování na **Benefitsolver** straně, budete muset odeslat stažené **soubor XML s metadaty** k [tým podpory Benefitsolver](https://www.businessolver.com/contact).
 
     > [!NOTE]
     > Váš tým podpory Benefitsolver musí provést konfiguraci skutečné jednotné přihlašování. Zobrazí se oznámení, když bylo povoleno jednotné přihlašování pro vaše předplatné.
@@ -235,7 +235,7 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 Když kliknete na dlaždici Benefitsolver na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci Benefitsolver.
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

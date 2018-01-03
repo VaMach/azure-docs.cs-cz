@@ -17,10 +17,10 @@ ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurace integrace Azure Key Vault pro SQL Server na virtuálních počítačích Azure (klasický)
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ První, [nainstalovat rozšíření SQL Server IaaS](../classic/sql-server-agent
 ### <a name="understand-the-input-parameters"></a>Pochopení vstupní parametry
 Následující tabulka uvádí parametrů požadovaných pro spuštění skriptu prostředí PowerShell v další části.
 
-| Parametr | Popis | Příklad |
+| Parametr | Popis | Příklad: |
 | --- | --- | --- |
 | **$akvURL** |**Adresa URL trezoru klíčů** |"https://contosokeyvault.vault.azure.net/" |
 | **$spName** |**Hlavní název služby** |"fde2b411 - 33d 5-4e11-af04eb07b669ccf2" |

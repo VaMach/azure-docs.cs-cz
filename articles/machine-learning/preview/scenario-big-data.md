@@ -7,6 +7,7 @@ author: daden
 manager: mithal
 editor: daden
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognózování úloh serveru s terabajty dat
 
@@ -100,8 +101,8 @@ Celkové velikosti dat je přibližně 1 TB. Každý soubor je přibližně 1 �
 
 Číslo sloupce | Název pole| Typ | Popis |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Data a času |    Čas spuštění relace
-2  |`SessionEnd`    | Data a času | Čas ukončení relace
+1  | `SessionStart` | Datum a čas |    Čas spuštění relace
+2  |`SessionEnd`    | Datum a čas | Čas ukončení relace
 3 |`ConcurrentConnectionCounts` | Integer | Počet souběžných připojení
 4 | `MbytesTransferred` | Double | Normalizovaný data přenesená v megabajtech
 5 | `ServiceGrade` | Integer |  Úrovni služby pro relaci

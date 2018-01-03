@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 9cdbe4a12a0b16341a1e52f176901045baf327b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Smyčky, obory a rozdělení dávek v Logic Apps
   
@@ -26,9 +26,9 @@ Služba Logic Apps poskytuje několik způsobů, jak pracovat s poli, kolekcí, 
   
 ## <a name="foreach-loop-and-arrays"></a>Pole a smyčka typu ForEach
   
-Služba Logic Apps umožňuje smyčky v rámci sady dat a provedení akce pro každou položku.  To je možné prostřednictvím `foreach` akce.  V návrháři, můžete přidat pro každou smyčku.  Až vyberete pole, která si přejete iterace, můžete začít přidáním akce.  Můžete přidat více akcí za smyčka typu foreach.  V rámci smyčky začnete jednou zadejte, co má probíhat na každou hodnotu pole.
+Služba Logic Apps umožňuje smyčky v rámci sady dat a provedení akce pro každou položku.  Ve smyčce přes kolekce je možné prostřednictvím `foreach` akce.  V návrháři, můžete přidat pro každou smyčku.  Až vyberete pole, která si přejete iterace, můžete začít přidáním akce.  Můžete přidat více akcí za smyčka typu foreach.  Jednou v rámci smyčky, můžete začít k určení, co má probíhat na každou hodnotu pole.
 
-Pokud používáte zobrazení kódu, můžete zadat, pro každou smyčku jako níže.  Toto je příklad pro každou smyčku, která odešle e-mail pro každý e-mailovou adresu, která obsahuje 'microsoft.com.:
+  Tento příklad odešle e-mailu pro každý e-mailovou adresu, která obsahuje 'microsoft.com. Pokud používáte zobrazení kódu, můžete zadat, pro každou smyčku jako v následujícím příkladu:
 
 ``` json
 {
@@ -66,7 +66,7 @@ Pokud používáte zobrazení kódu, můžete zadat, pro každou smyčku jako n�
 }
 ```
   
-  A `foreach` akce iterovat přes maticových až 5000 řádků.  Každé iteraci spustí paralelně ve výchozím nastavení.  
+  A `foreach` akce můžete iterace v polích s tisíci entitami.  Iterace provést paralelní ve výchozím nastavení.  V tématu [omezení a konfigurace](logic-apps-limits-and-config.md) podrobnosti o pole a souběžnost omezení.
 
 ### <a name="sequential-foreach-loops"></a>Sekvenční smyčky ForEach
 
@@ -83,13 +83,15 @@ Chcete-li povolit smyčka typu foreach provést postupně, `Sequential` by měla
   
 ## <a name="until-loop"></a>Dokud smyčky
   
-  Dokud je splněna podmínka, můžete provést akci nebo posloupnost akcí.  Nejběžnější scénáře je volání koncový bod, dokud nezískáte odpověď, kterou hledáte.  V návrháři, můžete přidat dokud smyčky.  Po přidání akce uvnitř smyčky, můžete nastavit ukončovací podmínky, jakož i smyčky omezení.  Mezi cykly smyčky dochází ke zpoždění 1 minuta.
+  Dokud je splněna podmínka, můžete provést akci nebo posloupnost akcí.  Nejběžnější scénáře použití dokud smyčky je volání koncový bod, dokud nezískáte odpovědi, které hledáte.  V návrháři, můžete přidat dokud smyčky.  Po přidání akce uvnitř smyčky, můžete nastavit ukončovací podmínky, jakož i smyčky omezení.
   
-  Pokud používáte zobrazení kódu, můžete zadat dokud smyčky jako níže.  Toto je příklad volání koncový bod protokolu HTTP, dokud text odpovědi má hodnotu "Dokončeno".  Když se dokončí buď 
+  Tento příklad zavolá koncový bod protokolu HTTP, dokud text odpovědi má hodnotu "Dokončeno".  Při dokončení buď: 
   
   * Odpověď HTTP má stav "dokončeno.
-  * To nezkusí 1 hodinu
+  * To nezkusí hodinu
   * Smyčce 100krát
+  
+  Pokud používáte zobrazení kódu, můžete zadat dokud smyčky jako v následujícím příkladu:
   
   ``` json
   {
@@ -117,9 +119,9 @@ Chcete-li povolit smyčka typu foreach provést postupně, `Sequential` by měla
   
 ## <a name="spliton-and-debatching"></a>SplitOn a debatching
 
-Někdy se může zobrazit pole položek, které chcete debatch a spustit pracovní postup, na položku aktivační událost.  Můžete to provést prostřednictvím `spliton` příkaz.  Ve výchozím nastavení, pokud vaše swagger aktivační událost určuje datové části, která je pole `spliton` přidá a spustit na položku start.  SplitOn lze přidat pouze pro aktivační událost.  To lze ručně nakonfigurované nebo přepsání v definici zobrazení kódu.  Nyní můžete debatch SplitOn maticových až 5 000 položek.  Nemůže mít `spliton` a také implementovat vzor synchronní odpovědi.  Jakýkoli pracovní postup, který volá má `response` akce kromě `spliton` spustí asynchronně a odeslat okamžitého `202 Accepted` odpovědi.  
+Někdy se může zobrazit pole položek, které chcete debatch a spustit pracovní postup, na položku aktivační událost.  Tato debatching můžete provést pomocí `spliton` příkaz.  Ve výchozím nastavení, pokud vaše swagger aktivační událost určuje datové části, která je pole `spliton` je přidána. `spliton` Příkaz spustí spustit na každou položku v poli.  SplitOn lze přidat pouze k aktivační události, které mohou být ručně nakonfigurované nebo přepsat. Nemůže mít `spliton` a také implementovat vzor synchronní odpovědi.  Jakýkoli pracovní postup, který volá má `response` akce kromě `spliton` běží asynchronně a odešle okamžitého `202 Accepted` odpovědi.  
 
-SplitOn lze zadat v zobrazení kódu jako v následujícím příkladu.  To přijímá pole položek a debatches na každém řádku.
+  Tento příklad přijímá pole položek a debatches na každém řádku. SplitOn lze zadat v zobrazení kódu jako v následujícím příkladu:
 
 ```
 {
@@ -139,7 +141,7 @@ SplitOn lze zadat v zobrazení kódu jako v následujícím příkladu.  To při
 
 ## <a name="scopes"></a>Obory
 
-Je možné seskupit sérii akcí společně s použitím oboru.  To je obzvláště užitečné pro implementace zpracování výjimek.  V Návrháři můžete přidat nový obor a začnete přidávat všechny akce v rámci ho.  Můžete definovat obory v zobrazení kódu takto:
+Je možné seskupit sérii akcí společně s použitím oboru.  Obory jsou užitečné pro implementace zpracování výjimek.  V Návrháři můžete přidat nový obor a začnete přidávat všechny akce v rámci ho.  Můžete definovat obory v zobrazení kódu jako v následujícím příkladu:
 
 
 ```

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
 ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Správa řízení přístupu na základě rolí pomocí rozhraní REST API
 > [!div class="op_single_selector"]
@@ -178,7 +178,7 @@ Stavový kód: 201
 ```
 
 ## <a name="delete-a-role-assignment"></a>Umožňuje odstranit přiřazení Role
-Umožňuje odstraňte přiřazení role v zadaném oboru.
+Umožňuje odstranit přiřazení role v zadaném oboru.
 
 Pokud chcete odstranit přiřazení role, musíte mít přístup k `Microsoft.Authorization/roleAssignments/delete` operaci. Z předdefinovaných rolí pouze *vlastníka* a *správce přístupu uživatelů* mají udělen přístup k této operaci. Další informace o přiřazení rolí a správu přístupu k prostředkům Azure najdete v tématu [řízení přístupu](role-based-access-control-configure.md).
 

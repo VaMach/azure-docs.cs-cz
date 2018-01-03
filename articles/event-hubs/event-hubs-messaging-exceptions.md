@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 1a5922506a0db4277b205ba3390c9c30034c177d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Výjimky zasílání zpráv služby Event Hubs
-V tomto článku jsou uvedeny některé výjimky generované Azure Service Bus, zasílání zpráv na úrovni rozhraní API, které zahrnují Event Hubs. Tento odkaz se může změnit, tak to zkuste znovu aktualizací.
+
+V tomto článku jsou uvedeny některé výjimky generované rozhraní API knihovny zasílání zpráv Azure Service Bus, mezi které patří rozhraní API centra událostí. Tento odkaz se může změnit, tak to zkuste znovu aktualizací.
 
 ## <a name="exception-categories"></a>Výjimka kategorie
+
 Rozhraní API centra událostí generování výjimek, které můžete spadají do následujících kategorií, společně s přidružené akce, které můžete provést a zkuste to opravit je.
 
 1. Uživatel kódování Chyba: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [ System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Obecné akce: pokusí opravit kód než budete pokračovat.
@@ -82,9 +84,9 @@ Této chybě může dojít pro jednu ze dvou důvodů:
     
     Řešení: Úprava strategie distribuční oddílu nebo pokusu o [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) vám může pomoci.
 
-2. Obor názvů služby Event Hubs nemá dostatečná jednotky propustnosti (můžete zkontrolovat **metriky** okno v okně oboru názvů služby Event Hubs v [portál Azure](https://portal.azure.com) k potvrzení). Všimněte si, že portálu zobrazují informace agregované (1 min), ale jsme měření propustnosti v reálném čase – tak, aby byl pouze odhad.
+2. Obor názvů služby Event Hubs nemá dostatečná jednotky propustnosti (můžete zkontrolovat **metriky** obrazovky události okno centra oboru názvů v [portál Azure](https://portal.azure.com) k potvrzení). Všimněte si, že portálu zobrazují informace agregované (1 min), ale jsme měření propustnosti v reálném čase – tak, aby byl pouze odhad.
 
-    Řešení: Zvýšení jednotky propustnosti na obor názvů může pomoct. To provedete na portálu, v **škálování** okno okně oboru názvů služby Event Hubs.
+    Řešení: Zvýšení jednotky propustnosti na obor názvů může pomoct. To provedete na portálu, v **škálování** okně na obrazovce oboru názvů služby Event Hubs.
 
 ### <a name="error-code-50001"></a>Kód chyby 50001
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 73c8ea046a5bdbeaca1b3f357fc41f0a6938db1e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb04ca30d43a8cf8af2b1dbc00330ba7924bb5b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Řešení potíží s samoobslužné resetování hesla
 
@@ -165,7 +165,18 @@ Obecně platí Chcete-li obnovit služby nejvíce rychlé způsobem, doporučuje
 
 ### <a name="confirm-network-connectivity"></a>Zkontrolujte připojení k síti
 
-Nejběžnější bodem selhání je, aby brána firewall a nebo jsou nesprávně nakonfigurované porty proxy a časové limity nečinnosti. Další informace najdete v tématu požadavky připojení [požadavky pro Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) článku.
+Nejběžnější bodem selhání je, aby brána firewall a nebo jsou nesprávně nakonfigurované porty proxy a časové limity nečinnosti. 
+
+Azure AD Connect verze 1.1.443.0 a vyšší, můžete potřebovat HTTPS odchozí přístup k následující:
+
+   - passwordreset.microsoftonline.com
+   - servicebus.Windows.NET
+
+Pro další členitosti odkazovat aktualizovaný seznam [Microsoft Azure Datacenter rozsahy IP adres](https://www.microsoft.com/download/details.aspx?id=41653) aktualizovat každou středu a umístí platit následující pondělí.
+
+Další informace najdete v tématu požadavky připojení [požadavky pro Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) článku.
+
+
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Restartujte službu Azure AD Connect Sync
 

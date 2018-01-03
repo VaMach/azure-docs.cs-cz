@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory rizikových událostí
 
@@ -94,19 +94,19 @@ Následující tabulka uvádí dobu potřebnou pro typ detekce objeví v souvise
 | Detekce typu | Latence sestav |
 | --- | --- |
 | V reálném čase | 5 až 10 minut |
-| V režimu offline | 2 až 4 hodiny |
+| Offline | 2 až 4 hodiny |
 
 
 Pro typy událostí rizik, které zjistí Azure Active Directory detekce typy jsou:
 
 | Typ události rizik | Detekce typu |
 | :-- | --- | 
-| [Uživatelé s uniklé přihlašovací údaje](#leaked-credentials) | V režimu offline |
+| [Uživatelé s uniklé přihlašovací údaje](#leaked-credentials) | Offline |
 | [Přihlášení z anonymních IP adres](#sign-ins-from-anonymous-ip-addresses) | V reálném čase |
-| [Nemožná cesta do netypických míst](#impossible-travel-to-atypical-locations) | V režimu offline |
+| [Nemožná cesta do netypických míst](#impossible-travel-to-atypical-locations) | Offline |
 | [Přihlášení z neznámých míst](#sign-in-from-unfamiliar-locations) | V reálném čase |
-| [Přihlášení z nakažených zařízení](#sign-ins-from-infected-devices) | V režimu offline |
-| [Přihlášení z IP adres s podezřelou aktivitou](#sign-ins-from-ip-addresses-with-suspicious-activity) | V režimu offline|
+| [Přihlášení z nakažených zařízení](#sign-ins-from-infected-devices) | Offline |
+| [Přihlášení z IP adres s podezřelou aktivitou](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
 
 
 ## <a name="risk-level"></a>Úroveň rizika
@@ -141,7 +141,7 @@ Doporučujeme vám, že okamžitě kontaktujte uživatele k ověření, pokud po
 Neuskutečnitelná cesta je obvykle dobrou ukazatele, který se hacker bylo možné úspěšně přihlášení. False pozitivních však může dojít, když se uživatel při cestě pomocí nového zařízení nebo pomocí sítě VPN, který se obvykle nepoužívá jinými uživateli v organizaci. Jiný zdroj pozitivních false je aplikace, které nesprávně jako klient IP adresy, která by mohla vzhled předat serveru IP adresy z přihlášení je hostována dochází v datovém centru, kde aplikace je back-end (často jsou to Microsoft umístit datových center, které mohou vzhled trvá přihlášení z IP adresy ve vlastnictví společnosti Microsoft). V důsledku těchto false pozitivních úroveň rizika pro tuto událost riziko je **střední**.
 
 > [!TIP]
-> Můžete snížit množství hlášené positves false pro tento typ události riziko podle konfigurace [s názvem umístění](active-directory-named-locations.md). 
+> Můžete snížit množství hlášené pozitivních false pro tento typ události riziko podle konfigurace [s názvem umístění](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Přihlášení z neznámých míst
 
@@ -169,12 +169,12 @@ Riziko události jsou základem pro ochranu identity služby Azure AD. Azure AD 
 
 | Typ události rizik | Úroveň rizika | Detekce typu |
 | :-- | --- | --- |
-| [Uživatelé s uniklé přihlašovací údaje](#leaked-credentials) | Vysoký | V režimu offline |
+| [Uživatelé s uniklé přihlašovací údaje](#leaked-credentials) | Vysoký | Offline |
 | [Přihlášení z anonymních IP adres](#sign-ins-from-anonymous-ip-addresses) | Střednědobé používání | V reálném čase |
-| [Nemožná cesta do netypických míst](#impossible-travel-to-atypical-locations) | Střednědobé používání | V režimu offline |
+| [Nemožná cesta do netypických míst](#impossible-travel-to-atypical-locations) | Střednědobé používání | Offline |
 | [Přihlášení z neznámých míst](#sign-in-from-unfamiliar-locations) | Střednědobé používání | V reálném čase |
-| [Přihlášení z nakažených zařízení](#sign-ins-from-infected-devices) | Nízký | V režimu offline |
-| [Přihlášení z IP adres s podezřelou aktivitou](#sign-ins-from-ip-addresses-with-suspicious-activity) | Střednědobé používání | V režimu offline|
+| [Přihlášení z nakažených zařízení](#sign-ins-from-infected-devices) | Nízký | Offline |
+| [Přihlášení z IP adres s podezřelou aktivitou](#sign-ins-from-ip-addresses-with-suspicious-activity) | Střednědobé používání | Offline|
 
 Kde lze najít rizikových událostech, které byly nalezeny ve vašem prostředí?
 Existují dvě místa, kde můžete zkontrolovat hlášené rizikových událostí:

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery matici podpory pro replikaci z místního do Azure
 
@@ -33,9 +33,9 @@ Tento článek shrnuje podporované konfigurace a součásti služby Azure Site 
 
 **Nasazení** | **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)** |
 --- | --- | ---
-**Azure Portal** | Místní virtuální počítače VMware do úložiště Azure s Azure Resource Manager nebo classic úložiště a sítě.<br/><br/> Převzetí služeb při selhání využívající Resource Manager nebo classic virtuálních počítačů. | Místní virtuální počítače Hyper-V do úložiště Azure, s Resource Manager nebo classic úložiště a sítě.<br/><br/> Převzetí služeb při selhání využívající Resource Manager nebo classic virtuálních počítačů.
+**portál Azure Portal** | Místní virtuální počítače VMware do úložiště Azure s Azure Resource Manager nebo classic úložiště a sítě.<br/><br/> Převzetí služeb při selhání využívající Resource Manager nebo classic virtuálních počítačů. | Místní virtuální počítače Hyper-V do úložiště Azure, s Resource Manager nebo classic úložiště a sítě.<br/><br/> Převzetí služeb při selhání využívající Resource Manager nebo classic virtuálních počítačů.
 **Portál Classic** | Pouze v režimu údržby. Nové trezory nelze vytvořit. | Pouze v režimu údržby.
-**PowerShell** | Není aktuálně podporováno. | Podporuje se
+**PowerShell** | Podporováno | Podporováno
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Podpora pro servery pro správu datového centra
@@ -44,7 +44,7 @@ Tento článek shrnuje podporované konfigurace a součásti služby Azure Site 
 
 **Nasazení** | **Podpora**
 --- | ---
-**Virtuální počítač VMware nebo fyzický server** | vCenter 6.5, 6.0 nebo 5,5
+**Virtuální počítač VMware nebo fyzický server** | vCenter 6.5, 6.0 nebo 5.5
 **Technologie Hyper-V (s nástrojem Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 a System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
@@ -155,8 +155,8 @@ Následující tabulka představuje souhrn podporu konfigurace úložiště v r�
 
 **Konfigurace** | **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)**
 --- | --- | --- | ---
-SYSTÉM SOUBORŮ NFS | Ano pro VMware<br/><br/> Ne pro fyzické servery | Není k dispozici
-SMB 3.0 | Není k dispozici | Ano
+SYSTÉM SOUBORŮ NFS | Ano pro VMware<br/><br/> Ne pro fyzické servery | neuvedeno
+SMB 3.0 | neuvedeno | Ano
 SÍŤ SAN (ISCSI) | Ano | Ano
 S více cestami (MPIO)<br></br>Testovány s: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pro CLARiiON | Ano | Ano
 
@@ -164,15 +164,15 @@ S více cestami (MPIO)<br></br>Testovány s: Microsoft DSM, EMC PowerPath 5.7 SP
 
 **Konfigurace** | **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)**
 --- | --- | ---
-VMDK | Ano | Není k dispozici
-VHD/VHDX | Není k dispozici | Ano
-Fin 2 virtuálních počítačů | Není k dispozici | Ano
+VMDK | Ano | neuvedeno
+VHD/VHDX | neuvedeno | Ano
+Fin 2 virtuálních počítačů | neuvedeno | Ano
 ROZHRANÍM EFI/UEFI| Ne | Ano
 Sdílený disk clusteru | Ne | Ne
 Šifrované disku | Ne | Ne
-SYSTÉM SOUBORŮ NFS | Ne | Není k dispozici
+SYSTÉM SOUBORŮ NFS | Ne | neuvedeno
 SMB 3.0 | Ne | Ne
-RDM | Ano<br/><br/> Není k dispozici pro fyzické servery | Není k dispozici
+RDM | Ano<br/><br/> Není k dispozici pro fyzické servery | neuvedeno
 Disk > 1 TB | Ano<br/><br/>Až 4095 GB | Ano<br/><br/>Až 4095 GB
 Disk s velikost fyzického sektoru 4K logické a 4 kB | Ano | Není podporována u virtuálních počítačů generace 1<br/><br/>Není podporován pro virtuální počítače generace 2.
 Disk s 4K logické a velikost fyzického sektoru 512 bajtů | Ano |  Ano
@@ -180,7 +180,7 @@ Svazek s prokládané disku > 1 TB<br/><br/> Správa logických LVM svazků | An
 Prostory úložiště | Ne | Ano
 Přidat nebo odebrat aktivní disku | Ne | Ne
 Vyloučení disku | Ano | Ano
-S více cestami (MPIO) | Není k dispozici | Ano
+S více cestami (MPIO) | neuvedeno | Ano
 
 **Úložiště Azure** | **VMware nebo fyzický server** | **Technologie Hyper-V (s/bez nástroje Virtual Machine Manager)**
 --- | --- | ---
@@ -194,6 +194,7 @@ Objekty blob bloku | Ne | Ne
 Storage úrovně Premium | Ano | Ano
 Import a export služby | Ne | Ne
 Virtuální síť koncové body služby (brány firewall úložiště Azure a virtuální sítě) nakonfigurované na úložiště v cíli účet nebo účet úložiště používá k ukládání replikaci dat do mezipaměti | Ne | Ne
+Účty úložiště obecné účely V2 (jak horkého a studeného úložiště vrstva) | Ne | Ne
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Podpora pro Azure výpočetní konfigurace

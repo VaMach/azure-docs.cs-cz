@@ -36,7 +36,7 @@ Během migrace se prostředky transformují z modelu Classic na Resource Manager
 
 <a name="vault">Classic</a> body obnovení virtuálního počítače v trezoru záloh není migrace automaticky do trezoru služeb zotavení při přesunutí virtuálního počítače z klasického do režimu Resource Manager. Při převedení záloh virtuálních počítačů použijte tento postup:
 
-1. V trezoru služby Backup přejděte na kartu **Chráněné položky** a vyberte virtuální počítač. Klikněte na [Zastavit ochranu](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Políčko *Delete associated backup data* (Odstranit přidružená data záloh) ponechte **nezaškrtnuté**.
+1. V trezoru služby Backup přejděte na kartu **Chráněné položky** a vyberte virtuální počítač. Klikněte na [Zastavit ochranu](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Políčko *Delete associated backup data* (Odstranit přidružená data záloh) ponechte **nezaškrtnuté**.
 2. Odstraňte z virtuálního počítače zálohu/rozšíření snímků.
 3. Proveďte migraci virtuálního počítače z klasického režimu do režimu Resource Manageru. Ověřte, že se do režimu Resource Manager migruje také úložiště a informace o síti odpovídající tomuto virtuálnímu počítači.
 4. Vytvořte trezor služby Recovery Services a ke konfiguraci zálohování migrovaného virtuálního počítače použijte akci **Zálohování** v horní části řídicího panelu trezoru. Podrobnosti o zálohování virtuálních počítačů do trezoru služby Recovery Services naleznete v tématu [První pohled: Ochrana virtuálních počítačů s trezorem Recovery Services](../articles/backup/backup-azure-vms-first-look-arm.md).

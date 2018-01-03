@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Exchange X12 zprávy pro podnikové integrace s logic apps
 
@@ -57,11 +57,11 @@ Pokud nevidíte žádné účty pro integraci, [vytvořit první](../logic-apps/
 
 4. Vyberte **přehled**, vyberte **smlouvy** dlaždici. Pokud nemáte dlaždici smlouvy, přidejte nejprve dlaždici. 
 
-    ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Vyberte že dlaždici "Smlouvy"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. V okně smlouvy, které se otevře, zvolte **přidat**.
 
-    ![Zvolte "Přidat"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+    ![Zvolte "Přidat"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. V části **přidat**, zadejte **název** pro vaše smlouvy. Pro typ smlouvy, vyberte **X12**. Vyberte **hostitele partnera**, **identitu hostitele**, **hosta partnera**, a **hosta Identity** pro vaše smlouvy. Další podrobnosti vlastnost najdete v tabulce v tomto kroku.
 
@@ -69,7 +69,7 @@ Pokud nevidíte žádné účty pro integraci, [vytvořit první](../logic-apps/
 
     | Vlastnost | Popis |
     | --- | --- |
-    | Name (Název) |Název smlouvy |
+    | Název |Název smlouvy |
     | Typ smlouvy | Musí být X12 |
     | Hostitele partnera |Smlouvu musí hostitelské i hostované partnera. Partner hostitele představuje organizace, která nakonfiguruje smlouvu. |
     | Identitu hostitele |Identifikátor pro hostitele partnera |
@@ -146,8 +146,8 @@ Vyberte schéma pro každý typ transakce (ST1) a aplikace Sender (GS2). Kanál 
 | Vlastnost | Popis |
 | --- | --- |
 | Zakáže duplikáty Interchange číslo ovládacího prvku |Blokovat duplicitní mimoúrovňové křižovatky. Počet přijatých výměnu řízení zkontroluje číslo řízení výměnu (ISA13). Pokud je zjištěna shoda, není proces kanálu receive výměnu. Můžete zadat počet dní pro provedení kontroly tím, že hodnota *kontrolovat duplicitní ISA13 každých (dny)*. |
-| Zakázat duplicity kontrolních čísel skupiny |Blok interchanges s duplicitní skupině řízení čísla. |
-| Zakázat duplicity kontrolních čísel sad transakcí |Blok interchanges s čísly verzí sady se duplicitní transakce. |
+| Zakáže číslo duplikáty ovládacího prvku Skupina |Blok interchanges s duplicitní skupině řízení čísla. |
+| Zakáže transakce sadu řízení číslo duplikáty |Blok interchanges s čísly verzí sady se duplicitní transakce. |
 
 ### <a name="validations"></a>Ověření
 
@@ -171,11 +171,11 @@ Po dokončení každý řádek ověření jiné automaticky přidá. Pokud nezad
 | Vlastnost | Popis |
 | --- | --- |
 | Převést předpokládané formátu desetinného čísla "Nn" základní 10 číselná hodnota |Převede představuje počet EDI, která je zadána ve formátu "Nn" do základu 10 číselná hodnota |
-| Pokud jsou povolené koncové oddělovače, vytvořit prázdné značky XML |Výběrem tohoto zaškrtávacího políčka tak, aby měl odesílatel výměnu obsahovat prázdný značky XML pro koncové oddělovače. |
-| Rozdělit výměnu jako sady transakcí – pozastavit sady transakcí při chybě|Analyzuje každou transakci, nastavte v výměnu do samostatného dokumentu XML s použitím příslušné obálky do sady transakce. Pozastaví pouze transakce, kde se ověřování nezdaří. |
-| Rozdělit výměnu jako sady transakcí – pozastavit výměnu při chybě|Analyzuje každou transakci, nastavte v výměnu do samostatného dokumentu XML s použitím příslušné obálku. Celý výměnu pozastaví, pokud selže ověření se jeden nebo více sad transakce v výměnu. | 
+| Vytvořit prázdný značky XML, pokud jsou povoleny koncové oddělovače |Výběrem tohoto zaškrtávacího políčka tak, aby měl odesílatel výměnu obsahovat prázdný značky XML pro koncové oddělovače. |
+| Rozdělení Interchange jako sady transakce – pozastavení sady transakce při chybě|Analyzuje každou transakci, nastavte v výměnu do samostatného dokumentu XML s použitím příslušné obálky do sady transakce. Pozastaví pouze transakce, kde se ověřování nezdaří. |
+| Rozdělení výměnu jako sady transakce – pozastavení výměnu při chybě|Analyzuje každou transakci, nastavte v výměnu do samostatného dokumentu XML s použitím příslušné obálku. Celý výměnu pozastaví, pokud selže ověření se jeden nebo více sad transakce v výměnu. | 
 | Zachovat výměnu – pozastavení sady transakce při chybě |Výměnu zůstanou zachovány, vytvoří dokument XML pro celý dávkové výměnu. Pozastaví pouze transakce sady, které selže ověření, můžete nadále zpracovat všechny ostatní sady transakce. |
-| Zachovat výměnu – pozastavit výměnu při chybě |Výměnu zůstanou zachovány, vytvoří dokument XML pro celý dávkové výměnu. Celý výměnu pozastaví, pokud selže ověření se jeden nebo více sad transakce v výměnu. |
+| Zachovat výměnu – pozastavení výměnu při chybě |Výměnu zůstanou zachovány, vytvoří dokument XML pro celý dávkové výměnu. Celý výměnu pozastaví, pokud selže ověření se jeden nebo více sad transakce v výměnu. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Nakonfigurujte, jak vaše smlouvy odešle zprávy
 
@@ -254,7 +254,7 @@ Nyní je připraven pro zpracování odchozích zpráv, které v souladu s vámi
 | Předvolba |Volitelné, určené pro rozsah čísla řízení sadu transakcí použít v potvrzení. Zadejte číselnou hodnotu pro střední dvě pole a alfanumerické hodnoty (v případě potřeby) pro pole předponu a příponu. Střední pole jsou povinné a obsahovat minimální a maximální hodnoty pro číslo ovládacího prvku |
 | Přípona |Volitelné, určené pro rozsah čísla řízení sadu transakcí používány potvrzení. Zadejte číselnou hodnotu pro střední dvě pole a alfanumerické hodnotu (v případě potřeby) pro pole předponu a příponu. Střední pole jsou povinné a obsahovat minimální a maximální hodnoty pro číslo ovládacího prvku |
 
-### <a name="character-sets-and-separators"></a>Znakové sady a oddělovače
+### <a name="character-sets-and-separators"></a>Znak sad a oddělovačů
 
 Jiného, než znaková sada, můžete u každého typu zprávy zadejte jinou sadu oddělovače. Pokud znakovou sadu pro danou zprávou schématu není zadána, použije se výchozí znakovou sadu.
 

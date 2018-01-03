@@ -22,6 +22,7 @@ Připojte a přihlaste se k virtuálnímu počítači, který jste vytvořili s 
     * Kliknutím na **OK** zavřete nastavení protokolu TCP/IP a pak znovu kliknutím na **OK** zavřete nastavení adaptéru. Vaše připojení RDP je obnoveno.
 
 6. Na příkazovém řádku zadejte *ipconfig /all*. Zobrazí se všechny IP adresy, které jste přidali, a protokol DHCP je vypnutý.
+7. Konfigurace systému Windows na privátní IP adresa primární konfigurace protokolu IP v Azure jako primární IP adresu pro systém Windows. V tématu [přístup k Internetu bez z virtuálního počítače Windows Azure, který má více IP adres](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) podrobnosti. 
 
 
 ### <a name="validation-windows"></a>Ověření (Windows)

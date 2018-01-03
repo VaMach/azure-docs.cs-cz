@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analýza výpovědí zákazníků pomocí služby Azure Machine Learning
 ## <a name="overview"></a>Přehled
-Tento článek představuje odkaz na implementaci projektu analysis změn zákazníka, vytvořené pomocí Azure Machine Learning. V tomto článku probereme přidružené obecné modely pro komplexní řešení tohoto problému změn průmyslových zákazníka. Měříme přesnost modelů, které jsou vytvořeny pomocí Machine Learning a jsme vyhodnocení pokyny pro vývoj Další.  
+Tento článek představuje odkaz na implementaci projektu analysis změn zákazníka, vytvořené pomocí Azure Machine Learning. V tomto článku probereme přidružené obecné modely pro komplexní řešení tohoto problému změn průmyslových zákazníka. Také měřit přesnost modelů, které jsou vytvořeny pomocí Machine Learning a vyhodnocení pokyny pro vývoj Další.  
 
 ### <a name="acknowledgements"></a>Potvrzení
 Tohoto experimentu byl vyvinutý a otestovat Serge Berger, vědecký pracovník objekt zabezpečení dat společnosti Microsoft a Roger Barga, dříve správce produktu pro Microsoft Azure Machine Learning. Děkujeme za jejich týmu dokumentace Azure uznává svoje znalosti a Děkujeme, že je tento dokument white paper sdílení.
@@ -37,14 +37,14 @@ Tohoto experimentu byl vyvinutý a otestovat Serge Berger, vědecký pracovník 
 ## <a name="the-problem-of-customer-churn"></a>Problém zákazníka změn
 Firmy na trhu příjemce a ve všech odvětvích enterprise mají jak nakládat s změn. Někdy je příliš změn a vliv rozhodnutí o zásadách. Tradiční řešení je předpovědi vysokou tendenci churners a řešení jejich potřeb prostřednictvím služby concierge marketingových kampaní, nebo použitím zvláštní výjimky. Tato řešení můžete měnit odvětví průmyslu a i z konkrétní příjemce clusteru do druhého v rámci jednoho oboru (například telecommunications).
 
-Běžné faktor je, že podnikům muset minimalizovat úsilí uchování tyto speciální zákazníka. Proto přirozené metodika by pro stanovení skóre každé zákazníků s pravděpodobnost změn a řešení top N ty, které jsou. Hlavní zákazníci může být nejvíce ziskové ty; ve složitějších scénářích, například je funkce zisku vzhledem při výběru kandidáty pro speciální výjimku. Tyto aspekty jsou však pouze část komplexní strategie pro práci s změn. Firmy mají také vzít v účtu riziko (a odolnost vůči rizikům přidružené), úroveň a náklady na zásahu a segmentace vyhovující zákazníka.  
+Běžné faktor je, že podnikům muset minimalizovat úsilí uchování tyto speciální zákazníka. Proto přirozené metodika by pro stanovení skóre každé zákazníků s pravděpodobnost změn a řešení top N ty, které jsou. Hlavní zákazníci může být těm, které jsou nejvíce ziskové. Například ve složitějších scénářích zisku funkce zaměstnání při výběru kandidáty pro speciální výjimku. Tyto aspekty jsou však pouze část dokončení strategie pro práci s změn. Firmy mají také vzít v účtu riziko (a odolnost vůči rizikům přidružené), úroveň a náklady na zásahu a segmentace vyhovující zákazníka.  
 
 ## <a name="industry-outlook-and-approaches"></a>Odvětví outlook a přístupů
 Sofistikované zpracování změn je znak vyspělá oboru. Classic příkladem je telecommunications odvětví, kde Odběratelé, kteří znají často přepínat z jednoho poskytovatele do jiného. Tato dobrovolná změn je hlavním zájmem. Kromě toho zprostředkovatelé shromáždily významné znalosti o *změn ovladače*, což jsou faktory, které jednotka zákazníkům přepínače.
 
-Například telefonu nebo zařízení volba je dobře známé faktorem změn v podniku mobilního telefonu. V důsledku toho je zásadu oblíbených subvencovat cenu telefonu pro nové odběratele a poplatků úplné ceny pro stávající zákazníky služby pro upgrade. V minulosti tato zásada vedlo zákazníkům přepínání z jednoho poskytovatele do druhého a získat tak slevu nové, které se pak se zobrazí výzva poskytovatelům upřesnit jejich strategie.
+Například telefonu nebo zařízení volba je dobře známé faktorem změn v podniku mobilního telefonu. Oblíbené zásad v důsledku toho je subvencovat cenu telefonu pro nové odběratele a účtují úplné ceny pro stávající zákazníky služby pro upgrade. V minulosti tato zásada vedlo zákazníkům přepínání z jednoho poskytovatele do druhého a získat tak slevu nové. To, pak má poskytovatelům upřesnit jejich strategie výzva.
 
-Vysoká volatility v telefonu nabídky je faktor, který velmi rychle by způsobila neplatnost modely změn, které jsou založeny na aktuální telefonního sluchátka modelů. Kromě toho mobilních telefonů nejsou jenom telekomunikace zařízení; jsou i příkazy způsobem (zvažte iPhone) a tyto sociálních prognostické jsou nad rámec regulární telecommunications datových sad.
+Vysoká volatility v telefonu nabídky je faktor, který rychle by způsobila neplatnost modely změn, které jsou založeny na aktuální telefonního sluchátka modelů. Kromě toho mobilních telefonů nejsou jenom telekomunikace zařízení, jsou i příkazy způsobem (zvažte iPhone). Tyto sociálních prognostické jsou nad rámec regulární telecommunications datových sad.
 
 Net výsledek pro modelování je, že nelze navrhnout zásadu zvukové jednoduše tak, že odstraňuje známé důvody změn. Ve skutečnosti strategie průběžné modelování, včetně classic modely, které vyčíslení kategorií proměnné (například rozhodovací stromy), je **povinné**.
 
@@ -211,16 +211,6 @@ Chcete-li pokračovat v tomto tématu v budoucnosti Doufáme, zejména souvisej�
 ## <a name="conclusion"></a>Závěr
 Tento dokument popisuje rozumný přístup k řešení problému běžných změn zákazníka pomocí obecné rozhraní. Jsme považována za prototypu pro vyhodnocování modely a implementovat pomocí Azure Machine Learning. Nakonec jsme hodnoceno přesnost a výkon prototypu řešení s ohledem na porovnatelný z hlediska algoritmy v SAS.  
 
-**Další informace:**  
-
-Tento dokument vám pomohou? Prosím sdělte svůj názor. Řekněte nám na škále od 1 (špatné) na 5 (vynikající), jak hodnotíte tento dokument a proč jste udělili ho tato hodnocení? Například:  
-
-* Jsou vám hodnocení ho vysoké kvůli s dobrými příklady, vynikající snímků obrazovek, zrušte zápis nebo jiného důvodu?
-* Jsou vám hodnocení ho nízkou kvůli nízký příklady, snímky obrazovky přibližné nebo jasné zápis?  
-
-Tato zpětná vazba pomůže nám vylepšit kvalitu dokumenty white paper, které jsme vydání.   
-
-[Pošlete svůj názor](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Odkazy
