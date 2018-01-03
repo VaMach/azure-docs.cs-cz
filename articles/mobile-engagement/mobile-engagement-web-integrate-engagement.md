@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
 ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Integrovat Azure Mobile Engagement ve webové aplikaci
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ Mobile Engagement relace je rozdělené do posloupnost aktivit, identifikována 
 
 V klasického webu doporučujeme je deklarovat jiné aktivitě na každé stránce vašeho webu. Pro web nebo webovou aplikaci, ve kterém se aktuální stránku nikdy změní můžete chtít sledovat aktivity v menším měřítku, jako třeba v rámci dané stránky.
 
-V obou případech spustit nebo změnit aktuální aktivity uživatelů, volání `engagement.agent.startActivity` funkce. Například:
+V obou případech spustit nebo změnit aktuální aktivity uživatelů, volání `engagement.agent.startActivity` funkce. Příklad:
 
     <body onload="yourOnload()">
 

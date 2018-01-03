@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Začínáme s vývojem pro Azure CDN
 > [!div class="op_single_selector"]
@@ -328,7 +328,7 @@ Jsme teď můžete zkompilovat a program spusťte kliknutím **spustit** tlačí
 
 Když program dosáhne řádku výše, byste měli mít se vrátíte do vaší skupiny prostředků na portálu Azure najdete v části vytvořený profil.
 
-![Úspěšné!](./media/cdn-app-dev-net/cdn-success.png)
+![Výborně!](./media/cdn-app-dev-net/cdn-success.png)
 
 Potom může potvrdit pokynů ke spuštění zbytek programu.
 

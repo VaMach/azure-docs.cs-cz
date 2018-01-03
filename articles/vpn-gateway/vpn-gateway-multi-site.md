@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
 ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Přidat připojení Site-to-Site k virtuální síti s existující připojení brány sítě VPN (klasické)
 
@@ -162,7 +162,7 @@ Importujte konfiguračního souboru sítě. Při importování tohoto souboru se
 ## <a name="6-download-keys"></a>6. Stáhněte si klíče
 Po přidání vaší nové tunely, použijte rutinu prostředí PowerShell 'Get-AzureVNetGatewayKey' získat předsdílené klíče protokolu IPsec/IKE pro každé tunelové propojení.
 
-Například:
+Příklad:
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

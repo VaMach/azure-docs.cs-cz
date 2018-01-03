@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 14dce37a953984d3e1ce80b813f386210e85d261
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: c5e85ac6eec1b8b0a5a78f552b190ce3f3c55c38
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Protokolování diagnostiky Azure Cosmos DB
 
@@ -56,7 +56,7 @@ K dokončení tohoto kurzu, musí mít následující prostředky:
     * **Odeslat k analýze protokolů**.     Chcete-li použít tuto možnost, buď použijte existujícímu pracovnímu prostoru nebo vytvořte nový pracovní prostor analýzy protokolů podle pokynů k [vytvořit nový pracovní prostor](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) na portálu. Další informace o prohlížení protokolů v analýzy protokolů, najdete v části [zobrazení přihlásí analýzy protokolů](#view-in-loganalytics).
     * **Přihlaste se DataPlaneRequests**. Tuto možnost vyberte k protokolování diagnostiky pro účty SQL, graf a tabulka rozhraní API. Pokud vytváříte archivu účet úložiště, můžete vybrat dobu uchování diagnostické protokoly. Protokoly jsou autodeleted po uplynutí období uchovávání informací.
     * **Přihlaste se MongoRequests**. Tuto možnost vyberte k protokolování diagnostiky pro rozhraní API MongoDB účty. Pokud vytváříte archivu účet úložiště, můžete vybrat dobu uchování diagnostické protokoly. Protokoly jsou autodeleted po uplynutí období uchovávání informací.
-    * **Metriky požadavky**. Tuto možnost vyberte pro uložení podrobné dat v [metrik Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#cosmosdb). Pokud vytváříte archivu účet úložiště, můžete vybrat dobu uchování diagnostické protokoly. Protokoly jsou autodeleted po uplynutí období uchovávání informací.
+    * **Metriky požadavky**. Tuto možnost vyberte pro uložení podrobné dat v [metrik Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Pokud vytváříte archivu účet úložiště, můžete vybrat dobu uchování diagnostické protokoly. Protokoly jsou autodeleted po uplynutí období uchovávání informací.
 
 3. Klikněte na **Uložit**.
 
@@ -261,7 +261,7 @@ $blobs | Get-AzureStorageBlobContent `
 
 Když spustíte tento druhý příkaz,  **/**  oddělovač v názvech objektů blob vytvoří úplnou strukturu složek v cílové složce. Tato struktura složky se používá ke stažení a uložení objektů BLOB jako soubory.
 
-Chcete-li stahovat objekty blob selektivně, použijte zástupné znaky. Například:
+Chcete-li stahovat objekty blob selektivně, použijte zástupné znaky. Příklad:
 
 * Pokud máte více databází a chcete ke stažení protokolů pro právě jednu databázi, s názvem CONTOSOCOSMOSDB3:
 

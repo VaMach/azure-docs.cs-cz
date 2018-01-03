@@ -5,7 +5,7 @@ keywords: "Sady škálování virtuálního počítače"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 760e30f5c6f4ecaff299bae1725548a6a7c5184c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Převést na šablonu sady škálování spravovaných disků na šablonu sady škálování
 
-Zákazníci pomocí šablony Resource Manageru pro vytváření škálovací sadu nepoužíváte spravovaných disků na chtít upravit tak, aby pomocí spravovaného disku. Tento článek ukazuje, jak na to, jako příklad použijeme žádost o přijetí změn z [šablon Azure rychlý Start](https://github.com/Azure/azure-quickstart-templates), úložišti komunitou vytvářený pro ukázkové šablony Resource Manageru. Zde můžete zjistit úplné přijetí žádosti o: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), a jsou v příslušných částech rozdílové níže, společně s vysvětlení:
+Zákazníci pomocí šablony Resource Manageru pro vytváření škálovací sadu nepoužíváte spravovaných disků na chtít upravit tak, aby pomocí spravovaného disku. Tento článek ukazuje, jak používat spravovaného disků pomocí jako příklad žádost o přijetí změn z [šablon Azure rychlý Start](https://github.com/Azure/azure-quickstart-templates), úložišti komunitou vytvářený pro ukázkové šablony Resource Manageru. Zde můžete zjistit úplné přijetí žádosti o: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), a jsou v příslušných částech rozdílové níže, společně s vysvětlení:
 
 ## <a name="making-the-os-disks-managed"></a>Provedení spravované disky operačního systému
 
-V rozdílů, které jsou níže jsme se zobrazí, že jsme odebrali několika proměnných související s vlastností účtu a disku úložiště. Typ účtu úložiště už není nutné (Standard_LRS je výchozí nastavení), ale může stále určíme ho Pokud jsme nepřeje. Jsou podporovány pouze Standard_LRS a Premium_LRS s spravovaného disku. Nová přípona účet úložiště, pole jedinečné řetězce a počet sa byly použity v původní šabloně vygenerovat názvy účtů úložiště. Tyto proměnné již nejsou potřebné v nové šabloně protože spravovaných disků na účty úložiště automaticky vytvoří jménem zákazníka. Podobně název kontejneru virtuálního pevného disku a název disku operačního systému již nejsou potřebné protože spravovaných disků na názvy automaticky základní kontejnery úložiště objektů blob a disků.
+V následujících rozdílů se odeberou několika proměnných související s vlastností účtu a disk úložiště. Typ účtu úložiště už není nutné (Standard_LRS je výchozí nastavení), ale můžete ji zadat v případě potřeby. Jsou podporovány pouze Standard_LRS a Premium_LRS s spravovaného disku. Nová přípona účet úložiště, pole jedinečné řetězce a počet sa byly použity v původní šabloně vygenerovat názvy účtů úložiště. Tyto proměnné již nejsou potřebné v nové šabloně protože spravovaných disků na účty úložiště automaticky vytvoří jménem zákazníka. Podobně název kontejneru virtuálního pevného disku a název disku operačního systému již nejsou potřebné protože spravovaných disků na názvy automaticky základní kontejnery úložiště objektů blob a disků.
 
 ```diff
    "variables": {
@@ -52,7 +52,7 @@ V rozdílů, které jsou níže jsme se zobrazí, že jsme odebrali několika pr
 ```
 
 
-V rozdílů, které jsou níže, vidíme, že byl aktualizován výpočetní verze rozhraní api pro 2016-04-30-preview, což je nejdříve požadovaná verze spravovaných disků na podporu pro sady škálování. Upozorňujeme, že jsme může stále použít nespravované disky v nové verzi rozhraní api pomocí staré syntaxe v případě potřeby. Jinými slovy Pokud jsme výpočetní aktualizovat pouze verze rozhraní api a neměnit cokoliv jiného, šablona by měly být nadále fungovat jako předtím.
+V následující rozdílové výpočetní, že rozhraní API se aktualizuje na verzi 2016-04-30-preview, což je nejdříve požadovaná verze spravovaných disků na podporu pro sady škálování. Můžete použít nespravované disky v nové verzi rozhraní API pomocí staré syntaxe v případě potřeby. Pokud pouze aktualizovat na verzi rozhraní API výpočetní a neměnit cokoliv jiného, šablona by měly být nadále fungovat jako předtím.
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -66,7 +66,7 @@ V rozdílů, které jsou níže, vidíme, že byl aktualizován výpočetní ver
    },
 ```
 
-V rozdílů, které jsou níže jsme se zobrazí, že jsme odebírání prostředků účtu úložiště z pole prostředkům úplně. Už potřebujeme je vzhledem k tomu, že spravovaných disků je automaticky vytvoří naším jménem.
+V následujících rozdílů prostředků účtu úložiště je úplně odebrat z pole prostředky. Prostředek se už nepotřebuje jako spravovaných disků na vytvoří je automaticky.
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -91,7 +91,7 @@ V rozdílů, které jsou níže jsme se zobrazí, že jsme odebírání prostře
        "location": "[resourceGroup().location]",
 ```
 
-V rozdílů, které jsou níže, uvidíme jsme odebrání závisí na klauzule odkazující od stupnice nastavena na smyčky, která byla vytváření účtů úložiště. V původní šabloně to byla zajistit, aby byly účty úložiště vytvořené před škálovací sadu začal vytvoření, ale tuto klauzuli už není nutné u spravovaných disků na. Jsme také odstranit vlastnost kontejnery vhd a vlastnost název disku operačního systému jako tyto vlastnosti jsou automaticky zpracovávány pod pokličkou spravovaného disku. Pokud jsme si přáli, může přidáme `"managedDisk": { "storageAccountType": "Premium_LRS" }` v konfiguraci "osDisk" Pokud jsme chtěli prémiové disky operačního systému. Pouze virtuální počítače s velkým nebo na malá ' ve virtuálním počítači můžete použít sku prémiové disky.
+V následujících rozdílů, uvidíme jsme odebrání závisí na klauzule odkazující od stupnice nastavena na smyčky, která byla vytváření účtů úložiště. V původní šabloně to byla zajistit, aby byly účty úložiště vytvořené před škálovací sadu začal vytvoření, ale tuto klauzuli už není nutné u spravovaných disků na. Vlastnost kontejnery vhd se taky odeberou, spolu s vlastnost název disku operačního systému jako tyto vlastnosti jsou automaticky zpracovávány pod pokličkou spravovaných disků na. Můžete přidat `"managedDisk": { "storageAccountType": "Premium_LRS" }` v konfiguraci "osDisk", pokud byste chtěli prémiové disky operačního systému. Pouze virtuální počítače s velkým nebo na malá ' ve virtuálním počítači můžete použít sku prémiové disky.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -137,7 +137,7 @@ S výše změny škálování sady používá spravované disky pro operační s
 ]
 ```
 
-Pokud zadáte `n` disky v toto pole, jednotlivé virtuální počítače v měřítka nastavit získá `n` datových disků. Upozorňujeme však, že jsou tyto datové disky nezpracované zařízení. Jejich nejsou formátovány. Je zákazník připojit, paritition a před jejich použitím disky naformátujte. Volitelně může také určíme `"managedDisk": { "storageAccountType": "Premium_LRS" }` v každý datový disk objekt k určení, že by měl být premium datový disk. Pouze virtuální počítače s velkým nebo na malá ' ve virtuálním počítači můžete použít sku prémiové disky.
+Pokud zadáte `n` disky v toto pole, jednotlivé virtuální počítače v měřítka nastavit získá `n` datových disků. Upozorňujeme však, že jsou tyto datové disky nezpracované zařízení. Jejich nejsou formátovány. Je zákazník připojit, oddíl a naformátovat disky před jejich používání. Volitelně můžete také zadat `"managedDisk": { "storageAccountType": "Premium_LRS" }` v každý datový disk objekt k určení, že by měl být premium datový disk. Pouze virtuální počítače s velkým nebo na malá ' ve virtuálním počítači můžete použít sku prémiové disky.
 
 Další informace o datových disků pomocí sady škálování najdete v tématu [v tomto článku](./virtual-machine-scale-sets-attached-disks.md).
 

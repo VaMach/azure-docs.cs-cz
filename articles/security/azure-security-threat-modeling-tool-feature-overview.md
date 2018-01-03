@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Přehled funkcí nástroje modelování hrozeb
 
@@ -29,11 +29,11 @@ Nástroj modelování hrozeb vám může pomoct s vaší threat modelování pot
 
 Otevření prázdné stránky, vyberte **vytvoření modelu A**.
 
-![Prázdná stránka](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Prázdná stránka](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 Pokud chcete zobrazit funkce, které jsou aktuálně k dispozici v nástroji, použijte model hrozeb, které jsou vytvořené náš tým v [Začínáme](./azure-security-threat-modeling-tool-getting-started.md) příklad.
 
-![Model základní hrozeb](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Model základní hrozeb](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 ## <a name="navigation"></a>Navigace
 
@@ -43,7 +43,7 @@ Před probereme integrované funkce, budeme zkontrolujte hlavními součástmi n
 
 Prostředí je podobná další produkty společnosti Microsoft. Pojďme si prohlédněte položky, nabídek nejvyšší úrovně.
 
-![Položky nabídky](./media/azure-security-threat-modeling-tool/menuitems.png)
+![Položky nabídky](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | Štítek                               | Podrobnosti      |
 | --------------------------------------- | ------------ |
@@ -75,11 +75,11 @@ Na plátně je místo, kde můžete přetáhnout myší elementy. Přetažení j
 
 #### <a name="drop-the-stencil-on-the-canvas"></a>Vyřaďte vzorníku na plátno
 
-![Vyřaďte plátno](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![Vyřaďte plátno](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### <a name="select-the-stencil"></a>Vyberte vzorník
 
-![Vlastnosti elementů](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![Vlastnosti elementů](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### <a name="stencils"></a>Vzorníky
 
@@ -120,15 +120,15 @@ Při otevření aplikace se zobrazí **úvodní** obrazovky.
 
 Pozastavte ukazatel myši nad **otevřete modelu A** na nich dvě možnosti: **otevřete z tento počítač** a **OneDrive otevřete z**. První možnost otevře **otevřít soubor** obrazovky. Druhá možnost vás provede proces přihlášení pro OneDrive. Po úspěšném ověření můžete vybrat soubory a složky.
 
-![Otevřete modelu](./media/azure-security-threat-modeling-tool/openmodel.png)
+![Otevřete modelu](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![Otevřete v počítači nebo OneDrive](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![Otevřete v počítači nebo OneDrive](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### <a name="feedback-suggestions-and-issues"></a>Zpětná vazba, návrhy a problémy
 
 Když vyberete **zpětnou vazbu, návrhy a problémy**, můžete přejít na fóru MSDN nástroje SDL. Může číst jiní lidé názory týkající se nástroje, včetně řešení a nových nápadů.
 
-![Váš názor](./media/azure-security-threat-modeling-tool/feedback.png)
+![Váš názor](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Návrhové zobrazení
 
@@ -154,17 +154,17 @@ Můžete připojit elementy dvěma způsoby:
 
 #### <a name="before"></a>Před
 
-![Před](./media/azure-security-threat-modeling-tool/properties1.png)
+![Před](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
 #### <a name="after"></a>Po
 
-![Po](./media/azure-security-threat-modeling-tool/properties2.png)
+![Po](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Zprávy
 
 Pokud chcete vytvořit model hrozeb a nezapomněli připojení k prvkům datové toky, dostanete oznámení. Zprávu můžete ignorovat, nebo můžete postupujte podle pokynů a vyřešte problém. 
 
-![Zprávy](./media/azure-security-threat-modeling-tool/messages.png)
+![Zprávy](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Poznámky
 
@@ -174,7 +174,7 @@ Přidání poznámky do diagramu, přejít ze **zprávy** kartu k **poznámky** 
 
 Po sestavení diagramu, vyberte **Analysis** symbol (Lupa) na panelu nástrojů zástupce přepnout **Analysis** zobrazení.
 
-![Zobrazení analýzy](./media/azure-security-threat-modeling-tool/analysisview.png)
+![Zobrazení analýzy](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>Výběr generovaného hrozeb
 
@@ -182,27 +182,27 @@ Když vyberete hrozbu, můžete provádět tři odlišné funkce:
 
 | Funkce                               | Informace      |
 | --------------------------------------- | ------------ |
-| **Indikátor pro čtení** | <p>Riziko, že je označena jako pro čtení, který pomáhá udržovat přehled o položky, které jste prošli.</p><p>![Pro čtení nebo nepřečtená indikátoru](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **Interakce fokusu** | <p>Interakce na obrázku, který patří do hrozbu zvýrazní.</p><p>![Interakce fokusu](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **Vlastnosti hrozeb** | <p>Další informace o riziko, že se zobrazí v **Threat vlastnosti** okno.</p><p>![Vlastnosti hrozeb](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **Indikátor pro čtení** | <p>Riziko, že je označena jako pro čtení, který pomáhá udržovat přehled o položky, které jste prošli.</p><p>![Pro čtení nebo nepřečtená indikátoru](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Interakce fokusu** | <p>Interakce na obrázku, který patří do hrozbu zvýrazní.</p><p>![Interakce fokusu](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **Vlastnosti hrozeb** | <p>Další informace o riziko, že se zobrazí v **Threat vlastnosti** okno.</p><p>![Vlastnosti hrozeb](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Priorita změny
 
 Můžete změnit úroveň priority jednotlivé generovaného hrozby. Různé barvy usnadňují identifikaci vysokou – střední- a hrozeb nízkou prioritu.
 
-![Priorita změny](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![Priorita změny](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>Upravitelné pole vlastnosti hrozeb
 
 Jak je vidět na předchozím obrázku, můžete změnit informace generovaný nástrojem. Můžete také přidat informace do určitá pole, jako je například zarovnání do bloku. Tato pole jsou generovány šablonou. Pokud potřebujete další informace na jednotlivé hrozby, můžete provést úpravy.
 
-![Vlastnosti hrozeb](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![Vlastnosti hrozeb](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Reports
 
 Po dokončení změn priority a při aktualizaci stavu jednotlivé generovaného hrozby, můžete soubor uložit nebo vytisknout sestavu. Přejděte na **sestavy** > **vytvoření úplné sestavy**. Název sestavy a měli byste vidět něco podobného jako na následujícím obrázku:
 
-![Sestava](./media/azure-security-threat-modeling-tool/report.png)
+![Sestava](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Přehled Azure monitorování
 Tento článek obsahuje přehled služby Azure monitorování v Microsoft Azure. Popisuje, co monitorování Azure nepodporuje a poskytuje odkazy na další informace o tom, jak používat Azure monitorování.  Pokud upřednostňujete video úvod, najdete v části Další kroky odkazy v dolní části tohoto článku. 
@@ -43,7 +43,7 @@ Stránce je výchozím bodem pro navigaci, včetně Startovní. Zobrazuje kurát
 
 Při otevření stránky, můžete vybrat mezi odběry, které máte přístup pro čtení. Pro vybrané předplatné se zobrazí:
 
-- **Aktivaci výstrahy a výstrahu zdroje** – Tato tabulka obsahuje souhrn počtu výstrah zdrojů, a jak často výstrahy aktivováno pro vybrané doby trvání. Platí pro metriku a aktivity protokolu výstrahy.
+- **Aktivaci výstrahy a výstrahu zdroje** – Tato tabulka obsahuje souhrn počtu výstrah zdrojů, a jak často výstrahy aktivováno pro vybrané doby trvání. Platí pro metriku a aktivity protokolu výstrahy. *< upravit: výstrahy (Preview) s jednotném rozhraní také pro všechny výstrahy - protokoly, metriky a události uvedené >*
 - **Chyby v protokolu aktivit** – Pokud některé z vašich prostředků Azure protokolu události se závažností úroveň chyb, můžete zobrazit podrobný počet a klikněte na tlačítko prostřednictvím na stránce Protokol aktivit můžete prozkoumat všechny události.
 - **Azure stavu služby** -uvidíte počet problémů služby stav služby, události plánované údržby a zpravodaje stavu. Azure služba stavu poskytuje přizpůsobené informace o při problémy v infrastruktuře Azure vliv na vaše služby.  V tématu [stavu služby Azure](../service-health/service-health-overview.md) Další informace.  
 - **Application Insights** -najdete v části klíčových ukazatelů výkonu pro každý zdroj AppInsights v aktuálním předplatném. Klíčové ukazatele výkonu jsou optimalizované pro aplikace na straně serveru monitorování napříč webové aplikace ASP.NET, Java, uzel a obecné typy aplikací. Klíčové ukazatele výkonu zahrnují metriky pro rychlost požadavků, doba odezvy, míra selhání a dostupnosti %. 
@@ -55,6 +55,7 @@ Pokud jste ještě na zahrnuté analýzy protokolů nebo Application Insights, n
 ## <a name="azure-monitor-sources---compute-subset"></a>Azure monitorování zdroje - výpočetní podmnožina
 
 ![Model pro monitorování a Diagnostika pro jiný výpočetní prostředky](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
+
 
 Patří sem výpočetní služby 
 - Cloud Services 
@@ -141,7 +142,10 @@ Několik metod vizualizace patří:
 
 
 ### <a name="automate"></a>Automatizace
-Můžete použít data monitorování výstrahy aktivační události nebo dokonce celé procesy. Příklady obsahují:
+> [!NOTE]
+> Jako součást probíhající vývoj výstrah v Microsoft Azure teď jednotné prostředí pro výstrahy pracujete v náhledu. Další informace o [výstrahy Azure (Preview)](monitoring-overview-unified-alerts.md)
+
+Standardní Azure výstrahy můžete data monitorování výstrahy aktivační události nebo dokonce celé procesy. Příklady obsahují:
 
 * Data pro automatické škálování výpočetních instancích použijte nahoru nebo dolů podle zatížení aplikace.
 * Odesílání e-mailů, když metriky překračuje předem určené prahové hodnoty.
@@ -151,7 +155,7 @@ Můžete použít data monitorování výstrahy aktivační události nebo dokon
 ## <a name="methods-of-accessing-azure-monitor"></a>Metody přístupu k Azure monitorování
 Obecně platí můžete upravit data sledování, směrování a načítání pomocí jedné z následujících metod. Ne všechny metody jsou k dispozici pro všechny akce nebo datové typy.
 
-* [Azure Portal](https://portal.azure.com)
+* [portál Azure Portal](https://portal.azure.com)
 * [PowerShell](insights-powershell-samples.md)  
 * [Napříč platformami rozhraní příkazového řádku (CLI)](insights-cli-samples.md)
 * [REST API](https://docs.microsoft.com/rest/api/monitor/)

@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 43cb2225d7fbf2fc7f8d93c78415f0f2c1a3fa25
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Ověřování koncového uživatele s Data Lake Store pomocí sady .NET SDK
 > [!div class="op_single_selector"]
@@ -46,9 +46,9 @@ V tomto článku se dozvíte o tom, jak používat sadu .NET SDK chcete ověřen
    | --- | --- |
    | Kategorie |Šablony/Visual C#/Windows |
    | Šablona |Konzolová aplikace |
-   | Name (Název) |VytvořeníAplikaceADL |
+   | Název |VytvořeníAplikaceADL |
 
-4. Kliknutím na tlačítko **OK** vytvořte projekt.
+4. Projekt vytvoříte kliknutím na **OK**.
 
 5. Přidejte do projektu balíčky NuGet.
 

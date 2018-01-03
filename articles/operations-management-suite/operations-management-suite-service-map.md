@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Pomocí mapy služeb řešení v Operations Management Suite
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Pomocí mapy služeb, můžete zobrazit vaše servery ve způsobu, jakým se domníváte, že z nich: jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy, a vyžaduje porty mezi žádné připojení TCP architektura žádnou konfiguraci, jiné než instalaci agenta.
@@ -49,7 +49,7 @@ Mapy služeb agenty shromažďovat informace o všech procesů připojení proto
 
 ![Přehled mapy služeb](media/oms-service-map/service-map-overview.png)
 
-Počítače lze rozšířit v mapě zobrazíte spuštěných procesů s aktivní síťové připojení během vybraný časový rozsah. Když vzdálený počítač s agentem mapy služeb je rozbalit a zobrazit podrobnosti o procesu, se zobrazí pouze procesy, které komunikují s počítačem fokus. Na levé straně procesů, které se připojují k uvedené počet bez agentů klientské počítače, které připojit do počítače fokus. Pokud je fokus počítač je při připojování k back-end počítač, který nemá žádný agent, back-end serverů je součástí skupiny Port serveru, včetně jiné připojení ke stejné číslo portu.
+Počítače lze rozšířit v mapě zobrazíte spuštění zpracování skupiny a procesů pomocí aktivní síťové připojení během vybraný časový rozsah. Když vzdálený počítač s agentem mapy služeb je rozbalit a zobrazit podrobnosti o procesu, se zobrazí pouze procesy, které komunikují s počítačem fokus. Na levé straně procesů, které se připojují k uvedené počet bez agentů klientské počítače, které připojit do počítače fokus. Pokud je fokus počítač je při připojování k back-end počítač, který nemá žádný agent, back-end serverů je součástí skupiny Port serveru, včetně jiné připojení ke stejné číslo portu.
 
 Ve výchozím nastavení mapy služby maps zobrazit posledních 30 minut informace o závislostech. Pomocí ovládacích prvků čas v levém horním se můžete dotazovat mapy pro historické časových rozsahů ukazují, jak závislosti hledá v minulosti (například během incident nebo před došlo ke změně) až jednu hodinu. Mapa služeb data jsou uložena po dobu 30 dnů v placené pracovních prostorů a 7 dní v bezplatné pracovní prostory.
 
@@ -59,6 +59,9 @@ V dolní části každý server v mapě může být seznam stav odznaky zdůrazn
 V závislosti na závažnosti odznaky stav můžete počítač uzel ohraničení být barevnou red (kritická), žlutý (varování) nebo modrá (informativní). Barva představuje stav nejzávažnějšího odznaky stavu. Šedé ohraničení označuje uzel, který nemá žádné indikátory stavu.
 
 ![Stav oznámení](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>Skupin procesů
+Skupin procesů kombinovat procesy, které jsou přidružené k běžné produktu nebo službě do skupiny procesu.  Když se uzel počítači rozbalí zobrazí samostatné procesy společně s skupin procesů.  Pokud všechny příchozí a odchozí připojení s procesem v rámci skupiny procesu se nezdařila pak připojení, je zobrazena jako pro skupinu celý proces se nezdařilo.
 
 ## <a name="machine-groups"></a>Skupiny počítačů
 Skupiny počítačů umožňují zobrazit mapování zaměřená na sadu serverů, nikoli pouze jeden, abyste viděli všichni členové clusteru vícevrstvé aplikace nebo serveru v jedna mapa.
@@ -191,7 +194,7 @@ Pokud chcete povolit mapy služeb zobrazíte příslušné výstrahy, vytvořte 
 - Obsahovat klauzuli do skupiny podle počítače (například **počítače interval 1 minuta**).
 - Zvolte výstrahy podle metriky měření.
 
-![Konfigurace výstrah](media/oms-service-map/alert-configuration.png)
+![Konfigurace upozornění](media/oms-service-map/alert-configuration.png)
 
 
 ## <a name="operations-management-suite-log-events-integration"></a>Integrace protokolu událostí nástroje Operations Management Suite

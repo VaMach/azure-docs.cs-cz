@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: a631708ce755b07701c053e217dd658e5f7bb82b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformace dat v Azure Data Factory
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ V tématu [použití Machine Learning aktivity](data-factory-azure-ml-batch-exec
 ## <a name="stored-procedure-activity"></a>Aktivita uložené procedury
 Můžete aktivity uložené procedury serveru SQL v objektu pro vytváření dat kanál vyvolat uloženou proceduru v jednom z následujících úložišť dat: databáze SQL Azure, Azure SQL Data Warehouse, databáze SQL serveru ve vašem podniku nebo virtuální počítač Azure. V tématu [aktivity uložené procedury](data-factory-stored-proc-activity.md) článku.  
 
-## <a name="data-lake-analytics-u-sql-activity"></a>Aktivita data Lake Analytics U-SQL
+## <a name="data-lake-analytics-u-sql-activity"></a>Aktivita Data Lake Analytics U-SQL
 Data Lake Analytics U-SQL aktivity spouští skript U-SQL na clusteru služby Azure Data Lake Analytics. V tématu [Data Analytics U-SQL aktivity](data-factory-usql-activity.md) článku. 
 
 ## <a name="net-custom-activity"></a>Vlastní aktivita .NET

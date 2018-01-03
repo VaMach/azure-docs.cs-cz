@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Řešení potíží: Problémy Azure připojení point-to-site
 
@@ -89,7 +89,7 @@ Když se pokusíte připojit k virtuální sítě Azure s použitím klienta VPN
     | Azuregateway -*GUID*. cloudapp.net  | Aktuální User\Trusted kořenové certifikační autority|
     | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Místní počítač\Důvěryhodné kořenové certifikační autority|
 
-2. Pokud certifikáty jsou již v umístění, zkuste odstranit certifikáty a je přeinstalovat. **Azuregateway -*GUID*. cloudapp.net** certifikát se nachází ve balíček konfigurace klienta VPN, který jste si stáhli z portálu Azure. Můžete použít soubor archivers extrahujte soubory z balíčku.
+2. Pokud certifikáty jsou již v umístění, zkuste odstranit certifikáty a je přeinstalovat.  **Azuregateway -*GUID*. cloudapp.net** certifikát se nachází ve balíček konfigurace klienta VPN, který jste si stáhli z portálu Azure. Můžete použít soubor archivers extrahujte soubory z balíčku.
 
 ## <a name="file-download-error-target-uri-is-not-specified"></a>Chyba při stahování souborů: není zadaný cílový identifikátor URI
 
@@ -263,3 +263,52 @@ Odebrat připojení VPN point-to-site a znovu nainstalujete klienta VPN. V takov
 ### <a name="solution"></a>Řešení
 
 Chcete-li problém vyřešit, odstraňte původní soubory konfigurace klienta VPN z **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, a poté znovu spusťte instalační program klienta VPN.
+
+## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Klient VPN Point-to-site nelze přeložit plně kvalifikovaný název domény prostředků v místní doméně
+
+### <a name="symptom"></a>Příznaky
+
+Když se klient připojí do Azure pomocí připojení VPN typu point-to-site, nelze přeložit FQND prostředky v místní doméně.
+
+### <a name="cause"></a>Příčina
+
+Klient VPN Point-to-site používá servery Azure DNS, které jsou nakonfigurované v virtuální síť Azure. Servery Azure DNS, které mají přednost před místní servery DNS, které jsou nakonfigurované v klientovi, takže všechny dotazy DNS jsou odeslána do serverů Azure DNS. Pokud servery Azure DNS, které nemají záznamy pro místní prostředky, se dotaz nezdaří.
+
+### <a name="solution"></a>Řešení
+
+Chcete-li problém vyřešit, ujistěte se, že servery Azure DNS, který používá na virtuální síť Azure lze vyřešit záznamy DNS pro místní prostředky. K tomuto účelu můžete použít servery DNS pro předávání nebo servery pro podmíněné předávání. Další informace najdete v tématu [překladu IP adresy serveru DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+
+## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>Připojení point-to-site VPN je vytvořeno, ale stále se nemůže připojit k prostředkům Azure 
+
+### <a name="cause"></a>Příčina
+
+Tomuto problému může dojít, pokud klient VPN nedostane trasy z Azure VPN gateway.
+
+### <a name="solution"></a>Řešení
+
+Chcete-li vyřešit tento problém [resetování brány Azure VPN](vpn-gateway-resetgw-classic.md).
+
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Chyba: "funkce zrušení se nepodařilo zkontrolovat zrušení, protože server pro odvolání byla ve stavu offline. (Error 0x80092013).
+
+### <a name="causes"></a>Způsobí, že
+Této chybě dochází, pokud klient nemůže získat http://crl3.digicert.com/ssca-sha2-g1.crl a http://crl4.digicert.com/ssca-sha2-g1.cr.  Kontrola odvolání vyžaduje přístup k těmto dvěma lokalitami.  Tento problém obvykle dochází v klientovi, který má proxy server nakonfigurovaný. V některých prostředích Pokud žádosti nebudete prostřednictvím proxy serveru, ji budou odepřeny v hraniční bráně Firewall.
+
+### <a name="solution"></a>Řešení
+
+Zkontrolujte nastavení proxy serveru, ujistěte se, že klient může získat http://crl3.digicert.com/ssca-sha2-g1.crl a http://crl4.digicert.com/ssca-sha2-g1.cr.
+
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Chyba klienta sítě VPN: Z důvodu zásady nakonfigurované na serveru vzdáleného přístupu nebo virtuální privátní sítě bylo zabráněno připojení. (Chyba 812)
+
+### <a name="cause"></a>Příčina
+
+K této chybě dojde, pokud má nesprávné nastavení serveru RADIUS, který jste použili pro ověřování klienta VPN. 
+
+### <a name="solution"></a>Řešení
+
+Ujistěte se, že je správně nakonfigurovaný RADIUS server. Další informace najdete v tématu [ověřování RADIUS integraci s Azure Multi-Factor Authentication Server](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+
+## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>"Chyba 405" při stahování kořenový certifikát z brány sítě VPN
+
+### <a name="cause"></a>Příčina
+
+Kdyby byl nainstalován kořenový certifikát. Kořenový certifikát je nainstalován v klienta **důvěryhodné certifikáty** uložit.

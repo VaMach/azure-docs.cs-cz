@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Příprava zálohování úloh pomocí Azure Backup Serveru
 > [!div class="op_single_selector"]
@@ -239,11 +239,11 @@ Jakmile víte o stavu připojení Azure a předplatné Azure, můžete zjistit d
 
 | Stav připojení | předplatné Azure | Zálohovat do Azure | Zálohování na disk | Obnovení z Azure | Obnovení z disku |
 | --- | --- | --- | --- | --- | --- |
-| připojení |Aktivní |Povoleno |Povoleno |Povoleno |Povoleno |
-| připojení |Platnost |Zastaveno |Zastaveno |Povoleno |Povoleno |
-| připojení |Zrušit |Zastaveno |Zastaveno |Body obnovení zastaven a Azure odstranit |Zastaveno |
+| Připojeno |Aktivní |Povoleno |Povoleno |Povoleno |Povoleno |
+| Připojeno |Vypršela platnost |Zastaveno |Zastaveno |Povoleno |Povoleno |
+| Připojeno |Zrušit |Zastaveno |Zastaveno |Body obnovení zastaven a Azure odstranit |Zastaveno |
 | Ke ztrátě připojení > 15 dnů |Aktivní |Zastaveno |Zastaveno |Povoleno |Povoleno |
-| Ke ztrátě připojení > 15 dnů |Platnost |Zastaveno |Zastaveno |Povoleno |Povoleno |
+| Ke ztrátě připojení > 15 dnů |Vypršela platnost |Zastaveno |Zastaveno |Povoleno |Povoleno |
 | Ke ztrátě připojení > 15 dnů |Zrušit |Zastaveno |Zastaveno |Body obnovení zastaven a Azure odstranit |Zastaveno |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Obnovení z ztráty připojení

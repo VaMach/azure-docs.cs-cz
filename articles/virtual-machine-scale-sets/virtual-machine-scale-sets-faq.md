@@ -4,7 +4,7 @@ description: "Získejte odpovědi na nejčastější dotazy týkající se sady 
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 1d7d6200196eee96186dc5e597abc84fa0aa86c5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Nejčastější dotazy k sadách škálování virtuálních počítačů Azure
 
@@ -73,7 +73,7 @@ Příklad používá metrika úrovni hostitele procesoru a metriky počet zpráv
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Jak nastavit pravidla výstrah na škálovací sadu virtuálních počítačů?
 
-Výstrahy můžete vytvořit na metriky pro sady škálování virtuálního počítače pomocí prostředí PowerShell nebo rozhraní příkazového řádku Azure. Další informace najdete v tématu [Azure PowerShell monitorování rychlý start ukázky](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) a [Azure monitorování napříč platformami CLI rychlý start ukázky](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+Výstrahy můžete vytvořit na metriky pro sady škálování virtuálního počítače pomocí prostředí PowerShell nebo rozhraní příkazového řádku Azure. Další informace najdete v tématu [ukázky rychlý start Azure PowerShell monitorování](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) a [Azure monitorování napříč platformami rozhraní příkazového řádku rychlý start ukázky](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
 TargetResourceId škálovací sadu virtuálních počítačů vypadá takto: 
 
@@ -187,7 +187,7 @@ Zahrnout **osProfile** v šabloně:
  
 Tento blok JSON se používá v [šablony rychlý start Githubu 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
-Profil operačního systému se také používá při [grelayhost.json Githubu rychlý start šablony](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+Profil operačního systému se také používá při [šabloně pro rychlý start Githubu grelayhost.json](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
 Další informace najdete v tématu [vytvoření nebo aktualizace škálovací sady virtuálních počítačů](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
   
@@ -257,7 +257,7 @@ Pokud zadáte ID trezoru nesprávný zdrojový ale adresa URL platná trezoru kl
  
 ### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Pokud tajných klíčů lze přidat do existujícího virtuálního počítače nastavit, jsou tajné klíče vložit do existujících virtuálních počítačů, nebo pouze do nové? 
 
-Certifikáty jsou přidány do všechny virtuální počítače, i těch, které jsou již existující. Pokud vaše škálovací sady virtuálních počítačů upgradePolicy vlastnost nastavená na **ruční**, certifikát je přidat k virtuálnímu počítači při provádění ruční aktualizace ve virtuálním počítači.
+Certifikáty jsou přidány do všechny virtuální počítače, i těch, které jsou předem existující. Pokud vaše škálovací sady virtuálních počítačů upgradePolicy vlastnost nastavená na **ruční**, certifikát je přidat k virtuálnímu počítači při provádění ruční aktualizace ve virtuálním počítači.
  
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Kde umístit certifikáty pro virtuální počítače s Linuxem?
 
@@ -291,7 +291,7 @@ Tento problém není dojde při škálování, protože není v mezipaměti kopi
  
 Dokumentace Azure Key Vault stavy, získání tajného klíče rozhraní API REST by měla vrátit nejnovější verzi tajný klíč, pokud není zadán verze.
  
-Metoda | ADRESA URL
+Metoda | Adresa URL
 --- | ---
 GET | https://mykeyvault.Vault.Azure.NET/secrets/ {tajný klíč name} / {tajný klíč version}? api-version = {api-version}
 
@@ -337,7 +337,7 @@ Z hlediska kompatibility jsou škálovací sady virtuálních počítačů zákl
 
 Další informace najdete na webu [Centrum zabezpečení Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>Nemá [identita spravované služby Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) práce s škálovatelné sady virtuálních počítačů?
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Nemá [identita spravované služby Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) práce s sady škálování virtuálního počítače?
 
 Ano. Můžete zobrazit některé šablony příklad MSI v šablonách Azure rychlý start. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
@@ -371,28 +371,28 @@ Další informace o sekvencování rozšíření v sady škálování virtuáln�
 
 Chcete-li změnit heslo pro virtuální počítače ve škálovací sady dvěma způsoby.
 
-1. Změňte VMSS model přímo. K dispozici s výpočetní API 2017-12-01 a novějším.
+- Změňte model sadu škálování virtuálního počítače přímo. K dispozici s výpočetní API 2017-12-01 a novějším.
 
-Aktualizujte přihlašovací údaje správce přímo v modelu sady škálování (například pomocí Průzkumníka prostředků Azure, PowerShell nebo rozhraní příkazového řádku). Po aktualizované, všechny nové škálovací sadu virtuálních počítačů bude mít nová pověření. Stávající virtuální počítače bude mít pouze nové přihlašovací údaje, pokud jsou obnovit z Image. 
+    Aktualizujte přihlašovací údaje správce přímo v modelu sady škálování (například pomocí Průzkumníka prostředků Azure, PowerShell nebo rozhraní příkazového řádku). Po aktualizované, všechny nové škálovací sadu virtuálních počítačů mají nové přihlašovací údaje. Existující virtuální počítače mít pouze nové přihlašovací údaje, pokud jsou obnovit z Image. 
 
-2. Resetování hesla pomocí rozšíření virtuálního počítače přístup.
+- Resetování hesla pomocí rozšíření virtuálního počítače přístup.
 
-Použijte následující příklad PowerShellu:
+    Použijte následující příklad PowerShellu:
+    
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+     
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
-```powershell
-$vmssName = "myvmss"
-$vmssResourceGroup = "myvmssrg"
-$publicConfig = @{"UserName" = "newuser"}
-$privateConfig = @{"Password" = "********"}
- 
-$extName = "VMAccessAgent"
-$publisher = "Microsoft.Compute"
-$vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-$vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-```
- 
- 
+
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Jak lze přidat rozšíření ke všem virtuálním počítačům v mé škálovací sadu virtuálních počítačů?
 
 Pokud zásady aktualizace je nastavený na **automatické**, opětovného nasazení šablona s nové vlastnosti rozšíření aktualizuje všechny virtuální počítače.
@@ -467,7 +467,7 @@ K provedení vlastní skript, který je hostován v účtu úložiště privátn
 
 ## <a name="networking"></a>Sítě
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>Je možné přiřadit skupinu zabezpečení sítě (NSG) k sadě škálování, tak, že bude platit pro všechny síťové adaptéry pro virtuální počítač v sadě?
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Je možné přiřadit skupinu zabezpečení sítě (NSG) k sadě škálování, tak, aby se vztahuje na všechny síťové adaptéry pro virtuální počítač v sadě?
 
 Ano. Skupina zabezpečení sítě můžete použít přímo na škále nastavit pomocí odkazů v části Networkinterfaceconfiguration profilu sítě. Příklad:
 
@@ -523,7 +523,7 @@ Nasazení škálování virtuálních počítačů, nastavte na existující vir
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Jak přidat IP adresu první virtuální počítač v škálování virtuálního počítače nastavit pro výstup šablony?
 
-Chcete-li přidat IP adresu první virtuální počítač v škálování virtuálního počítače nastavit pro výstup šablony, najdete v části [ARM: privátních IP adres získat VMSS](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Chcete-li přidat IP adresu první virtuální počítač v škálování virtuálního počítače nastavit pro výstup šablony, najdete v části [Azure Resource Manager: sadách škálování virtuálních počítačů Get privátních IP adres](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Můžete použít sady škálování pomocí Accelerated sítě?
 
@@ -549,7 +549,7 @@ Ano. Pokud chcete použít urychlené sítě, nastavení enableAcceleratedNetwor
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Jak můžete nakonfigurovat servery DNS používá škálovací sada?
 
-K vytvoření virtuálních počítačů škálování nastavit pomocí vlastní konfigurace DNS, přidejte do části Networkinterfaceconfiguration sady škálování paket dnsSettings JSON. Příklad:
+K vytvoření škálování virtuálních počítačů, nastavit pomocí vlastní konfigurace DNS, přidejte do části Networkinterfaceconfiguration sady škálování paket dnsSettings JSON. Příklad:
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -558,7 +558,7 @@ K vytvoření virtuálních počítačů škálování nastavit pomocí vlastní
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Konfigurování sad přiřadit veřejnou IP adresu pro každý virtuální počítač škálování
 
-Chcete-li vytvořit sadu škálování virtuálního počítače, který přiřazuje veřejnou IP adresu pro každý virtuální počítač, zkontrolujte, zda je verze rozhraní API Microsoft.Compute/virtualMAchineScaleSets prostředku 2017-03-30 a přidejte _publicipaddressconfiguration_ JSON paketů do sady škálování část konfigurace IP adresy. Příklad:
+Chcete-li vytvořit sadu škálování virtuálního počítače, který přiřazuje veřejnou IP adresu pro každý virtuální počítač, zkontrolujte, zda je verze rozhraní API Microsoft.Compute/virtualMAchineScaleSets prostředku 2017-03-30 a přidejte _publicipaddressconfiguration_ JSON paket ke stupnici nastavit část konfigurace IP adresy. Příklad:
 
 ```json
     "publicipaddressconfiguration": {
@@ -583,7 +583,7 @@ Dalším důvodem, které můžete vytvořit škálování virtuálních počít
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Změna počet virtuálních počítačů sady škálování virtuálního počítače
 
-Chcete-li změnit počet virtuálních počítačů v škálování virtuálních počítačů, nastavte na portálu Azure, ze škálování virtuálního počítače nastavit vlastnosti oddílu, klikněte v okně "Škálování" a použijte posuvníku. Další způsoby, jak změnit počet instancí, najdete v části [změnit počet instancí škálovací sadu virtuálních počítačů](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Chcete-li změnit počet virtuálních počítačů v škálování virtuálních počítačů, nastavte na portálu Azure, z škálování virtuálního počítače nastavit vlastnosti oddílu, klikněte v okně "Škálování" a použijte posuvníku. Další způsoby, jak změnit počet instancí, najdete v části [změnit počet instancí škálovací sadu virtuálních počítačů](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Jak definuje vlastní výstrahy pro když se dosáhne určité prahové hodnoty?
 
@@ -657,7 +657,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 Požadované workspaceId a workspaceKey můžete najít na portálu OMS. Na stránce Přehled klikněte na dlaždici nastavení. Klikněte na kartu připojené zdroje v horní části.
 
-Poznámka: Pokud váš škálovací sady _upgradePolicy_ je nastaven na hodnotu ručně, budete muset použít rozšíření ke všem virtuálním počítačům v sadě voláním upgrade na ně. V rozhraní příkazového řádku by to byl _az vmss aktualizace instance_.
+Poznámka: Pokud váš škálovací sady _upgradePolicy_ je nastaven na hodnotu ručně, potřebujete provést rozšíření ke všem virtuálním počítačům v sadě voláním upgrade na ně. V rozhraní příkazového řádku by to byl _az vmss aktualizace instance_.
 
 ## <a name="troubleshooting"></a>Řešení potíží
 

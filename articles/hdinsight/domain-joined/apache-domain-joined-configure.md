@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/12/2017
+ms.date: 12/15/2017
 ms.author: saurinsh
-ms.openlocfilehash: 345017d4a15f63e12940a8b2d9e55ee777c0e22a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Konfigurace prostředí izolovaného prostoru HDInsight připojený k doméně
 
@@ -138,9 +138,9 @@ V této části použijete k přidání clusteru služby HDInsight do virtuáln�
     Jsou šesti oddíly pomocí možnosti vlastní konfigurace: základy, úložiště, aplikace, velikost clusteru, rozšířená nastavení a souhrn.
 5. V **Základy** části:
 
-    - Typ clusteru: Zvolte **PREMIUM**. Aktuálně lze vytvořit pouze premium clusteru s těmito typy clusteru: Hadoop, interaktivní dotazu a Spark.
+    - Typ clusteru: vyberte **balíček zabezpečení Enterprise**. Aktuálně balíček zabezpečení Enterprise jde Povolit jenom pro následující typy clusteru: Hadoop, interaktivní dotazu a Spark.
 
-        ![Doméně HDInsight Premium](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
+        ![Balíček zabezpečení připojené k podnikové doméně HDInsight](./media/apache-domain-joined-configure/hdinsight-creation-enterprise-security-package.png)
     - Uživatelské jméno přihlášení clusteru: Toto je uživatel Hadoop HTTP. Tento účet se liší od účtu správce domény.
     - Skupina prostředků: Vyberte skupinu prostředků, který jste vytvořili dříve pomocí šablony Resource Manageru.
     - Umístění: Umístění musí být stejný jako ten, který jste použili při vytváření virtuální sítě a řadiče domény pomocí šablony Resource Manageru.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aktualizovat modely Azure Machine Learning pomocí aktivita prostředku aktualizace
 Tento článek doplňuje hlavní Azure Data Factory – článek integrace Azure Machine Learning: [vytvořit prediktivní kanály pomocí Azure Machine Learning a Azure Data Factory](transform-data-using-machine-learning.md). Pokud jste tak již neučinili, přečtěte si hlavní článek než si přečtete prostřednictvím tohoto článku. 
@@ -86,33 +86,6 @@ Pro výše uvedené pracovní postup začátku do konce postup musíte vytvořit
 2. Služby Azure Machine Learning propojené ke koncovému bodu aktualizace prostředků prediktivní webové služby. Tato propojená služba aktivitou aktualizovat prostředků slouží k aktualizaci prediktivní webovou službu pomocí souboru iLearner vrátil výše krok. 
 
 Druhý Azure Machine Learning propojené služby se liší konfigurace, když se vaše webová služba Azure Machine Learning classic webové služby nebo novou webovou službu. Rozdíly jsou samostatně popsané v následujících částech. 
-
-## <a name="web-service-is-a-classic-web-service"></a>Webová služba je classic webové služby
-Pokud je webová služba predict **classic webové služby**, vytvořte druhý **jiné než výchozí a aktualizovat koncový bod** pomocí portálu Azure. V tématu [vytvořit koncové body](../machine-learning/machine-learning-create-endpoint.md) najdete v článku kroky. Po vytvoření koncového bodu aktualizovat jiné než výchozí, proveďte následující kroky:
-
-* Klikněte na tlačítko **BATCH EXECUTION** získat hodnota identifikátoru URI pro **mlEndpoint** vlastnost JSON.
-* Klikněte na tlačítko **aktualizace prostředků** odkaz k získání hodnoty identifikátoru URI pro **updateResourceEndpoint** vlastnost JSON. Klíč rozhraní API je na stránce koncového bodu (v pravém dolním rohu).
-
-![aktualizovat koncový bod](./media/update-machine-learning-models/updatable-endpoint.png)
-
-Potom pomocí následující ukázky propojené služby pro vytvoření nové Azure Machine Learning propojená služba. Propojená služba používá apiKey pro ověřování.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Webová služba je novou webovou službu správce prostředků Azure 
 

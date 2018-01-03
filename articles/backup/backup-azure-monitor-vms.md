@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Správa výstrah pro virtuální počítače Azure
 Výstrahy jsou odpovědi ze služby, aby byla splněny nebo překročení prahová hodnota události. Zároveň budete vědět, když může být kritické nízkými náklady obchodní problémy spuštění. Výstrahy obvykle nedojde k podle plánu, a proto je užitečné vědět, co nejdříve po generována výstraha. Například pokud se nezdaří úlohy zálohování nebo obnovení, zobrazení výstrahy do pěti minut selhání. Na řídicím panelu trezoru na dlaždici zálohování výstrahy zobrazuje kritická a úroveň pro upozornění události. V nastavení zálohování výstrah můžete zobrazit všechny události. Ale co dělat v případě výstrahu při práci na samostatné problém? Pokud si nejste jisti, když se stane, výstrahy, může to být méně závažné potíže, nebo ji mohl ohrozit zabezpečení dat. Pokud chcete mít jistotu, že oprávnění uživatelé by se měl dozvědět výstrahy – když dojde, nakonfigurujte službu pro odeslání oznámení o výstrahách e-mailem. Podrobnosti o nastavení e-mailová oznámení najdete v tématu [konfigurace oznámení](backup-azure-monitor-vms.md#configure-notifications).
@@ -71,8 +71,8 @@ Nastavení e-mailová oznámení pro výstrahy
    | Úroveň výstrahy | Zasílání upozornění |
    | --- | --- |
    | Kritické |Selhání zálohování, obnovení selhání |
-   | Upozornění |Žádný |
-   | Informační |Žádný |
+   | Upozornění |Žádné |
+   | Informační |Žádné |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Dochází k situacím, že se e-mail neodešle, i když jsou oznámení nakonfigurovaná?
 Existují situacích, kde se neposílají výstrahu, i když oznámení správně nakonfigurovaný. V následujících situacích e-mailu s oznámení neodešlou předejdete výstrahy nepůsobily:
@@ -147,7 +147,7 @@ Pomocí **sloupce** tlačítko, můžete povolit v seznamu se zobrazí na dalš�
 | Prostředek |Adresa URL, která identifikuje prostředek; také označované jako ID prostředku |
 | Čas |Čas, měřenou z aktuální čas, kdy došlo k události |
 | Volající |Kdo nebo co názvem nebo aktivuje událost. může být systém nebo uživatel |
-| časové razítko |Čas, kdy byla aktivována událost |
+| Časové razítko |Čas, kdy byla aktivována událost |
 | Skupina prostředků |Skupina přidružených prostředků |
 | Typ prostředku |Interní typ prostředku používaný správcem prostředků |
 | ID předplatného |ID související předplatného |
@@ -171,7 +171,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 * Registrace <br/>
 * Zrušit registraci <br/>
 * ConfigureProtection <br/>
-* Zálohování <br/>
+* Backup <br/>
 * Obnovení <br/>
 * StopProtection <br/>
 * DeleteBackupData <br/>
@@ -207,10 +207,10 @@ Protokoly událostí povolit skvělé postmortální a auditování podpory u op
 * Zastavení ochrany
 * Odstranit záložní data
 * Přidání zásad
-* Odstranit zásadu
-* Aktualizovat zásady
+* Odstranit zásady
+* Aktualizace zásady
 * Zrušení úlohy
 
 Široká vysvětlení události, operace a protokoly auditu napříč službami Azure, najdete v článku [zobrazení událostí a protokolů auditování](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Informace o opětovné vytvoření virtuálního počítače z bodu obnovení, podívejte se na [obnovení virtuálních počítačů Azure](backup-azure-restore-vms.md). Pokud potřebujete informace o ochraně virtuálních počítačů, přečtěte si [první pohled: zálohování virtuálních počítačů do trezoru služeb zotavení](backup-azure-vms-first-look-arm.md). Další informace o úlohách správy pro zálohování virtuálních počítačů v článku, [záloh virtuálních počítačů Azure spravovat](backup-azure-manage-vms.md).
+Informace o opětovné vytvoření virtuálního počítače z bodu obnovení, podívejte se na [obnovení virtuálních počítačů Azure](backup-azure-arm-restore-vms.md). Pokud potřebujete informace o ochraně virtuálních počítačů, přečtěte si [první pohled: zálohování virtuálních počítačů do trezoru služeb zotavení](backup-azure-vms-first-look-arm.md). Další informace o úlohách správy pro zálohování virtuálních počítačů v článku, [záloh virtuálních počítačů Azure spravovat](backup-azure-manage-vms.md).

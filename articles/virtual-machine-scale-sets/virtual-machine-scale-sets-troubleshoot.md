@@ -3,8 +3,8 @@ title: "Řešení potíží s škálování s sady škálování virtuálního p
 description: "Řešení potíží s škálování s sady škálování virtuálního počítače. Pochopení typické problémy vzniklé a způsob jejich řešení."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: guybo
-ms.openlocfilehash: 19871cd0433c6df88c631cf6e6e8e477dc902448
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: negat
+ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Řešení potíží s škálování s sady škálování virtuálního počítače
 **Problém** – jste vytvořili automatické škálování infrastruktury v správce Azure Resource Manager pomocí sady škálování virtuálního počítače – například nasazením šablonu tohoto typu: https://github.com/Azure/azure-quickstart-templates/tree/master/201- vmss bottle škálování – máte definované pravidel škálování a vyhovující postup, s výjimkou bez ohledu na to, kolik zatížení vložíte na virtuálních počítačích, nepodporuje automatické škálování.

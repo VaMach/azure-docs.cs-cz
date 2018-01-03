@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Začínáme s Docker a vytvářené definovat a spuštění aplikace s více kontejnerů v Azure
 S [vytvářené](http://github.com/docker/compose), používáte k definování aplikace, který se skládá z několika kontejnerů Docker jednoduchý textový soubor. Pak začne pracovat aplikace v jednom příkaz, který nemá všechno k nasazení prostředí definované. Jako příklad Tento článek ukazuje, jak rychle nastavit blog WordPress pomocí MariaDB SQL database na virtuálního počítače s Ubuntu back-end. Můžete taky vytvořit složitější aplikace můžete nastavit.
@@ -40,30 +40,14 @@ Nejprve vytvořte skupinu prostředků pro vaše prostředí Docker s [vytvořit
 az group create --name myResourceGroup --location eastus
 ```
 
-V dalším kroku nasaďte virtuální počítač s [vytvořit nasazení skupiny az](/cli/azure/group/deployment#create) obsahující rozšíření virtuálního počítače Azure Docker z [této šablony Azure Resource Manageru na Githubu](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Zadejte vlastní jedinečné hodnoty pro *newStorageAccountName*, *adminUsername*, *adminPassword*, a *dnsNameForPublicIP*:
+V dalším kroku nasaďte virtuální počítač s [vytvořit nasazení skupiny az](/cli/azure/group/deployment#create) obsahující rozšíření virtuálního počítače Azure Docker z [této šablony Azure Resource Manageru na Githubu](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Po zobrazení výzvy zadejte své vlastní jedinečné hodnoty pro *newStorageAccountName*, *adminUsername*, *adminPassword*, a *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Jak dlouho trvá několik minut na dokončení nasazení. Po dokončení nasazení [přesunout k dalšímu kroku](#verify-that-compose-is-installed) k SSH k virtuálnímu počítači. 
-
-Volitelně můžete místo toho vrátí ovládacího prvku do příkazového řádku a umožní nasazení pokračovat na pozadí, přidejte `--no-wait` příznak, který předchozí příkaz. Tento postup můžete provádět jinou práci v rozhraní příkazového řádku při nasazení bude stále několik minut. Potom můžete zobrazit podrobnosti o stavu hostitele Docker s [az virtuálních počítačů zobrazit](/cli/azure/vm#show). Následující příklad ověří stav virtuálního počítače s názvem *myDockerVM* (výchozí název ze šablony - neměnit tento název) ve skupině prostředků s názvem *myResourceGroup*:
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --query [provisioningState] \
-    --output tsv
-```
-
-Pokud tento příkaz vrátí *úspěšné*, nasazení úspěšně proběhlo, a můžete SSH pro virtuální počítač v dalším kroku.
+Jak dlouho trvá několik minut na dokončení nasazení.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Ověřte, zda je nainstalován Compose
@@ -78,7 +62,7 @@ az vm show \
     --output tsv
 ```
 
-SSH vašeho nového Docker hostitele. Zadejte název DNS takto:
+SSH vašeho nového Docker hostitele. Zadejte uživatelské jméno a název DNS z předchozích kroků:
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com

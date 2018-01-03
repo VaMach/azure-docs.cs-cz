@@ -1,5 +1,5 @@
 ---
-title: Integrace Azure AD do aplikace pro iOS | Microsoft Docs
+title: "Začínáme se službou Azure AD iOS | Microsoft Docs"
 description: "Jak vytvářet aplikace pro iOS, který se integruje s Azure AD pro přihlášení a volání služby Azure AD chráněný rozhraní API pomocí OAuth."
 services: active-directory
 documentationcenter: ios
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e497b9e02e21967e71fc9b4fef8dfe0e63e682c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a631e1104bcda8d69aa2f2fdf336ed407a2c33b9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>Integrace Azure AD do aplikace pro iOS
+# <a name="azure-ad-ios-getting-started"></a>Začínáme se službou Azure AD iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Vyzkoušejte verzi preview našeho nového [portál pro vývojáře](https://identity.microsoft.com/Docs/iOS) který vám pomůže spuštěná v Azure Active Directory v několika málo minut!  Portál pro vývojáře vás provede procesem registrace aplikace a integraci služby Azure AD do vašeho kódu.  Jakmile budete hotovi, budete mít jednoduchou aplikaci, která může ověřit uživatele v klientovi a back-end, které mohou přijímat tokeny a provést ověření. 
-> 
-> 
 
 Azure Active Directory (Azure AD) poskytuje knihovna ověřování Active Directory nebo ADAL pro iOS klienti, kteří potřebují přístup k chráněným prostředkům. ADAL zjednodušuje proces, který vaše aplikace používá k získání přístupových tokenů. K předvedení toho, jak je snadné, v tomto článku jsme sestavit seznam úkolů Objective C aplikaci, která:
 

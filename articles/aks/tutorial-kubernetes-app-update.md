@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5399fa40542fd9a1163654d5619cb94029bc3c6f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Aktualizace aplikace v Azure Container Service (AKS)
 
@@ -33,7 +33,7 @@ V následujících kurzech Operations Management Suite nakonfigurován ke sledov
 
 V předchozích kurzech byla aplikace zabalené do kontejneru image, image nahrané do registru kontejner Azure a cluster Kubernetes vytvořili. Aplikace pak byl na Kubernetes clusteru spusťte. 
 
-Jako úložiště aplikace byla také klonovat, který obsahuje zdrojový kód aplikace a předem vytvořený soubor Docker Compose použitý v tomto kurzu. Ověřte, že jste vytvořili klon úložišti a že jste změnili adresáře do adresáře klonovaný. Uvnitř je adresář s názvem `azure-vote` a soubor s názvem `docker-compose.yml`.
+Jako úložiště aplikace byla také klonovat, který obsahuje zdrojový kód aplikace a předem vytvořený soubor Docker Compose použitý v tomto kurzu. Ověřte, že jste vytvořili klon úložišti a že jste změnili adresáře do adresáře klonovaný. Uvnitř je adresář s názvem `azure-vote` a soubor s názvem `docker-compose.yaml`.
 
 Pokud jste nedokončili tyto kroky a chcete sledovat, vrátit [kurzu 1 – Vytvoření kontejneru image][aks-tutorial-prepare-app]. 
 

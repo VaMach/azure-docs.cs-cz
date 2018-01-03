@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorování a Správa kanálů služby Azure Data Factory pomocí monitorování a správy aplikace
 > [!div class="op_single_selector"]
@@ -189,19 +189,19 @@ Okna aktivity může být v jednom z následujících stavů:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Probíhá ověřování</td><td>Probíhá ověřování.</td>
+<td rowspan="2">InProgress</td><td>Ověřování platnosti</td><td>Probíhá ověřování.</td>
 </tr>
 <td>-</td>
 <td>Okna aktivity je zpracovávána.</td>
 </tr>
 <tr>
-<td rowspan="4">Se nezdařilo</td><td>TimedOut</td><td>Provedení aktivity trvalo déle, než je povolené aktivitou.</td>
+<td rowspan="4">Neúspěch</td><td>TimedOut</td><td>Provedení aktivity trvalo déle, než je povolené aktivitou.</td>
 </tr>
 <tr>
 <td>Zrušeno</td><td>Okno aktivity zrušil akce uživatele.</td>
 </tr>
 <tr>
-<td>Ověření</td><td>Ověření se nezdařilo.</td>
+<td>Ověření</td><td>Ověření selhalo.</td>
 </tr>
 <tr>
 <td>-</td><td>Okno aktivity se nepodařilo vygenerovat nebo ověřit.</td>
@@ -209,10 +209,10 @@ Okna aktivity může být v jednom z následujících stavů:
 <td>Připraveno</td><td>-</td><td>Okna aktivity je připraven ke spotřebování.</td>
 </tr>
 <tr>
-<td>Přeskočena</td><td>-</td><td>Okno aktivity nebyla zpracována.</td>
+<td>Vynecháno</td><td>-</td><td>Okno aktivity nebyla zpracována.</td>
 </tr>
 <tr>
-<td>Žádný</td><td>-</td><td>Okno s aktivity měl dříve jiný stav, ale byl obnoven.</td>
+<td>Žádné</td><td>-</td><td>Okno s aktivity měl dříve jiný stav, ale byl obnoven.</td>
 </tr>
 </table>
 
@@ -324,10 +324,10 @@ Následující tabulka obsahuje seznam dostupných událostí a stavy (a dílč�
 
 | Název události | Status | Podřízený stav |
 | --- | --- | --- |
-| Aktivity při spuštění Začínáme |spuštění |Spouštění |
+| Aktivity při spuštění Začínáme |Spuštěno |Spouštění |
 | Aktivity při spuštění bylo dokončeno |Úspěch |Úspěch |
-| Aktivity při spuštění bylo dokončeno |Se nezdařilo |Přidělení prostředků se nezdařilo<br/><br/>Spuštění se nezdařilo<br/><br/>Vypršel časový limit<br/><br/>Ověření se nezdařilo<br/><br/>opuštění |
-| Vytvoření clusteru HDI na vyžádání Začínáme |spuštění |-|
+| Aktivity při spuštění bylo dokončeno |Neúspěch |Přidělení prostředků se nezdařilo<br/><br/>Spuštění se nezdařilo<br/><br/>Vypršení časového limitu<br/><br/>Ověření se nezdařilo<br/><br/>opuštění |
+| Vytvoření clusteru HDI na vyžádání Začínáme |Spuštěno |-|
 | Clusteru HDI na vyžádání úspěšně vytvořena. |Úspěch |-|
 | Odstranit clusteru HDI na vyžádání |Úspěch |-|
 

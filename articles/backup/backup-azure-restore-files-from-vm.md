@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: 46cc2737c23b02c6542320e355607f83042bd058
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Obnovit soubory ze zálohy virtuálního počítače Azure
 
@@ -70,40 +70,7 @@ Chcete-li obnovit soubory nebo složky z bodu obnovení, přejděte k virtuáln�
 
    Pro systémy Linux vyžaduje skript 'open-iscsi' a 'lshw' součásti pro připojení k bodu obnovení. Pokud komponenty neexistují v počítači, kde je skript spuštěn, skript požádá o oprávnění k instalaci součásti. Zadejte souhlasu nainstalujte nezbytné součásti.  
          
-   Tento skript můžete spustit na jakýkoli počítač, který má operační systém stejného (nebo kompatibilní) jako zálohované virtuální počítač. Najdete v článku [kompatibilní operační systém tabulky](backup-azure-restore-files-from-vm.md#compatible-os) pro kompatibilní operační systémy. Pokud chráněný virtuální počítač Azure používá prostory úložiště ve Windows (pro virtuální počítače Windows Azure) nebo Arrays(for Linux VMs) LVM/RAID, nebudete moci spustit spustitelný soubor nebo skript na jednom virtuálním počítači. Místo toho spusťte spustitelný soubor nebo skript z jakéhokoli počítače s kompatibilní operační systém.
-
-### <a name="compatible-os"></a>Kompatibilní operační systém
-
-#### <a name="for-windows"></a>Pro Windows
-
-V následující tabulce jsou uvedeny kompatibilitu mezi serverem a počítačem operační systémy. Při obnovování souborů, nelze obnovit soubory na operační systém předchozí nebo budoucí verzi. Například nelze obnovit soubor z virtuálního počítače Windows serveru 2016 do počítače s Windows Server 2012 nebo Windows 8. Stejný operační systém serveru nebo kompatibilní klientský operační systém, můžete obnovit soubory z virtuálního počítače.   
-
-|OS serveru | Kompatibilní klientského operačního systému  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>Pro Linux
-
-V systému Linux musí podporovat operačního systému počítače použitého k obnovení souborů systému souborů chráněného virtuálního počítače. Když vyberete počítač pro spuštění skriptu, zkontrolujte na počítači má kompatibilní operační systém a používá jednu z verzí identifikovat v následující tabulce:
-
-|Linux operačního systému | Verze  |
-| --------------- | ---- |
-| Ubuntu | 12.04 a vyšší |
-| CentOS | verze 6.5 a vyšší  |
-| RHEL | 6.7 a vyšší |
-| Debian | 7 a vyšší |
-| Oracle Linux | 6.4 a vyšší |
-
-Skript také vyžaduje Python a bash komponent ke spouštění a bezpečně připojit k bodu obnovení.
-
-|Komponenta | Verze  |
-| --------------- | ---- |
-| Bash | 4 a novější |
-| python | 2.6.6 a vyšší  |
-
+   Tento skript můžete spustit na jakýkoli počítač, který má operační systém stejného (nebo kompatibilní) jako zálohované virtuální počítač. Najdete v článku [kompatibilní operační systém tabulky](backup-azure-restore-files-from-vm.md#system-requirements) pro kompatibilní operační systémy. Pokud chráněný virtuální počítač Azure používá prostory úložiště ve Windows (pro virtuální počítače Windows Azure) nebo pole LVM/RAID (pro virtuální počítače s Linuxem), nebudete moci spustit spustitelný soubor nebo skript na jednom virtuálním počítači. Místo toho spusťte spustitelný soubor nebo skript z jakéhokoli počítače s kompatibilní operační systém.
 
 ### <a name="identifying-volumes"></a>Identifikace svazky
 
@@ -192,6 +159,41 @@ $ mount [RAID Disk Path] [/mountpath]
 ```
 
 Pokud RAID disk má jiné LVM v nich konfigurovali, použít předchozí postup pro oddíly LVM ale použít název svazku namísto názvu disku diskového pole RAID
+
+## <a name="system-requirements"></a>Požadavky na systém
+
+### <a name="for-windows"></a>Pro Windows
+
+V následující tabulce jsou uvedeny kompatibilitu mezi serverem a počítačem operační systémy. Při obnovování souborů, nelze obnovit soubory na operační systém předchozí nebo budoucí verzi. Například nelze obnovit soubor z virtuálního počítače Windows serveru 2016 pro Windows Server 2012 nebo počítač Windows 8. Stejný operační systém serveru nebo kompatibilní klientský operační systém, můžete obnovit soubory z virtuálního počítače.   
+
+|OS serveru | Kompatibilní klientského operačního systému  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>Pro Linux
+
+V systému Linux musí podporovat operačního systému počítače použitého k obnovení souborů systému souborů chráněného virtuálního počítače. Když vyberete počítač pro spuštění skriptu, zkontrolujte na počítači má kompatibilní operační systém a používá jednu z verzí identifikovat v následující tabulce:
+
+|Linux operačního systému | Verze  |
+| --------------- | ---- |
+| Ubuntu | 12.04 a vyšší |
+| CentOS | verze 6.5 a vyšší  |
+| RHEL | 6.7 a vyšší |
+| Debian | 7 a vyšší |
+| Oracle Linux | 6.4 a vyšší |
+| SLES | 12 a vyšší |
+| openSUSE | 42.2 a vyšší |
+
+Skript také vyžaduje Python a bash komponent ke spouštění a bezpečně připojit k bodu obnovení.
+
+|Komponenta | Verze  |
+| --------------- | ---- |
+| Bash | 4 a novější |
+| python | 2.6.6 a vyšší  |
+| TLS | 1.2 by podporovat.  |
 
 ## <a name="troubleshooting"></a>Řešení potíží
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: 435aca91fa7b46fd47d5031290028b93bfadde48
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 27ab6b97610ab27500cbef703120e2c67cd07183
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-guest-os"></a>Azure hostovaného operačního systému
 Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačního systému Azure v následujících tabulkách. Vyhledávání, zjistěte, pokud konkrétní aktualizace se týká hostovaného operačního systému, kterou používáte. Aktualizace vždy obsahují dál pro konkrétní [rodiny] [ family-explain] byly zavedeny v.
@@ -28,13 +28,14 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | --- | --- | --- | --- | --- |
 | Relativní 17 10 | [4048953] |Aktualizace Windows 10. |5.13 |14. listopadu 2017 |
 | Relativní 17 10 | [4048960], [4048962], [4048961] |Pouze zabezpečení systému Windows |2.68, 3.55, 4.48 |14. listopadu 2017 |
-| Relativní 17 10 | [4047206] |Aplikace Internet explorer |2.68, 3.55, 4.48 |14. listopadu 2017 |
+| Relativní 17 10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14. listopadu 2017 |
 | Relativní 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14. listopadu 2017 |
-| Není k dispozici | [4041681] |Souhrn bez zabezpečení říjen |2.67 |10. října 2017 |
-| Není k dispozici | [4041690] |Souhrn bez zabezpečení říjen |3.55 |10. října 2017 |
-| Není k dispozici | [4041693] |Souhrn bez zabezpečení říjen |4.48 |10. října 2017 |
-| Není k dispozici | [3191565] |Aktualizace pro Windows Management Framework 5.1  |3.55 |12. září 2017 |
-| Není k dispozici | [3191564] |Aktualizace pro Windows Management Framework 5.1  |4.48 |12. září 2017 |
+| neuvedeno | [4041681] |Souhrn bez zabezpečení říjen |2.67 |10. října 2017 |
+| neuvedeno | [4041690] |Souhrn bez zabezpečení říjen |3.55 |10. října 2017 |
+| neuvedeno | [4041693] |Souhrn bez zabezpečení říjen |4.48 |10. října 2017 |
+| neuvedeno | [3191566] |Aktualizace pro Windows Management Framework 5.1  |2.68 |14. listopadu 2017 |
+| neuvedeno | [3191565] |Aktualizace pro Windows Management Framework 5.1  |3.55 |14. listopadu 2017 |
+| neuvedeno | [3191564] |Aktualizace pro Windows Management Framework 5.1  |4.48 |14. listopadu 2017 |
 
 ## <a name="october-guest-os"></a>Říjen hostovaného operačního systému
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -43,12 +44,12 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | Relativní 17 10 | [4041678], [4041679], [4041687] |Pouze zabezpečení systému Windows |2.67, 3.54, 4.47 |10. října 2017 |
 | Relativní 17 10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |10. října 2017 |
 | Relativní 17 10 | [4041681], [4041690], [4041693] |Měsíční souhrny Windows |2.67, 3.54, 4.47 |10. října 2017 |
-| Není k dispozici | [4038777] |Souhrn září se zabezpečením |2.67 |12. září 2017 |
-| Není k dispozici | [4038799] |Souhrn září se zabezpečením |3.54 |12. září 2017 |
-| Není k dispozici | [4038792] |Souhrn září se zabezpečením |4.47 |12. září 2017 |
-| Není k dispozici | [4040980] |Souhrn bez zabezpečení září .NET |2.67 |12. září 2017 |
-| Není k dispozici | [4040979] |Souhrn bez zabezpečení září .NET |3.54 |12. září 2017 |
-| Není k dispozici | [4040981] |Souhrn bez zabezpečení září .NET |4.47 |12. září 2017 |
+| neuvedeno | [4038777] |Souhrn září se zabezpečením |2.67 |12. září 2017 |
+| neuvedeno | [4038799] |Souhrn září se zabezpečením |3.54 |12. září 2017 |
+| neuvedeno | [4038792] |Souhrn září se zabezpečením |4.47 |12. září 2017 |
+| neuvedeno | [4040980] |Souhrn bez zabezpečení září .NET |2.67 |12. září 2017 |
+| neuvedeno | [4040979] |Souhrn bez zabezpečení září .NET |3.54 |12. září 2017 |
+| neuvedeno | [4040981] |Souhrn bez zabezpečení září .NET |4.47 |12. září 2017 |
 
 ## <a name="september-guest-os"></a>Září hostovaného operačního systému
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -58,9 +59,9 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | Relativní 17 09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Aktualizace platformy .NET září |2.66, 3.53, 4.46 |12. září 2017 |
 | Relativní 17 09 | [4036586] |Aplikace Internet explorer |2.66, 3.53, 4.46 |12. září 2017 |
 | CVE. 2017 8704 | [4038782] |Odmítnutí služby |5.11 |12. září 2017 |
-| Není k dispozici | [4034664] |Souhrn bez zabezpečení srpen  |2.66 |8 srpen 2017 |
-| Není k dispozici | [4034665] |Souhrn bez zabezpečení srpen |5.11 |8 srpen 2017 |
-| Není k dispozici | [4034681] |Souhrn bez zabezpečení srpen |4.46 |8 srpen 2017 |
+| neuvedeno | [4034664] |Souhrn bez zabezpečení srpen  |2.66 |8 srpen 2017 |
+| neuvedeno | [4034665] |Souhrn bez zabezpečení srpen |5.11 |8 srpen 2017 |
+| neuvedeno | [4034681] |Souhrn bez zabezpečení srpen |4.46 |8 srpen 2017 |
 
 ## <a name="august-guest-os"></a>Srpen hostovaného operačního systému
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -85,10 +86,10 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | Relativní 17 07 | [4025343] |Pouze zabezpečení systému Windows |3.51 |11 července 2017 |
 | Relativní 17 07 | [4025376] |Flash |3.51, 4.44, 5.9 |11 července 2017 |
 | Relativní 17 07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 července 2017 |
-| Není k dispozici | [4020322] |Aktualizace časového pásma |2.64, 3.51, 4.44 |11 července 2017 |
-| Není k dispozici | [4022719] |Souhrn bez zabezpečení června |2.64 |13. června 2017 |
-| Není k dispozici | [4022724] |Souhrn bez zabezpečení června |3.51 |13. června 2017 |
-| Není k dispozici | [4022726] |Souhrn bez zabezpečení června |4.44 |13. června 2017 |
+| neuvedeno | [4020322] |Aktualizace časového pásma |2.64, 3.51, 4.44 |11 července 2017 |
+| neuvedeno | [4022719] |Souhrn bez zabezpečení června |2.64 |13. června 2017 |
+| neuvedeno | [4022724] |Souhrn bez zabezpečení června |3.51 |13. června 2017 |
+| neuvedeno | [4022726] |Souhrn bez zabezpečení června |4.44 |13. června 2017 |
 
 ## <a name="june-guest-os"></a>Červen hostovaný operační systém
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -101,22 +102,22 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | Relativní 17 06 | [4022719], [4022724], [4022726] |Měsíční souhrny Windows |2.63, 3.50, 4.43 |13. června 2017 |
 | Relativní 17 06 | [4022730] |Aktualizace zabezpečení pro Adobe Flash Playeru |3.50, 4.43, 5.8 |13. června 2017 |
 | Relativní 17 06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Znovu vydání CVE. 2017 0167 |4.43, 5.8 |11. dubna 2017 |
-| Není k dispozici | [4023136] |Aktualizace časového pásma  |2.63, 3.50, 4.43 |13. června 2017 |
-| Není k dispozici | [4019264] |Může se zabezpečením souhrn |2.63 |13. června 2017 |
-| Není k dispozici | [4014545] |Může se zabezpečením souhrn rozhraní .NET |2.63 |11. dubna 2017 |
-| Není k dispozici | [4014508] |Může se zabezpečením souhrn rozhraní .NET |2.63 |9 může 2017 |
-| Není k dispozici | [4014511] |Může se zabezpečením souhrn rozhraní .NET |2.63 |9 může 2017 |
-| Není k dispozici | [4014514] |Může se zabezpečením souhrn rozhraní .NET |2.63 |9 může 2017 |
-| Není k dispozici | [4019216] |Může se zabezpečením souhrn |3.50 |9 může 2017 |
-| Není k dispozici | [4014503] |Může se zabezpečením souhrn rozhraní .NET |3.50 |9 může 2017 |
-| Není k dispozici | [4014506] |Může se zabezpečením souhrn rozhraní .NET |3.50 |9 může 2017 |
-| Není k dispozici | [4014509] |Může se zabezpečením souhrn rozhraní .NET |3.50 |9 může 2017 |
-| Není k dispozici | [4014513] |Může se zabezpečením souhrn rozhraní .NET |3.50 |9 může 2017 |
-| Není k dispozici | [4019215] |Může se zabezpečením souhrn |4.43 |9 může 2017 |
-| Není k dispozici | [4014505] |Může se zabezpečením souhrn rozhraní .NET |4.43 |9 může 2017 |
-| Není k dispozici | [4014507] |Může se zabezpečením souhrn rozhraní .NET |4.43 |9 může 2017 |
-| Není k dispozici | [4014510] |Může se zabezpečením souhrn rozhraní .NET |4.43 |9 může 2017 |
-| Není k dispozici | [4014512] |Může se zabezpečením souhrn rozhraní .NET |4.43 |9 může 2017 |
+| neuvedeno | [4023136] |Aktualizace časového pásma  |2.63, 3.50, 4.43 |13. června 2017 |
+| neuvedeno | [4019264] |Může se zabezpečením souhrn |2.63 |13. června 2017 |
+| neuvedeno | [4014545] |Může se zabezpečením souhrn rozhraní .NET |2.63 |11. dubna 2017 |
+| neuvedeno | [4014508] |Může se zabezpečením souhrn rozhraní .NET |2.63 |9 může 2017 |
+| neuvedeno | [4014511] |Může se zabezpečením souhrn rozhraní .NET |2.63 |9 může 2017 |
+| neuvedeno | [4014514] |Může se zabezpečením souhrn rozhraní .NET |2.63 |9 může 2017 |
+| neuvedeno | [4019216] |Může se zabezpečením souhrn |3.50 |9 může 2017 |
+| neuvedeno | [4014503] |Může se zabezpečením souhrn rozhraní .NET |3.50 |9 může 2017 |
+| neuvedeno | [4014506] |Může se zabezpečením souhrn rozhraní .NET |3.50 |9 může 2017 |
+| neuvedeno | [4014509] |Může se zabezpečením souhrn rozhraní .NET |3.50 |9 může 2017 |
+| neuvedeno | [4014513] |Může se zabezpečením souhrn rozhraní .NET |3.50 |9 může 2017 |
+| neuvedeno | [4019215] |Může se zabezpečením souhrn |4.43 |9 může 2017 |
+| neuvedeno | [4014505] |Může se zabezpečením souhrn rozhraní .NET |4.43 |9 může 2017 |
+| neuvedeno | [4014507] |Může se zabezpečením souhrn rozhraní .NET |4.43 |9 může 2017 |
+| neuvedeno | [4014510] |Může se zabezpečením souhrn rozhraní .NET |4.43 |9 může 2017 |
+| neuvedeno | [4014512] |Může se zabezpečením souhrn rozhraní .NET |4.43 |9 může 2017 |
 
 ## <a name="may-guest-os"></a>Může operačního systému hosta
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -130,21 +131,21 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | Relativní 17-05 | [4022344] |Zpravodaj zabezpečení společnosti Microsoft |5.7 | 9 může 2017 |
 | Relativní 17-05 | [4022345] |Zpravodaj zabezpečení společnosti Microsoft |5.7 | 9 může 2017 |
 | Relativní 17-05 | [4021279] |Poradní základní /ASP.Net rozhraní .net |2.62, 3.49, 4.42, 5.7 | 9 může 2017 |
-| Není k dispozici | [4012864] |Aktualizace časového pásma |2.62, 3.49, 4.42 | 9 může 2017 |
-| Není k dispozici | [4014565] |Souhrn bez zabezpečení duben .NET |2.62 | 11. dubna 2017 |
-| Není k dispozici | [4014559] |Souhrn bez zabezpečení duben .NET |2.62 | 11. dubna 2017 |
-| Není k dispozici | [4015549] |Duben bez – souhrn zabezpečení |2.62 | 11. dubna 2017 |
-| Není k dispozici | [4019990] |Aktualizace D3DCompiler – požadavek pro rozhraní .NET 4.7 |3.49 | 9 může 2017 |
-| Není k dispozici | [4014563] |Souhrn bez zabezpečení duben .NET |3.49 | 11. dubna 2017 |
-| Není k dispozici | [4014557] |Souhrn bez zabezpečení duben .NET |3.49 | 11. dubna 2017 |
-| Není k dispozici | [4014545] |Souhrn bez zabezpečení duben .NET |3.49 | 11. dubna 2017 |
-| Není k dispozici | [4014548] |Souhrn bez zabezpečení duben .NET |3.49 | 11. dubna 2017 |
-| Není k dispozici | [4015551] |Souhrn bez zabezpečení duben |3.49 | 11. dubna 2017 |
-| Není k dispozici | [3173424] |Servisní aktualizace zásobníku  |4.42 | 12. července 2016 |
-| Není k dispozici | [4014555] |Souhrn bez zabezpečení duben .NET  |4.42 | 11. dubna 2017 |
-| Není k dispozici | [4014567] |Souhrn bez zabezpečení duben .NET |4.42 | 11. dubna 2017 |
-| Není k dispozici | [4015550] |Souhrn bez zabezpečení duben |4.42 | 11. dubna 2017 |
-| Není k dispozici | [4013418] |Servisní aktualizace zásobníku |5.7 | 14. března 2017 |
+| neuvedeno | [4012864] |Aktualizace časového pásma |2.62, 3.49, 4.42 | 9 může 2017 |
+| neuvedeno | [4014565] |Souhrn bez zabezpečení duben .NET |2.62 | 11. dubna 2017 |
+| neuvedeno | [4014559] |Souhrn bez zabezpečení duben .NET |2.62 | 11. dubna 2017 |
+| neuvedeno | [4015549] |Duben bez – souhrn zabezpečení |2.62 | 11. dubna 2017 |
+| neuvedeno | [4019990] |Aktualizace D3DCompiler – požadavek pro rozhraní .NET 4.7 |3.49 | 9 může 2017 |
+| neuvedeno | [4014563] |Souhrn bez zabezpečení duben .NET |3.49 | 11. dubna 2017 |
+| neuvedeno | [4014557] |Souhrn bez zabezpečení duben .NET |3.49 | 11. dubna 2017 |
+| neuvedeno | [4014545] |Souhrn bez zabezpečení duben .NET |3.49 | 11. dubna 2017 |
+| neuvedeno | [4014548] |Souhrn bez zabezpečení duben .NET |3.49 | 11. dubna 2017 |
+| neuvedeno | [4015551] |Souhrn bez zabezpečení duben |3.49 | 11. dubna 2017 |
+| neuvedeno | [3173424] |Servisní aktualizace zásobníku  |4.42 | 12. července 2016 |
+| neuvedeno | [4014555] |Souhrn bez zabezpečení duben .NET  |4.42 | 11. dubna 2017 |
+| neuvedeno | [4014567] |Souhrn bez zabezpečení duben .NET |4.42 | 11. dubna 2017 |
+| neuvedeno | [4015550] |Souhrn bez zabezpečení duben |4.42 | 11. dubna 2017 |
+| neuvedeno | [4013418] |Servisní aktualizace zásobníku |5.7 | 14. března 2017 |
 
 ## <a name="april-guest-os"></a>Duben hostovaný operační systém
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -174,11 +175,11 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | Relativní 17-03 |  [4012213] |2017 března pouze kvality zabezpečení aktualizace pro Windows 8.1 a Windows Server 2012 R2 |4.40 |14. března 2017 |
 | Relativní 17-03 |  [4012214] |2017 března zabezpečení pouze kvality aktualizace systému Windows Server 2012|3.47 |14. března 2017 |
 | Relativní 17-03 |  [4012204] |Aktualizace zabezpečení aplikace Internet Explorer |2.60, 3.47, 4.40, 5.5 |14. března 2017 |
-| Není k dispozici |  [4012864] |Změny letního času v systému Windows pro Severní Cypress, Mongolsko a ruština Saratov oblast |2.60, 3.47, 4.40 |14. března 2017 |
-| Není k dispozici |  [3212646] |Ledna 2017 měsíční kvality souhrn zabezpečení pro systém Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.60 |14. března 2017 |
-| Není k dispozici |  [3205409] |Prosinec 2016 měsíční kvality souhrn zabezpečení pro systém Windows Server 2012 |3.47 |14. března 2017 |
-| Není k dispozici |  [3205401] |Prosinec 2016 měsíční kvality souhrn zabezpečení pro Windows 8.1 a Windows Server 2012 R2 |4.40 |14. března 2017 |
-| Není k dispozici |  [3211320] |Obsluhy zásobníku aktualizace pro Windows 10 verze 1607 a Windows Server 2016: 24. ledna 2017 |5.5 |14. března 2017 |
+| neuvedeno |  [4012864] |Změny letního času v systému Windows pro Severní Cypress, Mongolsko a ruština Saratov oblast |2.60, 3.47, 4.40 |14. března 2017 |
+| neuvedeno |  [3212646] |Ledna 2017 měsíční kvality souhrn zabezpečení pro systém Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.60 |14. března 2017 |
+| neuvedeno |  [3205409] |Prosinec 2016 měsíční kvality souhrn zabezpečení pro systém Windows Server 2012 |3.47 |14. března 2017 |
+| neuvedeno |  [3205401] |Prosinec 2016 měsíční kvality souhrn zabezpečení pro Windows 8.1 a Windows Server 2012 R2 |4.40 |14. března 2017 |
+| neuvedeno |  [3211320] |Obsluhy zásobníku aktualizace pro Windows 10 verze 1607 a Windows Server 2016: 24. ledna 2017 |5.5 |14. března 2017 |
 
 ## <a name="january-guest-os"></a>Leden hostovaného operačního systému
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -198,9 +199,9 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | MS16 152 |[3199709]   |Aktualizace zabezpečení pro jádro systému Windows |5.4 |13 DEC 2016 |
 | MS16 153 |[3207328] |Aktualizace zabezpečení pro běžné ovladač systému souborů protokolu|2.58, 3.46, 4.39, 5.4 |13 DEC 2016 |
 | MS16 155 |[3205640]   |Aktualizace zabezpečení pro rozhraní .NET Framework |5.4 |13 DEC 2016 |
-| Není k dispozici |[3197868] |Listopadu 2016 měsíční kvality souhrn zabezpečení pro systém Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.58 |13 DEC 2016 |
-| Není k dispozici |[3197877] |Listopadu 2016 měsíční kvality souhrn zabezpečení pro systém Windows Server 2012 |3.46 |13 DEC 2016 |
-| Není k dispozici |[3197874] |Listopadu 2016 měsíční kvality souhrn zabezpečení pro Windows 8.1 a Windows Server 2012 R2 |4.39 |13 DEC 2016 |
+| neuvedeno |[3197868] |Listopadu 2016 měsíční kvality souhrn zabezpečení pro systém Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.58 |13 DEC 2016 |
+| neuvedeno |[3197877] |Listopadu 2016 měsíční kvality souhrn zabezpečení pro systém Windows Server 2012 |3.46 |13 DEC 2016 |
+| neuvedeno |[3197874] |Listopadu 2016 měsíční kvality souhrn zabezpečení pro Windows 8.1 a Windows Server 2012 R2 |4.39 |13 DEC 2016 |
 
 ## <a name="november-guest-os"></a>Listopad hostovaného operačního systému
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -216,16 +217,16 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | MS16 139 |[3199720] |Aktualizace zabezpečení pro jádro systému Windows |2.57 |Listopadu 8.2016 |
 | MS16 140 |[3193479] |Aktualizace zabezpečení pro správce spouštění |5.3, 4.38, 3.45 |8 listopadu 2016 |
 | MS16 142 |[3198467] |Kumulativní aktualizace zabezpečení pro Internet Explorer |2.57, 4.38, 5.3 |8 listopadu 2016 |
-| Není k dispozici |[3192321] |Turecko končí dodržování letního času |5.3, 4.38, 3.45, 2.57 |8 listopadu 2016 |
-| Není k dispozici |[3185330] |Října 2016 měsíční kvality souhrn zabezpečení pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.57 |8 listopadu 2016 |
-| Není k dispozici |[3192403] |Náhled října 2016 měsíční kvality souhrnu pro systém Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.57 |8 listopadu 2016 |
-| Není k dispozici |[3177467] |Aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 obsluhy zásobníku: 20. září 2016 |2.57 |8 listopadu 2016 |
-| Není k dispozici |[3185332] |Října 2016 měsíční kvality souhrn zabezpečení pro Windows Server 2012 |3.45 |8 listopadu 2016 |
-| Není k dispozici |[3192406] |Náhled října 2016 měsíční kvality souhrnu pro systém Windows Server 2012 |3.45 |8 listopadu 2016 |
-| Není k dispozici |[3185331] |Října 2016 měsíční kvality souhrn zabezpečení pro Windows 8.1 a Windows Server 2012 R2 |4.38 |8 listopadu 2016 |
-| Není k dispozici |[3192404] |Náhled října 2016 měsíční kvality souhrnu pro Windows 8.1 a Windows Server 2012 R2 |4.38 |8 listopadu 2016 |
-| Není k dispozici |[3199986] |Aktualizace pro Windows 10 verze 1607 obsluhy zásobníku: 27. října 2016 |5.3 |8 listopadu 2016 |
-| Není k dispozici |[3197954] |Kumulativní aktualizace pro Windows 10 verze 1607 a Windows Server 2016: 27. října 2016 |5.3 |8 listopadu 2016 |
+| neuvedeno |[3192321] |Turecko končí dodržování letního času |5.3, 4.38, 3.45, 2.57 |8 listopadu 2016 |
+| neuvedeno |[3185330] |Října 2016 měsíční kvality souhrn zabezpečení pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.57 |8 listopadu 2016 |
+| neuvedeno |[3192403] |Náhled října 2016 měsíční kvality souhrnu pro systém Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.57 |8 listopadu 2016 |
+| neuvedeno |[3177467] |Aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 obsluhy zásobníku: 20. září 2016 |2.57 |8 listopadu 2016 |
+| neuvedeno |[3185332] |Října 2016 měsíční kvality souhrn zabezpečení pro Windows Server 2012 |3.45 |8 listopadu 2016 |
+| neuvedeno |[3192406] |Náhled října 2016 měsíční kvality souhrnu pro systém Windows Server 2012 |3.45 |8 listopadu 2016 |
+| neuvedeno |[3185331] |Října 2016 měsíční kvality souhrn zabezpečení pro Windows 8.1 a Windows Server 2012 R2 |4.38 |8 listopadu 2016 |
+| neuvedeno |[3192404] |Náhled října 2016 měsíční kvality souhrnu pro Windows 8.1 a Windows Server 2012 R2 |4.38 |8 listopadu 2016 |
+| neuvedeno |[3199986] |Aktualizace pro Windows 10 verze 1607 obsluhy zásobníku: 27. října 2016 |5.3 |8 listopadu 2016 |
+| neuvedeno |[3197954] |Kumulativní aktualizace pro Windows 10 verze 1607 a Windows Server 2016: 27. října 2016 |5.3 |8 listopadu 2016 |
 
 ## <a name="october-guest-os"></a>Říjen hostovaného operačního systému
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -236,11 +237,11 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | MS16 124 |[3193227] |Aktualizace zabezpečení pro registru systému Windows |4.37, 3.44, 2.56 |11 října 2016 |
 | MS16 126 |[3196067] |Aktualizace zabezpečení pro Microsoft Internet rozhraní API pro zasílání zpráv |2.56 |11 října 2016 |
 | MS16 101 |[3178465] |Aktualizace zabezpečení pro metody ověřování systému Windows |4.37, 3.44, 2.56 |11 října 2016 |
-| Není k dispozici |[3182203] |Změna časového pásma září 2016 pro Novosibirsk |4.37, 3.44, 2.56 |11 října 2016 |
-| Není k dispozici |[3185278] |Září 2016 kumulativní aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.56 |11 října 2016 |
-| Není k dispozici |[3185280] |Září 2016 kumulativní aktualizace pro Windows Server 2012 |3.44 |11 října 2016 |
-| Není k dispozici |[3185279] |Září 2016 kumulativní aktualizace pro Windows 8.1 a Windows Server 2012 R2 |4.37 |11 října 2016 |
-| Není k dispozici |[3194798] |Kumulativní aktualizace pro Windows 10 verze 1607 a Windows Server 2016 |5.2 |11 října 2016 |
+| neuvedeno |[3182203] |Změna časového pásma září 2016 pro Novosibirsk |4.37, 3.44, 2.56 |11 října 2016 |
+| neuvedeno |[3185278] |Září 2016 kumulativní aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.56 |11 října 2016 |
+| neuvedeno |[3185280] |Září 2016 kumulativní aktualizace pro Windows Server 2012 |3.44 |11 října 2016 |
+| neuvedeno |[3185279] |Září 2016 kumulativní aktualizace pro Windows 8.1 a Windows Server 2012 R2 |4.37 |11 října 2016 |
+| neuvedeno |[3194798] |Kumulativní aktualizace pro Windows 10 verze 1607 a Windows Server 2016 |5.2 |11 října 2016 |
 
 ## <a name="september-guest-os"></a>Září hostovaného operačního systému
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -253,11 +254,11 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | MS16 114 |[3185879] |Aktualizace zabezpečení systému Windows Server protokolu SMB |4.36, 3.43, 2.55 |13 září 2016 |
 | MS16 115 |[3188733] |Aktualizace zabezpečení pro PDF |4.35, 3.43 |13 září 2016 |
 | MS16 116 |[3188724] |Aktualizace zabezpečení v OLE – automatizace pro jazyk VBScript skriptovací stroj |4.36, 3.43, 2.55 |13 září 2016 |
-| Není k dispozici |[3174644] |Aktualizovanou podporu pro výměnu klíčů Diffie-Hellman |4.36, 3.43, 2.55 |13 září 2016 |
-| Není k dispozici |[3177723] |Aktualizace časového pásma – Egypta zruší letního času |4.36, 3.43, 2.55 |13 září 2016 |
-| Není k dispozici |[3179573] |Srpna 2016 kumulativní aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.55 |13 září 2016 |
-| Není k dispozici |[3179575] |Srpna 2016 kumulativní aktualizace pro Windows Server 2012 |3.43 |13 září 2016 |
-| Není k dispozici |[3179574] |Srpna 2016 kumulativní aktualizace pro Windows RT 8.1, Windows 8.1 a Windows Server 2012 R2 |4.36 |13 září 2016 |
+| neuvedeno |[3174644] |Aktualizovanou podporu pro výměnu klíčů Diffie-Hellman |4.36, 3.43, 2.55 |13 září 2016 |
+| neuvedeno |[3177723] |Aktualizace časového pásma – Egypta zruší letního času |4.36, 3.43, 2.55 |13 září 2016 |
+| neuvedeno |[3179573] |Srpna 2016 kumulativní aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.55 |13 září 2016 |
+| neuvedeno |[3179575] |Srpna 2016 kumulativní aktualizace pro Windows Server 2012 |3.43 |13 září 2016 |
+| neuvedeno |[3179574] |Srpna 2016 kumulativní aktualizace pro Windows RT 8.1, Windows 8.1 a Windows Server 2012 R2 |4.36 |13 září 2016 |
 
 ## <a name="august-guest-os"></a>Srpen hostovaného operačního systému
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -269,9 +270,9 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | MS16 101 |[3178465] |Aktualizace zabezpečení pro metody ověřování systému Windows |4.35, 3.42, 2.54 |9 srpna 2016 |
 | MS16 102 |[3182248] |Aktualizace zabezpečení pro Microsoft Windows PDF knihovny |4.35, 3.42 |9 srpna 2016 |
 | MS16 077 znovu verzi. |[3165191] |Aktualizace zabezpečení pro automatické vyhledávání webového serveru Proxy protokolu WPAD) |4.35, 3.42, 2.54 |9 srpna 2016 |
-| Není k dispozici |[3172605] |Července 2016 kumulativní aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.54 |9 srpna 2016 |
-| Není k dispozici |[3172615] |Července 2016 kumulativní aktualizace pro Windows Server 2012 |3.42 |9 srpna 2016 |
-| Není k dispozici |[3172614] |Července 2016 kumulativní aktualizace pro Windows RT 8.1, Windows 8.1 a Windows Server 2012 R2 |4.35 |9 srpna 2016 |
+| neuvedeno |[3172605] |Července 2016 kumulativní aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.54 |9 srpna 2016 |
+| neuvedeno |[3172615] |Července 2016 kumulativní aktualizace pro Windows Server 2012 |3.42 |9 srpna 2016 |
+| neuvedeno |[3172614] |Července 2016 kumulativní aktualizace pro Windows RT 8.1, Windows 8.1 a Windows Server 2012 R2 |4.35 |9 srpna 2016 |
 
 ## <a name="july-guest-os"></a>Července hostovaného operačního systému
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -282,12 +283,12 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | MS16 091 |[3170048] |Aktualizace zabezpečení pro rozhraní .NET Framework |4.34, 3.41, 2.53 |12. července 2016 |
 | MS16 092 |[3171910] |Aktualizace zabezpečení pro jádro systému Windows |4.34, 3.41 |12. července 2016 |
 | MS16 094 |[3177404] |Aktualizace zabezpečení pro zabezpečené spouštění |4.34, 3.41 |12. července 2016 |
-| Není k dispozici |[3162835] |. Června 2016 letního času a časového pásma aktualizace pro Windows |4.34, 3.41, 2.53 |12. července 2016 |
-| Není k dispozici |[3156417] |Může 2016 kumulativní aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.53 |12. července 2016 |
-| Není k dispozici |[3161608] |Kumulativní aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 z června 2016 |2.53 |12. července 2016 |
-| Není k dispozici |[3161609] |. Června 2016 kumulativní aktualizace pro Windows Server 2012 |3.41 |12. července 2016 |
-| Není k dispozici |[3161606] |. Června 2016 kumulativní aktualizace pro Windows RT 8.1, Windows 8.1 a Windows Server 2012 R2 |4.34 |12. července 2016 |
-| Není k dispozici |[3139923] |Oprava Windows installer (MSI) nefunguje, pokud balíček Instalační služby MSI je nainstalována na protokolu HTTP sdílené složky v systému Windows |4.34 |12. července 2016 |
+| neuvedeno |[3162835] |. Června 2016 letního času a časového pásma aktualizace pro Windows |4.34, 3.41, 2.53 |12. července 2016 |
+| neuvedeno |[3156417] |Může 2016 kumulativní aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.53 |12. července 2016 |
+| neuvedeno |[3161608] |Kumulativní aktualizace pro Windows 7 SP1 a Windows Server 2008 R2 SP1 z června 2016 |2.53 |12. července 2016 |
+| neuvedeno |[3161609] |. Června 2016 kumulativní aktualizace pro Windows Server 2012 |3.41 |12. července 2016 |
+| neuvedeno |[3161606] |. Června 2016 kumulativní aktualizace pro Windows RT 8.1, Windows 8.1 a Windows Server 2012 R2 |4.34 |12. července 2016 |
+| neuvedeno |[3139923] |Oprava Windows installer (MSI) nefunguje, pokud balíček Instalační služby MSI je nainstalována na protokolu HTTP sdílené složky v systému Windows |4.34 |12. července 2016 |
 
 ## <a name="june-guest-os"></a>Červen hostovaný operační systém
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -305,16 +306,16 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | MS16 077 |[3165191] |Aktualizace zabezpečení pro WPAD |4.33, 3.40, 2.52 |14. června 2016 |
 | MS16 080 |[3164302] |Aktualizace zabezpečení systému Microsoft Windows PDF |4.33, 3.40 |14. června 2016 |
 | MS16 081 |[3160352] |Aktualizace zabezpečení pro službu Active Directory |4.33, 3.40, 2.52 |14. června 2016 |
-| Není k dispozici |[2922223] |Systémový čas nelze změnit, pokud je povolená položka registru RealTimeIsUniversal v systému Windows |2.52 |14. června 2016 |
-| Není k dispozici |[3121255] |Chyba stop "0x00000024" v souboru FsRtlNotifyFilterReportChange a zkopírujte může selhat v systému Windows |2.52 |14. června 2016 |
-| Není k dispozici |[3125424] |Služba LSASS zablokování způsobit Windows Server 2012 R2 nebo Windows Server 2012, aby nereagovaly |4.33, 3.40 |14. června 2016 |
-| Není k dispozici |[3125574] |Usnadnění práce kumulativní aktualizaci pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.52 |14. června 2016 |
-| Není k dispozici |[3140245] |Aktualizace k povolení TLS 1.1 a TLS 1.2 jako výchozí zabezpečené protokoly v WinHTTP v systému Windows |3.40, 2.52 |14. června 2016 |
-| Není k dispozici |[3146604] |Služba WMI spadne náhodně v systému Windows Server 2012 R2 nebo Windows Server 2012 |4.33, 3.40 |14. června 2016 |
-| Není k dispozici |[3149157] |Vylepšení spolehlivosti a škálovatelnosti v protokolu TCP/IP pro Windows 8.1 a Windows Server 2012 R2 |4.33 |14. června 2016 |
-| Není k dispozici |[3156416] |Může 2016 kumulativní aktualizace pro Windows Server 2012 |3.40 |14. června 2016 |
-| Není k dispozici |[3156418] |Může 2016 kumulativní aktualizace pro Windows RT 8.1, Windows 8.1 a Windows Server 2012 R2 |4.33 |14. června 2016 |
-| Není k dispozici |[3153731] |Aktualizace může 2016 letního času pro Ázerbájdžán, základě, Haiti a Maroko v systému Windows |4.33, 3.40, 2.52 |14. června 2016 |
+| neuvedeno |[2922223] |Systémový čas nelze změnit, pokud je povolená položka registru RealTimeIsUniversal v systému Windows |2.52 |14. června 2016 |
+| neuvedeno |[3121255] |Chyba stop "0x00000024" v souboru FsRtlNotifyFilterReportChange a zkopírujte může selhat v systému Windows |2.52 |14. června 2016 |
+| neuvedeno |[3125424] |Služba LSASS zablokování způsobit Windows Server 2012 R2 nebo Windows Server 2012, aby nereagovaly |4.33, 3.40 |14. června 2016 |
+| neuvedeno |[3125574] |Usnadnění práce kumulativní aktualizaci pro Windows 7 SP1 a Windows Server 2008 R2 SP1 |2.52 |14. června 2016 |
+| neuvedeno |[3140245] |Aktualizace k povolení TLS 1.1 a TLS 1.2 jako výchozí zabezpečené protokoly v WinHTTP v systému Windows |3.40, 2.52 |14. června 2016 |
+| neuvedeno |[3146604] |Služba WMI spadne náhodně v systému Windows Server 2012 R2 nebo Windows Server 2012 |4.33, 3.40 |14. června 2016 |
+| neuvedeno |[3149157] |Vylepšení spolehlivosti a škálovatelnosti v protokolu TCP/IP pro Windows 8.1 a Windows Server 2012 R2 |4.33 |14. června 2016 |
+| neuvedeno |[3156416] |Může 2016 kumulativní aktualizace pro Windows Server 2012 |3.40 |14. června 2016 |
+| neuvedeno |[3156418] |Může 2016 kumulativní aktualizace pro Windows RT 8.1, Windows 8.1 a Windows Server 2012 R2 |4.33 |14. června 2016 |
+| neuvedeno |[3153731] |Aktualizace může 2016 letního času pro Ázerbájdžán, základě, Haiti a Maroko v systému Windows |4.33, 3.40, 2.52 |14. června 2016 |
 
 ## <a name="may-guest-os"></a>Může operačního systému hosta
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -328,11 +329,11 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | MS16 062 |[3158222] |Aktualizace zabezpečení pro ovladače režimu jádra |4.32, 3.39, 2.51 |10. května 2016 |
 | MS16 065 |[3156757] |Aktualizace zabezpečení pro rozhraní .net Framework |4.32, 3.39, 2.51 |10. května 2016 |
 | MS16 067 |[3155784] |Aktualizace zabezpečení pro správce svazků ovladačů |4.32, 3.39 |10. května 2016 |
-| Není k dispozici |[3148851] |Změny časové pásmo pro Rusko v systému Windows  |4.32, 3.39, 2.51 |10. května 2016 |
-| Není k dispozici |[3133977] |Nástroj BitLocker nelze zašifrovat jednotek z důvodu dojde k chybě služby v procesu svchost.exe ve Windows 7 nebo Windows Server 2008 R2  |2.51 |10. května 2016 |
-| Není k dispozici |[3133681] |Virtuální počítače nejsou reagovat na vaši operaci v SCVMM ve Windows serveru 2012 R2  |4.32 |10. května 2016 |
-| Není k dispozici |[3123245] |Aktualizace zlepšuje identifikace vyčerpání portů ve Windows serveru 2012 R2  |4.32 |10. května 2016 |
-| Není k dispozici |[Zakázat RC4] | Informační zpravodaj zabezpečení společnosti Microsoft: aktualizace pro zákazu RC4  |4.32, 3.39, 2.51 |10. května 2016 |
+| neuvedeno |[3148851] |Změny časové pásmo pro Rusko v systému Windows  |4.32, 3.39, 2.51 |10. května 2016 |
+| neuvedeno |[3133977] |Nástroj BitLocker nelze zašifrovat jednotek z důvodu dojde k chybě služby v procesu svchost.exe ve Windows 7 nebo Windows Server 2008 R2  |2.51 |10. května 2016 |
+| neuvedeno |[3133681] |Virtuální počítače nejsou reagovat na vaši operaci v SCVMM ve Windows serveru 2012 R2  |4.32 |10. května 2016 |
+| neuvedeno |[3123245] |Aktualizace zlepšuje identifikace vyčerpání portů ve Windows serveru 2012 R2  |4.32 |10. května 2016 |
+| neuvedeno |[Zakázat RC4] | Informační zpravodaj zabezpečení společnosti Microsoft: aktualizace pro zákazu RC4  |4.32, 3.39, 2.51 |10. května 2016 |
 
 ## <a name="april-guest-os"></a>Duben hostovaný operační systém
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -503,17 +504,17 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 ## <a name="march-guest-os"></a>Dne hostovaného operačního systému.
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
 | --- | --- | --- | --- | --- |
-| MS15-018 |[3032359] |Kumulativní aktualizace zabezpečení pro Internet Explorer |4.18, 3.25, 2.37 |Není k dispozici |
-| MS15-019 |[3040297] |Chyba zabezpečení v jazyce VBScript skriptovací stroj umožňuje vzdálené spuštění kódu |4.18, 3.25, 2.37 |Není k dispozici |
-| MS15-020 |[3041836] |Chyby zabezpečení v systému Windows umožňuje vzdálené spuštění kódu |4.18, 3.25, 2.37 |Není k dispozici |
-| MS15-021 |[3032323] |Ovladač písma Adobe ohrožení zabezpečení by se mohl vzdálené spuštění kódu |4.18, 3.25, 2.37 |Není k dispozici |
-| MS15-023 |[3034344] |Chyby zabezpečení v ovladač režimu jádra umožňují zvýšení úrovně oprávnění |4.18, 3.25, 2.37 |Není k dispozici |
-| MS15-024 |[3035132] |Chyba zabezpečení PNG zpracování může umožnit vyzrazení informací |4.18, 3.25, 2.37 |Není k dispozici |
-| MS15-025 |[3038680] |Chyby zabezpečení jádra systému Windows umožňují zvýšení úrovně oprávnění |4.18, 3.25, 2.37 |Není k dispozici |
-| MS15-027 |[3002657] |Chyba zabezpečení služby NETLOGON umožňuje falšování identity |4.18, 3.25, 2.37 |Není k dispozici |
-| MS15 028 |[3030377] |Chyba zabezpečení v Plánovači úloh systému Windows umožňuje vynechat funkce zabezpečení |4.18, 3.25, 2.37 |Není k dispozici |
-| MS15-029 |[3035126] |Ohrožení zabezpečení v součásti Decoder fotografií systému Windows může umožnit vyzrazení informací |4.18, 3.25, 2.37 |Není k dispozici |
-| MS15-030 |[3039976] |Chyba zabezpečení protokolu vzdálené plochy umožňuje odmítnutí služby |4.18, 3.25, 2.37 |Není k dispozici |
+| MS15-018 |[3032359] |Kumulativní aktualizace zabezpečení pro Internet Explorer |4.18, 3.25, 2.37 |neuvedeno |
+| MS15-019 |[3040297] |Chyba zabezpečení v jazyce VBScript skriptovací stroj umožňuje vzdálené spuštění kódu |4.18, 3.25, 2.37 |neuvedeno |
+| MS15-020 |[3041836] |Chyby zabezpečení v systému Windows umožňuje vzdálené spuštění kódu |4.18, 3.25, 2.37 |neuvedeno |
+| MS15-021 |[3032323] |Ovladač písma Adobe ohrožení zabezpečení by se mohl vzdálené spuštění kódu |4.18, 3.25, 2.37 |neuvedeno |
+| MS15-023 |[3034344] |Chyby zabezpečení v ovladač režimu jádra umožňují zvýšení úrovně oprávnění |4.18, 3.25, 2.37 |neuvedeno |
+| MS15-024 |[3035132] |Chyba zabezpečení PNG zpracování může umožnit vyzrazení informací |4.18, 3.25, 2.37 |neuvedeno |
+| MS15-025 |[3038680] |Chyby zabezpečení jádra systému Windows umožňují zvýšení úrovně oprávnění |4.18, 3.25, 2.37 |neuvedeno |
+| MS15-027 |[3002657] |Chyba zabezpečení služby NETLOGON umožňuje falšování identity |4.18, 3.25, 2.37 |neuvedeno |
+| MS15 028 |[3030377] |Chyba zabezpečení v Plánovači úloh systému Windows umožňuje vynechat funkce zabezpečení |4.18, 3.25, 2.37 |neuvedeno |
+| MS15-029 |[3035126] |Ohrožení zabezpečení v součásti Decoder fotografií systému Windows může umožnit vyzrazení informací |4.18, 3.25, 2.37 |neuvedeno |
+| MS15-030 |[3039976] |Chyba zabezpečení protokolu vzdálené plochy umožňuje odmítnutí služby |4.18, 3.25, 2.37 |neuvedeno |
 
 > [!NOTE]
 > Bulletin MS15-031 se mohou objevit, jak odinstalovat. Ale nevztahuje se na tuto verzi hostovaného operačního systému.
@@ -523,13 +524,13 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 ## <a name="february-guest-os"></a>Února hostovaného operačního systému
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
 | --- | --- | --- | --- | --- |
-| MS15-009 |[3034682] |Aktualizace zabezpečení aplikace Internet Explorer |4.17, 3.24, 2.36 |Není k dispozici |
-| MS15 010 |[3036220] |Chyby zabezpečení ovladače režimu jádra systému Windows mohou umožnit vzdálené spuštění kódu |4.17, 3.24, 2.36 |Není k dispozici |
-| MS15-011 |[3000483] |Chyba zabezpečení v zásadách skupiny umožňuje vzdálené spuštění kódu |4.17, 3.24, 2.36 |Není k dispozici |
-| MS15-014 |[3004361] |Chyba zabezpečení v protokolu SMB umožňuje vynechat funkce zabezpečení |4.17, 3.24, 2.36 |Není k dispozici |
-| MS15-015 |[3031432] |Chyba zabezpečení v systému Windows umožňuje zvýšení úrovně oprávnění |4.17, 3.24, 2.36 |Není k dispozici |
-| MS15 016 |[3029944] |Ohrožení zabezpečení v komponentě Microsoft grafiky může umožnit vyzrazení informací |4.17, 3.24, 2.36 |Není k dispozici |
-| Není k dispozici |[3004375] |Aktualizace pro zlepšení Windows příkazového řádku auditování<p/>**Poznámka:**: to je nainstalován, ale klíč registru a povolit ji je vypnutý. |4.17, 3.24, 2.36 |Není k dispozici |
+| MS15-009 |[3034682] |Aktualizace zabezpečení aplikace Internet Explorer |4.17, 3.24, 2.36 |neuvedeno |
+| MS15 010 |[3036220] |Chyby zabezpečení ovladače režimu jádra systému Windows mohou umožnit vzdálené spuštění kódu |4.17, 3.24, 2.36 |neuvedeno |
+| MS15-011 |[3000483] |Chyba zabezpečení v zásadách skupiny umožňuje vzdálené spuštění kódu |4.17, 3.24, 2.36 |neuvedeno |
+| MS15-014 |[3004361] |Chyba zabezpečení v protokolu SMB umožňuje vynechat funkce zabezpečení |4.17, 3.24, 2.36 |neuvedeno |
+| MS15-015 |[3031432] |Chyba zabezpečení v systému Windows umožňuje zvýšení úrovně oprávnění |4.17, 3.24, 2.36 |neuvedeno |
+| MS15 016 |[3029944] |Ohrožení zabezpečení v komponentě Microsoft grafiky může umožnit vyzrazení informací |4.17, 3.24, 2.36 |neuvedeno |
+| neuvedeno |[3004375] |Aktualizace pro zlepšení Windows příkazového řádku auditování<p/>**Poznámka:**: to je nainstalován, ale klíč registru a povolit ji je vypnutý. |4.17, 3.24, 2.36 |neuvedeno |
 
 ## <a name="january-guest-os"></a>Leden hostovaného operačního systému
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -550,17 +551,17 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 ## <a name="december-guest-os"></a>Prosinec hostovaného operačního systému
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
 | --- | --- | --- | --- | --- |
-| Není k dispozici |[3013776] |Systém se zablokuje, pokud používáte účet domény ke spuštění aplikace |4.15, 3.22, 2.34 |Jan 13 2015 |
-| Není k dispozici |[3013043] |Na počítači se systémem Windows, který má více než jeden uzel NUMA je poškozený dat systému souborů |4.15, 3.22, 2.34 |Jan 13 2015 |
-| Není k dispozici |[3012712] |Nové datové bloky inicializaci nesprávně, když je rozšířena Rozdílový virtuální pevný disk |4.15, 3.22, 2.34 |201 13. ledna |
-| Není k dispozici |[3004905] |Zlepšování Windows Hyper-V pro virtuální počítače s Linuxem, které mají systémy souborů, které jsou větší než 2 TB |4.15, 3.22, 2.34 |Jan 13 2015 |
-| Není k dispozici |[3004394] |Aktualizace z prosince 2014 pro Windows Root Certificate Program v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
-| Není k dispozici |[2999323] |Text pro událost ID 17 se změnilo. |4.15, 3.22, 2.34 |Jan 13 2015 |
-| Není k dispozici |[3013488] |Dlouhého čekání na serveru WSUS resetování při importu souborů CSA ve Windows serveru 2012 R2 nebo Windows Server 2012 |4.15, 3.22, 2.34 |Jan 13 2015 |
-| Není k dispozici |[3012325] |Aktualizace položky databáze Windows APN pro DIGI, Vodafone a Telekom mobilní operátory ve Windows 8.1 a Windows 8 |4.15, 3.22, 2.34 |Jan 13 2015 |
-| Není k dispozici |[3007054] |Chráněný PIN KÓDEM tisk možnost vždy zobrazí při tisku dokumentu v aplikaci Windows Store ve Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
-| Není k dispozici |[2999802] |Plné čáry místo čáry s koncovými body jsou vytištěn v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
-| Není k dispozici |[2896881] |Dlouhé doby přihlášení při použití příkazu AddPrinterConnection VBScript mapovat tiskárny pro uživatele během procesu přihlášení v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| neuvedeno |[3013776] |Systém se zablokuje, pokud používáte účet domény ke spuštění aplikace |4.15, 3.22, 2.34 |Jan 13 2015 |
+| neuvedeno |[3013043] |Na počítači se systémem Windows, který má více než jeden uzel NUMA je poškozený dat systému souborů |4.15, 3.22, 2.34 |Jan 13 2015 |
+| neuvedeno |[3012712] |Nové datové bloky inicializaci nesprávně, když je rozšířena Rozdílový virtuální pevný disk |4.15, 3.22, 2.34 |201 13. ledna |
+| neuvedeno |[3004905] |Zlepšování Windows Hyper-V pro virtuální počítače s Linuxem, které mají systémy souborů, které jsou větší než 2 TB |4.15, 3.22, 2.34 |Jan 13 2015 |
+| neuvedeno |[3004394] |Aktualizace z prosince 2014 pro Windows Root Certificate Program v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| neuvedeno |[2999323] |Text pro událost ID 17 se změnilo. |4.15, 3.22, 2.34 |Jan 13 2015 |
+| neuvedeno |[3013488] |Dlouhého čekání na serveru WSUS resetování při importu souborů CSA ve Windows serveru 2012 R2 nebo Windows Server 2012 |4.15, 3.22, 2.34 |Jan 13 2015 |
+| neuvedeno |[3012325] |Aktualizace položky databáze Windows APN pro DIGI, Vodafone a Telekom mobilní operátory ve Windows 8.1 a Windows 8 |4.15, 3.22, 2.34 |Jan 13 2015 |
+| neuvedeno |[3007054] |Chráněný PIN KÓDEM tisk možnost vždy zobrazí při tisku dokumentu v aplikaci Windows Store ve Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| neuvedeno |[2999802] |Plné čáry místo čáry s koncovými body jsou vytištěn v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+| neuvedeno |[2896881] |Dlouhé doby přihlášení při použití příkazu AddPrinterConnection VBScript mapovat tiskárny pro uživatele během procesu přihlášení v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
 [4048953]: http://support.microsoft.com/kb/4048953
 [4048960]: http://support.microsoft.com/kb/4048960 
@@ -571,6 +572,7 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 [4041681]: http://support.microsoft.com/kb/4041681
 [4041693]: http://support.microsoft.com/kb/4041693
 [4041690]: http://support.microsoft.com/kb/4041690
+[3191566]: http://support.microsoft.com/kb/3191566
 [3191565]: http://support.microsoft.com/kb/3191565
 [3191564]: http://support.microsoft.com/kb/3191564
 

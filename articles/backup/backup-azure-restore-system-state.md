@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Obnovení stavu systému na Windows Server
 
@@ -89,9 +89,6 @@ Zahrnuje technologiím použitým v těchto kroků:
 1. Otevřete **Microsoft Azure Backup** modul snap-in na *cílový počítač*.
 2. Ujistěte se, že *cílový počítač* a *zdrojový počítač* jsou registrované ke stejnému trezoru služeb zotavení.
 3. Klikněte na tlačítko **obnovit Data** inicializace pracovního postupu.
-
-    ![Obnovení dat](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Vyberte **jiný server**
 
     ![Jiný Server](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -99,9 +96,6 @@ Zahrnuje technologiím použitým v těchto kroků:
 5. Zadejte soubor s přihlašovacími údaji trezoru, která odpovídá *ukázka trezoru*. Pokud soubor s přihlašovacími údaji trezoru je neplatný (nebo vypršela platnost), stáhněte si nový soubor přihlašovacích údajů trezoru z *ukázka trezoru* na portálu Azure. Jakmile je zadaný soubor s přihlašovacími údaji trezoru, se zobrazí trezor služeb zotavení přidružený soubor s přihlašovacími údaji trezoru.
 
 6. V podokně vyberte Server Backup, vyberte *zdrojový počítač* ze seznamu zobrazených počítačů.
-
-    ![Seznam počítačů](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. V podokně vyberte režimu obnovení, vyberte **stav systému** a klikněte na tlačítko **Další**. 
 
     ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)

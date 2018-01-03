@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Trezor záloh upgradovat na trezor služeb zotavení
 Tento článek obsahuje přehled jaké trezor služeb zotavení poskytuje, často kladené otázky týkající se upgradu existující zálohy trezoru do trezoru služeb zotavení a kroků po upgradu. Trezor služeb zotavení je ekvivalentem Azure Resource Manager, kde zálohovaných dat úložiště záloh. Data je obvykle kopie dat, nebo informace o konfiguraci pro virtuální počítače (VM), úlohy, servery nebo pracovní stanice, jestli místně nebo v Azure.
@@ -71,7 +71,7 @@ Jednou budete upgradovat do trezoru služeb zotavení, konfigurace sestav pro z�
 Ne. Probíhající zálohování pokračovat bez přerušení během a po provedení upgradu.
 
 **Jaké jsou znamená to upgradu pro moje existující nástrojů?**</br>
-K modelu nasazení Resource Manager zajistit, že nadále fungovat po upgradu je nutné aktualizovat existující automatizace nebo nástrojů. Najdete odkazy na rutiny prostředí PowerShell pro [modelu nasazení portálu Service Manager](backup-client-automation-classic.md) a [modelu nasazení Resource Manager](backup-client-automation.md).
+K modelu nasazení Resource Manager zajistit, že nadále fungovat po upgradu je nutné aktualizovat existující automatizace nebo nástrojů. Najdete odkazy na rutiny prostředí PowerShell pro [modelu nasazení Resource Manager](backup-client-automation.md).
 
 **Můžete I vrátit po provedení upgradu?**</br>
 Ne. Vrácení zpět není podporována po úspěšném upgradu prostředky.

@@ -12,18 +12,18 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: dbcf2b3164aa4351301c52ccadecbc211193d19b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Vývoj s tabulkou rozhraní API v rozhraní .NET
 
-Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos.
+Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Můžete snadno vytvořit a dotazovat databáze dotazů, klíčů/hodnot a grafů, které tak můžou využívat výhody použitelnosti v celosvětovém měřítku a možností horizontálního škálování v jádru databáze Azure Cosmos.
 
 Tento kurz obsahuje následující úlohy: 
 
@@ -65,7 +65,7 @@ Další informace o složité úlohy Azure Table storage, najdete v části:
 ### <a name="about-this-tutorial"></a>O tomto kurzu
 V tomto kurzu pro vývojáře, kteří se seznámíte s Azure Table storage SDK a chcete použít k dispozici prémiové funkce používá Azure Cosmos DB. Je založena na [Začínáme s Azure Table storage pomocí rozhraní .NET](table-storage-how-to-use-dotnet.md) a ukazuje, jak využít další možnosti jako sekundární indexy, zřízená propustnost a více domovských stránek. Nabídneme použití portálu Azure k vytvoření účtu Azure Cosmos DB sestavení a nasazení aplikace tabulky. Můžeme také provede příklady .NET pro vytváření a odstraňování tabulek a vkládání, aktualizaci, odstranění a dotazování dat v tabulce. 
 
-Pokud ještě nemáte nainstalované Visual Studio 2017, můžete stáhnout a použít **volné** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
+Pokud ještě nemáte nainstalovanou sadu Visual Studio 2017, můžete stáhnout a použít **bezplatnou verzi** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Nezapomeňte při instalaci sady Visual Studio povolit možnost **Azure Development**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -74,7 +74,7 @@ Pokud ještě nemáte nainstalované Visual Studio 2017, můžete stáhnout a po
 Začněme vytvořením účtu Azure Cosmos DB na portálu Azure.  
  
 > [!IMPORTANT]  
-> Budete muset vytvořit nový účet tabulky rozhraní API pro práci s všeobecně dostupná SDK API tabulky. Tabulka rozhraní API účtů vytvořených během preview nepodporuje všeobecně dostupná sady SDK. 
+> Abyste mohli pracovat s obecně dostupnými sadami Table API SDK, musíte si vytvořit nový účet Table API. Obecně dostupné sady SDK nepodporují účty Table API vytvořené během období Preview. 
 >
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
@@ -83,13 +83,13 @@ Začněme vytvořením účtu Azure Cosmos DB na portálu Azure.
 
 Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a spustíme ji. Přesvědčíte se, jak snadno se pracuje s daty prostřednictvím kódu programu. 
 
-1. Otevřete okno terminálu git, jako je například git bash a použít `cd` příkaz Přejít do složky pro instalaci ukázkové aplikace. 
+1. Otevřete okno terminálu Git, třeba Git Bash, a pomocí příkazu `cd` přejděte do složky, do které chcete nainstalovat ukázkovou aplikaci. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří kopii ukázková aplikace ve vašem počítači. 
+2. Ukázkové úložiště naklonujete spuštěním následujícího příkazu. Tento příkaz vytvoří na vašem počítači kopii ukázkové aplikace. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
@@ -99,30 +99,30 @@ Teď naklonujeme aplikaci Table z GitHubu, nastavíme připojovací řetězec a
 
 ## <a name="update-your-connection-string"></a>Aktualizace připojovacího řetězce
 
-Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. To umožňuje aplikaci ke komunikaci s vaší hostované databází. 
+Teď se vraťte zpátky na portál Azure Portal, kde najdete informace o připojovacím řetězci, a zkopírujte je do aplikace. Tím aplikaci umožníte komunikovat s hostovanou databází. 
 
-1. V [portál Azure](http://portal.azure.com/), klikněte na tlačítko **připojovací řetězec**. 
+1. Na webu [Azure Portal](http://portal.azure.com/) klikněte na **Připojovací řetězec**. 
 
-    Pomocí tlačítka Kopírovat na pravé straně obrazovky zkopírujte primární PŘIPOJOVACÍ řetězec.
+    Pomocí tlačítka pro kopírování na pravé straně obrazovky zkopírujte PRIMÁRNÍ PŘIPOJOVACÍ ŘETĚZEC.
 
-    ![Zobrazení a zkopírujte PŘIPOJOVACÍ řetězec v podokně připojovací řetězec](./media/create-table-dotnet/connection-string.png)
+    ![Zobrazení a zkopírování hodnoty PŘIPOJOVACÍ ŘETĚZEC v podokně Připojovací řetězec](./media/create-table-dotnet/connection-string.png)
 
 2. V sadě Visual Studio otevřete soubor app.config. 
 
-3. Jako tento kurz nepoužívá emulátor úložiště, zrušte komentář u StorageConnectionString na řádek 8 a Odkomentujte StorageConnectionString na řádku 7. Řádek 7 a 8 by měl nyní vypadat takto:
+3. Vzhledem k tomu, že v tomto kurzu se nepoužívá emulátor úložiště, zrušte komentář u StorageConnectionString na řádku 8 a přidejte komentář u StorageConnectionString na řádku 7. Řádky 7 a 8 by teď měly vypadat takto:
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. PRIMÁRNÍ PŘIPOJOVACÍ řetězec z portálu vložte do StorageConnectionString hodnotu na řádek 8. Vložte řetězec uvnitř uvozovky.
+4. Vložte PRIMÁRNÍ PŘIPOJOVACÍ ŘETĚZEC z portálu do hodnoty StorageConnectionString na řádku 8. Řetězec vložte do uvozovek.
    
     > [!IMPORTANT]
-    > Pokud váš koncový bod používá documents.azure.com, která znamená, máte účet preview, a je nutné vytvořit [nový účet rozhraní API tabulky](#create-a-database-account) pro práci s všeobecně dostupná sadu SDK API tabulky. 
+    > Pokud váš koncový bod používá adresu documents.azure.com, znamená to, že máte účet Preview, a pokud chcete pracovat s obecně dostupnou sadou Table API SDK, musíte si vytvořit [nový účet Table API](#create-a-database-account). 
     >
 
-    Řádek 8 by teď měl vypadat podobně jako:
+    Řádek 8 by teď měl vypadat nějak takto:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -148,8 +148,6 @@ Další funkce se dá povolit buď následující `appSettings` hodnoty konfigur
 
 | Klíč | Popis |
 | --- | --- |
-| TableThroughput | Vyhrazenou propustností pro tabulku vyjádřené v jednotek žádosti (RU) za sekundu. Jedné tabulky může podporovat 100s miliony RU/s. V tématu [požadované jednotky](request-units.md). Výchozí hodnota je`400` |
-| TableIndexingPolicy | Řetězce formátu JSON, které odpovídají specifikace zásady indexování. V tématu [zásady indexování](indexing-policies.md) zobrazíte, jak můžete změnit zásady indexování pro zahrnutí a vyloučení určité sloupce. |
 | TableQueryMaxItemCount | Nakonfigurujte maximální počet položek vrátí na dotaz tabulky v jednom dobu odezvy. Výchozí hodnota je `-1`, které umožní Azure DB Cosmos dynamicky určí hodnotu za běhu. |
 | TableQueryEnableScan | Pokud dotaz nelze použít pro libovolný filtr index, spusťte ji přesto prostřednictvím kontrolu. Výchozí hodnota je `false`.|
 | TableQueryMaxDegreeOfParallelism | Stupně paralelního zpracování pro spuštění dotazu mezi oddílu. `0`sériový s žádné předem načítání, `1` je sériové s předem načítání a vyšší hodnoty zvýšit rychlost paralelního zpracování. Výchozí hodnota je `-1`, které umožní Azure DB Cosmos dynamicky určí hodnotu za běhu. |
@@ -164,10 +162,6 @@ Chcete-li změnit výchozí hodnotu, otevřete `app.config` soubor v Průzkumní
       <add key="CosmosDBStorageConnectionString" 
         value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />
       <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
@@ -194,13 +188,13 @@ Pak vytvořte tabulku pomocí `CloudTable`. Tabulky v databázi Cosmos Azure mů
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
-
-table.CreateIfNotExists();
+400
+table.CreateIfNotExists(throughput: 800);
 ```
 
 Je důležité rozdíly v vytváření tabulek. Azure Cosmos DB si vyhrazuje propustnost, na rozdíl od modelu na základě spotřeby úložiště Azure pro transakce. Vaše propustnost je vyhrazené/vyhrazená, takže jste nikdy získat omezeny Pokud je vaše četnost požadavků nebo pod zřízené propustnosti.
 
-Můžete nakonfigurovat výchozí propustnosti tím, že nakonfigurujete nastavení `TableThroughput` z hlediska RU (jednotek žádosti) za sekundu. 
+Můžete nakonfigurovat výchozí propustnost zahrnutím jako parametr CreateIfNotExists.
 
 Čtení entity 1 KB normalizována jako 1 RU a další operace jsou normalizovány na pevnou hodnotu RU na základě jejich spotřeby procesoru, paměti a procesorů. Další informace o [požadované jednotky v Azure Cosmos DB](request-units.md) a speciálně pro [klíče ukládá hodnotu](key-value-store-cost.md).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 7347be8520e643cd166851d3f525a9a0726b40c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Vytvoření a Správa skupin akce na portálu Azure
 ## <a name="overview"></a>Přehled ##
@@ -29,7 +29,7 @@ Seznam akcí, můžete nakonfigurovat skupiny akcí. Tyto skupiny pak lze použ�
 Skupinu akce může mít až 10 každý typ akce. Každá akce se skládá z následujících vlastností:
 
 * **Název**: Jedinečný identifikátor v rámci skupiny pro akce.  
-* **Typ akce**: Odeslat zprávu SMS, e-mailovou zprávu, volat webhook, jehož nebo odesílání dat do nástroj na ITSM.
+* **Typ akce**: Odeslat zprávu SMS, e-mailovou zprávu, volat webhook, jehož, odesílání dat do nástroj na ITSM, volání Azure aplikace nebo spustit runbook služby automatizace.
 * **Podrobnosti o**: odpovídající telefonního čísla, e-mailovou adresu, webhooku identifikátor URI nebo ITSM podrobnosti připojení.
 
 Informace o tom, jak pomocí šablony Azure Resource Manager můžete nakonfigurovat skupiny akcí najdete v tématu [šablony správce prostředků skupiny akce](monitoring-create-action-group-with-resource-manager-template.md).
@@ -38,7 +38,7 @@ Informace o tom, jak pomocí šablony Azure Resource Manager můžete nakonfigur
 1. V [portál](https://portal.azure.com), vyberte **monitorování**. **Monitorování** slučuje okno veškeré monitorování nastavení a data v jednom zobrazení.
 
     ![Službu "Sledování"](./media/monitoring-action-groups/home-monitor.png)
-2. V **protokol aktivit** vyberte **skupiny akcí**.
+2. V **nastavení** vyberte **skupiny akcí**.
 
     ![Na kartě "Akce skupiny"](./media/monitoring-action-groups/action-groups-blade.png)
 3. Vyberte **přidat akci skupinu**a vyplňte příslušná pole.
@@ -56,14 +56,12 @@ Informace o tom, jak pomocí šablony Azure Resource Manager můžete nakonfigur
 
     a. **Název**: Zadejte jedinečný identifikátor pro tuto akci.
 
-    b. **Typ akce**: Vyberte SMS, e-mailu, webhooku nebo ITSM.
+    b. **Typ akce**: Vyberte SMS, e-mailu, webhooku, aplikace Azure, ITSM nebo sady Automation Runbook.
 
-    c. **Podrobnosti o**: v závislosti na typu akce, zadejte telefonní číslo, e-mailovou adresu, webhooku identifikátor URI nebo podrobnosti ITSM připojení. Pro akci ITSM kromě určit **pracovní položka** a vyžaduje vaše nástroje ITSM další pole. 
+    c. **Podrobnosti o**: v závislosti na typu akce, zadejte telefonní číslo, e-mailovou adresu, webhooku identifikátor URI, aplikace Azure, ITSM připojení nebo sady Automation runbook. Pro akci ITSM kromě určit **pracovní položka** a vyžaduje vaše nástroje ITSM další pole. 
 
-> [!NOTE]
-> Akce ITSM vyžaduje připojení k ITSM. Naučte se vytvářet [ITSM připojení](../log-analytics/log-analytics-itsmc-overview.md). Akce ITSM aktuálně funguje pouze pro aktivitu protokolu výstrahy. Pro ostatní typy výstrah tato akce je aktuálně žádná operace.
->
->
+   > [!NOTE]
+   > Akce ITSM vyžaduje připojení k ITSM. Naučte se vytvářet [ITSM připojení](../log-analytics/log-analytics-itsmc-overview.md). Akce ITSM aktuálně funguje pouze pro aktivitu protokolu výstrahy. Pro ostatní typy výstrah tato akce je aktuálně žádná operace.
 
 8. Vyberte **OK** vytvořit skupinu akce.
 

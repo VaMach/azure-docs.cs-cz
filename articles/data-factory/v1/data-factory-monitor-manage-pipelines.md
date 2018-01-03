@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorování a Správa kanálů služby Azure Data Factory pomocí portálu Azure a prostředí PowerShell
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Dvojitým kliknutím **OutputBlobTable** v **Diagram**, zobrazí se všechny dat
 
 <table>
 <tr>
-    <th align="left">Stav</th><th align="left">Dílčím stavem</th><th align="left">Popis</th>
+    <th align="left">Stav</th><th align="left">Dílčí stav</th><th align="left">Popis</th>
 </tr>
 <tr>
     <td rowspan="8">Čekání</td><td>ScheduleTime</td><td>Pro spuštění řezu ještě nenastal čas.</td>
@@ -98,7 +98,7 @@ Dvojitým kliknutím **OutputBlobTable** v **Diagram**, zobrazí se všechny dat
 <td>ComputeResources</td><td>Výpočetní prostředky nejsou k dispozici.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Jsou všechny instance aktivit právě zpracovávají jiné řezy.</td>
+<td>ConcurrencyLimit</td> <td>Všechny instance aktivit právě zpracovávají jiné řezy.</td>
 </tr>
 <tr>
 <td>ActivityResume</td><td>Aktivita je pozastavená a zpracování řezů nejde spustit, dokud je obnoveno aktivity.</td>
@@ -114,19 +114,19 @@ Dvojitým kliknutím **OutputBlobTable** v **Diagram**, zobrazí se všechny dat
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Probíhá ověřování</td><td>Probíhá ověřování.</td>
+<td rowspan="2">InProgress</td><td>Ověřování platnosti</td><td>Probíhá ověřování.</td>
 </tr>
 <td>-</td>
 <td>Řez se zpracovává.</td>
 </tr>
 <tr>
-<td rowspan="4">Se nezdařilo</td><td>TimedOut</td><td>Provedení aktivity trvalo déle, než je povolené aktivitou.</td>
+<td rowspan="4">Neúspěch</td><td>TimedOut</td><td>Provedení aktivity trvalo déle, než je povolené aktivitou.</td>
 </tr>
 <tr>
 <td>Zrušeno</td><td>Řez zrušil akce uživatele.</td>
 </tr>
 <tr>
-<td>Ověření</td><td>Ověření se nezdařilo.</td>
+<td>Ověření</td><td>Ověření selhalo.</td>
 </tr>
 <tr>
 <td>-</td><td>Řez se nepodařilo vygenerovat nebo ověřit.</td>
@@ -134,10 +134,10 @@ Dvojitým kliknutím **OutputBlobTable** v **Diagram**, zobrazí se všechny dat
 <td>Připraveno</td><td>-</td><td>Řez je připraven ke spotřebování.</td>
 </tr>
 <tr>
-<td>Přeskočena</td><td>Žádný</td><td>Řez se zpracovává.</td>
+<td>Vynecháno</td><td>Žádné</td><td>Řez se zpracovává.</td>
 </tr>
 <tr>
-<td>Žádný</td><td>-</td><td>Řez měl dříve jiný stav, ale byla obnovena.</td>
+<td>Žádné</td><td>-</td><td>Řez měl dříve jiný stav, ale byla obnovena.</td>
 </tr>
 </table>
 
@@ -177,7 +177,7 @@ Je možné pozastavit nebo pozastavit kanály pomocí **Suspend-AzureRmDataFacto
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Například:
+Příklad:
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -188,7 +188,7 @@ Po napravení problému s kanálu, můžete obnovit pozastavenou kanálu spušt�
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Například:
+Příklad:
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -220,7 +220,7 @@ Pokud se nezdaří spustit aktivitu v kanálu, datovou sadu, která je vytvořen
     ```powershell   
     Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Například:
+   Příklad:
 
     ```powershell   
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -234,7 +234,7 @@ Pokud se nezdaří spustit aktivitu v kanálu, datovou sadu, která je vytvořen
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Například:
+    Příklad:
 
     ```powershell   
     Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -368,9 +368,9 @@ Následující tabulka obsahuje seznam dostupné operace a stavy (a dílčí sta
 
 | Název operace | Status | Podřízený stav |
 | --- | --- | --- |
-| RunStarted |spuštění |Spouštění |
+| RunStarted |Spuštěno |Spouštění |
 | RunFinished |Nemohl / bylo úspěšné |FailedResourceAllocation<br/><br/>Úspěch<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/>< zrušena<br/><br/>FailedValidation<br/><br/>opuštění |
-| OnDemandClusterCreateStarted |spuštění | |
+| OnDemandClusterCreateStarted |Spuštěno | |
 | OnDemandClusterCreateSuccessful |Úspěch | |
 | OnDemandClusterDeleted |Úspěch | |
 

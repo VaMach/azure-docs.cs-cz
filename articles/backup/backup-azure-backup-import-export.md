@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/20/2017
+ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Pracovní postup offline zálohování ve službě Azure Backup
 Zálohování Azure má několik předdefinovaných efektivitu, která ukládají náklady na síť a úložiště během počáteční úplné zálohy dat do Azure. Počáteční úplné zálohování obvykle přenos velkých objemů dat a vyžaduje větší šířku pásma sítě ve srovnání s následné zálohy, které přenášejí pouze rozdílů/přírůstková. Zálohování Azure komprimaci prvotní zálohy. Proces offline synchronizace replik indexů Azure Backup můžete použít disky k nahrání komprimovaná data prvotní zálohy do offline režimu Azure.  
@@ -31,7 +31,7 @@ Pomocí funkce offline synchronizace replik indexů Azure Backup a Azure Import/
 [Srpna 2016 aktualizace služby Azure Backup (a novější)](http://go.microsoft.com/fwlink/?LinkID=229525) zahrnuje *nástroj pro přípravu Azure Disk*, s názvem AzureOfflineBackupDiskPrep, který:
 
 * Vám pomůže připravit vaše jednotky pro Import úložiště Azure pomocí nástroje Azure Import/Export.
-* Automaticky vytvoří úlohu Import úložiště Azure pro službu Azure Import/Export na [portál Azure classic](https://manage.windowsazure.com) oproti vytvoření stejné ručně pomocí starší verze služby Azure Backup.
+* Automaticky vytvoří úlohu Import úložiště Azure pro službu Azure Import/Export v [portál Azure](https://ms.portal.azure.com).
 
 Po dokončení nahrávání dat zálohování do Azure, Azure Backup zkopíruje data záloh do trezoru záloh a přírůstkové zálohování.
 
@@ -69,11 +69,11 @@ Informace v této části vám pomůže dokončit pracovní postup offline zálo
     * **Azure název úlohy importu**: jedinečný název, který Import úložiště Azure service a Azure Backup sledovat přenos dat odesílaných na discích do Azure.
     * **Nastavení Azure publikování**: soubor ve formátu XML, který obsahuje informace o profilu vašeho předplatného. Obsahuje taky zabezpečené přihlašovací údaje, které jsou spojeny s předplatným. Můžete [stáhněte soubor](https://manage.windowsazure.com/publishsettings). Zadejte místní cestu k souboru nastavení publikování.
     * **ID předplatného Azure**: ID předplatného Azure pro předplatné, kde chcete zahájit úlohy importu v Azure. Pokud máte víc předplatných Azure, použijte Identifikátor odběru, který chcete přidružit k úloze importu.
-    * **Účet služby Azure Storage**: classic typ účtu úložiště v rámci zadaného předplatného Azure, který bude přidružen úlohy importu v Azure.
+    * **Účet služby Azure Storage**: účet úložiště v rámci předplatného Azure přidružené úlohy importu v Azure.
     * **Kontejner úložiště Azure**: název cílový objekt blob úložiště v účtu úložiště Azure, kde tato úloha importu.
 
     > [!NOTE]
-    > Pokud jste si zaregistrovali serveru trezoru služeb zotavení Azure z [portál Azure](https://portal.azure.com) pro zálohování a nejsou ve Cloud Solution Provider (CSP) předplatné, můžete stále vytvořit classic typ účtu úložiště z Azure portál a použít jej pro pracovní postup offline zálohování.
+    > Pokud jste si zaregistrovali serveru trezoru služeb zotavení Azure z [portál Azure](https://portal.azure.com) pro zálohování a nejsou ve Cloud Solution Provider (CSP) předplatné, můžete stále vytvořit účet úložiště z portálu Azure a použijte pro pracovní postup offline zálohování.
     >
     >
 
@@ -123,7 +123,7 @@ Nástroj pro přípravu Azure disku je k dispozici v instalační adresář agen
 
     Nástroj pak začne Příprava disku spolu s zálohovaná data. Budete muset připojit další disky, a po zobrazení výzvy nástroj v případě, že zadaný disk nemá dostatek místa pro zálohovaná data. <br/>
 
-    Na konci úspěšné provedení nástroj jeden nebo více disků, které jste zadali připravené pro přesouvání do Azure. Kromě toho úlohy importu s názvem jste zadali při **zahájit zálohování offline** pracovní postup je vytvořen na portálu Azure classic. Nakonec nástroj zobrazí adresa přesouvání datové centrum Azure, kde je třeba dodat disky a odkaz na portálu Azure classic k úloze importu.
+    Na konci úspěšné provedení nástroj jeden nebo více disků, které jste zadali připravené pro přesouvání do Azure. Kromě toho úlohy importu s názvem jste zadali při **zahájit zálohování offline** pracovního postupu je vytvořený na portálu Azure. Nakonec nástroj zobrazí adresa přesouvání datové centrum Azure, kde je třeba dodat disky a odkaz na portálu Azure k úloze importu.
 
     ![Příprava Azure disku dokončení](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
@@ -181,7 +181,7 @@ Po dokončení úlohy importu dat prvotní zálohy je k dispozici ve vašem úč
   ![Výstup prostředí PowerShell](./media/backup-azure-backup-import-export/psoutput.png)
 
 ### <a name="create-an-import-job-in-the-azure-portal"></a>Vytvoření úlohy importu v portálu Azure
-1. Přejděte na svůj účet úložiště [portál Azure classic](https://manage.windowsazure.com/), klikněte na tlačítko **importu a exportu**a potom **vytvoření úlohy importu** v podokně úloh.
+1. Přejděte na svůj účet úložiště [portál Azure](https://ms.portal.azure.com/), klikněte na tlačítko **importu a exportu**a potom **vytvoření úlohy importu** v podokně úloh.
 
     ![Import a export na portálu Azure](./media/backup-azure-backup-import-export/azureportal.png)
 

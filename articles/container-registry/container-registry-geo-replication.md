@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geografická replikace v registru kontejner Azure
 
@@ -94,7 +94,7 @@ ACR zahájí synchronizaci bitové kopie napříč nakonfigurované repliky. Po 
 
 ## <a name="geo-replication-pricing"></a>Geografická replikace ceny
 
-Geografická replikace je funkce [skladová položka Premium](container-registry-skus.md#premium) registru kontejner Azure. Při replikaci registru na vaše požadované oblasti, platit poplatky registru Premium pro každou oblast.
+Geografická replikace je funkce [skladová položka Premium](container-registry-skus.md) registru kontejner Azure. Při replikaci registru na vaše požadované oblasti, platit poplatky registru Premium pro každou oblast.
 
 V předchozím příkladu Contoso konsolidovat dvě registrech na jedinou, přidání repliky do Východ USA, Střední Kanada a západní Evropa. Contoso by platila Premium čtyřikrát za měsíc bez další konfigurace a správy. Každá oblast nyní vrátí jejich obrázků místně, zvýšení výkonu, spolehlivosti bez poplatků odchozí sítě z západní USA Kanady a východní USA.
 

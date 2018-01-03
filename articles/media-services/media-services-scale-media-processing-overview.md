@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
 ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="scaling-media-processing-overview"></a>Škálování zpracování média – přehled
 Tato stránka poskytuje přehled toho, jak a proč škálování zpracování média. 
@@ -66,8 +66,8 @@ Dosáhnout škálování úlohu zpracování média s některou z těchto techno
 > 
 
 > [!NOTE]
-> Získat nejnovější verzi sady Java SDK a začít s vývojem v jazyce Java, najdete v tématu [Začínáme s klientem nástroje Java SDK pro Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Chcete-li stáhnout nejnovější PHP SDK pro Media Services, vyhledejte verze 0.5.7 balíčku Microsoft/WindowAzure v [Packagist úložiště](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Pokud chcete získat nejnovější verzi sady Java SDK a začít s vývojem v jazyce Java, přečtěte si článek [Začínáme s klientskou sadou Java SDK pro Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Pokud si chcete stáhnout nejnovější sadu PHP SDK pro službu Media Services, najděte si v [úložišti Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7) balíček Microsoft/WindowsAzure verze 0.5.7.  
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

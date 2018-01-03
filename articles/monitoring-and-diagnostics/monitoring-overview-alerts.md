@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Co jsou výstrahy v Microsoft Azure?
 Tento článek popisuje různé zdroje výstrah v Microsoft Azure, co se účely pro tyto výstrahy, jejich výhody a jak začít pracovat s jejich používání. Konkrétně platí pro monitorování Azure, ale poskytuje také výstrahy ukazatele k jiným službám. Výstrahy nabízejí metoda monitorování v Azure, který umožňuje nakonfigurovat podmínky nad daty a být upozorněni, když podmínky odpovídají data nejnovější sledování.
+
 
 ## <a name="taxonomy-of-azure-alerts"></a>Taxonomii Azure výstrah
 Azure používá k popisu výstrahy a jejich funkce následující podmínky:
@@ -32,8 +33,13 @@ Azure používá k popisu výstrahy a jejich funkce následující podmínky:
 * **Oznámení** – akce na základě z výstrahu, aby se aktivovala.
 * **Akce** -konkrétní volání odeslaných k příjemce oznámení (například e-mailem na adresu nebo příspěvků na adresu URL webhooku). Oznámení můžete aktivovat obvykle více akcí.
 
+    > [!NOTE]
+    > Jako součást vývoj výstrah v Azure je k dispozici ve verzi preview v novém jednotném rozhraní. Nové prostředí výstrahy (Preview) používá jiný taxonomii. Další informace o [výstrahy (Preview)](monitoring-overview-unified-alerts.md). 
+    >
+
 ## <a name="alerts-in-different-azure-services"></a>Výstrahy v různých služeb Azure
 Výstrahy jsou k dispozici v rámci několik Azure monitorování služeb. Informace o tom, a kdy použít tyto služby [najdete v článku](./monitoring-overview.md). Zde je výčet typů výstrah dostupné přes Azure:
+
 
 | Služba | Typ výstrahy | Podporované služby | Popis |
 |---|---|---|---|
@@ -50,10 +56,10 @@ Existují tři typy výstrah z dat z Azure sledování – metriky výstrahy, t�
 * **Metriky výstrahy** – Tato výstraha aktivuje, když hodnota zadané metriky překračuje prahovou hodnotu, která přiřadíte. Výstraha vygeneruje oznámení, pokud je výstraha "aktivován" (Pokud se překročí prahovou hodnotu a je splněna podmínka výstrahy) a také při se "nevyřeší" (Pokud je znovu překročí prahovou hodnotu a již není splněna podmínka). Rostoucí seznam dostupné metriky, které podporuje Azure monitorování, naleznete v části [seznam metriky, které jsou podporovány pro monitorování Azure](monitoring-supported-metrics.md).
 * **V blízkosti metriky výstrah v reálném čase (preview)** – tyto výstrahy jsou podobné metriky oznámení, ale liší se několika způsoby. Za prvé jako název navrhuje tyto výstrahy můžete spustit v téměř v reálném čase (co nejrychlejší 1 min). Také podporují monitorování více (aktuálně dvě) metriky.  Výstraha vygeneruje oznámení, pokud je výstraha "aktivován" (Pokud se překročí mezní hodnoty pro jednotlivé metriky ve stejnou dobu a je splněna podmínka výstrahy) a také při se "nevyřeší" (pokud alespoň jedna metrika znovu protne prahovou hodnotu a je podmínka vyhodnocena jako žádné nebude splněna).
 
-> [!NOTE]
-> Téměř v reálném čase metrika výstrahy jsou aktuálně ve verzi public preview. Funkce a uživatelské prostředí je mohou podléhat změnám.
->
->
+    > [!NOTE]
+    > Téměř v reálném čase metrika výstrahy jsou aktuálně ve verzi public preview. Funkce a uživatelské prostředí je mohou podléhat změnám.
+    >
+    >
 
 * **Aktivity protokolu výstrahy** -streamování výstrahu protokolu, které spustí, když je generována událost protokol aktivit, že kritéria, které jste přiřadili filtru odpovídá. Tyto výstrahy mít pouze jeden stav "Aktivovali," vzhledem k tomu, že modul Výstrahy kritéria filtru, která jednoduše platí pro všechny nové události. Tyto výstrahy lze stát upozornění, když dojde k nový incident stav služby, nebo pokud uživatele nebo aplikace provede operaci v rámci vašeho předplatného, například "Odstranění virtuálního počítače."
 
@@ -91,3 +97,4 @@ Získání informací o pravidla výstrah a jejich konfigurací pomocí:
 * Další informace o [téměř v reálném čase metrika výstrahy](monitoring-near-real-time-metric-alerts.md)
 * Další informace o [oznámení o službách](monitoring-service-notifications.md)
 * Další informace o [skupiny akcí](monitoring-action-groups.md)
+* Konfigurace [výstrah pomocí výstrah (Preview)](monitor-alerts-unified-usage.md)

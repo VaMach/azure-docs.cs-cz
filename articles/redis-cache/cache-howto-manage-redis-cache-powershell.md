@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
 ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Spravovat mezipaměť Redis systému Azure pomocí Azure Powershellu
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ Následující tabulka obsahuje vlastnosti a popisy pro běžně používané pa
 
 | Parametr | Popis | Výchozí |
 | --- | --- | --- |
-| Name (Název) |Název mezipaměti | |
+| Název |Název mezipaměti | |
 | Umístění |Umístění mezipaměti | |
 | Název skupiny prostředků |Název skupiny prostředků, ve kterém k vytvoření mezipaměti | |
 | Velikost |Velikost mezipaměti. Platné hodnoty jsou: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1GB |

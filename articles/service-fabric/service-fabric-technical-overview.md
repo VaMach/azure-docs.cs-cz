@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 12/18/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2204fe7393cddb88c18415768a4c6f8494e83d7b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="service-fabric-terminology-overview"></a>Přehled terminologie Service Fabric
 Azure Service Fabric je platforma distribuovaných systémů usnadňující balení, nasazování a spravování škálovatelných a spolehlivých mikroslužeb. Tento článek podrobně technologiím použitým pomocí Service Fabric pochopit termínů používaných v dokumentaci.
@@ -103,7 +103,7 @@ Pro čtení [zvolte programovací model pro vaši službu](service-fabric-choose
 Další informace o Service Fabric:
 
 * [Přehled Service Fabric](service-fabric-overview.md)
-* [Proč mikroslužeb přístupu k sestavení aplikací?](service-fabric-overview-microservices.md)
+* [Proč při sestavování aplikací zvolit přístup založený na mikroslužbách?](service-fabric-overview-microservices.md)
 * [Scénáře aplikací](service-fabric-application-scenarios.md)
 
 

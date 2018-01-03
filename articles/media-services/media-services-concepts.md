@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Koncepty Azure Media Services
 Toto téma poskytuje přehled konceptů nejdůležitější Media Services.
 
-## <a id="assets"></a>Prostředky a úložiště
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Prostředky a úložiště
 ### <a name="assets"></a>Prostředky
 [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) obsahuje digitální soubory (včetně video, zvuk, obrázky, kolekci miniatur, textové stopy a soubory titulků) a metadata o těchto souborech. Po digitální soubory jsou odeslány do assetu, mohou být využívána ve službě Media Services kódování a vysílání datového proudu pracovních postupů.
 
@@ -71,7 +71,7 @@ Kontejner objektů blob zajišťuje seskupení sady objektů BLOB. Kontejnery ob
 > 
 > 
 
-### <a id="locators"></a>Lokátory
+### <a name="a-idlocatorslocators"></a><a id="locators"/>Lokátory
 [Lokátor](https://docs.microsoft.com/rest/api/media/operations/locator)s vytvořit vstupní bod pro přístup k souborům obsaženým ve prostředek. Zásady přístupu se používá k definování oprávnění a doba trvání, že má klient přístup pro daný prostředek. Lokátory může mít mnoho relací s zásady přístupu, tak, že jiný lokátory poskytnete časy různou počáteční a typy připojení různých klientů při všech pomocí stejné oprávnění a nastavení doby trvání; z důvodu omezení zásady sdíleného přístupu nastavit pomocí služby Azure storage, ale nemůže mít více než pět jedinečný lokátory spojené s danou asset najednou. 
 
 Služba Media Services podporuje dva typy lokátorů: ondemandorigin, používaný ke streamování médií (například MPEG DASH, HLS nebo technologie Smooth Streaming) nebo progresivně stahovat médií a SAS adresa URL, používá k odeslání nebo stažení média soubory to\from úložiště Azure. 
@@ -156,7 +156,7 @@ Další informace najdete v následujících článcích:
 - [Chránit pomocí PlayReady nebo Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Doručování
-### <a id="dynamic_packaging"></a>Dynamické balení
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Dynamické balení
 Při práci se službou Media Services, doporučuje se zakódovat váš soubor mezzanine soubory do sady souborů MP4 adaptivní přenosovou rychlostí a pak sadu převést na požadovaný formát pomocí [dynamické balení](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Koncový bod streamování
@@ -186,7 +186,7 @@ Progresivní stahování umožňuje spustit přehrávání média, než byl sta�
 >[!NOTE]
 >Šifrované prostředky musí dešifrovat, pokud chcete pro ně k dispozici pro progresivní stahování.
 
-Adresa URL progresivního stahování poskytují uživatelům, nejprve musíte vytvořit lokátor OnDemandOrigin. Vytvořením Lokátor, získáte základní cesta pro daný prostředek. Pak budete muset přidat název souboru MP4. Například:
+Adresa URL progresivního stahování poskytují uživatelům, nejprve musíte vytvořit lokátor OnDemandOrigin. Vytvořením Lokátor, získáte základní cesta pro daný prostředek. Pak budete muset přidat název souboru MP4. Příklad:
 
 http://amstest1.Streaming.mediaservices.Windows.NET/3c5fe676-199c-4620-9B03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.MP4
 

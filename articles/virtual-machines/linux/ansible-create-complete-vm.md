@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Vytvořte dokončení prostředí Linux virtuálního počítače v Azure s Ansible
 Ansible umožňuje automatizovat nasazení a konfigurace prostředků ve vašem prostředí. Ansible můžete použít ke správě virtuálních počítačů (VM) v Azure, stejně jako jiný prostředek. Tento článek ukazuje, jak vytvořit úplný prostředí Linux a podpůrné prostředky s Ansible. Můžete si také přečíst postup [vytvořit základní virtuální počítač s Ansible](ansible-create-vm.md).
@@ -105,7 +105,7 @@ Virtuální síťová karta (NIC) připojí k dané virtuální síti, veřejnou
 
 
 ## <a name="create-virtual-machine"></a>Vytvoření virtuálního počítače
-Posledním krokem je vytvoření virtuálního počítače a použít všechny prostředky, které jsou vytvořené. V následující části v playbook Ansible vytvoří virtuální počítač s názvem *Můjvp* a připojí virtuální síťový adaptér s názvem *myNIC*. Zadejte svoje vlastní veřejného klíče data v *key_data* spárujte následujícím způsobem:
+Posledním krokem je vytvoření virtuálního počítače a použít všechny prostředky, které jsou vytvořené. V následující části v playbook Ansible vytvoří virtuální počítač s názvem *Můjvp* a připojí virtuální síťový adaptér s názvem *myNIC*. Zadejte svoje vlastní dokončení veřejného klíče data v *key_data* spárujte následujícím způsobem:
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ Posledním krokem je vytvoření virtuálního počítače a použít všechny p
 ```
 
 ## <a name="complete-ansible-playbook"></a>Dokončení Ansible playbook
-Tyto části sdružujícího vytvořit Ansible playbook s názvem *azure_create_complete_vm.yml* a vložte následující obsah:
+Tyto části sdružujícího vytvořit Ansible playbook s názvem *azure_create_complete_vm.yml* a vložte následující obsah. Zadejte svoje vlastní dokončení veřejného klíče data v *key_data* pár:
 
 ```yaml
 - name: Create Azure VM

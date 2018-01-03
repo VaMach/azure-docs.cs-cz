@@ -4,7 +4,7 @@ description: "Informace o postupu přidání virtuální sítě do stávající 
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: negat
-ms.openlocfilehash: 28117d467b491704aed8d45e5eba42530579dfa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb35975de5864e129f97b614a61487456dd972ef
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Přidat odkaz na existující virtuální síť v šablonu sady Azure škálování
 
@@ -27,9 +27,9 @@ Tento článek ukazuje, jak upravit [minimální přijatelná měřítko nastavi
 
 ## <a name="change-the-template-definition"></a>Změna definice šablony
 
-Nakonfigurujte šablonu naše minimální přijatelná škálování si můžete prohlédnout [sem](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), a naše šablony pro nasazení do existující virtuální síť sad škálování si můžete prohlédnout [zde](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Podívejme se na rozdílové použít k vytvoření této šablony (`git diff minimum-viable-scale-set existing-vnet`) část podle část:
+Nakonfigurujte šablonu minimální přijatelná škálování si můžete prohlédnout [sem](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), a šablona pro nasazování sad do existující virtuální síť škálování si můžete prohlédnout [zde](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Podívejme se na rozdílové použít k vytvoření této šablony (`git diff minimum-viable-scale-set existing-vnet`) část podle část:
 
-Nejprve přidáme `subnetId` parametr. Tento řetězec se předají do konfigurace sady škálování, povolení k identifikaci předem vytvořené podsítě k nasazení virtuálních počítačů do sad škálování. Tento řetězec musí být ve tvaru: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Například nasazení měřítka nastavení do existující virtuální síť s názvem `myvnet`, podsíť `mysubnet`, skupinu prostředků `myrg`a předplatné `00000000-0000-0000-0000-000000000000`, by subnetId: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Nejprve přidejte `subnetId` parametr. Tento řetězec je předán do konfigurace sady škálování, povolení k identifikaci předem vytvořené podsítě k nasazení virtuálních počítačů do sad škálování. Tento řetězec musí být ve tvaru: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Například nasazení měřítka nastavení do existující virtuální síť s názvem `myvnet`, podsíť `mysubnet`, skupinu prostředků `myrg`a předplatné `00000000-0000-0000-0000-000000000000`, by subnetId: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -42,7 +42,7 @@ Nejprve přidáme `subnetId` parametr. Tento řetězec se předají do konfigura
    },
 ```
 
-V dalším kroku jsme odstranit virtuální síť prostředek z `resources` pole, protože jsme se použití existující virtuální sítě a není nutné nasazovat nové.
+V dalším kroku odstranit virtuální síť prostředek z `resources` pole, jak můžete použít existující virtuální síť a není nutné nasazovat nové.
 
 ```diff
    "variables": {},
@@ -70,7 +70,7 @@ V dalším kroku jsme odstranit virtuální síť prostředek z `resources` pole
 -    },
 ```
 
-Virtuální sítě už existuje před nasazením šablony, takže není nutné specifikovat klauzuli dependsOn od stupnice nastavit do virtuální sítě. Proto jsme odstranit tyto řádky:
+Virtuální sítě už existuje před nasazením šablony, takže není nutné specifikovat klauzuli dependsOn od stupnice nastavit do virtuální sítě. Odstraňte následující řádky:
 
 ```diff
      {
@@ -86,7 +86,7 @@ Virtuální sítě už existuje před nasazením šablony, takže není nutné s
          "capacity": 2
 ```
 
-Nakonec jsme předávat `subnetId` parametr nastavený uživatelem (místo použití `resourceId` získat id virtuální sítě v jednom nasazení, který je co minimální přijatelná měřítko nastavit šablonu nemá).
+Nakonec předávat `subnetId` parametr nastavený uživatelem (místo použití `resourceId` získat ID virtuální sítě v jednom nasazení, který je co minimální přijatelná měřítko nastavit šablonu nemá).
 
 ```diff
                        "name": "myIpConfig",

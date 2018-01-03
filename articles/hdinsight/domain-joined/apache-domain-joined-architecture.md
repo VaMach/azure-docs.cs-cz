@@ -14,73 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 12/14/2017
 ms.author: saurinsh
-ms.openlocfilehash: 9deb5e4dbd925c4fdc523d8d21afbcfbf85947b8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: eca019fa5e7866ed6281e8cfee105ba1d99249bc
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Plánování clusterů Azure Hadoop připojených k doméně ve službě HDInsight
 
-Tradiční Hadoop je jednouživatelský cluster. Je vhodný pro většinu společností, které mají menší aplikační týmy sestavující úlohy velkých objemů dat. Jak Hadoop získává na oblíbenosti, mnoho podniků přechází k modelu, kdy clustery spravují IT týmy a sdílí je několik aplikačních týmů. Proto jsou funkce zahrnující víceuživatelské clustery mezi nejžádanějšími funkcemi ve službě Azure HDInsight.
+Standardní clusteru HDInsight je cluster s jedním uživatelem. Je vhodný pro většinu společností, které mají menší aplikační týmy sestavující úlohy velkých objemů dat. Jako Hadoop získávají oblíbenosti, spustit mnoho podniků přesouvá směrem k model, při kterém clustery spravují IT týmy a více aplikací týmy clustery sdílené složky. Proto jsou funkce zahrnující víceuživatelské clustery mezi nejžádanějšími funkcemi ve službě Azure HDInsight.
 
-Místo vytváření vlastní víceuživatelská ověřování a autorizaci, HDInsight využívá nejoblíbenější zprostředkovatele identity – Active Directory (AD). Funkci efektivní zabezpečení ve službě Active Directory lze použít ke správě více uživatelů autorizace v HDInsight. Integrací HDInsight s AD může komunikovat s clustery pomocí svých přihlašovacích údajů AD. HDInsight mapuje Active Directory na místní uživatel Hadoop, takže všechny služby spuštěné v HDInsight (Ambari, Hive serveru škálu, Spark thrift serveru a dalších) pracovní bezproblémově pro ověřené uživatele.
+Místo vytváření vlastní víceuživatelská ověřování a autorizaci, HDInsight využívá nejoblíbenější zprostředkovatele identity – Active Directory (AD). Funkci efektivní zabezpečení ve službě Active Directory lze použít ke správě více uživatelů ověřování v HDInsight. Integrací HDInsight s AD může komunikovat s clustery pomocí svých přihlašovacích údajů AD. Virtuální počítače v prostředí HDInsight jsou připojené k doméně do služby AD, a jak HDInsight mapuje Active Directory na místní uživatel Hadoop, takže všechny služby spuštěné v HDInsight (Ambari, Hive serveru škálu, Spark thrift serveru a dalších) pracovní bezproblémově pro ověřené uživatele. Správce potom můžete vytvořit zásady silné autorizace pomocí Apache škálu k poskytování řízení přístupu na základě rolí pro prostředky v HDInsight.
+
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrace služby HDInsight s Active Directory
 
-Pokud integrujete HDInsight se službou Active Directory, jsou uzly clusteru HDInsight domény připojený k doméně AD. HDInsight vytvoří objekty služby pro služby Hadoop běžící v clusteru a umístí se do zadané organizační jednotce (OU) v doméně. HDInsight vytvoří také zpětné mapování DNS v doméně pro IP adresy uzly, které jsou připojené k doméně.
+Při integraci HDInsight se službou Active Directory, jsou uzly clusteru HDInsight domény připojený k doméně AD. Zabezpečení protokolu Kerberos je nakonfigurován pro součásti nástroje Hadoop v clusteru. Pro všechny komponenty Hadoop je vytvořen objekt služby na službě Active Directory. Hlavní počítač s odpovídající se také vytvoří pro každý počítač, který je připojený k doméně. Tyto objekty služby a objekty počítače můžete zbytečných souborů služby Active Directory. V důsledku toho je třeba zajistit organizační jednotce (OU) v rámci služby Active Directory, kde jsou umístěny těchto objektů. 
 
-Existují dvě možnosti nasazení pro službu Active Directory:
-* **[Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md):** tato služba poskytuje spravované doméně služby Active Directory, která je plně kompatibilní s Windows Server Active Directory. Microsoft má na starosti správu, opravy a monitorování doméně AD. Cluster můžete nasadit bez starostí o správu řadičů domény. Uživatelé, skupiny a hesla se synchronizují ze služby Azure Active Directory, uživatelům se přihlásit ke clusteru pomocí své podnikové přihlašovací údaje.
+To Shrneme, je nutné nastavit prostředí s:
 
-* **Doménu služby Active Directory pro Windows Server na virtuálních počítačích Azure IaaS:** tuto možnost, můžete nasadit a spravovat vlastní domény Windows Server Active Directory na virtuálních počítačích Azure IaaS. 
+- Řadič domény služby Active Directory s LDAPS nakonfigurované.
+- Připojení z virtuální sítě na HDInsight k řadiči domény služby Active Directory.
+- Na službě Active Directory vytvořit organizační jednotku.
+- Účet služby, který má oprávnění pro:
 
-Tohoto uspořádání můžete docílit pomocí několika architektur. Můžete si vybrat z následujících architektur.
+    - Vytvořte objekty služby v organizační jednotce.
+    - Připojení počítače k doméně a vytvořit objekty počítače v organizační jednotce.
 
+Následující snímek obrazovky ukazuje organizační jednotce vytvořené v doméně contoso.com. Některé objekty služby a objekty počítače se zobrazí také na snímku obrazovky.
 
-### <a name="hdinsight-integrated-with-an-azure-ad-domain-services-managed-ad-domain"></a>HDInsight integrované s Azure AD Domain Services spravované domény služby AD
-Můžete nasadit [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS) spravované domény. Azure AD DS poskytuje spravované doméně AD v Azure, což je spravovat, aktualizovat a monitorovat společností Microsoft. Vytvoří dva řadiče domény pro zajištění vysoké dostupnosti a zahrnuje služby DNS. Potom může HDInsight cluster integrovat této spravované domény. Tato možnost nasazení není potřeba starat o správu, opravy, aktualizace a monitorování řadičů domény.
+![Organizační jednotky clusterů HDInsight připojené k doméně](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-![Topologie clusteru HDInsight připojeného k doméně](./media/apache-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
+### <a name="three-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Tři způsoby uvedení vlastní řadiče domény služby Active Directory
 
-Předpoklady pro integraci s Azure AD Domain Services:
+Existují tři způsoby, můžete zahrnout řadiče domény služby Active Directory k vytvoření clusterů HDInsight připojený k doméně. 
 
-* [Zřídit Azure AD Domain Services spravované domény](../../active-directory-domain-services/active-directory-ds-getting-started.md).
-* Vytvoření [organizační jednotky](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md), ve kterém umístit cluster HDInsight virtuální počítače a objekty služby používaný v clusteru.
-* Instalační program [LDAPS](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md), při konfiguraci služby Azure AD DS. Certifikát použitý k nastavení LDAPS musí být vydaný z veřejné certifikační autority (není certifikát podepsaný svým držitelem).
-* Vytvořte zpětné zóny DNS na spravované doméně pro rozsah IP adres podsítě HDInsight (například 10.2.0.0/24 na předchozím obrázku).
-* Konfigurace [synchronizace hodnot hash hesel, které jsou požadované pro ověřování NTLM a Kerberos](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) z Azure AD k spravované doméně služby Azure AD DS.
-* Je potřeba účet služby nebo účet uživatele. Pomocí tohoto účtu vytvoříte cluster HDInsight. Tento účet musí mít následující oprávnění:
+- **Azure Active Directory Domain Services**: Tato služba poskytuje spravované doméně služby Active Directory, která je plně kompatibilní s Windows Server Active Directory. Microsoft má na starosti správu, opravy a monitorování doméně AD. Cluster můžete nasadit bez starostí o správu řadičů domény. Uživatelé, skupiny a hesla se synchronizují ze služby Azure Active Directory, uživatelé budou moct přihlásit ke clusteru pomocí své podnikové přihlašovací údaje. Další informace najdete v tématu [clusterů HDInsight připojený k doméně nakonfigurovat pomocí Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
-    - Oprávnění k vytvoření instančních objektů a objektů počítačů v rámci organizační jednotky
-    - Oprávnění k vytvoření pravidel reverzního proxy serveru DNS
-    - Oprávnění k připojení počítačů k doméně služby Azure AD
+- **Služba Active Directory v virtuální počítače Azure IaaS**: tuto možnost, můžete nasadit a spravovat vlastní domény Windows Server Active Directory na virtuálních počítačích Azure IaaS. Další informace najdete v tématu [konfigurace domény připojené k izolovanému prostoru prostředí](./apache-domain-joined-configure.md).
 
-
-### <a name="hdinsight-integrated-with-windows-server-ad-running-on-azure-iaas"></a>Integrované HDInsight se systémem Windows Server AD systémem Azure IaaS
-
-Můžete nasadit roli systému Windows Server Active Directory Domain Services na jednu (nebo víc) virtuálních počítačů (VM) v Azure a mají být řadiče domény povýšit. Tyto virtuální počítače řadiče domény se dá nasadit pomocí modelu nasazení resource manager do stejné virtuální síti jako HDInsight cluster. Pokud řadiče domény jsou nasazeny do jinou virtuální síť, budete muset peer tyto virtuální sítě pomocí [VNet-to-VNet peering](../../virtual-network/virtual-network-create-peering.md). 
-
-[Další informace - nasazení systému Windows Server Active Directory na virtuálních počítačích Azure](../../active-directory/virtual-networks-windows-server-active-directory-virtual-machines.md)
-
-![Topologie clusteru HDInsight připojeného k doméně](./media/apache-domain-joined-architecture/hdinsight-domain-joined-architecture_1.png)
-
-> [!NOTE]
-> V této architektuře nemůžete použít Azure Data Lake Store s clusterem HDInsight.
-
-
-Předpoklady pro integraci s Windows Server Active Directory na virtuálních počítačích Azure:
-
-* Musí být vytvořená [organizační jednotka](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md), ve které umístíte virtuální počítače clusteru HDInsight a instanční objekty používané clusterem.
-* [Protokoly přístup Lightweight Directory](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAPs) musí být nastavení pro komunikaci se službou AD. Certifikát použitý k nastavení protokolu LDAPS musí být skutečný certifikát (ne certifikát podepsaný svým držitelem).
-* V doméně musí být vytvořené reverzní zóny DNS pro rozsah IP adres podsítě HDInsight (například 10.2.0.0/24 na předchozím obrázku).
-* Je potřeba účet služby nebo účet uživatele. Pomocí tohoto účtu vytvoříte cluster HDInsight. Tento účet musí mít následující oprávnění:
-
-    - Oprávnění k vytvoření instančních objektů a objektů počítačů v rámci organizační jednotky
-    - Oprávnění k vytvoření pravidel reverzního proxy serveru DNS
-    - Oprávnění k připojení počítačů k doméně služby Active Directory
+- **Místní služby Active Directory**: tuto možnost integrovat HDInsight s řadiči domény služby Active Directory v místě.
 
 
 ## <a name="next-steps"></a>Další kroky

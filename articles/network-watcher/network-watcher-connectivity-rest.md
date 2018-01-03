@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
 ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Zkontrolujte připojení s sledovací proces sítě Azure pomocí portálu Azure
 
@@ -112,7 +112,7 @@ Z výstupu v následujícím ID virtuálního počítače se používá v násle
 
 Tento příklad zkontroluje připojení k cílovému virtuálnímu počítači přes port 80.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -228,7 +228,7 @@ Následující odpověď je z předchozího příkladu.  V této odpovědi `Conn
 
 V příkladu ověří připojení mezi virtuálním počítačem a vzdálený koncový bod.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -324,7 +324,7 @@ V následujícím příkladu `connectionStatus` se zobrazí jako **Unreachable**
 
 Následující příklad zkontroluje připojení k webu.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -411,7 +411,7 @@ V následující odpověď, se zobrazí `connectionStatus` zobrazuje jako **dost
 
 Následující příklad ověří připojení z virtuálního počítače k účtu úložiště blogu.
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"

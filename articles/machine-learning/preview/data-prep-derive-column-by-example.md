@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="derive-column-by-example-transformation"></a>Odvození sloupec podle příkladu transformace
 
@@ -148,7 +148,7 @@ Počet příklady, které byly požadované pro tento případ: 1
 |Dana Marie|W|Petr|Dana Marie· W· Petr|
 |Portoriku||Ropp|Rico·· Ropp|
 |Může Lauren||Fullmer|Lauren May·· Fullmer|
-|Matolin|T|Maine|Marc· T· Maine|
+|Matolin|út|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie·· Adelman|
 |Jan Paul||Smith|Jan Paul·· Smith|
 |Skladbu|W|Staller|Song· W· Staller|
@@ -159,7 +159,7 @@ Počet příklady, které byly požadované pro tento případ: 1
 
 Počet příklady, které byly požadované pro tento případ: 2
 
-|Úplný název|Výstup|
+|Celý název|Výstup|
 |:-----|:-----|
 |Laquanda Lohmann|**L.L.**|
 |Claudio Chew|C.C.|
@@ -184,14 +184,14 @@ Počet příklady, které byly požadované pro tento případ: 3
 
 |Správce pohlaví|Výstup|
 |:-----|:-----:|
-|muže|**0**|
+|Muž|**0**|
 |Žena|**1**|
-|Neznámý|**2**|
+|Neznámé|**2**|
 |Žena|1|
 |Žena|1|
-|muže|0|
-|Neznámý|2|
-|muže|0|
+|Muž|0|
+|Neznámé|2|
+|Muž|0|
 |Žena|1|
 
 ## <a name="examples-of-number-transformations-by-example"></a>Příklady číslo transformací příklad
@@ -286,7 +286,7 @@ Počet příklady, které byly požadované pro tento případ: 1
 
 Tyto části datum byly extrahovat pomocí různých podle příkladu transformace na stejné datové sady. Tučné řetězce představují příklady, které byly zadány v jejich odpovídajících transformaci.
 
-|Data a času|den v týdnu|Datum|Měsíc|Rok|Hodina|Minuta|Sekundu|
+|Datum a čas|den v týdnu|Datum|Měsíc|Rok|Hodina|Minuta|Sekundu|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31. ledna 2031 05:54:18|**Pátek**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17. ledna 1990 13:32:01|St|17|Jan|1990|13|32|01|
@@ -303,7 +303,7 @@ Tyto části datum byly extrahovat pomocí různých podle příkladu transforma
 |28. listopadu 2006 14:19:15|Út|28|Listopadu|2006|14|19|15|
 |29. dubna 2031 04:59:45|Út|29|Dubna|2031|4|59|45|
 |. 2032 29 ledna 02:38:36|Thu|29|Jan|2032|2|38|36|
-|11. pravděpodobně 2028 15:31:52|Thu|11|Může|2028|15|31|52|
+|11. pravděpodobně 2028 15:31:52|Thu|11|květen|2028|15|31|52|
 |15. července 1977 12:45:39|Pátek|15|Července|1977|12|45|39|
 |27. ledna 2029 05:55:41|Ne|27|Jan|2029|5|55|41|
 |03. března 2024 10:17:49|Sun|3|Března|2024|10|17|49|
@@ -313,7 +313,7 @@ Tyto části datum byly extrahovat pomocí různých podle příkladu transforma
 
 Tato data formattings měla provést pomocí různých podle příkladu transformace na stejné datové sady. Tučné řetězce představují příklady, které byly zadány v jejich odpovídajících transformaci.
 
-|Data a času|Format1|Format2|Format3|Format4|Format5|
+|Datum a čas|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31. ledna 2031 05:54:18|**1/31/2031**|**Pátek 31. ledna 2031**|**01312031 5:54**|**31/1/2031 5:54:00**|**OTÁZKA Č. 1 2031**|
 |17. ledna 1990 13:32:01|1/17/1990|Středa 17. ledna 1990|01171990 13:32|17 1 1990:32 13: 00|OTÁZKA Č. 1 1990|
@@ -341,7 +341,7 @@ Tato data formattings měla provést pomocí různých podle příkladu transfor
 
 Tato data a času na období mapování se provádí pomocí různých podle příkladu transformace na stejné datové sady. Tučné řetězce představují příklady, které byly zadány v jejich odpovídajících transformaci.
 
-|Data a času|Period(seconds)|Period(minutes)|Období (dvě hodiny)|Období (30 minut)|
+|Datum a čas|Period(seconds)|Period(minutes)|Období (dvě hodiny)|Období (30 minut)|
 |-----:|-----:|-----:|-----:|-----:|
 |31. ledna 2031 05:54:18|**0-20**|**45-60**|**5: 00 - 7: 00**|**5:30-6:00**|
 |17. ledna 1990 13:32:01|**0-20**|30-45|13: 00 – 15: 00|13:30-14:00|
@@ -369,7 +369,7 @@ Tato data a času na období mapování se provádí pomocí různých podle př
 |tripduration|čas spuštění|spustit s id stanice|Spustit zeměpisnou šířku stanice|Spustit zeměpisnou délku stanice|usertype|Sloupec|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |61|2016-01-08 16:09:32|107|42.3625|-71.08822|Odběratel|**Odběratel zachyceny kolo z stanice 107, lat/dlouhé (42.363,-71.088), 08 ledna 2016 na zhruba 16: 00. Doba trvání cesty byl 61 minut**|
-|61|2016-01-17 09:28:10|74|42.373268|-71.118579|Zákazníka|Zákazník zachyceny kolo z stanice 74, lat/dlouhé (42.373,-71.119), 17. ledna 2016 na přibližně 9: 00. Doba trvání cesty byl 61 minut|
+|61|2016-01-17 09:28:10|74|42.373268|-71.118579|Zákazník|Zákazník zachyceny kolo z stanice 74, lat/dlouhé (42.373,-71.119), 17. ledna 2016 na přibližně 9: 00. Doba trvání cesty byl 61 minut|
 |62|2016-01-25 08:10:26|176|42.386748020450561|-71.119018793106079|Odběratel|Odběratel zachyceny kolo z stanice 176, lat/dlouhé (42.387,-71.119), 25 ledna 2016 na přibližně 8: 00. Doba trvání cesty byl 62 minut|
 |63|2016-01-08 10:10:29|107|42.3625|-71.08822|Odběratel|Odběratel zachyceny kolo z stanice 107, lat/dlouhé (42.363,-71.088), 08 ledna 2016 na přibližně 10 AM. Doba trvání cesty byl 63 minut|
 |64|2016-01-15 19:42:08|68|42.36507|-71.1031|Odběratel|Odběratel zachyceny kolo z stanice 68, lat/dlouhé (42.365,-71.103), 15 ledna 2016 na přibližně 19: 00. Doba trvání cesty byl 64 minut|

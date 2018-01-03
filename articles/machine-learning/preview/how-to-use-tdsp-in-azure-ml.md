@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Struktura projektů pomocí šablony procesu Team dat vědecké účely
 
 Tento dokument obsahuje pokyny k vytváření projektů vědecké účely dat v Azure Machine Learning s šablonami tým datové vědy procesu (TDSP). Tyto šablony přispívají k struktura projekty pro spolupráci a reprodukovatelnosti. 
 
 
-## <a name="what-is-the-team-data-science-process"></a>Co je proces vědecké účely Team dat?
+## <a name="what-is-the-team-data-science-process"></a>Co je vědecké zpracování týmových dat?
 TDSP je proces vědecké účely agilní, iterativní, data pro spouštění a doručování pokročilou analýzu řešení. Je určený ke zlepšení spolupráce a efektivitu datové vědy týmy v podnikových organizací. Podporuje těchto cílů s čtyři klíčové komponenty:
 
    * Standardní [datové vědy cyklu](../team-data-science-process/lifecycle.md) definice.

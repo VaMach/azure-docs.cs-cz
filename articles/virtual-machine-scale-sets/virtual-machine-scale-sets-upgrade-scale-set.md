@@ -3,8 +3,8 @@ title: "Upgrade sadu škálování virtuálního počítače Azure | Microsoft D
 description: "Upgrade sadu škálování virtuálního počítače Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: guybo
-ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: gunegatybo
+ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Upgradovat škálovací sadu virtuálních počítačů
 Tento článek popisuje, jak můžete zavádět aktualizaci operačního systému na virtuální počítač Azure měřítko nastavit bez odstávky. V tomto kontextu aktualizaci operačního systému zahrnuje změna verze nebo skladová položka operačního systému nebo změna identifikátoru URI vlastní image. Aktualizace bez výpadku prostředků aktualizace virtuálních počítačů najednou, nebo ve skupinách (například jeden doména selhání najednou) namísto všechny najednou. Díky tomu můžete spouštět všechny virtuální počítače, které nejsou probíhá upgrade.
@@ -31,7 +31,7 @@ Aby se zabránilo nejednoznačnosti, umožňuje rozlišit čtyři typy aktualiza
 * Změna referenční bitové kopie sady škálování, která byla vytvořena pomocí Azure spravované disky.
 * Opravy operačního systému z virtuálního počítače (to příklady instalace opravy zabezpečení a spuštění služby Windows Update). Tento scénář je podporují, ale nejsou zahrnuté v tomto článku.
 
-Sady škálování virtuálního počítače, které jsou nasazeny jako součást [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) clusteru nejsou popsané v tomto poli. V tématu [opravy operačního systému Windows v clusteru Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application) Další informace o použití dílčích oprav Service Fabric.
+Sady škálování virtuálního počítače, které jsou nasazeny jako součást [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) clusteru nejsou popsané v tomto poli. Další informace o použití dílčích oprav Service Fabric najdete v tématu [opravy operačního systému Windows v clusteru Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
 
 Změna verze nebo SKU operačního systému z image platformy nebo identifikátor URI vlastní image základní pořadí vypadá takto:
 
@@ -64,14 +64,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-Při aktualizaci identifikátor URI pro vlastní image místo změna image verze platformy, nahraďte "nastavena na novou verzi" řádku příkaz, který se bude aktualizovat zdrojové bitové kopie identifikátor URI. Například pokud byly sadou škálování byl vytvořen bez použití Azure spravované disky, aktualizace bude vypadat takto:
+Při aktualizaci identifikátor URI pro vlastní image místo změna image verze platformy, nahraďte "nastavena na novou verzi" řádku příkaz, který aktualizuje zdrojové bitové kopie identifikátor URI. Například pokud byly sadou škálování byl vytvořen bez použití Azure spravované disky, aktualizace bude vypadat takto:
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-Pokud vlastní image na základě škálovací sadu byl vytvořen pomocí spravované disky Azure, pak by aktualizovat odkaz na obrázek. Například:
+Pokud sadu vlastní měřítko pomocí bitové kopie byl vytvořen pomocí Azure spravované disků, by aktualizovat odkaz na obrázek. Příklad:
 
 ```powershell
 # set the new version in the model data

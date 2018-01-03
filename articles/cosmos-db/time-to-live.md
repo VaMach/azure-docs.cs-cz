@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Vypršení platnosti dat v kolekcích Azure Cosmos DB automaticky s Hodnota time to live
 Aplikace můžete vytvářet a ukládat velká množství dat. Některé z těchto dat, jako například počítač generuje data, protokoly a uživatelské relace události, které informace jsou užitečné pouze omezenou dobu. Jakmile se změní na data přebytečných potřebám aplikace je bezpečné mazání tato data a snížit požadavkům na ukládání aplikace.
@@ -149,8 +149,11 @@ Měla by být odstraněna zakázat TTL zcela na kolekci a ukončit proces na poz
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
-## <a name="ttl-and-index-interaction"></a>Interakce TTL a Index.
-Hodnota TTL přidání nebo změna je ke změně základní index. Pokud není žádná hodnota TTL a zadejte platnou hodnotu TTL - výsledkem operace opakovaného indexování. Pro konzistentní Index - uživatel neuvidí žádné změny ve stavu indexu. V případě, že opožděné indexu – index první řadě je vždy zachytávání nahoru a tato změna v ttl, index znovu od začátku. Dopad v druhém případě je, že dotazy během sestavení indexu nevrátí úplné nebo správné výsledky. Neměňte TTL pro opožděné index pokud potřebují přesnou počet datových atd jako je opožděné indexování režimu sám sebe.  V ideálním případě by měla být vždy zvolena konzistentní index. 
+<a id="ttl-and-index-interaction"></a> 
+## <a name="ttl-and-index-interaction"></a>Interakce TTL a index.
+Přidání nebo změna nastavení TTL na kolekci změní základní index. Pokud hodnota TTL se změní z vypnout na On, je přeindexovány kolekce. Při provádění změn zásady indexování při konzistentní indexování režimu, nebudou uživatelé Všimněte si ke změně indexu. Pokud indexování režimu je nastavena na opožděné index je vždy zachytávání a dojde ke změně hodnota TTL, je index znovu od začátku. Když se změní hodnota TTL a index režim je nastaven na opožděné, dotazy, provádí při opětovném sestavení indexu nevrátí úplné nebo správné výsledky.
+
+Pokud potřebujete přesná data vrácená, neměňte hodnotu TTL, pokud indexování režim je nastaven na opožděné. V ideálním případě je třeba zvolit konzistentní index zajistit konzistentní dotazu výsledky. 
 
 ## <a name="faq"></a>Nejčastější dotazy
 **Co se TTL náklady mi?**

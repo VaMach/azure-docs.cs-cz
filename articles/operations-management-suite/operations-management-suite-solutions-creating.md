@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ea959f1e95ea46c07eec3afa9d46bfeb72ca3e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Návrh a vytvoření řešení správy v Operations Management Suite (OMS) (Preview)
 > [!NOTE]
@@ -37,7 +37,7 @@ Základní strategie je spustit řešení pro správu podle budovy jednotlivých
 ## <a name="design-your-solution"></a>Navrhněte svoje řešení
 Nejběžnější vzor jako řešení pro správu je znázorněno v následujícím diagramu.  Různé součásti v tomto vzoru se zabývá níže.
 
-![Přehled řešení OMS](media/operations-management-suite-solutions/solution-overview.png)
+![Přehled řešení OMS](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Zdroje dat

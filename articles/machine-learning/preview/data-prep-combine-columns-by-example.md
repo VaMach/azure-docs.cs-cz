@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="combine-columns-by-example-transformation"></a>Sloučení sloupců podle příkladu transformace
 Tato transformace umožňuje uživateli přidat nový sloupec kombinací hodnoty z více sloupců. Uživatele můžete určit oddělovač nebo příklady kombinované hodnoty k provedení této transformace. Když uživatel obsahuje příklady kombinaci, transformaci používá stejný **podle příkladu** modul, který se používá v **odvozena sloupec podle příkladu** transformace.

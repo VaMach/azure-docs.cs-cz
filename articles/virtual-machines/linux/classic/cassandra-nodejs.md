@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d552ae8593773fbf17cd19344f1ddb4d3a49fba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Spusťte Cassandra clusteru v systému Linux v Azure pomocí Node.js
 
@@ -27,14 +27,14 @@ ms.lasthandoff: 12/11/2017
 > Azure má dva různé modely nasazení pro vytváření a práci s prostředky: [Resource Manager a klasický](../../../resource-manager-deployment-model.md). Tento článek se zabývá pomocí modelu nasazení Classic. Microsoft doporučuje, aby byl ve většině nových nasazení použit model Resource Manager. Zobrazit šablony Resource Manageru pro [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) a [Spark clusteru a Cassandra na CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## <a name="overview"></a>Přehled
-Microsoft Azure je platforma otevřete cloudu, která spouští obou Microsoft jako i v jiných společností než Microsoft software, který zahrnuje operační systémy, aplikační servery, zasílání zpráv middleware, jakož i databází SQL a NoSQL z obou modelů komerční s otevřeným zdrojem. Vytváření odolné služeb na veřejných cloudů, včetně Azure vyžaduje pečlivé plánování a architektura záměrné pro oba servery aplikace jako dobře úložiště vrstvy. Architektura distribuovaného úložiště pro Cassandra přirozeně pomáhá při vytváření vysoce dostupných systémy, které jsou odolné proti chybám pro selhání clusteru. Cassandra je cloudové škálování databáze NoSQL udržovat Apache Software Foundation cassandra.apache.org; Cassandra je napsán v jazyce Java a proto běží na obou v systému Windows a Linux platformy.
+Microsoft Azure je platforma otevřete cloudu, která spouští společnosti Microsoft a jiných společností než Microsoft software, který zahrnuje operační systémy, aplikační servery, zasílání zpráv middleware, jakož i databází SQL a NoSQL z obou modelů komerční s otevřeným zdrojem. Vytváření odolné služeb na veřejných cloudů, včetně Azure vyžaduje pečlivé plánování a architektura záměrné pro oba servery aplikace jako dobře úložiště vrstvy. Architektura distribuovaného úložiště pro Cassandra přirozeně pomáhá při vytváření vysoce dostupných systémy, které jsou odolné proti chybám pro selhání clusteru. Cassandra je cloudové škálování databáze NoSQL udržovat Apache Software Foundation cassandra.apache.org. Cassandra je napsán v jazyce Java. Proto běží na obou na platformách systému Windows a Linux.
 
-Cílem tohoto článku je zobrazit Cassandra nasazení na Ubuntu jako cluster s podporou jeden a více data center využívat virtuální počítače Microsoft Azure a virtuální sítě. Nasazení clusteru pro úlohy v produkčním prostředí optimalizované je mimo rámec tohoto článku jako vyžaduje konfigurace uzlu více disku, příslušné kruhová topologie návrh a modelování na podporu potřebné replikace, konzistenci dat, propustnosti a vysokou dat požadavky na dostupnosti.
+Cílem tohoto článku je zobrazit Cassandra nasazení na Ubuntu jako jeden a více data center clusteru, který používá virtuálních počítačích Azure a virtuální sítě. Nasazení clusteru pro úlohy v produkčním prostředí optimalizované je mimo rámec tohoto článku jako vyžaduje konfigurace uzlu více disku, příslušné kruhová topologie návrh a modelování na podporu potřebné replikace, konzistenci dat, propustnosti a vysokou dat požadavky na dostupnosti.
 
 Tento článek má základní přístup, zobrazit, co je součástí vytváření clusteru Cassandra porovná Docker, Chef nebo Puppet, které můžete provést nasazení infrastruktury bylo mnohem snazší.  
 
 ## <a name="the-deployment-models"></a>Modely nasazení
-Microsoft Azure sítě umožňuje nasazení izolované privátní clusterů přístupu, které může být s omezeným přístupem, aby bylo možné zabezpečení podrobné sítě.  Vzhledem k tomu, že tento článek se týká zobrazující Cassandra nasazení na základní úrovni, zaměříme nebude na úroveň konzistence a návrh úložiště optimální propustnosti. Tady je seznam sítí požadavky pro naše hypotetický clusteru:
+Microsoft Azure sítě umožňuje nasazení izolované privátní clusterů přístupu, které může být s omezeným přístupem, aby bylo možné zabezpečení podrobné sítě.  Vzhledem k tomu, že tento článek se týká zobrazující Cassandra nasazení na základní úrovni, není soustředí na úroveň konzistence a návrh úložiště optimální propustnosti. Tady je seznam sítí požadavky pro hypotetické clusteru:
 
 * Externí systémy nelze získat přístup k Cassandra databáze z uvnitř nebo vně Azure
 * Cassandra clusteru musí být za službou Vyrovnávání zatížení pro provoz thrift
@@ -43,12 +43,12 @@ Microsoft Azure sítě umožňuje nasazení izolované privátní clusterů př�
 * Žádné veřejné sítě koncové body než SSH
 * Každý uzel Cassandra musí pevnou interní IP adresu
 
-Cassandra lze nasadit do jedné oblasti Azure nebo do několika oblastí podle distribuovaná povaha zatížení. Modelu nasazení s více oblasti můžete využít k obsluze koncovým uživatelům blíže konkrétní geografický prostřednictvím stejné infrastruktury, Cassandra. Cassandra pro předdefinovaný uzel replikace trvá stará se o synchronizaci s více hlavní zapíše pocházející z několika datových centrech a představuje konzistentní zobrazení dat do aplikace. Nasazení s více oblast může také pomoci s zmírnění rizik širší výpadků služby Azure. Přizpůsobitelné konzistence na Cassandra a replikační topologie usnadní pokrývat různých plánovaný bod obnovení z aplikace.
+Cassandra lze nasadit do jedné oblasti Azure nebo do několika oblastí podle distribuovaná povaha zatížení. Model nasazení s více oblasti můžete použít k obsluze koncovým uživatelům blíže konkrétní geografický prostřednictvím stejné infrastruktury, Cassandra. Cassandra pro předdefinovaný uzel replikace trvá stará se o synchronizaci s více hlavní zapíše pocházející z několika datových centrech a představuje konzistentní zobrazení dat do aplikace. Nasazení s více oblast může také pomoci s zmírnění rizik širší výpadků služby Azure. Na Cassandra přizpůsobitelné konzistence a replikační topologie pomáhá pokrývat různých plánovaný bod obnovení z aplikace.
 
 ### <a name="single-region-deployment"></a>Nasazení jedné oblasti
-Jsme bude začínat nasazení jedné oblasti a shromažďovat learnings při vytváření více oblast modelu. Azure virtuální sítě se použije pro vytvoření izolované podsítí tak, aby lze splnit požadavky na zabezpečení sítě uvedených výše.  Proces popsaný v vytvořením nasazení jedné oblasti používá Ubuntu 14.04 LTS a Cassandra 2.08; proces však můžete snadno přijímají na jiné Linux varianty. Následují některé systémové charakteristiky nasazení jedné oblasti.  
+Pojďme začínat nasazení jedné oblasti a shromažďovat learnings při vytváření více oblast modelu. Azure virtuální síť se používá k vytvoření izolované podsítě tak, aby lze splnit požadavky na zabezpečení sítě uvedených výše.  Proces popsaný v vytvořením nasazení jedné oblasti používá Ubuntu 14.04 LTS a Cassandra 2.08. Proces však můžete snadno přijímají na jiné Linux varianty. Následují některé systémové charakteristiky nasazení jedné oblasti.  
 
-**Vysoká dostupnost:** Cassandra uzly na obrázku 1 se nasadí do dvou sad dostupnosti tak, aby uzly se šíří mezi více domén selhání pro zajištění vysoké dostupnosti. Poznámky s každou skupinu dostupnosti virtuálních počítačů je namapována na 2 domén selhání.  Koncept doména selhání ke správě neplánované dolů čas (např. selhání hardwaru nebo softwaru) při koncept upgradu domény (např. hostitele nebo hosta OS opravy a upgrady, upgrady aplikací) se používá pro správu naplánované výpadek používá Microsoft Azure. Najdete v tématu [zotavení po havárii a vysoká dostupnost pro aplikací Azure](http://msdn.microsoft.com/library/dn251004.aspx) pro roli selhání a upgradu domén v dosažení vysoké dostupnosti.
+**Vysoká dostupnost:** Cassandra uzly na obrázku 1 se nasadí do dvou sad dostupnosti tak, aby uzly se šíří mezi více domén selhání pro zajištění vysoké dostupnosti. Poznámky s každou skupinu dostupnosti virtuálních počítačů je namapována na 2 domén selhání. Azure používá koncept doména selhání ke správě neplánované výpadek (například selhání hardwaru nebo softwaru). Koncept upgradovací doméně (například hostitel nebo opravy hostovaný operační systém a upgrady, upgrady aplikací) se používá pro správu naplánované výpadek. Najdete v tématu [zotavení po havárii a vysoká dostupnost pro aplikací Azure](http://msdn.microsoft.com/library/dn251004.aspx) pro roli selhání a upgradu domén v dosažení vysoké dostupnosti.
 
 ![Nasazení jedné oblasti](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -58,13 +58,13 @@ Všimněte si, že v době psaní tohoto textu, Azure neumožňuje explicitní m
 
 **Přenosy Thrift Vyrovnávání zatížení:** Thrift klientské knihovny uvnitř webový server připojení ke clusteru prostřednictvím interní nástroj. To vyžaduje proces přidávání nástroje pro vyrovnávání zatížení pro vnitřní k podsíti "data" (viz obrázek 1) v rámci cloudové služby hostování Cassandra clusteru. Jakmile je definována pro vyrovnávání zatížení interní, vyžaduje každý uzel koncový bod skupinu s vyrovnáváním zatížení přidávaného s poznámky skupinu s vyrovnáváním zatížení s názvem služby Vyrovnávání zatížení dříve definovaném. V tématu [interní Vyrovnávání zatížení Azure ](../../../load-balancer/load-balancer-internal-overview.md)další podrobnosti.
 
-**Cluster semen:** je důležité vybrat Většina uzlů vysoce dostupný pro semena jako nové uzly budou komunikovat s uzly počáteční hodnoty pro zjišťování topologie clusteru. Jeden uzel z každé skupiny dostupnosti je určený jako uzly počáteční hodnoty předejdete jediný bod selhání.
+**Cluster semen:** je důležité vybrat Většina uzlů vysoce dostupný pro semena jako nové uzly komunikaci s uzly počáteční hodnoty pro zjišťování topologie clusteru. Jeden uzel z každé skupiny dostupnosti je určený jako uzly počáteční hodnoty předejdete jediný bod selhání.
 
 **Zařízení a úroveň konzistence replikace:** Cassandra na sestavení v vysokou dostupnost a data odolnost je charakterizovaná replikace faktor (RF - počet kopií každého řádku uložené v clusteru) a úroveň konzistence (počet replik být číst nebo zapisovat před vrácením výsledku volající). Faktor replikace je zadán během vytváření KEYSPACE (podobně jako relační databáze), zatímco úroveň konzistence je zadána při vydání CRUD dotaz. Naleznete v dokumentaci k Cassandra v [konfigurace pro konzistence](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) konzistence podrobnosti a vzorec pro výpočty kvora.
 
-Cassandra podporuje dva typy modelů integrity dat – konzistence a konzistence typu případné; Faktor replikace a úroveň konzistence společně určí, pokud budou data konzistentní při dokončení operace zápisu nebo bude nakonec byl konzistentní. Například zadání KVORA jako úroveň konzistence bude vždy zajišťuje konzistenci dat při všechny úrovně konzistence, nižší než počet replik k zapsání tak, aby bylo možné KVORA (například jeden) výsledkem data se nakonec byl konzistentní.
+Cassandra podporuje dva typy modelů integrity dat – konzistence a konzistence typu případné; Faktor replikace a úroveň konzistence společně určují, pokud je data konzistentní při operaci zápisu označena jako dokončená nebo nakonec byl konzistentní. Například zadání KVORA jako úroveň konzistence vždy zajišťuje konzistenci dat při jakékoli úrovní konzistence, menší než počet replik k zapsání tak, aby bylo možné KVORA (například jeden) výsledkem data se nakonec byl konzistentní.
 
-8 uzlů clusteru s faktorem replikace 3 a KVORA zobrazeno výše, (2 uzly jsou číst nebo zapisovat konzistenci) pro čtení a zápis úroveň konzistence, přežijí teoretické ztrátu nejvýše 1 uzel na skupinu replikace před vašeho povšimnutí aplikace spustit došlo k chybě. Předpokladem je, že všechny klíče prostory mají dobře vyrovnáváním čtení/zápisu požadavků.  Tady jsou parametry, které budeme používat nasazené clusteru:
+8 uzlů clusteru s faktorem replikace 3 a KVORA zobrazeno výše, (2 uzly jsou číst nebo zapisovat konzistenci) pro čtení a zápis úroveň konzistence, přežijí teoretické ztrátu nejvýše 1 uzel na skupinu replikace před vašeho povšimnutí aplikace spustit došlo k chybě. Předpokladem je, že všechny klíče prostory mají dobře vyrovnáváním čtení/zápisu požadavků.  Tady jsou použité pro nasazené cluster parametry:
 
 Konfigurace clusteru Cassandra jedné oblasti:
 
@@ -75,31 +75,31 @@ Konfigurace clusteru Cassandra jedné oblasti:
 | Úroveň konzistence (zápisu) |QUORUM[(RF/2) +1) = 2] výsledek vzorec se zaokrouhlí směrem dolů |Zapíše maximálně 2 repliky předtím, než odešle odpověď na volajícího; 3. replika se zapíše nakonec byl konzistentní způsobem. |
 | Úroveň konzistence (čtení) |KVORA [(RF/2) + 1 = 2] výsledek vzorec se zaokrouhlí směrem dolů |Přečte 2 repliky před odesláním odpověď na volajícího. |
 | Strategie replikace |Viz NetworkTopologyStrategy [replikaci dat](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) v dokumentaci k Cassandra pro další informace |Jste srozuměni s tím topologie nasazení a umístí repliky na uzlech, aby všechny repliky není skončili na stejné racku |
-| Snitch |Viz GossipingPropertyFileSnitch [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) v dokumentaci k Cassandra pro další informace |NetworkTopologyStrategy používá koncept snitch zjistit topologii. GossipingPropertyFileSnitch poskytuje lepší kontrolu mapování každý uzel datového centra a racku. Cluster použije povídání potřebný k šíření tyto informace. To je mnohem jednodušší v dynamické nastavení protokolu IP relativně k PropertyFileSnitch |
+| Snitch |Viz GossipingPropertyFileSnitch [přepínače](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) v dokumentaci k Cassandra pro další informace |NetworkTopologyStrategy používá koncept snitch zjistit topologii. GossipingPropertyFileSnitch poskytuje lepší kontrolu mapování každý uzel datového centra a racku. Cluster použije povídání potřebný k šíření tyto informace. To je mnohem jednodušší v dynamické nastavení protokolu IP relativně k PropertyFileSnitch |
 
-**Azure aspekty pro Cassandra Cluster:** funkce Microsoft Azure Virtual Machines používá úložiště objektů Blob v Azure disku trvalosti; Úložiště Azure uloží 3 repliky každého disku pro vysokou odolnost. To znamená, že každý řádek dat vloženy do tabulky Cassandra je již uložen v 3 repliky, a proto konzistenci dat je již postaráno i v případě, že replikace faktor (RF) je 1. Hlavní problém s Multi-Factor replikace se 1 je, zda bude aplikace i v případě selhání jednoho uzlu Cassandra prostředí výpadek. Ale pokud uzel je vypnutý problémy (např. hardwaru, softwaru selhání systému) rozpoznáno Kontroleru prostředků infrastruktury Azure, bude zřídit nový uzel na jeho místo pomocí stejné jednotky úložiště. Zřizování nový uzel nahradit starou může trvat několik minut.  Pro plánované údržby činnosti, jako například změny hostovaného operačního systému, podobně jako Cassandra upgraduje a změny aplikace Kontroleru prostředků infrastruktury Azure provádí vrácení upgrady z uzlů v clusteru.  Vrácení upgradu také může trvat dolů několika uzlů najednou a proto clusteru setkat s krátkou prodlevou mezi migrací pro několik oddílů. Data však nebudou ztraceno v důsledku vestavěná redundance úložiště Azure.  
+**Azure aspekty pro Cassandra Cluster:** funkce Microsoft Azure Virtual Machines používá úložiště objektů Blob v Azure disku trvalosti; Úložiště Azure uloží tři repliky každého disku pro vysokou odolnost. To znamená, že každý řádek dat vloženy do tabulky Cassandra je již uložen v tři repliky. Proto konzistenci dat je již postaráno i v případě, že replikace faktor (RF) je 1. Hlavní problém s Multi-Factor replikace se 1 je, že aplikace i v případě selhání jednoho uzlu Cassandra vyskytne výpadku. Ale pokud uzel je vypnutý problémy (například hardwaru, softwaru selhání systému) rozpoznáno Kontroleru prostředků infrastruktury Azure, zřídí nového uzlu na jeho místo pomocí stejné jednotky úložiště. Zřizování nový uzel nahradit starou může trvat několik minut.  Pro plánované údržby činnosti, jako například změny hostovaného operačního systému, podobně jako Cassandra upgraduje a změny aplikace Kontroleru prostředků infrastruktury Azure provádí vrácení upgrady z uzlů v clusteru.  Vrácení upgradu také může trvat dolů několika uzlů najednou a proto clusteru setkat s krátkou prodlevou mezi migrací pro několik oddílů. Data však není ztraceno v důsledku vestavěná redundance úložiště Azure.  
 
-Pro systémy nasadit do Azure, která nevyžaduje vysokou dostupnost (například přibližně 99,9 což je totéž jako 8.76 hodin/rok; viz [vysokou dostupnost](http://en.wikipedia.org/wiki/High_availability) podrobnosti) může být možné ji spustit s RF = 1 a úroveň konzistence = jeden.  Pro aplikace s požadavky na vysokou dostupnost, RF = 3 a úroveň konzistence = KVORA budou tolerovat výpadkům jednoho z uzlů z replik. RF = 1 v tradiční nasazení (například místní) nelze použít kvůli ztrátě dat. výsledkem problémy, jako je selhání disku.   
+Pro systémy nasadit do Azure, která nevyžaduje vysokou dostupnost (třeba přibližně 99,9 což je totéž jako 8.76 hodin/rok, zjistit [vysokou dostupnost](http://en.wikipedia.org/wiki/High_availability) podrobnosti) může být možné ji spustit s RF = 1 a úroveň konzistence = jeden.  Pro aplikace s požadavky na vysokou dostupnost, RF = 3 a úroveň konzistence = KVORA toleruje výpadkům jednoho z uzlů z replik. RF = 1 v tradiční nasazení (například místní) nelze použít kvůli ztrátě dat. výsledkem problémy, jako je selhání disku.   
 
 ## <a name="multi-region-deployment"></a>Nasazení s více oblast
-Model pro replikaci a konzistence datového centra s deklaracemi na Cassandra je popsané výše pomáhá při nasazení několika oblast předinstalované bez nutnosti žádné externí nástroje. Toto je výrazně lišit od tradičních relačních databází, kde může být poměrně složité nastavení pro zrcadlení databáze pro více hlavních zápisy. Cassandra v několika oblasti nastavit můžou pomoct s scénáře použití, včetně následujících:
+Model pro replikaci a konzistence datového centra s deklaracemi na Cassandra je popsané výše pomáhá při nasazení několika oblast bez nutnosti žádné externí nástroje. To se liší od tradičních relačních databází, kde může být složité nastavení pro zrcadlení databáze pro více hlavních zápisy. Cassandra v instalačním programu více oblast můžou pomoct s scénáře použití, včetně scénáře:
 
-**Bezkontaktní komunikace na základě nasazení:** víceklientským aplikacím s zrušte mapování uživatelů klienta-na-oblast, můžete prospěch ve více oblastech clusteru nízkou latenci. Například správy učení systémy pro vzdělávací instituce můžete nasadit cluster distribuované v oblasti Východ USA a západní USA k obsluze příslušných univerzity pro transakční i analytics. Data lze místně konzistentní čas čtení a zápisu a může být v obou oblastech nakonec byl konzistentní. Existují další příklady jako distribuční média, elektronické obchodování a nic a všechno, co se uživatel geograficky soustředí slouží základní je případ vhodné využít pro tento model nasazení.
+**Bezkontaktní komunikace na základě nasazení:** víceklientským aplikacím s zrušte mapování uživatelů klienta-na-oblast, můžete prospěch ve více oblastech clusteru nízkou latenci. Například učení systémy správy pro vzdělávací instituce můžete nasadit cluster distribuované v oblasti Východ USA a západní USA k obsluze příslušných univerzity pro transakční i analytics. Data lze místně konzistentní čas čtení a zápisu a může být v obou oblastech nakonec byl konzistentní. Existují další příklady jako distribuční média, elektronické obchodování a nic a všechno, co se uživatel geograficky soustředí slouží základní je případ vhodné využít pro tento model nasazení.
 
 **Vysoká dostupnost:** redundance je klíčovým faktorem k dosažení vysoké dostupnosti softwaru a hardwaru; podrobnosti najdete v části vytváření spolehlivé cloudové systémy v Microsoft Azure. Pouze spolehlivé způsobem dosáhnout true redundance v Microsoft Azure, je nasazení clusteru s podporou více oblast. Mohou být aplikace nasazeny v režimu aktivní aktivní nebo aktivní – pasivní, a pokud jeden z oblastí je vypnutý, můžete Azure Traffic Manager přesměrování provozu na aktivní oblasti.  Při nasazení jedné oblasti dostupnost 99,9, je-li dva oblast nasazení můžete zajistit s dostupností 99.9999 vypočítanou ze vzorce: (1-(1-0.999) * (1-0,999)) * 100); viz výše dokumentu podrobnosti.
 
-**Zotavení po havárii:** Cassandra více oblast clusteru, pokud správně navržená tak, odolat závažné data center výpadků. Pokud jedné oblasti je vypnutý, můžete aplikaci nasadit do jiných oblastí spustit obsluhující koncoví uživatelé. Podobně jako jakékoli jiné firmy kontinuity implementace aplikace musí být odolný vůči chybám pro ztrátu dat, která je výsledkem dat v asynchronní kanál. Ale Cassandra umožňuje obnovení mnohem rychlejší, než doba, za kterou procesy tradiční databáze obnovení. Obrázek 2 ukazuje model typické nasazení s více oblasti s osmi uzlů v každé oblasti. Obě oblasti jsou Image zrcadlení vzájemně pro stejný symetrie; skutečných návrhů závisí na typu úlohy (např. transakční nebo analytical), plánovaný bod obnovení, RTO, konzistenci dat a požadavky na dostupnosti.
+**Zotavení po havárii:** Cassandra více oblast clusteru, pokud správně navržená tak, odolat závažné data center výpadků. Pokud jedné oblasti je vypnutý, můžete aplikaci nasadit do jiných oblastí spustit obsluhující koncoví uživatelé. Podobně jako jakékoli jiné firmy kontinuity implementace aplikace musí být odolný vůči chybám pro ztrátu dat, která je výsledkem dat v asynchronní kanál. Ale Cassandra umožňuje obnovení mnohem rychlejší, než doba, za kterou procesy tradiční databáze obnovení. Obrázek 2 ukazuje model typické nasazení s více oblasti s osmi uzlů v každé oblasti. Obě oblasti jsou Image zrcadlení vzájemně pro stejný symetrie; návrhy skutečných závisí na typu zatížení (například transakcí nebo analytical), plánovaný bod obnovení, RTO, konzistenci dat a požadavky dostupnosti.
 
 ![Nasazení více oblast](./media/cassandra-nodejs/cassandra-linux2.png)
 
 Obrázek 2: Nasazení s více oblast Cassandra
 
 ### <a name="network-integration"></a>Integrace sítě
-Nastaví virtuální počítače nasazené na soukromých sítích, které se nachází na dvou oblastí komunikuje se navzájem pomocí tunelového připojení sítě VPN. Tunelové propojení VPN se připojí dvě brány softwaru zřízenou během procesu nasazení sítě. Obě oblasti mají podobné síťovou architekturu z hlediska podsítě "web" a "data"; Azure sítě umožňuje vytvoření tolik podsítě podle potřeby a použít seznamy řízení přístupu podle potřeb zabezpečení sítě. Při navrhování mimo topologie clusteru pro latence při komunikaci datového centra a hospodářského dopad síťového provozu je potřeba zvážit.
+Nastaví virtuální počítače nasazené na soukromých sítích, které se nachází na dvou oblastí komunikuje se navzájem pomocí tunelového připojení sítě VPN. Tunelové propojení VPN se připojí dvě brány softwaru zřízenou během procesu nasazení sítě. Obě oblasti mají podobné síťovou architekturu z hlediska podsítě "web" a "data"; Azure sítě umožňuje vytvoření tolik podsítě podle potřeby a použít seznamy řízení přístupu podle potřeb zabezpečení sítě. Při navrhování topologie clusteru mimo latence při komunikaci datového centra a hospodářského dopad považovat za nutnost provozu sítě.
 
 ### <a name="data-consistency-for-multi-data-center-deployment"></a>Konzistence dat pro nasazení s více datového centra
 Distribuované nasazení je potřeba mít na paměti clusteru topologie dopad na propustnost a vysokou dostupnost. RF a úroveň konzistence musí být vybrána tak, že kvora nezávisí na dostupnost datových centrech.
-Pro systém, který potřebuje vysokou konzistence bude LOCAL_QUORUM pro úroveň konzistence (pro čtení a zápisy) ujistěte se, že místní čtení a zápisu jsou splněny z místní uzlů při data se replikují asynchronně vzdálené datových střediscích.  Tabulka 2 shrnuje podrobnosti konfigurace clusteru více oblast uvedených v zápisu až později.
+Pro systém, který potřebuje vysokou konzistence LOCAL_QUORUM pro úroveň konzistence (pro čtení a zápisy) je zajištěno, že místní čtení a zápisu jsou splněny z místní uzlů při data se replikují asynchronně vzdálené datových střediscích.  Tabulka 2 shrnuje podrobnosti konfigurace clusteru více oblast uvedených v zápisu až později.
 
 **Konfigurace clusteru Cassandra dva oblast**
 
@@ -107,7 +107,7 @@ Pro systém, který potřebuje vysokou konzistence bude LOCAL_QUORUM pro úrove�
 | --- | --- | --- |
 | Počet uzlů (ne) |8 + 8 |Celkový počet uzlů v clusteru |
 | Replikace faktor (RF) |3 |Počet replik daného řádku |
-| Úroveň konzistence (zápisu) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] výsledek vzorec se zaokrouhlí směrem dolů |2 uzly budou zapisovat do první datového centra synchronně; Další 2 uzly, které jsou potřebné pro kvorum se asynchronně zapíše do 2 datového centra. |
+| Úroveň konzistence (zápisu) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] výsledek vzorec se zaokrouhlí směrem dolů |2 uzly se zapíše do první datového centra synchronně; Další 2 uzly, které jsou potřebné pro kvora se asynchronně zapíše na 2. datové centrum. |
 | Úroveň konzistence (čtení) |LOCAL_QUORUM ((RF/2) + 1) = 2, výsledek vzorec se zaokrouhlí směrem dolů |Požadavky pro čtení jsou splnit v pouze jedna oblast; 2 uzly se čtou předtím, než odešle odpověď zpět klientovi. |
 | Strategie replikace |Viz NetworkTopologyStrategy [replikaci dat](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) v dokumentaci k Cassandra pro další informace |Jste srozuměni s tím topologie nasazení a umístí repliky na uzlech, aby všechny repliky není skončili na stejné racku |
 | Snitch |Viz GossipingPropertyFileSnitch [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) v dokumentaci k Cassandra pro další informace |NetworkTopologyStrategy používá koncept snitch zjistit topologii. GossipingPropertyFileSnitch poskytuje lepší kontrolu mapování každý uzel datového centra a racku. Cluster použije povídání potřebný k šíření tyto informace. To je mnohem jednodušší v dynamické nastavení protokolu IP relativně k PropertyFileSnitch |
@@ -123,15 +123,15 @@ Během nasazení se používají následující verze softwaru:
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-Vzhledem k tomu, že stahování prostředí JRE vyžaduje ruční přijetí licenčních Oracle, zjednodušit nasazení, stáhněte veškerý požadovaný software na plochu později nahrát do Ubuntu image šablony, které budeme vytvářet jako předchůdcem nasazení clusteru služby.
+Je ručně musí přijmout tyto licenční Oracle, když si stáhnete prostředí JRE. Ano zjednodušit nasazení, stáhněte veškerý požadovaný software na ploše. Nahrajte ho do image šablony Ubuntu vytvořit jako předchůdcem nasazení clusteru služby.
 
-Stáhněte si výše uvedený software do adresáře dobře známé stahování (např. %TEMP%/downloads v systému Windows nebo ~/Downloads na Linuxových distribucích většiny Mac) v místním počítači.
+Stáhněte si výše uvedený software do adresáře dobře známé stahování (například %TEMP%/downloads v systému Windows nebo ~/Downloads na Linuxových distribucích většiny Mac) v místním počítači.
 
 ### <a name="create-ubuntu-vm"></a>VYTVOŘENÍ VIRTUÁLNÍHO POČÍTAČE S UBUNTU
-V tomto kroku procesu Ubuntu image pomocí vytvoříme požadovaného softwaru tak, aby bitovou kopii můžete znovu použít pro několik uzlů Cassandra zřizování.  
+V tomto kroku procesu vytvoření bitové kopie Ubuntu s požadovaného softwaru tak, aby bitovou kopii můžete znovu použít pro několik uzlů Cassandra zřizování.  
 
 #### <a name="step-1-generate-ssh-key-pair"></a>Krok 1: Vygenerovat pár klíčů SSH
-Azure potřebuje X509 veřejný klíč, který je PEM nebo DER kódovaný během zřizování. Generování páru veřejného a privátního klíče RSA podle pokynů v tom, jak použití SSH se systémem Linux v Azure. Pokud budete chtít použít putty.exe jako klienta SSH buď na systému Windows nebo Linux, je nutné převést PEM kódovaný privátního klíče RSA PPK formátu s využitím puttygen.exe; Pokyny k tomuto naleznete na webové stránce nahoře.
+Azure potřebuje X509 veřejný klíč, který je PEM nebo DER kódovaný během zřizování. Generování páru veřejného a privátního klíče RSA podle pokynů v tom, jak použití SSH se systémem Linux v Azure. Pokud budete chtít použít putty.exe jako klienta SSH buď na systému Windows nebo Linux, je nutné převést PEM kódovaný privátního klíče RSA PPK formátu s využitím puttygen.exe. Pokyny k tomuto naleznete na webové stránce nahoře.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>Krok 2: Vytvoření Ubuntu šablony virtuálních počítačů
 Vytvořit šablonu virtuálního počítače, přihlaste se k portálu Azure a použijte následující posloupnost: klikněte na tlačítko Nový, výpočetní, virtuální počítač, FROM GALERIE, UBUNTU a Ubuntu Server 14.04 LTS a klikněte na šipku vpravo. Kurz, který popisuje, jak vytvořit virtuální počítač s Linuxem, najdete v části vytvořit virtuální počítač systémem Linux.
@@ -163,7 +163,7 @@ Na obrazovce "Konfigurace virtuálního počítače" #2 zadejte následující i
 <tr><td>KONCOVÉ BODY    </td><td>Použít výchozí </td><td>    Použít výchozí konfiguraci SSH </td></tr>
 </table>
 
-Klikněte na šipku vpravo, ponechte výchozí nastavení na obrazovce #3 a klikněte na tlačítko "kontrola" k dokončení procesu zřizování virtuálního počítače. Po několika minutách by měly mít virtuální počítač s názvem "ubuntu šablona" stavu "spuštění".
+Klikněte na šipku vpravo, ponechte výchozí nastavení na obrazovce #3. Klikněte na tlačítko "kontrola" k dokončení procesu zřizování virtuálních počítačů. Po několika minutách by měly mít virtuální počítač s názvem "ubuntu šablona" stavu "spuštění".
 
 ### <a name="install-the-necessary-software"></a>NAINSTALUJTE POTŘEBNÝ SOFTWARE
 #### <a name="step-1-upload-tarballs"></a>Krok 1: Nahrávání tarballs
@@ -266,7 +266,7 @@ Připojte následující na konci:
     export PATH
 
 #### <a name="step-4-install-jna-for-production-systems"></a>Krok 4: Instalace JNA pro produkční systémy.
-Použijte následující sekvence příkazů: Tento příkaz nainstaluje jna 3.2.7.jar a platforma 3.2.7.jar jna do adresáře /usr/share.java sudo výstižný get nainstalovat libjna java
+Použijte následující sekvence příkazů: Tento příkaz nainstaluje jna 3.2.7.jar a platforma 3.2.7.jar jna /usr/share.java directory sudo výstižný-Get nainstalujte libjna java
 
 Vytvořte symbolické odkazy v adresáři CASS_HOME/lib $, aby tyto JAR najít Cassandra spouštěcí skript:
 
@@ -275,7 +275,7 @@ Vytvořte symbolické odkazy v adresáři CASS_HOME/lib $, aby tyto JAR najít C
     ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 #### <a name="step-5-configure-cassandrayaml"></a>Krok 5: Konfigurace cassandra.yaml
-Upravte cassandra.yaml na každý virtuální počítač tak, aby odrážela konfigurace potřebné pro všechny virtuální počítače [jsme se vylepšení to při zřizování skutečné]:
+Upravte cassandra.yaml na každý virtuální počítač tak, aby odrážela konfigurace potřebné pro všechny virtuální počítače [můžete upravit tuto konfiguraci při zřizování skutečné]:
 
 <table>
 <tr><th>Název pole   </th><th> Hodnota  </th><th>    Poznámky </th></tr>
@@ -294,22 +294,22 @@ Spusťte následující posloupnost akcí k zachycení bitové kopie:
 ##### <a name="1-deprovision"></a>1. Deprovision
 Použijte příkaz "sudo příkaz waagent – deprovision + uživatele" odebrat konkrétní informace o instanci virtuálního počítače. Zobrazit [jak zachytit virtuální počítač s Linuxem](capture-image.md) chcete použít jako šablonu podrobnosti na proces zachycení bitové kopie.
 
-##### <a name="2-shutdown-the-vm"></a>2: vypnutí virtuálního počítače
+##### <a name="2-shut-down-the-vm"></a>2: vypnutí virtuálního počítače
 Ujistěte se, že virtuální počítač je označený a klikněte na odkaz vypnutí z řádku nabídek dolní.
 
 ##### <a name="3-capture-the-image"></a>3: zachycení bitové kopie
-Ujistěte se, že virtuální počítač je označený a klikněte na odkaz zachycení z panelu dolní příkazů. Na další obrazovce zadejte název bitové kopie (například hk-cas-2-08-ub-14-04-2014071), příslušné popis bitové kopie a klikněte na tlačítko "" zaškrtnutí dokončete proces zachycení.
+Ujistěte se, že virtuální počítač je označený a klikněte na odkaz zachycení z panelu dolní příkazů. Další obrazovka, udělte název bitové kopie (například hk-cas-2-08-ub-14-04-2014071), odpovídající popis bitové kopie, a klikněte na označit "kontrola" ukončíte proces zachycení.
 
-Bude to trvat několik sekund a bitovou kopii, která by měla být k dispozici v části Moje Image z Galerie obrázků. Zdrojový virtuální počítač bude automaticky odstraněna po úspěšně zachycením image. 
+Tento proces trvat několik sekund a bitovou kopii, která by měla být k dispozici v části Moje Image z Galerie obrázků. Zdrojový virtuální počítač je automaticky odstraněna po úspěšně zachycením image. 
 
 ## <a name="single-region-deployment-process"></a>Proces nasazení jedné oblasti
 **Krok 1: Vytvoření virtuální sítě** Přihlaste se k portálu Azure a vytvoření virtuální sítě (klasické) s atributy uvedené v následující tabulce. V tématu [vytvoření virtuální sítě (klasické) pomocí portálu Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) podrobný popis kroků procesu.      
 
 <table>
 <tr><th>Atribut název virtuálního počítače.</th><th>Hodnota</th><th>Poznámky</th></tr>
-<tr><td>Name (Název)</td><td>vnet-cass západní USA</td><td></td></tr>
+<tr><td>Název</td><td>vnet-cass západní USA</td><td></td></tr>
 <tr><td>Oblast</td><td>Západní USA</td><td></td></tr>
-<tr><td>Servery DNS</td><td>Žádný</td><td>Toto ignorovat, protože jsme nejsou pomocí serveru DNS</td></tr>
+<tr><td>Servery DNS</td><td>Žádné</td><td>Toto ignorovat, protože jsme nejsou pomocí serveru DNS</td></tr>
 <tr><td>Adresní prostor</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>Počáteční IP adresu</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
@@ -318,14 +318,14 @@ Bude to trvat několik sekund a bitovou kopii, která by měla být k dispozici 
 Přidejte následující podsítě:
 
 <table>
-<tr><th>Name (Název)</th><th>Počáteční IP adresu</th><th>CIDR</th><th>Poznámky</th></tr>
+<tr><th>Název</th><th>Počáteční IP adresu</th><th>CIDR</th><th>Poznámky</th></tr>
 <tr><td>webové</td><td>10.1.1.0</td><td>/24 (251)</td><td>Podsíť pro webové farmy</td></tr>
 <tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>Podsíť pro databázové uzly</td></tr>
 </table>
 
 Data a webové podsítě se dají chránit pomocí skupin zabezpečení sítě pokrytí sahá nad rámec tohoto článku.  
 
-**Krok 2: Zřizování virtuálních počítačů** pomocí bitové kopie předtím vytvořili, jsme vytvoříte následující virtuální počítače v cloudu serveru "(Hong Kong) c-svc západ" a navázat je na příslušných podsítí, jak je uvedeno níže:
+**Krok 2: Zřizování virtuálních počítačů** pomocí bitové kopie předtím vytvořili, vytvořte následující virtuální počítače v cloudu serveru "(Hong Kong) c-svc západ" a vazby do příslušných podsítí, jak je uvedeno níže:
 
 <table>
 <tr><th>Název počítače    </th><th>Podsíť    </th><th>IP adresa    </th><th>Skupina dostupnosti</th><th>DC/Rack</th><th>Počáteční hodnoty?</th></tr>
@@ -337,8 +337,8 @@ Data a webové podsítě se dají chránit pomocí skupin zabezpečení sítě p
 <tr><td>(Hong Kong) c6-západní USA    </td><td>data    </td><td>10.1.2.9    </td><td>(Hong Kong) c sada-2    </td><td>DC = WESTUS rack = rack3    </td><td>Ne </td></tr>
 <tr><td>(Hong Kong)-s c7 – západní USA    </td><td>data    </td><td>10.1.2.10    </td><td>(Hong Kong) c sada-2    </td><td>DC = WESTUS rack = rack4    </td><td>Ano</td></tr>
 <tr><td>(Hong Kong) c8-západní USA    </td><td>data    </td><td>10.1.2.11    </td><td>(Hong Kong) c sada-2    </td><td>DC = WESTUS rack = rack4    </td><td>Ne </td></tr>
-<tr><td>(Hong Kong) w1 – západní USA    </td><td>webové    </td><td>10.1.1.4    </td><td>(Hong Kong) w sada-1    </td><td>                       </td><td>Není k dispozici</td></tr>
-<tr><td>(Hong Kong) w2 – západní USA    </td><td>webové    </td><td>10.1.1.5    </td><td>(Hong Kong) w sada-1    </td><td>                       </td><td>Není k dispozici</td></tr>
+<tr><td>(Hong Kong) w1 – západní USA    </td><td>webové    </td><td>10.1.1.4    </td><td>(Hong Kong) w sada-1    </td><td>                       </td><td>neuvedeno</td></tr>
+<tr><td>(Hong Kong) w2 – západní USA    </td><td>webové    </td><td>10.1.1.5    </td><td>(Hong Kong) w sada-1    </td><td>                       </td><td>neuvedeno</td></tr>
 </table>
 
 Vytvoření seznamu virtuálních počítačů, vyžaduje následující proces:
@@ -348,7 +348,7 @@ Vytvoření seznamu virtuálních počítačů, vyžaduje následující proces:
 3. Přidejte interní nástroj do cloudové služby a jeho připojení k podsíti "data.
 4. Pro každý virtuální počítač předtím vytvořili přidáte koncový bod Vyrovnávání zatížení pro provoz thrift prostřednictvím připojený ke službě Vyrovnávání zatížení dříve vytvořenou interní skupinu s vyrovnáváním zatížení
 
-Výše uvedené proces lze provést pomocí portálu Azure classic; počítače s Windows (použití a virtuálních počítačů v Azure, pokud nemáte přístup k počítači s Windows), použít následující skript prostředí PowerShell pro zřízení všech 8 virtuálních počítačů automaticky.
+Výše uvedené proces lze provést pomocí portálu Azure; počítače s Windows (použití a virtuálních počítačů v Azure, pokud nemáte přístup k počítači s Windows), použít následující skript prostředí PowerShell pro zřízení všech 8 virtuálních počítačů automaticky.
 
 **Seznam 1: Skript prostředí PowerShell pro zřizování virtuálních počítačů**
 
@@ -418,7 +418,7 @@ Přihlaste se k virtuálnímu počítači a proveďte následující:
 
 **Krok 4: Spuštění virtuální počítače a otestovat clusteru**
 
-Přihlaste se do jednoho z uzlů (například (Hong Kong) c1-západní us) a spusťte následující příkaz a zjistit stav clusteru:
+Přihlaste se do jednoho z uzlů (například hk-c1-západní us) a spusťte následující příkaz a zjistit stav clusteru:
 
        nodetool –h 10.1.2.4 –p 7199 status
 
@@ -439,8 +439,8 @@ Měli byste vidět zobrazení podobné níže 8 uzlů clusteru:
 ## <a name="test-the-single-region-cluster"></a>Testování jedné oblasti clusteru
 Použijte následující postup k testování clusteru:
 
-1. Pomocí příkazu Get-AzureInternalLoadbalancer prostředí PowerShell., získejte IP adresu služby Vyrovnávání zatížení pro vnitřní (např.)  10.1.2.101). Syntaxe příkazu je zobrazena níže: Get-AzureLoadbalancer – ServiceName "(Hong Kong) c-svc západní USA" [zobrazí podrobnosti o vyrovnávání zatížení pro vnitřní společně s jeho IP adresy]
-2. Přihlaste se k webové farmy virtuálního počítače (například hk-w1 – – západ us) pomocí klienta Putty ssh nebo
+1. Pomocí příkazu Get-AzureInternalLoadbalancer prostředí PowerShell., získejte IP adresu služby Vyrovnávání zatížení pro vnitřní (například 10.1.2.101). Syntaxe příkazu je zobrazena níže: Get-AzureLoadbalancer – ServiceName "(Hong Kong) c-svc západní USA" [zobrazí podrobnosti o vyrovnávání zatížení pro vnitřní společně s jeho IP adresy]
+2. Přihlaste se k webové farmy virtuálního počítače (například hk-w1 – západní us) pomocí klienta Putty ssh nebo
 3. Spuštění $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. Chcete-li ověřit, zda je cluster funkční, použijte následující příkazy CQL:
    
@@ -448,7 +448,7 @@ Použijte následující postup k testování clusteru:
    
      Vyberte * od zákazníků;
 
-Měli byste vidět zobrazení stejný, jako je nižší než:
+Měli byste vidět něco podobného jako následující výsledky:
 
 <table>
   <tr><th> customer_id </th><th> FirstName </th><th> Příjmení </th></tr>
@@ -456,17 +456,17 @@ Měli byste vidět zobrazení stejný, jako je nižší než:
   <tr><td> 2 </td><td> Jana </td><td> Doe </td></tr>
 </table>
 
-Upozorňujeme, že keyspace vytvořili v kroku 4 používá SimpleStrategy s replication_factor 3. SimpleStrategy se doporučuje pro jednoho datového centra nasazení zatímco NetworkTopologyStrategy pro více data center nasazení. Replication_factor 3 získáte odolnost proti selhání uzlu.
+Keyspace vytvořili v kroku 4 používá SimpleStrategy s replication_factor 3. SimpleStrategy se doporučuje pro jednoho datového centra nasazení zatímco NetworkTopologyStrategy pro více data center nasazení. Replication_factor 3 poskytuje odolnost proti selhání uzlu.
 
 ## <a id="tworegion"></a>Procesu nasazení s více oblast
-Bude využívat nasazení jedné oblasti bylo dokončeno a opakujte stejný postup pro instalaci druhé oblast. Klíčovým rozdílem mezi jednou či více oblastí nasazení je nastavení tunelové propojení VPN pro komunikaci mezi oblast; jsme bude začínat síťovou instalaci, zřídíte virtuální počítače a nakonfigurujete Cassandra.
+Využívejte nasazení jedné oblasti bylo úspěšně dokončeno a opakujte stejný postup pro instalaci druhé oblast. Klíčovým rozdílem mezi jednou či více oblastí nasazení je nastavení tunelové propojení VPN pro komunikaci mezi oblast; začít s instalací sítě, zřídíte virtuální počítače a nakonfigurujete Cassandra.
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Krok 1: Vytvoření virtuální sítě v oblasti 2.
-Přihlaste se k portálu Azure classic a vytvoření virtuální sítě s atributy zobrazení v tabulce. V tématu [konfigurace virtuální sítě Cloud-Only na portálu Azure classic](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) podrobný popis kroků procesu.      
+Přihlaste se k portálu Azure a vytvořit virtuální síť s atributy zobrazení v tabulce. V tématu [konfigurace virtuální sítě Cloud-Only na portálu Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) podrobný popis kroků procesu.      
 
 <table>
 <tr><th>Název atributu    </th><th>Hodnota    </th><th>Poznámky</th></tr>
-<tr><td>Name (Název)    </td><td>vnet-cass východ nám</td><td></td></tr>
+<tr><td>Název    </td><td>vnet-cass východ nám</td><td></td></tr>
 <tr><td>Oblast    </td><td>Východ USA</td><td></td></tr>
 <tr><td>Servery DNS        </td><td></td><td>Toto ignorovat, protože jsme nejsou pomocí serveru DNS</td></tr>
 <tr><td>Konfigurace VPN typu point-to-site</td><td></td><td>        Můžete tuto zprávu ignorovat</td></tr>
@@ -479,7 +479,7 @@ Přihlaste se k portálu Azure classic a vytvoření virtuální sítě s atribu
 Přidejte následující podsítě:
 
 <table>
-<tr><th>Name (Název)    </th><th>Počáteční IP adresu    </th><th>CIDR    </th><th>Poznámky</th></tr>
+<tr><th>Název    </th><th>Počáteční IP adresu    </th><th>CIDR    </th><th>Poznámky</th></tr>
 <tr><td>webové    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Podsíť pro webové farmy</td></tr>
 <tr><td>data    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Podsíť pro databázové uzly</td></tr>
 </table>
@@ -496,7 +496,7 @@ Vytvořte dvě místní sítě za následující podrobnosti:
 | HK-lnet-map-to-West-us |23.2.2.2 |10.1.0.0/16 |Při vytváření místní síti poskytněte zástupný symbol adresu brány. Po vytvoření brány, naplní adresu skutečné brány. Ujistěte se, že adresní prostor přesně odpovídá příslušné virtuální sítě vzdálené; v takovém případě síť VNET vytvořena v oblasti západní USA. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Krok 3: "Local" sítě mapu příslušných virtuálních sítí
-Z klasického portálu Azure vyberte každý virtuální síť, klikněte na tlačítko "Konfigurace", "Připojení k místní síti" a vyberte místní sítě za následující podrobnosti:
+Z portálu Azure vyberte každý virtuální síť, klikněte na tlačítko "Konfigurace", "Připojení k místní síti" a vyberte místní sítě za následující podrobnosti:
 
 | Virtual Network | Místní sítě |
 | --- | --- |
@@ -504,7 +504,7 @@ Z klasického portálu Azure vyberte každý virtuální síť, klikněte na tla
 | (Hong Kong) vnet-– východ nám |HK-lnet-map-to-West-us |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Krok 4: Vytvoření brány na VNET1 a VNET2
-Na řídicím panelu virtuální sítě klikněte na možnost vytvořit BRÁNU, která se aktivuje bránu VPN procesu zřizování. Po několika minutách řídicí panel každý virtuální sítě by měl obsahovat adresu skutečného brány.
+Na řídicím panelu virtuální sítě klikněte na možnost vytvořit BRÁNU pro aktivaci služby VPN gateway procesu zřizování. Po několika minutách řídicí panel každý virtuální sítě by měl obsahovat adresu skutečného brány.
 
 ### <a name="step-5-update-local-networks-with-the-respective-gateway-addresses"></a>Krok 5: Aktualizace "Local" sítě s adresami příslušných "brány"
 Upravte místní sítě nahradit IP adresu brány zástupný symbol skutečné IP adresu právě zřízené brány. Použijte následující mapování:
@@ -519,7 +519,7 @@ Upravte místní sítě nahradit IP adresu brány zástupný symbol skutečné I
 Pomocí následujícího skriptu prostředí Powershell se aktualizovat klíč protokolu IPSec každý brány VPN [použití saké klíč pro obě brány]: hk-lnet-map-to-west-us - LocalNetworkSiteName v Set AzureVNetGatewayKey - VNetName (Hong Kong) vnet-– východ us - SharedKey D9E76BKK Set-AzureVNetGatewayKey - VNetName (Hong Kong) vnet západní USA - LocalNetworkSiteName hk-lnet-map-to-east-us - SharedKey D9E76BKK
 
 ### <a name="step-7-establish-the-vnet-to-vnet-connection"></a>Krok 7: Připojení VNET-to-VNET
-Z klasického portálu Azure pomocí nabídky "Řídicího PANELU" virtuální sítě k navázání připojení brány brány. Pomocí položky nabídky "Připojit" v dolním panelu nástrojů. Po několika minutách by měl řídicím panelu zobrazovat podrobnosti připojení graficky.
+Z portálu Azure použijte nabídku "Řídicího PANELU" virtuální sítě k navázání připojení brány brány. Pomocí položky nabídky "Připojit" v dolním panelu nástrojů. Po několika minutách by měl řídicím panelu zobrazovat podrobnosti připojení graficky.
 
 ### <a name="step-8-create-the-virtual-machines-in-region-2"></a>Krok 8: Vytvoření virtuálních počítačů v oblasti #2
 Vytvoření bitové kopie Ubuntu, jak je popsáno v oblasti #1 nasazení podle stejné kroky nebo kopírování souboru bitové kopie virtuálního pevného disku na účet úložiště Azure umístěný v oblasti #2 a vytvoření bitové kopie. Použijte tuto bitovou kopii a vytvoření následující seznam virtuálních počítačů do novou cloudovou službu hk-c-svc východ nám:
@@ -533,8 +533,8 @@ Vytvoření bitové kopie Ubuntu, jak je popsáno v oblasti #1 nasazení podle s
 | (Hong Kong) c6-východ nám |data |10.2.2.9 |(Hong Kong) c sada-2 |DC = EASTUS rack = rack3 |Ne |
 | (Hong Kong)-s c7 – východ nám |data |10.2.2.10 |(Hong Kong) c sada-2 |DC = EASTUS rack = rack4 |Ano |
 | (Hong Kong) c8-východ nám |data |10.2.2.11 |(Hong Kong) c sada-2 |DC = EASTUS rack = rack4 |Ne |
-| (Hong Kong) w1 – východ nám |webové |10.2.1.4 |(Hong Kong) w sada-1 |Není k dispozici |Není k dispozici |
-| (Hong Kong) w2 – východ nám |webové |10.2.1.5 |(Hong Kong) w sada-1 |Není k dispozici |Není k dispozici |
+| (Hong Kong) w1 – východ nám |webové |10.2.1.4 |(Hong Kong) w sada-1 |neuvedeno |neuvedeno |
+| (Hong Kong) w2 – východ nám |webové |10.2.1.5 |(Hong Kong) w sada-1 |neuvedeno |neuvedeno |
 
 Použijte stejné pokyny jako oblast #1, ale použít 10.2.xxx.xxx adresní prostor.
 
@@ -554,7 +554,7 @@ Nyní Cassandra nasazený na 16 uzlů s 8 uzly v každé oblasti Azure. Tyto uzl
 * Get-AzureInternalLoadbalancer - ServiceName "(Hong Kong) c-svc západní USA"
 * Get-AzureInternalLoadbalancer - ServiceName "(Hong Kong) c-svc Východ USA"  
   
-    Všimněte si IP adresy (například – západ - 10.1.2.101, východ - 10.2.2.101) zobrazí.
+    Poznámka: adresy IP (pro – příklad západ - 10.1.2.101, východ - 10.2.2.101) zobrazí.
 
 ### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>Krok 2: Spuštěním následujících v této oblasti po přihlášení na hk-w1 – západní USA
 1. Spuštění $CASS_HOME/bin/cqlsh 10.1.2.101 9160
@@ -585,7 +585,7 @@ Jak je vidět pro oblast západní byste měli vidět stejné zobrazení:
 Provést několik další vložení a v tématu, aby těch, které se replikovaly západ-nám součástí clusteru.
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>Test Cassandra Cluster z Node.js
-Pomocí jednoho z virtuálních počítačů Linux vytvářet v "web" vrstvy dříve, jsme spustí skript jednoduché Node.js čtení dříve vložených dat
+Pomocí jednoho z virtuálních počítačů Linux vytvářet v dané vrstvě "web" dříve, spustit skript jednoduché Node.js čtení dříve vložených dat
 
 **Krok 1: Instalace Node.js a Cassandra klienta**
 
@@ -645,7 +645,7 @@ Pomocí jednoho z virtuálních počítačů Linux vytvářet v "web" vrstvy dř
            updateCustomer(ksConOptions,params);
         }
    
-        //update will also insert the record if none exists
+        //update also inserts the record if none exists
         function updateCustomer(ksConOptions,params)
         {
           var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';
