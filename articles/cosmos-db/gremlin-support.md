@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: f95a0abcd50b94714a76b36a0b5f9c73da909879
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Graf podporu Azure Cosmos DB Gremlin
 Podporuje Azure Cosmos DB [Apache Tinkerpop](http://tinkerpop.apache.org) graf traversal jazyk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), což je rozhraní Graph API pro vytváření entit grafu a provádění operace dotazů grafu. Jazyk Gremlin slouží k vytvoření grafu entit (vrcholy a okraje), změnit vlastnosti v rámci těchto entit, provádět dotazy a traversals a odstranit entity. 
 
 Azure Cosmos DB přináší funkce připravené pro podniky k databázím grafu. To zahrnuje globální distribuční nezávislé škálování úložiště a propustnosti, latenci předvídatelný řádu milisekund, automatické indexování, SLA, přečtěte si dostupnosti pro účty databáze pokrývání uzlů dvou nebo více oblastech Azure. Protože Azure Cosmos DB podporuje TinkerPop/Gremlin, můžete snadno migrovat aplikace napsané v jiné databáze grafu bez nutnosti provádět změny kódu. Kromě toho na základě Gremlin podpory Azure Cosmos DB zajišťuje bezproblémovou integraci s povoleným TinkerPop analytics architektury, jako je [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-V tomto článku jsme zadejte rychlé návod Gremlin a výčet Gremlin funkcí a kroků, které jsou podporovány ve verzi preview rozhraní Graph API podpory.
+V tomto článku jsme zadejte rychlé návod Gremlin a výčet Gremlin funkcí a kroků, které podporuje rozhraní Graph API.
 
 ## <a name="gremlin-by-example"></a>Gremlin příklad
 Abyste pochopili, jak dotazy mohou být vyjádřeny v Gremlin použijeme Ukázka grafu. Následující obrázek znázorňuje obchodní aplikace, která spravuje data o uživatelích, zájmů a zařízení ve formě grafu.  
@@ -80,7 +80,7 @@ Následující tabulka uvádí TinkerPop funkce, které jsou implementované Cos
 
 | Kategorie | Azure Cosmos DB implementace |  Poznámky | 
 | --- | --- | --- |
-| Funkce grafu | Poskytuje trvalosti a ConcurrentAccess ve verzi preview. Určeno k podpoře transakce | Metody počítač se dá implementovat prostřednictvím konektoru Spark. |
+| Funkce grafu | Poskytuje trvalosti a ConcurrentAccess. Určeno k podpoře transakce | Metody počítač se dá implementovat prostřednictvím konektoru Spark. |
 | Proměnné funkce | Podporuje logická hodnota, celé číslo, bajtů, dvakrát, Float, celé číslo, Long, řetězec | Podporuje primitivní typy, není kompatibilní s komplexní typy prostřednictvím datového modelu |
 | Vrchol funkce | Podporuje RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty –, RemoveProperty  | Podporuje vytváření, úpravu a odstranění vrcholy |
 | Vrchol vlastnost funkce | StringIds, UserSuppliedIds, AddProperty –, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Podporuje vytváření, úpravy a odstraňování vrchol vlastnosti |

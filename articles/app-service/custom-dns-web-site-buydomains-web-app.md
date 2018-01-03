@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Koupit vlastní název domény pro Azure Web Apps
 
@@ -34,6 +34,8 @@ Pro absolvování tohoto kurzu potřebujete:
 * [Odeberte limit útraty vaše předplatné](../billing/billing-spending-limit.md#remove). Služby App Service domén s kredity bezplatné předplatné nejde koupit.
 
 ## <a name="prepare-the-app"></a>Příprava aplikace
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Použít vlastní domény ve službě Azure Web Apps, webové aplikace na [plán služby App Service](https://azure.microsoft.com/pricing/details/app-service/) musí být placené vrstvy (**sdílené**, **základní**, **standardní**, nebo  **Premium**). V tomto kroku je třeba zkontrolovat, že webová aplikace je v podporovaném cenová úroveň.
 
@@ -112,7 +114,7 @@ Potom vyberte požadované možnosti pro vaši doménu. V následující tabulce
 | Nastavení | Navrhovaná hodnota | Popis |
 |-|-|-|
 |Ochrana osobních údajů | Povolení | Vyjádřit výslovný souhlas pro "Ochrany osobních údajů", který je součástí kupní ceny _zdarma_. Některé domény nejvyšší úrovně spravuje registrátorů, které nepodporují ochrany osobních údajů a jsou uvedeny na **ochrany osobních údajů** stránky. |
-| Přiřadit výchozí názvy hostitelů | **Webová** a**@** | Vazby požadovaným názvem hostitele, vyberte v případě potřeby. Po dokončení nákupu operace domény vaší webové aplikace jsou přístupné na vybrané názvy hostitelů. Pokud webová aplikace je za [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), nevidíte možnost k přidělení kořenové domény (@), protože nemá podporu záznamů A Traffic Manager. Vám po dokončení nákupu domény provádět změny přiřazení názvu hostitele. |
+| Přiřadit výchozí hostitelské názvy | **Webová** a**@** | Vazby požadovaným názvem hostitele, vyberte v případě potřeby. Po dokončení nákupu operace domény vaší webové aplikace jsou přístupné na vybrané názvy hostitelů. Pokud webová aplikace je za [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), nevidíte možnost k přidělení kořenové domény (@), protože nemá podporu záznamů A Traffic Manager. Vám po dokončení nákupu domény provádět změny přiřazení názvu hostitele. |
 
 ### <a name="accept-terms-and-purchase"></a>Přijmout podmínky a nákupu
 
@@ -167,7 +169,7 @@ Ujistěte se, že zakoupené domény, je uvedena ve **doménami aplikací služb
 Vyberte **přidat název hostitele**.
 
 ### <a name="configure-hostname"></a>Nakonfigurujte název hostitele
-V **přidat název hostitele** dialogové okno, zadejte plně kvalifikovaný název domény vaší domény služby aplikace nebo jakékoli subdomény. Například:
+V **přidat název hostitele** dialogové okno, zadejte plně kvalifikovaný název domény vaší domény služby aplikace nebo jakékoli subdomény. Příklad:
 
 - kontoso.NET
 - www.kontoso.NET

@@ -14,18 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Externí tabulky funkcí vazby Azure (Preview)
 Tento článek ukazuje, jak k manipulaci s tabulková data v poskytovatelů SaaS (například služby Sharepoint, Dynamics) v rámci funkce s integrovanou vazby. Azure Functions podporuje vstupní a výstupní vazby pro externí tabulky.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="api-connections"></a>Připojení rozhraní API
+## <a name="api-connections"></a>Připojení API
 
 Tabulka vazby využívat externí rozhraní API připojení k ověření pomocí poskytovatelů SaaS 3. stran. 
 
@@ -33,7 +33,7 @@ Při přiřazování vazbu můžete buď vytvořit nové připojení rozhraní A
 
 ### <a name="supported-api-connections-tables"></a>Připojení podporované rozhraní API (tabulky) s
 
-|konektor|Trigger|Vstup|Výstup|
+|Konektor|Trigger|Vstup|Výstup|
 |:-----|:---:|:---:|:---:|
 |[DB2](https://docs.microsoft.com/azure/connectors/connectors-create-api-db2)||x|x
 |[Dynamics 365 pro operace](https://ax.help.dynamics.com/wiki/install-and-configure-dynamics-365-for-operations-warehousing/)||x|x
@@ -99,12 +99,12 @@ Tento příklad se připojí k tabulku s názvem "Kontakt" s Id, FirstName a Las
 
 Tabulkové konektor poskytuje datových sad a každé datové sady obsahuje tabulky. Název výchozí sadu dat je "default". Názvy pro datovou sadu a tabulky v různých zprostředkovatelů SaaS jsou uvedeny níže:
 
-|konektor|Datová sada|Table|
+|Konektor|Datová sada|Table|
 |:-----|:---|:---| 
-|**SharePoint**|Lokality|Seznam serveru SharePoint
+|**SharePoint**|Web|Seznam serveru SharePoint
 |**SQL**|Databáze|Table 
-|**List Google**|Tabulky|Listu 
-|**Excel**|Soubor aplikace Excel|List 
+|**List Google**|Tabulka|List 
+|**Excel**|Excelový soubor|Tabulka 
 
 <!--
 See the language-specific sample that copies the input file to the output file.
@@ -139,7 +139,7 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
     ContinuationToken continuationToken = null;
     do
     {   
-        //retreive table values
+        //retrieve table values
         var contactsSegment = await table.ListEntitiesAsync(
             continuationToken: continuationToken);
 
@@ -197,7 +197,7 @@ V Google dokumentace, vytvořit tabulku s názvem list `Contact`. Zobrazovaný n
 ### <a name="salesforce"></a>Salesforce
 dataSetName je "default".
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)

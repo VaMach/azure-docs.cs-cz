@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 57eec4277e584c3c2828e0fe029b9db10428934e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Vytvoření instančního objektu pro přístup k prostředkům pomocí prostředí Azure PowerShell
 
@@ -27,10 +27,10 @@ Pokud máte aplikace nebo skriptu, která potřebuje přístup k prostředkům, 
 * Přiřadíte oprávnění k identitě aplikace, která se liší od vlastní oprávnění. Tato oprávnění jsou obvykle omezené na přesně co aplikaci je třeba provést.
 * Při provádění bezobslužného skriptu, použijte certifikát pro ověřování.
 
-Toto téma ukazuje, jak používat [prostředí Azure PowerShell](/powershell/azure/overview) nastavit všechno, co potřebujete pro spuštění pod svou vlastní pověření a identity aplikace.
+V tomto článku se dozvíte, jak používat [prostředí Azure PowerShell](/powershell/azure/overview) nastavit všechno, co potřebujete pro spuštění pod svou vlastní pověření a identity aplikace.
 
 ## <a name="required-permissions"></a>Požadovaná oprávnění
-K dokončení tohoto tématu, musíte mít dostatečná oprávnění v Azure Active Directory a vašeho předplatného Azure. Konkrétně musí být schopná vytvořit aplikaci ve službě Azure Active Directory a přiřazení objektu služby roli. 
+K dokončení tohoto článku, musíte mít dostatečná oprávnění v Azure Active Directory a vašeho předplatného Azure. Konkrétně musí být schopná vytvořit aplikaci ve službě Azure Active Directory a přiřazení objektu služby roli. 
 
 Nejjednodušším způsobem, jak zkontrolovat, jestli má váš účet dostatečná oprávnění, je použít k tomu portál. V tématu [zkontrolujte požadované oprávnění](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -105,9 +105,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
  
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -377,7 +378,7 @@ Chcete-li přidat heslo, použijte:
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-Přidání certifikátu hodnoty, vytvořte certifikát podepsaný svým držitelem, jak je znázorněno v tomto tématu. Pak použijte:
+Přidání certifikátu hodnoty, vytvořte certifikát podepsaný svým držitelem, jak je znázorněno v tomto článku. Pak použijte:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
@@ -421,7 +422,7 @@ Informace o protokolování jako aplikace prostřednictvím různých platforem 
 * [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Podrobné pokyny k integraci aplikace do Azure pro správu prostředků najdete v tématu [Příručka pro vývojáře k autorizaci s rozhraním API pro Azure Resource Manager](resource-manager-api-authentication.md).
 * Podrobnější vysvětlení aplikací a objekty služby najdete v tématu [objekty aplikací a hlavní objekty služeb](../active-directory/active-directory-application-objects.md). 
 * Další informace o ověřování Azure Active Directory najdete v tématu [scénáře ověřování pro Azure AD](../active-directory/active-directory-authentication-scenarios.md).

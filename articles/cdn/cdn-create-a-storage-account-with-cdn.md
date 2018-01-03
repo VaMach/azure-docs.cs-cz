@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Účet úložiště Azure integrovat Azure CDN
 CDN se dá nastavit do mezipaměti obsah z úložiště Azure. Nabízí vývojářům globální řešení pro doručování širokopásmového obsahu pomocí ukládání do mezipaměti objektů BLOB a statického obsahu výpočetní instance na fyzických uzlech v USA, Evropa, Asie, Austrálie a Jižní Ameriky.
@@ -82,7 +82,7 @@ S nejnovější integraci můžete teď povolit CDN pro váš účet úložišt�
     ![Nový koncový bod CDN úložiště][cdn-storage-new-endpoint]
 
 > [!NOTE]
-> Můžete také přejít na rozšíření Azure CDN povolit CDN. [Kurzu](#Tutorial-cdn-create-profile).
+> Můžete také přejít na rozšíření Azure CDN povolit CDN. [Kurz](#Tutorial-cdn-create-profile).
 > 
 > 
 
@@ -113,7 +113,7 @@ Pokud již nechcete ukládat do mezipaměti objekt v Content Delivery Network (C
 
 Objekt již uložené v mezipaměti v CDN zůstane v mezipaměti, dokud neuplyne období time to live pro objekt, nebo dokud se vyprazdňují koncový bod. Po vypršení doby time to live CDN bude zkontrolujte, jestli je stále platný koncový bod CDN a objekt anonymně přístupné. Pokud není, bude mezipaměti už tento objekt.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 * [Postup mapování obsahu CDN do vlastní domény](cdn-map-content-to-custom-domain.md)
 * [Povolit HTTPS pro vaši vlastní doménu.](cdn-custom-ssl.md)
 

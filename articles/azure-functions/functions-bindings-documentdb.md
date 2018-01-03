@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 65e004c4edad4628a998a4d6365da83151c77344
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 41b1943ecf84ad67af936c6be8707fc9e003f718
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure Cosmos DB vazby pro Azure Functions
 
@@ -29,25 +29,19 @@ Tento článek vysvětluje, jak pracovat s [Azure Cosmos DB](..\cosmos-db\server
 
 ## <a name="trigger"></a>Trigger
 
-Aktivační událost DB Cosmos Azure používá [Azure Cosmos DB změnu kanálu](../cosmos-db/change-feed.md) tak, aby naslouchala na změny napříč oddíly. Aktivační událost vyžaduje druhé kolekci, která se používá k ukládání _zapůjčení_ přes oddíly.
-
-Kolekce, který je monitorován a kolekce, která obsahuje zapůjčení musí být k dispozici pro aktivační událost pro práci.
-
- >[!IMPORTANT]
- > Pokud víc funkcí nakonfigurovány pro používání Cosmos DB aktivační událost pro stejné kolekci, každá z těchto funkcí v současné době by měl použít kolekci s vyhrazenou zapůjčení. Jinak se spustí jenom jedna z funkcí. 
-
+Aktivační událost DB Cosmos Azure používá [Azure Cosmos DB změnu kanálu](../cosmos-db/change-feed.md) tak, aby naslouchala na změny napříč oddíly. Informační kanál změnu publikuje vložení a aktualizace, není odstranění. 
 
 ## <a name="trigger---example"></a>Aktivační událost – příklad
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#trigger---c-example)
-* [Skript jazyka C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# skript (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Aktivační událost – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) , aktivuje z konkrétní databáze a kolekce.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) , aktivuje z konkrétní databáze a kolekce.
 
 ```cs
     using System.Collections.Generic;
@@ -133,7 +127,7 @@ Tady je kód jazyka JavaScript:
 
 ## <a name="trigger---attributes"></a>Aktivační událost – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Konstruktoru atributu přebírá název databáze a název kolekce. Informace o těchto nastaveních a další vlastnosti, které můžete konfigurovat, najdete v článku [aktivační událost - konfigurace](#trigger---configuration). Tady je `CosmosDBTrigger` atribut příkladu podpis metody:
 
@@ -148,7 +142,7 @@ Konstruktoru atributu přebírá název databáze a název kolekce. Informace o 
     }
 ```
 
-Úplný příklad najdete v tématu [aktivační událost - předkompilovaných C# příklad](#trigger---c-example).
+Úplný příklad najdete v tématu [aktivační událost - C# příklad](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Aktivační událost - konfigurace
 
@@ -162,7 +156,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |**connectionStringSetting**|**ConnectionStringSetting** | Název nastavení aplikace, který obsahuje připojovací řetězec použitý pro připojení k účtu Azure Cosmos DB monitorovány. |
 |**Název databáze**|**Název databáze**  | Název databáze Azure Cosmos DB s kolekcí monitorovány. |
 |**Název_kolekce** |**Název_kolekce** | Název kolekce, který je monitorován. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Volitelné) Název nastavení aplikace, který obsahuje připojovací řetězec k službě, která kolekci zapůjčení. Pokud není nastavena, `connectionStringSetting` hodnota se používá. Tento parametr je automaticky nastaven při vytvoření vazby na portálu. |
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Volitelné) Název nastavení aplikace, který obsahuje připojovací řetězec k službě, která kolekci zapůjčení. Pokud není nastavena, `connectionStringSetting` hodnota se používá. Tento parametr je automaticky nastaven při vytvoření vazby na portálu. Připojovací řetězec pro kolekci zapůjčení musí mít oprávnění k zápisu.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Volitelné) Název databáze, který obsahuje kolekci používá k ukládání zapůjčení. Pokud není nastavena hodnota `databaseName` nastavení se používá. Tento parametr je automaticky nastaven při vytvoření vazby na portálu. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Volitelné) Název kolekce používá k ukládání zapůjčení. Pokud není nastavena hodnota `leases` se používá. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Volitelné) Pokud nastavíte hodnotu `true`, kolekci zapůjčení se automaticky vytvoří, pokud ještě neexistuje. Výchozí hodnota je `false`. |
@@ -171,39 +165,36 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
->[!NOTE] 
->Připojovací řetězec pro kolekci zapůjčení musí mít oprávnění k zápisu.
+## <a name="trigger---usage"></a>Aktivační událost - využití
+
+Aktivační událost vyžaduje druhé kolekci, která se používá k ukládání _zapůjčení_ přes oddíly. Kolekce, který je monitorován a kolekce, která obsahuje zapůjčení musí být k dispozici pro aktivační událost pro práci.
+
+ >[!IMPORTANT]
+ > Pokud víc funkcí nakonfigurovány pro používání Cosmos DB aktivační událost pro stejné kolekci, každá z těchto funkcí by měl použít kolekci s vyhrazenou zapůjčení. Jinak se spustí jenom jedna z funkcí. 
+
+Aktivační událost není označuje, že zda dokument byl aktualizaci nebo vložení, pouze poskytuje samotného dokumentu. Pokud potřebujete pro zpracování aktualizace a vloží odlišně, můžete to udělat implementací pole časového razítka pro vložení nebo aktualizace.
 
 ## <a name="input"></a>Vstup
 
-Vstupní vazba rozhraní API DocumentDB načte jeden nebo více dokumentů Azure Cosmos DB a předává je do vstupní parametr funkce. Parametry dotazu nebo ID dokumentu lze určit podle aktivační událost, která volá funkci. 
+Načte jeden nebo více dokumentů Azure Cosmos DB a předává je do vstupní parametr funkce vstupní vazeb Azure Cosmos DB. Parametry dotazu nebo ID dokumentu lze určit podle aktivační událost, která volá funkci. 
+
+>[!NOTE]
+> Nechcete používat Azure Cosmos DB vstup nebo výstup vazby, pokud používáte rozhraní API MongoDB na účet Cosmos DB. Poškození dat je možné.
 
 ## <a name="input---example-1"></a>(Vstup) – Příklad 1
 
 Podívejte se na příklad pro specifický jazyk, který čte jednoho dokumentu:
 
-* [Předkompilované C#](#input---c-example)
-* [Skript jazyka C#](#input---c-script-example)
+* [C#](#input---c-example)
+* [C# skript (.csx)](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-example"></a>(Vstup) – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) který jednoho dokumentu načte z konkrétní databáze a kolekce. První, `Id` a `Maker` hodnoty `CarReview` instanci předávána do fronty. 
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) který jednoho dokumentu načte z konkrétní databáze a kolekce. 
 
- ```cs
-    public class CarReview
-    {
-        public string Id { get; set; }
-        public string Maker { get; set; }
-        public string Description { get; set; }
-        public string Model { get; set; }
-        public string Image { get; set; }
-        public string Review { get; set; }
-    }
- ```
-
-DB Cosmos vazba používá `Id` a `Maker` ze zprávy ve frontě pro načtení dokumentu z databáze.
+První, `Id` a `Maker` hodnoty `CarReview` instanci předávána do fronty. DB Cosmos vazba používá `Id` a `Maker` ze zprávy ve frontě pro načtení dokumentu z databáze.
 
 ```cs
     using Microsoft.Azure.WebJobs;
@@ -224,6 +215,20 @@ DB Cosmos vazba používá `Id` a `Maker` ze zprávy ve frontě pro načtení do
         }
     }
 ```
+
+Tady je `CarReview` objektů POCO:
+
+ ```cs
+    public class CarReview
+    {
+        public string Id { get; set; }
+        public string Maker { get; set; }
+        public string Description { get; set; }
+        public string Model { get; set; }
+        public string Image { get; set; }
+        public string Review { get; set; }
+    }
+ ```
 
 ### <a name="input---c-script-example"></a>(Vstup) – příklad skriptu jazyka C#
 
@@ -250,7 +255,7 @@ Tady je kód skriptu jazyka C#:
 ```cs
     using System;
 
-    // Change input document contents using DocumentDB API input binding 
+    // Change input document contents using Azure Cosmos DB input binding 
     public static void Run(string myQueueItem, dynamic inputDocument)
     {   
       inputDocument.text = "This has changed.";
@@ -282,7 +287,7 @@ Zde je vazba dat v *function.json* souboru:
 Tady je kód F #:
 
 ```fsharp
-    (* Change input document contents using DocumentDB API input binding *)
+    (* Change input document contents using Azure Cosmos DB input binding *)
     open FSharp.Interop.Dynamic
     let Run(myQueueItem: string, inputDocument: obj) =
     inputDocument?text <- "This has changed."
@@ -328,7 +333,7 @@ Zde je vazba dat v *function.json* souboru:
 Tady je kód jazyka JavaScript:
 
 ```javascript
-    // Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
+    // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
     module.exports = function (context) {   
     context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
     context.bindings.inputDocumentOut.text = "This was updated!";
@@ -340,13 +345,13 @@ Tady je kód jazyka JavaScript:
 
 Podívejte se na příklad pro specifický jazyk, který čte více dokumentů:
 
-* [Předkompilované C#](#input---c-example-2)
-* [Skript jazyka C#](#input---c-script-example-2)
+* [C#](#input---c-example-2)
+* [C# skript (.csx)](#input---c-script-example-2)
 * [JavaScript](#input---javascript-example-2)
 
 ### <a name="input---c-example-2"></a>Vstup - C# příklad 2
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) , provede dotaz SQL. Použít `SqlQuery` parametr, musíte nainstalovat nejnovější verze beta `Microsoft.Azure.WebJobs.Extensions.DocumentDB` balíček NuGet.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) , provede dotaz SQL. Použít `SqlQuery` parametr, musíte nainstalovat nejnovější verze beta `Microsoft.Azure.WebJobs.Extensions.DocumentDB` balíček NuGet.
 
 ```csharp
     using System.Net;
@@ -366,7 +371,7 @@ Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotne
 
 ### <a name="input---c-script-example-2"></a>(Vstup) – příklad skriptu jazyka C# 2
 
-Následující příklad ukazuje vazbu vstupní v DocumentDB *function.json* souboru a [funkce skriptu jazyka C#](functions-reference-csharp.md) vazby, který používá. Funkce načte více dokumentů určeného dotaz SQL, chcete-li přizpůsobit parametry dotazu pomocí aktivační procedury fronty.
+Následující příklad ukazuje vazbu vstupní v Azure Cosmos DB *function.json* souboru a [funkce skriptu jazyka C#](functions-reference-csharp.md) používající vazby. Funkce načte více dokumentů určeného dotaz SQL, chcete-li přizpůsobit parametry dotazu pomocí aktivační procedury fronty.
 
 Aktivační událost fronty poskytuje parametr `departmentId`. Fronty zpráv z `{ "departmentId" : "Finance" }` by vrátit všechny záznamy pro finančního oddělení. 
 
@@ -405,7 +410,7 @@ Tady je kód skriptu jazyka C#:
 
 ### <a name="input---javascript-example-2"></a>(Vstup) – příklad v jazyce JavaScript 2
 
-Následující příklad ukazuje vazbu vstupní v DocumentDB *function.json* souboru a [funkce JavaScript, která](functions-reference-node.md) používající vazby. Funkce načte více dokumentů určeného dotaz SQL, chcete-li přizpůsobit parametry dotazu pomocí aktivační procedury fronty.
+Následující příklad ukazuje vazbu vstupní v Azure Cosmos DB *function.json* souboru a [funkce JavaScript, která](functions-reference-node.md) používající vazby. Funkce načte více dokumentů určeného dotaz SQL, chcete-li přizpůsobit parametry dotazu pomocí aktivační procedury fronty.
 
 Aktivační událost fronty poskytuje parametr `departmentId`. Fronty zpráv z `{ "departmentId" : "Finance" }` by vrátit všechny záznamy pro finančního oddělení. 
 
@@ -440,7 +445,7 @@ Tady je kód jazyka JavaScript:
 
 ## <a name="input---attributes"></a>(Vstup) – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Konstruktoru atributu přebírá název databáze a název kolekce. Informace o těchto nastaveních a další vlastnosti, které můžete konfigurovat, najdete v článku [následující konfigurační oddíl](#input---configuration). 
 
@@ -470,20 +475,23 @@ V funkce jazyka JavaScript nejsou automaticky provedeny aktualizace po ukončen�
 
 ## <a name="output"></a>Výstup
 
-Rozhraní API DocumentDB výstup vazby umožňuje zapsat nový dokument k databázi Azure Cosmos DB. 
+Azure Cosmos DB výstup vazby umožňuje zapsat nový textový dokument k databázi Azure Cosmos DB. 
+
+>[!NOTE]
+> Nechcete používat Azure Cosmos DB vstup nebo výstup vazby, pokud používáte rozhraní API MongoDB na účet Cosmos DB. Poškození dat je možné.
 
 ## <a name="output---example"></a>Výstup – příklad
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#output---c-example)
-* [Skript jazyka C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# skript (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Výstup – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) doplňuje dokument k databázi, pomocí data zadaná v zpráv z fronty úložiště.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) doplňuje dokument k databázi, pomocí data zadaná v zpráv z fronty úložiště.
 
 ```cs
     using System;
@@ -500,7 +508,7 @@ Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotne
 
 ### <a name="output---c-script-example"></a>Výstup – příklad skriptu jazyka C#
 
-Následující příklad ukazuje výstup DocumentDB vazby ve *function.json* souboru a [funkce skriptu jazyka C#](functions-reference-csharp.md) používající vazby. Funkce, která používá vazbu vstupní fronty pro frontu, která přijímá JSON v následujícím formátu:
+Následující příklad ukazuje výstup Azure Cosmos DB vazby ve *function.json* souboru a [funkce skriptu jazyka C#](functions-reference-csharp.md) používající vazby. Funkce, která používá vazbu vstupní fronty pro frontu, která přijímá JSON v následujícím formátu:
 
 ```json
 {
@@ -564,7 +572,7 @@ Pokud chcete vytvořit více dokumentů, můžete vázat na `ICollector<T>` nebo
 
 ### <a name="output---f-example"></a>Výstup – příklad F #
 
-Následující příklad ukazuje výstup DocumentDB vazby ve *function.json* souboru a [F # funkce](functions-reference-fsharp.md) používající vazby. Funkce, která používá vazbu vstupní fronty pro frontu, která přijímá JSON v následujícím formátu:
+Následující příklad ukazuje výstup Azure Cosmos DB vazby ve *function.json* souboru a [F # funkce](functions-reference-fsharp.md) používající vazby. Funkce, která používá vazbu vstupní fronty pro frontu, která přijímá JSON v následujícím formátu:
 
 ```json
 {
@@ -642,7 +650,7 @@ Chcete-li přidat `project.json` souborů najdete v tématu [správy balíčků 
 
 ### <a name="output---javascript-example"></a>Výstup – příklad v jazyce JavaScript
 
-Následující příklad ukazuje výstup DocumentDB vazby ve *function.json* souboru a [funkce JavaScript, která](functions-reference-node.md) používající vazby. Funkce, která používá vazbu vstupní fronty pro frontu, která přijímá JSON v následujícím formátu:
+Následující příklad ukazuje výstup Azure Cosmos DB vazby ve *function.json* souboru a [funkce JavaScript, která](functions-reference-node.md) používající vazby. Funkce, která používá vazbu vstupní fronty pro frontu, která přijímá JSON v následujícím formátu:
 
 ```json
 {
@@ -697,7 +705,7 @@ Tady je kód jazyka JavaScript:
 
 ## <a name="output---attributes"></a>Výstup – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Konstruktoru atributu přebírá název databáze a název kolekce. Informace o těchto nastaveních a další vlastnosti, které můžete konfigurovat, najdete v článku [výstup - konfigurace](#output---configuration). Tady je `DocumentDB` atribut příkladu podpis metody:
 
@@ -711,7 +719,7 @@ Konstruktoru atributu přebírá název databáze a název kolekce. Informace o 
     }
 ```
 
-Úplný příklad najdete v tématu [výstup - předkompilovaných C# příklad](#output---c-example).
+Úplný příklad najdete v tématu [výstup - C# příklad](#output---c-example).
 
 ## <a name="output---configuration"></a>Výstup – konfigurace
 
@@ -738,7 +746,7 @@ Ve výchozím nastavení když zapíšete do výstupního parametru ve funkci, s
 > [!Note]  
 > Pokud zadáte ID stávající dokument, získá přepsány nový dokument výstup. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Přejděte na rychlé spuštění, používající aktivační událost Cosmos DB](functions-create-cosmos-db-triggered-function.md)

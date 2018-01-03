@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Pochopení omezení a jak ho odebrat útraty u Azure
 
@@ -48,8 +48,10 @@ Pokud chcete odebrat limit útraty, postupujte takto:
 
 1. Přihlaste se k [centra účtů](https://account.windowsazure.com/Subscriptions).
 1. Vyberte předplatné.
-1. Pokud předplatné je zakázané kvůli dosažení limit útraty, klikněte na toto oznámení: "Předplatné dosáhla limitu útraty a byl zakázán nabíhat poplatky." Jinak, klikněte na tlačítko **odebrat útrat** v **stav PŘEDPLATNÉHO** oblasti.
+. Pokud předplatné je zakázané kvůli dosažení limit útraty, klikněte na toto oznámení: "Předplatné dosáhla limitu útraty a byl zakázán nabíhat poplatky." Jinak, klikněte na tlačítko **odebrat útrat** v **stav PŘEDPLATNÉHO** oblasti.
 1. Vyberte vhodnou možnost.
+
+![Vyberete možnost pro odebrání útrat](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Možnost|Efekt|
 |-------|-----|
@@ -80,8 +82,10 @@ Nemáme vlastní tráví omezení ještě dnes. Ale můžete se rozhodnout v [po
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Limit útraty zabránit všechny poplatky z Azure?
 
-Některé [služby společnosti Microsoft a třetích stran značky služby](billing-understand-your-azure-marketplace-charges.md) může platit poplatky za platby i v případě, že je nastaven limit útraty. Mezi příklady patří licence Visual Studio, Azure Active Directory premium, plánům podpory a většina výrobců značky služby za účelem prodeje prostřednictvím [Azure Marketplace](https://azure.microsoft.com/marketplace/).
+[Některé externí služby v Azure Marketplace publikovat](billing-understand-your-azure-marketplace-charges.md) nelze použít s vaší kreditů předplatného a může způsobit samostatné poplatky, i když je nastaven limit útraty. Mezi příklady patří licence Visual Studio, Azure Active Directory premium, plánům podpory a většina značky služby třetích stran. Při zřizování nové externí služby se zobrazí varování, vám oznamuje, že služby se účtují samostatně:
 
-## <a name="need-help-contact-support"></a>Potřebujete pomoct? Obraťte se na podporu.
+![Marketplace zakoupit upozornění](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+## <a name="need-help-contact-support"></a>Potřebujete pomoct? Kontaktování podpory
 
 Pokud stále potřebujete pomoc, [obraťte se na podporu](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) získat rychle vyřešit problém.

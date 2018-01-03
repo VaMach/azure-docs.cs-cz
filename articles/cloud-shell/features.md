@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 24b4f92a0a575939d3cf10fc8ec2fe877316f82c
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a6627ab6febc763ae3f1cd464f26ad641f7c717d
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funkce a nástroje pro Bash v prostředí cloudu Azure
 
@@ -50,7 +50,7 @@ Soubory mimo `$Home` a stav počítače nejsou trvalé napříč relacemi.
 
 ## <a name="tools"></a>Nástroje
 
-|Kategorie   |Name (Název)   |
+|Kategorie   |Název   |
 |---|---|
 |Nástroje pro Linux            |Bash<br> Zo<br> tmux<br> dig<br>               |
 |Nástroje Azure            |[Rozhraní příkazového řádku Azure 2.0](https://github.com/Azure/azure-cli) a [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
@@ -59,7 +59,7 @@ Soubory mimo `$Home` a stav počítače nejsou trvalé napříč relacemi.
 |Nástroje sestavení            |Ujistěte se<br> maven<br> npm<br> PIP         |
 |Kontejnery             |[Rozhraní příkazového řádku dockeru](https://github.com/docker/cli)/[počítač Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [ROZHRANÍ PŘÍKAZOVÉHO ŘÁDKU DC/OS](https://github.com/dcos/dcos-cli)         |
 |Databáze              |MySQL klienta<br> PostgreSql klienta<br> [Nástroj SQLCMD](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [Tvůrce MSSQL skriptů](https://github.com/Microsoft/sql-xplat-cli) |
-|Ostatní                  |iPython klienta<br> [Cloud Foundry rozhraní příkazového řádku](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)|
+|Ostatní                  |iPython klienta<br> [Cloud Foundry rozhraní příkazového řádku](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/) |
 
 ## <a name="language-support"></a>Podpora jazyků
 
@@ -72,6 +72,6 @@ Soubory mimo `$Home` a stav počítače nejsou trvalé napříč relacemi.
 |PowerShell |[6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 a 3.5 (výchozí)|
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Bash v prostředí cloudu rychlý start](quickstart.md) <br>
 [Další informace o rozhraní příkazového řádku Azure 2.0](https://docs.microsoft.com/cli/azure/)

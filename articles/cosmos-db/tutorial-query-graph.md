@@ -1,5 +1,5 @@
 ---
-title: "Postup dotazování dat grafu v Azure Cosmos DB? | Dokumentace Microsoftu"
+title: "Postup dotazování dat grafu v Azure Cosmos DB? | Dokumenty Microsoft"
 description: "Další informace k dotazování na data grafu v Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: bf4bb59545ce2d4172cb001d29f5bfc68968d389
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: Jak dotazovat pomocí rozhraní Graph API (preview)?
+# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: Jak dotazovat pomocí rozhraní Graph API?
 
-Azure Cosmos DB [rozhraní Graph API](graph-introduction.md) (preview) podporuje [Gremlin](https://github.com/tinkerpop/gremlin/wiki) dotazy. Tento článek obsahuje ukázkové dokumentech a dotazech, které vám pomůžou začít. A podrobné Gremlin je součástí odkaz [Gremlin podporu](gremlin-support.md) článku.
+Azure Cosmos DB [rozhraní Graph API](graph-introduction.md) podporuje [Gremlin](https://github.com/tinkerpop/gremlin/wiki) dotazy. Tento článek obsahuje ukázkové dokumentech a dotazech, které vám pomůžou začít. A podrobné Gremlin je součástí odkaz [Gremlin podporu](gremlin-support.md) článku.
 
 Tento článek obsahuje následující úlohy: 
 
@@ -75,7 +75,7 @@ g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabe
 
 Můžete vytvořit složitější dotazy a implementovat logiku traversal výkonné grafu pomocí Gremlin, včetně kombinování filtru výrazů, provádění opakování pomocí `loop` kroku a implementuje pomocí podmíněného navigace `choose` krok. Další informace o co můžete dělat s [Gremlin podporu](gremlin-support.md)!
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste provést následující:
 

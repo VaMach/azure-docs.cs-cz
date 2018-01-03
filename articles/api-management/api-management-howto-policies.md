@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Zásady ve službě Azure API Management
 
@@ -74,7 +74,7 @@ V tématu [ukázky zásad](policy-samples.md) Další příklady kódu.
 
 ## <a name="examples"></a>Příklady
 
-### <a name="appliy-policies-specified-at-different-scopes"></a>Zásady Appliy zadaný na různých místech
+### <a name="apply-policies-specified-at-different-scopes"></a>Použít zásady zadaný na různých místech
 
 Pokud máte zásadu na globální úrovni a zásada nakonfigurovaná pro rozhraní API, pak vždy, když se používá toto rozhraní API konkrétní obě zásady se použijí. API Management umožňuje deterministickou řazení příkazy kombinované zásad prostřednictvím base element. 
 
@@ -119,7 +119,7 @@ Omezit příchozí požadavky a přijímat pouze ty z IP adresy 1.2.3.4 upravte 
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Práce se zásadami pro další informace najdete v tématu:
 

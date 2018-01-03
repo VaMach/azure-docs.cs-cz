@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0752864e5074782e6c447b938f69b4502d37fb8b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Zapisují se výrazy pro mapování atributů v Azure Active Directory
 Při konfiguraci zřizování k aplikaci SaaS, je jeden z typů mapování atributů, které můžete zadat mapování u výrazu. Pro tyto musíte napsat skript jako výraz, který umožňuje transformovat data uživatelů do formátů, které jsou více přijatelné pro aplikace SaaS.
@@ -27,7 +27,7 @@ Syntaxe pro výrazy pro mapování atributů je připomínající jazyka Visual 
 
 * Celý výraz musí být definován z hlediska funkcí, které se skládají z název, za nímž následují argumenty v závorce: <br>
   *%{FunctionName/ (<< argument 1 >>, <<argument N>>)*
-* Funkce v sobě navzájem může vnořit. Například: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
+* Funkce v sobě navzájem může vnořit. Příklad: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
 * Tři různé typy argumentů můžete předat do funkce:
   
   1. Atributy, které musí být uzavřena do odmocnina hranaté závorky. Příklad: [attributeName]
@@ -36,7 +36,7 @@ Syntaxe pro výrazy pro mapování atributů je připomínající jazyka Visual 
 * Pro řetězcové konstanty Pokud potřebujete zpětné lomítko (\) nebo uvozovky (") v řetězci, ho, je nutné uvést symbolem zpětné lomítko (\). Například: "název společnosti: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Seznam funkcí
-[Připojit](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [připojení](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [není](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Nahradit](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Přepínače](#switch)
+[Připojit](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [připojení](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [není](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Nahradit](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [přepínače](#switch)
 
 - - -
 ### <a name="append"></a>Připojit
@@ -46,7 +46,7 @@ Syntaxe pro výrazy pro mapování atributů je připomínající jazyka Visual 
 
 **Parametry:**<br> 
 
-| Name (Název) | Požadované / s opakováním | Typ | Poznámky |
+| Název | Požadované / s opakováním | Typ | Poznámky |
 | --- | --- | --- | --- |
 | **zdroj** |Požaduje se |Řetězec |Obvykle název atributu, ze zdrojového objektu |
 | **přípona** |Požaduje se |Řetězec |Řetězec, který má být připojen na konec zdrojové hodnoty. |
@@ -59,7 +59,7 @@ Syntaxe pro výrazy pro mapování atributů je připomínající jazyka Visual 
 
 **Parametry:**<br> 
 
-| Name (Název) | Požadované / s opakováním | Typ | Poznámky |
+| Název | Požadované / s opakováním | Typ | Poznámky |
 | --- | --- | --- | --- |
 | **zdroj** |Požaduje se |Řetězec |Obvykle název atributu, ze zdrojového objektu. |
 | **inputFormat** |Požaduje se |Řetězec |Očekávaný formát zdrojové hodnoty. Podporovaných formátů naleznete v části [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -75,7 +75,7 @@ Pokud je jedna z hodnot zdroj vícehodnotový atribut, pak každá hodnota v ten
 
 **Parametry:**<br> 
 
-| Name (Název) | Požadované / s opakováním | Typ | Poznámky |
+| Název | Požadované / s opakováním | Typ | Poznámky |
 | --- | --- | --- | --- |
 | **Oddělovač** |Požaduje se |Řetězec |Řetězec slouží k oddělení zdroj hodnoty, když jsou zřetězeny do jednoho řetězce. Může být "" Pokud žádné oddělovače je vyžadován. |
 | ** zdroj1... zdrojN ** |Požadované proměnné počet pokusů |Řetězec |Řetězec hodnoty, které mají být propojeny. |
@@ -88,11 +88,11 @@ Pokud je jedna z hodnot zdroj vícehodnotový atribut, pak každá hodnota v ten
 
 **Parametry:**<br> 
 
-| Name (Název) | Požadované / s opakováním | Typ | Poznámky |
+| Název | Požadované / s opakováním | Typ | Poznámky |
 | --- | --- | --- | --- |
 | **zdroj** |Požaduje se |Řetězec |Obvykle název atributu. |
-| **start** |Požaduje se |celé číslo |V indexu **zdroj** řetězec, kde by se měl spustit dílčí řetězec. První znak v řetězci bude mít index 1, druhý znak bude mít index 2 a tak dále. |
-| **Délka** |Požaduje se |celé číslo |Délka dílčí řetězec. Pokud délka skončí mimo **zdroj** řetězec, funkce vrátí dílčí řetězec z **spustit** indexu do konce **zdroj** řetězec. |
+| **start** |Požaduje se |integer |V indexu **zdroj** řetězec, kde by se měl spustit dílčí řetězec. První znak v řetězci bude mít index 1, druhý znak bude mít index 2 a tak dále. |
+| **Délka** |Požaduje se |integer |Délka dílčí řetězec. Pokud délka skončí mimo **zdroj** řetězec, funkce vrátí dílčí řetězec z **spustit** indexu do konce **zdroj** řetězec. |
 
 - - -
 ### <a name="not"></a>není
@@ -102,7 +102,7 @@ Pokud je jedna z hodnot zdroj vícehodnotový atribut, pak každá hodnota v ten
 
 **Parametry:**<br> 
 
-| Name (Název) | Požadované / s opakováním | Typ | Poznámky |
+| Název | Požadované / s opakováním | Typ | Poznámky |
 | --- | --- | --- | --- |
 | **zdroj** |Požaduje se |Logická hodnota řetězce |Očekávaný **zdroje** jsou hodnoty "True" nebo "Nepravda"... |
 
@@ -129,7 +129,7 @@ Nahradí hodnoty v řetězci. Funguje jinak v závislosti na parametry zadané:
 
 **Parametry:**<br> 
 
-| Name (Název) | Požadované / s opakováním | Typ | Poznámky |
+| Název | Požadované / s opakováním | Typ | Poznámky |
 | --- | --- | --- | --- |
 | **zdroj** |Požaduje se |Řetězec |Obvykle název atributu, ze zdrojového objektu. |
 | **oldValue** |Nepovinné |Řetězec |Hodnota, která má být nahrazen v **zdroj** nebo **šablony**. |
@@ -140,6 +140,18 @@ Nahradí hodnoty v řetězci. Funguje jinak v závislosti na parametry zadané:
 | **šablony** |Nepovinné |Řetězec |Když **šablony** je zadána hodnota, podíváme se **oldValue** uvnitř šablony a nahraďte ji metodou hodnota zdroje. |
 
 - - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**Funkce:**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**Popis:**<br> Vrátí jeden appRoleAssignment ze seznamu všechny appRoleAssignments přiřazen k uživateli pro danou aplikaci. Tato funkce je potřeba převést objekt appRoleAssignments do jedné role název řetězce. Všimněte si, že osvědčený postup je zajistit appRoleAssignment pouze jeden je přiřazen jednomu uživateli současně a pokud víc rolí přiřazené role řetězec vrácený nemusí být předvídatelný.
+
+**Parametry:**<br> 
+
+| Název | Požadované / s opakováním | Typ | Poznámky |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Požaduje se |Řetězec |**[appRoleAssignments]**  objektu. |
+
+- - -
 ### <a name="stripspaces"></a>StripSpaces
 **Funkce:**<br> StripSpaces(source)
 
@@ -147,7 +159,7 @@ Nahradí hodnoty v řetězci. Funguje jinak v závislosti na parametry zadané:
 
 **Parametry:**<br> 
 
-| Name (Název) | Požadované / s opakováním | Typ | Poznámky |
+| Název | Požadované / s opakováním | Typ | Poznámky |
 | --- | --- | --- | --- |
 | **zdroj** |Požaduje se |Řetězec |**Zdroj** hodnotu aktualizovat. |
 
@@ -159,7 +171,7 @@ Nahradí hodnoty v řetězci. Funguje jinak v závislosti na parametry zadané:
 
 **Parametry:**<br> 
 
-| Name (Název) | Požadované / s opakováním | Typ | Poznámky |
+| Název | Požadované / s opakováním | Typ | Poznámky |
 | --- | --- | --- | --- |
 | **zdroj** |Požaduje se |Řetězec |**Zdroj** hodnotu aktualizovat. |
 | **Výchozí hodnota** |Nepovinné |Řetězec |Výchozí hodnota má být použit při zdroj neodpovídá žádné klíče. Může být prázdný řetězec (""). |

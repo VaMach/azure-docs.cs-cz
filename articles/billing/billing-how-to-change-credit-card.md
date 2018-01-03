@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Přidání, aktualizace nebo odeberte kreditní nebo debetní kartu pro Azure
 
@@ -77,7 +77,7 @@ Pokud platební karty je spojen s další aktivní odběry Microsoft, nelze odeb
 
 Po vaše předplatné je zakázané nebo zrušit, čekáme 90 dní před trvalému odstranění předplatného. V případě, že chcete znovu aktivovat předplatné jsme váš způsob platby u souboru zachovat během doby uchování. Potom odběr úplně odstranit.
 
-Pokud je třeba odebrat kreditní nebo debetní karty před končí-90denní období, [požádejte podporu Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Pokud je třeba odebrat kreditní nebo debetní karty před končí-90denní období, [znova si předplatné aktivovat](billing-subscription-become-disable.md). Pokud nelze znovu aktivovat, [požádejte podporu Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Proč zobrazuje "vypršela platnost vaší relace přihlášení. Prosím kliknutím sem se přihlaste"?
 
@@ -96,6 +96,10 @@ Pokud jste [platícího podle faktury](billing-how-to-pay-by-invoice.md), odesl�
 ### <a name="how-do-i-make-a-one-time-payment"></a>Jak lze vytvořit jednorázové platba?
 
 Bohužel Azure aktuálně nepodporuje jednorázové platby kreditní nebo debetní karet. 
+
+### <a name="how-do-i-change-the-tax-id"></a>Jak změním daňové číslo?
+
+Chcete-li přidat nebo aktualizovat daňové číslo, navštivte [ **profil** v centru účtů Azure](https://account.azure.com/Profile), pak vyberte **daně záznam**. Toto ID daň se používá pro výpočty výjimky daně a zobrazí se na vaší faktuře.
 
 ## <a name="need-help-contact-support"></a>Potřebujete pomoct? Kontaktování podpory
 

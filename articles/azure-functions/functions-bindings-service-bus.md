@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus vazby pro Azure Functions
 
@@ -36,14 +36,14 @@ Použijte aktivační událost Service Bus reagovat na zprávy z fronty sběrnic
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#trigger---c-example)
-* [Skript jazyka C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Aktivační událost – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) , zaznamená zprávu fronty Service Bus.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) , zaznamená zprávu fronty Service Bus.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -146,7 +146,7 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---attributes"></a>Aktivační událost – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje konfigurovat aktivační události služby Service Bus následující atributy:
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte následující atributy ke konfiguraci služby Service Bus aktivační událost:
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), definované v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -173,7 +173,7 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
   }
   ```
 
-  Úplný příklad najdete v tématu [aktivační událost - předkompilovaných C# příklad](#trigger---c-example).
+  Úplný příklad najdete v tématu [aktivační událost - C# příklad](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), definované v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -250,14 +250,14 @@ Použití Azure Service Bus Výstupní vazba odesílat zprávy fronty nebo téma
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#output---c-example)
-* [Skript jazyka C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# skript (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Výstup – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) , odešle zprávu fronty sběrnice:
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) , odešle zprávu fronty sběrnice:
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -411,7 +411,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>Výstup – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Konstruktoru atributu převezme název fronta nebo téma a odběr. Můžete také zadat připojení přístupová práva. Jak vybrat přístupová práva, nastavení je podrobně popsaný [výstup - konfigurace](#output---configuration) části. Tady je příklad, který ukazuje atribut návratové hodnoty funkce:
 
@@ -435,9 +435,9 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-Úplný příklad najdete v tématu [výstup - předkompilovaných C# příklad](#output---c-example).
+Úplný příklad najdete v tématu [výstup - C# příklad](#output---c-example).
 
-Můžete použít `ServiceBusAccount` atribut zadat účet služby Service Bus, který chcete použít na úrovni třídy, metoda nebo parametr.  Další informace najdete v tématu [aktivační událost – atributy](#trigger---attributes-for-precompiled-c).
+Můžete použít `ServiceBusAccount` atribut zadat účet služby Service Bus, který chcete použít na úrovni třídy, metoda nebo parametr.  Další informace najdete v tématu [aktivační událost – atributy](#trigger---attributes).
 
 ## <a name="output---configuration"></a>Výstup – konfigurace
 
@@ -469,7 +469,7 @@ Pro vytvoření více zpráv v C# nebo funkce skriptu jazyka C#, můžete použ�
 
 V jazyce JavaScript, přístup k fronta nebo téma pomocí `context.bindings.<name>`. `<name>`Hodnota zadaná v `name` vlastnost *function.json*. Řetězec, bajtové pole nebo objekt jazyka Javascript (deserializovat do formátu JSON) můžete přiřadit k `context.binding.<name>`.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: markgal;trinadhk
+ms.date: 12/20/2017
+ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b873337cf69ea1dda956ebf8c004754a7737e79c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Pomocí rutin AzureRM.RecoveryServices.Backup zálohování virtuálních počítačů
 
@@ -80,7 +80,28 @@ Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.4.0      Az
 Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
 Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
 ```
+3. Účet přihlášení pro vaši Azure pomocí **Login-AzureRmAccount**. Tato rutina se vyvolá na webové stránce vás vyzve k zadání přihlašovacích údajů účtu: 
+    - Alternativně můžete použít přihlašovací údaje účtu jako parametr v **Login-AzureRmAccount** rutiny, pomocí **-přihlašovacích údajů** parametr.
+    - Pokud jste poskytovatel CSP partnera práce jménem klienta, zadejte zákazníka jako klient, pomocí jejich název primární domény tenantID nebo klienta. Příklad: **Login-AzureRmAccount-klienta "fabrikam.com"**
+4. Přidružte odběr, který chcete použít s účet, protože účet může mít několik odběrů:
 
+    ```
+    PS C:\> Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    ```
+
+5. Pokud používáte Azure Backup poprvé, musíte použít  **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  rutiny k registraci poskytovatele služeb zotavení Azure s vaším předplatným.
+
+    ```
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ```
+
+6. Můžete ověřit, že registrované zprostředkovatele úspěšně, použijte následující příkazy:
+    ```
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ``` 
+Ve výstupu příkazu **RegistrationState** by se nastavit na **registrovaná**. Pokud ne, stačí znovu spustit  **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  rutiny uvedené výše.
 
 Následující úlohy je možné automatizovat pomocí prostředí PowerShell:
 
@@ -93,22 +114,17 @@ Následující úlohy je možné automatizovat pomocí prostředí PowerShell:
 ## <a name="create-a-recovery-services-vault"></a>Vytvoření trezoru služby Recovery Services
 Následující kroky vás provedou vytvoření trezoru služeb zotavení. Trezor služeb zotavení se liší od úložiště záloh.
 
-1. Pokud používáte Azure Backup poprvé, musíte použít  **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  rutiny k registraci poskytovatele služeb zotavení Azure s vaším předplatným.
-
-    ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    ```
-2. Trezor služeb zotavení je prostředek Resource Manager, proto musíte umístit do skupiny prostředků. Můžete použít existující skupinu prostředků nebo vytvořte skupinu prostředků s  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  rutiny. Při vytváření skupiny prostředků, zadejte název a umístění pro skupinu prostředků.  
+1. Trezor služeb zotavení je prostředek Resource Manager, proto musíte umístit do skupiny prostředků. Můžete použít existující skupinu prostředků nebo vytvořte skupinu prostředků s  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  rutiny. Při vytváření skupiny prostředků, zadejte název a umístění pro skupinu prostředků.  
 
     ```
     PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "West US"
     ```
-3. Použití  **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  rutiny pro vytvoření trezoru služeb zotavení. Ujistěte se, že zadejte stejné umístění pro úložiště, jako byl použit pro skupinu prostředků.
+2. Použití  **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  rutiny pro vytvoření trezoru služeb zotavení. Ujistěte se, že zadejte stejné umístění pro úložiště, jako byl použit pro skupinu prostředků.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Zadejte typ redundance úložiště se použije. můžete použít [místně redundantní úložiště (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) nebo [geograficky redundantní úložiště (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Následující příklad ukazuje, že je možnost - BackupStorageRedundancy pro testvault nastavena na GeoRedundant.
+3. Zadejte typ redundance úložiště se použije. můžete použít [místně redundantní úložiště (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) nebo [geograficky redundantní úložiště (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Následující příklad ukazuje, že je možnost - BackupStorageRedundancy pro testvault nastavena na GeoRedundant.
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
@@ -573,5 +589,5 @@ PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud dáváte přednost zapojit vašich prostředků Azure pomocí prostředí PowerShell, najdete v článku prostředí PowerShell [nasadit a spravovat zálohy pro Windows Server](backup-client-automation.md). Pokud budete spravovat zálohy aplikace DPM, najdete v článku [nasadit a spravovat zálohy pro DPM](backup-dpm-automation.md). Mají obě z těchto článků verze pro nasazení Resource Manager a nasazení Classic.  

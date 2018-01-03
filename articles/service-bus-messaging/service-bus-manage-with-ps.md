@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fbc6e18565ec14a3ccb4499b24804f681026023
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Pomocí prostředí PowerShell pro správu prostředků služby Service Bus
 
@@ -159,7 +159,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 Můžete použít [modulu Service Bus PowerShell](/powershell/module/azurerm.servicebus) ke zřízení jinými entitami, jako jsou témata a odběry. Tyto rutiny jsou syntakticky podobná rutiny vytvoření fronty ukázáno v předchozí části.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Najdete kompletní dokumentaci modulu Powershellu pro Service Bus Resource Manager [zde](/powershell/module/azurerm.servicebus). Tato stránka obsahuje seznam všech dostupných rutin.
 - Informace o používání šablon Azure Resource Manageru, najdete v článku [vytvořit Service Bus prostředků pomocí šablony Azure Resource Manager](service-bus-resource-manager-overview.md).

@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurace webových aplikací v prostředí Azure App Service
+
 Toto téma vysvětluje, jak nakonfigurovat webovou aplikaci pomocí [portálu Azure].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -46,6 +47,8 @@ Technické z důvodů povolení pro aplikace Java zakáže možnosti .NET, PHP a
 <a name="platform"></a>
 **Platforma**. Vybere, zda běží vaše webová aplikace v prostředí 32bitové nebo 64bitové verze. 64bitová verze prostředí vyžaduje režimu Basic nebo Standard. Uvolněte a režimy sdílené vždy spustit v prostředí 32-bit.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 **Webové sokety**. Nastavit **ON** povolit protokol WebSocket; například, pokud vaše webová aplikace používá [ASP.NET SignalR] nebo [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
@@ -58,7 +61,7 @@ Technické z důvodů povolení pro aplikace Java zakáže možnosti .NET, PHP a
 ### <a name="debugging"></a>Ladění
 **Vzdálené ladění**. Umožňuje vzdálené ladění. Když je povolené, můžete v sadě Visual Studio vzdáleného ladicího programu pro připojení přímo k vaší webové aplikace. Vzdálené ladění zůstane zapnutá 48 hodin. 
 
-### <a name="app-settings"></a>Nastavení aplikace
+### <a name="app-settings"></a>Nastavení aplikací
 Tato část obsahuje dvojice název/hodnota, které vaší webové aplikace načte při spuštění. 
 
 * Pro aplikace .NET, tato nastavení jsou vloženy do vaší konfigurace .NET `AppSettings` v době běhu přepsání stávajícího nastavení. 
@@ -120,12 +123,12 @@ Chcete-li zobrazit soubory protokolů, musíte vytvořit přihlašovací údaje 
 
 ![Nastavení přihlašovacích údajů nasazení][configure03]
 
-Úplné uživatelské jméno FTP je "app\username", kde *aplikace* je název vaší webové aplikace. Uživatelské jméno je uvedena v okně webové aplikace v části **Essentials**.  
+Úplné uživatelské jméno FTP je "app\username", kde *aplikace* je název vaší webové aplikace. Uživatelské jméno je uvedena v okně webové aplikace v části **Essentials**.
 
 ![Přihlašovací údaje pro nasazení serveru FTP][configure02]
 
 ## <a name="other-configuration-tasks"></a>Další konfigurační úlohy
-### <a name="ssl"></a>PROTOKOL SSL
+### <a name="ssl"></a>SSL
 V režimu Basic nebo Standard můžete nahrát certifikáty SSL pro vlastní doménu. Další informace najdete v tématu [Povolit HTTPS pro webovou aplikaci]. 
 
 Chcete-li zobrazit nahrané certifikáty, klikněte na tlačítko **všechna nastavení** > **vlastní domény a SSL**.
@@ -147,11 +150,11 @@ V režimu Basic nebo Standard můžete otestovat dostupnost protokolu HTTP nebo 
 Další informace najdete v tématu [postupy: sledování stavu koncový bod webové].
 
 > [!NOTE]
-> Pokud chcete začít používat Azure App Service před registrací účtu Azure, přejděte k [možnosti vyzkoušet si App Service], kde si můžete hned vytvořit krátkodobou úvodní webovou aplikaci. Nevyžaduje se žádná platební karta a nevzniká žádný závazek.
+> Pokud chcete začít používat službu Azure App Service před registrací k účtu Azure, přejděte k možnosti [Vyzkoušet službu App Service], kde můžete okamžitě vytvořit krátkodobou úvodní webovou aplikaci. Není vyžadována platební karta a nevzniká žádný závazek.
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Konfigurace vlastní domény ve službě Azure App Service]
 * [Povolit HTTPS pro aplikace v Azure App Service]
 * [Škálování webové aplikace v Azure App Service]
@@ -168,7 +171,7 @@ Další informace najdete v tématu [postupy: sledování stavu koncový bod web
 [Základní informace o monitorování pro webové aplikace v Azure App Service]: ./web-sites-monitor.md
 [režim kanálů]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Škálování webové aplikace v Azure App Service]: ./web-sites-scale.md
-[možnosti vyzkoušet si App Service]: https://azure.microsoft.com/try/app-service/
+[Vyzkoušet službu App Service]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 

@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: b2e8e27cecb4d1225e378690063b42f5d5242868
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 7203c95a1269698dea91475aa6aa24c47bcfb0f0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Připojit sdílenou složku Azure s instancemi Azure kontejneru
 
@@ -25,43 +25,47 @@ Před použitím sdílenou složku Azure s Azure kontejner instancí, je třeba 
 
 ```azurecli-interactive
 # Change these four parameters as needed
-ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 ACI_PERS_RESOURCE_GROUP=myResourceGroup
+ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 ACI_PERS_LOCATION=eastus
 ACI_PERS_SHARE_NAME=acishare
 
 # Create the storage account with the parameters
-az storage account create -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -l $ACI_PERS_LOCATION --sku Standard_LRS
+az storage account create \
+    --resource-group $ACI_PERS_RESOURCE_GROUP \
+    --name $ACI_PERS_STORAGE_ACCOUNT_NAME \
+    --location $ACI_PERS_LOCATION \
+    --sku Standard_LRS
 
 # Export the connection string as an environment variable. The following 'az storage share create' command
 # references this environment variable when creating the Azure file share.
-export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -o tsv`
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $ACI_PERS_RESOURCE_GROUP --name $ACI_PERS_STORAGE_ACCOUNT_NAME --output tsv`
 
 # Create the file share
 az storage share create -n $ACI_PERS_SHARE_NAME
 ```
 
-## <a name="acquire-storage-account-access-details"></a>Získat podrobnosti o přístup k účtu úložiště
+## <a name="get-storage-credentials"></a>Získání přihlašovacích údajů úložiště
 
 Chcete-li jako svazek v instancí kontejnerů Azure připojit sdílenou složku Azure, je třeba tří hodnot: název účtu úložiště, název sdílené složky a přístupový klíč úložiště.
 
 Pokud jste použili výše uvedený skript, název účtu úložiště byl vytvořen s hodnotou náhodných na konci. Chcete-li prohledávat posledním řetězci (včetně náhodných část), použijte následující příkazy:
 
 ```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
+STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" --output tsv)
 echo $STORAGE_ACCOUNT
 ```
 
 Název sdílené složky je již znám (definován jako *acishare* ve skriptu výše), takže všechny, že zůstanou je klíč účtu úložiště, které lze najít pomocí následujícího příkazu:
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" --output tsv)
 echo $STORAGE_KEY
 ```
 
-## <a name="deploy-the-container-and-mount-the-volume"></a>Nasazení kontejneru a připojte svazek
+## <a name="deploy-container-and-mount-volume"></a>Nasazení kontejneru a připojení svazku
 
-Chcete-li připojit sdílenou složku Azure jako svazek v kontejneru, zadejte do sdílené složky a svazek přípojný bod, když vytvoříte kontejner s [vytvořit kontejner az](/cli/azure/container#az_container_create). Pokud jste postupovali podle předchozích kroků, můžete připojit sdílenou složku, kterou jste dříve vytvořili pomocí následujícího příkazu k vytvoření kontejneru:
+Chcete-li připojit sdílenou složku Azure jako svazek v kontejneru, zadejte do sdílené složky a svazek přípojný bod, když vytvoříte kontejner s [vytvořit kontejner az][az-container-create]. Pokud jste postupovali podle předchozích kroků, můžete připojit sdílenou složku, kterou jste dříve vytvořili pomocí následujícího příkazu k vytvoření kontejneru:
 
 ```azurecli-interactive
 az container create \
@@ -78,14 +82,23 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>Správa souborů v připojeného svazku
 
-Po spuštění kontejneru, můžete jednoduché webové aplikace nasazené prostřednictvím [seanmckenna/aci-hellofiles](https://hub.docker.com/r/seanmckenna/aci-hellofiles/) image ke správě souborů v Azure sdílené složky v cestě připojení jste zadali. Získat IP adresu pro webovou aplikaci pomocí [az kontejneru zobrazit](/cli/azure/container#az_container_show) příkaz:
+Po spuštění kontejneru, můžete jednoduché webové aplikace nasazené prostřednictvím [seanmckenna/aci-hellofiles] [ aci-hellofiles] image ke správě souborů v Azure sdílené složky v cestě připojení jste zadali. Získat IP adresu pro webovou aplikaci pomocí [az kontejneru zobrazit] [ az-container-show] příkaz:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
 ```
 
-Můžete použít [portál Azure](https://portal.azure.com) nebo nástroje, jako [Microsoft Azure Storage Explorer](https://storageexplorer.com) k načtení a zkontrolujte soubor zapisovat do sdílené složky.
+Můžete použít [portál Azure] [ portal] nebo nástroje, jako [Microsoft Azure Storage Explorer] [ storage-explorer] k načtení a zkontrolujte soubor zapsána do sdílené složky.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o vztah mezi [Azure instancí kontejnerů a kontejner orchestrators](container-instances-orchestrator-relationship.md).
+
+<!-- LINKS - External -->
+[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
+[portal]: https://portal.azure.com
+[storage-explorer]: https://storageexplorer.com
+
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 26b9a468684cda344a6ab1b5a2e467d2735f4f71
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure funkce protokolu HTTP a webhooku vazby
 
@@ -41,14 +41,14 @@ Ve výchozím nastavení aktivační procedury HTTP odpoví na žádost s stavov
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#trigger---c-example)
-* [Skript jazyka C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Aktivační událost – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) vyhledává `name` parametr buď v řetězci dotazu nebo textu požadavku HTTP.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) vyhledává `name` parametr buď v řetězci dotazu nebo textu požadavku HTTP.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#webhook---c-example)
-* [Skript jazyka C#](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [C# skript (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Webhooku – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) HTTP 200, odešle v odpovědi na žádost o obecný JSON.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) HTTP 200, odešle v odpovědi na žádost o obecný JSON.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Aktivační událost – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) definován v balíčku NuGet atribut [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) definován v balíčku NuGet atribut [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 Můžete nastavit autorizaci úrovně a povolených metod HTTP v atributu konstruktoru parametry a nejsou k dispozici vlastnosti webhooku šablony typu a směrování. Další informace o těchto nastaveních najdete v tématu [aktivační událost - konfigurace](#trigger---configuration). Tady je `HttpTrigger` atribut v podpis metody:
 
@@ -377,7 +377,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Úplný příklad najdete v tématu [aktivační událost - předkompilovaných C# příklad](#trigger---c-example).
+Úplný příklad najdete v tématu [aktivační událost - C# příklad](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Aktivační událost - konfigurace
 
@@ -406,7 +406,7 @@ Chcete-li reagovat na Githubu webhooků, nejprve vytvoření funkce s aktivačn�
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-Příklad, naleznete v části [vytvořit funkci aktivovány webhook Githubu](functions-create-github-webhook-triggered-function.md).
+Příklad najdete v tématu [Vytvoření funkce aktivované webhookem GitHubu](functions-create-github-webhook-triggered-function.md).
 
 ### <a name="slack-webhooks"></a>Slack webhooky
 
@@ -540,7 +540,7 @@ Použijte protokol HTTP výstup vazby reagovat na odesílatel požadavku HTTP. T
 
 ## <a name="output---configuration"></a>Výstup – konfigurace
 
-Pro předkompilované C# nejsou žádné vlastnosti specifické pro výstup vazby konfigurace. K odeslání odpovědi HTTP, ujistěte se, návratový typ funkce `HttpResponseMessage` nebo `Task<HttpResponseMessage>`.
+Pro C# knihovny tříd nejsou žádné vlastnosti specifické pro výstup vazby konfigurace. K odeslání odpovědi HTTP, ujistěte se, návratový typ funkce `HttpResponseMessage` nebo `Task<HttpResponseMessage>`.
 
 Pro jiné jazyky, HTTP výstup vazba je definována jako objekt JSON v `bindings` pole function.json, jak je znázorněno v následujícím příkladu:
 
@@ -564,7 +564,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 Výstupní parametr můžete reagovat na protokolu HTTP nebo webhooku volajícího. Můžete také použít vzory language standard odpovědi. Například odpovědí, najdete v článku [příklad aktivační událost](#trigger---example) a [webhooku příklad](#trigger---webhook-example).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)

@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5464eea75c89a95e6bf74b3f24fe92f3652f5db9
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Nastavit zotavení po havárii pro virtuální počítače Azure sekundární oblasti Azure (Preview)
 
@@ -129,10 +129,10 @@ Site Recovery načte seznam virtuálních počítačů spojené s předplatného
 
 Site Recovery vytvoří výchozí nastavení a zásady replikace pro cílová oblast. Můžete změnit nastavení podle svých požadavků.
 
-1. Klikněte na tlačítko **nastavení** zobrazíte nastavení cíle.
-2. Chcete-li přepsat výchozí nastavení cíl, klikněte na tlačítko **přizpůsobit**. 
+1. Klikněte na tlačítko **nastavení** zobrazíte nastavení cíle a replikace.
+2. Chcete-li přepsat výchozí nastavení cíl, klikněte na tlačítko **přizpůsobit** vedle **skupinu prostředků, sítě, úložiště a skupiny dostupnosti**.
 
-![Konfigurace nastavení](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Konfigurace nastavení](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Cílové umístění**: cílová oblast pro obnovení po havárii. Doporučujeme vám, že cílové umístění odpovídá umístění trezoru Site Recovery.
@@ -148,11 +148,23 @@ Site Recovery vytvoří výchozí nastavení a zásady replikace pro cílová ob
 
 - **Cílové skupiny dostupnosti**: ve výchozím nastavení vytvoří Site Recovery novou skupinou dostupnosti ve cílová oblast s příponou "Automatické obnovení systému". Skupiny dostupnosti můžete přidat pouze pokud virtuální počítače jsou součástí sady v oblasti zdroje.
 
+Chcete-li přepsat výchozí nastavení zásady replikace, klikněte na tlačítko **přizpůsobit** vedle **zásady replikace**.  
+
 - **Název zásady replikace**: název zásady.
 
 - **Uchování bodu obnovení**: ve výchozím nastavení, Site Recovery zachová body obnovení po dobu 24 hodin. Můžete nakonfigurovat hodnotu v rozmezí 1 až 72 hodin.
 
 - **Frekvence snímkování konzistentní aplikace vzhledem**: ve výchozím nastavení, Site Recovery vytváří konzistentní snímek každé 4 hodiny. Můžete nakonfigurovat libovolnou hodnotu mezi 1 a 12 hodin. Snímky konzistentní s aplikací je v okamžiku snímek dat aplikací ve virtuálním počítači. Služby Stínová kopie svazku (VSS) zajišťuje, že aplikace ve virtuálním počítači budou při pořízení snímku v konzistentním stavu.
+
+- **Replikační skupina**: Pokud aplikace potřebuje více virtuálních počítačů konzistence napříč virtuálními počítači, můžete vytvořit skupiny replikace pro ty virtuální počítače. Ve výchozím nastavení vybrané virtuální počítače nejsou součástí žádné skupiny replikace.
+
+  Klikněte na tlačítko **přizpůsobit** vedle **zásady replikace** a pak vyberte **Ano** konzistenci pro více virtuálních počítačů, aby virtuální počítače součástí replikační skupiny. Můžete vytvořit novou skupinu replikace nebo použijte existující replikační skupiny. Vyberte virtuální počítače jako součást replikační skupiny a klikněte na tlačítko **OK**.
+
+> [!IMPORTANT]
+  Všechny počítače v replikační skupině budou mít sdílené body obnovení zhroutí konzistentní a konzistentní při převzetí služeb při selhání. Povolení konzistence více virtuálních počítačů může ovlivnit výkon pracovního vytížení a musí používat pouze v případě, že počítače běží stejné zatížení a potřebujete konzistenci mezi více počítačů.
+
+> [!IMPORTANT]
+  Po povolení konzistence pro víc Virtuálních počítačů v replikační skupině vzájemně komunikovat přes port 20004. Ujistěte se, že neexistuje žádné zařízení brány firewall interní komunikaci mezi virtuálními počítači přes port 20004 blokování. Pokud chcete virtuální počítače s Linuxem jako součást skupiny replikace, zajistěte, aby že odchozí přenosy na portu 20004 je otevřen ručně podle pokynů na konkrétní verzi systému Linux.
 
 ### <a name="track-replication-status"></a>Sledovat stav replikace
 
@@ -162,7 +174,7 @@ Site Recovery vytvoří výchozí nastavení a zásady replikace pro cílová ob
 
 3. V **nastavení** > **replikované položky**, můžete zobrazit stav virtuálních počítačů a probíhá počáteční replikace. Klikněte na virtuální počítač můžete rozbalit jeho nastavení.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste nakonfigurovali zotavení po havárii pro virtuální počítač Azure. Dalším krokem je konfigurace.
 

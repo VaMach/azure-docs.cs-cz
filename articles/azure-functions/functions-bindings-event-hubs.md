@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs vazby pro Azure Functions
 
@@ -43,7 +43,7 @@ Předpokládejme například, že jsme začínat následující nastavení a př
 1. 10 oddíly.
 1. události 1000 rovnoměrně mezi všechny oddíly = > 100 zprávy v každém oddílu.
 
-Když je funkce nejdřív povolené, je pouze 1 instancí – funkce. Umožňuje volání této funkce instance Function_0. Function_0 bude mít 1 EPH, která spravuje získat zapůjčení na všechny oddíly 10. Zahájí čtení událostí z oddílů 0 – 9. Z tohoto bodu se stane jednu z těchto možností:
+Když je funkce nejdřív povolené, je pouze 1 instancí funkce. Umožňuje volání této funkce instance Function_0. Function_0 bude mít 1 EPH, která spravuje získat zapůjčení na všechny oddíly 10. Zahájí čtení událostí z oddílů 0 – 9. Z tohoto bodu se stane jednu z těchto možností:
 
 * **Je potřeba pouze 1 funkce instance** -Function_0 je schopna zpracovat všechny 1000 předtím, než dojde k logiku škálování Azure Functions. Proto Function_0 zpracovává všechny zprávy 1000.
 
@@ -59,14 +59,14 @@ Pokud všechny funkce spuštěních úspěšné bez chyb, kontrolní body se př
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#trigger---c-example)
-* [Skript jazyka C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Aktivační událost – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C#](functions-dotnet-class-library.md) kód, který protokoluje tělo zprávy aktivační události rozbočovače.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) , protokoly tělo zprávy aktivační události rozbočovače.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -199,7 +199,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>Aktivační událost – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Konstruktoru atributu přebírá název centra událostí, název skupiny uživatelů a název nastavení aplikace, který obsahuje připojovací řetězec. Další informace o těchto nastaveních najdete v tématu [aktivovat konfigurační oddíl](#trigger---configuration). Tady je `EventHubTriggerAttribute` atribut příklad:
 
@@ -211,7 +211,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Úplný příklad najdete v tématu [aktivační událost - předkompilovaných C# příklad](#trigger---c-example).
+Úplný příklad najdete v tématu [aktivační událost - C# příklad](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Aktivační událost - konfigurace
 
@@ -242,14 +242,14 @@ Použijte službu Event Hubs výstup vytvoření vazby na zapsat události do da
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#output---c-example)
-* [Skript jazyka C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# skript (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Výstup – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C# funkce](functions-dotnet-class-library.md) , zapíše zprávu do centra událostí, pomocí návratovou hodnotu metody jako výstup:
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) , zapíše zprávu do centra událostí, pomocí návratovou hodnotu metody jako výstup:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -371,7 +371,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Výstup – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+Pro [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) atribut, který je definován v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Konstruktoru atributu přebírá název centra událostí a název nastavení aplikace, který obsahuje připojovací řetězec. Další informace o těchto nastaveních najdete v tématu [výstup - konfigurace](#output---configuration). Tady je `EventHub` atribut příklad:
 
@@ -384,7 +384,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-Úplný příklad najdete v tématu [výstup - předkompilovaných C# příklad](#output---c-example).
+Úplný příklad najdete v tématu [výstup - C# příklad](#output---c-example).
 
 ## <a name="output---configuration"></a>Výstup – konfigurace
 
@@ -406,7 +406,7 @@ V jazyce C# a C# skript, odesílání zpráv pomocí parametru metody `out strin
 
 V jazyce JavaScript, přístup k výstupu událostí pomocí `context.bindings.<name>`. `<name>`Hodnota zadaná v `name` vlastnost *function.json*.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)

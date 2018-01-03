@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Nahraďte uzlu jednotky škálování v systému Azure zásobníku integrované
 
@@ -51,6 +51,10 @@ Pokud otevřete výstrahu "uzlu jednotka škálování je offline" popis výstra
 Následující kroky jsou uvedeny jako přehled procesu nahrazení uzlu jednotky škálování. Naleznete v dokumentaci dodavatele hardwaru OEM FRU k podrobné kroky, které jsou specifické pro systém. Nepostupujte podle těchto kroků bez odkazující na dokumentaci poskytnutou výrobcem OEM.
 
 1. Použití [vyprazdňování](azure-stack-node-actions.md#scale-unit-node-actions) akce uvést do režimu údržby uzlu jednotky škálování. Tuto akci nelze vyžadovat na základě podmínky pro fyzický hardware.
+
+   > [!NOTE]
+   > V každém případě jenom jeden uzel vyprázdnit a vypnout ve stejnou dobu, aniž by vás SSD (prostory úložiště – přímé).
+
 2. Pokud uzel je pořád zapnutý, použijte [vypnutí](azure-stack-node-actions.md#scale-unit-node-actions) akce. Tuto akci nelze vyžadovat na základě podmínky pro fyzický hardware.
  
    > [!NOTE]
@@ -61,7 +65,7 @@ Následující kroky jsou uvedeny jako přehled procesu nahrazení uzlu jednotky
 3. Použít privilegovaný koncový bod pro [zkontrolujte stav virtuálního disku opravy](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Úlohu oprava úplné úložiště s nové datové jednotky, může trvat několik hodin v závislosti na zatížení systému a využívat místo.
 4. Po dokončení akce opravy ověřte, že byly automaticky zavřeny všechny aktivní výstrahy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Informace o nahrazení za provozu fyzický disk najdete v tématu [Výměna disku](azure-stack-replace-disk.md). 
 - Informace o nahrazení bez za provozu hardwarová komponenta najdete v tématu [výměně hardwarové součásti](azure-stack-replace-component.md). 

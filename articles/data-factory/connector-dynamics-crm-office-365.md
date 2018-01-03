@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/21/2017
 ms.author: jingwang
-ms.openlocfilehash: ec1b9868ca94392cd00875ef2913d4c14a608110
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopírování dat z/do Dynamics 365 / Dynamics CRM pomocí Azure Data Factory
 
@@ -34,7 +34,7 @@ Tento konektor Dynamics podporuje následující verze Dynamics a typy ověřov�
 
 | Dynamics verze | Typy ověřování | Ukázky propojené služby |
 |:--- |:--- |:--- |
-| Dynamics 365 online <br> Dynamics CRM online | Office 365 | [Dynamics Online + ověřování Office 365](#dynamics-365-and-dynamics-crm-online) |
+| Dynamics 365 online <br> Dynamics CRM online | Office365 | [Dynamics Online + ověřování Office 365](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 místně s IFD <br> Dynamics CRM 2016 místně s IFD <br> Dynamics CRM 2015 místně s IFD | IFD | [Dynamics místně s IFD + IFD ověřování](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 Dynamics 365 konkrétně následující typy aplikací jsou podporované:
@@ -328,26 +328,26 @@ Nakonfigurujte odpovídající datový typ objektu pro vytváření dat ve struk
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Dlouhé | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Logická hodnota | ✓ | ✓ |
-| AttributeType.Customer | Identifikátor GUID | ✓ |  |
-| AttributeType.DateTime | Data a času | ✓ | ✓ |
+| AttributeType.Customer | Guid | ✓ |  |
+| AttributeType.DateTime | Datum a čas | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | Řetězec | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Identifikátor GUID | ✓ |  |
+| AttributeType.Lookup | Guid | ✓ |  |
 | AttributeType.ManagedProperty | Logická hodnota | ✓ |  |
 | AttributeType.Memo | Řetězec | ✓ | ✓ |
-| AttributeType.Money | Decimal | ✓ |  |
-| AttributeType.Owner | Identifikátor GUID | ✓ | |
+| AttributeType.Money | Decimal | ✓ | ✓ |
+| AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | Identifikátor GUID | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
 | AttributeType.String | Řetězec | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ |  |
-| AttributeType.Status | Int32 | ✓ |  |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 
 > [!NOTE]
 > Datový typ Dynamics AttributeType.CalendarRules a AttributeType.PartyList nejsou podporovány.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

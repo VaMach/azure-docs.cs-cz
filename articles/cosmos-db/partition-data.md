@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/02/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Oddíl a škálování v Azure Cosmos DB
 
@@ -60,7 +60,7 @@ Azure Cosmos DB používá algoritmus HMAC rozdělení do oddílů. Při zápisu
 > Je vhodné mít klíč oddílu s mnoha jedinečných hodnot (několika set k tisícům minimálně).
 >
 
-Kontejnery Azure Cosmos DB se dá vytvořit jako *pevné* nebo *neomezená*. Kontejnery pevné velikosti mají maximální limit 10 GB a propustnost 10 000 RU/s. Některé rozhraní API umožňují klíč oddílu vynechává kontejnerů s pevnou velikostí. Chcete-li vytvořit kontejner jako neomezená, musíte zadat minimální propustnost odpovídající 2500 RU/s.
+Kontejnery Azure Cosmos DB se dá vytvořit jako *pevné* nebo *neomezená*. Kontejnery pevné velikosti mají maximální limit 10 GB a propustnost 10 000 RU/s. Pokud chcete vytvořit kontejner jako neomezená, musíte zadat minimální propustnost 1000 RU/s a je nutné zadat klíč oddílu.
 
 Je vhodné zkontrolovat, jak se vaše data rozděluje v oddílech. Chcete-li zaškrtněte toto políčko portálu, přejděte ke svému účtu Azure Cosmos DB a klikněte na **metriky** v **monitorování** tématu a potom v pravém podokně klikněte na **úložiště** zjistit, jak vaše data jsou oddíly v různých fyzických oddílu.
 
@@ -127,25 +127,18 @@ Výsledky:
 
 ### <a name="table-api"></a>Rozhraní Table API
 
-S rozhraním API tabulky zadáte propustnost pro tabulky v konfiguraci appSettings pro vaši aplikaci.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Pak vytvoříte tabulku s použitím Azure Table storage SDK. Klíč oddílu je vytvořena implicitně jako `PartitionKey` hodnotu. 
+K vytvoření tabulky pomocí rozhraní API služby Azure DB Cosmos tabulky, použijte metodu CreateIfNotExists. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+Propustnost je nastaven jako argument CreateIfNotExists.
+
+Klíč oddílu je vytvořena implicitně jako `PartitionKey` hodnotu. 
 
 Jedna entita můžete načíst pomocí následující fragment kódu:
 
@@ -207,7 +200,7 @@ Pokud jste implementace víceklientské aplikace pomocí Azure Cosmos DB, jsou d
 
 Můžete také vrstvené nebo kombinaci přístup, collocates malé klientů a migraci větší klienty do svých vlastních kontejneru.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jsme poskytuje přehled o konceptech a osvědčené postupy pro vytváření oddílů s jakéhokoli rozhraní API Azure Cosmos DB. 
 
 * Další informace o [zřízené propustnosti v Azure Cosmos DB](request-units.md).

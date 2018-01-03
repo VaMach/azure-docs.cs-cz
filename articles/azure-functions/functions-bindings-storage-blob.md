@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c170b3e4addaed2ec870c4a518e8f74b3ca4b952
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage vazby pro Azure Functions
 
@@ -43,13 +43,13 @@ Spusťte funkci při zjištění do nové nebo aktualizované objektu blob pomoc
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#trigger---c-example)
-* [Skript jazyka C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# skript (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Aktivační událost – příklad jazyka C#
 
-Následující příklad ukazuje [předkompilovaných C#](functions-dotnet-class-library.md) kód, který zapíše do protokolu, když objekt blob je přidán nebo aktualizován v `samples-workitems` kontejneru.
+Následující příklad ukazuje [C# funkce](functions-dotnet-class-library.md) , zapíše do protokolu v případě, že objekt blob je přidán nebo aktualizován v `samples-workitems` kontejneru.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -59,11 +59,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Další informace o `BlobTrigger` atributů najdete v tématu [aktivační událost – atributy](#trigger---attributes-for-precompiled-c).
+Další informace o `BlobTrigger` atributů najdete v tématu [aktivační událost – atributy](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Aktivační událost – příklad skriptu jazyka C#
 
-Následující příklad ukazuje vazby v aktivační události objektu blob *function.json* souboru a [C# skript](functions-reference-csharp.md) kód, který používá vazby. Funkce zapíše do protokolu v případě, že objekt blob je přidán nebo aktualizován v `samples-workitems` kontejneru.
+Následující příklad ukazuje vazby v aktivační události objektu blob *function.json* souboru a [C# skript (.csx)](functions-reference-csharp.md) kód, který používá vazby. Funkce zapíše do protokolu v případě, že objekt blob je přidán nebo aktualizován v `samples-workitems` kontejneru.
 
 Zde je vazba dat v *function.json* souboru:
 
@@ -140,7 +140,7 @@ module.exports = function(context) {
 
 ## <a name="trigger---attributes"></a>Aktivační událost – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje konfigurovat aktivační události objektu blob následující atributy:
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte následující atributy ke konfiguraci aktivační události objektu blob:
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), definované v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -168,7 +168,7 @@ Pro [předkompilovaných C#](functions-dotnet-class-library.md) funkce dovoluje 
   }
   ```
 
-  Úplný příklad najdete v tématu [aktivační událost - předkompilovaných C# příklad](#trigger---c-example).
+  Úplný příklad najdete v tématu [aktivační událost - C# příklad](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definované v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -316,13 +316,13 @@ Použití objektů Blob storage vstup a výstup vazby ke čtení a zápisu objek
 
 Podívejte se na konkrétní jazyk příklad:
 
-* [Předkompilované C#](#input--output---c-example)
-* [Skript jazyka C#](#input--output---c-script-example)
+* [C#](#input--output---c-example)
+* [C# skript (.csx)](#input--output---c-script-example)
 * [JavaScript](#input--output---javascript-example)
 
 ### <a name="input--output---c-example"></a>Vstup a výstup – příklad jazyka C#
 
-Následující příklad je [předkompilovaných C#](functions-dotnet-class-library.md) funkce, která používá aktivační události objektu blob a dvě vazby výstupního objektu blob. Funkce se aktivuje při vytváření objektu blob bitové kopie v *ukázkové obrázky* kontejneru. Vytvoří se kopie malé a střední velikost objektu blob bitové kopie. 
+Následující příklad je [C# funkce](functions-dotnet-class-library.md) používající aktivační události objektu blob a dva výstupní vazby objektů blob. Funkce se aktivuje při vytváření objektu blob bitové kopie v *ukázkové obrázky* kontejneru. Vytvoří se kopie malé a střední velikost objektu blob bitové kopie. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -355,7 +355,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Vstup a výstup – příklad skriptu jazyka C#
 
-Následující příklad ukazuje, objektů blob vstup a výstup vazeb v *function.json* souboru a [C# skript](functions-reference-csharp.md) kód, který používá vazby. Funkce vytvoří kopii text objektu blob. Funkce se aktivuje zpráva fronty, který obsahuje název objektu blob pro kopírování. Nový objekt blob je s názvem *{originalblobname}-kopie*.
+Následující příklad ukazuje, objektů blob vstup a výstup vazeb v *function.json* souboru a [C# skript (.csx)](functions-reference-csharp.md) kód, který používá vazby. Funkce vytvoří kopii text objektu blob. Funkce se aktivuje zpráva fronty, který obsahuje název objektu blob pro kopírování. Nový objekt blob je s názvem *{originalblobname}-kopie*.
 
 V *function.json* souboru `queueTrigger` vlastnost metadat slouží k určení názvu objektu blob v `path` vlastnosti:
 
@@ -449,7 +449,7 @@ module.exports = function(context) {
 
 ## <a name="input--output---attributes"></a>Vstup a výstup – atributy
 
-Pro [předkompilovaných C#](functions-dotnet-class-library.md) používat funkce, [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+V [knihovny tříd jazyka C#](functions-dotnet-class-library.md), použijte [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), která je definována v balíčku NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Konstruktoru atributu má cestu k objektu blob a `FileAccess` parametr určující číst nebo zapisovat, jak je znázorněno v následujícím příkladu:
 
@@ -475,9 +475,9 @@ public static void Run(
 }
 ```
 
-Úplný příklad najdete v tématu [vstup a výstup - předkompilovaných příklad jazyka C#](#input--output---c-example).
+Úplný příklad najdete v tématu [vstup a výstup - C# příklad](#input--output---c-example).
 
-Můžete použít `StorageAccount` atribut určete účet úložiště na úrovni třídy, metoda nebo parametr. Další informace najdete v tématu [aktivační událost – atributy](#trigger---attributes-for-precompiled-c).
+Můžete použít `StorageAccount` atribut určete účet úložiště na úrovni třídy, metoda nebo parametr. Další informace najdete v tématu [aktivační událost – atributy](#trigger---attributes).
 
 ## <a name="input--output---configuration"></a>Vstup a výstup - konfigurace
 
@@ -496,7 +496,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 
 ## <a name="input--output---usage"></a>Vstup a výstup - využití
 
-V předkompilovaných C# a C# skript, přístup k objektu blob pomocí parametru metody `Stream paramName`. V jazyce C# skript `paramName` je hodnota zadaná v `name` vlastnost *function.json*. Můžete vázat na některý z následujících typů:
+Knihovny tříd jazyka C# a C# skript, přístup k objektu blob pomocí parametru metody `Stream paramName`. V jazyce C# skript `paramName` je hodnota zadaná v `name` vlastnost *function.json*. Můžete vázat na některý z následujících typů:
 
 * `out string`
 * `TextWriter` 
@@ -513,7 +513,7 @@ Při čtení objektů BLOB text, můžete vázat na `string` typu. Tento typ se 
 
 V jazyce JavaScript, přístup k objektu blob dat pomocí `context.bindings.<name>`.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Přejděte na rychlé spuštění, který používá aktivační událost úložiště objektů Blob](functions-create-storage-blob-triggered-function.md)

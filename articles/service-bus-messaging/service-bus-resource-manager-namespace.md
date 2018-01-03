@@ -1,6 +1,6 @@
 ---
-title: "Vytvoření oboru názvů Service Bus pomocí šablony Azure Resource Manager | Microsoft Docs"
-description: "Vytvoření oboru názvů Service Bus pomocí šablony Azure Resource Manageru"
+title: "Vytvoření zasílání zpráv Service Bus oboru názvů pomocí šablony Azure Resource Manager | Microsoft Docs"
+description: "Vytvoření oboru názvů zasílání zpráv Service Bus pomocí šablony Azure Resource Manageru"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 12/21/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Vytvoření oboru názvů Service Bus pomocí šablony Azure Resource Manager
 
@@ -41,6 +41,7 @@ Další informace o vytváření šablon najdete v tématu [Tvorba šablon Azure
 > 
 
 ## <a name="what-will-you-deploy"></a>Co budete nasazovat?
+
 Pomocí této šablony, v oboru názvů Service Bus s nasazením [Standard nebo Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 Pokud chcete nasazení spustit automaticky, klikněte na následující tlačítko:
@@ -48,11 +49,13 @@ Pokud chcete nasazení spustit automaticky, klikněte na následující tlačít
 [![Nasazení do Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametry
+
 Pomocí Azure Resource Manageru definujete parametry pro hodnoty, které chcete zadat při nasazení šablony. Šablona obsahuje oddíl s názvem `Parameters` obsahující všechny hodnoty parametru. Parametr byste měli definovat pro hodnoty, které se mění v závislosti na nasazovaném projektu nebo prostředí, do kterého nasazujete. Nedefinujte parametry pro hodnoty, které jsou vždy stejné. Každá hodnota parametru se v šabloně použije k definování nasazovaných prostředků.
 
 Tato šablona definuje následující parametry:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 Název oboru názvů Service Bus k vytvoření.
 
 ```json
@@ -65,6 +68,7 @@ Název oboru názvů Service Bus k vytvoření.
 ```
 
 ### <a name="servicebussku"></a>serviceBusSKU
+
 Název služby Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) k vytvoření.
 
 ```json
@@ -86,6 +90,7 @@ Název služby Service Bus [SKU](https://azure.microsoft.com/pricing/details/ser
 Další informace o cenách služby Service Bus najdete v tématu [Service Bus ceny a fakturace][Service Bus pricing and billing].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 Verze rozhraní API služby Service Bus šablony.
 
 ```json
@@ -98,7 +103,9 @@ Verze rozhraní API služby Service Bus šablony.
 ```
 
 ## <a name="resources-to-deploy"></a>Prostředky k nasazení
-### <a name="service-bus-namespace"></a>Obor názvů Service Bus
+
+### <a name="service-bus-namespace"></a>Obor názvů služby Service Bus
+
 Vytvoří standardní oboru názvů Service Bus typu **zasílání zpráv**.
 
 ```json
@@ -120,21 +127,24 @@ Vytvoří standardní oboru názvů Service Bus typu **zasílání zpráv**.
 ```
 
 ## <a name="commands-to-run-deployment"></a>Příkazy pro spuštění nasazení
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď, když jste vytvoření a nasazení prostředků pomocí Azure Resource Manager, zjistěte, jak tyto zdroje spravovat pomocí čtení těchto článcích:
 
 * [Správa služby Service Bus pomocí prostředí PowerShell](service-bus-manage-with-ps.md)

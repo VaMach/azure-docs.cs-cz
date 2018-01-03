@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Přenos dat pomocí knihovna pro přesun dat úložiště Microsoft Azure
 
@@ -27,7 +27,7 @@ Knihovna pro přesun dat aplikace Microsoft Azure Storage je knihovna napříč 
 
 Tuto knihovnu používá také .NET Core, což znamená, že při vytváření aplikace .NET pro Windows, Linux a systému macOS, můžete ji použít. Další informace o .NET Core, naleznete [.NET Core dokumentaci](https://dotnet.github.io/). Tato knihovna funguje i pro tradiční aplikace pro rozhraní .NET Framework pro systém Windows. 
 
-Tento dokument ukazuje postup vytvoření aplikace konzoly .NET Core, který, který běží v systému Windows, Linux a systému macOS a provede následující scénáře:
+Tento dokument ukazuje postup vytvoření aplikace konzoly .NET Core, který běží v systému Windows, Linux a systému macOS a provede následující scénáře:
 
 - Nahrávání souborů a adresářů do úložiště objektů Blob.
 - Při přenosu dat, zadejte počet paralelních operací.
@@ -565,7 +565,7 @@ V tomto příkladu jsme nastavený logického parametru `TransferManager.CopyAsy
 ## <a name="conclusion"></a>Závěr
 Naše aplikace přesun dat je nyní dokončen. [Ukázka úplného kódu je dostupná na Githubu](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V této příručce Začínáme, jsme vytvořili aplikaci, která komunikuje s úložištěm Azure a běží na systému Windows, Linux a systému macOS. Toto úvodní zaměřuje na úložiště objektů Blob. Tato stejné znalosti však lze použít k úložišti souborů. Další informace, podívejte se na [knihovna pro přesun dat úložiště Azure referenční dokumentaci k nástroji](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]

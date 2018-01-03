@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: d997c291e487e27b7e12c015e34ad839ac020151
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Výkon aplikace nejčastější dotazy pro webové aplikace v Azure
 
@@ -174,7 +174,7 @@ Tento problém vyřešen v Kestrel verzi 1.0.2. Tato verze je zahrnuté v aktual
 
 Pokud používáte funkci místní mezipaměti služby App Service, se vztahuje struktura složek LogFiles a Data složek pro vaše instance služby App Service. Pokud se používá místní mezipaměti, jsou podsložky vytvořené v úložiště LogFiles a složek s daty. Podsložky použijte pojmenování vzor "Jedinečný identifikátor" + časové razítko. Každé podsložky odpovídá instance virtuálního počítače, ve kterém běží webové aplikace, nebo byla spuštěna.
 
-Pokud chcete zjistit, zda používáte místní mezipaměti, zkontrolovat aplikační služby **nastavení aplikace** kartě. Pokud se používá místní mezipaměti, aplikace, nastavení `WEBSITE_LOCAL_CACHE_OPTION` je nastaven na `Always`. 
+Pokud chcete zjistit, zda používáte místní mezipaměti, zkontrolovat aplikační služby **nastavení aplikace** kartě. Pokud se používá místní mezipaměti, aplikace, nastavení `WEBSITE_LOCAL_CACHE_OPTION` je nastaven na `Always`.
 
 Pokud nepoužíváte místní mezipaměti a se jedná o problém, odešlete žádost o podporu.
 

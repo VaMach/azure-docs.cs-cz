@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: c9dcfb7d769d8a59ecd7d8d238ac86f76ef1da66
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Kurz: Azure Active Directory integrace s Amazon Web Services (AWS)
 
@@ -114,10 +114,10 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
 5. V **uživatelské atributy** části na **jednotného přihlašování** dialogové okno, nakonfigurujte atribut tokenu SAML, jak je znázorněno na obrázku výše a proveďte následující kroky:
     
-    | Název atributu  | Hodnota atributu | obor názvů |
+    | Název atributu  | Hodnota atributu | Obor názvů |
     | --------------- | --------------- | --------------- |
     | rolesessionname | User.userPrincipalName | https://AWS.Amazon.com/SAML/Attributes |
-    | Role            | User.assignedroles |  https://AWS.Amazon.com/SAML/Attributes |
+    | role            | User.assignedroles |  https://AWS.Amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Musíte nakonfigurovat zřizování uživatelů ve službě Azure AD se načíst všechny role z konzoly AWS. Najdete v následujících zřizování kroků.
@@ -278,7 +278,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     f. Jakmile zásady je potvrzená správně pak můžete kliknutím na **vytvořit zásadu** tlačítko.
 
-    ![Vytvořit nové zásady](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+    ![Vytvořit novou zásadu](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
     
 27. Vytvořte nový uživatelský účet ve službě IAM AWS provedením následujících kroků:
 
@@ -425,7 +425,14 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 Když kliknete na dlaždici Amazon Web Services (AWS) na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci Amazon Web Services (AWS).
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="known-issues"></a>Známé problémy
+
+ * V **zřizování** části **mapování** dílčí části, se zobrazí zpráva "Načítání..." a nikdy zobrazí mapování atributů. Pouze zřizování workflow podporované dnes je importovat role z AWS do služby Azure AD pro výběr při přiřazení uživatele nebo skupiny. Mapování atributů pro tento jsou předem určený a nejde konfigurovat.
+ 
+ * **Zřizování** části podporuje pouze zadávat jedinou sadu pověření pro jednoho klienta AWS najednou. Všechny importované role se zapisují do vlastnost appRoles Azure AD [servicePrincipal objekt](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) AWS klienta. Několik klientů AWS (představované servicePrincipals) mohou být přidány do služby Azure AD z Galerie pro zřizování, ale existuje se o známý problém s nebude moci automaticky všechny importované role zápisu z více AWS servicePrincipals používá pro zřizování do jednoho servicePrincipal používá pro jednotné přihlašování. Jako alternativní řešení [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) slouží k extrakci všechny appRoles naimportovat do jednotlivých AWS servicePrincipal konfigurovaným zřizování. Tyto role řetězce mohou následně přidány do servicePrincipal AWS, kde nakonfigurován jednotné přihlašování.
+
+
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

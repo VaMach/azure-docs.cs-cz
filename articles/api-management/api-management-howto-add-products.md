@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-and-publish-a-product"></a>Vytvoření a publikování produktu  
 
@@ -48,18 +48,18 @@ V tomto kurzu se naučíte:
 
     Když přidáte produktu, budete muset zadat následující informace: 
 
-    |Name (Název)|Popis|
+    |Název|Popis|
     |---|---|
     |Zobrazované jméno|Název, jako je má být zobrazen v **portál pro vývojáře**.|
-    |Name (Název)|Popisný název produktu.|
+    |Název|Popisný název produktu.|
     |Popis|**Popis** pole umožňuje poskytují podrobné informace o produktu, například jeho účel, poskytuje přístup k rozhraní API a další užitečné informace.|
     |Stav|Stiskněte klávesu **publikováno** Pokud chcete publikovat produktu. Předtím, než je možné volat rozhraní API v produktu, musí být publikován produktu. Ve výchozím nastavení jsou nové produkty jsou publikování a jsou viditelné pouze pro **správci** skupiny.|
     |Vyžaduje schválení|Zkontrolujte **vyžadovat schválení předplatného** Pokud chcete, aby správci zkontrolovat a následně přijímal nebo odmítal předplatné pokusy o tohoto produktu. Pokud pole není zaškrtnuto, pokusy o odběru jsou schvalovat automaticky. |
-    |Limit počtu předplatného|Chcete-li omezit počet více souběžných předplatných, zadejte limitu předplatného. |
+    |Omezení počtu předplatných|Chcete-li omezit počet více souběžných předplatných, zadejte limitu předplatného. |
     |Právní podmínky|Můžete zahrnout podmínky použití pro produkt, které odběratele musí přijmout, abyste mohli používat produkt.|
     |Rozhraní API|Produkty jsou přidružení jeden nebo více rozhraní API. Může obsahovat několik rozhraní API a poskytněte jim pro vývojáře prostřednictvím portálu pro vývojáře. <br/> Během vytváření produktů můžete přidat existujícího rozhraní API. Můžete přidat rozhraní API do produktu později, buď z produktů **nastavení** stránky nebo při vytváření rozhraní API.|<br/>Vývojáři musí nejdřív přihlásit k odběru produktu získat přístup k rozhraní API. Pokud se přihlášení k odběru získají předplatné klíč, který je vhodný pro jakéhokoli rozhraní API v produktu.<br/> Pokud jste vytvořili instanci APIM, jste správcem již, takže jsou přihlášení k odběru každého produktu ve výchozím nastavení.|
 
-3. Klikněte na tlačítko **Uložit** k vytvoření nového produktu.
+3. Klikněte na tlačítko **vytvořit** k vytvoření nového produktu.
 
 ### <a name="add-more-configurations"></a>Přidat další konfigurace
 
@@ -88,7 +88,7 @@ Vývojáři musí nejdřív přihlásit k odběru produktu získat přístup k r
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili:
 

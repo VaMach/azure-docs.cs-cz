@@ -17,22 +17,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Správa Azure Cosmos DB v Azure Storage Explorer (Preview)
 
-Použití Azure Cosmos DB v Azure Storage Explorer umožňuje uživatelům spravovat Azure Cosmos DB entity, pracovat s daty, aktualizace uložených procedur a aktivačních událostí společně s dalšími subjekty Azure jako úložiště objektů BLOB a fronty. Nyní můžete na stejný nástroj ke správě vašeho různých Azure entit na jednom místě. V současné době podporuje Azure Storage Explorer účty SQL a MongoDB. Azure Storage Explorer nefunguje s místní emulátoru Azure Cosmos DB. 
+Použití Azure Cosmos DB v Azure Storage Explorer umožňuje uživatelům spravovat Azure Cosmos DB entity, pracovat s daty, aktualizace uložených procedur a aktivačních událostí společně s dalšími subjekty Azure jako úložiště objektů BLOB a fronty. Nyní můžete na stejný nástroj ke správě vašeho různých Azure entit na jednom místě. V současné době podporuje Azure Storage Explorer SQL <!--and MongoDB--> účty. Azure Storage Explorer nefunguje s místní emulátoru Azure Cosmos DB. 
 
 V tomto článku můžete další informace o použití Průzkumníka úložiště ke správě Azure Cosmos DB.
 
 
 ## <a name="prerequisites"></a>Požadavky
 
-Účet Azure Cosmos DB pro SQL API nebo rozhraní API MongoDB. Pokud nemáte účet, můžete vytvořit jeden na portálu Azure jak je popsáno v [Cosmos databázi Azure: sestavení rozhraní SQL API webové aplikace pomocí rozhraní .NET a portálu Azure](create-sql-api-dotnet.md).
+Účet Azure Cosmos DB pro SQL API <!--or MongoDB API-->. Pokud nemáte účet, můžete vytvořit jeden na portálu Azure jak je popsáno v [Cosmos databázi Azure: sestavení rozhraní SQL API webové aplikace pomocí rozhraní .NET a portálu Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalace
 
@@ -70,7 +70,7 @@ Alternativní způsob připojení k databázi Cosmos Azure je použití připojo
 
     ![Připojte se k Azure Cosmos databázi pomocí připojovacího řetězce](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Zvolte odpovídající **výchozí prostředí** pro typ vašeho účtu buď **DocumentDB** nebo **MongoDB**, vložte vaší **připojovací řetězec**a potom klikněte na **OK** pro připojení účet Azure Cosmos DB. Informace o načítání připojovací řetězec najdete v tématu [získat připojovací řetězec](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Zvolte odpovídající **výchozí prostředí** pro typ vašeho účtu <!--either--> **DocumentDB** <!--or **MongoDB**-->, vložte vaší **připojovací řetězec**a potom Klikněte na tlačítko **OK** pro připojení účet Azure Cosmos DB. Informace o načítání připojovací řetězec najdete v tématu [získat připojovací řetězec](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![připojovací řetězec](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -149,7 +149,7 @@ Upravit filtr dokumentu zadáním [dotazu SQL](sql-api-sql-query.md) a pak klikn
 
 * Operace pro **aktivační události** a **UDF** jsou podobná těm pro **uložené procedury**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * V následujícím videu v tématu Jak používat Azure Cosmos DB v Azure Storage Explorer: [použít Azure Cosmos DB v Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Další informace o Storage Explorer a připojte další služby v [Začínáme se Storage Explorerem (Preview)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
