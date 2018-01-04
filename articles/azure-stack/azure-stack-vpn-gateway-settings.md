@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ed4a84965c37f66bbc7734f6043ad6f8f1666c1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Konfigurace nastavení brány sítě VPN pro Azure zásobníku
 
@@ -31,7 +31,7 @@ Připojení k bráně VPN závisí na konfiguraci více prostředků, z nichž k
 ## <a name="vpn-gateway-settings"></a>Nastavení brány sítě VPN
 
 ### <a name="gateway-types"></a>Typy bran
-Každý virtuální síť Azure zásobníku podporuje bránu jedné virtuální sítě, který musí být typu **Vpn**.  To se liší od Azure, což podporuje další typy.  
+Každý virtuální síť Azure zásobníku podporuje bránu jedné virtuální sítě, který musí být typu **Vpn**.  Tato podpora se liší od Azure, což podporuje další typy.  
 
 Při vytváření brány virtuální sítě, musí se ujistěte, že je typ brány odpovídá vaší konfiguraci. Brána sítě VPN vyžaduje `-GatewayType Vpn`.
 
@@ -90,9 +90,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Když vytvoříte bránu virtuální sítě pro konfiguraci brány VPN, musíte zadat typ sítě VPN. Typ sítě VPN, který zvolíte, závisí na topologii připojení, který chcete vytvořit.  Typ sítě VPN můžete také závisí na hardwaru, který používáte. Konfigurace S2S vyžadují zařízení VPN. Některá zařízení VPN podporují pouze určitý typ sítě VPN.
 
 > [!IMPORTANT]  
-> V tomto okamžiku zásobník Azure podporuje pouze typ sítě VPN na základě trasy.  Pokud vaše zařízení podporuje pouze sítě VPN na základě zásad, nejsou podporovány připojení na těchto zařízeních z Azure zásobníku.
+> V tomto okamžiku zásobník Azure podporuje pouze typ sítě VPN na základě trasy. Pokud vaše zařízení podporuje pouze sítě VPN na základě zásad, nejsou podporovány připojení na těchto zařízeních z Azure zásobníku.
 
-- **PolicyBased**: *(podporuje se v Azure, ale ne podle Azure zásobníku)* sítě VPN založené na zásadách šifrují pakety a směrují je do tunelových propojení IPsec na základě zásad IPsec nakonfigurovaných pomocí kombinace předpon adres mezi v místní síti a zásobník virtuální sítě Azure. Zásada (nebo selektor provozu) se většinou určuje v konfiguraci zařízení VPN jako přístupový seznam.
+- **PolicyBased**: *(podporuje se v Azure, ale ne podle Azure zásobníku)* sítě VPN založené na zásadách šifrují pakety a směrují je do tunelových propojení IPsec na základě zásad IPsec nakonfigurovaných pomocí kombinace předpon adres mezi místní sítí a Azure VNet zásobníku. Zásada (nebo selektor provozu) se většinou určuje v konfiguraci zařízení VPN jako přístupový seznam.
 
 - **RouteBased**: sítě VPN RouteBased používají IP předávání nebo směrovací tabulce ke směrování paketů do svých příslušných rozhraní tunelových propojení "trasy". Rozhraní tunelového propojení potom šifrují nebo dešifrují pakety směřující do tunelových propojení nebo z nich. Zásada (nebo selektor provozu) pro sítě VPN RouteBased jsou nakonfigurované jako any-to-any (nebo zástupné znaky). Hodnota pro typ sítě VPN RouteBased je RouteBased.
 
@@ -108,13 +108,13 @@ Následující tabulka uvádí požadavky na brány sítě VPN.
 
 | |Brána sítě VPN PolicyBased Basic | Brána sítě VPN RouteBased Basic | Brána sítě VPN RouteBased Standard | RouteBased vysoce výkonná brána sítě VPN|
 |--|--|--|--|--|
-| **Připojení Site-to-Site (S2S)** | Nepodporuje se | Konfigurace sítě VPN RouteBased | Konfigurace sítě VPN RouteBased | Konfigurace sítě VPN RouteBased |
+| **Připojení Site-to-Site (S2S připojení)** | Nepodporuje se | Konfigurace sítě VPN RouteBased | Konfigurace sítě VPN RouteBased | Konfigurace sítě VPN RouteBased |
 | **Metoda ověřování**  | Nepodporuje se | Předsdílený klíč pro připojení S2S  | Předsdílený klíč pro připojení S2S  | Předsdílený klíč pro připojení S2S  |   
 | **Maximální počet připojení S2S**  | Nepodporuje se | 10 | 10| 30|
-|**Podpora aktivního směrování (BGP)** | Nepodporuje se | Nepodporuje se | Podporuje se | Podporuje se |
+|**Podpora aktivního směrování (BGP)** | Nepodporuje se | Nepodporuje se | Podporováno | Podporováno |
 
 ### <a name="gateway-subnet"></a>Podsíť brány
-Před vytvořením brány VPN, musíte vytvořit podsíť brány. Podsíť brány obsahuje IP adresy, které používají bránu virtuální sítě virtuálních počítačů a služeb. Když vytvoříte bránu virtuální sítě, virtuální počítače brány jsou nasazené na podsíť brány a nakonfigurovaný pomocí požadovaného nastavení brány sítě VPN. Nenasazujte jakékoli jiné (například dalších virtuálních počítačů) k podsíti brány. Podsíť brány musí mít název "GatewaySubnet" správně fungovat. Pojmenování podsíť brány "GatewaySubnet" umožňuje Azure zásobníku vědět, že se jedná o podsíť pro nasazení brány virtuální sítě virtuálních počítačů a služeb.
+Před vytvořením brány VPN, musíte vytvořit podsíť brány. Podsíť brány obsahuje IP adresy, které používají bránu virtuální sítě virtuálních počítačů a služeb. Když vytvoříte bránu virtuální sítě, virtuální počítače brány jsou nasazené na podsíť brány a nakonfigurovaný pomocí požadovaného nastavení brány sítě VPN. Nenasazujte jakékoli jiné (například dalších virtuálních počítačů) k podsíti brány. Podsíť brány musí mít název "GatewaySubnet" správně fungovat. Pojmenování podsíť brány "GatewaySubnet" umožňuje zásobník Azure k identifikaci podsítě pro nasazení brány virtuální sítě virtuálních počítačů a služeb.
 
 Při vytváření podsítě brány zadáte počet IP adres, které podsíť obsahuje. IP adresy v podsíti brány mají při přidělování brány virtuální počítače a služby brány. Některé konfigurace vyžadují víc IP adres než jiné. Podívejte se na pokyny pro konfiguraci, kterou chcete vytvořit a ověřit, jestli podsíť brány, kterou chcete vytvořit splňuje tyto požadavky. Kromě toho můžete ujistěte, že podsítě brány obsahuje dost IP adres, aby dokázala pojmout možné budoucí další konfigurace. Můžete si sice vytvořit podsíť brány jako malé/29, doporučujeme vytvořit podsíť brány/28 nebo větší (/ 28, / 27, /26 atd.). Tímto způsobem, pokud přidáte funkci v budoucnu, není nutné přerušit bránu, pak odstraňte a vytvořte znovu podsíť brány, aby bylo možné víc IP adres.
 
@@ -130,7 +130,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 ### <a name="local-network-gateways"></a>Brány místní sítě
 Při vytváření konfiguraci brány VPN v Azure, bránu místní sítě často představuje vaše místní umístění. V zásobníku Azure reprezentuje vzdálené zařízení VPN, která se nachází mimo Azure zásobníku.  To může být zařízení VPN ve vašem datovém centru, vzdáleného datového centra nebo brána sítě VPN v Azure.
 
-Pojmenujte bránu místní sítě, veřejnou IP adresu zařízení VPN a zadáte předpony adres, které se nacházejí na místní umístění. Azure zjistí předpony cílových adres pro síťový provoz, zajímají konfiguraci, která jste zadali pro bránu místní sítě a směruje pakety odpovídajícím způsobem.
+Pojmenujte bránu místní sítě, veřejnou IP adresu zařízení VPN a zadáte předpony adres, které jsou na místní umístění. Azure zjistí předpony cílových adres pro síťový provoz, zajímají konfiguraci, která jste zadali pro bránu místní sítě a směruje pakety odpovídajícím způsobem.
 
 Následující příklad PowerShell vytvoří novou bránu místní sítě:
 
@@ -141,7 +141,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 V některých případech budete muset změnit nastavení brány místní sítě. Například když přidáváte nebo odebíráte rozsah adres nebo pokud se IP adresa zařízení VPN změní. V tématu [upravit nastavení brány místní sítě pomocí prostředí PowerShell](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
 
 ## <a name="ipsecike-parameters"></a>Parametry protokolu IPsec/IKE
-Při nastavování připojení k síti VPN v zásobníku Azure, musíte nakonfigurovat na obou koncích připojení.  Při konfiguraci připojení VPN mezi Azure zásobníku a hardwarové zařízení, jako je například přepínač nebo směrovač, který funguje jako brána sítě VPN, že zařízení může můžete požádat o další nastavení.
+Při nastavování připojení k síti VPN v zásobníku Azure, musíte nakonfigurovat na obou koncích připojení.  Při konfiguraci připojení VPN mezi Azure zásobníku a hardwarové zařízení, jako je přepínač nebo směrovač, který funguje jako brána sítě VPN, že zařízení může můžete požádat o další nastavení.
 
 Na rozdíl od Azure, která podporuje více nabízí jako iniciátor i respondér, zásobník Azure podporuje jenom jednu nabídku.
 
@@ -163,4 +163,4 @@ Na rozdíl od Azure, která podporuje více nabízí jako iniciátor i respondé
 |Životnost SA (čas)  | 3 600 sekund |
 |Životnost SA (bajty) | 819,200       |
 |Metoda Perfect Forward Secrecy (PFS) |PFS2048 |
-|Detekce mrtvých partnerských zařízení | Podporuje se|  
+|Detekce mrtvých partnerských zařízení | Podporováno|  

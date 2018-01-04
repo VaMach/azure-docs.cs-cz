@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Spravovat kapacita úložiště pro Azure zásobníku
 
@@ -63,7 +63,7 @@ Po objekt blob je umístěn v kontejneru, můžou růst tomuto objektu blob vyu�
 
 Kontejnery nejsou omezeny na jednu sdílenou složku. Když jsou data kombinované objektu blob v kontejneru vzroste použijte 80 % nebo více volného místa, zadá kontejneru *přetečení* režimu. V režimu přetečení jsou přiděleny nové objekty BLOB, které jsou vytvořené v tomto kontejneru na jiný svazek, který má dost místa. V čase může mít kontejner v režimu přetečení objekty BLOB, které jsou rozmístěny v několika svazky.
 
-Pokud je použita 80 % a 90 % dostupného místa na svazku, systém vyvolá výstrahy v portálu správce Azure zásobníku. Operátoři cloudu zkontrolujte dostupné kapacity úložiště a chcete znovu vyvážit obsah. Služba úložiště přestane fungovat při disk je 100 % využití a neexistují, že jsou vyvolány žádné další výstrahy.
+Pokud je použita 80 % a 90 % dostupného místa na svazku, systém vyvolá výstrahy v portálu správce Azure zásobníku. Operátoři cloudu zkontrolujte dostupné kapacity úložiště a chcete znovu vyvážit obsah. Služby úložiště přestane pracovat, když disk je 100 % využití a jsou vyvolány žádné další výstrahy.
 
 ### <a name="disks"></a>Disky
 Disky virtuálních počítačů jsou přidány do kontejnerů klienty a obsahují disk operačního systému. Virtuální počítače může mít jeden nebo více datových disků. Oba typy disků jsou uloženy jako objekty BLOB stránky. Pokyny, které klientům je každého disku, umístěte do samostatné kontejner ke zlepšení výkonu virtuálního počítače.
@@ -123,7 +123,7 @@ Můžete zkusit uvolněte místo na Nepromyšlené sdílenou složku ručně mig
 
 Migrace slučuje všechny kontejnery blob na nové sdílené složky.
 
-- Pokud kontejner přešel do režimu přetečení a má umístit objekty BLOB na další svazky, nové sdílené složky musí mít dostatečnou kapacitu pro uložení všech objektů blob pro kontejner, který migrujete. To zahrnuje blogy, které se nacházejí na další sdílené složky.
+- Pokud kontejner přešel do režimu přetečení a má umístit objekty BLOB na další svazky, nové sdílené složky musí mít dostatečnou kapacitu pro uložení všech objektů blob pro kontejner, který migrujete. To zahrnuje objekty BLOB, které jsou umístěny na další sdílené složky.
 
 - Rutiny prostředí PowerShell *Get-AzsStorageContainer* identifikuje pouze místo ve využívaném na počáteční svazku pro kontejner. Rutina neidentifikuje prostor, který používá objekty BLOB umístí další svazky. Plná velikost kontejner proto nemusí být zřejmé. Je možné, že konsolidace kontejner na nové sdílené složky můžete odeslat tuto novou sdílenou složku do přetečení kde umístí dat do další sdílené složky. V důsledku toho budete muset znovu znovu vyvážit sdílené složky.
 
