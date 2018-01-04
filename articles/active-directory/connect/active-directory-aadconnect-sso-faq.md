@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 8eb575d6647b123119ceff9452ee8fc4a489f1ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory bezproblémové jednotné přihlašování: Nejčastější dotazy
 
@@ -30,7 +30,11 @@ Bezproblémové jednotného přihlašování je možné kombinovat s buď [synch
 
 ## <a name="is-seamless-sso-a-free-feature"></a>Je bezproblémové jednotného přihlašování k bezplatné funkce?
 
-Bezproblémové jednotného přihlašování je bezplatné funkce a nepotřebujete žádné placené edice Azure AD pro použití. Zůstane volné, jakmile funkci dosáhne obecné dostupnosti.
+Bezproblémové jednotného přihlašování je bezplatné funkce a nepotřebujete žádné placené edice Azure AD pro použití.
+
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Je k dispozici v bezproblémové jednotného přihlašování [cloudu Microsoft Azure v Německu](http://www.microsoft.de/cloud-deutschland) a [cloudu Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
+
+Ne. Bezproblémové jednotného přihlašování je k dispozici pouze v celosvětové instance služby Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Jaké aplikace využívat `domain_hint` nebo `login_hint` parametr funkce bezproblémové přihlašování?
 
@@ -57,7 +61,7 @@ Proveďte tyto kroky na místní server, kde je spuštěn nástroj Azure AD Conn
 
 1. Nejprve stáhnout a nainstalovat [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Potom stáhněte a nainstalujte [64-bit modulu Azure Active Directory pro prostředí Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Přejděte na `%programfiles%\Microsoft Azure Active Directory Connect` složky.
+3. Přejděte do složky `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importujte modul PowerShell bezproblémové jednotného přihlašování k použití tohoto příkazu: `Import-Module .\AzureADSSO.psd1`.
 5. Spusťte prostředí PowerShell jako správce. V prostředí PowerShell, zavolejte `New-AzureADSSOAuthenticationContext`. Tento příkaz musí poskytnout místní okno k zadání přihlašovacích údajů globálního správce vašeho klienta.
 6. Volání `Get-AzureADSSOStatus`. Tento příkaz poskytuje seznam doménových struktur AD (podívejte se na seznamu "Domény") na které tato funkce povolená.
@@ -87,14 +91,14 @@ Dokončete proces, postupujte takto ruční na místním serveru, kde je spušt�
 
 1. Nejprve stáhnout a nainstalovat [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Potom stáhněte a nainstalujte [64-bit modulu Azure Active Directory pro prostředí Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Přejděte na `%programfiles%\Microsoft Azure Active Directory Connect` složky.
+3. Přejděte do složky `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importujte modul PowerShell bezproblémové jednotného přihlašování k použití tohoto příkazu: `Import-Module .\AzureADSSO.psd1`.
 5. Spusťte prostředí PowerShell jako správce. V prostředí PowerShell, zavolejte `New-AzureADSSOAuthenticationContext`. Tento příkaz musí poskytnout místní okno k zadání přihlašovacích údajů globálního správce vašeho klienta.
 6. Volání `Get-AzureADSSOStatus`. Tento příkaz poskytuje seznam doménových struktur AD (podívejte se na seznamu "Domény") na které tato funkce povolená.
 
 ### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Krok 2. Ručně odstraňte `AZUREADSSOACCT` účet počítače z každé doménové struktuře AD, které vidíte uvedené.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [**Rychlý Start** ](active-directory-aadconnect-sso-quick-start.md) – zprovoznění a systémem Azure bezproblémové jednotného přihlašování k AD.
 - [**Podrobné technické informace** ](active-directory-aadconnect-sso-how-it-works.md) -pochopit, jak tato funkce funguje.

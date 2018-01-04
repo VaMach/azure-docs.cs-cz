@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763007f004ab82ef5a6b2cac6dbef1ab221a060f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cedba7397e29cb397560c65a2408cd27442ec01c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurace jednotného přihlašování k aplikacím, které nejsou v galerii aplikací Azure Active Directory
 Tento článek se týká funkce, která umožňuje správci nakonfigurovat jednotné přihlašování k aplikacím, které nejsou k dispozici v galerii aplikací Azure Active Directory *bez nutnosti psaní kódu*. Tato funkce byla vydána z 18. listopadu 2015 technical preview a je součástí [Azure Active Directory Premium](active-directory-editions.md). Pokud místo toho hledáte Průvodce pro vývojáře o tom, jak integrovat vlastních aplikací s Azure AD prostřednictvím kódu, přečtěte si téma [scénáře ověřování pro Azure AD](active-directory-authentication-scenarios.md).
@@ -59,7 +59,7 @@ Vyberte tuto možnost konfigurace založené na SAML ověřování pro aplikaci.
 
 Jsou to:
 
-* **Přihlašovací adresa URL (spouštěná SP pouze)** – Pokud uživatel přejde na přihlásit se k této aplikaci. Pokud aplikace je nakonfigurovaná k plnění jednotné přihlašování iniciované poskytovatele služby, pak když uživatel přejde na tuto adresu URL, bude poskytovatele služeb proveďte potřebné přesměrování do služby Azure AD k ověření a přihlaste se s uživatelem v. Pokud toto pole je vyplněný, budou Azure AD používat tuto adresu URL pro spuštění aplikace z Office 365 a Azure AD přístupového panelu. Pokud toto pole je ommited, a poté Azure AD bude místo toho proveďte zprostředkovatele identity-initiated přihlašování při spuštění aplikace z Office 365 přístupový Panel Azure AD, nebo z Azure AD jednotné přihlašování adresy URL (copiable z karty řídicí panel).
+* **Přihlašovací adresa URL (spouštěná SP pouze)** – Pokud uživatel přejde na přihlásit se k této aplikaci. Pokud aplikace je nakonfigurovaná k plnění jednotné přihlašování iniciované poskytovatele služby, pak když uživatel přejde na tuto adresu URL, bude poskytovatele služeb proveďte potřebné přesměrování do služby Azure AD k ověření a přihlaste se s uživatelem v. Pokud toto pole je vyplněný, budou Azure AD používat tuto adresu URL pro spuštění aplikace z Office 365 a Azure AD přístupového panelu. Pokud toto pole je tento parametr vynechán, a poté Azure AD bude místo toho proveďte zprostředkovatele identity-initiated přihlašování při spuštění aplikace z Office 365 přístupový Panel Azure AD, nebo z Azure AD jednotné přihlašování adresy URL (kopírovatelná z karty řídicí panel).
 * **URL vystavitele** -URL vystavitele musí jednoznačně identifikovat aplikace, pro které jedním přihlásit se konfiguruje. Toto je hodnota, která odešle Azure AD zpátky do aplikace, jako **cílovou skupinu** tokenu SAML a aplikace se očekává, že parametr pro jeho ověření. Tato hodnota se rovněž zobrazuje jako **Entity ID** v veškerá metadata SAML poskytuje aplikace. Podívejte se do dokumentace aplikace SAML podrobnosti k tomu, co je Entity ID nebo hodnota cílovou skupinu. Dole je příklad, jak se zobrazuje adresu URL cílové skupiny v tokenu SAML vrátí aplikaci:
 
 ```

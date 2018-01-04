@@ -15,11 +15,11 @@ ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: d93dcdd1d6ae8de262c08ba095ca773795f0dec3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f2d3072e52c35cc9632ed3204634f67506b9bf4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Omezené delegování Kerberos pro jednotné přihlašování pro vaše aplikace s Proxy aplikace
 
@@ -91,7 +91,7 @@ Další informace o protokolu Kerberos najdete v tématu [všechny budete chtít
 Aplikace pro Windows bez obvykle uživatelská jména uživatelů a názvy účtů SAM místo domény e-mailové adresy. Pokud se tato situace se vztahuje na aplikace, musíte nakonfigurovat pole identity delegované přihlášení pro připojení k vaší identity aplikace cloudové identity. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Práce s jinou místní a cloudové identity
-Proxy aplikací předpokládá, že uživatelé mají stejnou identitu v cloudu a místně. Pokud není tento případ, může stále můžete použitím KCD pro jednotné přihlašování. Konfigurace **delegované identity přihlášení** pro každou aplikaci, aby zadat identity, které má být použita při provádění jednotné přihlašování.  
+Proxy aplikací předpokládá, že uživatelé mají stejnou identitu v cloudu a místně. Pokud není tento případ, stále můžete použitím KCD pro jednotné přihlašování. Konfigurace **delegované identity přihlášení** pro každou aplikaci, aby zadat identity, které má být použita při provádění jednotné přihlašování.  
 
 Tato možnost umožňuje řada organizací, které mají různé místní a cloudové identity mít jednotného přihlašování z cloudu na místní aplikace bez nutnosti uživatelům zadat jiný uživatelských jmen a hesel. To zahrnuje organizace který:
 
@@ -121,7 +121,7 @@ Pokud se používá k přihlášení delegované identity, nemusí být hodnota 
 Pokud dojde k chybě při procesu jednotné přihlašování, zobrazí se v protokolu událostí počítače konektor jak je popsáno v [Poradce při potížích s](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 Ale v některých případech je požadavek úspěšně odeslán do back-end aplikace během této aplikace reaguje v různých dalších odpovědi HTTP. Řešení potíží s těchto případech by se měl spustit tak, že prověří číslo události 24029 na počítači konektor v protokolu událostí relaci Proxy aplikace. V poli "user" v rámci podrobnosti události se zobrazí identitu uživatele, která byla použita pro delegování. Chcete-li protokolu relace zapnout, vyberte **ukazují analytické a ladicí protokoly** v nabídce zobrazení Prohlížeč událostí.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Postup konfigurace aplikace Proxy aplikace pro použití omezeného delegování protokolu Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Řešení problémů, které máte s pomocí Proxy aplikace](active-directory-application-proxy-troubleshoot.md)

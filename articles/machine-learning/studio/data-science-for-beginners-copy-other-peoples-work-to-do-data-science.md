@@ -1,6 +1,6 @@
 ---
 title: "Zkopírujte jiných uživatelů datové vědy příklady – Azure Machine Learning | Microsoft Docs"
-description: "Obchodní tajemství vědecké zpracování dat: získání ostatním uživatelům práci za vás. Získáte machine learning příklady z Galerie Cortana Analytics."
+description: "Obchodní tajemství vědecké zpracování dat: získání ostatním uživatelům práci za vás. Získáte z Galerie AI Azure machine learning příklady."
 keywords: "Příklady vědecké účely dat, machine learning například clustering algoritmus, clustering příklad algoritmus"
 services: machine-learning
 documentationcenter: na
@@ -13,17 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 1c767a3fc6605c3e2400bda637d91031393360a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7cc0deabf6ce19e7a2b90a474e6c890fa5b76ae
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopírování práce jiných lidí pro vědecké zkoumání dat
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Vědecké zpracování dat pro začátečníky řady
-Jeden z obchodních tajemství datové vědy dochází jiní lidé k práci za vás. Najít clustering algoritmus příklad v galerii Analytics Cortany pro vlastní experimentu strojového učení.
+Jeden z obchodních tajemství datové vědy dochází jiní lidé k práci za vás. V Azure Gallery AI pro vlastní experimentu strojového učení a najít clustering příklad algoritmus.
+
+> [!IMPORTANT]
+> Cortana Intelligence Gallery přejmenovala **Azure AI Galerie**. V důsledku toho textu a obrázků v této přepisu mírně lišit od video, který používá starší název.
+>
 
 Získejte maximum z řady, můžete sledujte všechny. [Přejděte do seznamu videí](#other-videos-in-this-series)
 <br>
@@ -48,14 +52,13 @@ V této jeden dozvíte místo, kde můžete najít příklady, které můžete v
 
 Jeden z obchodních tajemství datové vědy dochází jiní lidé k práci za vás.
 
-## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Najít příklady v Cortana Intelligence Gallery
-Společnost Microsoft nemá Cloudová služba názvem [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) jste úvodní můžete vyzkoušet zdarma. Poskytne vám pracovního prostoru tam, kde můžete experimentovat s algoritmy learning jiný počítač, a pokud máte k dispozici řešení vyřešeny, můžete ji spustit jako webovou službu.
+## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Najít příklady v Azure AI Intelligence Gallery
 
-Součástí této služby je něco volat  **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**. Obsahuje prostředky, včetně kolekce experimenty Azure Machine Learning a modelů, které mají uživatelé vytvořené a podílí ostatním uživatelům. Tyto experimenty jsou skvělý způsob, jak využít myšlenky a náročné práce ostatních, které vám pomůžou začít vlastní řešení.
+Společnost Microsoft nemá Cloudová služba názvem [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) jste úvodní můžete vyzkoušet zdarma. Poskytne vám pracovního prostoru tam, kde můžete experimentovat s algoritmy learning jiný počítač, a pokud máte k dispozici řešení vyřešeny, můžete ji spustit jako webovou službu.
 
-Můžete najít v galerii [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). Všichni je Vítejte procházet přes něj.
+Součástí této služby je něco volat  **[Azure AI Galerie](https://gallery.cortanaintelligence.com/)**. Obsahuje prostředky, včetně kolekce experimenty Azure Machine Learning a modelů, které mají uživatelé vytvořené a podílí ostatním uživatelům. Tyto experimenty jsou skvělý způsob, jak využít myšlenky a náročné práce ostatních, které vám pomůžou začít vlastní řešení. Všichni je Vítejte procházet přes něj.
 
-![Galerie Cortana Intelligence](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
+![Galerie Azure AI](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Pokud kliknete na tlačítko **experimenty** v horní části uvidíte počet nejvíce poslední a populární experimenty v galerii. Můžete hledat zbytek experimenty kliknutím **Procházet vše** v horní části obrazovky a že je možné zadat vyhledat podmínky a vyberte filtry hledání.
 
@@ -83,14 +86,14 @@ Klepnutí na který a trvá mi zprava **Azure Machine Learning Studio**. Vytvá�
 A teď je nutné počáteční bod. Zvládnu vyměnit svá data pro vlastní a proveďte vlastní postupně je upravujte modelu. Díky tomu jsou mi spuštěná počáteční a umožňuje mi sestavení na práci osobám, které skutečně vědět, co dělají.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Najít experimenty, které ukazují techniky machine learning
-Existují další experimenty v [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) konkrétně na příklady s postupy pro nové vědecké zpracování dat osoby, byly podílí. Například je experimentu v galerii, které ukazuje, jak bude zpracováván chybějící hodnoty ([metody pro zpracování chybějící hodnoty](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Provede vás 15 různé způsoby nahraďte prázdné hodnoty a bude zmíněn výhod každá metoda a kdy ji použít.
+Existují další experimenty v [Azure AI Galerie](https://gallery.cortanaintelligence.com) konkrétně na příklady s postupy pro nové vědecké zpracování dat osoby, byly podílí. Například je experimentu v galerii, které ukazuje, jak bude zpracováván chybějící hodnoty ([metody pro zpracování chybějící hodnoty](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Provede vás 15 různé způsoby nahraďte prázdné hodnoty a bude zmíněn výhod každá metoda a kdy ji použít.
 
 ![Galerie experimenty otevřete v nástroji Machine Learning Studio - metody pro chybějící hodnoty](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) je místo, kde můžete najít pracovní experimenty, které můžete použít jako výchozí bod pro vlastní řešení.
+[Galerie Azure AI](https://gallery.cortanaintelligence.com) je místo, kde můžete najít pracovní experimenty, které můžete použít jako výchozí bod pro vlastní řešení.
 
 Ujistěte se, podívejte se na ostatní videa v "Datové vědy pro začátečníky" z Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Zkuste prvního experimentu vědecké účely dat pomocí Azure Machine Learning](create-experiment.md)
 * [Získejte Úvod do Machine Learning v Microsoft Azure](what-is-machine-learning.md)

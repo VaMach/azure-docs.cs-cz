@@ -46,6 +46,8 @@
           href: storage-create-geo-redundant-storage.md
         - name: Simulace selhání s využitím úložiště RA-GRS
           href: storage-simulate-failure-ragrs-account-app.md
+    - name: Migrace místních dat do cloudu s využitím AzCopy
+      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Prohledávání nestrukturovaných dat v cloudovém úložišti
       href: storage-unstructured-search.md
     - name: Optimalizace škálovatelnosti a výkonu aplikace úložiště
@@ -337,7 +339,7 @@
           href: /rest/api/storagerp
         - name: Import/export
           href: /rest/api/storageimportexport
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/?category=storage'

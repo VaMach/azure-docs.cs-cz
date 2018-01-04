@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: aef74d3968f90a4e8a8f84660d92d6f8a38795c7
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.date: 01/03/2018
+ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Nasazení modelu strojového učení jako webovou službu
 
@@ -30,7 +30,7 @@ Doporučujeme začít s místní nasazení. Nejprve ověřit, že model a kód f
 Tady jsou kroky nasazení:
 1. Pomocí modelu Machine Learning uložené, vyškolení,
 2. Vytvořte schéma pro webové služby vstupní a výstupní data
-3. Vytvoření image na základě Docker kontejneru
+3. Vytvoření bitové kopie založené na Docker kontejneru
 4. Vytvoření a nasazení webové služby
 
 ### <a name="1-save-your-model"></a>1. Uložit modelu
@@ -43,6 +43,7 @@ import pickle
 from sklearn import datasets
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
+clf = linear_model.LogisticRegression()
 clf.fit(X, y)  
 saved_model = pickle.dumps(clf)
 ```
@@ -185,5 +186,5 @@ V následujícím příkladu volání ukázku Iris webové služby:
 az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\": 3.0, \"sepal width\": 3.6, \"petal width\": 1.3, \"petal length\":0.25}]}"
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Teď, když testování k webové službě pro spustit místně, můžete nasadit do clusteru s podporou pro použití ve velkém měřítku. Podrobnosti o nastavení clusteru s podporou pro nasazení webu služby najdete v tématu [modelu Management Configuration](deployment-setup-configuration.md). 

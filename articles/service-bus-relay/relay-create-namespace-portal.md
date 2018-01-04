@@ -1,5 +1,5 @@
 ---
-title: "Vytvoření oboru názvů pro Relay pomocí webu Azure Portal | Microsoft Docs"
+title: "Vytvoření oboru názvů pro Relay pomocí webu Azure Portal | Dokumentace Microsoftu"
 description: "Postup vytvoření oboru názvů pro Relay pomocí webu Azure Portal"
 services: service-bus-relay
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 8391199fe4045ffdb5091cda69d50f592a4bfb83
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c4c9c94d369e0ed1ddbfe31484f55b0d276918d3
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Vytvoření oboru názvů přenosu pomocí webu Azure Portal
 
@@ -33,7 +33,8 @@ Obor názvů je kontejner oboru pro všechny součásti služby Azure Relay. Sou
 
 Blahopřejeme! Právě jste vytvořili obor názvů přenosu.
 
-## <a name="next-steps"></a>Další kroky:
+## <a name="next-steps"></a>Další kroky
+
 * [Přenos – nejčastější dotazy](relay-faq.md)
 * [Začínáme s .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Začínáme s aplikací Node](relay-hybrid-connections-node-get-started.md)

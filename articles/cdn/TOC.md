@@ -8,7 +8,9 @@
 ## Integrace
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Storage](cdn-create-a-storage-account-with-cdn.md)
+### Úložiště
+#### [Integrace účtu úložiště](cdn-create-a-storage-account-with-cdn.md)
+#### [Podpora úložiště SAS](cdn-sas-storage-support.md)
 ### [Sdílení prostředků různého původu](cdn-cors.md)
 ### [Přidání vlastní domény do koncového bodu CDN](cdn-map-content-to-custom-domain.md)
 ### [Konfigurace HTTPS pro vlastní doménu](cdn-custom-ssl.md)
@@ -65,7 +67,7 @@
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
-# Zdroje
+# Zdroje a prostředky
 ##  [Referenční informace ke stroji pravidel](cdn-rules-engine-reference.md)
 ### [Podmíněné výrazy stroje pravidel](cdn-rules-engine-reference-conditional-expressions.md)
 ### [Funkce stroje pravidel](cdn-rules-engine-reference-features.md)

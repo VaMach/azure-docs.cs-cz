@@ -1,5 +1,5 @@
 ---
-title: "Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory? | Dokumentace Microsoftu"
+title: "Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory? | Dokumenty Microsoft"
 description: "Můžete povolit jednotné přihlašování ke všem SaaS a webové aplikace, které potřebujete pro firmy pomocí Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b577a427590b058319f9315a6d54deb6ec1c7634
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?
 Jednotné přihlašování znamená schopnost přístup ke všem aplikacím a prostředkům, které musíte udělat podnikání, po přihlášení pouze po pomocí jediného uživatelského účtu. Jakmile se přihlásíte, dostanete všechny aplikace, bez nutnosti ověřování (např. Zadejte heslo) ještě jednou.
@@ -54,7 +54,7 @@ Po ověření uživatele s aplikací mít také vyžadují, aby byla záznamu kl
  Další informace o těchto režimech jednoho přihlášení a zřizování níže.
 
 ### <a name="federated-single-sign-on"></a>Federované jednotné přihlašování
-Federované jednotné přihlašování umožňuje přihlašování umožňuje uživatelům ve vaší organizaci být automaticky přihlášeni k aplikaci SaaS jiných výrobců službou Azure AD pomocí informací o účtu uživatele z Azure AD.
+Federované jednotné přihlašování umožňuje uživatelům ve vaší organizaci být automaticky přihlášeni k aplikaci SaaS jiných výrobců službou Azure AD pomocí informací o účtu uživatele z Azure AD.
 
 V tomto scénáři Pokud jste již byly zaprotokolovány do služby Azure AD, a chcete pro přístup k prostředkům, které jsou řízené aplikace SaaS jiných výrobců, federace eliminuje potřebu uživatele jako znovu ověřit.
 

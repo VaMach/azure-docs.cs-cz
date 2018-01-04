@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-management-solution-in-oms"></a>Aktualizace řešení pro správu v OMS
 
@@ -142,7 +142,7 @@ Pokud chcete ověřit, že skupina pro správu Operations Manageru komunikuje s 
 ### <a name="supported-agents"></a>Podporovaní agenti
 Následující tabulka popisuje připojené zdroje, které toto řešení podporuje.
 
-| Připojený zdroj | Podporuje se | Popis |
+| Připojený zdroj | Podporováno | Popis |
 | --- | --- | --- |
 | Agenti systému Windows |Ano |Řešení shromažďuje informace o aktualizacích systému pro agenty Windows a inicializuje instalaci požadovaných aktualizací. |
 | Agenti systému Linux |Ano |Řešení shromažďuje informace o aktualizacích systému od agentů systému Linux a zahajuje instalaci požadovaných aktualizací v podporovaných distribucích. |
@@ -205,7 +205,7 @@ Vytvořte nové nasazení aktualizace kliknutím na tlačítko **Přidat** v hor
 
 | Vlastnost | Popis |
 | --- | --- |
-| Name (Název) |Jedinečný název pro identifikaci nasazení aktualizace. |
+| Název |Jedinečný název pro identifikaci nasazení aktualizace. |
 | Časové pásmo |Časové pásmo, které se má použít pro čas spuštění |
 | Typ plánu | Typ plánu  Dostupné možnosti jsou *Jednou*, *Týdenní opakování* nebo *Měsíční opakování*.  
 | Čas spuštění |Datum a čas spuštění aktualizace nasazení **Poznámka:** Nasazení se může spustit nejdříve 30 minut od aktuálního času, pokud potřebujete nasazení provést okamžitě. |
@@ -339,7 +339,7 @@ V okně Úlohy vašeho účtu Automation, který je propojený s pracovním pros
 
 Další informace najdete v tématu [Výstup a zprávy runbooku Automation](../automation/automation-runbook-output-and-messages.md).   
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * K zobrazení podrobných údajů o aktualizaci použijte Hledání v protokolu služby [Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * [Vytvářejte vlastní řídicí panely](../log-analytics/log-analytics-dashboards.md) zobrazující shodu aktualizace pro vaše spravované počítače.
 * [Vytvářejte výstrahy](../log-analytics/log-analytics-alerts.md) při zjištění, že v počítačích chybí důležité aktualizace nebo že má počítač zakázané automatické aktualizace.  

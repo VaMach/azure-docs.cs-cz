@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: dc1bd6502a5362bebd845f3938ab6502e0d91c74
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 5de818b0b47ee3345ddbc41455f5e953c5b96aa4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-a-container-group"></a>Nasazení kontejneru skupiny
 
@@ -188,14 +188,15 @@ Connection: keep-alive
 
 Jak můžete vidět, je něho pravidelně zajistit požadavek HTTP je hlavní webové aplikace prostřednictvím místní sítě skupiny zkontrolujte, zda je spuštěn. Tento příklad něho může rozšířit, aby spuštění výstrahy v případě obdržel kódu odpovědi HTTP než 200 OK.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Tento článek popsané kroky potřebné pro nasazení s více kontejnerů Azure container instance. Prostředí Azure kontejner instancí začátku do konce naleznete v kurzu instancí kontejnerů Azure.
 
 > [!div class="nextstepaction"]
-> [Azure instancí kontejnerů kurzu]: container-instances-tutorial-prepare-app.md
+> [Kurz pro Azure instancí kontejnerů][aci-tutorial]
 
 <!-- LINKS - Internal -->
+[aci-tutorial]: ./container-instances-tutorial-prepare-app.md
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create

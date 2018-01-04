@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: masaran;trinadhk;pullabhk;markgal;adigan
+ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Příprava zálohování úloh pomocí Azure Backup Serveru
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Pokud nechcete spustit základní server v Azure, můžete spustit server na vir
 
 | Operační systém | Platforma | Skladová jednotka (SKU) |
 |:--- | --- |:--- |
+| Windows Server 2016 a nejnovější aktualizace Service packu |64bitová verze |Standard, Datacenter, Essentials (MABS v2 a vyšší) |
 | Windows Server 2012 R2 a nejnovější aktualizace Service Packu |64bitová verze |Standard, Datacenter, Foundation |
 | Windows Server 2012 a nejnovější aktualizace Service Packu |64bitová verze |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 a nejnovější aktualizace Service Packu |64bitová verze |Standard, Workgroup |
@@ -267,7 +268,7 @@ Je možné provést z předplatného Azure *platnost vypršela* nebo *Deprovisio
 Pokud Microsoft Azure Backup server selže s chybami během fáze instalace (nebo zálohování nebo obnovení), podívejte se na to [dokumentu kódy chyb](https://support.microsoft.com/kb/3041338) Další informace.
 Můžete se také podívat na [nejčastější dotazy týkající se Azure Backup](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Můžete získat podrobné informace [Příprava prostředí pro aplikaci DPM](https://technet.microsoft.com/library/hh758176.aspx) na webu Microsoft TechNet. Také obsahuje informace o podporovaných konfiguracích, na kterých serveru Azure Backup lze nasadit a použít.
 
 Tyto články vám pomůže získat lepší představu o ochrana pracovního vytížení pomocí Microsoft Azure Backup server.

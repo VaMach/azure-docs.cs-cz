@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 6d7c2eaf139ddbff46a2fba99bdf5515f64be40c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Nastavení replikace clusteru HBase v Azure virtuální sítě
 
@@ -182,7 +182,7 @@ Následující kroky popisují, jak volat skript akce skriptu z portálu Azure. 
 
 Vyžaduje argumenty:
 
-|Name (Název)|Popis|
+|Název|Popis|
 |----|-----------|
 |-s, – src-cluster | Určuje název DNS clusteru HBase zdroje. Příklad: hbsrccluster -s, cluster – src = hbsrccluster |
 |-d, – dst clusteru | Určuje název DNS cílového (replikovaného) clusteru HBase. Příklad: dsthbcluster -s, cluster – src = dsthbcluster |
@@ -191,7 +191,7 @@ Vyžaduje argumenty:
 
 Nepovinné argumenty:
 
-|Name (Název)|Popis|
+|Název|Popis|
 |----|-----------|
 |-su, – src-ambari-user | Určuje uživatelské jméno správce pro Ambari ve zdrojovém clusteru HBase. Výchozí hodnota je **správce**. |
 |-du – dst-ambari-user | Určuje uživatelské jméno správce pro Ambari v cílovém clusteru HBase. Výchozí hodnota je **správce**. |
@@ -276,7 +276,7 @@ Zakázat replikace, použijte jiný skript akce skriptu z [Githubu](https://raw.
 
         -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste zjistili, jak nastavit replikace HBase v rámci virtuální sítě, nebo mezi dvě virtuální sítě. Další informace o HDInsight a HBase, najdete v těchto článcích:
 

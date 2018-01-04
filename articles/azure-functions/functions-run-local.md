@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kód a testovat místně na Azure Functions
 
@@ -29,7 +29,7 @@ Pokud jste Azure Functions Visual Studio C# vývojář, také [se integruje s Vi
 >[!IMPORTANT]  
 > Nemíchat místní vývoj pomocí portálu vývoj v aplikaci stejné funkce. Při vytváření a publikování funkce z místní projektu, by neměl pokusíte udržovat nebo upravit kód projektu na portálu.
 
-## <a name="install-the-azure-functions-core-tools"></a>Instalace nástroje Azure Functions jádra
+## <a name="install-the-azure-functions-core-tools"></a>Instalace nástrojů Azure Functions Core
 
 [Nástroje Azure základní funkce] je místní verzi modulu runtime Azure Functions, který můžete spustit na místním vývojovém počítači. Není emulátor ani simulátor. Je stejný modul runtime, který zajišťuje funkce v Azure. Existují dvě verze nástrojů pro základní funkce Azure, jeden pro verze 1.x modulu runtime a jeden pro verze 2.x. Obě verze jsou uvedeny jako [balíčku npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
@@ -132,7 +132,7 @@ Soubor local.settings.json ukládá nastavení aplikace, řetězce připojení a
 | **Hodnoty** | Kolekce nastavení aplikace používá při místním spuštění. **AzureWebJobsStorage** a **AzureWebJobsDashboard** jsou příklady; úplný seznam najdete v tématu [referenční příručka k nastavení aplikace](functions-app-settings.md).  |
 | **Hostitele** | Nastavení v této části přizpůsobit funkce hostitelský proces, při místním spuštění. | 
 | **LocalHttpPort** | Nastaví výchozí port použitý při spuštění místního hostitele funkce (`func host start` a `func run`). `--port` Možnost příkazového řádku má přednost před tuto hodnotu. |
-| **CORS** | Definuje zdroje povolené pro [(CORS) pro sdílení prostředků různého původu](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Zdroje se zadávají jako seznam oddělený čárkami bez mezer. Hodnota zástupného znaku (**\***) je podporováno, což umožňuje požadavky od jakýkoli původ. |
+| **CORS** | Definuje zdroje povolené pro [(CORS) pro sdílení prostředků různého původu](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Zdroje se zadávají jako seznam oddělený čárkami bez mezer. Hodnota zástupného znaku (\*) je podporováno, což umožňuje požadavky od jakýkoli původ. |
 | **ConnectionStrings** | Obsahuje databázové připojovací řetězce pro funkcí. Připojovací řetězce v tento objekt se přidají do prostředí s typem zprostředkovatele **System.Data.SqlClient**.  | 
 
 Většina triggerů a vazeb mít **připojení** vlastnost, která se mapuje na název nastavení aplikace nebo proměnné prostředí. Pro každou vlastnost připojení musí být definována v souboru local.settings.json nastavení aplikace. 
@@ -337,7 +337,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta   
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Nástroje Azure základní funkce je [otevřít zdroj a hostované na Githubu](https://github.com/azure/azure-functions-cli).  
 Do souboru žádost chyb nebo funkce [otevřete potíže Githubu](https://github.com/azure/azure-functions-cli/issues). 

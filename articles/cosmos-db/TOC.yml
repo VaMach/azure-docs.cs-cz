@@ -173,7 +173,7 @@
         - name: SQL API
           href: sql-api-index.md
           items:
-            - name: Zdroje
+            - name: Zdroje a prostředky
               href: sql-api-resources.md
             - name: Dotazy SQL
               href: sql-api-sql-query.md
@@ -187,8 +187,10 @@
               href: programming.md
             - name: Testování výkonu
               href: performance-testing.md
-            - name: Tipy pro zvýšení výkonu
+            - name: Tipy ke zvýšení výkonu pro .NET
               href: performance-tips.md
+            - name: Tipy ke zvýšení výkonu pro Javu
+              href: performance-tips-java.md
             - name: Nastavení s několika hlavními databázemi
               href: multi-region-writers.md
             - name: Typy DateTime

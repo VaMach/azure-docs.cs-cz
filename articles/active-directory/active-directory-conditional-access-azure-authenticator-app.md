@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator pro Android
 Váš správce IT vám možná doporučil vám používat Microsoft Azure Authenticator k přihlášení pro přístup k prostředkům na pracovišti. Tuto aplikaci nabízí tyto dvě možnosti, přihlášení:
@@ -41,7 +41,7 @@ Následující pokyny se dají použít k Samsung GS3 a výše telefony nebo Poz
 4. Na obrazovce Správce zařízení aktivovat, klikněte na tlačítko **aktivovat**.
 5. Na obrazovce zásady ochrany osobních údajů, zaškrtněte políčko a klikněte na tlačítko **potvrdit**.
 6. Na obrazovce připojení k pracovní ploše, zadejte ID uživatele zadané ve vaší organizaci a klikněte na **připojení**.
-7. Přihlaste se k aplikaci Azure Authenticator, zadejte vaší organizace *** et a heslo a klikněte na **přihlášení**.
+7. Pro přihlášení k aplikaci Azure Authenticator, zadejte účet organizace a heslo a klikněte na tlačítko **přihlášení**.
 8. Na další obrazovce, která zobrazuje informace o funkci vícefaktorového ověřování (MFA) pro přidání zabezpečení a je volitelný. Tato obrazovka se zobrazí, pokud vaše škola nebo pracoviště vyžaduje dvoufaktorové ověřování pro vytvoření pracovní účet. Poskytuje pokyny pro další ověření vašeho účtu.
 9. Na obrazovce připojení k pracovní ploše zobrazí se zpráva "**připojení vaší síti na pracovišti**". Aplikace Azure Authenticator se pokouší o připojení zařízení k pracovní ploše.
 10. Měli byste vidět zprávu připojený k síti na pracovišti na další obrazovce.

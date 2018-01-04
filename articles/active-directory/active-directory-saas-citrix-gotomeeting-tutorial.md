@@ -4,7 +4,7 @@ description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c3ea5175b02e35e7c624ce936d59fd82163b0fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e3dadac0bcec3242804e90b1c0fa68d25bb9ffa4
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Kurz: Azure Active Directory integrace s GoToMeeting
 
@@ -104,24 +104,11 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
  
     ![Jediné přihlášení dialogové okno](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. Na **GoToMeeting domény a adresy URL** klikněte na tlačítko **zobrazit upřesňující nastavení adresy URL** a proveďte následující akce -
+3. Na **GoToMeeting domény a adresy URL** část, proveďte následující kroky:
 
-    ![GoToMeeting domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+    ![GoToMeeting domény a adresy URL jednotné přihlašování informace](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. V **identifikátor** textovému poli, zadejte adresu URL:`https://authentication.logmeininc.com/saml/sp`
-
-    b. V **adresa URL odpovědi** textovému poli, zadejte adresu URL:`https://authentication.logmeininc.com/saml/acs`
-
-    c. V **předávání stavu** textovému poli, zadejte jeden z těchto adres URL:
-
-    **Pro GoToMeeting**:`https://global.gotomeeting.com`
-    
-    **Pro GoToTraining**:`https://global.gototraining.com`
-
-    **Pro GoToWebinar**:`https://global.gotowebinar.com`
-
-    **Pro GoToAssist**:`https://app.gotoassist.com`
-
+    V **identifikátor** textovému poli, zadejte adresu URL:`https://login.citrixonline.com/saml/sp`
 
 4. Na **SAML podpisový certifikát** klikněte na tlačítko **soubor XML s metadaty** a potom uložte soubor metadat ve vašem počítači.
 
@@ -155,7 +142,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurace GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. V okně jiný prohlížeč, přihlaste se k vaší [GoToMeeting organizace Center](https://account.citrixonline.com/organization/administration/)
+8. V okně jiný prohlížeč, přihlaste se k vaší [GoToMeeting organizace Center](https://organization.logmeininc.com/)
 
 9. V části **zprostředkovatele identity** kartě, můžete nakonfigurovat nastavení Azure buď pomocí poskytování vygenerovaného **adresu URL metadat** nebo stažené **soubor metadat** nebo **Ruční**.
 
@@ -275,11 +262,11 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 Když kliknete na dlaždici GoToMeeting na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci GoToMeeting.
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Konfiguraci zřizování uživatelů](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+* [Konfiguraci zřizování uživatelů](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
 
 
 <!--Image references-->

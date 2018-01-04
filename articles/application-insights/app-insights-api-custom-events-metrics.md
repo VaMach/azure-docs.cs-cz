@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1e7b5d4409b3e53db9313cf353894d5818837588
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API pro vlastní události a metriky
 
@@ -372,7 +372,7 @@ Místo toho můžete buď:
     // To start timing a page:
     appInsights.startTrackPage("Page1");
 
-Tlačítka ...
+...
 
     // To stop timing and log the page:
     appInsights.stopTrackPage("Page1", url, properties, measurements);
@@ -522,7 +522,7 @@ Pokud [vzorkování](app-insights-sampling.md) je v provozu, `itemCount` vlastno
 exceptions | summarize sum(itemCount) by type
 ```
 
-Většinu informací důležité zásobníku je již extrahován do samostatné proměnné, ale můžete vyžádat od sebe `details` struktura získat další. Vzhledem k tomu, že tato struktura je dynamický, by měl přetypovat na typ očekávaný výsledek. Například:
+Většinu informací důležité zásobníku je již extrahován do samostatné proměnné, ale můžete vyžádat od sebe `details` struktura získat další. Vzhledem k tomu, že tato struktura je dynamický, by měl přetypovat na typ očekávaný výsledek. Příklad:
 
 ```AIQL
 exceptions
@@ -555,7 +555,7 @@ Můžete hledat na obsah zprávy, ale (na rozdíl od hodnoty vlastností) nelze 
 Limit velikosti na `message` mnohem vyšší, než je limit na vlastnosti.
 Výhodou TrackTrace je, že můžete ukládat poměrně dlouho data ve zprávě. Můžete například kódovat následných dat existuje.  
 
-Kromě toho můžete přidat úroveň závažnosti na zprávu. A, podobně jako ostatní telemetrických dat, můžete přidat hodnoty vlastností, které vám pomohou filtru nebo vyhledávání pro různé skupiny trasování. Například:
+Kromě toho můžete přidat úroveň závažnosti na zprávu. A, podobně jako ostatní telemetrických dat, můžete přidat hodnoty vlastností, které vám pomohou filtru nebo vyhledávání pro různé skupiny trasování. Příklad:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -900,7 +900,7 @@ Můžete napsat kód pro zpracování telemetrie před odesláním ze sady SDK. 
 
 [Přidání vlastnosti](app-insights-api-filtering-sampling.md#add-properties) k telemetrie implementací `ITelemetryInitializer`. Můžete například přidat čísla verzí nebo vypočtené hodnoty od dalších vlastností.
 
-[Filtrování](app-insights-api-filtering-sampling.md#filtering) můžete změnit nebo zrušit telemetrie před odesláním ze sady SDK implementací `ITelemetryProcesor`. Můžete řídit, co se odesílá nebo se zahodí, ale budete muset účet pro vliv na vaše metriky. V závislosti na tom, jak zrušit položek může dojít ke ztrátě možnost přecházet mezi související položky.
+[Filtrování](app-insights-api-filtering-sampling.md#filtering) můžete změnit nebo zrušit telemetrie před odesláním ze sady SDK implementací `ITelemetryProcessor`. Můžete řídit, co se odesílá nebo se zahodí, ale budete muset účet pro vliv na vaše metriky. V závislosti na tom, jak zrušit položek může dojít ke ztrátě možnost přecházet mezi související položky.
 
 [Vzorkování](app-insights-api-filtering-sampling.md) je zabalené řešení ke snížení objemu dat, který se odesílá z vaší aplikace na portál. Dělá to tak, aniž by to ovlivnilo zobrazených metrik. A dělá to tak, aniž by to ovlivnilo moct lépe diagnostikovat problémy tak, že přejdete mezi související položky jako výjimky, požadavky a zobrazení stránek.
 
@@ -999,7 +999,7 @@ Na webových stránkách můžete ho nastavit ze stavu webový server, než kód
 
 
 ## <a name="telemetrycontext"></a>TelemetryContext
-TelemetryClient má vlastnost kontext, který obsahuje hodnoty, které jsou odeslány společně s všechny telemetrická data. Za normálních okolností jsou nastavené moduly standardní telemetrie, ale můžete také nastavit jejich sami. Například:
+TelemetryClient má vlastnost kontext, který obsahuje hodnoty, které jsou odeslány společně s všechny telemetrická data. Za normálních okolností jsou nastavené moduly standardní telemetrie, ale můžete také nastavit jejich sami. Příklad:
 
     telemetry.Context.Operation.Name = "MyOperationName";
 

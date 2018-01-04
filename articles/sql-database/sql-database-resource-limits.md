@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 63e6b21dad4f58dbaa1df58e8eb1d6e3f6b7f762
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6bc8979eebb2b727d0cae02fe7ca4e95cb32dc36
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Omezení prostředků Azure SQL Database
 
@@ -139,10 +139,11 @@ Při zjištění vysoké využití relace nebo pracovního procesu, možnosti om
 - Zvýšení úrovně služby vrstvě nebo výkonu databáze nebo elastického fondu. V tématu [jedné databáze: změnit velikost úložiště](#single-database-change-storage-size), [jedné databáze: změnit počet jednotek Dtu](#single-database-change-dtus), [elastického fondu: změnit velikost úložiště](#elastic-pool-change-storage-size), a [elastického fondu: změnit počet jednotek Edtu ](#elastic-pool-change-edtus).
 - Optimalizace dotazy ke snížení využití prostředků každý dotaz, je-li příčinou využití vyšší pracovníka způsobeno kolizí pro výpočetní prostředky. Další informace najdete v tématu [dotaz optimalizace/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Informace o úrovních služeb najdete v tématu [úrovních služeb](sql-database-service-tiers.md).
 - Informace o izolovaných databází najdete v tématu [jedna databáze prostředků](sql-database-resource-limits.md).
 - Informace o elastické fondy najdete v tématu [elastické fondy](sql-database-elastic-pool.md).
 - Informace o obecných omezeních Azure najdete v tématu [předplatného Azure a omezení služby, kvóty a omezení](../azure-subscription-service-limits.md).
 - Informace o Dtu a Edtu najdete v tématu [Dtu a Edtu](sql-database-what-is-a-dtu.md).
+- Informace o databázi tempdb velikosti omezení naleznete v tématu https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

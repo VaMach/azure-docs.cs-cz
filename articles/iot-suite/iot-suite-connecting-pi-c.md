@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/03/2018
 ms.author: dobett
-ms.openlocfilehash: cec5d9c2e81e6311514536f7605777d48d1f1c46
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Připojte zařízení malin pí k předkonfigurovaného řešení vzdáleného monitorování (C)
 
@@ -47,9 +47,11 @@ Musíte klient SSH na umožňují vzdálený přístup na příkazovém řádku 
 
 ### <a name="required-raspberry-pi-software"></a>Požadovaný software malin platformy
 
+Tento článek předpokládá, že jste nainstalovali nejnovější verzi [Raspbian operačního systému na vaše malin pí](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+
 Následující kroky ukazují, jak připravit vaše malin platformy pro vytvoření aplikace C, která se připojuje k předkonfigurovaného řešení:
 
-1. Připojte se k malin pí pomocí `ssh`. Další informace najdete v tématu [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) na [web Pi malin](https://www.raspberrypi.org/).
+1. Připojte se k malin pí pomocí **ssh**. Další informace najdete v tématu [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) na [web Pi malin](https://www.raspberrypi.org/).
 
 1. Použijte následující příkaz k aktualizaci vašeho malin platformy:
 
@@ -60,31 +62,27 @@ Následující kroky ukazují, jak připravit vaše malin platformy pro vytvoře
 1. Pomocí následujícího příkazu přidejte požadované vývojové nástroje a knihovny pro vaše platformy malin:
 
     ```sh
-    sudo apt-get install g++ make cmake gcc git
+    sudo apt-get purge libssl-dev
+    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. K instalaci knihovny klienta služby IoT Hub, použijte následující příkazy:
-
-    ```sh
-    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-    sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-    ```
-
-1. Klonování analyzátor Parson JSON vaší malin PI, použijte následující příkazy:
+1. Použijte následující příkazy ke stažení, sestavit a nainstalovat na vaše platformy malin knihovny klienta služby IoT Hub:
 
     ```sh
     cd ~
-    git clone https://github.com/kgabis/parson.git
+    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c/build_all/linux
+    ./build.sh --no-make
+    cd ../../cmake/iotsdk_linux
+    make
+    sudo make install
     ```
 
-## <a name="create-a-project"></a>Vytvoření projektu
+## <a name="create-a-project"></a>Vytvořit projekt
 
-Proveďte následující kroky pomocí `ssh` připojení k vaší malin platformy:
+Proveďte následující kroky pomocí **ssh** připojení k vaší malin platformy:
 
-1. Vytvořte složku s názvem `remote_monitoring` do domovské složky na malin pí. Přejděte do této složky na příkazovém řádku:
+1. Vytvořte složku s názvem `remote_monitoring` do domovské složky na malin pí. Přejděte do této složky ve vašem prostředí:
 
     ```sh
     cd ~
@@ -92,13 +90,9 @@ Proveďte následující kroky pomocí `ssh` připojení k vaší malin platform
     cd remote_monitoring
     ```
 
-1. Vytvořit čtyři soubory `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, a `CMakeLists.txt` v `remote_monitoring` složky.
+1. Vytvořit čtyři soubory **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, a **CMakeLists.txt** v `remote_monitoring` složka.
 
-1. Vytvořte složku s názvem `parson` v `remote_monitoring` složky.
-
-1. Zkopírujte soubory `parson.c` a `parson.h` z místní kopie Parson úložiště do `remote_monitoring/parson` složky.
-
-1. V textovém editoru otevřete `remote_monitoring.c` souboru. Na malin platformy, můžete použít buď `nano` nebo `vi` textový editor. Přidejte následující příkazy `#include`:
+1. V textovém editoru otevřete **remote_monitoring.c** souboru. Na malin platformy, můžete použít buď **nano** nebo **vi** textový editor. Přidejte následující příkazy `#include`:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -113,15 +107,19 @@ Proveďte následující kroky pomocí `ssh` připojení k vaší malin platform
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+Uložit **remote_monitoring.c** soubor a ukončete editor.
+
 ## <a name="add-code-to-run-the-app"></a>Přidat kód pro spuštění aplikace
 
-V textovém editoru otevřete `remote_monitoring.h` souboru. Přidejte následující kód:
+V textovém editoru otevřete **remote_monitoring.h** souboru. Přidejte následující kód:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-V textovém editoru otevřete `main.c` souboru. Přidejte následující kód:
+Uložit **remote_monitoring.h** soubor a ukončete editor.
+
+V textovém editoru otevřete **main.c** souboru. Přidejte následující kód:
 
 ```c
 #include "remote_monitoring.h"
@@ -133,6 +131,8 @@ int main(void)
   return 0;
 }
 ```
+
+Uložit **main.c** soubor a ukončete editor.
 
 ## <a name="build-and-run-the-application"></a>Sestavení a spuštění aplikace
 
@@ -158,18 +158,16 @@ Následující kroky popisují způsob použití *CMake* k vytvoření klientsk�
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
     set(sample_application_c_files
-        ./parson/parson.c
         ./remote_monitoring.c
         ./main.c
     )
 
     set(sample_application_h_files
-        ./parson/parson.h
         ./remote_monitoring.h
     )
 
@@ -188,6 +186,8 @@ Následující kroky popisují způsob použití *CMake* k vytvoření klientsk�
         m
     )
     ```
+
+1. Uložit **CMakeLists.txt** soubor a ukončete editor.
 
 1. V `remote_monitoring` složky, vytvořte složku pro uložení *zkontrolujte* soubory, které generuje CMake. Spusťte **cmake** a **zkontrolujte** příkazy následujícím způsobem:
 

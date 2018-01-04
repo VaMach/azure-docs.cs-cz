@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Klasifikace Iris – Část 1: Příprava dat
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -140,11 +140,11 @@ Aplikaci Azure Machine Learning Workbench můžete nainstalovat podle pokynů v 
    df.head(10)
    ```
 
-   Tento fragment kódu vyvolává logiku, kterou jste vytvořili jako balíček pro přípravu dat. V závislosti na kontextu, ve kterém je tento kód spuštěný, může `df` představovat různé druhy datových rámců. [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) se používá při spuštění v modulu Python runtime a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) se používá při spuštění v kontextu Sparku. 
+   Tento fragment kódu vyvolává logiku, kterou jste vytvořili jako balíček pro přípravu dat. V závislosti na kontextu, ve kterém je tento kód spuštěný, může `df` představovat různé druhy datových rámců. [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) se používá při spuštění v modulu runtime Pythonu a [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) se používá při spuštění v kontextu Sparku. 
 
    Další informace o přípravě dat v aplikaci Azure Machine Learning Workbench najdete v příručce [Začínáme s přípravou dat](data-prep-getting-started.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V této první části třídílné série kurzů jste použili aplikaci Azure Machine Learning Workbench k provedení těchto úloh:
 > [!div class="checklist"]
 > * Vytvoření nového projektu 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5cf9ef392a5a4e33f6413495e1c81e969d50dcad
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafické vytváření obsahu v Azure Automation.
 ## <a name="introduction"></a>Úvod
@@ -114,7 +114,7 @@ Pokud zadáte hodnotu pro parametr, můžete vybrat zdroj dat k určení, jak bu
 
 | Zdroj dat | Popis |
 |:--- |:--- |
-| Konstantní hodnota |Zadejte hodnotu pro parametr.  To je dostupná jenom pro následující typy dat: Int32, Int64, řetězec, logická hodnota, datum a čas, přepínač. |
+| Konstanta |Zadejte hodnotu pro parametr.  To je dostupná jenom pro následující typy dat: Int32, Int64, řetězec, logická hodnota, datum a čas, přepínač. |
 | Výstup aktivity |Výstup z aktivity, která předchází aktuální aktivity v pracovním postupu.  Objeví se všechny platné aktivity.  Vyberte aktivitu používat jeho výstup pro hodnotu parametru.  Pokud aktivita výstupy objekt s více vlastností, potom můžete zadat název vlastnosti po výběru aktivity. |
 | Vstup z Runbooku |Vyberte vstupní parametr runbooku jako vstup pro parametr aktivity. |
 | Variabilní prostředek |Vyberte proměnné Automation jako vstup. |
@@ -122,7 +122,7 @@ Pokud zadáte hodnotu pro parametr, můžete vybrat zdroj dat k určení, jak bu
 | Asset certifikátu |Vyberte certifikát Automation jako vstup. |
 | Asset připojení |Vyberte připojení Automation jako vstup. |
 | Powershellový výraz |Zadat jednoduchý [Powershellový výraz](#powershell-expressions).  Tento výraz bude před aktivity a výsledek použít pro hodnotu parametru vyhodnocen.  Proměnné můžete použít k odkazování na výstup aktivity nebo vstupní parametr runbooku. |
-| Není nakonfigurováno |Vymaže hodnotu, která byla nastavena. |
+| Nenakonfigurováno |Vymaže hodnotu, která byla nastavena. |
 
 #### <a name="optional-additional-parameters"></a>Další volitelné parametry
 Všechny rutiny bude mít možnost zadat další parametry.  Jedná se o běžné parametry Powershellu nebo jiné vlastní parametry.  Se zobrazí v textovém poli, ve kterém můžete zadat parametry pomocí syntaxe Powershellu.  Chcete-li například použít **podrobné** společný parametr, zadali byste **"-Verbose: $True"**.
@@ -185,7 +185,7 @@ Vyberte propojení na nakonfigurujte její vlastnosti v okně konfigurace.  To b
 | Typ propojení | Popis |
 |:--- |:--- |
 | Kanál |Cílová aktivita se spustit jednou pro každý objekt výstup ze zdrojové aktivity.  Cílová aktivita se nespustí, pokud zdrojové aktivity, které jsou výsledkem žádný výstup.  Výstup ze zdrojové aktivity k dispozici jako objekt. |
-| Pořadí |Cílová aktivita se spustí jenom jednou.  Obdrží pole objektů ze zdrojové aktivity.  Výstup ze zdrojové aktivity k dispozici jako pole objektů. |
+| Sekvence |Cílová aktivita se spustí jenom jednou.  Obdrží pole objektů ze zdrojové aktivity.  Výstup ze zdrojové aktivity k dispozici jako pole objektů. |
 
 ### <a name="starting-activity"></a>Spuštění aktivity
 Grafický runbook se spustí se veškeré aktivity, které nemají příchozí propojení.  Často se bude jenom jedna aktivita, která bude fungovat jako počáteční aktivita sady runbook.  Pokud více aktivit nemají příchozí propojení, sada runbook spustí spuštěním paralelně.  Pak ji bude na následujících odkazech spustit další aktivity, protože každý dokončení.
@@ -198,7 +198,7 @@ Pro kanál odkaz zadejte podmínku pro jediný objekt a je podmínka vyhodnocena
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 Pro odkaz pořadí podmínka je Vyhodnocená jenom jednou vzhledem k tomu, že do jednoho pole se vrátí, obsahuje všechny objekty výstup ze zdrojové aktivity.  Z toho důvodu pořadí odkaz nelze použít pro filtrování jako propojení kanálu, ale jednoduše určí, zda je další aktivita běžet. Proveďte například následující sadu aktivit v náš runbook spustit virtuální počítač.<br> ![Podmíněného propojení s pořadí](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
-Existují tři různé pořadí propojení, které jsou ověření hodnoty byly poskytnuty dva vstupní parametry runbooku představující název virtuálního počítače a název skupiny prostředků, aby bylo možné určit, což je příslušné akce provést - spustit jeden virtuální počítač, spuštění všech virtuálních počítačů v odstraňovaného prostředku. Skupina, nebo všechny virtuální počítače v předplatném.  Pořadí propojení mezi připojit k Azure a jeden virtuální počítač Get zde je logice podmínku:
+Existují tři různé pořadí propojení, které jsou ověření hodnoty byly poskytnuty dva vstupní parametry runbooku představující název virtuálního počítače a název skupiny prostředků, aby bylo možné určit, což je příslušné akce provést - spustit jeden virtuální počítač, spuštění všech virtuálních počítačů v prostředku Skupina, nebo všechny virtuální počítače v předplatném.  Pořadí propojení mezi připojit k Azure a jeden virtuální počítač Get zde je logice podmínku:
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 
@@ -288,7 +288,7 @@ Každý vstupní parametr je definován vlastností v následující tabulce.
 
 | Vlastnost | Popis |
 |:--- |:--- |
-| Name (Název) |Jedinečný název parametru.  To může obsahovat pouze alfanumerické znaky a nesmí obsahovat mezery. |
+| Název |Jedinečný název parametru.  To může obsahovat pouze alfanumerické znaky a nesmí obsahovat mezery. |
 | Popis |Volitelný popis pro vstupní parametr. |
 | Typ |Datový typ pro hodnotu parametru.  Portál Azure poskytne vhodný ovládací prvek pro datový typ pro každý parametr při zobrazení výzvy ke vstupu. |
 | Povinné |Určuje, zda musí být zadána hodnota pro parametr.  Runbook nejde spustit, pokud nezadáte hodnotu pro každý povinný parametr, který nemá výchozí hodnotu definovanou. |

@@ -14,21 +14,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 390342eb08ae970fa760b414674b1a6783404d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8b4347fde274d0d7520ef3acbd081fdb83d7dc7d
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-in-azure-hdinsight"></a>Vizualizovat data Hive s Microsoft Power BI v Azure HDInsight
+# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Vizualizovat Hive data s Microsoft Power BI pomocí rozhraní ODBC v Azure HDInsight
 
-Zjistěte, jak Microsoft Power BI připojit k Azure HDInsight a vizualizovat Hive data. Power BI v současné době podporuje pouze připojení rozhraní ODBC do HDInsight. V tomto kurzu můžete načíst data z tabulky Hive hivesampletable do Power BI. Tabulka Hive obsahuje některé údaje o používání mobilního telefonu. Potom vykreslení dat o využití na mapě world:
+Zjistěte, jak se připojit k Azure HDInsight pomocí ovladače ODBC Microsoft Power BI a vizualizovat Hive data. V tomto kurzu můžete načíst data z tabulky Hive hivesampletable do Power BI. Tabulka Hive obsahuje některé údaje o používání mobilního telefonu. Potom vykreslení dat o využití na mapě world:
 
 ![HDInsight Power BI sestavy mapy](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
-Informace se vztahují taky na nové [interaktivní dotazu](../interactive-query/apache-interactive-query-get-started.md) clusteru typu.
+Informace se vztahují taky na nové [interaktivní dotazu](../interactive-query/apache-interactive-query-get-started.md) clusteru typu. Pro připojení k HDInsight interaktivní dotazu pomocí přímých dotazů najdete v tématu [vizualizovat interaktivní Hive dotaz data s Microsoft Power BI pomocí přímých dotazů v Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 
 ## <a name="prerequisites"></a>Požadavky
 Před zahájením tohoto článku, musíte mít následující položky:
@@ -52,7 +52,7 @@ Tabulka hivesampletable Hive obsahuje všechny clustery HDInsight.
 4. Z **z rozhraní ODBC** podokně, vyberte název jste vytvořili v poslední části zdroje dat a pak klikněte na tlačítko **OK**.
 5. Z **Navigátor** podokně rozbalte **ODBC -> HIVE -> výchozí**, vyberte **hivesampletable**a potom klikněte na **zatížení**.
 
-## <a name="visualize-date"></a>Vizualizovat data
+## <a name="visualize-data"></a>Vizualizaci dat
 
 Pokračujte v posledním postupu.
 
@@ -62,10 +62,10 @@ Pokračujte v posledním postupu.
 2. V podokně polí, vyberte **země** a **devicemake**. Uvidíte dat zobrazovaných na mapě.
 3. Rozbalte mapy.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto článku jste zjistili, jak k vizualizaci dat z prostředí HDInsight pomocí Power BI.  Další informace naleznete v následujících článcích:
 
-* [Použití Zeppelin ke spouštění dotazů Hive v Azure HDInsight ](./../hdinsight-connect-hive-zeppelin.md).
+* [Použití Zeppelin ke spouštění dotazů Hive v Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Připojení aplikace Excel do HDInsight pomocí ovladače ODBC Microsoft Hive](./apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Připojení aplikace Excel k systému Hadoop pomocí Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Připojení k Azure HDInsight a spouštět dotazy Hive pomocí nástrojů Data Lake pro Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

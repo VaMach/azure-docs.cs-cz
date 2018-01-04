@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: c4db342299e009249ac98a2b58fb882c57c01a0b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publikování aplikace HDInsight v Azure Marketplace
 Aplikace Azure HDInsight můžete nainstalovat na clusteru HDInsight se systémem Linux. V tomto článku se dozvíte, jak publikovat aplikace HDInsight do Azure Marketplace. Obecné informace o publikování v Azure Marketplace najdete v tématu [publikování nabídky v Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -104,7 +104,7 @@ Publikování aplikace HDInsight:
 8. Nahrát soubor .zip, který jste vytvořili, když jste [zabalené aplikace](#package-application).  
 9. Vyberte **požádat o certifikaci**. Tým certifikace společnosti Microsoft soubory zkontroluje a topologii certifikuje.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Zjistěte, jak [instalace aplikací HDInsight](hdinsight-apps-install-applications.md) clusterů.
 * Zjistěte, jak [instalace vlastních aplikací HDInsight](hdinsight-apps-install-custom-applications.md) a nasazovat nepublikované aplikace HDInsight do HDInsight.
 * Zjistěte, jak [použití akce skriptu k přizpůsobení clusterů HDInsight se systémem Linux](hdinsight-hadoop-customize-cluster-linux.md) a přidat další aplikace. 

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: 9d9d9556c37cfa5a1a740569b4c7fd4fd07a467a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Použijte interaktivní dotazu s HDInsight
 Interaktivní dotazu (také nazývané Hive LLAP nebo [Live dlouhé a proces](https://cwiki.apache.org/confluence/display/Hive/LLAP)) je Azure HDInsight [clusteru typu](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interaktivní Query podporuje ukládání do mezipaměti v paměti, takže dotazů Hive rychlejší a víc interaktivní.
@@ -43,8 +43,8 @@ Spuštění dotazů Hive, máte následující možnosti:
 
 * Pomocí Power BI
 
-    V tématu [vizualizovat velké objemy dat s Power BI v Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-
+    V tématu [vizualizovat interaktivní Hive dotaz dat s Power BI v Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) najdete v části [vizualizovat velké objemy dat s Power BI v Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+ 
 * Použití Zeppelin
 
     V tématu [Zeppelin používá ke spouštění dotazů Hive v Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).
@@ -76,7 +76,7 @@ Najít připojovací řetězec připojení k databázi v jazyce Java (JDBC):
    
    ![JDBC LLAP interaktivních dotazů HDInsight Hadoop](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Zjistěte, jak [vytvářet interaktivní dotazu clusterů v HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Zjistěte, jak [vizualizovat velké objemy dat s Power BI v Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).

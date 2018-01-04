@@ -9,17 +9,17 @@ editor:
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.custom: oms-security
-ms.topic: get-started-article
+ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9772e4c1022cf8609e52ccfe16376959b67e92eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Začínáme s řešením Zabezpečení a audit v Operations Management Suite
 Tento dokument vám umožní rychle začít používat řešení Zabezpečení a audit v Operations Management Suite (OMS) a provede vás jednotlivými možnostmi.
@@ -193,7 +193,7 @@ Seznam běžných dotazů zabezpečení může být užitečný pro rychlé zís
 * Aktivity přihlášení podle účtu
 * Účty, které se vzdáleně přihlásily k počítači "computer01.contoso.com" (nahraďte název počítače podle potřeby)
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 V tomto dokumentu jste se seznámili s řešením Zabezpečení a audit v OMS. Další informace o zabezpečení v OMS najdete v následujících článcích:
 
 * [Přehled Operations Management Suite (OMS)](operations-management-suite-overview.md)

@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: b389151b8a1dd0c7a367f83db968bac7b832897a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3471792bba92879e446837434cbdba667cf679ad
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrovat virtuální počítače Azure k spravovaná diskům v Azure
 
-Disky spravované Azure zjednodušuje správu vašeho úložiště odebráním potřeba samostatně spravovat účty úložiště.  Můžete také migrovat existující virtuální počítače Azure spravované disků, abyste mohli využívat výhod vyšší spolehlivost virtuálních počítačů ve skupině dostupnosti. Zajišťuje, že disky různé virtuální počítače ve skupině dostupnosti bude dostatečně od sebe navzájem oddělené předejdete jediný bod selhání. Automaticky umístí disky pro různé virtuální počítače do skupiny dostupnosti v různých jednotek škálování úložiště (razítka) omezující vliv jednoho úložiště škálování jednotky chyby způsobené hardwaru a chyby softwaru.
+Disky spravované Azure zjednodušuje správu vašeho úložiště odebráním potřeba samostatně spravovat účty úložiště.  Můžete také migrovat existující virtuální počítače Azure spravované disků, abyste mohli využívat výhod vyšší spolehlivost virtuálních počítačů ve skupině dostupnosti. Zajišťuje, že disky různé virtuální počítače ve skupině dostupnosti je dostatečně od sebe navzájem oddělené předejdete jediný bod selhání. Automaticky umístí disky pro různé virtuální počítače do skupiny dostupnosti v různých jednotek škálování úložiště (razítka) omezující vliv jednoho úložiště škálování jednotky chyby způsobené hardwaru a chyby softwaru.
 V závislosti na vašich potřebách můžete vybrat ze dvou typů možností úložiště:
 
-- [Pro prémiové disky spravované](premium-storage.md) jsou plnou stavu jednotky SSD (Solid-State Drive) založené na úložná média, který dodává highperformance, podporu disků s nízkou latencí pro virtuální počítače běžící I náročnými úlohy. Migrací prémiové disky spravované můžete využít výhod rychlosti a výkonu z těchto disků.
+- [Pro prémiové disky spravované](premium-storage.md) jsou plnou stavu jednotky SSD (Solid-State Drive) založené na úložná média, který poskytuje vysoký výkon, podporu disků s nízkou latencí pro virtuální počítače běžící I náročnými úlohy. Migrací prémiové disky spravované můžete využít výhod rychlosti a výkonu z těchto disků.
 
 - [Standardní disky spravované](standard-storage.md) používat jednotku pevného disku (HDD) na základě paměťových médií a jsou nejvhodnější pro vývoj/testování a další úlohy nepravidelným přístup, které jsou menší citlivá s ohledem na výkon proměnlivost.
 
@@ -63,21 +63,21 @@ Zkontrolujte vlastnosti výkonu virtuálních počítačů, které pracovat Stor
 
 Existují sedm typy premium spravované disky, které lze použít s vaší virtuálních počítačů a každá z nich má konkrétní IOPs a propustnost omezení. Vzít v úvahu tyto limity při výběru typu Premium disku pro virtuální počítač podle potřeb vaší aplikace z hlediska kapacity, výkon, škálovatelnost a načte ve špičce.
 
-| Disky typu Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Velikost disku           | 128 GB| 512 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2 048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| Vstupně-výstupní operace za sekundu / disk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Propustnost / disk | 25 MB za sekundu  | 50 MB za sekundu  | 100 MB za sekundu | 150 MB za sekundu | 200 MB za sekundu | 250 MB za sekundu | 250 MB za sekundu |
+| Disky typu Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Velikost disku           | 128 GB| 512 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2 048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Vstupně-výstupní operace za sekundu / disk       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Propustnost / disk | 25 MB za sekundu  | 50 MB za sekundu  | 100 MB za sekundu | 125 MB za sekundu |150 MB za sekundu | 200 MB za sekundu | 250 MB za sekundu | 250 MB za sekundu |
 
 **Standardní disky spravované**
 
 Existují sedm typy standardní spravovaných disků, které lze použít s virtuálního počítače. Každý z nich mají různé kapacity ale mít stejné IOPS a omezení propustnosti. Vyberte typ standardní spravovaných disků na základě potřeb kapacitu vaší aplikace.
 
-| Disk typu Standard  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
-| Velikost disku           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2 048 GB (2TB)    | 4095 GB (4 TB)   | 
-| Vstupně-výstupní operace za sekundu / disk       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
-| Propustnost / disk | 60 MB za sekundu | 60 MB za sekundu | 60 MB za sekundu | 60 MB za sekundu | 60 MB za sekundu | 60 MB za sekundu | 60 MB za sekundu | 
+| Disk typu Standard  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
+| Velikost disku           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2 048 GB (2TB)    | 4095 GB (4 TB)   | 
+| Vstupně-výstupní operace za sekundu / disk       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Propustnost / disk | 60 MB za sekundu | 60 MB za sekundu | 60 MB za sekundu | 60 MB za sekundu |60 MB za sekundu | 60 MB za sekundu | 60 MB za sekundu | 60 MB za sekundu | 
 
 ## <a name="disk-caching-policy"></a>Zásady ukládání do mezipaměti na disku
 
@@ -87,10 +87,10 @@ Ve výchozím nastavení, je disk ukládání do mezipaměti zásad *jen pro čt
 
 ## <a name="pricing"></a>Ceny
 
-Zkontrolujte [ceny pro spravované disky](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Ceny disků spravované Premium je stejný jako nespravované prémiové disky. Ale ceny pro standardní disky spravované se liší od standardní nespravované disky.
+Zkontrolujte [ceny pro spravované disky](https://azure.microsoft.com/pricing/details/managed-disks/). Ceny disků spravované Premium je stejný jako nespravované prémiové disky. Ale ceny pro standardní disky spravované se liší od standardní nespravované disky.
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o [spravované disky](managed-disks-overview.md)

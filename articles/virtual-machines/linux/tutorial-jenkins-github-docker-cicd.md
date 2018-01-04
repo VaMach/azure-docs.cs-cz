@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Postup vytvoření vývoj infrastruktury na virtuální počítač s Linuxem v Azure pomocí volaných Githubu a Docker
 K automatizaci fázi sestavení a testování pro vývoj aplikací, můžete použít průběžnou integraci a nasazení (CI/CD) kanálu. V tomto kurzu vytvoříte kanál CI/CD na virtuální počítač Azure včetně postup:
@@ -161,7 +161,7 @@ response.end("Hello World!");
 
 Chcete-li potvrdit změny, vyberte **potvrzení změn** tlačítko dole.
 
-Ve volaných, spustí nového sestavení v části **sestavení historie** části levém dolním rohu stránku úlohy. Zvolte odkaz pro číslo sestavení a vyberte **konzole výstup** na levé straně velikosti. Můžete si zobrazit kroky volaných přebírá jako kód pocházejí z Githubu a akce sestavení výstupy zprávu `Testing` ke konzole. Pokaždé, když je potvrzení změn provedených v Githubu, webhooku spojí do volaných a aktivovat nové sestavení tímto způsobem.
+Ve volaných, spustí nového sestavení v části **sestavení historie** části levém dolním rohu stránku úlohy. Zvolte odkaz pro číslo sestavení a vyberte **konzole výstup** na levé straně. Můžete si zobrazit kroky volaných přebírá jako kód pocházejí z Githubu a akce sestavení výstupy zprávu `Testing` ke konzole. Pokaždé, když je potvrzení změn provedených v Githubu, webhooku spojí do volaných a aktivuje nového sestavení tímto způsobem.
 
 
 ## <a name="define-docker-build-image"></a>Definujte image Docker sestavení
@@ -173,7 +173,7 @@ Ze SSH připojení k virtuálnímu počítači přejděte do adresáře prostoru
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Vytvořte soubor s v tomto adresáři prostoru s `sudo sensible-editor Dockerfile` a vložte následující obsah. Ujistěte se, jestli je správně, zkopírovali celý soubor Docker obzvláště první řádek:
+Vytvořte soubor v tomto adresáři prostoru s `sudo sensible-editor Dockerfile` a vložte následující obsah. Ujistěte se, jestli je správně, zkopírovali celý soubor Docker obzvláště první řádek:
 
 ```yaml
 FROM node:alpine
@@ -225,7 +225,7 @@ Nyní provést jiný úprava *index.js* souborů na webu GitHub a potvrďte změ
 ![Spuštění aplikace Node.js po další potvrzení Githubu](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto kurzu jste nakonfigurovali Githubu spustit úlohu volaných sestavení v každém potvrzení kódu a pak nasadit kontejner Docker k testování aplikace. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]

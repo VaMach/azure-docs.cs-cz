@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
-ms.openlocfilehash: 7708304dd49535d6881641fcafdbfdcb791f9fdf
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Přidání přihlášení se společností Microsoft do webové aplikace ASP.NET
@@ -42,7 +42,7 @@ Na konci tohoto průvodce, aplikace bude přijímat přihlášení pracovní a �
 Tato příručka je založena na scénář, kde prohlížeče přistupuje ke webovou stránku ASP.NET požaduje uživatele k ověřování prostřednictvím tlačítko přihlášení. V tomto scénáři proběhne většinu práce k vykreslení webové stránky na straně serveru.
 
 > [!NOTE]
-> Tato instalace s asistencí ukazuje, jak přihlásit uživatele na spuštění z prázdné šablony webové aplikace ASP.NET a zahrnout kroky, jako je například přidávání znaménkem v tlačítko a každý řadič a metody, při také která vysvětluje některé koncepty. Alternativelly, můžete také vytvořit projekt k Azure Active Directory přihlášení uživatele (pracovní a školní účty) pomocí [šablony webové aplikace Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) a výběrem *účty organizace* a potom jednu z možností cloudu – tato možnost používá šablonu bohatší s další řadiče, metod a zobrazení.
+> Tato instalace s asistencí ukazuje, jak přihlásit uživatele na spuštění z prázdné šablony webové aplikace ASP.NET a zahrnout kroky, jako je například přidávání znaménkem v tlačítko a každý řadič a metody, při také která vysvětluje některé koncepty. Alternativně můžete také vytvořit projekt k Azure Active Directory přihlášení uživatele (pracovní a školní účty) pomocí [šablony webové aplikace Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) a výběrem *účty organizace* a potom jednu z možností cloudu – tato možnost používá šablonu bohatší s další řadiče, metod a zobrazení.
 
 ## <a name="libraries"></a>Knihovny
 
@@ -269,7 +269,7 @@ Vyberte hypertextový odkaz zobrazíte deklaracích identity uživatele. Tato ak
 
 | Vlastnost | Hodnota | Popis|
 |---|---|---|
-| Name (Název) | {Úplné uživatelské jméno} | Jméno a příjmení uživatele
+| Název | {Úplné uživatelské jméno} | Jméno a příjmení uživatele
 |Uživatelské jméno | <span>user@domain.com</span>| Uživatelské jméno sloužící k identifikaci pro přihlášeného uživatele
 | Předmět| {Subjektu}|Řetězec k jednoznačné identifikaci přihlášení uživatele na webu|
 | ID tenanta| {Guid}| A *guid* jednoznačně představující uživatele organizaci Azure Active Directory.|

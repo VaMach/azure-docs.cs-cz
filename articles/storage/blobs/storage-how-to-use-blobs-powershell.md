@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Provedení operace úložiště objektů Blob v Azure pomocí prostředí Azure PowerShell
 
@@ -40,7 +40,7 @@ Tento kurz vyžaduje modul Azure PowerShell verze 3.6 nebo novější. Verzi zji
 
 ## <a name="create-a-container"></a>Vytvoření kontejneru
 
-Objekty BLOB jsou vždy nahrát do kontejneru. Kontejnery jsou podobná adresářů v počítači umožňuje uspořádat skupiny objektů BLOB v kontejnerech jako uspořádání souborů ve složkách ve vašem počítači. Účet úložiště může mít libovolný počet kontejnerů; jenom je omezen velikostí místa pro v účtu úložiště (až 500TB). 
+Objekty blob se vždy nahrávají do kontejneru. Kontejnery jsou podobná adresářů v počítači umožňuje uspořádat skupiny objektů BLOB v kontejnerech jako uspořádání souborů ve složkách ve vašem počítači. Účet úložiště může mít libovolný počet kontejnerů; jenom je omezen velikostí místa pro v účtu úložiště (až 500TB). 
 
 Když vytvoříte kontejner, můžete nastavit úroveň přístupu, která pomáhá definovat, kdo má přístup k objektům BLOB v tomto kontejneru. Například může být privátní (úroveň přístupu = `Off`), což znamená nikdo k nim mají přístup bez sdílený přístupový podpis nebo přístupové klíče pro účet úložiště. Pokud nezadáte úroveň přístupu, když vytvoříte kontejner, bude výchozí privátní.
 
@@ -57,9 +57,9 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## <a name="upload-blobs-into-a-container"></a>Nahrajte do kontejneru objektů BLOB
 
-Úložiště objektů Blob Azure podporuje objekty BLOB bloku, doplňovací objekty BLOB a objekty BLOB stránky.  Soubory VHD použité pro zálohování virtuálních počítačů IaaS jsou objekty BLOB stránky. Append – objekty BLOB jsou použitá pro protokolování, například když chcete zapsat do souboru a potom mít přidání další informace. Většina souborů uložených v úložišti objektů Blob jsou objekty BLOB bloku. 
+Úložiště objektů Blob Azure podporuje objekty BLOB bloku, doplňovací objekty BLOB a objekty BLOB stránky.  Soubory VHD, které se používají pro virtuální počítače IaaS, jsou objekty blob stránky. Doplňovací objekty blob se používají k protokolování, například když chcete zapisovat do souboru a pak přidávat další informace. Většina souborů uložených v úložišti objektů blob je objekty blob bloku. 
 
-Nahrát soubor do objektu blob bloku, získejte odkaz na kontejner a potom získat odkaz na objekt blob bloku v tomto kontejneru. Až budete mít odkaz na objekt blob, můžete nahrát data do něj s použitím [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Tato operace vytvoří objekt blob, pokud neexistuje, nebo ho přepíše, pokud již existuje.
+Pokud chcete nahrát soubor do objektu blob bloku, získejte odkaz na kontejner a pak získejte odkaz na objekt blob bloku v tomto kontejneru. Jakmile budete mít tento odkaz na objekt blob, můžete do něj nahrát data pomocí rutiny [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Tato operace vytvoří objekt blob, pokud neexistuje, nebo ho přepíše, pokud již existuje.
 
 Následující ukazuje, jak nahrát objekt blob do kontejneru. Nastavte nejprve, proměnné, které přejděte do adresáře v místním počítači, kde jsou umístěny soubory a nastavte proměnnou pro název souboru k odeslání. To je užitečné, pokud chcete provádět stejné operace opakovaně. Nahrajte několik souborů, abyste viděli více položek, při výpisu objektů BLOB v kontejneru.
 
@@ -87,7 +87,7 @@ Set-AzureStorageBlobContent -File $localFile `
   -Context $ctx
 ```
 
-Nahrání libovolný počet souborů, jak se vám líbí, než budete pokračovat.
+Než budete pokračovat, můžete nahrát libovolné množství souborů.
 
 ## <a name="list-the-blobs-in-a-container"></a>Zobrazí seznam objektů blob v kontejneru
 
@@ -99,7 +99,7 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Stáhnout objekty blob
 
-Stáhnete objekty BLOB na místní disk. Nastavte nejprve, proměnné, která odkazuje na místní složku, do které chcete stáhnout objekty BLOB. Pro každý objekt blob ke stažení, nastavte název a volání [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) ke stažení objektu blob.
+Stáhněte objekty blob na svůj místní disk. Nastavte nejprve, proměnné, která odkazuje na místní složku, do které chcete stáhnout objekty BLOB. Pro každý objekt blob ke stažení, nastavte název a volání [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) ke stažení objektu blob.
 
 Tento příklad zkopíruje objektů BLOB do D:\\_TestImages\Downloads na místním disku. 
 
@@ -152,7 +152,7 @@ Můžete kopírovat objekt blob účet samostatného úložiště. Jedním z př
 Nastavit druhého účtu úložiště, načtení kontextu, nastavit kontejner v daném účtu úložiště a pro kopírování. Tato část skriptu je téměř identický s výjimkou pomocí druhého účtu úložiště místo první skript výše.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `
@@ -365,7 +365,7 @@ Odeberte všechny prostředky, které jste vytvořili. K tomuto účelu můžete
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili o základní správu úložiště objektů Blob například jak:
 
@@ -380,7 +380,7 @@ V tomto kurzu jste se naučili o základní správu úložiště objektů Blob n
 > * Správa zabezpečení pomocí sdílené přístupové podpisy
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Rutiny prostředí PowerShell služby Microsoft Azure Storage
-* [Rutiny prostředí PowerShell úložiště](/powershell/module/azurerm.storage#storage)
+* [Rutiny PowerShellu pro úložiště](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) je bezplatná samostatná aplikace od Microsoftu, která umožňuje vizuálně pracovat s daty Azure Storage ve Windows, macOS a Linuxu.

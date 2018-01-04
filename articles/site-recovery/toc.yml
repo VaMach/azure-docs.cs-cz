@@ -1,5 +1,9 @@
 - name: Dokumentace ke službě Site Recovery
   href: index.yml
+- name: Migrace místních počítačů a virtuálních počítačů Azure
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Zotavení po havárii Azure do Azure
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Přehled
   items:
     - name: Co je Site Recovery?
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: Systém podpory replikace z místního prostředí do Azure
       href: site-recovery-support-matrix-to-azure.md
+    - name: Systém podpory replikace z Hyper-V do Azure
+      href: support-matrix-hyper-v-to-azure.md
     - name: Systém podpory replikace z místního prostředí do sekundární lokality
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Zotavení po havárii pro úlohy
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Zotavení po havárii
       items:
+        - name: Příprava Hyper-V pro replikaci do Azure
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Virtuální počítače Hyper-V do Azure
           href: tutorial-hyper-v-to-azure.md
+        - name: Virtuální počítače Hyper-V v cloudech VMM do Azure
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: Fyzické servery do Azure
           href: tutorial-physical-to-azure.md
         - name: Virtuální počítače Hyper-V do sekundární lokality
@@ -275,7 +285,7 @@
   items:
     - name: Azure Automation
       href: /azure/automation/
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'

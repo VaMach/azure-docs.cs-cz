@@ -121,6 +121,9 @@
       items:
         - name: Analýza pomocí doplňku Power Query
           href: apache-hadoop-connect-excel-power-query.md
+        - name: Připojení Power BI k modulu Interactive Query
+          href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+          maintainContext: true
         - name: Připojení Power BI k Hadoopu
           href: apache-hadoop-connect-hive-power-bi.md
         - name: Připojení Excelu k službě HDInsight
@@ -302,7 +305,7 @@
         - name: Řešení potíží s YARN
           href: ../hdinsight-troubleshoot-yarn.md
           maintainContext: true
-        - name: Zdroje
+        - name: Zdroje a prostředky
           items:
             - name: Informace o používání HDInsightu v Linuxu
               href: ../hdinsight-hadoop-linux-information.md
@@ -446,7 +449,7 @@
         - name: Monitorování clusterů pomocí rozhraní Ambari API
           href: ../hdinsight-monitor-use-ambari-api.md
           maintainContext: true
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: "Poznámky k\_verzi"
       href: ../hdinsight-release-notes.md

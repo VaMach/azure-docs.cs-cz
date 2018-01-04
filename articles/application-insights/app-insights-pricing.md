@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Správa svazku ceny a data ve službě Application Insights
 
@@ -90,7 +90,7 @@ Jako [nedávno vydal](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>Zkontrolujte cenovou plány a odhadnout náklady
 
-Statistika Applicaition snadno pochopit cenovou plány, které jsou k dispozici a je pravděpodobné, jaké nákladů být založen na poslední vzorce používání. Začněte otevřením **funkce + cenová** okno v prostředku Application Insights na portálu Azure:
+Application Insights snadno pochopit cenovou plány, které jsou k dispozici a je pravděpodobné, jaké nákladů být založen na poslední vzorce používání. Začněte otevřením **funkce + cenová** okno v prostředku Application Insights na portálu Azure:
 
 ![Zvolte ceny.](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,11 +134,11 @@ Zde jsou některé věci, které může provádět ke snížení datový svazek:
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>Správa maximální denní datový svazek
 
-Denní cap svazku můžete použít k omezení shromážděná data, ale splnění krytky způsobí ztrátu všechny telemetery odeslaných z vaší aplikace pro zbývající dne. Je **není vhodné** tak, aby měl aplikace narazí denního limitu vzhledem k tomu, že nebudete moci sledovat stav a výkon vaší aplikace poté, co je přístupů. 
+Denního limitu svazku můžete použít k omezení data shromážděná, ale pokud je splněna krytky, způsobí ztrátu všechny telemetrická data odesílaná z vaší aplikace pro zbývající dne. Je **není vhodné** tak, aby měl aplikace narazí denního limitu vzhledem k tomu, že nebudete moci sledovat stav a výkon vaší aplikace poté, co je přístupů. 
 
-Místo toho použijte [vzorkování](app-insights-sampling.md) k vyladění datový svazek na úroveň by jako a v případě, že vaše aplikace spustí odesílání mnohem vyšší objemy telemetery neočekávaně pomocí denního limitu pouze jako "poslední možnost". 
+Místo toho použijte [vzorkování](app-insights-sampling.md) k vyladění datový svazek na úroveň by jako a použít denního limitu pouze jako "poslední možnost" v případě, že vaše aplikace spustí neočekávaně odesílání mnohem vyšší objemy telemetrie. 
 
-Chcete-li změnit denního limitu, v části konfigurace vaší aplikace Insihgts prostředku, klikněte na tlačítko **Správa svazku dat** pak **denního limitu**.
+Chcete-li změnit denního limitu, v části Konfigurace prostředku Application Insights, klikněte na tlačítko **Správa objem dat** pak **denního limitu**.
 
 ![Úprava denní svazku cap telemetrie](./media/app-insights-pricing/daily-cap.png) 
 
@@ -176,7 +176,7 @@ Můžete napsat skript, nastavit plán cena pomocí Správa prostředků Azure. 
 ## <a name="limits-summary"></a>Souhrn omezení
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Vzorkování](app-insights-sampling.md)
 

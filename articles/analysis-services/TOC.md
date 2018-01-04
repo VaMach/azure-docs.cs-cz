@@ -23,6 +23,7 @@
 ### [Správa uživatelů databáze](analysis-services-database-users.md)
 ### [Správa správců serveru](analysis-services-server-admins.md)
 ### [Monitorování metrik serveru](analysis-services-monitor.md)
+### [Nastavení protokolování diagnostiky](analysis-services-logging.md)
 ## Připojení
 ### [Získání klientských knihoven](analysis-services-data-providers.md)
 ### [Propojení s Excelem](analysis-services-connect-excel.md)
@@ -54,7 +55,7 @@
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Jazyk TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Ukázky](analysis-services-samples.md)
 ## [Blog týmu Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Fórum Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)

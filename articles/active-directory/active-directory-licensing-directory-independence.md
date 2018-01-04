@@ -16,15 +16,15 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 9ddb5f7e6c5dbeb742002dfcdfb981fae699130b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c00f382546a0e5f1e9da9dc90777dcf9622ec94
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Pochopit, jak více klientů služby Azure Active Directory pracovat
 
-V Azure Active Directory (Azure AD), každý tenanta je plně nezávislý prostředek: sdílené, které je logicky nezávislý ostatních klientů, které spravujete. Není žádný vztah nadřazený podřízený mezi klienty. Tato nezávislost mezi klienty zahrnuje nezávislost prostředků, nezávislost správy a nezávislost synchronizace.
+V Azure Active Directory (Azure AD), každý klient je plně nezávislý prostředek: sdílené, které je logicky nezávislý ostatních klientů, které spravujete. Není žádný vztah nadřazený podřízený mezi klienty. Tato nezávislost mezi klienty zahrnuje nezávislost prostředků, nezávislost správy a nezávislost synchronizace.
 
 ## <a name="resource-independence"></a>Nezávislost prostředků
 * Pokud vytvoříte nebo odstranění prostředku v jednoho klienta, nemá žádný vliv na prostředky v jiném klientovi s částečnou výjimku, která externí uživatele. 
@@ -50,5 +50,5 @@ Pokud chcete přidat klient služby Azure AD na portálu Azure, přihlaste se k 
 > Na rozdíl od jiných prostředků Azure klienti nejsou podřízené prostředky předplatného Azure. Pokud vaše předplatné Azure je zrušená nebo vypršela platnost, můžete pořád přístup k datům klienta pomocí prostředí Azure PowerShell, Azure Graph API nebo Centrum pro správu Office 365. Můžete také [přidružit jiné předplatné klienta](active-directory-how-subscriptions-associated-directory.md).
 >
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Komplexní přehled o problémy s licencí Azure AD a osvědčené postupy, najdete v části [co je Azure Active klienta licencování?](active-directory-licensing-whatis-azure-portal.md).

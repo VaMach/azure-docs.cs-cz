@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: support-article
+ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 5908c9572901bfb68ce03d7e6ccb08f84f38e567
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Podrobné SSH řešení potíží s kroky pro připojení k virtuální počítač s Linuxem v Azure
 Existuje mnoho možných příčin, které použije klient SSH nemusí být možné kontaktovat službu SSH ve virtuálním počítači. Pokud jste provedli prostřednictvím Čím více [obecné SSH při řešení potíží](troubleshoot-ssh-connection.md), budete muset dále řešit potíže s připojením. Tento článek vás provede podrobný postup řešení potíží k určení, kde se nedaří připojení SSH a jak je vyřešit.
@@ -129,5 +129,5 @@ Zkuste se znovu připojit z vašeho počítače. Pokud stále selže, toto jsou 
 * V místní bráně firewall na cílový virtuální počítač obsahuje pravidla, která brání příchozích a odchozích přenosů SSH.
 * Zjišťování neoprávněných vniknutí nebo software, který běží na virtuálním počítači Azure monitorování sítě brání připojení SSH.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 Další informace o odstraňování potíží s přístup k aplikaci najdete v tématu [řešení potíží s přístupem k aplikaci spuštěné na virtuálním počítači Azure](troubleshoot-app-connection.md)

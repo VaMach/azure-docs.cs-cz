@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 843ffdf6c39cbdf00bfde969eaf93701db6ed536
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Řešení potíží s chybějícími daty v nástroji Application Insights pro .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Chybí některé Moje telemetrie
@@ -30,6 +30,7 @@ ms.lasthandoff: 11/01/2017
 *Po instalaci aplikace na webovém serveru, a teď se nezobrazí žádné telemetrie z něj. To šlo OK na můj vývojářském počítači.*
 
 * Pravděpodobně problém brány firewall. [Nastavit výjimky brány firewall pro službu Application Insights k odesílání dat](app-insights-ip-addresses.md).
+* Server služby IIS mohou chybět některé předpoklady: rozšiřitelnost rozhraní .NET 4.5 a technologii ASP.NET 4.5.
 
 *I [nainstalován monitorování stavu](app-insights-monitor-performance-live-website-now.md) na webovém serveru ke sledování existující aplikace. Se nezobrazí žádné výsledky.*
 

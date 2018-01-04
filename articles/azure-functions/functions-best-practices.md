@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 739e820a44194af984750932d6023c90fcd11e42
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimalizace výkonu a spolehlivosti Azure functions
 
@@ -44,7 +44,7 @@ Kdykoli je to možné, refactor velké funkce do menší funkce nastaví které 
 
 Pokud nepoužíváte trvanlivý funkce nebo Logic Apps pro integraci s více funkcemi, je obecně doporučujeme používat fronty úložiště pro různé funkce komunikace.  Hlavním důvodem je, že jsou fronty úložiště levnější a výrazně usnadňují zřizování. 
 
-Jednotlivé zprávy ve frontě úložiště mají omezenou velikost na 64 KB. Pokud potřebujete předat větší zprávy mezi funkce, Azure Service Bus fronty může podporovat zpráva velikostí až 256 KB.
+Jednotlivé zprávy ve frontě úložiště mají omezenou velikost na 64 KB. Pokud potřebujete předat větší zprávy mezi funkce, Azure Service Bus fronty může podporovat zpráva velikosti až 256 KB na vrstvě Standard a až 1 MB v úrovni Premium.
 
 Témata Service Bus jsou užitečné, pokud budete potřebovat filtrování před zpracováním zpráv.
 
@@ -115,7 +115,7 @@ Použít nastavení v souboru hostitelů mezi všechny funkce v aplikaci, v *jed
 
 Můžete najít další možnosti konfigurace hostitele [v dokumentu konfigurace hostitele](functions-host-json.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace najdete v následujících materiálech:
 
 Protože Azure Functions využívá Azure App Service také měli být vědomi pokyny služby App Service.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools pro Visual Studio  
 
@@ -68,7 +68,7 @@ Modul runtime funkce interně používá účet úložiště Azure. Pro všechny
 
 1. V sadě Visual Studio otevřete **Průzkumník cloudu**, rozbalte položku **účet úložiště** > **váš účet úložiště**, pak vyberte **vlastnosti** a zkopírujte **primární připojovací řetězec** hodnotu.   
 
-2. V projektu, otevřete soubor projektu local.settings.json a nastavte hodnotu **AzureWebJobsStorage** zkopírovanou klíče připojovací řetězec.
+2. V projektu, otevřete soubor local.settings.json a nastavte hodnotu **AzureWebJobsStorage** zkopírovanou klíče připojovací řetězec.
 
 3. Opakujte předchozí krok pro přidání jedinečné klíče **hodnoty** pole pro všechna připojení, které vyžadují funkcí.  
 
@@ -106,7 +106,7 @@ V předem kompilované funkce jsou definovány vazby používané funkce použit
     } 
     ````
  
-    Atribut specifické pro vazbu se použije pro každý zadaný pro vstupní bod metody parametr vazby. Atribut načítá informace o vazbě jako parametry. V předchozím příkladu má první parametr **QueueTrigger** atribut použité, s označením fronty aktivuje funkce. Název fronty a název nastavení připojovacího řetězce jsou předány jako parametry.  
+    Atribut specifické pro vazbu se použije pro každý zadaný pro vstupní bod metody parametr vazby. Atribut načítá informace o vazbě jako parametry. V předchozím příkladu má první parametr **QueueTrigger** atribut použité, s označením fronty aktivuje funkce. Název fronty a název nastavení připojovacího řetězce jsou předány jako parametry, které **QueueTrigger** atribut.
 
 ## <a name="testing-functions"></a>Testování funkcí
 
@@ -131,7 +131,7 @@ Další informace o použití nástrojů pro základní funkce Azure, najdete v 
 >* [Pomocí `--publish-local-settings` možnost publikování v nástrojích pro základní funkce Azure](functions-run-local.md#publish).
 >* [Použití Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o nástrojích funkce Azure, najdete v části Nejčastější dotazy [2017 nástroje sady Visual Studio pro Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) příspěvku na blogu.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Nejčastější dotazy
 
@@ -242,7 +242,7 @@ To nezávisí na je hostitelem prostředku Application Insights. Právě závis�
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Mohla odesílat telemetrii do portálu služby Application Insights?
 
-Doporučujeme používat naše sady SDK a používat rozhraní API sady SDK (app-insights-api-custom-events-metrics.md). Variant sady SDK pro různé [platformy](app-insights-platforms.md). Tyto sady SDK zpracovávat ukládání do vyrovnávací paměti, komprese, omezení šířky pásma, opakování a tak dále. Ale [přijímání schématu](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) a [koncový bod protokolu](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) jsou veřejné.
+Doporučujeme používat naše sady SDK a používat [rozhraní API sady SDK](app-insights-api-custom-events-metrics.md). Variant sady SDK pro různé [platformy](app-insights-platforms.md). Tyto sady SDK zpracovávat ukládání do vyrovnávací paměti, komprese, omezení šířky pásma, opakování a tak dále. Ale [přijímání schématu](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) a [koncový bod protokolu](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) jsou veřejné.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Můžete sledovat webový server intranetu?
 

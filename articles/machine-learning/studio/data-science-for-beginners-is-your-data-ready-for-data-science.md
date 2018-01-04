@@ -1,6 +1,6 @@
 ---
 title: "Jsou data připravená pro vědecké zkoumání? Zkušební data - Azure Machine Learning | Microsoft Docs"
-description: "Přečtěte si 4 kritéria pro data bude připravená pro vědecké zpracování dat. Vědecké zpracování dat pro začátečníky video 2 má konkrétní příklady usnadní vyhodnocení základní data."
+description: "Čtyři kritéria, která musí splnit, aby připravený pro vědecké zpracování dat vaše data. Toto video má konkrétní příklady usnadní vyhodnocení základní data."
 keywords: "relevantní data vyhodnotit data, připravte dat, data kritéria, data připravena"
 services: machine-learning
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 9b5cf776981af0dff57195d5c7f1923b8d9a3862
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Jsou data připravená pro vědecké zkoumání?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Vědecké zpracování dat pro začátečníky řady
@@ -52,7 +52,7 @@ Ano v případě vědecké zpracování dat, nejsou některé faktory, které je
 Potřebujeme data, která jsou:
 
 * Relevantní
-* připojení
+* Připojeno
 * Přesná
 * Dost pro práci s
 
@@ -85,11 +85,11 @@ Další složky, které potřebujeme je přesnost. Tady jsou čtyři cíle, kter
 
 ![Přesná data oproti nepřesných dat. - kritéria dat](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Podívejte se na cíl v pravém horním rohu. My úzkou seskupení právo kolem terč. Který je samozřejmě přesná. Oddly v jazyce vědecké zpracování dat, naše výkonu na pravé straně cíl pod ním také považuje za přesná.
+Podívejte se na cíl v pravém horním rohu. My úzkou seskupení právo kolem oka býků. Který je samozřejmě přesná. Oddly v jazyce vědecké zpracování dat, naše výkonu na pravé straně cíl pod ním také považuje za přesná.
 
-Pokud byste chtěli zmapování center tyto šipek, zobrazí se, se velmi nachází blízko terč. Šipky jsou všechny kolem cíl, šíření, se považují za nepřesný, ale budou se soustředí na terč, aby se považovat za přesná.
+Pokud byste chtěli zmapování center tyto šipek, zobrazí se, se velmi nachází blízko oko býků. Šipky jsou všechny kolem cíl, šíření, se považují za nepřesný, ale budou se soustředí na oko býků, se považují za přesná.
 
-Nyní se podívejte na levém cíl. Zde naše šipky dosáhl velmi blízko sebe úzkou seskupení. Jsou to přesné, ale jsou nesprávné, protože je mimo terč centru. A samozřejmě šipky v okraje v levém dolním cíl jsou nesprávné a nepřesný. Tato archer potřebuje další postup.
+Nyní se podívejte na levém cíl. Zde naše šipky dosáhl velmi blízko sebe úzkou seskupení. Jsou to přesné, ale jsou nesprávné, protože je mimo oko býků centru. A samozřejmě šipky v okraje v levém dolním cíl jsou nesprávné a nepřesný. Tato archer potřebuje další postup.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>Máte dostatek dat pro práci s?
 Nakonec složka #4 -, je potřeba mít dostatek data.
@@ -108,6 +108,6 @@ Data, která jsou relevantní, připojené, přesný a dostatečně jsme mít v�
 
 Nezapomeňte si projděte si další čtyři videa v *vědecké zpracování dat pro začátečníky* z Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Zkuste prvního experimentu vědecké účely data nástroje Machine Learning Studio](create-experiment.md)
 * [Získejte Úvod do Machine Learning v Microsoft Azure](what-is-machine-learning.md)

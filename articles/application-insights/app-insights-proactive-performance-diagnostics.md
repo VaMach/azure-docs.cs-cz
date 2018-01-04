@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Inteligentní detekce - anomálie výkonu
 
@@ -157,7 +157,7 @@ Všimněte si, že se dozvíte:
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Inteligentní detekce pomalé provádění schémat 
 
-Application Insights vyhledá problémy s výkonem, které mohou ovlivňují jenom některé část vaši uživatelé, nebo které ovlivňují jenom uživatelé v některých případech. Například oznámení o zatížení stránky je slowler na jeden typ prohlížeče než na jiné typy prohlížečů, nebo pokud z určitého serveru pomaleji zpracovat požadavky. Problémy spojené s kombinací vlastností, může také vyhledat, jako je pomalé stránka načte v jedné zeměpisné oblasti pro klienty, kteří používají konkrétní operační systém.  
+Application Insights vyhledá problémy s výkonem, které mohou ovlivňují jenom některé část vaši uživatelé, nebo které ovlivňují jenom uživatelé v některých případech. Například oznámení o zatížení stránky je pomalejší na jeden typ prohlížeče než na jiné typy prohlížečů, nebo pokud z určitého serveru pomaleji zpracovat požadavky. Problémy spojené s kombinací vlastností, může také vyhledat, jako je pomalé stránka načte v jedné zeměpisné oblasti pro klienty, kteří používají konkrétní operační systém.  
 
 Anomálie takovéto jsou velmi obtížné zjistit právě zkontrolováním data, ale jsou častější, než si myslíte. Často se pouze upozornit, když stížnost vašich zákazníků. Do té doby, je příliš pozdní: ovlivnění uživatelé jsou již přepnutí na konkurence!
 
@@ -178,7 +178,7 @@ Kliknutím na odkazy otevřete Průzkumníka metrika a hledání na příslušn�
 
 Změnit časové rozmezí a filtry a prozkoumejte telemetrii.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Tyto diagnostické nástroje můžete zkontrolovat telemetrie z vaší aplikace:
 
 * [Profiler](app-insights-profiler.md) 

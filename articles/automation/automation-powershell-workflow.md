@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Učení klíčové koncepty pracovního postupu prostředí Windows PowerShell pro automatizaci sady runbook 
 Runbooky ve službě Azure Automation se implementují jako pracovní postupy prostředí Windows PowerShell.  Pracovní postup prostředí Windows PowerShell je podobná skript prostředí Windows PowerShell, ale existují některé významné rozdíly, které mohou být pro nového uživatele matoucí.  Když tento článek je určený k usnadnění psaní sady runbook pomocí prostředí PowerShell. pracovní postup, doporučujeme, abyste že zápisu sady runbook pomocí prostředí PowerShell, pokud potřebujete kontrolní body.  Existuje několik rozdílů v syntaxi při autorizaci sad runbook PowerShell Workflow a tyto rozdíly vyžaduje trochu další práci psaní efektivní pracovních postupů.  
@@ -199,7 +199,7 @@ V následujícím příkladu je podobně jako v předchozím příkladu kopírov
 >
 
 ## <a name="checkpoints"></a>Kontrolní body
-A *kontrolního bodu* je snímek aktuálního stavu pracovního postupu, který obsahuje aktuální hodnotu proměnných a jakéhokoli výstupu generovaného do tohoto bodu. Pokud pracovní postup končí chybu nebo je pozastaveno, pak při příštím spuštění zahájí se od svého posledního kontrolního bodu místo spuštění worfklow.  V pracovním postupu se můžete nastavit kontrolní bod **Checkpoint-Workflow** aktivity.
+A *kontrolního bodu* je snímek aktuálního stavu pracovního postupu, který obsahuje aktuální hodnotu proměnných a jakéhokoli výstupu generovaného do tohoto bodu. Pokud pracovní postup končí chybu nebo je pozastaveno, pak při příštím spuštění zahájí se od svého posledního kontrolního bodu místo spuštění pracovního postupu.  V pracovním postupu se můžete nastavit kontrolní bod **Checkpoint-Workflow** aktivity.
 
 V následujícím vzorovém kódu dojde k výjimce po "activity2" způsobí ukončení pracovního postupu. Při dalším spuštění pracovního postupu, spustí se spuštěním aktivity Activity2, protože byla poslední po nastavení posledního kontrolního bodu.
 
@@ -209,7 +209,7 @@ V následujícím vzorovém kódu dojde k výjimce po "activity2" způsobí ukon
     <Exception>
     <Activity3>
 
-V pracovním postupu byste měli nastavit kontrolní body, po aktivity, které mohou být náchylné k výjimce a neměla by být opakovat, pokud je pracovní postup byl obnoven. Pracovní postup může například vytvořit virtuální počítač. Můžete nastavit kontrolní bod před i po příkazů pro vytvoření virtuálního počítače. Pokud se vytváření nezdaří, bude příkazy opakovat, pokud je pracovní postup spustit znovu. Pokud worfklow selže po je vytvoření úspěšné, pak virtuální počítač nebude znovu vytvořen při obnovení pracovního postupu.
+V pracovním postupu byste měli nastavit kontrolní body, po aktivity, které mohou být náchylné k výjimce a neměla by být opakovat, pokud je pracovní postup byl obnoven. Pracovní postup může například vytvořit virtuální počítač. Můžete nastavit kontrolní bod před i po příkazů pro vytvoření virtuálního počítače. Pokud se vytváření nezdaří, bude příkazy opakovat, pokud je pracovní postup spustit znovu. Pokud pracovní postup selže po je vytvoření úspěšné, pak virtuální počítač nebude znovu vytvořen při obnovení pracovního postupu.
 
 Následující příklad zkopíruje více souborů do umístění v síti a nastaví kontrolní bod po jednotlivých souborů.  Pokud dojde ke ztrátě umístění v síti, pracovním postupem končí v chybě.  Když spustíte znovu, bude pokračovat od posledního kontrolního bodu, což znamená, že jsou přeskočeny pouze soubory, které již byly zkopírovány.
 
@@ -258,5 +258,5 @@ Není požadováno v případě se ověřujete pomocí nakonfigurovaný s hlavn�
 
 Další informace o kontrolních bodech najdete v tématu [přidání kontrolních bodů do pracovního postupu skriptu](http://technet.microsoft.com/library/jj574114.aspx).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * První kroky s runbooky pracovních postupů PowerShellu najdete v článku [Můj první runbook pracovního postupu PowerShellu](automation-first-runbook-textual.md).
