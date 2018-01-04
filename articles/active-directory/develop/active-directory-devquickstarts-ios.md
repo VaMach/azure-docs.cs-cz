@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a631e1104bcda8d69aa2f2fdf336ed407a2c33b9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Začínáme se službou Azure AD iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -54,7 +54,7 @@ Formát iOS pro přesměrování je identifikátor URI:
 ```
 
 * **aplikace – schéma** – to je zaregistrován ve vašem projektu XCode. Je, jak jiné aplikace může volat. Můžete najít to pod Info.plist -> adresa URL typy -> identifikátoru adresy URL. Pokud ještě nemáte jeden nebo více nakonfigurované byste měli vytvořit jednu.
-* **id sady** -Toto je identifikátor svazku v části "identity" zrušení nastavení projektu v XCode.
+* **id sady** -Toto je identifikátor svazku v části "identity" v nastavení projektu XCode.
 
 Příklad pro tento kód rychlý start: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
@@ -232,7 +232,7 @@ ADAL usnadňuje všechny tyto běžné funkce identity začlenit do vaší aplik
 
 Pro srovnání je hotová ukázka (bez vašich hodnot nastavení) zajišťuje na [Githubu](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Nyní se můžete přesunout dalších scénářů.  Můžete se pokusit:
 
 * [Zabezpečení webové aplikace Node.JS API s Azure AD](active-directory-devquickstarts-webapi-nodejs.md)

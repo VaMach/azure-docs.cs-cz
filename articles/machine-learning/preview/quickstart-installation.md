@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Vytvoření účtů služby Azure Machine Learning verze Preview a instalace aplikace Azure Machine Learning Workbench
 Služby Azure Machine Learning (Preview) představují komplexní integrované řešení pro datové vědy a pokročilé analýzy. Pomáhá profesionálním datovým vědcům připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.

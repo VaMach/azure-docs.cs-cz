@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 0f296791a8cce154bf9b258827243d76638e59ac
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6a1697061d20d26b4263c02487180fee81e87947
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Problémy s nasazení systému Windows virtuálního počítače v Azure
 
@@ -130,7 +130,7 @@ Zvolte velikost, která je podporována v sadě dostupnosti clusteru. Doporučuj
 Ano. Existující klasické virtuální počítač můžete přidat do nový nebo existující skupiny dostupnosti. Další informace najdete v části [přidat existující virtuální počítač do skupiny dostupnosti](classic/configure-availability.md#addmachine).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud potřebujete další pomoc v libovolném bodě v tomto článku, obraťte se na Azure odborníky na [fórech MSDN Azure a Stack Overflow](https://azure.microsoft.com/support/forums/).
 
 Alternativně můžete soubor incidentu podpory Azure. Přejděte na [podporu Azure lokality](https://azure.microsoft.com/support/options/) a vyberte **získat podporu**.

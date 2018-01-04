@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 8ffa1c6dd4794cbea6b2c1904e08557ba2a68ba2
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Kurz: Klasifikace Iris pomocí rozhraní příkazového řádku
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -23,7 +23,7 @@ Služby Azure Machine Learning (Preview) představují integrované, komplexní 
 V tomto kurzu můžete naučit se používat nástroje rozhraní příkazového řádku (CLI) v Azure Machine Learning preview funkcí: 
 > [!div class="checklist"]
 > * Nastavit účet experimentování a vytvořit pracovní prostor
-> * Vytvoří projekt.
+> * Vytvořit projekt
 > * Odeslání na experiment více cílů výpočetní
 > * Povýšení a registraci modulu trained model.
 > * Nasazení webové služby skóre pro nová data
@@ -68,7 +68,7 @@ Chcete-li změny trvalé, můžete použít `SETX` v systému Windows. U systém
 >[!TIP]
 >Rozhraní příkazového řádku Azure můžete povolit v vaše oblíbené okno terminálu tak výše uvedených proměnných prostředí.
 
-## <a name="step-1-log-in-to-azure"></a>Krok 1. Přihlaste se k Azure.
+## <a name="step-1-log-in-to-azure"></a>Krok 1. Přihlášení k Azure
 Prvním krokem je otevřete rozhraní příkazového řádku z AMLWorkbench aplikace (Soubor > otevřít příkazový řádek). Tím zajistíte používáme prostředí správné python a máme příkazy ML rozhraní příkazového řádku, která je k dispozici. 
 
 Pak je potřeba nastavit kontext vpravo v vaše rozhraní příkazového řádku pro přístup a správu prostředků Azure.

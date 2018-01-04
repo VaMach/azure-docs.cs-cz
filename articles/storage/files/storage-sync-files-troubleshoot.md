@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Řešení potíží s synchronizace souboru Azure (preview)
 Pomocí synchronizace souboru Azure (preview) můžete centralizovat vaší organizace sdílené složky v souborech Azure, zatímco flexibilitu, výkonu a kompatibility pro místní souborový server. Synchronizace služby Azure souboru transformuje na rychlé mezipaměti Azure sdílené složky systému Windows Server. Můžete použít libovolný protokol, který je k dispozici v systému Windows Server pro přístup k datům místně, včetně protokolu SMB, systém souborů NFS a FTPS. Může mít libovolný počet mezipamětí, jako je třeba po celém světě.
@@ -42,6 +42,9 @@ Zkontrolujte installer.log a zjistěte příčinu selhání instalace.
 
 > [!Note]  
 > Instalace agenta se nezdaří, pokud váš počítač je nastavit tak, aby používat službu Microsoft Update a není spuštěna služba Windows Update.
+
+<a id="agent-installation-websitename-failure"></a>**Instalace agenta selže s touto chybou: "Úložiště synchronizace Agent byl předčasně ukončen"**  
+Tento problém může dojít, pokud se změnil název výchozí web služby IIS. Chcete-li tento problém obejít, přejmenujte na výchozí web služby IIS jako "výchozí webový server" a opakujte instalaci. Tento problém bude opraven v budoucí aktualizaci agenta. 
 
 <a id="server-registration-missing"></a>**Server není uveden v části registrované servery na portálu Azure**  
 Pokud server není uveden v seznamu **registrované servery** pro synchronizační služba úložiště:
@@ -208,7 +211,7 @@ Pokud není problém vyřešen, spusťte nástroj AFSDiag:
 5. Reprodukujte problém. Až budete hotovi, zadejte **D**.
 6. Soubor .zip, který obsahuje protokolů a trasovací soubory se uloží do výstupního adresáře, který jste zadali.
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 - [Nejčastější dotazy k Azure soubory](storage-files-faq.md)
 - [Řešení potíží s Azure soubory v systému Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Poradce při potížích Azure soubory v systému Linux](storage-troubleshoot-linux-file-connection-problems.md)

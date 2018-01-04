@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: df675dbf915d0fe08905a83b7874fdd95deed42d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Testování runbooku ve službě Azure Automation
 Při testování sady runbook [koncept](automation-creating-importing-runbook.md#publishing-a-runbook) se spustí a všechny akce, které provádí se dokončí. Nevytvoří se žádné historie úlohy, ale [výstup](automation-runbook-output-and-messages.md#output-stream) a [upozornění a chyb](automation-runbook-output-and-messages.md#message-streams) datové proudy, které se zobrazují v testovací podokno výstup. Zprávy pro [podrobný datový proud](automation-runbook-output-and-messages.md#message-streams) se zobrazují v podokně výstupu pouze tehdy, pokud [proměnnou $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) je nastaven na pokračovat.
@@ -42,5 +42,5 @@ Můžete spolupracovat s kterýmkoli [typ runbooku](automation-runbook-types.md)
 * Další postupy k vytvoření nebo import sady runbook najdete v tématu [vytvoření nebo import runbooku ve službě Azure Automation](automation-creating-importing-runbook.md)
 * Další informace o vytváření grafického obsahu najdete v článku [Vytváření grafického obsahu v Azure Automation](automation-graphical-authoring-intro.md).
 * První kroky s runbooky pracovních postupů PowerShellu najdete v článku [Můj první runbook pracovního postupu PowerShellu](automation-first-runbook-textual.md).
-* Další informace o konfiguraci runboks vrátí stavové zprávy a chyby, včetně doporučené postupy, najdete v části [Runbook výstup a zprávy v Azure Automation.](automation-runbook-output-and-messages.md)
+* Další informace o konfiguraci sady runbook vrátí stavové zprávy a chyby, včetně doporučené postupy, najdete v části [Runbook výstup a zprávy v Azure Automation.](automation-runbook-output-and-messages.md)
 

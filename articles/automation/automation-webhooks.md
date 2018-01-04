@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: b1b9b804aa696419b52a03f127c59037c337be66
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Počínaje webhook, jehož runbook služby automatizace Azure
 A *webhooku* umožňuje spustit konkrétní runbook ve službě Azure Automation prostřednictvím jedné žádosti HTTP. To umožňuje externích služeb, jako je například Visual Studio Team Services, GitHub, analýzy protokolů Microsoft Operations Management Suite nebo vlastních aplikací ke spouštění sad runbook bez implementace úplné řešení pomocí rozhraní API služby Azure Automation.  
@@ -31,13 +31,13 @@ Následující tabulka popisuje vlastnosti, které je nutné nakonfigurovat pro 
 
 | Vlastnost | Popis |
 |:--- |:--- |
-| Name (Název) |Můžete zadat libovolný název, který chcete použít pro webhook, jehož vzhledem k tomu, že to není vystavený klienta.  Používá se pouze pro vás k identifikaci sady runbook ve službě Azure Automation. <br>  Jako osvědčený postup musíte získat webhooku název související klientovi, který bude používat. |
-| ADRESA URL |Adresa URL webhooku je jedinečnou adresu, která volá klienta pomocí metody POST protokolu HTTP pro spuštění sady runbook propojené s webhooku.  Generuje se automaticky při vytvoření webhooku.  Nelze zadat vlastní adresu URL. <br> <br>  Adresa URL obsahuje token zabezpečení, který umožňuje sady runbook vyvolat systému třetích stran se žádné další ověřování. Z tohoto důvodu by zpracovávat jako heslo.  Z bezpečnostních důvodů můžete jenom zobrazit adresu URL na portálu Azure v době, kdy je vytvoření webhooku. Upozorňujeme ale, adresu URL na bezpečné místo pro budoucí použití. |
-| Datum vypršení platnosti |Stejně jako certifikát má každý webhooku datum vypršení platnosti, po kterém již slouží.  Po vytvoření webhooku můžete upravit toto datum vypršení platnosti. |
+| Název |Můžete zadat libovolný název, který chcete použít pro webhook, jehož vzhledem k tomu, že to není vystavený klienta.  Používá se pouze pro vás k identifikaci sady runbook ve službě Azure Automation. <br>  Jako osvědčený postup musíte získat webhooku název související klientovi, který bude používat. |
+| Adresa URL |Adresa URL webhooku je jedinečnou adresu, která volá klienta pomocí metody POST protokolu HTTP pro spuštění sady runbook propojené s webhooku.  Generuje se automaticky při vytvoření webhooku.  Nelze zadat vlastní adresu URL. <br> <br>  Adresa URL obsahuje token zabezpečení, který umožňuje sady runbook vyvolat systému třetích stran se žádné další ověřování. Z tohoto důvodu by zpracovávat jako heslo.  Z bezpečnostních důvodů můžete jenom zobrazit adresu URL na portálu Azure v době, kdy je vytvoření webhooku. Upozorňujeme ale, adresu URL na bezpečné místo pro budoucí použití. |
+| Datum konce platnosti |Stejně jako certifikát má každý webhooku datum vypršení platnosti, po kterém již slouží.  Po vytvoření webhooku můžete upravit toto datum vypršení platnosti. |
 | Povoleno |Webhook, jehož je ve výchozím nastavení povolena, když je vytvořeno.  Pokud je nastavena na zakázáno, pak žádný klient bude moct používat.  Můžete nastavit **povoleno** vlastnost při vytvoření webhooku nebo kdykoli po jeho vytvoření. |
 
 ### <a name="parameters"></a>Parametry
-Webhook, jehož můžete definovat hodnoty pro parametry runbooku, které se použijí při spuštění runbooku pomocí tohoto webhooku. Webhook musí obsahovat hodnoty všech povinných parametrů runbooku a můžou obsahovat hodnoty pro volitelné parametry. Hodnotu parametru, který je nakonfigurován tak, aby webhook, jehož lze změnit i po vytvoření webhoook. Více webhooky propojené s jedné sady runbook můžete použít jiné hodnoty parametru.
+Webhook, jehož můžete definovat hodnoty pro parametry runbooku, které se použijí při spuštění runbooku pomocí tohoto webhooku. Webhook musí obsahovat hodnoty všech povinných parametrů runbooku a můžou obsahovat hodnoty pro volitelné parametry. Hodnotu parametru, který je nakonfigurován tak, aby webhook, jehož lze změnit i po vytvoření webhooku. Více webhooky propojené s jedné sady runbook můžete použít jiné hodnoty parametru.
 
 Při spuštění sady runbook pomocí webhook, jehož klienta, je nejde přepsat hodnot parametrů definovaných v webhooku.  Přijímat data z klienta, sada runbook může přijmout jeden parametr s názvem **$WebhookData** typu [object], která bude obsahovat data, která zahrnuje klient v požadavku POST.
 
@@ -53,7 +53,7 @@ Při spuštění sady runbook pomocí webhook, jehož klienta, je nejde přepsat
 
 Neexistuje žádná konfigurace webhooku potřebné k podpoře **$WebhookData** parametr a sada runbook není potřeba ji přijmout.  Pokud sada runbook nedefinuje parametr, se ignoruje všechny podrobnosti o požadavek odeslaný z klienta.
 
-Pokud zadáte hodnotu pro $WebhookData při vytváření webhooku, že hodnota bude elementem při webhooku spuštění sady runbook s daty z klienta žádosti, i v případě, že klient neobsahuje žádná data v textu požadavku.  Pokud spustíte runbook, který má $WebhookData pomocí jiné metody než webhook, jehož, je zadat hodnotu pro $Webhookdata, rozpozná pomocí sady runbook.  Tato hodnota by měla být objekt se stejným [vlastnosti](#details-of-a-webhook) jako $Webhookdata tak, aby sada runbook může správně s ním pracovat, jako kdyby byla práce s skutečné WebhookData předaná webhook, jehož.
+Pokud zadáte hodnotu pro $WebhookData při vytváření webhooku, že hodnota bude přepsána při webhooku spuštění sady runbook s daty z klienta žádosti, i v případě, že klient neobsahuje žádná data v textu požadavku.  Pokud spustíte runbook, který má $WebhookData pomocí jiné metody než webhook, jehož, je zadat hodnotu pro $Webhookdata, rozpozná pomocí sady runbook.  Tato hodnota by měla být objekt se stejným [vlastnosti](#details-of-a-webhook) jako $Webhookdata tak, aby sada runbook může správně s ním pracovat, jako kdyby byla práce s skutečné WebhookData předaná webhook, jehož.
 
 Například pokud se spouštění následující sady runbook na portálu Azure a chcete předat některé ukázkové WebhookData pro testování, protože WebhookData je objekt, se mají být předány jako JSON v uživatelském rozhraní.
 
@@ -104,9 +104,9 @@ Klient se zobrazí jednu z následujících návratové kódy z žádosti.
 
 | Kód | Text | Popis |
 |:--- |:--- |:--- |
-| 202 |Přijmout |Žádost byla přijata, a sada runbook byla úspěšně zařazených do fronty. |
-| 400 |Chybný požadavek |Požadavek nebyl přijat pro jednu z následujících důvodů. <ul> <li>Webhook vypršela platnost.</li> <li>Webhook je zakázána.</li> <li>Token v adrese URL je neplatný.</li>  </ul> |
-| 404 |Nebyl nalezen |Požadavek nebyl přijat pro jednu z následujících důvodů. <ul> <li>Webhook nebyl nalezen.</li> <li>Sada runbook nebyla nalezena.</li> <li>Účet nebyl nalezen.</li>  </ul> |
+| 202 |Přijato |Žádost byla přijata, a sada runbook byla úspěšně zařazených do fronty. |
+| 400 |Chybná žádost |Požadavek nebyl přijat pro jednu z následujících důvodů. <ul> <li>Webhook vypršela platnost.</li> <li>Webhook je zakázána.</li> <li>Token v adrese URL je neplatný.</li>  </ul> |
+| 404 |Nenalezené |Požadavek nebyl přijat pro jednu z následujících důvodů. <ul> <li>Webhook nebyl nalezen.</li> <li>Sada runbook nebyla nalezena.</li> <li>Účet nebyl nalezen.</li>  </ul> |
 | 500 |Vnitřní chyba serveru |Adresa URL byla platná, ale došlo k chybě.  Odešlete požadavek znovu. |
 
 Za předpokladu, že požadavek je úspěšné, webhooku odpovědi obsahuje id úlohy ve formátu JSON následujícím způsobem. Bude obsahovat id jedné úlohy, ale formát JSON umožňuje potenciální budoucí vylepšení.
@@ -115,7 +115,7 @@ Za předpokladu, že požadavek je úspěšné, webhooku odpovědi obsahuje id �
 
 Klient nemůže zjistit po dokončení úlohy runbooku nebo její stav dokončení od webhooku.  Může zjistit, tyto informace id úlohy pomocí jiné metody, jako [prostředí Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) nebo [rozhraní API služby Azure Automation](https://msdn.microsoft.com/library/azure/mt163826.aspx).
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 Následující příklad používá ke spuštění sady runbook s webhook, jehož prostředí Windows PowerShell.  Upozorňujeme, že jakýkoli jazyk, který může odeslat požadavek HTTP, můžete použít webhooku; Prostředí Windows PowerShell se právě používá jako příklad sem.
 
 Sada runbook očekává seznam virtuálních počítačů, které jsou ve formátu JSON v textu požadavku. Můžeme také jsou včetně informací o kdo je spuštění sady runbook a datum a čas, že je právě spuštěna v hlavičce požadavku.      
@@ -196,7 +196,7 @@ Vezměte v úvahu prostředek služby Azure, jako je například virtuální po�
 
 Pokud toto pravidlo výstrahy se změní na aktivní a aktivuje runbook webhooku povolena, odešle kontext výstrahy do sady runbook. [Kontext výstrahy](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) obsahuje podrobnosti, včetně **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** a **časové razítko** které jsou požadovány pro sadu runbook k identifikaci prostředku, na kterém je provedením akce. Výstrahy kontextu vložené v části textu **WebhookData** objekt posílá sady runbook a je přístupný pomocí **Webhook.RequestBody** vlastnost
 
-### <a name="example"></a>Příklad
+### <a name="example"></a>Příklad:
 Vytvoření virtuálního počítače Azure ve vašem předplatném a přidružení [výstrahu, kterou chcete sledovat metriku procento procesoru](../monitoring-and-diagnostics/insights-receive-alert-notifications.md). Během vytváření výstrahy zkontrolujte, zda že vyplnění pole webhooku s adresou URL webhooku, který byl vygenerován při vytváření webhooku.
 
 Následující vzorový runbook se aktivuje, když pravidlo výstrahy se změní na aktivní a shromáždí parametry kontext výstrahy, které jsou požadovány pro sadu runbook k identifikaci prostředku, na kterém je provedením akce.
@@ -262,7 +262,7 @@ Následující vzorový runbook se aktivuje, když pravidlo výstrahy se změní
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Podrobnosti o různých způsobech spuštění sady runbook najdete v tématu [spuštění sady Runbook](automation-starting-a-runbook.md).
 * Informace o zobrazení stavu úlohy Runbooku, najdete v části [spuštění sady Runbook ve službě Azure Automation](automation-runbook-execution.md).
 * Naučte se používat Azure Automation provést určitou akci u výstrahy Azure, najdete v tématu [napravit výstrahy virtuálních počítačů Azure pomocí Runbooků Automation](automation-azure-vm-alert-integration.md).

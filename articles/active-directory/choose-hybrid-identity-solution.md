@@ -5,19 +5,19 @@ keywords:
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.author: billmath
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft hybridních řešení identit
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybridních řešení identit umožňují synchronizovat místní adresáře objekty s Azure AD při nadále spravuje uživatele místní. První rozhodnutí při plánování vaší místní Windows Server Active Directory synchronizovat s Azure AD je, jestli chcete používat identity synchronizovaných nebo federovaných identit. Synchronizované identity a volitelně hodnot hash hesel, povolte uživatelům používat stejné heslo pro přístup k místní i cloudové prostředkům organizace. Pro pokročilejší scénáře požadavky, například jednotného přihlašování (SSO) nebo místní vícefaktorové ověřování musíte k nasazení služby Active Directory Federation Services (AD FS) pro vytvoření federace identit. 
@@ -50,9 +50,6 @@ S Azure AD Connect, který používá jednoduchý místní agent, který naslouc
 
 - Windows Server 2012 R2 nebo vyšší
 - Připojený k doméně v doménové struktuře, pomocí kterého se uživatelé ověřují
-
-> [!NOTE]
-> Předávací ověřování Azure AD je aktuálně ve verzi preview a je podporováno pro klienty webového prohlížeče na základě a klienti Office, které podporují moderní ověřování. Pro klienty, kteří nejsou podporovány, jako je například starších verzí klientů Office a Exchange ActiveSync (včetně nativní e-mailové klienty na mobilních zařízeních) se doporučuje použít ekvivalentní moderní ověřování. Moderní ověřování pouze umožňuje předávací ověřování, ale také umožňuje pro zásady podmíněného přístupu použije, například služby Multi-Factor authentication. 
 
 Předávací ověřování není aktuálně podporován při použití zařízení s Windows 10 připojené k Azure AD. Ale synchronizaci hodnoty hash hesla můžete použít jako automatického přechodu na podporu Windows 10 a starších verzí klientů již bylo zmíněno dříve. Ve verzi Preview synchronizaci hodnoty hash hesla je povolené ve výchozím nastavení při předávací ověřování je zaškrtnuta možnost přihlášení v Azure AD Connect.
 
@@ -91,7 +88,7 @@ Tady jsou některé běžné hybridní identit a přístupu správu scénáře s
 > <sup>4</sup> služby AD FS se dá integrovat s vaší podnikové infrastruktury veřejných KLÍČŮ povolit přihlašování pomocí certifikátů. Tyto certifikáty jde konfigurace soft certifikáty nasazené přes důvěryhodné zřizování kanálů, jako je například certifikáty MDM nebo čipová karta nebo objektu zásad skupiny (včetně karet standardu PIV/CAC) nebo Hello pro firmy (cert vztahu důvěryhodnosti). Další informace o podpoře ověřování pomocí čipové karty, najdete v části [tomto blogu](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/).
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace v prostředí Azure testování konceptu](https://aka.ms/aad-poc)
 
 [Instalace služby Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)

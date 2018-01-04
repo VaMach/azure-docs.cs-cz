@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: e71680887c4e81eba831ab0b7af9fa2cceed74a0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Kurz projektu BikeShare: Pokročilá příprava dat pomocí aplikace Azure Machine Learning Workbench
 Služby Azure Machine Learning (verze Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce, které slouží k přípravě dat, vývoji experimentů a nasazování modelů na úrovni cloudu.
@@ -97,7 +97,7 @@ Tento kurz používá [sadu dat programu Hubway z Bostonu](https://s3.amazonaws.
 
    ![Obrázek položky File(s)/Directory (Soubory/adresář)](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **File Selection** (Výběr souboru): Přidejte data o počasí. Procházením vyberte soubor `BostonWeather.csv`, který jste stáhli v předchozích krocích. Klikněte na **Next** (Další).
+2. **File Selection** (Výběr souboru): Přidejte data o počasí. Procházením vyberte soubor `BostonWeather.csv`, který jste stáhli v předchozích krocích. Klikněte na **Další**.
 
    ![Obrázek výběru souboru s vybraným souborem BostonWeather.csv](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
 
@@ -116,7 +116,7 @@ Tento kurz používá [sadu dat programu Hubway z Bostonu](https://s3.amazonaws.
    > * __Promote Headers Mode__ (Režim povýšení záhlaví): Use Headers From First File (Používat záhlaví z prvního souboru)
 
    V náhledu dat by se měly zobrazit následující sloupce:
-   * **Path** (Cesta)
+   * **Cesta**
    * **DATE** (Datum)
    * **REPORTTYPE** (Typ zprávy)
    * **HOURLYDRYBULBTEMPF** (Teplota suchého teploměru ve stupních Fahrenheita)
@@ -647,7 +647,7 @@ df.to_csv('Your Training Data File Path here')
 
 Pokud chcete odeslat novou úlohu, použijte ikonu **Run** (Spustit) v horní části stránky. **Úloha** se odešle s novou konfigurací. Výstupem této úlohy jsou trénovací data. Tato data se vytvoří pomocí stejného postupu přípravy dat, který jste vytvořili v předchozích krocích. Dokončení úlohy může trvat několik minut.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Dokončili jste kurz přípravy dat projektu BikeShare. V tomto kurzu jste se naučili, jak pomocí služeb Azure Machine Learning (verze Preview) provést následující:
 > [!div class="checklist"]
 > * Interaktivně připravit data pomocí nástroje pro přípravu dat Azure Machine Learning.

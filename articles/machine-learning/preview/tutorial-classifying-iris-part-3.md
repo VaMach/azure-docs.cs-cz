@@ -1,5 +1,5 @@
 ---
-title: "Nasazení modelu pro služby Azure Machine Learning (Preview) | Microsoft Docs"
+title: "Nasazení modelu pro služby Azure Machine Learning (Preview) | Dokumentace Microsoftu"
 description: "V tomto kurzu na pokračování se dozvíte, jak komplexně používat služby Azure Machine Learning (Preview). Toto je třetí část, ve které se probírá nasazení modelu."
 services: machine-learning
 author: raymondl
@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: HT
+ms.openlocfilehash: 0a83c1a74b4a0ee15cbcb082b9d6b9cfd3d81d09
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasifikace Iris – část 3: Nasazení modelu
 Služby Azure Machine Learning (Preview) představují integrované, komplexní řešení datové vědy a pokročilé analýzy pro profesionální datové vědce. Datoví vědci pomocí nich můžou připravovat data, vyvíjet experimenty a nasazovat modely na úrovni cloudu.
@@ -160,6 +160,9 @@ _Místní režim_ můžete použít pro vývoj a testování. K provedení násl
    ``` 
 
    Ve třetím řádku výstupu se zobrazí **"registrationState": "Registrace"**. Chvíli počkejte a pak příkaz **show** opakujte, dokud se ve výstupu nezobrazí **"registrationState": "Registrováno"**.
+
+   >[!NOTE] 
+   Pokud nasazujete do clusteru služby ACS, je nutné zaregistrovat **Microsoft.ContainerService** také pomocí přesně stejný přístup poskytovatele prostředků.
 
 3. Vytvořte prostředí. Tento krok je potřeba provést jednou pro každé prostředí. Například jej provedete jednou pro vývojové a jednou pro produkční prostředí. Pro první prostředí použijte _místní režim_. Později můžete zkusit v tomto příkazu použít přepínač `-c` nebo `--cluster` a nastavit prostředí v _režimu clusteru_.
 
@@ -336,7 +339,7 @@ Spuštěnou webovou službu **irisapp** můžete otestovat pomocí zakódovanéh
       ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V této třetí části třídílné série kurzů jste se naučili, jak pomocí služeb Azure Machine Learning provádět tyto úlohy:
 > [!div class="checklist"]
 > * Vyhledání souboru modelu

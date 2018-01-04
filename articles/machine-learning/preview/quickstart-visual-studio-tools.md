@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: f066f0dd0dab0096279c18ded3c024a7cc0cbda0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bbcb2ea5a7ceeb976f590393608cc29c67d9a49e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools pro AI
 Sada Visual Studio Tools pro AI představuje rozšíření pro vývoj sloužící k sestavení, testování a nasazení řešení hloubkového učení a AI. Bezproblémově se integruje se službou Azure Machine Learning a poskytuje zejména zobrazení historie spuštění, podrobnosti o výkonu předchozích trénování a vlastní metriky. Nabízí zobrazení průzkumníka ukázek, který umožňuje procházení ukázek a spuštění nového projektu s využitím architektury [Microsoft Cognitive Toolkit](http://www.microsoft.com/en-us/cognitive-toolkit) (dříve označovaná jako CNTK), [Google TensorFlow](https://www.tensorflow.org) a dalších architektur hloubkového učení. Navíc poskytuje průzkumníka cílových výpočetních prostředí, který umožňuje odesílat úlohy k trénování modelů ve vzdálených prostředích, jako je služba Azure Virtual Machines nebo servery s Linuxem a GPU. Poskytuje také snazší přístup k [Azure Batch AI (Preview)](https://docs.microsoft.com/azure/batch-ai/).

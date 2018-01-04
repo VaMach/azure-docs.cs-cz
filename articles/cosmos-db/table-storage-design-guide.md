@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Průvodce návrhem tabulky úložiště Azure: Návrh škálovatelné a původce tabulky
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -39,9 +39,9 @@ Následující příklad ukazuje návrh jednoduché tabulky k ukládání entit 
 
 <table>
 <tr>
-<th>Klíč oddílu</th>
+<th>PartitionKey</th>
 <th>RowKey</th>
-<th>časové razítko</th>
+<th>Časové razítko</th>
 <th></th>
 </tr>
 <tr>
@@ -77,7 +77,7 @@ Následující příklad ukazuje návrh jednoduché tabulky k ukládání entit 
 <th>E-mail</th>
 </tr>
 <tr>
-<td>Června</td>
+<td>Čer</td>
 <td>CaO</td>
 <td>47</td>
 <td>junc@contoso.com</td>
@@ -91,7 +91,7 @@ Následující příklad ukazuje návrh jednoduché tabulky k ukládání entit 
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Název oddělení</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -251,7 +251,7 @@ Služby Table automaticky indexuje entity produktu pomocí **PartitionKey** a **
 Řada návrhů musí splňovat požadavky na povolení vyhledávání entit na základě několika kritérií. Například hledání zaměstnanec entity podle e-mailu, identifikační číslo zaměstnance nebo příjmení. Tyto vzory v části [vzory návrhu tabulky](#table-design-patterns) adres tyto typy požadavek a popisují způsoby obcházet fakt, že služby Table nenabízí sekundární indexy:  
 
 * [Vzor sekundární index Intra-partition](#intra-partition-secondary-index-pattern) -uložit více kopií každou entitu s využitím různých **RowKey** hodnoty (ve stejném oddílu) k povolení rychlé a efektivní vyhledávání a alternativní pořadí řazení pomocí různých **RowKey** hodnoty.  
-* [Vzor mezi oddíl sekundární index](#inter-partition-secondary-index-pattern) – ukládání více kopií každé entity pomocí různých hodnot RowKey v samostatné oddíly nebo v samostatných tabulkách umožňující rychlé a efektivní vyhledávání a řazení alternativní řadí pomocí různých **RowKey** hodnoty.  
+* [Vzor mezi oddíl sekundární index](#inter-partition-secondary-index-pattern) -uložit více kopií každou entitu s využitím různých **RowKey** hodnoty v samostatných oddílů nebo v samostatné tabulky, které chcete povolit rychlé a efektivní vyhledávání a alternativní řazení objednávky pomocí různých **RowKey** hodnoty.  
 * [Index entity vzor](#index-entities-pattern) -udržovat index entity umožňující efektivní hledání, které vrátí seznamy entit.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Řazení dat ve službě Table
@@ -301,7 +301,7 @@ Tyto vzory v části [vzory návrhu tabulky](#table-design-patterns) adres kompr
 ## <a name="encrypting-table-data"></a>Šifrování dat v tabulce
 Klientská knihovna pro úložiště Azure .NET podporuje šifrování vlastnosti entity řetězce pro vložení a nahrazovat operace. Šifrované řetězce jsou uložené ve službě jako binární vlastnosti a převedené zpět do řetězce po dešifrování.    
 
-Pro tabulky, kromě zásady šifrování musí uživatelé zadat vlastnosti k zašifrování. To lze provést zadáním buď atribut [EncryptProperty] (pro entity objektů POCO, které jsou odvozeny od TableEntity) nebo šifrování překladač v žádosti o možnostech. Překladač šifrování je delegáta, který přebírá klíč oddílu, klíč řádku a název vlastnosti a vrátí logickou hodnotu, která určuje, jestli by se šifrovat tuto vlastnost. Během šifrování se klientské knihovny použije tyto informace se rozhodnout, jestli by se vlastnost šifrovat při zápisu do sítě. Delegát taky poskytuje možnost logiku kolem jak jsou zašifrované vlastnosti. (Například pokud X, potom šifrování vlastnost A; v opačném případě šifrování vlastnosti A a B.) Všimněte si, že není nutné poskytnout tyto informace při čtení nebo dotazování entity.
+Pro tabulky, kromě zásady šifrování musí uživatelé zadat vlastnosti k zašifrování. To lze provést zadáním buď atribut [EncryptProperty] \(pro entity objektů POCO, které jsou odvozeny od TableEntity) nebo šifrování překladač v žádosti o možnostech. Překladač šifrování je delegáta, který přebírá klíč oddílu, klíč řádku a název vlastnosti a vrátí logickou hodnotu, která určuje, jestli by se šifrovat tuto vlastnost. Během šifrování se klientské knihovny použije tyto informace se rozhodnout, jestli by se vlastnost šifrovat při zápisu do sítě. Delegát taky poskytuje možnost logiku kolem jak jsou zašifrované vlastnosti. (Například pokud X, potom šifrování vlastnost A; v opačném případě šifrování vlastnosti A a B.) Všimněte si, že není nutné poskytnout tyto informace při čtení nebo dotazování entity.
 
 Všimněte si, že sloučení není aktuálně podporována. Vzhledem k tomu, že podmnožinu vlastností může být šifrována dříve pomocí jiného klíče, jednoduše slučování nové vlastnosti a aktualizace metadat dojde ke ztrátě dat. Slučování buď vyžaduje volání další služby ke čtení existující entity ze služby, nebo pomocí nového klíče na vlastnosti, které nejsou vhodné z důvodů výkonu.     
 
@@ -651,7 +651,7 @@ V relační databázi obvykle normalizaci dat k odebrání duplicitních výsled
 ![][16]
 
 #### <a name="solution"></a>Řešení
-Místo ukládání dat do dvou samostatných entit, denormalize data a ponechat si kopii manažera podrobnosti v entitě oddělení. Například:  
+Místo ukládání dat do dvou samostatných entit, denormalize data a ponechat si kopii manažera podrobnosti v entitě oddělení. Příklad:  
 
 ![][17]
 
@@ -1105,9 +1105,9 @@ Služba Table je *bez schématu* tabulky úložiště, která znamená, že na j
 
 <table>
 <tr>
-<th>Klíč oddílu</th>
+<th>PartitionKey</th>
 <th>RowKey</th>
-<th>časové razítko</th>
+<th>Časové razítko</th>
 <th></th>
 </tr>
 <tr>
@@ -1157,7 +1157,7 @@ Služba Table je *bez schématu* tabulky úložiště, která znamená, že na j
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Název oddělení</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1197,9 +1197,9 @@ Všimněte si, že každá entita musí mít dál **PartitionKey**, **RowKey**, 
 
 <table>
 <tr>
-<th>Klíč oddílu</th>
+<th>PartitionKey</th>
 <th>RowKey</th>
-<th>časové razítko</th>
+<th>Časové razítko</th>
 <th></th>
 </tr>
 <tr>
@@ -1209,7 +1209,7 @@ Všimněte si, že každá entita musí mít dál **PartitionKey**, **RowKey**, 
 <td>
 <table>
 <tr>
-<th>Typ entity</th>
+<th>EntityType</th>
 <th>FirstName</th>
 <th>Příjmení</th>
 <th>Věk</th>
@@ -1231,7 +1231,7 @@ Všimněte si, že každá entita musí mít dál **PartitionKey**, **RowKey**, 
 <td>
 <table>
 <tr>
-<th>Typ entity</th>
+<th>EntityType</th>
 <th>FirstName</th>
 <th>Příjmení</th>
 <th>Věk</th>
@@ -1253,8 +1253,8 @@ Všimněte si, že každá entita musí mít dál **PartitionKey**, **RowKey**, 
 <td>
 <table>
 <tr>
-<th>Typ entity</th>
-<th>DepartmentName</th>
+<th>EntityType</th>
+<th>Název oddělení</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1272,7 +1272,7 @@ Všimněte si, že každá entita musí mít dál **PartitionKey**, **RowKey**, 
 <td>
 <table>
 <tr>
-<th>Typ entity</th>
+<th>EntityType</th>
 <th>FirstName</th>
 <th>Příjmení</th>
 <th>Věk</th>

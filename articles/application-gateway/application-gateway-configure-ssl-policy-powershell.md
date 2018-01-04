@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f3d3d2b1ef0957417e09bb2c9b3913cd366aaa4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurace protokolu SSL verze zásad a sady na aplikační brána šifer
 
@@ -110,6 +110,8 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Konfigurace vlastní zásady protokolu SSL
 
+Při konfiguraci vlastní zásady protokolu SSL, předáte následující parametry: Třída PolicyType, MinProtocolVersion, CipherSuite a ApplicationGateway. Pokud se pokusíte předat další parametry, dojde k chybě při vytváření nebo aktualizaci služby Application Gateway. 
+
 Následující příklad nastaví vlastní zásady protokolu SSL na aplikační brány. Nastaví verzi protokolu minimální `TLSv1_1` a umožňuje následující šifrovací sady:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -139,6 +141,8 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Vytvoření služby application gateway s předem definované zásady protokolu SSL
+
+Při konfiguraci zásad předdefinované SSL, předáte následující parametry: Třída PolicyType PolicyName a ApplicationGateway. Pokud se pokusíte předat další parametry, dojde k chybě při vytváření nebo aktualizaci služby Application Gateway.
 
 Následující příklad vytvoří novou aplikační bránu s předem definované zásady protokolu SSL.
 
@@ -177,6 +181,31 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Aktualizace stávající aplikační brány s předem definované zásady protokolu SSL
 
-Navštivte [přehled přesměrování Application Gateway](application-gateway-redirect-overview.md) Další informace o přesměrování provozu HTTP na koncový bod HTTPS.
+Nastavit vlastní zásady protokolu SSL, zadejte následující parametry: **třída PolicyType**, **MinProtocolVersion**, **CipherSuite**, a **ApplicationGateway**. Nastavit zásadu předdefinované SSL, zadejte následující parametry: **třída PolicyType**, **PolicyName**, a **ApplicationGateway**. Pokud se pokusíte předat další parametry, dojde k chybě při vytváření nebo aktualizaci služby Application Gateway.
+
+V následujícím příkladu jsou ukázky kódu pro vlastní zásady i předdefinovaných zásad. Zrušením komentáře u na zásadu, kterou chcete použít.
+
+```powershell
+# You have to change these parameters to match your environment.
+$AppGWname = "YourAppGwName"
+$RG = "YourResourceGroupName"
+
+$AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
+
+# SSL Custom Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
+
+# SSL Predefined Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
+
+# Update AppGW
+# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
+$SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
+
+
+
+## Next steps
+
+Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to a HTTPS endpoint.

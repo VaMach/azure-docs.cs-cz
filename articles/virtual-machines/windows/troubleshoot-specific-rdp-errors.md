@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 8eb4420978c0a66012f3f46d4a5f7ed0da56a3b7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 199f8c62b7aa3310bebd33c88edf57ea3bce804b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Řešení potíží s konkrétní chybové zprávy protokolu RDP pro virtuální počítač s Windows v Azure
 Při použití připojení ke vzdálené ploše na Windows virtuální počítač (VM) v Azure, může se zobrazit konkrétní chybová zpráva. Tento článek podrobně popisuje některé z nejběžnějších chybových zpráv došlo, společně s řešení potíží s kroky k jejich řešení. Pokud máte problémy s připojením k virtuálnímu počítači pomocí protokolu RDP ale proveďte není stane konkrétní chybová zpráva, přečtěte si [Průvodce řešením potíží pro vzdálené plochy](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -104,7 +104,7 @@ Každý počítač se systémem Windows má vzdálené plochy uživatele místn�
 
 Ujistěte se, zda má účet, který používáte pro připojení k vzdálené plochy přihlašovací práva. Jako alternativní řešení připojit přes vzdálenou plochu pomocí domény nebo účet místního správce. Požadovaný účet přidat do místní skupiny uživatelů vzdálené plochy, použijte modul snap-in konzoly Microsoft Management Console (**systémové nástroje > Místní uživatelé a skupiny > skupiny > Remote Desktop Users**).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud žádná z těchto chyb došlo k chybě a máte neznámé vydávat pomocí připojení pomocí protokolu RDP, najdete v článku [Průvodce řešením potíží pro vzdálené plochy](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 * Řešení potíží s kroky v přístupu k aplikacím spuštěným na virtuálním počítači, najdete v části [řešení potíží s přístupem k aplikaci spuštěné na virtuálním počítači Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

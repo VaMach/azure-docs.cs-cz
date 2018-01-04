@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/22/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: add96267f8afe6dcaf43e163f9d18bd7fb57682e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 08e7288d4d9d06f3a74464817892c2b03ae8a86c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Spuštění úloh Sqoop se systémem Hadoop v prostředí HDInsight pomocí Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -111,7 +111,7 @@ Jak je ukázáno v tomto dokumentu, můžete spouštět, monitorovat a zobrazit 
 
 Další informace o rozhraní REST používané v tomto článku najdete v tématu <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Sqoop REST API průvodce</a>.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Obecné informace o Hive s HDInsight:
 
 * [Použití nástroje Sqoop se systémem Hadoop v HDInsight](hdinsight-use-sqoop.md)

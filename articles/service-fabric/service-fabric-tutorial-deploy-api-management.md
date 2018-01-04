@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Nasazení správy rozhraní API pomocí Service Fabric
-V tomto kurzu je součástí série, čtyři.  Nasazení aplikace Azure API Management s Service Fabric je pokročilý scénář.  API Management je užitečné, když je potřeba publikovat rozhraní API s bohatou sadu pravidla směrování pro váš back endové služby Service Fabric. Cloudové aplikace obvykle nutné front-endu brány zajistit jediný bod příjem příchozích dat pro uživatele, zařízení nebo jiné aplikace. V Service Fabric brány může být jakékoli bezstavové služby určený pro příchozí provoz například APP.NET základní aplikace, služby Event Hubs, IoT Hub nebo Azure API Management. 
+V tomto kurzu je součástí série, čtyři.  Nasazení aplikace Azure API Management s Service Fabric je pokročilý scénář.  API Management je užitečné, když je potřeba publikovat rozhraní API s bohatou sadu pravidla směrování pro váš back endové služby Service Fabric. Cloudové aplikace obvykle nutné front-endu brány zajistit jediný bod příjem příchozích dat pro uživatele, zařízení nebo jiné aplikace. V Service Fabric brány může být jakékoli bezstavové služby určený pro příchozí provoz, například aplikace ASP.NET Core, Event Hubs, IoT Hub nebo Azure API Management. 
 
 V tomto kurzu se dozvíte, jak nastavit [Azure API Management](../api-management/api-management-key-concepts.md) s Service Fabric přesměrovat provoz na back-end služby v Service Fabric.  Jakmile budete hotovi, nasazené API Management k virtuální síti, nakonfigurované operace rozhraní API odesílat provoz do bezstavové služby back-end. Další informace o scénářích Azure API Management s Service Fabric najdete v tématu [přehled](service-fabric-api-management-overview.md) článku.
 
@@ -328,7 +328,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto kurzu jste se naučili:
 
 > [!div class="checklist"]

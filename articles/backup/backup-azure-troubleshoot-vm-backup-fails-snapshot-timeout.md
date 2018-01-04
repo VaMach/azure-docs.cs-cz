@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: genli;markgal;
-ms.openlocfilehash: ad98262af8ccebcc71013f1aac24eaa0b80a7c3b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: genli;markgal;sogup;
+ms.openlocfilehash: 2112d332faba194285ac35cf936000b399cd3e83
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Řešení potíží s Azure Backup selhání: problémy s agenta nebo rozšíření
 
@@ -66,6 +66,7 @@ Po registraci a naplánovat virtuálního počítače pro službu Azure zálohov
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Příčina 3: [agent nainstalovaný ve virtuálním počítači je zastaralý (pro virtuální počítače s Linuxem)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Příčina 4: [nelze načíst stav snímku ani snímku nelze provést.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Příčina 5: [rozšíření zálohování se nezdaří aktualizace nebo zatížení](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Příčina 6: [zálohování služby nemá oprávnění k odstranění staré body obnovení z důvodu zámku skupiny prostředků](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Zadaná konfigurace disku nejsou podporovány
 
@@ -203,4 +204,30 @@ Po instalaci agenta hosta virtuálního počítače, spusťte prostředí Azure 
         `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
 5. Vyzkoušejte si inicializaci zálohování. <br>
 
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Zálohování služby nemá oprávnění k odstranění staré body obnovení z důvodu zámku skupiny prostředků
+Tento problém je specifická pro spravovaných virtuálních počítačů, kde uživatel uzamkne skupině prostředků a služba zálohování není možné odstranit starší body obnovení. Z důvodu to nových záloh spustit selhání, jako je omezení maximální 18 body obnovení uložené z back-end.
+
+#### <a name="solution"></a>Řešení
+
+K vyřešení problému, použijte následující kroky k odebrání kolekce bodu obnovení: <br>
+ 
+1. Odebrat skupinu prostředků uzamknout, ve kterém je umístěn virtuální počítač 
+     
+2. Instalace pomocí Chocolatey ARMClient <br>
+   https://github.com/projectkudu/ARMClient
+     
+3. Přihlášení k ARMClient <br>
+             `.\armclient.exe login`
+         
+4. Bod obnovení Get kolekce odpovídající virtuální počítač <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    Příklad:`.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+             
+5. Odstranit kolekci bodu obnovení <br>
+            `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. Další naplánované zálohování automaticky vytvoří kolekci bod obnovení a nové body obnovení 
+ 
+7. Problém se znovu zobrazí, pokud zamknete skupiny prostředků jako znovu existuje pouze omezení 18 bodů obnovení, po které zálohování začít selhávat 
 

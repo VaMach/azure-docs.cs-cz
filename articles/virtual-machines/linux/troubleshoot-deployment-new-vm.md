@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
 ms.openlocfilehash: aea5db05843b0175b8ef8b713944e12262e33010
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Řešení problémů nasazení Resource Manager pomocí vytvoření nového virtuálního počítače Linux v Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -86,6 +86,6 @@ Tato chyba nastane v situacích, když novou žádost o virtuální počítač u
   * Vytvoření nového virtuálního počítače v různých dostupnosti nastavit (ve stejné oblasti).
   * Přidáte nový virtuální počítač do stejné virtuální síti.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Pokud dojde k potížím při spuštění zastavený virtuální počítač s Linuxem nebo změnit jeho velikost existující virtuální počítač s Linuxem v Azure, najdete v části [problémy při nasazení Resource Manager řešení potíží s restartováním nebo změnou velikosti existující virtuální počítač Linux v Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

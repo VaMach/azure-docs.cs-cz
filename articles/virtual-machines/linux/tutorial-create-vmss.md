@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 04fe3948f37936b43d1f2155635f0f52583d5e1b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Vytvořit sadu škálování virtuálního počítače a nasazení vysoce dostupné aplikace v systému Linux
 Škálovací sadu virtuálních počítačů můžete nasadit a spravovat sadu identické, automatické škálování virtuálních počítačů. Můžete škálovat počet virtuálních počítačů v sadě škálování ručně, nebo definovat pravidla pro automatické škálování podle využití prostředků, jako je například CPU, paměť vyžádání či síťový provoz. V tomto kurzu nasadíte škálování virtuálních počítačů, nastavte v Azure. Získáte informace o těchto tématech:
@@ -322,7 +322,7 @@ az vmss disk detach \
 ```
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 V tomto kurzu jste vytvořili škálovací sadu virtuálních počítačů. Naučili jste se tyto postupy:
 
 > [!div class="checklist"]

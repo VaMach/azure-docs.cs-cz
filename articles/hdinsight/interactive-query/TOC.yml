@@ -98,6 +98,8 @@
         - name: Analýza pomocí doplňku Power Query
           href: ../hadoop/apache-hadoop-connect-excel-power-query.md
           maintainContext: true
+        - name: Připojení Power BI k modulu Interactive Query
+          href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Připojení Power BI k Hadoopu
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true
@@ -244,7 +246,7 @@
         - name: Řešení potíží s YARN
           href: ../hdinsight-troubleshoot-yarn.md
           maintainContext: true
-        - name: Zdroje
+        - name: Zdroje a prostředky
           items:
             - name: Informace o používání HDInsightu v Linuxu
               href: ../hdinsight-hadoop-linux-information.md
@@ -280,10 +282,10 @@
         - name: Plán pro podnikové zabezpečení
           href: ../domain-joined/apache-domain-joined-architecture.md
           maintainContext: true
-        - name: Konfigurace podnikového zabezpečení v HDInsightu
+        - name: Konfigurace podnikového zabezpečení ve službě HDInsight
           href: ../domain-joined/apache-domain-joined-configure.md
           maintainContext: true
-        - name: Konfigurace podnikového zabezpečení v HDInsightu s využitím Azure AD DS
+        - name: Konfigurace podnikového zabezpečení ve službě HDInsight s využitím Azure AD DS
           href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
           maintainContext: true
         - name: Konfigurace zásad Hivu
@@ -333,7 +335,7 @@
       href: /rest/api/hdinsight/
     - name: REST (Spark)
       href: /rest/api/hdinsightspark/
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: "Poznámky k\_verzi"
       href: ../hdinsight-release-notes.md

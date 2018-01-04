@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d33ce1b4f00e8186ad894d54901e3bc09d263fa4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0fcf7485d64d2e947be1730d168ed0a645a50714
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatizaci prostředků v datovém centru nebo v cloudu s hybridní pracovní proces Runbooku
 Runbooky ve službě Azure Automation nemají přístup k prostředkům v ostatních cloudů nebo v místním prostředí, protože spustit i v cloudu Azure.  Funkce hybridní pracovní proces Runbooku automatizace Azure umožňuje spuštění sad runbook přímo na počítači, který hostuje roli a s prostředky v prostředí pro správu těchto místních prostředků. Sady Runbook jsou uložené a spravované ve službě Azure Automation a pak doručí jeden nebo více určenými počítači.  
@@ -165,9 +165,9 @@ Hybridní pracovní proces Runbooku závisí na agenta Microsoft Monitoring Agen
     Jestliže není spuštěna služba Microsoft Monitoring Agent Windows, nebude hybridní pracovní proces Runbooku komunikaci se službou Azure Automation.  Ověřte agenta běží tak, že zadáte následující příkaz prostředí PowerShell: `get-service healthservice`.  Pokud je služba zastavená, zadejte následující příkaz v prostředí PowerShell spustit službu: `start-service healthservice`.  
 
 4. V **aplikace a Správce služby Logs\Operations** protokolu událostí, zobrazí události 4502 a obsahující EventMessage **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** s následující popis: *certifikát předložený službu <wsid>. oms.opinsights.azure.com nevydala certifikační autorita používaná pro služby Microsoft. Obraťte se na správce sítě a zjistěte, zda používají proxy server, který zabrání komunikace TLS/SSL. V článku KB3126513 obsahuje další informace o připojení k řešení potíží.*
-    Může být příčinou vašeho proxy serveru nebo síťové komunikace blockking brány firewall do služby Microsoft Azure.  Ověřte, zda že má počítač odchozí přístup k *.azure automation.net na porty 443.
+    Příčinou může být proxy serveru nebo síťové brány firewall blokuje komunikaci s Microsoft Azure.  Ověřte, zda že má počítač odchozí přístup k *.azure automation.net na porty 443.
 
 Protokoly se ukládají místně na každém hybridní pracovní proces na C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Můžete zkontrolovat, zda existují jakékoli upozornění nebo chybové události zapsané do **aplikace a služby Logs\Microsoft-SMA\Operations** a **aplikace a Správce služby Logs\Operations** protokolu událostí, které by signalizovat připojení nebo jiné problém ovlivňující registrace role Azure Automation nebo problém při provádění operací se Normální.  
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Zkontrolujte [spuštění sad runbook na hybridní pracovní proces Runbooku](automation-hrw-run-runbooks.md) se dozvíte, jak nakonfigurovat své sady runbook k automatizaci procesů ve své místní datové centrum nebo jiné cloudové prostředí.

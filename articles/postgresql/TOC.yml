@@ -31,7 +31,7 @@
   items:
     - name: 1. Návrh databáze
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: tutorial-design-database-using-azure-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-azure-cli.md
@@ -55,7 +55,7 @@
           href: concepts-server-logs.md
         - name: Vysoká dostupnost
           href: concepts-high-availability.md
-    - name: Zdroje
+    - name: Zdroje a prostředky
       items:
         - name: Cenové úrovně
           href: concepts-service-tiers.md
@@ -79,13 +79,13 @@
   items:
     - name: Pravidla brány firewall
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Obnovení serveru
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -95,15 +95,17 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Import a export
           href: howto-migrate-using-export-and-import.md
+        - name: Migrace s minimem výpadků
+          href: howto-migrate-online.md
     - name: Konfigurace parametrů serveru
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: howto-configure-server-parameters-using-portal.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
     - name: Přístup k protokolům serveru
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-using-cli.md
@@ -117,7 +119,7 @@
       href: /cli/azure/postgres
     - name: REST API
       href: /rest/api/postgresql
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Šablony nasazení
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'

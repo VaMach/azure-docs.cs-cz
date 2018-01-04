@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: e14de80dc1fdf82c57f2a38d4ae2719ec83e01ed
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Použití služby Data Lake Store s clustery Azure HDInsight
 
@@ -80,13 +80,13 @@ Další informace o vytvoření instančního objektu a udělení přístupu naj
 
 ## <a name="use-data-lake-store-as-additional-storage"></a>Použití služby Data Lake Store jako dalšího úložiště
 
-Službu Data Lake Store můžete také použít jako další úložiště. Výchozím úložištěm clusteru v takových případech může být účet Data Lake Store nebo Azure Storage Blob. Pokud spouštíte úlohy HDInsight s daty uloženými ve službě Data Lake Store jako dalším úložišti, musíte použít plně kvalifikovanou cestu k souborům. Například:
+Službu Data Lake Store můžete také použít jako další úložiště. Výchozím úložištěm clusteru v takových případech může být účet Data Lake Store nebo Azure Storage Blob. Pokud spouštíte úlohy HDInsight s daty uloženými ve službě Data Lake Store jako dalším úložišti, musíte použít plně kvalifikovanou cestu k souborům. Příklad:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Všimněte si, že teď v adrese URL není **cluster_root_path**. Je to proto, že služba Data Lake Store v tomto případě není výchozím úložištěm, takže stačí zadat pouze cestu k souborům.
 
-Pokud chcete použít službu Data Lake Store jako další úložiště, stačí instančnímu objektu udělit přístup pouze k cestám, kde jsou vaše soubory uloženy.  Například:
+Pokud chcete použít službu Data Lake Store jako další úložiště, stačí instančnímu objektu udělit přístup pouze k cestám, kde jsou vaše soubory uloženy.  Příklad:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 

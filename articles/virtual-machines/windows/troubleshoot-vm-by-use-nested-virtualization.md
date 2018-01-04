@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/06/2017
 ms.author: genli
-ms.openlocfilehash: 35f52af5fbf0c945a766f5e5431c885d91df546a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: b50d139f62ef773fb5b9bb2638e40f8154e80979
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Řešení potíží problém virtuálního počítače Azure pomocí vnořené virtualizace v Azure
 
@@ -137,6 +137,6 @@ Připojit problém virtuálních počítačů, virtuálních počítačů pro ob
 
 Můžete taky prostředí Azure PowerShell k vytvoření virtuálního počítače z disku. Další informace najdete v tématu [vytvoření nového virtuálního počítače z existujícího disku pomocí prostředí PowerShell](create-vm-specialized.md#create-the-new-vm). 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Pokud máte problémy s připojením k virtuálnímu počítači, přečtěte si téma [připojení řešení potíží s RDP na virtuální počítač Azure](troubleshoot-rdp-connection.md). Problémy s přístupem k aplikacím spuštěným na vašem virtuálním počítači najdete v tématu [problémů s připojením aplikace na virtuálním počítači Windows](troubleshoot-app-connection.md).

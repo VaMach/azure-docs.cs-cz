@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: da6ea4bff5a45125f11776f161fef38e39a74cdd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Dotaz Hive prostřednictvím ovladač JDBC v HDInsight
 
@@ -192,11 +192,12 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 3. Restartujte SQuirreL. Chyba provedeno už při připojování k Hive v HDInsight.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď, když jste se naučili použití JDBC pro práci s Hive, pomocí následujících odkazů a prozkoumejte další způsoby, jak pracovat s Azure HDInsight.
 
 * [Vizualizovat data Hive s Microsoft Power BI v Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Vizualizace interaktivní dotazu Hive pomocí Power BI v Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Použití Zeppelin ke spouštění dotazů Hive v Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Připojení aplikace Excel do HDInsight pomocí ovladače ODBC Microsoft Hive](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Připojení aplikace Excel k systému Hadoop pomocí Power Query](apache-hadoop-connect-excel-power-query.md).

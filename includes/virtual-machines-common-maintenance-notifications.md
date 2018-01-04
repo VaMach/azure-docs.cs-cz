@@ -18,11 +18,10 @@ Můžete použít portál Azure a vyhledejte naplánována údržba virtuálníc
       | Hodnota | Popis |
       |-------|-------------|
       | Začít teď | Virtuální počítač je v okně údržby samoobslužné služby, který umožňuje zahájení údržby sami. Níže najdete postup při spuštění údržby na vašem virtuálním počítači | 
-      | Naplánované | Virtuální počítač je naplánována údržba bez možnosti pro vás k zahájení údržby. Další nástroje pro správu a údržbu výběrem okna automaticky naplánované v tomto zobrazení, nebo kliknutím na virtuálním počítači | 
-      | byla dokončena | Máte úspěšně spustil a dokončení údržby na vašem virtuálním počítači. | 
-      | Přeskočena| Rozhodli jste se spustit údržby úspěšná. Azure zrušil údržby pro virtuální počítač a přeplánuje ho později | 
-      | Zkuste to znovu později| Rozhodli jste se spustit údržby a Azure se nepodařilo vyřídit žádost. V takovém případě můžete zkusit znovu v později. | 
-   
+      | Podle plánu | Virtuální počítač je naplánována údržba bez možnosti pro vás k zahájení údržby. Další nástroje pro správu a údržbu výběrem okna automaticky naplánované v tomto zobrazení, nebo kliknutím na virtuálním počítači | 
+      | Dokončeno | Máte úspěšně spustil a dokončení údržby na vašem virtuálním počítači. | 
+      | Vynecháno| Rozhodli jste se spustit údržby úspěšná. Nebudete moci používat možnost samoobslužné služby údržby. Virtuální počítač bude muset restartovat Azure během fáze plánované údržby. | 
+
    **Údržby aktivní** -zobrazuje časový interval, když údržby můžete svým spustit virtuální počítače.
    
    **Naplánovaná údržba** -zobrazuje časový interval, když Azure se restartuje virtuální počítač, aby bylo možné dokončit údržbu. 

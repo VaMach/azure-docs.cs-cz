@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 9a013820689742faa732971c00b82c7ad8638a95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Co je Azure AD Privileged Identity Management?
 
@@ -57,7 +57,7 @@ Můžete začít používat Azure AD Privileged Identity Management [portál Azu
 3. Vyberte **Další služby** a pomocí pole Filtr najděte **Azure AD Privileged Identity Management**.
 4. Zaškrtněte **Připnout na řídicí panel** a potom klikněte na **Vytvořit**. Aplikace Privileged Identity Management se otevře.
 
-Pokud jste první, kdo použít Azure AD Privileged Identity Management ve vašem adresáři a přejděte do role adresář Azure AD, a a přejdete na role adresář Azure AD, [Průvodce zabezpečení](active-directory-privileged-identity-management-security-wizard.md) vás provede počáteční přiřazení prostředí. Následně se automaticky stane první **správce zabezpečení** a **správce privilegovaných rolí** adresáře.
+Pokud jste první, kdo použít Azure AD Privileged Identity Management ve vašem adresáři a přejděte do role adresář Azure AD a přejděte do role adresář Azure AD, [Průvodce zabezpečení](active-directory-privileged-identity-management-security-wizard.md) vás provede počáteční přiřazení prostředí. Následně se automaticky stane první **správce zabezpečení** a **správce privilegovaných rolí** adresáře.
 
 Pro role se službou Azure AD můžete spravovat jenom uživatel, který je v roli správce privilegovaných rolí přiřazení pro ostatní správce v Azure AD PIM. Můžete [ostatním uživatelům předat, schopnost spravovat adresář role v PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Globální správci, správce zabezpečení a zabezpečení čtečky můžete zobrazit přiřazení role se službou Azure AD v Azure AD PIM.
 Pro role Azure RBAC můžete spravovat pouze správce předplatného, vlastník prostředku nebo správce přístupu uživatelů prostředků přiřazení pro ostatní správce v Azure AD PIM.  Uživatelé, kteří jsou správci privilegované Role, správce zabezpečení nebo čtečky zabezpečení není ve výchozím nastavení mají přístup k zobrazení přiřazení rolí Azure RBAC v Azure AD PIM.
@@ -80,7 +80,7 @@ Aktivace role pro prostředky Azure (Preview) přináší nové prostředí, kte
 
 V případě, že naplánované aktivace se už nevyžaduje, uživatelé mohou zrušit jejich nevyřízené žádosti přechodem do nabídky žádosti čekající na vyřízení v levé navigační nabídce a kliknutím na tlačítko Storno tlačítko v řádku s tímto požadavkem.
 
-![žádosti čekající na vyřízení](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
+![Žádosti čekající na vyřízení](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
 
 ## <a name="privileged-identity-management-admin-dashboard"></a>Privilegované řídicí panel Správce Identity Management
 
@@ -148,7 +148,7 @@ Druhou možností je nastavit regular [přístup recenze](active-directory-privi
 Klient musí mít Azure AD Premium P2 (nebo EMS E5) zkušební nebo placené předplatné v jejich klientovi před použitím Azure AD PIM.  Licence musí být navíc přiřazovány Správci klienta.  Konkrétně musí být přiřazená licence k správci ve službě Azure AD role spravované přes Azure AD PIM, správci v Azure RBAC role spravovat prostřednictvím Azure AD PIM a uživatelé bez oprávnění správce, kteří provést recenze přístup.
 Pokud vaše organizace neobnovuje Azure AD Premium P2 nebo vypršení zkušební doby, funkce Azure AD PIM už nebude k dispozici ve vašem klientovi, přiřazení oprávněné rolí budou odebrány a uživatelé nebudou moci uživatel aktivovat role. Další informace v [požadavků předplatné Azure AD PIM](./privileged-identity-management/subscription-requirements.md)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

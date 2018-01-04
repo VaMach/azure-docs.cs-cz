@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a49b4c2d4ddd6d686675cee53d46cd4dd6ad3811
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Správa virtuálních sítí Azure a virtuální počítače s Linuxem pomocí rozhraní příkazového řádku Azure CLI
 
@@ -157,6 +157,8 @@ Pravidla NSG definovat síťové porty, přes které provoz povolený nebo zaká
 
 Všechny skupiny NSG obsahují sadu výchozích pravidel. Výchozí pravidla se nedají odstranit, ale protože je jim přiřazená nejnižší priorita, dají se přepsat pravidly, která vytvoříte.
 
+Výchozí pravidla pro skupiny Nsg jsou:
+
 - **Virtuální síť** – provoz pocházející a ukončování ve virtuální síti je povolena v příchozí a odchozí.
 - **Internet** – odchozí provoz je povolený, ale jsou blokovány příchozí přenosy.
 - **Nástroj pro vyrovnávání zatížení** – nástroj pro vyrovnávání zatížení povolit Azure testovat stav virtuálních počítačů a instancí rolí. Pokud nepoužíváte skupinu s vyrovnáváním zatížení, můžete přepsat toto pravidlo.
@@ -289,7 +291,7 @@ Virtuální počítač back-end je k dispozici pouze na portu *22* a port *3306*
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste vytvořili a zabezpečené sítě v souvislosti s virtuálními počítači Azure. Naučili jste se tyto postupy:
 

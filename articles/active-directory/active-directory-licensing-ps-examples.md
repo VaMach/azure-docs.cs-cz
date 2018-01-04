@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: cbc432c411e80c7fc49daecd727d8e1969faede5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Příklady prostředí PowerShell pro správu na základě skupiny licencí ve službě Azure AD
 
@@ -141,7 +141,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Získání všech uživatelů s chybami licencí ve skupině
 
-Danou skupinu, která obsahuje některé licence související chyby, teď můžete vytvořit seznam všech uživatelů, vliv na tyto chyby. Chyby z jiných skupin, může mít jser příliš. Ale v tomto příkladu jsme výsledky omezit pouze na chyby, které jsou relevantní pro dané skupiny kontrolou **ReferencedObjectId** vlastnost jednotlivých **IndirectLicenseError** položku na uživatele.
+Danou skupinu, která obsahuje některé licence související chyby, teď můžete vytvořit seznam všech uživatelů, vliv na tyto chyby. Uživatel může mít příliš chyby z jiných skupin. Ale v tomto příkladu jsme výsledky omezit pouze na chyby, které jsou relevantní pro dané skupiny kontrolou **ReferencedObjectId** vlastnost jednotlivých **IndirectLicenseError** položku na uživatele.
 
 ```
 #a sample group with errors
@@ -474,7 +474,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.                                                
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o funkci nastavit pro správu licencí pomocí skupin, naleznete v následujících tématech:
 

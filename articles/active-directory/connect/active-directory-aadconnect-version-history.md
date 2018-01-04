@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historie verzí
 Tým služby Azure Active Directory (Azure AD) pravidelně aktualizuje Azure AD Connect s novými funkcemi a funkce. Ne všechny dodatky platí pro všechny cílové skupiny.
@@ -48,7 +48,7 @@ Zlepšení přidala do Azure AD Connect verze 1.1.654.0 (i po) ujistěte se, že
 - Pro zákazníky, kteří upgradovali ze starší verze služby Azure AD Connect na 1.1.654.0 (nebo po) oprávnění změny se nepoužije zpětně do existující účty služby AD DS vytvořené před upgradem. Se použijí jenom k nové účty služby AD DS vytvořené po upgradu. K tomu dochází, když přidáváte nové doménové struktury AD synchronizovány se službou Azure AD.
 
 >[!NOTE]
->Tato verze pouze odebere ohrožení zabezpečení pro nové instalace služby Azure AD Connect, kde se má vytvořit účet služby procesem instalace. Pro existující instalace, nebo v případech, kde můžete vytvořit účet sami můžete sould zkontrolujte, že tuto chybu zabezpečení neexistuje.
+>Tato verze pouze odebere ohrožení zabezpečení pro nové instalace služby Azure AD Connect, kde se má vytvořit účet služby procesem instalace. Pro existující instalace, nebo v případech, kde můžete vytvořit účet sami měli byste zajistit, že toto ohrožení zabezpečení neexistuje.
 
 #### <a name="lock"></a>Zablokovat přístup k účtu služby AD DS
 Uzamčení přístup k účtu služby AD DS implementací následující oprávnění změny v místní AD:  
@@ -57,7 +57,7 @@ Uzamčení přístup k účtu služby AD DS implementací následující oprávn
 *   Odeberte všechny položky řízení přístupu pro daný objekt, s výjimkou položky řízení přístupu konkrétním do sebe sama. Chceme zachovat výchozí oprávnění při přechodu do sebe sama.
 *   Přiřadíte tato konkrétní oprávnění:
 
-Typ     | Name (Název)                          | Access               | Platí pro
+Typ     | Název                          | Access               | Platí pro
 ---------|-------------------------------|----------------------|--------------|
 Povolit    | SYSTÉM                        | Úplné řízení         | Tento objekt  |
 Povolit    | Enterprise Admins             | Úplné řízení         | Tento objekt  |
@@ -919,5 +919,5 @@ Vydáno: Září 2014
 
 **Počáteční verzi Azure AD Sync.**
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Přečtěte si další informace o [Integrování místních identit do služby Azure Active Directory](active-directory-aadconnect.md).

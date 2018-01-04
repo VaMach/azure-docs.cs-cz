@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Použití nástroje Sqoop se systémem Hadoop v HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -45,17 +45,17 @@ HDInsight cluster se dodává s ukázková data. Můžete použít následujíc�
         ...
 * Hive tabulku s názvem *hivesampletable*, který odkazuje na datový soubor nacházející se v */hive/warehouse/hivesampletable*. Tabulka obsahuje některé data mobilních zařízení. 
   
-  | Pole | Datový typ |
+  | Pole | Typ dat |
   | --- | --- |
-  | ClientID |Řetězec |
-  | querytime |Řetězec |
-  | trh |Řetězec |
-  | deviceplatform |Řetězec |
-  | devicemake |Řetězec |
-  | devicemodel |Řetězec |
-  | state |Řetězec |
-  | Země |Řetězec |
-  | querydwelltime |Double |
+  | ClientID |řetězec |
+  | querytime |řetězec |
+  | trh |řetězec |
+  | deviceplatform |řetězec |
+  | devicemake |řetězec |
+  | devicemodel |řetězec |
+  | state |řetězec |
+  | Země |řetězec |
+  | querydwelltime |double |
   | ID relace |bigint |
   | sessionpagevieworder |bigint |
 
@@ -94,7 +94,7 @@ Pokud chcete používat prostředí Azure PowerShell k vytvoření clusteru a da
      
         Následující hodnoty jsou pevně kódovaný v části proměnných:
         
-        |Name (Název)|Hodnota|
+        |Název|Hodnota|
         |----|-----|
         | Výchozí název účtu úložiště | &lt;CluterName > Uložit |
         | Název serveru databáze SQL Azure | &lt;Název clusteru > dbserver |
@@ -161,7 +161,7 @@ HDInsight Sqoop úlohy můžete spustit pomocí různých metod. Následující 
 * Hromadné export - s Linuxovým systémem HDInsight, Sqoop konektor umožňuje exportovat data do systému Microsoft SQL Server nebo Azure SQL Database v současné době nepodporuje hromadné vložení.
 * Dávkování - s HDInsight se systémem Linux, při použití `-batch` přepnout při vložení, Sqoop provádí více vloží místo dávkování operace insert.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Nyní jste se naučili postup použití nástroje Sqoop. Další informace naleznete v tématu:
 
 * [Použití Hivu se službou HDInsight](../hdinsight-use-hive.md)
@@ -221,7 +221,7 @@ Ukázku v prostředí PowerShell provede následující kroky:
    > Než informace o připojovacím řetězci by měl pracovní postup v této části pro Azure SQL database nebo SQL Server. Tyto kroky testovali pomocí následující konfigurace:
    > 
    > * **Konfigurace point-to-site virtuální síť Azure**: virtuální sítě připojen k serveru SQL Server v privátním datacentru clusteru HDInsight. V tématu [konfigurace VPN typu Point-to-Site v portálu pro správu](../../vpn-gateway/vpn-gateway-point-to-site-create.md) Další informace.
-   > * **Azure HDInsight 3.1**: najdete v části [vytvoření Hadoop clusterů v HDInsight pomocí vlastních možností](../hdinsight-hadoop-provision-linux-clusters.md) informace o vytváření clusteru s podporou ve virtuální síti.
+   > * **Azure HDInsight**: najdete v části [vytvoření Hadoop clusterů v HDInsight pomocí vlastních možností](../hdinsight-hadoop-provision-linux-clusters.md) informace o vytváření clusteru s podporou ve virtuální síti.
    > * **SQL Server 2014**: nakonfigurovaná tak, aby povolit ověřování a spouštění klienta VPN konfigurační balíček se bezpečně připojit k virtuální síti.
    > 
    > 

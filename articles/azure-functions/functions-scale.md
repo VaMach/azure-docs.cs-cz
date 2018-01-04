@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure funkce škálování a hostování
 
@@ -90,7 +90,7 @@ Další informace o typech účtu úložiště najdete v tématu [Představení 
 
 ## <a name="how-the-consumption-plan-works"></a>Jak funguje s plánem spotřeba
 
-V plánu spotřeby řadičem škálování automaticky přizpůsobí prostředků procesoru a paměti přidáním další instance funkce hostitele, na základě počtu událostí, které jsou aktivována jeho funkce. Každá instance hostitele funkce je omezený na 1,5 GB paměti.  Instance hostitele je funkce aplikace, což znamená všechny funkce v rámci – funkce aplikace sdílet zdroje v rámci služby instance a škálování ve stejnou dobu.
+V plánu spotřeby řadičem škálování automaticky přizpůsobí prostředků procesoru a paměti přidáním další instance funkce hostitele, na základě počtu událostí, které jsou aktivována jeho funkce. Každá instance hostitele funkce je omezený na 1,5 GB paměti.  Instance hostitele je funkce aplikace, což znamená všechny funkce v rámci funkce aplikace sdílet zdroje v rámci služby instance a škálování ve stejnou dobu.
 
 Při spotřeby hostování plán, jsou uloženy soubory kódu funkce na Azure sdílených složek v účtu úložiště hlavní funkce. Pokud odstraníte účet úložiště hlavní funkce aplikace, soubory kódu funkce jsou odstraněny a nelze jej obnovit.
 
@@ -119,7 +119,7 @@ Různé aktivační události mohou mít i jiné omezení škálovatelnosti, jak
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Osvědčené postupy a vzory pro škálovatelné aplikace
 
-Existuje mnoho aspektů funkce aplikaci, která bude mít vliv na tom, jak dobře se bude škálovat, včetně konfigurace hostitele, runtime nároky a účinnosti prostředků.  Zobrazení [škálovatelnost části článku aspekty výkonu](functions-best-practices.md#scalability-best-practices) Další informace.
+Existuje mnoho aspektů funkce aplikaci, která bude mít vliv na tom, jak dobře se bude škálovat, včetně konfigurace hostitele, runtime nároky a efektivity prostředků.  Zobrazení [škálovatelnost části článku aspekty výkonu](functions-best-practices.md#scalability-best-practices) Další informace.
 
 ### <a name="billing-model"></a>Model fakturace
 

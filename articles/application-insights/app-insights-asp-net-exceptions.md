@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostikovat výjimky ve webových aplikacích pomocí služby Application Insights
 Výjimky v svou živou webovou aplikaci oznamuje [Application Insights](app-insights-overview.md). Neúspěšných požadavků mohou korelovat s výjimky a dalších událostí na klienta a serveru, takže můžete rychle diagnostikovat příčin.
@@ -57,7 +57,7 @@ V kódu Všimněte si, že Codelensu zobrazuje data o výjimky:
 ![Oznámení Codelensu výjimek.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnostikování chyb pomocí portálu Azure
-Application Insights se dodává s kurátorované prostředí APM při diagnostikování selhání v monitorovaných aplikací. Pokud chcete spustit, klikněte na možnost selhání v nabídce prostředku Application Insights v sekci prošetřit. Měli byste vidět zobrazení na celou obrazovku, zobrazující trendy míra selhání pro své žádosti, kolik z nich se nedaří a dopad na tom, kolik uživatelů. Na pravé straně uvidíte některé specifické pro vybraný nejužitečnější distribuce selhání operace, včetně kódy odpovědí horní 3, 3 hlavních typy výjimek a hlavní 3 selhání depedency typy. 
+Application Insights se dodává s kurátorované prostředí APM při diagnostikování selhání v monitorovaných aplikací. Pokud chcete spustit, klikněte na možnost selhání v nabídce prostředku Application Insights v sekci prošetřit. Měli byste vidět zobrazení na celou obrazovku, zobrazující trendy míra selhání pro své žádosti, kolik z nich se nedaří a dopad na tom, kolik uživatelů. Na pravé straně uvidíte některé specifické pro vybraný nejužitečnější distribuce selhání operace, včetně kódy odpovědí horní 3, 3 hlavních typy výjimek a nejvyšší 3 selhání závislostí typy. 
 
 ![Selhání rychlou kontrolu zobrazení (kartu operace)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
@@ -301,7 +301,7 @@ Můžete přidat tento atribut přepsaného na konkrétní řadiče, nebo ho př
 
 [Ukázka](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Existuje několik případů, které nelze zpracovat filtry výjimek. Například:
+Existuje několik případů, které nelze zpracovat filtry výjimek. Příklad:
 
 * Výjimky vydané z konstruktorů řadiče.
 * Výjimek vyvolaných z obslužné rutiny zpráv.
@@ -440,7 +440,7 @@ To se liší od počtu "Výjimky" vypočítána portálu služby Application Ins
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Sledování REST, SQL a jiné volání závislosti](app-insights-asp-net-dependencies.md)
 * [Monitorování časů načtení stránky, výjimek prohlížeče a volání AJAX](app-insights-javascript.md)
 * [Čítače sledování výkonu](app-insights-performance-counters.md)

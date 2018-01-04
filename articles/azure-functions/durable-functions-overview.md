@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f9dabe2644553ab1f4ed02ae026c7dbf1a0db264
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Trvanlivý přehled funkcí (preview)
 
@@ -215,7 +215,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
         if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
         {
             timeoutCts.Cancel();
-            await ctx.CallActivityAsync("HandleApproval", approvalEvent.Result);
+            await ctx.CallActivityAsync("ProcessApproval", approvalEvent.Result);
         }
         else
         {
@@ -278,7 +278,7 @@ Funkce Orchestrator plán aktivita funkce a jejich odpovědi prostřednictvím z
 
 Obecně platí, by měly být všechny známé problémy sledovány v [Githubu problémy](https://github.com/Azure/azure-functions-durable-extension/issues) seznamu. Pokud dojde k potížím a nelze najít problém v Githubu, otevřete nový problém a obsahovat podrobný popis problému. I v případě, že chcete stačí položit dotaz, klidně si otevřete potíže Githubu a označit ji jako dotaz.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
 > [Pokračujte ve čtení trvanlivý funkce dokumentace](durable-functions-bindings.md)

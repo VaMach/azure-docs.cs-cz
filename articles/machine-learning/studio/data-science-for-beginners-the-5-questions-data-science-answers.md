@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 47257bdb054b069c864ebf545b0c00bdfb05a9ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Vědecké zkoumání dat pro začátečníky – Video 1: 5 otázek, na které odpovídá vědecké zkoumání dat
 Rychlý úvod k vědecké zpracování dat z *vědecké zpracování dat pro začátečníky* v pěti krátké videa z vědecký pracovník hlavní data. Tyto videa jsou základní ale užitečná, ať už vás zajímá provádění vědecké zpracování dat nebo práci s datových vědců.
@@ -70,7 +70,7 @@ Tuto řadu algoritmů nazývá two-class klasifikace.
 
 Je vhodné pro všechny otázky, který má jenom dvě možné odpovědi.
 
-Například:
+Příklad:
 
 * V další 1000 miles selže tento můžete zadat: Ano nebo ne?
 * Která přináší u více zákazníků: $5 kupóny nebo 25 % sleva?
@@ -138,6 +138,6 @@ Algoritmy učení posílení shromažďování dat jako přejít, učení ze zku
 
 Tak, aby se jeho - vědecké zpracování dat pro dotazy 5 může odpovědět.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Zkuste prvního experimentu vědecké účely data nástroje Machine Learning Studio](create-experiment.md)
 * [Získejte Úvod do Machine Learning v Microsoft Azure](what-is-machine-learning.md)

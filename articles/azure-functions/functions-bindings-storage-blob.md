@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: c170b3e4addaed2ec870c4a518e8f74b3ca4b952
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage vazby pro Azure Functions
 
@@ -486,7 +486,7 @@ Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastav
 |Vlastnost Function.JSON | Vlastnost atributu |Popis|
 |---------|---------|----------------------|
 |**Typ** | neuvedeno | musí být nastavena na `blob`. |
-|**směr** | neuvedeno | Musí být nastavena na `in` pro vazbu vstupní nebo na více systémů pro vazbu výstup. Výjimky jsou uvedeny v [využití](#input--output---usage) části. |
+|**směr** | neuvedeno | Musí být nastavena na `in` pro vazbu vstupní nebo `out` pro vazbu výstup. Výjimky jsou uvedeny v [využití](#input--output---usage) části. |
 |**Jméno** | neuvedeno | Název proměnné, která představuje objektů blob v kódu funkce.  Nastavte na `$return` Chcete-li funkce návratovou hodnotu.|
 |**Cesta** |**BlobPath** | Cesta k objektu blob. | 
 |**připojení** |**Připojení**| Název nastavení aplikace, který obsahuje připojovací řetězec úložiště k použití pro tuto vazbu. Název nastavení aplikace začíná "AzureWebJobs", můžete zadat pouze zbytku názvu sem. Například pokud nastavíte `connection` na "MyStorage" Functions runtime vypadá pro aplikaci nastavení, která je s názvem "AzureWebJobsMyStorage." Pokud necháte `connection` prázdný, funkce používá modul runtime výchozí úložiště připojovací řetězec v nastavení aplikace, který je pojmenován `AzureWebJobsStorage`.<br><br>Připojovací řetězec nesmí být pro účet úložiště pro obecné účely [účet pouze objekt blob úložiště](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|

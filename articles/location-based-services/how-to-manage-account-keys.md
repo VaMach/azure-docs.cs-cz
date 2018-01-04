@@ -6,14 +6,14 @@ keywords: "Nemáte přidat nebo upravit klíčová slova bez konzultace ohledně
 author: philmea
 ms.author: philmea
 ms.date: 11/14/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: c7f877eebefb3ed7c8230c2436e5cb024cc99c11
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ccdeafeaf869768f4094aaa31fe2a69d52d7cf9d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Jak spravovat váš účet služeb na základě umístění Azure a klíče
 
@@ -21,13 +21,13 @@ Můžete spravovat váš účet služeb na základě umístění Azure a klíči
 
 Pokud ještě nemáte předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure. 
+## <a name="log-in-to-azure"></a>Přihlášení k Azure 
 
 Přihlaste se k webu Azure Portal na adrese http://portal.azure.com.
 
 ## <a name="create-a-new-account"></a>Vytvoření nového účtu
 
-1. Klikněte na tlačítko **Nový** v levém horním rohu webu Azure Portal.
+1. Klikněte na tlačítko **Nový** v levém horním rohu portálu Azure Portal.
 
 2. Vyhledejte a vyberte **na základě polohy**, pak klikněte na tlačítko **vytvořit**.
 

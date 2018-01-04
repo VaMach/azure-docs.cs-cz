@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3b93cdfbfb143c1597d190d87d270b5e6ede9537
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 8282c30a2b9aa4341f3e7d720f2d3cfc0b4a6fa0
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Vytvoření virtuálního počítače s Linuxem pomocí PowerShellu
 
@@ -33,7 +33,7 @@ Tento Rychlý start vyžaduje modul Azure PowerShell verze 3.6 nebo novější. 
 Veřejný klíč SSH s názvem *id_rsa.pub* musí být nakonec uložen v adresáři *.ssh* vašeho profilu uživatele Windows. Podrobné informace o vytváření klíčů SSH pro Azure najdete v tématu popisujícím [vytvoření klíčů SSH pro Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="log-in-to-azure"></a>Přihlaste se k Azure.
+## <a name="log-in-to-azure"></a>Přihlášení k Azure
 
 Přihlaste se k předplatnému Azure pomocí příkazu `Login-AzureRmAccount` a postupujte podle pokynů na obrazovce.
 
@@ -149,7 +149,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-## <a name="view-the-ngix-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
+## <a name="view-the-nginx-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
 
 S nainstalovaným serverem NGINX na virtuálním počítači a nyní otevřeným portem 80 z internetu můžete použít libovolný webový prohlížeč a zobrazit výchozí úvodní stránku serveru NGINX. Nezapomeňte pro návštěvu výchozí stránky použít veřejnou IP adresu popsanou výše. 
 

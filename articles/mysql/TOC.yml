@@ -35,7 +35,7 @@
   items:
     - name: 1. Návrh databáze
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
@@ -61,7 +61,7 @@
           href: concepts-server-logs.md
         - name: Vysoká dostupnost
           href: concepts-high-availability.md
-    - name: Zdroje
+    - name: Zdroje a prostředky
       items:
         - name: Cenové úrovně
           href: concepts-service-tiers.md
@@ -87,17 +87,17 @@
   items:
     - name: Správa serveru
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: howto-create-manage-server-portal.md
     - name: Pravidla brány firewall
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Obnovení serveru
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -107,6 +107,8 @@
           href: concepts-migrate-dump-restore.md
         - name: Import a export
           href: concepts-migrate-import-export.md
+        - name: Migrace s minimem výpadků
+          href: howto-migrate-online.md
     - name: Připojení aplikací
       items:
         - name: Vytvoření uživatelů
@@ -119,13 +121,13 @@
           href: howto-connect-webapp.md
     - name: Konfigurace parametrů serveru
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
     - name: Přístup k protokolům serveru
       items:
-        - name: portál Azure
+        - name: Azure Portal
           href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-in-cli.md
@@ -139,7 +141,7 @@
       href: /cli/azure/mysql
     - name: REST API
       href: /rest/api/mysql
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Šablony nasazení
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'

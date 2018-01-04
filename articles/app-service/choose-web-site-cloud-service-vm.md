@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Porovnání služeb App Service, Virtual Machines, Service Fabric a Cloud Services
 ## <a name="overview"></a>Přehled
@@ -110,6 +110,8 @@ Služba Azure App Service je skvělým řešením pro tento scénář, protože 
 * Použít galerii aplikací k rychlému nastavení oblíbených webových aplikací, jako je například WordPress.
 * Přidávat do aplikace další služby a funkce Azure podle potřeby.
 * Zabezpečit webovou aplikaci pomocí protokolu HTTPS.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a id="designer"></a>Jsem návrhář/ka webů nebo grafiky a chci navrhovat a vytvářet weby pro své zákazníky
 Pro účely vývojářů a návrhářů webů se Azure App Service snadno integruje s nejrůznějšími architekturami a nástroji, zahrnuje podporu nasazení pomocí Gitu a protokolu FTP a nabízí úzkou integraci s nástroji a službami, jako jsou sada Visual Studio a služba SQL Database. App Service umožňuje:

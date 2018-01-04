@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 5355b3ffcddf0ad0c23566dde00663bd4dc99fbc
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurace mapy služeb v Operations Management Suite
 Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Linux a mapuje komunikaci mezi službami. Můžete ji zobrazit vaše servery co možná z nich – jako vzájemně propojena systémy, které doručují důležité služby. Mapy služeb zobrazí připojení mezi servery, procesy a porty mezi všechny architektura připojení TCP se žádná konfigurace vyžaduje, než instalace agenta.
@@ -26,7 +26,7 @@ Service Map automaticky rozpozná komponenty aplikace v systémech Windows a Lin
 Tento článek popisuje podrobnosti konfigurace agentů mapy služeb a registrace. Informace o používání mapy služeb najdete v tématu [pomocí mapy služeb řešení v Operations Management Suite](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Agent služby Dependency soubory ke stažení
-| File | Operační systém | Verze | ALGORITMUS SHA-256 |
+| File | Operační systém | Verze | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
 | [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
@@ -35,7 +35,7 @@ Tento článek popisuje podrobnosti konfigurace agentů mapy služeb a registrac
 ## <a name="connected-sources"></a>Připojené zdroje
 Mapa služeb získává data od agenta nástroje Microsoft závislostí. Agent závislostí závisí na agenta OMS pro připojení k Operations Management Suite. To znamená, že server musí mít agenta OMS nainstalovaný a nakonfigurovaný nejprve a pak může být nainstalován Agent závislostí. Následující tabulka popisuje připojených zdrojů, které podporuje řešení mapy služeb.
 
-| Připojený zdroj | Podporuje se | Popis |
+| Připojený zdroj | Podporováno | Popis |
 |:--|:--|:--|
 | Agenti systému Windows | Ano | Mapa služeb analyzuje a shromažďuje data z počítače se systémem Windows agenta. <br><br>Kromě [agenta OMS](../log-analytics/log-analytics-windows-agent.md), Agent služby Microsoft Dependency vyžadují agentů v systému Windows. Najdete v článku [podporované operační systémy](#supported-operating-systems) úplný seznam verzí operačního systému. |
 | Agenti systému Linux | Ano | Mapa služeb analyzuje a shromažďuje data z počítače se systémem Linux agent. <br><br>Kromě [agenta OMS](../log-analytics/log-analytics-linux-agents.md), agenty Linux vyžadují Microsoft Agent závislostí. Najdete v článku [podporované operační systémy](#supported-operating-systems) úplný seznam verzí operačního systému. |
@@ -367,8 +367,6 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 
 | Verze operačního systému | Verze jádra
 |:--|:--|
-| 5.8 | Oracle 2.6.32-300 (UEK R1) |
-| 5.9 | Oracle 2.6.39-300 (UEK R2) |
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
@@ -377,16 +375,10 @@ Následující části uvádějí podporované operační systémy pro agenta z�
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 | Verze operačního systému | Verze jádra
 |:--|:--|
-| 11 | 2.6.27 |
-| 11 SP1 | 2.6.32 |
-| 11 SP2 | 3.0.13 |
-| 11 SP3 | 3.0.76 |
-| 11 SP4 | 3.0.101 |
+| 11 SP2 | 3.0.101-0.7 |
+| 11 SP3 | 3.0.101-0.47 |
+| 11 SP4 | 3.0.101-65 |
 
-#### <a name="suse-linux-10"></a>SUSE Linux 10
-| Verze operačního systému | Verze jádra
-|:--|:--|
-| 10 SP4 | 2.6.16.60 |
 
 ## <a name="diagnostic-and-usage-data"></a>data o využití a Diagnostika
 Microsoft automaticky shromažďuje data o využití a výkonu prostřednictvím používání služby mapy služeb. Tato data Microsoft používá k poskytování a zlepšování kvality, zabezpečení a integrity služby mapy služeb. Data zahrnují informace o konfiguraci vašeho softwaru, jako je verze operačního systému a. Zahrnuje taky IP adresu, název DNS a název pracovní stanice s cílem poskytnout přesná a efektivní možnosti pro odstraňování potíží. Neshromažďujeme jména, adresy ani jiné kontaktní informace.
@@ -395,5 +387,5 @@ Další informace o shromažďování a používání dat najdete v tématu [pro
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Zjistěte, jak [pomocí mapy služeb](operations-management-suite-service-map.md) po byla nasazena a nakonfigurována.

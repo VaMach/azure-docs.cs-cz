@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: aa0c762d883b5860d7ac088cc143fb7e9e9028b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 13390c2db203332433e7e3c39c8d9ed5f688448c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Vytvořte v Azure s Terraform kompletní infrastrukturu virtuálních počítačů Linux
 
@@ -132,7 +132,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
 
 
 ## <a name="create-virtual-network-interface-card"></a>Vytvořit virtuální síťová karta
-Virtuální síťová karta (NIC) připojí k dané virtuální síti, veřejnou IP adresu a skupinu zabezpečení sítě virtuálního počítače. V následující části v playbook Ansible vytvoří virtuální síťový adaptér s názvem *myNIC* připojené k virtuální síťové prostředky, které jste vytvořili:
+Virtuální síťová karta (NIC) připojí k dané virtuální síti, veřejnou IP adresu a skupinu zabezpečení sítě virtuálního počítače. V následující části v šabloně Terraform vytvoří virtuální síťový adaptér s názvem *myNIC* připojené k virtuální síťové prostředky, které jste vytvořili:
 
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
@@ -468,5 +468,5 @@ Pak můžete SSH pro virtuální počítač:
 ssh azureuser@<publicIps>
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Základní infrastruktura jste vytvořili v Azure pomocí Terraform. Složitější scénáře, včetně příklady, které pomocí služby Vyrovnávání zatížení a virtuální počítač škálování sad, najdete v tématu množství [Terraform příklady Azure](https://github.com/hashicorp/terraform/tree/master/examples). Aktuální seznam podporovaných zprostředkovatelů Azure, najdete v článku [Terraform dokumentaci](https://www.terraform.io/docs/providers/azurerm/index.html).

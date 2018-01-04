@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b609756f6fcea2a57210889d8082ffb45cbc92de
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 29c2f897cbc5affcd6b2a70ec95a1a8855a5db69
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Vytvoření aplikace v Ruby ve službě App Service v Linuxu
 
@@ -96,13 +96,13 @@ Vyžaduje se skupina prostředků, která bude obsahovat prostředky nezbytné p
 az group create --location westeurope --name myResourceGroup
 ```
 
-Pomocí příkazu [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) vytvořte plán služby App Service pro vaši aplikaci.
+Pomocí příkazu [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) vytvořte plán služby App Service pro vaši aplikaci.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Dále pomocí příkazu [az webapp create](https://docs.microsoft.com/cli/azure/webapp) vytvořte webovou aplikaci, která využívá nově vytvořený plán služby. Všimněte si, že modul runtime je nastavený na `ruby|2.3`. Nezapomeňte nahradit `<app name>` jedinečným názvem aplikace.
+Dále pomocí příkazu [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) vytvořte webovou aplikaci, která využívá nově vytvořený plán služby. Všimněte si, že modul runtime je nastavený na `ruby|2.3`. Nezapomeňte nahradit `<app name>` jedinečným názvem aplikace.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -147,7 +147,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Po dokončení nasazení pomocí příkazu [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) restartujte webovou aplikaci, aby se nasazení projevilo. Tady je příklad příkazu:
+Po dokončení nasazení pomocí příkazu [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) restartujte webovou aplikaci, aby se nasazení projevilo. Tady je příklad příkazu:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup

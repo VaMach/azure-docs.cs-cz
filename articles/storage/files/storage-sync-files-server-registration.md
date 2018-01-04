@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Spravovat registrované servery se synchronizací souboru Azure (preview)
 Azure File Sync (Preview) umožňuje centralizovat sdílené složky organizace ve službě Soubory Azure bez ztráty flexibility, výkonu a kompatibility místního souborového serveru. Dělá to pomocí transformace serverů Windows na rychlou mezipaměť sdílené složky Azure. Pro místní přístup k datům můžete použít jakýkoli protokol dostupný ve Windows Serveru (včetně SMB, NFS a FTPS) a můžete mít libovolný počet mezipamětí po celém světě.
@@ -138,7 +138,7 @@ Teď, když byl odvolán všechna data a serveru byla odebrána ze všech skupin
 1. Na portálu Azure přejděte do *registrované servery* části synchronizační služby úložiště.
 2. Klikněte pravým tlačítkem myši na serveru, kterou chcete zrušit registraci a klikněte na tlačítko "Zrušit registraci serveru".
 
-    ![Zrušení registrace serveru](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Zrušit registraci serveru](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Zajistit synchronizace souboru Azure je dobré sousedním ve vašem datovém centru 
 Vzhledem k tomu, že synchronizace souboru Azure zřídka bude pouze služba spuštěna ve vašem datovém centru, můžete omezit využití sítě a úložiště synchronizace souborů Azure.
@@ -147,7 +147,7 @@ Vzhledem k tomu, že synchronizace souboru Azure zřídka bude pouze služba spu
 > Nastavení příliš nízké omezení bude mít dopad na výkon synchronizace synchronizace souboru Azure a odvolání.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Nastavení limitů sítě Azure synchronizace souboru
-Utilitization sítě synchronizace souborů Azure můžete omezit pomocí rutin 'StorageSyncNetworkLimit'. 
+Můžete omezit využití sítě synchronizace souborů Azure pomocí `StorageSyncNetworkLimit` rutiny. 
 
 Například můžete vytvořit nový limit sítě zajistit, že synchronizace souboru Azure nepoužívá víc než 10 MB/s mezi 9: 00 a 17: 00 (h 17:00) během pracovní dny: 
 
@@ -171,7 +171,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Používání úložiště systému Windows Server technologie QoS 
 Při synchronizaci souboru Azure je hostovaná ve virtuální počítač běží na hostiteli virtualizace systému Windows Server, můžete regulovat úložiště vstupně-výstupní operace spotřeba úložiště QoS (quality of service úložiště). Zásada QoS úložiště můžete nastavit jako maximální počet (nebo omezení, jako je jak StorageSyncNetwork limit vynucený výše), nebo jako minimální (nebo rezervace). Nastavení minimální místo maximální umožňuje Azure souboru Sync k rozšíření do využití šířky pásma úložiště k dispozici, pokud další pracovní úlohy nepoužívají. Další informace najdete v tématu [úložiště Quality of Service](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 - [Plánování nasazení synchronizace souboru Azure (preview)](storage-sync-files-planning.md)
 - [Nasadit soubor synchronizaci Azure (preview)](storage-sync-files-deployment-guide.md) 
 - [Řešení potíží s synchronizace souboru Azure (preview)](storage-sync-files-troubleshoot.md)

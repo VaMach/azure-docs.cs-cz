@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 74f3334fb5b13dccfd16eff216d370fb6a643980
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1b6bef88d729a2febfca2bd236a5382d2c11bd69
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights pro rozhraní .NET Konzolová aplikace
 [Application Insights](app-insights-overview.md) umožňuje monitorování vaší webové aplikace pro dostupnosti, výkonu a využití.
@@ -37,7 +37,7 @@ var telemetryClient = new TelemetryClient();
 telemetryClient.TrackTrace("Hello World!");
 ```
 
-* Nainstalujte nejnovější verzi [Microsoft.ApplicationInsights.DependecyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) balíček - automaticky sleduje HTTP, SQL nebo jiná volání vnější závislosti.
+* Nainstalujte nejnovější verzi [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) balíček - automaticky sleduje HTTP, SQL nebo jiná volání vnější závislosti.
 
 Může inicializace a konfigurace Application Insights z kódu nebo použití `ApplicationInsights.config` souboru. Zajistěte, aby co nejdříve se stane inicializace.
 
@@ -172,6 +172,6 @@ static DependencyTrackingTelemetryModule IntitializeDependencyTracking(Telemetry
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Monitorování závislostí](app-insights-asp-net-dependencies.md) chcete zobrazit, pokud REST, SQL nebo jiné externí prostředky zpomalují můžete.
 * [Použít rozhraní API](app-insights-api-custom-events-metrics.md) k odeslání vlastní události a metriky pro další podrobné zobrazení výkonu a využití vaší aplikace.

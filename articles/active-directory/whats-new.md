@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 408e1680e7aee13663bb6511e65fd5685eb7d518
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6e1cf6e2ee717ef7629e1388d7bca2090eed46fa
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co je nového ve službě Azure Active Directory?
 
 
 
 
-> Vždy aktuální s co je nového ve službě Azure Active Directory se přihlásíte k odběru naší ![RSS](./media/whats-new/feed-icon-16x16.png) [kanálu](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Vždy aktuální s co je nového ve službě Azure Active Directory se přihlásíte k odběru naší [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [kanálu](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
@@ -335,7 +335,7 @@ Následující podmínky a ovládací prvky jsou nyní k dispozici pro použití
 
 **Stav aplikace klienta**
 
-- Mobilní aplikace a klienti vzdálené plochy
+- Mobilní aplikace a desktopoví klienti
 
 **Řízení přístupu**
 
@@ -434,7 +434,7 @@ Další informace najdete v tématu [vaší stávající infrastruktury pro serv
 
 V Centru správy služby Azure AD můžete provádět následující akce:
 
-- Obnovení odstraněného uživatele 
+- Obnovit odstraněného uživatele 
 - Trvale odstranit uživatele 
 
 

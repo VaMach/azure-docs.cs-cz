@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 1bff8e4b052ffe8274c290abdebfbac7bf9a883d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 6cc7035e798ef72f69958a7536a741f80939d4fe
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-virtual-network"></a>Azure Virtual Network
 
-Služba Microsoft Azure Virtual Network umožňuje prostředků Azure k bezpečné komunikaci s jinými ve virtuální síti. Virtuální síť je reprezentace vlastní sítě v cloudu. Virtuální síť je to logická izolace cloudu Azure vyhrazeného pro vaše předplatné. Virtuální sítě můžete připojit k jiné virtuální sítě, nebo k místní síti. Následující obrázek znázorňuje některé funkce služby Azure Virtual Network:
+Služba Microsoft Azure Virtual Network umožňuje prostředků Azure k bezpečné komunikaci mezi sebou ve virtuální síti. Virtuální síť je to logická izolace cloudu Azure vyhrazeného pro vaše předplatné. Virtuální sítě můžete připojit k jiné virtuální sítě, nebo k místní síti. Následující obrázek znázorňuje některé funkce služby Azure Virtual Network:
 
 ![Diagram sítě](./media/virtual-networks-overview/virtual-network-overview.png)
 

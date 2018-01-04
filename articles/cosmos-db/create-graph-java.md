@@ -13,17 +13,17 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/20/2017
+ms.date: 12/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 6ac59cb3d669e0dc197787311beedd44f888e8ab
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Vytvoření databáze grafu pomocí Javy a webu Azure Portal
 
-Databáze Azure Cosmos je databázová služba Microsoftu s více modely použitelná v celosvětovém měřítku. Pomocí Azure Cosmos DB můžete rychle vytvořit a dotazovat spravované databáze dokumentů, tabulek a grafů. 
+Azure Cosmos DB je globálně distribuovaná databázová služba Microsoftu pro více modelů. Pomocí Azure Cosmos DB můžete rychle vytvořit a dotazovat spravované databáze dokumentů, tabulek a grafů. 
 
 V tomto rychlém startu se vytvoří jednoduchá databáze grafů pomocí nástrojů pro Azure Cosmos DB na webu Azure Portal. V tomto rychlém startu se také dozvíte, jak rychle vytvořit konzolovou aplikaci Java, která používá databázi grafu, pomocí ovladače OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver). Pokyny v tomto rychlém startu platí pro všechny operační systémy, které podporují Javu. Tento rychlý start vás seznámí s vytvářením a upravováním grafů v uživatelském rozhraní nebo programově podle toho, čemu dáváte přednost. 
 
@@ -64,7 +64,6 @@ Teď můžete pomocí nástroje Průzkumník dat na webu Azure Portal vytvořit 
     ID grafu|sample-graph|Jako název nové kolekce zadejte *sample-graph*. Názvy grafů mají stejné požadavky na znaky jako ID databází.
     Kapacita úložiště|Pevná (10 GB)|Změňte hodnotu na **Pevná (10 GB)**. Tato hodnota je kapacita úložiště databáze.
     Propustnost|400 RU/s|Změňte propustnost na 400 jednotek žádostí za sekundu (RU/s). Pokud budete chtít snížit latenci, můžete propustnost později navýšit.
-    Klíč oddílu|Ponechte prázdné|Pro účely tohoto rychlého startu ponechte klíč oddílu prázdný.
 
 3. Po vyplnění formuláře klikněte na **OK**.
 
@@ -123,7 +122,7 @@ Teď se vraťte na portál Azure, kde najdete informace o připojení, a zkop�
 
     Zkopírujte první část hodnoty identifikátoru URI.
 
-    ![Zobrazení a zkopírování přístupového klíče na webu Azure Portal na stránce Klíče](./media/create-graph-java/keys.png)
+    ![Zobrazení a zkopírování přístupového klíče na portálu Azure na stránce Klíče](./media/create-graph-java/keys.png)
 2. Otevřete soubor src/remote.yaml a vložte hodnotu místo `$name$` v části `hosts: [$name$.graphs.azure.com]`.
 
     Řádek 1 souboru remote.yaml by teď měl vypadat nějak takto: 
@@ -236,7 +235,7 @@ Teď můžete přejít zpět do Průzkumníku dat a zobrazit vrcholy přidané d
 
    Tím je dokončená část tohoto kurzu věnovaná vytváření prostředků. Můžete pokračovat přidáním vrcholů do grafu, úpravou existujících vrcholů nebo změnou dotazů. Teď si projdeme metriky, které služba Azure Cosmos DB nabízí, a pak vyčistíme prostředky. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Ověření smluv SLA na webu Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Ověření podmínek SLA na portálu Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

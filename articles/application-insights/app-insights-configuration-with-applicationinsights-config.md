@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e59df358f25663c742b0da09cf27b974787536dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurace sady Application Insights SDK pomocí souboru ApplicationInsights.config nebo .xml
 Application Insights .NET SDK se skládá z počet balíčků NuGet. [Základní balíček](http://www.nuget.org/packages/Microsoft.ApplicationInsights) poskytuje rozhraní API pro odesílání telemetrie Application insights. [Další balíčky](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) poskytují telemetrie *moduly* a *inicializátory* pro automaticky sledování telemetrie z vaší aplikace a jeho kontextu. Úpravou konfiguračního souboru, můžete povolit nebo zakázat telemetrii moduly a inicializátory a nastavit parametry pro některé z nich.
 
-Konfigurační soubor je s názvem `ApplicationInsights.config` nebo `ApplicationInsights.xml`, v závislosti na typu aplikace. Je automaticky přidán do projektu když jste [nainstalujte většina verze sady SDK][start]. Je také přidán do webové aplikace pomocí [monitorování stavu na serveru se službou IIS][redfield], nebo když vyberete Appplication Insights [rozšíření pro webové stránky Azure, nebo virtuální počítač](app-insights-azure-web-apps.md).
+Konfigurační soubor je s názvem `ApplicationInsights.config` nebo `ApplicationInsights.xml`, v závislosti na typu aplikace. Je automaticky přidán do projektu když jste [nainstalujte většina verze sady SDK][start]. Je také přidán do webové aplikace pomocí [monitorování stavu na serveru se službou IIS][redfield], nebo když vyberete Application Insights [rozšíření pro webové stránky Azure, nebo virtuální počítač](app-insights-azure-web-apps.md).
 
 Není k dispozici soubor ekvivalentní k řízení [SDK na webové stránce][client].
 
@@ -125,7 +125,6 @@ Standardní inicializátory jsou nastavené buď webové nebo Windows Server NuG
 * `SyntheticTelemetryInitializer`nebo `SyntheticUserAgentTelemetryInitializer` aktualizace `User`, `Session` a `Operation` kontexty vlastnosti všech položek telemetrie sledovat při zpracování požadavku z syntetické zdroje, například dostupnosti testů nebo vyhledávání modul robota. Ve výchozím nastavení [Průzkumníku metrik](app-insights-metrics-explorer.md) nezobrazí syntetické telemetrie.
 
     `<Filters>` Nastavte výchozí určující vlastnosti žádosti.
-* `UserAgentTelemetryInitializer`aktualizace `UserAgent` vlastnost `User` na základě kontextu všechny položky telemetrii `User-Agent` hlavičky protokolu HTTP žádosti.
 * `UserTelemetryInitializer`aktualizace `Id` a `AcquisitionDate` vlastnosti `User` kontext pro všechny položky telemetrie se extrahují z hodnoty `ai_user` souboru cookie generované kód instrumentace Application Insights JavaScript, který je spuštěný v prohlížeče uživatele.
 * `WebTestTelemetryInitializer`Nastaví id uživatele, id relace a vlastnosti syntetické zdroje pro požadavky HTTP, která pocházejí z [testy dostupnosti](app-insights-monitor-web-app-availability.md).
   `<Filters>` Nastavte výchozí určující vlastnosti žádosti.
@@ -262,7 +261,7 @@ Pokud chcete odeslat sadu událostí na jiný prostředek, můžete nastavit kl�
 
 Chcete-li získat nový klíč, [vytvoření nového prostředku na portálu služby Application Insights][new].
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [Další informace o rozhraní API][api].
 
 <!--Link references-->

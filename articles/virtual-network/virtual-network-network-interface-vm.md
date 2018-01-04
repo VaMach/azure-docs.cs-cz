@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: be264693b579aacee39acd9196b4e6834da322b2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: abe6abb942d206330e809f3aef388b846d7d7c7f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Síťová rozhraní pro přidání nebo odebrání síťová rozhraní z virtuálních počítačů
 
@@ -118,4 +118,4 @@ Vytvoření virtuálního počítače s více síťových rozhraní nebo IP adre
 - Přidáním jakékoli IP adresu pro všechny konfigurace IP jakékoli primární nebo sekundární síťové rozhraní na fond back-end pro vyrovnávání zatížení Azure. V minulosti pouze primární IP adresa pro primární síťové rozhraní nebylo možné přidat do fondu back-end. Další informace o IP adresy a konfigurace, najdete [přidat, změnit nebo odebrat IP adres](virtual-network-network-interface-addresses.md) článku.
 - Odstranění virtuálního počítače neodstraní rozhraní sítě, které jsou připojené k němu. Při odstranění virtuálního počítače jsou z virtuálního počítače odpojit rozhraní sítě. Můžete přidat rozhraní sítě do jiné virtuální počítače, nebo je odstranit.
 - Pokud má síťové rozhraní s privátní adresou IPv6 přiřazen, je nutné přidat (připojení) se k virtuálnímu počítači při vytváření virtuálního počítače. Síťové rozhraní s přiřazenou adresu IPv6 nelze přidat k virtuálnímu počítači po vytvoření virtuálního počítače. Pokud přidáte síťové rozhraní s přiřazenou privátní adresu IPv6, při vytváření virtuálního počítače, můžete přidat pouze rozhraní sítě k virtuálnímu počítači, bez ohledu na to, kolik síťových rozhraní, které podporuje velikost virtuálního počítače. V tématu [sítě IP adresy rozhraní](virtual-network-network-interface-addresses.md) Další informace o přiřazování IP adresy pro síťová rozhraní.
-- Podobně jako IPv6, nemůžete připojit síťové rozhraní s Zrychlený sítě povolené pro virtuální počítač po vytvoření virtuálního počítače. Další abyste mohli využívat Zrychlený sítě, je nutné také provést kroky v operačním systému virtuálního počítače. Další informace o Zrychlený sítě a dalších omezení při používání najdete v tématu [vytvoření virtuálního počítače s prací v síti Zrychlený](virtual-network-create-vm-accelerated-networking.md).
+- Podobně jako IPv6, nemůžete připojit síťové rozhraní s Zrychlený sítě povolené pro virtuální počítač po vytvoření virtuálního počítače. Další abyste mohli využívat Zrychlený sítě, je nutné také provést kroky v operačním systému virtuálního počítače. Další informace o Zrychlený sítě a jiná omezení při používání najdete v tématu Accelerated sítě pro [Windows](create-vm-accelerated-networking-powershell.md) nebo [Linux](create-vm-accelerated-networking-cli.md) virtuálních počítačů.

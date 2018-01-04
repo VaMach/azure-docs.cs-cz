@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: f533afebcb945a5ffe269ad8f21a095a81f54a18
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Průvodce plánováním a provozem služby Azure Security Center
 Tento průvodce je určený odborníkům na informační technologie (IT), IT architektům, analytikům zabezpečení informací a správcům cloudů, jejichž společnosti hodlají začít používat Azure Security Center.
@@ -46,7 +46,7 @@ V závislosti na velikosti a struktuře vaší organizace můžou službu Securi
 
 ![Role](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Security Center umožňuje těmto osobám tyto různé povinnosti plnit. Například:
+Security Center umožňuje těmto osobám tyto různé povinnosti plnit. Příklad:
 
 **Jeff (vlastník úloh)**
 
@@ -178,7 +178,7 @@ Po počáteční konfiguraci a uplatnění doporučení služby Security Center 
 
 Přehled služby Security Center poskytuje jednotný přehled o zabezpečení všech vašich prostředků Azure a připojených prostředků mimo Azure. Následující příklad ukazuje prostředí s mnoha problémy, které je potřeba vyřešit:
 
-![řídicí panel](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig10.png)
+![řídicí panel](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Security Center nebude ovlivňovat vaše běžné provozní postupy, bude jenom pasivně sledovat vaše nasazení a poskytovat doporučení na základě zásad zabezpečení, které povolíte.
