@@ -23,10 +23,10 @@ Nové SKU brány zjednodušují sady funkcí, které se na branách nabízejí:
 | **SKU**| **Funkce**|
 | ---    | ---         |
 |**Basic**   | **Sítě VPN založené na trasách**: 10 tunelů s P2S; bez ověřování RADIUS pro P2S; žádné IKEv2 pro P2S<br>**Síť VPN založená na zásadách (IKEv1):** 1 tunel, bez P2S|
-| **VpnGw1, VpnGw2 a VpnGw3** | **Síť VPN založená na směrování:** až 30 tunelů (*), P2S, BGP, aktivní-aktivní, vlastní zásady IPsec/IKE, koexistence ExpressRoute/VPN |
+| **VpnGw1, VpnGw2 a VpnGw3** | **Síť VPN založená na směrování:** až 30 tunelů ( * ), P2S, BGP, aktivní-aktivní, vlastní zásady IPsec/IKE, koexistence ExpressRoute/VPN |
 |        |             |
 
-(*) Můžete nakonfigurovat PolicyBasedTrafficSelectors pro připojení brány sítě VPN založené na směrování (VpnGw1, VpnGw2, VpnGw3) k několika místním zařízením brány firewall založeným na zásadách. Podrobnosti najdete v tématu věnovaném [připojení bran VPN k několika místním zařízením VPN založeným na zásadách s využitím PowerShellu](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+( * ) Můžete nakonfigurovat PolicyBasedTrafficSelectors pro připojení brány sítě VPN založené na směrování (VpnGw1, VpnGw2, VpnGw3) k několika místním zařízením brány firewall založeným na zásadách. Podrobnosti najdete v tématu věnovaném [připojení bran VPN k několika místním zařízením VPN založeným na zásadách s využitím PowerShellu](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ###  <a name="resize"></a>Změna velikosti SKU brány
 
