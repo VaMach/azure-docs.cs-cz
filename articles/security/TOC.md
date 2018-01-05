@@ -54,6 +54,8 @@
 #### [Dodržování předpisů – oficiální pro Spojené království](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Přehled](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Přehled principů](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Dodržování předpisů – finanční služby
+##### [Finanční služby pro regulované úlohy](./blueprints/financial-services-regulated-workloads.md)
 
 # Začínáme
 ## [Začínáme se zabezpečením Azure](azure-security-getting-started.md)
