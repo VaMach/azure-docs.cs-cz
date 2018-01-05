@@ -51,9 +51,9 @@ Podívejme bližší pohled na tyto.
 
 Zde jsou k dispozici pro premium se spravovaným diskem velikosti disků:
 
-| **Premium spravované <br>typ disku** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Velikost disku        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Premium spravované <br>typ disku** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Velikost disku        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
 Zde jsou k dispozici pro standardní se spravovaným diskem velikosti disků:
@@ -111,7 +111,7 @@ Existují dva typy šifrování, které popisují v souvislosti s aplikací spra
 
 Azure Disk Encryption umožňuje šifrování operačního systému a datové disky, které jsou použité podle se IaaS virtuální počítač. To zahrnuje spravovaných disky. Pro systém Windows jsou šifrované jednotky pomocí standardních technologií šifrování nástroje BitLocker. Pro systémy Linux jsou disky šifrované pomocí technologie DM-Crypt. Toto jsou integrované s Azure Key Vault umožňují řídit a spravovat disku šifrovací klíče. Další informace najdete v tématu [Azure Disk Encryption pro systém Windows a virtuálních počítačů IaaS Linux](../articles/security/azure-security-disk-encryption.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Další informace o spravovaných disků naleznete v následujících článcích.
 

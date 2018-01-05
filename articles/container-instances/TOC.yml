@@ -23,8 +23,8 @@
       href: container-instances-tutorial-deploy-app.md
 - name: Koncepty
   items:
-    - name: Oblasti a dostupnost
-      href: container-instances-region-availability.md
+    - name: Kvóty a místní omezení
+      href: container-instances-quotas.md
     - name: Vztah k orchestrátorům
       href: container-instances-orchestrator-relationship.md
     - name: Skupiny kontejnerů
@@ -59,7 +59,7 @@
       href: /javascript/api/overview/azure/containerinstance
     - name: Šablona Resource Manageru
       href: /azure/templates/microsoft.containerinstance/containergroups
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Dostupnost v oblastech
       href: 'https://azure.microsoft.com/regions/services/'

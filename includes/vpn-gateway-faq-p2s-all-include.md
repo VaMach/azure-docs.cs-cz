@@ -59,6 +59,6 @@ Uživatelé se mohou připojit k Azure pomocí integrovaného klienta Windows VP
 
 Azure pro P2S VPN podporuje pouze systém Windows a Mac.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>Už mám nasazenou Azure VPN Gateway. Můžu na ní povolit RADIUS, případně IKEv2 VPN?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Už mám nasazenou Azure VPN Gateway. Můžete povolit RADIUS nebo IKEv2 VPN na něm?
 
-Ano, tyto nové funkce můžete na již nasazených bránách povolit, jak pomocí PowerShellu, tak i webu Azure Portal.
+Ano, můžete povolit tyto nové funkce na již nasazené Gateway pomocí prostředí Powershell nebo portálu Azure za předpokladu, že podporuje SKU brány, kterou používáte, RADIUS nebo IKEv2. Například základní SKU brány VPN nepodporuje, RADIUS nebo IKEv2.

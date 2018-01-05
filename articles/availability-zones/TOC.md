@@ -20,7 +20,7 @@
 #### [Přidání spravovaného disku do zón dostupnosti s PowerShellu](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### Škálovací sady virtuálních počítačů
-#### [Vytvoření škálovací sady virtuálních počítačů s využitím webu Azure Portal](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Vytvoření škálovací sady v zóně dostupnosti](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Nástroj pro vyrovnávání zatížení
 #### [Co je Load Balancer?](../load-balancer/load-balancer-standard-overview.md)
@@ -39,6 +39,6 @@
 # Azure Backup
 ## [Použití služby Azure Backup](https://docs.microsoft.com/azure/backup/)
 
-# Zdroje
+# Zdroje a prostředky
 ## [Plány Azure do budoucna](https://azure.microsoft.com/roadmap/)
 ## [Oblasti Azure](https://azure.microsoft.com/regions/)

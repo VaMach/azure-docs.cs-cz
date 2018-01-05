@@ -52,6 +52,7 @@
 ## Spravovat
 ### [Pravidelná změna přihlašovacích údajů pro vstup a výstup](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Spolehlivost úloh během aktualizací](stream-analytics-job-reliability.md)
+### [Konfigurace úrovně kompatibility](stream-analytics-compatibility-level.md)
 
 ## Řešení potíží
 ### [Průvodce řešením problémů](stream-analytics-troubleshooting-guide.md)

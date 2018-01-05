@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: Návody
   items:
-    - name: Vytvoření transparentní brány
-      href: how-to-create-transparent-gateway.md
+    - name: Vytváření bran
+      items:
+        - name: Vytvoření transparentní brány
+          href: how-to-create-transparent-gateway.md
+        - name: Brána Modbus
+          href: deploy-modbus-gateway.md
     - name: Škálované nasazení a monitorování
       href: how-to-deploy-monitor.md
     - name: Zřízení zařízení IoT Core
@@ -63,7 +67,7 @@
       href: security.md
     - name: Glosář IoT Edge
       href: iot-edge-glossary.md
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Katalog zařízení Azure Certified for IoT
       href: 'https://catalog.azureiotsuite.com/'

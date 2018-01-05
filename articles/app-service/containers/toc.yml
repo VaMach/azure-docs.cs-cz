@@ -29,6 +29,8 @@
       items:
         - name: .NET Core s SQL DB
           href: tutorial-dotnetcore-sqldb-app.md
+        - name: Ruby s MySQL
+          href: tutorial-ruby-mysql-app.md
         - name: PHP s MySQL
           href: tutorial-php-mysql-app.md
         - name: Node.js s MongoDB
@@ -141,7 +143,7 @@
       href: /powershell
     - name: REST API
       href: /rest/api/appservice/
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Plány Azure do budoucna
       href: 'https://azure.microsoft.com/roadmap/'
