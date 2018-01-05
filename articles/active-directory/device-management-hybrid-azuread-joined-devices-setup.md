@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Postup konfigurace hybridní Azure Active Directory připojené zařízení
 
@@ -32,11 +32,12 @@ Pokud máte prostředí místní služby Active Directory a chcete pro připojen
 
 Před zahájením konfigurace zařízení služby Azure AD, které jsou připojené k hybridní ve vašem prostředí, by měl Seznamte se s Podporované scénáře a omezení.  
 
+Pokud se spoléhat na [nástroj pro přípravu systému (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), Zkontrolujte prosím, že vytvoření bitové kopie z instalace systému Windows, který nebyl dosud zaregistrován v Azure AD.
+
 Toto téma ke zlepšení čitelnosti popisy, používá následující období: 
 
 - **Aktuální zařízení se systémem Windows** -tento termín se vztahuje k doméně, zařízení se systémem Windows 10 nebo Windows Server 2016.
 - **Zařízení se systémem Windows nižší úrovně** -tento termín se vztahuje na všechny **podporované** připojený k doméně zařízení Windows, která nejsou spuštěné Windows 10 ani systému Windows Server 2016.  
-
 
 ### <a name="windows-current-devices"></a>Aktuální zařízení se systémem Windows
 
@@ -66,6 +67,15 @@ Azure AD Connect:
 - Zachová přidružení mezi účet počítače v místní službě Active Directory (AD) a objektu zařízení ve službě Azure AD. 
 - Povoluje další zařízení související s funkcí, jako Windows Hello pro firmy.
 
+Ujistěte se, že následující adresy URL jsou přístupné z počítače v síti vaší organizace pro registraci počítačů do Azure AD:
+
+- https://enterpriseregistration.Windows.NET
+
+- https://login.microsoftonline.com
+
+- https://Device.Login.microsoftonline.com
+
+Pokud vaše organizace vyžaduje přístup k Internetu prostřednictvím odchozího proxy serveru, musíte implementací Proxy Auto-Discovery WPAD (Web) Chcete-li povolit počítače s Windows 10 k registraci do služby Azure AD.
 
 
 ## <a name="configuration-steps"></a>Kroky konfigurace
@@ -574,7 +584,7 @@ Instalační program vytvoří naplánovanou úlohu na systém, který běží v
 
 Výstup této rutiny zobrazuje zařízení, které jsou zaregistrované a propojit s Azure AD. Všechna zařízení, použijte **– všechny** parametr a pak je filtrování pomocí **deviceTrustType** vlastnost. Připojené k doméně zařízení mít hodnotu **připojený k doméně**.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Úvod do správy zařízení v Azure Active Directory](device-management-introduction.md)
 

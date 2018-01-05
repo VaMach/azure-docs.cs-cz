@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: 25677c2a4ab78c601f4d4a8630787f6f16dda3c4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Rozšíření vlastních skriptů pro Windows
 
@@ -28,6 +28,11 @@ Rozšíření vlastních skriptů stahuje a spouští skripty na virtuálních p
 Tento dokument podrobně popisuje postup používání rozšíření vlastních skriptů pomocí modulu Azure PowerShell, šablon Azure Resource Manageru a podrobnosti o řešení potíží s kroky v systémech Windows.
 
 ## <a name="prerequisites"></a>Požadavky
+
+> [!NOTE]  
+> Vzhledem k tomu, že bude čekat na sobě spustit aktualizaci-AzureRmVM s stejného virtuálního počítače jako jeho parametr nepoužívejte rozšíření vlastních skriptů.  
+>   
+> 
 
 ### <a name="operating-system"></a>Operační systém
 
@@ -79,7 +84,7 @@ Následujícím kódu JSON znázorňuje schéma pro rozšíření vlastních skr
 
 ### <a name="property-values"></a>Hodnoty vlastností
 
-| Name (Název) | Hodnota nebo příklad |
+| Název | Hodnota nebo příklad |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | Vydavatele | Microsoft.Compute |
@@ -131,7 +136,7 @@ kde `<n>` je desítkové celé číslo, které může změnit mezi jednotlivými
 
 Při provádění `commandToExecute` příkaz, bude mít tento adresář nastavit rozšíření (například `...\Downloads\2`) jako aktuální pracovní adresář. To umožňuje použití relativní cesty vyhledejte soubory stáhli prostřednictvím `fileURIs` vlastnost. Najdete v následující tabulce příklady.
 
-Vzhledem k tomu, že cesta pro stažení absolutní se mohou lišit v čase, je lepší zvolit relativní skriptu nebo cesty k souboru v `commandToExecute` řetězce, kdykoli je to možné. Například:
+Vzhledem k tomu, že cesta pro stažení absolutní se mohou lišit v čase, je lepší zvolit relativní skriptu nebo cesty k souboru v `commandToExecute` řetězce, kdykoli je to možné. Příklad:
 ```json
     "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
 ```

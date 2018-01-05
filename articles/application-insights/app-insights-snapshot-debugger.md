@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Ladění snímků výjimky v aplikacích .NET
 
@@ -62,8 +62,6 @@ Podporovány jsou následující prostředí:
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -122,7 +120,7 @@ Podporovány jsou následující prostředí:
    }
    ```
 
-4. Nakonfigurujte snímek kolekce přidáním části SnapshotCollectorConfiguration do appSettings.JSON určený. Například:
+4. Nakonfigurujte snímek kolekce přidáním části SnapshotCollectorConfiguration do appSettings.JSON určený. Příklad:
 
    ```json
    {
@@ -161,7 +159,7 @@ Podporovány jsou následující prostředí:
    }
     ```
     
-## <a name="grant-permissions"></a>Udělení oprávnění
+## <a name="grant-permissions"></a>Udělit oprávnění
 
 Vlastníky předplatného Azure můžete prohlédnout snímky. Ostatní uživatelé musí udělit oprávnění vlastníka.
 
@@ -174,8 +172,8 @@ Udělit oprávnění, přiřaďte mu `Application Insights Snapshot Debugger` ro
 1. Klikněte na tlačítko Uložit přidejte uživatele k roli.
 
 
-[!IMPORTANT]
-    Snímky mohou obsahovat osobní a dalších citlivých informací v proměnné a parametr hodnoty.
+> [!IMPORTANT]
+> Snímky mohou obsahovat osobní a dalších citlivých informací v proměnné a parametr hodnoty.
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Ladění snímky v portálu služby Application Insights
 
@@ -277,6 +275,17 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 Pro aplikace, které jsou _není_ hostované ve službě App Service, protokoly osoba jsou ve stejné složce jako minimálním výpisem: `%TEMP%\Dumps\<ikey>` (kde `<ikey>` je klíč instrumentace).
 
+Rolí v cloudových služeb může být výchozí dočasnou složku pro soubory minimálního výpisu příliš malá. V takovém případě můžete zadat jinou složku přes vlastnost TempFolder v souboru ApplicationInsights.config.
+
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- Use an alternative folder for minidumps -->
+    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+    </Add>
+</TelemetryProcessors>
+```
+
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Výjimky se snímky hledat pomocí Application Insights
 
 Když je snímek vytvořen, aktivační výjimky se označí s ID snímku. Kdy je telemetrie výjimek hlášena Application insights, zda jsou zahrnuty jako vlastní vlastnost ID snímku. V okně hledání Application Insights, můžete najít všechny telemetrická s `ai.snapshot.id` vlastní vlastnosti.
@@ -297,7 +306,7 @@ K vyhledání ID konkrétní snímek z nástroje odeslání protokolů, zadejte 
 
 Pokud stále nevidíte výjimku s tímto ID snímku, telemetrie výjimek nebyla hlášena do Application Insights. Tato situace může nastat, pokud vaše aplikace došlo k chybě po trvalo snímku, ale předtím, než ho hlášené telemetrie výjimek. V takovém případě zkontrolujte protokoly služby App Service v části `Diagnose and solve problems` chcete zobrazit, pokud byly neočekávané restartování nebo neošetřené výjimky.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Nastavit snappoints ve vašem kódu](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) získat snímky bez čekání na výjimku.
 * [Diagnostikovat výjimky ve webových aplikacích](app-insights-asp-net-exceptions.md) vysvětluje, jak chcete zviditelnit více výjimek pro Application Insights. 

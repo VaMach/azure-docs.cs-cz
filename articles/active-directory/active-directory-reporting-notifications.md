@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7aacb31f708e8c3221a5b8cf4223c65160ccb019
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Oznámení vytváření sestav Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Jaké sestavy generovat e-mailových oznámení
@@ -36,13 +36,13 @@ E-mail je odeslán do všichni globální správci, kteří mají přiřazený l
 E-mail je odeslán, pokud 10 nové nestandardní přihlašovací aktivity, ke kterým došlo v posledních 30 dnů nebo od odeslání poslední e-mailu, podle toho, která je menší.
 
 ## <a name="how-do-i-access-the-report-mentioned-in-the-email"></a>Přístupu zprávu podle e-mailu
-Když kliknete na odkaz, budete přesměrováni na stránku sestavy v rámci portálu Azure classic. Chcete-li získat přístup k sestavě, musíte nastavit na obojí:
+Když kliknete na odkaz, budete přesměrováni na stránku sestavy v rámci portálu Azure. Chcete-li získat přístup k sestavě, musíte nastavit na obojí:
 
 * Na správce nebo spolusprávce předplatného Azure
 * Globální správce v adresáři a přiřadit licenci služby Active Directory Premium. Další informace najdete v článku [Edice služby Azure Active Directory](active-directory-editions.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>Můžete vypnout těchto e-mailů?
-Ano, chcete-li vypnout oznámení související s neobvyklých přihlášení v rámci portálu Azure classic, klikněte na tlačítko **konfigurace**a potom vyberte **zakázané** pod **oznámení** části.
+Ano, chcete-li vypnout oznámení související s neobvyklých přihlášení v rámci portálu Azure, klikněte na tlačítko **konfigurace**a potom vyberte **zakázané** pod **oznámení** části.
 
 ## <a name="whats-next"></a>Kam dál
 * Chcete zjistit, jaké sestavy zabezpečení, auditování a aktivity jsou k dispozici? Podívejte se na [zabezpečení Azure AD, auditování a protokolování aktivit](active-directory-view-access-usage-reports.md)

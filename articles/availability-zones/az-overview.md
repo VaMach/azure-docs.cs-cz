@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b3618207c1d4d2b8d3c0eaf83408b4813cd3da2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Přehled dostupnosti zón v Azure (Preview)
 
@@ -54,7 +54,7 @@ Dostupnost zóny náhled je dostupný ve východní USA 2, západní Evropa a Fr
 3. Vyberte oblast, která podporuje dostupnost zóny.
 4. Ke spuštění pomocí služby dostupnost zóny, použijte jednu z následujících odkazů. 
     - [Vytvoření virtuálního počítače](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Vytvoření sady škálování oblastmi virtuálního počítače](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [Vytvoření sady škálování virtuálního počítače](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Přidejte Disk spravované pomocí prostředí PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Load Balancer](../load-balancer/load-balancer-standard-overview.md)
 

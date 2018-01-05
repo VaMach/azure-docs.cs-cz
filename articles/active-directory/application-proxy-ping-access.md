@@ -3,7 +3,7 @@ title: "Ověřování na základě záhlaví s PingAccess pro proxy aplikace slu
 description: "Publikování aplikací s PingAccess a Proxy aplikace pro podporu ověřování na základě záhlaví."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Ověřování na základě záhlaví pro jednotné přihlašování s Proxy aplikace a PingAccess
 
@@ -52,7 +52,7 @@ Pokud už máte Proxy aplikace povolena a máte nainstalovaný konektor, můžet
 
 Konektor Proxy aplikace je služba systému Windows Server, která přesměruje přenosy z vzdálení zaměstnanci k publikovaným aplikacím. Podrobné pokyny k instalaci, najdete v části [povolení Proxy aplikace v portálu Azure](active-directory-application-proxy-enable.md).
 
-1. Přihlaste se k [portál Azure](https://portal.azure.com) jako globální správce.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) jako globální správce.
 2. Vyberte **Azure Active Directory** > **proxy aplikace**.
 3. Vyberte **stáhnout konektor** zahájíte stahování konektoru Proxy aplikace. Postupujte podle pokynů pro instalaci.
 
@@ -110,7 +110,7 @@ Postupujte podle těchto kroků k publikování aplikace. Pro podrobnější ná
 
 16. Vyberte **Přidat**. Rozhraní API, zvolte **Windows Azure Active Directory**, pak **vyberte**. Oprávnění, zvolte **pro čtení a zápis všech aplikací** a **přihlášení a čtení profilu uživatele**, pak **vyberte** a **provádí**.  
 
-  ![Vyberte oprávnění](./media/application-proxy-ping-access/select-permissions.png)
+  ![Vybrat oprávnění](./media/application-proxy-ping-access/select-permissions.png)
 
 17. Před zavřením obrazovce oprávnění udělení oprávnění. 
 ![Udělení oprávnění](media/application-proxy-ping-access/grantperms.png)
@@ -131,7 +131,7 @@ Postupujte podle těchto kroků k publikování aplikace. Pro podrobnější ná
 
   Nyní, uložte tuto hodnotu jako nebudete moci zobrazit znovu po zavření tohoto okna.
 
-  ![Vytvořit nový klíč.](./media/application-proxy-ping-access/create-keys.png)
+  ![Vytvořit nový klíč](./media/application-proxy-ping-access/create-keys.png)
 
 6. Zavřete okno registrace aplikace nebo posuňte se úplně levé straně si vrátit do nabídky Azure Active Directory.
 7. Vyberte **vlastnosti**.
@@ -151,7 +151,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 Tento příklad používá [portál Azure](https://portal.azure.com) k udpate *acceptedMappedClaims* pole:
-1. Přihlaste se k [portál Azure](https://portal.azure.com) jako globální správce.
+1. Přihlaste se k webu [Azure Portal](https://portal.azure.com) jako globální správce.
 2. Vyberte **Azure Active Directory** > **registrace aplikace**.
 3. Vyberte svou aplikaci > **Manifest**.
 4. Vyberte **upravit**, vyhledejte *acceptedMappedClaims* pole a změňte hodnotu na **true**.
@@ -178,7 +178,7 @@ Tyto kroky vás provedou procesem získávání PingAccess účtu, pokud jste je
 
 Po dokončení těchto kroků, musí být aplikace spuštěná. Chcete-li otestovat ji, otevřete prohlížeč a přejděte na externí adresu URL, kterou jste vytvořili při publikování aplikace v Azure. Přihlaste se pomocí účtu test, který jste přiřadili k aplikaci.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Konfigurace PingAccess pro Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Jak Azure AD Application Proxy poskytovat jednotné přihlašování?](application-proxy-sso-overview.md)

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Přehled SAP HANA (velké instance) a architektura v Azure
 
@@ -468,7 +468,7 @@ Nasazení SAP aplikační vrstvu nebo součásti, prostřednictvím více virtu�
 
 Existují tři aspekty směrování důležité sítě pro SAP HANA v Azure (velké instance):
 
-1. SAP HANA v Azure (velké instance) lze přistupovat pouze prostřednictvím virtuálních počítačích Azure a prostřednictvím vyhrazené připojení ExpressRoute. Ne přímo z místní. Přímý přístup z místního s jednotkami velké Instance HANA dodaných společností Microsoft, není možné okamžitě z důvodu přechodného směrování omezení aktuální architektury síť Azure, použít pro velké instance SAP HANA. Někteří klienti správy a všechny aplikace, které vyžadují přímý přístup, jako je například SAP řešení správce spuštěného na místě, se nemůže připojit k databázi SAP HANA.
+1. SAP HANA v Azure (velké instance) lze přistupovat pouze prostřednictvím virtuálních počítačích Azure a prostřednictvím vyhrazené připojení ExpressRoute. Ne přímo z místní. Přímý přístup z místního s jednotkami velké Instance HANA dodaných společností Microsoft, není možné okamžitě z důvodu přenositelné směrování omezení aktuální architektury síť Azure, použít pro velké instance SAP HANA. Někteří klienti správy a všechny aplikace, které vyžadují přímý přístup, jako je například SAP řešení správce spuštěného na místě, se nemůže připojit k databázi SAP HANA.
 
 2. Pokud máte velké Instance HANA jednotky nasazené ve dvou různých oblastech Azure za účelem zotavení po havárii, platí stejné omezení směrování přechodný. Nebo jinými slovy, nebude IP adresy Instance HANA velké jednotky v jedné oblasti (například USA – západ) směrovat na jednotce HANA velké Instance je nasazena v jiné oblasti (například USA – východ). Toto je nezávislé na využití sítě Azure partnerského vztahu v oblastech nebo křížové připojení okruhy ExpressRoute, který je připojen velké Instance HANA jednotky k virtuálním sítím Azure. Jak ukazuje trochu další dolů v této dokumentaci. Toto omezení, která se dodává s nasazené architektury, bude zakázat okamžité využití replikace systému HANA jako funkci obnovení po havárii.
 

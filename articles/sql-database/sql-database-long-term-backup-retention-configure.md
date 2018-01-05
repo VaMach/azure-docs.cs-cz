@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Konfigurace a obnovení z Azure SQL Database dlouhodobé uchovávání záloh
 
 Můžete nakonfigurovat na trezor služeb zotavení Azure uložte zálohy databáze Azure SQL a poté obnovte databázi pomocí zálohy uchovávány v úložišti pomocí portálu Azure nebo Powershellu.
 
-## <a name="azure-portal"></a>portál Azure
+## <a name="azure-portal"></a>Azure Portal
 
 Následující části ukazují, jak pomocí portálu Azure můžete nakonfigurovat trezor služeb zotavení Azure, Zobrazit zálohy v trezoru a obnovení z trezoru.
 
@@ -82,6 +82,9 @@ Můžete [nakonfigurovat trezoru služeb zotavení Azure uchovávat automatizova
 12. Na **konfigurace** stránky, zadejte platný název pro nové zásady uchovávání informací, úpravy výchozích zásad uchovávání informací podle potřeby a pak klikněte na tlačítko **OK**.
 
    ![definování zásady uchovávání informací](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >Názvy zásad uchovávání Nepovolit některé znaků včetně mezer.
 
 13. Na **dlouhodobé uchovávání záloh** stránky pro vaši databázi, klikněte na tlačítko **Uložit** a pak klikněte na **OK** uplatňovat zásady dlouhodobé uchovávání záloh na všech vybraných databázích.
 
@@ -263,7 +266,7 @@ $restoredDb
 > [!NOTE]
 > Tady můžete připojit k obnovené databázi pomocí SQL Server Management Studio potřebné úkoly, například za účelem extrahování bit dat z obnovené databáze chcete zkopírovat do existující databáze nebo odstranit existující databázi a přejmenujte obnovenou databáze na název existující databáze. V tématu [bodu v době obnovení](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Další informace o automatických zálohách generovaných službou najdete u popisu [automatických záloh](sql-database-automated-backups.md).
 - Další informace o dlouhodobém uchovávání záloh najdete v části [dlouhodobé uchovávání záloh](sql-database-long-term-retention.md)

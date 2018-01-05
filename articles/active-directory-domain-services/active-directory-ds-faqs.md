@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4e95cd128c0c8ee8492e7bd224afc317101f346c
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Časté otázky (FAQ)
 Tato stránka odpovědi časté otázky o Azure Active Directory Domain Services. Kontrolovat zpět aktualizací.
@@ -31,7 +31,7 @@ Odkazovat [Průvodce odstraňováním potíží](active-directory-ds-troubleshoo
 Ne. Můžete vytvořit pouze jeden spravované doméně obsluhovány pomocí Azure AD Domain Services pro jeden adresář Azure AD.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Můžete povolit Azure AD Domain Services ve virtuální síti Azure Resource Manager?
-Ano. Azure AD Domain Services se dají povolit v virtuální síť Azure Resource Manager. Tato funkce je aktuálně ve verzi preview.
+Ano. Azure AD Domain Services se dají povolit v virtuální síť Azure Resource Manager. Klasické virtuální sítě Azure již nejsou podporovány pro vytvoření nové spravované domény.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Můžete migrovat mé existující spravované domény z klasickou virtuální síť k virtuální síti Resource Manager?
 Aktuálně nepodporuje. Microsoft bude poskytovat mechanismus k migraci stávající spravované domény z klasickou virtuální síť k virtuální síti Resource Manager v budoucnu.

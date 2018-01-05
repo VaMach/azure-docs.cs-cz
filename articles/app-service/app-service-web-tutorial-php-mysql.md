@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: be3fba0c148cc7ee07fa3d50e0783916790e7cab
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: bcbe59d5e2f085f055b99b715bcbcd91d9845f2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Vytvoření webové aplikace PHP a databáze MySQL v Azure
 
@@ -167,7 +167,7 @@ V prostředí cloudu, vytvoření serveru ve službě Azure Database pro databá
 V následujícím příkazu nahraďte název serveru MySQL, kde uvidíte  _&lt;mysql_server_name >_ zástupný symbol (platnými znaky jsou `a-z`, `0-9`, a `-`). Tento název je součástí názvu hostitele serveru MySQL (`<mysql_server_name>.database.windows.net`), musí být globálně jedinečný.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
 ```
 
 > [!NOTE]
@@ -205,7 +205,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Připojení k serveru pro produkční MySQL místně
 
-V místní okno terminálu připojení k serveru databáze MySQL v Azure. Použít hodnotu zadanou dříve pro  _&lt;mysql_server_name >_. Pokud budete vyzváni k zadání hesla, použijte _MySQLAzure2017_, který jste zadali při vytvoření databáze v Azure.
+V místní okno terminálu připojení k serveru databáze MySQL v Azure. Použít hodnotu zadanou dříve pro  _&lt;mysql_server_name >_. Pokud budete vyzváni k zadání hesla, použijte _My5up3r$ tr0ngPa$ w0rd!_, který jste zadali při vytvoření databáze v Azure.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
@@ -341,7 +341,7 @@ V tomto kroku nasadíte aplikaci PHP MySQL připojení do služby Azure App Serv
 
 [!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Konfigurace nastavení databáze
+### <a name="configure-database-settings"></a>Konfiguruje nastavení databáze.
 
 Jak bylo uvedeno dříve, můžete připojit k vaší databázi Azure MySQL použití proměnných prostředí ve službě App Service.
 
@@ -451,7 +451,7 @@ V tomto kroku provedete jednoduché změnu `task` datový model a webové aplika
 
 Pro tento scénář úlohy upravit aplikaci tak, že můžete označit úlohu jako dokončenou.
 
-### <a name="add-a-column"></a>Přidá sloupec
+### <a name="add-a-column"></a>Přidat sloupec
 
 V místní okno terminálu přejděte do kořenového úložiště Git.
 
@@ -626,7 +626,7 @@ V levé nabídce poskytuje stránky pro konfiguraci vaší aplikace.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili:
 

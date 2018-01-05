@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Aspekty plánování kapacity služby cluster Service Fabric
 Pro všechna produkční nasazení plánování kapacity je důležitý krok. Zde jsou některé položky, které je nutné zvážit jako součást tohoto procesu.
@@ -69,7 +69,7 @@ Pro cluster s několika typy uzlů je jeden typ primárního uzlu a zbývající
 
 Toto oprávnění je vyjádřena v následující hodnoty:
 
-* Pozastavit lze po dobu dvou hodin za UD zlatý - infrastruktury úloh. Gold odolnost můžete povolit jenom pro SKU úplné uzlu virtuálního počítače jako D15_V2 G5 atd.
+* Pozastavit lze po dobu dvou hodin za UD zlatý - infrastruktury úloh. Gold odolnost lze povolit pouze na úplné uzlu virtuálního počítače SKU L32s, GS5, G5, DS15_v2, D15_v2 atd (obecně všechny velikosti virtuálních počítačů uvedené v http://aka.ms/vmspecs, které jsou označené jako "Instance je izolovaná hardware vyhrazený pro jednoho zákazníka" v poznámce jsou virtuální počítače úplné uzlu)
 * Stříbrná - úloh infrastruktury můžete pozastaven po dobu 10 minut na jednu UD a je k dispozici na všechny standardní virtuální počítače z jediného jádra a vyšší.
 * Bronzová - žádná oprávnění. Toto je výchozí hodnota. Tato úroveň odolnosti používat jenom pro typy uzlů, které používají _pouze_ Bezstavová zatížení. 
 
@@ -142,8 +142,8 @@ Zde je doporučení na výběr úroveň spolehlivosti.
 | --- | --- |
 | 1 |Nezadávejte parametr úroveň spolehlivosti, systém je vypočte |
 | 3 |Bronzová |
-| 5 nebo 6|Stříbrná |
-| 7 nebo 8 |Zlatý |
+| 5 nebo 6|Stříbrný |
+| 7 nebo 8 |Zlatá |
 | 9 a vyšší |Platinové |
 
 
@@ -214,7 +214,7 @@ Pro produkční zatížení
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po dokončení plánování kapacity a nastavení clusteru, přečtěte si následující:
 
 * [Zabezpečení clusteru Service Fabric](service-fabric-cluster-security.md)

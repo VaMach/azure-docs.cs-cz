@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Rozšíření dat přípravy Python
 Azure Machine Learning Data přípravy jako způsob vyplnění funkce mezery mezi integrované funkce, zahrnuje rozšíření na více úrovních. V tomto dokumentu jsme popisují rozšiřitelnost prostřednictvím skript v jazyce Python. 
@@ -38,7 +38,7 @@ Pro každý z těchto kroků jsme podporují dva typy kódu bloku. Nejprve podpo
 
 Například můžete přidat nový sloupec, který vypočítá protokol jiný sloupec v následujících dvou způsobů:
 
-výraz 
+Výraz 
 
 ```python    
     math.log(row["Score"])
@@ -124,6 +124,31 @@ nebo
 
 `./pip install <libraryname>`
 
+## <a name="use-custom-modules"></a>Použijte vlastní moduly
+V toku dat transformace (skript) zápisu python kód takto:
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+Přidat sloupce (skript), nastavte typ bloku kódu = modulu a zápis python následující kód:
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+Pro spuštění různých kontextů (místní, spark docker) přejděte na absolutní cesta na správném místě. Můžete použít "os.getcwd() + relativePath" ho najít.
+
+
 ## <a name="column-data"></a>Datové sloupce 
 Sloupec dat je přístupná z řádku pomocí zápisu s tečkou nebo zápis klíč hodnota. Názvy sloupců, které obsahují mezery nebo speciální znaky, není přístupná pomocí zápisu s tečkou. `row` Proměnná by měla být vždy definována v obou režimech rozšíření Python (modulu a výraz). 
 
@@ -155,7 +180,7 @@ Tato dataframe má následující sloupce:
 - AuthenticationValue: Obsahuje jeden nebo token, který má být použit.
 
 ### <a name="syntax"></a>Syntaxe 
-výraz 
+Výraz 
 
 ```python
     paths = df['Path'].tolist()  
@@ -185,7 +210,7 @@ Bod rozšíření zapisovače vám umožní plně řízení procesu zápisu dat 
 Tento bod rozšíření můžete přidat pomocí bloku zápisu toku dat (skript). Je k dispozici na nejvyšší úrovni **transformace** nabídky.
 
 ### <a name="syntax"></a>Syntaxe 
-výraz
+Výraz
 
 ```python
     df.to_csv('c:\\temp\\output.csv')
@@ -210,7 +235,7 @@ Bod rozšíření přidat sloupec umožňuje zapisovat Python k výpočtu nový 
 Tento bod rozšíření můžete přidat pomocí bloku přidat sloupec (skript). Je k dispozici na nejvyšší úrovni **transformace** nabídky, stejně jako na **sloupec** kontextové nabídky. 
 
 ### <a name="syntax"></a>Syntaxe
-výraz
+Výraz
 
 ```python
     math.log(row["Score"])
@@ -233,7 +258,7 @@ Tento bod rozšíření můžete přidat pomocí bloku Advanced Filter (skript).
 
 ### <a name="syntax"></a>Syntaxe
 
-výraz
+Výraz
 
 ```python
     row["Score"] > 95
@@ -260,7 +285,7 @@ Bod rozšíření transformace toku dat umožňuje zcela transformace datového 
 Tento bod rozšíření můžete přidat pomocí bloku toku transformace dat (skript). Je k dispozici na nejvyšší úrovni **transformace** nabídky. 
 ### <a name="syntax"></a>Syntaxe 
 
-výraz
+Výraz
 
 ```python
     df['index-column'] = range(1, len(df) + 1)  
@@ -291,7 +316,7 @@ Tento bod rozšíření můžete přidat pomocí bloku transformace oddílu (skr
 
 ### <a name="syntax"></a>Syntaxe 
 
-výraz 
+Výraz 
 
 ```python
     df['partition-id'] = index  
@@ -337,7 +362,7 @@ DataPrepError({
 Je možné při spuštění Python okamžiku rozšíření pro generování DataPrepErrors jako návratové hodnoty pomocí předchozí metody vytvoření. Je mnohem vyšší pravděpodobnost, že jsou DataPrepErrors došlo při zpracování dat na místě rozšíření. V tomto okamžiku vlastní kód Python je potřeba zpracovat DataPrepError jako platný datový typ.
 
 #### <a name="syntax"></a>Syntaxe 
-výraz 
+Výraz 
 ```python 
     if (isinstance(row["Score"], DataPrepError)): 
         row["Score"].originalValue 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: juliako
-ms.openlocfilehash: 4b55b6cb87443871decf6f14ef3949e76433afcc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 79de06407a66e936f19579574ef90478799c9953
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="quotas-and-limitations"></a>Kvóty a omezení
 Tento článek popisuje kvóty a omezení spojené s Microsoft Azure Media Services.
@@ -29,17 +29,8 @@ Tento článek popisuje kvóty a omezení spojené s Microsoft Azure Media Servi
 K žádosti o změny výchozích kvót zadaný, můžete otevřít lístek podpory. Uveďte podrobné informace v požadavku na změny požadované kvótu, případ použití scénáře a požadované oblasti.
 
 ### <a name="how-to-open-a-support-ticket"></a>Postup otevření lístku podpory
-Pokud chcete otevřít lístek podpory, postupujte takto:
+V portálu Azure přejděte do [Nápověda a podpora](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Pokud nejste přihlášeni do Azure, budete vyzváni k zadání pověření.
 
-1. Klikněte na tlačítko [získat podporu](https://manage.windowsazure.com/?getsupport=true). Pokud nejste přihlášeni, budete vyzváni k zadání pověření.
-2. Vyberte své předplatné.
-3. V části Podpora typu vyberte "Technical."
-4. Kliknutím na tlačítko "Vytvoření lístku."
-5. Vyberte "Azure Media Services" v seznamu produktu uvedené na další stránku.
-6. Vyberte typ problému"", je vhodné pro váš problém.
-7. Klikněte na tlačítko Pokračovat.
-8. Postupujte podle pokynů na další stránce a potom zadejte podrobnosti o problému.
-9. Klikněte na tlačítko Odeslat otevřete lístek.
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

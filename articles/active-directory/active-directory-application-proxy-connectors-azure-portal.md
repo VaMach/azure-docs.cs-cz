@@ -3,7 +3,7 @@ title: "Publikování aplikací na samostatných sítí a umístění v skupiny 
 description: "Popisuje postup vytvoření a Správa skupin konektorů v Azure AD Application Proxy."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: afa710e2605bc1416b082f266010c52d13e83973
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publikování aplikací na samostatných sítí a umístění pomocí konektoru skupin
 
@@ -123,7 +123,7 @@ V následujícím příkladu má společnost zavedeny dvou Datacenter, A a B, s 
 
 ![AzureAD žádné skupiny pro konektor](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * [Pochopení konektory proxy aplikace služby Azure AD](application-proxy-understand-connectors.md)
 * [Povolení jednoduchého přihlášení](application-proxy-sso-overview.md)

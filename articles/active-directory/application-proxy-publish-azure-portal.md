@@ -3,7 +3,7 @@ title: "Publikování aplikací pomocí proxy aplikace služby Azure AD | Dokume
 description: "Publikujte místní aplikace do cloudu s Azure AD Application Proxy na portálu Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3639c7d8c3c1e716eaf1a0af0506f6d0d2ad0493
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publikování aplikací pomocí proxy aplikace služby Azure AD
 
@@ -44,7 +44,7 @@ Postupujte podle těchto kroků k publikování aplikací pomocí Proxy aplikace
 
 3. Vyberte **všechny**, pak vyberte **místní aplikace**.  
 
-  ![Přidat vlastní aplikaci](./media/application-proxy-publish-azure-portal/add-your-own.png)
+  ![Přidat svoji vlastní aplikaci](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
 4. Zadejte následující informace o vaší aplikaci:
 
@@ -86,7 +86,7 @@ Pokud chcete otestovat, že aplikace byla publikovaný správně, přidejte test
   ![Přidat uživatele nebo skupiny](./media/application-proxy-publish-azure-portal/add-user.png)
 
 3. V okně Přidat přiřazení vyberte **uživatelů a skupin** potom vyberte účet, který chcete přidat. 
-4. Vyberte **přiřadit**.
+4. Vyberte **Přiřadit**.
 
 ## <a name="test-your-published-app"></a>Testování publikované aplikace
 
@@ -95,7 +95,7 @@ V prohlížeči přejděte na externí adresu URL, kterou jste nakonfigurovali b
 ![Testování publikované aplikace](./media/application-proxy-publish-azure-portal/test-app.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Stáhnout konektory](active-directory-application-proxy-enable.md) a [vytvořit konektor skupiny](active-directory-application-proxy-connectors-azure-portal.md) k publikování aplikací na samostatných sítí a umístění.
 
 - [Nastavení jednotného přihlašování](application-proxy-sso-azure-portal.md) nově publikované aplikace.

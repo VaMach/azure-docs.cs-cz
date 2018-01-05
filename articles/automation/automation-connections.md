@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d442fd3c1713f4cdc53ef0dc6f7e15cd74b21d1a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Assety připojení v Azure Automation.
 
@@ -71,14 +71,6 @@ Funkce v následující tabulce se používá pro přístup k připojením v run
 3. Klikněte na tlačítko **přidat připojení** v horní části okna.
 4. V **typ** rozevíracího seznamu, vyberte typ připojení, které chcete vytvořit. Formulář nabídne vlastnosti pro daný typ.
 5. Vyplňte formulář a klikněte na tlačítko **vytvořit** uložit nové připojení.
-
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Vytvoření nového připojení pomocí portálu Azure classic
-
-1. Z vašeho účtu automation, klikněte na tlačítko **prostředky** v horní části okna.
-2. V dolní části okna klikněte na tlačítko **přidat nastavení**.
-3. Klikněte na tlačítko **přidat připojení**.
-4. V **typ připojení** rozevíracího seznamu, vyberte typ připojení, které chcete vytvořit.  Průvodce nabídne vlastnosti pro daný typ.
-5. Dokončete průvodce a klikněte na zaškrtávací políčko pro uložení nové připojení.
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Chcete-li vytvořit nové připojení pomocí prostředí Windows PowerShell
 
@@ -154,7 +146,7 @@ Následující příklad ukazuje, jak chcete ověřit pomocí připojení spusti
     runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
     azure_credential = get_automation_runas_credential(runas_connection)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Zkontrolujte [odkazy v vytváření grafického obsahu](automation-graphical-authoring-intro.md#links-and-workflow) pochopit, jak k řízení a řízení toku logiky ve vašich sadách runbook.  
 

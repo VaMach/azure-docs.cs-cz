@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: 516f0ddcc50b3e6d744f70063b2112090d2e411d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ac253fda413718ded815c9a990ae61473a5d8870
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Prostředků přihlašovacích údajů ve službě Azure Automation
 Obsahuje prostředek přihlašovacích údajů automatizace [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) objekt, který obsahuje zabezpečovací přihlašovací údaje, jako je například uživatelské jméno a heslo. Konfigurace Runbooků a DSC může použít rutiny přijmout objekt PSCredential pro ověřování, nebo se může extrahuje uživatelské jméno a heslo objektu PSCredential zajistit některé aplikace nebo služby, které vyžadují ověřování. Vlastnosti přihlašovacích údajů jsou bezpečně uloženy ve službě Azure Automation a je přístupný v sada runbook nebo konfigurace DSC s [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) aktivity.
@@ -81,13 +81,6 @@ Následující vzorové příkazy znázorňují postup vytvoření nových přih
     $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
     $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
     New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
-
-### <a name="to-create-a-new-credential-asset-with-the-azure-classic-portal"></a>Chcete-li vytvořit nový prostředek přihlašovacích údajů pomocí portálu Azure classic
-1. Z vašeho účtu automation, klikněte na tlačítko **prostředky** v horní části okna.
-2. V dolní části okna klikněte na tlačítko **přidat nastavení**.
-3. Klikněte na tlačítko **přidat přihlašovací údaje**.
-4. V **typ přihlašovacích údajů** rozevíracího seznamu vyberte **přihlašovacích údajů prostředí PowerShell**.
-5. Dokončete průvodce a klikněte na zaškrtávací políčko pro uložení nových přihlašovacích údajů.
 
 ## <a name="using-a-powershell-credential"></a>Pomocí přihlašovacích údajů prostředí PowerShell
 Získat prostředek přihlašovacích údajů v runbooku nebo konfigurace DSC s **Get-AutomationPSCredential** aktivity. Tento příkaz vrátí [objektu PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) , můžete použít s aktivitu nebo rutinu, která vyžaduje parametr PSCredential. Můžete také načíst vlastnosti objekt přihlašovacích údajů, který chcete použít jednotlivě. Objekt nemá vlastnost pro uživatelské jméno a heslo zabezpečené, nebo můžete použít **GetNetworkCredential** metoda vrátí [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) objekt, který bude poskytovat zabezpečená verzi heslo.

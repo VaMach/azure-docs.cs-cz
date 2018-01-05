@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Jak škálovat kódování pomocí sady .NET SDK
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="overview"></a>Přehled
 > [!IMPORTANT]
-> Projděte si [přehled](media-services-scale-media-processing-overview.md) tématu, které chcete získat další informace o škálování média zpracování tématu.
+> Projděte si [přehled](media-services-scale-media-processing-overview.md) získat další informace o škálování zpracování média.
 > 
 > 
 
@@ -56,17 +56,7 @@ Chcete-li změnit typ jednotku rezervovanou a počet jednotky rezervované pro k
 Ve výchozím nastavení každých účtu Media Services můžete škálovat až 25 kódování a 5 na vyžádání jednotek rezervovaných pro streamování. Vyšší limit můžete požádat tak, že otevřete lístek podpory.
 
 ### <a name="open-a-support-ticket"></a>Otevřete lístek podpory
-Chcete-li otevřít podporu lístku takto:
-
-1. Klikněte na tlačítko [získat podporu](https://manage.windowsazure.com/?getsupport=true). Pokud nejste přihlášeni, budete vyzváni k zadání pověření.
-2. Vyberte své předplatné.
-3. V rámci podpory typu vyberte "Technical".
-4. Kliknutím na tlačítko "Vytvoření lístku".
-5. Vyberte "Azure Media Services" v seznamu produktu uvedené na další stránku.
-6. Vyberte typ problému"", je vhodné pro váš problém.
-7. Klikněte na tlačítko Pokračovat.
-8. Postupujte podle pokynů na další stránce a potom zadejte podrobnosti o problému.
-9. Klikněte na tlačítko Odeslat otevřete lístek.
+V portálu Azure přejděte do [Nápověda a podpora](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Pokud nejste přihlášeni do Azure, zobrazí se výzva k zadání přihlašovacích údajů.
 
 ## <a name="media-services-learning-paths"></a>Mapy kurzů ke službě Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

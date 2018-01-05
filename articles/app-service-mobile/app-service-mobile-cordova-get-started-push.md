@@ -3,9 +3,9 @@ title: "Přidání nabízených oznámení do aplikace Apache Cordova s Azure Mo
 description: "Naučte se používat Azure Mobile Apps k odesílání nabízených oznámení do vaší aplikace Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-manager: syntaxc4
+manager: crdun
 editor: 
-author: ggailey777
+author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Přidání nabízených oznámení do vaší aplikace Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,7 +79,7 @@ Spusťte následující příkaz:
 
 2. Klikněte na šipku vedle zdroje instalace.
 3. V **SENDER_ID**, pokud již máte ID číselné projektu pro projekt vývojářské konzole Google, můžete přidat sem. Jinak zadejte hodnotu zástupného symbolu, jako je 777777.  Pokud cílíte na Android, můžete je aktualizovat tuto hodnotu v config.xml později.
-4. Klikněte na tlačítko **Přidat**.
+4. Klikněte na tlačítko **Add** (Přidat).
 
 Modul plug-in nabízené je nyní nainstalován.
 

@@ -3,8 +3,8 @@ title: "Práce s knihovnou klienta spravovaného App Service Mobile Apps (Window
 description: "Další informace o použití klient .NET pro Azure App Service Mobile Apps s aplikacemi pro Windows a Xamarin."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: glenga
-ms.openlocfilehash: cbd2a53a7ba30915ed95cf6b0cb73b07a4f48a24
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: crdun
+ms.openlocfilehash: a92fc21881375989f4ebd192c2c42e419e7aee59
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Jak používat spravovaného klienta pro Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -374,7 +374,7 @@ Dvě nebo více klientů může zápisu změn do jedné položce ve stejnou dobu
 
 Mobilní aplikace podporuje optimistické řízení souběžného pomocí funkce sledování změn pro každou položku pomocí `version` sloupec vlastností systému, která je definována pro každou tabulku v váš back-end mobilní aplikace. Pokaždé, když je aktualizovat záznam, nastaví Mobile Apps `version` vlastnost pro tento záznam na novou hodnotu. Při každém požadavku aktualizace `version` vlastnost záznamu součástí požadavku se porovnává se stejnou vlastnost pro záznam na serveru. Pokud verze byla dokončena s požadavku se neshoduje s back-end, pak klientské knihovny vyvolá `MobileServicePreconditionFailedException<T>` výjimka. Typ zahrnuty s výjimkou je záznam z back-end obsahující servery verzi záznamu. Aplikace pak může tyto informace slouží k rozhodnout, zda chcete provést aktualizaci požadavků zopakovat se správnou `version` hodnotu z back-end potvrzení změn.
 
-U třídy tabulky pro definovat sloupec `version` systému vlastnost umožňující optimistickou metodu souběžného. Například:
+U třídy tabulky pro definovat sloupec `version` systému vlastnost umožňující optimistickou metodu souběžného. Příklad:
 
 ```
 public class TodoItem
@@ -612,7 +612,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 Tento formulář je typu metoda volání a vyžaduje, aby **MarkAllResult** vrátí typ je definován. Typové i bez typu metody jsou podporovány.
 
 Metoda InvokeApiAsync() přidá '/ api /' do rozhraní API, kterou chcete volat, pokud začíná rozhraní API lomítkem (/).
-Například:
+Příklad:
 
 * `InvokeApiAsync("completeAll",...)`volání /api/completeAll na back-end
 * `InvokeApiAsync("/.auth/me",...)`volání /.auth/me na back-end

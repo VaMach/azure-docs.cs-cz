@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/04/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Oddíl a škálování v Azure Cosmos DB
 
@@ -31,19 +31,29 @@ Dělení a klíče oddílu jsou popsané v této Azure pátek video s Scott Hans
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Vytváření oddílů v Azure Cosmos DB
-V Azure DB Cosmos můžete ukládat a zadávat dotazy na data bez schémat s pořadí milisekundu odezvy v jakémkoli měřítku. Azure Cosmos DB poskytuje kontejnery pro ukládání dat volat *kolekce* (pro dokumenty), *grafy*, nebo *tabulky*. Kontejnery jsou logické prostředky a může mít rozsah jeden nebo více fyzických oddílů nebo serverů. Počet oddílů je dáno Azure DB Cosmos na základě velikosti úložiště a zřízené propustnosti kontejneru. Každý oddíl v Azure Cosmos DB má pevně stanovený objem zálohovaná na SSD úložiště s ním spojená a je replikován pro vysokou dostupnost. Oddíl správy je plně spravovat Azure Cosmos DB a není nutné zapsat složitý kód nebo spravovat vaše oddíly. Kontejnery Azure Cosmos DB neomezená z hlediska úložiště a propustnosti. 
+V Azure DB Cosmos můžete ukládat a zadávat dotazy na data bez schémat s pořadí milisekundu odezvy v jakémkoli měřítku. Azure Cosmos DB poskytuje kontejnery pro ukládání dat volat *kolekce* (pro dokumenty), *grafy*, nebo *tabulky*. 
+
+Kontejnery jsou logické prostředky a může mít rozsah jeden nebo více fyzických oddílů nebo serverů. Počet oddílů je dáno Azure DB Cosmos na základě velikosti úložiště a zřízené propustnosti kontejneru. 
+
+Fyzickém oddílu je pevně stanovený objem vyhrazeného zálohovaná na SSD úložiště s maximální 10 GB. Každý fyzický oddíl se replikují pro vysokou dostupnost. Jeden nebo více fyzických oddílů tvoří kontejner. Správa fyzickém oddílu je plně spravovat Azure Cosmos DB a není nutné zapsat složitý kód nebo spravovat vaše oddíly. Kontejnery Azure Cosmos DB neomezená z hlediska úložiště a propustnosti. 
+
+Logický oddíl je oddíl v rámci fyzické oddílu, který ukládá všechna data související s hodnotou klíče jeden oddíl. V následujícím diagramu jediný kontejner má tři logické oddíly. Každý logický oddíl ukládá data pro jeden klíč oddílu, LAX AMS a MEL v uvedeném pořadí. Všechny logické oddíly LAX AMS a MEL nelze růst překračuje limit maximální fyzickém oddílu 10 GB. 
 
 ![Dělení prostředků](./media/introduction/azure-cosmos-db-partitioning.png) 
 
-Vytváření oddílů je transparentní do vaší aplikace. Azure Cosmos DB podporuje rychlé čtení a zápisy, dotazy, transakční logiku, úrovně konzistence a řízení přístupu podrobných prostřednictvím metody nebo rozhraní API pro jediný kontejner prostředků. Služba zpracovává distribuce data mezi oddílů a směrování požadavků na dotazy do správné oddílu. 
+Když kolekci splňuje [dělení požadavky](#prerequisites), v rámci vytváření oddílů je transparentní do vaší aplikace. Azure Cosmos DB podporuje rychlé čtení a zápisy, dotazy, transakční logiku, úrovně konzistence a řízení přístupu podrobných prostřednictvím metody nebo rozhraní API pro jediný kontejner prostředků. Služba zpracovává rozděluje data mezi fyzické a logické oddíly a směrování dotaz požadavky na pravém oddílu. 
 
-Jak funguje dělení Každá položka musí mít klíč oddílu a klíč řádku, které jeho jednoznačné identifikaci. Klíč oddílu funguje jako logický oddíl pro vaše data a poskytne Azure Cosmos DB přirozené hranice pro distribuci dat mezi oddílů. Stručně řečeno zde je Princip vytváření oddílů v Azure Cosmos DB:
+## <a name="how-does-partitioning-work"></a>Jak funguje dělení
 
-* Zřídit kontejner Azure Cosmos DB s `T` propustnost požadavky/s.
-* Na pozadí Azure Cosmos DB zřídí oddíly, které jsou potřebné k obsluze `T` požadavky/s. Pokud `T` je vyšší než maximální propustnost na oddíl `t`, pak Azure Cosmos DB zřizuje `N`  =  `T/t` oddíly.
-* Azure Cosmos DB přiděluje místo na klíče oddílu klíče hash rovnoměrně napříč `N` oddíly. Takže každý oddíl (fyzickém oddílu) hostitele `1/N` oddílu hodnoty klíče (logické oddíly).
-* Při fyzickém oddílu `p` dosáhnou limitu úložiště Azure Cosmos DB bezproblémově rozdělí `p` do dvou nových oddílů, `p1` a `p2`. Distribuuje hodnoty odpovídající přibližně poloviční klíče pro každou nadefinovaných oddílů. Toto rozdělení operace je pro vaše aplikace skrytá.
-* Podobně když zřídit propustnost vyšší než `t*N`, Azure Cosmos DB rozdělí jeden nebo více oddíly mohou podporovat vyšší propustnost.
+Jak funguje dělení Každá položka musí mít klíč oddílu a klíč řádku, které jeho jednoznačné identifikaci. Klíč oddílu funguje jako logický oddíl pro vaše data a poskytne Azure Cosmos DB přirozené hranice pro distribuci dat mezi oddílů. Mějte na paměti, že logický oddíl může mít rozsah více fyzických oddílů, ale správu fyzickém oddílu spravuje Azure Cosmos DB. 
+
+Stručně řečeno zde je Princip vytváření oddílů v Azure Cosmos DB:
+
+* Zřídit kontejner Azure Cosmos DB s **T** požadavků za druhé propustnost.
+* Na pozadí Azure Cosmos DB zřídí oddíly, které jsou potřebné k obsluze **T** požadavků za sekundu. Pokud **T** je vyšší než maximální propustnost na oddíl **t**, pak Azure Cosmos DB zřizuje **N = T/t** oddíly.
+* Azure Cosmos DB přiděluje místo na klíče oddílu klíče hash rovnoměrně napříč **N** oddíly. Takže každý oddíl (fyzickém oddílu) hostitele **1 nebo N** oddílu hodnoty klíče (logické oddíly).
+* Při fyzickém oddílu **p** dosáhnou limitu úložiště Azure Cosmos DB bezproblémově rozdělí **p** do dvou nových oddílů, **p1** a **p2** . Distribuuje hodnoty odpovídající přibližně poloviční klíče pro každou nadefinovaných oddílů. Toto rozdělení operace je pro vaše aplikace skrytá. Pokud fyzickém oddílu dosáhne limitu úložiště a všechna data na fyzickém oddílu patří do stejného klíče logický oddíl, neproběhne operaci rozdělení. Je to proto, že všechna data pro klíč jeden logický oddíl se musí nacházet v jednom fyzickém oddílu, a proto fyzickém oddílu nelze rozdělit na p1 a p2. V takovém případě měly by být použity strategie klíče jiný oddíl.
+* Pokud zřídíte propustnost vyšší než  **t*N**, Azure Cosmos DB rozdělí jeden nebo více oddíly mohou podporovat vyšší propustnost.
 
 Sémantika pro klíče oddílů je mírně odlišný tak, aby odpovídaly sémantika každé rozhraní API, jak je znázorněno v následující tabulce:
 
@@ -54,19 +64,28 @@ Sémantika pro klíče oddílů je mírně odlišný tak, aby odpovídaly séman
 | Graph | klíčovou vlastností vlastní oddíl | Oprava `id` | 
 | Table | Oprava `PartitionKey` | Oprava `RowKey` | 
 
-Azure Cosmos DB používá algoritmus HMAC rozdělení do oddílů. Při zápisu položky Azure Cosmos DB hashuje hodnotu klíče oddílu a hash výsledek používá k určení oddíl, který k uložení položky v. Azure Cosmos DB ukládá všechny položky se stejným klíčem oddílu v jednom fyzickém oddílu. Volba klíč oddílu je důležité rozhodnutí, která je nutné provést v době návrhu. Je třeba vybrat název vlastnosti, která má široký rozsah hodnot a má i přístupové vzorce.
+Azure Cosmos DB používá algoritmus HMAC rozdělení do oddílů. Při zápisu položky Azure Cosmos DB hashuje hodnotu klíče oddílu a hash výsledek používá k určení oddíl, který k uložení položky v. Azure Cosmos DB ukládá všechny položky se stejným klíčem oddílu v jednom fyzickém oddílu. Volba klíč oddílu je důležité rozhodnutí, která je nutné provést v době návrhu. Je třeba vybrat název vlastnosti, která má široký rozsah hodnot a má i přístupové vzorce. Pokud fyzickém oddílu dosáhne úložiště limit a stejným klíčem oddílu je na všech dat v oddílu, Azure Cosmos DB vrátí chybu "klíč oddílu dosáhl maximální velikosti 10 GB" a není rozdělena na oddíl, proto výběr klíč oddílu je velmi import ant rozhodnutí.
 
 > [!NOTE]
 > Je vhodné mít klíč oddílu s mnoha jedinečných hodnot (několika set k tisícům minimálně).
 >
 
-Kontejnery Azure Cosmos DB se dá vytvořit jako *pevné* nebo *neomezená*. Kontejnery pevné velikosti mají maximální limit 10 GB a propustnost 10 000 RU/s. Pokud chcete vytvořit kontejner jako neomezená, musíte zadat minimální propustnost 1000 RU/s a je nutné zadat klíč oddílu.
+Kontejnery Azure Cosmos DB se dá vytvořit jako *pevné* nebo *neomezená* na portálu Azure. Kontejnery pevné velikosti mají maximální limit 10 GB a propustnost 10 000 RU/s. Pokud chcete vytvořit kontejner jako neomezená, musíte zadat minimální propustnost 1000 RU/s a je nutné zadat klíč oddílu.
 
 Je vhodné zkontrolovat, jak se vaše data rozděluje v oddílech. Chcete-li zaškrtněte toto políčko portálu, přejděte ke svému účtu Azure Cosmos DB a klikněte na **metriky** v **monitorování** tématu a potom v pravém podokně klikněte na **úložiště** zjistit, jak vaše data jsou oddíly v různých fyzických oddílu.
 
 ![Dělení prostředků](./media/partition-data/partitionkey-example.png)
 
 Na levém obrázku vidíte výsledek klíč oddílu chybnou a pravém obrázek ukazuje výsledek vhodným klíčem oddílu. V levém bitovou kopii uvidíte, že data není rovnoměrně rozdělené mezi oddílů. Měli snažit distribuci dat tak, že vaše grafu vypadá podobně jako správné bitové kopie.
+
+<a name="prerequisites"></a>
+## <a name="prerequisites-for-partitioning"></a>Požadavky pro vytváření oddílů
+
+Pro fyzický oddíly, které mají automaticky rozdělení do **p1** a **p2** jak je popsáno v [jak rozdělení funguje](#how-does-partitioning-work), kontejneru musí být vytvořeny s propustností RU/s 1 000 nebo více , a je třeba zadat klíč oddílu. Při vytváření kontejneru na portálu Azure, vyberte **neomezený** možnost kapacity úložiště využívat výhod vytváření oddílů a automatické škálování. 
+
+Pokud jste vytvořili kontejner na portálu Azure nebo z programu a počáteční propustnost je 1 000 RU/s nebo informace a data obsahují klíč oddílu, můžete využít výhod oddíly bez změny do vašeho kontejneru – to zahrnuje **opraveno**  velikost kontejnery, tak dlouho, dokud počáteční kontejner byl vytvořen s alespoň 1 000 RU/s v througput a klíč oddílu je k dispozici v datech.
+
+Pokud jste vytvořili **pevné** velikost kontejner s žádné oddílem klíče nebo vytvořené **pevné** velikost kontejneru propustnost menší než 1 000 RU/s, kontejner nelze automaticky rozdělení jak je popsáno v tomto článku. Chcete-li migrovat data z kontejneru takto s kontejnerem neomezená (jedna s alespoň 1 000 RU/s v propustnosti a klíč oddílu), je potřeba použít [nástroj pro migraci dat](import-data.md) nebo [změnu kanálu knihovny](change-feed.md) k migrujte změny. 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Vytváření oddílů a zřízené propustnosti
 Azure Cosmos DB je určená pro předvídatelný výkon. Když vytvoříte kontejner, můžete vyhradit propustnost z hlediska  *[požadované jednotky](request-units.md) (RU) za sekundu*. Každý požadavek není přiřazen RU zdarma, který tvoří hlavně množství systémové prostředky jako procesoru, paměti a vstupně-výstupní operace spotřebovávají operaci. Čtení 1 KB dokumentu s konzistence typu relace využívá 1 RU. Pro čtení je 1 RU bez ohledu na počet položek, které jsou uložené nebo počet souběžných požadavků, které se spouští ve stejnou dobu. Položky větší vyžadují vyšší RUs v závislosti na velikosti. Pokud znáte velikost vaší entity a počet čtení, které budete potřebovat k podpoře pro aplikaci, můžete zřídit přesné množství propustnost požadované pro vaše aplikace je vyžaduje čtení. 

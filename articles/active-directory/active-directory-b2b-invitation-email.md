@@ -1,5 +1,5 @@
 ---
-title: "Elementy Azure Active Directory s B2B spolupráce e-mailová pozvánka | Microsoft Docs"
+title: "Elementy pozvánku e-mail spolupráce B2B – Azure Active Directory | Microsoft Docs"
 description: "Azure Active Directory s B2B spolupráce pozvánku e-mailové šablony"
 services: active-directory
 documentationcenter: 
@@ -7,21 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Elementy e-mail pozvánku spolupráce B2B
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementy pozvánku e-mail spolupráce B2B – Azure Active Directory
 
 E-mailů pozvánku je zásadní součástí a převeďte partnery na palubě jako uživatelé spolupráce B2B ve službě Azure AD. Můžete je používat k příjemce důvěryhodnosti zvýšit. můžete přidat legitimitu a sociálních ověření k e-mailu, abyste měli jistotu příjemce funguje celý výběr **Začínáme** tlačítko pro přijetí pozvánky. Tento vztah důvěryhodnosti je, že klíč znamená snížení sdílení tření. A budete chtít také zajistit e-mailu vypadají skvěle!
 
@@ -33,10 +31,10 @@ Podívejme se na několik elementy e-mailu, abyste věděli, jak nejlépe použ�
 ### <a name="subject"></a>Předmět
 Předmět e-mailu se následující následující: přijměte naše pozvání &lt;tenantname&gt; organizace
 
-### <a name="from-address"></a>Z adresy
+### <a name="from-address"></a>Adresa odesílatele
 Používáme LinkedIn jako vzor pro adresa odesílatele.  Musí být jasné, kdo je pozvání odeslal a ze společnosti a také vysvětlení, že e-mailu, pochází z Microsoftu e-mailovou adresu. Formát je: &lt;zobrazovaný název pozvánky&gt; z &lt;tenantname&gt; (přes Microsoft) <invites@microsoft.com&gt;
 
-### <a name="reply-to"></a>Odpovědět
+### <a name="reply-to"></a>Zpáteční adresa
 Odpověď pro e-mailu je nastavena k e-mailu pozval vás, pokud je k dispozici, takže odpovídání na e-mailu, odešle e-mailem zpátky do pozvání odeslal.
 
 ### <a name="branding"></a>Branding
@@ -71,7 +69,7 @@ Zápatí obsahuje značky společnosti Microsoft a umožňuje příjemce vědět
   ![Pokud není třeba uplatnit pozvánku k příjemce](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Projděte si naše další články ohledně spolupráce B2B ve službě Azure AD:
 

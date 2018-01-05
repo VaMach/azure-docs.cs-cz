@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Použití rozšíření diagnostiky Linux ke sledování metrik a protokoly
 
@@ -127,13 +127,17 @@ Tato sada informace o konfiguraci obsahuje citlivé informace, které by měly b
 }
 ```
 
-Name (Název) | Hodnota
+Název | Hodnota
 ---- | -----
 storageAccountName | Název účtu úložiště, ve kterém je rozšíření zapisovat data.
 storageAccountEndPoint | (volitelné) Koncový bod identifikace cloudu, ve kterém existuje účet úložiště. Chybí-li toto nastavení, LAD výchozí veřejného cloudu Azure `https://core.windows.net`. Pokud chcete používat účet úložiště v Azure v Německu, Azure Government nebo Azure China, tato hodnota odpovídajícím způsobem nastavte.
 storageAccountSasToken | [Tokenu SAS účtu](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) pro služby objektů Blob a tabulky (`ss='bt'`), platí pro kontejnery a objekty (`srt='co'`), která uděluje přidat, vytvářet, seznam, aktualizovat a oprávnění k zápisu (`sp='acluw'`). Proveďte *není* zahrnují na úvodní otazník (?).
 mdsdHttpProxy | (volitelné) Informace o proxy serveru HTTP potřebnými k povolení rozšíření pro připojení k zadaný účet úložiště a koncového bodu.
 sinksConfig | (volitelné) Podrobnosti o alternativní umístění, do kterých mohou být zajišťovány metriky a události. Konkrétní podrobnosti o každém jímku dat nepodporuje rozšíření jsou popsané v následujících částech.
+
+
+> [!NOTE]
+> Při nasazování rozšíření pomocí šablony Azure nasazení, SAS token a účet úložiště musí být vytvořen předem a následně předán do šablony. Nelze nasadit virtuální počítač, účet úložiště a konfiguraci rozšíření v jediné šabloně. Vytvoření tokenu SAS v rámci šablony není aktuálně podporován.
 
 Můžete snadno vytvořit požadovaný token SAS prostřednictvím portálu Azure.
 
@@ -300,8 +304,8 @@ Ukázky metrik zadané v části čítače výkonu se shromažďují každých 1
 Tento volitelný oddíl pod kontrolou shromažďování metrik. Nezpracovaná ukázky jsou agregována pro každou [scheduledTransferPeriod](#metrics) k vytvoření tyto hodnoty:
 
 * střední
-* minimální
-* Maximální počet
+* minimum
+* maximum
 * shromážděné poslední hodnota
 * počet nezpracovaných ukázky slouží k výpočtu agregace
 
@@ -309,10 +313,10 @@ Element | Hodnota
 ------- | -----
 jímky | (volitelné) Seznam názvů jímky, do které LAD zasílá agregovat metriky výsledky oddělených čárkami. Všechna agregovaná metrika se publikují do jednotlivých uvedených jímky. V tématu [sinksConfig](#sinksconfig). Příklad: `"EHsink1, myjsonsink"`.
 type | Identifikuje skutečné zprostředkovatele metriky.
-– Třída | Společně s "čítač" jsou uvedeny konkrétní metriky v rámci oboru názvů poskytovatele.
+Třída | Společně s "čítač" jsou uvedeny konkrétní metriky v rámci oboru názvů poskytovatele.
 Čítač | Společně s "class" jsou uvedeny konkrétní metriky v rámci oboru názvů poskytovatele.
 counterSpecifier | Identifikuje určité metriky v rámci oboru názvů metrik Azure.
-Podmínka | (volitelné) Vybere konkrétní instanci objektu do které metriku platí nebo vybere agregace napříč všemi instancemi tohoto objektu. Další informace najdete v tématu [ `builtin` definice metrik](#metrics-supported-by-builtin).
+podmínka | (volitelné) Vybere konkrétní instanci objektu do které metriku platí nebo vybere agregace napříč všemi instancemi tohoto objektu. Další informace najdete v tématu [ `builtin` definice metrik](#metrics-supported-by-builtin).
 sampleRate | Interval 8601, která nastavuje rychlost, jakou jsou shromažďovány nezpracovaná ukázky pro tato metrika je. Pokud není nastavena, je kolekce interval nastaven hodnotou [sampleRateInSeconds](#ladcfg). Nejkratší podporované vzorkovací frekvence je 15 sekund (PT15S).
 jednotka | By měl být jeden z těchto řetězců: "Count", "Bajtů", "Seconds", "Procenta", "CountPerSecond", "BytesPerSecond", "Milisekundu". Definuje jednotky pro metriku. Příjemci shromážděná data očekávat shromážděná data hodnoty tak, aby odpovídaly tuto jednotku. LAD ignoruje toto pole.
 displayName | Popisek (v jazyce určeném nastavením přidružené národní prostředí) být připojené k těmto datům v Azure metriky. LAD ignoruje toto pole.
@@ -384,7 +388,7 @@ Element | Hodnota
 ------- | -----
 obor názvů | (volitelné) OMI obor názvů, ve kterém se má provést dotaz. Pokud tento parametr nezadáte, výchozí hodnota je "kořenový/scx", implementované [System Center a platformy zprostředkovatelé](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | OMI dotaz, který má být proveden.
-Tabulka | (volitelné) Tabulky úložiště Azure, v účtu úložiště určený (viz [chráněné nastavení](#protected-settings)).
+tabulka | (volitelné) Tabulky úložiště Azure, v účtu úložiště určený (viz [chráněné nastavení](#protected-settings)).
 frequency | (volitelné) Počet sekund mezi provádění dotazu. Výchozí hodnota je 300 (5 minut); minimální hodnota je 15 sekund.
 jímky | (volitelné) Seznam názvy další jímky, na které je nutné ji publikovat metriky výsledky nezpracovaná ukázkový textový soubor s oddělovači. Žádné agregace ukázek nezpracovaná se počítá rozšíření nebo metrik Azure.
 
@@ -406,8 +410,8 @@ Musí být zadán buď "tabulka" nebo "jímky" nebo obojí.
 
 Element | Hodnota
 ------- | -----
-Soubor | Úplná cesta souboru protokolu bude sledovaná a zachycení. Název musí být názvu cesty jeden soubor; nemůže název adresáře nebo obsahovat zástupné znaky.
-Tabulka | (volitelné) Tabulka úložiště Azure v účtu úložiště určený (jako je zadaný v konfiguraci chráněného), do které se zapisují nové řádky "zadní" část souboru.
+soubor | Úplná cesta souboru protokolu bude sledovaná a zachycení. Název musí být názvu cesty jeden soubor; nemůže název adresáře nebo obsahovat zástupné znaky.
+tabulka | (volitelné) Tabulka úložiště Azure v účtu úložiště určený (jako je zadaný v konfiguraci chráněného), do které se zapisují nové řádky "zadní" část souboru.
 jímky | (volitelné) Seznam dalších jímky do protokolu linky, které odeslaných názvy oddělených čárkami.
 
 Musí být zadán buď "tabulka" nebo "jímky" nebo obojí.
@@ -699,7 +703,7 @@ Tento snímek relaci Microsoft Azure Storage Explorer zobrazuje generovaného ta
 
 V tématu odpovídajícího [EventHubs dokumentace](../../event-hubs/event-hubs-what-is-event-hubs.md) se dozvíte, jak využívat zpráv publikovaných do EventHubs koncový bod.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 * Vytvoření metriky výstrahy v [Azure monitorování](../../monitoring-and-diagnostics/insights-alerts-portal.md) podle metrik, které shromažďujete.
 * Vytvoření [tabulek sledování](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) pro vaše metriky.

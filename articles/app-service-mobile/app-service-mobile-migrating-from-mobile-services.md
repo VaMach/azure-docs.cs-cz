@@ -3,8 +3,8 @@ title: "Migrace z mobilních služeb do mobilní aplikace služby App Service"
 description: "Zjistěte, jak snadno migrovat aplikace Mobile Services pro aplikaci služby mobilní aplikace"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: glenga
-ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="article-top"></a>Migrovat existující Mobile Service Azure do Azure App Service
 Pomocí [obecné dostupnosti služby Azure App Service], weby Azure Mobile Services můžete snadno migrovat na místě chcete využít výhod všech funkcí služby Azure App Service.  Tento dokument popisuje, co očekávat při migraci váš web z Azure Mobile Services do služby Azure App Service.
@@ -46,7 +46,7 @@ V procesu migrace migruje všechny lokality v jedné oblasti Azure.
 
 Chcete-li migrovat webový server:
 
-1. Přihlaste se k [portál Azure Classic].
+1. Přihlaste se k [portálu Azure Classic].
 2. Vyberte mobilní službu v oblast, kterou chcete migrovat.
 3. Klikněte **migrací do služby App Service** tlačítko.
 
@@ -68,7 +68,7 @@ Naplánujte otestování váš web z mobilního klienta při ukončení procesu 
 ### <a name="update-app-service-tier"></a>Vyberte odpovídající aplikační službu cenové úrovně
 Máte větší flexibilitu v po migraci na Azure App Service – ceny.
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **všechny prostředky** nebo **App Services** pak klikněte na název vaší migrované mobilní služby.
 3. Otevře se okno nastavení ve výchozím nastavení.
 4. Klikněte na tlačítko **plán služby App Service** v nabídce nastavení.
@@ -94,7 +94,7 @@ Není značnou flexibilitu při volbě právo cenovou úroveň pro vaši aplikac
 Plánovač úloh se nezobrazí dokud přibližně 30 minut po migraci.  Naplánované úlohy dál spuštěný na pozadí.
 Chcete-li zobrazit naplánované úlohy, jakmile jsou viditelné znovu:
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **procházet >**, zadejte **plán** v *filtru* pole a pak vyberte **kolekce plánovače**.
 
 Existují omezení počtu volné plánovače úloh k dispozici po migraci.  Zkontrolujte vaše využití a [Azure Scheduler plánuje].
@@ -104,7 +104,7 @@ Sdílení prostředků různého původu je technika umožňuje webu pro příst
 
 Jsou k dispozici jako migrované nastavení CORS **MS_CrossDomainWhitelist** nastavení aplikace.  Chcete-li migrovat webový server do zařízení CORS služby App Service:
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **všechny prostředky** nebo **App Services** pak klikněte na název vaší migrované mobilní služby.
 3. Otevře se okno nastavení ve výchozím nastavení.
 4. Klikněte na tlačítko **CORS** v nabídce rozhraní API.
@@ -119,7 +119,7 @@ Jsou k dispozici jako migrované nastavení CORS **MS_CrossDomainWhitelist** nas
 ### <a name="download-publish-profile"></a>Stáhněte si nový profil publikování
 Profil publikování webu se změní při migraci do služby Azure App Service.  Pokud chcete publikovat váš web z Visual Studia, je třeba nový profil publikování.  Chcete-li stáhnout nový profil publikování:
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **všechny prostředky** nebo **App Services** pak klikněte na název vaší migrované mobilní služby.
 3. Klikněte na tlačítko **profilu publikování Get**.
 
@@ -133,12 +133,12 @@ Soubor PublishSettings se stáhne do počítače.  Obvykle se označuje jako *si
 6. Klikněte na tlačítko **publikovat** k publikování webu.
 
 ## <a name="working-with-your-site"></a>Práce s vaší lokality po migraci
-Zahájení práce s vaší nové služby App Service v [portál Azure] po migraci.  Toto jsou některé poznámky na konkrétní operace, které jste použili k plnění [portál Azure Classic], společně s jejich ekvivalent služby App Service.
+Zahájení práce s vaší nové služby App Service v [Azure Portal] po migraci.  Toto jsou některé poznámky na konkrétní operace, které jste použili k plnění [portálu Azure Classic], společně s jejich ekvivalent služby App Service.
 
 ### <a name="publishing-your-site"></a>Stahování a publikování migrovaná lokalita
 Váš web je k dispozici prostřednictvím git a ftp a můžete publikovat různé různé mechanismy, včetně WebDeploy, sady TFS, Mercurial, Githubu a FTP.  Přihlašovací údaje nasazení se migrují se zbytkem vaší lokality.  Pokud jste nenastavili přihlašovací údaje nasazení, nebo si je nepamatujete, můžete je obnovit:
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **všechny prostředky** nebo **App Services** pak klikněte na název vaší migrované mobilní služby.
 3. Otevře se okno nastavení ve výchozím nastavení.
 4. Klikněte na tlačítko **přihlašovací údaje nasazení** v publikování nabídky.
@@ -147,10 +147,10 @@ Váš web je k dispozici prostřednictvím git a ftp a můžete publikovat různ
 Tyto přihlašovací údaje můžete použít k lokalitě pomocí git clone nebo nastavit automatické nasazení z Githubu, sady TFS nebo Mercurial.  Další informace najdete v dokumentaci [Azure App Service nasazení].
 
 ### <a name="appsettings"></a>Nastavení aplikace
-Většina nastavení migrovaných mobilní služby jsou dostupné prostřednictvím nastavení aplikace.  Můžete získat seznam nastavení aplikace z [portál Azure].
+Většina nastavení migrovaných mobilní služby jsou dostupné prostřednictvím nastavení aplikace.  Můžete získat seznam nastavení aplikace z [Azure Portal].
 Zobrazení nebo změna nastavení aplikace:
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **všechny prostředky** nebo **App Services** pak klikněte na název vaší migrované mobilní služby.
 3. Otevře se okno nastavení ve výchozím nastavení.
 4. Klikněte na tlačítko **nastavení aplikace** v hlavní nabídce.
@@ -187,7 +187,7 @@ Poznámka: **MS\_AadTenants** se ukládají jako textový soubor s oddělovači 
 ### <a name="easytables"></a>Data
 *Data* kartě v Mobile Services nahradila *snadno tabulky* v rámci portálu Azure.  Pro přístup k snadno tabulky:
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **všechny prostředky** nebo **App Services** pak klikněte na název vaší migrované mobilní služby.
 3. Otevře se okno nastavení ve výchozím nastavení.
 4. Klikněte na tlačítko **snadno tabulky** v nabídce mobilních.
@@ -204,7 +204,7 @@ Kliknutím můžete přidat tabulku **přidat** tlačítko nebo přístup k vaš
 ### <a name="easyapis"></a>ROZHRANÍ API
 *Rozhraní API* kartě v Mobile Services nahradila *rozhraní API pro snadný* v rámci portálu Azure.  Pro přístup k rozhraní API pro snadný:
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **všechny prostředky** nebo **App Services** pak klikněte na název vaší migrované mobilní služby.
 3. Otevře se okno nastavení ve výchozím nastavení.
 4. Klikněte na tlačítko **rozhraní API pro snadný** v nabídce mobilních.
@@ -215,7 +215,7 @@ V okně nové můžete upravit oprávnění a upravit skripty pro rozhraní API.
 ### <a name="on-demand-jobs"></a>Plánovač úloh
 Všechny plánovače úloh jsou k dispozici prostřednictvím části kolekce úloh plánovače.  Pro přístup k vaší plánovače úloh:
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **procházet >**, zadejte **plán** v *filtru* pole a pak vyberte **kolekce plánovače**.
 3. Vyberte kolekci úloh pro svůj web.  Je název *sitename*-úlohy.
 4. Klikněte na tlačítko **nastavení**.
@@ -240,21 +240,21 @@ Mobile Services používá centra oznámení pro nabízená oznámení.  Násled
 | **MS\_NotificationHubConnectionString** |Připojovací řetězec centra oznámení |
 | **MS\_parametr NamespaceName** |Alias pro MS_PushEntityNamespace |
 
-Vaše centrum oznámení je spravovat prostřednictvím [portál Azure].  Poznamenejte si název centra oznámení (můžete najít to pomocí nastavení aplikace):
+Vaše centrum oznámení je spravovat prostřednictvím [Azure Portal].  Poznamenejte si název centra oznámení (můžete najít to pomocí nastavení aplikace):
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **Procházet**>, pak vyberte **centra oznámení**
 3. Klikněte na název centra oznámení, který je přidružený k mobilní službě.
 
 > [!NOTE]
-> Pokud vaše Centrum oznámení je typu "Mixed", není viditelná.  "Smíšený" typ oznámení, že hubs využívat Notification Hubs a starší verze funkce Service Bus.  [Převést smíšený obory] než budete pokračovat.  Po dokončení převodu, se zobrazí v centru oznámení [portál Azure].
+> Pokud vaše Centrum oznámení je typu "Mixed", není viditelná.  "Smíšený" typ oznámení, že hubs využívat Notification Hubs a starší verze funkce Service Bus.  [Převést smíšený obory] než budete pokračovat.  Po dokončení převodu, se zobrazí v centru oznámení [Azure Portal].
 >
 >
 
 Další informace najdete v článku [Notification Hubs] dokumentaci.
 
 > [!TIP]
-> Funkce správy centra oznámení [portál Azure] jsou stále ve verzi preview.  [portál Azure Classic] zůstává k dispozici pro správu všech Notification Hubs.
+> Funkce správy centra oznámení [Azure Portal] jsou stále ve verzi preview.  [portálu Azure Classic] zůstává k dispozici pro správu všech Notification Hubs.
 >
 >
 
@@ -305,7 +305,7 @@ Aktualizovat ověřování nebo nabízená oznámení nastavení aktualizace př
 ### <a name="diagnostics"></a>Protokolování a diagnostiky
 Protokolování diagnostiky vypnutá normálně ve službě Azure App Service.  Chcete-li povolit protokolování diagnostiky:
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **všechny prostředky** nebo **App Services** pak klikněte na název vaší migrované mobilní služby.
 3. Otevře se okno nastavení ve výchozím nastavení.
 4. Vyberte **diagnostické protokoly** v nabídce funkcí.
@@ -315,7 +315,7 @@ Protokolování diagnostiky vypnutá normálně ve službě Azure App Service.  
 
 K zobrazení protokolů:
 
-1. Přihlaste se k portálu [portál Azure].
+1. Přihlaste se k portálu [Azure Portal].
 2. Vyberte **všechny prostředky** nebo **App Services** pak klikněte na název vaší migrované mobilní služby.
 3. Klikněte **nástroje** tlačítko
 4. Vyberte **datový proud protokolu** v nabídce dodržovat.
@@ -376,8 +376,8 @@ Teď, když vaše aplikace je migrován do služby App Service, existují i dal�
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Automatické škálování]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
-[portál Azure Classic]: https://manage.windowsazure.com
-[portál Azure]: https://portal.azure.com
+[portálu Azure Classic]: https://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Azure Scheduler plánuje]: ../scheduler/scheduler-plans-billing.md
 [nepřetržitě nasazení]: ../app-service/app-service-continuous-deployment.md

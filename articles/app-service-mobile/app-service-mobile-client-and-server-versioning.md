@@ -3,8 +3,8 @@ title: "Klient a server správy verzí sady SDK v Mobile Apps a Mobile Services 
 description: "Seznam klientskou sadu SDK a kompatibilitu s verzí serveru SDK pro Mobile Services a Azure Mobile Apps"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Správa verzí klientských a serverových v Mobile Apps a Mobile Services
 Nejnovější verzi Azure Mobile Services je **Mobile Apps** funkce Azure App Service.
@@ -33,7 +33,7 @@ Další informace o migraci do služby App Service beze změn kódu, najdete v �
 ## <a name="header-specification"></a>Specifikace záhlaví
 Klíč `ZUMO-API-VERSION` může být určen v hlavičce HTTP nebo řetězec dotazu. Hodnota je řetězec verze ve formě **x.y.z**.
 
-Například:
+Příklad:
 
 ZÍSKAT https://service.azurewebsites.net/tables/TodoItem
 
@@ -54,8 +54,8 @@ Následující graf zobrazuje kompatibilitu mezi všechny typy klienta a serveru
 
 |  | **Mobilní služby** Node.js, nebo .NET | **Mobilní aplikace** Node.js, nebo .NET |
 | --- | --- | --- |
-| [Klienti Mobile Services] |Ok |Chyba\* |
-| [Klienti Mobile Apps] |Chyba\* |Ok |
+| [Klienti Mobile Services] |OK |Chyba\* |
+| [Klienti Mobile Apps] |Chyba\* |OK |
 
 \*To se dá nastavit podle určení **MS_SkipVersionCheck**.
 
@@ -87,7 +87,7 @@ Poznámka: Mobile Services klientskou sadu SDK *nepodporují* odeslání hodnotu
 ### <a name="behavior-of-mobile-services-backends"></a>Chování back-EndY mobilní služby
 | ZÁHLAVÍ ZUMO-API-VERSION | Hodnota MS_SkipVersionCheck | Odpověď |
 | --- | --- | --- |
-| Není zadaná. |Všechny |200 – OK |
+| Neuvedeno |Všechny |200 – OK |
 | Libovolná hodnota |True |200 – OK |
 | Libovolná hodnota |False nebo nebyla zadána |400 – Chybný požadavek |
 
@@ -115,7 +115,7 @@ Kontrola verze je součástí následující verze sady SDK serveru:
 | ZÁHLAVÍ ZUMO-API-VERSION | Hodnota MS_SkipVersionCheck | Odpověď |
 | --- | --- | --- |
 | x.y.z nebo hodnota Null. |True |200 – OK |
-| Hodnotu Null |False nebo nebyla zadána |400 – Chybný požadavek |
+| Null |False nebo nebyla zadána |400 – Chybný požadavek |
 | 1.x.y |False nebo nebyla zadána |400 – Chybný požadavek |
 | 2.0.0-2.x.y |False nebo nebyla zadána |200 – OK |
 | 3.0.0-3.x.y |False nebo nebyla zadána |400 – Chybný požadavek |

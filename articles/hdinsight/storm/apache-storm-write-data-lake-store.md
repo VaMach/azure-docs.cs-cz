@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: efb0a19e0793a93b2bfab93adb747e6f130341df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 485bc8e21e92b7dc5734458506c6825d349c45f9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Zápis do HDFS z Apache Storm v HDInsight
 
@@ -34,7 +34,7 @@ Projekt obsahující tato topologie je k dispozici ke stažení z [https://githu
 
 Kompilace projektu, potřebujete následující konfigurace pro vývojové prostředí:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) nebo vyšší. HDInsight 3.5 nebo vyšší vyžadují Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) nebo vyšší. HDInsight 3.5 nebo vyšší vyžadují Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -140,7 +140,7 @@ Další informace o rozhraní tok najdete v tématu [https://storm.apache.org/re
 
 Ve výchozím nastavení Storm v HDInsight neobsahuje součásti, které HdfsBolt používá ke komunikaci s Azure Storage nebo Data Lake Store v Storm je cesta pro třídy. Pomocí následující akce skriptu přidejte tyto součásti `extlib` adresář pro Storm v clusteru:
 
-* Identifikátor URI skriptu:`https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* Identifikátor URI skriptu:`https://gist.githubusercontent.com/Blackmist/dbd4a3f555397a84ac1074ee73484df2/raw/63a76e559efd532021580d079e378c6b2f8c475e/stormextlib.sh`
 * Uzly, které chcete použít: Nimbus, Supervisor
 * Parametry: žádné
 
@@ -222,7 +222,7 @@ Topologie Storm spustit, dokud nebude zastaven nebo odstranění clusteru. K zas
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Teď, když jste se naučili jak používat Storm k zápisu do úložiště Azure a Azure Data Lake Store, zjišťování dalších [Storm příklady pro HDInsight](apache-storm-example-topology.md).
 

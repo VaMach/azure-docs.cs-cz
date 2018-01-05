@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/16/2017
+ms.date: 1/4/2018
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Obnovení souborů na serveru Windows nebo klientském počítači s využitím modelu nasazení Resource Manager
 
@@ -33,7 +33,7 @@ V lednu 2017 společnost Microsoft vydala Preview aktualizace agenta MARS. Spole
 > [Ledna 2017 Azure Backup aktualizace](https://support.microsoft.com/en-us/help/3216528?preview) je povinný, pokud chcete obnovit data pomocí funkce Rychlé obnovení. Zálohovaná data musí být chráněna v trezorů v národní prostředí, které jsou uvedené v článku podpory. Obrátit [ledna 2017 Azure Backup aktualizace](https://support.microsoft.com/en-us/help/3216528?preview) nejnovější seznam národních prostředí, které podporují rychlé obnovení. Rychlé obnovení je **není** aktuálně k dispozici ve všech národních prostředí.
 >
 
-Rychlé obnovení je k dispozici pro použití v trezory služeb zotavení v portálu Azure a trezory Backup na portálu classic. Pokud chcete použít rychlé obnovení, stažení aktualizace MARS a postupujte podle pokynů, které zmínili, rychlé obnovení.
+Pomocí rychlé obnovení s trezory služeb zotavení na portálu Azure. Pokud data uložena v trezory Backup, byla převedena do trezory služeb zotavení. Pokud chcete použít rychlé obnovení, stažení aktualizace MARS a postupujte podle pokynů, které zmínili, rychlé obnovení.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -176,5 +176,5 @@ Pokud nelze zálohy Azure úspěšně připojit svazek obnovení ani po několik
 
 Pokud se obnovení stále nedaří, restartujte server nebo klienta. Pokud restartování není žádoucí nebo obnovení stále nedaří i po restartování serveru, pokuste obnovení provést z alternativní počítače a obraťte se na podporu Azure přechodem na [portálu Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) a odeslání žádosti o podporu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Teď, když jste obnovit soubory a složky, můžete [spravovat zálohy](backup-azure-manage-windows-server.md).

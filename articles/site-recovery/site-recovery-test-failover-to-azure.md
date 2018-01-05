@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 9902af83125f596f6dd5a1a6c955d00e9b5a87bc
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Testovací převzetí služeb při selhání do Azure ve službě Site Recovery
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/18/2017
 
 Tento článek popisuje, jak spustit postupu zotavení po havárii na Azure, pomocí Site Recovery testovací převzetí služeb.  
 
-Můžete spustit převzetí služeb při selhání k ověření replikace a po havárii reecovery strategie bez ztráty dat nebo výpadek. Testovací převzetí služeb nebude mít vliv na probíhající replikace, nebo v provozním prostředí. Můžete spustit testovací převzetí služeb na konkrétní virtuální počítač (VM), nebo na [plán obnovení](site-recovery-create-recovery-plans.md) obsahující více virtuálních počítačů. 
+Můžete spustit převzetí služeb při selhání k ověření replikace a strategie zotavení po havárii bez ztráty dat nebo výpadek. Testovací převzetí služeb nebude mít vliv na probíhající replikace, nebo v provozním prostředí. Můžete spustit testovací převzetí služeb na konkrétní virtuální počítač (VM), nebo na [plán obnovení](site-recovery-create-recovery-plans.md) obsahující více virtuálních počítačů. 
 
 
 ## <a name="run-a-test-failover"></a>Spuštění testovacího převzetí služeb při selhání
@@ -119,5 +119,5 @@ Pokud se chcete připojit k virtuálním počítačům Azure po převzetí služ
 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Po dokončení postupu zotavení po havárii, další informace o dalších typů [převzetí služeb při selhání](site-recovery-failover.md).

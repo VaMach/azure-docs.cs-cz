@@ -3,7 +3,7 @@ title: "Správa jednotného přihlašování pro proxy aplikace služby Azure AD
 description: "Další informace o základní informace o jednotné přihlašování pomocí Proxy aplikace"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e3f2ed6f019760fd4109c6fc3d8449d95c4959a9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60422b4c8256df024bbc870fc43ec6b491f674f1
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Jak Azure AD Application Proxy poskytovat jednotné přihlašování?
 
@@ -38,13 +38,13 @@ Pokud chcete zobrazit vaše volby jednotného přihlašování, postupujte takto
 
 V rozevírací nabídce jsou pět možnosti pro jednotné přihlašování k vaší aplikaci:
 
-* Azure AD jednotné přihlašování zakázáno
+* Jednotné přihlašování Azure AD je zakázané.
 * Založené na heslech přihlášení
 * Propojené přihlášení
 * Integrované ověřování systému Windows
 * Na základě záhlaví přihlášení
 
-## <a name="azure-ad-single-sign-on-disabled"></a>Azure AD jednotné přihlašování zakázáno
+## <a name="azure-ad-single-sign-on-disabled"></a>Jednotné přihlašování Azure AD je zakázané.
 
 Pokud nechcete použít integraci služby Azure Active Directory pro jednotné přihlašování k vaší aplikaci, vyberte **Azure AD jednotné přihlašování zakázáno**. Tuto možnost mohou uživatelé ověřit dvakrát. Nejprve ověření do Azure Active Directory a potom se přihlaste do vlastní aplikace. 
 
@@ -74,7 +74,7 @@ Pokud vaše aplikace používat hlavičky pro ověřování, zvolte **na základ
 
 Informace o nastavení ověřování na základě záhlaví najdete v tématu [ověřování na základě záhlaví pro jednotné přihlašování pomocí Proxy aplikace](application-proxy-ping-access.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Heslo vaulting pro jednotné přihlašování pomocí Proxy aplikace](application-proxy-sso-azure-portal.md)
 - [Omezené delegování Kerberos pro jednotné přihlašování pomocí Proxy aplikace](active-directory-application-proxy-sso-using-kcd.md)

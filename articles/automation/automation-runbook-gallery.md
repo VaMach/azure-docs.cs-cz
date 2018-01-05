@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 70bbc131f153efd88816450c239920c79665fdff
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerie Runbooků a modulů pro Azure Automation.
 Místo vytvoření vlastní sady runbook a modulů ve službě Azure Automation, můžete zpřístupnit různé scénáře, které jste již vytvořili společností Microsoft a komunitou.  Můžete použít tyto scénáře bez jakýchkoli úprav nebo můžete používat jako výchozí bod a je upravit pro vaše konkrétní požadavky.
@@ -26,23 +26,14 @@ Místo vytvoření vlastní sady runbook a modulů ve službě Azure Automation,
 Můžete získat runbooků [Galerie Runbooků](#runbooks-in-runbook-gallery) a moduly z [Galerie prostředí PowerShell](#modules-in-powerShell-gallery).  Také můžete přispívat komunitě sdílením scénáře, které vyvíjíte.
 
 ## <a name="runbooks-in-runbook-gallery"></a>Sady Runbook v Galerie Runbooků
-[Galerie Runbooků](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) poskytuje celou řadu runbooky od Microsoftu a komunity, který můžete importovat do Azure Automation. Buď můžete stáhnout sady runbook z galerie, který je hostován v [centra skriptů TechNet](https://gallery.technet.microsoft.com/scriptcenter/site/upload), nebo můžete přímo naimportovat sady runbook z Galerie z portálu Azure classic nebo portálu Azure.
+[Galerie Runbooků](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) poskytuje celou řadu runbooky od Microsoftu a komunity, který můžete importovat do Azure Automation. Buď můžete stáhnout sady runbook z galerie, který je hostován v [centra skriptů TechNet](https://gallery.technet.microsoft.com/scriptcenter/site/upload), nebo můžete přímo naimportovat sady runbook z Galerie na portálu Azure.
 
-Lze importovat pouze přímo z Galerie sady Runbook pomocí portálu Azure classic nebo portálu Azure. Nelze provést tuto funkci pomocí prostředí Windows PowerShell.
+Lze importovat pouze přímo z Galerie sady Runbook pomocí portálu Azure. Nelze provést tuto funkci pomocí prostředí Windows PowerShell.
 
 > [!NOTE]
 > Je třeba ověřit obsah jakékoli sady runbook můžete získat z Galerie Runbooků a buďte velmi opatrní při instalaci a spustil je v produkčním prostředí. |
 > 
 > 
-
-### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-classic-portal"></a>Chcete-li importovat sady runbook z Galerie sady Runbook pomocí portálu Azure classic
-1. Na portálu Azure klikněte na tlačítko, **nový**, **App Services**, **automatizace**, **Runbook**, **z Galerie**.
-2. Vyberte kategorii k zobrazení související sady runbook a vyberte sadu runbook zobrazíte její podrobnosti. Když vyberete runbooku, který chcete, klikněte na tlačítko se šipkou vpravo.
-   
-    ![Galerie runbooků](media/automation-runbook-gallery/runbook-gallery.png)
-3. Zkontrolujte obsah sady runbook a poznamenejte si všechny požadavky v popisu. Až budete hotovi, klikněte na tlačítko se šipkou vpravo.
-4. Zadejte podrobnosti sady runbook a potom klikněte na značku zaškrtnutí. Název runbooku je již vyplněno.
-5. Runbook se zobrazí na **Runbooky** kartě pro účet služby Automation.
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Chcete-li importovat sady runbook z Galerie sady Runbook pomocí portálu Azure
 1. Na webu Azure Portal otevřete účet Automation.
@@ -70,21 +61,21 @@ Společnost Microsoft doporučuje, můžete přidat do Galerie sady Runbook, kte
 * Souhrn pro nahrávání se zobrazí ve výsledcích Galerie Runbooků, proto byste měli poskytnout podrobné informace, které pomáhá identifikovat funkce sady runbook uživatele.
 * Jednu až tři z těchto značek byste měli přiřadit k odeslání.  Sada runbook je uveden v průvodci v části kategorie, které odpovídají jeho značky.  Průvodce jsou ignorovány všechny značky není v tomto seznamu. Pokud nezadáte žádné odpovídající značky, sada runbook je uvedený v jiné kategorii.
   
-  * Zálohování
+  * Backup
   * Správa kapacit
   * Řízení změn
   * Dodržování předpisů
   * Dev / testovací prostředí
   * Zotavení po havárii
   * Monitorování
-  * Opravy chyb
+  * Oprava
   * Zřizování
-  * Nápravy
+  * Náprava
   * Správa životního cyklu virtuálních počítačů
 * Automatizace aktualizuje Galerie tak vaše příspěvky se nezobrazí okamžitě jednou za hodinu.
 
 ## <a name="modules-in-powershell-gallery"></a>Moduly v galerii prostředí PowerShell
-Moduly prostředí PowerShell obsahují rutiny, které můžete použít ve vašich sadách runbook, a jsou k dispozici v existující moduly, které můžete nainstalovat ve službě Azure Automation [Galerie prostředí PowerShell](http://www.powershellgallery.com).  Můžete spustit tento Galerie z portálu Azure a nainstalovat je přímo do Azure Automation, nebo můžete je stáhnout a nainstalovat ručně.  Moduly nemůžete instalovat přímo z portálu Azure classic, ale můžete je stáhnout nainstalovat je stejně jako ostatní moduly.
+Moduly prostředí PowerShell obsahují rutiny, které můžete použít ve vašich sadách runbook, a jsou k dispozici v existující moduly, které můžete nainstalovat ve službě Azure Automation [Galerie prostředí PowerShell](http://www.powershellgallery.com).  Můžete spustit tento Galerie z portálu Azure a nainstalovat je přímo do Azure Automation, nebo můžete je stáhnout a nainstalovat ručně.  
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Postup importování modulu z Galerie automatizace modulu pomocí portálu Azure
 1. Na webu Azure Portal otevřete účet Automation.

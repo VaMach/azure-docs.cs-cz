@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: bb82eeda21fe4913acbe930696aa110ea1554f28
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Přidat nebo změnit správce předplatného Azure
 
@@ -40,9 +40,11 @@ K zajištění lepší řízení a zjednodušit správu přístupu, doporučujem
 Někdo přidat jako správce pro správu služby předplatného Azure, jim poskytněte roli vlastníka RBAC k předplatnému. Role vlastníka umožňuje spravovat prostředky v předplatném přiřazen a nemá oprávnění přístupu pro další odběry.
 
 1. Navštivte [ **odběry** na portálu Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Vyberte odběr, který má přístup k udělení.
-1. Vyberte **přístup k ovládacímu prvku (IAM)** v nabídce.
-1. Vyberte **přidat** > **Role** > **vlastníka**. Zadejte e-mailovou adresu uživatele, které chcete přidat jako vlastník, vyberte uživatele a potom vyberte **Uložit**.
+2. Vyberte předplatné, které chcete udělit přístup.
+3. Vyberte **přístup k ovládacímu prvku (IAM)** v nabídce.
+4. V **Role** vyberte **vlastníka**. 
+5. V **přiřadit přístup** vyberte **uživatele Azure AD, skupinu nebo aplikaci**. 
+6. V **vyberte** zadejte e-mailovou adresu uživatele, který chcete přidat jako vlastníka. Vyberte uživatele a pak vyberte **Uložit**.
 
     ![Snímek obrazovky zobrazující vybrané roli vlastníka](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 

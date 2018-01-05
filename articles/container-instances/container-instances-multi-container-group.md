@@ -9,17 +9,20 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5de818b0b47ee3345ddbc41455f5e953c5b96aa4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2ffebf06e2e013f909410fa4861420a5ae3d4dcf
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deploy-a-container-group"></a>Nasazení kontejneru skupiny
 
-Podporuje nasazení několika kontejnerů do jednoho hostitele pomocí Azure instancí kontejnerů *skupina kontejneru*. To je užitečné při sestavování něho aplikace pro protokolování, sledování nebo jakoukoli jinou konfiguraci, které služba potřebuje druhý připojené procesu.
+Podporuje nasazení několika kontejnerů do jednoho hostitele pomocí Azure instancí kontejnerů [skupina kontejneru](container-instances-container-groups.md). To je užitečné při sestavování něho aplikace pro protokolování, sledování nebo jakoukoli jinou konfiguraci, které služba potřebuje druhý připojené procesu.
 
 Tento dokument vás provede službou Jednoduché něho více kontejneru konfigurace a nasazení šablonu Azure Resource Manager.
+
+> [!NOTE]
+> Více kontejner skupiny jsou aktuálně omezeno na kontejnery Linux. Při pracujeme, aby všechny funkce Windows kontejnery, můžete najít aktuální platformy rozdíly v [kvóty a dostupnost v oblastech Azure kontejner instancí](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Konfigurace šablony
 

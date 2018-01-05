@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: crdun
+ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Jak používat Azure Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -92,7 +92,7 @@ Visual Studio 2015 vyžaduje rozšíření při vývoji aplikací Node.js v pros
 1. Otevřete **nový projekt** dialogové okno (z **soubor** > **nový** > **projekt...** ).
 2. Rozbalte položku **šablony** > **JavaScript** > **Node.js**.
 3. Vyberte **aplikace základní Azure Node.js Express 4**.
-4. Zadejte název projektu.  Klikněte na tlačítko *OK*.
+4. Zadejte název projektu.  Klikněte na *OK*.
 
     ![Nový projekt sady Visual Studio 2015][1]
 5. Klikněte pravým tlačítkem myši **npm** uzel a vyberte možnost **nainstalovat nové balíčky npm...** .
@@ -320,9 +320,9 @@ Většina nastavení v *azureMobile.js* soubor mít ekvivalentní nastavení apl
 
 | Nastavení aplikace | *azureMobile.js* nastavení | Popis | Platné hodnoty |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |jméno |Název aplikace |Řetězec |
+| **MS_MobileAppName** |jméno |Název aplikace |řetězec |
 | **MS_MobileLoggingLevel** |Logging.level |Úroveň minimální protokolu zpráv do protokolu |Chyba, upozornění, informace o podrobné nastavení, ladění, i |
-| **MS_DebugMode** |Ladění |Povolit nebo zakázat režim ladění |Hodnota TRUE, false |
+| **MS_DebugMode** |ladit |Povolit nebo zakázat režim ladění |Hodnota TRUE, false |
 | **MS_TableSchema** |data.Schema |Výchozí název schématu pro tabulky SQL |String (výchozí: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Povolit nebo zakázat režim ladění |Hodnota TRUE, false |
 | **MS_DisableVersionHeader** |verze (je nastavený na nedefinované) |Zakáže hlavičky X-záhlaví ZUMO-Server-Version |Hodnota TRUE, false |
@@ -797,7 +797,7 @@ Snadno tabulek v portálu umožňuje vytvářet a pracovat s tabulkami přímo n
 * CreatedAt
 * updatedAt
 * Odstranit
-* Verze
+* verze
 
 I můžete upravit pomocí editoru služby aplikace operace s tabulkou. Když kliknete na tlačítko **snadno tabulky** v nastavení vašeho back-end serveru, můžete přidávat, upravovat nebo odstranění tabulky. Můžete také zobrazit data v tabulce.
 
@@ -827,7 +827,7 @@ Portál Azure umožňuje upravit soubory skriptu back-end Node.js v editoru slu�
 
 1. V okně back-end mobilní aplikace, klikněte na tlačítko **všechna nastavení** > buď **snadno tabulky** nebo **rozhraní API pro snadný**, klikněte na tabulku nebo rozhraní API a pak klikněte na tlačítko **upravte skript**. Soubor skriptu je otevřen v editoru služby aplikace.
 
-    ![Editor služby aplikace](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+    ![App Service Editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 2. Provedené změny do souboru kódu v editoru online. Změny se při psaní automaticky uloží.
 
 <!-- Images -->

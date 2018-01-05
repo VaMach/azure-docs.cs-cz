@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: c7e880b6632e3a1456cf2fa535e6218d3bb31e4a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8c07bafb588a3f3e1dba13a58f83dd6d68c9c089
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Jak získat Azure Multi-Factor Authentication
 
@@ -39,7 +39,7 @@ Následující tabulka popisuje rozdíly mezi tři verze služby Multi-Factor au
 | --- | --- |
 | Služba Multi-Factor Authentication (vícefaktorové ověřování) pro Office 365 |Tato verze funguje výhradně u aplikací Office 365 a je spravovat z portálu Office 365. Správci můžou [zabezpečení prostředků Office 365 s dvoustupnovym overovanim](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Tato verze je součástí předplatné služeb Office 365. |
 | Víceúrovňové ověřování pro Azure správci | Globální správci klientů, které Azure můžete povolit dvoustupňové ověřování pro jejich účty globálních správců bez dalších poplatků.|
-| Azure Multi-Factor Authentication | Často označuje jako "úplná" verze, Azure Multi-Factor Authentication nabízí nejkomplexnější sadu funkcí. Poskytuje další možnosti konfigurace prostřednictvím [portál Azure classic](https://manage.windowsazure.com), pokročilé vytváření sestav a podpora pro řadu místní i cloudové aplikace. Azure Multi-Factor Authentication je součástí [plánů Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) a [Enterprise Mobility + Security plány](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing)a dá se nasadit buď v cloudu nebo místně. |
+| Azure Multi-Factor Authentication | Často označuje jako "úplná" verze, Azure Multi-Factor Authentication nabízí nejkomplexnější sadu funkcí. Poskytuje další možnosti konfigurace prostřednictvím [portál Azure](https://portal.azure.com), pokročilé vytváření sestav a podpora pro řadu místní i cloudové aplikace. Azure Multi-Factor Authentication je součástí [plánů Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) a [Enterprise Mobility + Security plány](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing)a dá se nasadit buď v cloudu nebo místně. |
 
 ## <a name="feature-comparison-of-versions"></a>Porovnání funkcí verze
 Následující tabulka obsahuje seznam funkcí, které jsou k dispozici v různých verzích Azure Multi-Factor Authentication.
@@ -103,7 +103,7 @@ Pokud používáte poskytovatele Azure Multi-Factor Authentication, existují dv
 
 Je důležité si uvědomit, že může mít licence Azure MFA, ale stále získat účtuje konfiguraci na základě spotřeby. Pokud nastavíte zprostředkovatele Azure MFA na ověřování, fakturuje se pro každý požadavek dvoustupňové ověření, včetně těch, které se provádí uživatelé, kteří mají licence. Pokud nastavíte zprostředkovatele Azure MFA na uživatele v doméně, který není přidružený ke klientovi Azure AD, vám fakturují za povoleného uživatele i v případě, že uživatelé mají licence na Azure AD. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Podrobnosti o cenách najdete v části [ceník služby Azure MFA](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
 

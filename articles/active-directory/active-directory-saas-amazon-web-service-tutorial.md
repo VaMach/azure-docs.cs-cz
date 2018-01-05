@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 1/3/2017
 ms.author: jeedes
-ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: c8c56cd3e222e8e9ebf4cd3bb5109b6f552ec387
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Kurz: Azure Active Directory integrace s Amazon Web Services (AWS)
 
@@ -110,7 +110,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
 4. Aplikace Software Amazon Web Services (AWS) očekává SAML kontrolní výrazy ve specifickém formátu. Nakonfigurujte následující deklarace identity pro tuto aplikaci. Můžete spravovat hodnoty těchto atributů z "**uživatelské atributy**" části na stránce integrace aplikace. Následující snímek obrazovky ukazuje příklad pro tento.
 
-    ![Nakonfigurovat atributy, jednotné přihlašování](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)  
+    ![Konfigurovat jednotné přihlašování attb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)   
 
 5. V **uživatelské atributy** části na **jednotného přihlašování** dialogové okno, nakonfigurujte atribut tokenu SAML, jak je znázorněno na obrázku výše a proveďte následující kroky:
     
@@ -126,7 +126,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Konfigurovat jednotné přihlašování přidat](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-    ![Nakonfigurovat atributy, jednotné přihlašování](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+    ![Konfigurovat jednotné přihlašování addattb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
     b. V **název** textovému poli, zadejte název atributu, který je uvedený na příslušném řádku.
 
@@ -230,18 +230,18 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Vytvoření nové zásady](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Vytvořte vlastní zásadu načíst všechny role z AWS účty. V **vytvořit vaše vlastní zásadu** části, klikněte na **vyberte** tlačítko.
+25. Vytvořte vlastní zásadu načíst všechny role z AWS účty. V **vytvořit vlastní zásadu** části klikněte na **vyberte** tlačítko.
     
     ![Vytvoření nové zásady](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
 26. Definujte nové zásady tak, že provedete následující kroky:
 
-    ![Definovat nové zásady](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
+    ![Definovat nové zásady](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
     a. Zadejte **název zásady** jako **AzureAD_SSOUserRole_Policy**.
 
     b. Můžete zadat **popis** zásad jako **tyto zásady vám umožní načíst role z účtů AWS**.
-
+    
     c. V dokumentu zásady, přidejte níže JSON.
     
     ```
@@ -271,14 +271,12 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     }
     
     ```
-
+    
     d. Ujistěte se, že můžete kontrolovat na **použít automatické formátování pro úpravy zásad**.
-
+    
     e. Klikněte na **ověření zásad** tlačítko dole.
-
+    
     f. Jakmile zásady je potvrzená správně pak můžete kliknutím na **vytvořit zásadu** tlačítko.
-
-    ![Vytvořit novou zásadu](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
     
 27. Vytvořte nový uživatelský účet ve službě IAM AWS provedením následujících kroků:
 
@@ -302,7 +300,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
 28. Teď vytvořte novou zásadu pro tohoto uživatele tak, že provedete následující kroky:
 
-    ![Přidání uživatele](./media/active-directory-saas-amazon-web-service-tutorial/policy6.png)
+    ![Přidání uživatele](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
     a. Klikněte na **přímo připojit existující zásady** tlačítko.
 
@@ -332,7 +330,7 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
 
     ![Přidání uživatele](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Zadejte **přístupový klíč** a **tajný klíč** v **tajný klíč klienta** a **tajný klíč tokenu** polí v uvedeném pořadí.
+32. Zadejte **přístupový klíč** a **tajný klíč** v **tajný klíč klienta** a **tajný klíč tokenu** pole v uvedeném pořadí.
 
     ![Přidání uživatele](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -424,13 +422,6 @@ V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci 
 
 Když kliknete na dlaždici Amazon Web Services (AWS) na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci Amazon Web Services (AWS).
 Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md). 
-
-## <a name="known-issues"></a>Známé problémy
-
- * V **zřizování** části **mapování** dílčí části, se zobrazí zpráva "Načítání..." a nikdy zobrazí mapování atributů. Pouze zřizování workflow podporované dnes je importovat role z AWS do služby Azure AD pro výběr při přiřazení uživatele nebo skupiny. Mapování atributů pro tento jsou předem určený a nejde konfigurovat.
- 
- * **Zřizování** části podporuje pouze zadávat jedinou sadu pověření pro jednoho klienta AWS najednou. Všechny importované role se zapisují do vlastnost appRoles Azure AD [servicePrincipal objekt](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) AWS klienta. Několik klientů AWS (představované servicePrincipals) mohou být přidány do služby Azure AD z Galerie pro zřizování, ale existuje se o známý problém s nebude moci automaticky všechny importované role zápisu z více AWS servicePrincipals používá pro zřizování do jednoho servicePrincipal používá pro jednotné přihlašování. Jako alternativní řešení [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) slouží k extrakci všechny appRoles naimportovat do jednotlivých AWS servicePrincipal konfigurovaným zřizování. Tyto role řetězce mohou následně přidány do servicePrincipal AWS, kde nakonfigurován jednotné přihlašování.
-
 
 ## <a name="additional-resources"></a>Další zdroje informací:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Nahraďte uzlu jednotky škálování v systému Azure zásobníku integrované
 
@@ -28,23 +28,23 @@ Tento článek popisuje obecný postup k nahrazení fyzického počítače (tak�
 
 Následující vývojový diagram znázorňuje obecný postup FRU nahradit do uzlu škálování celé jednotky.
 
-![Vývojový diagram procesu uzlu nahradit](media/azure-stack-replace-node/ReplaceNodeFlow.PNG)
+![Vývojový diagram procesu uzlu nahradit](media/azure-stack-replace-node/replacenodeflow.png)
 
 * Tato akce nemusí být vyžadovány na základě podmínky pro fyzický hardware.
 
 ## <a name="review-alert-information"></a>Přečtěte si informace o výstrahách
 
-Pokud uzel jednotka škálování je vypnutý, dostanete všechny následující kritické výstrahy:
+Pokud uzel jednotka škálování je vypnutý, dostanete následující kritické výstrahy:
 
 - Uzel není připojeno k síťový adaptér
 - Uzel nedostupný pro umístění virtuálního počítače
 - Uzel jednotka škálování je offline
 
-![Seznam výstrah pro jednotku škálování směrem dolů](media/azure-stack-replace-node/NodeDownAlerts.PNG)
+![Seznam výstrah pro jednotku škálování směrem dolů](media/azure-stack-replace-node/nodedownalerts.png)
 
-Pokud otevřete výstrahu "uzlu jednotka škálování je offline" popis výstrahy obsahuje uzlu jednotek škálování, který je nedostupná. Může se také zobrazit další výstrahy v řešení pro monitorování výrobce OEM, která běží na hostiteli životního cyklu hardwaru.
+Pokud otevřete **uzel jednotka škálování je offline** výstrah, popis výstrahy obsahuje uzlu jednotek škálování, který je nedostupná. Může se také zobrazit další výstrahy v řešení pro monitorování výrobce OEM, která běží na hostiteli životního cyklu hardwaru.
 
-![Podrobnosti výstrahy offline uzlu](media/azure-stack-replace-node/NodeOffline.PNG)
+![Podrobnosti výstrahy offline uzlu](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>Proces nahrazení uzlu jednotky škálování
 
@@ -53,7 +53,7 @@ Následující kroky jsou uvedeny jako přehled procesu nahrazení uzlu jednotky
 1. Použití [vyprazdňování](azure-stack-node-actions.md#scale-unit-node-actions) akce uvést do režimu údržby uzlu jednotky škálování. Tuto akci nelze vyžadovat na základě podmínky pro fyzický hardware.
 
    > [!NOTE]
-   > V každém případě jenom jeden uzel vyprázdnit a vypnout ve stejnou dobu, aniž by vás SSD (prostory úložiště – přímé).
+   > V každém případě jenom jeden uzel vyprázdnit a vypnout ve stejnou dobu, aniž by vás S2D (prostory úložiště – přímé).
 
 2. Pokud uzel je pořád zapnutý, použijte [vypnutí](azure-stack-node-actions.md#scale-unit-node-actions) akce. Tuto akci nelze vyžadovat na základě podmínky pro fyzický hardware.
  
@@ -68,4 +68,4 @@ Následující kroky jsou uvedeny jako přehled procesu nahrazení uzlu jednotky
 ## <a name="next-steps"></a>Další postup
 
 - Informace o nahrazení za provozu fyzický disk najdete v tématu [Výměna disku](azure-stack-replace-disk.md). 
-- Informace o nahrazení bez za provozu hardwarová komponenta najdete v tématu [výměně hardwarové součásti](azure-stack-replace-component.md). 
+- Informace o nahrazení bez za provozu hardwarová komponenta najdete v tématu [výměně hardwarové součásti](azure-stack-replace-component.md).

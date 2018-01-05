@@ -2,8 +2,8 @@
 title: "Zapnutí offline synchronizace pro mobilní aplikace Azure (Xamarin Android)"
 description: "Další informace o použití aplikace služby mobilní aplikace do mezipaměti a synchronizaci dat offline v aplikaci Xamarin Android"
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 471433c7ef2f6f128210ed145f685b42b44eea92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 5c6ff5ac909e2dc6918f85d39beb781952ee6dd0
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Zapnutí offline synchronizace pro mobilní aplikace Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -32,7 +32,7 @@ V tomto kurzu aktualizujete projektu klienta z tohoto kurzu [vytvořit aplikaci 
 Další informace o funkci offline synchronizace, naleznete v tématu [Offline synchronizací dat v Azure Mobile Apps].
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Aktualizace klienta aplikace pro podporu funkcím offline
-Offline funkce mobilní aplikace Azure umožňují interakci s místní databázi, pokud jste v offline scénář. V aplikaci použít tyto funkce, inicializovat [SyncContext] do místního úložiště. Potom referenční tabulku přes rozhraní [IMobileServiceSyncTable] [IMobileServiceSyncTable]. SQLite slouží jako místní úložiště v zařízení.
+Offline funkce mobilní aplikace Azure umožňují interakci s místní databázi, pokud jste v offline scénář. V aplikaci použít tyto funkce, inicializovat [SyncContext] do místního úložiště. Potom referenční tabulku přes rozhraní [IMobileServiceSyncTable][IMobileServiceSyncTable]. SQLite slouží jako místní úložiště v zařízení.
 
 1. V sadě Visual Studio, otevřete Správce balíčků NuGet v projektu, který jste dokončili v [vytvořit aplikaci Xamarin Android] kurzu.  Vyhledat a nainstalovat **Microsoft.Azure.Mobile.Client.SQLiteStore** balíček NuGet.
 2. Otevřete soubor ToDoActivity.cs a zrušte komentář u `#define OFFLINE_SYNC_ENABLED` definice.
@@ -110,7 +110,7 @@ Projekt Xamarin klienta, který jste stáhli, když jste dokončili kurz [vytvo�
             }
         }
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další prostředky
 * [Offline synchronizací dat v Azure Mobile Apps]
 * [Mobilní aplikace Azure .NET SDK postupy][8]
 

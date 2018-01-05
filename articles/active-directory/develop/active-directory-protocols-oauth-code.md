@@ -1,12 +1,11 @@
 ---
-title: "Pochopení toku kódu autorizace OAuth 2.0 ve službě Azure AD | Microsoft Docs"
+title: "Pochopení toku kódu autorizace OAuth 2.0 ve službě Azure AD"
 description: "Tento článek popisuje, jak používat zprávy protokolu HTTP k autorizaci přístupu k webové aplikace a webové rozhraní API ve vašem klientovi pomocí Azure Active Directory a OAuth 2.0."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d123a6b18baf8019a6dcea2faa938e9ee403f400
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autorizace přístupu k webovým aplikacím s použitím OAuth 2.0 a Azure Active Directory
 Azure Active Directory (Azure AD) používá OAuth 2.0 umožnit autorizace přístupu k webové aplikace a webové rozhraní API v klientovi služby Azure AD. Tato příručka je závislý na jazyce a popisuje, jak odesílat a přijímat zprávy HTTP bez použití některé z našich knihovny open-source.
@@ -34,7 +33,7 @@ Na vysoké úrovni tok celý autorizace pro aplikaci trochu vypadat třeba takto
 ![Ověřování kódu toku OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Žádost o autorizační kód
-Tok autorizačního kódu začíná klienta odkazovat uživatele `/authorize` koncový bod. V této žádosti o klient naznačuje oprávnění, které potřebuje získat od uživatele. Koncové body OAuth 2.0 ze stránky vaší aplikace na portálu Azure Classic, můžete získat v **zobrazit koncové body** tlačítka na panel dolní.
+Tok autorizačního kódu začíná klienta odkazovat uživatele `/authorize` koncový bod. V této žádosti o klient naznačuje oprávnění, které potřebuje získat od uživatele. Koncový bod OAuth 2.0 pro vašeho klienta můžete získat tak, že vyberete **registrace aplikace > Koncové body** na portálu Azure.
 
 ```
 // Line breaks for legibility only
@@ -50,16 +49,16 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametr |  | Popis |
 | --- | --- | --- |
-| Klienta |Požadované |`{tenant}` Hodnotu v cestě požadavku slouží k řízení, kdo může přihlásit k aplikaci.  Povolené hodnoty jsou identifikátory klienta, například `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` nebo `contoso.onmicrosoft.com` nebo `common` pro tokeny nezávislé na klienta |
+| tenant |Požadované |`{tenant}` Hodnotu v cestě požadavku slouží k řízení, kdo může přihlásit k aplikaci.  Povolené hodnoty jsou identifikátory klienta, například `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` nebo `contoso.onmicrosoft.com` nebo `common` pro tokeny nezávislé na klienta |
 | client_id |Požadované |Id aplikace přiřazené vaší aplikaci při registraci s Azure AD. Tento nástroj naleznete na webu Azure Portal. Klikněte na tlačítko **služby Active Directory**, klikněte na adresář, zvolte aplikaci a klikněte na tlačítko **konfigurace** |
 | response_type |Požadované |Musí zahrnovat `code` pro tok autorizačního kódu. |
 | redirect_uri |Doporučená |O položku redirect_uri vaší aplikace, kde můžete odesílat a přijímat aplikace odpovědi ověřování.  Se musí přesně shodovat s jedním redirect_uris, které jste zaregistrovali na portálu, s výjimkou musí být kódovaná adresou url.  Pro nativní & mobilní aplikace, by měl použít výchozí hodnotu `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |Doporučená |Určuje metodu, která se má použít k odeslání výsledný token zpět do vaší aplikace.  Může být `query` nebo `form_post`. |
 | state |Doporučená |Hodnota součástí požadavek, který je také vrácený v odpovědi tokenu. Náhodně generované jedinečné hodnoty se obvykle používá u [prevence útoků padělání požadavku posílaného mezi weby](http://tools.ietf.org/html/rfc6749#section-10.12).  Stav se také používá ke kódování informace o stavu uživatele v aplikaci, než k žádosti o ověření, například stránky nebo zobrazení, které byly na. |
-| Prostředek |Volitelné |Identifikátor URI aplikace ID webové rozhraní API (zabezpečené prostředků). Chcete-li najít identifikátor ID URI aplikace Web API na portálu Azure, klikněte na tlačítko **služby Active Directory**, klikněte na adresář, klikněte na aplikaci a pak klikněte na tlačítko **konfigurace**. |
-| řádku |Volitelné |Označuje typ interakci s uživatelem, který je vyžadován.<p> Platné hodnoty jsou: <p> *přihlášení*: uživatel měla zobrazit výzva k novému ověření. <p> *souhlas*: souhlas uživatele byla udělena, ale je třeba aktualizovat. Uživatel měla zobrazit výzva k souhlas. <p> *admin_consent*: Správce měla zobrazit výzva k souhlas jménem všichni uživatelé v organizaci |
-| login_hint |Volitelné |Slouží k předem vyplnit pole uživatelské jméno nebo e-mailové adresy na stránce přihlášení pro uživatele, pokud znáte svoje uživatelské jméno předem.  Tento parametr použijte často aplikace během opětovné ověření, uživatelské jméno s již extrahovat z předchozí přihlášení pomocí `preferred_username` deklarací identity. |
-| domain_hint |Volitelné |Poskytuje informace o klientovi nebo doménu, která uživatel by měl použít pro přihlášení. Hodnota domain_hint je registrované domény pro klienta. Pokud klient federovaný na místní adresář, AAD přesměruje na federační server zadaného klienta. |
+| prostředek |nepovinné |Identifikátor URI aplikace ID webové rozhraní API (zabezpečené prostředků). Chcete-li najít identifikátor ID URI aplikace Web API na portálu Azure, klikněte na tlačítko **služby Active Directory**, klikněte na adresář, klikněte na aplikaci a pak klikněte na tlačítko **konfigurace**. |
+| řádku |nepovinné |Označuje typ interakci s uživatelem, který je vyžadován.<p> Platné hodnoty jsou: <p> *přihlášení*: uživatel měla zobrazit výzva k novému ověření. <p> *souhlas*: souhlas uživatele byla udělena, ale je třeba aktualizovat. Uživatel měla zobrazit výzva k souhlas. <p> *admin_consent*: Správce měla zobrazit výzva k souhlas jménem všichni uživatelé v organizaci |
+| login_hint |nepovinné |Slouží k předem vyplnit pole uživatelské jméno nebo e-mailové adresy na stránce přihlášení pro uživatele, pokud znáte svoje uživatelské jméno předem.  Tento parametr použijte často aplikace během opětovné ověření, uživatelské jméno s již extrahovat z předchozí přihlášení pomocí `preferred_username` deklarací identity. |
+| domain_hint |nepovinné |Poskytuje informace o klientovi nebo doménu, která uživatel by měl použít pro přihlášení. Hodnota domain_hint je registrované domény pro klienta. Pokud klient federovaný na místní adresář, AAD přesměruje na federační server zadaného klienta. |
 
 > [!NOTE]
 > Pokud uživatel je součástí organizace, správce organizace souhlas nebo odmítnout jménem uživatele nebo povolit uživatele o souhlas. Uživatel je zadána možnost souhlas jenom v případě, že správce povolí ho.
@@ -132,13 +131,13 @@ grant_type=authorization_code
 
 | Parametr |  | Popis |
 | --- | --- | --- |
-| Klienta |Požadované |`{tenant}` Hodnotu v cestě požadavku slouží k řízení, kdo může přihlásit k aplikaci.  Povolené hodnoty jsou identifikátory klienta, například `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` nebo `contoso.onmicrosoft.com` nebo `common` pro tokeny nezávislé na klienta |
-| client_id |Požadované |Id aplikace přiřazené vaší aplikaci při registraci s Azure AD. Tento nástroj naleznete na portálu Azure Classic. Klikněte na tlačítko **služby Active Directory**, klikněte na adresář, zvolte aplikaci a klikněte na tlačítko **konfigurace** |
+| tenant |Požadované |`{tenant}` Hodnotu v cestě požadavku slouží k řízení, kdo může přihlásit k aplikaci.  Povolené hodnoty jsou identifikátory klienta, například `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` nebo `contoso.onmicrosoft.com` nebo `common` pro tokeny nezávislé na klienta |
+| client_id |Požadované |Id aplikace přiřazené vaší aplikaci při registraci s Azure AD. Tento nástroj naleznete na webu Azure portal. Id aplikace se zobrazí v nastavení registrace aplikace.  |
 | grant_type |Požadované |Musí být `authorization_code` pro tok autorizačního kódu. |
 | Kód |Požadované |`authorization_code` Kterou jste získali v předchozí části |
 | redirect_uri |Požadované |Stejné `redirect_uri` hodnotu, která byla použita k získání `authorization_code`. |
 | tajný klíč client_secret |vyžaduje se pro webové aplikace |Tajný klíč aplikace vytvořené v portálu pro registraci aplikace pro vaši aplikaci.  Není vhodné jej použít v nativní aplikaci, protože client_secrets nelze uložit spolehlivě na zařízení.  Je vyžadováno pro webové aplikace a webové rozhraní API, které mají možnost ukládat `client_secret` bezpečně na straně serveru. |
-| Prostředek |vyžaduje se, pokud zadaný v autorizační kód požadavku, jinak volitelné |Identifikátor URI aplikace ID webové rozhraní API (zabezpečené prostředků). |
+| prostředek |vyžaduje se, pokud zadaný v autorizační kód požadavku, jinak volitelné |Identifikátor URI aplikace ID webové rozhraní API (zabezpečené prostředků). |
 
 Chcete-li najít identifikátor ID URI aplikace v portálu pro správu Azure, klikněte na tlačítko **služby Active Directory**, klikněte na adresář, klikněte na aplikaci a pak klikněte na tlačítko **konfigurace**.
 
@@ -169,7 +168,7 @@ Webové rozhraní API prostředků vrátí-li `invalid_token` kódu chyby to mů
 | token_type |Určuje hodnotu typ tokenu. Pouze typ, který podporuje Azure AD je nosiče. Další informace o nosné tokeny najdete v tématu [OAuth2.0 autorizace Framework: použití tokenů nosiče (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Jak dlouho přístupový token je platný (v sekundách). |
 | expires_on |Čas, kdy vyprší platnost přístupového tokenu. Datum je reprezentován jako počet sekund od pod hodnotou 1970-01-01T0:0:0Z UTC až do okamžiku vypršení platnosti. Tato hodnota se používá k určení doby platnosti tokenů v mezipaměti. |
-| Prostředek |Identifikátor URI aplikace ID webové rozhraní API (zabezpečené prostředků). |
+| prostředek |Identifikátor URI aplikace ID webové rozhraní API (zabezpečené prostředků). |
 | Obor |Zosobnění oprávnění udělená aplikaci klienta. Výchozí oprávnění je `user_impersonation`. Vlastníkem prostředku zabezpečené můžete zaregistrovat další hodnoty ve službě Azure AD. |
 | refresh_token |Aktualizace tokenu OAuth 2.0. Aplikace můžete používat tento token získat další přístupové tokeny po vypršení platnosti aktuální přístupový token.  Aktualizujte je dlouhodobé tokeny a slouží k přístupu k prostředkům uchovávány dlouhou dobu. |
 | požadavku id_token |Nepodepsané JSON Web Token (JWT). Base64Url může aplikace dekódovat segmentů tento token pro vyžadování informací o uživateli, který přihlášení. Aplikace můžete hodnoty do mezipaměti a jejich zobrazení, ale na ně neměli spoléhat pro žádné hranice zabezpečení nebo autorizace. |
@@ -347,7 +346,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | token_type |Typ tokenu. Jedinou podporovanou hodnotou je **nosiče**. |
 | expires_in |Zbývající dobu životnosti tokenu v sekundách. Typické hodnota je 3600 (jedna hodina). |
 | expires_on |Datum a čas, kdy vyprší platnost tokenu. Datum je reprezentován jako počet sekund od pod hodnotou 1970-01-01T0:0:0Z UTC až do okamžiku vypršení platnosti. |
-| Prostředek |Identifikuje zabezpečené prostředek, který může být přístupový token používané k přístupu. |
+| prostředek |Identifikuje zabezpečené prostředek, který může být přístupový token používané k přístupu. |
 | Obor |Zosobnění oprávnění udělená nativní klientskou aplikaci. Výchozí oprávnění je **user_impersonation**. Vlastník cílového prostředku můžete zaregistrovat alternativní hodnoty ve službě Azure AD. |
 | access_token |Nový přístupový token, který byl vyžádán. |
 | refresh_token |Nový refresh_token OAuth 2.0, který slouží k vyžádání nové přístupové tokeny, když vyprší platnost v této odpovědi. |

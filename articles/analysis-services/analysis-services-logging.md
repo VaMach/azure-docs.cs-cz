@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/29/2017
 ms.author: owend
-ms.openlocfilehash: 982626b3bafbb3857d2d85e9442982e8f46f0501
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Nastavení protokolování diagnostiky
 
@@ -34,7 +34,7 @@ Můžete vybrat **modul**, **služby**, a **metriky** kategorií.
 
 ### <a name="engine"></a>Modul
 
-Výběr stroje zaznamená všechny [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Nelze vybrat jednotlivé události. 
+Výběr **modul** všechny protokoly [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Nelze vybrat jednotlivé události. 
 
 |Kategorie XEvent |Název události  |
 |---------|---------|
@@ -73,17 +73,17 @@ Výběr stroje zaznamená všechny [xEvents](https://docs.microsoft.com/sql/anal
 
 ### <a name="all-metrics"></a>Všechny metriky
 
-Kategorie AllMetrics protokoly stejné [Server metriky](analysis-services-monitor.md#server-metrics) zobrazí v metriky.
+Kategorie metrik protokoly stejné [Server metriky](analysis-services-monitor.md#server-metrics) zobrazí v metriky.
 
 ## <a name="setup-diagnostics-logging"></a>Nastavení protokolování diagnostiky
 
-### <a name="by-using-the-azure-portal"></a>Pomocí portálu Azure
+### <a name="azure-portal"></a>Azure Portal
 
-1. V [portál Azure](https://portal.azure.com), na serveru Azure Analysis Services, klikněte na tlačítko **diagnostické protokoly** v levém navigačním panelu a pak klikněte na tlačítko **zapněte diagnostiku**.
+1. V [portál Azure](https://portal.azure.com) > server, klikněte na tlačítko **diagnostické protokoly** v levém navigačním panelu a pak klikněte na tlačítko **zapněte diagnostiku**.
 
     ![Zapnutí protokolování diagnostiky pro Azure Cosmos DB na portálu Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. V **nastavení pro diagnostiku** proveďte následující: 
+2. V **nastavení pro diagnostiku**, postupujte takto: 
 
     * **Název**. Zadejte název pro protokoly vytvořit.
 
@@ -101,8 +101,9 @@ Kategorie AllMetrics protokoly stejné [Server metriky](analysis-services-monito
 
     Pokud chcete změnit, jak diagnostické protokoly jsou uloženy v libovolném bodě v budoucnosti, můžete se vrátit k této stránce můžete upravit nastavení.
 
-### <a name="by-using-powershell"></a>Pomocí prostředí PowerShell
-Zde jsou základní příkazy si přejdete. Pokud chcete podrobné nápovědu k nastavení protokolování na účet úložiště pomocí prostředí PowerShell, najdete v článku [kurzu](#tutorial) dále v tomto článku.
+### <a name="powershell"></a>PowerShell
+
+Zde jsou základní příkazy si přejdete. Pokud chcete podrobné nápovědu k nastavení protokolování na účet úložiště pomocí prostředí PowerShell, najdete v tomto kurzu později v tomto článku.
 
 Metriky a diagnostiku pomocí prostředí PowerShell protokolování povolit, použijte následující příkazy:
 
@@ -156,13 +157,11 @@ Protokoly jsou obvykle dostupné v rámci nastavení protokolování několik ho
 * Odstraňte protokoly, které už nechcete uchovávat v účtu úložiště.
 * Nezapomeňte nastavit období uchování tak starých protokolů jsou odstraněny z vašeho účtu úložiště.
 
-
-<a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Zobrazit protokoly v analýzy protokolů
 
 Události metriky a serveru jsou integrované s xEvents v analýzy protokolů pro analýzu vedle sebe. Analýzy protokolů můžete také nakonfigurovat pro příjem událostí z jiných služeb systému Azure poskytuje ucelený přehled o diagnostických protokolování dat napříč vaší architektury.
 
-K zobrazení diagnostických dat v analýzy protokolů, otevřete stránku hledání protokolů z v levé nabídce nebo oblasti Správa stránky, jak je znázorněno na následujícím obrázku:
+K zobrazení diagnostických dat v analýzy protokolů, otevřete stránku hledání protokolů z v levé nabídce nebo oblasti Správa, jak je uvedeno níže.
 
 ![Možnosti hledání protokolu na portálu Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -174,7 +173,6 @@ Klikněte na tlačítko **EventClass\_s** nebo jeden z názvy událostí a anal�
 
 Nezapomeňte najdete v článku věnovaném Operations Management Suite, které poskytuje rozšířené dotazu, dashboarding a v protokolu analytická data výstrah funkce webu.
 
-<a id="#queries"></a>
 ### <a name="queries"></a>Dotazy
 
 Existují stovky dotazy, které můžete použít. Tady je několik které vám pomůžou začít.
@@ -199,7 +197,6 @@ Další informace o používání nové dotazovacího jazyka pro hledání proto
 > Máte skvělé dotazu analýzy protokolů, které chcete sdílet? Pokud máte účet Githubu, můžete ho přidat do tohoto článku. Stačí kliknout na **upravit** v pravé horní části této stránky.
 
 
-<a id="#tutorial"></a>
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Kurz – zapněte protokolování pomocí prostředí PowerShell
 V tomto kurzu rychle vytvořit účet úložiště ve stejném předplatném a skupině prostředků jako server služby Analysis Service. Potom pomocí Set-AzureRmDiagnosticSetting zapnete diagnostiku protokolování, odeslání výstupu do nového účtu úložiště.
 
@@ -208,8 +205,7 @@ K dokončení tohoto kurzu, musí mít následující prostředky:
 
 * Existujícího serveru Azure Analysis Services. Pokyny týkající se vytváření prostředků serveru najdete v tématu [na portálu Azure vytvořit server](analysis-services-create-server.md), nebo [vytvoření serveru Azure Analysis Services pomocí prostředí PowerShell](analysis-services-create-powershell.md).
 
-
-### <a id="connect"></a>Připojení k předplatným
+### <a name="aconnect-to-your-subscriptions"></a></a>Připojení ke svým předplatným
 
 Spusťte relaci Azure PowerShellu a přihlaste se k účtu Azure pomocí následujícího příkazu:  
 
@@ -236,7 +232,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 >
 >
 
-### <a id="storage"></a>Vytvoření nového účtu úložiště pro protokoly
+### <a name="create-a-new-storage-account-for-your-logs"></a>Vytvořit pro svoje protokoly nový účet úložiště
 
 Pro svoje protokoly můžete použít existující účet úložiště, zadaná ve stejném předplatném jako váš server. V tomto kurzu vytvoříte nový účet úložiště vyhrazený pro protokoly služby Analysis Services. Chcete-li snadno, ukládáte podrobnosti o účtu úložiště do proměnné s názvem **sa**.
 
@@ -247,7 +243,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
-### <a id="identify"></a>Identifikace účtu serveru pro svoje protokoly
+### <a name="identify-the-server-account-for-your-logs"></a>Identifikace účtu serveru pro svoje protokoly
 
 Nastavte název účtu do proměnné s názvem **účet**, kde ResourceName je název účtu.
 
@@ -256,7 +252,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a id="enable"></a>Povolení protokolování
+### <a name="enable-logging"></a>Povolit protokolování
 
 Protokolování povolit, použijte rutinu Set-AzureRmDiagnosticSetting spolu s proměnnými, pro nový účet úložiště, účet serveru a kategorii. Spusťte následující příkaz, nastavení **-povolit** příznak, který **$true**:
 
