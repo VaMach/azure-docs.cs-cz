@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Použití Stream Analytics ke zpracování exportovaná data ze služby Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) je ideální nástroj pro zpracování dat [exportovaný z Application Insights](app-insights-export-telemetry.md). Stream Analytics můžete načítat data z různých zdrojů. Může transformace a filtrovat data a pak směrovat celou řadu jímky.
@@ -76,27 +76,27 @@ Průběžné export vždy poskytuje data pro účet úložiště Azure, musíte 
 Události se zapisují do objektu blob soubory ve formátu JSON. Každý soubor může obsahovat jeden nebo více událostí. Proto jsme chtěli číst data události a filtrovat pole, která má být. Jsou k dispozici všechny typy věcí, které můžeme udělat s daty, ale naše plán dnes je použití Stream Analytics k předat data do Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Vytvoření instance služby Azure Stream Analytics
-Z [portál Azure Classic](https://manage.windowsazure.com/), vyberte službu Azure Stream Analytics a vytvořit novou úlohu služby Stream Analytics:
+Z [portál Azure](https://portal.azure.com/), vyberte službu Azure Stream Analytics a vytvořit novou úlohu služby Stream Analytics:
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Když je vytvořena nová úloha, rozbalte položku Podrobnosti:
+Při vytváření nové úlohy, vyberte **přejděte k prostředku**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>Nastavení umístění objektu blob
+### <a name="add-a-new-input"></a>Přidat nové vstup
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Nastavte ji tak, aby vstupní z objektu blob služby průběžné Export:
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 Nyní budete potřebovat primární přístupový klíč z vašeho účtu úložiště, který jste si předtím poznamenali. Nastavením této hodnoty jako klíč účtu úložiště.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>Sada cesta předpona vzoru
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Nezapomeňte nastavit formát data do rrrr-MM-DD (s pomlčkami).**
 
@@ -114,33 +114,19 @@ V tomto příkladu:
 > [!NOTE]
 > Zkontrolujte úložiště a ujistěte se, že správné získání cesty.
 > 
-> 
 
-### <a name="finish-initial-setup"></a>Dokončit počáteční nastavení
-Zkontrolujte formát serializace:
+## <a name="add-new-output"></a>Přidat nové výstup
+Nyní vyberte úlohu > **výstupy** > **přidat**.
 
-![Potvrďte a zavřete průvodce](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-Zavřete průvodce a počkejte na dokončení instalace.
 
-> [!TIP]
-> Pomocí příkazu ukázka stáhnout některá data. Zachovat ji jako ukázka testu k ladění dotazu.
-> 
-> 
-
-## <a name="set-the-output"></a>Nastavte výstup
-Nyní vyberte úlohu a nastavte výstup.
-
-![Vyberte nový kanál, klikněte na výstupy, přidat, Power BI](./media/app-insights-export-stream-analytics/160.png)
+![Vyberte nový kanál, klikněte na výstupy, přidat, Power BI](./media/app-insights-export-stream-analytics/SA010.png)
 
 Zadejte vaše **pracovní nebo školní účet** k autorizaci Stream Analytics pro přístup k prostředku Power BI. Pak vytvořte název pro výstup a pro datovou sadu cíl Power BI a tabulku.
 
-![Skladová tři názvy](./media/app-insights-export-stream-analytics/170.png)
-
 ## <a name="set-the-query"></a>Nastavení dotazu
 Dotaz řídí překlad ze vstupu na výstup.
-
-![Vyberte úlohu a klikněte na dotaz. Vložte následující ukázka.](./media/app-insights-export-stream-analytics/180.png)
 
 Zkontrolujte, že dostanete správné výstup, použijte funkci Test. Poskytněte ukázková data, která trvala ze stránky vstupy. 
 
@@ -162,7 +148,7 @@ Vložte tento dotaz:
 
 * Export vstup je alias, který jsme uvedl do datového proudu vstup
 * pbi-output se výstup alias, který jsme definovali
-* Používáme [vnější použít GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) vzhledem k tomu, že je z názvu události ve vnořených arrray JSON. Potom Select vybere název události, společně s počet instancí s tímto názvem v časovém období. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) klauzule skupiny elementy do časových období 1 minuta.
+* Používáme [vnější použít GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) vzhledem k tomu, že je z názvu události ve vnořených pole JSON. Potom Select vybere název události, společně s počet instancí s tímto názvem v časovém období. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) klauzule skupiny elementy do časových období jednu minutu.
 
 ### <a name="query-to-display-metric-values"></a>Dotaz k zobrazení hodnot metriky
 ```SQL
@@ -206,7 +192,7 @@ Vložte tento dotaz:
 ## <a name="run-the-job"></a>Spustit úlohu
 Vybrat datum v minulosti při spuštění úlohy z. 
 
-![Vyberte úlohu a klikněte na dotaz. Vložte následující ukázka.](./media/app-insights-export-stream-analytics/190.png)
+![Vyberte úlohu a klikněte na dotaz. Vložte následující ukázka.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Počkejte, dokud je úloha spuštěna.
 
@@ -234,7 +220,7 @@ Noam Ben Zeev ukazuje, jak zpracovat exportovaná data pomocí služby Stream An
 > 
 > 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * [Průběžný export](app-insights-export-telemetry.md)
 * [Podrobný datový model referenční informace pro vlastnost typů a hodnot.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)

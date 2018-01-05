@@ -1,5 +1,5 @@
 ---
-title: "Průvodce pro vývojáře pro podmíněný přístup k Azure Active Directory | Microsoft Docs"
+title: "Průvodce pro vývojáře pro podmíněný přístup k Azure Active Directory"
 description: "Scénáře pro podmíněný přístup k Azure AD a Průvodce pro vývojáře"
 services: active-directory
 keywords: 
@@ -8,17 +8,16 @@ manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Průvodce pro vývojáře pro podmíněný přístup k Azure Active Directory
 
@@ -28,7 +27,7 @@ Azure Active Directory (AD) nabízí několik způsobů, jak zabezpečit vaši a
 * Povolení jenom Intune zaregistrovaná zařízení pro přístup k určitým službám
 * Omezení umístění uživatele a IP rozsahy
 
-Další informace o všech možnostech podmíněného přístupu najdete v tématu [podmíněného přístupu na portálu Azure classic](../active-directory-conditional-access-azure-portal.md). 
+Další informace o všech možnostech podmíněného přístupu najdete v tématu [podmíněného přístupu v Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
 
 V tomto článku se zaměříme na jaké podmíněného přístupu znamená vývojářům vytvářet aplikace pro Azure AD.  Předpokládá znalost [jeden](active-directory-integrating-applications.md) a [víceklientské](active-directory-devhowto-multi-tenant-overview.md) aplikace a [běžných vzorů ověřování](active-directory-authentication-scenarios.md).
 
@@ -216,9 +215,9 @@ Naše aplikace potřebuje k zachycení `error=interaction_required`.  Aplikace p
 Můžete vyzkoušet na tento scénář, najdete v našich [ukázka kódu On-behalf-of JS SPA](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca).  Tento příklad používá zásady podmíněného přístupu a webového rozhraní API, které jste dříve zaregistrovali s JS SPA k předvedení tento scénář. Ukazuje, jak správně zpracovat výzvy deklarace identity a získat přístupový token, který lze použít pro webové rozhraní API. Případně, najdete v článku věnovaném Obecné [ukázka kódu Angular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) pokyny k úhlová SPA
 
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 
-* Další informace o možnostech najdete v tématu [podmíněného přístupu ve službě Azure AD](../active-directory-conditional-access-azure-portal.md).
+* Další informace o možnostech najdete v tématu [podmíněného přístupu v Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Ukázky kódu více Azure AD, najdete v části [úložiště Github ukázek kódu](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Další informace o ADAL SDK společnosti a přístup v referenční dokumentaci, najdete v části [příručku knihovny](active-directory-authentication-libraries.md).
 * Další informace o scénářích více klientů naleznete v tématu [jak se přihlásit uživatele pomocí vzoru víceklientské](active-directory-devhowto-multi-tenant-overview.md).

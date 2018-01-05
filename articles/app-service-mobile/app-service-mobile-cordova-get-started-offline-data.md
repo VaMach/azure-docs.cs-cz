@@ -2,8 +2,8 @@
 title: "Zapnutí offline synchronizace pro mobilní aplikace Azure (Cordova) | Microsoft Docs"
 description: "Další informace o použití aplikace služby mobilní aplikace do mezipaměti a synchronizaci dat offline v aplikaci Cordova"
 documentationcenter: cordova
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: 45e80ca672dfdb6defc6e5c1aac3d29f5479125c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: c12328a441a8cc438fa3e974863cc8adf8651b50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Zapnutí offline synchronizace pro mobilní aplikaci Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -185,11 +185,11 @@ V této části je znovu připojit aplikaci mobilního back-end, který simuluje
 
     Všimněte si data umístění byl synchronizován mezi databází a místní úložiště a obsahuje položky, které jste přidali v době, kdy byl odpojen vaší aplikace.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 * [Offline synchronizací dat v Azure Mobile Apps]
 * [Visual Studio Tools for Apache Cordova]
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Kontrola více rozšířené funkce offline synchronizace, jako je řešení konfliktů v [offline synchronizace ukázka]
 * Zkontrolujte odkaz na offline synchronizace rozhraní API v [dokumentaci k rozhraní API](https://azure.github.io/azure-mobile-apps-js-client).
 

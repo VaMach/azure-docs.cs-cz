@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Technické příručce k šabloně Cortana Intelligence řešení pro vyžádání prognózy v energie
 ## <a name="overview"></a>**Přehled**
@@ -150,7 +150,7 @@ Po spuštění generátor dat kanálu začne HYDRATOVANÝ získat a spustit růz
     Jeden z úlohy Stream Analytics zapíše nezpracovaná příchozí data do úložiště objektů blob. Pokud kliknete na **Azure Blob Storage** součásti vašeho řešení na obrazovce úspěšně nasadit řešení a pak klikněte na tlačítko **otevřete** v pravém panelu trvá, abyste [Azure portál](https://portal.azure.com). Potom klikněte na **objekty BLOB**. Další panelu zobrazí se seznam kontejnerů. Klikněte na **"energysadata"**. Další panelu se zobrazí **"demandongoing"** složky. V této složce rawdata zobrazit složky s názvy, například datum = 2016-01-28 atd. Pokud se zobrazí tyto složky, znamená to úspěšně je nezpracovaná data se vygenerované v počítači a uložené v úložišti objektů blob. Měli byste vidět soubory, které by měl mít konečné velikosti v MB v těchto složkách.
 2. Zkontrolujte, zda data z databáze SQL Azure.
 
-    Posledním krokem kanálu je zapisovat data (například predikcím ze strojového učení) do databáze SQL. Možná bude muset počkat maximální oftwo hodin pro zobrazení dat v databázi SQL. Je možné sledovat, kolik dat je k dispozici ve vaší databázi SQL prostřednictvím [portál Azure](https://manage.windowsazure.com/). V levém panelu vyhledejte databází SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) a klikněte na něj. Poté vyhledejte databázi (tj. demo123456db) a klepněte na ni. Na další stránce pod **"Připojení k vaší databázi"** klikněte na tlačítko **"Dotazy na spuštění Transact-SQL pro svoji databázi SQL"**.
+    Posledním krokem kanálu je zapisovat data (například predikcím ze strojového učení) do databáze SQL. Možná bude muset počkat maximálně dvě hodiny pro zobrazení dat v databázi SQL. Je možné sledovat, kolik dat je k dispozici ve vaší databázi SQL prostřednictvím [portál Azure](https://portal.azure.com/). V levém panelu, vyhledejte databází SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) a klikněte na něj. Poté vyhledejte databázi (tj. demo123456db) a klepněte na ni. Na další stránce pod **"Připojení k vaší databázi"** klikněte na tlačítko **"Dotazy na spuštění Transact-SQL pro svoji databázi SQL"**.
 
     Zde můžete kliknutím na nový dotaz a dotaz pro počet řádků (například "Vyberte count(*) z DemandRealHourly)" s růstem databáze počet řádků v tabulce měli zvýšit.)
 3. Zkontrolujte, zda data z řídicí panel Power BI.
@@ -167,7 +167,7 @@ Následující kroky vás postupy k vizualizaci dat v reálném čase výstup z 
 1. Přidáte výstup Power BI v Azure Stream Analytics (ASA).
 
    * Je nutné postupovat podle pokynů v [Azure Stream Analytics & Power BI: řídicí panel analýzy v reálném čase pro streamování dat v reálném čase viditelnost](stream-analytics/stream-analytics-power-bi-dashboard.md) nastavit výstup úlohy Azure Stream Analytics jako řídicí panel Power BI .
-   * Vyhledejte úlohy stream analytics v vaše [portál Azure](https://manage.windowsazure.com). Název úlohy musí být: YourSolutionName + "streamingjob" + náhodné číslo + "asapbi" (tj. demostreamingjob123456asapbi).
+   * Vyhledejte úlohy stream analytics v vaše [portál Azure](https://portal.azure.com). Název úlohy musí být: YourSolutionName + "streamingjob" + náhodné číslo + "asapbi" (tj. demostreamingjob123456asapbi).
    * Přidání PowerBI výstupu úlohy ASA. Nastavte **výstup Alias** jako **'PBIoutput'**. Nastavit vaše **název datové sady** a **název tabulky** jako **'EnergyStreamData'**. Po přidání výstup, klikněte na tlačítko **"Start"** v dolní části stránky při spuštění úlohy Stream Analytics. Měli byste obdržet zprávu s potvrzením (například "spouštění úlohy stream analytics myteststreamingjob12345asablob bylo úspěšné").
 2. Přihlaste se k [Power BI online](http://www.powerbi.com)
 

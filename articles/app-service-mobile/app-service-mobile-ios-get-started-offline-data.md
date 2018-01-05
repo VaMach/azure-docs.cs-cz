@@ -2,8 +2,8 @@
 title: "Povolit offline synchronizace u mobilních aplikací pro iOS | Microsoft Docs"
 description: "Naučte se používat Azure App Service mobilní aplikace do mezipaměti a synchronizaci dat offline v aplikacích pro iOS."
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Povolit offline synchronizace u mobilních aplikací pro iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -163,7 +163,7 @@ Pokud používáte funkci offline synchronizace, definujte tabulky dat a tři sy
 | id | Celé číslo 64 |
 | itemId | Řetězec |
 | properties | Binární Data |
-| Tabulka | Řetězec |
+| tabulka | Řetězec |
 | tableKind | Celé číslo 16 |
 
 
@@ -187,7 +187,7 @@ Pokud používáte funkci offline synchronizace, definujte tabulky dat a tři sy
 | id |Řetězec |
 | key |Řetězec |
 | Typ_klíče. |Celé číslo 64 |
-| Tabulka |Řetězec |
+| tabulka |Řetězec |
 | hodnota |Řetězec |
 
 ### <a name="data-table"></a>Datová tabulka
@@ -201,7 +201,7 @@ Pokud používáte funkci offline synchronizace, definujte tabulky dat a tři sy
 | Text |Řetězec |Pole položky seznamu úkolů |
 | CreatedAt | Datum | (volitelné) Se mapuje na **createdAt** vlastnost systému |
 | updatedAt | Datum | (volitelné) Se mapuje na **updatedAt** vlastnost systému |
-| Verze | Řetězec | (volitelné) Používá ke zjišťování konfliktů, map k verzi |
+| verze | Řetězec | (volitelné) Používá ke zjišťování konfliktů, map k verzi |
 
 ## <a name="setup-sync"></a>Změna chování aplikace při synchronizaci
 V této části upravíte aplikace tak, aby ho na spuštění aplikace nebo když vložení a aktualizace položky není synchronizovaná. Synchronizuje se jenom v případě, že se provádí gesto tlačítko Aktualizovat.
@@ -269,7 +269,7 @@ Normální vytvořit, číst, aktualizovat a odstranit operace pro mobilní apli
 
 Když jsme místní úložiště synchronizovány se serverem, jsme použili **MSSyncTable.pullWithQuery** metoda.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 * [Offline synchronizací dat v Mobile Apps]
 * [Obálka cloudu: Offline synchronizace v Azure Mobile Services] \(je o Mobile Services, ale Mobile Apps offline synchronizace funguje podobným způsobem.\)
 

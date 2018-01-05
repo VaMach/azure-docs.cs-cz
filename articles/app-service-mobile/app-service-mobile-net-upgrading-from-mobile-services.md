@@ -3,8 +3,8 @@ title: "Upgrade z mobilní služby Azure App Service"
 description: "Zjistěte, jak snadno upgradovat aplikaci Mobile Services pro aplikaci služby mobilní aplikace"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Upgrade existující Mobile Service Azure .NET do služby App Service
 Mobile App Service je nový způsob vytváření mobilních aplikací pomocí Microsoft Azure. Další informace najdete v tématu [co jsou Mobile Apps?].
@@ -89,7 +89,7 @@ Potom v WebApiConfig.cs, můžete nahradit:
         // Use this class to set WebAPI configuration options
         HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
 
-S
+with
 
         HttpConfiguration config = new HttpConfiguration();
         new MobileAppConfiguration()
@@ -139,7 +139,7 @@ V Azure Mobile Apps vlastnosti systému už mít speciální formát a mají tyt
 * CreatedAt
 * updatedAt
 * Odstranit
-* Verze
+* verze
 
 Klient Mobile Apps sady SDK použít nové názvy vlastnosti systému, je potřeba kód klienta žádné změny. Ale pokud přímo provádíte volání REST k službě pak měli byste změnit své dotazy odpovídajícím způsobem.
 
@@ -155,7 +155,7 @@ V systému iOS měli byste změnit schéma základní Data pro vaše data entity
 | id |Řetězec, označen jako požadovaný |primární klíč v vzdáleného úložiště |
 | CreatedAt |Datum |(volitelné) mapuje vlastnosti createdAt systému |
 | updatedAt |Datum |(volitelné) mapuje vlastnosti updatedAt systému |
-| Verze |Řetězec |(volitelné) používán pro zjišťování konfliktů, map k verzi |
+| verze |Řetězec |(volitelné) používán pro zjišťování konfliktů, map k verzi |
 
 #### <a name="querying-system-properties"></a>Dotaz na vlastnosti systému
 V Azure Mobile Services nejsou odesílány vlastnosti systému ve výchozím nastavení, ale jenom v případě, že jsou vyžádané pomocí řetězce dotazu `__systemProperties`. Naopak v systému Azure Mobile Apps jsou vlastnosti **vždycky vybraná** vzhledem k tomu, že jsou součástí objektový model serveru SDK.

@@ -4,7 +4,7 @@ description: "Zjistěte, jak nakonfigurovat jednotné přihlašování mezi Azur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: a525bab0409dc212da9fe46a23b8320aed9a4463
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Kurz: Azure Active Directory integrace s přiblížení
 
@@ -113,29 +113,57 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     b. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`<companyname>.zoom.us`
 
     > [!NOTE] 
-    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [tým podpory zvětšení klienta](https://support.zoom.us/hc) k získání těchto hodnot. 
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [tým podpory zvětšení klienta](https://support.zoom.us/hc) k získání těchto hodnot.
+
+4. Aplikace přiblížení očekává SAML kontrolní výrazy ve specifickém formátu, který vyžaduje, můžete přidat mapování vlastních atributů do vaší konfigurace atributy tokenu SAML. Nakonfigurujte následující deklarace identity pro tuto aplikaci. Můžete spravovat hodnoty těchto atributů z "**uživatelské atributy**" části na stránce integrace aplikace. 
+
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. V **uživatelské atributy** části na **jednotného přihlašování** dialogové okno, nakonfigurujte atribut tokenu SAML, jak je vidět na předchozím obrázku a proveďte následující kroky:
+    
+    | Název atributu | Hodnota atributu | Hodnota Namespace |
+    | ------------------- | -----------|--------- |    
+    | E-mailová adresa | User.Mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | Jméno | User.givenName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | Příjmení | User.Surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | Telefonní číslo | User.telephoneNumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | Oddělení | User.Department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+    a. Klikněte na tlačítko **přidat atribut** otevřete **přidat atribut** dialogové okno.
+
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    b. V **název** textovému poli, zadejte název atributu, který je uvedený na příslušném řádku.
+
+    c. Z **hodnotu** seznamu, zadejte hodnotu atributu, který je uvedený na příslušném řádku.
+
+    d. V **Namespace** textovému poli, zadejte hodnotu oboru názvů, který je uvedený na příslušném řádku.
+    
+    e. Klikněte na tlačítko **OK**. 
  
-4. Na **SAML podpisový certifikát** klikněte na tlačítko **certifikátu (Base64)** a potom uložte soubor certifikátu v počítači.
+6. Na **SAML podpisový certifikát** klikněte na tlačítko **certifikátu (Base64)** a potom uložte soubor certifikátu v počítači.
 
-    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![Odkaz ke stažení certifikátu](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. Klikněte na tlačítko **Uložit** tlačítko.
+7. Klikněte na tlačítko **Uložit** tlačítko.
 
     ![Nakonfigurujte jeden přihlašování uložit tlačítko](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. Na **zvětšení konfigurace** klikněte na tlačítko **konfigurace zvětšení** otevřete **konfigurovat přihlášení** okno. Kopírování **Sign-Out adresu URL, SAML Entity ID a SAML jeden přihlašování adresa URL služby** z **Stručná referenční příručka části.**
+8. Na **zvětšení konfigurace** klikněte na tlačítko **konfigurace zvětšení** otevřete **konfigurovat přihlášení** okno. Kopírování **Sign-Out adresu URL, SAML Entity ID a SAML jeden přihlašování adresa URL služby** z **Stručná referenční příručka části.**
 
-    ![Konfigurace přiblížení](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+    ![Konfigurace přiblížení](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. V okně prohlížeče jiný web Přihlaste se na váš web společnosti přiblížení jako správce.
+9. V okně prohlížeče jiný web Přihlaste se na váš web společnosti přiblížení jako správce.
 
-8. Klikněte **jednotné přihlašování** kartě.
+10. Klikněte **jednotné přihlašování** kartě.
    
     ![Karta přihlašování](./media/active-directory-saas-zoom-tutorial/IC784700.png "jednotného přihlašování")
 
-9. Klikněte na tlačítko **řízení zabezpečení** kartě a potom přejděte na **jednotné přihlašování** nastavení.
+11. Klikněte na tlačítko **řízení zabezpečení** kartě a potom přejděte na **jednotné přihlašování** nastavení.
 
-10. V části jednotné přihlašování proveďte následující kroky:
+12. V části jednotné přihlašování proveďte následující kroky:
    
     ![Jednotné přihlašování v části](./media/active-directory-saas-zoom-tutorial/IC784701.png "jednotného přihlašování")
    
@@ -148,6 +176,9 @@ V této části můžete povolit Azure AD jednotného přihlašování na portá
     d. V **vystavitele** textovému poli, vložte hodnotu **SAML Entity ID** který jste zkopírovali z portálu Azure. 
 
     e. Klikněte na **Uložit**.
+
+    > [!NOTE] 
+    > Další informace naleznete v dokumentaci přiblížení [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > Teď si můžete přečíst stručným verzi tyto pokyny uvnitř [portál Azure](https://portal.azure.com), zatímco nastavujete aplikace!  Po přidání této aplikace z **služby Active Directory > podnikové aplikace, které** jednoduše klikněte na položku **jednotné přihlašování** kartě a přístup v embedded dokumentaci prostřednictvím **konfigurace** v dolní části. Můžete přečíst další informace o funkci embedded dokumentace: [vložených dokumentace k Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -207,7 +238,7 @@ Pokud chcete povolit uživatelům Azure AD přihlášení pro přiblížení, mu
 
     b. V **e-mailů** textové pole, zadejte e-mailovou adresu, platný Azure AD účet určené ke zřízení.
 
-    c. Klikněte na tlačítko **Přidat**.
+    c. Klikněte na tlačítko **Add** (Přidat).
 
 > [!NOTE]
 > Můžete použít jakékoli jiné přiblížení uživatel účet vytvoření nástroje nebo rozhraní API poskytované přiblížení zřídit služby Azure Active Directory uživatelské účty.
@@ -248,7 +279,7 @@ Cílem této části je Azure AD jeden přihlašování konfigurace pomocí př�
 
 Když kliknete na dlaždici přiblížení na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci přiblížení.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)

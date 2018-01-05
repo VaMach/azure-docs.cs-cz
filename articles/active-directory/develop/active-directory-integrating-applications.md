@@ -3,10 +3,9 @@ title: "Integrace aplikací s Azure Active Directory"
 description: "Postup přidání, aktualizace nebo odebrání aplikace v Azure Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrace aplikací s Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +110,7 @@ Kromě toho předtím, než klient může získat přístup k webové rozhraní 
 - Přidělená oprávnění: Klientské aplikace potřebuje přístup k webové rozhraní API jako přihlášeného uživatele, ale přístup omezen vybrané oprávnění. Tento typ oprávnění můžete udělit uživatelem, pokud oprávnění vyžaduje souhlas správce. 
 
   > [!NOTE]
-  > Přidání delegovaného oprávnění k aplikaci neuděluje automaticky souhlas pro uživatele v rámci klienta, stejně jako na portálu Azure classic. Uživatelé musí ručně souhlas pro přidané přidělená oprávnění za běhu, pokud správce klikne **udělit oprávnění** tlačítko z **požadovaných oprávnění** části stránka aplikace v portálu Azure. 
+  > Přidání delegovaného oprávnění k aplikaci neuděluje automaticky souhlas pro uživatele v rámci klienta. Uživatelé musí ručně souhlas pro přidané přidělená oprávnění za běhu, pokud správce klikne **udělit oprávnění** tlačítko z **požadovaných oprávnění** části stránka aplikace v portálu Azure. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Chcete-li přidat přihlašovací údaje aplikací nebo oprávnění pro přístup k webovým rozhraním API
 1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
@@ -312,7 +311,7 @@ Zobrazit aplikace, které má vaše organizace registrované v části "Aplikac�
 
 Chcete-li odebrat přístup k aplikaci víceklientské do vašeho adresáře (po s udělen souhlas), musíte odebrat správce společnosti jeho instanční objekt. Správce musí mít přístup globálního správce a můžete odebrat prostřednictvím portálu Azure [rutin prostředí Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) k odebrání přístupu.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Další informace o tom, jak funguje ověřování ve službě Azure AD najdete v tématu [scénáře ověřování pro Azure AD](active-directory-authentication-scenarios.md).
 - Najdete v článku [Branding pokyny pro integrované aplikace](active-directory-branding-guidelines.md) tipy na visual pokyny pro vaši aplikaci.
 - Další informace o vztah mezi objekty aplikace a služby hlavní aplikace v tématu [objekty aplikací a hlavní objekty služeb](active-directory-application-objects.md).

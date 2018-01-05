@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Registrace počítačů pro správu Azure Automation DSC.
 
@@ -36,7 +36,7 @@ Azure Automation DSC umožňuje spravovat celou řadu počítače:
 Kromě toho pokud si nejste připravení spravovat konfiguraci počítače z cloudu, Azure Automation DSC lze také jako koncový bod pouze sestavy. Můžete nastavit (push) požadované konfigurace pomocí DSC na místě a zobrazte bohaté reporting podrobnosti o dodržování předpisů uzlu s požadovaný stav ve službě Azure Automation.
 
 > [!NOTE]
-> Správa virtuálních počítačů Azure s DSC je zahrnuta bez dalších poplatků, pokud je větší než 2.7 rozšíření virtuálního počítače DSC, nainstalovaná.  Podrobnosti najdete [ **automatizace stránce s cenami** ](https://azure.microsoft.com/en-us/pricing/details/automation/) další podrobnosti.
+> Správa virtuálních počítačů Azure s DSC je zahrnuta bez dalších poplatků, pokud je větší než 2.70 rozšíření virtuálního počítače DSC, nainstalovaná. Podrobnosti najdete [ **automatizace stránce s cenami** ](https://azure.microsoft.com/en-us/pricing/details/automation/) další podrobnosti.
 
 
 Následující oddíly popisují, jak můžete připojit každý typ počítače do Azure Automation DSC.
@@ -45,7 +45,7 @@ Následující oddíly popisují, jak můžete připojit každý typ počítače
 
 S Azure Automation DSC můžete snadno připojit virtuální počítače Azure (klasický) za účelem správy konfigurace buď pomocí portálu Azure, nebo prostředí PowerShell. Pod pokličkou a bez nutnosti vzdáleného do virtuálního počítače správce zaregistruje rozšíření konfigurace požadovaného stavu aplikace Azure virtuálních počítačů virtuálního počítače se Azure Automation DSC. Vzhledem k tomu, že rozšíření konfigurace požadovaného stavu aplikace Azure virtuální počítač se spustí asynchronně, jsou kroky k jeho průběh sledovat a řešit potíže se součástí [ **řešení potíží s Azure virtuálního počítače registrace** ](#troubleshooting-azure-virtual-machine-onboarding) části.
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 V [portál Azure](http://portal.azure.com/), klikněte na tlačítko **Procházet** -> **virtuálních počítačů (klasické)**. Vyberte virtuální počítač Windows, které chcete zařadit do provozu. V okně virtuálního počítače řídicí panel, klikněte na tlačítko **všechna nastavení** -> **rozšíření** -> **přidat** -> **Azure Automation DSC** -> **vytvořit**. Zadejte [správce místní konfigurace DSC prostředí PowerShell hodnoty](https://msdn.microsoft.com/powershell/dsc/metaconfig4) požadované pro váš případ použití, účet Automation registrační klíč a adresa URL registrace a volitelně konfigurace uzlu přiřadit k virtuálnímu počítači.
 
@@ -121,7 +121,7 @@ $VM | Update-AzureVM
 
 Azure Automation DSC umožňuje snadno připojit virtuální počítače Azure za účelem správy konfigurace, pomocí portálu Azure, šablon Azure Resource Manageru nebo prostředí PowerShell. Pod pokličkou a bez nutnosti vzdáleného do virtuálního počítače správce zaregistruje rozšíření konfigurace požadovaného stavu aplikace Azure virtuálních počítačů virtuálního počítače se Azure Automation DSC. Vzhledem k tomu, že rozšíření konfigurace požadovaného stavu aplikace Azure virtuální počítač se spustí asynchronně, jsou kroky k jeho průběh sledovat a řešit potíže se součástí [ **řešení potíží s Azure virtuálního počítače registrace** ](#troubleshooting-azure-virtual-machine-onboarding) části.
 
-### <a name="azure-portal"></a>portál Azure
+### <a name="azure-portal"></a>Azure Portal
 
 V [portál Azure](https://portal.azure.com/), přejděte na účet Azure Automation, ve které chcete zařadit virtuálních počítačů. Na řídicím panelu účet Automation, klikněte na tlačítko **uzly DSC** -> **přidat virtuální počítač Azure**.
 

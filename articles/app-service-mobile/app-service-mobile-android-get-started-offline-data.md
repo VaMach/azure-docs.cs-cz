@@ -2,8 +2,8 @@
 title: "Zapnutí offline synchronizace pro mobilní aplikace Azure (Android)"
 description: "Naučte se používat App Service Mobile Apps do mezipaměti a synchronizaci dat offline vaší aplikace Android"
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 services: app-service\mobile
 ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
 ms.service: app-service-mobile
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 304323c1816302e8c1f68f36a029aee55e02c54e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 152702bed0ea061c3cb86e2ff6f88bf204f9d243
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Zapnutí offline synchronizace pro mobilní aplikaci s Androidem
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -90,7 +90,7 @@ Stisknutím tohoto tlačítka spustí novou úlohu pozadí. Vynutí nejprve vše
 4. Zapněte Wi-Fi v zařízení ani simulátor. Stiskněte klávesu **aktualizovat** tlačítko.
 5. Zobrazte TodoItem data znovu na portálu Azure. Nové a změněné TodoItems by se měla zobrazit.
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další prostředky
 * [Offline synchronizací dat v Azure Mobile Apps]
 * [Obálka cloudu: Offline synchronizace v Azure Mobile Services] \(Poznámka: je v Mobile Services, ale offline synchronizace funguje podobným způsobem jako v Azure Mobile Apps\)
 

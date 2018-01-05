@@ -12,24 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 27ab6b97610ab27500cbef703120e2c67cd07183
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Azure hostovaného operačního systému
 Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačního systému Azure v následujících tabulkách. Vyhledávání, zjistěte, pokud konkrétní aktualizace se týká hostovaného operačního systému, kterou používáte. Aktualizace vždy obsahují dál pro konkrétní [rodiny] [ family-explain] byly zavedeny v.
 
+## <a name="december-guest-os"></a>Prosinec hostovaného operačního systému
+| Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
+| --- | --- | --- | --- | --- |
+| Relativní 17 – 12 | [4053579], [4054517] |Aktualizace zabezpečení systému Windows 10 |4.49, 5.14 |12 prosinec 2017 |
+| Relativní 17 – 12 | [4054521], [4054522], [4054523] |Pouze zabezpečení systému Windows |2.69, 3.56, 4.49 |12 prosinec 2017 |
+| Relativní 17 – 12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 prosinec 2017 |
+| Relativní 17 – 12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 prosinec 2017 |
+| neuvedeno | [4048957] |Souhrn bez zabezpečení listopadu |2.67 |14. listopadu 2017 |
+| neuvedeno | [4048959] |Souhrn bez zabezpečení listopadu |3.56 |14. listopadu 2017 |
+| neuvedeno | [4048958] |Souhrn bez zabezpečení listopadu |4.49 |14. listopadu 2017 |
+| neuvedeno | [4049068] |Časové pásmo prosinec aktualizace |2.69, 3.56, 4.49 |12 prosinec 2017 |
+
 ## <a name="november-guest-os"></a>Listopad hostovaného operačního systému
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
 | --- | --- | --- | --- | --- |
-| Relativní 17 10 | [4048953] |Aktualizace Windows 10. |5.13 |14. listopadu 2017 |
-| Relativní 17 10 | [4048960], [4048962], [4048961] |Pouze zabezpečení systému Windows |2.68, 3.55, 4.48 |14. listopadu 2017 |
-| Relativní 17 10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14. listopadu 2017 |
-| Relativní 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14. listopadu 2017 |
+| Relativní 17 11 | [4048953] |Aktualizace Windows 10. |5.13 |14. listopadu 2017 |
+| Relativní 17 11 | [4048960], [4048962], [4048961] |Pouze zabezpečení systému Windows |2.68, 3.55, 4.48 |14. listopadu 2017 |
+| Relativní 17 11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14. listopadu 2017 |
+| Relativní 17 11 | [4048951] |Flash |3.55, 4.48, 5.13 |14. listopadu 2017 |
 | neuvedeno | [4041681] |Souhrn bez zabezpečení říjen |2.67 |10. října 2017 |
 | neuvedeno | [4041690] |Souhrn bez zabezpečení říjen |3.55 |10. října 2017 |
 | neuvedeno | [4041693] |Souhrn bez zabezpečení říjen |4.48 |10. října 2017 |
@@ -294,7 +306,7 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | ID bulletinu | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Aktualizace zabezpečení pro rozhraní .NET Framework, chcete-li vyřešit Nepoužívat funkce zabezpečení |4.33, 3.40, 2.52 |14. června 2016 |
-| Informační zpravodaj |[3155527] |Aktualizace sady šifer pro FalseStart |4.33, 3.40 |14. června 2016 |
+| Poradce |[3155527] |Aktualizace sady šifer pro FalseStart |4.33, 3.40 |14. června 2016 |
 | MS16-063 |[3163649] |Kumulativní aktualizace zabezpečení pro Internet Explorer |4.33, 3.40, 2.52 |14. června 2016 |
 | MS16-069 |[3163640] |Kumulativní aktualizace zabezpečení pro JScript a VBScript |2.52 |14. června 2016 |
 | MS16-071 |[3164065] |Aktualizace zabezpečení pro Microsoft Windows Server DNS |4.33, 3.40 |14. června 2016 |
@@ -562,6 +574,19 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | neuvedeno |[3007054] |Chráněný PIN KÓDEM tisk možnost vždy zobrazí při tisku dokumentu v aplikaci Windows Store ve Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | neuvedeno |[2999802] |Plné čáry místo čáry s koncovými body jsou vytištěn v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | neuvedeno |[2896881] |Dlouhé doby přihlášení při použití příkazu AddPrinterConnection VBScript mapovat tiskárny pro uživatele během procesu přihlášení v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4053579]: http://support.microsoft.com/kb/4053579
+[4054517]: http://support.microsoft.com/kb/4054517 
+[4054521]: http://support.microsoft.com/kb/4054521
+[4054522]: http://support.microsoft.com/kb/4054522
+[4054523]: http://support.microsoft.com/kb/4054523
+[4052978]: http://support.microsoft.com/kb/4052978
+[4048951]: http://support.microsoft.com/kb/4048951
+[4048957]: http://support.microsoft.com/kb/4048957
+[4048959]: http://support.microsoft.com/kb/4048959
+[4048958]: http://support.microsoft.com/kb/4048958
+[4049068]: http://support.microsoft.com/kb/4049068
+
 
 [4048953]: http://support.microsoft.com/kb/4048953
 [4048960]: http://support.microsoft.com/kb/4048960 

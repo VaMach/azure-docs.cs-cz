@@ -3,7 +3,7 @@ title: "Upgrade na proxy aplikace služby Azure AD | Microsoft Docs"
 description: "Zvolte, které proxy řešení je nejvhodnější, pokud upgradujete z Microsoft Forefront nebo Unified Gateway přístup."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: b124def6195da93eee61b0ec30698b935111ac4a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5323a9225adb9a9bfca2dccec5c84f288c4fd25d
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="compare-remote-access-solutions"></a>Porovnání řešení vzdáleného přístupu
 
@@ -60,7 +60,7 @@ Azure AD Application Proxy nabízí jedinečné výhody ve srovnání s podobné
 - Jeden přístupový panel vaši uživatelé můžete přejít k pro všechny své aplikace, včetně O365, Azure AD integrovaných aplikací SaaS a místní webové aplikace. 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Poskytnout zabezpečený vzdálený přístup k místním aplikacím pomocí aplikace Azure AD.](active-directory-application-proxy-get-started.md)
 - [Přechod z Forefront TMG a UAG na Proxy aplikace](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 0b7397e00c2d11c4c7be51421fb40ca6a9fe5779
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Řešení potíží s nasazením s instancemi Azure kontejneru
 
@@ -203,7 +203,7 @@ Z důvodu různých místních prostředků zatížení v Azure, může dojít k
 
 Tato chyba znamená, že kvůli případě velkého zatížení v oblasti, ve které se pokoušíte nasadit prostředky zadané pro váš kontejner nelze přidělit v daném čase. Pomocí jednoho nebo více z následujících kroků pro zmírnění dopadů váš problém vyřešit.
 
-* Zkontrolujte vaše nastavení nasazení kontejneru spadal do parametrech definovaných v [dostupnost v oblastech Azure kontejner instancí](container-instances-region-availability.md)
+* Zkontrolujte vaše nastavení nasazení kontejneru spadal do parametrech definovaných v [kvóty a dostupnost v oblastech Azure kontejner instancí](container-instances-quotas.md#region-availability)
 * Zadejte nižší nastavení procesoru a paměti pro kontejner
 * Nasazení v jiné oblasti Azure
 * Nasazení později

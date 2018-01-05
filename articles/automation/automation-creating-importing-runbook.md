@@ -14,25 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: f2e34e6a4d3d2f29fe6320d805e38e6fccbb74de
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0484b1f230a8544e3de2388df2cbdab3b54f9d3d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Vytvoření nebo import runbooku ve službě Azure Automation
 Přidáním sady runbook do Azure Automation a to buď [vytvořením nového](#creating-a-new-runbook) nebo importováním existujícího runbooku ze souboru nebo z [Galerie Runbooků](automation-runbook-gallery.md). Tento článek obsahuje informace o vytvoření a import sad runbook ze souboru.  Můžete získat všechny podrobnosti o přístupu k komunity runbooky a moduly v [Galerie Runbooků a modulů pro Azure Automation](automation-runbook-gallery.md).
 
 ## <a name="creating-a-new-runbook"></a>Vytvoření nové sady runbook
 Můžete vytvořit novou sadu runbook ve službě Azure Automation pomocí jedné z Azure portály nebo prostředí Windows PowerShell. Po vytvoření runbooku ho můžete upravit pomocí informací v [pracovního postupu Powershellu Learning](automation-powershell-workflow.md) a [vytváření grafického obsahu ve službě Azure Automation](automation-graphical-authoring-intro.md).
-
-### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-classic-portal"></a>Vytvoření nové sady Azure Automation runbook pomocí portálu Azure classic
-Je možné pracovat pouze s [runbooky pracovních postupů Powershellu](automation-runbook-types.md#powershell-workflow-runbooks) na portálu Azure.
-
-1. Na portálu Azure classic klikněte na tlačítko, **nový**, **App Services**, **automatizace**, **Runbook**, **rychle vytvořit**.
-2. Zadejte požadované informace a pak klikněte na tlačítko **vytvořit**. Název runbooku musí začínat písmenem a může obsahovat písmena, číslice, podtržítka a pomlčky.
-3. Pokud chcete runbook upravit hned, klikněte **upravit Runbook**. Jinak, klikněte na tlačítko **OK**.
-4. Nový runbook se zobrazí na **sady Runbook** kartě.
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Chcete-li vytvořit novou sadu runbook automatizace Azure pomocí portálu Azure
 1. Na webu Azure Portal otevřete účet Automation.
@@ -55,16 +47,6 @@ Můžete vytvořit novou sadu runbook ve službě Azure Automation importování
 * Soubor .graphrunbook může importovat jenom do nového [grafický runbook](automation-runbook-types.md#graphical-runbooks), a grafické runbooky, které mohou být vytvořeny pouze ze souboru .graphrunbook.
 * Souboru s příponou .ps1 s pracovním postupem prostředí PowerShell lze importovat pouze do [runbook pracovního postupu Powershellu](automation-runbook-types.md#powershell-workflow-runbooks).  Pokud soubor obsahuje více pracovních postupů prostředí PowerShell, se import nezdaří. Musíte uložit každý pracovní postup do vlastního souboru a každý importovat samostatně.
 * Souboru s příponou .ps1, který neobsahuje pracovního postupu lze importovat do buď [Powershellový runbook](automation-runbook-types.md#powershell-runbooks) nebo [runbook pracovního postupu Powershellu](automation-runbook-types.md#powershell-workflow-runbooks).  Po importu do sady runbook PowerShell Workflow, pak je převeden do pracovního postupu a komentáře, které jsou zahrnuté v sadě runbook zadání změny, které byly provedeny.
-
-### <a name="to-import-a-runbook-from-a-file-with-the-azure-classic-portal"></a>Import runbooku ze souboru pomocí portálu Azure classic
-Následující postup slouží k importu souboru skriptu do Azure Automation.  Všimněte si, že můžete importovat pouze souboru s příponou .ps1 do sady runbook PowerShell Workflow pomocí tento portál.  Pro ostatní typy vyžaduje použití portálu Azure.
-
-1. Na portálu Azure classic, vyberte **automatizace** a potom vyberte účet Automation.
-2. Klikněte na **Importovat**.
-3. Klikněte na tlačítko **vyhledat soubor** a vyhledejte soubor skriptu pro import.
-4. Pokud chcete runbook upravit hned, klikněte **upravit Runbook**. V opačném případě klikněte na tlačítko OK.
-5. Nový runbook se zobrazí na **Runbooky** kartě pro účet služby Automation.
-6. Je nutné [Publikovat sadu runbook](#publishing-a-runbook) předtím, než můžete ji spustit.
 
 ### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>Import runbooku ze souboru pomocí portálu Azure
 Následující postup slouží k importu souboru skriptu do Azure Automation.  
@@ -105,11 +87,6 @@ Následující vzorové příkazy ukazují, jak importovat soubor skriptu do run
 
 ## <a name="publishing-a-runbook"></a>Publikování runbooku
 Při vytváření nebo importovat nové sady runbook, musíte publikovat předtím, než můžete ji spustit.  Každá sada runbook ve službě Automation má koncept a publikovanou verzi. Je možné spustit jenom publikovaná verze a lze upravovat pouze verzi konceptu. Publikovaná verze neovlivní změny na verzi konceptu. Pokud má být k dispozici koncept, publikujete ho. publikovaná verze přepíše konceptem.
-
-## <a name="to-publish-a-runbook-using-the-azure-classic-portal"></a>Chcete-li publikovat sady runbook pomocí portálu Azure classic
-1. Otevřete sadu runbook na portálu Azure classic.
-2. V horní části obrazovky klikněte na tlačítko **Autor**.
-3. V dolní části obrazovky klikněte na tlačítko **publikovat** a potom **Ano** zobrazení zprávy pro ověření.
 
 ## <a name="to-publish-a-runbook-using-the-azure-portal"></a>Publikování sady runbook pomocí portálu Azure
 1. Otevřete sadu runbook na portálu Azure.

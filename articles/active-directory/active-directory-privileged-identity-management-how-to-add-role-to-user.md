@@ -6,23 +6,21 @@ documentationcenter:
 author: billmath
 manager: mtillman
 editor: 
-ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: 5a2150b67fb4926ac9bb04c74a281ba78692c5f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 53deb04a33a5f878c5e3f765099c54d30e6ac005
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: Jak přidat nebo odebrat roli uživatele
-S Azure Active Directory (AD), globální správce (nebo správce společnosti) můžete aktualizovat které uživatelé jsou **trvale** přiřadit do rolí ve službě Azure AD. To se provádí pomocí rutin prostředí PowerShell jako `Add-MsolRoleMember` a `Remove-MsolRoleMember`. Nebo použitím portálu Azure classic, jak je popsáno v [přiřazení rolí správce v Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+S Azure Active Directory (AD), globální správce (nebo správce společnosti) můžete aktualizovat které uživatelé jsou **trvale** přiřadit do rolí ve službě Azure AD. To se provádí pomocí rutin prostředí PowerShell jako `Add-MsolRoleMember` a `Remove-MsolRoleMember`. Nebo použitím portálu Azure, jak je popsáno v [přiřazení rolí správce v Azure Active Directory](active-directory-assign-admin-roles.md).
 
 Aplikace Azure AD Privileged Identity Management umožňuje správcům privilegovaných rolí zkontrolujte přiřazení rolí trvalé, také. Kromě toho privilegované role Správci uživatelé **vhodné** pro role správce. Oprávněné správce může aktivovat roli, když je potřebují, a potom jejich oprávnění vyprší po jejich dokončení akce.
 
@@ -63,6 +61,6 @@ Postupujte podle těchto kroků odebrat konkrétního uživatele z role:
 
 Pokud si nejste jistí, kteří uživatelé stále nutné jejich přiřazení role, pak můžete [spustit kontrola přístupu pro roli](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

@@ -3,7 +3,7 @@ title: "Publikování vzdálené plochy s Proxy aplikace Azure AD | Microsoft Do
 description: "Popisuje základní informace o Azure AD Application Proxy konektory."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: kgremban
+ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 06d217b38ff8e33bd6c5a42a93aa532c0d1efa4d
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikování vzdálené plochy s proxy aplikace služby Azure AD
 
@@ -116,7 +116,7 @@ Konfigurace uvedených v tomto článku je pro uživatele Windows 7 nebo Windows
 | Metoda ověřování | Podporované klientské konfigurace |
 | --------------------- | ------------------------------ |
 | Předběžné ověření    | Windows 7 nebo 10 pomocí Internet Exploreru + rozšíření ActiveX vzdálené plochy |
-| Atribut PassThrough | Všechny ostatní operační systém, který podporuje aplikace Vzdálená plocha od Microsoftu |
+| Průchod | Všechny ostatní operační systém, který podporuje aplikace Vzdálená plocha od Microsoftu |
 
 Tok předběžného ověření nabízí další výhody zabezpečení než průchozí toku. V předběžné ověřování můžete použít funkce ověřování Azure AD jako jednotné přihlašování, podmíněného přístupu a dvoustupňové ověřování pro vaše místní prostředky. Můžete také zajistěte, aby který pouze ověřené přenosy dosáhnou vaší sítě.
 
@@ -124,7 +124,7 @@ Pokud chcete používat předávací ověřování, jsou právě dva úpravy kro
 1. V [publikovat koncový bod hostitele VP](#publish-the-rd-host-endpoint) kroku 1, nastavte jako metodu předběžného ověření **průchozí**.
 2. V [přímé RDS provoz Proxy aplikace](#direct-rds-traffic-to-application-proxy), zcela přeskočit krok 8.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Povolte vzdálený přístup na SharePoint s proxy aplikace služby Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Důležité informace o zabezpečení pro vzdálený přístup k aplikací pomocí proxy aplikace služby Azure AD](application-proxy-security-considerations.md)

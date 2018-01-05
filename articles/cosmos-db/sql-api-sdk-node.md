@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c9b68ee25ae3d675b71ec5543738493216b1212
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: fa9b11e754ab86f0e4c88923d4b895aa5dd0e271
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK pro rozhraní API pro SQL: poznámky k verzi a prostředky
 > [!div class="op_single_selector"]
@@ -62,6 +62,13 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Poznámky k verzi
+
+### <a name="1.14.2"/>1.14.2</a>
+* Aktualizované dokumentace k odkazu na Azure DB Cosmos místo Azure DocumentDB.
+* Přidaná podpora pro nastavení proxyUrl v ConnectionPolicy.
+
+### <a name="1.14.1"/>1.14.1</a>
+* Menší opravy pro systémy souborů velká a malá písmena.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Přidává podporu pro konzistence typu relace.
@@ -187,6 +194,8 @@ Každá žádost o pomocí Cosmos DB, že je vyřazeno SDK odmítnuta službou.
 
 | Verze | Datum vydání | Datum vyřazení |
 | --- | --- | --- |
+| [1.14.2](#1.14.2) |21 prosince 2017 |--- |
+| [1.14.1](#1.14.1) |10 listopadu 2017 |--- |
 | [1.14.0](#1.14.0) |9 listopadu 2017 |--- |
 | [1.13.0](#1.13.0) |11 říjen 2017 |--- |
 | [1.12.2](#1.12.2) |10. srpnu 2017 |--- |
@@ -221,6 +230,6 @@ Každá žádost o pomocí Cosmos DB, že je vyřazeno SDK odmítnuta službou.
 ## <a name="faq"></a>Nejčastější dotazy
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Další informace najdete v tématech
 Další informace o Cosmos DB najdete v tématu [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) stránku služby.
 

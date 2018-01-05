@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 40390c6f92136d5731ac9d6857f06852c8ee6d85
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Požadované jednotky v Azure Cosmos DB
 Nyní k dispozici: Azure Cosmos DB [kalkulačky jednotek žádosti](https://www.documentdb.com/capacityplanner). Další informace v [odhadnout, musí vaše propustnost](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Doporučujeme začít následujícím videem, kde vysvětluje Aravind Ramachandr
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Určení požadavku jednotka kapacity v Azure Cosmos DB
 Při spouštění novou kolekci, tabulka nebo graf, je třeba zadat počet jednotek žádosti za sekundu (RU za sekundu), kterou chcete vyhrazené. Na základě zřízené propustnosti, Azure Cosmos DB přiděluje fyzické oddíly pro hostování vaší kolekce a rozdělení/rebalances dat napříč oddíly ho s růstem.
 
-Azure Cosmos DB vyžaduje klíč oddílu na zadat, když je kolekce s 2 500 jednotek žádosti přiděleným nebo vyšší. Klíč oddílu je taky požadovat, aby v budoucnu škálování propustnost vaší kolekce nad rámec odpovídající 2500 jednotek žádosti. Proto důrazně doporučujeme nakonfigurovat [klíč oddílu](partition-data.md) při vytváření kontejneru bez ohledu na počáteční propustnosti. Vzhledem k tomu, aby se daly rozdělit mezi více oddílů mohou mít vaše data, je nutné vybrat klíč oddílu, který má vysokou kardinalitou (100 na miliony odlišné hodnoty). Výběrem klíč oddílu s mnoha jedinečných hodnot je zajistit, že kolekce, tabulka nebo graf a žádostí je možné rozšířit jednotně pomocí Azure Cosmos DB. 
+Kontejnery Azure Cosmos DB lze vytvořit jako pevný nebo neomezená. Kontejnery pevné velikosti mají maximální limit 10 GB a propustnost 10 000 RU/s. Chcete-li vytvořit kontejner neomezená musíte zadat minimální propustnost 1000 RU/s a [klíč oddílu](partition-data.md). Vzhledem k tomu, aby se daly rozdělit mezi více oddílů mohou mít vaše data, je nutné vybrat klíč oddílu, který má vysokou kardinalitou (100 na miliony odlišné hodnoty). Výběrem klíč oddílu s mnoha jedinečných hodnot je zajistit, že kolekce, tabulka nebo graf a žádostí je možné rozšířit jednotně pomocí Azure Cosmos DB. 
 
 > [!NOTE]
 > Klíč oddílu je logické hranice a není fyzický jeden. Proto není potřeba omezit počet hodnoty klíče jedinečné oddílu. Ve skutečnosti je lepší má více jedinečných hodnot klíče oddílu menší, než databázi Cosmos Azure má další možnosti vyrovnávání zatížení.
@@ -201,7 +201,7 @@ Myslete na to je záznam zřizování jednotky žádosti přidružené spuštěn
 > 
 > 
 
-Například:
+Příklad:
 
 1. Zaznamenejte poplatků jednotek žádosti o vytvoření (vkládání) typické položky. 
 2. Záznam poplatků jednotek žádosti o čtení typické položky.
@@ -304,7 +304,7 @@ Následující tabulka uvádí přibližnou požadavek jednotky poplatky za typi
 
 | Operace | Žádost o jednotky zdarma |
 | --- | --- |
-| Vytvoření položky |~ 15 RU |
+| Vytvořit položku |~ 15 RU |
 | Čtení položky |~ 1 RU |
 | Dotaz položky podle id |~2.5 RU |
 
@@ -326,7 +326,7 @@ Pomocí těchto informací můžete odhadnout požadavky pro tuto aplikaci zadan
 
 | Operace nebo dotazu | Očekávaný počet za sekundu | Požadované RUs |
 | --- | --- | --- |
-| Vytvoření položky |10 |150 |
+| Vytvořit položku |10 |150 |
 | Čtení položky |100 |100 |
 | Vyberte potravin podle výrobce |25 |175 |
 | Vyberte jídlo skupinou |10 |700 |
@@ -348,7 +348,7 @@ Pokud máte více než jednoho klienta kumulativně operační vyšší rychlost
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a>Překročení omezení vyhrazenou propustností v rozhraní API pro MongoDB
 Aplikace, které překračují jednotek zřízené žádosti pro kolekci budou omezeny, dokud rychlost klesne pod úroveň vyhrazené. Když dojde omezení, back-end se ukončí ho preventivně požadavek s *16500* kód chyby - *příliš mnoho požadavků*. Ve výchozím nastavení, rozhraní API pro MongoDB bude automaticky opakovat až 10krát před vrácením *příliš mnoho požadavků* kód chyby. Pokud se zobrazuje řada *příliš mnoho požadavků* kódy chyb, můžete zvážit buď přidání opakování chování vaší aplikace chyba zpracování rutiny nebo [zvýšení vyhrazenou propustností pro kolekci](set-throughput.md).
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Další informace o vyhrazenou propustností s databázemi Azure Cosmos DB najdete v těchto zdrojích:
 
 * [Azure Cosmos DB ceny](https://azure.microsoft.com/pricing/details/cosmos-db/)

@@ -3,7 +3,7 @@ title: "Aspekty topologie sítě, při použití aplikace Proxy Azure Active Dir
 description: "Popisuje aspekty topologie sítě, při použití Azure AD Application Proxy."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 62b28ba446b4ffb13071b81805767bb34288fe2e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f4ca4856333bf8b10a00952356080ed332dc266b
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Aspekty topologie sítě při použití aplikace Proxy Azure Active Directory
 
@@ -170,7 +170,7 @@ Můžete také použít jeden další variant v této situaci. Pokud většina u
 
 ![Diagram zobrazující proxy, uživatelů a konektor v USA, aplikace v EU](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Povolení Proxy aplikace](active-directory-application-proxy-enable.md)
 - [Povolení jednoduchého přihlášení](active-directory-application-proxy-sso-using-kcd.md)

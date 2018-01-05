@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 604c4e850ac88fde4124c0acdd5550654c442108
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?
 Jednotné přihlašování znamená schopnost přístup ke všem aplikacím a prostředkům, které musíte udělat podnikání, po přihlášení pouze po pomocí jediného uživatelského účtu. Jakmile se přihlásíte, dostanete všechny aplikace, bez nutnosti ověřování (např. Zadejte heslo) ještě jednou.
@@ -49,7 +49,7 @@ Azure AD podporuje tři různé způsoby, přihlaste se k aplikacím:
 * **Založené na heslech jednotné přihlašování** umožňuje zabezpečit ukládání hesel aplikací a přehráním pomocí mobilní aplikace nebo rozšíření webové prohlížeče. Toto využívá existující proces přihlášení poskytuje aplikace, ale umožňuje správci spravovat hesla a nevyžaduje žádný uživatel znát heslo.
 * **Existující jednotné přihlašování** umožňuje využívat všechny existující jednotné přihlašování, byl nastavenou službu aplikace, ale umožňuje tyto aplikace propojení na portály Office 365 nebo Azure AD panel přístupu službě Azure AD a také umožňuje další vytváření sestav v Azure AD, pokud existuje spuštění aplikace.
 
-Po ověření uživatele s aplikací mít také vyžadují, aby byla záznamu klienta, které se zřídí v aplikaci, která sděluje aplikace kde existuje oprávnění a úroveň přístupu jsou uvnitř aplikace. Zřizování tento záznam účtu může buď dojít automaticky, nebo může k ní dojít ručně správcem před uživateli se nabídnou přístup přihlášení.
+Jakmile uživatel byl ověřen pomocí aplikace, se musí být také záznamu klienta, které se zřídí v aplikaci, která sděluje aplikace kde existuje oprávnění a úroveň přístupu jsou uvnitř aplikace. Zřizování tento záznam účtu může buď dojít automaticky, nebo může k ní dojít ručně správcem před uživateli se nabídnou přístup přihlášení.
 
  Další informace o těchto režimech jednoho přihlášení a zřizování níže.
 

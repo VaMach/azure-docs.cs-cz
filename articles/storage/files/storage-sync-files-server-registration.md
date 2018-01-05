@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Spravovat registrované servery se synchronizací souboru Azure (preview)
 Azure File Sync (Preview) umožňuje centralizovat sdílené složky organizace ve službě Soubory Azure bez ztráty flexibility, výkonu a kompatibility místního souborového serveru. Dělá to pomocí transformace serverů Windows na rychlou mezipaměť sdílené složky Azure. Pro místní přístup k datům můžete použít jakýkoli protokol dostupný ve Windows Serveru (včetně SMB, NFS a FTPS) a můžete mít libovolný počet mezipamětí po celém světě.
@@ -149,7 +149,7 @@ Vzhledem k tomu, že synchronizace souboru Azure zřídka bude pouze služba spu
 ### <a name="set-azure-file-sync-network-limits"></a>Nastavení limitů sítě Azure synchronizace souboru
 Můžete omezit využití sítě synchronizace souborů Azure pomocí `StorageSyncNetworkLimit` rutiny. 
 
-Například můžete vytvořit nový limit sítě zajistit, že synchronizace souboru Azure nepoužívá víc než 10 MB/s mezi 9: 00 a 17: 00 (h 17:00) během pracovní dny: 
+Například můžete vytvořit nový limit omezovače zajistit, že synchronizace souboru Azure nepoužívá víc než 10 MB/s mezi 9: 00 a 17: 00 (h 17:00) během pracovní dny: 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

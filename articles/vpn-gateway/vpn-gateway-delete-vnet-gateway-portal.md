@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
-ms.openlocfilehash: b67fdfc82bbc132772186e3500079cfcfdafe02b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b014d43ab25124d3e08e19ca190b320fc8456593
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Odstranit bránu virtuální sítě pomocí portálu
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 
 Tento článek obsahuje pokyny k odstraňování Azure VPN Gateway nasazení pomocí modelu nasazení Resource Manager. Existuje několik způsobů, které můžete provést, pokud chcete odstranit bránu virtuální sítě pro konfiguraci brány VPN.
 
-- Pokud chcete odstranit vše a začít od začátku, jako v případě testovacím prostředí, můžete odstranit skupinu prostředků. Pokud odstraníte skupinu prostředků, odstraní všechny prostředky ve skupině. Toto je metoda se doporučuje jenom Pokud nechcete, aby zachovat prostředky ve skupině prostředků. Nelze odstranit selektivně pouze několik prostředků pomocí tohoto přístupu.
+- Pokud chcete odstranit vše a začít od začátku, jako v případě testovacím prostředí, můžete odstranit skupinu prostředků. Pokud odstraníte skupinu prostředků, odstraní všechny prostředky ve skupině. Tato metoda se doporučuje jenom, pokud chcete zachovat prostředky ve skupině prostředků. Nelze odstranit selektivně pouze několik prostředků pomocí tohoto přístupu.
 
 - Pokud chcete zachovat některé prostředky ve vaší skupině prostředků, odstraňuje se Brána virtuální sítě je něco víc složité. Než budete moct odstranit bránu virtuální sítě, musíte nejprve odstranit všechny prostředky, které jsou závislé na bráně. Kroky, které budete postupovat podle závisí na typu připojení, které jste vytvořili a závislé prostředky pro každé připojení.
 

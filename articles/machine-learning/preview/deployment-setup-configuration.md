@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>Nastavení modelu správce
 
@@ -81,7 +81,7 @@ Pokud chcete spustit, musíte nastavit prostředí pro nasazení. Nastavení pro
 
 Po dokončení instalace prostředí:
 - Zobrazí se výzva k přihlášení k Azure. K přihlášení použijte webový prohlížeč a otevřete stránku https://aka.ms/devicelogin zadejte poskytnutý kód pro ověření.
-- Během procesu ověřování budete vyzváni k účtu k ověření. Důležité: Vyberte účet, který má platné předplatné Azure a dostatečná oprávnění k vytváření prostředků v účtu. - po protokolu v dokončení se zobrazí informace o vašem předplatném a zobrazí se výzva, jestli chcete pokračovat vybraný účet.
+- Během procesu ověřování budete vyzváni k účtu k ověření. Důležité: Vyberte účet, který má platné předplatné Azure a dostatečná oprávnění k vytváření prostředků v účtu. Po protokolu v dokončení se zobrazí informace o vašem předplatném a zobrazí se výzva, jestli chcete pokračovat s vybraný účet.
 
 ### <a name="environment-setup"></a>Nastavení prostředí
 K zahájení procesu instalace, musíte zaregistrovat několik poskytovatelů prostředí zadáním následujících příkazů:

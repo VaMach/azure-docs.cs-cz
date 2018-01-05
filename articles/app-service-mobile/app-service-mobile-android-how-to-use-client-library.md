@@ -3,8 +3,8 @@ title: "Jak používat Azure Mobile Apps SDK pro Android | Microsoft Docs"
 description: "Jak používat Azure Mobile Apps SDK pro Android"
 services: app-service\mobile
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: glenga
-ms.openlocfilehash: ac5cbb51a5ed340a6cbf2eeefa41feb337d28fb9
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: crdun
+ms.openlocfilehash: d992a3e29e3fc7b7186fd6ee533d0da8bebbd419
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Jak používat Azure Mobile Apps SDK pro Android
 
@@ -99,7 +99,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 Klient taky vyžaduje přístup k aktivity nebo kontextu - `this` parametr v příkladu.  Měly by během proběhnout konstrukce MobileServiceClient `onCreate()` metoda aktivity odkazuje v `AndroidManifest.xml` souboru.
 
-Jako osvědčený postup by měl abstraktní komunikace serveru do vlastní třídy (singleton-pattern).  V takovém případě by měla předávat aktivitu v rámci konstruktoru správně nakonfigurovat službu.  Například:
+Jako osvědčený postup by měl abstraktní komunikace serveru do vlastní třídy (singleton-pattern).  V takovém případě by měla předávat aktivitu v rámci konstruktoru správně nakonfigurovat službu.  Příklad:
 
 ```java
 package com.example.appname.services;
@@ -198,7 +198,7 @@ Tabulce back-end Azure Mobile Apps definuje pět speciální pole, čtyři, kter
 * `byte[] version`: Obvykle vyjádřený jako řetězec, verze je také nastavená serverem.
 * `boolean deleted`: Označuje, že záznam má byla odstraněna ale ještě nebyla odstraněna.  Nepoužívejte `deleted` jako vlastnost v třídě.
 
-`id` Pole je povinné.  `updatedAt` Pole a `version` pole se používají pro offline synchronizace (pro přírůstkové synchronizace a dojde ke konfliktu řešení v uvedeném pořadí).  `createdAt` Pole je odkaz na pole a není používán klienta.  Názvy jsou názvy "přes přenosu" vlastnosti a nejsou upravit.  Můžete však vytvořit mapování mezi objektu a názvy "přes přenosu" pomocí [gson] [ 3] knihovny.  Například:
+`id` Pole je povinné.  `updatedAt` Pole a `version` pole se používají pro offline synchronizace (pro přírůstkové synchronizace a dojde ke konfliktu řešení v uvedeném pořadí).  `createdAt` Pole je odkaz na pole a není používán klienta.  Názvy jsou názvy "přes přenosu" vlastnosti a nejsou upravit.  Můžete však vytvořit mapování mezi objektu a názvy "přes přenosu" pomocí [gson] [ 3] knihovny.  Příklad:
 
 ```java
 package com.example.zumoappname;
@@ -447,7 +447,7 @@ do {
 
 ### <a name="chaining"></a>Postupy: řetězení metody dotazů
 
-Může být zřetězen metody použité v dotazování tabulky back-end. Řetězení metody dotazů můžete vybrat konkrétní sloupce filtrované řádků, které jsou seřazené a stránkovaného fondu. Můžete vytvořit komplexní logické filtry.  Každá metoda dotaz vrátí objekt dotazu. Pokud chcete ukončit řady metod a ve skutečnosti spusťte dotaz, volání **provést** metoda. Například:
+Může být zřetězen metody použité v dotazování tabulky back-end. Řetězení metody dotazů můžete vybrat konkrétní sloupce filtrované řádků, které jsou seřazené a stránkovaného fondu. Můžete vytvořit komplexní logické filtry.  Každá metoda dotaz vrátí objekt dotazu. Pokud chcete ukončit řady metod a ve skutečnosti spusťte dotaz, volání **provést** metoda. Příklad:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -517,7 +517,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Přepsání adaptéry **getView** metoda. Například:
+Přepsání adaptéry **getView** metoda. Příklad:
 
 ```
     @Override

@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Konfigurace a v protokolech serveru přístup k portálu Azure
 
@@ -26,7 +26,7 @@ Chcete-li krok tímto průvodcem postupy, je třeba:
 ## <a name="configure-logging"></a>Konfigurace protokolování
 Konfigurace přístupu k dotazu protokoly a protokoly chyb. 
 
-1. Přihlaste se k webu [Azure Portal](http://portal.azure.com/).
+1. Přihlaste se k [portálu Azure](http://portal.azure.com/).
 
 2. Vyberte svou databázi Azure pro PostgreSQL server.
 
@@ -53,7 +53,7 @@ Konfigurace přístupu k dotazu protokoly a protokoly chyb.
 ## <a name="view-list-and-download-logs"></a>Zobrazení seznamu a stažení protokolů
 Jakmile začne protokolování, můžete zobrazit seznam dostupných protokolů a stáhnout jednotlivých protokolových souborů v podokně protokoly serveru. 
 
-1. Otevřete portál Azure.
+1. Otevřete web Azure Portal.
 
 2. Vyberte svou databázi Azure pro PostgreSQL server.
 
@@ -72,8 +72,8 @@ Jakmile začne protokolování, můžete zobrazit seznam dostupných protokolů 
 
    ![Klikněte na ikonu stahování](./media/howto-configure-server-logs-in-portal/6-download.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - V tématu [protokoly serveru přístup v rozhraní příkazového řádku](howto-configure-server-logs-using-cli.md) se dozvíte, jak ke stažení protokolů prostřednictvím kódu programu.
 - Další informace o [protokoly serveru](concepts-server-logs.md) v Azure DB pro PostgreSQL. 
-- Další informace o protokolování PostgreSQL a definicemi parametrů naleznete v dokumentaci k PosgreSQL na [zasílání zpráv o chybách a protokolování](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Další informace o protokolování PostgreSQL a definicemi parametrů naleznete v dokumentaci k PostgreSQL na [zasílání zpráv o chybách a protokolování](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

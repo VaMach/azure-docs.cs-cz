@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: f709e216f9308c4405776b25ca44b0aaddd3d3f8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simulace selhání při přístupu ke redundantní úložiště s přístupem pro čtení
 
@@ -88,7 +88,7 @@ Přejděte na aplikaci Fiddler a vyberte **pravidla** -> **přizpůsobit pravidl
 
 Chcete-li obnovit aplikace, stiskněte **libovolné klávesy** .
 
-Jakmile se aplikace spustí znovu spustit, požadavky na primární koncový bod začne být neúspěšné. Aplikace se pokusí znovu připojit k primární koncový bod 5krát. Po prahové hodnoty chyb pět pokusů požadavků bitovou kopii z sekundární koncový bod jen pro čtení. Po aplikace úspěšně načte bitovou kopii 20krát ze sekundárního koncového bodu, aplikace se pokusí připojit k primární koncový bod. Pokud primární koncový bod je stále nedostupný, obnoví aplikace čtení ze sekundárního koncového bodu. Tento vzor je [jistič](/azure/architecture/patterns/circuit-breaker.md) vzor popsané v předchozí kurzu.
+Jakmile se aplikace spustí znovu spustit, požadavky na primární koncový bod začne být neúspěšné. Aplikace se pokusí znovu připojit k primární koncový bod 5krát. Po prahové hodnoty chyb pět pokusů požadavků bitovou kopii z sekundární koncový bod jen pro čtení. Po aplikace úspěšně načte bitovou kopii 20krát ze sekundárního koncového bodu, aplikace se pokusí připojit k primární koncový bod. Pokud primární koncový bod je stále nedostupný, obnoví aplikace čtení ze sekundárního koncového bodu. Tento vzor je [jistič](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) vzor popsané v předchozí kurzu.
 
 ![Vložení vlastní pravidlo](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
@@ -108,7 +108,7 @@ Po dokončení stiskněte **libovolné klávesy** obnovit aplikace. Aplikace pok
 
 ![Obnovit aplikace](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V rámci dvě řady jste se dozvěděli o simulaci selhání při testování geograficky redundantní úložiště přístup pro čtení, například jak:
 

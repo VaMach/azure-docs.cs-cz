@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: cfd932fa87ffd40ffc6ac96ad72ae7eac31e0b98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: jeedes
+ms.openlocfilehash: 6e8167c1152fe80813d5c13706a72badce0a0ce9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Kurz: Azure Active Directory integrace s Halosys
 
@@ -27,7 +28,7 @@ Integrace Halosys s Azure AD poskytuje následující výhody:
 
 - Můžete řídit ve službě Azure AD, který má přístup k Halosys
 - Můžete povolit uživatelům, aby automaticky získat přihlášení k Halosys (jednotné přihlášení) s jejich účty Azure AD
-- Můžete spravovat vaše účty v jednom centrálním místě – portál Azure classic
+- Můžete spravovat vaše účty v jednom centrálním místě - portálu Azure
 
 Pokud chcete vědět, další informace o integraci aplikací SaaS v Azure AD, najdete v části [co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -63,22 +64,17 @@ Při konfiguraci integrace Halosys do služby Azure AD musíte přidat do seznam
 
 **Pokud chcete přidat Halosys z galerie, proveďte následující kroky:**
 
-1. V **portál Azure classic**, v levém navigačním podokně klikněte na tlačítko **služby Active Directory**.
+1. V  **[portál Azure](https://portal.azure.com)**, v levém navigačním panelu klikněte na tlačítko **Azure Active Directory** ikonu. 
 
     ![Active Directory][1]
-2. Z **Directory** seznamu, vyberte adresář, pro který chcete povolit integraci adresáře.
 
-3. Chcete-li otevřít zobrazení aplikací, v zobrazení adresáře, klikněte na tlačítko **aplikace** v horní nabídce.
+2. Přejděte na **podnikové aplikace, které**. Pak přejděte na **všechny aplikace**.
 
     ![Aplikace][2]
-
-4. Klikněte na tlačítko **přidat** v dolní části stránky.
+    
+3. Chcete-li přidat novou aplikaci, klikněte na tlačítko **novou aplikaci** tlačítko horní dialogové okno.
 
     ![Aplikace][3]
-
-5. Na **co chcete udělat** dialogové okno, klikněte na tlačítko **přidat aplikaci z Galerie**.
-
-    ![Aplikace][4]
 
 6. Do vyhledávacího pole zadejte **Halosys**.
 
@@ -105,101 +101,74 @@ Nakonfigurovat a otestovat Azure AD jednotné přihlašování s Halosys, je tř
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurace Azure AD jednotné přihlašování
 
-V této části můžete povolit Azure AD jednotného přihlašování na portálu classic a nakonfigurovat jednotné přihlašování v aplikaci Halosys.
+V této části můžete povolit Azure AD jednotné přihlašování v portálu a nakonfigurovat jednotné přihlašování v aplikaci Halosys.
 
 
 **Ke konfiguraci Azure AD jednotné přihlašování s Halosys, proveďte následující kroky:**
 
-1. Na portálu classic na **Halosys** stránky integrace aplikací, klikněte na tlačítko **nakonfigurovat jednotné přihlašování** otevřete **nakonfigurovat jednotné přihlašování** dialogové okno.
-     
-    ![Konfigurovat jednotné přihlašování][6] 
+1. Na portálu Azure na **životního cyklu SCC** stránky integrace aplikací, klikněte na tlačítko **jednotného přihlašování**.
 
-2. Na **jak chcete uživatelům se přihlásit Halosys** vyberte **Azure AD jednotné přihlašování**a potom klikněte na **Další**.
+    ![Konfigurovat jednotné přihlašování][4]
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_03.png) 
-
-3. Na **nakonfigurovat nastavení aplikace** dialogové okno proveďte následující kroky:
-
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_04.png) 
-
-    a. V **přihlašovací adresa URL** textové pole, zadejte adresu URL používá uživatelům přihlášení do aplikace Halosys pomocí následujícího vzorce: `https://<company-name>.Halosys.com/client-api/api`.
-
-    b.In **identifikátoru adresy URL** textovému poli, zadejte adresu URL v následujících vzoru: `https://<company-name>.Halosys.com`.   
-         
-4. Na **nakonfigurovat jednotné přihlašování v Halosys** klikněte na tlačítko **stáhnout metadata**a potom uložte soubor v počítači:
-
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_05.png)
-   
-5. Pokud chcete získat jednotné přihlašování, které jsou nakonfigurované pro vaši aplikaci, kontaktujte tým podpory Halosys a poskytněte s následujícími službami:
-
-    • Stažené **soubor metadat**
-    
-    • **URL jednotné přihlašování SAML**
-    
-
-6. Klasický portál, vyberte potvrzení konfigurace přihlášení a pak klikněte na **Další**.
-    
-    ![Azure AD jednotné přihlášení][10]
-
-7. Na **jednotné přihlašování potvrzení** klikněte na tlačítko **Complete**.  
+2. Na **jednotného přihlašování** dialogovém okně, vyberte **režimu** jako **na základě SAML přihlašování** umožňující jednotného přihlašování.
  
-    ![Azure AD jednotné přihlášení][11]
+    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-scclifecycle-tutorial/tutorial_scclifecycle_samlbase.png)
+
+3. Na **Halosys domény a adresy URL** část, proveďte následující kroky:
+    1. V **přihlašovací adresa URL** textovému poli, zadejte adresu URL pomocí následujícího vzorce:`https://<sub-domain>.hs.com/ic7/welcome/customer/PICTtest.aspx`
+
+    2. V **identifikátor** textovému poli, zadejte adresu URL pomocí následujícího vzorce:
+    | |
+    |--|--|
+    | `https://bs1.hs.com/<entity>`|
+    | `https://lifecycle.hs.com/<entity>`|
+    
+    > [!NOTE] 
+    > Tyto hodnoty nejsou skutečné. Tyto hodnoty aktualizujte skutečné přihlašovací adresa URL a identifikátor. Obraťte se na [tým podpory SCC životního cyklu klienta](mailto:lifecycle.support@scc.com) k získání těchto hodnot. 
+         
+4. Na **SAML podpisový certifikát** vyberte **soubor XML s metadaty** pod **Stáhnout**a potom uložte soubor metadat ve vašem počítači.
+   
+5. Získat jednotné přihlašování nakonfigurovaný pro vaše aplikace, obraťte se na tým podpory Halosys a poskytněte s následujícími službami:
+
+  * Stažené **soubor metadat**
+  * **URL jednotné přihlašování SAML**
+    
+
+  >[!NOTE]
+  >Jednotné přihlašování musí být povoleno Halosys tým podpory.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Vytváření testovacího uživatele Azure AD
-V této části vytvoříte testovacího uživatele na portálu classic názvem Britta Simon.
+V této části vytvoříte testovacího uživatele na portálu názvem Britta Simon.
 
 
 ![Vytvořit uživatele Azure AD][20]
 
 **Vytvoření zkušebního uživatele ve službě Azure AD, proveďte následující kroky:**
 
-1. V **portál Azure classic**, v levém navigačním podokně klikněte na tlačítko **služby Active Directory**.
+1. V **portál Azure**, v levém navigačním podokně klikněte na tlačítko **Azure Active Directory** ikonu.
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_09.png) 
+    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_01.png) 
 
-2. Z **Directory** seznamu, vyberte adresář, pro který chcete povolit integraci adresáře.
+2. Chcete-li zobrazit seznam uživatelů, přejděte na **uživatelů a skupin** a klikněte na tlačítko **všichni uživatelé**.
+    
+    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_02.png) 
 
-3. Chcete-li zobrazit seznam uživatelů, v nabídce v horní části, klikněte na tlačítko **uživatelé**.
+3. Chcete-li otevřít **uživatele** dialogové okno, klikněte na tlačítko **přidat** horní dialogové okno.
+ 
+    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_03.png) 
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_03.png) 
+4. Na **uživatele** dialogové okno stránky, proveďte následující kroky:
+ 
+    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_04.png) 
 
-4. Chcete-li otevřít **přidat uživatele** dialogovém okně, na panelu nástrojů v dolní části, klikněte na tlačítko **přidat uživatele**.
+    a. V **název** textovému poli, typ **BrittaSimon**.
 
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
+    b. V **uživatelské jméno** textovému poli, typ **e-mailová adresa** z BrittaSimon.
 
-5. Na **Povězte nám o tohoto uživatele** dialogové okno stránky, proveďte následující kroky: ![vytváření testovací uživatele Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+    c. Vyberte **zobrazit hesla** a poznamenejte si hodnotu **heslo**.
 
-    a. Jako typ uživatele vyberte nového uživatele ve vaší organizaci.
-
-    b. V uživatelské jméno **textbox**, typ **BrittaSimon**.
-
-    c. Klikněte na **Další**.
-
-6.  Na **profil uživatele** dialogové okno stránky, proveďte následující kroky: ![vytváření testovací uživatele Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
-
-    a. V **křestní jméno** textovému poli, typ **Britta**.  
-
-    b. V **příjmení** textovému poli, typ, **Simon**.
-
-    c. V **zobrazovaný název** textovému poli, typ **Britta Simon**.
-
-    d. V **Role** seznamu, vyberte **uživatele**.
-
-    e. Klikněte na **Další**.
-
-7. Na **získat dočasné heslo** dialogové okno stránky, klikněte na tlačítko **vytvořit**.
-
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_07.png) 
-
-8. Na **získat dočasné heslo** dialogové okno stránky, proveďte následující kroky:
-
-    ![Vytváření testovacího uživatele Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_08.png) 
-
-    a. Poznamenejte si hodnotu **nové heslo**.
-
-    b. Klikněte na **Dokončit**.   
-
+    d. Klikněte na možnost **Vytvořit**.
 
 
 ### <a name="creating-a-halosys-test-user"></a>Vytvoření zkušebního uživatele Halosys
@@ -215,33 +184,34 @@ V této části povolíte Britta Simon používat tak, že udělíte přístup k
 
 **Pokud chcete přiřadit Britta Simon Halosys, proveďte následující kroky:**
 
-1. Na portálu classic k otevření zobrazení aplikací, v zobrazení adresáře, klikněte na tlačítko **aplikace** v horní nabídce.
+1. Na portálu Azure otevřete zobrazení aplikací a pak přejděte do zobrazení adresáře a přejděte na **podnikové aplikace, které** klikněte **všechny aplikace.**
 
     ![Přiřadit uživatele][201] 
 
 2. V seznamu aplikací vyberte **Halosys**.
 
-    ![Konfigurovat jednotné přihlašování](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_50.png) 
+3. V nabídce na levé straně klikněte na tlačítko **uživatelů a skupin**.
 
-3. V nabídce v horní části, klikněte na tlačítko **uživatelé**.
+    ![Přiřadit uživatele][202] 
+
+4. Klikněte **přidat** tlačítko. Potom vyberte **uživatelů a skupin** na **přidat přiřazení** dialogové okno.
 
     ![Přiřadit uživatele][203]
 
-4. V seznamu uživatelů vyberte **Britta Simon**.
+5. Na **uživatelů a skupin** dialogovém okně, vyberte **Britta Simon** v seznamu uživatelů.
 
-5. Na panelu nástrojů v dolní části klikněte na tlačítko **přiřadit**.
+6. Klikněte na tlačítko **vyberte** tlačítko **uživatelů a skupin** dialogové okno.
 
-    ![Přiřadit uživatele][205]
-
+7. Klikněte na tlačítko **přiřadit** tlačítko **přidat přiřazení** dialogové okno.
 
 ### <a name="testing-single-sign-on"></a>Testování jednotné přihlašování
 
 V této části můžete vyzkoušet Azure AD jeden přihlašování konfiguraci pomocí přístupového panelu.
 
-Když kliknete na dlaždici Halosys na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci Halosys.
+Když kliknete na dlaždici Halosys na přístupovém panelu, jste měli získat automaticky přihlášení k aplikaci Halosys. Další informace o na přístupovém panelu najdete v tématu [Úvod k přístupovému panelu](active-directory-saas-access-panel-introduction.md).
 
 
-## <a name="additional-resources"></a>Další zdroje
+## <a name="additional-resources"></a>Další zdroje informací:
 
 * [Seznam kurzů k integraci aplikací SaaS službou Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co je přístup k aplikaci a jednotné přihlašování s Azure Active Directory?](active-directory-appssoaccess-whatis.md)
@@ -261,6 +231,8 @@ Když kliknete na dlaždici Halosys na přístupovém panelu, jste měli získat
 
 [200]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
+ 

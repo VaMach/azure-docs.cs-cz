@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bf6efd96bea8a6f563ec72d5469d91b4cbfbd5fe
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: cf398d18091a008afc24cbe583001fd538039db2
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Vytvoření webové aplikace PHP a databáze MySQL v Azure App Service v systému Linux
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/15/2017
 > Tento článek nasadí aplikaci do služby App Service v systému Linux. K nasazení do služby App Service na _Windows_, najdete v části [sestavení webové aplikace PHP a databáze MySQL v Azure](../app-service-web-tutorial-php-mysql.md).
 >
 
-[Aplikační služby v systému Linux](app-service-linux-intro.md) nabízí vysoce škálovatelnou a automatických oprav webové hostitelské služby pomocí operační systém Linux. Tento kurz ukazuje, jak vytvořit webovou aplikaci PHP a připojte ho k databázi MySQL. Jakmile budete hotovi, budete mít [Laravel](https://laravel.com/) aplikace běžící na App Service v systému Linux.
+[App Service v Linuxu](app-service-linux-intro.md) je vysoce škálovatelná služba s automatickými opravami pro hostování webů s využitím operačního systému Linux. Tento kurz ukazuje, jak vytvořit webovou aplikaci PHP a připojte ho k databázi MySQL. Jakmile budete hotovi, budete mít [Laravel](https://laravel.com/) aplikace běžící na App Service v systému Linux.
 
 ![Aplikace PHP, které jsou spuštěné v Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -164,7 +164,7 @@ Vytvoření serveru ve službě Azure Database pro databázi MySQL (Preview) pom
 V následujícím příkazu nahraďte název serveru MySQL, kde uvidíte  _&lt;mysql_server_name >_ zástupný symbol (platnými znaky jsou `a-z`, `0-9`, a `-`). Tento název je součástí názvu hostitele serveru MySQL (`<mysql_server_name>.database.windows.net`), musí být globálně jedinečný.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017 --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --ssl-enforcement Disabled
 ```
 
 Při vytvoření serveru MySQL rozhraní příkazového řádku Azure obsahuje informace o podobně jako v následujícím příkladu:
@@ -202,7 +202,7 @@ V okně terminálu připojte k serveru databáze MySQL v Azure. Použít hodnotu
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-Pokud budete vyzváni k zadání hesla, použijte _$tr0ngPa$ w0rd!_, který jste zadali při vytvoření databáze.
+Pokud budete vyzváni k zadání hesla, použijte _$tr0ngPa$ w0rd!_, který jste zadali při vytváření databázového serveru.
 
 ### <a name="create-a-production-database"></a>Vytvoření provozní databáze
 
@@ -243,7 +243,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017
@@ -333,7 +333,7 @@ V tomto kroku nasadíte aplikaci PHP MySQL připojení do služby Azure App Serv
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Konfigurace nastavení databáze
+### <a name="configure-database-settings"></a>Konfiguruje nastavení databáze.
 
 Ve službě App Service, můžete nastavit proměnné prostředí jako _nastavení aplikace_ pomocí [az webapp konfigurace appsettings sadu](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) příkaz.
 
@@ -442,7 +442,7 @@ V tomto kroku provedete jednoduché změnu `task` datový model a webové aplika
 
 Pro tento scénář úlohy upravit aplikaci tak, že můžete označit úlohu jako dokončenou.
 
-### <a name="add-a-column"></a>Přidá sloupec
+### <a name="add-a-column"></a>Přidat sloupec
 
 V terminálu přejděte do kořenového úložiště Git.
 
@@ -596,7 +596,7 @@ V levé nabídce poskytuje stránky pro konfiguraci vaší aplikace.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 V tomto kurzu jste se naučili:
 

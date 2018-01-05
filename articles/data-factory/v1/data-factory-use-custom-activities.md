@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Použití vlastních aktivit v kanálu Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -110,9 +110,11 @@ Metoda vrátí slovník, který slouží k řetězu vlastní aktivity společně
      <li>Vyberte <b>knihovny tříd</b> ze seznamu typů projektu na pravé straně. V VS 2017, zvolte <b>knihovny tříd (rozhraní .NET Framework)</b> </li>
      <li>Zadejte <b>MyDotNetActivity</b> pro <b>název</b>.</li>
      <li>Vyberte <b>C:\ADFGetStarted</b> pro <b>umístění</b>.</li>
-     <li>Kliknutím na tlačítko <b>OK</b> vytvořte projekt.</li>
+     <li>Projekt vytvoříte kliknutím na <b>OK</b>.</li>
    </ol>
-2.Klikněte na tlačítko **nástroje**, přejděte na příkaz **Správce balíčků NuGet**a klikněte na tlačítko **Konzola správce balíčků**.
+   
+2. Klikněte na **Nástroje**, přejděte na **Správce balíčků NuGet** a klikněte na **Konzola Správce balíčků**.
+
 3. V konzole Správce balíčků spustíte následující příkaz pro import **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell
@@ -552,7 +554,7 @@ V tomto kroku vytvoříte datové sady, které představují vstupní a výstupn
 
     Objekt blob nebo soubor výstupu se generuje pro každý vstupní řez. Zde je, jak je výstupní soubor s názvem pro každý řez. Výstupní soubory jsou generovány v jednu výstupní složky: **adftutorial\customactivityoutput**.
 
-   | Řez | Čas spuštění | Výstupní soubor |
+   | Řez | Počáteční čas | Výstupní soubor |
    |:--- |:--- |:--- |
    | 1 |2016-11-16T00:00:00 |2016 11 16 00.txt |
    | 2 |2016-11-16T01:00:00 |2016 11 16 01.txt |

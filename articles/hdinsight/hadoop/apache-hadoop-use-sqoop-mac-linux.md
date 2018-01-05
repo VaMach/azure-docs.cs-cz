@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: 250fb1dfed5cdab5308c2d91744e0cf051c32ccc
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a0a63c414bc68f5125b65e288d78fb546c376c04
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Použití Apache Sqoop k importu a exportu dat mezi systémem Hadoop v HDInsight a databáze SQL
 
@@ -39,7 +39,7 @@ Další informace o použití Apache Sqoop k importu a exportu mezi clusteru Had
 >
 > * [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)
 > * [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)
-> * [Sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) nástroj.
+> * [Sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) nástroj
 
 ## <a name="create-the-table-in-sql-database"></a>Vytvořit v tabulce databáze SQL
 
@@ -95,7 +95,7 @@ GO
 
     ```sql
     SET ROWCOUNT 50;
-    SELECT * FROM mobiledata;"
+    SELECT * FROM mobiledata;
     ```
 
     Tento příkaz vypíše 50 řádky, které byly importovány do tabulky.
@@ -105,7 +105,7 @@ GO
 1. Použijte následující příkaz pro import dat z **mobiledata** do tabulky v databázi SQL, **wasb: / / / kurzy/usesqoop/importeddata** v HDInsight:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
     Pole v datech jsou oddělených tabulátorem a řádky se ukončila příkazem znak nového řádku.
@@ -150,10 +150,10 @@ Můžete taky Sqoop k importu a exportu dat z SQL serveru. Rozdíly mezi použit
     [sessionpagevieworder] [bigint])
     ```
 
-* Při připojování k systému SQL Server z prostředí HDInsight, budete muset použít IP adresu serveru SQL Server. Například:
+* Při připojování k systému SQL Server z prostředí HDInsight, budete muset použít IP adresu serveru SQL Server. Příklad:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P <adminPassword> -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
 ## <a name="limitations"></a>Omezení
@@ -162,7 +162,7 @@ Můžete taky Sqoop k importu a exportu dat z SQL serveru. Rozdíly mezi použit
 
 * Dávkování - s HDInsight se systémem Linux, při použití `-batch` přepnout při vložení, Sqoop umožňuje více vloží místo dávkování operace insert.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Nyní jste se naučili postup použití nástroje Sqoop. Další informace naleznete v tématu:
 

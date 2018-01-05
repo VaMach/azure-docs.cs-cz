@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 9289958e63be9b853daf6dddd23c403cf6ff2c40
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Poznámky k verzi Azure Media Services
 Tyto poznámky k verzi shrnout změny z předchozích verzí a známé problémy.
@@ -59,13 +59,7 @@ Informace o historii verze Media Services REST API najdete v tématu [Azure Medi
 2.  Pokud máte video zdroje, které je zakódovaných pomocí kodek videa H.265(HEVC), jako je například video zachytit pomocí iOS11 nebo GoPro nejdůležitější 6, můžete teď používat kodér úrovně Premium nebo standardní kodér ke kódování těchto videa. Podrobnosti najdete [Online služby podmínky](https://azure.microsoft.com/support/legal/) pro důležitá poznámka o patentová licence.
 3.  Pokud máte obsah, který obsahuje více jazyk zvukových stop, pak tak dlouho, dokud jazyk hodnoty jsou správně označené podle odpovídající specifikaci formátu souboru (například ISO MP4), pak můžete standardní kodér ke kódování pro tento obsah streamování. Výsledná Lokátor streamování zobrazí seznam dostupných zvuk jazyků.
 4.  Standardní kodér teď podporuje dva nové přednastavení systému jen zvuk, "AAC zvuk" a "AAC dobrý kvalitu zvuku". Jak vytvořit stereo AAC výstupu v přenosové rychlosti 128 kb/s a 192 kb/s.
-5.  Kodér úrovně Premium teď podporuje formáty souborů MOV QuickTime nebo jako vstup, dokud kodek videa je některý z [Apple ProRes typů tady](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), a AAC nebo PCM zvukovém souboru.
-
-> [!NOTE]
-> Kodér úrovně Premium nepodporuje, například DVC/DVCPro video uzavřen do MOV QuickTime nebo soubory, jako vstup.  Standardní kodér však podporuje tyto kodeky videa.
->
->
-
+5.  Kodér úrovně Premium teď podporuje formáty souborů MOV QuickTime nebo jako vstup, dokud kodek videa je některý z [Apple ProRes typů tady](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), a AAC nebo PCM zvukovém souboru. Kodér úrovně Premium nepodporuje, například DVC/DVCPro video uzavřen do MOV QuickTime nebo soubory, jako vstup.  Standardní kodér však podporuje tyto kodeky videa.
 6.  Opravy chyb v kodéry:
     * Teď můžete odeslat úlohy pomocí prostředek vstup a po těchto dokončení upravit Asset (například o přidání/odstranění/přejmenování souborů v rámci Asset) a odeslat další úlohy. 
     * Zvýšení kvality JPEG miniatur vyprodukované kodér úrovně Standard
@@ -563,7 +557,7 @@ Následující funkce se nové v listopadu verzi sady SDK.
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Media Services PlayReady licence šablony přehled]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [obsahu šifrované streamování úložiště]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [dynamické balení]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin Blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [datový proud Smooth Protecting s technologií PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx

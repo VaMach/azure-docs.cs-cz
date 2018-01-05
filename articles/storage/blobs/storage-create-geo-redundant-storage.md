@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Zajistit vysokou dostupnost s Azure storage data aplikací
 
-V tomto kurzu je součástí, jednu z řady. V tomto kurzu se dozvíte, jak chcete nastavit vysokou dostupnost v Azure data aplikací. Jakmile budete hotovi, máte základní konzolovou aplikaci .NET, která odešle a načte objekt blob [čtení geograficky redundantní](../common/storage-redundancy.md#read-access-geo-redundant-storage) účet úložiště (RA-GRS). RA-GRS funguje tak, že replikace transakce z primárního na sekundární oblast. Tento proces replikace zaručuje, že data v sekundární oblasti jsou nakonec byl konzistentní. Aplikace používá [jistič](/azure/architecture/patterns/circuit-breaker.md) vzor k určení kterému koncovému bodu se připojit k. Aplikace se při selhání se simuluje přepne do sekundárního koncového bodu.
+V tomto kurzu je součástí, jednu z řady. V tomto kurzu se dozvíte, jak chcete nastavit vysokou dostupnost v Azure data aplikací. Jakmile budete hotovi, máte základní konzolovou aplikaci .NET, která odešle a načte objekt blob [čtení geograficky redundantní](../common/storage-redundancy.md#read-access-geo-redundant-storage) účet úložiště (RA-GRS). RA-GRS funguje tak, že replikace transakce z primárního na sekundární oblast. Tento proces replikace zaručuje, že data v sekundární oblasti jsou nakonec byl konzistentní. Aplikace používá [jistič](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) vzor k určení kterému koncovému bodu se připojit k. Aplikace se při selhání se simuluje přepne do sekundárního koncového bodu.
 
 V rámci jedna řada, zjistíte, jak:
 
@@ -109,11 +109,11 @@ Spustí okno konzoly a začne aplikace spuštěna. Aplikace odešle **HelloWorld
 
 ![Konzolové aplikace spuštěná](media/storage-create-geo-redundant-storage/figure3.png)
 
-V ukázkovém kódu `RunCircuitBreakerAsync` úloh v `Program.cs` souboru se používá ke stahování bitovou kopii pomocí účtu úložiště [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) metoda. Před stahování [informacím OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) je definována. Kontext operace definuje obslužné rutiny událostí, které budou spuštěny po úspěšném dokončení stahování nebo pokud stahování selže a je opakování.
+V ukázkovém kódu `RunCircuitBreakerAsync` úloh v `Program.cs` souboru se používá ke stahování bitovou kopii pomocí účtu úložiště [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) metoda. Před stahování [informacím OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) je definována. Kontext operace definuje obslužné rutiny událostí, které budou spuštěny po úspěšném dokončení stahování nebo pokud stahování selže a je opakování.
 
 ### <a name="retry-event-handler"></a>Opakujte obslužné rutiny události
 
-`OperationContextRetrying` Obslužné rutiny události je volána, když stažení bitové kopie selže a je nastavený na opakujte. Pokud se dosáhne maximálního počtu opakování pokusů, které jsou definovány v aplikaci, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) požadavku se změní na `SecondaryOnly`. Toto nastavení vynutí se aplikace pokusí stáhnout bitovou kopii z sekundární koncový bod. Tato konfigurace snižuje čas potřebný k požadují bitovou kopii jako primární koncový bod není opakovat po neomezenou dobu.
+`OperationContextRetrying` Obslužné rutiny události je volána, když stažení bitové kopie selže a je nastavený na opakujte. Pokud se dosáhne maximálního počtu opakování pokusů, které jsou definovány v aplikaci, [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) požadavku se změní na `SecondaryOnly`. Toto nastavení vynutí se aplikace pokusí stáhnout bitovou kopii z sekundární koncový bod. Tato konfigurace snižuje čas potřebný k požadují bitovou kopii jako primární koncový bod není opakovat po neomezenou dobu.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -141,7 +141,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>Dokončit žádost o obslužnou rutinu události
 
-`OperationContextRequestCompleted` Obslužné rutiny události je volána po úspěšné stažení bitové kopie. Pokud aplikace používá sekundární koncový bod, aplikace budou nadále používat tento koncový bod až 20 x. Po dobu 20, aplikace sady [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) zpět na `PrimaryThenSecondary` a opakuje primární koncový bod. Pokud je požadavek úspěšné, aplikace bude číst z primární koncový bod.
+`OperationContextRequestCompleted` Obslužné rutiny události je volána po úspěšné stažení bitové kopie. Pokud aplikace používá sekundární koncový bod, aplikace budou nadále používat tento koncový bod až 20 x. Po dobu 20, aplikace sady [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) zpět na `PrimaryThenSecondary` a opakuje primární koncový bod. Pokud je požadavek úspěšné, aplikace bude číst z primární koncový bod.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

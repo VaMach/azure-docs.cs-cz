@@ -4,8 +4,8 @@ description: "Naučte se pracovat s .NET back-end serveru SDK pro Azure App Serv
 keywords: "služby App service, služby azure app service, mobilní aplikace, mobilní služby, nasazení aplikací nasazení azure škálovatelné, aplikace stupnice"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Práce se serverovou sadou .NET back-end SDK v prostředí Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -151,7 +151,7 @@ Zadejte řadič tabulky vystavit tabulku SQL, aby mobilních klientů.  Konfigur
 2. Nakonfigurujte odkaz na tabulku v třídy Mobile DbContext.
 3. Vytvořte řadič tabulky.
 
-Objekt pro přenos dat (DTO) je prostý C# objekt, který dědí z `EntityData`.  Například:
+Objekt pro přenos dat (DTO) je prostý C# objekt, který dědí z `EntityData`.  Příklad:
 
     public class TodoItem : EntityData
     {
@@ -188,7 +188,7 @@ Pokud máte sadu Azure SDK nainstalovat, nyní můžete vytvořit řadič tabulk
    * V **třída modelu** rozevíracího seznamu, vyberte vaše nové DTO.
    * V **DbContext** rozevíracího seznamu, vyberte třídy DbContext služby Mobile.
    * Název Kontroleru je vytvořen.
-4. Klikněte na tlačítko **Přidat**.
+4. Klikněte na tlačítko **Add** (Přidat).
 
 Serverový projekt quickstart obsahuje příklad pro jednoduchý **TodoItemController**.
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6ad70d736cd0a267ace3ade0a1ecfea38128ac72
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Naplánování runbooku v Azure Automation
-Pokud chcete naplánovat spuštění runbooku ve službě Azure Automation spustit v zadanou dobu, můžete ho propojit s jedním nebo víc plány. Plán můžete nakonfigurovat pro spuštění jednou nebo na nadále hodinové nebo denní plán pro sady runbook na portálu Azure classic a pro sady runbook na portálu Azure, můžete také naplánovat je na týdně, měsíčně, konkrétní dny v týdnu nebo dny v měsíci nebo konkrétní den v měsíci.  Sady runbook mohou být spojeny s víc plány a plán může mít víc runbooků.
+Pokud chcete naplánovat spuštění runbooku ve službě Azure Automation spustit v zadanou dobu, můžete ho propojit s jedním nebo víc plány. Plán můžete nakonfigurovat pro spuštění jednou nebo na nadále hodinové nebo denní plán pro sady runbook na portálu Azure. Můžete také naplánovat je na týdně, měsíčně, konkrétní dny v týdnu nebo dny v měsíci nebo určitý den v měsíci.  Sady runbook mohou být spojeny s víc plány a plán může mít víc runbooků.
 
 > [!NOTE]
 > Plány konfigurace Azure Automation DSC aktuálně nepodporují.
@@ -51,7 +51,7 @@ Rutiny v následující tabulce se používají k vytváření a správě plán�
 | [Zrušit registraci AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Dissociates sady runbook z plánu. |
 
 ## <a name="creating-a-schedule"></a>Vytvoření plánu
-Můžete vytvořit nový plán pro sady runbook na portálu Azure, na klasickém portálu nebo pomocí prostředí Windows PowerShell. Máte také možnost vytvořit nový plán, když připojujete runbook k plánu pomocí portálu Azure classic nebo Azure.
+Můžete vytvořit nový plán pro sady runbook na portálu Azure nebo pomocí prostředí Windows PowerShell. Máte také možnost vytvořit nový plán, když připojujete runbook k plánu pomocí portálu Azure classic nebo Azure.
 
 > [!NOTE]
 > Při spuštění novou naplánovanou úlohu automatizace Azure používá nejnovější modulů ve vašem účtu Automation.  Nechcete-li vaše sady runbook a procesy, které budou automatizovat, které mají vliv, byste měli nejprve otestovat všechny sady runbook, které jste propojili plány s účet Automation, který je vyhrazený pro testování.  Ověří se vaše naplánované sady runbook i nadále fungovat správně a pokud ne, můžete další řešení a použít všechny změny požadované před migrací verze aktualizované sady runbook do produkčního prostředí.  
@@ -63,14 +63,6 @@ Můžete vytvořit nový plán pro sady runbook na portálu Azure, na klasickém
 2. Klikněte na tlačítko **přidat plán** v horní části stránky.
 4. Na **nový plán** podokně zadejte **název** a volitelně **popis** pro nový plán.
 5. Vyberte jestli plán se spustí jednorázově nebo podle plánu opakovaném výběrem **jednou** nebo **opakování**.  Pokud vyberete **jednou** zadejte **počáteční čas** a pak klikněte na **vytvořit**.  Pokud vyberete **opakování**, zadejte **počáteční čas** a jak často chcete runbooku opakovat - nástrojem frekvenci **hodinu**, **den**, **týden**, nebo pomocí **měsíc**.  Pokud vyberete **týden** nebo **měsíc** z rozevíracího seznamu **opakování možnost** se zobrazí v podokně a při výběru, **opakování možnost** podokně se zobrazí a den v týdnu můžete vybrat, pokud jste vybrali **týden**.  Pokud jste vybrali **měsíc**, můžete **dny v týdnu** nebo konkrétní dny v měsíci v kalendáři a nakonec chcete spustit poslední den v měsíci, nebo Ne, a potom klikněte na **OK**.   
-
-### <a name="to-create-a-new-schedule-in-the-azure-classic-portal"></a>Chcete-li vytvořit nový plán na portálu Azure classic
-1. Na portálu Azure classic vyberte automatizace a pak vyberte název účtu Automation.
-2. Vyberte **prostředky** kartě.
-3. V dolní části okna klikněte na tlačítko **přidat nastavení**.
-4. Klikněte na tlačítko **přidat plán**.
-5. Zadejte **název** a volitelně **popis** pro nový plán. Plán můžete spustit **jednou**, **hodinové**, **denní**, **týdenní**, nebo **měsíční**.
-6. Zadejte **čas spuštění** a další možnosti v závislosti na typu plánu, který jste vybrali.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>K vytvoření nového plánu pomocí prostředí Windows PowerShell
 Můžete použít [New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) vytvořte nový plán ve službě Azure Automation pro classic sady runbook, nebo [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) rutiny pro sady runbook na portálu Azure. Musíte zadat čas zahájení pro plán a četnosti, který se má spustit.
@@ -98,14 +90,6 @@ Sady runbook mohou být spojeny s víc plány a plán může mít víc runbooků
 2. Klikněte na název sady runbook k plánu.
 3. Pokud sada runbook není aktuálně propojena k plánu, pak vám bude nabídnuta možnost vytvořit nový plán nebo odkaz na existující plán.  
 4. Pokud má runbook parametry, můžete vybrat možnost **upravit nastavení spouštění (výchozí: Azure)** a **parametry** podokně se zobrazí, kde můžete zadat informace odpovídajícím způsobem.  
-
-### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-classic-portal"></a>Pro připojení plánu k sadě runbook pomocí portálu Azure classic
-1. Na portálu Azure classic, vyberte **automatizace** a pak klikněte na název účtu Automation.
-2. Vyberte **Runbooky** kartě.
-3. Klikněte na název sady runbook k plánu.
-4. Klikněte **plán** kartě.
-5. Pokud sada runbook není aktuálně propojený s plán, pak vám bude nabídnuta možnost **odkaz na nový plán** nebo **odkaz na existující plán**.  Pokud runbook už připojený k plánu, klikněte na tlačítko **odkaz** v dolní části okna pro přístup k tyto možnosti.
-6. Pokud sada runbook obsahuje parametry, budete vyzváni k jejich hodnot.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Pro připojení plánu k sadě runbook pomocí prostředí Windows PowerShell
 Můžete použít [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) pro připojení plánu k sadě runbook classic nebo [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) rutiny pro sady runbook na portálu Azure.  S parametrem parametrů můžete zadat hodnoty pro parametry runbooku. V tématu [spuštění sady Runbook ve službě Azure Automation](automation-starting-a-runbook.md) Další informace o zadání hodnot parametrů.
@@ -136,14 +120,6 @@ Při zakázání plánu všechny runbooky propojené s ho už běží na tento p
 2. Klikněte na název plán, který chcete otevřít v podokně podrobností.
 3. Změna **povoleno** k **ne**.
 
-### <a name="to-disable-a-schedule-from-the-azure-classic-portal"></a>Zakázání plánu z portálu Azure classic
-Můžete zakázat plán na portálu Azure classic na stránce Podrobnosti plánu pro plán.
-
-1. Na portálu Azure classic vyberte automatizace a pak klikněte na název účtu Automation.
-2. Vyberte kartu prostředky.
-3. Klikněte na název plán, který chcete otevřít stránku s jeho podrobnostmi.
-4. Změna **povoleno** k **ne**.
-
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>Zakázání plánu pomocí prostředí Windows PowerShell
 Můžete použít [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) rutiny změnit vlastnosti existující plán pro classic sadu runbook nebo [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) rutiny pro sady runbook na portálu Azure. Pokud chcete zakázat plán, zadejte **false** pro **hodnotu IsEnabled** parametr.
 
@@ -161,6 +137,6 @@ Následující vzorové příkazy znázorňují postup zakázání plánu pomoc�
     Set-AzureAutomationSchedule –AutomationAccountName $automationAccountName `
     –Name $scheduleName –IsEnabled $false
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 * Chcete-li začít pracovat se sadami runbook ve službě Azure Automation, přečtěte si téma [spuštění sady Runbook ve službě Azure Automation](automation-starting-a-runbook.md) 
 

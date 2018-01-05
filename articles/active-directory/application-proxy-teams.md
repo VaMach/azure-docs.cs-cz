@@ -3,7 +3,7 @@ title: "Přístup k aplikacím Proxy aplikace Azure AD v týmy | Microsoft Docs"
 description: "Přístup k místní aplikace přes Microsoft Teams pomocí proxy aplikace služby Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 57ae4c38a528251dee89d56f6fdb7cf1d1dc922d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Přístup k místním aplikacím přes Teams společnosti Microsoft
 
@@ -52,7 +52,7 @@ Po publikování aplikace prostřednictvím Proxy aplikace dát uživatelům vě
 
 Jakmile jeden člen týmu přidá kartu, se zobrazí u všech uživatelů v kanálu. Uživatelé, kteří mají přístup k aplikaci získat přístup jednoho přihlášení pomocí přihlašovacích údajů, které používají pro Teams společnosti Microsoft. Uživatelé, kteří nemají přístup k aplikaci můžete zobrazit na kartě v týmy, ale jsou zablokované bez poskytnutí oprávnění pro místní aplikace a portálu Azure publikovanou verzi aplikace. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Zjistěte, jak [publikování webů služby SharePoint místní](application-proxy-enable-remote-access-sharepoint.md) pomocí Proxy aplikace.
 - Nakonfigurovat aplikace pro použití [vlastní domény](active-directory-application-proxy-custom-domains.md) pro jejich externí adresu URL. 

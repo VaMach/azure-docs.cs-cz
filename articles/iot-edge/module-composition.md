@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Pochopení IoT Edge moduly použití, nakonfigurovaná a znovu použít – náhled
 
@@ -96,10 +96,10 @@ Podmínka může být jakékoli podmínky nepodporuje [IoT Hub dotazovací jazyk
 
 Jímky může být jedna z následujících akcí:
 
-| podřízený | Popis |
+| Jímka | Popis |
 | ---- | ----------- |
 | `$upstream` | Odeslání zprávy do služby IoT Hub |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | Odeslat zprávu jako vstup `{input}` modulu`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Odeslat zprávu jako vstup `{input}` modulu`{moduleId}` |
 
 Je důležité si uvědomit, že Edge rozbočovače poskytuje jednou na nejmenší záruky, to znamená, že zprávy se uloží místně v případě trasu nelze doručení zprávy do jeho podřízený, např rozbočovače Edge se nemůže připojit ke službě IoT Hub nebo není připojený modul cíl.
 
@@ -281,7 +281,7 @@ Požadované vlastnosti se nastavují při použití manifest nasazení na urči
 | Klienti. {identity zařízení nebo modul} .lastConnectTime | Poslední čas modulu připojení na zařízení |
 | Klienti. {identity zařízení nebo modul} .lastDisconnectTime | Čas poslední zařízení nebo modul odpojení |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Nyní když znáte použití modulů IoT Edge, [pochopení požadavků a nástrojů pro vývoj modulů IoT Edge][lnk-module-dev].
 
