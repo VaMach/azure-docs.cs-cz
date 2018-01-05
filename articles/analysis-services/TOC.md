@@ -1,5 +1,5 @@
 # Přehled
-## [Co je služba Azure Analysis Services?](analysis-services-overview.md)
+## [Informace o Analysis Services](analysis-services-overview.md)
 ## [Podporované zdroje dat](analysis-services-datasource.md)
 ## [Ověřování a uživatelská oprávnění](analysis-services-manage-users.md)
 ## [Připojení k místním zdrojům dat](analysis-services-gateway.md)

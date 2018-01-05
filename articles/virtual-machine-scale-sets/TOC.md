@@ -22,6 +22,7 @@
 ## Nasazení
 ### [Vytvoření pomocí sady Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Škálovací sada se spravovanými disky](virtual-machine-scale-sets-managed-disks.md)
+### [Použití zón dostupnosti](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Automatické škálování škálovací sady](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Použití portálu Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Použití Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)

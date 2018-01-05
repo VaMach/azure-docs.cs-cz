@@ -14,7 +14,7 @@ Vyhrazená instance virtuálních počítačů můžete zakoupit [portál Azure]
 
     | Pole      | Popis|
     |:------------|:--------------|
-    |Name (Název)        |Název tuto rezervaci.| 
+    |Název        |Název tuto rezervaci.| 
     |Předplatné|Předplatné použít k platbě za rezervace. Způsob platby u předplatného je účtován předem náklady na rezervace. Typ odběru musí být smlouvu enterprise agreement (číslo nabídky: MS-AZR - 0017P) nebo průběžné platby (číslo nabídky: MS-AZR - 0003P). Předplatné enterprise jsou poplatků odečtené od vyrovnávání peněžních závazků zápisu nebo účtován jako Nadlimitní události úrovně. Pro předplatné s průběžnými platbami se účtují poplatky přijímáte platební kartu ani faktury způsobu platby u předplatného.|    
     |Rozsah       |Rezervace pro obor může zahrnovat jeden odběr jeden nebo více odběrů (sdílené rozsah). Pokud zvolíte možnost: <ul><li>Jeden odběr - slevu rezervace se použije u virtuálních počítačů v tomto předplatném. </li><li>Sdílené - slevu rezervace se použije pro virtuální počítače spuštěné ve všech předplatných v rámci vaší fakturace kontextu. Pro podnikové zákazníky oboru sdílené registraci a zahrnuje všechny odběry (s výjimkou vývoje/testování odběry) v rámci registrace. Pro zákazníky průběžné platby sdílené rozsah je všechny odběry průběžné platby vytvořený účet správce.</li></ul>|
     |Umístění    |Oblast Azure, která je předmětem rezervace.|    
@@ -33,5 +33,5 @@ Vyhrazená instance virtuálních počítačů můžete zakoupit [portál Azure]
 ## <a name="next-steps-after-buying-a-reservation"></a>Další kroky po nákupu rezervace
 Diskontní rezervace je automaticky použity počet spuštěných virtuálních počítačů, které odpovídají oboru rezervace a atributy. Můžete aktualizovat oboru rezervace prostřednictvím [portál Azure](https://portal.azure.com), prostředí PowerShell, rozhraní příkazového řádku nebo pomocí rozhraní API. 
 
-Další informace o správě rezervace naleznete v tématu [spravovat instancí Azure vyhrazené virtuální počítač](https://go.microsoft.com/fwlink/?linkid=861613).
+Další informace o správě rezervace naleznete v tématu [spravovat instancí Azure vyhrazené virtuální počítač](../articles/billing/billing-manage-reserved-vm-instance.md).
 
