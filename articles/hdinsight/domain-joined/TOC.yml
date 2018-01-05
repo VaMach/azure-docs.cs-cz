@@ -12,8 +12,6 @@
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Konfigurace zásad Hivu
       href: apache-domain-joined-run-hive.md
-    - name: Plánování kapacity
-      href: ../hdinsight-capacity-planning.md
       maintainContext: true
     - name: Správa clusterů připojených k doméně
       href: apache-domain-joined-manage.md
@@ -64,7 +62,7 @@
       href: /rest/api/hdinsight/
     - name: REST (Spark)
       href: /rest/api/hdinsightspark/
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: "Poznámky k\_verzi"
       href: ../hdinsight-release-notes.md

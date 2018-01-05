@@ -6,7 +6,6 @@
 
 # Začínáme
 ## [Vytvoření oboru názvů](service-bus-create-namespace-portal.md)
-### [Fronty, témata a odběry](service-bus-queues-topics-subscriptions.md)
 ## Použití front
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -37,6 +36,7 @@
 
 ## Vývoj
 ### Zpracování zpráv
+#### [Fronty, témata a odběry](service-bus-queues-topics-subscriptions.md)
 #### [Zprávy, datové části a serializace](service-bus-messages-payloads.md)
 #### [Přenosy zpráv, zámky a vyrovnání](message-transfers-locks-settlement.md)
 #### [Určování pořadí zpráv a časová razítka](message-sequencing.md)
