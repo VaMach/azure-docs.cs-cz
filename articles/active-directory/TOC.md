@@ -286,7 +286,6 @@
 #### [Osvědčené postupy](active-directory-conditional-access-best-practices.md)
 #### [Vysvětlení zásad zařízení pro služby Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrace klasických zásad](active-directory-conditional-access-migration.md)
-#### [Nástroj pro analýzy „co kdyby“](active-directory-conditional-access-whatif.md)
 #### Úlohy
 ##### [Migrace klasických zásad MFA](active-directory-conditional-access-migration-mfa.md)
 ##### [Nastavení podmíněného přístupu na základě zařízení](active-directory-conditional-access-policy-connected-applications.md)
