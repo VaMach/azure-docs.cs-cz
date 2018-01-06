@@ -1,6 +1,6 @@
 ---
-title: "Kopírování dat z Apache Impala pomocí Azure Data Factory (Beta) | Microsoft Docs"
-description: "Postup kopírování dat z Apache Impala do úložiště dat podporovaných podřízený pomocí aktivity kopírování v kanál služby Azure Data Factory."
+title: "Kopírování dat z Impala pomocí Azure Data Factory (Beta) | Microsoft Docs"
+description: "Postup kopírování dat z Impala do úložiště dat podporovaných podřízený pomocí aktivity kopírování v kanál služby Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 4766e19b1823bdb737be8a90b3e2e2bfe4e48ab9
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: ff6d970b8d4bb5328eb958acc652ba05e1c8be5f
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="copy-data-from-apache-impala-using-azure-data-factory-beta"></a>Kopírování dat z Apache Impala pomocí Azure Data Factory (Beta)
+# <a name="copy-data-from-impala-using-azure-data-factory-beta"></a>Kopírování dat z Impala pomocí Azure Data Factory (Beta)
 
-Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z Apache Impala. Vychází [zkopírujte aktivity přehled](copy-activity-overview.md) článek, který představuje obecný přehled aktivity kopírování.
+Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory ke zkopírování dat z Impala. Vychází [zkopírujte aktivity přehled](copy-activity-overview.md) článek, který představuje obecný přehled aktivity kopírování.
 
 > [!NOTE]
 > Tento článek se týká verze 2 služby Data Factory, která je aktuálně ve verzi Preview. Pokud používáte verzi 1 služby Data Factory, který je všeobecně dostupná (GA), přečtěte si téma [aktivitu kopírování v V1](v1/data-factory-data-movement-activities.md).
@@ -31,7 +31,7 @@ Tento článek popisuje, jak pomocí aktivity kopírování v Azure Data Factory
 
 ## <a name="supported-capabilities"></a>Podporované možnosti
 
-Data můžete zkopírovat z Apache Impala do úložiště dat žádné podporované jímky. Seznam úložišť dat, které jsou podporovány jako zdroje nebo jímky aktivitě kopírování najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats) tabulky.
+Data můžete zkopírovat z Impala do úložiště dat žádné podporované jímky. Seznam úložišť dat, které jsou podporovány jako zdroje nebo jímky aktivitě kopírování najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats) tabulky.
 
 Azure Data Factory poskytuje integrované ovladače pro umožnění připojení, proto nemusíte ručně nainstalovat všechny ovladače, používání tohoto konektoru.
 
@@ -39,19 +39,19 @@ Azure Data Factory poskytuje integrované ovladače pro umožnění připojení,
 
 Vytvoření kanálu s aktivitou kopírování pomocí sady .NET SDK, Python SDK, Azure PowerShell, REST API nebo šablony Azure Resource Manageru. V tématu [kurzu aktivity kopírování](quickstart-create-data-factory-dot-net.md) podrobné pokyny k vytvoření kanálu s aktivitou kopírování.
 
-Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke Apache Impala konektoru.
+Následující části obsahují podrobnosti o vlastnosti, které slouží k určení konkrétní entity služby Data Factory ke Impala konektoru.
 
 ## <a name="linked-service-properties"></a>Vlastnosti propojené služby
 
-Následující vlastnosti jsou podporovány pro Apache Impala propojené služby:
+Následující vlastnosti jsou podporovány pro Impala propojené služby:
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
-| type | Vlastnost typu musí být nastavena na: **Apache Impala** | Ano |
-| hostitele | IP adresu nebo název hostitele serveru Apache Impala. (která je 192.168.222.160)  | Ano |
-| port | Port TCP, který používá server Apache Impala naslouchat pro připojení klientů. Výchozí hodnota je 21050.  | Ne |
+| type | Vlastnost typu musí být nastavena na: **Impala** | Ano |
+| hostitel | IP adresu nebo název hostitele serveru Impala. (která je 192.168.222.160)  | Ano |
+| port | Port TCP, který používá Impala server naslouchat pro připojení klientů. Výchozí hodnota je 21050.  | Ne |
 | authenticationType. | Typ ověřování používat. <br/>Povolené hodnoty jsou: **anonymní**, **SASLUsername**, **UsernameAndPassword** | Ano |
-| uživatelské jméno | Uživatelské jméno pro přístup k serveru Apache Impala. Výchozí hodnota je anonymní, při použití SASLUsername.  | Ne |
+| uživatelské jméno | Uživatelské jméno pro přístup k serveru Impala. Výchozí hodnota je anonymní, při použití SASLUsername.  | Ne |
 | heslo | Heslo při použití UsernameAndPassword odpovídající uživatelské jméno. Můžete zvolit označit toto pole jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitě kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). | Ne |
 | enableSsl | Určuje, zda jsou šifrované připojení k serveru pomocí protokolu SSL. Výchozí hodnota je false.  | Ne |
 | trustedCertPath | Úplná cesta soubor .pem, který obsahuje certifikáty důvěryhodné certifikační Autority pro ověření serveru při připojení přes protokol SSL. Tuto vlastnost lze nastavit pouze při použití protokolu SSL na vlastním hostováním infračerveného signálu. Výchozí hodnota je soubor cacerts.pem nainstalované s infračerveného signálu.  | Ne |
@@ -64,9 +64,9 @@ Následující vlastnosti jsou podporovány pro Apache Impala propojené služby
 
 ```json
 {
-    "name": "Apache ImpalaLinkedService",
+    "name": "ImpalaLinkedService",
     "properties": {
-        "type": "Apache Impala",
+        "type": "Impala",
         "typeProperties": {
             "host" : "<host>",
             "port" : "<port>",
@@ -87,19 +87,19 @@ Následující vlastnosti jsou podporovány pro Apache Impala propojené služby
 
 ## <a name="dataset-properties"></a>Vlastnosti datové sady
 
-Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování datové sady, najdete v článku [datové sady](concepts-datasets-linked-services.md) článku. Tato část obsahuje seznam vlastností nepodporuje Apache Impala datovou sadu.
+Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování datové sady, najdete v článku [datové sady](concepts-datasets-linked-services.md) článku. Tato část obsahuje seznam vlastností nepodporuje Impala datovou sadu.
 
-Ke zkopírování dat z Apache Impala, nastavte vlastnost typu datové sady, která **Apache ImpalaObject**. Není k dispozici žádné další vlastnosti specifické pro typ v tomto typu datové sady.
+Ke zkopírování dat z Impala, nastavte vlastnost typu datové sady, která **ImpalaObject**. Není k dispozici žádné další vlastnosti specifické pro typ v tomto typu datové sady.
 
 **Příklad**
 
 ```json
 {
-    "name": "Apache ImpalaDataset",
+    "name": "ImpalaDataset",
     "properties": {
-        "type": "Apache ImpalaObject",
+        "type": "ImpalaObject",
         "linkedServiceName": {
-            "referenceName": "<Apache Impala linked service name>",
+            "referenceName": "<Impala linked service name>",
             "type": "LinkedServiceReference"
         }
     }
@@ -108,15 +108,15 @@ Ke zkopírování dat z Apache Impala, nastavte vlastnost typu datové sady, kte
 
 ## <a name="copy-activity-properties"></a>Zkopírovat vlastnosti aktivit
 
-Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Apache Impala zdroje.
+Úplný seznam oddílů a vlastnosti, které jsou k dispozici pro definování aktivity, najdete v článku [kanály](concepts-pipelines-activities.md) článku. Tato část obsahuje seznam vlastností nepodporuje Impala zdroje.
 
-### <a name="apache-impalasource-as-source"></a>Apache ImpalaSource jako zdroj
+### <a name="impala-as-source"></a>Impala jako zdroj
 
-Ke zkopírování dat z Apache Impala, nastavte typ zdroje v aktivitě kopírování do **Apache ImpalaSource**. Následující vlastnosti jsou podporovány v aktivitě kopírování **zdroj** části:
+Ke zkopírování dat z Impala, nastavte typ zdroje v aktivitě kopírování do **ImpalaSource**. Následující vlastnosti jsou podporovány v aktivitě kopírování **zdroj** části:
 
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
-| type | Vlastnost typ zdroje kopie aktivity musí být nastavena na: **Apache ImpalaSource** | Ano |
+| type | Vlastnost typ zdroje kopie aktivity musí být nastavena na: **ImpalaSource** | Ano |
 | query | Čtení dat pomocí vlastního dotazu SQL. Například: `"SELECT * FROM MyTable"`. | Ano |
 
 **Příklad:**
@@ -124,11 +124,11 @@ Ke zkopírování dat z Apache Impala, nastavte typ zdroje v aktivitě kopírov�
 ```json
 "activities":[
     {
-        "name": "CopyFromApache Impala",
+        "name": "CopyFromImpala",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Apache Impala input dataset name>",
+                "referenceName": "<Impala input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -140,7 +140,7 @@ Ke zkopírování dat z Apache Impala, nastavte typ zdroje v aktivitě kopírov�
         ],
         "typeProperties": {
             "source": {
-                "type": "Apache ImpalaSource",
+                "type": "ImpalaSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -151,5 +151,5 @@ Ke zkopírování dat z Apache Impala, nastavte typ zdroje v aktivitě kopírov�
 ]
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam dat úložiště podporované datové úložiště v Azure Data Factory, najdete v části [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

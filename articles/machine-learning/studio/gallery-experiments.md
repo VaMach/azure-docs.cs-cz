@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery experimenty | Microsoft Docs
-description: "Vyhledat a sdílet experimenty v Cortana Intelligence Gallery."
+title: Galerie Azure AI experimenty | Microsoft Docs
+description: "Vyhledat a sdílet experimenty v galerii AI Azure."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Zjistit experimenty v Cortana Intelligence Gallery
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Zjistit experimenty v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Experimenty pro Machine Learning Studio
@@ -34,7 +34,7 @@ Galerie obsahuje širokou škálu [experimenty](https://gallery.cortanaintellige
 ## <a name="discover"></a>Informace
 Procházet experimenty [v galerii](http://gallery.cortanaintelligence.com), v horní části domovské stránce galerie, vyberte **experimenty**.
 
-**[Experimenty](https://gallery.cortanaintelligence.com/experiments)**  stránky zobrazí seznam nedávno přidané a populární experimenty. Pokud chcete zobrazit všechny experimenty, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní experiment, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
+ **[Experimenty](https://gallery.cortanaintelligence.com/experiments)**  stránky zobrazí seznam nedávno přidané a populární experimenty. Pokud chcete zobrazit všechny experimenty, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní experiment, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
 
 Můžete získat další informace o experimentu na stránce podrobností experimentu. Otevřete stránku experimentu podrobnosti, vyberte experimentu. V experimentu podrobnosti stránky, v **komentáře** části, můžete komentář, poskytnout zpětnou vazbu nebo klást otázky týkající se experimentu. Experiment můžete také sdílet s přátele nebo kolegy na Twitteru nebo LinkedIn. Také můžete poštovní odkaz na stránku podrobností experimentu pozvaným jiní uživatelé při zobrazení stránky.
 
@@ -45,7 +45,7 @@ Můžete získat další informace o experimentu na stránce podrobností experi
 ## <a name="download"></a>Ke stažení
 Do pracovního prostoru Machine Learning Studio můžete stáhnout kopii všech experimentu v galerii. Potom můžete upravit vaší kopie vytvářet vlastní řešení.
 
-Cortana Intelligence Gallery nabízí dva způsoby, jak importovat kopii experimentu:
+Galerie AI Azure nabízí dva způsoby, jak importovat kopii experimentu:
 
 * **Z Galerie**. Pokud zjistíte experimentu, který chcete v galerii, můžete stáhnout kopii a potom ho otevřete v pracovním prostoru Machine Learning Studio.
 * **V nástroji strojového učení Studio**. V nástroji Machine Learning Studio můžete všechny experimentu v galerii jako šablonu pro vytvoření nového experimentu.

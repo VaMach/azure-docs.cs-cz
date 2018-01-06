@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 9ce027ca6c9ad71f2884d5187786d69a5ba1134f
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Kopírování dat z/do služby Salesforce pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,10 +67,10 @@ Pro služby Salesforce propojené služby jsou podporovány následující vlast
 | uživatelské jméno |Zadejte uživatelské jméno pro uživatelský účet. |Ano |
 | heslo |Zadejte heslo pro uživatelský účet.<br/><br/>Můžete vybrat v tomto poli označit jako SecureString bezpečně uložit v ADF nebo uložení hesla v Azure Key Vault a nechat aktivitu kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). |Ano |
 | securityToken |Zadejte token zabezpečení pro uživatelský účet. V tématu [získal token zabezpečení](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) pokyny o tom, jak resetování nebo získat token zabezpečení. Obecné informace o tokeny zabezpečení najdete v tématu [zabezpečení a rozhraní API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Můžete vybrat v tomto poli označit jako SecureString bezpečně uložit v ADF nebo ukládání tokenu zabezpečení v Azure Key Vault a nechat aktivitu kopírování načítat z ní při kopírování dat – Další informace z [ukládat přihlašovací údaje v Key Vault](store-credentials-in-key-vault.md). |Ano |
-| connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Ne Ano pro sink zdroje |
+| connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. Pokud není zadaný, použije výchozí Runtime integrace Azure. | Žádné zdroje, Ano pro sink Pokud zdroj propojené služby nemá reakcí na Incidenty |
 
 >[!IMPORTANT]
->Můžete kopírovat data do služby Salesforce, explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístěním téměř Salesforce a přidružení v propojené službě jako v následujícím příkladu.
+>Při kopírování dat **do** Salesforce, výchozí Runtime integrace Azure nelze použít ke spuštění kopírování. V jiné aplikaci word, pokud vaše zdrojová propojené služby nemá zadaný IR, explicitně [vytvoření služby Azure IR](create-azure-integration-runtime.md#create-azure-ir) s umístěním téměř Salesforce a přidružení v Salesforce propojená služba jako v následujícím příkladu.
 
 **Příklad: ukládání přihlašovacích údajů ve službě ADF**
 
@@ -289,7 +289,7 @@ Chcete-li prohledávat logicky odstraněné záznamy z funkce Koš služby Sales
 
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Načítání dat pomocí where klauzule ve sloupci data a času
 
-Při zadejte SOQL nebo SQL dotaz, věnujte pozornost rozdíl formátu data a času. Například:
+Při zadejte SOQL nebo SQL dotaz, věnujte pozornost rozdíl formátu data a času. Příklad:
 
 * **Ukázka SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Ukázka SQL**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
@@ -303,8 +303,8 @@ Při kopírování dat ze služby Salesforce, se používají následující map
 | Automatické číslování |Řetězec |
 | Zaškrtávací políčko |Logická hodnota |
 | Měna |Double |
-| Datum |Data a času |
-| Datum a čas |Data a času |
+| Datum |Datum a čas |
+| Datum/čas |Datum a čas |
 | E-mail |Řetězec |
 | ID |Řetězec |
 | Relace hledání |Řetězec |
@@ -318,7 +318,7 @@ Při kopírování dat ze služby Salesforce, se používají následující map
 | Textová oblast (Long) |Řetězec |
 | (Rich) textová oblast |Řetězec |
 | Text (šifrované) |Řetězec |
-| ADRESA URL |Řetězec |
+| Adresa URL |Řetězec |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).

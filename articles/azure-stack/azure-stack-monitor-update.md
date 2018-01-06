@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorování aktualizací v zásobníku Azure pomocí privilegované koncový bod
 
 *Platí pro: Azure zásobníku integrované systémy*
 
-Privilegované koncového bodu můžete použít pro monitorování průběhu aktualizace zásobníku Azure spustit a pokračovat v Chyba aktualizace, spusťte z poslední úspěšné kroku. 
+Privilegované koncového bodu můžete monitorovat průběh aktualizace spustit Azure zásobníku a obnovit Chyba aktualizace, spusťte z poslední úspěšné kroku má zásobník Azure portal k dispozici.  Pomocí portálu Azure zásobníku je doporučená metoda ke správě aktualizací v zásobníku Azure.
 
 Následující nové rutiny prostředí PowerShell pro správu aktualizací jsou zahrnuty v aktualizaci 1710 pro Azure zásobníku integrované systémy.
 
@@ -70,7 +70,7 @@ Můžete také určit, zda k dispozici jsou rutiny prostřednictvím kódu progr
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   Například:
+   Příklad:
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    
@@ -109,9 +109,9 @@ $statusString.Value
 
 Možné hodnoty:
 
-- Běžící (Spuštěno)
-- byla dokončena
-- Se nezdařilo 
+- Běží
+- Dokončeno
+- Neúspěch 
 - Zrušeno
 
 Můžete spustit tyto příkazy opakovaně chcete zobrazit aktuální stav. Není nutné znovu vytvořit připojení ke znovu zkontrolujte.
@@ -194,7 +194,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 Privilegované koncový bod je k dispozici na všechny virtuální počítače ERCS v prostředí Azure zásobníku. Protože připojení není navázat na koncový bod vysoce dostupný, může dojít příležitostně přerušení, upozornění nebo chybové zprávy. Tyto zprávy může znamenat, že relace byla odpojena, nebo že došlo k chybě při komunikaci se službou ECE. Toto chování je očekávané. Můžete operaci za několik minut nebo vytvořit novou relaci privilegované koncový bod na jednom z jiných virtuálních počítačů ERCS. 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - [Správa aktualizací v Azure zásobníku](azure-stack-updates.md) 
 

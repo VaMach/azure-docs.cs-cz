@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: db928795cc38dea4ca9fc441e6053e3bb44da23e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Nejčastější dotazy k sadě IoT Suite
 
@@ -86,17 +86,20 @@ Dvě. Můžete vytvořit pouze dvě vnitřní transakce úroveň 1 mapy Bing pro
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>Můžu vytvořit předkonfigurované řešení, když mám Microsoft Azure pro DreamSpark?
 
-V současné době nelze vytvořit předkonfigurované řešení s [Microsoft Azure pro DreamSpark] [ lnk-dreamspark] účtu. Ale můžete vytvořit [Bezplatný zkušební účet Azure] [ lnk-30daytrial] si během několika minut, který vám umožní vytvořit předkonfigurované řešení.
+> [!NOTE]
+> Microsoft Azure pro DreamSpark se nyní označuje jako Microsoft Imagine pro studenty.
+
+V současné době nelze vytvořit předkonfigurované řešení s [Microsoft Azure pro DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) účtu. Ale můžete vytvořit [Bezplatný zkušební účet Azure](https://azure.microsoft.com/free/) si během několika minut, který vám umožní vytvořit předkonfigurované řešení.
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>Můžete vytvořit předkonfigurované řešení, pokud mám předplatné Cloud Solution Provider (CSP)?
 
 V současné době nelze vytvořit předkonfigurované řešení s předplatným Cloud Solution Provider (CSP). Ale můžete vytvořit [Bezplatný zkušební účet Azure] [ lnk-30daytrial] si během několika minut, který vám umožní vytvořit předkonfigurované řešení.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>Jak se odstraním klienta AAD?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Jak se odstraním klienta Azure AD?
 
 Najdete v příspěvku blogu od Erica Golpeho [návod odstranění klient služby Azure AD][lnk-delete-aad-tennant].
 
-### <a name="next-steps"></a>Další kroky
+### <a name="next-steps"></a>Další postup
 
 Můžete si taky prostudovat některé další funkce a možnosti předkonfigurovaných řešení sady IoT Suite:
 

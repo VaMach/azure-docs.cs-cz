@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery | Microsoft Docs
-description: "Sdílené složky a zjišťovat prostředky analytics a další obsah v Cortana Intelligence Gallery. Další informace od ostatních a provádět vlastní příspěvky ze strany komunity."
+title: Galerie Azure AI | Microsoft Docs
+description: "Sdílet a zjišťovat prostředky analýzy a další obsah v Azure AI Gallery. Další informace od ostatních a provádět vlastní příspěvky ze strany komunity."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9da6cc9d306930fbec33ecebc85784d0d1e1532d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d60815e848277637e3d692a676dbde838b249754
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Sdílené složky a zjišťovat prostředky ve Cortana Intelligence Gallery
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Sdílené složky a zjišťovat prostředky v Azure AI Gallery
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Co lze najít v galerii?
-Cortana Intelligence Gallery obsahuje různé prostředky, které můžete použít pro vývoj vlastních řešení pro analýzu.
+Galerie AI Azure obsahuje různé prostředky, které můžete použít pro vývoj vlastních řešení pro analýzu.
 
 * **[Experimenty](gallery-experiments.md)**  -The galerie obsahuje širokou škálu experimenty, které byly vyvinuty v Azure Machine Learning Studio. Tyto rozsahu od rychlé experimenty testování konceptu, které ukazují konkrétní strojového učení techniku, plně vyvinutá řešení problémů složitých strojové učení.
 * **[Poznámkové bloky Jupyter](gallery-jupyter-notebooks.md)**  – Jupyter Notebooks zahrnují kód, vizualizacemi dat a dokumentace v jediném interaktivní plátno.
@@ -48,7 +48,7 @@ Tyto základní prostředky Galerie je možné seskupit logicky několik různý
 
 Nakonec  **[soutěže](gallery-competitions.md)**  nabízejí zajímavých možnost pokouší s komunitou data scientsts do dokáže řešit složité problémy pomocí Cortana Intelligence Suite.
 
-![Domovská stránka Cortana Intelligence Gallery](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Domovské stránky Azure Galerie AI](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Zjišťování a další informace
 Každý, kdo může prohlížet a vyhledávat různé typy prostředků v galerii přispěl Microsoft a komunitou pokročilou analýzu.

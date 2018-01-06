@@ -1,467 +1,323 @@
 ---
-title: "Knihovny tříd rozhraní .NET pomocí Azure Functions | Microsoft Docs"
-description: "Naučte se vytvářet knihovny tříd rozhraní .NET pro použití s Azure Functions"
+title: "Azure funkcí jazyka C# referenční informace pro vývojáře"
+description: "Pochopit, jak vyvíjet Azure Functions pomocí jazyka C#."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "Funkce Azure, funkce zpracování událostí, dynamické výpočetní architektura bez serveru"
-ms.assetid: 9f5db0c2-a88e-4fa8-9b59-37a7096fc828
+keywords: "funkce azure, funkce, zpracování událostí, webhook, dynamické výpočty, architektura bez serverů"
 ms.service: functions
-ms.devlang: multiple
+ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 6f6f89d62f1442198f80247cc5c433aa0c54030b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 8bd46adc475af35d32b9e329a3765e064120a6e3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="using-net-class-libraries-with-azure-functions"></a>Knihovny tříd rozhraní .NET pomocí Azure Functions
+# <a name="azure-functions-c-developer-reference"></a>Azure funkcí jazyka C# referenční informace pro vývojáře
 
-Kromě souborů skriptů Azure Functions podporuje publikování knihovny tříd jako implementace pro jednu nebo více funkcí. Doporučujeme vám, že používáte [Azure funkce 2017 nástroje sady Visual Studio](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
+<!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
-## <a name="prerequisites"></a>Požadavky 
+Tento článek je úvodem do Azure Functions vývoj s použitím jazyka C# v knihovny tříd rozhraní .NET.
 
-Tento článek má následující požadavky:
+Azure Functions podporuje C# a C# skript programovacích jazyků. Pokud hledáte pokyny [pomocí jazyka C# na portálu Azure](functions-create-function-app-portal.md), najdete v části [C# skript (.csx) referenční informace pro vývojáře](functions-reference-csharp.md).
 
-- [Visual Studio 2017 verze 15.3](https://www.visualstudio.com/vs/), nebo novější.
-- Nainstalujte **Azure development** zatížení.
+Tento článek předpokládá, že jste si přečetli již v následujících článcích:
+
+* [Příručka pro vývojáře Azure funkce](functions-reference.md)
+* [Nástroje sady Visual Studio 2017 funkcí Azure](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Funkce projektu knihovny tříd
 
-Ze sady Visual Studio vytvořte nový projekt Azure Functions. Nová šablona projektu vytvoří soubory *host.json* a *local.settings.json*. Můžete [přizpůsobit nastavení modulu runtime Azure Functions v host.json](functions-host-json.md). 
+V sadě Visual Studio **Azure Functions** vytvoří šablona projektu C# projektu knihovny tříd obsahující následující soubory:
 
-Soubor *local.settings.json* ukládá nastavení aplikace, řetězce připojení a nastavení nástroje základní funkce Azure. Další informace o jeho strukturu, najdete v části [kód a testovat místně na Azure functions](functions-run-local.md#local-settings-file).
+* [Host.JSON](functions-host-json.md) – ukládá nastavení konfigurace, které ovlivní všechny funkce v projektu, když běží místně nebo v Azure.
+* [Local.Settings.JSON](functions-run-local.md#local-settings-file) – ukládá nastavení aplikace a připojovacích řetězců, které se používají při místním spuštění.
 
-### <a name="functionname-attribute"></a>Atribut %{FunctionName/
+### <a name="functionname-and-trigger-attributes"></a>Atributy %{FunctionName/ a aktivační události
 
-Atribut [ `FunctionNameAttribute` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/FunctionNameAttribute.cs) určí metodu jako vstupní bod funkce. Musíte ho použít se přesně jedna aktivační událost a 0 nebo více vstup a výstup vazby.
-
-### <a name="conversion-to-functionjson"></a>Převod na function.json
-
-Při sestavování projektu Azure Functions *function.json* soubor je vytvořen v adresáři funkce. Název adresáře je stejný jako funkce názvů, které `[FunctionName]` Určuje atribut. *Function.json* soubor obsahuje triggerů a vazeb a odkazuje na sestavení souboru projektu.
-
-Tento převod provádí balíček NuGet [Microsoft\.NET\.Sdk\.funkce](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Zdroj je k dispozici v úložišti GitHub [azure\-funkce\-vs\-sestavení\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
-
-## <a name="triggers-and-bindings"></a>Triggery a vazby 
-
-Následující tabulka uvádí triggerů a vazeb, které jsou k dispozici v projektu knihovny tříd Azure Functions. Všechny atributy jsou v oboru názvů `Microsoft.Azure.WebJobs`.
-
-| Vazba | Atribut | Balíček NuGet |
-|------   | ------    | ------        |
-| [Aktivační událost úložiště objektů BLOB, vstup a výstup](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Úložiště objektů blob] |
-| [Aktivační událost cosmos DB](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
-| [Cosmos DB vstup a výstup](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
-| [Aktivační událost rozbočovače a výstup](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
-| [Externí soubor vstup a výstup](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
-| [Aktivace protokolu HTTP a webhooku](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
-| [Mobile Apps vstup a výstup](#mobile-apps) | [MobileTableAttribute] | [Microsoft.Azure.WebJobs.Extensions.MobileApps] | 
-| [Výstup centra oznámení](#nh) | [NotificationHubAttribute] | [Microsoft.Azure.WebJobs.Extensions.NotificationHubs] | 
-| [Aktivace fronty úložiště a výstup](#queue) | [QueueAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | 
-| [Sendgrid vám umožňuje výstup](#sendgrid) | [SendGridAttribute] | [Microsoft.Azure.WebJobs.Extensions.SendGrid] | 
-| [Aktivace služby Service Bus a výstup](#service-bus) | [ServiceBusAttribute], [ServiceBusAccountAttribute] | [Microsoft.Azure.WebJobs.ServiceBus]
-| [Tabulka úložiště vstup a výstup](#table) | [TableAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | 
-| [Trigger časovače](#timer) | [TimerTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions] | 
-| [Výstup Twilio](#twilio) | [TwilioSmsAttribute] | [Microsoft.Azure.WebJobs.Extensions.Twilio] | 
-
-<a name="blob-storage"></a>
-
-### <a name="blob-storage-trigger-input-bindings-and-output-bindings"></a>Aktivační událost úložiště objektů BLOB, vazby vstup a výstup vazby
-
-Azure podporuje aktivaci funkce vstup a výstup vazby pro úložiště objektů Blob v Azure. Další informace o výrazy vazby a metadata, najdete v části [vazby úložiště objektů Blob v Azure funkce](functions-bindings-storage-blob.md).
-
-Aktivační události objektu blob je definovaná pomocí `[BlobTrigger]` atribut. Můžete použít atribut `[StorageAccount]` můžete definovat název nastavení aplikace, který obsahuje připojovací řetězec k účtu úložiště, který je používán celé funkce nebo třída.
+Knihovny tříd, funkce je statickou metodu s `FunctionName` a aktivační události atributu, jak je znázorněno v následujícím příkladu:
 
 ```csharp
-[StorageAccount("AzureWebJobsStorage")]
-[FunctionName("BlobTriggerCSharp")]        
-public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
+public static class SimpleExample
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
-}
-```
-
-Objekt BLOB vstup a výstup jsou definovány pomocí `[Blob]` atribut spolu s `FileAccess` parametr označující číst nebo zapisovat. Následující příklad používá objekt blob aktivační události a objektů blob výstup vazby.
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```        
-
-<a name="cosmos-db"></a>
-
-### <a name="cosmos-db-trigger-input-bindings-and-output-bindings"></a>Cosmos DB aktivační událost, vazby vstup a výstup vazby
-
-Azure Functions podporuje aktivační události a vstup a výstup vazby pro Cosmos DB. Další informace o funkcích vazby Cosmos DB najdete v tématu [Azure funkce Cosmos DB vazby](functions-bindings-documentdb.md).
-
-Chcete-li aktivovat z dokumentu Cosmos DB, použijte atribut `[CosmosDBTrigger]` v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. Následující příklad aktivačních událostí z konkrétní `database` a `collection`. Nastavení `myCosmosDB` obsahuje připojení k instanci databáze Cosmos. 
-
-```csharp
-[FunctionName("DocumentUpdates")]
-public static void Run(
-    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
-IReadOnlyList<Document> documents, TraceWriter log)
-{
-        log.Info("Documents modified " + documents.Count);
-        log.Info("First document Id " + documents[0].Id);
-}
-```
-
-Chcete-li vytvořit vazbu na dokument Cosmos DB, použijte atribut `[DocumentDB]` v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. V následujícím příkladu má aktivační procedury fronty a DocumentDB API, výstup vazby.
-
-```csharp
-[FunctionName("QueueToDocDB")]        
-public static void Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
-{
-    document = new { Text = myQueueItem, id = Guid.NewGuid() };
-}
-
-```
-
-<a name="event-hub"></a>
-
-### <a name="event-hubs-trigger-and-output"></a>Aktivační událost rozbočovače a výstup
-
-Azure Functions podporuje aktivaci a výstupní vazeb pro služby Event Hubs. Další informace najdete v tématu [centra událostí Azure funkce vazby](functions-bindings-event-hubs.md).
-
-Typy `[Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute]` a `[Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute]` jsou definovány v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus]. 
-
-Následující příklad používá aktivační procedury Centrum událostí:
-
-```csharp
-[FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
-{
-    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
-}
-```
-
-V následujícím příkladu má centra událostí výstupu pomocí návratovou hodnotu metody jako výstup:
-
-```csharp
-[FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
-public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
-{
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-    return $"{DateTime.Now}";
-}
-```
-
-<a name="api-hub"></a>
-
-### <a name="external-file-input-and-output"></a>Externí soubor vstup a výstup
-
-Azure Functions podporuje aktivační událost, vstup a výstup vazby pro externích souborů, jako je například Google Drive, Dropbox a OneDrive. Další informace najdete v tématu [externí soubor funkce Azure vazby](functions-bindings-external-file.md). Atributy `[ExternalFileTrigger]` a `[ExternalFile]` jsou definovány v balíčku NuGet [Microsoft.Azure.WebJobs.Extensions.ApiHub].
-
-Následující příklad jazyka C# ukazuje externí soubor vstup a výstup vazby. Kód zkopíruje vstupní soubor do výstupního souboru.
-
-```csharp
-[StorageAccount("MyStorageConnection")]
-[FunctionName("ExternalFile")]
-[return: ApiHubFile("MyFileConnection", "samples-workitems/{queueTrigger}-Copy", FileAccess.Write)]
-public static string Run([QueueTrigger("myqueue-items")] string myQueueItem, 
-    [ApiHubFile("MyFileConnection", "samples-workitems/{queueTrigger}", FileAccess.Read)] string myInputFile, 
-    TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    return myInputFile;
-}
-```
-
-<a name="http"></a>
-
-### <a name="http-and-webhooks"></a>HTTP a webhooky
-
-Použití `HttpTrigger` definici na triggeru protokolu HTTP nebo webhooku atributu. Tento atribut je definována v balíček NuGet [Microsoft.Azure.WebJobs.Extensions.Http]. Můžete přizpůsobit oprávnění na úrovni, typ webhooku, trasy a metody. V následujícím příkladu definuje aktivační procedury HTTP s anonymní ověřování a _genericJson_ webhooku typu.
-
-```csharp
-[FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
-{
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-<a name="mobile-apps"></a>
-
-### <a name="mobile-apps-input-and-output"></a>Mobile Apps vstup a výstup
-
-Azure Functions podporuje vstup a výstup vazby pro Mobile Apps. Další informace najdete v tématu [Azure funkce Mobile Apps vazby](functions-bindings-mobile-apps.md). Atribut `[MobileTable]` je definována v balíček NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps].
-
-Následující příklad ukazuje Mobile Apps výstup vazby:
-
-```csharp
-[FunctionName("MobileAppsOutput")]        
-[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
-public static object Run([QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, TraceWriter log)
-{
-    return new { Text = $"I'm running in a C# function! {myQueueItem}" };
-}
-```
-
-<a name="nh"></a>
-
-### <a name="notification-hubs-output"></a>Výstup centra oznámení
-
-Azure Functions podporuje vazbu výstup pro centra oznámení. Další informace najdete v tématu [centra oznámení Azure funkce výstup vazby](functions-bindings-notification-hubs.md). Atribut `[NotificationHub]` je definována v balíček NuGet [Microsoft.Azure.WebJobs.Extensions.NotificationHubs].
-
-<a name="queue"></a>
-
-### <a name="queue-storage-trigger-and-output"></a>Aktivace fronty úložiště a výstup
-
-Azure Functions podporuje aktivaci a výstupní vazby pro Azure fronty. Další informace najdete v tématu [Azure funkce Queue Storage vazby](functions-bindings-storage-queue.md).
-
-Následující příklad ukazuje, jak používat návratový typ funkce s výstupní fronty, vazbu, pomocí `[Queue]` atribut. 
-
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public static class QueueFunctions
-{
-    // HTTP trigger with queue output binding
-    [FunctionName("QueueOutput")]
-    [return: Queue("myqueue-items")]
-    public static string QueueOutput([HttpTrigger] dynamic input,  TraceWriter log)
-    {
-        log.Info($"C# function processed: {input.Text}");
-        return input.Text;
-    }
-}
-
-```
-
-Chcete-li definovat aktivační procedury fronty, použijte `[QueueTrigger]` atribut.
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public static class QueueFunctions
-{
-    // Queue trigger
     [FunctionName("QueueTrigger")]
-    [StorageAccount("AzureWebJobsStorage")]
-    public static void QueueTrigger([QueueTrigger("myqueue-items")] string myQueueItem, TraceWriter log)
+    public static void Run(
+        [QueueTrigger("myqueue-items")] string myQueueItem, 
+        TraceWriter log)
     {
         log.Info($"C# function processed: {myQueueItem}");
     }
-}
-
+} 
 ```
 
+`FunctionName` Atribut určí metodu jako vstupní bod funkce. Název musí být jedinečný v rámci projektu.
 
-<a name="sendgrid"></a>
+Aktivační událost atribut určuje typ aktivační události a sváže vstupní data parametru metody. Příklad funkce se aktivuje zprávu fronty a zprávy ve frontě, je předaná metodě v `myQueueItem` parametr.
 
-### <a name="sendgrid-output"></a>Sendgrid vám umožňuje výstup
+### <a name="additional-binding-attributes"></a>Atributy další vazby
 
-Azure Functions podporuje sendgrid vám umožňuje výstup, vazba pro odesílání e-mailu prostřednictvím kódu programu. Další informace najdete v tématu [sendgrid vám umožňuje funkce Azure vazby](functions-bindings-sendgrid.md).
-
-Atribut `[SendGrid]` je definována v balíček NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid]. Vazba sendgrid vám umožňuje vyžaduje aplikaci nastavení s názvem `AzureWebJobsSendGridApiKey`, který obsahuje klíč sendgrid vám umožňuje rozhraní API. Toto je výchozí název nastavení pro klíč sendgrid vám umožňuje rozhraní API. Pokud je potřeba mít více než jeden Sendgridu klíčů nebo zvolte název jiné nastavení, můžete nastavit pomocí tento název `ApiKey` vlastnost `SendGrid` atribut vazby, jako v následujícím příkladu:
-
-    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
-
-Následuje příklad použití aktivační procedury fronty Service Bus a pomocí vazby sendgrid vám umožňuje výstup `SendGridMessage`:
+Může použít další vstupní a výstupní vazby atributy. Následující příklad změní předchozí jeden přidáním vazbu výstupní fronty. Funkce zapíše zprávu vstupní fronty do nové zprávy fronty v jiné fronty.
 
 ```csharp
-[FunctionName("SendEmail")]
-public static void Run(
-    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
-    [SendGrid] out SendGridMessage message)
+public static class SimpleExampleWithOutput
 {
-    message = new SendGridMessage();
-    message.AddTo(email.To);
-    message.AddContent("text/html", email.Body);
-    message.SetFrom(new EmailAddress(email.From));
-    message.SetSubject(email.Subject);
-}
-
-public class OutgoingEmail
-{
-    public string To { get; set; }
-    public string From { get; set; }
-    public string Subject { get; set; }
-    public string Body { get; set; }
-}
-```
-Všimněte si, že tento příklad vyžaduje klíč rozhraní API sendgrid vám umožňuje jako úložiště v aplikaci nastavení s názvem `AzureWebJobsSendGridApiKey`.
-
-<a name="service-bus"></a>
-
-### <a name="service-bus-trigger-and-output"></a>Aktivace služby Service Bus a výstup
-
-Azure Functions podporuje aktivaci a výstupní vazby pro fronty sběrnice a témata. Další informace o konfiguraci vazby najdete v tématu [Azure funkce Service Bus vazby](functions-bindings-service-bus.md).
-
-Atributy `[ServiceBusTrigger]` a `[ServiceBus]` jsou definovány v balíčku NuGet [Microsoft.Azure.WebJobs.ServiceBus]. 
-
-Následuje příklad aktivační procedury fronty sběrnice:
-
-```csharp
-[FunctionName("ServiceBusQueueTriggerCSharp")]                    
-public static void Run([ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] string myQueueItem, TraceWriter log)
-{
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-}
-```
-
-Následuje příklad výstupu Service Bus, vazbu, pomocí návratový typ metody jako výstup:
-
-```csharp
-[FunctionName("ServiceBusOutput")]
-[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
-{
-    log.Info($"C# function processed: {input.Text}");
-    return input.Text;
-}
-```        
-
-<a name="table"></a>
-
-### <a name="table-storage-input-and-output"></a>Tabulka úložiště vstup a výstup
-
-Azure Functions podporuje vstup a výstup vazby pro Azure Table storage. Další informace najdete v tématu [vazby úložiště Azure Table funkce](functions-bindings-storage-table.md).
-
-V následujícím příkladu je třída s dvě funkce, ukázka tabulky úložiště výstupní a vstupní vazby. 
-
-```csharp
-[StorageAccount("AzureWebJobsStorage")]
-public class TableStorage
-{
-    public class MyPoco
+    [FunctionName("CopyQueueMessage")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source")] string myQueueItem, 
+        [Queue("myqueue-items-destination")] out string myQueueItemCopy,
+        TraceWriter log)
     {
-        public string PartitionKey { get; set; }
-        public string RowKey { get; set; }
-        public string Text { get; set; }
-    }
-
-    [FunctionName("TableOutput")]
-    [return: Table("MyTable")]
-    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
-    {
-        log.Info($"C# http trigger function processed: {input.Text}");
-        return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
-    }
-
-    // use the metadata parameter "queueTrigger" to bind the queue payload
-    [FunctionName("TableInput")]
-    public static void TableInput([QueueTrigger("table-items")] string input, [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, TraceWriter log)
-    {
-        log.Info($"C# function processed: {poco.Text}");
+        log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+        myQueueItemCopy = myQueueItem;
     }
 }
-
 ```
 
-<a name="timer"></a>
+### <a name="conversion-to-functionjson"></a>Převod na function.json
 
-### <a name="timer-trigger"></a>Trigger časovače
+Vytvoří procesu sestavení *function.json* souboru ve složce funkce ve složce sestavení. Tento soubor není určen k upravovat přímo. Nelze změnit konfiguraci vazby nebo zakázat funkci úpravou tohoto souboru. 
 
-Azure Functions nabízí vazbu aktivační událost časovače, který vám umožní spustit funkce kódu podle definovaného plánu. Další informace o funkcích vazby naleznete v tématu [naplánovat provádění kódu s Azure Functions](functions-bindings-timer.md).
+Účelem tohoto souboru je poskytují informace, které řadič škálování pro [škálování rozhodnutí plánu spotřeby](functions-scale.md#how-the-consumption-plan-works). Z tohoto důvodu soubor má jenom informace o aktivační událost není vstupem nebo výstupem vazby.
 
-Spotřeba plánu, můžete definovat plány se [výraz CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression). Pokud používáte plánu služby App Service, můžete taky řetězec časový interval. 
+Generovaný objekt *function.json* soubor obsahuje `configurationSource` vlastnost, která sděluje modulu runtime .NET atributy použít u vazeb, místo *function.json* konfigurace. Tady je příklad:
 
-V následujícím příkladu definuje aktivační událost časovače, která se spouští každých pět minut:
+{"generatedBy": "Microsoft.NET.Sdk.Functions-1.0.0.0", "configurationSource": "atributy", "vazby": [{"typ": "queueTrigger", "queueName": "% název vstupní fronty %", "název": "myQueueItem"}], "zakázáno": false, "Soubor_skriptu": ".. \\bin\\FunctionApp1.dll ","entryPoint":"FunctionApp1.QueueTrigger.Run"}
 
-```csharp
-[FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
-{
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-}
-```
+*Function.json* generování souboru se provádí pomocí balíčku NuGet [Microsoft\.NET\.Sdk\.funkce](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Zdrojový kód je k dispozici v úložišti GitHub [azure\-funkce\-vs\-sestavení\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-<a name="twilio"></a>
+## <a name="supported-types-for-bindings"></a>Podporované typy u vazeb
 
-### <a name="twilio-output"></a>Výstup Twilio
+Každé vazby má svou vlastní podporované typy; pro instanci atribut aktivační události objektu blob lze použít na řetězcový parametr, parametr objektů POCO, `CloudBlockBlob` parametr, nebo libovolná z některé další podporované typy. [Článku vazby u vazeb objektů blob](functions-bindings-storage-blob.md#trigger---usage) zobrazí všechny podporované typy parametrů. Další informace najdete v tématu [triggerů a vazeb](functions-triggers-bindings.md) a [vazby referenční dokumentace pro každý typ vazby](functions-triggers-bindings.md#next-steps).
 
-Azure Functions podporuje Twilio výstupní vazby k povolení funkcí k posílání textových zpráv SMS. Další informace najdete v tématu [poslat SMS zprávy z Azure Functions pomocí Twilio výstup vazby](functions-bindings-twilio.md). 
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-Atribut `[TwilioSms]` je definována v balíčku [Microsoft.Azure.WebJobs.Extensions.Twilio].
+## <a name="binding-to-method-return-value"></a>Vytvoření vazby na návratovou hodnotu – Metoda
 
-Následující příklad jazyka C# používá fronty aktivační události a Twilio výstupní vazby:
+Můžete návratovou hodnotu metoda pro vazbu výstup, jak je znázorněno v následujícím příkladu:
 
 ```csharp
-[FunctionName("QueueTwilio")]
-[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
-public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order, TraceWriter log)
+public static class ReturnValueOutputBinding
 {
-    log.Info($"C# Queue trigger function processed: {order}");
-
-    var message = new SMSMessage()
+    [FunctionName("CopyQueueMessageUsingReturnValue")]
+    [return: Queue("myqueue-items-destination")]
+    public static string Run(
+        [QueueTrigger("myqueue-items-source-2")] string myQueueItem,
+        TraceWriter log)
     {
-        Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
-    };
-
-    return message;
+        log.Info($"C# function processed: {myQueueItem}");
+        return myQueueItem;
+    }
 }
 ```
 
-## <a name="next-steps"></a>Další kroky
+## <a name="writing-multiple-output-values"></a>Zápis více hodnot výstup
+
+K vytvoření více hodnot pro vazbu výstup, použijte [ `ICollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) nebo [ `IAsyncCollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) typy. Tyto typy jsou jen pro zápis kolekce, které se zapisují do výstupu vazby po dokončení metody.
+
+Tento příklad zapisuje více fronty zpráv do fronty ke stejné pomocí `ICollector`:
+
+```csharp
+public static class ICollectorExample
+{
+    [FunctionName("CopyQueueMessageICollector")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
+        [Queue("myqueue-items-destination")] ICollector<string> myQueueItemCopy,
+        TraceWriter log)
+    {
+        log.Info($"C# function processed: {myQueueItem}");
+        myQueueItemCopy.Add($"Copy 1: {myQueueItem}");
+        myQueueItemCopy.Add($"Copy 2: {myQueueItem}");
+    }
+}
+```
+
+## <a name="logging"></a>Protokolování
+
+Do protokolu výstup váš datový proud protokolů v jazyce C#, zahrnují argument typu `TraceWriter`. Doporučujeme, abyste pojmenujte ji `log`. Nepoužívejte `Console.Write` v Azure Functions. 
+
+`TraceWriter`je definována v [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Úroveň protokolu pro `TraceWriter` se dá nakonfigurovat v [host.json](functions-host-json.md).
+
+```csharp
+public static class SimpleExample
+{
+    [FunctionName("QueueTrigger")]
+    public static void Run(
+        [QueueTrigger("myqueue-items")] string myQueueItem, 
+        TraceWriter log)
+    {
+        log.Info($"C# function processed: {myQueueItem}");
+    }
+} 
+```
+
+> [!NOTE]
+> Informace o novější rozhraní protokolování, který můžete použít místo `TraceWriter`, najdete v části [zápisu protokolů v C# funkce](functions-monitoring.md#write-logs-in-c-functions) v **monitorování Azure Functions** článku.
+
+## <a name="async"></a>Asynchronní
+
+Chcete-li funkci asynchronní, použijte `async` – klíčové slovo a vraťte se `Task` objektu.
+
+```csharp
+public static class AsyncExample
+{
+    [FunctionName("BlobCopy")]
+    public static async Task RunAsync(
+        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
+        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+        CancellationToken token,
+        TraceWriter log)
+    {
+        log.Info($"BlobCopy function processed.");
+        await blobInput.CopyToAsync(blobOutput, 4096, token);
+    }
+}
+```
+
+## <a name="cancellation-tokens"></a>Zrušení tokenů
+
+Některé operace vyžadují řádné vypnutí. I když je vždy nejlepší napsat kód, který dokáže zpracovat chybám, v případech, ve které chcete zpracovávat požadavky vypnutí definovat [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) zadali argument.  A `CancellationToken` je k dispozici signál, že se aktivuje vypnutí hostitele.
+
+```csharp
+public static class CancellationTokenExample
+{
+    [FunctionName("BlobCopy")]
+    public static async Task RunAsync(
+        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
+        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+        CancellationToken token)
+    {
+        await blobInput.CopyToAsync(blobOutput, 4096, token);
+    }
+}
+```
+
+## <a name="environment-variables"></a>Proměnné prostředí
+
+Proměnné prostředí nebo nastavení hodnoty aplikace, použijte `System.Environment.GetEnvironmentVariable`, jak ukazuje následující příklad kódu:
+
+```csharp
+public static class EnvironmentVariablesExample
+{
+    [FunctionName("GetEnvironmentVariables")]
+    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+    {
+        log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+        log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+        log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    }
+
+    public static string GetEnvironmentVariable(string name)
+    {
+        return name + ": " +
+            System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+    }
+}
+```
+
+## <a name="binding-at-runtime"></a>Vazba za běhu
+
+V jazyce C# a jinými jazyky rozhraní .NET, můžete použít [imperativní](https://en.wikipedia.org/wiki/Imperative_programming) vazby vzor, nikoli [ *deklarativní* ](https://en.wikipedia.org/wiki/Declarative_programming) vazby v atributech. Imperativní vazba je užitečné, když vázané parametry muset počítaný v době běhu spíše než návrhu. Tento vzor je možné svázat podporované vstup a výstup vazby na průběžně ve vašem kódu funkce.
+
+Definujte imperativní vazby následujícím způsobem:
+
+- **Nechcete** zahrnout atribut podpis funkce pro vaše požadované imperativní vazby.
+- Předejte jí vstupní parametr [ `Binder binder` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) nebo [ `IBinder binder` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- K provedení vazby dat použijte následující vzor C#.
+
+  ```cs
+  using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+  {
+      ...
+  }
+  ```
+
+  `BindingTypeAttribute`je atribut rozhraní .NET, která definuje vazbu, a `T` je vstupní nebo výstupní typ, který podporuje tento typ vazby. `T`nelze `out` typ parametru (například `out JObject`). Například v tabulce Mobile Apps výstupu vazba podporuje [šest výstup typy](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ale můžete použít pouze [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) nebo [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)imperativní vazbou.
+
+### <a name="single-attribute-example"></a>Příklad jeden atribut
+
+Následující příklad kódu vytvoří [objektu blob Storage výstup vazby](functions-bindings-storage-blob.md#input--output) s objektem blob cestu, která je definována v době běhu, pak zapíše řetězec do objektu blob.
+
+```cs
+public static class IBinderExample
+{
+    [FunctionName("CreateBlobUsingBinder")]
+    public static void Run(
+        [QueueTrigger("myqueue-items-source-4")] string myQueueItem,
+        IBinder binder,
+        TraceWriter log)
+    {
+        log.Info($"CreateBlobUsingBinder function processed: {myQueueItem}");
+        using (var writer = binder.Bind<TextWriter>(new BlobAttribute(
+                    $"samples-output/{myQueueItem}", FileAccess.Write)))
+        {
+            writer.Write("Hello World!");
+        };
+    }
+}
+```
+
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definuje [objektu blob Storage](functions-bindings-storage-blob.md) vstupem nebo výstupem vazby a [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) je typ vazby podporované výstup.
+
+### <a name="multiple-attribute-example"></a>Příklad více atributů
+
+V předchozím příkladu získá nastavení aplikace pro aplikaci funkce hlavní účet připojovacího řetězce úložiště (což je `AzureWebJobsStorage`). Můžete zadat nastavení vlastní aplikace použít pro účet úložiště tak, že přidáte [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) a předání atribut pole do `BindAsync<T>()`. Použití `Binder` parametr není `IBinder`.  Příklad:
+
+```cs
+public static class IBinderExampleMultipleAttributes
+{
+    [FunctionName("CreateBlobInDifferentStorageAccount")]
+    public async static Task RunAsync(
+            [QueueTrigger("myqueue-items-source-binder2")] string myQueueItem,
+            Binder binder,
+            TraceWriter log)
+    {
+        log.Info($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
+        var attributes = new Attribute[]
+        {
+        new BlobAttribute($"samples-output/{myQueueItem}", FileAccess.Write),
+        new StorageAccountAttribute("MyStorageAccount")
+        };
+        using (var writer = await binder.BindAsync<TextWriter>(attributes))
+        {
+            await writer.WriteAsync("Hello World!!");
+        }
+    }
+}
+```
+
+## <a name="triggers-and-bindings"></a>Triggery a vazby 
+
+Následující tabulka uvádí aktivační události a vazba atributy, které jsou k dispozici v projektu knihovny tříd Azure Functions. Všechny atributy jsou v oboru názvů `Microsoft.Azure.WebJobs`.
+
+| Trigger | Vstup | Výstup|
+|------   | ------    | ------  |
+| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Objekt BLOB](functions-bindings-storage-blob.md#input--output---attributes)| [Objekt BLOB](functions-bindings-storage-blob.md#input--output---attributes)|
+| [CosmosDBTrigger](functions-bindings-documentdb.md#trigger---attributes)| [DocumentDB](functions-bindings-documentdb.md#input---attributes)| [DocumentDB](functions-bindings-documentdb.md#output---attributes) |
+| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [Centrum EventHub](functions-bindings-event-hubs.md#output---attributes) |
+| [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
+| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [Fronty](functions-bindings-storage-queue.md#output---attributes) |
+| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [Sběrnice](functions-bindings-service-bus.md#output---attributes) |
+| [TimerTrigger](functions-bindings-timer.md#attributes) | ||
+| |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
+| |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 
+| |[Tabulka](functions-bindings-storage-table.md#input---attributes)| [Tabulka](functions-bindings-storage-table.md#output---attributes)  | 
+| ||[NotificationHub](functions-bindings-notification-hubs.md#attributes) |
+| ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
+| ||[Twilio](functions-bindings-twilio.md#attributes)| 
+
+## <a name="next-steps"></a>Další postup
 
 > [!div class="nextstepaction"]
-> [Další informace o Azure functions triggerů a vazeb](functions-triggers-bindings.md)
+> [Další informace o triggerů a vazeb](functions-triggers-bindings.md)
 
-<!-- NuGet packages --> 
-[Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta4
-[Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.MobileApps]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/1.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs/1.1.0-beta1
-[Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.SendGrid]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.Http]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http/1.0.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.BotFramework]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.BotFramework/1.0.15-beta
-[Microsoft.Azure.WebJobs.Extensions.ApiHub]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApiHub/1.0.0-beta4
-[Microsoft.Azure.WebJobs.Extensions.Twilio]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio/1.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/2.1.0-beta1
-
-
-<!-- Links to source --> 
-[DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
-[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
-[EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
-[EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
-[MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
-[NotificationHubAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs 
-[ServiceBusAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs
-[ServiceBusAccountAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs
-[QueueAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs
-[StorageAccountAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs
-[BlobAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs
-[TableAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs
-[TwilioSmsAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs
-[SendGridAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs
-[HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
-[ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
-[TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
+> [!div class="nextstepaction"]
+> [Další informace o osvědčených postupech pro Azure Functions](functions-best-practices.md)

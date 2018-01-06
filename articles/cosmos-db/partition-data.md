@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/05/2018
@@ -35,9 +35,9 @@ V Azure DB Cosmos můžete ukládat a zadávat dotazy na data bez schémat s po�
 
 Kontejnery jsou logické prostředky a může mít rozsah jeden nebo více fyzických oddílů nebo serverů. Počet oddílů je dáno Azure DB Cosmos na základě velikosti úložiště a zřízené propustnosti kontejneru. 
 
-Fyzickém oddílu je pevně stanovený objem vyhrazeného zálohovaná na SSD úložiště s maximální 10 GB. Každý fyzický oddíl se replikují pro vysokou dostupnost. Jeden nebo více fyzických oddílů tvoří kontejner. Správa fyzickém oddílu je plně spravovat Azure Cosmos DB a není nutné zapsat složitý kód nebo spravovat vaše oddíly. Kontejnery Azure Cosmos DB neomezená z hlediska úložiště a propustnosti. 
+Fyzickém oddílu je pevně stanovený objem vyhrazeného úložiště SSD zálohována. Každý fyzický oddíl se replikují pro vysokou dostupnost. Jeden nebo více fyzických oddílů tvoří kontejner. Správa fyzickém oddílu je plně spravovat Azure Cosmos DB a není nutné zapsat složitý kód nebo spravovat vaše oddíly. Kontejnery Azure Cosmos DB neomezená z hlediska úložiště a propustnosti. 
 
-Logický oddíl je oddíl v rámci fyzické oddílu, který ukládá všechna data související s hodnotou klíče jeden oddíl. V následujícím diagramu jediný kontejner má tři logické oddíly. Každý logický oddíl ukládá data pro jeden klíč oddílu, LAX AMS a MEL v uvedeném pořadí. Všechny logické oddíly LAX AMS a MEL nelze růst překračuje limit maximální fyzickém oddílu 10 GB. 
+Logický oddíl je oddíl v rámci fyzické oddílu, který ukládá všechna data související s hodnotou klíče jeden oddíl. Logický oddíl má maximální 10 GB. V následujícím diagramu jediný kontejner má tři logické oddíly. Každý logický oddíl ukládá data pro jeden klíč oddílu, LAX AMS a MEL v uvedeném pořadí. Všechny logické oddíly LAX AMS a MEL nelze růst překračuje limit maximální logický oddíl 10 GB. 
 
 ![Dělení prostředků](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -45,7 +45,7 @@ Když kolekci splňuje [dělení požadavky](#prerequisites), v rámci vytváře
 
 ## <a name="how-does-partitioning-work"></a>Jak funguje dělení
 
-Jak funguje dělení Každá položka musí mít klíč oddílu a klíč řádku, které jeho jednoznačné identifikaci. Klíč oddílu funguje jako logický oddíl pro vaše data a poskytne Azure Cosmos DB přirozené hranice pro distribuci dat mezi oddílů. Mějte na paměti, že logický oddíl může mít rozsah více fyzických oddílů, ale správu fyzickém oddílu spravuje Azure Cosmos DB. 
+Jak funguje dělení Každá položka musí mít klíč oddílu a klíč řádku, které jeho jednoznačné identifikaci. Klíč oddílu funguje jako logický oddíl pro vaše data a poskytne Azure Cosmos DB přirozené hranice pro rozděluje data mezi fyzické oddíly. Mějte na paměti, že data pro jeden logický oddíl se musí nacházet v jednom fyzickém oddílu, ale fyzickém oddílu management spravuje Azure Cosmos DB. 
 
 Stručně řečeno zde je Princip vytváření oddílů v Azure Cosmos DB:
 

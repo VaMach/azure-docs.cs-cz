@@ -14,65 +14,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: garye;haining
-ms.openlocfilehash: cc938fdaa6843f7c9e974d9b88a9b682b4678493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3386e3bab7a92b080276c4f03f0b006bd5f68e98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Vytvoření mnoha modelů Machine Learning a koncových bodů webové služby z jednoho experimentu pomocí prostředí PowerShell
 Zde problém je běžný, machine learning: Chcete vytvořit mnoho modely, které mají stejný pracovní postup školení a použít stejný algoritmus, ale mít jiný školení datové sady jako vstup. Tento článek ukazuje, jak to udělat ve velkém měřítku v Azure Machine Learning Studio pomocí právě jeden experimentu.
 
-Řekněme například, že vlastníte firma franšíza pronájem globální kolo. Budete chtít vytvořit regresní model k vyžádání pronájem na základě historických dat předpovědi. Máte 1000 pronájem umístění po celém světě a jste shromažďují datovou sadu pro každé umístění, která obsahuje důležité funkce, jako je například datum, čas, počasí a provoz, které jsou specifické pro každé umístění.
+Řekněme například, že vlastníte firma franšíza pronájem globální kolo. Budete chtít vytvořit regresní model k vyžádání pronájem na základě historických dat předpovědi. Máte 1000 pronájem umístění po celém světě. Jste shromažďují datovou sadu pro každé umístění, která obsahuje důležité funkce, jako je například datum, čas, počasí a provoz, které jsou specifické pro každé umístění.
 
-Může natrénování modelu jednou pomocí sloučené verzi všechny datové sady ve všech umístěních. Ale protože každé z vašich lokalit má jedinečné prostředí, je vhodnější by k natrénování modelu regrese samostatně pomocí datovou sadu pro každé umístění. Tímto způsobem, každý trained model může vzít v úvahu velikosti jiné úložiště, svazku, geography, plnění, kolo friendly provoz prostředí *atd*.
+Může natrénování modelu jednou pomocí sloučené verzi všechny datové sady ve všech umístěních. Ale protože každé z vašich lokalit má jedinečné prostředí, je vhodnější by k natrénování modelu regrese samostatně pomocí datovou sadu pro každé umístění. Tímto způsobem, každý trained model může vzít v úvahu velikosti jiné úložiště, svazek, geography, plnění, provoz kolo friendly prostředí a další.
 
-Který může být nejlepším přístupem, ale nechcete vytvořit 1000 experimenty školení v Azure Machine Learning s každé z nich představující jedinečné umístění. Kromě toho se čtenáře úloh, je také zdá se, že poměrně neefektivní vzhledem k tomu, že každý experiment by měla mít stejné komponenty s výjimkou školení datovou sadu.
+Který může být nejlepším přístupem, ale nechcete vytvořit 1000 experimenty školení v Azure Machine Learning s každé z nich představující jedinečné umístění. Kromě toho se čtenáře úloh, je také zdá se, že neefektivní vzhledem k tomu, že každý experiment by měla mít stejné komponenty s výjimkou školení datovou sadu.
 
-Naštěstí jsme se dá dosáhnout pomocí [Azure Machine Learning retraining API](retrain-models-programmatically.md) a automatizaci úloh s [Azure Machine Learning PowerShell](powershell-module.md).
+Naštěstí toho lze dosáhnout pomocí [Azure Machine Learning retraining API](retrain-models-programmatically.md) a automatizaci úloh s [Azure Machine Learning PowerShell](powershell-module.md).
 
 > [!NOTE]
-> Pokud chcete, aby naše ukázka rychleji probíhají rychleji, jsme budete snížit počet umístění z 1000 až 10. Ale stejné zásady a postupy platí pro 1 000 umístění. Jediným rozdílem je, pokud chcete cvičení z datových sad, 1 000 pravděpodobně chcete zamyslet nad paralelním spuštěním následujících skriptů prostředí PowerShell. Jak to provést, je nad rámec tohoto článku, ale můžete najít příklady prostředí PowerShell více vláken na Internetu.  
+> Chcete-li ukázky rychleji probíhají rychleji, snižte počet umístění z 1000 až 10. Ale stejné zásady a postupy platí pro 1 000 umístění. Jediným rozdílem je, pokud chcete cvičení z datových sad, 1 000 pravděpodobně chcete zamyslet nad paralelním spuštěním následujících skriptů prostředí PowerShell. Jak to provést, je nad rámec tohoto článku, ale můžete najít příklady prostředí PowerShell více vláken na Internetu.  
 > 
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Nastavit výukový experiment
-Vytvoříme použijte příklad [výukový experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) , jsme již jste vytvořili v [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Otevřete tento experiment v vaše [Azure Machine Learning Studio](https://studio.azureml.net) pracovního prostoru.
+Použijte tento příklad [výukový experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) který se v [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Otevřete tento experiment v vaše [Azure Machine Learning Studio](https://studio.azureml.net) pracovního prostoru.
 
 > [!NOTE]
-> Aby bylo možné postupovat podle spolu se v tomto příkladu, můžete použít standardní pracovní prostor než volného prostoru. Jsme budete vytváření jeden koncový bod pro každého zákazníka – celkem 10 koncové body – a vzhledem k tomu, že je omezený na 3 koncové body volného prostoru, bude vyžadovat standardní pracovní prostor. Pokud máte pouze volného prostoru, stačí upravte skripty umožňující jenom 3 umístění níže.
+> Aby bylo možné postupovat podle spolu se v tomto příkladu, můžete použít standardní pracovní prostor než volného prostoru. Můžete vytvořit jeden koncový bod pro každého zákazníka – celkem 10 koncové body – a který vyžaduje standardní prostoru vzhledem k tomu, že je omezený na 3 koncové body volného prostoru. Pokud máte pouze volného prostoru, změňte jenom skripty umožňující jenom 3 umístění.
 > 
 > 
 
-Experiment používá **Import dat** modulu k importu datovou sadu školení *customer001.csv* z účtu úložiště Azure. Předpokládejme, jsme shromážděných z všech kolo pronájem umístění datové sady školení a je uložen ve stejném umístění úložiště objektů blob s názvy souborů od *rentalloc001.csv* k *rentalloc10.csv*.
+Experiment používá **Import dat** modulu k importu datovou sadu školení *customer001.csv* z účtu úložiště Azure. Předpokládejme, jste neshromáždili datové sady školení ze všech kolo pronájem umístění a je uložen ve stejném umístění úložiště objektů blob s názvy souborů od *rentalloc001.csv* k *rentalloc10.csv*.
 
 ![Bitové kopie](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Všimněte si, že **výstup webové služby** modul byl přidán do **Train Model** modulu.
-Při nasazení tohoto experimentu jako webové služby, koncový bod přidružené že výstup vrátí trénovaného modelu ve formátu souboru .ilearner.
+Při nasazení tohoto experimentu jako webové služby, koncový bod přidružené, výstup ve formátu souboru .ilearner vrátí naučeného modelu.
 
-Také Upozorňujeme, že jsme nastavit parametr webové služby pro adresu URL, **importovat Data** používá modul. To umožňuje nám jednotlivých školení datové sady pro trénování modelu pro každé umístění zadejte pomocí parametru.
-Existují jiné způsoby jsme může to provedli, například pomocí příkazu jazyka SQL s parametrem webové služby se získat data z databáze SQL Azure nebo jednoduše pomocí **vstup webové služby** modulu v datové sadě předat webovou službu.
+Také Upozorňujeme, že nastavíte parametr webové služby pro adresu URL, **importovat Data** používá modul. Tímto způsobem lze jednotlivé školení datové sady pro trénování modelu pro každé umístění zadejte pomocí parametru.
+Existují další způsoby, může to uděláte. Dotaz SQL s parametrem webové služby můžete použít k získání dat z databáze SQL Azure, nebo použijte **vstup webové služby** modulu v datové sadě předat webovou službu.
 
 ![Bitové kopie](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
-Teď umožňuje spustit tento výukový experiment pomocí výchozí hodnota *rental001.csv* jako školení datovou sadu. Je-li zobrazit výstup **Evaluate** modulu (klikněte na výstup a vyberte **vizualizovat**), najdete v části se nám získat dostatečnou výkon *AUC* = 0.91. V tomto okamžiku je připraven k nasazení webové služby mimo tento výukový experiment.
+Teď umožňuje spustit tento výukový experiment pomocí výchozí hodnota *rental001.csv* jako školení datovou sadu. Je-li zobrazit výstup **Evaluate** modulu (klikněte na výstup a vyberte **vizualizovat**), zobrazí se vám dostatečnou výkon *AUC* = 0.91. V tomto okamžiku jste připravení nasadit webovou službu mimo tento výukový experiment.
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>Nasazení školení a vyhodnocování webové služby
 Chcete-li nasadit webovou službu školení, klikněte na tlačítko **nastavit webové služby** tlačítko níže na plátno experimentu a vyberte **nasazení webové služby**. Volání této webové služby "" kolo pronájem školení".
 
-Teď musíme nasazení vyhodnocování webové služby.
-K tomuto účelu můžete kliknete na **nastavit webové služby** níže na plátno a vyberte **webové služby prediktivní**. Tím se vytvoří vyhodnocování experimentu.
-Budeme potřebovat provádět několik menších úpravy, aby fungoval jako webovou službu, jako je například odebrání sloupce Popisek "cnt" ze vstupních dat a omezení výstup pouze id instance a odpovídající předpovědět hodnotu.
+Teď je potřeba nasadit webovou službu vyhodnocování.
+Chcete-li to provést, klikněte na tlačítko **nastavit webové služby** níže na plátno a vyberte **webové služby prediktivní**. Tím se vytvoří vyhodnocování experimentu.
+Budete muset provést pouze několik dílčí úpravy, aby fungoval jako webovou službu. Popisek sloupce "cnt" odebrání vstupních dat a omezit výstup pouze id instance a odpovídající předpovězené hodnoty.
 
 Sami práci uložit, můžete jednoduše otevřít [prediktivní experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) v galerii, který je již připravena.
 
 Pokud chcete nasadit webovou službu, spustit prediktivní experiment a pak klikněte na **nasazení webové služby** tlačítko níže na plátno. Název vyhodnocování webové služby "Kolo pronájem vyhodnocování" ".
 
 ## <a name="create-10-identical-web-service-endpoints-with-powershell"></a>Vytvoření 10 koncových bodů identické webové služby pomocí prostředí PowerShell
-Této webové služby se dodává s výchozí koncový bod. Ale ještě nejsme zajímat výchozí koncový bod vzhledem k tomu, že se nezdařila. Co je potřeba udělat je vytvoření 10 další koncové body, jeden pro každé umístění. Provedeme to pomocí prostředí PowerShell.
+Této webové služby se dodává s výchozí koncový bod. Ale nejste zajímat výchozí koncový bod, protože jej nelze aktualizovat. Co musíte udělat je vytvoření 10 další koncové body, jeden pro každé umístění. Můžete provést pomocí prostředí PowerShell.
 
-Nejprve nastavíme naše prostředí PowerShell:
+První můžete nastavit prostředí PowerShell:
 
     Import-Module .\AzureMLPS.dll
     # Assume the default configuration file exists and is properly set to point to the valid Workspace.
@@ -89,14 +89,14 @@ Potom spusťte následující příkaz Powershellu:
         Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
     }
 
-Nyní vytvořili jsme 10 koncových bodů a všechny obsahují stejné trénovaného modelu trénink na *customer001.csv*. Můžete je zobrazit na portálu správy Azure.
+Nyní jste vytvořili 10 koncových bodů a všechny obsahují stejné trénink na cvičení modelu *customer001.csv*. Můžete je zobrazit na portálu Azure.
 
 ![Bitové kopie](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Aktualizovat koncové body používat samostatný školení datové sady pomocí prostředí PowerShell
-Dalším krokem je aktualizovat koncové body s modely, které jednoznačně trénink na jednotlivé data každého zákazníka. Nejprve musíme vytvořit z těchto modelů, ale **kolo pronájem školení** webové služby. Přejděte zpět do **kolo pronájem školení** webové služby. Je potřeba volat svůj koncový bod BES 10krát s datovými sadami 10 různých školení Chcete-li vytvořit 10 odlišnými modely. Použijeme **InovkeAmlWebServiceBESEndpoint** rutiny prostředí PowerShell k tomu.
+Dalším krokem je aktualizovat koncové body s modely, které jednoznačně trénink na jednotlivé data každého zákazníka. Ale nejdřív je potřeba vytvořit tyto modely z **kolo pronájem školení** webové služby. Přejděte zpět do **kolo pronájem školení** webové služby. je třeba volat svůj koncový bod BES 10krát s 10 různých školení datové sady, chcete-li vytvořit 10 odlišnými modely. Použijeme **InovkeAmlWebServiceBESEndpoint** rutiny prostředí PowerShell k tomu.
 
-Budete taky muset zadat přihlašovací údaje pro účet úložiště objektů blob do `$configContent`, a to, v polích `AccountName`, `AccountKey` a `RelativeLocation`. `AccountName` Může být jedna z vaší názvy účtů, jak je vidět **portálu pro správu Azure Classic** (*úložiště* karta). Když kliknete na účet úložiště jeho `AccountKey` naleznete stisknutím **spravovat přístupové klíče** tlačítko dole a kopírování *primární přístupový klíč*. `RelativeLocation` Je relativní úložiště cestu, kde bude uložena nový model. Například cesta `hai/retrain/bike_rental/` ve skriptu níže odkazuje na kontejner s názvem `hai`, a `/retrain/bike_rental/` obsahuje podsložky. V současné době nelze vytvořit podsložky prostřednictvím portálu uživatelského rozhraní, ale existují [několik Průzkumníci úložiště Azure](../../storage/common/storage-explorers.md) které umožňují učinit. Doporučuje se vytvořit nový kontejner v úložišti pro uložení nové trénované modely (soubory .ilearner) následujícím způsobem: ze stránky úložiště, klikněte na **přidat** tlačítko dole a pojmenujte ji `retrain`. Souhrn potřebné změny, které níže uvedeném skriptu týkají `AccountName`, `AccountKey` a `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+Budete taky muset zadat přihlašovací údaje pro účet úložiště objektů blob do `$configContent`, a to, v polích `AccountName`, `AccountKey` a `RelativeLocation`. `AccountName` Může být jedna z vaší názvy účtů, jak je vidět **portál Azure** (*úložiště* karta). Když kliknete na účet úložiště jeho `AccountKey` naleznete stisknutím **spravovat přístupové klíče** tlačítko dole a kopírování *primární přístupový klíč*. `RelativeLocation` Je relativní úložiště cestu, kde bude uložena nový model. Například cesta `hai/retrain/bike_rental/` ve skriptu níže odkazuje na kontejner s názvem `hai`, a `/retrain/bike_rental/` obsahuje podsložky. V současné době nelze vytvořit podsložky prostřednictvím portálu uživatelského rozhraní, ale existují [několik Průzkumníci úložiště Azure](../../storage/common/storage-explorers.md) které umožňují učinit. Doporučuje se vytvořit nový kontejner v úložišti pro uložení nové trénované modely (soubory .ilearner) následujícím způsobem: ze stránky úložiště, klikněte na **přidat** tlačítko dole a pojmenujte ji `retrain`. Souhrn potřebné změny, které níže uvedeném skriptu týkají `AccountName`, `AccountKey` a `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service
@@ -116,9 +116,9 @@ Budete taky muset zadat přihlašovací údaje pro účet úložiště objektů 
 > 
 > 
 
-Jak je uvedeno výše, namísto vytváření 10 různých BES úlohy konfigurace soubory json, jsme dynamicky místo toho vytvořte konfigurační řetězec a kanál, aby *jobConfigString* parametr  **InvokeAmlWebServceBESEndpoint** rutiny, protože je ve skutečnosti není potřeba zachovat kopii na disku.
+Jak je uvedeno výše, namísto vytváření 10 různých BES úlohy konfigurace soubory json, dynamicky místo toho vytvoříte konfigurační řetězec a kanál, aby *jobConfigString* parametr  **InvokeAmlWebServceBESEndpoint** rutiny, protože je ve skutečnosti není potřeba zachovat kopii na disku.
 
-Pokud všechno proběhne správně, po chvíli se měl zobrazit 10 .ilearner souborů z *model001.ilearner* k *model010.ilearner*, v účtu úložiště Azure. Nyní je vše připraveno k aktualizaci naše 10 vyhodnocování koncových bodů webové služby pomocí těchto modelů pomocí **oprava AmlWebServiceEndpoint** rutiny prostředí PowerShell. Znovu si pamatujte, že jsme pouze oprava jiné než výchozí koncové body, které jsme prostřednictvím kódu programu vytvořili předtím.
+Pokud všechno proběhne správně, po chvíli se měl zobrazit 10 .ilearner souborů z *model001.ilearner* k *model010.ilearner*, v účtu úložiště Azure. Nyní je vše připraveno k aktualizaci naše 10 vyhodnocování koncových bodů webové služby pomocí těchto modelů pomocí **oprava AmlWebServiceEndpoint** rutiny prostředí PowerShell. Znovu si pamatujte, že můžete pouze oprava jiné než výchozí koncové body prostřednictvím kódu programu dříve vytvořené.
 
     # Patch the 10 endpoints with respective .ilearner models
     $baseLoc = 'http://bostonmtc.blob.core.windows.net/'

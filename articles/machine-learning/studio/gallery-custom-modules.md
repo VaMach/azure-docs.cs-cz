@@ -1,6 +1,6 @@
 ---
-title: "Vlastní moduly Cortana Intelligence Gallery | Microsoft Docs"
-description: "Zjistit vlastní machine learning modulů v Cortana Intelligence Gallery."
+title: "Vlastní moduly Azure AI Galerie | Microsoft Docs"
+description: "Zjistit moduly vlastní machine learning v Azure AI Gallery."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 4bab94c04f09261eaa88b9e6a225c05f57992ab0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 278a24c44b76e6df097355b91d94a146be4aa9a9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>Zjištění modulů vlastní machine learning v Cortana Intelligence Gallery
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Zjistit moduly vlastní machine learning v Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Vlastní moduly pro Machine Learning Studio
-Cortana Intelligence Gallery nabízí několik [vlastní moduly](https://gallery.cortanaintelligence.com/customModules) , rozšířit možnosti Azure Machine Learning Studio. Můžete naimportovat moduly pro použití v experimentů, takže můžete vyvíjet i pokročilejší řešení prediktivní analýzy.
+Galerie Azure AI nabízí několik [vlastní moduly](https://gallery.cortanaintelligence.com/customModules) , rozšířit možnosti Azure Machine Learning Studio. Můžete naimportovat moduly pro použití v experimentů, takže můžete vyvíjet i pokročilejší řešení prediktivní analýzy.
 
 V současné době Galerie nabízí modulů na *časové řady analytics*, *přidružení pravidla*, *clustering algoritmy* (kromě k-means), a  *vizualizace*a dalších modulů nástroj centrem.
 
@@ -34,7 +34,7 @@ Chcete-li procházet vlastní moduly [v galerii](http://gallery.cortanaintellige
 
 ![Vyberte vlastní moduly na domovské stránce Galerie](./media/gallery-custom-modules/select-custom-modules-in-gallery.png)
 
-**[Vlastní moduly](https://gallery.cortanaintelligence.com/customModules)**  stránky zobrazí seznam nedávno přidané a Oblíbené moduly. Chcete-li zobrazit všechny vlastní moduly, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní vlastní modul, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
+ **[Vlastní moduly](https://gallery.cortanaintelligence.com/customModules)**  stránky zobrazí seznam nedávno přidané a Oblíbené moduly. Chcete-li zobrazit všechny vlastní moduly, vyberte **zobrazit všechny** tlačítko. Chcete-li vyhledat konkrétní vlastní modul, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
 
 ![Vyberte možnost "najdete všechny" procházet všechny vlastní moduly](./media/gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 
@@ -52,7 +52,7 @@ Na stránce Podrobnosti, vlastní modul **komentáře** části, můžete koment
 ## <a name="import"></a>Import
 Všechny vlastní modul z galerie můžete importovat do vlastní experimenty.
 
-Cortana Intelligence Gallery nabízí dva způsoby, jak importovat kopii modul:
+Galerie AI Azure nabízí dva způsoby, jak importovat kopii modul:
 
 * **Z Galerie**. Když importujete vlastní modul z galerie, získáte také ukázkový experiment, která poskytuje příklad toho, jak použít modul.
 * **V nástroji strojového učení Studio**. Při práci v nástroji Machine Learning Studio můžete importovat všechny vlastní modul (v tomto případě neobdržíte ukázkový experiment).

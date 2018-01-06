@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 12/04/2017
+ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Omezení v Azure databázi PostgreSQL
 Databáze Azure pro PostgreSQL služby je ve verzi public preview. Následující části popisují kapacitu a funkční omezení ve službě databáze.
@@ -27,12 +27,12 @@ Je maximální počet připojení, výpočetní jednotky a úložiště v jednot
 | | |
 | :------------------------- | :---------------- |
 | **Maximální počet připojení**        |                   |
-| Základní 50 výpočetní jednotky     | 50 připojení    |
-| Základní 100 výpočetní jednotky    | připojení 100   |
-| Standardní 100 výpočetní jednotky | 200 připojení   |
-| Standardní 200 výpočetní jednotky | 300 připojení   |
-| Standardní 400 výpočetní jednotky | 400 připojení   |
-| Standardní 800 výpočetní jednotky | připojení 500   |
+| Základní 50 výpočetní jednotky     | 55 připojení    |
+| Základní 100 výpočetní jednotky    | 105 připojení   |
+| Standardní 100 výpočetní jednotky | 150 připojení   |
+| Standardní 200 výpočetní jednotky | 250 připojení   |
+| Standardní 400 výpočetní jednotky | 480 připojení   |
+| Standardní 800 výpočetní jednotky | 950 připojení   |
 | **Maximální počet výpočetní jednotky**      |                   |
 | Úroveň služeb Basic         | 100 výpočetní jednotky |
 | Úroveň služeb Standard      | 800 výpočetní jednotky |
@@ -40,8 +40,9 @@ Je maximální počet připojení, výpočetní jednotky a úložiště v jednot
 | Úroveň služeb Basic         | 1 TB              |
 | Úroveň služeb Standard      | 1 TB              |
 
-Když se dosáhne příliš mnoha připojení, může se zobrazit chybová zpráva:
+Azure systém vyžaduje pět připojení k Azure databáze PostgreSQL serveru. Když se dosáhne příliš mnoha připojení, může se zobrazit chybová zpráva:
 > Závažná chyba: bohužel již příliš mnoho klientů
+
 
 ## <a name="preview-functional-limitations"></a>Funkční omezení verze Preview
 ### <a name="scale-operations"></a>Operace škálování
@@ -59,7 +60,7 @@ Když se dosáhne příliš mnoha připojení, může se zobrazit chybová zprá
 1.  Obnovení na jinou službu vrstvy nebo výpočetní jednotky a velikost úložiště není povoleno.
 2.  Obnovení vynechaných server není podporováno.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - Pochopení [co je k dispozici v jednotlivých cenových úrovní](concepts-service-tiers.md)
 - Pochopení [podporované verze databáze PostgreSQL](concepts-supported-versions.md)
 - Zkontrolujte [postup zálohování a obnovení serveru v databázi Azure pro PostgreSQL pomocí portálu Azure](howto-restore-server-portal.md)

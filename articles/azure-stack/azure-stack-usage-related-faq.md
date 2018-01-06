@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/05/2018
 ms.author: alfredop
-ms.openlocfilehash: 5008c2a7764a17a937c8ab2025ac430f05b780cf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9ec0b0456a0e7bc5f86f33981d4be6289f5fbc71
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Nejčastější dotazy v zásobníku Azure využití rozhraní API
 Tento článek obsahuje odpovědi na některé nejčastější dotazy týkající se rozhraní API služby Azure zásobníku využití.
@@ -31,23 +31,23 @@ Využití je uvedená pro následující zprostředkovatele prostředků.
 | **Síť** |F271A8A388C44D93956A063E1D2FA80B |Použití statických IP adres |IP adresy| Počet IP adres používat |
 | |9E2739BA86744796B465F64674B822BA |Použití dynamických IP adres |IP adresy| Počet IP adres používat |
 | **Úložiště** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*hodin |Celková kapacita spotřebovávají tabulky |
-| | B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*hodin |Celková kapacita spotřebovávají objekty BLOB stránky |
-| | B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*hodin |Celková kapacita spotřebovávají fronty |
-| | 09F8879E-87E9-4305-A572-4B7BE209F857 |BlockBlobCapacity |GB\*hodin |Celková kapacita spotřebovávají objekty BLOB bloku |
-| | B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90 |TableTransactions |Počet požadavků v 10,000s |Tabulka žádosti o služby (v 10,000s) |
-| | 50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D |TableDataTransIn |Příchozí přenos dat v GB |Příchozí data služby Table v GB |
-| | 1B8C1DEC-EE42-414B-AA36-6229CF199370 |TableDataTransOut |Odchozí v GB |Odchozí data služby Table v GB |
-| | 43DAF82B-4618-444A-B994-40C23F7CD438 |BlobTransactions |Počet požadavků za 10,000s |Žádosti o služby objektů BLOB (v 10,000s) |
-| | 9764F92C-E44A-498E-8DC1-AAD66587A810 |BlobDataTransIn |Příchozí přenos dat v GB |Příchozí data služby objektů BLOB v GB |
-| | 3023FEF4-ECA5-4D7B-87B3-CFBC061931E8 |BlobDataTransOut |Odchozí v GB |Odchozí data služby objektů BLOB v GB |
-| | EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Počet požadavků za 10,000s |Žádosti o služby fronty (v 10,000s) |
-| | E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Příchozí přenos dat v GB |Příchozí data služby fronty v GB |
-| | DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Odchozí v GB |Odchozí data fronty služby v GB |
+| |B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*hodin |Celková kapacita spotřebovávají objekty BLOB stránky |
+| |B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*hodin |Celková kapacita spotřebovávají fronty |
+| |09F8879E-87E9-4305-A572-4B7BE209F857 |BlockBlobCapacity |GB\*hodin |Celková kapacita spotřebovávají objekty BLOB bloku |
+| |B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90 |TableTransactions |Počet požadavku v 10 000's |Tabulka žádosti o služby (v 10, 000's) |
+| |50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D |TableDataTransIn |Příchozí přenos dat v GB |Příchozí data služby Table v GB |
+| |1B8C1DEC-EE42-414B-AA36-6229CF199370 |TableDataTransOut |Odchozí v GB |Odchozí data služby Table v GB |
+| |43DAF82B-4618-444A-B994-40C23F7CD438 |BlobTransactions |Počet požadavků za 10 000's |Žádosti o služby objektů BLOB (v 10, 000's) |
+| |9764F92C-E44A-498E-8DC1-AAD66587A810 |BlobDataTransIn |Příchozí přenos dat v GB |Příchozí data služby objektů BLOB v GB |
+| |3023FEF4-ECA5-4D7B-87B3-CFBC061931E8 |BlobDataTransOut |Odchozí v GB |Odchozí data služby objektů BLOB v GB |
+| |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Počet požadavků za 10 000's |Fronty žádostí o služby (v 10, 000's) |
+| |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Příchozí přenos dat v GB |Příchozí data služby fronty v GB |
+| |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Odchozí v GB |Odchozí data fronty služby v GB |
 | **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Základní virtuální počítač velikost hodiny |Virtuální základní minut | Počet jader virtuální krát minut, po které byl virtuální počítač spuštěn |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Velikost virtuálního počítače s Windows – hodiny |Virtuální základní minut | Počet jader virtuální krát minut, po které byl virtuální počítač spuštěn |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |Virtuální počítač velikost hodiny |Virtuální počítač hodiny |Zaznamená základní a systému Windows virtuálního počítače. Se neupraví jader |
-| **Key Vault** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Transakce Key Vault | Počet požadavků v 10,000s| Počet přijatých Key Vault datové roviny požadavky REST API |
-
+| **Key Vault** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Transakce Key Vault | Počet požadavku v 10 000's| Počet přijatých Key Vault datové roviny požadavky REST API |
+| **Aplikační služby** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | App Service   | Virtuální základní hodiny  | Počet virtuálních jader používá ke spouštění služby app service |
 
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Jak Azure zásobníku využití rozhraní API porovnání [rozhraní API pro Azure využití](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (momentálně ve verzi public preview)?
 * Rozhraní API klienta využití je konzistentní s Azure API, s jednou výjimkou: *showDetails* příznak aktuálně není podporována v zásobníku Azure.

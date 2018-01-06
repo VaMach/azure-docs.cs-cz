@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>Výpočty hodnocení
 
@@ -47,10 +47,11 @@ Počítače, které chcete migrovat do Azure, musí splňovat požadavky pro Azu
 
 Po počítač je označena jako vhodný pro Azure, Azure migrace se mapuje na velikost virtuálního počítače v Azure, pomocí následujících kritérií:
 
-- **Kontrola úložiště**: Azure migrovat pokusí namapovat všechny disky připojené k počítači na disk v Azure:-migrovat Azure násobí Multi-Factor pohodlí vstupně-výstupních operací za sekundu (IOPS). Je také násobky propustnost (v MB/s) každý disk faktorem pohodlí. To poskytuje účinného IOPS a propustnost disku. Na základě Azure migrovat mapuje disk standard nebo premium disk v Azure.
-    - Pokud služba nemůže najít disk s požadované IOPS & propustnost, označí počítač jako není vhodný pro Azure.
-    - Pokud najde sadu vhodné disky, Azure migrace vybere ty, které podporují metodu redundance úložiště a k umístění zadanému v nastavení hodnocení.
-    - Pokud existují oprávněné víc disků, vybere jeden s nejnižší náklady.
+- **Kontrola úložiště**: migrace Azure pokusí namapovat všechny disky připojené k počítači na disk v Azure:
+    - Azure migrací vynásobí vstupně-výstupních operací za sekundu (IOPS) na faktor pohodlí. Je také násobky propustnost (v MB/s) každý disk faktorem pohodlí. To poskytuje účinného IOPS a propustnost disku. Na základě Azure migrovat mapuje disk standard nebo premium disk v Azure.
+      - Pokud služba nemůže najít disk s požadované IOPS & propustnost, označí počítač jako není vhodný pro Azure.
+      - Pokud najde sadu vhodné disky, Azure migrace vybere ty, které podporují metodu redundance úložiště a k umístění zadanému v nastavení hodnocení.
+      - Pokud existují oprávněné víc disků, vybere jeden s nejnižší náklady.
 - **Propustnost disku úložiště**: [Další](../azure-subscription-service-limits.md#storage-limits) o Azure omezuje na disk a virtuální počítač.
 - **Typ disku**: migrace Azure podporuje pouze spravované disky.
 - **Sítě zkontrolujte**: migrace Azure se pokusí najít virtuálního počítače Azure, který může podporovat počet síťových adaptérů na místním počítači.
@@ -73,6 +74,6 @@ Po dokončení nastavení velikosti doporučení se migrovat Azure vypočítá n
 Náklady jsou zobrazeny v měny v nastavení hodnocení. 
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 [Nastavit hodnocení pro virtuální počítače VMware na místě](tutorial-assessment-vmware.md)

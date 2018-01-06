@@ -16,13 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: bd163e4168c844acab8d50c234115abf8ae874cf
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 908d81c363a556917d211e0bcc92188f849fb690
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Vytvořit virtuální počítač s Linuxem pomocí Accelerated sítě
+
+> [!IMPORTANT] 
+> Virtuální počítače musí být vytvořeny pomocí Accelerated sítě povolené. Tato funkce nelze povolit na existujících virtuálních počítačů. Provedením následujících kroků a povolit Accelerated sítě:
+>   1. Odstranění virtuálního počítače.
+>   2. Znovu vytvořte virtuální počítač pomocí Accelerated sítě povolené.
+>
 
 V tomto kurzu zjistěte, jak vytvořit virtuální počítač (VM) s Linuxem pomocí Accelerated sítě. Zrychlený sítě umožňuje jeden kořenový vstupně-výstupních operací virtualizace (SR-IOV) na virtuální počítače, výrazně zlepšit sítě. Tato cesta vysoce výkonné obchází hostitel datapath, snižuje latence, zpoždění a využití procesoru pro použití s nejnáročnější zatížení sítě v podporované typy virtuálních počítačů. Následující obrázek znázorňuje komunikaci mezi dva virtuální počítače a bez Zrychlený sítě:
 

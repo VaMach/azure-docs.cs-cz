@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 414c985d21112d658b6e22473f67ed1c3afd00ef
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 1d2b681660ae6f59dec8a287baa853085c64ebeb
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizaci úloh správy ve virtuálních počítačích Azure s rozšíření agenta systému SQL Server (Resource Manager)
 > [!div class="op_single_selector"]
@@ -72,6 +71,9 @@ Rozšíření agenta systému SQL Server IaaS se automaticky nainstaluje při z�
 Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
 ```
 
+> [!IMPORTANT]
+> Pokud ještě není nainstalovaná rozšíření, instalaci rozšíření restartuje službu SQL Server.
+
 Také je možné nainstalovat IaaS agenta rozšíření systému SQL Server na virtuálním počítači jen operačního systému Windows Server. Je podporováno pouze pokud jste nainstalovali také ručně SQL Server na tomto počítači. Pak nainstalujte ručně pomocí stejné rozšíření **Set-AzureVMSqlServerExtension** rutiny prostředí PowerShell.
 
 > [!NOTE]
@@ -101,7 +103,7 @@ Můžete také **odebrat AzureRmVMSqlServerExtension** rutiny prostředí PowerS
 
     Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension"
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Začněte pomocí jedné ze služeb, podporuje rozšíření. Další podrobnosti najdete v článcích v odkazuje [podporované služby](#supported-services) tohoto článku.
 
 Další informace o spuštění systému SQL Server na virtuálních počítačích Azure najdete v tématu [SQL Server na virtuálních počítačích Azure přehled](virtual-machines-windows-sql-server-iaas-overview.md).

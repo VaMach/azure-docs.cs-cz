@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: ad7bc8bb65a3395599a4de9a9954ff203fa624c6
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: d10026b4f04ab77accf7d089e98270c4c769b636
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces Team dat. vědecké účely v akci: použití Azure HDInsight Hadoop clusterů
-V tomto návodu použijeme [tým datové vědy procesu (TDSP)](overview.md) začátku do konce scénář pomocí [clusteru Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) k uložení, prozkoumejte a funkci pracovníka data z veřejně k dispozici [NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/) datové sady a dolů ukázková data. Modely dat jsou integrované s Azure Machine Learning pro zpracování více třídami a binární klasifikace a regrese prediktivní úlohy.
+V tomto návodu použijeme [tým datové vědy procesu (TDSP)](overview.md) ve scénáři s začátku do konce. Používáme [clusteru Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) k uložení prozkoumat a funkce analýzu dat z veřejně dostupné [NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/) datové sady a dolů – ukázková data. Modely dat jsou integrované s Azure Machine Learning pro zpracování více třídami a binární klasifikace a regrese prediktivní úlohy.
 
 Návod, který ukazuje způsob zpracování větší datovou sadu (1 terabajt) pro podobné scénáře pomocí clusterů HDInsight Hadoop pro zpracování dat najdete v tématu [Team Data vědecké účely proces – pomocí Azure HDInsight Hadoop clusterů v datové sadě 1 TB](hive-criteo-walkthrough.md) .
 
 Je také možné použít IPython poznámkového bloku k provádění úloh uvedené návod použití datové sady 1 TB. Uživatelé, kteří by chtěli opakujte tento postup by se měli obrátit [Criteo návod pomocí připojení Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) tématu.
 
 ## <a name="dataset"></a>Popis NYC taxíkem služebních cest datové sady
-Data NYC taxíkem cesty je přibližně 20GB komprimované hodnot oddělených čárkami (CSV) souborů (nekomprimovaným ~ 48GB), skládající se z více než 173 milionů jednotlivých cest a tarify placené pro každou cestu. Každý záznam cestě zahrnuje číslo licence vyzvednutí a odkládací umístění a čas, anonymizovaná hackerský (ovladač) a číslo Medailon (taxi na jedinečné id). Data obsahuje všechny služebních cest v roku 2013 a je dostupné pro každý měsíc následující dvě datové sady:
+Data NYC taxíkem cesty je přibližně 20GB komprimované hodnot oddělených čárkami (CSV) souborů (nekomprimovaným ~ 48GB). Obsahuje více než 173 milionů jednotlivých cest a tarify placené pro každou cestu. Každý záznam cestě zahrnuje číslo licence vyzvednutí a odkládací umístění a čas, anonymizovaná hackerský (ovladač) a číslo Medailon (taxi na jedinečné id). Data obsahuje všechny služebních cest v roku 2013 a je dostupné pro každý měsíc následující dvě datové sady:
 
-1. CSV soubory 'trip_data' obsahují podrobnosti o cestě, například na počtu cestujících, vyzvednutí a dropoff body, doba trvání cesty a délka cesty. Tady je několik ukázkových záznamů:
+1. CSV soubory 'trip_data' obsahují podrobnosti o cestě. To zahrnuje počet cestujících, vyzvednutí a dropoff body, doba trvání cesty a délka cesty. Tady je několik ukázkových záznamů:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -38,7 +38,7 @@ Data NYC taxíkem cesty je přibližně 20GB komprimované hodnot oddělených �
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-2. CSV soubory 'trip_fare' obsahují podrobnosti o tarif placené pro každou cestu, například typ platby, velikost tarif, příplatek a daně, tipy a mýtné a celkovou velikost placené. Tady je několik ukázkových záznamů:
+2. CSV soubory 'trip_fare' obsahují podrobnosti o tarif placené pro každou cestu. To zahrnuje typ platby, velikost tarif, příplatek a daně, tipy a mýtné a placené celkovou velikost. Tady je několik ukázkových záznamů:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -57,7 +57,7 @@ Jsme popisují některé další podrobnosti dat, když jsme jejich uložení do
 Když blíží data, určení druh předpovědi, které chcete, aby na základě jeho analýzy pomáhá vysvětlení úloh, které je potřeba zahrnout do procesu.
 Tady jsou tři příklady předpovědi problémy, které jsme adresy v tomto návodu, jejichž formulování je založena na *tip\_velikost*:
 
-1. **Binární klasifikace**: předpovědět, zda byl tip placené cesty, tj. *tip\_velikost* větší než $0 je pozitivní příklad, při *tip\_velikost* $ 0 je záporný příklad.
+1. **Binární klasifikace**: předpovědět, zda byl pro cesty placené tip. To znamená *tip\_velikost* , je větší než $0 je pozitivní příklad, při *tip\_velikost* $ 0 je záporný příklad.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
@@ -91,9 +91,9 @@ Můžete nastavit prostředí Azure pro pokročilou analýzu využívajícího c
 > 
 > 
 
-Chcete-li získat [NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/) datové sady z veřejného umístění, můžete použít některou z metod popsaných v [přesun dat do a z Azure Blob Storage](move-azure-blob.md) kopírovat data do vašeho počítače.
+Kopírování [NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/) datové sady do počítače z veřejného umístění, můžete použít některou z metod popsaných v [přesun dat do a z Azure Blob Storage](move-azure-blob.md).
 
-Zde jsme popisují, jak pomocí nástroje AzCopy pro přenos souborů, který obsahuje data. Stáhněte a nainstalujte AzCopy postupujte podle pokynů v [Začínáme pomocí příkazového řádku Azcopy](../../storage/common/storage-use-azcopy.md).
+Zde jsme popisují, jak pomocí nástroje AzCopy pro přenos souborů, který obsahuje data. Chcete-li stáhnout a nainstalovat AzCopy, postupujte podle pokynů v [Začínáme pomocí příkazového řádku Azcopy](../../storage/common/storage-use-azcopy.md).
 
 1. Z okna příkazového řádku, vydávání následující příkazy AzCopy nahrazení *< path_to_data_folder >* s požadované cílové umístění:
 
@@ -109,7 +109,7 @@ Zde jsme popisují, jak pomocí nástroje AzCopy pro přenos souborů, který ob
 
 V následujících příkazech AzCopy, nahraďte následující parametry skutečné hodnoty, které jste zadali při vytváření clusteru Hadoop a rozbalení datové soubory.
 
-* ***& č. 60; path_to_data_folder >*** adresáři (spolu s cesta) na počítači, které obsahují rozbalené datové soubory  
+* ***& č. 60; path_to_data_folder >*** adresáře (spolu s cesta) na váš počítač, který obsahuje soubory rozbalené dat  
 * ***& č. 60; název účtu úložiště clusteru Hadoop >*** účtu úložiště přidruženého k vašemu clusteru HDInsight
 * ***& č. 60; výchozí kontejner clusteru Hadoop >*** výchozí kontejner používá váš cluster. Všimněte si, zda je název kontejneru výchozí obvykle stejný název jako samotného clusteru. Například pokud clusteru se nazývá "abc123.azurehdinsight.net", je výchozí kontejner abc123.
 * ***& č. 60; klíč účtu úložiště >*** klíč pro účet úložiště používá váš cluster
@@ -126,15 +126,15 @@ Tento příkaz odešle data tarif ***nyctaxifareraw*** adresář ve výchozím k
 
 Data by teď ve službě Azure Blob Storage a připravené k využívat v rámci clusteru HDInsight.
 
-## <a name="#download-hql-files"></a>Přihlaste se k hlavnímu uzlu clusteru Hadoop a a připravit pro analýzu nahodilého dat
+## <a name="#download-hql-files"></a>Přihlaste se k hlavnímu uzlu clusteru Hadoop a příprava pro analýzu nahodilého dat
 > [!NOTE]
 > Obvykle se jedná **správce** úloh.
 > 
 > 
 
-Pro přístup k hlavnímu uzlu clusteru pro analýzu nahodilého dat a dolů vzorkování dat, postupujte podle pokynů uvedených v [přístup hlavního uzlu Hadoop clusteru](customize-hadoop-cluster.md).
+Pro přístup k hlavnímu uzlu clusteru pro analýzu nahodilého dat a nižší vzorkování dat, postupujte podle pokynů uvedených v [přístup hlavního uzlu Hadoop clusteru](customize-hadoop-cluster.md).
 
-V tomto návodu budeme používat hlavně dotazy, které jsou napsané v [Hive](https://hive.apache.org/), jako SQL dotazovací jazyk, k provedení explorations předběžné data. Dotazy Hive jsou uložené v souborech .hql. Jsme pak dolů ukázkové tato data, která má být použit v rámci Azure Machine Learning pro vytváření modelů.
+V tomto návodu budeme používat hlavně dotazy, které jsou napsané v [Hive](https://hive.apache.org/), jako SQL dotazovací jazyk, k provedení explorations předběžné data. Dotazy Hive jsou uložené v souborech .hql. Jsme pak nižší – ukázka tato data, která má být použit v rámci Azure Machine Learning pro vytváření modelů.
 
 Příprava clusteru pro analýzu nahodilého dat, můžeme stáhnout soubory .hql obsahuje relevantní skripty Hive z [githubu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) do místního adresáře (C:\temp) z hlavního uzlu. Chcete-li to provést, otevřete **příkazového řádku** z v rámci hlavního uzlu clusteru a vydejte následující dva příkazy:
 
@@ -142,7 +142,7 @@ Příprava clusteru pro analýzu nahodilého dat, můžeme stáhnout soubory .hq
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Tyto dva příkazy stáhne všechny soubory .hql potřebné v tomto návodu k místnímu adresáři ***C:\temp &#92;*** v hlavního uzlu.
+Tyto dva příkazy stáhnout všechny soubory .hql potřebné v tomto návodu k místnímu adresáři ***C:\temp &#92;*** v hlavního uzlu.
 
 ## <a name="#hive-db-tables"></a>Vytvoření databáze Hive a tabulky rozdělena na oddíly po měsících
 > [!NOTE]
@@ -150,7 +150,7 @@ Tyto dva příkazy stáhne všechny soubory .hql potřebné v tomto návodu k m�
 > 
 > 
 
-Nyní jsme připraveni k vytváření tabulek Hive pro naší datové sadě taxíkem NYC.
+Nyní jsme připraveni k vytváření tabulek Hive pro datovou sadu taxíkem NYC.
 V hlavního uzlu clusteru Hadoop, otevřete ***Hadoop příkazového řádku*** na ploše hlavního uzlu a zadejte adresář Hive zadáním příkazu
 
     cd %hive_home%\bin
@@ -164,7 +164,7 @@ Z adresáře řádku Hive zadejte následující příkaz v Hadoop příkazový 
 
     hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-Tady je obsah ***C:\temp\sample\_hive\_vytvořit\_db\_a\_tables.hql*** souboru, který vytvoří databázi Hive ***nyctaxidb*** a tabulky ***cestě*** a ***tarif***.
+Tady je obsah ***C:\temp\sample\_hive\_vytvořit\_db\_a\_tables.hql*** soubor, který vytvoří databázi Hive ***nyctaxidb*** a tabulky ***cestě*** a ***tarif***.
 
     create database if not exists nyctaxidb;
 
@@ -208,9 +208,9 @@ Tady je obsah ***C:\temp\sample\_hive\_vytvořit\_db\_a\_tables.hql*** souboru, 
 Tento skript Hive vytvoří dvě tabulky:
 
 * "cesty" tabulka obsahuje podrobnosti o cestě každý pravé (podrobnosti o ovladači, výstupní čas, vzdálenost cesty a časy)
-* "tarif" tabulka obsahuje podrobnosti o tarif (tarif částka tip, mýtné a příplatky).
+* "tarif" tabulka obsahuje podrobnosti o tarif (tarif množství, množství tip, mýtné a příplatky).
 
-Pokud potřebujete žádné další pomoc s tyto postupy nebo chcete prozkoumat alternativní těch, najdete v části [dotazů odeslání Hive přímo z Hadoop příkazového řádku ](move-hive-tables.md#submit).
+Pokud potřebujete žádné další pomoc s tyto postupy nebo chcete prozkoumat alternativní těch, najdete v části [dotazů odeslání Hive přímo z Hadoop příkazového řádku](move-hive-tables.md#submit).
 
 ## <a name="#load-data"></a>Načtení dat do tabulek Hive podle oddílů
 > [!NOTE]
@@ -218,11 +218,11 @@ Pokud potřebujete žádné další pomoc s tyto postupy nebo chcete prozkoumat 
 > 
 > 
 
-Datová sada taxíkem NYC má přirozené dělení po měsících, které jsou používány za účelem povolení rychlejší zpracování a dotazů. Dole uvedené příkazy Powershellu (vystavené Hive directory pomocí **Hadoop příkazového řádku**) načíst data do tabulek Hive "cesty" a "tarif" rozdělena na oddíly po měsících.
+Datová sada taxíkem NYC má přirozené dělení po měsících, které jsou používány za účelem povolení rychlejší zpracování a dotazů. Následující příkazy prostředí PowerShell (vystavené Hive directory pomocí **Hadoop příkazového řádku**) načíst data do tabulek Hive "cesty" a "tarif" rozdělena na oddíly po měsících.
 
     for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-*Ukázka\_hive\_načíst\_data\_podle\_partitions.hql* soubor obsahuje následující **NAČÍST** příkazy.
+*Ukázka\_hive\_načíst\_data\_podle\_partitions.hql* soubor obsahuje následující **NAČÍST** příkazy:
 
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
@@ -309,7 +309,7 @@ Pokud chcete získat "tarif" top 10 záznamy v tabulce z první měsíc:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
 
-Je často užitečné záznamy uložíte do souboru pro pohodlný zobrazení. Malé změny na výše uvedeném dotazu toho dosahuje:
+Je často užitečné záznamy uložíte do souboru pro pohodlný zobrazení. Malé změny do předchozího dotazu toho dosahuje:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
@@ -319,7 +319,7 @@ Je často užitečné záznamy uložíte do souboru pro pohodlný zobrazení. Ma
 > 
 > 
 
-Týkající se pokynů počet cest se liší v kalendářním roce. Seskupení podle měsíce umožňuje zobrazit, jak vypadá této distribuce služebních cest.
+Zájmu je, jak se liší počet cest v kalendářním roce. Seskupení podle měsíce umožňuje zobrazit, jak vypadá této distribuce služebních cest.
 
     hive -e "select month, count(*) from nyctaxidb.trip group by month;"
 
@@ -341,7 +341,7 @@ To nám dává výstup:
 
 Zde je první sloupec v měsíci a druhá počet cest pro daný měsíc.
 
-Celkový počet záznamů jsme také můžete počítat v naší datové sadě cestě po vydání následujícího příkazu příkazového řádku adresář Hive.
+Můžeme také můžete počet celkový počet záznamů v naší datové sadě cestě po vydání následujícího příkazu příkazového řádku adresář Hive:
 
     hive -e "select count(*) from nyctaxidb.trip;"
 
@@ -372,7 +372,7 @@ To nám dává výstup:
 
 Všimněte si, že pro obě sady dat se vrátí přesně stejný počet služebních cest za měsíc. To poskytuje první ověření správně načíst data.
 
-Počítání celkový počet záznamů v sadě dat tarif lze provést pomocí příkazu z příkazového řádku adresář Hive níže:
+Počítání celkový počet záznamů v sadě dat tarif lze provést pomocí následujícího příkazu z příkazového řádku adresář Hive:
 
     hive -e "select count(*) from nyctaxidb.fare;"
 
@@ -423,9 +423,9 @@ Na řádku adresář Hive vydejte následující příkaz:
 > 
 > 
 
-Při prohlížení datové sady, často chceme Zkontrolujte počet výskytů co skupin hodnot. Tato část uveďte příklad toho, jak to udělat pro soubory CAB a ovladače.
+Při prohlížení datové sady, často chceme Zkontrolujte počet výskytů co skupin hodnot. Tato část poskytuje příklad toho, jak to udělat pro soubory CAB a ovladače.
 
-*Ukázka\_hive\_cestě\_počet\_podle\_Medailon\_license.hql* skupin souborů tarif datové sady na "Medailon" a "hack_license" a Vrátí počet každé kombinaci. Níže jsou jeho obsah.
+*Ukázka\_hive\_cestě\_počet\_podle\_Medailon\_license.hql* skupin souborů tarif datové sady na "Medailon" a "hack_license" a Vrátí počet každé kombinaci. Zde je její obsah:
 
     SELECT medallion, hack_license, COUNT(*) as trip_count
     FROM nyctaxidb.fare
@@ -448,7 +448,7 @@ Výsledky dotazu jsou zapisovány do místního souboru C:\temp\queryoutput.tsv.
 > 
 > 
 
-Běžné cílem analýzy nahodilého dat je odstraňování plevele se neplatný nebo chybných záznamů. Příklad v této části určuje, zda buď zeměpisné šířky nebo délky pole obsahovat hodnotu daleko mimo oblast NYC. Vzhledem k tomu, že je pravděpodobné, že tyto záznamy mají hodnoty chybné zeměpisné šířky, chceme je vyloučit z všechna data, která se má použít pro modelování.
+Běžné cílem analýzy nahodilého dat je odstraňování plevele se neplatný nebo chybných záznamů. Příklad v této části určuje, zda buď zeměpisné šířky nebo délky pole obsahovat hodnotu daleko mimo oblast NYC. Vzhledem k tomu, že je pravděpodobné, že tyto záznamy mají hodnotu chybné zeměpisné šířky, chceme je vyloučit z všechna data, která se má použít pro modelování.
 
 Tady je obsah *ukázka\_hive\_kvality\_assessment.hql* souboru kontroly.
 
@@ -477,7 +477,7 @@ Pro problém binární klasifikace uvedených v [příklady úloh předpovědi](
 * Zadaný Tip (třída 1, tip\_částka > $0)  
 * žádné tip (třída 0, tip\_velikost = 0).
 
-*Ukázka\_hive\_vysypávány\_frequencies.hql* tomu souboru vidíte níže.
+Následující *ukázka\_hive\_vysypávány\_frequencies.hql* soubor nemá toto:
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -498,7 +498,7 @@ Z adresáře řádku Hive spusťte příkaz:
 > 
 > 
 
-Pro více třídami klasifikace problému uvedených v [příklady úloh předpovědi](hive-walkthrough.md#mltasks) části tato datová sada také slouží k přirozené klasifikace, kde bychom rádi předpovědi množství tipy zadána. Přihrádek jsme můžete použít k definování rozsahy tip v dotazu. Třída distribuce pro různé tip rozsahy získáte používáme *ukázka\_hive\_tip\_rozsah\_frequencies.hql* souboru. Níže jsou jeho obsah.
+Pro více třídami klasifikace problému uvedených v [příklady úloh předpovědi](hive-walkthrough.md#mltasks) části tato datová sada také slouží k přirozené klasifikace, kde bychom rádi předpovědi množství tipy zadána. Přihrádek jsme můžete použít k definování rozsahy tip v dotazu. Třída distribuce pro různé tip rozsahy získáte používáme *ukázka\_hive\_tip\_rozsah\_frequencies.hql* souboru. Tady jsou jeho obsah.
 
     SELECT tip_class, COUNT(*) AS tip_freq
     FROM
@@ -544,9 +544,9 @@ Zobrazíte porovnání mezi vzdálenost skutečné cesty a [Haversine vzdálenos
     and dropoff_longitude between -90 and -30
     and dropoff_latitude between 30 and 90;
 
-Ve výše uvedené dotazu R je radius zemském povrchu v miles a platformy je převést na radiánech. Všimněte si, že body zeměpisné šířky jsou "filtrovány" odebrat hodnoty, které jsou daleko od oblasti NYC.
+V předchozím dotazu R je radius zemském povrchu v miles a platformy je převést na radiánech. Všimněte si, že body zeměpisné šířky jsou "filtrovány" odebrat hodnoty, které jsou daleko od oblasti NYC.
 
-V takovém případě jsme naše výsledky zapisovat do adresář s názvem "queryoutputdir". Sekvence příkazů ukazuje následující obrázek nejprve vytvoří tento výstup adresář a potom spustí příkaz Hive.
+V takovém případě jsme zapsat výsledky do adresář s názvem "queryoutputdir". Sekvence příkazů ukazuje následující obrázek nejprve vytvoří tento výstup adresář a potom spustí příkaz Hive.
 
 Z adresáře řádku Hive spusťte příkaz:
 
@@ -555,7 +555,7 @@ Z adresáře řádku Hive spusťte příkaz:
     hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 
 
-Výsledky dotazu se zapisují do 9 Azure blob ***queryoutputdir/000000\_0*** k ***queryoutputdir/000008\_0*** v kontejneru výchozí clusteru Hadoop.
+Výsledky dotazu se zapisují do Azure BLOB devět ***queryoutputdir/000000\_0*** k ***queryoutputdir/000008\_0*** v kontejneru výchozí clusteru Hadoop.
 
 Pokud chcete zobrazit velikost jednotlivých objektů BLOB, jsme spusťte následující příkaz z příkazového řádku adresář Hive:
 
@@ -578,18 +578,18 @@ Hlavní výhodou, že máte tato data jsou umístěny v objektu blob Azure je, �
 > 
 > 
 
-Po z analytické fáze nahodilého dat jsme nyní připraveni na dolů ukázková data pro vytváření modelů v Azure Machine Learning. V této části ukážeme, jak použít dotaz Hive na dolů ukázková data, která je potom k němu přistupovat z [importovat Data] [ import-data] modulu v Azure Machine Learning.
+Po z analytické fáze nahodilého dat jsme jste připraveni nižší sample data pro vytváření modelů v Azure Machine Learning. V této části ukážeme, jak pomocí dotazů Hive nižší sample data. Pak je přístupný z [importovat Data] [ import-data] modulu v Azure Machine Learning.
 
 ### <a name="down-sampling-the-data"></a>Dolů vzorkování dat
 Existují dva kroky v tomto postupu. Nejdřív jsme připojit **nyctaxidb.trip** a **nyctaxidb.fare** tabulky na tři klíče, které jsou k dispozici ve všech záznamech: "medailonu", "zabezpečení\_licence", a "vyzvednutí\_data a času". Pak se vygeneruje štítek binární klasifikace **vysypávány** a klasifikaci s více třída popisek **tip\_– třída**.
 
-Abyste mohli použít na nabídku vzorků dat přímo z [importovat Data] [ import-data] modulu v Azure Machine Learning, je nutné ukládání výsledků dotazu na výše uvedené na interní tabulku Hive. V co následuje můžeme vytvořit vnitřní tabulku Hive a naplnit její obsah se připojené k a dolů jen Vzorkovaná data.
+Abyste mohli použít nižší Vzorkovat data přímo z [importovat Data] [ import-data] modulu v Azure Machine Learning, je potřeba ukládat výsledky předchozího dotazu na interní tabulku Hive. V následující jsme vytvoření interní tabulky Hive a naplnit její obsah s daty připojeného k a nižší vzorků.
 
 Dotaz se použije standardní funkce Hive přímo ke generování hodinu, den, týden roku, den v týdnu (1 zastupuje pondělí a 7 zastupuje neděle) od "vyzvednutí\_data a času" pole a přímé vzdálenost mezi vyzvednutí a dropoff umístění. Uživatelé mohou odkazovat na [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) pro úplný seznam takové funkce.
 
-Dotaz pak dolů ukázky data tak, aby výsledky dotazu, můžete začlenit do Azure Machine Learning Studio. Pouze asi 1 % původní datové sady je importovat do nástroje Studio.
+Dotaz pak nižší samples data tak, aby výsledky dotazu, můžete začlenit do Azure Machine Learning Studio. Pouze asi 1 % původní datové sady je importovat do nástroje Studio.
 
-Níže jsou obsah *ukázka\_hive\_Příprava\_pro\_aml\_full.hql* soubor, který připraví dat pro model vytváření v Azure Machine Learning.
+Tady jsou obsah *ukázka\_hive\_Příprava\_pro\_aml\_full.hql* soubor, který připraví dat pro model vytváření v Azure Machine Learning:
 
         set R = 3959;
         set pi=radians(180);
@@ -718,8 +718,8 @@ Spuštění tohoto dotazu z příkazového řádku adresář Hive:
 
 Nyní je k dispozici vnitřní tabulku "nyctaxidb.nyctaxi_downsampled_dataset", který je přístupný pomocí [importovat Data] [ import-data] modulu z Azure Machine Learning. Kromě toho můžeme použít tuto datovou sadu pro vytváření modelů Machine Learning.  
 
-### <a name="use-the-import-data-module-in-azure-machine-learning-to-access-the-down-sampled-data"></a>Použít modul importovat Data v Azure Machine Learning pro přístup k dolů jen Vzorkovaná data
-Jako požadavky na vystavování Hive dotazy v [importovat Data] [ import-data] modul Azure Machine Learning, potřebujeme přístup do Azure Machine Learning prostoru a přístup k přihlašovacím údajům clusteru a jeho přidružený účet úložiště.
+### <a name="use-the-import-data-module-in-azure-machine-learning-to-access-the-down-sampled-data"></a>Použít modul importovat Data v Azure Machine Learning k přístupu k datům vzorkovat dolů
+Jako požadavky na vystavování Hive dotazy v [importovat Data] [ import-data] modul Azure Machine Learning, potřebujeme přístup do Azure Machine Learning pracovního prostoru. Potřebujeme také přístup k přihlašovacím údajům clusteru a jeho přidružený účet úložiště.
 
 Některé podrobnosti o [importovat Data] [ import-data] modulu a parametry pro vstup:
 
@@ -750,7 +750,7 @@ Zde je snímek dotaz Hive a [importovat Data] [ import-data] modul:
 
 ![Dotaz Hive pro Import dat modul](./media/hive-walkthrough/1eTYf52.png)
 
-Poznámka: od našich nižší jen Vzorkovaná data nachází ve výchozím kontejneru, výsledný dotaz Hive z Azure Machine Learning je velmi jednoduchý a je jen "vybrat * z nyctaxidb.nyctaxi\_po převzorkování dolů\_data".
+Všimněte si, že vzhledem k tomu, že naše nižší Vzorkovat data nachází ve výchozím kontejneru, výsledný dotaz Hive z Azure Machine Learning je velmi jednoduchý a je jen "vybrat * z nyctaxidb.nyctaxi\_po převzorkování dolů\_data".
 
 Datová sada může nyní použije jako výchozí bod pro vytváření modelů Machine Learning.
 
@@ -761,19 +761,19 @@ Jsme je nyní možné přejít k vytváření modelů a modelu nasazení v [Azur
 
 **Použít student:** logistic regression Two-class
 
-a. U tohoto problému našeho štítku cíl (nebo třída) je "vysypávány". Naše původní datové sady vzorků nižší má několik sloupců, které jsou nevracení cíl tohoto experimentu klasifikace. Konkrétně: tip\_třídy, tip\_velikostí a celkový počet\_částka zobrazení informace o cílové štítek, který není k dispozici na testování čas. Jsme tyto sloupce odebrat z aspekt pomocí [výběr sloupců v datové sadě] [ select-columns] modulu.
+a. U tohoto problému popisek cíl (nebo třída) je "vysypávány". Původní datové sady vzorků nižší má několik sloupců, které jsou nevracení cíl tohoto experimentu klasifikace. Konkrétně: tip\_třídy, tip\_velikostí a celkový počet\_částka zobrazení informace o cílové štítek, který není k dispozici na testování čas. Jsme tyto sloupce odebrat z aspekt pomocí [výběr sloupců v datové sadě] [ select-columns] modulu.
 
-Snímek níže ukazuje naše experimentu předpovědět, zda byl placené tip pro danou cestu.
+Následující snímek ukazuje naše experimentu předpovědět, zda byla pro danou cestu placené tip:
 
 ![Experiment snímku](./media/hive-walkthrough/QGxRz5A.png)
 
 b. Pro tento experiment naše distribuce popisek cíl byly přibližně 1:1.
 
-Snímek níže znázorňuje rozdělení tipu popisky třídy pro problém binární klasifikace.
+Následující snímek znázorňuje rozdělení tipu popisky třídy pro problém binární klasifikace:
 
 ![Distribuce popisků tip – třída](./media/hive-walkthrough/9mM4jlD.png)
 
-V důsledku toho jsme získat AUC 0.987, jak je znázorněno na obrázku níže.
+V důsledku toho jsme získat AUC 0.987, jak je znázorněno na následujícím obrázku:
 
 ![Hodnota AUC](./media/hive-walkthrough/8JDT0F8.png)
 
@@ -783,43 +783,43 @@ V důsledku toho jsme získat AUC 0.987, jak je znázorněno na obrázku níže.
 
 a. Pro tento problém popisek naše cíle (nebo třída) je "tip\_třída" které můžete provést jednu z pěti hodnot (0,1,2,3,4). Jako v případě binární klasifikace máme několik sloupců, které jsou nevracení cíl tohoto experimentu. Konkrétně: vysypávány, tip\_velikost, celkový počet\_částka zobrazení informace o cílové štítek, který není k dispozici na testování čas. Jsme odebrat tyto sloupce pomocí [výběr sloupců v datové sadě] [ select-columns] modulu.
 
-Snímek níže ukazuje naše experimentu k předpovědi, které koš tip je pravděpodobné, že tak, aby spadal (třída 0: tip = $0, 1 – třída: tip > $0 a tip < = 5, 2 – třída: tip > $5 a tip < = 10, třídy 3: tip > $10 a tip < = 20 Třída 4: tip > 20)
+Následující snímek ukazuje experimentu k předpovědi, které koš tip je pravděpodobné, že tak, aby spadal (třída 0: tip = $0, 1 – třída: tip > $0 a tip < = 5, 2 – třída: tip > $5 a tip < = 10, 3 – třída: tip > $10 a tip < = 20 Třída 4: tip > 20)
 
 ![Experiment snímku](./media/hive-walkthrough/5ztv0n0.png)
 
-Nyní ukážeme, jak vypadá naše skutečné testovací třída distribuční. Vidíte, že třída 0 a 1 třídy jsou běžně se vyskytujícím, ostatní třídy vyskytují jen vzácně.
+Nyní ukážeme, jak vypadá rozdělení třídy skutečné testovací. Vidíte, že třída 0 a 1 třídy jsou běžně se vyskytujícím, ostatní třídy vyskytují jen vzácně.
 
 ![Testování distribuční – třída](./media/hive-walkthrough/Vy1FUKa.png)
 
-b. Pro tento experiment používáme nedorozuměním matice podívat se na naše přesnostmi předpovědi. Příklad najdete níž.
+b. Pro tento experiment používáme nedorozuměním matice se podívat na přesnostmi předpovědi. To je znázorněno zde:
 
 ![Matice nedorozuměním](./media/hive-walkthrough/cxFmErM.png)
 
-Všimněte si, že naše třída přesnostmi na běžně se vyskytujícím třídy jsou sice velmi dobré, modelu neprovádí dobrou práci "vzdělávání" na vzácnějších třídy.
+Všimněte si, že při přesnostmi třída na běžně se vyskytujícím třídy jsou velmi vhodné, modelu neprovádí dobrou práci "vzdělávání" na vzácnějších třídy.
 
 **3. Úloha regrese**: K předvídání množství tip placené cesty.
 
 **Použít student:** Boosted rozhodovací strom
 
-a. Pro tento problém popisek naše cíle (nebo třída) je "tip\_velikost". Naše nevracení cíl v tomto případě jsou: vysypávány, tip\_třída, celkový počet\_velikost; tyto proměnné odhalit informace o velikosti tip pro, který je obvykle dostupná na testování čas. Jsme odebrat tyto sloupce pomocí [výběr sloupců v datové sadě] [ select-columns] modulu.
+a. U tohoto problému popisek cíl (nebo třída) je "tip\_velikost". Nevracení cíl v tomto případě jsou: vysypávány, tip\_třída, celkový počet\_velikost; tyto proměnné odhalit informace o velikosti tip pro, který je obvykle dostupná na testování čas. Jsme odebrat tyto sloupce pomocí [výběr sloupců v datové sadě] [ select-columns] modulu.
 
-Belows snímku ukazuje naše experimentu k předvídání množství dané špičky.
+Následující snímek ukazuje experimentu k předvídání množství dané tip:
 
 ![Experiment snímku](./media/hive-walkthrough/11TZWgV.png)
 
-b. V případě problémů regrese měříme přesnostmi naše předpovědí prohlížením kvadratická chyba v jsou předpovědi, koeficient spolehlivosti a podobně. Ukážeme tyto níže.
+b. V případě problémů regrese měříme přesnostmi předpovědi prohlížením kvadratická chyba v jsou předpovědi, koeficient spolehlivosti a podobně:
 
 ![Předpověď statistiky](./media/hive-walkthrough/Jat9mrz.png)
 
-Vidíme, že o koeficient spolehlivosti je 0.709, zdání přibližně 71 % odchylku vysvětluje naše koeficienty modelu.
+Vidíme, že o koeficient spolehlivosti je 0.709, zdání přibližně 71 % odchylku vysvětluje koeficienty modelu.
 
 > [!IMPORTANT]
-> Můžete najít další informace o Azure Machine Learning a jak přístup a použít jej [co je Machine Learning](../studio/what-is-machine-learning.md). Je velmi užitečná prostředku pro přehrávání s spoustu experimenty Machine Learning v Azure Machine Learning [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galerie vysvětluje škálu experimenty a poskytuje důkladné Úvod do řadu funkcí služby Azure Machine Learning.
+> Další informace o Azure Machine Learning a přístup a použít jej, najdete v tématu [co je Machine Learning](../studio/what-is-machine-learning.md). Je velmi užitečná prostředku pro přehrávání s spoustu experimenty Machine Learning v Azure Machine Learning [Azure AI Galerie](https://gallery.cortanaintelligence.com/). Galerie vysvětluje škálu experimenty a poskytuje důkladné Úvod do řadu funkcí služby Azure Machine Learning.
 > 
 > 
 
 ## <a name="license-information"></a>Informace o licenci
-Tento ukázkový postup a jeho doprovodné skriptů jsou sdíleny společností Microsoft v rámci licencí MIT. Zkontrolujte prosím soubor LICENSE.txt v adresáři uvedeném ukázkovém kódu na Githubu další podrobnosti.
+Tento ukázkový postup a jeho doprovodné skriptů jsou sdíleny společností Microsoft v rámci licencí MIT. Zkontrolujte soubor LICENSE.txt v adresáři uvedeném ukázkovém kódu na Githubu další podrobnosti.
 
 ## <a name="references"></a>Odkazy
 • [Stránce pro stažení Andrés Monroy NYC taxíkem cest](http://www.andresmh.com/nyctaxitrips/)  

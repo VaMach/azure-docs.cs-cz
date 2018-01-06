@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-the-access-panel"></a>Co je na přístupovém panelu?
 
@@ -70,7 +70,31 @@ Pokud jste se ověřili, můžete pracovat s aplikacemi, které správce má int
 
 Minimálně na přístupovém panelu vyžaduje prohlížeč, který podporuje jazyk JavaScript a aktivoval šablon stylů CSS. Pro uživatele k přihlášení do aplikace prostřednictvím založené na heslech jednotné přihlašování (SSO) musí být nainstalován rozšíření přístup k panelu v prohlížeči. Rozšíření se stáhne automaticky, když vyberete aplikaci, která je nakonfigurována pro jednotné přihlašování založené na heslech.
 
-Rozšíření přístup k panelu je aktuálně dostupné pro Internet Explorer 8 a novější, okraj a Chrome, Firefox prohlížeče.
+Rozšíření přístup k panelu je aktuálně dostupné pro:
+-   Hraniční Windows 10 Anniversary Edition nebo novější. 
+
+-   Chrome – V systému Windows 7 nebo novější a v systému MacOS X nebo novější
+
+-   Firefox 26.0 nebo později – do systému Windows XP SP2 nebo novější a v systému Mac OS X 10,6 nebo novější
+
+-   Internet Explorer 8, 9, 10, 11 – na Windows 7 nebo novější (omezená podpora)
+
+## <a name="my-apps-secure-sign-in-extension"></a>Rozšíření Zabezpečené přihlašování pro Moje aplikace
+Přípona je požadované pro uživatele pro přihlášení do založené na heslech jednotné přihlašování. Jakmile nainstalované uživatele můžete také povolit další funkce po přihlášení k rozšíření kliknutím **Přihlaste se k Začínáme**. 
+
+- Uživatelé se mohou přihlásit do aplikace přímo návštěvou aplikace **přihlašovací adresa URL**. Když uživatel přejde na aplikace přihlašovací adresa URL bude rozšíření to zjistit a zadejte možnosti pro uživatele se přihlaste z rozšíření.
+- Uživatele můžete také spustit kterýkoli svoje aplikace pomocí panelu přístup **rychlého vyhledávání** funkce rozšíření. 
+- Rozšíření se zobrazí také uživatelé poslední tři aplikace jejich spuštění pod **nedávno použité** části.
+> [!NOTE]
+> Další funkce jsou dostupné pouze pro Edge, Chrome, Firefox.
+
+
+Pokud používáte jinou adresu URL Moje aplikace než https://myapps.microsoft.com musíte nakonfigurovat výchozí adresa URL, když následující kroky:
+1. Když nejste do rozšíření, **klikněte pravým tlačítkem na** ikonu rozšíření.
+2. Klikněte na **vyberte adresu URL Moje aplikace** z nabídky.
+3. **Vyberte** výchozí adresa URL.
+4. Klikněte na ikonu rozšíření.
+5. Přihlaste se do rozšíření výběrem **Přihlaste se k Začínáme**.
 
 ## <a name="mobile-app-support"></a>Podpora mobilních aplikací
 
@@ -176,7 +200,7 @@ Konfigurace jednotného přihlašování pro aplikace, portál Azure poskytuje t
 Například pokud aplikace je nakonfigurovaný k ověřování uživatelů pomocí služby AD FS 2.0, správce můžete použít **existující jednotné přihlašování** možnost pro vytvoření odkazu na ni na panel přístupu. Při přístupu k propojení, se ověřují pomocí služby AD FS 2.0 nebo jakoukoli existující jednotného přihlašování k řešení, které poskytuje aplikace.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 - Pokud chcete zobrazit seznam všech témat, které se vztahují ke správě aplikací, najdete v článku [Rejstřík článků o správě aplikací ve službě Azure Active Directory](active-directory-apps-index.md).
  

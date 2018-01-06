@@ -1,5 +1,5 @@
 ---
-title: "Externí tabulky funkcí vazby Azure (Preview) | Microsoft Docs"
+title: "Externí tabulky vazby pro Azure Functions (experimentální)"
 description: "Používání vazeb externí tabulky v Azure Functions"
 services: functions
 documentationcenter: 
@@ -14,24 +14,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-table-binding-preview"></a>Externí tabulky funkcí vazby Azure (Preview)
-Tento článek ukazuje, jak k manipulaci s tabulková data v poskytovatelů SaaS (například služby Sharepoint, Dynamics) v rámci funkce s integrovanou vazby. Azure Functions podporuje vstupní a výstupní vazby pro externí tabulky.
+# <a name="external-table-binding-for-azure-functions-experimental"></a>Externí tabulky vazby pro Azure Functions (experimentální)
+
+Tento článek vysvětluje, jak pracovat s tabulková data na poskytovatelů SaaS, například služby Sharepoint a Dynamics v Azure Functions. Azure Functions podporuje vstup a výstup vazby pro externí tabulky.
+
+> [!IMPORTANT]
+> Externí tabulky vazba je experimentální a může být nikdy dosáhne stavu obecně k dispozici (GA). Je zahrnuta pouze v Azure funguje 1.x, a neexistují žádné plány, které chcete přidat do Azure Functions 2.x. Pro scénáře, které vyžadují přístup k datům ve zprostředkovatelích SaaS, zvažte použití [logiku aplikace, které volají do funkce](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="api-connections"></a>Připojení API
+## <a name="api-connections"></a>Připojení rozhraní API
 
-Tabulka vazby využívat externí rozhraní API připojení k ověření pomocí poskytovatelů SaaS 3. stran. 
+Tabulka vazby využívat externí připojení rozhraní API k ověřování pro poskytovatele třetích stran SaaS. 
 
-Při přiřazování vazbu můžete buď vytvořit nové připojení rozhraní API, nebo použít stávající připojení k rozhraní API v rámci stejné skupiny prostředků
+Při přiřazování vazbu můžete vytvořit nové připojení k rozhraní API nebo použít stávající připojení k rozhraní API v rámci stejné skupině prostředků.
 
-### <a name="supported-api-connections-tables"></a>Připojení podporované rozhraní API (tabulky) s
+### <a name="available-api-connections-tables"></a>Dostupná připojení rozhraní API (tabulky)
 
 |Konektor|Trigger|Vstup|Výstup|
 |:-----|:---:|:---:|:---:|
@@ -52,26 +56,35 @@ Při přiřazování vazbu můžete buď vytvořit nové připojení rozhraní A
 |UserVoice||x|x
 |Zendesk||x|x
 
-
 > [!NOTE]
-> Externí připojení tabulky lze použít také v [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
+> Externí připojení tabulky lze použít také v [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
-### <a name="creating-an-api-connection-step-by-step"></a>Vytvoření připojení k rozhraní API: krok za krokem
+## <a name="creating-an-api-connection-step-by-step"></a>Vytvoření připojení k rozhraní API: krok za krokem
 
-1. Vytvoření funkce > vlastní funkce ![vytvoření vlastní funkce](./media/functions-bindings-storage-table/create-custom-function.jpg)
-1. Scénář `Experimental`  >  `ExternalTable-CSharp` šablony > vytvořit novou `External Table connection` 
- ![vstupní šablonu vybrat tabulky](./media/functions-bindings-storage-table/create-template-table.jpg)
-1. Vyberte poskytovatele SaaS > vyberte nebo vytvořte připojení ![připojení SaaS konfigurace](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. Vyberte připojení k rozhraní API > vytvořit funkci ![vytvořit tabulku – funkce](./media/functions-bindings-storage-table/table-template-options.jpg)
-1. Vyberte`Integrate` > `External Table`
-    1. Nakonfigurujte připojení používat, cílová tabulka. Tato nastavení budou velmi mezi poskytovatelů SaaS. Jsou outline níže v [nastavení zdroje dat](#datasourcesettings)
-![konfigurace tabulky](./media/functions-bindings-storage-table/configure-API-connection.jpg)
+1. V Azure stránky portálu pro funkce aplikace, vyberte znaménko plus (**+**) vytvořit funkci.
 
-## <a name="usage"></a>Využití
+1. V **scénář** vyberte **experimentální**.
+
+1. Vyberte **externí tabulky**.
+
+1. Vyberte jazyk.
+
+2. V části **připojení externí tabulky**vyberte existující připojení nebo **nové**.
+
+1. Pro nové připojení, nakonfigurujte nastavení a vyberte **Authorize**.
+
+1. Vyberte **vytvořit** funkci vytvoříte.
+
+1. Vyberte **integrovat > externí tabulky**.
+
+1. Nakonfigurujte připojení používat, cílová tabulka. Tato nastavení se bude lišit mezi poskytovatelů SaaS. Příklady jsou zahrnuty v následující části.
+
+## <a name="example"></a>Příklad:
 
 Tento příklad se připojí k tabulku s názvem "Kontakt" s Id, FirstName a LastName sloupce. Kód zobrazí entity kontaktů v tabulce a protokoly první a poslední názvy.
 
-### <a name="bindings"></a>Vazby
+Tady je *function.json* souboru:
+
 ```json
 {
   "bindings": [
@@ -93,29 +106,8 @@ Tento příklad se připojí k tabulku s názvem "Kontakt" s Id, FirstName a Las
   "disabled": false
 }
 ```
-`entityId`musí být u vazeb tabulky prázdný.
 
-`ConnectionAppSettingsKey`Určuje nastavení aplikace, která ukládá připojovací řetězec rozhraní API. Nastavení aplikace je vytvořena automaticky při přidání připojení k rozhraní API v integrací uživatelského rozhraní.
-
-Tabulkové konektor poskytuje datových sad a každé datové sady obsahuje tabulky. Název výchozí sadu dat je "default". Názvy pro datovou sadu a tabulky v různých zprostředkovatelů SaaS jsou uvedeny níže:
-
-|Konektor|Datová sada|Table|
-|:-----|:---|:---| 
-|**SharePoint**|Web|Seznam serveru SharePoint
-|**SQL**|Databáze|Table 
-|**List Google**|Tabulka|List 
-|**Excel**|Excelový soubor|Tabulka 
-
-<!--
-See the language-specific sample that copies the input file to the output file.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
--->
-<a name="incsharp"></a>
-
-### <a name="usage-in-c"></a>Použití v jazyce C# #
+Tady je kód skriptu jazyka C#:
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"
@@ -154,25 +146,9 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 }
 ```
 
-<!--
-<a name="innodejs"></a>
+### <a name="sql-server-data-source"></a>Zdroj dat systému SQL Server
 
-### Usage in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
--->
-<a name="datasourcesettings"></a>
-##Nastavení zdroje dat
-
-### <a name="sql-server"></a>SQL Server
-
-Skript, který chcete vytvořit a naplnit tabulky Kontakt je níže. dataSetName je "default".
+Pokud chcete vytvořit tabulku v systému SQL Server, chcete-li použít v tomto příkladu, tady je skript. `dataSetName`je "default".
 
 ```sql
 CREATE TABLE Contact
@@ -191,11 +167,36 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### <a name="google-sheets"></a>Tabulky Google
-V Google dokumentace, vytvořit tabulku s názvem list `Contact`. Zobrazovaný název tabulky nelze použít konektor. Interní název (tučným písmem) potřebám má být použit jako dataSetName, například: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  přidat názvy sloupců `Id`, `LastName`, `FirstName` na první řádek, pak naplnění dat na Další řádky.
+### <a name="google-sheets-data-source"></a>Zdroj dat Google listy
+
+Pokud chcete vytvořit tabulku, aby použít v tomto příkladu v Google dokumentace, vytvořit tabulku s na listu s názvem `Contact`. Zobrazovaný název tabulky nelze použít konektor. Interní název (tučným písmem) potřebám má být použit jako dataSetName, například: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  přidat názvy sloupců `Id`, `LastName`, `FirstName` na první řádek, pak naplnění dat na Další řádky.
 
 ### <a name="salesforce"></a>Salesforce
-dataSetName je "default".
+
+Použití tohoto příkladu s Salesforce, `dataSetName` je "default".
+
+## <a name="configuration"></a>Konfigurace
+
+Následující tabulka popisuje vlastnosti konfigurace vazby, které jste nastavili v *function.json* souboru.
+
+|Vlastnost Function.JSON | Popis|
+|---------|----------------------|
+|**Typ** | musí být nastavena na `apiHubTable`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure.|
+|**směr** | musí být nastavena na `in`. Tato vlastnost nastavena automaticky při vytváření aktivační události na portálu Azure. |
+|**Jméno** | Název proměnné, která představuje položku událostí v kódu funkce. | 
+|**připojení**| Určuje nastavení aplikace, která ukládá připojovací řetězec rozhraní API. Nastavení aplikace je vytvořena automaticky při přidání připojení k rozhraní API v integrací uživatelského rozhraní.|
+|**dataSetName**|Název datové sady, který obsahuje tabulku, kterou chcete číst.|
+|**Název tabulky**|Název tabulky|
+|**entityId**|Musí být u vazeb tabulky prázdný.
+
+Tabulkové konektor poskytuje datových sad a každé datové sady obsahuje tabulky. Název výchozí sadu dat je "default". Názvy pro datovou sadu a tabulky v různých zprostředkovatelů SaaS jsou uvedeny níže:
+
+|Konektor|Datová sada|Table|
+|:-----|:---|:---| 
+|**SharePoint**|Web|Seznam serveru SharePoint
+|**SQL**|Databáze|Table 
+|**List Google**|Tabulka|List 
+|**Excel**|Excelový soubor|Tabulka 
 
 ## <a name="next-steps"></a>Další postup
 

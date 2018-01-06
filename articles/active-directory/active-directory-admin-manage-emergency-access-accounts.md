@@ -1,6 +1,6 @@
 ---
-title: "Správa účtů pro správu nouzový přístup ve službě Azure AD | Microsoft Docs"
-description: "Popisuje, jak použít účty pro nouzový přístup umožňující organizacím omezit privilegovaný přístup v rámci stávajícího prostředí Azure Active Directory."
+title: "Spravovat účty pro správu přístupu nouze ve službě Azure AD | Microsoft Docs"
+description: "Tento článek popisuje, jak použít účty pro nouzový přístup umožňující organizacím omezit privilegovaný přístup v rámci stávajícího prostředí Azure Active Directory."
 services: active-directory
 keywords: "Nemáte přidat nebo upravit klíčová slova bez konzultace ohledně specialistou na SEO."
 author: markwahl-msft
@@ -11,69 +11,77 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 75ea8e445c890e7af5ab14f4fc4c53cfb1af4568
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 039012b8ba0b83f6338128a2200d1232ae6467f3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="managing-emergency-access-administrative-accounts-in-azure-ad"></a>Správa účtů pro správu nouzový přístup ve službě Azure AD 
+# <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Spravovat účty pro správu přístupu nouze ve službě Azure AD 
 
-Pro většinu každodenní aktivit nejsou potřeba oprávnění role Globální správce.  Uživatelé by neměl být trvale přiřazeny k roli, uživatel může nechtěně provádět úlohy s vyšší oprávnění, než je třeba. Když uživatel potřebuje tak, aby fungoval jako globální správce, se musí aktivovat přiřazení role pomocí Azure AD PIM, buď na svůj vlastní účet nebo alternativního účtu správce.
+Pro většinu každodenní aktivit *globálního správce* vaši uživatelé nejsou potřebné oprávnění. Uživatelé by neměl trvale přiřadit role, protože se může nechtěně provést úlohu, která vyžaduje vyšší oprávnění, než by měly mít. Když uživatelé nepotřebují tak, aby fungoval jako globální správce, jejich by měl pomocí Azure Active Directory (Azure AD) Privileged Identity Management (PIM), na svůj vlastní účet nebo účet správce alternativní aktivovat přiřazení role.
 
-Kromě uživatelů s ohledem na přístupová práva pro správu sami muset připravit zajistit, že není získat do situace, kdy se může nechtěně uzamčení správu jejich klienta Azure AD z důvodu jejich nemohou přihlásit zákazníků v nebo aktivovat účet existující konkrétního uživatele jako správce.  Zmírnit jejich dopad náhodných nedostatečná přístup pro správu prostřednictvím ukládání v jejich klienta dvou nebo více *účty pro nouzový přístup*.
+Kromě uživatelů s ohledem na přístupová práva pro správu sami, je třeba zabránit, aby se nechtěně uzamčen mimo správy klienta služby Azure AD, protože nelze přihlásit ani aktivovat účet existující konkrétního uživatele jako správce. Můžete zmírnit dopad nechtěnému nedostatečná přístup pro správu uložením dvou nebo více *účty pro nouzový přístup* ve vašem klientovi.
 
-Účty pro nouzový přístup pomáhají organizacím omezit privilegovaný přístup v rámci stávajícího prostředí Azure Active Directory. Tyto účty jsou vysoce privilegované a nebyly přiřazeny do konkrétní osoby. Účty pro nouzový přístup je omezen na nouzový 'pohotovostní' scénáře, kdy nejde použít normální účty pro správu.  Organizace musí zajistit za účelem řízení a snižuje využití nouzový účet pouze tento čas, pro které je nezbytné.
+Účty pro nouzový přístup pomáhá organizacím omezit privilegovaný přístup v rámci stávajícího prostředí Azure Active Directory. Tyto účty jsou vysoce privilegované a nejsou přiřazeny k konkrétní osoby. Účty pro nouzový přístup je omezen na nouzové nebo 'pohotovostní' scénářů situacích, kdy nelze použít normální účty pro správu. Organizace musí zachovat cílem omezit používání nouzový účtů pouze tento čas, během které je nezbytné.
 
-Scénáře, ve kterých může být třeba organizace, aby pomocí účtu, nouzový přístup:
+Organizace může být nutné použít účet nouzový přístup v následujících situacích:
 
- - Uživatelské účty jsou federovaný a federation není k dispozici z důvodu přerušení sítě nebo výpadek zprostředkovatele identity.  Například pokud hostitel poskytovatele identity v prostředí zákazníka je mimo provoz, pak uživatel nebude moci přihlásit, pokud Azure AD přesměruje na jejich zprostředkovatele identity. 
- - Správce se registrovaný prostřednictvím metody vícefaktorového ověřování a všechny jejich jednotlivých zařízení jsou k dispozici.  Je možné, že jsou uživatelé nebudou moct dokončení vícefaktorového ověřování pro aktivaci role, pokud pro instanci výpadku sítě buňky může zabránit uživatelům nebudou moct odpoví na telefonní hovory nebo přijímat textové zprávy a pouze mechanismus, který byl tento jejich registraci jejich zařízení. 
- - Poslední osobě, která měla přístup pro globální správu opustili společnost.  Zabrání se odstranit poslední účet globálního správce Azure AD, ale nezabrání účet před odstraněním nebo zablokuje v místním, vedoucí k situaci, kde se nepodařilo obnovit tento účet organizace.
+ - Uživatelské účty jsou federovaný a federation není momentálně k dispozici z důvodu zalomení buňky sítě nebo výpadek zprostředkovatele identity. Například pokud hostitel poskytovatele identity ve vašem prostředí je mimo provoz, uživatelé možná nejde se přihlásit, pokud Azure AD přesměruje na jejich zprostředkovatele identity. 
+ - Správci, které jsou registrovány prostřednictvím Azure Multi-Factor Authentication a všechny jejich jednotlivá zařízení nejsou k dispozici. Uživatelé nemusí být schopen dokončit vícefaktorového ověřování pro aktivaci role. Například výpadku sítě buňky brání je v odpovědi na telefonní hovory nebo přijímat textové zprávy, jenom dva ověřovací mechanismy, které jsou zaregistrované pro jejich zařízení. 
+ - Uživatel s nejnovější globální správce přístup opustil organizaci. Azure AD znemožňuje poslední *globálního správce* účet odstranit, ale nezabrání účet před odstraněním nebo zablokuje v místním. Buď situaci provést nemůže provést zotavení účet organizace.
 
 ## <a name="initial-configuration"></a>Počáteční konfigurace
 
-Vytvořte dva nebo více účtů nouzový přístup.  Tady by měly být jen cloudové účty pomocí *. onmicrosoft.com doméně, zda nejsou federovaný nebo synchronizováni z místního prostředí.  
+Vytvořte dva nebo více účtů nouzový přístup. Tady by měly být jen cloudové účty, které používají \*. onmicrosoft.com domény a že nejsou federovaný nebo synchronizováni z místního prostředí. 
 
-Jejich by neměl být přidružen k jednotlivé uživatele v organizaci.  Organizace muset Ujistěte se, že přihlašovací údaje pro tyto účty jsou uchovány zabezpečení a známé pouze pro jednotlivce, kteří jsou autorizovaní k jejich použití. 
+Účty by neměl být přidružen jednotlivé uživatele v organizaci. Organizace potřebují k zajištění přihlašovací údaje pro tyto účty jsou zabezpečené a známé pouze pro jednotlivce, kteří jsou autorizovaní k jejich použití. 
 
-Poznámka: Obvykle heslo pro účet nouzový přístup k účtu jsou rozdělené na dvě nebo tři části a pak zapisují na samostatné části dokumentu a uložená v zabezpečené, chráněné trezory, které jsou v zabezpečené samostatná místa. Ujistěte se, v případě, že jednotlivé zaměstnanec, nedostupný v době jistotu, že vaše účty pro nouzový přístup nejsou připojen k žádné zadané zaměstnanec mobilní telefony, že cesta se jednotlivé zaměstnanci nebo jiné přihlašovací údaje specifické pro zaměstnance tokeny hardwaru je potřeba přihlašovací údaje. 
+> [!NOTE]
+> Heslo k účtu pro účet nouzový přístup je obvykle rozdělené na dvě nebo tři části, zapisují na samostatné části dokumentu a uložené v zabezpečené, chráněné trezory, které jsou v zabezpečené, samostatné umístění. 
+>
+> Ujistěte se, že vaše účty pro nouzový přístup nejsou propojená s všechny zadané zaměstnanec mobilní telefony, hardwarové tokeny, že cesta se jednotlivé zaměstnanci nebo jiné přihlašovací údaje specifické pro zaměstnance. Toto opatření popisuje případech, kdy není zaměstnanec jednotlivých nedostupný potřeby přihlašovací údaje. 
 
 ### <a name="initial-configuration-with-permanent-assignments"></a>Počáteční konfigurace s trvalé přiřazení
 
-Jednou z možností je přiřadit uživatele jako členy rolí globálního správce.  To může být vhodné pro organizace, které nemají Azure AD Premium P2 odběry.
+Jednou z možností je, aby uživatele členy *globálního správce* role. Tato možnost může být vhodné pro organizace, které nemají Azure AD Premium P2 odběry.
 
-Azure AD doporučuje, že můžete vyžadovat, že vícefaktorové ověřování (MFA) pro všechny jednotlivé uživatele, včetně správců a všichni ostatní uživatelé, kteří by měla mělo výraznější vliv, pokud jejich účet byl ohrožení zabezpečení (například finanční osoby). Tím se snižuje riziko útoků z důvodu ohroženými heslo. Ale pokud vaše organizace nemá sdílená zařízení, potom MFA nemusí být možné pro tyto účty pro nouzový přístup.  Pokud konfigurujete zásady podmíněného přístupu tak, aby vyžadovala [registrace MFA pro každý správce](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) pro Azure AD a další spojené aplikace SaaS, bude pravděpodobně nutné ke konfiguraci zásad vyloučení vyloučit účty pro nouzový přístup z tohoto požadavek.
+Aby se snížilo riziko útoku vyplývající z ohroženého heslo, Azure AD doporučuje vyžadovat Vícefaktorové ověřování pro všechny jednotlivé uživatele. Tato skupina by měla obsahovat správce a všechny ostatní uživatele (například finanční osoby) jejichž ohrožení bezpečnosti účtu by mít významný dopad. 
+
+Ale pokud vaše organizace nemá sdílená zařízení, Multi-Factor Authentication nemusí být možné pro tyto účty pro nouzový přístup. Pokud konfigurujete zásady podmíněného přístupu tak, aby vyžadovala [registrace služby Multi-Factor Authentication pro každé správce](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) pro Azure AD a druhý software jako služba (SaaS) aplikace, možná budete muset nakonfigurovat zásady vyloučení vyloučit účty pro nouzový přístup z tohoto požadavku.
 
 ### <a name="initial-configuration-with-approvals"></a>Počáteční konfigurace s schválení
 
-Další možností je konfigurovat uživatele jako oprávněné a schvalovatelů aktivovat roli globálního správce.  Bude vyžadovat organizaci předplatných Azure AD Premium P2, jakož i MFA možnost, který je vhodný pro použití sdílené mezi více osob a síťové prostředí.  To je proto aktivace roli globálního správce vyžaduje, aby uživatel k dříve provedli vícefaktorového ověřování.  Další informace na [jak vyžadovat vícefaktorové ověřování v Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
+Další možností je nakonfigurovat uživatele jako způsobilých a schvalovatele aktivovat *globálního správce* role. Tato možnost by vyžadovaly vaše organizace má Azure AD Premium P2 odběry. Bude vyžadovat také možnost vícefaktorového ověřování, který je vhodný pro použití sdílené mezi více osob a síťové prostředí. Tyto požadavky jsou, protože aktivace *globálního správce* role vyžaduje, aby uživatelé provedli dříve Multi-Factor Authentication. Další informace najdete v tématu [jak vyžadovat Vícefaktorové ověřování v Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
 
-Použití vícefaktorového ověřování přidružený osobní zařízení není vhodné účty pro nouzový přístup, protože v skutečné nouzový jedna osoba, která musí mít přístup k MFA zaregistrovat zařízení nemusí být k tomu, který není podržíte osobní zařízení.  Pokud z důvodu nepředpokládaného okolností mobilního telefonu nebo jiné sítě nejsou k dispozici průběhu přírodní katastrofě nouzový také zvážit povahu hrozeb.  Proto je důležité zajistit, že jsou všechny registrované zařízení nacházet v známé a bezpečné umístění, které má více prostředky pro komunikaci se službou Azure AD.
+Nedoporučujeme používat službu Multi-Factor Authentication, který je spojen s osobní zařízení pro účty pro nouzový přístup. V případě nouze skutečná osoba, která potřebuje přístup k zařízení registrované služby Multi-Factor Authentication nemusí být k tomu, který má osobní zařízení. 
+
+Zvažte také povahu hrozeb. Například může dojít nepředvídatelné okolnosti, například přírodní katastrofě nouzový, během které mobilního telefonu nebo jiné sítě může být k dispozici. Je důležité zajistit, že jsou všechny registrované zařízení nacházet v známé a bezpečné umístění, které má více prostředky pro komunikaci se službou Azure AD.
 
 ## <a name="ongoing-monitoring"></a>Průběžné monitorování
 
-Monitorování [Azure AD přihlášení a protokoly auditu](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins) pro všechny přihlášení a audit aktivity z účty pro nouzový přístup.  Tyto účty za normálních okolností by neměl být přihlášení a nesmí být provádění změn, tak z nich je pravděpodobně být neobvyklé a vyžadují zabezpečení šetření.
+Monitorování [přihlášení k Azure AD a auditu v protokolech](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins) pro všechny přihlášení a audit aktivity z nouzové přístupové účty. Tyto účty za normálních okolností by neměl být přihlášení a nesmí být provádění změn, tak z nich je pravděpodobně být neobvyklé a vyžadují zabezpečení šetření.
 
-## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Kontrola ověření účtu se musí vyskytovat v pravidelných intervalech
+## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Ověření kontrolu účtu se musí vyskytovat v pravidelných intervalech
 
-Alespoň proveďte následující kroky:
- - Každých 90 dnech
- - Pokud došlo ke změnám v IT oddělení – úlohu změnit, odeslání nebo nové přijetím
- - Pokud se změnily předplatná Azure AD v organizaci
+K ověření účtu, proveďte následující kroky minimálně:
+- Každých 90 dní.
+- Pokud došlo ke změnám v pracovníky IT, jako je například změna úlohy, odeslání nebo nové přijetím.
+- Pokud se změnily předplatná Azure AD v organizaci.
 
-K zajištění, že zaměstnanci probíhá Trénink v tom, jak použít účty pro nouzový přístup:
+Při školení zaměstnance, aby použít účty pro nouzový přístup, postupujte takto:
 
-1.  Zajistěte, aby pracovníci monitorování zabezpečení by se měl dozvědět, probíhá kontrola aktivity účtu.
-2.  Ověření, cloudu uživatelské účty můžete přihlásit a aktivace jejich rolí a že uživatelé potřebují k provedení těchto kroků nouzová probíhá trénink na proces.
-3.  Ujistěte se, že nebyly zaregistrovány pro MFA nebo SSPR všechny jednotlivé uživatele zařízení nebo osobní údaje.  
-4. Pokud účty je zaregistrovaný pro MFA zařízení, pro použití při aktivaci role, zkontrolujte, zda zařízení přístupné všem správcům, kteří možná muset použít nouzová.  Také ověřte, že je zařízení zaregistrované prostřednictvím alespoň dva mechanismů, které nesdílí běžné režimu selhání (např. zařízení může komunikovat k Internetu prostřednictvím bezdrátové sítě zařízení i přes síť zprostředkovatele buněk).
-5.  Aktualizujte přihlašovací údaje.
+* Zajistěte, aby pracovníci sledování zabezpečení uvědomit, že je probíhající aktivity kontrolu účtu.
+* Ověření, cloudu uživatelské účty můžete přihlásit a aktivace jejich rolí a že uživatelé, kteří může být nutné provést tyto kroky nouzová probíhá trénink na procesu.
+* Zajistěte, aby nebyly zaregistrovány ověřování Multi-Factor Authentication nebo samoobslužné resetování hesla (SSPR) na všechny jednotlivé uživatele zařízení nebo osobní údaje. 
+* Pokud tyto účty jsou registrované pro službu Multi-Factor Authentication na zařízení, pro použití při aktivaci role, zajistěte, aby byl zařízení přístupné pro všechny správce, kteří může být nutné k použití při nouze. Také ověřte, že je zařízení zaregistrované prostřednictvím alespoň dva mechanismů, které nesdílí běžné režimu selhání. Zařízení může například komunikovat k Internetu prostřednictvím bezdrátové sítě do zařízení a síť buňky zprostředkovatele.
+* Aktualizujte přihlašovací údaje účtu.
 
-## <a name="next-steps"></a>Další kroky
-- [Přidání cloudových uživatelů](add-users-azure-active-directory.md) a [přiřadit roli globálního správce nového uživatele](active-directory-users-assign-role-azure-portal.md)
-- [Registrace pro Azure Active Directory Premium](active-directory-get-started-premium.md), pokud jste to ještě neudělali
-- [Vyžadovala Azure MFA pro jednotlivé uživatele přiřazené jako správci](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)
-- [Konfiguraci lepší ochranu globálních správců v Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), pokud používáte Office 365
-- [Provést kontrolu přístupu globální správci](active-directory-privileged-identity-management-how-to-start-security-review.md) a [přechod existující globální správci pro více konkrétní role správce](active-directory-assign-admin-roles-azure-portal.md)
+## <a name="next-steps"></a>Další postup
+- [Přidání cloudových uživatelů](add-users-azure-active-directory.md) a [nového uživatele přiřadit roli globálního správce](active-directory-users-assign-role-azure-portal.md).
+- [Registrace pro Azure Active Directory Premium](active-directory-get-started-premium.md), pokud nemáte již registraci.
+- [Vyžadovat ověřování Azure Multi-Factor Authentication pro jednotlivé uživatele přiřazené jako správci](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
+- [Konfiguraci lepší ochranu globálních správců v Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), pokud používáte Office 365.
+- [Provést kontrolu přístupu globální správci](active-directory-privileged-identity-management-how-to-start-security-review.md) a [přechod existující globální správci pro více konkrétní role správce](active-directory-assign-admin-roles-azure-portal.md).
+
 

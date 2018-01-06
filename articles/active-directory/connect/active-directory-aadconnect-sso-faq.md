@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory bezproblémové jednotné přihlašování: Nejčastější dotazy
 
@@ -38,11 +38,17 @@ Ne. Bezproblémové jednotného přihlašování je k dispozici pouze v celosvě
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Jaké aplikace využívat `domain_hint` nebo `login_hint` parametr funkce bezproblémové přihlašování?
 
-Probíhá kompilace seznam aplikací, které odesílají tyto parametry a ty, které nejsou. Pokud máte aplikace, které zajímá, dejte nám vědět v sekci komentáře.
+Probíhá kompilace seznam aplikací, které odesílají tyto parametry a ty, které nejsou. Pokud máte aplikace, které vás zajímají, dejte nám vědět v sekci komentáře.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Podporuje bezproblémové SSO `Alternate ID` jako uživatelské jméno, místo `userPrincipalName`?
 
 Ano. Bezproblémové jednotného přihlašování podporuje `Alternate ID` jako uživatelské jméno při konfiguraci ve službě Azure AD Connect, jak je znázorněno [zde](active-directory-aadconnect-get-started-custom.md). Ne všechny aplikace Office 365 podporují `Alternate ID`. Vyhledejte konkrétní aplikaci dokumentaci pro příkaz podpory.
+
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Co je rozdíl mezi jeden přihlašování poskytovaný [Azure AD Join](../active-directory-azureadjoin-overview.md) a bezproblémové jednotné přihlašování?
+
+[Azure AD Join](../active-directory-azureadjoin-overview.md) poskytuje jednotné přihlašování pro uživatele, pokud jejich zařízení jsou zaregistrovaná službou Azure AD. Tato zařízení nemusí nutně být připojený k doméně. Jednotné přihlašování je prováděno pomocí *primární obnovovacích tokenů* nebo *PRTs*a ne protokolu Kerberos. Činnost koncového uživatele je optimální na zařízení s Windows 10. Jednotné přihlašování se automaticky stane na prohlížeč Microsoft Edge. Taky funguje na Chrome s použitím rozšíření prohlížeče.
+
+Můžete použít Azure AD Join a bezproblémové jednotného přihlašování na vašeho klienta. Tyto dvě funkce jsou vzájemně doplňují. Pokud jsou obě funkce zapnutá, pak jednotného přihlašování z Azure AD Join má přednost před bezproblémové jednotné přihlašování.
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>Chcete zaregistrovat zařízení s Windows 10 s Azure AD, bez použití služby AD FS. Můžete použít bezproblémové SSO místo?
 

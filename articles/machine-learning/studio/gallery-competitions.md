@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Gallery soutěže | Microsoft Docs"
-description: "Zjistit soutěže v Cortana Intelligence Gallery."
+title: "Azure soutěže AI Galerie | Microsoft Docs"
+description: "Zjistit soutěže v galerii Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: e9c1ae9448ad7179c33bbbafa34a4643a4840d0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Zjistit soutěže v Cortana Intelligence Gallery
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Zjistit soutěže v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence soutěže
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 Odpovědi na nejčastější dotazy týkající se soutěže, naleznete v části [nejčastější dotazy k Microsoft Cortana Intelligence soutěže](competition-faq.md).
 
 ## <a name="discover"></a>Informace
-  Chcete-li procházet soutěže v galerii, otevřete [Galerie](http://gallery.cortanaintelligence.com), přesuňte ukazatel myši na **Další** v horní části Galerie domovskou stránku a vyberte **soutěže**.
+ **[Soutěže](https://gallery.cortanaintelligence.com/competitions)**  stránky ([aka.ms/CIComp](http://aka.ms/CIComp)) zobrazí seznam nejčastěji používané soutěže.
 
 ![Vyberte soutěže z Galerie domovské stránky](./media/gallery-competitions/select-competitions-in-gallery.png)
 
- **[Soutěže](https://gallery.cortanaintelligence.com/competitions)**  stránky zobrazí seznam nejčastěji používané soutěže.
-Klikněte na tlačítko **zobrazit všechny** zobrazíte všechny soutěže.
+ 
+ Klikněte na tlačítko **zobrazit všechny** zobrazíte všechny soutěže.
 Z této stránky můžete vyhledat všechny soutěže v galerii. Také můžete hledat výběrem kritéria filtru na levé straně stránky a vstup hledaných termínů v horní části.
 
  Klikněte na možnost žádné soutěže konfliktů na stránce s podrobnostmi o otevřít a přečíst si další informace. Na této stránce můžete komentář, poskytnout zpětnou vazbu nebo klást otázky prostřednictvím sekci komentáře. Můžete je dokonce sdílet s přátele nebo kolegy pomocí možnosti sdílené složky LinkedIn nebo Twitter. E-mailu odkaz na soutěže pozvaným jiní uživatelé při zobrazení stránky.

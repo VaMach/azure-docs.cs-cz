@@ -1,6 +1,6 @@
 ---
-title: Kolekce Cortana Intelligence Gallery | Microsoft Docs
-description: "Vyhledat a sdílet kolekce v Cortana Intelligence Gallery."
+title: Kolekce Azure AI Galerie | Microsoft Docs
+description: "Vyhledat a sdílet kolekce v galerii AI Azure."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9ca9b45bf977a562982535feb4093fcee0f10a05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Vyhledat a sdílet kolekce v Cortana Intelligence Gallery
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Vyhledat a sdílet kolekce v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Kolekce
@@ -31,7 +31,7 @@ K procházení kolekcí [v galerii](http://gallery.cortanaintelligence.com)v č�
 
 ![Vyberte kolekce na domovské stránce Galerie](./media/gallery-collections/select-collections-in-gallery.png)
 
-**[Kolekce](https://gallery.cortanaintelligence.com/collections)**  stránka zobrazuje seznam nedávno přidané a oblíbených kolekcí. Chcete-li zobrazit všechny kolekce, vyberte **zobrazit všechny**. Chcete-li vyhledat určité kolekci, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
+ **[Kolekce](https://gallery.cortanaintelligence.com/collections)**  stránka zobrazuje seznam nedávno přidané a oblíbených kolekcí. Chcete-li zobrazit všechny kolekce, vyberte **zobrazit všechny**. Chcete-li vyhledat určité kolekci, vyberte **zobrazit všechny**a potom vyberte filtr kritéria. Také můžete zadat hledaný text v **vyhledávání** pole v horní části stránky galerie.
 
 Můžete získat další informace o kolekci na stránce s podrobnostmi o kolekci. Chcete-li otevřít stránce s podrobnostmi o kolekci, vyberte kolekci. V kolekci podrobnosti stránky, v **komentáře** části, můžete komentář, poskytnout zpětnou vazbu nebo klást otázky týkající se kolekce. Kolekce můžete také sdílet s přátele nebo kolegy na Twitteru nebo LinkedIn. Také můžete e-mailem odkaz na stránku podrobností kolekce pozvaným jiní uživatelé při zobrazení stránky.
 
@@ -71,7 +71,7 @@ Například můžete použít kolekci seskupit položky na určité téma, nebo 
     ![Vyberte "Veřejná" nebo "Neuvedené"](./media/gallery-collections/create-collection-page-3.png)
 7. Vyberte **Vytvořit**.
 
-Kolekce je nyní v Cortana Intelligence Gallery. Vaše kolekce nejsou uvedeny na stránku účtu, na **kolekce** kartě.
+Kolekce je nyní v galerii AI Azure. Vaše kolekce nejsou uvedeny na stránku účtu, na **kolekce** kartě.
 
 ### <a name="add-items-to-a-collection"></a>Přidat položky do kolekce
 Chcete-li přidat položky do kolekce, otevřete kolekci, vyberte možnost **upravit**a potom vyberte **přidat položku**.

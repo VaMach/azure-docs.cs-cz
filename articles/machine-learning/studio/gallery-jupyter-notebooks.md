@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Galerie Jupyter notebooks | Microsoft Docs
-description: Zjistit Jupyter notebooks v Cortana Intelligence Gallery.
+title: "Azure poznámkové bloky Jupyter Galerie AI | Microsoft Docs"
+description: "Zjistit poznámkové bloky Jupyter v galerii Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 10828d78f6e16b57c21f4d05b6d6116428ea4039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59092514705d998fcf9ff835b3fde8a04f81aac5
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-jupyter-notebooks-in-the-cortana-intelligence-gallery"></a>Zjistit Jupyter Notebooks v Cortana Intelligence Gallery
+# <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Zjistit poznámkové bloky Jupyter v galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="jupyter-notebooks"></a>Poznámkové bloky Jupyter
@@ -30,7 +30,7 @@ Poznámkových bloků v galerii nabízejí kurzy a podrobné vysvětlení pokro�
 ## <a name="discover"></a>Informace
   Chcete-li procházet poznámkových bloků v galerii, otevřete [Galerie](http://gallery.cortanaintelligence.com) a klikněte na tlačítko **poznámkových bloků** v horní části domovské stránce Galerie.
 
- **[Poznámkové bloky Jupyter](https://gallery.cortanaintelligence.com/notebooks)**  stránky zobrazí seznam nejčastěji používané poznámkových bloků.
+  **[Poznámkové bloky Jupyter](https://gallery.cortanaintelligence.com/notebooks)**  stránky zobrazí seznam nejčastěji používané poznámkových bloků.
 Klikněte na tlačítko **zobrazit všechny** k zobrazení všech poznámkových bloků.
 Z této stránky můžete procházet všech poznámkových bloků v galerii. Také můžete hledat výběrem kritéria filtru na levé straně stránky a vstup hledaných termínů v horní části.
 

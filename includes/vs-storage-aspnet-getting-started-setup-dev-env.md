@@ -1,37 +1,35 @@
 ## <a name="set-up-the-development-environment"></a>Nastavení vývojového prostředí
 
-Tato část vás provede nastavení vývojového prostředí, včetně vytvoření aplikace ASP.NET MVC, přidává se připojení připojené služby, přidáním řadiče a zadání direktivy požadované oboru názvů.
+Tato část vás provede nastavení vývojového prostředí. To zahrnuje vytvoření aplikace ASP.NET MVC, přidává se připojení připojených služeb, přidávání řadiče a zadání direktivy požadované oboru názvů.
 
 ### <a name="create-an-aspnet-mvc-app-project"></a>Vytvoření projektu aplikace ASP.NET MVC
 
 1. Otevřete sadu Visual Studio.
 
-1. Vyberte **souboru -> Nový -> projekt** z hlavní nabídky
+1. V hlavní nabídce vyberte **soubor** > **nový** > **projektu**.
 
-1. Na **nový projekt** dialogové okno, zadejte možnosti, jak je znázorněno na následujícím obrázku:
+1. V **nový projekt** dialogové okno, vyberte **webové** > **webové aplikace ASP.NET (rozhraní .NET Framework)**. V **název** pole, zadejte **StorageAspNet**. Vyberte **OK**.
 
-    ![Vytvoření projektu ASP.NET](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
+    ![Dialogové okno snímek obrazovky nový projekt](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
-1. Vyberte **OK**.
+1. V **nové webové aplikace ASP.NET** dialogové okno, vyberte **MVC**a potom vyberte **OK**.
 
-1. Na **nový projekt ASP.NET** dialogové okno, zadejte možnosti, jak je znázorněno na následujícím obrázku:
+    ![Dialogové okno snímek obrazovky z nové webové aplikace ASP.NET](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
-    ![Zadejte MVC](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Použít připojených služeb k připojení k účtu úložiště Azure
 
-1. Vyberte **OK**.
+1. V **Průzkumníku**, klikněte pravým tlačítkem na projekt.
 
-### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Používat připojení služby pro připojení k účtu úložiště Azure
+2. V místní nabídce vyberte **přidat** > **připojení službě**.
 
-1. V **Průzkumníku řešení**, klikněte pravým tlačítkem na projekt a v místní nabídce vyberte **Přidat -> připojené služby**.
+1. V **připojené služby** dialogové okno, vyberte **úložiště v cloudu s Azure Storage**a potom vyberte **konfigurace**.
 
-1. Na **přidat připojení službě** dialogovém okně, vyberte **úložiště v cloudu s Azure Storage**a potom vyberte **konfigurace**.
+    ![Dialogové okno snímek obrazovky připojení služby](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-    ![Dialogové okno připojené služby](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
-
-1. Na **Azure Storage** dialogovém okně, vyberte účet úložiště Azure má být použit pro tento kurz.  Chcete-li vytvořit nový účet úložiště Azure, klikněte na tlačítko **vytvořit nový účet úložiště** a vyplňte formulář.  Po výběru buď existující účet úložiště nebo vytvořit nový, klikněte na tlačítko **přidat**.  Visual Studio se nainstalujte balíček NuGet pro Azure Storage a připojovací řetězec úložiště do **Web.config**.
+1. V **Azure Storage** dialogové okno, vyberte účet úložiště Azure má být použit pro tento kurz. Chcete-li vytvořit nový účet úložiště Azure, vyberte **vytvořit nový účet úložiště**a vyplňte formulář. Po výběru buď existující účet úložiště nebo vytvořením nové, vyberte **přidat**. Visual Studio nainstaluje balíček NuGet pro Azure Storage a připojovací řetězec úložiště do **Web.config**.
 
 > [!TIP]
 > Další informace o vytvoření účtu úložiště s [portál Azure](https://portal.azure.com), najdete v části [vytvořit účet úložiště](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 >
-> Účet úložiště Azure můžete vytvořit také pomocí [prostředí Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [rozhraní příkazového řádku Azure](../articles/storage/common/storage-azure-cli.md), nebo [prostředí cloudu Azure](../articles/cloud-shell/overview.md).
+> Můžete také vytvořit účet úložiště pomocí [prostředí Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [rozhraní příkazového řádku Azure](../articles/storage/common/storage-azure-cli.md), nebo [prostředí cloudu Azure](../articles/cloud-shell/overview.md).
 

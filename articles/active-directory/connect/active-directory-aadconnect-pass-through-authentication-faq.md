@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory předávací ověřování: Nejčastější dotazy
 
@@ -82,6 +82,12 @@ Ano. Pokud Proxy Auto-Discovery WPAD (Web) je povoleno v místním prostředí, 
 
 Ne, můžete nainstalovat pouze jeden Agent předávací ověřování na jednom serveru. Pokud chcete nakonfigurovat předávací ověřování pro zajištění vysoké dostupnosti, postupujte podle pokynů v [ověřování Azure Active Directory průchozí: rychlý start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Odebrání agenta předávací ověřování
+
+Tak dlouho, dokud je spuštěn Agent předávací ověřování, zůstane aktivní a průběžně zpracovává požadavky přihlášení uživatele. Pokud chcete odinstalovat agenta ověřování, přejděte na **ovládací panely -> programy -> programy a funkce** a odinstalovat i **agenta služby Microsoft Azure AD Connect ověřování** a  **Microsoft Azure AD Connect agenta aktualizační** programy.
+
+Pokud zaškrtnete okně předávací ověřování na [centra pro správu Azure Active Directory](https://aad.portal.azure.com) po dokončení předchozího kroku, zobrazí se Agent ověřování zobrazuje jako **neaktivní**. Toto je _očekává_. Agent ověřování se automaticky ukončí ze seznamu po několik dní.
+
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>I služby AD FS už používáte k přihlášení do služby Azure AD. Jak lze přepnout ho předávací ověřování?
 
 Pokud jste nakonfigurovali službu AD FS jako způsob se přihlásit prostřednictvím Průvodce službou Azure AD Connect, změňte metodu, která uživatel používá pro přihlášení k předávací ověřování. Tato změna umožňuje předávací ověřování u klienta a převede _všechny_ federované domény na spravované domény. Předávací ověřování zpracuje všechny následné žádosti pro přihlášení ke klientovi. V současné době není nijak podporované v rámci Azure AD Connect používat kombinaci služby AD FS a předávací ověřování v různých doménách.
@@ -122,7 +128,7 @@ Spusťte znovu Průvodce službou Azure AD Connect a změňte metoda přihlašov
 
 Pokud odinstalujete agenta předávací ověřování ze serveru, stáhne server přestane přijímat požadavky na přihlášení. Aby se zabránilo rozdělení funkce přihlašování uživatelů z vašeho klienta, zajistěte, abyste měli jiné spuštěn Agent ověřování, než odinstalujete agenta předávací ověřování.
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 - [Aktuální omezení](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Zjistěte, jaké postupy se podporují, a ty, které nejsou.
 - [Rychlý start](active-directory-aadconnect-pass-through-authentication-quick-start.md): zprovoznění na Azure AD předávací ověřování.
 - [Inteligentní uzamčení](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Zjistěte, jak nakonfigurovat možnosti inteligentního uzamčení na vašeho klienta k ochraně uživatelské účty.

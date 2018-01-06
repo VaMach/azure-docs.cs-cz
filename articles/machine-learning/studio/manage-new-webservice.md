@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9024bc82c0de5b8058a848cc809a2571baa7ce83
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2e71fa46f88ce219bee96a223a034078a037b4d3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Správa webové služby pomocí portálu Azure Machine Learning webové služby
 Můžete spravovat vaše nové Machine Learning a Classic webové služby pomocí portálu Microsoft Azure Machine Learning webové služby. Vzhledem k tomu, že Classic webové služby a nové webové služby jsou založená na různých základní technologií, máte možnosti mírně lišit správy pro každý z nich.
@@ -110,7 +110,7 @@ Klikněte na tlačítko plán k zobrazení jeho řídicího panelu. Řídicí pa
 
 ## <a name="manage-classic-web-services"></a>Spravovat Classic webové služby
 > [!NOTE]
-> Postupy v této části jsou relevantní pro správy Classic webových služeb prostřednictvím portálu webové služby Azure Machine Learning. Informace o správě Classic webové služby Machine Learning Studio a portálu Azure classic najdete v tématu [spravovat pracovní prostor služby Azure Machine Learning](manage-workspace.md).
+> Postupy v této části jsou relevantní pro správy Classic webových služeb prostřednictvím portálu webové služby Azure Machine Learning. Informace o správě Classic webové služby Machine Learning Studio a portálu Azure najdete v tématu [spravovat pracovní prostor služby Azure Machine Learning](manage-workspace.md).
 > 
 > 
 

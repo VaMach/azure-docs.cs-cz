@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory rizikových událostí
 
@@ -36,7 +36,7 @@ V současné době Azure Active Directory zjistí šesti typy rizikových událo
 
 ![Riziko událostí](./media/active-directory-reporting-risk-events/91.png)
 
-Přehledy, které máte pro událost zjištěnou riziko je vázaný na vaše předplatné Azure AD. Pokud máte edice Azure AD Premium P1 (součástí nabídky EMS E3), detekce, které nejsou předmětem licence hlásit jako **přihlášení s další riziko zjistil**. Jinými slovy viz riziko událost přihlášení s další riziko pro zjištění výhradní předplatitelům služby Azure AD Identity Protection zjištěn.
+Přehledy, které máte pro událost zjištěnou riziko je vázaný na vaše předplatné Azure AD. S Azure AD Premium P2 edition získáte nejvíce podrobné informace o všech základní detekce. S Azure AD Premium P1 edition, detekce, které nejsou předmětem licence na aplikaci zobrazit jako událost riziko **přihlášení s další riziko zjistil**.
 
 
 Toto téma poskytuje můžete podrobný přehled o událostech, které riziko jsou a jak je používat k ochraně vašich identit Azure AD.
@@ -84,7 +84,7 @@ Tento typ události riziko identifikuje přihlášení ze zařízení nakažená
 Tento typ události riziko identifikuje IP adresy, ze kterých vysoký počet neúspěšných pokusů o přihlášení se zobrazily, několika uživatelským účtům během krátké doby času. To odpovídá vzorem provozu IP adres používaných útočníky a je silný důkaz, že účty jsou buď již nebo se chystáte dojít k ohrožení. Toto je algoritmu strojového učení, který ignoruje zřejmé "*false pozitivních*", jako jsou například IP adresy, které jsou pravidelně používat další uživatelé v organizaci.  Systém má po počáteční learning dobu 14 dnů, kde se zjišťuje chování přihlášení nového uživatele a nového klienta.
 
 
-## <a name="detection-type"></a>Detekce typu
+## <a name="detection-type"></a>Typ detekce
 
 Vlastnost type detekce představuje indikátor (v reálném čase nebo Offline) pro časový rámec detekce události riziko.  
 V současné době většina riziko jsou detekovány události do režimu offline v operaci následného zpracování po došlo k události riziko.
@@ -162,7 +162,7 @@ Doporučujeme kontaktovat uživatele ověřit, pokud se ve skutečnosti přihlá
 
 
  
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 
 Riziko události jsou základem pro ochranu identity služby Azure AD. Azure AD můžete zjistit aktuálně šesti rizikových událostí: 
 

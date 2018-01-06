@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Azure hostovaného operačního systému
 Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačního systému Azure v následujících tabulkách. Vyhledávání, zjistěte, pokud konkrétní aktualizace se týká hostovaného operačního systému, kterou používáte. Aktualizace vždy obsahují dál pro konkrétní [rodiny] [ family-explain] byly zavedeny v.
+
+## <a name="january-guest-os"></a>Leden hostovaného operačního systému
+| Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
+| --- | --- | --- | --- | --- |
+| neuvedeno | [4056898] |Pouze zabezpečení systému Windows |4.50 |3. ledna 2018 |
+| neuvedeno | [4056890] |Pouze zabezpečení systému Windows |5.15 |3. ledna 2018 |
 
 ## <a name="december-guest-os"></a>Prosinec hostovaného operačního systému
 | Kategorie produktů | Článek nadřazené KB | Popis ohrožení zabezpečení | Hostovaného operačního systému | Datum poprvé |
@@ -574,6 +580,9 @@ Aktualizace Microsoft Security Response Center (MSRC) u hostovaného operačníh
 | neuvedeno |[3007054] |Chráněný PIN KÓDEM tisk možnost vždy zobrazí při tisku dokumentu v aplikaci Windows Store ve Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | neuvedeno |[2999802] |Plné čáry místo čáry s koncovými body jsou vytištěn v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | neuvedeno |[2896881] |Dlouhé doby přihlášení při použití příkazu AddPrinterConnection VBScript mapovat tiskárny pro uživatele během procesu přihlášení v systému Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4056898]: http://support.microsoft.com/kb/4056898
+[4056890]: http://support.microsoft.com/kb/4056890 
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

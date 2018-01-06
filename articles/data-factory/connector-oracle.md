@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: ff5dc0d2c5f744cb42da715713977fdc89a96edf
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Kopírování dat z a do databáze Oracle pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ Pro Oracle propojené služby jsou podporovány následující vlastnosti:
 | Vlastnost | Popis | Požaduje se |
 |:--- |:--- |:--- |
 | type | Vlastnost typu musí být nastavena na: **Oracle** | Ano |
-| připojovací řetězec | Zadejte informace potřebné pro připojení k instanci databáze Oracle. Toto pole můžete označte jako SecureString. | Ano |
+| připojovací řetězec | Zadejte informace potřebné pro připojení k instanci databáze Oracle. Toto pole můžete označte jako SecureString.<br><br>**Typ připojení podporovaný**: můžete použít **Oracle SID** nebo **název služby Oracle** k identifikaci vaší databáze:<br>– Pomocí SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Pomocí název služby:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Ano |
 | connectVia | [Integrace Runtime](concepts-integration-runtime.md) který se má použít pro připojení k úložišti. (Pokud je veřejně přístupná data store), můžete použít modul Runtime integrace Self-hosted nebo Runtime integrace Azure. Pokud není zadaný, použije výchozí Runtime integrace Azure. |Ne |
 
 **Příklad:**
@@ -210,7 +210,7 @@ Při kopírování dat z/do databáze Oracle, se používají následující map
 | OBJEKT BLOB |Byte]<br/>(podporováno pouze Oracle 10g a vyšší) |
 | CHAR – |Řetězec |
 | DATOVÝ TYP CLOB |Řetězec |
-| DATUM |Data a času |
+| DATE (Datum) |Datum a čas |
 | PLOVOUCÍ DESETINNÁ ČÁRKA |Decimal, řetězec (Pokud přesnost > 28) |
 | CELÉ ČÍSLO |Decimal, řetězec (Pokud přesnost > 28) |
 | DLOUHÁ |Řetězec |
@@ -221,7 +221,7 @@ Při kopírování dat z/do databáze Oracle, se používají následující map
 | NVARCHAR2 |Řetězec |
 | NEZPRACOVANÁ |Byte] |
 | ID ŘÁDKU |Řetězec |
-| ČASOVÉ RAZÍTKO |Data a času |
+| ČASOVÉ RAZÍTKO |Datum a čas |
 | ČASOVÉ RAZÍTKO S MÍSTNÍM ČASOVÉM PÁSMU |Řetězec |
 | ČASOVÉ RAZÍTKO S ČASOVÝM PÁSMEM |Řetězec |
 | CELÉ ČÍSLO BEZ ZNAMÉNKA |Číslo |
@@ -232,5 +232,5 @@ Při kopírování dat z/do databáze Oracle, se používají následující map
 > Datový typ INTERVALU rok, měsíc a den na INTERVAL druhý nejsou podporovány.
 
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md##supported-data-stores-and-formats).

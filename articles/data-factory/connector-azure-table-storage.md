@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0275a7b3965a7691ae396c9dbb2f164a9a47a3d4
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Kopírovat data do nebo z Azure Table pomocí Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,7 +81,10 @@ Sdíleného přístupového podpisu (SAS) poskytuje Delegovaný přístup k pros
 
 > [!IMPORTANT]
 > Azure Data Factory podporuje nyní pouze **SAS služby** , ale není SAS účtu. V tématu [typy z sdílené přístupové podpisy](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) podrobné informace o těchto dvou typů a postup vytvoření. Adresa URL SAS generable z portálu Azure nebo Storage Explorer je SAS účtu, který není podporován.
->
+
+> [!TIP]
+> Můžete spustit následující příkazy prostředí PowerShell ke generování SAS služby pro účet úložiště (nahraďte zástupného a udělení potřebných oprávnění):`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Pokud chcete použít ověřování SAS služby, jsou podporovány následující vlastnosti:
 
@@ -266,12 +269,12 @@ Při přesunu dat do a z Azure Table, následující [mapování definovaná slu
 |:--- |:--- |:--- |
 | Edm.Binary |Byte] |Pole bajtů až 64 KB. |
 | Edm.Boolean |BOOL |Logická hodnota. |
-| Edm.DateTime |Data a času |Hodnota 64-bit, vyjádřené jako koordinovaný světový čas (UTC). Podporovaný rozsah datum a čas zahájení z 12:00 hodin, 1, 1601. ledna (C.E.), UTC. Rozsah končí u 31. prosince 9999. |
-| Edm.Double |Double |Hodnota 64-bit plovoucí bodu. |
-| Edm.Guid |Identifikátor GUID |Globálně jedinečný identifikátor 128-bit. |
+| Edm.DateTime |Datum a čas |Hodnota 64-bit, vyjádřené jako koordinovaný světový čas (UTC). Podporovaný rozsah datum a čas zahájení z 12:00 hodin, 1, 1601. ledna (C.E.), UTC. Rozsah končí u 31. prosince 9999. |
+| Edm.Double |double |Hodnota 64-bit plovoucí bodu. |
+| Edm.Guid |Guid |Globálně jedinečný identifikátor 128-bit. |
 | Edm.Int32 |Int32 |32bitové celé číslo. |
 | Edm.Int64 |Int64 |64bitové celé číslo. |
 | Edm.String |Řetězec |Hodnota kódování UTF-16. Řetězcové hodnoty může mít až 64 KB. |
 
-## <a name="next-steps"></a>Další kroky
+## <a name="next-steps"></a>Další postup
 Seznam úložišť dat jako zdroje a jímky nepodporuje aktivitu kopírování v Azure Data Factory najdete v tématu [podporovanými úložišti dat](copy-activity-overview.md#supported-data-stores-and-formats).
